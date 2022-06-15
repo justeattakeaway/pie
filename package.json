@@ -1,0 +1,12 @@
+{
+  "name": "pie",
+  "description": "todo",
+  "version": "1.0.0",
+  "keywords": [],
+  "author": "JustEatTakeaway - webcore",
+  "license": "ISC",
+  "packageManager": "yarn@3.2.1",
+  "devDependencies": {
+    "@11ty/eleventy": "^1.0.1"
+  }
+}
