@@ -141,3 +141,4 @@ dist
 # Comment out for Zero installs (see https://yarnpkg.com/features/zero-installs#gatsby-focus-wrapper)
 #.yarn/cache
 #.pnp.*
+.vscode

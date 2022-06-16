@@ -2,11 +2,19 @@
   "name": "pie",
   "description": "todo",
   "version": "1.0.0",
+  "main": "index.js",
   "keywords": [],
   "author": "JustEatTakeaway - webcore",
-  "license": "ISC",
+  "license": "MIT",
   "packageManager": "yarn@3.2.1",
+  "scripts": {
+    "build": "yarn dlx @11ty/eleventy"
+  },
   "devDependencies": {
     "@11ty/eleventy": "^1.0.1"
+  },
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   }
 }

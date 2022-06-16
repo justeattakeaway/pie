@@ -33,7 +33,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         [null, {\
           "packageLocation": "./",\
           "packageDependencies": [\
-            ["@11ty/eleventy", "npm:1.0.1"]\
+            ["@11ty/eleventy", "npm:1.0.1"],\
+            ["react", "npm:16.14.0"],\
+            ["react-dom", "virtual:f256337a68cb868faa626412d70b6b9a02137a79072441bf538fe150cd4067b9dcdc78ce33b045e546c0ad6f0347cbf66775bd14ffe27853233c2bc2d6f2a563#npm:16.14.0"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -2052,6 +2054,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["js-tokens", [\
+        ["npm:4.0.0", {\
+          "packageLocation": "./.yarn/cache/js-tokens-npm-4.0.0-0ac852e9e2-8a95213a5a.zip/node_modules/js-tokens/",\
+          "packageDependencies": [\
+            ["js-tokens", "npm:4.0.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["js-yaml", [\
         ["npm:3.14.1", {\
           "packageLocation": "./.yarn/cache/js-yaml-npm-3.14.1-b968c6095e-bef146085f.zip/node_modules/js-yaml/",\
@@ -2183,6 +2194,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/lodash.isfinite-npm-3.3.2-8d9925ff07-5e9f9c27fd.zip/node_modules/lodash.isfinite/",\
           "packageDependencies": [\
             ["lodash.isfinite", "npm:3.3.2"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["loose-envify", [\
+        ["npm:1.4.0", {\
+          "packageLocation": "./.yarn/cache/loose-envify-npm-1.4.0-6307b72ccf-6517e24e0c.zip/node_modules/loose-envify/",\
+          "packageDependencies": [\
+            ["loose-envify", "npm:1.4.0"],\
+            ["js-tokens", "npm:4.0.0"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -2724,7 +2745,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",\
           "packageDependencies": [\
             ["pie", "workspace:."],\
-            ["@11ty/eleventy", "npm:1.0.1"]\
+            ["@11ty/eleventy", "npm:1.0.1"],\
+            ["react", "npm:16.14.0"],\
+            ["react-dom", "virtual:f256337a68cb868faa626412d70b6b9a02137a79072441bf538fe150cd4067b9dcdc78ce33b045e546c0ad6f0347cbf66775bd14ffe27853233c2bc2d6f2a563#npm:16.14.0"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -2810,6 +2833,18 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["promise-retry", "npm:2.0.1"],\
             ["err-code", "npm:2.0.3"],\
             ["retry", "npm:0.12.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["prop-types", [\
+        ["npm:15.8.1", {\
+          "packageLocation": "./.yarn/cache/prop-types-npm-15.8.1-17c71ee7ee-c056d3f1c0.zip/node_modules/prop-types/",\
+          "packageDependencies": [\
+            ["prop-types", "npm:15.8.1"],\
+            ["loose-envify", "npm:1.4.0"],\
+            ["object-assign", "npm:4.1.1"],\
+            ["react-is", "npm:16.13.1"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -3023,6 +3058,53 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["react", [\
+        ["npm:16.14.0", {\
+          "packageLocation": "./.yarn/cache/react-npm-16.14.0-932446ec69-8484f3ecb1.zip/node_modules/react/",\
+          "packageDependencies": [\
+            ["react", "npm:16.14.0"],\
+            ["loose-envify", "npm:1.4.0"],\
+            ["object-assign", "npm:4.1.1"],\
+            ["prop-types", "npm:15.8.1"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["react-dom", [\
+        ["npm:16.14.0", {\
+          "packageLocation": "./.yarn/cache/react-dom-npm-16.14.0-516a97ad33-5a5c49da0f.zip/node_modules/react-dom/",\
+          "packageDependencies": [\
+            ["react-dom", "npm:16.14.0"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:f256337a68cb868faa626412d70b6b9a02137a79072441bf538fe150cd4067b9dcdc78ce33b045e546c0ad6f0347cbf66775bd14ffe27853233c2bc2d6f2a563#npm:16.14.0", {\
+          "packageLocation": "./.yarn/__virtual__/react-dom-virtual-7750868563/0/cache/react-dom-npm-16.14.0-516a97ad33-5a5c49da0f.zip/node_modules/react-dom/",\
+          "packageDependencies": [\
+            ["react-dom", "virtual:f256337a68cb868faa626412d70b6b9a02137a79072441bf538fe150cd4067b9dcdc78ce33b045e546c0ad6f0347cbf66775bd14ffe27853233c2bc2d6f2a563#npm:16.14.0"],\
+            ["@types/react", null],\
+            ["loose-envify", "npm:1.4.0"],\
+            ["object-assign", "npm:4.1.1"],\
+            ["prop-types", "npm:15.8.1"],\
+            ["react", "npm:16.14.0"],\
+            ["scheduler", "npm:0.19.1"]\
+          ],\
+          "packagePeers": [\
+            "@types/react",\
+            "react"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["react-is", [\
+        ["npm:16.13.1", {\
+          "packageLocation": "./.yarn/cache/react-is-npm-16.13.1-a9b9382b4f-f7a19ac349.zip/node_modules/react-is/",\
+          "packageDependencies": [\
+            ["react-is", "npm:16.13.1"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["readable-stream", [\
         ["npm:3.6.0", {\
           "packageLocation": "./.yarn/cache/readable-stream-npm-3.6.0-23a4a5eb56-d4ea81502d.zip/node_modules/readable-stream/",\
@@ -3183,6 +3265,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/safer-buffer-npm-2.1.2-8d5c0b705e-cab8f25ae6.zip/node_modules/safer-buffer/",\
           "packageDependencies": [\
             ["safer-buffer", "npm:2.1.2"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["scheduler", [\
+        ["npm:0.19.1", {\
+          "packageLocation": "./.yarn/cache/scheduler-npm-0.19.1-a4dd0ffd3a-73e185a59e.zip/node_modules/scheduler/",\
+          "packageDependencies": [\
+            ["scheduler", "npm:0.19.1"],\
+            ["loose-envify", "npm:1.4.0"],\
+            ["object-assign", "npm:4.1.1"]\
           ],\
           "linkType": "HARD"\
         }]\
