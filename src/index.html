@@ -1,11 +1,15 @@
 ---
 layout: default-layout.njk
-page-1-link-path: /page-01
-page-1-link-text: Page 1
-page-2-link-path: /page-02
-page-2-link-text: Page 2
+inline-react-link-path: /page-with-inline-react-component
+inline-react-link-text: Inline React
+inline-vue-link-path: /page-with-inline-vue-component
+inline-vue-link-text: Inline Vue
+single-page-vue-link-path: /single-page-vue-component
+single-page-vue-link-text: Single Page Vue
 ---
 
-<a href={{ page-1-link-path }}>{{ page-1-link-text }}</a>
-
-<a href={{ page-2-link-path }}>{{ page-2-link-text }}</a>
+<a href={{ inline-react-link-path }}>{{ inline-react-link-text }}</a>
+<br/>
+<a href={{ inline-vue-link-path }}>{{ inline-vue-link-text }}</a>
+<br/>
+<a href={{ single-page-vue-link-path }}>{{ single-page-vue-link-text }}</a>
