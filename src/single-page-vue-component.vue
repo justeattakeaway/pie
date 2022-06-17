@@ -13,7 +13,7 @@
 export default {
   data () {
     return {
-        layout: "default-layout.njk",
+        layout: "alternative-layout.html",
         title: "This is Page 3",
         homeLinkPath: "/",
         homeLinkText: "Home",
