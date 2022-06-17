@@ -1,18 +1,23 @@
 ---
 layout: default-layout.njk
 title: This is Page 1
+home-link-path: /
+home-link-text: Home
+page-2-link-path: /page-02
+page-2-link-text: Page 2
 ---
+
+<h3>{{ title }}</h3>
+
+<div id="app"></div>
+<br/>
+
+<a href={{ home-link-path }}>{{ home-link-text }}</a>
+
+<a href={{ page-2-link-path }}>{{ page-2-link-text }}</a>
 
 <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
 <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
-
-<h1>
-    {{ title }}
-</h1>
-<hr/>
-
-<div id="app"></div>
-
 <script>
   class SimpleReactComponent extends React.Component {
     render() {
@@ -22,8 +27,3 @@ title: This is Page 1
 
   ReactDOM.render(React.createElement(SimpleReactComponent), document.getElementById('app'));
 </script>
-
-<hr/>
-<a href="/">Home</a>
-<hr/>
-<a href="/page-02/">Page 2</a>

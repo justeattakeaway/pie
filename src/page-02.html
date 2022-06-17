@@ -1,13 +1,14 @@
 ---
 layout: default-layout.njk
 title: This is Page 2
+home-link-path: /
+home-link-text: Home
+page-1-link-path: /page-01
+page-1-link-text: Page 1
 ---
 
-<h1>
-    {{ title }}
-</h1>
+<h3>{{ title }}</h3>
 
-<hr/>
-<a href="/">Home</a>
-<hr/>
-<a href="/page-01/">Page 1</a>
+<a href={{ home-link-path }}>{{ home-link-text }}</a>
+
+<a href={{ page-1-link-path }}>{{ page-1-link-text }}</a>
