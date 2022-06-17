@@ -1,12 +1,11 @@
 ---
 layout: default-layout.njk
+page-1-link-path: /page-01
+page-1-link-text: Page 1
+page-2-link-path: /page-02
+page-2-link-text: Page 2
 ---
 
-<html>
-  <body>
-    <p><a href="/page-01/">Page 1</a><p>
-    <hr/>
-    </p><a href="/page-02/">Page 2</a></p>
-  </body>
-</html>
+<a href={{ page-1-link-path }}>{{ page-1-link-text }}</a>
 
+<a href={{ page-2-link-path }}>{{ page-2-link-text }}</a>

@@ -5,6 +5,7 @@ home-link-path: /
 home-link-text: Home
 page-2-link-path: /page-02
 page-2-link-text: Page 2
+react-text: This is an embedded React component
 ---
 
 <h3>{{ title }}</h3>
@@ -21,7 +22,7 @@ page-2-link-text: Page 2
 <script>
   class SimpleReactComponent extends React.Component {
     render() {
-      return React.createElement('div', null, 'This is an embedded React component');
+      return React.createElement('div', null, '{{ react-text }}');
     }
   }
 
