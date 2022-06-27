@@ -18,6 +18,9 @@ Yarn 2+:
 
 Note; this project should never create a node_module folder and you should never run any npm commands only yarn, i.e. yarn add (-P, -D), yarn remove, yarn dlx, yarn cache clean, etc..
 
+## To Run
+
+Navigate to `/apps/sites/pie` and run `yarn build --serve`
 ## Helpful Links
 
 https://www.11ty.dev/docs/getting-started/
