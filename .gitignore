@@ -142,3 +142,7 @@ dist
 #.yarn/cache
 #.pnp.*
 .vscode
+
+.turbo
+build/**
+dist/**

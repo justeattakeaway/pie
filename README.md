@@ -2,7 +2,7 @@
 
 This site needs node 16.10 or above (built using 16.15.1), yarn 2 or above (built using 3.2.1)
 
-Yarn 2+:
+## Yarn >= 2
 
 - Open a terminal *OUTSIDE* of the project folder
 - Make sure node >=16.10.0 (at time of test 16.51.1 was the latest and worked)
@@ -20,7 +20,8 @@ Note; this project should never create a node_module folder and you should never
 
 ## To Run
 
-Navigate to `/apps/sites/pie` and run `yarn build --serve`
+- todo
+
 ## Helpful Links
 
 https://www.11ty.dev/docs/getting-started/

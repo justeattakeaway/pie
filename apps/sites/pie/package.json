@@ -8,7 +8,8 @@
   "license": "MIT",
   "packageManager": "yarn@3.2.1",
   "scripts": {
-    "build": "yarn dlx @11ty/eleventy"
+    "dev": "yarn build --serve",
+    "build": "yarn dlx @11ty/eleventy"    
   },
   "dependencies": {
     "react": "^16.13.1",
