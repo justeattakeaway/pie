@@ -1,5 +1,5 @@
 {
-  "name": "pie",
+  "name": "pie-site",
   "description": "todo",
   "version": "1.0.0",
   "main": "index.js",
@@ -9,7 +9,7 @@
   "packageManager": "yarn@3.2.1",
   "scripts": {
     "dev": "yarn build --serve",
-    "build": "yarn dlx @11ty/eleventy"    
+    "build": "yarn dlx @11ty/eleventy"
   },
   "dependencies": {
     "react": "^16.13.1",
