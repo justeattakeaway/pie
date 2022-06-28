@@ -1,0 +1,23 @@
+{
+  "name": "pie",
+  "description": "todo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "keywords": [],
+  "author": "JustEatTakeaway - Vue Design System Team",
+  "license": "MIT",
+  "packageManager": "yarn@3.2.1",
+  "scripts": {
+    "build": "yarn dlx @11ty/eleventy"
+  },
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^1.0.1",
+    "@11ty/eleventy-plugin-vue": "1.0.0-canary.8",
+    "@vue/compiler-sfc": "^3.2.37",
+    "vue": "^3.2.37"
+  }
+}
