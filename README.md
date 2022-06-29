@@ -16,7 +16,10 @@ This site needs node 16.10 or above (built using 16.15.1), yarn 2 or above (buil
 - run "yarn -v"
 - should be >= 2.0.0 (at time of test v3.2.1 was the ref. in this project)
 
-Note; this project should never create a node_module folder and you should never run any npm commands only yarn, i.e. yarn add (-P, -D), yarn remove, yarn dlx, yarn cache clean, etc..
+## Notes
+- This project should never create a `node_module` folder and you should never run any `npm` commands only `yarn`, i.e. `yarn add` (-P, -D), `yarn remove`, `yarn dlx`, `yarn cache clean`, etc..
+- If you do run npm my mistake then you need to delete the `node_module` folder that it will create.
+- As this whole project is setup to use [**Turborepo**](https://turborepo.org/docs) then try and run all 'yarn' commands from the root rather than at the individual project level.
 
 ## To Run
 
