@@ -17,9 +17,10 @@ This site needs node 16.10 or above (built using 16.15.1), yarn 2 or above (buil
 - should be >= 2.0.0 (at time of test v3.2.1 was the ref. in this project)
 
 ## Notes
+
 - This project should never create a `node_module` folder and you should never run any `npm` commands only `yarn`, i.e. `yarn add` (-P, -D), `yarn remove`, `yarn dlx`, `yarn cache clean`, etc..
 - If you do run npm my mistake then you need to delete the `node_module` folder that it will create.
-- As this whole project is setup to use [**Turborepo**](https://turborepo.org/docs) then try and run all 'yarn' commands from the root rather than at the individual project level.
+- As this whole project is setup to use **Turborepo** then try and run all `yarn` commands from the root rather than at the individual project level.
 
 ## To Run
 
@@ -27,4 +28,17 @@ This site needs node 16.10 or above (built using 16.15.1), yarn 2 or above (buil
 
 ## Helpful Links
 
-https://www.11ty.dev/docs/getting-started/
+#### Yarn2
+
+- https://next.yarnpkg.com/getting-started/install
+- https://dev.to/arcanis/introducing-yarn-2-4eh1
+
+#### Eleventy
+
+- https://www.11ty.dev/docs/getting-started/
+- https://github.com/11ty/eleventy-plugin-vue
+- https://www.netlify.com/blog/2020/09/18/eleventy-and-vue-a-match-made-to-power-netlify.com/
+
+#### Turborepo
+
+- https://turborepo.org/docs
