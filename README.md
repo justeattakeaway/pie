@@ -20,7 +20,7 @@ Note; this project should never create a node_module folder and you should never
 
 ## To Run
 
-- todo
+- From the root run `yarn dev`
 
 ## Helpful Links
 
