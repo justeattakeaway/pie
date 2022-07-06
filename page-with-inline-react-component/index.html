@@ -1,0 +1,39 @@
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Pie Site</title>
+    </head>
+    <body>
+        <h1>
+            Pie Site
+        </h1>
+        <hr/>
+        
+<h3>This is Page 1</h3>
+
+<div id="app"></div>
+<br/>
+
+<a href=/>Home</a>
+
+<script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+<script>
+  class SimpleReactComponent extends React.Component {
+    render() {
+      return React.createElement('div', null, 'This is an embedded React component');
+    }
+  }
+
+  ReactDOM.render(React.createElement(SimpleReactComponent), document.getElementById('app'));
+</script>        
+        <hr/>
+        <small>
+            <p>Documentation for <a href="https://vue.pie.design/" target="_blank" rel="noopener noreferrer">Pie Design Components</a> in Storybook.<p>
+        </small>
+    </body>
+</html>
