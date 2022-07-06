@@ -2,8 +2,10 @@ name: Deploy
 on:
   push:
     branches: [ "master" ]
+
 permissions:
   contents: write
+
 jobs:
   build-and-deploy:
     concurrency: ci-${{ github.ref }}
