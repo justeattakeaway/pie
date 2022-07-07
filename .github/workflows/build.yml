@@ -16,4 +16,4 @@ jobs:
       - name: Install and Build 🔧
         run: |
           yarn
-          yarn turbo run build
+          yarn build
