@@ -6,6 +6,9 @@
   "author": "JustEatTakeaway - Vue Design System Team",
   "license": "MIT",
   "packageManager": "yarn@3.2.1",
+  "engines": {
+    "node": "^16"
+  },
   "workspaces": [
     "docs",
     "apps/sites/*",

@@ -1,0 +1,19 @@
+name: Build
+on:
+  push:
+    branches:
+      - '*'
+      - '!master'
+
+jobs:
+  install-deps-and-build:
+    concurrency: ci-${{ github.ref }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v3
+
+      - name: Install and Build 🔧
+        run: |
+          yarn
+          yarn build
