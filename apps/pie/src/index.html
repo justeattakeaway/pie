@@ -13,3 +13,10 @@ single-page-vue-link-text: Single Page Vue
 <a href={{ inline-vue-link-path }}>{{ inline-vue-link-text }}</a>
 <br/>
 <a href={{ single-page-vue-link-path }}>{{ single-page-vue-link-text }}</a>
+
+<h2>Pages</h2>
+<ul>
+{%- for page in collections.pages -%}
+    <li><a href="{{ page.url }}">{{ page.data.title }}</a></li>
+{%- endfor -%}
+</ul>
