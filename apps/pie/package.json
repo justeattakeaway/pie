@@ -11,10 +11,6 @@
     "dev": "yarn build --serve",
     "build": "yarn dlx @11ty/eleventy"
   },
-  "dependencies": {
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1"
-  },
   "devDependencies": {
     "@11ty/eleventy": "1.0.1"
   }
