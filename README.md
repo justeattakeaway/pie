@@ -33,12 +33,6 @@ This site needs node 16.10 or above (built using 16.15.1), yarn 2 or above (buil
 - https://next.yarnpkg.com/getting-started/install
 - https://dev.to/arcanis/introducing-yarn-2-4eh1
 
-#### Eleventy
-
-- https://www.11ty.dev/docs/getting-started/
-- https://github.com/11ty/eleventy-plugin-vue
-- https://www.netlify.com/blog/2020/09/18/eleventy-and-vue-a-match-made-to-power-netlify.com/
-
 #### Turborepo
 
 - https://turborepo.org/docs
