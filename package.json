@@ -10,8 +10,7 @@
     "node": "^16"
   },
   "workspaces": [
-    "docs",
-    "apps/sites/*",
+    "apps/*",
     "packages/*"
   ],
   "scripts": {

@@ -22,14 +22,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       },\
       {\
         "name": "pie-site",\
-        "reference": "workspace:apps/sites/pie"\
+        "reference": "workspace:apps/pie"\
       }\
     ],\
     "enableTopLevelFallback": true,\
     "ignorePatternData": "(^(?:\\\\.yarn\\\\/sdks(?:\\\\/(?!\\\\.{1,2}(?:\\\\/|$))(?:(?:(?!(?:^|\\\\/)\\\\.{1,2}(?:\\\\/|$)).)*?)|$))$)",\
     "fallbackExclusionList": [\
       ["pie", ["workspace:."]],\
-      ["pie-site", ["workspace:apps/sites/pie"]]\
+      ["pie-site", ["workspace:apps/pie"]]\
     ],\
     "fallbackPool": [\
     ],\
@@ -2754,13 +2754,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["pie-site", [\
-        ["workspace:apps/sites/pie", {\
-          "packageLocation": "./apps/sites/pie/",\
+        ["workspace:apps/pie", {\
+          "packageLocation": "./apps/pie/",\
           "packageDependencies": [\
-            ["pie-site", "workspace:apps/sites/pie"],\
+            ["pie-site", "workspace:apps/pie"],\
             ["@11ty/eleventy", "npm:1.0.1"],\
             ["react", "npm:16.14.0"],\
-            ["react-dom", "virtual:6e5d485998fc1f58a2d2f6969d5f1d935c9b2c645bae6f16517038f5cf7c4a2f09ab3d5beede9d31c4a724a75608d858bbe315f6d74158cd1dac3673313f2ead#npm:16.14.0"]\
+            ["react-dom", "virtual:9893d63836fd0403359b7bb7d8361ba1827da4c382993e6f6c7ffa265492e810749b380371bc2ed1dc273667fcbf1b56b50928de93e70d443a70b1d4a8d6d06d#npm:16.14.0"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -3091,10 +3091,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:6e5d485998fc1f58a2d2f6969d5f1d935c9b2c645bae6f16517038f5cf7c4a2f09ab3d5beede9d31c4a724a75608d858bbe315f6d74158cd1dac3673313f2ead#npm:16.14.0", {\
-          "packageLocation": "./.yarn/__virtual__/react-dom-virtual-8a8b3af818/0/cache/react-dom-npm-16.14.0-516a97ad33-5a5c49da0f.zip/node_modules/react-dom/",\
+        ["virtual:9893d63836fd0403359b7bb7d8361ba1827da4c382993e6f6c7ffa265492e810749b380371bc2ed1dc273667fcbf1b56b50928de93e70d443a70b1d4a8d6d06d#npm:16.14.0", {\
+          "packageLocation": "./.yarn/__virtual__/react-dom-virtual-b56fa51b9c/0/cache/react-dom-npm-16.14.0-516a97ad33-5a5c49da0f.zip/node_modules/react-dom/",\
           "packageDependencies": [\
-            ["react-dom", "virtual:6e5d485998fc1f58a2d2f6969d5f1d935c9b2c645bae6f16517038f5cf7c4a2f09ab3d5beede9d31c4a724a75608d858bbe315f6d74158cd1dac3673313f2ead#npm:16.14.0"],\
+            ["react-dom", "virtual:9893d63836fd0403359b7bb7d8361ba1827da4c382993e6f6c7ffa265492e810749b380371bc2ed1dc273667fcbf1b56b50928de93e70d443a70b1d4a8d6d06d#npm:16.14.0"],\
             ["@types/react", null],\
             ["loose-envify", "npm:1.4.0"],\
             ["object-assign", "npm:4.1.1"],\
