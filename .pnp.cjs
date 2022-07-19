@@ -21,15 +21,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "reference": "workspace:."\
       },\
       {\
-        "name": "pie-site",\
-        "reference": "workspace:apps/pie"\
+        "name": "pie-microsite",\
+        "reference": "workspace:apps/pie-microsite"\
       }\
     ],\
     "enableTopLevelFallback": true,\
     "ignorePatternData": "(^(?:\\\\.yarn\\\\/sdks(?:\\\\/(?!\\\\.{1,2}(?:\\\\/|$))(?:(?:(?!(?:^|\\\\/)\\\\.{1,2}(?:\\\\/|$)).)*?)|$))$)",\
     "fallbackExclusionList": [\
       ["pie", ["workspace:."]],\
-      ["pie-site", ["workspace:apps/pie"]]\
+      ["pie-microsite", ["workspace:apps/pie-microsite"]]\
     ],\
     "fallbackPool": [\
     ],\
@@ -2734,11 +2734,11 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "SOFT"\
         }]\
       ]],\
-      ["pie-site", [\
-        ["workspace:apps/pie", {\
-          "packageLocation": "./apps/pie/",\
+      ["pie-microsite", [\
+        ["workspace:apps/pie-microsite", {\
+          "packageLocation": "./apps/pie-microsite/",\
           "packageDependencies": [\
-            ["pie-site", "workspace:apps/pie"],\
+            ["pie-microsite", "workspace:apps/pie-microsite"],\
             ["@11ty/eleventy", "npm:1.0.1"]\
           ],\
           "linkType": "SOFT"\

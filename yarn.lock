@@ -2370,9 +2370,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pie-site@workspace:apps/pie":
+"pie-microsite@workspace:apps/pie-microsite":
   version: 0.0.0-use.local
-  resolution: "pie-site@workspace:apps/pie"
+  resolution: "pie-microsite@workspace:apps/pie-microsite"
   dependencies:
     "@11ty/eleventy": 1.0.1
   languageName: unknown
