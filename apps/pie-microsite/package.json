@@ -1,7 +1,7 @@
 {
-  "name": "pie-site",
+  "name": "pie-microsite",
   "description": "todo",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "main": "index.js",
   "keywords": [],
   "author": "JustEatTakeaway - Vue Design System Team",
@@ -10,10 +10,6 @@
   "scripts": {
     "dev": "yarn build --serve",
     "build": "yarn dlx @11ty/eleventy"
-  },
-  "dependencies": {
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1"
   },
   "devDependencies": {
     "@11ty/eleventy": "1.0.1"

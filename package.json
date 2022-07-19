@@ -1,7 +1,7 @@
 {
   "name": "pie",
   "description": "todo",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "keywords": [],
   "author": "JustEatTakeaway - Vue Design System Team",
   "license": "MIT",
@@ -10,8 +10,7 @@
     "node": "^16"
   },
   "workspaces": [
-    "docs",
-    "apps/sites/*",
+    "apps/*",
     "packages/*"
   ],
   "scripts": {
