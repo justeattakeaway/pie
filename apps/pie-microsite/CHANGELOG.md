@@ -9,7 +9,6 @@ v1.2.0
 *July 20, 2022*
 
 ### Added
-- `@justeat/browserslist-config-fozzie` peer dependency
 - Browserslist config to `package.json` extending our Fozzie config
 
 
