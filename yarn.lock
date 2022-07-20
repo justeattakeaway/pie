@@ -2382,8 +2382,6 @@ __metadata:
   resolution: "pie-microsite@workspace:apps/pie-microsite"
   dependencies:
     "@11ty/eleventy": 1.0.1
-  peerDependencies:
-    "@justeat/browserslist-config-fozzie": ^1.2.0
   languageName: unknown
   linkType: soft
 
