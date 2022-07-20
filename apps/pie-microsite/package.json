@@ -11,7 +11,13 @@
     "dev": "yarn build --serve",
     "build": "yarn dlx @11ty/eleventy"
   },
+  "browserslist": [
+    "extends @justeat/browserslist-config-fozzie"
+  ],
   "devDependencies": {
     "@11ty/eleventy": "1.0.1"
+  },
+  "peerDependencies": {
+    "@justeat/browserslist-config-fozzie": "^1.2.0"
   }
 }

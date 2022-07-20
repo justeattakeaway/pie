@@ -38,6 +38,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         [null, {\
           "packageLocation": "./",\
           "packageDependencies": [\
+            ["@justeat/browserslist-config-fozzie", "npm:1.2.0"],\
             ["turbo", "npm:1.3.1"]\
           ],\
           "linkType": "SOFT"\
@@ -149,6 +150,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@iarna-toml-npm-2.2.5-6da1399e8e-b63b2b2c4f.zip/node_modules/@iarna/toml/",\
           "packageDependencies": [\
             ["@iarna/toml", "npm:2.2.5"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@justeat/browserslist-config-fozzie", [\
+        ["npm:1.2.0", {\
+          "packageLocation": "./.yarn/cache/@justeat-browserslist-config-fozzie-npm-1.2.0-1f37337dfc-406cff4f25.zip/node_modules/@justeat/browserslist-config-fozzie/",\
+          "packageDependencies": [\
+            ["@justeat/browserslist-config-fozzie", "npm:1.2.0"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -2729,6 +2739,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",\
           "packageDependencies": [\
             ["pie", "workspace:."],\
+            ["@justeat/browserslist-config-fozzie", "npm:1.2.0"],\
             ["turbo", "npm:1.3.1"]\
           ],\
           "linkType": "SOFT"\
