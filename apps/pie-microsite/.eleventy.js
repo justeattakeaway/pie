@@ -1,24 +1,30 @@
 // const eleventyVue = require("@11ty/eleventy-plugin-vue");
 
+/**
+ * Returns a collection of all unique page category tag strings (excluding the 'pages' tag)
+ * @param {*} collectionApi 
+ * @returns {Set<string>}
+ */
+const getAllPageCategories = collectionApi => {
+  const tagsToIgnore = ["pages"];
+  const tagsList = new Set();
+
+  collectionApi.getAll().map((item) => {
+    if (item.data.tags) {
+      // handle pages that don't have tags
+      item.data.tags.map((tag) => {
+        if (!tagsToIgnore.includes(tag)) {
+          tagsList.add(tag);
+        }
+      });
+    }
+  });
+
+  return tagsList;
+}
 module.exports = function (eleventyConfig) {
   // eleventyConfig.addPlugin(eleventyVue);
-  eleventyConfig.addCollection("pageCategories", function (collectionApi) {
-    // pages tag is just used for providing a common template
-    const tagsToIgnore = ["pages"];
-    const tagsList = new Set();
-    
-    collectionApi.getAll().map((item) => {
-      if (item.data.tags) {
-        // handle pages that don't have tags
-        item.data.tags.map((tag) => {
-          if (!tagsToIgnore.includes(tag)) {
-            tagsList.add(tag);
-          }
-        });
-      }
-    });
-    return tagsList;
-  });
+  eleventyConfig.addCollection("pageCategories", getAllPageCategories);
 
   return {
     dir: {
