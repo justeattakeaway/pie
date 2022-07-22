@@ -1,5 +1,8 @@
 ---
 site_title: Pie Site
+icon_width: 50
+icon_height: 50
+icon_fill: orange
 ---
 
 <!doctype html>
@@ -21,6 +24,8 @@ site_title: Pie Site
         </small>
         {% include "nav.njk" %}
 
-        {{ { name: 'About', attrs: { fill: 'red' } } | pieIcons | safe }}
+        {{ { name: 'About', attrs: { height: icon_height, width: icon_height, fill: icon_fill } } | pieIconsSvg | safe }}
+        {{ { name: 'list', attrs: { height: icon_height, width: icon_height, fill: icon_fill } } | pieIconsSvg | safe }}
+
     </body>
 </html>
