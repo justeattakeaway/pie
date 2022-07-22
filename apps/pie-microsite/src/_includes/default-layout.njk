@@ -21,6 +21,6 @@ site_title: Pie Site
         </small>
         {% include "nav.njk" %}
 
-        {{ "About" | pieIcons | safe }}
+        {{ { name: 'About', attrs: { fill: 'red' } } | pieIcons | safe }}
     </body>
 </html>
