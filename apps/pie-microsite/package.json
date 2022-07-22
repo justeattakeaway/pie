@@ -16,5 +16,8 @@
   ],
   "devDependencies": {
     "@11ty/eleventy": "1.0.1"
+  },
+  "dependencies": {
+    "@justeattakeaway/pie-icons": "^1.0.0"
   }
 }

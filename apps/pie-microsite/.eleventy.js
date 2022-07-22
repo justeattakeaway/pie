@@ -1,4 +1,5 @@
 // const eleventyVue = require("@11ty/eleventy-plugin-vue");
+const pieIconsFilter = require('./filters/pieIcons');
 
 /**
  * Returns a collection of all unique page category tag strings (excluding the 'pages' tag)
@@ -24,6 +25,7 @@ const getAllPageCategories = collectionApi => {
 }
 module.exports = function (eleventyConfig) {
   // eleventyConfig.addPlugin(eleventyVue);
+  eleventyConfig.addFilter("pieIcons", pieIconsFilter);
   eleventyConfig.addCollection("pageCategories", getAllPageCategories);
 
   return {
