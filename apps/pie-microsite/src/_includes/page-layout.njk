@@ -1,27 +1,12 @@
 ---
 site_title: Pie Site
+layout: default-layout.njk
 ---
-
-<!doctype html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-        <title>{{ site_title }}</title>
-    </head>
-    <body>
-        <h1>
-            {{ title }}
-        </h1>
-        <a href="/">
-            Home
-        </a>
-        <hr/>
-        {{ content | safe }}        
-        <hr/>
-        <small>
-            <p>Documentation for <a href="https://vue.pie.design/" target="_blank" rel="noopener noreferrer">Pie Design Components</a> in Storybook.<p>
-        </small>
-    </body>
-</html>
+<a href="/">
+    Home
+</a>
+<h2>
+    {{ title }}
+</h2>
+<hr/>
+{{ content | safe }}        

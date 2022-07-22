@@ -1,0 +1,21 @@
+{# Placeholder Nav #}
+<nav>
+    {% for category in collections.pageCategories %}
+    <ul>
+        <li>
+            <details>
+                <summary>
+                {{category}}      
+                </summary>
+                <ul>
+                    {%- for page in collections[category] -%}
+                    <li>
+                        <a href="{{ page.url }}">{{ page.data.title }}</a>
+                    </li>
+                    {%- endfor -%}
+                </ul>
+            </details>
+        </li>
+    </ul>
+    {% endfor %}
+</nav>
