@@ -14,8 +14,6 @@ v1.4.0
 - Basic SCSS styles that import `Fozzie` to provide it works
 ### Changed
 - Cleaned up `.eleventy.js` file of comments
-### Removed
-- Removed pnp from the project, reverted to using `node_modules`
 
 v1.3.0
 ------------------------------
