@@ -10,11 +10,7 @@
   "scripts": {
     "dev": "yarn build --serve",
     "build:eleventy": "yarn dlx @11ty/eleventy",
-    "watch:sass": "sass --watch src/assets/scss:dist/css",
-    "build:sass": "sass src/assets/scss:dist/css --load-path=../../node_modules/",
-    "watch:eleventy": "yarn build --serve",
-    "start": "yarn-run-all build:sass --parallel watch:*",
-    "build": "yarn-run-all build:*"
+    "build:sass": "sass src/assets/scss:dist/css --load-path=../../node_modules/"
   },
   "browserslist": [
     "extends @justeat/browserslist-config-fozzie"
