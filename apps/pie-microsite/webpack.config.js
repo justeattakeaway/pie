@@ -1,7 +1,7 @@
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
-  entry: './index.js',
+  entry: './src/assets/scss/main.scss',
   module: {
     rules: [
       {
