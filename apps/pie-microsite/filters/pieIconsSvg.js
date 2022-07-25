@@ -13,7 +13,7 @@ module.exports = function(iconConfig = {
       const defaultAttributes = {
         height: 50,
         width: 50,
-        fill: 'black'
+        fill: '#000'
       }
 
       const attributes = { ...defaultAttributes, ...iconConfig.attrs };
