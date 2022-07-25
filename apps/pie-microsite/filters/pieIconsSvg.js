@@ -10,7 +10,15 @@ module.exports = function(iconConfig = {
   attrs: {}
 }) {
     try {
-      return pieicons.default.icons[iconConfig.name].toSvg(iconConfig.attrs);
+      const defaultAttributes = {
+        height: 50,
+        width: 50,
+        fill: 'black'
+      }
+
+      const attributes = { ...defaultAttributes, ...iconConfig.attrs };
+      
+      return pieicons.default.icons[iconConfig.name].toSvg(attributes);
     } catch (error) {
       console.error(`Could not find icon of name: ${iconConfig.name}. Error: ${error}`);
     }
