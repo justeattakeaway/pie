@@ -1,0 +1,7 @@
+@use '@justeat/fozzie/src/scss/fozzie' as f;
+
+$bg-clr: hotpink;
+
+body {
+    background-color: $bg-clr;
+}
