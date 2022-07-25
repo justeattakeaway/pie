@@ -1,3 +1,6 @@
+@use '~@justeat/fozzie/src/scss/fozzie' as f;
+
+
 .foo {
-  padding: 10px;
+  padding: f.spacing();
 }
