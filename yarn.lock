@@ -112,7 +112,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@justeattakeaway/pie-icons@npm:^1.0.0":
+"@justeattakeaway/pie-icons@npm:1.0.0":
   version: 1.0.0
   resolution: "@justeattakeaway/pie-icons@npm:1.0.0"
   dependencies:
@@ -3040,7 +3040,7 @@ __metadata:
   resolution: "pie-microsite@workspace:apps/pie-microsite"
   dependencies:
     "@11ty/eleventy": 1.0.1
-    "@justeattakeaway/pie-icons": ^1.0.0
+    "@justeattakeaway/pie-icons": 1.0.0
   languageName: unknown
   linkType: soft
 
