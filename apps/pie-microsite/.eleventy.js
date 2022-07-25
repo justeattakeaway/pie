@@ -8,7 +8,9 @@ module.exports = function (eleventyConfig) {
     outputFileExtension: 'css',
 
     compile: async function(inputContent) {
-      let result = sass.compileString(inputContent);
+      let result = sass.compileString(inputContent, {
+        includePaths: ['node_modules']
+      });
 
       return async () => {
         return result.css;
