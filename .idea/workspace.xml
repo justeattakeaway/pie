@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b81ec2ab-7a09-4b17-a6c6-700bbac9cbba" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/pie-microsite/src/assets/scss/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/apps/pie-microsite/src/assets/scss/main.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.yarnrc.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.yarnrc.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +47,7 @@
       <updated>1655393082329</updated>
       <workItem from="1655393083527" duration="1588000" />
       <workItem from="1657007828065" duration="5000" />
-      <workItem from="1658230644875" duration="10630000" />
+      <workItem from="1658230644875" duration="10776000" />
     </task>
     <servers />
   </component>
