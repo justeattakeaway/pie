@@ -9,7 +9,7 @@
   "packageManager": "yarn@3.2.1",
   "scripts": {
     "dev": "yarn build --serve",
-    "build:eleventy": "yarn dlx @11ty/eleventy",
+    "build": "yarn dlx @11ty/eleventy",
     "build:sass": "sass src/assets/scss:dist/css --load-path=../../node_modules/"
   },
   "browserslist": [
@@ -17,7 +17,7 @@
   ],
   "devDependencies": {
     "@11ty/eleventy": "1.0.1",
-    "@justeat/fozzie": "9.0.0-beta.6",
+    "@justeat/fozzie": "file:.yalc/@justeat/fozzie",
     "sass": "^1.54.0"
   },
   "dependencies": {
