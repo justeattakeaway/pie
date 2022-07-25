@@ -1,12 +1,25 @@
-// const eleventyVue = require("@11ty/eleventy-plugin-vue");
+const sass = require('sass');
 
 module.exports = function (eleventyConfig) {
-  // eleventyConfig.addPlugin(eleventyVue);
-  
+
+  eleventyConfig.addTemplateFormats('scss');
+
+  eleventyConfig.addExtension('scss', {
+    outputFileExtension: 'css',
+
+    compile: async function(inputContent) {
+      let result = sass.compileString(inputContent);
+
+      return async () => {
+        return result.css;
+      };
+    }
+  });
+
   return {
     dir: {
-      input: "src",
-      output: "dist",
+      input: 'src',
+      output: 'dist',
     },
   };
 };
