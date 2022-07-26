@@ -2,7 +2,6 @@ const templateHandlers = require('./src/_11ty/template-handlers');
 const filters = require('./src/_11ty/filters');
 const collections = require('./src/_11ty/collections');
 
-console.log(collections)
 module.exports = function (eleventyConfig) {
   // Custom Filter registations
   eleventyConfig.addFilter("pieIconsSvg", filters.pieIconsSvg);
