@@ -1,5 +1,6 @@
 ---
 site_title: Pie Site
+icon_fill: orange
 ---
 
 <!doctype html>
@@ -21,5 +22,9 @@ site_title: Pie Site
             <p>Documentation for <a href="https://vue.pie.design/" target="_blank" rel="noopener noreferrer">Pie Design Components</a> in Storybook.<p>
         </small>
         {% include "nav.njk" %}
+
+        {{ { name: 'About', attrs: { fill: icon_fill } } | pieIconsSvg | safe }}
+        {{ { name: 'list', attrs: { fill: icon_fill } } | pieIconsSvg | safe }}
+
     </body>
 </html>

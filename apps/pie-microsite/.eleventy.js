@@ -1,5 +1,5 @@
-// const eleventyVue = require("@11ty/eleventy-plugin-vue");
-const scssFormatHandler = require('./11ty-extension-handlers/scss');
+const addScssTemplateSupport = require('./template-handlers/scss');
+const pieIconsSvgFilter = require('./filters/pieIconsSvg');
 
 /**
  * Returns a collection of all unique page category tag strings (excluding the 'pages' tag)
@@ -23,11 +23,13 @@ const getAllPageCategories = collectionApi => {
 
   return tagsList;
 }
+
 module.exports = function (eleventyConfig) {
-  // eleventyConfig.addPlugin(eleventyVue);
+  eleventyConfig.addFilter("pieIconsSvg", pieIconsSvgFilter);
   eleventyConfig.addCollection("pageCategories", getAllPageCategories);
   
-  scssFormatHandler(eleventyConfig);
+  // Custom File Extension handling
+  addScssTemplateSupport(eleventyConfig);
 
   return {
     dir: {
