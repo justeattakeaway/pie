@@ -3,7 +3,7 @@ const filters = require('./src/_11ty/filters');
 const collections = require('./src/_11ty/collections');
 
 module.exports = function (eleventyConfig) {
-  // Custom Filter registations
+  // Custom Filter registrations
   eleventyConfig.addFilter("pieIconsSvg", filters.pieIconsSvg);
 
   // Custom Collection registrations
