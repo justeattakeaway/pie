@@ -13,6 +13,9 @@ v1.5.0
 - Custom file extension handling plumbing in `.eleventy.js` file
 
 
+### Changed
+- Tidied up 11ty project structure
+
 v1.4.0
 ------------------------------
 *July 22, 2022*
