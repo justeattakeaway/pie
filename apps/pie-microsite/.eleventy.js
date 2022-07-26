@@ -1,16 +1,17 @@
-const addScssTemplateSupport = require('./template-handlers/scss');
-const pieIconsSvgFilter = require('./filters/pieIconsSvg');
-const getAllPageCategories = require('./collections/allPageCategories');
+const templateHandlers = require('./src/_11ty/template-handlers');
+const filters = require('./src/_11ty/filters');
+const collections = require('./src/_11ty/collections');
 
+console.log(collections)
 module.exports = function (eleventyConfig) {
   // Custom Filter registations
-  eleventyConfig.addFilter("pieIconsSvg", pieIconsSvgFilter);
+  eleventyConfig.addFilter("pieIconsSvg", filters.pieIconsSvg);
 
   // Custom Collection registrations
-  eleventyConfig.addCollection("pageCategories", getAllPageCategories);
+  eleventyConfig.addCollection("pageCategories", collections.allPageCategories);
   
   // Custom File Extension handling
-  addScssTemplateSupport(eleventyConfig);
+  templateHandlers.scss(eleventyConfig);
 
   return {
     dir: {

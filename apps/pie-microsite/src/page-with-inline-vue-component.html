@@ -14,9 +14,15 @@ vue-text: This is an embedded Vue component
 <a href={{ home-link-path }}>{{ home-link-text }}</a>
 
 <script src="https://unpkg.com/vue@next"></script>
+<script src="https://unpkg.com/@justeat/f-button@4.3.0/dist/f-button.umd.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/@justeat/f-button@4.3.0/dist/f-button.css">
 <script>    
-  const app = Vue.createApp({
-    template: '{{ vue-text }}'
+console.log(f-button)
+const app = Vue.createApp({
+    template: '<div>{{ vue-text }} <f-button>TEST</f-button></div>',
+    components: {
+
+    }
   });
   
   app.mount("#app");
