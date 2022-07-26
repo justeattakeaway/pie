@@ -16,7 +16,7 @@
   ],
   "devDependencies": {
     "@11ty/eleventy": "1.0.1",
-    "@justeat/fozzie": "9.0.0-beta.6",
+    "@justeat/fozzie": "9.0.0-beta.8",
     "sass": "^1.54.0"
   },
   "dependencies": {
