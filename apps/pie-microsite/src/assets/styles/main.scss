@@ -1,0 +1,16 @@
+@use '@justeat/fozzie/src/scss/fozzie' as f;
+@use 'tools' as t;
+
+:root {
+    --clr-r: 43;
+    --clr-g: 234;
+    --clr-b: 255;
+}
+
+$bg-clr: rgb(var(--clr-r), var(--clr-g), var(--clr-b));
+
+body {
+    background-color: $bg-clr;
+    padding: f.spacing(d);
+    font-size: t.rem();
+}

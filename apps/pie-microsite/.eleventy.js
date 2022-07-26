@@ -1,32 +1,16 @@
-// const eleventyVue = require("@11ty/eleventy-plugin-vue");
-const pieIconsSvgFilter = require('./filters/pieIconsSvg');
+const templateHandlers = require('./src/_11ty/template-handlers');
+const filters = require('./src/_11ty/filters');
+const collections = require('./src/_11ty/collections');
 
-/**
- * Returns a collection of all unique page category tag strings (excluding the 'pages' tag)
- * @param {*} collectionApi 
- * @returns {Set<string>}
- */
-const getAllPageCategories = collectionApi => {
-  const tagsToIgnore = ["pages"];
-  const tagsList = new Set();
-
-  collectionApi.getAll().map((item) => {
-    if (item.data.tags) {
-      // handle pages that don't have tags
-      item.data.tags.map((tag) => {
-        if (!tagsToIgnore.includes(tag)) {
-          tagsList.add(tag);
-        }
-      });
-    }
-  });
-
-  return tagsList;
-}
 module.exports = function (eleventyConfig) {
-  // eleventyConfig.addPlugin(eleventyVue);
-  eleventyConfig.addFilter("pieIconsSvg", pieIconsSvgFilter);
-  eleventyConfig.addCollection("pageCategories", getAllPageCategories);
+  // Custom Filter registrations
+  eleventyConfig.addFilter("pieIconsSvg", filters.pieIconsSvg);
+
+  // Custom Collection registrations
+  eleventyConfig.addCollection("pageCategories", collections.allPageCategories);
+  
+  // Custom File Extension handling
+  templateHandlers.scss(eleventyConfig);
 
   return {
     dir: {
