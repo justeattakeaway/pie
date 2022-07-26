@@ -4,6 +4,15 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 
+v1.5.0
+------------------------------
+*July 26, 2022*
+
+### Added
+- `SCSS` support
+- Custom file extension handling plumbing in `.eleventy.js` file
+
+
 v1.4.0
 ------------------------------
 *July 22, 2022*
