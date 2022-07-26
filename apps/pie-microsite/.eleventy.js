@@ -1,6 +1,5 @@
 // const eleventyVue = require("@11ty/eleventy-plugin-vue");
-const sass = require("sass");
-const path = require("node:path");
+const scssFormatHandler = require('./11ty-extension-handlers/scss');
 
 /**
  * Returns a collection of all unique page category tag strings (excluding the 'pages' tag)
@@ -27,29 +26,8 @@ const getAllPageCategories = collectionApi => {
 module.exports = function (eleventyConfig) {
   // eleventyConfig.addPlugin(eleventyVue);
   eleventyConfig.addCollection("pageCategories", getAllPageCategories);
-  // add as a valid template language to process, e.g. this adds to --formats
-  eleventyConfig.addTemplateFormats("scss");
-
-  eleventyConfig.addExtension("scss", {
-    outputFileExtension: "css", // optional, default: "html"
-
-    // can be an async function
-    compile: function (inputContent, inputPath) {
-      let parsed = path.parse(inputPath);
-
-      let result = sass.compileString(inputContent, {
-        loadPaths: [
-          parsed.dir || ".",
-          this.config.dir.includes,
-          '../../node_modules/'
-        ]
-      });
-
-      return (data) => {
-        return result.css;
-      };
-    }
-  });
+  
+  scssFormatHandler(eleventyConfig);
 
   return {
     dir: {

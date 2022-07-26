@@ -1,8 +1,10 @@
 @use '@justeat/fozzie/src/scss/fozzie' as f;
+@use 'tools' as t;
 
 $bg-clr: hotpink;
 
 body {
     background-color: $bg-clr;
     padding: f.spacing(d);
+    font-size: t.rem();
 }
