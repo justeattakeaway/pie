@@ -3100,7 +3100,7 @@ __metadata:
     "@11ty/eleventy": 1.0.1
     "@justeat/fozzie": 9.0.0-beta.8
     "@justeattakeaway/pie-icons": 1.0.0
-    sass: ^1.54.0
+    sass: 1.54.0
   languageName: unknown
   linkType: soft
 
@@ -3553,7 +3553,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass@npm:^1.54.0":
+"sass@npm:1.54.0":
   version: 1.54.0
   resolution: "sass@npm:1.54.0"
   dependencies:
