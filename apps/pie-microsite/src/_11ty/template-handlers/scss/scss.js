@@ -1,7 +1,6 @@
 const sass = require("sass");
 const path = require("node:path");
-const autoprefixer = require('autoprefixer')
-const postcss = require("postcss");
+const postCSSProcessor = require("./postcss");
 
 /**
  * Tells Eleventy how to compile SCSS files into CSS when building the project
@@ -28,11 +27,10 @@ module.exports = function (eleventyConfig) {
         ],
       });
 
-      // add any postcss plugins here
-      const processed = postcss([autoprefixer]).process(result.css);
+      const processedResult = postCSSProcessor(result.css);
 
       return () => {
-        return processed.css;
+        return processedResult.css;
       };
     },
   });
