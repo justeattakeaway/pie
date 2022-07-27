@@ -2,12 +2,10 @@
 @use 'tools' as t;
 
 :root {
-    --clr-r: 43;
-    --clr-g: 234;
-    --clr-b: 255;
+    --clr: #fff;
 }
 
-$bg-clr: rgb(var(--clr-r), var(--clr-g), var(--clr-b));
+$bg-clr: var(--clr);
 
 body {
     background-color: $bg-clr;
