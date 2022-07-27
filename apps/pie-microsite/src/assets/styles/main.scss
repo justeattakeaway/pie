@@ -13,4 +13,5 @@ body {
     background-color: $bg-clr;
     padding: f.spacing(d);
     font-size: t.rem();
+    text-size-adjust: 100%;
 }
