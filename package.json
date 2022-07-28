@@ -1,7 +1,7 @@
 {
   "name": "pie",
-  "description": "todo",
-  "version": "1.3.0",
+  "description": "JustEatTakeaway - PIE - Vue Design System Team",
+  "version": "1.4.0",
   "keywords": [],
   "author": "JustEatTakeaway - Vue Design System Team",
   "license": "MIT",
@@ -17,10 +17,17 @@
     "build": "turbo run build",
     "test": "turbo run test",
     "lint": "turbo run lint",
+    "lint:style": "turbo run lint:style --continue",
     "dev": "turbo run dev"
+  },
+  "stylelint": {
+    "extends": "@justeat/stylelint-config-fozzie"
   },
   "devDependencies": {
     "@justeat/browserslist-config-fozzie": "1.x",
+    "@justeat/stylelint-config-fozzie": "2.x",
+    "stylelint": "14.9.1",
+    "stylelint-scss": "4.3.0",
     "turbo": "^1.3.1"
   }
 }
