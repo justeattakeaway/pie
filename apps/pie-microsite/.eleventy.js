@@ -17,6 +17,7 @@ module.exports = function (eleventyConfig) {
 
   // Custom shortcodes
   eleventyConfig.addShortcode("storybook", shortcodes.storybook)
+  eleventyConfig.addShortcode("codesandbox", shortcodes.codesandbox)
 
   return {
     dir: {
