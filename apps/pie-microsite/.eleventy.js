@@ -1,6 +1,9 @@
-const templateHandlers = require('./src/_11ty/template-handlers');
-const filters = require('./src/_11ty/filters');
-const collections = require('./src/_11ty/collections');
+const { 
+  collections, 
+  filters, 
+  shortcodes, 
+  templateHandlers 
+} = require('./src/_11ty');
 
 module.exports = function (eleventyConfig) {
   // Custom Filter registrations
@@ -12,10 +15,14 @@ module.exports = function (eleventyConfig) {
   // Custom File Extension handling
   templateHandlers.scss(eleventyConfig);
 
+  // Custom shortcodes
+  eleventyConfig.addShortcode("storybook", shortcodes.storybook)
+
   return {
     dir: {
       input: "src",
       output: "dist",
     },
+    markdownTemplateEngine: "njk"
   };
 };
