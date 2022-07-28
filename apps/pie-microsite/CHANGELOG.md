@@ -15,6 +15,7 @@ v1.8.0
 ### Changed
 - Tidied up module exports for `./_11ty` files
 - Removed placeholder background colour from site
+- Set the markdown file renderer to Nunjucks
 
 
 v1.7.0
