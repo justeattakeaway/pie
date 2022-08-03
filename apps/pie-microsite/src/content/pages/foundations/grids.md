@@ -1,6 +1,8 @@
 ---
+eleventyNavigation:
+    key: Grids
+    parent: Foundations
 title: Grids
-tags: ['pages', 'Foundations']
 ---
 
 This page is coming soon!

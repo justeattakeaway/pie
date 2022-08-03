@@ -1,6 +1,8 @@
 ---
+eleventyNavigation:
+    key: Elevation
+    parent: Foundations
 title: Elevation
-tags: ['pages', 'Foundations']
 ---
 
 This page is coming soon!

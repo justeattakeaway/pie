@@ -1,6 +1,8 @@
 ---
+eleventyNavigation:
+    key: Mobile pattern
+    parent: Patterns
 title: Mobile pattern
-tags: ['pages', 'Patterns']
 ---
 
 This page is coming soon!

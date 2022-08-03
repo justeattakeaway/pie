@@ -1,6 +1,8 @@
 ---
+eleventyNavigation:
+    key: Assets
+    parent: Resources
 title: Assets
-tags: ['pages', 'Resources']
 ---
 
 This page is coming soon!

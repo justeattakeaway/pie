@@ -1,6 +1,8 @@
 ---
+eleventyNavigation:
+    key: Typography
+    parent: Foundations
 title: Typography
-tags: ['pages', 'Foundations']
 ---
 
 This page is coming soon!

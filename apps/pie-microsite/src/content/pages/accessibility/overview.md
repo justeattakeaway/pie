@@ -1,6 +1,8 @@
 ---
+eleventyNavigation:
+    key: Overview
+    parent: Accessibility
 title: Overview
-tags: ['pages', 'Accessibility']
 ---
 
 This page is coming soon!

@@ -1,6 +1,8 @@
 ---
+eleventyNavigation:
+    key: What is PIE
+    parent: All about PIE
 title: What is PIE?
-tags: ['pages', 'All about PIE']
 ---
 
 This page is coming soon!
