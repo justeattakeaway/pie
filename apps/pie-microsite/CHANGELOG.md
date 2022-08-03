@@ -3,6 +3,22 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+v1.9.0
+------------------------------
+*August 3, 2022*
+
+### Added
+- `@11ty/eleventy-navigation` plugin
+- SCSS file for navigation bar
+- Markdowns of the main & sub categories to support the ordering of navigation items
+
+### Changed
+- Markdown of the pages to adopt `@11ty/eleventy-navigation`
+- Display logic of navigation items
+
+### Removed
+- Custom collection `allPageCategories`
+- Tags in the markdown of the pages
 
 v1.8.1
 ------------------------------

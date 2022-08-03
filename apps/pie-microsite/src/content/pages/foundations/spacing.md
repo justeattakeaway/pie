@@ -1,6 +1,8 @@
 ---
+eleventyNavigation:
+    key: Spacing
+    parent: Foundations
 title: Spacing
-tags: ['pages', 'Foundations']
 ---
 
 This page is coming soon!

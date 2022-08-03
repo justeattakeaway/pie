@@ -1,6 +1,8 @@
 ---
+eleventyNavigation:
+    key: Illustrations
+    parent: Foundations
 title: Illustrations
-tags: ['pages', 'Foundations']
 ---
 
 This page is coming soon!

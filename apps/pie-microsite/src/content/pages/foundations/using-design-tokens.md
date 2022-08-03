@@ -1,6 +1,8 @@
 ---
+eleventyNavigation:
+    key: Using design tokens
+    parent: Foundations
 title: Using design tokens
-tags: ['pages', 'Foundations']
 ---
 
 This page is coming soon!

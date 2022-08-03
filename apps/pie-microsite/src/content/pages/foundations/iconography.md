@@ -1,6 +1,8 @@
 ---
+eleventyNavigation:
+    key: Iconography
+    parent: Foundations
 title: Iconography
-tags: ['pages', 'Foundations']
 ---
 
 This page is coming soon!

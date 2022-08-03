@@ -1,6 +1,8 @@
 ---
+eleventyNavigation:
+    key: Motion
+    parent: Foundations
 title: Motion
-tags: ['pages', 'Foundations']
 ---
 
 This page is coming soon!

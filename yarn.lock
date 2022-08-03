@@ -12,6 +12,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@11ty/eleventy-navigation@npm:^0.3.3":
+  version: 0.3.3
+  resolution: "@11ty/eleventy-navigation@npm:0.3.3"
+  dependencies:
+    dependency-graph: ^0.11.0
+  checksum: aad785e447c41176c0ca169eddfdb76161c3369c2feb54f37d675cd1df8547cbef29c67cf92ce3c0740e27c840b4a0823a559173df8ff78f1fb96f8f57a4d45d
+  languageName: node
+  linkType: hard
+
 "@11ty/eleventy-utils@npm:^1.0.1":
   version: 1.0.1
   resolution: "@11ty/eleventy-utils@npm:1.0.1"
@@ -3765,6 +3774,7 @@ __metadata:
   resolution: "pie-microsite@workspace:apps/pie-microsite"
   dependencies:
     "@11ty/eleventy": 1.0.1
+    "@11ty/eleventy-navigation": ^0.3.3
     "@justeat/fozzie": 9.0.0-beta.8
     "@justeattakeaway/pie-icons": 1.0.0
     autoprefixer: 10.4.7

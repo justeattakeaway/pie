@@ -1,6 +1,8 @@
 ---
+eleventyNavigation:
+    key: Radius
+    parent: Foundations
 title: Radius
-tags: ['pages', 'Foundations']
 ---
 
 This page is coming soon!

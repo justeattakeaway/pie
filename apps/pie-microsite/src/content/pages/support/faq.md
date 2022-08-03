@@ -1,6 +1,8 @@
 ---
+eleventyNavigation:
+    key: FAQ
+    parent: Support
 title: FAQ
-tags: ['pages', 'Support']
 ---
 
 This page is coming soon!

@@ -1,6 +1,8 @@
 ---
+eleventyNavigation:
+    key: Colour
+    parent: Foundations
 title: Colour
-tags: ['pages', 'Foundations']
 ---
 
 This page is coming soon!

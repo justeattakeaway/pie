@@ -1,6 +1,8 @@
 ---
+eleventyNavigation:
+    key: Coming soon
+    parent: Copy
 title: Coming soon
-tags: ['pages', 'Copy']
 ---
 
 This page is coming soon!
