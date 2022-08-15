@@ -12,11 +12,14 @@ icon_fill: orange
         <link rel="stylesheet" href="/assets/styles/main.css" />
     </head>
     <body>
-        <h1>
-            {{ site_title }}
-        </h1>
+        <header class="c-header">
+            <h1 class="is-visuallyHidden">
+                {{ site_title }}
+            </h1>
+            <a href="/"><img src="/assets/img/pie-logo.svg" class="c-pie-logo"/></a>
+        </header>
         <hr/>
-        {{ content | safe }}        
+        {{ content | safe }}
         <hr/>
         <small>
             <p>Documentation for <a href="https://vue.pie.design/" target="_blank" rel="noopener noreferrer">Pie Design Components</a> in Storybook.<p>
