@@ -6,9 +6,15 @@ const {
 } = require('./src/_11ty');
 
 module.exports = function (eleventyConfig) {
+  // Watch target scss folder for all changes.
+  eleventyConfig.addWatchTarget('src/assets/styles/');
+
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
   // Custom Filter registrations
   eleventyConfig.addFilter("pieIconsSvg", filters.pieIconsSvg);
+
+  // Copy over img directory to dist directory.
+  eleventyConfig.addPassthroughCopy({ 'src/assets/img': 'assets/img' });
 
   // Custom File Extension handling
   templateHandlers.scss(eleventyConfig);

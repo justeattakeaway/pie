@@ -3,6 +3,16 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+v1.6.0
+------------------------------
+*August 15, 2022*
+
+### Added
+- Header logo and styles.
+- Scss watch helper for entire scss directory.
+- gitignore file.
+
+
 v1.5.0
 ------------------------------
 *July 28, 2022*

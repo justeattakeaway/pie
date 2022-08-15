@@ -1,6 +1,9 @@
 @use '@justeat/fozzie/src/scss/fozzie' as f;
 @use 'tools' as t;
 @use 'nav';
+@use 'header';
+
+@include f.trumps-utilities();
 
 :root {
     --clr: #fff;
@@ -10,7 +13,8 @@ $bg-clr: var(--clr);
 
 body {
     background-color: $bg-clr;
-    padding: f.spacing(d);
     font-size: t.rem();
     text-size-adjust: 100%;
+    padding: 0;
+    margin: 0;
 }

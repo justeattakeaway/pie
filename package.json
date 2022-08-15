@@ -1,7 +1,7 @@
 {
   "name": "pie",
   "description": "JustEatTakeaway",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "keywords": [],
   "author": "JustEatTakeaway - Vue Design System Team",
   "license": "MIT",
@@ -27,9 +27,12 @@
   "devDependencies": {
     "@justeat/browserslist-config-fozzie": "1.x",
     "@justeat/stylelint-config-fozzie": "2.x",
-    "husky": "8.0.1",
+    "husky": "^8.0.0",
     "stylelint": "14.9.1",
     "stylelint-scss": "4.3.0",
     "turbo": "^1.3.1"
+  },
+  "dependencies": {
+    "yui-lint": "^0.2.0"
   }
 }
