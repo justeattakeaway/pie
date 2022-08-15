@@ -27,7 +27,7 @@
   "devDependencies": {
     "@justeat/browserslist-config-fozzie": "1.x",
     "@justeat/stylelint-config-fozzie": "2.x",
-    "husky": "^8.0.0",
+    "husky": "8.0.1",
     "stylelint": "14.9.1",
     "stylelint-scss": "4.3.0",
     "turbo": "^1.3.1"
