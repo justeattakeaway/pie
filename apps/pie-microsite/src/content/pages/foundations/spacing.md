@@ -73,7 +73,7 @@ The example above shows a One-Line List component which uses its compact spacing
 While this is something you should keep in mind, it shouldn’t be taken as a strict rule and can be assessed on a case by case basis.
 
 
-### Examples of use
+## Examples of use
 
 Here are some examples of use which might help guide your decisions when applying spacing within your designs. These are just suggestions, not strict rules you must follow. If you are unsure about what spacing works best between the components of your design you can use the following examples as a reference point.
 
