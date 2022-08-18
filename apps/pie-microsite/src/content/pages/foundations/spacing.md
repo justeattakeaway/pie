@@ -9,7 +9,7 @@ Space is the horizontal and vertical distance between or around different design
 
 ### Types of spacing
 
-There are several types of spacing we can use to place elements within layouts and components. Although you're most likely going to use them all when designing your products, it’s important to know what types of spacing are commonly used.
+There are several types of spacing we can use to place elements within layouts and components. Although you’re most likely going to use them all when designing your products, it’s important to know what types of spacing are commonly used.
 
 ### Padding
 
@@ -26,7 +26,7 @@ Margins are the distance between components, which can be applied vertically and
 
 ![Margin example](../../../../assets/img/foundations/spacing/margin-01.svg)
 
-The example above shows a 16px margin between a Secondary and Primary buttons.
+The example above shows a 16px margin between a Secondary and Primary button.
 
 
 ### Dimensions
@@ -35,7 +35,7 @@ Dimensions describe the overall width and height of a component or design elemen
 
 ![Dimensions example](../../../../assets/img/foundations/spacing/dimensions-01.svg)
 
-The example above shows how a Primary Button's width spans across 328px to fit the width of the X-Small Layout.
+The example above shows how a Primary Button’s width spans across 328px to fit the width of the X-Small Layout.
 
 ### Element first approach
 
