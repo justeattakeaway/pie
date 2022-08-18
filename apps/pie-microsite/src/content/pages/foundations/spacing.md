@@ -26,7 +26,7 @@ Margins are the distance between components, which can be applied vertically and
 
 ![Margin example](../../../../assets/img/foundations/spacing/margin-01.svg)
 
-The example above shows a 16px margin between a Secondary and Primary buttons.
+The example above shows a 16px margin between a Secondary and Primary button.
 
 
 ##### Dimensions
