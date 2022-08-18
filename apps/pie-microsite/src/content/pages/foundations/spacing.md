@@ -37,7 +37,7 @@ Dimensions describe the overall width and height of a component or design elemen
 
 The example above shows how a Primary Button’s width spans across 328px to fit the width of the X-Small Layout.
 
-### Element first approach
+## Element first approach
 
 Our main approach for designing components can be categorised as ‘element first’. This means that the sizing of components and design elements takes priority when matched to our predetermined spatial system. We follow this approach to keep a consistent rythm within the overall composition and layout of our designs.
 
