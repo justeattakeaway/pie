@@ -45,7 +45,7 @@ For instance, an element might be set to always have a height of 48px, regardles
 
 ![First approach example](../../../../assets/img/foundations/spacing/approach-01.svg)
 
-### Default and Compact spacing
+## Default and Compact spacing
 
 We have a variety of different products within our pillars, and all of them have different spacing needs based on the nature of their target users. For instance, customer-facing products might need to use more generous space around components to incentivise white space, while operational products will want to use tighter measures to economise the use of space.
 
