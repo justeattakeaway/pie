@@ -35,7 +35,7 @@ Dimensions describe the overall width and height of a component or design elemen
 
 ![Dimensions example](../../../../assets/img/foundations/spacing/dimensions-01.svg)
 
-The example above shows how a Primary Button's width spans across 328px to fit the width of the X-Small Layout.
+The example above shows how a Primary Button’s width spans across 328px to fit the width of the X-Small Layout.
 
 #### Element first approach
 
