@@ -9,7 +9,7 @@ Space is the horizontal and vertical distance between or around different design
 
 #### Types of spacing
 
-There are several types of spacing we can use to place elements within layouts and components. Although you're most likely going to use them all when designing your products, it’s important to know what types of spacing are commonly used.
+There are several types of spacing we can use to place elements within layouts and components. Although you’re most likely going to use them all when designing your products, it’s important to know what types of spacing are commonly used.
 
 ##### Padding
 
