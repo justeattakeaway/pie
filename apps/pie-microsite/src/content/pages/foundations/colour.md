@@ -71,8 +71,8 @@ The example above shows a One-Line List component which uses its compact spacing
 ### About Default and Compact
 
 You should use Product orange for:
-Interactive elements
-Buttons
-Icons
-Interactive text
-Headings
+- Interactive elements
+- Buttons
+- Icons
+- Interactive text
+- Headings
