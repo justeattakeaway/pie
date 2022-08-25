@@ -1,5 +1,5 @@
 {# Placeholder Nav #}
-<nav>
+<nav class="c-pieNav">
     {% set navPages = collections.all | eleventyNavigation("Pages") %}
     <ul>
         {% for category in navPages %}
@@ -12,7 +12,7 @@
                         <ul>
                             {% for subpage in category.children %}
                             <li>
-                                <a href="{{ subpage.url }}" {% if subpage.url == page.url %} class="active"{% endif %}>{{ subpage.title }}</a>
+                                <a href="{{ subpage.url }}" {% if subpage.url == page.url %} class="c-pieNav-item--active"{% endif %}>{{ subpage.title }}</a>
                             </li>
                             {% endfor %}
                         </ul>

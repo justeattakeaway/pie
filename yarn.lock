@@ -161,6 +161,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@justeat/fozzie@npm:^9.2.0":
+  version: 9.2.0
+  resolution: "@justeat/fozzie@npm:9.2.0"
+  dependencies:
+    "@justeat/pie-design-tokens": 1.6.0
+    include-media: "github:eduardoboucas/include-media#2.0-release"
+  checksum: f4b8267b9c9d39e3e0a6cb980f01ab517e4728672cdc36e63a555baa262bf799cca602d11e9ba7be14c6761258b9363d3994d23a33842d452815677b949ee901
+  languageName: node
+  linkType: hard
+
 "@justeat/pie-design-tokens@npm:1.4.0":
   version: 1.4.0
   resolution: "@justeat/pie-design-tokens@npm:1.4.0"
@@ -169,6 +179,17 @@ __metadata:
     lodash.merge: 4.6.2
     mkdirp: 1.0.3
   checksum: 0895faf3b6a344e3586eacdebd621857464339ce20e6c1ce1f038e41974494b3f7d6b1c568ba4cadf049bacb93d6d9fe442ccb79c3b62bd0671a5ad114fcd33f
+  languageName: node
+  linkType: hard
+
+"@justeat/pie-design-tokens@npm:1.6.0":
+  version: 1.6.0
+  resolution: "@justeat/pie-design-tokens@npm:1.6.0"
+  dependencies:
+    jsonc-parser: 2.2.0
+    lodash.merge: 4.6.2
+    mkdirp: 1.0.3
+  checksum: 8b63037023ff01f71ee66ee7fbd803dcb206cd3938d4a0b421033d602b64923a197a34895c4d750002a9b5bbe1a11089e66c96dc4be42a74c3063345b098c508
   languageName: node
   linkType: hard
 
@@ -3788,6 +3809,7 @@ __metadata:
   resolution: "pie@workspace:."
   dependencies:
     "@justeat/browserslist-config-fozzie": 1.x
+    "@justeat/fozzie": ^9.2.0
     "@justeat/stylelint-config-fozzie": 2.x
     husky: 8.0.1
     stylelint: 14.9.1

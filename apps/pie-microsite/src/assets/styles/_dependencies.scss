@@ -1,0 +1,20 @@
+@use 'base/page';
+
+/**
+ * Fozzie Imports:
+ * =================================
+ * Fozzie imports bring in styles from the core Fozzie framework
+ */
+
+@use 'fozzie-imports';
+
+/**
+ * Components:
+ * =================================
+ * Components are our reusable chunks of styling that aren't directly associated to a base tag
+ *
+ * This is where the majority of our day-to-day styling will take place.  Component styles should be prefixed with `.c-`
+ */
+
+@use 'components/header';
+@use 'components/nav';
