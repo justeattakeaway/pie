@@ -1,9 +1,49 @@
 @use 'fozzie-config' as f;
 
 .c-nav {
-  border: 5px dashed purple;
 }
 
 .c-nav-item--active {
-  background-color: lightgray;
+  background-color: f.$color-container-subtle;
+  border-left: 4px solid f.$color-interactive-brand;
+  font-weight: f.$font-weight-bold;
+}
+
+.c-nav ul {
+  list-style-type: none;
+}
+
+.c-nav details summary::-webkit-details-marker,
+.c-nav details summary::marker {
+  display: none; 
+  content: "";
+}
+
+.c-nav details[open] > summary:after {
+  content: "-";
+}
+
+.c-nav details > summary:after {
+  content: "+";
+  margin-left: auto;
+}
+
+.c-nav ul {
+  margin: 0;
+  padding: 0;
+}
+
+.c-nav summary {
+  display: flex;
+  align-items: center;
+  gap: f.spacing(d);
+}
+
+.c-nav summary, .c-nav li a {
+  padding: 16px;
+}
+
+.c-nav li > a {
+  display: block;
+  padding-left: calc(16px * 2);
 }

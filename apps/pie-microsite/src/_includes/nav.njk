@@ -1,4 +1,3 @@
-{# Placeholder Nav #}
 <nav class="c-nav">
     {% set navPages = collections.all | eleventyNavigation("Pages") %}
     <ul>
@@ -6,6 +5,7 @@
             <li>
                 <details {% if page.url.includes(category.url) %} open{% endif %}>
                     <summary>
+                        {{ { name: 'About', attrs: { fill: 'orange', height: '32', width: '32' } } | pieIconsSvg | safe }}
                         {{ category.title }}
                     </summary>
                     {% if category.children.length %}
