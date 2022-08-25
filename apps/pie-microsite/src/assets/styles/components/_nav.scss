@@ -1,6 +1,7 @@
 @use 'fozzie-config' as f;
 
 .c-nav {
+  border-right: 1px solid f.$color-border-default;
 }
 
 .c-nav-item--active {
@@ -19,12 +20,25 @@
   content: "";
 }
 
-.c-nav details[open] > summary:after {
-  content: "-";
+// when nav item is opened
+.c-nav details[open] .c-nav-toggle--close {
+  display: block;
 }
 
-.c-nav details > summary:after {
-  content: "+";
+.c-nav details[open] .c-nav-toggle--open {
+  display: none;
+}
+
+// default - when a nav item is closed
+.c-nav details .c-nav-toggle--open {
+  display: block;
+}
+
+.c-nav details .c-nav-toggle--close {
+  display: none;
+}
+
+.c-nav-toggle {
   margin-left: auto;
 }
 
@@ -41,6 +55,11 @@
 
 .c-nav summary, .c-nav li a {
   padding: 16px;
+}
+
+.c-nav summary,
+.c-nav li > a {
+  cursor: pointer;
 }
 
 .c-nav li > a {

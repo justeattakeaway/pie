@@ -4,4 +4,5 @@ eleventyNavigation:
     parent: Pages
     order: 3
 title: Foundations
+icon: About
 ---

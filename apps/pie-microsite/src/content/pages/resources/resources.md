@@ -4,4 +4,5 @@ eleventyNavigation:
     parent: Pages
     order: 8
 title: Resources
+icon: About
 ---

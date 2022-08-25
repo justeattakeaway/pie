@@ -4,4 +4,5 @@ eleventyNavigation:
     parent: Pages
     order: 2
 title: Getting started
+icon: About
 ---

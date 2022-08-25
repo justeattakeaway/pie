@@ -10,6 +10,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addWatchTarget('src/assets/styles/');
 
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
+
   // Custom Filter registrations
   eleventyConfig.addFilter("pieIconsSvg", filters.pieIconsSvg);
 
