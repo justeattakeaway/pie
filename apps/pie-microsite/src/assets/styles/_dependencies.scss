@@ -8,6 +8,8 @@
 
 @use 'fozzie-imports';
 
+@use 'base/layout';
+
 /**
  * Components:
  * =================================
@@ -18,3 +20,4 @@
 
 @use 'components/header';
 @use 'components/nav';
+@use 'components/footer';

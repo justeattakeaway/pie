@@ -1,0 +1,5 @@
+@use 'fozzie-config' as f;
+
+.c-footer {
+    background: f.$color-container-subtle;
+}

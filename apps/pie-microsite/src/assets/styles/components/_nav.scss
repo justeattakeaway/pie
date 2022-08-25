@@ -1,7 +1,9 @@
-.c-pieNav {
+@use 'fozzie-config' as f;
+
+.c-nav {
   border: 5px dashed purple;
 }
 
-.c-pieNav-item--active {
+.c-nav-item--active {
   background-color: lightgray;
 }

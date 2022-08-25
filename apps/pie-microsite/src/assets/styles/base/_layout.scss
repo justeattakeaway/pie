@@ -1,0 +1,29 @@
+@use '../fozzie-config' as f;
+
+.page {
+    min-height: 100%;
+    display: grid;
+    grid-template-areas:
+        "header header"
+        "nav main"
+        "nav footer";
+
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: 64px 1fr max-content;
+}
+
+.c-header {
+    grid-area: header;
+}
+
+.c-pieNav {
+    grid-area: nav;
+}
+
+main {
+    grid-area: main;
+}
+
+footer {
+    grid-area: footer;
+}
