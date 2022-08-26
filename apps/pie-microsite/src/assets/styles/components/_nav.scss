@@ -2,7 +2,7 @@
 
 $nav-category-padding:                f.spacing(d);
 $nav-category-gap:                    f.spacing(d);
-$nav-category-icon-width:             f.spacing(f);
+$nav-category-icon-width:             f.spacing(e); // this needs to be kept in sync with the width given to the icon found in nav.njk
 $nav-item-left-padding:               calc($nav-category-padding + $nav-category-gap + $nav-category-icon-width);
 $nav-item-active-border-width:        f.spacing(a);
 $nav-item-active-left-padding:        calc($nav-item-left-padding - $nav-item-active-border-width);
