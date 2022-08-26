@@ -151,16 +151,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@justeat/fozzie@npm:9.0.0-beta.8":
-  version: 9.0.0-beta.8
-  resolution: "@justeat/fozzie@npm:9.0.0-beta.8"
-  dependencies:
-    "@justeat/pie-design-tokens": 1.4.0
-    include-media: "github:eduardoboucas/include-media#2.0-release"
-  checksum: f1a5ae94d5a33e831e17273c652ffc7e5628c61268a3082ad7344003c610ffa358526eeb3c4b302af8e9503858cb285edcdc8444aa4326d3331a40ee21917e61
-  languageName: node
-  linkType: hard
-
 "@justeat/fozzie@npm:^9.2.0":
   version: 9.2.0
   resolution: "@justeat/fozzie@npm:9.2.0"
@@ -168,17 +158,6 @@ __metadata:
     "@justeat/pie-design-tokens": 1.6.0
     include-media: "github:eduardoboucas/include-media#2.0-release"
   checksum: f4b8267b9c9d39e3e0a6cb980f01ab517e4728672cdc36e63a555baa262bf799cca602d11e9ba7be14c6761258b9363d3994d23a33842d452815677b949ee901
-  languageName: node
-  linkType: hard
-
-"@justeat/pie-design-tokens@npm:1.4.0":
-  version: 1.4.0
-  resolution: "@justeat/pie-design-tokens@npm:1.4.0"
-  dependencies:
-    jsonc-parser: 2.2.0
-    lodash.merge: 4.6.2
-    mkdirp: 1.0.3
-  checksum: 0895faf3b6a344e3586eacdebd621857464339ce20e6c1ce1f038e41974494b3f7d6b1c568ba4cadf049bacb93d6d9fe442ccb79c3b62bd0671a5ad114fcd33f
   languageName: node
   linkType: hard
 
@@ -2471,8 +2450,8 @@ __metadata:
 
 "include-media@github:eduardoboucas/include-media#2.0-release":
   version: 2.0.0
-  resolution: "include-media@https://github.com/eduardoboucas/include-media.git#commit=5398b556d4bb24186d360c950b19026f577ff8e5"
-  checksum: efcf2e92fb73b12938743857be98b1569cb29b46ce1915ea3a17d5f9a4c2a6fcd6245ffdc58a57cc3077d3a617e8a4f8912d78d474bb2c79a36918793608a30d
+  resolution: "include-media@https://github.com/eduardoboucas/include-media.git#commit=a3c0288e5b22cc746cc2d320d0a374b2ed9d0aeb"
+  checksum: 4f28ff0addab4d07a809d3e61a6751d7c8e022af66866cf29684b1401c725bd73d2dd224aaa08f32a3cdd9c948766a8aa0d05866ed9acb2d6d0141f33d3af37c
   languageName: node
   linkType: hard
 
@@ -3796,7 +3775,7 @@ __metadata:
   dependencies:
     "@11ty/eleventy": 1.0.1
     "@11ty/eleventy-navigation": ^0.3.3
-    "@justeat/fozzie": 9.0.0-beta.8
+    "@justeat/fozzie": ^9.2.0
     "@justeattakeaway/pie-icons": 1.0.0
     autoprefixer: 10.4.7
     postcss: 8.4.14
@@ -3809,7 +3788,6 @@ __metadata:
   resolution: "pie@workspace:."
   dependencies:
     "@justeat/browserslist-config-fozzie": 1.x
-    "@justeat/fozzie": ^9.2.0
     "@justeat/stylelint-config-fozzie": 2.x
     husky: 8.0.1
     stylelint: 14.9.1
