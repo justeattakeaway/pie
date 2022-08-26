@@ -72,5 +72,9 @@ $nav-item-active-left-padding:        calc($nav-item-left-padding - $nav-item-ac
 .c-nav-item--active {
   border-left: $nav-item-active-border-width solid f.$color-interactive-brand;
   padding-left: $nav-item-active-left-padding;
+}
+
+.c-nav-category,
+.c-nav-item--active {
   font-weight: f.$font-weight-bold;
 }
