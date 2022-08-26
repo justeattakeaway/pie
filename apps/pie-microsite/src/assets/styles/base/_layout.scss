@@ -23,37 +23,12 @@
     grid-area: header;
 }
 
-#navToggle:checked ~ .c-nav {
-    left: 0;
-}
-
-#navToggle:checked ~ main:before,
-#navToggle:checked ~ footer:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: f.$color-overlay;
-}
-
-#navToggle:checked ~ main {
-    filter: brightness(50%);
-}
-
 .c-nav {
     grid-area: nav;
-    background: white;
 
     @include f.media('<=narrowMid') {
-        transition: left 0.5s cubic-bezier(0.25, 1, 0.25, 1), width 0.5s cubic-bezier(0.25, 1, 0.25, 1);
         grid-area: main;
         grid-row-end: 5;
-        max-width: 80%;
-        position: relative;
-        left: -100%;
-        z-index: f.zIndex(high);
     }
 }
 
