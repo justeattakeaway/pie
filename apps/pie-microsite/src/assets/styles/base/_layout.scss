@@ -45,7 +45,7 @@
 .c-nav {
     grid-area: nav;
     background: white;
-    
+
     @include f.media('<=narrowMid') {
         transition: left 0.5s cubic-bezier(0.25, 1, 0.25, 1), width 0.5s cubic-bezier(0.25, 1, 0.25, 1);
         grid-area: main;
@@ -62,19 +62,7 @@ main {
     position: relative;
 }
 
-footer {
-    grid-area: footer;
-    position: relative;
-    background-color: #f5f3f1;
-    padding: 40px 60px;
-
-    .c-footer-logo {
-        width: 100px;
-        height: 40px;
-    }
-}
-
-main, 
+main,
 footer {
     @include f.media('<=narrowMid') {
         z-index: f.zIndex(low);
