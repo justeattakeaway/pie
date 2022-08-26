@@ -26,4 +26,11 @@ main {
 
 footer {
     grid-area: footer;
+    background-color: #f5f3f1;
+    padding: 40px 60px;
+
+    .c-footer-logo {
+        width: 100px;
+        height: 40px;
+    }
 }
