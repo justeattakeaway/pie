@@ -13,34 +13,42 @@
 } %}
 
 {% set chevronFill = { tokenName: 'interactive-primary', tokenPath: ['alias', 'default'] } | pieDesignTokenColours %}
+{% set categoryIconFill = { tokenName: 'interactive-brand', tokenPath: ['alias', 'default'] } | pieDesignTokenColours %}
+{% set navPagesPrimary = collections.all | eleventyNavigation("Pages") %}
+{% set navPagesSecondary = collections.all | eleventyNavigation("Pages-secondary") %}
+{% set navSections = [navPagesPrimary, navPagesSecondary] %}
 
 <nav class="c-nav">
-    {% set navPages = collections.all | eleventyNavigation("Pages") %}
-    <ul>
-        {% for category in navPages %}
-            <li>
-                <details {% if page.url.includes(category.url) %} open{% endif %}>
-                    <summary class="c-nav-category">
-                        {{ { name: navigationIcons[category.key], attrs: { fill: 'orange', height: '32', width: '32' } } | pieIconsSvg | safe }}
-                        {{ category.title }}
-                        {{ { name: 'ChevronUpSmall', attrs: { fill: chevronFill, height: '18', width: '18', class:'c-nav-toggle c-nav-toggle--close' } } | pieIconsSvg | safe }}
-                        {{ { name: 'ChevronDownSmall', attrs: { fill: chevronFill, height: '18', width: '18', class:'c-nav-toggle c-nav-toggle--open' } } | pieIconsSvg | safe }}
-                    </summary>
-                    {% if category.children.length %}
-                        <ul>
-                            {% for subpage in category.children %}
-                            <li>
-                                <a
-                                    href="{{ subpage.url }}" 
-                                    class="c-nav-item {% if subpage.url == page.url %}c-nav-item--active{% endif %}">
-                                    {{ subpage.title }}
-                                </a>
-                            </li>
-                            {% endfor %}
-                        </ul>
-                    {% endif %}
-                </details>
-            </li>
-        {% endfor %}
-    </ul>
+    {% for section in navSections %}
+        <ul>
+            {% for category in section %}
+                <li>
+                    <details {% if page.url.includes(category.url) %} open{% endif %}>
+                        <summary class="c-nav-category">
+                            {{ { name: navigationIcons[category.key], attrs: { fill: categoryIconFill, height: '32', width: '32' } } | pieIconsSvg | safe }}
+                            {{ category.title }}
+                            {{ { name: 'ChevronUpSmall', attrs: { fill: chevronFill, height: '18', width: '18', class:'c-nav-toggle c-nav-toggle--close' } } | pieIconsSvg | safe }}
+                            {{ { name: 'ChevronDownSmall', attrs: { fill: chevronFill, height: '18', width: '18', class:'c-nav-toggle c-nav-toggle--open' } } | pieIconsSvg | safe }}
+                        </summary>
+                        {% if category.children.length %}
+                            <ul>
+                                {% for subpage in category.children %}
+                                <li>
+                                    <a
+                                        href="{{ subpage.url }}" 
+                                        class="c-nav-item {% if subpage.url == page.url %}c-nav-item--active{% endif %}">
+                                        {{ subpage.title }}
+                                    </a>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </details>
+                </li>
+            {% endfor %}
+        </ul>
+        {% if not loop.last %}
+            <hr />
+        {% endif %}
+    {% endfor %}
 </nav>

@@ -1,8 +1,7 @@
 ---
 eleventyNavigation:
     key: Resources
-    parent: Pages
-    order: 8
+    parent: Pages-secondary
+    order: 1
 title: Resources
-icon: About
 ---

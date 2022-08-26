@@ -1,8 +1,7 @@
 ---
 eleventyNavigation:
     key: Support
-    parent: Pages
-    order: 9
+    parent: Pages-secondary
+    order: 2
 title: Support
-icon: About
 ---
