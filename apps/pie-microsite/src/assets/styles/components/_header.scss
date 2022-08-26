@@ -1,8 +1,14 @@
 @use 'fozzie-config' as f;
 
+$navToggleWidth: 24px;
+
 .c-header {
     background-color: f.$color-support-brand-06;
     padding: f.spacing(d);
+
+    @include f.media('<=narrowMid') {
+        padding-left: calc(f.spacing(d) + $navToggleWidth + f.spacing(d));
+    }
 }
 
 .c-header-logo {
@@ -12,5 +18,15 @@
     img {
         height: 100%;
         width: auto;
+    }
+}
+
+.c-navToggle {
+    display: none;
+    @include f.media('<=narrowMid') {
+        display: block;
+        position: absolute;
+        left: f.spacing(d);
+        top: f.spacing(d);
     }
 }
