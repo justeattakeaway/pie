@@ -18,7 +18,7 @@
         {% for category in navPages %}
             <li>
                 <details {% if page.url.includes(category.url) %} open{% endif %}>
-                    <summary>
+                    <summary class="c-nav-category">
                         {{ { name: navigationIcons[category.key], attrs: { fill: 'orange', height: '32', width: '32' } } | pieIconsSvg | safe }}
                         {{ category.title }}
                         {{ { name: 'CaretUpSmall', attrs: { fill: 'orange', height: '32', width: '32', class:'c-nav-toggle c-nav-toggle--close' } } | pieIconsSvg | safe }}

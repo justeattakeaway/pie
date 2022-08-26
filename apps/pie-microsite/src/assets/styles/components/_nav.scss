@@ -1,75 +1,76 @@
 @use 'fozzie-config' as f;
 
+$nav-category-padding:                f.spacing(d);
+$nav-category-gap:                    f.spacing(d);
+$nav-category-icon-width:             f.spacing(f);
+$nav-item-left-padding:               calc($nav-category-padding + $nav-category-gap + $nav-category-icon-width);
+$nav-item-active-border-width:        f.spacing(a);
+$nav-item-active-left-padding:        calc($nav-item-left-padding - $nav-item-active-border-width);
+
 .c-nav {
   border-right: 1px solid f.$color-border-default;
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
 }
 
 .c-nav-item:hover,
-.c-nav summary:hover,
+.c-nav-category:hover,
 .c-nav-item--active {
   background-color: f.$color-container-subtle;
 }
 
-.c-nav-item--active {
-  border-left: 4px solid f.$color-interactive-brand;
-  font-weight: f.$font-weight-bold;
-}
-
-.c-nav ul {
-  list-style-type: none;
-}
-
-.c-nav details summary::-webkit-details-marker,
-.c-nav details summary::marker {
+// Hide the default summary icon
+.c-nav-category::-webkit-details-marker,
+.c-nav-category::marker {
   display: none; 
   content: "";
-}
-
-// when nav item is opened
-.c-nav details[open] .c-nav-toggle--close {
-  display: block;
-}
-
-.c-nav details[open] .c-nav-toggle--open {
-  display: none;
-}
-
-// default - when a nav item is closed
-.c-nav details .c-nav-toggle--open {
-  display: block;
-}
-
-.c-nav details .c-nav-toggle--close {
-  display: none;
 }
 
 .c-nav-toggle {
   margin-left: auto;
 }
 
-.c-nav ul {
-  margin: 0;
-  padding: 0;
+.c-nav-toggle--open {
+  display: block;
+  .c-nav details[open] & {
+    display: none;
+  }
 }
 
-.c-nav summary {
+.c-nav-toggle--close {
+  display: none;
+  .c-nav details[open] & {
+    display: block;
+  }
+}
+
+.c-nav-category {
   display: flex;
   align-items: center;
   gap: f.spacing(d);
+  padding: $nav-category-padding;
 }
 
-.c-nav summary, .c-nav li a {
-  padding: 16px;
-}
-
-.c-nav summary,
-.c-nav li > a {
+.c-nav-category,
+.c-nav-item {
   cursor: pointer;
 }
 
-.c-nav li > a {
+.c-nav-item {
   display: block;
-  padding-left: f.spacing(i);
+  padding-top: f.spacing(d);
+  padding-right: f.spacing(d);
+  padding-bottom: f.spacing(d);
+  padding-left: $nav-item-left-padding;
   text-decoration: none;
   color: f.$color-content-default;
+}
+
+.c-nav-item--active {
+  border-left: $nav-item-active-border-width solid f.$color-interactive-brand;
+  padding-left: $nav-item-active-left-padding;
+  font-weight: f.$font-weight-bold;
 }
