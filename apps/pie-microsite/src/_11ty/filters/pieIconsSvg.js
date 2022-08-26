@@ -3,6 +3,8 @@ const pieicons = require('@justeattakeaway/pie-icons');
 /**
  * Custom filter that returns an SVG HTML string for a specified PIE Icon
  * @param {*} iconConfig 
+ * @param {string} iconConfig.name - the name of the icon to retrieve
+ * @param {object} iconConfig.attrs - any attributes to add to the svg such as height, width, classes and fill
  * @returns 
  */
 module.exports = function(iconConfig = {
