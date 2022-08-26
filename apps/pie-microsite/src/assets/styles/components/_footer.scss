@@ -1,7 +1,6 @@
 @use 'fozzie-config' as f;
 
 footer {
-    grid-area: footer;
     position: relative;
     padding: f.spacing(e) f.spacing(d);
     background-color: f.$color-container-subtle;
