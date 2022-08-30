@@ -31,7 +31,7 @@
                             {{ { name: 'ChevronDownSmall', attrs: { fill: chevronFill, height: '18', width: '18', class:'c-nav-toggle c-nav-toggle--open' } } | pieIconsSvg | safe }}
                         </summary>
                         {% if category.children.length %}
-                            <ul>
+                            <ul class="c-nav-list">
                                 {% for subpage in category.children %}
                                 <li>
                                     <a
