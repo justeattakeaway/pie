@@ -151,7 +151,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@justeat/fozzie@npm:^9.2.0":
+"@justeat/fozzie@npm:9.2.0":
   version: 9.2.0
   resolution: "@justeat/fozzie@npm:9.2.0"
   dependencies:
@@ -3775,7 +3775,7 @@ __metadata:
   dependencies:
     "@11ty/eleventy": 1.0.1
     "@11ty/eleventy-navigation": ^0.3.3
-    "@justeat/fozzie": ^9.2.0
+    "@justeat/fozzie": 9.2.0
     "@justeattakeaway/pie-icons": 1.0.0
     autoprefixer: 10.4.7
     postcss: 8.4.14
