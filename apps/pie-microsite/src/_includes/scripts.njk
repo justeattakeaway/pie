@@ -120,7 +120,21 @@
         }
     }
 
-    document.querySelectorAll(".c-nav details").forEach((el) => {
-        new Accordion(el);
+    let accordions = [];
+
+    const ro = new ResizeObserver(entries => {
+        for (const entry of entries) {
+            const width = entry.contentRect.width;
+
+            // ensure we don't duplicate accordion instances
+            if (width > 600 && !accordions.length) {
+                // TODO: use fozzie JS breakpoint helpers instead of hardcoding 600px
+                document.querySelectorAll(".c-nav details").forEach((el) => {
+                    accordions.push(new Accordion(el));
+                });
+            }
+        }
     });
+    
+    ro.observe(document.querySelector('html'));
 </script>
