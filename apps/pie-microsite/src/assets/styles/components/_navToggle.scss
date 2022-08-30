@@ -49,3 +49,18 @@
     bottom: 0;
     background: f.$color-overlay;
 }
+
+.c-pieIcon--Close {
+    display: none;
+}
+
+.c-navToggle-input:checked ~ .c-navToggle .c-pieIcon {
+
+    &--Close {
+        display: block;
+    }
+
+    &--MenuSmall {
+        display: none;
+    }
+}
