@@ -18,10 +18,8 @@ $nav-item-active-left-padding:        calc($nav-item-left-padding - $nav-item-ac
   }
 
   @include f.media('<=narrowMid') {
-    transition: left 0.5s cubic-bezier(0.25, 1, 0.25, 1), width 0.5s cubic-bezier(0.25, 1, 0.25, 1);
     max-width: 80%;
     position: relative;
-    left: -100%;
     z-index: f.zIndex(high);
   }
 }
