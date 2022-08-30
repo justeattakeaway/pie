@@ -122,7 +122,7 @@
 
     let accordions = [];
 
-    const ro = new ResizeObserver(entries => {
+    const resizeObserver = new ResizeObserver(entries => {
         for (const entry of entries) {
             const width = entry.contentRect.width;
 
@@ -135,6 +135,9 @@
             }
         }
     });
-    
-    ro.observe(document.querySelector('html'));
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (!prefersReducedMotion.matches) {
+        resizeObserver.observe(document.querySelector('html'));
+    }
 </script>
