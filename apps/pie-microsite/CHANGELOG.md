@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 v1.10.0
 ------------------------------
-*August 26, 2022*
+*August 30, 2022*
 
 ### Added
 - Base JET styles via Fozzie
@@ -16,7 +16,7 @@ v1.10.0
 - Base footer styling
 - added a new 11ty filter to assist with accessing PIE design token colour values whilst in nujkucks template files
 
-### Changed
+### Fixed
 - Corrected header logo alignment and sizing
 
 ### Removed
