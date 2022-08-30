@@ -39,8 +39,8 @@
     outline-offset: 4px;
 }
 
-.c-navToggle-input:checked ~ main:before,
-.c-navToggle-input:checked ~ footer:before {
+.c-navToggle-input:checked ~ .c-main:before,
+.c-navToggle-input:checked ~ .c-footer:before {
     content: '';
     position: absolute;
     top: 0;

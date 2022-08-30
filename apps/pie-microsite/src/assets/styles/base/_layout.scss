@@ -32,17 +32,17 @@
     }
 }
 
-main {
+.c-main {
     grid-area: main;
     position: relative;
 }
 
-footer {
+.c-footer {
     grid-area: footer;
 }
 
-main,
-footer {
+.c-main,
+.c-footer {
     @include f.media('<=narrowMid') {
         z-index: f.zIndex(low);
     }
