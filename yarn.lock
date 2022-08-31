@@ -151,13 +151,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@justeat/fozzie@npm:9.2.0":
-  version: 9.2.0
-  resolution: "@justeat/fozzie@npm:9.2.0"
+"@justeat/fozzie@npm:9.3.0":
+  version: 9.3.0
+  resolution: "@justeat/fozzie@npm:9.3.0"
   dependencies:
     "@justeat/pie-design-tokens": 1.6.0
     include-media: "github:eduardoboucas/include-media#2.0-release"
-  checksum: f4b8267b9c9d39e3e0a6cb980f01ab517e4728672cdc36e63a555baa262bf799cca602d11e9ba7be14c6761258b9363d3994d23a33842d452815677b949ee901
+  checksum: 5fde5d6c531a2872527a45583a78358aa1084c4e494860dd9c5e11586077ed237c15cb62523bba40563522a668bb06e064980d70978c70b1714df01ecea67dd3
   languageName: node
   linkType: hard
 
@@ -3775,7 +3775,7 @@ __metadata:
   dependencies:
     "@11ty/eleventy": 1.0.1
     "@11ty/eleventy-navigation": ^0.3.3
-    "@justeat/fozzie": 9.2.0
+    "@justeat/fozzie": 9.3.0
     "@justeattakeaway/pie-icons": 1.0.0
     autoprefixer: 10.4.7
     postcss: 8.4.14
