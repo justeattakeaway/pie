@@ -14,7 +14,7 @@ v1.10.0
 - Navigation styling for large and small screens
 - Base page styling
 - Base footer styling
-- added a new 11ty filter to assist with accessing PIE design token colour values whilst in nujkucks template files
+- New 11ty filter to assist with accessing PIE design token colour values whilst in nunjucks template files
 
 ### Fixed
 - Corrected header logo alignment and sizing
