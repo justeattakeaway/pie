@@ -1,7 +1,7 @@
 {
   "name": "pie-microsite",
   "description": "todo",
-  "version": "1.9.0",
+  "version": "1.11.0",
   "main": "index.js",
   "keywords": [],
   "author": "JustEatTakeaway - Vue Design System Team",
@@ -13,7 +13,9 @@
     "build:sass": "sass --load-path=../../node_modules/ src/assets/styles:dist/assets/styles",
     "build:eleventy": "eleventy",
     "dev": "npm-run-all build:sass --parallel watch:sass watch:eleventy",
-    "build": "npm-run-all build:eleventy build:sass"
+    "build": "npm-run-all build:eleventy build:sass",
+    "lint:style": "stylelint ./src/**/*.{css,scss}",
+    "lint:style:fix": "yarn lint:style --fix"
   },
   "browserslist": [
     "extends @justeat/browserslist-config-fozzie"
@@ -21,13 +23,13 @@
   "devDependencies": {
     "@11ty/eleventy": "1.0.1",
     "@11ty/eleventy-navigation": "^0.3.3",
-    "@justeat/fozzie": "9.3.1",
     "autoprefixer": "10.4.7",
     "npm-run-all": "4.1.5",
     "postcss": "8.4.14",
     "sass": "1.54.0"
   },
   "dependencies": {
+    "@justeat/fozzie": "9.3.1",
     "@justeattakeaway/pie-icons": "1.0.0"
   }
 }

@@ -3,6 +3,33 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+v1.11.0
+------------------------------
+*August 31, 2022*
+
+### Fixed
+- css watch and build tasks running when making changes.
+
+
+v1.10.0
+------------------------------
+*August 30, 2022*
+
+### Added
+- Base JET styles via Fozzie
+- Basic SCSS architecture to start the project off
+- Navigation styling for large and small screens
+- Base page styling
+- Base footer styling
+- New 11ty filter to assist with accessing PIE design token colour values whilst in nunjucks template files
+
+### Fixed
+- Corrected header logo alignment and sizing
+
+### Removed
+- Placeholder home page content
+
+
 v1.9.0
 ------------------------------
 *August 3, 2022*
@@ -19,6 +46,7 @@ v1.9.0
 ### Removed
 - Custom collection `allPageCategories`
 - Tags in the markdown of the pages
+
 
 v1.8.1
 ------------------------------
@@ -69,6 +97,7 @@ v1.5.0
 
 ### Changed
 - Tidied up 11ty project structure
+
 
 v1.4.0
 ------------------------------

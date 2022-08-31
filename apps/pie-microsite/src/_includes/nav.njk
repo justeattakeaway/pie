@@ -1,24 +1,54 @@
-{# Placeholder Nav #}
-<nav>
-    {% set navPages = collections.all | eleventyNavigation("Pages") %}
-    <ul>
-        {% for category in navPages %}
-            <li>
-                <details {% if page.url.includes(category.url) %} open{% endif %}>
-                    <summary>
-                        {{ category.title }}
-                    </summary>
-                    {% if category.children.length %}
-                        <ul>
-                            {% for subpage in category.children %}
-                            <li>
-                                <a href="{{ subpage.url }}" {% if subpage.url == page.url %} class="active"{% endif %}>{{ subpage.title }}</a>
-                            </li>
-                            {% endfor %}
-                        </ul>
-                    {% endif %}
-                </details>
-            </li>
-        {% endfor %}
-    </ul>
+{# Each navigation item has a unique key that is mapped to an Icon name #}
+{# TODO - using temporary random icons for now #}
+{% set navigationIcons = {
+    Accessibility: 'PersonalityTest',
+    'All about PIE': 'food',
+    Components: 'filters',
+    Copy: 'edit',
+    Foundations: 'moon',
+    'Getting started': 'RocketShip',
+    Patterns: 'basket',
+    Resources: 'Backpack',
+    Support: 'User'
+} %}
+
+{% set chevronFill = { tokenName: 'interactive-primary', tokenPath: ['alias', 'default'] } | pieDesignTokenColours %}
+{% set categoryIconFill = { tokenName: 'interactive-brand', tokenPath: ['alias', 'default'] } | pieDesignTokenColours %}
+{% set navPagesPrimary = collections.all | eleventyNavigation("Pages") %}
+{% set navPagesSecondary = collections.all | eleventyNavigation("Pages-secondary") %}
+{% set navSections = [navPagesPrimary, navPagesSecondary] %}
+
+<nav class="c-nav">
+    {% for section in navSections %}
+        <ul>
+            {% for category in section %}
+                <li>
+                    <details {% if page.url.includes(category.url) %} open{% endif %}>
+                        <summary class="c-nav-category">
+                            {{ { name: navigationIcons[category.key], attrs: { fill: categoryIconFill, height: '24', width: '24' } } | pieIconsSvg | safe }}
+                            {{ category.title }}
+                            {{ { name: 'ChevronUpSmall', attrs: { fill: chevronFill, height: '18', width: '18', class:'c-nav-toggle c-nav-toggle--close' } } | pieIconsSvg | safe }}
+                            {{ { name: 'ChevronDownSmall', attrs: { fill: chevronFill, height: '18', width: '18', class:'c-nav-toggle c-nav-toggle--open' } } | pieIconsSvg | safe }}
+                        </summary>
+                        {% if category.children.length %}
+                            <ul class="c-nav-list">
+                                {% for subpage in category.children %}
+                                <li>
+                                    <a
+                                        href="{{ subpage.url }}" 
+                                        class="c-nav-item {% if subpage.url == page.url %}c-nav-item--active{% endif %}">
+                                        {{ subpage.title }}
+                                    </a>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </details>
+                </li>
+            {% endfor %}
+        </ul>
+        {% if not loop.last %}
+            <hr />
+        {% endif %}
+    {% endfor %}
 </nav>

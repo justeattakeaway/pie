@@ -1,0 +1,89 @@
+@use '../fozzie-config' as f;
+
+$nav-category-padding:                f.spacing(d);
+$nav-category-gap:                    f.spacing(d);
+$nav-category-icon-width:             f.spacing(e); // this needs to be kept in sync with the width given to the icon found in nav.njk
+$nav-item-left-padding:               calc($nav-category-padding + $nav-category-gap + $nav-category-icon-width);
+$nav-item-active-border-width:        f.spacing(a);
+$nav-item-active-left-padding:        calc($nav-item-left-padding - $nav-item-active-border-width);
+
+.c-nav {
+  background: f.$color-container-default;
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  @include f.media('>narrowMid') {
+    border-right: 1px solid f.$color-border-default;
+  }
+
+  @include f.media('<=narrowMid') {
+    max-width: 80%;
+    position: relative;
+    z-index: f.zIndex(high);
+  }
+}
+
+.c-nav-item:hover,
+.c-nav-category:hover,
+.c-nav-item--active {
+  background-color: f.$color-container-subtle;
+}
+
+// Hide the default summary icon
+.c-nav-category::-webkit-details-marker,
+.c-nav-category::marker {
+  display: none;
+  content: "";
+}
+
+.c-nav-toggle {
+  margin-left: auto;
+  display: none;
+
+  .c-nav details[open] & {
+    display: block;
+  }
+}
+.c-nav-toggle--open {
+  display: block;
+
+  .c-nav details[open] & {
+    display: none;
+  }
+}
+
+.c-nav-category {
+  display: flex;
+  align-items: center;
+  gap: f.spacing(d);
+  padding: $nav-category-padding;
+}
+
+.c-nav-category,
+.c-nav-item {
+  cursor: pointer;
+}
+
+.c-nav-item {
+  display: block;
+  padding-top: f.spacing(d);
+  padding-right: f.spacing(d);
+  padding-bottom: f.spacing(d);
+  padding-left: $nav-item-left-padding;
+  text-decoration: none;
+  color: f.$color-content-default;
+}
+
+.c-nav-item--active {
+  border-left: $nav-item-active-border-width solid f.$color-interactive-brand;
+  padding-left: $nav-item-active-left-padding;
+}
+
+.c-nav-category,
+.c-nav-item--active {
+  font-weight: f.$font-weight-bold;
+}

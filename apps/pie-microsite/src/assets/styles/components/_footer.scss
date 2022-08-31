@@ -1,0 +1,16 @@
+@use '../fozzie-config' as f;
+
+.c-footer {
+    position: relative;
+    padding: f.spacing(e) f.spacing(d);
+    background-color: f.$color-container-subtle;
+
+    @include f.media('>=mid') {
+        padding: 40px 60px;
+    }
+
+    .c-footer-logo {
+        width: 100px;
+        height: 40px;
+    }
+}
