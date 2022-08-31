@@ -10,8 +10,10 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addWatchTarget('src/assets/styles/');
 
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
+
   // Custom Filter registrations
   eleventyConfig.addFilter("pieIconsSvg", filters.pieIconsSvg);
+  eleventyConfig.addFilter("pieDesignTokenColours", filters.pieDesignTokenColours);
 
   // Copy over img directory to dist directory.
   eleventyConfig.addPassthroughCopy({ 'src/assets/img': 'assets/img' });

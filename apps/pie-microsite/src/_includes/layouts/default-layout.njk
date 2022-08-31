@@ -1,0 +1,22 @@
+---
+site_title: Pie Site
+icon_fill: orange
+---
+
+<!doctype html>
+<html lang="en">
+    {% include "head.njk" %}
+    <body>
+        <div class="page">
+            {% include "header.njk" %}
+            {% include "nav.njk" %}
+            <main class="c-main">
+                {{ content | safe }}
+            </main>
+
+            {% include "footer.njk" %}
+        </div>
+
+        {% include "scripts.njk" %}
+    </body>
+</html>

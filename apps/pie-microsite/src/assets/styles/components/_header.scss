@@ -1,0 +1,24 @@
+@use 'fozzie-config' as f;
+
+$navToggleWidth:        24px; // must be kept in sync with the svg icon width defined in header.njk
+$headerLogoHeight:      32px;
+$headerInlinePadding:   20px;
+
+.c-header {
+    background-color: f.$color-support-brand-06;
+    padding: f.spacing(d);
+
+    @include f.media('<=narrowMid') {
+        padding-left: calc($headerInlinePadding + $navToggleWidth + $headerInlinePadding);
+    }
+}
+
+.c-header-logo {
+    display: inline-block;
+    height: $headerLogoHeight;
+
+    img {
+        height: 100%;
+        width: auto;
+    }
+}
