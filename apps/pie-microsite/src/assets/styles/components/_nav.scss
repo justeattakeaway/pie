@@ -42,19 +42,17 @@ $nav-item-active-left-padding:        calc($nav-item-left-padding - $nav-item-ac
 
 .c-nav-toggle {
   margin-left: auto;
-}
-
-.c-nav-toggle--open {
-  display: block;
-  .c-nav details[open] & {
-    display: none;
-  }
-}
-
-.c-nav-toggle--close {
   display: none;
+  
   .c-nav details[open] & {
     display: block;
+  }
+}
+.c-nav-toggle--open {
+  display: block;
+  
+  .c-nav details[open] & {
+    display: none;
   }
 }
 
