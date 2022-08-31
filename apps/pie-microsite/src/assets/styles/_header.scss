@@ -2,8 +2,9 @@
 
 .c-header {
     display: block;
-    background-color: f.$color-support-brand-06;
     padding: f.spacing(b);
+    transition: cubic-bezier(0.25, 1, 1);
+    border-radius: 5px;
 
     .c-header-logo {
         width: 80px;

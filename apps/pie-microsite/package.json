@@ -8,10 +8,12 @@
   "license": "MIT",
   "packageManager": "yarn@3.2.1",
   "scripts": {
-    "dev": "yarn build --serve",
-    "build": "yarn dlx @11ty/eleventy",
-    "lint:style": "stylelint ./src/**/*.{css,scss}",
-    "lint:style:fix": "yarn lint:style --fix"
+    "watch:sass": "sass --watch --load-path=../../node_modules/ src/assets/styles:dist/assets/styles",
+    "watch:eleventy": "eleventy --serve",
+    "build:sass": "sass --load-path=../../node_modules/ src/assets/styles:dist/assets/styles",
+    "build:eleventy": "eleventy",
+    "dev": "npm-run-all build:sass --parallel watch:sass watch:eleventy",
+    "build": "npm-run-all build:eleventy build:sass"
   },
   "browserslist": [
     "extends @justeat/browserslist-config-fozzie"
@@ -21,6 +23,7 @@
     "@11ty/eleventy-navigation": "^0.3.3",
     "@justeat/fozzie": "9.0.0-beta.8",
     "autoprefixer": "10.4.7",
+    "npm-run-all": "4.1.5",
     "postcss": "8.4.14",
     "sass": "1.54.0"
   },

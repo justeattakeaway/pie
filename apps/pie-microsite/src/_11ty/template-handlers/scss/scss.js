@@ -8,7 +8,7 @@ const PATH_TO_NODE_MODULES = "../../node_modules/"; // Turborepo keeps dependenc
 
 /**
  * Tells Eleventy how to compile SCSS files into CSS when building the project
- * @param {*} eleventyConfig 
+ * @param {*} eleventyConfig
  */
 module.exports = function (eleventyConfig) {
   eleventyConfig.addTemplateFormats(TEMPLATE_EXTENSION);
