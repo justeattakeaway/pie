@@ -11,7 +11,7 @@ v1.12.0
 - `cssnano` for minification and `postcss-cli` & `postcss` for autoprefixing.
 
 ### Removed
-- `sass.js` (previous way we were prefixing and compiling css).
+- `scss.js` (previous way we were prefixing and compiling css).
 
 
 v1.11.0
