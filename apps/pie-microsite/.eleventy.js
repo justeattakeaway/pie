@@ -2,8 +2,7 @@ const eleventyNavigationPlugin = require('@11ty/eleventy-navigation');
 
 const {
   filters,
-  shortcodes,
-  templateHandlers
+  shortcodes
 } = require('./src/_11ty');
 
 module.exports = eleventyConfig => {
@@ -18,9 +17,6 @@ module.exports = eleventyConfig => {
 
   // Copy over img directory to dist directory.
   eleventyConfig.addPassthroughCopy({ 'src/assets/img': 'assets/img' });
-
-  // Custom File Extension handling
-  templateHandlers.scss(eleventyConfig);
 
   // Custom shortcodes
   eleventyConfig.addShortcode("storybook", shortcodes.storybook);

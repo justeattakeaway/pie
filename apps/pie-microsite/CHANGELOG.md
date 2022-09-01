@@ -3,6 +3,17 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+v1.12.0
+------------------------------
+*September 01, 2022*
+
+### Added
+- `cssnano` for minification and `postcss-cli` & `postcss` for autoprefixing.
+
+### Removed
+- `sass.js` (previous way we were prefixing and compiling css).
+
+
 v1.11.0
 ------------------------------
 *August 31, 2022*
