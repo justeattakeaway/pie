@@ -1,7 +1,6 @@
 const collections = require('./collections');
 const filters = require('./filters');
 const shortcodes = require('./shortcodes');
-const templateHandlers = require('./template-handlers');
 
 /**
  * All resources needed for the .eleventy.js file should be exported from here
@@ -10,6 +9,5 @@ const templateHandlers = require('./template-handlers');
 module.exports = {
   collections,
   filters,
-  shortcodes,
-  templateHandlers
+  shortcodes
 }
