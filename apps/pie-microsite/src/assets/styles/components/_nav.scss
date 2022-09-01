@@ -1,4 +1,4 @@
-@use 'fozzie-config' as f;
+@use '../fozzie-config' as f;
 
 $nav-category-padding:                f.spacing(d);
 $nav-category-gap:                    f.spacing(d);
@@ -36,21 +36,21 @@ $nav-item-active-left-padding:        calc($nav-item-left-padding - $nav-item-ac
 // Hide the default summary icon
 .c-nav-category::-webkit-details-marker,
 .c-nav-category::marker {
-  display: none; 
+  display: none;
   content: "";
 }
 
 .c-nav-toggle {
   margin-left: auto;
   display: none;
-  
+
   .c-nav details[open] & {
     display: block;
   }
 }
 .c-nav-toggle--open {
   display: block;
-  
+
   .c-nav details[open] & {
     display: none;
   }

@@ -1,11 +1,12 @@
 const eleventyNavigationPlugin = require('@11ty/eleventy-navigation');
+
 const {
   filters,
   shortcodes,
   templateHandlers
 } = require('./src/_11ty');
 
-module.exports = function (eleventyConfig) {
+module.exports = eleventyConfig => {
   // Watch target scss folder for all changes.
   eleventyConfig.addWatchTarget('src/assets/styles/');
 
@@ -22,8 +23,8 @@ module.exports = function (eleventyConfig) {
   templateHandlers.scss(eleventyConfig);
 
   // Custom shortcodes
-  eleventyConfig.addShortcode("storybook", shortcodes.storybook)
-  eleventyConfig.addShortcode("codesandbox", shortcodes.codesandbox)
+  eleventyConfig.addShortcode("storybook", shortcodes.storybook);
+  eleventyConfig.addShortcode("codesandbox", shortcodes.codesandbox);
 
   return {
     dir: {
