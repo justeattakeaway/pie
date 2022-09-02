@@ -3,10 +3,8 @@ eleventyNavigation:
     key: Colour
     parent: Foundations
 title: Colour
+description: Our colour system builds on the recognition of the JET brand colours to make the product interface more usable.
 ---
-
-Our colour system builds on the recognition of the JET brand colours to make the product interface more usable.
-
 ## Our colour principles
 
 Here are some principles which can help you apply colour in your products more effectively.

@@ -8,14 +8,20 @@
             padding: f.spacing(i);
         }
     }
+
+    & p {
+        color: f.$color-content-subdued;
+    }
 }
 
 .c-contentPage-header {
     & h1  {
         @include f.font-size('heading-xxl');
+        font-weight: f.$font-weight-extrabold;
     }
 
     & p {
+        @include f.font-size('heading-s');
         margin-top: f.spacing(e);
     }
 }
