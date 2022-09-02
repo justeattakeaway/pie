@@ -19,8 +19,7 @@ module.exports = eleventyConfig => {
   eleventyConfig.addPassthroughCopy({ 'src/assets/img': 'assets/img' });
 
   // Custom shortcodes
-  eleventyConfig.addShortcode("storybook", shortcodes.storybook);
-  eleventyConfig.addShortcode("codesandbox", shortcodes.codesandbox);
+  shortcodes.addAllShortCodes(eleventyConfig);
 
   return {
     dir: {

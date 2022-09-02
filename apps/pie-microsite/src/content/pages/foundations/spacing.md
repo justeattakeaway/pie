@@ -15,18 +15,21 @@ There are several types of spacing we can use to place elements within layouts a
 Padding is the distance between elements within a component, which it can be applied vertically and horizontally.
 
 
-![Padding example](../../../../assets/img/foundations/spacing/spacing-01.svg)
-
-The example above shows a 24px Left and Right Padding, which is part of our Button component.
+{% contentPageImage { 
+    src:"../../../../assets/img/foundations/spacing/spacing-01.svg", 
+    width: 97, 
+    height: 120,
+    caption: "The example above shows a 24px Left and Right Padding, which is part of our Button component." } %}
 
 ### Margins
 
 Margins are the distance between components, which can be applied vertically and horizontally. They define the relationship between components, layout and viewport size.
 
-![Margin example](../../../../assets/img/foundations/spacing/margin-01.svg)
-
-The example above shows a 16px margin between a Secondary and Primary button.
-
+{% contentPageImage { 
+    src:"../../../../assets/img/foundations/spacing/margin-01.svg", 
+    width: 224, 
+    height: 120,
+    caption: "The example above shows a 16px margin between a Secondary and Primary button." } %}
 
 ### Dimensions
 
