@@ -17,9 +17,9 @@ Padding is the distance between elements within a component, which it can be app
 
 {% contentPageImage { 
     src:"../../../../assets/img/foundations/spacing/spacing-01.svg", 
-    width: 97, 
-    height: 120,
-    caption: "The example above shows a 24px Left and Right Padding, which is part of our Button component." } %}
+    width: "97px",
+    caption: "The example above shows a 24px Left and Right Padding, which is part of our Button component." 
+} %}
 
 ### Margins
 
@@ -27,17 +27,19 @@ Margins are the distance between components, which can be applied vertically and
 
 {% contentPageImage { 
     src:"../../../../assets/img/foundations/spacing/margin-01.svg", 
-    width: 224, 
-    height: 120,
-    caption: "The example above shows a 16px margin between a Secondary and Primary button." } %}
+    width: "224px", 
+    caption: "The example above shows a 16px margin between a Secondary and Primary button." 
+} %}
 
 ### Dimensions
 
 Dimensions describe the overall width and height of a component or design element. While vertical dimensions should always stick to our spacing scale, horizontal dimensions won’t be specified because they are responsive to the viewport’s width.
 
-![Dimensions example](../../../../assets/img/foundations/spacing/dimensions-01.svg)
-
-The example above shows how a Primary Button’s width spans across 328px to fit the width of the X-Small Layout.
+{% contentPageImage { 
+    src:"../../../../assets/img/foundations/spacing/dimensions-01.svg", 
+    width: "360px", 
+    caption: "The example above shows how a Primary Button’s width spans across 328px to fit the width of the X-Small Layout." 
+} %}
 
 --- 
 
@@ -47,7 +49,11 @@ Our main approach for designing components can be categorised as ‘element firs
 
 For instance, an element might be set to always have a height of 48px, regardless of the content that can be found inside it. This means that if the component has different variations (like different typographic sizes) it will always preserve a 48px height, and it’s the internal padding that’s going to change to accommodate the difference in height.
 
-![First approach example](../../../../assets/img/foundations/spacing/approach-01.svg)
+{% contentPageImage { 
+    src:"../../../../assets/img/foundations/spacing/approach-01.svg", 
+    width: "246px", 
+    caption: "The Top and Bottom Padding for this button are set to 14px, which isn’t part of our spacing scale. However, this is done to preserve the overall height of the button (56px), which is a measure within our spacing scale." 
+} %}
 
 ---
 
@@ -69,10 +75,11 @@ The example above shows a One-Line List component which uses its default spacing
 
 Compact spacing uses smaller space measures for its components’ paddings, margins and dimensions. This helps economise the space used in the screen and allows us to include more contents and information within the viewport.
 
-![Compact spacing example](../../../../assets/img/foundations/spacing/spacing-compact.svg)
-
-The example above shows a One-Line List component which uses its compact spacing variant.
-
+{% contentPageImage { 
+    src:"../../../../assets/img/foundations/spacing/spacing-compact.svg", 
+    width: "408px", 
+    caption: "The example above shows a One-Line List component which uses its compact spacing variant" 
+} %}
 
 ### About Default and Compact
 
@@ -91,9 +98,11 @@ Horizontal spacing within design layouts should always try to adhere to our pred
 
 Regarding vertical spacing, make sure to use spacing as a way to create meaningful blocks of content, using bigger and smaller spacing measures to improve the visual hierarchy of your layout and to keep a consisten vertical rythm within the page.
 
-![Layout spacing example](../../../../assets/img/foundations/spacing/layout-spacing.svg)
-
-In the example above you can see how most of the vertical spacing (pink guides) has been defined using our spacing scale, while horizontal spacing is mostly defined by the Layout Grid (purple guides – make sure your Grids are turned on to see these).
+{% contentPageImage { 
+    src:"../../../../assets/img/foundations/spacing/layout-spacing.svg", 
+    width: "904.01px", 
+    caption: "In the example above you can see how most of the vertical spacing (pink guides) has been defined using our spacing scale, while horizontal spacing is mostly defined by the Layout Grid (purple guides – make sure your Grids are turned on to see these)." 
+} %}
 
 
 ### Component spacing

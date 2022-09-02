@@ -1,7 +1,7 @@
 @use '../fozzie-config' as f;
 
 $figure-height:         280px;
-$content-max-width:     600px;
+$content-max-width:     80ch;
 
 .c-contentPage {
     > * {
@@ -50,7 +50,8 @@ $content-max-width:     600px;
 }
 
 .c-contentPage-header > *, 
-.c-contentPage-main > *:not(figure) {
+.c-contentPage-main > *:not(figure, hr),
+.c-contentPage-main figcaption {
     max-width: $content-max-width;
 }
 
@@ -64,13 +65,21 @@ $content-max-width:     600px;
 }
 
 .c-contentPage-image > div {
-    height: $figure-height;
+    min-height: $figure-height;
+    padding: f.spacing(h) f.spacing(d);
     margin-top: f.spacing(e);
     background-color: f.$color-background-subtle;
     border-radius: f.$radius-rounded-d;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.c-contentPage-image img {
+    width: var(--img-width);
+    max-width: 100%;
+    height: auto;
+
 }
 
 .c-contentPage-image > figcaption {
