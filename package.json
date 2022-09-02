@@ -31,5 +31,9 @@
     "stylelint": "14.9.1",
     "stylelint-config-standard-scss": "5.0.0",
     "turbo": "^1.3.1"
+  },
+  "dependencies": {
+    "@justeat/fozzie": "10.x",
+    "@justeattakeaway/pie-icons": "1.x"
   }
 }

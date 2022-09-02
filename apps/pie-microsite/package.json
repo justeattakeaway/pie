@@ -1,7 +1,7 @@
 {
   "name": "pie-microsite",
   "description": "todo",
-  "version": "1.12.0",
+  "version": "1.12.1",
   "main": "index.js",
   "keywords": [],
   "author": "JustEatTakeaway - Vue Design System Team",
@@ -30,9 +30,5 @@
     "postcss": "8.4.16",
     "postcss-cli": "10.0.0",
     "sass": "1.54.0"
-  },
-  "dependencies": {
-    "@justeat/fozzie": "9.3.1",
-    "@justeattakeaway/pie-icons": "1.0.0"
   }
 }
