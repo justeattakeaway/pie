@@ -9,7 +9,7 @@ v1.12.1
 *September 02, 2022*
 
 ### Removed
-- Moved `@justeat/fozzie` and `@justeattakeaway/pie-icons` into root level depedencies
+- Moved most dev dependencies to project root
 
 
 v1.12.0

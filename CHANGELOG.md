@@ -9,7 +9,8 @@ v1.10.0
 *September 2, 2022*
 
 ### Added
-- Moved `@justeat/fozzie` and `@justeattakeaway/pie-icons` from pie-microsite into root level depedencies
+- Moved most dev dependencies from pie-microsite into root level depedencies
+- Dependency resolution fix to `.yarnrc.yml` for `stylelint-config-recommended-scss` and `stylelint-config-standard-scss` as recommended in [this github issues thread](https://github.com/stylelint-scss/stylelint-config-recommended-scss/issues/89#issuecomment-988536998)
 
 
 v1.9.0
