@@ -1,5 +1,8 @@
 @use '../fozzie-config' as f;
 
+$figure-height:         280px;
+$content-max-width:     600px;
+
 .c-contentPage {
     > * {
         padding: f.spacing(f) f.spacing(d);
@@ -46,9 +49,10 @@
     }
 }
 
-// .c-contentPage-main svg {
-//     background-color: f.$color-background-subtle;
-// }
+.c-contentPage-header > *, 
+.c-contentPage-main > *:not(figure) {
+    max-width: $content-max-width;
+}
 
 .c-contentPage-main hr {
     margin-top: f.spacing(i);
@@ -60,7 +64,7 @@
 }
 
 .c-contentPage-image > div {
-    height: 280px;
+    height: $figure-height;
     margin-top: f.spacing(e);
     background-color: f.$color-background-subtle;
     border-radius: f.$radius-rounded-d;
