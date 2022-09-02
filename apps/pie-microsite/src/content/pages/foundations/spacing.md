@@ -36,6 +36,8 @@ Dimensions describe the overall width and height of a component or design elemen
 
 The example above shows how a Primary Button’s width spans across 328px to fit the width of the X-Small Layout.
 
+--- 
+
 ## Element first approach
 
 Our main approach for designing components can be categorised as ‘element first’. This means that the sizing of components and design elements takes priority when matched to our predetermined spatial system. We follow this approach to keep a consistent rythm within the overall composition and layout of our designs.
@@ -43,6 +45,8 @@ Our main approach for designing components can be categorised as ‘element firs
 For instance, an element might be set to always have a height of 48px, regardless of the content that can be found inside it. This means that if the component has different variations (like different typographic sizes) it will always preserve a 48px height, and it’s the internal padding that’s going to change to accommodate the difference in height.
 
 ![First approach example](../../../../assets/img/foundations/spacing/approach-01.svg)
+
+---
 
 ## Default and Compact spacing
 
@@ -71,6 +75,7 @@ The example above shows a One-Line List component which uses its compact spacing
 
 While this is something you should keep in mind, it shouldn’t be taken as a strict rule and can be assessed on a case by case basis.
 
+---
 
 ## Examples of use
 

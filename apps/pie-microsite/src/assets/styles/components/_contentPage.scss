@@ -28,4 +28,27 @@
 
 .c-contentPage-main {
     background-color: f.$color-background-default;
+    border-top: 1px solid f.$color-border-default;
+
+    & h2 {
+        @include f.font-size('heading-l');
+    }
+
+    & h3 {
+        @include f.font-size('heading-m');
+        font-weight: f.$font-weight-regular;
+    }
+
+    & p + h3 {
+        margin-top: f.spacing(f);
+    }
+}
+
+.c-contentPage-main svg {
+    background-color: f.$color-background-subtle;
+}
+
+.c-contentPage-main hr {
+    margin-top: f.spacing(i);
+    margin-bottom: f.spacing(i);
 }
