@@ -2,7 +2,17 @@
 site_title: Pie Site
 layout: layouts/default-layout.njk
 ---
-<h1>
-    {{ title }}
-</h1>
-{{ content | safe }}
+<div class="c-contentPage">
+    <div class="c-contentPage-header">
+        <h1>
+            {{ title }}
+        </h1>
+        <p>
+        {{ description }}
+        </p>
+    </div>
+
+    <div class="c-contentPage-main">
+    {{ content | safe }}
+    </div>
+</div>

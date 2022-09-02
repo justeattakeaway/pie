@@ -1,0 +1,25 @@
+@use '../fozzie-config' as f;
+
+.c-contentPage {
+    > * {
+        padding: f.spacing(f) f.spacing(d);
+
+        @include f.media('>narrowMid') {
+            padding: f.spacing(i);
+        }
+    }
+}
+
+.c-contentPage-header {
+    & h1  {
+        @include f.font-size('heading-xxl');
+    }
+
+    & p {
+        margin-top: f.spacing(e);
+    }
+}
+
+.c-contentPage-main {
+    background-color: f.$color-background-default;
+}

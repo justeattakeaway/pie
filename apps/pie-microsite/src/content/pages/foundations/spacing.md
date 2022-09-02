@@ -3,9 +3,8 @@ eleventyNavigation:
     key: Spacing
     parent: Foundations
 title: Spacing
+description: Space is the horizontal and vertical distance between or around different design elements.
 ---
-
-Space is the horizontal and vertical distance between or around different design elements.
 
 ## Types of spacing
 
