@@ -28,6 +28,14 @@ const notificationIcons = {
   positive: 'CheckCircleOutline'
 }
 
+/**
+ * A Notification HTML component
+ * @param {object} config - the Notification configuration
+ * @param {string} config.type - Type of notification: information, error, warning or positive
+ * @param {string} config.title - The title of the Notification
+ * @param {string} config.message - The message within the Notification 
+ * @returns {string}
+ */
 module.exports = function (config) {
   const svg = pieIconsSvg({ 
     name: notificationIcons[config.type], 
@@ -40,9 +48,9 @@ module.exports = function (config) {
 
   const bgColour = getNotificationColour(notificationBackgroundColours[config.type]);
   
-  return `<article class="c-notification" style="--bgColour: ${bgColour}">
+  return `<aside class="c-notification" style="--bgColour: ${bgColour}">
     ${svg}
     <h4>${config.title}</h4>
     <p>${config.message}</p>
-  </article>`;
+  </aside>`;
 };
