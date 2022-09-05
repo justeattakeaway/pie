@@ -47,10 +47,14 @@ $content-max-width:     80ch;
     & figure + h3 {
         margin-top: f.spacing(f);
     }
+
+    & .c-notification {
+        margin-top: f.spacing(f);
+    }
 }
 
 .c-contentPage-header > *, 
-.c-contentPage-main > *:not(figure, hr),
+.c-contentPage-main > *:not(figure, hr, .c-notification),
 .c-contentPage-main figcaption {
     max-width: $content-max-width;
 }

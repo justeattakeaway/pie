@@ -83,9 +83,11 @@ Compact spacing uses smaller space measures for its components’ paddings, marg
     caption: "The example above shows a One-Line List component which uses its compact spacing variant" 
 } %}
 
-### About Default and Compact
-
-While this is something you should keep in mind, it shouldn’t be taken as a strict rule and can be assessed on a case by case basis.
+{% notification { 
+    type: "information",
+    title: "About Default and Compact",
+    message: "While this is something you should keep in mind, it shouldn’t be taken as a strict rule and can be assessed on a case by case basis." 
+} %}
 
 ---
 
@@ -113,7 +115,7 @@ A good rule of thumb for designing components is to try using the same spacing v
 
 {% contentPageImage { 
     src:"../../../../assets/img/foundations/spacing/component-spacing.svg", 
-    width: "424px" 
+    width: "424px"
 } %}
 
 ### Typography spacing

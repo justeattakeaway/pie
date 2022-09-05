@@ -1,0 +1,31 @@
+@use '../fozzie-config' as f;
+
+$icon-width:                        23.73px; // must be kept in sync with the size given in notifications.js shortcode
+$notification-padding:              f.spacing(d);
+$combinedIconAndPaddingWidth:       calc($icon-width + $notification-padding);
+
+.c-notification {
+    background-color: var(--bgColour);
+    padding: $notification-padding;
+    border-radius: f.$radius-rounded-c;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.c-notification h4 {
+    @include f.font-size('heading-s');
+    font-weight: f.$font-weight-extrabold;
+}
+
+.c-notification :nth-child(2) {
+    margin-top: 0;
+    width: calc(100% - $combinedIconAndPaddingWidth);
+    margin-left: $notification-padding;
+}
+
+.c-notification :nth-child(3) {
+    margin-left: $combinedIconAndPaddingWidth;
+    margin-top: f.spacing(a);
+    flex: 1;
+}
