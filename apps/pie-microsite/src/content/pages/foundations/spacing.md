@@ -67,9 +67,11 @@ This is why we have defined two different spacing concepts to refer to these spa
 
 Default spacing uses bigger space measures for its components’ paddings, margins and dimensions. This helps improve the readability and visibility of all the components and information within the layout. The use of breathing space around components is encouraged to help achieve this.
 
-![Default spacing example](../../../../assets/img/foundations/spacing/spacing-default.svg)
-
-The example above shows a One-Line List component which uses its default spacing variant.
+{% contentPageImage { 
+    src:"../../../../assets/img/foundations/spacing/spacing-default.svg", 
+    width: "408px", 
+    caption: "The example above shows a One-Line List component which uses its default spacing variant." 
+} %}
 
 ### Compact
 
@@ -109,11 +111,16 @@ Regarding vertical spacing, make sure to use spacing as a way to create meaningf
 
 A good rule of thumb for designing components is to try using the same spacing value for all your outer paddings, as this will make the overall component look more balanced. Also, try to use alignment centre alignment for design elements that are smaller than the area they occupy (e.g. the Toggle Button).
 
-![Component spacing example](../../../../assets/img/foundations/spacing/component-spacing.svg)
+{% contentPageImage { 
+    src:"../../../../assets/img/foundations/spacing/component-spacing.svg", 
+    width: "424px" 
+} %}
 
 ### Typography spacing
 
 When using spacing between typographic elements, try to ensure legibility is prioritised. You can also use spacing to dictate the visual hierarchy of your text, using tigther spaces to create blocks of content and bigger spaces to separate unrelated bits of content.
 
-![Typography spacing example](../../../../assets/img/foundations/spacing/typography-spacing.svg)
-
+{% contentPageImage { 
+    src:"../../../../assets/img/foundations/spacing/typography-spacing.svg", 
+    width: "424px" 
+} %}
