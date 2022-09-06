@@ -1,6 +1,6 @@
 createCaption = function (config) {
   if (config.captionType === 'list') {
-    return `<figcaption>
+    return `<figcaption class="c-contentImage-caption">
       ${config.caption}
       <ul>
         ${config.captionListItems.map(item => `<li>${item}</li>`).join('')}
@@ -8,7 +8,7 @@ createCaption = function (config) {
     </figcaption>`;
   }
 
-  return `<figcaption>${config.caption}</figcaption>`;
+  return `<figcaption class="c-contentImage-caption">${config.caption}</figcaption>`;
 };
 
 /**
@@ -24,29 +24,29 @@ createCaption = function (config) {
 module.exports = function (config) {
   if (config.type !== 'spread') {
     if (config.caption) {
-      return `<figure class="c-contentPage-image c-contentPage-image--with-bg">
-        <div>
+      return `<figure class="c-contentImage c-contentImage--with-bg">
+        <div class="c-contentImage-bg">
           <img style="--img-width: ${config.width};" src="${config.src}" ${config.alt ? `alt="${config.alt}"` : ''} />
         </div>
         ${createCaption(config)}
       </figure>`;
     }
     
-    return `<figure class="c-contentPage-image c-contentPage-image--with-bg">
-      <div>
+    return `<figure class="c-contentImage c-contentImage--with-bg">
+      <div class="c-contentImage-bg">
         <img style="--img-width: ${config.width};" src="${config.src}" ${config.alt ? `alt="${config.alt}"` : ''} />
       </div>
     </figure>`;
   }
 
   if (config.caption) {
-    return `<figure class="c-contentPage-image">
+    return `<figure class="c-contentImage">
       <img src="${config.src}" ${config.alt ? `alt="${config.alt}"` : ''} />
       ${createCaption(config)}
     </figure>`;
   }
 
-  return `<figure class="c-contentPage-image">
+  return `<figure class="c-contentImage">
       <img src="${config.src}" ${config.alt ? `alt="${config.alt}"` : ''} />
     </figure>`;
 }
