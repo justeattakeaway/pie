@@ -8,10 +8,12 @@ $content-max-width:     80ch;
     min-height: 100%;
     
     > * {
-        padding: f.spacing(f) f.spacing(d);
+        padding-left: f.spacing(d);
+        padding-right: f.spacing(d);
 
         @include f.media('>narrowMid') {
-            padding: f.spacing(i);
+            padding-left: f.spacing(i);
+            padding-right: f.spacing(i);
         }
     }
 
@@ -22,6 +24,14 @@ $content-max-width:     80ch;
 }
 
 .c-contentPage-header {
+    padding-top: f.spacing(f);
+    padding-bottom: f.spacing(f);
+
+    @include f.media('>narrowMid') {
+        padding-top: f.spacing(i);
+        padding-bottom: f.spacing(i);
+    }
+    
     & h1  {
         @include f.font-size('heading-xxl');
         font-weight: f.$font-weight-extrabold;
@@ -37,9 +47,11 @@ $content-max-width:     80ch;
     flex: 1;
     background-color: f.$color-background-default;
     border-top: 1px solid f.$color-border-default;
+    padding-top: f.spacing(f);
     padding-bottom: f.spacing(j);
 
     @include f.media('>narrowMid') {
+        padding-top: f.spacing(h);
         padding-bottom: calc(f.spacing(j) + f.spacing(d));
     }
 
