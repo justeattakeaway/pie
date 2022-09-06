@@ -37,6 +37,11 @@ $content-max-width:     80ch;
     flex: 1;
     background-color: f.$color-background-default;
     border-top: 1px solid f.$color-border-default;
+    padding-bottom: f.spacing(j);
+
+    @include f.media('>narrowMid') {
+        padding-bottom: calc(f.spacing(j) + f.spacing(d));
+    }
 
     & h2 {
         @include f.font-size('heading-l');
