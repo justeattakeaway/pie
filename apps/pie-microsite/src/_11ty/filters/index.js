@@ -2,10 +2,14 @@ const pieIconsSvg = require('./pieIconsSvg');
 const pieDesignTokenColours = require('./pieDesignTokenColours');
 
 /**
- * All custom 11ty filters should be part of the exported object
- * So that they can be registered in the .eleventy.js file
+ * Adds all 11ty filters
+ * @param {object} eleventyConfig 
  */
+const addAllFilters = eleventyConfig => {
+  eleventyConfig.addFilter("pieIconsSvg", pieIconsSvg);
+  eleventyConfig.addFilter("pieDesignTokenColours", pieDesignTokenColours);
+};
+
 module.exports = {
-  pieIconsSvg,
-  pieDesignTokenColours
-}
+  addAllFilters
+};

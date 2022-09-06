@@ -4,6 +4,10 @@ $figure-height:         280px;
 $content-max-width:     80ch;
 
 .c-contentPage {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    
     > * {
         padding: f.spacing(f) f.spacing(d);
 
@@ -31,6 +35,7 @@ $content-max-width:     80ch;
 }
 
 .c-contentPage-main {
+    flex: 1;
     background-color: f.$color-background-default;
     border-top: 1px solid f.$color-border-default;
 

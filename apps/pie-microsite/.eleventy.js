@@ -1,24 +1,24 @@
-const eleventyNavigationPlugin = require('@11ty/eleventy-navigation');
 
 const {
   filters,
-  shortcodes
+  shortcodes,
+  plugins
 } = require('./src/_11ty');
 
 module.exports = eleventyConfig => {
   // Watch target scss folder for all changes.
   eleventyConfig.addWatchTarget('src/assets/styles/');
 
-  eleventyConfig.addPlugin(eleventyNavigationPlugin);
-
-  // Custom Filter registrations
-  eleventyConfig.addFilter("pieIconsSvg", filters.pieIconsSvg);
-  eleventyConfig.addFilter("pieDesignTokenColours", filters.pieDesignTokenColours);
-
   // Copy over img directory to dist directory.
   eleventyConfig.addPassthroughCopy({ 'src/assets/img': 'assets/img' });
 
-  // Custom shortcodes
+  // Plugins
+  plugins.addAllPlugins(eleventyConfig);
+  
+  // Filters
+  filters.addAllFilters(eleventyConfig);
+
+  // Shortcodes
   shortcodes.addAllShortCodes(eleventyConfig);
 
   return {
