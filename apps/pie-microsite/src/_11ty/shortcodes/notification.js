@@ -48,9 +48,16 @@ module.exports = function (config) {
 
   const bgColour = getNotificationColour(notificationBackgroundColours[config.type]);
   
+  if (config.title) {
+    return `<aside class="c-notification" style="--bgColour: ${bgColour}">
+      ${svg}
+      <h4 class="c-notification-title">${config.title}</h4>
+      <p class="c-notification-message">${config.message}</p>
+    </aside>`;
+  }
+
   return `<aside class="c-notification" style="--bgColour: ${bgColour}">
     ${svg}
-    <h4>${config.title}</h4>
-    <p>${config.message}</p>
+    <p class="c-notification-message">${config.message}</p>
   </aside>`;
 };

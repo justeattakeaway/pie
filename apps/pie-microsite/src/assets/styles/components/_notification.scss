@@ -13,18 +13,20 @@ $combinedIconAndPaddingWidth:       calc($icon-width + $notification-padding);
     flex-wrap: wrap;
 }
 
-.c-notification h4 {
+.c-notification-title {
     @include f.font-size('heading-s');
     font-weight: f.$font-weight-extrabold;
 }
 
+// The first text child (title or message if there's no title) 
+//on the component should sit in line with the icon
 .c-notification :nth-child(2) {
     margin-top: 0;
     width: calc(100% - $combinedIconAndPaddingWidth);
     margin-left: $notification-padding;
 }
 
-.c-notification :nth-child(3) {
+.c-notification-title ~ .c-notification-message  {
     margin-left: $combinedIconAndPaddingWidth;
     margin-top: f.spacing(a);
     flex: 1;
