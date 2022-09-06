@@ -31,16 +31,11 @@ $content-max-width:     80ch;
         padding-top: f.spacing(i);
         padding-bottom: f.spacing(i);
     }
-    
-    & h1  {
-        @include f.font-size('heading-xxl');
-        font-weight: f.$font-weight-extrabold;
-    }
+}
 
-    & p {
-        @include f.font-size('heading-s');
-        margin-top: f.spacing(e);
-    }
+.c-contentPage-header-subheading {
+    @include f.font-size('heading-s');
+    margin-top: f.spacing(e);
 }
 
 .c-contentPage-main {
@@ -53,15 +48,6 @@ $content-max-width:     80ch;
     @include f.media('>narrowMid') {
         padding-top: f.spacing(h);
         padding-bottom: calc(f.spacing(j) + f.spacing(d));
-    }
-
-    & h2 {
-        @include f.font-size('heading-l');
-    }
-
-    & h3 {
-        @include f.font-size('heading-m');
-        font-weight: f.$font-weight-regular;
     }
 
     & p + h3, 
