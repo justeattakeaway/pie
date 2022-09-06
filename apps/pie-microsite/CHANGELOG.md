@@ -4,6 +4,25 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 
+v1.13.0
+------------------------------
+*September 06, 2022*
+
+### Added
+- Styling for the content pages
+- A shortcode, `contentPageImage` to add captioned / non-captioned images to `markdown` files in line with the designs
+- A `notification` shortcode for adding them to `markdown` file content
+- Bold and Extrabold `JETSansDigital` fonts
+
+### Changed
+- Use module-based functions to register all plugins, shortcodes and filters in `.eleventy.js`
+- Use `markdown` file for index page rather than `HTML`
+
+### Removed
+- Placeholder react and vue component pages
+
+
+
 v1.12.1
 ------------------------------
 *September 02, 2022*
