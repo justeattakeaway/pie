@@ -1,6 +1,6 @@
 @use '../fozzie-config' as f;
 
-$content-max-width:     80ch;
+$content-max-width: 80ch;
 
 .c-contentPage {
     display: flex;
@@ -18,14 +18,15 @@ $content-max-width:     80ch;
     }
 
     & p,
-    & .c-contentImage {
+    & .c-contentPage-img {
         color: f.$color-content-subdued;
     }
 }
 
 .c-contentPage-header > *, 
-.c-contentPage-main > *:not(.c-contentImage, hr, .c-notification),
-.c-contentPage-main .c-contentImage-caption {
+.c-contentPage-main > *:not(.c-contentPage-img, hr, .c-contentPage-notification),
+// any text items within the image such as captions
+.c-contentPage-main .c-contentPage-img *:not(div, img) {
     max-width: $content-max-width;
 }
 
@@ -68,13 +69,12 @@ $content-max-width:     80ch;
         margin-top: f.spacing(d);
     }
 
-    > p + figure,
-    > p + img {
+    > p + .c-contentPage-img {
         margin-top: f.spacing(e);
     }
 
-    > figure + h3,
-    > figure + h4 {
+    > .c-contentPage-img + h3,
+    > .c-contentPage-img + h4 {
         margin-top: f.spacing(f);
     }
 
@@ -94,7 +94,7 @@ $content-max-width:     80ch;
         margin-top: f.spacing(f);
     }
 
-    & .c-notification {
+    & .c-contentPage-notification {
         margin-top: f.spacing(f);
     }
 }

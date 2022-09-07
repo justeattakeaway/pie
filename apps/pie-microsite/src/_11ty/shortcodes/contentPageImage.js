@@ -24,7 +24,7 @@ createCaption = function (config) {
 module.exports = function (config) {
   if (config.type !== 'spread') {
     if (config.caption) {
-      return `<figure class="c-contentImage c-contentImage--with-bg">
+      return `<figure class="c-contentPage-img c-contentImage c-contentImage--with-bg">
         <div class="c-contentImage-bg">
           <img style="--img-width: ${config.width};" src="${config.src}" ${config.alt ? `alt="${config.alt}"` : ''} />
         </div>
@@ -32,7 +32,7 @@ module.exports = function (config) {
       </figure>`;
     }
     
-    return `<figure class="c-contentImage c-contentImage--with-bg">
+    return `<figure class="c-contentPage-img c-contentImage c-contentImage--with-bg">
       <div class="c-contentImage-bg">
         <img style="--img-width: ${config.width};" src="${config.src}" ${config.alt ? `alt="${config.alt}"` : ''} />
       </div>
@@ -40,13 +40,13 @@ module.exports = function (config) {
   }
 
   if (config.caption) {
-    return `<figure class="c-contentImage">
+    return `<figure class="c-contentPage-img c-contentImage">
       <img src="${config.src}" ${config.alt ? `alt="${config.alt}"` : ''} />
       ${createCaption(config)}
     </figure>`;
   }
 
-  return `<figure class="c-contentImage">
+  return `<figure class="c-contentPage-img c-contentImage">
       <img src="${config.src}" ${config.alt ? `alt="${config.alt}"` : ''} />
     </figure>`;
 }

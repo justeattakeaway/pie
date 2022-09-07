@@ -1,6 +1,6 @@
 @use '../fozzie-config' as f;
 
-$figure-height:         280px;
+$contentImage-bg-minHeight:         280px;
 
 .c-contentImage {
     margin: 0;
@@ -11,21 +11,24 @@ $figure-height:         280px;
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: $figure-height;
+    min-height: $contentImage-bg-minHeight;
     padding: f.spacing(h) f.spacing(d);
     background-color: f.$color-background-subtle;
     border-radius: f.$radius-rounded-d;
 }
 
-.c-contentImage img {
-    width: 100%;
-    display: block;
-}
+.c-contentImage {
 
-.c-contentImage--with-bg img {
-    width: var(--img-width);
-    max-width: 100%;
-    height: auto;
+    & img {
+        width: 100%;
+        display: block;
+    }
+
+    &.c-contentImage--with-bg img {
+        width: var(--img-width);
+        max-width: 100%;
+        height: auto;
+    }
 }
 
 .c-contentImage-caption {
