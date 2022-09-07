@@ -23,6 +23,12 @@ $content-max-width:     80ch;
     }
 }
 
+.c-contentPage-header > *, 
+.c-contentPage-main > *:not(.c-contentImage, hr, .c-notification),
+.c-contentPage-main .c-contentImage-caption {
+    max-width: $content-max-width;
+}
+
 .c-contentPage-header {
     padding-top: f.spacing(f);
     padding-bottom: f.spacing(f);
@@ -50,8 +56,41 @@ $content-max-width:     80ch;
         padding-bottom: calc(f.spacing(j) + f.spacing(d));
     }
 
-    & p + h3, 
-    & .c-contentImage + h3 {
+    > h2 + h3 {
+        margin-top: f.spacing(e);
+    }
+
+    > h3 + h4 {
+        margin-top: f.spacing(e);
+    }
+
+    p {
+        margin-top: f.spacing(d);
+    }
+
+    > p + figure,
+    > p + img {
+        margin-top: f.spacing(e);
+    }
+
+    > figure + h3,
+    > figure + h4 {
+        margin-top: f.spacing(f);
+    }
+
+    > p + h2 {
+        margin-top: f.spacing(h); // todo - ask design about 48px measurements as we only have 40 and 56
+
+        @include f.media('>narrowMid') {
+            margin-top: f.spacing(i);
+        }
+    }
+
+    > p + h3 {
+        margin-top: f.spacing(f);
+    }
+
+    > p + h4 {
         margin-top: f.spacing(f);
     }
 
@@ -60,14 +99,12 @@ $content-max-width:     80ch;
     }
 }
 
-.c-contentPage-header > *, 
-.c-contentPage-main > *:not(.c-contentImage, hr, .c-notification),
-.c-contentPage-main .c-contentImage-caption {
-    max-width: $content-max-width;
-}
-
 .c-contentPage-main hr {
-    margin-top: f.spacing(i);
-    margin-bottom: f.spacing(i);
-}
+    margin-top: f.spacing(h);
+    margin-bottom: f.spacing(h);
 
+    @include f.media('>narrowMid') {
+        margin-top: f.spacing(i);
+        margin-bottom: f.spacing(i);
+    }
+}

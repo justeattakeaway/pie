@@ -45,13 +45,13 @@ We’re an orange brand, which means that orange always takes centre stage. It r
 
 However, there are significant difficulties when using orange in our designs, including colour contrast and accessibility issues. To tackle these we have come up with an additional colour called $color-orange.
 
-## Brand orange vs Product orange
+### Brand orange vs Product orange
 
 Product orange is a modified version of our Brand orange colour which has been created with the objective to use orange in interactive elements and components within our interfaces.
 
 Here are some guidelines which outline when to use Brand orange and Product orange in your designs:
 
-### Brand orange
+#### Brand orange
 
 {% contentPageImage { 
     src:"../../../../assets/img/foundations/colour/brand-orange.svg", 
@@ -61,7 +61,7 @@ Here are some guidelines which outline when to use Brand orange and Product oran
     captionListItems: ["Non-interactive elements", "Logos", "Illustrations", "Splash screens", "Navigation bars", "Marketing panels’ backgrounds"]
 } %}
 
-### Product orange
+#### Product orange
 
 {% contentPageImage { 
     src:"../../../../assets/img/foundations/colour/product-orange.svg", 
