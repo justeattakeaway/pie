@@ -79,7 +79,7 @@ $content-max-width:     80ch;
     }
 
     > p + h2 {
-        margin-top: f.spacing(h); // todo - ask design about 48px measurements as we only have 40 and 56
+        margin-top: f.spacing(h);
 
         @include f.media('>narrowMid') {
             margin-top: f.spacing(i);
