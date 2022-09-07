@@ -16,6 +16,12 @@ $combinedIconAndPaddingWidth:       calc($icon-width + $notification-padding);
 .c-notification-title {
     @include f.font-size('heading-s');
     font-weight: f.$font-weight-extrabold;
+
+    ~ .c-notification-message  {
+        margin-left: $combinedIconAndPaddingWidth;
+        margin-top: f.spacing(a);
+        flex: 1;
+    }
 }
 
 // The first text child (title or message if there's no title) 
@@ -24,10 +30,4 @@ $combinedIconAndPaddingWidth:       calc($icon-width + $notification-padding);
     margin-top: 0;
     width: calc(100% - $combinedIconAndPaddingWidth);
     margin-left: $notification-padding;
-}
-
-.c-notification-title ~ .c-notification-message  {
-    margin-left: $combinedIconAndPaddingWidth;
-    margin-top: f.spacing(a);
-    flex: 1;
 }
