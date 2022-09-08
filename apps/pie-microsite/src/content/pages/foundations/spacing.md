@@ -86,8 +86,7 @@ Compact spacing uses smaller space measures for its components’ paddings, marg
 {% notification { 
     type: "information",
     title: "About Default and Compact",
-    message: "While this is something you should keep in mind, it shouldn’t be taken as a strict rule and can be assessed on a case by case basis.",
-    class: "c-contentPage-notification" 
+    message: "While this is something you should keep in mind, it shouldn’t be taken as a strict rule and can be assessed on a case by case basis."
 } %}
 
 ---

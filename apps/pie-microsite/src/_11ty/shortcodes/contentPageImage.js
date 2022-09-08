@@ -19,12 +19,16 @@ createCaption = function (config) {
  * @param {string} config.width - the image width (will go to full width on smaller screens)
  * @param {string} config.alt - an optional alt for the image
  * @param {string} config.src - the image src path
+ * @param {string} config.context - a contextual string to use to in-built class names. Defaults to "contentPage".
  * @returns {string}
  */
 module.exports = function (config) {
+  const context = config.context ?? 'contentPage';
+  const contextClass = `c-${context}-img`;
+
   if (config.type !== 'spread') {
     if (config.caption) {
-      return `<figure class="c-contentPage-img c-contentImage c-contentImage--with-bg">
+      return `<figure class="${contextClass} c-contentImage c-contentImage--with-bg">
         <div class="c-contentImage-bg">
           <img style="--img-width: ${config.width};" src="${config.src}" ${config.alt ? `alt="${config.alt}"` : ''} />
         </div>
@@ -32,7 +36,7 @@ module.exports = function (config) {
       </figure>`;
     }
     
-    return `<figure class="c-contentPage-img c-contentImage c-contentImage--with-bg">
+    return `<figure class="${contextClass} c-contentImage c-contentImage--with-bg">
       <div class="c-contentImage-bg">
         <img style="--img-width: ${config.width};" src="${config.src}" ${config.alt ? `alt="${config.alt}"` : ''} />
       </div>
@@ -40,13 +44,13 @@ module.exports = function (config) {
   }
 
   if (config.caption) {
-    return `<figure class="c-contentPage-img c-contentImage">
+    return `<figure class="${contextClass} c-contentImage">
       <img src="${config.src}" ${config.alt ? `alt="${config.alt}"` : ''} />
       ${createCaption(config)}
     </figure>`;
   }
 
-  return `<figure class="c-contentPage-img c-contentImage">
+  return `<figure class="${contextClass} c-contentImage">
       <img src="${config.src}" ${config.alt ? `alt="${config.alt}"` : ''} />
     </figure>`;
 }

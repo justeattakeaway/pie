@@ -33,10 +33,14 @@ const notificationIcons = {
  * @param {object} config - the Notification configuration
  * @param {string} config.type - Type of notification: information, error, warning or positive
  * @param {string} config.title - The title of the Notification
- * @param {string} config.message - The message within the Notification 
+ * @param {string} config.message - The message within the Notification
+ * @param {string} config.context - a contextual string to use to in-built class names. Defaults to "contentPage".
  * @returns {string}
  */
 module.exports = function (config) {
+  const context = config.context ?? 'contentPage';
+  const contextClass = `c-${context}-notification`;
+
   const svg = pieIconsSvg({ 
     name: notificationIcons[config.type], 
     attrs: { 
@@ -49,14 +53,14 @@ module.exports = function (config) {
   const bgColour = getNotificationColour(notificationBackgroundColours[config.type]);
 
   if (config.title) {
-    return `<aside class="${config.class ? config.class + ' ' : ''}c-notification" style="--bgColour: ${bgColour}">
+    return `<aside class="${contextClass} c-notification" style="--bgColour: ${bgColour}">
       ${svg}
       <h4 class="c-notification-title">${config.title}</h4>
       <p class="c-notification-message">${config.message}</p>
     </aside>`;
   }
 
-  return `<aside class="c-contentPage-notification c-notification" style="--bgColour: ${bgColour}">
+  return `<aside class="${contextClass} c-notification" style="--bgColour: ${bgColour}">
     ${svg}
     <p class="c-notification-message">${config.message}</p>
   </aside>`;
