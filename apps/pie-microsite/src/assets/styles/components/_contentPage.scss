@@ -57,20 +57,14 @@ $content-max-width: 80ch;
         padding-bottom: calc(f.spacing(j) + f.spacing(d));
     }
 
-    > h2 + h3 {
-        margin-top: f.spacing(e);
-    }
-
-    > h3 + h4 {
+    > h2 + h3,
+    > h3 + h4,
+    > p + .c-contentPage-img {
         margin-top: f.spacing(e);
     }
 
     p {
         margin-top: f.spacing(d);
-    }
-
-    > p + .c-contentPage-img {
-        margin-top: f.spacing(e);
     }
 
     > .c-contentPage-img + h3,
@@ -86,14 +80,8 @@ $content-max-width: 80ch;
         }
     }
 
-    > p + h3 {
-        margin-top: f.spacing(f);
-    }
-
-    > p + h4 {
-        margin-top: f.spacing(f);
-    }
-
+    > p + h3,
+    > p + h4,
     & .c-contentPage-notification {
         margin-top: f.spacing(f);
     }
