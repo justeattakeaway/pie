@@ -7,26 +7,28 @@ const getNotificationColour = tokenName => {
   return pieDesignTokenColours({ tokenName, tokenPath });
 };
 
-const notificationIconFills = {
-  error: 'support-error',
-  warning: 'support-warning',
-  information: 'support-info',
-  positive: 'support-positive'
-}
-
-const notificationBackgroundColours = {
-  error: 'support-error-02',
-  warning: 'support-warning-02',
-  information: 'support-info-02',
-  positive: 'support-positive-02'
-}
-
-const notificationIcons = {
-  error: 'AlertCircle',
-  warning: 'AlertTriangle',
-  information: 'InfoCircleOutline',
-  positive: 'CheckCircleOutline'
-}
+const notificationSettings = {
+  error: {
+      iconFill: 'support-error',
+      bgColour: 'support-error-02',
+      iconName: 'AlertCircle'
+  },
+  warning: {
+      iconFill: 'support-warning',
+      bgColour: 'support-warning-02',
+      iconName: 'AlertTriangle'
+  },
+  information: {
+      iconFill: 'support-info',
+      bgColour: 'support-info-02',
+      iconName: 'InfoCircleOutline'
+  },
+  positive: {
+      iconFill: 'support-positive',
+      bgColour: 'support-positive-02',
+      iconName: 'CheckCircleOutline'
+  }
+};
 
 /**
  * A Notification HTML component
@@ -42,15 +44,15 @@ module.exports = function (config) {
   const contextClass = `c-${context}-notification`;
 
   const svg = pieIconsSvg({ 
-    name: notificationIcons[config.type], 
+    name: notificationSettings[config.type].iconName, 
     attrs: { 
       height: 24, 
       width: 24, 
-      fill: getNotificationColour(notificationIconFills[config.type]) 
+      fill: getNotificationColour(notificationSettings[config.type].iconFill) 
     }
   });
 
-  const bgColour = getNotificationColour(notificationBackgroundColours[config.type]);
+  const bgColour = getNotificationColour(notificationSettings[config.type].bgColour);
 
   if (config.title) {
     return `<aside class="${contextClass} c-notification" style="--bgColour: ${bgColour}">
