@@ -1,14 +1,24 @@
-createCaption = function (config) {
-  if (config.captionType === 'list') {
-    return `<figcaption class="c-contentImage-caption">
+createCaptionList = config => {
+  return `<figcaption class="c-contentImage-caption">
       ${config.caption}
       <ul>
         ${config.captionListItems.map(item => `<li>${item}</li>`).join('')}
       </ul>
     </figcaption>`;
+}
+
+createCaptionStandard = config => `<figcaption class="c-contentImage-caption">${config.caption}</figcaption>`;
+
+createCaption = config => {
+  if (config.caption) {
+    if (config.captionType === 'list') {
+      return createCaptionList(config);
+    }
+  
+    return createCaptionStandard(config);
   }
 
-  return `<figcaption class="c-contentImage-caption">${config.caption}</figcaption>`;
+  return '';
 };
 
 /**
@@ -27,30 +37,14 @@ module.exports = function (config) {
   const contextClass = `c-${context}-img`;
 
   if (config.type !== 'spread') {
-    if (config.caption) {
-      return `<figure class="${contextClass} c-contentImage c-contentImage--with-bg">
-        <div class="c-contentImage-bg">
-          <img style="--img-width: ${config.width};" src="${config.src}" ${config.alt ? `alt="${config.alt}"` : ''} />
-        </div>
-        ${createCaption(config)}
-      </figure>`;
-    }
-    
     return `<figure class="${contextClass} c-contentImage c-contentImage--with-bg">
       <div class="c-contentImage-bg">
         <img style="--img-width: ${config.width};" src="${config.src}" ${config.alt ? `alt="${config.alt}"` : ''} />
-      </div>
-    </figure>`;
-  }
-
-  if (config.caption) {
-    return `<figure class="${contextClass} c-contentImage">
-      <img src="${config.src}" ${config.alt ? `alt="${config.alt}"` : ''} />
-      ${createCaption(config)}
+      </div>${createCaption(config)}
     </figure>`;
   }
 
   return `<figure class="${contextClass} c-contentImage">
-      <img src="${config.src}" ${config.alt ? `alt="${config.alt}"` : ''} />
-    </figure>`;
+    <img src="${config.src}" ${config.alt ? `alt="${config.alt}"` : ''} />${createCaption(config)}
+  </figure>`;
 }
