@@ -2,11 +2,17 @@
 site_title: Pie Site
 layout: layouts/default-layout.njk
 ---
-<a href="/">
-    Home
-</a>
-<h2>
-    {{ title }}
-</h2>
-<hr/>
-{{ content | safe }}
+<div class="c-contentPage">
+    <div class="c-contentPage-header">
+        <h1 class="alpha--standout">
+            {{ title }}
+        </h1>
+        <p class="c-contentPage-header-subheading">
+        {{ description }}
+        </p>
+    </div>
+    {# TODO: Tabs can go here between header and main #}
+    <div class="c-contentPage-main">
+    {{ content | safe }}
+    </div>
+</div>

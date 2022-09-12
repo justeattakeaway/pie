@@ -9,6 +9,7 @@
 @use 'fozzie-imports';
 
 @use 'base/layout';
+@use 'base/typography';
 
 /**
  * Components:
@@ -21,4 +22,7 @@
 @use 'components/header';
 @use 'components/navToggle';
 @use 'components/nav';
+@use 'components/contentPage';
+@use 'components/contentImage';
 @use 'components/footer';
+@use 'components/notification';
