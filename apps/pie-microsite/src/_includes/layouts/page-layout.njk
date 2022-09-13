@@ -2,17 +2,24 @@
 site_title: Pie Site
 layout: layouts/default-layout.njk
 ---
+
 <div class="c-contentPage">
     <div class="c-contentPage-header">
         <h1 class="alpha--standout">
             {{ title }}
         </h1>
         <p class="c-contentPage-header-subheading">
-        {{ description }}
+            {{ description }}
         </p>
     </div>
-    {# TODO: Tabs can go here between header and main #}
+
+    <ul class="c-tabs">
+        {%- for entry in collections.all | eleventyNavigation(navKey) %}
+          <li class="nav-item{% if entry.url == page.url %} nav-item-active{% endif %}"><a href="{{ entry.url | url }}">{{ entry.title }}</a></li>
+        {%- endfor %}
+    </ul>
+
     <div class="c-contentPage-main">
-    {{ content | safe }}
+        {{ content | safe }}
     </div>
 </div>

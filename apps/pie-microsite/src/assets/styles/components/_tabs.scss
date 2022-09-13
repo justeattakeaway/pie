@@ -1,0 +1,25 @@
+@use '../fozzie-config' as f;
+
+$tabs-padding:                f.spacing(d);
+
+
+.c-tabs {
+  margin: 0;
+
+  li {
+    display: inline-block;
+
+    &.nav-item-active {
+      a {
+        border-bottom: 4px solid f.$color-orange;
+      }
+    }
+
+    a {
+      display: block;
+      padding: $tabs-padding;
+      text-decoration: none;
+      color: f.$color-charcoal-80;
+    }
+  }
+}
