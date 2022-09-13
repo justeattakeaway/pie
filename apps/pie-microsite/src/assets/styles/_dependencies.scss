@@ -18,11 +18,11 @@
  *
  * This is where the majority of our day-to-day styling will take place.  Component styles should be prefixed with `.c-`
  */
-@use 'components/tabs';
-@use 'components/header';
-@use 'components/navToggle';
-@use 'components/nav';
 @use 'components/contentPage';
 @use 'components/contentImage';
 @use 'components/footer';
+@use 'components/header';
+@use 'components/navToggle';
+@use 'components/nav';
 @use 'components/notification';
+@use 'components/tabs';
