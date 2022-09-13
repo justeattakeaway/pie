@@ -34,9 +34,11 @@
                             <ul class="c-nav-list">
                                 {% for subpage in category.children %}
                                 <li>
+                                    {% set subPageArea = subpage.url.split('/')[4] %}
+                                    {% set currentPageArea = page.url.split('/')[4] %}
                                     <a
                                         href="{{ subpage.url }}"
-                                        class="c-nav-item {% if subpage.url == page.url %}c-nav-item--active{% endif %}">
+                                        class="c-nav-item {% if subPageArea == currentPageArea %}c-nav-item--active{% endif %}">
                                         {{ subpage.title }}
                                     </a>
                                 </li>
