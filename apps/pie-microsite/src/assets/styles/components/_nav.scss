@@ -76,12 +76,13 @@ $nav-item-active-left-padding:        calc($nav-item-left-padding - $nav-item-ac
   padding-left: $nav-item-left-padding;
   text-decoration: none;
   color: f.$color-content-default;
+
+  .c-nav-item--is-active {
+    border-left: $nav-item-active-border-width solid f.$color-interactive-brand;
+    padding-left: $nav-item-active-left-padding;
+  }
 }
 
-.c-nav-item--is-active {
-  border-left: $nav-item-active-border-width solid f.$color-interactive-brand;
-  padding-left: $nav-item-active-left-padding;
-}
 
 .c-nav-category,
 .c-nav-item--is-active {
