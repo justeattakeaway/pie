@@ -20,6 +20,11 @@ $tabs-padding:                f.spacing(d);
       padding: $tabs-padding;
       text-decoration: none;
       color: f.$color-charcoal-80;
+
+      &:hover,
+      &:focus {
+        background-color: f.$color-container-subtle;
+      }
     }
   }
 }
