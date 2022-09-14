@@ -13,11 +13,13 @@ layout: layouts/default-layout.njk
         </p>
     </div>
 
-    <ul class="c-tabs">
-        {%- for entry in collections.all | eleventyNavigation(navKey) %}
-          <li class="nav-item{% if entry.url == page.url %} nav-item-active{% endif %}"><a href="{{ entry.url | url }}">{{ entry.title }}</a></li>
-        {%- endfor %}
-    </ul>
+    <nav aria-label="Secondary navigational tabs">
+        <ul class="c-tabs">
+            {%- for entry in collections.all | eleventyNavigation(navKey) %}
+              <li {% if entry.url == page.url %} aria-selected="true" {% endif %} aria-selected="false" class="nav-item{% if entry.url == page.url %} nav-item-active{% endif %}"><a href="{{ entry.url | url }}">{{ entry.title }}</a></li>
+            {%- endfor %}
+        </ul>
+    </nav>
 
     <div class="c-contentPage-main">
         {{ content | safe }}
