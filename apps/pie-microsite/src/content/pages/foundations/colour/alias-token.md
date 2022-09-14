@@ -5,6 +5,6 @@ eleventyNavigation:
     order: 3
 title: Alias Token
 navKey: Colour
-description: Alias Token..
+description: Our colour system builds on the recognition of the JET brand colours to make the product interface more usable.
 ---
 ## Alias Token

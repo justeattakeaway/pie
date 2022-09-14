@@ -5,7 +5,7 @@ eleventyNavigation:
     order: 2
 title: Global Token
 navKey: Colour
-description: Global Token...
+description: Our colour system builds on the recognition of the JET brand colours to make the product interface more usable.
 ---
 ## Global Token
 
