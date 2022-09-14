@@ -28,8 +28,9 @@ $nav-item-active-left-padding:        calc($nav-item-left-padding - $nav-item-ac
 }
 
 .c-nav-item:hover,
+.c-nav-item:focus,
 .c-nav-category:hover,
-.c-nav-item--is-active {
+.c-nav-category:focus {
   background-color: f.$color-container-subtle;
 }
 
@@ -80,11 +81,11 @@ $nav-item-active-left-padding:        calc($nav-item-left-padding - $nav-item-ac
   &.is-active {
     border-left: $nav-item-active-border-width solid f.$color-interactive-brand;
     padding-left: $nav-item-active-left-padding;
+    background-color: f.$color-container-subtle;
+    font-weight: f.$font-weight-bold;
   }
 }
 
-
-.c-nav-category,
-.c-nav-item--is-active {
+.c-nav-category {
   font-weight: f.$font-weight-bold;
 }

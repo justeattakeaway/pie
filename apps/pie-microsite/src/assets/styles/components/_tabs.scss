@@ -2,6 +2,18 @@
 
 $tabs-link-padding:                f.spacing(d);
 
+%is-active {
+  content:'';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: f.$color-interactive-brand;
+  height: 4px;
+  border-top-left-radius: 4px 4px;
+  border-top-right-radius: 4px 4px;
+}
+
 .c-tabs {
   padding: 0;
 
@@ -22,21 +34,24 @@ $tabs-link-padding:                f.spacing(d);
     .c-tabs-item {
       display: inline-block;
 
-      &.is-active {
-        a {
-          border-bottom: 4px solid f.$color-interactive-brand;
-        }
-      }
-
       .c-tabs-link {
+        position: relative;
         display: block;
         padding: $tabs-link-padding;
         text-decoration: none;
         color: f.$color-content-default;
 
+        &.is-active {
+          &:before {
+            @extend %is-active;
+          }
+        }
+
         &:hover,
         &:focus {
-          border-bottom: 4px solid f.$color-interactive-brand;
+          &:before {
+            @extend %is-active;
+          }
         }
       }
     }
