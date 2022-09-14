@@ -1,29 +1,43 @@
 @use '../fozzie-config' as f;
 
-$tabs-padding:                f.spacing(d);
-
+$tabs-link-padding:                f.spacing(d);
 
 .c-tabs {
-  margin: 0;
+  padding: 0;
 
-  li {
-    display: inline-block;
+  @include f.media('<=narrowMid') {
+    position: sticky;
+    top: 0;
+    background-color: f.$color-white;
+    box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.06);
+  }
 
-    &.nav-item-active {
-      a {
-        border-bottom: 4px solid f.$color-orange;
+  ul {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow: auto;
+    white-space: nowrap;
+
+    .c-tabs-item {
+      display: inline-block;
+
+      &.is-active {
+        a {
+          border-bottom: 4px solid f.$color-interactive-brand;
+        }
       }
-    }
 
-    a {
-      display: block;
-      padding: $tabs-padding;
-      text-decoration: none;
-      color: f.$color-charcoal-80;
+      .c-tabs-link {
+        display: block;
+        padding: $tabs-link-padding;
+        text-decoration: none;
+        color: f.$color-content-default;
 
-      &:hover,
-      &:focus {
-        background-color: f.$color-container-subtle;
+        &:hover,
+        &:focus {
+          border-bottom: 4px solid f.$color-orange;
+        }
       }
     }
   }

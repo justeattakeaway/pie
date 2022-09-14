@@ -5,7 +5,7 @@ eleventyNavigation:
     order: 1
 title: Spacing
 navKey: Spacing
-description: Overview..
+description: Space is the horizontal and vertical distance between or around different design elements.
 ---
 ## Types of spacing
 

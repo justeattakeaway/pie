@@ -5,6 +5,6 @@ eleventyNavigation:
     order: 3
 title: Alias Token
 navKey: Spacing
-description: Alias Token...
+description: Space is the horizontal and vertical distance between or around different design elements.
 ---
 ## Alias Token

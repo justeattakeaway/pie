@@ -5,7 +5,7 @@ eleventyNavigation:
     order: 2
 title: Global Token
 navKey: Spacing
-description: Global Token..
+description: Space is the horizontal and vertical distance between or around different design elements.
 ---
 ## Global Token
 
