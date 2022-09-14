@@ -8,7 +8,7 @@ $tabs-link-padding:                f.spacing(d);
   @include f.media('<=narrowMid') {
     position: sticky;
     top: 0;
-    background-color: f.$color-white;
+    background-color: f.$color-container-default;
     box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.06);
   }
 
@@ -36,7 +36,7 @@ $tabs-link-padding:                f.spacing(d);
 
         &:hover,
         &:focus {
-          border-bottom: 4px solid f.$color-orange;
+          border-bottom: 4px solid f.$color-interactive-brand;
         }
       }
     }
