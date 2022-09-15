@@ -17,11 +17,6 @@
           "cache": false,
           "dependsOn": []
         },
-        "deploy": {
-            "dependsOn": [],
-            "outputs": [],
-            "cache": false
-        },
         "dev": {
             "cache": false,
             "dependsOn": []

@@ -19,8 +19,7 @@
     "lint": "turbo run lint",
     "lint:style": "turbo run lint:style --continue",
     "dev": "turbo run dev",
-    "prepare": "husky install",
-    "deploy": "turbo run deploy"
+    "prepare": "husky install"
   },
   "stylelint": {
     "extends": "@justeat/stylelint-config-fozzie"
