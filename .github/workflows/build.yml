@@ -2,8 +2,8 @@ name: Build
 on:
   push:
     branches:
-      - '*'
-      - '!master'
+      - master
+      - gh-pages-deploy
 
 jobs:
   install-deps-and-build:
@@ -16,4 +16,5 @@ jobs:
       - name: Install and Build 🔧
         run: |
           yarn
-          yarn build
+          yarn build --filter=pie-microsite
+          yarn deploy

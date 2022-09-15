@@ -13,16 +13,18 @@
     "build:sass": "sass --load-path=../../node_modules/ src/assets/styles:dist/assets/styles",
     "build:eleventy": "eleventy",
     "dev": "npm-run-all build:sass --parallel watch:sass watch:eleventy post-css",
-    "build": "npm-run-all build:eleventy build:sass",
+    "build": "npm-run-all build:eleventy build:sass post-css",
     "lint:style": "stylelint ./src/**/*.{css,scss}",
     "lint:style:fix": "yarn lint:style --fix",
-    "post-css": "postcss dist/assets/styles/main.css -o dist/assets/styles/main.css --use autoprefixer --use cssnano"
+    "post-css": "postcss dist/assets/styles/main.css -o dist/assets/styles/main.css --use autoprefixer --use cssnano",
+    "deploy": "gh-pages -d dist"
   },
   "browserslist": [
     "extends @justeat/browserslist-config-fozzie"
   ],
   "devDependencies": {
     "@11ty/eleventy": "1.0.1",
-    "@11ty/eleventy-navigation": "^0.3.3"
+    "@11ty/eleventy-navigation": "^0.3.3",
+    "gh-pages": "^4.0.0"
   }
 }
