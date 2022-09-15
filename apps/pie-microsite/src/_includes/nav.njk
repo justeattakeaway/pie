@@ -35,7 +35,7 @@
                                 {% for subpage in category.children %}
                                 <li>
                                     <a
-                                        href="{{ subpage.url }}" 
+                                        href="{{ subpage.url | url }}" 
                                         class="c-nav-item {% if subpage.url == page.url %}c-nav-item--active{% endif %}">
                                         {{ subpage.title }}
                                     </a>
