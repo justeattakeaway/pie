@@ -13,8 +13,11 @@ jobs:
       - name: Checkout 🛎️
         uses: actions/checkout@v3
 
-      - name: Install and Build 🔧
+      - name: Install, Build and Deploy 🔧
         run: |
+          git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
           yarn
           yarn build --filter=pie-microsite
           yarn deploy
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
