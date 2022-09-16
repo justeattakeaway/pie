@@ -3,7 +3,6 @@ on:
   push:
     branches:
       - main
-      - gh-pages-deploy
 
 jobs:
   install-deps-and-build:
