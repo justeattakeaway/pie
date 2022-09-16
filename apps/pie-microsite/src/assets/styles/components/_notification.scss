@@ -3,9 +3,10 @@
 $icon-width:                        24px; // must be kept in sync with the size given in notifications.js shortcode
 $notification-padding:              f.spacing(d);
 $combinedIconAndPaddingWidth:       calc($icon-width + $notification-padding);
+$notification-bg-colour:            var(--bg-colour);
 
 .c-notification {
-    background-color: var(--bgColour);
+    background-color: $notification-bg-colour;
     padding: $notification-padding;
     border-radius: f.$radius-rounded-c;
     display: flex;
@@ -17,14 +18,14 @@ $combinedIconAndPaddingWidth:       calc($icon-width + $notification-padding);
     @include f.font-size('heading-s');
     font-weight: f.$font-weight-extrabold;
 
-    ~ .c-notification-message  {
+    ~ .c-notification-message {
         margin-left: $combinedIconAndPaddingWidth;
         margin-top: f.spacing(a);
         flex: 1;
     }
 }
 
-// The first text child (title or message if there's no title) 
+// The first text child (title or message if there's no title)
 //on the component should sit in line with the icon
 .c-notification :nth-child(2) {
     margin-top: 0;

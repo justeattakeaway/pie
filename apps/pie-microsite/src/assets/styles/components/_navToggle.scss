@@ -22,7 +22,7 @@
 .c-navToggle-input ~ .c-nav {
     // TODO: placeholder animation just to give the toggle nav some jazz - discuss animation specs with design
     transition: left 0.5s cubic-bezier(0.25, 1, 0.25, 1), width 0.5s cubic-bezier(0.25, 1, 0.25, 1);
-    
+
     @include f.media('<=narrowMid') {
         left: -100%;
         visibility: hidden;

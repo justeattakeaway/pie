@@ -3,19 +3,11 @@
 .page {
     min-height: 100%;
     display: grid;
-    grid-template-areas:
-        "header header"
-        "nav main"
-        "nav footer";
-
-    grid-template-columns: 260px 1fr;
-    grid-template-rows: 64px 1fr max-content;
+    grid-template: 64px 1fr max-content / 260px 1fr;
+    grid-template-areas: 'header header' 'nav main' 'nav footer';
 
     @include f.media('<=narrowMid') {
-        grid-template-areas:
-            "header header"
-            "main main"
-            "footer footer";
+        grid-template-areas: 'header header' 'main main' 'footer footer';
     }
 }
 

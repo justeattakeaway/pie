@@ -6,7 +6,7 @@ $content-max-width: 80ch;
     display: flex;
     flex-direction: column;
     min-height: 100%;
-    
+
     > * {
         padding-left: f.spacing(d);
         padding-right: f.spacing(d);
@@ -23,7 +23,7 @@ $content-max-width: 80ch;
     }
 }
 
-.c-contentPage-header > *, 
+.c-contentPage-header > *,
 .c-contentPage-main > *:not(.c-contentPage-img, hr, .c-contentPage-notification),
 // any text items within the image such as captions
 .c-contentPage-main .c-contentPage-img *:not(div, img) {

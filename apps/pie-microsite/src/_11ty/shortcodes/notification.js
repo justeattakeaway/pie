@@ -43,26 +43,26 @@ module.exports = function (config) {
   const context = config.context ?? 'contentPage';
   const contextClass = `c-${context}-notification`;
 
-  const svg = pieIconsSvg({ 
-    name: notificationSettings[config.type].iconName, 
-    attrs: { 
-      height: 24, 
-      width: 24, 
-      fill: getNotificationColour(notificationSettings[config.type].iconFill) 
+  const svg = pieIconsSvg({
+    name: notificationSettings[config.type].iconName,
+    attrs: {
+      height: 24,
+      width: 24,
+      fill: getNotificationColour(notificationSettings[config.type].iconFill)
     }
   });
 
   const bgColour = getNotificationColour(notificationSettings[config.type].bgColour);
 
   if (config.title) {
-    return `<aside class="${contextClass} c-notification" style="--bgColour: ${bgColour}">
+    return `<aside class="${contextClass} c-notification" style="--bg-colour: ${bgColour}">
       ${svg}
       <h4 class="c-notification-title">${config.title}</h4>
       <p class="c-notification-message">${config.message}</p>
     </aside>`;
   }
 
-  return `<aside class="${contextClass} c-notification" style="--bgColour: ${bgColour}">
+  return `<aside class="${contextClass} c-notification" style="--bg-colour: ${bgColour}">
     ${svg}
     <p class="c-notification-message">${config.message}</p>
   </aside>`;
