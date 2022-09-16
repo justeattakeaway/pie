@@ -5,7 +5,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 v1.12.0
 ------------------------------
-*September 05, 2022*
+*September 16, 2022*
 
 ### Added
 - Code of conduct file
