@@ -1,8 +1,8 @@
 @use '../fozzie-config' as f;
 
-$combinedIconAndPaddingWidth:       calc($icon-width + $notification-padding);
 $icon-width:                        24px; // must be kept in sync with the size given in notifications.js shortcode
 $notification-padding:              f.spacing(d);
+$combinedIconAndPaddingWidth:       calc($icon-width + $notification-padding);
 $notification-bg-colour:            var(--bg-colour);
 
 .c-notification {
