@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 - Code of conduct file
+- GH pages deployment for PIE Microsite
 
 
 v1.11.0

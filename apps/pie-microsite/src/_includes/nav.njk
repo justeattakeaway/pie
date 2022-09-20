@@ -41,7 +41,7 @@
                                     {# Set the nav item to active if the url contains it's category #}
                                     {# this means something like /content/pages/foundations/colour/overview/ and /content/pages/foundations/colour/global/ will activate 'colour' #}
                                     <a
-                                        href="{{ subpage.url }}"
+                                        href="{{ subpage.url  | url }}"
                                         {% if subPageArea == currentPageArea %}
                                             aria-current="page"
                                         {% endif %}
