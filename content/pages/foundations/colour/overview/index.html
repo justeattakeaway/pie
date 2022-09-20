@@ -162,7 +162,9 @@
                                     <a
                                         href="/pie/content/pages/foundations/colour/overview/"
                                         
-                                        class="c-nav-item ">
+                                            aria-current="page"
+                                        
+                                        class="c-nav-item is-active">
                                         Colour
                                     </a>
                                 </li>
@@ -188,9 +190,7 @@
                                     <a
                                         href="/pie/content/pages/foundations/grids/"
                                         
-                                            aria-current="page"
-                                        
-                                        class="c-nav-item is-active">
+                                        class="c-nav-item ">
                                         Grids
                                     </a>
                                 </li>
@@ -489,10 +489,10 @@
 <div class="c-contentPage">
     <div class="c-contentPage-header">
         <h1 class="alpha--standout">
-            Grids
+            Colour
         </h1>
         <p class="c-contentPage-header-subheading">
-            
+            Our colour system builds on the recognition of the JET brand colours to make the product interface more usable.
         </p>
     </div>
 
@@ -500,17 +500,76 @@
         <ul>
               <li
                 
+                    aria-selected="true"
+                
+                aria-selected="false"
+                class="c-tabs-item">
+                    <a href="/pie/content/pages/foundations/colour/overview/" class="c-tabs-link is-active">Overview</a></li>
+              <li
+                
                     aria-selected="false"
                 
                 aria-selected="false"
                 class="c-tabs-item">
-                    <a href="/pie/content/pages/" class="c-tabs-link ">Pages</a></li>
+                    <a href="/pie/content/pages/foundations/colour/global-token/" class="c-tabs-link ">Global Token</a></li>
+              <li
+                
+                    aria-selected="false"
+                
+                aria-selected="false"
+                class="c-tabs-item">
+                    <a href="/pie/content/pages/foundations/colour/alias-token/" class="c-tabs-link ">Alias Token</a></li>
         </ul>
     </nav>
 
     <div class="c-contentPage-main">
-        <p>This page is coming soon!</p>
-<p>You can see the all the existing page designs <a href="https://www.figma.com/file/KND7Higqcvksz7WkXRKLHm/Microsite?node-id=24%3A2880">here</a></p>
+        <h2>Our colour principles</h2>
+<p>Here are some principles which can help you apply colour in your products more effectively.</p>
+<h3>Communication is key</h3>
+<p>Although we value an aesthetically pleasing use of colour, we place a higher value on clear communication. Colour supports the purpose of the content, communicating things like hierarchy of information, interactive states, and the difference between distinct elements.</p>
+<figure class="c-contentPage-img c-contentImage">
+    <img src="../../../../../assets/img/foundations/colour/brand-colours.svg"  /><figcaption class="c-contentImage-caption">The visual above shows a composition made of various of our brand colours.</figcaption>
+  </figure>
+<h3>Colours have meaning</h3>
+<p>Colours have assigned roles, which hold a specific meaning based on how they function within the interface. Defined colour roles make things easy to modify and customize later. They also extend the colour system so it works across any touchpoint at JET.</p>
+<figure class="c-contentPage-img c-contentImage">
+    <img src="../../../../../assets/img/foundations/colour/colour-meaning.svg"  /><figcaption class="c-contentImage-caption">Some of the meanings we have determined for our ‘Supportive’ colour palette.</figcaption>
+  </figure>
+<h3>Colours follow accessibility guidelines</h3>
+<p>The colour system is designed within the HSLuv colour space to generate themes that meet WCAG 2.1 compliant contrast ratios. This makes things easier to find, identify, and interact with. It also makes the whole experience more accessible for merchants who are color blind or who have low vision. However you should never convey information using color alone.</p>
+<figure class="c-contentPage-img c-contentImage c-contentImage--with-bg">
+      <div class="c-contentImage-bg">
+        <img style="--img-width: 360px;" src="../../../../../assets/img/foundations/colour/colour-accessibility.svg"  />
+      </div><figcaption class="c-contentImage-caption">The image above shows the colour contrast for white text placed over our ‘Aubergine’ colour.</figcaption>
+    </figure>
+<h2>Using orange in your designs</h2>
+<p>We’re an orange brand, which means that orange always takes centre stage. It represents our joyful personality, it’s bold, energising and we use it wherever we communicate.</p>
+<p>However, there are significant difficulties when using orange in our designs, including colour contrast and accessibility issues. To tackle these we have come up with an additional colour called $color-orange.</p>
+<h3>Brand orange vs Product orange</h3>
+<p>Product orange is a modified version of our Brand orange colour which has been created with the objective to use orange in interactive elements and components within our interfaces.</p>
+<p>Here are some guidelines which outline when to use Brand orange and Product orange in your designs:</p>
+<h4>Brand orange</h4>
+<figure class="c-contentPage-img c-contentImage c-contentImage--with-bg">
+      <div class="c-contentImage-bg">
+        <img style="--img-width: 243px;" src="../../../../../assets/img/foundations/colour/brand-orange.svg"  />
+      </div><figcaption class="c-contentImage-caption">
+      You should use Brand orange for:
+      <ul>
+        <li>Non-interactive elements</li><li>Logos</li><li>Illustrations</li><li>Splash screens</li><li>Navigation bars</li><li>Marketing panels’ backgrounds</li>
+      </ul>
+    </figcaption>
+    </figure>
+<h4>Product orange</h4>
+<figure class="c-contentPage-img c-contentImage c-contentImage--with-bg">
+      <div class="c-contentImage-bg">
+        <img style="--img-width: 243px;" src="../../../../../assets/img/foundations/colour/product-orange.svg"  />
+      </div><figcaption class="c-contentImage-caption">
+      You should use Product orange for:
+      <ul>
+        <li>Interactive elements</li><li>Buttons</li><li>Icons</li><li>Interactive text</li><li>Headings</li>
+      </ul>
+    </figcaption>
+    </figure>
 
     </div>
 </div>
