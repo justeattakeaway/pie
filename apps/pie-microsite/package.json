@@ -1,7 +1,7 @@
 {
   "name": "pie-microsite",
   "description": "todo",
-  "version": "1.13.0",
+  "version": "1.14.0",
   "main": "index.js",
   "keywords": [],
   "author": "JustEatTakeaway - Vue Design System Team",
@@ -13,7 +13,7 @@
     "build:sass": "sass --load-path=../../node_modules/ src/assets/styles:dist/assets/styles",
     "build:eleventy": "eleventy",
     "dev": "npm-run-all build:sass --parallel watch:sass watch:eleventy post-css",
-    "build": "npm-run-all build:eleventy build:sass",
+    "build": "npm-run-all build:eleventy build:sass post-css",
     "lint:style": "stylelint ./src/**/*.{css,scss}",
     "lint:style:fix": "yarn lint:style --fix",
     "post-css": "postcss dist/assets/styles/main.css -o dist/assets/styles/main.css --use autoprefixer --use cssnano"

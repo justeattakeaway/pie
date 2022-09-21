@@ -9,6 +9,7 @@ v1.12.0
 
 ### Added
 - Code of conduct file
+- GH pages deployment for PIE Microsite
 
 ### Fixed
 - `stylelint` errors.

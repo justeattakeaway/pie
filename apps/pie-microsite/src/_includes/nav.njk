@@ -21,6 +21,7 @@
 <nav class="c-nav">
     {% for section in navSections %}
         <ul>
+            {# build up a list of categories such as 'components', 'foundations' #}
             {% for category in section %}
                 <li>
                     <details {% if page.url.includes(category.url) %} open{% endif %}>
@@ -31,12 +32,20 @@
                             {{ { name: 'ChevronDownSmall', attrs: { fill: chevronFill, height: '18', width: '18', class:'c-nav-toggle c-nav-toggle--open' } } | pieIconsSvg | safe }}
                         </summary>
                         {% if category.children.length %}
+                        {# build up a list of subpages for each category such as 'colour' and 'spacing' for 'foundations' #}
                             <ul class="c-nav-list">
                                 {% for subpage in category.children %}
                                 <li>
+                                    {% set subPageArea = subpage.url.split('/')[4] %}
+                                    {% set currentPageArea = page.url.split('/')[4] %}
+                                    {# Set the nav item to active if the url contains it's category #}
+                                    {# this means something like /content/pages/foundations/colour/overview/ and /content/pages/foundations/colour/global/ will activate 'colour' #}
                                     <a
-                                        href="{{ subpage.url }}" 
-                                        class="c-nav-item {% if subpage.url == page.url %}c-nav-item--active{% endif %}">
+                                        href="{{ subpage.url  | url }}"
+                                        {% if subPageArea == currentPageArea %}
+                                            aria-current="page"
+                                        {% endif %}
+                                        class="c-nav-item {% if subPageArea == currentPageArea %}is-active{% endif %}">
                                         {{ subpage.title }}
                                     </a>
                                 </li>
