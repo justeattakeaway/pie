@@ -38,7 +38,7 @@ $nav-item-active-left-padding:        calc($nav-item-left-padding - $nav-item-ac
 .c-nav-category::-webkit-details-marker,
 .c-nav-category::marker {
   display: none;
-  content: "";
+  content: '';
 }
 
 .c-nav-toggle {
@@ -71,10 +71,7 @@ $nav-item-active-left-padding:        calc($nav-item-left-padding - $nav-item-ac
 
 .c-nav-item {
   display: block;
-  padding-top: f.spacing(d);
-  padding-right: f.spacing(d);
-  padding-bottom: f.spacing(d);
-  padding-left: $nav-item-left-padding;
+  padding: f.spacing(d) f.spacing(d) f.spacing(d) $nav-item-left-padding;
   text-decoration: none;
   color: f.$color-content-default;
 

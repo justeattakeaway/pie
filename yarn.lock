@@ -181,12 +181,12 @@ __metadata:
   linkType: hard
 
 "@justeat/stylelint-config-fozzie@npm:3.x":
-  version: 3.0.1
-  resolution: "@justeat/stylelint-config-fozzie@npm:3.0.1"
+  version: 3.1.0
+  resolution: "@justeat/stylelint-config-fozzie@npm:3.1.0"
   peerDependencies:
     stylelint: 14.x
     stylelint-config-standard-scss: 5.x
-  checksum: 0aeb07f2bd7d871db03be1315cda2b5f3b2ae7bae95e7c0f5c502c9af1372c5dae352edbe5ee917dd1043a9795d4754eab3b46e2a4ef310aff2aae53b584c545
+  checksum: 4da24958299b79c4ab83e4541dbcc58a619debaa96988cc6b6964bb8e29b49192b56e275dc8ff0f19d120af79359c2afda7c120a958f3b1b212fe66b2af1fda6
   languageName: node
   linkType: hard
 
