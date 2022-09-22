@@ -26,7 +26,6 @@ module.exports = eleventyConfig => {
       input: "src",
       output: "dist",
     },
-    markdownTemplateEngine: "njk",
-    pathPrefix: "/pie/"
+    markdownTemplateEngine: "njk"
   };
 };
