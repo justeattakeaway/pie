@@ -49,6 +49,7 @@
         right: 0;
         bottom: 0;
         background: f.$color-overlay;
+        z-index: f.zIndex('high');
     }
 }
 
