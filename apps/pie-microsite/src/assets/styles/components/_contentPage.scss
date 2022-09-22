@@ -60,7 +60,8 @@ $content-max-width: 80ch;
 
     > h2 + h3,
     > h3 + h4,
-    > p + .c-contentPage-img {
+    > p + .c-contentPage-img,
+    > .c-contentPage-img + p {
         margin-top: f.spacing(e);
     }
 
@@ -71,10 +72,6 @@ $content-max-width: 80ch;
     > .c-contentPage-img + h3,
     > .c-contentPage-img + h4 {
         margin-top: f.spacing(f);
-    }
-
-    > .c-contentPage-img + p {
-        margin-top: f.spacing(e);
     }
 
     > p + h2 {
