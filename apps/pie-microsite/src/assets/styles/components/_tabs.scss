@@ -14,30 +14,30 @@ $tabs-link-padding:                f.spacing(d);
 
     .c-tabs-item {
       display: inline-block;
+    }
 
-      .c-tabs-link {
-        position: relative;
-        display: block;
-        padding: $tabs-link-padding;
-        text-decoration: none;
-        color: f.$color-content-subdued;
+    .c-tabs-link {
+      position: relative;
+      display: block;
+      padding: $tabs-link-padding;
+      text-decoration: none;
+      color: f.$color-content-subdued;
 
-        &.is-active,
-        &:hover,
-        &:focus {
-          color: f.$color-content-default;
+      &.is-active,
+      &:hover,
+      &:focus {
+        color: f.$color-content-default;
 
-          &:before {
-            content:'';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: f.$color-interactive-brand;
-            height: 4px;
-            border-top-left-radius: 2px 2px;
-            border-top-right-radius: 2px 2px;
-          }
+        &:before {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          background: f.$color-interactive-brand;
+          height: 4px;
+          border-top-left-radius: 2px 2px;
+          border-top-right-radius: 2px 2px;
         }
       }
     }
@@ -51,6 +51,7 @@ $tabs-link-padding:                f.spacing(d);
     width: 100%;
     overflow: auto;
     white-space: nowrap;
+    margin-left: f.spacing(d);
 
     ul {
       margin: 0;
