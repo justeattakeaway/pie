@@ -21,6 +21,9 @@ module.exports = eleventyConfig => {
   // Shortcodes
   shortcodes.addAllShortCodes(eleventyConfig);
 
+  // Pass CNAME file into dist output (needed for domain to work correctly)
+  eleventyConfig.addPassthroughCopy("CNAME");
+
   return {
     dir: {
       input: "src",
