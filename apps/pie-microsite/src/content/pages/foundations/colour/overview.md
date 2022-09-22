@@ -57,18 +57,27 @@ Here are some guidelines which outline when to use Brand orange and Product oran
 
 {% contentPageImage {
 src:"../../../../../assets/img/foundations/colour/brand-orange.svg",
-width: "243px",
-captionType: 'list',
-caption: "You should use Brand orange for:",
-captionListItems: ["Non-interactive elements", "Logos", "Illustrations", "Splash screens", "Navigation bars", "Marketing panels’ backgrounds"]
+width: "243px"
 } %}
+
+You should use Brand orange for:
+- Non-interactive elements
+- Logos
+- Illustrations
+- Splash screens
+- Navigation bars
+- Marketing panels’ backgrounds
 
 #### Product orange
 
 {% contentPageImage {
 src:"../../../../../assets/img/foundations/colour/product-orange.svg",
-width: "243px",
-captionType: 'list',
-caption: "You should use Product orange for:",
-captionListItems: ["Interactive elements", "Buttons", "Icons", "Interactive text", "Headings"]
+width: "243px"
 } %}
+
+You should use Product orange for:
+- Interactive elements
+- Buttons
+- Icons
+- Interactive text
+- Headings

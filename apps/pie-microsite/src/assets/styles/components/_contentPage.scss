@@ -18,7 +18,8 @@ $content-max-width: 80ch;
     }
 
     & p,
-    & .c-contentPage-img {
+    & .c-contentPage-img,
+    & ul {
         color: f.$color-content-subdued;
     }
 }
@@ -72,6 +73,10 @@ $content-max-width: 80ch;
         margin-top: f.spacing(f);
     }
 
+    > .c-contentPage-img + p {
+        margin-top: f.spacing(e);
+    }
+
     > p + h2 {
         margin-top: f.spacing(h);
 
@@ -82,6 +87,7 @@ $content-max-width: 80ch;
 
     > p + h3,
     > p + h4,
+    > ul + h4,
     & .c-contentPage-notification {
         margin-top: f.spacing(f);
     }
