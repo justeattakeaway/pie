@@ -69,6 +69,7 @@ jobs:
         run: yarn build --filter=pie-microsite --cache-dir=".turbo"
 
     deploy:
+      needs: build
       # concurrency: ci-${{ github.ref }}
       runs-on: ubuntu-latest
       steps:
