@@ -1,25 +1,6 @@
-createCaptionList = config => {
-  return `<figcaption class="c-contentImage-caption">
-      ${config.caption}
-      <ul>
-        ${config.captionListItems.map(item => `<li>${item}</li>`).join('')}
-      </ul>
-    </figcaption>`;
-}
-
-createCaptionStandard = config => `<figcaption class="c-contentImage-caption">${config.caption}</figcaption>`;
-
-createCaption = config => {
-  if (config.caption) {
-    if (config.captionType === 'list') {
-      return createCaptionList(config);
-    }
-  
-    return createCaptionStandard(config);
-  }
-
-  return '';
-};
+createCaption = config => config.caption 
+  ? `<figcaption class="c-contentImage-caption">${config.caption}</figcaption>` 
+  : '';
 
 /**
  * Creates an image to render on a content page.
