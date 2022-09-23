@@ -1,12 +1,5 @@
 name: Build
-on:
-  # TODO - tighten this up
-  pull_request:
-      types: [assigned, opened, synchronize, reopened]
-      paths-ignore:
-        - 'README.md'
-        - 'CONTRIBUTING.md'
-        - 'LICENSE'    
+on:  
   push:
     branches:
       - '**'
