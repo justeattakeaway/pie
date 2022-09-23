@@ -1,9 +1,6 @@
 name: Build
-on:
-  push:
-    branches:
-      - main
-      - lint-gh-action
+on:    
+  - push
 
 jobs:
     install:
@@ -50,7 +47,7 @@ jobs:
         with:
           path: '**/node_modules'
           key: node-modules-${{ hashFiles('**/yarn.lock') }}
-      # Restore Turborepo's component 'dist' cache - If not, cache is created at end of build.
+      # Restore Turborepo's 'dist' cache - If not, cache is created at end of build.
       - name: Cache Turborepo Dist
         id: turborepo-dist-cache
         uses: actions/cache@v2
@@ -70,8 +67,8 @@ jobs:
 
     deploy:
       needs: build
-      # concurrency: ci-${{ github.ref }}
       runs-on: ubuntu-latest
+      if: ${{ github.ref == 'refs/heads/main' }}
       steps:
         # Checkout the Repo
         - name: Checkout
@@ -89,7 +86,7 @@ jobs:
           with:
             path: '**/node_modules'
             key: node-modules-${{ hashFiles('**/yarn.lock') }}
-        # Restore Turborepo's component 'dist' cache - If not, cache is created at end of build.
+        # Restore Turborepo's 'dist' cache - If not, cache is created at end of build.
         - name: Cache Turborepo Dist
           id: turborepo-dist-cache
           uses: actions/cache@v2
