@@ -1,22 +1,109 @@
 name: Build
-on:
+on:  
   push:
     branches:
-      - main
+      - '**'
 
 jobs:
-  install-deps-and-build:
-    concurrency: ci-${{ github.ref }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout 🛎️
+    install:
+      runs-on: ubuntu-latest
+      steps:
+      # Checkout the Repo
+      - name: Checkout
         uses: actions/checkout@v3
-      - name: Install, Build and Deploy 🔧
-        run: |
-          yarn
-          yarn build --filter=pie-microsite
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Setup Node 
+      # Setup Node 16 
+        uses: actions/setup-node@v3
         with:
-          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-          publish_dir: ./apps/pie-microsite/dist
+          node-version: 16
+          cache: 'yarn'
+      # Restore node_modules if cache exists. If not, cache is created at end of build.
+      - name: Cache Node Modules
+        id: cache-node-modules
+        uses: actions/cache@v2
+        with:
+          path: '**/node_modules'
+          key: node-modules-${{ hashFiles('**/yarn.lock') }}
+      # Run 'yarn' if cache doesn't exist. Use --prefer-offline to download packages from yarn cache folder where possible
+      - name: Install Dependencies
+        if: steps.cache-node-modules.outputs.cache-hit != 'true'
+        run: yarn add --cached
+
+    build:
+      needs: install
+      runs-on: ubuntu-latest
+      steps:
+      # Checkout the Repo
+      - name: Checkout
+        uses: actions/checkout@v3
+      # Setup Node 16 
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: 'yarn'
+      # Restore node_modules - Cache should exist as one was created in previous 'install' job
+      - name: Cache Node Modules
+        id: cache-node-modules
+        uses: actions/cache@v2
+        with:
+          path: '**/node_modules'
+          key: node-modules-${{ hashFiles('**/yarn.lock') }}
+      # Restore Turborepo's 'dist' cache - If not, cache is created at end of build.
+      - name: Cache Turborepo Dist
+        id: turborepo-dist-cache
+        uses: actions/cache@v2
+        with:
+          path: .turbo
+          key: turborepo-dist-cache-${{ github.ref_name }}-${{ github.sha }}
+          # Use one of the following keys if the above is not found.
+          restore-keys: |
+            turborepo-dist-cache-${{ github.ref_name }}
+            turborepo-dist-cache-
+      # Lint Styles
+      - name: Lint Styles
+        run: yarn lint:style --concurrency=10
+      # Build Microsite
+      - name: Build Microsite
+        run: yarn build --filter=pie-microsite --cache-dir=".turbo"
+
+    deploy:
+      needs: build
+      runs-on: ubuntu-latest
+      if: ${{ github.ref == 'refs/heads/main' }}
+      steps:
+        # Checkout the Repo
+        - name: Checkout
+          uses: actions/checkout@v3
+        # Setup Node 16 
+        - name: Setup Node
+          uses: actions/setup-node@v3
+          with:
+            node-version: 16
+            cache: 'yarn'
+        # Restore node_modules - Cache should exist as one was created in previous 'install' job
+        - name: Cache Node Modules
+          id: cache-node-modules
+          uses: actions/cache@v2
+          with:
+            path: '**/node_modules'
+            key: node-modules-${{ hashFiles('**/yarn.lock') }}
+        # Restore Turborepo's 'dist' cache - If not, cache is created at end of build.
+        - name: Cache Turborepo Dist
+          id: turborepo-dist-cache
+          uses: actions/cache@v2
+          with:
+            path: .turbo
+            key: turborepo-dist-cache-${{ github.ref_name }}-${{ github.sha }}
+            # Use one of the following keys if the above is not found.
+            restore-keys: |
+              turborepo-dist-cache-${{ github.ref_name }}
+              turborepo-dist-cache-
+        # Build Microsite
+        - name: Build Microsite
+          run: yarn build --filter=pie-microsite --cache-dir=".turbo"
+        - name: Deploy
+          uses: peaceiris/actions-gh-pages@v3
+          with:
+            deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+            publish_dir: ./apps/pie-microsite/dist
