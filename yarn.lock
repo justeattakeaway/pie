@@ -117,6 +117,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/polyfill@npm:7.7.0":
+  version: 7.7.0
+  resolution: "@babel/polyfill@npm:7.7.0"
+  dependencies:
+    core-js: ^2.6.5
+    regenerator-runtime: ^0.13.2
+  checksum: 1d8e12a5429bfd335d2e41c7baaa4b22d340da76d266590d8312e12597c5c140ef12e27cffabaffbcd93d6c610c07517c042a91a9c87112e84a38fe04fc4fed2
+  languageName: node
+  linkType: hard
+
 "@babel/types@npm:^7.6.1, @babel/types@npm:^7.8.3, @babel/types@npm:^7.9.6":
   version: 7.18.13
   resolution: "@babel/types@npm:7.18.13"
@@ -156,6 +166,28 @@ __metadata:
   version: 1.2.0
   resolution: "@justeat/browserslist-config-fozzie@npm:1.2.0"
   checksum: 406cff4f25a5460c8eb8d006fff467d77545c4fad46c5138d1ca224dccbb6497219dbd90c903e7497572d179d65aef608346d479b1c103e9b9cb7cf3f793a3cc
+  languageName: node
+  linkType: hard
+
+"@justeat/f-card@npm:^4.2.0":
+  version: 4.2.0
+  resolution: "@justeat/f-card@npm:4.2.0"
+  dependencies:
+    "@justeat/f-services": 0.13.0
+  peerDependencies:
+    "@justeat/browserslist-config-fozzie": ">=1.1.1"
+  checksum: 96e75cda5fc0ab6097e0137d31f1ae01eb98c47e300c9506431512a43fa9dc6d7084d061a8fc4a24160fc33ec6f838144a67c9bf2817c288e50ded79ee91c442
+  languageName: node
+  linkType: hard
+
+"@justeat/f-services@npm:0.13.0":
+  version: 0.13.0
+  resolution: "@justeat/f-services@npm:0.13.0"
+  dependencies:
+    "@babel/polyfill": 7.7.0
+    lodash-es: 4.17.15
+    window-or-global: 1.0.1
+  checksum: e8c90d753e57d201dc5ab7042123026ae80aed352f23a25d37984fd8cd884a604db7329e7fafdfb7f189d18d2b09b864416cbac7a2d8e91c23ea1dc1e8138f03
   languageName: node
   linkType: hard
 
@@ -1213,6 +1245,13 @@ __metadata:
   version: 0.4.2
   resolution: "cookie@npm:0.4.2"
   checksum: a00833c998bedf8e787b4c342defe5fa419abd96b32f4464f718b91022586b8f1bafbddd499288e75c037642493c83083da426c6a9080d309e3bd90fd11baa9b
+  languageName: node
+  linkType: hard
+
+"core-js@npm:^2.6.5":
+  version: 2.6.12
+  resolution: "core-js@npm:2.6.12"
+  checksum: 44fa9934a85f8c78d61e0c8b7b22436330471ffe59ec5076fe7f324d6e8cf7f824b14b1c81ca73608b13bdb0fef035bd820989bf059767ad6fa13123bb8bd016
   languageName: node
   linkType: hard
 
@@ -3169,6 +3208,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"lodash-es@npm:4.17.15":
+  version: 4.17.15
+  resolution: "lodash-es@npm:4.17.15"
+  checksum: dd76e36efca24f8294cdd99563c3bcaff8061732b04af8721313fe9a87e1f8e578ff466cfbcc103d1cb4db067d7d4bd143e3be390d957e22e0cb5d195b3847ed
+  languageName: node
+  linkType: hard
+
 "lodash.deburr@npm:^4.1.0":
   version: 4.1.0
   resolution: "lodash.deburr@npm:4.1.0"
@@ -4103,6 +4149,7 @@ __metadata:
   resolution: "pie@workspace:."
   dependencies:
     "@justeat/browserslist-config-fozzie": 1.x
+    "@justeat/f-card": ^4.2.0
     "@justeat/fozzie": 10.0.0
     "@justeat/stylelint-config-fozzie": 3.x
     "@justeattakeaway/pie-icons": 1.0.0
@@ -4913,6 +4960,13 @@ __metadata:
     indent-string: ^4.0.0
     strip-indent: ^3.0.0
   checksum: fa1ef20404a2d399235e83cc80bd55a956642e37dd197b4b612ba7327bf87fa32745aeb4a1634b2bab25467164ab4ed9c15be2c307923dd08b0fe7c52431ae6b
+  languageName: node
+  linkType: hard
+
+"regenerator-runtime@npm:^0.13.2":
+  version: 0.13.9
+  resolution: "regenerator-runtime@npm:0.13.9"
+  checksum: 65ed455fe5afd799e2897baf691ca21c2772e1a969d19bb0c4695757c2d96249eb74ee3553ea34a91062b2a676beedf630b4c1551cc6299afb937be1426ec55e
   languageName: node
   linkType: hard
 
@@ -6317,6 +6371,13 @@ __metadata:
   dependencies:
     string-width: ^1.0.2 || 2 || 3 || 4
   checksum: d5fc37cd561f9daee3c80e03b92ed3e84d80dde3365a8767263d03dacfc8fa06b065ffe1df00d8c2a09f731482fcacae745abfbb478d4af36d0a891fad4834d3
+  languageName: node
+  linkType: hard
+
+"window-or-global@npm:1.0.1":
+  version: 1.0.1
+  resolution: "window-or-global@npm:1.0.1"
+  checksum: 19272a9589dedf790389376015b7a92e9b987d1c9b15457840f65a3829c5173a8cecce72111944624d98c2120799168d26b38e6b911fff77b4828a2322a8a02e
   languageName: node
   linkType: hard
 

@@ -39,6 +39,7 @@
     "turbo": "^1.3.1"
   },
   "dependencies": {
+    "@justeat/f-card": "^4.2.0",
     "@justeat/fozzie": "10.0.0",
     "@justeattakeaway/pie-icons": "1.0.0"
   }
