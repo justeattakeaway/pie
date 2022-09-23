@@ -3,20 +3,33 @@ on:
   push:
     branches:
       - main
+      - lint-gh-action
 
 jobs:
-  install-deps-and-build:
-    concurrency: ci-${{ github.ref }}
+  install:
+    # concurrency: ci-${{ github.ref }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v3
-      - name: Install, Build and Deploy 🔧
-        run: |
-          yarn
-          yarn build --filter=pie-microsite
+      - name: Install 🔧
+        run: yarn
+
+  build:
+    # concurrency: ci-${{ github.ref }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v3
+      - name: Build🔧
+        run: yarn build --filter=pie-microsite
+
+  deploy:
+    # concurrency: ci-${{ github.ref }}
+    runs-on: ubuntu-latest
+    steps:
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
-          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          deploy_key: fail-here
           publish_dir: ./apps/pie-microsite/dist
