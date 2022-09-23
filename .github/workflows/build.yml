@@ -100,6 +100,9 @@ jobs:
             restore-keys: |
               turborepo-dist-cache-${{ github.ref_name }}
               turborepo-dist-cache-
+        # Build Microsite
+        - name: Build Microsite
+          run: yarn build --filter=pie-microsite --cache-dir=".turbo"
         - name: Deploy
           uses: peaceiris/actions-gh-pages@v3
           with:
