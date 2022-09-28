@@ -1,6 +1,9 @@
 #!/bin/bash
 
-# Process SVG files
+npx rimraf src/assets/optimised
+mkdir src/assets/optimised
+
+# Process SVG files (Optimise)
 npx babel-node bin/process-svgs.js
 
 # Create dist directory

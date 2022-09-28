@@ -24,7 +24,6 @@ function buildIconsObject(svgFiles, getSvg) {
       const attributes = getSvgAttributes(svg);
       const contents = getSvgContents(svg);
       const name = getSVGName(svgFile);
-      //   console.log(svgFile, name);
 
       return { attributes, contents, name };
     })
