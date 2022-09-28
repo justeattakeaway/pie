@@ -11,11 +11,11 @@ import { DEFAULT_ATTRS } from '../src/default-attrs';
 function processSvg (svg) {
     return (
         optimize(svg)
-      .then(setAttrs)
-      .then(prettier.format)
-      // remove semicolon inserted by prettier
-      // because prettier thinks it's formatting JSX not HTML
-      .then(svg => svg.replace(/;/g, ''))
+          .then(setAttrs)
+          .then(prettier.format)
+          // remove semicolon inserted by prettier
+          // because prettier thinks it's formatting JSX not HTML
+          .then(svg => svg.replace(/;/g, ''))
     );
 }
 
@@ -35,7 +35,8 @@ function optimize (svg) {
     });
 
     return new Promise(resolve => {
-        svgo.optimize(svg, ({ data }) => resolve(data));
+        svgo.optimize(svg)
+          .then(({ data }) => resolve(data));
     });
 }
 

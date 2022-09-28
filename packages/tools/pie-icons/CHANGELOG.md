@@ -4,6 +4,19 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 
+v2.0.0-beta.0
+------------------------------
+*September 29, 2022*
+
+### Changed
+- Code moved into `justeattakeaway` shared PIE mono-repo.
+- SVG location moved from `src/pie-icons` to `src/assets`
+- Some minor code refactoring to the `getAllSvgs` function. It's now its own separate function that can be called outside of `build-icons-json.js` where it was previously located.
+
+### Fixed
+- Process SVG step wasn't actually optimising the SVGs. This was down to the way paths were being handled and so they weren't being written correctly to an output directory. This is now fixed and these optimised files get output to `src/assets/optimised`.
+
+
 v1.0.0
 ------------------------------
 *May 4, 2022*
