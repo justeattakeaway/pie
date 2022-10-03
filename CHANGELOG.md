@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 v1.13.1
 ------------------------------
-*September 24, 2022*
+*October 03, 2022*
 
 ### Changed
 - Fixed Husky to work with Yarn 2+
