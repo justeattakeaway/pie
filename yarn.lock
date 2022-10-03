@@ -2522,7 +2522,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"husky@npm:^8.0.0":
+"husky@npm:8.0.1":
   version: 8.0.1
   resolution: "husky@npm:8.0.1"
   bin:
@@ -4075,9 +4075,9 @@ __metadata:
     "@justeattakeaway/pie-icons": 1.0.0
     autoprefixer: 10.4.7
     cssnano: 5.1.13
-    husky: ^8.0.0
+    husky: 8.0.1
     npm-run-all: 4.1.5
-    pinst: ^3.0.0
+    pinst: 3.0.0
     postcss: 8.4.16
     postcss-cli: 10.0.0
     sass: 1.54.0
@@ -4101,7 +4101,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pinst@npm:^3.0.0":
+"pinst@npm:3.0.0":
   version: 3.0.0
   resolution: "pinst@npm:3.0.0"
   bin:
