@@ -1,8 +1,11 @@
 # pie
 
-This site needs node 16.10 or above (built using 16.15.1), yarn 2 or above (built using 3.2.1)
+## Required on your Machine:
+1. `git-secrets`: Install following instructions [here](https://github.com/awslabs/git-secrets)
+2. Yarn 2+ (see below)
+3. NodeJS 16.x
 
-## Yarn >= 2
+## Installing Yarn >= 2
 
 - Open a terminal *OUTSIDE* of the project folder
 - Make sure node >=16.10.0 (at time of test 16.51.1 was the latest and worked)
@@ -15,12 +18,6 @@ This site needs node 16.10 or above (built using 16.15.1), yarn 2 or above (buil
 - run "yarn set version stable"
 - run "yarn -v"
 - should be >= 2.0.0 (at time of test v3.2.1 was the ref. in this project)
-
-## Notes
-
-- This project should never create a `node_module` folder and you should never run any `npm` commands only `yarn`, i.e. `yarn add` (-P, -D), `yarn remove`, `yarn dlx`, `yarn cache clean`, etc..
-- If you do run npm my mistake then you need to delete the `node_module` folder that it will create.
-- As this whole project is setup to use **Turborepo** then try and run all `yarn` commands from the root rather than at the individual project level.
 
 ## To Run
 
