@@ -18,9 +18,10 @@
     "prepare": "yarn build && yarn test:coverage",
     "clean": "rimraf -rf ./dist/*",
     "prepublishOnly": "yarn run build",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
+    "lint:scripts": "eslint .",
+    "lint:scripts:fix": "eslint . --fix",
     "test": "jest",
+    "test:ci": "yarn test",
     "test:coverage": "jest --coverage",
     "precommit": "lint-staged"
   },

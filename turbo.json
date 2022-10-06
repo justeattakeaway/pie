@@ -1,6 +1,5 @@
 {
     "$schema": "https://turborepo.org/schema.json",
-    "baseBranch": "origin/master",
     "pipeline": {
         "build": {
             "cache": true,
@@ -12,14 +11,19 @@
             "outputs": [],
             "inputs": ["src/**"]
         },
+        "test:ci": {
+            "cache": true,
+            "outputs": [],
+            "inputs": ["src/**"]
+        },
         "test:coverage": {
           "outputs": []
         },
-        "lint": {
+        "lint:scripts": {
             "cache": true,
             "outputs": []
         },
-        "lint:fix": {
+        "lint:scripts:fix": {
           "outputs": []
         },
         "lint:style": {
