@@ -1,8 +1,7 @@
 name: Build
-on:  
-  push:
-    branches:
-      - '**'
+
+on:
+  pull_request
 
 jobs:
     install:
@@ -11,8 +10,8 @@ jobs:
       # Checkout the Repo
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Setup Node 
-      # Setup Node 16 
+      - name: Setup Node
+      # Setup Node 16
         uses: actions/setup-node@v3
         with:
           node-version: 16
@@ -36,7 +35,7 @@ jobs:
       # Checkout the Repo
       - name: Checkout
         uses: actions/checkout@v3
-      # Setup Node 16 
+      # Setup Node 16
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
@@ -63,9 +62,9 @@ jobs:
       # Lint Styles
       - name: Lint Styles
         run: yarn lint:style --concurrency=10
-      # Build Microsite
-      - name: Build Microsite
-        run: yarn build --filter=pie-microsite --cache-dir=".turbo"
+      # Build Packages
+      - name: Build Packages
+        run: yarn build --cache-dir=".turbo"
 
     deploy:
       needs: build
@@ -75,7 +74,7 @@ jobs:
         # Checkout the Repo
         - name: Checkout
           uses: actions/checkout@v3
-        # Setup Node 16 
+        # Setup Node 16
         - name: Setup Node
           uses: actions/setup-node@v3
           with:
@@ -99,7 +98,7 @@ jobs:
             restore-keys: |
               turborepo-dist-cache-${{ github.ref_name }}
               turborepo-dist-cache-
-        # Build Microsite
+        # Build Packages
         - name: Build Microsite
           run: yarn build --filter=pie-microsite --cache-dir=".turbo"
         - name: Deploy
