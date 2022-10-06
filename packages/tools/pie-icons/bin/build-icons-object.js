@@ -4,12 +4,11 @@ import { minify } from 'html-minifier';
 
 const ICING_FOLDER = 'icing';
 
-function getSVGName(svgFile) {
-  if ((svgFile, svgFile.includes(ICING_FOLDER))) {
-    return `icing-${path.basename(svgFile, '.svg')}`;
-  } else {
+function getSVGName (svgFile) {
+    if ((svgFile, svgFile.includes(ICING_FOLDER))) {
+        return `icing-${path.basename(svgFile, '.svg')}`;
+    }
     return path.basename(svgFile, '.svg');
-  }
 }
 /**
  * Build an object in the format: `{ <name>: <contents> }`.
@@ -17,22 +16,22 @@ function getSVGName(svgFile) {
  * @param {Function} getSvg - A function that returns the contents of an SVG file given a filename.
  * @returns {Object}
  */
-function buildIconsObject(svgFiles, getSvg) {
-  return svgFiles
-    .map((svgFile) => {
-      const svg = getSvg(svgFile);
-      const attributes = getSvgAttributes(svg);
-      const contents = getSvgContents(svg);
-      const name = getSVGName(svgFile);
+function buildIconsObject (svgFiles, getSvg) {
+    return svgFiles
+    .map(svgFile => {
+        const svg = getSvg(svgFile);
+        const attributes = getSvgAttributes(svg);
+        const contents = getSvgContents(svg);
+        const name = getSVGName(svgFile);
 
-      return { attributes, contents, name };
+        return { attributes, contents, name };
     })
     .reduce((icons, icon) => {
-      icons[icon.name] = {
-        attrs: icon.attributes,
-        contents: icon.contents,
-      };
-      return icons;
+        icons[icon.name] = {
+            attrs: icon.attributes,
+            contents: icon.contents
+        };
+        return icons;
     }, {});
 }
 
@@ -41,18 +40,18 @@ function buildIconsObject(svgFiles, getSvg) {
  * @param {string} svg
  * @returns {string}
  */
-function getSvgContents(svg) {
-  const $ = cheerio.load(svg);
-  return minify($('svg').html(), {
-    caseSensitive: true,
-    collapseWhitespace: true,
-  });
+function getSvgContents (svg) {
+    const $ = cheerio.load(svg);
+    return minify($('svg').html(), {
+        caseSensitive: true,
+        collapseWhitespace: true
+    });
 }
 
-function getSvgAttributes(svg) {
-  const $ = cheerio.load(svg);
-  const viewBox = $('svg').attr('viewBox');
-  return { viewBox };
+function getSvgAttributes (svg) {
+    const $ = cheerio.load(svg);
+    const viewBox = $('svg').attr('viewBox');
+    return { viewBox };
 }
 
 export default buildIconsObject;

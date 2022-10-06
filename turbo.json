@@ -3,18 +3,27 @@
     "baseBranch": "origin/master",
     "pipeline": {
         "build": {
+            "cache": true,
             "dependsOn": ["^build"]
         },
         "test": {
+            "cache": true,
             "dependsOn": ["build"],
             "outputs": [],
             "inputs": ["src/**"]
         },
+        "test:coverage": {
+          "outputs": []
+        },
         "lint": {
+            "cache": true,
             "outputs": []
         },
+        "lint:fix": {
+          "outputs": []
+        },
         "lint:style": {
-          "cache": false,
+          "cache": true,
           "dependsOn": []
         },
         "dev": {

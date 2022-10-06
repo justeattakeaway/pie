@@ -4,6 +4,7 @@
     "no-console": "off",
     "no-param-reassign": "off",
     "no-shadow": "off",
-    "no-use-before-define": "off"
+    "no-use-before-define": "off",
+    "vue/sort-keys": "off"
   }
 }
