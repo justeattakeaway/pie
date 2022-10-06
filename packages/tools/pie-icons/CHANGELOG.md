@@ -3,6 +3,18 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+v2.0.0-beta.1
+------------------------------
+*October 6, 2022*
+
+### Added
+- ESLint fix NPM Script
+- `"tag": "beta"` property added to `package.json`.
+
+### Changed
+- ESLint fixes across JS files
+- Moved common `devDependencies` like Babel, ESLint and Jest out of package to mono-repo root.
+
 
 v2.0.0-beta.0
 ------------------------------

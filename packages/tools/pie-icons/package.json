@@ -1,6 +1,7 @@
 {
   "name": "@justeattakeaway/pie-icons",
-  "version": "2.0.0-beta.0",
+  "version": "2.0.0-beta.1",
+  "tag": "beta",
   "description": "Common icons for use for PIE Project",
   "main": "dist/pie-icons.js",
   "license": "Apache-2.0",
@@ -18,6 +19,7 @@
     "clean": "rimraf -rf ./dist/*",
     "prepublishOnly": "yarn run build",
     "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "test": "jest",
     "test:coverage": "jest --coverage",
     "precommit": "lint-staged"
@@ -31,13 +33,6 @@
     "svgo": "1.3.2"
   },
   "devDependencies": {
-    "@babel/core": "7.17.5",
-    "@babel/node": "7.16.8",
-    "@babel/preset-env": "7.16.11",
-    "@justeat/eslint-config-fozzie": "5.1.0",
-    "babel-loader": "8.2.3",
-    "eslint": "8.9.0",
-    "jest": "27.5.1",
     "lint-staged": "12.3.4",
     "nodemon": "2.0.15",
     "rimraf": "3.0.2",
