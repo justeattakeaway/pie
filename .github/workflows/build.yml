@@ -61,10 +61,16 @@ jobs:
             turborepo-dist-cache-
       # Lint Styles
       - name: Lint Styles
-        run: yarn lint:style --concurrency=10
+        run: yarn lint:style --concurrency=10 --cache-dir=".turbo"
+      # Lint JS
+      - name: Lint JavaScript
+        run: yarn lint:scripts --cache-dir=".turbo"
       # Build Packages
       - name: Build Packages
         run: yarn build --cache-dir=".turbo"
+      # Run Unit Tests
+      - name: Unit Tests
+        run: yarn test:ci --cache-dir=".turbo"
 
     deploy:
       needs: build

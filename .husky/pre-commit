@@ -15,6 +15,6 @@ echo "Running git-secrets..."
 # Scans all files that are about to be committed.
 git-secrets --pre_commit_hook -- "$@"
 
-yarn lint
+yarn lint:scripts
 yarn lint:style
 yarn test

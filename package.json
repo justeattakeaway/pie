@@ -16,9 +16,10 @@
   "scripts": {
     "build": "turbo run build",
     "test": "turbo run test",
+    "test:ci": "turbo run test:ci",
     "test:coverage": "turbo run test:coverage",
-    "lint": "turbo run lint",
-    "lint:fix": "turbo run lint:fix",
+    "lint:scripts": "turbo run lint:scripts",
+    "lint:scripts:fix": "turbo run lint:fix",
     "lint:style": "turbo run lint:style --continue",
     "dev": "turbo run dev",
     "postinstall": "husky install",
