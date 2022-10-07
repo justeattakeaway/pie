@@ -20,7 +20,9 @@ class Icon {
    * @returns {string}
    */
     toSvg (attrs = {}, platform = 'default') {
-        const classname = classnames('c-pieIcon', `c-pieIcon--${this.name}`, this.attrs.class, attrs.class);
+        const camelCaseClassname = (this.name).substring(0, 1).toLowerCase() + (this.name).substring(1);
+
+        const classname = classnames('c-pieIcon', `c-pieIcon--${camelCaseClassname}`, this.attrs.class, attrs.class);
 
         const combinedAttrs = {
             ...this.attrs,
