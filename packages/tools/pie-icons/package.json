@@ -1,0 +1,47 @@
+{
+  "name": "@justeattakeaway/pie-icons",
+  "version": "2.0.0-beta.2",
+  "tag": "beta",
+  "description": "Common icons for use for PIE Project",
+  "main": "dist/pie-icons.js",
+  "license": "Apache-2.0",
+  "keywords": [
+    "PIE"
+  ],
+  "author": "",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "nodemon": "nodemon --config ./nodemon.json",
+    "build": "./bin/build.sh",
+    "prepare": "yarn build && yarn test:coverage",
+    "clean": "rimraf -rf ./dist/*",
+    "prepublishOnly": "yarn run build",
+    "lint:scripts": "eslint .",
+    "lint:scripts:fix": "eslint . --fix",
+    "test": "jest",
+    "test:ci": "yarn test",
+    "test:coverage": "jest --coverage",
+    "precommit": "lint-staged"
+  },
+  "dependencies": {
+    "cheerio": "1.0.0-rc.10",
+    "classnames": "2.3.1",
+    "html-minifier": "4.0.0",
+    "prettier": "2.5.1",
+    "rimraf": "3.0.2",
+    "svgo": "1.3.2"
+  },
+  "devDependencies": {
+    "lint-staged": "12.3.4",
+    "nodemon": "2.0.15",
+    "rimraf": "3.0.2",
+    "svgo": "1.3.2",
+    "webpack": "5.69.1",
+    "webpack-cli": "4.9.2"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  }
+}
