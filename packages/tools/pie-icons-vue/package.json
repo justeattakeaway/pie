@@ -1,0 +1,60 @@
+{
+  "name": "@justeattakeaway/pie-icons-vue",
+  "version": "2.0.0-beta.0",
+  "tag": "beta",
+  "main": "dist/pie-icons-vue.cjs.js",
+  "cdn": "dist/pie-icons-vue.min.js",
+  "unpkg": "dist/pie-icons-vue.min.js",
+  "module": "dist/pie-icons-vue.es.js",
+  "files": [
+    "dist",
+    "icons"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "sideEffects": false,
+  "homepage": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons-vue",
+  "contributors": [
+    "Github contributors <https://github.com/justeattakeaway/pie/graphs/contributors>"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:justeattakeaway/pie.git"
+  },
+  "bugs": {
+    "url": "https://github.com/justeat/pie/issues"
+  },
+  "license": "Apache-2.0",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "keywords": [
+    "PIE"
+  ],
+  "scripts": {
+    "prepublishOnly": "yarn lint && yarn build",
+    "build": "yarn build:icons && yarn build:dist",
+    "build:dist": "bili --input generated/index.js --format umd,es,cjs,umd-min --js buble --name pie-icons-vue",
+    "build:icons": "node build && babel generated/components -d icons",
+    "lint:scripts": "eslint \"!(dist)/**/*.{js,vue}\"",
+    "lint:scripts:fix": "yarn lint --fix",
+    "prebuild:example": "yarn build:icons"
+  },
+  "browserslist": [
+    "extends @justeat/browserslist-config-fozzie"
+  ],
+  "dependencies": {
+    "@vue/babel-helper-vue-jsx-merge-props": "1.4.0"
+  },
+  "devDependencies": {
+    "@justeattakeaway/pie-icons": "2.0.0-beta.2",
+    "@vue/babel-preset-jsx": "1.4.0",
+    "bili": "3.4.2",
+    "fs-extra": "9.0.1",
+    "lodash.kebabcase": "4.1.1",
+    "marked": "1.2.5",
+    "pascal-case": "3.1.2",
+    "prismjs": "1.28.0"
+  }
+}
