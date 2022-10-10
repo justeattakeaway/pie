@@ -37,7 +37,7 @@
     "build": "yarn build:icons && yarn build:dist",
     "build:dist": "bili --input generated/index.js --format umd,es,cjs,umd-min --js buble --name pie-icons-vue",
     "build:icons": "node build && babel generated/components -d icons",
-    "lint:scripts": "eslint \"!(dist)/**/*.{js,vue}\"",
+    "lint:scripts": "eslint --ext js",
     "lint:scripts:fix": "yarn lint --fix",
     "prebuild:example": "yarn build:icons"
   },
