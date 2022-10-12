@@ -2,7 +2,7 @@
   "name": "@justeattakeaway/pie-icons-react",
   "version": "0.0.1",
   "tag": "beta",
-  "main": "dist/pie-icons-vue.cjs.js",
+  "main": "esm/index.js",
   "files": [
     "dist",
     "esm"
@@ -31,12 +31,10 @@
   ],
   "scripts": {
     "prepublishOnly": "yarn lint && yarn build",
-    "build": "yarn build:icons",
-    "build:icons": "babel-node ./scripts/react-icons-gen.js"
+    "build:icons": "babel-node ./scripts/react-icons-gen.js",
+    "build:lib": "rollup -c",
+    "build": "yarn build:icons && yarn build:lib"
   },
-  "browserslist": [
-    "extends @justeat/browserslist-config-fozzie"
-  ],
   "devDependencies": {
     "@babel/node": "7.19.1",
     "@justeattakeaway/pie-icons": "2.0.0-beta.2",
@@ -44,6 +42,9 @@
     "@types/react": "18.0.21",
     "pascal-case": "3.1.2",
     "react": "18.2.0",
+    "rollup": "2.56.2",
+    "rollup-plugin-delete": "2.0.0",
+    "rollup-plugin-typescript2": "0.30.0",
     "typescript": "4.8.4"
   }
 }
