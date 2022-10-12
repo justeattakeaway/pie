@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/pie-icons-react",
-  "version": "0.0.1",
+  "version": "0.0.1-alpha.0",
   "tag": "beta",
   "main": "esm/index.js",
   "files": [
@@ -30,7 +30,7 @@
     "PIE"
   ],
   "scripts": {
-    "prepublishOnly": "yarn lint && yarn build",
+    "prepublishOnly": "yarn build",
     "build:icons": "babel-node ./scripts/react-icons-gen.js",
     "build:lib": "rollup -c",
     "build": "yarn build:icons && yarn build:lib"
