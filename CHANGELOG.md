@@ -3,9 +3,18 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-v1.16.0
+
+v1.16.1
 ------------------------------
 *October 10, 2022*
+
+### Changed
+- add more granular config to the GitHub actions file for running on pushes to master and PRs
+
+
+v1.16.0
+------------------------------
+*October 13, 2022*
 
 ### Added
 - `pie-icons-vue` package to `/tools` (as a beta release).
