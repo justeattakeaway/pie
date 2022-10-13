@@ -9,7 +9,7 @@ v1.16.1
 *October 13, 2022*
 
 ### Changed
-- add more granular config to the GitHub actions file for running on pushes to master and PRs
+- add more granular config to the GitHub actions file for running on pushes to main and PRs
 
 
 v1.16.0
