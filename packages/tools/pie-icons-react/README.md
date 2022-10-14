@@ -4,7 +4,7 @@ Shared PIE Icon Components for ReactJS.
 
 This package generates an iconset for React applications using the base [pie-icons](https://www.npmjs.com/package/@justeattakeaway/pie-icons) package. The SVGs in pie-icons are compiled into single file components that can be imported into Vue applications.
 
-The icons are bundled in CommonJS and ES Modules, to be more easily adoped for modern React Applications.
+The icons are bundled in CommonJS and ES Modules, to be more easily adopted for modern React Applications.
 
 ---
 

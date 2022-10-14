@@ -3,7 +3,7 @@ import del from "rollup-plugin-delete";
 
 export default [
   {
-    input: ["src/icons/index.tsx"],
+    input: ["icons/index.tsx"],
     output: {
       exports: "named",
       dir: "esm",
@@ -17,7 +17,7 @@ export default [
     preserveModules: true,
   },
   {
-    input: ["src/icons/index.tsx"],
+    input: ["icons/index.tsx"],
     output: {
       exports: "named",
       dir: "dist",

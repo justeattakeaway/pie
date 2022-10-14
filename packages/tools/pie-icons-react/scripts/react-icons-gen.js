@@ -6,7 +6,7 @@ const path = require("path");
 
 const icons = pieIcons.icons;
 
-const ICONS_DIR = process.cwd() + "/src/icons";
+const ICONS_DIR = process.cwd() + "/icons";
 
 const indexFile = fs.createWriteStream(
   path.join(ICONS_DIR, "/index.tsx"),
@@ -27,6 +27,6 @@ Object.keys(icons).map((iconKey) => {
   });
 
   indexFile.write(
-    `export { default as ${componentName} } from '../icons/${componentName}';\n`
+    `export { default as ${componentName} } from './${componentName}';\n`
   );
 });

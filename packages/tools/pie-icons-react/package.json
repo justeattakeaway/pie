@@ -1,11 +1,12 @@
 {
   "name": "@justeattakeaway/pie-icons-react",
-  "version": "0.0.1-alpha.0",
+  "version": "1.0.0-alpha.0",
   "tag": "beta",
   "main": "esm/index.js",
   "files": [
     "dist",
-    "esm"
+    "esm",
+    "icons"
   ],
   "publishConfig": {
     "access": "public"
