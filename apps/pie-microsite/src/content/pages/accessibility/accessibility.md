@@ -2,6 +2,6 @@
 eleventyNavigation:
     key: Accessibility
     parent: Pages
-    order: 6
+    order: 7
 title: Accessibility
 ---

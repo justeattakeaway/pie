@@ -2,6 +2,6 @@
 eleventyNavigation:
     key: Copy
     parent: Pages
-    order: 7
+    order: 8
 title: Copy
 ---

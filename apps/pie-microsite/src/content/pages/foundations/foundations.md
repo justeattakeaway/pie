@@ -2,6 +2,6 @@
 eleventyNavigation:
     key: Foundations
     parent: Pages
-    order: 3
+    order: 4
 title: Foundations
 ---

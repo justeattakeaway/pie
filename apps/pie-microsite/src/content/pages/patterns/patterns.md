@@ -2,6 +2,6 @@
 eleventyNavigation:
     key: Patterns
     parent: Pages
-    order: 5
+    order: 6
 title: Patterns
 ---
