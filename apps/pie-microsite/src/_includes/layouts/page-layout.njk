@@ -3,7 +3,7 @@ site_title: Pie Site
 layout: layouts/default-layout.njk
 ---
 
-{% if content %}
+{% if content or navKey %}
     {% include "content-page.njk" %}
 {% else %}
     {# By default we will show the coming soon graphic for an empty page #}

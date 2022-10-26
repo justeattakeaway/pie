@@ -4,7 +4,9 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+    height: 100%;
     padding: f.spacing(h) f.spacing(d);
+    background-color: f.$color-background-default;
 
     @include f.media('>narrowMid') {
         padding-left: f.spacing(i);

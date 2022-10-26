@@ -12,7 +12,14 @@
         {% include "page-tabs.njk" %}
     {% endif %}
 
-    <div class="c-contentPage-main">
-        {{ content | safe }}
-    </div>
+    {% if content %}
+        <div class="c-contentPage-main">
+            {{ content | safe }}
+        </div>
+    {% else %}
+        <div class="c-contentPage-comingSoon">
+            {# By default we will show the coming soon graphic for an empty page within a tabbed section #}
+            {% include "coming-soon.njk" %}
+        </div>
+    {% endif %}
 </div>
