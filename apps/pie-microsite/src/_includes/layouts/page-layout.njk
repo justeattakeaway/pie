@@ -3,21 +3,9 @@ site_title: Pie Site
 layout: layouts/default-layout.njk
 ---
 
-<div class="c-contentPage">
-    <div class="c-contentPage-header">
-        <h1 class="alpha--standout">
-            {{ title }}
-        </h1>
-        <p class="c-contentPage-header-subheading">
-            {{ description }}
-        </p>
-    </div>
-
-    {% if navKey %}
-        {% include "page-tabs.njk" %}
-    {% endif %}
-
-    <div class="c-contentPage-main">
-        {{ content | safe }}
-    </div>
-</div>
+{% if content %}
+    {% include "content-page.njk" %}
+{% else %}
+    {# By default we will show the coming soon graphic for an empty page #}
+    {% include "coming-soon.njk" %}
+{% endif %}

@@ -6,7 +6,4 @@ eleventyNavigation:
 title: Global Token
 navKey: Spacing
 description: Space is the horizontal and vertical distance between or around different design elements.
-layout: layouts/coming-soon-layout.njk
 ---
-## Global Token
-

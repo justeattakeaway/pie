@@ -1,0 +1,18 @@
+<div class="c-contentPage">
+    <div class="c-contentPage-header">
+        <h1 class="alpha--standout">
+            {{ title }}
+        </h1>
+        <p class="c-contentPage-header-subheading">
+            {{ description }}
+        </p>
+    </div>
+
+    {% if navKey %}
+        {% include "page-tabs.njk" %}
+    {% endif %}
+
+    <div class="c-contentPage-main">
+        {{ content | safe }}
+    </div>
+</div>
