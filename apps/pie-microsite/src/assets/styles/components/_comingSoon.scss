@@ -4,7 +4,7 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    padding: f.spacing(h) f.spacing(f);
+    padding: f.spacing(h) f.spacing(d);
 
     @include f.media('>narrowMid') {
         padding-left: f.spacing(i);
