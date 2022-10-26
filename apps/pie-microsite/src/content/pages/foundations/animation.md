@@ -3,6 +3,7 @@ eleventyNavigation:
     key: Animation
     parent: Foundations
 title: Animation
+layout: layouts/coming-soon-layout.njk
 ---
 
 This page is coming soon!

@@ -6,6 +6,5 @@ eleventyNavigation:
 title: Overview
 navKey: Using design tokens
 description: This page is coming soon!
+layout: layouts/coming-soon-layout.njk
 ---
-
-You can see the all the existing page designs [here](https://www.figma.com/file/KND7Higqcvksz7WkXRKLHm/Microsite?node-id=24%3A2880)
