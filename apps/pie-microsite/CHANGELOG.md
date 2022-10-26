@@ -9,12 +9,12 @@ v1.17.0
 *October 26, 2022*
 
 ### Added
-- `coming-soon-layout.njk` to show on unfinished pages
+- coming soon styled graphic/page to show on unfinished pages
 
 ### Changed
 - extract the page tabs to their own template - `page-tabs.njk`
 - conditionally show page tabs only if a `navKey` front matter value is present
-- use the new coming soon layout on unfinished pages rather than `page-layout`
+- add conditional to `page-layout` to show coming-soon if no page content exists
 
 
 v1.16.2
