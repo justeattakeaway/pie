@@ -16,6 +16,9 @@ v1.17.0
 - conditionally show page tabs only if a `navKey` front matter value is present
 - add conditional to `page-layout` to show coming-soon if no page content exists
 
+### Removed
+- placeholder content from empty pages
+
 
 v1.16.2
 ------------------------------
