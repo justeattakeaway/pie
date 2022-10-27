@@ -7,7 +7,6 @@
             {% else %}
                 aria-selected="false"
             {% endif %}
-            aria-selected="false"
             class="c-tabs-item">
                 <a href="{{ entry.url | url }}" class="c-tabs-link {% if entry.url == page.url %}is-active{% endif %}">{{ entry.title }}</a></li>
         {%- endfor %}
