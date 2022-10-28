@@ -3,33 +3,9 @@ site_title: Pie Site
 layout: layouts/default-layout.njk
 ---
 
-<div class="c-contentPage">
-    <div class="c-contentPage-header">
-        <h1 class="alpha--standout">
-            {{ title }}
-        </h1>
-        <p class="c-contentPage-header-subheading">
-            {{ description }}
-        </p>
-    </div>
-
-    <nav aria-label="Secondary navigational tabs" class="c-tabs">
-        <ul>
-            {%- for entry in collections.all | eleventyNavigation(navKey) %}
-              <li
-                {% if entry.url == page.url %}
-                    aria-selected="true"
-                {% else %}
-                    aria-selected="false"
-                {% endif %}
-                aria-selected="false"
-                class="c-tabs-item">
-                    <a href="{{ entry.url | url }}" class="c-tabs-link {% if entry.url == page.url %}is-active{% endif %}">{{ entry.title }}</a></li>
-            {%- endfor %}
-        </ul>
-    </nav>
-
-    <div class="c-contentPage-main">
-        {{ content | safe }}
-    </div>
-</div>
+{% if content or navKey %}
+    {% include "content-page.njk" %}
+{% else %}
+    {# By default we will show the coming soon graphic for an empty page #}
+    {% include "coming-soon.njk" %}
+{% endif %}

@@ -4,5 +4,3 @@ eleventyNavigation:
     parent: Support
 title: FAQ
 ---
-
-This page is coming soon!

@@ -7,5 +7,3 @@ title: Test
 navKey: Using design tokens
 description: This page is coming soon!
 ---
-
-This is a test page

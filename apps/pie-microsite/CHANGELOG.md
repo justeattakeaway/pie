@@ -4,6 +4,22 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 
+v1.17.0
+------------------------------
+*October 26, 2022*
+
+### Added
+- coming soon styled graphic/page to show on unfinished pages
+
+### Changed
+- extract the page tabs to their own template - `page-tabs.njk`
+- conditionally show page tabs only if a `navKey` front matter value is present
+- add conditional to `page-layout` to show coming-soon if no page content exists
+
+### Removed
+- placeholder content from empty pages
+
+
 v1.16.2
 ------------------------------
 *September 22, 2022*

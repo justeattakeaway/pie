@@ -7,5 +7,3 @@ title: Global Token
 navKey: Spacing
 description: Space is the horizontal and vertical distance between or around different design elements.
 ---
-## Global Token
-
