@@ -12,7 +12,7 @@
     "watch:eleventy": "eleventy --serve",
     "build:sass": "sass --load-path=../../node_modules/ src/assets/styles:dist/assets/styles",
     "build:eleventy": "eleventy",
-    "dev": "rm -rf ./dist && npm-run-all build:sass --parallel watch:sass watch:eleventy post-css",
+    "dev": "rimraf dist && npm-run-all build:sass --parallel watch:sass watch:eleventy post-css",
     "build": "npm-run-all build:eleventy build:sass post-css",
     "lint:style": "stylelint ./src/**/*.{css,scss}",
     "lint:style:fix": "yarn lint:style --fix",
