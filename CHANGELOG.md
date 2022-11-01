@@ -11,8 +11,11 @@ v1.18.0
 ### Changed
 - Downgrade to `yarn v1` 
 - Set up `husky` to work with downgraded `yarn` version
-- Use `test:ci` command in `husky` to prevent building entire monorepo on each commit
 - Use `actions/cache@v3` instead of `v2` to use Node 16 (was 12 before)
+
+### Removed
+- Remove `test` command in `husky` to prevent building entire monorepo on each commit
+
 
 v1.17.0
 ------------------------------
