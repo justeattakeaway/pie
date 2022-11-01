@@ -5,7 +5,7 @@
   "keywords": [],
   "author": "JustEatTakeaway - Vue Design System Team",
   "license": "MIT",
-  "packageManager": "yarn@3.2.1",
+  "private": true,
   "engines": {
     "node": "^16"
   },
