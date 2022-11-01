@@ -8,6 +8,9 @@ v1.18.0
 ------------------------------
 *November 1, 2022*
 
+### Added
+- `nvmrc` file to lock the node version at 16 for local development
+
 ### Changed
 - Downgrade to `yarn v1` 
 - Set up `husky` to work with downgraded `yarn` version
