@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 v1.18.0
 ------------------------------
-*Novermber 1, 2022*
+*November 1, 2022*
 
 ### Changed
 - re-structure yarn scripts for sass watching and compilation
