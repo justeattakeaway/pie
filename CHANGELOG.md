@@ -12,7 +12,7 @@ v1.18.0
 - `nvmrc` file to lock the node version at 16 for local development
 
 ### Changed
-- Downgrade to `yarn v1` 
+- Downgrade to `yarn v1` as we were not seeing any benefits and found a number of dependency issues and complexities were introduced by it
 - Set up `husky` to work with downgraded `yarn` version
 - Use `actions/cache@v3` instead of `v2` to use Node 16 (was 12 before)
 
