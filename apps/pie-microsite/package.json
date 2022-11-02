@@ -10,7 +10,7 @@
     "build": "npm-run-all build:eleventy build:sass post-css",
     "build:sass": "sass --load-path=../../node_modules/ src/assets/styles:dist/assets/styles",
     "build:eleventy": "eleventy",
-    "clean:sass": "rimraf dist/assets/styles",
+    "clean:sass": "rimraf dist/assets/",
     "dev": "npm-run-all -s clean:sass build:sass watch:dev",
     "lint:style": "stylelint ./src/**/*.{css,scss}",
     "lint:style:fix": "yarn lint:style --fix",
