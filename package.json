@@ -4,6 +4,7 @@
   "version": "1.18.0",
   "keywords": [],
   "author": "JustEatTakeaway - Vue Design System Team",
+  "packageManager": "yarn@3.2.1",
   "license": "MIT",
   "private": true,
   "engines": {
@@ -24,8 +25,7 @@
     "dev": "turbo run dev",
     "postinstall": "husky install",
     "prepack": "pinst --disable",
-    "postpack": "pinst --enable",
-    "prepare": "husky install"
+    "postpack": "pinst --enable"
   },
   "stylelint": {
     "extends": "@justeat/stylelint-config-fozzie"
