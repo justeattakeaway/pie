@@ -9,6 +9,9 @@ module.exports = eleventyConfig => {
   // Watch target scss folder for all changes.
   eleventyConfig.addWatchTarget('src/assets/styles/');
 
+  // Give other task runners a chance to complete before page reload
+  eleventyConfig.setWatchThrottleWaitTime(500); // in milliseconds
+
   // Copy over img directory to dist directory.
   eleventyConfig.addPassthroughCopy({ 'src/assets/img': 'assets/img' });
 
