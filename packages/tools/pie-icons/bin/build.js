@@ -4,7 +4,7 @@ console.log('Clearing old svgs');
 execSync('npx rimraf src/assets/optimised');
 
 console.log('Making src/assets/optimised directory');
-execSync('mkdir src/assets/optimised');
+execSync('mkdir "src/assets/optimised"');
 
 // Process SVG files (Optimise)
 console.log('Optimising SVGS');
@@ -22,7 +22,7 @@ execSync('npx babel-node bin/build-icons-json.js');
 // Create dist/icons directory
 console.log('Creating dist/icons directory');
 execSync('npx rimraf dist/icons');
-execSync('mkdir dist/icons');
+execSync('mkdir "dist/icons"');
 
 // Build SVG icons
 console.log('Building SVG icons');
