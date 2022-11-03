@@ -12,8 +12,6 @@ v1.18.0
 - `nvmrc` file to lock the node version at 16 for local development
 
 ### Changed
-- Downgrade to `yarn v1`. We did this because when using Yarn 2+, we were noticing that project-level commands would fail to run if they use root level dependencies. For example `watch:sass` in pie-microsite would fail to find `sass` as it's at the root level of the repo but `yarn dev` would work. We likely were configuring Yarn 2 incorrectly but none of us could figure it out. 
-- Set up `husky` to work with downgraded `yarn` version
 - Use `actions/cache@v3` instead of `v2` to use Node 16 (was 12 before)
 
 ### Removed
