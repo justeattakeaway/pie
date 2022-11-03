@@ -20,7 +20,9 @@
 
 - https://turborepo.org/docs
 
-#### Running project-level commands that rely on root-level dependencies
+---
+
+## Running project-level commands that rely on root-level dependencies
 If you have a project-level command, such as `yarn lint:style` within the pie-microsite project, you will see that it as `run -T` in front of the `stylelint` command.
 
 This is because `stylelint` is a root-level dependency (so it can shared across monorepo projects). The problem is that if you cd into `/apps/pie-microsite` and run the command, you will get a `command not found` error because `stylelint` does not exist at the project level.
