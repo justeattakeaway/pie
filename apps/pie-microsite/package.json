@@ -8,7 +8,8 @@
   "license": "MIT",
   "scripts": {
     "build": "eleventy",
-    "dev": "eleventy --serve",
+    "clean:dist": "run -T rimraf dist",
+    "dev": "yarn clean:dist && eleventy --serve",
     "lint:style": "run -T stylelint ./src/**/*.{css,scss}",
     "lint:style:fix": "yarn lint:style --fix"
   },
