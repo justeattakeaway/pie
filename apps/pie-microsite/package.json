@@ -7,24 +7,17 @@
   "author": "JustEatTakeaway - Vue Design System Team",
   "license": "MIT",
   "scripts": {
-    "build": "npm-run-all build:eleventy build:sass post-css",
-    "build:sass": "sass --load-path=../../node_modules/ src/assets/styles:dist/assets/styles",
-    "build:eleventy": "eleventy",
-    "clean:sass": "rimraf dist/assets/",
-    "dev": "npm-run-all -s clean:sass build:sass watch:dev",
-    "lint:style": "stylelint ./src/**/*.{css,scss}",
-    "lint:style:fix": "yarn lint:style --fix",
-    "post-css": "postcss dist/assets/styles/main.css -o dist/assets/styles/main.css --use autoprefixer --use cssnano",
-    "watch:dev": "npm-run-all -p watch:sass watch:post-css watch:eleventy",
-    "watch:eleventy": "eleventy --serve",
-    "watch:post-css": "yarn post-css -w",
-    "watch:sass": "sass --watch --load-path=../../node_modules/ src/assets/styles:dist/assets/styles"
+    "build": "eleventy",
+    "dev": "eleventy --serve",
+    "lint:style": "run -T stylelint ./src/**/*.{css,scss}",
+    "lint:style:fix": "yarn lint:style --fix"
   },
   "browserslist": [
     "extends @justeat/browserslist-config-fozzie"
   ],
   "devDependencies": {
     "@11ty/eleventy": "1.0.1",
-    "@11ty/eleventy-navigation": "^0.3.3"
+    "@11ty/eleventy-navigation": "^0.3.3",
+    "eleventy-sass": "2.1.3"
   }
 }
