@@ -17,4 +17,3 @@ git-secrets --pre_commit_hook -- "$@"
 
 yarn lint:scripts
 yarn lint:style
-yarn test

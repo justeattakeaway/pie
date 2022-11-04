@@ -3,6 +3,13 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+
+Latest – to be added to the next release
+------------------------------
+### Changed
+- Convert `build.sh` to `build.js` to enable Windows users to build the project locally
+
+
 v2.0.0-beta.2
 ------------------------------
 *October 7, 2022*

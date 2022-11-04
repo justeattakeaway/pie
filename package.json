@@ -1,11 +1,12 @@
 {
   "name": "pie",
   "description": "JustEatTakeaway",
-  "version": "1.17.0",
+  "version": "1.18.0",
   "keywords": [],
   "author": "JustEatTakeaway - Vue Design System Team",
   "license": "MIT",
   "packageManager": "yarn@3.2.1",
+  "private": true,
   "engines": {
     "node": "^16"
   },
@@ -49,6 +50,7 @@
     "pinst": "3.0.0",
     "postcss": "8.4.16",
     "postcss-cli": "10.0.0",
+    "rimraf": "3.0.2",
     "sass": "1.54.0",
     "stylelint": "14.9.1",
     "stylelint-config-standard-scss": "5.0.0",

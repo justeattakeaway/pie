@@ -3,6 +3,21 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+
+v1.18.0
+------------------------------
+*November 1, 2022*
+
+### Added
+- `nvmrc` file to lock the node version at 16 for local development
+
+### Changed
+- Use `actions/cache@v3` instead of `v2` to use Node 16 (was 12 before)
+
+### Removed
+- Remove `test` command in `husky` to prevent building entire monorepo on each commit
+
+
 v1.17.0
 ------------------------------
 *October 22, 2022*

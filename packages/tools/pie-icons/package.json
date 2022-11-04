@@ -14,7 +14,7 @@
   ],
   "scripts": {
     "nodemon": "nodemon --config ./nodemon.json",
-    "build": "./bin/build.sh",
+    "build": "node ./bin/build.js",
     "prepare": "yarn build && yarn test:coverage",
     "clean": "rimraf -rf ./dist/*",
     "prepublishOnly": "yarn run build",

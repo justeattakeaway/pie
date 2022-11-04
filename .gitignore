@@ -153,3 +153,5 @@ esm
 .turbo
 build/**
 dist/**
+
+.plugin-clean
