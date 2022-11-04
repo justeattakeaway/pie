@@ -8,7 +8,7 @@ v1.18.0
 ------------------------------
 *November 1, 2022*
 
-###
+### Added
 - `eleventy-plugin-rev` to hash CSS
 
 ### Changed
