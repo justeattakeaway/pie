@@ -6,6 +6,7 @@
   "keywords": [],
   "author": "JustEatTakeaway - Vue Design System Team",
   "license": "MIT",
+  "packageManager": "yarn@3.2.1",
   "scripts": {
     "build": "eleventy",
     "clean:dist": "run -T rimraf dist",
