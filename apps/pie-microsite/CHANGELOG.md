@@ -12,8 +12,8 @@ v1.18.0
 - `eleventy-plugin-rev` to hash CSS
 
 ### Changed
-- re-structure yarn scripts for sass watching and compilation
-- clear the previously compiled css in `/dist` when running `yarn dev` command to correctly reload on SCSS changes when serving
+- Re-structure yarn scripts for sass watching and compilation
+- Clear the previously compiled css in `/dist` when running `yarn dev` command to correctly reload on SCSS changes when serving
 - Use Eleventy plugins to compile SCSS to CSS (`eleventy-sass`, `eleventy-plugin-rev` and `eleventy-plugin-clean`)
 
 ### Removed
