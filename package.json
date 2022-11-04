@@ -4,8 +4,8 @@
   "version": "1.18.0",
   "keywords": [],
   "author": "JustEatTakeaway - Vue Design System Team",
-  "packageManager": "yarn@3.2.1",
   "license": "MIT",
+  "packageManager": "yarn@3.2.1",
   "private": true,
   "engines": {
     "node": "^16"
