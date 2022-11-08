@@ -145,4 +145,4 @@ function initialise () {
 
 window.addEventListener('DOMContentLoaded', () => {
   initialise();
-})
+});
