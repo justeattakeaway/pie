@@ -21,6 +21,9 @@ module.exports = eleventyConfig => {
   // Pass CNAME file into dist output (needed for domain to work correctly)
   eleventyConfig.addPassthroughCopy("CNAME");
 
+  // Allow JS to pass through (can add a bundling step in future if needed)
+  eleventyConfig.addPassthroughCopy("./src/assets/js");
+
   return {
     dir: {
       input: "src",
