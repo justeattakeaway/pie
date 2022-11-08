@@ -38,6 +38,7 @@
     "@babel/preset-env": "7.16.11",
     "@justeat/browserslist-config-fozzie": "1.x",
     "@justeat/eslint-config-fozzie": "5.1.0",
+    "@justeat/pie-design-tokens": "3.2.0",
     "@justeat/stylelint-config-fozzie": "3.x",
     "autoprefixer": "10.4.7",
     "babel-loader": "8.2.3",

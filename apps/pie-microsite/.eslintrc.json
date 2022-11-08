@@ -1,0 +1,14 @@
+{
+  "extends": ["@justeat/eslint-config-fozzie"],
+  "parserOptions":
+    {
+      "ecmaVersion": 2020
+    },
+  "rules": {
+    "no-param-reassign": "off",
+    "no-shadow": "off",
+    "no-use-before-define": "off",
+    "vue/sort-keys": "off",
+    "import/no-extraneous-dependencies": "off"
+  }
+}

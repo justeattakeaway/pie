@@ -4,17 +4,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 
-v1.19.0
+Latest – to be added to the next release
 ------------------------------
-*November 8, 2022*
-
 ### Added
-- JS folder added to assets
-- new JS folder passes through to dist folder
 - `CODEOWNERS` file with the `@justeat/ui-senior-reviewers` set as reviewers for `pie-microsite`
-
-### Changed
-- `scripts.njk` now loads JS modules from assets folder rather than having JS written directly in it
+- Root level devDependency of `@justeattakeaway/pie-icons`
 
 
 v1.18.0

@@ -1998,6 +1998,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@justeat/pie-design-tokens@npm:3.2.0":
+  version: 3.2.0
+  resolution: "@justeat/pie-design-tokens@npm:3.2.0"
+  dependencies:
+    jsonc-parser: 3.2.0
+    lodash.merge: 4.6.2
+    mkdirp: 1.0.4
+  checksum: 27e28e7b161d2e5e4aad22f9aa3c4e105fdc94f3fd48e1759ea37bf55812b0fc2e90e463809ac960e755d9943e11629b2e95e8df909bb52732068e36899ceb75
+  languageName: node
+  linkType: hard
+
 "@justeat/stylelint-config-fozzie@npm:3.x":
   version: 3.2.0
   resolution: "@justeat/stylelint-config-fozzie@npm:3.2.0"
@@ -8707,6 +8718,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"jsonc-parser@npm:3.2.0":
+  version: 3.2.0
+  resolution: "jsonc-parser@npm:3.2.0"
+  checksum: 946dd9a5f326b745aa326d48a7257e3f4a4b62c5e98ec8e49fa2bdd8d96cef7e6febf1399f5c7016114fd1f68a1c62c6138826d5d90bc650448e3cf0951c53c7
+  languageName: node
+  linkType: hard
+
 "jsonfile@npm:^3.0.0":
   version: 3.0.1
   resolution: "jsonfile@npm:3.0.1"
@@ -9628,6 +9646,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"mkdirp@npm:1.0.4, mkdirp@npm:^1.0.3, mkdirp@npm:^1.0.4":
+  version: 1.0.4
+  resolution: "mkdirp@npm:1.0.4"
+  bin:
+    mkdirp: bin/cmd.js
+  checksum: a96865108c6c3b1b8e1d5e9f11843de1e077e57737602de1b82030815f311be11f96f09cce59bd5b903d0b29834733e5313f9301e3ed6d6f6fba2eae0df4298f
+  languageName: node
+  linkType: hard
+
 "mkdirp@npm:^0.5.1, mkdirp@npm:~0.5.1":
   version: 0.5.6
   resolution: "mkdirp@npm:0.5.6"
@@ -9636,15 +9663,6 @@ __metadata:
   bin:
     mkdirp: bin/cmd.js
   checksum: 0c91b721bb12c3f9af4b77ebf73604baf350e64d80df91754dc509491ae93bf238581e59c7188360cec7cb62fc4100959245a42cfe01834efedc5e9d068376c2
-  languageName: node
-  linkType: hard
-
-"mkdirp@npm:^1.0.3, mkdirp@npm:^1.0.4":
-  version: 1.0.4
-  resolution: "mkdirp@npm:1.0.4"
-  bin:
-    mkdirp: bin/cmd.js
-  checksum: a96865108c6c3b1b8e1d5e9f11843de1e077e57737602de1b82030815f311be11f96f09cce59bd5b903d0b29834733e5313f9301e3ed6d6f6fba2eae0df4298f
   languageName: node
   linkType: hard
 
@@ -10596,6 +10614,7 @@ __metadata:
     "@justeat/browserslist-config-fozzie": 1.x
     "@justeat/eslint-config-fozzie": 5.1.0
     "@justeat/fozzie": 10.0.0
+    "@justeat/pie-design-tokens": 3.2.0
     "@justeat/stylelint-config-fozzie": 3.x
     "@justeattakeaway/pie-icons": 1.0.0
     autoprefixer: 10.4.7
