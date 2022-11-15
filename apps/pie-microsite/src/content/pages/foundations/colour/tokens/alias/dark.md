@@ -7,11 +7,10 @@ defaultContent: dark
 hiddenContent: light
 ---
 
-I AM THE DARK 
-
+<div id="default">
 {% include './dark-alias-content.md' %}
-(hidden) {% include './light-alias-content.md' %}
+</div>
 
-{% toggledContent "default" %}
-hi there
+{% toggledContent "hidden" %}
+{% include './light-alias-content.md' %}
 {% endtoggledContent %}
