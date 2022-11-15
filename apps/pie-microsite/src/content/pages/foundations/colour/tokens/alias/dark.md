@@ -4,4 +4,7 @@ navKey: Colour
 description: Our colour system builds on the recognition of the JET brand colours to make the product interface more usable.
 ---
 
-I am an alias page showing the dark theme
+I AM THE DARK 
+
+{% include './dark-alias-content.md' %}
+(hidden) {% include './light-alias-content.md' %}
