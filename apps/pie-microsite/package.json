@@ -1,7 +1,7 @@
 {
   "name": "pie-microsite",
   "description": "todo",
-  "version": "1.18.0",
+  "version": "1.19.0",
   "main": "index.js",
   "keywords": [],
   "author": "JustEatTakeaway - Vue Design System Team",
@@ -11,6 +11,8 @@
     "build": "eleventy",
     "clean:dist": "run -T rimraf dist",
     "dev": "yarn clean:dist && eleventy --serve",
+    "lint:scripts": "run -T eslint .",
+    "lint:scripts:fix": "run -T eslint . --fix",
     "lint:style": "run -T stylelint ./src/**/*.{css,scss}",
     "lint:style:fix": "yarn lint:style --fix"
   },

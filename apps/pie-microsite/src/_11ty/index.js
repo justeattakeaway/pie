@@ -7,8 +7,8 @@ const plugins = require('./plugins');
  * such as custom collections, filters, template handlers and shortcodes
  */
 module.exports = {
-  collections,
-  filters,
-  shortcodes,
-  plugins
-}
+    collections,
+    filters,
+    shortcodes,
+    plugins
+};

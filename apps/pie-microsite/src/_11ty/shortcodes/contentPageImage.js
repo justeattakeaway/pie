@@ -1,6 +1,6 @@
-createCaption = config => config.caption 
-  ? `<figcaption class="c-contentImage-caption">${config.caption}</figcaption>` 
-  : '';
+const createCaption = config => (config.caption
+    ? `<figcaption class="c-contentImage-caption">${config.caption}</figcaption>`
+    : '');
 
 /**
  * Creates an image to render on a content page.
@@ -13,19 +13,24 @@ createCaption = config => config.caption
  * @param {string} config.context - a contextual string to use to in-built class names. Defaults to "contentPage".
  * @returns {string}
  */
+// eslint-disable-next-line func-names
 module.exports = function (config) {
-  const context = config.context ?? 'contentPage';
-  const contextClass = `c-${context}-img`;
+    const context = config.context ?? 'contentPage';
+    const contextClass = `c-${context}-img`;
 
-  if (config.type !== 'spread') {
-    return `<figure class="${contextClass} c-contentImage c-contentImage--with-bg">
-      <div class="c-contentImage-bg">
-        <img style="--img-width: ${config.width};" src="${config.src}" ${config.alt ? `alt="${config.alt}"` : ''} />
-      </div>${createCaption(config)}
-    </figure>`;
-  }
+    if (config.type !== 'spread') {
+        return `<figure class="${contextClass} c-contentImage c-contentImage--with-bg">
+            <div class="c-contentImage-bg">
+              <img style="--img-width: ${config.width};" src="${config.src}" ${
+          config.alt ? `alt="${config.alt}"` : ''
+        } />
+            </div>${createCaption(config)}
+          </figure>`;
+    }
 
-  return `<figure class="${contextClass} c-contentImage">
-    <img src="${config.src}" ${config.alt ? `alt="${config.alt}"` : ''} />${createCaption(config)}
-  </figure>`;
-}
+    return `<figure class="${contextClass} c-contentImage">
+        <img src="${config.src}" ${
+      config.alt ? `alt="${config.alt}"` : ''
+    } />${createCaption(config)}
+      </figure>`;
+};
