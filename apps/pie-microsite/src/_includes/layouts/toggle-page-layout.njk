@@ -2,8 +2,8 @@
 site_title: Pie Site
 layout: layouts/page-layout.njk
 ---
-<button>{{ defaultContentLabel }}</button>
-<button>{{ hiddenContentLabel }}</button>
+<button id="page-content-toggle-a">{{ defaultContentLabel }}</button>
+<button id="page-content-toggle-b">{{ hiddenContentLabel }}</button>
 {{ content | safe }}
 
 {# 
