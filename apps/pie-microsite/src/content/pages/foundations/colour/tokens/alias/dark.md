@@ -1,9 +1,7 @@
 ---
-eleventyNavigation:
-    key: Global Token
-    parent: Colour
-    order: 2
-title: Global Token
+title: Alias
 navKey: Colour
 description: Our colour system builds on the recognition of the JET brand colours to make the product interface more usable.
 ---
+
+I am an alias page showing the dark theme
