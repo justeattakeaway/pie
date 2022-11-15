@@ -4,7 +4,14 @@ layout: layouts/page-layout.njk
 defaultContentKey: toggled-content-a
 hiddenContentKey: toggled-content-b
 ---
-<button id="page-content-toggle-a">{{ defaultContentLabel }}</button>
-<button id="page-content-toggle-b">{{ hiddenContentLabel }}</button>
+<h2>{{ subtitle }}</h2>
+<p>{{ subtitleDescription }}</p>
+
+<div style="margin-top: 24px;">
+    <button id="page-content-toggle-a">{{ defaultContentLabel }}</button>
+    <button id="page-content-toggle-b">{{ hiddenContentLabel }}</button>
+</div>
+
+<hr />
 
 {{ content | safe }}
