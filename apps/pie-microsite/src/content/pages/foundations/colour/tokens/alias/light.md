@@ -7,10 +7,8 @@ title: Alias
 navKey: Colour
 description: Our colour system builds on the recognition of the JET brand colours to make the product interface more usable.
 layout: layouts/toggle-page-layout.njk
-defaultContentKey: toggled-content-a
-defaultContentLabel: light
-hiddenContentKey: toggled-content-b
-hiddenContentLabel: dark
+defaultContentLabel: Light theme
+hiddenContentLabel: Dark theme
 ---
 
 {% toggledContent defaultContentKey, false%}

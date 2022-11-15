@@ -1,14 +1,10 @@
 ---
 site_title: Pie Site
 layout: layouts/page-layout.njk
+defaultContentKey: toggled-content-a
+hiddenContentKey: toggled-content-b
 ---
 <button id="page-content-toggle-a">{{ defaultContentLabel }}</button>
 <button id="page-content-toggle-b">{{ hiddenContentLabel }}</button>
-{{ content | safe }}
 
-{# 
-pass matter up
-hide/show by default
-update url accordingly
-build toggle
-#}
+{{ content | safe }}
