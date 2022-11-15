@@ -6,16 +6,16 @@ const toggledContent = require('./toggledContent');
 
 /**
  * Adds all 11ty shortcodes
- * @param {object} eleventyConfig 
+ * @param {object} eleventyConfig
  */
 const addAllShortCodes = eleventyConfig => {
-  eleventyConfig.addShortcode("storybook", storybook);
-  eleventyConfig.addShortcode("codesandbox", codesandbox);
-  eleventyConfig.addShortcode("contentPageImage", contentPageImage);
-  eleventyConfig.addShortcode("notification", notification);
-  eleventyConfig.addPairedShortcode("toggledContent", toggledContent);
+    eleventyConfig.addShortcode('storybook', storybook);
+    eleventyConfig.addShortcode('codesandbox', codesandbox);
+    eleventyConfig.addShortcode('contentPageImage', contentPageImage);
+    eleventyConfig.addShortcode('notification', notification);
+    eleventyConfig.addPairedShortcode('toggledContent', toggledContent);
 };
 
 module.exports = {
-  addAllShortCodes
+    addAllShortCodes
 };

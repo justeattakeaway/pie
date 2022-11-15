@@ -13,24 +13,24 @@ const cssnano = require('cssnano');
  * @param {object} eleventyConfig
  */
 const addAllPlugins = eleventyConfig => {
-  eleventyConfig.addPlugin(eleventyNavigationPlugin);
-  eleventyConfig.addPlugin(eleventyPluginRev);
-  eleventyConfig.addPlugin(eleventyPluginClean);
-  eleventyConfig.addPlugin(eleventySass, {
-    postcss: postcss([
-      autoprefixer,
-      cssnano
-    ]),
-    rev: true,
-    sass: {
-      loadPaths: [
-        '../../node_modules/'
-      ],
-      sourceMap: true,
-    }
-  });
+    eleventyConfig.addPlugin(eleventyNavigationPlugin);
+    eleventyConfig.addPlugin(eleventyPluginRev);
+    eleventyConfig.addPlugin(eleventyPluginClean);
+    eleventyConfig.addPlugin(eleventySass, {
+        postcss: postcss([
+            autoprefixer,
+            cssnano
+        ]),
+        rev: true,
+        sass: {
+            loadPaths: [
+                '../../node_modules/'
+            ],
+            sourceMap: true
+        }
+    });
 };
 
 module.exports = {
-  addAllPlugins
+    addAllPlugins
 };

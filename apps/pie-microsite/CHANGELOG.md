@@ -4,6 +4,22 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 
+v1.19.0
+------------------------------
+*November 8, 2022*
+
+### Added
+- JS folder added to assets
+- new JS folder passes through to dist folder
+- Eslint and linting scripts
+
+### Changed
+- `scripts.njk` now loads JS modules from assets folder rather than having JS written directly in it
+
+### Fixed
+- Eslint errors across all JS files
+
+
 v1.18.0
 ------------------------------
 *November 1, 2022*
