@@ -7,10 +7,11 @@ defaultContent: dark
 hiddenContent: light
 ---
 
-<div id="default">
-{% include './dark-alias-content.md' %}
-</div>
+{% toggledContent "default" %}
+    {% include './dark-alias-content.md' %}
+{% endtoggledContent %}
+
 
 {% toggledContent "hidden" %}
-{% include './light-alias-content.md' %}
+    {% include './light-alias-content.md' %}
 {% endtoggledContent %}

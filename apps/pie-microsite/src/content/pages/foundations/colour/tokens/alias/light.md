@@ -6,13 +6,18 @@ eleventyNavigation:
 title: Alias
 navKey: Colour
 description: Our colour system builds on the recognition of the JET brand colours to make the product interface more usable.
-defaultContent: light
-hiddenContent: dark
+layout: layouts/toggle-page-layout.njk
+defaultContentKey: toggled-content-light
+defaultContentLabel: light
+hiddenContentKey: toggled-content-dark
+hiddenContentLabel: dark
 ---
 
-I AM THE LIGHT 
+{% toggledContent defaultContentKey %}
+    {% include './light-alias-content.md' %}
+{% endtoggledContent %}
 
-{% include './light-alias-content.md' %}
-(hidden) {% include './dark-alias-content.md' %}
 
-
+{% toggledContent hiddenContentKey %}
+    {% include './dark-alias-content.md' %}
+{% endtoggledContent %}

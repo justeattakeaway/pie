@@ -1,3 +1,4 @@
+
 ## DARKNESS
 dark content
 
@@ -5,7 +6,7 @@ dark content
 this is very dark
 
 {% contentPageImage {
-src:"../../../../../../assets/img/foundations/spacing/spacing-compact.svg",
-width: "408px",
-caption: "The example above shows a One-Line List component which uses its compact spacing variant"
+type: "spread",
+src:"../../../../../../../assets/img/foundations/colour/brand-colours.svg",
+caption: "The visual above shows a composition made of various of our brand colours."
 } %}

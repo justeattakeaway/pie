@@ -1,5 +1,6 @@
+
 ## LIGHTNESS
-light content
+dark content
 
 ### Extra light
-this is very light
+this is very dark
