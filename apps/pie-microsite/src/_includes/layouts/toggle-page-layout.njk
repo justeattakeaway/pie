@@ -3,3 +3,13 @@ site_title: Pie Site
 layout: layouts/page-layout.njk
 ---
 <p>I will be a toggle!</p>
+{{ defaultContent }}
+{{ hiddenContent }}
+{{ content | safe }}
+
+{# 
+pass matter up
+hide/show by default
+update url accordingly
+build toggle
+#}
