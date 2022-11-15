@@ -11,11 +11,11 @@ defaultContentLabel: Light theme
 hiddenContentLabel: Dark theme
 ---
 
-{% toggledContent defaultContentKey, false%}
+{% toggledContent defaultContentKey, false, 'light' %}
     {% include './light-alias-content.md' %}
 {% endtoggledContent %}
 
 
-{% toggledContent hiddenContentKey, true %}
+{% toggledContent hiddenContentKey, true, 'dark' %}
     {% include './dark-alias-content.md' %}
 {% endtoggledContent %}
