@@ -4,8 +4,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 
-Latest – to be added to the next release
+v1.18.1
 ------------------------------
+*November 15, 2022*
+
 ### Added
 - `CODEOWNERS` file with the `@justeat/ui-senior-reviewers` set as reviewers for `pie-microsite`
 - Root level devDependency of `@justeattakeaway/pie-icons`
