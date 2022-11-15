@@ -1,0 +1,7 @@
+{
+  "layout": "layouts/toggle-page-layout.njk",
+  "subtitle": "Alias tokens by theme",
+  "subtitleDescription": "Alias tokens use different Global Tokens depending on which theme is being used.",
+  "defaultContentLabel": "Light theme",
+  "hiddenContentLabel": "Dark theme"
+}
