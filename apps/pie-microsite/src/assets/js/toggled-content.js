@@ -1,14 +1,3 @@
-const contentAControl = document.getElementById('toggle-option-a');
-const contentBControl = document.getElementById('toggle-option-b');
-const contentAControlWrapper = document.getElementById('toggle-option-a-wrapper');
-const contentBControlWrapper = document.getElementById('toggle-option-b-wrapper');
-
-const contentA = document.getElementById('toggle-content-a');
-const contentB = document.getElementById('toggle-content-b');
-
-const contentASlug = contentA.dataset.slug;
-const contentBSlug = contentB.dataset.slug;
-
 const activeClass = 'is-active';
 
 /**
@@ -56,18 +45,37 @@ const toggleSelectedControlStyles = (controlToSelect, controlToDeselect) => {
     controlToSelect.classList.add(activeClass);
 };
 
-contentAControl.addEventListener('click', () => {
-    if (!contentIsAlreadySelected(contentAControlWrapper)) {
-        toggleContentVisibility(contentA, contentB);
-        toggleSelectedControlStyles(contentAControlWrapper, contentBControlWrapper);
-        replaceUrlSlug(contentASlug);
-    }
-});
+const initialise = () => {
+    if ('togglePage' in document.body.dataset) {
+        const contentAControl = document.getElementById('toggle-option-a');
+        const contentBControl = document.getElementById('toggle-option-b');
+        const contentAControlWrapper = document.getElementById('toggle-option-a-wrapper');
+        const contentBControlWrapper = document.getElementById('toggle-option-b-wrapper');
 
-contentBControl.addEventListener('click', () => {
-    if (!contentIsAlreadySelected(contentBControlWrapper)) {
-        toggleContentVisibility(contentB, contentA);
-        toggleSelectedControlStyles(contentBControlWrapper, contentAControlWrapper);
-        replaceUrlSlug(contentBSlug);
+        const contentA = document.getElementById('toggle-content-a');
+        const contentB = document.getElementById('toggle-content-b');
+
+        const contentASlug = contentA.dataset.slug;
+        const contentBSlug = contentB.dataset.slug;
+
+        contentAControl.addEventListener('click', () => {
+            if (!contentIsAlreadySelected(contentAControlWrapper)) {
+                toggleContentVisibility(contentA, contentB);
+                toggleSelectedControlStyles(contentAControlWrapper, contentBControlWrapper);
+                replaceUrlSlug(contentASlug);
+            }
+        });
+
+        contentBControl.addEventListener('click', () => {
+            if (!contentIsAlreadySelected(contentBControlWrapper)) {
+                toggleContentVisibility(contentB, contentA);
+                toggleSelectedControlStyles(contentBControlWrapper, contentAControlWrapper);
+                replaceUrlSlug(contentBSlug);
+            }
+        });
     }
+};
+
+window.addEventListener('DOMContentLoaded', () => {
+    initialise();
 });
