@@ -5,6 +5,7 @@
  */
 // eslint-disable-next-line func-names
 module.exports = function () {
+    // The actual values for these properties aren't particulary important
     return {
         A: 'a',
         B: 'b'
