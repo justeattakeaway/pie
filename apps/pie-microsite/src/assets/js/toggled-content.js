@@ -10,7 +10,7 @@ const slugB = contentB.dataset.slug;
 const optionAWrapper = document.getElementById('page-content-toggle-a-wrapper');
 const optionBWrapper = document.getElementById('page-content-toggle-b-wrapper');
 
-const activeClass = '__is-checked';
+const activeClass = 'is-active';
 
 /**
  * Update the current URL to the new slug without reloading the page

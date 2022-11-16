@@ -5,48 +5,26 @@ defaultContentKey: toggled-content-a
 hiddenContentKey: toggled-content-b
 togglePage: true
 ---
+
 <h2>{{ subtitle }}</h2>
 <p>{{ subtitleDescription }}</p>
-
-<fieldset class="" style="margin-top: 24px; border: none; padding: 0;">
-    <div class="wrapper">
-        <div id="page-content-toggle-a-wrapper"
-            class="options-item {% if selectedToggle == togglePageOptions.A %}__is-checked{% endif %} __size-medium">
-            <input id="page-content-toggle-a" class="element" type="radio" name="snacks-group0" value="snacks-1">
-            <label class="decor" for="page-content-toggle-a">
-                <span class="pseudo" aria-hidden="true">
-                    <div class="label">{{ defaultContentLabel }}</div>
-                </span>
-                <span class="content">
-                    <div class="label">{{ defaultContentLabel }}</div>
-                </span>
-            </label>
-        </div>
-        <div id="page-content-toggle-b-wrapper"
-            class="options-item {% if selectedToggle == togglePageOptions.B %}__is-checked{% endif %} __size-medium">
-            <input id="page-content-toggle-b" class="element" type="radio" name="snacks-group0" value="snacks-2" checked="">
-            <label class="decor" for="page-content-toggle-b">
-                <span class="pseudo" aria-hidden="true">
-                    <div class="label">{{ hiddenContentLabel }}</div>
-                </span>
-                <span class="content">
-                    <div class="label">{{ hiddenContentLabel }}</div>
-                </span>
-            </label>
-        </div>
+<div class="c-toggle">
+    <div
+        id="page-content-toggle-a-wrapper"
+        class="c-toggle-item {% if selectedToggle == togglePageOptions.A %}is-active{% endif %}">
+        <input id="page-content-toggle-a" class="c-toggle-input" type="radio"/>
+        <label class="c-toggle-label" for="page-content-toggle-a">
+            {{ defaultContentLabel }}
+        </label>
     </div>
-</fieldset>
-
-
-{# <div style="margin-top: 24px;" >
-    <button id="page-content-toggle-a">
-        {{ defaultContentLabel }}
-    </button>
-    <button id="page-content-toggle-b">
-        {{ hiddenContentLabel }}
-    </button>
-</div> #}
-
-<hr />
-
+    <div
+        id="page-content-toggle-b-wrapper"
+        class="c-toggle-item {% if selectedToggle == togglePageOptions.B %}is-active{% endif %}">
+        <input id="page-content-toggle-b" class="c-toggle-input" type="radio" checked=""/>
+        <label class="c-toggle-label" for="page-content-toggle-b">
+            {{ hiddenContentLabel }}
+        </label>
+    </div>
+</div>
+<hr/> 
 {{ content | safe }}
