@@ -1,8 +1,8 @@
 ---
 site_title: Pie Site
 layout: layouts/page-layout.njk
-ContentAKey: toggled-content-a
-ContentBKey: toggled-content-b
+ContentAKey: toggle-content-a
+ContentBKey: toggle-content-b
 togglePage: true
 ---
 
@@ -10,18 +10,18 @@ togglePage: true
 <p>{{ subtitleDescription }}</p>
 <div class="c-toggle u-spacing-e--top">
     <div
-        id="page-content-toggle-a-wrapper"
+        id="toggle-option-a-wrapper"
         class="c-toggle-item {% if selectedToggle == togglePageOptions.A %}is-active{% endif %}">
-        <input id="page-content-toggle-a" class="c-toggle-input" type="radio"/>
-        <label class="c-toggle-label" for="page-content-toggle-a">
+        <input id="toggle-option-a" class="c-toggle-input" type="radio"/>
+        <label class="c-toggle-label" for="toggle-option-a">
             {{ ContentALabel }}
         </label>
     </div>
     <div
-        id="page-content-toggle-b-wrapper"
+        id="toggle-option-b-wrapper"
         class="c-toggle-item {% if selectedToggle == togglePageOptions.B %}is-active{% endif %}">
-        <input id="page-content-toggle-b" class="c-toggle-input" type="radio" checked=""/>
-        <label class="c-toggle-label" for="page-content-toggle-b">
+        <input id="toggle-option-b" class="c-toggle-input" type="radio" checked=""/>
+        <label class="c-toggle-label" for="toggle-option-b">
             {{ ContentBLabel }}
         </label>
     </div>

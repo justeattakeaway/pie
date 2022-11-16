@@ -5,9 +5,9 @@
  */
 // eslint-disable-next-line func-names
 module.exports = function (url) {
-    const sub = url.substring(0, url.length - 1);
-    const indexOfLastSlash = sub.lastIndexOf('/');
-    const anotherSub = sub.substring(0, indexOfLastSlash + 1);
+    const pathnameWithoutTrailingSlash = url.substring(0, url.length - 1);
+    const indexOfLastSlash = pathnameWithoutTrailingSlash.lastIndexOf('/');
+    const pathnameWithSlugRemoved = pathnameWithoutTrailingSlash.substring(0, indexOfLastSlash + 1);
 
-    return anotherSub;
+    return pathnameWithSlugRemoved;
 };

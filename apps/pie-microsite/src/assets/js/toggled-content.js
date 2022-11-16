@@ -1,67 +1,73 @@
-const contentAControl = document.getElementById('page-content-toggle-a');
-const contentBControl = document.getElementById('page-content-toggle-b');
+const contentAControl = document.getElementById('toggle-option-a');
+const contentBControl = document.getElementById('toggle-option-b');
+const contentAControlWrapper = document.getElementById('toggle-option-a-wrapper');
+const contentBControlWrapper = document.getElementById('toggle-option-b-wrapper');
 
-const contentA = document.getElementById('toggled-content-a');
-const contentB = document.getElementById('toggled-content-b');
+const contentA = document.getElementById('toggle-content-a');
+const contentB = document.getElementById('toggle-content-b');
 
 const contentASlug = contentA.dataset.slug;
 const contentBSlug = contentB.dataset.slug;
 
-const optionAWrapper = document.getElementById('page-content-toggle-a-wrapper');
-const optionBWrapper = document.getElementById('page-content-toggle-b-wrapper');
-
 const activeClass = 'is-active';
+
+/**
+ * Indicates whether or not the provided content variant is already being displayed
+ * @param {HTMLElement} contentVariantWrapper - the wrapper containing the content variant
+ * @returns {boolean} - whether or not the content is already selected to display
+ */
+const contentIsAlreadySelected = contentVariantWrapper => contentVariantWrapper.classList.contains(activeClass);
 
 /**
  * Update the current URL to the new slug without reloading the page
  * @param {*} newSlug The new slug to replace the previous with in the URL
  */
 const replaceUrlSlug = newSlug => {
-    // get new pathname
+    // remove previous slug from URL
     const originalHref = window.location.href;
-    // switch to old href with old path removed
-    const originalPath = window.location.pathname;
+    const hrefWithoutTrailingSlash = originalHref.substring(0, originalHref.length - 1);
+    const indexOfLastSlash = hrefWithoutTrailingSlash.lastIndexOf('/');
 
-    const newPath = originalPath
-      .split('/')
-      .filter(segment => !!segment.length);
-
-    // remove old segment i.e. /light
-    newPath.pop();
-    // append new segment i.e. /dark
-    newPath.push(newSlug);
-
-    // stitch together path
-    const newPathString = newPath.join('/');
-    const newHref = originalHref.replace(originalPath, '');
-    const newUrl = `${newHref}/${newPathString}/`;
+    // create new URL
+    const hrefWithSlugRemoved = hrefWithoutTrailingSlash.substring(0, indexOfLastSlash + 1);
+    const newUrl = `${hrefWithSlugRemoved}${newSlug}/`;
 
     // update url without a page reload
     window.history.pushState({}, '', newUrl);
 };
 
+/**
+ * Displays and hides the HTML content accordingly (will not be detectable to screenreaders either)
+ * @param {HTMLElement} contentToDisplay - the HTML to display
+ * @param {HTMLElement} contentToHide - the HTML to hide
+ */
+const toggleContentVisibility = (contentToDisplay, contentToHide) => {
+    contentToDisplay.style.display = 'block';
+    contentToHide.style.display = 'none';
+};
+
+/**
+ * Toggles the selected styles to a specified control and removes from the other
+ * @param {HTMLElement} controlToSelect - the HTML control to apply selected styling to
+ * @param {HTMLElement} controlToDeselect - the HTML control to remove selected styling from
+ */
+const toggleSelectedControlStyles = (controlToSelect, controlToDeselect) => {
+    controlToDeselect.classList.remove(activeClass);
+    controlToSelect.classList.add(activeClass);
+};
+
 contentAControl.addEventListener('click', () => {
-    // hide/show content
-    contentA.style.display = 'block';
-    contentB.style.display = 'none';
-
-    // update selected toggle
-    optionBWrapper.classList.remove(activeClass);
-    optionAWrapper.classList.add(activeClass);
-
-    // replace slug in url with correct page
-    replaceUrlSlug(contentASlug);
+    if (!contentIsAlreadySelected(contentAControlWrapper)) {
+        toggleContentVisibility(contentA, contentB);
+        toggleSelectedControlStyles(contentAControlWrapper, contentBControlWrapper);
+        replaceUrlSlug(contentASlug);
+    }
 });
 
 contentBControl.addEventListener('click', () => {
-    // hide/show content
-    contentA.style.display = 'none';
-    contentB.style.display = 'block';
-
-    // update selected toggle
-    optionAWrapper.classList.remove(activeClass);
-    optionBWrapper.classList.add(activeClass);
-
-    // replace slug in url with correct page
-    replaceUrlSlug(contentBSlug);
+    if (!contentIsAlreadySelected(contentBControlWrapper)) {
+        toggleContentVisibility(contentB, contentA);
+        toggleSelectedControlStyles(contentBControlWrapper, contentAControlWrapper);
+        replaceUrlSlug(contentBSlug);
+    }
 });
