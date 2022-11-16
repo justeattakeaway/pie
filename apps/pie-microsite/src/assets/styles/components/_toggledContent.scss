@@ -1,4 +1,5 @@
 @use '../fozzie-config' as f;
+
 $options-bg: f.$color-container-strong;
 
 $options-radius: f.$radius-rounded-e;
@@ -22,17 +23,17 @@ $options-item-padding-x-medium: f.spacing(e);
 $options-item-padding-x-large: f.spacing(e);
 
 $options-item-bg: f.$color-container-strong;
-$options-item-bg--hover: pink;
+$options-item-bg--hover: darken(f.$color-container-strong, f.$color-hover-01);
 // $options-item-bg--hover: f.$color-container-strong--hover-01;
 $options-item-bg--focus: f.$color-container-strong;
-$options-item-bg--active: green;
+$options-item-bg--active: darken(f.$color-container-strong, f.$color-active-01);
 // $options-item-bg--active: f.$color-container-strong--active-01;
 $options-item-bg--disabled: f.$color-disabled-01;
 $options-item-bg--checked: f.$color-interactive-light;
-$options-item-bg--checked-hover: yellow;
+$options-item-bg--checked-hover: darken(f.$color-interactive-light, f.$color-hover-01);
 // $options-item-bg--checked-hover: f.$color-interactive-light--hover-01;
 $options-item-bg--checked-focus: f.$color-interactive-light;
-$options-item-bg--checked-active: blue;
+$options-item-bg--checked-active: darken(f.$color-interactive-light, f.$color-active-01);
 // $options-item-bg--checked-active: f.$color-interactive-light--active-01;
 
 $options-item-color: f.$color-content-interactive-dark;
@@ -86,6 +87,9 @@ $itemPaddingY: calc(#{$spaceS} * #{$sizeScale} - f.$border-width-regular);
 }
 
 .element {
+    &:focus-visible ~ .decor {
+        outline: 2px solid f.$color-focus;
+    }
     // @include hidden-pseudo();
     position: absolute;
 
@@ -263,7 +267,6 @@ $itemPaddingY: calc(#{$spaceS} * #{$sizeScale} - f.$border-width-regular);
 
 /* states
 -------------------------------------------------- */
-
 .__is-checked {
     z-index: 1; // keep above siblings
 
