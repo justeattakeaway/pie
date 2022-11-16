@@ -16,7 +16,7 @@ const activeClass = '__is-checked';
  * Update the current URL to the new slug without reloading the page
  * @param {*} newSlug The new slug to replace the previous with in the URL
  */
-const updateUrl = newSlug => {
+const replaceUrlSlug = newSlug => {
     // get new pathname
     const originalHref = window.location.href;
     // switch to old href with old path removed
@@ -50,7 +50,7 @@ buttonA.addEventListener('click', () => {
     optionAWrapper.classList.add(activeClass);
 
     // replace slug in url with correct page
-    updateUrl(slugA);
+    replaceUrlSlug(slugA);
 });
 
 buttonB.addEventListener('click', () => {
@@ -63,5 +63,5 @@ buttonB.addEventListener('click', () => {
     optionBWrapper.classList.add(activeClass);
 
     // replace slug in url with correct page
-    updateUrl(slugB);
+    replaceUrlSlug(slugB);
 });
