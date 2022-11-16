@@ -1,121 +1,65 @@
 @use '../fozzie-config' as f;
 
 $toggle-bg: f.$color-container-strong;
-
 $toggle-radius: f.$radius-rounded-e;
-
 $toggle-padding: 2px;
-
-// height - 2 * 2px padding
 $toggle-item-height: 44px;
-
 $toggle-item-fw: f.$font-weight-regular;
 $toggle-item-fw--checked: f.$font-weight-bold;
-
 $toggle-item-padding-y: 10px;
 $toggle-item-padding-x: f.spacing(e);
-
 $toggle-item-bg: f.$color-container-strong;
 $toggle-item-bg--hover: darken(f.$color-container-strong, f.$color-hover-01);
-
-$toggle-item-bg--focus: f.$color-container-strong;
 $toggle-item-bg--active: darken(f.$color-container-strong, f.$color-active-01);
-
 $toggle-item-bg--checked: f.$color-interactive-light;
 $toggle-item-bg--checked-hover: darken(f.$color-interactive-light, f.$color-hover-01);
-
 $toggle-item-bg--checked-focus: f.$color-interactive-light;
 $toggle-item-bg--checked-active: darken(f.$color-interactive-light, f.$color-active-01);
-
 $toggle-item-color: f.$color-content-interactive-dark;
 $toggle-item-color--hover: f.$color-content-interactive-dark;
-$toggle-item-color--focus: f.$color-content-interactive-dark;
 $toggle-item-color--active: f.$color-content-interactive-dark;
 $toggle-item-color--checked: f.$color-content-interactive-dark;
-$toggle-item-color--checked-hover: f.$color-content-interactive-dark;
-$toggle-item-color--checked-focus: f.$color-content-interactive-dark;
-$toggle-item-color--checked-active: f.$color-content-interactive-dark;
-
-$toggle-item-elevation: none; // token --xds-elevation-00 value 'none' not valid
+$toggle-item-elevation: none;
 $toggle-item-elevation--checked: f.$elevation-02;
 
 .c-toggle {
     display: inline-flex;
-
     align-items: center;
-
     flex-wrap: nowrap;
-
     padding: $toggle-padding;
-
     border-radius: $toggle-radius;
     background-color: $toggle-bg;
-
     margin-top: f.spacing(d);
-
-    
 }
 
 .c-toggle-input {
-    &:focus-visible ~.c-toggle-label {
-        outline: 2px solid f.$color-focus;
+    &:focus-visible ~ .c-toggle-label {
+        box-shadow: inset 0 0 0 2px f.$color-focus;
+        outline: 2px solid transparent;
     }
 
     position: absolute;
-
     display: block;
-
     overflow: hidden;
-
     // IE fallback
     clip: rect(1px, 1px, 1px, 1px);
-
     // modern browsers
     clip-path: inset(1px);
-
     white-space: nowrap;
-
-         &:focus ~.c-toggle-label{
-             background-color: green;
-             // background-color: $toggle-item-bg--checked-focus;
-    
-             color: $toggle-item-color--checked-focus;
-         }
 }
 
 .c-toggle-item {
     z-index: 0; // keep inactive items under active ones
-
     height: $toggle-item-height;
-
-    .c-toggle-label {
-        padding: $toggle-item-padding-y $toggle-item-padding-x;
-
-        @include f.font-size('body-l');
-    }
 
     &:hover {
         z-index: 1; // keep above siblings
-        
-        .c-toggle-label {
-            background-color: $toggle-item-bg--hover;
-    
-            color: $toggle-item-color--hover;
-        }
-    }
-
-    &:focus {
-        z-index: 2; // keep above siblings
-        
-        .c-toggle-label {
-            background-color: $toggle-item-bg--focus;
-    
-            color: $toggle-item-color--focus;
-        }
     }
 }
 
 .c-toggle-label {
+    padding: $toggle-item-padding-y $toggle-item-padding-x;
+    @include f.font-size('body-l');
     position: relative; // context for :before
 
     align-items: center;
@@ -136,100 +80,38 @@ $toggle-item-elevation--checked: f.$elevation-02;
 
     cursor: pointer;
     user-select: none;
-
     display: flex;
 
-    
     .is-active & {
         background-color: $toggle-item-bg--checked;
-        
-            font-weight: $toggle-item-fw--checked;
-            color: $toggle-item-color--checked;
-        
-            // apply box-shadow separate to prevent overwrite by global focus
-            &:before {
-                content: '';
-        
-                position: absolute;
-        
-                display: block;
-        
-                width: 100%;
-                height: 100%;
-        
-                border-radius: $toggle-radius;
-                box-shadow: $toggle-item-elevation--checked;
-            }
-
-           
-                        
-            
-                        // &:hover .c-toggle-label {
-                        //     background-color: $toggle-item-bg--checked-hover;
-            
-                        //     color: $toggle-item-color--checked-hover;
-                        // }
+        font-weight: $toggle-item-fw--checked;
+        color: $toggle-item-color--checked;
+        // apply box-shadow separate to prevent overwrite by global focus
+        &:before {
+            content: '';
+            position: absolute;
+            display: block;
+            width: 100%;
+            height: 100%;
+            border-radius: $toggle-radius;
+            box-shadow: $toggle-item-elevation--checked;
+        }
     }
-                .is-active:focus .c-toggle-label {
-                    background-color: $toggle-item-bg--checked-focus;
-        
-                    color: $toggle-item-color--checked-focus;
-                }
-
 }
 
-
 .c-toggle-item:not(.is-active) {
+    .c-toggle-input:active ~ .c-toggle-label {
+        background-color: $toggle-item-bg--active;
+        color: $toggle-item-color--active;
+    }
     .c-toggle-label {
-        &:active {
-            background-color: $toggle-item-bg--active;
-
-            color: $toggle-item-color--active;
+        &:hover {
+            background-color: $toggle-item-bg--hover;
+            color: $toggle-item-color--hover;
         }
     }
 }
 
 .is-active {
     z-index: 1; // keep above siblings
-
-    .c-toggle-label {
-        // background-color: $toggle-item-bg--checked;
-
-        // font-weight: $toggle-item-fw--checked;
-        // color: $toggle-item-color--checked;
-
-        // // apply box-shadow separate to prevent overwrite by global focus
-        // &:before {
-        //     content: '';
-
-        //     position: absolute;
-
-        //     display: block;
-
-        //     width: 100%;
-        //     height: 100%;
-
-        //     border-radius: $toggle-radius;
-        //     box-shadow: $toggle-item-elevation--checked;
-        // }
-    }
-
-    &:focus .c-toggle-label {
-        background-color: $toggle-item-bg--checked-focus;
-
-        color: $toggle-item-color--checked-focus;
-    }
-
-    // &:hover .c-toggle-label {
-    //     background-color: $toggle-item-bg--checked-hover;
-
-    //     color: $toggle-item-color--checked-hover;
-    // }
-
-    // NOTE: order matters to ensure proper appliance
-    .c-toggle-label:active {
-        background-color: $toggle-item-bg--checked-active;
-
-        color: $toggle-item-color--checked-active;
-    }
 }
