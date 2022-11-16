@@ -6,10 +6,10 @@ eleventyNavigation:
 ---
 
 {% toggledContent defaultContentKey, false, 'light' %}
-    {% include './toggled-content/light-alias-content.md' %}
+    {% include './toggled-content/light-alias.content.md' %}
 {% endtoggledContent %}
 
 
 {% toggledContent hiddenContentKey, true, 'dark' %}
-    {% include './toggled-content/dark-alias-content.md' %}
+    {% include './toggled-content/dark-alias.content.md' %}
 {% endtoggledContent %}
