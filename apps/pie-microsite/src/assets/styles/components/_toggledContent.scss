@@ -137,16 +137,6 @@ $itemPaddingY: calc(#{$spaceS} * #{$sizeScale} - f.$border-width-regular);
     user-select: none;
 }
 
-.options-item:not(.__is-disabled):not(.__is-checked) {
-    .decor {
-        &:active {
-            background-color: $options-item-bg--active;
-
-            color: $options-item-color--active;
-        }
-    }
-}
-
 .icon {
     display: inline-flex;
 
