@@ -2,11 +2,11 @@
 eleventyComputed:
   selectedToggle: "{{togglePageOptions.B}}"
 ---
-{% toggledContent defaultContentKey, true, 'light' %}
+{% toggledContent ContentAKey, true, 'light' %}
     {% include './toggled-content/light-alias.content.md' %}
 {% endtoggledContent %}
 
 
-{% toggledContent hiddenContentKey, false, 'dark' %}
+{% toggledContent ContentBKey, false, 'dark' %}
     {% include './toggled-content/dark-alias.content.md' %}
 {% endtoggledContent %}

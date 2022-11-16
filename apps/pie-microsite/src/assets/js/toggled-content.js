@@ -1,11 +1,11 @@
-const buttonA = document.getElementById('page-content-toggle-a');
-const buttonB = document.getElementById('page-content-toggle-b');
+const contentAControl = document.getElementById('page-content-toggle-a');
+const contentBControl = document.getElementById('page-content-toggle-b');
 
 const contentA = document.getElementById('toggled-content-a');
 const contentB = document.getElementById('toggled-content-b');
 
-const slugA = contentA.dataset.slug;
-const slugB = contentB.dataset.slug;
+const contentASlug = contentA.dataset.slug;
+const contentBSlug = contentB.dataset.slug;
 
 const optionAWrapper = document.getElementById('page-content-toggle-a-wrapper');
 const optionBWrapper = document.getElementById('page-content-toggle-b-wrapper');
@@ -40,7 +40,7 @@ const replaceUrlSlug = newSlug => {
     window.history.pushState({}, '', newUrl);
 };
 
-buttonA.addEventListener('click', () => {
+contentAControl.addEventListener('click', () => {
     // hide/show content
     contentA.style.display = 'block';
     contentB.style.display = 'none';
@@ -50,10 +50,10 @@ buttonA.addEventListener('click', () => {
     optionAWrapper.classList.add(activeClass);
 
     // replace slug in url with correct page
-    replaceUrlSlug(slugA);
+    replaceUrlSlug(contentASlug);
 });
 
-buttonB.addEventListener('click', () => {
+contentBControl.addEventListener('click', () => {
     // hide/show content
     contentA.style.display = 'none';
     contentB.style.display = 'block';
@@ -63,5 +63,5 @@ buttonB.addEventListener('click', () => {
     optionBWrapper.classList.add(activeClass);
 
     // replace slug in url with correct page
-    replaceUrlSlug(slugB);
+    replaceUrlSlug(contentBSlug);
 });

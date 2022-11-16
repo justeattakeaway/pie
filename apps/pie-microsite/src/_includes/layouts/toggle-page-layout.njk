@@ -1,8 +1,8 @@
 ---
 site_title: Pie Site
 layout: layouts/page-layout.njk
-defaultContentKey: toggled-content-a
-hiddenContentKey: toggled-content-b
+ContentAKey: toggled-content-a
+ContentBKey: toggled-content-b
 togglePage: true
 ---
 
@@ -14,7 +14,7 @@ togglePage: true
         class="c-toggle-item {% if selectedToggle == togglePageOptions.A %}is-active{% endif %}">
         <input id="page-content-toggle-a" class="c-toggle-input" type="radio"/>
         <label class="c-toggle-label" for="page-content-toggle-a">
-            {{ defaultContentLabel }}
+            {{ ContentALabel }}
         </label>
     </div>
     <div
@@ -22,7 +22,7 @@ togglePage: true
         class="c-toggle-item {% if selectedToggle == togglePageOptions.B %}is-active{% endif %}">
         <input id="page-content-toggle-b" class="c-toggle-input" type="radio" checked=""/>
         <label class="c-toggle-label" for="page-content-toggle-b">
-            {{ hiddenContentLabel }}
+            {{ ContentBLabel }}
         </label>
     </div>
 </div>
