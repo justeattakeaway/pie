@@ -7,24 +7,29 @@ hiddenContentKey: toggled-content-b
 <h2>{{ subtitle }}</h2>
 <p>{{ subtitleDescription }}</p>
 
-<fieldset class="">
+<fieldset class="" style="margin-top: 24px; border: none; padding: 0;">
     <div class="wrapper">
-        <div class="options-item __size-medium">
-            <input id="options-item_0" class="element" type="radio" name="snacks-group0" value="snacks-1">
-            <label class="decor" for="options-item_0">
+        <div id="page-content-toggle-a-wrapper"
+            class="options-item {% if selectedToggle == togglePageOptions.A %}__is-checked{% endif %} __size-medium">
+            <input id="page-content-toggle-a" class="element" type="radio" name="snacks-group0" value="snacks-1">
+            <label class="decor" for="page-content-toggle-a">
                 <span class="pseudo" aria-hidden="true">
-                    <div class="label">Snacks 1</div>
-                </span><span class="content">
-                    <div class="label">Snacks 1</div>
-                </span></label>
-        </div>
-        <div class="options-item __is-checked __size-medium"><input id="options-item_1"
-                class="element" type="radio" name="snacks-group0" value="snacks-2" checked=""><label
-                class="decor" for="options-item_1"><span class="pseudo" aria-hidden="true">
-                    <div class="label">Snacks 2</div>
+                    <div class="label">{{ defaultContentLabel }}</div>
                 </span>
                 <span class="content">
-                    <div class="label">Snacks 2</div>
+                    <div class="label">{{ defaultContentLabel }}</div>
+                </span>
+            </label>
+        </div>
+        <div id="page-content-toggle-b-wrapper"
+            class="options-item {% if selectedToggle == togglePageOptions.B %}__is-checked{% endif %} __size-medium">
+            <input id="page-content-toggle-b" class="element" type="radio" name="snacks-group0" value="snacks-2" checked="">
+            <label class="decor" for="page-content-toggle-b">
+                <span class="pseudo" aria-hidden="true">
+                    <div class="label">{{ hiddenContentLabel }}</div>
+                </span>
+                <span class="content">
+                    <div class="label">{{ hiddenContentLabel }}</div>
                 </span>
             </label>
         </div>

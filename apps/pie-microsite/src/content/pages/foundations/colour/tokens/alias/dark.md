@@ -1,3 +1,7 @@
+---
+eleventyComputed:
+  selectedToggle: "{{togglePageOptions.B}}"
+---
 {% toggledContent defaultContentKey, true, 'light' %}
     {% include './toggled-content/light-alias.content.md' %}
 {% endtoggledContent %}

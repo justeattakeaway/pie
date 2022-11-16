@@ -3,6 +3,9 @@ eleventyNavigation:
     key: Alias
     parent: Colour
     order: 3
+
+eleventyComputed:
+  selectedToggle: "{{togglePageOptions.A}}"
 ---
 
 {% toggledContent defaultContentKey, false, 'light' %}
