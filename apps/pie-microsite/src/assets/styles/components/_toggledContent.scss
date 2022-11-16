@@ -1,0 +1,341 @@
+@use '../fozzie-config' as f;
+$options-bg: f.$color-container-strong;
+
+$options-radius: f.$radius-rounded-e;
+
+$options-padding: 2px;
+
+// height - 2 * 2px padding
+$options-item-height-small: 28px;
+$options-item-height-medium: 44px;
+$options-item-height-large: 52px;
+
+$options-item-fw: f.$font-weight-regular;
+$options-item-fw--checked: f.$font-weight-bold;
+
+$options-item-padding-y-small: f.spacing(a);
+$options-item-padding-y-medium: 10px;
+$options-item-padding-y-large: 6px;
+
+$options-item-padding-x-small: f.spacing(e);
+$options-item-padding-x-medium: f.spacing(e);
+$options-item-padding-x-large: f.spacing(e);
+
+$options-item-bg: f.$color-container-strong;
+$options-item-bg--hover: pink;
+// $options-item-bg--hover: f.$color-container-strong--hover-01;
+$options-item-bg--focus: f.$color-container-strong;
+$options-item-bg--active: green;
+// $options-item-bg--active: f.$color-container-strong--active-01;
+$options-item-bg--disabled: f.$color-disabled-01;
+$options-item-bg--checked: f.$color-interactive-light;
+$options-item-bg--checked-hover: yellow;
+// $options-item-bg--checked-hover: f.$color-interactive-light--hover-01;
+$options-item-bg--checked-focus: f.$color-interactive-light;
+$options-item-bg--checked-active: blue;
+// $options-item-bg--checked-active: f.$color-interactive-light--active-01;
+
+$options-item-color: f.$color-content-interactive-dark;
+$options-item-color--hover: f.$color-content-interactive-dark;
+$options-item-color--focus: f.$color-content-interactive-dark;
+$options-item-color--active: f.$color-content-interactive-dark;
+$options-item-color--disabled: f.$color-content-disabled;
+$options-item-color--checked: f.$color-content-interactive-dark;
+$options-item-color--checked-hover: f.$color-content-interactive-dark;
+$options-item-color--checked-focus: f.$color-content-interactive-dark;
+$options-item-color--checked-active: f.$color-content-interactive-dark;
+
+$options-item-elevation: none; // token --xds-elevation-00 value 'none' not valid
+$options-item-elevation--checked: f.$elevation-02;
+
+$options-item-icon-color: f.$color-content-interactive-dark;
+$options-item-icon-color--checked: f.$color-interactive-brand;
+$options-item-icon-color--disabled: f.$color-content-disabled;
+
+$options-item-icon-offset: f.spacing(b);
+
+// $options-item-secondary-label-fz: f.$font-size-a;
+// $options-item-secondary-label-lh: f.$line-height-a;
+$options-item-secondary-label-fw: f.$font-weight-regular;
+
+$options-item-secondary-label-color: f.$color-content-subdued;
+$options-item-secondary-label-color--checked: f.$color-content-interactive-dark;
+$options-item-secondary-label-color--disabled: f.$color-content-disabled;
+
+/* /tokens
+-------------------------------------------------- */
+
+
+/* common
+-------------------------------------------------- */
+$sizeScale: 1.5;
+$spaceS: 0.25rem;
+$itemPaddingY: calc(#{$spaceS} * #{$sizeScale} - f.$border-width-regular);
+
+.wrapper {
+    display: inline-flex;
+
+    align-items: center;
+
+    flex-wrap: nowrap;
+
+    padding: $options-padding;
+
+    border-radius: $options-radius;
+    background-color: $options-bg;
+}
+
+.element {
+    // @include hidden-pseudo();
+    position: absolute;
+
+    display: block;
+
+    overflow: hidden;
+
+    // IE fallback
+    clip: rect(1px, 1px, 1px, 1px);
+
+    // modern browsers
+    clip-path: inset(1px);
+
+    white-space: nowrap;
+}
+
+.options-item {
+    z-index: 0; // keep inactive items under active ones
+
+    height: 100%; // ensure proper sizing of .decor inside
+}
+
+.decor {
+    position: relative; // context for :before
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
+
+    border-radius: $options-radius;
+    border: 0;
+    background-color: $options-item-bg;
+    box-shadow: $options-item-elevation;
+
+    font-weight: $options-item-fw;
+    color: $options-item-color;
+    white-space: nowrap;
+    text-align: center;
+
+    cursor: pointer;
+    user-select: none;
+}
+
+.options-item:not(.__is-disabled):not(.__is-checked) {
+    .decor {
+        &:active {
+            background-color: $options-item-bg--active;
+
+            color: $options-item-color--active;
+        }
+    }
+}
+
+.icon {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin-right: $options-item-icon-offset;
+
+    color: $options-item-icon-color;
+}
+
+.pseudo {
+    font-weight: $options-item-fw--checked;
+
+    visibility: hidden;
+}
+
+.content {
+    position: absolute;
+}
+
+.label {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.secondary-label {
+    @include f.font-size();
+    // font-size: $options-item-secondary-label-fz;
+    // line-height: $options-item-secondary-label-lh;
+    font-weight: $options-item-secondary-label-fw;
+    color: $options-item-secondary-label-color;
+}
+
+/* /common
+-------------------------------------------------- */
+
+/* sizes
+-------------------------------------------------- */
+
+.__size-small {
+    height: $options-item-height-small;
+
+    .decor {
+        padding: $options-item-padding-y-small $options-item-padding-x-small;
+
+        @include f.font-size('body-s');
+    }
+}
+
+.__size-medium {
+    height: $options-item-height-medium;
+
+    .decor {
+        padding: $options-item-padding-y-medium $options-item-padding-x-medium;
+
+        @include f.font-size('body-l');
+    }
+}
+
+.__size-large {
+    height: $options-item-height-large;
+
+    .decor {
+        padding: $options-item-padding-y-large $options-item-padding-x-large;
+
+        @include f.font-size('body-l');
+        // line-height: $options-item-lh-large;
+    }
+}
+
+/* /sizes
+-------------------------------------------------- */
+
+
+/* modifiers
+-------------------------------------------------- */
+
+.__hovered:not(.__is-disabled) {
+    z-index: 1; // keep above siblings
+
+    .decor {
+        background-color: $options-item-bg--hover;
+
+        color: $options-item-color--hover;
+    }
+}
+
+.__focused:not(.__is-disabled) {
+    z-index: 2; // keep above siblings
+
+    .element {
+        // @include global-focus("+ .decor");
+    }
+
+    .decor {
+        background-color: $options-item-bg--focus;
+
+        color: $options-item-color--focus;
+    }
+}
+
+.__fluid {
+    .wrapper {
+        width: 100%;
+    }
+
+    .options-item {
+        flex: 1 1 100%;
+    }
+}
+
+/* /modifiers
+-------------------------------------------------- */
+
+
+/* states
+-------------------------------------------------- */
+
+.__is-checked {
+    z-index: 1; // keep above siblings
+
+    .icon {
+        color: $options-item-icon-color--checked;
+    }
+
+    .decor {
+        background-color: $options-item-bg--checked;
+
+        font-weight: $options-item-fw--checked;
+        color: $options-item-color--checked;
+
+        // apply box-shadow separate to prevent overwrite by global focus
+        &:before {
+            content: '';
+
+            position: absolute;
+
+            display: block;
+
+            width: 100%;
+            height: 100%;
+
+            border-radius: $options-radius;
+            box-shadow: $options-item-elevation--checked;
+        }
+    }
+
+    &.__focused .decor {
+        background-color: $options-item-bg--checked-focus;
+
+        color: $options-item-color--checked-focus;
+    }
+
+    &.__hovered .decor {
+        background-color: $options-item-bg--checked-hover;
+
+        color: $options-item-color--checked-hover;
+    }
+
+    // NOTE: order matters to ensure proper appliance
+    .decor:active {
+        background-color: $options-item-bg--checked-active;
+
+        color: $options-item-color--checked-active;
+    }
+
+    .secondary-label {
+        color: $options-item-secondary-label-color--checked;
+    }
+}
+
+.__is-disabled {
+    pointer-events: none;
+
+    .decor {
+        background-color: $options-item-bg--disabled;
+
+        color: $options-item-color--disabled;
+
+        cursor: not-allowed;
+    }
+
+    .icon {
+        color: $options-item-icon-color--disabled;
+    }
+
+    .secondary-label {
+        color: $options-item-secondary-label-color--disabled;
+    }
+}
+
+/* /states
+-------------------------------------------------- */

@@ -7,14 +7,39 @@ hiddenContentKey: toggled-content-b
 <h2>{{ subtitle }}</h2>
 <p>{{ subtitleDescription }}</p>
 
-<div style="margin-top: 24px;">
+<fieldset class="">
+    <div class="wrapper">
+        <div class="options-item __size-medium">
+            <input id="options-item_0" class="element" type="radio" name="snacks-group0" value="snacks-1">
+            <label class="decor" for="options-item_0">
+                <span class="pseudo" aria-hidden="true">
+                    <div class="label">Snacks 1</div>
+                </span><span class="content">
+                    <div class="label">Snacks 1</div>
+                </span></label>
+        </div>
+        <div class="options-item __is-checked __size-medium"><input id="options-item_1"
+                class="element" type="radio" name="snacks-group0" value="snacks-2" checked=""><label
+                class="decor" for="options-item_1"><span class="pseudo" aria-hidden="true">
+                    <div class="label">Snacks 2</div>
+                </span>
+                <span class="content">
+                    <div class="label">Snacks 2</div>
+                </span>
+            </label>
+        </div>
+    </div>
+</fieldset>
+
+
+{# <div style="margin-top: 24px;" >
     <button id="page-content-toggle-a">
         {{ defaultContentLabel }}
     </button>
     <button id="page-content-toggle-b">
         {{ hiddenContentLabel }}
     </button>
-</div>
+</div> #}
 
 <hr />
 
