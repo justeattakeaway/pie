@@ -1,5 +1,5 @@
 
-## LIGHTNESS
+## Placeholder LIGHT content
 light content
 
 ### Extra light
