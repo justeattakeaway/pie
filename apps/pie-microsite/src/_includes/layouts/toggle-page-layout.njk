@@ -35,19 +35,25 @@ bodyDataAttribute: data-toggle-page
     The toggle page is designed to allow users to toggle between two variations of content:
     Content A and Content B.
 
-    Because 11ty renders the pages as pre-built HTML pages, Content A and Content B will need to be pre-marked as either 'shown' or 'hidden'.
+    We want 11ty to:
+
+    On page A, show A and hide B
+    On Page B, show B and hide A
+
+    Because 11ty renders the pages as pre-built HTML pages, 
+    Content A and Content B will need to be pre-marked as either 'shown' or 'hidden'.
 
     An example of this is the alias tokens pages in foundations/colour where we have light and dark tokens.
 
     Content A (the left side of the toggle control) is light.
     Content B (the right side of the toggle control) is dark.
 
-    Content A and B are defined as 'light' and 'dark' in the foundations/colour/tokens/alias/alias.json data file (and will need to be declared accordingly in any other toggle page folders).
-    These
+    Content A and B are defined as 'light' and 'dark' in the foundations/colour/tokens/alias/alias.json data file 
+    (and will need to be declared accordingly in any other toggle page folders).
 
-    In this template, we use the content page front matter (in the light and dark .md files) to mark either Content A or B as shown or hidden 
-    depending on which page we are on (i.e. show Dark on the dark page, hide Light).
-
+    We always want the IDs used to remain the same magic string (whether Content A and B are light and dark, wide and narrow etc).
+    So we define them in this layout as frontmatter and reference then in the local data files when deciding which ID to show and hide
+    per page. For example on 'page b': shownContentKey: "{{contentBKey}}" and 'page a': shownContentKey: "{{contentAKey}}".
 #}
 
 <div id="{{shownContentKey}}" data-slug="{{shownContentSlug}}">
