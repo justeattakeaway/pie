@@ -31,14 +31,19 @@ bodyDataAttribute: data-toggle-page
 
 {# 
     How to use: 
+    ===========
     
     The toggle page is designed to allow users to toggle between two variations of content:
     Content A and Content B.
+
+    ---
 
     We want 11ty to:
 
     On page A, show A and hide B
     On Page B, show B and hide A
+
+    ---
 
     Because 11ty renders the pages as pre-built HTML pages, 
     Content A and Content B will need to be pre-marked as either 'shown' or 'hidden'.
@@ -50,6 +55,8 @@ bodyDataAttribute: data-toggle-page
 
     Content A and B are defined as 'light' and 'dark' in the foundations/colour/tokens/alias/alias.json data file 
     (and will need to be declared accordingly in any other toggle page folders).
+
+    ---
 
     We always want the IDs used to remain the same magic string (whether Content A and B are light and dark, wide and narrow etc).
     So we define them in this layout as frontmatter and reference then in the local data files when deciding which ID to show and hide
