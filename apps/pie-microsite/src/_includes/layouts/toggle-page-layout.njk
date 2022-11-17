@@ -40,7 +40,7 @@ bodyDataAttribute: data-toggle-page
 
     We want 11ty to:
 
-    On page A, show A and hide B
+    On Page A, show A and hide B
     On Page B, show B and hide A
 
     ---
@@ -60,7 +60,7 @@ bodyDataAttribute: data-toggle-page
 
     We always want the IDs used to remain the same magic string (whether Content A and B are light and dark, wide and narrow etc).
     So we define them in this layout as frontmatter and reference then in the local data files when deciding which ID to show and hide
-    per page. For example on 'page b': shownContentKey: "{{contentBKey}}" and 'page a': shownContentKey: "{{contentAKey}}".
+    per page. For example on 'Page b': shownContentKey: "{{contentBKey}}" and 'Page a': shownContentKey: "{{contentAKey}}".
 #}
 
 <div id="{{shownContentKey}}" data-slug="{{shownContentSlug}}">
