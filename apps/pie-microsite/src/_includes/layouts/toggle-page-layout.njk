@@ -1,9 +1,10 @@
 ---
 site_title: Pie Site
 layout: layouts/page-layout.njk
-ContentAKey: toggle-content-a
-ContentBKey: toggle-content-b
+contentAKey: toggle-content-a
+contentBKey: toggle-content-b
 togglePage: true
+bodyDataAttribute: data-toggle-page
 ---
 
 <h2>{{ subtitle }}</h2>
@@ -14,7 +15,7 @@ togglePage: true
         class="c-toggle-item {% if selectedToggle == togglePageOptions.A %}is-active{% endif %}">
         <input id="toggle-option-a" class="c-toggle-input" type="radio"/>
         <label class="c-toggle-label" for="toggle-option-a">
-            {{ ContentALabel }}
+            {{ toggleContent.a.label }}
         </label>
     </div>
     <div
@@ -22,9 +23,37 @@ togglePage: true
         class="c-toggle-item {% if selectedToggle == togglePageOptions.B %}is-active{% endif %}">
         <input id="toggle-option-b" class="c-toggle-input" type="radio" checked=""/>
         <label class="c-toggle-label" for="toggle-option-b">
-            {{ ContentBLabel }}
+            {{ toggleContent.b.label }}
         </label>
     </div>
 </div>
 <hr/> 
-{{ content | safe }}
+
+{# 
+    How to use: 
+    
+    The toggle page is designed to allow users to toggle between two variations of content:
+    Content A and Content B.
+
+    Because 11ty renders the pages as pre-built HTML pages, Content A and Content B will need to be pre-marked as either 'shown' or 'hidden'.
+
+    An example of this is the alias tokens pages in foundations/colour where we have light and dark tokens.
+
+    Content A (the left side of the toggle control) is light.
+    Content B (the right side of the toggle control) is dark.
+
+    Content A and B are defined as 'light' and 'dark' in the foundations/colour/tokens/alias/alias.json data file (and will need to be declared accordingly in any other toggle page folders).
+    These
+
+    In this template, we use the content page front matter (in the light and dark .md files) to mark either Content A or B as shown or hidden 
+    depending on which page we are on (i.e. show Dark on the dark page, hide Light).
+
+#}
+
+<div id="{{shownContentKey}}" data-slug="{{shownContentSlug}}">
+    {{ shownContent | markdown | safe }}
+</div>
+
+<div id="{{hiddenContentKey}}" data-slug="{{hiddenContentSlug}}" style="display: none;">
+    {{ hiddenContent | markdown | safe }}
+</div>
