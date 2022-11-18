@@ -3,9 +3,6 @@ eleventyNavigation:
     key: Overview
     parent: Colour
     order: 1
-title: Colour
-navKey: Colour
-description: Our colour system builds on the recognition of the JET brand colours to make the product interface more usable.
 ---
 ## Our colour principles
 

@@ -4,6 +4,22 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 
+v1.20.0
+------------------------------
+*November 17, 2022*
+
+### Added
+- Toggled page content layouts which allow a user to switch between two content variants on a single page (i.e. dark theme and light theme alias tokens).
+- A markdown rendering quirk to `README.md`
+- Documentation around reusable markdown conventions in `README.md`
+- New JS module to handle content toggling and keeping the URL slug in sync
+- Styling for the new `toggle` component
+- directory level data files in the colour folder to reduce front matter duplication
+
+### Changed
+- Moved colour tokens pages into a `tokens` subdirectory for better organisation
+
+
 v1.19.0
 ------------------------------
 *November 8, 2022*
