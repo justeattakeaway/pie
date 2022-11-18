@@ -1,3 +1,4 @@
+// Defined in '_toggle.scss'
 const activeClass = 'is-active';
 
 /**
@@ -47,11 +48,11 @@ const toggleSelectedControlStyles = (controlToSelect, controlToDeselect) => {
 
 const initialise = () => {
     if ('togglePage' in document.body.dataset) {
+        // IDs defined in toggle-page-layout.njk
         const contentAControl = document.getElementById('toggle-option-a');
         const contentBControl = document.getElementById('toggle-option-b');
         const contentAControlWrapper = document.getElementById('toggle-option-a-wrapper');
         const contentBControlWrapper = document.getElementById('toggle-option-b-wrapper');
-
         const contentA = document.getElementById('toggle-content-a');
         const contentB = document.getElementById('toggle-content-b');
 
