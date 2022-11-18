@@ -19,7 +19,7 @@ bodyDataAttribute: data-toggle-page
             id="toggle-option-a"
             class="c-toggle-input"
             type="radio" 
-            {% if toggleASelected %} checked {% endif %}/>
+            {% if isToggleASelected %} checked {% endif %}/>
         <label
             class="c-toggle-label"
             for="toggle-option-a">
@@ -28,12 +28,12 @@ bodyDataAttribute: data-toggle-page
     </div>
     <div
         id="toggle-option-b-wrapper"
-        class="c-toggle-item {% if not toggleASelected %}is-active{% endif %}">
+        class="c-toggle-item {% if not isToggleASelected %}is-active{% endif %}">
         <input
             id="toggle-option-b"
             class="c-toggle-input"
             type="radio" 
-            {% if not toggleASelected %} checked {% endif %} />
+            {% if not isToggleASelected %} checked {% endif %} />
         <label
             class="c-toggle-label"
             for="toggle-option-b">

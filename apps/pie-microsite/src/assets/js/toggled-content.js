@@ -45,7 +45,7 @@ const toggleSelectedControlStyles = (controlToSelect, controlToDeselect) => {
     controlToSelect.classList.add(activeClass);
 };
 
-const initialise = () => {
+const initialiseToggle = () => {
     if ('togglePage' in document.body.dataset) {
         const contentAControl = document.getElementById('toggle-option-a');
         const contentBControl = document.getElementById('toggle-option-b');
@@ -88,5 +88,5 @@ const initialise = () => {
 };
 
 window.addEventListener('DOMContentLoaded', () => {
-    initialise();
+    initialiseToggle();
 });
