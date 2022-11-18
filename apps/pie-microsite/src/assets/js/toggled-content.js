@@ -31,8 +31,8 @@ const replaceUrlSlug = newSlug => {
  * @param {HTMLElement} contentToHide - the HTML to hide
  */
 const toggleContentVisibility = (contentToDisplay, contentToHide) => {
-    contentToDisplay.style.display = 'block';
-    contentToHide.style.display = 'none';
+    contentToDisplay.classList.remove('is-hidden');
+    contentToHide.classList.add('is-hidden');
 };
 
 /**
@@ -75,7 +75,7 @@ const initialiseToggle = () => {
         };
 
         const toggleContent = options => {
-            if (!contentIsAlreadySelected(options.controlToSelect)) {
+            if (!isContentAlreadySelected(options.controlToSelect)) {
                 toggleContentVisibility(options.contentToShow, options.contentToHide);
                 toggleSelectedControlStyles(options.controlToSelect, options.controlToDeselect);
                 replaceUrlSlug(options.slugToUse);
