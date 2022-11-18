@@ -32,11 +32,6 @@ $toggle-item-elevation--checked: f.$elevation-02;
 }
 
 .c-toggle-input {
-    &:focus-visible ~ .c-toggle-label {
-        box-shadow: inset 0 0 0 2px f.$color-focus;
-        outline: 2px solid transparent;
-    }
-
     position: absolute;
     display: block;
     overflow: hidden;
@@ -45,14 +40,27 @@ $toggle-item-elevation--checked: f.$elevation-02;
     // modern browsers
     clip-path: inset(1px);
     white-space: nowrap;
+
+    &:focus-visible ~ .c-toggle-label {
+        box-shadow: inset 0 0 0 2px f.$color-focus;
+        outline: 2px solid transparent;
+    }
 }
 
 .c-toggle-item {
-    z-index: 0; // keep inactive items under active ones
     height: $toggle-item-height;
 
-    &:hover {
-        z-index: 1; // keep above siblings
+    &:not(.is-active) {
+        .c-toggle-input:active ~ .c-toggle-label {
+            background-color: $toggle-item-bg--active;
+            color: $toggle-item-color--active;
+        }
+        .c-toggle-label {
+            &:hover {
+                background-color: $toggle-item-bg--hover;
+                color: $toggle-item-color--hover;
+            }
+        }
     }
 }
 
@@ -96,21 +104,4 @@ $toggle-item-elevation--checked: f.$elevation-02;
             box-shadow: $toggle-item-elevation--checked;
         }
     }
-}
-
-.c-toggle-item:not(.is-active) {
-    .c-toggle-input:active ~ .c-toggle-label {
-        background-color: $toggle-item-bg--active;
-        color: $toggle-item-color--active;
-    }
-    .c-toggle-label {
-        &:hover {
-            background-color: $toggle-item-bg--hover;
-            color: $toggle-item-color--hover;
-        }
-    }
-}
-
-.is-active {
-    z-index: 1; // keep above siblings
 }
