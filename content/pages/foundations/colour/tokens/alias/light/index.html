@@ -34,11 +34,11 @@
         font-feature-settings: "tnum"; /* Enable tabular numbers */
     }
 </style>
-<link rel="stylesheet" href="/assets/styles/main-cfa12971.css" />
+<link rel="stylesheet" href="/assets/styles/main-f92be588.css" />
 
 </head>
 
-    <body>
+    <body data-toggle-page>
         <div class="page">
             
 
@@ -490,7 +490,7 @@
     <div class="c-contentPage">
     <div class="c-contentPage-header">
         <h1 class="alpha--standout">
-            Alias Token
+            Colour
         </h1>
         <p class="c-contentPage-header-subheading">
             Our colour system builds on the recognition of the JET brand colours to make the product interface more usable.
@@ -505,32 +505,100 @@
                 aria-selected="false"
             
             class="c-tabs-item">
-                <a href="/content/pages/foundations/colour/overview/" class="c-tabs-link ">Overview</a></li>
+                
+                    
+                    
+                    
+                    <a href="/content/pages/foundations/colour/overview/" class="c-tabs-link ">Overview</a></li>
+                
         <li
             
                 aria-selected="false"
             
             class="c-tabs-item">
-                <a href="/content/pages/foundations/colour/global-token/" class="c-tabs-link ">Global Token</a></li>
+                
+                    
+                    
+                    
+                    <a href="/content/pages/foundations/colour/tokens/global/" class="c-tabs-link ">Global</a></li>
+                
         <li
             
                 aria-selected="true"
             
             class="c-tabs-item">
-                <a href="/content/pages/foundations/colour/alias-token/" class="c-tabs-link is-active">Alias Token</a></li>
+                
+                    
+                    
+                    
+                    <a href="/content/pages/foundations/colour/tokens/alias/light/" class="c-tabs-link is-active">Alias</a></li>
+                
     </ul>
 </nav>
 
     
 
     
-        <div class="c-contentPage-content u-noPad">
+        <div class="c-contentPage-content">
             
-            <section class="c-comingSoon">
-    <img class="c-comingSoon-image" src="/assets/img/coming-soon.svg" />
-    <p class="c-comingSoon-message">The PIE team are currently working hard building this page. Please check back soon!</p>
-    <a href="/" class="c-comingSoon-link o-btn o-btn--primary">Back to home</a>
-</section>
+
+<h2>Alias tokens by theme</h2>
+<p>Alias tokens use different Global Tokens depending on which theme is being used.</p>
+
+<div class="c-toggle u-spacing-e--top">
+    <div
+        id="toggle-option-a-wrapper"
+        class="c-toggle-item is-active">
+        <input
+            id="toggle-option-a"
+            class="c-toggle-input"
+            type="radio" 
+             checked />
+        <label
+            class="c-toggle-label"
+            for="toggle-option-a">
+            Light theme
+        </label>
+    </div>
+    <div
+        id="toggle-option-b-wrapper"
+        class="c-toggle-item ">
+        <input
+            id="toggle-option-b"
+            class="c-toggle-input"
+            type="radio" 
+             />
+        <label
+            class="c-toggle-label"
+            for="toggle-option-b">
+            Dark theme
+        </label>
+    </div>
+</div>
+<hr/> 
+
+
+
+<div
+    id="toggle-content-a"
+    data-slug="light">
+    <h2>Placeholder LIGHT content</h2>
+<p>light content coming soon</p>
+
+</div>
+
+<div
+    id="toggle-content-b"
+    data-slug="dark"
+    class="is-hidden">
+    <h2>Placeholder DARK content</h2>
+<p>dark content coming soon</p>
+<!-- Example of a shortcode working in this file -->
+<!-- <figure class="c-contentPage-img c-contentImage">
+        <img src="../../../../../../../assets/img/foundations/colour/brand-colours.svg"  /><figcaption class="c-contentImage-caption">The visual above shows a composition made of various of our brand colours.</figcaption>
+      </figure> -->
+
+</div>
 
         </div>
     
@@ -553,6 +621,8 @@
 
         
 <script defer src="/assets/js/accordions.js" type="module"></script>
+<script defer src="/assets/js/toggled-content.js" type="module"></script>
+
 
     </body>
 </html>
