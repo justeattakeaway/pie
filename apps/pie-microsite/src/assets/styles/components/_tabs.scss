@@ -3,6 +3,7 @@
 $tabs-link-padding:                f.spacing(d);
 
 .c-tabs {
+  z-index: f.zIndex(mid);
   font-weight: f.$font-weight-bold;
   padding: 0;
 
