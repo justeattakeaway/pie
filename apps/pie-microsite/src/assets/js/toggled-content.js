@@ -58,21 +58,32 @@ const initialise = () => {
         const contentASlug = contentA.dataset.slug;
         const contentBSlug = contentB.dataset.slug;
 
-        contentAControl.addEventListener('click', () => {
-            if (!contentIsAlreadySelected(contentAControlWrapper)) {
-                toggleContentVisibility(contentA, contentB);
-                toggleSelectedControlStyles(contentAControlWrapper, contentBControlWrapper);
-                replaceUrlSlug(contentASlug);
-            }
-        });
+        const toggleContentAOptions = {
+            contentToShow: contentA,
+            contentToHide: contentB,
+            slugToUse: contentASlug,
+            controlToSelect: contentAControlWrapper,
+            controlToDeselect: contentBControlWrapper
+        };
 
-        contentBControl.addEventListener('click', () => {
-            if (!contentIsAlreadySelected(contentBControlWrapper)) {
-                toggleContentVisibility(contentB, contentA);
-                toggleSelectedControlStyles(contentBControlWrapper, contentAControlWrapper);
-                replaceUrlSlug(contentBSlug);
+        const toggleContentBOptions = {
+            contentToShow: contentB,
+            contentToHide: contentA,
+            slugToUse: contentBSlug,
+            controlToSelect: contentBControlWrapper,
+            controlToDeselect: contentAControlWrapper
+        };
+
+        const toggleContent = options => {
+            if (!contentIsAlreadySelected(options.controlToSelect)) {
+                toggleContentVisibility(options.contentToShow, options.contentToHide);
+                toggleSelectedControlStyles(options.controlToSelect, options.controlToDeselect);
+                replaceUrlSlug(options.slugToUse);
             }
-        });
+        };
+
+        contentAControl.addEventListener('click', () => toggleContent(toggleContentAOptions));
+        contentBControl.addEventListener('click', () => toggleContent(toggleContentBOptions));
     }
 };
 

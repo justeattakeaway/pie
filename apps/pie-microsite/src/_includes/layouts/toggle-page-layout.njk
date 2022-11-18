@@ -6,23 +6,37 @@ contentBKey: toggle-content-b
 togglePage: true
 bodyDataAttribute: data-toggle-page
 ---
+{% set toggleASelected = selectedToggle == togglePageOptions.A %}
 
 <h2>{{ subtitle }}</h2>
 <p>{{ subtitleDescription }}</p>
+
 <div class="c-toggle u-spacing-e--top">
     <div
         id="toggle-option-a-wrapper"
-        class="c-toggle-item {% if selectedToggle == togglePageOptions.A %}is-active{% endif %}">
-        <input id="toggle-option-a" class="c-toggle-input" type="radio"/>
-        <label class="c-toggle-label" for="toggle-option-a">
+        class="c-toggle-item {% if toggleASelected %}is-active{% endif %}">
+        <input
+            id="toggle-option-a"
+            class="c-toggle-input"
+            type="radio" 
+            {% if toggleASelected %} checked {% endif %}/>
+        <label
+            class="c-toggle-label"
+            for="toggle-option-a">
             {{ toggleContent.a.label }}
         </label>
     </div>
     <div
         id="toggle-option-b-wrapper"
-        class="c-toggle-item {% if selectedToggle == togglePageOptions.B %}is-active{% endif %}">
-        <input id="toggle-option-b" class="c-toggle-input" type="radio" checked=""/>
-        <label class="c-toggle-label" for="toggle-option-b">
+        class="c-toggle-item {% if not toggleASelected %}is-active{% endif %}">
+        <input
+            id="toggle-option-b"
+            class="c-toggle-input"
+            type="radio" 
+            {% if not toggleASelected %} checked {% endif %} />
+        <label
+            class="c-toggle-label"
+            for="toggle-option-b">
             {{ toggleContent.b.label }}
         </label>
     </div>
@@ -63,11 +77,16 @@ bodyDataAttribute: data-toggle-page
     per page. For example on 'Page b': shownContentKey: "{{contentBKey}}" and 'Page a': shownContentKey: "{{contentAKey}}".
 #}
 
-<div id="{{shownContentKey}}" data-slug="{{shownContentSlug}}">
+<div
+    id="{{shownContentKey}}"
+    data-slug="{{shownContentSlug}}">
     {{ shownContent | markdown | safe }}
 </div>
 
-<div id="{{hiddenContentKey}}" data-slug="{{hiddenContentSlug}}" style="display: none;">
+<div
+    id="{{hiddenContentKey}}"
+    data-slug="{{hiddenContentSlug}}"
+    style="display: none;">
     {{ hiddenContent | markdown | safe }}
 </div>
 
