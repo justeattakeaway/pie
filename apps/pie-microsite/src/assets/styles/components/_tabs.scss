@@ -52,7 +52,7 @@ $tabs-link-padding:                f.spacing(d);
     width: 100%;
     overflow: auto;
     white-space: nowrap;
-    margin-left: f.spacing(d);
+    padding-left: f.spacing(d);
 
     ul {
       margin: 0;
