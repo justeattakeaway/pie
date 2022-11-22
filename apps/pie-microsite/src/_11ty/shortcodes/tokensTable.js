@@ -17,14 +17,16 @@ const createTokenDisplayName = tokenKey => {
 // eslint-disable-next-line func-names
 module.exports = function (config) {
     const tokens = objectHelpers.getObjectPropertyByPath(pieDesignTokens, config.path);
-    const tokenLiElements = Object.keys(tokens).map(key => `<li>
-        <span style="display: inline-block; height: 50px; width: 50px; background-color:${tokens[key]};"></span>
-        <p>${createTokenDisplayName(key)}</p>
-        <p>${tokens[key]}</p>
-        <p>${key}</p>
+    const tokenLiElements = Object.keys(tokens).map(key => `<li class="c-tokensTable-cell">
+        <div class="c-tokensTable-swatch" style="--bg-colour:${tokens[key]};"></div>
+        <div class="c-tokensTable-data">
+          <span class="c-tokensTable-displayName">${createTokenDisplayName(key)}</span>
+          <span class="c-tokensTable-tokenKey">${tokens[key]}</span>
+          <span class="c-tokensTable-tokenValue">${key}</span>
+        </div>
       </li>`);
 
-    return `<ul>
+    return `<ul class="c-tokensTable">
       ${tokenLiElements.join('')}
     </ul>`;
 };
