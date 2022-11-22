@@ -1,4 +1,3 @@
-// Defined in '_toggle.scss'
 const activeClass = 'is-active';
 
 /**
@@ -6,7 +5,7 @@ const activeClass = 'is-active';
  * @param {HTMLElement} contentVariantWrapper - the wrapper containing the content variant
  * @returns {boolean} - whether or not the content is already selected to display
  */
-const contentIsAlreadySelected = contentVariantWrapper => contentVariantWrapper.classList.contains(activeClass);
+const isContentAlreadySelected = contentVariantWrapper => contentVariantWrapper.classList.contains(activeClass);
 
 /**
  * Update the current URL to the new slug without reloading the page
@@ -32,8 +31,8 @@ const replaceUrlSlug = newSlug => {
  * @param {HTMLElement} contentToHide - the HTML to hide
  */
 const toggleContentVisibility = (contentToDisplay, contentToHide) => {
-    contentToDisplay.style.display = 'block';
-    contentToHide.style.display = 'none';
+    contentToDisplay.classList.remove('is-hidden');
+    contentToHide.classList.add('is-hidden');
 };
 
 /**
@@ -46,9 +45,8 @@ const toggleSelectedControlStyles = (controlToSelect, controlToDeselect) => {
     controlToSelect.classList.add(activeClass);
 };
 
-const initialise = () => {
+const initialiseToggle = () => {
     if ('togglePage' in document.body.dataset) {
-        // IDs defined in toggle-page-layout.njk
         const contentAControl = document.getElementById('toggle-option-a');
         const contentBControl = document.getElementById('toggle-option-b');
         const contentAControlWrapper = document.getElementById('toggle-option-a-wrapper');
@@ -76,7 +74,7 @@ const initialise = () => {
         };
 
         const toggleContent = options => {
-            if (!contentIsAlreadySelected(options.controlToSelect)) {
+            if (!isContentAlreadySelected(options.controlToSelect)) {
                 toggleContentVisibility(options.contentToShow, options.contentToHide);
                 toggleSelectedControlStyles(options.controlToSelect, options.controlToDeselect);
                 replaceUrlSlug(options.slugToUse);
@@ -89,5 +87,5 @@ const initialise = () => {
 };
 
 window.addEventListener('DOMContentLoaded', () => {
-    initialise();
+    initialiseToggle();
 });

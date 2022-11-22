@@ -1,7 +1,7 @@
 /**
  * Returns an object property value specified via a dot notation path string
- * @param {*} obj The object to query
- * @param {*} path The dot notation style path used to access the property
+ * @param {object} obj The object to query
+ * @param {string} path The dot notation style path used to access the property
  * @returns {any} The object property value
  */
 const getObjectPropertyByPath = (obj, path) => {
@@ -15,7 +15,23 @@ const getObjectPropertyByPath = (obj, path) => {
     return result;
 };
 
+/**
+ * Capitalises the first letter of a string
+ * @param {string} string
+ * @returns {string}
+ */
+const capitalizeFirstLetter = string => {
+    let capitalised = string;
+    capitalised = capitalised.charAt(0).toUpperCase() + capitalised.slice(1);
+
+    return capitalised;
+};
+
+
 module.exports = {
+    stringHelpers: {
+        capitalizeFirstLetter
+    },
     objectHelpers: {
         getObjectPropertyByPath
     }

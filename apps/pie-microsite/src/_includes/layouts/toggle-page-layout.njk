@@ -6,7 +6,7 @@ contentBKey: toggle-content-b
 togglePage: true
 bodyDataAttribute: data-toggle-page
 ---
-{% set toggleASelected = selectedToggle == togglePageOptions.A %}
+{% set isToggleASelected = selectedToggle == togglePageOptions.A %}
 
 <h2>{{ subtitle }}</h2>
 <p>{{ subtitleDescription }}</p>
@@ -14,12 +14,12 @@ bodyDataAttribute: data-toggle-page
 <div class="c-toggle u-spacing-e--top">
     <div
         id="toggle-option-a-wrapper"
-        class="c-toggle-item {% if toggleASelected %}is-active{% endif %}">
+        class="c-toggle-item {% if isToggleASelected %}is-active{% endif %}">
         <input
             id="toggle-option-a"
             class="c-toggle-input"
             type="radio" 
-            {% if toggleASelected %} checked {% endif %}/>
+            {% if isToggleASelected %} checked {% endif %}/>
         <label
             class="c-toggle-label"
             for="toggle-option-a">
@@ -28,12 +28,12 @@ bodyDataAttribute: data-toggle-page
     </div>
     <div
         id="toggle-option-b-wrapper"
-        class="c-toggle-item {% if not toggleASelected %}is-active{% endif %}">
+        class="c-toggle-item {% if not isToggleASelected %}is-active{% endif %}">
         <input
             id="toggle-option-b"
             class="c-toggle-input"
             type="radio" 
-            {% if not toggleASelected %} checked {% endif %} />
+            {% if not isToggleASelected %} checked {% endif %} />
         <label
             class="c-toggle-label"
             for="toggle-option-b">
@@ -54,8 +54,8 @@ bodyDataAttribute: data-toggle-page
 
     We want 11ty to:
 
-    On Page A, show A and hide B
-    On Page B, show B and hide A
+    On Page A, show Content A and hide Content B
+    On Page B, show Content B and hide Content A
 
     ---
 
@@ -64,16 +64,16 @@ bodyDataAttribute: data-toggle-page
 
     An example of this is the alias tokens pages in foundations/colour where we have light and dark tokens.
 
-    Content A (the left side of the toggle control) is light.
-    Content B (the right side of the toggle control) is dark.
+    Content A (the left side of the toggle control) displays the light theme alias tokens.
+    Content B (the right side of the toggle control) displays the dark theme alias tokens.
 
     Content A and B are defined as 'light' and 'dark' in the foundations/colour/tokens/alias/alias.json data file 
     (and will need to be declared accordingly in any other toggle page folders).
 
     ---
 
-    We always want the IDs used to remain the same magic string (whether Content A and B are light and dark, wide and narrow etc).
-    So we define them in this layout as frontmatter and reference then in the local data files when deciding which ID to show and hide
+    We always want the IDs used to remain the same magic string values irrespective of the tab content (whether Content A and B are light and dark, wide and narrow etc).
+    So we define them in this layout as frontmatter, referencing them in the local data files when deciding which ID to show and hide
     per page. For example on 'Page b': shownContentKey: "{{contentBKey}}" and 'Page a': shownContentKey: "{{contentAKey}}".
 #}
 
@@ -86,8 +86,6 @@ bodyDataAttribute: data-toggle-page
 <div
     id="{{hiddenContentKey}}"
     data-slug="{{hiddenContentSlug}}"
-    style="display: none;">
+    class="is-hidden">
     {{ hiddenContent | markdown | safe }}
 </div>
-
-
