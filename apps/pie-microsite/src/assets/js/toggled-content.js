@@ -51,6 +51,7 @@ const initialiseToggle = () => {
         const contentBControl = document.getElementById('toggle-option-b');
         const contentAControlWrapper = document.getElementById('toggle-option-a-wrapper');
         const contentBControlWrapper = document.getElementById('toggle-option-b-wrapper');
+
         const contentA = document.getElementById('toggle-content-a');
         const contentB = document.getElementById('toggle-content-b');
 
