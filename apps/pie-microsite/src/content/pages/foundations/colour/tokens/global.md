@@ -1,6 +1,6 @@
 ---
 eleventyNavigation:
-    key: Global
+    key: Global tokens
     parent: Colour
     order: 2
 ---
@@ -8,7 +8,7 @@ eleventyNavigation:
 ## Global tokens
 
 {% tokensTable {
- path: 'theme.jet.color.global'
+    path: 'theme.jet.color.global'
 } %}
 
 
