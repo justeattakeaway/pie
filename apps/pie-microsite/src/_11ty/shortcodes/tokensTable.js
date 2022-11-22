@@ -15,22 +15,48 @@ const createTokenDisplayName = tokenKey => {
  * @returns {string}
  */
 // eslint-disable-next-line func-names
+// module.exports = function (config) {
+//     const tokens = objectHelpers.getObjectPropertyByPath(pieDesignTokens, config.path);
+//     const tokenLiElements = Object.keys(tokens).map(key => {
+//         const displayNameSource = config.prefix ? `${config.prefix}-${key}` : key;
+
+//         return `<li class="c-tokensTable-cell">
+//           <div class="c-tokensTable-swatch" style="--bg-colour:${tokens[key]};"></div>
+//           <div class="c-tokensTable-data">
+//             <span class="c-tokensTable-displayName">${createTokenDisplayName(displayNameSource)}</span>
+//             <span class="c-tokensTable-tokenKey">${tokens[key]}</span>
+//             <span class="c-tokensTable-tokenValue">${key}</span>
+//           </div>
+//         </li>`;
+//     });
+
+//     return `<ul class="c-tokensTable">
+//       ${tokenLiElements.join('')}
+//     </ul>`;
+// };
+
+const createItem = config => `<li class="c-tokensTable-row c-tokensTable-item">
+  <div class="c-tokensTable-swatch" style="--bg-colour:${config.bgColour}";></div>
+  <div class="c-tokensTable-content">
+    <span class="c-tokensTable-displayName">${config.tokenDisplayName}</span>
+    <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</span>
+    <span>global token used: <span>some token</span></span>
+  </div>
+  <span class="c-tokensTable-token">${config.tokenKey}</span>
+</li>`;
+
+const createList = listElements => `<ul class="c-tokensTable">
+  ${listElements.join('')}
+</ul>`;
+
 module.exports = function (config) {
     const tokens = objectHelpers.getObjectPropertyByPath(pieDesignTokens, config.path);
-    const tokenLiElements = Object.keys(tokens).map(key => {
-        const displayNameSource = config.prefix ? `${config.prefix}-${key}` : key;
+    const tokenItemElements = Object.keys(tokens).map(key => createItem({
+        bgColour: tokens[key],
+        copy: 'Hello, Clarice',
+        tokenKey: key,
+        tokenDisplayName: createTokenDisplayName(key)
+    }));
 
-        return `<li class="c-tokensTable-cell">
-          <div class="c-tokensTable-swatch" style="--bg-colour:${tokens[key]};"></div>
-          <div class="c-tokensTable-data">
-            <span class="c-tokensTable-displayName">${createTokenDisplayName(displayNameSource)}</span>
-            <span class="c-tokensTable-tokenKey">${tokens[key]}</span>
-            <span class="c-tokensTable-tokenValue">${key}</span>
-          </div>
-        </li>`;
-    });
-
-    return `<ul class="c-tokensTable">
-      ${tokenLiElements.join('')}
-    </ul>`;
+    return `<div>${createList(tokenItemElements)}</div>`;
 };

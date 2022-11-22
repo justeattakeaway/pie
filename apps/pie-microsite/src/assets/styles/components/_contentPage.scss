@@ -25,7 +25,7 @@ $content-max-width: 80ch;
 }
 
 .c-contentPage-header > *,
-.c-contentPage-content > *:not(.c-contentPage-img, hr, .c-contentPage-notification, section),
+.c-contentPage-content > *:not(.c-contentPage-img, hr, .c-contentPage-notification, section, div),
 // any text items within the image such as captions
 .c-contentPage-content .c-contentPage-img *:not(div, img) {
     max-width: $content-max-width;
