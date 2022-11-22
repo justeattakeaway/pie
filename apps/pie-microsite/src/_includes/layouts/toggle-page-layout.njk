@@ -90,9 +90,4 @@ bodyDataAttribute: data-toggle-page
     {{ hiddenContent | markdown | safe }}
 </div>
 
-{% set theme = 'default' %}
-{% set colours = designTokens.color.alias.default %}
 
-{% for key, value in colours %}
-    <p>{{ key }}: {{ value }}</p>
-{% endfor %}

@@ -2,6 +2,7 @@ const storybook = require('./storybook');
 const codesandbox = require('./codesandbox');
 const contentPageImage = require('./contentPageImage');
 const notification = require('./notification');
+const tokensTable = require('./tokensTable');
 
 /**
  * Adds all 11ty shortcodes
@@ -12,6 +13,7 @@ const addAllShortCodes = eleventyConfig => {
     eleventyConfig.addShortcode('codesandbox', codesandbox);
     eleventyConfig.addShortcode('contentPageImage', contentPageImage);
     eleventyConfig.addShortcode('notification', notification);
+    eleventyConfig.addShortcode('tokensTable', tokensTable);
 };
 
 module.exports = {
