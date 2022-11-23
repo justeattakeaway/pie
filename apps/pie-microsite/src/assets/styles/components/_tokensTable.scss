@@ -16,7 +16,7 @@ $tokensTable-column-padding: f.spacing(d);
 .c-tokensTable-example--colour {
     border-top-left-radius: f.$radius-03;  //TODO: This could come out to .c-tokensTable-example?
     border-top-right-radius: f.$radius-03;
-    background-color: var(--bg-colour, f.$color-background-subtle);
+    background-color: var(--token-colour, f.$color-background-subtle);
     min-height: 80px;
 
     @include f.media('>wide') {
