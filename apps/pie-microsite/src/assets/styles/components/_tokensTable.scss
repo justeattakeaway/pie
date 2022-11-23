@@ -1,6 +1,8 @@
 @use '../fozzie-config' as f;
 
-.c-tokensTable {
+$tokensTable-column-padding: f.spacing(d);
+
+.c-tokensTable-list {
     list-style: none;
     padding: 0;
     margin: 0;
@@ -29,6 +31,7 @@
 .c-tokensTable-row {
     display: grid;
     grid-template-columns: 200px 1fr minmax(min-content, max-content);
+    column-gap: $tokensTable-column-padding;
 
     @include f.media('<=wide') {
         grid-template-columns: 1fr;
@@ -54,12 +57,8 @@
 }
 
 .c-tokensTable-content {
-    padding-left: f.spacing(d);
-    padding-right: f.spacing(d);
-
     @include f.media('<=wide') {
-        padding-top: f.spacing(d);
-        padding-bottom: f.spacing(d);
+        padding: $tokensTable-column-padding;
     }
 
     > * {

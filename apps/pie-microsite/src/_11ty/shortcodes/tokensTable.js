@@ -50,7 +50,7 @@ const createList = listElements => `<div class="c-tokensTable-row u-spacing-e--t
   <span>Description</span>
   <span>Token name</span>
 </div>
-<ul class="c-tokensTable">
+<ul class="c-tokensTable-list">
   ${listElements.join('')}
 </ul>`;
 
@@ -64,5 +64,5 @@ module.exports = function (config) {
         tokenDisplayName: createTokenDisplayName(key)
     }));
 
-    return `<div>${createList(tokenItemElements)}</div>`;
+    return `<div class="c-tokensTable">${createList(tokenItemElements)}</div>`;
 };
