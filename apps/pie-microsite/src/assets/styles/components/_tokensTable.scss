@@ -17,6 +17,7 @@ $tokensTable-column-padding: f.spacing(d);
     border-top-left-radius: f.$radius-03;
     border-top-right-radius: f.$radius-03;
     background-color: var(--bg-colour, f.$color-background-subtle);
+    min-height: 80px;
 
     @include f.media('>wide') {
         border-radius: f.$radius-03;
