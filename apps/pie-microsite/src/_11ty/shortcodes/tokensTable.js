@@ -1,6 +1,8 @@
 const pieDesignTokens = require('@justeat/pie-design-tokens/dist/tokens.json');
 const { stringHelpers, objectHelpers } = require('../../utilities');
 
+const createToken = (tokenKey, prefix) => `$${prefix}-${tokenKey}`;
+
 const createTokenDisplayName = tokenKey => {
     const substrs = tokenKey.split('-');
     const capitalizedSubStrs = substrs.map(str => stringHelpers.capitalizeFirstLetter(str));
@@ -45,7 +47,7 @@ const createItem = config => `<li class="c-tokensTable-row c-tokensTable-item">
   <span class="c-tokensTable-token">${config.tokenKey}</span>
 </li>`;
 
-const createList = listElements => `<div class="c-tokensTable-row u-spacing-e--top u-hideBelowOrAtWide">
+const createList = listElements => `<div class="c-tokensTable-row u-spacing-e--top u-hideBelowOrAtWide c-tokensTable-heading">
   <span>Example</span>
   <span>Description</span>
   <span>Token name</span>
@@ -60,7 +62,7 @@ module.exports = function (config) {
     const tokenItemElements = Object.keys(tokens).map(key => createItem({
         bgColour: tokens[key],
         copy: 'Hello, Clarice',
-        tokenKey: key,
+        tokenKey: createToken(key, config.prefix),
         tokenDisplayName: createTokenDisplayName(key)
     }));
 

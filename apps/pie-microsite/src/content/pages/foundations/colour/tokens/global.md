@@ -8,7 +8,8 @@ eleventyNavigation:
 ## Global tokens
 
 {% tokensTable {
-    path: 'theme.jet.color.global'
+    path: 'theme.jet.color.global',
+    prefix: 'colour'
 } %}
 
 

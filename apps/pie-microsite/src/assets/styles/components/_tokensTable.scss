@@ -29,6 +29,10 @@ $tokensTable-column-padding: f.spacing(d);
     font-weight: f.$font-weight-bold;
 }
 
+.c-tokensTable-heading {
+    font-weight: f.$font-weight-bold;
+}
+
 .c-tokensTable-row {
     display: grid;
     grid-template-columns: 240px 1fr minmax(min-content, max-content);
