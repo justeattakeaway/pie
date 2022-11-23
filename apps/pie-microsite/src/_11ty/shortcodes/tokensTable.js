@@ -3,11 +3,12 @@ const { stringHelpers, objectHelpers } = require('../../utilities');
 
 const createToken = (tokenKey, prefix) => `$${prefix}-${tokenKey}`;
 
-const createTokenDisplayName = tokenKey => {
+const createTokenDisplayName = (tokenKey, prefix) => {
+    const shouldShowPrefix = prefix && prefix !== 'colour';
     const substrs = tokenKey.split('-');
     const capitalizedSubStrs = substrs.map(str => stringHelpers.capitalizeFirstLetter(str));
 
-    return capitalizedSubStrs.join(' ');
+    return shouldShowPrefix ? `${stringHelpers.capitalizeFirstLetter(prefix)} ${capitalizedSubStrs.join(' ')}` : capitalizedSubStrs.join(' ');
 };
 
 /**
@@ -37,15 +38,26 @@ const createTokenDisplayName = tokenKey => {
 //     </ul>`;
 // };
 
-const createItem = config => `<li class="c-tokensTable-row c-tokensTable-item">
-  <div class="c-tokensTable-swatch" style="--bg-colour:${config.bgColour}";></div>
-  <div class="c-tokensTable-content">
-    <span class="c-tokensTable-displayName">${config.tokenDisplayName}</span>
-    <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</span>
-    <span>global token used: <span>some token</span></span>
-  </div>
-  <span class="c-tokensTable-token">${config.tokenKey}</span>
-</li>`;
+const createItem = config => {
+    const tokensWithPixels = ['spacing', 'radius'];
+    let tokenData = config.token;
+
+    if (tokensWithPixels.includes(config.prefix)) {
+        tokenData += 'px';
+    }
+
+    const example = `<div class="c-tokensTable-example--${config.prefix}" style="--token-${config.prefix}:${tokenData}";></div>`;
+
+    return `<li class="c-tokensTable-row c-tokensTable-item">
+      ${example}
+      <div class="c-tokensTable-content">
+        <span class="c-tokensTable-displayName">${config.tokenDisplayName}</span>
+        <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</span>
+        <span>global token used: <span>some token</span></span>
+      </div>
+      <span class="c-tokensTable-token">${config.tokenKey}</span>
+    </li>`;
+};
 
 const createList = listElements => `<div class="c-tokensTable-row u-spacing-e--top u-hideBelowOrAtWide c-tokensTable-heading">
   <span>Example</span>
@@ -60,10 +72,11 @@ const createList = listElements => `<div class="c-tokensTable-row u-spacing-e--t
 module.exports = function (config) {
     const tokens = objectHelpers.getObjectPropertyByPath(pieDesignTokens, config.path);
     const tokenItemElements = Object.keys(tokens).map(key => createItem({
-        bgColour: tokens[key],
+        token: tokens[key],
         copy: 'Hello, Clarice',
         tokenKey: createToken(key, config.prefix),
-        tokenDisplayName: createTokenDisplayName(key)
+        tokenDisplayName: createTokenDisplayName(key, config.prefix),
+        prefix: config.prefix
     }));
 
     return `<div class="c-tokensTable">${createList(tokenItemElements)}</div>`;
