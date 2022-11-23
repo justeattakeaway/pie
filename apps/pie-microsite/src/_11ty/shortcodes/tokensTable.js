@@ -45,10 +45,16 @@ const createItem = config => `<li class="c-tokensTable-row c-tokensTable-item">
   <span class="c-tokensTable-token">${config.tokenKey}</span>
 </li>`;
 
-const createList = listElements => `<ul class="c-tokensTable">
+const createList = listElements => `<div class="c-tokensTable-row u-spacing-e--top u-hideBelowOrAtWide">
+  <span>Example</span>
+  <span>Description</span>
+  <span>Token name</span>
+</div>
+<ul class="c-tokensTable">
   ${listElements.join('')}
 </ul>`;
 
+// eslint-disable-next-line func-names
 module.exports = function (config) {
     const tokens = objectHelpers.getObjectPropertyByPath(pieDesignTokens, config.path);
     const tokenItemElements = Object.keys(tokens).map(key => createItem({

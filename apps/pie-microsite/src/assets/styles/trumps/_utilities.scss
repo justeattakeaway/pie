@@ -1,0 +1,7 @@
+@use '../fozzie-config' as f;
+
+.u-hideBelowOrAtWide {
+    @include f.media('<=wide') {
+        display: none !important;
+    }
+}
