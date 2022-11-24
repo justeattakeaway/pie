@@ -20,7 +20,7 @@ const getObjectPropertyByPath = (obj, path) => {
  * @param {string} string
  * @returns {string}
  */
-const capitalizeFirstLetter = string => {
+const capitaliseFirstLetter = string => {
     let capitalised = string;
     capitalised = capitalised.charAt(0).toUpperCase() + capitalised.slice(1);
 
@@ -30,7 +30,7 @@ const capitalizeFirstLetter = string => {
 
 module.exports = {
     stringHelpers: {
-        capitalizeFirstLetter
+        capitaliseFirstLetter
     },
     objectHelpers: {
         getObjectPropertyByPath

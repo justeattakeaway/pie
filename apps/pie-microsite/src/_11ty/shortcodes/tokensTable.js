@@ -8,9 +8,9 @@ const createTokenDisplayName = (tokenKey, prefix) => {
     const prefixExcludes = ['color'];
     const shouldShowPrefix = prefix && !prefixExcludes.includes(prefix);
     const tokenNameSegments = tokenKey.split('-');
-    const capitalizedNameSegments = tokenNameSegments.map(nameSegment => stringHelpers.capitalizeFirstLetter(nameSegment));
+    const capitalisedNameSegments = tokenNameSegments.map(nameSegment => stringHelpers.capitaliseFirstLetter(nameSegment));
 
-    return shouldShowPrefix ? `${stringHelpers.capitalizeFirstLetter(prefix)} ${capitalizedNameSegments.join(' ')}` : capitalizedNameSegments.join(' ');
+    return shouldShowPrefix ? `${stringHelpers.capitaliseFirstLetter(prefix)} ${capitalisedNameSegments.join(' ')}` : capitalisedNameSegments.join(' ');
 };
 
 const createTokenExampleElement = ({ token }) => `<div class="c-tokensTable-example" style="--example-background-color:${token}";></div>`;
