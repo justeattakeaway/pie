@@ -57,11 +57,11 @@ const createTokenPill = ({ token, tokenKey }) => {
 };
 
 const createItem = config => {
-    const example = createTokenExampleElement(config);
     const tokenPill = createTokenPill(config);
+    const tokenExampleElement = createTokenExampleElement(config);
 
     return `<li class="c-tokensTable-row c-tokensTable-item">
-      ${example}
+      ${tokenExampleElement}
       <div class="c-tokensTable-content">
         <span class="c-tokensTable-displayName">${config.tokenDisplayName}</span>
         <span>${config.copy}</span>
