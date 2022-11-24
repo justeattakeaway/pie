@@ -1,11 +1,12 @@
 const pieDesignTokens = require('@justeat/pie-design-tokens/dist/tokens.json');
 const { stringHelpers, objectHelpers } = require('../../utilities');
+const tokenPrefixes = require('../../_data/tokenPrefixes');
 
 const createToken = (tokenKey, prefix) => `$${prefix}-${tokenKey}`;
 
 const createTokenDisplayName = (tokenKey, prefix) => {
     // Some tokens don't require a prefix in front of their display names
-    const prefixExcludes = ['color'];
+    const prefixExcludes = [tokenPrefixes.color];
     const shouldShowPrefix = prefix && !prefixExcludes.includes(prefix);
     const tokenNameSegments = tokenKey.split('-');
     const capitalisedNameSegments = tokenNameSegments.map(nameSegment => stringHelpers.capitaliseFirstLetter(nameSegment));

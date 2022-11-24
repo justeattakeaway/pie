@@ -3,5 +3,5 @@
 
 {% tokensTable {
  path: 'theme.jet.color.alias.default',
- prefix: 'color'
+ prefix: tokenPrefixes.color
 } %}

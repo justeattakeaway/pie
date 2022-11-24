@@ -9,7 +9,7 @@ eleventyNavigation:
 
 {% tokensTable {
     path: 'theme.jet.color.global',
-    prefix: 'color'
+    prefix: tokenPrefixes.color
 } %}
 
 
