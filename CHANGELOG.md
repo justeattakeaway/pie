@@ -4,12 +4,21 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 
+<<<<<<< HEAD
 v1.19.0
 ------------------------------
 *November 24, 2022*
 
 ### Added
 - WebDriverIO dependencies + coresponding `turbo.json` config.
+=======
+v1.18.2
+------------------------------
+*November 24, 2022*
+
+### Changed
+- Updated `@justeat/fozzie` to `10.9.0`
+>>>>>>> 8fcb1ee356bf2942f5f0929010180a516bde5e86
 
 
 v1.18.1

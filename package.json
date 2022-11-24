@@ -70,7 +70,7 @@
     "wdio-chromedriver-service": "8.0.0"
   },
   "dependencies": {
-    "@justeat/fozzie": "10.0.0",
+    "@justeat/fozzie": "10.9.0",
     "@justeattakeaway/pie-icons": "1.0.0"
   }
 }
