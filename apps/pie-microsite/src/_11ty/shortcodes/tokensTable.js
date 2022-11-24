@@ -1,6 +1,7 @@
 const sass = require('sass');
 const pieDesignTokens = require('@justeat/pie-design-tokens/dist/tokens.json');
 const { stringHelpers, objectHelpers } = require('../../utilities');
+const tokenPrefixes = require('../../_data/tokenPrefixes');
 
 const convertHexToRBG = hex => {
     // padd a 3char hex to 6
@@ -30,12 +31,12 @@ const createToken = (tokenKey, prefix) => `$${prefix}-${tokenKey}`;
 
 const createTokenDisplayName = (tokenKey, prefix) => {
     // Some tokens don't require a prefix in front of their display names
-    const prefixExcludes = ['color'];
+    const prefixExcludes = [tokenPrefixes.color];
     const shouldShowPrefix = prefix && !prefixExcludes.includes(prefix);
     const tokenNameSegments = tokenKey.split('-');
-    const capitalizedNameSegments = tokenNameSegments.map(nameSegment => stringHelpers.capitalizeFirstLetter(nameSegment));
+    const capitalisedNameSegments = tokenNameSegments.map(nameSegment => stringHelpers.capitaliseFirstLetter(nameSegment));
 
-    return shouldShowPrefix ? `${stringHelpers.capitalizeFirstLetter(prefix)} ${capitalizedNameSegments.join(' ')}` : capitalizedNameSegments.join(' ');
+    return shouldShowPrefix ? `${stringHelpers.capitaliseFirstLetter(prefix)} ${capitalisedNameSegments.join(' ')}` : capitalisedNameSegments.join(' ');
 };
 
 const createTokenExampleElement = ({ token }) => `<div class="c-tokensTable-example" style="--example-background-color:${token}";></div>`;

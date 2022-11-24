@@ -9,5 +9,5 @@ We have defined a series of global tokens to define our various spacing measures
 
 {% tokensTable {
     path: 'theme.jet.spacing.global',
-    prefix: 'spacing'
+    prefix: tokenPrefixes.spacing
 } %}
