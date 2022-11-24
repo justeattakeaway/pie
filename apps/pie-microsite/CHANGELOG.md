@@ -8,9 +8,8 @@ v1.22.0
 ------------------------------
 *November 24, 2022*
 
-### Fixed
-- Unwanted horizontal page scrolling caused by left margin on page tabs
-- Overlap/conflict between page tags and page content toggles caused by z-index 
+### Added
+- Basic WebDriverIO test framework with a navigation test.
 
 
 v1.21.0
@@ -18,7 +17,8 @@ v1.21.0
 *November 21, 2022*
 
 ### Added
-- Basic WebDriverIO test framework with a navigation test.
+- Unwanted horizontal page scrolling caused by left margin on page tabs
+- Overlap/conflict between page tags and page content toggles caused by z-index 
 
 
 v1.20.0
