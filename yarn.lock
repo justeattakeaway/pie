@@ -1977,24 +1977,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@justeat/fozzie@npm:10.0.0":
-  version: 10.0.0
-  resolution: "@justeat/fozzie@npm:10.0.0"
+"@justeat/fozzie@npm:10.9.0":
+  version: 10.9.0
+  resolution: "@justeat/fozzie@npm:10.9.0"
   dependencies:
-    "@justeat/pie-design-tokens": 2.0.0
+    "@justeat/pie-design-tokens": 3.2.0
     include-media: "github:eduardoboucas/include-media#2.0-release"
-  checksum: b5dc3b31308ca90582e3470a04da8fa7b0072e791d4e59d1c0e0173702155a45a8e4e310bf6c9a1c1693dd51f51bfb5ce4d0a19ebe164768996c375f52b776ca
-  languageName: node
-  linkType: hard
-
-"@justeat/pie-design-tokens@npm:2.0.0":
-  version: 2.0.0
-  resolution: "@justeat/pie-design-tokens@npm:2.0.0"
-  dependencies:
-    jsonc-parser: 2.2.0
-    lodash.merge: 4.6.2
-    mkdirp: 1.0.3
-  checksum: 46ebd400c26565f3b4f83c171bb7b9141e618a0fcfe7534058d1f37ab413ee431aa9997b9ea875fe5dc84ad81519a7451d1819b2687892fe398b8da6c6927fd1
+  checksum: ffc9ab53511a687cb8d540380806a76985654743a64762df6d33f2abe3a7b518e79c1b85b510dc1f0223fa308a0fd66cd0c2f36c2819a3ba3fef407ae4a3e483
   languageName: node
   linkType: hard
 
@@ -8718,13 +8707,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jsonc-parser@npm:2.2.0":
-  version: 2.2.0
-  resolution: "jsonc-parser@npm:2.2.0"
-  checksum: 4fb46e4f765db6f32a81045cc5d4d6c856079c2872e5da146ccd413660e66dddcf4f8fb4a6b0c4862fd80467913cca66d597b9052697a6d7300c0f92dcd2d947
-  languageName: node
-  linkType: hard
-
 "jsonc-parser@npm:3.2.0":
   version: 3.2.0
   resolution: "jsonc-parser@npm:3.2.0"
@@ -9665,15 +9647,6 @@ __metadata:
   version: 1.2.0
   resolution: "mitt@npm:1.2.0"
   checksum: 53abb94c6203250e2498e152ae096288c4866c6aab1dc093922084a7414af4aa6cda5a51d480267a8f0bd7908b0e896099bc953317aca8a18672dc67ee7e923d
-  languageName: node
-  linkType: hard
-
-"mkdirp@npm:1.0.3":
-  version: 1.0.3
-  resolution: "mkdirp@npm:1.0.3"
-  bin:
-    mkdirp: bin/cmd.js
-  checksum: c5c46ae41770edd318df35b0bccd50f977dab02a6617dbae80e716dcd3f28b51c8944968247e2be885f2dd3a56963dda492a2478a916b821620438a69224b671
   languageName: node
   linkType: hard
 
@@ -10645,7 +10618,7 @@ __metadata:
     "@babel/preset-env": 7.16.11
     "@justeat/browserslist-config-fozzie": 1.x
     "@justeat/eslint-config-fozzie": 5.1.0
-    "@justeat/fozzie": 10.0.0
+    "@justeat/fozzie": 10.9.0
     "@justeat/pie-design-tokens": 3.2.0
     "@justeat/stylelint-config-fozzie": 3.x
     "@justeattakeaway/pie-icons": 1.0.0
