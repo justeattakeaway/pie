@@ -2,5 +2,6 @@
 ## Light theme alias tokens
 
 {% tokensTable {
- path: 'theme.jet.color.alias.default'
+ path: 'theme.jet.color.alias.default',
+ prefix: 'color'
 } %}

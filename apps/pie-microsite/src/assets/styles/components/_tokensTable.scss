@@ -13,10 +13,10 @@ $tokensTable-column-padding: f.spacing(d);
     }
 }
 
-.c-tokensTable-example--colour {
+.c-tokensTable-example {
     border-top-left-radius: f.$radius-03;  //TODO: This could come out to .c-tokensTable-example?
     border-top-right-radius: f.$radius-03;
-    background-color: var(--token-colour, f.$color-background-subtle);
+    background-color: var(--example-background-color, f.$color-background-subtle);
     min-height: 80px;
 
     @include f.media('>wide') {
@@ -24,48 +24,6 @@ $tokensTable-column-padding: f.spacing(d);
     }
 }
 
-.c-tokensTable-example--spacing {
-    border-top-left-radius: f.$radius-03;
-    border-top-right-radius: f.$radius-03;
-    background-color: f.$color-content-default;
-    opacity: 10%;
-
-    @include f.media('>wide') {
-        border-radius: 2px; // for some reason this is depreciated
-        height: var(--token-spacing);
-        width: var(--token-spacing);
-    }
-}
-
-.c-tokensTable-example--radius {
-    @mixin radiusToken() {
-        height: 80px;
-        width: 80px;
-        background-color: f.$color-content-default;
-        opacity: 10%;
-        border-radius: var(--token-radius);
-    }
-
-    @include f.media('>wide') {
-        @include radiusToken();
-    }
-
-    @include f.media('<wide') {
-        border-top-left-radius: f.$radius-03;
-        border-top-right-radius: f.$radius-03;
-        background-color: f.$color-background-subtle;
-
-        &:before {
-            @include radiusToken();
-
-            content: '';
-            position: absolute;
-            left: 50%;
-            margin-left: -40px;
-            transform: translateY(50%);
-        }
-    }
-}
 
 .c-tokensTable-displayName {
     color: f.$color-content-default;

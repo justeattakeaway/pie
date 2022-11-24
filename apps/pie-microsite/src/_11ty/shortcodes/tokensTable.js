@@ -4,55 +4,25 @@ const { stringHelpers, objectHelpers } = require('../../utilities');
 const createToken = (tokenKey, prefix) => `$${prefix}-${tokenKey}`;
 
 const createTokenDisplayName = (tokenKey, prefix) => {
-    const shouldShowPrefix = prefix && prefix !== 'colour';
-    const substrs = tokenKey.split('-');
-    const capitalizedSubStrs = substrs.map(str => stringHelpers.capitalizeFirstLetter(str));
+    // Some tokens don't require a prefix in front of their display names
+    const prefixExcludes = ['color'];
+    const shouldShowPrefix = prefix && !prefixExcludes.includes(prefix);
+    const tokenNameSegments = tokenKey.split('-');
+    const capitalizedNameSegments = tokenNameSegments.map(nameSegment => stringHelpers.capitalizeFirstLetter(nameSegment));
 
-    return shouldShowPrefix ? `${stringHelpers.capitalizeFirstLetter(prefix)} ${capitalizedSubStrs.join(' ')}` : capitalizedSubStrs.join(' ');
+    return shouldShowPrefix ? `${stringHelpers.capitalizeFirstLetter(prefix)} ${capitalizedNameSegments.join(' ')}` : capitalizedNameSegments.join(' ');
 };
 
-/**
- * A Design Tokens table component
- * @param {object} config - the design token table configuration
- * @param {string} config.path - A dot notation string path to the property you'd like to access
- * @returns {string}
- */
-// eslint-disable-next-line func-names
-// module.exports = function (config) {
-//     const tokens = objectHelpers.getObjectPropertyByPath(pieDesignTokens, config.path);
-//     const tokenLiElements = Object.keys(tokens).map(key => {
-//         const displayNameSource = config.prefix ? `${config.prefix}-${key}` : key;
-
-//         return `<li class="c-tokensTable-cell">
-//           <div class="c-tokensTable-swatch" style="--bg-colour:${tokens[key]};"></div>
-//           <div class="c-tokensTable-data">
-//             <span class="c-tokensTable-displayName">${createTokenDisplayName(displayNameSource)}</span>
-//             <span class="c-tokensTable-tokenKey">${tokens[key]}</span>
-//             <span class="c-tokensTable-tokenValue">${key}</span>
-//           </div>
-//         </li>`;
-//     });
-
-//     return `<ul class="c-tokensTable">
-//       ${tokenLiElements.join('')}
-//     </ul>`;
-// };
+const createTokenExampleElement = ({ token }) => `<div class="c-tokensTable-example" style="--example-background-color:${token}";></div>`;
 
 const createItem = config => {
-    const tokensWithPixels = ['spacing', 'radius'];
-    let tokenData = config.token;
-
-    if (tokensWithPixels.includes(config.prefix)) {
-        tokenData += 'px';
-    }
-
-    const example = `<div class="c-tokensTable-example--${config.prefix}" style="--token-${config.prefix}:${tokenData}";></div>`;
+    const example = createTokenExampleElement(config);
 
     return `<li class="c-tokensTable-row c-tokensTable-item">
       ${example}
       <div class="c-tokensTable-content">
         <span class="c-tokensTable-displayName">${config.tokenDisplayName}</span>
-        <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</span>
+        <span>${config.copy}</span>
         <span>global token used: <span>some token</span></span>
       </div>
       <span class="c-tokensTable-token">${config.tokenKey}</span>
@@ -73,10 +43,10 @@ module.exports = function (config) {
     const tokens = objectHelpers.getObjectPropertyByPath(pieDesignTokens, config.path);
     const tokenItemElements = Object.keys(tokens).map(key => createItem({
         token: tokens[key],
-        copy: 'Hello, Clarice',
+        copy: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit.', // TODO: may be a function to produce the copy
         tokenKey: createToken(key, config.prefix),
         tokenDisplayName: createTokenDisplayName(key, config.prefix),
-        prefix: config.prefix
+        prefix: config.prefix // TODO: Could be done programmatically
     }));
 
     return `<div class="c-tokensTable">${createList(tokenItemElements)}</div>`;
