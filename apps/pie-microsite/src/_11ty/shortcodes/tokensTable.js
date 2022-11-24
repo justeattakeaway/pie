@@ -1,5 +1,30 @@
+const sass = require('sass');
 const pieDesignTokens = require('@justeat/pie-design-tokens/dist/tokens.json');
 const { stringHelpers, objectHelpers } = require('../../utilities');
+
+const convertHexToRBG = hex => {
+    // padd a 3char hex to 6
+    if (!hex.includes('|')) {
+        try {
+            let strippedHex = hex.replace('#', '');
+            if (strippedHex.length === 3) {
+                strippedHex += strippedHex; // so lazy - means an input of #000 will become 000000
+            }
+            const aRgbHex = strippedHex.match(/.{1,2}/g);
+            const aRgb = {
+                red: parseInt(aRgbHex[0], 16),
+                green: parseInt(aRgbHex[1], 16),
+                blue: parseInt(aRgbHex[2], 16)
+            };
+
+            return aRgb;
+        } catch (err) {
+            return null;
+        }
+    }
+
+    return null;
+};
 
 const createToken = (tokenKey, prefix) => `$${prefix}-${tokenKey}`;
 
@@ -15,8 +40,24 @@ const createTokenDisplayName = (tokenKey, prefix) => {
 
 const createTokenExampleElement = ({ token }) => `<div class="c-tokensTable-example" style="--example-background-color:${token}";></div>`;
 
+const createTokenPill = ({ token, tokenKey }) => {
+    let modifierClass = null;
+    const tokenRGB = convertHexToRBG(token);
+    console.log(token);
+    console.log(tokenRGB);
+    if (tokenRGB) {
+        const color = new sass.SassColor(tokenRGB);
+        if (color.lightness < 40) {
+            modifierClass = ' c-tokensTable-token--light';
+        }
+    }
+
+    return `<span class="c-tokensTable-token${modifierClass || ''}">${tokenKey}</span>`;
+};
+
 const createItem = config => {
     const example = createTokenExampleElement(config);
+    const tokenPill = createTokenPill(config);
 
     return `<li class="c-tokensTable-row c-tokensTable-item">
       ${example}
@@ -25,7 +66,7 @@ const createItem = config => {
         <span>${config.copy}</span>
         <span>global token used: <span>some token</span></span>
       </div>
-      <span class="c-tokensTable-token">${config.tokenKey}</span>
+      ${tokenPill}
     </li>`;
 };
 
