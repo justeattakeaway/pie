@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Fix example webpage
 - Run clean pre-bundle (so it cleans the icons generated locally)
 
+v2.0.0-beta.1
+------------------------------
+*November 24, 2022*
+
+### Fixed
+- Published version didn't include all dist files (due to root `.gitignore`)
+
 
 v2.0.0-beta.0
 ------------------------------
