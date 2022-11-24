@@ -39,7 +39,22 @@ const createTokenDisplayName = (tokenKey, prefix) => {
     return shouldShowPrefix ? `${stringHelpers.capitaliseFirstLetter(prefix)} ${capitalisedNameSegments.join(' ')}` : capitalisedNameSegments.join(' ');
 };
 
-const createTokenExampleElement = ({ token }) => `<div class="c-tokensTable-example" style="--example-background-color:${token}";></div>`;
+const createTokenExampleElement = ({ token }) => {
+    const hasOpacity = token.includes('|');
+
+    let styles = `--example-background-color: ${token}`;
+    let classes = 'c-tokensTable-example';
+    if (hasOpacity) {
+        const opacityToken = token.split('|');
+        // const opacityColor = opacityToken[0];
+        const opacity = opacityToken[1];
+
+        styles = `--example-checked-opacity: ${opacity}`;
+        classes += ' c-tokensTable-example--checked';
+    }
+
+    return `<div class="${classes}" style="${styles}";></div>`;
+};
 
 const createTokenPill = ({ token, tokenKey }) => {
     let modifierClass = null;
