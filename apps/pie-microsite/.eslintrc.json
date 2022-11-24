@@ -4,6 +4,9 @@
     {
       "ecmaVersion": 2020
     },
+  "globals": {
+    "browser": "readonly"
+  },
   "rules": {
     "no-param-reassign": "off",
     "no-shadow": "off",
