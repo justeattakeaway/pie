@@ -16,7 +16,7 @@ v1.21.0
 ------------------------------
 *November 21, 2022*
 
-### Added
+### Fixed
 - Unwanted horizontal page scrolling caused by left margin on page tabs
 - Overlap/conflict between page tags and page content toggles caused by z-index 
 
