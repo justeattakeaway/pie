@@ -1,7 +1,8 @@
-const sass = require('sass');
 const pieDesignTokens = require('@justeat/pie-design-tokens/dist/tokens.json');
-const { stringHelpers, objectHelpers } = require('../../utilities');
+const { stringHelpers, objectHelpers } = require('../../utilities/helpers');
 const tokenPrefixes = require('../../_data/tokenPrefixes');
+const tokenTypes = require('../../_data/tokenTypes');
+const { isColorDark } = require('../../utilities/colors');
 
 // TODO - add borders to light colours (on wide screens) (future work)
 // TODO - add unit tests for colour logic
@@ -21,7 +22,7 @@ const createTokenDisplayName = (tokenKey, prefix) => {
         : capitalisedNameSegments.join(' ');
 };
 
-const createTokenExampleElement = ({ token }) => {
+const createColorExample = token => {
     const colorTokenSegments = token.split('|');
     let cssVariable = `--example-background-color: ${token}`;
     const classes = ['c-tokensTable-example'];
@@ -35,39 +36,21 @@ const createTokenExampleElement = ({ token }) => {
     return `<div class="${classes.join(' ')}" style="${cssVariable}";></div>`;
 };
 
-const convertHexToRBG = hex => {
-    // padd a 3char hex to 6
-    const [hexWithoutOpacity,] = hex.split('|');
-    // handle pipes
-    let strippedHex = hexWithoutOpacity.replace('#', '');
-    if (strippedHex.length === 3) {
-        strippedHex += strippedHex; // so lazy - means an input of #000 will become 000000
+const createTokenExampleElement = ({ token, tokenType }) => {
+    switch (tokenType) {
+        case tokenTypes.color:
+            return createColorExample(token);
+        default:
+            throw new Error(`token type not recognised: ${tokenType}. Token:${token}`);
     }
-    const aRgbHex = strippedHex.match(/.{1,2}/g);
-    const aRgb = {
-        red: parseInt(aRgbHex[0], 16),
-        green: parseInt(aRgbHex[1], 16),
-        blue: parseInt(aRgbHex[2], 16)
-    };
-
-    return aRgb;
-};
-
-const calculateColourLightness = hexCode => {
-    let color;
-    const rgb = convertHexToRBG(hexCode);
-    console.log(rgb);
-    color = new sass.SassColor(rgb);
-    // console.log(hexCode);
-
-    return color.lightness;
 };
 
 const createTokenPill = ({ token, tokenScssName }) => {
     const classes = ['c-tokensTable-token'];
-    const tokenLightness = calculateColourLightness(token);
+    const colorIsDark = isColorDark(token);
 
-    if (tokenLightness < 40) {
+    // Use brighter styles for token pills when the token is a darker color
+    if (colorIsDark) {
         classes.push('c-tokensTable-token--light');
     }
 
@@ -82,8 +65,8 @@ const createItem = config => {
       ${tokenExampleElement}
       <div class="c-tokensTable-content">
         <span class="c-tokensTable-displayName">${config.tokenDisplayName}</span>
-        <span>${config.copy}</span>
-        <span>global token used: <span>some token</span></span>
+        <span></span>
+        <span></span>
       </div>
       ${tokenPill}
     </li>`;
@@ -98,15 +81,35 @@ const createList = listElements => `<div class="c-tokensTable-row u-spacing-e--t
   ${listElements.join('')}
 </ul>`;
 
+const validateConfiguration = ({ path, prefix, tokenType }) => {
+    const invalidParameters = [];
+    if (!path) {
+        invalidParameters.push('path');
+    }
+
+    if (!prefix) {
+        invalidParameters.push('path');
+    }
+
+    if (!tokenType) {
+        invalidParameters.push('tokenType');
+    }
+
+    if (invalidParameters.length) {
+        throw new Error(`Missing configuration parameters: ${invalidParameters.join(', ')}`);
+    }
+};
+
 // eslint-disable-next-line func-names
-module.exports = function (config) {
-    const tokens = objectHelpers.getObjectPropertyByPath(pieDesignTokens, config.path);
+module.exports = function ({ path, prefix, tokenType }) {
+    validateConfiguration({ path, prefix, tokenType });
+    const tokens = objectHelpers.getObjectPropertyByPath(pieDesignTokens, path);
     const tokenItemElements = Object.keys(tokens).map(key => createItem({
         token: tokens[key],
-        copy: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit.', // TODO: may be a function to produce the copy
-        tokenScssName: createScssTokenName(key, config.prefix),
-        tokenDisplayName: createTokenDisplayName(key, config.prefix),
-        prefix: config.prefix
+        tokenScssName: createScssTokenName(key, prefix),
+        tokenDisplayName: createTokenDisplayName(key, prefix),
+        prefix,
+        tokenType
     }));
 
     return `<div class="c-tokensTable">${createList(tokenItemElements)}</div>`;
