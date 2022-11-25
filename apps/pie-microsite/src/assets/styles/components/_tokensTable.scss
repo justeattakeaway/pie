@@ -15,19 +15,20 @@ $tokensTable-border-width: 1px;
 }
 
 .c-tokensTable-example {
-    // bg colour
     background-color: var(--example-background-color, f.$color-background-subtle);
     min-height: 80px;
 }
 
+.c-tokensTable-example--bordered {
+    @include f.media('>wide') {
+        border: $tokensTable-border-width solid f.$color-border-default;
+    }
+}
+
 .c-tokensTable-example,
 .c-tokensTable-example--checked:before {
-    border-top-left-radius: f.$radius-03;
-    border-top-right-radius: f.$radius-03;
-
     @include f.media('>wide') {
         border-radius: f.$radius-03;
-        border: $tokensTable-border-width solid f.$color-border-default;
     }
 }
 
@@ -41,10 +42,10 @@ $tokensTable-border-width: 1px;
 
     &:before {
         content: '';
-        top: -$tokensTable-border-width;
-        left: -$tokensTable-border-width;
-        bottom: -$tokensTable-border-width;
-        right: -$tokensTable-border-width;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
         background-color: f.$color-background-dark;
         position: absolute;
         opacity: var(--example-checked-opacity);
@@ -64,6 +65,7 @@ $tokensTable-border-width: 1px;
     display: grid;
     grid-template-columns: 240px 1fr minmax(min-content, max-content);
     column-gap: $tokensTable-column-padding;
+    overflow: hidden;
 
     @include f.media('<=wide') {
         grid-template-columns: 1fr;

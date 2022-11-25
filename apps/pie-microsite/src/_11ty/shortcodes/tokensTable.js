@@ -33,6 +33,10 @@ const createColorExample = token => {
         classes.push('c-tokensTable-example--checked');
     }
 
+    if (!isColorDark(token)) {
+        classes.push('c-tokensTable-example--bordered');
+    }
+
     return `<div class="${classes.join(' ')}" style="${cssVariable}";></div>`;
 };
 
