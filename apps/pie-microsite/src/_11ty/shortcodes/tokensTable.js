@@ -3,31 +3,11 @@ const pieDesignTokens = require('@justeat/pie-design-tokens/dist/tokens.json');
 const { stringHelpers, objectHelpers } = require('../../utilities');
 const tokenPrefixes = require('../../_data/tokenPrefixes');
 
-const convertHexToRBG = hex => {
-    // padd a 3char hex to 6
-    if (!hex.includes('|')) {
-        try {
-            let strippedHex = hex.replace('#', '');
-            if (strippedHex.length === 3) {
-                strippedHex += strippedHex; // so lazy - means an input of #000 will become 000000
-            }
-            const aRgbHex = strippedHex.match(/.{1,2}/g);
-            const aRgb = {
-                red: parseInt(aRgbHex[0], 16),
-                green: parseInt(aRgbHex[1], 16),
-                blue: parseInt(aRgbHex[2], 16)
-            };
+// TODO - add borders to light colours (on wide screens) (future work)
+// TODO - add unit tests for colour logic
+// TODO - extract color specific logic into its own module
 
-            return aRgb;
-        } catch (err) {
-            return null;
-        }
-    }
-
-    return null;
-};
-
-const createToken = (tokenKey, prefix) => `$${prefix}-${tokenKey}`;
+const createScssTokenName = (tokenKey, prefix) => `$${prefix}-${tokenKey}`;
 
 const createTokenDisplayName = (tokenKey, prefix) => {
     // Some tokens don't require a prefix in front of their display names
@@ -36,39 +16,62 @@ const createTokenDisplayName = (tokenKey, prefix) => {
     const tokenNameSegments = tokenKey.split('-');
     const capitalisedNameSegments = tokenNameSegments.map(nameSegment => stringHelpers.capitaliseFirstLetter(nameSegment));
 
-    return shouldShowPrefix ? `${stringHelpers.capitaliseFirstLetter(prefix)} ${capitalisedNameSegments.join(' ')}` : capitalisedNameSegments.join(' ');
+    return shouldShowPrefix
+        ? `${stringHelpers.capitaliseFirstLetter(prefix)} ${capitalisedNameSegments.join(' ')}`
+        : capitalisedNameSegments.join(' ');
 };
 
 const createTokenExampleElement = ({ token }) => {
-    const hasOpacity = token.includes('|');
+    const colorTokenSegments = token.split('|');
+    let cssVariable = `--example-background-color: ${token}`;
+    const classes = ['c-tokensTable-example'];
 
-    let styles = `--example-background-color: ${token}`;
-    let classes = 'c-tokensTable-example';
-    if (hasOpacity) {
-        const opacityToken = token.split('|');
-        // const opacityColor = opacityToken[0];
-        const opacity = opacityToken[1];
-
-        styles = `--example-checked-opacity: ${opacity}`;
-        classes += ' c-tokensTable-example--checked';
+    if (colorTokenSegments.length === 2) {
+        const [, opacity] = colorTokenSegments;
+        cssVariable = `--example-checked-opacity: ${opacity}`;
+        classes.push('c-tokensTable-example--checked');
     }
 
-    return `<div class="${classes}" style="${styles}";></div>`;
+    return `<div class="${classes.join(' ')}" style="${cssVariable}";></div>`;
 };
 
-const createTokenPill = ({ token, tokenKey }) => {
-    let modifierClass = null;
-    const tokenRGB = convertHexToRBG(token);
-    console.log(token);
-    console.log(tokenRGB);
-    if (tokenRGB) {
-        const color = new sass.SassColor(tokenRGB);
-        if (color.lightness < 40) {
-            modifierClass = ' c-tokensTable-token--light';
-        }
+const convertHexToRBG = hex => {
+    // padd a 3char hex to 6
+    const [hexWithoutOpacity,] = hex.split('|');
+    // handle pipes
+    let strippedHex = hexWithoutOpacity.replace('#', '');
+    if (strippedHex.length === 3) {
+        strippedHex += strippedHex; // so lazy - means an input of #000 will become 000000
+    }
+    const aRgbHex = strippedHex.match(/.{1,2}/g);
+    const aRgb = {
+        red: parseInt(aRgbHex[0], 16),
+        green: parseInt(aRgbHex[1], 16),
+        blue: parseInt(aRgbHex[2], 16)
+    };
+
+    return aRgb;
+};
+
+const calculateColourLightness = hexCode => {
+    let color;
+    const rgb = convertHexToRBG(hexCode);
+    console.log(rgb);
+    color = new sass.SassColor(rgb);
+    // console.log(hexCode);
+
+    return color.lightness;
+};
+
+const createTokenPill = ({ token, tokenScssName }) => {
+    const classes = ['c-tokensTable-token'];
+    const tokenLightness = calculateColourLightness(token);
+
+    if (tokenLightness < 40) {
+        classes.push('c-tokensTable-token--light');
     }
 
-    return `<span class="c-tokensTable-token${modifierClass || ''}">${tokenKey}</span>`;
+    return `<span class="${classes.join(' ')}">${tokenScssName}</span>`;
 };
 
 const createItem = config => {
@@ -101,9 +104,9 @@ module.exports = function (config) {
     const tokenItemElements = Object.keys(tokens).map(key => createItem({
         token: tokens[key],
         copy: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit.', // TODO: may be a function to produce the copy
-        tokenKey: createToken(key, config.prefix),
+        tokenScssName: createScssTokenName(key, config.prefix),
         tokenDisplayName: createTokenDisplayName(key, config.prefix),
-        prefix: config.prefix // TODO: Could be done programmatically
+        prefix: config.prefix
     }));
 
     return `<div class="c-tokensTable">${createList(tokenItemElements)}</div>`;
