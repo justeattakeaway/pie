@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`colors.js convertHexcodeToRBG converts hexcode "#000" to the expected RGB object 1`] = `
+Object {
+  "blue": 0,
+  "green": 0,
+  "red": 0,
+}
+`;
+
+exports[`colors.js convertHexcodeToRBG converts hexcode "#000000" to the expected RGB object 1`] = `
+Object {
+  "blue": 0,
+  "green": 0,
+  "red": 0,
+}
+`;
+
+exports[`colors.js convertHexcodeToRBG converts hexcode "#f6c243" to the expected RGB object 1`] = `
+Object {
+  "blue": 67,
+  "green": 194,
+  "red": 246,
+}
+`;
+
+exports[`colors.js convertHexcodeToRBG converts hexcode "#fff" to the expected RGB object 1`] = `
+Object {
+  "blue": 255,
+  "green": 255,
+  "red": 255,
+}
+`;
+
+exports[`colors.js convertHexcodeToRBG converts hexcode "#ffffff" to the expected RGB object 1`] = `
+Object {
+  "blue": 255,
+  "green": 255,
+  "red": 255,
+}
+`;

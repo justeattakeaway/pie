@@ -1,9 +1,12 @@
 const sass = require('sass');
 
+/**
+ * Converts a hexcode string into an RGB object
+ * @param {string} hexcode - the hexcode to convert such as #fff or #ffffff
+ * @returns {object} an object containing red, green and blue values
+ */
 const convertHexcodeToRBG = hexcode => {
-    // token formats are '#000', '#000000', '#000|0.85' and '#000000|0.04'
-    const [hexWithoutOpacity] = hexcode.split('|');
-    let strippedHex = hexWithoutOpacity.replace('#', '');
+    let strippedHex = hexcode.replace('#', '');
 
     if (strippedHex.length === 3) {
         strippedHex += strippedHex; // an input of #000 will become 000000
@@ -21,6 +24,11 @@ const convertHexcodeToRBG = hexcode => {
 
 const convertRGBToSassColour = rgb => new sass.SassColor(rgb);
 
+/**
+ * Returns a boolean representing whether or not a color counts as a dark shade
+ * @param {string} hexCode - a hexcode value such as #fff or #ffffff
+ * @returns {boolean} true for dark, false for light
+ */
 const isColorDark = hexCode => {
     const rgb = convertHexcodeToRBG(hexCode);
     const color = convertRGBToSassColour(rgb);

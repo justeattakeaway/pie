@@ -18,18 +18,26 @@ const createTokenDisplayName = (tokenKey, prefix) => {
         : capitalisedNameSegments.join(' ');
 };
 
+const splitColorToken = token => {
+    const [hexcode, opacity] = token.split('|');
+
+    return {
+        hexcode,
+        opacity
+    };
+};
+
 const createColorExample = token => {
-    const colorTokenSegments = token.split('|');
-    let cssVariable = `--example-background-color: ${token}`;
+    const tokenValues = splitColorToken(token);
+    let cssVariable = `--example-background-color: ${tokenValues.hexcode}`;
     const classes = ['c-tokensTable-example'];
 
-    if (colorTokenSegments.length === 2) {
-        const [, opacity] = colorTokenSegments;
-        cssVariable = `--example-checked-opacity: ${opacity}`;
+    if (tokenValues.opacity) {
+        cssVariable = `--example-checked-opacity: ${tokenValues.opacity}`;
         classes.push('c-tokensTable-example--checked');
     }
 
-    if (!isColorDark(token)) {
+    if (!isColorDark(tokenValues.hexcode)) {
         classes.push('c-tokensTable-example--bordered');
     }
 
@@ -45,13 +53,17 @@ const createTokenExampleElement = ({ token, tokenType }) => {
     }
 };
 
-const createTokenPill = ({ token, tokenScssName }) => {
+const createTokenPill = ({ token, tokenScssName, tokenType }) => {
     const classes = ['c-tokensTable-token'];
-    const colorIsDark = isColorDark(token);
 
-    // Use brighter styles for token pills when the token is a darker color
-    if (colorIsDark) {
-        classes.push('c-tokensTable-token--light');
+    if (tokenType === tokenTypes.color) {
+        const tokenValues = splitColorToken(token);
+        const colorIsDark = isColorDark(tokenValues.hexcode);
+
+        // Use brighter styles for token pills when the token is a darker color
+        if (colorIsDark) {
+            classes.push('c-tokensTable-token--light');
+        }
     }
 
     return `<span class="${classes.join(' ')}">${tokenScssName}</span>`;
