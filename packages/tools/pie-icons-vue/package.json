@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/pie-icons-vue",
-  "version": "2.0.0-beta.0",
+  "version": "2.0.0-beta.1",
   "tag": "beta",
   "main": "dist/pie-icons-vue.cjs.js",
   "cdn": "dist/pie-icons-vue.min.js",
@@ -33,7 +33,7 @@
     "PIE"
   ],
   "scripts": {
-    "prepublishOnly": "yarn lint && yarn build",
+    "prepublishOnly": "yarn lint:scripts && yarn build",
     "build": "yarn build:icons && yarn build:dist",
     "build:dist": "bili --input generated/index.js --format umd,es,cjs,umd-min --js buble --name pie-icons-vue",
     "build:icons": "node build && babel generated/components -d icons",
