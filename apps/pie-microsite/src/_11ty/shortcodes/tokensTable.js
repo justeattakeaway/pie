@@ -1,20 +1,19 @@
 const pieDesignTokens = require('@justeat/pie-design-tokens/dist/tokens.json');
 const { stringHelpers, objectHelpers } = require('../../utilities/helpers');
-const tokenPrefixes = require('../../_data/tokenPrefixes');
 const tokenTypes = require('../../_data/tokenTypes');
 const { isColorDark } = require('../../utilities/colors');
 
-const createScssTokenName = (tokenKey, prefix) => `$${prefix}-${tokenKey}`;
+const createScssTokenName = (tokenKey, tokenType) => `$${tokenType}-${tokenKey}`;
 
-const createTokenDisplayName = (tokenKey, prefix) => {
+const createTokenDisplayName = (tokenKey, tokenType) => {
     // Some tokens don't require a prefix in front of their display names
-    const prefixExcludes = [tokenPrefixes.color];
-    const shouldShowPrefix = prefix && !prefixExcludes.includes(prefix);
+    const prefixExcludes = [tokenTypes.color];
+    const shouldShowPrefix = tokenType && !prefixExcludes.includes(tokenType);
     const tokenNameSegments = tokenKey.split('-');
     const capitalisedNameSegments = tokenNameSegments.map(nameSegment => stringHelpers.capitaliseFirstLetter(nameSegment));
 
     return shouldShowPrefix
-        ? `${stringHelpers.capitaliseFirstLetter(prefix)} ${capitalisedNameSegments.join(' ')}`
+        ? `${stringHelpers.capitaliseFirstLetter(tokenType)} ${capitalisedNameSegments.join(' ')}`
         : capitalisedNameSegments.join(' ');
 };
 
@@ -93,13 +92,9 @@ const createList = listElements => `<div class="c-tokensTable-row u-spacing-e--t
   ${listElements.join('')}
 </ul>`;
 
-const validateConfiguration = ({ path, prefix, tokenType }) => {
+const validateConfiguration = ({ path, tokenType }) => {
     const invalidParameters = [];
     if (!path) {
-        invalidParameters.push('path');
-    }
-
-    if (!prefix) {
         invalidParameters.push('path');
     }
 
@@ -113,14 +108,13 @@ const validateConfiguration = ({ path, prefix, tokenType }) => {
 };
 
 // eslint-disable-next-line func-names
-module.exports = function ({ path, prefix, tokenType }) {
-    validateConfiguration({ path, prefix, tokenType });
+module.exports = function ({ path, tokenType }) {
+    validateConfiguration({ path, tokenType });
     const tokens = objectHelpers.getObjectPropertyByPath(pieDesignTokens, path);
     const tokenItemElements = Object.keys(tokens).map(key => createItem({
         token: tokens[key],
-        tokenScssName: createScssTokenName(key, prefix),
-        tokenDisplayName: createTokenDisplayName(key, prefix),
-        prefix,
+        tokenScssName: createScssTokenName(key, tokenType),
+        tokenDisplayName: createTokenDisplayName(key, tokenType),
         tokenType
     }));
 
