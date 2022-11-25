@@ -12,6 +12,15 @@ v1.19.0
 - WebDriverIO dependencies + coresponding `turbo.json` config.
 
 
+v1.18.3
+------------------------------
+*November 24, 2022*
+
+### Fixed
+- `.gitignore` dist folder exemption causing dist output not to be published. Have modified to be the same specificity as package `files` setting.
+
+
+
 v1.18.2
 ------------------------------
 *November 24, 2022*

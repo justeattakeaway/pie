@@ -152,7 +152,7 @@ esm
 
 .turbo
 build/**
-dist/**
+dist/
 
 .plugin-clean
 
