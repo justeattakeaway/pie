@@ -17,18 +17,16 @@ $tokensTable-border-width: 1px;
 .c-tokensTable-example {
     background-color: var(--example-background-color, f.$color-background-subtle);
     min-height: 80px;
+    overflow: hidden;
+
+    @include f.media('>wide') {
+        border-radius: f.$radius-03;
+    }
 }
 
 .c-tokensTable-example--bordered {
     @include f.media('>wide') {
         border: $tokensTable-border-width solid f.$color-border-default;
-    }
-}
-
-.c-tokensTable-example,
-.c-tokensTable-example--checked:before {
-    @include f.media('>wide') {
-        border-radius: f.$radius-03;
     }
 }
 
