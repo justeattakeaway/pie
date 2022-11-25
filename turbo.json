@@ -20,6 +20,7 @@
           "outputs": []
         },
         "test:system": {
+            "cache": false,
             "outputs": []
           },
         "lint:scripts": {
