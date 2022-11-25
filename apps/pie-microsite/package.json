@@ -16,7 +16,8 @@
     "lint:style": "run -T stylelint ./src/**/*.{css,scss}",
     "lint:style:fix": "yarn lint:style --fix",
     "test:system": "wdio run ../../wdio.conf.js",
-    "test": "jest"
+    "test": "jest",
+    "test:ci": "yarn test"
   },
   "browserslist": [
     "extends @justeat/browserslist-config-fozzie"
