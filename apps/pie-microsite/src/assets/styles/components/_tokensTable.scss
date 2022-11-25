@@ -111,6 +111,7 @@ $tokensTable-border-width: 1px;
         position: absolute;
         top: f.spacing(d);
         left: f.spacing(d);
+        border: 1px solid f.$color-border-subtle;
     }
 }
 

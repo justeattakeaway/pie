@@ -52,19 +52,8 @@ const createTokenExampleElement = ({ token, tokenType }) => {
     }
 };
 
-const createTokenPill = ({ token, tokenScssName, tokenType }) => {
+const createTokenPill = ({ tokenScssName }) => {
     const classes = ['c-tokensTable-token'];
-
-    if (tokenType === tokenTypes.color) {
-        const tokenValues = splitColorToken(token);
-        const colorIsDark = isColorDark(tokenValues.hexcode);
-
-        // Use brighter styles for token pills when the token is a darker color
-        if (colorIsDark) {
-            classes.push('c-tokensTable-token--light');
-        }
-    }
-
     return `<span class="${classes.join(' ')}">${tokenScssName}</span>`;
 };
 
