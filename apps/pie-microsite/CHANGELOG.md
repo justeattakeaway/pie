@@ -4,6 +4,22 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 
+v1.22.0
+------------------------------
+*November 24, 2022*
+
+### Added
+- Basic WebDriverIO test framework with a navigation test.
+
+
+v1.21.1
+------------------------------
+*November 24, 2022*
+
+### Changed
+- Use new product-orange image on colour page
+
+
 v1.21.0
 ------------------------------
 *November 21, 2022*

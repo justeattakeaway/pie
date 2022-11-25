@@ -152,6 +152,9 @@ esm
 
 .turbo
 build/**
-dist/**
+dist/
 
 .plugin-clean
+
+# WebDriverIO
+allure-results/

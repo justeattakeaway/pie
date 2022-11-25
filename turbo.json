@@ -19,6 +19,9 @@
         "test:coverage": {
           "outputs": []
         },
+        "test:system": {
+            "outputs": []
+          },
         "lint:scripts": {
             "cache": true,
             "outputs": []
