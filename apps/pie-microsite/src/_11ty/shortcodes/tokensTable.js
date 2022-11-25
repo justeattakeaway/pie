@@ -4,10 +4,6 @@ const tokenPrefixes = require('../../_data/tokenPrefixes');
 const tokenTypes = require('../../_data/tokenTypes');
 const { isColorDark } = require('../../utilities/colors');
 
-// TODO - add borders to light colours (on wide screens) (future work)
-// TODO - add unit tests for colour logic
-// TODO - extract color specific logic into its own module
-
 const createScssTokenName = (tokenKey, prefix) => `$${prefix}-${tokenKey}`;
 
 const createTokenDisplayName = (tokenKey, prefix) => {
