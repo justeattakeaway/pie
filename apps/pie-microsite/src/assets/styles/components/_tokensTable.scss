@@ -1,6 +1,7 @@
 @use '../fozzie-config' as f;
 
 $tokensTable-column-padding: f.spacing(d);
+$tokensTable-border-width: 1px;
 
 .c-tokensTable-list {
     list-style: none;
@@ -26,24 +27,24 @@ $tokensTable-column-padding: f.spacing(d);
 
     @include f.media('>wide') {
         border-radius: f.$radius-03;
-        border: 1px solid f.$color-border-default;
+        border: $tokensTable-border-width solid f.$color-border-default;
     }
 }
 
 .c-tokensTable-example--checked {
     background-color: f.$color-container-default;
-    background-image: linear-gradient(45deg, f.$color-overlay 25%, transparent 25%, transparent 75%, f.$color-overlay 75%, f.$color-overlay),
-        linear-gradient(45deg, f.$color-overlay 25%, transparent 25%, transparent 75%, f.$color-overlay 75%, f.$color-overlay);
+    background-image: linear-gradient(45deg, f.$color-dark-content-subdued 25%, transparent 25%, transparent 75%, f.$color-dark-content-subdued 75%, f.$color-dark-content-subdued),
+        linear-gradient(45deg, f.$color-dark-content-subdued 25%, transparent 25%, transparent 75%, f.$color-dark-content-subdued 75%, f.$color-dark-content-subdued);
     background-size: 20px 20px;
     background-position: 0 0, 30px 30px;
     position: relative;
 
     &:before {
         content: '';
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
+        top: -$tokensTable-border-width;
+        left: -$tokensTable-border-width;
+        bottom: -$tokensTable-border-width;
+        right: -$tokensTable-border-width;
         background-color: f.$color-background-dark;
         position: absolute;
         opacity: var(--example-checked-opacity);
@@ -77,11 +78,11 @@ $tokensTable-column-padding: f.spacing(d);
 .c-tokensTable-item {
     padding: f.spacing(e) 0;
     position: relative;
-    border-bottom: 1px solid f.$color-border-default;
+    border-bottom: $tokensTable-border-width solid f.$color-border-default;
 
     @include f.media('<=wide') {
         padding: 0;
-        border: 1px solid f.$color-border-default;
+        border: $tokensTable-border-width solid f.$color-border-default;
         border-radius: f.$radius-03;
     }
 }
