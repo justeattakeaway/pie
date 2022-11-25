@@ -3,8 +3,20 @@ const { stringHelpers, objectHelpers } = require('../../utilities/helpers');
 const tokenTypes = require('../../_data/tokenTypes');
 const { isColorDark } = require('../../utilities/colors');
 
+/**
+ * Creates the SCSS token name such as '$color-black'
+ * @param {string} tokenKey - the token key i.e. 'support-positive-02'
+ * @param {string} tokenType - the type of token such as color, spacing or radius
+ * @returns {string} the SCSS variable name
+ */
 const createScssTokenName = (tokenKey, tokenType) => `$${tokenType}-${tokenKey}`;
 
+/**
+ * Creates a display name of the provided token. 'system-purple' would become 'System Purple'
+ * @param {string} tokenKey - the token key i.e. 'support-positive-02'
+ * @param {string} tokenType - the type of token such as color, spacing or radius
+ * @returns {string} the display name of the token
+ */
 const createTokenDisplayName = (tokenKey, tokenType) => {
     // Some tokens don't require a prefix in front of their display names
     const prefixExcludes = [tokenTypes.color];
@@ -17,6 +29,11 @@ const createTokenDisplayName = (tokenKey, tokenType) => {
         : capitalisedNameSegments.join(' ');
 };
 
+/**
+ * Splits a color token into it's hexcode and opacity value (if one is provided)
+ * @param {string} token - the color token to split
+ * @returns {object} an object containing a hexcode and opacity value (if opacity was provided)
+ */
 const splitColorToken = token => {
     const [hexcode, opacity] = token.split('|');
 
@@ -26,6 +43,11 @@ const splitColorToken = token => {
     };
 };
 
+/**
+ * Creates the example color swatch to show on the token list item
+ * @param {string} token - the token value i.e. #000, #ffffff, #000|0.85 or #000000|0.85
+ * @returns {string} the color swatch example HTML string
+ */
 const createColorExample = token => {
     const tokenValues = splitColorToken(token);
     let cssVariable = `--example-background-color: ${tokenValues.hexcode}`;
@@ -43,7 +65,14 @@ const createColorExample = token => {
     return `<div class="${classes.join(' ')}" style="${cssVariable}";></div>`;
 };
 
-const createTokenExampleElement = ({ token, tokenType }) => {
+/**
+ * Creates an example element to display in the token list item.
+ * This could be a color swatch, a representation of border radius or spacing etc.
+ * @param {string} token - the token value
+ * @param {string} tokenType - the type of token i.e. color, spacing, radius
+ * @returns {string} the example HTML string
+ */
+const createTokenExampleElement = (token, tokenType) => {
     switch (tokenType) {
         case tokenTypes.color:
             return createColorExample(token);
@@ -52,19 +81,35 @@ const createTokenExampleElement = ({ token, tokenType }) => {
     }
 };
 
-const createTokenPill = ({ tokenScssName }) => {
-    const classes = ['c-tokensTable-token'];
-    return `<span class="${classes.join(' ')}">${tokenScssName}</span>`;
-};
+/**
+ * Creates a token pill element to display the SCSS token name in the token list item.
+ * @param {string} tokenScssName - the text to display
+ * @returns {string} the token pill HTML string
+ */
+const createTokenPill = tokenScssName => `<span class="c-tokensTable-token">${tokenScssName}</span>`;
 
-const createItem = config => {
-    const tokenPill = createTokenPill(config);
-    const tokenExampleElement = createTokenExampleElement(config);
+/**
+ * Creates a token list item element to to add to the tokens list.
+ * @param {object} config
+ * @param {string} config.token - the design token value
+ * @param {string} config.tokenType - the type of design token i.e. color, spacing, radius
+ * @param {string} config.tokenScssName - the design token SCSS name i.e. '$color-black'
+ * @param {string} config.tokenDisplayName - the display name of the token i.e. 'Black'
+ * @returns {string} the list item HTML string
+ */
+const createTokenListItem = ({
+    token,
+    tokenType,
+    tokenScssName,
+    tokenDisplayName
+}) => {
+    const tokenPill = createTokenPill(tokenScssName);
+    const tokenExampleElement = createTokenExampleElement(token, tokenType);
 
     return `<li class="c-tokensTable-row c-tokensTable-item">
       ${tokenExampleElement}
       <div class="c-tokensTable-content">
-        <span class="c-tokensTable-displayName">${config.tokenDisplayName}</span>
+        <span class="c-tokensTable-displayName">${tokenDisplayName}</span>
         <span></span>
         <span></span>
       </div>
@@ -72,7 +117,12 @@ const createItem = config => {
     </li>`;
 };
 
-const createList = listElements => `<div class="c-tokensTable-row u-spacing-e--top u-hideBelowOrAtWide c-tokensTable-heading">
+/**
+ * Creates a list of design token list items and column headers to display above
+ * @param {string[]} listElements - the list items to render within the list
+ * @returns {string} the tokens list HTML elements
+ */
+const createTokensList = listElements => `<div class="c-tokensTable-row u-spacing-e--top u-hideBelowOrAtWide c-tokensTable-heading">
   <span>Example</span>
   <span>Description</span>
   <span>Token name</span>
@@ -81,8 +131,13 @@ const createList = listElements => `<div class="c-tokensTable-row u-spacing-e--t
   ${listElements.join('')}
 </ul>`;
 
+/**
+ * Throws an error listing which, if any, parameters are missing/invalid from the configuration object
+ * @param {object} config - the configuration object to validate
+ */
 const validateConfiguration = ({ path, tokenType }) => {
     const invalidParameters = [];
+
     if (!path) {
         invalidParameters.push('path');
     }
@@ -99,13 +154,19 @@ const validateConfiguration = ({ path, tokenType }) => {
 // eslint-disable-next-line func-names
 module.exports = function ({ path, tokenType }) {
     validateConfiguration({ path, tokenType });
+
     const tokens = objectHelpers.getObjectPropertyByPath(pieDesignTokens, path);
-    const tokenItemElements = Object.keys(tokens).map(key => createItem({
+
+    // Build up an array of <li> elements
+    const tokenItemElements = Object.keys(tokens).map(key => createTokenListItem({
         token: tokens[key],
         tokenScssName: createScssTokenName(key, tokenType),
         tokenDisplayName: createTokenDisplayName(key, tokenType),
         tokenType
     }));
 
-    return `<div class="c-tokensTable">${createList(tokenItemElements)}</div>`;
+    // Create the column headers and a <ul> element containing the <li> items
+    const tokensList = createTokensList(tokenItemElements);
+
+    return `<div class="c-tokensTable">${tokensList}</div>`;
 };
