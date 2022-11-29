@@ -1,14 +1,25 @@
 class Page {
 
-    get navigation () { return $('[data-test-id="navigation-menu"]') }
-    get navigationCategories () { return this.navigation.$$('[data-test-id="navigation-category"') }
+    navigationSelector = '[data-test-id="navigation-menu"]';
 
-    async getNavigationCategories () {
-        return this.navigationCategories;
+    get navigationCategories () { return this.navigationSelector.$$('[data-test-id="nav-category"]') }
+
+    async getNavigationCategorySelector (category) {
+        return `${this.navigationSelector} [data-test-id='${category}']`;
     }
 
-    async getNavigationItemsForCategory(categoryElement) {
-        return categoryElement.$$('[data-test-id="navigation-item"]')
+    async getSubPageSelector(categorySelector, pageName) {
+
+        return `${categorySelector} [data-test-id="${pageName}"]`;
+    }
+
+    async waitForPageLoad() {
+        await browser.waitUntil(() => browser.execute(() => document.readyState === 'complete'),
+            {
+              timeout: 60 * 1000, // 60 seconds
+              timeoutMsg: 'Message on failure'
+            }
+        );
     }
 
 }
