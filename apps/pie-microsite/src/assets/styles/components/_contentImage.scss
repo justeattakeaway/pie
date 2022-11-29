@@ -1,4 +1,5 @@
 @use '../fozzie-config' as f;
+@use '../variables' as v;
 
 $contentImage-bg-minHeight:         280px;
 
@@ -33,4 +34,5 @@ $contentImage-bg-minHeight:         280px;
 .c-contentImage-caption {
     margin-top: f.spacing(d);
     @include f.font-size('body-s');
+    max-width: v.$content-max-width;
 }
