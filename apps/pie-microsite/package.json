@@ -8,9 +8,10 @@
   "license": "MIT",
   "packageManager": "yarn@3.2.1",
   "scripts": {
-    "build": "eleventy",
+    "build": "DEPLOYMENT_ENVIRONMENT='production' eleventy",
+    "build:dev": "DEPLOYMENT_ENVIRONMENT='development' eleventy",
     "clean:dist": "run -T rimraf dist",
-    "dev": "yarn clean:dist && eleventy --serve",
+    "dev": "yarn clean:dist && yarn build:dev --serve",
     "lint:scripts": "run -T eslint .",
     "lint:scripts:fix": "run -T eslint . --fix",
     "lint:style": "run -T stylelint ./src/**/*.{css,scss}",
