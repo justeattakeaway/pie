@@ -4,6 +4,6 @@
  * @returns {Object} - an option of string values
  */
 module.exports = {
-    color: 'color',
-    spacing: 'spacing'
+    COLOR: 'color',
+    SPACING: 'spacing'
 };

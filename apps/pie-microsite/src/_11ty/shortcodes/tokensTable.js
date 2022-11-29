@@ -4,7 +4,8 @@ const tokenTypes = require('../../_data/tokenTypes');
 const { isColorDark } = require('../../utilities/colors');
 
 /**
- * Creates the SCSS token name such as '$color-black'
+ * Takes the token key and token type and
+ * Creates a SCSS token name such as '$color-black'
  * @param {string} tokenKey - the token key i.e. 'support-positive-02'
  * @param {string} tokenType - the type of token such as color, spacing or radius
  * @returns {string} the SCSS variable name
@@ -19,7 +20,7 @@ const createScssTokenName = (tokenKey, tokenType) => `$${tokenType}-${tokenKey}`
  */
 const createTokenDisplayName = (tokenKey, tokenType) => {
     // Some tokens don't require a prefix in front of their display names
-    const prefixExcludes = [tokenTypes.color];
+    const prefixExcludes = [tokenTypes.COLOR];
     const shouldShowPrefix = tokenType && !prefixExcludes.includes(tokenType);
     const tokenNameSegments = tokenKey.split('-');
     const capitalisedNameSegments = tokenNameSegments.map(nameSegment => stringHelpers.capitaliseFirstLetter(nameSegment));
@@ -74,7 +75,7 @@ const createColorExample = token => {
  */
 const createTokenExampleElement = (token, tokenType) => {
     switch (tokenType) {
-        case tokenTypes.color:
+        case tokenTypes.COLOR:
             return createColorExample(token);
         default:
             throw new Error(`token type not recognised: ${tokenType}. Token:${token}`);
@@ -89,7 +90,7 @@ const createTokenExampleElement = (token, tokenType) => {
 const createTokenPill = tokenScssName => `<span class="c-tokensTable-token">${tokenScssName}</span>`;
 
 /**
- * Creates a token list item element to to add to the tokens list.
+ * Creates a token list item element to add to the tokens list.
  * @param {object} config
  * @param {string} config.token - the design token value
  * @param {string} config.tokenType - the type of design token i.e. color, spacing, radius
@@ -118,7 +119,7 @@ const createTokenListItem = ({
 };
 
 /**
- * Creates a list of design token list items and column headers to display above
+ * Takes a list of design token list items and outputs these with appropriate column headers to be displayed above them
  * @param {string[]} listElements - the list items to render within the list
  * @returns {string} the tokens list HTML elements
  */
@@ -132,7 +133,7 @@ const createTokensList = listElements => `<div class="c-tokensTable-row u-spacin
 </ul>`;
 
 /**
- * Throws an error listing which, if any, parameters are missing/invalid from the configuration object
+ * Throws an error listing which configuration properties are missing (if any)
  * @param {object} config - the configuration object to validate
  */
 const validateConfiguration = ({ path, tokenType }) => {

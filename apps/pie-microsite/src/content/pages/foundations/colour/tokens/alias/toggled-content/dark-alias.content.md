@@ -3,6 +3,6 @@
 
 {% tokensTable {
  path: 'theme.jet.color.alias.dark',
- tokenType: tokenTypes.color
+ tokenType: tokenTypes.COLOR
 } %}
 

@@ -8,6 +8,7 @@ v1.23.0
 ------------------------------
 *November 25, 2022*
 ### Added
+
 - `tokenTable` shortcode to display design tokens as list
 - design tokens to colour pages
 
