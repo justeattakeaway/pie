@@ -28,6 +28,6 @@
     }
 </style>
 <link rel="stylesheet" href="{{ '/assets/styles/main.css' | rev | url }}" />
-{% if projectSettings.environment == "production" %}
+{% if projectSettings.environment === "production" %}
     {% include "gtm.njk" %}
 {% endif %}
