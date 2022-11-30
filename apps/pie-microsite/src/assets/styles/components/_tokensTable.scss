@@ -122,10 +122,3 @@ $tokensTable-border-width: 1px;
         border-width: 0;
     }
 }
-
-.c-tokensTable-token--light {
-    @include f.media('<=wide') {
-        background: #eee;
-        color: #222;
-    }
-}
