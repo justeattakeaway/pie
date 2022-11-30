@@ -6,11 +6,11 @@ $tokensTable-border-width: 1px;
 .c-tokensTable-list {
     list-style: none;
     padding: 0;
-    margin: 0;
+    margin: f.spacing(f) 0 0;
     width: 100%;
 
-    @include f.media('<=wide') {
-        margin-top: f.spacing(f);
+    @include f.media('>wide') {
+        margin-top: 0;
     }
 }
 
