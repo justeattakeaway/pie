@@ -96,12 +96,12 @@ $tokensTable-border-width: 1px;
 .c-tokensTable-content {
     padding: $tokensTable-column-padding;
 
-    @include f.media('>wide') {
-        padding: 0;
-    }
-
     > * {
         display: block;
+    }
+
+    @include f.media('>wide') {
+        padding: 0;
     }
 }
 
