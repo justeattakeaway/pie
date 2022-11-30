@@ -81,14 +81,15 @@ $tokensTable-border-width: 1px;
 }
 
 .c-tokensTable-item {
-    padding: f.spacing(e) 0;
     position: relative;
-    border-bottom: $tokensTable-border-width solid f.$color-border-default;
+    padding: 0;
+    border: $tokensTable-border-width solid f.$color-border-default;
+    border-radius: f.$radius-03;
 
-    @include f.media('<=wide') {
-        padding: 0;
-        border: $tokensTable-border-width solid f.$color-border-default;
-        border-radius: f.$radius-03;
+    @include f.media('>wide') {
+        padding: f.spacing(e) 0;
+        border-width: 0 0 $tokensTable-border-width 0;
+        border-radius: 0;
     }
 }
 
