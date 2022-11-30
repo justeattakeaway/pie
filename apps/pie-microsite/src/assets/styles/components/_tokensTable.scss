@@ -94,8 +94,10 @@ $tokensTable-border-width: 1px;
 }
 
 .c-tokensTable-content {
-    @include f.media('<=wide') {
-        padding: $tokensTable-column-padding;
+    padding: $tokensTable-column-padding;
+
+    @include f.media('>wide') {
+        padding: 0;
     }
 
     > * {
