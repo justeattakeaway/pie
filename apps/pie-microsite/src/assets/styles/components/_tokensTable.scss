@@ -106,18 +106,20 @@ $tokensTable-border-width: 1px;
 }
 
 .c-tokensTable-token {
+    position: absolute;
+    top: f.spacing(d);
+    left: f.spacing(d);
     background: f.$color-container-dark;
     color: f.$color-dark-content-default;
     height: min-content;
+    border: 1px solid f.$color-border-subtle;
     border-radius: f.$radius-03;
     padding: calc(f.spacing(a) / 2) f.spacing(a);
     @include f.font-size('body-s');
 
-    @include f.media('<=wide') {
-        position: absolute;
-        top: f.spacing(d);
-        left: f.spacing(d);
-        border: 1px solid f.$color-border-subtle;
+    @include f.media('>wide') {
+        position: static;
+        border-width: 0;
     }
 }
 
