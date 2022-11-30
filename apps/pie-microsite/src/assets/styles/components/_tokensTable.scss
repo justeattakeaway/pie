@@ -9,7 +9,7 @@ $tokensTable-border-width: 1px;
     margin: f.spacing(f) 0 0;
     width: 100%;
 
-    @include f.media('>wide') {
+    @include f.media('>=wide') {
         margin-top: 0;
     }
 }
@@ -19,13 +19,13 @@ $tokensTable-border-width: 1px;
     min-height: 80px;
     overflow: hidden;
 
-    @include f.media('>wide') {
+    @include f.media('>=wide') {
         border-radius: f.$radius-03;
     }
 }
 
 .c-tokensTable-example--bordered {
-    @include f.media('>wide') {
+    @include f.media('>=wide') {
         border: $tokensTable-border-width solid f.$color-border-default;
     }
 }
@@ -70,7 +70,7 @@ $tokensTable-border-width: 1px;
         margin-top: f.spacing(e);
     }
 
-    @include f.media('>wide') {
+    @include f.media('>=wide') {
         grid-template-columns: 240px 1fr minmax(min-content, max-content);
         grid-template-rows: 1fr;
 
@@ -86,7 +86,7 @@ $tokensTable-border-width: 1px;
     border: $tokensTable-border-width solid f.$color-border-default;
     border-radius: f.$radius-03;
 
-    @include f.media('>wide') {
+    @include f.media('>=wide') {
         padding: f.spacing(e) 0;
         border-width: 0 0 $tokensTable-border-width 0;
         border-radius: 0;
@@ -100,7 +100,7 @@ $tokensTable-border-width: 1px;
         display: block;
     }
 
-    @include f.media('>wide') {
+    @include f.media('>=wide') {
         padding: 0;
     }
 }
@@ -117,7 +117,7 @@ $tokensTable-border-width: 1px;
     padding: calc(f.spacing(a) / 2) f.spacing(a);
     @include f.font-size('body-s');
 
-    @include f.media('>wide') {
+    @include f.media('>=wide') {
         position: static;
         border-width: 0;
     }

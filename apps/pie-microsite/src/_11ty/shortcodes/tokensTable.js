@@ -123,7 +123,7 @@ const createTokenListItem = ({
  * @param {string[]} listElements - the list items to render within the list
  * @returns {string} the tokens list HTML elements
  */
-const createTokensList = listElements => `<div class="c-tokensTable-row u-spacing-e--top u-hideBelowOrAtWide c-tokensTable-heading">
+const createTokensList = listElements => `<div class="c-tokensTable-row u-spacing-e--top u-showAboveWide c-tokensTable-heading">
   <span>Example</span>
   <span>Description</span>
   <span>Token name</span>
