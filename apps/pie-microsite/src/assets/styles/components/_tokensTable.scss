@@ -61,16 +61,21 @@ $tokensTable-border-width: 1px;
 
 .c-tokensTable-row {
     display: grid;
-    grid-template-columns: 240px 1fr minmax(min-content, max-content);
     column-gap: $tokensTable-column-padding;
+    grid-template-columns: 1fr;
+    grid-template-rows: 128px 1fr;
     overflow: hidden;
 
-    @include f.media('<=wide') {
-        grid-template-columns: 1fr;
-        grid-template-rows: 128px 1fr;
+    & + & {
+        margin-top: f.spacing(e);
+    }
+
+    @include f.media('>wide') {
+        grid-template-columns: 240px 1fr minmax(min-content, max-content);
+        grid-template-rows: 1fr;
 
         & + & {
-            margin-top: f.spacing(e);
+            margin-top: 0;
         }
     }
 }
