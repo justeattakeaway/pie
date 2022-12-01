@@ -111,8 +111,6 @@ const createTokenListItem = ({
       ${tokenExampleElement}
       <div class="c-tokensTable-content">
         <span class="c-tokensTable-displayName">${tokenDisplayName}</span>
-        <span></span>
-        <span></span>
       </div>
       ${tokenPill}
     </li>`;
