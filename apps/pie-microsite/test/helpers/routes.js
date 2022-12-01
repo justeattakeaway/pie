@@ -1,25 +1,37 @@
-import { readdir } from "fs/promises";
-import path from "path";
+const dree = require('dree');
+const fs = require('fs');
 
-const getContent = async () => {
-    const directory = './src/content/pages';
-    let categories = (await readdir(directory, { withFileTypes: true }))
-    .filter(dirent => dirent.isDirectory())
-    .map(dirent => dirent.name);
+const snapshotNavigationRoutes = () => {
+    const children = dree.scan('./dist/content/pages');
 
-    let pagesArray = [];
+    const expectedRoutes = readChildren(children);
 
-    for(const category of categories) {
-        let categoryPages = (await readdir(`${directory}/${category}`, { withFileTypes: true }))
-        .filter(dirent => path.parse(dirent.name).name !== category)
-        .map(dirent => path.parse(dirent.name).name);
+    fs.writeFile('./test/snapshots/expected-routes.json', JSON.stringify(expectedRoutes), err => {
+        if (err) {
+            throw new Error('Unable to write to file.');
+        }
+    });
 
-        console.log('category Pages', categoryPages)
-        pagesArray[category] = categoryPages;
+    return expectedRoutes;
+};
+
+const readChildren = (childDirectories, result = []) => {
+    if (!childDirectories.children) {
+        return;
     }
 
-    return pagesArray;
-}
+    if (childDirectories.children.length === 1) {
+        result.push(childDirectories.relativePath);
 
+        return;
+    }
 
-export { getContent };
+    childDirectories.children.forEach(child => {
+        readChildren(child, result);
+    });
+
+    // eslint-disable-next-line consistent-return
+    return result;
+};
+
+module.exports = { snapshotNavigationRoutes };

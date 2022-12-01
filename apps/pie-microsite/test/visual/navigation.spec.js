@@ -1,15 +1,16 @@
 import expectedRoutesJson from '../snapshots/expected-routes.json';
 
-describe('PIE - Status Code Tests', async () => {
+describe('PIE - Page Visual Tests', async () => {
     expectedRoutesJson.forEach(route => {
-        it(`Should respond with a '200' status code for route - ${route}`, async () => {
+        it(`Should respond take a screenshot of the requested route: - ${route}`, async () => {
             const puppeteer = await browser.getPuppeteer();
             const [page] = await puppeteer.pages();
             const url = `${browser.options.baseUrl}/content/pages/${route}`;
 
 
-            const response = await page.goto(url);
-            await expect(response.status()).toBe(200);
+            await page.goto(url);
+            await page.waitForNetworkIdle();
+            await browser.percyScreenshot(`PIE - ${route}`);
         });
     });
 });

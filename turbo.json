@@ -5,6 +5,10 @@
             "cache": true,
             "dependsOn": ["^build"]
         },
+        "generate:navigation-snapshots": {
+          "cache": false,
+          "outputs": ["./apps/pie-microsite/test/snapshots/*.json"]
+        },
         "test": {
             "cache": true,
             "dependsOn": ["build"],
@@ -23,6 +27,10 @@
             "cache": false,
             "outputs": []
           },
+        "test:visual": {
+          "cache": false,
+          "outputs": []
+        },
         "lint:scripts": {
             "cache": true,
             "outputs": []

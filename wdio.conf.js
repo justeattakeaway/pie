@@ -1,3 +1,6 @@
+const percySnapshot = require('@percy/webdriverio');
+const { TEST_TYPE } = process.env;
+
 exports.config = {
     //
     // ====================
@@ -110,7 +113,7 @@ exports.config = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
-    services: ['chromedriver', 'devtools', 'intercept'],
+    services: ['chromedriver', 'devtools'],
     
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
@@ -196,9 +199,15 @@ exports.config = {
      * @param {Object}         browser      instance of created browser/device session
      */
     before: async () => {
-        await browser.url('/');
-        await browser.setupInterceptor();
 
+        if(TEST_TYPE === 'visual') {
+            await browser.addCommand('percyScreenshot', async (screenshotName) => {
+
+                await percySnapshot(screenshotName);
+            });
+        }
+
+        await browser.url('/');
         await browser.waitUntil(
             () => browser.execute(() => document.readyState === 'complete'),
             {
