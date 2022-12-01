@@ -1,7 +1,7 @@
 {
   "name": "pie-microsite",
   "description": "todo",
-  "version": "1.23.0",
+  "version": "1.24.0",
   "main": "index.js",
   "keywords": [],
   "author": "JustEatTakeaway - Vue Design System Team",
@@ -16,7 +16,9 @@
     "lint:scripts:fix": "run -T eslint . --fix",
     "lint:style": "run -T stylelint ./src/**/*.{css,scss}",
     "lint:style:fix": "yarn lint:style --fix",
-    "test:system": "wdio run ../../wdio.conf.js"
+    "test:system": "wdio run ../../wdio.conf.js",
+    "test": "jest",
+    "test:ci": "yarn test"
   },
   "browserslist": [
     "extends @justeat/browserslist-config-fozzie"

@@ -1,6 +1,5 @@
 @use '../fozzie-config' as f;
-
-$content-max-width: 80ch;
+@use '../variables' as v;
 
 .c-contentPage {
     display: flex;
@@ -22,13 +21,6 @@ $content-max-width: 80ch;
     & ul {
         color: f.$color-content-subdued;
     }
-}
-
-.c-contentPage-header > *,
-.c-contentPage-content > *:not(.c-contentPage-img, hr, .c-contentPage-notification, section),
-// any text items within the image such as captions
-.c-contentPage-content .c-contentPage-img *:not(div, img) {
-    max-width: $content-max-width;
 }
 
 .c-contentPage-header {
@@ -87,6 +79,19 @@ $content-max-width: 80ch;
     > ul + h4,
     & .c-contentPage-notification {
         margin-top: f.spacing(f);
+    }
+
+    > h1,
+    > h2,
+    > h3,
+    > h4,
+    > h5,
+    > h6,
+    > p,
+    > a,
+    > span,
+    > ul {
+        max-width: v.$content-max-width;
     }
 }
 
