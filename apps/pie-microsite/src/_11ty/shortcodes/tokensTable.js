@@ -151,28 +151,49 @@ const validateConfiguration = ({ path, tokenType }) => {
     }
 };
 
-const createGroupedTokenList = (path, tokenType) => {
-    const isGlobal = path.includes('global');
+// gets the metadata for all tokens of a given type i.e. all global colors, alias colors
+const getTokenTypeMetadata = (isGlobal, tokenType) => {
+    const tokensMetadataPath = isGlobal
+        ? `global.${tokenType}`
+        : `theme.jet.${tokenType}.alias`;
+
+    const tokensMetadata = objectHelpers.getObjectPropertyByPath(pieTokensMetadata, tokensMetadataPath);
+
+    return tokensMetadata;
+};
+
+// gets the category data for a token type i.e. color, spacing
+const getTokenTypeCategoryMetadata = (isGlobal, tokenType) => {
     const categoriesPath = isGlobal
         ? `${tokenType}.global`
         : `${tokenType}.alias`;
 
     const categories = objectHelpers.getObjectPropertyByPath(pieTokensMetadata.categoryTypes, categoriesPath);
+
+    return categories;
+};
+
+const getTokensByCategory = (category, isGlobal, tokenType) => {
+    // filter tokens by the current category
+    const tokenTypeMetadata = getTokenTypeMetadata(isGlobal, tokenType);
+    const tokensForCategory = Object
+      .keys(tokenTypeMetadata)
+      .filter(token => tokenTypeMetadata[token].category === category);
+
+    return tokensForCategory;
+};
+
+const createGroupedTokenList = (path, tokenType) => {
+    const isGlobal = path.includes('global');
+    const categories = getTokenTypeCategoryMetadata(isGlobal, tokenType);
     const tokens = objectHelpers.getObjectPropertyByPath(pieDesignTokens, path);
 
-    // for each category, create an h2 and a tokensList
+    // for each category, create an h2 and a list of token elements to render
     const lists = Object.keys(categories).map((category, index, arr) => {
         const heading = `<h2>${categories[category]}</h2>`;
-        const tokensMetadataPath = isGlobal
-            ? `global.${tokenType}`
-            : `theme.jet.${tokenType}.alias`;
+        const tokensForCategory = getTokensByCategory(category, isGlobal, tokenType);
 
-        // filter tokens by category
-        const tokensMetadata = objectHelpers.getObjectPropertyByPath(pieTokensMetadata, tokensMetadataPath);
-        const tokensForCategory = Object
-          .keys(tokensMetadata)
-          .filter(token => tokensMetadata[token].category === category);
-
+        // create a list item for the current token
         const tokenListItems = tokensForCategory.map(key => createTokenListItem({
             token: tokens[key],
             tokenScssName: createScssTokenName(key, tokenType),
@@ -183,6 +204,7 @@ const createGroupedTokenList = (path, tokenType) => {
         const tokensList = createTokensList(tokenListItems);
         const isLastItem = index === arr.length - 1;
 
+        // returns a 'chunk' of the tokens table page (a heading, the column headers, list of tokens and an option HR element)
         return `${heading}${tokensList}${!isLastItem ? '<hr />' : ''}`;
     });
 
