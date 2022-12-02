@@ -1,17 +1,9 @@
 const dree = require('dree');
 
-const snapshotNavigationRoutes = () => {
+exports.getNavigationRoutes = () => {
     const children = dree.scan('./dist/content/pages');
 
     const expectedRoutes = readChildren(children);
-
-    // fs.writeFile('./test/snapshots/expected-routes.json', JSON.stringify(expectedRoutes), err => {
-    //     if (err) {
-    //         throw new Error('Unable to write to file.');
-    //     }
-    // });
-
-    console.log('expected routes', expectedRoutes)
 
     return expectedRoutes;
 };
@@ -34,5 +26,3 @@ const readChildren = (childDirectories, result = []) => {
     // eslint-disable-next-line consistent-return
     return result;
 };
-
-module.exports = { snapshotNavigationRoutes };

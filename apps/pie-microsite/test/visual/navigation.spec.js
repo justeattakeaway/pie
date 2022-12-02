@@ -1,4 +1,4 @@
-import expectedRoutesJson from '../snapshots/expected-routes.json';
+import expectedRoutesJson from '../snapshots/expected-routes.snapshot.json';
 
 describe('PIE - Page Visual Tests', async () => {
     expectedRoutesJson.forEach(route => {
