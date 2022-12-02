@@ -152,17 +152,27 @@ const validateConfiguration = ({ path, tokenType }) => {
 };
 
 const createGroupedTokenList = (path, tokenType) => {
-    const categories = pieTokensMetadata.categoryTypes[tokenType].global;
+    const isGlobal = path.includes('global');
+    const categoriesPath = isGlobal
+        ? `${tokenType}.global`
+        : `${tokenType}.alias`;
+
+    const categories = objectHelpers.getObjectPropertyByPath(pieTokensMetadata.categoryTypes, categoriesPath);
     const tokens = objectHelpers.getObjectPropertyByPath(pieDesignTokens, path);
-    console.log(tokens);
+
     // for each category, create an h2 and a tokensList
     const lists = Object.keys(categories).map((category, index, arr) => {
-        console.log(category);
         const heading = `<h2>${categories[category]}</h2>`;
+        const tokensMetadataPath = isGlobal
+            ? `global.${tokenType}`
+            : `theme.jet.${tokenType}.alias`;
+
         // filter tokens by category
-        const tokensForCategory = Object.keys(pieTokensMetadata.global.color).filter(token => pieTokensMetadata.global.color[token].category === category);
-        console.log(tokensForCategory);
-        tokensForCategory.forEach(token => console.log(tokens[token]));
+        const tokensMetadata = objectHelpers.getObjectPropertyByPath(pieTokensMetadata, tokensMetadataPath);
+        const tokensForCategory = Object
+          .keys(tokensMetadata)
+          .filter(token => tokensMetadata[token].category === category);
+
         const tokenListItems = tokensForCategory.map(key => createTokenListItem({
             token: tokens[key],
             tokenScssName: createScssTokenName(key, tokenType),
@@ -172,6 +182,7 @@ const createGroupedTokenList = (path, tokenType) => {
 
         const tokensList = createTokensList(tokenListItems);
         const isLastItem = index === arr.length - 1;
+
         return `${heading}${tokensList}${!isLastItem ? '<hr />' : ''}`;
     });
 

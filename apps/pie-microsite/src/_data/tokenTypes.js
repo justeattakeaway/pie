@@ -4,8 +4,6 @@
  * @returns {Object} - an option of string values
  */
 module.exports = {
-    GLOBAL: 'global',
-    ALIAS: 'alias',
     COLOR: 'color',
     SPACING: 'spacing'
 };
