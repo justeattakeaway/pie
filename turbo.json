@@ -5,9 +5,9 @@
             "cache": true,
             "dependsOn": ["^build"]
         },
-        "generate:navigation-snapshots": {
-          "cache": false,
-          "outputs": ["./apps/pie-microsite/test/snapshots/*.json"]
+        "test:generate-routes": {
+          "cache": true,
+          "outputs": ["./apps/pie-microsite/test/snapshots/*.snapshot.json"]
         },
         "test": {
             "cache": true,
@@ -27,9 +27,15 @@
             "cache": false,
             "outputs": []
           },
+        "test:system:ci": {
+          "cache": false
+        },
         "test:visual": {
           "cache": false,
           "outputs": []
+        },
+        "test:visual:ci": {
+          "cache": false
         },
         "lint:scripts": {
             "cache": true,
