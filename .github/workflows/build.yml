@@ -84,8 +84,48 @@ jobs:
       - name: Unit Tests
         run: yarn test:ci --cache-dir=".turbo"
 
-    deploy:
+
+    browser-tests:
       needs: build
+      runs-on: ubuntu-latest
+      steps:
+      # Checkout the Repo
+      - name: Checkout
+        uses: actions/checkout@v3
+      # Setup Node 16
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: 'yarn'
+      # Restore node_modules - Cache should exist as one was created in previous 'install' job
+      - name: Cache Node Modules
+        id: cache-node-modules
+        uses: actions/cache@v3
+        with:
+          path: '**/node_modules'
+          key: node-modules-${{ hashFiles('**/yarn.lock') }}
+      # Restore Turborepo's 'dist' cache - If not, cache is created at end of build.
+      - name: Cache Turborepo Dist
+        id: turborepo-dist-cache
+        uses: actions/cache@v3
+        with:
+          path: .turbo
+          key: turborepo-dist-cache-${{ github.ref_name }}-${{ github.sha }}
+          # Use one of the following keys if the above is not found.
+          restore-keys: |
+            turborepo-dist-cache-${{ github.ref_name }}
+            turborepo-dist-cache-
+      # Build Packages
+      - name: Build Packages
+        run: yarn build --cache-dir=".turbo"
+      - name: Run System / Visual Tests
+        run: |
+          yarn dev &
+          yarn test-system:ci
+
+    deploy:
+      needs: browser-tests
       runs-on: ubuntu-latest
       if: ${{ github.ref == 'refs/heads/main' }}
       steps:
