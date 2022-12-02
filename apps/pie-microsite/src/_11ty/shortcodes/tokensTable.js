@@ -183,7 +183,7 @@ const getTokensByCategory = (category, isGlobal, tokenType) => {
     return tokensForCategory;
 };
 
-const createGroupedTokenLists = (path, tokenType) => {
+const createCategorisedTokenLists = (path, tokenType) => {
     const isGlobal = path.includes('global');
     const categories = getTokenTypeCategoryMetadata(isGlobal, tokenType);
     const tokens = objectHelpers.getObjectPropertyByPath(pieDesignTokens, path);
@@ -208,13 +208,14 @@ const createGroupedTokenLists = (path, tokenType) => {
         return `${heading}${tokensList}${!isLastItem ? '<hr />' : ''}`;
     });
 
+    // all 'chunks' of the tokens table page HTML in a single string
     return lists.join('');
 };
 
 // eslint-disable-next-line func-names
 module.exports = function ({ path, tokenType }) {
     validateConfiguration({ path, tokenType });
-    const lists = createGroupedTokenLists(path, tokenType);
+    const lists = createCategorisedTokenLists(path, tokenType);
 
     return `<div class="c-tokensTable">${lists}</div>`;
 };
