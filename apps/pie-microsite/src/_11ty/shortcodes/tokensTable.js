@@ -1,4 +1,5 @@
 const pieDesignTokens = require('@justeat/pie-design-tokens/dist/tokens.json');
+const pieTokensMetadata = require('../../utilities/metadata.json');
 const { stringHelpers, objectHelpers } = require('../../utilities/helpers');
 const tokenTypes = require('../../_data/tokenTypes');
 const { isColorDark } = require('../../utilities/colors');
@@ -150,22 +151,37 @@ const validateConfiguration = ({ path, tokenType }) => {
     }
 };
 
+const createGroupedTokenList = (path, tokenType) => {
+    const categories = pieTokensMetadata.categoryTypes[tokenType].global;
+    const tokens = objectHelpers.getObjectPropertyByPath(pieDesignTokens, path);
+    console.log(tokens);
+    // for each category, create an h2 and a tokensList
+    const lists = Object.keys(categories).map((category, index, arr) => {
+        console.log(category);
+        const heading = `<h2>${categories[category]}</h2>`;
+        // filter tokens by category
+        const tokensForCategory = Object.keys(pieTokensMetadata.global.color).filter(token => pieTokensMetadata.global.color[token].category === category);
+        console.log(tokensForCategory);
+        tokensForCategory.forEach(token => console.log(tokens[token]));
+        const tokenListItems = tokensForCategory.map(key => createTokenListItem({
+            token: tokens[key],
+            tokenScssName: createScssTokenName(key, tokenType),
+            tokenDisplayName: createTokenDisplayName(key, tokenType),
+            tokenType
+        }));
+
+        const tokensList = createTokensList(tokenListItems);
+        const isLastItem = index === arr.length - 1;
+        return `${heading}${tokensList}${!isLastItem ? '<hr />' : ''}`;
+    });
+
+    return lists.join('');
+};
+
 // eslint-disable-next-line func-names
 module.exports = function ({ path, tokenType }) {
     validateConfiguration({ path, tokenType });
+    const lists = createGroupedTokenList(path, tokenType);
 
-    const tokens = objectHelpers.getObjectPropertyByPath(pieDesignTokens, path);
-
-    // Build up an array of <li> elements
-    const tokenItemElements = Object.keys(tokens).map(key => createTokenListItem({
-        token: tokens[key],
-        tokenScssName: createScssTokenName(key, tokenType),
-        tokenDisplayName: createTokenDisplayName(key, tokenType),
-        tokenType
-    }));
-
-    // Create the column headers and a <ul> element containing the <li> items
-    const tokensList = createTokensList(tokenItemElements);
-
-    return `<div class="c-tokensTable">${tokensList}</div>`;
+    return `<div class="c-tokensTable">${lists}</div>`;
 };

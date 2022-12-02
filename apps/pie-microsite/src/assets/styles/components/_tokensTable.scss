@@ -88,8 +88,12 @@ $tokensTable-border-width: 1px;
 
     @include f.media('>=wide') {
         padding: f.spacing(e) 0;
-        border-width: 0 0 $tokensTable-border-width 0;
         border-radius: 0;
+        border-width: 0 0 $tokensTable-border-width 0;
+
+        &:last-of-type {
+            border-width: 0;
+        }
     }
 }
 

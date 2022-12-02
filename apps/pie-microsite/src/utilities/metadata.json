@@ -1,0 +1,443 @@
+{
+  "categoryTypes": {
+    "color": {
+      "global": {
+        "whiteBlack": "White and Black",
+        "orange": "Orange",
+        "blue": "Blue",
+        "red": "Red",
+        "yellow": "Yellow",
+        "green": "Green",
+        "purple": "Purple",
+        "mozzarella": "Mozzarella",
+        "charcoal": "Charcoal",
+        "system": "System"
+      },
+      "alias": {
+        "pageBackgrounds": "Page Backgrounds",
+        "containerBackgrounds": "Container Backgrounds",
+        "interactiveBackgrounds": "Interactive Backgrounds",
+        "borders": "Borders",
+        "dividers": "Dividers",
+        "feedback": "Feedback",
+        "brand": "Brand",
+        "static": "Static",
+        "interactive": "Interactive",
+        "link": "Link",
+        "states": "States",
+        "skeleton": "Skeleton"
+      }
+    }
+  },
+  "global": {
+    "color": {
+      "white": {
+        "category": "whiteBlack"
+      },
+      "black": {
+        "category": "whiteBlack"
+      },
+
+      "orange-10": {
+        "category": "orange"
+      },
+      "orange-30": {
+        "category": "orange"
+      },
+      "orange": {
+        "category": "orange"
+      },
+      "orange-55": {
+        "category": "orange"
+      },
+      "orange-90": {
+        "category": "orange"
+      },
+
+      "blue-10": {
+        "category": "blue"
+      },
+      "blue-25": {
+        "category": "blue"
+      },
+      "blue-30": {
+        "category": "blue"
+      },
+      "blue": {
+        "category": "blue"
+      },
+      "blue-60": {
+        "category": "blue"
+      },
+      "blue-90": {
+        "category": "blue"
+      },
+
+      "red-10": {
+        "category": "red"
+      },
+      "red-25": {
+        "category": "red"
+      },
+      "red-30": {
+        "category": "red"
+      },
+      "red": {
+        "category": "red"
+      },
+      "red-60": {
+        "category": "red"
+      },
+      "red-90": {
+        "category": "red"
+      },
+
+      "yellow-10": {
+        "category": "yellow"
+      },
+      "yellow-30": {
+        "category": "yellow"
+      },
+      "yellow": {
+        "category": "yellow"
+      },
+      "yellow-90": {
+        "category": "yellow"
+      },
+
+      "green-10": {
+        "category": "green"
+      },
+      "green-30": {
+        "category": "green"
+      },
+      "green": {
+        "category": "green"
+      },
+      "green-60": {
+        "category": "green"
+      },
+      "green-90": {
+        "category": "green"
+      },
+
+      "purple-10": {
+        "category": "purple"
+      },
+      "purple": {
+        "category": "purple"
+      },
+
+      "mozzarella-5": {
+        "category": "mozzarella"
+      },
+      "mozzarella-10": {
+        "category": "mozzarella"
+      },
+      "mozzarella-20": {
+        "category": "mozzarella"
+      },
+      "mozzarella-30": {
+        "category": "mozzarella"
+      },
+      "mozzarella-50": {
+        "category": "mozzarella"
+      },
+      "mozzarella-60": {
+        "category": "mozzarella"
+      },
+      "mozzarella-70": {
+        "category": "mozzarella"
+      },
+      "mozzarella-75": {
+        "category": "mozzarella"
+      },
+      "mozzarella-80": {
+        "category": "mozzarella"
+      },
+      "mozzarella-90": {
+        "category": "mozzarella"
+      },
+      "mozzarella-100": {
+        "category": "mozzarella"
+      },
+
+      "charcoal-30": {
+        "category": "charcoal"
+      },
+      "charcoal-50": {
+        "category": "charcoal"
+      },
+      "charcoal-70": {
+        "category": "charcoal"
+      },
+      "charcoal-75": {
+        "category": "charcoal"
+      },
+      "charcoal-80": {
+        "category": "charcoal"
+      },
+      "system-purple": {
+        "category": "system"
+      },
+      "system-purple-10": {
+        "category": "system"
+      }
+    }
+  },
+  "theme": {
+    "jet": {
+      "color": {
+        "alias": {
+          "background-default": {
+            "category": "pageBackgrounds"
+          },
+          "background-subtle": {
+            "category": "pageBackgrounds"
+          },
+          "background-dark": {
+            "category": "pageBackgrounds"
+          },
+
+          "container-default": {
+            "category": "containerBackgrounds"
+          },
+          "container-subtle": {
+            "category": "containerBackgrounds"
+          },
+          "container-strong": {
+            "category": "containerBackgrounds"
+          },
+          "container-dark": {
+            "category": "containerBackgrounds"
+          },
+          "container-inverse": {
+            "category": "containerBackgrounds"
+          },
+
+          "border-default": {
+            "category": "borders"
+          },
+          "border-subtle": {
+            "category": "borders"
+          },
+          "border-strong": {
+            "category": "borders"
+          },
+          "border-inverse": {
+            "category": "borders"
+          },
+
+          "divider-default": {
+            "category": "dividers"
+          },
+          "divider-inverse": {
+            "category": "dividers"
+          },
+
+          "interactive-brand": {
+            "category": "interactiveBackgrounds"
+          },
+          "interactive-primary": {
+            "category": "interactiveBackgrounds"
+          },
+          "interactive-secondary": {
+            "category": "interactiveBackgrounds"
+          },
+          "interactive-inverse": {
+            "category": "interactiveBackgrounds"
+          },
+          "interactive-light": {
+            "category": "interactiveBackgrounds"
+          },
+          "interactive-form": {
+            "category": "interactiveBackgrounds"
+          },
+
+          "overlay": {
+            "category": "pageBackgrounds"
+          },
+
+
+          "support-error": {
+            "category": "feedback"
+          },
+          "support-warning": {
+            "category": "feedback"
+          },
+          "support-positive": {
+            "category": "feedback"
+          },
+          "support-info": {
+            "category": "feedback"
+          },
+          "support-neutral": {
+            "category": "feedback"
+          },
+          "support-error-02": {
+            "category": "feedback"
+          },
+          "support-warning-02": {
+            "category": "feedback"
+          },
+          "support-positive-02": {
+            "category": "feedback"
+          },
+          "support-info-02": {
+            "category": "feedback"
+          },
+          "support-info-inverse": {
+            "category": "feedback"
+          },
+          "support-positive-inverse": {
+            "category": "feedback"
+          },
+
+
+          "support-brand-01": {
+            "category": "brand"
+          },
+          "support-brand-02": {
+            "category": "brand"
+          },
+          "support-brand-03": {
+            "category": "brand"
+          },
+          "support-brand-04": {
+            "category": "brand"
+          },
+          "support-brand-05": {
+            "category": "brand"
+          },
+          "support-brand-06": {
+            "category": "brand"
+          },
+          "support-brand-07": {
+            "category": "brand"
+          },
+
+
+          "content-default": {
+            "category": "static"
+          },
+          "content-subdued": {
+            "category": "static"
+          },
+          "content-interactive-brand": {
+            "category": "interactive"
+          },
+          "content-interactive-light": {
+            "category": "interactive"
+          },
+          "content-interactive-primary": {
+            "category": "interactive"
+          },
+          "content-interactive-secondary": {
+            "category": "interactive"
+          },
+          "content-interactive-tertiary": {
+            "category": "interactive"
+          },
+          "content-interactive-inverse": {
+            "category": "interactive"
+          },
+          "content-interactive-dark": {
+            "category": "interactive"
+          },
+          "content-interactive-error": {
+            "category": "interactive"
+          },
+          "content-light": {
+            "category": "static"
+          },
+          "content-inverse": {
+            "category": "static"
+          },
+          "content-link": {
+            "category": "link"
+          },
+          "content-link-distinct": {
+            "category": "link"
+          },
+          "content-link-light": {
+            "category": "link"
+          },
+          "content-link-inverse": {
+            "category": "link"
+          },
+          "content-link-visited": {
+            "category": "link"
+          },
+          "content-link-visited-inverse": {
+            "category": "link"
+          },
+          "content-error": {
+            "category": "static"
+          },
+          "content-positive": {
+            "category": "static"
+          },
+          "content-disabled": {
+            "category": "static"
+          },
+          "content-brand": {
+            "category": "static"
+          },
+
+
+
+          "hover-01": {
+            "category": "states"
+          },
+          "hover-02": {
+            "category": "states"
+          },
+          "hover-01-light": {
+            "category": "states"
+          },
+          "hover-01-dark": {
+            "category": "states"
+          },
+          "active-01": {
+            "category": "states"
+          },
+          "active-02": {
+            "category": "states"
+          },
+          "active-01-light": {
+            "category": "states"
+          },
+          "active-01-dark": {
+            "category": "states"
+          },
+          "focus": {
+            "category": "states"
+          },
+          "disabled-01": {
+            "category": "states"
+          },
+          "disabled-01-inverse": {
+            "category": "states"
+          },
+          "skeleton-01": {
+            "category": "skeleton"
+          },
+          "skeleton-02": {
+            "category": "skeleton"
+          },
+          "skeleton-03": {
+            "category": "skeleton"
+          },
+
+
+          "external-bta-background": {
+            "category": ""
+          },
+          "external-bta-text": {
+            "category": ""
+          }
+        }
+      }
+    }
+  }
+}
