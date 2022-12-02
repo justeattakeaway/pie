@@ -1,5 +1,5 @@
 const pieDesignTokens = require('@justeat/pie-design-tokens/dist/tokens.json');
-const pieTokensMetadata = require('../../utilities/metadata.json');
+const pieTokensMetadata = require('../../pieDesignTokensMetadata.json');
 const { stringHelpers, objectHelpers } = require('../../utilities/helpers');
 const tokenTypes = require('../../_data/tokenTypes');
 const { isColorDark } = require('../../utilities/colors');
