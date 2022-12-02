@@ -10,6 +10,7 @@ v1.23.0
 ### Added
 - Added new test related package.json scripts.
 - Add Jest test to compare actual PIE routes to `expected-routes.snapshot.json`.
+- Added WebDriverIO system test to test PIE routes.
 
 
 v1.22.0
