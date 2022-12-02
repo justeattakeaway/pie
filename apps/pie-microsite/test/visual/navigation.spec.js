@@ -5,7 +5,7 @@ describe('PIE - Page Visual Tests', async () => {
         it(`Should respond take a screenshot of the requested route: - ${route}`, async () => {
             const url = `${browser.options.baseUrl}/content/pages/${route}`;
 
-            await browser.url(url)
+            await browser.url(url);
             await browser.percyScreenshot(`PIE - ${route}`);
         });
     });

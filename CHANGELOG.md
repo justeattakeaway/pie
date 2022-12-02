@@ -3,6 +3,15 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+v1.20.0
+------------------------------
+*December 2, 2022*
+
+### Added
+- New package.json scripts for system / visual / snapshot updating.
+- New `turbo.json` config for system / visual tests.
+- The following devDependencies used for testing - `dree` / `@percy/cli` / `@percy/webdriverio` / `cross-env` / `jest-expect-message`.git checkout HEAD -- my-file.txt
+
 
 v1.19.0
 ------------------------------
