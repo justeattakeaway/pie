@@ -84,7 +84,6 @@ jobs:
       - name: Unit Tests
         run: yarn test:ci --cache-dir=".turbo"
 
-
     browser-tests:
       needs: build
       runs-on: ubuntu-latest
@@ -119,7 +118,7 @@ jobs:
       # Build Packages
       - name: Build Packages
         run: yarn build --cache-dir=".turbo"
-      - name: Run System / Visual Tests
+      - name: Run System Tests
         run: |
           yarn dev &
           yarn test-system:ci

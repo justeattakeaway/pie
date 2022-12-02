@@ -8,7 +8,8 @@ v1.23.0
 *December 2, 2022*
 
 ### Added
-- Basic WebDriverIO test framework with a navigation test.
+- Added new test related package.json scripts.
+- Add Jest test to compare actual PIE routes to `expected-routes.snapshot.json`.
 
 
 v1.22.0

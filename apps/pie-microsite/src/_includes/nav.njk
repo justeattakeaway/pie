@@ -18,12 +18,12 @@
 {% set navPagesSecondary = collections.all | eleventyNavigation("Pages-secondary") %}
 {% set navSections = [navPagesPrimary, navPagesSecondary] %}
 
-<nav class="c-nav" data-test-id="navigation-menu">
+<nav class="c-nav">
     {% for section in navSections %}
         <ul>
             {# build up a list of categories such as 'components', 'foundations' #}
             {% for category in section %}
-                <li data-test-id="{{ category.title | lower | replace(" ", "-") }}">
+                <li>
                     <details {% if page.url.includes(category.url) %} open{% endif %}>
                         <summary class="c-nav-category">
                             {{ { name: navigationIcons[category.key], attrs: { fill: categoryIconFill, height: '24', width: '24' } } | pieIconsSvg | safe }}
@@ -45,8 +45,7 @@
                                         {% if subPageArea == currentPageArea %}
                                             aria-current="page"
                                         {% endif %}
-                                        class="c-nav-item {% if subPageArea == currentPageArea %}is-active{% endif %}"
-                                        data-test-id="{{ subpage.title | lower | replace(" ", "-") }}">
+                                        class="c-nav-item {% if subPageArea == currentPageArea %}is-active{% endif %}">
                                         {{ subpage.title }}
                                     </a>
                                 </li>
