@@ -6,8 +6,7 @@
             "dependsOn": ["^build"]
         },
         "test:generate-routes": {
-          "cache": true,
-          "outputs": ["./apps/pie-microsite/test/snapshots/*.snapshot.json"]
+          "cache": false
         },
         "test": {
             "cache": true,
