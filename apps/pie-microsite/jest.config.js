@@ -9,5 +9,5 @@ module.exports = {
     modulePathIgnorePatterns: [
         './test/system/',
         './test/visual/'
-    ];
+    ]
 };
