@@ -14,6 +14,9 @@ const readChildren = (childDirectories, result = []) => {
     }
 
     if (childDirectories.children.length === 1) {
+        if (process.platform === 'win32') {
+            childDirectories.relativePath = childDirectories.relativePath.replaceAll('\\', '/');
+        }
         result.push(childDirectories.relativePath);
 
         return;

@@ -5,7 +5,7 @@ const filePath = './test/snapshots/expected-routes.snapshot.json';
 
 const navigationRoutes = routesHelper.getNavigationRoutes();
 
-fs.writeFile(filePath, JSON.stringify(navigationRoutes), err => {
+fs.writeFile(filePath, JSON.stringify(navigationRoutes, null, 4), err => {
     if (err) {
         throw new Error(`Unable to update: ${filePath}`);
     }
