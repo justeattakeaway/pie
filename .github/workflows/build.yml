@@ -121,7 +121,7 @@ jobs:
       - name: Run System Tests
         run: |
           yarn dev &
-          yarn test-system:ci
+          yarn test:system:ci
 
     deploy:
       needs: browser-tests
