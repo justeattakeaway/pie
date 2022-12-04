@@ -1,6 +1,6 @@
 ---
 eleventyNavigation:
-    key: Alias
+    key: Alias tokens
     parent: Colour
     order: 3
 

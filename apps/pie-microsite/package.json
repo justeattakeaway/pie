@@ -1,27 +1,28 @@
 {
   "name": "pie-microsite",
   "description": "todo",
-  "version": "1.23.0",
+  "version": "1.25.0",
   "main": "index.js",
   "keywords": [],
   "author": "JustEatTakeaway - Vue Design System Team",
   "license": "MIT",
   "packageManager": "yarn@3.2.1",
   "scripts": {
-    "build": "eleventy",
+    "build": "DEPLOYMENT_ENVIRONMENT='production' eleventy",
+    "build:dev": "DEPLOYMENT_ENVIRONMENT='development' eleventy",
     "clean:dist": "run -T rimraf dist",
-    "dev": "yarn clean:dist && eleventy --serve",
     "test": "run -T jest",
+    "test:ci": "yarn test",
+    "dev": "yarn clean:dist && yarn build:dev --serve",
     "lint:scripts": "run -T eslint .",
     "lint:scripts:fix": "run -T eslint . --fix",
     "lint:style": "run -T stylelint ./src/**/*.{css,scss}",
     "lint:style:fix": "yarn lint:style --fix",
     "test:system": "run -T cross-env-shell TEST_TYPE=system wdio run ../../wdio.conf.js --spec ./test/system/*.js",
-    "test:visual": "run -T cross-env-shell PERCY_TOKEN=${PERCY_TOKEN_PIE_MICROSITE} TEST_TYPE=visual percy exec -- wdio ../../wdio.conf.js --spec ./test/visual/*.js",
-    "test:generate-routes": "node test/helpers/generate-routes.js",
-    "test:ci": "yarn test",
     "test:system:ci": "yarn test:system",
-    "test:visual:ci": "yarn test:visual"
+    "test:visual": "run -T cross-env-shell PERCY_TOKEN=${PERCY_TOKEN_PIE_MICROSITE} TEST_TYPE=visual percy exec -- wdio ../../wdio.conf.js --spec ./test/visual/*.js",
+    "test:visual:ci": "yarn test:visual",
+    "test:generate-routes": "node test/helpers/generate-routes.js"
   },
   "browserslist": [
     "extends @justeat/browserslist-config-fozzie"

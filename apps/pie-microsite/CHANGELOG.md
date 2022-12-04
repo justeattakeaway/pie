@@ -3,7 +3,7 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-v1.23.0
+v1.25.0
 ------------------------------
 *December 2, 2022*
 
@@ -11,6 +11,24 @@ v1.23.0
 - Added new test related package.json scripts.
 - Add Jest test to compare actual PIE routes to `expected-routes.snapshot.json`.
 - Added WebDriverIO system test to test PIE routes.
+
+
+v1.24.0
+------------------------------
+*November 29, 2022*
+
+### Added
+
+- `tokenTable` shortcode to display design tokens as list
+- design tokens to colour pages
+
+
+v1.23.0
+------------------------------
+*November 29, 2022*
+
+### Added
+- GTM script for production builds
 
 
 v1.22.0
