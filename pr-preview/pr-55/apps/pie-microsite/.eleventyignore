@@ -1,0 +1,2 @@
+// allows for reusable/shared content to live in markdown files without themselves becoming pages
+/**/*.content.md

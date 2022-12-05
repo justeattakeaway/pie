@@ -1,0 +1,21 @@
+<nav aria-label="Secondary navigational tabs" class="c-tabs">
+    <ul>
+        {%- for entry in collections.all | eleventyNavigation(navKey) %}
+        <li
+            {% if entry.url == page.url %}
+                aria-selected="true"
+            {% else %}
+                aria-selected="false"
+            {% endif %}
+            class="c-tabs-item">
+                {% if togglePage %}
+                    {# remove slug from url to compare page and entry urls #}
+                    {% set shortenedEntryUrl = entry.url | removeUrlSlug %}
+                    {% set shortenedPageUrl = page.url | removeUrlSlug %}
+                    <a href="{{ entry.url | url }}" class="c-tabs-link {% if shortenedEntryUrl == shortenedPageUrl %}is-active{% endif %}">{{ entry.title }}</a></li>
+                {% else %}
+                    <a href="{{ entry.url | url }}" class="c-tabs-link {% if entry.url == page.url %}is-active{% endif %}">{{ entry.title }}</a></li>
+                {% endif %}
+        {%- endfor %}
+    </ul>
+</nav>

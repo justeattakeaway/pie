@@ -1,0 +1,13 @@
+{% set toggleIconFill = { tokenName: 'interactive-light', tokenPath: ['alias', 'default'] } | pieDesignTokenColours %}
+
+<input id="navToggle" class="c-navToggle-input is-visuallyHidden" type="checkbox" aria-label="Toggle Navigation" />
+<label class="c-navToggle"  for="navToggle">
+    {{ { name: 'MenuSmall', attrs: { fill: toggleIconFill, height: '24', width: '24' } } | pieIconsSvg | safe }}
+    {{ { name: 'Close', attrs: { fill: toggleIconFill, height: '24', width: '24' } } | pieIconsSvg | safe }}
+</label>
+
+<header class="c-header">
+    <a class="c-header-logo" href="{{ '/' | url }}">
+        <img src="{{ '/assets/img/pie-logo.svg' | url }}" />
+    </a>
+</header>

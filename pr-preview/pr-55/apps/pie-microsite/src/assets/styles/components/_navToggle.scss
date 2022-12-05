@@ -1,0 +1,69 @@
+@use '../fozzie-config' as f;
+
+.c-navToggle {
+    display: none;
+    line-height: 0;
+    cursor: pointer;
+
+    @include f.media('<=narrowMid') {
+        display: block;
+        position: absolute;
+        left: 20px;
+        top: 20px;
+    }
+}
+
+.c-navToggle-input {
+    @include f.media('>narrowMid') {
+        display: none;
+    }
+}
+
+.c-navToggle-input ~ .c-nav {
+    // TODO: placeholder animation just to give the toggle nav some jazz - discuss animation specs with design
+    transition: left 0.5s cubic-bezier(0.25, 1, 0.25, 1), width 0.5s cubic-bezier(0.25, 1, 0.25, 1);
+
+    @include f.media('<=narrowMid') {
+        left: -100%;
+        visibility: hidden;
+    }
+}
+
+.c-navToggle-input:checked ~ .c-nav {
+    left: 0;
+    visibility: visible;
+}
+
+.c-navToggle-input:focus ~ .c-navToggle {
+    outline: 2px solid f.$color-focus;
+    outline-offset: 4px;
+}
+
+.c-navToggle-input:checked ~ .c-main:before,
+.c-navToggle-input:checked ~ .c-footer:before {
+    @include f.media('<=narrowMid') {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: f.$color-overlay;
+        z-index: f.zIndex('high');
+    }
+}
+
+.c-navToggle svg:last-of-type {
+    display: none;
+}
+
+.c-navToggle-input:checked ~ .c-navToggle svg {
+
+    &:first-of-type {
+        display: none;
+    }
+
+    &:last-of-type {
+        display: block;
+    }
+}

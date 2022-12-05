@@ -1,0 +1,47 @@
+@use '../fozzie-config' as f;
+
+.page {
+    min-height: 100%;
+    display: grid;
+    grid-template: 64px 1fr max-content / 260px 1fr;
+    grid-template-areas:
+        'header header'
+        'nav main'
+        'nav footer';
+
+    @include f.media('<=narrowMid') {
+        grid-template-areas:
+            'header header'
+            'main main'
+            'footer footer';
+    }
+}
+
+.c-header {
+    grid-area: header;
+}
+
+.c-nav {
+    grid-area: nav;
+
+    @include f.media('<=narrowMid') {
+        grid-area: main;
+        grid-row-end: 5;
+    }
+}
+
+.c-main {
+    grid-area: main;
+    position: relative;
+}
+
+.c-footer {
+    grid-area: footer;
+}
+
+.c-main,
+.c-footer {
+    @include f.media('<=narrowMid') {
+        z-index: f.zIndex(low);
+    }
+}

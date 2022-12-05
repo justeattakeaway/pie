@@ -1,0 +1,6 @@
+@use '../fozzie-config' as f;
+
+.alpha--standout {
+    @include f.font-size('heading-xxl');
+    font-weight: f.$font-weight-extrabold;
+}
