@@ -162,7 +162,7 @@ jobs:
         run: yarn build --filter=pie-microsite --cache-dir=".turbo"
       - name: Deploy - PR Preview
         if: ${{ github.ref != 'refs/heads/main' }}
-      - uses: rossjrw/pr-preview-action@v1
+        uses: rossjrw/pr-preview-action@v1
         with:
           source-dir: .
           preview-branch: gh-pages
@@ -170,7 +170,7 @@ jobs:
           action: auto
       - name: Deploy - Master
         if: ${{ github.ref == 'refs/heads/main' }}
-      - uses: JamesIves/github-pages-deploy-action@v4
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: ./apps/pie-microsite/dist
           branch: gh-pages
