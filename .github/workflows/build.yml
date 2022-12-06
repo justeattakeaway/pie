@@ -83,7 +83,7 @@ jobs:
       - name: Build Packages
         run: yarn build --cache-dir=".turbo"
         env:
-          PIE_URL_PREFIX: /pr-preview/pr-${{github.event.number}}"
+          PIE_URL_PREFIX: /pr-preview/pr-${{github.event.number}}
       # Run Unit Tests
       - name: Unit Tests
         run: yarn test:ci --cache-dir=".turbo"
