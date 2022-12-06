@@ -1,4 +1,4 @@
-name: Build
+name: Remove Preview Deploy
 
 on:
   pull_request:
@@ -62,10 +62,7 @@ jobs:
           restore-keys: |
             turborepo-dist-cache-${{ github.ref_name }}
             turborepo-dist-cache-
-      # Build Packages
-      - name: Build Microsite
-        run: yarn build --filter=pie-microsite --cache-dir=".turbo"
-      - name: Deploy - PR Preview
+      - name: Remove PR Preview deploy
         uses: rossjrw/pr-preview-action@v1
         with:
           source-dir: ./apps/pie-microsite/dist
