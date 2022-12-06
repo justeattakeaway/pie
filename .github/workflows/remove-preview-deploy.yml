@@ -4,7 +4,7 @@ on:
   pull_request:
     types: [closed]
 
-concurrency: remove-previewdeploy-${{ github.ref }}
+concurrency: remove-preview-deploy-${{ github.ref }}
 
 jobs:
   install:
@@ -51,17 +51,6 @@ jobs:
         with:
           path: '**/node_modules'
           key: node-modules-${{ hashFiles('**/yarn.lock') }}
-      # Restore Turborepo's 'dist' cache - If not, cache is created at end of build.
-      - name: Cache Turborepo Dist
-        id: turborepo-dist-cache
-        uses: actions/cache@v3
-        with:
-          path: .turbo
-          key: turborepo-dist-cache-${{ github.ref_name }}-${{ github.sha }}
-          # Use one of the following keys if the above is not found.
-          restore-keys: |
-            turborepo-dist-cache-${{ github.ref_name }}
-            turborepo-dist-cache-
       - name: Remove PR Preview deploy
         uses: rossjrw/pr-preview-action@v1
         with:
