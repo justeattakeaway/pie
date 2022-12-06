@@ -90,7 +90,6 @@ jobs:
 
   deploy:
     needs: build
-    id: deploy-pie
     runs-on: ubuntu-latest
     steps:
       # Checkout the Repo
@@ -166,4 +165,4 @@ jobs:
         run: |
           yarn test:system:ci
         env:
-          PREVIEW_URL: ${{ jobs.deploy-pie.steps.preview.outputs.deployment-url }}
+          PREVIEW_URL: ${{ jobs.deploy.steps.preview.outputs.deployment-url }}
