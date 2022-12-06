@@ -167,4 +167,4 @@ jobs:
         run: |
           yarn test:system:ci
         env:
-          PREVIEW_URL: ${{ needs.deploy.outputs.deployment-url }}
+          PIE_URL_PREFIX: pr-preview/pr-${{github.event.number}}
