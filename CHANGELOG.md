@@ -11,6 +11,7 @@ v1.20.0
 - New package.json scripts for system / visual / snapshot updating.
 - New `turbo.json` config for system / visual tests.
 - The following devDependencies used for testing - `dree` / `@percy/cli` / `@percy/webdriverio` / `cross-env` / `jest-expect-message`.
+- Modify GitHub Actions to allow for preview deployments.
 
 
 v1.19.0
