@@ -30,6 +30,6 @@ module.exports = eleventyConfig => {
       output: "dist",
     },
     markdownTemplateEngine: "njk",
-    pathPrefix: process.env.IS_PR ? process.env.URL_PREFIX : '/'
+    pathPrefix: process.env.PIE_URL_PREFIX || '/'
   };
 };

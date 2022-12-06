@@ -79,15 +79,11 @@ jobs:
       # Lint JS
       - name: Lint JavaScript
         run: yarn lint:scripts --cache-dir=".turbo"
-      # Determmine if running on PR
-      - name: Set PIE Prefix URL if PR
-        if: github.event_name == 'pull_request'
-        run: |
-          echo "IS_PR=true" >> $GITHUB_ENV
-          echo "PIE_URL_PREFIX=/pr-preview/pr-${{github.event.number}}" >> $GITHUB_ENV
       # Build Packages
       - name: Build Packages
         run: yarn build --cache-dir=".turbo"
+        env:
+          PIE_URL_PREFIX: /pr-preview/pr-${{github.event.number}}"
       # Run Unit Tests
       - name: Unit Tests
         run: yarn test:ci --cache-dir=".turbo"
