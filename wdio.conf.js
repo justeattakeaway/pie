@@ -1,5 +1,6 @@
 const percySnapshot = require('@percy/webdriverio');
 const { TEST_TYPE } = process.env;
+const { getBaseUrl } = require('./apps/pie-microsite/test/helpers/configuration-helper');
 
 exports.config = {
     //
@@ -105,7 +106,7 @@ exports.config = {
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-    baseUrl: 'http://localhost:8080',
+    baseUrl: getBaseUrl(),
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,

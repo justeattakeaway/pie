@@ -56,7 +56,7 @@
     "allure-commandline": "2.20.1",
     "autoprefixer": "10.4.7",
     "babel-loader": "8.2.3",
-    "chromedriver": "106.0.0",
+    "chromedriver": "108.0.0",
     "cross-env": "7.0.3",
     "cssnano": "5.1.13",
     "dree": "3.4.2",

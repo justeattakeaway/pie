@@ -4,13 +4,13 @@ on:
   pull_request:
     types: [assigned, opened, synchronize, reopened]
     paths-ignore:
-      - '.husky/**'
-      - 'stories/**'
-      - '.vscode/**'
-      - 'README.md'
-      - 'CONTRIBUTING.md'
-      - 'CHANGELOG.md'
-      - 'LICENSE'
+      - ".husky/**"
+      - "stories/**"
+      - ".vscode/**"
+      - "README.md"
+      - "CONTRIBUTING.md"
+      - "CHANGELOG.md"
+      - "LICENSE"
   push:
     branches:
       - main
@@ -29,13 +29,13 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
-          cache: 'yarn'
+          cache: "yarn"
       # Restore node_modules if cache exists. If not, cache is created at end of build.
       - name: Cache Node Modules
         id: cache-node-modules
         uses: actions/cache@v3
         with:
-          path: '**/node_modules'
+          path: "**/node_modules"
           key: node-modules-${{ hashFiles('**/yarn.lock') }}
       # Run 'yarn' if cache doesn't exist. Use --prefer-offline to download packages from yarn cache folder where possible
       - name: Install Dependencies
@@ -54,13 +54,13 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
-          cache: 'yarn'
+          cache: "yarn"
       # Restore node_modules - Cache should exist as one was created in previous 'install' job
       - name: Cache Node Modules
         id: cache-node-modules
         uses: actions/cache@v3
         with:
-          path: '**/node_modules'
+          path: "**/node_modules"
           key: node-modules-${{ hashFiles('**/yarn.lock') }}
       # Restore Turborepo's 'dist' cache - If not, cache is created at end of build.
       - name: Cache Turborepo Dist
@@ -90,6 +90,7 @@ jobs:
 
   deploy:
     needs: build
+    id: deploy-pie
     runs-on: ubuntu-latest
     steps:
       # Checkout the Repo
@@ -100,13 +101,13 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
-          cache: 'yarn'
+          cache: "yarn"
       # Restore node_modules - Cache should exist as one was created in previous 'install' job
       - name: Cache Node Modules
         id: cache-node-modules
         uses: actions/cache@v3
         with:
-          path: '**/node_modules'
+          path: "**/node_modules"
           key: node-modules-${{ hashFiles('**/yarn.lock') }}
       # Restore Turborepo's 'dist' cache - If not, cache is created at end of build.
       - name: Cache Turborepo Dist
@@ -123,6 +124,7 @@ jobs:
       - name: Build Microsite
         run: yarn build --filter=pie-microsite --cache-dir=".turbo"
       - name: Deploy - PR Preview
+        id: preview
         if: ${{ github.ref != 'refs/heads/main' }}
         uses: rossjrw/pr-preview-action@v1
         with:
@@ -138,3 +140,30 @@ jobs:
           branch: gh-pages
           clean-exclude: pr-preview
           force: false
+
+  browser-tests:
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout the Repo
+      - name: Checkout
+        uses: actions/checkout@v3
+      # Setup Node 16
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: "yarn"
+      # Restore node_modules - Cache should exist as one was created in previous 'install' job
+      - name: Cache Node Modules
+        id: cache-node-modules
+        uses: actions/cache@v3
+        with:
+          path: "**/node_modules"
+          key: node-modules-${{ hashFiles('**/yarn.lock') }}
+      # Run Unit Tests
+      - name: Run System Tests
+        run: |
+          yarn test:system:ci
+        env:
+          PREVIEW_URL: ${{ jobs.deploy-pie.steps.preview.outputs.deployment-url }}
