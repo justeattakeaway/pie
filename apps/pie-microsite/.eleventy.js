@@ -30,6 +30,6 @@ module.exports = eleventyConfig => {
       output: "dist",
     },
     markdownTemplateEngine: "njk",
-    pathPrefix: process.env.PIE_URL_PREFIX || '/'
+    pathPrefix: process.env.GITHUB_REF_NAME === 'main' ? '/' : process.env.PIE_URL_PREFIX
   };
 };
