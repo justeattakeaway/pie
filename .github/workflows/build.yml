@@ -91,6 +91,8 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
+    outputs:
+      deployment-url: ${{ steps.preview.outputs.deployment-url }}
     steps:
       # Checkout the Repo
       - name: Checkout
@@ -165,4 +167,4 @@ jobs:
         run: |
           yarn test:system:ci
         env:
-          PREVIEW_URL: ${{ needs.deploy.steps.preview.outputs.deployment-url }}
+          PREVIEW_URL: ${{ needs.deploy.outputs.deployment-url }}
