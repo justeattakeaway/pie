@@ -118,8 +118,12 @@ jobs:
             turborepo-dist-cache-${{ github.ref_name }}
             turborepo-dist-cache-
       # Build Packages
-      - name: Build Microsite
+      - name: Build Microsite - Main
+        if: ${{ github.ref == 'refs/heads/main' }}
         run: yarn build --filter=pie-microsite --cache-dir=".turbo"
+      - name: Build Microsite - PR Preview
+        if: ${{ github.ref != 'refs/heads/main' }}
+        run: yarn build --filter=pie-microsite --cache-dir=".turbo" --pathprefix /pr-preview/pr-${{github.event.number}}/
       - name: Deploy - PR Preview
         if: ${{ github.ref != 'refs/heads/main' }}
         uses: rossjrw/pr-preview-action@v1
