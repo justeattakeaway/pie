@@ -133,7 +133,7 @@ const createTokenListItem = ({
  * @param {string[]} listElements - the list items to render within the list
  * @returns {string} the tokens list HTML elements
  */
-const createTokensList = listElements => `<div class="c-tokensTable-row u-spacing-e--top u-showAboveWide c-tokensTable-heading">
+const createTokensListSection = listElements => `<div class="c-tokensTable-row u-spacing-e--top u-showAboveWide c-tokensTable-heading">
   <span>Example</span>
   <span>Description</span>
   <span>Token name</span>
@@ -194,6 +194,20 @@ const getTokensByCategory = (path, category, isGlobal, tokenType) => {
     return tokensForCategory;
 };
 
+const createListOfTokenItems = (tokens, path, category, isGlobal, tokenType) => {
+    const tokensForCategory = getTokensByCategory(path, category, isGlobal, tokenType);
+    const tokensMetadata = objectHelpers.getObjectPropertyByPath(pieTokensMetadata, path);
+    // create a list item for the current token
+    const tokenListItems = tokensForCategory.map(key => createTokenListItem({
+        token: tokens[key],
+        tokenScssName: createScssTokenName(key, tokenType),
+        tokenDisplayName: createTokenDisplayName(key, tokenType),
+        tokenType,
+        tokenMetadata: tokensMetadata[key]
+    }));
+
+    return createTokensListSection(tokenListItems);
+};
 const createCategorisedTokenLists = (path, tokenType, isGlobal) => {
     const categories = getTokenTypeCategoryMetadata(isGlobal, tokenType);
     const tokens = objectHelpers.getObjectPropertyByPath(pieDesignTokens, path);
@@ -201,20 +215,8 @@ const createCategorisedTokenLists = (path, tokenType, isGlobal) => {
     // for each category, create an h2 and a list of token elements to render
     const lists = Object.keys(categories).map((category, index, arr) => {
         const heading = `<h2>${categories[category].displayName}</h2>`;
-        const tokensForCategory = getTokensByCategory(path, category, isGlobal, tokenType);
-        console.log(path);
-        const tokensMetadata = objectHelpers.getObjectPropertyByPath(pieTokensMetadata, path);
-        console.log(tokensMetadata);
-        // create a list item for the current token
-        const tokenListItems = tokensForCategory.map(key => createTokenListItem({
-            token: tokens[key],
-            tokenScssName: createScssTokenName(key, tokenType),
-            tokenDisplayName: createTokenDisplayName(key, tokenType),
-            tokenType,
-            tokenMetadata: tokensMetadata[key]
-        }));
+        const tokensList = createListOfTokenItems(tokens, path, category, isGlobal, tokenType);
 
-        const tokensList = createTokensList(tokenListItems);
         const isLastItem = index === arr.length - 1;
 
         // returns a 'chunk' of the tokens table page (a heading, the column headers, list of tokens and an option HR element)
@@ -257,20 +259,8 @@ const buildPage = (path, tokenType) => {
                 // create a sub heading for the category
                 const subHeading = `<h3 class="c-tokensTable-sectionSubheading">${tokenTypeCategories[categoryKey].displayName}</h3>`;
                 // get all tokens belonging to the category
-                const tokensForCategory = getTokensByCategory(path, categoryKey, isGlobal, tokenType);
-                console.log(path);
-                const tokensMetadata = objectHelpers.getObjectPropertyByPath(pieTokensMetadata, path);
-                console.log(tokensMetadata);
-                // create a list item for the current token
-                const tokenListItems = tokensForCategory.map(key => createTokenListItem({
-                    token: tokens[key],
-                    tokenScssName: createScssTokenName(key, tokenType),
-                    tokenDisplayName: createTokenDisplayName(key, tokenType),
-                    tokenType,
-                    tokenMetadata: tokensMetadata[key]
-                }));
+                const tokensList = createListOfTokenItems(tokens, path, categoryKey, isGlobal, tokenType);
 
-                const tokensList = createTokensList(tokenListItems);
                 // create the tokens list
                 return `${subHeading}${tokensList}`;
             });
