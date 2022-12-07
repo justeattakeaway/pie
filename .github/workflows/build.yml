@@ -165,6 +165,7 @@ jobs:
       # Run Unit Tests
       - name: Run System Tests
         run: |
-          yarn test:system:ci
+          yarn test:system:ci &&
+          yarn test:visual:ci
         env:
           PIE_URL_PREFIX: pr-preview/pr-${{github.event.number}}
