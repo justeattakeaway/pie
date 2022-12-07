@@ -107,11 +107,11 @@ const createTokenListItem = ({
 }) => {
     const tokenPill = createTokenPill(tokenScssName);
     const tokenExampleElement = createTokenExampleElement(token, tokenType);
-
     return `<li class="c-tokensTable-row c-tokensTable-item">
       ${tokenExampleElement}
       <div class="c-tokensTable-content">
         <span class="c-tokensTable-displayName">${tokenDisplayName}</span>
+        <span class="c-tokensTable-globalToken"></span>
       </div>
       ${tokenPill}
     </li>`;
@@ -154,7 +154,7 @@ const validateConfiguration = ({ path, tokenType }) => {
 // gets the metadata for all tokens of a given type i.e. all global colors, alias colors
 const getTokenTypeMetadata = (path, isGlobal, tokenType) => {
     const tokensMetadataPath = isGlobal
-        ? `global.${tokenType}`
+        ? `theme.jet.${tokenType}.global.${tokenType}`
         : `theme.jet.${tokenType}.alias.${path.includes('default') ? 'default' : 'dark'}`;
 
     const tokensMetadata = objectHelpers.getObjectPropertyByPath(pieTokensMetadata, tokensMetadataPath);
@@ -191,7 +191,9 @@ const createCategorisedTokenLists = (path, tokenType, isGlobal) => {
     const lists = Object.keys(categories).map((category, index, arr) => {
         const heading = `<h2>${categories[category].displayName}</h2>`;
         const tokensForCategory = getTokensByCategory(path, category, isGlobal, tokenType);
-
+        console.log(path);
+        const tokensMetadata = objectHelpers.getObjectPropertyByPath(pieTokensMetadata, path);
+        console.log(tokensMetadata);
         // create a list item for the current token
         const tokenListItems = tokensForCategory.map(key => createTokenListItem({
             token: tokens[key],
@@ -244,7 +246,9 @@ const buildPage = (path, tokenType) => {
                 const subHeading = `<h3 class="c-tokensTable-sectionSubheading">${tokenTypeCategories[categoryKey].displayName}</h3>`;
                 // get all tokens belonging to the category
                 const tokensForCategory = getTokensByCategory(path, categoryKey, isGlobal, tokenType);
-
+                console.log(path);
+                const tokensMetadata = objectHelpers.getObjectPropertyByPath(pieTokensMetadata, path);
+                console.log(tokensMetadata);
                 // create a list item for the current token
                 const tokenListItems = tokensForCategory.map(key => createTokenListItem({
                     token: tokens[key],

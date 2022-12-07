@@ -103,169 +103,170 @@
       }
     }
   },
-  "global": {
-    "color": {
-      "white": {
-        "category": "whiteBlack"
-      },
-      "black": {
-        "category": "whiteBlack"
-      },
-
-      "orange-10": {
-        "category": "orange"
-      },
-      "orange-30": {
-        "category": "orange"
-      },
-      "orange": {
-        "category": "orange"
-      },
-      "orange-55": {
-        "category": "orange"
-      },
-      "orange-90": {
-        "category": "orange"
-      },
-
-      "blue-10": {
-        "category": "blue"
-      },
-      "blue-25": {
-        "category": "blue"
-      },
-      "blue-30": {
-        "category": "blue"
-      },
-      "blue": {
-        "category": "blue"
-      },
-      "blue-60": {
-        "category": "blue"
-      },
-      "blue-90": {
-        "category": "blue"
-      },
-
-      "red-10": {
-        "category": "red"
-      },
-      "red-25": {
-        "category": "red"
-      },
-      "red-30": {
-        "category": "red"
-      },
-      "red": {
-        "category": "red"
-      },
-      "red-60": {
-        "category": "red"
-      },
-      "red-90": {
-        "category": "red"
-      },
-
-      "yellow-10": {
-        "category": "yellow"
-      },
-      "yellow-30": {
-        "category": "yellow"
-      },
-      "yellow": {
-        "category": "yellow"
-      },
-      "yellow-90": {
-        "category": "yellow"
-      },
-
-      "green-10": {
-        "category": "green"
-      },
-      "green-30": {
-        "category": "green"
-      },
-      "green": {
-        "category": "green"
-      },
-      "green-60": {
-        "category": "green"
-      },
-      "green-90": {
-        "category": "green"
-      },
-
-      "purple-10": {
-        "category": "purple"
-      },
-      "purple": {
-        "category": "purple"
-      },
-
-      "mozzarella-5": {
-        "category": "mozzarella"
-      },
-      "mozzarella-10": {
-        "category": "mozzarella"
-      },
-      "mozzarella-20": {
-        "category": "mozzarella"
-      },
-      "mozzarella-30": {
-        "category": "mozzarella"
-      },
-      "mozzarella-50": {
-        "category": "mozzarella"
-      },
-      "mozzarella-60": {
-        "category": "mozzarella"
-      },
-      "mozzarella-70": {
-        "category": "mozzarella"
-      },
-      "mozzarella-75": {
-        "category": "mozzarella"
-      },
-      "mozzarella-80": {
-        "category": "mozzarella"
-      },
-      "mozzarella-90": {
-        "category": "mozzarella"
-      },
-      "mozzarella-100": {
-        "category": "mozzarella"
-      },
-
-      "charcoal-30": {
-        "category": "charcoal"
-      },
-      "charcoal-50": {
-        "category": "charcoal"
-      },
-      "charcoal-70": {
-        "category": "charcoal"
-      },
-      "charcoal-75": {
-        "category": "charcoal"
-      },
-      "charcoal-80": {
-        "category": "charcoal"
-      },
-      "system-purple": {
-        "category": "system"
-      },
-      "system-purple-10": {
-        "category": "system"
-      }
-    }
-  },
   "theme": {
     "jet": {
       "color": {
+        "global": {
+          "color": {
+            "white": {
+              "category": "whiteBlack"
+            },
+            "black": {
+              "category": "whiteBlack"
+            },
+      
+            "orange-10": {
+              "category": "orange"
+            },
+            "orange-30": {
+              "category": "orange"
+            },
+            "orange": {
+              "category": "orange"
+            },
+            "orange-55": {
+              "category": "orange"
+            },
+            "orange-90": {
+              "category": "orange"
+            },
+      
+            "blue-10": {
+              "category": "blue"
+            },
+            "blue-25": {
+              "category": "blue"
+            },
+            "blue-30": {
+              "category": "blue"
+            },
+            "blue": {
+              "category": "blue"
+            },
+            "blue-60": {
+              "category": "blue"
+            },
+            "blue-90": {
+              "category": "blue"
+            },
+      
+            "red-10": {
+              "category": "red"
+            },
+            "red-25": {
+              "category": "red"
+            },
+            "red-30": {
+              "category": "red"
+            },
+            "red": {
+              "category": "red"
+            },
+            "red-60": {
+              "category": "red"
+            },
+            "red-90": {
+              "category": "red"
+            },
+      
+            "yellow-10": {
+              "category": "yellow"
+            },
+            "yellow-30": {
+              "category": "yellow"
+            },
+            "yellow": {
+              "category": "yellow"
+            },
+            "yellow-90": {
+              "category": "yellow"
+            },
+      
+            "green-10": {
+              "category": "green"
+            },
+            "green-30": {
+              "category": "green"
+            },
+            "green": {
+              "category": "green"
+            },
+            "green-60": {
+              "category": "green"
+            },
+            "green-90": {
+              "category": "green"
+            },
+      
+            "purple-10": {
+              "category": "purple"
+            },
+            "purple": {
+              "category": "purple"
+            },
+      
+            "mozzarella-5": {
+              "category": "mozzarella"
+            },
+            "mozzarella-10": {
+              "category": "mozzarella"
+            },
+            "mozzarella-20": {
+              "category": "mozzarella"
+            },
+            "mozzarella-30": {
+              "category": "mozzarella"
+            },
+            "mozzarella-50": {
+              "category": "mozzarella"
+            },
+            "mozzarella-60": {
+              "category": "mozzarella"
+            },
+            "mozzarella-70": {
+              "category": "mozzarella"
+            },
+            "mozzarella-75": {
+              "category": "mozzarella"
+            },
+            "mozzarella-80": {
+              "category": "mozzarella"
+            },
+            "mozzarella-90": {
+              "category": "mozzarella"
+            },
+            "mozzarella-100": {
+              "category": "mozzarella"
+            },
+      
+            "charcoal-30": {
+              "category": "charcoal"
+            },
+            "charcoal-50": {
+              "category": "charcoal"
+            },
+            "charcoal-70": {
+              "category": "charcoal"
+            },
+            "charcoal-75": {
+              "category": "charcoal"
+            },
+            "charcoal-80": {
+              "category": "charcoal"
+            },
+            "system-purple": {
+              "category": "system"
+            },
+            "system-purple-10": {
+              "category": "system"
+            }
+          }
+        },
         "alias": {
           "default": {
             "background-default": {
-              "category": "pageBackgrounds"
+              "category": "pageBackgrounds",
+              "globalToken": "$color-mozzarella-5"
             },
             "background-subtle": {
               "category": "pageBackgrounds"
@@ -508,7 +509,8 @@
           },
           "dark": {
             "background-default": {
-              "category": "pageBackgrounds"
+              "category": "pageBackgrounds",
+              "globalToken": "$color-mozzarella-100"
             },
             "background-subtle": {
               "category": "pageBackgrounds"
