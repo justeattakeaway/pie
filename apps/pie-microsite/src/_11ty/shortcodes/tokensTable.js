@@ -152,10 +152,10 @@ const validateConfiguration = ({ path, tokenType }) => {
 };
 
 // gets the metadata for all tokens of a given type i.e. all global colors, alias colors
-const getTokenTypeMetadata = (isGlobal, tokenType) => {
+const getTokenTypeMetadata = (path, isGlobal, tokenType) => {
     const tokensMetadataPath = isGlobal
         ? `global.${tokenType}`
-        : `theme.jet.${tokenType}.alias`;
+        : `theme.jet.${tokenType}.alias.${path.includes('default') ? 'default' : 'dark'}`;
 
     const tokensMetadata = objectHelpers.getObjectPropertyByPath(pieTokensMetadata, tokensMetadataPath);
 
@@ -173,9 +173,9 @@ const getTokenTypeCategoryMetadata = (isGlobal, tokenType) => {
     return categories;
 };
 
-const getTokensByCategory = (category, isGlobal, tokenType) => {
+const getTokensByCategory = (path, category, isGlobal, tokenType) => {
     // filter tokens by the current category
-    const tokenTypeMetadata = getTokenTypeMetadata(isGlobal, tokenType);
+    const tokenTypeMetadata = getTokenTypeMetadata(path, isGlobal, tokenType);
     const tokensForCategory = Object
       .keys(tokenTypeMetadata)
       .filter(token => tokenTypeMetadata[token].category === category);
@@ -190,7 +190,7 @@ const createCategorisedTokenLists = (path, tokenType, isGlobal) => {
     // for each category, create an h2 and a list of token elements to render
     const lists = Object.keys(categories).map((category, index, arr) => {
         const heading = `<h2>${categories[category].displayName}</h2>`;
-        const tokensForCategory = getTokensByCategory(category, isGlobal, tokenType);
+        const tokensForCategory = getTokensByCategory(path, category, isGlobal, tokenType);
 
         // create a list item for the current token
         const tokenListItems = tokensForCategory.map(key => createTokenListItem({
@@ -214,10 +214,10 @@ const createCategorisedTokenLists = (path, tokenType, isGlobal) => {
 const buildPage = (path, tokenType) => {
     const isGlobal = path.includes('global');
     const parentCategoryPath = `categoryTypes.${tokenType}.${isGlobal ? 'global' : 'alias'}.parentCategories`;
-    console.log(parentCategoryPath);
+
     // get all parent categories for global or alias
     const parentCategories = objectHelpers.getObjectPropertyByPath(pieTokensMetadata, parentCategoryPath);
-    console.log('PARENT CATEGORIES: ', parentCategories);
+
     // if any parent categories
     if (parentCategories) {
         const parentCategoryKeys = Object.keys(parentCategories);
@@ -227,15 +227,20 @@ const buildPage = (path, tokenType) => {
             // create a heading for parent category
             const heading = `<h2>${parentCategories[parentCategoryKey].displayName}</h2>`;
             // go find any global or alias category types that have a parentCategory of the current category
+            const tokenTypeCategories = isGlobal
+                ? pieTokensMetadata.categoryTypes[tokenType].global
+                : pieTokensMetadata.categoryTypes[tokenType].alias;
+
             const childCategoryKeys = Object
-                .keys(pieTokensMetadata.categoryTypes[tokenType].alias)
-                .filter(categoryKey => pieTokensMetadata.categoryTypes[tokenType].alias[categoryKey].parentCategory === parentCategoryKey);
+                .keys(tokenTypeCategories)
+                .filter(categoryKey => tokenTypeCategories[categoryKey].parentCategory === parentCategoryKey);
+
             // for each category belonging to the current parentCategory
             const innerResult = childCategoryKeys.map(categoryKey => {
                 // create a sub heading for the category
-                const subHeading = `<h3>${pieTokensMetadata.categoryTypes[tokenType].alias[categoryKey].displayName}</h3>`;
+                const subHeading = `<h3>${tokenTypeCategories[categoryKey].displayName}</h3>`;
                 // get all tokens belonging to the category
-                const tokensForCategory = getTokensByCategory(categoryKey, isGlobal, tokenType);
+                const tokensForCategory = getTokensByCategory(path, categoryKey, isGlobal, tokenType);
 
                 // create a list item for the current token
                 const tokenListItems = tokensForCategory.map(key => createTokenListItem({
@@ -250,15 +255,14 @@ const buildPage = (path, tokenType) => {
                 return `${subHeading}${tokensList}`;
             });
 
-            console.log(innerResult);
             // combine all headings + lists
             const combinedMarkup = `${heading}${innerResult.join('<hr />')}`;
 
+            // return parentCategory heading + sub headings and lists
             return combinedMarkup;
-            // return parentCategory heading + headings and lists
         });
-        // combine and return all parentCategory lists
 
+        // combine and return all parentCategory lists
         return result.join('');
     }
 

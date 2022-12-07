@@ -259,246 +259,491 @@
     "jet": {
       "color": {
         "alias": {
-          "background-default": {
-            "category": "pageBackgrounds"
-          },
-          "background-subtle": {
-            "category": "pageBackgrounds"
-          },
-          "background-dark": {
-            "category": "pageBackgrounds"
-          },
+          "default": {
+            "background-default": {
+              "category": "pageBackgrounds"
+            },
+            "background-subtle": {
+              "category": "pageBackgrounds"
+            },
+            "background-dark": {
+              "category": "pageBackgrounds"
+            },
 
-          "container-default": {
-            "category": "containerBackgrounds"
-          },
-          "container-subtle": {
-            "category": "containerBackgrounds"
-          },
-          "container-strong": {
-            "category": "containerBackgrounds"
-          },
-          "container-dark": {
-            "category": "containerBackgrounds"
-          },
-          "container-inverse": {
-            "category": "containerBackgrounds"
-          },
+            "container-default": {
+              "category": "containerBackgrounds"
+            },
+            "container-subtle": {
+              "category": "containerBackgrounds"
+            },
+            "container-strong": {
+              "category": "containerBackgrounds"
+            },
+            "container-dark": {
+              "category": "containerBackgrounds"
+            },
+            "container-inverse": {
+              "category": "containerBackgrounds"
+            },
 
-          "border-default": {
-            "category": "borders"
-          },
-          "border-subtle": {
-            "category": "borders"
-          },
-          "border-strong": {
-            "category": "borders"
-          },
-          "border-inverse": {
-            "category": "borders"
-          },
+            "border-default": {
+              "category": "borders"
+            },
+            "border-subtle": {
+              "category": "borders"
+            },
+            "border-strong": {
+              "category": "borders"
+            },
+            "border-inverse": {
+              "category": "borders"
+            },
 
-          "divider-default": {
-            "category": "dividers"
-          },
-          "divider-inverse": {
-            "category": "dividers"
-          },
+            "divider-default": {
+              "category": "dividers"
+            },
+            "divider-inverse": {
+              "category": "dividers"
+            },
 
-          "interactive-brand": {
-            "category": "interactiveBackgrounds"
-          },
-          "interactive-primary": {
-            "category": "interactiveBackgrounds"
-          },
-          "interactive-secondary": {
-            "category": "interactiveBackgrounds"
-          },
-          "interactive-inverse": {
-            "category": "interactiveBackgrounds"
-          },
-          "interactive-light": {
-            "category": "interactiveBackgrounds"
-          },
-          "interactive-form": {
-            "category": "interactiveBackgrounds"
-          },
+            "interactive-brand": {
+              "category": "interactiveBackgrounds"
+            },
+            "interactive-primary": {
+              "category": "interactiveBackgrounds"
+            },
+            "interactive-secondary": {
+              "category": "interactiveBackgrounds"
+            },
+            "interactive-inverse": {
+              "category": "interactiveBackgrounds"
+            },
+            "interactive-light": {
+              "category": "interactiveBackgrounds"
+            },
+            "interactive-form": {
+              "category": "interactiveBackgrounds"
+            },
 
-          "overlay": {
-            "category": "pageBackgrounds"
-          },
+            "overlay": {
+              "category": "pageBackgrounds"
+            },
 
-          "support-error": {
-            "category": "feedback"
-          },
-          "support-warning": {
-            "category": "feedback"
-          },
-          "support-positive": {
-            "category": "feedback"
-          },
-          "support-info": {
-            "category": "feedback"
-          },
-          "support-neutral": {
-            "category": "feedback"
-          },
-          "support-error-02": {
-            "category": "feedback"
-          },
-          "support-warning-02": {
-            "category": "feedback"
-          },
-          "support-positive-02": {
-            "category": "feedback"
-          },
-          "support-info-02": {
-            "category": "feedback"
-          },
-          "support-info-inverse": {
-            "category": "feedback"
-          },
-          "support-positive-inverse": {
-            "category": "feedback"
-          },
+            "support-error": {
+              "category": "feedback"
+            },
+            "support-warning": {
+              "category": "feedback"
+            },
+            "support-positive": {
+              "category": "feedback"
+            },
+            "support-info": {
+              "category": "feedback"
+            },
+            "support-neutral": {
+              "category": "feedback"
+            },
+            "support-error-02": {
+              "category": "feedback"
+            },
+            "support-warning-02": {
+              "category": "feedback"
+            },
+            "support-positive-02": {
+              "category": "feedback"
+            },
+            "support-info-02": {
+              "category": "feedback"
+            },
+            "support-info-inverse": {
+              "category": "feedback"
+            },
+            "support-positive-inverse": {
+              "category": "feedback"
+            },
 
-          "support-brand-01": {
-            "category": "brand"
-          },
-          "support-brand-02": {
-            "category": "brand"
-          },
-          "support-brand-03": {
-            "category": "brand"
-          },
-          "support-brand-04": {
-            "category": "brand"
-          },
-          "support-brand-05": {
-            "category": "brand"
-          },
-          "support-brand-06": {
-            "category": "brand"
-          },
-          "support-brand-07": {
-            "category": "brand"
-          },
+            "support-brand-01": {
+              "category": "brand"
+            },
+            "support-brand-02": {
+              "category": "brand"
+            },
+            "support-brand-03": {
+              "category": "brand"
+            },
+            "support-brand-04": {
+              "category": "brand"
+            },
+            "support-brand-05": {
+              "category": "brand"
+            },
+            "support-brand-06": {
+              "category": "brand"
+            },
+            "support-brand-07": {
+              "category": "brand"
+            },
 
-          "content-default": {
-            "category": "static"
-          },
-          "content-subdued": {
-            "category": "static"
-          },
-          "content-interactive-brand": {
-            "category": "interactive"
-          },
-          "content-interactive-light": {
-            "category": "interactive"
-          },
-          "content-interactive-primary": {
-            "category": "interactive"
-          },
-          "content-interactive-secondary": {
-            "category": "interactive"
-          },
-          "content-interactive-tertiary": {
-            "category": "interactive"
-          },
-          "content-interactive-inverse": {
-            "category": "interactive"
-          },
-          "content-interactive-dark": {
-            "category": "interactive"
-          },
-          "content-interactive-error": {
-            "category": "interactive"
-          },
-          "content-light": {
-            "category": "static"
-          },
-          "content-inverse": {
-            "category": "static"
-          },
-          "content-link": {
-            "category": "link"
-          },
-          "content-link-distinct": {
-            "category": "link"
-          },
-          "content-link-light": {
-            "category": "link"
-          },
-          "content-link-inverse": {
-            "category": "link"
-          },
-          "content-link-visited": {
-            "category": "link"
-          },
-          "content-link-visited-inverse": {
-            "category": "link"
-          },
-          "content-error": {
-            "category": "static"
-          },
-          "content-positive": {
-            "category": "static"
-          },
-          "content-disabled": {
-            "category": "static"
-          },
-          "content-brand": {
-            "category": "static"
-          },
+            "content-default": {
+              "category": "static"
+            },
+            "content-subdued": {
+              "category": "static"
+            },
+            "content-interactive-brand": {
+              "category": "interactive"
+            },
+            "content-interactive-light": {
+              "category": "interactive"
+            },
+            "content-interactive-primary": {
+              "category": "interactive"
+            },
+            "content-interactive-secondary": {
+              "category": "interactive"
+            },
+            "content-interactive-tertiary": {
+              "category": "interactive"
+            },
+            "content-interactive-inverse": {
+              "category": "interactive"
+            },
+            "content-interactive-dark": {
+              "category": "interactive"
+            },
+            "content-interactive-error": {
+              "category": "interactive"
+            },
+            "content-light": {
+              "category": "static"
+            },
+            "content-inverse": {
+              "category": "static"
+            },
+            "content-link": {
+              "category": "link"
+            },
+            "content-link-distinct": {
+              "category": "link"
+            },
+            "content-link-light": {
+              "category": "link"
+            },
+            "content-link-inverse": {
+              "category": "link"
+            },
+            "content-link-visited": {
+              "category": "link"
+            },
+            "content-link-visited-inverse": {
+              "category": "link"
+            },
+            "content-error": {
+              "category": "static"
+            },
+            "content-positive": {
+              "category": "static"
+            },
+            "content-disabled": {
+              "category": "static"
+            },
+            "content-brand": {
+              "category": "static"
+            },
 
-          "hover-01": {
-            "category": "states"
-          },
-          "hover-02": {
-            "category": "states"
-          },
-          "hover-01-light": {
-            "category": "states"
-          },
-          "hover-01-dark": {
-            "category": "states"
-          },
-          "active-01": {
-            "category": "states"
-          },
-          "active-02": {
-            "category": "states"
-          },
-          "active-01-light": {
-            "category": "states"
-          },
-          "active-01-dark": {
-            "category": "states"
-          },
-          "focus": {
-            "category": "states"
-          },
-          "disabled-01": {
-            "category": "states"
-          },
-          "disabled-01-inverse": {
-            "category": "states"
-          },
-          "skeleton-01": {
-            "category": "skeleton"
-          },
-          "skeleton-02": {
-            "category": "skeleton"
-          },
-          "skeleton-03": {
-            "category": "skeleton"
-          },
+            "hover-01": {
+              "category": "states"
+            },
+            "hover-02": {
+              "category": "states"
+            },
+            "hover-01-light": {
+              "category": "states"
+            },
+            "hover-01-dark": {
+              "category": "states"
+            },
+            "active-01": {
+              "category": "states"
+            },
+            "active-02": {
+              "category": "states"
+            },
+            "active-01-light": {
+              "category": "states"
+            },
+            "active-01-dark": {
+              "category": "states"
+            },
+            "focus": {
+              "category": "states"
+            },
+            "disabled-01": {
+              "category": "states"
+            },
+            "disabled-01-inverse": {
+              "category": "states"
+            },
+            "skeleton-01": {
+              "category": "skeleton"
+            },
+            "skeleton-02": {
+              "category": "skeleton"
+            },
+            "skeleton-03": {
+              "category": "skeleton"
+            },
 
-          "external-bta-background": {
-            "category": ""
+            "external-bta-background": {
+              "category": ""
+            },
+            "external-bta-text": {
+              "category": ""
+            }
           },
-          "external-bta-text": {
-            "category": ""
+          "dark": {
+            "background-default": {
+              "category": "pageBackgrounds"
+            },
+            "background-subtle": {
+              "category": "pageBackgrounds"
+            },
+            "background-dark": {
+              "category": "pageBackgrounds"
+            },
+
+            "container-default": {
+              "category": "containerBackgrounds"
+            },
+            "container-subtle": {
+              "category": "containerBackgrounds"
+            },
+            "container-strong": {
+              "category": "containerBackgrounds"
+            },
+            "container-dark": {
+              "category": "containerBackgrounds"
+            },
+            "container-inverse": {
+              "category": "containerBackgrounds"
+            },
+
+            "border-default": {
+              "category": "borders"
+            },
+            "border-subtle": {
+              "category": "borders"
+            },
+            "border-strong": {
+              "category": "borders"
+            },
+            "border-inverse": {
+              "category": "borders"
+            },
+
+            "divider-default": {
+              "category": "dividers"
+            },
+            "divider-inverse": {
+              "category": "dividers"
+            },
+
+            "interactive-brand": {
+              "category": "interactiveBackgrounds"
+            },
+            "interactive-primary": {
+              "category": "interactiveBackgrounds"
+            },
+            "interactive-secondary": {
+              "category": "interactiveBackgrounds"
+            },
+            "interactive-inverse": {
+              "category": "interactiveBackgrounds"
+            },
+            "interactive-light": {
+              "category": "interactiveBackgrounds"
+            },
+            "interactive-form": {
+              "category": "interactiveBackgrounds"
+            },
+
+            "overlay": {
+              "category": "pageBackgrounds"
+            },
+
+            "support-error": {
+              "category": "feedback"
+            },
+            "support-warning": {
+              "category": "feedback"
+            },
+            "support-positive": {
+              "category": "feedback"
+            },
+            "support-info": {
+              "category": "feedback"
+            },
+            "support-neutral": {
+              "category": "feedback"
+            },
+            "support-error-02": {
+              "category": "feedback"
+            },
+            "support-warning-02": {
+              "category": "feedback"
+            },
+            "support-positive-02": {
+              "category": "feedback"
+            },
+            "support-info-02": {
+              "category": "feedback"
+            },
+            "support-info-inverse": {
+              "category": "feedback"
+            },
+            "support-positive-inverse": {
+              "category": "feedback"
+            },
+
+            "support-brand-01": {
+              "category": "brand"
+            },
+            "support-brand-02": {
+              "category": "brand"
+            },
+            "support-brand-03": {
+              "category": "brand"
+            },
+            "support-brand-04": {
+              "category": "brand"
+            },
+            "support-brand-05": {
+              "category": "brand"
+            },
+            "support-brand-06": {
+              "category": "brand"
+            },
+            "support-brand-07": {
+              "category": "brand"
+            },
+
+            "content-default": {
+              "category": "static"
+            },
+            "content-subdued": {
+              "category": "static"
+            },
+            "content-interactive-brand": {
+              "category": "interactive"
+            },
+            "content-interactive-light": {
+              "category": "interactive"
+            },
+            "content-interactive-primary": {
+              "category": "interactive"
+            },
+            "content-interactive-secondary": {
+              "category": "interactive"
+            },
+            "content-interactive-tertiary": {
+              "category": "interactive"
+            },
+            "content-interactive-inverse": {
+              "category": "interactive"
+            },
+            "content-interactive-dark": {
+              "category": "interactive"
+            },
+            "content-interactive-error": {
+              "category": "interactive"
+            },
+            "content-light": {
+              "category": "static"
+            },
+            "content-inverse": {
+              "category": "static"
+            },
+            "content-link": {
+              "category": "link"
+            },
+            "content-link-distinct": {
+              "category": "link"
+            },
+            "content-link-light": {
+              "category": "link"
+            },
+            "content-link-inverse": {
+              "category": "link"
+            },
+            "content-link-visited": {
+              "category": "link"
+            },
+            "content-link-visited-inverse": {
+              "category": "link"
+            },
+            "content-error": {
+              "category": "static"
+            },
+            "content-positive": {
+              "category": "static"
+            },
+            "content-disabled": {
+              "category": "static"
+            },
+            "content-brand": {
+              "category": "static"
+            },
+
+            "hover-01": {
+              "category": "states"
+            },
+            "hover-02": {
+              "category": "states"
+            },
+            "hover-01-light": {
+              "category": "states"
+            },
+            "hover-01-dark": {
+              "category": "states"
+            },
+            "active-01": {
+              "category": "states"
+            },
+            "active-02": {
+              "category": "states"
+            },
+            "active-01-light": {
+              "category": "states"
+            },
+            "active-01-dark": {
+              "category": "states"
+            },
+            "focus": {
+              "category": "states"
+            },
+            "disabled-01": {
+              "category": "states"
+            },
+            "disabled-01-inverse": {
+              "category": "states"
+            },
+            "skeleton-01": {
+              "category": "skeleton"
+            },
+            "skeleton-02": {
+              "category": "skeleton"
+            },
+            "skeleton-03": {
+              "category": "skeleton"
+            },
+
+            "external-bta-background": {
+              "category": ""
+            },
+            "external-bta-text": {
+              "category": ""
+            }
           }
         }
       }
