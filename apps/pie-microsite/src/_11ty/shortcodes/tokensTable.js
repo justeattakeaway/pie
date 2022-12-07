@@ -183,8 +183,7 @@ const getTokensByCategory = (category, isGlobal, tokenType) => {
     return tokensForCategory;
 };
 
-const createCategorisedTokenLists = (path, tokenType) => {
-    const isGlobal = path.includes('global');
+const createCategorisedTokenLists = (path, tokenType, isGlobal) => {
     const categories = getTokenTypeCategoryMetadata(isGlobal, tokenType);
     const tokens = objectHelpers.getObjectPropertyByPath(pieDesignTokens, path);
 
@@ -212,10 +211,54 @@ const createCategorisedTokenLists = (path, tokenType) => {
     return lists.join('');
 };
 
+const buildPage = (path, tokenType) => {
+    const isGlobal = path.includes('global');
+    const parentCategoryPath = `categoryTypes.${tokenType}.${isGlobal ? 'global' : 'alias'}.parentCategories`;
+    console.log(parentCategoryPath);
+    // get all parent categories for global or alias
+    const parentCategories = objectHelpers.getObjectPropertyByPath(pieTokensMetadata, parentCategoryPath);
+    console.log('PARENT CATEGORIES: ', parentCategories);
+    // if any parent categories
+    if (parentCategories) {
+        const parentCategoryKeys = Object.keys(parentCategories);
+        // for each parent categorey
+        const result = parentCategoryKeys.map(parentCategoryKey => {
+            // create a heading for parent category
+            const heading = `<h2>${parentCategories[parentCategoryKey].displayName}</h2>`;
+            // go find any global or alias category types that have a parentCategory of the current category
+            const childCategoryKeys = Object
+                .keys(pieTokensMetadata.categoryTypes[tokenType].alias)
+                .filter(categoryKey => pieTokensMetadata.categoryTypes[tokenType].alias[categoryKey].parentCategory === parentCategoryKey);
+            // for each category belonging to the current parentCategory
+            const innerResult = childCategoryKeys.map(categoryKey => {
+                // create a sub heading for the category
+                const subHeading = `<h3>${pieTokensMetadata.categoryTypes[tokenType].alias[categoryKey].displayName}</h3>`;
+                // get all tokens belonging to the category
+                // create the tokens list
+                return subHeading;
+            });
+            console.log(innerResult);
+            // combine all headings + lists
+            const combinedMarkup = `${heading}${innerResult.join('')}`;
+
+            return combinedMarkup;
+            // return parentCategory heading + headings and lists
+        });
+        // combine and return all parentCategory lists
+
+        return result.join('');
+    }
+
+    // if no parent categories
+    // proceed as normal
+    return createCategorisedTokenLists(path, tokenType, isGlobal);
+};
+
 // eslint-disable-next-line func-names
 module.exports = function ({ path, tokenType }) {
     validateConfiguration({ path, tokenType });
-    const lists = createCategorisedTokenLists(path, tokenType);
+    // const lists = createCategorisedTokenLists(path, tokenType);
+    const lists = buildPage(path, tokenType);
 
     return `<div class="c-tokensTable">${lists}</div>`;
 };
