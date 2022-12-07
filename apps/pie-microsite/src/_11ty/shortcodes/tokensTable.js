@@ -103,15 +103,26 @@ const createTokenListItem = ({
     token,
     tokenType,
     tokenScssName,
-    tokenDisplayName
+    tokenDisplayName,
+    tokenMetadata
 }) => {
     const tokenPill = createTokenPill(tokenScssName);
     const tokenExampleElement = createTokenExampleElement(token, tokenType);
+
+    // TODO - description and global token are just examples of how we might use the metadata
+    // We would likely wanted to move them into a colour specific handler similar to how we build
+    // the colour token example. Please consider them placeholder for now.
+    const tokenDescription = tokenMetadata.description
+        ? `<span class="c-tokensTable-tokenDescription">${tokenMetadata.description}</span>`
+        : '';
+    const globalTokenUsed = tokenMetadata.globalToken
+        ? `<span class="c-tokensTable-globalToken">Global token used: ${tokenMetadata.globalToken}</span>`
+        : '';
+
     return `<li class="c-tokensTable-row c-tokensTable-item">
       ${tokenExampleElement}
       <div class="c-tokensTable-content">
-        <span class="c-tokensTable-displayName">${tokenDisplayName}</span>
-        <span class="c-tokensTable-globalToken"></span>
+        <span class="c-tokensTable-displayName">${tokenDisplayName}</span>${tokenDescription}${globalTokenUsed}
       </div>
       ${tokenPill}
     </li>`;
@@ -154,7 +165,7 @@ const validateConfiguration = ({ path, tokenType }) => {
 // gets the metadata for all tokens of a given type i.e. all global colors, alias colors
 const getTokenTypeMetadata = (path, isGlobal, tokenType) => {
     const tokensMetadataPath = isGlobal
-        ? `theme.jet.${tokenType}.global.${tokenType}`
+        ? `theme.jet.${tokenType}.global`
         : `theme.jet.${tokenType}.alias.${path.includes('default') ? 'default' : 'dark'}`;
 
     const tokensMetadata = objectHelpers.getObjectPropertyByPath(pieTokensMetadata, tokensMetadataPath);
@@ -199,7 +210,8 @@ const createCategorisedTokenLists = (path, tokenType, isGlobal) => {
             token: tokens[key],
             tokenScssName: createScssTokenName(key, tokenType),
             tokenDisplayName: createTokenDisplayName(key, tokenType),
-            tokenType
+            tokenType,
+            tokenMetadata: tokensMetadata[key]
         }));
 
         const tokensList = createTokensList(tokenListItems);
@@ -254,7 +266,8 @@ const buildPage = (path, tokenType) => {
                     token: tokens[key],
                     tokenScssName: createScssTokenName(key, tokenType),
                     tokenDisplayName: createTokenDisplayName(key, tokenType),
-                    tokenType
+                    tokenType,
+                    tokenMetadata: tokensMetadata[key]
                 }));
 
                 const tokensList = createTokensList(tokenListItems);
