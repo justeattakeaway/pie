@@ -36,16 +36,20 @@
       "alias": {
         "parentCategories": {
           "elementary": {
-            "displayName": "Elementary"
+            "displayName": "Elementary",
+            "description": "Basic alias colour tokens for the basic building blocks of our products, including backgrounds, borders and dividers."
           },
           "supportiveFeedback": {
-            "displayName": "Supportive Feedback"
+            "displayName": "Supportive Feedback",
+            "description": "Alias colour tokens used to add meaning and brand our products."
           },
           "content": {
-            "displayName": "Content"
+            "displayName": "Content",
+            "description": "Alias colour tokens used for text and icons only."
           },
           "reactive": {
-            "displayName": "Reactive"
+            "displayName": "Reactive",
+            "description": "Alias colour tokens used to represent state changes and loading animations in components."
           }
         },
         "pageBackgrounds": {

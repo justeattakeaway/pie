@@ -224,8 +224,11 @@ const buildPage = (path, tokenType) => {
         const tokens = objectHelpers.getObjectPropertyByPath(pieDesignTokens, path);
         // for each parent categorey
         const result = parentCategoryKeys.map(parentCategoryKey => {
+            const { displayName, description } = parentCategories[parentCategoryKey];
             // create a heading for parent category
-            const heading = `<h2>${parentCategories[parentCategoryKey].displayName}</h2>`;
+            const heading = `<h2 class="c-tokensTable-sectionHeading">${displayName}</h2>`;
+            const descriptionMarkup = `<p class="c-tokensTable-sectionDescription">${description}</p>`;
+
             // go find any global or alias category types that have a parentCategory of the current category
             const tokenTypeCategories = isGlobal
                 ? pieTokensMetadata.categoryTypes[tokenType].global
@@ -238,7 +241,7 @@ const buildPage = (path, tokenType) => {
             // for each category belonging to the current parentCategory
             const innerResult = childCategoryKeys.map(categoryKey => {
                 // create a sub heading for the category
-                const subHeading = `<h3>${tokenTypeCategories[categoryKey].displayName}</h3>`;
+                const subHeading = `<h3 class="c-tokensTable-sectionSubheading">${tokenTypeCategories[categoryKey].displayName}</h3>`;
                 // get all tokens belonging to the category
                 const tokensForCategory = getTokensByCategory(path, categoryKey, isGlobal, tokenType);
 
@@ -256,14 +259,14 @@ const buildPage = (path, tokenType) => {
             });
 
             // combine all headings + lists
-            const combinedMarkup = `${heading}${innerResult.join('<hr />')}`;
+            const combinedMarkup = `${heading}${descriptionMarkup}${innerResult.join('')}`;
 
             // return parentCategory heading + sub headings and lists
             return combinedMarkup;
         });
 
         // combine and return all parentCategory lists
-        return result.join('');
+        return result.join('<hr />');
     }
 
     // if no parent categories
