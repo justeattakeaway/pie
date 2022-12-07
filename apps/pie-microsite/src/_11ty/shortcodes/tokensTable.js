@@ -221,6 +221,7 @@ const buildPage = (path, tokenType) => {
     // if any parent categories
     if (parentCategories) {
         const parentCategoryKeys = Object.keys(parentCategories);
+        const tokens = objectHelpers.getObjectPropertyByPath(pieDesignTokens, path);
         // for each parent categorey
         const result = parentCategoryKeys.map(parentCategoryKey => {
             // create a heading for parent category
@@ -234,12 +235,24 @@ const buildPage = (path, tokenType) => {
                 // create a sub heading for the category
                 const subHeading = `<h3>${pieTokensMetadata.categoryTypes[tokenType].alias[categoryKey].displayName}</h3>`;
                 // get all tokens belonging to the category
+                const tokensForCategory = getTokensByCategory(categoryKey, isGlobal, tokenType);
+
+                // create a list item for the current token
+                const tokenListItems = tokensForCategory.map(key => createTokenListItem({
+                    token: tokens[key],
+                    tokenScssName: createScssTokenName(key, tokenType),
+                    tokenDisplayName: createTokenDisplayName(key, tokenType),
+                    tokenType
+                }));
+
+                const tokensList = createTokensList(tokenListItems);
                 // create the tokens list
-                return subHeading;
+                return `${subHeading}${tokensList}`;
             });
+
             console.log(innerResult);
             // combine all headings + lists
-            const combinedMarkup = `${heading}${innerResult.join('')}`;
+            const combinedMarkup = `${heading}${innerResult.join('<hr />')}`;
 
             return combinedMarkup;
             // return parentCategory heading + headings and lists
