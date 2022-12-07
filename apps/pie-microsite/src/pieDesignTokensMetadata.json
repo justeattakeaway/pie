@@ -1,31 +1,83 @@
 {
   "categoryTypes": {
     "color": {
+      "parentCategories": {
+        "parent1": {
+          "displayName": "Parent Category 1"
+        },
+        "parent2": {
+          "displayName": "Parent Category 2"
+        }
+      },
       "global": {
-        "whiteBlack": "White and Black",
-        "orange": "Orange",
-        "blue": "Blue",
-        "red": "Red",
-        "yellow": "Yellow",
-        "green": "Green",
-        "purple": "Purple",
-        "mozzarella": "Mozzarella",
-        "charcoal": "Charcoal",
-        "system": "System"
+        "whiteBlack": {
+          "displayName": "White and Black"
+        },
+        "orange": {
+          "displayName": "Orange"
+        },
+        "blue": {
+          "displayName": "Blue"
+        },
+        "red": {
+          "displayName": "Red"
+        },
+        "yellow": {
+          "displayName": "Yellow"
+        },
+        "green": {
+          "displayName": "Green"
+        },
+        "purple": {
+          "displayName": "Purple"
+        },
+        "mozzarella": {
+          "displayName": "Mozzarella"
+        },
+        "charcoal": {
+          "displayName": "Charcoal"
+        },
+        "system": {
+          "displayName": "System"
+        }
       },
       "alias": {
-        "pageBackgrounds": "Page Backgrounds",
-        "containerBackgrounds": "Container Backgrounds",
-        "interactiveBackgrounds": "Interactive Backgrounds",
-        "borders": "Borders",
-        "dividers": "Dividers",
-        "feedback": "Feedback",
-        "brand": "Brand",
-        "static": "Static",
-        "interactive": "Interactive",
-        "link": "Link",
-        "states": "States",
-        "skeleton": "Skeleton"
+        "pageBackgrounds": {
+          "displayName": "Page Backgrounds"
+        },
+        "containerBackgrounds": {
+          "displayName": "Container Backgrounds"
+        },
+        "interactiveBackgrounds": {
+          "displayName": "Interactive Backgrounds"
+        },
+        "borders": {
+          "displayName": "Borders"
+        },
+        "dividers": {
+          "displayName": "Dividers"
+        },
+        "feedback": {
+          "displayName": "Feedback"
+        },
+        "brand": {
+          "displayName": "Brand"
+        },
+        "static": {
+          "displayName": "Static"
+        },
+        "interactive": {
+          "displayName": "Interactive"
+        },
+        "link": {
+          "displayName": "Link"
+        },
+        "states": {
+          "displayName": "States"
+        },
+        "skeleton": {
+          "displayName": "Skeleton"
+        }
       }
     }
   },
@@ -258,7 +310,6 @@
             "category": "pageBackgrounds"
           },
 
-
           "support-error": {
             "category": "feedback"
           },
@@ -293,7 +344,6 @@
             "category": "feedback"
           },
 
-
           "support-brand-01": {
             "category": "brand"
           },
@@ -315,7 +365,6 @@
           "support-brand-07": {
             "category": "brand"
           },
-
 
           "content-default": {
             "category": "static"
@@ -384,8 +433,6 @@
             "category": "static"
           },
 
-
-
           "hover-01": {
             "category": "states"
           },
@@ -428,7 +475,6 @@
           "skeleton-03": {
             "category": "skeleton"
           },
-
 
           "external-bta-background": {
             "category": ""

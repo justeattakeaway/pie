@@ -190,7 +190,7 @@ const createCategorisedTokenLists = (path, tokenType) => {
 
     // for each category, create an h2 and a list of token elements to render
     const lists = Object.keys(categories).map((category, index, arr) => {
-        const heading = `<h2>${categories[category]}</h2>`;
+        const heading = `<h2>${categories[category].displayName}</h2>`;
         const tokensForCategory = getTokensByCategory(category, isGlobal, tokenType);
 
         // create a list item for the current token
