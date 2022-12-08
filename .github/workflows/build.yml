@@ -171,7 +171,7 @@ jobs:
         if: ${{ github.event.pull_request.draft == false }}
         run: |
           yarn test:visual:ci
-      - name: Find Comment
+      - name: Find Reminder Comment
         if: ${{ github.event.pull_request.draft == false }}
         uses: peter-evans/find-comment@v2
         id: find-comment
