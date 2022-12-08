@@ -10,7 +10,7 @@ exports[`tokensTable.js should return the expected HTML 1`] = `
   <li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #fcfcfc\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Background Default</span><span class=\\"c-tokensTable-tokenDescription\\">Default page background</span><span class=\\"c-tokensTable-globalToken\\">Global token used: $color-mozzarella-5</span>
+        <span class=\\"c-tokensTable-displayName\\">Background Default</span><span class=\\"c-tokensTable-tokenDescription\\">Default page background</span>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-background-default</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">

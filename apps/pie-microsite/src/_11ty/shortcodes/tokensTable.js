@@ -120,14 +120,11 @@ const createTokenListItem = ({
     const tokenDescription = tokenMetadata.description
         ? `<span class="c-tokensTable-tokenDescription">${tokenMetadata.description}</span>`
         : '';
-    const globalTokenUsed = tokenMetadata.globalToken
-        ? `<span class="c-tokensTable-globalToken">Global token used: ${tokenMetadata.globalToken}</span>`
-        : '';
 
     return `<li class="c-tokensTable-row c-tokensTable-item">
       ${tokenExampleElement}
       <div class="c-tokensTable-content">
-        <span class="c-tokensTable-displayName">${tokenDisplayName}</span>${tokenDescription}${globalTokenUsed}
+        <span class="c-tokensTable-displayName">${tokenDisplayName}</span>${tokenDescription}
       </div>
       ${tokenPill}
     </li>`;
