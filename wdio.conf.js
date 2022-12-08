@@ -1,3 +1,7 @@
+const percySnapshot = require('@percy/webdriverio');
+const { TEST_TYPE } = process.env;
+const { getBaseUrl } = require('./apps/pie-microsite/test/helpers/configuration-helper');
+
 exports.config = {
     //
     // ====================
@@ -57,7 +61,15 @@ exports.config = {
         maxInstances: 1,
         //
         browserName: 'chrome',
-        acceptInsecureCerts: true
+        acceptInsecureCerts: true,
+        'goog:chromeOptions': {
+            args: [].concat(process.env.CI ? [
+                '--no-sandbox',
+                '--disable-infobars',
+                '--headless',
+                '--disable-gpu',
+                '--window-size=1920,1080'] : [])
+        }
         // If outputDir is provided WebdriverIO can capture driver session logs
         // it is possible to configure which logTypes to include/exclude.
         // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
@@ -94,7 +106,7 @@ exports.config = {
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-    baseUrl: 'http://localhost:8081',
+    baseUrl: getBaseUrl(),
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,
@@ -195,8 +207,23 @@ exports.config = {
      * @param {Array.<String>} specs        List of spec file paths that are to be run
      * @param {Object}         browser      instance of created browser/device session
      */
-    // before: function (capabilities, specs) {
-    // },
+    before: async () => {
+
+        if(TEST_TYPE === 'visual') {
+            await browser.addCommand('percyScreenshot', async (screenshotName) => {
+
+                await percySnapshot(screenshotName);
+            });
+        }
+
+        await browser.url('/');
+        await browser.waitUntil(
+            () => browser.execute(() => document.readyState === 'complete'),
+            {
+              timeoutMsg: `Unable to load ${browser.options.baseUrl}`
+            }
+          );
+    },
     /**
      * Runs before a WebdriverIO command gets executed.
      * @param {String} commandName hook command name

@@ -29,6 +29,7 @@ module.exports = eleventyConfig => {
       input: "src",
       output: "dist",
     },
-    markdownTemplateEngine: "njk"
+    markdownTemplateEngine: "njk",
+    pathPrefix: process.env.GITHUB_REF_NAME === 'main' ? '/' : process.env.PIE_URL_PREFIX
   };
 };

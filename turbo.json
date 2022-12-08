@@ -5,6 +5,9 @@
             "cache": true,
             "dependsOn": ["^build"]
         },
+        "test:generate-routes": {
+          "cache": false
+        },
         "test": {
             "cache": true,
             "dependsOn": ["build"],
@@ -20,8 +23,19 @@
           "outputs": []
         },
         "test:system": {
+            "cache": false,
             "outputs": []
           },
+        "test:system:ci": {
+          "cache": false
+        },
+        "test:visual": {
+          "cache": false,
+          "outputs": []
+        },
+        "test:visual:ci": {
+          "cache": false
+        },
         "lint:scripts": {
             "cache": true,
             "outputs": []

@@ -1,7 +1,7 @@
 {
   "name": "pie-microsite",
   "description": "todo",
-  "version": "1.24.0",
+  "version": "1.25.0",
   "main": "index.js",
   "keywords": [],
   "author": "JustEatTakeaway - Vue Design System Team",
@@ -16,9 +16,13 @@
     "lint:scripts:fix": "run -T eslint . --fix",
     "lint:style": "run -T stylelint ./src/**/*.{css,scss}",
     "lint:style:fix": "yarn lint:style --fix",
-    "test:system": "wdio run ../../wdio.conf.js",
-    "test": "jest",
-    "test:ci": "yarn test"
+    "test": "run -T jest",
+    "test:ci": "yarn test",
+    "test:generate-routes": "node test/helpers/generate-routes.js",
+    "test:system": "run -T cross-env-shell TEST_TYPE=system wdio run ../../wdio.conf.js --spec ./test/system/*.js",
+    "test:system:ci": "yarn test:system",
+    "test:visual": "run -T cross-env-shell PERCY_TOKEN=${PERCY_TOKEN_PIE_MICROSITE} TEST_TYPE=visual percy exec -- wdio ../../wdio.conf.js --spec ./test/visual/*.js",
+    "test:visual:ci": "yarn test:visual"
   },
   "browserslist": [
     "extends @justeat/browserslist-config-fozzie"
@@ -26,6 +30,7 @@
   "devDependencies": {
     "@11ty/eleventy": "1.0.2",
     "@11ty/eleventy-navigation": "0.3.5",
+    "dree": "3.4.2",
     "eleventy-plugin-clean": "1.1.3",
     "eleventy-plugin-rev": "1.0.2",
     "eleventy-sass": "2.1.3"
