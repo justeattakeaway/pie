@@ -114,7 +114,7 @@ const createTokenListItem = ({
     const tokenPill = createTokenPill(tokenScssName);
     const tokenExampleElement = createTokenExampleElement(token, tokenType);
 
-    // TODO - description and global token are just examples of how we might use the metadata
+    // TODO - description is just an example of how we might use the metadata
     // We would likely wanted to move them into a colour specific handler similar to how we build
     // the colour token example. Please consider them placeholder for now.
     const tokenDescription = tokenMetadata.description
@@ -144,24 +144,36 @@ const createTokensListSection = listElements => `<div class="c-tokensTable-row u
   ${listElements.join('')}
 </ul>`;
 
-/**
- * Throws an error listing which configuration properties are missing (if any)
- * @param {object} config - the configuration object to validate
- */
-const validateConfiguration = ({ path, tokenType }) => {
-    const invalidParameters = [];
+const createListOfTokenItems = (tokens, path, category, isGlobal, tokenType) => {
+    const tokensForCategory = getTokensByCategory(path, category, isGlobal, tokenType);
+    const tokensMetadata = objectHelpers.getObjectPropertyByPath(pieTokensMetadata, path);
+    // create a list item for the current token
+    const tokenListItems = tokensForCategory.map(key => createTokenListItem({
+        token: tokens[key],
+        tokenScssName: createScssTokenName(key, tokenType),
+        tokenDisplayName: createTokenDisplayName(key, tokenType),
+        tokenType,
+        tokenMetadata: tokensMetadata[key]
+    }));
 
-    if (!path) {
-        invalidParameters.push('path');
-    }
+    return createTokensListSection(tokenListItems);
+};
 
-    if (!tokenType) {
-        invalidParameters.push('tokenType');
-    }
+const createCategorisedTokenLists = (pathToTokens, path, tokenType, isGlobal) => {
+    const categories = getTokenTypeCategoryMetadata(isGlobal, tokenType);
+    const tokens = objectHelpers.getObjectPropertyByPath(pieDesignTokens, pathToTokens);
 
-    if (invalidParameters.length) {
-        throw new Error(`Missing configuration parameters: ${invalidParameters.join(', ')}`);
-    }
+    // for each category, create an h2 and a list of token elements to render
+    const lists = Object.keys(categories).map(category => {
+        const heading = `<h2>${categories[category].displayName}</h2>`;
+        const tokensList = createListOfTokenItems(tokens, path, category, isGlobal, tokenType);
+
+        // returns a 'chunk' of the tokens table page (a heading, the column headers, list of tokens and an option HR element)
+        return `${heading}${tokensList}`;
+    });
+
+    // all 'chunks' of the tokens table page HTML in a single string
+    return lists.join('<hr />');
 };
 
 // gets the metadata for all tokens of a given type i.e. all global colors, alias colors
@@ -196,41 +208,48 @@ const getTokensByCategory = (path, category, isGlobal, tokenType) => {
     return tokensForCategory;
 };
 
-const createListOfTokenItems = (tokens, path, category, isGlobal, tokenType) => {
-    const tokensForCategory = getTokensByCategory(path, category, isGlobal, tokenType);
-    const tokensMetadata = objectHelpers.getObjectPropertyByPath(pieTokensMetadata, path);
-    // create a list item for the current token
-    const tokenListItems = tokensForCategory.map(key => createTokenListItem({
-        token: tokens[key],
-        tokenScssName: createScssTokenName(key, tokenType),
-        tokenDisplayName: createTokenDisplayName(key, tokenType),
-        tokenType,
-        tokenMetadata: tokensMetadata[key]
-    }));
-
-    return createTokensListSection(tokenListItems);
-};
-
-const createCategorisedTokenLists = (pathToTokens, path, tokenType, isGlobal) => {
-    const categories = getTokenTypeCategoryMetadata(isGlobal, tokenType);
+const buildParentCategoryLists = (parentCategories, pathToTokens, path, tokenType, isGlobal) => {
+    const parentCategoryKeys = Object.keys(parentCategories);
     const tokens = objectHelpers.getObjectPropertyByPath(pieDesignTokens, pathToTokens);
+    // for each parent categorey
+    const result = parentCategoryKeys.map(parentCategoryKey => {
+        const { displayName, description } = parentCategories[parentCategoryKey];
+        // create a heading for parent category
+        const heading = `<h2 class="c-tokensTable-sectionHeading">${displayName}</h2>`;
+        const descriptionMarkup = `<p class="c-tokensTable-sectionDescription">${description}</p>`;
 
-    // for each category, create an h2 and a list of token elements to render
-    const lists = Object.keys(categories).map((category, index, arr) => {
-        const heading = `<h2>${categories[category].displayName}</h2>`;
-        const tokensList = createListOfTokenItems(tokens, path, category, isGlobal, tokenType);
+        // go find any global or alias category types that have a parentCategory of the current category
+        const tokenTypeCategories = isGlobal
+            ? pieTokenCategories[tokenType].global
+            : pieTokenCategories[tokenType].alias;
 
-        const isLastItem = index === arr.length - 1;
+        const childCategoryKeys = Object
+            .keys(tokenTypeCategories)
+            .filter(categoryKey => tokenTypeCategories[categoryKey].parentCategory === parentCategoryKey);
 
-        // returns a 'chunk' of the tokens table page (a heading, the column headers, list of tokens and an option HR element)
-        return `${heading}${tokensList}${!isLastItem ? '<hr />' : ''}`;
+        // for each category belonging to the current parentCategory
+        const innerResult = childCategoryKeys.map(categoryKey => {
+            // create a sub heading for the category
+            const subHeading = `<h3 class="c-tokensTable-sectionSubheading">${tokenTypeCategories[categoryKey].displayName}</h3>`;
+            // get all tokens belonging to the category
+            const tokensList = createListOfTokenItems(tokens, path, categoryKey, isGlobal, tokenType);
+
+            // create the tokens list
+            return `${subHeading}${tokensList}`;
+        });
+
+        // combine all headings + lists
+        const combinedMarkup = `${heading}${descriptionMarkup}${innerResult.join('')}`;
+
+        // return parentCategory heading + sub headings and lists
+        return combinedMarkup;
     });
 
-    // all 'chunks' of the tokens table page HTML in a single string
-    return lists.join('');
+    // combine and return all parentCategory lists
+    return result.join('<hr />');
 };
 
-const buildPage = (pathToTokens, path, tokenType) => {
+const buildTokenLists = (pathToTokens, path, tokenType) => {
     const isGlobal = path.includes('global');
     const parentCategoryPath = `${tokenType}.${isGlobal ? 'global' : 'alias'}.parentCategories`;
 
@@ -239,44 +258,7 @@ const buildPage = (pathToTokens, path, tokenType) => {
 
     // if any parent categories
     if (parentCategories) {
-        const parentCategoryKeys = Object.keys(parentCategories);
-        const tokens = objectHelpers.getObjectPropertyByPath(pieDesignTokens, pathToTokens);
-        // for each parent categorey
-        const result = parentCategoryKeys.map(parentCategoryKey => {
-            const { displayName, description } = parentCategories[parentCategoryKey];
-            // create a heading for parent category
-            const heading = `<h2 class="c-tokensTable-sectionHeading">${displayName}</h2>`;
-            const descriptionMarkup = `<p class="c-tokensTable-sectionDescription">${description}</p>`;
-
-            // go find any global or alias category types that have a parentCategory of the current category
-            const tokenTypeCategories = isGlobal
-                ? pieTokenCategories[tokenType].global
-                : pieTokenCategories[tokenType].alias;
-
-            const childCategoryKeys = Object
-                .keys(tokenTypeCategories)
-                .filter(categoryKey => tokenTypeCategories[categoryKey].parentCategory === parentCategoryKey);
-
-            // for each category belonging to the current parentCategory
-            const innerResult = childCategoryKeys.map(categoryKey => {
-                // create a sub heading for the category
-                const subHeading = `<h3 class="c-tokensTable-sectionSubheading">${tokenTypeCategories[categoryKey].displayName}</h3>`;
-                // get all tokens belonging to the category
-                const tokensList = createListOfTokenItems(tokens, path, categoryKey, isGlobal, tokenType);
-
-                // create the tokens list
-                return `${subHeading}${tokensList}`;
-            });
-
-            // combine all headings + lists
-            const combinedMarkup = `${heading}${descriptionMarkup}${innerResult.join('')}`;
-
-            // return parentCategory heading + sub headings and lists
-            return combinedMarkup;
-        });
-
-        // combine and return all parentCategory lists
-        return result.join('<hr />');
+        return buildParentCategoryLists(parentCategories, pathToTokens, path, tokenType, isGlobal);
     }
 
     // if no parent categories
@@ -284,11 +266,31 @@ const buildPage = (pathToTokens, path, tokenType) => {
     return createCategorisedTokenLists(pathToTokens, path, tokenType, isGlobal);
 };
 
+/**
+ * Throws an error listing which configuration properties are missing (if any)
+ * @param {object} config - the configuration object to validate
+ */
+const validateConfiguration = ({ path, tokenType }) => {
+    const invalidParameters = [];
+
+    if (!path) {
+        invalidParameters.push('path');
+    }
+
+    if (!tokenType) {
+        invalidParameters.push('tokenType');
+    }
+
+    if (invalidParameters.length) {
+        throw new Error(`Missing configuration parameters: ${invalidParameters.join(', ')}`);
+    }
+};
+
 // eslint-disable-next-line func-names
 module.exports = function ({ path, tokenType }) {
     validateConfiguration({ path, tokenType });
     const pathToTokens = `theme.jet.${path}`;
-    const lists = buildPage(pathToTokens, path, tokenType);
+    const lists = buildTokenLists(pathToTokens, path, tokenType);
 
     return `<div class="c-tokensTable">${lists}</div>`;
 };

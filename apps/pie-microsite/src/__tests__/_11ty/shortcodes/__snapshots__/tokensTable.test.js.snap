@@ -431,7 +431,7 @@ exports[`tokensTable.js should return the expected HTML 1`] = `
       </div>
       <span class=\\"c-tokensTable-token\\">$color-content-link-visited</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
-      <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #c58af9\\";></div>
+      <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #C58AF9\\";></div>
       <div class=\\"c-tokensTable-content\\">
         <span class=\\"c-tokensTable-displayName\\">Content Link Visited Inverse</span>
       </div>
@@ -891,7 +891,7 @@ exports[`tokensTable.js should return the expected HTML 2`] = `
       </div>
       <span class=\\"c-tokensTable-token\\">$color-system-purple</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
-      <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #c58af9\\";></div>
+      <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #C58AF9\\";></div>
       <div class=\\"c-tokensTable-content\\">
         <span class=\\"c-tokensTable-displayName\\">System Purple 10</span>
       </div>
