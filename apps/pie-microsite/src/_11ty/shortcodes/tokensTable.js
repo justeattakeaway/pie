@@ -68,6 +68,10 @@ const createColorExample = token => {
     return `<div class="${classes.join(' ')}" style="${cssVariable}";></div>`;
 };
 
+const tokenExampleElementHandler = {
+    [tokenTypes.COLOR]: createColorExample
+};
+
 /**
  * Creates an example element to display in the token list item.
  * This could be a color swatch, a representation of border radius or spacing etc.
@@ -76,11 +80,10 @@ const createColorExample = token => {
  * @returns {string} the example HTML string
  */
 const createTokenExampleElement = (token, tokenType) => {
-    switch (tokenType) {
-        case tokenTypes.COLOR:
-            return createColorExample(token);
-        default:
-            throw new Error(`token type not recognised: ${tokenType}. Token:${token}`);
+    try {
+        return tokenExampleElementHandler[tokenType](token);
+    } catch {
+        throw new Error(`token type not recognised: ${tokenType}. Token:${token}`);
     }
 };
 
@@ -288,7 +291,6 @@ const buildPage = (pathToTokens, path, tokenType) => {
 module.exports = function ({ path, tokenType }) {
     validateConfiguration({ path, tokenType });
     const pathToTokens = `theme.jet.${path}`;
-    // const lists = createCategorisedTokenLists(path, tokenType);
     const lists = buildPage(pathToTokens, path, tokenType);
 
     return `<div class="c-tokensTable">${lists}</div>`;
