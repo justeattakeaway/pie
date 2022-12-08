@@ -4,6 +4,7 @@ const tokenTypes = require('../../../_data/tokenTypes');
 describe('tokensTable.js', () => {
     it.each([
         ['color.alias.default', tokenTypes.COLOR],
+        ['color.alias.dark', tokenTypes.COLOR],
         ['color.global', tokenTypes.COLOR]
     ])('should return the expected HTML', (path, tokenType) => {
         // act
