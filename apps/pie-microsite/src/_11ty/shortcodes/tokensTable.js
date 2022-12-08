@@ -1,5 +1,6 @@
 const pieDesignTokens = require('@justeat/pie-design-tokens/dist/tokens.json');
 const pieTokensMetadata = require('../../pieDesignTokensMetadata.json');
+const pieTokenCategories = require('../../pieDesignTokenCategories.json');
 const { stringHelpers, objectHelpers } = require('../../utilities/helpers');
 const tokenTypes = require('../../_data/tokenTypes');
 const { isColorDark } = require('../../utilities/colors');
@@ -180,7 +181,7 @@ const getTokenTypeCategoryMetadata = (isGlobal, tokenType) => {
         ? `${tokenType}.global`
         : `${tokenType}.alias`;
 
-    const categories = objectHelpers.getObjectPropertyByPath(pieTokensMetadata.categoryTypes, categoriesPath);
+    const categories = objectHelpers.getObjectPropertyByPath(pieTokenCategories, categoriesPath);
 
     return categories;
 };
@@ -231,10 +232,10 @@ const createCategorisedTokenLists = (path, tokenType, isGlobal) => {
 
 const buildPage = (path, tokenType) => {
     const isGlobal = path.includes('global');
-    const parentCategoryPath = `categoryTypes.${tokenType}.${isGlobal ? 'global' : 'alias'}.parentCategories`;
+    const parentCategoryPath = `${tokenType}.${isGlobal ? 'global' : 'alias'}.parentCategories`;
 
     // get all parent categories for global or alias
-    const parentCategories = objectHelpers.getObjectPropertyByPath(pieTokensMetadata, parentCategoryPath);
+    const parentCategories = objectHelpers.getObjectPropertyByPath(pieTokenCategories, parentCategoryPath);
 
     // if any parent categories
     if (parentCategories) {
@@ -249,8 +250,8 @@ const buildPage = (path, tokenType) => {
 
             // go find any global or alias category types that have a parentCategory of the current category
             const tokenTypeCategories = isGlobal
-                ? pieTokensMetadata.categoryTypes[tokenType].global
-                : pieTokensMetadata.categoryTypes[tokenType].alias;
+                ? pieTokenCategories[tokenType].global
+                : pieTokenCategories[tokenType].alias;
 
             const childCategoryKeys = Object
                 .keys(tokenTypeCategories)
