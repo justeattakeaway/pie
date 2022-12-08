@@ -1,5 +1,8 @@
 const dree = require('dree');
 
+/*
+// Use the 'dree' library to scan the directory of our built pages
+*/
 exports.getNavigationRoutes = () => {
     const children = dree.scan('./dist/content/pages');
 
@@ -8,7 +11,11 @@ exports.getNavigationRoutes = () => {
     return expectedRoutes;
 };
 
+/*
+// This function gets called recursively so that subdirectories are included as part of our expected routes.
+*/
 const readChildren = (childDirectories, result = []) => {
+    // Ignore directories that don't have subdirectories / files, as these aren't valid routes
     if (!childDirectories.children) {
         return;
     }
@@ -22,6 +29,7 @@ const readChildren = (childDirectories, result = []) => {
         return;
     }
 
+    // Recursively call readChildren() so that subdirectories are added to the array.
     childDirectories.children.forEach(child => {
         readChildren(child, result);
     });
