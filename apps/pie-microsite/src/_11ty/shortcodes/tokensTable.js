@@ -167,8 +167,8 @@ const validateConfiguration = ({ path, tokenType }) => {
 // gets the metadata for all tokens of a given type i.e. all global colors, alias colors
 const getTokenTypeMetadata = (path, isGlobal, tokenType) => {
     const tokensMetadataPath = isGlobal
-        ? `theme.jet.${tokenType}.global`
-        : `theme.jet.${tokenType}.alias.${path.includes('default') ? 'default' : 'dark'}`;
+        ? `${tokenType}.global`
+        : `${tokenType}.alias.${path.includes('default') ? 'default' : 'dark'}`;
 
     const tokensMetadata = objectHelpers.getObjectPropertyByPath(pieTokensMetadata, tokensMetadataPath);
 
@@ -211,9 +211,9 @@ const createListOfTokenItems = (tokens, path, category, isGlobal, tokenType) => 
     return createTokensListSection(tokenListItems);
 };
 
-const createCategorisedTokenLists = (path, tokenType, isGlobal) => {
+const createCategorisedTokenLists = (pathToTokens, path, tokenType, isGlobal) => {
     const categories = getTokenTypeCategoryMetadata(isGlobal, tokenType);
-    const tokens = objectHelpers.getObjectPropertyByPath(pieDesignTokens, path);
+    const tokens = objectHelpers.getObjectPropertyByPath(pieDesignTokens, pathToTokens);
 
     // for each category, create an h2 and a list of token elements to render
     const lists = Object.keys(categories).map((category, index, arr) => {
@@ -230,7 +230,7 @@ const createCategorisedTokenLists = (path, tokenType, isGlobal) => {
     return lists.join('');
 };
 
-const buildPage = (path, tokenType) => {
+const buildPage = (pathToTokens, path, tokenType) => {
     const isGlobal = path.includes('global');
     const parentCategoryPath = `${tokenType}.${isGlobal ? 'global' : 'alias'}.parentCategories`;
 
@@ -240,7 +240,7 @@ const buildPage = (path, tokenType) => {
     // if any parent categories
     if (parentCategories) {
         const parentCategoryKeys = Object.keys(parentCategories);
-        const tokens = objectHelpers.getObjectPropertyByPath(pieDesignTokens, path);
+        const tokens = objectHelpers.getObjectPropertyByPath(pieDesignTokens, pathToTokens);
         // for each parent categorey
         const result = parentCategoryKeys.map(parentCategoryKey => {
             const { displayName, description } = parentCategories[parentCategoryKey];
@@ -281,14 +281,15 @@ const buildPage = (path, tokenType) => {
 
     // if no parent categories
     // proceed as normal
-    return createCategorisedTokenLists(path, tokenType, isGlobal);
+    return createCategorisedTokenLists(pathToTokens, path, tokenType, isGlobal);
 };
 
 // eslint-disable-next-line func-names
 module.exports = function ({ path, tokenType }) {
     validateConfiguration({ path, tokenType });
+    const pathToTokens = `theme.jet.${path}`;
     // const lists = createCategorisedTokenLists(path, tokenType);
-    const lists = buildPage(path, tokenType);
+    const lists = buildPage(pathToTokens, path, tokenType);
 
     return `<div class="c-tokensTable">${lists}</div>`;
 };

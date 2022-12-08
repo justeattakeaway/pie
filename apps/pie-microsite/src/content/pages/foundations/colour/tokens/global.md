@@ -11,7 +11,7 @@ These are the original values in our design language, represented by context-agn
 ---
 
 {% tokensTable {
-    path: 'theme.jet.color.global',
+    path: 'color.global',
     tokenType: tokenTypes.COLOR
 } %}
 
