@@ -80,7 +80,7 @@ const buildTokenExampleElement = (token, tokenType) => {
     const tokenExampleElementHandler = {
         [tokenTypes.COLOR]: buildColorExample
     };
-    
+
     try {
         return tokenExampleElementHandler[tokenType](token);
     } catch {
@@ -235,7 +235,7 @@ const buildCategoryListsWithParents = ({
     parentCategories, path, tokenType, isGlobal, tokens 
 }) => {
     const parentCategoryKeys = Object.keys(parentCategories);
-    const result = parentCategoryKeys.map(parentCategoryKey => {
+    const parentCategoryLists = parentCategoryKeys.map(parentCategoryKey => {
         const allSubcategories = isGlobal
             ? pieTokenCategories[tokenType].global
             : pieTokenCategories[tokenType].alias;
@@ -252,12 +252,11 @@ const buildCategoryListsWithParents = ({
         const { displayName, description } = parentCategories[parentCategoryKey];
         const heading = `<h2 class="c-tokensTable-sectionHeading">${displayName}</h2>`;
         const descriptionMarkup = `<p class="c-tokensTable-sectionDescription">${description}</p>`;
-        const combinedMarkup = `${heading}${descriptionMarkup}${subcategoryTokenLists.join('')}`;
 
-        return combinedMarkup;
+        return `${heading}${descriptionMarkup}${subcategoryTokenLists.join('')}`;
     });
 
-    return result.join('<hr />');
+    return parentCategoryLists.join('<hr />');
 };
 
 /**
