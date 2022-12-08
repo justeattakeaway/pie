@@ -97,6 +97,7 @@ const createTokenPill = tokenScssName => `<span class="c-tokensTable-token">${to
  * @param {string} config.tokenType - the type of design token i.e. color, spacing, radius
  * @param {string} config.tokenScssName - the design token SCSS name i.e. '$color-black'
  * @param {string} config.tokenDisplayName - the display name of the token i.e. 'Black'
+ * @param {object} config.tokenMetadata - the metadata for the token. data such as descriptions
  * @returns {string} the list item HTML string
  */
 const createTokenListItem = ({
@@ -208,6 +209,7 @@ const createListOfTokenItems = (tokens, path, category, isGlobal, tokenType) => 
 
     return createTokensListSection(tokenListItems);
 };
+
 const createCategorisedTokenLists = (path, tokenType, isGlobal) => {
     const categories = getTokenTypeCategoryMetadata(isGlobal, tokenType);
     const tokens = objectHelpers.getObjectPropertyByPath(pieDesignTokens, path);
