@@ -33,6 +33,13 @@
     }
 }
 
+.c-contentPage-header--hero {
+    background-image: var(--hero-img-src);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
 .c-contentPage-header-subheading {
     @include f.font-size('heading-s');
     margin-top: f.spacing(e);
