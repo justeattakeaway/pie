@@ -1,7 +1,8 @@
+{% set heroSrc = '/assets/img/' + heroImageSrc | url %}
 <div class="c-contentPage">
     <div
         class="c-contentPage-header {% if heroImageSrc %}c-contentPage-header--hero{% endif %}"
-        {% if heroImageSrc %} style="--hero-img-src: url({{ '/assets/img/' + heroImageSrc | url }})" {% endif %}>
+        {% if heroImageSrc %} style="--hero-img-src: url({{heroSrc}})" {% endif %}>
         <h1 class="alpha--standout">
             {{ title }}
         </h1>
