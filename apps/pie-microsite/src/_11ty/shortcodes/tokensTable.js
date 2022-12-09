@@ -54,11 +54,9 @@ const splitColorToken = token => {
  */
 const buildColorExample = token => {
     const tokenValues = splitColorToken(token);
-    let cssVariable = `--example-background-color: ${tokenValues.hexcode}`;
     const classes = ['c-tokensTable-example'];
 
     if (tokenValues.opacity) {
-        cssVariable = `--example-checked-opacity: ${tokenValues.opacity}`;
         classes.push('c-tokensTable-example--checked');
     }
 
@@ -66,8 +64,13 @@ const buildColorExample = token => {
         classes.push('c-tokensTable-example--bordered');
     }
 
+    const cssVariable = tokenValues.opacity
+        ? `--example-checked-opacity: ${tokenValues.opacity}`
+        : `--example-background-color: ${tokenValues.hexcode}`;
+
     return `<div class="${classes.join(' ')}" style="${cssVariable}";></div>`;
 };
+
 
 /**
  * Builds an example element to display in the token list item.
