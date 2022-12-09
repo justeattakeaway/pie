@@ -26,7 +26,7 @@ const createTokenDisplayName = (tokenKey, tokenType) => {
     const prefixExcludes = [tokenTypes.COLOR];
     const shouldShowPrefix = tokenType && !prefixExcludes.includes(tokenType);
     const tokenNameSegments = tokenKey.split('-');
-    const capitalisedNameSegments = tokenNameSegments.map(nameSegment => stringHelpers.capitaliseFirstLetter(nameSegment));
+    const capitalisedNameSegments = tokenNameSegments.map(stringHelpers.capitaliseFirstLetter);
 
     return shouldShowPrefix
         ? `${stringHelpers.capitaliseFirstLetter(tokenType)} ${capitalisedNameSegments.join(' ')}`
@@ -84,12 +84,13 @@ const buildTokenExampleElement = (token, tokenType) => {
         [tokenTypes.COLOR]: buildColorExample
     };
 
-    try {
-        return tokenExampleElementHandler[tokenType](token);
-    } catch {
+    if (!tokenExampleElementHandler[tokenType]) {
         throw new Error(`token type not recognised: ${tokenType}. Token:${token}`);
     }
+
+    return tokenExampleElementHandler[tokenType](token);
 };
+
 
 /**
  * Builds a token pill element to display the SCSS token name in the token list item.
@@ -182,7 +183,7 @@ const buildCategorisedLists = ({
     const categories = objectHelpers.getObjectPropertyByPath(pieTokenCategories, path);
 
     // for each category, create an h2 and a list of token elements to render
-    const lists = Object.keys(categories).map(category => {
+    const categoryTokenLists = Object.keys(categories).map(category => {
         const heading = `<h2>${categories[category].displayName}</h2>`;
         const tokensList = buildTokensListForCategory(tokens, path, category, tokenType);
 
@@ -191,7 +192,7 @@ const buildCategorisedLists = ({
     });
 
     // all 'chunks' of the tokens table page HTML in a single string
-    return lists.join('<hr />');
+    return categoryTokenLists.join('<hr />');
 };
 
 /**
@@ -207,13 +208,10 @@ const getTokenTypeMetadata = path => objectHelpers.getObjectPropertyByPath(pieTo
  * @param {object} tokenTypeMetadata 
  * @returns {string[]}
  */
-const getTokensForCategory = (category, tokenTypeMetadata) => {
-    const tokensForCategory = Object
-      .keys(tokenTypeMetadata)
-      .filter(token => tokenTypeMetadata[token].category === category);
+const getTokensForCategory = (category, tokenTypeMetadata) => Object
+    .keys(tokenTypeMetadata)
+    .filter(token => tokenTypeMetadata[token].category === category);
 
-    return tokensForCategory;
-};
 
 /**
  * Gets all subcategory keys for a given parent category
@@ -221,13 +219,9 @@ const getTokensForCategory = (category, tokenTypeMetadata) => {
  * @param {string} parentCategoryKey 
  * @returns 
  */
-const getSubcategoriesForParentCategory = (tokenTypeCategories, parentCategoryKey) => {
-    const subcategoryKeys = Object
-            .keys(tokenTypeCategories)
-            .filter(categoryKey => tokenTypeCategories[categoryKey].parentCategory === parentCategoryKey);
-
-    return subcategoryKeys;
-};
+const getSubcategoriesForParentCategory = (tokenTypeCategories, parentCategoryKey) => Object
+          .keys(tokenTypeCategories)
+          .filter(categoryKey => tokenTypeCategories[categoryKey].parentCategory === parentCategoryKey);
 
 /**
  * Builds a list of tokens that are categorised by parent and subcategory
@@ -237,16 +231,15 @@ const getSubcategoriesForParentCategory = (tokenTypeCategories, parentCategoryKe
 const buildCategoryListsWithParents = ({
     parentCategories, path, tokenType, isGlobal, tokens 
 }) => {
-    const parentCategoryKeys = Object.keys(parentCategories);
-    const parentCategoryLists = parentCategoryKeys.map(parentCategoryKey => {
-        const allSubcategories = isGlobal
-            ? pieTokenCategories[tokenType].global
-            : pieTokenCategories[tokenType].alias;
+    const subcategories = isGlobal
+        ? pieTokenCategories[tokenType].global
+        : pieTokenCategories[tokenType].alias;
 
-        const subcategoryKeys = getSubcategoriesForParentCategory(allSubcategories, parentCategoryKey);
+    const parentCategoryLists = Object.keys(parentCategories).map(parentCategoryKey => {
+        const subcategoryKeys = getSubcategoriesForParentCategory(subcategories, parentCategoryKey);
 
         const subcategoryTokenLists = subcategoryKeys.map(categoryKey => {
-            const subHeading = `<h3 class="c-tokensTable-sectionSubheading">${allSubcategories[categoryKey].displayName}</h3>`;
+            const subHeading = `<h3 class="c-tokensTable-sectionSubheading">${subcategories[categoryKey].displayName}</h3>`;
             const tokensList = buildTokensListForCategory(tokens, path, categoryKey, tokenType);
 
             return `${subHeading}${tokensList}`;
@@ -262,6 +255,7 @@ const buildCategoryListsWithParents = ({
     return parentCategoryLists.join('<hr />');
 };
 
+
 /**
  * Builds all of the token lists for a given token type
  * @param {string} pathToTokens 
@@ -272,8 +266,7 @@ const buildCategoryListsWithParents = ({
 const buildTokenLists = (path, tokenType) => {
     const isGlobal = path.includes('global');
     const tokens = objectHelpers.getObjectPropertyByPath(pieDesignTokens, `theme.jet.${path}`);
-    const parentCategoryPath = `${tokenType}.${isGlobal ? 'global' : 'alias'}.parentCategories`;
-    const parentCategories = getParentCategoriesForTokenType(parentCategoryPath);
+    const parentCategories = getParentCategoriesForTokenType(`${tokenType}.${isGlobal ? 'global' : 'alias'}.parentCategories`);
 
     const config = {
         parentCategories,
@@ -283,11 +276,9 @@ const buildTokenLists = (path, tokenType) => {
         tokens
     };
 
-    if (parentCategories) {
-        return buildCategoryListsWithParents(config);
-    }
-
-    return buildCategorisedLists(config);
+    return parentCategories 
+        ? buildCategoryListsWithParents(config) 
+        : buildCategorisedLists(config);
 };
 
 /**
