@@ -1,5 +1,6 @@
-{% set heroSrc = '/assets/img/heroes/' + heroImageSrc %}
-
+{% set heroSrc = ('/assets/img/heroes/' + heroImageSrc) | prefixedUrl | url %}
+{{ heroImageSrc | dump }}
+{{ heroSrc | dump }}
 <div class="c-contentPage">
     <div
         class="c-contentPage-header {% if heroImageSrc %}c-contentPage-header--hero{% endif %}"

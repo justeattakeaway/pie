@@ -2,6 +2,7 @@ const pieIconsSvg = require('./pieIconsSvg');
 const pieDesignTokenColours = require('./pieDesignTokenColours');
 const removeUrlSlug = require('./removeUrlSlug');
 const markdown = require('./markdown');
+const prefixedUrl = require('./prefixedUrl');
 
 /**
  * Adds all 11ty filters
@@ -12,6 +13,7 @@ const addAllFilters = eleventyConfig => {
     eleventyConfig.addFilter('pieDesignTokenColours', pieDesignTokenColours);
     eleventyConfig.addFilter('removeUrlSlug', removeUrlSlug);
     eleventyConfig.addFilter('markdown', markdown);
+    eleventyConfig.addFilter('prefixedUrl', prefixedUrl);
 };
 
 module.exports = {
