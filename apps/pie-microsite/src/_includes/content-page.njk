@@ -1,4 +1,5 @@
-{% set heroSrc = ('/assets/img/heroes/' + heroImageSrc) | url %}
+{% set heroSrc = ['/assets/img/heroes/', heroImageSrc] | join | url %}
+{{ heroSrc | dump }}
 
 <div class="c-contentPage">
     <div
@@ -28,3 +29,4 @@
         </div>
     {% endif %}
 </div>
+
