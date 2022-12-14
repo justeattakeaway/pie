@@ -39,14 +39,18 @@
     background-repeat: no-repeat;
     background-position-x: 5%;
 
-    @include f.media('>mid') {
+    @include f.media('>=narrowMid') {
         background-position: center;
     }
 }
 
 .c-contentPage-header--hero .c-contentPage-header-heading,
 .c-contentPage-header--hero .c-contentPage-header-subheading {
-    @include f.media('>mid') {
+    @include f.media('>=narrowMid') {
+        max-width: 60%;
+    }
+
+    @include f.media('>wide') {
         max-width: 55%;
     }
 }
