@@ -37,7 +37,10 @@
     background-image: var(--hero-img-src);
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: 0% 50%;
+    background-position-x: 5%;
+    @include f.media('>narrowMid') {
+        background-position: center;
+    }
 }
 
 .c-contentPage-header--hero .c-contentPage-header-heading,
