@@ -38,6 +38,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position-x: 5%;
+    
     @include f.media('>narrowMid') {
         background-position: center;
     }
