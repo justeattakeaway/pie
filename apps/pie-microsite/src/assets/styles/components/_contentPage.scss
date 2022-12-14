@@ -37,7 +37,14 @@
     background-image: var(--hero-img-src);
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center center;
+    background-position: 0% 50%;
+}
+
+.c-contentPage-header--hero .c-contentPage-header-heading,
+.c-contentPage-header--hero .c-contentPage-header-subheading {
+    @include f.media('>narrowMid') {
+        max-width: 55%;
+    }
 }
 
 .c-contentPage-header-subheading {
