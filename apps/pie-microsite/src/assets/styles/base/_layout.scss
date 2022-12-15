@@ -6,14 +6,15 @@
     grid-template: 64px 1fr max-content / 260px 1fr;
     grid-template-areas:
         'header header'
-        'nav main'
-        'nav footer';
+        'main main'
+        'footer footer';
 
-    @include f.media('<=narrowMid') {
+    // wider screen grid layout
+    @include f.media('>mid') {
         grid-template-areas:
             'header header'
-            'main main'
-            'footer footer';
+            'nav main'
+            'nav footer';
     }
 }
 
@@ -24,7 +25,7 @@
 .c-nav {
     grid-area: nav;
 
-    @include f.media('<=narrowMid') {
+    @include f.media('<=mid') {
         grid-area: main;
         grid-row-end: 5;
     }
@@ -41,7 +42,7 @@
 
 .c-main,
 .c-footer {
-    @include f.media('<=narrowMid') {
+    @include f.media('<=mid') {
         z-index: f.zIndex(low);
     }
 }

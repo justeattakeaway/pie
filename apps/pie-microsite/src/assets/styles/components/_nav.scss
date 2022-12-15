@@ -16,11 +16,11 @@ $nav-item-active-left-padding:        calc($nav-item-left-padding - $nav-item-ac
     padding: 0;
   }
 
-  @include f.media('>narrowMid') {
+  @include f.media('>mid') {
     border-right: 1px solid f.$color-border-default;
   }
 
-  @include f.media('<=narrowMid') {
+  @include f.media('<=mid') {
     max-width: 80%;
     position: relative;
     z-index: f.zIndex(high);

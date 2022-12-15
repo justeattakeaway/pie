@@ -8,7 +8,7 @@
     padding: f.spacing(h) f.spacing(d);
     background-color: f.$color-background-default;
 
-    @include f.media('>narrowMid') {
+    @include f.media('>mid') {
         padding-left: f.spacing(i);
         padding-right: f.spacing(i);
     }
