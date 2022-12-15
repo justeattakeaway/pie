@@ -215,9 +215,11 @@ const buildCategoryListsWithParents = ({
         ? pieTokenCategories[tokenType].global
         : pieTokenCategories[tokenType].alias;
 
+    // for each parent category, create a list of tokens with a heading and description
     const parentCategoryLists = Object.keys(parentCategories).map(parentCategoryKey => {
         const subcategoryKeys = getSubcategoriesForParentCategory(subcategories, parentCategoryKey);
 
+        // for each subCategory, create a list of tokens with a subheading
         const subcategoryTokenLists = subcategoryKeys.map(categoryKey => {
             const subHeading = `<h3 class="c-tokensTable-sectionSubheading">${subcategories[categoryKey].displayName}</h3>`;
             const tokensList = buildTokensListForCategory(tokens, path, categoryKey, tokenType);
@@ -225,13 +227,16 @@ const buildCategoryListsWithParents = ({
             return `${subHeading}${tokensList}`;
         });
 
+        // create heading and description for parent category
         const { displayName, description } = parentCategories[parentCategoryKey];
         const heading = `<h2 class="c-tokensTable-sectionHeading">${displayName}</h2>`;
         const descriptionMarkup = `<p class="c-tokensTable-sectionDescription">${description}</p>`;
 
+        // return heading, description and lists
         return `${heading}${descriptionMarkup}${subcategoryTokenLists.join('')}`;
     });
 
+    // Add a divider to the bottom of the list
     return parentCategoryLists.join('<hr />');
 };
 
