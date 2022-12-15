@@ -8,7 +8,7 @@ $headerInlinePadding:   20px;
     background-color: f.$color-support-brand-06;
     padding: f.spacing(d);
 
-    @include f.media('<=narrowMid') {
+    @include f.media('<=mid') {
         padding-left: calc($headerInlinePadding + $navToggleWidth + $headerInlinePadding);
     }
 }

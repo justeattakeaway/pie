@@ -44,7 +44,7 @@ $tabs-link-padding:                f.spacing(d);
     }
   }
 
-  @include f.media('<=narrowMid') {
+  @include f.media('<=mid') {
     position: sticky;
     top: 0;
     background-color: f.$color-container-default;
