@@ -92,7 +92,8 @@ $tokensTable-border-width: 1px;
         border-radius: 0;
         border-width: 0 0 $tokensTable-border-width 0;
 
-        // Remove bottom border for final item in non-section token lists and the final item in section token lists
+        // Any final token item at the end of a parent category list should not have a bottom border
+        // In pages where there are no parent categories, there should not be a bottom border on the final item in each list either
         &:last-of-type:not(.c-tokensTable-sectionSubheading ~ .c-tokensTable-list .c-tokensTable-item),
         .c-tokensTable-list:has(+ hr) &:last-of-type {
             border-width: 0;
@@ -143,6 +144,7 @@ $tokensTable-border-width: 1px;
     &:not(:first-of-type) {
         margin-top: f.spacing(i);
         position: relative;
+        // adds a visual divider above subheadings on mobile to add a bit of separation
         &:before {
             content: '';
             position: absolute;
