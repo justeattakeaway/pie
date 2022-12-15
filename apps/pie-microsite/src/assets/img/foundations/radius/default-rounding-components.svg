@@ -72,7 +72,7 @@
         </filter>
         <filter id="e" x="373.229" y=".292" width="176.042" height="204.479" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
             <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-            <feC    olorMatrix in="SourceAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+            <feColorMatrix in="SourceAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
             <feOffset dy="2.708"/>
             <feGaussianBlur stdDeviation="2.031"/>
             <feColorMatrix values="0 0 0 0 0.105882 0 0 0 0 0.137255 0 0 0 0 0.141176 0 0 0 0.04 0"/>
