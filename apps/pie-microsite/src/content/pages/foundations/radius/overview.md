@@ -17,7 +17,7 @@ These include:
 
 ### Partial rounding
 
-This group includes all radiuses that maintain the component’s proportions by partially rounding their edges. We use multiples of 4px/pt/dp to set the levels of roundness.
+This group includes all radii that maintain the component’s proportions by partially rounding their edges. We use multiples of 4px/pt/dp to set the levels of roundness.
 
 {% contentPageImage {
     src:"../../../../../assets/img/foundations/radius/default-rounding.svg",
