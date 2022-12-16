@@ -78,6 +78,6 @@ Full rounding should be used sparingly, trying to only assign it to elements tha
 
 {% contentPageImage {
     src:"../../../../../assets/img/foundations/radius/full-rounding-components.svg",
-    width: "396px",
+    width: "391px",
     caption: "The example above shows some components which use full rounding as part of their design."
 } %}
