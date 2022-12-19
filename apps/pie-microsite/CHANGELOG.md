@@ -12,6 +12,7 @@ v1.28.0
 - Radius overview page
 - Radius tabs
 - svgs for radius pages
+- prefetch for `home-hero` and `coming-soon` images
 
 
 v1.27.0
