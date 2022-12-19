@@ -12,7 +12,6 @@ v1.27.0
 - Commented out GTM script until we have a privacy policy and cookie banner in place
 
 
-
 v1.26.0
 ------------------------------
 *December 14, 2022*
