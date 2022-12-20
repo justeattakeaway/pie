@@ -2,5 +2,5 @@
 eleventyNavigation:
     key: Radius
     parent: Foundations
-title: Radius
+    url: /content/pages/foundations/radius/overview/
 ---
