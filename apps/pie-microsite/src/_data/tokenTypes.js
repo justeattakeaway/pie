@@ -5,5 +5,6 @@
  */
 module.exports = {
     COLOR: 'color',
+    RADIUS: 'radius',
     SPACING: 'spacing'
 };

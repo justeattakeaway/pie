@@ -3,6 +3,37 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+
+v1.28.0
+------------------------------
+*December 19, 2022*
+
+### Added
+- Radius overview page
+- Radius tabs
+- svgs for radius pages
+- prefetch for `home-hero` and `coming-soon` images
+
+
+v1.27.0
+------------------------------
+*December 19, 2022*
+### Changed
+- Commented out GTM script until we have a privacy policy and cookie banner in place
+
+
+v1.26.0
+------------------------------
+*December 14, 2022*
+
+### Added
+- Background image to hero section of content pages and home page
+- Home page image
+
+### Changed
+- Increased small screen styling media query from `narrowMid` to `mid` to fix awkward tablet styling
+
+
 v1.25.0
 ------------------------------
 *December 2, 2022*

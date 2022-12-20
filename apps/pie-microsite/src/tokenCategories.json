@@ -1,0 +1,104 @@
+{
+  "color": {
+    "global": {
+      "whiteBlack": {
+        "displayName": "White and Black"
+      },
+      "orange": {
+        "displayName": "Orange"
+      },
+      "blue": {
+        "displayName": "Blue"
+      },
+      "red": {
+        "displayName": "Red"
+      },
+      "yellow": {
+        "displayName": "Yellow"
+      },
+      "green": {
+        "displayName": "Green"
+      },
+      "purple": {
+        "displayName": "Purple"
+      },
+      "mozzarella": {
+        "displayName": "Mozzarella"
+      },
+      "charcoal": {
+        "displayName": "Charcoal"
+      },
+      "system": {
+        "displayName": "System"
+      }
+    },
+    "alias": {
+      "parentCategories": {
+        "elementary": {
+          "displayName": "Elementary",
+          "description": "Basic alias colour tokens for the basic building blocks of our products, including backgrounds, borders and dividers."
+        },
+        "supportiveFeedback": {
+          "displayName": "Supportive Feedback",
+          "description": "Alias colour tokens used to add meaning and brand our products."
+        },
+        "content": {
+          "displayName": "Content",
+          "description": "Alias colour tokens used for text and icons only."
+        },
+        "reactive": {
+          "displayName": "Reactive",
+          "description": "Alias colour tokens used to represent state changes and loading animations in components."
+        }
+      },
+      "pageBackgrounds": {
+        "displayName": "Page Backgrounds",
+        "parentCategory": "elementary"
+      },
+      "containerBackgrounds": {
+        "displayName": "Container Backgrounds",
+        "parentCategory": "elementary"
+      },
+      "interactiveBackgrounds": {
+        "displayName": "Interactive Backgrounds",
+        "parentCategory": "elementary"
+      },
+      "borders": {
+        "displayName": "Borders",
+        "parentCategory": "elementary"
+      },
+      "dividers": {
+        "displayName": "Dividers",
+        "parentCategory": "elementary"
+      },
+      "feedback": {
+        "displayName": "Feedback",
+        "parentCategory": "supportiveFeedback"
+      },
+      "brand": {
+        "displayName": "Brand",
+        "parentCategory": "supportiveFeedback"
+      },
+      "static": {
+        "displayName": "Static",
+        "parentCategory": "content"
+      },
+      "interactive": {
+        "displayName": "Interactive",
+        "parentCategory": "content"
+      },
+      "link": {
+        "displayName": "Link",
+        "parentCategory": "content"
+      },
+      "states": {
+        "displayName": "States",
+        "parentCategory": "reactive"
+      },
+      "skeleton": {
+        "displayName": "Skeleton",
+        "parentCategory": "reactive"
+      }
+    }
+  }
+}
