@@ -4,6 +4,16 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 
+v1.29.0
+------------------------------
+*January 3, 2023*
+
+### Added
+- Typography page folder and overview page content
+- Typography page assets (not all SVGs have been optimised because we are likely going to update images soon with properly optimised ones)
+- New `deindentHTML` shortcode utility function to allow us to use proper indentation when writing shortcodes without causing markdown rendering issues
+
+
 v1.28.0
 ------------------------------
 *December 19, 2022*
