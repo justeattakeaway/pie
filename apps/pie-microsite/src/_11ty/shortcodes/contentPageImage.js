@@ -27,9 +27,11 @@ module.exports = function (config) {
 
     return `<figure class="${figureClasses.join(' ')}">
         <div class="c-contentImage-backdrop">
-          <picture>${config.mobileSrc ? `<source ${imageStyles} media="(max-width: 600px)" srcset="${config.mobileSrc}">` : ''}
+          <picture>
+            ${config.mobileSrc ? `<source ${imageStyles} media="(max-width: 600px)" srcset="${config.mobileSrc}">` : ''}
             <img ${imageStyles} src="${config.src}" ${config.alt ? `alt="${config.alt}"` : ''}> 
           </picture>
-        </div>${createCaption(config)}
+        </div>
+        ${createCaption(config)}
       </figure>`;
 };
