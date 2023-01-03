@@ -10,11 +10,15 @@ v1.29.0
 
 ### Added
 - Typography page folder and overview page content
+- Scaffolding for the typography token and code pages (no content yet)
 - Typography page assets (not all SVGs have been optimised because we are likely going to update images soon with properly optimised ones)
 - New `deindentHTML` shortcode utility function to allow us to use proper indentation when writing shortcodes without causing markdown rendering issues
 
 ### Changed
 - Add multiple image support to the `contentPageImage` shortcode for pages that require swapping images based on screen size. I.e. 1 image for wide, another for narrow.
+
+### Removed
+- `codesandbox` and `storybook` example shortcodes
 
 
 v1.28.0
