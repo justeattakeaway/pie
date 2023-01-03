@@ -13,6 +13,7 @@ This is our primary font family.
 
 {% contentPageImage {
     src:"../../../../../assets/img/foundations/typography/jet-sans-digital.svg",
+    width: "100px",
     caption: "This is a placeholder caption"
 } %}
 
@@ -21,6 +22,7 @@ Used only as a fallback font.
 
 {% contentPageImage {
 src:"../../../../../assets/img/foundations/typography/arial.svg",
+width: "98px",
 caption: "This is a placeholder caption"
 } %}
 
@@ -29,6 +31,7 @@ Used only for snippets of code.
 
 {% contentPageImage {
     src:"../../../../../assets/img/foundations/typography/cp-mono.svg",
+    width: "105px",
     caption: "This is a placeholder caption"
 } %}
 
@@ -56,6 +59,7 @@ Screen size: >768px<br />Text size: 28px • Line size: 36px
 
 {% contentPageImage {
     src:"../../../../../assets/img/foundations/typography/responsive-wide.svg",
+    width: "80px",
     caption: "The example above shows how a $heading-L looks on a wide screen."
 } %}
 
@@ -64,6 +68,7 @@ Screen size: <768px<br />Text size: 24px • Line size: 32px
 
 {% contentPageImage {
     src:"../../../../../assets/img/foundations/typography/responsive-narrow.svg",
+    width: "68px",
     caption: "The example above shows how a $heading-L looks on a narrow screen."
 } %}
 
@@ -82,19 +87,22 @@ Font weight refers to a value assigned to your font which determines how bold or
 ### Extra-bold
 
 {% contentPageImage {
-    src:"../../../../../assets/img/foundations/typography/font-weight-extra-bold.svg"
+    src:"../../../../../assets/img/foundations/typography/font-weight-extra-bold.svg",
+    width: "100px"
 } %}
 
 ### Bold
 
 {% contentPageImage {
-    src:"../../../../../assets/img/foundations/typography/font-weight-bold.svg"
+    src:"../../../../../assets/img/foundations/typography/font-weight-bold.svg",
+    width: "96px"
 } %}
 
 ### Regular
 
 {% contentPageImage {
-    src:"../../../../../assets/img/foundations/typography/font-weight-regular.svg"
+    src:"../../../../../assets/img/foundations/typography/font-weight-regular.svg",
+    width: "91px"
 } %}
 
 Font weights are important when adding emphasis and hierarchy to your designs. A bold font weight will always draw the user’s attention more than a lighter weight. When using both weights in your paragraphs be mindful of this guidance to ensure you create the correct balance.
@@ -109,13 +117,18 @@ Font styles refer to the text decorations used to emphasise different features o
 ### Underline
 We use underlines for interactive elements such as links, especially when they are placed inside a block of text.
 
-IMAGE HERE
+{% contentPageImage {
+    src:"../../../../../assets/img/foundations/typography/underline.svg",
+    width: "91px",
+    caption: "The example above shows how JET Sans Digital looks when underlined."
+} %}
 
 ### Strikethrough
 We use this style when indicating something is no longer valid, but can still be read by users so they can understand the context.
 
 {% contentPageImage {
     src:"../../../../../assets/img/foundations/typography/strikethrough.svg",
+    width: "91px",
     caption: "The example above shows how JET Sans Digital looks as a strikethrough."
 } %}
 
@@ -128,21 +141,24 @@ This property defines the horizontal alignment of the text. It includes three ty
 This is the preferred way to align text within our products. Left-aligned text performs better for readers because it helps the users to easily identify the start of a new line.
 
 {% contentPageImage {
-src:"../../../../../assets/img/foundations/typography/left-aligned.svg"
+src:"../../../../../assets/img/foundations/typography/left-aligned.svg",
+width: "248px"
 } %}
 
 ### Centre aligned
 This alignment should be used sparingly, and should never be considered as the primary way to align text in our designs, unless there is a specific need for it to be used.
 
 {% contentPageImage {
-    src:"../../../../../assets/img/foundations/typography/centre-aligned.svg"
+    src:"../../../../../assets/img/foundations/typography/centre-aligned.svg",
+    width: "248px"
 } %}
 
 ### Right aligned
 This alignment should also be used sparingly. This approach is usually found in chunks of complex numeric data, where alignment of the decimals is key to assist readability.
 
 {% contentPageImage {
-    src:"../../../../../assets/img/foundations/typography/right-aligned.svg"
+    src:"../../../../../assets/img/foundations/typography/right-aligned.svg",
+    width: "248px"
 } %}
 
 ---
@@ -153,6 +169,7 @@ Setting the right line length is key to the readability of the text in our produ
 
 {% contentPageImage {
     src:"../../../../../assets/img/foundations/typography/line-length.svg",
+    width: "771.4px",
     caption: "Visual representation of the most common line lenghts in our products."
 } %}
 
@@ -165,21 +182,24 @@ It represents the amount of white spacing between two paragraphs of your text. K
 This is the most commonly used paragraph spacing measure. It uses <b>16px</b> between paragraphs.
 
 {% contentPageImage {
-    src:"../../../../../assets/img/foundations/typography/paragraph-spacing-one.svg"
+    src:"../../../../../assets/img/foundations/typography/paragraph-spacing-one.svg",
+    width: "235px"
 } %}
 
 ### Paragraph Spacing 2
 A paragraph spacing measure used for longer bits of text where spacing is key. It uses <b>14px</b> between paragraphs.
 
 {% contentPageImage {
-    src:"../../../../../assets/img/foundations/typography/paragraph-spacing-two.svg"
+    src:"../../../../../assets/img/foundations/typography/paragraph-spacing-two.svg",
+    width: "235px"
 } %}
 
 ### Paragraph Spacing 3
 An exceptional measure used only where the other options pose a problem to the overall layout.  It uses <b>12px</b> between paragraphs.
 
 {% contentPageImage {
-    src:"../../../../../assets/img/foundations/typography/paragraph-spacing-three.svg"
+    src:"../../../../../assets/img/foundations/typography/paragraph-spacing-three.svg",
+    width: "235px"
 } %}
 
 ---
