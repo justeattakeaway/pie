@@ -11,24 +11,36 @@ We use three different font families for our products and communications. These 
 ### JET Sans Digital
 This is our primary font family.
 
-IMAGE HERE
+{% contentPageImage {
+    src:"../../../../../assets/img/foundations/typography/jet-sans-digital.svg",
+    caption: "This is a placeholder caption"
+} %}
 
 ### Arial
 Used only as a fallback font.
 
-IMAGE HERE
+{% contentPageImage {
+src:"../../../../../assets/img/foundations/typography/arial.svg",
+caption: "This is a placeholder caption"
+} %}
 
 ### CP Mono
 Used only for snippets of code.
 
-IMAGE HERE
+{% contentPageImage {
+    src:"../../../../../assets/img/foundations/typography/cp-mono.svg",
+    caption: "This is a placeholder caption"
+} %}
 
 ---
 
 ## Our type scale
 We use multiples of 4 within our type scale for both type sizes as well as line height, so that it aligns to our 4px vertical grid.
 
-IMAGE HERE
+{% contentPageImage {
+    type: "spread",
+    src:"../../../../../assets/img/foundations/typography/type-scale.svg"
+} %}
 
 ---
 
@@ -41,18 +53,24 @@ Here’s an example of how our $heading-L looks on wide and narrow screens:
 
 Screen size: >768px<br />Text size: 28px • Line size: 36px
 
-IMAGE HERE
+{% contentPageImage {
+    src:"../../../../../assets/img/foundations/typography/responsive-wide.svg",
+    caption: "The example above shows how a $heading-L looks on a wide screen."
+} %}
 
 ### Narrow screens
 Screen size: <768px<br />Text size: 24px • Line size: 32px
 
-IMAGE HERE
+{% contentPageImage {
+    src:"../../../../../assets/img/foundations/typography/responsive-narrow.svg",
+    caption: "The example above shows how a $heading-L looks on a narrow screen."
+} %}
 
 <b>Only our Heading and Subheading typographic styles are responsive.</b> Our body styles share the same values regardless of the size of the screen they’re being displayed in.
 
 {% notification {
-type: "information",
-message: "When creating screens in Figma, make sure you choose the right token depending on the size of the frame you’re working on."
+    type: "information",
+    message: "When creating screens in Figma, make sure you choose the right token depending on the size of the frame you’re working on."
 } %}
 
 ---
@@ -62,15 +80,21 @@ Font weight refers to a value assigned to your font which determines how bold or
 
 ### Extra-bold
 
-IMAGE HERE
+{% contentPageImage {
+    src:"../../../../../assets/img/foundations/typography/font-weight-extra-bold.svg"
+} %}
 
 ### Bold
 
-IMAGE HERE
+{% contentPageImage {
+    src:"../../../../../assets/img/foundations/typography/font-weight-bold.svg"
+} %}
 
 ### Regular
 
-IMAGE HERE
+{% contentPageImage {
+    src:"../../../../../assets/img/foundations/typography/font-weight-regular.svg"
+} %}
 
 Font weights are important when adding emphasis and hierarchy to your designs. A bold font weight will always draw the user’s attention more than a lighter weight. When using both weights in your paragraphs be mindful of this guidance to ensure you create the correct balance.
 
@@ -89,7 +113,10 @@ IMAGE HERE
 ### Strikethrough
 We use this style when indicating something is no longer valid, but can still be read by users so they can understand the context.
 
-IMAGE HERE
+{% contentPageImage {
+    src:"../../../../../assets/img/foundations/typography/strikethrough.svg",
+    caption: "The example above shows how JET Sans Digital looks as a strikethrough."
+} %}
 
 ---
 
@@ -99,17 +126,23 @@ This property defines the horizontal alignment of the text. It includes three ty
 ### Left aligned
 This is the preferred way to align text within our products. Left-aligned text performs better for readers because it helps the users to easily identify the start of a new line.
 
-IMAGE HERE
+{% contentPageImage {
+src:"../../../../../assets/img/foundations/typography/left-aligned.svg"
+} %}
 
 ### Centre aligned
 This alignment should be used sparingly, and should never be considered as the primary way to align text in our designs, unless there is a specific need for it to be used.
 
-IMAGE HERE
+{% contentPageImage {
+    src:"../../../../../assets/img/foundations/typography/centre-aligned.svg"
+} %}
 
 ### Right aligned
 This alignment should also be used sparingly. This approach is usually found in chunks of complex numeric data, where alignment of the decimals is key to assist readability.
 
-IMAGE HERE
+{% contentPageImage {
+    src:"../../../../../assets/img/foundations/typography/right-aligned.svg"
+} %}
 
 ---
 
@@ -117,7 +150,10 @@ IMAGE HERE
 Setting the right line length is key to the readability of the text in our products. With that in mind, a good practice is to keep the lenght between 80 and 100 characters per line, with a minimum of 60.
 
 
-IMAGE HERE
+{% contentPageImage {
+    src:"../../../../../assets/img/foundations/typography/line-length.svg",
+    caption: "Visual representation of the most common line lenghts in our products."
+} %}
 
 ---
 
@@ -127,15 +163,23 @@ It represents the amount of white spacing between two paragraphs of your text. K
 ### Paragraph Spacing 1
 This is the most commonly used paragraph spacing measure. It uses <b>16px</b> between paragraphs.
 
-IMAGE HERE
+{% contentPageImage {
+    src:"../../../../../assets/img/foundations/typography/paragraph-spacing-one.svg"
+} %}
 
 ### Paragraph Spacing 2
 A paragraph spacing measure used for longer bits of text where spacing is key. It uses <b>14px</b> between paragraphs.
 
-IMAGE HERE
+{% contentPageImage {
+    src:"../../../../../assets/img/foundations/typography/paragraph-spacing-two.svg"
+} %}
 
 ### Paragraph Spacing 3
 An exceptional measure used only where the other options pose a problem to the overall layout.  It uses <b>12px</b> between paragraphs.
+
+{% contentPageImage {
+    src:"../../../../../assets/img/foundations/typography/paragraph-spacing-three.svg"
+} %}
 
 ---
 
