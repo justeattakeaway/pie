@@ -39,7 +39,8 @@ We use multiples of 4 within our type scale for both type sizes as well as line 
 
 {% contentPageImage {
     type: "spread",
-    src:"../../../../../assets/img/foundations/typography/type-scale.svg"
+    src:"../../../../../assets/img/foundations/typography/type-scale.svg",
+    mobileSrc:"../../../../../assets/img/foundations/typography/type-scale-mobile.svg"
 } %}
 
 ---
