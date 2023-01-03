@@ -17,20 +17,19 @@ const createCaption = config => (config.caption
 module.exports = function (config) {
     const context = config.context ?? 'contentPage';
     const contextClass = `c-${context}-img`;
+    const figureClasses = [contextClass, 'c-contentImage'];
+    const isSpreadImage = config.type === 'spread';
+    const imageStyles = !isSpreadImage ? `style="--img-width: ${config.width};"` : '';
 
-    if (config.type !== 'spread') {
-        return `<figure class="${contextClass} c-contentImage c-contentImage--with-bg">
-            <div class="c-contentImage-bg">
-              <img style="--img-width: ${config.width};" src="${config.src}" ${
-          config.alt ? `alt="${config.alt}"` : ''
-        } />
-            </div>${createCaption(config)}
-          </figure>`;
+    if (!isSpreadImage) {
+        figureClasses.push('c-contentImage--hasBackdrop');
     }
 
-    return `<figure class="${contextClass} c-contentImage">
-        <img src="${config.src}" ${
+    return `<figure class="${figureClasses.join(' ')}">
+        <div class="c-contentImage-backdrop">
+          <img ${imageStyles} src="${config.src}" ${
       config.alt ? `alt="${config.alt}"` : ''
-    } />${createCaption(config)}
+    } />
+        </div>${createCaption(config)}
       </figure>`;
 };
