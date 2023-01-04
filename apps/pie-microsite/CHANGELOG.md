@@ -16,6 +16,7 @@ v1.29.0
 
 ### Changed
 - Add multiple image support to the `contentPageImage` shortcode for pages that require swapping images based on screen size. I.e. 1 image for wide, another for narrow.
+- Allow image captions in the `contentPageImage` shortcode to contain markdown (will transform it into HTML).
 
 ### Removed
 - `codesandbox` and `storybook` example shortcodes
