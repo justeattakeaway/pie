@@ -13,7 +13,6 @@ Here are some principles which can help you apply colour in your products more e
 Although we value an aesthetically pleasing use of colour, we place a higher value on clear communication. Colour supports the purpose of the content, communicating things like hierarchy of information, interactive states, and the difference between distinct elements.
 
 {% contentPageImage {
-type: "fullWidth",
 src:"../../../../../assets/img/foundations/colour/brand-colours.svg",
 caption: "The visual above shows a composition made of various of our brand colours."
 } %}
@@ -23,7 +22,6 @@ caption: "The visual above shows a composition made of various of our brand colo
 Colours have assigned roles, which hold a specific meaning based on how they function within the interface. Defined colour roles make things easy to modify and customize later. They also extend the colour system so it works across any touchpoint at JET.
 
 {% contentPageImage {
-type: "fullWidth",
 src:"../../../../../assets/img/foundations/colour/colour-meaning.svg",
 caption: "Some of the meanings we have determined for our ‘Supportive’ colour palette."
 } %}

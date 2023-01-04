@@ -14,7 +14,6 @@ describe('deindentHTML', () => {
 
     it('flattens the result of a real shortcode', () => {
         const htmlString = contentPageImageShortCode({
-            type: 'fullWidth',
             alt: 'foo',
             src: '../some/path',
             context: 'bar'

@@ -41,7 +41,6 @@ Used only for snippets of code.
 We use multiples of 4 within our type scale for both type sizes as well as line height, so that it aligns to our 4px vertical grid.
 
 {% contentPageImage {
-    type: "fullWidth",
     src:"../../../../../assets/img/foundations/typography/type-scale.svg",
     mobileSrc:"../../../../../assets/img/foundations/typography/type-scale-mobile.svg"
 } %}

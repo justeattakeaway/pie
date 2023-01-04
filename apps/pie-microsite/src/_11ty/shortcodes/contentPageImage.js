@@ -12,10 +12,9 @@ const createCaption = config => (config.caption
 
 /**
  * Creates an image to render on a content page.
- * Can specify an image type as 'fullWidth' to take up the entire container.
+ * If a width is not provided, image will default to fill up the entire container.
  * @param {object} config - image configuration
- * @param {string} config.type - for example `fullWidth` - image will fill the entire container
- * @param {string} config.width - the image width (will go to full width on smaller screens)
+ * @param {string} config.width - the image width (will go to full width on smaller screens).
  * @param {string} config.alt - an optional alt for the image
  * @param {string} config.src - the image src path
  * @param {string} config.context - a contextual string to use to in-built class names. Defaults to "contentPage".
@@ -25,13 +24,13 @@ const createCaption = config => (config.caption
 module.exports = function (config) {
     const context = config.context ?? 'contentPage';
     const contextClass = `c-${context}-img`;
-    const isImageFullWidth = config.type === 'fullWidth';
-    const imageStyles = !isImageFullWidth ? `style="--img-width: ${config.width};"` : ''; // If image isn't full width, set it to required width
+    const isImageFullContainerWidth = !config.width;
+    const imageStyles = !isImageFullContainerWidth ? `style="--img-width: ${config.width};"` : ''; // If image isn't full width, set it to required width
     const imageAlt = config.alt ? `alt="${config.alt}"` : '';
     const figureClasses = [
         contextClass,
         'c-contentImage',
-        ...(!isImageFullWidth ? ['c-contentImage--hasBackdrop'] : [])
+        ...(!isImageFullContainerWidth ? ['c-contentImage--hasBackdrop'] : [])
     ];
 
     return `<figure class="${figureClasses.join(' ')}">
