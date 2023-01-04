@@ -72,7 +72,7 @@ Screen size: <768px<br />Text size: 24px • Line size: 32px
     caption: "The example above shows how a $heading-L looks on a narrow screen."
 } %}
 
-<b>Only our Heading and Subheading typographic styles are responsive.</b> Our body styles share the same values regardless of the size of the screen they’re being displayed in.
+**Only our Heading and Subheading typographic styles are responsive.** Our body styles share the same values regardless of the size of the screen they’re being displayed in.
 
 {% notification {
     type: "information",
@@ -179,7 +179,7 @@ Setting the right line length is key to the readability of the text in our produ
 It represents the amount of white spacing between two paragraphs of your text. Keeping consistent paragraph spacing measures throughout your products will help the user understand the hierarchy of the information and will make your texts easier to read. We use three measures:
 
 ### Paragraph Spacing 1
-This is the most commonly used paragraph spacing measure. It uses <b>16px</b> between paragraphs.
+This is the most commonly used paragraph spacing measure. It uses **16px** between paragraphs.
 
 {% contentPageImage {
     src:"../../../../../assets/img/foundations/typography/paragraph-spacing-one.svg",
@@ -187,7 +187,7 @@ This is the most commonly used paragraph spacing measure. It uses <b>16px</b> be
 } %}
 
 ### Paragraph Spacing 2
-A paragraph spacing measure used for longer bits of text where spacing is key. It uses <b>14px</b> between paragraphs.
+A paragraph spacing measure used for longer bits of text where spacing is key. It uses **14px** between paragraphs.
 
 {% contentPageImage {
     src:"../../../../../assets/img/foundations/typography/paragraph-spacing-two.svg",
@@ -195,7 +195,7 @@ A paragraph spacing measure used for longer bits of text where spacing is key. I
 } %}
 
 ### Paragraph Spacing 3
-An exceptional measure used only where the other options pose a problem to the overall layout.  It uses <b>12px</b> between paragraphs.
+An exceptional measure used only where the other options pose a problem to the overall layout.  It uses **12px** between paragraphs.
 
 {% contentPageImage {
     src:"../../../../../assets/img/foundations/typography/paragraph-spacing-three.svg",
@@ -205,4 +205,4 @@ An exceptional measure used only where the other options pose a problem to the o
 ---
 
 ## Letter spacing
-Letter spacing is used to determine the horizontal spacing between text characters. In digital applications this has been kept to <b>0px</b> (standard spacing) for all typographic styles.
+Letter spacing is used to determine the horizontal spacing between text characters. In digital applications this has been kept to **0px** (standard spacing) for all typographic styles.
