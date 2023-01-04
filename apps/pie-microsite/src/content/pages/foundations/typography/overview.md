@@ -55,7 +55,8 @@ Here’s an example of how our **$heading-L** looks on wide and narrow screens:
 
 ### Wide screens
 
-Screen size: >768px<br />Text size: 28px • Line size: 36px
+Screen size: >768px  
+Text size: 28px • Line size: 36px
 
 {% contentPageImage {
     src:"../../../../../assets/img/foundations/typography/responsive-wide.svg",
@@ -64,7 +65,8 @@ Screen size: >768px<br />Text size: 28px • Line size: 36px
 } %}
 
 ### Narrow screens
-Screen size: <768px<br />Text size: 24px • Line size: 32px
+Screen size: <768px  
+Text size: 24px • Line size: 32px
 
 {% contentPageImage {
     src:"../../../../../assets/img/foundations/typography/responsive-narrow.svg",
