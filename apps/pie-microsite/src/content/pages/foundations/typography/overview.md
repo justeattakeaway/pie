@@ -51,7 +51,7 @@ We use multiples of 4 within our type scale for both type sizes as well as line 
 ## Responsive type
 We assign different values to some of our typographic styles depending on the size of the users’ screens. Wider screens use bigger type sizes and more generous spacing, while narrow screens use tighter and smaller type settings.
 
-Here’s an example of how our $heading-L looks on wide and narrow screens:
+Here’s an example of how our **$heading-L** looks on wide and narrow screens:
 
 ### Wide screens
 
