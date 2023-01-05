@@ -8,7 +8,7 @@ const markdownFilter = require('../filters/markdown');
  */
 // eslint-disable-next-line func-names
 module.exports = function ({ type, items }) {
-    const listItems = items.map(item => `<li class="c-list-item"}><span>${markdownFilter(item, true)}</span></li>`).join('');
+    const listItems = items.map(item => `<li class="c-list-item"><span>${markdownFilter(item, true)}</span></li>`).join('');
     const listClasses = [
         'c-list',
         `c-list--${type}`
