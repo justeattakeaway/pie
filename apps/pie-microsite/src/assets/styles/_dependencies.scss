@@ -26,7 +26,12 @@
 @use 'components/navToggle';
 @use 'components/nav';
 @use 'components/notification';
+<<<<<<< HEAD
 @use 'components/list';
+=======
+@use 'components/orderedList';
+@use 'components/pillList';
+>>>>>>> c7c246d (Add pill and ordered list shortcodes)
 @use 'components/tabs';
 @use 'components/toggle';
 @use 'components/tokensTable';

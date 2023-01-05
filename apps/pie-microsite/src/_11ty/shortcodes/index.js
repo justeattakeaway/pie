@@ -1,5 +1,6 @@
 const contentPageImage = require('./contentPageImage');
-const list = require('./list');
+const orderedList = require('./orderedList');
+const pillList = require('./pillList');
 const notification = require('./notification');
 const tokensTable = require('./tokensTable');
 
@@ -14,6 +15,10 @@ const addAllShortCodes = eleventyConfig => {
     eleventyConfig.addShortcode('list', shortcodeArgs => deindentHTML(list(shortcodeArgs)));
     eleventyConfig.addShortcode('notification', shortcodeArgs => deindentHTML(notification(shortcodeArgs)));
     eleventyConfig.addShortcode('tokensTable', shortcodeArgs => deindentHTML(tokensTable(shortcodeArgs)));
+    eleventyConfig.addShortcode('orderedList', shortcodeArgs => deindentHTML(orderedList(shortcodeArgs))));
+    eleventyConfig.addShortcode('pillList', shortcodeArgs => deindentHTML(pillList(shortcodeArgs))));
+    eleventyConfig.addShortcode('storybook', storybook);
+    eleventyConfig.addShortcode('codesandbox', codesandbox);
 };
 
 module.exports = {
