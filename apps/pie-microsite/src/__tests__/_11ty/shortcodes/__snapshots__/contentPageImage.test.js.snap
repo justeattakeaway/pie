@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`contentPageImage.js creates the expected markup for the given config settings 1`] = `
+"<figure class=\\"c-someContainer-img c-contentImage c-contentImage--hasBackdrop\\">
+        <div class=\\"c-contentImage-backdrop\\">
+          <picture>
+            <source style=\\"--img-width: 200px;\\" media=\\"(max-width: 600px)\\" srcset=\\"some/path/to/mobile/image\\">
+            <img src=\\"some/path/to/image\\" style=\\"--img-width: 200px;\\" alt=\\"foo bar\\"> 
+          </picture>
+        </div>
+        <figcaption class=\\"c-contentImage-caption\\"><p>some caption text <a href=\\"fakeurl/path\\">with a link</a></p>
+</figcaption>
+      </figure>"
+`;
+
+exports[`contentPageImage.js creates the expected markup for the given config settings 2`] = `
+"<figure class=\\"c-contentPage-img c-contentImage\\">
+        <div class=\\"c-contentImage-backdrop\\">
+          <picture>
+            
+            <img src=\\"some/path/to/image\\"  > 
+          </picture>
+        </div>
+        
+      </figure>"
+`;

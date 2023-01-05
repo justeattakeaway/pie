@@ -14,11 +14,13 @@ const createCaption = config => (config.caption
  * Creates an image to render on a content page.
  * If a width is not provided, image will default to fill up the entire container.
  * @param {object} config - image configuration
- * @param {string} config.width - the image width (will go to full width on smaller screens).
+ * @param {string} config.width - the image width in px (will go to full width on smaller screens).
  * @param {string} config.alt - an optional alt for the image
  * @param {string} config.src - the image src path
+ * @param {string} config.mobileSrc - the image src path for an optimised mobile image if required
  * @param {string} config.context - a contextual string to use to in-built class names. Defaults to "contentPage".
- * @returns {string}
+ * @param {string} config.caption - A string to use as the image caption. This can be raw text or markdown (which will be transformed into HTML).
+ * @returns {string} a <figure> element containing the image(s) provided with the config settings applied.
  */
 // eslint-disable-next-line func-names
 module.exports = function (config) {
