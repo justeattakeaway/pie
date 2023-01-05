@@ -6,8 +6,6 @@
 }
 
 .c-list--ordered {
-    // create a counter 'item'. Each `.c-list-item` increases the counter by 1. This value is added as the list item number in `.c-list-item::before`
-    // https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Counter_Styles/Using_CSS_counters
     counter-reset: item;
 
     .c-list-item {
@@ -15,10 +13,7 @@
         margin-bottom: f.$spacing-02;
         @include f.font-size('body-l');
         display: flex;
-
-        @include f.media('>=wide') {
-            align-items: center;
-        }
+        align-items: center;
 
         &:before {
             content: counter(item);
@@ -33,21 +28,19 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            flex: 0 0 auto;
         }
     }
 }
 
 .c-list--pill {
     display: flex;
-    gap: f.spacing();
-    flex-wrap: wrap;
+    gap: 8px;
 
     .c-list-item {
         @include f.font-size('body-s');
         background-color: f.$color-container-strong;
         padding: 2px 4px;
-        border-radius: f.$radius-rounded-b;
+        border-radius: 8px;
     }
 }
 

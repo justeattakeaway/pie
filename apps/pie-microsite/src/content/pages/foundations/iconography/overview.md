@@ -40,7 +40,8 @@ Our icons are always placed inside a bounding box, which ensures that vertical a
     width: "199px"
 } %}
 
-{% orderedList {
+{% list {
+    type: "ordered",
     items: [
         "**Icon area**: (Small (Default size): 14x14px / Large (Default size): 28x28px).",
         "**Bounding box**: (Small (Default size): 16x16px / Large (Default size): 32x32px)."
@@ -57,7 +58,8 @@ When using icons there will be instances where the default sizes assigned to our
 
 Our Small icon set can be used at the following sizes:
 
-{% pillList {
+{% list {
+    type: "pill",
     items: [
         "16px",
         "20px",
@@ -88,7 +90,7 @@ The minimum for this set of icons is 32px. However, because they can be used as 
 
 ## Appearance
 
-There are three types of appearance options for our icons:
+There are two types of appearance options for our icons:
 
 ### Default
 
@@ -142,7 +144,6 @@ This instance uses the Fill appearance of the icon to indicate the change in its
 } %}
 
 ---
-
 ## Using icons in your products
 
 Choosing and using icons for your products isn’t an easy task. More so if we consider that an excellent icon can extract the most important visual characteristics of a product or idea in order to make the depiction instantly recognised.
@@ -171,10 +172,9 @@ Icons act as a visual cue to improve the legibility and scannability of your pro
 
 By default our icons use our $content-default colour token. However, you can use other colours for icons placed on certain contexts. The colors you can use are all under the category **‘Content Static’** and **‘Content interactive’**.
 
-<!-- // TODO: NOTIFICATION - needs a link -->
 {% notification {
     type: "information",
-    message: "See [colour token foundations](www.google.com) for more information. (PIE 2.0 guidance only)."
+    message: "See [colour token foundations](/content/pages/foundations/colour/tokens/alias/light/) for more information. (PIE 2.0 guidance only)."
 } %}
 
 {% contentPageImage {
