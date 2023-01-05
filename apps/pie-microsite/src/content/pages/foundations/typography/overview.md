@@ -14,7 +14,7 @@ This is our primary font family.
 {% contentPageImage {
     src:"../../../../../assets/img/foundations/typography/jet-sans-digital.svg",
     width: "100px",
-    caption: "This is a placeholder caption"
+    caption: "The example above shows JET Sans Digital in Extra Bold."
 } %}
 
 ### Arial
@@ -23,7 +23,7 @@ Used only as a fallback font.
 {% contentPageImage {
 src:"../../../../../assets/img/foundations/typography/arial.svg",
 width: "98px",
-caption: "This is a placeholder caption"
+caption: "The example above shows Arial Regular, which is used as a fallback font."
 } %}
 
 ### CP Mono
@@ -32,7 +32,7 @@ Used only for snippets of code.
 {% contentPageImage {
     src:"../../../../../assets/img/foundations/typography/cp-mono.svg",
     width: "105px",
-    caption: "This is a placeholder caption"
+    caption: "The example above shows CP Mono, a font used for code snippets."
 } %}
 
 ---
