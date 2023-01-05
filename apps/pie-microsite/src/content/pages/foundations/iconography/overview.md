@@ -43,8 +43,8 @@ Our icons are always placed inside a bounding box, which ensures that vertical a
 {% list {
     type: "ordered",
     items: [
-        "**Icon area**: (Small (Default size): 14x14px / Large (Default size): 28x28px).",
-        "**Bounding box**: (Small (Default size): 16x16px / Large (Default size): 32x32px)."
+        "**Icon area:** (Small (Default size): 14x14px / Large (Default size): 28x28px).",
+        "**Bounding box:** (Small (Default size): 16x16px / Large (Default size): 32x32px)."
     ]
 } %}
 
