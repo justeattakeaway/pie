@@ -50,7 +50,7 @@ We use multiples of 4 within our type scale for both type sizes as well as line 
 ## Responsive type
 We assign different values to some of our typographic styles depending on the size of the users’ screens. Wider screens use bigger type sizes and more generous spacing, while narrow screens use tighter and smaller type settings.
 
-Here’s an example of how our **$heading-L** looks on wide and narrow screens:
+Here’s an example of how our **$heading-l** looks on wide and narrow screens:
 
 ### Wide screens
 
@@ -60,7 +60,7 @@ Text size: 28px • Line size: 36px
 {% contentPageImage {
     src:"../../../../../assets/img/foundations/typography/responsive-wide.svg",
     width: "80px",
-    caption: "The example above shows how a $heading-L looks on a wide screen."
+    caption: "The example above shows how a $heading-l looks on a wide screen."
 } %}
 
 ### Narrow screens
@@ -70,7 +70,7 @@ Text size: 24px • Line size: 32px
 {% contentPageImage {
     src:"../../../../../assets/img/foundations/typography/responsive-narrow.svg",
     width: "68px",
-    caption: "The example above shows how a $heading-L looks on a narrow screen."
+    caption: "The example above shows how a $heading-l looks on a narrow screen."
 } %}
 
 **Only our Heading and Subheading typographic styles are responsive.** Our body styles share the same values regardless of the size of the screen they’re being displayed in.
@@ -171,7 +171,7 @@ Setting the right line length is key to the readability of the text in our produ
 {% contentPageImage {
     src:"../../../../../assets/img/foundations/typography/line-length.svg",
     width: "771.4px",
-    caption: "Visual representation of the most common line lenghts in our products."
+    caption: "Visual representation of the most common line lengths in our products."
 } %}
 
 ---
