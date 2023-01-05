@@ -4,4 +4,4 @@ const md = new MarkdownIt({
     html: true
 });
 
-module.exports = content => md.render(content);
+module.exports = (content, inline = false) => (inline ? md.renderInline(content) : md.render(content));

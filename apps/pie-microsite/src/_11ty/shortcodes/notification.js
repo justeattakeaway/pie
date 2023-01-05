@@ -1,5 +1,6 @@
 const pieIconsSvg = require('../filters/pieIconsSvg');
 const pieDesignTokenColours = require('../filters/pieDesignTokenColours');
+const markdownFilter = require('../filters/markdown');
 
 const getNotificationColour = tokenName => {
     const tokenPath = ['alias', 'default'];
@@ -65,6 +66,6 @@ module.exports = function (config) {
 
     return `<aside class="${contextClass} c-notification" style="--bg-colour: ${bgColour}">
       ${svg}
-      <p class="c-notification-message">${config.message}</p>
+      <p class="c-notification-message">${markdownFilter(config.message, true)}</p>
     </aside>`;
 };
