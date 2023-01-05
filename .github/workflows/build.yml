@@ -172,7 +172,7 @@ jobs:
         run: |
           yarn test:visual:ci
       - name: Find Reminder Comment
-        if: ${{ github.event.pull_request.draft == false }}
+        if: ${{ github.event.pull_request.draft == false || github.ref != 'refs/heads/main' }}
         uses: peter-evans/find-comment@v2
         id: find-comment
         with:
@@ -180,7 +180,7 @@ jobs:
           comment-author: 'github-actions[bot]'
           body-includes: Before merging, please review
       - name: Create Visual Test Reminder
-        if: ${{ github.event.pull_request.draft == false }}
+        if: ${{ github.event.pull_request.draft == false || github.ref != 'refs/heads/main' }}
         uses: peter-evans/create-or-update-comment@v2
         with:
           comment-id: ${{ steps.find-comment.outputs.comment-id }}
