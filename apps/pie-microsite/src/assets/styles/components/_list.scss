@@ -13,7 +13,10 @@
         margin-bottom: f.$spacing-02;
         @include f.font-size('body-l');
         display: flex;
-        align-items: center;
+
+        @include f.media('>=wide') {
+            align-items: center;
+        }
 
         &:before {
             content: counter(item);
@@ -28,6 +31,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            flex: 0 0 auto;
         }
     }
 }
