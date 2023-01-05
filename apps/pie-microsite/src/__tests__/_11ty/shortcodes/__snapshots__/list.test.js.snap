@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`list.js should return the expected HTML 1`] = `
+"<ul class=\\"c-list c-list--ordered\\">
+        <li class=\\"c-list-item\\"}>a</li><li class=\\"c-list-item\\"}>b</li><li class=\\"c-list-item\\"}>c</li><li class=\\"c-list-item\\"}>d</li>
+    </ul>"
+`;
+
+exports[`list.js should return the expected HTML 2`] = `
+"<ul class=\\"c-list c-list--pill\\">
+        <li class=\\"c-list-item\\"}>a</li><li class=\\"c-list-item\\"}>b</li><li class=\\"c-list-item\\"}>c</li><li class=\\"c-list-item\\"}>d</li>
+    </ul>"
+`;
