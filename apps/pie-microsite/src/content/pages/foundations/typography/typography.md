@@ -2,5 +2,5 @@
 eleventyNavigation:
     key: Typography
     parent: Foundations
-title: Typography
+    url: /content/pages/foundations/typography/overview/
 ---

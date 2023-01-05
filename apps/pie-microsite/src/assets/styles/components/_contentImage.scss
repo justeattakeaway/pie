@@ -8,7 +8,7 @@ $contentImage-bg-minHeight:         280px;
     margin-top: f.spacing(e);
 }
 
-.c-contentImage-bg {
+.c-contentImage--hasBackdrop .c-contentImage-backdrop {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -24,7 +24,7 @@ $contentImage-bg-minHeight:         280px;
         display: block;
     }
 
-    &.c-contentImage--with-bg img {
+    &.c-contentImage--hasBackdrop img {
         width: var(--img-width);
         max-width: 100%;
         height: auto;
