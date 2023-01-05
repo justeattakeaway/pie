@@ -1,12 +1,14 @@
 @use '../fozzie-config' as f;
 
-.c-orderedList {
+.c-list {
     list-style: none;
-    counter-reset: item;
-    margin-left: 0;
-    padding: 0;
+    padding-left: 0;
+}
 
-    li {
+.c-list--ordered {
+    counter-reset: item;
+
+    .c-list-item {
         counter-increment: item;
         margin-bottom: f.$spacing-02;
         @include f.font-size('body-l');
@@ -29,3 +31,16 @@
         }
     }
 }
+
+.c-list--pill {
+    display: flex;
+    gap: 8px;
+
+    .c-list-item {
+        @include f.font-size('body-s');
+        background-color: f.$color-container-strong;
+        padding: 2px 4px;
+        border-radius: 8px;
+    }
+}
+
