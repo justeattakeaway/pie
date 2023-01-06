@@ -36,7 +36,7 @@ const notificationSettings = {
  * @param {object} config - the Notification configuration
  * @param {string} config.type - Type of notification: information, error, warning or positive
  * @param {string} config.title - The title of the Notification
- * @param {string} config.message - The message within the Notification
+ * @param {string} config.message - The message within the Notification. This can be raw text or markdown (which will be transformed into HTML).
  * @param {string} config.context - a contextual string to use to in-built class names. Defaults to "contentPage".
  * @returns {string}
  */
