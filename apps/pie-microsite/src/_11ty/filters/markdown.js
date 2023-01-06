@@ -5,9 +5,9 @@ const md = new MarkdownIt({
 });
 
 /**
- * A List HTML component
- * @param {string} content - Type of list: orderd, pill
- * @param {boolean} inline - if true will return content in <p></p> tags. if false will return content without enclosing tags.
+ * Converts markdown to HTML
+ * @param {string} content - The content to be converted.
+ * @param {boolean} inline - if true will return content in <p></p> tags. If false will return content without enclosing tags.
  * @returns {string}
  */
 module.exports = (content, inline = false) => (inline ? md.renderInline(content) : md.render(content));
