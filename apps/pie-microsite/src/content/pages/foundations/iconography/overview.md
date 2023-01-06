@@ -14,7 +14,7 @@ We have two icon sets that can be used in our products and communications.
 This is the default icon set used throughout our products across Web, Android and iOS. It features less details, which helps with making them simpler when used at smaller sizes.
 
 {% contentPageImage {
-    src:"../../../../../assets/img/foundations/iconography/small-icon-set.svg",
+    src: "../../../../../assets/img/foundations/iconography/small-icon-set.svg",
     width: "33.91",
     caption: "The example above shows what our ‘Kebab bowl’ icon looks like on the Small set."
 } %}
@@ -24,7 +24,7 @@ This is the default icon set used throughout our products across Web, Android an
 This set should be used for illustrative purposes, such as communications or marketing materials. The icons are more detailed, which helps make them look better when used at bigger sizes.
 
 {% contentPageImage {
-    src:"../../../../../assets/img/foundations/iconography/large-icon-set.svg",
+    src: "../../../../../assets/img/foundations/iconography/large-icon-set.svg",
     width: "65.65px",
     caption: "The example above shows what our ‘Kebab bowl’ icon looks like on the Large set."
 } %}
@@ -36,12 +36,12 @@ This set should be used for illustrative purposes, such as communications or mar
 Our icons are always placed inside a bounding box, which ensures that vertical and horizontal spacing always adhere to the guidance shown in our Spacing guides. When exporting icons for your products, please export the whole Bounding Box, instead of just the Icon Area.
 
 {% contentPageImage {
-    src:"../../../../../assets/img/foundations/iconography/icon-anatomy.svg",
+    src: "../../../../../assets/img/foundations/iconography/icon-anatomy.svg",
     width: "199px"
 } %}
 
 {% list {
-    type: "ordered",
+    type: listTypes.ordered,
     items: [
         "**Icon area:** (Small (Default size): 14x14px / Large (Default size): 28x28px).",
         "**Bounding box:** (Small (Default size): 16x16px / Large (Default size): 32x32px)."
@@ -59,7 +59,7 @@ When using icons there will be instances where the default sizes assigned to our
 Our Small icon set can be used at the following sizes:
 
 {% list {
-    type: "pill",
+    type: listTypes.pill,
     items: [
         "16px",
         "20px",
@@ -71,7 +71,7 @@ Our Small icon set can be used at the following sizes:
 } %}
 
 {% contentPageImage {
-    src:"../../../../../assets/img/foundations/iconography/small-icon-set-sizes.svg",
+    src: "../../../../../assets/img/foundations/iconography/small-icon-set-sizes.svg",
     width: "40px",
     caption: "The example above shows the multiple sizes at which icons from the Small icon set can be placed at."
 } %}
@@ -81,7 +81,7 @@ Our Small icon set can be used at the following sizes:
 The minimum for this set of icons is 32px. However, because they can be used as supporting icons in communications and marketing materials, they can be resized at any scale, sticking to 8px increments.
 
 {% contentPageImage {
-    src:"../../../../../assets/img/foundations/iconography/large-icon-set-sizes.svg",
+    src: "../../../../../assets/img/foundations/iconography/large-icon-set-sizes.svg",
     width: "80px",
     caption: "The example above shows the minimum size at which icons from the Large icon set must be placed at."
 } %}
@@ -97,7 +97,7 @@ There are two types of appearance options for our icons:
 This is the default look for our icons and should always be considered as the first option to use when placing icons in your designs.
 
 {% contentPageImage {
-    src:"../../../../../assets/img/foundations/iconography/appearance-default.svg",
+    src: "../../../../../assets/img/foundations/iconography/appearance-default.svg",
     width: "32.8px"
 } %}
 
@@ -106,7 +106,7 @@ This is the default look for our icons and should always be considered as the fi
 This is the default look for our icons and should always be considered as the first option to use when placing icons in your designs.
 
 {% contentPageImage {
-    src:"../../../../../assets/img/foundations/iconography/appearance-fill.svg",
+    src: "../../../../../assets/img/foundations/iconography/appearance-fill.svg",
     width: "32.81px"
 } %}
 
@@ -121,7 +121,7 @@ There are three types of interaction patterns for interactive icons:
 In this first instance the icon can be placed on its own. When the user hovers over the icon its bounding box will change its background colour to reflect the change in state.
 
 {% contentPageImage {
-    src:"../../../../../assets/img/foundations/iconography/interactive-states-default.svg",
+    src: "../../../../../assets/img/foundations/iconography/interactive-states-default.svg",
     width: "328px"
 } %}
 
@@ -130,7 +130,7 @@ In this first instance the icon can be placed on its own. When the user hovers o
 Used for CTAs, in this instance the interactive icon sits inside an Icon Button and uses its hover and active states to highlight that the icon is being interacted with.
 
 {% contentPageImage {
-    src:"../../../../../assets/img/foundations/iconography/interactive-states-button.svg",
+    src: "../../../../../assets/img/foundations/iconography/interactive-states-button.svg",
     width: "328px"
 } %}
 
@@ -139,7 +139,7 @@ Used for CTAs, in this instance the interactive icon sits inside an Icon Button 
 This instance uses the Fill appearance of the icon to indicate the change in its state. It should only be used when the icon needs to show something is selected.
 
 {% contentPageImage {
-    src:"../../../../../assets/img/foundations/iconography/interactive-states-selectable.svg",
+    src: "../../../../../assets/img/foundations/iconography/interactive-states-selectable.svg",
     width: "328px"
 } %}
 
@@ -155,8 +155,8 @@ In this section you’ll find some factors you need to keep in mind when using i
 Abstract icons are more difficult to comprehend than literal icons. Instead of using metaphorical icons, try using those which convey the most basic idea or concept you’re trying to represent.
 
 {% contentPageImage {
-    src:"../../../../../assets/img/foundations/iconography/choosing-an-icon.svg",
-    mobileSrc:"../../../../../assets/img/foundations/iconography/choosing-an-icon-mobile.svg"
+    src: "../../../../../assets/img/foundations/iconography/choosing-an-icon.svg",
+    mobileSrc: "../../../../../assets/img/foundations/iconography/choosing-an-icon-mobile.svg"
 } %}
 
 ### Pairing text with icons
@@ -164,8 +164,8 @@ Abstract icons are more difficult to comprehend than literal icons. Instead of u
 Icons act as a visual cue to improve the legibility and scannability of your products. As a general rule, try to place icons near a text label or title. Don’t place icons by themselves unless they represent an universally understood action.
 
 {% contentPageImage {
-    src:"../../../../../assets/img/foundations/iconography/icon-with-text.svg",
-    mobileSrc:"../../../../../assets/img/foundations/iconography/icon-with-text-mobile.svg"
+    src: "../../../../../assets/img/foundations/iconography/icon-with-text.svg",
+    mobileSrc: "../../../../../assets/img/foundations/iconography/icon-with-text-mobile.svg"
 } %}
 
 ### Pairing colour and icons
@@ -178,7 +178,7 @@ By default our icons use our $content-default colour token. However, you can use
 } %}
 
 {% contentPageImage {
-    src:"../../../../../assets/img/foundations/iconography/icon-with-colour.svg",
+    src: "../../../../../assets/img/foundations/iconography/icon-with-colour.svg",
     width: "251px",
     caption: "The example above shows some of the colours you can use with your icons."
 } %}
