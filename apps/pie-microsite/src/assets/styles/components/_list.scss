@@ -5,7 +5,7 @@
     padding-left: 0;
 }
 
-.c-list--ordered {
+.c-list.c-list--ordered {
     // create a counter 'item'. Each `.c-list-item` increases the counter by 1. This value is added as the list item number in `.c-list-item::before`
     // https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Counter_Styles/Using_CSS_counters
     counter-reset: item;
@@ -38,7 +38,7 @@
     }
 }
 
-.c-list--pill {
+.c-list.c-list--pill {
     display: flex;
     gap: f.spacing();
     flex-wrap: wrap;
