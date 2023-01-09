@@ -7,7 +7,7 @@ const markdownFilter = require('../filters/markdown');
  * @returns {String} a <figcaption> element containing the caption text, or an empty string if no caption is provided.
  */
 const createCaption = config => (config.caption
-    ? `<figcaption class="c-contentImage-caption"><span>${markdownFilter(config.caption, true)}</span></figcaption>`
+    ? `<figcaption class="c-contentImage-caption">${markdownFilter(config.caption, true)}</figcaption>`
     : '');
 
 /**
