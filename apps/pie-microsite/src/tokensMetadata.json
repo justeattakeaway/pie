@@ -616,5 +616,39 @@
         }
       }
     }
+  },
+  "spacing" : {
+    "global": {
+      "01": {
+        "category": "test"
+      },
+      "02": {
+        "category": "test"
+      },
+      "03": {
+        "category": "test"
+      },
+      "04": {
+        "category": "test"
+      },
+      "05": {
+        "category": "test"
+      },
+      "06": {
+        "category": "test"
+      },
+      "07": {
+        "category": "test"
+      },
+      "08": {
+        "category": "test"
+      },
+      "09": {
+        "category": "test"
+      },
+      "10": {
+        "category": "test"
+      }
+    }
   }
 }

@@ -78,6 +78,17 @@ const buildColorExample = token => {
 };
 
 /**
+ * Builds the example color swatch to show on the token list item
+ * @param {string} token - the token value i.e. #000, #ffffff, #000|0.85 or #000000|0.85
+ * @returns {string} - the color swatch example HTML string
+ */
+const buildSpacingExample = token => {
+    const spacingPx = `${token}px`;
+
+    return `<div style="width:${spacingPx}; height:${spacingPx}; background-color: #d7d9da;"></div>`;
+};
+
+/**
  * Builds an example element to display in the token list item.
  * This could be a color swatch, a representation of border radius or spacing etc.
  * @param {string} token - the token value i.e. #000, #ffffff, #000|0.85 or #000000|0.85
@@ -86,7 +97,8 @@ const buildColorExample = token => {
  */
 const buildTokenExampleElement = (token, tokenType) => {
     const tokenExampleElementHandler = {
-        [tokenTypes.COLOR]: buildColorExample
+        [tokenTypes.COLOR]: buildColorExample,
+        [tokenTypes.SPACING]: buildSpacingExample
     };
 
     if (!tokenExampleElementHandler[tokenType]) {
@@ -119,7 +131,7 @@ const buildTokenListElements = ({
     tokenType,
     tokenScssName,
     tokenDisplayName,
-    tokenMetadata
+    tokenMetadata = {}
 }) => {
     const tokenPill = buildTokenPill(tokenScssName);
     const tokenExampleElement = buildTokenExampleElement(token, tokenType);
@@ -173,6 +185,27 @@ const buildTokensListForCategory = (tokens, path, category, tokenType) => {
         tokenDisplayName: createTokenDisplayName(key, tokenType),
         tokenType,
         tokenMetadata: tokenTypeMetadata[key]
+    }));
+
+    return buildTokensList(tokenListElements);
+};
+
+/**
+ * Builds a categorised list of tokens
+ * @param {string} path - path to the category i.e.  'path:color.alias.default' / 'path:color.alias.dark'
+ * @param {string} tokenType - the type of token i.e. color, spacing, radius
+ * @param {object} tokens
+ * @returns - object of token categories with display names i.e.  whiteBlack: { displayName: 'White and Black' }
+ */
+const buildUncategorisedLists = ({
+    tokenType, tokens 
+}) => {
+    // create a list item for the current token
+    const tokenListElements = Object.keys(tokens).map(key => buildTokenListElements({
+        token: tokens[key],
+        tokenScssName: createScssTokenName(key, tokenType),
+        tokenDisplayName: createTokenDisplayName(key, tokenType),
+        tokenType
     }));
 
     return buildTokensList(tokenListElements);
@@ -250,7 +283,8 @@ const buildTokenLists = (path, tokenType) => {
     const isGlobal = path.includes('global');
     const tokens = objectHelpers.getObjectPropertyByPath(pieDesignTokens, `theme.jet.${path}`);
     const parentCategories = getParentCategoriesForTokenType(`${tokenType}.${isGlobal ? 'global' : 'alias'}.parentCategories`);
-
+    const regularCategories = objectHelpers.getObjectPropertyByPath(pieTokenCategories, path);
+    
     const config = { 
         parentCategories,
         path,
@@ -258,6 +292,10 @@ const buildTokenLists = (path, tokenType) => {
         isGlobal,
         tokens
     };
+
+    if (!parentCategories && !regularCategories) {
+        return buildUncategorisedLists(config);
+    }
 
     return parentCategories 
         ? buildCategoryListsWithParents(config) 
