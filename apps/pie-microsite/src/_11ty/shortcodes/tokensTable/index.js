@@ -78,30 +78,14 @@ const buildColorExample = token => {
 };
 
 /**
- * Builds the example color swatch to show on the token list item
- * @param {string} token - the token value i.e. #000, #ffffff, #000|0.85 or #000000|0.85
+ * Builds the example spacing swatch to show on the token list item
+ * @param {string} token - the token value i.e. 
  * @returns {string} - the color swatch example HTML string
  */
 const buildSpacingExample = token => {
-    const spacingPx = `${token}px`;
+    const cssVariable = `${token}px`;
 
-    return `<div class="spacing"
-                style="
-                    width:${spacingPx}; 
-                    height:${spacingPx}; 
-                    background-color: #d7d9da;"
-            >
-            </div>
-            <style>
-                @media only screen and (max-width: 640px) {
-                    .spacing {
-                        display: block;
-                        margin: 10%;
-                        margin-left: auto; 
-                        margin-right: auto;
-                    }
-                }
-            </style>`;
+    return `<div class="c-tokensTable-example--spacing" style="--example-spacing: ${cssVariable}";></div>`;
 };
 
 /**
