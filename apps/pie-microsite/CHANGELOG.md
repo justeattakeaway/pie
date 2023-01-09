@@ -3,12 +3,30 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-v1.31.0
+v1.30.0
 ------------------------------
 *January 9, 2023*
 
 ### Added
 - global design tokens to spacing page
+
+
+v1.29.0
+------------------------------
+*January 3, 2023*
+
+### Added
+- Typography page folder and overview page content
+- Scaffolding for the typography token and code pages (no content yet)
+- Typography page assets (not all SVGs have been optimised because we are likely going to update images soon with properly optimised ones)
+- New `deindentHTML` shortcode utility function to allow us to use proper indentation when writing shortcodes without causing markdown rendering issues
+
+### Changed
+- Add multiple image support to the `contentPageImage` shortcode for pages that require swapping images based on screen size. I.e. 1 image for wide, another for narrow.
+- Allow image captions in the `contentPageImage` shortcode to contain markdown (will transform it into HTML).
+
+### Removed
+- `codesandbox` and `storybook` example shortcodes
 
 
 v1.28.0

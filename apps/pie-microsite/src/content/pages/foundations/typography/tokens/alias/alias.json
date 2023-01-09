@@ -1,0 +1,15 @@
+{
+  "layout": "layouts/toggle-page-layout.njk",
+  "subtitle": "Alias typography tokens",
+  "subtitleDescription": "Alias type tokens have a combination of the type global tokens and are divided in groups of typographic hierarchy.",
+  "toggleContent": {
+    "a": {
+      "label": "Wide screens",
+      "slug": "wide"
+    },
+    "b": {
+      "label": "Narrow screens",
+      "slug": "narrow"
+    }
+  }
+}
