@@ -85,7 +85,23 @@ const buildColorExample = token => {
 const buildSpacingExample = token => {
     const spacingPx = `${token}px`;
 
-    return `<div style="width:${spacingPx}; height:${spacingPx}; background-color: #d7d9da;"></div>`;
+    return `<div class="spacing"
+                style="
+                    width:${spacingPx}; 
+                    height:${spacingPx}; 
+                    background-color: #d7d9da;"
+            >
+            </div>
+            <style>
+                @media only screen and (max-width: 640px) {
+                    .spacing {
+                        display: block;
+                        margin: 10%;
+                        margin-left: auto; 
+                        margin-right: auto;
+                    }
+                }
+            </style>`;
 };
 
 /**
