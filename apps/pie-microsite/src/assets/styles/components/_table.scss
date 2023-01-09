@@ -1,0 +1,56 @@
+@use '../fozzie-config' as f;
+
+$table-item-width-desktop: 152px;
+$table-item-width-mobile: 163.5px;
+
+.c-table {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.c-table-item {
+    width: $table-item-width-mobile;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: f.spacing(d) f.spacing();
+    background-color: f.$color-container-subtle;
+    border-radius: f.$radius-rounded-b;
+
+    hr {
+        height: 1px;
+        width: 100%;
+        color: f.$color-divider-default;
+        margin: 16px 0 0;
+    }
+
+    @include f.media('>=wide') {
+        width: $table-item-width-mobile;
+    }
+}
+
+.c-tableItem-preview {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+
+    svg:first-child {
+        width: 32px;
+        height: 32px;
+    }
+
+    svg:last-child {
+        width: 16px;
+        height: 16px;
+    }
+}
+
+.c-tableItem-name {
+    @include f.font-size('body-s');
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+}

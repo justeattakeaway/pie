@@ -4,3 +4,6 @@ eleventyNavigation:
     parent: Iconography
     order: 2
 ---
+
+{% table  %}
+

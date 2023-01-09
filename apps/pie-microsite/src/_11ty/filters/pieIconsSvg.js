@@ -8,22 +8,30 @@ const pieicons = require('@justeattakeaway/pie-icons');
  * @returns
  */
 // eslint-disable-next-line func-names, consistent-return
+const getIconByName = (iconName, iconAttributes) => {
+    try {
+        return pieicons.default.icons[iconName].toSvg(iconAttributes);
+    } catch (error) {
+    // eslint-disable-next-line no-console
+        console.error(`Could not find icon of name: ${iconName}. Error: ${error}`);
+    }
+};
+
+const getAllIcons = iconAttributes => Object.entries(pieicons.default.icons).map(([key, value]) => ({
+    name: key,
+    icon: value.toSvg(iconAttributes)
+}));
+
 module.exports = function (iconConfig = {
     name: '',
     attrs: {}
 }) {
-    try {
-        const defaultAttributes = {
-            height: 50,
-            width: 50,
-            fill: '#000'
-        };
+    const defaultAttributes = {
+        height: 50,
+        width: 50,
+        fill: '#000'
+    };
 
-        const attributes = { ...defaultAttributes, ...iconConfig.attrs };
-
-        return pieicons.default.icons[iconConfig.name].toSvg(attributes);
-    } catch (error) {
-        // eslint-disable-next-line no-console
-        console.error(`Could not find icon of name: ${iconConfig.name}. Error: ${error}`);
-    }
+    const attributes = { ...defaultAttributes, ...(iconConfig.attrs ? iconConfig.attrs : {}) };
+    return iconConfig && iconConfig.name ? getIconByName(iconConfig.name, attributes) : getAllIcons(attributes);
 };
