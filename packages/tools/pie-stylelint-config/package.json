@@ -1,0 +1,24 @@
+{
+  "name": "@justeattakeaway/pie-stylelint-config",
+  "version": "0.1.0",
+  "description": "Shareable Stylelint config for use with the PIE design system, as well as other front-end web projects across JET.",
+  "main": "index.js ",
+  "license": "Apache-2.0",
+  "keywords": [
+    "PIE",
+    "stylelint",
+    "stylelint-config",
+    "standard"
+  ],
+  "author": "",
+  "files": [
+    "index.js"
+  ],
+  "peerDependencies": {
+    "stylelint": "14.x",
+    "stylelint-config-standard-scss": "5.x"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  }
+}
