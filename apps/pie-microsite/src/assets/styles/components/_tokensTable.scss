@@ -52,16 +52,9 @@ $tokensTable-border-width: 1px;
 }
 
 .c-tokensTable-example--spacing-content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     background-color: f.$color-dark-content-subdued;
     width: var(--example-spacing);
     height: var(--example-spacing);
-
-    @include f.media('>=wide') {
-        margin: 0;
-    }
 }
 
 .c-tokensTable-example--spacing {
