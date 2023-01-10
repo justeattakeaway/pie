@@ -3,13 +3,21 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-v1.31.0
+v1.32.0
 ------------------------------
-*January 9, 2023*
+*January 10, 2023*
 
 ### Added
 - global design tokens to spacing page
-*January 6, 2023*
+
+
+v1.31.0
+------------------------------
+*January 10, 2023*
+
+### Added
+- Prism syntax highlighting.
+
 
 v1.30.0
 ------------------------------
