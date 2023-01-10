@@ -1,5 +1,6 @@
 const pieIconsSvg = require('../filters/pieIconsSvg');
 const pieDesignTokenColours = require('../filters/pieDesignTokenColours');
+const markdownFilter = require('../filters/markdown');
 
 const getNotificationColour = tokenName => {
     const tokenPath = ['alias', 'default'];
@@ -35,7 +36,7 @@ const notificationSettings = {
  * @param {object} config - the Notification configuration
  * @param {string} config.type - Type of notification: information, error, warning or positive
  * @param {string} config.title - The title of the Notification
- * @param {string} config.message - The message within the Notification
+ * @param {string} config.message - The message within the Notification. This can be raw text or markdown (which will be transformed into HTML).
  * @param {string} config.context - a contextual string to use to in-built class names. Defaults to "contentPage".
  * @returns {string}
  */
@@ -65,6 +66,6 @@ module.exports = function (config) {
 
     return `<aside class="${contextClass} c-notification" style="--bg-colour: ${bgColour}">
       ${svg}
-      <p class="c-notification-message">${config.message}</p>
+      <p class="c-notification-message">${markdownFilter(config.message, true)}</p>
     </aside>`;
 };
