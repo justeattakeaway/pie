@@ -2,5 +2,5 @@
 eleventyNavigation:
     key: Iconography
     parent: Foundations
-title: Iconography
+    url: /content/pages/foundations/iconography/overview/
 ---

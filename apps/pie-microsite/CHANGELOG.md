@@ -3,12 +3,26 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-v1.30.0
+v1.31.0
 ------------------------------
 *January 9, 2023*
 
 ### Added
 - global design tokens to spacing page
+*January 6, 2023*
+
+v1.30.0
+------------------------------
+*January 9, 2023*
+
+### Added
+- Iconography page folder and overview page content
+- Iconography page assets (not all SVGs have been optimised because we are likely going to update images soon with properly optimised ones)
+- New `list` shortcode to allow render 'pill' and 'ordered' lists
+
+### Changed
+- Notification shortcode to render markdown
+- Markdown filter to render inline markdown
 
 
 v1.29.0
