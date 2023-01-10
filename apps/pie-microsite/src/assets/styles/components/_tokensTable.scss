@@ -51,16 +51,29 @@ $tokensTable-border-width: 1px;
     }
 }
 
-.c-tokensTable-example--spacing {
+.c-tokensTable-example--spacing-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: f.$color-dark-content-subdued;
     width: var(--example-spacing);
     height: var(--example-spacing);
-    background-color: #d7d9da;
-    display: block;
-    margin: 10%;
-    margin-left: auto;
-    margin-right: auto;
+
     @include f.media('>=wide') {
         margin: 0;
+    }
+}
+
+.c-tokensTable-example--spacing {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: f.$color-background-subtle;
+
+    @include f.media('>=wide') {
+        align-items: left;
+        justify-content: left;
+        background-color: f.$color-mozzarella-5;
     }
 }
 

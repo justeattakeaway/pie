@@ -80,12 +80,12 @@ const buildColorExample = token => {
 /**
  * Builds the example spacing swatch to show on the token list item
  * @param {string} token - the token value i.e. 
- * @returns {string} - the color swatch example HTML string
+ * @returns {string} - the spacing swatch example HTML string
  */
 const buildSpacingExample = token => {
-    const cssVariable = `${token}px`;
+    const cssVariable = `--example-spacing: ${token}px`;
 
-    return `<div class="c-tokensTable-example--spacing" style="--example-spacing: ${cssVariable}";></div>`;
+    return `<div class="c-tokensTable-example--spacing"><div class="c-tokensTable-example--spacing-content" style="${cssVariable}";></div></div>`;
 };
 
 /**
@@ -192,7 +192,6 @@ const buildTokensListForCategory = (tokens, path, category, tokenType) => {
 
 /**
  * Builds a categorised list of tokens
- * @param {string} path - path to the category i.e.  'path:color.alias.default' / 'path:color.alias.dark'
  * @param {string} tokenType - the type of token i.e. color, spacing, radius
  * @param {object} tokens
  * @returns - object of token categories with display names i.e.  whiteBlack: { displayName: 'White and Black' }
