@@ -3,6 +3,15 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+v1.32.0
+------------------------------
+*January 10, 2023*
+
+### Added
+- copy to Iconography library page
+- New `iconList` shortcode to render icons
+
+
 v1.30.0
 ------------------------------
 *January 6, 2023*
