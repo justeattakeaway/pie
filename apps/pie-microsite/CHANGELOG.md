@@ -10,6 +10,8 @@ v1.31.0
 ### Added
 - Prism syntax highlighting.
 
+### Changed
+- `pieIconsSvg` filter to return all icons or icons by name
 
 v1.30.0
 ------------------------------
