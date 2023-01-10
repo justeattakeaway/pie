@@ -1,9 +1,7 @@
 const pieIcons = require('../filters/pieIconsSvg');
 
 /**
- * A List HTML component – takes an array of list items and turns them into a marked-up list
- * @param {string} type - Type of list: ordered, pill
- * @param {string[]} items - An array of list items
+ * A HTML component that renders a list of icons
  * @returns {string}
  */
 // eslint-disable-next-line func-names
