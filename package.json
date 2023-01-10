@@ -16,6 +16,7 @@
   ],
   "scripts": {
     "build": "turbo run build",
+    "cm": "git-cz",
     "test": "turbo run test",
     "test:ci": "turbo run test:ci",
     "test:system:ci": "turbo run test:system:ci",
@@ -42,6 +43,10 @@
     "@babel/node": "7.16.8",
     "@babel/preset-env": "7.16.11",
     "@babel/register": "7.18.9",
+    "@changesets/changelog-github": "0.4.8",
+    "@commitlint/cli": "17.4.1",
+    "@commitlint/config-conventional": "17.4.0",
+    "@commitlint/cz-commitlint": "^17.4.1",
     "@justeat/browserslist-config-fozzie": "1.x",
     "@justeat/eslint-config-fozzie": "5.1.0",
     "@justeat/pie-design-tokens": "3.2.0",
@@ -57,12 +62,14 @@
     "autoprefixer": "10.4.7",
     "babel-loader": "8.2.3",
     "chromedriver": "107.0.3",
+    "commitizen": "4.2.6",
     "cross-env": "7.0.3",
     "cssnano": "5.1.13",
     "dree": "3.4.2",
     "eslint": "8.14.0",
     "eslint-plugin-import": "2.26.0",
     "husky": "8.0.1",
+    "inquirer": "8",
     "jest": "27.5.1",
     "jest-expect-message": "1.1.3",
     "npm-run-all": "4.1.5",
@@ -79,7 +86,13 @@
     "wdio-chromedriver-service": "8.0.0"
   },
   "dependencies": {
+    "@changesets/cli": "2.26.0",
     "@justeat/fozzie": "10.9.0",
     "@justeattakeaway/pie-icons": "1.0.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/@commitlint/cz-commitlint"
+    }
   }
 }
