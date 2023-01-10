@@ -13,4 +13,15 @@ describe('list.js', () => {
         // assert
         expect(result).toMatchSnapshot();
     });
+
+    it('should throw an error if `type` is invalid', () => {
+        // arrange
+        const invalidType = 'not a real type';
+        const invalidTypeError = new Error(`List 'type = ${invalidType}' not recognised. Try 'ordered' or 'pill'`);
+
+        // assert
+        expect(() => {
+            list({ type: invalidType, items });
+        }).toThrow(invalidTypeError);
+    });
 });
