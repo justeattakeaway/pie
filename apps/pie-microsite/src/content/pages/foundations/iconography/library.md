@@ -5,5 +5,5 @@ eleventyNavigation:
     order: 2
 ---
 
-{% table  %}
+{% iconList %}
 

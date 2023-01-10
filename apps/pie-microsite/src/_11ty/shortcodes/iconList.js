@@ -12,16 +12,16 @@ module.exports = function () {
       .replace(/^./, match => match.toUpperCase())
       .trim();
 
-    const icons = Object.values(pieIcons()).map(({ name, icon }) => `<div class="c-table-item">
-          <div class="c-tableItem-preview">
+    const icons = Object.values(pieIcons()).map(({ name, icon }) => `<div class="c-iconList-card">
+          <div class="c-iconListCard-preview">
             ${icon}
             ${icon}
           </div>
           <hr>
-          <p class="c-tableItem-name">${buildIconName(name)}</p>
+          <p class="c-iconListCard-name">${buildIconName(name)}</p>
         </div>`).join('');
 
-    return `<div class="c-table">
+    return `<div class="c-iconList">
         ${icons}
     </div>`;
 };

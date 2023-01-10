@@ -1,16 +1,16 @@
 @use '../fozzie-config' as f;
 
-$table-item-width-desktop: 152px;
-$table-item-width-mobile: 163.5px;
+$iconList-item-width-desktop: 152px;
+$iconList-item-width-mobile: 163.5px;
 
-.c-table {
+.c-iconList {
     display: flex;
     gap: 16px;
     flex-wrap: wrap;
 }
 
-.c-table-item {
-    width: $table-item-width-mobile;
+.c-iconList-card {
+    width: $iconList-item-width-mobile;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -19,18 +19,17 @@ $table-item-width-mobile: 163.5px;
     border-radius: f.$radius-rounded-b;
 
     hr {
-        height: 1px;
         width: 100%;
         color: f.$color-divider-default;
         margin: 16px 0 0;
     }
 
     @include f.media('>=wide') {
-        width: $table-item-width-mobile;
+        width: $iconList-item-width-mobile;
     }
 }
 
-.c-tableItem-preview {
+.c-iconListCard-preview {
     display: flex;
     gap: 16px;
     align-items: center;
@@ -46,7 +45,7 @@ $table-item-width-mobile: 163.5px;
     }
 }
 
-.c-tableItem-name {
+.c-iconListCard-name {
     @include f.font-size('body-s');
     width: 100%;
     white-space: nowrap;
