@@ -52,9 +52,11 @@ $tokensTable-border-width: 1px;
 }
 
 .c-tokensTable-example--spacing-content {
-    background-color: f.$color-dark-content-subdued;
+    background-color: f.$color-content-default;
+    opacity: 10%;
     width: var(--example-spacing);
     height: var(--example-spacing);
+    border-radius: 2px;
 }
 
 .c-tokensTable-example--spacing {
