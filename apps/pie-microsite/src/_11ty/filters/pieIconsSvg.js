@@ -1,27 +1,29 @@
-const pieicons = require('@justeattakeaway/pie-icons');
+const pieIcons = require('@justeattakeaway/pie-icons');
 
-/**
- * Custom filter that returns an SVG HTML string for a specified PIE Icon
- * @param {*} iconConfig
- * @param {string} iconConfig.name - the name of the icon to retrieve
- * @param {object} iconConfig.attrs - any attributes to add to the svg such as height, width, classes and fill
- * @returns
- */
-// eslint-disable-next-line func-names, consistent-return
+
+// eslint-disable-next-line consistent-return
 const getIconByName = (iconName, iconAttributes) => {
     try {
-        return pieicons.default.icons[iconName].toSvg(iconAttributes);
+        return pieIcons.default.icons[iconName].toSvg(iconAttributes);
     } catch (error) {
     // eslint-disable-next-line no-console
         console.error(`Could not find icon of name: ${iconName}. Error: ${error}`);
     }
 };
 
-const getAllIcons = iconAttributes => Object.entries(pieicons.default.icons).map(([key, value]) => ({
+const getAllIcons = iconAttributes => Object.entries(pieIcons.default.icons).map(([key, value]) => ({
     name: key,
     icon: value.toSvg(iconAttributes)
 }));
 
+/**
+ * Custom filter that returns either an SVG HTML string for a specified PIE Icon or a HTML string for all PIE icons
+ * @param {*} iconConfig
+ * @param {string} iconConfig.name - the name of the icon to retrieve. If not provided, filter will return all PIE icons
+ * @param {object} iconConfig.attrs - any attributes to add to the svg such as height, width, classes and fill
+ * @returns
+ */
+// eslint-disable-next-line func-names, consistent-return
 module.exports = function (iconConfig = {
     name: '',
     attrs: {}

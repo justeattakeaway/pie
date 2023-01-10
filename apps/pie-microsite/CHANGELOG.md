@@ -11,6 +11,8 @@ v1.32.0
 - copy to Iconography library page
 - New `iconList` shortcode to render icons
 
+### Changed
+- `pieIconsSvg` filter to return all icons or icons by name
 
 v1.30.0
 ------------------------------
