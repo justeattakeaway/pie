@@ -12,6 +12,13 @@
 @use 'base/typography';
 
 /**
+ * Plugin Styles:
+ * =================================
+ */
+
+@use 'plugins/prism';
+
+/**
  * Components:
  * =================================
  * Components are our reusable chunks of styling that aren't directly associated to a base tag
