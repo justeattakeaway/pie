@@ -14,8 +14,7 @@
     ".": "./index.js",
     "./base": "./rules/base.js",
     "./strict": "./rules/strict.js",
-    "./ordering": "./rules/ordering.js",
-    "./package.json": "./package.json"
+    "./ordering": "./rules/ordering.js"
   },
   "peerDependencies": {
     "stylelint": "14.x",
