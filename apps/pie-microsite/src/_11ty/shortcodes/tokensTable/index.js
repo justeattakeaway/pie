@@ -85,7 +85,7 @@ const buildColorExample = token => {
 const buildSpacingExample = token => {
     const cssVariable = `--example-spacing: ${token}px`;
 
-    return `<div class="c-tokensTable-example-container"><div class="c-tokensTable-example--spacing" style="${cssVariable}";></div></div>`;
+    return `<div class="c-tokensTable-example-spacing-container"><div class="c-tokensTable-example--spacing" style="${cssVariable}";></div></div>`;
 };
 
 /**

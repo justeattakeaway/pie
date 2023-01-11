@@ -4,6 +4,7 @@
 $tokensTable-column-padding: f.spacing(d);
 $tokensTable-border-width: 1px;
 $tokensTable-spacing-container-height: 176px;
+$tokensTable-item-min-height: 128px;
 
 
 .c-tokensTable-list {
@@ -19,11 +20,12 @@ $tokensTable-spacing-container-height: 176px;
 
 .c-tokensTable-example {
     background-color: var(--example-background-color, f.$color-background-subtle);
-    min-height: 80px;
     overflow: hidden;
+    min-height: $tokensTable-item-min-height;
 
     @include f.media('>=wide') {
         border-radius: f.$radius-03;
+        min-height: 80px;
     }
 }
 
@@ -53,7 +55,7 @@ $tokensTable-spacing-container-height: 176px;
     }
 }
 
-.c-tokensTable-example-container {
+.c-tokensTable-example-spacing-container {
     background-color: f.$color-background-subtle;
     position: relative;
     min-height: $tokensTable-spacing-container-height;
