@@ -3,6 +3,16 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+v1.35.0
+------------------------------
+*January 17, 2023*
+
+### Added
+- Typography alias tokens on the alias page, and group them as per the Figma designs
+- A normalization layer to pie design tokens to group font alias tokens into wide/narrow
+- DisplayName logic to the token metadata
+
+
 v1.34.0
 ------------------------------
 *January 16, 2023*

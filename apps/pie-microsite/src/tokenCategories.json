@@ -101,6 +101,56 @@
       }
     }
   },
-  "spacing": {},
-  "radius": {}
+  "font": {
+    "alias": {
+      "wide": {
+        "headings": {
+          "displayName": "Headings"
+        },
+        "subheadings": {
+          "displayName": "Subheadings"
+        },
+        "body": {
+          "displayName": "Body"
+        },
+        "body-strong": {
+          "displayName": "Body (Strong)"
+        },
+        "caption": {
+          "displayName": "Caption"
+        },
+        "caption-strong": {
+          "displayName": "Caption (Strong)"
+        },
+        "interactive": {
+          "displayName": "Interactive"
+        }
+      },
+      "narrow": {
+        "headings": {
+          "displayName": "Headings"
+        },
+        "subheadings": {
+          "displayName": "Subheadings"
+        },
+        "body": {
+          "displayName": "Body"
+        },
+        "body-strong": {
+          "displayName": "Body (Strong)"
+        },
+        "caption": {
+          "displayName": "Caption"
+        },
+        "caption-strong": {
+          "displayName": "Caption (Strong)"
+        },
+        "interactive": {
+          "displayName": "Interactive"
+        }
+      }
+    }
+  },
+  "radius": {},
+  "spacing": {}
 }
