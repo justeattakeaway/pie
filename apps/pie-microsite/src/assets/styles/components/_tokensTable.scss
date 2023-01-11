@@ -61,7 +61,8 @@ $tokensTable-border-width: 1px;
     border-radius: 2px;
 
     @include f.media('>=wide') {
-        justify-self: left;
+        justify-self: start;
+        align-self: start;
     }
 }
 
@@ -106,7 +107,8 @@ $tokensTable-border-width: 1px;
         padding: f.spacing(e) 0;
         border-radius: 0;
         border-width: 0 0 $tokensTable-border-width 0;
-        background-color: f.$color-mozzarella-5;
+        background-color: f.$color-background-default;
+        min-height: 128px;
 
         // Any final token item at the end of a parent category list should not have a bottom border
         // In pages where there are no parent categories, there should not be a bottom border on the final item in each list either
@@ -128,7 +130,7 @@ $tokensTable-border-width: 1px;
 
     @include f.media('>=wide') {
         padding: 0;
-        background-color: f.$color-mozzarella-5;
+        background-color: f.$color-background-default;
     }
 }
 
