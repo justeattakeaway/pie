@@ -10,13 +10,22 @@ module.exports = function () {
       .replace(/^./, match => match.toUpperCase())
       .trim();
 
-    const icons = Object.values(pieIcons()).map(({ name, icon }) => `<div class="c-iconList-card">
-          <div class="c-iconListCard-preview">
-            ${icon}
-          </div>
-          <hr>
-          <p class="c-iconListCard-name">${buildIconName(name)}</p>
-        </div>`).join('');
+    const icons = Object.values(pieIcons()).map(({ name, icon }) => {
+        const isSmallIcon = name.toLowerCase().includes('small');
+
+        const previewClasses = [
+            'c-iconListCard-preview',
+            isSmallIcon && 'c-iconListCard-preview--small'
+        ].filter(Boolean).join(' ');
+
+        return `<div class="c-iconList-card">
+                <div class="${previewClasses}">
+                    ${icon}
+                </div>
+                <hr>
+                <p class="c-iconListCard-name">${buildIconName(name)}</p>
+            </div>`;
+    }).join('');
 
     return `<div class="c-iconList">
         ${icons}

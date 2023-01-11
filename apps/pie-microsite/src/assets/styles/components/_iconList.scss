@@ -2,26 +2,39 @@
 
 $iconList-item-width-desktop: 152px;
 $iconList-item-width-mobile: 163.5px;
+$iconList-margin: 16px;
+$iconList-margin--small: 24px;
+$iconList-icon-size: 32px;
+$iconList-icon-size--small: 16px;
 
 .c-iconList {
     display: flex;
     gap: 16px;
     flex-wrap: wrap;
+    justify-content: center;
+
+    @include f.media('>=mid') {
+        justify-content: start;
+    }
 }
 
 .c-iconList-card {
-    width: $iconList-item-width-mobile;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: f.spacing(d) f.spacing();
+    padding: 0 f.spacing();
     background-color: f.$color-container-subtle;
     border-radius: f.$radius-rounded-b;
 
     hr {
+        margin: 0;
         width: 100%;
         color: f.$color-divider-default;
-        margin: 16px 0 0;
+    }
+
+    @include f.media('>=tiny') {
+        width: $iconList-item-width-mobile;
     }
 
     @include f.media('>=wide') {
@@ -30,10 +43,20 @@ $iconList-item-width-mobile: 163.5px;
 }
 
 .c-iconListCard-preview {
-    display: flex;
+    svg {
+        margin: $iconList-margin;
+        display: block;
+        width: $iconList-icon-size;
+        height: $iconList-icon-size;
+    }
+}
 
-    width: 32px;
-    height: 32px;
+.c-iconListCard-preview--small {
+    svg {
+        margin: $iconList-margin--small;
+        width: $iconList-icon-size--small;
+        height: $iconList-icon-size--small;
+    }
 }
 
 .c-iconListCard-name {
@@ -43,4 +66,5 @@ $iconList-item-width-mobile: 163.5px;
     overflow: hidden;
     text-overflow: ellipsis;
     text-align: center;
+    margin: $iconList-margin 0;
 }
