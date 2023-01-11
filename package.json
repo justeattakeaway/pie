@@ -7,7 +7,6 @@
   "license": "MIT",
   "packageManager": "yarn@3.2.1",
   "private": true,
-  "tag": true,
   "engines": {
     "node": "^16"
   },
