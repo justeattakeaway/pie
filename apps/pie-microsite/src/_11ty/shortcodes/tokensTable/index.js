@@ -1,7 +1,7 @@
 /* eslint-disable no-trailing-spaces */
 const pieDesignTokens = require('@justeat/pie-design-tokens/dist/tokens.json');
 const pieTokenCategories = require('../../../tokenCategories.json');
-const { stringHelpers, objectHelpers } = require('../../../utilities/helpers');
+const { stringHelpers, objectHelpers, NumberHelpers } = require('../../../utilities/helpers');
 const tokenTypes = require('../../../_data/tokenTypes');
 const { isColorDark } = require('../../../utilities/colors');
 const {
@@ -202,11 +202,9 @@ const buildTokensListForCategory = (tokens, path, category, tokenType) => {
 const buildUncategorisedLists = ({
     tokenType, tokens 
 }) => {
-    const isNumber = value => !Number.isNaN(parseInt(value, 10));
-
-    // orders object numerically in ascending order
-    const sortedTokens = Object.keys(tokens).every(isNumber) ?
-        Object.entries(tokens).sort((a, b) => a[1] - b[1])
+    // if tokens are numbers (spacing / radius), sort is ascending order
+    const sortedTokens = Object.keys(tokens).every(NumberHelpers.isNumber) ?
+        Object.entries(tokens).sort((a, b) => a[1] - b[1]) // [[key, value]]
         : Object.entries(tokens);
 
     const tokenListElements = sortedTokens.map(token => buildTokenListElements({

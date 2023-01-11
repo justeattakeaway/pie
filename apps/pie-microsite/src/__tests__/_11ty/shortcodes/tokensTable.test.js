@@ -5,7 +5,8 @@ describe('tokensTable.js', () => {
     it.each([
         ['color.alias.default', tokenTypes.COLOR],
         ['color.alias.dark', tokenTypes.COLOR],
-        ['color.global', tokenTypes.COLOR]
+        ['color.global', tokenTypes.COLOR],
+        ['spacing.global', tokenTypes.SPACING]
     ])('should return the expected HTML', (path, tokenType) => {
         // act
         const result = tokensTable({ path, tokenType });
