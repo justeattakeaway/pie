@@ -1,0 +1,15 @@
+{
+  "changelog": [
+    "@changesets/changelog-github",
+    { "repo": "justeattakeaway/pie" }
+  ],
+  "commit": false,
+  "fixed": [],
+  "access": "public",
+  "baseBranch": "main",
+  "updateInternalDependencies": "patch",
+  "privatePackages": {
+    "version": true,
+    "tag": true
+  }
+}
