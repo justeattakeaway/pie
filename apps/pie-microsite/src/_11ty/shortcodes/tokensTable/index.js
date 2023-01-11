@@ -135,14 +135,13 @@ const buildTokenListElements = ({
 }) => {
     const tokenPill = buildTokenPill(tokenScssName);
     const tokenExampleElement = buildTokenExampleElement(token, tokenType);
-    
+
     // TODO - description is just an example of how we might use the metadata
     // We would likely wanted to move them into a colour specific handler similar to how we build
     // the colour token example. Please consider them placeholder for now.
     const tokenDescription = tokenMetadata.description
         ? `<span class="c-tokensTable-tokenDescription">${tokenMetadata.description}</span>`
         : '';
-    
 
     return `<li class="c-tokensTable-row c-tokensTable-item">
       ${tokenExampleElement}
