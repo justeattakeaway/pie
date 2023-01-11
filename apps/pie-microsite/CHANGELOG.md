@@ -5,7 +5,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 v1.32.0
 ------------------------------
-*January 10, 2023*
+*January 11, 2023*
 
 ### Added
 - global design tokens to spacing page
