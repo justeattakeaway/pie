@@ -135,15 +135,18 @@ const buildTokenListElements = ({
 }) => {
     const tokenPill = buildTokenPill(tokenScssName);
     const tokenExampleElement = buildTokenExampleElement(token, tokenType);
-
     // TODO - description is just an example of how we might use the metadata
     // We would likely wanted to move them into a colour specific handler similar to how we build
     // the colour token example. Please consider them placeholder for now.
     const tokenDescription = tokenMetadata.description
         ? `<span class="c-tokensTable-tokenDescription">${tokenMetadata.description}</span>`
         : '';
+    
+    const cssVariable = tokenType === 'color'
+        ? '--token-row-height: 128px'
+        : '--token-row-height: 176px';
 
-    return `<li class="c-tokensTable-row c-tokensTable-item">
+    return `<li class="c-tokensTable-row c-tokensTable-item" style="${cssVariable}">
       ${tokenExampleElement}
       <div class="c-tokensTable-content">
         <span class="c-tokensTable-displayName">${tokenDisplayName}</span>${tokenDescription}
@@ -199,11 +202,17 @@ const buildTokensListForCategory = (tokens, path, category, tokenType) => {
 const buildUncategorisedLists = ({
     tokenType, tokens 
 }) => {
-    // create a list item for the current token
-    const tokenListElements = Object.keys(tokens).map(key => buildTokenListElements({
-        token: tokens[key],
-        tokenScssName: createScssTokenName(key, tokenType),
-        tokenDisplayName: createTokenDisplayName(key, tokenType),
+    const isNumber = value => !Number.isNaN(parseInt(value, 10));
+
+    // orders object numerically in ascending order
+    const sortedTokens = Object.keys(tokens).every(isNumber) ?
+        Object.entries(tokens).sort((a, b) => a[1] - b[1])
+        : Object.entries(tokens);
+
+    const tokenListElements = sortedTokens.map(token => buildTokenListElements({
+        token: tokens[token[0]],
+        tokenScssName: createScssTokenName(token[0], tokenType),
+        tokenDisplayName: createTokenDisplayName(token[0], tokenType),
         tokenType
     }));
 

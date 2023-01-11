@@ -79,7 +79,7 @@ $tokensTable-border-width: 1px;
     display: grid;
     column-gap: $tokensTable-column-padding;
     grid-template-columns: 1fr;
-    grid-template-rows: 128px 1fr;
+    grid-template-rows: var(--token-row-height) 1fr;
     overflow: hidden;
 
     & + & {
