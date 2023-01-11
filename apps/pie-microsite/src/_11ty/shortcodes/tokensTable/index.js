@@ -1,7 +1,7 @@
 /* eslint-disable no-trailing-spaces */
 const pieDesignTokens = require('@justeat/pie-design-tokens/dist/tokens.json');
 const pieTokenCategories = require('../../../tokenCategories.json');
-const { stringHelpers, objectHelpers, NumberHelpers } = require('../../../utilities/helpers');
+const { stringHelpers, objectHelpers, numberHelpers } = require('../../../utilities/helpers');
 const tokenTypes = require('../../../_data/tokenTypes');
 const { isColorDark } = require('../../../utilities/colors');
 const {
@@ -85,7 +85,7 @@ const buildColorExample = token => {
 const buildSpacingExample = token => {
     const cssVariable = `--example-spacing: ${token}px`;
 
-    return `<div class="c-tokensTable-example--spacing" style="${cssVariable}";></div>`;
+    return `<div class="c-tokensTable-example-container"><div class="c-tokensTable-example--spacing" style="${cssVariable}";></div></div>`;
 };
 
 /**
@@ -143,11 +143,8 @@ const buildTokenListElements = ({
         ? `<span class="c-tokensTable-tokenDescription">${tokenMetadata.description}</span>`
         : '';
     
-    const cssVariable = tokenType === 'color'
-        ? '--token-row-height: 128px'
-        : '--token-row-height: 176px';
 
-    return `<li class="c-tokensTable-row c-tokensTable-item" style="${cssVariable}">
+    return `<li class="c-tokensTable-row c-tokensTable-item">
       ${tokenExampleElement}
       <div class="c-tokensTable-content">
         <span class="c-tokensTable-displayName">${tokenDisplayName}</span>${tokenDescription}
@@ -204,8 +201,8 @@ const buildUncategorisedLists = ({
     tokenType, tokens 
 }) => {
     // if tokens are numbers (spacing / radius), sort is ascending order
-    const sortedTokens = Object.keys(tokens).every(NumberHelpers.isNumber) ?
-        Object.entries(tokens).sort((a, b) => a[1] - b[1]) // [[key, value]]
+    const sortedTokens = Object.keys(tokens).every(numberHelpers.isNumber)
+        ? Object.entries(tokens).sort((a, b) => a[1] - b[1]) // [[key, value]]
         : Object.entries(tokens);
 
     const tokenListElements = sortedTokens.map(token => buildTokenListElements({

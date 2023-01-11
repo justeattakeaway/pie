@@ -51,18 +51,41 @@ $tokensTable-border-width: 1px;
     }
 }
 
+.c-tokensTable-example-container {
+    background-color: f.$color-background-subtle;
+    position: relative;
+    min-height: 176px;
+
+    @include f.media('>=wide') {
+       background-color: f.$color-background-default;
+       min-height: 128px;
+
+       @include f.media('>=wide') {
+            justify-self: start;
+            align-self: start;
+        }
+       
+    }
+}
+
 .c-tokensTable-example--spacing {
-    align-self: center;
-    justify-self: center;
+    // calculates the vertical positioning of the spacing examples (always slightly off-centre)
+    --base-negative-space: calc((176px - var(--example-spacing)) / 2);
     background-color: f.$color-content-default;
     opacity: 10%;
     width: var(--example-spacing);
     height: var(--example-spacing);
     border-radius: 2px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    position: absolute;
+    bottom: calc(var(--base-negative-space) - 8px);
+    top: calc(var(--base-negative-space) + 8px);
 
     @include f.media('>=wide') {
-        justify-self: start;
-        align-self: start;
+        bottom: 0;
+        top: 0;
     }
 }
 
@@ -79,7 +102,7 @@ $tokensTable-border-width: 1px;
     display: grid;
     column-gap: $tokensTable-column-padding;
     grid-template-columns: 1fr;
-    grid-template-rows: var(--token-row-height) 1fr;
+    grid-template-rows: auto 1fr;
     overflow: hidden;
 
     & + & {
@@ -101,7 +124,6 @@ $tokensTable-border-width: 1px;
     padding: 0;
     border: $tokensTable-border-width solid f.$color-border-default;
     border-radius: f.$radius-03;
-    background-color: f.$color-background-subtle;
 
     @include f.media('>=wide') {
         padding: f.spacing(e) 0;

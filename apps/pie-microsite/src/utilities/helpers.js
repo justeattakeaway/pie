@@ -31,7 +31,11 @@ const capitaliseFirstLetter = string => {
     return capitalised;
 };
 
-// checks whether value can convert to number
+/**
+ * Checks whether string can convert to number
+ * @param {string} string
+ * @returns {boolean}
+ */
 const isNumber = value => !Number.isNaN(parseInt(value, 10));
 
 
@@ -42,7 +46,7 @@ module.exports = {
     objectHelpers: {
         getObjectPropertyByPath
     },
-    NumberHelpers: {
+    numberHelpers: {
         isNumber
     }
 };
