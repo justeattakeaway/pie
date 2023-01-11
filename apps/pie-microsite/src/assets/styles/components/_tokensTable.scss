@@ -3,6 +3,8 @@
 
 $tokensTable-column-padding: f.spacing(d);
 $tokensTable-border-width: 1px;
+$tokensTable-spacing-container-height: 176px;
+
 
 .c-tokensTable-list {
     list-style: none;
@@ -54,7 +56,7 @@ $tokensTable-border-width: 1px;
 .c-tokensTable-example-container {
     background-color: f.$color-background-subtle;
     position: relative;
-    min-height: 176px;
+    min-height: $tokensTable-spacing-container-height;
 
     @include f.media('>=wide') {
        background-color: f.$color-background-default;
@@ -69,7 +71,7 @@ $tokensTable-border-width: 1px;
 
 .c-tokensTable-example--spacing {
     // calculates the vertical positioning of the spacing examples (always slightly off-centre)
-    --base-negative-space: calc((176px - var(--example-spacing)) / 2);
+    --base-negative-space: calc((#{$tokensTable-spacing-container-height} - var(--example-spacing)) / 2);
     background-color: f.$color-content-default;
     opacity: 10%;
     width: var(--example-spacing);
@@ -129,7 +131,6 @@ $tokensTable-border-width: 1px;
         border-radius: 0;
         border-width: 0 0 $tokensTable-border-width 0;
         background-color: f.$color-background-default;
-        min-height: 128px;
 
         // Any final token item at the end of a parent category list should not have a bottom border
         // In pages where there are no parent categories, there should not be a bottom border on the final item in each list either
