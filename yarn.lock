@@ -2104,30 +2104,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@justeattakeaway/pie-stylelint-config-ordering@workspace:packages/tools/pie-stylelint-config-ordering":
-  version: 0.0.0-use.local
-  resolution: "@justeattakeaway/pie-stylelint-config-ordering@workspace:packages/tools/pie-stylelint-config-ordering"
-  peerDependencies:
-    stylelint: 14.x
-    stylelint-config-standard-scss: 5.x
-  languageName: unknown
-  linkType: soft
-
-"@justeattakeaway/pie-stylelint-config-strict@workspace:packages/tools/pie-stylelint-config-strict":
-  version: 0.0.0-use.local
-  resolution: "@justeattakeaway/pie-stylelint-config-strict@workspace:packages/tools/pie-stylelint-config-strict"
-  peerDependencies:
-    stylelint: 14.x
-    stylelint-config-standard-scss: 5.x
-  languageName: unknown
-  linkType: soft
-
 "@justeattakeaway/pie-stylelint-config@workspace:packages/tools/pie-stylelint-config":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-stylelint-config@workspace:packages/tools/pie-stylelint-config"
   peerDependencies:
     stylelint: 14.x
     stylelint-config-standard-scss: 5.x
+    stylelint-order: 5.x
   languageName: unknown
   linkType: soft
 

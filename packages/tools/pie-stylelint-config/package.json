@@ -18,7 +18,8 @@
   },
   "peerDependencies": {
     "stylelint": "14.x",
-    "stylelint-config-standard-scss": "5.x"
+    "stylelint-config-standard-scss": "5.x",
+    "stylelint-order": "5.x"
   },
   "scripts": {
     "test": "run -T jest"
