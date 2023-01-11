@@ -74,7 +74,6 @@ module.exports = {
         'media-feature-parentheses-space-inside': 'never',
         'media-feature-range-operator-space-after': 'always',
         'media-feature-range-operator-space-before': 'always',
-        // TODO - leave blank?
         'media-query-list-comma-newline-before': null,
         'media-query-list-comma-space-after': 'always-single-line',
         'media-query-list-comma-space-before': 'never',
@@ -86,8 +85,8 @@ module.exports = {
         'number-no-trailing-zeros': true,
         'property-case': 'lower',
         'property-no-unknown': true,
-        // TODO - figure this one out with Ash
-        'property-no-vendor-prefix': '',
+        // TODO - we need to figure out what exceptions to add to this
+        'property-no-vendor-prefix': 'never',
         'rule-empty-line-before': [
             'always',
             {
@@ -109,8 +108,8 @@ module.exports = {
         'selector-list-comma-newline-before': 'never-multi-line',
         'selector-list-comma-space-before': 'never',
         'selector-max-empty-lines': 0,
-        // TODO - Create new rule to allow the owl * > *
-        'selector-max-universal': 1,
+        // TODO - Test * > * works
+        'selector-max-universal': [1, { ignore: '>' }],
         'selector-no-vendor-prefix': true,
         'selector-pseudo-element-colon-notation': 'single',
         'selector-type-case': 'lower',
