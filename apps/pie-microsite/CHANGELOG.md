@@ -5,6 +5,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 v1.31.0
 ------------------------------
+*January 11, 2023*
+
+### Added
+- Spacing heading and copy.
+
+
+v1.31.0
+------------------------------
 *January 10, 2023*
 
 ### Added
