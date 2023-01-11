@@ -13,7 +13,6 @@ module.exports = function () {
     const icons = Object.values(pieIcons()).map(({ name, icon }) => `<div class="c-iconList-card">
           <div class="c-iconListCard-preview">
             ${icon}
-            ${icon}
           </div>
           <hr>
           <p class="c-iconListCard-name">${buildIconName(name)}</p>

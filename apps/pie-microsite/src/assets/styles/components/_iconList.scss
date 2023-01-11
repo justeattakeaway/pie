@@ -31,18 +31,9 @@ $iconList-item-width-mobile: 163.5px;
 
 .c-iconListCard-preview {
     display: flex;
-    gap: 16px;
-    align-items: center;
 
-    svg:first-child {
-        width: 32px;
-        height: 32px;
-    }
-
-    svg:last-child {
-        width: 16px;
-        height: 16px;
-    }
+    width: 32px;
+    height: 32px;
 }
 
 .c-iconListCard-name {

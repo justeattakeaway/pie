@@ -14,7 +14,7 @@ const getIconByName = (iconName, iconAttributes) => {
 const getAllIcons = iconAttributes => Object.entries(pieIcons.default.icons).map(([key, value]) => ({
     name: key,
     icon: value.toSvg(iconAttributes)
-}));
+})).sort((a, b) => a.name.localeCompare(b.name));
 
 /**
  * Custom filter that returns either an SVG HTML string for a specified PIE Icon or a HTML string for all PIE icons
