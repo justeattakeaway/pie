@@ -1,8 +1,7 @@
 {
   "name": "@justeattakeaway/pie-stylelint-config",
   "version": "0.1.0",
-  "description": "Shareable base Stylelint config for use with any front-end web projects across JET.",
-  "main": "index.js ",
+  "description": "Shareable Stylelint config for use with any front-end web projects across JET.",
   "license": "Apache-2.0",
   "keywords": [
     "PIE",
@@ -11,9 +10,13 @@
     "standard"
   ],
   "author": "",
-  "files": [
-    "index.js"
-  ],
+  "exports": {
+    ".": "./index.js",
+    "./base": "./rules/base.js",
+    "./strict": "./rules/strict.js",
+    "./ordering": "./rules/ordering.js",
+    "./package.json": "./package.json"
+  },
   "peerDependencies": {
     "stylelint": "14.x",
     "stylelint-config-standard-scss": "5.x"

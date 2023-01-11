@@ -36,6 +36,18 @@ The easiest way to do this is by adding the following section to your package.js
 }
 ```
 
+You may only want to use a specific ruleset such as `base`, `strict` or `ordering`. If so, simply point to the ones you'd like to use (_note:  `@justeattakeaway/pie-stylelint-config` includes all rules_):
+
+```json
+"stylelint": {
+  "extends": [
+    "@justeattakeaway/pie-stylelint-config-base",
+    "@justeattakeaway/pie-stylelint-config-strict",
+    "@justeattakeaway/pie-stylelint-config-ordering" 
+  ]
+}
+```
+
 If you've globally installed `pie-stylelint-config` using the `-g` flag, then you'll need to use the absolute path to `pie-stylelint-config` in your config e.g.
 
 ```json
