@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-stylelint-config-ordering",
   "version": "0.1.0",
-  "description": "Shareable Stylelint config relating to CSS property ordering for use with the PIE design system, as well as other front-end web projects across JET.",
+  "description": "Shareable Stylelint config relating to CSS property ordering for use with any front-end web projects across JET.",
   "main": "index.js ",
   "license": "Apache-2.0",
   "keywords": [
