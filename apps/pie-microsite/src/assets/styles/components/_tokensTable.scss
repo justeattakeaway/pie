@@ -99,6 +99,8 @@ $tokensTable-item-min-height: 128px;
 
 .c-tokensTable-heading {
     font-weight: f.$font-weight-bold;
+    @include f.font-size('body-s');
+    color: f.$color-content-subdued;
 }
 
 .c-tokensTable-row {
@@ -132,7 +134,6 @@ $tokensTable-item-min-height: 128px;
         padding: f.spacing(e) 0;
         border-radius: 0;
         border-width: 0 0 $tokensTable-border-width 0;
-        background-color: f.$color-background-default;
 
         // Any final token item at the end of a parent category list should not have a bottom border
         // In pages where there are no parent categories, there should not be a bottom border on the final item in each list either
