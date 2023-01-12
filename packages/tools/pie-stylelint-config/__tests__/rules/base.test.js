@@ -24,9 +24,28 @@ describe('base Stylelint rules', () => {
             )));
 
             it('flags one warning', () => result.then(data => {
-                console.log(data.results[0].warnings);
                 expect(data.results[0].warnings.length).toBe(1);
             }));
+
+            it('correct warning text', () => result.then(data => (
+                expect(data.results[0].warnings[0].text).toBe('Expected "50%" to be "0.5" (alpha-value-notation)')
+            )));
+
+            it('correct rule flagged', () => result.then(data => (
+                expect(data.results[0].warnings[0].rule).toBe('alpha-value-notation')
+            )));
+
+            it('correct severity flagged', () => result.then(data => (
+                expect(data.results[0].warnings[0].severity).toBe('error')
+            )));
+
+            it('correct line number', () => result.then(data => (
+                expect(data.results[0].warnings[0].line).toBe(2)
+            )));
+
+            it('correct column number', () => result.then(data => (
+                expect(data.results[0].warnings[0].column).toBe(25)
+            )));
         });
     });
 });
