@@ -1,4 +1,5 @@
 module.exports = {
+    plugins: ['stylelint-order'],
     rules: {
         'order/order': [
             'custom-properties',

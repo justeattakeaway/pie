@@ -86,7 +86,7 @@ module.exports = {
         'property-case': 'lower',
         'property-no-unknown': true,
         // TODO - we need to figure out what exceptions to add to this
-        'property-no-vendor-prefix': 'never',
+        'property-no-vendor-prefix': null,
         'rule-empty-line-before': [
             'always',
             {
@@ -109,7 +109,7 @@ module.exports = {
         'selector-list-comma-space-before': 'never',
         'selector-max-empty-lines': 0,
         // TODO - Test * > * works
-        'selector-max-universal': [1, { ignore: '>' }],
+        'selector-max-universal': [1, { ignoreAfterCombinators: ['>'] }],
         'selector-no-vendor-prefix': true,
         'selector-pseudo-element-colon-notation': 'single',
         'selector-type-case': 'lower',
