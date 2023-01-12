@@ -1,12 +1,12 @@
 const stylelint = require('stylelint');
-const baseConfig = require('../../rules/base');
+const strictConfig = require('../../rules/strict');
 
-describe('base Stylelint rules', () => {
-    describe('alpha-value-notation', () => {
+describe('strict Stylelint rules', () => {
+    describe('color-named', () => {
         describe('valid CSS', () => {
             // this is very ugly but allows the template string to not flag new line and indentation errors
             const validCSS = `a {
-    color: rgb(0, 0, 0, 0.5);
+    color: #FF0000;
 }
 `;
 
@@ -15,7 +15,7 @@ describe('base Stylelint rules', () => {
             beforeEach(() => {
                 result = stylelint.lint({
                     code: validCSS,
-                    config: baseConfig
+                    config: strictConfig
                 });
             });
 
@@ -29,7 +29,7 @@ describe('base Stylelint rules', () => {
         describe('invalid CSS', () => {
             // this is very ugly but allows the template string to not flag new line and indentation errors
             const invalidCSS = `a {
-    color: rgb(0, 0, 0, 50%);
+    color: red;
 }
 `;
 
@@ -38,7 +38,7 @@ describe('base Stylelint rules', () => {
             beforeEach(() => {
                 result = stylelint.lint({
                     code: invalidCSS,
-                    config: baseConfig
+                    config: strictConfig
                 });
             });
 
@@ -51,11 +51,11 @@ describe('base Stylelint rules', () => {
             )));
 
             it('correct warning text', () => result.then(data => (
-                expect(data.results[0].warnings[0].text).toBe('Expected "50%" to be "0.5" (alpha-value-notation)')
+                expect(data.results[0].warnings[0].text).toBe('Unexpected named color "red" (color-named)')
             )));
 
             it('correct rule flagged', () => result.then(data => (
-                expect(data.results[0].warnings[0].rule).toBe('alpha-value-notation')
+                expect(data.results[0].warnings[0].rule).toBe('color-named')
             )));
 
             it('correct severity flagged', () => result.then(data => (
@@ -67,7 +67,7 @@ describe('base Stylelint rules', () => {
             )));
 
             it('correct column number', () => result.then(data => (
-                expect(data.results[0].warnings[0].column).toBe(25)
+                expect(data.results[0].warnings[0].column).toBe(12)
             )));
         });
     });
