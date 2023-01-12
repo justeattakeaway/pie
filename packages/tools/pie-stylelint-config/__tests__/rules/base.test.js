@@ -3,6 +3,29 @@ const baseConfig = require('../../rules/base');
 
 describe('base Stylelint rules', () => {
     describe('alpha-value-notation', () => {
+        describe('valid CSS', () => {
+            // this is very ugly but allows the template string to not flag new line and indentation errors
+            const validCSS = `a {
+    color: rgb(0, 0, 0, 0.5);
+}
+`;
+
+            let result;
+
+            beforeEach(() => {
+                result = stylelint.lint({
+                    code: validCSS,
+                    config: baseConfig
+                });
+            });
+
+            it('did not error', () => result.then(data => expect(data.errored).toBeFalsy()));
+
+            it('flags no warnings', () => result.then(data => (
+                expect(data.results[0].warnings.length).toBe(0)
+            )));
+        });
+
         describe('invalid CSS', () => {
             // this is very ugly but allows the template string to not flag new line and indentation errors
             const invalidCSS = `a {
