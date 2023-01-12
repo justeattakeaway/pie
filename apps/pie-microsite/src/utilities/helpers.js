@@ -32,7 +32,7 @@ const capitaliseFirstLetter = string => {
 };
 
 /**
- * Checks whether value can convert to number - returns number if number is passed through
+ * Checks whether value can convert to number
  * @param {string | number} value
  * @returns {boolean}
  */
