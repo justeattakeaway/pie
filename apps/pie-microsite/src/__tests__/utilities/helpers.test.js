@@ -52,7 +52,7 @@ describe('helpers.js', () => {
 
     describe('numberHelpers', () => {
         describe('isNumber', () => {
-            [['1', true], ['fooBarBaz', false]].forEach(example => {
+            [['1', true], ['fooBarBaz', false], [1, true]].forEach(example => {
                 it('correctly checks whether string can convert to number', () => {
                     // act
                     const result = systemUnderTest.numberHelpers.isNumber(example[0]);

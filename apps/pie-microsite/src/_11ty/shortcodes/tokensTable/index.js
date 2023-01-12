@@ -79,7 +79,7 @@ const buildColorExample = token => {
 
 /**
  * Builds the example spacing swatch to show on the token list item
- * @param {string} token - the token value i.e. 
+ * @param {string} token - the token value i.e. 24, 80
  * @returns {string} - the spacing swatch example HTML string
  */
 const buildSpacingExample = token => {
@@ -191,15 +191,15 @@ const buildTokensListForCategory = (tokens, path, category, tokenType) => {
 };
 
 /**
- * Builds a categorised list of tokens
+ * Builds uncategorised list of tokens
  * @param {string} tokenType - the type of token i.e. color, spacing, radius
  * @param {object} tokens
- * @returns - object of token categories with display names i.e.  whiteBlack: { displayName: 'White and Black' }
+ * @returns - a string of html containing the list of tokens - with example, description and token name
  */
 const buildUncategorisedLists = ({
     tokenType, tokens 
 }) => {
-    // if tokens are numbers (spacing / radius), sort is ascending order
+    // if tokens are numbers (spacing / radius), sort in ascending order
     const sortedTokens = Object.keys(tokens).every(numberHelpers.isNumber)
         ? Object.entries(tokens).sort((a, b) => a[1] - b[1]) // [[key, value]]
         : Object.entries(tokens);
@@ -219,7 +219,7 @@ const buildUncategorisedLists = ({
  * @param {string} path - path to the category i.e.  'path:color.alias.default' / 'path:color.alias.dark'
  * @param {string} tokenType - the type of token i.e. color, spacing, radius
  * @param {object} tokens
- * @returns - object of token categories with display names i.e.  whiteBlack: { displayName: 'White and Black' }
+ * @returns - - a string of html containing the list of tokens - with category, example, description and token name
  */
 const buildCategorisedLists = ({
     path, tokenType, tokens 
