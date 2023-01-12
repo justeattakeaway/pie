@@ -209,8 +209,10 @@ const buildTokensListForCategory = (tokens, path, category, tokenType) => {
  * @returns - a string of html containing the list of tokens - with example, description and token name
  */
 const buildUncategorisedLists = ({
-    tokenType, tokens 
+    tokens, path, tokenType
 }) => {
+    const tokenTypeMetadata = getTokenTypeMetadata(path);
+
     // if tokens are numbers (spacing / radius), sort in ascending order
     const sortedTokens = Object.keys(tokens).every(numberHelpers.isNumber)
         ? Object.entries(tokens).sort((a, b) => a[1] - b[1]) // [[key, value]]
@@ -220,7 +222,8 @@ const buildUncategorisedLists = ({
         token: tokens[token[0]],
         tokenScssName: createScssTokenName(token[0], tokenType),
         tokenDisplayName: createTokenDisplayName(token[0], tokenType),
-        tokenType
+        tokenType,
+        tokenMetadata: tokenTypeMetadata[token[0]]
     }));
 
     return buildTokensList(tokenListElements);
