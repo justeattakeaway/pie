@@ -4,6 +4,9 @@ eleventyNavigation:
     parent: Spacing
     order: 2
 ---
+## Our global spacing scale
+
+We have defined a series of global tokens to define our various spacing measures. The global spacing scale works in increments of 8px and 4px.
 
 ### Why do we use 8px and 4px increments?
 
