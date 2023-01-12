@@ -33,7 +33,7 @@ const capitaliseFirstLetter = string => {
 
 /**
  * Checks whether value can convert to number
- * @param {string | number} value
+ * @param {string|number} value
  * @returns {boolean}
  */
 const isNumber = value => !Number.isNaN(parseInt(value, 10));
