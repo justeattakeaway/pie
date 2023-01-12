@@ -77,6 +77,17 @@ const buildColorExample = token => {
     return `<div class="${classes.join(' ')}" style="${cssVariable}";></div>`;
 };
 
+const buildRadiusExample = token => {
+    const classes = ['c-tokensTable-example-radius'];
+    const style = `--example-radius: ${token}px`;
+
+    return `
+        <div class="c-tokensTable-example-radius-container">
+            <div class="${classes.join(' ')}" style="${style}">${token}</div>
+        </div>
+    `;
+};
+
 /**
  * Builds the example spacing swatch to show on the token list item
  * @param {string} token - the token value i.e. 24, 80
@@ -98,7 +109,8 @@ const buildSpacingExample = token => {
 const buildTokenExampleElement = (token, tokenType) => {
     const tokenExampleElementHandler = {
         [tokenTypes.COLOR]: buildColorExample,
-        [tokenTypes.SPACING]: buildSpacingExample
+        [tokenTypes.SPACING]: buildSpacingExample,
+        [tokenTypes.RADIUS]: buildRadiusExample
     };
 
     if (!tokenExampleElementHandler[tokenType]) {
