@@ -100,5 +100,6 @@
         "parentCategory": "reactive"
       }
     }
-  }
+  },
+  "spacing": {}
 }

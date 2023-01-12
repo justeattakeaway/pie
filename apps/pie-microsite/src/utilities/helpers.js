@@ -5,14 +5,18 @@
  * @returns {any} The object property value
  */
 const getObjectPropertyByPath = (obj, path) => {
-    const pathSegments = path.split('.');
-    let result = { ...obj };
+    try {
+        const pathSegments = path.split('.');
+        let result = { ...obj };
 
-    for (let i = 0; i < pathSegments.length; i++) {
-        result = result[pathSegments[i]];
+        for (let i = 0; i < pathSegments.length; i++) {
+            result = result[pathSegments[i]];
+        }
+
+        return result;
+    } catch {
+        return undefined;
     }
-
-    return result;
 };
 
 /**
@@ -27,6 +31,13 @@ const capitaliseFirstLetter = string => {
     return capitalised;
 };
 
+/**
+ * Checks whether value can convert to number
+ * @param {string|number} value
+ * @returns {boolean}
+ */
+const isNumber = value => !Number.isNaN(parseInt(value, 10));
+
 
 module.exports = {
     stringHelpers: {
@@ -34,5 +45,8 @@ module.exports = {
     },
     objectHelpers: {
         getObjectPropertyByPath
+    },
+    numberHelpers: {
+        isNumber
     }
 };

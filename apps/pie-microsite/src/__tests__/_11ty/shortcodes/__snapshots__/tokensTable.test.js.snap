@@ -1437,3 +1437,80 @@ exports[`tokensTable.js should return the expected HTML 3`] = `
     </li>
 </ul></div>"
 `;
+
+exports[`tokensTable.js should return the expected HTML 4`] = `
+"<div class=\\"c-tokensTable\\"><div class=\\"c-tokensTable-row u-spacing-e--top u-showAboveWide c-tokensTable-heading\\">
+  <span>Example</span>
+  <span>Description</span>
+  <span>Token name</span>
+</div>
+<ul class=\\"c-tokensTable-list\\">
+  <li class=\\"c-tokensTable-row c-tokensTable-item\\">
+      <div class=\\"c-tokensTable-example-spacing-container\\"><div class=\\"c-tokensTable-example--spacing\\" style=\\"--example-spacing: 0px\\";></div></div>
+      <div class=\\"c-tokensTable-content\\">
+        <span class=\\"c-tokensTable-displayName\\">Spacing 00</span>
+      </div>
+      <span class=\\"c-tokensTable-token\\">$spacing-00</span>
+    </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
+      <div class=\\"c-tokensTable-example-spacing-container\\"><div class=\\"c-tokensTable-example--spacing\\" style=\\"--example-spacing: 4px\\";></div></div>
+      <div class=\\"c-tokensTable-content\\">
+        <span class=\\"c-tokensTable-displayName\\">Spacing 01</span>
+      </div>
+      <span class=\\"c-tokensTable-token\\">$spacing-01</span>
+    </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
+      <div class=\\"c-tokensTable-example-spacing-container\\"><div class=\\"c-tokensTable-example--spacing\\" style=\\"--example-spacing: 8px\\";></div></div>
+      <div class=\\"c-tokensTable-content\\">
+        <span class=\\"c-tokensTable-displayName\\">Spacing 02</span>
+      </div>
+      <span class=\\"c-tokensTable-token\\">$spacing-02</span>
+    </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
+      <div class=\\"c-tokensTable-example-spacing-container\\"><div class=\\"c-tokensTable-example--spacing\\" style=\\"--example-spacing: 12px\\";></div></div>
+      <div class=\\"c-tokensTable-content\\">
+        <span class=\\"c-tokensTable-displayName\\">Spacing 03</span>
+      </div>
+      <span class=\\"c-tokensTable-token\\">$spacing-03</span>
+    </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
+      <div class=\\"c-tokensTable-example-spacing-container\\"><div class=\\"c-tokensTable-example--spacing\\" style=\\"--example-spacing: 16px\\";></div></div>
+      <div class=\\"c-tokensTable-content\\">
+        <span class=\\"c-tokensTable-displayName\\">Spacing 04</span>
+      </div>
+      <span class=\\"c-tokensTable-token\\">$spacing-04</span>
+    </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
+      <div class=\\"c-tokensTable-example-spacing-container\\"><div class=\\"c-tokensTable-example--spacing\\" style=\\"--example-spacing: 24px\\";></div></div>
+      <div class=\\"c-tokensTable-content\\">
+        <span class=\\"c-tokensTable-displayName\\">Spacing 05</span>
+      </div>
+      <span class=\\"c-tokensTable-token\\">$spacing-05</span>
+    </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
+      <div class=\\"c-tokensTable-example-spacing-container\\"><div class=\\"c-tokensTable-example--spacing\\" style=\\"--example-spacing: 32px\\";></div></div>
+      <div class=\\"c-tokensTable-content\\">
+        <span class=\\"c-tokensTable-displayName\\">Spacing 06</span>
+      </div>
+      <span class=\\"c-tokensTable-token\\">$spacing-06</span>
+    </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
+      <div class=\\"c-tokensTable-example-spacing-container\\"><div class=\\"c-tokensTable-example--spacing\\" style=\\"--example-spacing: 40px\\";></div></div>
+      <div class=\\"c-tokensTable-content\\">
+        <span class=\\"c-tokensTable-displayName\\">Spacing 07</span>
+      </div>
+      <span class=\\"c-tokensTable-token\\">$spacing-07</span>
+    </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
+      <div class=\\"c-tokensTable-example-spacing-container\\"><div class=\\"c-tokensTable-example--spacing\\" style=\\"--example-spacing: 56px\\";></div></div>
+      <div class=\\"c-tokensTable-content\\">
+        <span class=\\"c-tokensTable-displayName\\">Spacing 08</span>
+      </div>
+      <span class=\\"c-tokensTable-token\\">$spacing-08</span>
+    </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
+      <div class=\\"c-tokensTable-example-spacing-container\\"><div class=\\"c-tokensTable-example--spacing\\" style=\\"--example-spacing: 64px\\";></div></div>
+      <div class=\\"c-tokensTable-content\\">
+        <span class=\\"c-tokensTable-displayName\\">Spacing 09</span>
+      </div>
+      <span class=\\"c-tokensTable-token\\">$spacing-09</span>
+    </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
+      <div class=\\"c-tokensTable-example-spacing-container\\"><div class=\\"c-tokensTable-example--spacing\\" style=\\"--example-spacing: 80px\\";></div></div>
+      <div class=\\"c-tokensTable-content\\">
+        <span class=\\"c-tokensTable-displayName\\">Spacing 10</span>
+      </div>
+      <span class=\\"c-tokensTable-token\\">$spacing-10</span>
+    </li>
+</ul></div>"
+`;

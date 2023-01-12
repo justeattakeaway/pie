@@ -8,6 +8,13 @@ eleventyNavigation:
 
 We have defined a series of global tokens to define our various spacing measures. The global spacing scale works in increments of 8px and 4px.
 
+
+{% tokensTable {
+    path: 'spacing.global',
+    tokenType: tokenTypes.SPACING
+} %}
+
+---
 ### Why do we use 8px and 4px increments?
 
 We use an 8px and 4px grid because they're easily divisible by 4 and 2. This makes it easy to resize any element or component without the need to use half pixels.

@@ -3,6 +3,34 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+v1.33.1
+------------------------------
+*January 12, 2023*
+
+### Added
+- Spacing heading and copy.
+
+
+v1.33.0
+------------------------------
+*January 11, 2023*
+
+### Added
+- global design tokens to spacing page
+
+
+v1.32.0
+------------------------------
+*January 11, 2023*
+
+### Added
+- copy to Iconography library page
+- New `iconList` shortcode to render icons
+
+### Changed
+- `pieIconsSvg` filter to return all icons or icons by name
+
+
 v1.31.0
 ------------------------------
 *January 11, 2023*
@@ -21,7 +49,7 @@ v1.31.0
 
 v1.30.0
 ------------------------------
-*January 6, 2023*
+*January 9, 2023*
 
 ### Added
 - Iconography page folder and overview page content
