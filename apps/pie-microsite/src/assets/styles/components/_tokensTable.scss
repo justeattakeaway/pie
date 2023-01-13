@@ -97,12 +97,12 @@ $tokensTable-item-min-height: 128px;
     justify-content: center;
     align-items: center;
     background-color: f.$color-background-subtle;
-    min-height: $tokensTable-spacing-container-height;
+    min-height: 160px;
 
     @include f.media('>=wide') {
         display: block;
         background-color: transparent;
-        min-height: initial;
+        min-height: 80px;
     }
 }
 
