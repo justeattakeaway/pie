@@ -1,7 +1,7 @@
 /* eslint-disable no-trailing-spaces */
 const pieDesignTokens = require('@justeat/pie-design-tokens/dist/tokens.json');
 const pieTokenCategories = require('../../../tokenCategories.json');
-const { stringHelpers, objectHelpers } = require('../../../utilities/helpers');
+const { stringHelpers, objectHelpers, numberHelpers } = require('../../../utilities/helpers');
 const tokenTypes = require('../../../_data/tokenTypes');
 const { isColorDark } = require('../../../utilities/colors');
 const {
@@ -78,6 +78,17 @@ const buildColorExample = token => {
 };
 
 /**
+ * Builds the example spacing swatch to show on the token list item
+ * @param {string} token - the token value i.e. 24, 80
+ * @returns {string} - the spacing swatch example HTML string
+ */
+const buildSpacingExample = token => {
+    const cssVariable = `--example-spacing: ${token}px`;
+
+    return `<div class="c-tokensTable-example-spacing-container"><div class="c-tokensTable-example--spacing" style="${cssVariable}";></div></div>`;
+};
+
+/**
  * Builds an example element to display in the token list item.
  * This could be a color swatch, a representation of border radius or spacing etc.
  * @param {string} token - the token value i.e. #000, #ffffff, #000|0.85 or #000000|0.85
@@ -86,7 +97,8 @@ const buildColorExample = token => {
  */
 const buildTokenExampleElement = (token, tokenType) => {
     const tokenExampleElementHandler = {
-        [tokenTypes.COLOR]: buildColorExample
+        [tokenTypes.COLOR]: buildColorExample,
+        [tokenTypes.SPACING]: buildSpacingExample
     };
 
     if (!tokenExampleElementHandler[tokenType]) {
@@ -119,7 +131,7 @@ const buildTokenListElements = ({
     tokenType,
     tokenScssName,
     tokenDisplayName,
-    tokenMetadata
+    tokenMetadata = {}
 }) => {
     const tokenPill = buildTokenPill(tokenScssName);
     const tokenExampleElement = buildTokenExampleElement(token, tokenType);
@@ -179,11 +191,35 @@ const buildTokensListForCategory = (tokens, path, category, tokenType) => {
 };
 
 /**
+ * Builds uncategorised list of tokens
+ * @param {string} tokenType - the type of token i.e. color, spacing, radius
+ * @param {object} tokens
+ * @returns - a string of html containing the list of tokens - with example, description and token name
+ */
+const buildUncategorisedLists = ({
+    tokenType, tokens 
+}) => {
+    // if tokens are numbers (spacing / radius), sort in ascending order
+    const sortedTokens = Object.keys(tokens).every(numberHelpers.isNumber)
+        ? Object.entries(tokens).sort((a, b) => a[1] - b[1]) // [[key, value]]
+        : Object.entries(tokens);
+
+    const tokenListElements = sortedTokens.map(token => buildTokenListElements({
+        token: tokens[token[0]],
+        tokenScssName: createScssTokenName(token[0], tokenType),
+        tokenDisplayName: createTokenDisplayName(token[0], tokenType),
+        tokenType
+    }));
+
+    return buildTokensList(tokenListElements);
+};
+
+/**
  * Builds a categorised list of tokens
  * @param {string} path - path to the category i.e.  'path:color.alias.default' / 'path:color.alias.dark'
  * @param {string} tokenType - the type of token i.e. color, spacing, radius
  * @param {object} tokens
- * @returns - object of token categories with display names i.e.  whiteBlack: { displayName: 'White and Black' }
+ * @returns - - a string of html containing the list of tokens - with category, example, description and token name
  */
 const buildCategorisedLists = ({
     path, tokenType, tokens 
@@ -250,7 +286,8 @@ const buildTokenLists = (path, tokenType) => {
     const isGlobal = path.includes('global');
     const tokens = objectHelpers.getObjectPropertyByPath(pieDesignTokens, `theme.jet.${path}`);
     const parentCategories = getParentCategoriesForTokenType(`${tokenType}.${isGlobal ? 'global' : 'alias'}.parentCategories`);
-
+    const regularCategories = objectHelpers.getObjectPropertyByPath(pieTokenCategories, path);
+    
     const config = { 
         parentCategories,
         path,
@@ -258,6 +295,10 @@ const buildTokenLists = (path, tokenType) => {
         isGlobal,
         tokens
     };
+
+    if (!parentCategories && !regularCategories) {
+        return buildUncategorisedLists(config);
+    }
 
     return parentCategories 
         ? buildCategoryListsWithParents(config) 
