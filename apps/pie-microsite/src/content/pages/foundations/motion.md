@@ -6,14 +6,18 @@ title: "Let's learn Markdown!"
 description: "A fun lesson in how we build microsite pages"
 ---
 
-[Cheatsheet](https://www.markdownguide.org/cheat-sheet/)
+[Cheatsheet](https://www.markdownguide.org/basic-syntax/)
+
 # I am an h1
+
 You should _probably_ never use me - we only want one per page (and already have one above! ☝️)
 
 ## I am an h2
+
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vel nibh tincidunt, fermentum est a, viverra velit. Quisque posuere tellus nulla, ut pharetra orci venenatis ac. Phasellus blandit velit erat, et sagittis nibh vehicula vitae. Integer accumsan mauris elementum dictum ornare. Aliquam non facilisis dui. Phasellus nisi urna, mattis eget congue eget, tincidunt non tellus. Pellentesque sodales massa et urna iaculis, placerat mollis mauris pretium. Integer ut cursus tellus.
 
 ### I am an h3
+
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vel nibh tincidunt, fermentum est a, viverra velit. Quisque posuere tellus nulla, ut pharetra orci venenatis ac. Phasellus blandit velit erat, et sagittis nibh vehicula vitae. Integer accumsan mauris elementum dictum ornare. Aliquam non facilisis dui. Phasellus nisi urna, mattis eget congue eget, tincidunt non tellus. Pellentesque sodales massa et urna iaculis, placerat mollis mauris pretium. Integer ut cursus tellus.
 
 #### I am an h4
@@ -34,7 +38,9 @@ I can make *other words* italicized within regular paragraphs too.
 > This is a blockquote
 
 > Jamie is such a great teacher of markdown. - All PIE designers, 2023 (probably)
-
+> Dorothy followed her through many of the beautiful rooms in her castle.
+>
+> The Witch bade her clean the pots and kettles and sweep the floor and keep the fire fed with
 `I am representing some code.` This can be standalone, or weaved into paragraphs that could be referencing cody things like `$design-tokens`. We can style how these look using `CSS`.
 
 ~~I am some false statement we want to cross out~~
