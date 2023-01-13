@@ -49,4 +49,18 @@ describe('helpers.js', () => {
             });
         });
     });
+
+    describe('numberHelpers', () => {
+        describe('isNumber', () => {
+            [['1', true], ['fooBarBaz', false], [1, true]].forEach(example => {
+                it('correctly checks whether string can convert to number', () => {
+                    // act
+                    const result = systemUnderTest.numberHelpers.isNumber(example[0]);
+
+                    // assert
+                    expect(result).toStrictEqual(example[1]);
+                });
+            });
+        });
+    });
 });
