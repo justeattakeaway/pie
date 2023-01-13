@@ -102,6 +102,7 @@ $tokensTable-item-min-height: 128px;
     @include f.media('>=wide') {
         display: block;
         background-color: transparent;
+        min-height: initial;
     }
 }
 
