@@ -1,0 +1,25 @@
+{
+    "extends": [
+      "config:base",
+      "schedule:weekly",
+      ":rebaseStalePrs",
+      ":disableMajorUpdates",
+      ":dependencyDashboard"
+    ],
+    "commitMessagePrefix": "renovate -",
+    "ignoreDeps": ["chromedriver"],
+    "prConcurrentLimit": 3,
+    "packageRules": [
+      {
+        "matchPackagePatterns": [
+          "*"
+        ],
+        "matchUpdateTypes": [
+          "minor",
+          "patch"
+        ],
+        "groupName": "all non-major dependencies",
+        "groupSlug": "all-minor-patch"
+      }
+    ]
+  }
