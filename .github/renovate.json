@@ -1,6 +1,5 @@
 {
     "extends": [
-      "config:base",
       "schedule:weekly",
       ":rebaseStalePrs",
       ":disableMajorUpdates",
