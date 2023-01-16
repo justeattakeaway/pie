@@ -5,7 +5,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 v1.34.0
 ------------------------------
-*January 11, 2023*
+*January 16, 2023*
 
 ### Added
 -   Radius page for global design tokens 
