@@ -10,13 +10,18 @@
     "prConcurrentLimit": 3,
     "packageRules": [
         {
+            "matchPackagePatterns": ["*"],
+            "enabled": false
+        },
+        {
             "description": "Update root package.json babel devDeps.",
             "matchPaths": ["**/package.json"],
             "matchDepTypes": ["devDependencies"],
             "matchPackageNames": ["babel-loader"],
             "matchPackagePatterns": ["^@babel/"],
             "groupName": "Babel",
-            "groupSlug": "root-babel-devDeps"
+            "groupSlug": "root-babel-devDeps",
+            "enabled": true
         }
     ]
   }
