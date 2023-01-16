@@ -10,16 +10,14 @@
     "ignoreDeps": ["chromedriver"],
     "prConcurrentLimit": 3,
     "packageRules": [
-      {
-        "matchPackagePatterns": [
-          "*"
-        ],
-        "matchUpdateTypes": [
-          "minor",
-          "patch"
-        ],
-        "groupName": "all non-major dependencies",
-        "groupSlug": "all-minor-patch"
-      }
+        {
+            "description": "Update root package.json babel devDeps.",
+            "matchPaths": ["**/package.json"],
+            "matchDepTypes": ["devDependencies"],
+            "matchPackageNames": ["babel-loader"],
+            "matchPackagePatterns": ["^@babel/"],
+            "groupName": "Babel",
+            "groupSlug": "root-babel-devDeps"
+        }
     ]
   }
