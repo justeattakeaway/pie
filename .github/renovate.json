@@ -21,7 +21,11 @@
             "matchPackagePatterns": ["^@babel/"],
             "groupName": "Babel",
             "groupSlug": "root-babel-devDeps",
-            "enabled": true
+            "enabled": true,
+            "matchUpdateTypes": [
+                "minor",
+                "patch"
+              ]
         }
     ]
   }
