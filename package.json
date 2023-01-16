@@ -1,7 +1,7 @@
 {
   "name": "pie",
   "description": "JustEatTakeaway",
-  "version": "1.21.1",
+  "version": "1.21.2",
   "keywords": [],
   "author": "JustEatTakeaway - Vue Design System Team",
   "license": "MIT",
@@ -56,7 +56,7 @@
     "allure-commandline": "2.20.1",
     "autoprefixer": "10.4.7",
     "babel-loader": "8.2.3",
-    "chromedriver": "107.0.3",
+    "chromedriver": "108.0.0",
     "cross-env": "7.0.3",
     "cssnano": "5.1.13",
     "dree": "3.4.2",
