@@ -13,6 +13,14 @@
             "enabled": false
         },
         {
+            "matchUpdateTypes": ["major"],
+            "enabled": false
+        },
+        {
+            "matchUpdateTypes": ["minor", "patch"],
+            "enabled": true
+        },
+        {
             "description": "Update root package.json babel devDeps.",
             "matchPaths": ["**/package.json"],
             "matchDepTypes": ["devDependencies"],
@@ -20,8 +28,7 @@
             "matchPackagePatterns": ["^@babel/"],
             "groupName": "Babel",
             "groupSlug": "root-babel-devDeps",
-            "enabled": true,
-            "matchUpdateTypes": ["minor"]
+            "enabled": true
         }
     ]
   }
