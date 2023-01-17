@@ -12,6 +12,22 @@ v1.21.4
 - `Copyright (c) Just Eat Holding Ltd` to `Copyright (c) Just Eat Takeaway` in licence
 
 
+v1.21.3
+------------------------------
+*January 17, 2022*
+
+### Removed
+- No longer needed build steps: visual test reminder comment and looking for the reminder comment
+
+
+v1.21.2
+------------------------------
+*January 16, 2022*
+
+### Fixed
+- Issue with incorrect `chromedriver` version on GitHub Actions.
+
+
 v1.21.1
 ------------------------------
 *December 20, 2022*

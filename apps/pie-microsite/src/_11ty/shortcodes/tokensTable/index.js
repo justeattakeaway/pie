@@ -1,5 +1,5 @@
 /* eslint-disable no-trailing-spaces */
-const pieDesignTokens = require('@justeat/pie-design-tokens/dist/tokens.json');
+const normalizedPieDesignTokens = require('../../../_data/normalizeTokens');
 const pieTokenCategories = require('../../../tokenCategories.json');
 const { stringHelpers, objectHelpers, numberHelpers } = require('../../../utilities/helpers');
 const tokenTypes = require('../../../_data/tokenTypes');
@@ -37,6 +37,28 @@ const createTokenDisplayName = (tokenKey, tokenType) => {
     return shouldShowPrefix
         ? `${stringHelpers.capitaliseFirstLetter(tokenType)} ${capitalisedNameSegments.join(' ')}`
         : capitalisedNameSegments.join(' ');
+};
+
+/**
+ * Splits a font/typography token into a parsable css value
+ * @param {object} token - the token value i.e. {"size": "48|56","weight": "ExtraBold","text-decoration": "underline"}
+ * @returns {object} an object containing the font styles of the token.
+ */
+const splitFontAliasToken = token => {
+    const [fontSize, lineHeight] = token.size.split('|');
+
+    const fontWeightMap = {
+        Regular: 400,
+        Bold: 700,
+        ExtraBold: 800
+    };
+    
+    return {
+        fontSize, 
+        lineHeight,
+        fontWeight: fontWeightMap[token.weight],
+        textDecoration: token['text-decoration']
+    };
 };
 
 /**
@@ -78,6 +100,22 @@ const buildColorExample = token => {
 };
 
 /**
+ * Builds the example radius swatch to show on the token list item
+ * @param {string} token - the token value in pixels
+ * @returns {string} - the radius swatch example HTML string
+ */
+const buildRadiusExample = token => {
+    const classes = ['c-tokensTable-example-radius'];
+    const style = `--example-radius: ${token}px`;
+
+    return `
+        <div class="c-tokensTable-example-radius-container">
+            <div class="${classes.join(' ')}" style="${style}"></div>
+        </div>
+    `;
+};
+
+/**
  * Builds the example spacing swatch to show on the token list item
  * @param {string} token - the token value i.e. 24, 80
  * @returns {string} - the spacing swatch example HTML string
@@ -89,6 +127,24 @@ const buildSpacingExample = token => {
 };
 
 /**
+* Builds an example font/typography element to show on the token list item
+* @param {object} token - the token value i.e. {"size": "48|56","weight": "ExtraBold","text-decoration": "underline"}
+* @returns {string} - the typography example HTML string
+*/
+const buildFontExample = token => { 
+    const {
+        fontSize, lineHeight, fontWeight, textDecoration 
+    } = splitFontAliasToken(token);
+    const cssVariables = [
+        `--example-font-size: ${fontSize}px`,
+        `--example-font-line-height: ${lineHeight}px`,
+        `--example-font-weight: ${fontWeight}`,
+        textDecoration && `--example-font-text-decoration: ${textDecoration}`
+    ].filter(Boolean);
+
+    return `<div class="c-tokensTable-example--font" style="${cssVariables.join('; ')}">String</div>`;
+};
+/**
  * Builds an example element to display in the token list item.
  * This could be a color swatch, a representation of border radius or spacing etc.
  * @param {string} token - the token value i.e. #000, #ffffff, #000|0.85 or #000000|0.85
@@ -98,6 +154,8 @@ const buildSpacingExample = token => {
 const buildTokenExampleElement = (token, tokenType) => {
     const tokenExampleElementHandler = {
         [tokenTypes.COLOR]: buildColorExample,
+        [tokenTypes.FONT]: buildFontExample,
+        [tokenTypes.RADIUS]: buildRadiusExample,
         [tokenTypes.SPACING]: buildSpacingExample
     };
 
@@ -182,7 +240,7 @@ const buildTokensListForCategory = (tokens, path, category, tokenType) => {
     const tokenListElements = tokensForCategory.map(key => buildTokenListElements({
         token: tokens[key],
         tokenScssName: createScssTokenName(key, tokenType),
-        tokenDisplayName: createTokenDisplayName(key, tokenType),
+        tokenDisplayName: tokenTypeMetadata[key].displayName ?? createTokenDisplayName(key, tokenType),
         tokenType,
         tokenMetadata: tokenTypeMetadata[key]
     }));
@@ -197,8 +255,10 @@ const buildTokensListForCategory = (tokens, path, category, tokenType) => {
  * @returns - a string of html containing the list of tokens - with example, description and token name
  */
 const buildUncategorisedLists = ({
-    tokenType, tokens 
+    tokens, path, tokenType
 }) => {
+    const tokenTypeMetadata = getTokenTypeMetadata(path);
+
     // if tokens are numbers (spacing / radius), sort in ascending order
     const sortedTokens = Object.keys(tokens).every(numberHelpers.isNumber)
         ? Object.entries(tokens).sort((a, b) => a[1] - b[1]) // [[key, value]]
@@ -208,7 +268,8 @@ const buildUncategorisedLists = ({
         token: tokens[token[0]],
         tokenScssName: createScssTokenName(token[0], tokenType),
         tokenDisplayName: createTokenDisplayName(token[0], tokenType),
-        tokenType
+        tokenType,
+        tokenMetadata: tokenTypeMetadata[token[0]]
     }));
 
     return buildTokensList(tokenListElements);
@@ -284,7 +345,7 @@ const buildCategoryListsWithParents = ({
  */
 const buildTokenLists = (path, tokenType) => {
     const isGlobal = path.includes('global');
-    const tokens = objectHelpers.getObjectPropertyByPath(pieDesignTokens, `theme.jet.${path}`);
+    const tokens = objectHelpers.getObjectPropertyByPath(normalizedPieDesignTokens, `theme.jet.${path}`);
     const parentCategories = getParentCategoriesForTokenType(`${tokenType}.${isGlobal ? 'global' : 'alias'}.parentCategories`);
     const regularCategories = objectHelpers.getObjectPropertyByPath(pieTokenCategories, path);
     

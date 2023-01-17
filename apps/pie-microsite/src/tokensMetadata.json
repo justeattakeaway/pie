@@ -617,7 +617,267 @@
       }
     }
   },
-  "spacing" : {
+  "font": {
+    "alias": {
+      "wide": {
+        "heading-xxl": {
+          "category": "headings",
+          "displayName": "Heading XXL",
+          "description": "Used for component and layout headings."
+        },
+        "heading-xl": {
+          "category": "headings",
+          "displayName": "Heading XL",
+          "description": "Used for component and layout headings."
+        },
+        "heading-l": {
+          "category": "headings",
+          "displayName": "Heading L",
+          "description": "Used for component and layout headings."
+        },
+        "heading-m": {
+          "category": "headings",
+          "displayName": "Heading M",
+          "description": "Used for component and layout headings."
+        },
+        "heading-s": {
+          "category": "headings",
+          "displayName": "Heading S",
+          "description": "Used for component and layout headings."
+        },
+        "subheading-l": {
+          "category": "subheadings",
+          "displayName": "Subheading L",
+          "description": "Used for component and layout subheadings."
+        },
+        "subheading-s": {
+          "category": "subheadings",
+          "displayName": "Subheading S",
+          "description": "Used for component and layout subheadings."
+        },
+        "body-l": {
+          "category": "body",
+          "displayName": "Body",
+          "description": "Used for body copy. Generally used for comfortable long-form reading in layouts."
+        },
+        "body-l-link": {
+          "category": "body",
+          "displayName": "Body underline",
+          "description": "Used as a visual cue to indicate something is a link."
+        },
+        "body-s": {
+          "category": "body",
+          "displayName": "Body small",
+          "description": "Used for body copy. Generally used for components."
+        },
+        "body-s-link": {
+          "category": "body",
+          "displayName": "Body small underline",
+          "description": "Used as a visual cue to indicate something is a link."
+        },
+        "body-strong-l": {
+          "category": "body-strong",
+          "displayName": "Body bold",
+          "description": "Used for strong emphasis in body copy."
+        },
+        "body-strong-l-link": {
+          "category": "body-strong",
+          "displayName": "Body bold underline",
+          "description": "Used for strong emphasis in body copy."
+        },
+        "body-strong-s": {
+          "category": "body-strong",
+          "displayName": "Body small bold",
+          "description": "Used for strong emphasis in body copy."
+        },
+        "body-strong-s-link": {
+          "category": "body-strong",
+          "displayName": "Body small bold underline",
+          "description": "Used for strong emphasis in body copy."
+        },
+        "caption": {
+          "category": "caption",
+          "displayName": "Caption",
+          "description": "Used for captions, labels, disclaimers or helper text. Use sparingly."
+        },
+        "caption-link": {
+          "category": "caption",
+          "displayName": "Caption Underline",
+          "description": "Used as a visual cue to indicate something is a link."
+        },
+        "caption-strong": {
+          "category": "caption-strong",
+          "displayName": "Caption bold",
+          "description": "Used for captions, labels, disclaimers or helper text. Use sparingly."
+        },
+        "caption-strong-link": {
+          "category": "caption-strong-link",
+          "displayName": "Caption bold underline",
+          "description": "Used as a visual cue to indicate something is a link."
+        },
+        "interactive-l": {
+          "category": "interactive",
+          "displayName": "Interactive L",
+          "description": "Used for labels in large sized button components + numeric counter."
+        },
+        "interactive-m": {
+          "category": "interactive",
+          "displayName": "Interactive M",
+          "description": "Used for labels in medium sized button components."
+        },
+        "interactive-s": {
+          "category": "interactive",
+          "displayName": "Interactive S",
+          "description": "Used for labels in small sized button components."
+        },
+        "interactive-xs": {
+          "category": "interactive",
+          "displayName": "Interactive XS",
+          "description": "Used for labels in extra small sized button components."
+        }
+      },
+      "narrow": {
+        "heading-xxl": {
+          "category": "headings",
+          "displayName": "Heading XXL",
+          "description": "Used for component and layout headings."
+        },
+        "heading-xl": {
+          "category": "headings",
+          "displayName": "Heading XL",
+          "description": "Used for component and layout headings."
+        },
+        "heading-l": {
+          "category": "headings",
+          "displayName": "Heading L",
+          "description": "Used for component and layout headings."
+        },
+        "heading-m": {
+          "category": "headings",
+          "displayName": "Heading M",
+          "description": "Used for component and layout headings."
+        },
+        "heading-s": {
+          "category": "headings",
+          "displayName": "Heading S",
+          "description": "Used for component and layout headings."
+        },
+        "subheading-l": {
+          "category": "subheadings",
+          "displayName": "Subheading L",
+          "description": "Used for component and layout subheadings."
+        },
+        "subheading-s": {
+          "category": "subheadings",
+          "displayName": "Subheading S",
+          "description": "Used for component and layout subheadings."
+        },
+        "body-l": {
+          "category": "body",
+          "displayName": "Body",
+          "description": "Used for body copy. Generally used for comfortable long-form reading in layouts."
+        },
+        "body-l-link": {
+          "category": "body",
+          "displayName": "Body underline",
+          "description": "Used as a visual cue to indicate something is a link."
+        },
+        "body-s": {
+          "category": "body",
+          "displayName": "Body small",
+          "description": "Used for body copy. Generally used for components."
+        },
+        "body-s-link": {
+          "category": "body",
+          "displayName": "Body small underline",
+          "description": "Used as a visual cue to indicate something is a link."
+        },
+        "body-strong-l": {
+          "category": "body-strong",
+          "displayName": "Body bold",
+          "description": "Used for strong emphasis in body copy."
+        },
+        "body-strong-l-link": {
+          "category": "body-strong",
+          "displayName": "Body bold underline",
+          "description": "Used for strong emphasis in body copy."
+        },
+        "body-strong-s": {
+          "category": "body-strong",
+          "displayName": "Body small bold",
+          "description": "Used for strong emphasis in body copy."
+        },
+        "body-strong-s-link": {
+          "category": "body-strong",
+          "displayName": "Body small bold underline",
+          "description": "Used for strong emphasis in body copy."
+        },
+        "caption": {
+          "category": "caption",
+          "displayName": "Caption",
+          "description": "Used for captions, labels, disclaimers or helper text. Use sparingly."
+        },
+        "caption-link": {
+          "category": "caption",
+          "displayName": "Caption Underline",
+          "description": "Used as a visual cue to indicate something is a link."
+        },
+        "caption-strong": {
+          "category": "caption-strong",
+          "displayName": "Caption bold",
+          "description": "Used for captions, labels, disclaimers or helper text. Use sparingly."
+        },
+        "caption-strong-link": {
+          "category": "caption-strong-link",
+          "displayName": "Caption bold underline",
+          "description": "Used as a visual cue to indicate something is a link."
+        },
+        "interactive-l": {
+          "category": "interactive",
+          "displayName": "Interactive L",
+          "description": "Used for labels in large sized button components + numeric counter."
+        },
+        "interactive-m": {
+          "category": "interactive",
+          "displayName": "Interactive M",
+          "description": "Used for labels in medium sized button components."
+        },
+        "interactive-s": {
+          "category": "interactive",
+          "displayName": "Interactive S",
+          "description": "Used for labels in small sized button components."
+        },
+        "interactive-xs": {
+          "category": "interactive",
+          "displayName": "Interactive XS",
+          "description": "Used for labels in extra small sized button components."
+        }
+      }
+    }
+  },
+  "radius": {
+    "global": {
+      "00": {
+        "description": "0dp/pt/px"
+      },
+      "02": {
+        "description": "4dp/pt/px"
+      },
+      "03": {
+        "description": "8dp/pt/px"
+      },
+      "04": {
+        "description": "12dp/pt/px"
+      },
+      "05": {
+        "description": "16dp/pt/px"
+      },
+      "06": {
+        "description": "50dp/pt/px"
+      }
+    }
+  },
+  "spacing": {
     "global": {}
   }
 }
