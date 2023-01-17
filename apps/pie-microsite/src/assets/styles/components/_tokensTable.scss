@@ -119,9 +119,32 @@ $tokensTable-item-min-height: 128px;
     }
 }
 
+.c-tokensTable-example--font {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 184px;
+    padding: f.spacing(i) 0 f.spacing(g);
+    color: f.$color-content-default;
+    font-size: var(--example-font-size);
+    line-height: var(--example-font-line-height);
+    font-weight: var(--example-font-weight);
+    text-decoration: var(--example-font-text-decoration);
+
+    @include f.media('>=wide') {
+        padding: 0;
+        display: block;
+        min-height: auto;
+    }
+}
+
 .c-tokensTable-displayName {
     color: f.$color-content-default;
     font-weight: f.$font-weight-bold;
+}
+
+.c-tokensTable-tokenDescription {
+    @include f.font-size('body-s');
 }
 
 .c-tokensTable-heading {
