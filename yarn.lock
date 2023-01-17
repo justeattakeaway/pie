@@ -2040,6 +2040,12 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@justeattakeaway/pie-button@workspace:packages/components/pie-button":
+  version: 0.0.0-use.local
+  resolution: "@justeattakeaway/pie-button@workspace:packages/components/pie-button"
+  languageName: unknown
+  linkType: soft
+
 "@justeattakeaway/pie-icons-react@workspace:packages/tools/pie-icons-react":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-icons-react@workspace:packages/tools/pie-icons-react"
@@ -13154,12 +13160,6 @@ __metadata:
   checksum: eb49025099f1af89a4696f7673351421f13420f3397b963c901fe23a1c9c2ff50f4750321970d4472c0ffbb065e4a6c3c27f75e226cc62284b19e21d32ce7012
   languageName: node
   linkType: hard
-
-"pie-button@workspace:packages/components/pie-button":
-  version: 0.0.0-use.local
-  resolution: "pie-button@workspace:packages/components/pie-button"
-  languageName: unknown
-  linkType: soft
 
 "pie-microsite@workspace:apps/pie-microsite":
   version: 0.0.0-use.local

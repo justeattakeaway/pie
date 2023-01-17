@@ -1,5 +1,5 @@
 {
-  "name": "pie-button",
+  "name": "@justeattakeaway/pie-button",
   "version": "0.1.0",
   "description": "PIE design system button built using web components",
   "main": "index.js",
