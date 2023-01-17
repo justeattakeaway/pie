@@ -1,22 +1,29 @@
 {
-    "extends": ["config:base", "schedule:earlyMondays", "helpers:pinGitHubActionDigests"],
+    "extends": [
+        "config:base",
+        "schedule:earlyMondays",
+        "helpers:pinGitHubActionDigests"
+    ],
     "prConcurrentLimit": 3,
     "baseBranches": ["main"],
     "major": false,
     "labels": ["bot: dependencies"],
     "packageRules": [
-      
-      {
-        "matchPackagePatterns": [
-          "@babel/*",
-          "babel-*"
-        ],
-        "matchUpdateTypes": ["minor", "patch"],
-        "groupName": "all babel dependencies",
-        "groupSlug": "all-core-dependencies",
-        "extends": [":semanticCommitTypeAll(fix)"],
-        "baseBranchList": ["main"]
-      }
+        {
+            "matchPackagePatterns": ["*"],
+            "enabled": false
+        },
+        {
+            "matchPackagePatterns": [
+                "@babel/*",
+                "babel-*"
+            ],
+            "matchUpdateTypes": ["minor", "patch"],
+            "groupName": "all babel dependencies",
+            "groupSlug": "all-core-dependencies",
+            "extends": [":semanticCommitTypeAll(fix)"],
+            "baseBranchList": ["main"]
+        }
     ],
     "pinVersions": false
-  }
+}
