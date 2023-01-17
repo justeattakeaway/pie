@@ -43,6 +43,7 @@ const createTokenDisplayName = (tokenKey, tokenType) => {
  * Splits a font/typography token into a parsable css value
  * @param {object|string} token - the token value i.e. {"size": "48|56","weight": "ExtraBold","text-decoration": "underline", ...fontProperties} or
  * size/weight values as string such as "12|16" "Regular"
+ * @param {object} tokenMetadata - the metadata for the token. data such as descriptions
  * @returns {object} an object containing the font styles of the token.
  */
 const splitFontAliasToken = (token, tokenMetadata) => {
