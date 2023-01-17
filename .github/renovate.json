@@ -1,7 +1,8 @@
 {
     "extends": [
         "schedule:earlyMondays",
-        "helpers:pinGitHubActionDigests"
+        "helpers:pinGitHubActionDigests",
+        ":dependencyDashboard"
     ],
     "prConcurrentLimit": 3,
     "baseBranches": ["main"],
