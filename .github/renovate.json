@@ -7,28 +7,22 @@
     ],
     "commitMessagePrefix": "renovate -",
     "prConcurrentLimit": 3,
+    "major": false,
     "packageRules": [
         {
             "matchPackagePatterns": ["*"],
             "enabled": false
         },
         {
-            "matchUpdateTypes": ["major"],
-            "enabled": false
-        },
-        {
-            "matchUpdateTypes": ["minor", "patch"],
-            "enabled": true
-        },
-        {
             "description": "Update root package.json babel devDeps.",
             "matchPaths": ["**/package.json"],
             "matchDepTypes": ["devDependencies"],
-            "matchPackageNames": ["babel-loader"],
-            "matchPackagePatterns": ["^@babel/"],
+            "matchPackagePatterns": ["@babel/*", "babel-*"],
+            "matchUpdateTypes": ["minor", "patch"],
             "groupName": "Babel",
             "groupSlug": "root-babel-devDeps",
-            "enabled": true
+            "enabled": true,
+            "baseBranchList": ["main"]
         }
     ]
   }
