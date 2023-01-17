@@ -32,6 +32,50 @@
             "enabled": true
         },
         {
+          "extends": [":semanticCommitScope({{parentDir}})"],
+          "matchDepTypes": ["devDependencies"],
+          "matchPaths": ["apps/pie-microsite/**"],
+          "groupName": "pie-microsite devDependencies",
+          "matchUpdateTypes": [
+            "patch",
+            "minor"
+          ],
+          "enabled": true
+        },
+        {
+          "extends": [":semanticCommitScope({{parentDir}})"],
+          "matchDepTypes": ["devDependencies"],
+          "matchPaths": ["packages/tools/pie-icons/**"],
+          "groupName": "pie-icons devDependencies",
+          "matchUpdateTypes": [
+            "patch",
+            "minor"
+          ],
+          "enabled": true
+        },
+        {
+          "extends": [":semanticCommitScope({{parentDir}})"],
+          "matchDepTypes": ["devDependencies"],
+          "matchPaths": ["packages/tools/pie-icons-vue/**"],
+          "groupName": "pie-icons-vue devDependencies",
+          "matchUpdateTypes": [
+            "patch",
+            "minor"
+          ],
+          "enabled": true
+        },
+        {
+          "extends": [":semanticCommitScope({{parentDir}})"],
+          "matchDepTypes": ["devDependencies"],
+          "matchPaths": ["packages/tools/pie-icons-react/**"],
+          "groupName": "pie-icons-react devDependencies",
+          "matchUpdateTypes": [
+            "patch",
+            "minor"
+          ],
+          "enabled": true
+        },
+        {
             "extends": [":semanticCommitScope(root)"],
             "matchPaths": ["+(package.json)"],
             "matchPackagePatterns": ["@justeat/*"],
