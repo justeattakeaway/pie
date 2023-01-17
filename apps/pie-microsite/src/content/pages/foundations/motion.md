@@ -38,10 +38,10 @@ I can make *other words* italicized within regular paragraphs too.
 > This is a blockquote
 
 > Jamie is such a great teacher of markdown. - All PIE designers, 2023 (probably)
-> Dorothy followed her through many of the beautiful rooms in her castle.
 >
-> The Witch bade her clean the pots and kettles and sweep the floor and keep the fire fed with
-`I am representing some code.` This can be standalone, or weaved into paragraphs that could be referencing cody things like `$design-tokens`. We can style how these look using `CSS`.
+> This is a much longer blockquote that spans
+>
+> multiple lines
 
 ~~I am some false statement we want to cross out~~
 
