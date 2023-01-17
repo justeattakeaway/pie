@@ -3,9 +3,10 @@
       "schedule:weekly",
       ":rebaseStalePrs",
       ":disableMajorUpdates",
-      ":dependencyDashboard"
+      ":dependencyDashboard",
+      ":semanticCommits",
+      ":semanticCommitScope(package)"
     ],
-    "commitMessagePrefix": "renovate -",
     "prConcurrentLimit": 3,
     "major": false,
     "packageRules": [
@@ -21,7 +22,8 @@
             "extends": "monorepo:webdriverio",
             "matchDepTypes": ["devDependencies"],
             "matchPaths": ["+(package.json)"],
-            "groupName": "Root WebDriverIO devDependencies",
+            "matchPackagePatterns": ["wdio-*", "@percy/*"],
+            "groupName": "Root WebDriver devDependencies",
             "matchUpdateTypes": [
               "patch",
               "minor"
@@ -29,10 +31,9 @@
             "enabled": true
         },
         {
-            "matchDepTypes": ["devDependencies"],
             "matchPaths": ["+(package.json)"],
             "matchPackagePatterns": ["@justeat/*"],
-            "groupName": "Root @justeat devDependencies",
+            "groupName": "Root @justeat Dependencies",
             "matchUpdateTypes": [
               "patch",
               "minor"
