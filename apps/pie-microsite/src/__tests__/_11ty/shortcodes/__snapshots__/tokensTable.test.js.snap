@@ -10,25 +10,25 @@ exports[`tokensTable.js should return the expected HTML 1`] = `
   <li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #fcfcfc\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Background Default</span><span class=\\"c-tokensTable-tokenDescription\\">Default page background</span>
+        <a id=\\"background_default\\" href=\\"#background_default\\"class=\\"c-tokensTable-displayName\\">Background Default</a><span class=\\"c-tokensTable-tokenDescription\\">Default page background</span>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-background-default</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #f5f3f1\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Background Subtle</span>
+        <a id=\\"background_subtle\\" href=\\"#background_subtle\\"class=\\"c-tokensTable-displayName\\">Background Subtle</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-background-subtle</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example\\" style=\\"--example-background-color: #1a1a19\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Background Dark</span>
+        <a id=\\"background_dark\\" href=\\"#background_dark\\"class=\\"c-tokensTable-displayName\\">Background Dark</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-background-dark</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--checked\\" style=\\"--example-checked-opacity: 0.5\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Overlay</span>
+        <a id=\\"overlay\\" href=\\"#overlay\\"class=\\"c-tokensTable-displayName\\">Overlay</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-overlay</span>
     </li>
@@ -41,31 +41,31 @@ exports[`tokensTable.js should return the expected HTML 1`] = `
   <li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #fff\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Container Default</span>
+        <a id=\\"container_default\\" href=\\"#container_default\\"class=\\"c-tokensTable-displayName\\">Container Default</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-container-default</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #f5f3f1\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Container Subtle</span>
+        <a id=\\"container_subtle\\" href=\\"#container_subtle\\"class=\\"c-tokensTable-displayName\\">Container Subtle</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-container-subtle</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #efedea\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Container Strong</span>
+        <a id=\\"container_strong\\" href=\\"#container_strong\\"class=\\"c-tokensTable-displayName\\">Container Strong</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-container-strong</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example\\" style=\\"--example-background-color: #262626\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Container Dark</span>
+        <a id=\\"container_dark\\" href=\\"#container_dark\\"class=\\"c-tokensTable-displayName\\">Container Dark</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-container-dark</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example\\" style=\\"--example-background-color: #262626\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Container Inverse</span>
+        <a id=\\"container_inverse\\" href=\\"#container_inverse\\"class=\\"c-tokensTable-displayName\\">Container Inverse</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-container-inverse</span>
     </li>
@@ -78,37 +78,37 @@ exports[`tokensTable.js should return the expected HTML 1`] = `
   <li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #f36805\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Interactive Brand</span>
+        <a id=\\"interactive_brand\\" href=\\"#interactive_brand\\"class=\\"c-tokensTable-displayName\\">Interactive Brand</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-interactive-brand</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example\\" style=\\"--example-background-color: #262626\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Interactive Primary</span>
+        <a id=\\"interactive_primary\\" href=\\"#interactive_primary\\"class=\\"c-tokensTable-displayName\\">Interactive Primary</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-interactive-primary</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #f5f3f1\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Interactive Secondary</span>
+        <a id=\\"interactive_secondary\\" href=\\"#interactive_secondary\\"class=\\"c-tokensTable-displayName\\">Interactive Secondary</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-interactive-secondary</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #fff\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Interactive Inverse</span>
+        <a id=\\"interactive_inverse\\" href=\\"#interactive_inverse\\"class=\\"c-tokensTable-displayName\\">Interactive Inverse</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-interactive-inverse</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #fff\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Interactive Light</span>
+        <a id=\\"interactive_light\\" href=\\"#interactive_light\\"class=\\"c-tokensTable-displayName\\">Interactive Light</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-interactive-light</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #797876\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Interactive Form</span>
+        <a id=\\"interactive_form\\" href=\\"#interactive_form\\"class=\\"c-tokensTable-displayName\\">Interactive Form</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-interactive-form</span>
     </li>
@@ -121,25 +121,25 @@ exports[`tokensTable.js should return the expected HTML 1`] = `
   <li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #efedea\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Border Default</span>
+        <a id=\\"border_default\\" href=\\"#border_default\\"class=\\"c-tokensTable-displayName\\">Border Default</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-border-default</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #f5f3f1\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Border Subtle</span>
+        <a id=\\"border_subtle\\" href=\\"#border_subtle\\"class=\\"c-tokensTable-displayName\\">Border Subtle</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-border-subtle</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #dbd9d7\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Border Strong</span>
+        <a id=\\"border_strong\\" href=\\"#border_strong\\"class=\\"c-tokensTable-displayName\\">Border Strong</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-border-strong</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example\\" style=\\"--example-background-color: #575655\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Border Inverse</span>
+        <a id=\\"border_inverse\\" href=\\"#border_inverse\\"class=\\"c-tokensTable-displayName\\">Border Inverse</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-border-inverse</span>
     </li>
@@ -152,13 +152,13 @@ exports[`tokensTable.js should return the expected HTML 1`] = `
   <li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--checked\\" style=\\"--example-checked-opacity: 0.08\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Divider Default</span>
+        <a id=\\"divider_default\\" href=\\"#divider_default\\"class=\\"c-tokensTable-displayName\\">Divider Default</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-divider-default</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--checked c-tokensTable-example--bordered\\" style=\\"--example-checked-opacity: 0.20\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Divider Inverse</span>
+        <a id=\\"divider_inverse\\" href=\\"#divider_inverse\\"class=\\"c-tokensTable-displayName\\">Divider Inverse</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-divider-inverse</span>
     </li>
@@ -171,67 +171,67 @@ exports[`tokensTable.js should return the expected HTML 1`] = `
   <li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #d50525\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Support Error</span>
+        <a id=\\"support_error\\" href=\\"#support_error\\"class=\\"c-tokensTable-displayName\\">Support Error</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-support-error</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #f6c243\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Support Warning</span>
+        <a id=\\"support_warning\\" href=\\"#support_warning\\"class=\\"c-tokensTable-displayName\\">Support Warning</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-support-warning</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example\\" style=\\"--example-background-color: #017a39\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Support Positive</span>
+        <a id=\\"support_positive\\" href=\\"#support_positive\\"class=\\"c-tokensTable-displayName\\">Support Positive</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-support-positive</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #125fca\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Support Info</span>
+        <a id=\\"support_info\\" href=\\"#support_info\\"class=\\"c-tokensTable-displayName\\">Support Info</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-support-info</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #efedea\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Support Neutral</span>
+        <a id=\\"support_neutral\\" href=\\"#support_neutral\\"class=\\"c-tokensTable-displayName\\">Support Neutral</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-support-neutral</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #ffe9ea\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Support Error 02</span>
+        <a id=\\"support_error_02\\" href=\\"#support_error_02\\"class=\\"c-tokensTable-displayName\\">Support Error 02</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-support-error-02</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #fff9df\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Support Warning 02</span>
+        <a id=\\"support_warning_02\\" href=\\"#support_warning_02\\"class=\\"c-tokensTable-displayName\\">Support Warning 02</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-support-warning-02</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #e5faef\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Support Positive 02</span>
+        <a id=\\"support_positive_02\\" href=\\"#support_positive_02\\"class=\\"c-tokensTable-displayName\\">Support Positive 02</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-support-positive-02</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #ebf6fa\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Support Info 02</span>
+        <a id=\\"support_info_02\\" href=\\"#support_info_02\\"class=\\"c-tokensTable-displayName\\">Support Info 02</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-support-info-02</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #4996fd\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Support Info Inverse</span>
+        <a id=\\"support_info_inverse\\" href=\\"#support_info_inverse\\"class=\\"c-tokensTable-displayName\\">Support Info Inverse</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-support-info-inverse</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #22bf65\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Support Positive Inverse</span>
+        <a id=\\"support_positive_inverse\\" href=\\"#support_positive_inverse\\"class=\\"c-tokensTable-displayName\\">Support Positive Inverse</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-support-positive-inverse</span>
     </li>
@@ -244,43 +244,43 @@ exports[`tokensTable.js should return the expected HTML 1`] = `
   <li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #ff8000\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Support Brand 01</span>
+        <a id=\\"support_brand_01\\" href=\\"#support_brand_01\\"class=\\"c-tokensTable-displayName\\">Support Brand 01</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-support-brand-01</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #ffead4\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Support Brand 02</span>
+        <a id=\\"support_brand_02\\" href=\\"#support_brand_02\\"class=\\"c-tokensTable-displayName\\">Support Brand 02</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-support-brand-02</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #c1dade\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Support Brand 03</span>
+        <a id=\\"support_brand_03\\" href=\\"#support_brand_03\\"class=\\"c-tokensTable-displayName\\">Support Brand 03</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-support-brand-03</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #f2a6b0\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Support Brand 04</span>
+        <a id=\\"support_brand_04\\" href=\\"#support_brand_04\\"class=\\"c-tokensTable-displayName\\">Support Brand 04</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-support-brand-04</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #f6c243\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Support Brand 05</span>
+        <a id=\\"support_brand_05\\" href=\\"#support_brand_05\\"class=\\"c-tokensTable-displayName\\">Support Brand 05</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-support-brand-05</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example\\" style=\\"--example-background-color: #5b3d5b\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Support Brand 06</span>
+        <a id=\\"support_brand_06\\" href=\\"#support_brand_06\\"class=\\"c-tokensTable-displayName\\">Support Brand 06</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-support-brand-06</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #f75e28\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Support Brand 07</span>
+        <a id=\\"support_brand_07\\" href=\\"#support_brand_07\\"class=\\"c-tokensTable-displayName\\">Support Brand 07</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-support-brand-07</span>
     </li>
@@ -293,49 +293,49 @@ exports[`tokensTable.js should return the expected HTML 1`] = `
   <li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example\\" style=\\"--example-background-color: #242e30\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Content Default</span>
+        <a id=\\"content_default\\" href=\\"#content_default\\"class=\\"c-tokensTable-displayName\\">Content Default</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-content-default</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example\\" style=\\"--example-background-color: #3c4c4f\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Content Subdued</span>
+        <a id=\\"content_subdued\\" href=\\"#content_subdued\\"class=\\"c-tokensTable-displayName\\">Content Subdued</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-content-subdued</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #fff\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Content Light</span>
+        <a id=\\"content_light\\" href=\\"#content_light\\"class=\\"c-tokensTable-displayName\\">Content Light</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-content-light</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #fff\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Content Inverse</span>
+        <a id=\\"content_inverse\\" href=\\"#content_inverse\\"class=\\"c-tokensTable-displayName\\">Content Inverse</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-content-inverse</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #d50525\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Content Error</span>
+        <a id=\\"content_error\\" href=\\"#content_error\\"class=\\"c-tokensTable-displayName\\">Content Error</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-content-error</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example\\" style=\\"--example-background-color: #017a39\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Content Positive</span>
+        <a id=\\"content_positive\\" href=\\"#content_positive\\"class=\\"c-tokensTable-displayName\\">Content Positive</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-content-positive</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #8c999b\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Content Disabled</span>
+        <a id=\\"content_disabled\\" href=\\"#content_disabled\\"class=\\"c-tokensTable-displayName\\">Content Disabled</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-content-disabled</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #f36805\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Content Brand</span>
+        <a id=\\"content_brand\\" href=\\"#content_brand\\"class=\\"c-tokensTable-displayName\\">Content Brand</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-content-brand</span>
     </li>
@@ -348,49 +348,49 @@ exports[`tokensTable.js should return the expected HTML 1`] = `
   <li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #f36805\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Content Interactive Brand</span>
+        <a id=\\"content_interactive_brand\\" href=\\"#content_interactive_brand\\"class=\\"c-tokensTable-displayName\\">Content Interactive Brand</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-content-interactive-brand</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #fff\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Content Interactive Light</span>
+        <a id=\\"content_interactive_light\\" href=\\"#content_interactive_light\\"class=\\"c-tokensTable-displayName\\">Content Interactive Light</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-content-interactive-light</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #fff\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Content Interactive Primary</span>
+        <a id=\\"content_interactive_primary\\" href=\\"#content_interactive_primary\\"class=\\"c-tokensTable-displayName\\">Content Interactive Primary</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-content-interactive-primary</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example\\" style=\\"--example-background-color: #242e30\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Content Interactive Secondary</span>
+        <a id=\\"content_interactive_secondary\\" href=\\"#content_interactive_secondary\\"class=\\"c-tokensTable-displayName\\">Content Interactive Secondary</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-content-interactive-secondary</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example\\" style=\\"--example-background-color: #303d3f\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Content Interactive Tertiary</span>
+        <a id=\\"content_interactive_tertiary\\" href=\\"#content_interactive_tertiary\\"class=\\"c-tokensTable-displayName\\">Content Interactive Tertiary</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-content-interactive-tertiary</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example\\" style=\\"--example-background-color: #242e30\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Content Interactive Inverse</span>
+        <a id=\\"content_interactive_inverse\\" href=\\"#content_interactive_inverse\\"class=\\"c-tokensTable-displayName\\">Content Interactive Inverse</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-content-interactive-inverse</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example\\" style=\\"--example-background-color: #242e30\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Content Interactive Dark</span>
+        <a id=\\"content_interactive_dark\\" href=\\"#content_interactive_dark\\"class=\\"c-tokensTable-displayName\\">Content Interactive Dark</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-content-interactive-dark</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #d50525\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Content Interactive Error</span>
+        <a id=\\"content_interactive_error\\" href=\\"#content_interactive_error\\"class=\\"c-tokensTable-displayName\\">Content Interactive Error</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-content-interactive-error</span>
     </li>
@@ -403,37 +403,37 @@ exports[`tokensTable.js should return the expected HTML 1`] = `
   <li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example\\" style=\\"--example-background-color: #242e30\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Content Link</span>
+        <a id=\\"content_link\\" href=\\"#content_link\\"class=\\"c-tokensTable-displayName\\">Content Link</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-content-link</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #125fca\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Content Link Distinct</span>
+        <a id=\\"content_link_distinct\\" href=\\"#content_link_distinct\\"class=\\"c-tokensTable-displayName\\">Content Link Distinct</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-content-link-distinct</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #fff\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Content Link Light</span>
+        <a id=\\"content_link_light\\" href=\\"#content_link_light\\"class=\\"c-tokensTable-displayName\\">Content Link Light</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-content-link-light</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #fff\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Content Link Inverse</span>
+        <a id=\\"content_link_inverse\\" href=\\"#content_link_inverse\\"class=\\"c-tokensTable-displayName\\">Content Link Inverse</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-content-link-inverse</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example\\" style=\\"--example-background-color: #800080\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Content Link Visited</span>
+        <a id=\\"content_link_visited\\" href=\\"#content_link_visited\\"class=\\"c-tokensTable-displayName\\">Content Link Visited</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-content-link-visited</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #C58AF9\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Content Link Visited Inverse</span>
+        <a id=\\"content_link_visited_inverse\\" href=\\"#content_link_visited_inverse\\"class=\\"c-tokensTable-displayName\\">Content Link Visited Inverse</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-content-link-visited-inverse</span>
     </li>
@@ -446,67 +446,67 @@ exports[`tokensTable.js should return the expected HTML 1`] = `
   <li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--checked\\" style=\\"--example-checked-opacity: 0.04\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Hover 01</span>
+        <a id=\\"hover_01\\" href=\\"#hover_01\\"class=\\"c-tokensTable-displayName\\">Hover 01</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-hover-01</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--checked\\" style=\\"--example-checked-opacity: 0.08\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Hover 02</span>
+        <a id=\\"hover_02\\" href=\\"#hover_02\\"class=\\"c-tokensTable-displayName\\">Hover 02</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-hover-02</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--checked\\" style=\\"--example-checked-opacity: 0.08\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Hover 01 Light</span>
+        <a id=\\"hover_01_light\\" href=\\"#hover_01_light\\"class=\\"c-tokensTable-displayName\\">Hover 01 Light</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-hover-01-light</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--checked\\" style=\\"--example-checked-opacity: 0.04\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Hover 01 Dark</span>
+        <a id=\\"hover_01_dark\\" href=\\"#hover_01_dark\\"class=\\"c-tokensTable-displayName\\">Hover 01 Dark</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-hover-01-dark</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--checked\\" style=\\"--example-checked-opacity: 0.12\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Active 01</span>
+        <a id=\\"active_01\\" href=\\"#active_01\\"class=\\"c-tokensTable-displayName\\">Active 01</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-active-01</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--checked\\" style=\\"--example-checked-opacity: 0.2\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Active 02</span>
+        <a id=\\"active_02\\" href=\\"#active_02\\"class=\\"c-tokensTable-displayName\\">Active 02</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-active-02</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--checked\\" style=\\"--example-checked-opacity: 0.2\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Active 01 Light</span>
+        <a id=\\"active_01_light\\" href=\\"#active_01_light\\"class=\\"c-tokensTable-displayName\\">Active 01 Light</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-active-01-light</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--checked\\" style=\\"--example-checked-opacity: 0.12\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Active 01 Dark</span>
+        <a id=\\"active_01_dark\\" href=\\"#active_01_dark\\"class=\\"c-tokensTable-displayName\\">Active 01 Dark</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-active-01-dark</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #4996fd\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Focus</span>
+        <a id=\\"focus\\" href=\\"#focus\\"class=\\"c-tokensTable-displayName\\">Focus</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-focus</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #efedea\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Disabled 01</span>
+        <a id=\\"disabled_01\\" href=\\"#disabled_01\\"class=\\"c-tokensTable-displayName\\">Disabled 01</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-disabled-01</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example\\" style=\\"--example-background-color: #3b3a39\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Disabled 01 Inverse</span>
+        <a id=\\"disabled_01_inverse\\" href=\\"#disabled_01_inverse\\"class=\\"c-tokensTable-displayName\\">Disabled 01 Inverse</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-disabled-01-inverse</span>
     </li>
@@ -519,19 +519,19 @@ exports[`tokensTable.js should return the expected HTML 1`] = `
   <li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #f5f3f1\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Skeleton 01</span>
+        <a id=\\"skeleton_01\\" href=\\"#skeleton_01\\"class=\\"c-tokensTable-displayName\\">Skeleton 01</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-skeleton-01</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #efedea\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Skeleton 02</span>
+        <a id=\\"skeleton_02\\" href=\\"#skeleton_02\\"class=\\"c-tokensTable-displayName\\">Skeleton 02</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-skeleton-02</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #fff\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Skeleton 03</span>
+        <a id=\\"skeleton_03\\" href=\\"#skeleton_03\\"class=\\"c-tokensTable-displayName\\">Skeleton 03</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-skeleton-03</span>
     </li>
@@ -548,25 +548,25 @@ exports[`tokensTable.js should return the expected HTML 2`] = `
   <li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example\\" style=\\"--example-background-color: #1a1a19\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Background Default</span><span class=\\"c-tokensTable-tokenDescription\\">Default page background</span>
+        <a id=\\"background_default\\" href=\\"#background_default\\"class=\\"c-tokensTable-displayName\\">Background Default</a><span class=\\"c-tokensTable-tokenDescription\\">Default page background</span>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-background-default</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example\\" style=\\"--example-background-color: #3b3a39\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Background Subtle</span>
+        <a id=\\"background_subtle\\" href=\\"#background_subtle\\"class=\\"c-tokensTable-displayName\\">Background Subtle</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-background-subtle</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #fff\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Background Dark</span>
+        <a id=\\"background_dark\\" href=\\"#background_dark\\"class=\\"c-tokensTable-displayName\\">Background Dark</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-background-dark</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--checked\\" style=\\"--example-checked-opacity: 0.5\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Overlay</span>
+        <a id=\\"overlay\\" href=\\"#overlay\\"class=\\"c-tokensTable-displayName\\">Overlay</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-overlay</span>
     </li>
@@ -579,31 +579,31 @@ exports[`tokensTable.js should return the expected HTML 2`] = `
   <li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example\\" style=\\"--example-background-color: #262626\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Container Default</span>
+        <a id=\\"container_default\\" href=\\"#container_default\\"class=\\"c-tokensTable-displayName\\">Container Default</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-container-default</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example\\" style=\\"--example-background-color: #3b3a39\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Container Subtle</span>
+        <a id=\\"container_subtle\\" href=\\"#container_subtle\\"class=\\"c-tokensTable-displayName\\">Container Subtle</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-container-subtle</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example\\" style=\\"--example-background-color: #575655\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Container Strong</span>
+        <a id=\\"container_strong\\" href=\\"#container_strong\\"class=\\"c-tokensTable-displayName\\">Container Strong</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-container-strong</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #fff\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Container Dark</span>
+        <a id=\\"container_dark\\" href=\\"#container_dark\\"class=\\"c-tokensTable-displayName\\">Container Dark</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-container-dark</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #fff\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Container Inverse</span>
+        <a id=\\"container_inverse\\" href=\\"#container_inverse\\"class=\\"c-tokensTable-displayName\\">Container Inverse</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-container-inverse</span>
     </li>
@@ -616,37 +616,37 @@ exports[`tokensTable.js should return the expected HTML 2`] = `
   <li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #f36805\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Interactive Brand</span>
+        <a id=\\"interactive_brand\\" href=\\"#interactive_brand\\"class=\\"c-tokensTable-displayName\\">Interactive Brand</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-interactive-brand</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #fff\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Interactive Primary</span>
+        <a id=\\"interactive_primary\\" href=\\"#interactive_primary\\"class=\\"c-tokensTable-displayName\\">Interactive Primary</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-interactive-primary</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example\\" style=\\"--example-background-color: #494847\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Interactive Secondary</span>
+        <a id=\\"interactive_secondary\\" href=\\"#interactive_secondary\\"class=\\"c-tokensTable-displayName\\">Interactive Secondary</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-interactive-secondary</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example\\" style=\\"--example-background-color: #262626\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Interactive Inverse</span>
+        <a id=\\"interactive_inverse\\" href=\\"#interactive_inverse\\"class=\\"c-tokensTable-displayName\\">Interactive Inverse</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-interactive-inverse</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #fff\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Interactive Light</span>
+        <a id=\\"interactive_light\\" href=\\"#interactive_light\\"class=\\"c-tokensTable-displayName\\">Interactive Light</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-interactive-light</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #9e9c9a\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Interactive Form</span>
+        <a id=\\"interactive_form\\" href=\\"#interactive_form\\"class=\\"c-tokensTable-displayName\\">Interactive Form</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-interactive-form</span>
     </li>
@@ -659,25 +659,25 @@ exports[`tokensTable.js should return the expected HTML 2`] = `
   <li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example\\" style=\\"--example-background-color: #575655\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Border Default</span>
+        <a id=\\"border_default\\" href=\\"#border_default\\"class=\\"c-tokensTable-displayName\\">Border Default</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-border-default</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example\\" style=\\"--example-background-color: #494847\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Border Subtle</span>
+        <a id=\\"border_subtle\\" href=\\"#border_subtle\\"class=\\"c-tokensTable-displayName\\">Border Subtle</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-border-subtle</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #797876\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Border Strong</span>
+        <a id=\\"border_strong\\" href=\\"#border_strong\\"class=\\"c-tokensTable-displayName\\">Border Strong</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-border-strong</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #efedea\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Border Inverse</span>
+        <a id=\\"border_inverse\\" href=\\"#border_inverse\\"class=\\"c-tokensTable-displayName\\">Border Inverse</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-border-inverse</span>
     </li>
@@ -690,13 +690,13 @@ exports[`tokensTable.js should return the expected HTML 2`] = `
   <li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--checked c-tokensTable-example--bordered\\" style=\\"--example-checked-opacity: 0.20\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Divider Default</span>
+        <a id=\\"divider_default\\" href=\\"#divider_default\\"class=\\"c-tokensTable-displayName\\">Divider Default</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-divider-default</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--checked\\" style=\\"--example-checked-opacity: 0.08\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Divider Inverse</span>
+        <a id=\\"divider_inverse\\" href=\\"#divider_inverse\\"class=\\"c-tokensTable-displayName\\">Divider Inverse</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-divider-inverse</span>
     </li>
@@ -709,67 +709,67 @@ exports[`tokensTable.js should return the expected HTML 2`] = `
   <li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #d50525\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Support Error</span>
+        <a id=\\"support_error\\" href=\\"#support_error\\"class=\\"c-tokensTable-displayName\\">Support Error</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-support-error</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #f6c243\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Support Warning</span>
+        <a id=\\"support_warning\\" href=\\"#support_warning\\"class=\\"c-tokensTable-displayName\\">Support Warning</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-support-warning</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #22bf65\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Support Positive</span>
+        <a id=\\"support_positive\\" href=\\"#support_positive\\"class=\\"c-tokensTable-displayName\\">Support Positive</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-support-positive</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #4996fd\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Support Info</span>
+        <a id=\\"support_info\\" href=\\"#support_info\\"class=\\"c-tokensTable-displayName\\">Support Info</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-support-info</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example\\" style=\\"--example-background-color: #1a1a19\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Support Neutral</span>
+        <a id=\\"support_neutral\\" href=\\"#support_neutral\\"class=\\"c-tokensTable-displayName\\">Support Neutral</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-support-neutral</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example\\" style=\\"--example-background-color: #491e24\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Support Error 02</span>
+        <a id=\\"support_error_02\\" href=\\"#support_error_02\\"class=\\"c-tokensTable-displayName\\">Support Error 02</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-support-error-02</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example\\" style=\\"--example-background-color: #474630\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Support Warning 02</span>
+        <a id=\\"support_warning_02\\" href=\\"#support_warning_02\\"class=\\"c-tokensTable-displayName\\">Support Warning 02</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-support-warning-02</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example\\" style=\\"--example-background-color: #273f33\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Support Positive 02</span>
+        <a id=\\"support_positive_02\\" href=\\"#support_positive_02\\"class=\\"c-tokensTable-displayName\\">Support Positive 02</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-support-positive-02</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example\\" style=\\"--example-background-color: #083343\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Support Info 02</span>
+        <a id=\\"support_info_02\\" href=\\"#support_info_02\\"class=\\"c-tokensTable-displayName\\">Support Info 02</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-support-info-02</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #125fca\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Support Info Inverse</span>
+        <a id=\\"support_info_inverse\\" href=\\"#support_info_inverse\\"class=\\"c-tokensTable-displayName\\">Support Info Inverse</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-support-info-inverse</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example\\" style=\\"--example-background-color: #017a39\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Support Positive Inverse</span>
+        <a id=\\"support_positive_inverse\\" href=\\"#support_positive_inverse\\"class=\\"c-tokensTable-displayName\\">Support Positive Inverse</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-support-positive-inverse</span>
     </li>
@@ -782,43 +782,43 @@ exports[`tokensTable.js should return the expected HTML 2`] = `
   <li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #ff8000\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Support Brand 01</span>
+        <a id=\\"support_brand_01\\" href=\\"#support_brand_01\\"class=\\"c-tokensTable-displayName\\">Support Brand 01</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-support-brand-01</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example\\" style=\\"--example-background-color: #41301f\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Support Brand 02</span>
+        <a id=\\"support_brand_02\\" href=\\"#support_brand_02\\"class=\\"c-tokensTable-displayName\\">Support Brand 02</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-support-brand-02</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #c1dade\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Support Brand 03</span>
+        <a id=\\"support_brand_03\\" href=\\"#support_brand_03\\"class=\\"c-tokensTable-displayName\\">Support Brand 03</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-support-brand-03</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #f2a6b0\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Support Brand 04</span>
+        <a id=\\"support_brand_04\\" href=\\"#support_brand_04\\"class=\\"c-tokensTable-displayName\\">Support Brand 04</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-support-brand-04</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #f6c243\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Support Brand 05</span>
+        <a id=\\"support_brand_05\\" href=\\"#support_brand_05\\"class=\\"c-tokensTable-displayName\\">Support Brand 05</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-support-brand-05</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example\\" style=\\"--example-background-color: #5b3d5b\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Support Brand 06</span>
+        <a id=\\"support_brand_06\\" href=\\"#support_brand_06\\"class=\\"c-tokensTable-displayName\\">Support Brand 06</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-support-brand-06</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #f75e28\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Support Brand 07</span>
+        <a id=\\"support_brand_07\\" href=\\"#support_brand_07\\"class=\\"c-tokensTable-displayName\\">Support Brand 07</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-support-brand-07</span>
     </li>
@@ -831,49 +831,49 @@ exports[`tokensTable.js should return the expected HTML 2`] = `
   <li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #fff\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Content Default</span>
+        <a id=\\"content_default\\" href=\\"#content_default\\"class=\\"c-tokensTable-displayName\\">Content Default</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-content-default</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #d7d9da\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Content Subdued</span>
+        <a id=\\"content_subdued\\" href=\\"#content_subdued\\"class=\\"c-tokensTable-displayName\\">Content Subdued</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-content-subdued</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #fff\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Content Light</span>
+        <a id=\\"content_light\\" href=\\"#content_light\\"class=\\"c-tokensTable-displayName\\">Content Light</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-content-light</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example\\" style=\\"--example-background-color: #242e30\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Content Inverse</span>
+        <a id=\\"content_inverse\\" href=\\"#content_inverse\\"class=\\"c-tokensTable-displayName\\">Content Inverse</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-content-inverse</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #ec556c\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Content Error</span>
+        <a id=\\"content_error\\" href=\\"#content_error\\"class=\\"c-tokensTable-displayName\\">Content Error</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-content-error</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #22bf65\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Content Positive</span>
+        <a id=\\"content_positive\\" href=\\"#content_positive\\"class=\\"c-tokensTable-displayName\\">Content Positive</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-content-positive</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #8c999b\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Content Disabled</span>
+        <a id=\\"content_disabled\\" href=\\"#content_disabled\\"class=\\"c-tokensTable-displayName\\">Content Disabled</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-content-disabled</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #ff8000\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Content Brand</span>
+        <a id=\\"content_brand\\" href=\\"#content_brand\\"class=\\"c-tokensTable-displayName\\">Content Brand</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-content-brand</span>
     </li>
@@ -886,49 +886,49 @@ exports[`tokensTable.js should return the expected HTML 2`] = `
   <li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #ff8000\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Content Interactive Brand</span>
+        <a id=\\"content_interactive_brand\\" href=\\"#content_interactive_brand\\"class=\\"c-tokensTable-displayName\\">Content Interactive Brand</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-content-interactive-brand</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #fff\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Content Interactive Light</span>
+        <a id=\\"content_interactive_light\\" href=\\"#content_interactive_light\\"class=\\"c-tokensTable-displayName\\">Content Interactive Light</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-content-interactive-light</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example\\" style=\\"--example-background-color: #242e30\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Content Interactive Primary</span>
+        <a id=\\"content_interactive_primary\\" href=\\"#content_interactive_primary\\"class=\\"c-tokensTable-displayName\\">Content Interactive Primary</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-content-interactive-primary</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #fff\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Content Interactive Secondary</span>
+        <a id=\\"content_interactive_secondary\\" href=\\"#content_interactive_secondary\\"class=\\"c-tokensTable-displayName\\">Content Interactive Secondary</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-content-interactive-secondary</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #fff\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Content Interactive Tertiary</span>
+        <a id=\\"content_interactive_tertiary\\" href=\\"#content_interactive_tertiary\\"class=\\"c-tokensTable-displayName\\">Content Interactive Tertiary</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-content-interactive-tertiary</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #fff\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Content Interactive Inverse</span>
+        <a id=\\"content_interactive_inverse\\" href=\\"#content_interactive_inverse\\"class=\\"c-tokensTable-displayName\\">Content Interactive Inverse</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-content-interactive-inverse</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example\\" style=\\"--example-background-color: #242e30\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Content Interactive Dark</span>
+        <a id=\\"content_interactive_dark\\" href=\\"#content_interactive_dark\\"class=\\"c-tokensTable-displayName\\">Content Interactive Dark</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-content-interactive-dark</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #ec556c\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Content Interactive Error</span>
+        <a id=\\"content_interactive_error\\" href=\\"#content_interactive_error\\"class=\\"c-tokensTable-displayName\\">Content Interactive Error</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-content-interactive-error</span>
     </li>
@@ -941,37 +941,37 @@ exports[`tokensTable.js should return the expected HTML 2`] = `
   <li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #fff\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Content Link</span>
+        <a id=\\"content_link\\" href=\\"#content_link\\"class=\\"c-tokensTable-displayName\\">Content Link</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-content-link</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #4996fd\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Content Link Distinct</span>
+        <a id=\\"content_link_distinct\\" href=\\"#content_link_distinct\\"class=\\"c-tokensTable-displayName\\">Content Link Distinct</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-content-link-distinct</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #fff\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Content Link Light</span>
+        <a id=\\"content_link_light\\" href=\\"#content_link_light\\"class=\\"c-tokensTable-displayName\\">Content Link Light</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-content-link-light</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example\\" style=\\"--example-background-color: #242e30\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Content Link Inverse</span>
+        <a id=\\"content_link_inverse\\" href=\\"#content_link_inverse\\"class=\\"c-tokensTable-displayName\\">Content Link Inverse</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-content-link-inverse</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #C58AF9\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Content Link Visited</span>
+        <a id=\\"content_link_visited\\" href=\\"#content_link_visited\\"class=\\"c-tokensTable-displayName\\">Content Link Visited</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-content-link-visited</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example\\" style=\\"--example-background-color: #800080\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Content Link Visited Inverse</span>
+        <a id=\\"content_link_visited_inverse\\" href=\\"#content_link_visited_inverse\\"class=\\"c-tokensTable-displayName\\">Content Link Visited Inverse</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-content-link-visited-inverse</span>
     </li>
@@ -984,67 +984,67 @@ exports[`tokensTable.js should return the expected HTML 2`] = `
   <li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--checked\\" style=\\"--example-checked-opacity: 0.08\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Hover 01</span>
+        <a id=\\"hover_01\\" href=\\"#hover_01\\"class=\\"c-tokensTable-displayName\\">Hover 01</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-hover-01</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--checked\\" style=\\"--example-checked-opacity: 0.04\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Hover 02</span>
+        <a id=\\"hover_02\\" href=\\"#hover_02\\"class=\\"c-tokensTable-displayName\\">Hover 02</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-hover-02</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--checked\\" style=\\"--example-checked-opacity: 0.08\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Hover 01 Light</span>
+        <a id=\\"hover_01_light\\" href=\\"#hover_01_light\\"class=\\"c-tokensTable-displayName\\">Hover 01 Light</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-hover-01-light</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--checked\\" style=\\"--example-checked-opacity: 0.04\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Hover 01 Dark</span>
+        <a id=\\"hover_01_dark\\" href=\\"#hover_01_dark\\"class=\\"c-tokensTable-displayName\\">Hover 01 Dark</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-hover-01-dark</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--checked\\" style=\\"--example-checked-opacity: 0.2\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Active 01</span>
+        <a id=\\"active_01\\" href=\\"#active_01\\"class=\\"c-tokensTable-displayName\\">Active 01</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-active-01</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--checked\\" style=\\"--example-checked-opacity: 0.12\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Active 02</span>
+        <a id=\\"active_02\\" href=\\"#active_02\\"class=\\"c-tokensTable-displayName\\">Active 02</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-active-02</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--checked\\" style=\\"--example-checked-opacity: 0.2\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Active 01 Light</span>
+        <a id=\\"active_01_light\\" href=\\"#active_01_light\\"class=\\"c-tokensTable-displayName\\">Active 01 Light</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-active-01-light</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--checked\\" style=\\"--example-checked-opacity: 0.12\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Active 01 Dark</span>
+        <a id=\\"active_01_dark\\" href=\\"#active_01_dark\\"class=\\"c-tokensTable-displayName\\">Active 01 Dark</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-active-01-dark</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #4996fd\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Focus</span>
+        <a id=\\"focus\\" href=\\"#focus\\"class=\\"c-tokensTable-displayName\\">Focus</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-focus</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example\\" style=\\"--example-background-color: #3b3a39\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Disabled 01</span>
+        <a id=\\"disabled_01\\" href=\\"#disabled_01\\"class=\\"c-tokensTable-displayName\\">Disabled 01</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-disabled-01</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #efedea\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Disabled 01 Inverse</span>
+        <a id=\\"disabled_01_inverse\\" href=\\"#disabled_01_inverse\\"class=\\"c-tokensTable-displayName\\">Disabled 01 Inverse</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-disabled-01-inverse</span>
     </li>
@@ -1057,19 +1057,19 @@ exports[`tokensTable.js should return the expected HTML 2`] = `
   <li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example\\" style=\\"--example-background-color: #3b3a39\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Skeleton 01</span>
+        <a id=\\"skeleton_01\\" href=\\"#skeleton_01\\"class=\\"c-tokensTable-displayName\\">Skeleton 01</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-skeleton-01</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example\\" style=\\"--example-background-color: #575655\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Skeleton 02</span>
+        <a id=\\"skeleton_02\\" href=\\"#skeleton_02\\"class=\\"c-tokensTable-displayName\\">Skeleton 02</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-skeleton-02</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example\\" style=\\"--example-background-color: #262626\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Skeleton 03</span>
+        <a id=\\"skeleton_03\\" href=\\"#skeleton_03\\"class=\\"c-tokensTable-displayName\\">Skeleton 03</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-skeleton-03</span>
     </li>
@@ -1086,13 +1086,13 @@ exports[`tokensTable.js should return the expected HTML 3`] = `
   <li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #fff\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">White</span>
+        <a id=\\"white\\" href=\\"#white\\"class=\\"c-tokensTable-displayName\\">White</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-white</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example\\" style=\\"--example-background-color: #000\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Black</span>
+        <a id=\\"black\\" href=\\"#black\\"class=\\"c-tokensTable-displayName\\">Black</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-black</span>
     </li>
@@ -1105,31 +1105,31 @@ exports[`tokensTable.js should return the expected HTML 3`] = `
   <li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #ffead4\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Orange 10</span>
+        <a id=\\"orange_10\\" href=\\"#orange_10\\"class=\\"c-tokensTable-displayName\\">Orange 10</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-orange-10</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #ff8000\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Orange 30</span>
+        <a id=\\"orange_30\\" href=\\"#orange_30\\"class=\\"c-tokensTable-displayName\\">Orange 30</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-orange-30</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #f36805\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Orange</span>
+        <a id=\\"orange\\" href=\\"#orange\\"class=\\"c-tokensTable-displayName\\">Orange</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-orange</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #f75e28\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Orange 55</span>
+        <a id=\\"orange_55\\" href=\\"#orange_55\\"class=\\"c-tokensTable-displayName\\">Orange 55</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-orange-55</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example\\" style=\\"--example-background-color: #41301f\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Orange 90</span>
+        <a id=\\"orange_90\\" href=\\"#orange_90\\"class=\\"c-tokensTable-displayName\\">Orange 90</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-orange-90</span>
     </li>
@@ -1142,37 +1142,37 @@ exports[`tokensTable.js should return the expected HTML 3`] = `
   <li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #ebf6fa\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Blue 10</span>
+        <a id=\\"blue_10\\" href=\\"#blue_10\\"class=\\"c-tokensTable-displayName\\">Blue 10</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-blue-10</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #c1dade\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Blue 25</span>
+        <a id=\\"blue_25\\" href=\\"#blue_25\\"class=\\"c-tokensTable-displayName\\">Blue 25</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-blue-25</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #4996fd\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Blue 30</span>
+        <a id=\\"blue_30\\" href=\\"#blue_30\\"class=\\"c-tokensTable-displayName\\">Blue 30</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-blue-30</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #125fca\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Blue</span>
+        <a id=\\"blue\\" href=\\"#blue\\"class=\\"c-tokensTable-displayName\\">Blue</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-blue</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example\\" style=\\"--example-background-color: #0d4696\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Blue 60</span>
+        <a id=\\"blue_60\\" href=\\"#blue_60\\"class=\\"c-tokensTable-displayName\\">Blue 60</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-blue-60</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example\\" style=\\"--example-background-color: #083343\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Blue 90</span>
+        <a id=\\"blue_90\\" href=\\"#blue_90\\"class=\\"c-tokensTable-displayName\\">Blue 90</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-blue-90</span>
     </li>
@@ -1185,37 +1185,37 @@ exports[`tokensTable.js should return the expected HTML 3`] = `
   <li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #ffe9ea\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Red 10</span>
+        <a id=\\"red_10\\" href=\\"#red_10\\"class=\\"c-tokensTable-displayName\\">Red 10</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-red-10</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #f2a6b0\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Red 25</span>
+        <a id=\\"red_25\\" href=\\"#red_25\\"class=\\"c-tokensTable-displayName\\">Red 25</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-red-25</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #ec556c\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Red 30</span>
+        <a id=\\"red_30\\" href=\\"#red_30\\"class=\\"c-tokensTable-displayName\\">Red 30</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-red-30</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #d50525\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Red</span>
+        <a id=\\"red\\" href=\\"#red\\"class=\\"c-tokensTable-displayName\\">Red</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-red</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example\\" style=\\"--example-background-color: #9f041c\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Red 60</span>
+        <a id=\\"red_60\\" href=\\"#red_60\\"class=\\"c-tokensTable-displayName\\">Red 60</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-red-60</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example\\" style=\\"--example-background-color: #491e24\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Red 90</span>
+        <a id=\\"red_90\\" href=\\"#red_90\\"class=\\"c-tokensTable-displayName\\">Red 90</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-red-90</span>
     </li>
@@ -1228,25 +1228,25 @@ exports[`tokensTable.js should return the expected HTML 3`] = `
   <li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #fff9df\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Yellow 10</span>
+        <a id=\\"yellow_10\\" href=\\"#yellow_10\\"class=\\"c-tokensTable-displayName\\">Yellow 10</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-yellow-10</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #ffd97d\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Yellow 30</span>
+        <a id=\\"yellow_30\\" href=\\"#yellow_30\\"class=\\"c-tokensTable-displayName\\">Yellow 30</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-yellow-30</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #f6c243\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Yellow</span>
+        <a id=\\"yellow\\" href=\\"#yellow\\"class=\\"c-tokensTable-displayName\\">Yellow</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-yellow</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example\\" style=\\"--example-background-color: #474630\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Yellow 90</span>
+        <a id=\\"yellow_90\\" href=\\"#yellow_90\\"class=\\"c-tokensTable-displayName\\">Yellow 90</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-yellow-90</span>
     </li>
@@ -1259,31 +1259,31 @@ exports[`tokensTable.js should return the expected HTML 3`] = `
   <li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #e5faef\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Green 10</span>
+        <a id=\\"green_10\\" href=\\"#green_10\\"class=\\"c-tokensTable-displayName\\">Green 10</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-green-10</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #22bf65\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Green 30</span>
+        <a id=\\"green_30\\" href=\\"#green_30\\"class=\\"c-tokensTable-displayName\\">Green 30</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-green-30</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example\\" style=\\"--example-background-color: #017a39\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Green</span>
+        <a id=\\"green\\" href=\\"#green\\"class=\\"c-tokensTable-displayName\\">Green</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-green</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example\\" style=\\"--example-background-color: #006631\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Green 60</span>
+        <a id=\\"green_60\\" href=\\"#green_60\\"class=\\"c-tokensTable-displayName\\">Green 60</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-green-60</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example\\" style=\\"--example-background-color: #273f33\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Green 90</span>
+        <a id=\\"green_90\\" href=\\"#green_90\\"class=\\"c-tokensTable-displayName\\">Green 90</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-green-90</span>
     </li>
@@ -1296,13 +1296,13 @@ exports[`tokensTable.js should return the expected HTML 3`] = `
   <li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #ead9f0\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Purple 10</span>
+        <a id=\\"purple_10\\" href=\\"#purple_10\\"class=\\"c-tokensTable-displayName\\">Purple 10</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-purple-10</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example\\" style=\\"--example-background-color: #5b3d5b\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Purple</span>
+        <a id=\\"purple\\" href=\\"#purple\\"class=\\"c-tokensTable-displayName\\">Purple</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-purple</span>
     </li>
@@ -1315,67 +1315,67 @@ exports[`tokensTable.js should return the expected HTML 3`] = `
   <li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #fcfcfc\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Mozzarella 5</span>
+        <a id=\\"mozzarella_5\\" href=\\"#mozzarella_5\\"class=\\"c-tokensTable-displayName\\">Mozzarella 5</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-mozzarella-5</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #f5f3f1\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Mozzarella 10</span>
+        <a id=\\"mozzarella_10\\" href=\\"#mozzarella_10\\"class=\\"c-tokensTable-displayName\\">Mozzarella 10</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-mozzarella-10</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #efedea\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Mozzarella 20</span>
+        <a id=\\"mozzarella_20\\" href=\\"#mozzarella_20\\"class=\\"c-tokensTable-displayName\\">Mozzarella 20</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-mozzarella-20</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #dbd9d7\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Mozzarella 30</span>
+        <a id=\\"mozzarella_30\\" href=\\"#mozzarella_30\\"class=\\"c-tokensTable-displayName\\">Mozzarella 30</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-mozzarella-30</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #9e9c9a\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Mozzarella 50</span>
+        <a id=\\"mozzarella_50\\" href=\\"#mozzarella_50\\"class=\\"c-tokensTable-displayName\\">Mozzarella 50</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-mozzarella-50</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #797876\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Mozzarella 60</span>
+        <a id=\\"mozzarella_60\\" href=\\"#mozzarella_60\\"class=\\"c-tokensTable-displayName\\">Mozzarella 60</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-mozzarella-60</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example\\" style=\\"--example-background-color: #575655\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Mozzarella 70</span>
+        <a id=\\"mozzarella_70\\" href=\\"#mozzarella_70\\"class=\\"c-tokensTable-displayName\\">Mozzarella 70</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-mozzarella-70</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example\\" style=\\"--example-background-color: #494847\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Mozzarella 75</span>
+        <a id=\\"mozzarella_75\\" href=\\"#mozzarella_75\\"class=\\"c-tokensTable-displayName\\">Mozzarella 75</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-mozzarella-75</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example\\" style=\\"--example-background-color: #3b3a39\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Mozzarella 80</span>
+        <a id=\\"mozzarella_80\\" href=\\"#mozzarella_80\\"class=\\"c-tokensTable-displayName\\">Mozzarella 80</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-mozzarella-80</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example\\" style=\\"--example-background-color: #262626\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Mozzarella 90</span>
+        <a id=\\"mozzarella_90\\" href=\\"#mozzarella_90\\"class=\\"c-tokensTable-displayName\\">Mozzarella 90</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-mozzarella-90</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example\\" style=\\"--example-background-color: #1a1a19\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Mozzarella 100</span>
+        <a id=\\"mozzarella_100\\" href=\\"#mozzarella_100\\"class=\\"c-tokensTable-displayName\\">Mozzarella 100</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-mozzarella-100</span>
     </li>
@@ -1388,31 +1388,31 @@ exports[`tokensTable.js should return the expected HTML 3`] = `
   <li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #d7d9da\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Charcoal 30</span>
+        <a id=\\"charcoal_30\\" href=\\"#charcoal_30\\"class=\\"c-tokensTable-displayName\\">Charcoal 30</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-charcoal-30</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #8c999b\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Charcoal 50</span>
+        <a id=\\"charcoal_50\\" href=\\"#charcoal_50\\"class=\\"c-tokensTable-displayName\\">Charcoal 50</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-charcoal-50</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example\\" style=\\"--example-background-color: #3c4c4f\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Charcoal 70</span>
+        <a id=\\"charcoal_70\\" href=\\"#charcoal_70\\"class=\\"c-tokensTable-displayName\\">Charcoal 70</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-charcoal-70</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example\\" style=\\"--example-background-color: #303d3f\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Charcoal 75</span>
+        <a id=\\"charcoal_75\\" href=\\"#charcoal_75\\"class=\\"c-tokensTable-displayName\\">Charcoal 75</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-charcoal-75</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example\\" style=\\"--example-background-color: #242e30\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Charcoal 80</span>
+        <a id=\\"charcoal_80\\" href=\\"#charcoal_80\\"class=\\"c-tokensTable-displayName\\">Charcoal 80</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-charcoal-80</span>
     </li>
@@ -1425,13 +1425,13 @@ exports[`tokensTable.js should return the expected HTML 3`] = `
   <li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example\\" style=\\"--example-background-color: #800080\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">System Purple</span>
+        <a id=\\"system_purple\\" href=\\"#system_purple\\"class=\\"c-tokensTable-displayName\\">System Purple</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-system-purple</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #C58AF9\\";></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">System Purple 10</span>
+        <a id=\\"system_purple_10\\" href=\\"#system_purple_10\\"class=\\"c-tokensTable-displayName\\">System Purple 10</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-system-purple-10</span>
     </li>
@@ -1448,19 +1448,19 @@ exports[`tokensTable.js should return the expected HTML 4`] = `
   <li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example--font\\" style=\\"--example-font-family: JetSansDigital\\">String</div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">JET Sans</span><span class=\\"c-tokensTable-tokenDescription\\">Our primary font family</span>
+        <a id=\\"jet_sans\\" href=\\"#jet_sans\\"class=\\"c-tokensTable-displayName\\">JET Sans</a><span class=\\"c-tokensTable-tokenDescription\\">Our primary font family</span>
       </div>
       <span class=\\"c-tokensTable-token\\">$font-family-primary</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example--font\\" style=\\"--example-font-family: Arial\\">String</div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Arial</span><span class=\\"c-tokensTable-tokenDescription\\">Used only as a fallback font</span>
+        <a id=\\"arial\\" href=\\"#arial\\"class=\\"c-tokensTable-displayName\\">Arial</a><span class=\\"c-tokensTable-tokenDescription\\">Used only as a fallback font</span>
       </div>
       <span class=\\"c-tokensTable-token\\">$font-family-secondary</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example--font\\" style=\\"--example-font-family: CPMono\\">String</div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">CP Mono</span><span class=\\"c-tokensTable-tokenDescription\\">Used only for snippets of code</span>
+        <a id=\\"cp_mono\\" href=\\"#cp_mono\\"class=\\"c-tokensTable-displayName\\">CP Mono</a><span class=\\"c-tokensTable-tokenDescription\\">Used only for snippets of code</span>
       </div>
       <span class=\\"c-tokensTable-token\\">$font-family-code</span>
     </li>
@@ -1473,19 +1473,19 @@ exports[`tokensTable.js should return the expected HTML 4`] = `
   <li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example--font\\" style=\\"--example-font-weight: 800\\">String</div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Extra bold</span>
+        <a id=\\"extra_bold\\" href=\\"#extra_bold\\"class=\\"c-tokensTable-displayName\\">Extra bold</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$font-weight-extrabold</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example--font\\" style=\\"--example-font-weight: 700\\">String</div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Bold</span>
+        <a id=\\"bold\\" href=\\"#bold\\"class=\\"c-tokensTable-displayName\\">Bold</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$font-weight-bold</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example--font\\" style=\\"--example-font-weight: 400\\">String</div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Regular</span>
+        <a id=\\"regular\\" href=\\"#regular\\"class=\\"c-tokensTable-displayName\\">Regular</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$font-weight-regular</span>
     </li>
@@ -1498,49 +1498,49 @@ exports[`tokensTable.js should return the expected HTML 4`] = `
   <li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example--font\\" style=\\"--example-font-size: 12px; --example-font-line-height: 16px\\">String</div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Font size a</span><span class=\\"c-tokensTable-tokenDescription\\">Text size: 12px <br /> Line height: 16px</span>
+        <a id=\\"font_size_a\\" href=\\"#font_size_a\\"class=\\"c-tokensTable-displayName\\">Font size a</a><span class=\\"c-tokensTable-tokenDescription\\">Text size: 12px <br /> Line height: 16px</span>
       </div>
       <span class=\\"c-tokensTable-token\\">$font-size-a</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example--font\\" style=\\"--example-font-size: 14px; --example-font-line-height: 20px\\">String</div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Font size b</span><span class=\\"c-tokensTable-tokenDescription\\">Text size: 14px <br /> Line height: 20px</span>
+        <a id=\\"font_size_b\\" href=\\"#font_size_b\\"class=\\"c-tokensTable-displayName\\">Font size b</a><span class=\\"c-tokensTable-tokenDescription\\">Text size: 14px <br /> Line height: 20px</span>
       </div>
       <span class=\\"c-tokensTable-token\\">$font-size-b</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example--font\\" style=\\"--example-font-size: 16px; --example-font-line-height: 24px\\">String</div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Font size c</span><span class=\\"c-tokensTable-tokenDescription\\">Text size: 16px <br /> Line height: 24px</span>
+        <a id=\\"font_size_c\\" href=\\"#font_size_c\\"class=\\"c-tokensTable-displayName\\">Font size c</a><span class=\\"c-tokensTable-tokenDescription\\">Text size: 16px <br /> Line height: 24px</span>
       </div>
       <span class=\\"c-tokensTable-token\\">$font-size-c</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example--font\\" style=\\"--example-font-size: 20px; --example-font-line-height: 28px\\">String</div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Font size d</span><span class=\\"c-tokensTable-tokenDescription\\">Text size: 20px <br /> Line height: 28px</span>
+        <a id=\\"font_size_d\\" href=\\"#font_size_d\\"class=\\"c-tokensTable-displayName\\">Font size d</a><span class=\\"c-tokensTable-tokenDescription\\">Text size: 20px <br /> Line height: 28px</span>
       </div>
       <span class=\\"c-tokensTable-token\\">$font-size-d</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example--font\\" style=\\"--example-font-size: 24px; --example-font-line-height: 32px\\">String</div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Font size e</span><span class=\\"c-tokensTable-tokenDescription\\">Text size: 24px <br /> Line height: 32px</span>
+        <a id=\\"font_size_e\\" href=\\"#font_size_e\\"class=\\"c-tokensTable-displayName\\">Font size e</a><span class=\\"c-tokensTable-tokenDescription\\">Text size: 24px <br /> Line height: 32px</span>
       </div>
       <span class=\\"c-tokensTable-token\\">$font-size-e</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example--font\\" style=\\"--example-font-size: 28px; --example-font-line-height: 36px\\">String</div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Font size f</span><span class=\\"c-tokensTable-tokenDescription\\">Text size: 28px <br /> Line height: 36px</span>
+        <a id=\\"font_size_f\\" href=\\"#font_size_f\\"class=\\"c-tokensTable-displayName\\">Font size f</a><span class=\\"c-tokensTable-tokenDescription\\">Text size: 28px <br /> Line height: 36px</span>
       </div>
       <span class=\\"c-tokensTable-token\\">$font-size-f</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example--font\\" style=\\"--example-font-size: 32px; --example-font-line-height: 40px\\">String</div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Font size g</span><span class=\\"c-tokensTable-tokenDescription\\">Text size: 32px <br /> Line height: 40px</span>
+        <a id=\\"font_size_g\\" href=\\"#font_size_g\\"class=\\"c-tokensTable-displayName\\">Font size g</a><span class=\\"c-tokensTable-tokenDescription\\">Text size: 32px <br /> Line height: 40px</span>
       </div>
       <span class=\\"c-tokensTable-token\\">$font-size-g</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example--font\\" style=\\"--example-font-size: 48px; --example-font-line-height: 56px\\">String</div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Font size h</span><span class=\\"c-tokensTable-tokenDescription\\">Text size: 48px <br /> Line height: 56px</span>
+        <a id=\\"font_size_h\\" href=\\"#font_size_h\\"class=\\"c-tokensTable-displayName\\">Font size h</a><span class=\\"c-tokensTable-tokenDescription\\">Text size: 48px <br /> Line height: 56px</span>
       </div>
       <span class=\\"c-tokensTable-token\\">$font-size-h</span>
     </li>
@@ -1553,7 +1553,7 @@ exports[`tokensTable.js should return the expected HTML 4`] = `
   <li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example--font\\" style=\\"--example-font-text-decoration: underline\\">String</div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Underline</span><span class=\\"c-tokensTable-tokenDescription\\">Text decoration: underline</span>
+        <a id=\\"underline\\" href=\\"#underline\\"class=\\"c-tokensTable-displayName\\">Underline</a><span class=\\"c-tokensTable-tokenDescription\\">Text decoration: underline</span>
       </div>
       <span class=\\"c-tokensTable-token\\">$font-style-underline</span>
     </li>
@@ -1566,19 +1566,19 @@ exports[`tokensTable.js should return the expected HTML 4`] = `
   <li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example--font c-tokenTable-example-paragraph--font\\" style=\\"--example-font-paragraph-spacing: 16px\\"><p>Paragraph</p><p>Paragraph</p></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Paragraph spacing 1</span><span class=\\"c-tokensTable-tokenDescription\\">Space between paragraphs: 16px</span>
+        <a id=\\"paragraph_spacing_1\\" href=\\"#paragraph_spacing_1\\"class=\\"c-tokensTable-displayName\\">Paragraph spacing 1</a><span class=\\"c-tokensTable-tokenDescription\\">Space between paragraphs: 16px</span>
       </div>
       <span class=\\"c-tokensTable-token\\">$font-paragraph-spacing-01</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example--font c-tokenTable-example-paragraph--font\\" style=\\"--example-font-paragraph-spacing: 14px\\"><p>Paragraph</p><p>Paragraph</p></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Paragraph spacing 2</span><span class=\\"c-tokensTable-tokenDescription\\">Space between paragraphs: 14px</span>
+        <a id=\\"paragraph_spacing_2\\" href=\\"#paragraph_spacing_2\\"class=\\"c-tokensTable-displayName\\">Paragraph spacing 2</a><span class=\\"c-tokensTable-tokenDescription\\">Space between paragraphs: 14px</span>
       </div>
       <span class=\\"c-tokensTable-token\\">$font-paragraph-spacing-02</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example--font c-tokenTable-example-paragraph--font\\" style=\\"--example-font-paragraph-spacing: 12px\\"><p>Paragraph</p><p>Paragraph</p></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Paragraph spacing 3</span><span class=\\"c-tokensTable-tokenDescription\\">Space between paragraphs: 12px</span>
+        <a id=\\"paragraph_spacing_3\\" href=\\"#paragraph_spacing_3\\"class=\\"c-tokensTable-displayName\\">Paragraph spacing 3</a><span class=\\"c-tokensTable-tokenDescription\\">Space between paragraphs: 12px</span>
       </div>
       <span class=\\"c-tokensTable-token\\">$font-paragraph-spacing-03</span>
     </li>
@@ -1591,7 +1591,7 @@ exports[`tokensTable.js should return the expected HTML 4`] = `
   <li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example--font\\" style=\\"--example-font-letter-spacing: 0\\">String</div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Letter spacing 0</span><span class=\\"c-tokensTable-tokenDescription\\">Default letter spacing</span>
+        <a id=\\"letter_spacing_0\\" href=\\"#letter_spacing_0\\"class=\\"c-tokensTable-displayName\\">Letter spacing 0</a><span class=\\"c-tokensTable-tokenDescription\\">Default letter spacing</span>
       </div>
       <span class=\\"c-tokensTable-token\\">$font-letter-spacing-00</span>
     </li>
@@ -1608,31 +1608,31 @@ exports[`tokensTable.js should return the expected HTML 5`] = `
   <li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example--font\\" style=\\"--example-font-family: JetSansDigital; --example-font-size: 48px; --example-font-line-height: 56px; --example-font-weight: 800; --example-font-letter-spacing: 0\\">String</div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Heading XXL</span><span class=\\"c-tokensTable-tokenDescription\\">Used for component and layout headings.</span>
+        <a id=\\"heading_xxl\\" href=\\"#heading_xxl\\"class=\\"c-tokensTable-displayName\\">Heading XXL</a><span class=\\"c-tokensTable-tokenDescription\\">Used for component and layout headings.</span>
       </div>
       <span class=\\"c-tokensTable-token\\">$font-heading-xxl</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example--font\\" style=\\"--example-font-family: JetSansDigital; --example-font-size: 32px; --example-font-line-height: 40px; --example-font-weight: 800; --example-font-letter-spacing: 0\\">String</div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Heading XL</span><span class=\\"c-tokensTable-tokenDescription\\">Used for component and layout headings.</span>
+        <a id=\\"heading_xl\\" href=\\"#heading_xl\\"class=\\"c-tokensTable-displayName\\">Heading XL</a><span class=\\"c-tokensTable-tokenDescription\\">Used for component and layout headings.</span>
       </div>
       <span class=\\"c-tokensTable-token\\">$font-heading-xl</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example--font\\" style=\\"--example-font-family: JetSansDigital; --example-font-size: 28px; --example-font-line-height: 36px; --example-font-weight: 800; --example-font-letter-spacing: 0\\">String</div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Heading L</span><span class=\\"c-tokensTable-tokenDescription\\">Used for component and layout headings.</span>
+        <a id=\\"heading_l\\" href=\\"#heading_l\\"class=\\"c-tokensTable-displayName\\">Heading L</a><span class=\\"c-tokensTable-tokenDescription\\">Used for component and layout headings.</span>
       </div>
       <span class=\\"c-tokensTable-token\\">$font-heading-l</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example--font\\" style=\\"--example-font-family: JetSansDigital; --example-font-size: 24px; --example-font-line-height: 32px; --example-font-weight: 800; --example-font-letter-spacing: 0\\">String</div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Heading M</span><span class=\\"c-tokensTable-tokenDescription\\">Used for component and layout headings.</span>
+        <a id=\\"heading_m\\" href=\\"#heading_m\\"class=\\"c-tokensTable-displayName\\">Heading M</a><span class=\\"c-tokensTable-tokenDescription\\">Used for component and layout headings.</span>
       </div>
       <span class=\\"c-tokensTable-token\\">$font-heading-m</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example--font\\" style=\\"--example-font-family: JetSansDigital; --example-font-size: 20px; --example-font-line-height: 28px; --example-font-weight: 800; --example-font-letter-spacing: 0\\">String</div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Heading S</span><span class=\\"c-tokensTable-tokenDescription\\">Used for component and layout headings.</span>
+        <a id=\\"heading_s\\" href=\\"#heading_s\\"class=\\"c-tokensTable-displayName\\">Heading S</a><span class=\\"c-tokensTable-tokenDescription\\">Used for component and layout headings.</span>
       </div>
       <span class=\\"c-tokensTable-token\\">$font-heading-s</span>
     </li>
@@ -1645,13 +1645,13 @@ exports[`tokensTable.js should return the expected HTML 5`] = `
   <li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example--font\\" style=\\"--example-font-family: JetSansDigital; --example-font-size: 24px; --example-font-line-height: 32px; --example-font-weight: 400; --example-font-letter-spacing: 0\\">String</div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Subheading L</span><span class=\\"c-tokensTable-tokenDescription\\">Used for component and layout subheadings.</span>
+        <a id=\\"subheading_l\\" href=\\"#subheading_l\\"class=\\"c-tokensTable-displayName\\">Subheading L</a><span class=\\"c-tokensTable-tokenDescription\\">Used for component and layout subheadings.</span>
       </div>
       <span class=\\"c-tokensTable-token\\">$font-subheading-l</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example--font\\" style=\\"--example-font-family: JetSansDigital; --example-font-size: 20px; --example-font-line-height: 28px; --example-font-weight: 400; --example-font-letter-spacing: 0\\">String</div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Subheading S</span><span class=\\"c-tokensTable-tokenDescription\\">Used for component and layout subheadings.</span>
+        <a id=\\"subheading_s\\" href=\\"#subheading_s\\"class=\\"c-tokensTable-displayName\\">Subheading S</a><span class=\\"c-tokensTable-tokenDescription\\">Used for component and layout subheadings.</span>
       </div>
       <span class=\\"c-tokensTable-token\\">$font-subheading-s</span>
     </li>
@@ -1664,25 +1664,25 @@ exports[`tokensTable.js should return the expected HTML 5`] = `
   <li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example--font\\" style=\\"--example-font-family: JetSansDigital; --example-font-size: 16px; --example-font-line-height: 24px; --example-font-weight: 400; --example-font-letter-spacing: 0\\">String</div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Body</span><span class=\\"c-tokensTable-tokenDescription\\">Used for body copy. Generally used for comfortable long-form reading in layouts.</span>
+        <a id=\\"body\\" href=\\"#body\\"class=\\"c-tokensTable-displayName\\">Body</a><span class=\\"c-tokensTable-tokenDescription\\">Used for body copy. Generally used for comfortable long-form reading in layouts.</span>
       </div>
       <span class=\\"c-tokensTable-token\\">$font-body-l</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example--font\\" style=\\"--example-font-family: JetSansDigital; --example-font-size: 16px; --example-font-line-height: 24px; --example-font-weight: 400; --example-font-text-decoration: underline; --example-font-letter-spacing: 0\\">String</div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Body underline</span><span class=\\"c-tokensTable-tokenDescription\\">Used as a visual cue to indicate something is a link.</span>
+        <a id=\\"body_underline\\" href=\\"#body_underline\\"class=\\"c-tokensTable-displayName\\">Body underline</a><span class=\\"c-tokensTable-tokenDescription\\">Used as a visual cue to indicate something is a link.</span>
       </div>
       <span class=\\"c-tokensTable-token\\">$font-body-l-link</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example--font\\" style=\\"--example-font-family: JetSansDigital; --example-font-size: 14px; --example-font-line-height: 20px; --example-font-weight: 400; --example-font-letter-spacing: 0\\">String</div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Body small</span><span class=\\"c-tokensTable-tokenDescription\\">Used for body copy. Generally used for components.</span>
+        <a id=\\"body_small\\" href=\\"#body_small\\"class=\\"c-tokensTable-displayName\\">Body small</a><span class=\\"c-tokensTable-tokenDescription\\">Used for body copy. Generally used for components.</span>
       </div>
       <span class=\\"c-tokensTable-token\\">$font-body-s</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example--font\\" style=\\"--example-font-family: JetSansDigital; --example-font-size: 14px; --example-font-line-height: 20px; --example-font-weight: 400; --example-font-text-decoration: underline; --example-font-letter-spacing: 0\\">String</div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Body small underline</span><span class=\\"c-tokensTable-tokenDescription\\">Used as a visual cue to indicate something is a link.</span>
+        <a id=\\"body_small_underline\\" href=\\"#body_small_underline\\"class=\\"c-tokensTable-displayName\\">Body small underline</a><span class=\\"c-tokensTable-tokenDescription\\">Used as a visual cue to indicate something is a link.</span>
       </div>
       <span class=\\"c-tokensTable-token\\">$font-body-s-link</span>
     </li>
@@ -1695,25 +1695,25 @@ exports[`tokensTable.js should return the expected HTML 5`] = `
   <li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example--font\\" style=\\"--example-font-family: JetSansDigital; --example-font-size: 16px; --example-font-line-height: 24px; --example-font-weight: 700; --example-font-letter-spacing: 0\\">String</div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Body bold</span><span class=\\"c-tokensTable-tokenDescription\\">Used for strong emphasis in body copy.</span>
+        <a id=\\"body_bold\\" href=\\"#body_bold\\"class=\\"c-tokensTable-displayName\\">Body bold</a><span class=\\"c-tokensTable-tokenDescription\\">Used for strong emphasis in body copy.</span>
       </div>
       <span class=\\"c-tokensTable-token\\">$font-body-strong-l</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example--font\\" style=\\"--example-font-family: JetSansDigital; --example-font-size: 16px; --example-font-line-height: 24px; --example-font-weight: 700; --example-font-text-decoration: underline; --example-font-letter-spacing: 0\\">String</div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Body bold underline</span><span class=\\"c-tokensTable-tokenDescription\\">Used for strong emphasis in body copy.</span>
+        <a id=\\"body_bold_underline\\" href=\\"#body_bold_underline\\"class=\\"c-tokensTable-displayName\\">Body bold underline</a><span class=\\"c-tokensTable-tokenDescription\\">Used for strong emphasis in body copy.</span>
       </div>
       <span class=\\"c-tokensTable-token\\">$font-body-strong-l-link</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example--font\\" style=\\"--example-font-family: JetSansDigital; --example-font-size: 14px; --example-font-line-height: 20px; --example-font-weight: 700; --example-font-letter-spacing: 0\\">String</div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Body small bold</span><span class=\\"c-tokensTable-tokenDescription\\">Used for strong emphasis in body copy.</span>
+        <a id=\\"body_small_bold\\" href=\\"#body_small_bold\\"class=\\"c-tokensTable-displayName\\">Body small bold</a><span class=\\"c-tokensTable-tokenDescription\\">Used for strong emphasis in body copy.</span>
       </div>
       <span class=\\"c-tokensTable-token\\">$font-body-strong-s</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example--font\\" style=\\"--example-font-family: JetSansDigital; --example-font-size: 14px; --example-font-line-height: 20px; --example-font-weight: 700; --example-font-text-decoration: underline; --example-font-letter-spacing: 0\\">String</div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Body small bold underline</span><span class=\\"c-tokensTable-tokenDescription\\">Used for strong emphasis in body copy.</span>
+        <a id=\\"body_small_bold_underline\\" href=\\"#body_small_bold_underline\\"class=\\"c-tokensTable-displayName\\">Body small bold underline</a><span class=\\"c-tokensTable-tokenDescription\\">Used for strong emphasis in body copy.</span>
       </div>
       <span class=\\"c-tokensTable-token\\">$font-body-strong-s-link</span>
     </li>
@@ -1726,13 +1726,13 @@ exports[`tokensTable.js should return the expected HTML 5`] = `
   <li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example--font\\" style=\\"--example-font-family: JetSansDigital; --example-font-size: 12px; --example-font-line-height: 16px; --example-font-weight: 400; --example-font-letter-spacing: 0\\">String</div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Caption</span><span class=\\"c-tokensTable-tokenDescription\\">Used for captions, labels, disclaimers or helper text. Use sparingly.</span>
+        <a id=\\"caption\\" href=\\"#caption\\"class=\\"c-tokensTable-displayName\\">Caption</a><span class=\\"c-tokensTable-tokenDescription\\">Used for captions, labels, disclaimers or helper text. Use sparingly.</span>
       </div>
       <span class=\\"c-tokensTable-token\\">$font-caption</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example--font\\" style=\\"--example-font-family: JetSansDigital; --example-font-size: 12px; --example-font-line-height: 16px; --example-font-weight: 400; --example-font-text-decoration: underline; --example-font-letter-spacing: 0\\">String</div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Caption Underline</span><span class=\\"c-tokensTable-tokenDescription\\">Used as a visual cue to indicate something is a link.</span>
+        <a id=\\"caption_underline\\" href=\\"#caption_underline\\"class=\\"c-tokensTable-displayName\\">Caption Underline</a><span class=\\"c-tokensTable-tokenDescription\\">Used as a visual cue to indicate something is a link.</span>
       </div>
       <span class=\\"c-tokensTable-token\\">$font-caption-link</span>
     </li>
@@ -1745,7 +1745,7 @@ exports[`tokensTable.js should return the expected HTML 5`] = `
   <li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example--font\\" style=\\"--example-font-family: JetSansDigital; --example-font-size: 12px; --example-font-line-height: 16px; --example-font-weight: 700; --example-font-letter-spacing: 0\\">String</div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Caption bold</span><span class=\\"c-tokensTable-tokenDescription\\">Used for captions, labels, disclaimers or helper text. Use sparingly.</span>
+        <a id=\\"caption_bold\\" href=\\"#caption_bold\\"class=\\"c-tokensTable-displayName\\">Caption bold</a><span class=\\"c-tokensTable-tokenDescription\\">Used for captions, labels, disclaimers or helper text. Use sparingly.</span>
       </div>
       <span class=\\"c-tokensTable-token\\">$font-caption-strong</span>
     </li>
@@ -1758,25 +1758,25 @@ exports[`tokensTable.js should return the expected HTML 5`] = `
   <li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example--font\\" style=\\"--example-font-family: JetSansDigital; --example-font-size: 20px; --example-font-line-height: 28px; --example-font-weight: 700; --example-font-letter-spacing: 0\\">String</div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Interactive L</span><span class=\\"c-tokensTable-tokenDescription\\">Used for labels in large sized button components + numeric counter.</span>
+        <a id=\\"interactive_l\\" href=\\"#interactive_l\\"class=\\"c-tokensTable-displayName\\">Interactive L</a><span class=\\"c-tokensTable-tokenDescription\\">Used for labels in large sized button components + numeric counter.</span>
       </div>
       <span class=\\"c-tokensTable-token\\">$font-interactive-l</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example--font\\" style=\\"--example-font-family: JetSansDigital; --example-font-size: 20px; --example-font-line-height: 28px; --example-font-weight: 700; --example-font-letter-spacing: 0\\">String</div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Interactive M</span><span class=\\"c-tokensTable-tokenDescription\\">Used for labels in medium sized button components.</span>
+        <a id=\\"interactive_m\\" href=\\"#interactive_m\\"class=\\"c-tokensTable-displayName\\">Interactive M</a><span class=\\"c-tokensTable-tokenDescription\\">Used for labels in medium sized button components.</span>
       </div>
       <span class=\\"c-tokensTable-token\\">$font-interactive-m</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example--font\\" style=\\"--example-font-family: JetSansDigital; --example-font-size: 16px; --example-font-line-height: 24px; --example-font-weight: 700; --example-font-letter-spacing: 0\\">String</div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Interactive S</span><span class=\\"c-tokensTable-tokenDescription\\">Used for labels in small sized button components.</span>
+        <a id=\\"interactive_s\\" href=\\"#interactive_s\\"class=\\"c-tokensTable-displayName\\">Interactive S</a><span class=\\"c-tokensTable-tokenDescription\\">Used for labels in small sized button components.</span>
       </div>
       <span class=\\"c-tokensTable-token\\">$font-interactive-s</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example--font\\" style=\\"--example-font-family: JetSansDigital; --example-font-size: 14px; --example-font-line-height: 20px; --example-font-weight: 700; --example-font-letter-spacing: 0\\">String</div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Interactive XS</span><span class=\\"c-tokensTable-tokenDescription\\">Used for labels in extra small sized button components.</span>
+        <a id=\\"interactive_xs\\" href=\\"#interactive_xs\\"class=\\"c-tokensTable-displayName\\">Interactive XS</a><span class=\\"c-tokensTable-tokenDescription\\">Used for labels in extra small sized button components.</span>
       </div>
       <span class=\\"c-tokensTable-token\\">$font-interactive-xs</span>
     </li>
@@ -1793,31 +1793,31 @@ exports[`tokensTable.js should return the expected HTML 6`] = `
   <li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example--font\\" style=\\"--example-font-family: JetSansDigital; --example-font-size: 32px; --example-font-line-height: 40px; --example-font-weight: 800; --example-font-letter-spacing: 0\\">String</div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Heading XXL</span><span class=\\"c-tokensTable-tokenDescription\\">Used for component and layout headings.</span>
+        <a id=\\"heading_xxl\\" href=\\"#heading_xxl\\"class=\\"c-tokensTable-displayName\\">Heading XXL</a><span class=\\"c-tokensTable-tokenDescription\\">Used for component and layout headings.</span>
       </div>
       <span class=\\"c-tokensTable-token\\">$font-heading-xxl</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example--font\\" style=\\"--example-font-family: JetSansDigital; --example-font-size: 28px; --example-font-line-height: 36px; --example-font-weight: 800; --example-font-letter-spacing: 0\\">String</div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Heading XL</span><span class=\\"c-tokensTable-tokenDescription\\">Used for component and layout headings.</span>
+        <a id=\\"heading_xl\\" href=\\"#heading_xl\\"class=\\"c-tokensTable-displayName\\">Heading XL</a><span class=\\"c-tokensTable-tokenDescription\\">Used for component and layout headings.</span>
       </div>
       <span class=\\"c-tokensTable-token\\">$font-heading-xl</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example--font\\" style=\\"--example-font-family: JetSansDigital; --example-font-size: 24px; --example-font-line-height: 32px; --example-font-weight: 800; --example-font-letter-spacing: 0\\">String</div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Heading L</span><span class=\\"c-tokensTable-tokenDescription\\">Used for component and layout headings.</span>
+        <a id=\\"heading_l\\" href=\\"#heading_l\\"class=\\"c-tokensTable-displayName\\">Heading L</a><span class=\\"c-tokensTable-tokenDescription\\">Used for component and layout headings.</span>
       </div>
       <span class=\\"c-tokensTable-token\\">$font-heading-l</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example--font\\" style=\\"--example-font-family: JetSansDigital; --example-font-size: 20px; --example-font-line-height: 28px; --example-font-weight: 800; --example-font-letter-spacing: 0\\">String</div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Heading M</span><span class=\\"c-tokensTable-tokenDescription\\">Used for component and layout headings.</span>
+        <a id=\\"heading_m\\" href=\\"#heading_m\\"class=\\"c-tokensTable-displayName\\">Heading M</a><span class=\\"c-tokensTable-tokenDescription\\">Used for component and layout headings.</span>
       </div>
       <span class=\\"c-tokensTable-token\\">$font-heading-m</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example--font\\" style=\\"--example-font-family: JetSansDigital; --example-font-size: 16px; --example-font-line-height: 24px; --example-font-weight: 800; --example-font-letter-spacing: 0\\">String</div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Heading S</span><span class=\\"c-tokensTable-tokenDescription\\">Used for component and layout headings.</span>
+        <a id=\\"heading_s\\" href=\\"#heading_s\\"class=\\"c-tokensTable-displayName\\">Heading S</a><span class=\\"c-tokensTable-tokenDescription\\">Used for component and layout headings.</span>
       </div>
       <span class=\\"c-tokensTable-token\\">$font-heading-s</span>
     </li>
@@ -1830,13 +1830,13 @@ exports[`tokensTable.js should return the expected HTML 6`] = `
   <li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example--font\\" style=\\"--example-font-family: JetSansDigital; --example-font-size: 20px; --example-font-line-height: 28px; --example-font-weight: 400; --example-font-letter-spacing: 0\\">String</div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Subheading L</span><span class=\\"c-tokensTable-tokenDescription\\">Used for component and layout subheadings.</span>
+        <a id=\\"subheading_l\\" href=\\"#subheading_l\\"class=\\"c-tokensTable-displayName\\">Subheading L</a><span class=\\"c-tokensTable-tokenDescription\\">Used for component and layout subheadings.</span>
       </div>
       <span class=\\"c-tokensTable-token\\">$font-subheading-l</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example--font\\" style=\\"--example-font-family: JetSansDigital; --example-font-size: 16px; --example-font-line-height: 24px; --example-font-weight: 400; --example-font-letter-spacing: 0\\">String</div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Subheading S</span><span class=\\"c-tokensTable-tokenDescription\\">Used for component and layout subheadings.</span>
+        <a id=\\"subheading_s\\" href=\\"#subheading_s\\"class=\\"c-tokensTable-displayName\\">Subheading S</a><span class=\\"c-tokensTable-tokenDescription\\">Used for component and layout subheadings.</span>
       </div>
       <span class=\\"c-tokensTable-token\\">$font-subheading-s</span>
     </li>
@@ -1849,25 +1849,25 @@ exports[`tokensTable.js should return the expected HTML 6`] = `
   <li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example--font\\" style=\\"--example-font-family: JetSansDigital; --example-font-size: 16px; --example-font-line-height: 24px; --example-font-weight: 400; --example-font-letter-spacing: 0\\">String</div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Body</span><span class=\\"c-tokensTable-tokenDescription\\">Used for body copy. Generally used for comfortable long-form reading in layouts.</span>
+        <a id=\\"body\\" href=\\"#body\\"class=\\"c-tokensTable-displayName\\">Body</a><span class=\\"c-tokensTable-tokenDescription\\">Used for body copy. Generally used for comfortable long-form reading in layouts.</span>
       </div>
       <span class=\\"c-tokensTable-token\\">$font-body-l</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example--font\\" style=\\"--example-font-family: JetSansDigital; --example-font-size: 16px; --example-font-line-height: 24px; --example-font-weight: 400; --example-font-text-decoration: underline; --example-font-letter-spacing: 0\\">String</div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Body underline</span><span class=\\"c-tokensTable-tokenDescription\\">Used as a visual cue to indicate something is a link.</span>
+        <a id=\\"body_underline\\" href=\\"#body_underline\\"class=\\"c-tokensTable-displayName\\">Body underline</a><span class=\\"c-tokensTable-tokenDescription\\">Used as a visual cue to indicate something is a link.</span>
       </div>
       <span class=\\"c-tokensTable-token\\">$font-body-l-link</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example--font\\" style=\\"--example-font-family: JetSansDigital; --example-font-size: 14px; --example-font-line-height: 20px; --example-font-weight: 400; --example-font-letter-spacing: 0\\">String</div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Body small</span><span class=\\"c-tokensTable-tokenDescription\\">Used for body copy. Generally used for components.</span>
+        <a id=\\"body_small\\" href=\\"#body_small\\"class=\\"c-tokensTable-displayName\\">Body small</a><span class=\\"c-tokensTable-tokenDescription\\">Used for body copy. Generally used for components.</span>
       </div>
       <span class=\\"c-tokensTable-token\\">$font-body-s</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example--font\\" style=\\"--example-font-family: JetSansDigital; --example-font-size: 14px; --example-font-line-height: 20px; --example-font-weight: 400; --example-font-text-decoration: underline; --example-font-letter-spacing: 0\\">String</div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Body small underline</span><span class=\\"c-tokensTable-tokenDescription\\">Used as a visual cue to indicate something is a link.</span>
+        <a id=\\"body_small_underline\\" href=\\"#body_small_underline\\"class=\\"c-tokensTable-displayName\\">Body small underline</a><span class=\\"c-tokensTable-tokenDescription\\">Used as a visual cue to indicate something is a link.</span>
       </div>
       <span class=\\"c-tokensTable-token\\">$font-body-s-link</span>
     </li>
@@ -1880,25 +1880,25 @@ exports[`tokensTable.js should return the expected HTML 6`] = `
   <li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example--font\\" style=\\"--example-font-family: JetSansDigital; --example-font-size: 16px; --example-font-line-height: 24px; --example-font-weight: 700; --example-font-letter-spacing: 0\\">String</div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Body bold</span><span class=\\"c-tokensTable-tokenDescription\\">Used for strong emphasis in body copy.</span>
+        <a id=\\"body_bold\\" href=\\"#body_bold\\"class=\\"c-tokensTable-displayName\\">Body bold</a><span class=\\"c-tokensTable-tokenDescription\\">Used for strong emphasis in body copy.</span>
       </div>
       <span class=\\"c-tokensTable-token\\">$font-body-strong-l</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example--font\\" style=\\"--example-font-family: JetSansDigital; --example-font-size: 16px; --example-font-line-height: 24px; --example-font-weight: 700; --example-font-text-decoration: underline; --example-font-letter-spacing: 0\\">String</div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Body bold underline</span><span class=\\"c-tokensTable-tokenDescription\\">Used for strong emphasis in body copy.</span>
+        <a id=\\"body_bold_underline\\" href=\\"#body_bold_underline\\"class=\\"c-tokensTable-displayName\\">Body bold underline</a><span class=\\"c-tokensTable-tokenDescription\\">Used for strong emphasis in body copy.</span>
       </div>
       <span class=\\"c-tokensTable-token\\">$font-body-strong-l-link</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example--font\\" style=\\"--example-font-family: JetSansDigital; --example-font-size: 14px; --example-font-line-height: 20px; --example-font-weight: 700; --example-font-letter-spacing: 0\\">String</div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Body small bold</span><span class=\\"c-tokensTable-tokenDescription\\">Used for strong emphasis in body copy.</span>
+        <a id=\\"body_small_bold\\" href=\\"#body_small_bold\\"class=\\"c-tokensTable-displayName\\">Body small bold</a><span class=\\"c-tokensTable-tokenDescription\\">Used for strong emphasis in body copy.</span>
       </div>
       <span class=\\"c-tokensTable-token\\">$font-body-strong-s</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example--font\\" style=\\"--example-font-family: JetSansDigital; --example-font-size: 14px; --example-font-line-height: 20px; --example-font-weight: 700; --example-font-text-decoration: underline; --example-font-letter-spacing: 0\\">String</div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Body small bold underline</span><span class=\\"c-tokensTable-tokenDescription\\">Used for strong emphasis in body copy.</span>
+        <a id=\\"body_small_bold_underline\\" href=\\"#body_small_bold_underline\\"class=\\"c-tokensTable-displayName\\">Body small bold underline</a><span class=\\"c-tokensTable-tokenDescription\\">Used for strong emphasis in body copy.</span>
       </div>
       <span class=\\"c-tokensTable-token\\">$font-body-strong-s-link</span>
     </li>
@@ -1911,13 +1911,13 @@ exports[`tokensTable.js should return the expected HTML 6`] = `
   <li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example--font\\" style=\\"--example-font-family: JetSansDigital; --example-font-size: 12px; --example-font-line-height: 16px; --example-font-weight: 400; --example-font-letter-spacing: 0\\">String</div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Caption</span><span class=\\"c-tokensTable-tokenDescription\\">Used for captions, labels, disclaimers or helper text. Use sparingly.</span>
+        <a id=\\"caption\\" href=\\"#caption\\"class=\\"c-tokensTable-displayName\\">Caption</a><span class=\\"c-tokensTable-tokenDescription\\">Used for captions, labels, disclaimers or helper text. Use sparingly.</span>
       </div>
       <span class=\\"c-tokensTable-token\\">$font-caption</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example--font\\" style=\\"--example-font-family: JetSansDigital; --example-font-size: 12px; --example-font-line-height: 16px; --example-font-weight: 400; --example-font-text-decoration: underline; --example-font-letter-spacing: 0\\">String</div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Caption Underline</span><span class=\\"c-tokensTable-tokenDescription\\">Used as a visual cue to indicate something is a link.</span>
+        <a id=\\"caption_underline\\" href=\\"#caption_underline\\"class=\\"c-tokensTable-displayName\\">Caption Underline</a><span class=\\"c-tokensTable-tokenDescription\\">Used as a visual cue to indicate something is a link.</span>
       </div>
       <span class=\\"c-tokensTable-token\\">$font-caption-link</span>
     </li>
@@ -1930,7 +1930,7 @@ exports[`tokensTable.js should return the expected HTML 6`] = `
   <li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example--font\\" style=\\"--example-font-family: JetSansDigital; --example-font-size: 12px; --example-font-line-height: 16px; --example-font-weight: 700; --example-font-letter-spacing: 0\\">String</div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Caption bold</span><span class=\\"c-tokensTable-tokenDescription\\">Used for captions, labels, disclaimers or helper text. Use sparingly.</span>
+        <a id=\\"caption_bold\\" href=\\"#caption_bold\\"class=\\"c-tokensTable-displayName\\">Caption bold</a><span class=\\"c-tokensTable-tokenDescription\\">Used for captions, labels, disclaimers or helper text. Use sparingly.</span>
       </div>
       <span class=\\"c-tokensTable-token\\">$font-caption-strong</span>
     </li>
@@ -1943,25 +1943,25 @@ exports[`tokensTable.js should return the expected HTML 6`] = `
   <li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example--font\\" style=\\"--example-font-family: JetSansDigital; --example-font-size: 20px; --example-font-line-height: 28px; --example-font-weight: 700; --example-font-letter-spacing: 0\\">String</div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Interactive L</span><span class=\\"c-tokensTable-tokenDescription\\">Used for labels in large sized button components + numeric counter.</span>
+        <a id=\\"interactive_l\\" href=\\"#interactive_l\\"class=\\"c-tokensTable-displayName\\">Interactive L</a><span class=\\"c-tokensTable-tokenDescription\\">Used for labels in large sized button components + numeric counter.</span>
       </div>
       <span class=\\"c-tokensTable-token\\">$font-interactive-l</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example--font\\" style=\\"--example-font-family: JetSansDigital; --example-font-size: 20px; --example-font-line-height: 28px; --example-font-weight: 700; --example-font-letter-spacing: 0\\">String</div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Interactive M</span><span class=\\"c-tokensTable-tokenDescription\\">Used for labels in medium sized button components.</span>
+        <a id=\\"interactive_m\\" href=\\"#interactive_m\\"class=\\"c-tokensTable-displayName\\">Interactive M</a><span class=\\"c-tokensTable-tokenDescription\\">Used for labels in medium sized button components.</span>
       </div>
       <span class=\\"c-tokensTable-token\\">$font-interactive-m</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example--font\\" style=\\"--example-font-family: JetSansDigital; --example-font-size: 16px; --example-font-line-height: 24px; --example-font-weight: 700; --example-font-letter-spacing: 0\\">String</div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Interactive S</span><span class=\\"c-tokensTable-tokenDescription\\">Used for labels in small sized button components.</span>
+        <a id=\\"interactive_s\\" href=\\"#interactive_s\\"class=\\"c-tokensTable-displayName\\">Interactive S</a><span class=\\"c-tokensTable-tokenDescription\\">Used for labels in small sized button components.</span>
       </div>
       <span class=\\"c-tokensTable-token\\">$font-interactive-s</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example--font\\" style=\\"--example-font-family: JetSansDigital; --example-font-size: 14px; --example-font-line-height: 20px; --example-font-weight: 700; --example-font-letter-spacing: 0\\">String</div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Interactive XS</span><span class=\\"c-tokensTable-tokenDescription\\">Used for labels in extra small sized button components.</span>
+        <a id=\\"interactive_xs\\" href=\\"#interactive_xs\\"class=\\"c-tokensTable-displayName\\">Interactive XS</a><span class=\\"c-tokensTable-tokenDescription\\">Used for labels in extra small sized button components.</span>
       </div>
       <span class=\\"c-tokensTable-token\\">$font-interactive-xs</span>
     </li>
@@ -1982,7 +1982,7 @@ exports[`tokensTable.js should return the expected HTML 7`] = `
         </div>
     
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Radius 00</span><span class=\\"c-tokensTable-tokenDescription\\">0dp/pt/px</span>
+        <a id=\\"radius_00\\" href=\\"#radius_00\\"class=\\"c-tokensTable-displayName\\">Radius 00</a><span class=\\"c-tokensTable-tokenDescription\\">0dp/pt/px</span>
       </div>
       <span class=\\"c-tokensTable-token\\">$radius-00</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
@@ -1992,7 +1992,7 @@ exports[`tokensTable.js should return the expected HTML 7`] = `
         </div>
     
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Radius 02</span><span class=\\"c-tokensTable-tokenDescription\\">4dp/pt/px</span>
+        <a id=\\"radius_02\\" href=\\"#radius_02\\"class=\\"c-tokensTable-displayName\\">Radius 02</a><span class=\\"c-tokensTable-tokenDescription\\">4dp/pt/px</span>
       </div>
       <span class=\\"c-tokensTable-token\\">$radius-02</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
@@ -2002,7 +2002,7 @@ exports[`tokensTable.js should return the expected HTML 7`] = `
         </div>
     
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Radius 03</span><span class=\\"c-tokensTable-tokenDescription\\">8dp/pt/px</span>
+        <a id=\\"radius_03\\" href=\\"#radius_03\\"class=\\"c-tokensTable-displayName\\">Radius 03</a><span class=\\"c-tokensTable-tokenDescription\\">8dp/pt/px</span>
       </div>
       <span class=\\"c-tokensTable-token\\">$radius-03</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
@@ -2012,7 +2012,7 @@ exports[`tokensTable.js should return the expected HTML 7`] = `
         </div>
     
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Radius 04</span><span class=\\"c-tokensTable-tokenDescription\\">12dp/pt/px</span>
+        <a id=\\"radius_04\\" href=\\"#radius_04\\"class=\\"c-tokensTable-displayName\\">Radius 04</a><span class=\\"c-tokensTable-tokenDescription\\">12dp/pt/px</span>
       </div>
       <span class=\\"c-tokensTable-token\\">$radius-04</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
@@ -2022,7 +2022,7 @@ exports[`tokensTable.js should return the expected HTML 7`] = `
         </div>
     
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Radius 05</span><span class=\\"c-tokensTable-tokenDescription\\">16dp/pt/px</span>
+        <a id=\\"radius_05\\" href=\\"#radius_05\\"class=\\"c-tokensTable-displayName\\">Radius 05</a><span class=\\"c-tokensTable-tokenDescription\\">16dp/pt/px</span>
       </div>
       <span class=\\"c-tokensTable-token\\">$radius-05</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
@@ -2032,7 +2032,7 @@ exports[`tokensTable.js should return the expected HTML 7`] = `
         </div>
     
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Radius 06</span><span class=\\"c-tokensTable-tokenDescription\\">50dp/pt/px</span>
+        <a id=\\"radius_06\\" href=\\"#radius_06\\"class=\\"c-tokensTable-displayName\\">Radius 06</a><span class=\\"c-tokensTable-tokenDescription\\">50dp/pt/px</span>
       </div>
       <span class=\\"c-tokensTable-token\\">$radius-06</span>
     </li>
@@ -2049,67 +2049,67 @@ exports[`tokensTable.js should return the expected HTML 8`] = `
   <li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example-spacing-container\\"><div class=\\"c-tokensTable-example--spacing\\" style=\\"--example-spacing: 0px\\";></div></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Spacing 00</span>
+        <a id=\\"spacing_00\\" href=\\"#spacing_00\\"class=\\"c-tokensTable-displayName\\">Spacing 00</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$spacing-00</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example-spacing-container\\"><div class=\\"c-tokensTable-example--spacing\\" style=\\"--example-spacing: 4px\\";></div></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Spacing 01</span>
+        <a id=\\"spacing_01\\" href=\\"#spacing_01\\"class=\\"c-tokensTable-displayName\\">Spacing 01</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$spacing-01</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example-spacing-container\\"><div class=\\"c-tokensTable-example--spacing\\" style=\\"--example-spacing: 8px\\";></div></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Spacing 02</span>
+        <a id=\\"spacing_02\\" href=\\"#spacing_02\\"class=\\"c-tokensTable-displayName\\">Spacing 02</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$spacing-02</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example-spacing-container\\"><div class=\\"c-tokensTable-example--spacing\\" style=\\"--example-spacing: 12px\\";></div></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Spacing 03</span>
+        <a id=\\"spacing_03\\" href=\\"#spacing_03\\"class=\\"c-tokensTable-displayName\\">Spacing 03</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$spacing-03</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example-spacing-container\\"><div class=\\"c-tokensTable-example--spacing\\" style=\\"--example-spacing: 16px\\";></div></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Spacing 04</span>
+        <a id=\\"spacing_04\\" href=\\"#spacing_04\\"class=\\"c-tokensTable-displayName\\">Spacing 04</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$spacing-04</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example-spacing-container\\"><div class=\\"c-tokensTable-example--spacing\\" style=\\"--example-spacing: 24px\\";></div></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Spacing 05</span>
+        <a id=\\"spacing_05\\" href=\\"#spacing_05\\"class=\\"c-tokensTable-displayName\\">Spacing 05</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$spacing-05</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example-spacing-container\\"><div class=\\"c-tokensTable-example--spacing\\" style=\\"--example-spacing: 32px\\";></div></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Spacing 06</span>
+        <a id=\\"spacing_06\\" href=\\"#spacing_06\\"class=\\"c-tokensTable-displayName\\">Spacing 06</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$spacing-06</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example-spacing-container\\"><div class=\\"c-tokensTable-example--spacing\\" style=\\"--example-spacing: 40px\\";></div></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Spacing 07</span>
+        <a id=\\"spacing_07\\" href=\\"#spacing_07\\"class=\\"c-tokensTable-displayName\\">Spacing 07</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$spacing-07</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example-spacing-container\\"><div class=\\"c-tokensTable-example--spacing\\" style=\\"--example-spacing: 56px\\";></div></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Spacing 08</span>
+        <a id=\\"spacing_08\\" href=\\"#spacing_08\\"class=\\"c-tokensTable-displayName\\">Spacing 08</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$spacing-08</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example-spacing-container\\"><div class=\\"c-tokensTable-example--spacing\\" style=\\"--example-spacing: 64px\\";></div></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Spacing 09</span>
+        <a id=\\"spacing_09\\" href=\\"#spacing_09\\"class=\\"c-tokensTable-displayName\\">Spacing 09</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$spacing-09</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example-spacing-container\\"><div class=\\"c-tokensTable-example--spacing\\" style=\\"--example-spacing: 80px\\";></div></div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Spacing 10</span>
+        <a id=\\"spacing_10\\" href=\\"#spacing_10\\"class=\\"c-tokensTable-displayName\\">Spacing 10</a>
       </div>
       <span class=\\"c-tokensTable-token\\">$spacing-10</span>
     </li>
