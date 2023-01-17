@@ -151,6 +151,8 @@ $tokensTable-item-min-height: 128px;
 .c-tokensTable-displayName {
     color: f.$color-content-default;
     font-weight: f.$font-weight-bold;
+    display: inline-block;
+    text-decoration: none;
 }
 
 .c-tokensTable-tokenDescription {
@@ -209,9 +211,9 @@ $tokensTable-item-min-height: 128px;
     padding: $tokensTable-column-padding;
     background-color: f.$color-container-default;
 
-    > * {
-        display: block;
-    }
+    // > * {
+    //     display: block;
+    // }
 
     @include f.media('>=wide') {
         padding: 0;

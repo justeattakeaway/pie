@@ -228,10 +228,11 @@ const buildTokenListElements = ({
         ? `<span class="c-tokensTable-tokenDescription">${tokenMetadata.description}</span>`
         : '';
 
+    const tokenHash = tokenDisplayName.split(' ').join('_').toLocaleLowerCase();
     return `<li class="c-tokensTable-row c-tokensTable-item">
       ${tokenExampleElement}
       <div class="c-tokensTable-content">
-        <span class="c-tokensTable-displayName">${tokenDisplayName}</span>${tokenDescription}
+        <a id="${tokenHash}" href="#${tokenHash}"class="c-tokensTable-displayName">${tokenDisplayName}</a>${tokenDescription}
       </div>
       ${tokenPill}
     </li>`;
