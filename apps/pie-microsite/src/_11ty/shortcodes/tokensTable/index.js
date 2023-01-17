@@ -236,8 +236,6 @@ const buildUncategorisedLists = ({
         tokenMetadata: tokenTypeMetadata[token[0]]
     }));
 
-    console.log('wp', tokenListElements);
-
     return buildTokensList(tokenListElements);
 };
 

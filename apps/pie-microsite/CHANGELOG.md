@@ -3,6 +3,14 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+v1.35.0
+------------------------------
+*January 16, 2023*
+
+### Added
+-   Alias tokens to radius page
+
+
 v1.34.0
 ------------------------------
 *January 16, 2023*
