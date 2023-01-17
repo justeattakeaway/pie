@@ -211,9 +211,9 @@ $tokensTable-item-min-height: 128px;
     padding: $tokensTable-column-padding;
     background-color: f.$color-container-default;
 
-    // > * {
-    //     display: block;
-    // }
+    > * {
+        display: block;
+    }
 
     @include f.media('>=wide') {
         padding: 0;
