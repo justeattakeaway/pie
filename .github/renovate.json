@@ -3,13 +3,26 @@
       "schedule:weekly",
       ":rebaseStalePrs",
       ":disableMajorUpdates",
-      ":dependencyDashboard",
-      ":semanticCommits",
-      ":semanticCommitScope({{parentDir}})"
+      ":dependencyDashboard"
     ],
     "prConcurrentLimit": 3,
     "major": false,
     "packageRules": [
+        {
+            "matchPaths": ["apps/**", "packages/**"],
+            "extends": [
+                ":semanticCommitTypeAll(chore)",
+                ":semanticCommitScope({{parentDir}})"
+            ]
+        },
+        {
+            "matchPaths": ["+(package.json)"],
+            "extends": [
+                ":semanticCommitTypeAll(chore)",
+                ":semanticCommitScope(root)"
+            ],
+            "enabled": true
+        },
         {
             "matchDepTypes": ["devDependencies"],
             "matchPaths": ["+(package.json)"],
