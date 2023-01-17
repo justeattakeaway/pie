@@ -6,7 +6,12 @@ describe('tokensTable.js', () => {
         ['color.alias.default', tokenTypes.COLOR],
         ['color.alias.dark', tokenTypes.COLOR],
         ['color.global', tokenTypes.COLOR],
+        ['font.alias.wide', tokenTypes.FONT],
+        ['font.alias.narrow', tokenTypes.FONT],
+        ['radius.global', tokenTypes.RADIUS],
         ['spacing.global', tokenTypes.SPACING]
+
+
     ])('should return the expected HTML', (path, tokenType) => {
         // act
         const result = tokensTable({ path, tokenType });

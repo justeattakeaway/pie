@@ -5,6 +5,7 @@
  */
 module.exports = {
     COLOR: 'color',
+    FONT: 'font',
     RADIUS: 'radius',
     SPACING: 'spacing'
 };
