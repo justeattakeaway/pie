@@ -10,13 +10,9 @@
     "labels": ["bot: dependencies"],
     "packageRules": [
         {
-            "matchPackagePatterns": ["*"],
-            "enabled": false
-        },
-        {
             "matchPackagePatterns": [
-                "@babel/*",
-                "babel-*"
+                "^@babel/*",
+                "^babel-*"
             ],
             "matchUpdateTypes": ["minor", "patch"],
             "groupName": "all babel dependencies",
