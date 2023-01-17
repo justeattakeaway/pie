@@ -640,6 +640,26 @@
       "06": {
         "description": "50dp/pt/px"
       }
+    },
+    "alias": {
+      "rounded-none": {
+        "description": "Used when explicitly specifying that a design element shouldn't have rounded corners."
+      },
+      "rounded-a": {
+        "description": "Used for small tags."
+      },
+      "rounded-b": {
+        "description": "Used for data visualisation elements, tags, logos and toast components."
+      },
+      "rounded-c": {
+        "description": "Used in cards, popovers, notifications, headers, navigation bars and side drawers."
+      },
+      "rounded-d": {
+        "description": "Used in modals and sheets."
+      },
+      "rounded-e": {
+        "description": "Used in toggles, extended FABs and buttons."
+      }
     }
   }
 }

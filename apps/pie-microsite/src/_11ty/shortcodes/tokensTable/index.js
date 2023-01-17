@@ -19,7 +19,12 @@ const {
  * @param {string} tokenType - the type of token i.e. color, spacing, radius
  * @returns {string} the SCSS variable name
  */
-const createScssTokenName = (tokenKey, tokenType) => `$${tokenType}-${tokenKey}`;
+const createScssTokenName = (tokenKey, tokenType, path = '') => {
+    const prefixExcludes = [path === 'radius.alias' ? tokenTypes.RADIUS : []];
+    const shouldShowPrefix = tokenType && !prefixExcludes.includes(tokenType);
+
+    return shouldShowPrefix ? `$${tokenType}-${tokenKey}` : `$${tokenKey}`;
+};
 
 /**
  * Creates a display name of the provided token. 'system-purple' would become 'System Purple'
@@ -27,9 +32,9 @@ const createScssTokenName = (tokenKey, tokenType) => `$${tokenType}-${tokenKey}`
  * @param {string} tokenType - the type of token i.e. color, spacing, radius
  * @returns {string} the display name of the token
  */
-const createTokenDisplayName = (tokenKey, tokenType) => {
+const createTokenDisplayName = (tokenKey, tokenType, path = '') => {
     // Some tokens don't require a prefix in front of their display names
-    const prefixExcludes = [tokenTypes.COLOR];
+    const prefixExcludes = [tokenTypes.COLOR, path === 'radius.alias' ? tokenTypes.RADIUS : []];
     const shouldShowPrefix = tokenType && !prefixExcludes.includes(tokenType);
     const tokenNameSegments = tokenKey.split('-');
     const capitalisedNameSegments = tokenNameSegments.map(stringHelpers.capitaliseFirstLetter);
@@ -225,11 +230,13 @@ const buildUncategorisedLists = ({
 
     const tokenListElements = sortedTokens.map(token => buildTokenListElements({
         token: tokens[token[0]],
-        tokenScssName: createScssTokenName(token[0], tokenType),
-        tokenDisplayName: createTokenDisplayName(token[0], tokenType),
+        tokenScssName: createScssTokenName(token[0], tokenType, path),
+        tokenDisplayName: createTokenDisplayName(token[0], tokenType, path),
         tokenType,
         tokenMetadata: tokenTypeMetadata[token[0]]
     }));
+
+    console.log('wp', tokenListElements);
 
     return buildTokensList(tokenListElements);
 };
