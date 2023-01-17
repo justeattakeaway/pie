@@ -171,23 +171,6 @@ jobs:
         if: ${{ github.event.pull_request.draft == false }}
         run: |
           yarn test:visual:ci
-      - name: Find Reminder Comment
-        if: ${{ github.event.pull_request.draft == false || github.ref != 'refs/heads/main' }}
-        uses: peter-evans/find-comment@v2
-        id: find-comment
-        with:
-          issue-number: ${{github.event.number}}
-          comment-author: 'github-actions[bot]'
-          body-includes: Before merging, please review
-      - name: Create Visual Test Reminder
-        if: ${{ github.event.pull_request.draft == false || github.ref != 'refs/heads/main' }}
-        uses: peter-evans/create-or-update-comment@v2
-        with:
-          comment-id: ${{ steps.find-comment.outputs.comment-id }}
-          issue-number: ${{github.event.number}}
-          body: |
-            Before merging, please review any visual changes in the reviews channel and provide a link to the Percy build! :raised_hands:
-          edit-mode: replace
     env:
       PIE_URL_PREFIX: pr-preview/pr-${{github.event.number}}
       PERCY_TOKEN_PIE_MICROSITE: ${{ secrets.PERCY_TOKEN_PIE_MICROSITE }}
