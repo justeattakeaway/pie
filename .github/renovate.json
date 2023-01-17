@@ -1,24 +1,43 @@
 {
     "extends": [
-        "schedule:earlyMondays",
-        "helpers:pinGitHubActionDigests",
-        ":dependencyDashboard"
+      "schedule:weekly",
+      ":rebaseStalePrs",
+      ":disableMajorUpdates",
+      ":dependencyDashboard"
     ],
+    "commitMessagePrefix": "renovate -",
     "prConcurrentLimit": 3,
     "major": false,
-    "labels": ["bot: dependencies"],
     "packageRules": [
         {
-            "matchPackagePatterns": [
-                "^@babel/*",
-                "^babel-*"
-            ],
+            "matchDepTypes": ["devDependencies"],
+            "matchPaths": ["+(package.json)"],
+            "matchPackagePatterns": ["@babel/*", "babel-*"],
             "matchUpdateTypes": ["minor", "patch"],
-            "groupName": "all babel dependencies",
-            "groupSlug": "all-core-dependencies",
-            "extends": [":semanticCommitTypeAll(fix)"],
+            "groupName": "Root Babel devDependencies",
+            "enabled": true
+        },
+        {
+            "extends": "monorepo:webdriverio",
+            "matchDepTypes": ["devDependencies"],
+            "matchPaths": ["+(package.json)"],
+            "groupName": "Root WebDriverIO devDependencies",
+            "matchUpdateTypes": [
+              "patch",
+              "minor"
+            ],
+            "enabled": true
+        },
+        {
+            "matchDepTypes": ["devDependencies"],
+            "matchPaths": ["+(package.json)"],
+            "matchPackagePatterns": ["@justeat/*"],
+            "groupName": "Root @justeat devDependencies",
+            "matchUpdateTypes": [
+              "patch",
+              "minor"
+            ],
             "enabled": true
         }
-    ],
-    "pinVersions": false
-}
+    ]
+  }
