@@ -146,6 +146,7 @@ const buildSpacingExample = token => {
 * Builds an example font/typography element to show on the token list item
  * @param {object|string} token - the token value i.e. {"size": "48|56","weight": "ExtraBold","text-decoration": "underline", ...fontProperties} or
  * size/weight values as string such as "12|16" "Regular"
+ * @param {object} tokenMetadata - the metadata for the token. data such as descriptions
  * @returns {string} - the typography example HTML string
  */
 const buildFontExample = (token, tokenMetadata) => { 
