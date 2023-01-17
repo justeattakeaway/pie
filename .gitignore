@@ -158,3 +158,6 @@ dist/
 
 # WebDriverIO
 allure-results/
+
+# TypeScript
+compiled/

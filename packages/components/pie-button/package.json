@@ -1,0 +1,13 @@
+{
+  "name": "pie-button",
+  "version": "0.1.0",
+  "description": "PIE design system button built using web components",
+  "main": "index.js",
+  "scripts": {
+    "bundle": "yarn compile && run -T rollup -c",
+    "compile": "npx tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT"
+}
