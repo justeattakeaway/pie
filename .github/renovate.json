@@ -3,24 +3,24 @@
       "schedule:weekly",
       ":rebaseStalePrs",
       ":disableMajorUpdates",
-      ":dependencyDashboard"
+      ":dependencyDashboard",
+      ":semanticCommits",
+      ":semanticCommitScope({{parentDir}})"
     ],
     "prConcurrentLimit": 3,
     "major": false,
     "packageRules": [
         {
+            "extends": [":semanticCommitScope(root)"],
             "matchDepTypes": ["devDependencies"],
             "matchPaths": ["+(package.json)"],
             "matchPackagePatterns": ["@babel/*", "babel-*"],
             "matchUpdateTypes": ["minor", "patch"],
             "groupName": "Root Babel devDependencies",
-            "extends": [
-                ":semanticCommitTypeAll(chore)",
-                ":semanticCommitScope(root)"
-            ],
             "enabled": true
         },
         {
+            "extends": ["monorepo:webdriverio", ":semanticCommitScope(root)"],
             "matchDepTypes": ["devDependencies"],
             "matchPaths": ["+(package.json)"],
             "matchPackagePatterns": ["wdio-*", "@percy/*"],
@@ -29,38 +29,16 @@
               "patch",
               "minor"
             ],
-            "extends": [
-                "monorepo:webdriverio",
-                ":semanticCommitTypeAll(chore)",
-                ":semanticCommitScope(root)"
-            ],
             "enabled": true
         },
         {
+            "extends": [":semanticCommitScope(root)"],
             "matchPaths": ["+(package.json)"],
             "matchPackagePatterns": ["@justeat/*"],
             "groupName": "Root @justeat Dependencies",
             "matchUpdateTypes": [
               "patch",
               "minor"
-            ],
-            "extends": [
-                ":semanticCommitTypeAll(chore)",
-                ":semanticCommitScope(root)"
-            ],
-            "enabled": true
-        },
-        {
-            "matchDepTypes": ["devDependencies"],
-            "matchPaths": ["apps/**", "tools/**"],
-            "groupName": "Package devDependencies",
-            "matchUpdateTypes": [
-              "patch",
-              "minor"
-            ],
-            "extends": [
-                ":semanticCommitTypeAll(chore)",
-                ":semanticCommitScope({{parentDir}})"
             ],
             "enabled": true
         }
