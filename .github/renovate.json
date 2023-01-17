@@ -87,8 +87,15 @@
             "enabled": true
         },
         {
-          "matchSourceUrls": ["https://github.com/vuejs/vue"],
-          "groupName": "Vue monorepo packages"
+          "extends": [":semanticCommitScope(root)"],
+          "matchPackagePatterns": ["vue", "vue-template-compiler"],
+          "groupName": "Root Vue dependencies",
+          "matchUpdateTypes": [
+            "patch",
+            "minor"
+          ],
+          "matchPaths": ["+(package.json)"],
+          "enabled": true
         }
     ]
   }
