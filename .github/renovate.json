@@ -5,8 +5,10 @@
       ":disableMajorUpdates",
       ":dependencyDashboard"
     ],
+    "major": {
+        "enabled": false
+    },
     "commitMessagePrefix": "renovate -",
-    "ignoreDeps": ["chromedriver"],
     "prConcurrentLimit": 3,
     "packageRules": [
         {
@@ -21,11 +23,7 @@
             "matchPackagePatterns": ["^@babel/"],
             "groupName": "Babel",
             "groupSlug": "root-babel-devDeps",
-            "enabled": true,
-            "matchUpdateTypes": [
-                "minor",
-                "patch"
-              ]
+            "enabled": true
         }
     ]
   }
