@@ -22,7 +22,8 @@
             "groupName": "all babel dependencies",
             "groupSlug": "all-core-dependencies",
             "extends": [":semanticCommitTypeAll(fix)"],
-            "baseBranchList": ["main"]
+            "baseBranchList": ["main"],
+            "enabled": true
         }
     ],
     "pinVersions": false
