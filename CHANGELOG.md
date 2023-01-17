@@ -3,6 +3,15 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+
+v1.21.3
+------------------------------
+*January 17, 2022*
+
+### Removed
+- No longer needed build steps: visual test reminder comment and looking for the reminder comment
+
+
 v1.21.2
 ------------------------------
 *January 16, 2022*
