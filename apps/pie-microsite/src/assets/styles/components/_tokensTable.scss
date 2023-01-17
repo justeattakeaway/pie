@@ -121,22 +121,32 @@ $tokensTable-item-min-height: 128px;
 
 .c-tokensTable-example--font {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     min-height: 184px;
     padding: f.spacing(i) 0 f.spacing(g);
+    background-color: f.$color-background-subtle;
     color: f.$color-content-default;
+    font-family: var(--example-font-family);
     font-size: var(--example-font-size);
     line-height: var(--example-font-line-height);
     font-weight: var(--example-font-weight);
     text-decoration: var(--example-font-text-decoration);
+    letter-spacing: var(--example-font-letter-spacing);
+
+    &.c-tokenTable-example-paragraph--font > p {
+        margin-top: 0;
+        margin-bottom: var(--example-font-paragraph-spacing);
+    }
 
     @include f.media('>=wide') {
         padding: 0;
         display: block;
         min-height: auto;
+        background-color: f.$color-background-default;
     }
-}
+  }
 
 .c-tokensTable-displayName {
     color: f.$color-content-default;
