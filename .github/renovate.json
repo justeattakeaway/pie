@@ -1,28 +1,22 @@
 {
-    "extends": [
-      "schedule:weekly",
-      ":rebaseStalePrs",
-      ":disableMajorUpdates",
-      ":dependencyDashboard"
-    ],
-    "commitMessagePrefix": "renovate -",
+    "extends": ["config:base", "schedule:earlyMondays", "helpers:pinGitHubActionDigests"],
     "prConcurrentLimit": 3,
+    "baseBranches": ["main"],
     "major": false,
+    "labels": ["bot: dependencies"],
     "packageRules": [
-        {
-            "matchPackagePatterns": ["*"],
-            "enabled": false
-        },
-        {
-            "description": "Update root package.json babel devDeps.",
-            "matchPaths": ["**/package.json"],
-            "matchDepTypes": ["devDependencies"],
-            "matchPackagePatterns": ["@babel/*", "babel-*"],
-            "matchUpdateTypes": ["minor", "patch"],
-            "groupName": "Babel",
-            "groupSlug": "root-babel-devDeps",
-            "enabled": true,
-            "baseBranchList": ["main"]
-        }
-    ]
+      
+      {
+        "matchPackagePatterns": [
+          "@babel/*",
+          "babel-*"
+        ],
+        "matchUpdateTypes": ["minor", "patch"],
+        "groupName": "all babel dependencies",
+        "groupSlug": "all-core-dependencies",
+        "extends": [":semanticCommitTypeAll(fix)"],
+        "baseBranchList": ["main"]
+      }
+    ],
+    "pinVersions": false
   }
