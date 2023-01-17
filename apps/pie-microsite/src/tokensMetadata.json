@@ -127,7 +127,13 @@
       "charcoal-30": {
         "category": "charcoal"
       },
+      "charcoal-40": {
+        "category": "charcoal"
+      },
       "charcoal-50": {
+        "category": "charcoal"
+      },
+      "charcoal-60": {
         "category": "charcoal"
       },
       "charcoal-70": {
@@ -138,6 +144,39 @@
       },
       "charcoal-80": {
         "category": "charcoal"
+      },
+      "orange-dark-hc": {
+        "category": "highContrast"
+      },
+      "orange-light-hc": {
+        "category": "highContrast"
+      },
+      "red-dark-hc": {
+        "category": "highContrast"
+      },
+      "red-light-hc": {
+        "category": "highContrast"
+      },
+      "red-30-hc": {
+        "category": "highContrast"
+      },
+      "yellow-dark-hc": {
+        "category": "highContrast"
+      },
+      "green-dark-hc": {
+        "category": "highContrast"
+      },
+      "green-light-hc": {
+        "category": "highContrast"
+      },
+      "blue-dark-hc": {
+        "category": "highContrast"
+      },
+      "blue-light-hc": {
+        "category": "highContrast"
+      },
+      "purple-light-hc": {
+        "category": "highContrast"
       },
       "system-purple": {
         "category": "system"
@@ -294,6 +333,9 @@
           "category": "interactive"
         },
         "content-interactive-error": {
+          "category": "interactive"
+        },
+        "content-interactive-subdued": {
           "category": "interactive"
         },
         "content-light": {
@@ -528,6 +570,9 @@
           "category": "interactive"
         },
         "content-interactive-error": {
+          "category": "interactive"
+        },
+        "content-interactive-subdued": {
           "category": "interactive"
         },
         "content-light": {
@@ -1004,6 +1049,38 @@
     }
   },
   "spacing": {
-    "global": {}
+    "global": {},
+    "alias": {
+        "a": {
+          "description": "4dp/sp/px or 0.25rem"
+        },
+        "b": {
+          "description": "8dp/sp/px or 0.5rem"
+        },
+        "c": {
+          "description": "12dp/sp/px or 0.75rem"
+        },
+        "d": {
+          "description": "16dp/sp/px or 1rem"
+        },
+        "e": {
+          "description": "24dp/sp/px or 1.5rem"
+        },
+        "f": {
+          "description": "32dp/sp/px or 2rem"
+        },
+        "g": {
+          "description": "40dp/sp/px or 2.5rem"
+        },
+        "h": {
+          "description": "56dp/sp/px or 3.5rem"
+        },
+        "i": {
+          "description": "64dp/sp/px or 4rem"
+        },
+        "j": {
+          "description": "80dp/sp/px or 5rem"
+        }
+    }
   }
 }
