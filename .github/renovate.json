@@ -5,9 +5,6 @@
       ":disableMajorUpdates",
       ":dependencyDashboard"
     ],
-    "major": {
-        "enabled": false
-    },
     "commitMessagePrefix": "renovate -",
     "prConcurrentLimit": 3,
     "packageRules": [
@@ -23,7 +20,8 @@
             "matchPackagePatterns": ["^@babel/"],
             "groupName": "Babel",
             "groupSlug": "root-babel-devDeps",
-            "enabled": true
+            "enabled": true,
+            "matchUpdateTypes": ["minor"]
         }
     ]
   }
