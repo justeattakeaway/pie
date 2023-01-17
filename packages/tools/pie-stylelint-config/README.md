@@ -22,7 +22,9 @@ npm install @justeattakeaway/pie-stylelint-config --save-dev
 ## Usage
 
 ### Rules
+
 Currently there are 3 different sets of rules:
+
 1. `base` - the base rules that we'd advise all projects use and extend as needed.
 2. `strict` - a smaller collection of _optional_ opinionated rules.
 3. `ordering` - an even smaller collection of _optional_ rules that specify the ordering of CSS properties. 
@@ -71,7 +73,7 @@ If you've globally installed `pie-stylelint-config` using the `-g` flag, then yo
 
 Simply add a `"rules"` key to your config, then add your overrides and additions there.
 
-For example, to change the `indentation` to tabs, turn off the `number-leading-zero` rule:
+For example, to change the `indentation` to tabs, and turn off the `number-leading-zero` rule:
 
 ```json
 {
