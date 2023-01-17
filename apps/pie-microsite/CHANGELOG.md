@@ -49,6 +49,21 @@ v1.35.0
 *January 17, 2023*
 
 ### Added
+- Spacing alias tokens content
+- High Contrast colour tokens to global tokens
+
+### Changed
+- `tokenTable` display names to handle high contrast names
+
+### Updated
+- `pie-design-tokens` from `3.2.0` to `3.5.0`
+
+
+v1.35.0
+------------------------------
+*January 17, 2023*
+
+### Added
 - Typography alias tokens on the alias page, and group them as per the Figma designs
 - A normalization layer to pie design tokens to group font alias tokens into wide/narrow
 - DisplayName logic to the token metadata
