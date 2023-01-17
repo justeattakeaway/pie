@@ -41,7 +41,7 @@ const createTokenDisplayName = (tokenKey, tokenType) => {
 
 /**
  * Splits a font/typography token into a parsable css value
- * @param {object} token - the token value i.e. {"size": "48|56","weight": "ExtraBold"}
+ * @param {object} token - the token value i.e. {"size": "48|56","weight": "ExtraBold","text-decoration": "underline"}
  * @returns {object} an object containing the font styles of the token.
  */
 const splitFontAliasToken = token => {
@@ -128,7 +128,7 @@ const buildSpacingExample = token => {
 
 /**
 * Builds an example font/typography element to show on the token list item
- * @param {object} token - the token value i.e. {"size": "48|56","weight": "ExtraBold"}
+* @param {object} token - the token value i.e. {"size": "48|56","weight": "ExtraBold","text-decoration": "underline"}
 * @returns {string} - the typography example HTML string
 */
 const buildFontExample = token => { 
@@ -136,10 +136,10 @@ const buildFontExample = token => {
         fontSize, lineHeight, fontWeight, textDecoration 
     } = splitFontAliasToken(token);
     const cssVariables = [
-    `--example-font-size: ${fontSize}px`,
-    `--example-font-line-height: ${lineHeight}px`,
-    `--example-font-weight: ${fontWeight}`,
-    textDecoration && `--example-font-text-decoration: ${textDecoration}`
+        `--example-font-size: ${fontSize}px`,
+        `--example-font-line-height: ${lineHeight}px`,
+        `--example-font-weight: ${fontWeight}`,
+        textDecoration && `--example-font-text-decoration: ${textDecoration}`
     ].filter(Boolean);
 
     return `<div class="c-tokensTable-example--font" style="${cssVariables.join('; ')}">String</div>`;
