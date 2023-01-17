@@ -23,7 +23,7 @@
             "extends": ["monorepo:webdriverio", ":semanticCommitScope(root)"],
             "matchDepTypes": ["devDependencies"],
             "matchPaths": ["+(package.json)"],
-            "matchPackagePatterns": ["wdio-*", "@percy/*"],
+            "matchPackagePatterns": ["wdio-*", "@percy/*", "allure-commandline"],
             "groupName": "Root WebDriver devDependencies",
             "matchUpdateTypes": [
               "patch",
@@ -85,6 +85,9 @@
               "minor"
             ],
             "enabled": true
+        },
+        {
+          "matchSourceUrls": ["https://github.com/vuejs/vue"],
+          "groupName": "Vue monorepo packages"
         }
-    ]
   }
