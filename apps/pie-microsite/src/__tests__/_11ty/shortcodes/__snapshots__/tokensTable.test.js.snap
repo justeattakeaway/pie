@@ -1710,7 +1710,7 @@ exports[`tokensTable.js should return the expected HTML 5`] = `
   <li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example--font\\" style=\\"--example-font-family: JetSansDigital; --example-font-size: 12px; --example-font-line-height: 16px; --example-font-weight: 700; --example-font-letter-spacing: 0\\">String</div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Caption bold</span><span class=\\"c-tokensTable-tokenDescription\\">Used for captions, labels, disclaimers or helper text. Use sparingly..</span>
+        <span class=\\"c-tokensTable-displayName\\">Caption bold</span><span class=\\"c-tokensTable-tokenDescription\\">Used for captions, labels, disclaimers or helper text. Use sparingly.</span>
       </div>
       <span class=\\"c-tokensTable-token\\">$font-caption-strong</span>
     </li>
@@ -1895,7 +1895,7 @@ exports[`tokensTable.js should return the expected HTML 6`] = `
   <li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example--font\\" style=\\"--example-font-family: JetSansDigital; --example-font-size: 12px; --example-font-line-height: 16px; --example-font-weight: 700; --example-font-letter-spacing: 0\\">String</div>
       <div class=\\"c-tokensTable-content\\">
-        <span class=\\"c-tokensTable-displayName\\">Caption bold</span><span class=\\"c-tokensTable-tokenDescription\\">Used for captions, labels, disclaimers or helper text. Use sparingly..</span>
+        <span class=\\"c-tokensTable-displayName\\">Caption bold</span><span class=\\"c-tokensTable-tokenDescription\\">Used for captions, labels, disclaimers or helper text. Use sparingly.</span>
       </div>
       <span class=\\"c-tokensTable-token\\">$font-caption-strong</span>
     </li>
