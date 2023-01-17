@@ -7,7 +7,7 @@
 
 
 ## Testing routes
-We have route navigation tests thats ensure all existing pages can be correctly found. When you add new pages, these tests will fail as there's new unexpected pages (this is by design). In order to fix the texts, you will need to register the routes to your newly added pages by running: `test:generate-routes`. This will update a json file named `expected-routes.snapshot.json` with the urls to your new page.
+We have route navigation tests thats ensure all existing pages can be correctly found. When you add new pages, these tests will fail as there's new unexpected pages (this is by design). In order to fix the tests, you will need to register the routes to your newly added pages by running: `test:generate-routes`. This will update a json file named `expected-routes.snapshot.json` with the urls to your new page.
 
 ### Running the route tests
 Route tests are ran as part of `yarn test`.
