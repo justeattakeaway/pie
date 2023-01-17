@@ -3,6 +3,17 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+v1.34.0
+------------------------------
+*January 16, 2023*
+
+### Added
+-   Radius page for global design tokens 
+
+### Changed
+-   Tokens metadata for radius global design tokens 
+
+
 v1.33.1
 ------------------------------
 *January 12, 2023*

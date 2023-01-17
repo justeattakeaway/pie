@@ -78,6 +78,22 @@ const buildColorExample = token => {
 };
 
 /**
+ * Builds the example radius swatch to show on the token list item
+ * @param {string} token - the token value in pixels
+ * @returns {string} - the radius swatch example HTML string
+ */
+const buildRadiusExample = token => {
+    const classes = ['c-tokensTable-example-radius'];
+    const style = `--example-radius: ${token}px`;
+
+    return `
+        <div class="c-tokensTable-example-radius-container">
+            <div class="${classes.join(' ')}" style="${style}"></div>
+        </div>
+    `;
+};
+
+/**
  * Builds the example spacing swatch to show on the token list item
  * @param {string} token - the token value i.e. 24, 80
  * @returns {string} - the spacing swatch example HTML string
@@ -98,7 +114,8 @@ const buildSpacingExample = token => {
 const buildTokenExampleElement = (token, tokenType) => {
     const tokenExampleElementHandler = {
         [tokenTypes.COLOR]: buildColorExample,
-        [tokenTypes.SPACING]: buildSpacingExample
+        [tokenTypes.SPACING]: buildSpacingExample,
+        [tokenTypes.RADIUS]: buildRadiusExample
     };
 
     if (!tokenExampleElementHandler[tokenType]) {
@@ -197,8 +214,10 @@ const buildTokensListForCategory = (tokens, path, category, tokenType) => {
  * @returns - a string of html containing the list of tokens - with example, description and token name
  */
 const buildUncategorisedLists = ({
-    tokenType, tokens 
+    tokens, path, tokenType
 }) => {
+    const tokenTypeMetadata = getTokenTypeMetadata(path);
+
     // if tokens are numbers (spacing / radius), sort in ascending order
     const sortedTokens = Object.keys(tokens).every(numberHelpers.isNumber)
         ? Object.entries(tokens).sort((a, b) => a[1] - b[1]) // [[key, value]]
@@ -208,7 +227,8 @@ const buildUncategorisedLists = ({
         token: tokens[token[0]],
         tokenScssName: createScssTokenName(token[0], tokenType),
         tokenDisplayName: createTokenDisplayName(token[0], tokenType),
-        tokenType
+        tokenType,
+        tokenMetadata: tokenTypeMetadata[token[0]]
     }));
 
     return buildTokensList(tokenListElements);

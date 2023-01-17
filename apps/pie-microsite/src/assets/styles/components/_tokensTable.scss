@@ -92,6 +92,33 @@ $tokensTable-item-min-height: 128px;
     }
 }
 
+.c-tokensTable-example-radius-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: f.$color-background-subtle;
+    min-height: 160px;
+
+    @include f.media('>=wide') {
+        display: block;
+        background-color: transparent;
+        min-height: 80px;
+    }
+}
+
+.c-tokensTable-example-radius {
+    width: 80px;
+    height: 80px;
+    margin-top: f.spacing(d);
+    background-color: f.$color-background-dark;
+    border-radius: var(--example-radius);
+    opacity: 0.1;
+
+    @include f.media('>=wide') {
+        margin-top: 0;
+    }
+}
+
 .c-tokensTable-displayName {
     color: f.$color-content-default;
     font-weight: f.$font-weight-bold;

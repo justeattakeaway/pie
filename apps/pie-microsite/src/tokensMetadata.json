@@ -619,5 +619,27 @@
   },
   "spacing" : {
     "global": {}
+  },
+  "radius": {
+    "global": {
+      "00": {
+        "description": "0dp/pt/px"
+      },
+      "02": {
+        "description": "4dp/pt/px"
+      },
+      "03": {
+        "description": "8dp/pt/px"
+      },
+      "04": {
+        "description": "12dp/pt/px"
+      },
+      "05": {
+        "description": "16dp/pt/px"
+      },
+      "06": {
+        "description": "50dp/pt/px"
+      }
+    }
   }
 }
