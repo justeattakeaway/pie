@@ -13027,9 +13027,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"pie@workspace:.":
+"pie-monorepo@workspace:.":
   version: 0.0.0-use.local
-  resolution: "pie@workspace:."
+  resolution: "pie-monorepo@workspace:."
   dependencies:
     "@babel/cli": 7.19.3
     "@babel/core": 7.17.10
