@@ -3,6 +3,7 @@ eleventyNavigation:
     key: Overview
     parent: Colour
     order: 1
+date: Last Modified
 ---
 ## Our colour principles
 
