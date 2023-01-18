@@ -1,8 +1,6 @@
 # pie-stylelint-config
 
-TODO - add npm version
-
-TODO - add build status
+[![npm version](https://badge.fury.io/js/@justeattakeaway%2Fpie-stylelint-config.svg)](https://badge.fury.io/js/@justeattakeaway%2Fpie-stylelint-config)
 
 > PIE shareable stylelint config.
 
