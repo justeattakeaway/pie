@@ -95,10 +95,6 @@
         margin-top: f.spacing(e);
     }
 
-    h2 {
-        @include f.font-size('heading-l');
-    }
-
     p {
         margin-top: f.spacing(d);
     }
