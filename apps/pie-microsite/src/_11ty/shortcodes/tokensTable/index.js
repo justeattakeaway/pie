@@ -285,7 +285,6 @@ const buildUncategorisedLists = ({
     tokens, path, tokenType
 }) => {
     const tokenTypeMetadata = getTokenTypeMetadata(path);
-    
     // if tokens are numbers (spacing / radius), sort in ascending order
     const sortedTokens = Object.keys(tokens).every(numberHelpers.isNumber)
         ? Object.entries(tokens).sort((a, b) => a[1] - b[1]) // [[key, value]]
