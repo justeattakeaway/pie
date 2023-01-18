@@ -4,6 +4,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 
+v1.40.0
+------------------------------
+*January 18, 2023*
+
+### Changed
+- `token` specific logic out of `tokensTable/index.js` to separate files
+
+
 v1.39.0
 ------------------------------
 *January 18, 2023*
@@ -42,21 +50,6 @@ v1.36.0
 
 ### Added
 - List out the typography global tokens on the global page, and group them as per the Figma designs.
-
-
-v1.35.0
-------------------------------
-*January 17, 2023*
-
-### Added
-- Spacing alias tokens content
-- High Contrast colour tokens to global tokens
-
-### Changed
-- `tokenTable` display names to handle high contrast names
-
-### Updated
-- `pie-design-tokens` from `3.2.0` to `3.5.0`
 
 
 v1.35.0
