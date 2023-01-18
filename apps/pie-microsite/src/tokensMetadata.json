@@ -127,7 +127,13 @@
       "charcoal-30": {
         "category": "charcoal"
       },
+      "charcoal-40": {
+        "category": "charcoal"
+      },
       "charcoal-50": {
+        "category": "charcoal"
+      },
+      "charcoal-60": {
         "category": "charcoal"
       },
       "charcoal-70": {
@@ -138,6 +144,39 @@
       },
       "charcoal-80": {
         "category": "charcoal"
+      },
+      "orange-dark-hc": {
+        "category": "highContrast"
+      },
+      "orange-light-hc": {
+        "category": "highContrast"
+      },
+      "red-dark-hc": {
+        "category": "highContrast"
+      },
+      "red-light-hc": {
+        "category": "highContrast"
+      },
+      "red-30-hc": {
+        "category": "highContrast"
+      },
+      "yellow-dark-hc": {
+        "category": "highContrast"
+      },
+      "green-dark-hc": {
+        "category": "highContrast"
+      },
+      "green-light-hc": {
+        "category": "highContrast"
+      },
+      "blue-dark-hc": {
+        "category": "highContrast"
+      },
+      "blue-light-hc": {
+        "category": "highContrast"
+      },
+      "purple-light-hc": {
+        "category": "highContrast"
       },
       "system-purple": {
         "category": "system"
@@ -294,6 +333,9 @@
           "category": "interactive"
         },
         "content-interactive-error": {
+          "category": "interactive"
+        },
+        "content-interactive-subdued": {
           "category": "interactive"
         },
         "content-light": {
@@ -528,6 +570,9 @@
           "category": "interactive"
         },
         "content-interactive-error": {
+          "category": "interactive"
+        },
+        "content-interactive-subdued": {
           "category": "interactive"
         },
         "content-light": {
@@ -969,9 +1014,73 @@
       "06": {
         "description": "50dp/pt/px"
       }
+    },
+    "alias": {
+      "rounded-none": {
+        "description": "Used when explicitly specifying that a design element shouldn't have rounded corners.",
+        "displayName": "Rounded None",
+        "scssName": "$rounded-none"
+      },
+      "rounded-a": {
+        "description": "Used for small tags.",
+        "displayName": "Rounded A",
+        "scssName": "$rounded-a"
+      },
+      "rounded-b": {
+        "description": "Used for data visualisation elements, tags, logos and toast components.",
+        "displayName": "Rounded B",
+        "scssName": "$rounded-b"
+      },
+      "rounded-c": {
+        "description": "Used in cards, popovers, notifications, headers, navigation bars and side drawers.",
+        "displayName": "Rounded C",
+        "scssName": "$rounded-c"
+      },
+      "rounded-d": {
+        "description": "Used in modals and sheets.",
+        "displayName": "Rounded D",
+        "scssName": "$rounded-d"
+      },
+      "rounded-e": {
+        "description": "Used in toggles, extended FABs and buttons.",
+        "displayName": "Rounded E",
+        "scssName": "$rounded-e"
+      }
     }
   },
   "spacing": {
-    "global": {}
+    "global": {},
+    "alias": {
+        "a": {
+          "description": "4dp/sp/px or 0.25rem"
+        },
+        "b": {
+          "description": "8dp/sp/px or 0.5rem"
+        },
+        "c": {
+          "description": "12dp/sp/px or 0.75rem"
+        },
+        "d": {
+          "description": "16dp/sp/px or 1rem"
+        },
+        "e": {
+          "description": "24dp/sp/px or 1.5rem"
+        },
+        "f": {
+          "description": "32dp/sp/px or 2rem"
+        },
+        "g": {
+          "description": "40dp/sp/px or 2.5rem"
+        },
+        "h": {
+          "description": "56dp/sp/px or 3.5rem"
+        },
+        "i": {
+          "description": "64dp/sp/px or 4rem"
+        },
+        "j": {
+          "description": "80dp/sp/px or 5rem"
+        }
+    }
   }
 }

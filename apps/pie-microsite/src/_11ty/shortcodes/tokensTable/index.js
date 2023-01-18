@@ -21,6 +21,30 @@ const {
  */
 const createScssTokenName = (tokenKey, tokenType) => `$${tokenType}-${tokenKey}`;
 
+const createHighContrastName = tokenName => {
+    const highContrast = '(High Contrast)';
+    const hasShade = tokenName.includes('Light') || tokenName.includes('Dark');
+
+    if (hasShade) {
+        const tokenNameArray = tokenName.split(' ');
+        const shade = tokenNameArray.pop();
+
+        return `${shade} ${tokenNameArray.join(' ')} ${highContrast}`;
+    }
+
+    return `${tokenName} ${highContrast}`;
+};
+
+const buildColorName = tokenName => {
+    const highContrastSuffix = ' Hc';
+
+    if (tokenName.includes(highContrastSuffix)) {
+        return createHighContrastName(tokenName.replace(highContrastSuffix, ''));
+    }
+
+    return tokenName;
+};
+
 /**
  * Creates a display name of the provided token. 'system-purple' would become 'System Purple'
  * @param {string} tokenKey - the token key i.e. 'support-positive-02'
@@ -33,10 +57,11 @@ const createTokenDisplayName = (tokenKey, tokenType) => {
     const shouldShowPrefix = tokenType && !prefixExcludes.includes(tokenType);
     const tokenNameSegments = tokenKey.split('-');
     const capitalisedNameSegments = tokenNameSegments.map(stringHelpers.capitaliseFirstLetter);
+    const tokenName = capitalisedNameSegments.join(' ');
 
-    return shouldShowPrefix
-        ? `${stringHelpers.capitaliseFirstLetter(tokenType)} ${capitalisedNameSegments.join(' ')}`
-        : capitalisedNameSegments.join(' ');
+    return shouldShowPrefix 
+        ? `${stringHelpers.capitaliseFirstLetter(tokenType)} ${tokenName}`
+        : buildColorName(tokenName);
 };
 
 /**
@@ -293,8 +318,8 @@ const buildUncategorisedLists = ({
 
     const tokenListElements = sortedTokens.map(token => buildTokenListElements({
         token: tokens[token[0]],
-        tokenScssName: createScssTokenName(token[0], tokenType),
-        tokenDisplayName: createTokenDisplayName(token[0], tokenType),
+        tokenScssName: tokenTypeMetadata[token[0]]?.scssName ?? createScssTokenName(token[0], tokenType),
+        tokenDisplayName: tokenTypeMetadata[token[0]]?.displayName ?? createTokenDisplayName(token[0], tokenType),
         tokenType,
         tokenMetadata: tokenTypeMetadata[token[0]]
     }));

@@ -393,6 +393,12 @@ exports[`tokensTable.js should return the expected HTML 1`] = `
         <span class=\\"c-tokensTable-displayName\\">Content Interactive Error</span>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-content-interactive-error</span>
+    </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
+      <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #5d7074\\";></div>
+      <div class=\\"c-tokensTable-content\\">
+        <span class=\\"c-tokensTable-displayName\\">Content Interactive Subdued</span>
+      </div>
+      <span class=\\"c-tokensTable-token\\">$color-content-interactive-subdued</span>
     </li>
 </ul><h3 class=\\"c-tokensTable-sectionSubheading\\">Link</h3><div class=\\"c-tokensTable-row u-spacing-e--top u-showAboveWide c-tokensTable-heading\\">
   <span>Example</span>
@@ -431,7 +437,7 @@ exports[`tokensTable.js should return the expected HTML 1`] = `
       </div>
       <span class=\\"c-tokensTable-token\\">$color-content-link-visited</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
-      <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #C58AF9\\";></div>
+      <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #c58af9\\";></div>
       <div class=\\"c-tokensTable-content\\">
         <span class=\\"c-tokensTable-displayName\\">Content Link Visited Inverse</span>
       </div>
@@ -931,6 +937,12 @@ exports[`tokensTable.js should return the expected HTML 2`] = `
         <span class=\\"c-tokensTable-displayName\\">Content Interactive Error</span>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-content-interactive-error</span>
+    </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
+      <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #b7bdbe\\";></div>
+      <div class=\\"c-tokensTable-content\\">
+        <span class=\\"c-tokensTable-displayName\\">Content Interactive Subdued</span>
+      </div>
+      <span class=\\"c-tokensTable-token\\">$color-content-interactive-subdued</span>
     </li>
 </ul><h3 class=\\"c-tokensTable-sectionSubheading\\">Link</h3><div class=\\"c-tokensTable-row u-spacing-e--top u-showAboveWide c-tokensTable-heading\\">
   <span>Example</span>
@@ -963,7 +975,7 @@ exports[`tokensTable.js should return the expected HTML 2`] = `
       </div>
       <span class=\\"c-tokensTable-token\\">$color-content-link-inverse</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
-      <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #C58AF9\\";></div>
+      <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #c58af9\\";></div>
       <div class=\\"c-tokensTable-content\\">
         <span class=\\"c-tokensTable-displayName\\">Content Link Visited</span>
       </div>
@@ -1392,11 +1404,23 @@ exports[`tokensTable.js should return the expected HTML 3`] = `
       </div>
       <span class=\\"c-tokensTable-token\\">$color-charcoal-30</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
+      <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #b7bdbe\\";></div>
+      <div class=\\"c-tokensTable-content\\">
+        <span class=\\"c-tokensTable-displayName\\">Charcoal 40</span>
+      </div>
+      <span class=\\"c-tokensTable-token\\">$color-charcoal-40</span>
+    </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #8c999b\\";></div>
       <div class=\\"c-tokensTable-content\\">
         <span class=\\"c-tokensTable-displayName\\">Charcoal 50</span>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-charcoal-50</span>
+    </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
+      <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #5d7074\\";></div>
+      <div class=\\"c-tokensTable-content\\">
+        <span class=\\"c-tokensTable-displayName\\">Charcoal 60</span>
+      </div>
+      <span class=\\"c-tokensTable-token\\">$color-charcoal-60</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
       <div class=\\"c-tokensTable-example\\" style=\\"--example-background-color: #3c4c4f\\";></div>
       <div class=\\"c-tokensTable-content\\">
@@ -1429,11 +1453,84 @@ exports[`tokensTable.js should return the expected HTML 3`] = `
       </div>
       <span class=\\"c-tokensTable-token\\">$color-system-purple</span>
     </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
-      <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #C58AF9\\";></div>
+      <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #c58af9\\";></div>
       <div class=\\"c-tokensTable-content\\">
         <span class=\\"c-tokensTable-displayName\\">System Purple 10</span>
       </div>
       <span class=\\"c-tokensTable-token\\">$color-system-purple-10</span>
+    </li>
+</ul><hr /><h2>High Contrast</h2><div class=\\"c-tokensTable-row u-spacing-e--top u-showAboveWide c-tokensTable-heading\\">
+  <span>Example</span>
+  <span>Description</span>
+  <span>Token name</span>
+</div>
+<ul class=\\"c-tokensTable-list\\">
+  <li class=\\"c-tokensTable-row c-tokensTable-item\\">
+      <div class=\\"c-tokensTable-example\\" style=\\"--example-background-color: #a33100\\";></div>
+      <div class=\\"c-tokensTable-content\\">
+        <span class=\\"c-tokensTable-displayName\\">Dark Orange (High Contrast)</span>
+      </div>
+      <span class=\\"c-tokensTable-token\\">$color-orange-dark-hc</span>
+    </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
+      <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #ffa514\\";></div>
+      <div class=\\"c-tokensTable-content\\">
+        <span class=\\"c-tokensTable-displayName\\">Light Orange (High Contrast)</span>
+      </div>
+      <span class=\\"c-tokensTable-token\\">$color-orange-light-hc</span>
+    </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
+      <div class=\\"c-tokensTable-example\\" style=\\"--example-background-color: #a4041f\\";></div>
+      <div class=\\"c-tokensTable-content\\">
+        <span class=\\"c-tokensTable-displayName\\">Dark Red (High Contrast)</span>
+      </div>
+      <span class=\\"c-tokensTable-token\\">$color-red-dark-hc</span>
+    </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
+      <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #ff7a80\\";></div>
+      <div class=\\"c-tokensTable-content\\">
+        <span class=\\"c-tokensTable-displayName\\">Light Red (High Contrast)</span>
+      </div>
+      <span class=\\"c-tokensTable-token\\">$color-red-light-hc</span>
+    </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
+      <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #f99fac\\";></div>
+      <div class=\\"c-tokensTable-content\\">
+        <span class=\\"c-tokensTable-displayName\\">Red 30 (High Contrast)</span>
+      </div>
+      <span class=\\"c-tokensTable-token\\">$color-red-30-hc</span>
+    </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
+      <div class=\\"c-tokensTable-example\\" style=\\"--example-background-color: #685731\\";></div>
+      <div class=\\"c-tokensTable-content\\">
+        <span class=\\"c-tokensTable-displayName\\">Dark Yellow (High Contrast)</span>
+      </div>
+      <span class=\\"c-tokensTable-token\\">$color-yellow-dark-hc</span>
+    </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
+      <div class=\\"c-tokensTable-example\\" style=\\"--example-background-color: #196634\\";></div>
+      <div class=\\"c-tokensTable-content\\">
+        <span class=\\"c-tokensTable-displayName\\">Dark Green (High Contrast)</span>
+      </div>
+      <span class=\\"c-tokensTable-token\\">$color-green-dark-hc</span>
+    </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
+      <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #26d46e\\";></div>
+      <div class=\\"c-tokensTable-content\\">
+        <span class=\\"c-tokensTable-displayName\\">Light Green (High Contrast)</span>
+      </div>
+      <span class=\\"c-tokensTable-token\\">$color-green-light-hc</span>
+    </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
+      <div class=\\"c-tokensTable-example\\" style=\\"--example-background-color: #1054b4\\";></div>
+      <div class=\\"c-tokensTable-content\\">
+        <span class=\\"c-tokensTable-displayName\\">Dark Blue (High Contrast)</span>
+      </div>
+      <span class=\\"c-tokensTable-token\\">$color-blue-dark-hc</span>
+    </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
+      <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #8bbcfe\\";></div>
+      <div class=\\"c-tokensTable-content\\">
+        <span class=\\"c-tokensTable-displayName\\">Light Blue (High Contrast)</span>
+      </div>
+      <span class=\\"c-tokensTable-token\\">$color-blue-light-hc</span>
+    </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
+      <div class=\\"c-tokensTable-example c-tokensTable-example--bordered\\" style=\\"--example-background-color: #ba98ba\\";></div>
+      <div class=\\"c-tokensTable-content\\">
+        <span class=\\"c-tokensTable-displayName\\">Light Purple (High Contrast)</span>
+      </div>
+      <span class=\\"c-tokensTable-token\\">$color-purple-light-hc</span>
     </li>
 </ul></div>"
 `;
@@ -2040,6 +2137,77 @@ exports[`tokensTable.js should return the expected HTML 7`] = `
 `;
 
 exports[`tokensTable.js should return the expected HTML 8`] = `
+"<div class=\\"c-tokensTable\\"><div class=\\"c-tokensTable-row u-spacing-e--top u-showAboveWide c-tokensTable-heading\\">
+  <span>Example</span>
+  <span>Description</span>
+  <span>Token name</span>
+</div>
+<ul class=\\"c-tokensTable-list\\">
+  <li class=\\"c-tokensTable-row c-tokensTable-item\\">
+      
+        <div class=\\"c-tokensTable-example-radius-container\\">
+            <div class=\\"c-tokensTable-example-radius\\" style=\\"--example-radius: 0px\\"></div>
+        </div>
+    
+      <div class=\\"c-tokensTable-content\\">
+        <span class=\\"c-tokensTable-displayName\\">Rounded None</span><span class=\\"c-tokensTable-tokenDescription\\">Used when explicitly specifying that a design element shouldn't have rounded corners.</span>
+      </div>
+      <span class=\\"c-tokensTable-token\\">$rounded-none</span>
+    </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
+      
+        <div class=\\"c-tokensTable-example-radius-container\\">
+            <div class=\\"c-tokensTable-example-radius\\" style=\\"--example-radius: 4px\\"></div>
+        </div>
+    
+      <div class=\\"c-tokensTable-content\\">
+        <span class=\\"c-tokensTable-displayName\\">Rounded A</span><span class=\\"c-tokensTable-tokenDescription\\">Used for small tags.</span>
+      </div>
+      <span class=\\"c-tokensTable-token\\">$rounded-a</span>
+    </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
+      
+        <div class=\\"c-tokensTable-example-radius-container\\">
+            <div class=\\"c-tokensTable-example-radius\\" style=\\"--example-radius: 8px\\"></div>
+        </div>
+    
+      <div class=\\"c-tokensTable-content\\">
+        <span class=\\"c-tokensTable-displayName\\">Rounded B</span><span class=\\"c-tokensTable-tokenDescription\\">Used for data visualisation elements, tags, logos and toast components.</span>
+      </div>
+      <span class=\\"c-tokensTable-token\\">$rounded-b</span>
+    </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
+      
+        <div class=\\"c-tokensTable-example-radius-container\\">
+            <div class=\\"c-tokensTable-example-radius\\" style=\\"--example-radius: 12px\\"></div>
+        </div>
+    
+      <div class=\\"c-tokensTable-content\\">
+        <span class=\\"c-tokensTable-displayName\\">Rounded C</span><span class=\\"c-tokensTable-tokenDescription\\">Used in cards, popovers, notifications, headers, navigation bars and side drawers.</span>
+      </div>
+      <span class=\\"c-tokensTable-token\\">$rounded-c</span>
+    </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
+      
+        <div class=\\"c-tokensTable-example-radius-container\\">
+            <div class=\\"c-tokensTable-example-radius\\" style=\\"--example-radius: 16px\\"></div>
+        </div>
+    
+      <div class=\\"c-tokensTable-content\\">
+        <span class=\\"c-tokensTable-displayName\\">Rounded D</span><span class=\\"c-tokensTable-tokenDescription\\">Used in modals and sheets.</span>
+      </div>
+      <span class=\\"c-tokensTable-token\\">$rounded-d</span>
+    </li><li class=\\"c-tokensTable-row c-tokensTable-item\\">
+      
+        <div class=\\"c-tokensTable-example-radius-container\\">
+            <div class=\\"c-tokensTable-example-radius\\" style=\\"--example-radius: 50px\\"></div>
+        </div>
+    
+      <div class=\\"c-tokensTable-content\\">
+        <span class=\\"c-tokensTable-displayName\\">Rounded E</span><span class=\\"c-tokensTable-tokenDescription\\">Used in toggles, extended FABs and buttons.</span>
+      </div>
+      <span class=\\"c-tokensTable-token\\">$rounded-e</span>
+    </li>
+</ul></div>"
+`;
+
+exports[`tokensTable.js should return the expected HTML 9`] = `
 "<div class=\\"c-tokensTable\\"><div class=\\"c-tokensTable-row u-spacing-e--top u-showAboveWide c-tokensTable-heading\\">
   <span>Example</span>
   <span>Description</span>

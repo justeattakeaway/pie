@@ -30,6 +30,9 @@
       },
       "system": {
         "displayName": "System"
+      },
+      "highContrast": {
+        "displayName": "High Contrast"
       }
     },
     "alias": {

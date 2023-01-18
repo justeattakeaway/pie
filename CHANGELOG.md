@@ -14,6 +14,14 @@ v1.22.0
 - Vite as a dev dependency.
 
 
+v1.21.4
+------------------------------
+*January 17, 2022*
+
+### Changed
+- `Copyright (c) Just Eat Holding Ltd` to `Copyright (c) Just Eat Takeaway` in licence
+
+
 v1.21.3
 ------------------------------
 *January 17, 2022*
@@ -153,7 +161,7 @@ v1.14.0
 
 v1.13.1
 ------------------------------
-*October 03, 2022*
+*October 3, 2022*
 
 ### Changed
 - Fixed Husky to work with Yarn 2+
@@ -184,7 +192,7 @@ v1.12.0
 
 v1.11.0
 ------------------------------
-*September 05, 2022*
+*September 5, 2022*
 
 ### Added
 - `precommit` checks for sensitive information.

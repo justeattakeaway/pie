@@ -3,6 +3,39 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+
+v1.39.0
+------------------------------
+*January 18, 2023*
+
+### Added
+- Spacing alias tokens content
+- High Contrast colour tokens to global tokens
+
+### Changed
+- `tokenTable` display names to handle high contrast names
+
+### Updated
+- `pie-design-tokens` from `3.2.0` to `3.5.0`
+
+
+v1.38.0
+------------------------------
+*January 18, 2023*
+
+### Added
+-   Alias tokens to radius page
+
+
+v1.37.0
+------------------------------
+*January 17, 2023*
+
+### Fixed
+- Heading font size resolved for large and narrow devices.
+- Divider missing for main section heading.
+
+
 v1.36.0
 ------------------------------
 *January 17, 2023*

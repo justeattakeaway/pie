@@ -1,0 +1,30 @@
+{
+  "name": "@justeattakeaway/pie-stylelint-config",
+  "version": "0.1.0",
+  "description": "Shareable Stylelint config for use with any front-end web projects across JET.",
+  "license": "Apache-2.0",
+  "keywords": [
+    "PIE",
+    "stylelint",
+    "stylelint-config",
+    "standard"
+  ],
+  "author": "",
+  "exports": {
+    ".": "./index.js",
+    "./base": "./rules/base.js",
+    "./strict": "./rules/strict.js",
+    "./ordering": "./rules/ordering.js"
+  },
+  "peerDependencies": {
+    "stylelint": "14.x",
+    "stylelint-config-standard-scss": "5.x",
+    "stylelint-order": "5.x"
+  },
+  "scripts": {
+    "test": "run -T jest"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  }
+}
