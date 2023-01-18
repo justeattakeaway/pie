@@ -1,9 +1,7 @@
 name: Sync Renovate changeset
 on:
-  pull_request_target:
-    paths:
-      - '.github/workflows/version.yml'
-      - '**/yarn.lock'
+  pull_request:
+    types: [assigned, opened, synchronize, reopened, 'ready_for_review']
 
 jobs:
   generate-changeset:
