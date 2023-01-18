@@ -40,8 +40,8 @@ jobs:
               await fs.writeFile(fileName, body);
             }
             const branch = await exec.getExecOutput('git branch --show-current');
-            if (!branch.stdout.startsWith('siggerzz')) {
-              console.log('Not a siggerzz branch, skipping');
+            if (!branch.stdout.startsWith('main')) {
+              console.log('Not a main branch, skipping');
               return;
             }
             const diffOutput = await exec.getExecOutput('git diff --name-only HEAD~1');
