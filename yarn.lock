@@ -3698,7 +3698,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@wdio/logger@npm:^8.0.0-alpha.219":
+"@wdio/logger@npm:^8.0.0":
   version: 8.1.0
   resolution: "@wdio/logger@npm:8.1.0"
   dependencies:
@@ -8437,7 +8437,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fs-extra@npm:^10.0.0, fs-extra@npm:^10.1.0":
+"fs-extra@npm:^10.0.0":
   version: 10.1.0
   resolution: "fs-extra@npm:10.1.0"
   dependencies:
@@ -8445,6 +8445,17 @@ __metadata:
     jsonfile: ^6.0.1
     universalify: ^2.0.0
   checksum: dc94ab37096f813cc3ca12f0f1b5ad6744dfed9ed21e953d72530d103cea193c2f81584a39e9dee1bea36de5ee66805678c0dddc048e8af1427ac19c00fffc50
+  languageName: node
+  linkType: hard
+
+"fs-extra@npm:^11.1.0":
+  version: 11.1.0
+  resolution: "fs-extra@npm:11.1.0"
+  dependencies:
+    graceful-fs: ^4.2.0
+    jsonfile: ^6.0.1
+    universalify: ^2.0.0
+  checksum: 5ca476103fa1f5ff4a9b3c4f331548f8a3c1881edaae323a4415d3153b5dc11dc6a981c8d1dd93eec8367ceee27b53f8bd27eecbbf66ffcdd04927510c171e7f
   languageName: node
   linkType: hard
 
@@ -13667,7 +13678,7 @@ __metadata:
     turbo: 1.3.1
     vue: 2.6.10
     vue-template-compiler: 2.6.10
-    wdio-chromedriver-service: 8.0.0
+    wdio-chromedriver-service: 8.0.1
   languageName: unknown
   linkType: soft
 
@@ -18382,16 +18393,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"wdio-chromedriver-service@npm:8.0.0":
-  version: 8.0.0
-  resolution: "wdio-chromedriver-service@npm:8.0.0"
+"wdio-chromedriver-service@npm:8.0.1":
+  version: 8.0.1
+  resolution: "wdio-chromedriver-service@npm:8.0.1"
   dependencies:
-    "@wdio/logger": ^8.0.0-alpha.219
-    fs-extra: ^10.1.0
+    "@wdio/logger": ^8.0.0
+    fs-extra: ^11.1.0
     split2: ^4.1.0
     tcp-port-used: ^1.0.2
   peerDependencies:
-    "@wdio/cli": ^7.0.0 || ^8.0.0-alpha.219
     "@wdio/types": ^7.0.0 || ^8.0.0-alpha.219
     chromedriver: "*"
     webdriverio: ^7.0.0 || ^8.0.0-alpha.219
@@ -18402,7 +18412,7 @@ __metadata:
       optional: true
     webdriverio:
       optional: false
-  checksum: 666eedbc58189baf990594379dd7b69caa23ab69013f5e0bfd8bbaeb8bcc52bc9ca97effb297153401f08ddcc1447a0b04375428e67417af37b4ca7146bd2e6f
+  checksum: 0be5490fa859f8d5023871bfdce8887759a26a690b695bda16ec638368e56daebc9a5cf0e48b87b59d7d8568813c498ef8b98d8935ec91c0e383a883fb2e366a
   languageName: node
   linkType: hard
 
