@@ -16,23 +16,23 @@
     "packages/**/*"
   ],
   "scripts": {
-    "build": "turbo run build --filter='!pie'",
+    "build": "turbo run build --filter='!pie-monorepo'",
     "changeset": "changeset",
-    "test": "turbo run test --filter='!pie'",
-    "test:ci": "turbo run test:ci --filter='!pie'",
-    "test:system:ci": "turbo run test:system:ci --filter='!pie'",
-    "test:visual:ci": "turbo run test:visual:ci --filter='!pie'",
+    "test": "turbo run test --filter='!pie-monorepo'",
+    "test:ci": "turbo run test:ci --filter='!pie-monorepo'",
+    "test:system:ci": "turbo run test:system:ci --filter='!pie-monorepo'",
+    "test:visual:ci": "turbo run test:visual:ci --filter='!pie-monorepo'",
     "test:coverage": "turbo run test:coverage",
-    "lint:scripts": "turbo run lint:scripts --filter='!pie'",
-    "lint:scripts:fix": "turbo run lint:fix --filter='!pie'",
-    "lint:style": "turbo run lint:style --continue --filter='!pie'",
+    "lint:scripts": "turbo run lint:scripts --filter='!pie-monorepo'",
+    "lint:scripts:fix": "turbo run lint:fix --filter='!pie-monorepo'",
+    "lint:style": "turbo run lint:style --continue --filter='!pie-monorepo'",
     "dev": "turbo run dev --filter='!pie'",
     "postinstall": "husky install",
     "prepack": "pinst --disable",
     "postpack": "pinst --enable",
-    "test:system": "turbo run test:system --filter='!pie'",
-    "test:visual": "turbo run test:visual --filter='!pie'",
-    "test:generate-routes": "turbo run test:generate-routes --filter='!pie'"
+    "test:system": "turbo run test:system --filter='!pie-monorepo'",
+    "test:visual": "turbo run test:visual --filter='!pie-monorepo'",
+    "test:generate-routes": "turbo run test:generate-routes --filter='!pie-monorepo'"
   },
   "stylelint": {
     "extends": "@justeat/stylelint-config-fozzie"
