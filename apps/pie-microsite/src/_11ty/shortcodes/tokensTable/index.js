@@ -41,23 +41,39 @@ const createTokenDisplayName = (tokenKey, tokenType) => {
 
 /**
  * Splits a font/typography token into a parsable css value
- * @param {object} token - the token value i.e. {"size": "48|56","weight": "ExtraBold","text-decoration": "underline"}
+ * @param {object|string} token - the token value i.e. {"size": "48|56","weight": "ExtraBold","text-decoration": "underline", ...fontProperties} or
+ * size/weight values as string such as "12|16" "Regular"
+ * @param {object} tokenMetadata - the metadata for the token. data such as descriptions
  * @returns {object} an object containing the font styles of the token.
  */
-const splitFontAliasToken = token => {
-    const [fontSize, lineHeight] = token.size.split('|');
-
+const splitFontAliasToken = (token, tokenMetadata) => {
+    const isGlobal = typeof token === 'string';
+    const { category } = tokenMetadata;
     const fontWeightMap = {
         Regular: 400,
         Bold: 700,
         ExtraBold: 800
     };
-    
+
+    if (isGlobal) {
+        return {
+            fontFamily: category === 'fontFamily' && token,
+            fontSize: category === 'fontSize' && token.split('|')[0],
+            lineHeight: category === 'fontSize' && token.split('|')[1],
+            fontWeight: category === 'fontWeight' && fontWeightMap[token],
+            textDecoration: category === 'fontStyle' && token,
+            letterSpacing: category === 'letterSpacing' && token,
+            paragraphSpacing: category === 'paragraphSpacing' && token
+        }; 
+    }
+
     return {
-        fontSize, 
-        lineHeight,
+        fontFamily: token.family,
+        fontSize: token.size.split('|')[0], 
+        lineHeight: token.size.split('|')[1],
         fontWeight: fontWeightMap[token.weight],
-        textDecoration: token['text-decoration']
+        textDecoration: token['text-decoration'],
+        letterSpacing: token['letter-spacing']
     };
 };
 
@@ -128,21 +144,32 @@ const buildSpacingExample = token => {
 
 /**
 * Builds an example font/typography element to show on the token list item
-* @param {object} token - the token value i.e. {"size": "48|56","weight": "ExtraBold","text-decoration": "underline"}
-* @returns {string} - the typography example HTML string
-*/
-const buildFontExample = token => { 
+ * @param {object|string} token - the token value i.e. {"size": "48|56","weight": "ExtraBold","text-decoration": "underline", ...fontProperties} or
+ * size/weight values as string such as "12|16" "Regular"
+ * @param {object} tokenMetadata - the metadata for the token. data such as descriptions
+ * @returns {string} - the typography example HTML string
+ */
+const buildFontExample = (token, tokenMetadata) => { 
     const {
-        fontSize, lineHeight, fontWeight, textDecoration 
-    } = splitFontAliasToken(token);
+        fontFamily, fontSize, lineHeight, fontWeight,
+        textDecoration, letterSpacing, paragraphSpacing 
+    } = splitFontAliasToken(token, tokenMetadata);
+    const classes = ['c-tokensTable-example--font'];
     const cssVariables = [
-        `--example-font-size: ${fontSize}px`,
-        `--example-font-line-height: ${lineHeight}px`,
-        `--example-font-weight: ${fontWeight}`,
-        textDecoration && `--example-font-text-decoration: ${textDecoration}`
+        fontFamily && `--example-font-family: ${fontFamily}`,    
+        fontSize && `--example-font-size: ${fontSize}px`,
+        lineHeight && `--example-font-line-height: ${lineHeight}px`,
+        fontWeight && `--example-font-weight: ${fontWeight}`,
+        textDecoration && `--example-font-text-decoration: ${textDecoration}`,
+        letterSpacing && `--example-font-letter-spacing: ${letterSpacing}`,
+        paragraphSpacing && `--example-font-paragraph-spacing: ${paragraphSpacing}px`
     ].filter(Boolean);
+    
+    if (paragraphSpacing) classes.push('c-tokenTable-example-paragraph--font');
 
-    return `<div class="c-tokensTable-example--font" style="${cssVariables.join('; ')}">String</div>`;
+    const content = paragraphSpacing ? '<p>Paragraph</p><p>Paragraph</p>' : 'String';
+
+    return `<div class="${classes.join(' ')}" style="${cssVariables.join('; ')}">${content}</div>`;
 };
 /**
  * Builds an example element to display in the token list item.
@@ -151,7 +178,7 @@ const buildFontExample = token => {
  * @param {string} tokenType - the type of token i.e. color, spacing, radius
  * @returns {string} - the example HTML string
  */
-const buildTokenExampleElement = (token, tokenType) => {
+const buildTokenExampleElement = (token, tokenType, tokenMetadata) => {
     const tokenExampleElementHandler = {
         [tokenTypes.COLOR]: buildColorExample,
         [tokenTypes.FONT]: buildFontExample,
@@ -163,7 +190,7 @@ const buildTokenExampleElement = (token, tokenType) => {
         throw new Error(`token type not recognised: ${tokenType}. Token:${token}`);
     }
 
-    return tokenExampleElementHandler[tokenType](token);
+    return tokenExampleElementHandler[tokenType](token, tokenMetadata);
 };
 
 
@@ -192,7 +219,7 @@ const buildTokenListElements = ({
     tokenMetadata = {}
 }) => {
     const tokenPill = buildTokenPill(tokenScssName);
-    const tokenExampleElement = buildTokenExampleElement(token, tokenType);
+    const tokenExampleElement = buildTokenExampleElement(token, tokenType, tokenMetadata);
 
     // TODO - description is just an example of how we might use the metadata
     // We would likely wanted to move them into a colour specific handler similar to how we build
