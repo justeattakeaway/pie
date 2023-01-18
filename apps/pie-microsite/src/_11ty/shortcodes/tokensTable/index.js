@@ -293,8 +293,8 @@ const buildUncategorisedLists = ({
 
     const tokenListElements = sortedTokens.map(token => buildTokenListElements({
         token: tokens[token[0]],
-        tokenScssName: createScssTokenName(token[0], tokenType),
-        tokenDisplayName: createTokenDisplayName(token[0], tokenType),
+        tokenScssName: tokenTypeMetadata[token[0]]?.scssName ?? createScssTokenName(token[0], tokenType),
+        tokenDisplayName: tokenTypeMetadata[token[0]]?.displayName ?? createTokenDisplayName(token[0], tokenType),
         tokenType,
         tokenMetadata: tokenTypeMetadata[token[0]]
     }));

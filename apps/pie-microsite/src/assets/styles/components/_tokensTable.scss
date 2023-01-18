@@ -97,7 +97,7 @@ $tokensTable-item-min-height: 128px;
     justify-content: center;
     align-items: center;
     background-color: f.$color-background-subtle;
-    min-height: 160px;
+    min-height: 176px;
 
     @include f.media('>=wide') {
         display: block;
