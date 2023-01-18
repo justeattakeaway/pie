@@ -9,7 +9,7 @@ v1.40.0
 *January 18, 2023*
 
 ### Changed
-- `token` specific logic out of `tokensTable/index.js` to separate files
+- token specific logic out of `tokensTable/index.js` to separate files
 
 
 v1.39.0
