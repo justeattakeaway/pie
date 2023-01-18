@@ -3,6 +3,14 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+v1.36.0
+------------------------------
+*January 17, 2023*
+
+### Added
+- List out the typography global tokens on the global page, and group them as per the Figma designs.
+
+
 v1.35.0
 ------------------------------
 *January 17, 2023*

@@ -102,6 +102,26 @@
     }
   },
   "font": {
+    "global":{
+      "fontFamily": {
+        "displayName": "Font family"
+      },
+      "fontWeight": {
+        "displayName": "Font weight"
+      },
+      "fontSize": {
+        "displayName": "Font size"
+      },
+      "fontStyle": {
+        "displayName": "Font style"
+      },
+      "paragraphSpacing": {
+        "displayName": "Paragraph spacing"
+      },
+      "letterSpacing": {
+        "displayName": "Letter spacing"
+      }
+    },
     "alias": {
       "wide": {
         "headings": {

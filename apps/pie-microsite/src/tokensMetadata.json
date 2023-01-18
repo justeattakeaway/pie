@@ -618,6 +618,100 @@
     }
   },
   "font": {
+    "global": {
+      "family-primary": {
+        "category": "fontFamily",
+        "displayName": "JET Sans",
+        "description": "Our primary font family"
+      },
+      "family-secondary": {
+        "category": "fontFamily",
+        "displayName": "Arial",
+        "description": "Used only as a fallback font"
+      },
+      "family-code": {
+        "category": "fontFamily",
+        "displayName": "CP Mono",
+        "description": "Used only for snippets of code"
+      },
+      "weight-extrabold": {
+        "category": "fontWeight",
+        "displayName": "Extra bold"
+      },
+      "weight-bold": {
+        "category": "fontWeight",
+        "displayName": "Bold"
+      },
+      "weight-regular": {
+        "category": "fontWeight",
+        "displayName": "Regular"
+      },
+      "size-a": {
+        "category": "fontSize",
+        "displayName": "Font size a",
+        "description": "Text size: 12px <br /> Line height: 16px"
+      },
+      "size-b": {
+        "category": "fontSize",
+        "displayName": "Font size b",
+        "description": "Text size: 14px <br /> Line height: 20px"
+      },
+      "size-c": {
+        "category": "fontSize",
+        "displayName": "Font size c",
+        "description": "Text size: 16px <br /> Line height: 24px"
+      },
+      "size-d": {
+        "category": "fontSize",
+        "displayName": "Font size d",
+        "description": "Text size: 20px <br /> Line height: 28px"
+      },
+      "size-e": {
+        "category": "fontSize",
+        "displayName": "Font size e",
+        "description": "Text size: 24px <br /> Line height: 32px"
+      },
+      "size-f": {
+        "category": "fontSize",
+        "displayName": "Font size f",
+        "description": "Text size: 28px <br /> Line height: 36px"
+      },
+      "size-g": {
+        "category": "fontSize",
+        "displayName": "Font size g",
+        "description": "Text size: 32px <br /> Line height: 40px"
+      },
+      "size-h": {
+        "category": "fontSize",
+        "displayName": "Font size h",
+        "description": "Text size: 48px <br /> Line height: 56px"
+      },
+      "style-underline": {
+        "category": "fontStyle",
+        "displayName": "Underline",
+        "description": "Text decoration: underline"
+      },
+      "paragraph-spacing-01": {
+        "category": "paragraphSpacing",
+        "displayName": "Paragraph spacing 1",
+        "description": "Space between paragraphs: 16px"
+      },
+      "paragraph-spacing-02": {
+        "category": "paragraphSpacing",
+        "displayName": "Paragraph spacing 2",
+        "description": "Space between paragraphs: 14px"
+      },
+      "paragraph-spacing-03": {
+        "category": "paragraphSpacing",
+        "displayName": "Paragraph spacing 3",
+        "description": "Space between paragraphs: 12px"
+      },
+      "letter-spacing-00": {
+        "category": "letterSpacing",
+        "displayName": "Letter spacing 0",
+        "description": "Default letter spacing"
+      }
+    },
     "alias": {
       "wide": {
         "heading-xxl": {
