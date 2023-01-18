@@ -19,12 +19,7 @@ const {
  * @param {string} tokenType - the type of token i.e. color, spacing, radius
  * @returns {string} the SCSS variable name
  */
-const createScssTokenName = (tokenKey, tokenType, path = '') => {
-    const prefixExcludes = [path === 'radius.alias' ? tokenTypes.RADIUS : []];
-    const shouldShowPrefix = tokenType && !prefixExcludes.includes(tokenType);
-
-    return shouldShowPrefix ? `$${tokenType}-${tokenKey}` : `$${tokenKey}`;
-};
+const createScssTokenName = (tokenKey, tokenType) => `$${tokenType}-${tokenKey}`;
 
 /**
  * Creates a display name of the provided token. 'system-purple' would become 'System Purple'
@@ -32,9 +27,9 @@ const createScssTokenName = (tokenKey, tokenType, path = '') => {
  * @param {string} tokenType - the type of token i.e. color, spacing, radius
  * @returns {string} the display name of the token
  */
-const createTokenDisplayName = (tokenKey, tokenType, path = '') => {
+const createTokenDisplayName = (tokenKey, tokenType) => {
     // Some tokens don't require a prefix in front of their display names
-    const prefixExcludes = [tokenTypes.COLOR, path === 'radius.alias' ? tokenTypes.RADIUS : []];
+    const prefixExcludes = [tokenTypes.COLOR];
     const shouldShowPrefix = tokenType && !prefixExcludes.includes(tokenType);
     const tokenNameSegments = tokenKey.split('-');
     const capitalisedNameSegments = tokenNameSegments.map(stringHelpers.capitaliseFirstLetter);
@@ -290,7 +285,7 @@ const buildUncategorisedLists = ({
     tokens, path, tokenType
 }) => {
     const tokenTypeMetadata = getTokenTypeMetadata(path);
-
+    
     // if tokens are numbers (spacing / radius), sort in ascending order
     const sortedTokens = Object.keys(tokens).every(numberHelpers.isNumber)
         ? Object.entries(tokens).sort((a, b) => a[1] - b[1]) // [[key, value]]
@@ -298,8 +293,8 @@ const buildUncategorisedLists = ({
 
     const tokenListElements = sortedTokens.map(token => buildTokenListElements({
         token: tokens[token[0]],
-        tokenScssName: createScssTokenName(token[0], tokenType, path),
-        tokenDisplayName: createTokenDisplayName(token[0], tokenType, path),
+        tokenScssName: tokenTypeMetadata[token[0]]?.scssName ?? createScssTokenName(token[0], tokenType),
+        tokenDisplayName: tokenTypeMetadata[token[0]]?.displayName ?? createTokenDisplayName(token[0], tokenType),
         tokenType,
         tokenMetadata: tokenTypeMetadata[token[0]]
     }));
