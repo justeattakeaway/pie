@@ -9,6 +9,8 @@ v1.22.0
 *January 19, 2022*
 
 ### Added
+- Typescript support.
+- Lit for building web components.
 - Vite as a dev dependency.
 
 

@@ -6,8 +6,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 v0.1.0
 ---------------------
-*January 17, 2023*
+*January 19, 2023*
 
 ### Added
 - Basic button using Lit
-- Initial TypeScript and Rollup config
+- Initial TypeScript and Vite config
