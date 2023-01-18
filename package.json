@@ -63,7 +63,7 @@
     "chromedriver": "108.0.0",
     "cross-env": "7.0.3",
     "cssnano": "5.1.13",
-    "dree": "3.4.2",
+    "dree": "3.4.3",
     "eslint": "8.14.0",
     "eslint-plugin-import": "2.26.0",
     "husky": "8.0.1",
