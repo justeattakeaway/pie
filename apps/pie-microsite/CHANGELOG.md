@@ -3,12 +3,21 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+v1.38.0
+------------------------------
+*January 18, 2023*
+
+### Added
+-   Alias tokens to radius page
+
+
 v1.37.0
 ------------------------------
 *January 17, 2023*
 
-### Added
--   Alias tokens to radius page
+### Fixed
+- Heading font size resolved for large and narrow devices.
+- Divider missing for main section heading.
 
 
 v1.36.0

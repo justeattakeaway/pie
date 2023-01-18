@@ -36,6 +36,7 @@ width: "360px",
 caption: "The image above shows the colour contrast for white text placed over our ‘Aubergine’ colour."
 } %}
 
+--- 
 ## Using orange in your designs
 
 We’re an orange brand, which means that orange always takes centre stage. It represents our joyful personality, it’s bold, energising and we use it wherever we communicate.
