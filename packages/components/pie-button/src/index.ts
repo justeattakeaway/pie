@@ -3,7 +3,7 @@ import { customElement } from 'lit/decorators.js';
 
 @customElement('pie-button')
 export class PieButton extends LitElement {
-    override render () {
+    render () {
         return html`<button>I'm a PIE button</button>`;
     }
 }

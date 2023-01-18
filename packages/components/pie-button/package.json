@@ -2,10 +2,11 @@
   "name": "@justeattakeaway/pie-button",
   "version": "0.1.0",
   "description": "PIE design system button built using web components",
-  "main": "index.js",
+  "type": "module",
+  "main": "dist/pie-button.js",
   "scripts": {
-    "bundle": "yarn compile && run -T rollup -c",
-    "compile": "npx tsc",
+    "build": "npx tsc && run -T vite build",
+    "dev": "run -T vite",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "JustEatTakeaway - Design System Web Team",
