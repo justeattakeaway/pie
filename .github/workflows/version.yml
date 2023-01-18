@@ -58,7 +58,7 @@ jobs:
               return;
             }
             const { stdout: shortHash } = await exec.getExecOutput('git rev-parse --short HEAD');
-            const fileName = `.changeset/dependabot-${shortHash.trim()}.md`;
+            const fileName = `.changeset/renovate-${shortHash.trim()}.md`;
             const { stdout: commitMessage } = await exec.getExecOutput('git show --pretty=format:%s -s HEAD');
             await createChangeset(fileName, commitMessage, packageNames);
             await exec.exec('git', ['add', fileName]);
