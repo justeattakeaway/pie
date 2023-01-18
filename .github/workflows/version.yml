@@ -13,10 +13,10 @@ jobs:
         with:
           fetch-depth: 2
           ref: ${{ github.head_ref }}
-      # - name: Configure Git
-      #   run: |
-      #     git config --global user.email noreply@test.com
-      #     git config --global user.name 'Github changeset workflow'
+      - name: Configure Git
+        run: |
+          git config --global user.email fozzie-bot@justeattakeaway.com
+          git config --global user.name 'Fozzie Bot'
       - name: Generate changeset
         uses: actions/github-script@v6
         with:
