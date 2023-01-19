@@ -1,0 +1,39 @@
+on:
+  push:
+    branches: ['main']
+
+jobs:
+  version:
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout the Repo
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup Node
+        # Setup Node 16
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: 'yarn'
+      # Restore node_modules if cache exists. If not, cache is created at end of build.
+      - name: Cache Node Modules
+        id: cache-node-modules
+        uses: actions/cache@v3
+        with:
+          path: '**/node_modules'
+          key: node-modules-${{ hashFiles('**/yarn.lock') }}
+      # Run 'yarn' if cache doesn't exist. Use --prefer-offline to download packages from yarn cache folder where possible
+      - name: Install Dependencies
+        if: steps.cache-node-modules.outputs.cache-hit != 'true'
+        run: yarn add --cached
+      - name: Check we have changesets since main
+        run: yarn changeset status --since=main
+      - name: Bump version
+        run: yarn version
+      - name: Commit changes
+        run: |
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "github-actions[bot]"
+          git add .
+          git commit -m "Bump version"
+          git push -u --set-upstream origin main --force
