@@ -4,6 +4,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 
+v1.40.0
+------------------------------
+*January 18, 2023*
+
+### Changed
+- token specific logic out of `tokensTable/index.js` to separate files
+
+
 v1.39.0
 ------------------------------
 *January 18, 2023*
