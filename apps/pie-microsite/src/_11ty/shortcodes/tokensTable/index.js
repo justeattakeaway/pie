@@ -3,7 +3,11 @@ const normalizedPieDesignTokens = require('../../../_data/normalizeTokens');
 const pieTokenCategories = require('../../../tokenCategories.json');
 const { stringHelpers, objectHelpers, numberHelpers } = require('../../../utilities/helpers');
 const tokenTypes = require('../../../_data/tokenTypes');
-const { isColorDark } = require('../../../utilities/colors');
+const { buildColorName, buildColorExample } = require('./tokenTypes/colour');
+const { buildSpacingExample } = require('./tokenTypes/spacing');
+const { buildFontExample } = require('./tokenTypes/font');
+const { buildRadiusExample } = require('./tokenTypes/radius');
+
 const {
     getParentCategoriesForTokenType,
     getSubcategoriesForParentCategory,
@@ -20,30 +24,6 @@ const {
  * @returns {string} the SCSS variable name
  */
 const createScssTokenName = (tokenKey, tokenType) => `$${tokenType}-${tokenKey}`;
-
-const createHighContrastName = tokenName => {
-    const highContrast = '(High Contrast)';
-    const hasShade = tokenName.includes('Light') || tokenName.includes('Dark');
-
-    if (hasShade) {
-        const tokenNameArray = tokenName.split(' ');
-        const shade = tokenNameArray.pop();
-
-        return `${shade} ${tokenNameArray.join(' ')} ${highContrast}`;
-    }
-
-    return `${tokenName} ${highContrast}`;
-};
-
-const buildColorName = tokenName => {
-    const highContrastSuffix = ' Hc';
-
-    if (tokenName.includes(highContrastSuffix)) {
-        return createHighContrastName(tokenName.replace(highContrastSuffix, ''));
-    }
-
-    return tokenName;
-};
 
 /**
  * Creates a display name of the provided token. 'system-purple' would become 'System Purple'
@@ -64,138 +44,6 @@ const createTokenDisplayName = (tokenKey, tokenType) => {
         : buildColorName(tokenName);
 };
 
-/**
- * Splits a font/typography token into a parsable css value
- * @param {object|string} token - the token value i.e. {"size": "48|56","weight": "ExtraBold","text-decoration": "underline", ...fontProperties} or
- * size/weight values as string such as "12|16" "Regular"
- * @param {object} tokenMetadata - the metadata for the token. data such as descriptions
- * @returns {object} an object containing the font styles of the token.
- */
-const splitFontAliasToken = (token, tokenMetadata) => {
-    const isGlobal = typeof token === 'string';
-    const { category } = tokenMetadata;
-    const fontWeightMap = {
-        Regular: 400,
-        Bold: 700,
-        ExtraBold: 800
-    };
-
-    if (isGlobal) {
-        return {
-            fontFamily: category === 'fontFamily' && token,
-            fontSize: category === 'fontSize' && token.split('|')[0],
-            lineHeight: category === 'fontSize' && token.split('|')[1],
-            fontWeight: category === 'fontWeight' && fontWeightMap[token],
-            textDecoration: category === 'fontStyle' && token,
-            letterSpacing: category === 'letterSpacing' && token,
-            paragraphSpacing: category === 'paragraphSpacing' && token
-        }; 
-    }
-
-    return {
-        fontFamily: token.family,
-        fontSize: token.size.split('|')[0], 
-        lineHeight: token.size.split('|')[1],
-        fontWeight: fontWeightMap[token.weight],
-        textDecoration: token['text-decoration'],
-        letterSpacing: token['letter-spacing']
-    };
-};
-
-/**
- * Splits a color token into it's hexcode and opacity value (if one is provided)
- * @param {string} token - the token value i.e. #000, #ffffff, #000|0.85 or #000000|0.85
- * @returns {object} an object containing a hexcode and opacity value (if opacity was provided)
- */
-const splitColorToken = token => {
-    const [hexcode, opacity] = token.split('|');
-
-    return {
-        hexcode,
-        opacity
-    };
-};
-
-/**
- * Builds the example color swatch to show on the token list item
- * @param {string} token - the token value i.e. #000, #ffffff, #000|0.85 or #000000|0.85
- * @returns {string} - the color swatch example HTML string
- */
-const buildColorExample = token => {
-    const tokenValues = splitColorToken(token);
-    const classes = ['c-tokensTable-example'];
-
-    if (tokenValues.opacity) {
-        classes.push('c-tokensTable-example--checked');
-    }
-
-    if (!isColorDark(tokenValues.hexcode)) {
-        classes.push('c-tokensTable-example--bordered');
-    }
-
-    const cssVariable = tokenValues.opacity
-        ? `--example-checked-opacity: ${tokenValues.opacity}`
-        : `--example-background-color: ${tokenValues.hexcode}`;
-
-    return `<div class="${classes.join(' ')}" style="${cssVariable}";></div>`;
-};
-
-/**
- * Builds the example radius swatch to show on the token list item
- * @param {string} token - the token value in pixels
- * @returns {string} - the radius swatch example HTML string
- */
-const buildRadiusExample = token => {
-    const classes = ['c-tokensTable-example-radius'];
-    const style = `--example-radius: ${token}px`;
-
-    return `
-        <div class="c-tokensTable-example-radius-container">
-            <div class="${classes.join(' ')}" style="${style}"></div>
-        </div>
-    `;
-};
-
-/**
- * Builds the example spacing swatch to show on the token list item
- * @param {string} token - the token value i.e. 24, 80
- * @returns {string} - the spacing swatch example HTML string
- */
-const buildSpacingExample = token => {
-    const cssVariable = `--example-spacing: ${token}px`;
-
-    return `<div class="c-tokensTable-example-spacing-container"><div class="c-tokensTable-example--spacing" style="${cssVariable}";></div></div>`;
-};
-
-/**
-* Builds an example font/typography element to show on the token list item
- * @param {object|string} token - the token value i.e. {"size": "48|56","weight": "ExtraBold","text-decoration": "underline", ...fontProperties} or
- * size/weight values as string such as "12|16" "Regular"
- * @param {object} tokenMetadata - the metadata for the token. data such as descriptions
- * @returns {string} - the typography example HTML string
- */
-const buildFontExample = (token, tokenMetadata) => { 
-    const {
-        fontFamily, fontSize, lineHeight, fontWeight,
-        textDecoration, letterSpacing, paragraphSpacing 
-    } = splitFontAliasToken(token, tokenMetadata);
-    const classes = ['c-tokensTable-example--font'];
-    const cssVariables = [
-        fontFamily && `--example-font-family: ${fontFamily}`,    
-        fontSize && `--example-font-size: ${fontSize}px`,
-        lineHeight && `--example-font-line-height: ${lineHeight}px`,
-        fontWeight && `--example-font-weight: ${fontWeight}`,
-        textDecoration && `--example-font-text-decoration: ${textDecoration}`,
-        letterSpacing && `--example-font-letter-spacing: ${letterSpacing}`,
-        paragraphSpacing && `--example-font-paragraph-spacing: ${paragraphSpacing}px`
-    ].filter(Boolean);
-    
-    if (paragraphSpacing) classes.push('c-tokenTable-example-paragraph--font');
-
-    const content = paragraphSpacing ? '<p>Paragraph</p><p>Paragraph</p>' : 'String';
-
-    return `<div class="${classes.join(' ')}" style="${cssVariables.join('; ')}">${content}</div>`;
-};
 /**
  * Builds an example element to display in the token list item.
  * This could be a color swatch, a representation of border radius or spacing etc.
