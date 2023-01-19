@@ -4,6 +4,16 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 
+v1.22.0
+------------------------------
+*January 19, 2022*
+
+### Added
+- Typescript support.
+- Lit for building web components.
+- Vite as a dev dependency.
+
+
 v1.21.4
 ------------------------------
 *January 17, 2022*
@@ -151,7 +161,7 @@ v1.14.0
 
 v1.13.1
 ------------------------------
-*October 03, 2022*
+*October 3, 2022*
 
 ### Changed
 - Fixed Husky to work with Yarn 2+
@@ -182,7 +192,7 @@ v1.12.0
 
 v1.11.0
 ------------------------------
-*September 05, 2022*
+*September 5, 2022*
 
 ### Added
 - `precommit` checks for sensitive information.
