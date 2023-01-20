@@ -1,11 +1,8 @@
 ---
 eleventyNavigation:
     key: Overview
-    parent: Using design tokens
+    parent: Design Tokens
     order: 1
-title: Design Tokens
-navKey: Using design tokens
-description: Design Tokens store design decisions within our Foundations, allowing us to apply them consistently throughought designs, products, code and platforms.
 ---
 
 ## What are Design Tokens?
