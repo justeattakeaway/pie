@@ -45,6 +45,7 @@ pre[class*="language-"]::selection {
 pre[class*="language-"] {
   padding: 20px;
   margin: 0;
+  overflow:auto;
 }
 :not(pre) > code[class*="language-"],
 pre[class*="language-"] {
@@ -119,7 +120,7 @@ pre[class*="language-"] {
 div.code-toolbar {
   position: relative;
   max-width: 1025px;
-  overflow: hidden;
+  // overflow: hidden;
   margin: 25px 0px 40px;
   border-radius: 4px;
   box-shadow: rgb(0 0 0 / 10%) 0px 1px 3px 0px;
