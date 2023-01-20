@@ -48,7 +48,7 @@ jobs:
       - name: Create release PR
         uses: changesets/action@v1
         with:
-          version: yarn version
+          version: npx changeset version
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           HUSKY: 0
