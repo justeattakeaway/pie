@@ -45,10 +45,8 @@ jobs:
         # prerelease mode, enter prerelease mode with tag alpha
         if: steps.check_files.outputs.files_exists == 'true'
         run: npx changeset pre exit
-      - name: Create release PR
-        uses: changesets/action@v1
-        with:
-          version: npx changeset version
+      - name: Version Packages
+        run: npx changeset version
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           HUSKY: 0
