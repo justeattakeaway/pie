@@ -34,7 +34,6 @@ jobs:
           key: node-modules-${{ hashFiles('**/yarn.lock') }}
       # Run 'yarn' if cache doesn't exist. Use --prefer-offline to download packages from yarn cache folder where possible
       - name: Install Dependencies
-        if: steps.cache-node-modules.outputs.cache-hit == 'true'
         run: yarn add --cached
       - name: Check for pre.json file existence
         id: check_files
