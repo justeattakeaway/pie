@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.43.0
+
+### Minor Changes
+
+- [#19](https://github.com/siggerzz/pie/pull/19) [`9123491`](https://github.com/siggerzz/pie/commit/9123491aa0359790a45dc6918c54b71e121678a5) Thanks [@siggerzz](https://github.com/siggerzz)! - Made package private so it's not published to npm
+
 ## 1.43.0-beta.0
 
 ### Minor Changes
