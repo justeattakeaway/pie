@@ -46,7 +46,11 @@ jobs:
         if: steps.check_files.outputs.files_exists == 'true'
         run: npx changeset pre exit
       - name: Version Packages
-        run: npx changeset version
+        run: | 
+          npx changeset version
+          git add .
+          git commit -m ":rocket: Version Stable Packages"
+          git push --follow-tags
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           HUSKY: 0
