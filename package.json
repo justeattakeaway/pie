@@ -1,7 +1,7 @@
 {
   "name": "pie-monorepo",
   "description": "JustEatTakeaway",
-  "version": "1.22.0",
+  "version": "1.23.0-beta.0",
   "keywords": [],
   "author": "JustEatTakeaway - Design System Web Team",
   "license": "Apache-2.0",
@@ -11,26 +11,28 @@
     "node": "^16"
   },
   "workspaces": [
+    "./",
     "apps/**/*",
     "packages/**/*"
   ],
   "scripts": {
-    "build": "turbo run build",
-    "test": "turbo run test",
-    "test:ci": "turbo run test:ci",
-    "test:system:ci": "turbo run test:system:ci",
-    "test:visual:ci": "turbo run test:visual:ci",
-    "test:coverage": "turbo run test:coverage",
-    "lint:scripts": "turbo run lint:scripts",
-    "lint:scripts:fix": "turbo run lint:fix",
-    "lint:style": "turbo run lint:style --continue",
-    "dev": "turbo run dev",
+    "build": "turbo run build --filter='!pie-monorepo'",
+    "changeset": "changeset",
+    "test": "turbo run test --filter='!pie-monorepo'",
+    "test:ci": "turbo run test:ci --filter='!pie-monorepo'",
+    "test:system:ci": "turbo run test:system:ci --filter='!pie-monorepo'",
+    "test:visual:ci": "turbo run test:visual:ci --filter='!pie-monorepo'",
+    "test:coverage": "turbo run test:coverage --filter='!pie-monorepo'",
+    "lint:scripts": "turbo run lint:scripts --filter='!pie-monorepo'",
+    "lint:scripts:fix": "turbo run lint:fix --filter='!pie-monorepo'",
+    "lint:style": "turbo run lint:style --continue --filter='!pie-monorepo'",
+    "dev": "turbo run dev --filter='!pie-monorepo'",
     "postinstall": "husky install",
     "prepack": "pinst --disable",
     "postpack": "pinst --enable",
-    "test:system": "turbo run test:system",
-    "test:visual": "turbo run test:visual",
-    "test:generate-routes": "turbo run test:generate-routes"
+    "test:system": "turbo run test:system --filter='!pie-monorepo'",
+    "test:visual": "turbo run test:visual --filter='!pie-monorepo'",
+    "test:generate-routes": "turbo run test:generate-routes --filter='!pie-monorepo'"
   },
   "stylelint": {
     "extends": "@justeat/stylelint-config-fozzie"
@@ -42,6 +44,8 @@
     "@babel/node": "7.16.8",
     "@babel/preset-env": "7.16.11",
     "@babel/register": "7.18.9",
+    "@changesets/changelog-github": "0.4.8",
+    "@changesets/cli": "2.26.0",
     "@justeat/browserslist-config-fozzie": "1.x",
     "@justeat/eslint-config-fozzie": "5.1.0",
     "@justeat/pie-design-tokens": "3.5.0",

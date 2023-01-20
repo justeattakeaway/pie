@@ -1,0 +1,18 @@
+{
+  "mode": "pre",
+  "tag": "beta",
+  "initialVersions": {
+    "pie-monorepo": "1.22.0",
+    "pie-microsite": "1.42.1",
+    "@justeattakeaway/pie-button": "0.1.0",
+    "@justeattakeaway/pie-icons": "2.0.0-beta.2",
+    "@justeattakeaway/pie-icons-react": "1.0.0-beta.0",
+    "@justeattakeaway/pie-icons-vue": "2.0.0-beta.1",
+    "@justeattakeaway/pie-stylelint-config": "0.1.0"
+  },
+  "changesets": [
+    "eleven-spoons-attack",
+    "fresh-news-boil",
+    "grumpy-crabs-compare"
+  ]
+}
