@@ -89,59 +89,59 @@ jobs:
       - name: Unit Tests
         run: yarn test:ci --cache-dir=".turbo"
 
-  # deploy:
-  #   needs: build
-  #   runs-on: ubuntu-latest
-  #   outputs:
-  #     deployment-url: ${{ steps.preview.outputs.deployment-url }}
-  #   steps:
-  #     # Checkout the Repo
-  #     - name: Checkout
-  #       uses: actions/checkout@v3
-  #     # Setup Node 16
-  #     - name: Setup Node
-  #       uses: actions/setup-node@v3
-  #       with:
-  #         node-version: 16
-  #         cache: 'yarn'
-  #     # Restore node_modules - Cache should exist as one was created in previous 'install' job
-  #     - name: Cache Node Modules
-  #       id: cache-node-modules
-  #       uses: actions/cache@v3
-  #       with:
-  #         path: '**/node_modules'
-  #         key: node-modules-${{ hashFiles('**/yarn.lock') }}
-  #     # Restore Turborepo's 'dist' cache - If not, cache is created at end of build.
-  #     - name: Cache Turborepo Dist
-  #       id: turborepo-dist-cache
-  #       uses: actions/cache@v3
-  #       with:
-  #         path: .turbo
-  #         key: turborepo-dist-cache-${{ github.ref_name }}-${{ github.sha }}
-  #         # Use one of the following keys if the above is not found.
-  #         restore-keys: |
-  #           turborepo-dist-cache-${{ github.ref_name }}
-  #           turborepo-dist-cache-
-  #     # Build Packages
-  #     - name: Build Microsite
-  #       run: yarn build --filter=pie-microsite --cache-dir=".turbo"
-  #     - name: Deploy - PR Preview
-  #       id: preview
-  #       if: ${{ github.ref != 'refs/heads/main' }}
-  #       uses: rossjrw/pr-preview-action@v1
-  #       with:
-  #         source-dir: ./apps/pie-microsite/dist
-  #         preview-branch: gh-pages
-  #         umbrella-dir: pr-preview
-  #         action: auto
-  #     - name: Deploy - Master
-  #       if: ${{ github.ref == 'refs/heads/main' }}
-  #       uses: JamesIves/github-pages-deploy-action@v4
-  #       with:
-  #         folder: ./apps/pie-microsite/dist
-  #         branch: gh-pages
-  #         clean-exclude: pr-preview
-  #         force: false
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    outputs:
+      deployment-url: ${{ steps.preview.outputs.deployment-url }}
+    steps:
+      # Checkout the Repo
+      - name: Checkout
+        uses: actions/checkout@v3
+      # Setup Node 16
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: 'yarn'
+      # Restore node_modules - Cache should exist as one was created in previous 'install' job
+      - name: Cache Node Modules
+        id: cache-node-modules
+        uses: actions/cache@v3
+        with:
+          path: '**/node_modules'
+          key: node-modules-${{ hashFiles('**/yarn.lock') }}
+      # Restore Turborepo's 'dist' cache - If not, cache is created at end of build.
+      - name: Cache Turborepo Dist
+        id: turborepo-dist-cache
+        uses: actions/cache@v3
+        with:
+          path: .turbo
+          key: turborepo-dist-cache-${{ github.ref_name }}-${{ github.sha }}
+          # Use one of the following keys if the above is not found.
+          restore-keys: |
+            turborepo-dist-cache-${{ github.ref_name }}
+            turborepo-dist-cache-
+      # Build Packages
+      - name: Build Microsite
+        run: yarn build --filter=pie-microsite --cache-dir=".turbo"
+      - name: Deploy - PR Preview
+        id: preview
+        if: ${{ github.ref != 'refs/heads/main' }}
+        uses: rossjrw/pr-preview-action@v1
+        with:
+          source-dir: ./apps/pie-microsite/dist
+          preview-branch: gh-pages
+          umbrella-dir: pr-preview
+          action: auto
+      - name: Deploy - Master
+        if: ${{ github.ref == 'refs/heads/main' }}
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: ./apps/pie-microsite/dist
+          branch: gh-pages
+          clean-exclude: pr-preview
+          force: false
 
   # browser-tests:
   #   needs: deploy
