@@ -3,7 +3,7 @@
       "@changesets/changelog-github",
       { "repo": "siggerzz/pie" }
     ],
-    "commit": false,
+    "commit": true,
     "fixed": [],
     "access": "public",
     "baseBranch": "main",
