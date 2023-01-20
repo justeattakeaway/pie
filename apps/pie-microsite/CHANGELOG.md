@@ -20,7 +20,7 @@ v1.41.0
 - Typography Page - Code section
 
 ### Changed
-- prims to include support for Shell snippets
+- prism to include support for Shell snippets
 - chromedriver to 109.0.0
 
 
