@@ -15,6 +15,14 @@ v1.41.0
 - chromedriver to 109.0.0
 
 
+v1.42.0
+------------------------------
+*January 20, 2023*
+
+### Added
+- Design Tokens Overview page
+
+
 v1.40.0
 ------------------------------
 *January 18, 2023*
