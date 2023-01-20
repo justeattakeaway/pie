@@ -14,7 +14,7 @@ module.exports = eleventyConfig => {
   // Filters
   filters.addAllFilters(eleventyConfig);
 
-  // Shortcodes
+  // Shortcodes - minor change
   shortcodes.addAllShortCodes(eleventyConfig);
 
   // Pass CNAME file into dist output (needed for domain to work correctly)
