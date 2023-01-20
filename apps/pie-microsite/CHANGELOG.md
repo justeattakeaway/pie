@@ -3,6 +3,17 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+v1.41.0
+------------------------------
+*January 20, 2023*
+
+### Added
+- Typography Page - Code section
+
+### Changed
+- prims to include support for Shell snippets
+- chromedriver to 109.0.0
+
 
 v1.40.0
 ------------------------------
