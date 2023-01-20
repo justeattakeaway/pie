@@ -46,10 +46,8 @@ jobs:
         # prerelease mode, enter prerelease mode with tag beta
         if: steps.check_files.outputs.files_exists == 'false'
         run: npx changeset pre enter beta
-      - name: Create beta release PR
-        uses: changesets/action@v1
-        with:
-          version: npx changeset version
+      - name: Version Beta Packages
+        run: npx changeset version
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           HUSKY: 0
