@@ -12,6 +12,7 @@ v1.41.0
 
 ### Changed
 - prims to include support for Shell snippets
+- chromedriver to 109.0.0
 
 
 v1.40.0
