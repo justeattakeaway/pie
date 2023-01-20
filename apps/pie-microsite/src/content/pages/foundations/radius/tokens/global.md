@@ -6,7 +6,7 @@ eleventyNavigation:
 ---
 
 ## Global radius tokens
-We have set a number of global tokens which set the roundness of the corners:
+We have set a number of global tokens which set the roundness of the corners.
 
 ---
 
