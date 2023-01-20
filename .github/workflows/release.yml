@@ -24,13 +24,13 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
-          cache: 'yarn'
+          cache: "yarn"
       # Restore node_modules if cache exists. If not, cache is created at end of build.
       - name: Cache Node Modules
         id: cache-node-modules
         uses: actions/cache@v3
         with:
-          path: '**/node_modules'
+          path: "**/node_modules"
           key: node-modules-${{ hashFiles('**/yarn.lock') }}
       # Run 'yarn' if cache doesn't exist. Use --prefer-offline to download packages from yarn cache folder where possible
       - name: Install Dependencies
@@ -45,20 +45,14 @@ jobs:
         # prerelease mode, enter prerelease mode with tag alpha
         if: steps.check_files.outputs.files_exists == 'true'
         run: npx changeset pre exit
-      - name: Version Packages
-        run: | 
-          npx changeset version
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          git add .
-          git commit -m ":rocket: Version Stable Packages"
-          git push --follow-tags
+      - name: Create beta release PR
+        uses: changesets/action@v1
+        with:
+          version: npx changeset version
+          commit: ":rocket: Version Stable Packages"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           HUSKY: 0
-
-
-
 
       # - name: Create Release Pull Request
       #   uses: changesets/action@v1
