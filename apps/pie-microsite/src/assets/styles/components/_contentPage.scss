@@ -146,11 +146,11 @@
 .c-contentPage-content a {
     color: f.$color-content-link-distinct;
 
-    &:hover, &:active {
-        text-decoration: none;
-    }
-
     &:visited {
         color: f.$color-content-link-visited;
+    }
+
+    &:hover, &:active, &:focus {
+        text-decoration: none;
     }
 }
