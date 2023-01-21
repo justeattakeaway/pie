@@ -3,7 +3,6 @@ export default {
   name: 'ClockAddSmallIcon',
   props: {},
   functional: true,
-
   render(h, ctx) {
     const attrs = ctx.data.attrs || {};
     ctx.data.attrs = attrs;
@@ -27,5 +26,4 @@ export default {
       }
     })]);
   }
-
 };

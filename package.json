@@ -18,6 +18,7 @@
   "scripts": {
     "build": "turbo run build --filter='!pie-monorepo'",
     "changeset": "changeset",
+    "cm": "cz",
     "test": "turbo run test --filter='!pie-monorepo'",
     "test:ci": "turbo run test:ci --filter='!pie-monorepo'",
     "test:system:ci": "turbo run test:system:ci --filter='!pie-monorepo'",
@@ -61,6 +62,8 @@
     "autoprefixer": "10.4.7",
     "babel-loader": "8.2.3",
     "chromedriver": "109.0.0",
+    "commitizen": "4.3.0",
+    "commitizen-emoji": "^1.0.5",
     "cross-env": "7.0.3",
     "cssnano": "5.1.13",
     "dree": "3.4.2",
@@ -87,7 +90,7 @@
   },
   "dependencies": {
     "@justeat/fozzie": "10.9.0",
-    "@justeattakeaway/pie-icons": "2.0.0",
+    "@justeattakeaway/pie-icons": "1.0.0",
     "lit": "2.6.1"
   }
 }

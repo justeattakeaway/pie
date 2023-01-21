@@ -1,0 +1,8 @@
+{
+  "path": "./node_modules/commitizen-emoji",
+  "config": {
+    "commitizenEmoji": {
+      "scopes": ["apps", "tools", "packages", "ci", "global"]
+    }
+  }
+}

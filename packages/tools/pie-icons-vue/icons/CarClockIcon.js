@@ -3,7 +3,6 @@ export default {
   name: 'CarClockIcon',
   props: {},
   functional: true,
-
   render(h, ctx) {
     const attrs = ctx.data.attrs || {};
     ctx.data.attrs = attrs;
@@ -39,5 +38,4 @@ export default {
       }
     })]);
   }
-
 };
