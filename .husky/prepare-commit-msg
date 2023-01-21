@@ -1,10 +1,6 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-# Commitizen setup
-exec < /dev/tty && npx cz --hook || true
-
-
 # Section for git-secrets
 if ! command -v git-secrets &> /dev/null
 then
