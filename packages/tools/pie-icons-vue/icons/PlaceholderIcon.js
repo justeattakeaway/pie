@@ -3,7 +3,6 @@ export default {
   name: 'PlaceholderIcon',
   props: {},
   functional: true,
-
   render(h, ctx) {
     const attrs = ctx.data.attrs || {};
     ctx.data.attrs = attrs;
@@ -21,5 +20,4 @@ export default {
       }
     })]);
   }
-
 };

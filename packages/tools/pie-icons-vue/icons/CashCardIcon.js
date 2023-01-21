@@ -3,7 +3,6 @@ export default {
   name: 'CashCardIcon',
   props: {},
   functional: true,
-
   render(h, ctx) {
     const attrs = ctx.data.attrs || {};
     ctx.data.attrs = attrs;
@@ -35,5 +34,4 @@ export default {
       }
     })]);
   }
-
 };
