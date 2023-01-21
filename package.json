@@ -63,6 +63,7 @@
     "babel-loader": "8.2.3",
     "chromedriver": "109.0.0",
     "commitizen": "4.3.0",
+    "commitizen-emoji": "^1.0.5",
     "cross-env": "7.0.3",
     "cssnano": "5.1.13",
     "dree": "3.4.2",
