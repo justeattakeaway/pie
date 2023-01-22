@@ -2,12 +2,13 @@
   "name": "@justeattakeaway/pie-button",
   "version": "0.1.0",
   "description": "PIE design system button built using web components",
-  "type": "module",
   "main": "dist/pie-button.js",
   "scripts": {
     "build": "npx tsc && run -T vite build",
     "dev": "run -T vite",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test:system": "npx playwright test -c ../../../playwright.config.ts --grep @system",
+    "test:system:ci": "yarn test:system"
   },
   "author": "JustEatTakeaway - Design System Web Team",
   "license": "Apache-2.0"

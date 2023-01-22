@@ -51,13 +51,10 @@
     "@justeat/eslint-config-fozzie": "5.1.0",
     "@justeat/pie-design-tokens": "3.5.0",
     "@justeat/stylelint-config-fozzie": "3.x",
-    "@percy/cli": "1.16.0",
-    "@percy/webdriverio": "2.0.2",
-    "@wdio/allure-reporter": "7.26.0",
-    "@wdio/cli": "7.27.0",
-    "@wdio/devtools-service": "7.27.0",
-    "@wdio/local-runner": "7.27.0",
-    "@wdio/mocha-framework": "7.26.0",
+    "@percy/cli": "1.17.0",
+    "@percy/playwright": "1.0.4",
+    "@playwright/test": "1.29.2",
+    "@sand4rt/experimental-ct-web": "1.0.2",
     "allure-commandline": "2.20.1",
     "autoprefixer": "10.4.7",
     "babel-loader": "8.2.3",
@@ -85,8 +82,7 @@
     "typescript": "4.9.4",
     "vite": "4.0.4",
     "vue": "2.6.10",
-    "vue-template-compiler": "2.6.10",
-    "wdio-chromedriver-service": "8.0.0"
+    "vue-template-compiler": "2.6.10"
   },
   "dependencies": {
     "@justeat/fozzie": "10.9.0",
