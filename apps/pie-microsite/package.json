@@ -1,6 +1,7 @@
 {
   "name": "pie-microsite",
   "description": "todo",
+  "private": true,
   "version": "1.43.0",
   "main": "index.js",
   "keywords": [],
