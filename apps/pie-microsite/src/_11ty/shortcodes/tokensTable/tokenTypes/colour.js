@@ -30,7 +30,7 @@ const splitColorToken = token => {
 
 
 const buildColorName = tokenName => {
-    const highContrastSuffix = ' Hc';
+    const highContrastSuffix = ' hc';
 
     if (tokenName.includes(highContrastSuffix)) {
         return createHighContrastName(tokenName.replace(highContrastSuffix, ''));
