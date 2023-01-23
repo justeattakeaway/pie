@@ -154,3 +154,9 @@
         text-decoration: none;
     }
 }
+
+.c-contentPage-content {
+    p:has(+ .c-tokensTable) {
+        margin-bottom: f.spacing(f); // for a tokens table directly following a description add margin. Descriptions normally have a `<hr />` as a separator.
+    }
+}
