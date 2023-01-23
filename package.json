@@ -28,6 +28,7 @@
     "postinstall": "husky install",
     "prepack": "pinst --disable",
     "postpack": "pinst --enable",
+    "storybook-build": "turbo run storybook-build",
     "test:system": "turbo run test:system",
     "test:visual": "turbo run test:visual",
     "test:generate-routes": "turbo run test:generate-routes"

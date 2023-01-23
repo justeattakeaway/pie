@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "description": "Storybook for PIE Design System compoents",
   "scripts": {
-    "dev": "storybook dev -p 6006",
-    "build": "storybook build --output-dir build",
+    "storybook-dev": "storybook dev -p 6006",
+    "storybook-build": "storybook build --output-dir build",
     "serve": "serve --no-request-logging build"
   },
   "author": "JustEatTakeaway - Design System Web Team",
