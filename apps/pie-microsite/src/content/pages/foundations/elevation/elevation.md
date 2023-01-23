@@ -2,5 +2,5 @@
 eleventyNavigation:
     key: Elevation
     parent: Foundations
-title: Elevation
+    url: /content/pages/foundations/elevation/overview/
 ---
