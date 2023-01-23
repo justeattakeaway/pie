@@ -5,7 +5,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 v1.43.0
 ------------------------------
-*January 20, 2023*
+*January 23, 2023*
 
 ### Added
 - Design Tokens - updates and maintenance foundations page
