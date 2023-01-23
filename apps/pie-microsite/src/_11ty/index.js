@@ -1,5 +1,6 @@
 const collections = require('./collections');
 const filters = require('./filters');
+const libraries = require('./libraries');
 const shortcodes = require('./shortcodes');
 const plugins = require('./plugins');
 
@@ -10,6 +11,7 @@ const plugins = require('./plugins');
 module.exports = {
     collections,
     filters,
+    libraries,
     shortcodes,
     plugins
 };
