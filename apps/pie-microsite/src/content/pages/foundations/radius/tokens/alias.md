@@ -6,7 +6,7 @@ eleventyNavigation:
 ---
 
 ## Alias radius tokens
-To use radiuses consistently make sure you use the alias tokens listed below:
+To use radiuses consistently make sure you use the alias tokens listed below.
 
 ---
 
