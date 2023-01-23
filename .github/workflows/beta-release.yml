@@ -53,3 +53,4 @@ jobs:
           commit: ":test_tube: Version Beta Packages"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          HUSKY: 0
