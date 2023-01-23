@@ -103,14 +103,6 @@ The relevant engineering teams who need to be informed about the updates are And
 
 This is done by posting a message about the new release in **#team-design-system** and **#guild-designsystem**.
 
-{% contentPageImage {
-src:"../../../../../assets/img/foundations/design-tokens/updates-and-maintenance/slack.svg",
-mobileSrc: "../../../../../assets/img/foundations/design-tokens/updates-and-maintenance/slack_narrow.svg",
-width: "634px",
-alt: "Screenshot of our #team-design-system Slack channel.",
-caption: "Screenshot of our #team-design-system Slack channel."
-} %}
-
 ---
 
 ## The role of engineering teams
