@@ -5,6 +5,8 @@ const {
    plugins
    } = require('./src/_11ty');
 
+  //  a fake change
+  
 module.exports = eleventyConfig => {
   // Copy over img directory to dist directory.
   eleventyConfig.addPassthroughCopy({ 'src/assets/img': 'assets/img' });
