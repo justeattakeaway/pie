@@ -59,7 +59,7 @@ jobs:
       - name: Create beta release PR
         uses: changesets/action@v1
         with:
-          version: changeset:version
+          version: yarn changeset:version
           commit: "Version Packages with 'beta' tag"
       - name: Run publish
         id: changesets
