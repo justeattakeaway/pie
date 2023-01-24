@@ -13,6 +13,7 @@ concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 jobs:
   beta-release:
+    if: github.repository == 'justeattakeaway/pie'
     name: Beta Release
     runs-on: ubuntu-latest
     steps:
@@ -59,7 +60,7 @@ jobs:
         uses: changesets/action@v1
         with:
           version: yarn version
-          commit: ":test_tube: Version Packages with 'beta' tag"
+          commit: "Version Packages with 'beta' tag"
       - name: Run publish
         id: changesets
         # Only run publish if we're still in pre mode and the last commit was
