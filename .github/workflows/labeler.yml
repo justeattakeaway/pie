@@ -10,7 +10,7 @@ jobs:
     - uses: actions/checkout@v3
     - uses: actions/labeler@v4
       with:
-        configuration-path: '.github/project-labeller.yml'
+        configuration-path: '.github/project-labeler.yml'
         repo-token: '${{ secrets.GITHUB_TOKEN }}'
         # Category labels will be removed if they no longer apply
         sync-labels: true
