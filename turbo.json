@@ -9,6 +9,10 @@
           "outputs": ["apps/pie-storybook/build/**"],
           "dependsOn": ["^build"]
         },
+        "storybook-dev": {
+            "cache": false,
+            "dependsOn": ["^build"]
+        },
         "test:generate-routes": {
           "cache": false
         },
