@@ -1,7 +1,6 @@
 {
   "name": "pie-monorepo",
   "description": "JustEatTakeaway",
-  "version": "1.22.0",
   "keywords": [],
   "author": "JustEatTakeaway - Design System Web Team",
   "license": "Apache-2.0",
@@ -42,6 +41,8 @@
     "@babel/node": "7.16.8",
     "@babel/preset-env": "7.16.11",
     "@babel/register": "7.18.9",
+    "@changesets/changelog-github": "0.4.8",
+    "@changesets/cli": "2.26.0",
     "@justeat/browserslist-config-fozzie": "1.x",
     "@justeat/eslint-config-fozzie": "5.1.0",
     "@justeat/pie-design-tokens": "3.5.0",
