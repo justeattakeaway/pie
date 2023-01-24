@@ -1,11 +1,5 @@
 # Changelog
 
-## 1.44.0
-
-### Minor Changes
-
-- [#49](https://github.com/siggerzz/pie/pull/49) [`f953f74`](https://github.com/siggerzz/pie/commit/f953f74496752efaa9514ada7561351d8d15d63d) Thanks [@siggerzz](https://github.com/siggerzz)! - Added new babel functionality to pie-microsite
-
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
