@@ -11781,7 +11781,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"markdown-it-attrs@npm:^4.1.6":
+"markdown-it-attrs@npm:4.1.6":
   version: 4.1.6
   resolution: "markdown-it-attrs@npm:4.1.6"
   peerDependencies:
@@ -13333,7 +13333,7 @@ __metadata:
     eleventy-plugin-rev: 1.0.2
     eleventy-sass: 2.1.3
     markdown-it: 13.0.1
-    markdown-it-attrs: ^4.1.6
+    markdown-it-attrs: 4.1.6
   languageName: unknown
   linkType: soft
 
