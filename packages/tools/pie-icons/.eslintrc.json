@@ -6,5 +6,9 @@
     "no-shadow": "off",
     "no-use-before-define": "off",
     "vue/sort-keys": "off"
+  },
+  "parserOptions":
+  {
+      "ecmaVersion": 2020
   }
 }

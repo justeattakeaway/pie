@@ -7,7 +7,7 @@ function getAllSvgs (dirPath = IN_DIR, arrayOfFiles = []) {
 
     const allFiles = fs.readdirSync(dirPath) || [];
     allFiles.forEach(file => {
-        if (fs.statSync(`${dirPath}/${file}`).isDirectory() && file !== 'optimised') {
+        if (fs.statSync(`${dirPath}/${file}`).isDirectory() && file !== '_optimised') {
             arrayOfFiles.concat(getAllSvgs(`${dirPath}/${file}`, arrayOfFiles));
         } else {
             arrayOfFiles.push({

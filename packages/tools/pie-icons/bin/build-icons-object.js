@@ -2,12 +2,9 @@ import path from 'path';
 import cheerio from 'cheerio';
 import { minify } from 'html-minifier';
 
-const ICING_FOLDER = 'icing';
+import pathHelpers from './path-helpers';
 
 function getSVGName (svgFile) {
-    if ((svgFile, svgFile.includes(ICING_FOLDER))) {
-        return `icing-${path.basename(svgFile, '.svg')}`;
-    }
     return path.basename(svgFile, '.svg');
 }
 /**
@@ -22,14 +19,19 @@ function buildIconsObject (svgFiles, getSvg) {
         const svg = getSvg(svgFile);
         const attributes = getSvgAttributes(svg);
         const contents = getSvgContents(svg);
+        const svgPath = path.dirname(svgFile);
+        const pathPrefix = pathHelpers.getAssetDirectoryName(svgPath);
         const name = getSVGName(svgFile);
 
-        return { attributes, contents, name };
+        return {
+            attributes, contents, name, pathPrefix
+        };
     })
     .reduce((icons, icon) => {
         icons[icon.name] = {
             attrs: icon.attributes,
-            contents: icon.contents
+            contents: icon.contents,
+            pathPrefix: icon.pathPrefix
         };
         return icons;
     }, {});

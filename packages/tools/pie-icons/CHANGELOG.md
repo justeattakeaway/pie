@@ -4,10 +4,19 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 
-Latest – to be added to the next release
+v2.0.0-beta.3
 ------------------------------
+### Added
+- Support for subdirectories of assets, so that these subdirectories are also respected when they are moved to the `_optimised` and `dist` folders
+
 ### Changed
+- **Breaking** – Icon names have been normalised against design and brand naming. This means a lot of icons (mainly naming) have been changed in this release (please contact the PIE team for help with migration).
+- `assets/optimised` renamed to `assets/_optimised` so that it always appears at the top of the folder tree
 - Convert `build.sh` to `build.js` to enable Windows users to build the project locally
+- Updated NPM Scripts to work with Turborepo when run from root of repo
+
+### Removed
+- Old references to `icing-` prefixed icons (which no longer exist).
 
 
 v2.0.0-beta.2
