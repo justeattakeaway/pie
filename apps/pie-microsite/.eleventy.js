@@ -1,8 +1,9 @@
-const {
+const { 
   filters,
-  shortcodes,
-  plugins
-} = require('./src/_11ty');
+  libraries,
+   shortcodes, 
+   plugins
+   } = require('./src/_11ty');
 
 module.exports = eleventyConfig => {
   // Copy over img directory to dist directory.
@@ -13,6 +14,9 @@ module.exports = eleventyConfig => {
 
   // Filters
   filters.addAllFilters(eleventyConfig);
+
+  // Libraries to amend the used library instances
+  libraries.amendAllLibraries(eleventyConfig);
 
   // Shortcodes
   shortcodes.addAllShortCodes(eleventyConfig);

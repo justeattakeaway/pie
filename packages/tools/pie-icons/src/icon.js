@@ -4,13 +4,16 @@ import { DEFAULT_ATTRS, REACTIVE_NATIVE_ATTRS } from './default-attrs';
 
 
 class Icon {
-    constructor (name, contents, attrs) {
+    constructor (name, contents, attrs, pathPrefix) {
         this.name = name;
         this.contents = contents;
         this.attrs = {
             ...DEFAULT_ATTRS,
             ...attrs
         };
+        if (pathPrefix !== undefined && pathPrefix !== '') {
+            this.pathPrefix = pathPrefix;
+        }
     }
 
     /**
@@ -20,9 +23,9 @@ class Icon {
    * @returns {string}
    */
     toSvg (attrs = {}, platform = 'default') {
-        const camelCaseClassname = (this.name).substring(0, 1).toLowerCase() + (this.name).substring(1);
+        const normalisedClassname = normaliseClassname(this.name);
 
-        const classname = classnames('c-pieIcon', `c-pieIcon--${camelCaseClassname}`, this.attrs.class, attrs.class);
+        const classname = classnames('c-pieIcon', `c-pieIcon--${normalisedClassname}`, this.attrs.class, attrs.class);
 
         const combinedAttrs = {
             ...this.attrs,
@@ -33,6 +36,26 @@ class Icon {
 
         return `<svg ${attrsToString(combinedAttrs)}>${this.contents}</svg>`;
     }
+}
+
+/**
+ * Normalises a string into camelCase format
+ * E.g. alert-circle-filled > alertCircleFilled
+ *
+ * @param {String} classname – the class to be normalised
+ * @returns {String}
+ */
+export function normaliseClassname (classname) {
+    // Split name by dashes into an array
+    const splitClassname = classname.split('-');
+
+    // then map these such that the first index is lowercase and the rest are Uppercased
+    const camelCaseClassnames = splitClassname.map((name, index) => (
+        (index === 0)
+            ? name.substring(0, 1).toLowerCase() + (name).substring(1)
+            : name.substring(0, 1).toUpperCase() + (name).substring(1)));
+
+    return camelCaseClassnames.join('');
 }
 
 /**
