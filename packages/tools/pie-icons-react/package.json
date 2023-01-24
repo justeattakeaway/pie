@@ -1,7 +1,6 @@
 {
   "name": "@justeattakeaway/pie-icons-react",
   "version": "1.0.0-alpha.0",
-  "tag": "beta",
   "main": "esm/index.js",
   "files": [
     "dist",
