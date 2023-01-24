@@ -3,6 +3,15 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+v1.45.1
+------------------------------
+*January 24, 2023*
+
+### Fixed
+- Align the notification icon to the top
+- Lists to have a 32px bottom margin if it's followed by a heading
+
+
 v1.45.0
 ------------------------------
 *January 24, 2023*
