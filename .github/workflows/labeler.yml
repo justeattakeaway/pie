@@ -1,5 +1,8 @@
 name: Pull Request Labeler
-on: pull_request_target
+on:
+  pull_request:
+    types:
+      - labelled
 # By default, pull_request_target runs when the activity type is opened, synchronize, or reopened
 # https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows#pull_request_target
 
