@@ -1,9 +1,4 @@
-const MarkdownIt = require('markdown-it');
-
-const md = new MarkdownIt({
-    html: true
-});
-
+const md = require('../../utilities/markdown');
 /**
  * Converts markdown to HTML
  * @param {string} content - The content to be converted.

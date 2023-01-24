@@ -5,7 +5,7 @@ $tokensTable-column-padding: f.spacing(d);
 $tokensTable-border-width: 1px;
 $tokensTable-spacing-container-height: 176px;
 $tokensTable-item-min-height: 128px;
-
+$tokensTable-item-vertical-padding: f.spacing(e);
 
 .c-tokensTable-list {
     list-style: none;
@@ -62,7 +62,7 @@ $tokensTable-item-min-height: 128px;
 
     @include f.media('>=wide') {
        background-color: f.$color-background-default;
-       min-height: 128px;
+       min-height: calc($tokensTable-item-min-height - calc($tokensTable-item-vertical-padding * 2));
 
        @include f.media('>=wide') {
             justify-self: start;
@@ -191,7 +191,7 @@ $tokensTable-item-min-height: 128px;
     border-radius: f.$radius-03;
 
     @include f.media('>=wide') {
-        padding: f.spacing(e) 0;
+        padding: $tokensTable-item-vertical-padding 0;
         border-radius: 0;
         border-width: 0 0 $tokensTable-border-width 0;
 

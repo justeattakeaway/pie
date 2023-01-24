@@ -1,9 +1,10 @@
 /* eslint-env jest */
-import Icon from '../icon';
+import Icon, { normaliseClassname } from '../icon';
 
 const icon1 = new Icon(
     'test',
     '<line x1="23" y1="1" x2="1" y2="23" /><line x1="1" y1="1" x2="23" y2="23" />',
+    '',
     '',
     ['hello', 'world', 'foo', 'bar']
 );
@@ -36,4 +37,22 @@ describe('toSvg()', () => {
 
 test('toString() returns correct string', () => {
     expect(icon1.toString()).toMatchSnapshot();
+});
+
+
+describe('normaliseClassname()', () => {
+    test('returns camelCased String when capitalised string is passed in', () => {
+        const classname = 'Alert';
+        expect(normaliseClassname(classname)).toBe('alert');
+    });
+
+    test('returns camelCased String when dashed string is passed in', () => {
+        const classname = 'alert-filled-large';
+        expect(normaliseClassname(classname)).toBe('alertFilledLarge');
+    });
+
+    test('returns camelCased String when dashed capitalised string is passed in', () => {
+        const classname = 'Alert-filled-large';
+        expect(normaliseClassname(classname)).toBe('alertFilledLarge');
+    });
 });
