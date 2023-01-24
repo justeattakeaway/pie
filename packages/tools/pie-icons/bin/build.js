@@ -1,14 +1,14 @@
 const { execSync } = require('child_process');
 
 console.log('Clearing old svgs');
-execSync('npx rimraf src/assets/optimised');
+execSync('npx rimraf src/assets/_optimised');
 
-console.log('Making src/assets/optimised directory');
-execSync('mkdir "src/assets/optimised"');
+console.log('Making src/assets/_optimised directory');
+execSync('mkdir "src/assets/_optimised"');
 
 // Process SVG files (Optimise)
 console.log('Optimising SVGS');
-execSync('npx babel-node bin/process-svgs.js');
+execSync('npx babel-node bin/process-svgs.js', { stdio: 'inherit' });
 
 // Create dist directory
 console.log('Creating dist directory');
@@ -17,7 +17,7 @@ execSync('mkdir dist');
 
 // Build icons.json
 console.log('Building icons.json');
-execSync('npx babel-node bin/build-icons-json.js');
+execSync('npx babel-node bin/build-icons-json.js', { stdio: 'inherit' });
 
 // Create dist/icons directory
 console.log('Creating dist/icons directory');
@@ -26,7 +26,7 @@ execSync('mkdir "dist/icons"');
 
 // Build SVG icons
 console.log('Building SVG icons');
-execSync('npx babel-node bin/build-svgs.js');
+execSync('npx babel-node bin/build-svgs.js', { stdio: 'inherit' });
 
 // Build JavaScript library
 console.log('Building JavaScript library');

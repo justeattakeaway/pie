@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/pie-icons",
-  "version": "2.0.0-beta.2",
+  "version": "2.0.0-beta.3",
   "tag": "beta",
   "description": "Common icons for use for PIE Project",
   "main": "dist/pie-icons.js",
@@ -18,9 +18,9 @@
     "prepare": "yarn build && yarn test:coverage",
     "clean": "rimraf -rf ./dist/*",
     "prepublishOnly": "yarn run build",
-    "lint:scripts": "eslint .",
-    "lint:scripts:fix": "eslint . --fix",
-    "test": "jest",
+    "lint:scripts": "run -T eslint .",
+    "lint:scripts:fix": "run -T eslint . --fix",
+    "test": "run -T jest",
     "test:ci": "yarn test",
     "test:coverage": "jest --coverage",
     "precommit": "lint-staged"

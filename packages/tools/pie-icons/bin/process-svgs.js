@@ -1,11 +1,11 @@
 import fs from 'fs';
 import path from 'path';
 import getAllSvgs from './get-svgs';
-
+import pathHelpers from './path-helpers';
 import processSvg from './process-svg';
 
 const IN_DIR = `${process.cwd()}/src/assets`;
-const OUT_DIR = `${process.cwd()}/src/assets/optimised`;
+const OUT_DIR = `${process.cwd()}/src/assets/_optimised`;
 
 console.log(`Processing SVGs in ${IN_DIR}...`);
 
@@ -15,10 +15,14 @@ svgFiles.forEach(svgObject => {
     const fullPath = path.join(svgObject.path, '/', svgObject.fileName);
 
     const svg = fs.readFileSync(fullPath);
+    const directorySuffix = pathHelpers.getAssetDirectoryName(svgObject.path);
 
     processSvg(svg)
       .then(svg => {
-          fs.writeFileSync(path.join(OUT_DIR, svgObject.fileName), svg);
+          const outputDirectory = OUT_DIR + directorySuffix;
+
+          fs.mkdirSync(outputDirectory, { recursive: true });
+          fs.writeFileSync(path.join(outputDirectory, svgObject.fileName), svg);
       })
       .catch(error => {
           console.error(svgObject, error);
