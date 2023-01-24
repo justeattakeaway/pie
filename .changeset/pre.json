@@ -1,0 +1,15 @@
+{
+  "mode": "pre",
+  "tag": "beta",
+  "initialVersions": {
+    "pie-microsite": "1.45.0",
+    "@justeattakeaway/pie-button": "0.2.0",
+    "@justeattakeaway/pie-icons": "2.0.0-beta.3",
+    "@justeattakeaway/pie-icons-react": "1.0.0-alpha.0",
+    "@justeattakeaway/pie-icons-vue": "2.0.0-beta.1",
+    "@justeattakeaway/pie-stylelint-config": "0.1.0"
+  },
+  "changesets": [
+    "famous-maps-smash"
+  ]
+}
