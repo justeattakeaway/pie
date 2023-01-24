@@ -9,6 +9,7 @@ v0.3.0
 
 ### Added
 - Button default styling (medium).
+- JET font family to html file.
 
 
 v0.2.0
