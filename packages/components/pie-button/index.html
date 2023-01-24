@@ -43,17 +43,6 @@
                         document.documentElement.classList.add   ('webfonts-loaded');
                     });
             }
-
-            // This next block is for IE11 and old Edge support, which don't    support the new Font loading API
-            if(!('fonts' in document) && 'head' in document) {
-                // Awkwardly dump the second stage @font-face blocks in the    head
-                var style = document.createElement('style');
-                // Note: Edge supports WOFF2
-                style.innerHTML = '@font-face { font-family: JETSansDigital;    font-weight: 700; src: ' + boldFontUrls + '; }';
-                style.innerHTML += ' @font-face { font-family: JETSansDigital; font-weight: 800; src: ' + extraboldFontUrls    + '; }';
-                document.head.appendChild(style);
-                document.documentElement.classList.add('webfonts-loaded');
-            }
         })();
     </script>
   </body>

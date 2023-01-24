@@ -15,8 +15,7 @@ export class PieButton extends LitElement {
         line-height: 1.4;
         font-family: var(--dt-font-interactive-m-family);
         font-weight: var(--dt-font-interactive-m-weight);
-        padding-right: var(--dt-spacing-e);
-        padding-left: var(--dt-spacing-e);
+        padding: 10px var(--dt-spacing-e);
         min-height: 48px;
       }
     `];
