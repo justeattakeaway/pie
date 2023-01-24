@@ -1051,6 +1051,9 @@
   "spacing": {
     "global": {},
     "alias": {
+        "none": {
+          "description": "0dp/sp/px or 0rem "
+        },
         "a": {
           "description": "4dp/sp/px or 0.25rem"
         },
