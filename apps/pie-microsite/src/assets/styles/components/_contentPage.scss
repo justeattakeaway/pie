@@ -106,10 +106,6 @@
 
     > p + h2 {
         margin-top: f.spacing(h);
-
-        @include f.media('>mid') {
-            margin-top: f.spacing(i);
-        }
     }
 
     ul + h3 {
