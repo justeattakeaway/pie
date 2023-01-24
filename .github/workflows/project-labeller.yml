@@ -17,7 +17,7 @@ pie-icons:
 pie-icons-react:
 - 'packages/tools/pie-icons-react/**/*'
 
-pie-icons-react:
+pie-icons-vue:
 - 'packages/tools/pie-icons-vue/**/*'
 
 pie-stylelint-config:
