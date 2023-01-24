@@ -192,7 +192,9 @@
                                     <a
                                         href="/pr-preview/pr-104/content/pages/foundations/elevation/overview/"
                                         
-                                        class="c-nav-item ">
+                                            aria-current="page"
+                                        
+                                        class="c-nav-item is-active">
                                         Elevation
                                     </a>
                                 </li>
@@ -283,9 +285,7 @@
                                     <a
                                         href="/pr-preview/pr-104/content/pages/foundations/typography/overview/"
                                         
-                                            aria-current="page"
-                                        
-                                        class="c-nav-item is-active">
+                                        class="c-nav-item ">
                                         Typography
                                     </a>
                                 </li>
@@ -499,10 +499,10 @@
         class="c-contentPage-header "
         >
         <h1 class="c-contentPage-header-heading alpha--standout">
-            Typography
+            Elevation
         </h1>
         <p class="c-contentPage-header-subheading">
-            The PIE typography is set so that our layouts and content is easy to read and presented with a clear hierarchy.
+            Shadows are used to give the impression of distance or elevation between surfaces, which adds depth to our designs.
         </p>
     </div>
 
@@ -511,35 +511,11 @@
     <ul>
         <li
             
-                aria-selected="false"
+                aria-selected="true"
             
             class="c-tabs-item">
                 
-                    <a href="/pr-preview/pr-104/content/pages/foundations/typography/overview/" class="c-tabs-link ">Overview</a></li>
-                
-        <li
-            
-                aria-selected="false"
-            
-            class="c-tabs-item">
-                
-                    <a href="/pr-preview/pr-104/content/pages/foundations/typography/tokens/global/" class="c-tabs-link ">Global tokens</a></li>
-                
-        <li
-            
-                aria-selected="false"
-            
-            class="c-tabs-item">
-                
-                    <a href="/pr-preview/pr-104/content/pages/foundations/typography/tokens/alias/wide/" class="c-tabs-link ">Alias tokens</a></li>
-                
-        <li
-            
-                aria-selected="false"
-            
-            class="c-tabs-item">
-                
-                    <a href="/pr-preview/pr-104/content/pages/foundations/typography/code/" class="c-tabs-link ">Code</a></li>
+                    <a href="/pr-preview/pr-104/content/pages/foundations/elevation/overview/" class="c-tabs-link is-active">Overview</a></li>
                 
     </ul>
 </nav>
@@ -548,14 +524,20 @@
 
     
     
-        <div class="c-contentPage-content u-noPad">
-            
-            <section class="c-comingSoon">
-    <img class="c-comingSoon-image" src="/pr-preview/pr-104/assets/img/coming-soon.svg" />
-    <p class="c-comingSoon-message">The PIE team are currently working hard building this page. Please check back soon!</p>
-    <a href="/pr-preview/pr-104/" class="c-comingSoon-link o-btn o-btn--primary">Back to home</a>
-</section>
-
+        <div class="c-contentPage-content">
+            <h2>Why do we use elevation?</h2>
+<p>We use elevation to create create a visual distinction between components and visual elements with different spatial relationships.</p>
+<p>Each elevation level assigns a three-dimensional appearance to an object, using shadows and blurs to achieve it. The levels of elevation we have created help us differentiate the elevation within the Z-axis at which these components are placed.</p>
+<figure class="c-contentPage-img c-contentImage c-contentImage--hasBackdrop">        <div class="c-contentImage-backdrop">          <picture>            <source style="--img-width: 280px;" media="(max-width: 600px)" srcset="../../../../../assets/img/foundations/elevation/squares_narrow.svg">            <img src="../../../../../assets/img/foundations/elevation/squares.svg" style="--img-width: 280px;" alt="Visual representation of squares.">           </picture>        </div>              </figure>
+<hr>
+<h2>Using elevations in your products</h2>
+<p>Here are some tips to keep in mind when using our elevation tokens:</p>
+<h3>Use elevation to help distinguish overlapping elements</h3>
+<p>For components which appear on top of other elements of the design, try using elevation to make them more visible.</p>
+<figure class="c-contentPage-img c-contentImage c-contentImage--hasBackdrop">        <div class="c-contentImage-backdrop">          <picture>            <source style="--img-width: 528px;" media="(max-width: 600px)" srcset="../../../../../assets/img/foundations/elevation/different-elevation_narrow.svg">            <img src="../../../../../assets/img/foundations/elevation/different-elevation.svg" style="--img-width: 528px;" alt="Visual representation of the difference in hierarchy achieved by using $elevation-04 and $elevation-01.">           </picture>        </div>        <figcaption class="c-contentImage-caption"><span>Visual representation of the difference in hierarchy achieved by using $elevation-04 and $elevation-01.</span></figcaption>      </figure>
+<h3>Don’t overdo it</h3>
+<p>Using elevation consistently but sparingly will help your users understand the hierarchy and interaction patterns for the design elements in your product. Using too many elevation tokens in your designs will only empoverish the user’s experience.</p>
+<figure class="c-contentPage-img c-contentImage c-contentImage--hasBackdrop">        <div class="c-contentImage-backdrop">          <picture>            <source style="--img-width: 850px;" media="(max-width: 600px)" srcset="../../../../../assets/img/foundations/elevation/overlapping-elements_narrow.svg">            <img src="../../../../../assets/img/foundations/elevation/overlapping-elements.svg" style="--img-width: 850px;" alt="Visual representation of an Icon Button floating over a carousel of cards.">           </picture>        </div>        <figcaption class="c-contentImage-caption"><span>Visual representation of an Icon Button floating over a carousel of cards.</span></figcaption>      </figure>
         </div>
     
 </div>
