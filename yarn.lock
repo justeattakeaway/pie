@@ -2510,7 +2510,35 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-icons@2.0.0-beta.2, @justeattakeaway/pie-icons@workspace:packages/tools/pie-icons":
+"@justeattakeaway/pie-icons@npm:1.0.0":
+  version: 1.0.0
+  resolution: "@justeattakeaway/pie-icons@npm:1.0.0"
+  dependencies:
+    cheerio: 1.0.0-rc.10
+    classnames: 2.3.1
+    html-minifier: 4.0.0
+    prettier: 2.5.1
+    rimraf: 3.0.2
+    svgo: 1.3.2
+  checksum: dac20403e327b8939308e76cd0f567bafa4d3b93653c5445caba14247b9c3fb9a0673878b0ee862f3194d73fe6c4efbc59f5361c2c09e19fc48805232a3e9ded
+  languageName: node
+  linkType: hard
+
+"@justeattakeaway/pie-icons@npm:2.0.0-beta.2":
+  version: 2.0.0-beta.2
+  resolution: "@justeattakeaway/pie-icons@npm:2.0.0-beta.2"
+  dependencies:
+    cheerio: 1.0.0-rc.10
+    classnames: 2.3.1
+    html-minifier: 4.0.0
+    prettier: 2.5.1
+    rimraf: 3.0.2
+    svgo: 1.3.2
+  checksum: 04a8f34f519b6cfd48b4b3996a04267607a6f55dc847a548e0d93094b9cd468a69eb6e95883c2e2a3933189b289d6ea95c8304c104a797cf517f28ea45c683f9
+  languageName: node
+  linkType: hard
+
+"@justeattakeaway/pie-icons@workspace:packages/tools/pie-icons":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-icons@workspace:packages/tools/pie-icons"
   dependencies:
@@ -2526,20 +2554,6 @@ __metadata:
     webpack-cli: 4.9.2
   languageName: unknown
   linkType: soft
-
-"@justeattakeaway/pie-icons@npm:1.0.0":
-  version: 1.0.0
-  resolution: "@justeattakeaway/pie-icons@npm:1.0.0"
-  dependencies:
-    cheerio: 1.0.0-rc.10
-    classnames: 2.3.1
-    html-minifier: 4.0.0
-    prettier: 2.5.1
-    rimraf: 3.0.2
-    svgo: 1.3.2
-  checksum: dac20403e327b8939308e76cd0f567bafa4d3b93653c5445caba14247b9c3fb9a0673878b0ee862f3194d73fe6c4efbc59f5361c2c09e19fc48805232a3e9ded
-  languageName: node
-  linkType: hard
 
 "@justeattakeaway/pie-stylelint-config@workspace:packages/tools/pie-stylelint-config":
   version: 0.0.0-use.local
@@ -12253,6 +12267,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"markdown-it-attrs@npm:4.1.6":
+  version: 4.1.6
+  resolution: "markdown-it-attrs@npm:4.1.6"
+  peerDependencies:
+    markdown-it: ">= 9.0.0"
+  checksum: 3487fab315a5955f1882edcb29b5362fcdc9a369c4cd1c38688b3d32a145254094d2d8389bdd6887c3af66f9a9a75143f167d88421dcf201e54ec587675756a0
+  languageName: node
+  linkType: hard
+
 "markdown-it@npm:13.0.1":
   version: 13.0.1
   resolution: "markdown-it@npm:13.0.1"
@@ -13859,6 +13882,7 @@ __metadata:
     eleventy-plugin-rev: 1.0.2
     eleventy-sass: 2.1.3
     markdown-it: 13.0.1
+    markdown-it-attrs: 4.1.6
   languageName: unknown
   linkType: soft
 

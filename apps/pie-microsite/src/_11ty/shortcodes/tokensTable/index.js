@@ -36,12 +36,11 @@ const createTokenDisplayName = (tokenKey, tokenType) => {
     const prefixExcludes = [tokenTypes.COLOR];
     const shouldShowPrefix = tokenType && !prefixExcludes.includes(tokenType);
     const tokenNameSegments = tokenKey.split('-');
-    const capitalisedNameSegments = tokenNameSegments.map(stringHelpers.capitaliseFirstLetter);
-    const tokenName = capitalisedNameSegments.join(' ');
+    const tokenName = tokenNameSegments.join(' ');
 
     return shouldShowPrefix 
         ? `${stringHelpers.capitaliseFirstLetter(tokenType)} ${tokenName}`
-        : buildColorName(tokenName);
+        : stringHelpers.capitaliseFirstLetter(buildColorName(tokenName));
 };
 
 /**

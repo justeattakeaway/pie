@@ -43,7 +43,7 @@ caption: "Screenshot of the cover page in our PIE 2.0 Foundations – Light Figm
 
 ### Communicate updates to designers and developers
 
-Updates carried out by PIE designers are communicated through the [Bi-weekly Component & Token Roundup](https://docs.google.com/document/d/10-_Ev2GsV18ACKHYWc49qgU-LYRYToAKrlfbHKA9cOM/edit?usp=sharing) document. The file is structured in bi-weekly releases, which show what has changed within the system and includes a description for additional context.
+Updates carried out by PIE designers are communicated through the [Bi-weekly Component & Token Roundup](https://docs.google.com/document/d/10-_Ev2GsV18ACKHYWc49qgU-LYRYToAKrlfbHKA9cOM/edit?usp=sharing){target="_blank"} document. The file is structured in bi-weekly releases, which show what has changed within the system and includes a description for additional context.
 
 {% contentPageImage {
 src:"../../../../../assets/img/foundations/design-tokens/updates-and-maintenance/component-token-roundup.svg",

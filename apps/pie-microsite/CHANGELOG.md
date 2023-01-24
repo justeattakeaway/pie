@@ -9,9 +9,35 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## v1.43.0
+v1.45.0
+------------------------------
+*January 24, 2023*
 
-_January 23, 2023_
+### Added
+- Elevation page - Overview tab 
+
+
+v1.44.0
+------------------------------
+*January 24, 2023*
+
+### Added
+- `markdown-it-attrs` to support opening markdown links in a new tab
+
+
+v1.43.1
+------------------------------
+*January 23, 2023*
+
+### Fixed
+- Spacing alias item height on desktop
+- Token names to correct casing
+- token table margin top
+
+
+v1.43.0
+------------------------------
+*January 23, 2023*
 
 ### Added
 
