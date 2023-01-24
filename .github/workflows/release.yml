@@ -47,11 +47,11 @@ jobs:
         run: npx changeset pre exit
       - name: Version Packages
         run: | 
-          npx changeset version
+          yarn version
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add .
-          git commit -m ":rocket: Version Packages with 'latest' tag"
+          git commit -m "Version Packages with 'latest' tag"
           git push --follow-tags
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

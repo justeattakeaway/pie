@@ -1,7 +1,12 @@
 {
   "name": "pie-microsite",
   "description": "todo",
+<<<<<<< HEAD
   "version": "1.44.0",
+=======
+  "private": true,
+  "version": "1.43.0",
+>>>>>>> 257e3b83be7f719a6f5c6d1a1bfd53dc53c56de7
   "main": "index.js",
   "keywords": [],
   "author": "JustEatTakeaway - Vue Design System Team",

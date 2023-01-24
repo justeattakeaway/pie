@@ -19,6 +19,15 @@ jobs:
       # Checkout the Repo
       - name: Checkout
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Append NPM token to .npmrc
+        run: |
+          cat << EOF > "$HOME/.npmrc"
+            //registry.npmjs.org/:_authToken=$NPM_TOKEN
+          EOF
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Setup Node
         # Setup Node 16
         uses: actions/setup-node@v3
@@ -49,8 +58,14 @@ jobs:
       - name: Create beta release PR
         uses: changesets/action@v1
         with:
-          version: npx changeset version
+          version: yarn version
           commit: ":test_tube: Version Packages with 'beta' tag"
+      - name: Run publish
+        id: changesets
+        # Only run publish if we're still in pre mode and the last commit was
+        # via an automatically created Version Packages PR
+        if: steps.check_files.outputs.files_exists == 'true' && startsWith(github.event.head_commit.message, 'Version Packages')
+        run: npm run changeset-publish
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           HUSKY: 0

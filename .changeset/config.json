@@ -1,7 +1,7 @@
 {
     "changelog": [
       "@changesets/changelog-github",
-      { "repo": "siggerzz/pie" }
+      { "repo": "justeattakeaway/pie" }
     ],
     "commit": true,
     "fixed": [],
