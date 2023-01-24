@@ -1,0 +1,15 @@
+{
+    "changelog": [
+      "@changesets/changelog-github",
+      { "repo": "siggerzz/pie" }
+    ],
+    "commit": true,
+    "fixed": [],
+    "access": "public",
+    "baseBranch": "main",
+    "updateInternalDependencies": "patch",
+    "privatePackages": {
+      "version": true,
+      "tag": true
+    }
+}
