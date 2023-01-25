@@ -68,7 +68,7 @@
     padding-bottom: f.spacing(j);
 
     > h2 {
-        @include f.font-size('heading-m');
+        @include f.font-size('heading-l');
     }
 
     > h3 {
@@ -80,7 +80,7 @@
         padding-bottom: calc(f.spacing(j) + f.spacing(d));
 
         > h2 {
-            @include f.font-size('heading-l');
+            @include f.font-size('heading-xl');
         }
 
         > h3 {
@@ -106,10 +106,10 @@
 
     > p + h2 {
         margin-top: f.spacing(h);
+    }
 
-        @include f.media('>mid') {
-            margin-top: f.spacing(i);
-        }
+    ul + h3 {
+        margin-top: f.spacing(f);
     }
 
     > p + h3,
@@ -142,7 +142,6 @@
         margin-bottom: f.spacing(i);
     }
 }
-
 .c-contentPage-content a {
     color: f.$color-content-link-distinct;
 

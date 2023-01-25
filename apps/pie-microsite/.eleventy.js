@@ -1,9 +1,9 @@
 const { 
   filters,
   libraries,
-   shortcodes, 
-   plugins
-   } = require('./src/_11ty');
+  shortcodes, 
+  plugins
+} = require('./src/_11ty');
 
 module.exports = eleventyConfig => {
   // Copy over img directory to dist directory.
