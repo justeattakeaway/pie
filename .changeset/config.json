@@ -1,8 +1,5 @@
 {
-    "changelog": [
-      "@changesets/changelog-github",
-      { "repo": "justeattakeaway/pie" }
-    ],
+    "changelog": ["./changelog-config.js", {"repo": "justeattakeaway/pie"}],
     "commit": true,
     "fixed": [],
     "access": "public",
