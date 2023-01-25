@@ -30,6 +30,7 @@
     "postpack": "pinst --enable",
     "storybook-build": "turbo run storybook-build",
     "storybook-dev": "turbo run storybook-dev",
+    "storybook-serve": "turbo run storybook-serve",
     "test:system": "turbo run test:system",
     "test:visual": "turbo run test:visual",
     "test:generate-routes": "turbo run test:generate-routes"

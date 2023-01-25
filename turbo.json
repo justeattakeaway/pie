@@ -9,6 +9,9 @@
           "outputs": ["apps/pie-storybook/build/**"],
           "dependsOn": ["^build"]
         },
+        "storybook-serve": {
+          "dependsOn": ["storybook-build"]
+        },
         "storybook-dev": {
             "cache": false,
             "dependsOn": ["^build"]

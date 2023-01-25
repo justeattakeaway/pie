@@ -5,7 +5,7 @@
   "scripts": {
     "storybook-dev": "storybook dev -p 6006",
     "storybook-build": "storybook build --output-dir build",
-    "serve": "serve --no-request-logging build"
+    "storybook-serve": "serve --no-request-logging build"
   },
   "author": "JustEatTakeaway - Design System Web Team",
   "license": "Apache-2.0",
