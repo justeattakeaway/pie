@@ -63,6 +63,8 @@ jobs:
           git add .
           git commit -m "Version Packages with 'latest' tag"
           git push --follow-tags
+      - name: Publish Packages
+        run: yarn changeset:publish
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       HUSKY: 0
