@@ -12,6 +12,7 @@ v1.45.1
 - Lists to have a 32px bottom margin if it's followed by a heading
 - h2 to have a top margin of 56px if followed by a paragraph
 - Headings hierarchy of typography code snippets page
+- Bottom margin of prism code snippets to be 24px
 
 
 v1.45.0
