@@ -12,22 +12,22 @@ const notificationSettings = {
     error: {
         iconFill: 'support-error',
         bgColour: 'support-error-02',
-        iconName: 'AlertCircle'
+        iconName: 'AlertCircleSmall'
     },
     warning: {
         iconFill: 'support-warning',
         bgColour: 'support-warning-02',
-        iconName: 'AlertTriangle'
+        iconName: 'AlertTriangleSmall'
     },
     information: {
         iconFill: 'support-info',
         bgColour: 'support-info-02',
-        iconName: 'InfoCircleOutline'
+        iconName: 'InfoCircleOutlineSmall'
     },
     positive: {
         iconFill: 'support-positive',
         bgColour: 'support-positive-02',
-        iconName: 'CheckCircleOutline'
+        iconName: 'CheckCircleOutlineSmall'
     }
 };
 
@@ -47,6 +47,7 @@ module.exports = function (config) {
 
     const svg = pieIconsSvg({
         name: notificationSettings[config.type].iconName,
+        class: 'c-notification-icon',
         attrs: {
             height: 24,
             width: 24,
@@ -60,7 +61,7 @@ module.exports = function (config) {
         return `<aside class="${contextClass} c-notification" style="--bg-colour: ${bgColour}">
           ${svg}
           <h4 class="c-notification-title">${config.title}</h4>
-          <p class="c-notification-message">${config.message}</p>
+          <p class="c-notification-message">${markdownFilter(config.message, true)}</p>
         </aside>`;
     }
 

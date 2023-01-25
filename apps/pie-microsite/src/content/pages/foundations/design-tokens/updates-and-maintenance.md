@@ -37,7 +37,6 @@ These updates should be carried out using branches to track changes and revert t
 src:"../../../../../assets/img/foundations/design-tokens/updates-and-maintenance/figma-file.svg",
 mobileSrc: "../../../../../assets/img/foundations/design-tokens/updates-and-maintenance/figma-file_narrow.svg",
 width: "663px",
-alt: "Screenshot of the cover page in our PIE 2.0 Foundations – Light Figma file.",
 caption: "Screenshot of the cover page in our PIE 2.0 Foundations – Light Figma file."
 } %}
 
@@ -49,7 +48,6 @@ Updates carried out by PIE designers are communicated through the [Bi-weekly Com
 src:"../../../../../assets/img/foundations/design-tokens/updates-and-maintenance/component-token-roundup.svg",
 mobileSrc: "../../../../../assets/img/foundations/design-tokens/updates-and-maintenance/component-token-roundup_narrow.svg",
 width: "696px",
-alt: "Screenshot of our Bi-weekly Component & Token Roundup document.",
 caption: "Screenshot of our Bi-weekly Component & Token Roundup document."
 } %}
 
@@ -74,7 +72,6 @@ message: "If you need any help working with or understanding the Changelog, plea
 src:"../../../../../assets/img/foundations/design-tokens/updates-and-maintenance/changelog.svg",
 mobileSrc: "../../../../../assets/img/foundations/design-tokens/updates-and-maintenance/changelog_narrow.svg",
 width: "589px",
-alt: "Screenshot of the PIE Design Changelog",
 caption: "Screenshot of the PIE Design Changelog"
 } %}
 
@@ -91,7 +88,6 @@ Once the PR has two approvals, it is merged into the main branch and a new versi
 src:"../../../../../assets/img/foundations/design-tokens/updates-and-maintenance/jsonc.svg",
 mobileSrc: "../../../../../assets/img/foundations/design-tokens/updates-and-maintenance/jsonc_narrow.svg",
 width: "687px",
-alt: "Screenshot of the pie-design-tokens.jsonc file in our Just Eat Takeaway  Github environment.",
 caption: "Screenshot of the pie-design-tokens.jsonc file in our Just Eat Takeaway Github environment."
 } %}
 
