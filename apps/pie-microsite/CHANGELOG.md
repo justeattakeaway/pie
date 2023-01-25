@@ -6,6 +6,12 @@
 
 - [#121](https://github.com/justeattakeaway/pie/pull/121) [`ef221a44`](https://github.com/justeattakeaway/pie/commit/ef221a4406d8ff0912078c4ac0a6de0efa701e2d) Thanks [@siggerzz](https://github.com/siggerzz)! - Added beta functionality to babel - jamie demo
 
+## 1.46.0
+
+### Minor Changes
+
+- [#120](https://github.com/justeattakeaway/pie/pull/120) [`d00a9857`](https://github.com/justeattakeaway/pie/commit/d00a98573f10a2985a3f3cb13242ec784705b03f) Thanks [@siggerzz](https://github.com/siggerzz)! - Updated babel.config to include new functionality
+
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
