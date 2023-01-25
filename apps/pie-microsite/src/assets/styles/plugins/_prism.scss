@@ -1,3 +1,5 @@
+@use '../fozzie-config' as f;
+
 /* stylelint-disable */
 /* PrismJS 1.29.0
 https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript+bash&plugins=toolbar+copy-to-clipboard */
@@ -121,7 +123,7 @@ div.code-toolbar {
   position: relative;
   max-width: 1025px;
   // overflow: hidden;
-  margin: 24px 0px;
+  margin: f.spacing(e) 0px;
   border-radius: 4px;
   box-shadow: rgb(0 0 0 / 10%) 0px 1px 3px 0px;
   border: 1px solid rgba(0, 0, 0, 0.1);
