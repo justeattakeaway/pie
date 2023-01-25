@@ -54,7 +54,9 @@ Example:
 
 ### Versioning / Publishing Packages
 
-If you are contributing a user-facing or noteworthy change to pie-monorepo that should be added to the changelog, you should include a changeset with your PR.
+If you are contributing a user-facing or noteworthy change to a pie-monorepo package that should be added to the changelog, you should include a changeset with your PR.
+
+Changesets are only required for Major, Minor, and patch changes that have an effect on consumers. Changes that don't affect consumers do not need to be versioned. These include: linting, testing, CI.
 
 To add a changeset, run this script locally in the root of the project:
 
