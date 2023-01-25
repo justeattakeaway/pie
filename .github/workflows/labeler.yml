@@ -1,0 +1,16 @@
+name: Pull Request Labeler
+on: pull_request_target
+# By default, pull_request_target runs when the activity type is opened, synchronize, or reopened
+# https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows#pull_request_target
+
+jobs:
+  categorise:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/labeler@v4
+      with:
+        configuration-path: '.github/project-labeler.yml'
+        repo-token: '${{ secrets.GITHUB_TOKEN }}'
+        # Category labels will be removed if they no longer apply
+        sync-labels: true
