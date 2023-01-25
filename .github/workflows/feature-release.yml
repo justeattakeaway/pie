@@ -51,7 +51,7 @@ jobs:
         uses: andstor/file-existence-action@v2.0.0
         with:
           files: ".changeset/pre.json"
-      - name: Enter beta prerelease mode
+      - name: Enter `next` prerelease mode
         # If .changeset/pre.json does not exist and we did not recently exit
         # prerelease mode, enter prerelease mode with tag 'next'
         if: steps.check_files.outputs.files_exists == 'false'
