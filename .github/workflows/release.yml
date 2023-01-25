@@ -3,7 +3,7 @@ name: Release Stable Packages
 on:
   push:
     branches:
-      - main
+      - main-dummy
 
 permissions:
   contents: write
