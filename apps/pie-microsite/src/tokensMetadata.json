@@ -582,230 +582,378 @@
         },
         "background-subtle": {
           "category": "pageBackgrounds",
-          "description": "Subtle page background"
+          "description": "Subtle page background",
+          "globalToken": "$color-mozzarella-80"
         },
         "background-dark": {
           "category": "pageBackgrounds",
-          "description": "High contrast page background"
+          "description": "High contrast page background",
+          "globalToken": "$color-white"
         },
         "container-default": {
-          "category": "containerBackgrounds"
+          "category": "containerBackgrounds",
+          "description": "Default container background",
+          "globalToken": "$color-mozzarella-90"
         },
         "container-subtle": {
-          "category": "containerBackgrounds"
+          "category": "containerBackgrounds",
+          "description": "Subtle container background",
+          "globalToken": "$color-mozzarella-80"
         },
         "container-strong": {
-          "category": "containerBackgrounds"
+          "category": "containerBackgrounds",
+          "description": "Strong container background",
+          "globalToken": "$color-mozzarella-70"
         },
         "container-dark": {
-          "category": "containerBackgrounds"
+          "category": "containerBackgrounds",
+          "description": "Dark container background",
+          "globalToken": "$color-mozzarella-90"
         },
         "container-inverse": {
-          "category": "containerBackgrounds"
+          "category": "containerBackgrounds",
+          "description": "Inverse container background",
+          "globalToken": "$color-white"
         },
         "border-default": {
-          "category": "borders"
+          "category": "borders",
+          "description": "Default border",
+          "globalToken": "$color-mozzarella-70"
         },
         "border-subtle": {
-          "category": "borders"
+          "category": "borders",
+          "description": "Subtle border",
+          "globalToken": "$color-mozzarella-75"
         },
         "border-strong": {
-          "category": "borders"
+          "category": "borders",
+          "description": "Higher contrast border",
+          "globalToken": "$color-mozzarella-60"
         },
         "border-inverse": {
-          "category": "borders"
+          "category": "borders",
+          "description": "Border on inverse or dark coloured backgrounds",
+          "globalToken": "$color-mozzarella-20"
         },
         "divider-default": {
-          "category": "dividers"
+          "category": "dividers",
+          "description": "Divider for use above default and light coloured backgrounds",
+          "globalToken": "$color-white @20%"
         },
         "divider-inverse": {
-          "category": "dividers"
+          "category": "dividers",
+          "description": "Divider for use above inverse and dark coloured backgrounds",
+          "globalToken": "$color-black @8%"
         },
         "interactive-brand": {
-          "category": "interactiveBackgrounds"
+          "category": "interactiveBackgrounds",
+          "description": "Brand interactive colour used mainly in button and CTA backgrounds, accent fills and borders",
+          "globalToken": "$color-orange "
         },
         "interactive-primary": {
-          "category": "interactiveBackgrounds"
+          "category": "interactiveBackgrounds",
+          "description": "Primary interactive colour used mainly in button and CTA backgrounds, accent fills and borders",
+          "globalToken": "$color-white"
         },
         "interactive-secondary": {
-          "category": "interactiveBackgrounds"
+          "category": "interactiveBackgrounds",
+          "description": "Primary interactive colour used mainly in button and CTA backgrounds",
+          "globalToken": "$color-mozzarella-75"
         },
         "interactive-inverse": {
-          "category": "interactiveBackgrounds"
+          "category": "interactiveBackgrounds",
+          "description": "Inverse interactive colour used mainly in button and CTA backgrounds",
+          "globalToken": "$color-mozzarella-90"
         },
         "interactive-light": {
-          "category": "interactiveBackgrounds"
+          "category": "interactiveBackgrounds",
+          "description": "Light interactive colour used on dark backgrounds",
+          "globalToken": "$color-white"
         },
         "interactive-form": {
-          "category": "interactiveBackgrounds"
+          "category": "interactiveBackgrounds",
+          "description": "Field background on $background-default",
+          "globalToken": "$color-mozzarella-50"
         },
         "overlay": {
-          "category": "pageBackgrounds"
-        },
-        "support-error": {
-          "category": "feedback"
-        },
-        "support-warning": {
-          "category": "feedback"
-        },
-        "support-positive": {
-          "category": "feedback"
-        },
-        "support-info": {
-          "category": "feedback"
+          "category": "pageBackgrounds",
+          "description": "Transluscent background overlay / scrim",
+          "globalToken": "$color-black @50%"
         },
         "support-neutral": {
-          "category": "feedback"
+          "category": "feedback",
+          "description": "Neutral; Used for neutral messaging and alerts",
+          "globalToken": "$color-mozzarella-100"
+        },
+        "support-error": {
+          "category": "feedback",
+          "description": "Error; High impact messaging",
+          "globalToken": "$color-red"
         },
         "support-error-02": {
-          "category": "feedback"
+          "category": "feedback",
+          "description": "Low contrast version of $support-error",
+          "globalToken": "$color-red-90"
+        },
+        "support-warning": {
+          "category": "feedback",
+          "description": "Warning; Moderate impact messaging",
+          "globalToken": "$color-yellow"
         },
         "support-warning-02": {
-          "category": "feedback"
+          "category": "feedback",
+          "description": "Low contrast version of $support-warning",
+          "globalToken": "$color-yellow-90"
+        },
+        "support-positive": {
+          "category": "feedback",
+          "description": "Success; Positive messaging",
+          "globalToken": "$color-green-30"
         },
         "support-positive-02": {
-          "category": "feedback"
-        },
-        "support-info-02": {
-          "category": "feedback"
-        },
-        "support-info-inverse": {
-          "category": "feedback"
+          "category": "feedback",
+          "description": "Low contrast version of $support-positive",
+          "globalToken": "$color-green-90"
         },
         "support-positive-inverse": {
-          "category": "feedback"
+          "category": "feedback",
+          "description": "High contrast version of $support-positive to be used over dark backgrounds",
+          "globalToken": "$color-green"
+        },
+        "support-info": {
+          "category": "feedback",
+          "description": "Information; Instructional messaging",
+          "globalToken": "$color-blue-30"
+        },
+        "support-info-02": {
+          "category": "feedback",
+          "description": "Low contrast version of $support-info",
+          "globalToken": "$color-blue-90"
+        },
+        "support-info-inverse": {
+          "category": "feedback",
+          "description": "High contrast version of $support-info to be used over dark backgrounds",
+          "globalToken": "$color-blue"
         },
         "support-brand-01": {
-          "category": "brand"
+          "category": "brand",
+          "description": "Special; Special attention messaging",
+          "globalToken": "$color-orange-30"
         },
         "support-brand-02": {
-          "category": "brand"
+          "category": "brand",
+          "description": "Low contrast version of $support-brand-01 for subtle surfaces + effects",
+          "globalToken": "$color-orange-90"
         },
         "support-brand-03": {
-          "category": "brand"
+          "category": "brand",
+          "description": "Discretionary brand surfaces + effects",
+          "globalToken": "$color-blue-25"
         },
         "support-brand-04": {
-          "category": "brand"
+          "category": "brand",
+          "description": "Discretionary brand surfaces + effects",
+          "globalToken": "$color-red-25"
         },
         "support-brand-05": {
-          "category": "brand"
+          "category": "brand",
+          "description": "Discretionary brand surfaces + effects",
+          "globalToken": "$color-yellow"
         },
         "support-brand-06": {
-          "category": "brand"
+          "category": "brand",
+          "description": "Discretionary brand surfaces + effects",
+          "globalToken": "$color-purple"
         },
         "support-brand-07": {
-          "category": "brand"
+          "category": "brand",
+          "description": "Discretionary brand surfaces + effects",
+          "globalToken": "$color-orange-55"
         },
         "content-default": {
-          "category": "static"
+          "category": "static",
+          "description": "Default text and icon colour",
+          "globalToken": "$color-white"
         },
         "content-subdued": {
-          "category": "static"
+          "category": "static",
+          "description": "Subdued text and icon colour used for secondary text and input labels",
+          "globalToken": "$color-charcoal-30"
         },
         "content-interactive-brand": {
-          "category": "interactive"
+          "category": "interactive",
+          "description": "Brand colour for interactive text and icons",
+          "globalToken": "$color-orange-30"
         },
         "content-interactive-light": {
-          "category": "interactive"
+          "category": "interactive",
+          "description": "Persistent colour for interactive text and icons on dark backgrounds. Uses the same global token in all themes",
+          "globalToken": "$color-white"
         },
         "content-interactive-primary": {
-          "category": "interactive"
+          "category": "interactive",
+          "description": "Colour for the text and icons of primary interactive elements",
+          "globalToken": "$color-charcoal-80"
         },
         "content-interactive-secondary": {
-          "category": "interactive"
+          "category": "interactive",
+          "description": "Colour for the text and icons of secondary interactive elements",
+          "globalToken": "$color-white"
         },
         "content-interactive-tertiary": {
-          "category": "interactive"
+          "category": "interactive",
+          "description": "Colour for the text and icons of tertiary interactive elements",
+          "globalToken": "$color-white"
         },
         "content-interactive-inverse": {
-          "category": "interactive"
+          "category": "interactive",
+          "description": "Colour for interactive text and icons on inverse backgrounds",
+          "globalToken": "$color-white"
         },
         "content-interactive-dark": {
-          "category": "interactive"
+          "category": "interactive",
+          "description": "Persistent colour for interactive text and icons on light backgrounds. Uses the same global token in all themes",
+          "globalToken": "$color-charcoal-80"
         },
         "content-interactive-error": {
-          "category": "interactive"
+          "category": "interactive",
+          "description": "Colour for the text and icons of error-specific interactive elements",
+          "globalToken": "$color-red-30"
         },
         "content-interactive-subdued": {
-          "category": "interactive"
+          "category": "interactive",
+          "description": "Subdued text and icon colour used for text and icons",
+          "globalToken": "$color-charoal-40"
         },
         "content-light": {
-          "category": "static"
+          "category": "static",
+          "description": "Text and icon colour used on dark backgrounds",
+          "globalToken": "$color-white"
         },
         "content-inverse": {
-          "category": "static"
+          "category": "static",
+          "description": "Text and icon colour used on inverse backgrounds",
+          "globalToken": "$color-charcoal-80"
         },
         "content-link": {
-          "category": "link"
+          "category": "link",
+          "description": "Text and icon colour for links",
+          "globalToken": "$color-white"
         },
         "content-link-distinct": {
-          "category": "link"
+          "category": "link",
+          "description": "Text and icon colour for high visibility links",
+          "globalToken": "$color-blue-30"
         },
         "content-link-light": {
-          "category": "link"
+          "category": "link",
+          "description": "Persistent text and icon colour for dark backgrounds. Uses the same global token in all themes",
+          "globalToken": "$color-white"
         },
         "content-link-inverse": {
-          "category": "link"
+          "category": "link",
+          "description": "Text and icon colour for inverse backgrounds",
+          "globalToken": "$color-charcoal-80"
         },
         "content-link-visited": {
-          "category": "link"
+          "category": "link",
+          "description": "Text and icon colour for visited links",
+          "globalToken": "$color-system-purple-10"
         },
         "content-link-visited-inverse": {
-          "category": "link"
+          "category": "link",
+          "description": "Text and icon colour for visited links on inverse backgrounds",
+          "globalToken": "$color-system-purple"
         },
         "content-error": {
-          "category": "static"
+          "category": "static",
+          "description": "Text and icon colour for error messaging",
+          "globalToken": "$color-red-30"
         },
         "content-positive": {
-          "category": "static"
+          "category": "static",
+          "description": "Text and icon colour for success messaging",
+          "globalToken": "$color-green-30"
         },
         "content-disabled": {
-          "category": "static"
+          "category": "static",
+          "description": "Text and icon colour to mark them as disabled",
+          "globalToken": "$color-charcoal-50"
         },
         "content-brand": {
-          "category": "static"
+          "category": "static",
+          "description": "Brand text and icon colour",
+          "globalToken": "$color-orange-30"
         },
         "hover-01": {
-          "category": "states"
+          "category": "states",
+          "description": "Opacity effect for hover states on default backgrounds",
+          "globalToken": "$color-hover-lighten"
         },
         "hover-02": {
-          "category": "states"
+          "category": "states",
+          "description": "Opacity effect for hover states on inverse backgrounds",
+          "globalToken": "$color-hover-darken"
         },
         "hover-02-light": {
-          "category": "states"
+          "category": "states",
+          "description": "Persistent opacity effect for hover states on dark backgrounds.Uses the same global token in all themes",
+          "globalToken": "$color-hover-lighten"
         },
         "hover-01-dark": {
-          "category": "states"
+          "category": "states",
+          "description": "Persistent opacity effect for hover states on light backgrounds.Uses the same global token in all themes",
+          "globalToken": "$color-hover-darken"
         },
         "active-01": {
-          "category": "states"
+          "category": "states",
+          "description": "Opacity effect for active states on default backgrounds",
+          "globalToken": "$color-active-lighten"
         },
         "active-02": {
-          "category": "states"
+          "category": "states",
+          "description": "Opacity effect for active states on inverse backgrounds",
+          "globalToken": "$color-active-darken"
         },
         "active-02-light": {
-          "category": "states"
+          "category": "states",
+          "description": "Opacity effect for active states on dark backgrounds.Uses the same global token in all themes",
+          "globalToken": "$color-active-lighten"
         },
         "active-01-dark": {
-          "category": "states"
+          "category": "states",
+          "description": "Opacity effect for active states on light backgrounds.Uses the same global token in all themes",
+          "globalToken": "$color-active-darken"
         },
         "focus": {
-          "category": "states"
+          "category": "states",
+          "description": "Colour used for outline focus states",
+          "globalToken": "$color-blue-30"
         },
         "disabled-01": {
-          "category": "states"
+          "category": "states",
+          "description": "Colour used for disabled UI elements",
+          "globalToken": "$color-mozzarella-80"
         },
         "disabled-01-inverse": {
-          "category": "states"
+          "category": "states",
+          "description": "Colour used for disabled UI elements on inverse backgrounds",
+          "globalToken": "$color-mozzarella-20"
         },
         "skeleton-01": {
-          "category": "skeleton"
+          "category": "skeleton",
+          "description": "Colour used for skeletons used as placeholders for UI elements while loading",
+          "globalToken": "$color-mozzarella-80"
         },
         "skeleton-02": {
-          "category": "skeleton"
+          "category": "skeleton",
+          "description": "Colour used for skeletons used as placeholders for UI elements while loading",
+          "globalToken": "$color-mozzarella-70"
         },
         "skeleton-03": {
-          "category": "skeleton"
+          "category": "skeleton",
+          "description": "Colour used for skeletons used as placeholders for UI elements while loading",
+          "globalToken": "$color-mozzarella-90"
         },
         "external-bta-background": {
           "category": ""
