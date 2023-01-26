@@ -246,22 +246,34 @@
           "category": "dividers"
         },
         "interactive-brand": {
-          "category": "interactiveBackgrounds"
+          "category": "interactiveBackgrounds",
+          "description": "Brand interactive colour used mainly in button and CTA backgrounds, accent fills and borders",
+          "globalToken": "$color-orange "
         },
         "interactive-primary": {
-          "category": "interactiveBackgrounds"
+          "category": "interactiveBackgrounds",
+          "description": "Primary interactive colour used mainly in button and CTA backgrounds, accent fills and borders",
+          "globalToken": "$color-mozzarella-90"
         },
         "interactive-secondary": {
-          "category": "interactiveBackgrounds"
+          "category": "interactiveBackgrounds",
+          "description": "Primary interactive colour used mainly in button and CTA backgrounds",
+          "globalToken": "$color-mozzarella-10"
         },
         "interactive-inverse": {
-          "category": "interactiveBackgrounds"
+          "category": "interactiveBackgrounds",
+          "description": "Inverse interactive colour used mainly in button and CTA backgrounds",
+          "globalToken": "$color-white"
         },
         "interactive-light": {
-          "category": "interactiveBackgrounds"
+          "category": "interactiveBackgrounds",
+          "description": "Light interactive colour used on dark backgrounds",
+          "globalToken": "$color-white"
         },
         "interactive-form": {
-          "category": "interactiveBackgrounds"
+          "category": "interactiveBackgrounds",
+          "description": "Field background on $background-default",
+          "globalToken": "$color-mozzarella-60"
         },
         "overlay": {
           "category": "pageBackgrounds",
