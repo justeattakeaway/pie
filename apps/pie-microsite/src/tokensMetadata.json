@@ -193,25 +193,39 @@
           "globalToken": "$color-mozzarella-5"
         },
         "background-subtle": {
-          "category": "pageBackgrounds"
+          "category": "pageBackgrounds",
+          "description": "Subtle page background",
+          "globalToken": "$color-mozzarella-10"
         },
         "background-dark": {
-          "category": "pageBackgrounds"
+          "category": "pageBackgrounds",
+          "description": "High contrast page background",
+          "globalToken": "$color-mozzarella-100"
         },
         "container-default": {
-          "category": "containerBackgrounds"
+          "category": "containerBackgrounds",
+          "description": "Default container background",
+          "globalToken": "$color-white"
         },
         "container-subtle": {
-          "category": "containerBackgrounds"
+          "category": "containerBackgrounds",
+          "description": "Subtle container background",
+          "globalToken": "$color-mozzarella-10"
         },
         "container-strong": {
-          "category": "containerBackgrounds"
+          "category": "containerBackgrounds",
+          "description": "Strong container background",
+          "globalToken": "$color-mozzarella-20"
         },
         "container-dark": {
-          "category": "containerBackgrounds"
+          "category": "containerBackgrounds",
+          "description": "Dark container background",
+          "globalToken": "$color-mozzarella-90"
         },
         "container-inverse": {
-          "category": "containerBackgrounds"
+          "category": "containerBackgrounds",
+          "description": "Inverse container background",
+          "globalToken": "$color-mozzarella-90"
         },
         "border-default": {
           "category": "borders"
@@ -250,7 +264,9 @@
           "category": "interactiveBackgrounds"
         },
         "overlay": {
-          "category": "pageBackgrounds"
+          "category": "pageBackgrounds",
+          "description": "Transluscent background overlay / scrim",
+          "globalToken": "$color-black @50%"
         },
         "support-error": {
           "category": "feedback"
@@ -431,10 +447,12 @@
           "globalToken": "$color-mozzarella-100"
         },
         "background-subtle": {
-          "category": "pageBackgrounds"
+          "category": "pageBackgrounds",
+          "description": "Subtle page background"
         },
         "background-dark": {
-          "category": "pageBackgrounds"
+          "category": "pageBackgrounds",
+          "description": "High contrast page background"
         },
         "container-default": {
           "category": "containerBackgrounds"
