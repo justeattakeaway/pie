@@ -79,7 +79,9 @@ const buildGlobalTokenUsedElement = globalToken => {
 const buildTokenDescriptionElement = (token, tokenType, tokenMetadata) => {
     const tokenDescriptionElementHandler = {
         [tokenTypes.COLOR]: buildColorDescription,
-        default: () => ''
+        default: () => (tokenMetadata.description
+            ? `<span class="c-tokensTable-tokenDescription">${tokenMetadata.description}</span>`
+            : '')
     };
 
     let description = tokenDescriptionElementHandler[tokenType]
