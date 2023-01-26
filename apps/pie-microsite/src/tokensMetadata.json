@@ -383,10 +383,14 @@
           "globalToken": "$color-orange-55"
         },
         "content-default": {
-          "category": "static"
+          "category": "static",
+          "description": "Default text and icon colour",
+          "globalToken": "$color-charcoal-80"
         },
         "content-subdued": {
-          "category": "static"
+          "category": "static",
+          "description": "Subdued text and icon colour used for secondary text and input labels",
+          "globalToken": "$color-charcoal-70"
         },
         "content-interactive-brand": {
           "category": "interactive"
@@ -416,10 +420,14 @@
           "category": "interactive"
         },
         "content-light": {
-          "category": "static"
+          "category": "static",
+          "description": "Text and icon colour used on dark backgrounds",
+          "globalToken": "$color-white"
         },
         "content-inverse": {
-          "category": "static"
+          "category": "static",
+          "description": "Text and icon colour used on inverse backgrounds",
+          "globalToken": "$color-white"
         },
         "content-link": {
           "category": "link"
@@ -440,16 +448,24 @@
           "category": "link"
         },
         "content-error": {
-          "category": "static"
+          "category": "static",
+          "description": "Text and icon colour for error messaging",
+          "globalToken": "$color-red"
         },
         "content-positive": {
-          "category": "static"
+          "category": "static",
+          "description": "Text and icon colour for success messaging",
+          "globalToken": "$color-green"
         },
         "content-disabled": {
-          "category": "static"
+          "category": "static",
+          "description": "Text and icon colour to mark them as disabled",
+          "globalToken": "$color-charcoal-50"
         },
         "content-brand": {
-          "category": "static"
+          "category": "static",
+          "description": "Brand text and icon colour",
+          "globalToken": "$color-orange"
         },
         "hover-01": {
           "category": "states"

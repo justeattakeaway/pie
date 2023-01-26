@@ -7,6 +7,26 @@ $tokensTable-spacing-container-height: 176px;
 $tokensTable-item-min-height: 128px;
 $tokensTable-item-vertical-padding: f.spacing(e);
 
+.c-tokensTable {
+    h2 {
+        @include f.font-size('heading-l');
+    }
+
+    h3 {
+        @include f.font-size('subheading-s');
+    }
+
+    @include f.media('>mid') {
+        h2 {
+            @include f.font-size('heading-xl');
+        }
+
+        h3 {
+            @include f.font-size('subheading-l');
+        }
+    }
+}
+
 .c-tokensTable-list {
     list-style: none;
     padding: 0;
