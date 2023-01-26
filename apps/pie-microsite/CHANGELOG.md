@@ -5,7 +5,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 v1.46.1
 ------------------------------
-*January 25, 2023*
+*January 26, 2023*
 
 ### Fixed
 - Headings hierarchy for typography code snippet 
