@@ -393,31 +393,49 @@
           "globalToken": "$color-charcoal-70"
         },
         "content-interactive-brand": {
-          "category": "interactive"
+          "category": "interactive",
+          "description": "Brand colour for interactive text and icons",
+          "globalToken": "$color-orange"
         },
         "content-interactive-light": {
-          "category": "interactive"
+          "category": "interactive",
+          "description": "Persistent colour for interactive text and icons on dark backgrounds. Uses the same global token in all themes",
+          "globalToken": "$color-white"
         },
         "content-interactive-primary": {
-          "category": "interactive"
+          "category": "interactive",
+          "description": "Colour for the text and icons of primary interactive elements",
+          "globalToken": "$color-white"
         },
         "content-interactive-secondary": {
-          "category": "interactive"
+          "category": "interactive",
+          "description": "Colour for the text and icons of secondary interactive elements",
+          "globalToken": "$color-charcoal-80"
         },
         "content-interactive-tertiary": {
-          "category": "interactive"
+          "category": "interactive",
+          "description": "Colour for the text and icons of tertiary interactive elements",
+          "globalToken": "$color-charcoal-75"
         },
         "content-interactive-inverse": {
-          "category": "interactive"
+          "category": "interactive",
+          "description": "Colour for interactive text and icons on inverse backgrounds",
+          "globalToken": "$color-charcoal-80"
         },
         "content-interactive-dark": {
-          "category": "interactive"
+          "category": "interactive",
+          "description": "Persistent colour for interactive text and icons on light backgrounds. Uses the same global token in all themes",
+          "globalToken": "$color-charcoal-80"
         },
         "content-interactive-error": {
-          "category": "interactive"
+          "category": "interactive",
+          "description": "Colour for the text and icons of error-specific interactive elements",
+          "globalToken": "$color-red"
         },
         "content-interactive-subdued": {
-          "category": "interactive"
+          "category": "interactive",
+          "description": "Subdued text and icon colour used for text and icons",
+          "globalToken": "$color-charcoal-60"
         },
         "content-light": {
           "category": "static",
@@ -430,22 +448,34 @@
           "globalToken": "$color-white"
         },
         "content-link": {
-          "category": "link"
+          "category": "link",
+          "description": "Text and icon colour for links",
+          "globalToken": "$color-charcoal-80"
         },
         "content-link-distinct": {
-          "category": "link"
+          "category": "link",
+          "description": "Text and icon colour for high visibility links",
+          "globalToken": "color-blue"
         },
         "content-link-light": {
-          "category": "link"
+          "category": "link",
+          "description": "Persistent text and icon colour for dark backgrounds. Uses the same global token in all themes",
+          "globalToken": "$color-white"
         },
         "content-link-inverse": {
-          "category": "link"
+          "category": "link",
+          "description": "Text and icon colour for inverse backgrounds",
+          "globalToken": "$color-white"
         },
         "content-link-visited": {
-          "category": "link"
+          "category": "link",
+          "description": "Text and icon colour for visited links",
+          "globalToken": "$color-system-purple"
         },
         "content-link-visited-inverse": {
-          "category": "link"
+          "category": "link",
+          "description": "Text and icon colour for visited links on inverse backgrounds",
+          "globalToken": "$color-system-purple-10"
         },
         "content-error": {
           "category": "static",
@@ -468,46 +498,74 @@
           "globalToken": "$color-orange"
         },
         "hover-01": {
-          "category": "states"
+          "category": "states",
+          "description": "Opacity effect for hover states on default backgrounds",
+          "globalToken": "$color-hover-darken"
         },
         "hover-02": {
-          "category": "states"
+          "category": "states",
+          "description": "Opacity effect for hover states on inverse backgrounds",
+          "globalToken": "$color-hover-lighten"
         },
-        "hover-01-light": {
-          "category": "states"
+        "hover-02-light": {
+          "category": "states",
+          "description": "Persistent opacity effect for hover states on dark backgrounds.Uses the same global token in all themes",
+          "globalToken": "$color-hover-lighten"
         },
         "hover-01-dark": {
-          "category": "states"
+          "category": "states",
+          "description": "Persistent opacity effect for hover states on light backgrounds.Uses the same global token in all themes",
+          "globalToken": "$color-hover-darken"
         },
         "active-01": {
-          "category": "states"
+          "category": "states",
+          "description": "Opacity effect for active states on default backgrounds",
+          "globalToken": "$color-active-darken"
         },
         "active-02": {
-          "category": "states"
+          "category": "states",
+          "description": "Opacity effect for active states on inverse backgrounds",
+          "globalToken": "$color-active-lighten"
         },
-        "active-01-light": {
-          "category": "states"
+        "active-02-light": {
+          "category": "states",
+          "description": "Opacity effect for active states on dark backgrounds.Uses the same global token in all themes",
+          "globalToken": "$color-active-lighten"
         },
         "active-01-dark": {
-          "category": "states"
+          "category": "states",
+          "description": "Opacity effect for active states on light backgrounds.Uses the same global token in all themes",
+          "globalToken": "$color-active-darken"
         },
         "focus": {
-          "category": "states"
+          "category": "states",
+          "description": "Colour used for outline focus states",
+          "globalToken": "$color-blue-30"
         },
         "disabled-01": {
-          "category": "states"
+          "category": "states",
+          "description": "Colour used for disabled UI elements",
+          "globalToken": "$color-mozzarella-20"
         },
         "disabled-01-inverse": {
-          "category": "states"
+          "category": "states",
+          "description": "Colour used for disabled UI elements on inverse backgrounds",
+          "globalToken": "$color-mozzarella-80"
         },
         "skeleton-01": {
-          "category": "skeleton"
+          "category": "skeleton",
+          "description": "Colour used for skeletons used as placeholders for UI elements while loading",
+          "globalToken": "$color-mozzarella-10"
         },
         "skeleton-02": {
-          "category": "skeleton"
+          "category": "skeleton",
+          "description": "Colour used for skeletons used as placeholders for UI elements while loading",
+          "globalToken": "$color-mozzarella-20"
         },
         "skeleton-03": {
-          "category": "skeleton"
+          "category": "skeleton",
+          "description": "Colour used for skeletons used as placeholders for UI elements while loading",
+          "globalToken": "$color-white"
         },
         "external-bta-background": {
           "category": ""
@@ -713,7 +771,7 @@
         "hover-02": {
           "category": "states"
         },
-        "hover-01-light": {
+        "hover-02-light": {
           "category": "states"
         },
         "hover-01-dark": {
@@ -725,7 +783,7 @@
         "active-02": {
           "category": "states"
         },
-        "active-01-light": {
+        "active-02-light": {
           "category": "states"
         },
         "active-01-dark": {
