@@ -228,22 +228,34 @@
           "globalToken": "$color-mozzarella-90"
         },
         "border-default": {
-          "category": "borders"
+          "category": "borders",
+          "description": "Default border",
+          "globalToken": "$color-mozzarella-20"
         },
         "border-subtle": {
-          "category": "borders"
+          "category": "borders",
+          "description": "Subtle border",
+          "globalToken": "$color-mozzarella-10"
         },
         "border-strong": {
-          "category": "borders"
+          "category": "borders",
+          "description": "Higher contrast border",
+          "globalToken": "$color-mozzarella-30"
         },
         "border-inverse": {
-          "category": "borders"
+          "category": "borders",
+          "description": "Border on inverse or dark coloured backgrounds",
+          "globalToken": "$color-mozzarella-70"
         },
         "divider-default": {
-          "category": "dividers"
+          "category": "dividers",
+          "description": "Divider for use above default and light coloured backgrounds",
+          "globalToken": "$color-black @8%"
         },
         "divider-inverse": {
-          "category": "dividers"
+          "category": "dividers",
+          "description": "Divider for use above inverse and dark coloured backgrounds",
+          "globalToken": "$color-white @20%"
         },
         "interactive-brand": {
           "category": "interactiveBackgrounds",
@@ -280,59 +292,95 @@
           "description": "Transluscent background overlay / scrim",
           "globalToken": "$color-black @50%"
         },
-        "support-error": {
-          "category": "feedback"
-        },
-        "support-warning": {
-          "category": "feedback"
-        },
-        "support-positive": {
-          "category": "feedback"
-        },
-        "support-info": {
-          "category": "feedback"
-        },
         "support-neutral": {
-          "category": "feedback"
+          "category": "feedback",
+          "description": "Neutral; Used for neutral messaging and alerts",
+          "globalToken": "$color-mozzarella-20"
+        },
+        "support-error": {
+          "category": "feedback",
+          "description": "Error; High impact messaging",
+          "globalToken": "$color-red"
         },
         "support-error-02": {
-          "category": "feedback"
+          "category": "feedback",
+          "description": "Low contrast version of $support-error",
+          "globalToken": "$color-red-10"
+        },
+        "support-warning": {
+          "category": "feedback",
+          "description": "Warning; Moderate impact messaging",
+          "globalToken": "$color-yellow"
         },
         "support-warning-02": {
-          "category": "feedback"
+          "category": "feedback",
+          "description": "Low contrast version of $support-warning",
+          "globalToken": "$color-yellow-10"
+        },
+        "support-positive": {
+          "category": "feedback",
+          "description": "Success; Positive messaging",
+          "globalToken": "$color-green"
         },
         "support-positive-02": {
-          "category": "feedback"
-        },
-        "support-info-02": {
-          "category": "feedback"
-        },
-        "support-info-inverse": {
-          "category": "feedback"
+          "category": "feedback",
+          "description": "Low contrast version of $support-positive",
+          "globalToken": "$color-green-10"
         },
         "support-positive-inverse": {
-          "category": "feedback"
+          "category": "feedback",
+          "description": "High contrast version of $support-positive to be used over dark backgrounds",
+          "globalToken": "$color-green-30"
+        },
+        "support-info": {
+          "category": "feedback",
+          "description": "Information; Instructional messaging",
+          "globalToken": "$color-blue"
+        },
+        "support-info-02": {
+          "category": "feedback",
+          "description": "Low contrast version of $support-info",
+          "globalToken": "$color-blue-10"
+        },
+        "support-info-inverse": {
+          "category": "feedback",
+          "description": "High contrast version of $support-info to be used over dark backgrounds",
+          "globalToken": "$color-blue-30"
         },
         "support-brand-01": {
-          "category": "brand"
+          "category": "brand",
+          "description": "Special; Special attention messaging",
+          "globalToken": "$color-orange-30"
         },
         "support-brand-02": {
-          "category": "brand"
+          "category": "brand",
+          "description": "Low contrast version of $support-brand-01 for subtle surfaces + effects",
+          "globalToken": "$color-orange-10"
         },
         "support-brand-03": {
-          "category": "brand"
+          "category": "brand",
+          "description": "Discretionary brand surfaces + effects",
+          "globalToken": "$color-blue-25"
         },
         "support-brand-04": {
-          "category": "brand"
+          "category": "brand",
+          "description": "Discretionary brand surfaces + effects",
+          "globalToken": "$color-red-25"
         },
         "support-brand-05": {
-          "category": "brand"
+          "category": "brand",
+          "description": "Discretionary brand surfaces + effects",
+          "globalToken": "$color-yellow"
         },
         "support-brand-06": {
-          "category": "brand"
+          "category": "brand",
+          "description": "Discretionary brand surfaces + effects",
+          "globalToken": "$color-purple"
         },
         "support-brand-07": {
-          "category": "brand"
+          "category": "brand",
+          "description": "Discretionary brand surfaces + effects",
+          "globalToken": "$color-orange-55"
         },
         "content-default": {
           "category": "static"
