@@ -3,10 +3,11 @@ const normalizedPieDesignTokens = require('../../../_data/normalizeTokens');
 const pieTokenCategories = require('../../../tokenCategories.json');
 const { stringHelpers, objectHelpers, numberHelpers } = require('../../../utilities/helpers');
 const tokenTypes = require('../../../_data/tokenTypes');
-const { buildColorName, buildColorExample } = require('./tokenTypes/colour');
+const { buildColorName, buildColorExample, buildColorDescription } = require('./tokenTypes/colour');
 const { buildSpacingExample } = require('./tokenTypes/spacing');
 const { buildFontExample } = require('./tokenTypes/font');
 const { buildRadiusExample } = require('./tokenTypes/radius');
+const { deindentHTML } = require('../shortcode-utilities');
 
 const {
     getParentCategoriesForTokenType,
@@ -65,6 +66,33 @@ const buildTokenExampleElement = (token, tokenType, tokenMetadata) => {
     return tokenExampleElementHandler[tokenType](token, tokenMetadata);
 };
 
+const buildGlobalTokenUsedElement = globalToken => {
+    const globalTokenUsedElement = `<span class="c-tokensTable-tokenDescription">
+  <span class="u-font-bold u-showAboveWide">Global token used:</span> <span class="c-tokensTable-token c-tokensTable-token--light">${globalToken}</span>
+</span>`;
+
+    return deindentHTML(globalTokenUsedElement);
+};
+
+const buildTokenDescriptionElement = (token, tokenType, tokenMetadata) => {
+    const tokenDescriptionElementHandler = {
+        [tokenTypes.COLOR]: buildColorDescription,
+        default: () => (tokenMetadata.description
+            ? `<span class="c-tokensTable-tokenDescription">${tokenMetadata.description}</span>`
+            : '')
+    };
+
+    let description = tokenDescriptionElementHandler[tokenType]
+        ? tokenDescriptionElementHandler[tokenType](token, tokenMetadata)
+        : tokenDescriptionElementHandler.default(tokenMetadata);
+
+    if (tokenMetadata.globalToken) {
+        description += buildGlobalTokenUsedElement(tokenMetadata.globalToken);
+    }
+
+    return description;
+};
+
 
 /**
  * Builds a token pill element to display the SCSS token name in the token list item.
@@ -96,17 +124,17 @@ const buildTokenListElements = ({
     // TODO - description is just an example of how we might use the metadata
     // We would likely wanted to move them into a colour specific handler similar to how we build
     // the colour token example. Please consider them placeholder for now.
-    const tokenDescription = tokenMetadata.description
-        ? `<span class="c-tokensTable-tokenDescription">${tokenMetadata.description}</span>`
-        : '';
+    const tokenDescription = buildTokenDescriptionElement(token, tokenType, tokenMetadata);
 
-    return `<li class="c-tokensTable-row c-tokensTable-item">
+    return deindentHTML(`
+    <li class="c-tokensTable-row c-tokensTable-item">
       ${tokenExampleElement}
       <div class="c-tokensTable-content">
-        <span class="c-tokensTable-displayName">${tokenDisplayName}</span>${tokenDescription}
+        <span class="c-tokensTable-displayName">${tokenDisplayName}</span>
+        ${tokenDescription}
       </div>
       ${tokenPill}
-    </li>`;
+    </li>`);
 };
 
 /**

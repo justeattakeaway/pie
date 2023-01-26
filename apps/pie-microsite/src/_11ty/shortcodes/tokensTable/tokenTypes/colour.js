@@ -1,4 +1,5 @@
 const { isColorDark } = require('../../../../utilities/colors');
+const { deindentHTML } = require('../../shortcode-utilities');
 
 const createHighContrastName = tokenName => {
     const highContrast = '(High Contrast)';
@@ -64,7 +65,20 @@ const buildColorExample = token => {
     return `<div class="${classes.join(' ')}" style="${cssVariable}";></div>`;
 };
 
+const buildColorDescription = (token, tokenMetadata) => {
+    let description = '';
+    if (tokenMetadata.description) {
+        description = `
+        <span class="c-tokensTable-tokenDescription">
+          ${tokenMetadata.description}
+        </span>`;
+    }
+
+    return deindentHTML(description);
+};
+
 module.exports = {
     buildColorName,
-    buildColorExample
+    buildColorExample,
+    buildColorDescription
 };

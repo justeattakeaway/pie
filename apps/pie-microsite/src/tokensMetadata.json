@@ -189,7 +189,8 @@
       "default": {
         "background-default": {
           "category": "pageBackgrounds",
-          "description": "Default page background"
+          "description": "Default page background",
+          "globalToken": "$color-mozzarella-5"
         },
         "background-subtle": {
           "category": "pageBackgrounds"

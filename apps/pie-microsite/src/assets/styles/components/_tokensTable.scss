@@ -146,7 +146,7 @@ $tokensTable-item-vertical-padding: f.spacing(e);
         min-height: auto;
         background-color: f.$color-background-default;
     }
-  }
+}
 
 .c-tokensTable-displayName {
     color: f.$color-content-default;
@@ -155,6 +155,11 @@ $tokensTable-item-vertical-padding: f.spacing(e);
 
 .c-tokensTable-tokenDescription {
     @include f.font-size('body-s');
+}
+
+.c-tokensTable-displayName,
+.c-tokensTable-tokenDescription {
+    margin-bottom: f.spacing(b);
 }
 
 .c-tokensTable-heading {
@@ -220,9 +225,6 @@ $tokensTable-item-vertical-padding: f.spacing(e);
 }
 
 .c-tokensTable-token {
-    position: absolute;
-    top: f.spacing(d);
-    left: f.spacing(d);
     background: f.$color-container-dark;
     color: f.$color-dark-content-default;
     height: min-content;
@@ -230,6 +232,18 @@ $tokensTable-item-vertical-padding: f.spacing(e);
     border-radius: f.$radius-03;
     padding: calc(f.spacing(a) / 2) f.spacing(a);
     @include f.font-size('body-s');
+}
+
+.c-tokensTable-token--light {
+    background-color: f.$color-container-strong;
+    color: f.$color-content-default;
+    border: none;
+}
+
+.c-tokensTable-example ~ .c-tokensTable-token {
+    position: absolute;
+    top: f.spacing(d);
+    left: f.spacing(d);
 
     @include f.media('>=wide') {
         position: static;
