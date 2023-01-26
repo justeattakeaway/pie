@@ -55,16 +55,14 @@ jobs:
         # prerelease mode, enter prerelease mode with tag alpha
         if: steps.check_files.outputs.files_exists == 'true'
         run: npx changeset pre exit
-      - name: Version Packages
-        run: | 
-          yarn changeset:version
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          git add .
-          git commit -m "Version Packages with 'latest' tag"
-          git push --follow-tags
-      - name: Publish Packages
-        run: yarn changeset:publish
+      - name: Create latest release PR
+        uses: changesets/action@v1
+        with:
+          version: yarn changeset:version
+          publish: yarn changeset:publish
+          title: 'Version Packages (latest)'
+          commit: "Version Packages with 'latest' tag"
+
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       HUSKY: 0
