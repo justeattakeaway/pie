@@ -69,7 +69,7 @@ const buildColorDescription = (token, tokenMetadata) => {
     let description = '';
     if (tokenMetadata.description) {
         description = `
-        <span class="c-tokensTable-tokenDescription">
+        <span class="c-tokensTable-tokenDescription u-spacing-b--bottom">
           ${tokenMetadata.description}
         </span>`;
     }

@@ -151,15 +151,11 @@ $tokensTable-item-vertical-padding: f.spacing(e);
 .c-tokensTable-displayName {
     color: f.$color-content-default;
     font-weight: f.$font-weight-bold;
+    margin-bottom: f.spacing(b);
 }
 
 .c-tokensTable-tokenDescription {
     @include f.font-size('body-s');
-}
-
-.c-tokensTable-displayName,
-.c-tokensTable-tokenDescription {
-    margin-bottom: f.spacing(b);
 }
 
 .c-tokensTable-heading {
@@ -225,6 +221,7 @@ $tokensTable-item-vertical-padding: f.spacing(e);
 }
 
 .c-tokensTable-token {
+    display: inline-block;
     background: f.$color-container-dark;
     color: f.$color-dark-content-default;
     height: min-content;

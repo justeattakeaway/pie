@@ -67,9 +67,11 @@ const buildTokenExampleElement = (token, tokenType, tokenMetadata) => {
 };
 
 const buildGlobalTokenUsedElement = globalToken => {
-    const globalTokenUsedElement = `<span class="c-tokensTable-tokenDescription">
-  <span class="u-font-bold u-showAboveWide">Global token used:</span> <span class="c-tokensTable-token c-tokensTable-token--light">${globalToken}</span>
-</span>`;
+    const globalTokenUsedElement = `
+    <div class="c-tokensTable-tokenDescription">
+      <span class="u-font-bold u-showAboveWide">Global token used:</span> 
+      <span class="c-tokensTable-token c-tokensTable-token--light">${globalToken}</span>
+    </div>`;
 
     return deindentHTML(globalTokenUsedElement);
 };
