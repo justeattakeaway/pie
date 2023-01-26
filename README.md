@@ -98,7 +98,8 @@ If your change is intended to be released under the `next` / `beta` tag on npm, 
 - GitHub actions will automatically create a new PR that includes the `package.json` version bump, as well as changelog entries.
 - Once this generated PR gets merged, GitHub actions will publish your changes under the `next` / `beta` tag.
 
-**Note:** Any new PR's that target the `feature-*` / `beta-*` branch will cause GitHub actions to include the changes as part of the release.
+**Notes:** Any new PR's that target the `feature-*` / `beta-*` branch will cause GitHub actions to include the changes as part of the release.
+Any changes to beta package **must** follow this workflow. PR's that combine changes in `latest` and `beta` packages will result in the beta package being versioned incorrectly.
 
 ##### Promoting to stable
 

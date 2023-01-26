@@ -27,8 +27,6 @@ jobs:
           cat << EOF > "$HOME/.npmrc"
             //registry.npmjs.org/:_authToken=$NPM_TOKEN
           EOF
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Setup Node
         # Setup Node 16
         uses: actions/setup-node@v3
@@ -67,6 +65,70 @@ jobs:
         # via an automatically created Version Packages PR
         if: steps.check_files.outputs.files_exists == 'true' && startsWith(github.event.head_commit.message, 'Version Packages')
         run: yarn changeset:publish
+      - name: Create alpha release PR
+        uses: changesets/action@v1
+        with:
+          version: npm run changeset-version
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: get-npm-version
+        id: package-version
+        uses: martinbeentjes/npm-get-version-action@main
+
+      - name: Run publish
+        id: changesets
+        # Only run publish if we're still in pre mode and the last commit was
+        # via an automatically created Version Packages PR
+        if: steps.check_files.outputs.files_exists == 'true' && startsWith(github.event.head_commit.message, 'Version Packages')
+        run: npm run changeset-publish
+
+      - name: Send a Slack notification on publish
+        if: steps.changesets.outcome == 'success'
+        id: slack
+        uses: slackapi/slack-github-action@v1.23.0
+        with:
+          # Slack channel id, channel name, or user id to post message
+          # See also: https://api.slack.com/methods/chat.postMessage#channels
+          # You can pass in multiple channels to post to by providing
+          # a comma-delimited list of channel IDs
+          channel-id: 'C01PS0CB41G'
+          # For posting a simple plain text message
+          payload: |
+            {
+              "blocks": [
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "A new version of `@apollo/client` was released :rocket:"
+                  }
+                },
+                {
+                  "type": "section",
+                  "fields": [
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Version:*\n`${{ steps.package-version.outputs.current-version}}`"
+                    },
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Tag:*\n`alpha`"
+                    },
+                    {
+                      "type": "mrkdwn",
+                      "text": "*GitHub release:*\nN/A"
+                    },
+                    {
+                      "type": "mrkdwn",
+                      "text": "*npm releases:*\n<https://www.npmjs.com/package/@apollo/client?activeTab=versions|link>"
+                    }
+                  ]
+                }
+              ]
+            }
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       HUSKY: 0
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
