@@ -823,7 +823,7 @@
         "content-interactive-subdued": {
           "category": "interactive",
           "description": "Subdued text and icon colour used for text and icons",
-          "globalToken": "$color-charoal-40"
+          "globalToken": "$color-charcoal-40"
         },
         "content-light": {
           "category": "static",
