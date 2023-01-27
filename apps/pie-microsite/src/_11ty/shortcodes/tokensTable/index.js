@@ -66,16 +66,28 @@ const buildTokenExampleElement = (token, tokenType, tokenMetadata) => {
     return tokenExampleElementHandler[tokenType](token, tokenMetadata);
 };
 
+/**
+ * Builds the global token used element displayed primarily by alias tokens
+ * @param {string} globalToken the global token referenced by this alias token
+ * @returns a <span> HTML string containing the global token used
+ */
 const buildGlobalTokenUsedElement = globalToken => {
     const globalTokenUsedElement = `
-    <div class="c-tokensTable-tokenDescription">
+    <span class="c-tokensTable-tokenDescription">
       <span class="u-font-bold u-showAboveWide">Global token used:</span> 
       <span class="c-tokensTable-token c-tokensTable-token--light">${globalToken}</span>
-    </div>`;
+    </span>`;
 
     return deindentHTML(globalTokenUsedElement);
 };
 
+/**
+ * Builds the overall token description element for each type of token. The description content differs based on the type of token.
+ * @param {string} token the token value i.e. #000, #ffffff, #000|0.85 or #000000|0.85
+ * @param {*} tokenType the type of token i.e. color, spacing, radius
+ * @param {*} tokenMetadata the metadata for the token. data such as descriptions
+ * @returns {string} - the description HTML string
+ */
 const buildTokenDescriptionElement = (token, tokenType, tokenMetadata) => {
     const tokenDescriptionElementHandler = {
         [tokenTypes.COLOR]: buildColorDescription,
