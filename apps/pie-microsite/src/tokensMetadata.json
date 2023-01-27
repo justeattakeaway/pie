@@ -455,7 +455,7 @@
         "content-link-distinct": {
           "category": "link",
           "description": "Text and icon colour for high visibility links",
-          "globalToken": "color-blue"
+          "globalToken": "$color-blue"
         },
         "content-link-light": {
           "category": "link",
