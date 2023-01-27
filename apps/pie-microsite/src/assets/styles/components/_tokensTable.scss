@@ -4,6 +4,7 @@
 $tokensTable-column-padding: f.spacing(d);
 $tokensTable-border-width: 1px;
 $tokensTable-spacing-container-height: 176px;
+$tokensTable-spacing-radius-height: 176px;
 $tokensTable-item-min-height: 128px;
 $tokensTable-item-vertical-padding: f.spacing(e);
 
@@ -55,7 +56,7 @@ $tokensTable-item-vertical-padding: f.spacing(e);
     justify-content: center;
     align-items: center;
     background-color: f.$color-background-subtle;
-    min-height: 176px;
+    min-height: $tokensTable-spacing-radius-height;
 
     @include f.media('>=wide') {
         display: block;
