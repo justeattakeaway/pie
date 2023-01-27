@@ -4,6 +4,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 
+v1.23.0
+------------------------------
+*January 27, 2022*
+
+### Changed
+- `.editorconfig` updated – matches old mono-repo settings now, which matches up with our current linting rulesets
+
+
 v1.22.0
 ------------------------------
 *January 19, 2022*
