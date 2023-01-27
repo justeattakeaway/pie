@@ -9,7 +9,7 @@ const buildRadiusExample = token => {
     const style = `--example-radius: ${token}px`;
 
     return `
-        <div class="c-tokensTable-example-radius-container">
+        <div class="c-tokensTable-example-container c-tokensTable-example-container--radius">
             <div class="${classes.join(' ')}" style="${style}"></div>
         </div>
     `;
