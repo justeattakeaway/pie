@@ -73,6 +73,7 @@ const buildColorExample = token => {
 const buildColorDescription = tokenMetadata => {
     let description = '';
 
+    // Alias tokens have a globalToken property that references the global token used by the alias
     if (tokenMetadata.globalToken) {
         // It's an alias colour token
         description = `
