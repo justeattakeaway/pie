@@ -7,23 +7,19 @@ $tokensTable-spacing-container-height: 176px;
 $tokensTable-item-min-height: 128px;
 $tokensTable-item-vertical-padding: f.spacing(e);
 
-.c-tokensTable {
-    h2 {
-        @include f.font-size('heading-l');
+.c-tokensTable-title {
+    @include f.font-size('heading-l');
+    
+    @include f.media('>mid') {
+        @include f.font-size('heading-xl');
     }
+}
 
-    h3 {
-        @include f.font-size('subheading-s');
-    }
+.c-tokensTable-sectionSubheading {
+    @include f.font-size('subheading-s');
 
     @include f.media('>mid') {
-        h2 {
-            @include f.font-size('heading-xl');
-        }
-
-        h3 {
-            @include f.font-size('subheading-l');
-        }
+        @include f.font-size('subheading-l');
     }
 }
 
