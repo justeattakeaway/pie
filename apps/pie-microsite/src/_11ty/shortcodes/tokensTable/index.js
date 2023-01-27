@@ -89,16 +89,16 @@ const buildGlobalTokenUsedElement = globalToken => {
  * @returns {string} - the description HTML string
  */
 const buildTokenDescriptionElement = (token, tokenType, tokenMetadata) => {
-    const tokenDescriptionElementHandler = {
+    const tokenTypeBuilder = {
         [tokenTypes.COLOR]: buildColorDescription,
         default: () => (tokenMetadata.description
             ? `<span class="c-tokensTable-tokenDescription">${tokenMetadata.description}</span>`
             : '')
     };
 
-    let description = tokenDescriptionElementHandler[tokenType]
-        ? tokenDescriptionElementHandler[tokenType](token, tokenMetadata)
-        : tokenDescriptionElementHandler.default(tokenMetadata);
+    let description = tokenType in tokenTypeBuilder
+        ? tokenTypeBuilder[tokenType](token, tokenMetadata)
+        : tokenTypeBuilder.default(tokenMetadata);
 
     if (tokenMetadata.globalToken) {
         description += buildGlobalTokenUsedElement(tokenMetadata.globalToken);
