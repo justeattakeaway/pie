@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Fix example webpage
 - Run clean pre-bundle (so it cleans the icons generated locally)
 
+v2.0.0-beta.2
+------------------------------
+*January 27, 2023*
+
+### Fixed
+- ESLint config (as wasn't working with current setup)
+
+### Changed
+- Icons files run through ESLint once they've been run through babel generator (so they are more readable, as only used for documentation purposes).
+
+
 v2.0.0-beta.1
 ------------------------------
 *November 24, 2022*
