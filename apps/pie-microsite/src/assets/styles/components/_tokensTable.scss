@@ -34,6 +34,36 @@ $tokensTable-item-vertical-padding: f.spacing(e);
     }
 }
 
+.c-tokensTable-example-container--spacing {
+    background-color: f.$color-background-subtle;
+    position: relative;
+    min-height: $tokensTable-spacing-container-height;
+
+    @include f.media('>=wide') {
+        background-color: f.$color-background-default;
+        min-height: calc($tokensTable-item-min-height - calc($tokensTable-item-vertical-padding * 2));
+
+        @include f.media('>=wide') {
+            justify-self: start;
+            align-self: start;
+        }
+    }
+}
+
+.c-tokensTable-example-container--radius {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: f.$color-background-subtle;
+    min-height: 176px;
+
+    @include f.media('>=wide') {
+        display: block;
+        background-color: transparent;
+        min-height: 80px;
+    }
+}
+
 .c-tokensTable-example {
     background-color: var(--example-background-color, f.$color-background-subtle);
     overflow: hidden;
@@ -71,22 +101,6 @@ $tokensTable-item-vertical-padding: f.spacing(e);
     }
 }
 
-.c-tokensTable-example-spacing-container {
-    background-color: f.$color-background-subtle;
-    position: relative;
-    min-height: $tokensTable-spacing-container-height;
-
-    @include f.media('>=wide') {
-       background-color: f.$color-background-default;
-       min-height: calc($tokensTable-item-min-height - calc($tokensTable-item-vertical-padding * 2));
-
-       @include f.media('>=wide') {
-            justify-self: start;
-            align-self: start;
-        }
-    }
-}
-
 .c-tokensTable-example--spacing {
     // calculates the vertical positioning of the spacing examples (always slightly off-centre)
     --base-negative-space: calc((#{$tokensTable-spacing-container-height} - var(--example-spacing)) / 2);
@@ -105,20 +119,6 @@ $tokensTable-item-vertical-padding: f.spacing(e);
     @include f.media('>=wide') {
         bottom: 0;
         top: 0;
-    }
-}
-
-.c-tokensTable-example-radius-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: f.$color-background-subtle;
-    min-height: 176px;
-
-    @include f.media('>=wide') {
-        display: block;
-        background-color: transparent;
-        min-height: 80px;
     }
 }
 
@@ -253,7 +253,9 @@ $tokensTable-item-vertical-padding: f.spacing(e);
     border: none;
 }
 
-.c-tokensTable-example ~ .c-tokensTable-token {
+// .c-tokensTable-token elements sitting adjacent to examples or example containers
+// should be absolutely positioned as follows
+[class^='c-tokensTable-example'] ~ .c-tokensTable-token {
     position: absolute;
     top: f.spacing(d);
     left: f.spacing(d);
