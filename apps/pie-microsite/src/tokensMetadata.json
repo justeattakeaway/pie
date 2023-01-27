@@ -260,7 +260,7 @@
         "interactive-brand": {
           "category": "interactiveBackgrounds",
           "description": "Brand interactive colour used mainly in button and CTA backgrounds, accent fills and borders",
-          "globalToken": "$color-orange "
+          "globalToken": "$color-orange"
         },
         "interactive-primary": {
           "category": "interactiveBackgrounds",
