@@ -1,10 +1,14 @@
 root = true
 
 [*]
-end_of_line = lf
-insert_final_newline = true
-
-[*.{js,json,yml}]
 charset = utf-8
+end_of_line = lf
 indent_style = space
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[**/*.{config,csproj,dotsettings,feature,fxcop,json,markdown,md,ncrunch*,ndepend,rb,targets,xml,xsd,yml}]
 indent_size = 2
+
+[**/*.{cs,cshtml,css,html,js,less,vue}]
+indent_size = 4
