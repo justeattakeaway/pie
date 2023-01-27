@@ -9,7 +9,7 @@ $tokensTable-item-vertical-padding: f.spacing(e);
 
 .c-tokensTable-title {
     @include f.font-size('heading-l');
-    
+
     @include f.media('>mid') {
         @include f.font-size('heading-xl');
     }
