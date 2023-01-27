@@ -39,7 +39,7 @@ const createTokenDisplayName = (tokenKey, tokenType) => {
     const tokenNameSegments = tokenKey.split('-');
     const tokenName = tokenNameSegments.join(' ');
 
-    return shouldShowPrefix 
+    return shouldShowPrefix
         ? `${stringHelpers.capitaliseFirstLetter(tokenType)} ${tokenName}`
         : stringHelpers.capitaliseFirstLetter(buildColorName(tokenName));
 };
@@ -74,8 +74,8 @@ const buildTokenExampleElement = (token, tokenType, tokenMetadata) => {
 const buildGlobalTokenUsedElement = globalToken => {
     const globalTokenUsedElement = `
     <span class="c-tokensTable-tokenDescription">
-      <span class="u-font-bold u-showAboveWide">Global token used:</span> 
-      <span class="c-tokensTable-token c-tokensTable-token--light">${globalToken}</span>
+        <span class="u-font-bold u-showAboveWide">Global token used:</span>
+        <span class="c-tokensTable-token c-tokensTable-token--light">${globalToken}</span>
     </span>`;
 
     return deindentHTML(globalTokenUsedElement);
@@ -88,7 +88,7 @@ const buildGlobalTokenUsedElement = globalToken => {
  * @param {*} tokenMetadata the metadata for the token. data such as descriptions
  * @returns {string} - the description HTML string
  */
-const buildTokenDescriptionElement = (token, tokenType, tokenMetadata) => {
+const buildTokenDescriptionElement = (tokenType, tokenMetadata) => {
     const tokenTypeBuilder = {
         [tokenTypes.COLOR]: buildColorDescription,
         default: () => (tokenMetadata.description
@@ -97,7 +97,7 @@ const buildTokenDescriptionElement = (token, tokenType, tokenMetadata) => {
     };
 
     let description = tokenType in tokenTypeBuilder
-        ? tokenTypeBuilder[tokenType](token, tokenMetadata)
+        ? tokenTypeBuilder[tokenType](tokenMetadata)
         : tokenTypeBuilder.default(tokenMetadata);
 
     if (tokenMetadata.globalToken) {
@@ -138,16 +138,16 @@ const buildTokenListElements = ({
     // TODO - description is just an example of how we might use the metadata
     // We would likely wanted to move them into a colour specific handler similar to how we build
     // the colour token example. Please consider them placeholder for now.
-    const tokenDescription = buildTokenDescriptionElement(token, tokenType, tokenMetadata);
+    const tokenDescription = buildTokenDescriptionElement(tokenType, tokenMetadata);
 
     return deindentHTML(`
     <li class="c-tokensTable-row c-tokensTable-item">
-      ${tokenExampleElement}
-      <div class="c-tokensTable-content">
-        <span class="c-tokensTable-displayName">${tokenDisplayName}</span>
-        ${tokenDescription}
-      </div>
-      ${tokenPill}
+        ${tokenExampleElement}
+        <div class="c-tokensTable-content">
+            <span class="c-tokensTable-displayName">${tokenDisplayName}</span>
+            ${tokenDescription}
+        </div>
+        ${tokenPill}
     </li>`);
 };
 
@@ -156,14 +156,15 @@ const buildTokenListElements = ({
  * @param {string[]} listElements - the list items to render within the list
  * @returns {string} - the tokens list HTML elements
  */
-const buildTokensList = listElements => `<div class="c-tokensTable-row u-spacing-e--top u-showAboveWide c-tokensTable-heading">
-  <span>Example</span>
-  <span>Description</span>
-  <span>Token name</span>
-</div>
-<ul class="c-tokensTable-list">
-  ${listElements.join('')}
-</ul>`;
+const buildTokensList = listElements => deindentHTML(`
+    <div class="c-tokensTable-row u-spacing-e--top u-showAboveWide c-tokensTable-heading">
+        <span>Example</span>
+        <span>Description</span>
+        <span>Token name</span>
+        </div>
+        <ul class="c-tokensTable-list">
+        ${listElements.join('')}
+    </ul>`);
 
 /**
  * Creates a tokens list for a given category
@@ -224,7 +225,7 @@ const buildUncategorisedLists = ({
  * @returns - - a string of html containing the list of tokens - with category, example, description and token name
  */
 const buildCategorisedLists = ({
-    path, tokenType, tokens 
+    path, tokenType, tokens
 }) => {
     const categories = objectHelpers.getObjectPropertyByPath(pieTokenCategories, path);
 
@@ -243,11 +244,11 @@ const buildCategorisedLists = ({
 
 /**
  * Builds a list of tokens that are categorised by parent and subcategory
- * @param {object} config 
+ * @param {object} config
  * @returns {string} - list of tokens categorised by parent and subcategory
  */
 const buildCategoryListsWithParents = ({
-    parentCategories, path, tokenType, isGlobal, tokens 
+    parentCategories, path, tokenType, isGlobal, tokens
 }) => {
     const subcategories = isGlobal
         ? pieTokenCategories[tokenType].global
@@ -289,8 +290,8 @@ const buildTokenLists = (path, tokenType) => {
     const tokens = objectHelpers.getObjectPropertyByPath(normalizedPieDesignTokens, `theme.jet.${path}`);
     const parentCategories = getParentCategoriesForTokenType(`${tokenType}.${isGlobal ? 'global' : 'alias'}.parentCategories`);
     const regularCategories = objectHelpers.getObjectPropertyByPath(pieTokenCategories, path);
-    
-    const config = { 
+
+    const config = {
         parentCategories,
         path,
         tokenType,
@@ -302,8 +303,8 @@ const buildTokenLists = (path, tokenType) => {
         return buildUncategorisedLists(config);
     }
 
-    return parentCategories 
-        ? buildCategoryListsWithParents(config) 
+    return parentCategories
+        ? buildCategoryListsWithParents(config)
         : buildCategorisedLists(config);
 };
 

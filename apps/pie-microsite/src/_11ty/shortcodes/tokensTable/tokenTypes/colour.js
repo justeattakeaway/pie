@@ -65,13 +65,23 @@ const buildColorExample = token => {
     return `<div class="${classes.join(' ')}" style="${cssVariable}";></div>`;
 };
 
-const buildColorDescription = (token, tokenMetadata) => {
+/**
+ * Builds the overall token description element for global and alias Colour tokens.
+ * @param {*} tokenMetadata the metadata for the token. data such as descriptions
+ * @returns {string} - the description HTML string
+ */
+const buildColorDescription = tokenMetadata => {
     let description = '';
-    if (tokenMetadata.description) {
+
+    if (tokenMetadata.globalToken) {
+        // It's an alias colour token
         description = `
         <span class="c-tokensTable-tokenDescription u-spacing-b--bottom">
-          ${tokenMetadata.description}
+            ${tokenMetadata.description}
         </span>`;
+    } else {
+        // It's a global colour token
+        description = `<span class="c-tokensTable-tokenDescription">${tokenMetadata.description}</span>`;
     }
 
     return deindentHTML(description);
