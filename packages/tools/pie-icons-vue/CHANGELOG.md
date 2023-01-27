@@ -14,8 +14,12 @@ v2.0.0-beta.2
 ### Fixed
 - ESLint config (as wasn't working with current setup)
 
+### Added
+- `clean` task added to remove old icon files that are no longer needed
+
 ### Changed
-- Icons files run through ESLint once they've been run through babel generator (so they are more readable, as only used for documentation purposes).
+- Icons files run through ESLint once they've been run through babel generator (so they are more readable, as only used for documentation purposes)
+- Updated `pie-icons` package to `v2.0.0-beta.3`
 
 
 v2.0.0-beta.1

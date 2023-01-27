@@ -10,24 +10,23 @@ export default {
         return h('svg', _mergeJSXProps([{
             attrs: {
                 xmlns: 'http://www.w3.org/2000/svg',
-                viewBox: '0 0 28 28'
+                viewBox: '0 0 16 16'
             },
             class: 'c-pieIcon c-pieIcon--sort'
         }, ctx.data]), [h('path', {
             attrs: {
-                d: 'M16.625 20.125H11.375V21.875H16.625V20.125Z'
+                d: 'M9.75 11.7188H6.25V13.0312H9.75V11.7188Z',
+                fill: '#242E30'
             }
         }), h('path', {
             attrs: {
-                d: 'M3.5 4.375V6.125H26.25V4.375H3.5Z'
+                d: 'M12.375 7.34375H3.625V8.65625H12.375V7.34375Z',
+                fill: '#242E30'
             }
         }), h('path', {
             attrs: {
-                d: 'M3.5 4.375H1.75V6.125H3.5V4.375Z'
-            }
-        }), h('path', {
-            attrs: {
-                d: 'M21 12.25H7V14H21V12.25Z'
+                d: 'M15 2.96875H1V4.28125H15V2.96875Z',
+                fill: '#242E30'
             }
         })]);
     }
