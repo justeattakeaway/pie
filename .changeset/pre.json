@@ -1,0 +1,16 @@
+{
+  "mode": "pre",
+  "tag": "beta",
+  "initialVersions": {
+    "pie-microsite": "1.46.0",
+    "@justeattakeaway/pie-button": "0.3.0",
+    "@justeattakeaway/pie-icons": "2.0.0-beta.3",
+    "@justeattakeaway/pie-icons-react": "1.0.0-beta.0",
+    "@justeattakeaway/pie-icons-vue": "2.0.0-beta.1",
+    "@justeattakeaway/pie-stylelint-config": "0.1.0"
+  },
+  "changesets": [
+    "nervous-rice-buy",
+    "weak-camels-remain"
+  ]
+}
