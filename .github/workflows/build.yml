@@ -223,7 +223,6 @@ jobs:
           commit: "Version Packages with 'latest' tag"
       # If .changeset/pre.json does not exist and we did not recently exit
       # prerelease mode, enter prerelease mode with tag beta
-        if: steps.check_files.outputs.files_exists == 'false' && contains(github.ref_name, 'beta')
       - name: Enter beta prerelease mode
         if: steps.check_files.outputs.files_exists == 'false' && contains(github.ref_name, 'beta')
         # If .changeset/pre.json does not exist and we did not recently exit
