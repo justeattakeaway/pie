@@ -91,8 +91,94 @@ jobs:
       - name: Unit Tests
         run: yarn test:ci --cache-dir=".turbo"
 
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    outputs:
+      deployment-url: ${{ steps.preview.outputs.deployment-url }}
+    steps:
+      # Checkout the Repo
+      - name: Checkout
+        uses: actions/checkout@v3
+      # Setup Node 16
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: 'yarn'
+      # Restore node_modules - Cache should exist as one was created in previous 'install' job
+      - name: Cache Node Modules
+        id: cache-node-modules
+        uses: actions/cache@v3
+        with:
+          path: '**/node_modules'
+          key: node-modules-${{ hashFiles('**/yarn.lock') }}
+      # Restore Turborepo's 'dist' cache - If not, cache is created at end of build.
+      - name: Cache Turborepo Dist
+        id: turborepo-dist-cache
+        uses: actions/cache@v3
+        with:
+          path: .turbo
+          key: turborepo-dist-cache-${{ github.ref_name }}-${{ github.sha }}
+          # Use one of the following keys if the above is not found.
+          restore-keys: |
+            turborepo-dist-cache-${{ github.ref_name }}
+            turborepo-dist-cache-
+      # Build Packages
+      - name: Build Microsite
+        run: yarn build --filter=pie-microsite --cache-dir=".turbo"
+      - name: Deploy - PR Preview
+        id: preview
+        if: ${{ github.ref != 'refs/heads/main' }}
+        uses: rossjrw/pr-preview-action@v1
+        with:
+          source-dir: ./apps/pie-microsite/dist
+          preview-branch: gh-pages
+          umbrella-dir: pr-preview
+          action: auto
+      - name: Deploy - Master
+        if: ${{ github.ref == 'refs/heads/main' }}
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: ./apps/pie-microsite/dist
+          branch: gh-pages
+          clean-exclude: pr-preview
+          force: false
+
+  browser-tests:
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout the Repo
+      - name: Checkout
+        uses: actions/checkout@v3
+      # Setup Node 16
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: 'yarn'
+      # Restore node_modules - Cache should exist as one was created in previous 'install' job
+      - name: Cache Node Modules
+        id: cache-node-modules
+        uses: actions/cache@v3
+        with:
+          path: '**/node_modules'
+          key: node-modules-${{ hashFiles('**/yarn.lock') }}
+      # Run System Tests
+      - name: Run System Tests
+        run: |
+          yarn test:system:ci
+      - name: Run Visual Tests
+        if: ${{ github.event.pull_request.draft == false }}
+        run: |
+          yarn test:visual:ci
+    env:
+      PIE_URL_PREFIX: pr-preview/pr-${{github.event.number}}
+      PERCY_TOKEN_PIE_MICROSITE: ${{ secrets.PERCY_TOKEN_PIE_MICROSITE }}
 
   release:
+    needs: browser-tests
     if: github.repository == 'justeattakeaway/pie' && 
       ${{ github.event_name == 'push' }} &&
       (contains(github.ref_name, 'main') || contains(github.ref_name, 'beta') || contains(github.ref_name, 'feature')))))
@@ -126,6 +212,17 @@ jobs:
           cat << EOF > "$HOME/.npmrc"
             //registry.npmjs.org/:_authToken=$NPM_TOKEN
           EOF
+      # Restore Turborepo's 'dist' cache - If not, cache is created at end of build.
+      - name: Cache Turborepo Dist
+        id: turborepo-dist-cache
+        uses: actions/cache@v3
+        with:
+          path: .turbo
+          key: turborepo-dist-cache-${{ github.ref_name }}-${{ github.sha }}
+          # Use one of the following keys if the above is not found.
+          restore-keys: |
+            turborepo-dist-cache-${{ github.ref_name }}
+            turborepo-dist-cache-
       - name: Check for pre.json file existence
         id: check_files
         uses: andstor/file-existence-action@v2.0.0
@@ -137,122 +234,39 @@ jobs:
         if: steps.check_files.outputs.files_exists == 'true' && contains(github.ref_name, 'main')
         run: npx changeset pre exit
       - name: Create latest release PR
+        if: steps.check_files.outputs.files_exists == 'false' && contains(github.ref_name, 'main')
         uses: changesets/action@v1
         with:
           version: yarn changeset:version
           publish: yarn changeset:publish
-          title: 'Version Packages (latest)'
           commit: "Version Packages with 'latest' tag"
       # If .changeset/pre.json does not exist and we did not recently exit
       # prerelease mode, enter prerelease mode with tag beta
-        if: steps.check_files.outputs.files_exists == 'false' && contains(github.ref_name, 'beta')
-      - name: Enter Prerelease mode
-        run: npx changeset pre enter beta
-      - name: Create beta release PR
-        uses: changesets/action@v1
-        with:
-          version: yarn changeset:version
-          publish: yarn changeset:publish
-          title: 'Version Packages (beta)'
-          commit: "Version Packages with 'beta' tag"
+      - name: Enter beta prerelease mode
+        if: steps.check_files.outputs.files_exists == '' && contains(github.ref_name, 'beta')
         # If .changeset/pre.json does not exist and we did not recently exit
         # prerelease mode, enter prerelease mode with tag beta
-        if: steps.check_files.outputs.files_exists == 'false' && contains(github.ref_name, 'beta')
         run: npx changeset pre enter beta
       - name: Create beta release PR
+        if: steps.check_files.outputs.files_exists == 'true' && contains(github.ref_name, 'beta')
         uses: changesets/action@v1
         with:
           version: yarn changeset:version
           publish: yarn changeset:publish
-          title: 'Version Packages (beta)'
           commit: "Version Packages with 'beta' tag"
+      - name: Enter feature prerelease mode
+        if: steps.check_files.outputs.files_exists == 'false' && contains(github.ref_name, 'feature')
+        # If .changeset/pre.json does not exist and we did not recently exit
+        # prerelease mode, enter prerelease mode with tag next
+        run: npx changeset pre enter next
+      - name: Create feature release PR
+        if: steps.check_files.outputs.files_exists == 'true' && contains(github.ref_name, 'feature')
+        uses: changesets/action@v1
+        with:
+          version: yarn changeset:version 
+          publish: yarn changeset:publish
+          commit: "Version Packages with 'next' tag"
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       HUSKY: 0
-
-  # deploy:
-  #   needs: build
-  #   runs-on: ubuntu-latest
-  #   outputs:
-  #     deployment-url: ${{ steps.preview.outputs.deployment-url }}
-  #   steps:
-  #     # Checkout the Repo
-  #     - name: Checkout
-  #       uses: actions/checkout@v3
-  #     # Setup Node 16
-  #     - name: Setup Node
-  #       uses: actions/setup-node@v3
-  #       with:
-  #         node-version: 16
-  #         cache: 'yarn'
-  #     # Restore node_modules - Cache should exist as one was created in previous 'install' job
-  #     - name: Cache Node Modules
-  #       id: cache-node-modules
-  #       uses: actions/cache@v3
-  #       with:
-  #         path: '**/node_modules'
-  #         key: node-modules-${{ hashFiles('**/yarn.lock') }}
-  #     # Restore Turborepo's 'dist' cache - If not, cache is created at end of build.
-  #     - name: Cache Turborepo Dist
-  #       id: turborepo-dist-cache
-  #       uses: actions/cache@v3
-  #       with:
-  #         path: .turbo
-  #         key: turborepo-dist-cache-${{ github.ref_name }}-${{ github.sha }}
-  #         # Use one of the following keys if the above is not found.
-  #         restore-keys: |
-  #           turborepo-dist-cache-${{ github.ref_name }}
-  #           turborepo-dist-cache-
-  #     # Build Packages
-  #     - name: Build Microsite
-  #       run: yarn build --filter=pie-microsite --cache-dir=".turbo"
-  #     - name: Deploy - PR Preview
-  #       id: preview
-  #       if: ${{ github.ref != 'refs/heads/main' }}
-  #       uses: rossjrw/pr-preview-action@v1
-  #       with:
-  #         source-dir: ./apps/pie-microsite/dist
-  #         preview-branch: gh-pages
-  #         umbrella-dir: pr-preview
-  #         action: auto
-  #     - name: Deploy - Master
-  #       if: ${{ github.ref == 'refs/heads/main' }}
-  #       uses: JamesIves/github-pages-deploy-action@v4
-  #       with:
-  #         folder: ./apps/pie-microsite/dist
-  #         branch: gh-pages
-  #         clean-exclude: pr-preview
-  #         force: false
-
-  # browser-tests:
-  #   needs: deploy
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     # Checkout the Repo
-  #     - name: Checkout
-  #       uses: actions/checkout@v3
-  #     # Setup Node 16
-  #     - name: Setup Node
-  #       uses: actions/setup-node@v3
-  #       with:
-  #         node-version: 16
-  #         cache: 'yarn'
-  #     # Restore node_modules - Cache should exist as one was created in previous 'install' job
-  #     - name: Cache Node Modules
-  #       id: cache-node-modules
-  #       uses: actions/cache@v3
-  #       with:
-  #         path: '**/node_modules'
-  #         key: node-modules-${{ hashFiles('**/yarn.lock') }}
-  #     # Run System Tests
-  #     - name: Run System Tests
-  #       run: |
-  #         yarn test:system:ci
-  #     - name: Run Visual Tests
-  #       if: ${{ github.event.pull_request.draft == false }}
-  #       run: |
-  #         yarn test:visual:ci
-  #   env:
-  #     PIE_URL_PREFIX: pr-preview/pr-${{github.event.number}}
-  #     PERCY_TOKEN_PIE_MICROSITE: ${{ secrets.PERCY_TOKEN_PIE_MICROSITE }}
