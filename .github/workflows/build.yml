@@ -178,7 +178,7 @@ jobs:
       PERCY_TOKEN_PIE_MICROSITE: ${{ secrets.PERCY_TOKEN_PIE_MICROSITE }}
 
   release:
-    needs: browser-tests
+    needs: build
     if: github.repository == 'justeattakeaway/pie' && 
       ${{ github.event_name == 'push' }} &&
       (contains(github.ref_name, 'main') || contains(github.ref_name, 'beta') || contains(github.ref_name, 'feature')))))
