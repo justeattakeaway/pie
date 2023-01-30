@@ -14,7 +14,7 @@ on:
       - 'LICENSE'
   push:
     branches:
-      - main-*
+      - main
       - beta-*
       - feature-*
 
