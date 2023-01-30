@@ -243,7 +243,7 @@ jobs:
       # If .changeset/pre.json does not exist and we did not recently exit
       # prerelease mode, enter prerelease mode with tag beta
       - name: Enter beta prerelease mode
-        if: steps.check_files.outputs.files_exists == '' && contains(github.ref_name, 'beta')
+        if: steps.check_files.outputs.files_exists == 'false' && contains(github.ref_name, 'beta')
         # If .changeset/pre.json does not exist and we did not recently exit
         # prerelease mode, enter prerelease mode with tag beta
         run: npx changeset pre enter beta
