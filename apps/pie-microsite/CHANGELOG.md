@@ -4,6 +4,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 
+v1.48.0
+------------------------------
+*February 1, 2023*
+
+### Added
+- Elevation page for Android
+
+
 v1.47.0
 ------------------------------
 *January 26, 2023*
@@ -20,7 +28,7 @@ v1.46.1
 *January 26, 2023*
 
 ### Fixed
-- Headings hierarchy for typography code snippet 
+- Headings hierarchy for typography code snippet
 
 
 v1.46.0
@@ -48,7 +56,7 @@ v1.45.0
 *January 24, 2023*
 
 ### Added
-- Elevation page - Overview tab 
+- Elevation page - Overview tab
 
 
 v1.44.0
@@ -168,10 +176,10 @@ v1.34.0
 *January 16, 2023*
 
 ### Added
--   Radius page for global design tokens 
+- Radius page for global design tokens
 
 ### Changed
--   Tokens metadata for radius global design tokens 
+- Tokens metadata for radius global design tokens
 
 
 v1.33.1
@@ -322,7 +330,7 @@ v1.21.0
 
 ### Fixed
 - Unwanted horizontal page scrolling caused by left margin on page tabs
-- Overlap/conflict between page tags and page content toggles caused by z-index 
+- Overlap/conflict between page tags and page content toggles caused by z-index
 
 
 v1.20.0
@@ -426,6 +434,7 @@ v1.15.0
 - zindex issue on background.
 - Linting error.
 
+
 v1.14.0
 ------------------------------
 *September 12, 2022*
@@ -437,7 +446,7 @@ v1.14.0
 
 v1.13.0
 ------------------------------
-*September 06, 2022*
+*September 6, 2022*
 
 ### Added
 - Styling for the content pages
@@ -456,7 +465,7 @@ v1.13.0
 
 v1.12.1
 ------------------------------
-*September 02, 2022*
+*September 2, 2022*
 
 ### Removed
 - Moved most dev dependencies to project root
@@ -464,7 +473,7 @@ v1.12.1
 
 v1.12.0
 ------------------------------
-*September 01, 2022*
+*September 1, 2022*
 
 ### Added
 - `cssnano` for minification and `postcss-cli` & `postcss` for autoprefixing.
