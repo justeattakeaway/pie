@@ -26,7 +26,7 @@ const handleComponentName = name => name.replace(/\-(\d+)/, '$1'); // eslint-dis
 
 const icons = Object.keys(pieIcons.icons).map(name => ({
     name,
-    pascalCasedComponentName: pascalCase(`${handleComponentName(name)}-icon`)
+    pascalCasedComponentName: pascalCase(`icon-${handleComponentName(name)}`)
 }));
 
 Promise.all(icons.map(icon => {
@@ -38,9 +38,8 @@ Promise.all(icons.map(icon => {
         .then(() => fs.writeFile(filepath, component, 'utf8'));
 })).then(() => {
     const main = `/* eslint-disable camelcase */
-${icons
-    .map(icon => `export { default as ${icon.pascalCasedComponentName} } from '../icons/${icon.pascalCasedComponentName}';\n`)
-    .join('')}
+${icons.map(icon => `export { default as ${icon.pascalCasedComponentName} } from '../icons/${icon.pascalCasedComponentName}';\n`)
+            .join('')}
 `;
     return fs.outputFile('./generated/index.js', main, 'utf8');
 });

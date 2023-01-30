@@ -5,11 +5,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Todo for full v2 release
 - Fix example webpage
-- Run clean pre-bundle (so it cleans the icons generated locally)
+
 
 v2.0.0-beta.2
 ------------------------------
-*January 27, 2023*
+*January 30, 2023*
 
 ### Fixed
 - ESLint config (as wasn't working with current setup)
@@ -20,6 +20,7 @@ v2.0.0-beta.2
 ### Changed
 - Icons files run through ESLint once they've been run through babel generator (so they are more readable, as only used for documentation purposes)
 - Updated `pie-icons` package to `v2.0.0-beta.3`
+- Icon names switched from having `Icon` as a suffix, to a prefix – for example, `ArrowLeftIcon` is now `IconArrowLeft`.
 
 
 v2.0.0-beta.1
