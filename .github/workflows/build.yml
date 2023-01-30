@@ -236,12 +236,13 @@ jobs:
         with:
           publish: yarn changeset:publish
           commit: "Version Packages with 'beta' tag"
-      - name: Enter beta prerelease mode
-        if: steps.check_files.outputs.files_exists == 'false' && contains(github.ref_name, 'beta')
+      - name: Enter feature prerelease mode
+        if: steps.check_files.outputs.files_exists == 'false' && contains(github.ref_name, 'feature')
         # If .changeset/pre.json does not exist and we did not recently exit
         # prerelease mode, enter prerelease mode with tag next
         run: npx changeset pre enter next
       - name: Create feature release PR
+        if: steps.check_files.outputs.files_exists == 'false' && contains(github.ref_name, 'feature')
         uses: changesets/action@v1
         with: 
           publish: yarn changeset:publish
