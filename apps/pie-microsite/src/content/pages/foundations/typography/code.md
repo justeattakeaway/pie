@@ -4,7 +4,7 @@ eleventyNavigation:
     parent: Typography
     order: 4
 ---
-# The JETSansDigital Fontpack
+## The JETSansDigital Fontpack
 
 On JET Platforms, we use our custom font `JETSansDigital`. The full fontpack for these fonts [can be downloaded here](https://d30v2pzvrfyzpo.cloudfront.net/fonts/jetsansdigital-fontpack.zip). we recommend that you use the fonts via CDN, and they are all available on these links:
 
@@ -38,7 +38,7 @@ For more details on font optimisation and how we subset our fonts, check out the
 
 ---
 
-# Font loading
+## Font loading
 
 For any platform wanting to utilise the `JETSansDigital` fonts, we recommend following these implementation steps, which closely follows the [Critical FOFT with Preload](https://www.zachleat.com/web/comprehensive-webfonts/#critical-foft-preload) technique as outlined by Zach Leat. A working demo can also be found of this loading strategy [on Codepen](https://codepen.io/ashleynolan/pen/gOrMpex).
 
@@ -114,7 +114,7 @@ If you use `fozzie`, this will automatically get set as part of the typography s
 
 ---
 
-# Font Optimisation (subsetting)
+## Font Optimisation (subsetting)
 
 We currently use the JETSansDigital font on JET platforms: a custom typeface created for use on our products.
 
@@ -128,7 +128,7 @@ alt: "Overview of the main font specification for JETSans Digital"
 } %}
 
 
-## How to subset a font
+### How to subset a font
 
 To subset a base font like the one we use, you will need to use a command line tool called `pyftsubset` which is [available as part of the fonttools library](https://github.com/fonttools/fonttools). For more information on installing `pyftsubset`, [see this blogpost](https://markoskon.com/creating-font-subsets/#install-fonttools) which explains how to do that and covers any associated dependencies you'll also need (such as `pip`).
 
@@ -164,7 +164,7 @@ and for our extended subset, we use the following extended unicode settings:
 pyftsubset "JETSansDigital-Regular.ttf" --output-file="JETSansDigital-Regular-optimised-extended.woff2" --flavor=woff2 --layout-features=ccmp,locl,mark,mkmk,kern,dnom,numr,frac,tnum --unicodes=U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD,U+0100-017F,U+0400-04FF,U+0401,U+0451,U+0404,U+0454,U+0406,U+0456,U+0407,U+0457,U+040D,U+045D,U+040E,U+045E,U+0490,U+0491,U+0590-05FF
 ```
 
-## Breaking the command down
+### Breaking the command down
 
 So what do the above commands actually do and what does each setting mean?
 
