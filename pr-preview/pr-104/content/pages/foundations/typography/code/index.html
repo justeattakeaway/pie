@@ -36,7 +36,7 @@
         font-feature-settings: "tnum"; /* Enable tabular numbers */
     }
 </style>
-<link rel="stylesheet" href="/pr-preview/pr-104/assets/styles/main-98f2ecb4.css" />
+<link rel="stylesheet" href="/pr-preview/pr-104/assets/styles/main-8727faaf.css" />
 
 
 
@@ -549,7 +549,7 @@
     
     
         <div class="c-contentPage-content">
-            <h1>The JETSansDigital Fontpack</h1>
+            <h2>The JETSansDigital Fontpack</h2>
 <p>On JET Platforms, we use our custom font <code>JETSansDigital</code>. The full fontpack for these fonts <a href="https://d30v2pzvrfyzpo.cloudfront.net/fonts/jetsansdigital-fontpack.zip">can be downloaded here</a>. we recommend that you use the fonts via CDN, and they are all available on these links:</p>
 <pre><code class="language-shell"># For the base subset
 # Switch out *Regular* for *Bold* or *ExtraBold*. woff and woff2 files are available
@@ -570,7 +570,7 @@ https://d30v2pzvrfyzpo.cloudfront.net/fonts/JETSansDigital-Regular-optimised-ext
 <figure class="c-contentPage-img c-contentImage">        <div class="c-contentImage-backdrop">          <picture>                        <img src="../../../../../assets/img/foundations/typography/jetsans-extended-subset.png"  alt="Wakamai Fondue font specification for JETSans Digital – the extended base subset">           </picture>        </div>              </figure>
 <p>For more details on font optimisation and how we subset our fonts, check out the <code>Font Optimisation</code> section below.</p>
 <hr>
-<h1>Font loading</h1>
+<h2>Font loading</h2>
 <p>For any platform wanting to utilise the <code>JETSansDigital</code> fonts, we recommend following these implementation steps, which closely follows the <a href="https://www.zachleat.com/web/comprehensive-webfonts/#critical-foft-preload">Critical FOFT with Preload</a> technique as outlined by Zach Leat. A working demo can also be found of this loading strategy <a href="https://codepen.io/ashleynolan/pen/gOrMpex">on Codepen</a>.</p>
 <p>The basic strategy is to load in the <code>JETSansDigital-Regular</code> webfont as soon as possible. A faux bold is applied to this regular font while we lazy load in the <code>JETSansDigital-Bold</code> and <code>JETSansDigital-ExtraBold</code> webfonts, which then re-renders the faux bold as the intended bold typeface.</p>
 <h2>Implementation</h2>
@@ -628,12 +628,12 @@ body {
 <p><strong>3. You should now be able to use the</strong> <code>JETSansDigital</code> <strong>font when defining your</strong> <code>font-family</code> <strong>in CSS</strong></p>
 <p>If you use <code>fozzie</code>, this will automatically get set as part of the typography styles. If not, then you will need to set <code>font-family: 'JETSansDigital';</code> in your CSS to use it. Bold uses the same font-family with <code>font-weight: 700;</code>, with ExtraBold assigned to <code>font-weight: 800;</code>.</p>
 <hr>
-<h1>Font Optimisation (subsetting)</h1>
+<h2>Font Optimisation (subsetting)</h2>
 <p>We currently use the JETSansDigital font on JET platforms: a custom typeface created for use on our products.</p>
 <p>The standard fontset comes with a huge number of glyphs and layout features that aren't required for use on the web. Therefore we optimise this fontset using a process called font-subsetting. Subsetting is the process of removing parts of the base fontset, to leave only the glyphs and features that you require.</p>
 <p>For reference, the JETSans Digital Regular font has the following properties when inspected using the <a href="https://wakamaifondue.com/">Wakamai Fondue tool</a>:</p>
 <figure class="c-contentPage-img c-contentImage">        <div class="c-contentImage-backdrop">          <picture>                        <img src="../../../../../assets/img/foundations/typography/jetsansdigital-base.png"  alt="Overview of the main font specification for JETSans Digital">           </picture>        </div>              </figure>
-<h2>How to subset a font</h2>
+<h3>How to subset a font</h3>
 <p>To subset a base font like the one we use, you will need to use a command line tool called <code>pyftsubset</code> which is <a href="https://github.com/fonttools/fonttools">available as part of the fonttools library</a>. For more information on installing <code>pyftsubset</code>, <a href="https://markoskon.com/creating-font-subsets/#install-fonttools">see this blogpost</a> which explains how to do that and covers any associated dependencies you'll also need (such as <code>pip</code>).</p>
 <p>Once you have <code>pyftsubset</code> installed, you can then optimise your font!</p>
 <p>For JETSansDigital, we create two subsets; base and extended. To create our base subset, we run <code>pyftsubset</code> on <code>JETSansDigital-Regular.ttf</code>, <code>JETSansDigital-Bold.ttf</code> and <code>JETSansDigital-ExtraBold.ttf</code>, with the following rules:</p>
@@ -660,7 +660,7 @@ pyftsubset &quot;JETSansDigital-ExtraBold.ttf&quot; --output-file=&quot;JETSansD
 <pre><code class="language-sh"># JETSansDigital-Regular
 pyftsubset &quot;JETSansDigital-Regular.ttf&quot; --output-file=&quot;JETSansDigital-Regular-optimised-extended.woff2&quot; --flavor=woff2 --layout-features=ccmp,locl,mark,mkmk,kern,dnom,numr,frac,tnum --unicodes=U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD,U+0100-017F,U+0400-04FF,U+0401,U+0451,U+0404,U+0454,U+0406,U+0456,U+0407,U+0457,U+040D,U+045D,U+040E,U+045E,U+0490,U+0491,U+0590-05FF
 </code></pre>
-<h2>Breaking the command down</h2>
+<h3>Breaking the command down</h3>
 <p>So what do the above commands actually do and what does each setting mean?</p>
 <p>Let's break it down step-by-step:</p>
 <ul>
