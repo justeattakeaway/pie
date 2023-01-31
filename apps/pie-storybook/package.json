@@ -4,7 +4,7 @@
   "description": "Storybook for PIE Design System compoents",
   "scripts": {
     "storybook-dev": "storybook dev -p 6006",
-    "storybook-build": "storybook build --output-dir build",
+    "build": "storybook build --output-dir build",
     "storybook-serve": "serve --no-request-logging build"
   },
   "author": "JustEatTakeaway - Design System Web Team",

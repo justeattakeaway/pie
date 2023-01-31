@@ -10,7 +10,6 @@ v1.25.0
 ### Added
 - Changesets for automatic package versioning / publishing.
 
-hi
 
 v1.24.0
 ------------------------------
