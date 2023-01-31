@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/pie-icons-react",
-  "version": "1.0.0-beta.0",
+  "version": "1.0.0-beta.1",
   "main": "esm/index.js",
   "files": [
     "dist",
@@ -30,14 +30,15 @@
     "PIE"
   ],
   "scripts": {
-    "prepublishOnly": "yarn build",
     "build:icons": "babel-node ./scripts/react-icons-gen.js",
     "build:lib": "rollup -c",
-    "build": "yarn build:icons && yarn build:lib"
+    "build": "yarn clean && yarn build:icons && yarn build:lib",
+    "clean": "run -T rimraf -rf ./icons/",
+    "prepublishOnly": "yarn build"
   },
   "devDependencies": {
     "@babel/node": "7.19.1",
-    "@justeattakeaway/pie-icons": "2.0.0-beta.2",
+    "@justeattakeaway/pie-icons": "2.0.0-beta.3",
     "@svgr/core": "6.4.0",
     "@types/react": "18.0.21",
     "pascal-case": "3.1.2",
