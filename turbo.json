@@ -5,6 +5,9 @@
       "cache": true,
       "dependsOn": [
         "^build"
+      ],
+      "outputs": [
+        "apps/pie-storybook/build/**"
       ]
     },
     "clean": {
