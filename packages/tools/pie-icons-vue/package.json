@@ -1,7 +1,6 @@
 {
   "name": "@justeattakeaway/pie-icons-vue",
   "version": "2.0.0-beta.2",
-  "tag": "beta",
   "main": "dist/pie-icons-vue.cjs.js",
   "cdn": "dist/pie-icons-vue.min.js",
   "unpkg": "dist/pie-icons-vue.min.js",
