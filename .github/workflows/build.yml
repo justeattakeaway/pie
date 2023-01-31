@@ -142,7 +142,7 @@ jobs:
         if: ${{ github.ref != 'refs/heads/main' }}
         uses: rossjrw/pr-preview-action@v1
         with:
-          source-dir: ./apps/pie-storybook/dist
+          source-dir: ./apps/pie-storybook/build
           preview-branch: gh-pages
           umbrella-dir: pr-preview/storybook
           action: auto
