@@ -29,7 +29,7 @@ const changelogFunctions = {
       .filter((_) => _)
       .join(', ')}]:`;
 
-    const updatedDepenenciesList = dependenciesUpdated.map(
+    const updatedDependenciesList = dependenciesUpdated.map(
       (dependency) => `  - ${dependency.name}@${dependency.newVersion}`
     );
 
