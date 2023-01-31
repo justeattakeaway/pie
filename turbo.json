@@ -1,66 +1,85 @@
 {
-    "$schema": "https://turborepo.org/schema.json",
-    "pipeline": {
-        "build": {
-            "cache": true,
-            "dependsOn": ["^build"]
-        },
-        "storybook-build": {
-          "outputs": ["apps/pie-storybook/build/**"],
-          "dependsOn": ["^build"]
-        },
-        "storybook-serve": {
-          "dependsOn": ["storybook-build"]
-        },
-        "storybook-dev": {
-            "cache": false,
-            "dependsOn": ["^build"]
-        },
-        "test:generate-routes": {
-          "cache": false
-        },
-        "test": {
-            "cache": true,
-            "dependsOn": ["build"],
-            "outputs": [],
-            "inputs": ["src/**"]
-        },
-        "test:ci": {
-            "cache": true,
-            "outputs": [],
-            "inputs": ["src/**"]
-        },
-        "test:coverage": {
-          "outputs": []
-        },
-        "test:system": {
-            "cache": false,
-            "outputs": []
-          },
-        "test:system:ci": {
-          "cache": false
-        },
-        "test:visual": {
-          "cache": false,
-          "outputs": []
-        },
-        "test:visual:ci": {
-          "cache": false
-        },
-        "lint:scripts": {
-            "cache": true,
-            "outputs": []
-        },
-        "lint:scripts:fix": {
-          "outputs": []
-        },
-        "lint:style": {
-          "cache": true,
-          "dependsOn": []
-        },
-        "dev": {
-            "cache": false,
-            "dependsOn": []
-        }
+  "$schema": "https://turborepo.org/schema.json",
+  "pipeline": {
+    "build": {
+      "cache": true,
+      "dependsOn": [
+        "^build"
+      ]
+    },
+    "clean": {
+      "cache": true
+    },
+    "storybook-build": {
+      "outputs": [
+        "apps/pie-storybook/build/**"
+      ],
+      "dependsOn": [
+        "^build"
+      ]
+    },
+    "storybook-serve": {
+      "dependsOn": [
+        "storybook-build"
+      ]
+    },
+    "storybook-dev": {
+      "cache": false,
+      "dependsOn": [
+        "^build"
+      ]
+    },
+    "test:generate-routes": {
+      "cache": false
+    },
+    "test": {
+      "cache": true,
+      "dependsOn": [
+        "build"
+      ],
+      "outputs": [],
+      "inputs": [
+        "src/**"
+      ]
+    },
+    "test:ci": {
+      "cache": true,
+      "outputs": [],
+      "inputs": [
+        "src/**"
+      ]
+    },
+    "test:coverage": {
+      "outputs": []
+    },
+    "test:system": {
+      "cache": false,
+      "outputs": []
+    },
+    "test:system:ci": {
+      "cache": false
+    },
+    "test:visual": {
+      "cache": false,
+      "outputs": []
+    },
+    "test:visual:ci": {
+      "cache": false
+    },
+    "lint:scripts": {
+      "cache": true,
+      "outputs": []
+    },
+    "lint:scripts:fix": {
+      "outputs": []
+    },
+    "lint:style": {
+      "cache": true,
+      "dependsOn": []
+    },
+    "dev": {
+      "cache": false,
+      "dependsOn": []
     }
+  }
 }
