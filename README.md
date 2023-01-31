@@ -78,7 +78,7 @@ If your change is intended to be released under the `latest` tag on npm, you mus
 
 - Create a branch with your changes. These changes should exclude any `package.json` or manual `CHANGELOG` updates – only include the `.changesets` changes added by Changesets.
 - When you create your PR, target the `main` branch.
-- Upon merging to `main`, a new PR titled **Version Packages** is automatically created. This PR includes the `CHANGELOG.md` and `package.json` version bump. Merging this PR will commit this changes to `main` and execute a publish to npm.
+- Upon merging to `main`, a new PR titled **Version Packages** is automatically created. This PR includes the `CHANGELOG.md` and `package.json` version bump. Merging this PR will commit this changes to `main` and execute a publish to npm under the `latest` tag.
 
 
 #### Beta Versions - 'beta' tag
