@@ -161,8 +161,8 @@ const buildTokensList = listElements => deindentHTML(`
         <span>Example</span>
         <span>Description</span>
         <span>Token name</span>
-        </div>
-        <ul class="c-tokensTable-list">
+    </div>
+    <ul class="c-tokensTable-list">
         ${listElements.join('')}
     </ul>`);
 
