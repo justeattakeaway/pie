@@ -127,7 +127,7 @@ jobs:
       # Build Packages
       - name: Build Microsite
         run: yarn build --filter=pie-microsite --cache-dir=".turbo"
-      - name: Deploy - PR Preview
+      - name: Deploy Microsite - PR Preview
         id: preview
         if: ${{ github.ref != 'refs/heads/main' }}
         uses: rossjrw/pr-preview-action@v1
@@ -135,6 +135,15 @@ jobs:
           source-dir: ./apps/pie-microsite/dist
           preview-branch: gh-pages
           umbrella-dir: pr-preview
+          action: auto
+      - name: Deploy Storybook - PR Preview
+        id: preview
+        if: ${{ github.ref != 'refs/heads/main' }}
+        uses: rossjrw/pr-preview-action@v1
+        with:
+          source-dir: ./apps/pie-storybook/dist
+          preview-branch: gh-pages
+          umbrella-dir: pr-preview/storybook
           action: auto
       - name: Deploy - Master
         if: ${{ github.ref == 'refs/heads/main' }}
@@ -179,7 +188,7 @@ jobs:
 
   release:
     needs: build
-    if: github.repository == 'justeattakeaway/pie' && 
+    if: github.repository == 'justeattakeaway/pie' &&
       ${{ github.event_name != 'pull_request' }} &&
       (contains(github.ref_name, 'main') || contains(github.ref_name, 'beta') || contains(github.ref_name, 'feature'))
     name: release
@@ -263,7 +272,7 @@ jobs:
         if: contains(github.ref_name, 'feature')
         uses: changesets/action@v1
         with:
-          version: yarn changeset:version 
+          version: yarn changeset:version
           publish: yarn changeset:publish
           commit: "Version Packages with 'next' tag"
     env:
