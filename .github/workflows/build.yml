@@ -180,7 +180,7 @@ jobs:
   release:
     needs: build
     if: github.repository == 'justeattakeaway/pie' && 
-      ${{ github.event_name == 'push' }} &&
+      ${{ github.event_name != 'pull_request' }} &&
       (contains(github.ref_name, 'main') || contains(github.ref_name, 'beta') || contains(github.ref_name, 'feature')))))
     name: release
     runs-on: ubuntu-latest
