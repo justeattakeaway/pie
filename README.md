@@ -52,11 +52,11 @@ Example:
 [Yarn docs reference for this](https://yarnpkg.com/getting-started/qa#how-to-share-scripts-between-workspaces)
 
 
-### Versioning / Publishing Packages
+## Versioning / Publishing Packages
 
 If you are contributing a user-facing or noteworthy change to a pie-monorepo package that should be added to the changelog, you should include a changeset with your PR.
 
-Changesets are only required for Major, Minor, and patch changes that have an effect on consumers. Changes that don't affect consumers do not need to be versioned. These include: linting, testing, CI.
+Changesets are only required for Major, Minor, and Patch changes that have an effect on consumers. Changes that don't affect consumers do not need to be versioned. Examples include linting, testing or CI updates.
 
 To add a changeset, run this script locally in the root of the project:
 
@@ -69,42 +69,42 @@ Follow the prompts to select which package(s) are affected by your change, and w
 Considerations:
 
 - You can use markdown in your changeset to include code examples, headings, and more. However, **please use plain text for the first line of your changeset**. The formatting of the GitHub release notes does not support headings as the first line of the changeset.
-- When selecting packages for the changesets, only select packages which are published.
+- When selecting packages for the changesets, only select packages which are intended to be published.
 
 
-#### Stable Versions - 'latest' tag
+### Stable Versions - 'latest' tag
 
 If your change is intended to be released under the `latest` tag on npm, you must follow this workflow:
 
-- Create a branch with your changes.
+- Create a branch with your changes. These changes should exclude any `package.json` or manual `CHANGELOG` updates – only include the `.changesets` changes added by Changesets.
 - When you create your PR, target the `main` branch.
 
-Upon merging to `main`, the CHANGELOG.md, package.json version bump, and npm publish will execute automatically by GitHub Actions.
+Upon merging to `main`, the `CHANGELOG.md` updates, `package.json` version bump, and `npm publish` will execute automatically by GitHub Actions.
 
 
-##### Beta Versions - 'beta' tag.
+#### Beta Versions - 'beta' tag
 
-A Beta release is a release that contains experimental changes that're ready for early adoption by consumers, but may introduce bugs.
+A Beta release is a release that contains experimental changes. These are ready for early adoption and testing by consumers but may introduce bugs (or be considered work-in-progress).
 
-##### Feature versions - 'next' tag.
+#### Feature versions - 'next' tag
 
-A Feature release is for larger changes that may require multiple PR's before a version is released. These changes are unstable, and are not intended to be used by consumers. Typically, these releases will be used for testing changes in consuming applications as an alternative to using something like `yalc`.
+A Feature release is for larger changes that may require multiple PRs, across several packages, before it is released. These changes are unstable and are not intended to be used by consumers. Typically, these releases will be used for testing changes in consuming applications as an alternative to using something like `yalc`.
 
 
 If your change is intended to be released under the `next` / `beta` tag on npm, you must follow this workflow:
-- Create a new branch with the `feature-*` / `beta-*` prefix, and push this to the remote.
-- Create another branch to implement your code changes. Ensure this **does not** use a prefix.
+- Create a new branch with the `feature-*` / `beta-*` prefix, and push this to the remote. E.g. `git push origin feature-myawesomework`.
+- Create another branch, off this initial feature/beta branch, to implement your code changes. Ensure that this branch **does not** use a prefix.
 - When you create your PR, target the `feature-*` / `beta-*` branch. 
 - GitHub actions will automatically create a new PR that includes the `package.json` version bump, as well as changelog entries.
 - Once this generated PR gets merged, GitHub actions will publish your changes under the `next` / `beta` tag.
 
-**Notes:** Any new PR's that target the `feature-*` / `beta-*` branch will cause GitHub actions to include the changes as part of the release.
+**Notes:** Any new PRs that target the `feature-*` / `beta-*` branch will cause GitHub actions to include the changes as part of that beta/feature release.
 Any changes to beta package **must** follow this workflow. PR's that combine changes in `latest` and `beta` packages will result in the beta package being versioned incorrectly.
 
-##### Promoting to stable
+#### Promoting to stable
 
 When you're happy your `next` / `beta` tagged package is ready to be promoted to a `latest` release, you must use the following workflow.
 
 - Create a PR to merge the `feature-*` / `beta-*` into `main`.
-- Upong merging, a new `latest` release will be available.
-- Upon merging to `main`, the CHANGELOG.md, package.json version bump, npm publish will execute automatically.
+- Upon merging, a new `latest` release will be available.
+- Upon merging to `main`, the `CHANGELOG.md`, `package.json` version bump, `npm publish` will execute automatically.
