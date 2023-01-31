@@ -33,7 +33,7 @@ const changelogFunctions = {
       (dependency) => `  - ${dependency.name}@${dependency.newVersion}`
     );
 
-    return [changesetLink, ...updatedDepenenciesList].join('\n');
+    return [changesetLink, ...updatedDependenciesList].join('\n');
   },
   getReleaseLine: async (changeset, type, options) => {
     let prFromSummary;
