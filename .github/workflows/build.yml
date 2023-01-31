@@ -95,7 +95,8 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     outputs:
-      deployment-url: ${{ steps.preview.outputs.deployment-url }}
+      microsite-deployment-url: ${{ steps.preview-microsite.outputs.deployment-url }}
+      storybook-deployment-url: ${{ steps.preview-storybook.outputs.deployment-url }}
     steps:
       # Checkout the Repo
       - name: Checkout
@@ -128,7 +129,7 @@ jobs:
       - name: Build Microsite
         run: yarn build --filter=pie-microsite --cache-dir=".turbo"
       - name: Deploy Microsite - PR Preview
-        id: preview
+        id: preview-microsite
         if: ${{ github.ref != 'refs/heads/main' }}
         uses: rossjrw/pr-preview-action@v1
         with:
@@ -137,7 +138,7 @@ jobs:
           umbrella-dir: pr-preview
           action: auto
       - name: Deploy Storybook - PR Preview
-        id: preview
+        id: preview-storybook
         if: ${{ github.ref != 'refs/heads/main' }}
         uses: rossjrw/pr-preview-action@v1
         with:
