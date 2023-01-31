@@ -64,7 +64,7 @@ To add a changeset, run this script locally in the root of the project:
 yarn changeset
 ```
 
-Follow the prompts to select which package(s) are affected by your change, and whether the change is a major, minor or patch change. This will create a file in the `.changesets` directory of the repo. This change should be committed and included with your PR.
+Follow the prompts to select which package(s) are affected by your change, and whether the change is a major, minor or patch change. This will create a file in the `.changesets` directory at the root of the monorepo. This change should be committed and included with your PR.
 
 Considerations:
 
@@ -78,14 +78,14 @@ If your change is intended to be released under the `latest` tag on npm, you mus
 
 - Create a branch with your changes. These changes should exclude any `package.json` or manual `CHANGELOG` updates – only include the `.changesets` changes added by Changesets.
 - When you create your PR, target the `main` branch.
-- Upon merging to `main`, a new PR titled **Version Packages** is automatically created. This PR includes the `CHANGELOG.md` and `package.json` version bump. Merging this PR will commit this changes to `main` and execute a publish to npm under the `latest` tag.
+- Upon merging to `main`, a new PR titled **Version Packages** is automatically created. This PR includes the `CHANGELOG.md` and `package.json` version bump. Merging this PR will commit these changes to `main` and execute a publish to npm under the `latest` tag.
 
 
-#### Beta Versions - 'beta' tag
+### Beta Versions - 'beta' tag
 
 A Beta release is a release that contains experimental changes. These are ready for early adoption and testing by consumers but may introduce bugs (or be considered work-in-progress).
 
-#### Feature versions - 'next' tag
+### Feature versions - 'next' tag
 
 A Feature release is for larger changes that may require multiple PRs, across several packages, before it is released. These changes are unstable and are not intended to be used by consumers. Typically, these releases will be used for testing changes in consuming applications as an alternative to using something like `yalc`.
 
