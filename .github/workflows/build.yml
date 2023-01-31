@@ -234,7 +234,7 @@ jobs:
         if: steps.check_files.outputs.files_exists == 'true' && contains(github.ref_name, 'main')
         run: npx changeset pre exit
       - name: Create latest release PR
-        if: steps.check_files.outputs.files_exists == 'false' && contains(github.ref_name, 'main')
+        if: contains(github.ref_name, 'main')
         uses: changesets/action@v1
         with:
           version: yarn changeset:version
@@ -248,7 +248,7 @@ jobs:
         # prerelease mode, enter prerelease mode with tag beta
         run: npx changeset pre enter beta
       - name: Create beta release PR
-        if: steps.check_files.outputs.files_exists == 'true' && contains(github.ref_name, 'beta')
+        if: contains(github.ref_name, 'beta')
         uses: changesets/action@v1
         with:
           version: yarn changeset:version
@@ -260,7 +260,7 @@ jobs:
         # prerelease mode, enter prerelease mode with tag next
         run: npx changeset pre enter next
       - name: Create feature release PR
-        if: steps.check_files.outputs.files_exists == 'true' && contains(github.ref_name, 'feature')
+        if: contains(github.ref_name, 'feature')
         uses: changesets/action@v1
         with:
           version: yarn changeset:version 
