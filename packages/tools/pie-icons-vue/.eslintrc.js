@@ -1,8 +1,4 @@
 module.exports = {
-    root: true,
-    extends: [
-        '@justeat/eslint-config-fozzie'
-    ],
     rules: {
         'vue/sort-keys': 'off'
     },
