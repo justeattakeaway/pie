@@ -3,6 +3,27 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+v1.25.0
+------------------------------
+*January 31, 2022*
+
+### Added
+- Changesets for automatic package versioning / publishing.
+
+
+v1.24.0
+------------------------------
+*January 27, 2022*
+
+### Added
+- `.eslintrc.js` added to the root, so that all packages can inherit the base config setup
+- `eslint-plugin-json-format` added to `devDependencies`, so that JSON files can be run through ESLint (and auto-fix in VSCode works)
+- `clean` task added to turbo config, as this runs in the icon packages
+
+### Changed
+- `turbo.json` formatted through ESlint
+- `scripts` in root ordered alphabetically (just easier to find stuff)
+
 
 v1.23.0
 ------------------------------

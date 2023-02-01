@@ -4,12 +4,20 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 
-v1.48.0
+v1.49.0
 ------------------------------
 *February 1, 2023*
 
 ### Added
 - Elevation page for Android
+
+
+v1.48.0
+------------------------------
+*January 27, 2023*
+
+### Added
+- Global token descriptions for colour page
 
 
 v1.47.0
