@@ -1,7 +1,7 @@
 module.exports = ({ tableData }) => {
     const data = JSON.parse(tableData);
 
-    return `<table>
+    return `<table class="c-simpleTable">
         <tr>${data.headings.map(heading => `
             <th>${heading.text}</th>`).join('')}
         </tr>
