@@ -58,11 +58,12 @@ const buildColorExample = token => {
         classes.push('c-tokensTable-example--bordered');
     }
 
-    const cssVariable = tokenValues.opacity
-        ? `--example-checked-opacity: ${tokenValues.opacity}`
-        : `--example-background-color: ${tokenValues.hexcode}`;
+    const cssVariables = [
+        ...tokenValues.opacity ? [`--example-checked-opacity: ${tokenValues.opacity}`] : [],
+        ...tokenValues.hexcode ? [`--example-background-color: ${tokenValues.hexcode}`] : []
+    ];
 
-    return `<div class="${classes.join(' ')}" style="${cssVariable}";></div>`;
+    return `<div class="${classes.join(' ')}" style="${cssVariables.join('; ')}";></div>`;
 };
 
 /**
