@@ -7,7 +7,7 @@
         "^build"
       ],
       "outputs": [
-        "apps/pie-storybook/build/**"
+        "**/dist"
       ]
     },
     "clean": {
@@ -15,7 +15,7 @@
     },
     "storybook-build": {
       "outputs": [
-        "apps/pie-storybook/build/**"
+        "apps/pie-storybook/dist/**"
       ],
       "dependsOn": [
         "^build"
