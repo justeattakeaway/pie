@@ -4,6 +4,15 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 
+v1.48.1
+------------------------------
+*February 1, 2023*
+
+### Fixed
+- Colour token typos
+- Incorrect background colour being applied to transparent colour token examples
+
+
 v1.48.0
 ------------------------------
 *January 27, 2023*
