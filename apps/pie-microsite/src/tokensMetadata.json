@@ -570,12 +570,12 @@
         },
         "hover-02-light": {
           "category": "states",
-          "description": "Persistent opacity effect for hover states on dark backgrounds.Uses the same global token in all themes",
+          "description": "Persistent opacity effect for hover states on dark backgrounds. Uses the same global token in all themes",
           "globalToken": "$color-hover-lighten"
         },
         "hover-01-dark": {
           "category": "states",
-          "description": "Persistent opacity effect for hover states on light backgrounds.Uses the same global token in all themes",
+          "description": "Persistent opacity effect for hover states on light backgrounds. Uses the same global token in all themes",
           "globalToken": "$color-hover-darken"
         },
         "active-01": {
@@ -590,12 +590,12 @@
         },
         "active-02-light": {
           "category": "states",
-          "description": "Opacity effect for active states on dark backgrounds.Uses the same global token in all themes",
+          "description": "Opacity effect for active states on dark backgrounds. Uses the same global token in all themes",
           "globalToken": "$color-active-lighten"
         },
         "active-01-dark": {
           "category": "states",
-          "description": "Opacity effect for active states on light backgrounds.Uses the same global token in all themes",
+          "description": "Opacity effect for active states on light backgrounds. Uses the same global token in all themes",
           "globalToken": "$color-active-darken"
         },
         "focus": {
@@ -958,12 +958,12 @@
         },
         "hover-02-light": {
           "category": "states",
-          "description": "Persistent opacity effect for hover states on dark backgrounds.Uses the same global token in all themes",
+          "description": "Persistent opacity effect for hover states on dark backgrounds. Uses the same global token in all themes",
           "globalToken": "$color-hover-lighten"
         },
         "hover-01-dark": {
           "category": "states",
-          "description": "Persistent opacity effect for hover states on light backgrounds.Uses the same global token in all themes",
+          "description": "Persistent opacity effect for hover states on light backgrounds. Uses the same global token in all themes",
           "globalToken": "$color-hover-darken"
         },
         "active-01": {
@@ -978,12 +978,12 @@
         },
         "active-02-light": {
           "category": "states",
-          "description": "Opacity effect for active states on dark backgrounds.Uses the same global token in all themes",
+          "description": "Opacity effect for active states on dark backgrounds. Uses the same global token in all themes",
           "globalToken": "$color-active-lighten"
         },
         "active-01-dark": {
           "category": "states",
-          "description": "Opacity effect for active states on light backgrounds.Uses the same global token in all themes",
+          "description": "Opacity effect for active states on light backgrounds. Uses the same global token in all themes",
           "globalToken": "$color-active-darken"
         },
         "focus": {
