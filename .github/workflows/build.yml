@@ -86,7 +86,7 @@ jobs:
       - name: Build Packages
         run: yarn build --cache-dir=".turbo"
         env:
-          PIE_URL_PREFIX: /pr-preview-microsite/pr-${{github.event.number}}
+          PIE_URL_PREFIX: /pr-preview-docs/pr-${{github.event.number}}
       # Run Unit Tests
       - name: Unit Tests
         run: yarn test:ci --cache-dir=".turbo"
@@ -133,7 +133,7 @@ jobs:
         with:
           source-dir: ./apps/pie-microsite/dist
           preview-branch: gh-pages
-          umbrella-dir: pr-preview-microsite
+          umbrella-dir: pr-preview-docs
           action: auto
       - name: Deploy - Master
         if: ${{ github.ref == 'refs/heads/main' }}
@@ -142,7 +142,7 @@ jobs:
           folder: ./apps/pie-microsite/dist
           branch: gh-pages
           clean: true
-          target_folder: pie-microsite
+          target_folder: docs
 
   deploy-storybook:
     needs: build
@@ -195,7 +195,7 @@ jobs:
           folder: ./apps/pie-storybook/dist
           branch: gh-pages
           clean: true
-          target_folder: pie-storybook
+          target_folder: storybook
 
   browser-tests:
     needs: deploy-microsite
@@ -226,7 +226,7 @@ jobs:
         run: |
           yarn test:visual:ci
     env:
-      PIE_URL_PREFIX: pr-preview-microsite/pr-${{github.event.number}}
+      PIE_URL_PREFIX: pr-preview-docs/pr-${{github.event.number}}
       PERCY_TOKEN_PIE_MICROSITE: ${{ secrets.PERCY_TOKEN_PIE_MICROSITE }}
 
   release:
