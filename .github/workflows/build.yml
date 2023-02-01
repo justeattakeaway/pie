@@ -127,7 +127,7 @@ jobs:
             turborepo-dist-cache-
       # Build Packages
       - name: Build Microsite
-        run: yarn build --filter=pie-microsite --cache-dir=".turbo"
+        run: yarn build --filter=pie-microsite --filter=pie-storybook --cache-dir=".turbo"
       - name: Deploy - Microsite PR Preview
         id: preview-microsite
         if: ${{ github.ref != 'refs/heads/main' }}
@@ -137,6 +137,7 @@ jobs:
           preview-branch: gh-pages
           umbrella-dir: pr-preview
           action: auto
+      # Deploy previews
       - name: Deploy - Storybook PR Preview
         id: preview-storybook
         if: ${{ github.ref != 'refs/heads/main' }}
