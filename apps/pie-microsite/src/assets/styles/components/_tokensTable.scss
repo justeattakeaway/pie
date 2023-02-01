@@ -96,7 +96,7 @@ $tokensTable-item-vertical-padding: f.spacing(e);
         left: 0;
         bottom: 0;
         right: 0;
-        background-color: f.$color-background-dark;
+        background-color: var(--example-background-color, f.$color-background-dark);
         position: absolute;
         opacity: var(--example-checked-opacity);
     }
