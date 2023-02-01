@@ -46,7 +46,7 @@ PIE designers own and maintain our foundation libraries, which are split into tw
 
 Our core component libraries are made up of all the components that are used by multiple business areas and teams. These include components like buttons, labels, chips, input fields (among others). These components should remain consistent across products and pillars.
 
-PIE designers own and maintain our components libraries, which are split into two different themes (PIE 2.0 Light and PIE 2.0 Dark). Make sure you’re working from the right library, and check with the PIE team if you’re unsure about which one you should use.
+Similarly to foundation libraries, these components are maintained and owned by PIE designers, and they are split into two different themes (PIE 2.0 Core Components – Light and PIE 2.0 Core Components – Dark). Make sure you’re working from the right library, and check with the PIE team if you’re unsure about which one you should use.
 
 ### Asset libraries
 
