@@ -202,7 +202,7 @@ jobs:
           force: false
 
   browser-tests:
-    needs: deploy
+    needs: deploy-microsite
     runs-on: ubuntu-latest
     steps:
       # Checkout the Repo
