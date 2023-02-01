@@ -47,7 +47,6 @@ const buildColorName = tokenName => {
  * @returns {string} - the color swatch example HTML string
  */
 const buildColorExample = token => {
-
     const tokenValues = splitColorToken(token);
     const classes = ['c-tokensTable-example'];
 
@@ -61,7 +60,7 @@ const buildColorExample = token => {
 
     const cssVariables = [
         ...tokenValues.opacity ? [`--example-checked-opacity: ${tokenValues.opacity}`] : [],
-        ...tokenValues.hexcode ? [`--example-background-color: ${tokenValues.hexcode}`] : [],
+        ...tokenValues.hexcode ? [`--example-background-color: ${tokenValues.hexcode}`] : []
     ];
 
     return `<div class="${classes.join(' ')}" style="${cssVariables.join('; ')}";></div>`;
