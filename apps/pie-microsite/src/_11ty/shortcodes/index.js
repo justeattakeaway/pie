@@ -3,6 +3,7 @@ const iconList = require('./iconList');
 const list = require('./list');
 const notification = require('./notification');
 const tokensTable = require('./tokensTable');
+const simpleTable = require('./simpleTable');
 
 const { deindentHTML } = require('./shortcode-utilities');
 
@@ -16,6 +17,7 @@ const addAllShortCodes = eleventyConfig => {
     eleventyConfig.addShortcode('list', shortcodeArgs => deindentHTML(list(shortcodeArgs)));
     eleventyConfig.addShortcode('notification', shortcodeArgs => deindentHTML(notification(shortcodeArgs)));
     eleventyConfig.addShortcode('tokensTable', shortcodeArgs => deindentHTML(tokensTable(shortcodeArgs)));
+    eleventyConfig.addShortcode('simpleTable', shortcodeArgs => deindentHTML(simpleTable(shortcodeArgs)));
 };
 
 module.exports = {

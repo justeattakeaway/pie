@@ -1,0 +1,62 @@
+{
+    "headings": [
+        {
+            "text": "PIE Alias token"
+        },
+        {
+            "text": "Material UI"
+        }
+    ],
+    "rows": [
+        {
+            "data": [
+                {
+                    "text": "$elevation-01"
+                },
+                {
+                    "text": "01dp"
+                }
+            ]
+        },
+        {
+            "data": [
+                {
+                    "text": "$elevation-02"
+                },
+                {
+                    "text": "04dp"
+                }
+            ]
+        },
+        {
+            "data": [
+                {
+                    "text": "$elevation-03"
+                },
+                {
+                    "text": "06dp"
+                }
+            ]
+        },
+        {
+            "data": [
+                {
+                    "text": "$elevation-04"
+                },
+                {
+                    "text": "09dp"
+                }
+            ]
+        },
+        {
+            "data": [
+                {
+                    "text": "$elevation-05"
+                },
+                {
+                    "text": "24dp"
+                }
+            ]
+        }
+    ]
+}

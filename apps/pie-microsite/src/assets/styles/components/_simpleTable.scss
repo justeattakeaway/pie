@@ -1,0 +1,22 @@
+@use '../fozzie-config' as f;
+@use '../variables' as v;
+
+.c-simpleTable {
+    background-color: f.$color-container-default;
+    border: 1px solid f.$color-border-default;
+    border-radius: f.$radius-rounded-c;
+    margin-top: f.$spacing-f;
+    max-width: v.$content-max-width;
+    width: 100%;
+
+    th,
+    td {
+        text-align: left;
+        padding: f.$spacing-d;
+        width: 50%;
+    }
+
+    tr > td {
+        border-top: 1px solid f.$color-border-default;
+    }
+}
