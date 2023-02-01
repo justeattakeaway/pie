@@ -86,7 +86,7 @@ jobs:
       - name: Build Packages
         run: yarn build --cache-dir=".turbo"
         env:
-          PIE_URL_PREFIX: /pr-preview/pr-${{github.event.number}}
+          PIE_URL_PREFIX: /pr-preview-microsite/pr-${{github.event.number}}
       # Run Unit Tests
       - name: Unit Tests
         run: yarn test:ci --cache-dir=".turbo"
@@ -94,8 +94,6 @@ jobs:
   deploy-microsite:
     needs: build
     runs-on: ubuntu-latest
-    outputs:
-      microsite-deployment-url: ${{ steps.preview.outputs.deployment-url }}
     steps:
       # Checkout the Repo
       - name: Checkout
@@ -143,14 +141,12 @@ jobs:
         with:
           folder: ./apps/pie-microsite/dist
           branch: gh-pages
-          clean-exclude: pr-preview-microsite
-          force: false
+          clean: true
+          target_folder: pie-microsite
 
   deploy-storybook:
     needs: build
     runs-on: ubuntu-latest
-    outputs:
-      storybook-deployment-url: ${{ steps.preview.outputs.deployment-url }}
     steps:
       # Checkout the Repo
       - name: Checkout
@@ -198,8 +194,8 @@ jobs:
         with:
           folder: ./apps/pie-storybook/dist
           branch: gh-pages
-          clean-exclude: pr-preview-storybook
-          force: false
+          clean: true
+          target_folder: pie-storybook
 
   browser-tests:
     needs: deploy-microsite
