@@ -128,6 +128,11 @@ jobs:
       # Build Packages
       - name: Build Microsite
         run: yarn build --filter=pie-microsite --cache-dir=".turbo"
+      - name: PIE Microsite save artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: pie-microsite-artifacts
+          path: ./apps/pie-microsite/dist
       - name: Deploy - Microsite PR Preview
         id: preview-microsite
         if: ${{ github.ref != 'refs/heads/main' }}
@@ -137,15 +142,15 @@ jobs:
           preview-branch: gh-pages
           umbrella-dir: pr-preview
           action: auto
-      - name: Deploy - Storybook PR Preview
-        id: preview-storybook
-        if: ${{ github.ref != 'refs/heads/main' }}
-        uses: rossjrw/pr-preview-action@v1
-        with:
-          source-dir: ./apps/pie-storybook/build
-          preview-branch: gh-pages
-          umbrella-dir: pr-preview/storybook
-          action: auto
+      # - name: Deploy - Storybook PR Preview
+      #   id: preview-storybook
+      #   if: ${{ github.ref != 'refs/heads/main' }}
+      #   uses: rossjrw/pr-preview-action@v1
+      #   with:
+      #     source-dir: ./apps/pie-storybook/build
+      #     preview-branch: gh-pages
+      #     umbrella-dir: pr-preview/storybook
+      #     action: auto
       - name: Deploy - Master
         if: ${{ github.ref == 'refs/heads/main' }}
         uses: JamesIves/github-pages-deploy-action@v4
