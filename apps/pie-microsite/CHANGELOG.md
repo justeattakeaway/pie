@@ -12,6 +12,15 @@ v1.49.0
 - Elevation page for Android
 
 
+v1.48.1
+------------------------------
+*February 1, 2023*
+
+### Fixed
+- Colour token typos
+- Incorrect background colour being applied to transparent colour token examples
+
+
 v1.48.0
 ------------------------------
 *January 27, 2023*
