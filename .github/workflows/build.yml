@@ -132,13 +132,13 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: pie-microsite-artifacts
-          path: ./apps/pie-microsite/dist
+          path: ./
       - name: Deploy - Microsite PR Preview
         id: preview-microsite
         if: ${{ github.ref != 'refs/heads/main' }}
         uses: rossjrw/pr-preview-action@v1
         with:
-          source-dir: ./
+          source-dir: ./apps/pie-microsite/dist
           preview-branch: gh-pages
           umbrella-dir: pr-preview
           action: auto
