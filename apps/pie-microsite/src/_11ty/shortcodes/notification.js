@@ -47,7 +47,6 @@ module.exports = function (config) {
 
     const svg = pieIconsSvg({
         name: notificationSettings[config.type].iconName,
-        class: 'c-notification-icon',
         attrs: {
             height: 24,
             width: 24,
