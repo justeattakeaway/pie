@@ -11,6 +11,10 @@ $notification-bg-colour:            var(--bg-colour);
     border-radius: f.$radius-rounded-c;
     display: flex;
     flex-wrap: wrap;
+
+    & > svg {
+        margin-top: 2px;
+    }
 }
 
 .c-notification-title {
