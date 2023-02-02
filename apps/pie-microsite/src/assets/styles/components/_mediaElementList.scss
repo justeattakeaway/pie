@@ -1,0 +1,17 @@
+@use '../fozzie-config' as f;
+@use '../variables' as v;
+
+.c-mediaElementList {
+    margin-top: f.$spacing-e;
+    max-width: v.$content-max-width;
+
+    hr {
+        margin: f.$spacing-f 0;
+    }
+
+    .c-mediaElement {
+        // TODO: Breakpoint styling
+        display: flex;
+        gap: f.$spacing-e;
+    }
+}
