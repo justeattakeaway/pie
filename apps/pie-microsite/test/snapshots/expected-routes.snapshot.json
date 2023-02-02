@@ -3,6 +3,7 @@
     "all-about-pie/what-is-pie",
     "components/coming-soon",
     "copy/coming-soon",
+    "designers/getting-started/overview",
     "foundations/animation",
     "foundations/colour/overview",
     "foundations/colour/tokens/alias/dark",
@@ -28,7 +29,6 @@
     "foundations/typography/tokens/alias/narrow",
     "foundations/typography/tokens/alias/wide",
     "foundations/typography/tokens/global",
-    "getting-started/designer-guides",
     "patterns/mobile-pattern",
     "resources/assets",
     "support/faq"
