@@ -4,6 +4,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 
+v1.29.0
+------------------------------
+*February 27, 2023*
+
+### Added
+- Linked the icon packages together so that they get released as the same version number
+
+
 v1.28.0
 ------------------------------
 *February 23, 2023*
@@ -44,6 +52,7 @@ v1.25.1
 
 ### Fixed
 - Issue with dist's not being available to changesets release job.
+
 
 v1.25.0
 ------------------------------

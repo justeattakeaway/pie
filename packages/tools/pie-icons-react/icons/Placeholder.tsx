@@ -1,6 +1,4 @@
 import * as React from "react";
 import { SVGProps } from "react";
-
-const Placeholder = (props: SVGProps<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="c-pieIcon c-pieIcon--placeholder" width="1em" height="1em" role="img" {...props}><path fillRule="evenodd" clipRule="evenodd" d="M23.8759 0L24 0.124136V23.8759L23.8759 24H0.124136L0 23.8759V0.124136L0.124136 0H23.8759ZM23.7507 0.248273H0.248228V23.7508H23.7507V0.248273ZM18.0833 3C19.6942 3 21 4.30584 21 5.91667V18.0833C21 19.6942 19.6942 21 18.0833 21H5.91667C4.30584 21 3 19.6942 3 18.0833V5.91667C3 4.30584 4.30584 3 5.91667 3H18.0833Z" /></svg>;
-
+const Placeholder = (props: SVGProps<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" className="c-pieIcon c-pieIcon--placeholder" width="1em" height="1em" {...props}><path fillRule="evenodd" clipRule="evenodd" d="M0.0827576 0H15.9172L16 0.0827576V15.9172L15.9172 16H0.0827576L0 15.9172V0.0827576L0.0827576 0ZM15.8338 15.8338V0.165503H0.165489V15.8338H15.8338ZM3.26852 1H12.7315C13.9844 1 15 2.01565 15 3.26852V12.7315C15 13.9844 13.9844 15 12.7315 15H3.26852C2.01565 15 1 13.9844 1 12.7315V3.26852C1 2.01565 2.01565 1 3.26852 1Z" fill="#242E30" /></svg>;
 export default Placeholder;
