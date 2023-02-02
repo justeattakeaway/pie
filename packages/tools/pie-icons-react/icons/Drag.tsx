@@ -1,6 +1,4 @@
 import * as React from "react";
 import { SVGProps } from "react";
-
-const Drag = (props: SVGProps<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" className="c-pieIcon c-pieIcon--drag" width="1em" height="1em" role="img" {...props}><path d="M26.25 9.1875H1.75V10.9375H26.25V9.1875Z" /><path d="M26.25 17.0625H1.75V18.8125H26.25V17.0625Z" /></svg>;
-
+const Drag = (props: SVGProps<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" className="c-pieIcon c-pieIcon--drag" width="1em" height="1em" {...props}><path d="M15 9.53125H1V10.8438H15V9.53125Z" fill="#242E30" /><path d="M15 5.15625H1V6.46875H15V5.15625Z" fill="#242E30" /></svg>;
 export default Drag;
