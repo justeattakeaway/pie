@@ -5,5 +5,6 @@
  */
 module.exports = {
     ordered: 'ordered',
-    pill: 'pill'
+    pill: 'pill',
+    icon: 'icon'
 };

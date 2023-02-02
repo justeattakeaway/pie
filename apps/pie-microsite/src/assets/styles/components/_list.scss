@@ -51,3 +51,16 @@
     }
 }
 
+
+.c-list--icon {
+    display: flex;
+    flex-direction: column;
+    gap: f.spacing();
+
+    .c-list-item {
+        display: flex;
+        align-items: center;
+        gap: f.spacing();
+    }
+
+}
