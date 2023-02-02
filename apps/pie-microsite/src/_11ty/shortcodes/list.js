@@ -6,7 +6,7 @@ const pieDesignTokenColours = require('../filters/pieDesignTokenColours');
 /**
  * A List HTML component – takes an array of list items and turns them into a marked-up list
  * @param {string} type - Type of list: ordered, pill, icon
- * @param {string[] | {iconName: 'string', iconFill?: "string", content: 'string'}[]} items - An array of list items
+ * @param {string[] | {iconName: 'string', iconFill?: 'string', content: 'string'}[]} items - An array of list items
  * @returns {string}
  */
 // eslint-disable-next-line func-names
