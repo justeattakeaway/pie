@@ -6,10 +6,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 v1.27.0
 ------------------------------
-*February 12, 2023*
+*February 13, 2023*
 
 ### Added
 - Linked the icon packages together so that they get released as the same version number
+
 
 v1.26.0
 ------------------------------
@@ -18,6 +19,7 @@ v1.26.0
 ### Added
 - Storybook publishing to GitHub Actions.
 - Modified `turbo.json` commands.
+
 
 v1.25.1
 ------------------------------
