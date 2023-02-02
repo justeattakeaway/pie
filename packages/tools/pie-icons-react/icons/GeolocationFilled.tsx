@@ -1,6 +1,4 @@
 import * as React from "react";
 import { SVGProps } from "react";
-
-const GeolocationFilled = (props: SVGProps<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" className="c-pieIcon c-pieIcon--geolocationFilled" width="1em" height="1em" role="img" {...props}><path d="M4.15613 10.9725V13.02L7.55988 13.895C9.14879 14.2901 10.6 15.1106 11.7578 16.2684C12.9155 17.4261 13.736 18.8774 14.1311 20.4663L15.0061 23.87H17.0536L23.4586 4.54126L4.15613 10.9725Z" /><path d="M17.0274 23.8438H14.9799L14.1049 20.44C13.7098 18.8511 12.8893 17.3998 11.7315 16.2421C10.5738 15.0844 9.12254 14.2639 7.53363 13.8688L4.12988 12.9938V10.9725L23.4586 4.54126L17.0274 23.8438Z" /></svg>;
-
+const GeolocationFilled = (props: SVGProps<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" className="c-pieIcon c-pieIcon--geolocationFilled" width="1em" height="1em" {...props}><path d="M1.53467 6.54755V8.00005L3.66967 8.5338C4.59936 8.76292 5.44868 9.24192 6.12574 9.91898C6.8028 10.596 7.2818 11.4454 7.51092 12.3751L8.04467 14.5101H9.45342L13.4172 2.5838L1.53467 6.54755Z" fill="#242E30" /></svg>;
 export default GeolocationFilled;
