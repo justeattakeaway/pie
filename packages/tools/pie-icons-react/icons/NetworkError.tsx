@@ -1,6 +1,4 @@
 import * as React from "react";
 import { SVGProps } from "react";
-
-const NetworkError = (props: SVGProps<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="c-pieIcon c-pieIcon--networkError" width="1em" height="1em" role="img" {...props}><path d="M3 21H7.8V10.5H3V21ZM4.5 12H6.3V19.5H4.5V12Z" /><path d="M21 3H16.2V17.5425L14.4 14.5425V6.75H9.74998L6.12748 0.75H4.37248L9.62248 9.4575V21H14.4225V17.46L16.2225 20.46V21H16.5L17.85 23.25H19.605L18.255 21H21V3ZM11.1 8.25H12.9V12.045L11.1 9.045V8.25ZM12.9 19.5H11.1V11.955L12.9 14.955V19.5ZM19.5 19.5H17.7V4.5H19.5V19.5Z" /></svg>;
-
+const NetworkError = (props: SVGProps<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" className="c-pieIcon c-pieIcon--networkError" width="1em" height="1em" {...props}><path d="M13.1888 3.0125H9.05003V8.4725L4.82378 1.4375H3.30128L6.36378 6.5475H2.81128V12.9875H6.95003V7.5275L9.05003 11.0275V12.9875H10.2313L11.1763 14.5625H12.6988L11.7625 12.9875H13.1888V3.0125ZM5.63753 11.7625H4.12378V7.825H5.63753V11.7625ZM11.8763 11.7625H11.0013L10.3625 10.625V4.29875H11.8763V11.7625Z" fill="#242E30" /></svg>;
 export default NetworkError;
