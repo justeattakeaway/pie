@@ -1,6 +1,4 @@
 import * as React from "react";
 import { SVGProps } from "react";
-
-const ChevronLeft = (props: SVGProps<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" className="c-pieIcon c-pieIcon--chevronLeft" width="1em" height="1em" role="img" {...props}><path d="M19.8038 3.87625L9.30379 14C9.30018 14.032 9.30018 14.0643 9.30379 14.0963L19.8038 24.1588L18.57 25.375L8.07004 15.3125C7.73597 14.9571 7.54999 14.4877 7.54999 14C7.54999 13.5123 7.73597 13.0429 8.07004 12.6875L18.5875 2.625L19.8038 3.87625Z" /></svg>;
-
+const ChevronLeft = (props: SVGProps<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" className="c-pieIcon c-pieIcon--chevronLeft" width="1em" height="1em" {...props}><path d="M10.96 2.82L5.60503 8L11.0038 13.1975L10.1288 14.16L4.56378 8.79625C4.45185 8.68776 4.36285 8.55789 4.30208 8.41434C4.24131 8.2708 4.20999 8.1165 4.20999 7.96062C4.20999 7.80474 4.24131 7.65045 4.30208 7.50691C4.36285 7.36336 4.45185 7.23349 4.56378 7.125L10.0588 1.875L10.96 2.82Z" fill="#242E30" /></svg>;
 export default ChevronLeft;
