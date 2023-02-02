@@ -83,7 +83,7 @@ As a result of that, we’re often asked how PIE designers are usually involved 
         {
           iconName: 'CheckCircleFilledSmall',
           iconFill: 'support-positive',
-          content: "Create, update and maintain our foundations, components and patterns"
+          content: "Create, update and maintain our foundations, components and patterns."
         },
         {
           iconName: 'CheckCircleFilledSmall',

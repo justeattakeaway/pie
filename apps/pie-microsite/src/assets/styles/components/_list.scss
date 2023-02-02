@@ -53,14 +53,15 @@
 
 
 .c-list--icon {
-    display: flex;
-    flex-direction: column;
-    gap: f.spacing();
-
     .c-list-item {
         display: flex;
-        align-items: center;
         gap: f.spacing();
+        margin-bottom: f.$spacing-02;
+
+        & > svg {
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
     }
 
 }
