@@ -33,7 +33,7 @@ You can check the process closely in our [Process]() file.
 src: "../../../../assets/img/designers/how-we-support-you/mentoring.svg",
 mobileSrc: "../../../../assets/img/designers/how-we-support-you/mentoring_narrow.svg",
 width: "800px",
-caption: "A map of how Libraries are structured in Figma."
+caption: "A flow diagram which shows the steps we follow during our Mentorship support model."
 } %}
 
 ### Cleanup
