@@ -76,55 +76,26 @@ As a result of that, we’re often asked how PIE designers are usually involved 
 
 {% list {
     type: listTypes.icon,
+    iconName: "CheckCircleFilledSmall",
+    iconFill: "support-positive",
     items: [
-        {
-          iconName: 'CheckCircleFilledSmall',
-          iconFill: 'support-positive',
-          content: "Provide guidance and support with foundations, components and patterns."
-        },
-        {
-          iconName: 'CheckCircleFilledSmall',
-          iconFill: 'support-positive',
-          content: "Create, update and maintain our foundations, components and patterns."
-        },
-        {
-          iconName: 'CheckCircleFilledSmall',
-          iconFill: 'support-positive',
-          content: "Write documentation about the system’s elements behaviour and interactions."
-        },
-        {
-          iconName: 'CheckCircleFilledSmall',
-          iconFill: 'support-positive',
-          content: "Assist business area designers when they create their own components."
-        }
+        "Provide guidance and support with foundations, components and patterns.",
+        "Create, update and maintain our foundations, components and patterns.",
+        "Write documentation about the system’s elements behaviour and interactions.",
+        "Assist business area designers when they create their own components."
     ]
 } %}
-
 
 ### What we don’t do:
 
 {% list {
     type: listTypes.icon,
+    iconName: "CloseCircleFilledSmall",
+    iconFill: "support-error",
     items: [
-        {
-          iconName: 'CloseCircleFilledSmall',
-          iconFill: 'support-error',
-          content: "Screen designs."
-        },
-        {
-          iconName: 'CloseCircleFilledSmall',
-          iconFill: 'support-error',
-          content: "Prototype flows."
-        },
-        {
-          iconName: 'CloseCircleFilledSmall',
-          iconFill: 'support-error',
-          content: "Specify **your** products rules."
-        },
-        {
-          iconName: 'CloseCircleFilledSmall',
-          iconFill: 'support-error',
-          content: "Maintain business area libraries."
-        }
+        "Screen designs.",
+        "Prototype flows.",
+        "Specify **your** products rules.",
+        "Maintain business area libraries."
     ]
 } %}

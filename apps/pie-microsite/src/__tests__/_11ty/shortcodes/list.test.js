@@ -15,6 +15,16 @@ describe('list.js', () => {
         expect(result).toMatchSnapshot();
     });
 
+    it('should return the expected HTML for an icon list', () => {
+        // act
+        const result = list({
+            type: 'icon', iconName: 'CloseCircleFilledSmall', iconFill: 'support-positive', items
+        });
+
+        // assert
+        expect(result).toMatchSnapshot();
+    });
+
     it('should throw an error if `type` is invalid', () => {
         // arrange
         const invalidType = 'not a real type';
