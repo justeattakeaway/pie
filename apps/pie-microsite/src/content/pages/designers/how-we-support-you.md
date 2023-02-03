@@ -30,8 +30,8 @@ During this process, a PIE designer will support the business area designer by r
 You can check the process closely in our [Process]() file.
 
 {% contentPageImage {
-src: "../../../../assets/img/designers/how-we-support-you/mentoring.png",
-mobileSrc: "../../../../assets/img/designers/how-we-support-you/mentoring_narrow.png",
+src: "../../../../assets/img/designers/how-we-support-you/mentoring.svg",
+mobileSrc: "../../../../assets/img/designers/how-we-support-you/mentoring_narrow.svg",
 width: "800px",
 caption: "A map of how Libraries are structured in Figma."
 } %}
@@ -45,8 +45,8 @@ Once the component is finished, a PIE designer will help the business area desig
 You can check the process closely in our [Process]() file.
 
 {% contentPageImage {
-src: "../../../../assets/img/designers/how-we-support-you/cleanup.png",
-mobileSrc: "../../../../assets/img/designers/how-we-support-you/cleanup_narrow.png",
+src: "../../../../assets/img/designers/how-we-support-you/cleanup.svg",
+mobileSrc: "../../../../assets/img/designers/how-we-support-you/cleanup_narrow.svg",
 width: "800px",
 caption: "A flow diagram which shows the steps we follow during our Cleanup support model."
 } %}
@@ -58,8 +58,8 @@ With the partnership model, the business area designer **will work closely with 
 You can check the process closely in our [Process]() file.
 
 {% contentPageImage {
-src: "../../../../assets/img/designers/how-we-support-you/partnership.png",
-mobileSrc: "../../../../assets/img/designers/how-we-support-you/partnership_narrow.png",
+src: "../../../../assets/img/designers/how-we-support-you/partnership.svg",
+mobileSrc: "../../../../assets/img/designers/how-we-support-you/partnership_narrow.svg",
 width: "800px",
 caption: "A flow diagram which shows the steps we follow during our Partnership support model."
 } %}
