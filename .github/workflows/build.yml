@@ -223,6 +223,9 @@ jobs:
           restore-keys: |
             turborepo-dist-cache-${{ github.ref_name }}
             turborepo-dist-cache-
+      # Build Packages
+      - name: Build Microsite
+        run: yarn build --cache-dir=".turbo"
       - name: Check for pre.json file existence
         id: check_files
         uses: andstor/file-existence-action@v2.0.0
