@@ -3,6 +3,34 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+v1.50.0
+------------------------------
+*February 2, 2023*
+
+### Added
+- Getting Started - Overview tab of Designers
+
+### Fixed
+- Wrong usage of a heading in the code typography page
+- Wrong ordering of the elevation overview content
+
+
+v1.49.0
+------------------------------
+*February 1, 2023*
+
+### Added
+- Elevation page for Android
+
+
+v1.48.1
+------------------------------
+*February 1, 2023*
+
+### Fixed
+- Colour token typos
+- Incorrect background colour being applied to transparent colour token examples
+
 
 v1.48.0
 ------------------------------
@@ -176,10 +204,10 @@ v1.34.0
 *January 16, 2023*
 
 ### Added
--   Radius page for global design tokens
+- Radius page for global design tokens
 
 ### Changed
--   Tokens metadata for radius global design tokens
+- Tokens metadata for radius global design tokens
 
 
 v1.33.1
@@ -434,6 +462,7 @@ v1.15.0
 - zindex issue on background.
 - Linting error.
 
+
 v1.14.0
 ------------------------------
 *September 12, 2022*
@@ -445,7 +474,7 @@ v1.14.0
 
 v1.13.0
 ------------------------------
-*September 06, 2022*
+*September 6, 2022*
 
 ### Added
 - Styling for the content pages
@@ -464,7 +493,7 @@ v1.13.0
 
 v1.12.1
 ------------------------------
-*September 02, 2022*
+*September 2, 2022*
 
 ### Removed
 - Moved most dev dependencies to project root
@@ -472,7 +501,7 @@ v1.12.1
 
 v1.12.0
 ------------------------------
-*September 01, 2022*
+*September 1, 2022*
 
 ### Added
 - `cssnano` for minification and `postcss-cli` & `postcss` for autoprefixing.

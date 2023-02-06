@@ -44,7 +44,7 @@ For any platform wanting to utilise the `JETSansDigital` fonts, we recommend fol
 
 The basic strategy is to load in the `JETSansDigital-Regular` webfont as soon as possible. A faux bold is applied to this regular font while we lazy load in the `JETSansDigital-Bold` and `JETSansDigital-ExtraBold` webfonts, which then re-renders the faux bold as the intended bold typeface.
 
-## Implementation
+### Implementation
 
 **1. Add the following code into the** `<head>` **of your application.**
 
