@@ -4,14 +4,48 @@
 .c-mediaElementList {
     margin-top: f.$spacing-e;
     max-width: v.$content-max-width;
+    display: flex;
+    flex-direction: column;
 
     hr {
         margin: f.$spacing-f 0;
     }
 
     .c-mediaElement {
-        // TODO: Breakpoint styling
+        // Children will wrap when this element shrinks below this width
+        // Based on the Holy Albatross: https://heydonworks.com/article/the-flexbox-holy-albatross/
+        --breakpoint: 600px;
+        --max-img-width: 240px;
+        --max-img-height: 120px;
+        --multiplier: calc(var(--breakpoint) - 100%);
+
         display: flex;
-        gap: f.$spacing-e;
+        flex-wrap: wrap;
+        margin: calc(f.$spacing-d * -1);
+        justify-content: flex-start;
+
+        & > * {
+            max-width: 100%;
+            flex-grow: 1;
+            flex-basis: calc(var(--multiplier) * 999);
+            margin: f.$spacing-d;
+        }
+
+        & > picture {
+            @include f.media('<=narrowMid') {
+                --max-img-width: 288px;
+                --max-img-height: 160px;
+            }
+
+            flex-grow: 0;
+            margin-bottom: f.$spacing-b;
+            max-width: var(--max-img-width);
+            height: var(--max-img-height);
+        }
+
+        .c-mediaElement-text {
+            max-width: 600px;
+            min-width: calc(var(--breakpoint) - (var(--max-img-width) + f.$spacing-d * 2));
+        }
     }
 }

@@ -3,12 +3,15 @@ module.exports = ({ data }) => {
 
     return `<div class="c-mediaElementList">
     ${listItems.map(({
-        headingLevel = 3, headingText, imgSrc, text
+        headingLevel = 3, headingText, imgSrc, imgSrcNarrow, text
     }) => {
         const hx = `h${headingLevel}`;
         return `<div class="c-mediaElement">
-            <img src="${imgSrc}" alt="" />
-            <div>
+            <picture>
+                <source srcset="${imgSrcNarrow}" media="(max-width: 600px)">
+                <img src="${imgSrc}" alt="" />
+            </picture>
+            <div class="c-mediaElement-text">
                 <${hx}>${headingText}</${hx}>
                 <p>${text}</p>
             </div>
