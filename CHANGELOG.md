@@ -5,12 +5,18 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 v1.26.0
 ------------------------------
-*Febuary 2, 2022*
+*Febuary 6, 2022*
 
 ### Added
 - Storybook publishing to GitHub Actions.
 - Modified `turbo.json` commands.
 
+v1.25.1
+------------------------------
+*Febuary 3, 2022*
+
+### Fixed
+- Issue with dist's not being available to changesets release job.
 
 v1.25.0
 ------------------------------
