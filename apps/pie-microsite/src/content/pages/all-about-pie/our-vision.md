@@ -40,4 +40,3 @@ What success looks like:
 - We test and iterate based on JET expertise, research and competitor analysis
 - We set the bar for all UI development across JET
 
-
