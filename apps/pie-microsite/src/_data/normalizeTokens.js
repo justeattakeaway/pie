@@ -4,8 +4,8 @@ const pieDesignTokens = require('@justeat/pie-design-tokens/dist/tokens.json');
 const clonedPieDesignTokens = JSON.parse(JSON.stringify(pieDesignTokens));
 
 /**
- * normalizes the font alias tokens into wide/narrow groups
- * @returns - alias tokens categorized by wide/narrow objects to be used in their respective pages.
+ * normalises the font alias tokens into wide/narrow groups
+ * @returns - alias tokens categorised by wide/narrow objects to be used in their respective pages.
  */
 const normaliseFontAliasTokens = () => {
     const compose = modifier => {
@@ -24,8 +24,8 @@ const normaliseFontAliasTokens = () => {
 };
 
 /**
- * normalizes the elevation alias tokens into light/dark groups
- * @returns alias tokens categorized by light/dark objects to be used in their respective pages.
+ * normalises the elevation alias tokens into light/dark groups
+ * @returns alias tokens categorised by light/dark objects to be used in their respective pages.
  */
 const normaliseElevationAliasTokens = () => {
     const compose = () => {

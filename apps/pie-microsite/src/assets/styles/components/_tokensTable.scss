@@ -61,7 +61,7 @@ $tokensTable-item-vertical-padding: f.spacing(e);
         justify-self: start;
         align-self: start;
         min-width: 152px;
-        border-radius: 8px;
+        border-radius: f.$radius-03;
     }
 }
 
@@ -141,7 +141,7 @@ $tokensTable-item-vertical-padding: f.spacing(e);
     background: var(--example-elevation);
     width: 64px;
     height: 64px;
-    border-radius: 8px;
+    border-radius: f.$radius-03;
     margin: 0 auto;
     left: 0;
     right: 0;

@@ -12,7 +12,7 @@ describe('tokensTable.js', () => {
         ['radius.global', tokenTypes.RADIUS],
         ['radius.alias', tokenTypes.RADIUS],
         ['spacing.global', tokenTypes.SPACING],
-        ['elevation.alias', tokenTypes.SPACING]
+        ['elevation.alias', tokenTypes.ELEVATION]
     ])('should return the expected HTML', (path, tokenType) => {
         // act
         const result = tokensTable({ path, tokenType });
