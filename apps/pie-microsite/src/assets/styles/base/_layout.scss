@@ -10,7 +10,7 @@
         'footer footer';
 
     // wider screen grid layout
-    @include f.media('>mid') {
+    @include f.media('>=wide') {
         grid-template-areas:
             'header header'
             'nav main'
@@ -25,7 +25,7 @@
 .c-nav {
     grid-area: nav;
 
-    @include f.media('<=mid') {
+    @include f.media('<wide') {
         grid-area: main;
         grid-row-end: 5;
     }
@@ -42,7 +42,7 @@
 
 .c-main,
 .c-footer {
-    @include f.media('<=mid') {
+    @include f.media('<wide') {
         z-index: f.zIndex(low);
     }
 }

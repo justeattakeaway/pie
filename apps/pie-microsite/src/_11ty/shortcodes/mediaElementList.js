@@ -8,8 +8,8 @@ module.exports = ({ data }) => {
         const hx = `h${headingLevel}`;
         return `<div class="c-mediaElement">
             <picture>
-                <source srcset="${imgSrcNarrow}" media="(max-width: 600px)">
-                <img src="${imgSrc}" alt="" />
+                <source srcset="${imgSrc}" media="(min-width: 600px)">
+                <img src="${imgSrcNarrow}" alt="" />
             </picture>
             <div class="c-mediaElement-text">
                 <${hx}>${headingText}</${hx}>
