@@ -10,6 +10,12 @@ v1.26.0
 ### Added
 - Linked the icon packages together so that they get released as the same version number
 
+v1.25.1
+------------------------------
+*Febuary 3, 2022*
+
+### Fixed
+- Issue with dist's not being available to changesets release job.
 
 v1.25.0
 ------------------------------
