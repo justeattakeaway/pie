@@ -25,6 +25,8 @@
     "foundations/spacing/overview",
     "foundations/spacing/tokens/alias",
     "foundations/spacing/tokens/global",
+    "foundations/elevation/tokens/alias",
+    "foundations/elevation/tokens/global",
     "foundations/typography/code",
     "foundations/typography/overview",
     "foundations/typography/tokens/alias/narrow",

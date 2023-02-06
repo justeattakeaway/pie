@@ -175,5 +175,28 @@
     }
   },
   "radius": {},
-  "spacing": {}
+  "spacing": {},
+  "elevation": {
+      "global": {},
+      "alias": {
+        "default": {
+          "dark": {
+            "defaultElevation": {
+              "displayName": "Default elevation"
+            },
+            "inverseElevation": {
+              "displayName": "Inverse elevation"
+            }
+          },
+          "light": {
+              "defaultElevation": {
+              "displayName": "Default elevation"
+            },
+            "inverseElevation": {
+              "displayName": "Inverse elevation"
+            }
+          }
+        }
+      }
+    }
 }

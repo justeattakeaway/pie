@@ -4,6 +4,7 @@ const pieTokenCategories = require('../../../tokenCategories.json');
 const { stringHelpers, objectHelpers, numberHelpers } = require('../../../utilities/helpers');
 const tokenTypes = require('../../../_data/tokenTypes');
 const { buildColorName, buildColorExample, buildColorDescription } = require('./tokenTypes/colour');
+const { buildElevationExample, buildElevationDescription } = require('./tokenTypes/elevation');
 const { buildSpacingExample } = require('./tokenTypes/spacing');
 const { buildFontExample } = require('./tokenTypes/font');
 const { buildRadiusExample } = require('./tokenTypes/radius');
@@ -51,19 +52,20 @@ const createTokenDisplayName = (tokenKey, tokenType) => {
  * @param {string} tokenType - the type of token i.e. color, spacing, radius
  * @returns {string} - the example HTML string
  */
-const buildTokenExampleElement = (token, tokenType, tokenMetadata) => {
+const buildTokenExampleElement = (token, tokenType, tokenMetadata, path = {}) => {
     const tokenExampleElementHandler = {
         [tokenTypes.COLOR]: buildColorExample,
         [tokenTypes.FONT]: buildFontExample,
         [tokenTypes.RADIUS]: buildRadiusExample,
-        [tokenTypes.SPACING]: buildSpacingExample
+        [tokenTypes.SPACING]: buildSpacingExample,
+        [tokenTypes.ELEVATION]: buildElevationExample
     };
 
     if (!tokenExampleElementHandler[tokenType]) {
         throw new Error(`token type not recognised: ${tokenType}. Token:${token}`);
     }
 
-    return tokenExampleElementHandler[tokenType](token, tokenMetadata);
+    return tokenExampleElementHandler[tokenType](token, tokenMetadata, path);
 };
 
 /**
@@ -91,6 +93,7 @@ const buildGlobalTokenUsedElement = globalToken => {
 const buildTokenDescriptionElement = (tokenType, tokenMetadata) => {
     const tokenTypeBuilder = {
         [tokenTypes.COLOR]: buildColorDescription,
+        [tokenTypes.ELEVATION]: buildElevationDescription,
         default: () => (tokenMetadata.description
             ? `<span class="c-tokensTable-tokenDescription">${tokenMetadata.description}</span>`
             : '')
@@ -130,10 +133,11 @@ const buildTokenListElements = ({
     tokenType,
     tokenScssName,
     tokenDisplayName,
-    tokenMetadata = {}
+    tokenMetadata = {},
+    path = {}
 }) => {
     const tokenPill = buildTokenPill(tokenScssName);
-    const tokenExampleElement = buildTokenExampleElement(token, tokenType, tokenMetadata);
+    const tokenExampleElement = buildTokenExampleElement(token, tokenType, tokenMetadata, path);
 
     // TODO - description is just an example of how we might use the metadata
     // We would likely wanted to move them into a colour specific handler similar to how we build
@@ -184,7 +188,8 @@ const buildTokensListForCategory = (tokens, path, category, tokenType) => {
         tokenScssName: createScssTokenName(key, tokenType),
         tokenDisplayName: tokenTypeMetadata[key].displayName ?? createTokenDisplayName(key, tokenType),
         tokenType,
-        tokenMetadata: tokenTypeMetadata[key]
+        tokenMetadata: tokenTypeMetadata[key],
+        path
     }));
 
     return buildTokensList(tokenListElements);

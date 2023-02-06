@@ -51,6 +51,20 @@ $tokensTable-item-vertical-padding: f.spacing(e);
     }
 }
 
+.c-tokensTable-example-container--elevation {
+    background: var(--example-container);
+    position: relative;
+    min-height: $tokensTable-spacing-container-height;
+
+    @include f.media('>=wide') {
+        min-height: calc($tokensTable-item-min-height - calc($tokensTable-item-vertical-padding * 2));
+        justify-self: start;
+        align-self: start;
+        min-width: 152px;
+        border-radius: 8px;
+    }
+}
+
 .c-tokensTable-example-container--radius {
     display: flex;
     justify-content: center;
@@ -120,6 +134,27 @@ $tokensTable-item-vertical-padding: f.spacing(e);
     @include f.media('>=wide') {
         bottom: 0;
         top: 0;
+    }
+}
+
+.c-tokensTable-example--elevation {
+    background: var(--example-elevation);
+    width: 64px;
+    height: 64px;
+    border-radius: 8px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    position: absolute;
+    bottom: 40px;
+    top: 56px;
+    box-shadow: var(--example-shadow);
+
+    @include f.media('>=wide') {
+        bottom: 24px;
+        top: 24px;
+        width: 32px;
+        height: 32px;
     }
 }
 
@@ -252,6 +287,20 @@ $tokensTable-item-vertical-padding: f.spacing(e);
     background-color: f.$color-container-strong;
     color: f.$color-content-default;
     border: none;
+
+    @include f.media('>=wide') {
+        margin-left: calc(f.spacing(c) / 2);
+    }
+}
+
+.c-tokensTable-token--dark {
+    background-color: f.$color-container-strong;
+    color: f.$color-content-default;
+    border: none;
+
+    @include f.media('>=wide') {
+        margin-left: calc(f.spacing(c) / 2);
+    }
 }
 
 // .c-tokensTable-token elements sitting adjacent to examples or example containers
