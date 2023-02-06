@@ -1,4 +1,5 @@
 const list = require('../../../_11ty/shortcodes/list');
+const listTypes = require('../../../_data/listTypes');
 
 describe('list.js', () => {
     const items = ['a', 'b', 'c', 'd'];
@@ -14,10 +15,20 @@ describe('list.js', () => {
         expect(result).toMatchSnapshot();
     });
 
+    it('should return the expected HTML for an icon list', () => {
+        // act
+        const result = list({
+            type: 'icon', iconName: 'CloseCircleFilledSmall', iconFill: 'support-positive', items
+        });
+
+        // assert
+        expect(result).toMatchSnapshot();
+    });
+
     it('should throw an error if `type` is invalid', () => {
         // arrange
         const invalidType = 'not a real type';
-        const invalidTypeError = new Error(`List 'type = ${invalidType}' not recognised. Try 'ordered' or 'pill'`);
+        const invalidTypeError = new Error(`List 'type = ${invalidType}' not recognised. Try ${Object.values(listTypes).join(', ')}`);
 
         // assert
         expect(() => {

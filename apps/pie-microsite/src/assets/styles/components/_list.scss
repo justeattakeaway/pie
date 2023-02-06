@@ -51,3 +51,16 @@
     }
 }
 
+
+.c-list--icon {
+    .c-list-item {
+        display: flex;
+        gap: f.spacing();
+        margin-bottom: f.$spacing-02;
+
+        & > svg {
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+    }
+}
