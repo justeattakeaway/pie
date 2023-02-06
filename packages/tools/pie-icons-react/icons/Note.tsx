@@ -1,6 +1,4 @@
 import * as React from "react";
 import { SVGProps } from "react";
-
-const Note = (props: SVGProps<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" className="c-pieIcon c-pieIcon--note" width="1em" height="1em" role="img" {...props}><path d="M20.125 21H1.75V22.75H20.125V21Z" /><path d="M26.25 5.25H1.75V7H26.25V5.25Z" /><path d="M26.25 13.125H1.75V14.875H26.25V13.125Z" /></svg>;
-
+const Note = (props: SVGProps<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" className="c-pieIcon c-pieIcon--note" width="1em" height="1em" {...props}><path d="M15 7.34375H1V8.65625H15V7.34375Z" fill="#242E30" /><path d="M11.5 11.7188H1V13.0312H11.5V11.7188Z" fill="#242E30" /><path d="M15 2.96875H1V4.28125H15V2.96875Z" fill="#242E30" /></svg>;
 export default Note;

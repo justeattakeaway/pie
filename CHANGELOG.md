@@ -3,16 +3,17 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-v1.25.1
+v1.26.0
 ------------------------------
-*Febuary 3, 2022*
+*February 1, 2023*
 
-### Fixed
-- Issue with dist's not being available to changesets release job.
+### Added
+- Linked the icon packages together so that they get released as the same version number
+
 
 v1.25.0
 ------------------------------
-*January 31, 2022*
+*January 31, 2023*
 
 ### Added
 - Changesets for automatic package versioning / publishing.
@@ -20,7 +21,7 @@ v1.25.0
 
 v1.24.0
 ------------------------------
-*January 27, 2022*
+*January 27, 2023*
 
 ### Added
 - `.eslintrc.js` added to the root, so that all packages can inherit the base config setup
@@ -34,7 +35,7 @@ v1.24.0
 
 v1.23.0
 ------------------------------
-*January 27, 2022*
+*January 27, 2023*
 
 ### Changed
 - `.editorconfig` updated – matches old mono-repo settings now, which matches up with our current linting rulesets
@@ -42,7 +43,7 @@ v1.23.0
 
 v1.22.0
 ------------------------------
-*January 19, 2022*
+*January 19, 2023*
 
 ### Added
 - Typescript support.
@@ -52,7 +53,7 @@ v1.22.0
 
 v1.21.4
 ------------------------------
-*January 17, 2022*
+*January 17, 2023*
 
 ### Changed
 - `Copyright (c) Just Eat Holding Ltd` to `Copyright (c) Just Eat Takeaway` in licence
@@ -60,7 +61,7 @@ v1.21.4
 
 v1.21.3
 ------------------------------
-*January 17, 2022*
+*January 17, 2023*
 
 ### Removed
 - No longer needed build steps: visual test reminder comment and looking for the reminder comment
@@ -68,7 +69,7 @@ v1.21.3
 
 v1.21.2
 ------------------------------
-*January 16, 2022*
+*January 16, 2023*
 
 ### Fixed
 - Issue with incorrect `chromedriver` version on GitHub Actions.
