@@ -1,0 +1,46 @@
+{
+  "name": "@justeattakeaway/pie-eslint-config",
+  "version": "0.1.0",
+  "description": "Shareable ESLint config for use with any front-end web projects across JET.",
+  "exports": {
+    ".": "./rule-sets/index.js",
+    "./base": "./rule-sets/base.js",
+    "./strict": "./rule-sets/strict.js"
+  },
+  "scripts": {
+    "lint": "eslint --report-unused-disable-directives \"**/*.js\"",
+    "check-rules": "eslint-find-rules --unused",
+    "tests-only": "babel-tape-runner ./test/test-*.js",
+    "prepublishOnly": "(in-install || yarn check-rules) && (not-in-publish || yarn test) && safe-publish-latest",
+    "pretest": "yarn lint && yarn check-rules",
+    "test": "yarn tests-only"
+  },
+  "license": "Apache-2.0",
+  "author": "JustEatTakeaway - Design System Web Team",
+  "keywords": [
+    "PIE",
+    "eslint",
+    "eslint-config",
+    "standard"
+  ],
+  "dependencies": {
+    "eslint-config-airbnb-base": "15.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "7.19.3",
+    "@babel/runtime": "7.19.0",
+    "babel-preset-airbnb": "5.0.0",
+    "babel-tape-runner": "3.0.0",
+    "danger": "11.1.4",
+    "eslint": "8.24.0",
+    "eslint-find-rules": "4.1.0",
+    "eslint-plugin-import": "2.26.0",
+    "in-publish": "2.0.1",
+    "safe-publish-latest": "2.0.0",
+    "tape": "5.6.1"
+  },
+  "peerDependencies": {
+    "eslint": "7.x || 8.x",
+    "eslint-plugin-import": "^2.26.0"
+  }
+}
