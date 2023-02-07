@@ -75,7 +75,6 @@ jobs:
           # Use one of the following keys if the above is not found.
           restore-keys: |
             turborepo-dist-cache-${{ github.ref_name }}
-            turborepo-dist-cache-
       # Lint Styles
       - name: Lint Styles
         run: yarn lint:style --concurrency=10 --cache-dir=".turbo"
