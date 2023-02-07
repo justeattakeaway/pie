@@ -4,7 +4,7 @@
     <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PIE</title>
+    <title>Pie Site</title>
     <link rel="preload" href="https://d30v2pzvrfyzpo.cloudfront.net/fonts/JETSansDigital-Regular-optimised.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="https://d30v2pzvrfyzpo.cloudfront.net/fonts/JETSansDigital-Bold-optimised.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="https://d30v2pzvrfyzpo.cloudfront.net/fonts/JETSansDigital-ExtraBold-optimised.woff2" as="font" type="font/woff2" crossorigin>
@@ -173,7 +173,7 @@
                 </li>
             
                 <li>
-                    <details >
+                    <details  open>
                         <summary class="c-nav-category">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" height="24" width="24" fill="#f36805" class="c-pieIcon c-pieIcon--moon"><path d="M13.125 14C13.1333 11.9978 13.8247 10.0583 15.0848 8.50228C16.3448 6.94625 18.0982 5.86684 20.055 5.4425C19.8013 5.25875 19.53 5.08375 19.25 4.9175C18.8255 4.67317 18.3839 4.4597 17.9288 4.27875C16.6826 3.765 15.3479 3.50043 14 3.5C11.2152 3.5 8.54451 4.60625 6.57538 6.57538C4.60625 8.54451 3.5 11.2152 3.5 14C3.5 16.7848 4.60625 19.4555 6.57538 21.4246C8.54451 23.3938 11.2152 24.5 14 24.5C15.3479 24.4996 16.6826 24.235 17.9288 23.7213C18.3839 23.5403 18.8255 23.3268 19.25 23.0825C19.53 22.9162 19.8013 22.7413 20.055 22.5575C18.0982 22.1332 16.3448 21.0537 15.0848 19.4977C13.8247 17.9417 13.1333 16.0022 13.125 14ZM14 22.75C12.7729 22.752 11.5592 22.4958 10.4375 21.9982C9.31592 21.5006 8.31149 20.7726 7.48949 19.8616C6.66749 18.9505 6.0463 17.8768 5.66626 16.71C5.28621 15.5433 5.15582 14.3097 5.28353 13.0893C5.41125 11.8689 5.79422 10.689 6.40759 9.62623C7.02095 8.56346 7.85098 7.64158 8.84379 6.92046C9.8366 6.19933 10.97 5.69509 12.1703 5.44047C13.3707 5.18584 14.6112 5.18654 15.8112 5.4425C14.446 6.41321 13.3327 7.69651 12.5646 9.18521C11.7964 10.6739 11.3956 12.3248 11.3956 14C11.3956 15.6752 11.7964 17.3261 12.5646 18.8148C13.3327 20.3035 14.446 21.5868 15.8112 22.5575C15.2157 22.6839 14.6088 22.7484 14 22.75Z"></path></svg>
                             Foundations
@@ -322,7 +322,9 @@
                                     <a
                                         href="/content/pages/foundations/typography/overview/"
                                         
-                                        class="c-nav-item ">
+                                            aria-current="page"
+                                        
+                                        class="c-nav-item is-active">
                                         Typography
                                     </a>
                                 </li>
@@ -546,22 +548,140 @@
 
 <div class="c-contentPage">
     <div
-        class="c-contentPage-header c-contentPage-header--hero"
-         style="--hero-img-src: url(/assets/img/heroes/home-hero.svg)" >
+        class="c-contentPage-header "
+        >
         <h1 class="c-contentPage-header-heading alpha--standout">
-            Principles for Interfaces and Experiences
+            Typography
         </h1>
         <p class="c-contentPage-header-subheading">
-            PIE is the global design system for Just Eat Takeaway.com, powering all our products.
+            The PIE typography is set so that our layouts and content is easy to read and presented with a clear hierarchy.
         </p>
     </div>
+
+    
+        <nav aria-label="Secondary navigational tabs" class="c-tabs">
+    <ul>
+        <li
+            
+                aria-selected="true"
+            
+            class="c-tabs-item">
+                
+                    <a href="/content/pages/foundations/typography/overview/" class="c-tabs-link is-active">Overview</a></li>
+                
+        <li
+            
+                aria-selected="false"
+            
+            class="c-tabs-item">
+                
+                    <a href="/content/pages/foundations/typography/tokens/global/" class="c-tabs-link ">Global tokens</a></li>
+                
+        <li
+            
+                aria-selected="false"
+            
+            class="c-tabs-item">
+                
+                    <a href="/content/pages/foundations/typography/tokens/alias/wide/" class="c-tabs-link ">Alias tokens</a></li>
+                
+        <li
+            
+                aria-selected="false"
+            
+            class="c-tabs-item">
+                
+                    <a href="/content/pages/foundations/typography/code/" class="c-tabs-link ">Code</a></li>
+                
+    </ul>
+</nav>
 
     
 
     
     
         <div class="c-contentPage-content">
-            
+            <h2>Font families</h2>
+<p>We use three different font families for our products and communications. These include:</p>
+<h3>JET Sans Digital</h3>
+<p>This is our primary font family.</p>
+<figure class="c-contentPage-img c-contentImage c-contentImage--hasBackdrop">        <div class="c-contentImage-backdrop">          <picture>                        <img src="../../../../../assets/img/foundations/typography/jet-sans-digital.svg" style="--img-width: 100px;" >           </picture>        </div>        <figcaption class="c-contentImage-caption"><span>The example above shows JET Sans Digital in Extra Bold.</span></figcaption>      </figure>
+<h3>Arial</h3>
+<p>Used only as a fallback font.</p>
+<figure class="c-contentPage-img c-contentImage c-contentImage--hasBackdrop">        <div class="c-contentImage-backdrop">          <picture>                        <img src="../../../../../assets/img/foundations/typography/arial.svg" style="--img-width: 98px;" >           </picture>        </div>        <figcaption class="c-contentImage-caption"><span>The example above shows Arial Regular, which is used as a fallback font.</span></figcaption>      </figure>
+<h3>CP Mono</h3>
+<p>Used only for snippets of code.</p>
+<figure class="c-contentPage-img c-contentImage c-contentImage--hasBackdrop">        <div class="c-contentImage-backdrop">          <picture>                        <img src="../../../../../assets/img/foundations/typography/cp-mono.svg" style="--img-width: 105px;" >           </picture>        </div>        <figcaption class="c-contentImage-caption"><span>The example above shows CP Mono, a font used for code snippets.</span></figcaption>      </figure>
+<hr>
+<h2>Our type scale</h2>
+<p>We use multiples of 4 within our type scale for both type sizes as well as line height, so that it aligns to our 4px vertical grid.</p>
+<figure class="c-contentPage-img c-contentImage">        <div class="c-contentImage-backdrop">          <picture>            <source  media="(max-width: 600px)" srcset="../../../../../assets/img/foundations/typography/type-scale-mobile.svg">            <img src="../../../../../assets/img/foundations/typography/type-scale.svg"  >           </picture>        </div>              </figure>
+<hr>
+<h2>Responsive type</h2>
+<p>We assign different values to some of our typographic styles depending on the size of the users’ screens. Wider screens use bigger type sizes and more generous spacing, while narrow screens use tighter and smaller type settings.</p>
+<p>Here’s an example of how our <strong>$heading-l</strong> looks on wide and narrow screens:</p>
+<h3>Wide screens</h3>
+<p>Screen size: &gt;768px<br>
+Text size: 28px • Line size: 36px</p>
+<figure class="c-contentPage-img c-contentImage c-contentImage--hasBackdrop">        <div class="c-contentImage-backdrop">          <picture>                        <img src="../../../../../assets/img/foundations/typography/responsive-wide.svg" style="--img-width: 80px;" >           </picture>        </div>        <figcaption class="c-contentImage-caption"><span>The example above shows how a $heading-l looks on a wide screen.</span></figcaption>      </figure>
+<h3>Narrow screens</h3>
+<p>Screen size: &lt;768px<br>
+Text size: 24px • Line size: 32px</p>
+<figure class="c-contentPage-img c-contentImage c-contentImage--hasBackdrop">        <div class="c-contentImage-backdrop">          <picture>                        <img src="../../../../../assets/img/foundations/typography/responsive-narrow.svg" style="--img-width: 68px;" >           </picture>        </div>        <figcaption class="c-contentImage-caption"><span>The example above shows how a $heading-l looks on a narrow screen.</span></figcaption>      </figure>
+<p><strong>Only our Heading and Subheading typographic styles are responsive.</strong> Our body styles share the same values regardless of the size of the screen they’re being displayed in.</p>
+<aside class="c-contentPage-notification c-notification" style="--bg-colour: #ebf6fa">      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 14" height="24" width="24" fill="#125fca" class="c-pieIcon c-pieIcon--InfoCircleOutlineSmall"><path d="M7 0.21875C5.6588 0.21875 4.34771 0.616463 3.23254 1.3616C2.11737 2.10673 1.2482 3.16582 0.734945 4.40493C0.221688 5.64404 0.0873968 7.00752 0.349053 8.32296C0.610709 9.63839 1.25656 10.8467 2.20494 11.7951C3.15331 12.7434 4.36161 13.3893 5.67705 13.651C6.99248 13.9126 8.35596 13.7783 9.59508 13.2651C10.8342 12.7518 11.8933 11.8826 12.6384 10.7675C13.3835 9.65229 13.7813 8.3412 13.7813 7C13.7789 5.20221 13.0637 3.47872 11.7925 2.20749C10.5213 0.93626 8.79779 0.221065 7 0.21875ZM7 12.4688C5.91839 12.4688 4.86106 12.148 3.96173 11.5471C3.0624 10.9462 2.36145 10.0921 1.94754 9.0928C1.53362 8.09352 1.42532 6.99393 1.63633 5.9331C1.84735 4.87227 2.36819 3.89783 3.13301 3.13301C3.89783 2.36819 4.87227 1.84734 5.9331 1.63633C6.99394 1.42532 8.09352 1.53362 9.0928 1.94753C10.0921 2.36145 10.9462 3.06239 11.5471 3.96173C12.148 4.86106 12.4688 5.91838 12.4688 7C12.4688 7.71817 12.3273 8.4293 12.0525 9.0928C11.7776 9.7563 11.3748 10.3592 10.867 10.867C10.3592 11.3748 9.7563 11.7776 9.0928 12.0525C8.4293 12.3273 7.71817 12.4688 7 12.4688ZM6.34375 6.29125H7.65625V9.625H6.34375V6.29125ZM7.875 4.375C7.875 4.54806 7.82369 4.71723 7.72754 4.86112C7.63139 5.00502 7.49474 5.11717 7.33485 5.18339C7.17497 5.24962 6.99903 5.26695 6.8293 5.23319C6.65957 5.19943 6.50366 5.11609 6.38129 4.99372C6.25891 4.87135 6.17558 4.71544 6.14182 4.5457C6.10805 4.37597 6.12538 4.20004 6.19161 4.04015C6.25784 3.88027 6.36999 3.74361 6.51388 3.64746C6.65777 3.55132 6.82694 3.5 7 3.5C7.23207 3.5 7.45463 3.59219 7.61872 3.75628C7.78282 3.92038 7.875 4.14294 7.875 4.375Z"></path></svg>      <p class="c-notification-message"><span>When creating screens in Figma, make sure you choose the right token depending on the size of the frame you’re working on.</span></p>    </aside>
+<hr>
+<h2>Font weights</h2>
+<p>Font weight refers to a value assigned to your font which determines how bold or light your text will seem. We use three types of font weight:</p>
+<h3>Extra-bold</h3>
+<figure class="c-contentPage-img c-contentImage c-contentImage--hasBackdrop">        <div class="c-contentImage-backdrop">          <picture>                        <img src="../../../../../assets/img/foundations/typography/font-weight-extra-bold.svg" style="--img-width: 100px;" >           </picture>        </div>              </figure>
+<h3>Bold</h3>
+<figure class="c-contentPage-img c-contentImage c-contentImage--hasBackdrop">        <div class="c-contentImage-backdrop">          <picture>                        <img src="../../../../../assets/img/foundations/typography/font-weight-bold.svg" style="--img-width: 96px;" >           </picture>        </div>              </figure>
+<h3>Regular</h3>
+<figure class="c-contentPage-img c-contentImage c-contentImage--hasBackdrop">        <div class="c-contentImage-backdrop">          <picture>                        <img src="../../../../../assets/img/foundations/typography/font-weight-regular.svg" style="--img-width: 91px;" >           </picture>        </div>              </figure>
+<p>Font weights are important when adding emphasis and hierarchy to your designs. A bold font weight will always draw the user’s attention more than a lighter weight. When using both weights in your paragraphs be mindful of this guidance to ensure you create the correct balance.</p>
+<p>To keep the hierarchy and make things a bit simpler we use bold weights on all our headings and button styles on all themes. Body copy, subheadings and captions use our regular weight by default, although our body and caption styles also allow fonts to be bolded to add emphasis to a word or small phrase.</p>
+<hr>
+<h2>Font styles</h2>
+<p>Font styles refer to the text decorations used to emphasise different features of our typographic styles.</p>
+<h3>Underline</h3>
+<p>We use underlines for interactive elements such as links, especially when they are placed inside a block of text.</p>
+<figure class="c-contentPage-img c-contentImage c-contentImage--hasBackdrop">        <div class="c-contentImage-backdrop">          <picture>                        <img src="../../../../../assets/img/foundations/typography/underline.svg" style="--img-width: 91px;" >           </picture>        </div>        <figcaption class="c-contentImage-caption"><span>The example above shows how JET Sans Digital looks when underlined.</span></figcaption>      </figure>
+<h3>Strikethrough</h3>
+<p>We use this style when indicating something is no longer valid, but can still be read by users so they can understand the context.</p>
+<figure class="c-contentPage-img c-contentImage c-contentImage--hasBackdrop">        <div class="c-contentImage-backdrop">          <picture>                        <img src="../../../../../assets/img/foundations/typography/strikethrough.svg" style="--img-width: 91px;" >           </picture>        </div>        <figcaption class="c-contentImage-caption"><span>The example above shows how JET Sans Digital looks as a strikethrough.</span></figcaption>      </figure>
+<hr>
+<h2>Alignment</h2>
+<p>This property defines the horizontal alignment of the text. It includes three types of aligment:</p>
+<h3>Left aligned</h3>
+<p>This is the preferred way to align text within our products. Left-aligned text performs better for readers because it helps the users to easily identify the start of a new line.</p>
+<figure class="c-contentPage-img c-contentImage c-contentImage--hasBackdrop">        <div class="c-contentImage-backdrop">          <picture>                        <img src="../../../../../assets/img/foundations/typography/left-aligned.svg" style="--img-width: 248px;" >           </picture>        </div>              </figure>
+<h3>Centre aligned</h3>
+<p>This alignment should be used sparingly, and should never be considered as the primary way to align text in our designs, unless there is a specific need for it to be used.</p>
+<figure class="c-contentPage-img c-contentImage c-contentImage--hasBackdrop">        <div class="c-contentImage-backdrop">          <picture>                        <img src="../../../../../assets/img/foundations/typography/centre-aligned.svg" style="--img-width: 248px;" >           </picture>        </div>              </figure>
+<h3>Right aligned</h3>
+<p>This alignment should also be used sparingly. This approach is usually found in chunks of complex numeric data, where alignment of the decimals is key to assist readability.</p>
+<figure class="c-contentPage-img c-contentImage c-contentImage--hasBackdrop">        <div class="c-contentImage-backdrop">          <picture>                        <img src="../../../../../assets/img/foundations/typography/right-aligned.svg" style="--img-width: 248px;" >           </picture>        </div>              </figure>
+<hr>
+<h2>Line length</h2>
+<p>Setting the right line length is key to the readability of the text in our products. With that in mind, a good practice is to keep the lenght between 80 and 100 characters per line, with a minimum of 60.</p>
+<figure class="c-contentPage-img c-contentImage c-contentImage--hasBackdrop">        <div class="c-contentImage-backdrop">          <picture>                        <img src="../../../../../assets/img/foundations/typography/line-length.svg" style="--img-width: 771.4px;" >           </picture>        </div>        <figcaption class="c-contentImage-caption"><span>Visual representation of the most common line lengths in our products.</span></figcaption>      </figure>
+<hr>
+<h2>Paragraph spacing</h2>
+<p>It represents the amount of white spacing between two paragraphs of your text. Keeping consistent paragraph spacing measures throughout your products will help the user understand the hierarchy of the information and will make your texts easier to read. We use three measures:</p>
+<h3>Paragraph Spacing 1</h3>
+<p>This is the most commonly used paragraph spacing measure. It uses <strong>16px</strong> between paragraphs.</p>
+<figure class="c-contentPage-img c-contentImage c-contentImage--hasBackdrop">        <div class="c-contentImage-backdrop">          <picture>                        <img src="../../../../../assets/img/foundations/typography/paragraph-spacing-one.svg" style="--img-width: 235px;" >           </picture>        </div>              </figure>
+<h3>Paragraph Spacing 2</h3>
+<p>A paragraph spacing measure used for longer bits of text where spacing is key. It uses <strong>14px</strong> between paragraphs.</p>
+<figure class="c-contentPage-img c-contentImage c-contentImage--hasBackdrop">        <div class="c-contentImage-backdrop">          <picture>                        <img src="../../../../../assets/img/foundations/typography/paragraph-spacing-two.svg" style="--img-width: 235px;" >           </picture>        </div>              </figure>
+<h3>Paragraph Spacing 3</h3>
+<p>An exceptional measure used only where the other options pose a problem to the overall layout.  It uses <strong>12px</strong> between paragraphs.</p>
+<figure class="c-contentPage-img c-contentImage c-contentImage--hasBackdrop">        <div class="c-contentImage-backdrop">          <picture>                        <img src="../../../../../assets/img/foundations/typography/paragraph-spacing-three.svg" style="--img-width: 235px;" >           </picture>        </div>              </figure>
+<hr>
+<h2>Letter spacing</h2>
+<p>Letter spacing is used to determine the horizontal spacing between text characters. In digital applications this has been kept to <strong>0px</strong> (standard spacing) for all typographic styles.</p>
+
         </div>
     
 </div>
