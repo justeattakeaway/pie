@@ -287,10 +287,6 @@ $tokensTable-item-vertical-padding: f.spacing(e);
     background-color: f.$color-container-strong;
     color: f.$color-content-default;
     border: none;
-
-    @include f.media('>=wide') {
-        margin-left: calc(f.spacing(c) / 2);
-    }
 }
 
 // .c-tokensTable-token elements sitting adjacent to examples or example containers
