@@ -28,17 +28,10 @@ const normaliseFontAliasTokens = () => {
  * @returns alias tokens categorised by light/dark objects to be used in their respective pages.
  */
 const normaliseElevationAliasTokens = () => {
-    const compose = () => {
-        const tokens = JSON.parse(JSON.stringify(clonedPieDesignTokens.theme.jet.elevation.alias.default));
-        return tokens;
-    };
-
     clonedPieDesignTokens.theme.jet.elevation.alias.default = {
         dark: clonedPieDesignTokens.theme.jet.elevation.alias.default,
         light: clonedPieDesignTokens.theme.jet.elevation.alias.default
     };
-
-    compose();
 };
 
 const init = () => {

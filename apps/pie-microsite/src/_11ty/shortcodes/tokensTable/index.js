@@ -1,5 +1,5 @@
 /* eslint-disable no-trailing-spaces */
-const normalizedPieDesignTokens = require('../../../_data/normalizeTokens');
+const normalisedPieDesignTokens = require('../../../_data/normaliseTokens');
 const pieTokenCategories = require('../../../tokenCategories.json');
 const { stringHelpers, objectHelpers, numberHelpers } = require('../../../utilities/helpers');
 const tokenTypes = require('../../../_data/tokenTypes');
@@ -292,7 +292,7 @@ const buildCategoryListsWithParents = ({
  */
 const buildTokenLists = (path, tokenType) => {
     const isGlobal = path.includes('global');
-    const tokens = objectHelpers.getObjectPropertyByPath(normalizedPieDesignTokens, `theme.jet.${path}`);
+    const tokens = objectHelpers.getObjectPropertyByPath(normalisedPieDesignTokens, `theme.jet.${path}`);
     const parentCategories = getParentCategoriesForTokenType(`${tokenType}.${isGlobal ? 'global' : 'alias'}.parentCategories`);
     const regularCategories = objectHelpers.getObjectPropertyByPath(pieTokenCategories, path);
 
