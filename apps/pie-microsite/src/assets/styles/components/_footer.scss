@@ -5,7 +5,7 @@
     padding: f.spacing(e) f.spacing(d);
     background-color: f.$color-container-subtle;
 
-    @include f.media('>=mid') {
+    @include f.media('>=wide') {
         padding: 40px 60px;
     }
 
