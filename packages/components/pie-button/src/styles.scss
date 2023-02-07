@@ -1,0 +1,21 @@
+@use '@justeat/fozzie/src/scss/fozzie' as f;
+
+$bg-color: var(--dt-color-interactive-brand);
+
+button {
+    background-color: $bg-color;
+    border-radius: var(--dt-radius-rounded-e);
+    border: none;
+    color: var(--dt-color-content-interactive-primary);
+    font-size: 20px; // A future ticket will pull in a helper for font size & line height.
+    line-height: 1.4;
+    font-family: var(--dt-font-interactive-m-family);
+    font-weight: var(--dt-font-interactive-m-weight);
+    padding: 10px var(--dt-spacing-e);
+    min-height: 48px;
+}
+
+.amazing-button {
+    background-color: saddlebrown;
+    padding: f.spacing(f);
+}
