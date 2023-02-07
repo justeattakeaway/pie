@@ -139,6 +139,7 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: ./apps/pie-microsite/dist
+          force: false
           target-folder: .
           branch: gh-pages
           clean-exclude: |
@@ -195,6 +196,7 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: ./apps/pie-storybook/dist
+          force: false
           branch: gh-pages
           target_folder: ./storybook
           clean-exclude: |
