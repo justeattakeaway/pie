@@ -1,5 +1,21 @@
 # Changelog
 
+## 1.52.0
+
+### Minor Changes
+
+- [Content page] Getting Started - Best practice ([#159](https://github.com/justeattakeaway/pie/pull/159)) by [@raoufswe](https://github.com/raoufswe)
+
+- Add [Content page] - FAQs ([#155](https://github.com/justeattakeaway/pie/pull/155)) by [@raoufswe](https://github.com/raoufswe)
+
+- Adds roadmap page ([#158](https://github.com/justeattakeaway/pie/pull/158)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Content page] - Contact us ([#162](https://github.com/justeattakeaway/pie/pull/162)) by [@raoufswe](https://github.com/raoufswe)
+
+- Adds our vision page ([#157](https://github.com/justeattakeaway/pie/pull/157)) by [@raoufswe](https://github.com/raoufswe)
+
+- Adds [Content page] What is PIE? ([#156](https://github.com/justeattakeaway/pie/pull/156)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 1.51.0
 
 ### Minor Changes
