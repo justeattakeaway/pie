@@ -7,9 +7,6 @@ apps:
 pie-microsite:
 - 'apps/pie-microsite/**/*'
 
-pie-storybook:
-- 'apps/pie-storybook/**/*'
-
 # Tools projects
 tools:
 - 'packages/tools/**/*'
