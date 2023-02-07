@@ -48,4 +48,4 @@ caption: "Visual representation of an Icon Button floating over a carousel of ca
 
 ### Don’t overdo it
 
-Using elevation consistently but sparingly will help your users understand the hierarchy and interaction patterns for the design elements in your product. Using too many elevation tokens in your designs will only diminished the user’s experience.
+Using elevation consistently but sparingly will help your users understand the hierarchy and interaction patterns for the design elements in your product. Using too many elevation tokens in your designs will only diminish the user’s experience.
