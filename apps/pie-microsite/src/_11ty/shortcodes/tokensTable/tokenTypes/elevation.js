@@ -24,20 +24,20 @@ const buildElevationExample = (token, tokenMetadata, path) => {
 
     const styling = {
         light: {
-            container: isDefaultElevation ? '#f5f3f1' : '#3B3A39',
+            elevationContainer: isDefaultElevation ? '#f5f3f1' : '#3B3A39',
             elevationBox: isDefaultElevation ? '#fff' : '#575655'
         },
         dark: {
-            container: isDefaultElevation ? '#3B3A39' : '#f5f3f1',
+            elevationContainer: isDefaultElevation ? '#3B3A39' : '#f5f3f1',
             elevationBox: isDefaultElevation ? '#575655' : '#fff'
         }
     };
 
-    const container = `--example-container: ${styling[theme].container};`;
+    const exampleContainer = `--elevation-container: ${styling[theme].container};`;
     const elevationBox = `--example-elevation: ${styling[theme].elevationBox};`;
     const elevationBoxShadow = `--example-shadow: ${boxShadowValues};`;
 
-    return (`<div class="c-tokensTable-example-container--elevation" style="${container}"><div class="c-tokensTable-example--elevation" style="${elevationBox} ${elevationBoxShadow}"></div></></div>`);
+    return (`<div class="c-tokensTable-example-container--elevation" style="${exampleContainer}"><div class="c-tokensTable-example--elevation" style="${elevationBox} ${elevationBoxShadow}"></div></></div>`);
 };
 
 /**

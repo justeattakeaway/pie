@@ -139,26 +139,26 @@ $tokensTable-item-vertical-padding: f.spacing(e);
 
 .c-tokensTable-example--elevation {
     background: var(--example-elevation);
-    width: 64px;
-    height: 64px;
+    width: f.spacing(i);
+    height: f.spacing(i);
     border-radius: f.$radius-03;
     margin: 0 auto;
     left: 0;
     right: 0;
     position: absolute;
-    bottom: 40px;
-    top: 56px;
+    bottom: f.spacing(g);
+    top: f.spacing(h);
     box-shadow: var(--example-shadow);
 
     @include f.media('>=wide') {
-        bottom: 24px;
-        top: 24px;
-        width: 32px;
-        height: 32px;
+        bottom: f.spacing(e);
+        top: f.spacing(e);
+        width: f.spacing(f);
+        height: f.spacing(f);
     }
 }
 
-.c-tokensTable-example-radius {
+.c-tokensTable-example--radius {
     width: 80px;
     height: 80px;
     margin-top: f.spacing(d);

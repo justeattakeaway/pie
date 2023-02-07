@@ -55,10 +55,10 @@ const createTokenDisplayName = (tokenKey, tokenType) => {
 const buildTokenExampleElement = (token, tokenType, tokenMetadata, path = {}) => {
     const tokenExampleElementHandler = {
         [tokenTypes.COLOR]: buildColorExample,
+        [tokenTypes.ELEVATION]: buildElevationExample,
         [tokenTypes.FONT]: buildFontExample,
         [tokenTypes.RADIUS]: buildRadiusExample,
-        [tokenTypes.SPACING]: buildSpacingExample,
-        [tokenTypes.ELEVATION]: buildElevationExample
+        [tokenTypes.SPACING]: buildSpacingExample
     };
 
     if (!tokenExampleElementHandler[tokenType]) {
@@ -86,12 +86,13 @@ const buildGlobalTokenUsedElement = globalToken => {
 /**
  * Builds the overall token description element for each type of token. The description content differs based on the type of token.
  * @param {string} token the token value i.e. #000, #ffffff, #000|0.85 or #000000|0.85
- * @param {*} tokenType the type of token i.e. color, spacing, radius
  * @param {*} tokenMetadata the metadata for the token. data such as descriptions
  * @returns {string} - the description HTML string
  */
-const buildTokenDescriptionElement = (tokenType, tokenMetadata) => {
-    let description = `<span class="c-tokensTable-tokenDescription ${tokenMetadata.globalToken ? 'u-spacing-b--bottom' : ''}">${tokenMetadata.description}</span>`;
+const buildTokenDescriptionElement = tokenMetadata => {
+    let description = tokenMetadata.description
+        ? `<span class="c-tokensTable-tokenDescription ${tokenMetadata.globalToken ? 'u-spacing-b--bottom' : ''}">${tokenMetadata.description}</span>`
+        : '';
 
     if (tokenMetadata.globalToken) {
         description += buildGlobalTokenUsedElement(tokenMetadata.globalToken);
@@ -132,7 +133,7 @@ const buildTokenListElements = ({
     // TODO - description is just an example of how we might use the metadata
     // We would likely wanted to move them into a colour specific handler similar to how we build
     // the colour token example. Please consider them placeholder for now.
-    const tokenDescription = buildTokenDescriptionElement(tokenType, tokenMetadata);
+    const tokenDescription = buildTokenDescriptionElement(tokenMetadata);
 
     return deindentHTML(`
     <li class="c-tokensTable-row c-tokensTable-item">
