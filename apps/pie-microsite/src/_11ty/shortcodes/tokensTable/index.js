@@ -85,7 +85,6 @@ const buildGlobalTokenUsedElement = globalToken => {
 
 /**
  * Builds the overall token description element for each type of token. The description content differs based on the type of token.
- * @param {string} token the token value i.e. #000, #ffffff, #000|0.85 or #000000|0.85
  * @param {*} tokenMetadata the metadata for the token. data such as descriptions
  * @returns {string} - the description HTML string
  */

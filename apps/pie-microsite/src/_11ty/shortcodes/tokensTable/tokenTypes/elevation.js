@@ -33,33 +33,15 @@ const buildElevationExample = (token, tokenMetadata, path) => {
         }
     };
 
-    const exampleContainer = `--elevation-container: ${styling[theme].container};`;
+    const elevationContainer = `--example-container: ${styling[theme].elevationContainer};`;
     const elevationBox = `--example-elevation: ${styling[theme].elevationBox};`;
     const elevationBoxShadow = `--example-shadow: ${boxShadowValues};`;
 
-    return (`<div class="c-tokensTable-example-container--elevation" style="${exampleContainer}"><div class="c-tokensTable-example--elevation" style="${elevationBox} ${elevationBoxShadow}"></div></></div>`);
-};
+    const elevationExample = `<div class="c-tokensTable-example-container--elevation" style="${elevationContainer}"><div class="c-tokensTable-example--elevation" style="${elevationBox} ${elevationBoxShadow}"></div></></div>`;
 
-/**
- * Builds the overall token description element for global and alias Elevation tokens.
- * @param {*} tokenMetadata the metadata for the token. data such as descriptions
- * @returns {string} - the description HTML string
- */
-const buildElevationDescription = tokenMetadata => {
-    let description = '';
-
-    // Alias tokens have a globalToken property that references the global token used by the alias
-    if (tokenMetadata.globalToken) {
-        description = `
-        <span class="c-tokensTable-tokenDescription u-spacing-b--bottom">
-            ${tokenMetadata.description}
-        </span>`;
-    }
-
-    return deindentHTML(description);
+    return deindentHTML(elevationExample);
 };
 
 module.exports = {
-    buildElevationExample,
-    buildElevationDescription
+    buildElevationExample
 };
