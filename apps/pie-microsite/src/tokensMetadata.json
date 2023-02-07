@@ -1487,15 +1487,13 @@
             "category": "inverseElevation",
             "displayName": "Elevation inverse 01",
             "description": "Used for Map markers and cards.",
-            "globalToken": "$box-shadow-06",
-            "scssName": "$elevation-inverse-01"
+            "globalToken": "$box-shadow-06"
           },
           "inverse-02": {
             "category": "inverseElevation",
             "displayName": "Elevation inverse 02",
             "description": "Used for raised Buttons (e.g. over a map), knobs on sliders and Dropdown input fields.",
-            "globalToken": "$box-shadow-07",
-            "scssName": "$elevation-inverse-02"
+            "globalToken": "$box-shadow-07"
           },
           "inverse-03": {
             "category": "inverseElevation",
