@@ -13,7 +13,7 @@ $iconList-icon-size--small: 16px;
     flex-wrap: wrap;
     justify-content: center;
 
-    @include f.media('>=mid') {
+    @include f.media('>=wide') {
         justify-content: start;
     }
 }

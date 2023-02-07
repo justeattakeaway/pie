@@ -32,7 +32,9 @@ module.exports = function (config) {
     const figureClasses = [
         contextClass,
         'c-contentImage',
-        ...(!isImageFullContainerWidth ? ['c-contentImage--hasBackdrop'] : [])
+        ...(isImageFullContainerWidth
+            ? ['c-contentImage--fullWidth']
+            : ['c-contentImage--hasBackdrop'])
     ];
 
     // This is based on the narrowMid breakpoint defined in fozzie:
@@ -43,7 +45,7 @@ module.exports = function (config) {
         <div class="c-contentImage-backdrop">
           <picture>
             ${config.mobileSrc ? `<source ${imageStyles} media="(max-width: ${mobileImageMaxWidth})" srcset="${config.mobileSrc}">` : ''}
-            <img src="${config.src}" ${imageStyles} ${imageAlt}> 
+            <img src="${config.src}" ${imageStyles} ${imageAlt}>
           </picture>
         </div>
         ${createCaption(config)}
