@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.52.1
+
+### Patch Changes
+
+- Fixed relative path for JS URL's on preview deploys ([#141](https://github.com/justeattakeaway/pie/pull/141)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 1.52.0
 
 ### Minor Changes
