@@ -10,17 +10,6 @@ const pieDesignTokenColours = require('../../../filters/pieDesignTokenColours');
  * @returns {string} - the elevation swatch example HTML string
  */
 const buildElevationExample = (token, tokenMetadata, path) => {
-    const boxShadowValues = token.shadows.map(({
-        x,
-        y,
-        blur,
-        spread,
-        r,
-        g,
-        b,
-        opacity
-    }) => `${x}px ${y}px ${blur}px ${spread}px rgba(${r}, ${g}, ${b}, ${opacity})`);
-
     const isDefaultElevation = tokenMetadata.category === 'defaultElevation';
     const theme = path.includes('light') ? 'light' : 'dark';
 
@@ -37,6 +26,18 @@ const buildElevationExample = (token, tokenMetadata, path) => {
 
     const elevationContainer = `--example-container: ${pieDesignTokenColours({ tokenName: styling[theme].elevationContainer, tokenPath: ['alias', 'default'] })};`;
     const elevationBox = `--example-elevation: ${pieDesignTokenColours({ tokenName: styling[theme].elevationBox, tokenPath: ['alias', 'default'] })};`;
+
+    const boxShadowValues = token.shadows.map(({
+        x,
+        y,
+        blur,
+        spread,
+        r,
+        g,
+        b,
+        opacity
+    }) => `${x}px ${y}px ${blur}px ${spread}px rgba(${r}, ${g}, ${b}, ${opacity})`);
+
     const elevationBoxShadow = `--example-shadow: ${boxShadowValues};`;
 
     const elevationExample = `<div class="c-tokensTable-example-container--elevation" style="${elevationContainer}"><div class="c-tokensTable-example--elevation" style="${elevationBox} ${elevationBoxShadow}"></div></></div>`;

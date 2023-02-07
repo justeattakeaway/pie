@@ -1,5 +1,4 @@
 const { isColorDark } = require('../../../../utilities/colors');
-// const { deindentHTML } = require('../../shortcode-utilities');
 
 const createHighContrastName = tokenName => {
     const highContrast = '(High Contrast)';

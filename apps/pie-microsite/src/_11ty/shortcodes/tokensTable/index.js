@@ -50,6 +50,8 @@ const createTokenDisplayName = (tokenKey, tokenType) => {
  * This could be a color swatch, a representation of border radius or spacing etc.
  * @param {string} token - the token value i.e. #000, #ffffff, #000|0.85 or #000000|0.85
  * @param {string} tokenType - the type of token i.e. color, spacing, radius
+ * @param {string} tokenMetadata - the metadata for the token. data such as descriptions
+ * @param {string} path - path to the category i.e.  'path:color.alias.default' / 'path:color.alias.dark'
  * @returns {string} - the example HTML string
  */
 const buildTokenExampleElement = (token, tokenType, tokenMetadata, path = {}) => {
@@ -90,7 +92,9 @@ const buildGlobalTokenUsedElement = globalToken => {
  */
 const buildTokenDescriptionElement = tokenMetadata => {
     let description = tokenMetadata.description
-        ? `<span class="c-tokensTable-tokenDescription ${tokenMetadata.globalToken ? 'u-spacing-b--bottom' : ''}">${tokenMetadata.description}</span>`
+        ? `<span class="c-tokensTable-tokenDescription ${tokenMetadata.globalToken ? 'u-spacing-b--bottom' : ''}">
+            ${tokenMetadata.description}
+           </span>`
         : '';
 
     if (tokenMetadata.globalToken) {
@@ -116,6 +120,7 @@ const buildTokenPill = tokenScssName => `<span class="c-tokensTable-token">${tok
  * @param {string} config.tokenScssName - the design token SCSS name i.e. '$color-black'
  * @param {string} config.tokenDisplayName - the display name of the token i.e. 'Black'
  * @param {object} config.tokenMetadata - the metadata for the token. data such as descriptions
+ * @param {object} config.path - path to the category i.e.  'path:color.alias.default' / 'path:color.alias.dark'
  * @returns {string} - the list item HTML string
  */
 const buildTokenListElements = ({
@@ -189,6 +194,7 @@ const buildTokensListForCategory = (tokens, path, category, tokenType) => {
  * Builds uncategorised list of tokens
  * @param {string} tokenType - the type of token i.e. color, spacing, radius
  * @param {object} tokens
+ * @param {object} path - path to the category i.e.  'path:color.alias.default' / 'path:color.alias.dark'
  * @returns - a string of html containing the list of tokens - with example, description and token name
  */
 const buildUncategorisedLists = ({

@@ -5,8 +5,8 @@
  */
 module.exports = {
     COLOR: 'color',
+    ELEVATION: 'elevation',
     FONT: 'font',
     RADIUS: 'radius',
-    SPACING: 'spacing',
-    ELEVATION: 'elevation'
+    SPACING: 'spacing'
 };
