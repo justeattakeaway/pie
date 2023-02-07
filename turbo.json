@@ -10,12 +10,20 @@
     "clean": {
       "cache": true
     },
-    "pie-storybook#serve": {
+    "storybook-build": {
+      "outputs": [
+        "apps/pie-storybook/build/**"
+      ],
       "dependsOn": [
-        "pie-storybook#build"
+        "^build"
       ]
     },
-    "pie-storybook#dev": {
+    "storybook-serve": {
+      "dependsOn": [
+        "storybook-build"
+      ]
+    },
+    "storybook-dev": {
       "cache": false,
       "dependsOn": [
         "^build"

@@ -1,7 +1,7 @@
 {
   "name": "pie-monorepo",
   "description": "JustEatTakeaway",
-  "version": "1.26.0",
+  "version": "1.25.1",
   "keywords": [],
   "author": "JustEatTakeaway - Design System Web Team",
   "license": "Apache-2.0",
@@ -28,6 +28,9 @@
     "postinstall": "husky install",
     "prepack": "pinst --disable",
     "postpack": "pinst --enable",
+    "storybook-build": "turbo run storybook-build",
+    "storybook-dev": "turbo run storybook-dev",
+    "storybook-serve": "turbo run storybook-serve",
     "test": "turbo run test",
     "test:ci": "turbo run test:ci",
     "test:coverage": "turbo run test:coverage",
