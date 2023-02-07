@@ -146,10 +146,11 @@ jobs:
           folder: ./apps/pie-microsite/dist
           target-folder: .
           branch: gh-pages
+          force: false
           clean-exclude: |
-            pr-preview-docs
-            pr-preview-storybook
-            storybook
+            ./pr-preview-docs
+            ./pr-preview-storybook
+            ./storybook
 
   deploy-storybook:
     needs: build
@@ -202,6 +203,7 @@ jobs:
           folder: ./apps/pie-storybook/dist
           branch: gh-pages
           target_folder: ./storybook
+          force: false
           clean-exclude: |
             .
             ./pr-preview-docs
