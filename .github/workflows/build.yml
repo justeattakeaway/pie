@@ -202,7 +202,7 @@ jobs:
         with:
           folder: ./apps/pie-storybook/dist
           branch: gh-pages
-          target_folder: storybook
+          target-folder: storybook
           force: false
           clean-exclude: |
             pr-preview-docs
