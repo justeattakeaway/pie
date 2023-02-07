@@ -24,6 +24,10 @@ $contentImage-bg-minHeight:         280px;
         display: block;
     }
 
+    &.c-contentImage--fullWidth img {
+        border-radius: f.$radius-rounded-d;
+    }
+
     &.c-contentImage--hasBackdrop img {
         width: var(--img-width);
         max-width: 100%;
