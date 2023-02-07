@@ -1,5 +1,5 @@
 const { isColorDark } = require('../../../../utilities/colors');
-const { deindentHTML } = require('../../shortcode-utilities');
+// const { deindentHTML } = require('../../shortcode-utilities');
 
 const createHighContrastName = tokenName => {
     const highContrast = '(High Contrast)';
@@ -66,31 +66,30 @@ const buildColorExample = token => {
     return `<div class="${classes.join(' ')}" style="${cssVariables.join('; ')}";></div>`;
 };
 
-/**
- * Builds the overall token description element for global and alias Colour tokens.
- * @param {*} tokenMetadata the metadata for the token. data such as descriptions
- * @returns {string} - the description HTML string
- */
-const buildColorDescription = tokenMetadata => {
-    let description = '';
+// /**
+//  * Builds the overall token description element for global and alias Colour tokens.
+//  * @param {*} tokenMetadata the metadata for the token. data such as descriptions
+//  * @returns {string} - the description HTML string
+//  */
+// const buildColorDescription = tokenMetadata => {
+//     let description = '';
 
-    // Alias tokens have a globalToken property that references the global token used by the alias
-    if (tokenMetadata.globalToken) {
-        // It's an alias colour token
-        description = `
-        <span class="c-tokensTable-tokenDescription u-spacing-b--bottom">
-            ${tokenMetadata.description}
-        </span>`;
-    } else {
-        // It's a global colour token
-        description = `<span class="c-tokensTable-tokenDescription">${tokenMetadata.description}</span>`;
-    }
+//     // Alias tokens have a globalToken property that references the global token used by the alias
+//     if (tokenMetadata.globalToken) {
+//         // It's an alias colour token
+//         description = `
+//         <span class="c-tokensTable-tokenDescription u-spacing-b--bottom">
+//             ${tokenMetadata.description}
+//         </span>`;
+//     } else {
+//         // It's a global colour token
+//         description = `<span class="c-tokensTable-tokenDescription">${tokenMetadata.description}</span>`;
+//     }
 
-    return deindentHTML(description);
-};
+//     return deindentHTML(description);
+// };
 
 module.exports = {
     buildColorName,
-    buildColorExample,
-    buildColorDescription
+    buildColorExample
 };

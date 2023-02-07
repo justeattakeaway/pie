@@ -3,8 +3,8 @@ const normalisedPieDesignTokens = require('../../../_data/normaliseTokens');
 const pieTokenCategories = require('../../../tokenCategories.json');
 const { stringHelpers, objectHelpers, numberHelpers } = require('../../../utilities/helpers');
 const tokenTypes = require('../../../_data/tokenTypes');
-const { buildColorName, buildColorExample, buildColorDescription } = require('./tokenTypes/colour');
-const { buildElevationExample, buildElevationDescription } = require('./tokenTypes/elevation');
+const { buildColorName, buildColorExample } = require('./tokenTypes/colour');
+const { buildElevationExample } = require('./tokenTypes/elevation');
 const { buildSpacingExample } = require('./tokenTypes/spacing');
 const { buildFontExample } = require('./tokenTypes/font');
 const { buildRadiusExample } = require('./tokenTypes/radius');
@@ -91,17 +91,7 @@ const buildGlobalTokenUsedElement = globalToken => {
  * @returns {string} - the description HTML string
  */
 const buildTokenDescriptionElement = (tokenType, tokenMetadata) => {
-    const tokenTypeBuilder = {
-        [tokenTypes.COLOR]: buildColorDescription,
-        [tokenTypes.ELEVATION]: buildElevationDescription,
-        default: () => (tokenMetadata.description
-            ? `<span class="c-tokensTable-tokenDescription">${tokenMetadata.description}</span>`
-            : '')
-    };
-
-    let description = tokenType in tokenTypeBuilder
-        ? tokenTypeBuilder[tokenType](tokenMetadata)
-        : tokenTypeBuilder.default(tokenMetadata);
+    let description = `<span class="c-tokensTable-tokenDescription ${tokenMetadata.globalToken ? 'u-spacing-b--bottom' : ''}">${tokenMetadata.description}</span>`;
 
     if (tokenMetadata.globalToken) {
         description += buildGlobalTokenUsedElement(tokenMetadata.globalToken);
