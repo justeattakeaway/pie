@@ -1,7 +1,7 @@
 {
     "layout": "layouts/toggle-page-layout.njk",
     "subtitle": "Alias tokens by theme",
-    "subtitleDescription": "Surface separation is achieved using elevation tokens. There are ten to choose from, each with a different depth which determines where they can be used.",
+    "subtitleDescription": "Surface separation is achieved using elevation tokens. Each token has a different depth, determining where they can be used.",
     "toggleContent": {
       "a": {
         "label": "Light theme",
