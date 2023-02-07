@@ -5,7 +5,7 @@ eleventyNavigation:
     order: 1
 ---
 
-## Introduction 
+## Introduction
 
 [Figma](https://www.figma.com/ui-design-tool) is PIE’s design tool of choice for building our design system. All design-related foundations, components and assets are stored within Figma libraries and files to ensure the whole digital ecosystem can be accessed by any team.
 
