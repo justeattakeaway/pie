@@ -1584,8 +1584,8 @@
             "description": "Used for Map markers and cards.",
             "globalToken": "$box-shadow-05"
           }
+        }
       }
-  }
     }
   }
 }
