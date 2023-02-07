@@ -1,8 +1,11 @@
 [
     "accessibility/overview",
+    "all-about-pie/our-vision",
+    "all-about-pie/roadmap",
     "all-about-pie/what-is-pie",
     "components/coming-soon",
     "copy/coming-soon",
+    "designers/getting-started/best-practices",
     "designers/getting-started/overview",
     "designers/how-we-support-you",
     "foundations/animation",
@@ -35,5 +38,6 @@
     "foundations/typography/tokens/global",
     "patterns/mobile-pattern",
     "resources/assets",
+    "support/contact-us",
     "support/faq"
 ]
