@@ -20,6 +20,6 @@
         "experimentalDecorators": true,
         "forceConsistentCasingInFileNames": true
     },
-    "include": ["src/**/*.ts"],
+    "include": ["src/**/*.ts","./declaration.d.ts"],
     "exclude": []
   }
