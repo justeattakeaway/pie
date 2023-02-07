@@ -1,5 +1,9 @@
 name: Build
 
+permissions:
+  contents: write
+  pull-requests: write
+
 on:
   pull_request:
     types: [assigned, opened, synchronize, reopened, 'ready_for_review']
@@ -133,13 +137,14 @@ jobs:
         with:
           source-dir: ./apps/pie-microsite/dist
           preview-branch: gh-pages
-          umbrella-dir: pr-preview-docs
+          umbrella-dir: ./pr-preview-docs
           action: auto
       - name: Deploy - Master
         if: ${{ github.ref == 'refs/heads/main' }}
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: ./apps/pie-microsite/dist
+          target-folder: .
           branch: gh-pages
           clean-exclude: |
             pr-preview-docs
@@ -188,7 +193,7 @@ jobs:
         with:
           source-dir: ./apps/pie-storybook/dist
           preview-branch: gh-pages
-          umbrella-dir: pr-preview-storybook
+          umbrella-dir: ./pr-preview-storybook
           action: auto
       - name: Deploy - Master
         if: ${{ github.ref == 'refs/heads/main' }}
@@ -196,10 +201,11 @@ jobs:
         with:
           folder: ./apps/pie-storybook/dist
           branch: gh-pages
-          target_folder: storybook
+          target_folder: ./storybook
           clean-exclude: |
-            pr-preview-docs
-            pr-preview-storybook
+            .
+            ./pr-preview-docs
+            ./pr-preview-storybook
 
   browser-tests:
     needs: deploy-microsite
