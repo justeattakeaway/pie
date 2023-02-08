@@ -21,7 +21,7 @@ export class PieButton extends LitElement {
             return;
         }
 
-        let oldVariant = this._variant;
+        let oldType = this._type;
 
         if (validButtonTypes.includes(newType)) {
             this._type = newType;
@@ -30,7 +30,7 @@ export class PieButton extends LitElement {
             console.error(`Invalid type value provided: ${newType}. Must be one of: ${validButtonTypes.join(' | ')}`);
         }
 
-        this.requestUpdate('buttonStyle', oldVariant);
+        this.requestUpdate('type', oldType);
     }
 
     // Button Variant Property
@@ -51,7 +51,7 @@ export class PieButton extends LitElement {
             console.error(`Invalid variant value provided: ${newVariant}. Must be one of: ${validButtonVariants.join(' | ')}`);
         }
 
-        this.requestUpdate('buttonStyle', oldVariant);
+        this.requestUpdate('variant', oldVariant);
     }
 
     /**
