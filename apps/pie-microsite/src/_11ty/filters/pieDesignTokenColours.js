@@ -2,7 +2,7 @@ const pieDesignTokens = require('@justeat/pie-design-tokens/dist/tokens.json');
 
 const pieDesignTokenColours = pieDesignTokens.theme.jet.color;
 
-const getDesignTokenColor = (tokenName, tokenPath) => {
+const getDesignTokenColour = (tokenName, tokenPath) => {
     let colourPath = pieDesignTokenColours;
 
     for (let i = 0; i < tokenPath.length; i++) {
@@ -25,7 +25,7 @@ module.exports = function (options = {
     tokenPath: []
 }) {
     try {
-        return getDesignTokenColor(options.tokenName, options.tokenPath);
+        return getDesignTokenColour(options.tokenName, options.tokenPath);
     } catch (error) {
         // eslint-disable-next-line no-console
         console.error(`Could not find design token color of name: ${options.tokenName}. Error: ${error}`);
