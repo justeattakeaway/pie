@@ -4,7 +4,7 @@
     @include f.font-size('heading-xl');
     font-weight: f.$font-weight-extrabold;
 
-    @include f.media('>=mid') {
+    @include f.media('>=wide') {
         @include f.font-size('heading-xxl');
     }
 }
