@@ -12,6 +12,7 @@ const pieDesignTokenColours = require('../../../filters/pieDesignTokenColours');
 const buildElevationExample = (token, tokenMetadata, path) => {
     const isDefaultElevation = tokenMetadata.category === 'defaultElevation';
     const theme = path.includes('light') ? 'light' : 'dark';
+    const tokenPath = ['alias', 'default'];
 
     const styling = {
         light: {
@@ -24,8 +25,8 @@ const buildElevationExample = (token, tokenMetadata, path) => {
         }
     };
 
-    const elevationContainer = `--example-container: ${pieDesignTokenColours({ tokenName: styling[theme].elevationContainer, tokenPath: ['alias', 'default'] })};`;
-    const elevationBox = `--example-elevation: ${pieDesignTokenColours({ tokenName: styling[theme].elevationBox, tokenPath: ['alias', 'default'] })};`;
+    const elevationContainer = `--example-container: ${pieDesignTokenColours({ tokenName: styling[theme].elevationContainer, tokenPath })};`;
+    const elevationBox = `--example-elevation: ${pieDesignTokenColours({ tokenName: styling[theme].elevationBox, tokenPath })};`;
 
     const boxShadowValues = token.shadows.map(({
         x,
