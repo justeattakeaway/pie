@@ -11,8 +11,8 @@ const { buildRadiusExample } = require('./tokenTypes/radius');
 const { deindentHTML } = require('../shortcode-utilities');
 
 const {
-    getParentCategoriesForTokenType,
     getSubcategoriesForParentCategory,
+    getExampleColumnSize,
     getTokensForCategory,
     getTokenTypeMetadata,
     validateConfiguration
@@ -75,15 +75,11 @@ const buildTokenExampleElement = (token, tokenType, tokenMetadata, path = {}) =>
  * @param {string} globalToken the global token referenced by this alias token
  * @returns a <span> HTML string containing the global token used
  */
-const buildGlobalTokenUsedElement = globalToken => {
-    const globalTokenUsedElement = `
+const buildGlobalTokenUsedElement = globalToken => deindentHTML(`
     <span class="c-tokensTable-tokenDescription">
         <span class="u-font-bold u-showAboveWide">Global token used:</span>
         <span class="c-tokensTable-token c-tokensTable-token--light">${globalToken}</span>
-    </span>`;
-
-    return deindentHTML(globalTokenUsedElement);
-};
+    </span>`);
 
 /**
  * Builds the overall token description element for each type of token. The description content differs based on the type of token.
@@ -140,7 +136,7 @@ const buildTokenListElements = ({
     const tokenDescription = buildTokenDescriptionElement(tokenMetadata);
 
     return deindentHTML(`
-    <li class="c-tokensTable-row c-tokensTable-item">
+    <li class="c-tokensTable-row c-tokensTable-item" style="${getExampleColumnSize(tokenType)}">
         ${tokenExampleElement}
         <div class="c-tokensTable-content">
             <span class="c-tokensTable-displayName">${tokenDisplayName}</span>
@@ -155,8 +151,8 @@ const buildTokenListElements = ({
  * @param {string[]} listElements - the list items to render within the list
  * @returns {string} - the tokens list HTML elements
  */
-const buildTokensList = listElements => deindentHTML(`
-    <div class="c-tokensTable-row u-spacing-e--top u-showAboveWide c-tokensTable-heading">
+const buildTokensList = (listElements, tokenType) => deindentHTML(`
+    <div class="c-tokensTable-row u-spacing-e--top u-showAboveWide c-tokensTable-heading" style="${getExampleColumnSize(tokenType)}">
         <span>Example</span>
         <span>Description</span>
         <span>Token name</span>
@@ -164,6 +160,7 @@ const buildTokensList = listElements => deindentHTML(`
     <ul class="c-tokensTable-list">
         ${listElements.join('')}
     </ul>`);
+
 
 /**
  * Creates a tokens list for a given category
@@ -187,7 +184,7 @@ const buildTokensListForCategory = (tokens, path, category, tokenType) => {
         path
     }));
 
-    return buildTokensList(tokenListElements);
+    return buildTokensList(tokenListElements, tokenType);
 };
 
 /**
@@ -215,7 +212,7 @@ const buildUncategorisedLists = ({
         tokenMetadata: tokenTypeMetadata[token[0]]
     }));
 
-    return buildTokensList(tokenListElements);
+    return buildTokensList(tokenListElements, tokenType);
 };
 
 /**
@@ -289,7 +286,7 @@ const buildCategoryListsWithParents = ({
 const buildTokenLists = (path, tokenType) => {
     const isGlobal = path.includes('global');
     const tokens = objectHelpers.getObjectPropertyByPath(normalisedPieDesignTokens, `theme.jet.${path}`);
-    const parentCategories = getParentCategoriesForTokenType(`${tokenType}.${isGlobal ? 'global' : 'alias'}.parentCategories`);
+    const parentCategories = objectHelpers.getObjectPropertyByPath(pieTokenCategories, `${tokenType}.${isGlobal ? 'global' : 'alias'}.parentCategories`);
     const regularCategories = objectHelpers.getObjectPropertyByPath(pieTokenCategories, path);
 
     const config = {

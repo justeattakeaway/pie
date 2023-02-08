@@ -52,9 +52,9 @@ $tokensTable-item-vertical-padding: f.spacing(e);
 }
 
 .c-tokensTable-example-container--elevation {
-    background: var(--example-container);
+    background-color: var(--example-container);
     position: relative;
-    min-height: $tokensTable-spacing-container-height;
+    min-height: 160px;
 
     @include f.media('>=wide') {
         min-height: calc($tokensTable-item-min-height - calc($tokensTable-item-vertical-padding * 2));
@@ -138,7 +138,7 @@ $tokensTable-item-vertical-padding: f.spacing(e);
 }
 
 .c-tokensTable-example--elevation {
-    background: var(--example-elevation);
+    background-color: var(--example-elevation);
     width: f.spacing(i);
     height: f.spacing(i);
     border-radius: f.$radius-03;
@@ -228,7 +228,7 @@ $tokensTable-item-vertical-padding: f.spacing(e);
     }
 
     @include f.media('>=wide') {
-        grid-template-columns: 240px 1fr minmax(min-content, max-content);
+        grid-template-columns: var(--template-columns) 1fr minmax(min-content, max-content);
         grid-template-rows: 1fr;
 
         & + & {
@@ -274,7 +274,7 @@ $tokensTable-item-vertical-padding: f.spacing(e);
 
 .c-tokensTable-token {
     display: inline-block;
-    background: f.$color-container-dark;
+    background-color: f.$color-container-dark;
     color: f.$color-dark-content-default;
     height: min-content;
     border: 1px solid f.$color-border-subtle;

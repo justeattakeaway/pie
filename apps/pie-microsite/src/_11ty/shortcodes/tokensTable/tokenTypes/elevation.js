@@ -40,9 +40,10 @@ const buildElevationExample = (token, tokenMetadata, path) => {
 
     const elevationBoxShadow = `--example-shadow: ${boxShadowValues};`;
 
-    const elevationExample = `<div class="c-tokensTable-example-container--elevation" style="${elevationContainer}"><div class="c-tokensTable-example--elevation" style="${elevationBox} ${elevationBoxShadow}"></div></></div>`;
-
-    return deindentHTML(elevationExample);
+    return deindentHTML(`
+    <div class="c-tokensTable-example-container--elevation" style="${elevationContainer}">
+        <div class="c-tokensTable-example--elevation" style="${elevationBox} ${elevationBoxShadow}"></div>
+    </div>`);
 };
 
 module.exports = {
