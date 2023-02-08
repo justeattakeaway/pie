@@ -1,5 +1,6 @@
 {
     "compilerOptions": {
+        "target": "ES6",
         "module": "ES2022",
         "lib": ["es2020", "DOM", "DOM.Iterable"],
         "declaration": true,

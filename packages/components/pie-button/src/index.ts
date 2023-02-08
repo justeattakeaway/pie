@@ -11,7 +11,7 @@ const validButtonVariants = Object.values(BUTTON_VARIANT);
 const validButtonTypes = Object.values(BUTTON_TYPE);
 
 @customElement('pie-button')
-class PieButton extends LitElement {
+export class PieButton extends LitElement {
     // Button Type Property
     private _type = BUTTON_TYPE.SUBMIT;
 
@@ -85,12 +85,10 @@ class PieButton extends LitElement {
             <button
                 class="${classes}"
                 type=${type}>
-                <slot></slot>
+                I'm a PIE button
             </button>`;
     }
 
     // Renders a `CSSResult` generated from SCSS by Vite
     static styles = unsafeCSS(styles);
 }
-
-export default PieButton;
