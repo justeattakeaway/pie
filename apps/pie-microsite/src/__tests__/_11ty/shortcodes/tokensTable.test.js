@@ -6,6 +6,7 @@ describe('tokensTable.js', () => {
         ['color.alias.default', tokenTypes.COLOR],
         ['color.alias.dark', tokenTypes.COLOR],
         ['color.global', tokenTypes.COLOR],
+        ['elevation.alias', tokenTypes.ELEVATION],
         ['font.global', tokenTypes.FONT],
         ['font.alias.wide', tokenTypes.FONT],
         ['font.alias.narrow', tokenTypes.FONT],

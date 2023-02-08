@@ -1448,5 +1448,144 @@
           "description": "80dp/sp/px or 5rem"
         }
     }
+  },
+  "elevation": {
+    "alias": {
+      "default": {
+        "light": {
+          "01": {
+            "category": "defaultElevation",
+            "displayName": "Elevation 01",
+            "description": "Used for Map markers and Cards.",
+            "globalToken": "$box-shadow-01"
+          },
+          "02": {
+            "category": "defaultElevation",
+            "displayName": "Elevation 02",
+            "description": "Used for raised Buttons (e.g. over a map), knobs on sliders and Dropdown input fields.",
+            "globalToken": "$box-shadow-02"
+          },
+          "03": {
+            "category": "defaultElevation",
+            "displayName": "Elevation 03",
+            "description": "Used for FABS and sticky CTAs, sticky headers, navigation bars or Banners and Notifications.",
+            "globalToken": "$box-shadow-03"
+          },
+          "04": {
+            "category": "defaultElevation",
+            "displayName": "Elevation 04",
+            "description": "Used for Modal.",
+            "globalToken": "$box-shadow-04"
+          },
+          "05": {
+            "category": "defaultElevation",
+            "displayName": "Elevation 05",
+            "description": "Used for Bottom Sheets.",
+            "globalToken": "$box-shadow-05"
+          },
+          "inverse-01": {
+            "category": "inverseElevation",
+            "displayName": "Elevation inverse 01",
+            "description": "Used for Map markers and cards.",
+            "globalToken": "$box-shadow-06"
+          },
+          "inverse-02": {
+            "category": "inverseElevation",
+            "displayName": "Elevation inverse 02",
+            "description": "Used for raised Buttons (e.g. over a map), knobs on sliders and Dropdown input fields.",
+            "globalToken": "$box-shadow-07"
+          },
+          "inverse-03": {
+            "category": "inverseElevation",
+            "displayName": "Elevation inverse 03",
+            "description": "Used for FABS and sticky CTAs, sticky headers, navigation bars or Banners and Notifications.",
+            "globalToken": "$box-shadow-08"
+          },
+          "inverse-04": {
+            "category": "inverseElevation",
+            "displayName": "Elevation inverse 04",
+            "description": "Used for Modal.",
+            "globalToken": "$box-shadow-09"
+          },
+          "inverse-05": {
+            "category": "inverseElevation",
+            "displayName": "Elevation inverse 05",
+            "description": "Used for Modal.",
+            "globalToken": "$box-shadow-10"
+          }
+        },
+        "dark": {
+          "inverse-01": {
+            "category": "defaultElevation",
+            "displayName": "Elevation 01",
+            "description": "Used for Map markers and Cards.",
+            "globalToken": "$box-shadow-06"
+          },
+
+          "inverse-02": {
+            "category": "defaultElevation",
+            "displayName": "Elevation 02",
+            "description": "Used for raised Buttons (e.g. over a map), knobs on sliders and Dropdown input fields.",
+            "globalToken": "$box-shadow-07"
+          },
+
+          "inverse-03": {
+            "category": "defaultElevation",
+            "displayName": "Elevation 03",
+            "description": "Used for FABS and sticky CTAs, sticky headers, navigation bars or Banners and Notifications.",
+            "globalToken": "$box-shadow-08"
+          },
+
+          "inverse-04": {
+            "category": "defaultElevation",
+            "displayName": "Elevation 04",
+            "description": "Used for Modal.",
+            "globalToken": "$box-shadow-09"
+          },
+
+          "inverse-05": {
+            "category": "defaultElevation",
+            "displayName": "Elevation 04",
+            "description": "Used for Modal.",
+            "globalToken": "$box-shadow-10"
+          },
+
+          "01": {
+            "category": "inverseElevation",
+            "displayName": "Elevation inverse 01",
+            "description": "Used for Modal.",
+            "globalToken": "$box-shadow-01"
+          },
+
+          "02": {
+            "category": "inverseElevation",
+            "displayName": "Elevation inverse 02",
+            "description": "Used for FABS and sticky CTAs, sticky headers, navigation bars or Banners and Notifications.",
+            "globalToken": "$box-shadow-02"
+          },
+
+          "03": {
+            "category": "inverseElevation",
+            "displayName": "Elevation inverse 03",
+            "description": "Used for raised Buttons (e.g. over a map), knobs on sliders and Dropdown input fields.",
+            "globalToken": "$box-shadow-03"
+          },
+
+          "04": {
+            "category": "inverseElevation",
+            "displayName": "Elevation inverse 04",
+            "description": "Used for Map markers and cards.",
+            "globalToken": "$box-shadow-04"
+          },
+
+          "05": {
+            "category": "inverseElevation",
+            "displayName": "Elevation inverse 05",
+            "description": "Used for Map markers and cards.",
+            "globalToken": "$box-shadow-05"
+          }
+        }
+      }
+    }
   }
 }
