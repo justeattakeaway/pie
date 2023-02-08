@@ -1,37 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link rel="stylesheet" href="https://unpkg.com/@justeat/pie-design-tokens@latest/dist/jet.css">
-      <link rel="preload" href="https://d30v2pzvrfyzpo.cloudfront.net/fonts/JETSansDigital-Regular-optimised.woff2" as="font" type="font/woff2" crossorigin>
-      <style>
-          @font-face {
-              font-family: JETSansDigital;
-              src: url('https://d30v2pzvrfyzpo.cloudfront.net/fonts/JETSansDigital-Regular-optimised.woff2') format("woff2"),
-              url('https://d30v2pzvrfyzpo.cloudfront.net/fonts/JETSansDigital-Regular-optimised.woff') format("woff");
-              font-weight: 400;
-              font-display: swap;
-          }
-          body {
-              font-feature-settings: "tnum"; /* Enable tabular numbers */
-          }
-      </style>
+    <link rel="stylesheet" href="https://unpkg.com/@justeat/pie-design-tokens@latest/dist/jet.css">
+    <link rel="preload" href="https://d30v2pzvrfyzpo.cloudfront.net/fonts/JETSansDigital-Regular-optimised.woff2"
+        as="font" type="font/woff2" crossorigin>
+    <style>
+        @font-face {
+            font-family: JETSansDigital;
+            src: url('https://d30v2pzvrfyzpo.cloudfront.net/fonts/JETSansDigital-Regular-optimised.woff2') format("woff2"),
+                url('https://d30v2pzvrfyzpo.cloudfront.net/fonts/JETSansDigital-Regular-optimised.woff') format("woff");
+            font-weight: 400;
+            font-display: swap;
+        }
+
+        body {
+            font-feature-settings: "tnum";
+            /* Enable tabular numbers */
+        }
+    </style>
     <script type="module" src="/src/index.ts"></script>
-  </head>
-  <body>
+</head>
+
+<body>
     <!-- This is a temporary file for testing until Storybook is in place -->
     <!-- Run `yarn dev` to serve this file -->
-    <pie-button />
+    <pie-button type="button" variant="primary">
+        I'm a PIE Button
+    </pie-button>
 
     <script>
         (function () {
             var boldFontUrls = 'url("https://d30v2pzvrfyzpo.cloudfront.net/fonts/JETSansDigital-Bold-optimised.woff2") format("woff2"), url("https://d30v2pzvrfyzpo.cloudfront.net/fonts/   JETSansDigital-Bold-optimised.woff") format("woff")';
             var extraboldFontUrls = 'url("https://d30v2pzvrfyzpo.cloudfront.net/fonts/JETSansDigital-ExtraBold-optimised.woff2") format("woff2"), url("https://d30v2pzvrfyzpo.cloudfront.net/fonts/   JETSansDigital-ExtraBold-optimised.woff") format("woff")';
 
-            if('fonts' in document ) {
-                var bold = new FontFace('JETSansDigital', boldFontUrls, {    weight: '700' });
-                var extrabold = new FontFace('JETSansDigital',    extraboldFontUrls, { weight: '800' });
+            if ('fonts' in document) {
+                var bold = new FontFace('JETSansDigital', boldFontUrls, { weight: '700' });
+                var extrabold = new FontFace('JETSansDigital', extraboldFontUrls, { weight: '800' });
 
                 Promise.all([bold.load(), extrabold.load()])
                     .then(function (fonts) {
@@ -40,10 +47,11 @@
                         });
                     })
                     .then(function () {
-                        document.documentElement.classList.add   ('webfonts-loaded');
+                        document.documentElement.classList.add('webfonts-loaded');
                     });
             }
         })();
     </script>
-  </body>
+</body>
+
 </html>
