@@ -1412,41 +1412,86 @@
     }
   },
   "spacing": {
-    "global": {},
+    "global": {
+      "00": {
+        "description": "0dp/sp/px or 0rem "
+      },
+      "01": {
+        "description": "4dp/sp/px or 0.25rem"
+      },
+      "02": {
+        "description": "8dp/sp/px or 0.5rem"
+      },
+      "03": {
+        "description": "12dp/sp/px or 0.75rem"
+      },
+      "04": {
+        "description": "16dp/sp/px or 1rem"
+      },
+      "05": {
+        "description": "24dp/sp/px or 1.5rem"
+      },
+      "06": {
+        "description": "32dp/sp/px or 2rem"
+      },
+      "07": {
+        "description": "40dp/sp/px or 2.5rem"
+      },
+      "08": {
+        "description": "56dp/sp/px or 3.5rem"
+      },
+      "09": {
+        "description": "64dp/sp/px or 4rem"
+      },
+      "10": {
+        "description": "80dp/sp/px or 5rem"
+      }
+    },
     "alias": {
-        "none": {
-          "description": "0dp/sp/px or 0rem "
-        },
-        "a": {
-          "description": "4dp/sp/px or 0.25rem"
-        },
-        "b": {
-          "description": "8dp/sp/px or 0.5rem"
-        },
-        "c": {
-          "description": "12dp/sp/px or 0.75rem"
-        },
-        "d": {
-          "description": "16dp/sp/px or 1rem"
-        },
-        "e": {
-          "description": "24dp/sp/px or 1.5rem"
-        },
-        "f": {
-          "description": "32dp/sp/px or 2rem"
-        },
-        "g": {
-          "description": "40dp/sp/px or 2.5rem"
-        },
-        "h": {
-          "description": "56dp/sp/px or 3.5rem"
-        },
-        "i": {
-          "description": "64dp/sp/px or 4rem"
-        },
-        "j": {
-          "description": "80dp/sp/px or 5rem"
-        }
+      "none": {
+        "description": "0dp/sp/px or 0rem",
+        "globalToken": "$spacing-00"
+      },
+      "a": {
+        "description": "4dp/sp/px or 0.25rem",
+        "globalToken": "$spacing-01"
+      },
+      "b": {
+        "description": "8dp/sp/px or 0.5rem",
+        "globalToken": "$spacing-02"
+      },
+      "c": {
+        "description": "12dp/sp/px or 0.75rem",
+        "globalToken": "$spacing-03"
+      },
+      "d": {
+        "description": "16dp/sp/px or 1rem",
+        "globalToken": "$spacing-04"
+      },
+      "e": {
+        "description": "24dp/sp/px or 1.5rem",
+        "globalToken": "$spacing-05"
+      },
+      "f": {
+        "description": "32dp/sp/px or 2rem",
+        "globalToken": "$spacing-06"
+      },
+      "g": {
+        "description": "40dp/sp/px or 2.5rem",
+        "globalToken": "$spacing-07"
+      },
+      "h": {
+        "description": "56dp/sp/px or 3.5rem",
+        "globalToken": "$spacing-08"
+      },
+      "i": {
+        "description": "64dp/sp/px or 4rem",
+        "globalToken": "$spacing-09"
+      },
+      "j": {
+        "description": "80dp/sp/px or 5rem",
+        "globalToken": "$spacing-10"
+      }
     }
   },
   "elevation": {
