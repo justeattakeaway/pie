@@ -1,5 +1,33 @@
 # Changelog
 
+## 1.53.0
+
+### Minor Changes
+
+- added alias elevation tokens ([#160](https://github.com/justeattakeaway/pie/pull/160)) by [@LTurns](https://github.com/LTurns)
+
+- Update sidebar breakpoint to wide instead of mid ([#148](https://github.com/justeattakeaway/pie/pull/148)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- [Added] spacing token descriptions (global and alias) ([#161](https://github.com/justeattakeaway/pie/pull/161)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Added] `component-updates_narrow.svg` to the designers `best practices` page
+  [Added] full stops for list items in the `our vision` pag
+  [Add] missing heading for the `faq` page
+  [Fixed] unclear SVGs used in the designers `how we support you` page
+  [Removed] `Who works on PIE?` section in the faq page
+
+- Round corners of full width content page images ([#148](https://github.com/justeattakeaway/pie/pull/148)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- Added contributing page for designers ([#148](https://github.com/justeattakeaway/pie/pull/148)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- Add mobile breakpoints for designers' contributing page ([#148](https://github.com/justeattakeaway/pie/pull/148)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+### Patch Changes
+
+- Fixed relative path for JS URL's on preview deploys ([#167](https://github.com/justeattakeaway/pie/pull/167)) by [@siggerzz](https://github.com/siggerzz)
+
+- Fix minor spacing issue in media element list ([#170](https://github.com/justeattakeaway/pie/pull/170)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
 ## 1.52.0
 
 ### Minor Changes
