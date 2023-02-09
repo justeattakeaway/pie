@@ -6,14 +6,14 @@
  * @returns
  */
 export const validValues = (validValues: any[], defaultValue: any) => {
-    return function (target: any, propertyKey: string) {
+    return function (target: any, propertyKey: string) : void {
         const privatePropertyKey = `_${propertyKey}`;
 
         Object.defineProperty(target, propertyKey, {
-            get () {
+            get () : any {
                 return target[privatePropertyKey];
             },
-            set (value: any) {
+            set (value: any) : void {
                 const oldValue = target[privatePropertyKey];
 
                 if (!validValues.includes(value)) {
