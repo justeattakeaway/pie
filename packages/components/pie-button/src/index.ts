@@ -3,6 +3,7 @@ import { classMap } from 'lit/directives/class-map.js';
 import { customElement, property } from 'lit/decorators.js';
 import styles from './button.scss?inline';
 import { BUTTON_VARIANT, BUTTON_TYPE } from './defs';
+import { validValues } from './decorators';
 
 // Valid values available to consumers
 export { BUTTON_VARIANT, BUTTON_TYPE };
@@ -12,69 +13,22 @@ const validButtonTypes = Object.values(BUTTON_TYPE);
 
 @customElement('pie-button')
 export class PieButton extends LitElement {
-    // Button Type Property
-    private _type = BUTTON_TYPE.SUBMIT;
-
-    // TODO - we may want a more generic validator in future
-    public set type (newType: BUTTON_TYPE) {
-        if (newType === this._type) {
-            return;
-        }
-
-        let oldType = this._type;
-
-        if (validButtonTypes.includes(newType)) {
-            this._type = newType;
-        } else {
-            this._type = BUTTON_TYPE.SUBMIT;
-            console.error(`Invalid type value provided: ${newType}. Must be one of: ${validButtonTypes.join(' | ')}`);
-        }
-
-        this.requestUpdate('type', oldType);
-    }
-
-    // Button Variant Property
-    private _variant = BUTTON_VARIANT.PRIMARY;
-
-    // TODO - we may want a more generic validator in future
-    public set variant (newVariant: BUTTON_VARIANT) {
-        if (newVariant === this._variant) {
-            return;
-        }
-
-        let oldVariant = this._variant;
-
-        if (validButtonVariants.includes(newVariant)) {
-            this._variant = newVariant;
-        } else {
-            this._variant = BUTTON_VARIANT.PRIMARY;
-            console.error(`Invalid variant value provided: ${newVariant}. Must be one of: ${validButtonVariants.join(' | ')}`);
-        }
-
-        this.requestUpdate('variant', oldVariant);
-    }
-
     /**
      * The Button type to use
      */
     @property()
-    public get type () : BUTTON_TYPE {
-        return this._type;
-    };
+    @validValues(validButtonTypes, BUTTON_TYPE.SUBMIT)
+    type : BUTTON_TYPE = BUTTON_TYPE.SUBMIT;
 
     /**
      * The Button style variant to use
      */
     @property()
-    public get variant () : BUTTON_VARIANT {
-        return this._variant;
-    };
+    @validValues(validButtonVariants, BUTTON_VARIANT.PRIMARY)
+    variant : BUTTON_VARIANT = BUTTON_VARIANT.PRIMARY;
 
     render () {
-        const  {
-            type,
-            variant
-        } = this;
+        const { type, variant } = this;
 
         const classes = classMap({
             ['o-btn']: true,
