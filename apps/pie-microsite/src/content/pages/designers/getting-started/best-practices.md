@@ -29,6 +29,7 @@ If you wish to check whether you’re working from the latest version of a libra
 
 {% contentPageImage {
 src: "../../../../../assets/img/designers/getting-started/best-practices/component-updates.svg",
+mobileSrc: "../../../../../assets/img/designers/getting-started/best-practices/component-updates_narrow.svg",
 width: "490px",
 caption: "Example of a library update notification in Figma."
 } %}

@@ -5,7 +5,7 @@
  * @returns {string} - the radius swatch example HTML string
  */
 const buildRadiusExample = token => {
-    const classes = ['c-tokensTable-example-radius'];
+    const classes = ['c-tokensTable-example--radius'];
     const style = `--example-radius: ${token}px`;
 
     return `

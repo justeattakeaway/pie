@@ -1,17 +1,18 @@
 /* eslint-disable no-trailing-spaces */
-const normalizedPieDesignTokens = require('../../../_data/normalizeTokens');
+const normalisedPieDesignTokens = require('../../../_data/normaliseTokens');
 const pieTokenCategories = require('../../../tokenCategories.json');
 const { stringHelpers, objectHelpers, numberHelpers } = require('../../../utilities/helpers');
 const tokenTypes = require('../../../_data/tokenTypes');
-const { buildColorName, buildColorExample, buildColorDescription } = require('./tokenTypes/colour');
+const { buildColorName, buildColorExample } = require('./tokenTypes/colour');
+const { buildElevationExample } = require('./tokenTypes/elevation');
 const { buildSpacingExample } = require('./tokenTypes/spacing');
 const { buildFontExample } = require('./tokenTypes/font');
 const { buildRadiusExample } = require('./tokenTypes/radius');
 const { deindentHTML } = require('../shortcode-utilities');
 
 const {
-    getParentCategoriesForTokenType,
     getSubcategoriesForParentCategory,
+    getExampleColumnSize,
     getTokensForCategory,
     getTokenTypeMetadata,
     validateConfiguration
@@ -49,11 +50,14 @@ const createTokenDisplayName = (tokenKey, tokenType) => {
  * This could be a color swatch, a representation of border radius or spacing etc.
  * @param {string} token - the token value i.e. #000, #ffffff, #000|0.85 or #000000|0.85
  * @param {string} tokenType - the type of token i.e. color, spacing, radius
+ * @param {string} tokenMetadata - the metadata for the token. data such as descriptions
+ * @param {string} path - path to the category i.e.  'path:color.alias.default' / 'path:color.alias.dark'
  * @returns {string} - the example HTML string
  */
-const buildTokenExampleElement = (token, tokenType, tokenMetadata) => {
+const buildTokenExampleElement = (token, tokenType, tokenMetadata, path = {}) => {
     const tokenExampleElementHandler = {
         [tokenTypes.COLOR]: buildColorExample,
+        [tokenTypes.ELEVATION]: buildElevationExample,
         [tokenTypes.FONT]: buildFontExample,
         [tokenTypes.RADIUS]: buildRadiusExample,
         [tokenTypes.SPACING]: buildSpacingExample
@@ -63,7 +67,7 @@ const buildTokenExampleElement = (token, tokenType, tokenMetadata) => {
         throw new Error(`token type not recognised: ${tokenType}. Token:${token}`);
     }
 
-    return tokenExampleElementHandler[tokenType](token, tokenMetadata);
+    return tokenExampleElementHandler[tokenType](token, tokenMetadata, path);
 };
 
 /**
@@ -71,34 +75,23 @@ const buildTokenExampleElement = (token, tokenType, tokenMetadata) => {
  * @param {string} globalToken the global token referenced by this alias token
  * @returns a <span> HTML string containing the global token used
  */
-const buildGlobalTokenUsedElement = globalToken => {
-    const globalTokenUsedElement = `
+const buildGlobalTokenUsedElement = globalToken => deindentHTML(`
     <span class="c-tokensTable-tokenDescription">
         <span class="u-font-bold u-showAboveWide">Global token used:</span>
         <span class="c-tokensTable-token c-tokensTable-token--light">${globalToken}</span>
-    </span>`;
-
-    return deindentHTML(globalTokenUsedElement);
-};
+    </span>`);
 
 /**
  * Builds the overall token description element for each type of token. The description content differs based on the type of token.
- * @param {string} token the token value i.e. #000, #ffffff, #000|0.85 or #000000|0.85
- * @param {*} tokenType the type of token i.e. color, spacing, radius
  * @param {*} tokenMetadata the metadata for the token. data such as descriptions
  * @returns {string} - the description HTML string
  */
-const buildTokenDescriptionElement = (tokenType, tokenMetadata) => {
-    const tokenTypeBuilder = {
-        [tokenTypes.COLOR]: buildColorDescription,
-        default: () => (tokenMetadata.description
-            ? `<span class="c-tokensTable-tokenDescription">${tokenMetadata.description}</span>`
-            : '')
-    };
-
-    let description = tokenType in tokenTypeBuilder
-        ? tokenTypeBuilder[tokenType](tokenMetadata)
-        : tokenTypeBuilder.default(tokenMetadata);
+const buildTokenDescriptionElement = tokenMetadata => {
+    let description = tokenMetadata.description
+        ? `<span class="c-tokensTable-tokenDescription ${tokenMetadata.globalToken ? 'u-spacing-b--bottom' : ''}">
+            ${tokenMetadata.description}
+           </span>`
+        : '';
 
     if (tokenMetadata.globalToken) {
         description += buildGlobalTokenUsedElement(tokenMetadata.globalToken);
@@ -123,6 +116,7 @@ const buildTokenPill = tokenScssName => `<span class="c-tokensTable-token">${tok
  * @param {string} config.tokenScssName - the design token SCSS name i.e. '$color-black'
  * @param {string} config.tokenDisplayName - the display name of the token i.e. 'Black'
  * @param {object} config.tokenMetadata - the metadata for the token. data such as descriptions
+ * @param {object} config.path - path to the category i.e.  'path:color.alias.default' / 'path:color.alias.dark'
  * @returns {string} - the list item HTML string
  */
 const buildTokenListElements = ({
@@ -130,18 +124,19 @@ const buildTokenListElements = ({
     tokenType,
     tokenScssName,
     tokenDisplayName,
-    tokenMetadata = {}
+    tokenMetadata = {},
+    path = {}
 }) => {
     const tokenPill = buildTokenPill(tokenScssName);
-    const tokenExampleElement = buildTokenExampleElement(token, tokenType, tokenMetadata);
+    const tokenExampleElement = buildTokenExampleElement(token, tokenType, tokenMetadata, path);
 
     // TODO - description is just an example of how we might use the metadata
     // We would likely wanted to move them into a colour specific handler similar to how we build
     // the colour token example. Please consider them placeholder for now.
-    const tokenDescription = buildTokenDescriptionElement(tokenType, tokenMetadata);
+    const tokenDescription = buildTokenDescriptionElement(tokenMetadata);
 
     return deindentHTML(`
-    <li class="c-tokensTable-row c-tokensTable-item">
+    <li class="c-tokensTable-row c-tokensTable-item" style="${getExampleColumnSize(tokenType)}">
         ${tokenExampleElement}
         <div class="c-tokensTable-content">
             <span class="c-tokensTable-displayName">${tokenDisplayName}</span>
@@ -156,8 +151,8 @@ const buildTokenListElements = ({
  * @param {string[]} listElements - the list items to render within the list
  * @returns {string} - the tokens list HTML elements
  */
-const buildTokensList = listElements => deindentHTML(`
-    <div class="c-tokensTable-row u-spacing-e--top u-showAboveWide c-tokensTable-heading">
+const buildTokensList = (listElements, tokenType) => deindentHTML(`
+    <div class="c-tokensTable-row u-spacing-e--top u-showAboveWide c-tokensTable-heading" style="${getExampleColumnSize(tokenType)}">
         <span>Example</span>
         <span>Description</span>
         <span>Token name</span>
@@ -165,6 +160,7 @@ const buildTokensList = listElements => deindentHTML(`
     <ul class="c-tokensTable-list">
         ${listElements.join('')}
     </ul>`);
+
 
 /**
  * Creates a tokens list for a given category
@@ -184,16 +180,18 @@ const buildTokensListForCategory = (tokens, path, category, tokenType) => {
         tokenScssName: createScssTokenName(key, tokenType),
         tokenDisplayName: tokenTypeMetadata[key].displayName ?? createTokenDisplayName(key, tokenType),
         tokenType,
-        tokenMetadata: tokenTypeMetadata[key]
+        tokenMetadata: tokenTypeMetadata[key],
+        path
     }));
 
-    return buildTokensList(tokenListElements);
+    return buildTokensList(tokenListElements, tokenType);
 };
 
 /**
  * Builds uncategorised list of tokens
  * @param {string} tokenType - the type of token i.e. color, spacing, radius
  * @param {object} tokens
+ * @param {object} path - path to the category i.e.  'path:color.alias.default' / 'path:color.alias.dark'
  * @returns - a string of html containing the list of tokens - with example, description and token name
  */
 const buildUncategorisedLists = ({
@@ -214,7 +212,7 @@ const buildUncategorisedLists = ({
         tokenMetadata: tokenTypeMetadata[token[0]]
     }));
 
-    return buildTokensList(tokenListElements);
+    return buildTokensList(tokenListElements, tokenType);
 };
 
 /**
@@ -287,8 +285,8 @@ const buildCategoryListsWithParents = ({
  */
 const buildTokenLists = (path, tokenType) => {
     const isGlobal = path.includes('global');
-    const tokens = objectHelpers.getObjectPropertyByPath(normalizedPieDesignTokens, `theme.jet.${path}`);
-    const parentCategories = getParentCategoriesForTokenType(`${tokenType}.${isGlobal ? 'global' : 'alias'}.parentCategories`);
+    const tokens = objectHelpers.getObjectPropertyByPath(normalisedPieDesignTokens, `theme.jet.${path}`);
+    const parentCategories = objectHelpers.getObjectPropertyByPath(pieTokenCategories, `${tokenType}.${isGlobal ? 'global' : 'alias'}.parentCategories`);
     const regularCategories = objectHelpers.getObjectPropertyByPath(pieTokenCategories, path);
 
     const config = {

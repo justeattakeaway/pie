@@ -1,6 +1,21 @@
 const pieTokensMetadata = require('../../../tokensMetadata.json');
-const pieTokenCategories = require('../../../tokenCategories.json');
 const { objectHelpers } = require('../../../utilities/helpers');
+const tokenTypes = require('../../../_data/tokenTypes');
+
+/**
+ * Gets the correct column size for each example based on token type.
+ * @param {string} tokenType - - the type of token i.e. color, spacing, radius
+ * @returns {string} - css variable containing correct column size
+ */
+const getExampleColumnSize = tokenType => {
+    const tokenColumnHandler = {
+        [tokenTypes.COLOR]: '240px',
+        [tokenTypes.FONT]: '240px',
+        default: '152px'
+    };
+
+    return `--template-columns: ${(tokenColumnHandler[tokenType] || tokenColumnHandler.default)}`;
+};
 
 /**
  * Gets all the metadata associated with tokens of a given type such as colour.
@@ -50,16 +65,9 @@ const validateConfiguration = ({ path, tokenType }) => {
     }
 };
 
-/**
- * Gets any parent categories for a token type such as colour, spacing
- * @param {string} parentCategoryPath
- * @returns - any parent categories for a token type
- */
-const getParentCategoriesForTokenType = parentCategoryPath => objectHelpers.getObjectPropertyByPath(pieTokenCategories, parentCategoryPath);
-
 // eslint-disable-next-line func-names
 module.exports = {
-    getParentCategoriesForTokenType,
+    getExampleColumnSize,
     getSubcategoriesForParentCategory,
     getTokensForCategory,
     getTokenTypeMetadata,
