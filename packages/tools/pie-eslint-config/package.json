@@ -13,7 +13,8 @@
     "tests-only": "babel-tape-runner ./test/test-*.js",
     "prepublishOnly": "(in-install || yarn check-rules) && (not-in-publish || yarn test) && safe-publish-latest",
     "pretest": "yarn lint && yarn check-rules",
-    "test": "yarn tests-only"
+    "test": "yarn tests-only",
+    "jest-test": "run -T jest"
   },
   "license": "Apache-2.0",
   "author": "JustEatTakeaway - Design System Web Team",
