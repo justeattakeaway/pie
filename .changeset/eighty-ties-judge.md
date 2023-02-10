@@ -2,4 +2,4 @@
 "@justeattakeaway/pie-button": minor
 ---
 
-Create decorator for validating property values
+[Added] Create decorator for validating property values
