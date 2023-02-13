@@ -1,0 +1,38 @@
+module.exports = {
+    rules: {
+        // These rules will be included as part of vue/vue3-recommended when we migrate to vue3
+        'vue/no-deprecated-data-object-declaration': 'off',
+        'vue/no-deprecated-destroyed-lifecycle': 'off',
+        'vue/no-deprecated-dollar-listeners-api': 'off',
+        'vue/no-deprecated-dollar-scopedslots-api': 'off',
+        'vue/no-deprecated-events-api': 'off',
+        'vue/no-deprecated-filter': 'off',
+        'vue/no-deprecated-functional-template': 'off',
+        'vue/no-deprecated-html-element-is': 'off',
+        'vue/no-deprecated-inline-template': 'off',
+        'vue/no-deprecated-props-default-this': 'off',
+        'vue/no-deprecated-router-link-tag-prop': 'off',
+        'vue/no-deprecated-v-bind-sync': 'off',
+        'vue/no-deprecated-v-is': 'off',
+        'vue/no-deprecated-v-on-native-modifier': 'off',
+        'vue/no-deprecated-v-on-number-modifiers': 'off',
+        'vue/no-deprecated-vue-config-keycodes': 'off',
+        'vue/no-export-in-script-setup': 'off',
+        'vue/no-lifecycle-after-await': 'off',
+        'vue/no-ref-as-operand': 'off',
+        'vue/no-setup-props-destructure': 'off',
+        'vue/no-v-for-template-key-on-child': 'off',
+        'vue/no-watch-after-await': 'off',
+        'vue/prefer-import-from-vue': 'off',
+        'vue/require-explicit-emits': 'off',
+        'vue/require-expose': 'off',
+        'vue/require-slots-as-functions': 'off',
+        'vue/require-toggle-inside-transition': 'off',
+        'vue/return-in-emits-validator': 'off',
+        'vue/v-on-event-hyphenation': 'off',
+        'vue/valid-define-emits': 'off',
+        'vue/valid-define-props': 'off',
+        'vue/valid-v-is': 'off',
+        'vue/valid-v-memo': 'off'
+    }
+};

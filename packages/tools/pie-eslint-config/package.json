@@ -5,7 +5,8 @@
   "exports": {
     ".": "./rule-sets/index.js",
     "./base": "./rule-sets/base.js",
-    "./strict": "./rule-sets/strict.js"
+    "./strict": "./rule-sets/strict.js",
+    "./rules": "./rules/index.js"
   },
   "scripts": {
     "lint": "eslint --report-unused-disable-directives ./rules",
