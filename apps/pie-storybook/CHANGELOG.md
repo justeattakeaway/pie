@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.3.0-beta.0
+
+### Minor Changes
+
+- [Changed] - Updated component interface for `pie-button` and use hard coded property values in select controls ([#171](https://github.com/justeattakeaway/pie/pull/171)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies [[`a0e4f52d`](https://github.com/justeattakeaway/pie/commit/a0e4f52d52370e45f2952d751499bd61082c6e5d), [`a0e4f52d`](https://github.com/justeattakeaway/pie/commit/a0e4f52d52370e45f2952d751499bd61082c6e5d), [`a0e4f52d`](https://github.com/justeattakeaway/pie/commit/a0e4f52d52370e45f2952d751499bd61082c6e5d), [`a0e4f52d`](https://github.com/justeattakeaway/pie/commit/a0e4f52d52370e45f2952d751499bd61082c6e5d), [`a0e4f52d`](https://github.com/justeattakeaway/pie/commit/a0e4f52d52370e45f2952d751499bd61082c6e5d), [`a0e4f52d`](https://github.com/justeattakeaway/pie/commit/a0e4f52d52370e45f2952d751499bd61082c6e5d)]:
+  - @justeattakeaway/pie-button@0.4.0-beta.0
+
 ## 0.2.0
 
 ### Minor Changes
