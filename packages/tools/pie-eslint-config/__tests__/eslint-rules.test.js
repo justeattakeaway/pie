@@ -26,15 +26,9 @@ export default class MyClass {
 }
 `;
 
-const eslintConfig = {
-    // TODO: useEslintrc and overrideConfigFile can be removed once we update the root .eslintrc.js
-    useEslintrc: false,
-    overrideConfigFile: '.eslintrc.js',
-};
-
 describe('ESLint', () => {
     it('should find the expected errors', async () => {
-        const eslint = new ESLint(eslintConfig);
+        const eslint = new ESLint();
         const results = await eslint.lintText(srcCodeWithIssues);
 
         expect(results.length).toBe(1);
@@ -42,7 +36,7 @@ describe('ESLint', () => {
     });
 
     it('shouldnt find any errors', async () => {
-        const eslint = new ESLint(eslintConfig);
+        const eslint = new ESLint();
         const results = await eslint.lintText(srcCodeWithoutIssues);
 
         expect(results.length).toBe(1);

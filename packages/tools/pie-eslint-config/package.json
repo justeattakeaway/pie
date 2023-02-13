@@ -8,7 +8,7 @@
     "./strict": "./rule-sets/strict.js"
   },
   "scripts": {
-    "lint": "eslint --report-unused-disable-directives \"**/*.js\"",
+    "lint": "eslint --report-unused-disable-directives ./rules",
     "check-rules": "eslint-find-rules --unused",
     "tests-only": "run -T jest",
     "prepublishOnly": "(in-install || yarn check-rules) && (not-in-publish || yarn test) && safe-publish-latest",
@@ -33,7 +33,6 @@
     "danger": "11.1.4",
     "eslint": "8.24.0",
     "eslint-find-rules": "4.1.0",
-    "eslint-plugin-import": "2.26.0",
     "in-publish": "2.0.1",
     "safe-publish-latest": "2.0.0"
   },
