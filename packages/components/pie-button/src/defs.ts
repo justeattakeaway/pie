@@ -47,3 +47,6 @@ export enum BUTTON_TYPE {
      */
     MENU = 'menu'
 }
+
+export const VALID_BUTTON_TYPES = Object.values(BUTTON_TYPE);
+export const VALID_BUTTON_VARIANTS = Object.values(BUTTON_VARIANT);
