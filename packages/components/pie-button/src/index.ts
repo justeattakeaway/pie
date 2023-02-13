@@ -4,15 +4,10 @@ import { customElement, property } from 'lit/decorators.js';
 
 import styles from './button.scss?inline';
 import { validPropertyValues } from './decorators';
-import {
-    BUTTON_TYPE,
-    BUTTON_VARIANT,
-    VALID_BUTTON_TYPES,
-    VALID_BUTTON_VARIANTS
-} from './defs';
+import { BUTTON_TYPE, BUTTON_VARIANT } from './defs';
 
 // Valid values available to consumers
-export { BUTTON_VARIANT, BUTTON_TYPE };
+export { BUTTON_TYPE, BUTTON_VARIANT };
 
 @customElement('pie-button')
 export class PieButton extends LitElement {
@@ -20,14 +15,14 @@ export class PieButton extends LitElement {
      * The Button type to use
      */
     @property()
-    @validPropertyValues(VALID_BUTTON_TYPES, BUTTON_TYPE.SUBMIT)
+    @validPropertyValues(Object.values(BUTTON_TYPE), BUTTON_TYPE.SUBMIT)
     type : BUTTON_TYPE = BUTTON_TYPE.SUBMIT;
 
     /**
      * The Button style variant to use
      */
     @property()
-    @validPropertyValues(VALID_BUTTON_VARIANTS, BUTTON_VARIANT.PRIMARY)
+    @validPropertyValues(Object.values(BUTTON_VARIANT), BUTTON_VARIANT.PRIMARY)
     variant : BUTTON_VARIANT = BUTTON_VARIANT.PRIMARY;
 
     render () {
