@@ -1,12 +1,25 @@
 import { html } from 'lit';
 import type { Meta, StoryObj } from '@storybook/web-components';
-import { PieButton } from '@justeattakeaway/pie-button';
+import { PieButton, BUTTON_TYPE, BUTTON_VARIANT } from '@justeattakeaway/pie-button';
+
+const buttonTypes = Object.values(BUTTON_TYPE);
+const buttonVariants = Object.values(BUTTON_VARIANT);
 
 const componentRef = [PieButton];
 
 const meta: Meta = {
     title: 'pie-button',
     component: 'pie-button',
+    argTypes: {
+        variant: {
+            control: 'select',
+            options: buttonVariants
+        },
+        type: {
+            control: 'select',
+            options: buttonTypes
+        },
+    }
 };
 
 export default meta;
@@ -15,18 +28,21 @@ export const Base: StoryObj = {};
 
 export const TypeButton: StoryObj = {
     args: {
-        actionType: "button"
+        type: "button",
+        variant: "primary"
     }
 };
 
 export const TypeSubmit: StoryObj = {
     args: {
-        actionType: "submit"
+        type: "submit",
+        variant: "primary"
     }
 };
 
 export const TypeReset: StoryObj = {
     args: {
-        actionType: "reset"
+        type: "reset",
+        variant: "primary"
     }
 };
