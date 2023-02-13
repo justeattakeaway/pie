@@ -2968,7 +2968,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-eslint-config@workspace:packages/tools/pie-eslint-config":
+"@justeattakeaway/pie-eslint-config@workspace:*, @justeattakeaway/pie-eslint-config@workspace:packages/tools/pie-eslint-config":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-eslint-config@workspace:packages/tools/pie-eslint-config"
   dependencies:
@@ -3012,6 +3012,7 @@ __metadata:
     "@vue/babel-helper-vue-jsx-merge-props": 1.4.0
     "@vue/babel-preset-jsx": 1.4.0
     bili: 3.4.2
+    eslint-plugin-vue: 8.7.1
     fs-extra: 9.0.1
     lodash.kebabcase: 4.1.1
     marked: 1.2.5
@@ -10709,6 +10710,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"eslint-plugin-vue@npm:8.7.1":
+  version: 8.7.1
+  resolution: "eslint-plugin-vue@npm:8.7.1"
+  dependencies:
+    eslint-utils: ^3.0.0
+    natural-compare: ^1.4.0
+    nth-check: ^2.0.1
+    postcss-selector-parser: ^6.0.9
+    semver: ^7.3.5
+    vue-eslint-parser: ^8.0.1
+  peerDependencies:
+    eslint: ^6.2.0 || ^7.0.0 || ^8.0.0
+  checksum: c3aefb226dea126db32cab4c570f17f4b4047d609f4f5748e8dc410e929fbbfacdc07af1421c0f7773398513e9363de4480694714bc85fa2188ca50d1d19cfbc
+  languageName: node
+  linkType: hard
+
 "eslint-rule-documentation@npm:^1.0.23":
   version: 1.0.23
   resolution: "eslint-rule-documentation@npm:1.0.23"
@@ -10726,7 +10743,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-scope@npm:^7.1.1":
+"eslint-scope@npm:^7.0.0, eslint-scope@npm:^7.1.1":
   version: 7.1.1
   resolution: "eslint-scope@npm:7.1.1"
   dependencies:
@@ -10754,7 +10771,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-visitor-keys@npm:^3.3.0":
+"eslint-visitor-keys@npm:^3.1.0, eslint-visitor-keys@npm:^3.3.0":
   version: 3.3.0
   resolution: "eslint-visitor-keys@npm:3.3.0"
   checksum: d59e68a7c5a6d0146526b0eec16ce87fbf97fe46b8281e0d41384224375c4e52f5ffb9e16d48f4ea50785cde93f766b0c898e31ab89978d88b0e1720fbfb7808
@@ -10855,7 +10872,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"espree@npm:^9.3.1, espree@npm:^9.4.0":
+"espree@npm:^9.0.0, espree@npm:^9.3.1, espree@npm:^9.4.0":
   version: 9.4.1
   resolution: "espree@npm:9.4.1"
   dependencies:
@@ -23831,6 +23848,23 @@ __metadata:
   version: 3.1.0
   resolution: "void-elements@npm:3.1.0"
   checksum: 0390f818107fa8fce55bb0a5c3f661056001c1d5a2a48c28d582d4d847347c2ab5b7f8272314cac58acf62345126b6b09bea623a185935f6b1c3bbce0dfd7f7f
+  languageName: node
+  linkType: hard
+
+"vue-eslint-parser@npm:^8.0.1":
+  version: 8.3.0
+  resolution: "vue-eslint-parser@npm:8.3.0"
+  dependencies:
+    debug: ^4.3.2
+    eslint-scope: ^7.0.0
+    eslint-visitor-keys: ^3.1.0
+    espree: ^9.0.0
+    esquery: ^1.4.0
+    lodash: ^4.17.21
+    semver: ^7.3.5
+  peerDependencies:
+    eslint: ">=6.0.0"
+  checksum: 8cc751e9fc2bfba93664ad8945732ab1c97791f9123e703de8669b65670d1e01906d80436bf4932d7ee6fa6174ed4545e8abb059206c88f4bd71957ca6cf7ba8
   languageName: node
   linkType: hard
 

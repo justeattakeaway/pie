@@ -1,6 +1,12 @@
+const { vue, vue3 } = require('@justeattakeaway/pie-eslint-config/rules');
+
 module.exports = {
+    extends: [
+        require.resolve('@justeattakeaway/pie-eslint-config'),
+        'plugin:vue/vue3-recommended'
+    ],
     rules: {
-        'vue/sort-keys': 'off'
+        ...vue.rules, ...vue3.rules, 'vue/sort-keys': 'off'
     },
     parserOptions: {
         parser: '@babel/eslint-parser',
