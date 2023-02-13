@@ -2,4 +2,4 @@
 "pie-microsite": patch
 ---
 
-updated display name of elevation alias token
+[Changed] Updated display name of elevation alias token
