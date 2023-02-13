@@ -5,7 +5,7 @@
  * @param defaultValue - The value to fall back on
  * @returns
  */
-export const validValues = (validValues: any[], defaultValue: any) => {
+export const validPropertyValues = (validValues: any[], defaultValue: any) => {
     return function (target: any, propertyKey: string) : void {
         const privatePropertyKey = `_${propertyKey}`;
 
@@ -18,7 +18,7 @@ export const validValues = (validValues: any[], defaultValue: any) => {
 
                 if (!validValues.includes(value)) {
                     console.error(
-                        `Invalid type value provided: "${value}".`,
+                        `[pie-button] Invalid value "${value}" provided for property "${propertyKey}".`,
                         `Must be one of: ${validValues.join(' | ')}.`,
                         `Falling back to default value: "${defaultValue}"`
                     );
