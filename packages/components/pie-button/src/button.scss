@@ -1,60 +1,60 @@
-@import '@justeat/pie-design-tokens/dist/jet.scss';
+@use '@justeat/pie-design-tokens/dist/jet.scss' as dt;
 
 .o-btn {
-    border-radius: $radius-rounded-e;
+    border-radius: dt.$radius-rounded-e;
     border: none;
-    font-family: $font-interactive-m-family;
-    font-weight: $font-interactive-m-weight;
+    font-family: dt.$font-interactive-m-family;
+    font-weight: dt.$font-interactive-m-weight;
 }
 
 // TODO - Use latest design tokens for font size and line height
 //        once fozzie has been updated to handle them.
 
 .o-btn--xsmall {
-    padding: 6px $spacing-b;
+    padding: 6px dt.$spacing-b;
     min-height: 32px;
     font-size: 14px;
     line-height: 20px;
 }
 
 .o-btn--small {
-    padding: 8px $spacing-d;
+    padding: 8px dt.$spacing-d;
     min-height: 40px;
     font-size: 19px;
     line-height: 28px;
 }
 
 .o-btn--medium {
-    padding: 10px $spacing-e;
+    padding: 10px dt.$spacing-e;
     min-height: 48px;
     font-size: 20px;
     line-height: 28px;
 }
 
 .o-btn--large {
-    padding: 14px $spacing-e;
+    padding: 14px dt.$spacing-e;
     min-height: 56px;
     font-size: 20px;
     line-height: 28px;
 }
 
 .o-btn--primary {
-    background-color: $color-interactive-brand;
-    color: $color-content-interactive-primary;
+    background-color: dt.$color-interactive-brand;
+    color: dt.$color-content-interactive-primary;
 }
 
 .o-btn--secondary {
-    background-color: $color-interactive-secondary;
-    color: $color-content-interactive-secondary;
+    background-color: dt.$color-interactive-secondary;
+    color: dt.$color-content-interactive-secondary;
 }
 
 .o-btn--outline {
-    border: 1px solid $color-border-strong;
-    background-color: $color-container-default;
-    color: $color-content-interactive-tertiary;
+    border: 1px solid dt.$color-border-strong;
+    background-color: dt.$color-container-default;
+    color: dt.$color-content-interactive-tertiary;
 }
 
 .o-btn--ghost {
-    background-color: $color-container-default;
-    color: $color-content-link;
+    background-color: dt.$color-container-default;
+    color: dt.$color-content-link;
 }
