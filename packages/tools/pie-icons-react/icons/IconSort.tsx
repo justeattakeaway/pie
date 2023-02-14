@@ -1,0 +1,4 @@
+import * as React from "react";
+import { SVGProps } from "react";
+const IconSort = (props: SVGProps<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" className="c-pieIcon c-pieIcon--sort" width="1em" height="1em" {...props}><path d="M9.75 11.7188H6.25V13.0312H9.75V11.7188Z" fill="#242E30" /><path d="M12.375 7.34375H3.625V8.65625H12.375V7.34375Z" fill="#242E30" /><path d="M15 2.96875H1V4.28125H15V2.96875Z" fill="#242E30" /></svg>;
+export default IconSort;
