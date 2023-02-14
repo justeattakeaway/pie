@@ -1,3 +1,57 @@
-@use '@justeat/fozzie/src/scss/fozzie' as f;
+@import '@justeat/pie-design-tokens/dist/jet.scss';
 
-@include f.buttons();
+.o-btn {
+    border-radius: $radius-rounded-e;
+    border: none;
+    font-family: $font-interactive-m-family;
+    font-weight: $font-interactive-m-weight;
+}
+
+.o-btn--xsmall {
+    padding: 6px $spacing-b;
+    min-height: 32px;
+    font-size: $font-size-14 * 1px;
+    line-height: $font-size-14-line-height * 1px;
+}
+
+.o-btn--small {
+    padding: 8px $spacing-d;
+    min-height: 40px;
+    font-size: $font-size-19 * 1px;
+    line-height: $font-size-19-line-height * 1px;
+}
+
+.o-btn--medium {
+    padding: 10px $spacing-e;
+    min-height: 48px;
+    font-size: $font-size-20 * 1px;
+    line-height: $font-size-20-line-height * 1px;
+}
+
+.o-btn--large {
+    padding: 14px $spacing-e;
+    min-height: 56px;
+    font-size: $font-size-20 * 1px;
+    line-height: $font-size-20-line-height * 1px;
+}
+
+.o-btn--primary {
+    background-color: $color-interactive-brand;
+    color: $color-content-interactive-primary;
+}
+
+.o-btn--secondary {
+    background-color: $color-interactive-secondary;
+    color: $color-content-interactive-secondary;
+}
+
+.o-btn--outline {
+    border: 1px solid $color-border-strong;
+    background-color: $color-container-default;
+    color: $color-content-interactive-tertiary;
+}
+
+.o-btn--ghost {
+    background-color: $color-container-default;
+    color: $color-content-link;
+}
