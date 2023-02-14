@@ -18,15 +18,30 @@ const meta: Meta = {
     argTypes: {
         size: {
             control: 'select',
-            options: buttonSizes
+            options: buttonSizes,
+            defaultValue: BUTTON_SIZE.MEDIUM,
+            table: {
+                type: { summary: 'Button size' },
+                defaultValue: { summary: 'medium' }
+            }
         },
         type: {
             control: 'select',
-            options: buttonTypes
+            options: buttonTypes,
+            defaultValue: BUTTON_TYPE.SUBMIT,
+            table: {
+                type: { summary: 'Button type' },
+                defaultValue: { summary: BUTTON_TYPE.SUBMIT }
+            }
         },
         variant: {
             control: 'select',
-            options: buttonVariants
+            options: buttonVariants,
+            defaultValue: BUTTON_VARIANT.PRIMARY,
+            table: {
+                type: { summary: 'Button variant' },
+                defaultValue: { summary: BUTTON_VARIANT.PRIMARY }
+            }
         }
     }
 };
