@@ -18,6 +18,8 @@ async function checkDirExists (directoryPath) {
     }
 }
 
+const handleComponentName = name => name.replace(/\-(\d+)/, '$1'); // eslint-disable-line no-useless-escape
+
 // check that the /icons directory exists, if not create it
 checkDirExists(ICONS_DIR);
 
@@ -31,7 +33,9 @@ const indexFile = fs.createWriteStream(
 
 // loop through the icons in pie-icons, generate each component and add it to the index.tsx
 Object.keys(icons).map(iconKey => {
-    const componentName = pascalCase(iconKey);
+    const pathPrefix = icons[iconKey].pathPrefix;
+    const capitalisedPathPrefix = (pathPrefix !== undefined ? (pathPrefix).substring(1, 2).toUpperCase() + (pathPrefix).substring(2) : '');
+    const componentName = `Icon${capitalisedPathPrefix + pascalCase(handleComponentName(iconKey))}`;
     const Comp = svgr.transform.sync(
         icons[iconKey].toSvg(),
         { icon: true, typescript: true },

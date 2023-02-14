@@ -1,0 +1,4 @@
+import * as React from "react";
+import { SVGProps } from "react";
+const IconFullscreenExit = (props: SVGProps<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" className="c-pieIcon c-pieIcon--fullscreenExit" width="1em" height="1em" {...props}><path d="M6.03125 1.12289L4.71875 1.86025V4.71874H1.76562L1.10938 6.03124H6.03125V1.12289Z" fill="#242E30" /><path d="M9.96875 1.10938L11.2812 1.76562V4.71875H14.1397L14.8771 6.03125H9.96875V1.10938Z" fill="#242E30" /><path d="M14.8906 9.96875L14.2344 11.2812H11.2812V14.1397L9.96875 14.8771V9.96875H14.8906Z" fill="#242E30" /><path d="M1.12294 9.96875L1.8603 11.2812H4.71879V14.2344L6.03129 14.8906V9.96875H1.12294Z" fill="#242E30" /></svg>;
+export default IconFullscreenExit;
