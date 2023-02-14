@@ -1,4 +1,5 @@
 @use '../fozzie-config' as f;
+@use '../variables' as v;
 
 .page {
     min-height: 100%;
@@ -34,6 +35,15 @@
 .c-main {
     grid-area: main;
     position: relative;
+
+    .c-main-container {
+        @include f.media('>=#{v.$wide-screen-content}') {
+            max-width: v.$wide-screen-content;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0;
+        }
+    }
 }
 
 .c-footer {

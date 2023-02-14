@@ -1,4 +1,6 @@
 <nav aria-label="Secondary navigational tabs" class="c-tabs">
+            <div class="c-main-container">
+
     <ul>
         {%- for entry in collections.all | eleventyNavigation(navKey) %}
         <li
@@ -18,4 +20,5 @@
                 {% endif %}
         {%- endfor %}
     </ul>
+    </div>
 </nav>

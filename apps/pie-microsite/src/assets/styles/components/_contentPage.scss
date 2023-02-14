@@ -47,6 +47,11 @@
     @include f.media('>=narrowMid') {
         background-position: center;
     }
+
+    @include f.media('>=#{v.$wide-screen-content}') {
+        background-size: v.$wide-screen-content;
+        background-color: f.$color-container-strong;
+    }
 }
 
 .c-contentPage-header--hero .c-contentPage-header-heading,
@@ -61,8 +66,13 @@
 }
 
 .c-contentPage-header-subheading {
-    @include f.font-size('heading-s');
+    @include f.font-size('body-l');
     margin-top: f.spacing(e);
+    max-width: 50ch;
+
+    @include f.media('>=wide') {
+        @include f.font-size('heading-s');
+    }
 }
 
 .c-contentPage-content {
