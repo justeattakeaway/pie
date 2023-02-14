@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.53.1
+
+### Patch Changes
+
+- [Changed] Updated display name of elevation alias token ([#172](https://github.com/justeattakeaway/pie/pull/172)) by [@LTurns](https://github.com/LTurns)
+
 ## 1.53.0
 
 ### Minor Changes
