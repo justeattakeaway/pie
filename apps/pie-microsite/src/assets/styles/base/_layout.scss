@@ -37,8 +37,9 @@
     position: relative;
 
     .c-main-container {
+        max-width: v.$wide-screen-content;
+
         @include f.media('>=#{v.$wide-screen-content}') {
-            max-width: v.$wide-screen-content;
             margin-left: auto;
             margin-right: auto;
             padding: 0;
