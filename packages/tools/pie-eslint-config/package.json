@@ -11,10 +11,9 @@
   "scripts": {
     "lint": "eslint --report-unused-disable-directives ./rules",
     "check-rules": "eslint-find-rules --unused",
-    "tests-only": "run -T jest",
-    "prepublishOnly": "(in-install || yarn check-rules) && (not-in-publish || yarn test) && safe-publish-latest",
     "pretest": "yarn lint && yarn check-rules",
-    "test": "yarn tests-only"
+    "test": "yarn tests-only",
+    "tests-only": "run -T jest"
   },
   "license": "Apache-2.0",
   "author": "JustEatTakeaway - Design System Web Team",
@@ -28,14 +27,8 @@
     "eslint-config-airbnb-base": "15.0.0"
   },
   "devDependencies": {
-    "@babel/core": "7.19.3",
-    "@babel/runtime": "7.19.0",
-    "babel-preset-airbnb": "5.0.0",
-    "danger": "11.1.4",
     "eslint": "8.24.0",
-    "eslint-find-rules": "4.1.0",
-    "in-publish": "2.0.1",
-    "safe-publish-latest": "2.0.0"
+    "eslint-find-rules": "4.1.0"
   },
   "peerDependencies": {
     "eslint": "7.x || 8.x",
