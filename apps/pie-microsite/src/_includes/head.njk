@@ -1,6 +1,19 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ site_title }}</title>
+    <meta name="description" content="{{ metadata.description }}">
+    <title>{{ site_title or metadata.title }}</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ '/apple-touch-icon.png' | url }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ '/favicon-32x32.png' | url }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ '/favicon-16x16.png' | url }}">
+    <link rel="manifest" href="{{ '/site.webmanifest' | url }}">
+    <link rel="mask-icon" href="{{ '/safari-pinned-tab.svg' | url }}" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#5b3d5b">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{{ metadata.title }}">
+    <meta property="og:url" content="{{ metadata.url }}">
+    <meta property="og:image:alt" content="{{ metadata.title }}">
+    <meta property="og:description" content="{{ metadata.description }}">
     {% include "head-common.njk" %}
 </head>
