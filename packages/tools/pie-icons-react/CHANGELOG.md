@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.0.0-beta.5
+
+### Major Changes
+
+- [Changed] Updating icons to include correct prefix (i.e. IconPayments/IconSocial/Icon etc) by [@ashleynolan](https://github.com/ashleynolan)
+
 ## 2.0.0-beta.4
 
 ### Major Changes
@@ -18,10 +24,9 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html)
 
+## 1.0.0-beta.0
 
-1.0.0-beta.0
-------------------------------
-*October 12, 2022*
+_October 12, 2022_
 
 ### Added
 
