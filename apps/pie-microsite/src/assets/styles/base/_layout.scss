@@ -38,11 +38,12 @@
 
     .c-main-container {
         max-width: v.$wide-screen-content;
+        margin: 0;
+        padding: 0;
 
         @include f.media('>=#{v.$wide-screen-content}') {
             margin-left: auto;
             margin-right: auto;
-            padding: 0;
         }
     }
 }
