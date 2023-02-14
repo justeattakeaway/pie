@@ -68,6 +68,8 @@ Follow the prompts to select which package(s) are affected by your change, and w
 
 Considerations:
 
+- When writing your Changesets message, be sure to prefix your message with one of the following: `[Added]`, `[Changed]`, `[Fixed]` or `[Removed]`.
+- E.g. `[Added] - My new webpage.`
 - You can use markdown in your changeset to include code examples, headings, and more. However, **please use plain text for the first line of your changeset**. The formatting of the GitHub release notes does not support headings as the first line of the changeset.
 - When selecting packages for the changesets, only select packages which are intended to be published.
 
