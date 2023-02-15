@@ -48,8 +48,8 @@
         background-position: center;
     }
 
-    @include f.media('>=#{v.$wide-screen-content}') {
-        background-size: v.$wide-screen-content;
+    @include f.media('>=#{v.$wide-screen-content-max-width}') {
+        background-size: v.$wide-screen-content-max-width;
         background-color: f.$color-container-strong;
     }
 }
@@ -146,7 +146,7 @@
         > a,
         > span,
         > ul {
-            max-width: v.$content-max-width;
+            max-width: v.$typography-content-max-width;
         }
     }
 }

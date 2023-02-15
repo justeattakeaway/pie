@@ -39,11 +39,11 @@
 }
 
 .c-content-container {
-    max-width: v.$wide-screen-content;
+    max-width: v.$wide-screen-content-max-width;
     margin: 0;
     padding: 0;
 
-    @include f.media('>=#{v.$wide-screen-content}') {
+    @include f.media('>=#{v.$wide-screen-content-max-width}') {
         margin-left: auto;
         margin-right: auto;
     }
