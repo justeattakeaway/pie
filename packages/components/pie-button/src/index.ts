@@ -35,9 +35,10 @@ export class PieButton extends LitElement {
 
         return html`
             <button
+                data-test-id="woo hey"
                 class="${classes}"
                 type=${type}>
-                I'm a PIE button
+               hey
             </button>`;
     }
 

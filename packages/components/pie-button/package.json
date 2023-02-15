@@ -3,12 +3,18 @@
   "version": "0.3.0",
   "description": "PIE design system button built using web components",
   "type": "module",
-  "main": "dist/pie-button.js",
+  "main": "dist/index.js",
   "scripts": {
-    "build": "npx tsc && run -T vite build",
+    "build": "npx tsc && run -T vite build && tsup",
     "dev": "run -T vite",
+    "watch": "tsup --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "JustEatTakeaway - Design System Web Team",
-  "license": "Apache-2.0"
+  "license": "Apache-2.0",
+  "dependencies": {
+    "autoprefixer": "^10.4.13",
+    "sass": "^1.58.1",
+    "tsup": "^6.6.3"
+  }
 }
