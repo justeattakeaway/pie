@@ -19,24 +19,6 @@ title: "New to Figma?",
 message: "If you’re new to Figma, check [these tutorials](https://www.figma.com/resources/learn-design/?fuid=1093444461414143879) that will help you learn how to use the tool in no time."
 } %}
 
-{% notification {
-type: "warning",
-title: "New to Figma?",
-message: "If you’re new to Figma, check [these tutorials](https://www.figma.com/resources/learn-design/?fuid=1093444461414143879) that will help you learn how to use the tool in no time."
-} %}
-
-{% notification {
-type: "positive",
-title: "New to Figma?",
-message: "If you’re new to Figma, check [these tutorials](https://www.figma.com/resources/learn-design/?fuid=1093444461414143879) that will help you learn how to use the tool in no time."
-} %}
-
-{% notification {
-type: "error",
-title: "New to Figma?",
-message: "If you’re new to Figma, check [these tutorials](https://www.figma.com/resources/learn-design/?fuid=1093444461414143879) that will help you learn how to use the tool in no time."
-} %}
-
 ---
 
 ## How is PIE structured?
