@@ -38,5 +38,5 @@ $contentImage-bg-minHeight:         280px;
 .c-contentImage-caption {
     margin-top: f.spacing(d);
     @include f.font-size('body-s');
-    max-width: v.$content-max-width;
+    max-width: v.$typography-content-max-width;
 }
