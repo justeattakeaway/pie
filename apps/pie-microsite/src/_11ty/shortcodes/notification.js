@@ -12,22 +12,22 @@ const notificationSettings = {
     error: {
         iconFill: 'support-error',
         bgColour: 'support-error-02',
-        iconName: 'AlertCircleSmall'
+        iconName: 'alert-circle'
     },
     warning: {
         iconFill: 'support-warning',
         bgColour: 'support-warning-02',
-        iconName: 'AlertTriangleSmall'
+        iconName: 'alert-triangle'
     },
     information: {
         iconFill: 'support-info',
         bgColour: 'support-info-02',
-        iconName: 'InfoCircleOutlineSmall'
+        iconName: 'info-circle'
     },
     positive: {
         iconFill: 'support-positive',
         bgColour: 'support-positive-02',
-        iconName: 'CheckCircleOutlineSmall'
+        iconName: 'check-circle'
     }
 };
 

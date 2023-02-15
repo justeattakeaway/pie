@@ -18,7 +18,7 @@ const getIconSvg = (iconName, iconFill) => {
 /**
  * A List HTML component – takes an array of list items and turns them into a marked-up list
  * @param {string} type - Type of list: ordered, pill, icon
- * @param {string} iconName - icon name such as "CloseCircleFilledSmall" if type is icon
+ * @param {string} iconName - icon name such as "close-circle-filled" if type is icon
  * @param {string} iconFill - fill token name such as "support-positive" if type is icon
  * @param {string[] items - An array of list items
  * @returns {string}
