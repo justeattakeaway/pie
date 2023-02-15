@@ -20,8 +20,8 @@
             {% for category in section %}
                 <li>
                     <details {% if page.url.includes(category.url) %} open{% endif %}>
-                        <summary class="c-nav-category">
-                            {{ { name: navigationIcons[category.key], attrs: { fill: categoryIconFill, height: '24', width: '24' } } | pieIconsSvg | safe }}
+                        <summary class="c-nav-category" style="--icon-fill: {{categoryIconFill}};">
+                            {{ { name: navigationIcons[category.key], attrs: { fill: categoryIconFill, height: '24', width: '24', class:'u-iconFilled' } } | pieIconsSvg | safe }}
                             {{ category.title }}
                             {{ { name: 'chevron-up', attrs: { fill: chevronFill, height: '18', width: '18', class:'c-nav-toggle c-nav-toggle--close' } } | pieIconsSvg | safe }}
                             {{ { name: 'chevron-down', attrs: { fill: chevronFill, height: '18', width: '18', class:'c-nav-toggle c-nav-toggle--open' } } | pieIconsSvg | safe }}

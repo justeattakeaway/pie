@@ -10,7 +10,8 @@ const getIconSvg = (iconName, iconFill) => {
         attrs: {
             height: 20,
             width: 20,
-            fill: iconFill && pieDesignTokenColours({ tokenName: iconFill, tokenPath: ['alias', 'default'] })
+            fill: iconFill,
+            class: iconFill && 'u-iconFilled'
         }
     });
 };
@@ -32,8 +33,9 @@ module.exports = function ({
     }
 
     const isIconType = type === listTypes.icon;
+    const iconFillHexcode = iconFill ? pieDesignTokenColours({ tokenName: iconFill, tokenPath: ['alias', 'default'] }) : null;
     const listItems = items.map(item => `<li class="c-list-item">
-        ${isIconType ? getIconSvg(iconName, iconFill) : ''}
+        ${isIconType ? getIconSvg(iconName, iconFillHexcode) : ''}
         ${markdownFilter(item, true)}
         </li>`).join('');
     const listTag = type === listTypes.ordered ? 'ol' : 'ul';
@@ -42,7 +44,7 @@ module.exports = function ({
         `c-list--${type}`
     ];
 
-    return `<${listTag} class="${listClasses.join(' ')}">
+    return `<${listTag} class="${listClasses.join(' ')}"  ${isIconType ? `style="--icon-fill: ${iconFillHexcode}";` : ''}>
         ${listItems}
     </${listTag}>`;
 };
