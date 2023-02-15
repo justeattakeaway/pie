@@ -1,5 +1,21 @@
 # Changelog
 
+## 1.54.0
+
+### Minor Changes
+
+- [Added] Start of Open Graph metadata for site previews on social media ([#177](https://github.com/justeattakeaway/pie/pull/177)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] Site favicons and files to support various browsers/devices ([#177](https://github.com/justeattakeaway/pie/pull/177)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] metadata.js file for all site metadata to live in ([#177](https://github.com/justeattakeaway/pie/pull/177)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+## 1.53.1
+
+### Patch Changes
+
+- [Changed] Updated display name of elevation alias token ([#172](https://github.com/justeattakeaway/pie/pull/172)) by [@LTurns](https://github.com/LTurns)
+
 ## 1.53.0
 
 ### Minor Changes

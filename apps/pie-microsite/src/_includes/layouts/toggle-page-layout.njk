@@ -1,5 +1,4 @@
 ---
-site_title: Pie Site
 layout: layouts/page-layout.njk
 contentAKey: toggle-content-a
 contentBKey: toggle-content-b
@@ -18,7 +17,7 @@ bodyDataAttribute: data-toggle-page
         <input
             id="toggle-option-a"
             class="c-toggle-input"
-            type="radio" 
+            type="radio"
             {% if isToggleASelected %} checked {% endif %}/>
         <label
             class="c-toggle-label"
@@ -32,7 +31,7 @@ bodyDataAttribute: data-toggle-page
         <input
             id="toggle-option-b"
             class="c-toggle-input"
-            type="radio" 
+            type="radio"
             {% if not isToggleASelected %} checked {% endif %} />
         <label
             class="c-toggle-label"
@@ -41,12 +40,12 @@ bodyDataAttribute: data-toggle-page
         </label>
     </div>
 </div>
-<hr/> 
+<hr/>
 
-{# 
-    How to use: 
+{#
+    How to use:
     ===========
-    
+
     The toggle page is designed to allow users to toggle between two variations of content:
     Content A and Content B.
 
@@ -59,7 +58,7 @@ bodyDataAttribute: data-toggle-page
 
     ---
 
-    Because 11ty renders the pages as pre-built HTML pages, 
+    Because 11ty renders the pages as pre-built HTML pages,
     Content A and Content B will need to be pre-marked as either 'shown' or 'hidden'.
 
     An example of this is the alias tokens pages in foundations/colour where we have light and dark tokens.
@@ -67,7 +66,7 @@ bodyDataAttribute: data-toggle-page
     Content A (the left side of the toggle control) displays the light theme alias tokens.
     Content B (the right side of the toggle control) displays the dark theme alias tokens.
 
-    Content A and B are defined as 'light' and 'dark' in the foundations/colour/tokens/alias/alias.json data file 
+    Content A and B are defined as 'light' and 'dark' in the foundations/colour/tokens/alias/alias.json data file
     (and will need to be declared accordingly in any other toggle page folders).
 
     ---
