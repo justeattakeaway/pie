@@ -6,8 +6,7 @@ const getIconByName = (iconName, iconAttributes) => {
     try {
         return pieIcons.default.icons[iconName].toSvg(iconAttributes);
     } catch (error) {
-    // eslint-disable-next-line no-console
-        console.error(`Could not find icon of name: ${iconName}. Error: ${error}`);
+        throw new Error(`Could not find icon of name: ${iconName}. Error: ${error}`);
     }
 };
 
