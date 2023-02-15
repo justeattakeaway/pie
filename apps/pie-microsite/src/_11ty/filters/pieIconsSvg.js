@@ -1,6 +1,5 @@
 const pieIcons = require('@justeattakeaway/pie-icons');
 
-
 // eslint-disable-next-line consistent-return
 const getIconByName = (iconName, iconAttributes) => {
     try {
