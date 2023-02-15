@@ -36,15 +36,16 @@
     grid-area: main;
     position: relative;
 
-    .c-main-container {
-        max-width: v.$wide-screen-content;
-        margin: 0;
-        padding: 0;
+}
 
-        @include f.media('>=#{v.$wide-screen-content}') {
-            margin-left: auto;
-            margin-right: auto;
-        }
+.c-content-container {
+    max-width: v.$wide-screen-content;
+    margin: 0;
+    padding: 0;
+
+    @include f.media('>=#{v.$wide-screen-content}') {
+        margin-left: auto;
+        margin-right: auto;
     }
 }
 

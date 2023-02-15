@@ -8,11 +8,6 @@ $tabs-link-padding:                f.spacing(d);
   font-weight: f.$font-weight-bold;
 
   ul {
-    $tabs-padding: 64px - 16px; // To match grid-template-rows from layout file.
-
-    margin: 0;
-    padding: 0;
-
     .c-tabs-item {
       display: inline-block;
     }
