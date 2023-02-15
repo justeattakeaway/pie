@@ -1,83 +1,58 @@
-import type { Meta, StoryObj } from '@storybook/web-components';
-import {
-    PieButton,
-    BUTTON_SIZE,
-    BUTTON_TYPE,
-    BUTTON_VARIANT
-} from '@justeattakeaway/pie-button';
+import type { Meta, StoryObj as Story } from '@storybook/web-components';
 
-const buttonSizes = Object.values(BUTTON_SIZE);
-const buttonTypes = Object.values(BUTTON_TYPE);
-const buttonVariants = Object.values(BUTTON_VARIANT);
+import { BUTTON_SIZE, BUTTON_TYPE, BUTTON_VARIANT } from '@justeattakeaway/pie-button';
 
-const componentRef = [PieButton];
-
-const meta: Meta = {
-    title: 'pie-button',
+export default {
+    title: 'Button',
     component: 'pie-button',
     argTypes: {
         size: {
             control: 'select',
-            options: buttonSizes,
-            defaultValue: BUTTON_SIZE.MEDIUM,
-            table: {
-                type: { summary: 'Button size' },
-                defaultValue: { summary: 'medium' }
-            }
+            options: Object.values(BUTTON_SIZE)
         },
         type: {
             control: 'select',
-            options: buttonTypes,
-            defaultValue: BUTTON_TYPE.SUBMIT,
-            table: {
-                type: { summary: 'Button type' },
-                defaultValue: { summary: BUTTON_TYPE.SUBMIT }
-            }
+            options: Object.values(BUTTON_TYPE)
         },
         variant: {
             control: 'select',
-            options: buttonVariants,
-            defaultValue: BUTTON_VARIANT.PRIMARY,
-            table: {
-                type: { summary: 'Button variant' },
-                defaultValue: { summary: BUTTON_VARIANT.PRIMARY }
-            }
+            options: Object.values(BUTTON_VARIANT)
         }
-    }
-};
-
-export default meta;
-
-export const Base: StoryObj = {};
-
-export const PrimaryButton: StoryObj = {
+    },
     args: {
         size: BUTTON_SIZE.MEDIUM,
         type: BUTTON_TYPE.SUBMIT,
         variant: BUTTON_VARIANT.PRIMARY
-    }
+    },
+} as Meta;
+
+const defaultArgs = {
+    size: BUTTON_SIZE.MEDIUM,
+    type: BUTTON_TYPE.SUBMIT,
+    variant: BUTTON_VARIANT.PRIMARY
 };
 
-export const SecondaryButton: StoryObj = {
+export const Primary : Story = {
+    args: defaultArgs
+};
+
+export const Secondary : Story = {
     args: {
-        size: BUTTON_SIZE.MEDIUM,
-        type: BUTTON_TYPE.SUBMIT,
+        ...defaultArgs,
         variant: BUTTON_VARIANT.SECONDARY
     }
 };
 
-export const OutlineButton: StoryObj = {
+export const Outline : Story = {
     args: {
-        size: BUTTON_SIZE.MEDIUM,
-        type: BUTTON_TYPE.SUBMIT,
+        ...defaultArgs,
         variant: BUTTON_VARIANT.OUTLINE
     }
 };
 
-export const GhostButton: StoryObj = {
+export const Ghost : Story = {
     args: {
-        size: BUTTON_SIZE.MEDIUM,
-        type: BUTTON_TYPE.SUBMIT,
+        ...defaultArgs,
         variant: BUTTON_VARIANT.GHOST
     }
 };
