@@ -25,9 +25,9 @@ We want to make our products awesome by making modern, accessible, flexible and 
 
 PIE should always be there for you. To achieve this, we want to make sure we understand what you’re trying to achieve and how we can help you achieve it.
 
-We’re always committed to review our Core Components if there are changes and suggestions that might benefit your team (as well as others). 
+We’re always committed to review our Core Components if there are changes and suggestions that might benefit your team (as well as others).
 
-Keep in mind that you can always contribute directly to PIE Business Area libraries. With our support, you’ll be able to add or amend components, while we keep an eye on the quality and consistency of the user experience. 
+Keep in mind that you can always contribute directly to PIE Business Area libraries. With our support, you’ll be able to add or amend components, while we keep an eye on the quality and consistency of the user experience.
 
 Please check our contributing guidelines for [Designers]() and [Engineers]() for more information on how you can collaborate with us.
 
@@ -47,7 +47,7 @@ First, make sure the problem is reproducible. Once confirmed, send us a bug repo
 
 ## I need a new icon. How do I add it?
 
-All new icons requests should be submitted through the [icon request form](https://docs.google.com/forms/d/16x_tEnAZS75vamcGQpOwipjCfz6Nczg2TfI0a_Ixh9U/viewform?pli=1&pli=1&edit_requested=true). Please read the [Contact Us]() page for more information on how to contact us directly with an icon request. 
+All new icons requests should be submitted through the [icon request form](https://docs.google.com/forms/d/16x_tEnAZS75vamcGQpOwipjCfz6Nczg2TfI0a_Ixh9U/viewform?pli=1&pli=1&edit_requested=true). Please read the [Contact Us]() page for more information on how to contact us directly with an icon request.
 
 Please keep in mind though that if there’s a similar icon already in use, we will suggest you to use that instead.
 
