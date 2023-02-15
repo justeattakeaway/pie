@@ -19,3 +19,8 @@ Local dev server using Vite (with hot module reloading)
 ```
 yarn dev
 ```
+
+Local watcher using tsup and Vite (watches for changes and recompiles `dist`)
+```
+yarn watch
+```

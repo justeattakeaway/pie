@@ -12,6 +12,8 @@ yarn
 
 `cd` into the monorepo root folder and start Storybook in development mode: `yarn dev --filter=pie-storybook`
 
+If you are working on a component: make sure storybook is running, open an new terminal, `cd` into `packages/components/[component]` and run `yarn watch`. Any changes you make should automatically compile when saved and will appear in storybook.
+
 Story files are stored at the `apps/pie-storybook/stories` folder and follow the naming convention described below:
 
 `<component-name>.stories.ts`
