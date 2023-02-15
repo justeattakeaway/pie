@@ -3,7 +3,6 @@ eleventyNavigation:
     key: Contact us
     parent: Support
     order: 2
-site_title: "Contact us"
 title: Contact us
 description: Have a question about our design system? The PIE team is here to assist you.
 ---

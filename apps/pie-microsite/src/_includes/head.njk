@@ -1,5 +1,5 @@
 {# Allows for titles such as 'Foundations - Colour | PIE Design System' and fallsback to 'PIE Design System' #}
-{% set pageTitle = [site_title, " | ", metadata.title] | join if site_title else metadata.title %}
+{% set pageTitle = [title, " | ", metadata.title] | join if title else metadata.title %}
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

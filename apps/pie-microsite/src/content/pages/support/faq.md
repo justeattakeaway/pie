@@ -3,7 +3,6 @@ eleventyNavigation:
     key: FAQ
     parent: Support
     order: 1
-site_title: "FAQs"
 title: FAQs
 description: Here you’ll find the answers to our frequently asked questions, but  feel free to reach out to us if you need additional help.
 ---

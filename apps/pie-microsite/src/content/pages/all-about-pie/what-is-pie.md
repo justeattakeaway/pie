@@ -2,7 +2,6 @@
 eleventyNavigation:
     key: What is PIE
     parent: All about PIE
-site_title: "What is PIE?"
 title: What is PIE?
 description: Principles for Interfaces and Experiences (PIE) is Just Eat Takeaway’s global design system.
 ---
