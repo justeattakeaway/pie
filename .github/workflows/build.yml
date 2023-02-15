@@ -18,6 +18,8 @@ on:
       - beta-*
       - feature-*
 
+concurrency: CI-${{ github.ref }}
+
 jobs:
   install:
     runs-on: ubuntu-latest
@@ -90,7 +92,6 @@ jobs:
 
   deploy-microsite:
     needs: build
-    concurrency: deploy-microsite-${{ github.ref }}
     runs-on: ubuntu-latest
     steps:
       # Checkout the Repo
@@ -149,7 +150,6 @@ jobs:
   deploy-storybook:
     needs: build
     runs-on: ubuntu-latest
-    concurrency: deploy-storybook-${{ github.ref }}
     steps:
       # Checkout the Repo
       - name: Checkout
