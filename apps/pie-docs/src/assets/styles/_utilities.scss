@@ -1,0 +1,16 @@
+@use 'fozzie-config' as f;
+
+.u-font-bold {
+    font-weight: f.$font-weight-bold;
+}
+
+// Allows us to override any default fills applied to svgs and their paths
+.u-iconFilled {
+    svg {
+        fill: var(--icon-fill);
+    }
+
+    path {
+        fill: var(--icon-fill);
+    }
+}

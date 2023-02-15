@@ -1,0 +1,61 @@
+@use '../fozzie-config' as f;
+@use '../variables' as v;
+
+.page {
+    min-height: 100%;
+    display: grid;
+    grid-template: 64px 1fr max-content / 260px 1fr;
+    grid-template-areas:
+        'header header'
+        'main main'
+        'footer footer';
+
+    // wider screen grid layout
+    @include f.media('>=wide') {
+        grid-template-areas:
+            'header header'
+            'nav main'
+            'nav footer';
+    }
+}
+
+.c-header {
+    grid-area: header;
+}
+
+.c-nav {
+    grid-area: nav;
+
+    @include f.media('<wide') {
+        grid-area: main;
+        grid-row-end: 5;
+    }
+}
+
+.c-main {
+    grid-area: main;
+    position: relative;
+
+}
+
+.c-content-container {
+    max-width: v.$wide-screen-content-max-width;
+    margin: 0;
+    padding: 0;
+
+    @include f.media('>=#{v.$wide-screen-content-max-width}') {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.c-footer {
+    grid-area: footer;
+}
+
+.c-main,
+.c-footer {
+    @include f.media('<wide') {
+        z-index: f.zIndex(low);
+    }
+}

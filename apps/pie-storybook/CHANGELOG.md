@@ -1,5 +1,26 @@
 # Changelog
 
+## 0.4.1
+
+### Patch Changes
+
+- Downgrade storybook version to fix build error ([#193](https://github.com/justeattakeaway/pie/pull/193)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+## 0.4.0
+
+### Minor Changes
+
+- [Changed] - Bring button styles into the component ([#178](https://github.com/justeattakeaway/pie/pull/178)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- [Changed] - Update table in pie-button story and use latest storybook version ([#178](https://github.com/justeattakeaway/pie/pull/178)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- [Added] - Size property to pie-button component ([#178](https://github.com/justeattakeaway/pie/pull/178)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+### Patch Changes
+
+- Updated dependencies [[`2a1eaa35`](https://github.com/justeattakeaway/pie/commit/2a1eaa35c6d027d419c99c6cddba72eabab19689), [`2a1eaa35`](https://github.com/justeattakeaway/pie/commit/2a1eaa35c6d027d419c99c6cddba72eabab19689), [`2a1eaa35`](https://github.com/justeattakeaway/pie/commit/2a1eaa35c6d027d419c99c6cddba72eabab19689)]:
+  - @justeattakeaway/pie-button@0.5.0
+
 ## 0.3.0
 
 ### Minor Changes

@@ -1,0 +1,336 @@
+@use '../fozzie-config' as f;
+@use '../variables' as v;
+
+$tokensTable-column-padding: f.spacing(d);
+$tokensTable-border-width: 1px;
+$tokensTable-spacing-container-height: 176px;
+$tokensTable-spacing-radius-height: 176px;
+$tokensTable-item-min-height: 128px;
+$tokensTable-item-vertical-padding: f.spacing(e);
+
+.c-tokensTable-title {
+    @include f.font-size('heading-l');
+
+    @include f.media('>mid') {
+        @include f.font-size('heading-xl');
+    }
+}
+
+.c-tokensTable-sectionSubheading {
+    @include f.font-size('subheading-s');
+
+    @include f.media('>mid') {
+        @include f.font-size('subheading-l');
+    }
+}
+
+.c-tokensTable-list {
+    list-style: none;
+    padding: 0;
+    margin: f.spacing(f) 0 0;
+    width: 100%;
+
+    @include f.media('>=wide') {
+        margin-top: 0;
+    }
+}
+
+.c-tokensTable-example-container--spacing {
+    background-color: f.$color-background-subtle;
+    position: relative;
+    min-height: $tokensTable-spacing-container-height;
+
+    @include f.media('>=wide') {
+        background-color: f.$color-background-default;
+        min-height: calc($tokensTable-item-min-height - calc($tokensTable-item-vertical-padding * 2));
+
+        @include f.media('>=wide') {
+            justify-self: start;
+            align-self: start;
+        }
+    }
+}
+
+.c-tokensTable-example-container--elevation {
+    background-color: var(--example-container);
+    position: relative;
+    min-height: 160px;
+
+    @include f.media('>=wide') {
+        min-height: calc($tokensTable-item-min-height - calc($tokensTable-item-vertical-padding * 2));
+        justify-self: start;
+        align-self: start;
+        min-width: 152px;
+        border-radius: f.$radius-03;
+    }
+}
+
+.c-tokensTable-example-container--radius {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: f.$color-background-subtle;
+    min-height: $tokensTable-spacing-radius-height;
+
+    @include f.media('>=wide') {
+        display: block;
+        background-color: transparent;
+        min-height: 80px;
+    }
+}
+
+.c-tokensTable-example {
+    background-color: var(--example-background-color, f.$color-background-subtle);
+    overflow: hidden;
+    min-height: $tokensTable-item-min-height;
+
+    @include f.media('>=wide') {
+        border-radius: f.$radius-03;
+        min-height: 80px;
+    }
+}
+
+.c-tokensTable-example--bordered {
+    @include f.media('>=wide') {
+        border: $tokensTable-border-width solid f.$color-border-default;
+    }
+}
+
+.c-tokensTable-example--checked {
+    background-color: f.$color-container-default;
+    background-image: linear-gradient(45deg, f.$color-dark-content-subdued 25%, transparent 25%, transparent 75%, f.$color-dark-content-subdued 75%, f.$color-dark-content-subdued),
+        linear-gradient(45deg, f.$color-dark-content-subdued 25%, transparent 25%, transparent 75%, f.$color-dark-content-subdued 75%, f.$color-dark-content-subdued);
+    background-size: 20px 20px;
+    background-position: 0 0, 30px 30px;
+    position: relative;
+
+    &:before {
+        content: '';
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background-color: var(--example-background-color);
+        position: absolute;
+        opacity: var(--example-checked-opacity);
+    }
+}
+
+.c-tokensTable-example--spacing {
+    // calculates the vertical positioning of the spacing examples (always slightly off-centre)
+    --base-negative-space: calc((#{$tokensTable-spacing-container-height} - var(--example-spacing)) / 2);
+    background-color: f.$color-content-default;
+    opacity: 10%;
+    width: var(--example-spacing);
+    height: var(--example-spacing);
+    border-radius: 2px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    position: absolute;
+    bottom: calc(var(--base-negative-space) - 8px);
+    top: calc(var(--base-negative-space) + 8px);
+
+    @include f.media('>=wide') {
+        bottom: 0;
+        top: 0;
+    }
+}
+
+.c-tokensTable-example--elevation {
+    background-color: var(--example-elevation);
+    width: f.spacing(i);
+    height: f.spacing(i);
+    border-radius: f.$radius-03;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    position: absolute;
+    bottom: f.spacing(g);
+    top: f.spacing(h);
+    box-shadow: var(--example-shadow);
+
+    @include f.media('>=wide') {
+        bottom: f.spacing(e);
+        top: f.spacing(e);
+        width: f.spacing(f);
+        height: f.spacing(f);
+    }
+}
+
+.c-tokensTable-example--radius {
+    width: 80px;
+    height: 80px;
+    margin-top: f.spacing(d);
+    background-color: f.$color-background-dark;
+    border-radius: var(--example-radius);
+    opacity: 0.1;
+
+    @include f.media('>=wide') {
+        margin-top: 0;
+    }
+}
+
+.c-tokensTable-example--font {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 184px;
+    padding: f.spacing(i) 0 f.spacing(g);
+    background-color: f.$color-background-subtle;
+    color: f.$color-content-default;
+    font-family: var(--example-font-family);
+    font-size: var(--example-font-size);
+    line-height: var(--example-font-line-height);
+    font-weight: var(--example-font-weight);
+    text-decoration: var(--example-font-text-decoration);
+    letter-spacing: var(--example-font-letter-spacing);
+
+    &.c-tokenTable-example-paragraph--font > p {
+        margin-top: 0;
+        margin-bottom: var(--example-font-paragraph-spacing);
+    }
+
+    @include f.media('>=wide') {
+        padding: 0;
+        display: block;
+        min-height: auto;
+        background-color: f.$color-background-default;
+    }
+}
+
+.c-tokensTable-displayName {
+    color: f.$color-content-default;
+    font-weight: f.$font-weight-bold;
+    margin-bottom: f.spacing(b);
+}
+
+.c-tokensTable-tokenDescription {
+    @include f.font-size('body-s');
+}
+
+.c-tokensTable-heading {
+    font-weight: f.$font-weight-bold;
+    @include f.font-size('body-s');
+    color: f.$color-content-subdued;
+}
+
+.c-tokensTable-row {
+    display: grid;
+    column-gap: $tokensTable-column-padding;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    overflow: hidden;
+
+    & + & {
+        margin-top: f.spacing(e);
+    }
+
+    @include f.media('>=wide') {
+        grid-template-columns: var(--template-columns) 1fr minmax(min-content, max-content);
+        grid-template-rows: 1fr;
+
+        & + & {
+            margin-top: 0;
+        }
+    }
+}
+
+.c-tokensTable-item {
+    position: relative;
+    padding: 0;
+    border: $tokensTable-border-width solid f.$color-border-default;
+    border-radius: f.$radius-03;
+
+    @include f.media('>=wide') {
+        padding: $tokensTable-item-vertical-padding 0;
+        border-radius: 0;
+        border-width: 0 0 $tokensTable-border-width 0;
+
+        // Any final token item at the end of a parent category list should not have a bottom border
+        // In pages where there are no parent categories, there should not be a bottom border on the final item in each list either
+        &:last-of-type:not(.c-tokensTable-sectionSubheading ~ .c-tokensTable-list .c-tokensTable-item),
+        .c-tokensTable-list:has(+ hr) &:last-of-type {
+            border-width: 0;
+            padding-bottom: 0;
+        }
+    }
+}
+
+.c-tokensTable-content {
+    padding: $tokensTable-column-padding;
+    background-color: f.$color-container-default;
+
+    > * {
+        display: block;
+    }
+
+    @include f.media('>=wide') {
+        padding: 0;
+        background-color: f.$color-background-default;
+    }
+}
+
+.c-tokensTable-token {
+    display: inline-block;
+    background-color: f.$color-container-dark;
+    color: f.$color-dark-content-default;
+    height: min-content;
+    border: 1px solid f.$color-border-subtle;
+    border-radius: f.$radius-03;
+    padding: calc(f.spacing(a) / 2) f.spacing(a);
+    @include f.font-size('body-s');
+}
+
+.c-tokensTable-token--light {
+    background-color: f.$color-container-strong;
+    color: f.$color-content-default;
+    border: none;
+}
+
+// .c-tokensTable-token elements sitting adjacent to examples or example containers
+// should be absolutely positioned as follows
+[class^='c-tokensTable-example'] ~ .c-tokensTable-token {
+    position: absolute;
+    top: f.spacing(d);
+    left: f.spacing(d);
+
+    @include f.media('>=wide') {
+        position: static;
+        border-width: 0;
+    }
+}
+
+.c-tokensTable-sectionHeading,
+.c-tokensTable-sectionDescription,
+.c-tokensTable-sectionSubheading {
+    max-width: v.$typography-content-max-width;
+}
+
+.c-tokensTable-sectionSubheading {
+    margin-top: f.spacing(f);
+
+    &:not(:first-of-type) {
+        margin-top: f.spacing(i);
+        position: relative;
+        // adds a visual divider above subheadings on mobile to add a bit of separation
+        &:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: -#{f.spacing(f)};
+            background-color: f.$color-border-default;
+            height: $tokensTable-border-width;
+        }
+
+        @include f.media('>=wide') {
+            margin-top: f.spacing(f);
+            &:before {
+                display: none;
+            }
+        }
+    }
+}
+

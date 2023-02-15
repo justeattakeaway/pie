@@ -1,0 +1,42 @@
+@use '../fozzie-config' as f;
+@use '../variables' as v;
+
+$contentImage-bg-minHeight:         280px;
+
+.c-contentImage {
+    margin: 0;
+    margin-top: f.spacing(e);
+}
+
+.c-contentImage--hasBackdrop .c-contentImage-backdrop {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: $contentImage-bg-minHeight;
+    padding: f.spacing(h) f.spacing(d);
+    background-color: f.$color-background-subtle;
+    border-radius: f.$radius-rounded-d;
+}
+
+.c-contentImage {
+    & img {
+        width: 100%;
+        display: block;
+    }
+
+    &.c-contentImage--fullWidth img {
+        border-radius: f.$radius-rounded-d;
+    }
+
+    &.c-contentImage--hasBackdrop img {
+        width: var(--img-width);
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+.c-contentImage-caption {
+    margin-top: f.spacing(d);
+    @include f.font-size('body-s');
+    max-width: v.$typography-content-max-width;
+}

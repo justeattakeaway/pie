@@ -4,8 +4,8 @@
 apps:
 - 'apps/**/*'
 
-pie-microsite:
-- 'apps/pie-microsite/**/*'
+pie-docs:
+- 'apps/pie-docs/**/*'
 
 pie-storybook:
 - 'apps/pie-storybook/**/*'
