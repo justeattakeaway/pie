@@ -1,0 +1,449 @@
+
+<!doctype html>
+<html lang="en">
+    
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <meta name="description" content="PIE is the global design system for Just Eat Takeaway.com, powering all our products.">
+    <title>Contributing | PIE Design System</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/pr-preview-docs/pr-185/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/pr-preview-docs/pr-185/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/pr-preview-docs/pr-185/favicon-16x16.png">
+    <link rel="manifest" href="/pr-preview-docs/pr-185/site.webmanifest">
+    <link rel="mask-icon" href="/pr-preview-docs/pr-185/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#5b3d5b">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Contributing | PIE Design System">
+    <meta property="og:url" content="https://www.pie.design/">
+    <meta property="og:image:alt" content="PIE Design System">
+    <meta property="og:description" content="PIE is the global design system for Just Eat Takeaway.com, powering all our products.">
+    <link rel="preload" href="https://d30v2pzvrfyzpo.cloudfront.net/fonts/JETSansDigital-Regular-optimised.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://d30v2pzvrfyzpo.cloudfront.net/fonts/JETSansDigital-Bold-optimised.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://d30v2pzvrfyzpo.cloudfront.net/fonts/JETSansDigital-ExtraBold-optimised.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="prefetch" href="/pr-preview-docs/pr-185/assets/img/heroes/home-hero.svg">
+<link rel="prefetch" href="/pr-preview-docs/pr-185/assets/img/coming-soon.svg">
+<style>
+    @font-face {
+        font-family: JETSansDigital;
+        src: url('https://d30v2pzvrfyzpo.cloudfront.net/fonts/JETSansDigital-Regular-optimised.woff2') format("woff2"),
+        url('https://d30v2pzvrfyzpo.cloudfront.net/fonts/JETSansDigital-Regular-optimised.woff') format("woff");
+        font-weight: 400;
+        font-display: swap;
+    }
+    @font-face {
+        font-family: JETSansDigital;
+        src: url('https://d30v2pzvrfyzpo.cloudfront.net/fonts/JETSansDigital-Bold-optimised.woff2') format("woff2"),
+        url('https://d30v2pzvrfyzpo.cloudfront.net/fonts/JETSansDigital-Bold-optimised.woff') format("woff");
+        font-weight: 700;
+        font-display: swap;
+    }
+    @font-face {
+        font-family: JETSansDigital;
+        src: url('https://d30v2pzvrfyzpo.cloudfront.net/fonts/JETSansDigital-ExtraBold-optimised.woff2') format("woff2"),
+        url('https://d30v2pzvrfyzpo.cloudfront.net/fonts/JETSansDigital-ExtraBold-optimised.woff') format("woff");
+        font-weight: 800;
+        font-display: swap;
+    }
+    body {
+        font-feature-settings: "tnum"; /* Enable tabular numbers */
+    }
+</style>
+<link rel="stylesheet" href="/pr-preview-docs/pr-185/assets/styles/main-95358eba.css" />
+
+
+
+</head>
+
+    <body >
+        <div class="page">
+            
+
+<input id="navToggle" class="c-navToggle-input is-visuallyHidden" type="checkbox" aria-label="Toggle Navigation" />
+<label class="c-navToggle"  for="navToggle" style="--icon-fill: #fff;">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" height="24" width="24" fill="#fff" class="c-pieIcon c-pieIcon--menu u-iconFilled"><path d="M15 4.28125H1V2.96875H15V4.28125ZM15 11.7188H1V13.0312H15V11.7188ZM15 7.34375H1V8.65625H15V7.34375Z" fill="#242E30"></path></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" height="24" width="24" fill="#fff" class="c-pieIcon c-pieIcon--close u-iconFilled"><path d="M11.8676 3.20496L8.0001 7.07248L4.13258 3.20496L3.20508 4.13246L7.0726 7.99998L3.20508 11.8675L4.13258 12.795L8.0001 8.92748L11.8676 12.795L12.7951 11.8675L8.92761 7.99998L12.7951 4.13246L11.8676 3.20496Z" fill="#242E30"></path></svg>
+</label>
+
+<header class="c-header">
+    <a class="c-header-logo" href="/pr-preview-docs/pr-185/">
+        <img src="/pr-preview-docs/pr-185/assets/img/pie-logo.svg" />
+    </a>
+</header>
+
+            
+
+
+
+
+
+
+
+
+<nav class="c-nav">
+    
+        <ul>
+            
+            
+                <li>
+                    <details >
+                        <summary class="c-nav-category" style="--icon-fill: #f36805;">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" height="24" width="24" fill="#f36805" class="c-pieIcon c-pieIcon--pie u-iconFilled"><path d="M8.05254 6.90626C8.15754 6.90626 8.26254 6.86251 8.34129 6.78376C8.42004 6.70501 8.46379 6.60001 8.46379 6.49501C8.46379 6.25001 8.28004 5.68126 8.05254 5.68126C7.82504 5.68126 7.64129 6.27626 7.64129 6.49501C7.64129 6.60001 7.68504 6.70501 7.76379 6.78376C7.84254 6.86251 7.94754 6.90626 8.05254 6.90626Z" fill="#242E30"></path><path d="M5.97879 6.34626C5.97879 6.34626 6.07504 6.40751 6.12754 6.42501C6.17129 6.43376 6.20629 6.44251 6.25004 6.44251C6.26754 6.44251 6.28504 6.44251 6.29379 6.44251C6.34629 6.44251 6.40754 6.41626 6.45129 6.39001C6.49504 6.36376 6.53879 6.32001 6.57379 6.27626C6.72254 6.11001 6.98504 5.54126 6.81004 5.39251C6.77504 5.36626 6.74004 5.35751 6.68754 5.35751C6.46004 5.35751 6.09254 5.60251 5.96129 5.74251C5.91754 5.77751 5.89129 5.83001 5.86504 5.88251C5.83879 5.93501 5.83004 5.98751 5.83004 6.04876C5.83004 6.10126 5.84754 6.16251 5.86504 6.21501C5.89129 6.26751 5.92629 6.31126 5.97004 6.34626H5.97879Z" fill="#242E30"></path><path d="M9.56629 6.38126C9.61004 6.40751 9.66254 6.41626 9.72379 6.42501H9.75004C9.75004 6.42501 9.83754 6.42501 9.88129 6.40751C9.93379 6.39001 9.97754 6.36376 10.0213 6.32876C10.065 6.29376 10.0913 6.25001 10.1175 6.20626C10.1438 6.16251 10.1525 6.11001 10.1613 6.04876C10.1613 5.99626 10.1613 5.94376 10.1438 5.89126C10.1263 5.83876 10.1 5.79501 10.065 5.75126C9.93379 5.61126 9.54879 5.37501 9.32129 5.37501C9.27754 5.37501 9.23379 5.38376 9.20754 5.41001C9.03254 5.55876 9.28629 6.12751 9.44379 6.29376C9.47879 6.33751 9.52254 6.36376 9.56629 6.39001V6.38126Z" fill="#242E30"></path><path d="M14.7725 7.38751H14.5713L13.5475 5.41001C12.9963 4.55251 12.095 4.01001 11.0275 3.89626C10.6775 3.86126 10.3975 3.61626 10.2313 3.41501C9.89879 3.03001 9.26004 2.57501 8.06129 2.57501H7.94754C6.74879 2.57501 6.10129 3.03001 5.77754 3.41501C5.60254 3.61626 5.33129 3.86126 4.92879 3.89626C3.91379 4.00126 3.02129 4.55251 2.43504 5.46251L1.44629 7.38751H1.22754V8.70001H2.06754L3.10879 13.4338H12.935L13.9763 8.70001H14.7725V7.38751ZM3.56379 6.11876C3.89629 5.60251 4.43879 5.27001 5.11254 5.20001C5.73379 5.13876 6.30254 4.81501 6.77504 4.26376C7.04629 3.94876 7.56254 3.87876 7.94754 3.87876H8.06129C8.44629 3.87876 8.96254 3.94876 9.23379 4.26376C9.70629 4.80626 10.275 5.13001 10.9488 5.20001C11.5613 5.26126 12.1038 5.59376 12.41 6.05751L13.0925 7.37876H2.91629L3.56379 6.11001V6.11876ZM11.8763 12.1213H4.15879L3.40629 8.70001H12.6288L11.8763 12.1213Z" fill="#242E30"></path></svg>
+                            All about PIE
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" height="18" width="18" fill="#262626" class="c-pieIcon c-pieIcon--chevronUp c-nav-toggle c-nav-toggle--close"><path d="M13.18 10.97L8.00001 5.615L2.82001 11.0138L1.85751 10.1388L7.20376 4.57376C7.31225 4.46183 7.44213 4.37283 7.58567 4.31206C7.72922 4.25129 7.88351 4.21997 8.03939 4.21997C8.19527 4.21997 8.34956 4.25129 8.4931 4.31206C8.63665 4.37283 8.76652 4.46183 8.87501 4.57376L14.125 10.0688L13.18 10.97Z" fill="#242E30"></path></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" height="18" width="18" fill="#262626" class="c-pieIcon c-pieIcon--chevronDown c-nav-toggle c-nav-toggle--open"><path d="M2.82 5.04375L8 10.3987L13.1975 5L14.16 5.875L8.79625 11.44C8.5784 11.6553 8.28444 11.7761 7.97813 11.7761C7.67181 11.7761 7.37785 11.6553 7.16 11.44L1.875 5.945L2.82 5.04375Z" fill="#242E30"></path></svg>
+                        </summary>
+                        
+                        
+                            <ul class="c-nav-list">
+                                
+                                <li>
+                                    
+                                    
+                                    
+                                    
+                                    <a
+                                        href="/pr-preview-docs/pr-185/content/pages/all-about-pie/our-vision/"
+                                        
+                                        class="c-nav-item ">
+                                        Our vision
+                                    </a>
+                                </li>
+                                
+                                <li>
+                                    
+                                    
+                                    
+                                    
+                                    <a
+                                        href="/pr-preview-docs/pr-185/content/pages/all-about-pie/roadmap/"
+                                        
+                                        class="c-nav-item ">
+                                        Roadmap
+                                    </a>
+                                </li>
+                                
+                                <li>
+                                    
+                                    
+                                    
+                                    
+                                    <a
+                                        href="/pr-preview-docs/pr-185/content/pages/all-about-pie/what-is-pie/"
+                                        
+                                        class="c-nav-item ">
+                                        What is PIE
+                                    </a>
+                                </li>
+                                
+                            </ul>
+                        
+                    </details>
+                </li>
+            
+                <li>
+                    <details  open>
+                        <summary class="c-nav-category" style="--icon-fill: #f36805;">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" height="24" width="24" fill="#f36805" class="c-pieIcon c-pieIcon--bulbLightning u-iconFilled"><path d="M10.1615 13.4687H5.83896L6.18896 14.7812H9.81146L10.1615 13.4687Z" fill="#242E30"></path><path d="M5.3752 10.1175L5.7252 12.1562H10.3365L10.6252 10.1087C10.6963 9.71593 10.8928 9.35673 11.1852 9.085C11.6293 8.66329 11.9832 8.1558 12.2253 7.59328C12.4675 7.03076 12.5929 6.42493 12.594 5.8125C12.5974 4.6579 12.1659 3.54434 11.3854 2.69349C10.605 1.84264 9.53268 1.3169 8.38208 1.22092C7.23147 1.12495 6.08691 1.46578 5.17624 2.17556C4.26558 2.88535 3.65559 3.91203 3.4677 5.05125C3.34276 5.77624 3.39617 6.52074 3.62331 7.22047C3.85046 7.9202 4.24451 8.55412 4.77145 9.0675C5.07665 9.34647 5.28763 9.71339 5.3752 10.1175ZM4.7627 5.26125C4.89697 4.44684 5.33323 3.71296 5.98452 3.2059C6.63581 2.69885 7.45427 2.45587 8.27674 2.52542C9.0992 2.59497 9.86524 2.97194 10.4221 3.58116C10.979 4.19039 11.2859 4.98711 11.2815 5.8125C11.2824 6.24842 11.1953 6.68005 11.0254 7.0815C10.8555 7.48295 10.6063 7.84596 10.2927 8.14875C9.80237 8.61884 9.47185 9.23091 9.3477 9.89875L9.1902 10.8525H6.80145L6.6527 9.9075C6.52431 9.23731 6.18744 8.62482 5.6902 8.1575C5.31336 7.78542 5.03217 7.32766 4.87066 6.82331C4.70914 6.31897 4.67211 5.78302 4.7627 5.26125Z" fill="#242E30"></path></svg>
+                            Designers
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" height="18" width="18" fill="#262626" class="c-pieIcon c-pieIcon--chevronUp c-nav-toggle c-nav-toggle--close"><path d="M13.18 10.97L8.00001 5.615L2.82001 11.0138L1.85751 10.1388L7.20376 4.57376C7.31225 4.46183 7.44213 4.37283 7.58567 4.31206C7.72922 4.25129 7.88351 4.21997 8.03939 4.21997C8.19527 4.21997 8.34956 4.25129 8.4931 4.31206C8.63665 4.37283 8.76652 4.46183 8.87501 4.57376L14.125 10.0688L13.18 10.97Z" fill="#242E30"></path></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" height="18" width="18" fill="#262626" class="c-pieIcon c-pieIcon--chevronDown c-nav-toggle c-nav-toggle--open"><path d="M2.82 5.04375L8 10.3987L13.1975 5L14.16 5.875L8.79625 11.44C8.5784 11.6553 8.28444 11.7761 7.97813 11.7761C7.67181 11.7761 7.37785 11.6553 7.16 11.44L1.875 5.945L2.82 5.04375Z" fill="#242E30"></path></svg>
+                        </summary>
+                        
+                        
+                            <ul class="c-nav-list">
+                                
+                                <li>
+                                    
+                                    
+                                    
+                                    
+                                    <a
+                                        href="/pr-preview-docs/pr-185/content/pages/designers/getting-started/overview/"
+                                        
+                                        class="c-nav-item ">
+                                        Getting started
+                                    </a>
+                                </li>
+                                
+                                <li>
+                                    
+                                    
+                                    
+                                    
+                                    <a
+                                        href="/pr-preview-docs/pr-185/content/pages/designers/contributing/"
+                                        
+                                            aria-current="page"
+                                        
+                                        class="c-nav-item is-active">
+                                        Contributing
+                                    </a>
+                                </li>
+                                
+                                <li>
+                                    
+                                    
+                                    
+                                    
+                                    <a
+                                        href="/pr-preview-docs/pr-185/content/pages/designers/how-we-support-you/"
+                                        
+                                        class="c-nav-item ">
+                                        How we support you
+                                    </a>
+                                </li>
+                                
+                            </ul>
+                        
+                    </details>
+                </li>
+            
+                <li>
+                    <details >
+                        <summary class="c-nav-category" style="--icon-fill: #f36805;">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" height="24" width="24" fill="#f36805" class="c-pieIcon c-pieIcon--foundations u-iconFilled"><g clip-path="url(#clip0_7066_3748)"><path d="M10.7388 1.94501H5.2525V7.43126H10.7388V1.94501ZM9.42625 6.11876H6.565V3.25751H9.42625V6.11876Z" fill="#242E30"></path><path d="M1.875 14.1688H7.36125V8.68251H1.875V14.1688ZM3.1875 9.99501H6.04875V12.8563H3.1875V9.99501Z" fill="#242E30"></path><path d="M8.62125 8.67376V14.16H14.1075V8.67376H8.62125ZM12.795 12.8475H9.93375V9.98626H12.795V12.8475Z" fill="#242E30"></path></g><defs><clipPath id="clip0_7066_3748"><rect width="14" height="14" fill="white" transform="translate(1 1)"></rect></clipPath></defs></svg>
+                            Foundations
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" height="18" width="18" fill="#262626" class="c-pieIcon c-pieIcon--chevronUp c-nav-toggle c-nav-toggle--close"><path d="M13.18 10.97L8.00001 5.615L2.82001 11.0138L1.85751 10.1388L7.20376 4.57376C7.31225 4.46183 7.44213 4.37283 7.58567 4.31206C7.72922 4.25129 7.88351 4.21997 8.03939 4.21997C8.19527 4.21997 8.34956 4.25129 8.4931 4.31206C8.63665 4.37283 8.76652 4.46183 8.87501 4.57376L14.125 10.0688L13.18 10.97Z" fill="#242E30"></path></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" height="18" width="18" fill="#262626" class="c-pieIcon c-pieIcon--chevronDown c-nav-toggle c-nav-toggle--open"><path d="M2.82 5.04375L8 10.3987L13.1975 5L14.16 5.875L8.79625 11.44C8.5784 11.6553 8.28444 11.7761 7.97813 11.7761C7.67181 11.7761 7.37785 11.6553 7.16 11.44L1.875 5.945L2.82 5.04375Z" fill="#242E30"></path></svg>
+                        </summary>
+                        
+                        
+                            <ul class="c-nav-list">
+                                
+                                <li>
+                                    
+                                    
+                                    
+                                    
+                                    <a
+                                        href="/pr-preview-docs/pr-185/content/pages/foundations/colour/overview/"
+                                        
+                                        class="c-nav-item ">
+                                        Colour
+                                    </a>
+                                </li>
+                                
+                                <li>
+                                    
+                                    
+                                    
+                                    
+                                    <a
+                                        href="/pr-preview-docs/pr-185/content/pages/foundations/design-tokens/overview/"
+                                        
+                                        class="c-nav-item ">
+                                        Design Tokens
+                                    </a>
+                                </li>
+                                
+                                <li>
+                                    
+                                    
+                                    
+                                    
+                                    <a
+                                        href="/pr-preview-docs/pr-185/content/pages/foundations/elevation/overview/"
+                                        
+                                        class="c-nav-item ">
+                                        Elevation
+                                    </a>
+                                </li>
+                                
+                                <li>
+                                    
+                                    
+                                    
+                                    
+                                    <a
+                                        href="/pr-preview-docs/pr-185/content/pages/foundations/iconography/overview/"
+                                        
+                                        class="c-nav-item ">
+                                        Iconography
+                                    </a>
+                                </li>
+                                
+                                <li>
+                                    
+                                    
+                                    
+                                    
+                                    <a
+                                        href="/pr-preview-docs/pr-185/content/pages/foundations/radius/overview/"
+                                        
+                                        class="c-nav-item ">
+                                        Radius
+                                    </a>
+                                </li>
+                                
+                                <li>
+                                    
+                                    
+                                    
+                                    
+                                    <a
+                                        href="/pr-preview-docs/pr-185/content/pages/foundations/spacing/overview/"
+                                        
+                                        class="c-nav-item ">
+                                        Spacing
+                                    </a>
+                                </li>
+                                
+                                <li>
+                                    
+                                    
+                                    
+                                    
+                                    <a
+                                        href="/pr-preview-docs/pr-185/content/pages/foundations/typography/overview/"
+                                        
+                                        class="c-nav-item ">
+                                        Typography
+                                    </a>
+                                </li>
+                                
+                            </ul>
+                        
+                    </details>
+                </li>
+            
+        </ul>
+        
+            <hr />
+        
+    
+        <ul>
+            
+            
+                <li>
+                    <details >
+                        <summary class="c-nav-category" style="--icon-fill: #f36805;">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" height="24" width="24" fill="#f36805" class="c-pieIcon c-pieIcon--handHeart u-iconFilled"><path d="M8.00001 7.44052L10.8875 4.55302C11.0793 4.36197 11.2315 4.13493 11.3354 3.88492C11.4392 3.63491 11.4927 3.36686 11.4927 3.09614C11.4927 2.82542 11.4392 2.55737 11.3354 2.30736C11.2315 2.05735 11.0793 1.83031 10.8875 1.63927C10.502 1.26527 9.98782 1.05321 9.45073 1.0467C8.91365 1.04019 8.39448 1.23972 8.00001 1.60427C7.609 1.23699 7.09272 1.03253 6.55626 1.03253C6.01981 1.03253 5.50352 1.23699 5.11251 1.60427C4.9207 1.79531 4.76851 2.02235 4.66466 2.27236C4.56081 2.52237 4.50736 2.79042 4.50736 3.06114C4.50736 3.33186 4.56081 3.59991 4.66466 3.84992C4.76851 4.09993 4.9207 4.32697 5.11251 4.51802L8.00001 7.44052ZM6.10126 2.62802C6.16181 2.5636 6.23506 2.51245 6.31639 2.47781C6.39773 2.44317 6.48536 2.42579 6.57376 2.42677C6.66193 2.42731 6.74911 2.44539 6.83022 2.47994C6.91134 2.51449 6.98478 2.56482 7.04626 2.62802L8.00001 3.62552L8.95376 2.62802C9.08085 2.50609 9.25015 2.43801 9.42626 2.43801C9.60238 2.43801 9.77168 2.50609 9.89876 2.62802C9.96093 2.6891 10.0103 2.76195 10.044 2.84233C10.0777 2.9227 10.0951 3.00899 10.0951 3.09614C10.0951 3.1833 10.0777 3.26958 10.044 3.34996C10.0103 3.43033 9.96093 3.50319 9.89876 3.56427L8.00001 5.46302L6.10126 3.56427C6.03909 3.50319 5.98971 3.43033 5.956 3.34996C5.92229 3.26958 5.90493 3.1833 5.90493 3.09614C5.90493 3.00899 5.92229 2.9227 5.956 2.84233C5.98971 2.76195 6.03909 2.6891 6.10126 2.62802Z" fill="#242E30"></path><path d="M13.7487 9.31251C13.3001 8.98129 12.7515 8.81367 12.1943 8.83755C11.6372 8.86143 11.1049 9.07536 10.6862 9.44376L9.42625 10.5725C9.22767 10.7466 8.97282 10.8429 8.70875 10.8438H8.39375C8.56675 10.5051 8.65672 10.1302 8.65625 9.75001V8.21876H5.305C4.83165 8.21869 4.36888 8.35874 3.975 8.62126L1.95375 9.96876H1V11.2813H2.3475L4.70125 9.75001C4.8789 9.62829 5.08967 9.56415 5.305 9.56626H7.34375V9.75001C7.34375 10.0401 7.22852 10.3183 7.0234 10.5234C6.81828 10.7285 6.54008 10.8438 6.25 10.8438H5.27L4.605 12.1563H8.70875C9.291 12.1546 9.85319 11.9434 10.2925 11.5613L11.5612 10.4325C11.7535 10.2624 11.9983 10.1635 12.2548 10.1524C12.5112 10.1412 12.7637 10.2185 12.97 10.3713H13.0312L10.625 13.11C10.5214 13.2226 10.3956 13.3126 10.2556 13.3743C10.1156 13.4361 9.96428 13.4682 9.81125 13.4688H1V14.7813H9.84625C10.1851 14.7809 10.52 14.709 10.8291 14.5703C11.1382 14.4316 11.4145 14.2292 11.64 13.9763L15 10.205L13.7487 9.31251Z" fill="#242E30"></path></svg>
+                            Support
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" height="18" width="18" fill="#262626" class="c-pieIcon c-pieIcon--chevronUp c-nav-toggle c-nav-toggle--close"><path d="M13.18 10.97L8.00001 5.615L2.82001 11.0138L1.85751 10.1388L7.20376 4.57376C7.31225 4.46183 7.44213 4.37283 7.58567 4.31206C7.72922 4.25129 7.88351 4.21997 8.03939 4.21997C8.19527 4.21997 8.34956 4.25129 8.4931 4.31206C8.63665 4.37283 8.76652 4.46183 8.87501 4.57376L14.125 10.0688L13.18 10.97Z" fill="#242E30"></path></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" height="18" width="18" fill="#262626" class="c-pieIcon c-pieIcon--chevronDown c-nav-toggle c-nav-toggle--open"><path d="M2.82 5.04375L8 10.3987L13.1975 5L14.16 5.875L8.79625 11.44C8.5784 11.6553 8.28444 11.7761 7.97813 11.7761C7.67181 11.7761 7.37785 11.6553 7.16 11.44L1.875 5.945L2.82 5.04375Z" fill="#242E30"></path></svg>
+                        </summary>
+                        
+                        
+                            <ul class="c-nav-list">
+                                
+                                <li>
+                                    
+                                    
+                                    
+                                    
+                                    <a
+                                        href="/pr-preview-docs/pr-185/content/pages/support/faq/"
+                                        
+                                        class="c-nav-item ">
+                                        FAQ
+                                    </a>
+                                </li>
+                                
+                                <li>
+                                    
+                                    
+                                    
+                                    
+                                    <a
+                                        href="/pr-preview-docs/pr-185/content/pages/support/contact-us/"
+                                        
+                                        class="c-nav-item ">
+                                        Contact us
+                                    </a>
+                                </li>
+                                
+                            </ul>
+                        
+                    </details>
+                </li>
+            
+        </ul>
+        
+    
+</nav>
+
+            <main class="c-main">
+                
+
+
+    
+
+<div class="c-contentPage">
+    <div
+        class="c-contentPage-header "
+        >
+        <div class="c-content-container">
+            <h1 class="c-contentPage-header-heading alpha--standout">
+                Contributing
+            </h1>
+            <p class="c-contentPage-header-description">
+                In this section you’ll find everything you need to know about contributing to our design system and how you can help us.
+            </p>
+        </div>
+    </div>
+
+    
+
+    
+    
+        <div class="c-contentPage-content">
+            <div class="c-content-container">
+                <h2>Introduction</h2>
+<p>We consider that a design system can only work when there’s input from other teams and colleagues within our pillars. We encourage you to contribute, no matter what your position or knowledge of the system is.</p>
+<figure class="c-contentPage-img c-contentImage c-contentImage--fullWidth">        <div class="c-contentImage-backdrop">          <picture>            <source  media="(max-width: 600px)" srcset="../../../../assets/img/designers/contributing/teamwork_narrow.svg">            <img src="../../../../assets/img/designers/contributing/teamwork.svg"  >          </picture>        </div>        <figcaption class="c-contentImage-caption"><span>Teamwork makes the dream work!</span></figcaption>      </figure>
+<hr>
+<h2>Ways to contribute</h2>
+<p>We’re always looking for new contributions, and are happy to discuss them with you if you decide to get involved. However, new feature requests and changes to existing components or foundations will need to be discussed with the PIE team before they are accepted and work is carried out.</p>
+<p>Below you’ll find a few ways you can contribute to the PIE design system.</p>
+<h3>Suggest a design change</h3>
+<p>If you identify an area of improvement within our foundations or components, let us know and we will determine what the best way to address it might be. You can suggest these changes or concerns through our <strong>#help-designsystem-design</strong> Slack channel.</p>
+<p>If the change is accepted and work is carried out, we’ll keep you informed about our progress and will make sure to check in with you regularly until your request is resolved.</p>
+<p>Below you can find the process we’ll follow to implement your suggested design changes and improvements.</p>
+<h3>Propose new components or documentation</h3>
+<p>Before creating a new component or piece of documentation, please make sure there isn’t already a solution that would fit your needs. If you are unsure about this, please get in touch with us so we can help you figure out what the best way forward might be.</p>
+<p>We have a <a href="">process</a> in place to determine whether a new component needs to be created, please make sure you read it and follow the steps outlined when proposing a new component.</p>
+<h3>Volunteer to work with us</h3>
+<p>If you have a particular interest in design systems or would like to help us out with the design, development or documentation of PIE, you can <a href="">reach out to us</a> at any time to become a new PIE advocate.</p>
+<p>We’re always happy to hear about new ideas and opinions on how to improve our system, and will welcome any feedback, suggestions or support from you.</p>
+<p>If you decide to get involved, we’ll help you determine how to get started and the steps we’ll need to take in order to complete our collaboration.</p>
+<hr>
+<h2>Design checklist</h2>
+<p>To ensure consistency and maintain high product quality, we’ve put together a checklist of things to keep in mind when proposing new components.</p>
+<div class="c-mediaElementList">    <div class="c-mediaElement">            <picture>                <source srcset="../../../../assets/img/designers/contributing/checklist-scalability.svg" media="(min-width: 600px)">                <img src="../../../../assets/img/designers/contributing/checklist-scalability_narrow.svg" alt="" />            </picture>            <div class="c-mediaElement-text">                <h3>Design for scalability and flexibility</h3>                <p>Ensure the component is responsive, flexible and is future proof. Think about all the places where it might be used, when and what for would designers use it, and design your new component accordingly.</p>            </div>        </div><hr><div class="c-mediaElement">            <picture>                <source srcset="../../../../assets/img/designers/contributing/checklist-foundations.svg" media="(min-width: 600px)">                <img src="../../../../assets/img/designers/contributing/checklist-foundations_narrow.svg" alt="" />            </picture>            <div class="c-mediaElement-text">                <h3>Use our foundations libraries</h3>                <p>Make sure you use styles from our foundations libraries when using colour, typography, spacing, etc. Ensuring brand alignment is key to preserve a high quality and consistent experience.</p>            </div>        </div><hr><div class="c-mediaElement">            <picture>                <source srcset="../../../../assets/img/designers/contributing/checklist-naming.svg" media="(min-width: 600px)">                <img src="../../../../assets/img/designers/contributing/checklist-naming_narrow.svg" alt="" />            </picture>            <div class="c-mediaElement-text">                <h3>Use appropriate naming and supporting information</h3>                <p>Assign it a name that is descriptive and identifiable, and add a component description in Figma. This will ensure your new component is easily discoverable and usable.</p>            </div>        </div><hr><div class="c-mediaElement">            <picture>                <source srcset="../../../../assets/img/designers/contributing/checklist-variants.svg" media="(min-width: 600px)">                <img src="../../../../assets/img/designers/contributing/checklist-variants_narrow.svg" alt="" />            </picture>            <div class="c-mediaElement-text">                <h3>Define variants and interactive states</h3>                <p>Outline all options for the component to ensure all use cases are covered. This will enhance the consistency of the component and set a standard for their use within products.</p>            </div>        </div><hr><div class="c-mediaElement">            <picture>                <source srcset="../../../../assets/img/designers/contributing/checklist-documentation.svg" media="(min-width: 600px)">                <img src="../../../../assets/img/designers/contributing/checklist-documentation_narrow.svg" alt="" />            </picture>            <div class="c-mediaElement-text">                <h3>Write documentation</h3>                <p>Define usage guidelines, document best practices, warn of common mistakes and describe how to correctly use the component in designs. This will help others understand how to use your new component.</p>            </div>        </div>    </div>
+
+            </div>
+        </div>
+    
+</div>
+
+
+
+
+            </main>
+
+            <footer class="c-footer">
+    <div class="c-content-container">
+        <div class="c-footer-logo">
+            <svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 32">
+    <path d="M10.067 3.495a23.61 23.61 0 0 0-.261-1.955.688.688 0 0 0-.608-.55L8.297.872h-.072A.61.61 0 0 0 7.9.97a.618.618 0 0 0-.217.264A8.4 8.4 0 0 0 6.42.215a1.245 1.245 0 0 0-1.316 0 15.217 15.217 0 0 0-5.03 5.317.761.761 0 0 0-.073.313.704.704 0 0 0 .559.703l.788.152c.045 1.519.175 3.034.392 4.538a.698.698 0 0 0 .707.528h1.802l-.054-.51v-.269c0-.349-.054-.895-.082-1.436a.147.147 0 0 0 0-.063.245.245 0 0 0-.027-.08.17.17 0 0 0-.063-.063.952.952 0 0 1-.45-.756c-.05-1.204-.072-2.592 0-3.68a.174.174 0 0 1 .027-.125.198.198 0 0 1 .104-.067c.048 0 .094.018.13.05a.179.179 0 0 1 .054.12c-.04.725-.045 1.567-.031 2.43a.214.214 0 0 0 .036.126.23.23 0 0 0 .14.049c.05 0 .1-.017.139-.05a.201.201 0 0 0 .072-.129c0-.855 0-1.719.032-2.44a.201.201 0 0 1 .067-.116.176.176 0 0 1 .122-.049h.067a.117.117 0 0 1 .059.036.152.152 0 0 1 .04.054.178.178 0 0 1 0 .067c-.04.72-.05 1.566-.031 2.412.007.052.033.1.072.134.039.033.089.05.14.05.05 0 .1-.018.14-.05a.246.246 0 0 0 .071-.134c0-.846 0-1.705.032-2.43a.165.165 0 0 1 .054-.116.162.162 0 0 1 .117-.05.181.181 0 0 1 .068 0c.02.01.04.022.058.036a.17.17 0 0 1 .04.058.178.178 0 0 1 0 .068c-.067 1.056-.04 2.39 0 3.58v.04A.941.941 0 0 1 5 9.255a.153.153 0 0 0-.053.054.258.258 0 0 0-.027.076c-.006.353.014.706.058 1.056.023.197.036.367.054.502.018.134 0 .206.027.26l.077.523h1.91l.045-.515c0-.094 0-.183.027-.268.09-.895.121-1.388.121-1.388a.147.147 0 0 0-.031-.071.13.13 0 0 0-.063-.036l-.613-.08a.212.212 0 0 1-.112-.05.22.22 0 0 1-.063-.103.33.33 0 0 1 0-.094c.252-3.527 1.418-4.735 1.418-4.735a.193.193 0 0 1 .054-.05.24.24 0 0 1 .077-.035.168.168 0 0 1 .081 0 .208.208 0 0 1 .077.04.256.256 0 0 1 .045.072.24.24 0 0 1 0 .08c.08 1.491.08 2.985 0 4.476-.036.846-.081 1.566-.1 1.956.008.098.008.197 0 .295l-.062.542h1.126a.714.714 0 0 0 .675-.555c.217-1.505.347-3.02.392-4.538l.829-.175a.694.694 0 0 0 .383-.25.7.7 0 0 0 .148-.448.552.552 0 0 0-.054-.237 11.896 11.896 0 0 0-1.378-2.064Zm31.21 2.977a10.196 10.196 0 0 0-2.329-3.42A10.675 10.675 0 0 0 35.381.815a12.535 12.535 0 0 0-4.558-.81H16.86l-.05 23.858c-.002 1.067 0 8.137 0 8.137h8.162V21.765h5.855a12.82 12.82 0 0 0 4.55-.793 10.19 10.19 0 0 0 3.567-2.238 10.512 10.512 0 0 0 2.333-3.45c.574-1.398.86-2.895.842-4.404a11.31 11.31 0 0 0-.842-4.408Zm-8.473 7.608a3.8 3.8 0 0 1-2.923 1.23h-4.91V6.4h4.906A3.823 3.823 0 0 1 32.8 7.63a4.6 4.6 0 0 1 1.14 3.25 4.534 4.534 0 0 1-1.14 3.2h.005Zm34.452 4.923h12.939v-6.548H67.256V6.548h13.341V0H59v32h22v-6.548H67.256v-6.449ZM46 0h8v32h-8V0Z" fill="#242E30"/>
+</svg>
+
+        </div>
+    </div>
+</footer>
+
+        </div>
+
+        
+<script defer src="/pr-preview-docs/pr-185/assets/js/accordions.js" type="module"></script>
+<script defer src="/pr-preview-docs/pr-185/assets/js/toggled-content.js" type="module"></script>
+<script defer src="/pr-preview-docs/pr-185/assets/js/prism.js" type="module"></script>
+<script defer src="/pr-preview-docs/pr-185/assets/js/awesome.js" type="module"></script>
+
+    </body>
+</html>
