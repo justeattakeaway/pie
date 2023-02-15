@@ -1,4 +1,5 @@
 {
+  "site_title": "Foundations - Design Tokens",
   "title": "Design Tokens",
   "navKey": "Design Tokens",
   "description":" Design Tokens store design decisions within our Foundations, allowing us to apply them consistently throughought designs, products, code and platforms."

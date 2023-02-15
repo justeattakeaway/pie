@@ -1,10 +1,12 @@
+{# Allows for titles such as 'Foundations - Colour | PIE Design System' and fallsback to 'PIE Design System' #}
+{% set pageTitle = [site_title, " | ", metadata.title] | join if site_title else metadata.title %}
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="index, follow">
     <meta name="googlebot" content="index, follow">
     <meta name="description" content="{{ metadata.description }}">
-    <title>{{ site_title or metadata.title }}</title>
+    <title>{{ pageTitle }}</title>
     <link rel="apple-touch-icon" sizes="180x180" href="{{ '/apple-touch-icon.png' | url }}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ '/favicon-32x32.png' | url }}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ '/favicon-16x16.png' | url }}">
