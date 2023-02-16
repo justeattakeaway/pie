@@ -18,6 +18,10 @@ on:
       - beta-*
       - feature-*
 
+permissions:
+  contents: write
+  pull-requests: write
+
 jobs:
   install:
     runs-on: ubuntu-latest
