@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.1
+
+### Patch Changes
+
+- Downgrade storybook version to fix build error ([#193](https://github.com/justeattakeaway/pie/pull/193)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
 ## 0.4.0
 
 ### Minor Changes
