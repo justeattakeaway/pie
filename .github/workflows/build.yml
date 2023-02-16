@@ -86,7 +86,7 @@ jobs:
         env:
           PIE_URL_PREFIX: /pr-preview-docs/pr-${{github.event.number}}
 
-    deploy-microsite-s3:
+    deploy-docs-s3:
       needs: build
       runs-on: ubuntu-latest
       steps:
