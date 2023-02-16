@@ -80,7 +80,7 @@ jobs:
       - name: Build Packages
         run: yarn build --cache-dir=".turbo"P
 
-  deploy-s3:
+  deploy-s3-microsite:
     needs: build
     runs-on: ubuntu-latest
     steps:
@@ -116,7 +116,7 @@ jobs:
         run: yarn build --filter=pie-microsite --cache-dir=".turbo"
       - name: Create GitHub deployment
         uses: chrnorm/deployment-action@v2
-        id: deployment
+        id: microsite-deployment
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           environment: Preview
@@ -127,17 +127,15 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_bucket: ${{ secrets.AWS_BUCKET }}
           source_dir: "./apps/pie-microsite/dist"
-          destination_dir: "preview/pr-"
-
+          destination_dir: ""
       - name: Update deployment status (success)
         if: success()
         uses: chrnorm/deployment-status@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           environment-url: https://${{ secrets.AWS_BUCKET }}.s3.eu-west-2.amazonaws.com/index.html
-          deployment-id: ${{ steps.deployment.outputs.deployment_id }}
+          deployment-id: ${{ steps.microsite-deployment.outputs.deployment_id }}
           state: "success"
-
       - name: Update deployment status (failure)
         if: failure()
         uses: chrnorm/deployment-status@v2
@@ -147,118 +145,70 @@ jobs:
           deployment-id: ${{ steps.deployment.outputs.deployment_id }}
           state: "failure"
 
-    # deploy-microsite:
-    #   needs: build
-    #   runs-on: ubuntu-latest
-    #   steps:
-    #     # Checkout the Repo
-    #     - name: Checkout
-    #       uses: actions/checkout@v3
-    #     # Setup Node 16
-    #     - name: Setup Node
-    #       uses: actions/setup-node@v3
-    #       with:
-    #         node-version: 16
-    #         cache: 'yarn'
-    #     # Restore node_modules - Cache should exist as one was created in previous 'install' job
-    #     - name: Cache Node Modules
-    #       id: cache-node-modules
-    #       uses: actions/cache@v3
-    #       with:
-    #         path: '**/node_modules'
-    #         key: node-modules-${{ hashFiles('**/yarn.lock') }}
-    #     # Restore Turborepo's 'dist' cache - If not, cache is created at end of build.
-    #     - name: Cache Turborepo Dist
-    #       id: turborepo-dist-cache
-    #       uses: actions/cache@v3
-    #       with:
-    #         path: .turbo
-    #         key: turborepo-dist-cache-${{ github.ref_name }}-${{ github.sha }}
-    #         # Use one of the following keys if the above is not found.
-    #         restore-keys: |
-    #           turborepo-dist-cache-${{ github.ref_name }}
-    #           turborepo-dist-cache-
-    #     # Build Projects
-    #     - name: Build Apps
-    #       run: yarn build --filter=pie-microsite --cache-dir=".turbo"
-    #     # Deployments
-    #     - name: Deploy - Microsite PR Preview
-    #       id: preview-microsite
-    #       if: ${{ github.ref != 'refs/heads/main' }}
-    #       uses: rossjrw/pr-preview-action@v1
-    #       with:
-    #         source-dir: ./apps/pie-microsite/dist
-    #         preview-branch: gh-pages
-    #         umbrella-dir: pr-preview-docs
-    #         action: auto
-    #     - name: Deploy - Master
-    #       if: ${{ github.ref == 'refs/heads/main' }}
-    #       uses: JamesIves/github-pages-deploy-action@v4
-    #       with:
-    #         folder: ./apps/pie-microsite/dist
-    #         force: false
-    #         target-folder: .
-    #         branch: gh-pages
-    #         clean-exclude: |
-    #           ./pr-preview-docs
-    #           ./pr-preview-storybook
-    #           ./storybook
-
-  # deploy-storybook:
-  #   needs: build
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     # Checkout the Repo
-  #     - name: Checkout
-  #       uses: actions/checkout@v3
-  #     # Setup Node 16
-  #     - name: Setup Node
-  #       uses: actions/setup-node@v3
-  #       with:
-  #         node-version: 16
-  #         cache: 'yarn'
-  #     # Restore node_modules - Cache should exist as one was created in previous 'install' job
-  #     - name: Cache Node Modules
-  #       id: cache-node-modules
-  #       uses: actions/cache@v3
-  #       with:
-  #         path: '**/node_modules'
-  #         key: node-modules-${{ hashFiles('**/yarn.lock') }}
-  #     # Restore Turborepo's 'dist' cache - If not, cache is created at end of build.
-  #     - name: Cache Turborepo Dist
-  #       id: turborepo-dist-cache
-  #       uses: actions/cache@v3
-  #       with:
-  #         path: .turbo
-  #         key: turborepo-dist-cache-${{ github.ref_name }}-${{ github.sha }}
-  #         # Use one of the following keys if the above is not found.
-  #         restore-keys: |
-  #           turborepo-dist-cache-${{ github.ref_name }}
-  #           turborepo-dist-cache-
-  #     # Build Projects
-  #     - name: Build Apps
-  #       run: yarn build --filter=pie-storybook --cache-dir=".turbo"
-  #     # Deployments
-  #     - name: Deploy - Storybook PR Preview
-  #       id: preview-storybook
-  #       if: ${{ github.ref != 'refs/heads/main' }}
-  #       uses: rossjrw/pr-preview-action@v1
-  #       with:
-  #         source-dir: ./apps/pie-storybook/dist
-  #         preview-branch: gh-pages
-  #         umbrella-dir: pr-preview-storybook
-  #         action: auto
-  #     - name: Deploy - Master
-  #       if: ${{ github.ref == 'refs/heads/main' }}
-  #       uses: JamesIves/github-pages-deploy-action@v4
-  #       with:
-  #         folder: ./apps/pie-storybook/dist
-  #         force: false
-  #         branch: gh-pages
-  #         target-folder: ./storybook
-  #         clean-exclude: |
-  #           pr-preview-docs
-  #           pr-preview-storybook
+  deploy-s3-storybook:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout the Repo
+      - name: Checkout
+        uses: actions/checkout@v3
+      # Setup Node 16
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: "yarn"
+      # Restore node_modules - Cache should exist as one was created in previous 'install' job
+      - name: Cache Node Modules
+        id: cache-node-modules
+        uses: actions/cache@v3
+        with:
+          path: "**/node_modules"
+          key: node-modules-${{ hashFiles('**/yarn.lock') }}
+      # Restore Turborepo's 'dist' cache - If not, cache is created at end of build.
+      - name: Cache Turborepo Dist
+        id: turborepo-dist-cache
+        uses: actions/cache@v3
+        with:
+          path: .turbo
+          key: turborepo-dist-cache-${{ github.ref_name }}-${{ github.sha }}
+          # Use one of the following keys if the above is not found.
+          restore-keys: |
+            turborepo-dist-cache-${{ github.ref_name }}
+            turborepo-dist-cache-
+      # Build Projects
+      - name: Build Apps
+        run: yarn build --filter=pie-storybook --cache-dir=".turbo"
+      - name: Create GitHub deployment
+        uses: chrnorm/deployment-action@v2
+        id: storybook-deploy
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          environment: Storybook
+      - name: Upload S3
+        uses: shallwefootball/upload-s3-action@v1.2.0
+        with:
+          aws_key_id: ${{ secrets.AWS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_bucket: ${{ secrets.AWS_BUCKET }}
+          source_dir: "./apps/pie-storybook/dist"
+          destination_dir: "storybook"
+      - name: Update deployment status (success)
+        if: success()
+        uses: chrnorm/deployment-status@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          environment-url: https://${{ secrets.AWS_BUCKET }}.s3.eu-west-2.amazonaws.com/storybook/index.html
+          deployment-id: ${{ steps.storybook-deploy.outputs.deployment_id }}
+          state: "success"
+      - name: Update deployment status (failure)
+        if: failure()
+        uses: chrnorm/deployment-status@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          environment-url: https://${{ secrets.AWS_BUCKET }}.s3.eu-west-2.amazonaws.com/index.html
+          deployment-id: ${{ steps.microsite-deployment.outputs.deployment_id }}
+          state: "failure"
 
   # browser-tests:
   #   needs: deploy-microsite
