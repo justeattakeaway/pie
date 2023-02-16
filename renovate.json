@@ -1,0 +1,102 @@
+{
+  "extends": [
+    "schedule:weekly",
+    ":rebaseStalePrs",
+    ":disableMajorUpdates",
+    ":dependencyDashboard"
+  ],
+  "ignoreDeps": ["chromedriver"],
+  "commitMessagePrefix": "renovate -",
+  "prConcurrentLimit": 3,
+  "major": false,
+  "packageRules": [
+    {
+      "matchDepTypes": ["devDependencies"],
+      "matchPackagePatterns": ["^@babel/*", "babel-*"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "Babel",
+      "groupSlug": "root-babel-devDeps",
+      "enabled": true
+    },
+    {
+      "matchDepTypes": ["devDependencies", "dependencies"],
+      "matchPackagePatterns": ["@justeat/*", "@justeattakeaway/*"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "justeattakeaway",
+      "groupSlug": "root-just-eat-deps",
+      "enabled": true
+    },
+    {
+      "matchDepTypes": ["devDependencies"],
+      "matchPackagePatterns": ["@percy/*"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "percy",
+      "groupSlug": "root-percy-devDeps",
+      "enabled": true
+    },
+    {
+      "matchDepTypes": ["devDependencies"],
+      "matchPackagePatterns": ["jest-*"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "jest",
+      "groupSlug": "root-jest-devDeps",
+      "enabled": true
+    },
+    {
+      "matchDepTypes": ["devDependencies"],
+      "matchPackagePatterns": ["postcss*"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "postcss",
+      "groupSlug": "root-postcss-devDeps",
+      "enabled": true
+    },
+    {
+      "matchDepTypes": ["devDependencies"],
+      "matchPackagePatterns": ["stylelint*"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "stylelint",
+      "groupSlug": "root-stylelint-devDeps",
+      "enabled": true
+    },
+    {
+      "description": "Group dependencies from package.json within apps directory",
+      "matchPaths": ["apps/pie-microsite"],
+      "matchDepTypes": ["devDependencies"],
+      "matchPackagePatterns": ["@11ty/*", "eleventy-*"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "11ty",
+      "groupSlug": "root-11ty-devDeps",
+      "enabled": true
+    },
+    {
+      "description": "Group dependencies from package.json within apps directory",
+      "matchPaths": ["apps/pie-microsite/**"],
+      "matchDepTypes": ["devDependencies", "dependencies"],
+      "matchPackagePatterns": ["markdown-*"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "markdown",
+      "groupSlug": "root-markdown-devDeps",
+      "enabled": true
+    },
+    {
+      "description": "Group dependencies from package.json within apps directory",
+      "matchPaths": ["apps/pie-storybook/**"],
+      "matchDepTypes": ["devDependencies", "dependencies"],
+      "matchPackagePatterns": ["@storybook/*", "storybook"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "storybook",
+      "groupSlug": "root-storybook-devDeps",
+      "enabled": true
+    },
+    {
+      "description": "Group dependencies from package.json within apps directory",
+      "matchPaths": ["apps/pie-storybook/**"],
+      "matchDepTypes": ["devDependencies"],
+      "matchPackagePatterns": ["react*"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "react",
+      "groupSlug": "root-react-devDeps",
+      "enabled": true
+    }
+  ]
+}

@@ -18,7 +18,9 @@ on:
       - beta-*
       - feature-*
 
-concurrency: CI-${{ github.ref }}
+permissions:
+  contents: write
+  pull-requests: write
 
 jobs:
   install:
