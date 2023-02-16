@@ -133,7 +133,7 @@ jobs:
         uses: chrnorm/deployment-status@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          environment-url: https://${{ secrets.AWS_BUCKET }}.s3-website.eu-west-2.amazonaws.com/
+          environment-url: http://${{ secrets.AWS_BUCKET }}.s3-website.eu-west-2.amazonaws.com/
           deployment-id: ${{ steps.microsite-deployment.outputs.deployment_id }}
           state: "success"
       - name: Update deployment status (failure)
@@ -141,7 +141,7 @@ jobs:
         uses: chrnorm/deployment-status@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          environment-url: https://${{ secrets.AWS_BUCKET }}.s3.eu-west-2.amazonaws.com/index.html
+          environment-url: http://${{ secrets.AWS_BUCKET }}.s3.eu-west-2.amazonaws.com/index.html
           deployment-id: ${{ steps.deployment.outputs.deployment_id }}
           state: "failure"
 
