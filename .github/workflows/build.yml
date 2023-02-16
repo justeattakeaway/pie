@@ -86,8 +86,8 @@ jobs:
         env:
           PIE_URL_PREFIX: /pr-preview-docs/pr-${{github.event.number}}
 
-  build:
-    needs: install
+  deploy-s3:
+    needs: build
     runs-on: ubuntu-latest
     steps:
       # Checkout the Repo
@@ -98,13 +98,13 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
-          cache: 'yarn'
+          cache: "yarn"
       # Restore node_modules - Cache should exist as one was created in previous 'install' job
       - name: Cache Node Modules
         id: cache-node-modules
         uses: actions/cache@v3
         with:
-          path: '**/node_modules'
+          path: "**/node_modules"
           key: node-modules-${{ hashFiles('**/yarn.lock') }}
       # Restore Turborepo's 'dist' cache - If not, cache is created at end of build.
       - name: Cache Turborepo Dist
@@ -132,8 +132,8 @@ jobs:
           aws_key_id: ${{ secrets.AWS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_bucket: ${{ secrets.AWS_BUCKET }}
-          source_dir: './apps/pie-microsite/dist'
-          destination_dir: ''
+          source_dir: "./apps/pie-microsite/dist"
+          destination_dir: ""
 
     # - name: Update deployment status (success)
     #   if: success()
