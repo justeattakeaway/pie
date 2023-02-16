@@ -1,4 +1,4 @@
-import type { StorybookConfig } from '@storybook/web-components-vite'; // your framework
+import type { StorybookConfig } from '@storybook/web-components-vite';
 
 const config: StorybookConfig = {
     stories: [
@@ -14,7 +14,7 @@ const config: StorybookConfig = {
         options: {}
     },
     docs: {
-        autodocs: true
+        autodocs: false
     }
 }
 

@@ -18,7 +18,7 @@ describe('list.js', () => {
     it('should return the expected HTML for an icon list', () => {
         // act
         const result = list({
-            type: 'icon', iconName: 'CloseCircleFilledSmall', iconFill: 'support-positive', items
+            type: 'icon', iconName: 'close-circle-filled', iconFill: 'support-positive', items
         });
 
         // assert

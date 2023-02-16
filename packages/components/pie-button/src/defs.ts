@@ -1,49 +1,29 @@
 /**
- * Button style variants
+ * Button size variants
  */
-export enum BUTTON_VARIANT {
-    /**
-     * Primary button.
-     */
-    PRIMARY = 'primary',
-
-    /**
-     * Secondary button.
-     */
-    SECONDARY = 'secondary',
-
-    /**
-     * Outline button.
-     */
-    OUTLINE = 'outline',
-
-    /**
-     * Ghost button.
-     */
-    GHOST = 'ghost'
+export enum BUTTON_SIZE {
+    XSMALL = 'xsmall',
+    SMALL = 'small',
+    MEDIUM = 'medium',
+    LARGE = 'large'
 }
 
 /**
  * Button style variants
  */
 export enum BUTTON_TYPE {
-    /**
-     * Submit button.
-     */
     SUBMIT = 'submit',
-
-    /**
-     * Standard button.
-     */
     BUTTON = 'button',
-
-    /**
-     * Reset button.
-     */
     RESET = 'reset',
-
-    /**
-     * Menu button.
-     */
     MENU = 'menu'
+}
+
+/**
+ * Button style variants
+ */
+export enum BUTTON_VARIANT {
+    PRIMARY = 'primary',
+    SECONDARY = 'secondary',
+    OUTLINE = 'outline',
+    GHOST = 'ghost'
 }

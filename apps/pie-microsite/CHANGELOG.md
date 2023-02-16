@@ -1,5 +1,27 @@
 # Changelog
 
+## 1.56.0
+
+### Minor Changes
+
+- [Changed] - updated to `@justeattakeaway/pie-icons v2.0.0-beta.3` ([#185](https://github.com/justeattakeaway/pie/pull/185)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Changed] - Ensure build fails when invalid/missing icons are referenced ([#185](https://github.com/justeattakeaway/pie/pull/185)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Removed] - Deleted most empty pages out of scope for March ([#185](https://github.com/justeattakeaway/pie/pull/185)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Changed] - Temporarily use CSS to override pie icon fills due to bugs in the beta package ([#185](https://github.com/justeattakeaway/pie/pull/185)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Changed] - Renamed most icon names to use newer icon package version ([#185](https://github.com/justeattakeaway/pie/pull/185)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+## 1.55.0
+
+### Minor Changes
+
+- [Added] - Max content width for wide screens ([#182](https://github.com/justeattakeaway/pie/pull/182)) by [@FayeCarter](https://github.com/FayeCarter)
+
+- [Changed] - Use custom meta page titles per page with a standard format to improve UX and open graph data ([#183](https://github.com/justeattakeaway/pie/pull/183)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 1.54.0
 
 ### Minor Changes
