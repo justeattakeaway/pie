@@ -7,7 +7,11 @@
  * @returns {String} – the subdirectory name inside assets (or an empty string, if the file isn't in a subdirectory)
  */
 function getAssetDirectoryName (fullPath) {
-    const pathsParentFolder = fullPath.substring(fullPath.lastIndexOf('/') + 1);
+    let index = fullPath.lastIndexOf('/');
+    if (index === -1) {
+        index = fullPath.lastIndexOf('\\');
+    }
+    const pathsParentFolder = fullPath.substring(index + 1);
 
     if (pathsParentFolder === 'assets') {
         return '';
