@@ -1,3 +1,60 @@
-@use '@justeat/fozzie/src/scss/fozzie' as f;
+@use '@justeat/pie-design-tokens/dist/jet.scss' as dt;
 
-@include f.buttons();
+.o-btn {
+    border-radius: dt.$radius-rounded-e;
+    border: none;
+    font-family: dt.$font-interactive-m-family;
+    font-weight: dt.$font-interactive-m-weight;
+}
+
+// TODO - Use latest design tokens for font size and line height
+//        once fozzie has been updated to handle them.
+
+.o-btn--xsmall {
+    padding: 6px dt.$spacing-b;
+    min-height: 32px;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.o-btn--small {
+    padding: 8px dt.$spacing-d;
+    min-height: 40px;
+    font-size: 19px;
+    line-height: 28px;
+}
+
+.o-btn--medium {
+    padding: 10px dt.$spacing-e;
+    min-height: 48px;
+    font-size: 20px;
+    line-height: 28px;
+}
+
+.o-btn--large {
+    padding: 14px dt.$spacing-e;
+    min-height: 56px;
+    font-size: 20px;
+    line-height: 28px;
+}
+
+.o-btn--primary {
+    background-color: dt.$color-interactive-brand;
+    color: dt.$color-content-interactive-primary;
+}
+
+.o-btn--secondary {
+    background-color: dt.$color-interactive-secondary;
+    color: dt.$color-content-interactive-secondary;
+}
+
+.o-btn--outline {
+    border: 1px solid dt.$color-border-strong;
+    background-color: dt.$color-container-default;
+    color: dt.$color-content-interactive-tertiary;
+}
+
+.o-btn--ghost {
+    background-color: dt.$color-container-default;
+    color: dt.$color-content-link;
+}

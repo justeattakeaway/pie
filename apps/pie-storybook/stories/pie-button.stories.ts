@@ -1,48 +1,58 @@
-import { html } from 'lit';
-import type { Meta, StoryObj } from '@storybook/web-components';
-import { PieButton, BUTTON_TYPE, BUTTON_VARIANT } from '@justeattakeaway/pie-button';
+import type { Meta, StoryObj as Story } from '@storybook/web-components';
 
-const buttonTypes = Object.values(BUTTON_TYPE);
-const buttonVariants = Object.values(BUTTON_VARIANT);
+import { BUTTON_SIZE, BUTTON_TYPE, BUTTON_VARIANT } from '@justeattakeaway/pie-button';
 
-const componentRef = [PieButton];
-
-const meta: Meta = {
-    title: 'pie-button',
+export default {
+    title: 'Button',
     component: 'pie-button',
     argTypes: {
-        variant: {
+        size: {
             control: 'select',
-            options: buttonVariants
+            options: Object.values(BUTTON_SIZE)
         },
         type: {
             control: 'select',
-            options: buttonTypes
+            options: Object.values(BUTTON_TYPE)
         },
+        variant: {
+            control: 'select',
+            options: Object.values(BUTTON_VARIANT)
+        }
+    },
+    args: {
+        size: BUTTON_SIZE.MEDIUM,
+        type: BUTTON_TYPE.SUBMIT,
+        variant: BUTTON_VARIANT.PRIMARY
+    },
+} as Meta;
+
+const defaultArgs = {
+    size: BUTTON_SIZE.MEDIUM,
+    type: BUTTON_TYPE.SUBMIT,
+    variant: BUTTON_VARIANT.PRIMARY
+};
+
+export const Primary : Story = {
+    args: defaultArgs
+};
+
+export const Secondary : Story = {
+    args: {
+        ...defaultArgs,
+        variant: BUTTON_VARIANT.SECONDARY
     }
 };
 
-export default meta;
-
-export const Base: StoryObj = {};
-
-export const TypeButton: StoryObj = {
+export const Outline : Story = {
     args: {
-        type: "button",
-        variant: "primary"
+        ...defaultArgs,
+        variant: BUTTON_VARIANT.OUTLINE
     }
 };
 
-export const TypeSubmit: StoryObj = {
+export const Ghost : Story = {
     args: {
-        type: "submit",
-        variant: "primary"
-    }
-};
-
-export const TypeReset: StoryObj = {
-    args: {
-        type: "reset",
-        variant: "primary"
+        ...defaultArgs,
+        variant: BUTTON_VARIANT.GHOST
     }
 };
