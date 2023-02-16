@@ -127,25 +127,25 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_bucket: ${{ secrets.AWS_BUCKET }}
           source_dir: "./apps/pie-microsite/dist"
-          destination_dir: ""
+          destination_dir: "preview/pr-"
 
-    # - name: Update deployment status (success)
-    #   if: success()
-    #   uses: chrnorm/deployment-status@v2
-    #   with:
-    #     token: ${{ secrets.GITHUB_TOKEN }}
-    #     environment-url: ${{ steps.deployment.outputs.environment_url }}
-    #     deployment-id: ${{ steps.deployment.outputs.deployment_id }}
-    #     state: 'success'
+    - name: Update deployment status (success)
+      if: success()
+      uses: chrnorm/deployment-status@v2
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        environment-url: https://${{ secrets.AWS_BUCKET }}.s3.eu-west-2.amazonaws.com/index.html
+        deployment-id: ${{ steps.deployment.outputs.deployment_id }}
+        state: 'success'
 
-    # - name: Update deployment status (failure)
-    #   if: failure()
-    #   uses: chrnorm/deployment-status@v2
-    #   with:
-    #     token: ${{ secrets.GITHUB_TOKEN }}
-    #     environment-url: ${{ steps.deployment.outputs.environment_url }}
-    #     deployment-id: ${{ steps.deployment.outputs.deployment_id }}
-    #     state: 'failure'
+    - name: Update deployment status (failure)
+      if: failure()
+      uses: chrnorm/deployment-status@v2
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        environment-url: https://${{ secrets.AWS_BUCKET }}.s3.eu-west-2.amazonaws.com/index.html
+        deployment-id: ${{ steps.deployment.outputs.deployment_id }}
+        state: 'failure'
 
     # deploy-microsite:
     #   needs: build
