@@ -78,9 +78,7 @@ jobs:
         run: yarn lint:style --concurrency=10 --cache-dir=".turbo"
       # Build Packages
       - name: Build Packages
-        run: yarn build --cache-dir=".turbo"
-        env:
-          PIE_URL_PREFIX: /pr-preview-docs/pr-${{github.event.number}}
+        run: yarn build --cache-dir=".turbo"P
 
   deploy-s3:
     needs: build
