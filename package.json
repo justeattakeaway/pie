@@ -93,5 +93,9 @@
     "@justeat/fozzie": "10.9.0",
     "@justeattakeaway/pie-icons": "1.0.0",
     "lit": "2.6.1"
+  },
+  "volta": {
+    "node": "16.19.0",
+    "yarn": "3.4.1"
   }
 }
