@@ -1,5 +1,5 @@
 <nav aria-label="Secondary navigational tabs" class="c-tabs">
-    <ul>
+    <ul class="c-content-container">
         {%- for entry in collections.all | eleventyNavigation(navKey) %}
         <li
             {% if entry.url == page.url %}
