@@ -1,18 +1,13 @@
 @use '../fozzie-config' as f;
+@use '../variables' as v;
 
 $tabs-link-padding:                f.spacing(d);
 
 .c-tabs {
   z-index: f.zIndex(mid);
   font-weight: f.$font-weight-bold;
-  padding: 0;
 
   ul {
-    $tabs-padding: 64px - 16px; // To match grid-template-rows from layout file.
-
-    margin: 0 0 0 $tabs-padding;
-    padding: 0;
-
     .c-tabs-item {
       display: inline-block;
     }
@@ -52,10 +47,5 @@ $tabs-link-padding:                f.spacing(d);
     width: 100%;
     overflow: auto;
     white-space: nowrap;
-    padding-left: f.spacing(d);
-
-    ul {
-      margin: 0;
-    }
   }
 }

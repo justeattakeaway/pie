@@ -305,7 +305,7 @@ $tokensTable-item-vertical-padding: f.spacing(e);
 .c-tokensTable-sectionHeading,
 .c-tokensTable-sectionDescription,
 .c-tokensTable-sectionSubheading {
-    max-width: v.$content-max-width;
+    max-width: v.$typography-content-max-width;
 }
 
 .c-tokensTable-sectionSubheading {

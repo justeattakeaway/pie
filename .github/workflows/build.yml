@@ -18,7 +18,9 @@ on:
       - beta-*
       - feature-*
 
-concurrency: CI-${{ github.ref }}
+permissions:
+  contents: write
+  pull-requests: write
 
 jobs:
   install:
@@ -78,20 +80,21 @@ jobs:
       # Lint Styles
       - name: Lint Styles
         run: yarn lint:style --concurrency=10 --cache-dir=".turbo"
-      # Lint JS
-      - name: Lint JavaScript
-        run: yarn lint:scripts --cache-dir=".turbo"
       # Build Packages
       - name: Build Packages
         run: yarn build --cache-dir=".turbo"
         env:
           PIE_URL_PREFIX: /pr-preview-docs/pr-${{github.event.number}}
+      # Lint JS
+      - name: Lint JavaScript
+        run: yarn lint:scripts --cache-dir=".turbo"
       # Run Unit Tests
       - name: Unit Tests
         run: yarn test:ci --cache-dir=".turbo"
 
   deploy-microsite:
     needs: build
+    concurrency: deploy-microsite-${{ github.ref }}
     runs-on: ubuntu-latest
     steps:
       # Checkout the Repo
@@ -139,17 +142,13 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: ./apps/pie-microsite/dist
-          force: false
-          target-folder: .
+          target-folder: docs
           branch: gh-pages
-          clean-exclude: |
-            ./pr-preview-docs
-            ./pr-preview-storybook
-            ./storybook
 
   deploy-storybook:
     needs: build
     runs-on: ubuntu-latest
+    concurrency: deploy-storybook-${{ github.ref }}
     steps:
       # Checkout the Repo
       - name: Checkout
@@ -196,12 +195,8 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: ./apps/pie-storybook/dist
-          force: false
           branch: gh-pages
-          target-folder: ./storybook
-          clean-exclude: |
-            pr-preview-docs
-            pr-preview-storybook
+          target-folder: storybook
 
   browser-tests:
     needs: deploy-microsite
