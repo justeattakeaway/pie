@@ -1,6 +1,12 @@
 const percySnapshot = require('@percy/webdriverio');
+
 const { TEST_TYPE } = process.env;
 const { getBaseUrl } = require('./apps/pie-microsite/test/helpers/configuration-helper');
+
+// These widths correspond with our defined breakpoints in the legacy-je SCSS library, Fozzie:
+// https://github.com/justeattakeaway/fozzie-components/blob/e7215edb1a5f3e13724cddd1648d5887f8951e3c/packages/tools/fozzie/src/scss/tools/helpers/_breakpoints.scss#L6
+// The widths we have chosen are: narrow, mid and huge
+const breakpoints = [414, 768, 1280];
 
 exports.config = {
     //
@@ -54,7 +60,7 @@ exports.config = {
     // https://saucelabs.com/platform/platform-configurator
     //
     capabilities: [{
-    
+
         // maxInstances can get overwritten per capability. So if you have an in-house Selenium
         // grid with only 5 firefox instances available you can make sure that not more than
         // 5 instances get started at a time.
@@ -123,7 +129,7 @@ exports.config = {
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
     services: ['chromedriver', 'devtools'],
-    
+
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
     // see also: https://webdriver.io/docs/frameworks
@@ -144,10 +150,10 @@ exports.config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
-    reporters: [['allure', {outputDir: '../../allure-results'}]],
+    reporters: [['allure', { outputDir: '../../allure-results' }]],
 
 
-    
+
     //
     // Options to be passed to Mocha.
     // See the full list at http://mochajs.org/
@@ -208,11 +214,11 @@ exports.config = {
      * @param {Object}         browser      instance of created browser/device session
      */
     before: async () => {
-
-        if(TEST_TYPE === 'visual') {
-            await browser.addCommand('percyScreenshot', async (screenshotName) => {
-
-                await percySnapshot(screenshotName);
+        if (TEST_TYPE === 'visual') {
+            await browser.addCommand('percyScreenshot', async screenshotName => {
+                await percySnapshot(screenshotName, {
+                    widths: breakpoints
+                });
             });
         }
 
@@ -220,9 +226,9 @@ exports.config = {
         await browser.waitUntil(
             () => browser.execute(() => document.readyState === 'complete'),
             {
-              timeoutMsg: `Unable to load ${browser.options.baseUrl}`
+                timeoutMsg: `Unable to load ${browser.options.baseUrl}`
             }
-          );
+        );
     },
     /**
      * Runs before a WebdriverIO command gets executed.
@@ -264,11 +270,13 @@ exports.config = {
      * @param {Boolean} result.passed    true if test has passed, otherwise false
      * @param {Object}  result.retries   informations to spec related retries, e.g. `{ attempts: 0, limit: 0 }`
      */
-    afterTest: async function(test, context, { error, result, duration, passed, retries }) {
+    afterTest: async function (test, context, {
+        error, result, duration, passed, retries
+    }) {
         if (!passed) {
             await browser.takeScreenshot();
         }
-    },
+    }
 
 
     /**
@@ -320,4 +328,4 @@ exports.config = {
     */
     // onReload: function(oldSessionId, newSessionId) {
     // }
-}
+};
