@@ -76,7 +76,7 @@ As a result of that, we’re often asked how PIE designers are usually involved 
 
 {% list {
     type: listTypes.icon,
-    iconName: "CheckCircleFilledSmall",
+    iconName: "check-circle-filled",
     iconFill: "support-positive",
     items: [
         "Provide guidance and support with foundations, components and patterns.",
@@ -90,7 +90,7 @@ As a result of that, we’re often asked how PIE designers are usually involved 
 
 {% list {
     type: listTypes.icon,
-    iconName: "CloseCircleFilledSmall",
+    iconName: "close-circle-filled",
     iconFill: "support-error",
     items: [
         "Screen designs.",

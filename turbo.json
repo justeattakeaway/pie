@@ -7,6 +7,13 @@
         "^build"
       ]
     },
+    "pie-microsite#build": {
+      "cache": true,
+      "dependsOn": [
+        "^build",
+        "@justeattakeaway/pie-icons#build"
+      ]
+    },
     "clean": {
       "cache": true
     },

@@ -12,22 +12,22 @@ const notificationSettings = {
     error: {
         iconFill: 'support-error',
         bgColour: 'support-error-02',
-        iconName: 'AlertCircleSmall'
+        iconName: 'alert-circle'
     },
     warning: {
         iconFill: 'support-warning',
         bgColour: 'support-warning-02',
-        iconName: 'AlertTriangleSmall'
+        iconName: 'alert-triangle'
     },
     information: {
         iconFill: 'support-info',
         bgColour: 'support-info-02',
-        iconName: 'InfoCircleOutlineSmall'
+        iconName: 'info-circle'
     },
     positive: {
         iconFill: 'support-positive',
         bgColour: 'support-positive-02',
-        iconName: 'CheckCircleOutlineSmall'
+        iconName: 'check-circle'
     }
 };
 
@@ -44,28 +44,29 @@ const notificationSettings = {
 module.exports = function (config) {
     const context = config.context ?? 'contentPage';
     const contextClass = `c-${context}-notification`;
-
+    const iconFill = getNotificationColour(notificationSettings[config.type].iconFill);
     const svg = pieIconsSvg({
         name: notificationSettings[config.type].iconName,
         attrs: {
             height: 24,
             width: 24,
-            fill: getNotificationColour(notificationSettings[config.type].iconFill)
+            fill: iconFill,
+            class: 'u-iconFilled'
         }
     });
 
     const bgColour = getNotificationColour(notificationSettings[config.type].bgColour);
 
     if (config.title) {
-        return `<aside class="${contextClass} c-notification" style="--bg-colour: ${bgColour}">
-          ${svg}
-          <h4 class="c-notification-title">${config.title}</h4>
-          <p class="c-notification-message">${markdownFilter(config.message, true)}</p>
+        return `<aside class="${contextClass} c-notification" style="--bg-colour: ${bgColour}; --icon-fill: ${iconFill};">
+            ${svg}
+            <h4 class="c-notification-title">${config.title}</h4>
+            <p class="c-notification-message">${markdownFilter(config.message, true)}</p>
         </aside>`;
     }
 
-    return `<aside class="${contextClass} c-notification" style="--bg-colour: ${bgColour}">
-      ${svg}
-      <p class="c-notification-message">${markdownFilter(config.message, true)}</p>
+    return `<aside class="${contextClass} c-notification" style="--bg-colour: ${bgColour}; --icon-fill: ${iconFill};">
+        ${svg}
+        <p class="c-notification-message">${markdownFilter(config.message, true)}</p>
     </aside>`;
 };
