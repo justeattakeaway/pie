@@ -138,13 +138,8 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: ./apps/pie-microsite/dist
-          force: false
-          target-folder: .
+          target-folder: docs
           branch: gh-pages
-          clean-exclude: |
-            ./pr-preview-docs
-            ./pr-preview-storybook
-            ./storybook
 
   deploy-storybook:
     needs: build
@@ -196,12 +191,8 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: ./apps/pie-storybook/dist
-          force: false
           branch: gh-pages
-          target-folder: ./storybook
-          clean-exclude: |
-            pr-preview-docs
-            pr-preview-storybook
+          target-folder: storybook
 
   browser-tests:
     needs: deploy-microsite
