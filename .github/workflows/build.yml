@@ -119,7 +119,7 @@ jobs:
         id: docs-deployment
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          environment: Preview
+          environment: docs-pr-{{github.event.number}}
       - name: Upload S3
         uses: shallwefootball/upload-s3-action@v1.2.0
         with:
@@ -127,13 +127,13 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_bucket: ${{ secrets.AWS_BUCKET }}
           source_dir: "./apps/pie-docs/dist"
-          destination_dir: ""
+          destination_dir: "preview-docs/pr-${{github.event.number}}"
       - name: Update deployment status (success)
         if: success()
         uses: chrnorm/deployment-status@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          environment-url: http://${{ secrets.AWS_BUCKET }}.s3-website.eu-west-2.amazonaws.com/
+          environment-url: http://${{ secrets.AWS_BUCKET }}.s3-website.eu-west-2.amazonaws.com/preview-docs/pr-${{github.event.number}}
           deployment-id: ${{ steps.docs-deployment.outputs.deployment_id }}
           state: "success"
       - name: Update deployment status (failure)
@@ -141,7 +141,7 @@ jobs:
         uses: chrnorm/deployment-status@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          environment-url: http://${{ secrets.AWS_BUCKET }}.s3.eu-west-2.amazonaws.com/index.html
+          environment-url: http://${{ secrets.AWS_BUCKET }}.s3.eu-west-2.amazonaws.com/preview-docs/pr-${{github.event.number}}
           deployment-id: ${{ steps.deployment.outputs.deployment_id }}
           state: "failure"
 
@@ -184,42 +184,21 @@ jobs:
         id: storybook-deploy
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          environment: Storybook
+          environment: storybook-pr-{{github.event.number}}
       - name: Upload S3
         uses: shallwefootball/upload-s3-action@v1.2.0
         with:
-<<<<<<< HEAD
           aws_key_id: ${{ secrets.AWS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_bucket: ${{ secrets.AWS_BUCKET }}
           source_dir: "./apps/pie-storybook/dist"
-          destination_dir: "storybook"
+          destination_dir: "preview-storybook/pr-${{github.event.number}}"
       - name: Update deployment status (success)
         if: success()
         uses: chrnorm/deployment-status@v2
-=======
-          folder: ./apps/pie-storybook/dist
-          force: false
-          branch: gh-pages
-          target-folder: ./storybook
-          clean-exclude: |
-            pr-preview-docs
-            pr-preview-storybook
-
-  browser-tests:
-    needs: deploy-docs
-    runs-on: ubuntu-latest
-    steps:
-      # Checkout the Repo
-      - name: Checkout
-        uses: actions/checkout@v3
-      # Setup Node 16
-      - name: Setup Node
-        uses: actions/setup-node@v3
->>>>>>> 185596d466ba758fda9314b93ec1f171f2fc13a5
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          environment-url: http://${{ secrets.AWS_BUCKET }}.s3-website.eu-west-2.amazonaws.com/storybook
+          environment-url: http://${{ secrets.AWS_BUCKET }}.s3-website.eu-west-2.amazonaws.com/preview-storybook/pr-${{github.event.number}}
           deployment-id: ${{ steps.storybook-deploy.outputs.deployment_id }}
           state: "success"
       - name: Update deployment status (failure)
@@ -227,7 +206,7 @@ jobs:
         uses: chrnorm/deployment-status@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          environment-url: http://${{ secrets.AWS_BUCKET }}.s3.eu-west-2.amazonaws.com/index.html
+          environment-url: http://${{ secrets.AWS_BUCKET }}.s3.eu-west-2.amazonaws.com/preview-storybook/pr-${{github.event.number}}
           deployment-id: ${{ steps.docs-deployment.outputs.deployment_id }}
           state: "failure"
 
