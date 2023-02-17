@@ -90,7 +90,7 @@ jobs:
       - name: Unit Tests
         run: yarn test:ci --cache-dir=".turbo"
 
-  deploy-microsite:
+  deploy-docs:
     needs: build
     runs-on: ubuntu-latest
     steps:
@@ -123,14 +123,14 @@ jobs:
             turborepo-dist-cache-
       # Build Projects
       - name: Build Apps
-        run: yarn build --filter=pie-microsite --cache-dir=".turbo"
+        run: yarn build --filter=pie-docs --cache-dir=".turbo"
       # Deployments
-      - name: Deploy - Microsite PR Preview
-        id: preview-microsite
+      - name: Deploy - Docs PR Preview
+        id: preview-docs
         if: ${{ github.ref != 'refs/heads/main' }}
         uses: rossjrw/pr-preview-action@v1
         with:
-          source-dir: ./apps/pie-microsite/dist
+          source-dir: ./apps/pie-docs/dist
           preview-branch: gh-pages
           umbrella-dir: pr-preview-docs
           action: auto
@@ -138,7 +138,7 @@ jobs:
         if: ${{ github.ref == 'refs/heads/main' }}
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: ./apps/pie-microsite/dist
+          folder: ./apps/pie-docs/dist
           force: false
           target-folder: .
           branch: gh-pages
@@ -204,7 +204,7 @@ jobs:
             pr-preview-storybook
 
   browser-tests:
-    needs: deploy-microsite
+    needs: deploy-docs
     runs-on: ubuntu-latest
     steps:
       # Checkout the Repo
@@ -233,7 +233,7 @@ jobs:
           yarn test:visual:ci
     env:
       PIE_URL_PREFIX: pr-preview-docs/pr-${{github.event.number}}
-      PERCY_TOKEN_PIE_MICROSITE: ${{ secrets.PERCY_TOKEN_PIE_MICROSITE }}
+      PERCY_TOKEN_PIE_DOCS: ${{ secrets.PERCY_TOKEN_PIE_DOCS }}
 
   release:
     needs: build
@@ -282,7 +282,7 @@ jobs:
             turborepo-dist-cache-${{ github.ref_name }}
             turborepo-dist-cache-
       # Build Packages
-      - name: Build Microsite
+      - name: Build Docs
         if: ${{ github.event_name != 'pull_request' }} &&
           (contains(github.ref_name, 'main') || contains(github.ref_name, 'beta') || contains(github.ref_name, 'feature'))
         run: yarn build --cache-dir=".turbo"
