@@ -2612,7 +2612,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-icons-vue@workspace:packages/tools/pie-icons-vue"
   dependencies:
-    "@justeattakeaway/pie-icons": 2.0.0-beta.3
+    "@justeattakeaway/pie-icons": 2.0.0-beta.4
     "@vue/babel-helper-vue-jsx-merge-props": 1.4.0
     "@vue/babel-preset-jsx": 1.4.0
     bili: 3.4.2
@@ -2624,7 +2624,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-icons@2.0.0-beta.3, @justeattakeaway/pie-icons@workspace:packages/tools/pie-icons":
+"@justeattakeaway/pie-icons@2.0.0-beta.4, @justeattakeaway/pie-icons@workspace:packages/tools/pie-icons":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-icons@workspace:packages/tools/pie-icons"
   dependencies:
@@ -16669,7 +16669,7 @@ __metadata:
     "@justeat/fozzie": 10.9.0
     "@justeat/pie-design-tokens": 4.0.0-beta.0
     "@justeat/stylelint-config-fozzie": 3.x
-    "@justeattakeaway/pie-icons": 2.0.0-beta.3
+    "@justeattakeaway/pie-icons": 2.0.0-beta.4
     "@percy/cli": 1.16.0
     "@percy/webdriverio": 2.0.2
     "@wdio/allure-reporter": 7.26.0
