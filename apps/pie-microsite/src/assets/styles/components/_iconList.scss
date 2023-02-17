@@ -2,10 +2,10 @@
 
 $iconList-item-width-desktop: 152px;
 $iconList-item-width-mobile: 163.5px;
-$iconList-margin: 16px;
-$iconList-margin--small: 24px;
-$iconList-icon-size: 32px;
-$iconList-icon-size--small: 16px;
+$iconList-margin: 24px;
+$iconList-margin--large: 16px;
+$iconList-icon-size: 16px;
+$iconList-icon-size--large: 32px;
 
 .c-iconList {
     display: flex;
@@ -51,11 +51,11 @@ $iconList-icon-size--small: 16px;
     }
 }
 
-.c-iconListCard-preview--small {
+.c-iconListCard-preview--large {
     svg {
-        margin: $iconList-margin--small;
-        width: $iconList-icon-size--small;
-        height: $iconList-icon-size--small;
+        margin: $iconList-margin--large;
+        width: $iconList-icon-size--large;
+        height: $iconList-icon-size--large;
     }
 }
 
