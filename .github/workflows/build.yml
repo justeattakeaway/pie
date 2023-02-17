@@ -78,7 +78,9 @@ jobs:
         run: yarn lint:style --concurrency=10 --cache-dir=".turbo"
       # Build Packages
       - name: Build Packages
-        run: yarn build --cache-dir=".turbo"P
+        run: yarn build --cache-dir=".turbo"
+        env:
+          PIE_URL_PREFIX: /pr-preview-docs/pr-${{github.event.number}}
 
   deploy-s3-docs:
     needs: build
@@ -119,7 +121,7 @@ jobs:
         id: docs-deployment
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          environment: docs-pr-{{github.event.number}}
+          environment: "docs-pr-${{github.event.number}}"
       - name: Upload S3
         uses: shallwefootball/upload-s3-action@v1.2.0
         with:
@@ -184,7 +186,7 @@ jobs:
         id: storybook-deploy
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          environment: storybook-pr-{{github.event.number}}
+          environment: "storybook-pr-${{github.event.number}}"
       - name: Upload S3
         uses: shallwefootball/upload-s3-action@v1.2.0
         with:
