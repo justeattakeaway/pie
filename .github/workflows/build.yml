@@ -80,7 +80,7 @@ jobs:
       - name: Build Packages
         run: yarn build --cache-dir=".turbo"P
 
-  deploy-s3-microsite:
+  deploy-s3-docs:
     needs: build
     runs-on: ubuntu-latest
     steps:
@@ -113,10 +113,10 @@ jobs:
             turborepo-dist-cache-
       # Build Projects
       - name: Build Apps
-        run: yarn build --filter=pie-microsite --cache-dir=".turbo"
+        run: yarn build --filter=pie-docs --cache-dir=".turbo"
       - name: Create GitHub deployment
         uses: chrnorm/deployment-action@v2
-        id: microsite-deployment
+        id: docs-deployment
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           environment: Preview
@@ -126,7 +126,7 @@ jobs:
           aws_key_id: ${{ secrets.AWS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_bucket: ${{ secrets.AWS_BUCKET }}
-          source_dir: "./apps/pie-microsite/dist"
+          source_dir: "./apps/pie-docs/dist"
           destination_dir: ""
       - name: Update deployment status (success)
         if: success()
@@ -134,7 +134,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           environment-url: http://${{ secrets.AWS_BUCKET }}.s3-website.eu-west-2.amazonaws.com/
-          deployment-id: ${{ steps.microsite-deployment.outputs.deployment_id }}
+          deployment-id: ${{ steps.docs-deployment.outputs.deployment_id }}
           state: "success"
       - name: Update deployment status (failure)
         if: failure()
@@ -188,6 +188,7 @@ jobs:
       - name: Upload S3
         uses: shallwefootball/upload-s3-action@v1.2.0
         with:
+<<<<<<< HEAD
           aws_key_id: ${{ secrets.AWS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_bucket: ${{ secrets.AWS_BUCKET }}
@@ -196,6 +197,26 @@ jobs:
       - name: Update deployment status (success)
         if: success()
         uses: chrnorm/deployment-status@v2
+=======
+          folder: ./apps/pie-storybook/dist
+          force: false
+          branch: gh-pages
+          target-folder: ./storybook
+          clean-exclude: |
+            pr-preview-docs
+            pr-preview-storybook
+
+  browser-tests:
+    needs: deploy-docs
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout the Repo
+      - name: Checkout
+        uses: actions/checkout@v3
+      # Setup Node 16
+      - name: Setup Node
+        uses: actions/setup-node@v3
+>>>>>>> 185596d466ba758fda9314b93ec1f171f2fc13a5
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           environment-url: http://${{ secrets.AWS_BUCKET }}.s3-website.eu-west-2.amazonaws.com/storybook
@@ -207,11 +228,11 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           environment-url: http://${{ secrets.AWS_BUCKET }}.s3.eu-west-2.amazonaws.com/index.html
-          deployment-id: ${{ steps.microsite-deployment.outputs.deployment_id }}
+          deployment-id: ${{ steps.docs-deployment.outputs.deployment_id }}
           state: "failure"
 
   # browser-tests:
-  #   needs: deploy-microsite
+  #   needs: deploy-docs
   #   runs-on: ubuntu-latest
   #   steps:
   #     # Checkout the Repo
@@ -240,7 +261,7 @@ jobs:
   #         yarn test:visual:ci
   #   env:
   #     PIE_URL_PREFIX: pr-preview-docs/pr-${{github.event.number}}
-  #     PERCY_TOKEN_PIE_MICROSITE: ${{ secrets.PERCY_TOKEN_PIE_MICROSITE }}
+  #     PERCY_TOKEN_PIE_DOCS: ${{ secrets.PERCY_TOKEN_PIE_DOCS }}
 
   # release:
   #   needs: build
@@ -289,7 +310,7 @@ jobs:
   #           turborepo-dist-cache-${{ github.ref_name }}
   #           turborepo-dist-cache-
   #     # Build Packages
-  #     - name: Build Microsite
+  #     - name: Build Docs
   #       if: ${{ github.event_name != 'pull_request' }} &&
   #         (contains(github.ref_name, 'main') || contains(github.ref_name, 'beta') || contains(github.ref_name, 'feature'))
   #       run: yarn build --cache-dir=".turbo"

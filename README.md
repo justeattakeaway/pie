@@ -37,9 +37,9 @@
 ---
 
 ## Running project-level commands that rely on root-level dependencies
-If you have a project-level command, such as `yarn lint:style` within the pie-microsite project, you will see that it has `run -T` in front of the `stylelint` command.
+If you have a project-level command, such as `yarn lint:style` within the pie-docs project, you will see that it has `run -T` in front of the `stylelint` command.
 
-This is because `stylelint` is a root-level dependency (so it can be shared across monorepo projects). The problem is that if you cd into `/apps/pie-microsite` and run the command, you will get a `command not found` error because `stylelint` does not exist at the project level.
+This is because `stylelint` is a root-level dependency (so it can be shared across monorepo projects). The problem is that if you cd into `/apps/pie-docs` and run the command, you will get a `command not found` error because `stylelint` does not exist at the project level.
 
 Using the `run -T` expression will tell yarn to look in the root of the repository for that dependency.
 
@@ -95,7 +95,7 @@ A Feature release is for larger changes that may require multiple PRs, across se
 If your change is intended to be released under the `next` / `beta` tag on npm, you must follow this workflow:
 - Create a new branch with the `feature-*` / `beta-*` prefix, and push this to the remote. E.g. `git push origin feature-myawesomework`.
 - Create another branch, off this initial feature/beta branch, to implement your code changes. Ensure that this branch **does not** use a prefix.
-- When you create your PR, target the `feature-*` / `beta-*` branch. 
+- When you create your PR, target the `feature-*` / `beta-*` branch.
 - Upon merging to your `feature-*` / `beta-*` branch, a new PR titled **Version Packages (beta)** / **Version Packages (next)** is automatically created. This PR includes the `CHANGELOG.md` and `package.json` version bump. Merging this PR will execute a publish to npm using the appropriate tag.
 
 **Notes:** Any new PRs that target the `feature-*` / `beta-*` branch will cause GitHub actions to include the changes as part of that beta/feature release.

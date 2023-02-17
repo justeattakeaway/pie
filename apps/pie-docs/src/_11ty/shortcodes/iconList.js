@@ -11,11 +11,11 @@ module.exports = function () {
       .trim();
 
     const icons = Object.values(pieIcons()).map(({ name, icon }) => {
-        const isSmallIcon = name.toLowerCase().includes('small');
+        const isLargeIcon = name.toLowerCase().includes('large');
 
         const previewClasses = [
             'c-iconListCard-preview',
-            isSmallIcon && 'c-iconListCard-preview--small'
+            isLargeIcon && 'c-iconListCard-preview--large'
         ].filter(Boolean).join(' ');
 
         return `<div class="c-iconList-card">

@@ -1,7 +1,7 @@
 const percySnapshot = require('@percy/webdriverio');
 
 const { TEST_TYPE } = process.env;
-const { getBaseUrl } = require('./apps/pie-microsite/test/helpers/configuration-helper');
+const { getBaseUrl } = require('./apps/pie-docs/test/helpers/configuration-helper');
 
 // These widths correspond with our defined breakpoints in the legacy-je SCSS library, Fozzie:
 // https://github.com/justeattakeaway/fozzie-components/blob/e7215edb1a5f3e13724cddd1648d5887f8951e3c/packages/tools/fozzie/src/scss/tools/helpers/_breakpoints.scss#L6
