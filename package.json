@@ -91,7 +91,7 @@
   },
   "dependencies": {
     "@justeat/fozzie": "10.9.0",
-    "@justeattakeaway/pie-icons": "2.0.0-beta.3",
+    "@justeattakeaway/pie-icons": "2.0.0-beta.4",
     "lit": "2.6.1"
   },
   "volta": {
