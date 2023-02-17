@@ -1381,32 +1381,38 @@
     "alias": {
       "rounded-none": {
         "description": "Used when explicitly specifying that a design element shouldn't have rounded corners.",
-        "displayName": "Rounded None",
+        "displayName": "Rounded none",
+        "globalToken": "$radius-00",
         "scssName": "$rounded-none"
       },
       "rounded-a": {
         "description": "Used for small tags.",
         "displayName": "Rounded A",
+        "globalToken": "$radius-02",
         "scssName": "$rounded-a"
       },
       "rounded-b": {
         "description": "Used for data visualisation elements, tags, logos and toast components.",
         "displayName": "Rounded B",
+        "globalToken": "$radius-03",
         "scssName": "$rounded-b"
       },
       "rounded-c": {
         "description": "Used in cards, popovers, notifications, headers, navigation bars and side drawers.",
         "displayName": "Rounded C",
+        "globalToken": "$radius-04",
         "scssName": "$rounded-c"
       },
       "rounded-d": {
         "description": "Used in modals and sheets.",
         "displayName": "Rounded D",
+        "globalToken": "$radius-05",
         "scssName": "$rounded-d"
       },
       "rounded-e": {
         "description": "Used in toggles, extended FABs and buttons.",
         "displayName": "Rounded E",
+        "globalToken": "$radius-06",
         "scssName": "$rounded-e"
       }
     }
