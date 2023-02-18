@@ -80,7 +80,7 @@ jobs:
       - name: Build Packages
         run: yarn build --cache-dir=".turbo"
         env:
-          PIE_URL_PREFIX: /pr-preview-docs/pr-${{github.event.number}}
+          PIE_URL_PREFIX: /preview-docs/pr-${{github.event.number}}
 
   deploy-s3-docs:
     needs: build
