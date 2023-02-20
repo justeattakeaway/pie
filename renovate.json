@@ -75,7 +75,7 @@
       "matchPackagePatterns": ["markdown-*"],
       "matchUpdateTypes": ["minor", "patch"],
       "groupName": "markdown",
-      "groupSlug": "root-markdown-devDeps",
+      "groupSlug": "root-markdown-deps",
       "enabled": true
     },
     {
@@ -85,7 +85,7 @@
       "matchPackagePatterns": ["@storybook/*", "storybook"],
       "matchUpdateTypes": ["minor", "patch"],
       "groupName": "storybook",
-      "groupSlug": "root-storybook-devDeps",
+      "groupSlug": "root-storybook-deps",
       "enabled": true
     },
     {
