@@ -2654,6 +2654,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@justeattakeaway/pie-icons@npm:2.0.0-beta.3":
+  version: 2.0.0-beta.3
+  resolution: "@justeattakeaway/pie-icons@npm:2.0.0-beta.3"
+  dependencies:
+    cheerio: 1.0.0-rc.10
+    classnames: 2.3.1
+    html-minifier: 4.0.0
+    prettier: 2.5.1
+    rimraf: 3.0.2
+    svgo: 1.3.2
+  checksum: a78b5bf0663a64b368225f6e08301e64adc205ee4a951485b518cdfe324be1d8823ecb6e9d117d91f96abb6aac6048beb6b6394ee710876535770b5d7e2fdd87
+  languageName: node
+  linkType: hard
+
 "@justeattakeaway/pie-stylelint-config@workspace:packages/tools/pie-stylelint-config":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-stylelint-config@workspace:packages/tools/pie-stylelint-config"
@@ -16637,9 +16651,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pie-microsite@workspace:apps/pie-microsite":
+"pie-docs@workspace:apps/pie-docs":
   version: 0.0.0-use.local
-  resolution: "pie-microsite@workspace:apps/pie-microsite"
+  resolution: "pie-docs@workspace:apps/pie-docs"
   dependencies:
     "@11ty/eleventy": 1.0.2
     "@11ty/eleventy-navigation": 0.3.5

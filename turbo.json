@@ -7,7 +7,7 @@
         "^build"
       ]
     },
-    "pie-microsite#build": {
+    "pie-docs#build": {
       "cache": true,
       "dependsOn": [
         "^build",
