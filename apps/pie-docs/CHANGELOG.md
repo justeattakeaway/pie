@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.57.0
+
+### Minor Changes
+
+- [Changed] - Renamed microsite project to pie-docs ([#198](https://github.com/justeattakeaway/pie/pull/198)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- Add "global token used" for radius alias tokens ([#202](https://github.com/justeattakeaway/pie/pull/202)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- [Changed] use `help-circle` icon for `Support` section of nav ([#201](https://github.com/justeattakeaway/pie/pull/201)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Fixed] - Icon Library styles ([#204](https://github.com/justeattakeaway/pie/pull/204)) by [@FayeCarter](https://github.com/FayeCarter)
+
 ## 1.56.0
 
 ### Minor Changes
