@@ -1,5 +1,5 @@
 ---
-"pie-microsite": minor
+"pie-docs": minor
 ---
 
 [Fixed] - Icon Library styles
