@@ -1,4 +1,4 @@
 import * as React from "react";
 import { SVGProps } from "react";
-const IconArrowLeft = (props: SVGProps<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" className="c-pieIcon c-pieIcon--arrowLeft" width="1em" height="1em" {...props}><path d="M15 7.25005H3.35L7.11 3.49005L6.05 2.43005L1.37 7.12005C1.2539 7.23531 1.16175 7.37241 1.09887 7.52344C1.03599 7.67447 1.00362 7.83645 1.00362 8.00005C1.00362 8.16365 1.03599 8.32563 1.09887 8.47667C1.16175 8.6277 1.2539 8.76479 1.37 8.88005L6.05 13.5701L7.11 12.5101L3.35 8.75005H15V7.25005Z" fill="#242E30" /></svg>;
+const IconArrowLeft = (props: SVGProps<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" className="c-pieIcon c-pieIcon--arrowLeft" width="1em" height="1em" {...props}><path d="M15 7.25H3.35l3.76-3.76-1.06-1.06-4.68 4.69a1.24 1.24 0 000 1.76l4.68 4.69 1.06-1.06-3.76-3.76H15v-1.5z" fill="#242E30" /></svg>;
 export default IconArrowLeft;

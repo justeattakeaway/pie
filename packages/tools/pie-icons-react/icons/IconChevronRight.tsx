@@ -1,4 +1,4 @@
 import * as React from "react";
 import { SVGProps } from "react";
-const IconChevronRight = (props: SVGProps<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" className="c-pieIcon c-pieIcon--chevronRight" width="1em" height="1em" {...props}><path d="M5.04375 13.18L10.3987 8.00004L5 2.82004L5.875 1.85754L11.4137 7.20379C11.6291 7.42164 11.7499 7.7156 11.7499 8.02192C11.7499 8.32823 11.6291 8.6222 11.4137 8.84004L5.945 14.125L5.04375 13.18Z" fill="#242E30" /></svg>;
+const IconChevronRight = (props: SVGProps<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" className="c-pieIcon c-pieIcon--chevronRight" width="1em" height="1em" {...props}><path d="M5.044 13.18L10.399 8 5 2.82l.875-.962 5.539 5.346a1.164 1.164 0 010 1.636l-5.469 5.285-.901-.945z" fill="#242E30" /></svg>;
 export default IconChevronRight;

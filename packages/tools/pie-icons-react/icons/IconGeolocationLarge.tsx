@@ -1,4 +1,4 @@
 import * as React from "react";
 import { SVGProps } from "react";
-const IconGeolocationLarge = (props: SVGProps<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" className="c-pieIcon c-pieIcon--geolocationLarge" width="1em" height="1em" {...props}><path d="M6.15625 12.9725V15.02L9.56 15.895C11.1489 16.2901 12.6002 17.1106 13.7579 18.2684C14.9157 19.4261 15.7361 20.8774 16.1312 22.4663L17.0062 25.87H19.0538L25.4587 6.54126L6.15625 12.9725ZM18.1788 22.7463L17.54 20.9963C17.0028 19.4988 16.1404 18.1391 15.0147 17.0149C13.889 15.8908 12.5282 15.0302 11.03 14.495L9.28 13.8563L22.65 9.35001L18.1788 22.7463Z" fill="#242E30" /></svg>;
+const IconGeolocationLarge = (props: SVGProps<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" className="c-pieIcon c-pieIcon--geolocationLarge" width="1em" height="1em" {...props}><path d="M6.156 12.973v2.047l3.404.875a9.012 9.012 0 016.571 6.571l.875 3.404h2.048l6.405-19.329-19.303 6.431zm12.023 9.773l-.639-1.75a10.763 10.763 0 00-6.51-6.501l-1.75-.639L22.65 9.35l-4.471 13.396z" fill="#242E30" /></svg>;
 export default IconGeolocationLarge;
