@@ -3,5 +3,5 @@ eleventyNavigation:
     key: Getting started
     parent: Designers
     order: 1
-    url: /content/pages/designers/getting-started/overview/
+    url: /docs/designers/getting-started/overview/
 ---

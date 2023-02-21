@@ -1,7 +1,7 @@
 ---
 eleventyNavigation:
     key: Designers
-    parent: Pages
+    parent: Docs
     order: 2
 title: Designers
 ---

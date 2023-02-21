@@ -1,4 +1,4 @@
 {
   "layout": "layouts/page-layout.njk",
-  "tags": "pages"
+  "tags": "docs"
 }

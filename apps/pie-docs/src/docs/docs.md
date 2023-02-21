@@ -1,5 +1,5 @@
 ---
 eleventyNavigation:
-    key: Pages
-title: Pages
+    key: Docs
+title: Docs
 ---

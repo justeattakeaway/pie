@@ -1,7 +1,7 @@
 ---
 eleventyNavigation:
     key: Support
-    parent: Pages-secondary
+    parent: Docs-secondary
     order: 2
 title: Support
 ---

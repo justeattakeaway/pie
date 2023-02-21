@@ -48,7 +48,7 @@ Our icons are always placed inside a bounding box, which ensures that vertical a
     ]
 } %}
 
---- 
+---
 
 ## Sizing
 
@@ -174,7 +174,7 @@ By default our icons use our $content-default colour token. However, you can use
 
 {% notification {
     type: "information",
-    message: "See [colour token foundations](/content/pages/foundations/colour/tokens/alias/light/) for more information. (PIE 2.0 guidance only)."
+    message: "See [colour token foundations](/docs/foundations/colour/tokens/alias/light/) for more information. (PIE 2.0 guidance only)."
 } %}
 
 {% contentPageImage {

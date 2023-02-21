@@ -2,5 +2,5 @@
 eleventyNavigation:
     key: Spacing
     parent: Foundations
-    url: /content/pages/foundations/spacing/overview/
+    url: /docs/foundations/spacing/overview/
 ---
