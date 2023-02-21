@@ -13,7 +13,7 @@ module.exports = {
     rules: {
         // require parens in arrow function arguments
         // http://eslint.org/docs/rules/arrow-parens
-        'arrow-parens': ['error', 'as-needed'],
+        'arrow-parens': ['error', 'always'],
 
         // require property shorthand syntax for object literals
         // http://eslint.org/docs/rules/object-shorthand
