@@ -72,9 +72,6 @@ module.exports = {
         // http://eslint.org/docs/rules/newline-per-chained-call
         'newline-per-chained-call': ['error', { ignoreChainWithDepth: 4 }],
 
-        // disallow multiple empty lines and only one newline at the end
-        'no-multiple-empty-lines': ['error', { max: 4 }],
-
         // Allow use of unary operators, ++ and --
         // http://eslint.org/docs/rules/no-plusplus
         'no-plusplus': 'off',
