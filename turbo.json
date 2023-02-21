@@ -81,6 +81,9 @@
     },
     "lint:scripts": {
       "cache": true,
+      "dependsOn": [
+        "^build"
+      ],
       "outputs": []
     },
     "lint:scripts:fix": {
@@ -88,7 +91,9 @@
     },
     "lint:style": {
       "cache": true,
-      "dependsOn": []
+      "dependsOn": [
+        "^build"
+      ]
     },
     "dev": {
       "cache": false,

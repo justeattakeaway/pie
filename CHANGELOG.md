@@ -10,6 +10,7 @@ v1.27.1
 
 ### Fixed
 - Fixed issue where `pie-docs#build:dev` wasn't included in `turbo.json`.
+- Fixed issue where linting would fail if dependency `dist` wasn't present.
 
 
 v1.27.0
