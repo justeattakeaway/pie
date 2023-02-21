@@ -35,5 +35,6 @@
     "foundations/typography/tokens/alias/wide",
     "foundations/typography/tokens/global",
     "support/contact-us",
-    "support/faq"
+    "support/faq",
+    "support/support"
 ]

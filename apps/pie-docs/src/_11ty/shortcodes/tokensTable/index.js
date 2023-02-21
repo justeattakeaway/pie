@@ -1,7 +1,7 @@
 /* eslint-disable no-trailing-spaces */
 const normalisedPieDesignTokens = require('../../../_data/normaliseTokens');
 const pieTokenCategories = require('../../../tokenCategories.json');
-const { stringHelpers, objectHelpers, numberHelpers } = require('../../../utilities/helpers');
+const { stringHelpers, objectHelpers, numberHelpers } = require('../../../_utilities/helpers');
 const tokenTypes = require('../../../_data/tokenTypes');
 const { buildColorName, buildColorExample } = require('./tokenTypes/colour');
 const { buildElevationExample } = require('./tokenTypes/elevation');
