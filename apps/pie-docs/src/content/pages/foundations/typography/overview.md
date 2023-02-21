@@ -26,13 +26,13 @@ width: "98px",
 caption: "The example above shows Arial Regular, which is used as a fallback font."
 } %}
 
-### CP Mono
+### PT Mono
 Used only for snippets of code.
 
 {% contentPageImage {
     src:"../../../../../assets/img/foundations/typography/cp-mono.svg",
     width: "105px",
-    caption: "The example above shows CP Mono, a font used for code snippets."
+    caption: "The example above shows PT Mono, a font used for code snippets."
 } %}
 
 ---
@@ -54,7 +54,7 @@ Here’s an example of how our **$heading-l** looks on wide and narrow screens:
 
 ### Wide screens
 
-Screen size: >768px  
+Screen size: >768px
 Text size: 28px • Line size: 36px
 
 {% contentPageImage {
@@ -64,7 +64,7 @@ Text size: 28px • Line size: 36px
 } %}
 
 ### Narrow screens
-Screen size: <768px  
+Screen size: <768px
 Text size: 24px • Line size: 32px
 
 {% contentPageImage {
