@@ -2564,14 +2564,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@justeat/pie-design-tokens@npm:4.0.0-beta.0":
-  version: 4.0.0-beta.0
-  resolution: "@justeat/pie-design-tokens@npm:4.0.0-beta.0"
+"@justeat/pie-design-tokens@npm:4.2.0":
+  version: 4.2.0
+  resolution: "@justeat/pie-design-tokens@npm:4.2.0"
   dependencies:
     jsonc-parser: 3.2.0
     lodash.merge: 4.6.2
     mkdirp: 1.0.4
-  checksum: a94715a45ec3c3d40841fc55a41fbe5beccffdbb5cc22541d8c9dbc7a8c88525984ad878e66f3aa979475d0b8c467b2a8c0df7eab3887d46c3899a1dca979a7b
+  checksum: 0d31d6a6416533cd6bcdcecc522174a407ac863212470aa72b5346842b5ad6f94cd894fe1dd1e278907741882d1bb89757547392b7955f691241108a9da2b9ed
   languageName: node
   linkType: hard
 
@@ -16667,7 +16667,7 @@ __metadata:
     "@justeat/browserslist-config-fozzie": 1.x
     "@justeat/eslint-config-fozzie": 5.1.0
     "@justeat/fozzie": 10.9.0
-    "@justeat/pie-design-tokens": 4.0.0-beta.0
+    "@justeat/pie-design-tokens": 4.2.0
     "@justeat/stylelint-config-fozzie": 3.x
     "@justeattakeaway/pie-icons": 2.0.0-beta.4
     "@percy/cli": 1.16.0
