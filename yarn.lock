@@ -17566,6 +17566,7 @@ __metadata:
   dependencies:
     "@11ty/eleventy": 1.0.2
     "@11ty/eleventy-navigation": 0.3.5
+    "@justeattakeaway/pie-icons": "workspace:*"
     dree: 3.4.2
     eleventy-plugin-clean: 1.1.3
     eleventy-plugin-rev: 1.0.2
