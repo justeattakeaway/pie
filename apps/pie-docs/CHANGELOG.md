@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.57.1
+
+### Patch Changes
+
+- [Fixed] - issue where `dev` command wasn't executing tasks for dependencies ([#212](https://github.com/justeattakeaway/pie/pull/212)) by [@siggerzz](https://github.com/siggerzz)
+
 ## 1.57.0
 
 ### Minor Changes
