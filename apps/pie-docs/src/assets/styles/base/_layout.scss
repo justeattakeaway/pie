@@ -35,7 +35,7 @@
 .c-main {
     grid-area: main;
     position: relative;
-
+    min-width: 0;
 }
 
 .c-content-container {
