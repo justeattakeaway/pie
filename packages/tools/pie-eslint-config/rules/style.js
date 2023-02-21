@@ -6,9 +6,14 @@ module.exports = {
         // require camel case names
         camelcase: ['error', { properties: 'always' }],
 
-        // Stop dangling commas
-        // http://eslint.org/docs/rules/comma-dangle
-        'comma-dangle': ['error', 'never'],
+        // Enable dangling commas
+        'comma-dangle': ['error', {
+            arrays: 'only-multiline',
+            objects: 'always-multiline',
+            imports: 'always-multiline',
+            exports: 'always-multiline',
+            functions: 'always-multiline',
+        }],
 
         'function-call-argument-newline': 'off',
 
@@ -20,12 +25,12 @@ module.exports = {
         indent: ['error', 4, {
             FunctionDeclaration: {
                 body: 1,
-                parameters: 1
+                parameters: 1,
             },
 
             FunctionExpression: {
                 body: 1,
-                parameters: 1
+                parameters: 1,
             },
 
             MemberExpression: 'off',
@@ -34,14 +39,14 @@ module.exports = {
 
             ignoredNodes: ['TemplateLiteral'],
 
-            outerIIFEBody: 1
+            outerIIFEBody: 1,
         }],
 
         // enforces spacing between keys and values in object literal properties
         'key-spacing': ['error', {
             afterColon: true,
             beforeColon: false,
-            mode: 'minimum'
+            mode: 'minimum',
         }],
 
         // disallow mixed 'LF' and 'CRLF' as linebreaks
@@ -57,7 +62,7 @@ module.exports = {
             ignoreRegExpLiterals: true,
             ignoreStrings: true,
             ignoreTemplateLiterals: true,
-            ignoreUrls: true
+            ignoreUrls: true,
         }],
 
         'max-lines-per-function': 'off',
@@ -94,7 +99,7 @@ module.exports = {
         'space-before-function-paren': ['error', {
             anonymous: 'always',
             asyncArrow: 'always',
-            named: 'always'
+            named: 'always',
         }],
 
         // require or disallow a space immediately following the // or /* in a comment
@@ -102,14 +107,14 @@ module.exports = {
         'spaced-comment': ['error', 'always', {
             block: {
                 balanced: false,
-                exceptions: ['-', '*']
+                exceptions: ['-', '*'],
             },
             line: {
                 exceptions: ['-', '*'],
-                markers: ['global']
-            }
+                markers: ['global'],
+            },
         }],
 
-        'switch-colon-spacing': ['error', { after: true, before: false }]
-    }
+        'switch-colon-spacing': ['error', { after: true, before: false }],
+    },
 };
