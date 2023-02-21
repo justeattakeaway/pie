@@ -23,14 +23,14 @@ This fontpack includes Regular, Bold and ExtraBold variations (in `.woff` and `.
 - `base-subset` – this is an optimised subset of JETSansDigital. This is a subset created using the Google font Latin subset of characters, covering languages such as English, French, Spanish and German.
 
 {% contentPageImage {
-src:"../../../../../assets/img/foundations/typography/jetsans-base-subset.png",
+src:"../../../../assets/img/foundations/typography/jetsans-base-subset.png",
 alt: "Wakamai Fondue font specification for JETSans Digital – the base subset"
 } %}
 
 - `extended-subset` – this is an extended subset of JETSansDigital, which contains the characters for all languages supported across JET (including Cyrillic and Hebrew).
 
 {% contentPageImage {
-src:"../../../../../assets/img/foundations/typography/jetsans-extended-subset.png",
+src:"../../../../assets/img/foundations/typography/jetsans-extended-subset.png",
 alt: "Wakamai Fondue font specification for JETSans Digital – the extended base subset"
 } %}
 
@@ -108,7 +108,7 @@ The basic strategy is to load in the `JETSansDigital-Regular` webfont as soon as
    N.b. You should also put the two webfont URLs into your service worker so that they are cached at browser level, saving additional requests on repeat vists.
 
 **3. You should now be able to use the** `JETSansDigital` **font when defining your** `font-family` **in CSS**
-    
+
 If you use `fozzie`, this will automatically get set as part of the typography styles. If not, then you will need to set `font-family: 'JETSansDigital';` in your CSS to use it. Bold uses the same font-family with `font-weight: 700;`, with ExtraBold assigned to `font-weight: 800;`.
 
 
@@ -123,7 +123,7 @@ The standard fontset comes with a huge number of glyphs and layout features that
 For reference, the JETSans Digital Regular font has the following properties when inspected using the [Wakamai Fondue tool](https://wakamaifondue.com/):
 
 {% contentPageImage {
-src:"../../../../../assets/img/foundations/typography/jetsansdigital-base.png",
+src:"../../../../assets/img/foundations/typography/jetsansdigital-base.png",
 alt: "Overview of the main font specification for JETSans Digital"
 } %}
 

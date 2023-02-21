@@ -29,8 +29,8 @@ You’ll need to enable these libraries if you want to use the PIE design system
 
 
 {% contentPageImage {
-src: "../../../../../assets/img/designers/getting-started/overview/libraries-wheel.svg",
-mobileSrc: "../../../../../assets/img/designers/getting-started/overview/libraries-wheel_narrow.svg",
+src: "../../../../assets/img/designers/getting-started/overview/libraries-wheel.svg",
+mobileSrc: "../../../../assets/img/designers/getting-started/overview/libraries-wheel_narrow.svg",
 width: "512px",
 caption: "A map of how Libraries are structured in Figma."
 } %}

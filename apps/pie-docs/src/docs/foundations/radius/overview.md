@@ -8,7 +8,7 @@ eleventyNavigation:
 
 Radius aids us in emphasising and highlighting specific design features in our products. It's easier to scan an interface by following circles and curves rather than abrupt edges, which can disrupt our line of sight.
 
---- 
+---
 
 ## Types of radius
 
@@ -20,7 +20,7 @@ These include:
 This group includes all radii that maintain the component’s proportions by partially rounding their edges. We use multiples of 4px/pt/dp to set the levels of roundness.
 
 {% contentPageImage {
-    src:"../../../../../assets/img/foundations/radius/default-rounding.svg",
+    src:"../../../../assets/img/foundations/radius/default-rounding.svg",
     width: "270px",
     caption: "Visual example of how default rounding looks in a Modal component."
 } %}
@@ -31,12 +31,12 @@ It allows us to create fully rounded corners keeping the component’s proportio
 
 
 {% contentPageImage {
-    src:"../../../../../assets/img/foundations/radius/full-rounding.svg",
+    src:"../../../../assets/img/foundations/radius/full-rounding.svg",
     width: "97px",
     caption: "Visual example of how full rounding looks in a Button component."
 } %}
 
---- 
+---
 
 ## Using radius in your products
 
@@ -48,14 +48,14 @@ We’ve put together a quick set of tips that will help you choose which roundin
 
 ### 0px/pt/dp radius
 
-Use 0px/pt/dp (non-rounded) corners for basic or structural design elements. This would apply to any design element or component that spans full width within its container or the page. 
+Use 0px/pt/dp (non-rounded) corners for basic or structural design elements. This would apply to any design element or component that spans full width within its container or the page.
 
-Basic layout structures and containers, such as toolbars or section splitters should use 0dp corners. 
+Basic layout structures and containers, such as toolbars or section splitters should use 0dp corners.
 
 The example above shows two components without any radius applied to their corners.
 
 {% contentPageImage {
-    src:"../../../../../assets/img/foundations/radius/no-radius.svg",
+    src:"../../../../assets/img/foundations/radius/no-radius.svg",
     width: "800px",
     caption: "The example above shows two components without any radius applied to their corners."
 } %}
@@ -66,7 +66,7 @@ Partial rounding units are the most commonly used measures for our design elemen
 
 
 {% contentPageImage {
-    src:"../../../../../assets/img/foundations/radius/default-rounding-components.svg",
+    src:"../../../../assets/img/foundations/radius/default-rounding-components.svg",
     width: "535.5px",
     caption: "The example above shows three cards with default rounding around their corners."
 } %}
@@ -77,7 +77,7 @@ Full rounding should be used sparingly, trying to only assign it to elements tha
 
 
 {% contentPageImage {
-    src:"../../../../../assets/img/foundations/radius/full-rounding-components.svg",
+    src:"../../../../assets/img/foundations/radius/full-rounding-components.svg",
     width: "391px",
     caption: "The example above shows some components which use full rounding as part of their design."
 } %}

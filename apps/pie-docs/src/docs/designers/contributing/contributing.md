@@ -12,8 +12,8 @@ eleventyComputed:
 We consider that a design system can only work when there’s input from other teams and colleagues within our pillars. We encourage you to contribute, no matter what your position or knowledge of the system is.
 
 {% contentPageImage {
-src: "../../../../assets/img/designers/contributing/teamwork.svg",
-mobileSrc: "../../../../assets/img/designers/contributing/teamwork_narrow.svg",
+src: "../../../assets/img/designers/contributing/teamwork.svg",
+mobileSrc: "../../../assets/img/designers/contributing/teamwork_narrow.svg",
 caption: "Teamwork makes the dream work!"
 } %}
 

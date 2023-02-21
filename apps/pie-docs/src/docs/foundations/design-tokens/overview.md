@@ -7,7 +7,7 @@ eleventyNavigation:
 
 ## What are Design Tokens?
 
-Design tokens are the visual design atoms of the design system — specifically, they are named entities that store interface design attributes. 
+Design tokens are the visual design atoms of the design system — specifically, they are named entities that store interface design attributes.
 
 We use them in place of hard-coded values (such as HEX values for Colour, or pixel values for Spacing) in order to maintain a scalable and consistent visual system for UI development.
 
@@ -17,12 +17,12 @@ Our tokens consist of two key elements:
 - **Associated values,** such as #FF8000
 
 {% contentPageImage {
-    src: "../../../../../assets/img/foundations/design-tokens/overview/what-are-tokens.svg",
+    src: "../../../../assets/img/foundations/design-tokens/overview/what-are-tokens.svg",
     width: "416px",
     caption: "Example of some of the Alias Tokens that are used to build our Button component."
 } %}
 
-The difference between Design Tokens and other design variables lies in the fact that they provide an additional abstract layer which ensures they are platform-agnostic. 
+The difference between Design Tokens and other design variables lies in the fact that they provide an additional abstract layer which ensures they are platform-agnostic.
 
 The naming conventions given to these layers create a common language for design properties (colour, spacing, elevation…) that can be used within all platforms and implementation frameworks.
 
@@ -39,7 +39,7 @@ Global tokens are the primitive values in PIE’s design. They are the base-leve
 These tokens are both context-agnostic (meaning the name should not reflect any use case context) and value-descriptive (meaning the name should reflect the value of that token).
 
 {% contentPageImage {
-    src: "../../../../../assets/img/foundations/design-tokens/overview/global.svg",
+    src: "../../../../assets/img/foundations/design-tokens/overview/global.svg",
     width: "173px",
     caption: "The example above shows the HEX value assigned to the $color-orange-30 Global Token."
 } %}
@@ -60,7 +60,7 @@ These should be singular in their intended purpose, meaning they should relate o
 
 
 {% contentPageImage {
-    src:"../../../../../assets/img/foundations/design-tokens/overview/alias.svg",
+    src:"../../../../assets/img/foundations/design-tokens/overview/alias.svg",
     width: "186px",
     caption: "The example above shows $color-orange-30 being assigned as the Global Token used for the $brand-support-01 Alias Token."
 } %}
@@ -89,7 +89,7 @@ When a value needs to be updated, this can be done centrally (in one place, usua
 
 ### Tokens promote consistency
 
-Design tokens allow us to maintain a unified look and feel across our products and themes, helping product teams apply design decisions swiftly and with confidence. They also help keep our Foundations values in sync for every platform. 
+Design tokens allow us to maintain a unified look and feel across our products and themes, helping product teams apply design decisions swiftly and with confidence. They also help keep our Foundations values in sync for every platform.
 
 ### Tokens simplify development
 

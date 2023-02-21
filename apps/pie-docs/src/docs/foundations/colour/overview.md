@@ -13,7 +13,7 @@ Here are some principles which can help you apply colour in your products more e
 Although we value an aesthetically pleasing use of colour, we place a higher value on clear communication. Colour supports the purpose of the content, communicating things like hierarchy of information, interactive states, and the difference between distinct elements.
 
 {% contentPageImage {
-src:"../../../../../assets/img/foundations/colour/brand-colours.svg",
+src:"../../../../assets/img/foundations/colour/brand-colours.svg",
 caption: "The visual above shows a composition made of various of our brand colours."
 } %}
 
@@ -22,7 +22,7 @@ caption: "The visual above shows a composition made of various of our brand colo
 Colours have assigned roles, which hold a specific meaning based on how they function within the interface. Defined colour roles make things easy to modify and customize later. They also extend the colour system so it works across any touchpoint at JET.
 
 {% contentPageImage {
-src:"../../../../../assets/img/foundations/colour/colour-meaning.svg",
+src:"../../../../assets/img/foundations/colour/colour-meaning.svg",
 caption: "Some of the meanings we have determined for our ‘Supportive’ colour palette."
 } %}
 
@@ -31,12 +31,12 @@ caption: "Some of the meanings we have determined for our ‘Supportive’ colou
 The colour system is designed within the HSLuv colour space to generate themes that meet WCAG 2.1 compliant contrast ratios. This makes things easier to find, identify, and interact with. It also makes the whole experience more accessible for merchants who are color blind or who have low vision. However you should never convey information using color alone.
 
 {% contentPageImage {
-src:"../../../../../assets/img/foundations/colour/colour-accessibility.svg",
+src:"../../../../assets/img/foundations/colour/colour-accessibility.svg",
 width: "360px",
 caption: "The image above shows the colour contrast for white text placed over our ‘Aubergine’ colour."
 } %}
 
---- 
+---
 ## Using orange in your designs
 
 We’re an orange brand, which means that orange always takes centre stage. It represents our joyful personality, it’s bold, energising and we use it wherever we communicate.
@@ -52,7 +52,7 @@ Here are some guidelines which outline when to use Brand orange and Product oran
 #### Brand orange
 
 {% contentPageImage {
-src:"../../../../../assets/img/foundations/colour/brand-orange.svg",
+src:"../../../../assets/img/foundations/colour/brand-orange.svg",
 width: "243px"
 } %}
 
@@ -67,7 +67,7 @@ You should use Brand orange for:
 #### Product orange
 
 {% contentPageImage {
-src:"../../../../../assets/img/foundations/colour/product-orange.svg",
+src:"../../../../assets/img/foundations/colour/product-orange.svg",
 width: "243px"
 } %}
 

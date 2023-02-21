@@ -27,15 +27,15 @@ Our current workflow consists of the following steps:
 
 These are the responsibilities of the PIE design team when updating design tokens:
 
-### Update the Design Tokens in Figma 
+### Update the Design Tokens in Figma
 
 PIE designers are in charge of maintaining, updating and creating design tokens. These updates are implemented into the design ecosystem by updating the Foundations libraries in Figma.
 
 These updates should be carried out using branches to track changes and revert the process when/if necessary. If you’re not familiar with working with branches, please ask a member of the PIE team for guidance.
 
 {% contentPageImage {
-src:"../../../../../assets/img/foundations/design-tokens/updates-and-maintenance/figma-file.svg",
-mobileSrc: "../../../../../assets/img/foundations/design-tokens/updates-and-maintenance/figma-file_narrow.svg",
+src:"../../../../assets/img/foundations/design-tokens/updates-and-maintenance/figma-file.svg",
+mobileSrc: "../../../../assets/img/foundations/design-tokens/updates-and-maintenance/figma-file_narrow.svg",
 width: "663px",
 caption: "Screenshot of the cover page in our PIE 2.0 Foundations – Light Figma file."
 } %}
@@ -45,8 +45,8 @@ caption: "Screenshot of the cover page in our PIE 2.0 Foundations – Light Figm
 Updates carried out by PIE designers are communicated through the [Bi-weekly Component & Token Roundup](https://docs.google.com/document/d/10-_Ev2GsV18ACKHYWc49qgU-LYRYToAKrlfbHKA9cOM/edit?usp=sharing){target="_blank"} document. The file is structured in bi-weekly releases, which show what has changed within the system and includes a description for additional context.
 
 {% contentPageImage {
-src:"../../../../../assets/img/foundations/design-tokens/updates-and-maintenance/component-token-roundup.svg",
-mobileSrc: "../../../../../assets/img/foundations/design-tokens/updates-and-maintenance/component-token-roundup_narrow.svg",
+src:"../../../../assets/img/foundations/design-tokens/updates-and-maintenance/component-token-roundup.svg",
+mobileSrc: "../../../../assets/img/foundations/design-tokens/updates-and-maintenance/component-token-roundup_narrow.svg",
 width: "696px",
 caption: "Screenshot of our Bi-weekly Component & Token Roundup document."
 } %}
@@ -69,8 +69,8 @@ message: "If you need any help working with or understanding the Changelog, plea
 } %}
 
 {% contentPageImage {
-src:"../../../../../assets/img/foundations/design-tokens/updates-and-maintenance/changelog.svg",
-mobileSrc: "../../../../../assets/img/foundations/design-tokens/updates-and-maintenance/changelog_narrow.svg",
+src:"../../../../assets/img/foundations/design-tokens/updates-and-maintenance/changelog.svg",
+mobileSrc: "../../../../assets/img/foundations/design-tokens/updates-and-maintenance/changelog_narrow.svg",
 width: "589px",
 caption: "Screenshot of the PIE Design Changelog"
 } %}
@@ -85,8 +85,8 @@ To do this, the JSONC [(found here)](https://github.com/justeat/pie-design-token
 Once the PR has two approvals, it is merged into the main branch and a new version of the pie-design-tokens package is released on NPM.There is also a clean (without comments) version of JSON published to unpkg. This is the source of tokens for the iOS and Android teams.
 
 {% contentPageImage {
-src:"../../../../../assets/img/foundations/design-tokens/updates-and-maintenance/jsonc.svg",
-mobileSrc: "../../../../../assets/img/foundations/design-tokens/updates-and-maintenance/jsonc_narrow.svg",
+src:"../../../../assets/img/foundations/design-tokens/updates-and-maintenance/jsonc.svg",
+mobileSrc: "../../../../assets/img/foundations/design-tokens/updates-and-maintenance/jsonc_narrow.svg",
 width: "687px",
 caption: "Screenshot of the pie-design-tokens.jsonc file in our Just Eat Takeaway Github environment."
 } %}
@@ -141,8 +141,8 @@ Once a new version of the JSON has been published and the iOS Core team is notif
 
 #### For Android
 
-Once a new version of the JSON has been published the Android core team is notified. JIRA tickets will be created to update the android PIE libraries to the latest version of the design tokens. As part of this process the Android engineers will generate new XML and Kotlin assets. 
+Once a new version of the JSON has been published the Android core team is notified. JIRA tickets will be created to update the android PIE libraries to the latest version of the design tokens. As part of this process the Android engineers will generate new XML and Kotlin assets.
 
-These assets will then be copied into the Android UI repository via a PR. Once the PR is approved and merged new versions of the pie-view and pie compose libraries will be published. 
+These assets will then be copied into the Android UI repository via a PR. Once the PR is approved and merged new versions of the pie-view and pie compose libraries will be published.
 
 Android applications that required the new tokens will then have their versions of the pie libs updated via another PR. Once this PR is merged the next released version of the application will contain the design token updates.
