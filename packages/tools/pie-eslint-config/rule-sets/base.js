@@ -9,5 +9,5 @@ const rules = [
 ].map(require.resolve);
 
 module.exports = {
-    extends: rules
+    extends: rules,
 };

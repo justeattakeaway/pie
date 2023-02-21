@@ -6,15 +6,14 @@ module.exports = {
         'import/no-relative-packages': 'error',
         'import/no-relative-parent-imports': 'off',
 
-
         'import/no-unresolved': [
             'error',
             {
                 caseSensitive: false,
-                commonjs: true
+                commonjs: true,
             }
         ],
 
-        'import/no-unused-modules': 'off'
-    }
+        'import/no-unused-modules': 'off',
+    },
 };

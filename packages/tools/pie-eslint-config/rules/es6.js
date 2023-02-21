@@ -1,14 +1,14 @@
 module.exports = {
     env: {
-        es6: true
+        es6: true,
     },
     parserOptions: {
         ecmaFeatures: {
             generators: false,
-            objectLiteralDuplicateProperties: false
+            objectLiteralDuplicateProperties: false,
         },
         ecmaVersion: 6,
-        sourceType: 'module'
+        sourceType: 'module',
     },
     rules: {
         // require parens in arrow function arguments
@@ -23,9 +23,9 @@ module.exports = {
         // http://eslint.org/docs/rules/prefer-destructuring
         'prefer-destructuring': ['warn', {
             array: true,
-            object: true
+            object: true,
         }, {
-            enforceForRenamedProperties: false
-        }]
-    }
+            enforceForRenamedProperties: false,
+        }],
+    },
 };
