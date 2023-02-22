@@ -30,8 +30,8 @@ caption: "The example above shows Arial Regular, which is used as a fallback fon
 Used only for snippets of code.
 
 {% contentPageImage {
-    src:"../../../../../assets/img/foundations/typography/cp-mono.svg",
-    width: "105px",
+    src:"../../../../../assets/img/foundations/typography/pt-mono.svg",
+    width: "98px",
     caption: "The example above shows PT Mono, a font used for code snippets."
 } %}
 
