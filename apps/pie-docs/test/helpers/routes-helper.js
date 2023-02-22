@@ -4,7 +4,7 @@ const dree = require('dree');
 // Use the 'dree' library to scan the directory of our built pages
 */
 exports.getNavigationRoutes = () => {
-    const children = dree.scan('./dist/docs');
+    const children = dree.scan('./dist');
 
     const expectedRoutes = readChildren(children);
 

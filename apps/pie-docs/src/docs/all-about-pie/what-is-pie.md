@@ -50,4 +50,4 @@ PIE is both a service and a product to the organisation. We create and maintain 
 
 Our goal with these isn’t to take ownership from designers. Instead, we are here to support these teams and ensure their products align to the system, preserving scalability, consistency and craft.
 
-You can learn more about our **support models** in our [How we support you](/docs/designers/how-we-support-you) page.
+You can learn more about our **support models** in our [How we support you](/designers/how-we-support-you) page.

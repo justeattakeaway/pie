@@ -5,7 +5,7 @@ describe('PIE - Status Code Tests', async () => {
         it(`Should respond with a '200' status code for route - ${route}`, async () => {
             const puppeteer = await browser.getPuppeteer();
             const [page] = await puppeteer.pages();
-            const url = `${browser.options.baseUrl}/docs/${route}`;
+            const url = `${browser.options.baseUrl}/${route}`;
 
 
             const response = await page.goto(url);

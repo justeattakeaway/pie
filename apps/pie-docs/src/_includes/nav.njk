@@ -18,13 +18,12 @@
         <ul>
             {# build up a list of categories such as 'components', 'foundations' #}
             {% for category in section %}
-            {# {{ category | dump }} #}
-            {% set pageUrl = page.url.replace("/docs", "")%}
                 <li>
-                    <details {% if pageUrl.includes(category.url) %} open{% endif %}>
+                    {% set pageUrl = page.url.replace("/docs", "")%}
+                    {# for some reason, category urls are duplicated like so: "/all-about-pie/all-about-pie/" #}
+                    {% set categoryUrl = category.url.split("/")[1] %}
+                    <details {% if pageUrl.includes(categoryUrl) %} open{% endif %}>
                         <summary class="c-nav-category" style="--icon-fill: {{categoryIconFill}};">
-                            {{ pageUrl | dump }}<br /><br />
-                            {{ category.url | dump }}
                             {{ { name: navigationIcons[category.key], attrs: { fill: categoryIconFill, height: '24', width: '24', class:'u-iconFilled' } } | pieIconsSvg | safe }}
                             {{ category.title }}
                             {{ { name: 'chevron-up', attrs: { fill: chevronFill, height: '18', width: '18', class:'c-nav-toggle c-nav-toggle--close' } } | pieIconsSvg | safe }}
@@ -35,19 +34,17 @@
                             <ul class="c-nav-list">
                                 {% for subpage in category.children %}
                                 <li>
-                                    {% set subPageArea = subpage.url.split('/')[2] %}
-                                    {% set currentPageArea = page.url.split('/')[2] %}
+                                    {% set subPageArea = subpage.url.split("/")[2] %}
+                                    {% set currentPageArea = page.url.split("/")[2] %}
                                     {% set subpageUrl = subpage.url.replace("/docs", "")%}
                                     {# Set the nav item to active if the url contains it's category #}
-                                    {# this means something like /docs/foundations/colour/overview/ and /docs/foundations/colour/tokens/global/ will activate 'colour' #}
+                                    {# this means something like /foundations/colour/overview/ and /foundations/colour/tokens/global/ will activate 'colour' #}
                                     <a
                                         href="{{ subpageUrl | url}}"
                                         {% if subPageArea == currentPageArea %}
                                             aria-current="page"
                                         {% endif %}
                                         class="c-nav-item {% if subPageArea == currentPageArea %}is-active{% endif %}">
-                                        {# {{ subpage.url | dump }}
-                                        {{ page.url | dump }} #}
                                         {{ subpage.title }}
                                     </a>
                                 </li>
