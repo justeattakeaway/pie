@@ -1,7 +1,7 @@
 import _mergeJSXProps from '@vue/babel-helper-vue-jsx-merge-props';
 
 export default {
-    name: 'IconSocialMicrosoftCirce',
+    name: 'IconSocialMicrosoftCircle',
     props: {},
     functional: true,
     render (h, ctx) {
@@ -12,7 +12,7 @@ export default {
                 xmlns: 'http://www.w3.org/2000/svg',
                 viewBox: '0 0 16 16'
             },
-            class: 'c-pieIcon c-pieIcon--microsoftCirce'
+            class: 'c-pieIcon c-pieIcon--microsoftCircle'
         }, ctx.data]), [h('g', {
             attrs: {
                 'clip-path': 'url(#prefix__clip0_2820_3490)'

@@ -687,10 +687,10 @@ export { default as IconSocialLinkedinCircleLarge } from './IconSocialLinkedinCi
 export { default as IconSocialLinkedinCircle } from './IconSocialLinkedinCircle';
 export { default as IconSocialLinkedinLarge } from './IconSocialLinkedinLarge';
 export { default as IconSocialLinkedin } from './IconSocialLinkedin';
-export { default as IconSocialMicrosoftCirce } from './IconSocialMicrosoftCirce';
 export { default as IconSocialMicrosoftCircleFilledLarge } from './IconSocialMicrosoftCircleFilledLarge';
 export { default as IconSocialMicrosoftCircleFilled } from './IconSocialMicrosoftCircleFilled';
 export { default as IconSocialMicrosoftCircleLarge } from './IconSocialMicrosoftCircleLarge';
+export { default as IconSocialMicrosoftCircle } from './IconSocialMicrosoftCircle';
 export { default as IconSocialMicrosoftLarge } from './IconSocialMicrosoftLarge';
 export { default as IconSocialMicrosoft } from './IconSocialMicrosoft';
 export { default as IconSocialPinterestCircleFilledLarge } from './IconSocialPinterestCircleFilledLarge';
