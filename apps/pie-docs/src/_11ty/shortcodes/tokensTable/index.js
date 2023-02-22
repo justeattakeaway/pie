@@ -209,7 +209,8 @@ const buildUncategorisedLists = ({
         tokenScssName: tokenTypeMetadata[token[0]]?.scssName ?? createScssTokenName(token[0], tokenType),
         tokenDisplayName: tokenTypeMetadata[token[0]]?.displayName ?? createTokenDisplayName(token[0], tokenType),
         tokenType,
-        tokenMetadata: tokenTypeMetadata[token[0]]
+        tokenMetadata: tokenTypeMetadata[token[0]],
+        path
     }));
 
     return buildTokensList(tokenListElements, tokenType);
