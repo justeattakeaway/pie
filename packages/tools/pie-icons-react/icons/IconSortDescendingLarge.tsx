@@ -1,4 +1,4 @@
 import * as React from "react";
 import { SVGProps } from "react";
-const IconSortDescendingLarge = (props: SVGProps<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" className="c-pieIcon c-pieIcon--sortDescendingLarge" width="1em" height="1em" {...props}><path d="M18.033 22.91H2V24.66H18.7681L18.033 22.91ZM2 10.66H12.8695L13.6046 12.41H2V10.66ZM2 16.785H15.4512L16.1864 18.535H2V16.785ZM27.896 13.6438L23.879 9.5663V21.16H22.1287V9.6363L18.1117 13.6438L16.8777 12.41L21.8049 7.47505C22.1295 7.1699 22.5583 7 23.0039 7C23.4494 7 23.8782 7.1699 24.2028 7.47505L29.13 12.41L27.896 13.6438Z" fill="#242E30" /></svg>;
+const IconSortDescendingLarge = (props: SVGProps<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" className="c-pieIcon c-pieIcon--sortDescendingLarge" width="1em" height="1em" {...props}><path d="M18.033 22.91H2v1.75h16.768l-.735-1.75zM2 10.66h10.87l.735 1.75H2v-1.75zm0 6.125h13.451l.735 1.75H2v-1.75zm25.896-3.141l-4.017-4.078V21.16h-1.75V9.636l-4.017 4.008-1.234-1.234 4.927-4.935a1.75 1.75 0 012.398 0l4.927 4.935-1.234 1.234z" fill="#242E30" /></svg>;
 export default IconSortDescendingLarge;
