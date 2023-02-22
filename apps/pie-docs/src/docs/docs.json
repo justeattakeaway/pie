@@ -1,4 +1,5 @@
 {
   "layout": "layouts/page-layout.njk",
-  "tags": "docs"
+  "tags": "docs",
+  "permalink": "{{page.filePathStem | replace('/docs/', '/')}}/"
 }
