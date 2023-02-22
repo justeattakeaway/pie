@@ -7,9 +7,10 @@
     "./strict": "./strict/index.js"
   },
   "scripts": {
-    "lint": "eslint --report-unused-disable-directives ./base/rules",
+    "lint:scripts": "run -T eslint .",
+    "lint:scripts:fix": "run -T eslint . --fix",
     "check-rules": "eslint-find-rules --unused",
-    "pretest": "yarn lint && yarn check-rules",
+    "pretest": "yarn lint:scripts && yarn check-rules",
     "test": "yarn tests-only",
     "tests-only": "run -T jest"
   },
