@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.0.0-beta.6
+
+### Major Changes
+
+- [Fixes] Typo in microsoft-circe icon ([#209](https://github.com/justeattakeaway/pie/pull/209)) by [@ashleynolan](https://github.com/ashleynolan)
+
+- [Fixed] – Fixing casing issue for generated icons & ensuring optimised icons are used correctly ([#209](https://github.com/justeattakeaway/pie/pull/209)) by [@ashleynolan](https://github.com/ashleynolan)
+
 ## 2.0.0-beta.5
 
 ### Major Changes
