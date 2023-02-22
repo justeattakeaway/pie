@@ -18,13 +18,14 @@ svgFiles.forEach(svgObject => {
     const directorySuffix = pathHelpers.getAssetDirectoryName(svgObject.path);
 
     processSvg(svg)
-      .then(svg => {
-          const outputDirectory = OUT_DIR + directorySuffix;
+        .then(svg => {
+            const outputDirectory = OUT_DIR + directorySuffix;
+            const normalisedFilename = (svgObject.fileName).toLowerCase();
 
-          fs.mkdirSync(outputDirectory, { recursive: true });
-          fs.writeFileSync(path.join(outputDirectory, svgObject.fileName), svg);
-      })
-      .catch(error => {
-          console.error(svgObject, error);
-      });
+            fs.mkdirSync(outputDirectory, { recursive: true });
+            fs.writeFileSync(path.join(outputDirectory, normalisedFilename), svg);
+        })
+        .catch(error => {
+            console.error(svgObject, error);
+        });
 });

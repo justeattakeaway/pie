@@ -1,4 +1,4 @@
 import * as React from "react";
 import { SVGProps } from "react";
-const IconCloseLarge = (props: SVGProps<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" className="c-pieIcon c-pieIcon--closeLarge" width="1em" height="1em" {...props}><path d="M23.4199 24.6625L24.6624 23.42L17.2337 16L24.6624 8.57127L23.4199 7.33752L15.9999 14.7663L8.57115 7.33752L7.3374 8.57127L14.7662 16L7.3374 23.42L8.57115 24.6625L15.9999 17.2338L23.4199 24.6625Z" fill="#242E30" /></svg>;
+const IconCloseLarge = (props: SVGProps<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" className="c-pieIcon c-pieIcon--closeLarge" width="1em" height="1em" {...props}><path d="M23.42 24.663l1.242-1.243L17.234 16l7.428-7.429-1.242-1.233L16 14.766 8.57 7.338 7.337 8.57 14.767 16l-7.43 7.42 1.234 1.242L16 17.235l7.42 7.428z" fill="#242E30" /></svg>;
 export default IconCloseLarge;

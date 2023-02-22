@@ -15,22 +15,22 @@ export default {
             class: 'c-pieIcon c-pieIcon--microsoftLarge'
         }, ctx.data]), [h('path', {
             attrs: {
-                d: 'M4 4H15V15H4V4Z',
+                d: 'M4 4h11v11H4V4z',
                 fill: '#F15121'
             }
         }), h('path', {
             attrs: {
-                d: 'M4 17H15V28H4V17Z',
+                d: 'M4 17h11v11H4V17z',
                 fill: '#00A3EE'
             }
         }), h('path', {
             attrs: {
-                d: 'M17 4H28V15H17V4Z',
+                d: 'M17 4h11v11H17V4z',
                 fill: '#7EB801'
             }
         }), h('path', {
             attrs: {
-                d: 'M17 17H28V28H17V17Z',
+                d: 'M17 17h11v11H17V17z',
                 fill: '#FFB700'
             }
         })]);
