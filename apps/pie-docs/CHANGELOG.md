@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.57.2-beta.0
+
+### Patch Changes
+
+- [Fixes] - Updating icon names in header ([#209](https://github.com/justeattakeaway/pie/pull/209)) by [@ashleynolan](https://github.com/ashleynolan)
+
+- [Fixes] Updates icon snapshots ([#217](https://github.com/justeattakeaway/pie/pull/217)) by [@ashleynolan](https://github.com/ashleynolan)
+
 ## 1.57.1
 
 ### Patch Changes
