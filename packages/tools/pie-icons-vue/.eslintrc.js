@@ -1,4 +1,4 @@
-const { vue, vue3 } = require('@justeattakeaway/pie-eslint-config/rules');
+const { vue, vue3 } = require('@justeattakeaway/pie-eslint-config/base-rules');
 
 module.exports = {
     extends: [
