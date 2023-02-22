@@ -47,7 +47,7 @@ pre[class*="language-"]::selection {
 pre[class*="language-"] {
   padding: 20px;
   margin: 0;
-  overflow:auto;
+  overflow: auto;
 }
 :not(pre) > code[class*="language-"],
 pre[class*="language-"] {
@@ -121,8 +121,6 @@ pre[class*="language-"] {
 }
 div.code-toolbar {
   position: relative;
-  max-width: 1025px;
-  // overflow: hidden;
   margin: f.spacing(e) 0px;
   border-radius: 4px;
   box-shadow: rgb(0 0 0 / 10%) 0px 1px 3px 0px;
@@ -183,7 +181,7 @@ div.code-toolbar > .toolbar > .toolbar-item > span:hover {
 }
 
 code:not(code[class*="language-"]) {
-  display: inline-block; 
+  display: inline-block;
   background-color: rgba(0, 0, 0, 0.06);
   border: 1px solid #ccc;
   line-height: 1;

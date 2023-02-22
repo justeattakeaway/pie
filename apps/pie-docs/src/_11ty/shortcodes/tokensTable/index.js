@@ -25,7 +25,13 @@ const {
  * @param {string} tokenType - the type of token i.e. color, spacing, radius
  * @returns {string} the SCSS variable name
  */
-const createScssTokenName = (tokenKey, tokenType) => `$${tokenType}-${tokenKey}`;
+const createScssTokenName = (tokenKey, tokenType, path) => {
+    // TODO: This is a little hacky and we should revisit it as part of a wider refactor
+    // of how token information is generated for the docs site
+    const isDarkToken = path.includes('dark');
+
+    return `$${tokenType}-${isDarkToken ? 'dark-' : ''}${tokenKey}`;
+};
 
 /**
  * Creates a display name of the provided token. 'system-purple' would become 'System Purple'
@@ -177,7 +183,7 @@ const buildTokensListForCategory = (tokens, path, category, tokenType) => {
     // create a list item for the current token
     const tokenListElements = tokensForCategory.map(key => buildTokenListElements({
         token: tokens[key],
-        tokenScssName: createScssTokenName(key, tokenType),
+        tokenScssName: createScssTokenName(key, tokenType, path),
         tokenDisplayName: tokenTypeMetadata[key].displayName ?? createTokenDisplayName(key, tokenType),
         tokenType,
         tokenMetadata: tokenTypeMetadata[key],
@@ -206,7 +212,7 @@ const buildUncategorisedLists = ({
 
     const tokenListElements = sortedTokens.map(token => buildTokenListElements({
         token: tokens[token[0]],
-        tokenScssName: tokenTypeMetadata[token[0]]?.scssName ?? createScssTokenName(token[0], tokenType),
+        tokenScssName: tokenTypeMetadata[token[0]]?.scssName ?? createScssTokenName(token[0], tokenType, path),
         tokenDisplayName: tokenTypeMetadata[token[0]]?.displayName ?? createTokenDisplayName(token[0], tokenType),
         tokenType,
         tokenMetadata: tokenTypeMetadata[token[0]],
