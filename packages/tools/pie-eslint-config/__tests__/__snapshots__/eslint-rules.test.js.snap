@@ -1,6 +1,94 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ESLint should find the expected errors 1`] = `
+exports[`ESLint base should find the expected errors 1`] = `
+Array [
+  Object {
+    "column": 7,
+    "endColumn": 13,
+    "endLine": 1,
+    "line": 1,
+    "message": "'aConst' is assigned a value but never used.",
+    "messageId": "unusedVar",
+    "nodeType": "Identifier",
+    "ruleId": "no-unused-vars",
+    "severity": 2,
+  },
+  Object {
+    "column": 7,
+    "endColumn": 14,
+    "endLine": 2,
+    "line": 2,
+    "message": "'MyClass' is defined but never used.",
+    "messageId": "unusedVar",
+    "nodeType": "Identifier",
+    "ruleId": "no-unused-vars",
+    "severity": 2,
+  },
+  Object {
+    "column": 5,
+    "endColumn": 9,
+    "endLine": 3,
+    "line": 3,
+    "message": "Expected 'this' to be used by class method 'foo'.",
+    "messageId": "missingThis",
+    "nodeType": "FunctionExpression",
+    "ruleId": "class-methods-use-this",
+    "severity": 2,
+  },
+  Object {
+    "column": 5,
+    "endColumn": 9,
+    "endLine": 6,
+    "line": 6,
+    "message": "Expected 'this' to be used by class method 'bar'.",
+    "messageId": "missingThis",
+    "nodeType": "FunctionExpression",
+    "ruleId": "class-methods-use-this",
+    "severity": 2,
+  },
+  Object {
+    "column": 9,
+    "endColumn": 10,
+    "endLine": 8,
+    "line": 7,
+    "message": "The update clause in this loop moves the variable in the wrong direction.",
+    "messageId": "incorrectDirection",
+    "nodeType": "ForStatement",
+    "ruleId": "for-direction",
+    "severity": 2,
+  },
+  Object {
+    "column": 38,
+    "endColumn": 10,
+    "endLine": 8,
+    "line": 7,
+    "message": "Empty block statement.",
+    "messageId": "unexpected",
+    "nodeType": "BlockStatement",
+    "ruleId": "no-empty",
+    "severity": 2,
+  },
+  Object {
+    "column": 2,
+    "fix": Object {
+      "range": Array [
+        124,
+        124,
+      ],
+      "text": "
+",
+    },
+    "line": 10,
+    "message": "Newline required at end of file but not found.",
+    "messageId": "missing",
+    "nodeType": "Program",
+    "ruleId": "eol-last",
+    "severity": 2,
+  },
+]
+`;
+
+exports[`ESLint strict inherits base should find the expected errors 1`] = `
 Array [
   Object {
     "column": 7,
