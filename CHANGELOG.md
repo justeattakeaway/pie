@@ -111,7 +111,7 @@ v1.21.2
 
 v1.21.1
 ------------------------------
-*December 20, 2023*
+*December 20, 2022*
 
 ### Fixed
 - CI failure on `main` due to execution of visual review PR comment step.
