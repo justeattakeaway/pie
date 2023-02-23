@@ -1504,7 +1504,7 @@
     "global": {
       "box-shadow-00": {
         "displayName": "Box shadow 00",
-        "description": "0,0,0,0 rgba(0,0,0,.00)<br /> 0,0,0,0 rgba(0,0,0,.00)<br /> 0,0,0,0 rgba(0,0,0,.00)"
+        "description": "0,0,0,0 rgba(0,0,0,0)<br /> 0,0,0,0 rgba(0,0,0,0)<br /> 0,0,0,0 rgba(0,0,0,0)"
       },
       "box-shadow-01": {
         "displayName": "Box shadow 01",
@@ -1512,7 +1512,7 @@
       },
       "box-shadow-02": {
         "displayName": "Box shadow 02",
-        "description": "0,4,6,0 rgba(27,35,36,.02)<br /> 0,2,12,-2 rgba(27,35,36,.08)<br /> 0,3,6,0rgba(27,35,36,.06)"
+        "description": "0,4,6,0 rgba(27,35,36,.02)<br /> 0,2,12,-2 rgba(27,35,36,.08)<br /> 0,3,6,0 rgba(27,35,36,.06)"
       },
       "box-shadow-03": {
         "displayName": "Box shadow 03",
@@ -1524,7 +1524,7 @@
       },
       "box-shadow-05": {
         "displayName": "Box shadow 05",
-        "description": "0,-4,6,0 rgba(27,35,36,.02)<br /> 0,-2,12,-2 rgba(27,35,36,.08)<br /> 0,-3,6,0rgba(27,35,36,.06)"
+        "description": "0,-4,6,0 rgba(27,35,36,.02)<br /> 0,-2,12,-2 rgba(27,35,36,.08)<br /> 0,-3,6,0 rgba(27,35,36,.06)"
       },
       "box-shadow-06": {
         "displayName": "Box shadow 06",
@@ -1532,7 +1532,7 @@
       },
       "box-shadow-07": {
         "displayName": "Box shadow 07",
-        "description": "0,4,6,0 rgba(27,35,36,.08)<br /> 0,2,12,-2 rgba(27,35,36,.32)<br /> 0,3,6,0rgba(27,35,36,.24)"
+        "description": "0,4,6,0 rgba(27,35,36,.08)<br /> 0,2,12,-2 rgba(27,35,36,.32)<br /> 0,3,6,0 rgba(27,35,36,.24)"
       },
       "box-shadow-08": {
         "displayName": "Box shadow 08",
@@ -1544,7 +1544,7 @@
       },
       "box-shadow-10": {
         "displayName": "Box shadow 10",
-        "description": "0,-4,6,0 rgba(27,35,36,.08)<br /> 0,-2,12,-2 rgba(27,35,36,.32)<br /> 0,-3,6,0rgba(27,35,36,.24)"
+        "description": "0,-4,6,0 rgba(27,35,36,.08)<br /> 0,-2,12,-2 rgba(27,35,36,.32)<br /> 0,-3,6,0 rgba(27,35,36,.24)"
       }
     },
     "alias": {
