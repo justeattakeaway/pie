@@ -9,7 +9,7 @@
     <meta name="robots" content="index, follow">
     <meta name="googlebot" content="index, follow">
     <meta name="description" content="PIE is the global design system for Just Eat Takeaway.com, powering all our products.">
-    <title>Principles for Interfaces and Experiences | PIE Design System</title>
+    <title>Spacing | PIE Design System</title>
     <link rel="apple-touch-icon" sizes="180x180" href="/pr-preview-docs/pr-215/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/pr-preview-docs/pr-215/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/pr-preview-docs/pr-215/favicon-16x16.png">
@@ -18,7 +18,7 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#5b3d5b">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Principles for Interfaces and Experiences | PIE Design System">
+    <meta property="og:title" content="Spacing | PIE Design System">
     <meta property="og:url" content="https://www.pie.design/">
     <meta property="og:image:alt" content="PIE Design System">
     <meta property="og:description" content="PIE is the global design system for Just Eat Takeaway.com, powering all our products.">
@@ -208,7 +208,7 @@
                 <li>
                     
                     
-                    <details >
+                    <details  open>
                         <summary class="c-nav-category" style="--icon-fill: #f36805;">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" height="24" width="24" fill="#f36805" class="c-pieIcon c-pieIcon--foundations u-iconFilled"><g clip-path="url(#clip0_7066_3748)"><path d="M10.7388 1.94501H5.2525V7.43126H10.7388V1.94501ZM9.42625 6.11876H6.565V3.25751H9.42625V6.11876Z" fill="#242E30"></path><path d="M1.875 14.1688H7.36125V8.68251H1.875V14.1688ZM3.1875 9.99501H6.04875V12.8563H3.1875V9.99501Z" fill="#242E30"></path><path d="M8.62125 8.67376V14.16H14.1075V8.67376H8.62125ZM12.795 12.8475H9.93375V9.98626H12.795V12.8475Z" fill="#242E30"></path></g><defs><clipPath id="clip0_7066_3748"><rect width="14" height="14" fill="white" transform="translate(1 1)"></rect></clipPath></defs></svg>
                             Foundations
@@ -292,7 +292,9 @@
                                     <a
                                         href="/pr-preview-docs/pr-215/foundations/spacing/overview/"
                                         
-                                        class="c-nav-item ">
+                                            aria-current="page"
+                                        
+                                        class="c-nav-item is-active">
                                         Spacing
                                     </a>
                                 </li>
@@ -381,17 +383,47 @@
 
 <div class="c-contentPage">
     <div
-        class="c-contentPage-header c-contentPage-header--hero"
-         style="--hero-img-src: url(/pr-preview-docs/pr-215/assets/img/heroes/home-hero.svg)" >
+        class="c-contentPage-header "
+        >
         <div class="c-content-container">
             <h1 class="c-contentPage-header-heading alpha--standout">
-                Principles for Interfaces and Experiences
+                Spacing
             </h1>
             <p class="c-contentPage-header-description">
-                PIE is the global design system for Just Eat Takeaway.com, powering all our products.
+                Space is the horizontal and vertical distance between or around different design elements.
             </p>
         </div>
     </div>
+
+    
+        <nav aria-label="Secondary navigational tabs" class="c-tabs">
+    <ul class="c-content-container">
+        <li
+            
+                aria-selected="false"
+            
+            class="c-tabs-item">
+                
+                    <a href="/pr-preview-docs/pr-215/foundations/spacing/overview/" class="c-tabs-link ">Overview</a></li>
+                
+        <li
+            
+                aria-selected="false"
+            
+            class="c-tabs-item">
+                
+                    <a href="/pr-preview-docs/pr-215/foundations/spacing/tokens/global/" class="c-tabs-link ">Global tokens</a></li>
+                
+        <li
+            
+                aria-selected="true"
+            
+            class="c-tabs-item">
+                
+                    <a href="/pr-preview-docs/pr-215/foundations/spacing/tokens/alias/" class="c-tabs-link is-active">Alias tokens</a></li>
+                
+    </ul>
+</nav>
 
     
 
@@ -399,7 +431,10 @@
     
         <div class="c-contentPage-content">
             <div class="c-content-container">
-                
+                <h2>Static spacing</h2>
+<p>Static spacing tokens are used in instances where spacing inside, between or around components needs to be the same regardless of the the size of the viewport.</p>
+<div class="c-tokensTable"><div class="c-tokensTable-row u-spacing-e--top u-showAboveWide c-tokensTable-heading" style="--template-columns: 152px">        <span>Example</span>        <span>Description</span>        <span>Token name</span>    </div>    <ul class="c-tokensTable-list">        <li class="c-tokensTable-row c-tokensTable-item" style="--template-columns: 152px">        <div class="c-tokensTable-example-container c-tokensTable-example-container--spacing"><div class="c-tokensTable-example--spacing" style="--example-spacing: 0px";></div></div>        <div class="c-tokensTable-content">            <span class="c-tokensTable-displayName">Spacing none</span>            <span class="c-tokensTable-tokenDescription u-spacing-b--bottom">            0dp/sp/px or 0rem           </span><span class="c-tokensTable-tokenDescription">        <span class="u-font-bold u-showAboveWide">Global token used:</span>        <span class="c-tokensTable-token c-tokensTable-token--light">$spacing-00</span>    </span>        </div>        <span class="c-tokensTable-token">$spacing-none</span>    </li><li class="c-tokensTable-row c-tokensTable-item" style="--template-columns: 152px">        <div class="c-tokensTable-example-container c-tokensTable-example-container--spacing"><div class="c-tokensTable-example--spacing" style="--example-spacing: 4px";></div></div>        <div class="c-tokensTable-content">            <span class="c-tokensTable-displayName">Spacing a</span>            <span class="c-tokensTable-tokenDescription u-spacing-b--bottom">            4dp/sp/px or 0.25rem           </span><span class="c-tokensTable-tokenDescription">        <span class="u-font-bold u-showAboveWide">Global token used:</span>        <span class="c-tokensTable-token c-tokensTable-token--light">$spacing-01</span>    </span>        </div>        <span class="c-tokensTable-token">$spacing-a</span>    </li><li class="c-tokensTable-row c-tokensTable-item" style="--template-columns: 152px">        <div class="c-tokensTable-example-container c-tokensTable-example-container--spacing"><div class="c-tokensTable-example--spacing" style="--example-spacing: 8px";></div></div>        <div class="c-tokensTable-content">            <span class="c-tokensTable-displayName">Spacing b</span>            <span class="c-tokensTable-tokenDescription u-spacing-b--bottom">            8dp/sp/px or 0.5rem           </span><span class="c-tokensTable-tokenDescription">        <span class="u-font-bold u-showAboveWide">Global token used:</span>        <span class="c-tokensTable-token c-tokensTable-token--light">$spacing-02</span>    </span>        </div>        <span class="c-tokensTable-token">$spacing-b</span>    </li><li class="c-tokensTable-row c-tokensTable-item" style="--template-columns: 152px">        <div class="c-tokensTable-example-container c-tokensTable-example-container--spacing"><div class="c-tokensTable-example--spacing" style="--example-spacing: 12px";></div></div>        <div class="c-tokensTable-content">            <span class="c-tokensTable-displayName">Spacing c</span>            <span class="c-tokensTable-tokenDescription u-spacing-b--bottom">            12dp/sp/px or 0.75rem           </span><span class="c-tokensTable-tokenDescription">        <span class="u-font-bold u-showAboveWide">Global token used:</span>        <span class="c-tokensTable-token c-tokensTable-token--light">$spacing-03</span>    </span>        </div>        <span class="c-tokensTable-token">$spacing-c</span>    </li><li class="c-tokensTable-row c-tokensTable-item" style="--template-columns: 152px">        <div class="c-tokensTable-example-container c-tokensTable-example-container--spacing"><div class="c-tokensTable-example--spacing" style="--example-spacing: 16px";></div></div>        <div class="c-tokensTable-content">            <span class="c-tokensTable-displayName">Spacing d</span>            <span class="c-tokensTable-tokenDescription u-spacing-b--bottom">            16dp/sp/px or 1rem           </span><span class="c-tokensTable-tokenDescription">        <span class="u-font-bold u-showAboveWide">Global token used:</span>        <span class="c-tokensTable-token c-tokensTable-token--light">$spacing-04</span>    </span>        </div>        <span class="c-tokensTable-token">$spacing-d</span>    </li><li class="c-tokensTable-row c-tokensTable-item" style="--template-columns: 152px">        <div class="c-tokensTable-example-container c-tokensTable-example-container--spacing"><div class="c-tokensTable-example--spacing" style="--example-spacing: 24px";></div></div>        <div class="c-tokensTable-content">            <span class="c-tokensTable-displayName">Spacing e</span>            <span class="c-tokensTable-tokenDescription u-spacing-b--bottom">            24dp/sp/px or 1.5rem           </span><span class="c-tokensTable-tokenDescription">        <span class="u-font-bold u-showAboveWide">Global token used:</span>        <span class="c-tokensTable-token c-tokensTable-token--light">$spacing-05</span>    </span>        </div>        <span class="c-tokensTable-token">$spacing-e</span>    </li><li class="c-tokensTable-row c-tokensTable-item" style="--template-columns: 152px">        <div class="c-tokensTable-example-container c-tokensTable-example-container--spacing"><div class="c-tokensTable-example--spacing" style="--example-spacing: 32px";></div></div>        <div class="c-tokensTable-content">            <span class="c-tokensTable-displayName">Spacing f</span>            <span class="c-tokensTable-tokenDescription u-spacing-b--bottom">            32dp/sp/px or 2rem           </span><span class="c-tokensTable-tokenDescription">        <span class="u-font-bold u-showAboveWide">Global token used:</span>        <span class="c-tokensTable-token c-tokensTable-token--light">$spacing-06</span>    </span>        </div>        <span class="c-tokensTable-token">$spacing-f</span>    </li><li class="c-tokensTable-row c-tokensTable-item" style="--template-columns: 152px">        <div class="c-tokensTable-example-container c-tokensTable-example-container--spacing"><div class="c-tokensTable-example--spacing" style="--example-spacing: 40px";></div></div>        <div class="c-tokensTable-content">            <span class="c-tokensTable-displayName">Spacing g</span>            <span class="c-tokensTable-tokenDescription u-spacing-b--bottom">            40dp/sp/px or 2.5rem           </span><span class="c-tokensTable-tokenDescription">        <span class="u-font-bold u-showAboveWide">Global token used:</span>        <span class="c-tokensTable-token c-tokensTable-token--light">$spacing-07</span>    </span>        </div>        <span class="c-tokensTable-token">$spacing-g</span>    </li><li class="c-tokensTable-row c-tokensTable-item" style="--template-columns: 152px">        <div class="c-tokensTable-example-container c-tokensTable-example-container--spacing"><div class="c-tokensTable-example--spacing" style="--example-spacing: 56px";></div></div>        <div class="c-tokensTable-content">            <span class="c-tokensTable-displayName">Spacing h</span>            <span class="c-tokensTable-tokenDescription u-spacing-b--bottom">            56dp/sp/px or 3.5rem           </span><span class="c-tokensTable-tokenDescription">        <span class="u-font-bold u-showAboveWide">Global token used:</span>        <span class="c-tokensTable-token c-tokensTable-token--light">$spacing-08</span>    </span>        </div>        <span class="c-tokensTable-token">$spacing-h</span>    </li><li class="c-tokensTable-row c-tokensTable-item" style="--template-columns: 152px">        <div class="c-tokensTable-example-container c-tokensTable-example-container--spacing"><div class="c-tokensTable-example--spacing" style="--example-spacing: 64px";></div></div>        <div class="c-tokensTable-content">            <span class="c-tokensTable-displayName">Spacing i</span>            <span class="c-tokensTable-tokenDescription u-spacing-b--bottom">            64dp/sp/px or 4rem           </span><span class="c-tokensTable-tokenDescription">        <span class="u-font-bold u-showAboveWide">Global token used:</span>        <span class="c-tokensTable-token c-tokensTable-token--light">$spacing-09</span>    </span>        </div>        <span class="c-tokensTable-token">$spacing-i</span>    </li><li class="c-tokensTable-row c-tokensTable-item" style="--template-columns: 152px">        <div class="c-tokensTable-example-container c-tokensTable-example-container--spacing"><div class="c-tokensTable-example--spacing" style="--example-spacing: 80px";></div></div>        <div class="c-tokensTable-content">            <span class="c-tokensTable-displayName">Spacing j</span>            <span class="c-tokensTable-tokenDescription u-spacing-b--bottom">            80dp/sp/px or 5rem           </span><span class="c-tokensTable-tokenDescription">        <span class="u-font-bold u-showAboveWide">Global token used:</span>        <span class="c-tokensTable-token c-tokensTable-token--light">$spacing-10</span>    </span>        </div>        <span class="c-tokensTable-token">$spacing-j</span>    </li>    </ul></div>
+
             </div>
         </div>
     

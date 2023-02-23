@@ -9,7 +9,7 @@
     <meta name="robots" content="index, follow">
     <meta name="googlebot" content="index, follow">
     <meta name="description" content="PIE is the global design system for Just Eat Takeaway.com, powering all our products.">
-    <title>Principles for Interfaces and Experiences | PIE Design System</title>
+    <title>Elevation | PIE Design System</title>
     <link rel="apple-touch-icon" sizes="180x180" href="/pr-preview-docs/pr-215/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/pr-preview-docs/pr-215/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/pr-preview-docs/pr-215/favicon-16x16.png">
@@ -18,7 +18,7 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#5b3d5b">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Principles for Interfaces and Experiences | PIE Design System">
+    <meta property="og:title" content="Elevation | PIE Design System">
     <meta property="og:url" content="https://www.pie.design/">
     <meta property="og:image:alt" content="PIE Design System">
     <meta property="og:description" content="PIE is the global design system for Just Eat Takeaway.com, powering all our products.">
@@ -59,7 +59,7 @@
 
 </head>
 
-    <body >
+    <body data-toggle-page>
         <div class="page">
             
 
@@ -208,7 +208,7 @@
                 <li>
                     
                     
-                    <details >
+                    <details  open>
                         <summary class="c-nav-category" style="--icon-fill: #f36805;">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" height="24" width="24" fill="#f36805" class="c-pieIcon c-pieIcon--foundations u-iconFilled"><g clip-path="url(#clip0_7066_3748)"><path d="M10.7388 1.94501H5.2525V7.43126H10.7388V1.94501ZM9.42625 6.11876H6.565V3.25751H9.42625V6.11876Z" fill="#242E30"></path><path d="M1.875 14.1688H7.36125V8.68251H1.875V14.1688ZM3.1875 9.99501H6.04875V12.8563H3.1875V9.99501Z" fill="#242E30"></path><path d="M8.62125 8.67376V14.16H14.1075V8.67376H8.62125ZM12.795 12.8475H9.93375V9.98626H12.795V12.8475Z" fill="#242E30"></path></g><defs><clipPath id="clip0_7066_3748"><rect width="14" height="14" fill="white" transform="translate(1 1)"></rect></clipPath></defs></svg>
                             Foundations
@@ -253,7 +253,9 @@
                                     <a
                                         href="/pr-preview-docs/pr-215/foundations/elevation/overview/"
                                         
-                                        class="c-nav-item ">
+                                            aria-current="page"
+                                        
+                                        class="c-nav-item is-active">
                                         Elevation
                                     </a>
                                 </li>
@@ -381,17 +383,67 @@
 
 <div class="c-contentPage">
     <div
-        class="c-contentPage-header c-contentPage-header--hero"
-         style="--hero-img-src: url(/pr-preview-docs/pr-215/assets/img/heroes/home-hero.svg)" >
+        class="c-contentPage-header "
+        >
         <div class="c-content-container">
             <h1 class="c-contentPage-header-heading alpha--standout">
-                Principles for Interfaces and Experiences
+                Elevation
             </h1>
             <p class="c-contentPage-header-description">
-                PIE is the global design system for Just Eat Takeaway.com, powering all our products.
+                Shadows are used to give the impression of distance or elevation between surfaces, which adds depth to our designs.
             </p>
         </div>
     </div>
+
+    
+        <nav aria-label="Secondary navigational tabs" class="c-tabs">
+    <ul class="c-content-container">
+        <li
+            
+                aria-selected="false"
+            
+            class="c-tabs-item">
+                
+                    
+                    
+                    
+                    <a href="/pr-preview-docs/pr-215/foundations/elevation/overview/" class="c-tabs-link ">Overview</a></li>
+                
+        <li
+            
+                aria-selected="false"
+            
+            class="c-tabs-item">
+                
+                    
+                    
+                    
+                    <a href="/pr-preview-docs/pr-215/foundations/elevation/tokens/global/" class="c-tabs-link ">Global tokens</a></li>
+                
+        <li
+            
+                aria-selected="true"
+            
+            class="c-tabs-item">
+                
+                    
+                    
+                    
+                    <a href="/pr-preview-docs/pr-215/foundations/elevation/tokens/alias/light/" class="c-tabs-link is-active">Alias tokens</a></li>
+                
+        <li
+            
+                aria-selected="false"
+            
+            class="c-tabs-item">
+                
+                    
+                    
+                    
+                    <a href="/pr-preview-docs/pr-215/foundations/elevation/android/" class="c-tabs-link ">Android specific</a></li>
+                
+    </ul>
+</nav>
 
     
 
@@ -400,6 +452,57 @@
         <div class="c-contentPage-content">
             <div class="c-content-container">
                 
+
+<h2>Alias tokens by theme</h2>
+<p>Surface separation is achieved using elevation tokens. Each token has a different depth, determining where they can be used.</p>
+
+<div class="c-toggle u-spacing-e--top">
+    <div
+        id="toggle-option-a-wrapper"
+        class="c-toggle-item is-active">
+        <input
+            id="toggle-option-a"
+            class="c-toggle-input"
+            type="radio"
+             checked />
+        <label
+            class="c-toggle-label"
+            for="toggle-option-a">
+            Light theme
+        </label>
+    </div>
+    <div
+        id="toggle-option-b-wrapper"
+        class="c-toggle-item ">
+        <input
+            id="toggle-option-b"
+            class="c-toggle-input"
+            type="radio"
+             />
+        <label
+            class="c-toggle-label"
+            for="toggle-option-b">
+            Dark theme
+        </label>
+    </div>
+</div>
+<hr/>
+
+
+
+<div
+    id="toggle-content-a"
+    data-slug="light">
+    <div class="c-tokensTable"><h2 class="c-tokensTable-title">Default elevation</h2><div class="c-tokensTable-row u-spacing-e--top u-showAboveWide c-tokensTable-heading" style="--template-columns: 152px">        <span>Example</span>        <span>Description</span>        <span>Token name</span>    </div>    <ul class="c-tokensTable-list">        <li class="c-tokensTable-row c-tokensTable-item" style="--template-columns: 152px">        <div class="c-tokensTable-example-container--elevation" style="--example-container: #f5f3f1;">        <div class="c-tokensTable-example--elevation" style="--example-elevation: #fff; --example-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.03),0px 3px 1px -2px rgba(0, 0, 0, 0.07),0px 1px 5px 0px rgba(0, 0, 0, 0.06);"></div>    </div>        <div class="c-tokensTable-content">            <span class="c-tokensTable-displayName">Elevation 01</span>            <span class="c-tokensTable-tokenDescription u-spacing-b--bottom">            Used for Map markers and Cards.           </span><span class="c-tokensTable-tokenDescription">        <span class="u-font-bold u-showAboveWide">Global token used:</span>        <span class="c-tokensTable-token c-tokensTable-token--light">$box-shadow-01</span>    </span>        </div>        <span class="c-tokensTable-token">$elevation-01</span>    </li><li class="c-tokensTable-row c-tokensTable-item" style="--template-columns: 152px">        <div class="c-tokensTable-example-container--elevation" style="--example-container: #f5f3f1;">        <div class="c-tokensTable-example--elevation" style="--example-elevation: #fff; --example-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.02),0px 2px 12px -2px rgba(0, 0, 0, 0.08),0px 3px 6px 0px rgba(0, 0, 0, 0.06);"></div>    </div>        <div class="c-tokensTable-content">            <span class="c-tokensTable-displayName">Elevation 02</span>            <span class="c-tokensTable-tokenDescription u-spacing-b--bottom">            Used for raised Buttons (e.g. over a map), knobs on sliders and Dropdown input fields.           </span><span class="c-tokensTable-tokenDescription">        <span class="u-font-bold u-showAboveWide">Global token used:</span>        <span class="c-tokensTable-token c-tokensTable-token--light">$box-shadow-02</span>    </span>        </div>        <span class="c-tokensTable-token">$elevation-02</span>    </li><li class="c-tokensTable-row c-tokensTable-item" style="--template-columns: 152px">        <div class="c-tokensTable-example-container--elevation" style="--example-container: #f5f3f1;">        <div class="c-tokensTable-example--elevation" style="--example-elevation: #fff; --example-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.04),0px 8px 12px -2px rgba(0, 0, 0, 0.06),0px 4px 6px 0px rgba(0, 0, 0, 0.04);"></div>    </div>        <div class="c-tokensTable-content">            <span class="c-tokensTable-displayName">Elevation 03</span>            <span class="c-tokensTable-tokenDescription u-spacing-b--bottom">            Used for FABS and sticky CTAs, sticky headers, navigation bars or Banners and Notifications.           </span><span class="c-tokensTable-tokenDescription">        <span class="u-font-bold u-showAboveWide">Global token used:</span>        <span class="c-tokensTable-token c-tokensTable-token--light">$box-shadow-03</span>    </span>        </div>        <span class="c-tokensTable-token">$elevation-03</span>    </li><li class="c-tokensTable-row c-tokensTable-item" style="--template-columns: 152px">        <div class="c-tokensTable-example-container--elevation" style="--example-container: #f5f3f1;">        <div class="c-tokensTable-example--elevation" style="--example-elevation: #fff; --example-shadow: 0px 8px 8px 0px rgba(0, 0, 0, 0.04),0px 8px 20px -3px rgba(0, 0, 0, 0.1),0px 4px 8px -2px rgba(0, 0, 0, 0.06);"></div>    </div>        <div class="c-tokensTable-content">            <span class="c-tokensTable-displayName">Elevation 04</span>            <span class="c-tokensTable-tokenDescription u-spacing-b--bottom">            Used for Modal.           </span><span class="c-tokensTable-tokenDescription">        <span class="u-font-bold u-showAboveWide">Global token used:</span>        <span class="c-tokensTable-token c-tokensTable-token--light">$box-shadow-04</span>    </span>        </div>        <span class="c-tokensTable-token">$elevation-04</span>    </li><li class="c-tokensTable-row c-tokensTable-item" style="--template-columns: 152px">        <div class="c-tokensTable-example-container--elevation" style="--example-container: #f5f3f1;">        <div class="c-tokensTable-example--elevation" style="--example-elevation: #fff; --example-shadow: 0px -4px 6px 0px rgba(0, 0, 0, 0.02),0px -2px 12px -2px rgba(0, 0, 0, 0.08),0px -3px 6px 0px rgba(0, 0, 0, 0.06);"></div>    </div>        <div class="c-tokensTable-content">            <span class="c-tokensTable-displayName">Elevation 05</span>            <span class="c-tokensTable-tokenDescription u-spacing-b--bottom">            Used for Bottom Sheets.           </span><span class="c-tokensTable-tokenDescription">        <span class="u-font-bold u-showAboveWide">Global token used:</span>        <span class="c-tokensTable-token c-tokensTable-token--light">$box-shadow-05</span>    </span>        </div>        <span class="c-tokensTable-token">$elevation-05</span>    </li>    </ul><hr /><h2 class="c-tokensTable-title">Inverse elevation</h2><div class="c-tokensTable-row u-spacing-e--top u-showAboveWide c-tokensTable-heading" style="--template-columns: 152px">        <span>Example</span>        <span>Description</span>        <span>Token name</span>    </div>    <ul class="c-tokensTable-list">        <li class="c-tokensTable-row c-tokensTable-item" style="--template-columns: 152px">        <div class="c-tokensTable-example-container--elevation" style="--example-container: #3b3a39;">        <div class="c-tokensTable-example--elevation" style="--example-elevation: #575655; --example-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.12),0px 3px 1px -2px rgba(0, 0, 0, 0.28),0px 1px 5px 0px rgba(0, 0, 0, 0.24);"></div>    </div>        <div class="c-tokensTable-content">            <span class="c-tokensTable-displayName">Elevation inverse 01</span>            <span class="c-tokensTable-tokenDescription u-spacing-b--bottom">            Used for Map markers and cards.           </span><span class="c-tokensTable-tokenDescription">        <span class="u-font-bold u-showAboveWide">Global token used:</span>        <span class="c-tokensTable-token c-tokensTable-token--light">$box-shadow-06</span>    </span>        </div>        <span class="c-tokensTable-token">$elevation-inverse-01</span>    </li><li class="c-tokensTable-row c-tokensTable-item" style="--template-columns: 152px">        <div class="c-tokensTable-example-container--elevation" style="--example-container: #3b3a39;">        <div class="c-tokensTable-example--elevation" style="--example-elevation: #575655; --example-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.08),0px 2px 12px -2px rgba(0, 0, 0, 0.32),0px 3px 6px 0px rgba(0, 0, 0, 0.24);"></div>    </div>        <div class="c-tokensTable-content">            <span class="c-tokensTable-displayName">Elevation inverse 02</span>            <span class="c-tokensTable-tokenDescription u-spacing-b--bottom">            Used for raised Buttons (e.g. over a map), knobs on sliders and Dropdown input fields.           </span><span class="c-tokensTable-tokenDescription">        <span class="u-font-bold u-showAboveWide">Global token used:</span>        <span class="c-tokensTable-token c-tokensTable-token--light">$box-shadow-07</span>    </span>        </div>        <span class="c-tokensTable-token">$elevation-inverse-02</span>    </li><li class="c-tokensTable-row c-tokensTable-item" style="--template-columns: 152px">        <div class="c-tokensTable-example-container--elevation" style="--example-container: #3b3a39;">        <div class="c-tokensTable-example--elevation" style="--example-elevation: #575655; --example-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.12),0px 8px 12px -2px rgba(0, 0, 0, 0.24),0px 4px 6px 0px rgba(0, 0, 0, 0.16);"></div>    </div>        <div class="c-tokensTable-content">            <span class="c-tokensTable-displayName">Elevation inverse 03</span>            <span class="c-tokensTable-tokenDescription u-spacing-b--bottom">            Used for FABS and sticky CTAs, sticky headers, navigation bars or Banners and Notifications.           </span><span class="c-tokensTable-tokenDescription">        <span class="u-font-bold u-showAboveWide">Global token used:</span>        <span class="c-tokensTable-token c-tokensTable-token--light">$box-shadow-08</span>    </span>        </div>        <span class="c-tokensTable-token">$elevation-inverse-03</span>    </li><li class="c-tokensTable-row c-tokensTable-item" style="--template-columns: 152px">        <div class="c-tokensTable-example-container--elevation" style="--example-container: #3b3a39;">        <div class="c-tokensTable-example--elevation" style="--example-elevation: #575655; --example-shadow: 0px 8px 8px 0px rgba(0, 0, 0, 0.16),0px 3px 20px -3px rgba(0, 0, 0, 0.4),0px 4px 8px -2px rgba(0, 0, 0, 0.24);"></div>    </div>        <div class="c-tokensTable-content">            <span class="c-tokensTable-displayName">Elevation inverse 04</span>            <span class="c-tokensTable-tokenDescription u-spacing-b--bottom">            Used for Modal.           </span><span class="c-tokensTable-tokenDescription">        <span class="u-font-bold u-showAboveWide">Global token used:</span>        <span class="c-tokensTable-token c-tokensTable-token--light">$box-shadow-09</span>    </span>        </div>        <span class="c-tokensTable-token">$elevation-inverse-04</span>    </li><li class="c-tokensTable-row c-tokensTable-item" style="--template-columns: 152px">        <div class="c-tokensTable-example-container--elevation" style="--example-container: #3b3a39;">        <div class="c-tokensTable-example--elevation" style="--example-elevation: #575655; --example-shadow: 0px -4px 6px 0px rgba(0, 0, 0, 0.08),0px -2px 12px -2px rgba(0, 0, 0, 0.32),0px -3px 6px 0px rgba(0, 0, 0, 0.24);"></div>    </div>        <div class="c-tokensTable-content">            <span class="c-tokensTable-displayName">Elevation inverse 05</span>            <span class="c-tokensTable-tokenDescription u-spacing-b--bottom">            Used for Modal.           </span><span class="c-tokensTable-tokenDescription">        <span class="u-font-bold u-showAboveWide">Global token used:</span>        <span class="c-tokensTable-token c-tokensTable-token--light">$box-shadow-10</span>    </span>        </div>        <span class="c-tokensTable-token">$elevation-inverse-05</span>    </li>    </ul></div>
+</div>
+
+<div
+    id="toggle-content-b"
+    data-slug="dark"
+    class="is-hidden">
+    <div class="c-tokensTable"><h2 class="c-tokensTable-title">Default elevation</h2><div class="c-tokensTable-row u-spacing-e--top u-showAboveWide c-tokensTable-heading" style="--template-columns: 152px">        <span>Example</span>        <span>Description</span>        <span>Token name</span>    </div>    <ul class="c-tokensTable-list">        <li class="c-tokensTable-row c-tokensTable-item" style="--template-columns: 152px">        <div class="c-tokensTable-example-container--elevation" style="--example-container: #3b3a39;">        <div class="c-tokensTable-example--elevation" style="--example-elevation: #575655; --example-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.12),0px 3px 1px -2px rgba(0, 0, 0, 0.28),0px 1px 5px 0px rgba(0, 0, 0, 0.24);"></div>    </div>        <div class="c-tokensTable-content">            <span class="c-tokensTable-displayName">Elevation 01</span>            <span class="c-tokensTable-tokenDescription u-spacing-b--bottom">            Used for Map markers and Cards.           </span><span class="c-tokensTable-tokenDescription">        <span class="u-font-bold u-showAboveWide">Global token used:</span>        <span class="c-tokensTable-token c-tokensTable-token--light">$box-shadow-06</span>    </span>        </div>        <span class="c-tokensTable-token">$elevation-dark-inverse-01</span>    </li><li class="c-tokensTable-row c-tokensTable-item" style="--template-columns: 152px">        <div class="c-tokensTable-example-container--elevation" style="--example-container: #3b3a39;">        <div class="c-tokensTable-example--elevation" style="--example-elevation: #575655; --example-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.08),0px 2px 12px -2px rgba(0, 0, 0, 0.32),0px 3px 6px 0px rgba(0, 0, 0, 0.24);"></div>    </div>        <div class="c-tokensTable-content">            <span class="c-tokensTable-displayName">Elevation 02</span>            <span class="c-tokensTable-tokenDescription u-spacing-b--bottom">            Used for raised Buttons (e.g. over a map), knobs on sliders and Dropdown input fields.           </span><span class="c-tokensTable-tokenDescription">        <span class="u-font-bold u-showAboveWide">Global token used:</span>        <span class="c-tokensTable-token c-tokensTable-token--light">$box-shadow-07</span>    </span>        </div>        <span class="c-tokensTable-token">$elevation-dark-inverse-02</span>    </li><li class="c-tokensTable-row c-tokensTable-item" style="--template-columns: 152px">        <div class="c-tokensTable-example-container--elevation" style="--example-container: #3b3a39;">        <div class="c-tokensTable-example--elevation" style="--example-elevation: #575655; --example-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.12),0px 8px 12px -2px rgba(0, 0, 0, 0.24),0px 4px 6px 0px rgba(0, 0, 0, 0.16);"></div>    </div>        <div class="c-tokensTable-content">            <span class="c-tokensTable-displayName">Elevation 03</span>            <span class="c-tokensTable-tokenDescription u-spacing-b--bottom">            Used for FABS and sticky CTAs, sticky headers, navigation bars or Banners and Notifications.           </span><span class="c-tokensTable-tokenDescription">        <span class="u-font-bold u-showAboveWide">Global token used:</span>        <span class="c-tokensTable-token c-tokensTable-token--light">$box-shadow-08</span>    </span>        </div>        <span class="c-tokensTable-token">$elevation-dark-inverse-03</span>    </li><li class="c-tokensTable-row c-tokensTable-item" style="--template-columns: 152px">        <div class="c-tokensTable-example-container--elevation" style="--example-container: #3b3a39;">        <div class="c-tokensTable-example--elevation" style="--example-elevation: #575655; --example-shadow: 0px 8px 8px 0px rgba(0, 0, 0, 0.16),0px 3px 20px -3px rgba(0, 0, 0, 0.4),0px 4px 8px -2px rgba(0, 0, 0, 0.24);"></div>    </div>        <div class="c-tokensTable-content">            <span class="c-tokensTable-displayName">Elevation 04</span>            <span class="c-tokensTable-tokenDescription u-spacing-b--bottom">            Used for Modal.           </span><span class="c-tokensTable-tokenDescription">        <span class="u-font-bold u-showAboveWide">Global token used:</span>        <span class="c-tokensTable-token c-tokensTable-token--light">$box-shadow-09</span>    </span>        </div>        <span class="c-tokensTable-token">$elevation-dark-inverse-04</span>    </li><li class="c-tokensTable-row c-tokensTable-item" style="--template-columns: 152px">        <div class="c-tokensTable-example-container--elevation" style="--example-container: #3b3a39;">        <div class="c-tokensTable-example--elevation" style="--example-elevation: #575655; --example-shadow: 0px -4px 6px 0px rgba(0, 0, 0, 0.08),0px -2px 12px -2px rgba(0, 0, 0, 0.32),0px -3px 6px 0px rgba(0, 0, 0, 0.24);"></div>    </div>        <div class="c-tokensTable-content">            <span class="c-tokensTable-displayName">Elevation 05</span>            <span class="c-tokensTable-tokenDescription u-spacing-b--bottom">            Used for Modal.           </span><span class="c-tokensTable-tokenDescription">        <span class="u-font-bold u-showAboveWide">Global token used:</span>        <span class="c-tokensTable-token c-tokensTable-token--light">$box-shadow-10</span>    </span>        </div>        <span class="c-tokensTable-token">$elevation-dark-inverse-05</span>    </li>    </ul><hr /><h2 class="c-tokensTable-title">Inverse elevation</h2><div class="c-tokensTable-row u-spacing-e--top u-showAboveWide c-tokensTable-heading" style="--template-columns: 152px">        <span>Example</span>        <span>Description</span>        <span>Token name</span>    </div>    <ul class="c-tokensTable-list">        <li class="c-tokensTable-row c-tokensTable-item" style="--template-columns: 152px">        <div class="c-tokensTable-example-container--elevation" style="--example-container: #f5f3f1;">        <div class="c-tokensTable-example--elevation" style="--example-elevation: #fff; --example-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.03),0px 3px 1px -2px rgba(0, 0, 0, 0.07),0px 1px 5px 0px rgba(0, 0, 0, 0.06);"></div>    </div>        <div class="c-tokensTable-content">            <span class="c-tokensTable-displayName">Elevation inverse 01</span>            <span class="c-tokensTable-tokenDescription u-spacing-b--bottom">            Used for Modal.           </span><span class="c-tokensTable-tokenDescription">        <span class="u-font-bold u-showAboveWide">Global token used:</span>        <span class="c-tokensTable-token c-tokensTable-token--light">$box-shadow-01</span>    </span>        </div>        <span class="c-tokensTable-token">$elevation-dark-01</span>    </li><li class="c-tokensTable-row c-tokensTable-item" style="--template-columns: 152px">        <div class="c-tokensTable-example-container--elevation" style="--example-container: #f5f3f1;">        <div class="c-tokensTable-example--elevation" style="--example-elevation: #fff; --example-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.02),0px 2px 12px -2px rgba(0, 0, 0, 0.08),0px 3px 6px 0px rgba(0, 0, 0, 0.06);"></div>    </div>        <div class="c-tokensTable-content">            <span class="c-tokensTable-displayName">Elevation inverse 02</span>            <span class="c-tokensTable-tokenDescription u-spacing-b--bottom">            Used for FABS and sticky CTAs, sticky headers, navigation bars or Banners and Notifications.           </span><span class="c-tokensTable-tokenDescription">        <span class="u-font-bold u-showAboveWide">Global token used:</span>        <span class="c-tokensTable-token c-tokensTable-token--light">$box-shadow-02</span>    </span>        </div>        <span class="c-tokensTable-token">$elevation-dark-02</span>    </li><li class="c-tokensTable-row c-tokensTable-item" style="--template-columns: 152px">        <div class="c-tokensTable-example-container--elevation" style="--example-container: #f5f3f1;">        <div class="c-tokensTable-example--elevation" style="--example-elevation: #fff; --example-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.04),0px 8px 12px -2px rgba(0, 0, 0, 0.06),0px 4px 6px 0px rgba(0, 0, 0, 0.04);"></div>    </div>        <div class="c-tokensTable-content">            <span class="c-tokensTable-displayName">Elevation inverse 03</span>            <span class="c-tokensTable-tokenDescription u-spacing-b--bottom">            Used for raised Buttons (e.g. over a map), knobs on sliders and Dropdown input fields.           </span><span class="c-tokensTable-tokenDescription">        <span class="u-font-bold u-showAboveWide">Global token used:</span>        <span class="c-tokensTable-token c-tokensTable-token--light">$box-shadow-03</span>    </span>        </div>        <span class="c-tokensTable-token">$elevation-dark-03</span>    </li><li class="c-tokensTable-row c-tokensTable-item" style="--template-columns: 152px">        <div class="c-tokensTable-example-container--elevation" style="--example-container: #f5f3f1;">        <div class="c-tokensTable-example--elevation" style="--example-elevation: #fff; --example-shadow: 0px 8px 8px 0px rgba(0, 0, 0, 0.04),0px 8px 20px -3px rgba(0, 0, 0, 0.1),0px 4px 8px -2px rgba(0, 0, 0, 0.06);"></div>    </div>        <div class="c-tokensTable-content">            <span class="c-tokensTable-displayName">Elevation inverse 04</span>            <span class="c-tokensTable-tokenDescription u-spacing-b--bottom">            Used for Map markers and cards.           </span><span class="c-tokensTable-tokenDescription">        <span class="u-font-bold u-showAboveWide">Global token used:</span>        <span class="c-tokensTable-token c-tokensTable-token--light">$box-shadow-04</span>    </span>        </div>        <span class="c-tokensTable-token">$elevation-dark-04</span>    </li><li class="c-tokensTable-row c-tokensTable-item" style="--template-columns: 152px">        <div class="c-tokensTable-example-container--elevation" style="--example-container: #f5f3f1;">        <div class="c-tokensTable-example--elevation" style="--example-elevation: #fff; --example-shadow: 0px -4px 6px 0px rgba(0, 0, 0, 0.02),0px -2px 12px -2px rgba(0, 0, 0, 0.08),0px -3px 6px 0px rgba(0, 0, 0, 0.06);"></div>    </div>        <div class="c-tokensTable-content">            <span class="c-tokensTable-displayName">Elevation inverse 05</span>            <span class="c-tokensTable-tokenDescription u-spacing-b--bottom">            Used for Map markers and cards.           </span><span class="c-tokensTable-tokenDescription">        <span class="u-font-bold u-showAboveWide">Global token used:</span>        <span class="c-tokensTable-token c-tokensTable-token--light">$box-shadow-05</span>    </span>        </div>        <span class="c-tokensTable-token">$elevation-dark-05</span>    </li>    </ul></div>
+</div>
+
             </div>
         </div>
     
