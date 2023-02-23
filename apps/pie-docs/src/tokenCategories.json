@@ -177,7 +177,6 @@
   "radius": {},
   "spacing": {},
   "elevation": {
-      "global": {},
       "alias": {
         "default": {
           "dark": {

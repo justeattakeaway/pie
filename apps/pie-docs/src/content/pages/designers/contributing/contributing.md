@@ -1,7 +1,8 @@
 ---
 eleventyNavigation:
-    key: Contributing
-    parent: Designers
+    key: contributing
+    title: Contributing
+    parent: designers
     order: 2
 eleventyComputed:
     checklistData: "{% include './design-checklist.json' %}"
