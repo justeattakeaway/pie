@@ -19,10 +19,9 @@
             {# build up a list of categories such as 'components', 'foundations' #}
             {% for category in section %}
                 <li>
-                    {% set pageUrl = page.url.replace("/docs", "")%}
                     {# for some reason, category urls are duplicated like so: "/all-about-pie/all-about-pie/" #}
                     {% set categoryUrl = category.url.split("/")[1] %}
-                    <details {% if pageUrl.includes(categoryUrl) %} open{% endif %}>
+                    <details {% if page.url.includes(categoryUrl) %} open{% endif %}>
                         <summary class="c-nav-category" style="--icon-fill: {{categoryIconFill}};">
                             {{ { name: navigationIcons[category.key], attrs: { fill: categoryIconFill, height: '24', width: '24', class:'u-iconFilled' } } | pieIconsSvg | safe }}
                             {{ category.title }}
@@ -36,11 +35,10 @@
                                 <li>
                                     {% set subPageArea = subpage.url.split("/")[2] %}
                                     {% set currentPageArea = page.url.split("/")[2] %}
-                                    {% set subpageUrl = subpage.url.replace("/docs", "")%}
                                     {# Set the nav item to active if the url contains it's category #}
                                     {# this means something like /foundations/colour/overview/ and /foundations/colour/tokens/global/ will activate 'colour' #}
                                     <a
-                                        href="{{ subpageUrl | url}}"
+                                        href="{{ subpage.url | url}}"
                                         {% if subPageArea == currentPageArea %}
                                             aria-current="page"
                                         {% endif %}

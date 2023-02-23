@@ -1,4 +1,4 @@
-const systemUnderTest = require('../../utilities/helpers');
+const systemUnderTest = require('../../_utilities/helpers');
 
 describe('helpers.js', () => {
     describe('objectHelpers', () => {

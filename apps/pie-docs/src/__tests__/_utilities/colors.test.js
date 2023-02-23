@@ -1,4 +1,4 @@
-const systemUnderTest = require('../../utilities/colors');
+const systemUnderTest = require('../../_utilities/colors');
 
 describe('colors.js', () => {
     describe('isColorDark', () => {
