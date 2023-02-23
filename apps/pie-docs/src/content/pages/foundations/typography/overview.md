@@ -32,7 +32,7 @@ Used only for snippets of code.
 {% contentPageImage {
     src:"../../../../../assets/img/foundations/typography/cp-mono.svg",
     width: "105px",
-    caption: "The example above shows CP Mono, a font used for code snippets."
+    caption: "The example above shows PT Mono, a font used for code snippets."
 } %}
 
 ---

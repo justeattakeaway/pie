@@ -2543,35 +2543,24 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@justeat/fozzie@npm:10.9.0":
-  version: 10.9.0
-  resolution: "@justeat/fozzie@npm:10.9.0"
+"@justeat/fozzie@npm:10.11.0":
+  version: 10.11.0
+  resolution: "@justeat/fozzie@npm:10.11.0"
   dependencies:
-    "@justeat/pie-design-tokens": 3.2.0
+    "@justeat/pie-design-tokens": 4.2.0
     include-media: "github:eduardoboucas/include-media#2.0-release"
-  checksum: ffc9ab53511a687cb8d540380806a76985654743a64762df6d33f2abe3a7b518e79c1b85b510dc1f0223fa308a0fd66cd0c2f36c2819a3ba3fef407ae4a3e483
+  checksum: 23cdcc551ff547dec17370c23654e2d0c27dd0439d4f0f17b46550355616fdff99554d5f9852b2df0a2dc793b5960614c30e005ef6a14f53abf3c2d48d28d562
   languageName: node
   linkType: hard
 
-"@justeat/pie-design-tokens@npm:3.2.0":
-  version: 3.2.0
-  resolution: "@justeat/pie-design-tokens@npm:3.2.0"
+"@justeat/pie-design-tokens@npm:4.2.0":
+  version: 4.2.0
+  resolution: "@justeat/pie-design-tokens@npm:4.2.0"
   dependencies:
     jsonc-parser: 3.2.0
     lodash.merge: 4.6.2
     mkdirp: 1.0.4
-  checksum: 27e28e7b161d2e5e4aad22f9aa3c4e105fdc94f3fd48e1759ea37bf55812b0fc2e90e463809ac960e755d9943e11629b2e95e8df909bb52732068e36899ceb75
-  languageName: node
-  linkType: hard
-
-"@justeat/pie-design-tokens@npm:4.0.0-beta.0":
-  version: 4.0.0-beta.0
-  resolution: "@justeat/pie-design-tokens@npm:4.0.0-beta.0"
-  dependencies:
-    jsonc-parser: 3.2.0
-    lodash.merge: 4.6.2
-    mkdirp: 1.0.4
-  checksum: a94715a45ec3c3d40841fc55a41fbe5beccffdbb5cc22541d8c9dbc7a8c88525984ad878e66f3aa979475d0b8c467b2a8c0df7eab3887d46c3899a1dca979a7b
+  checksum: 0d31d6a6416533cd6bcdcecc522174a407ac863212470aa72b5346842b5ad6f94cd894fe1dd1e278907741882d1bb89757547392b7955f691241108a9da2b9ed
   languageName: node
   linkType: hard
 
@@ -16666,8 +16655,8 @@ __metadata:
     "@changesets/cli": 2.26.0
     "@justeat/browserslist-config-fozzie": 1.x
     "@justeat/eslint-config-fozzie": 5.1.0
-    "@justeat/fozzie": 10.9.0
-    "@justeat/pie-design-tokens": 4.0.0-beta.0
+    "@justeat/fozzie": 10.11.0
+    "@justeat/pie-design-tokens": 4.2.0
     "@justeat/stylelint-config-fozzie": 3.x
     "@justeattakeaway/pie-icons": 2.0.0-beta.4
     "@percy/cli": 1.16.0

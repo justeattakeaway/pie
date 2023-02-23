@@ -11,11 +11,11 @@ const pieDesignTokenColours = require('../../../filters/pieDesignTokenColours');
  */
 const buildElevationExample = (token, tokenMetadata, path) => {
     const isDefaultElevation = tokenMetadata.category === 'defaultElevation';
-    const theme = path.includes('light') ? 'light' : 'dark';
+    const theme = path.includes('default') ? 'default' : 'dark';
     const tokenPath = ['alias', 'default'];
 
     const styling = {
-        light: {
+        default: {
             elevationContainer: isDefaultElevation ? 'background-subtle' : 'disabled-01-inverse',
             elevationBox: isDefaultElevation ? 'container-default' : 'border-inverse'
         },
