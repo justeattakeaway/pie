@@ -2,11 +2,11 @@
 {% set navigationIcons = {
     Accessibility: 'PersonalityTest',
     'All about PIE': 'pie',
-    'Designers': 'bulb-lightning',
+    designers: 'bulb-lightning',
     Foundations: 'foundations',
-    Support: 'help-circle'
+    Support: 'help-circle',
+    engineers: 'engineers'
 } %}
-
 {% set chevronFill = { tokenName: 'interactive-primary', tokenPath: ['alias', 'default'] } | pieDesignTokenColours %}
 {% set categoryIconFill = { tokenName: 'interactive-brand', tokenPath: ['alias', 'default'] } | pieDesignTokenColours %}
 {% set navPagesPrimary = collections.all | eleventyNavigation("Docs") %}
