@@ -20,7 +20,7 @@ module.exports = {
   types: [
     { value: 'feat', name: '✨ feat: A new feature or functionality' },
     { value: 'fix', name: '🐛 fix: A bug fix' },
-    { value: 'chore', name: '🧹 chore: Changes that affect the build system or external dependencies (e.g: typescript, webpack, eslint)' },
+    { value: 'chore', name: '🧹 chore: Changes that affect the build system or external dependencies (e.g: typescript, webpack, eslint, package.json)' },
     { value: 'ci', name: '⚙️ \u0020ci: Changes to our CI configuration files and scripts' },
     { value: 'docs', name: '📚 docs: Documentation only changes' },
     { value: 'format', name: '💅 format: Changes that do not affect the meaning of the code (e.g: white-space, linting fixes etc)' },
