@@ -2,10 +2,10 @@
   "color": {
     "global": {
       "whiteBlack": {
-        "displayName": "Foo"
+        "displayName": "White and Black"
       },
       "orange": {
-        "displayName": "Change 2"
+        "displayName": "Orange"
       },
       "blue": {
         "displayName": "Blue"
