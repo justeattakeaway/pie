@@ -14,6 +14,20 @@
         "@justeattakeaway/pie-icons#build"
       ]
     },
+    "pie-docs#build:dev": {
+      "cache": true,
+      "dependsOn": [
+        "^build",
+        "@justeattakeaway/pie-icons#build"
+      ]
+    },
+    "pie-docs#dev": {
+      "cache": false,
+      "dependsOn": [
+        "pie-docs#build:dev",
+        "^build"
+      ]
+    },
     "clean": {
       "cache": true
     },
@@ -67,6 +81,9 @@
     },
     "lint:scripts": {
       "cache": true,
+      "dependsOn": [
+        "^build"
+      ],
       "outputs": []
     },
     "lint:scripts:fix": {
@@ -74,7 +91,9 @@
     },
     "lint:style": {
       "cache": true,
-      "dependsOn": []
+      "dependsOn": [
+        "^build"
+      ]
     },
     "dev": {
       "cache": false,

@@ -2137,7 +2137,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/types@npm:^17, @commitlint/types@npm:^17.4.0, @commitlint/types@npm:^17.4.4":
+"@commitlint/types@npm:^17.4.0, @commitlint/types@npm:^17.4.4":
   version: 17.4.4
   resolution: "@commitlint/types@npm:17.4.4"
   dependencies:
@@ -2363,32 +2363,6 @@ __metadata:
   version: 1.1.3
   resolution: "@gar/promisify@npm:1.1.3"
   checksum: 4059f790e2d07bf3c3ff3e0fec0daa8144fe35c1f6e0111c9921bd32106adaa97a4ab096ad7dab1e28ee6a9060083c4d1a4ada42a7f5f3f7a96b8812e2b757c1
-  languageName: node
-  linkType: hard
-
-"@gitmoji/commit-types@npm:1.1.5":
-  version: 1.1.5
-  resolution: "@gitmoji/commit-types@npm:1.1.5"
-  checksum: 132aa891aff0b23e0db3e9aa629ed758e5432465e8af9bc32e6a7a186a9708fc83dced2d6ef75eb43b725a3de0ef33908012c7d0cf2e8e7a9716d170e2814adc
-  languageName: node
-  linkType: hard
-
-"@gitmoji/gitmoji-regex@npm:1.0.0":
-  version: 1.0.0
-  resolution: "@gitmoji/gitmoji-regex@npm:1.0.0"
-  dependencies:
-    emoji-regex: ^10
-    gitmojis: ^3
-  checksum: 92cb460250f9dfcb6a7f20cdd5bffc1a956079bd67066919cf9ac3248b3d8abbcd60c7d506b3ce393cc52f11eed5825254a2b9a910a09c942e0ef4454c69188a
-  languageName: node
-  linkType: hard
-
-"@gitmoji/parser-opts@npm:1.4.0":
-  version: 1.4.0
-  resolution: "@gitmoji/parser-opts@npm:1.4.0"
-  dependencies:
-    "@gitmoji/gitmoji-regex": 1.0.0
-  checksum: 4e39d5828539c6bbe5fd18695c689a7909e0d5d41b1342acbe472fec5671f76c7e162c80baf6cc2d68481b9a67cb79f31b2a203cddc68b6138f761c1372ea74b
   languageName: node
   linkType: hard
 
@@ -2916,20 +2890,6 @@ __metadata:
     rimraf: 3.0.2
     svgo: 1.3.2
   checksum: 04a8f34f519b6cfd48b4b3996a04267607a6f55dc847a548e0d93094b9cd468a69eb6e95883c2e2a3933189b289d6ea95c8304c104a797cf517f28ea45c683f9
-  languageName: node
-  linkType: hard
-
-"@justeattakeaway/pie-icons@npm:2.0.0-beta.3":
-  version: 2.0.0-beta.3
-  resolution: "@justeattakeaway/pie-icons@npm:2.0.0-beta.3"
-  dependencies:
-    cheerio: 1.0.0-rc.10
-    classnames: 2.3.1
-    html-minifier: 4.0.0
-    prettier: 2.5.1
-    rimraf: 3.0.2
-    svgo: 1.3.2
-  checksum: a78b5bf0663a64b368225f6e08301e64adc205ee4a951485b518cdfe324be1d8823ecb6e9d117d91f96abb6aac6048beb6b6394ee710876535770b5d7e2fdd87
   languageName: node
   linkType: hard
 
@@ -8119,29 +8079,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"commitlint-config-gitmoji@npm:^2.3.1":
-  version: 2.3.1
-  resolution: "commitlint-config-gitmoji@npm:2.3.1"
-  dependencies:
-    "@commitlint/types": ^17
-    "@gitmoji/commit-types": 1.1.5
-    "@gitmoji/parser-opts": 1.4.0
-    commitlint-plugin-gitmoji: 2.2.6
-  checksum: c11a4ecd0edc4c68de957f70e4f8cf350c5d291c3d09ee59ba304e5351554d7822908ef5af93d37dc5306ae33d900654f62703a468358edb3006a2de7d3c3032
-  languageName: node
-  linkType: hard
-
-"commitlint-plugin-gitmoji@npm:2.2.6":
-  version: 2.2.6
-  resolution: "commitlint-plugin-gitmoji@npm:2.2.6"
-  dependencies:
-    "@commitlint/types": ^17
-    "@gitmoji/gitmoji-regex": 1.0.0
-    gitmojis: ^3
-  checksum: cc025c63abef2031adc6afe3cec8bc85bcd1397eb3fd997a21b3bc38e0244ea66c828a70759fa4f42ddb7640267f521e2f2c73e9c6cf9fb815c2b7353a31f767
-  languageName: node
-  linkType: hard
-
 "common-tags@npm:^1.8.0":
   version: 1.8.2
   resolution: "common-tags@npm:1.8.2"
@@ -9832,13 +9769,6 @@ __metadata:
   version: 0.8.1
   resolution: "emittery@npm:0.8.1"
   checksum: 2457e8c7b0688bb006126f2c025b2655abe682f66b184954122a8a065b5277f9813d49d627896a10b076b81c513ec5f491fd9c14fbd42c04b95ca3c9f3c365ee
-  languageName: node
-  linkType: hard
-
-"emoji-regex@npm:^10":
-  version: 10.2.1
-  resolution: "emoji-regex@npm:10.2.1"
-  checksum: 1aa2d16881c56531fdfc03d0b36f5c2b6221cc4097499a5665b88b711dc3fb4d5b8804f0ca6f00c56e5dcf89bac75f0487eee85da1da77df3a33accc6ecbe426
   languageName: node
   linkType: hard
 
@@ -11654,13 +11584,6 @@ __metadata:
   version: 1.5.0
   resolution: "github-slugger@npm:1.5.0"
   checksum: c70988224578b3bdaa25df65973ffc8c24594a77a28550c3636e495e49d17aef5cdb04c04fa3f1744babef98c61eecc6a43299a13ea7f3cc33d680bf9053ffbe
-  languageName: node
-  linkType: hard
-
-"gitmojis@npm:^3":
-  version: 3.13.4
-  resolution: "gitmojis@npm:3.13.4"
-  checksum: f9d8ec955eb63e4a5c5ba7303a110d55c12b8bfb77f08e991f392d3d002c2c818f13b0ce2a087768affbd30add37155587bb12387051035206ff8e30e198e7f5
   languageName: node
   linkType: hard
 
@@ -17513,7 +17436,6 @@ __metadata:
     babel-loader: 8.2.3
     chromedriver: 109.0.0
     commitizen: ^4.3.0
-    commitlint-config-gitmoji: ^2.3.1
     cross-env: 7.0.3
     cssnano: 5.1.13
     cz-customizable: ^7.0.0
