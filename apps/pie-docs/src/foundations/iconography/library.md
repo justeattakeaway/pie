@@ -5,5 +5,7 @@ eleventyNavigation:
     order: 2
 ---
 
+## Our icons
+
 {% iconList %}
 
