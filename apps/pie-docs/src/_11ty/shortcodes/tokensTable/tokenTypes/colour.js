@@ -1,4 +1,4 @@
-const { isColorDark } = require('../../../../utilities/colors');
+const { isColorDark } = require('../../../../_utilities/colors');
 
 const createHighContrastName = tokenName => {
     const highContrast = '(High Contrast)';
