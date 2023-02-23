@@ -42,7 +42,7 @@ We recommend when commiting new changes to the codebase, you use `yarn cz` and *
 
 The former will present commitizen's interactive prompt to ensure it conforms to our commitlint ruleset.
 
-### Pull Request Titles
+### Pull Request Titlesererer
 When creating a pull request, please ensure the title conforms to the conventional commit standard. For example, a `fix` to `pie-docs` should have a title such as:
 
 `fix: (pie-docs) Fixed a bug with navigation`
