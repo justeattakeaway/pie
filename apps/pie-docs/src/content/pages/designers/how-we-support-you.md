@@ -1,7 +1,7 @@
 ---
 eleventyNavigation:
     key: How we support you
-    parent: Designers
+    parent: designers
     order: 3
 title: How we support you
 description: In this section you’ll find everything you need to know about the ways in which we support different teams across the organisation.
