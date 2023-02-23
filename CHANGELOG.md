@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 v1.28.0
 ------------------------------
-*Febuary 23, 2023*
+*February 23, 2023*
 
 ### Changed
 - Version bump of `@justeat/pie-design-tokens`
@@ -15,7 +15,7 @@ v1.28.0
 
 v1.27.1
 ------------------------------
-*Febuary 21, 2023*
+*February 21, 2023*
 
 ### Fixed
 - Fixed issue where `pie-docs#build:dev` wasn't included in `turbo.json`.
@@ -24,7 +24,7 @@ v1.27.1
 
 v1.27.0
 ------------------------------
-*Febuary 16, 2023*
+*February 16, 2023*
 
 ### Changed
 - Specified `narrow`, `mid` and `huge` breakpoints for Percy tests
@@ -32,7 +32,7 @@ v1.27.0
 
 v1.26.0
 ------------------------------
-*Febuary 6, 2023*
+*February 6, 2023*
 
 ### Added
 - Storybook publishing to GitHub Actions.
@@ -40,7 +40,7 @@ v1.26.0
 
 v1.25.1
 ------------------------------
-*Febuary 3, 2023*
+*February 3, 2023*
 
 ### Fixed
 - Issue with dist's not being available to changesets release job.
