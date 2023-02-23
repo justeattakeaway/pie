@@ -2,7 +2,7 @@
 eleventyNavigation:
     key: engineers
     title: Engineers
-    parent: Pages
+    parent: Docs
     order: 4
 title: Engineers
 ---
