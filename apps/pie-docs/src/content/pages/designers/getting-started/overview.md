@@ -1,7 +1,7 @@
 ---
 eleventyNavigation:
     key: Overview
-    parent: Getting started
+    parent: designers-getting-started
     order: 1
 ---
 
