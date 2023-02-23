@@ -9,7 +9,7 @@
     <meta name="robots" content="index, follow">
     <meta name="googlebot" content="index, follow">
     <meta name="description" content="PIE is the global design system for Just Eat Takeaway.com, powering all our products.">
-    <title>Principles for Interfaces and Experiences | PIE Design System</title>
+    <title>Design Tokens | PIE Design System</title>
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -18,7 +18,7 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#5b3d5b">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Principles for Interfaces and Experiences | PIE Design System">
+    <meta property="og:title" content="Design Tokens | PIE Design System">
     <meta property="og:url" content="https://www.pie.design/">
     <meta property="og:image:alt" content="PIE Design System">
     <meta property="og:description" content="PIE is the global design system for Just Eat Takeaway.com, powering all our products.">
@@ -201,7 +201,7 @@
                 </li>
             
                 <li>
-                    <details >
+                    <details  open>
                         <summary class="c-nav-category" style="--icon-fill: #f36805;">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" height="24" width="24" fill="#f36805" class="c-pieIcon c-pieIcon--foundations u-iconFilled"><g clip-path="url(#clip0_7066_3748)"><path d="M10.7388 1.94501H5.2525V7.43126H10.7388V1.94501ZM9.42625 6.11876H6.565V3.25751H9.42625V6.11876Z" fill="#242E30"></path><path d="M1.875 14.1688H7.36125V8.68251H1.875V14.1688ZM3.1875 9.99501H6.04875V12.8563H3.1875V9.99501Z" fill="#242E30"></path><path d="M8.62125 8.67376V14.16H14.1075V8.67376H8.62125ZM12.795 12.8475H9.93375V9.98626H12.795V12.8475Z" fill="#242E30"></path></g><defs><clipPath id="clip0_7066_3748"><rect width="14" height="14" fill="white" transform="translate(1 1)"></rect></clipPath></defs></svg>
                             Foundations
@@ -233,7 +233,9 @@
                                     <a
                                         href="/foundations/design-tokens/overview/"
                                         
-                                        class="c-nav-item ">
+                                            aria-current="page"
+                                        
+                                        class="c-nav-item is-active">
                                         Design Tokens
                                     </a>
                                 </li>
@@ -428,17 +430,39 @@
 
 <div class="c-contentPage">
     <div
-        class="c-contentPage-header c-contentPage-header--hero"
-         style="--hero-img-src: url(/assets/img/heroes/home-hero.svg)" >
+        class="c-contentPage-header "
+        >
         <div class="c-content-container">
             <h1 class="c-contentPage-header-heading alpha--standout">
-                Principles for Interfaces and Experiences
+                Design Tokens
             </h1>
             <p class="c-contentPage-header-description">
-                PIE is the global design system for Just Eat Takeaway.com, powering all our products.
+                 Design Tokens store design decisions within our Foundations, allowing us to apply them consistently throughought designs, products, code and platforms.
             </p>
         </div>
     </div>
+
+    
+        <nav aria-label="Secondary navigational tabs" class="c-tabs">
+    <ul class="c-content-container">
+        <li
+            
+                aria-selected="true"
+            
+            class="c-tabs-item">
+                
+                    <a href="/foundations/design-tokens/overview/" class="c-tabs-link is-active">Overview</a></li>
+                
+        <li
+            
+                aria-selected="false"
+            
+            class="c-tabs-item">
+                
+                    <a href="/foundations/design-tokens/updates-and-maintenance/" class="c-tabs-link ">Updates &amp; maintenance</a></li>
+                
+    </ul>
+</nav>
 
     
 
@@ -446,7 +470,57 @@
     
         <div class="c-contentPage-content">
             <div class="c-content-container">
-                
+                <h2>What are Design Tokens?</h2>
+<p>Design tokens are the visual design atoms of the design system — specifically, they are named entities that store interface design attributes.</p>
+<p>We use them in place of hard-coded values (such as HEX values for Colour, or pixel values for Spacing) in order to maintain a scalable and consistent visual system for UI development.</p>
+<p>Our tokens consist of two key elements:</p>
+<ul>
+<li>A <strong>token name</strong>, such as $color-orange-30</li>
+<li><strong>Associated values,</strong> such as #FF8000</li>
+</ul>
+<figure class="c-contentPage-img c-contentImage c-contentImage--hasBackdrop">        <div class="c-contentImage-backdrop">          <picture>                        <img src="../../../assets/img/foundations/design-tokens/overview/what-are-tokens.svg" style="--img-width: 416px;" >          </picture>        </div>        <figcaption class="c-contentImage-caption"><span>Example of some of the Alias Tokens that are used to build our Button component.</span></figcaption>      </figure>
+<p>The difference between Design Tokens and other design variables lies in the fact that they provide an additional abstract layer which ensures they are platform-agnostic.</p>
+<p>The naming conventions given to these layers create a common language for design properties (colour, spacing, elevation…) that can be used within all platforms and implementation frameworks.</p>
+<hr>
+<h2>Types of Design Tokens</h2>
+<p>There are two types of Design Tokens which make up the PIE design language.</p>
+<h3>Global Tokens</h3>
+<p>Global tokens are the primitive values in PIE’s design. They are the base-level tokens we use to attribute a token value to Alias Tokens.</p>
+<p>These tokens are both context-agnostic (meaning the name should not reflect any use case context) and value-descriptive (meaning the name should reflect the value of that token).</p>
+<figure class="c-contentPage-img c-contentImage c-contentImage--hasBackdrop">        <div class="c-contentImage-backdrop">          <picture>                        <img src="../../../assets/img/foundations/design-tokens/overview/global.svg" style="--img-width: 173px;" >          </picture>        </div>        <figcaption class="c-contentImage-caption"><span>The example above shows the HEX value assigned to the $color-orange-30 Global Token.</span></figcaption>      </figure>
+<p><strong>Global Tokens’ key concepts:</strong></p>
+<ul>
+<li>They represent the building blocks of our foundations.</li>
+<li>Their naming should be value-specific.</li>
+<li>Their naming shouldn’t be context-specific.</li>
+<li>Their names should be the same across brands and themes.</li>
+<li>When possible, they should contain only one value.</li>
+</ul>
+<h3>Alias Tokens</h3>
+<p>These are our second level of tokens. They are related to a particular use case that helps express the token’s intended purpose and provide context.</p>
+<p>These should be singular in their intended purpose, meaning they should relate only to one use case (for example, $content-negative means it can only be used for negative bits of content in our products, such as error messages in text fields).</p>
+<figure class="c-contentPage-img c-contentImage c-contentImage--hasBackdrop">        <div class="c-contentImage-backdrop">          <picture>                        <img src="../../../assets/img/foundations/design-tokens/overview/alias.svg" style="--img-width: 186px;" >          </picture>        </div>        <figcaption class="c-contentImage-caption"><span>The example above shows $color-orange-30 being assigned as the Global Token used for the $brand-support-01 Alias Token.</span></figcaption>      </figure>
+<p><strong>Alias Tokens’ key concepts:</strong></p>
+<ul>
+<li>They hold design decisions.</li>
+<li>They can be made up of one or many Global Tokens.</li>
+<li>Their naming should be descriptive or semantic.</li>
+<li>Their names should be the same across brands and themes.</li>
+<li>They minimise future manual maintenance for products.</li>
+<li>They allow easy, scalable theming.</li>
+</ul>
+<hr>
+<h2>Why are Design Tokens important?</h2>
+<p>Tokens enable our design system to have a single source of truth. They constitute a shared repository where we store and track style choices and changes within our Foundations.</p>
+<p>Using Design Tokens in both design and implementation means that style updates will be replicated consistently through all our products.</p>
+<h3>Tokens enhance flexibility</h3>
+<p>As we’ve mentioned before, tokens are used to replace hard-coded values, which allows designers to create more flexible and consistent design solutions. Design Tokens provide a way for designers to keep complete control over the atomic values used within the design system.</p>
+<p>When a value needs to be updated, this can be done centrally (in one place, usually our source of truth file), and the new changes will be applied globally (in multiple places, usually in all our products and themes) across multiple platforms.</p>
+<h3>Tokens promote consistency</h3>
+<p>Design tokens allow us to maintain a unified look and feel across our products and themes, helping product teams apply design decisions swiftly and with confidence. They also help keep our Foundations values in sync for every platform.</p>
+<h3>Tokens simplify development</h3>
+<p>By providing a repository of all the Design Tokens and consistently communicating changes within tokens through our <a href="https://github.com/justeat/pie-design-tokens/blob/master/design-changelog.md/">Changelog</a>, developers are able to track and access the latest design attributes within our Foundations, rapidly replicating and implementing design decisions made by product teams.</p>
+
             </div>
         </div>
     

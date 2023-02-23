@@ -9,7 +9,7 @@
     <meta name="robots" content="index, follow">
     <meta name="googlebot" content="index, follow">
     <meta name="description" content="PIE is the global design system for Just Eat Takeaway.com, powering all our products.">
-    <title>Principles for Interfaces and Experiences | PIE Design System</title>
+    <title>Getting started | PIE Design System</title>
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -18,7 +18,7 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#5b3d5b">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Principles for Interfaces and Experiences | PIE Design System">
+    <meta property="og:title" content="Getting started | PIE Design System">
     <meta property="og:url" content="https://www.pie.design/">
     <meta property="og:image:alt" content="PIE Design System">
     <meta property="og:description" content="PIE is the global design system for Just Eat Takeaway.com, powering all our products.">
@@ -145,7 +145,7 @@
                 </li>
             
                 <li>
-                    <details >
+                    <details  open>
                         <summary class="c-nav-category" style="--icon-fill: #f36805;">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" height="24" width="24" fill="#f36805" class="c-pieIcon c-pieIcon--bulbLightning u-iconFilled"><path d="M10.1615 13.4687H5.83896L6.18896 14.7812H9.81146L10.1615 13.4687Z" fill="#242E30"></path><path d="M5.3752 10.1175L5.7252 12.1562H10.3365L10.6252 10.1087C10.6963 9.71593 10.8928 9.35673 11.1852 9.085C11.6293 8.66329 11.9832 8.1558 12.2253 7.59328C12.4675 7.03076 12.5929 6.42493 12.594 5.8125C12.5974 4.6579 12.1659 3.54434 11.3854 2.69349C10.605 1.84264 9.53268 1.3169 8.38208 1.22092C7.23147 1.12495 6.08691 1.46578 5.17624 2.17556C4.26558 2.88535 3.65559 3.91203 3.4677 5.05125C3.34276 5.77624 3.39617 6.52074 3.62331 7.22047C3.85046 7.9202 4.24451 8.55412 4.77145 9.0675C5.07665 9.34647 5.28763 9.71339 5.3752 10.1175ZM4.7627 5.26125C4.89697 4.44684 5.33323 3.71296 5.98452 3.2059C6.63581 2.69885 7.45427 2.45587 8.27674 2.52542C9.0992 2.59497 9.86524 2.97194 10.4221 3.58116C10.979 4.19039 11.2859 4.98711 11.2815 5.8125C11.2824 6.24842 11.1953 6.68005 11.0254 7.0815C10.8555 7.48295 10.6063 7.84596 10.2927 8.14875C9.80237 8.61884 9.47185 9.23091 9.3477 9.89875L9.1902 10.8525H6.80145L6.6527 9.9075C6.52431 9.23731 6.18744 8.62482 5.6902 8.1575C5.31336 7.78542 5.03217 7.32766 4.87066 6.82331C4.70914 6.31897 4.67211 5.78302 4.7627 5.26125Z" fill="#242E30"></path></svg>
                             Designers
@@ -164,7 +164,9 @@
                                     <a
                                         href="/designers/getting-started/overview/"
                                         
-                                        class="c-nav-item ">
+                                            aria-current="page"
+                                        
+                                        class="c-nav-item is-active">
                                         Getting started
                                     </a>
                                 </li>
@@ -328,7 +330,9 @@
                                     <a
                                         href="/engineers/getting-started/overview/"
                                         
-                                        class="c-nav-item ">
+                                            aria-current="page"
+                                        
+                                        class="c-nav-item is-active">
                                         Getting started
                                     </a>
                                 </li>
@@ -428,17 +432,39 @@
 
 <div class="c-contentPage">
     <div
-        class="c-contentPage-header c-contentPage-header--hero"
-         style="--hero-img-src: url(/assets/img/heroes/home-hero.svg)" >
+        class="c-contentPage-header "
+        >
         <div class="c-content-container">
             <h1 class="c-contentPage-header-heading alpha--standout">
-                Principles for Interfaces and Experiences
+                Getting started
             </h1>
             <p class="c-contentPage-header-description">
-                PIE is the global design system for Just Eat Takeaway.com, powering all our products.
+                In this section you’ll find everything you need to get you up and running with the PIE design system.
             </p>
         </div>
     </div>
+
+    
+        <nav aria-label="Secondary navigational tabs" class="c-tabs">
+    <ul class="c-content-container">
+        <li
+            
+                aria-selected="true"
+            
+            class="c-tabs-item">
+                
+                    <a href="/designers/getting-started/overview/" class="c-tabs-link is-active">Overview</a></li>
+                
+        <li
+            
+                aria-selected="false"
+            
+            class="c-tabs-item">
+                
+                    <a href="/designers/getting-started/best-practices/" class="c-tabs-link ">Best practices</a></li>
+                
+    </ul>
+</nav>
 
     
 
@@ -446,7 +472,28 @@
     
         <div class="c-contentPage-content">
             <div class="c-content-container">
-                
+                <h2>Introduction</h2>
+<p><a href="https://www.figma.com/ui-design-tool">Figma</a> is PIE’s design tool of choice for building our design system. All design-related foundations, components and assets are stored within Figma libraries and files to ensure the whole digital ecosystem can be accessed by any team.</p>
+<p>You can access Figma through the browser, but it is recommended that you use the desktop app. If Figma’s desktop app is not installed on your computer, get in touch with your manager to request this.</p>
+<p>As a designer within the Just Eat Takeaway organisation, you’ll automatically have access to all of PIE’s libraries and files. However, if that’s not the case, please <a href="">get in touch with the PIE team</a> to request access.</p>
+<aside class="c-contentPage-notification c-notification" style="--bg-colour: #ebf6fa; --icon-fill: #125fca;">            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" height="24" width="24" fill="#125fca" class="c-pieIcon c-pieIcon--infoCircle u-iconFilled"><path d="M8 1.21875C6.6588 1.21875 5.34771 1.61646 4.23254 2.3616C3.11737 3.10673 2.2482 4.16582 1.73494 5.40493C1.22169 6.64404 1.0874 8.00752 1.34905 9.32296C1.61071 10.6384 2.25656 11.8467 3.20494 12.7951C4.15331 13.7434 5.36161 14.3893 6.67705 14.651C7.99248 14.9126 9.35596 14.7783 10.5951 14.2651C11.8342 13.7518 12.8933 12.8826 13.6384 11.7675C14.3835 10.6523 14.7813 9.3412 14.7813 8C14.7789 6.20221 14.0637 4.47872 12.7925 3.20749C11.5213 1.93626 9.79779 1.22107 8 1.21875ZM8 13.4688C6.91839 13.4688 5.86106 13.148 4.96173 12.5471C4.0624 11.9462 3.36145 11.0921 2.94754 10.0928C2.53362 9.09352 2.42532 7.99393 2.63633 6.9331C2.84735 5.87227 3.36819 4.89783 4.13301 4.13301C4.89783 3.36819 5.87227 2.84734 6.9331 2.63633C7.99394 2.42532 9.09352 2.53362 10.0928 2.94753C11.0921 3.36145 11.9462 4.06239 12.5471 4.96173C13.148 5.86106 13.4688 6.91838 13.4688 8C13.4688 8.71817 13.3273 9.4293 13.0525 10.0928C12.7776 10.7563 12.3748 11.3592 11.867 11.867C11.3592 12.3748 10.7563 12.7776 10.0928 13.0525C9.4293 13.3273 8.71817 13.4688 8 13.4688ZM7.34375 7.29125H8.65625V10.625H7.34375V7.29125ZM8.875 5.375C8.875 5.54806 8.82369 5.71723 8.72754 5.86112C8.63139 6.00502 8.49474 6.11717 8.33485 6.18339C8.17497 6.24962 7.99903 6.26695 7.8293 6.23319C7.65957 6.19943 7.50366 6.11609 7.38129 5.99372C7.25891 5.87135 7.17558 5.71544 7.14182 5.5457C7.10805 5.37597 7.12538 5.20004 7.19161 5.04015C7.25784 4.88027 7.36999 4.74361 7.51388 4.64746C7.65777 4.55132 7.82694 4.5 8 4.5C8.23207 4.5 8.45463 4.59219 8.61872 4.75628C8.78282 4.92038 8.875 5.14294 8.875 5.375Z" fill="#242E30"></path></svg>            <h4 class="c-notification-title">New to Figma?</h4>            <p class="c-notification-message"><span>If you’re new to Figma, check <a href="https://www.figma.com/resources/learn-design/?fuid=1093444461414143879">these tutorials</a> that will help you learn how to use the tool in no time.</span></p>        </aside>
+<hr>
+<h2>How is PIE structured?</h2>
+<p>We have divided our foundations, components and assets into multiple libraries, so they can be easily found and referenced. All of them can be found on the <a href="">PIE Team</a> section in Figma.</p>
+<p>You’ll need to enable these libraries if you want to use the PIE design system for your products. If you don’t know how to do that, please read our <a href="">‘How to enable libraries in Figma’</a> guide.</p>
+<figure class="c-contentPage-img c-contentImage c-contentImage--hasBackdrop">        <div class="c-contentImage-backdrop">          <picture>            <source style="--img-width: 512px;" media="(max-width: 600px)" srcset="../../../assets/img/designers/getting-started/overview/libraries-wheel_narrow.svg">            <img src="../../../assets/img/designers/getting-started/overview/libraries-wheel.svg" style="--img-width: 512px;" >          </picture>        </div>        <figcaption class="c-contentImage-caption"><span>A map of how Libraries are structured in Figma.</span></figcaption>      </figure>
+<h3>Foundations libraries</h3>
+<p>These libraries contain the building blocks for our design system. In these libraries you’ll find the styles created using colour, typography, elevation, radius and spacing (among others). These foundations should remain consistent across components, products and pillars.</p>
+<p>PIE designers own and maintain our foundation libraries, which are split into two different themes (PIE 2.0 Light and PIE 2.0 Dark). Make sure you’re working from the right library, and check with the PIE team if you’re unsure about which one you should use.</p>
+<h3>Core Components libraries</h3>
+<p>Our core component libraries are made up of all the components that are used by multiple business areas and teams. These include components like buttons, labels, chips, input fields (among others). These components should remain consistent across products and pillars.</p>
+<p>Similarly to foundation libraries, these components are maintained and owned by PIE designers, and they are split into two different themes (PIE 2.0 Core Components – Light and PIE 2.0 Core Components – Dark). Make sure you’re working from the right library, and check with the PIE team if you’re unsure about which one you should use.</p>
+<h3>Asset libraries</h3>
+<p>These libraries contain assets which can be used in our products, such as icons and illustrations. They are owned and maintained by PIE designers in collaboration with the JET Creative Studio (Brand).</p>
+<h3>Business Area libraries</h3>
+<p>Business Area libraries were created to provide more flexibility to our teams. Components which are unique to a specific Business Area (such as Customer, Restaurant…) and would not be relevant in other ones live within these libraries.</p>
+<p>Business Area designers own these libraries, and PIE designers only help with maintaining them and making sure they are consistent with our Core Components libraries. You can learn more about how we support these libraries in our <a href="">Getting Support</a> section.</p>
+
             </div>
         </div>
     

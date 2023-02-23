@@ -9,7 +9,7 @@
     <meta name="robots" content="index, follow">
     <meta name="googlebot" content="index, follow">
     <meta name="description" content="PIE is the global design system for Just Eat Takeaway.com, powering all our products.">
-    <title>Principles for Interfaces and Experiences | PIE Design System</title>
+    <title>Typography | PIE Design System</title>
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -18,7 +18,7 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#5b3d5b">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Principles for Interfaces and Experiences | PIE Design System">
+    <meta property="og:title" content="Typography | PIE Design System">
     <meta property="og:url" content="https://www.pie.design/">
     <meta property="og:image:alt" content="PIE Design System">
     <meta property="og:description" content="PIE is the global design system for Just Eat Takeaway.com, powering all our products.">
@@ -201,7 +201,7 @@
                 </li>
             
                 <li>
-                    <details >
+                    <details  open>
                         <summary class="c-nav-category" style="--icon-fill: #f36805;">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" height="24" width="24" fill="#f36805" class="c-pieIcon c-pieIcon--foundations u-iconFilled"><g clip-path="url(#clip0_7066_3748)"><path d="M10.7388 1.94501H5.2525V7.43126H10.7388V1.94501ZM9.42625 6.11876H6.565V3.25751H9.42625V6.11876Z" fill="#242E30"></path><path d="M1.875 14.1688H7.36125V8.68251H1.875V14.1688ZM3.1875 9.99501H6.04875V12.8563H3.1875V9.99501Z" fill="#242E30"></path><path d="M8.62125 8.67376V14.16H14.1075V8.67376H8.62125ZM12.795 12.8475H9.93375V9.98626H12.795V12.8475Z" fill="#242E30"></path></g><defs><clipPath id="clip0_7066_3748"><rect width="14" height="14" fill="white" transform="translate(1 1)"></rect></clipPath></defs></svg>
                             Foundations
@@ -298,7 +298,9 @@
                                     <a
                                         href="/foundations/typography/overview/"
                                         
-                                        class="c-nav-item ">
+                                            aria-current="page"
+                                        
+                                        class="c-nav-item is-active">
                                         Typography
                                     </a>
                                 </li>
@@ -428,17 +430,55 @@
 
 <div class="c-contentPage">
     <div
-        class="c-contentPage-header c-contentPage-header--hero"
-         style="--hero-img-src: url(/assets/img/heroes/home-hero.svg)" >
+        class="c-contentPage-header "
+        >
         <div class="c-content-container">
             <h1 class="c-contentPage-header-heading alpha--standout">
-                Principles for Interfaces and Experiences
+                Typography
             </h1>
             <p class="c-contentPage-header-description">
-                PIE is the global design system for Just Eat Takeaway.com, powering all our products.
+                The PIE typography is set so that our layouts and content is easy to read and presented with a clear hierarchy.
             </p>
         </div>
     </div>
+
+    
+        <nav aria-label="Secondary navigational tabs" class="c-tabs">
+    <ul class="c-content-container">
+        <li
+            
+                aria-selected="false"
+            
+            class="c-tabs-item">
+                
+                    <a href="/foundations/typography/overview/" class="c-tabs-link ">Overview</a></li>
+                
+        <li
+            
+                aria-selected="true"
+            
+            class="c-tabs-item">
+                
+                    <a href="/foundations/typography/tokens/global/" class="c-tabs-link is-active">Global tokens</a></li>
+                
+        <li
+            
+                aria-selected="false"
+            
+            class="c-tabs-item">
+                
+                    <a href="/foundations/typography/tokens/alias/wide/" class="c-tabs-link ">Alias tokens</a></li>
+                
+        <li
+            
+                aria-selected="false"
+            
+            class="c-tabs-item">
+                
+                    <a href="/foundations/typography/code/" class="c-tabs-link ">Code</a></li>
+                
+    </ul>
+</nav>
 
     
 
@@ -446,7 +486,11 @@
     
         <div class="c-contentPage-content">
             <div class="c-content-container">
-                
+                <h2>Global typography tokens</h2>
+<p>These are the original values in our design language, represented by context-agnostic names. They define the values that can be assigned to our Alias Tokens, which are the ones used in GUIs while designing and developing our products.</p>
+<hr>
+<div class="c-tokensTable"><h2 class="c-tokensTable-title">Font family</h2><div class="c-tokensTable-row u-spacing-e--top u-showAboveWide c-tokensTable-heading" style="--template-columns: 240px">        <span>Example</span>        <span>Description</span>        <span>Token name</span>    </div>    <ul class="c-tokensTable-list">        <li class="c-tokensTable-row c-tokensTable-item" style="--template-columns: 240px">        <div class="c-tokensTable-example--font" style="--example-font-family: JetSansDigital">String</div>        <div class="c-tokensTable-content">            <span class="c-tokensTable-displayName">JET Sans</span>            <span class="c-tokensTable-tokenDescription ">            Our primary font family           </span>        </div>        <span class="c-tokensTable-token">$font-family-primary</span>    </li><li class="c-tokensTable-row c-tokensTable-item" style="--template-columns: 240px">        <div class="c-tokensTable-example--font" style="--example-font-family: Arial">String</div>        <div class="c-tokensTable-content">            <span class="c-tokensTable-displayName">Arial</span>            <span class="c-tokensTable-tokenDescription ">            Used only as a fallback font           </span>        </div>        <span class="c-tokensTable-token">$font-family-secondary</span>    </li><li class="c-tokensTable-row c-tokensTable-item" style="--template-columns: 240px">        <div class="c-tokensTable-example--font" style="--example-font-family: CPMono">String</div>        <div class="c-tokensTable-content">            <span class="c-tokensTable-displayName">CP Mono</span>            <span class="c-tokensTable-tokenDescription ">            Used only for snippets of code           </span>        </div>        <span class="c-tokensTable-token">$font-family-code</span>    </li>    </ul><hr /><h2 class="c-tokensTable-title">Font weight</h2><div class="c-tokensTable-row u-spacing-e--top u-showAboveWide c-tokensTable-heading" style="--template-columns: 240px">        <span>Example</span>        <span>Description</span>        <span>Token name</span>    </div>    <ul class="c-tokensTable-list">        <li class="c-tokensTable-row c-tokensTable-item" style="--template-columns: 240px">        <div class="c-tokensTable-example--font" style="--example-font-weight: 800">String</div>        <div class="c-tokensTable-content">            <span class="c-tokensTable-displayName">Extra bold</span>                    </div>        <span class="c-tokensTable-token">$font-weight-extrabold</span>    </li><li class="c-tokensTable-row c-tokensTable-item" style="--template-columns: 240px">        <div class="c-tokensTable-example--font" style="--example-font-weight: 700">String</div>        <div class="c-tokensTable-content">            <span class="c-tokensTable-displayName">Bold</span>                    </div>        <span class="c-tokensTable-token">$font-weight-bold</span>    </li><li class="c-tokensTable-row c-tokensTable-item" style="--template-columns: 240px">        <div class="c-tokensTable-example--font" style="--example-font-weight: 400">String</div>        <div class="c-tokensTable-content">            <span class="c-tokensTable-displayName">Regular</span>                    </div>        <span class="c-tokensTable-token">$font-weight-regular</span>    </li>    </ul><hr /><h2 class="c-tokensTable-title">Font size</h2><div class="c-tokensTable-row u-spacing-e--top u-showAboveWide c-tokensTable-heading" style="--template-columns: 240px">        <span>Example</span>        <span>Description</span>        <span>Token name</span>    </div>    <ul class="c-tokensTable-list">        <li class="c-tokensTable-row c-tokensTable-item" style="--template-columns: 240px">        <div class="c-tokensTable-example--font" style="--example-font-size: 12px; --example-font-line-height: 16px">String</div>        <div class="c-tokensTable-content">            <span class="c-tokensTable-displayName">Font size a</span>            <span class="c-tokensTable-tokenDescription ">            Text size: 12px <br /> Line height: 16px           </span>        </div>        <span class="c-tokensTable-token">$font-size-a</span>    </li><li class="c-tokensTable-row c-tokensTable-item" style="--template-columns: 240px">        <div class="c-tokensTable-example--font" style="--example-font-size: 14px; --example-font-line-height: 20px">String</div>        <div class="c-tokensTable-content">            <span class="c-tokensTable-displayName">Font size b</span>            <span class="c-tokensTable-tokenDescription ">            Text size: 14px <br /> Line height: 20px           </span>        </div>        <span class="c-tokensTable-token">$font-size-b</span>    </li><li class="c-tokensTable-row c-tokensTable-item" style="--template-columns: 240px">        <div class="c-tokensTable-example--font" style="--example-font-size: 16px; --example-font-line-height: 24px">String</div>        <div class="c-tokensTable-content">            <span class="c-tokensTable-displayName">Font size c</span>            <span class="c-tokensTable-tokenDescription ">            Text size: 16px <br /> Line height: 24px           </span>        </div>        <span class="c-tokensTable-token">$font-size-c</span>    </li><li class="c-tokensTable-row c-tokensTable-item" style="--template-columns: 240px">        <div class="c-tokensTable-example--font" style="--example-font-size: 20px; --example-font-line-height: 28px">String</div>        <div class="c-tokensTable-content">            <span class="c-tokensTable-displayName">Font size d</span>            <span class="c-tokensTable-tokenDescription ">            Text size: 20px <br /> Line height: 28px           </span>        </div>        <span class="c-tokensTable-token">$font-size-d</span>    </li><li class="c-tokensTable-row c-tokensTable-item" style="--template-columns: 240px">        <div class="c-tokensTable-example--font" style="--example-font-size: 24px; --example-font-line-height: 32px">String</div>        <div class="c-tokensTable-content">            <span class="c-tokensTable-displayName">Font size e</span>            <span class="c-tokensTable-tokenDescription ">            Text size: 24px <br /> Line height: 32px           </span>        </div>        <span class="c-tokensTable-token">$font-size-e</span>    </li><li class="c-tokensTable-row c-tokensTable-item" style="--template-columns: 240px">        <div class="c-tokensTable-example--font" style="--example-font-size: 28px; --example-font-line-height: 36px">String</div>        <div class="c-tokensTable-content">            <span class="c-tokensTable-displayName">Font size f</span>            <span class="c-tokensTable-tokenDescription ">            Text size: 28px <br /> Line height: 36px           </span>        </div>        <span class="c-tokensTable-token">$font-size-f</span>    </li><li class="c-tokensTable-row c-tokensTable-item" style="--template-columns: 240px">        <div class="c-tokensTable-example--font" style="--example-font-size: 32px; --example-font-line-height: 40px">String</div>        <div class="c-tokensTable-content">            <span class="c-tokensTable-displayName">Font size g</span>            <span class="c-tokensTable-tokenDescription ">            Text size: 32px <br /> Line height: 40px           </span>        </div>        <span class="c-tokensTable-token">$font-size-g</span>    </li><li class="c-tokensTable-row c-tokensTable-item" style="--template-columns: 240px">        <div class="c-tokensTable-example--font" style="--example-font-size: 48px; --example-font-line-height: 56px">String</div>        <div class="c-tokensTable-content">            <span class="c-tokensTable-displayName">Font size h</span>            <span class="c-tokensTable-tokenDescription ">            Text size: 48px <br /> Line height: 56px           </span>        </div>        <span class="c-tokensTable-token">$font-size-h</span>    </li>    </ul><hr /><h2 class="c-tokensTable-title">Font style</h2><div class="c-tokensTable-row u-spacing-e--top u-showAboveWide c-tokensTable-heading" style="--template-columns: 240px">        <span>Example</span>        <span>Description</span>        <span>Token name</span>    </div>    <ul class="c-tokensTable-list">        <li class="c-tokensTable-row c-tokensTable-item" style="--template-columns: 240px">        <div class="c-tokensTable-example--font" style="--example-font-text-decoration: underline">String</div>        <div class="c-tokensTable-content">            <span class="c-tokensTable-displayName">Underline</span>            <span class="c-tokensTable-tokenDescription ">            Text decoration: underline           </span>        </div>        <span class="c-tokensTable-token">$font-style-underline</span>    </li>    </ul><hr /><h2 class="c-tokensTable-title">Paragraph spacing</h2><div class="c-tokensTable-row u-spacing-e--top u-showAboveWide c-tokensTable-heading" style="--template-columns: 240px">        <span>Example</span>        <span>Description</span>        <span>Token name</span>    </div>    <ul class="c-tokensTable-list">        <li class="c-tokensTable-row c-tokensTable-item" style="--template-columns: 240px">        <div class="c-tokensTable-example--font c-tokenTable-example-paragraph--font" style="--example-font-paragraph-spacing: 16px"><p>Paragraph</p><p>Paragraph</p></div>        <div class="c-tokensTable-content">            <span class="c-tokensTable-displayName">Paragraph spacing 1</span>            <span class="c-tokensTable-tokenDescription ">            Space between paragraphs: 16px           </span>        </div>        <span class="c-tokensTable-token">$font-paragraph-spacing-01</span>    </li><li class="c-tokensTable-row c-tokensTable-item" style="--template-columns: 240px">        <div class="c-tokensTable-example--font c-tokenTable-example-paragraph--font" style="--example-font-paragraph-spacing: 14px"><p>Paragraph</p><p>Paragraph</p></div>        <div class="c-tokensTable-content">            <span class="c-tokensTable-displayName">Paragraph spacing 2</span>            <span class="c-tokensTable-tokenDescription ">            Space between paragraphs: 14px           </span>        </div>        <span class="c-tokensTable-token">$font-paragraph-spacing-02</span>    </li><li class="c-tokensTable-row c-tokensTable-item" style="--template-columns: 240px">        <div class="c-tokensTable-example--font c-tokenTable-example-paragraph--font" style="--example-font-paragraph-spacing: 12px"><p>Paragraph</p><p>Paragraph</p></div>        <div class="c-tokensTable-content">            <span class="c-tokensTable-displayName">Paragraph spacing 3</span>            <span class="c-tokensTable-tokenDescription ">            Space between paragraphs: 12px           </span>        </div>        <span class="c-tokensTable-token">$font-paragraph-spacing-03</span>    </li>    </ul><hr /><h2 class="c-tokensTable-title">Letter spacing</h2><div class="c-tokensTable-row u-spacing-e--top u-showAboveWide c-tokensTable-heading" style="--template-columns: 240px">        <span>Example</span>        <span>Description</span>        <span>Token name</span>    </div>    <ul class="c-tokensTable-list">        <li class="c-tokensTable-row c-tokensTable-item" style="--template-columns: 240px">        <div class="c-tokensTable-example--font" style="--example-font-letter-spacing: 0">String</div>        <div class="c-tokensTable-content">            <span class="c-tokensTable-displayName">Letter spacing 0</span>            <span class="c-tokensTable-tokenDescription ">            Default letter spacing           </span>        </div>        <span class="c-tokensTable-token">$font-letter-spacing-00</span>    </li>    </ul></div>
+
             </div>
         </div>
     
