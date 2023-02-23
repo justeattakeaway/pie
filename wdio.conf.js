@@ -215,6 +215,13 @@ exports.config = {
      */
     before: async () => {
         if (TEST_TYPE === 'visual') {
+            await browser.waitUntil(
+                () => browser.execute(() => document.readyState === 'complete'),
+                {
+                    timeoutMsg: `Unable to load ${browser.options.baseUrl}`
+                }
+            );
+
             await browser.addCommand('percyScreenshot', async screenshotName => {
                 await percySnapshot(screenshotName, {
                     widths: breakpoints

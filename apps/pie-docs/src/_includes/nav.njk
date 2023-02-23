@@ -2,15 +2,15 @@
 {% set navigationIcons = {
     Accessibility: 'PersonalityTest',
     'All about PIE': 'pie',
-    'Designers': 'bulb-lightning',
+    designers: 'bulb-lightning',
     Foundations: 'foundations',
-    Support: 'help-circle'
+    Support: 'help-circle',
+    engineers: 'engineers'
 } %}
-
 {% set chevronFill = { tokenName: 'interactive-primary', tokenPath: ['alias', 'default'] } | pieDesignTokenColours %}
 {% set categoryIconFill = { tokenName: 'interactive-brand', tokenPath: ['alias', 'default'] } | pieDesignTokenColours %}
-{% set navPagesPrimary = collections.all | eleventyNavigation("Pages") %}
-{% set navPagesSecondary = collections.all | eleventyNavigation("Pages-secondary") %}
+{% set navPagesPrimary = collections.all | eleventyNavigation("Docs") %}
+{% set navPagesSecondary = collections.all | eleventyNavigation("Docs-secondary") %}
 {% set navSections = [navPagesPrimary, navPagesSecondary] %}
 
 <nav class="c-nav">
@@ -31,12 +31,12 @@
                             <ul class="c-nav-list">
                                 {% for subpage in category.children %}
                                 <li>
-                                    {% set subPageArea = subpage.url.split('/')[4] %}
-                                    {% set currentPageArea = page.url.split('/')[4] %}
+                                    {% set subPageArea = subpage.url.split("/")[2] %}
+                                    {% set currentPageArea = page.url.split("/")[2] %}
                                     {# Set the nav item to active if the url contains it's category #}
-                                    {# this means something like /content/pages/foundations/colour/overview/ and /content/pages/foundations/colour/global/ will activate 'colour' #}
+                                    {# this means something like /foundations/colour/overview/ and /foundations/colour/tokens/global/ will activate 'colour' #}
                                     <a
-                                        href="{{ subpage.url  | url }}"
+                                        href="{{ subpage.url | url}}"
                                         {% if subPageArea == currentPageArea %}
                                             aria-current="page"
                                         {% endif %}

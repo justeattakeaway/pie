@@ -1,4 +1,4 @@
-const md = require('../../utilities/markdown');
+const md = require('../../_utilities/markdown');
 /**
  * Converts markdown to HTML
  * @param {string} content - The content to be converted.

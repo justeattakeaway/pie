@@ -1506,6 +1506,52 @@
     }
   },
   "elevation": {
+    "global": {
+      "box-shadow-00": {
+        "displayName": "Box shadow 00",
+        "description": "0,0,0,0 rgba(0,0,0,0)<br /> 0,0,0,0 rgba(0,0,0,0)<br /> 0,0,0,0 rgba(0,0,0,0)"
+      },
+      "box-shadow-01": {
+        "displayName": "Box shadow 01",
+        "description": "0,2,2,0 rgba(27,35,36,.03)<br /> 0,3,1,-2 rgba(27,35,36,.07)<br /> 0,1,5,0 rgba(27,35,36,.06)"
+      },
+      "box-shadow-02": {
+        "displayName": "Box shadow 02",
+        "description": "0,4,6,0 rgba(27,35,36,.02)<br /> 0,2,12,-2 rgba(27,35,36,.08)<br /> 0,3,6,0 rgba(27,35,36,.06)"
+      },
+      "box-shadow-03": {
+        "displayName": "Box shadow 03",
+        "description": "0,2,6,0 rgba(27,35,36,.04)<br /> 0,8,12,-2 rgba(27,35,36,.06)<br /> 0,4,6,0 rgba(27,35,36,.04)"
+      },
+      "box-shadow-04": {
+        "displayName": "Box shadow 04",
+        "description": "0,8,8,0 rgba(27,35,36,.04)<br /> 0,8,20,-3 rgba(27,35,36,.10)<br /> 0,4,8,-2 rgba(27,35,36,.06)"
+      },
+      "box-shadow-05": {
+        "displayName": "Box shadow 05",
+        "description": "0,-4,6,0 rgba(27,35,36,.02)<br /> 0,-2,12,-2 rgba(27,35,36,.08)<br /> 0,-3,6,0 rgba(27,35,36,.06)"
+      },
+      "box-shadow-06": {
+        "displayName": "Box shadow 06",
+        "description": "0,2,2,0 rgba(27,35,36,.12)<br /> 0,3,1,-2 rgba(27,35,36,.28)<br /> 0,1,5,0 rgba(27,35,36,.24)"
+      },
+      "box-shadow-07": {
+        "displayName": "Box shadow 07",
+        "description": "0,4,6,0 rgba(27,35,36,.08)<br /> 0,2,12,-2 rgba(27,35,36,.32)<br /> 0,3,6,0 rgba(27,35,36,.24)"
+      },
+      "box-shadow-08": {
+        "displayName": "Box shadow 08",
+        "description": "0,2,6,0 rgba(27,35,36,.12)<br /> 0,8,12,-2 rgba(27,35,36,.24)<br /> 0,4,6,0 rgba(27,35,36,.16)"
+      },
+      "box-shadow-09": {
+        "displayName": "Box shadow 09",
+        "description": "0,8,8,0 rgba(27,35,36,.16)<br /> 0,3,20,-3 rgba(27,35,36,.40)<br /> 0,4,8,-2 rgba(27,35,36,.24)"
+      },
+      "box-shadow-10": {
+        "displayName": "Box shadow 10",
+        "description": "0,-4,6,0 rgba(27,35,36,.08)<br /> 0,-2,12,-2 rgba(27,35,36,.32)<br /> 0,-3,6,0 rgba(27,35,36,.24)"
+      }
+    },
     "alias": {
       "default": {
         "01": {
