@@ -20,4 +20,16 @@
     <meta property="og:image:alt" content="{{ metadata.title }}">
     <meta property="og:description" content="{{ metadata.description }}">
     {% include "head-common.njk" %}
+    {# Static cookie banner - These are non-critical stylesheets and loading should be deferred #}
+    <link rel="preload" href="https://unpkg.com/@justeat/fozzie/dist/css/fozzie-reset.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://unpkg.com/@justeat/fozzie/dist/css/fozzie-reset.css"></noscript>
+
+    <link rel="preload" href="https://unpkg.com/@justeat/fozzie/dist/css/fozzie-typography.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://unpkg.com/@justeat/fozzie/dist/css/fozzie-typography.css"></noscript>
+
+    <link rel="preload" href="https://unpkg.com/@justeat/fozzie/dist/css/fozzie-utilities.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://unpkg.com/@justeat/fozzie/dist/css/fozzie-utilities.css"></noscript>
+
+    <link rel="preload" href="https://unpkg.com/@justeat/f-cookie-banner/dist/static/en-GB.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://unpkg.com/@justeat/f-cookie-banner/dist/static/en-GB.css"></noscript>
 </head>
