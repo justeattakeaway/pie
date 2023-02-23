@@ -17,7 +17,7 @@ Our tokens consist of two key elements:
 - **Associated values,** such as #FF8000
 
 {% contentPageImage {
-    src: "../../../../assets/img/foundations/design-tokens/overview/what-are-tokens.svg",
+    src: "../../../assets/img/foundations/design-tokens/overview/what-are-tokens.svg",
     width: "416px",
     caption: "Example of some of the Alias Tokens that are used to build our Button component."
 } %}
@@ -39,7 +39,7 @@ Global tokens are the primitive values in PIE’s design. They are the base-leve
 These tokens are both context-agnostic (meaning the name should not reflect any use case context) and value-descriptive (meaning the name should reflect the value of that token).
 
 {% contentPageImage {
-    src: "../../../../assets/img/foundations/design-tokens/overview/global.svg",
+    src: "../../../assets/img/foundations/design-tokens/overview/global.svg",
     width: "173px",
     caption: "The example above shows the HEX value assigned to the $color-orange-30 Global Token."
 } %}
@@ -60,7 +60,7 @@ These should be singular in their intended purpose, meaning they should relate o
 
 
 {% contentPageImage {
-    src:"../../../../assets/img/foundations/design-tokens/overview/alias.svg",
+    src:"../../../assets/img/foundations/design-tokens/overview/alias.svg",
     width: "186px",
     caption: "The example above shows $color-orange-30 being assigned as the Global Token used for the $brand-support-01 Alias Token."
 } %}

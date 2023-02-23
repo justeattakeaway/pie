@@ -11,8 +11,8 @@ Make sure you always use the styles defined in our Foundations libraries. This w
 Also, make sure you’re using the right Foundations library when applying colour, typography, elevation or radius (among others) to your designs. For example, if your file uses the PIE 2.0 Light Theme, make sure you are pulling the styles from our PIE 2.0 Foundations – Light.
 
 {% contentPageImage {
-src: "../../../../assets/img/designers/getting-started/best-practices/token-selection.svg",
-mobileSrc: "../../../../assets/img/designers/getting-started/best-practices/token-selection_narrow.svg",
+src: "../../../assets/img/designers/getting-started/best-practices/token-selection.svg",
+mobileSrc: "../../../assets/img/designers/getting-started/best-practices/token-selection_narrow.svg",
 width: "650px",
 caption: "The image above shows that the colour token selected for the Notification component is pulled from the PIE 2.0 Foundations – Light library"
 } %}
@@ -28,8 +28,8 @@ When a library has a new update you’ll get a notification on the bottom-right 
 If you wish to check whether you’re working from the latest version of a library, select the Library icon in the Assets panel. Then click on the Updates section to check whether there are any pending updates from our libraries.
 
 {% contentPageImage {
-src: "../../../../assets/img/designers/getting-started/best-practices/component-updates.svg",
-mobileSrc: "../../../../assets/img/designers/getting-started/best-practices/component-updates_narrow.svg",
+src: "../../../assets/img/designers/getting-started/best-practices/component-updates.svg",
+mobileSrc: "../../../assets/img/designers/getting-started/best-practices/component-updates_narrow.svg",
 width: "490px",
 caption: "Example of a library update notification in Figma."
 } %}
@@ -43,8 +43,8 @@ We share updates and news through a variety of communications and Slack channels
 You can find a list of the Slack channels we use in our [Support]() section.
 
 {% contentPageImage {
-src: "../../../../assets/img/designers/getting-started/best-practices/monthly-slice.svg",
-mobileSrc: "../../../../assets/img/designers/getting-started/best-practices/monthly-slice_narrow.svg",
+src: "../../../assets/img/designers/getting-started/best-practices/monthly-slice.svg",
+mobileSrc: "../../../assets/img/designers/getting-started/best-practices/monthly-slice_narrow.svg",
 width: "280px",
 caption: "The image above shows one of our usual PIE communications: The PIE monthly slice."
 } %}
@@ -58,8 +58,8 @@ To ensure your designs adjust to the layout and are able to scale, try using Aut
 If you want to learn more about using Auto Layout, you can check out our ‘[Working with Auto layout]()’ guide.
 
 {% contentPageImage {
-src: "../../../../assets/img/designers/getting-started/best-practices/auto-layout.svg",
-mobileSrc: "../../../../assets/img/designers/getting-started/best-practices/auto-layout_narrow.svg",
+src: "../../../assets/img/designers/getting-started/best-practices/auto-layout.svg",
+mobileSrc: "../../../assets/img/designers/getting-started/best-practices/auto-layout_narrow.svg",
 width: "240px",
 caption: "The image above shows Figma’s Auto layout controls."
 } %}

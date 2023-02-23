@@ -23,14 +23,14 @@ This fontpack includes Regular, Bold and ExtraBold variations (in `.woff` and `.
 - `base-subset` – this is an optimised subset of JETSansDigital. This is a subset created using the Google font Latin subset of characters, covering languages such as English, French, Spanish and German.
 
 {% contentPageImage {
-src:"../../../../assets/img/foundations/typography/jetsans-base-subset.png",
+src:"../../../assets/img/foundations/typography/jetsans-base-subset.png",
 alt: "Wakamai Fondue font specification for JETSans Digital – the base subset"
 } %}
 
 - `extended-subset` – this is an extended subset of JETSansDigital, which contains the characters for all languages supported across JET (including Cyrillic and Hebrew).
 
 {% contentPageImage {
-src:"../../../../assets/img/foundations/typography/jetsans-extended-subset.png",
+src:"../../../assets/img/foundations/typography/jetsans-extended-subset.png",
 alt: "Wakamai Fondue font specification for JETSans Digital – the extended base subset"
 } %}
 
@@ -123,7 +123,7 @@ The standard fontset comes with a huge number of glyphs and layout features that
 For reference, the JETSans Digital Regular font has the following properties when inspected using the [Wakamai Fondue tool](https://wakamaifondue.com/):
 
 {% contentPageImage {
-src:"../../../../assets/img/foundations/typography/jetsansdigital-base.png",
+src:"../../../assets/img/foundations/typography/jetsansdigital-base.png",
 alt: "Overview of the main font specification for JETSans Digital"
 } %}
 
