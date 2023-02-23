@@ -1,4 +1,4 @@
-const md = require('../../utilities/markdown');
+const md = require('../../_utilities/markdown');
 
 /**
  * Adds all 11ty libraries
