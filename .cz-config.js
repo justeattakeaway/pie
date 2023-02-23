@@ -43,6 +43,7 @@ module.exports = {
     breaking: 'List any BREAKING CHANGES (optional):',
     confirmCommit: 'Are you sure you want to proceed with the commit above?',
   },
+  allowBreakingChanges: ['feat', 'fix', 'refactor'],
   allowCustomScopes: false,
   skipQuestions: ['footer']
 };
