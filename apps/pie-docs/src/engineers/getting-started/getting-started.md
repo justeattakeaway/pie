@@ -4,5 +4,5 @@ eleventyNavigation:
     title: Getting started
     parent: engineers
     order: 1
-    url: /content/pages/engineers/getting-started/overview/
+    url: /engineers/getting-started/overview/
 ---
