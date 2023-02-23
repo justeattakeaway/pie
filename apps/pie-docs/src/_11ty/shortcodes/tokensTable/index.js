@@ -1,7 +1,7 @@
 /* eslint-disable no-trailing-spaces */
 const normalisedPieDesignTokens = require('../../../_data/normaliseTokens');
 const pieTokenCategories = require('../../../tokenCategories.json');
-const { stringHelpers, objectHelpers, numberHelpers } = require('../../../utilities/helpers');
+const { stringHelpers, objectHelpers, numberHelpers } = require('../../../_utilities/helpers');
 const tokenTypes = require('../../../_data/tokenTypes');
 const { buildColorName, buildColorExample } = require('./tokenTypes/colour');
 const { buildElevationExample } = require('./tokenTypes/elevation');
@@ -215,7 +215,8 @@ const buildUncategorisedLists = ({
         tokenScssName: tokenTypeMetadata[token[0]]?.scssName ?? createScssTokenName(token[0], tokenType, path),
         tokenDisplayName: tokenTypeMetadata[token[0]]?.displayName ?? createTokenDisplayName(token[0], tokenType),
         tokenType,
-        tokenMetadata: tokenTypeMetadata[token[0]]
+        tokenMetadata: tokenTypeMetadata[token[0]],
+        path
     }));
 
     return buildTokensList(tokenListElements, tokenType);
