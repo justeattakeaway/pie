@@ -5,7 +5,7 @@
   "exports": {
     ".": "./base/index.js",
     "./strict": "./strict/index.js",
-    "./base-rules": "./base/rules/index.js"
+    "./frameworks": "./frameworks/index.js"
   },
   "scripts": {
     "lint:scripts": "run -T eslint .",

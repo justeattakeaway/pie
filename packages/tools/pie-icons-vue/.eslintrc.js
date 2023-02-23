@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/no-unresolved
-const { vue, vue3 } = require('@justeattakeaway/pie-eslint-config/base-rules');
+const { vue, vue3 } = require('@justeattakeaway/pie-eslint-config/frameworks');
 
 module.exports = {
     extends: [
