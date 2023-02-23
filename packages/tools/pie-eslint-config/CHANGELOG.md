@@ -8,4 +8,4 @@ v0.1.0
 *February 7, 2023*
 
 ### Added
-- ESLint rules
+- Initial version
