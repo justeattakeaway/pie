@@ -15,8 +15,11 @@ exports.getNavigationRoutes = () => {
 // This function gets called recursively so that subdirectories are included as part of our expected routes.
 */
 const readChildren = (childDirectories, result = []) => {
+    // folders in the dist we want to ignore
+    const ignores = ['assets'];
+
     // Ignore directories that don't have subdirectories / files, as these aren't valid routes
-    if (!childDirectories.children) {
+    if (ignores.includes(childDirectories.name) || !childDirectories.children) {
         return;
     }
 
