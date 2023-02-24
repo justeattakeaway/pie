@@ -7,35 +7,32 @@
     font-weight: dt.$font-interactive-m-weight;
 }
 
-// TODO - Use latest design tokens for font size and line height
-//        once fozzie has been updated to handle them.
-
 .o-btn--xsmall {
     padding: 6px dt.$spacing-b;
     min-height: 32px;
-    font-size: 14px;
-    line-height: 20px;
+    font-size: dt.$font-size-14 * 1px;
+    line-height: dt.$font-size-14-line-height * 1px;
 }
 
 .o-btn--small {
     padding: 8px dt.$spacing-d;
     min-height: 40px;
-    font-size: 19px;
-    line-height: 28px;
+    font-size: dt.$font-size-19 * 1px;
+    line-height: dt.$font-size-19-line-height * 1px;
 }
 
 .o-btn--medium {
     padding: 10px dt.$spacing-e;
     min-height: 48px;
-    font-size: 20px;
-    line-height: 28px;
+    font-size: dt.$font-size-20 * 1px;
+    line-height: dt.$font-size-20-line-height * 1px;
 }
 
 .o-btn--large {
     padding: 14px dt.$spacing-e;
     min-height: 56px;
-    font-size: 20px;
-    line-height: 28px;
+    font-size: dt.$font-size-20 * 1px;
+    line-height: dt.$font-size-20-line-height * 1px;
 }
 
 .o-btn--primary {
