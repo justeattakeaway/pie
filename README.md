@@ -99,7 +99,7 @@ If your change is intended to be released under the `latest` tag on npm, you mus
 
 - Create a branch with your changes. These changes should exclude any `package.json` or manual `CHANGELOG` updates – only include the `.changesets` changes added by Changesets.
 - When you create your PR, target the `main` branch.
-- Upon merging to `main`, a new PR titled **release: Release Packages** is automatically created. This PR includes the `CHANGELOG.md` and `package.json` version bump. Merging this PR will commit these changes to `main` and execute a publish to npm under the `latest` tag.
+- Upon merging to `main`, a new PR titled **release: release Packages** is automatically created. This PR includes the `CHANGELOG.md` and `package.json` version bump. Merging this PR will commit these changes to `main` and execute a publish to npm under the `latest` tag.
 
 
 ### Beta Versions - 'beta' tag
@@ -115,7 +115,7 @@ If your change is intended to be released under the `next` / `beta` tag on npm, 
 - Create a new branch with the `feature-*` / `beta-*` prefix, and push this to the remote. E.g. `git push origin feature-myawesomework`.
 - Create another branch, off this initial feature/beta branch, to implement your code changes. Ensure that this branch **does not** use a prefix.
 - When you create your PR, target the `feature-*` / `beta-*` branch.
-- Upon merging to your `feature-*` / `beta-*` branch, a new PR titled **release: Release Packages (beta)** / **release: Release Packages (next)** is automatically created. This PR includes the `CHANGELOG.md` and `package.json` version bump. Merging this PR will execute a publish to npm using the appropriate tag.
+- Upon merging to your `feature-*` / `beta-*` branch, a new PR titled **release: release Packages (beta)** / **release: release Packages (next)** is automatically created. This PR includes the `CHANGELOG.md` and `package.json` version bump. Merging this PR will execute a publish to npm using the appropriate tag.
 
 **Notes:** Any new PRs that target the `feature-*` / `beta-*` branch will cause GitHub actions to include the changes as part of that beta/feature release.
 Any package that uses the `beta` / `next` tag **must** follow this workflow until it's ready to be promoted to the `latest` tag (see Stable Versions section). PRs that combine changes in `latest` and `beta` / `next` packages will result in the beta / next package being versioned incorrectly.
@@ -125,4 +125,4 @@ Any package that uses the `beta` / `next` tag **must** follow this workflow unti
 When you're happy your `next` / `beta` tagged package is ready to be promoted to a `latest` release, you must use the following workflow.
 
 - Create a PR to merge the `feature-*` / `beta-*` into `main`.
-- Upon merging to `main`, a new PR titled **release: Release Packages** is automatically created. This PR includes the `CHANGELOG.md` and `package.json` version bump. Merging this PR will commit these changes to `main` and execute a publish to npm.
+- Upon merging to `main`, a new PR titled **release: release Packages** is automatically created. This PR includes the `CHANGELOG.md` and `package.json` version bump. Merging this PR will commit these changes to `main` and execute a publish to npm.
