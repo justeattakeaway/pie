@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.4.2
+
+### Patch Changes
+
+- [Fixed] - minor typo in package.json ([#226](https://github.com/justeattakeaway/pie/pull/226)) by [@LTurns](https://github.com/LTurns)
+
+- Updated dependencies [[`76797a73`](https://github.com/justeattakeaway/pie/commit/76797a735617c262ef50ad6f6a486f37c8b9dc2f)]:
+  - @justeattakeaway/pie-button@0.5.1
+
 ## 0.4.1
 
 ### Patch Changes
