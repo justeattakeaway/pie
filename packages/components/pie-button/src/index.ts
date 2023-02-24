@@ -35,7 +35,7 @@ export class PieButton extends LitElement {
         return html`
             <button
                 class=${classMap(classes)}
-                type=${type}> 
+                type=${type}>
                 I'm a PIE button
             </button>`;
     }

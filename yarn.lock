@@ -2817,6 +2817,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-button@workspace:packages/components/pie-button"
   dependencies:
+    "@justeattakeaway/pie-icons": "workspace:^"
     hello-world-npm: ^1.1.1
   languageName: unknown
   linkType: soft
@@ -2854,7 +2855,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-icons@2.0.0-beta.4, @justeattakeaway/pie-icons@workspace:packages/tools/pie-icons":
+"@justeattakeaway/pie-icons@2.0.0-beta.4, @justeattakeaway/pie-icons@workspace:^, @justeattakeaway/pie-icons@workspace:packages/tools/pie-icons":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-icons@workspace:packages/tools/pie-icons"
   dependencies:

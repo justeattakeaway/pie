@@ -20,7 +20,7 @@ Local dev server using Vite (with hot module reloading)
 yarn dev
 ```
 
-Local dev compiler using Vite - recompiles dist on save (with hot module reloading)
+compile using Vite - auto-compiles on save (to be used in tandem with the `yarn dev` command in `pie-storybook`)
 ```
-yarn watch
+yarn build --watch
 ```
