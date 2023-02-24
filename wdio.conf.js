@@ -1,3 +1,6 @@
+/* eslint-disable vue/sort-keys */
+/* eslint-disable no-undef */
+// eslint-disable-next-line import/no-extraneous-dependencies
 const percySnapshot = require('@percy/webdriverio');
 
 const { TEST_TYPE } = process.env;
@@ -214,6 +217,18 @@ exports.config = {
      * @param {Object}         browser      instance of created browser/device session
      */
     before: async () => {
+        // Set cookies to hide cookie banner
+        await browser.url('/');
+        await browser.setCookies([
+            {
+                name: 'je-cookieConsent',
+                value: 'full'
+            }, {
+                name: 'je-banner_cookie',
+                value: 130315
+            }
+        ]);
+        browser.refresh();
         if (TEST_TYPE === 'visual') {
             await browser.waitUntil(
                 () => browser.execute(() => document.readyState === 'complete'),
@@ -278,6 +293,7 @@ exports.config = {
      * @param {Object}  result.retries   informations to spec related retries, e.g. `{ attempts: 0, limit: 0 }`
      */
     afterTest: async function (test, context, {
+        // eslint-disable-next-line no-unused-vars
         error, result, duration, passed, retries
     }) {
         if (!passed) {
