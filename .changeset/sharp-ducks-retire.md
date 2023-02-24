@@ -2,4 +2,4 @@
 "pie-monorepo": minor
 ---
 
-[Added] - Functionality to only run visual tests against changed packages for PRs
+[Added] - Functionality to only run system.visual tests against changed packages + dependants for PRs
