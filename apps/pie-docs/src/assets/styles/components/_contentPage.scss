@@ -43,7 +43,7 @@
 
     .c-contentPage-header-description {
         margin-top: 0;
-        margin-bottom: f.$spacing-f;
+        margin-bottom: f.$spacing-d;
     }
 
     @include f.media('>=mid') {
@@ -53,18 +53,6 @@
         &:after {
             content: var(--hero-img-src);
         }
-    }
-
-    .c-contentPage-header-cta {
-        display: inline-block;
-        background-color: f.$color-interactive-brand;
-        color: f.$color-container-default;
-        font-size: f.$font-interactive-m-size;
-        font-weight: f.$font-interactive-m-weight;
-        border-radius: f.$radius-rounded-e;
-        padding: 10px f.$spacing-e;
-        user-select: none;
-        text-decoration: none;
     }
 }
 
