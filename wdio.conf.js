@@ -5,6 +5,7 @@ const percySnapshot = require('@percy/webdriverio');
 
 const { TEST_TYPE } = process.env;
 const { getBaseUrl } = require('./apps/pie-docs/test/helpers/configuration-helper');
+const COOKIE_NAMES = require('./constants/cookies');
 
 // These widths correspond with our defined breakpoints in the legacy-je SCSS library, Fozzie:
 // https://github.com/justeattakeaway/fozzie-components/blob/e7215edb1a5f3e13724cddd1648d5887f8951e3c/packages/tools/fozzie/src/scss/tools/helpers/_breakpoints.scss#L6
@@ -217,6 +218,7 @@ exports.config = {
      * @param {Object}         browser      instance of created browser/device session
      */
     before: async () => {
+        console.log('IN BEFORE');
         if (TEST_TYPE === 'visual') {
             await browser.addCommand('percyScreenshot', async screenshotName => {
                 await browser.waitUntil(
@@ -234,10 +236,10 @@ exports.config = {
         await browser.url('/');
         await browser.setCookies([
             {
-                name: 'je-cookieConsent',
+                name: COOKIE_NAMES.JE_COOKIE_CONSENT,
                 value: 'full'
             }, {
-                name: 'je-banner_cookie',
+                name: COOKIE_NAMES.JE_BANNER_COOKIE,
                 value: 130315
             }
         ]);
