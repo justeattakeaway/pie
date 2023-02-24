@@ -1,3 +1,12 @@
+v1.28.0
+------------------------------
+*February 23, 2023*
+
+### Changed
+- Version bump of `@justeat/pie-design-tokens`
+- Version bump of `@justeat/fozzie`
+
+
 v1.27.1
 ------------------------------
 *February 21, 2023*
