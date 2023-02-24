@@ -7,8 +7,12 @@
   "scripts": {
     "build": "npx tsc && run -T vite build",
     "dev": "run -T vite",
+    "watch": "run -T vite build --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "JustEatTakeaway - Design System Web Team",
-  "license": "Apache-2.0"
+  "license": "Apache-2.0",
+  "dependencies": {
+    "hello-world-npm": "^1.1.1"
+  }
 }

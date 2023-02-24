@@ -1,6 +1,7 @@
 import { LitElement, html, unsafeCSS } from 'lit';
 import { classMap } from 'lit/directives/class-map.js';
 import { customElement, property } from 'lit/decorators.js';
+import { helloWorld } from 'hello-world-npm';
 
 import styles from './button.scss?inline';
 import { validPropertyValues } from './decorators';
@@ -31,6 +32,8 @@ export class PieButton extends LitElement {
             [`o-btn--${size}`]: size,
             [`o-btn--${variant}`]: variant
         };
+
+        console.log('wooo', helloWorld);
 
         return html`
             <button
