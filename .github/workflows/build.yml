@@ -227,8 +227,12 @@ jobs:
       - name: Run System Tests
         run: |
           yarn test:system:ci
-      - name: Run Visual Tests
-        if: ${{ github.event.pull_request.draft == false }}
+      - name: Run Visual Tests - Changed Packages
+        if: ${{ github.event.pull_request.draft == false && !contains(github.ref_name, 'main') }}
+        run: |
+          yarn test:visual:ci --filter=[origin/master]
+      - name: Run All Visual Tests
+        if: contains(github.ref_name, 'main') }}
         run: |
           yarn test:visual:ci
     env:
