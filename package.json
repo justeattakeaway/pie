@@ -21,6 +21,7 @@
     "changeset:publish": "changeset publish",
     "changeset:version": "changeset version",
     "clean": "turbo run clean --filter=!pie-monorepo",
+    "cz": "./node_modules/cz-customizable/standalone.js",
     "dev": "turbo run dev --filter=!pie-monorepo",
     "lint:config": "eslint --fix turbo.json",
     "lint:scripts": "turbo run lint:scripts --filter=!pie-monorepo",
@@ -50,6 +51,8 @@
     "@babel/register": "7.18.9",
     "@changesets/changelog-github": "0.4.8",
     "@changesets/cli": "2.26.0",
+    "@commitlint/cli": "17.4.3",
+    "@commitlint/config-conventional": "17.4.4",
     "@justeat/browserslist-config-fozzie": "1.x",
     "@justeat/eslint-config-fozzie": "5.1.0",
     "@justeat/pie-design-tokens": "4.2.0",
@@ -65,8 +68,10 @@
     "autoprefixer": "10.4.7",
     "babel-loader": "8.2.3",
     "chromedriver": "109.0.0",
+    "commitizen": "4.3.0",
     "cross-env": "7.0.3",
     "cssnano": "5.1.13",
+    "cz-customizable": "7.0.0",
     "dree": "3.4.2",
     "eslint": "8.14.0",
     "eslint-plugin-import": "2.26.0",
@@ -94,6 +99,14 @@
     "@justeat/fozzie": "10.11.0",
     "@justeattakeaway/pie-icons": "2.0.0-beta.4",
     "lit": "2.6.1"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-customizable"
+    },
+    "cz-customizable": {
+      "config": ".cz-config.js"
+    }
   },
   "volta": {
     "node": "16.19.0",
