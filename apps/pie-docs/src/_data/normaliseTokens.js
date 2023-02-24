@@ -23,20 +23,8 @@ const normaliseFontAliasTokens = () => {
     };
 };
 
-/**
- * normalises the elevation alias tokens into light/dark groups
- * @returns alias tokens categorised by light/dark objects to be used in their respective pages.
- */
-const normaliseElevationAliasTokens = () => {
-    clonedPieDesignTokens.theme.jet.elevation.alias.default = {
-        dark: clonedPieDesignTokens.theme.jet.elevation.alias.default,
-        light: clonedPieDesignTokens.theme.jet.elevation.alias.default
-    };
-};
-
 const init = () => {
     normaliseFontAliasTokens();
-    normaliseElevationAliasTokens();
 
     return clonedPieDesignTokens;
 };
