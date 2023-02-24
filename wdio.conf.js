@@ -217,7 +217,20 @@ exports.config = {
      * @param {Object}         browser      instance of created browser/device session
      */
     before: async () => {
-        // Set cookies to hide cookie banner
+        if (TEST_TYPE === 'visual') {
+            await browser.addCommand('percyScreenshot', async screenshotName => {
+                await browser.waitUntil(
+                    () => browser.execute(() => document.readyState === 'complete'),
+                    {
+                        timeoutMsg: `Unable to load ${browser.options.baseUrl}`
+                    }
+                );
+                await percySnapshot(screenshotName, {
+                    widths: breakpoints
+                });
+            });
+        }
+
         await browser.url('/');
         await browser.setCookies([
             {
@@ -228,23 +241,7 @@ exports.config = {
                 value: 130315
             }
         ]);
-        browser.refresh();
-        if (TEST_TYPE === 'visual') {
-            await browser.waitUntil(
-                () => browser.execute(() => document.readyState === 'complete'),
-                {
-                    timeoutMsg: `Unable to load ${browser.options.baseUrl}`
-                }
-            );
-
-            await browser.addCommand('percyScreenshot', async screenshotName => {
-                await percySnapshot(screenshotName, {
-                    widths: breakpoints
-                });
-            });
-        }
-
-        await browser.url('/');
+        await browser.refresh();
         await browser.waitUntil(
             () => browser.execute(() => document.readyState === 'complete'),
             {
