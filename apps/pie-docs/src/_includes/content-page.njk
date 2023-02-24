@@ -15,7 +15,9 @@
                     </a>
                 {% endif %}
             </div>
-            <img class="u-showAboveMid" src={{ heroSrc }} alt="{{ heroImageAlt }}" width={{ heroImageWidth }} height={{ heroImageHeight }} />
+            {% if heroImageSrc %}
+                <img class="u-showAboveMid" src={{ heroSrc }} alt="{{ heroImageAlt }}" width={{ heroImageWidth }} height={{ heroImageHeight }} />
+            {% endif %}
         </div>
     </div>
 

@@ -54,6 +54,11 @@
     }
 }
 
+.c-contentPage-header--hero .c-contentPage-header-heading,
+.c-contentPage-header--hero .c-contentPage-header-description {
+    max-width: 500px;
+}
+
 .c-contentPage-header-description {
     @include f.font-size('body-l');
     margin-top: f.spacing(e);
