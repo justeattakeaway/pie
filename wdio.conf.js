@@ -218,7 +218,6 @@ exports.config = {
      * @param {Object}         browser      instance of created browser/device session
      */
     before: async () => {
-        console.log('IN BEFORE');
         if (TEST_TYPE === 'visual') {
             await browser.addCommand('percyScreenshot', async screenshotName => {
                 await browser.waitUntil(
