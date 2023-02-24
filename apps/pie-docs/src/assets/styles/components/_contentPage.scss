@@ -46,10 +46,15 @@
         margin-bottom: f.$spacing-d;
     }
 
-    @include f.media('>=mid') {
+    @include f.media('>mid') {
         .c-content-container {
             display: flex;
+            align-items: flex-start;
             gap: f.$spacing-f;
+        }
+
+        img {
+            width: 100%;
         }
     }
 }
