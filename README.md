@@ -42,7 +42,7 @@ We recommend when commiting new changes to the codebase, you use `yarn cz` and *
 
 The former will present commitizen's interactive prompt to ensure it conforms to our commitlint ruleset.
 
-While you can still use `git commit -m`, it is up to you to manually ensure you commit message conforms with our commitlint ruleset.
+While you can still use `git commit -m`, it is up to you to manually ensure your commit message conforms with our commitlint ruleset.
 
 ### Pull Request Title
 When creating a pull request, please ensure the title conforms to the conventional commit standard. For example, a `fix` to `pie-docs` should have a title such as:
@@ -125,4 +125,4 @@ Any package that uses the `beta` / `next` tag **must** follow this workflow unti
 When you're happy your `next` / `beta` tagged package is ready to be promoted to a `latest` release, you must use the following workflow.
 
 - Create a PR to merge the `feature-*` / `beta-*` into `main`.
-- Upon merging to `main`, a new PR titled **release: Release Packages** is automatically created. This PR includes the `CHANGELOG.md` and `package.json` version bump. Merging this PR will commit this changes to `main` and execute a publish to npm.
+- Upon merging to `main`, a new PR titled **release: Release Packages** is automatically created. This PR includes the `CHANGELOG.md` and `package.json` version bump. Merging this PR will commit these changes to `main` and execute a publish to npm.
