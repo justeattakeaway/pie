@@ -47,11 +47,9 @@
     }
 
     @include f.media('>=mid') {
-        display: flex;
-        gap: f.$spacing-f;
-
-        &:after {
-            content: var(--hero-img-src);
+        .c-content-container {
+            display: flex;
+            gap: f.$spacing-f;
         }
     }
 }
