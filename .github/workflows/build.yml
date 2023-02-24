@@ -229,7 +229,7 @@ jobs:
         run: |
           yarn test:visual:ci --filter=...[origin/main]
       - name: Run All System Tests
-        if: contains(github.ref_name, 'main') }}
+        if: contains(github.ref_name, 'main')
         run: |
           yarn test:system:ci
       # Run Visual Tests
@@ -238,7 +238,7 @@ jobs:
         run: |
           yarn test:visual:ci --filter=...[origin/main]
       - name: Run All Visual Tests
-        if: contains(github.ref_name, 'main') }}
+        if: contains(github.ref_name, 'main')
         run: |
           yarn test:visual:ci
     env:
