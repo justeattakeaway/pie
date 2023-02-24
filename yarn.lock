@@ -2816,6 +2816,8 @@ __metadata:
 "@justeattakeaway/pie-button@workspace:*, @justeattakeaway/pie-button@workspace:packages/components/pie-button":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-button@workspace:packages/components/pie-button"
+  dependencies:
+    hello-world-npm: ^1.1.1
   languageName: unknown
   linkType: soft
 
@@ -12113,6 +12115,15 @@ __metadata:
   bin:
     he: bin/he
   checksum: 3d4d6babccccd79c5c5a3f929a68af33360d6445587d628087f39a965079d84f18ce9c3d3f917ee1e3978916fc833bb8b29377c3b403f919426f91bc6965e7a7
+  languageName: node
+  linkType: hard
+
+"hello-world-npm@npm:^1.1.1":
+  version: 1.1.1
+  resolution: "hello-world-npm@npm:1.1.1"
+  bin:
+    hello-world-npm: ./bin.js
+  checksum: a11a90fd8059a69c5c865346bb14956ecdd08ae2e90bf406560424af4a2007c9d6f2477012b665344fa55baa903175b2b5f5c39d16dc6e2d6e28e3b9b090e350
   languageName: node
   linkType: hard
 

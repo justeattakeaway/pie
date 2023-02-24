@@ -19,3 +19,8 @@ Local dev server using Vite (with hot module reloading)
 ```
 yarn dev
 ```
+
+Local dev compiler using Vite - recompiles dist on save (with hot module reloading)
+```
+yarn watch
+```
