@@ -1,4 +1,4 @@
 {% tokensTable {
- path: 'elevation.alias.default.dark',
+ path: 'elevation.alias.dark',
  tokenType: tokenTypes.ELEVATION
 } %}

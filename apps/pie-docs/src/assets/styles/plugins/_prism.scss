@@ -8,7 +8,7 @@ pre[class*="language-"] {
   color: #000;
   background: 0 0;
   text-shadow: 0 1px #fff;
-  font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+  font-family: PTMono, Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
   font-size: 1em;
   text-align: left;
   white-space: pre;
@@ -188,6 +188,7 @@ code:not(code[class*="language-"]) {
   margin: 0px 2px;
   padding: 3px 5px;
   border-radius: 3px;
+  font-family: PTMono;
   font-size: 13px;
   color: rgba(51, 51, 51, 0.9);
   word-break: break-all;
