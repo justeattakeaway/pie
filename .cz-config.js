@@ -33,7 +33,7 @@ module.exports = {
     { value: 'wip', name: '🚧 wip: Work in progress' },
   ],
 
-  scopes: [...getPackages(), 'pie-monorepo'],
+  scopes: [...getPackages()],
   // override the messages, defaults are as follows
   messages: {
     type: "Select the type of change that you're committing:",
