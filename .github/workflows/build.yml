@@ -328,7 +328,7 @@ jobs:
         with:
           version: yarn changeset:version
           publish: yarn changeset:publish
-          commit: "release: Release packages with 'next' tag"
+          commit: "release: release packages with 'next' tag"
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
