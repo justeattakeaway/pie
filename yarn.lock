@@ -2,7 +2,7 @@
 # Manual changes might be lost - proceed with caution!
 
 __metadata:
-  version: 6
+  version: 5
   cacheKey: 8
 
 "@11ty/dependency-tree@npm:^2.0.1":
@@ -92,6 +92,18 @@ __metadata:
   bin:
     x-default-browser: bin/x-default-browser.js
   checksum: c85e61dc9e5bb04906d8ac29cce35369705c3ea3abe36a5afdecc9caefd7ee0f14596ccc6eb617c86790a67b6ee7f7f070a3e2f9e9152a8ba92adf2ccee1433a
+  languageName: node
+  linkType: hard
+
+"@axe-core/webdriverio@npm:4.6.0":
+  version: 4.6.0
+  resolution: "@axe-core/webdriverio@npm:4.6.0"
+  dependencies:
+    axe-core: ^4.6.1
+    cssesc: ^3.0.0
+  peerDependencies:
+    webdriverio: ^5 || ^6 || ^7
+  checksum: 833924833c7093e2150550f26f9d97cf6662a4a7bd43c0088390b25e372f928cf4712514e9edd820c2d8417676e601cd8c65b9b39a5c2c7e9efd5b06fda2a107
   languageName: node
   linkType: hard
 
@@ -6412,6 +6424,20 @@ __metadata:
   version: 4.2.3
   resolution: "axe-core@npm:4.2.3"
   checksum: 753487b6d599dd478edebe8c9966c0f3ae44877b784add323e72db8c221ba8c248a841d35ef920d5b4bd6203552e15e443b36d2dd4cb3ff7d8e894cc64c5cb57
+  languageName: node
+  linkType: hard
+
+"axe-core@npm:^4.6.1":
+  version: 4.6.3
+  resolution: "axe-core@npm:4.6.3"
+  checksum: d0c46be92b9707c48b88a53cd5f471b155a2bfc8bf6beffb514ecd14e30b4863e340b5fc4f496d82a3c562048088c1f3ff5b93b9b3b026cb9c3bfacfd535da10
+  languageName: node
+  linkType: hard
+
+"axe-reports@npm:1.1.11":
+  version: 1.1.11
+  resolution: "axe-reports@npm:1.1.11"
+  checksum: 8e9523994865e3d0bc1bbe034f110a5111eb359ae6aefef517fcfa1af4cac6faa504a399874f937767a45e0578321addd02a7012c7a1e5e18e28c8839577024b
   languageName: node
   linkType: hard
 
@@ -17397,6 +17423,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "pie-monorepo@workspace:."
   dependencies:
+    "@axe-core/webdriverio": 4.6.0
     "@babel/cli": 7.19.3
     "@babel/core": 7.17.10
     "@babel/eslint-parser": 7.19.1
@@ -17422,6 +17449,7 @@ __metadata:
     "@wdio/mocha-framework": 7.26.0
     allure-commandline: 2.20.1
     autoprefixer: 10.4.7
+    axe-reports: 1.1.11
     babel-loader: 8.2.3
     chromedriver: 109.0.0
     commitizen: 4.3.0
@@ -22483,7 +22511,7 @@ __metadata:
 
 "typescript@patch:typescript@4.8.4#~builtin<compat/typescript>":
   version: 4.8.4
-  resolution: "typescript@patch:typescript@npm%3A4.8.4#~builtin<compat/typescript>::version=4.8.4&hash=7ad353"
+  resolution: "typescript@patch:typescript@npm%3A4.8.4#~builtin<compat/typescript>::version=4.8.4&hash=ddd1e8"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
@@ -22493,7 +22521,7 @@ __metadata:
 
 "typescript@patch:typescript@4.9.4#~builtin<compat/typescript>":
   version: 4.9.4
-  resolution: "typescript@patch:typescript@npm%3A4.9.4#~builtin<compat/typescript>::version=4.9.4&hash=7ad353"
+  resolution: "typescript@patch:typescript@npm%3A4.9.4#~builtin<compat/typescript>::version=4.9.4&hash=ddd1e8"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
@@ -22503,7 +22531,7 @@ __metadata:
 
 "typescript@patch:typescript@^4.6.2#~builtin<compat/typescript>, typescript@patch:typescript@^4.6.4#~builtin<compat/typescript>":
   version: 4.9.5
-  resolution: "typescript@patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=7ad353"
+  resolution: "typescript@patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=ddd1e8"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver

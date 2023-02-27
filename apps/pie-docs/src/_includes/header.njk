@@ -6,7 +6,7 @@
     {{ { name: 'Close', attrs: { fill: toggleIconFill, height: '24', width: '24', class: 'u-iconFilled' } } | pieIconsSvg | safe }}
 </label>
 
-<header class="c-header">
+<header class="c-header" data-test-id="site_header">
     <a class="c-header-logo" href="{{ '/' | url }}">
         <img src="{{ '/assets/img/pie-logo.svg' | url }}" />
     </a>
