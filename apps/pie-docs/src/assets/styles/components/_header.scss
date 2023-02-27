@@ -5,9 +5,9 @@ $headerLogoHeight:      32px;
 $headerInlinePadding:   20px;
 
 .c-header {
-    background-color: f.$color-support-brand-06;
+    border-bottom: 1px solid f.$color-divider-default;
     padding: f.spacing(d);
-
+    
     @include f.media('<wide') {
         padding-left: calc($headerInlinePadding + $navToggleWidth + $headerInlinePadding);
     }
@@ -17,7 +17,7 @@ $headerInlinePadding:   20px;
     display: inline-block;
     height: $headerLogoHeight;
 
-    img {
+    svg {
         height: 100%;
         width: auto;
     }
