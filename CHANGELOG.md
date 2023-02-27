@@ -36,9 +36,6 @@ v1.29.0
 ### Added
 - Linked the icon packages together so that they get released as the same version number
 
-### Changed
-- Updated `pie-icons` dependency to latest beta version
-
 
 v1.28.0
 ------------------------------
