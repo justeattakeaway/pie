@@ -9,7 +9,7 @@ v1.29.0
 *February 27, 2023*
 
 ### Added
-- watcher script to `package.json`
+- `watch` script to `package.json`
 
 
 v1.28.0
