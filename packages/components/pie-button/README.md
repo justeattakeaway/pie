@@ -17,7 +17,7 @@ yarn build
 
 compile using Vite (auto-compiles `dist` on save)
 ```
-yarn build --watch
+yarn watch
 ```
 
 Local dev server using Vite (with hot module reloading)

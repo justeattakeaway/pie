@@ -2,4 +2,4 @@
 "pie-storybook": patch
 ---
 
-[Added] README content for `yarn build --watch` script
+[Added] README content for `yarn watch` script

@@ -2,4 +2,5 @@
 "@justeattakeaway/pie-button": patch
 ---
 
-[Added] README content for `yarn build --watch` script
+[Added] `watch` script in `package.json`
+[Added] README content for `yarn watch` script

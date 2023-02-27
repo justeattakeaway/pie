@@ -1,7 +1,7 @@
 {
   "name": "pie-monorepo",
   "description": "JustEatTakeaway",
-  "version": "1.28.0",
+  "version": "1.29.0",
   "keywords": [],
   "author": "JustEatTakeaway - Design System Web Team",
   "license": "Apache-2.0",
@@ -16,6 +16,7 @@
   ],
   "scripts": {
     "build": "turbo run build",
+    "watch": "npm run watch --if-present --workspaces",
     "changeset": "changeset",
     "changeset:publish": "changeset publish",
     "changeset:version": "changeset version",
