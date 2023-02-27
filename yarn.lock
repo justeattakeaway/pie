@@ -2824,7 +2824,7 @@ __metadata:
   resolution: "@justeattakeaway/pie-icons-react@workspace:packages/tools/pie-icons-react"
   dependencies:
     "@babel/node": 7.19.1
-    "@justeattakeaway/pie-icons": 2.0.0-beta.4
+    "@justeattakeaway/pie-icons": 2.0.0-beta.6
     "@svgr/core": 6.4.0
     "@types/react": 18.0.21
     pascal-case: 3.1.2
@@ -2840,7 +2840,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-icons-vue@workspace:packages/tools/pie-icons-vue"
   dependencies:
-    "@justeattakeaway/pie-icons": 2.0.0-beta.4
+    "@justeattakeaway/pie-icons": 2.0.0-beta.6
     "@vue/babel-helper-vue-jsx-merge-props": 1.4.0
     "@vue/babel-preset-jsx": 1.4.0
     bili: 3.4.2
@@ -2852,7 +2852,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-icons@2.0.0-beta.4, @justeattakeaway/pie-icons@workspace:packages/tools/pie-icons":
+"@justeattakeaway/pie-icons@2.0.0-beta.6, @justeattakeaway/pie-icons@workspace:packages/tools/pie-icons":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-icons@workspace:packages/tools/pie-icons"
   dependencies:
@@ -17398,7 +17398,7 @@ __metadata:
     "@justeat/fozzie": 10.11.0
     "@justeat/pie-design-tokens": 4.2.0
     "@justeat/stylelint-config-fozzie": 3.x
-    "@justeattakeaway/pie-icons": 2.0.0-beta.4
+    "@justeattakeaway/pie-icons": 2.0.0-beta.6
     "@percy/cli": 1.16.0
     "@percy/webdriverio": 2.0.2
     "@wdio/allure-reporter": 7.26.0
