@@ -6,7 +6,7 @@
  * @returns {object} an object containing the font styles of the token.
  */
 const splitFontAliasToken = (token, tokenMetadata) => {
-    const isGlobal = typeof token === 'string';
+    const isGlobal = typeof token === 'string' || Object.keys(token).length === 2;
     const { category } = tokenMetadata;
     const fontWeightMap = {
         Regular: 400,
@@ -17,8 +17,8 @@ const splitFontAliasToken = (token, tokenMetadata) => {
     if (isGlobal) {
         return {
             fontFamily: category === 'fontFamily' && token,
-            fontSize: category === 'fontSize' && token.split('|')[0],
-            lineHeight: category === 'fontSize' && token.split('|')[1],
+            fontSize: category === 'fontSize' && token['font-size'],
+            lineHeight: category === 'fontSize' && token['line-height'],
             fontWeight: category === 'fontWeight' && fontWeightMap[token],
             textDecoration: category === 'fontStyle' && token,
             letterSpacing: category === 'letterSpacing' && token,
@@ -28,8 +28,8 @@ const splitFontAliasToken = (token, tokenMetadata) => {
 
     return {
         fontFamily: token.family,
-        fontSize: token.size.split('|')[0],
-        lineHeight: token.size.split('|')[1],
+        fontSize: token.size['font-size'],
+        lineHeight: token.size['line-height'],
         fontWeight: fontWeightMap[token.weight],
         textDecoration: token['text-decoration'],
         letterSpacing: token['letter-spacing']

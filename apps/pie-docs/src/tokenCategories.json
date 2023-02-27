@@ -177,25 +177,23 @@
   "radius": {},
   "spacing": {},
   "elevation": {
-      "alias": {
-        "default": {
-          "dark": {
-            "defaultElevation": {
-              "displayName": "Default elevation"
-            },
-            "inverseElevation": {
-              "displayName": "Inverse elevation"
-            }
-          },
-          "light": {
-              "defaultElevation": {
-              "displayName": "Default elevation"
-            },
-            "inverseElevation": {
-              "displayName": "Inverse elevation"
-            }
-          }
+    "alias": {
+      "dark": {
+        "defaultElevation": {
+          "displayName": "Default elevation"
+        },
+        "inverseElevation": {
+          "displayName": "Inverse elevation"
+        }
+      },
+      "default": {
+          "defaultElevation": {
+          "displayName": "Default elevation"
+        },
+        "inverseElevation": {
+          "displayName": "Inverse elevation"
         }
       }
     }
+  }
 }

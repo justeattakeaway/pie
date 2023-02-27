@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.5.1
+
+### Patch Changes
+
+- [Changed] - Replaced hard-coded font values with scss variables ([#226](https://github.com/justeattakeaway/pie/pull/226)) by [@LTurns](https://github.com/LTurns)
+
 ## 0.5.0
 
 ### Minor Changes
