@@ -3,7 +3,6 @@ import expectedRoutesJson from '../snapshots/expected-routes.snapshot.json';
 const AxeReports = require('axe-reports');
 const AxeBuilder = require('@axe-core/webdriverio').default;
 
-
 describe('PIE - Status Code Tests', async () => {
     const getAxeResults = async selector => {
         const builder = new AxeBuilder({ client: browser }).include(selector)
