@@ -58,7 +58,7 @@
     @include f.media('>narrowMid') {
         padding-top: f.$spacing-g;
     }
-    
+
     @include f.media('>mid') {
         .c-content-container {
             justify-content: space-between;
