@@ -12,7 +12,7 @@ export default {
                 xmlns: 'http://www.w3.org/2000/svg',
                 viewBox: '0 0 32 32'
             },
-            class: 'c-pieIcon c-pieIcon--logoSkipCircleFilledLarge'
+            class: 'c-pieIcon c-pieIcon--skipCircleFilledLarge'
         }, ctx.data]), [h('path', {
             attrs: {
                 'fill-rule': 'evenodd',

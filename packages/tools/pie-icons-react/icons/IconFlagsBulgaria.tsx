@@ -1,4 +1,0 @@
-import * as React from "react";
-import { SVGProps } from "react";
-const IconFlagsBulgaria = (props: SVGProps<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" className="c-pieIcon c-pieIcon--bulgaria" width="1em" height="1em" {...props}><path d="M15.002 7.999a6.91 6.91 0 00-.437-2.434L8 5.259l-6.563.306a6.987 6.987 0 000 4.868L8 10.739l6.564-.306a6.91 6.91 0 00.437-2.434z" fill="#496E2D" /><path d="M8.001 15a7 7 0 006.564-4.567H1.438A7 7 0 008 15z" fill="#D80027" /><path d="M1.438 5.565h13.127a7.002 7.002 0 00-13.127 0z" fill="#EEE" /></svg>;
-export default IconFlagsBulgaria;
