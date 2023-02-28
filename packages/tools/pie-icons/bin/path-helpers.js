@@ -13,7 +13,7 @@ function getAssetDirectoryName (fullPath) {
     }
     const pathsParentFolder = fullPath.substring(index + 1);
 
-    if (pathsParentFolder === 'assets') {
+    if (pathsParentFolder === 'assets' || pathsParentFolder === '_optimised') {
         return '';
     }
     return `/${pathsParentFolder}`;

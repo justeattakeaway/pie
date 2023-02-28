@@ -1,0 +1,25 @@
+{
+  "mode": "exit",
+  "tag": "beta",
+  "initialVersions": {
+    "pie-microsite": "1.48.0",
+    "pie-storybook": "0.1.0",
+    "@justeattakeaway/pie-button": "0.3.0",
+    "@justeattakeaway/pie-icons": "2.0.0-beta.3",
+    "@justeattakeaway/pie-icons-react": "1.0.0-beta.0",
+    "@justeattakeaway/pie-icons-vue": "2.0.0-beta.2",
+    "@justeattakeaway/pie-stylelint-config": "0.1.0",
+    "pie-docs": "1.57.1"
+  },
+  "changesets": [
+    "eight-camels-fold",
+    "friendly-experts-type",
+    "gentle-pigs-push",
+    "ninety-beds-protect",
+    "popular-poets-yell",
+    "tame-socks-shop",
+    "thirty-buses-smash",
+    "twelve-eels-invite",
+    "wise-plums-argue"
+  ]
+}

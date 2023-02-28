@@ -1,6 +1,7 @@
 <link rel="preload" href="https://d30v2pzvrfyzpo.cloudfront.net/fonts/JETSansDigital-Regular-optimised.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="https://d30v2pzvrfyzpo.cloudfront.net/fonts/JETSansDigital-Bold-optimised.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="https://d30v2pzvrfyzpo.cloudfront.net/fonts/JETSansDigital-ExtraBold-optimised.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://d30v2pzvrfyzpo.cloudfront.net/fonts/PTMono-Regular.ttf" as="font" type="font/truetype" crossorigin>
 <link rel="prefetch" href="{{ '/assets/img/heroes/home-hero.svg' | url }}">
 <link rel="prefetch" href="{{ '/assets/img/coming-soon.svg' | url }}">
 <style>
@@ -25,12 +26,18 @@
         font-weight: 800;
         font-display: swap;
     }
+    @font-face {
+        font-family: PTMono;
+        src: url('https://d30v2pzvrfyzpo.cloudfront.net/fonts/PTMono-Regular.ttf') format("truetype");
+        font-weight: 400;
+        font-display: swap;
+    }
     body {
         font-feature-settings: "tnum"; /* Enable tabular numbers */
     }
 </style>
 <link rel="stylesheet" href="{{ '/assets/styles/main.css' | rev | url }}" />
 {# Enable once we have a cookie banner and privacy policy set up #}
-{# {% if projectSettings.environment === "production" %}
+{% if projectSettings.environment === "production" %}
     {% include "gtm.njk" %}
-{% endif %} #}
+{% endif %}

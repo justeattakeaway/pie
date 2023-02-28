@@ -1,0 +1,4 @@
+import * as React from "react";
+import { SVGProps } from "react";
+const IconResizeLarge = (props: SVGProps<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" className="c-pieIcon c-pieIcon--resizeLarge" width="1em" height="1em" {...props}><path d="M22.726 2.243V1L1 22.735h1.243L22.726 2.243z" fill="#000" /><path d="M2.243 22.735h1.233l19.25-19.259V2.243L2.243 22.735z" fill="#000" /><path d="M14.099 22.735h1.233l7.394-7.402v-1.234L14.1 22.735z" fill="#000" /><path d="M14.099 22.735l8.627-8.636v-1.234l-9.861 9.87h1.234z" fill="#000" /></svg>;
+export default IconResizeLarge;
