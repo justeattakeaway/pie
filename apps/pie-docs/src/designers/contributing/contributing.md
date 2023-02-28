@@ -28,7 +28,7 @@ Below you’ll find a few ways you can contribute to the PIE design system.
 
 ### Suggest a design change
 
-If you identify an area of improvement within our foundations or components, let us know and we will determine what the best way to address it might be. You can suggest these changes or concerns through our **#help-designsystem-design** Slack channel.
+If you identify an area of improvement within our foundations or components, let us know and we will determine what the best way to address it might be. You can suggest these changes or concerns through our **#help-designsystem** Slack channel.
 
 If the change is accepted and work is carried out, we’ll keep you informed about our progress and will make sure to check in with you regularly until your request is resolved.
 
