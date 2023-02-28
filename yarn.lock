@@ -17411,7 +17411,7 @@ __metadata:
     "@justeat/fozzie": 10.11.0
     "@justeat/pie-design-tokens": 4.2.0
     "@justeat/stylelint-config-fozzie": 3.x
-    "@justeattakeaway/pie-icons": 2.0.0-beta.6
+    "@justeattakeaway/pie-icons": 2.0.0-beta.7
     "@percy/cli": 1.16.0
     "@percy/webdriverio": 2.0.2
     "@wdio/allure-reporter": 7.26.0
