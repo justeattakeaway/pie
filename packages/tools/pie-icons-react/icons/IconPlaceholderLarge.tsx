@@ -1,0 +1,4 @@
+import * as React from "react";
+import { SVGProps } from "react";
+const IconPlaceholderLarge = (props: SVGProps<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" className="c-pieIcon c-pieIcon--placeholderLarge" width="1em" height="1em" {...props}><path fillRule="evenodd" clipRule="evenodd" d="M.166 0h31.668L32 .166v31.668l-.166.166H.166L0 31.834V.166L.166 0zm31.502 31.668V.33H.33v31.337h31.337zM6.537 2h18.926A4.537 4.537 0 0130 6.537v18.926A4.537 4.537 0 0125.463 30H6.537A4.537 4.537 0 012 25.463V6.537A4.537 4.537 0 016.537 2z" fill="#242E30" /></svg>;
+export default IconPlaceholderLarge;

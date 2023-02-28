@@ -1,13 +1,11 @@
 {% set toggleIconFill = { tokenName: 'interactive-light', tokenPath: ['alias', 'default'] } | pieDesignTokenColours %}
-
-<input id="navToggle" class="c-navToggle-input is-visuallyHidden" type="checkbox" aria-label="Toggle Navigation" />
-<label class="c-navToggle"  for="navToggle" style="--icon-fill: {{toggleIconFill}};">
-    {{ { name: 'Menu', attrs: { fill: toggleIconFill, height: '24', width: '24', class: 'u-iconFilled' } } | pieIconsSvg | safe }}
-    {{ { name: 'Close', attrs: { fill: toggleIconFill, height: '24', width: '24', class: 'u-iconFilled' } } | pieIconsSvg | safe }}
+<input id="navToggle" class="c-navToggle-input is-visuallyHidden" type="checkbox" aria-label="Toggle Navigation"/>
+<label class="c-navToggle" for="navToggle" style="--icon-fill: {{ toggleIconFill }};">
+    {{ { name: 'menu', attrs: { fill: toggleIconFill, height: '24', width: '24', class: 'u-iconFilled' } } | pieIconsSvg | safe }}
+    {{ { name: 'close', attrs: { fill: toggleIconFill, height: '24', width: '24', class: 'u-iconFilled' } } | pieIconsSvg | safe }}
 </label>
-
 <header class="c-header">
     <a class="c-header-logo" href="{{ '/' | url }}">
-        <img src="{{ '/assets/img/pie-logo.svg' | url }}" />
+        <img src="{{ '/assets/img/pie-logo.svg' | url }}"/>
     </a>
 </header>
