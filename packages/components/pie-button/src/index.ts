@@ -23,19 +23,24 @@ export class PieButton extends LitElement {
     @validPropertyValues(Object.values(BUTTON_VARIANT), BUTTON_VARIANT.PRIMARY)
     variant : BUTTON_VARIANT = BUTTON_VARIANT.PRIMARY;
 
+    @property()
+    disabled : boolean = false;
+
     render () {
-        const { size, type, variant } = this;
+        const { size, type, variant, disabled } = this;
 
         const classes = {
             'o-btn': true,
             [`o-btn--${size}`]: size,
-            [`o-btn--${variant}`]: variant
+            [`o-btn--${variant}`]: variant,
+            'o-btn--is-disabled': disabled,
         };
 
         return html`
             <button
                 class=${classMap(classes)}
-                type=${type}>
+                type=${type}
+                ?disabled=${disabled}>
                 I'm a PIE button
             </button>`;
     }
