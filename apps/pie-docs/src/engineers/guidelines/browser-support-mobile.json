@@ -1,0 +1,62 @@
+{
+    "headings": [
+        {
+            "text": "Browser"
+        },
+        {
+            "text": "Grading"
+        }
+    ],
+    "rows": [
+        {
+            "data": [
+                {
+                    "text": "Safari (iPhone), last 3 versions"
+                },
+                {
+                    "text": "A"
+                }
+            ]
+        },
+        {
+            "data": [
+                {
+                    "text": "Safari (iPad), last 3 versions"
+                },
+                {
+                    "text": "A"
+                }
+            ]
+        },
+        {
+            "data": [
+                {
+                    "text": "Chrome (Mobile), last 3 versions"
+                },
+                {
+                    "text": "A"
+                }
+            ]
+        },
+        {
+            "data": [
+                {
+                    "text": "Samsung Internet, last 3 versions"
+                },
+                {
+                    "text": "B"
+                }
+            ]
+        },
+        {
+            "data": [
+                {
+                    "text": "All other browsers & versions"
+                },
+                {
+                    "text": "C"
+                }
+            ]
+        }
+    ]
+}
