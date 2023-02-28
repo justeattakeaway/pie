@@ -3,7 +3,7 @@ import expectedRoutesJson from '../snapshots/expected-routes.snapshot.json';
 const AxeReports = require('axe-reports');
 const AxeBuilder = require('@axe-core/webdriverio').default;
 
-describe('PIE - Status Code Tests', async () => {
+describe('PIE - Accessibility Tests', () => {
     const getAxeResults = async selector => {
         const builder = new AxeBuilder({ client: browser }).include(selector)
             .withTags(['wcag21a', 'wcag21aa', 'wcag143', 'cat.color', 'cat.aria']);
