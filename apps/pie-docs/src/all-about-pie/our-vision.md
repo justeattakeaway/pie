@@ -2,6 +2,7 @@
 eleventyNavigation:
     key: Our vision
     parent: All about PIE
+    order: 2
 title: Our vision
 description: Sustain a JET design system which empowers us all to create consistent, effective and inclusive products for our users.
 ---

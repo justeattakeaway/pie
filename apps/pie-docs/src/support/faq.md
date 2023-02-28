@@ -17,7 +17,7 @@ Using these pre-built, reusable assets we can enhance the speed at which our tea
 
 ## What is the goal of PIE?
 
-We want to make our products awesome by making modern, accessible, flexible and reusable components. And help our teams work faster and more efficiently, to let them focus on solving new problems instead of rebuilding the same assets; for more information please visit [What is PIE]().
+We want to make our products awesome by making modern, accessible, flexible and reusable components. And help our teams work faster and more efficiently, to let them focus on solving new problems instead of rebuilding the same assets; for more information please visit [What is PIE](/all-about-pie/what-is-pie).
 
 ---
 
