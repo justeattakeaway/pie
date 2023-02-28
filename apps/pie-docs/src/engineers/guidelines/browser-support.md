@@ -8,6 +8,7 @@ eleventyComputed:
     desktopTableData: "{% include './browser-support-desktop.json' %}"
     mobileTableData: "{% include './browser-support-mobile.json' %}"
 ---
+
 ## Browser support
 
 The number of browsers available to our users is vast, especially for those using mobile devices. Below, we have defined a rating system that helps us to specify the level of browser support we aim to achieve and to clarify what level of testing is required.
@@ -32,7 +33,10 @@ As with any browser support checklist, this list should be reviewed often and up
 ### Priority level C – Not supported
 - Testing is not required
 
-For any browsers rated at level B & C, the user experience may actually be at a higher level.
+{% notification {
+type: "information",
+message: "For any browsers rated at level B & C, the user experience may actually be at a higher level."
+} %}
 
 A good example of this would be users browsing using Opera. The reason we don't "Fully Support" this browser is simply down to user metrics, not the quality of the browser. We'd actually expect most functionality to work with no real issues, although we don't officially test in this browser.
 
