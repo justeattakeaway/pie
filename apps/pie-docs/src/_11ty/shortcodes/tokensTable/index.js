@@ -95,12 +95,12 @@ const buildGlobalTokenUsedElement = globalToken => {
         tokenMarkup += `<span class="c-tokensTable-token c-tokensTable-token--light">${globalToken}</span>`;
     }
 
-    return deindentHTML(`
-            <span class="c-tokensTable-tokenDescription">
-                <span class="u-font-bold u-showAboveWide">${tokenDescription}</span>
-                ${tokenMarkup}
-            </span>`);
-};
+    return `
+        <span class="c-tokensTable-tokenDescription">
+            <span class="u-font-bold u-showAboveWide">${tokenDescription}</span>
+            ${tokenMarkup}
+        </span>`;
+}
 
 /**
  * Builds the overall token description element for each type of token. The description content differs based on the type of token.
@@ -156,15 +156,15 @@ const buildTokenListElements = ({
     // the colour token example. Please consider them placeholder for now.
     const tokenDescription = buildTokenDescriptionElement(tokenMetadata);
 
-    return `
-        <li class="c-tokensTable-row c-tokensTable-item" style="${getExampleColumnSize(tokenType)}">
-            ${tokenExampleElement}
-            <div class="c-tokensTable-content">
-                <span class="c-tokensTable-displayName">${tokenDisplayName}</span>
-                ${tokenDescription}
-            </div>
-            ${tokenPill}
-        </li>`;
+    return deindentHTML(`
+    <li class="c-tokensTable-row c-tokensTable-item" style="${getExampleColumnSize(tokenType)}">
+        ${tokenExampleElement}
+        <div class="c-tokensTable-content">
+            <span class="c-tokensTable-displayName">${tokenDisplayName}</span>
+            ${tokenDescription}
+        </div>
+        ${tokenPill}
+    </li>`);
 };
 
 /**
