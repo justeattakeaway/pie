@@ -1,7 +1,11 @@
+/* eslint-disable vue/sort-keys */
+/* eslint-disable no-undef */
+// eslint-disable-next-line import/no-extraneous-dependencies
 const percySnapshot = require('@percy/webdriverio');
 
 const { TEST_TYPE } = process.env;
 const { getBaseUrl } = require('./apps/pie-docs/test/helpers/configuration-helper');
+const COOKIE_NAMES = require('./constants/cookies');
 
 // These widths correspond with our defined breakpoints in the legacy-je SCSS library, Fozzie:
 // https://github.com/justeattakeaway/fozzie-components/blob/e7215edb1a5f3e13724cddd1648d5887f8951e3c/packages/tools/fozzie/src/scss/tools/helpers/_breakpoints.scss#L6
@@ -215,14 +219,13 @@ exports.config = {
      */
     before: async () => {
         if (TEST_TYPE === 'visual') {
-            await browser.waitUntil(
-                () => browser.execute(() => document.readyState === 'complete'),
-                {
-                    timeoutMsg: `Unable to load ${browser.options.baseUrl}`
-                }
-            );
-
             await browser.addCommand('percyScreenshot', async screenshotName => {
+                await browser.waitUntil(
+                    () => browser.execute(() => document.readyState === 'complete'),
+                    {
+                        timeoutMsg: `Unable to load ${browser.options.baseUrl}`
+                    }
+                );
                 await percySnapshot(screenshotName, {
                     widths: breakpoints
                 });
@@ -230,6 +233,16 @@ exports.config = {
         }
 
         await browser.url('/');
+        await browser.setCookies([
+            {
+                name: COOKIE_NAMES.JE_COOKIE_CONSENT,
+                value: 'full'
+            }, {
+                name: COOKIE_NAMES.JE_BANNER_COOKIE,
+                value: 130315
+            }
+        ]);
+        await browser.refresh();
         await browser.waitUntil(
             () => browser.execute(() => document.readyState === 'complete'),
             {
@@ -278,6 +291,7 @@ exports.config = {
      * @param {Object}  result.retries   informations to spec related retries, e.g. `{ attempts: 0, limit: 0 }`
      */
     afterTest: async function (test, context, {
+        // eslint-disable-next-line no-unused-vars
         error, result, duration, passed, retries
     }) {
         if (!passed) {
