@@ -40,5 +40,8 @@
   },
   "dependencies": {
     "markdown-it": "13.0.1"
+  },
+  "volta": {
+    "extends": "../../package.json"
   }
 }

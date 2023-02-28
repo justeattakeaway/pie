@@ -7,6 +7,7 @@
     Support: 'help-circle',
     engineers: 'engineers'
 } %}
+
 {% set chevronFill = { tokenName: 'interactive-primary', tokenPath: ['alias', 'default'] } | pieDesignTokenColours %}
 {% set categoryIconFill = { tokenName: 'interactive-brand', tokenPath: ['alias', 'default'] } | pieDesignTokenColours %}
 {% set navPagesPrimary = collections.all | eleventyNavigation("Docs") %}
@@ -21,10 +22,10 @@
                 <li>
                     <details {% if page.url.includes(category.url) %} open{% endif %}>
                         <summary class="c-nav-category" style="--icon-fill: {{categoryIconFill}};">
-                            {{ { name: navigationIcons[category.key], attrs: { fill: categoryIconFill, height: '24', width: '24', class:'u-iconFilled' } } | pieIconsSvg | safe }}
+                            {{ { name: navigationIcons[category.key], attrs: { fill: categoryIconFill, height: '24', width: '24', class:'u-iconFilled', 'aria-hidden': 'true' } } | pieIconsSvg | safe }}
                             {{ category.title }}
-                            {{ { name: 'chevron-up', attrs: { fill: chevronFill, height: '18', width: '18', class:'c-nav-toggle c-nav-toggle--close' } } | pieIconsSvg | safe }}
-                            {{ { name: 'chevron-down', attrs: { fill: chevronFill, height: '18', width: '18', class:'c-nav-toggle c-nav-toggle--open' } } | pieIconsSvg | safe }}
+                            {{ { name: 'chevron-up', attrs: { fill: chevronFill, height: '18', width: '18', class:'c-nav-toggle c-nav-toggle--close', 'aria-hidden': 'true' } } | pieIconsSvg | safe }}
+                            {{ { name: 'chevron-down', attrs: { fill: chevronFill, height: '18', width: '18', class:'c-nav-toggle c-nav-toggle--open', 'aria-hidden': 'true' } } | pieIconsSvg | safe }}
                         </summary>
                         {% if category.children.length %}
                         {# build up a list of subpages for each category such as 'colour' and 'spacing' for 'foundations' #}
