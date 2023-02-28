@@ -15,7 +15,7 @@ The number of browsers available to our users is vast, especially for those usin
 
 {% notification {
 type: "warning",
-message: "As with any browser support checklist, this list should be reviewed often and updated in-line with the browsers and devices that our users are choosing to access our platforms via."
+message: "As with any browser support checklist, this list should be reviewed often and updated in-line with the browsers and devices that our users are choosing to access our platforms."
 } %}
 
 ---
