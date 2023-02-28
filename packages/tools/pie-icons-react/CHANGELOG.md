@@ -1,5 +1,17 @@
 # Changelog
 
+## 2.0.0-beta.7
+
+### Major Changes
+
+- [Added] bookmark icon SVG's added to icon packages ([#237](https://github.com/justeattakeaway/pie/pull/237)) by [@ashleynolan](https://github.com/ashleynolan)
+
+### Minor Changes
+
+- [Added] Bookmark icons to icon packages ([#237](https://github.com/justeattakeaway/pie/pull/237)) by [@ashleynolan](https://github.com/ashleynolan)
+
+  [Changed] Updating plural folder names to singular (i.e. flags to flag)
+
 ## 2.0.0-beta.6
 
 ### Major Changes
