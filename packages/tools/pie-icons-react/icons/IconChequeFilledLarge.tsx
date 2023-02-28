@@ -1,0 +1,4 @@
+import * as React from "react";
+import { SVGProps } from "react";
+const IconChequeFilledLarge = (props: SVGProps<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" className="c-pieIcon c-pieIcon--chequeFilledLarge" width="1em" height="1em" {...props}><path d="M19.832 14.539l-3.788.586.542-3.789 6.23-6.274a2.31 2.31 0 012.503-.498l1.435-1.435 1.242 1.242-1.435 1.435a2.31 2.31 0 01-.498 2.503l-6.23 6.23zm9.293-2.914v14H2.875v-14h11.891l-.787 5.521 6.676-.954 4.559-4.567h3.911zM17.75 19.5H7.25v1.75h10.5V19.5zm7 0h-3.5v1.75h3.5V19.5z" fill="#242E30" /></svg>;
+export default IconChequeFilledLarge;

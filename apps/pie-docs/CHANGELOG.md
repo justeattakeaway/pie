@@ -1,5 +1,15 @@
 # Changelog
 
+
+## 1.58.0-beta.0
+
+### Patch Changes
+
+- [Fixes] - Updating icon names in header ([#209](https://github.com/justeattakeaway/pie/pull/209)) by [@ashleynolan](https://github.com/ashleynolan)
+
+- [Fixes] Updates icon snapshots ([#217](https://github.com/justeattakeaway/pie/pull/217)) by [@ashleynolan](https://github.com/ashleynolan)
+
+
 ## 1.58.0
 
 ### Minor Changes
@@ -22,6 +32,7 @@
 ### Patch Changes
 
 - [Fixed] - code block responsive width for wide screens ([#214](https://github.com/justeattakeaway/pie/pull/214)) by [@raoufswe](https://github.com/raoufswe)
+
 
 ## 1.57.1
 

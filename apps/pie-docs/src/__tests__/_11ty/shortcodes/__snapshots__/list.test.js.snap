@@ -3,16 +3,16 @@
 exports[`list.js should return the expected HTML 1`] = `
 "<ol class=\\"c-list c-list--ordered\\"  >
         <li class=\\"c-list-item\\">
-        
+
         <span>a</span>
         </li><li class=\\"c-list-item\\">
-        
+
         <span>b</span>
         </li><li class=\\"c-list-item\\">
-        
+
         <span>c</span>
         </li><li class=\\"c-list-item\\">
-        
+
         <span>d</span>
         </li>
     </ol>"
@@ -21,16 +21,16 @@ exports[`list.js should return the expected HTML 1`] = `
 exports[`list.js should return the expected HTML 2`] = `
 "<ul class=\\"c-list c-list--pill\\"  >
         <li class=\\"c-list-item\\">
-        
+
         <span>a</span>
         </li><li class=\\"c-list-item\\">
-        
+
         <span>b</span>
         </li><li class=\\"c-list-item\\">
-        
+
         <span>c</span>
         </li><li class=\\"c-list-item\\">
-        
+
         <span>d</span>
         </li>
     </ul>"

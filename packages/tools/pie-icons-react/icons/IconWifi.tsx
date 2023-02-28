@@ -1,0 +1,4 @@
+import * as React from "react";
+import { SVGProps } from "react";
+const IconWifi = (props: SVGProps<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" className="c-pieIcon c-pieIcon--wifi" width="1em" height="1em" {...props}><g clipPath="url(#prefix__clip0_15_321)" fill="#242E30"><path d="M11.832 10.231A5.023 5.023 0 008 8.333a5.023 5.023 0 00-3.833 1.898l-1.006-.875A6.326 6.326 0 018 7.02a6.326 6.326 0 014.839 2.363l-1.007.848z" /><path d="M13.95 8.096A7.788 7.788 0 008 5.156a7.787 7.787 0 00-5.95 2.94l-1.006-.875a9.074 9.074 0 017-3.412 9.074 9.074 0 017 3.412l-1.094.875z" /><path d="M9.794 12.576a2.292 2.292 0 00-3.588 0L5.2 11.701A3.666 3.666 0 018 10.354a3.665 3.665 0 012.8 1.373l-1.006.85z" /></g><defs><clipPath id="prefix__clip0_15_321"><rect width={14} height={14} fill="#fff" transform="translate(1 1)" /></clipPath></defs></svg>;
+export default IconWifi;

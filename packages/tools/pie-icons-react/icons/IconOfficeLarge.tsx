@@ -1,0 +1,4 @@
+import * as React from "react";
+import { SVGProps } from "react";
+const IconOfficeLarge = (props: SVGProps<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" className="c-pieIcon c-pieIcon--officeLarge" width="1em" height="1em" {...props}><path d="M24.75 4.625H7.25A2.625 2.625 0 004.625 7.25v20.125h22.75V7.25a2.625 2.625 0 00-2.625-2.625zm-10.5 21v-3.5h3.5v3.5h-3.5zm11.375 0H19.5v-3.5h1.75v-1.75h-10.5v1.75h1.75v3.5H6.375V7.25a.875.875 0 01.875-.875h17.5a.875.875 0 01.875.875v18.375zM17.75 9.875h3.5v1.75h-3.5v-1.75zm-7 0h3.5v1.75h-3.5v-1.75zm7 5.25h3.5v1.75h-3.5v-1.75zm-7 0h3.5v1.75h-3.5v-1.75z" fill="#242E30" /></svg>;
+export default IconOfficeLarge;
