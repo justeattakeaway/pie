@@ -1,5 +1,24 @@
 # Changelog
 
+## 1.58.0-beta.1
+
+### Minor Changes
+
+- [Added] hero section and align styling ([#230](https://github.com/justeattakeaway/pie/pull/230)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Updated] pie logo to the new version
+
+- [Changed] - Greatly improved the iconography library screenreader experience ([#227](https://github.com/justeattakeaway/pie/pull/227)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Changed] - Ensure `aria-hidden` is applied to decorative icons in lists and navigation ([#227](https://github.com/justeattakeaway/pie/pull/227)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Changed] - Change the description of Radius 06 token to `50rem` ([#227](https://github.com/justeattakeaway/pie/pull/227)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Changed] - Made various AXE recommended a11y improvements to page tabs and images ([#227](https://github.com/justeattakeaway/pie/pull/227)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - Cookie banner and enabled GTM on production builds ([#227](https://github.com/justeattakeaway/pie/pull/227)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - New box shadow values. ([#231](https://github.com/justeattakeaway/pie/pull/231)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
 
 ## 1.58.0-beta.0
 
@@ -8,7 +27,6 @@
 - [Fixes] - Updating icon names in header ([#209](https://github.com/justeattakeaway/pie/pull/209)) by [@ashleynolan](https://github.com/ashleynolan)
 
 - [Fixes] Updates icon snapshots ([#217](https://github.com/justeattakeaway/pie/pull/217)) by [@ashleynolan](https://github.com/ashleynolan)
-
 
 ## 1.58.0
 
@@ -32,7 +50,6 @@
 ### Patch Changes
 
 - [Fixed] - code block responsive width for wide screens ([#214](https://github.com/justeattakeaway/pie/pull/214)) by [@raoufswe](https://github.com/raoufswe)
-
 
 ## 1.57.1
 

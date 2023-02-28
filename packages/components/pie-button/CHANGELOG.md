@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.6.0-beta.0
+
+### Minor Changes
+
+- [Added] - state styling to button (focus/hover/active/disabled) ([#234](https://github.com/justeattakeaway/pie/pull/234)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.5.1
 
 ### Patch Changes
