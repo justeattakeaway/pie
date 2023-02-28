@@ -65,8 +65,8 @@ A good example of this would be users browsing using Opera. The reason we don't 
 
 To give an idea as to what devices are worth testing on, these are the current recommended device types based on our analytics.
 
-- iPhone: 6 - latest (all variants such as Pro and Mini)
-- iPad / iPad mini - latest
+- iPhone: 6 to latest (all variants such as Pro and Mini)
+- iPad / iPad mini - the latest model
 - Samsung Galaxy: s21, s22
 - Samsung Galaxy Tabel: s10 (or similar)
 - Google pixel: 6, 4a
