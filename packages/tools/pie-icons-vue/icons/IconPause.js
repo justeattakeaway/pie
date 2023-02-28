@@ -15,12 +15,12 @@ export default {
             class: 'c-pieIcon c-pieIcon--pause'
         }, ctx.data]), [h('path', {
             attrs: {
-                d: 'M6.32632 4H5V12H6.32632V4Z',
+                d: 'M6.326 4H5v8h1.326V4z',
                 fill: '#242E30'
             }
         }), h('path', {
             attrs: {
-                d: 'M11 4H9.67368V12H11V4Z',
+                d: 'M11 4H9.674v8H11V4z',
                 fill: '#242E30'
             }
         })]);

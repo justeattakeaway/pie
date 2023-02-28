@@ -1,0 +1,4 @@
+import * as React from "react";
+import { SVGProps } from "react";
+const IconDrinkLarge = (props: SVGProps<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" className="c-pieIcon c-pieIcon--drinkLarge" width="1em" height="1em" {...props}><path d="M24.75 9.875h-7.875V6.13l4.655-1.505-.56-1.663-5.845 1.908v5.005H7.25v1.75h1.566l1.374 15.111a2.625 2.625 0 002.625 2.389h6.388a2.625 2.625 0 002.625-2.389l1.356-15.111h1.566v-1.75zm-5.556 17.5h-6.388a.875.875 0 01-.875-.796l-.875-9.127a4.663 4.663 0 014.752.158 7.963 7.963 0 003.762 1.015c.41-.003.82-.038 1.225-.105l-.735 8.059a.875.875 0 01-.866.796zm1.75-10.666a5.915 5.915 0 01-4.375-.674 6.23 6.23 0 00-5.679-.402l-.315-4.008h10.85l-.481 5.084z" fill="#242E30" /></svg>;
+export default IconDrinkLarge;
