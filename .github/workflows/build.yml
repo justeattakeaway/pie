@@ -297,6 +297,7 @@ jobs:
         if: steps.check_files.outputs.files_exists == 'true' && contains(github.ref_name, 'main')
         run: |
           npx changeset pre exit
+          git add .changeset/pre.json
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git commit -m "chore: exit prerelease mode" -a
