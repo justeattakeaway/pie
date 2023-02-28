@@ -13,7 +13,10 @@ eleventyComputed:
 
 The number of browsers available to our users is vast, especially for those using mobile devices. Below, we have defined a rating system that helps us to specify the level of browser support we aim to achieve and to clarify what level of testing is required.
 
-As with any browser support checklist, this list should be reviewed often and updated in-line with the browsers and devices that our users are choosing to access our platforms via.
+{% notification {
+type: "warning",
+message: "As with any browser support checklist, this list should be reviewed often and updated in-line with the browsers and devices that our users are choosing to access our platforms via."
+} %}
 
 ---
 
