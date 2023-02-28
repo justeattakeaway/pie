@@ -1,7 +1,6 @@
 {% set toggleIconFill = { tokenName: 'interactive-dark', tokenPath: ['alias', 'default'] } | pieDesignTokenColours %}
-
-<input id="navToggle" class="c-navToggle-input is-visuallyHidden" type="checkbox" aria-label="Toggle Navigation" />
-<label class="c-navToggle"  for="navToggle" style="--icon-fill: {{toggleIconFill}};">
+<input id="navToggle" class="c-navToggle-input is-visuallyHidden" type="checkbox" aria-label="Toggle Navigation"/>
+<label class="c-navToggle" for="navToggle" style="--icon-fill: {{ toggleIconFill }};">
     {{ { name: 'Menu', attrs: { fill: toggleIconFill, height: '24', width: '24', class: 'u-iconFilled' } } | pieIconsSvg | safe }}
     {{ { name: 'Close', attrs: { fill: toggleIconFill, height: '24', width: '24', class: 'u-iconFilled' } } | pieIconsSvg | safe }}
 </label>
