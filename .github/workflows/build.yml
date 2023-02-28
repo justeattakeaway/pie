@@ -307,7 +307,14 @@ jobs:
         # If .changeset/pre.json does not exist and we did not recently exit
         # prerelease mode.
         if: steps.check_files.outputs.files_exists == 'true' && contains(github.ref_name, 'main')
-        run: npx changeset pre exit
+        run: |
+          npx changeset pre exit
+      - name: commit prerelease exit changes
+        if: steps.check_files.outputs.files_exists == 'true' && contains(github.ref_name, 'main')
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "chore(pie-monorepo): exit prerelease mode"
+          branch: ${{ github.event.inputs.branch }}
       - name: Create latest release PR
         if: contains(github.ref_name, 'main')
         uses: changesets/action@v1

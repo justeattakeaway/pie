@@ -5,5 +5,9 @@ eleventyNavigation:
     order: 2
 ---
 
+## Our icons
+
+The list below shows all the available icons in our icons library.
+
 {% iconList %}
 
