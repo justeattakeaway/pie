@@ -7,8 +7,8 @@ const pieIcons = require('../filters/pieIconsSvg');
 // eslint-disable-next-line func-names
 module.exports = function () {
     const buildIconName = name => name.replace(/([A-Z])/g, match => ` ${match}`)
-      .replace(/^./, match => match.toUpperCase())
-      .trim();
+        .replace(/^./, match => match.toUpperCase())
+        .trim();
 
     const icons = Object.values(pieIcons()).map(({ name, icon }) => {
         const isLargeIcon = name.toLowerCase().includes('large');
@@ -18,16 +18,20 @@ module.exports = function () {
             isLargeIcon && 'c-iconListCard-preview--large'
         ].filter(Boolean).join(' ');
 
-        return `<div class="c-iconList-card">
-                <div class="${previewClasses}">
-                    ${icon}
-                </div>
-                <hr>
-                <p class="c-iconListCard-name">${buildIconName(name)}</p>
-            </div>`;
+        const iconName = buildIconName(name);
+
+        return `<li class="c-iconList-card">
+                    <div aria-hidden="true" class="${previewClasses}">
+                        ${icon}
+                    </div>
+                    <hr aria-hidden="true">
+                    <p class="c-iconListCard-name">${iconName}</p>
+                </li>`;
     }).join('');
 
-    return `<div class="c-iconList">
-        ${icons}
-    </div>`;
+    return `<div class="u-spacing-f--top">
+                <ul class="c-iconList">
+                    ${icons}
+                </ul>
+            </div>`;
 };
