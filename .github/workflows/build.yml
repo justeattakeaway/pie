@@ -295,7 +295,11 @@ jobs:
         # If .changeset/pre.json does not exist and we did not recently exit
         # prerelease mode.
         if: steps.check_files.outputs.files_exists == 'true' && contains(github.ref_name, 'main')
-        run: npx changeset pre exit
+        run: |
+          npx changeset pre exit
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git commit -m "chore: exit prerelease mode" -a
       - name: Create latest release PR
         if: contains(github.ref_name, 'main')
         uses: changesets/action@v1
