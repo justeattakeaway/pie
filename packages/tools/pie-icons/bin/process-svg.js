@@ -11,13 +11,13 @@ import { DEFAULT_ATTRS } from '../src/default-attrs';
 function processSvg (svg) {
     return (
         optimize(svg)
-          .then(setAttrs)
-          .then(data => prettier.format(data, {
-              parser: 'babel'
-          }))
-          // remove semicolon inserted by prettier
-          // because prettier thinks it's formatting JSX not HTML
-          .then(svg => svg.replace(/;/g, ''))
+            .then(setAttrs)
+            .then(data => prettier.format(data, {
+                parser: 'babel'
+            }))
+            // remove semicolon inserted by prettier
+            // because prettier thinks it's formatting JSX not HTML
+            .then(svg => svg.replace(/;/g, ''))
     );
 }
 
@@ -32,13 +32,14 @@ function optimize (svg) {
             { prefixIds: true },
             { convertShapeToPath: false },
             { mergePaths: false },
-            { removeTitle: true }
+            { removeTitle: true },
+            { removeViewBox: false }
         ]
     });
 
     return new Promise(resolve => {
         svgo.optimize(svg)
-          .then(({ data }) => resolve(data));
+            .then(({ data }) => resolve(data));
     });
 }
 

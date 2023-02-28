@@ -15,22 +15,22 @@ export default {
             class: 'c-pieIcon c-pieIcon--gridViewFilledLarge'
         }, ctx.data]), [h('path', {
             attrs: {
-                d: 'M4.625 14.25H14.25V4.625H4.625V14.25Z',
+                d: 'M4.625 14.25h9.625V4.625H4.625v9.625z',
                 fill: '#242E30'
             }
         }), h('path', {
             attrs: {
-                d: 'M17.75 14.25H27.375V4.625H17.75V14.25Z',
+                d: 'M17.75 14.25h9.625V4.625H17.75v9.625z',
                 fill: '#242E30'
             }
         }), h('path', {
             attrs: {
-                d: 'M4.625 27.375H14.25V17.75H4.625V27.375Z',
+                d: 'M4.625 27.375h9.625V17.75H4.625v9.625z',
                 fill: '#242E30'
             }
         }), h('path', {
             attrs: {
-                d: 'M17.75 27.375H27.375V17.75H17.75V27.375Z',
+                d: 'M17.75 27.375h9.625V17.75H17.75v9.625z',
                 fill: '#242E30'
             }
         })]);

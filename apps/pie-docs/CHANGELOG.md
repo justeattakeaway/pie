@@ -1,5 +1,39 @@
 # Changelog
 
+
+## 1.58.0-beta.0
+
+### Patch Changes
+
+- [Fixes] - Updating icon names in header ([#209](https://github.com/justeattakeaway/pie/pull/209)) by [@ashleynolan](https://github.com/ashleynolan)
+
+- [Fixes] Updates icon snapshots ([#217](https://github.com/justeattakeaway/pie/pull/217)) by [@ashleynolan](https://github.com/ashleynolan)
+
+
+## 1.58.0
+
+### Minor Changes
+
+- [Added] - File & folder structure for Engineers section ([#224](https://github.com/justeattakeaway/pie/pull/224)) by [@ashleynolan](https://github.com/ashleynolan)
+
+  [Changed] - keys for the design section normalised into lowercase format
+
+- [Changed] - Updated the url site structure to remove '/content/pages' ([#229](https://github.com/justeattakeaway/pie/pull/229)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Changed] - font tokens to reflect new object structure in `pie-design-tokens` ([#226](https://github.com/justeattakeaway/pie/pull/226)) by [@LTurns](https://github.com/LTurns)
+
+  [Changed] - elevation alias tokens to reflect new `dark` object in `pie-design-tokens`
+  [Changed] - font-family from `CP Mono` to `PT Mono`
+
+- [Changed] - append '-dark-' in SCSS variables names of dark theme tokens ([#211](https://github.com/justeattakeaway/pie/pull/211)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - Elevation global token page. ([#221](https://github.com/justeattakeaway/pie/pull/221)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
+### Patch Changes
+
+- [Fixed] - code block responsive width for wide screens ([#214](https://github.com/justeattakeaway/pie/pull/214)) by [@raoufswe](https://github.com/raoufswe)
+
+
 ## 1.57.1
 
 ### Patch Changes

@@ -5,56 +5,106 @@
     border: none;
     font-family: dt.$font-interactive-m-family;
     font-weight: dt.$font-interactive-m-weight;
-}
 
-// TODO - Use latest design tokens for font size and line height
-//        once fozzie has been updated to handle them.
+    cursor: pointer;
+    user-select: none;
+    outline: none;
+
+    &:focus-visible {
+        outline: 2px solid dt.$color-focus;
+    }
+}
 
 .o-btn--xsmall {
     padding: 6px dt.$spacing-b;
     min-height: 32px;
-    font-size: 14px;
-    line-height: 20px;
+    font-size: dt.$font-size-14 * 1px;
+    line-height: dt.$font-size-14-line-height * 1px;
 }
 
 .o-btn--small {
     padding: 8px dt.$spacing-d;
     min-height: 40px;
-    font-size: 19px;
-    line-height: 28px;
+    font-size: dt.$font-size-19 * 1px;
+    line-height: dt.$font-size-19-line-height * 1px;
 }
 
 .o-btn--medium {
     padding: 10px dt.$spacing-e;
     min-height: 48px;
-    font-size: 20px;
-    line-height: 28px;
+    font-size: dt.$font-size-20 * 1px;
+    line-height: dt.$font-size-20-line-height * 1px;
 }
 
 .o-btn--large {
     padding: 14px dt.$spacing-e;
     min-height: 56px;
-    font-size: 20px;
-    line-height: 28px;
+    font-size: dt.$font-size-20 * 1px;
+    line-height: dt.$font-size-20-line-height * 1px;
 }
 
 .o-btn--primary {
     background-color: dt.$color-interactive-brand;
     color: dt.$color-content-interactive-primary;
+
+    &:hover {
+        background-color: darken(dt.$color-interactive-brand, dt.$color-hover-01);
+    }
+
+    &:active {
+        background-color: darken(dt.$color-interactive-brand, dt.$color-active-01);
+    }
 }
 
 .o-btn--secondary {
     background-color: dt.$color-interactive-secondary;
     color: dt.$color-content-interactive-secondary;
+
+    &:hover {
+        background-color: darken(dt.$color-interactive-secondary, dt.$color-hover-01);
+    }
+
+    &:active {
+        background-color: darken(dt.$color-interactive-secondary, dt.$color-active-01);
+    }
 }
 
 .o-btn--outline {
-    border: 1px solid dt.$color-border-strong;
+    outline: 1px solid dt.$color-border-strong;
     background-color: dt.$color-container-default;
     color: dt.$color-content-interactive-tertiary;
+
+    &:hover {
+        background-color: darken(dt.$color-container-default, dt.$color-hover-01);
+    }
+
+    &:active {
+        background-color: darken(dt.$color-container-default, dt.$color-active-01);
+    }
 }
 
 .o-btn--ghost {
     background-color: dt.$color-container-default;
     color: dt.$color-content-link;
+
+    &:hover {
+        background-color: darken(dt.$color-container-default, dt.$color-hover-01);
+    }
+
+    &:active {
+        background-color: darken(dt.$color-container-default, dt.$color-active-01);
+    }
+}
+
+.o-btn.o-btn--is-disabled {
+    background-color: dt.$color-disabled-01;
+    color: dt.$color-content-disabled;
+    outline: 1px solid dt.$color-disabled-01;
+
+    cursor: default;
+
+    &.o-btn--ghost {
+        background-color: dt.$color-container-default;
+        outline: none;
+    }
 }

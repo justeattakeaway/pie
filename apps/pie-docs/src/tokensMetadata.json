@@ -1039,7 +1039,7 @@
       },
       "family-code": {
         "category": "fontFamily",
-        "displayName": "CP Mono",
+        "displayName": "PT Mono",
         "description": "Used only for snippets of code"
       },
       "weight-extrabold": {
@@ -1054,44 +1054,49 @@
         "category": "fontWeight",
         "displayName": "Regular"
       },
-      "size-a": {
+      "size-12": {
         "category": "fontSize",
-        "displayName": "Font size a",
+        "displayName": "Font size 12",
         "description": "Text size: 12px <br /> Line height: 16px"
       },
-      "size-b": {
+      "size-14": {
         "category": "fontSize",
-        "displayName": "Font size b",
+        "displayName": "Font size 14",
         "description": "Text size: 14px <br /> Line height: 20px"
       },
-      "size-c": {
+      "size-16": {
         "category": "fontSize",
-        "displayName": "Font size c",
+        "displayName": "Font size 16",
         "description": "Text size: 16px <br /> Line height: 24px"
       },
-      "size-d": {
+      "size-19": {
         "category": "fontSize",
-        "displayName": "Font size d",
+        "displayName": "Font size 19",
+        "description": "Text size: 19px <br /> Line height: 28px"
+      },
+      "size-20": {
+        "category": "fontSize",
+        "displayName": "Font size 20",
         "description": "Text size: 20px <br /> Line height: 28px"
       },
-      "size-e": {
+      "size-24": {
         "category": "fontSize",
-        "displayName": "Font size e",
+        "displayName": "Font size 24",
         "description": "Text size: 24px <br /> Line height: 32px"
       },
-      "size-f": {
+      "size-28": {
         "category": "fontSize",
-        "displayName": "Font size f",
+        "displayName": "Font size 28",
         "description": "Text size: 28px <br /> Line height: 36px"
       },
-      "size-g": {
+      "size-32": {
         "category": "fontSize",
-        "displayName": "Font size g",
+        "displayName": "Font size 32",
         "description": "Text size: 32px <br /> Line height: 40px"
       },
-      "size-h": {
+      "size-48": {
         "category": "fontSize",
-        "displayName": "Font size h",
+        "displayName": "Font size 48",
         "description": "Text size: 48px <br /> Line height: 56px"
       },
       "style-underline": {
@@ -1421,7 +1426,7 @@
         "description": "16dp/pt/px"
       },
       "06": {
-        "description": "50rem/pt/px"
+        "description": "50rem"
       }
     },
     "alias": {
@@ -1554,179 +1559,177 @@
       },
       "box-shadow-01": {
         "displayName": "Box shadow 01",
-        "description": "0,2,2,0 rgba(27,35,36,.03)<br /> 0,3,1,-2 rgba(27,35,36,.07)<br /> 0,1,5,0 rgba(27,35,36,.06)"
+        "description": "0,2,2,0 rgba(0,0,0,.03)<br /> 0,3,1,-2 rgba(0,0,0,.07)<br /> 0,1,5,0 rgba(0,0,0,.06)"
       },
       "box-shadow-02": {
         "displayName": "Box shadow 02",
-        "description": "0,4,6,0 rgba(27,35,36,.02)<br /> 0,2,12,-2 rgba(27,35,36,.08)<br /> 0,3,6,0 rgba(27,35,36,.06)"
+        "description": "0,4,6,0 rgba(0,0,0,.02)<br /> 0,2,12,-2 rgba(0,0,0,.08)<br /> 0,3,6,0rgba(0,0,0,.06)"
       },
       "box-shadow-03": {
         "displayName": "Box shadow 03",
-        "description": "0,2,6,0 rgba(27,35,36,.04)<br /> 0,8,12,-2 rgba(27,35,36,.06)<br /> 0,4,6,0 rgba(27,35,36,.04)"
+        "description": "0,2,6,0 rgba(0,0,0,.04)<br /> 0,8,12,-2 rgba(0,0,0,.06)<br /> 0,4,6,0 rgba(0,0,0,.04)"
       },
       "box-shadow-04": {
         "displayName": "Box shadow 04",
-        "description": "0,8,8,0 rgba(27,35,36,.04)<br /> 0,8,20,-3 rgba(27,35,36,.10)<br /> 0,4,8,-2 rgba(27,35,36,.06)"
+        "description": "0,8,8,0 rgba(0,0,0,.04)<br /> 0,8,20,-3 rgba(0,0,0,.10)<br /> 0,4,8,-2 rgba(0,0,0,.06)"
       },
       "box-shadow-05": {
         "displayName": "Box shadow 05",
-        "description": "0,-4,6,0 rgba(27,35,36,.02)<br /> 0,-2,12,-2 rgba(27,35,36,.08)<br /> 0,-3,6,0 rgba(27,35,36,.06)"
+        "description": "0,-4,6,0 rgba(0,0,0,.02)<br /> 0,-2,12,-2 rgba(0,0,0,.08)<br /> 0,-3,6,0rgba(0,0,0,.06)"
       },
       "box-shadow-06": {
         "displayName": "Box shadow 06",
-        "description": "0,2,2,0 rgba(27,35,36,.12)<br /> 0,3,1,-2 rgba(27,35,36,.28)<br /> 0,1,5,0 rgba(27,35,36,.24)"
+        "description": "0,2,2,0 rgba(0,0,0,.12)<br /> 0,3,1,-2 rgba(0,0,0,.28)<br /> 0,1,5,0 rgba(0,0,0,.24)"
       },
       "box-shadow-07": {
         "displayName": "Box shadow 07",
-        "description": "0,4,6,0 rgba(27,35,36,.08)<br /> 0,2,12,-2 rgba(27,35,36,.32)<br /> 0,3,6,0 rgba(27,35,36,.24)"
+        "description": "0,4,6,0 rgba(0,0,0,.08)<br /> 0,2,12,-2 rgba(0,0,0,.32)<br /> 0,3,6,0rgba(0,0,0,.24)"
       },
       "box-shadow-08": {
         "displayName": "Box shadow 08",
-        "description": "0,2,6,0 rgba(27,35,36,.12)<br /> 0,8,12,-2 rgba(27,35,36,.24)<br /> 0,4,6,0 rgba(27,35,36,.16)"
+        "description": "0,2,6,0 rgba(0,0,0,.12)<br /> 0,8,12,-2 rgba(0,0,0,.24)<br /> 0,4,6,0 rgba(0,0,0,.16)"
       },
       "box-shadow-09": {
         "displayName": "Box shadow 09",
-        "description": "0,8,8,0 rgba(27,35,36,.16)<br /> 0,3,20,-3 rgba(27,35,36,.40)<br /> 0,4,8,-2 rgba(27,35,36,.24)"
+        "description": "0,8,8,0 rgba(0,0,0,.16)<br /> 0,3,20,-3 rgba(0,0,0,.40)<br /> 0,4,8,-2 rgba(0,0,0,.24)"
       },
       "box-shadow-10": {
         "displayName": "Box shadow 10",
-        "description": "0,-4,6,0 rgba(27,35,36,.08)<br /> 0,-2,12,-2 rgba(27,35,36,.32)<br /> 0,-3,6,0 rgba(27,35,36,.24)"
+        "description": "0,-4,6,0 rgba(0,0,0,.08)<br /> 0,-2,12,-2 rgba(0,0,0,.32)<br /> 0,-3,6,0rgba(0,0,0,.24)"
       }
     },
     "alias": {
       "default": {
-        "light": {
-          "01": {
-            "category": "defaultElevation",
-            "displayName": "Elevation 01",
-            "description": "Used for Map markers and Cards.",
-            "globalToken": "$box-shadow-01"
-          },
-          "02": {
-            "category": "defaultElevation",
-            "displayName": "Elevation 02",
-            "description": "Used for raised Buttons (e.g. over a map), knobs on sliders and Dropdown input fields.",
-            "globalToken": "$box-shadow-02"
-          },
-          "03": {
-            "category": "defaultElevation",
-            "displayName": "Elevation 03",
-            "description": "Used for FABS and sticky CTAs, sticky headers, navigation bars or Banners and Notifications.",
-            "globalToken": "$box-shadow-03"
-          },
-          "04": {
-            "category": "defaultElevation",
-            "displayName": "Elevation 04",
-            "description": "Used for Modal.",
-            "globalToken": "$box-shadow-04"
-          },
-          "05": {
-            "category": "defaultElevation",
-            "displayName": "Elevation 05",
-            "description": "Used for Bottom Sheets.",
-            "globalToken": "$box-shadow-05"
-          },
-          "inverse-01": {
-            "category": "inverseElevation",
-            "displayName": "Elevation inverse 01",
-            "description": "Used for Map markers and cards.",
-            "globalToken": "$box-shadow-06"
-          },
-          "inverse-02": {
-            "category": "inverseElevation",
-            "displayName": "Elevation inverse 02",
-            "description": "Used for raised Buttons (e.g. over a map), knobs on sliders and Dropdown input fields.",
-            "globalToken": "$box-shadow-07"
-          },
-          "inverse-03": {
-            "category": "inverseElevation",
-            "displayName": "Elevation inverse 03",
-            "description": "Used for FABS and sticky CTAs, sticky headers, navigation bars or Banners and Notifications.",
-            "globalToken": "$box-shadow-08"
-          },
-          "inverse-04": {
-            "category": "inverseElevation",
-            "displayName": "Elevation inverse 04",
-            "description": "Used for Modal.",
-            "globalToken": "$box-shadow-09"
-          },
-          "inverse-05": {
-            "category": "inverseElevation",
-            "displayName": "Elevation inverse 05",
-            "description": "Used for Modal.",
-            "globalToken": "$box-shadow-10"
-          }
+        "01": {
+          "category": "defaultElevation",
+          "displayName": "Elevation 01",
+          "description": "Used for Map markers and Cards.",
+          "globalToken": "$box-shadow-01"
         },
-        "dark": {
-          "inverse-01": {
-            "category": "defaultElevation",
-            "displayName": "Elevation 01",
-            "description": "Used for Map markers and Cards.",
-            "globalToken": "$box-shadow-06"
-          },
+        "02": {
+          "category": "defaultElevation",
+          "displayName": "Elevation 02",
+          "description": "Used for raised Buttons (e.g. over a map), knobs on sliders and Dropdown input fields.",
+          "globalToken": "$box-shadow-02"
+        },
+        "03": {
+          "category": "defaultElevation",
+          "displayName": "Elevation 03",
+          "description": "Used for FABS and sticky CTAs, sticky headers, navigation bars or Banners and Notifications.",
+          "globalToken": "$box-shadow-03"
+        },
+        "04": {
+          "category": "defaultElevation",
+          "displayName": "Elevation 04",
+          "description": "Used for Modal.",
+          "globalToken": "$box-shadow-04"
+        },
+        "05": {
+          "category": "defaultElevation",
+          "displayName": "Elevation 05",
+          "description": "Used for Bottom Sheets.",
+          "globalToken": "$box-shadow-05"
+        },
+        "inverse-01": {
+          "category": "inverseElevation",
+          "displayName": "Elevation inverse 01",
+          "description": "Used for Map markers and cards.",
+          "globalToken": "$box-shadow-06"
+        },
+        "inverse-02": {
+          "category": "inverseElevation",
+          "displayName": "Elevation inverse 02",
+          "description": "Used for raised Buttons (e.g. over a map), knobs on sliders and Dropdown input fields.",
+          "globalToken": "$box-shadow-07"
+        },
+        "inverse-03": {
+          "category": "inverseElevation",
+          "displayName": "Elevation inverse 03",
+          "description": "Used for FABS and sticky CTAs, sticky headers, navigation bars or Banners and Notifications.",
+          "globalToken": "$box-shadow-08"
+        },
+        "inverse-04": {
+          "category": "inverseElevation",
+          "displayName": "Elevation inverse 04",
+          "description": "Used for Modal.",
+          "globalToken": "$box-shadow-09"
+        },
+        "inverse-05": {
+          "category": "inverseElevation",
+          "displayName": "Elevation inverse 05",
+          "description": "Used for Modal.",
+          "globalToken": "$box-shadow-10"
+        }
+      },
+      "dark": {
+        "01": {
+          "category": "defaultElevation",
+          "displayName": "Elevation 01",
+          "description": "Used for Map markers and Cards.",
+          "globalToken": "$box-shadow-06"
+        },
 
-          "inverse-02": {
-            "category": "defaultElevation",
-            "displayName": "Elevation 02",
-            "description": "Used for raised Buttons (e.g. over a map), knobs on sliders and Dropdown input fields.",
-            "globalToken": "$box-shadow-07"
-          },
+        "02": {
+          "category": "defaultElevation",
+          "displayName": "Elevation 02",
+          "description": "Used for raised Buttons (e.g. over a map), knobs on sliders and Dropdown input fields.",
+          "globalToken": "$box-shadow-07"
+        },
 
-          "inverse-03": {
-            "category": "defaultElevation",
-            "displayName": "Elevation 03",
-            "description": "Used for FABS and sticky CTAs, sticky headers, navigation bars or Banners and Notifications.",
-            "globalToken": "$box-shadow-08"
-          },
+        "03": {
+          "category": "defaultElevation",
+          "displayName": "Elevation 03",
+          "description": "Used for FABS and sticky CTAs, sticky headers, navigation bars or Banners and Notifications.",
+          "globalToken": "$box-shadow-08"
+        },
 
-          "inverse-04": {
-            "category": "defaultElevation",
-            "displayName": "Elevation 04",
-            "description": "Used for Modal.",
-            "globalToken": "$box-shadow-09"
-          },
+        "04": {
+          "category": "defaultElevation",
+          "displayName": "Elevation 04",
+          "description": "Used for Modal.",
+          "globalToken": "$box-shadow-09"
+        },
 
-          "inverse-05": {
-            "category": "defaultElevation",
-            "displayName": "Elevation 05",
-            "description": "Used for Modal.",
-            "globalToken": "$box-shadow-10"
-          },
+        "05": {
+          "category": "defaultElevation",
+          "displayName": "Elevation 05",
+          "description": "Used for Modal.",
+          "globalToken": "$box-shadow-10"
+        },
 
-          "01": {
-            "category": "inverseElevation",
-            "displayName": "Elevation inverse 01",
-            "description": "Used for Modal.",
-            "globalToken": "$box-shadow-01"
-          },
+        "inverse-01": {
+          "category": "inverseElevation",
+          "displayName": "Elevation inverse 01",
+          "description": "Used for Modal.",
+          "globalToken": "$box-shadow-01"
+        },
 
-          "02": {
-            "category": "inverseElevation",
-            "displayName": "Elevation inverse 02",
-            "description": "Used for FABS and sticky CTAs, sticky headers, navigation bars or Banners and Notifications.",
-            "globalToken": "$box-shadow-02"
-          },
+        "inverse-02": {
+          "category": "inverseElevation",
+          "displayName": "Elevation inverse 02",
+          "description": "Used for FABS and sticky CTAs, sticky headers, navigation bars or Banners and Notifications.",
+          "globalToken": "$box-shadow-02"
+        },
 
-          "03": {
-            "category": "inverseElevation",
-            "displayName": "Elevation inverse 03",
-            "description": "Used for raised Buttons (e.g. over a map), knobs on sliders and Dropdown input fields.",
-            "globalToken": "$box-shadow-03"
-          },
+        "inverse-03": {
+          "category": "inverseElevation",
+          "displayName": "Elevation inverse 03",
+          "description": "Used for raised Buttons (e.g. over a map), knobs on sliders and Dropdown input fields.",
+          "globalToken": "$box-shadow-03"
+        },
 
-          "04": {
-            "category": "inverseElevation",
-            "displayName": "Elevation inverse 04",
-            "description": "Used for Map markers and cards.",
-            "globalToken": "$box-shadow-04"
-          },
+        "inverse-04": {
+          "category": "inverseElevation",
+          "displayName": "Elevation inverse 04",
+          "description": "Used for Map markers and cards.",
+          "globalToken": "$box-shadow-04"
+        },
 
-          "05": {
-            "category": "inverseElevation",
-            "displayName": "Elevation inverse 05",
-            "description": "Used for Map markers and cards.",
-            "globalToken": "$box-shadow-05"
-          }
+        "inverse-05": {
+          "category": "inverseElevation",
+          "displayName": "Elevation inverse 05",
+          "description": "Used for Map markers and cards.",
+          "globalToken": "$box-shadow-05"
         }
       }
     }

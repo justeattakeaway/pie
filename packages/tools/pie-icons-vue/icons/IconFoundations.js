@@ -15,32 +15,30 @@ export default {
             class: 'c-pieIcon c-pieIcon--foundations'
         }, ctx.data]), [h('g', {
             attrs: {
-                'clip-path': 'url(#clip0_7066_3748)'
+                'clip-path': 'url(#prefix__clip0_7066_3748)',
+                fill: '#242E30'
             }
         }, [h('path', {
             attrs: {
-                d: 'M10.7388 1.94501H5.2525V7.43126H10.7388V1.94501ZM9.42625 6.11876H6.565V3.25751H9.42625V6.11876Z',
-                fill: '#242E30'
+                d: 'M10.739 1.945H5.252v5.486h5.487V1.945zM9.426 6.119H6.565V3.258h2.861v2.86z'
             }
         }), h('path', {
             attrs: {
-                d: 'M1.875 14.1688H7.36125V8.68251H1.875V14.1688ZM3.1875 9.99501H6.04875V12.8563H3.1875V9.99501Z',
-                fill: '#242E30'
+                d: 'M1.875 14.169h5.486V8.683H1.875v5.486zm1.313-4.174h2.86v2.861h-2.86V9.995z'
             }
         }), h('path', {
             attrs: {
-                d: 'M8.62125 8.67376V14.16H14.1075V8.67376H8.62125ZM12.795 12.8475H9.93375V9.98626H12.795V12.8475Z',
-                fill: '#242E30'
+                d: 'M8.621 8.674v5.486h5.486V8.674H8.622zm4.174 4.174H9.934V9.986h2.861v2.861z'
             }
         })]), h('defs', [h('clipPath', {
             attrs: {
-                id: 'clip0_7066_3748'
+                id: 'prefix__clip0_7066_3748'
             }
         }, [h('rect', {
             attrs: {
                 width: '14',
                 height: '14',
-                fill: 'white',
+                fill: '#fff',
                 transform: 'translate(1 1)'
             }
         })])])]);
