@@ -227,13 +227,13 @@ jobs:
       - name: Run System Tests
         run: |
           yarn test:system:ci
+      - name: Run a11y Tests
+        run: |
+          yarn test:a11y:ci
       - name: Run Visual Tests
         if: ${{ github.event.pull_request.draft == false }}
         run: |
           yarn test:visual:ci
-      - name: Run a11y Tests
-        run: |
-          yarn test:a11y:ci
     env:
       PIE_URL_PREFIX: pr-preview-docs/pr-${{github.event.number}}
       PERCY_TOKEN_PIE_DOCS: ${{ secrets.PERCY_TOKEN_PIE_DOCS }}
