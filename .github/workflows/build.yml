@@ -230,6 +230,12 @@ jobs:
       - name: Run a11y Tests
         run: |
           yarn test:a11y:ci
+      - name: Upload a11y Report
+        if: failure()
+        uses: actions/upload-artifact@v3
+        with:
+          name: pie-docs-violations
+          path: apps/pie-docs/test/accessibility/violations
       - name: Run Visual Tests
         if: ${{ github.event.pull_request.draft == false }}
         run: |
