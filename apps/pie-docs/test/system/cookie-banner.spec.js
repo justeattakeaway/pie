@@ -9,7 +9,7 @@ describe('PIE - Cookie Banner Tests', async () => {
     it('Should close the cookie banner when the first button is clicked', async () => {
         const puppeteer = await browser.getPuppeteer();
         const [page] = await puppeteer.pages();
-        const url = `${browser.options.baseUrl}`;
+        const url = browser.options.baseUrl;
 
         await page.goto(url);
 
@@ -30,7 +30,7 @@ describe('PIE - Cookie Banner Tests', async () => {
     it('Should close the cookie banner when the second button is clicked', async () => {
         const puppeteer = await browser.getPuppeteer();
         const [page] = await puppeteer.pages();
-        const url = `${browser.options.baseUrl}`;
+        const url = browser.options.baseUrl;
 
         await page.goto(url);
 
