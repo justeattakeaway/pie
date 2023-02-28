@@ -2,4 +2,4 @@
 "pie-docs": minor
 ---
 
-Add get suppport copy to homepage
+Add get support copy to homepage
