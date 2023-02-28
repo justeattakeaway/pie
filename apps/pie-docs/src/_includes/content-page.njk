@@ -28,7 +28,7 @@
     {% endif %}
 
     {# temporarily adding a condition to check if the title is PIE Design System - this allows an empty home page not to display the coming soon graphic in the page body #}
-    {% if content or title === 'PIE Design System' %}
+    {% if content %}
         <div class="c-contentPage-content">
             <div class="c-content-container">
                 {{ content | safe }}
