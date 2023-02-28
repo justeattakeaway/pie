@@ -1125,234 +1125,280 @@
         "heading-xxl": {
           "category": "headings",
           "displayName": "Heading XXL",
-          "description": "Used for component and layout headings."
+          "description": "Used for component and layout headings.",
+          "globalToken": ["$font-size-48", "$font-family-primary", "$font-weight-extrabold", "$letter-spacing-00"]
         },
         "heading-xl": {
           "category": "headings",
           "displayName": "Heading XL",
-          "description": "Used for component and layout headings."
+          "description": "Used for component and layout headings.",
+          "globalToken": ["$font-size-32", "$font-family-primary", "$font-weight-extrabold", "$letter-spacing-00"]
         },
         "heading-l": {
           "category": "headings",
           "displayName": "Heading L",
-          "description": "Used for component and layout headings."
+          "description": "Used for component and layout headings.",
+          "globalToken": ["$font-size-28", "$font-family-primary", "$font-weight-extrabold", "$letter-spacing-00"]
         },
         "heading-m": {
           "category": "headings",
           "displayName": "Heading M",
-          "description": "Used for component and layout headings."
+          "description": "Used for component and layout headings.",
+          "globalToken": ["$font-size-24", "$font-family-primary", "$font-weight-extrabold", "$letter-spacing-00"]
         },
         "heading-s": {
           "category": "headings",
           "displayName": "Heading S",
-          "description": "Used for component and layout headings."
+          "description": "Used for component and layout headings.",
+          "globalToken": ["$font-size-20", "$font-family-primary", "$font-weight-extrabold", "$letter-spacing-00"]
         },
         "subheading-l": {
           "category": "subheadings",
           "displayName": "Subheading L",
-          "description": "Used for component and layout subheadings."
+          "description": "Used for component and layout subheadings.",
+          "globalToken": ["$font-size-24", "$font-family-primary", "$font-weight-regular", "$letter-spacing-00"]
         },
         "subheading-s": {
           "category": "subheadings",
           "displayName": "Subheading S",
-          "description": "Used for component and layout subheadings."
+          "description": "Used for component and layout subheadings.",
+          "globalToken": ["$font-size-20", "$font-family-primary", "$font-weight-regular", "$letter-spacing-00"]
         },
         "body-l": {
           "category": "body",
           "displayName": "Body",
-          "description": "Used for body copy. Generally used for comfortable long-form reading in layouts."
+          "description": "Used for body copy. Generally used for comfortable long-form reading in layouts.",
+          "globalToken": ["$font-size-16", "$font-family-primary", "$font-weight-regular", "$paragraph-spacing-01", "$letter-spacing-00"]
         },
         "body-l-link": {
           "category": "body",
           "displayName": "Body underline",
-          "description": "Used as a visual cue to indicate something is a link."
+          "description": "Used as a visual cue to indicate something is a link.",
+          "globalToken": ["$font-size-16", "$font-family-primary", "$font-weight-regular", "$paragraph-spacing-01", "$letter-spacing-00", "$style-underline"]
         },
         "body-s": {
           "category": "body",
           "displayName": "Body small",
-          "description": "Used for body copy. Generally used for components."
+          "description": "Used for body copy. Generally used for components.",
+          "globalToken": ["$font-size-14", "$font-family-primary", "$font-weight-regular", "$paragraph-spacing-02", "$letter-spacing-00"]
         },
         "body-s-link": {
           "category": "body",
           "displayName": "Body small underline",
-          "description": "Used as a visual cue to indicate something is a link."
+          "description": "Used as a visual cue to indicate something is a link.",
+          "globalToken": ["$font-size-14", "$font-family-primary", "$font-weight-regular", "$paragraph-spacing-02", "$letter-spacing-00", "$style-underline"]
         },
         "body-strong-l": {
           "category": "body-strong",
           "displayName": "Body bold",
-          "description": "Used for strong emphasis in body copy."
+          "description": "Used for strong emphasis in body copy.",
+          "globalToken": ["$font-size-16", "$font-family-primary", "$font-weight-bold", "$paragraph-spacing-01", "$letter-spacing-00"]
         },
         "body-strong-l-link": {
           "category": "body-strong",
           "displayName": "Body bold underline",
-          "description": "Used for strong emphasis in body copy."
+          "description": "Used for strong emphasis in body copy.",
+          "globalToken": ["$font-size-16", "$font-family-primary", "$font-weight-bold", "$paragraph-spacing-01", "$letter-spacing-00", "$style-underline"]
         },
         "body-strong-s": {
           "category": "body-strong",
           "displayName": "Body small bold",
-          "description": "Used for strong emphasis in body copy."
+          "description": "Used for strong emphasis in body copy.",
+          "globalToken": ["$font-size-14", "$font-family-primary", "$font-weight-bold", "$paragraph-spacing-02", "$letter-spacing-00"]
         },
         "body-strong-s-link": {
           "category": "body-strong",
           "displayName": "Body small bold underline",
-          "description": "Used for strong emphasis in body copy."
+          "description": "Used for strong emphasis in body copy.",
+          "globalToken": ["$font-size-14", "$font-family-primary", "$font-weight-bold", "$paragraph-spacing-02", "$letter-spacing-00", "$style-underline"]
         },
         "caption": {
           "category": "caption",
           "displayName": "Caption",
-          "description": "Used for captions, labels, disclaimers or helper text. Use sparingly."
+          "description": "Used for captions, labels, disclaimers or helper text. Use sparingly.",
+          "globalToken": ["$font-size-12", "$font-family-primary", "$font-weight-regular", "$paragraph-spacing-03", "$letter-spacing-00"]
         },
         "caption-link": {
           "category": "caption",
           "displayName": "Caption Underline",
-          "description": "Used as a visual cue to indicate something is a link."
+          "description": "Used as a visual cue to indicate something is a link.",
+          "globalToken": ["$font-size-12", "$font-family-primary", "$font-weight-regular", "$paragraph-spacing-03", "$letter-spacing-00", "$style-underline"]
         },
         "caption-strong": {
           "category": "caption-strong",
           "displayName": "Caption bold",
-          "description": "Used for captions, labels, disclaimers or helper text. Use sparingly."
+          "description": "Used for captions, labels, disclaimers or helper text. Use sparingly.",
+          "globalToken": ["$font-size-12", "$font-family-primary", "$font-weight-bold", "$paragraph-spacing-03", "$letter-spacing-00"]
         },
         "caption-strong-link": {
           "category": "caption-strong-link",
           "displayName": "Caption bold underline",
-          "description": "Used as a visual cue to indicate something is a link."
+          "description": "Used as a visual cue to indicate something is a link.",
+          "globalToken": ["$font-size-12", "$font-family-primary", "$font-weight-bold", "$paragraph-spacing-03", "$letter-spacing-00", "style-underline"]
         },
         "interactive-l": {
           "category": "interactive",
           "displayName": "Interactive L",
-          "description": "Used for labels in large sized button components + numeric counter."
+          "description": "Used for labels in large sized button components + numeric counter.",
+          "globalToken": ["$font-size-20", "$font-family-primary", "$font-weight-bold", "$letter-spacing-00"]
         },
         "interactive-m": {
           "category": "interactive",
           "displayName": "Interactive M",
-          "description": "Used for labels in medium sized button components."
+          "description": "Used for labels in medium sized button components.",
+          "globalToken": ["$font-size-19", "$font-family-primary", "$font-weight-bold", "$letter-spacing-00"]
         },
         "interactive-s": {
           "category": "interactive",
           "displayName": "Interactive S",
-          "description": "Used for labels in small sized button components."
+          "description": "Used for labels in small sized button components.",
+          "globalToken": ["$font-size-16", "$font-family-primary", "$font-weight-bold", "$letter-spacing-00"]
         },
         "interactive-xs": {
           "category": "interactive",
           "displayName": "Interactive XS",
-          "description": "Used for labels in extra small sized button components."
+          "description": "Used for labels in extra small sized button components.",
+          "globalToken": ["$font-size-14", "$font-family-primary", "$font-weight-bold", "$letter-spacing-00"]
         }
       },
       "narrow": {
         "heading-xxl": {
           "category": "headings",
           "displayName": "Heading XXL",
-          "description": "Used for component and layout headings."
+          "description": "Used for component and layout headings.",
+          "globalToken": ["$font-size-32", "$font-family-primary", "$font-weight-extrabold", "$letter-spacing-00"]
         },
         "heading-xl": {
           "category": "headings",
           "displayName": "Heading XL",
-          "description": "Used for component and layout headings."
+          "description": "Used for component and layout headings.",
+          "globalToken": ["$font-size-28", "$font-family-primary", "$font-weight-extrabold", "$letter-spacing-00"]
         },
         "heading-l": {
           "category": "headings",
           "displayName": "Heading L",
-          "description": "Used for component and layout headings."
+          "description": "Used for component and layout headings.",
+          "globalToken": ["$font-size-24", "$font-family-primary", "$font-weight-extrabold", "$letter-spacing-00"]
         },
         "heading-m": {
           "category": "headings",
           "displayName": "Heading M",
-          "description": "Used for component and layout headings."
+          "description": "Used for component and layout headings.",
+          "globalToken": ["$font-size-20", "$font-family-primary", "$font-weight-extrabold", "$letter-spacing-00"]
         },
         "heading-s": {
           "category": "headings",
           "displayName": "Heading S",
-          "description": "Used for component and layout headings."
+          "description": "Used for component and layout headings.",
+          "globalToken": ["$font-size-16", "$font-family-primary", "$font-weight-extrabold", "$letter-spacing-00"]
         },
         "subheading-l": {
           "category": "subheadings",
           "displayName": "Subheading L",
-          "description": "Used for component and layout subheadings."
+          "description": "Used for component and layout subheadings.",
+          "globalToken": ["$font-size-20", "$font-family-primary", "$font-weight-extrabold", "$letter-spacing-00"]
         },
         "subheading-s": {
           "category": "subheadings",
           "displayName": "Subheading S",
-          "description": "Used for component and layout subheadings."
+          "description": "Used for component and layout subheadings.",
+          "globalToken": ["$font-size-16", "$font-family-primary", "$font-weight-regular", "$letter-spacing-00"]
         },
         "body-l": {
           "category": "body",
           "displayName": "Body",
-          "description": "Used for body copy. Generally used for comfortable long-form reading in layouts."
+          "description": "Used for body copy. Generally used for comfortable long-form reading in layouts.",
+          "globalToken": ["$font-size-16", "$font-family-primary", "$font-weight-regular", "$paragraph-spacing-01", "$letter-spacing-00"]
         },
         "body-l-link": {
           "category": "body",
           "displayName": "Body underline",
-          "description": "Used as a visual cue to indicate something is a link."
+          "description": "Used as a visual cue to indicate something is a link.",
+          "globalToken": ["$font-size-16", "$font-family-primary", "$font-weight-regular", "$paragraph-spacing-01", "$letter-spacing-00", "$style-underline"]
         },
         "body-s": {
           "category": "body",
           "displayName": "Body small",
-          "description": "Used for body copy. Generally used for components."
+          "description": "Used for body copy. Generally used for components.",
+          "globalToken": ["$font-size-14", "$font-family-primary", "$font-weight-regular", "$paragraph-spacing-02", "$letter-spacing-00"]
         },
         "body-s-link": {
           "category": "body",
           "displayName": "Body small underline",
-          "description": "Used as a visual cue to indicate something is a link."
+          "description": "Used as a visual cue to indicate something is a link.",
+          "globalToken": ["$font-size-14", "$font-family-primary", "$font-weight-regular", "$paragraph-spacing-02", "$letter-spacing-00", "$style-underline"]
         },
         "body-strong-l": {
           "category": "body-strong",
           "displayName": "Body bold",
-          "description": "Used for strong emphasis in body copy."
+          "description": "Used for strong emphasis in body copy.",
+          "globalToken": ["$font-size-16", "$font-family-primary", "$font-weight-bold", "$paragraph-spacing-01", "$letter-spacing-00"]
         },
         "body-strong-l-link": {
           "category": "body-strong",
           "displayName": "Body bold underline",
-          "description": "Used for strong emphasis in body copy."
+          "description": "Used for strong emphasis in body copy.",
+          "globalToken": ["$font-size-16", "$font-family-primary", "$font-weight-bold", "$paragraph-spacing-01", "$letter-spacing-00", "$style-underline"]
         },
         "body-strong-s": {
           "category": "body-strong",
           "displayName": "Body small bold",
-          "description": "Used for strong emphasis in body copy."
+          "description": "Used for strong emphasis in body copy.",
+          "globalToken": ["$font-size-14", "$font-family-primary", "$font-weight-bold", "$paragraph-spacing-02", "$letter-spacing-00"]
         },
         "body-strong-s-link": {
           "category": "body-strong",
           "displayName": "Body small bold underline",
-          "description": "Used for strong emphasis in body copy."
+          "description": "Used for strong emphasis in body copy.",
+          "globalToken": ["$font-size-14", "$font-family-primary", "$font-weight-bold", "$paragraph-spacing-02", "$letter-spacing-00", "$style-underline"]
         },
         "caption": {
           "category": "caption",
           "displayName": "Caption",
-          "description": "Used for captions, labels, disclaimers or helper text. Use sparingly."
+          "description": "Used for captions, labels, disclaimers or helper text. Use sparingly.",
+          "globalToken": ["$font-size-12", "$font-family-primary", "$font-weight-regular", "$paragraph-spacing-03", "$letter-spacing-00"]
         },
         "caption-link": {
           "category": "caption",
           "displayName": "Caption Underline",
-          "description": "Used as a visual cue to indicate something is a link."
+          "description": "Used as a visual cue to indicate something is a link.",
+          "globalToken": ["$font-size-12", "$font-family-primary", "$font-weight-regular", "$paragraph-spacing-03", "$letter-spacing-00", "$style-underline"]
         },
         "caption-strong": {
           "category": "caption-strong",
           "displayName": "Caption bold",
-          "description": "Used for captions, labels, disclaimers or helper text. Use sparingly."
+          "description": "Used for captions, labels, disclaimers or helper text. Use sparingly.",
+          "globalToken": ["$font-size-12", "$font-family-primary", "$font-weight-bold", "$paragraph-spacing-03", "$letter-spacing-00"]
         },
         "caption-strong-link": {
           "category": "caption-strong-link",
           "displayName": "Caption bold underline",
-          "description": "Used as a visual cue to indicate something is a link."
+          "description": "Used as a visual cue to indicate something is a link.",
+          "globalToken": ["$font-size-12", "$font-family-primary", "$font-weight-bold", "$paragraph-spacing-03", "$letter-spacing-00", "$style-underline"]
         },
         "interactive-l": {
           "category": "interactive",
           "displayName": "Interactive L",
-          "description": "Used for labels in large sized button components + numeric counter."
+          "description": "Used for labels in large sized button components + numeric counter.",
+          "globalToken": ["$font-size-20", "$font-family-primary", "$font-weight-bold", "$letter-spacing-00"]
         },
         "interactive-m": {
           "category": "interactive",
           "displayName": "Interactive M",
-          "description": "Used for labels in medium sized button components."
+          "description": "Used for labels in medium sized button components.",
+          "globalToken": ["$font-size-19", "$font-family-primary", "$font-weight-bold", "$letter-spacing-00"]
         },
         "interactive-s": {
           "category": "interactive",
           "displayName": "Interactive S",
-          "description": "Used for labels in small sized button components."
+          "description": "Used for labels in small sized button components.",
+          "globalToken": ["$font-size-16", "$font-family-primary", "$font-weight-bold", "$letter-spacing-00"]
         },
         "interactive-xs": {
           "category": "interactive",
           "displayName": "Interactive XS",
-          "description": "Used for labels in extra small sized button components."
+          "description": "Used for labels in extra small sized button components.",
+          "globalToken": ["$font-size-14", "$font-family-primary", "$font-weight-bold", "$letter-spacing-00"]
         }
       }
     }

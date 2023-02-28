@@ -266,9 +266,19 @@ $tokensTable-item-vertical-padding: f.spacing(e);
         display: block;
     }
 
+    .c-tokensTable-token--list {
+        margin-right: f.spacing(a);
+        margin-bottom: f.spacing(a);
+    }
+
     @include f.media('>=wide') {
         padding: 0;
         background-color: f.$color-background-default;
+
+        .c-tokensTable-token--list {
+            margin-right: f.spacing(b);
+            margin-bottom: f.spacing(b);
+        }
     }
 }
 

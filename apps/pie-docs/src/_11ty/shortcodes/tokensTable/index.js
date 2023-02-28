@@ -81,11 +81,26 @@ const buildTokenExampleElement = (token, tokenType, tokenMetadata, path = {}) =>
  * @param {string} globalToken the global token referenced by this alias token
  * @returns a <span> HTML string containing the global token used
  */
-const buildGlobalTokenUsedElement = globalToken => deindentHTML(`
-    <span class="c-tokensTable-tokenDescription">
-        <span class="u-font-bold u-showAboveWide">Global token used:</span>
-        <span class="c-tokensTable-token c-tokensTable-token--light">${globalToken}</span>
-    </span>`);
+const buildGlobalTokenUsedElement = globalToken => {
+    let tokenMarkup = '';
+    let tokenDescription = 'Global token used:';
+
+    if (Array.isArray(globalToken)) {
+        globalToken.forEach(tokenName => {
+            tokenMarkup += `<span class="c-tokensTable-token c-tokensTable-token--light c-tokensTable-token--list">${tokenName}</span>`;
+        });
+
+        tokenDescription = 'Global tokens used:';
+    } else {
+        tokenMarkup += `<span class="c-tokensTable-token c-tokensTable-token--light">${globalToken}</span>`;
+    }
+
+    return deindentHTML(`
+            <span class="c-tokensTable-tokenDescription">
+                <span class="u-font-bold u-showAboveWide">${tokenDescription}</span>
+                ${tokenMarkup}
+            </span>`);
+};
 
 /**
  * Builds the overall token description element for each type of token. The description content differs based on the type of token.
