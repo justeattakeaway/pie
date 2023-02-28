@@ -9,8 +9,10 @@ v1.29.0
 *February 27, 2023*
 
 ### Added
-- `@axe-core/webdriverio` & `axe-reports` packages to root for accessibility testing.
-- Added `test:a11y` & `test:a11y:ci` scripts to root to run accessibility testing locally and on CI.
+- Linked the icon packages together so that they get released as the same version number
+
+### Changed
+- Updated `pie-icons` dependency to latest beta version
 
 
 v1.28.0
@@ -47,12 +49,14 @@ v1.26.0
 - Storybook publishing to GitHub Actions.
 - Modified `turbo.json` commands.
 
+
 v1.25.1
 ------------------------------
 *February 3, 2023*
 
 ### Fixed
 - Issue with dist's not being available to changesets release job.
+
 
 v1.25.0
 ------------------------------
