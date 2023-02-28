@@ -12,7 +12,7 @@ export default {
                 xmlns: 'http://www.w3.org/2000/svg',
                 viewBox: '0 0 16 16'
             },
-            class: 'c-pieIcon c-pieIcon--logoSkipCircleFilled'
+            class: 'c-pieIcon c-pieIcon--skipCircleFilled'
         }, ctx.data]), [h('g', {
             attrs: {
                 'clip-path': 'url(#prefix__clip0_4813_3340)'
