@@ -156,15 +156,15 @@ const buildTokenListElements = ({
     // the colour token example. Please consider them placeholder for now.
     const tokenDescription = buildTokenDescriptionElement(tokenMetadata);
 
-    return deindentHTML(`
-    <li class="c-tokensTable-row c-tokensTable-item" style="${getExampleColumnSize(tokenType)}">
-        ${tokenExampleElement}
-        <div class="c-tokensTable-content">
-            <span class="c-tokensTable-displayName">${tokenDisplayName}</span>
-            ${tokenDescription}
-        </div>
-        ${tokenPill}
-    </li>`);
+    return `
+        <li class="c-tokensTable-row c-tokensTable-item" style="${getExampleColumnSize(tokenType)}">
+            ${tokenExampleElement}
+            <div class="c-tokensTable-content">
+                <span class="c-tokensTable-displayName">${tokenDisplayName}</span>
+                ${tokenDescription}
+            </div>
+            ${tokenPill}
+        </li>`;
 };
 
 /**
