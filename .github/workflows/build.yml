@@ -297,10 +297,12 @@ jobs:
         if: steps.check_files.outputs.files_exists == 'true' && contains(github.ref_name, 'main')
         run: |
           npx changeset pre exit
-          git add .changeset/pre.json
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git commit -m "chore: exit prerelease mode" -a
+      - name: commit prerelease exit changes
+        if: steps.check_files.outputs.files_exists == 'true' && contains(github.ref_name, 'main')
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "chore(pie-monorepo): exit prerelease mode"
+          branch: ${{ github.event.inputs.branch }}
       - name: Create latest release PR
         if: contains(github.ref_name, 'main')
         uses: changesets/action@v1
