@@ -1,4 +1,4 @@
-module.exports = (api) => {
+module.exports = api => {
     if (typeof (api) !== 'undefined') {
         api.cache(true);
     }
@@ -10,19 +10,19 @@ module.exports = (api) => {
         [
             '@babel/plugin-proposal-private-methods',
             {
-                loose: true,
+                loose: true
             }
         ],
         [
             '@babel/plugin-proposal-private-property-in-object',
             {
-                loose: true,
+                loose: true
             }
         ]
     ];
 
     return {
         presets,
-        plugins,
+        plugins
     };
 };
