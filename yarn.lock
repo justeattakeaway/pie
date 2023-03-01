@@ -2806,19 +2806,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@justeat/eslint-config-fozzie@npm:5.1.0":
-  version: 5.1.0
-  resolution: "@justeat/eslint-config-fozzie@npm:5.1.0"
-  dependencies:
-    eslint-config-airbnb-base: 15.0.0
-    eslint-plugin-vue: 8.4.0
-  peerDependencies:
-    eslint: 7.x || 8.x
-    eslint-plugin-import: ^2.22.1
-  checksum: a1d7ec7b5fc175539e6a2a0ca3c304816be6ff1cdc0823f422e3346c91d3c73c928549ce16ad85f01a9e2ade236e0ce5b71b3a0f1f08c9898252bb89cedc5233
-  languageName: node
-  linkType: hard
-
 "@justeat/fozzie@npm:10.11.0":
   version: 10.11.0
   resolution: "@justeat/fozzie@npm:10.11.0"
@@ -2894,6 +2881,7 @@ __metadata:
     "@vue/babel-helper-vue-jsx-merge-props": 1.4.0
     "@vue/babel-preset-jsx": 1.4.0
     bili: 3.4.2
+    eslint-plugin-vue: ^9.9.0
     fs-extra: 9.0.1
     lodash.kebabcase: 4.1.1
     marked: 1.2.5
@@ -10380,17 +10368,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-vue@npm:8.4.0":
-  version: 8.4.0
-  resolution: "eslint-plugin-vue@npm:8.4.0"
+"eslint-plugin-vue@npm:^9.9.0":
+  version: 9.9.0
+  resolution: "eslint-plugin-vue@npm:9.9.0"
   dependencies:
     eslint-utils: ^3.0.0
     natural-compare: ^1.4.0
+    nth-check: ^2.0.1
+    postcss-selector-parser: ^6.0.9
     semver: ^7.3.5
-    vue-eslint-parser: ^8.0.1
+    vue-eslint-parser: ^9.0.1
+    xml-name-validator: ^4.0.0
   peerDependencies:
     eslint: ^6.2.0 || ^7.0.0 || ^8.0.0
-  checksum: f364ba9e4f525f1bb6f58cf98d576d1a7267a3bbd75c534ddbeb2757906c6be98ab90e30c6c37bb3f4a75a546da60b8b56b17e3769823eb81288ded1e259ac49
+  checksum: 059f9c1915504d074adf64bc3371d1e174f8844088d0e08800c958cbef09d7fdf2a0a949634187231645435a1ef31595c8c81f441000ec43589bb58a1282fe3c
   languageName: node
   linkType: hard
 
@@ -10411,7 +10402,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-scope@npm:^7.0.0, eslint-scope@npm:^7.1.1":
+"eslint-scope@npm:^7.1.1":
   version: 7.1.1
   resolution: "eslint-scope@npm:7.1.1"
   dependencies:
@@ -10439,7 +10430,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-visitor-keys@npm:^3.1.0, eslint-visitor-keys@npm:^3.3.0":
+"eslint-visitor-keys@npm:^3.3.0":
   version: 3.3.0
   resolution: "eslint-visitor-keys@npm:3.3.0"
   checksum: d59e68a7c5a6d0146526b0eec16ce87fbf97fe46b8281e0d41384224375c4e52f5ffb9e16d48f4ea50785cde93f766b0c898e31ab89978d88b0e1720fbfb7808
@@ -10540,7 +10531,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"espree@npm:^9.0.0, espree@npm:^9.3.1, espree@npm:^9.4.0":
+"espree@npm:^9.3.1, espree@npm:^9.4.0":
   version: 9.4.1
   resolution: "espree@npm:9.4.1"
   dependencies:
@@ -17588,7 +17579,6 @@ __metadata:
     "@commitlint/cli": 17.4.3
     "@commitlint/config-conventional": 17.4.4
     "@justeat/browserslist-config-fozzie": 1.x
-    "@justeat/eslint-config-fozzie": 5.1.0
     "@justeat/fozzie": 10.11.0
     "@justeat/pie-design-tokens": 4.2.0
     "@justeat/stylelint-config-fozzie": 3.x
@@ -20436,7 +20426,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"semver@npm:7.3.8, semver@npm:^7.3.2, semver@npm:^7.3.4, semver@npm:^7.3.5, semver@npm:^7.3.7":
+"semver@npm:7.3.8, semver@npm:^7.3.2, semver@npm:^7.3.4, semver@npm:^7.3.5, semver@npm:^7.3.6, semver@npm:^7.3.7":
   version: 7.3.8
   resolution: "semver@npm:7.3.8"
   dependencies:
@@ -23271,20 +23261,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vue-eslint-parser@npm:^8.0.1":
-  version: 8.3.0
-  resolution: "vue-eslint-parser@npm:8.3.0"
+"vue-eslint-parser@npm:^9.0.1":
+  version: 9.1.0
+  resolution: "vue-eslint-parser@npm:9.1.0"
   dependencies:
-    debug: ^4.3.2
-    eslint-scope: ^7.0.0
-    eslint-visitor-keys: ^3.1.0
-    espree: ^9.0.0
+    debug: ^4.3.4
+    eslint-scope: ^7.1.1
+    eslint-visitor-keys: ^3.3.0
+    espree: ^9.3.1
     esquery: ^1.4.0
     lodash: ^4.17.21
-    semver: ^7.3.5
+    semver: ^7.3.6
   peerDependencies:
     eslint: ">=6.0.0"
-  checksum: 8cc751e9fc2bfba93664ad8945732ab1c97791f9123e703de8669b65670d1e01906d80436bf4932d7ee6fa6174ed4545e8abb059206c88f4bd71957ca6cf7ba8
+  checksum: e2e6b05989294c4439d91283a78a0cb444cfba30f2715a5be1950d7815cadb5c8f449d9362a92bdd163cb8944abaac73bb076ce3c27b27586eaa4560002e6dfd
   languageName: node
   linkType: hard
 
@@ -23929,6 +23919,13 @@ __metadata:
   version: 3.0.0
   resolution: "xml-name-validator@npm:3.0.0"
   checksum: b3ac459afed783c285bb98e4960bd1f3ba12754fd4f2320efa0f9181ca28928c53cc75ca660d15d205e81f92304419afe94c531c7cfb3e0649aa6d140d53ecb0
+  languageName: node
+  linkType: hard
+
+"xml-name-validator@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "xml-name-validator@npm:4.0.0"
+  checksum: af100b79c29804f05fa35aa3683e29a321db9b9685d5e5febda3fa1e40f13f85abc40f45a6b2bf7bee33f68a1dc5e8eaef4cec100a304a9db565e6061d4cb5ad
   languageName: node
   linkType: hard
 
