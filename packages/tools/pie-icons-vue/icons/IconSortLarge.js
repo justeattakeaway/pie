@@ -15,22 +15,22 @@ export default {
             class: 'c-pieIcon c-pieIcon--sortLarge'
         }, ctx.data]), [h('path', {
             attrs: {
-                d: 'M18.625 20.125H13.375V21.875H18.625V20.125Z',
+                d: 'M18.625 20.125h-5.25v1.75h5.25v-1.75z',
                 fill: '#242E30'
             }
         }), h('path', {
             attrs: {
-                d: 'M5.5 6.375V8.125H28.25V6.375H5.5Z',
+                d: 'M5.5 6.375v1.75h22.75v-1.75H5.5z',
                 fill: '#242E30'
             }
         }), h('path', {
             attrs: {
-                d: 'M5.5 6.375H3.75V8.125H5.5V6.375Z',
+                d: 'M5.5 6.375H3.75v1.75H5.5v-1.75z',
                 fill: '#242E30'
             }
         }), h('path', {
             attrs: {
-                d: 'M23 13.25H9V15H23V13.25Z',
+                d: 'M23 13.25H9V15h14v-1.75z',
                 fill: '#242E30'
             }
         })]);

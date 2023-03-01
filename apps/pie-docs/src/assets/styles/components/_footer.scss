@@ -9,6 +9,12 @@
         padding: 40px 60px;
     }
 
+    .c-footer-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
     .c-footer-logo {
         width: 100px;
         height: 40px;
