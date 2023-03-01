@@ -76,7 +76,7 @@ We use a variety of plugins to enhance and speed up the way we work in the PIE t
           label: "Themer",
           href: "https://www.figma.com/community/plugin/731176732337510831",
           src: "../../../assets/img/designers/getting-started/best-practices/themer.png",
-          mobileSrc: "../../../assets/img/designers/getting-started/best-practices/contrast_narrow.png"
+          mobileSrc: "../../../assets/img/designers/getting-started/best-practices/themer.png"
         },
         {
           label: "Contrast",
