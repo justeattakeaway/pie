@@ -9,23 +9,23 @@ const OUT_DIR = `${process.cwd()}/src/assets/_optimised`;
 
 console.log(`Processing SVGs in ${IN_DIR}...`);
 
-const svgFiles = getAllSvgs().filter(file => path.extname(file.fileName) === '.svg');
+const svgFiles = getAllSvgs().filter((file) => path.extname(file.fileName) === '.svg');
 
-svgFiles.forEach(svgObject => {
+svgFiles.forEach((svgObject) => {
     const fullPath = path.join(svgObject.path, '/', svgObject.fileName);
 
     const svg = fs.readFileSync(fullPath);
     const directorySuffix = pathHelpers.getAssetDirectoryName(svgObject.path);
 
     processSvg(svg)
-        .then(svg => {
+        .then((svg) => {
             const outputDirectory = OUT_DIR + directorySuffix;
             const normalisedFilename = (svgObject.fileName).toLowerCase();
 
             fs.mkdirSync(outputDirectory, { recursive: true });
             fs.writeFileSync(path.join(outputDirectory, normalisedFilename), svg);
         })
-        .catch(error => {
+        .catch((error) => {
             console.error(svgObject, error);
         });
 });

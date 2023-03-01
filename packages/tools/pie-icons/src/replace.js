@@ -15,7 +15,7 @@ function replace (attrs = {}) {
 
     const elementsToReplace = document.querySelectorAll('[data-pie-icons]');
 
-    Array.from(elementsToReplace).forEach(element => replaceElement(element, attrs));
+    Array.from(elementsToReplace).forEach((element) => replaceElement(element, attrs));
 }
 
 /**
@@ -32,11 +32,11 @@ function replaceElement (element, attrs = {}) {
     const svgString = icons[name].toSvg({
         ...attrs,
         ...elementAttrs,
-        ...{ class: classnames(attrs.class, elementAttrs.class) }
+        ...{ class: classnames(attrs.class, elementAttrs.class) },
     });
     const svgDocument = new DOMParser().parseFromString(
         svgString,
-        'image/svg+xml'
+        'image/svg+xml',
     );
     const svgElement = svgDocument.querySelector('svg');
 

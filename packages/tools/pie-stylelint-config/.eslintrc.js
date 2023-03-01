@@ -3,10 +3,7 @@ module.exports = {
         browser: true,
         es6: true,
         jest: true,
-        node: true
+        node: true,
     },
-
-    extends: [
-        '@justeat/eslint-config-fozzie'
-    ]
+    extends: [require.resolve('@justeattakeaway/pie-eslint-config/strict')],
 };
