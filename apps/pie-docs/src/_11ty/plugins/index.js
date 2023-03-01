@@ -12,7 +12,7 @@ const cssnano = require('cssnano');
  * Adds all 11ty plugins
  * @param {object} eleventyConfig
  */
-const addAllPlugins = eleventyConfig => {
+const addAllPlugins = (eleventyConfig) => {
     eleventyConfig.addPlugin(eleventyNavigationPlugin);
     eleventyConfig.addPlugin(eleventyPluginRev);
     eleventyConfig.addPlugin(eleventyPluginClean);
@@ -26,11 +26,11 @@ const addAllPlugins = eleventyConfig => {
             loadPaths: [
                 '../../node_modules/'
             ],
-            sourceMap: true
-        }
+            sourceMap: true,
+        },
     });
 };
 
 module.exports = {
-    addAllPlugins
+    addAllPlugins,
 };

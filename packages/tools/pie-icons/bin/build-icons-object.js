@@ -15,7 +15,7 @@ function getSVGName (svgFile) {
  */
 function buildIconsObject (svgFiles, getSvg) {
     return svgFiles
-    .map(svgFile => {
+    .map((svgFile) => {
         const svg = getSvg(svgFile);
         const attributes = getSvgAttributes(svg);
         const contents = getSvgContents(svg);
@@ -24,14 +24,14 @@ function buildIconsObject (svgFiles, getSvg) {
         const name = getSVGName(svgFile);
 
         return {
-            attributes, contents, name, pathPrefix
+            attributes, contents, name, pathPrefix,
         };
     })
     .reduce((icons, icon) => {
         icons[icon.name] = {
             attrs: icon.attributes,
             contents: icon.contents,
-            pathPrefix: icon.pathPrefix
+            pathPrefix: icon.pathPrefix,
         };
         return icons;
     }, {});
@@ -46,7 +46,7 @@ function getSvgContents (svg) {
     const $ = cheerio.load(svg);
     return minify($('svg').html(), {
         caseSensitive: true,
-        collapseWhitespace: true
+        collapseWhitespace: true,
     });
 }
 

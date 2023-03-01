@@ -5,8 +5,8 @@
  * @param {String} htmlString - the HTML string returned from a shortcode
  * @returns {String} the HTML string with indentation whitespace removed
  */
-const deindentHTML = htmlString => htmlString.replace(/\n|\t/g, '').trim();
+const deindentHTML = (htmlString) => htmlString.replace(/\n|\t/g, '').trim();
 
 module.exports = {
-    deindentHTML
+    deindentHTML,
 };
