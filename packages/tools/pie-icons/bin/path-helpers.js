@@ -20,5 +20,5 @@ function getAssetDirectoryName (fullPath) {
 }
 
 export default {
-    getAssetDirectoryName
+    getAssetDirectoryName,
 };
