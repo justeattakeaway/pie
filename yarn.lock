@@ -2829,6 +2829,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@justeat/pie-design-tokens@npm:4.0.0-beta.0":
+  version: 4.0.0-beta.0
+  resolution: "@justeat/pie-design-tokens@npm:4.0.0-beta.0"
+  dependencies:
+    jsonc-parser: 3.2.0
+    lodash.merge: 4.6.2
+    mkdirp: 1.0.4
+  checksum: a94715a45ec3c3d40841fc55a41fbe5beccffdbb5cc22541d8c9dbc7a8c88525984ad878e66f3aa979475d0b8c467b2a8c0df7eab3887d46c3899a1dca979a7b
+  languageName: node
+  linkType: hard
+
 "@justeat/pie-design-tokens@npm:4.2.0":
   version: 4.2.0
   resolution: "@justeat/pie-design-tokens@npm:4.2.0"
@@ -2903,7 +2914,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-icons@2.0.0, @justeattakeaway/pie-icons@workspace:packages/tools/pie-icons":
+"@justeattakeaway/pie-icons@2.0.0, @justeattakeaway/pie-icons@workspace:*, @justeattakeaway/pie-icons@workspace:packages/tools/pie-icons":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-icons@workspace:packages/tools/pie-icons"
   dependencies:
@@ -10381,6 +10392,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"eslint-plugin-vue@npm:8.4.0":
+  version: 8.4.0
+  resolution: "eslint-plugin-vue@npm:8.4.0"
+  dependencies:
+    eslint-utils: ^3.0.0
+    natural-compare: ^1.4.0
+    semver: ^7.3.5
+    vue-eslint-parser: ^8.0.1
+  peerDependencies:
+    eslint: ^6.2.0 || ^7.0.0 || ^8.0.0
+  checksum: f364ba9e4f525f1bb6f58cf98d576d1a7267a3bbd75c534ddbeb2757906c6be98ab90e30c6c37bb3f4a75a546da60b8b56b17e3769823eb81288ded1e259ac49
+  languageName: node
+  linkType: hard
+
 "eslint-plugin-vue@npm:8.7.1":
   version: 8.7.1
   resolution: "eslint-plugin-vue@npm:8.7.1"
@@ -17594,7 +17619,7 @@ __metadata:
     "@justeat/browserslist-config-fozzie": 1.x
     "@justeat/eslint-config-fozzie": 5.1.0
     "@justeat/fozzie": 10.11.0
-    "@justeat/pie-design-tokens": 4.2.0
+    "@justeat/pie-design-tokens": 4.0.0-beta.0
     "@justeat/stylelint-config-fozzie": 3.x
     "@justeattakeaway/pie-icons": 2.0.0-beta.7
     "@percy/cli": 1.16.0
