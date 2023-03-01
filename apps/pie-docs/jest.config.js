@@ -8,6 +8,7 @@ module.exports = {
 
     modulePathIgnorePatterns: [
         './test/system/',
-        './test/visual/'
+        './test/visual/',
+        './test/accessibility/'
     ]
 };

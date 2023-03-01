@@ -3,14 +3,23 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-
-v1.29.2
+v1.30.1
 ------------------------------
 *March 1, 2023*
 
 ### Added
 - `watch` script to `package.json`
 - `watch` script to `turbo.json`
+
+
+v1.30.0
+------------------------------
+*February 28, 2023*
+
+### Changed
+- Updated `pie-icons` dependency to latest beta version
+- `@axe-core/webdriverio` & `axe-reports` packages to root for accessibility testing.
+- Added `test:a11y` & `test:a11y:ci` scripts to root to run accessibility testing locally and on CI.
 
 
 v1.29.1
@@ -27,9 +36,6 @@ v1.29.0
 
 ### Added
 - Linked the icon packages together so that they get released as the same version number
-
-### Changed
-- Updated `pie-icons` dependency to latest beta version
 
 
 v1.28.0

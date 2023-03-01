@@ -95,6 +95,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@axe-core/webdriverio@npm:4.6.0":
+  version: 4.6.0
+  resolution: "@axe-core/webdriverio@npm:4.6.0"
+  dependencies:
+    axe-core: ^4.6.1
+    cssesc: ^3.0.0
+  peerDependencies:
+    webdriverio: ^5 || ^6 || ^7
+  checksum: 833924833c7093e2150550f26f9d97cf6662a4a7bd43c0088390b25e372f928cf4712514e9edd820c2d8417676e601cd8c65b9b39a5c2c7e9efd5b06fda2a107
+  languageName: node
+  linkType: hard
+
 "@babel/cli@npm:7.19.3":
   version: 7.19.3
   resolution: "@babel/cli@npm:7.19.3"
@@ -2824,7 +2836,7 @@ __metadata:
   resolution: "@justeattakeaway/pie-icons-react@workspace:packages/tools/pie-icons-react"
   dependencies:
     "@babel/node": 7.19.1
-    "@justeattakeaway/pie-icons": 2.0.0-beta.7
+    "@justeattakeaway/pie-icons": 2.0.0
     "@svgr/core": 6.4.0
     "@types/react": 18.0.21
     pascal-case: 3.1.2
@@ -2840,7 +2852,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-icons-vue@workspace:packages/tools/pie-icons-vue"
   dependencies:
-    "@justeattakeaway/pie-icons": 2.0.0-beta.7
+    "@justeattakeaway/pie-icons": 2.0.0
     "@vue/babel-helper-vue-jsx-merge-props": 1.4.0
     "@vue/babel-preset-jsx": 1.4.0
     bili: 3.4.2
@@ -2852,7 +2864,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-icons@2.0.0-beta.7, @justeattakeaway/pie-icons@workspace:packages/tools/pie-icons":
+"@justeattakeaway/pie-icons@2.0.0, @justeattakeaway/pie-icons@workspace:packages/tools/pie-icons":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-icons@workspace:packages/tools/pie-icons"
   dependencies:
@@ -2867,6 +2879,19 @@ __metadata:
     webpack-cli: 4.9.2
   languageName: unknown
   linkType: soft
+
+"@justeattakeaway/pie-icons@npm:2.0.0-beta.7":
+  version: 2.0.0-beta.7
+  resolution: "@justeattakeaway/pie-icons@npm:2.0.0-beta.7"
+  dependencies:
+    cheerio: 1.0.0-rc.10
+    classnames: 2.3.1
+    html-minifier: 4.0.0
+    prettier: 2.5.1
+    svgo: 1.3.2
+  checksum: bf1117a2466af589be4d0766ac1491dc54853571d6fde9198a4421e217c376d150a708ceb4cdffde81a5c0b0cd93da57487bc0a4c20880c043f4dc4ff19daaf7
+  languageName: node
+  linkType: hard
 
 "@justeattakeaway/pie-stylelint-config@workspace:packages/tools/pie-stylelint-config":
   version: 0.0.0-use.local
@@ -6398,6 +6423,20 @@ __metadata:
   version: 4.2.3
   resolution: "axe-core@npm:4.2.3"
   checksum: 753487b6d599dd478edebe8c9966c0f3ae44877b784add323e72db8c221ba8c248a841d35ef920d5b4bd6203552e15e443b36d2dd4cb3ff7d8e894cc64c5cb57
+  languageName: node
+  linkType: hard
+
+"axe-core@npm:^4.6.1":
+  version: 4.6.3
+  resolution: "axe-core@npm:4.6.3"
+  checksum: d0c46be92b9707c48b88a53cd5f471b155a2bfc8bf6beffb514ecd14e30b4863e340b5fc4f496d82a3c562048088c1f3ff5b93b9b3b026cb9c3bfacfd535da10
+  languageName: node
+  linkType: hard
+
+"axe-reports@npm:1.1.11":
+  version: 1.1.11
+  resolution: "axe-reports@npm:1.1.11"
+  checksum: 8e9523994865e3d0bc1bbe034f110a5111eb359ae6aefef517fcfa1af4cac6faa504a399874f937767a45e0578321addd02a7012c7a1e5e18e28c8839577024b
   languageName: node
   linkType: hard
 
@@ -17383,6 +17422,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "pie-monorepo@workspace:."
   dependencies:
+    "@axe-core/webdriverio": 4.6.0
     "@babel/cli": 7.19.3
     "@babel/core": 7.17.10
     "@babel/eslint-parser": 7.19.1
@@ -17408,6 +17448,7 @@ __metadata:
     "@wdio/mocha-framework": 7.26.0
     allure-commandline: 2.20.1
     autoprefixer: 10.4.7
+    axe-reports: 1.1.11
     babel-loader: 8.2.3
     chromedriver: 109.0.0
     commitizen: 4.3.0

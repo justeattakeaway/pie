@@ -1,7 +1,7 @@
 {
   "name": "pie-monorepo",
   "description": "JustEatTakeaway",
-  "version": "1.29.2",
+  "version": "1.30.1",
   "keywords": [],
   "author": "JustEatTakeaway - Design System Web Team",
   "license": "Apache-2.0",
@@ -31,6 +31,8 @@
     "prepack": "pinst --disable",
     "postpack": "pinst --enable",
     "test": "turbo run test",
+    "test:a11y": "turbo run test:a11y",
+    "test:a11y:ci": "turbo run test:a11y:ci",
     "test:ci": "turbo run test:ci",
     "test:coverage": "turbo run test:coverage",
     "test:generate-routes": "turbo run test:generate-routes",
@@ -43,6 +45,7 @@
     "extends": "@justeat/stylelint-config-fozzie"
   },
   "devDependencies": {
+    "@axe-core/webdriverio": "4.6.0",
     "@babel/cli": "7.19.3",
     "@babel/core": "7.17.10",
     "@babel/eslint-parser": "7.19.1",
@@ -66,6 +69,7 @@
     "@wdio/mocha-framework": "7.26.0",
     "allure-commandline": "2.20.1",
     "autoprefixer": "10.4.7",
+    "axe-reports": "1.1.11",
     "babel-loader": "8.2.3",
     "chromedriver": "109.0.0",
     "commitizen": "4.3.0",

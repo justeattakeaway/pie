@@ -66,6 +66,14 @@
         "src/**"
       ]
     },
+    "test:a11y": {
+      "cache": false,
+      "outputs": []
+    },
+    "test:a11y:ci": {
+      "cache": false,
+      "outputs": []
+    },
     "test:coverage": {
       "outputs": []
     },
