@@ -15,17 +15,17 @@ export default {
             class: 'c-pieIcon c-pieIcon--sort'
         }, ctx.data]), [h('path', {
             attrs: {
-                d: 'M9.75 11.7188H6.25V13.0312H9.75V11.7188Z',
+                d: 'M9.75 11.719h-3.5v1.312h3.5V11.72z',
                 fill: '#242E30'
             }
         }), h('path', {
             attrs: {
-                d: 'M12.375 7.34375H3.625V8.65625H12.375V7.34375Z',
+                d: 'M12.375 7.344h-8.75v1.312h8.75V7.344z',
                 fill: '#242E30'
             }
         }), h('path', {
             attrs: {
-                d: 'M15 2.96875H1V4.28125H15V2.96875Z',
+                d: 'M15 2.969H1V4.28h14V2.97z',
                 fill: '#242E30'
             }
         })]);

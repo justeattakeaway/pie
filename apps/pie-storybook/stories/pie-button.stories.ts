@@ -17,12 +17,16 @@ export default {
         variant: {
             control: 'select',
             options: Object.values(BUTTON_VARIANT)
+        },
+        disabled: {
+            control: 'boolean'
         }
     },
     args: {
         size: BUTTON_SIZE.MEDIUM,
         type: BUTTON_TYPE.SUBMIT,
-        variant: BUTTON_VARIANT.PRIMARY
+        variant: BUTTON_VARIANT.PRIMARY,
+        disabled: false
     },
 } as Meta;
 

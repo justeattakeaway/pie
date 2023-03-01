@@ -11,7 +11,8 @@ const getIconSvg = (iconName, iconFill) => {
             height: 20,
             width: 20,
             fill: iconFill,
-            class: iconFill && 'u-iconFilled'
+            class: iconFill && 'u-iconFilled',
+            'aria-hidden': 'true'
         }
     });
 };

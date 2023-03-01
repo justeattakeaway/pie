@@ -133,7 +133,7 @@ This part of the process is also different depending on the platform (and applic
 
 #### For web
 
-Once a new version of Fozzie or Snacks is released, applications that consume these libraries will then need to update to use this new version. Once they do this, the Sass that is used in these libraries will get compiled into application CSS and released as part of these various web applications. How these web applications are released can vary from application to application – for more information, speak to the relevant application team (or ask for more details in **#help-designsystem-engineering**.
+Once a new version of Fozzie or Snacks is released, applications that consume these libraries will then need to update to use this new version. Once they do this, the Sass that is used in these libraries will get compiled into application CSS and released as part of these various web applications. How these web applications are released can vary from application to application – for more information, speak to the relevant application team (or ask for more details in **#help-designsystem**.
 
 #### For iOS
 

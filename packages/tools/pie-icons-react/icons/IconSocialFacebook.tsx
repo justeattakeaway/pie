@@ -1,0 +1,4 @@
+import * as React from "react";
+import { SVGProps } from "react";
+const IconSocialFacebook = (props: SVGProps<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" className="c-pieIcon c-pieIcon--facebook" width="1em" height="1em" {...props}><g clipPath="url(#prefix__clip0_1595_1545)"><path d="M8 1.455A6.545 6.545 0 006.96 14.466V9.89H5.296V8H6.96V6.556A2.31 2.31 0 019.435 4.01c.49.007.978.051 1.461.131v1.61h-.822a.945.945 0 00-1.068 1.024V8h1.812l-.289 1.89H9.006v4.576A6.545 6.545 0 008 1.455z" fill="#1778F2" /></g><defs><clipPath id="prefix__clip0_1595_1545"><rect width={14} height={14} fill="#fff" transform="translate(1 1)" /></clipPath></defs></svg>;
+export default IconSocialFacebook;

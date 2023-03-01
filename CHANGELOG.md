@@ -4,13 +4,32 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 
-v1.28.1
+v1.29.2
 ------------------------------
 *March 1, 2023*
 
 ### Added
 - `watch` script to `package.json`
 - `watch` script to `turbo.json`
+
+
+v1.29.1
+------------------------------
+*February 28, 2023*
+
+### Fixed
+- .changeset/config.json to automatically commit changeset files.
+
+
+v1.29.0
+------------------------------
+*February 27, 2023*
+
+### Added
+- Linked the icon packages together so that they get released as the same version number
+
+### Changed
+- Updated `pie-icons` dependency to latest beta version
 
 
 v1.28.0
@@ -47,12 +66,14 @@ v1.26.0
 - Storybook publishing to GitHub Actions.
 - Modified `turbo.json` commands.
 
+
 v1.25.1
 ------------------------------
 *February 3, 2023*
 
 ### Fixed
 - Issue with dist's not being available to changesets release job.
+
 
 v1.25.0
 ------------------------------

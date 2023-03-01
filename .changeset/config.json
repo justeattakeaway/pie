@@ -1,7 +1,14 @@
 {
     "changelog": ["./changelog-config.js", {"repo": "justeattakeaway/pie"}],
-    "commit": false,
+    "commit": true,
     "fixed": [],
+    "linked": [
+      [
+        "@justeattakeaway/pie-icons",
+        "@justeattakeaway/pie-icons-vue",
+        "@justeattakeaway/pie-icons-react"
+      ]
+    ],
     "access": "public",
     "baseBranch": "main",
     "updateInternalDependencies": "patch",

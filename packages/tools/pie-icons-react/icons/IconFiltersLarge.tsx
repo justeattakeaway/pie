@@ -1,0 +1,4 @@
+import * as React from "react";
+import { SVGProps } from "react";
+const IconFiltersLarge = (props: SVGProps<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" className="c-pieIcon c-pieIcon--filtersLarge" width="1em" height="1em" {...props}><path d="M14.25 9v-.875A2.625 2.625 0 0011.625 5.5h-.875a2.625 2.625 0 00-2.625 2.625V9h-5.25v1.75h5.25v.875a2.625 2.625 0 002.625 2.625h.875a2.625 2.625 0 002.625-2.625v-.875h14.875V9H14.25zm-1.75 2.625a.875.875 0 01-.875.875h-.875a.875.875 0 01-.875-.875v-3.5a.875.875 0 01.875-.875h.875a.875.875 0 01.875.875v3.5zm11.375 8.75a2.625 2.625 0 00-2.625-2.625h-.875a2.625 2.625 0 00-2.625 2.625v.875H2.875V23H17.75v.875a2.625 2.625 0 002.625 2.625h.875a2.625 2.625 0 002.625-2.625V23h5.25v-1.75h-5.25v-.875zm-1.75 3.5a.875.875 0 01-.875.875h-.875a.875.875 0 01-.875-.875v-3.5a.875.875 0 01.875-.875h.875a.875.875 0 01.875.875v3.5z" fill="#242E30" /></svg>;
+export default IconFiltersLarge;
