@@ -1,4 +1,5 @@
 const markdownFilter = require('../filters/markdown');
+const mobileImageMaxWidth = require('../../_data/pageWidths');
 
 /**
  * Creates a figcaption element containing the image caption if one has been provided
@@ -36,10 +37,6 @@ module.exports = function (config) {
             ? ['c-contentImage--fullWidth']
             : ['c-contentImage--hasBackdrop'])
     ];
-
-    // This is based on the narrowMid breakpoint defined in fozzie:
-    // https://github.com/justeat/fozzie-components/blob/7fd01766b3126b30b1ab704c131b8ac767f882ea/packages/tools/fozzie/src/scss/tools/helpers/_breakpoints.scss#L9
-    const mobileImageMaxWidth = '600px';
 
     return `<figure class="${figureClasses.join(' ')}">
         <div class="c-contentImage-backdrop">

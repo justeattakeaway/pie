@@ -1,0 +1,60 @@
+@use '../fozzie-config' as f;
+
+$card-width: 328px;
+$card-width--mobile: 288px;
+$card-image-height: 180px;
+$card-label-height: 72px;
+
+.c-card-wrapper {
+    margin: f.$spacing-f 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: f.$spacing-e;
+    list-style: none;
+    padding: 0;
+}
+
+.c-card {
+    border: 1px solid f.$color-border-default;
+    border-radius: f.$radius-rounded-c;
+    width: $card-width-mobile;
+    background-color: f.$color-container-default;
+
+    &:hover {
+        background-color: darken(f.$color-container-default, f.$color-hover-01);
+    }
+
+    a {
+        text-decoration-color: f.$color-content-default;
+    }
+
+    @include f.media('>=narrow') {
+        width: $card-width;
+    }
+}
+
+.c-card-image {
+    border-radius: f.$radius-rounded-c f.$radius-rounded-c 0 0;
+    height: $card-image-height;
+    width: 100%;
+    object-fit: cover;
+}
+
+.c-card-labelContainer {
+    border-radius: f.$radius-rounded-c;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: $card-label-height;
+    padding: f.$spacing-e f.$spacing-d;
+}
+
+.c-card-labelContainer--hasImage {
+    border-radius: 0 0 f.$radius-rounded-c f.$radius-rounded-c;
+}
+
+.c-card-label {
+    font-weight: f.$font-weight-bold;
+    margin-top: 0;
+}

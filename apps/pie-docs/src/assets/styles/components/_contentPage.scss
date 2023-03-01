@@ -159,7 +159,7 @@
         > p,
         > a,
         > span,
-        > ul {
+        > ul:not(.c-card-wrapper) {
             max-width: v.$typography-content-max-width;
         }
     }
