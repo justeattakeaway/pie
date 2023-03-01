@@ -9,11 +9,9 @@
 
 ## Reviewer checklists (complete before approving)
 ### Reviewer 1
-- [ ] I have reviewed all of the code and am satisfied that the changes are safe
 - [ ] If it is a `PIE Docs` change, I have reviewed the PR preview
 - [ ] If there are visual test updates, I have reviewed them
 
 ### Reviewer 2
-- [ ] I have reviewed all of the code and am satisfied that the changes are safe
 - [ ] If it is a `PIE Docs` change, I have reviewed the PR preview
 - [ ] If there are visual test updates, I have reviewed them
