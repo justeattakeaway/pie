@@ -100,7 +100,7 @@ const buildGlobalTokenUsedElement = globalToken => {
             <span class="u-font-bold u-showAboveWide">${tokenDescription}</span>
             ${tokenMarkup}
         </span>`;
-}
+};
 
 /**
  * Builds the overall token description element for each type of token. The description content differs based on the type of token.
