@@ -38,7 +38,7 @@ async function checkDirExists (directoryPath) {
     }
 }
 
-const handleComponentName = (name) => name.replace(/\-(\d+)/, '$1'); // eslint-disable-line no-useless-escape
+const handleComponentName = name => name.replace(/\-(\d+)/, '$1'); // eslint-disable-line no-useless-escape
 
 // check that the /generated directory exists, if not create it
 checkDirExists(ICONS_DIR)
@@ -48,7 +48,7 @@ checkDirExists(ICONS_DIR)
         let indexFileString = '/* eslint-disable camelcase */\n';
 
         // loop through the icons in pie-icons, generate each component and add it to the index.tsx
-        Promise.all(Object.keys(icons).map((iconKey) => {
+        Promise.all(Object.keys(icons).map(iconKey => {
             const { pathPrefix } = icons[iconKey];
             const capitalisedPathPrefix = (pathPrefix !== undefined ? (pathPrefix).substring(1, 2).toUpperCase() + (pathPrefix).substring(2) : '');
             const pascalCasedName = pascalCase(handleComponentName(iconKey));
@@ -60,7 +60,7 @@ checkDirExists(ICONS_DIR)
 
             indexFileString += `export { default as ${componentName} } from '../icons/${componentName}';\n`;
 
-            return fs.writeFile(`./generated/components/${componentName}.js`, component, 'utf8', (err) => {
+            return fs.writeFile(`./generated/components/${componentName}.js`, component, 'utf8', err => {
                 if (err) console.error(err);
             });
         })).then(() => fs.outputFile(indexPath, indexFileString, 'utf8'));

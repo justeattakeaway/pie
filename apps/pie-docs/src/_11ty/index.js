@@ -13,5 +13,5 @@ module.exports = {
     filters,
     libraries,
     shortcodes,
-    plugins,
+    plugins
 };
