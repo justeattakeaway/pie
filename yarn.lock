@@ -2856,7 +2856,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-eslint-config@workspace:*, @justeattakeaway/pie-eslint-config@workspace:packages/tools/pie-eslint-config":
+"@justeattakeaway/pie-eslint-config@workspace:packages/tools/pie-eslint-config":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-eslint-config@workspace:packages/tools/pie-eslint-config"
   dependencies:
