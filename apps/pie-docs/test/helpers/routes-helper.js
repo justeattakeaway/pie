@@ -33,7 +33,7 @@ const readChildren = (childDirectories, result = []) => {
     }
 
     // Recursively call readChildren() so that subdirectories are added to the array.
-    childDirectories.children.forEach((child) => {
+    childDirectories.children.forEach(child => {
         readChildren(child, result);
     });
 

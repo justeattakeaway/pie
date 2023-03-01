@@ -10,19 +10,19 @@ export default {
         return h('svg', _mergeJSXProps([{
             attrs: {
                 xmlns: 'http://www.w3.org/2000/svg',
-                viewBox: '0 0 16 16',
+                viewBox: '0 0 16 16'
             },
-            class: 'c-pieIcon c-pieIcon--notificationFilled',
+            class: 'c-pieIcon c-pieIcon--notificationFilled'
         }, ctx.data]), [h('path', {
             attrs: {
                 d: 'M13.504 9.951a4.577 4.577 0 01-1.348-3.255V6.25a4.165 4.165 0 00-1.365-3.08 4.208 4.208 0 00-2.135-1.006V1H7.344v1.164a4.287 4.287 0 00-3.5 4.252v.28a4.576 4.576 0 01-1.348 3.255l-.402.403v1.802h11.812v-1.802l-.402-.403z',
-                fill: '#242E30',
-            },
+                fill: '#242E30'
+            }
         }), h('path', {
             attrs: {
                 d: 'M8 14.781a2.817 2.817 0 002.371-1.312H5.63A2.819 2.819 0 008 14.78z',
-                fill: '#242E30',
-            },
+                fill: '#242E30'
+            }
         })]);
-    },
+    }
 };

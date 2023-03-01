@@ -10,14 +10,14 @@ export default {
         return h('svg', _mergeJSXProps([{
             attrs: {
                 xmlns: 'http://www.w3.org/2000/svg',
-                viewBox: '0 0 32 32',
+                viewBox: '0 0 32 32'
             },
-            class: 'c-pieIcon c-pieIcon--arrowLeftLarge',
+            class: 'c-pieIcon c-pieIcon--arrowLeftLarge'
         }, ctx.data]), [h('path', {
             attrs: {
                 d: 'M28.25 15.125H6.375l7-7-1.207-1.243-7.875 7.875a1.751 1.751 0 000 2.477l7.875 7.875 1.207-1.234-7-7H28.25v-1.75z',
-                fill: '#242E30',
-            },
+                fill: '#242E30'
+            }
         })]);
-    },
+    }
 };
