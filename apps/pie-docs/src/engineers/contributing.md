@@ -18,7 +18,10 @@ You can reach out to us on one of our Slack channels (JET employees only):
 
 We also run a [PIE engineering clinic](https://calendly.com/jetpie/engineering-clinics) every other Tuesday where you can book a slot to speak to one of our engineers.
 
-**Note:** the booking link only goes live the day before the clinic.
+{% notification {
+type: "information",
+message: "Note that the booking link only goes live the day before the clinic."
+} %}
 
 ### How can I make a feature request?
 
