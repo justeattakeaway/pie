@@ -15,7 +15,7 @@ class Accordion {
         // Store if the element is expanding
         this.isExpanding = false;
         // Detect user clicks on the summary element
-        this.summary.addEventListener('click', event => this.onClick(event));
+        this.summary.addEventListener('click', (event) => this.onClick(event));
     }
 
     onClick (event) {
@@ -50,12 +50,12 @@ class Accordion {
         this.animation = this.element.animate(
             {
                 // Set the keyframes from the startHeight to endHeight
-                height: [startHeight, endHeight]
+                height: [startHeight, endHeight],
             },
             {
                 duration: 200,
-                easing: 'ease-out'
-            }
+                easing: 'ease-out',
+            },
         );
 
         // When the animation is complete, call onAnimationFinish()
@@ -92,12 +92,12 @@ class Accordion {
         this.animation = this.element.animate(
             {
                 // Set the keyframes from the startHeight to endHeight
-                height: [startHeight, endHeight]
+                height: [startHeight, endHeight],
             },
             {
                 duration: 200,
-                easing: 'ease-out'
-            }
+                easing: 'ease-out',
+            },
         );
 
         // When the animation is complete, call onAnimationFinish()
@@ -124,14 +124,14 @@ class Accordion {
 function initialise () {
     const accordions = [];
 
-    const resizeObserver = new ResizeObserver(entries => {
-        entries.forEach(entry => {
+    const resizeObserver = new ResizeObserver((entries) => {
+        entries.forEach((entry) => {
             const { width } = entry.contentRect;
 
             // ensure we don't duplicate accordion instances
             if (width > 600 && !accordions.length) {
             // TODO: use fozzie JS breakpoint helpers instead of hardcoding 600px
-                document.querySelectorAll('.c-nav details').forEach(el => {
+                document.querySelectorAll('.c-nav details').forEach((el) => {
                     accordions.push(new Accordion(el));
                 });
             }

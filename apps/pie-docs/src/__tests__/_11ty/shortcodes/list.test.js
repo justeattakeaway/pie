@@ -7,7 +7,7 @@ describe('list.js', () => {
     it.each([
         'ordered',
         'pill'
-    ])('should return the expected HTML', type => {
+    ])('should return the expected HTML', (type) => {
         // act
         const result = list({ type, items });
 
@@ -18,7 +18,7 @@ describe('list.js', () => {
     it('should return the expected HTML for an icon list', () => {
         // act
         const result = list({
-            type: 'icon', iconName: 'close-circle-filled', iconFill: 'support-positive', items
+            type: 'icon', iconName: 'close-circle-filled', iconFill: 'support-positive', items,
         });
 
         // assert

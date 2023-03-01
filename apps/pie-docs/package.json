@@ -40,6 +40,7 @@
     "markdown-it-attrs": "4.1.6"
   },
   "dependencies": {
+    "@justeattakeaway/pie-icons": "workspace:*",
     "markdown-it": "13.0.1"
   },
   "volta": {

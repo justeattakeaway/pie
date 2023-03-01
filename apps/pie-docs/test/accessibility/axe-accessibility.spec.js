@@ -4,7 +4,7 @@ const AxeReports = require('axe-reports');
 const AxeBuilder = require('@axe-core/webdriverio').default;
 
 describe('PIE - Accessibility Tests', () => {
-    const getAxeResults = async selector => {
+    const getAxeResults = async (selector) => {
         const builder = new AxeBuilder({ client: browser }).include(selector)
             .withTags(['wcag21a', 'wcag21aa', 'wcag143', 'cat.color', 'cat.aria'])
             .disableRules(['color-contrast', 'color-contrast-enhanced']);
@@ -17,7 +17,7 @@ describe('PIE - Accessibility Tests', () => {
         }
     };
 
-    expectedRoutesJson.forEach(route => {
+    expectedRoutesJson.forEach((route) => {
         it('a11y - should test page content WCAG compliance', async () => {
             const puppeteer = await browser.getPuppeteer();
             const [page] = await puppeteer.pages();
