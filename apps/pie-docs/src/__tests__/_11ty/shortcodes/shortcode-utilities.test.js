@@ -16,7 +16,7 @@ describe('deindentHTML', () => {
         const htmlString = contentPageImageShortCode({
             alt: 'foo',
             src: '../some/path',
-            context: 'bar',
+            context: 'bar'
         });
 
         const result = deindentHTML(htmlString);

@@ -9,7 +9,7 @@ module.exports = {
     transform: {
         '^.+\\.vue$': 'vue-jest',
         '.+\\.(css|styl|less|sass|scss|svg|png|jpg|ttf|woff|woff2)$': 'jest-transform-stub',
-        '^.+\\.jsx?$': 'babel-jest',
+        '^.+\\.jsx?$': 'babel-jest'
     },
 
     transformIgnorePatterns: [
@@ -18,12 +18,12 @@ module.exports = {
 
     moduleNameMapper: {
         '^@/(.*)$': '<rootDir>/generated/$1',
-        '\\.(jpg|jpeg|png|gif|svg)$': '<rootDir>/fileMock.js',
+        '\\.(jpg|jpeg|png|gif|svg)$': '<rootDir>/fileMock.js'
     },
 
     snapshotSerializers: [
         'jest-serializer-vue'
     ],
 
-    testURL: 'http://localhost/',
+    testURL: 'http://localhost/'
 };

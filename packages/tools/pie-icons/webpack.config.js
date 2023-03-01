@@ -1,3 +1,4 @@
+/* eslint-disable vue/sort-keys */
 const path = require('path');
 
 module.exports = [

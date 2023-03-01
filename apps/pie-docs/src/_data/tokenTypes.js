@@ -8,5 +8,5 @@ module.exports = {
     ELEVATION: 'elevation',
     FONT: 'font',
     RADIUS: 'radius',
-    SPACING: 'spacing',
+    SPACING: 'spacing'
 };
