@@ -10,5 +10,5 @@ module.exports = {
         './test/system/',
         './test/visual/',
         './test/accessibility/'
-    ],
+    ]
 };

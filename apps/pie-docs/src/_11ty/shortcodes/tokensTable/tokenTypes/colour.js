@@ -1,6 +1,6 @@
 const { isColorDark } = require('../../../../_utilities/colors');
 
-const createHighContrastName = (tokenName) => {
+const createHighContrastName = tokenName => {
     const highContrast = '(High Contrast)';
     const hasShade = tokenName.includes('Light') || tokenName.includes('Dark');
 
@@ -19,16 +19,17 @@ const createHighContrastName = (tokenName) => {
  * @param {string} token - the token value i.e. #000, #ffffff, #000|0.85 or #000000|0.85
  * @returns {object} an object containing a hexcode and opacity value (if opacity was provided)
  */
-const splitColorToken = (token) => {
+const splitColorToken = token => {
     const [hexcode, opacity] = token.split('|');
 
     return {
         hexcode,
-        opacity,
+        opacity
     };
 };
 
-const buildColorName = (tokenName) => {
+
+const buildColorName = tokenName => {
     const highContrastSuffix = ' hc';
 
     if (tokenName.includes(highContrastSuffix)) {
@@ -38,12 +39,13 @@ const buildColorName = (tokenName) => {
     return tokenName;
 };
 
+
 /**
  * Builds the example color swatch to show on the token list item
  * @param {string} token - the token value i.e. #000, #ffffff, #000|0.85 or #000000|0.85
  * @returns {string} - the color swatch example HTML string
  */
-const buildColorExample = (token) => {
+const buildColorExample = token => {
     const tokenValues = splitColorToken(token);
     const classes = ['c-tokensTable-example'];
 
@@ -65,5 +67,5 @@ const buildColorExample = (token) => {
 
 module.exports = {
     buildColorName,
-    buildColorExample,
+    buildColorExample
 };

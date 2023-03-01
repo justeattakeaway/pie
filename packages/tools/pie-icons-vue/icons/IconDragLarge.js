@@ -10,19 +10,19 @@ export default {
         return h('svg', _mergeJSXProps([{
             attrs: {
                 xmlns: 'http://www.w3.org/2000/svg',
-                viewBox: '0 0 32 32',
+                viewBox: '0 0 32 32'
             },
-            class: 'c-pieIcon c-pieIcon--dragLarge',
+            class: 'c-pieIcon c-pieIcon--dragLarge'
         }, ctx.data]), [h('path', {
             attrs: {
                 d: 'M28.25 11.188H3.75v1.75h24.5v-1.75z',
-                fill: '#242E30',
-            },
+                fill: '#242E30'
+            }
         }), h('path', {
             attrs: {
                 d: 'M28.25 19.063H3.75v1.75h24.5v-1.75z',
-                fill: '#242E30',
-            },
+                fill: '#242E30'
+            }
         })]);
-    },
+    }
 };

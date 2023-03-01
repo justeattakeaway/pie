@@ -24,7 +24,7 @@ describe('colors.js', () => {
             '#fff',
             '#000000',
             '#ffffff'
-        ])('converts hexcode %p to the expected RGB object', (hexcode) => {
+        ])('converts hexcode %p to the expected RGB object', hexcode => {
             // act
             const result = systemUnderTest.convertHexcodeToRBG(hexcode);
 

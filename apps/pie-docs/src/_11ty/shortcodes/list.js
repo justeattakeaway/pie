@@ -12,8 +12,8 @@ const getIconSvg = (iconName, iconFill) => {
             width: 20,
             fill: iconFill,
             class: iconFill && 'u-iconFilled',
-            'aria-hidden': 'true',
-        },
+            'aria-hidden': 'true'
+        }
     });
 };
 
@@ -27,7 +27,7 @@ const getIconSvg = (iconName, iconFill) => {
  */
 // eslint-disable-next-line func-names
 module.exports = function ({
-    type, items, iconName, iconFill,
+    type, items, iconName, iconFill
 }) {
     if (!type || !listTypes[type]) {
         throw new Error(`List 'type = ${type}' not recognised. Try ${Object.values(listTypes).join(', ')}`);
@@ -35,7 +35,7 @@ module.exports = function ({
 
     const isIconType = type === listTypes.icon;
     const iconFillHexcode = iconFill ? pieDesignTokenColours({ tokenName: iconFill, tokenPath: ['alias', 'default'] }) : null;
-    const listItems = items.map((item) => `<li class="c-list-item">
+    const listItems = items.map(item => `<li class="c-list-item">
         ${isIconType ? getIconSvg(iconName, iconFillHexcode) : ''}
         ${markdownFilter(item, true)}
         </li>`).join('');
