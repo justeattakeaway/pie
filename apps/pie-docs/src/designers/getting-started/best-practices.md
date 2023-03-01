@@ -63,3 +63,32 @@ mobileSrc: "../../../assets/img/designers/getting-started/best-practices/auto-la
 width: "240px",
 caption: "The image above shows Figma’s Auto layout controls."
 } %}
+
+---
+
+## Recommended plugins
+
+We use a variety of plugins to enhance and speed up the way we work in the PIE team. These are just suggestions and are not mandatory, but we think they can be helpful when using PIE foundations and components within your designs.
+
+{% card {
+  items: [
+        {
+          label: "Themer",
+          href: "https://www.figma.com/community/plugin/731176732337510831",
+          src: "../../../assets/img/designers/getting-started/best-practices/themer.png",
+          mobileSrc: "../../../assets/img/designers/getting-started/best-practices/contrast_narrow.png"
+        },
+        {
+          label: "Contrast",
+          href: "https://www.figma.com/community/plugin/748533339900865323",
+          src: "../../../assets/img/designers/getting-started/best-practices/contrast.png",
+          mobileSrc: "../../../assets/img/designers/getting-started/best-practices/contrast_narrow.png"
+        },
+        {
+          label: "Instance finder",
+          href: "https://www.figma.com/community/plugin/741895659787979282",
+          src: "../../../assets/img/designers/getting-started/best-practices/instance-finder.png",
+          mobileSrc: "../../../assets/img/designers/getting-started/best-practices/instance-finder_narrow.png"
+        }
+    ]
+} %}
