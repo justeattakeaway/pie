@@ -4,7 +4,7 @@ module.exports = ({ data }) => {
 
     return `<div class="c-mediaElementList">
     ${listItems.map(({
-        headingLevel = 3, headingText, imgSrc, imgSrcNarrow, text
+        headingLevel = 3, headingText, imgSrc, imgSrcNarrow, text,
     }) => {
         const hx = `h${headingLevel}`;
         return `<div class="c-mediaElement">

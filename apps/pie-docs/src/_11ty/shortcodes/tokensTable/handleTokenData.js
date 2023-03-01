@@ -7,11 +7,11 @@ const tokenTypes = require('../../../_data/tokenTypes');
  * @param {string} tokenType - - the type of token i.e. color, spacing, radius
  * @returns {string} - css variable containing correct column size
  */
-const getExampleColumnSize = tokenType => {
+const getExampleColumnSize = (tokenType) => {
     const tokenColumnHandler = {
         [tokenTypes.COLOR]: '240px',
         [tokenTypes.FONT]: '240px',
-        default: '152px'
+        default: '152px',
     };
 
     return `--template-columns: ${(tokenColumnHandler[tokenType] || tokenColumnHandler.default)}`;
@@ -22,7 +22,7 @@ const getExampleColumnSize = tokenType => {
  * @param {string} path - path to the category i.e. 'path:color.alias.default' / 'path:color.alias.dark'
  * @returns {object} - object of tokens and the category they are sorted by i.e. white: { category: 'whiteBlack' }
  */
-const getTokenTypeMetadata = path => objectHelpers.getObjectPropertyByPath(pieTokensMetadata, path);
+const getTokenTypeMetadata = (path) => objectHelpers.getObjectPropertyByPath(pieTokensMetadata, path);
 
 /**
  * Gets all tokens for a given category such as 'orange'
@@ -32,8 +32,7 @@ const getTokenTypeMetadata = path => objectHelpers.getObjectPropertyByPath(pieTo
  */
 const getTokensForCategory = (category, tokenTypeMetadata) => Object
     .keys(tokenTypeMetadata)
-    .filter(token => tokenTypeMetadata[token].category === category);
-
+    .filter((token) => tokenTypeMetadata[token].category === category);
 
 /**
  * Gets all subcategory keys for a given parent category
@@ -43,7 +42,7 @@ const getTokensForCategory = (category, tokenTypeMetadata) => Object
  */
 const getSubcategoriesForParentCategory = (tokenTypeCategories, parentCategoryKey) => Object
           .keys(tokenTypeCategories)
-          .filter(categoryKey => tokenTypeCategories[categoryKey].parentCategory === parentCategoryKey);
+          .filter((categoryKey) => tokenTypeCategories[categoryKey].parentCategory === parentCategoryKey);
 
 /**
  * Throws an error listing which configuration properties are missing (if any)
@@ -71,5 +70,5 @@ module.exports = {
     getSubcategoriesForParentCategory,
     getTokensForCategory,
     getTokenTypeMetadata,
-    validateConfiguration
+    validateConfiguration,
 };
