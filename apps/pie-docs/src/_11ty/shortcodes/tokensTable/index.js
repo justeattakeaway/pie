@@ -15,7 +15,7 @@ const {
     getExampleColumnSize,
     getTokensForCategory,
     getTokenTypeMetadata,
-    validateConfiguration
+    validateConfiguration,
 } = require('./handleTokenData');
 
 /**
@@ -66,7 +66,7 @@ const buildTokenExampleElement = (token, tokenType, tokenMetadata, path = {}) =>
         [tokenTypes.ELEVATION]: buildElevationExample,
         [tokenTypes.FONT]: buildFontExample,
         [tokenTypes.RADIUS]: buildRadiusExample,
-        [tokenTypes.SPACING]: buildSpacingExample
+        [tokenTypes.SPACING]: buildSpacingExample,
     };
 
     if (!tokenExampleElementHandler[tokenType]) {
@@ -81,12 +81,12 @@ const buildTokenExampleElement = (token, tokenType, tokenMetadata, path = {}) =>
  * @param {string} globalToken the global token referenced by this alias token
  * @returns a <span> HTML string containing the global token used
  */
-const buildGlobalTokenUsedElement = globalToken => {
+const buildGlobalTokenUsedElement = (globalToken) => {
     let tokenMarkup = '';
     let tokenDescription = 'Global token used:';
 
     if (Array.isArray(globalToken)) {
-        globalToken.forEach(tokenName => {
+        globalToken.forEach((tokenName) => {
             tokenMarkup += `<span class="c-tokensTable-token c-tokensTable-token--light c-tokensTable-token--list">${tokenName}</span>`;
         });
 
@@ -107,7 +107,7 @@ const buildGlobalTokenUsedElement = globalToken => {
  * @param {*} tokenMetadata the metadata for the token. data such as descriptions
  * @returns {string} - the description HTML string
  */
-const buildTokenDescriptionElement = tokenMetadata => {
+const buildTokenDescriptionElement = (tokenMetadata) => {
     let description = tokenMetadata.description
         ? `<span class="c-tokensTable-tokenDescription ${tokenMetadata.globalToken ? 'u-spacing-b--bottom' : ''}">
             ${tokenMetadata.description}
@@ -121,13 +121,12 @@ const buildTokenDescriptionElement = tokenMetadata => {
     return description;
 };
 
-
 /**
  * Builds a token pill element to display the SCSS token name in the token list item.
  * @param {string} tokenScssName - the design token SCSS name i.e. '$color-black'
  * @returns {string} - the token pill HTML string
  */
-const buildTokenPill = tokenScssName => `<span class="c-tokensTable-token">${tokenScssName}</span>`;
+const buildTokenPill = (tokenScssName) => `<span class="c-tokensTable-token">${tokenScssName}</span>`;
 
 /**
  * Builds a token list item element to add to the tokens list.
@@ -146,7 +145,7 @@ const buildTokenListElements = ({
     tokenScssName,
     tokenDisplayName,
     tokenMetadata = {},
-    path = {}
+    path = {},
 }) => {
     const tokenPill = buildTokenPill(tokenScssName);
     const tokenExampleElement = buildTokenExampleElement(token, tokenType, tokenMetadata, path);
@@ -182,7 +181,6 @@ const buildTokensList = (listElements, tokenType) => deindentHTML(`
         ${listElements.join('')}
     </ul>`);
 
-
 /**
  * Creates a tokens list for a given category
  * @param {object} tokens
@@ -196,13 +194,13 @@ const buildTokensListForCategory = (tokens, path, category, tokenType) => {
     const tokensForCategory = getTokensForCategory(category, tokenTypeMetadata);
 
     // create a list item for the current token
-    const tokenListElements = tokensForCategory.map(key => buildTokenListElements({
+    const tokenListElements = tokensForCategory.map((key) => buildTokenListElements({
         token: tokens[key],
         tokenScssName: createScssTokenName(key, tokenType, path),
         tokenDisplayName: tokenTypeMetadata[key].displayName ?? createTokenDisplayName(key, tokenType),
         tokenType,
         tokenMetadata: tokenTypeMetadata[key],
-        path
+        path,
     }));
 
     return buildTokensList(tokenListElements, tokenType);
@@ -216,7 +214,7 @@ const buildTokensListForCategory = (tokens, path, category, tokenType) => {
  * @returns - a string of html containing the list of tokens - with example, description and token name
  */
 const buildUncategorisedLists = ({
-    tokens, path, tokenType
+    tokens, path, tokenType,
 }) => {
     const tokenTypeMetadata = getTokenTypeMetadata(path);
 
@@ -225,13 +223,13 @@ const buildUncategorisedLists = ({
         ? Object.entries(tokens).sort((a, b) => a[1] - b[1]) // [[key, value]]
         : Object.entries(tokens);
 
-    const tokenListElements = sortedTokens.map(token => buildTokenListElements({
+    const tokenListElements = sortedTokens.map((token) => buildTokenListElements({
         token: tokens[token[0]],
         tokenScssName: tokenTypeMetadata[token[0]]?.scssName ?? createScssTokenName(token[0], tokenType, path),
         tokenDisplayName: tokenTypeMetadata[token[0]]?.displayName ?? createTokenDisplayName(token[0], tokenType),
         tokenType,
         tokenMetadata: tokenTypeMetadata[token[0]],
-        path
+        path,
     }));
 
     return buildTokensList(tokenListElements, tokenType);
@@ -245,12 +243,12 @@ const buildUncategorisedLists = ({
  * @returns - - a string of html containing the list of tokens - with category, example, description and token name
  */
 const buildCategorisedLists = ({
-    path, tokenType, tokens
+    path, tokenType, tokens,
 }) => {
     const categories = objectHelpers.getObjectPropertyByPath(pieTokenCategories, path);
 
     // for each category, create an h2 and a list of token elements to render
-    const categoryTokenLists = Object.keys(categories).map(category => {
+    const categoryTokenLists = Object.keys(categories).map((category) => {
         const heading = `<h2 class="c-tokensTable-title">${categories[category].displayName}</h2>`;
         const tokensList = buildTokensListForCategory(tokens, path, category, tokenType);
 
@@ -268,18 +266,18 @@ const buildCategorisedLists = ({
  * @returns {string} - list of tokens categorised by parent and subcategory
  */
 const buildCategoryListsWithParents = ({
-    parentCategories, path, tokenType, isGlobal, tokens
+    parentCategories, path, tokenType, isGlobal, tokens,
 }) => {
     const subcategories = isGlobal
         ? pieTokenCategories[tokenType].global
         : pieTokenCategories[tokenType].alias;
 
     // for each parent category, create a list of tokens with a heading and description
-    const parentCategoryLists = Object.keys(parentCategories).map(parentCategoryKey => {
+    const parentCategoryLists = Object.keys(parentCategories).map((parentCategoryKey) => {
         const subcategoryKeys = getSubcategoriesForParentCategory(subcategories, parentCategoryKey);
 
         // for each subCategory, create a list of tokens with a subheading
-        const subcategoryTokenLists = subcategoryKeys.map(categoryKey => {
+        const subcategoryTokenLists = subcategoryKeys.map((categoryKey) => {
             const subHeading = `<h3 class="c-tokensTable-sectionSubheading">${subcategories[categoryKey].displayName}</h3>`;
             const tokensList = buildTokensListForCategory(tokens, path, categoryKey, tokenType);
 
@@ -316,7 +314,7 @@ const buildTokenLists = (path, tokenType) => {
         path,
         tokenType,
         isGlobal,
-        tokens
+        tokens,
     };
 
     if (!parentCategories && !regularCategories) {
