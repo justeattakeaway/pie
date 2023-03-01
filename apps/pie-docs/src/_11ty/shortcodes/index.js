@@ -13,15 +13,15 @@ const { deindentHTML } = require('./shortcode-utilities');
  * Adds all 11ty shortcodes
  * @param {object} eleventyConfig
  */
-const addAllShortCodes = (eleventyConfig) => {
-    eleventyConfig.addShortcode('card', (shortcodeArgs) => deindentHTML(card(shortcodeArgs)));
-    eleventyConfig.addShortcode('contentPageImage', (shortcodeArgs) => deindentHTML(contentPageImage(shortcodeArgs)));
-    eleventyConfig.addShortcode('iconList', (shortcodeArgs) => deindentHTML(iconList(shortcodeArgs)));
-    eleventyConfig.addShortcode('list', (shortcodeArgs) => deindentHTML(list(shortcodeArgs)));
-    eleventyConfig.addShortcode('mediaElementList', (shortcodeArgs) => deindentHTML(mediaElement(shortcodeArgs)));
-    eleventyConfig.addShortcode('notification', (shortcodeArgs) => deindentHTML(notification(shortcodeArgs)));
-    eleventyConfig.addShortcode('tokensTable', (shortcodeArgs) => deindentHTML(tokensTable(shortcodeArgs)));
-    eleventyConfig.addShortcode('simpleTable', (shortcodeArgs) => deindentHTML(simpleTable(shortcodeArgs)));
+const addAllShortCodes = eleventyConfig => {
+    eleventyConfig.addShortcode('card', shortcodeArgs => deindentHTML(card(shortcodeArgs)));
+    eleventyConfig.addShortcode('contentPageImage', shortcodeArgs => deindentHTML(contentPageImage(shortcodeArgs)));
+    eleventyConfig.addShortcode('iconList', shortcodeArgs => deindentHTML(iconList(shortcodeArgs)));
+    eleventyConfig.addShortcode('list', shortcodeArgs => deindentHTML(list(shortcodeArgs)));
+    eleventyConfig.addShortcode('mediaElementList', shortcodeArgs => deindentHTML(mediaElement(shortcodeArgs)));
+    eleventyConfig.addShortcode('notification', shortcodeArgs => deindentHTML(notification(shortcodeArgs)));
+    eleventyConfig.addShortcode('tokensTable', shortcodeArgs => deindentHTML(tokensTable(shortcodeArgs)));
+    eleventyConfig.addShortcode('simpleTable', shortcodeArgs => deindentHTML(simpleTable(shortcodeArgs)));
 };
 
 module.exports = {

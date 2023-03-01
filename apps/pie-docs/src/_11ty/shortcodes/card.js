@@ -6,17 +6,18 @@ const pageWidths = require('../../_data/pageWidths');
  * @param {string[]} items - An array of card items
  * @returns {string}
  */
+// eslint-disable-next-line func-names
 module.exports = function ({ items }) {
     const iconLink = pieIconsSvg({
         name: 'link-external',
         attrs: {
             height: 21,
-            width: 21,
-        },
+            width: 21
+        }
     });
 
     const buildCard = ({
-        label, href, src, mobileSrc, shouldOpenInNewTab = false,
+        label, href, src, mobileSrc, shouldOpenInNewTab = false
     }) => {
         const target = shouldOpenInNewTab ? 'target="_blank"' : '';
         const hasImage = href && mobileSrc;
@@ -42,7 +43,7 @@ module.exports = function ({ items }) {
 
     if (items.length > 1) {
         return `<ul class="c-card-wrapper">
-            ${Object.values(items).map((card) => `<li class="c-card">${buildCard(card)}</li>`).join('')}
+            ${Object.values(items).map(card => `<li class="c-card">${buildCard(card)}</li>`).join('')}
         </ul>`;
     }
 
