@@ -24,7 +24,7 @@
     "dev": "turbo run dev",
     "lint:config": "eslint --fix turbo.json",
     "lint:scripts": "turbo run lint:scripts",
-    "lint:scripts:fix": "turbo run lint:fix",
+    "lint:scripts:fix": "turbo run lint:scripts:fix",
     "lint:style": "turbo run lint:style --continue",
     "postinstall": "husky install",
     "prepack": "pinst --disable",
