@@ -1,0 +1,9 @@
+@use 'fozzie-config' as f;
+
+// This is a temporary solution to override the closed cookie banner styles
+#cookie-banner-anchor a {
+    background-color: f.$color-background-subtle;
+    padding: f.spacing();
+    color: f.$color-content-link;
+    font-weight: f.$font-weight-bold;
+}
