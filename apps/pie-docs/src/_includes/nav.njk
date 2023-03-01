@@ -14,7 +14,7 @@
 {% set navPagesSecondary = collections.all | eleventyNavigation("Docs-secondary") %}
 {% set navSections = [navPagesPrimary, navPagesSecondary] %}
 
-<nav class="c-nav">
+<nav class="c-nav" data-test-id="site_nav">
     {% for section in navSections %}
         <ul>
             {# build up a list of categories such as 'components', 'foundations' #}
