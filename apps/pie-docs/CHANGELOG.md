@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.59.0
+
+### Minor Changes
+
+- [Added] - Axe accessibility testing for Pie Docs. ([#236](https://github.com/justeattakeaway/pie/pull/236)) by [@JoshuaNg2332](https://github.com/JoshuaNg2332)
+
+- [Changed] - use new logo for favicon and update yarn.lock file ([#255](https://github.com/justeattakeaway/pie/pull/255)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - Typography pill list. ([#250](https://github.com/justeattakeaway/pie/pull/250)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
 ## 1.58.0
 
 ### Minor Changes
