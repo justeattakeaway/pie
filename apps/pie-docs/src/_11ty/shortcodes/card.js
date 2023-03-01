@@ -1,5 +1,5 @@
 const pieIconsSvg = require('../filters/pieIconsSvg');
-const mobileImageMaxWidth = require('../../_data/pageWidths');
+const pageWidths = require('../../_data/pageWidths');
 
 /**
  * A Card HTML component – takes an array of list items and turns them into a list of cards
@@ -11,12 +11,12 @@ module.exports = function ({ items }) {
         name: 'link-external',
         attrs: {
             height: 21,
-            width: 21
-        }
+            width: 21,
+        },
     });
 
     const buildCard = ({
-        label, href, src, mobileSrc, shouldOpenInNewTab = false
+        label, href, src, mobileSrc, shouldOpenInNewTab = false,
     }) => {
         const target = shouldOpenInNewTab ? 'target="_blank"' : '';
         const hasImage = href && mobileSrc;
@@ -29,7 +29,7 @@ module.exports = function ({ items }) {
         return `<a href=${href} ${target} >
             ${hasImage
             ? `<picture>
-                    ${mobileSrc ? `<source srcset="${mobileSrc}" media="(max-width: ${mobileImageMaxWidth})" >` : ''}
+                    ${mobileSrc ? `<source srcset="${mobileSrc}" media="(max-width: ${pageWidths.mobileImageMaxWidth})" >` : ''}
                     <img class="c-card-image" src="${src}" >
                 </picture>`
             : ''}
@@ -42,7 +42,7 @@ module.exports = function ({ items }) {
 
     if (items.length > 1) {
         return `<ul class="c-card-wrapper">
-            ${Object.values(items).map(card => `<li class="c-card">${buildCard(card)}</li>`).join('')}
+            ${Object.values(items).map((card) => `<li class="c-card">${buildCard(card)}</li>`).join('')}
         </ul>`;
     }
 

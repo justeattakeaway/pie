@@ -1,5 +1,5 @@
 const markdownFilter = require('../filters/markdown');
-const mobileImageMaxWidth = require('../../_data/pageWidths');
+const pageWidths = require('../../_data/pageWidths');
 
 /**
  * Creates a figcaption element containing the image caption if one has been provided
@@ -41,7 +41,7 @@ module.exports = function (config) {
     return `<figure class="${figureClasses.join(' ')}">
         <div class="c-contentImage-backdrop">
           <picture>
-            ${config.mobileSrc ? `<source ${imageStyles} media="(max-width: ${mobileImageMaxWidth})" srcset="${config.mobileSrc}">` : ''}
+            ${config.mobileSrc ? `<source ${imageStyles} media="(max-width: ${pageWidths.mobileImageMaxWidth})" srcset="${config.mobileSrc}">` : ''}
             <img src="${config.src}" ${imageStyles} ${imageAlt}>
           </picture>
         </div>
