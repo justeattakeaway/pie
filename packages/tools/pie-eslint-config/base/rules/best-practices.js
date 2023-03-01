@@ -16,7 +16,7 @@ module.exports = {
         // Do not restrict else if statements
         // It was causing a bug when auto fix is correcting the code
         'no-else-return': ['error', {
-            allowElseIf: true
+            allowElseIf: true,
         }],
 
         // disallow reassignments of native objects or read-only globals
@@ -29,7 +29,7 @@ module.exports = {
         // disallow parameter object manipulation except for specific exclusions
         // rule: http://eslint.org/docs/rules/no-param-reassign.html
         'no-param-reassign': ['error', {
-            props: false
+            props: false,
         }],
 
         'no-setter-return': 'error',
@@ -38,7 +38,7 @@ module.exports = {
         'no-unused-expressions': ['error', {
             allowShortCircuit: false,
             allowTaggedTemplates: false,
-            allowTernary: false
+            allowTernary: false,
         }],
 
         'no-useless-catch': 'error',
@@ -49,6 +49,6 @@ module.exports = {
 
         'prefer-object-has-own': 'off',
 
-        'prefer-regex-literals': 'off'
-    }
+        'prefer-regex-literals': 'off',
+    },
 };

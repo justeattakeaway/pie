@@ -17,5 +17,5 @@ module.exports = {
     node,
     style,
     vue,
-    vue3
+    vue3,
 };

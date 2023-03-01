@@ -34,8 +34,8 @@ module.exports = {
                 NewExpression: false,
                 ObjectExpression: false,
                 ObjectPattern: false,
-                VariableDeclaration: false
-            }
+                VariableDeclaration: false,
+            },
         }],
 
         'vue/component-api-style': 'off',
@@ -50,7 +50,7 @@ module.exports = {
         'vue/component-options-name-casing': 'error',
 
         'vue/component-tags-order': ['error', {
-            order: ['template', 'script', 'style']
+            order: ['template', 'script', 'style'],
         }],
 
         'vue/custom-event-name-casing': 'off',
@@ -84,7 +84,7 @@ module.exports = {
         'vue/key-spacing': ['error', {
             afterColon: true,
             beforeColon: false,
-            mode: 'minimum'
+            mode: 'minimum',
         }],
 
         'vue/keyword-spacing': ['error', {
@@ -93,8 +93,8 @@ module.exports = {
             overrides: {
                 case: { after: true },
                 return: { after: true },
-                throw: { after: true }
-            }
+                throw: { after: true },
+            },
         }],
 
         'vue/match-component-file-name': 'off',
@@ -172,19 +172,19 @@ module.exports = {
             'error',
             {
                 message: 'for..in loops iterate over the entire prototype chain, which is virtually never what you want. Use Object.{keys,values,entries}, and iterate over the resulting array.',
-                selector: 'ForInStatement'
+                selector: 'ForInStatement',
             },
             {
                 message: 'iterators/generators require regenerator-runtime, which is too heavyweight for this guide to allow them. Separately, loops should be avoided in favor of array iterations.',
-                selector: 'ForOfStatement'
+                selector: 'ForOfStatement',
             },
             {
                 message: 'Labels are a form of GOTO; using them makes code confusing and hard to maintain and understand.',
-                selector: 'LabeledStatement'
+                selector: 'LabeledStatement',
             },
             {
                 message: '`with` is disallowed in strict mode because it makes code impossible to predict and optimize.',
-                selector: 'WithStatement'
+                selector: 'WithStatement',
             }
         ],
 
@@ -229,7 +229,7 @@ module.exports = {
             ExportDeclaration: { consistent: true, minProperties: 4, multiline: true },
             ImportDeclaration: { consistent: true, minProperties: 4, multiline: true },
             ObjectExpression: { consistent: true, minProperties: 4, multiline: true },
-            ObjectPattern: { consistent: true, minProperties: 4, multiline: true }
+            ObjectPattern: { consistent: true, minProperties: 4, multiline: true },
         }],
 
         'vue/object-curly-spacing': ['error', 'always'],
@@ -237,14 +237,14 @@ module.exports = {
         // enforce "same line" or "multiple line" on object properties.
         // https://eslint.org/docs/rules/object-property-newline
         'vue/object-property-newline': ['error', {
-            allowAllPropertiesOnSameLine: true
+            allowAllPropertiesOnSameLine: true,
         }],
 
         // require method and property shorthand syntax for object literals
         // https://eslint.org/docs/rules/object-shorthand
         'vue/object-shorthand': ['error', 'always', {
             avoidQuotes: true,
-            ignoreConstructors: false
+            ignoreConstructors: false,
         }],
 
         // Requires operator at the beginning of the line in multiline statements
@@ -285,7 +285,7 @@ module.exports = {
         // https://eslint.org/docs/rules/space-unary-ops
         'vue/space-unary-ops': ['error', {
             nonwords: false,
-            words: true
+            words: true,
         }],
 
         'vue/static-class-names-order': 'off',
@@ -302,6 +302,6 @@ module.exports = {
 
         'vue/valid-v-bind-sync': 'error',
 
-        'vue/valid-v-slot': 'error'
-    }
+        'vue/valid-v-slot': 'error',
+    },
 };

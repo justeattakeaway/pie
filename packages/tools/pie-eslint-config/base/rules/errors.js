@@ -10,6 +10,6 @@ module.exports = {
 
         'no-import-assign': 'error',
 
-        'no-unsafe-optional-chaining': 'error'
-    }
+        'no-unsafe-optional-chaining': 'error',
+    },
 };

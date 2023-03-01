@@ -5,6 +5,6 @@ module.exports = {
             'error',
             'always',
             { exceptAfterSingleLine: true }
-        ]
-    }
+        ],
+    },
 };

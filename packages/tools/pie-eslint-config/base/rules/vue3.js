@@ -33,6 +33,6 @@ module.exports = {
         'vue/valid-define-emits': 'off',
         'vue/valid-define-props': 'off',
         'vue/valid-v-is': 'off',
-        'vue/valid-v-memo': 'off'
-    }
+        'vue/valid-v-memo': 'off',
+    },
 };

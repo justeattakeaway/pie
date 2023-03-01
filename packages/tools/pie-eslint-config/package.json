@@ -3,13 +3,11 @@
   "version": "0.1.0",
   "description": "Shareable ESLint config for use with any front-end web projects across JET.",
   "exports": {
-    ".": "./rule-sets/index.js",
-    "./base": "./rule-sets/base.js",
-    "./strict": "./rule-sets/strict.js",
-    "./rules": "./rules/index.js"
+    ".": "./base/index.js",
+    "./strict": "./strict/index.js"
   },
   "scripts": {
-    "lint": "eslint --report-unused-disable-directives ./rules",
+    "lint": "eslint --report-unused-disable-directives ./base/rules",
     "check-rules": "eslint-find-rules --unused",
     "pretest": "yarn lint && yarn check-rules",
     "test": "yarn tests-only",
