@@ -16,7 +16,7 @@
   ],
   "scripts": {
     "build": "turbo run build",
-    "watch": "npm run watch --if-present --workspaces",
+    "watch": "turbo run watch",
     "changeset": "changeset",
     "changeset:publish": "changeset publish",
     "changeset:version": "changeset version",
