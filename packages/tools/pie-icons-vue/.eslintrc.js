@@ -7,12 +7,12 @@ module.exports = {
         'plugin:vue/vue3-recommended'
     ],
     rules: {
-        ...vue.rules, ...vue3.rules, 'vue/sort-keys': 'off'
+        ...vue.rules, ...vue3.rules, 'vue/sort-keys': 'off',
     },
     parserOptions: {
         parser: '@babel/eslint-parser',
         requireConfigFile: false,
         ecmaVersion: 2017,
-        sourceType: 'module'
-    }
+        sourceType: 'module',
+    },
 };
