@@ -6,10 +6,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 v1.28.1
 ------------------------------
-*February 27, 2023*
+*March 1, 2023*
 
 ### Added
 - `watch` script to `package.json`
+- `watch` script to `turbo.json`
 
 
 v1.28.0
