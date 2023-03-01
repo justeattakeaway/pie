@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.31.1
+
+### Patch Changes
+
+- [ Fixed ] - Revert back to old changeset / GHA config to prevent CI not running on Release commits ([#264](https://github.com/justeattakeaway/pie/pull/264)) by [@siggerzz](https://github.com/siggerzz)
+
 ## 1.31.0
 
 ### Minor Changes
