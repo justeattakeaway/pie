@@ -18,7 +18,7 @@ $card-label-height: 72px;
 .c-card {
     border: 1px solid f.$color-border-default;
     border-radius: f.$radius-rounded-c;
-    width: $card-width-mobile;
+    width: $card-width--mobile;
     background-color: f.$color-container-default;
 
     &:hover {
