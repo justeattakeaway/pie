@@ -9,9 +9,9 @@ const getIconByName = (iconName, iconAttributes) => {
     }
 };
 
-const getAllIcons = (iconAttributes) => Object.entries(pieIcons.default.icons).map(([key, value]) => ({
+const getAllIcons = iconAttributes => Object.entries(pieIcons.default.icons).map(([key, value]) => ({
     name: key,
-    icon: value.toSvg(iconAttributes),
+    icon: value.toSvg(iconAttributes)
 })).sort((a, b) => a.name.localeCompare(b.name)); // sort icons alphabetically by name
 
 /**
@@ -24,12 +24,12 @@ const getAllIcons = (iconAttributes) => Object.entries(pieIcons.default.icons).m
 // eslint-disable-next-line func-names, consistent-return
 module.exports = function (iconConfig = {
     name: '',
-    attrs: {},
+    attrs: {}
 }) {
     const defaultAttributes = {
         height: 50,
         width: 50,
-        fill: '#000',
+        fill: '#000'
     };
 
     const attributes = { ...defaultAttributes, ...(iconConfig.attrs ? iconConfig.attrs : {}) };

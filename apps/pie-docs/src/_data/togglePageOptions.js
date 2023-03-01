@@ -8,6 +8,6 @@ module.exports = function () {
     // The actual values for these properties aren't particulary important
     return {
         A: 'a',
-        B: 'b',
+        B: 'b'
     };
 };

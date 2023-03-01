@@ -1,5 +1,5 @@
 module.exports = {
-    extends: [require.resolve('@justeattakeaway/pie-eslint-config/strict')],
+    extends: ['@justeat/eslint-config-fozzie'],
     plugins: [
         'json-format'
     ],
