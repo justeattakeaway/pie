@@ -3,13 +3,13 @@
   "version": "0.1.0",
   "description": "Shareable Stylelint config for use with any front-end web projects across JET.",
   "license": "Apache-2.0",
+  "author": "JustEatTakeaway - Design System Web Team",
   "keywords": [
     "PIE",
     "stylelint",
     "stylelint-config",
     "standard"
   ],
-  "author": "",
   "exports": {
     ".": "./index.js",
     "./base": "./rules/base.js",
