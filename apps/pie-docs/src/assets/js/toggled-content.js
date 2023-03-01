@@ -5,13 +5,13 @@ const activeClass = 'is-active';
  * @param {HTMLElement} contentVariantWrapper - the wrapper containing the content variant
  * @returns {boolean} - whether or not the content is already selected to display
  */
-const isContentAlreadySelected = (contentVariantWrapper) => contentVariantWrapper.classList.contains(activeClass);
+const isContentAlreadySelected = contentVariantWrapper => contentVariantWrapper.classList.contains(activeClass);
 
 /**
  * Update the current URL to the new slug without reloading the page
  * @param {*} newSlug The new slug to replace the previous with in the URL
  */
-const replaceUrlSlug = (newSlug) => {
+const replaceUrlSlug = newSlug => {
     // remove previous slug from URL
     const originalHref = window.location.href;
     const hrefWithoutTrailingSlash = originalHref.substring(0, originalHref.length - 1);
@@ -63,7 +63,7 @@ const initialiseToggle = () => {
             contentToHide: contentB,
             slugToUse: contentASlug,
             controlToSelect: contentAControlWrapper,
-            controlToDeselect: contentBControlWrapper,
+            controlToDeselect: contentBControlWrapper
         };
 
         const toggleContentBOptions = {
@@ -71,10 +71,10 @@ const initialiseToggle = () => {
             contentToHide: contentA,
             slugToUse: contentBSlug,
             controlToSelect: contentBControlWrapper,
-            controlToDeselect: contentAControlWrapper,
+            controlToDeselect: contentAControlWrapper
         };
 
-        const toggleContent = (options) => {
+        const toggleContent = options => {
             if (!isContentAlreadySelected(options.controlToSelect)) {
                 toggleContentVisibility(options.contentToShow, options.contentToHide);
                 toggleSelectedControlStyles(options.controlToSelect, options.controlToDeselect);

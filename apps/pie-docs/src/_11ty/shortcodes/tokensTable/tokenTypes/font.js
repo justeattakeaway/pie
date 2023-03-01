@@ -11,7 +11,7 @@ const splitFontAliasToken = (token, tokenMetadata) => {
     const fontWeightMap = {
         Regular: 400,
         Bold: 700,
-        ExtraBold: 800,
+        ExtraBold: 800
     };
 
     if (isGlobal) {
@@ -22,7 +22,7 @@ const splitFontAliasToken = (token, tokenMetadata) => {
             fontWeight: category === 'fontWeight' && fontWeightMap[token],
             textDecoration: category === 'fontStyle' && token,
             letterSpacing: category === 'letterSpacing' && token,
-            paragraphSpacing: category === 'paragraphSpacing' && token,
+            paragraphSpacing: category === 'paragraphSpacing' && token
         };
     }
 
@@ -32,9 +32,10 @@ const splitFontAliasToken = (token, tokenMetadata) => {
         lineHeight: token.size['line-height'],
         fontWeight: fontWeightMap[token.weight],
         textDecoration: token['text-decoration'],
-        letterSpacing: token['letter-spacing'],
+        letterSpacing: token['letter-spacing']
     };
 };
+
 
 /**
 * Builds an example font/typography element to show on the token list item
@@ -46,7 +47,7 @@ const splitFontAliasToken = (token, tokenMetadata) => {
 const buildFontExample = (token, tokenMetadata) => {
     const {
         fontFamily, fontSize, lineHeight, fontWeight,
-        textDecoration, letterSpacing, paragraphSpacing,
+        textDecoration, letterSpacing, paragraphSpacing
     } = splitFontAliasToken(token, tokenMetadata);
     const classes = ['c-tokensTable-example--font'];
     const cssVariables = [
@@ -67,5 +68,5 @@ const buildFontExample = (token, tokenMetadata) => {
 };
 
 module.exports = {
-    buildFontExample,
+    buildFontExample
 };

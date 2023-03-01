@@ -6,5 +6,5 @@
 module.exports = {
     ordered: 'ordered',
     pill: 'pill',
-    icon: 'icon',
+    icon: 'icon'
 };

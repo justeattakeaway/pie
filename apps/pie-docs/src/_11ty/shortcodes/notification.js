@@ -2,7 +2,7 @@ const pieIconsSvg = require('../filters/pieIconsSvg');
 const pieDesignTokenColours = require('../filters/pieDesignTokenColours');
 const markdownFilter = require('../filters/markdown');
 
-const getNotificationColour = (tokenName) => {
+const getNotificationColour = tokenName => {
     const tokenPath = ['alias', 'default'];
 
     return pieDesignTokenColours({ tokenName, tokenPath });
@@ -12,23 +12,23 @@ const notificationSettings = {
     error: {
         iconFill: 'support-error',
         bgColour: 'support-error-02',
-        iconName: 'alert-circle',
+        iconName: 'alert-circle'
     },
     warning: {
         iconFill: 'support-warning',
         bgColour: 'support-warning-02',
-        iconName: 'alert-triangle',
+        iconName: 'alert-triangle'
     },
     information: {
         iconFill: 'support-info',
         bgColour: 'support-info-02',
-        iconName: 'info-circle',
+        iconName: 'info-circle'
     },
     positive: {
         iconFill: 'support-positive',
         bgColour: 'support-positive-02',
-        iconName: 'check-circle',
-    },
+        iconName: 'check-circle'
+    }
 };
 
 /**
@@ -51,8 +51,8 @@ module.exports = function (config) {
             height: 24,
             width: 24,
             fill: iconFill,
-            class: 'u-iconFilled',
-        },
+            class: 'u-iconFilled'
+        }
     });
 
     const bgColour = getNotificationColour(notificationSettings[config.type].bgColour);

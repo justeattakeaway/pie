@@ -1,6 +1,7 @@
 const { deindentHTML } = require('../../shortcode-utilities');
 const pieDesignTokenColours = require('../../../filters/pieDesignTokenColours');
 
+
 /**
  * Builds the example elevation box-shadows to show on the token list item
  * @param {string} token - the token value
@@ -16,12 +17,12 @@ const buildElevationExample = (token, tokenMetadata, path) => {
     const styling = {
         default: {
             elevationContainer: isDefaultElevation ? 'background-subtle' : 'disabled-01-inverse',
-            elevationBox: isDefaultElevation ? 'container-default' : 'border-inverse',
+            elevationBox: isDefaultElevation ? 'container-default' : 'border-inverse'
         },
         dark: {
             elevationContainer: isDefaultElevation ? 'disabled-01-inverse' : 'background-subtle',
-            elevationBox: isDefaultElevation ? 'border-inverse' : 'container-default',
-        },
+            elevationBox: isDefaultElevation ? 'border-inverse' : 'container-default'
+        }
     };
 
     const elevationContainer = `--example-container: ${pieDesignTokenColours({ tokenName: styling[theme].elevationContainer, tokenPath })};`;
@@ -35,7 +36,7 @@ const buildElevationExample = (token, tokenMetadata, path) => {
         r,
         g,
         b,
-        opacity,
+        opacity
     }) => `${x}px ${y}px ${blur}px ${spread}px rgba(${r}, ${g}, ${b}, ${opacity})`);
 
     const elevationBoxShadow = `--example-shadow: ${boxShadowValues};`;
@@ -47,5 +48,5 @@ const buildElevationExample = (token, tokenMetadata, path) => {
 };
 
 module.exports = {
-    buildElevationExample,
+    buildElevationExample
 };
