@@ -13,14 +13,6 @@ v1.30.0
 - Added `test:a11y` & `test:a11y:ci` scripts to root to run accessibility testing locally and on CI.
 
 
-v1.29.0
-------------------------------
-*February 27, 2023*
-
-### Added
-- Linked the icon packages together so that they get released as the same version number
-
-
 v1.29.1
 ------------------------------
 *February 28, 2023*
