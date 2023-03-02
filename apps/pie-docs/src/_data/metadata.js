@@ -8,4 +8,6 @@ module.exports = {
     language: 'en',
     locale: 'en_GB',
     description: 'PIE is the global design system for Just Eat Takeaway.com, powering all our products.',
+    lastUpdated: new Intl.DateTimeFormat('en-GB').format(),
+    currentYear: new Date().getFullYear(),
 };

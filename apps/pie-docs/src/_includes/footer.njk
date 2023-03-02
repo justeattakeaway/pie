@@ -1,8 +1,43 @@
+{% set allAboutPiePages = collections.all | eleventyNavigation("All about PIE") %}
+{% set designersPages = collections.all | eleventyNavigation("designers") %}
+{% set engineersPages = collections.all | eleventyNavigation("engineers") %}
+{% set supportPages = collections.all | eleventyNavigation("Support") %}
+{% set footerNavItems = [allAboutPiePages, designersPages, engineersPages, supportPages] %}
+{% set jetLogoSrc = '/assets/img/jet-logo.svg' | url %}
+{% set jetLogoSrcNarrow = '/assets/img/jet-logo-narrow.svg' | url %}
+
 <footer class="c-footer" data-test-id="site_footer">
-    <div class="c-footer-content c-content-container">
+    <div class='c-content-container'>
         <div class="c-footer-logo">
-            {% include "pie-logo.njk" %}
-        </div>
-        <a href="https://www.just-eat.co.uk/info/privacy-policy">Privacy policy</a>
-    </div>
-</footer>
+            <picture>
+                <source media="(max-width: 600px)" srcset={{ jetLogoSrcNarrow }}>
+                    <img src={{ jetLogoSrc }} alt="Just Eat Takeaway- Logo"></picture>
+                    <span class='c-footer-logo-divider' aria-hidden></span>
+                    {% include "pie-logo.njk" %}
+                </div>
+                <main class='c-footer-main'>
+                    {% for section in footerNavItems %}
+                        <section>
+                            <h3>{{ section[0].parent }}</h3>
+                            <ul>
+                                {% for page in section %}
+                                    <li>
+                                        <a href="{{ page.url | url }}">
+                                            {{ page.title }}
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </section>
+                    {% endfor %}
+                </main>
+                <div class='c-footer-info'>
+                    <div>Copyright © {{ metadata.currentYear }} Just Eat Takeaway.com</div>
+                    <div>
+                        <a href="https://www.just-eat.co.uk/info/privacy-policy">Privacy policy</a>
+                        <span class='c-footer-info-separator' aria-hidden></span>
+                        <span>Updated: {{ metadata.lastUpdated }}</span>
+                    </div>
+                </div>
+            </div>
+        </footer>
