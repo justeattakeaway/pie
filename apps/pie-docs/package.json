@@ -2,7 +2,7 @@
   "name": "pie-docs",
   "private": true,
   "description": "todo",
-  "version": "1.58.0",
+  "version": "1.59.0",
   "main": "index.js",
   "keywords": [],
   "author": "JustEatTakeaway - Vue Design System Team",
@@ -40,7 +40,6 @@
     "markdown-it-attrs": "4.1.6"
   },
   "dependencies": {
-    "@justeattakeaway/pie-icons": "workspace:*",
     "markdown-it": "13.0.1"
   },
   "volta": {

@@ -5,9 +5,9 @@ module.exports = {
         'no-param-reassign': 'off',
         'no-shadow': 'off',
         'no-use-before-define': 'off',
-        'vue/sort-keys': 'off'
+        'vue/sort-keys': 'off',
     },
     parserOptions: {
-        ecmaVersion: 2020
-    }
+        ecmaVersion: 2020,
+    },
 };

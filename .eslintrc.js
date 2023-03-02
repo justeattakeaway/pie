@@ -5,6 +5,6 @@ module.exports = {
     ],
     root: true,
     settings: {
-        'json/sort-package-json': false
-    }
+        'json/sort-package-json': false,
+    },
 };

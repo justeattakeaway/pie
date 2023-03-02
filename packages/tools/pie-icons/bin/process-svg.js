@@ -12,12 +12,12 @@ function processSvg (svg) {
     return (
         optimize(svg)
             .then(setAttrs)
-            .then(data => prettier.format(data, {
-                parser: 'babel'
+            .then((data) => prettier.format(data, {
+                parser: 'babel',
             }))
             // remove semicolon inserted by prettier
             // because prettier thinks it's formatting JSX not HTML
-            .then(svg => svg.replace(/;/g, ''))
+            .then((svg) => svg.replace(/;/g, ''))
     );
 }
 
@@ -34,10 +34,10 @@ function optimize (svg) {
             { mergePaths: false },
             { removeTitle: true },
             { removeViewBox: false }
-        ]
+        ],
     });
 
-    return new Promise(resolve => {
+    return new Promise((resolve) => {
         svgo.optimize(svg)
             .then(({ data }) => resolve(data));
     });
@@ -51,7 +51,7 @@ function optimize (svg) {
 function setAttrs (svg) {
     const $ = cheerio.load(svg);
 
-    Object.keys(DEFAULT_ATTRS).forEach(key => $('svg').attr(key, DEFAULT_ATTRS[key]));
+    Object.keys(DEFAULT_ATTRS).forEach((key) => $('svg').attr(key, DEFAULT_ATTRS[key]));
 
     return $('body').html();
 }
