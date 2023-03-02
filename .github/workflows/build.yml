@@ -210,6 +210,8 @@ jobs:
       # Checkout the Repo
       - name: Checkout
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
       # Setup Node 16
       - name: Setup Node
         uses: actions/setup-node@v3
@@ -223,12 +225,16 @@ jobs:
         with:
           path: '**/node_modules'
           key: node-modules-${{ hashFiles('**/yarn.lock') }}
-      # Run System Tests
-      - name: Run System Tests
+      # Run System / a11y Tests  
+      - name: Run System / a11y Tests - Changed Packages + Dependants
+        if: ${{ !contains(github.ref_name, 'main') }}
         run: |
-          yarn test:system:ci
-      - name: Run a11y Tests
+          yarn test:system:ci --filter=...[origin/main] && 
+          yarn test:a11y:ci --filter=...[origin/main]
+      - name: Run All System / a11y Tests
+        if: contains(github.ref_name, 'main')
         run: |
+          yarn test:system:ci &&
           yarn test:a11y:ci
       - name: Upload a11y Report
         if: failure()
@@ -236,8 +242,13 @@ jobs:
         with:
           name: pie-docs-violations
           path: apps/pie-docs/test/accessibility/violations
-      - name: Run Visual Tests
-        if: ${{ github.event.pull_request.draft == false }}
+      # Run Visual Tests
+      - name: Run Visual Tests - Changed Packages + Dependants
+        if: ${{ github.event.pull_request.draft == false && !contains(github.ref_name, 'main') }}
+        run: |
+          yarn test:visual:ci --filter=...[origin/main]
+      - name: Run All Visual Tests
+        if: contains(github.ref_name, 'main')
         run: |
           yarn test:visual:ci
     env:
@@ -304,14 +315,7 @@ jobs:
         # If .changeset/pre.json does not exist and we did not recently exit
         # prerelease mode.
         if: steps.check_files.outputs.files_exists == 'true' && contains(github.ref_name, 'main')
-        run: |
-          npx changeset pre exit
-      - name: commit prerelease exit changes
-        if: steps.check_files.outputs.files_exists == 'true' && contains(github.ref_name, 'main')
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: "chore(pie-monorepo): exit prerelease mode"
-          branch: ${{ github.event.inputs.branch }}
+        run: npx changeset pre exit
       - name: Create latest release PR
         if: contains(github.ref_name, 'main')
         uses: changesets/action@v1

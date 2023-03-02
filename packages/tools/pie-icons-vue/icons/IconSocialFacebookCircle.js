@@ -10,33 +10,33 @@ export default {
         return h('svg', _mergeJSXProps([{
             attrs: {
                 xmlns: 'http://www.w3.org/2000/svg',
-                viewBox: '0 0 16 16'
+                viewBox: '0 0 16 16',
             },
-            class: 'c-pieIcon c-pieIcon--facebookCircle'
+            class: 'c-pieIcon c-pieIcon--facebookCircle',
         }, ctx.data]), [h('g', {
             attrs: {
                 'clip-path': 'url(#prefix__clip0_889_539)',
-                fill: '#242E30'
-            }
+                fill: '#242E30',
+            },
         }, [h('path', {
             attrs: {
-                d: 'M8 1.175A6.781 6.781 0 1014.782 8 6.79 6.79 0 008 1.175zm0 12.25A5.469 5.469 0 118 2.487a5.469 5.469 0 010 10.938z'
-            }
+                d: 'M8 1.175A6.781 6.781 0 1014.782 8 6.79 6.79 0 008 1.175zm0 12.25A5.469 5.469 0 118 2.487a5.469 5.469 0 010 10.938z',
+            },
         }), h('path', {
             attrs: {
-                d: 'M7.213 6.145v.98H6.058v1.313h1.155v3.167c.234.043.47.063.709.061a3.81 3.81 0 00.708-.061v-3.15h1.06l.2-1.33H8.63V6.25a.656.656 0 01.744-.717h.569V4.5a7 7 0 00-1.015-.087 1.601 1.601 0 00-1.715 1.732z'
-            }
+                d: 'M7.213 6.145v.98H6.058v1.313h1.155v3.167c.234.043.47.063.709.061a3.81 3.81 0 00.708-.061v-3.15h1.06l.2-1.33H8.63V6.25a.656.656 0 01.744-.717h.569V4.5a7 7 0 00-1.015-.087 1.601 1.601 0 00-1.715 1.732z',
+            },
         })]), h('defs', [h('clipPath', {
             attrs: {
-                id: 'prefix__clip0_889_539'
-            }
+                id: 'prefix__clip0_889_539',
+            },
         }, [h('rect', {
             attrs: {
                 width: '14',
                 height: '14',
                 fill: '#fff',
-                transform: 'translate(1 1)'
-            }
+                transform: 'translate(1 1)',
+            },
         })])])]);
-    }
+    },
 };

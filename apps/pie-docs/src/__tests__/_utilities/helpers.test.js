@@ -14,13 +14,13 @@ describe('helpers.js', () => {
                                     propertyA: 'foo',
                                     propertyB: {
                                         level5: {
-                                            propertyA: expectedProperty
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
+                                            propertyA: expectedProperty,
+                                        },
+                                    },
+                                },
+                            },
+                        },
+                    },
                 };
 
                 const pathToProperty = 'level1.level2.level3.level4.propertyB.level5.propertyA';
@@ -52,7 +52,7 @@ describe('helpers.js', () => {
 
     describe('numberHelpers', () => {
         describe('isNumber', () => {
-            [['1', true], ['fooBarBaz', false], [1, true]].forEach(example => {
+            [['1', true], ['fooBarBaz', false], [1, true]].forEach((example) => {
                 it('correctly checks whether string can convert to number', () => {
                     // act
                     const result = systemUnderTest.numberHelpers.isNumber(example[0]);

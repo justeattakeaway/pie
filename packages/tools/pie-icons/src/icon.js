@@ -2,14 +2,13 @@ import classnames from 'classnames/dedupe';
 
 import { DEFAULT_ATTRS, REACTIVE_NATIVE_ATTRS } from './default-attrs';
 
-
 class Icon {
     constructor (name, contents, attrs, pathPrefix) {
         this.name = name;
         this.contents = contents;
         this.attrs = {
             ...DEFAULT_ATTRS,
-            ...attrs
+            ...attrs,
         };
         if (pathPrefix !== undefined && pathPrefix !== '') {
             this.pathPrefix = pathPrefix;
@@ -31,7 +30,7 @@ class Icon {
             ...this.attrs,
             ...attrs,
             ...(platform === 'default' ? { class: classname } : {}), // don't include classes when not using the default attrs
-            ...(platform === 'reactNative' ? REACTIVE_NATIVE_ATTRS : {})
+            ...(platform === 'reactNative' ? REACTIVE_NATIVE_ATTRS : {}),
         };
 
         return `<svg ${attrsToString(combinedAttrs)}>${this.contents}</svg>`;
@@ -65,7 +64,7 @@ export function normaliseClassname (classname) {
  */
 function attrsToString (attrs) {
     return Object.keys(attrs)
-    .map(key => `${key}="${attrs[key]}"`)
+    .map((key) => `${key}="${attrs[key]}"`)
     .join(' ');
 }
 

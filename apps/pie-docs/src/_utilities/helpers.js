@@ -24,7 +24,7 @@ const getObjectPropertyByPath = (obj, path) => {
  * @param {string} string
  * @returns {string}
  */
-const capitaliseFirstLetter = string => {
+const capitaliseFirstLetter = (string) => {
     let capitalised = string;
     capitalised = capitalised.charAt(0).toUpperCase() + capitalised.slice(1);
 
@@ -36,17 +36,16 @@ const capitaliseFirstLetter = string => {
  * @param {string|number} value
  * @returns {boolean}
  */
-const isNumber = value => !Number.isNaN(parseInt(value, 10));
-
+const isNumber = (value) => !Number.isNaN(parseInt(value, 10));
 
 module.exports = {
     stringHelpers: {
-        capitaliseFirstLetter
+        capitaliseFirstLetter,
     },
     objectHelpers: {
-        getObjectPropertyByPath
+        getObjectPropertyByPath,
     },
     numberHelpers: {
-        isNumber
-    }
+        isNumber,
+    },
 };
