@@ -57,3 +57,33 @@ These libraries contain assets which can be used in our products, such as icons 
 Business Area libraries were created to provide more flexibility to our teams. Components which are unique to a specific Business Area (such as Customer, Restaurant…) and would not be relevant in other ones live within these libraries.
 
 Business Area designers own these libraries, and PIE designers only help with maintaining them and making sure they are consistent with our Core Components libraries. You can learn more about how we support these libraries in our [Getting Support]() section.
+
+---
+
+## Additional guidelines
+
+We’ve compiled some additional guidelines to help you get a better understanding of JET’s visual and verbal standards.
+
+<div class="foo">
+{% card {
+  items: [
+        {
+          label: "JET Brand Guidelines",
+          href: "https://brand-box.marketing.just-eat.com/",
+          src: "../../../assets/img/designers/getting-started/overview/document-placeholder.svg"
+        },
+        {
+          label: "Global Brand Voice",
+          href: "https://docs.google.com/presentation/d/1YXtsfzmIXfc5CAk1TsV9YQ21O9V4G9WK6J4elC3YmEI/edit#slide=id.gb6f3deb72f_0_702",
+          src: "../../../assets/img/designers/getting-started/overview/document-placeholder.svg",
+          shouldOpenInNewTab: true
+        },
+        {
+          label: "2022 UI copy style guide ",
+          href: "https://docs.google.com/document/d/1aAyCnyBfNO_ErWORPqKoZ9DVF480ra1VvToQ0YFfm0I/edit",
+          src: "../../../assets/img/designers/getting-started/overview/document-placeholder.svg",
+          shouldOpenInNewTab: true
+        }
+    ]
+} %}
+</div>

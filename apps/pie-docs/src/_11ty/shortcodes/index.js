@@ -1,3 +1,4 @@
+const card = require('./card');
 const contentPageImage = require('./contentPageImage');
 const iconList = require('./iconList');
 const list = require('./list');
@@ -13,6 +14,7 @@ const { deindentHTML } = require('./shortcode-utilities');
  * @param {object} eleventyConfig
  */
 const addAllShortCodes = (eleventyConfig) => {
+    eleventyConfig.addShortcode('card', (shortcodeArgs) => deindentHTML(card(shortcodeArgs)));
     eleventyConfig.addShortcode('contentPageImage', (shortcodeArgs) => deindentHTML(contentPageImage(shortcodeArgs)));
     eleventyConfig.addShortcode('iconList', (shortcodeArgs) => deindentHTML(iconList(shortcodeArgs)));
     eleventyConfig.addShortcode('list', (shortcodeArgs) => deindentHTML(list(shortcodeArgs)));
