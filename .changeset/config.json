@@ -1,6 +1,6 @@
 {
     "changelog": ["./changelog-config.js", {"repo": "justeattakeaway/pie"}],
-    "commit": true,
+    "commit": false,
     "fixed": [],
     "linked": [
       [
