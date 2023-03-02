@@ -16,6 +16,7 @@
     "./"
   ],
   "scripts": {
+    "watch": "turbo run watch --filter=!pie-monorepo",
     "build": "turbo run build --filter=!pie-monorepo",
     "changeset": "changeset",
     "changeset:publish": "changeset publish",

@@ -15,6 +15,11 @@ cd packages/components/pie-button
 yarn build
 ```
 
+compile using Vite (auto-compiles `dist` on save)
+```
+yarn watch
+```
+
 Local dev server using Vite (with hot module reloading)
 ```
 yarn dev
