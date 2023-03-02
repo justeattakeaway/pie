@@ -67,7 +67,7 @@ To give an idea as to what devices are worth testing on, these are the current r
 
 - iPhone: 6 to latest (all variants such as Pro and Mini)
 - iPad / iPad mini - the latest model
-- Samsung Galaxy: s21, s22
-- Samsung Galaxy Tabel: s10 (or similar)
-- Google pixel: 6, 4a
+- Samsung Galaxy: S21, S22
+- Samsung Galaxy Tab: S7 (or similar)
+- Google Pixel: 6, 4a
 - Huawei: p30
