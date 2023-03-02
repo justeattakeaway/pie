@@ -7,6 +7,7 @@ eleventyNavigation:
 eleventyComputed:
     desktopTableData: "{% include './browser-support-desktop.json' %}"
     mobileTableData: "{% include './browser-support-mobile.json' %}"
+    deviceTableData: "{% include './devices.json' %}"
 ---
 
 ## Browser support
@@ -65,9 +66,6 @@ A good example of this would be users browsing using Opera. The reason we don't 
 
 To give an idea as to what devices are worth testing on, these are the current recommended device types based on our analytics.
 
-- iPhone: 6 to latest (all variants such as Pro and Mini)
-- iPad / iPad mini - the latest model
-- Samsung Galaxy: S21, S22
-- Samsung Galaxy Tab: S7 (or similar)
-- Google Pixel: 6, 4a
-- Huawei: P30
+{% simpleTable {
+  tableData: deviceTableData
+} %}
