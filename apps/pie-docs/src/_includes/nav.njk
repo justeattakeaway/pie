@@ -32,8 +32,10 @@
                             <ul class="c-nav-list">
                                 {% for subpage in category.children %}
                                 <li>
-                                    {% set subPageArea = subpage.url.split("/")[2] %}
-                                    {% set currentPageArea = page.url.split("/")[2] %}
+                                    {% set splitSubPageUrl = subpage.url.split("/") %}
+                                    {% set subPageArea = [splitSubPageUrl[1], splitSubPageUrl[2]] | join('/') %}
+                                    {% set splitPageUrl = page.url.split("/") %}
+                                    {% set currentPageArea = [splitPageUrl[1], splitPageUrl[2]] | join('/') %}
                                     {# Set the nav item to active if the url contains it's category #}
                                     {# this means something like /foundations/colour/overview/ and /foundations/colour/tokens/global/ will activate 'colour' #}
                                     <a
