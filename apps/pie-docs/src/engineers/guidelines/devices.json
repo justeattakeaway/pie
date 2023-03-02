@@ -1,0 +1,72 @@
+{
+    "headings": [
+        {
+            "text": "Device"
+        },
+        {
+            "text": "Models"
+        }
+    ],
+    "rows": [
+        {
+            "data": [
+                {
+                    "text": "iPhone"
+                },
+                {
+                    "text": "6 to latest (all variants such as Pro and Mini)"
+                }
+            ]
+        },
+        {
+          "data": [
+              {
+                  "text": "iPad / iPad mini"
+              },
+              {
+                  "text": "Latest model"
+              }
+            ]
+        },
+        {
+          "data": [
+              {
+                  "text": "Samsung Galaxy"
+              },
+              {
+                  "text": "S21, S22"
+              }
+            ]
+        },
+        {
+          "data": [
+              {
+                  "text": "Samsung Galaxy Tab"
+              },
+              {
+                  "text": "S7 to latest"
+              }
+            ]
+        },
+        {
+          "data": [
+              {
+                  "text": "Google Pixel"
+              },
+              {
+                  "text": "4a, 6"
+              }
+            ]
+        },
+        {
+          "data": [
+              {
+                  "text": "Huawei"
+              },
+              {
+                  "text": "P30"
+              }
+            ]
+        }
+    ]
+}
