@@ -12,9 +12,14 @@ describe('PIE - Page Visual Tests', async () => {
     });
 
     it('Should display Cookie Banner', async () => {
+        const cookieBannerSelector = '[data-test-id="cookie-banner-component"]';
+
         await browser.url('/');
         await browser.deleteCookies(['je-cookieConsent', 'je-banner_cookie']);
         await browser.refresh();
+
+        const cookieBannerElement = await browser.$(cookieBannerSelector);
+        await cookieBannerElement.waitForDisplayed();
 
         // wait til load
         await browser.percyScreenshot('PIE - Cookie Banner');
