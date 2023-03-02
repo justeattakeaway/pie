@@ -1,5 +1,7 @@
 {# Allows for titles such as 'Foundations - Colour | PIE Design System' and fallsback to 'PIE Design System' #}
 {% set pageTitle = [title, " | ", metadata.title] | join if title else metadata.title %}
+{% set pageUrl = [metadata.url, page.url] | join %}
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,7 +18,12 @@
     <meta name="theme-color" content="#ffffff">
     <meta property="og:type" content="website">
     <meta property="og:title" content="{{ pageTitle }}">
-    <meta property="og:url" content="{{ metadata.url }}">
+    <meta property="og:url" content="{{ pageUrl }}">
+    <meta property="og:locale" content="{{ metadata.locale }}">
+    <meta property="og:image" content="{{ metadata.image | url }}">
+    <meta property="og:image:type" content="{{ metadata.imageType }}">
+    <meta property="og:image:width" content="{{ metadata.imageWidth }}">
+    <meta property="og:image:height" content="{{ metadata.imageHeight }}">
     <meta property="og:image:alt" content="{{ metadata.title }}">
     <meta property="og:description" content="{{ metadata.description }}">
     {% include "head-common.njk" %}
