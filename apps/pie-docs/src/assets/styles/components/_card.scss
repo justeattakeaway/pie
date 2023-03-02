@@ -5,6 +5,10 @@ $card-width--mobile: 288px;
 $card-image-height: 180px;
 $card-label-height: 72px;
 
+.foo {
+    container-type: inline-size;
+}
+
 .c-card-wrapper {
     margin: f.$spacing-f 0;
     display: flex;
@@ -15,10 +19,18 @@ $card-label-height: 72px;
     padding: 0;
 }
 
+@container (max-width: 700px) {
+    .c-card-wrapper {
+        justify-content: center;
+    }
+}
+
 .c-card {
     border: 1px solid f.$color-border-default;
     border-radius: f.$radius-rounded-c;
-    width: $card-width--mobile;
+    // width: $card-width--mobile;
+    width: 100%;
+    max-width: $card-width;
     background-color: f.$color-container-default;
 
     &:hover {
@@ -29,9 +41,9 @@ $card-label-height: 72px;
         text-decoration-color: f.$color-content-default;
     }
 
-    @include f.media('>=narrow') {
-        width: $card-width;
-    }
+    // @include f.media('>=narrow') {
+    //     width: $card-width;
+    // }
 }
 
 .c-card-image {
@@ -57,4 +69,9 @@ $card-label-height: 72px;
 .c-card-label {
     font-weight: f.$font-weight-bold;
     margin-top: 0;
+}
+
+
+.foo {
+
 }

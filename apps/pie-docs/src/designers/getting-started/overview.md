@@ -64,6 +64,7 @@ Business Area designers own these libraries, and PIE designers only help with ma
 
 We’ve compiled some additional guidelines to help you get a better understanding of JET’s visual and verbal standards.
 
+<div class="foo">
 {% card {
   items: [
         {
@@ -88,3 +89,4 @@ We’ve compiled some additional guidelines to help you get a better understandi
         }
     ]
 } %}
+</div>
