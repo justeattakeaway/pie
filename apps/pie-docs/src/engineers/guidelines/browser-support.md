@@ -70,4 +70,4 @@ To give an idea as to what devices are worth testing on, these are the current r
 - Samsung Galaxy: S21, S22
 - Samsung Galaxy Tab: S7 (or similar)
 - Google Pixel: 6, 4a
-- Huawei: p30
+- Huawei: P30
