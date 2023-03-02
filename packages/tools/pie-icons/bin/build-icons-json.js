@@ -10,10 +10,10 @@ const OUT_FILE = `${process.cwd()}/dist/icons.json`;
 console.log(`Building ${OUT_FILE}...`);
 
 const svgFiles = getAllSvgs(IN_DIR)
-    .filter(file => path.extname(file.fileName) === '.svg')
-    .map(file => path.join(file.path, file.fileName));
+    .filter((file) => path.extname(file.fileName) === '.svg')
+    .map((file) => path.join(file.path, file.fileName));
 
-const getSvg = svgFile => fs.readFileSync(svgFile);
+const getSvg = (svgFile) => fs.readFileSync(svgFile);
 
 const icons = buildIconsObject(svgFiles, getSvg);
 

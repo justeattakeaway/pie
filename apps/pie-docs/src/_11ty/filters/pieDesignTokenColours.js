@@ -22,7 +22,7 @@ const getDesignTokenColour = (tokenName, tokenPath) => {
 // eslint-disable-next-line func-names, consistent-return
 module.exports = function (options = {
     tokenName: '',
-    tokenPath: []
+    tokenPath: [],
 }) {
     try {
         return getDesignTokenColour(options.tokenName, options.tokenPath);

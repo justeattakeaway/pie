@@ -6,8 +6,8 @@ const pieIcons = require('../filters/pieIconsSvg');
  */
 // eslint-disable-next-line func-names
 module.exports = function () {
-    const buildIconName = name => name.replace(/([A-Z])/g, match => ` ${match}`)
-        .replace(/^./, match => match.toUpperCase())
+    const buildIconName = (name) => name.replace(/([A-Z])/g, (match) => ` ${match}`)
+        .replace(/^./, (match) => match.toUpperCase())
         .trim();
 
     const icons = Object.values(pieIcons()).map(({ name, icon }) => {

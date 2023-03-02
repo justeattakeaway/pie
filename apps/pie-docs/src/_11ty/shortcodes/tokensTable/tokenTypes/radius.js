@@ -4,7 +4,7 @@
  * @param {string} token - the token value in pixels
  * @returns {string} - the radius swatch example HTML string
  */
-const buildRadiusExample = token => {
+const buildRadiusExample = (token) => {
     const classes = ['c-tokensTable-example--radius'];
     const style = `--example-radius: ${token}px`;
 
@@ -16,5 +16,5 @@ const buildRadiusExample = token => {
 };
 
 module.exports = {
-    buildRadiusExample
+    buildRadiusExample,
 };

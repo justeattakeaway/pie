@@ -25,5 +25,5 @@ const addAllShortCodes = eleventyConfig => {
 };
 
 module.exports = {
-    addAllShortCodes
+    addAllShortCodes,
 };
