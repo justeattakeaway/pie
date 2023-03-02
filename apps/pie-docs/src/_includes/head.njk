@@ -1,5 +1,6 @@
 {# Allows for titles such as 'Foundations - Colour | PIE Design System' and fallsback to 'PIE Design System' #}
 {% set pageTitle = [title, " | ", metadata.title] | join if title else metadata.title %}
+{% set prefixedPageTitle = [metaTitlePrefix, pageTitle] | join if metaTitlePrefix else pageTitle %}
 {% set pageUrl = [metadata.url, page.url] | join %}
 {% set pageOGImage = [metadata.url, '/assets/img/social/', ogImage] | join if ogImage else metadata.image %}
 
@@ -9,7 +10,7 @@
     <meta name="robots" content="index, follow">
     <meta name="googlebot" content="index, follow">
     <meta name="description" content="{{ metadata.description }}">
-    <title>{{ title if title === metadata.title else pageTitle }}</title>
+    <title>{{ title if title === metadata.title else prefixedPageTitle }}</title>
     {# Favicons #}
     <link rel="apple-touch-icon" sizes="180x180" href="{{ '/apple-touch-icon.png' | url }}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ '/favicon-32x32.png' | url }}">
@@ -20,7 +21,7 @@
     <meta name="theme-color" content="#ffffff">
     {# Open graph data #}
     <meta property="og:type" content="website">
-    <meta property="og:title" content="{{ pageTitle }}">
+    <meta property="og:title" content="{{ prefixedPageTitle }}">
     <meta property="og:url" content="{{ pageUrl }}">
     <meta property="og:locale" content="{{ metadata.locale }}">
     <meta property="og:image" content="{{ pageOGImage }}">
