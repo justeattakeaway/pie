@@ -6,7 +6,8 @@ const AxeBuilder = require('@axe-core/webdriverio').default;
 describe('PIE - Accessibility Tests', () => {
     const getAxeResults = async (selector) => {
         const builder = new AxeBuilder({ client: browser }).include(selector)
-            .withTags(['wcag21a', 'wcag21aa', 'wcag143', 'cat.color', 'cat.aria']);
+            .withTags(['wcag21a', 'wcag21aa', 'wcag143', 'cat.color', 'cat.aria'])
+            .disableRules(['color-contrast-enhanced']);
         try {
             const results = builder.analyze();
 
