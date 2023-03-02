@@ -11,12 +11,12 @@ module.exports = function ({ items }) {
         name: 'link-external',
         attrs: {
             height: 21,
-            width: 21
-        }
+            width: 21,
+        },
     });
 
     const buildCard = ({
-        label, href, src, mobileSrc, shouldOpenInNewTab = false
+        label, href, src, shouldOpenInNewTab = false,
     }) => {
         const target = shouldOpenInNewTab ? 'target="_blank"' : '';
 
@@ -26,7 +26,7 @@ module.exports = function ({ items }) {
         ].filter(Boolean).join(' ');
 
         return `<a href=${href} ${target} >
-            ${src ? `<img class="c-card-image" src="${src}" >` : ''}
+            ${src ? `<img class="c-card-image" src="${src}" role="presentation">` : ''}
             <div class="${labelClasses}">
                 <p class="c-card-label">${label}</p>
                 ${iconLink}
@@ -37,7 +37,7 @@ module.exports = function ({ items }) {
     if (items.length > 1) {
         return `<div class="c-card-wrapper">
             <ul class="c-card-list">
-                ${Object.values(items).map(card => `<li class="c-card">${buildCard(card)}</li>`).join('')}
+                ${Object.values(items).map((card) => `<li class="c-card">${buildCard(card)}</li>`).join('')}
             </ul>
         </div>`;
     }

@@ -2,12 +2,12 @@ const card = require('../../../_11ty/shortcodes/card');
 
 const item = {
     label: 'label',
-    href: 'link.com'
+    href: 'link.com',
 };
 
 const itemWithImage = {
     ...item,
-    src: '/path/to/image'
+    src: '/path/to/image',
 };
 
 describe('card.js', () => {
@@ -15,7 +15,7 @@ describe('card.js', () => {
         [[item]],
         [[itemWithImage]],
         [[item, item]]
-    ])('should return the expected HTML', items => {
+    ])('should return the expected HTML', (items) => {
         // act
         const result = card({ items });
 
