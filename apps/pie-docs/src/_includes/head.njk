@@ -1,7 +1,7 @@
 {# Allows for titles such as 'Foundations - Colour | PIE Design System' and fallsback to 'PIE Design System' #}
 {% set pageTitle = [title, " | ", metadata.title] | join if title else metadata.title %}
 {% set pageUrl = [metadata.url, page.url] | join %}
-{% set pageOGImage = [metadata.url, '/assets/social/', ogImage] | join if ogImage else metadata.image %}
+{% set pageOGImage = [metadata.url, '/assets/img/social/', ogImage] | join if ogImage else metadata.image %}
 
 <head>
     <meta charset="utf-8">
