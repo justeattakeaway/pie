@@ -126,22 +126,18 @@
             margin-top: f.spacing(e);
         }
 
-        > .c-contentPage-img + h3,
-        > .c-contentPage-img + h4 {
-            margin-top: f.spacing(f);
-        }
-
         > p + h2 {
             margin-top: f.spacing(h);
         }
 
-        ul + h3 {
-            margin-top: f.spacing(f);
-        }
-
+        > ul + h3,
+        > .c-contentPage-img + h3,
+        > .c-contentPage-img + h4,
         > p + h3,
         > p + h4,
         > ul + h4,
+        > table + h3,
+        > .c-contentPage-notification + h3,
         & .c-contentPage-notification {
             margin-top: f.spacing(f);
         }
