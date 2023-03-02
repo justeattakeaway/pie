@@ -8,9 +8,9 @@ const clonedPieDesignTokens = JSON.parse(JSON.stringify(pieDesignTokens));
  * @returns - alias tokens categorised by wide/narrow objects to be used in their respective pages.
  */
 const normaliseFontAliasTokens = () => {
-    const compose = modifier => {
+    const compose = (modifier) => {
         const tokens = JSON.parse(JSON.stringify(clonedPieDesignTokens.theme.jet.font.alias));
-        Object.keys(tokens).forEach(key => {
+        Object.keys(tokens).forEach((key) => {
             if (tokens[key].size) return;
             tokens[key].size = tokens[key][`size--${modifier}`];
         });
@@ -19,7 +19,7 @@ const normaliseFontAliasTokens = () => {
 
     clonedPieDesignTokens.theme.jet.font.alias = {
         wide: compose('wide'),
-        narrow: compose('narrow')
+        narrow: compose('narrow'),
     };
 };
 

@@ -6,7 +6,7 @@ const OUT_DIR = `${process.cwd()}/dist/icons`;
 
 console.log(`Building SVGs in ${OUT_DIR}...`);
 
-Object.keys(icons).forEach(name => {
+Object.keys(icons).forEach((name) => {
     const svg = icons[name].toSvg();
     const outputDirectory = OUT_DIR + (icons[name].pathPrefix ?? '');
 

@@ -95,6 +95,7 @@
       "outputs": []
     },
     "lint:scripts:fix": {
+      "cache": false,
       "outputs": []
     },
     "lint:style": {

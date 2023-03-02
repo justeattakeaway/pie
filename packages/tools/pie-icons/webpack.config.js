@@ -1,4 +1,3 @@
-/* eslint-disable vue/sort-keys */
 const path = require('path');
 
 module.exports = [
@@ -10,7 +9,7 @@ module.exports = [
             library: 'pie-icons',
             // Prevents webpack from referencing `window` in the UMD build
             // Source: https://git.io/vppgU
-            globalObject: "typeof self !== 'undefined' ? self : this"
+            globalObject: "typeof self !== 'undefined' ? self : this",
         },
         devtool: 'source-map',
         module: {
@@ -18,9 +17,9 @@ module.exports = [
                 {
                     test: /\.js$/,
                     loader: 'babel-loader',
-                    exclude: /node_modules/
+                    exclude: /node_modules/,
                 }
-            ]
-        }
+            ],
+        },
     }
 ];
