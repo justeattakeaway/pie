@@ -1,7 +1,7 @@
 module.exports = {
     title: 'PIE Design System',
     url: 'https://www.pie.design',
-    image: 'https://www.pie.design/assets/img/social/landing__home.png',
+    image: 'https://www.pie.design/assets/img/social/landing_home.png',
     imageType: 'image/png',
     imageWidth: '1200',
     imageHeight: '630',
