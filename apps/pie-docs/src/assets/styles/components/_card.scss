@@ -1,15 +1,14 @@
 @use '../fozzie-config' as f;
 
 $card-width: 328px;
-$card-width--mobile: 288px;
 $card-image-height: 180px;
 $card-label-height: 72px;
 
-.foo {
+.c-card-wrapper {
     container-type: inline-size;
 }
 
-.c-card-wrapper {
+.c-card-list {
     margin: f.$spacing-f 0;
     display: flex;
     flex-wrap: wrap;
@@ -20,7 +19,7 @@ $card-label-height: 72px;
 }
 
 @container (max-width: 680px) {
-    .c-card-wrapper {
+    .c-card-list {
         justify-content: center;
     }
 }
@@ -28,7 +27,6 @@ $card-label-height: 72px;
 .c-card {
     border: 1px solid f.$color-border-default;
     border-radius: f.$radius-rounded-c;
-    // width: $card-width--mobile;
     width: 100%;
     max-width: $card-width;
     background-color: f.$color-container-default;
@@ -40,10 +38,6 @@ $card-label-height: 72px;
     a {
         text-decoration-color: f.$color-content-default;
     }
-
-    // @include f.media('>=narrow') {
-    //     width: $card-width;
-    // }
 }
 
 .c-card-image {

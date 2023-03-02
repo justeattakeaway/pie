@@ -26,7 +26,7 @@ module.exports = function ({ items }) {
         ].filter(Boolean).join(' ');
 
         return `<a href=${href} ${target} >
-            <img class="c-card-image" src="${src}" >
+            ${src ? `<img class="c-card-image" src="${src}" >` : ''}
             <div class="${labelClasses}">
                 <p class="c-card-label">${label}</p>
                 ${iconLink}
@@ -35,9 +35,11 @@ module.exports = function ({ items }) {
     };
 
     if (items.length > 1) {
-        return `<ul class="c-card-wrapper">
-            ${Object.values(items).map(card => `<li class="c-card">${buildCard(card)}</li>`).join('')}
-        </ul>`;
+        return `<div class="c-card-wrapper">
+            <ul class="c-card-list">
+                ${Object.values(items).map(card => `<li class="c-card">${buildCard(card)}</li>`).join('')}
+            </ul>
+        </div>`;
     }
 
     return `<div class="c-card">${buildCard(items[0])}`;
