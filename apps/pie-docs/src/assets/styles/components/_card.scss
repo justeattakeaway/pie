@@ -37,13 +37,13 @@ $card-label-height: 72px;
     }
 
     // make card clickable
-    a::before {
-        content: "";
+    a:before {
+        content: '';
         position: absolute;
-        top: 0px;
-        right: 0px;
-        bottom: 0px;
-        left: 0px;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
     }
 }
 
