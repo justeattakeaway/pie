@@ -25,6 +25,7 @@ $card-label-height: 72px;
 }
 
 .c-card {
+    position: relative;
     border: 1px solid f.$color-border-default;
     border-radius: f.$radius-rounded-c;
     width: 100%;
@@ -35,8 +36,14 @@ $card-label-height: 72px;
         background-color: darken(f.$color-container-default, f.$color-hover-01);
     }
 
-    a {
-        text-decoration-color: f.$color-content-default;
+    // make card clickable
+    a::before {
+        content: "";
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        bottom: 0px;
+        left: 0px;
     }
 }
 
@@ -64,4 +71,18 @@ $card-label-height: 72px;
 .c-card-label {
     font-weight: f.$font-weight-bold;
     margin-top: 0;
+
+    a {
+        text-decoration: underline;
+
+        &:hover,
+        &:active,
+        &:focus {
+            text-decoration: none;
+        }
+
+        &:visited {
+            color: f.$color-content-default;
+        }
+    }
 }

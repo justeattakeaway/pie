@@ -9,7 +9,9 @@ const pieIconsSvg = require('../filters/pieIconsSvg');
 module.exports = function ({ items }) {
     const iconLink = pieIconsSvg({
         name: 'link-external',
+        class: 'c-link-icon',
         attrs: {
+            'aria-hidden': 'true',
             height: 21,
             width: 21,
         },
@@ -25,22 +27,26 @@ module.exports = function ({ items }) {
             src && 'c-card-labelContainer--hasImage'
         ].filter(Boolean).join(' ');
 
-        return `<a href=${href} ${target} >
-            ${src ? `<img class="c-card-image" src="${src}" role="presentation">` : ''}
+        const labelId = `link-${label.replaceAll(' ', '-').toLowerCase()}`
+
+        return `<article class="c-card" aria-labelledby=${labelId}>
+            ${src ? `<img class="c-card-image" src="${src}" role="presentation" alt="">` : ''}
             <div class="${labelClasses}">
-                <p class="c-card-label">${label}</p>
+                <p class="c-card-label">
+                    <a id=${labelId} href=${href} ${target}>${label}</a>
+                </p>
                 ${iconLink}
             </div>
-        </a>`;
+        </article>`;
     };
 
     if (items.length > 1) {
         return `<div class="c-card-wrapper">
             <ul class="c-card-list">
-                ${Object.values(items).map((card) => `<li class="c-card">${buildCard(card)}</li>`).join('')}
+                ${Object.values(items).map((card) => `<li>${buildCard(card)}</li>`).join('')}
             </ul>
         </div>`;
     }
 
-    return `<div class="c-card">${buildCard(items[0])}`;
+    return `${buildCard(items[0])}`;
 };
