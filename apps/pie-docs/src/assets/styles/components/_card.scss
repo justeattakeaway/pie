@@ -73,16 +73,13 @@ $card-label-height: 72px;
     margin-top: 0;
 
     a {
+        color: f.$color-content-default;
         text-decoration: underline;
 
         &:hover,
         &:active,
         &:focus {
             text-decoration: none;
-        }
-
-        &:visited {
-            color: f.$color-content-default;
         }
     }
 }

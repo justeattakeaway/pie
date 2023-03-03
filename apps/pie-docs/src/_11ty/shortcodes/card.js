@@ -26,13 +26,11 @@ module.exports = function ({ items }) {
             src && 'c-card-labelContainer--hasImage'
         ].filter(Boolean).join(' ');
 
-        const labelId = `link-${label.replaceAll(' ', '-').toLowerCase()}`;
-
-        return `<article class="c-card" aria-labelledby=${labelId}>
+        return `<article class="c-card">
             ${src ? `<img class="c-card-image" src="${src}" role="presentation" alt="">` : ''}
             <div class="${labelClasses}">
                 <p class="c-card-label">
-                    <a id=${labelId} href=${href} ${target}>${label}</a>
+                    <a href=${href} ${target}>${label}</a>
                 </p>
                 ${iconLink}
             </div>
