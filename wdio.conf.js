@@ -78,8 +78,8 @@ exports.config = {
                 '--disable-infobars',
                 '--headless',
                 '--disable-gpu',
-                '--window-size=1920,1080'] : [])
-        }
+                '--window-size=1920,1080'] : []),
+        },
         // If outputDir is provided WebdriverIO can capture driver session logs
         // it is possible to configure which logTypes to include/exclude.
         // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
@@ -116,7 +116,7 @@ exports.config = {
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-    baseUrl: getBaseUrl(),
+    baseUrl: 'https://www.pie.design/pr-preview-docs/pr-274/',
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,
@@ -156,14 +156,12 @@ exports.config = {
     // see also: https://webdriver.io/docs/dot-reporter
     reporters: [['allure', { outputDir: '../../allure-results' }]],
 
-
-
     //
     // Options to be passed to Mocha.
     // See the full list at http://mochajs.org/
     mochaOpts: {
         ui: 'bdd',
-        timeout: 60000
+        timeout: 60000,
     },
     //
     // =====
@@ -219,15 +217,15 @@ exports.config = {
      */
     before: async () => {
         if (TEST_TYPE === 'visual') {
-            await browser.addCommand('percyScreenshot', async screenshotName => {
+            await browser.addCommand('percyScreenshot', async (screenshotName) => {
                 await browser.waitUntil(
                     () => browser.execute(() => document.readyState === 'complete'),
                     {
-                        timeoutMsg: `Unable to load ${browser.options.baseUrl}`
-                    }
+                        timeoutMsg: `Unable to load ${browser.options.baseUrl}`,
+                    },
                 );
                 await percySnapshot(screenshotName, {
-                    widths: breakpoints
+                    widths: breakpoints,
                 });
             });
         }
@@ -236,18 +234,18 @@ exports.config = {
         await browser.setCookies([
             {
                 name: COOKIE_NAMES.JE_COOKIE_CONSENT,
-                value: 'full'
+                value: 'full',
             }, {
                 name: COOKIE_NAMES.JE_BANNER_COOKIE,
-                value: 130315
+                value: 130315,
             }
         ]);
         await browser.refresh();
         await browser.waitUntil(
             () => browser.execute(() => document.readyState === 'complete'),
             {
-                timeoutMsg: `Unable to load ${browser.options.baseUrl}`
-            }
+                timeoutMsg: `Unable to load ${browser.options.baseUrl}`,
+            },
         );
     },
     /**
@@ -292,13 +290,12 @@ exports.config = {
      */
     afterTest: async function (test, context, {
         // eslint-disable-next-line no-unused-vars
-        error, result, duration, passed, retries
+        error, result, duration, passed, retries,
     }) {
         if (!passed) {
             await browser.takeScreenshot();
         }
-    }
-
+    },
 
     /**
      * Hook that gets executed after the suite has ended
