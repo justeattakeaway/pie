@@ -12,7 +12,8 @@
 {% set categoryIconFill = { tokenName: 'interactive-brand', tokenPath: ['alias', 'default'] } | pieDesignTokenColours %}
 {% set navPagesPrimary = collections.all | eleventyNavigation("Docs") %}
 {% set navPagesSecondary = collections.all | eleventyNavigation("Docs-secondary") %}
-{% set navSections = [navPagesPrimary, navPagesSecondary] %}
+{% set navPagesTertiary = collections.all | eleventyNavigation("Docs-tertiary") %}
+{% set navSections = [navPagesPrimary, navPagesSecondary, navPagesTertiary] %}
 
 <nav class="c-nav" data-test-id="site_nav">
     {% for section in navSections %}
@@ -24,8 +25,8 @@
                         <summary class="c-nav-category" style="--icon-fill: {{categoryIconFill}};">
                             {{ { name: navigationIcons[category.key], attrs: { fill: categoryIconFill, height: '24', width: '24', class:'u-iconFilled', 'aria-hidden': 'true' } } | pieIconsSvg | safe }}
                             {{ category.title }}
-                            {{ { name: 'chevron-up', attrs: { fill: chevronFill, height: '18', width: '18', class:'c-nav-toggle c-nav-toggle--close', 'aria-hidden': 'true' } } | pieIconsSvg | safe }}
-                            {{ { name: 'chevron-down', attrs: { fill: chevronFill, height: '18', width: '18', class:'c-nav-toggle c-nav-toggle--open', 'aria-hidden': 'true' } } | pieIconsSvg | safe }}
+                            {{ { name: 'chevron-up', attrs: { fill: chevronFill, height: '16', width: '16', class:'c-nav-toggle c-nav-toggle--close', 'aria-hidden': 'true' } } | pieIconsSvg | safe }}
+                            {{ { name: 'chevron-down', attrs: { fill: chevronFill, height: '16', width: '16', class:'c-nav-toggle c-nav-toggle--open', 'aria-hidden': 'true' } } | pieIconsSvg | safe }}
                         </summary>
                         {% if category.children.length %}
                         {# build up a list of subpages for each category such as 'colour' and 'spacing' for 'foundations' #}
