@@ -74,17 +74,17 @@ We use a variety of plugins to enhance and speed up the way we work in the PIE t
 {% card {
   items: [
         {
-          label: "Themer",
+          linkText: "Themer",
           href: "https://www.figma.com/community/plugin/731176732337510831",
           src: "../../../assets/img/designers/getting-started/best-practices/themer.svg"
         },
         {
-          label: "Contrast",
+          linkText: "Contrast",
           href: "https://www.figma.com/community/plugin/748533339900865323",
           src: "../../../assets/img/designers/getting-started/best-practices/contrast.svg"
         },
         {
-          label: "Instance finder",
+          linkText: "Instance finder",
           href: "https://www.figma.com/community/plugin/741895659787979282",
           src: "../../../assets/img/designers/getting-started/best-practices/instance-finder.svg"
         }

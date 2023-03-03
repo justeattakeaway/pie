@@ -67,18 +67,18 @@ We’ve compiled some additional guidelines to help you get a better understandi
 {% card {
   items: [
         {
-          label: "JET Brand Guidelines",
+          linkText: "JET Brand Guidelines",
           href: "https://brand-box.marketing.just-eat.com/",
           src: "../../../assets/img/designers/getting-started/overview/document-placeholder.svg"
         },
         {
-          label: "Global Brand Voice",
+          linkText: "Global Brand Voice",
           href: "https://docs.google.com/presentation/d/1YXtsfzmIXfc5CAk1TsV9YQ21O9V4G9WK6J4elC3YmEI/edit#slide=id.gb6f3deb72f_0_702",
           src: "../../../assets/img/designers/getting-started/overview/document-placeholder.svg",
           shouldOpenInNewTab: true
         },
         {
-          label: "2022 UI copy style guide ",
+          linkText: "2022 UI copy style guide ",
           href: "https://docs.google.com/document/d/1aAyCnyBfNO_ErWORPqKoZ9DVF480ra1VvToQ0YFfm0I/edit",
           src: "../../../assets/img/designers/getting-started/overview/document-placeholder.svg",
           shouldOpenInNewTab: true

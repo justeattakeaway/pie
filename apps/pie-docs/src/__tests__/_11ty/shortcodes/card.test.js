@@ -1,7 +1,7 @@
 const card = require('../../../_11ty/shortcodes/card');
 
 const item = {
-    label: 'label',
+    linkText: 'label',
     href: 'link.com',
 };
 

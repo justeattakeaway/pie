@@ -170,7 +170,11 @@
         margin-bottom: f.spacing(i);
     }
 }
-.c-content-container > p > a {
+
+.c-content-container > p a,
+.c-content-container > span a,
+.c-content-container > ul a,
+.c-notification-message a {
     color: f.$color-content-link-distinct;
 
     &:visited {
