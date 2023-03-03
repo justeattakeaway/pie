@@ -31,7 +31,7 @@
         }
     }
 
-    a {
+    a:not(.cookie-banner-anchor a) {
         text-decoration: none;
         color: f.$color-content-default;
     }
