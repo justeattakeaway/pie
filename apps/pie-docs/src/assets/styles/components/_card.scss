@@ -1,6 +1,6 @@
 @use '../fozzie-config' as f;
 
-$card-width: 328px;
+$card-max-width: 328px;
 $card-image-height: 180px;
 $card-label-height: 72px;
 
@@ -28,7 +28,7 @@ $card-label-height: 72px;
     border: 1px solid f.$color-border-default;
     border-radius: f.$radius-rounded-c;
     width: 100%;
-    max-width: $card-width;
+    max-width: $card-max-width;
     background-color: f.$color-container-default;
 
     &:hover {
