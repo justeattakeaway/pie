@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.32.0
+
+### Minor Changes
+
+- [ Updated ] - `@percy/cli` dependency ([#268](https://github.com/justeattakeaway/pie/pull/268)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- [Added] - watch script to `package.json` ([#233](https://github.com/justeattakeaway/pie/pull/233)) by [@LTurns](https://github.com/LTurns)
+
+  [Added] - watch script to `turbo.json`
+
 ## 1.31.1
 
 ### Patch Changes

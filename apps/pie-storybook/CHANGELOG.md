@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.5.1
+
+### Patch Changes
+
+- [Added] README content for `yarn watch` script ([#233](https://github.com/justeattakeaway/pie/pull/233)) by [@LTurns](https://github.com/LTurns)
+
+- Updated dependencies [[`85a75085`](https://github.com/justeattakeaway/pie/commit/85a75085d1b0a30d962c89e91c23944d0e99b8b1)]:
+  - @justeattakeaway/pie-button@0.6.1
+
 ## 0.5.0
 
 ### Minor Changes

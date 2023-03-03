@@ -1,5 +1,29 @@
 # Changelog
 
+## 1.60.0
+
+### Minor Changes
+
+- [Added] - Add the browser support engineering page ([#248](https://github.com/justeattakeaway/pie/pull/248)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Removed] - Temporary code to allow an empty home page to render ([#248](https://github.com/justeattakeaway/pie/pull/248)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Changed] - override cookie-banner closed styles ([#256](https://github.com/justeattakeaway/pie/pull/256)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- Populate contributing page for engineers ([#235](https://github.com/justeattakeaway/pie/pull/235)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- [Added] Footer to the entire site ([#269](https://github.com/justeattakeaway/pie/pull/269)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Added] - Open graph images and missing tags ([#272](https://github.com/justeattakeaway/pie/pull/272)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Changed] - improve open graph titles ([#272](https://github.com/justeattakeaway/pie/pull/272)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Fixed] - Nav no longer adds active class to multiple pages with the same title ([#248](https://github.com/justeattakeaway/pie/pull/248)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Changed] - Remove duplication in meta title for home page ([#248](https://github.com/justeattakeaway/pie/pull/248)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Fixed] - Unwanted top margin from notification text ([#248](https://github.com/justeattakeaway/pie/pull/248)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 1.59.0
 
 ### Minor Changes
