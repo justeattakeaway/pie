@@ -1236,10 +1236,10 @@
           "globalToken": ["$font-size-12", "$font-family-primary", "$font-weight-bold", "$paragraph-spacing-03", "$letter-spacing-00"]
         },
         "caption-strong-link": {
-          "category": "caption-strong-link",
+          "category": "caption-strong",
           "displayName": "Caption bold underline",
           "description": "Used as a visual cue to indicate something is a link.",
-          "globalToken": ["$font-size-12", "$font-family-primary", "$font-weight-bold", "$paragraph-spacing-03", "$letter-spacing-00", "style-underline"]
+          "globalToken": ["$font-size-12", "$font-family-primary", "$font-weight-bold", "$paragraph-spacing-03", "$letter-spacing-00", "$style-underline"]
         },
         "interactive-l": {
           "category": "interactive",
