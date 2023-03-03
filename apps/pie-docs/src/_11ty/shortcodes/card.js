@@ -9,7 +9,6 @@ const pieIconsSvg = require('../filters/pieIconsSvg');
 module.exports = function ({ items }) {
     const iconLink = pieIconsSvg({
         name: 'link-external',
-        class: 'c-link-icon',
         attrs: {
             'aria-hidden': 'true',
             height: 21,
@@ -27,7 +26,7 @@ module.exports = function ({ items }) {
             src && 'c-card-labelContainer--hasImage'
         ].filter(Boolean).join(' ');
 
-        const labelId = `link-${label.replaceAll(' ', '-').toLowerCase()}`
+        const labelId = `link-${label.replaceAll(' ', '-').toLowerCase()}`;
 
         return `<article class="c-card" aria-labelledby=${labelId}>
             ${src ? `<img class="c-card-image" src="${src}" role="presentation" alt="">` : ''}
