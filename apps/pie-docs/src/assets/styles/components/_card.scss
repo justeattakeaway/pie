@@ -34,7 +34,7 @@ $card-label-height: 72px;
         background-color: darken(f.$color-container-default, f.$color-hover-01);
     }
 
-    // make card clickable
+    // makes the entire card clickable
     a:before {
         content: '';
         position: absolute;
@@ -58,7 +58,7 @@ $card-label-height: 72px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: $card-label-height;
+    min-height: $card-label-height;
     padding: f.$spacing-e f.$spacing-d;
 }
 

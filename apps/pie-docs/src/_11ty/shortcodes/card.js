@@ -27,22 +27,22 @@ module.exports = function ({ items }) {
         ].filter(Boolean).join(' ');
 
         return `<article class="c-card">
-            ${src ? `<img class="c-card-image" src="${src}" role="presentation" alt="">` : ''}
-            <div class="${labelClasses}">
-                <p class="c-card-label">
-                    <a href=${href} ${target}>${label}</a>
-                </p>
-                ${iconLink}
-            </div>
-        </article>`;
+                    ${src ? `<img class="c-card-image" src="${src}" role="presentation" alt="">` : ''}
+                    <div class="${labelClasses}">
+                        <p class="c-card-label">
+                            <a href="${href}" ${target}>${label}</a>
+                        </p>
+                        ${iconLink}
+                    </div>
+                </article>`;
     };
 
     if (items.length > 1) {
         return `<div class="c-card-wrapper">
-            <ul class="c-card-list">
-                ${Object.values(items).map((card) => `<li>${buildCard(card)}</li>`).join('')}
-            </ul>
-        </div>`;
+                    <ul class="c-card-list">
+                        ${Object.values(items).map((card) => `<li>${buildCard(card)}</li>`).join('')}
+                    </ul>
+                </div>`;
     }
 
     return `${buildCard(items[0])}`;
