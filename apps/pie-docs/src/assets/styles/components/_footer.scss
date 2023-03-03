@@ -1,22 +1,89 @@
 @use '../fozzie-config' as f;
 
 .c-footer {
-    position: relative;
-    padding: f.spacing(e) f.spacing(d);
+    padding: f.spacing(g) f.spacing(d);
     background-color: f.$color-container-subtle;
+    @include f.font-size('body-s');
 
-    @include f.media('>=wide') {
-        padding: 40px 60px;
+    @include f.media('>=narrowMid') {
+        padding-left: f.spacing(e);
+        padding-right: f.spacing(e);
     }
 
-    .c-footer-content {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+    @include f.media('>=mid') {
+        padding: f.spacing(g) f.spacing(i);
     }
 
     .c-footer-logo {
-        width: 100px;
-        height: 40px;
+        display: flex;
+        align-items: center;
+        padding-bottom: f.spacing(b);
+
+        .c-footer-logo-divider {
+            display: inline-block;
+            border: 1px solid f.$color-border-strong;
+            height: f.spacing(f);
+            margin: 0 f.spacing(d);
+        }
+
+        svg {
+            height: 32px;
+        }
+    }
+
+    a {
+        text-decoration: none;
+        color: f.$color-content-default;
+    }
+}
+
+.c-footer-main {
+    display: flex;
+    flex-direction: column;
+    gap: f.spacing(e);
+    padding: f.spacing(g) 0;
+
+    @include f.media('>=narrowMid') {
+        flex-direction: row;
+        padding: f.spacing(h) 0;
+    }
+
+    section {
+        flex: 1 0 0;
+    }
+
+    ul {
+        display: flex;
+        flex-direction: column;
+        gap: f.spacing(a);
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    h3 {
+        @include f.font-size('body-s');
+        text-transform: capitalize;
+        margin-bottom: f.spacing(a);
+    }
+
+}
+
+.c-footer-info {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: f.spacing(a);
+    padding-top: f.spacing(b);
+    border-top: 1px solid f.$color-divider-default;
+
+    .c-footer-info-separator {
+        display: inline-block;
+        width: f.spacing(a);
+        height: f.spacing(a);
+        border-radius: f.$radius-rounded-e;
+        background-color: f.$color-border-strong;
+        margin: 0 f.spacing(b);
     }
 }
