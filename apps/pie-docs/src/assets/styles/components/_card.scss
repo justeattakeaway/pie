@@ -16,19 +16,17 @@ $card-label-height: 72px;
     gap: f.$spacing-e;
     list-style: none;
     padding: 0;
-}
 
-@container (min-width: 680px) {
-    .c-card-list {
+    @container (min-width: 680px) {
         justify-content: start;
     }
 }
+
 
 .c-card {
     position: relative;
     border: 1px solid f.$color-border-default;
     border-radius: f.$radius-rounded-c;
-    width: 100%;
     max-width: $card-max-width;
     background-color: f.$color-container-default;
 

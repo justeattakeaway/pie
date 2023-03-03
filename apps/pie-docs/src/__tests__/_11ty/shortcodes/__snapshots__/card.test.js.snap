@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`card.js should return the expected HTML 1`] = `
-"<article class=\\"c-card\\" aria-labelledby=link-label>
+"<article class=\\"c-card\\">
             
             <div class=\\"c-card-labelContainer\\">
                 <p class=\\"c-card-label\\">
-                    <a id=link-label href=link.com >label</a>
+                    <a href=link.com >label</a>
                 </p>
                 <svg xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 16 16\\" height=\\"21\\" width=\\"21\\" fill=\\"#000\\" aria-hidden=\\"true\\" class=\\"c-pieIcon c-pieIcon--linkExternal\\"><path d=\\"M13.25 3.564L8.21 8.63l-.928-.928 5.093-5.066H9.662V1.324h3.833a1.093 1.093 0 011.067 1.093V6.25H13.25V3.564z\\" fill=\\"#242E30\\"></path><path d=\\"M11.302 12.831c.343-.34.537-.804.54-1.287V7.598h1.312v3.946a3.141 3.141 0 01-3.142 3.132h-5.46a3.141 3.141 0 01-3.14-3.132V6.075a3.132 3.132 0 013.14-3.132h3.79v1.312h-3.79a1.829 1.829 0 00-1.802 1.82v5.469a1.829 1.829 0 001.802 1.82h5.46c.484 0 .948-.192 1.29-.533z\\" fill=\\"#242E30\\"></path></svg>
             </div>
@@ -13,11 +13,11 @@ exports[`card.js should return the expected HTML 1`] = `
 `;
 
 exports[`card.js should return the expected HTML 2`] = `
-"<article class=\\"c-card\\" aria-labelledby=link-label>
+"<article class=\\"c-card\\">
             <img class=\\"c-card-image\\" src=\\"/path/to/image\\" role=\\"presentation\\" alt=\\"\\">
             <div class=\\"c-card-labelContainer c-card-labelContainer--hasImage\\">
                 <p class=\\"c-card-label\\">
-                    <a id=link-label href=link.com >label</a>
+                    <a href=link.com >label</a>
                 </p>
                 <svg xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 16 16\\" height=\\"21\\" width=\\"21\\" fill=\\"#000\\" aria-hidden=\\"true\\" class=\\"c-pieIcon c-pieIcon--linkExternal\\"><path d=\\"M13.25 3.564L8.21 8.63l-.928-.928 5.093-5.066H9.662V1.324h3.833a1.093 1.093 0 011.067 1.093V6.25H13.25V3.564z\\" fill=\\"#242E30\\"></path><path d=\\"M11.302 12.831c.343-.34.537-.804.54-1.287V7.598h1.312v3.946a3.141 3.141 0 01-3.142 3.132h-5.46a3.141 3.141 0 01-3.14-3.132V6.075a3.132 3.132 0 013.14-3.132h3.79v1.312h-3.79a1.829 1.829 0 00-1.802 1.82v5.469a1.829 1.829 0 001.802 1.82h5.46c.484 0 .948-.192 1.29-.533z\\" fill=\\"#242E30\\"></path></svg>
             </div>
@@ -27,19 +27,19 @@ exports[`card.js should return the expected HTML 2`] = `
 exports[`card.js should return the expected HTML 3`] = `
 "<div class=\\"c-card-wrapper\\">
             <ul class=\\"c-card-list\\">
-                <li><article class=\\"c-card\\" aria-labelledby=link-label>
+                <li><article class=\\"c-card\\">
             
             <div class=\\"c-card-labelContainer\\">
                 <p class=\\"c-card-label\\">
-                    <a id=link-label href=link.com >label</a>
+                    <a href=link.com >label</a>
                 </p>
                 <svg xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 16 16\\" height=\\"21\\" width=\\"21\\" fill=\\"#000\\" aria-hidden=\\"true\\" class=\\"c-pieIcon c-pieIcon--linkExternal\\"><path d=\\"M13.25 3.564L8.21 8.63l-.928-.928 5.093-5.066H9.662V1.324h3.833a1.093 1.093 0 011.067 1.093V6.25H13.25V3.564z\\" fill=\\"#242E30\\"></path><path d=\\"M11.302 12.831c.343-.34.537-.804.54-1.287V7.598h1.312v3.946a3.141 3.141 0 01-3.142 3.132h-5.46a3.141 3.141 0 01-3.14-3.132V6.075a3.132 3.132 0 013.14-3.132h3.79v1.312h-3.79a1.829 1.829 0 00-1.802 1.82v5.469a1.829 1.829 0 001.802 1.82h5.46c.484 0 .948-.192 1.29-.533z\\" fill=\\"#242E30\\"></path></svg>
             </div>
-        </article></li><li><article class=\\"c-card\\" aria-labelledby=link-label>
+        </article></li><li><article class=\\"c-card\\">
             
             <div class=\\"c-card-labelContainer\\">
                 <p class=\\"c-card-label\\">
-                    <a id=link-label href=link.com >label</a>
+                    <a href=link.com >label</a>
                 </p>
                 <svg xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 16 16\\" height=\\"21\\" width=\\"21\\" fill=\\"#000\\" aria-hidden=\\"true\\" class=\\"c-pieIcon c-pieIcon--linkExternal\\"><path d=\\"M13.25 3.564L8.21 8.63l-.928-.928 5.093-5.066H9.662V1.324h3.833a1.093 1.093 0 011.067 1.093V6.25H13.25V3.564z\\" fill=\\"#242E30\\"></path><path d=\\"M11.302 12.831c.343-.34.537-.804.54-1.287V7.598h1.312v3.946a3.141 3.141 0 01-3.142 3.132h-5.46a3.141 3.141 0 01-3.14-3.132V6.075a3.132 3.132 0 013.14-3.132h3.79v1.312h-3.79a1.829 1.829 0 00-1.802 1.82v5.469a1.829 1.829 0 001.802 1.82h5.46c.484 0 .948-.192 1.29-.533z\\" fill=\\"#242E30\\"></path></svg>
             </div>
