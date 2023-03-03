@@ -24,4 +24,17 @@ describe('PIE - Page Visual Tests', async () => {
         // wait til load
         await browser.percyScreenshot('PIE - Cookie Banner');
     });
+
+    it(`Should display mobile nav`, async () => {
+        await browser.emulateDevice('iPhone X')
+
+        const navToggleSelector = '[data-test-id="nav_toggle"]';
+        await browser.$(navToggleSelector).click();
+        
+        await browser.waitUntil(async () => {
+            return await browser.$('[data-test-id="site_header"]').getAttribute('data-nav-open') === 'true';
+        });
+
+        await browser.percyScreenshot('PIE - Mobile Nav', [414, 768]);
+    });
 });

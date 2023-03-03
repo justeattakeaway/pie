@@ -219,7 +219,7 @@ exports.config = {
      */
     before: async () => {
         if (TEST_TYPE === 'visual') {
-            await browser.addCommand('percyScreenshot', async screenshotName => {
+            await browser.addCommand('percyScreenshot', async (screenshotName, widths = breakpoints) => {
                 await browser.waitUntil(
                     () => browser.execute(() => document.readyState === 'complete'),
                     {
@@ -227,7 +227,7 @@ exports.config = {
                     }
                 );
                 await percySnapshot(screenshotName, {
-                    widths: breakpoints
+                    widths
                 });
             });
         }
