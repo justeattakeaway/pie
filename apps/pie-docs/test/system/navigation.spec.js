@@ -12,15 +12,13 @@ describe('PIE - Status Code Tests', async () => {
         });
     });
 
-    it(`Should open and close the mobile navigation menu`, async () => {
-        await browser.emulateDevice('iPhone X')
+    it('Should open and close the mobile navigation menu', async () => {
+        await browser.emulateDevice('iPhone X');
 
         const navToggleSelector = '[data-test-id="nav_toggle"]';
         await browser.$(navToggleSelector).click();
-        
-        await browser.waitUntil(async () => {
-            return browser.$('[data-test-id="site_header"]').getAttribute('data-nav-open') === 'true';
-        });
+
+        await browser.waitUntil(async () => browser.$('[data-test-id="site_header"]').getAttribute('data-nav-open') === 'true');
 
         await browser.$(navToggleSelector).click();
 
