@@ -12,15 +12,15 @@ $card-label-height: 72px;
     margin: f.$spacing-f 0;
     display: flex;
     flex-wrap: wrap;
-    align-items: flex-start;
+    justify-content: center;
     gap: f.$spacing-e;
     list-style: none;
     padding: 0;
 }
 
-@container (max-width: 680px) {
+@container (min-width: 680px) {
     .c-card-list {
-        justify-content: center;
+        justify-content: start;
     }
 }
 
