@@ -29,9 +29,20 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## v1.30.0
+v1.28.0
+------------------------------
+*February 20, 2022*
 
-_February 28, 2023_
+### Changed
+- Github workflow to allow changesets to generate via renovate bot.
+
+### Added
+- `renovate.json` grouping config.
+
+
+v1.27.0
+------------------------------
+*February 16, 2022*
 
 ### Changed
 
@@ -39,17 +50,9 @@ _February 28, 2023_
 - `@axe-core/webdriverio` & `axe-reports` packages to root for accessibility testing.
 - Added `test:a11y` & `test:a11y:ci` scripts to root to run accessibility testing locally and on CI.
 
-## v1.29.1
-
-_February 28, 2023_
-
-### Fixed
-
-- .changeset/config.json to automatically commit changeset files.
-
-## v1.29.0
-
-_February 27, 2023_
+v1.26.0
+------------------------------
+*February 6, 2022*
 
 ### Added
 
@@ -90,9 +93,9 @@ _February 6, 2023_
 - Storybook publishing to GitHub Actions.
 - Modified `turbo.json` commands.
 
-## v1.25.1
-
-_February 3, 2023_
+v1.25.1
+------------------------------
+*February 3, 2022*
 
 ### Fixed
 
