@@ -232,6 +232,19 @@ exports.config = {
             });
         }
 
+        if(process.env.CI) {
+            const puppeteer = await browser.getPuppeteer();
+            const [page] = await puppeteer.pages();
+            const response = await page.goto(browser.options.baseUrl);
+
+            await browser.waitUntil(async () => await response.status() === 200,
+            {
+                timeout: 60000,
+                timeoutMsg: `${browser.options.baseUrl} returned status code: ${await response.status()}. This could be due to an incomplete deployment.
+                Please re-run the 'browser-tests' CI job.`
+            });
+        }
+
         await browser.url('/');
         await browser.setCookies([
             {
