@@ -171,10 +171,7 @@
     }
 }
 
-.c-content-container > p a,
-.c-content-container > span a,
-.c-content-container > ul a,
-.c-notification-message a {
+.c-contentPage-content a {
     color: f.$color-content-link-distinct;
 
     &:visited {

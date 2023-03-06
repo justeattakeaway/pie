@@ -69,15 +69,15 @@ $card-label-height: 72px;
 .c-card-label {
     font-weight: f.$font-weight-bold;
     margin-top: 0;
+}
 
-    a {
-        color: f.$color-content-default;
-        text-decoration: underline;
+.c-card-labelContainer .c-card-label a {
+    color: f.$color-content-default;
+    text-decoration: underline;
 
-        &:hover,
-        &:active,
-        &:focus {
-            text-decoration: none;
-        }
+    &:hover,
+    &:active,
+    &:focus {
+        text-decoration: none;
     }
 }
