@@ -307,6 +307,18 @@ exports.config = {
         // eslint-disable-next-line no-unused-vars
         error, result, duration, passed, retries
     }) {
+
+        await browser.setCookies([
+            {
+                name: COOKIE_NAMES.JE_COOKIE_CONSENT,
+                value: 'full'
+            }, {
+                name: COOKIE_NAMES.JE_BANNER_COOKIE,
+                value: 130315
+            }
+        ]);
+        await browser.refresh();
+
         if (!passed) {
             await browser.takeScreenshot();
         }
