@@ -1,0 +1,85 @@
+@use '../fozzie-config' as f;
+
+$card-max-width: 328px;
+$card-image-height: 180px;
+$card-label-height: 72px;
+$card-gap: f.$spacing-e;
+$card-container-min-width: '(min-width: #{calc($card-max-width * 2 + $card-gap)})';
+
+.c-card-wrapper {
+    container-type: inline-size;
+}
+
+.c-card-list {
+    margin: f.$spacing-f 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: $card-gap;
+    list-style: none;
+    padding: 0;
+
+    @container (#{$card-container-min-width}) {
+        justify-content: start;
+    }
+}
+
+
+.c-card {
+    position: relative;
+    border: 1px solid f.$color-border-default;
+    border-radius: f.$radius-rounded-c;
+    max-width: $card-max-width;
+    background-color: f.$color-container-default;
+
+    &:hover {
+        background-color: darken(f.$color-container-default, f.$color-hover-01);
+    }
+
+    // makes the entire card clickable
+    a:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+}
+
+.c-card-image {
+    border-radius: f.$radius-rounded-c f.$radius-rounded-c 0 0;
+    height: $card-image-height;
+    display: block;
+    width: 100%;
+    object-fit: cover;
+}
+
+.c-card-labelContainer {
+    border-radius: f.$radius-rounded-c;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: $card-label-height;
+    padding: f.$spacing-e f.$spacing-d;
+}
+
+.c-card-labelContainer--hasImage {
+    border-radius: 0 0 f.$radius-rounded-c f.$radius-rounded-c;
+}
+
+.c-card-label {
+    font-weight: f.$font-weight-bold;
+    margin-top: 0;
+}
+
+.c-card-labelContainer .c-card-label a {
+    color: f.$color-content-default;
+    text-decoration: underline;
+
+    &:hover,
+    &:active,
+    &:focus {
+        text-decoration: none;
+    }
+}
