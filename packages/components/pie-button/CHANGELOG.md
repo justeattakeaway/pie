@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.6.1
+
+### Patch Changes
+
+- [Added] `watch` script in `package.json` ([#233](https://github.com/justeattakeaway/pie/pull/233)) by [@LTurns](https://github.com/LTurns)
+
+  [Added] README content for `yarn watch` script
+
 ## 0.6.0
 
 ### Minor Changes

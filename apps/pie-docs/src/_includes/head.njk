@@ -1,12 +1,17 @@
 {# Allows for titles such as 'Foundations - Colour | PIE Design System' and fallsback to 'PIE Design System' #}
 {% set pageTitle = [title, " | ", metadata.title] | join if title else metadata.title %}
+{% set prefixedPageTitle = [metaTitlePrefix, pageTitle] | join if metaTitlePrefix else pageTitle %}
+{% set pageUrl = [metadata.url, page.url] | join %}
+{% set pageOGImage = [metadata.url, '/assets/img/social/', ogImage] | join if ogImage else metadata.image %}
+{% set titleToUse = title if title === metadata.title else prefixedPageTitle %}
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="index, follow">
     <meta name="googlebot" content="index, follow">
     <meta name="description" content="{{ metadata.description }}">
-    <title>{{ title if title === metadata.title else pageTitle }}</title>
+    <title>{{ titleToUse }}</title>
     <link rel="apple-touch-icon" sizes="180x180" href="{{ '/apple-touch-icon.png' | url }}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ '/favicon-32x32.png' | url }}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ '/favicon-16x16.png' | url }}">
@@ -14,11 +19,18 @@
     <link rel="mask-icon" href="{{ '/safari-pinned-tab.svg' | url }}" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
+    {# Open graph data #}
     <meta property="og:type" content="website">
-    <meta property="og:title" content="{{ pageTitle }}">
-    <meta property="og:url" content="{{ metadata.url }}">
+    <meta property="og:title" content="{{ titleToUse }}">
+    <meta property="og:url" content="{{ pageUrl }}">
+    <meta property="og:locale" content="{{ metadata.locale }}">
+    <meta property="og:image" content="{{ pageOGImage }}">
+    <meta property="og:image:type" content="{{ metadata.imageType }}">
+    <meta property="og:image:width" content="{{ metadata.imageWidth }}">
+    <meta property="og:image:height" content="{{ metadata.imageHeight }}">
     <meta property="og:image:alt" content="{{ metadata.title }}">
     <meta property="og:description" content="{{ metadata.description }}">
+    {# Common <head> content #}
     {% include "head-common.njk" %}
     {# Static cookie banner - These are non-critical stylesheets and loading should be deferred #}
     <link rel="preload" href="https://unpkg.com/@justeat/fozzie/dist/css/fozzie-reset.css" as="style" onload="this.onload=null;this.rel='stylesheet'">

@@ -3,7 +3,7 @@ icon_fill: orange
 ---
 
 <!doctype html>
-<html lang="{{ metadata.language }}">
+<html lang="{{ metadata.language }}" prefix="og: https://ogp.me/ns#">
     {% include "head.njk" %}
     <body {{bodyDataAttribute}}>
         <div class="page">
@@ -16,7 +16,6 @@ icon_fill: orange
             {% include "footer.njk" %}
         </div>
 
-        {% include "cookie-banner.njk" %}
         {% include "scripts.njk" %}
     </body>
 </html>

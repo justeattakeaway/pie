@@ -1,11 +1,12 @@
 {
   "name": "@justeattakeaway/pie-button",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "description": "PIE design system button built using web components",
   "type": "module",
   "main": "dist/pie-button.js",
   "scripts": {
-    "build": "npx tsc && run -T vite build",
+    "build": "run -T vite build",
+    "watch": "run -T vite build --watch",
     "dev": "run -T vite",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

@@ -5,6 +5,8 @@ $headerLogoHeight:      32px;
 $headerInlinePadding:   20px;
 
 .c-header {
+    display: flex;
+    align-items: center;
     border-bottom: 1px solid f.$color-divider-default;
     padding: f.spacing(d);
 
