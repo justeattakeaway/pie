@@ -1,14 +1,14 @@
 ---
 layout: layouts/default-layout.njk
 permalink: 404.html
-imgSrc: '../assets/img/404.svg'
-narrowImgSrc: '../assets/img/404_narrow.svg'
+imgSrc: '/assets/img/404.svg'
+narrowImgSrc: '/assets/img/404_narrow.svg'
 ---
 
 <div class="c-centredPage">
     <picture class="c-notFound-image">
-        <source media="(min-width: 600px)" srcset="{{ imgSrc }}">
-        <img src="{{ narrowImgSrc }}" alt="">
+        <source media="(min-width: 600px)" srcset="{{ imgSrc | url }}">
+        <img src="{{ narrowImgSrc | url }}" alt="">
     </picture>
 
     <h1 class="c-centredPage-heading">
