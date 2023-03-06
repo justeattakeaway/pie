@@ -21,7 +21,12 @@ body {
 
 /* CSS rules to be applied when running visual regression test */
 @media only percy {
-    .hide-in-percy {
+    .updated-date {
         visibility: hidden;
+    
+        &:before {
+            visibility: visible;
+            content: "XX/XX/XXXX";
+        }
     }
 }
