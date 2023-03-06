@@ -49,6 +49,11 @@
     }
 }
 
+.c-main,
+.c-footer {
+    position: relative;
+}
+
 .c-footer {
     grid-area: footer;
 }

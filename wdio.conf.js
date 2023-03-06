@@ -219,7 +219,7 @@ exports.config = {
      */
     before: async () => {
         if (TEST_TYPE === 'visual') {
-            await browser.addCommand('percyScreenshot', async screenshotName => {
+            await browser.addCommand('percyScreenshot', async (screenshotName, widths = breakpoints) => {
                 await browser.waitUntil(
                     () => browser.execute(() => document.readyState === 'complete'),
                     {
@@ -227,8 +227,21 @@ exports.config = {
                     }
                 );
                 await percySnapshot(screenshotName, {
-                    widths: breakpoints
+                    widths
                 });
+            });
+        }
+
+        if(process.env.CI) {
+            const puppeteer = await browser.getPuppeteer();
+            const [page] = await puppeteer.pages();
+            const response = await page.goto(browser.options.baseUrl);
+
+            await browser.waitUntil(async () => await response.status() === 200,
+            {
+                timeout: 60000,
+                timeoutMsg: `${browser.options.baseUrl} returned status code: ${await response.status()}. This could be due to an incomplete deployment.
+                Please re-run the 'browser-tests' CI job.`
             });
         }
 
@@ -294,6 +307,18 @@ exports.config = {
         // eslint-disable-next-line no-unused-vars
         error, result, duration, passed, retries
     }) {
+
+        await browser.setCookies([
+            {
+                name: COOKIE_NAMES.JE_COOKIE_CONSENT,
+                value: 'full'
+            }, {
+                name: COOKIE_NAMES.JE_BANNER_COOKIE,
+                value: 130315
+            }
+        ]);
+        await browser.refresh();
+
         if (!passed) {
             await browser.takeScreenshot();
         }
