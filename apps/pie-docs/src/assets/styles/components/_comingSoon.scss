@@ -1,11 +1,5 @@
-@use '../fozzie-config' as f;
-
 .c-comingSoon-image {
     width: 100%;
     max-width: 550px;
     height: auto;
-}
-
-.c-comingSoon-link {
-    margin-top: f.spacing(e);
 }
