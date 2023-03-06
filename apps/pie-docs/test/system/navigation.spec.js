@@ -15,13 +15,16 @@ describe('PIE - Status Code Tests', async () => {
     it('Should open and close the mobile navigation menu', async () => {
         await browser.emulateDevice('iPhone X');
 
-        const navToggleSelector = '[data-test-id="nav_toggle"]';
-        await browser.$(navToggleSelector).click();
+        const navToggleLabelSelector = '[data-test-id="nav_toggle_label"]';
+        const navToggleInputSelector = '[data-test-id="nav_toggle_input"]';
 
-        await browser.waitUntil(async () => await browser.$('[data-test-id="site_header"]').getAttribute('data-nav-open') === 'true');
+        const navToggleLabel = await browser.$(navToggleLabelSelector);
+        const navToggleInput = await browser.$(navToggleInputSelector);
 
-        await browser.$(navToggleSelector).click();
+        await navToggleLabel.click();
+        await browser.waitUntil(async () => navToggleInput.isSelected());
+        await navToggleLabel.click();
 
-        expect(await browser.$('[data-test-id="site_header"]').getAttribute('data-nav-open')).toBe(null);
+        await expect(navToggleInput).not.toBeSelected();
     });
 });
