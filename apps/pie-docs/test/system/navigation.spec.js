@@ -13,6 +13,7 @@ describe('PIE - Status Code Tests', async () => {
     });
 
     it('Should open and close the mobile navigation menu', async () => {
+        await browser.url(browser.options.baseUrl);
         await browser.emulateDevice('iPhone X');
 
         const navToggleLabelSelector = '[data-test-id="nav_toggle_label"]';
