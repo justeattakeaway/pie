@@ -23,10 +23,10 @@ body {
 @media only percy {
     .updated-date {
         visibility: hidden;
-    
+
         &:before {
             visibility: visible;
-            content: "XX/XX/XXXX";
+            content: 'XX/XX/XXXX';
         }
     }
 }
