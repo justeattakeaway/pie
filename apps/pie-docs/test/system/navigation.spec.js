@@ -11,4 +11,21 @@ describe('PIE - Status Code Tests', async () => {
             await expect(response.status()).toBe(200);
         });
     });
+
+    it('Should open and close the mobile navigation menu', async () => {
+        await browser.url(browser.options.baseUrl);
+        await browser.emulateDevice('iPhone X');
+
+        const navToggleLabelSelector = '[data-test-id="nav_toggle_label"]';
+        const navToggleInputSelector = '[data-test-id="nav_toggle_input"]';
+
+        const navToggleLabel = await browser.$(navToggleLabelSelector);
+        const navToggleInput = await browser.$(navToggleInputSelector);
+
+        await navToggleLabel.click();
+        await browser.waitUntil(async () => navToggleInput.isSelected());
+        await navToggleLabel.click();
+
+        await expect(navToggleInput).not.toBeSelected();
+    });
 });
