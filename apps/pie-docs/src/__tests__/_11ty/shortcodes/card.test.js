@@ -10,10 +10,16 @@ const itemWithImage = {
     src: '/path/to/image',
 };
 
+const itemOpeningInANewTab = {
+    ...item,
+    shouldOpenInNewTab: true,
+};
+
 describe('card.js', () => {
     it.each([
         [[item]],
         [[itemWithImage]],
+        [[itemOpeningInANewTab]],
         [[item, item]]
     ])('should return the expected HTML', (items) => {
         // act

@@ -3,6 +3,8 @@
 $card-max-width: 328px;
 $card-image-height: 180px;
 $card-label-height: 72px;
+$card-gap: f.$spacing-e;
+$card-container-min-width: "(min-width: #{calc($card-max-width * 2 + $card-gap)})";
 
 .c-card-wrapper {
     container-type: inline-size;
@@ -13,11 +15,11 @@ $card-label-height: 72px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: f.$spacing-e;
+    gap: $card-gap;
     list-style: none;
     padding: 0;
 
-    @container (min-width: 680px) {
+    @container (#{$card-container-min-width}) {
         justify-content: start;
     }
 }
