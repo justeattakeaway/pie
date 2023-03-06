@@ -18,3 +18,10 @@ body {
         scroll-behavior: auto !important;
     }
 }
+
+/* CSS rules to be applied when running visual regression test */
+@media only percy {
+    .hide-in-percy {
+        visibility: hidden;
+    }
+} 
