@@ -4,7 +4,7 @@ $card-max-width: 328px;
 $card-image-height: 180px;
 $card-label-height: 72px;
 $card-gap: f.$spacing-e;
-$card-container-min-width: "(min-width: #{calc($card-max-width * 2 + $card-gap)})";
+$card-container-min-width: '(min-width: #{calc($card-max-width * 2 + $card-gap)})';
 
 .c-card-wrapper {
     container-type: inline-size;
