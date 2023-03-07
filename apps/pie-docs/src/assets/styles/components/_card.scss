@@ -5,8 +5,16 @@ $card-image-height: 180px;
 $card-label-height: 72px;
 $card-gap: f.$spacing-e;
 
+p + .c-card-wrapper {
+    margin-top: f.$spacing-f
+}
+
+h2 + .c-card-wrapper {
+    margin-top: f.$spacing-e
+}
+
 .c-card-list {
-    margin: f.$spacing-f 0;
+    margin: 0;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax($card-min-width, 1fr));
     gap: $card-gap;
