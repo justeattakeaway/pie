@@ -1,4 +1,14 @@
+@use '../fozzie-config' as f;
+
 .c-notFound-image {
-    max-width: 200px;
     height: auto;
+    max-width: 160px;
+
+    @include f.media('>=wide') {
+        max-width: 200px;
+    }
+
+    img {
+        width: 100%;
+    }
 }

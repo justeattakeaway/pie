@@ -19,15 +19,24 @@
         align-items: center;
         padding-bottom: f.spacing(b);
 
+        @include f.media('>=narrowMid') {
+            padding-bottom: 0;
+        }
+
+        picture {
+            display: flex;
+            align-items: start;
+        }
+
         .c-footer-logo-divider {
             display: inline-block;
-            border: 1px solid f.$color-border-strong;
+            border-left: 1px solid f.$color-border-strong;
             height: f.spacing(f);
             margin: 0 f.spacing(d);
         }
 
         svg {
-            height: 32px;
+            height: 24px;
         }
     }
 
@@ -45,7 +54,7 @@
 
     @include f.media('>=narrowMid') {
         flex-direction: row;
-        padding: f.spacing(h) 0;
+        padding: f.spacing(i) 0;
     }
 
     section {
@@ -85,5 +94,6 @@
         border-radius: f.$radius-rounded-e;
         background-color: f.$color-border-strong;
         margin: 0 f.spacing(b);
+        vertical-align: middle;
     }
 }
