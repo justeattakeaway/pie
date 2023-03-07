@@ -30,19 +30,12 @@
 }
 
 html:has(.c-navToggle-input:checked) body {
-    // position: fixed;
-    // overflow: hidden;
-
     /* when modal active */
     touch-action: none;
     -webkit-overflow-scrolling: none;
     overflow: hidden;
     /* Other browsers */
     overscroll-behavior: none;
-}
-
-html:has(.c-navToggle-input:checked) .c-nav-inner {
-    // display: block;
 }
 
 
