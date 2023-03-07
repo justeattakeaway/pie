@@ -27,6 +27,8 @@
  *
  * This is where the majority of our day-to-day styling will take place.  Component styles should be prefixed with `.c-`
  */
+@use 'components/card';
+@use 'components/centredPage';
 @use 'components/contentPage';
 @use 'components/contentImage';
 @use 'components/comingSoon';
@@ -37,6 +39,7 @@
 @use 'components/mediaElementList';
 @use 'components/nav';
 @use 'components/navToggle';
+@use 'components/notFound';
 @use 'components/notification';
 @use 'components/simpleTable';
 @use 'components/tabs';
