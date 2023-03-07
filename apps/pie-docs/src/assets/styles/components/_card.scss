@@ -55,6 +55,7 @@ h2 + .c-card-wrapper {
 .c-card-labelContainer {
     border-radius: f.$radius-rounded-c;
     display: flex;
+    gap: f.spacing();
     justify-content: space-between;
     align-items: center;
     min-height: $card-label-height;
@@ -68,6 +69,11 @@ h2 + .c-card-wrapper {
 .c-card-label {
     font-weight: f.$font-weight-bold;
     margin-top: 0;
+}
+
+.c-card-label a > span {
+    display: block;
+    @include f.truncate(20ch);
 }
 
 .c-card-labelContainer .c-card-label a {
