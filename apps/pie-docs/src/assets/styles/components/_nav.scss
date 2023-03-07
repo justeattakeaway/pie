@@ -94,3 +94,15 @@ $nav-item-left-margin: calc($nav-category-gap + $nav-category-icon-width);
     border-radius: f.$radius-rounded-b;
   }
 }
+
+.c-nav-inner {
+  position: sticky;
+  top: 0;
+  bottom: 0;
+  max-height: calc(100vh - 170px);
+  overflow-y: scroll;
+
+  @include f.media('>=wide') {
+    max-height: 100vh;
+  }
+}
