@@ -1,0 +1,30 @@
+---
+layout: layouts/default-layout.njk
+permalink: 404.html
+imgSrc: '/assets/img/404.svg'
+narrowImgSrc: '/assets/img/404_narrow.svg'
+---
+
+<div class="c-centredPage">
+    <picture class="c-notFound-image">
+        <source media="(min-width: 600px)" srcset="{{ imgSrc | url }}">
+        <img src="{{ narrowImgSrc | url }}" alt="">
+    </picture>
+
+    <h1 class="c-centredPage-heading">
+        Page not found
+    </h1>
+
+    <p class="c-centredPage-text">
+        Sorry about that, but we're unable to find the content you're looking for.
+        <br>
+        Please ensure that the address you typed is correct and try again.
+    </p>
+
+    <p class="c-centredPage-text">
+        <span class="c-centredPage-text--bold">Error code:</span> 404
+    </p>
+    <a href="{{ '/' | url }}" class="c-centredPage-link o-btn o-btn--primary">
+        Visit homepage
+    </a>
+</div>

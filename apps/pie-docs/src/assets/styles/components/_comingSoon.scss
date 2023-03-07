@@ -1,32 +1,5 @@
-@use '../fozzie-config' as f;
-
-.c-comingSoon {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    height: 100%;
-    padding: f.spacing(h) f.spacing(d);
-    background-color: f.$color-background-default;
-
-    @include f.media('>=wide') {
-        padding-left: f.spacing(i);
-        padding-right: f.spacing(i);
-    }
-}
-
 .c-comingSoon-image {
     width: 100%;
     max-width: 550px;
     height: auto;
-}
-
-.c-comingSoon-message {
-    margin-top: f.spacing(g);
-    text-align: center;
-    font-weight: f.$font-weight-bold;
-}
-
-// Specificity increased to override some fozzie default margins
-.c-comingSoon > .c-comingSoon-link {
-    margin-top: f.spacing(e);
 }

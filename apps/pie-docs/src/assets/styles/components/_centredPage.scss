@@ -1,0 +1,36 @@
+@use '../fozzie-config' as f;
+
+.c-centredPage {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    padding: f.spacing(h) f.spacing(d);
+    background-color: f.$color-background-default;
+
+    @include f.media('>=wide') {
+        padding-left: f.spacing(i);
+        padding-right: f.spacing(i);
+    }
+
+    .c-centredPage-heading {
+        margin-bottom: 0;
+        font-size: f.$font-heading-xxl-size--narrow * 1px;
+
+        @include f.media('>=wide') {
+            font-size: f.$font-heading-xxl-size--wide * 1px;
+        }
+    }
+
+    .c-centredPage-text {
+        text-align: center;
+
+        & + .c-centredPage-link {
+            margin-top: f.spacing(e);
+        }
+    }
+
+    .c-centredPage-text--bold {
+        font-weight: f.$font-weight-bold;
+    }
+}
