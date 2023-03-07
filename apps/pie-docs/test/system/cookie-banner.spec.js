@@ -16,7 +16,6 @@ describe('PIE - Cookie Banner Tests', async () => {
         // Remove cookies to reveal the cookie banner
         await browser.deleteCookies(cookiesToDelete);
         await browser.refresh();
-        await puppeteer.waitForNetworkIdle();
 
         // Ensure Cookie banner exists before clicking
         const cookieBannerBeforeClick = await page.$(cookieBannerSelector);
@@ -38,7 +37,6 @@ describe('PIE - Cookie Banner Tests', async () => {
         // Remove cookies to reveal the cookie banner
         await browser.deleteCookies(cookiesToDelete);
         await browser.refresh();
-        await puppeteer.waitForNetworkIdle();
 
         // Ensure Cookie banner exists before clicking
         const cookieBannerBeforeClick = await page.$(cookieBannerSelector);

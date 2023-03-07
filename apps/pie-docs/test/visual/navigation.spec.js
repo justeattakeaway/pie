@@ -8,10 +8,8 @@ describe('PIE - Page Visual Tests', async () => {
     expectedRoutesJson.forEach((route) => {
         it(`Should respond take a screenshot of the requested route: - ${route}`, async () => {
             const url = `${browser.options.baseUrl}/${route}`;
-            const puppeteer = await browser.getPuppeteer();
 
             await browser.url(url);
-            await puppeteer.waitForNetworkIdle();
 
             // wait til load
             await browser.percyScreenshot(`PIE - ${route}`);
@@ -28,11 +26,9 @@ describe('PIE - Page Visual Tests', async () => {
 
     it('Should display Cookie Banner', async () => {
         const cookieBannerSelector = '[data-test-id="cookie-banner-component"]';
-        const puppeteer = await browser.getPuppeteer();
 
         await browser.deleteCookies(['je-cookieConsent', 'je-banner_cookie']);
         await browser.refresh();
-        await puppeteer.waitForNetworkIdle();
 
         const cookieBannerElement = await browser.$(cookieBannerSelector);
         await cookieBannerElement.waitForDisplayed();

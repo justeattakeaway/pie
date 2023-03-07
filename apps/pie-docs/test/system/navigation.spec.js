@@ -8,7 +8,6 @@ describe('PIE - Status Code Tests', async () => {
             const url = `${browser.options.baseUrl}/${route}`;
 
             const response = await page.goto(url);
-            await puppeteer.waitForNetworkIdle();
 
             await expect(response.status()).toBe(200);
         });
@@ -16,8 +15,6 @@ describe('PIE - Status Code Tests', async () => {
 
     it('Should open and close the mobile navigation menu', async () => {
         await browser.url(browser.options.baseUrl);
-        const puppeteer = await browser.getPuppeteer();
-        await puppeteer.waitForNetworkIdle();
 
         await browser.emulateDevice('iPhone X');
 
