@@ -1,3 +1,5 @@
+@use '../fozzie-config' as f;
+
 html,
 body {
     height: 100%;
@@ -22,9 +24,11 @@ body {
 /* CSS rules to be applied when running visual regression test */
 @media only percy {
     .updated-date {
+        font-size: 0;
         visibility: hidden;
 
         &:before {
+            @include f.font-size('body-s');
             visibility: visible;
             content: 'XX/XX/XXXX';
         }
