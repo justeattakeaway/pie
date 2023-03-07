@@ -2,4 +2,4 @@
 "pie-docs": patch
 ---
 
-fix a cookie-banner link style issue
+[Fixed] – Cookie-banner link style issue
