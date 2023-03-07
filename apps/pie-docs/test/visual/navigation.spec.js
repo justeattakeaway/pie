@@ -10,6 +10,7 @@ describe('PIE - Page Visual Tests', async () => {
             const url = `${browser.options.baseUrl}/${route}`;
 
             await browser.url(url);
+
             // wait til load
             await browser.percyScreenshot(`PIE - ${route}`);
         });
