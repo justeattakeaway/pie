@@ -13,35 +13,31 @@ PIE is a **design system** made up of components, patterns, documentation and co
 
 Using these pre-built, reusable assets we can enhance the speed at which our teams work while maintaining the alignment between their products.
 
+{% contentPageImage {
+src: "../../assets/img/all-about-pie/what-is-pie/ingredients@2x.png",
+mobileSrc: "../../assets/img/all-about-pie/what-is-pie/ingredients_narrow@2x.png",
+caption: "Much like a delicious meal, our design system is made of multiple ingredients which can be used to create high quality products."
+} %}
+
 ---
 
 ## Why should you use PIE?
 
 Here are six reasons why you should use PIE for your products:
 
-### Consistency
-
-PIE provides a single source of truth for designers and developers, which keeps your products consistent and minimises the chance of human errors.
-
-### Reusability
-
-We design and build reusable and scalable components that can be used throughout our products by designers, developers and other teams.
-
-### Craft & Quality
-
-We have specialist developers and designers focusing their energy on crafting and maintaining our design system, and who are here to support you at any time.
-
-### Accessibility
-
-We make sure that we design and build with all users in mind. We have accessibility built in from the start and test accessibility every step of the way.
-
-### Efficiency
-
-By using our library of pre-designed and built components, you can work faster and focus your energy on solving new problems instead of re-building the same assets.
-
-### Alignment
-
-No matter if you are a designer, iOS, Web or Android developer, PIE provides you with a common language and goal.
+{% list {
+    type: listTypes.icon,
+    iconName: "check-circle-filled",
+    iconFill: "support-positive",
+    items: [
+        "**Consistency**: PIE provides a single source of truth for designers and developers, which keeps your products consistent and minimises the chance of human errors.",
+        "**Reusability**: We design and build reusable and scalable components that can be used throughout our products by designers, developers and other teams.",
+        "**Craft & Quality**: We have specialist developers and designers focusing their energy on crafting and maintaining our design system, and who are here to support you at any time.",
+        "**Accessibility**: We make sure that we design and build with all users in mind. We have accessibility built in from the start and test accessibility every step of the way..",
+        "**Efficiency**: By using our library of pre-designed and built components, you can work faster and focus your energy on solving new problems instead of re-building the same assets.",
+        "**Alignment**: No matter if you are a designer, iOS, Web or Android developer, PIE provides you with a common language and goal."
+    ]
+} %}
 
 ---
 
