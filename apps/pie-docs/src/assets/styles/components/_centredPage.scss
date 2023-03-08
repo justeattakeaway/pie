@@ -24,6 +24,7 @@
 
     .c-centredPage-text {
         text-align: center;
+        max-width: 560px;
 
         & + .c-centredPage-link {
             margin-top: f.spacing(e);
