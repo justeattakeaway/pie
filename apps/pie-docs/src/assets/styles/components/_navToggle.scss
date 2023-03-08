@@ -38,7 +38,6 @@ html:has(.c-navToggle-input:checked) body {
     overscroll-behavior: none;
 }
 
-
 .c-navToggle-input:checked ~ .c-nav {
     left: 0;
     visibility: visible;
