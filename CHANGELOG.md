@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.33.0
+
+### Minor Changes
+
+- [Added] - Renovate config for automatic dependency updates ([#207](https://github.com/justeattakeaway/pie/pull/207)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
+- [Added] - Semantic commit scope extend. ([#285](https://github.com/justeattakeaway/pie/pull/285)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
+- [Added] - New system / visual tests for mobile navigation ([#278](https://github.com/justeattakeaway/pie/pull/278)) by [@siggerzz](https://github.com/siggerzz)
+
+  [Updated] - `wdio.config.js` to wait for GitHub Actions deployments before running tests.
+
 ## 1.32.0
 
 ### Minor Changes
