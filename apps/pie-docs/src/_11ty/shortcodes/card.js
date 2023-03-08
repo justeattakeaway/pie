@@ -1,59 +1,92 @@
 const pieIconsSvg = require('../filters/pieIconsSvg');
 const pieDesignTokenColours = require('../filters/pieDesignTokenColours');
 
+const buildLinkIcon = (isInternalLink) => {
+    const internalLinkIcon = pieIconsSvg({
+        name: 'arrow-right',
+        attrs: {
+            'aria-hidden': 'true',
+            height: 16,
+            width: 16,
+        },
+    });
+
+    const externalLinkIcon = pieIconsSvg({
+        name: 'link-external',
+        attrs: {
+            'aria-hidden': 'true',
+            height: 21,
+            width: 21,
+        },
+    });
+
+    return isInternalLink ? internalLinkIcon : externalLinkIcon;
+};
+
+const buildCardLabel = (linkText, cardHasImage, href, shouldOpenInNewTab, isInternalLink) => {
+    const labelClasses = [
+        'c-card-labelContainer',
+        cardHasImage && 'c-card-labelContainer--hasImage',
+        isInternalLink && 'c-card-labelContainer--internalLink'
+    ].filter(Boolean).join(' ');
+
+    const target = shouldOpenInNewTab ? 'target="_blank"' : '';
+
+    return `<div class="${labelClasses}">
+                ${href
+        ? `<a class="c-card-label" href="${href}" ${target}><span>${linkText}</span></a>
+                        ${buildLinkIcon(isInternalLink)}`
+        : `<p class="c-card-label">${linkText}</p>`
+                }
+            </div>`;
+};
+
+const buildCardIcon = (icon, iconColour) => {
+    const iconContainerColour = pieDesignTokenColours({ tokenName: iconColour, tokenPath: ['alias', 'default'] });
+    const iconStyles = `style="--icon-container-colour: ${iconContainerColour};"`;
+
+    const cardIcon = pieIconsSvg({
+        name: icon,
+        attrs: {
+            'aria-hidden': 'true',
+            height: 32,
+            width: 32,
+        },
+    });
+
+    return `<div class="c-card-icon" ${iconStyles}>${cardIcon}</div>`;
+};
+
+const buildCardContent = ({
+    icon, iconColour, heading, headingLevel = '2', content,
+}) => `<div class="c-card-container">
+            ${icon && iconColour ? `${buildCardIcon(icon, iconColour)}` : ''}
+            ${heading ? `<h${headingLevel} class="c-card-heading">${heading}</h${headingLevel}>` : ''}
+            ${content ? `<p class="c-card-content">${content}</p>` : ''}
+        </div>`;
+
 /**
  * A Card HTML component – takes an array of list items and turns them into a list of cards
- * @param {string[]} items - An array of card items
+ * @param {object[]} items - An array of card items
+ * @param {string} items.content - card content text
+ * @param {string} items.heading - card heading
+ * @param {string} items.headingLevel - level of heading e.g. "1" - `<h1></h1>`, "2" - `<h2></h2>`
+ * @param {string} items.href - card link path
+ * @param {string} items.icon - icon to be displayed at top of card
+ * @param {string} items.iconColour - background colour for icon
+ * @param {boolean} items.isInternalLink - should be true if card links to another docs site page
+ * @param {string} items.linkText - text for card link
+ * @param {boolean} items.shouldOpenInNewTab - should be true if card link is Okta secured
+ * @param {string} items.src - card image src
+ * @param {boolean} shouldFillContainer - If true cards will fill container width when wrapped
  * @returns {string}
  */
 // eslint-disable-next-line func-names
 module.exports = function ({ items, shouldFillContainer = false }) {
-    const buildLinkIcon = (isInternalLink) => {
-        const internalLinkIcon = pieIconsSvg({
-            name: 'arrow-right',
-            attrs: {
-                'aria-hidden': 'true',
-                height: 16,
-                width: 16,
-            },
-        });
-
-        const externalLinkIcon = pieIconsSvg({
-            name: 'link-external',
-            attrs: {
-                'aria-hidden': 'true',
-                height: 21,
-                width: 21,
-            },
-        });
-
-        return isInternalLink ? internalLinkIcon : externalLinkIcon;
-    };
-
-    const buildCardContent = ({
-        icon, iconColour, heading, content,
-    }) => {
-        const iconStyles = iconColour ? `style="--icon-container-colour: ${pieDesignTokenColours({ tokenName: iconColour, tokenPath: ['alias', 'default'] })};"` : '';
-
-        const cardIcon = icon && pieIconsSvg({
-            name: icon,
-            attrs: {
-                'aria-hidden': 'true',
-                height: 32,
-                width: 32,
-            },
-        });
-
-        return `<div class="c-card-container">
-                    ${cardIcon ? `<div class="c-card-icon" ${iconStyles}>${cardIcon}</div>` : ''}
-                    ${heading ? `<h2 class="c-card-heading">${heading}</h2>` : ''}
-                    ${content ? `<p class="c-card-content">${content}</p>` : ''}
-                </div>`;
-    };
-
     const buildCard = ({
         content,
         heading,
+        headingLevel,
         href,
         icon,
         iconColour,
@@ -62,27 +95,15 @@ module.exports = function ({ items, shouldFillContainer = false }) {
         shouldOpenInNewTab = false,
         src,
     }) => {
-        const target = shouldOpenInNewTab ? 'target="_blank"' : '';
-
-        const labelClasses = [
-            'c-card-labelContainer',
-            src && 'c-card-labelContainer--hasImage',
-            isInternalLink && 'c-card-labelContainer--internalLink'
-        ].filter(Boolean).join(' ');
-
+        const cardHasImage = !!src;
         const cardHasContent = (!!icon && !!iconColour) || !!heading || !!content;
 
         return `<article class="c-card">
                     ${cardHasContent ? `${buildCardContent({
-            icon, iconColour, heading, content,
+            icon, iconColour, heading, headingLevel, content,
         })}` : ''}
                     ${src ? `<img class="c-card-image" src="${src}" role="presentation" alt="">` : ''}
-                    <div class="${labelClasses}">
-                        <p class="c-card-label">
-                            <a href="${href}" ${target}><span>${linkText}</span></a>
-                        </p>
-                        ${href ? `${buildLinkIcon(isInternalLink)}` : ''}
-                    </div>
+                    ${buildCardLabel(linkText, cardHasImage, href, shouldOpenInNewTab, isInternalLink)}
                 </article>`;
     };
 

@@ -2,7 +2,6 @@
 
 $card-min-width: 270px;
 $card-image-height: 180px;
-$card-label-height: 72px;
 $card-gap: f.$spacing-e;
 $card-container-max-width: '(max-width: #{calc(($card-min-width * 3) + ($card-gap * 2))})';
 
@@ -42,7 +41,6 @@ h2 + .c-card-wrapper {
 
     }
 }
-
 
 .c-card {
     position: relative;
@@ -118,7 +116,6 @@ h2 + .c-card-wrapper {
     gap: f.spacing();
     justify-content: space-between;
     align-items: center;
-    min-height: $card-label-height;
     padding-top: f.$spacing-e;
     padding-bottom: 0;
 }
@@ -143,7 +140,7 @@ h2 + .c-card-wrapper {
     @include f.truncate(20ch);
 }
 
-.c-card-labelContainer .c-card-label a {
+.c-card-labelContainer .c-card-label {
     color: f.$color-content-default;
     text-decoration: underline;
 

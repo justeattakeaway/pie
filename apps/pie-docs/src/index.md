@@ -19,6 +19,7 @@ heroCtaHref: /all-about-pie/what-is-pie
           icon: "bulb-lightning",
           iconColour: "support-brand-03",
           href: "/designers/getting-started/overview/",
+          headingLevel: "3",
           isInternalLink: "true"
         },
         {
@@ -28,6 +29,7 @@ heroCtaHref: /all-about-pie/what-is-pie
           icon: "engineers",
           iconColour: "support-brand-04",
           href: "/engineers/getting-started/overview/",
+          headingLevel: "3",
           isInternalLink: "true"
         },
         {
@@ -37,6 +39,7 @@ heroCtaHref: /all-about-pie/what-is-pie
           icon: "components",
           iconColour: "support-brand-05",
           href: "/foundations/colour/overview/",
+          headingLevel: "3",
           isInternalLink: "true"
         }
     ]
