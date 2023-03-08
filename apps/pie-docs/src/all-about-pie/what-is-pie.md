@@ -9,7 +9,7 @@ description: Principles for Interfaces and Experiences (PIE) is Just Eat Takeawa
 
 ## Overview
 
-A **design system** is like a recipe for creating visually appealing and user-friendly products. Just as a recipe has different ingredients and instructions for cooking a delicious meal, a design system has different components, patterns and documentation which help us designing digital products such as websites or apps.
+A **design system** is like a recipe for creating visually appealing and user-friendly products. Just as a recipe has different ingredients and instructions for cooking a delicious meal, a design system has different components, patterns and documentation which help us when designing digital products such as websites or apps.
 
 For example, just as a recipe might call for specific amounts of ingredients and cooking times to ensure a perfect dish, a design system might dictate certain font sizes, colour palettes, and layout rules to ensure consistency and usability across all JET products.
 
