@@ -160,9 +160,8 @@ dist/
 allure-results/
 
 # Playwright
+playwright-report/
 test-results/
-browsers-report/
-visual-report/
 
 # TypeScript
 compiled/
