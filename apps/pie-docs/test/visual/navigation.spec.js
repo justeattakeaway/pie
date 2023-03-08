@@ -17,7 +17,7 @@ describe('PIE - Page Visual Tests', async () => {
     });
 
     it('Should display 404 page', async () => {
-        const url = `${browser.options.baseUrl}/this/page/does/not/exist`;
+        const url = `${browser.options.baseUrl}/404.html`;
 
         await browser.url(url);
         // wait til load
