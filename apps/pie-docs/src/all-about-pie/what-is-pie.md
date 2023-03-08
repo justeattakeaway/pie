@@ -36,7 +36,7 @@ Here are six reasons why you should use PIE for your products:
         "**Reusability**: We design and build reusable and scalable components that can be used throughout our products by designers, developers and other teams.",
         "**Craft & Quality**: We have specialist developers and designers focusing their energy on crafting and maintaining our design system, and who are here to support you at any time.",
         "**Accessibility**: We make sure that we design and build with all users in mind. We have accessibility built in from the start and test accessibility every step of the way..",
-        "**Efficiency**: By using our library of pre-designed and built components, you can work faster and focus your energy on solving new problems instead of re-building the same assets.",
+        "**Efficiency**: By using our library of pre-designed and -built components, you can work faster and focus your energy on solving new problems instead of rebuilding the same assets.",
         "**Alignment**: No matter if you are a designer, iOS, Web or Android developer, PIE provides you with a common language and goal."
     ]
 } %}
