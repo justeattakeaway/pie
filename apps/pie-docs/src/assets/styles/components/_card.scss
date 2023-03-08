@@ -139,7 +139,7 @@ h2 + .c-card-wrapper {
     margin-top: 0;
 }
 
-.c-card-label a > span {
+.c-card-label > span {
     display: block;
     @include f.truncate(20ch);
 }
