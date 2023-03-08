@@ -36,4 +36,8 @@
             }
         }
     }
+
+    .c-mediaElement-text {
+        max-width: v.$typography-content-max-width;
+    }
 }
