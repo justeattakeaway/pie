@@ -36,7 +36,7 @@ const buildCardLabel = (linkText, cardHasImage, href, shouldOpenInNewTab, isInte
                 ${href
         ? `<a class="c-card-label" href="${href}" ${target}><span>${linkText}</span></a>
                         ${buildLinkIcon(isInternalLink)}`
-        : `<p class="c-card-label">${linkText}</p>`
+        : `<p class="c-card-label"><span>${linkText}</span></p>`
                 }
             </div>`;
 };

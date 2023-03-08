@@ -81,7 +81,7 @@ h2 + .c-card-wrapper {
     align-items: center;
     justify-content: center;
     height: 48px;
-    width: 48px;
+    aspect-ratio: 1 / 1;
     padding: f.$spacing-b;
     border-radius: f.$spacing-b;
     background-color: var(--icon-container-colour);
@@ -126,7 +126,7 @@ h2 + .c-card-wrapper {
 
 .c-card-labelContainer--internalLink {
     justify-content: start;
-    gap: 5px;
+    gap: f.$spacing-a;
 }
 
 .c-card-labelContainer--hasImage {
