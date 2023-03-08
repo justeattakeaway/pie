@@ -16,7 +16,7 @@ module.exports = ({ data }) => {
             </picture>
             <div class="c-mediaElement-text">
                 <${hx}>${headingText}</${hx}>
-                <p>${markdownFilter(text)}</p>
+                ${markdownFilter(text)}
             </div>
         </div>`;
     }).join('<hr>')}
