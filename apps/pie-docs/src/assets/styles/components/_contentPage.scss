@@ -154,6 +154,10 @@
         > ul {
             max-width: v.$typography-content-max-width;
         }
+
+        ul > li {
+            margin-top: f.spacing(b);
+        }
     }
 }
 
