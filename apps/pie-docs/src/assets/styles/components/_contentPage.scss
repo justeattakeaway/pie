@@ -49,6 +49,7 @@
         background-color: f.$color-support-brand-06;
         border-radius: f.$radius-rounded-d;
         padding: f.$spacing-f;
+        padding-top: f.$spacing-i;
     }
 
     .c-contentPage-header-description {
@@ -57,7 +58,6 @@
     }
 
     @include f.media('>narrowMid') {
-        padding-top: f.$spacing-g;
     }
 
     @include f.media('>mid') {
@@ -159,6 +159,10 @@
 
 .c-contentPage-header--hero + .c-contentPage-content {
     border-top: none;
+
+    .c-content-container {
+        padding-top: f.spacing(i);
+    }
 }
 
 .c-contentPage-content hr {
