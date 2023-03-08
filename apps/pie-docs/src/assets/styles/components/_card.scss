@@ -4,7 +4,7 @@ $card-min-width: 270px;
 $card-image-height: 180px;
 $card-label-height: 72px;
 $card-gap: f.$spacing-e;
-$card-container-min-width: '(max-width: #{calc(($card-min-width * 3) + ($card-gap* 2))})';
+$card-container-max-width: '(max-width: #{calc(($card-min-width * 3) + ($card-gap* 2))})';
 
 .c-card-wrapper {
     container-type: inline-size;
@@ -26,7 +26,7 @@ $card-container-min-width: '(max-width: #{calc(($card-min-width * 3) + ($card-ga
     @include f.media('>=mid') {
         grid-template-columns: auto auto auto;
 
-        @container (#{$card-container-min-width}) {
+        @container (#{$card-container-max-width}) {
             li:last-child {
                 grid-column: span 2;
             }
