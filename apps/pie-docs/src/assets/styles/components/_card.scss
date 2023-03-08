@@ -10,8 +10,16 @@ $card-container-max-width: '(max-width: #{calc(($card-min-width * 3) + ($card-ga
     container-type: inline-size;
 }
 
+p + .c-card-wrapper {
+    margin-top: f.$spacing-f;
+}
+
+h2 + .c-card-wrapper {
+    margin-top: f.$spacing-e;
+}
+
 .c-card-list {
-    margin: f.$spacing-f 0;
+    margin: 0;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax($card-min-width, 1fr));
     gap: $card-gap;
@@ -107,6 +115,7 @@ $card-container-max-width: '(max-width: #{calc(($card-min-width * 3) + ($card-ga
 .c-card-labelContainer {
     border-radius: f.$radius-rounded-c;
     display: flex;
+    gap: f.spacing();
     justify-content: space-between;
     align-items: center;
     min-height: $card-label-height;
@@ -127,6 +136,11 @@ $card-container-max-width: '(max-width: #{calc(($card-min-width * 3) + ($card-ga
 .c-card-label {
     font-weight: f.$font-weight-bold;
     margin-top: 0;
+}
+
+.c-card-label a > span {
+    display: block;
+    @include f.truncate(20ch);
 }
 
 .c-card-labelContainer .c-card-label a {

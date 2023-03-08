@@ -1,7 +1,7 @@
 @use '../fozzie-config' as f;
 
 $navToggleWidth:        24px; // must be kept in sync with the svg icon width defined in header.njk
-$headerLogoHeight:      32px;
+$headerLogoHeight:      24px;
 $headerInlinePadding:   20px;
 
 .c-header {
