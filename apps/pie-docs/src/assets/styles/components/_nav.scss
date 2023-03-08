@@ -100,7 +100,7 @@ $nav-item-left-margin: calc($nav-category-gap + $nav-category-icon-width);
   top: 0;
   bottom: 0;
   max-height: calc(100vh - 170px);
-  overflow-y: scroll;
+  overflow-y: auto;
 
   @include f.media('>=wide') {
     max-height: 100vh;
