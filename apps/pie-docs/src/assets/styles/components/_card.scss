@@ -59,6 +59,10 @@ h2 + .c-card-wrapper {
 
     &:hover {
         background-color: darken(f.$color-container-default, f.$color-hover-01);
+
+        .c-card-image {
+            filter: brightness(50%);
+        }
     }
 
     // makes the entire card clickable
