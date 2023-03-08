@@ -8,12 +8,14 @@ describe('PIE - Status Code Tests', async () => {
             const url = `${browser.options.baseUrl}/${route}`;
 
             const response = await page.goto(url);
+
             await expect(response.status()).toBe(200);
         });
     });
 
     it('Should open and close the mobile navigation menu', async () => {
         await browser.url(browser.options.baseUrl);
+
         await browser.emulateDevice('iPhone X');
 
         const navToggleLabelSelector = '[data-test-id="nav_toggle_label"]';

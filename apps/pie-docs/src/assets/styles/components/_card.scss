@@ -1,27 +1,17 @@
 @use '../fozzie-config' as f;
 
-$card-max-width: 328px;
+$card-min-width: 270px;
 $card-image-height: 180px;
 $card-label-height: 72px;
 $card-gap: f.$spacing-e;
-$card-container-min-width: '(min-width: #{calc($card-max-width * 2 + $card-gap)})';
-
-.c-card-wrapper {
-    container-type: inline-size;
-}
 
 .c-card-list {
     margin: f.$spacing-f 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax($card-min-width, 1fr));
     gap: $card-gap;
     list-style: none;
     padding: 0;
-
-    @container (#{$card-container-min-width}) {
-        justify-content: start;
-    }
 }
 
 
@@ -29,7 +19,6 @@ $card-container-min-width: '(min-width: #{calc($card-max-width * 2 + $card-gap)}
     position: relative;
     border: 1px solid f.$color-border-default;
     border-radius: f.$radius-rounded-c;
-    max-width: $card-max-width;
     background-color: f.$color-container-default;
 
     &:hover {
