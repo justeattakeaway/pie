@@ -1,7 +1,7 @@
 ---
 eleventyNavigation:
     key: Foundations
-    parent: Docs
-    order: 3
+    parent: Docs-secondary
+    order: 1
 title: Foundations
 ---
