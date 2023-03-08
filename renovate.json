@@ -3,7 +3,8 @@
     "schedule:weekly",
     ":rebaseStalePrs",
     ":disableMajorUpdates",
-    ":dependencyDashboard"
+    ":dependencyDashboard",
+    ":semanticCommitScope(package)"
   ],
   "ignoreDeps": ["chromedriver"],
   "commitMessagePrefix": "renovate -",
