@@ -30,7 +30,7 @@ module.exports = function ({ items }) {
                     ${src ? `<img class="c-card-image" src="${src}" role="presentation" alt="">` : ''}
                     <div class="${labelClasses}">
                         <p class="c-card-label">
-                            <a href="${href}" ${target}>${linkText}</a>
+                            <a href="${href}" ${target}><span>${linkText}</span></a>
                         </p>
                         ${iconLink}
                     </div>
