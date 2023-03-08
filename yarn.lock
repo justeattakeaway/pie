@@ -3635,9 +3635,9 @@ __metadata:
   linkType: hard
 
 "@percy/sdk-utils@npm:^1.0.0":
-  version: 1.20.2
-  resolution: "@percy/sdk-utils@npm:1.20.2"
-  checksum: cdecbb4c87acaba0cc8cb91c45693211021d451ab6b70f540513457694394ecfbcb6c4ba94ce70e728495c57752f450a577f75671ede5e81f986a9cbefa2e2ca
+  version: 1.20.3
+  resolution: "@percy/sdk-utils@npm:1.20.3"
+  checksum: e93a2eb2774aa767bc6707b4a2cd4fa5e22ec741951b6b22cec63f095a0210d1b0406e3d1d573f706ce4e25047a197bcebdcc6368050db4a255e540e05a667ca
   languageName: node
   linkType: hard
 
