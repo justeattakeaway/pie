@@ -4,6 +4,11 @@ $card-min-width: 270px;
 $card-image-height: 180px;
 $card-label-height: 72px;
 $card-gap: f.$spacing-e;
+$card-container-min-width: '(max-width: #{calc(($card-min-width * 3) + ($card-gap* 2))})';
+
+.c-card-wrapper {
+    container-type: inline-size;
+}
 
 .c-card-list {
     margin: f.$spacing-f 0;
@@ -14,12 +19,37 @@ $card-gap: f.$spacing-e;
     padding: 0;
 }
 
+.c-card-list--fillContainer {
+    grid-template-columns: 1fr;
+
+
+    @include f.media('>=mid') {
+        grid-template-columns: auto auto auto;
+
+        @container (#{$card-container-min-width}) {
+            li:last-child {
+                grid-column: span 2;
+            }
+        }
+
+    }
+}
+
 
 .c-card {
     position: relative;
     border: 1px solid f.$color-border-default;
     border-radius: f.$radius-rounded-c;
     background-color: f.$color-container-default;
+    padding: f.$spacing-e f.$spacing-d;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &:has(.c-card-image) {
+        padding: 0;
+    }
 
     &:hover {
         background-color: darken(f.$color-container-default, f.$color-hover-01);
@@ -36,6 +66,36 @@ $card-gap: f.$spacing-e;
     }
 }
 
+.c-card-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 48px;
+    width: 48px;
+    padding: f.$spacing-b;
+    border-radius: f.$spacing-b;
+    background-color: var(--icon-container-colour);
+
+    svg {
+        path {
+            fill: f.$color-content-interactive-light;
+        }
+    }
+}
+
+.c-card-heading {
+    @include f.font-size('heading-s');
+    margin-top: f.$spacing-e;
+
+    @include f.media('>=mid') {
+        @include f.font-size('heading-m');
+    }
+}
+
+.c-card-content {
+    margin-top: f.$spacing-d;
+}
+
 .c-card-image {
     border-radius: f.$radius-rounded-c f.$radius-rounded-c 0 0;
     height: $card-image-height;
@@ -50,10 +110,17 @@ $card-gap: f.$spacing-e;
     justify-content: space-between;
     align-items: center;
     min-height: $card-label-height;
-    padding: f.$spacing-e f.$spacing-d;
+    padding-top: f.$spacing-e;
+    padding-bottom: 0;
+}
+
+.c-card-labelContainer--internalLink {
+    justify-content: start;
+    gap: 5px;
 }
 
 .c-card-labelContainer--hasImage {
+    padding: f.$spacing-e f.$spacing-d;
     border-radius: 0 0 f.$radius-rounded-c f.$radius-rounded-c;
 }
 
