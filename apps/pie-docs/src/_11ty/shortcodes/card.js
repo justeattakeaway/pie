@@ -47,7 +47,6 @@ module.exports = function ({ items, shouldFillContainer = false }) {
                     ${heading ? `<h2 class="c-card-heading">${heading}</h2>` : ''}
                     ${content ? `<p class="c-card-content">${content}</p>` : ''}
                 </div>`
-
     };
 
     const buildCard = ({
