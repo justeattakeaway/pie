@@ -20,12 +20,12 @@ const itemWithContent = {
     heading: 'heading',
     content: 'Content',
     icon: 'bulb-lightning',
-    iconColour: 'support-brand-03'
+    iconColour: 'support-brand-03',
 };
 
 const itemWithInternalLink = {
     ...item,
-    isInternalLink: 'true'
+    isInternalLink: 'true',
 };
 
 describe('card.js', () => {
@@ -37,7 +37,7 @@ describe('card.js', () => {
         [[itemWithInternalLink]],
         [[item, item, item], true],
         [[item, item]]
-    ])('should return the expected HTML', (items, shouldFillContainer=false) => {
+    ])('should return the expected HTML', (items, shouldFillContainer = false) => {
         // act
         const result = card({ items, shouldFillContainer });
 

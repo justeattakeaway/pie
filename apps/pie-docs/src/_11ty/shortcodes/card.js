@@ -28,9 +28,11 @@ module.exports = function ({ items, shouldFillContainer = false }) {
         });
 
         return isInternalLink ? internalLinkIcon : externalLinkIcon;
-    }
+    };
 
-    const buildCardContent = ({ icon, iconColour, heading, content }) => {
+    const buildCardContent = ({
+        icon, iconColour, heading, content,
+    }) => {
         const iconStyles = iconColour ? `style="--icon-container-colour: ${pieDesignTokenColours({ tokenName: iconColour, tokenPath: ['alias', 'default'] })};"` : '';
 
         const cardIcon = icon && pieIconsSvg({
@@ -38,7 +40,7 @@ module.exports = function ({ items, shouldFillContainer = false }) {
             attrs: {
                 'aria-hidden': 'true',
                 height: 32,
-                width: 32
+                width: 32,
             },
         });
 
@@ -46,7 +48,7 @@ module.exports = function ({ items, shouldFillContainer = false }) {
                     ${cardIcon ? `<div class="c-card-icon" ${iconStyles}>${cardIcon}</div>` : ''}
                     ${heading ? `<h2 class="c-card-heading">${heading}</h2>` : ''}
                     ${content ? `<p class="c-card-content">${content}</p>` : ''}
-                </div>`
+                </div>`;
     };
 
     const buildCard = ({
@@ -71,11 +73,10 @@ module.exports = function ({ items, shouldFillContainer = false }) {
         const cardHasContent = (!!icon && !!iconColour) || !!heading || !!content;
 
         return `<article class="c-card">
-                    ${ cardHasContent
-                        ? `${ buildCardContent({icon, iconColour, heading, content }) }`
-                        : ''
-                    }
-                    ${ src ? `<img class="c-card-image" src="${src}" role="presentation" alt="">` : '' }
+                    ${cardHasContent ? `${buildCardContent({
+            icon, iconColour, heading, content,
+        })}` : ''}
+                    ${src ? `<img class="c-card-image" src="${src}" role="presentation" alt="">` : ''}
                     <div class="${labelClasses}">
                         <p class="c-card-label">
                             <a href="${href}" ${target}><span>${linkText}</span></a>
