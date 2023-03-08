@@ -1,7 +1,6 @@
 function App () {
     return (
-        <div className="wc-example">
-        </div>
+        <div></div>
     );
 }
 
