@@ -232,6 +232,9 @@ jobs:
           path: '**/node_modules'
           key: node-modules-${{ hashFiles('**/yarn.lock') }}
       # Run System / a11y Tests  
+      - name: Install Playwright
+        run: npx playwright install
+      # Run System / a11y Tests  
       - name: Run System / a11y Tests - Changed Packages + Dependants
         if: ${{ !contains(github.ref_name, 'main') }}
         run: |
