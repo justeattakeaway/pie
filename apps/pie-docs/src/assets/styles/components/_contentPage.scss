@@ -93,68 +93,6 @@
     flex: 1;
     background-color: f.$color-background-default;
     border-top: 1px solid f.$color-border-default;
-
-    .c-content-container {
-        padding-top: f.spacing(f);
-        padding-bottom: f.spacing(j);
-
-        > h2 {
-            @include f.font-size('heading-l');
-        }
-
-        > h3 {
-            @include f.font-size('subheading-s');
-        }
-
-        @include f.media('>=wide') {
-            padding-top: f.spacing(h);
-            padding-bottom: calc(f.spacing(j) + f.spacing(d));
-
-            > h2 {
-                @include f.font-size('heading-xl');
-            }
-
-            > h3 {
-                @include f.font-size('subheading-l');
-            }
-        }
-
-        > h2 + h3,
-        > h3 + h4,
-        > p + .c-contentPage-img,
-        > .c-contentPage-img + p {
-            margin-top: f.spacing(e);
-        }
-
-        > p + h2 {
-            margin-top: f.spacing(h);
-        }
-
-        > ul + h3,
-        > .c-contentPage-img + h3,
-        > .c-contentPage-img + h4,
-        > p + h3,
-        > p + h4,
-        > ul + h4,
-        > table + h3,
-        > .c-contentPage-notification + h3,
-        & .c-contentPage-notification {
-            margin-top: f.spacing(f);
-        }
-
-        > h1,
-        > h2,
-        > h3,
-        > h4,
-        > h5,
-        > h6,
-        > p,
-        > a,
-        > span,
-        > ul {
-            max-width: v.$typography-content-max-width;
-        }
-    }
 }
 
 .c-contentPage-header--hero + .c-contentPage-content {
