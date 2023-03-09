@@ -53,7 +53,7 @@ const config: PlaywrightTestConfig = {
 
   projects: [
     {
-      name: 'chromium',
+      name: 'system:chrome',
       grep: /@desktop/,
       use: {
         ...devices['Desktop Chrome'],
@@ -61,10 +61,19 @@ const config: PlaywrightTestConfig = {
       testMatch: ['**/test/system/*.spec.js']
     },
     {
-      name: 'mobile',
+      name: 'system:ios',
       grep: /@mobile/,
       use: {
         ...devices['iPhone X'],
+        
+      },
+      testMatch: ['**/test/system/*.spec.js']
+    },
+    {
+      name: 'system:android',
+      grep: /@mobile/,
+      use: {
+        ...devices['Pixel 5'],
         
       },
       testMatch: ['**/test/system/*.spec.js']
