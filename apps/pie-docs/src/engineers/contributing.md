@@ -23,9 +23,13 @@ type: "information",
 message: "Note that the booking link only goes live the day before the clinic."
 } %}
 
+---
+
 ### How can I make a feature request?
 
 Please use one of the workflows in the **#help-designsystem** channel to make a feature request, report a defect or request help for anything else.
+
+---
 
 ### How can I find out which components have already been built?
 
@@ -62,6 +66,17 @@ Yes. If the component has been approved by designers then you are more than welc
 
 Please speak to the Design System team about your requirements and we will help by guiding you.
 
+---
+
 ### Can I make a custom implementation for a component that already exists?
 
-No. We suggest that you raise a feature request describing your needs and we will discuss how they can be met by using (or extending) an existing component.
+No. We suggest that you raise a feature request using our **#help-designsystem** Slack channel. Please, make sure you use the Propose Feature workflow to describe your needs.
+
+Once submitted, we will discuss how they can be met by using (or extending) an existing component.
+
+{% contentPageImage {
+src:"../../assets/img/engineers/contributing/slack-request@2x.png",
+mobileSrc:"../../assets/img/engineers/contributing/slack-request_narrow@2x.png",
+width: "466px",
+caption: "The image above shows where you can find the Propose feature workflow in our #help-designsystem Slack channel."
+} %}
