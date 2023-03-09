@@ -1,5 +1,49 @@
 # Changelog
 
+## 1.61.0
+
+### Minor Changes
+
+- [Fixed] Footer styles based on designers feedback ([#286](https://github.com/justeattakeaway/pie/pull/286)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Fixed] The small divider between the two logos to be 1px wide
+  [Fixed] The PIE logo to be 24px high, and centre aligned to the other logo.
+  [Fixed] The space above and below the links to be 64px, not 56px.
+  [Fixed] The dot between ‘Privacy policy’ and ‘Updated on…’ to be centre aligned horizontally
+
+- [Fixed] - Metadata file category. ([#275](https://github.com/justeattakeaway/pie/pull/275)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
+- [Added] Engineers > Getting Started content for the Overview and Our Vision pages ([#288](https://github.com/justeattakeaway/pie/pull/288)) by [@ashleynolan](https://github.com/ashleynolan)
+
+  [Changed] Overview page added to the Engineers > Guidelines section, so that it can be signposted to from other pages
+
+- [Changed] Swap large SVGs for more appropriately sized PNGs on the 404 page ([#283](https://github.com/justeattakeaway/pie/pull/283)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- [Added] - the figma files for designers page ([#284](https://github.com/justeattakeaway/pie/pull/284)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] card shortcode ([#271](https://github.com/justeattakeaway/pie/pull/271)) by [@FayeCarter](https://github.com/FayeCarter)
+
+- [Added] Create 404 page ([#279](https://github.com/justeattakeaway/pie/pull/279)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- [Changed] Use 2x images for 404 page and adjust styling ([#283](https://github.com/justeattakeaway/pie/pull/283)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- [Changed] Sidebar styles to match a new design ([#277](https://github.com/justeattakeaway/pie/pull/277)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Changed] Header logo to 16px
+  [Added] A new eleventy parent group (Docs-tertiary) to align with the new design of the sidebar.
+
+### Patch Changes
+
+- [Fixed] - fixed card responsive behaviours using css grid ([#282](https://github.com/justeattakeaway/pie/pull/282)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Fixed] Alignment of updated date in footer in Percy screenshots ([#279](https://github.com/justeattakeaway/pie/pull/279)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- [Fixed] – Cookie-banner link style issue ([#274](https://github.com/justeattakeaway/pie/pull/274)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Fixed] - Issue where mobile navigation toggle wouldn't close. ([#278](https://github.com/justeattakeaway/pie/pull/278)) by [@siggerzz](https://github.com/siggerzz)
+
+  [Added] - New media query for Percy-specific CSS rules.
+
 ## 1.60.0
 
 ### Minor Changes
