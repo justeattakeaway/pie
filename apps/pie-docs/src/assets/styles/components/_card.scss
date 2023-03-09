@@ -3,7 +3,7 @@
 $card-min-width: 270px;
 $card-image-height: 180px;
 $card-gap: f.$spacing-e;
-$card-container-max-width: '(max-width: #{calc(($card-min-width * 3) + ($card-gap * 2))})';
+$card-container-max-width: calc(($card-min-width * 3) + ($card-gap * 2));
 
 .c-card-wrapper {
     container-type: inline-size;
@@ -33,7 +33,7 @@ h2 + .c-card-wrapper {
     @include f.media('>=mid') {
         grid-template-columns: auto auto auto;
 
-        @container (#{$card-container-max-width}) {
+        @container ((max-width: #{$card-container-max-width})) {
             li:last-child {
                 grid-column: span 2;
             }
@@ -80,16 +80,23 @@ h2 + .c-card-wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 48px;
-    aspect-ratio: 1 / 1;
     padding: f.$spacing-b;
     border-radius: f.$spacing-b;
-    background-color: var(--icon-container-colour);
 
-    svg {
-        path {
-            fill: f.$color-content-interactive-light;
-        }
+    path {
+        fill: f.$color-content-interactive-light;
+    }
+}
+
+$iconBackgroundColours: (
+    'support-brand-03' f.$color-support-brand-03,
+    'support-brand-04' f.$color-support-brand-04,
+    'support-brand-05' f.$color-support-brand-05,
+);
+
+@each $color, $token in $iconBackgroundColours {
+    .c-card-icon--#{$color} {
+        background-color: #{$token};
     }
 }
 
@@ -152,5 +159,9 @@ h2 + .c-card-wrapper {
     &:active,
     &:focus {
         text-decoration: none;
+    }
+
+    &:visited {
+        color: f.$color-content-default;
     }
 }

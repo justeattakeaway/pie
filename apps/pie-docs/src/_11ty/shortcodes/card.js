@@ -1,27 +1,22 @@
 const pieIconsSvg = require('../filters/pieIconsSvg');
-const pieDesignTokenColours = require('../filters/pieDesignTokenColours');
 
-const buildLinkIcon = (isInternalLink) => {
-    const internalLinkIcon = pieIconsSvg({
+const buildLinkIcon = (isInternalLink) => (isInternalLink
+    ? pieIconsSvg({
         name: 'arrow-right',
         attrs: {
             'aria-hidden': 'true',
             height: 16,
             width: 16,
         },
-    });
-
-    const externalLinkIcon = pieIconsSvg({
+    })
+    : pieIconsSvg({
         name: 'link-external',
         attrs: {
             'aria-hidden': 'true',
             height: 21,
             width: 21,
         },
-    });
-
-    return isInternalLink ? internalLinkIcon : externalLinkIcon;
-};
+    }));
 
 const buildCardLabel = (linkText, cardHasImage, href, shouldOpenInNewTab, isInternalLink) => {
     const labelClasses = [
@@ -30,32 +25,28 @@ const buildCardLabel = (linkText, cardHasImage, href, shouldOpenInNewTab, isInte
         isInternalLink && 'c-card-labelContainer--internalLink'
     ].filter(Boolean).join(' ');
 
-    const target = shouldOpenInNewTab ? 'target="_blank"' : '';
+    const labelTag = href ? 'a' : 'p';
+
+    const labelAttributes = [
+        href && `href="${href}"`,
+        href && shouldOpenInNewTab && 'target="_blank"'
+    ].filter(Boolean).join(' ');
 
     return `<div class="${labelClasses}">
-                ${href
-        ? `<a class="c-card-label" href="${href}" ${target}><span>${linkText}</span></a>
-                        ${buildLinkIcon(isInternalLink)}`
-        : `<p class="c-card-label"><span>${linkText}</span></p>`
-                }
+                <${labelTag} class="c-card-label" ${labelAttributes}><span>${linkText}</span></${labelTag}>
+                ${href ? buildLinkIcon(isInternalLink) : ''}
             </div>`;
 };
 
-const buildCardIcon = (icon, iconColour) => {
-    const iconContainerColour = pieDesignTokenColours({ tokenName: iconColour, tokenPath: ['alias', 'default'] });
-    const iconStyles = `style="--icon-container-colour: ${iconContainerColour};"`;
-
-    const cardIcon = pieIconsSvg({
-        name: icon,
-        attrs: {
-            'aria-hidden': 'true',
-            height: 32,
-            width: 32,
-        },
-    });
-
-    return `<div class="c-card-icon" ${iconStyles}>${cardIcon}</div>`;
-};
+const buildCardIcon = (icon, iconColour) => pieIconsSvg({
+    name: icon,
+    attrs: {
+        class: `c-card-icon c-card-icon--${iconColour}`,
+        'aria-hidden': 'true',
+        height: 48,
+        width: 48,
+    },
+});
 
 const buildCardContent = ({
     icon, iconColour, heading, headingLevel = '2', content,

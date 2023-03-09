@@ -2,7 +2,6 @@ const card = require('../../../_11ty/shortcodes/card');
 
 const item = {
     linkText: 'label',
-    href: 'link.com',
 };
 
 const itemWithImage = {
@@ -10,9 +9,19 @@ const itemWithImage = {
     src: '/path/to/image',
 };
 
-const itemOpeningInANewTab = {
+const itemWithLink = {
     ...item,
+    href: 'link.com',
+};
+
+const itemOpeningInANewTab = {
+    ...itemWithLink,
     shouldOpenInNewTab: true,
+};
+
+const itemWithInternalLink = {
+    ...itemWithLink,
+    isInternalLink: 'true',
 };
 
 const itemWithContent = {
@@ -23,18 +32,14 @@ const itemWithContent = {
     iconColour: 'support-brand-03',
 };
 
-const itemWithInternalLink = {
-    ...item,
-    isInternalLink: 'true',
-};
-
 describe('card.js', () => {
     it.each([
         [[item]],
         [[itemWithImage]],
+        [[itemWithLink]],
         [[itemOpeningInANewTab]],
-        [[itemWithContent]],
         [[itemWithInternalLink]],
+        [[itemWithContent]],
         [[item, item, item], true],
         [[item, item]]
     ])('should return the expected HTML', (items, shouldFillContainer = false) => {
