@@ -241,6 +241,9 @@ jobs:
           path: |
             ~/.cache/ms-playwright
           key: ${{ runner.os }}-playwright-${{ env.PLAYWRIGHT_VERSION }}
+    - run: npx playwright install --with-deps
+      if: steps.playwright-cache.outputs.cache-hit != 'true'
+    - run: npx playwright install-deps
       # Install Playwright & Dependencies
       - name: Install Playwright & Dependencies
         if: steps.playwright-cache.outputs.cache-hit != 'true'
