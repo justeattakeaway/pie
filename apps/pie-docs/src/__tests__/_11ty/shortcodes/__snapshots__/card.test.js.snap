@@ -12,7 +12,7 @@ exports[`card.js should return the expected HTML 1`] = `
 `;
 
 exports[`card.js should return the expected HTML 2`] = `
-"<article class=\\"c-card\\">
+"<article class=\\"c-card c-card--hasImage\\">
                     
                     <img class=\\"c-card-image\\" src=\\"/path/to/image\\" role=\\"presentation\\" alt=\\"\\">
                     <div class=\\"c-card-labelContainer c-card-labelContainer--hasImage\\">
