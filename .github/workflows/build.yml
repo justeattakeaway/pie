@@ -245,6 +245,12 @@ jobs:
         run: |
           yarn test:system:ci &&
           yarn test:a11y:ci
+      - uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 3
       - name: Upload a11y Report
         if: failure()
         uses: actions/upload-artifact@v3
