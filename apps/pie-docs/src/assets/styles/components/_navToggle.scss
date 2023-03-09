@@ -34,7 +34,8 @@ html:has(.c-navToggle-input:checked) body {
     touch-action: none;
     -webkit-overflow-scrolling: none;
     overflow: hidden;
-    /* Other browsers */
+    /* non webkit browsers */
+    overscroll-behavior: none;
     overscroll-behavior: none;
 }
 
