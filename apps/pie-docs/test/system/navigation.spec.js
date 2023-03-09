@@ -3,7 +3,7 @@ import { disableCookieBanner } from '../helpers/playwright-helper';
 import expectedRoutesJson from '../snapshots/expected-routes.snapshot.json';
 
 test.beforeEach(async ({ page, context }) => {
-    await page.goto('/');
+    await page.goto(process.env.BASE_URL);
     await disableCookieBanner(page, context);
 });
 
