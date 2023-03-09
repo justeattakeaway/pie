@@ -154,12 +154,6 @@
         > ul {
             max-width: v.$typography-content-max-width;
         }
-
-        // temporary - apply default margin rules to standed bullet lists
-        // but not styled lists that use classes
-        ul:not([class]) > li:not([class]) {
-            margin-top: f.spacing(b);
-        }
     }
 }
 
