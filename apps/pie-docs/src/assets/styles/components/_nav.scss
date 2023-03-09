@@ -3,6 +3,7 @@
 $nav-category-gap: f.spacing(b);
 $nav-category-icon-width: f.spacing(e); // this needs to be kept in sync with the width given to the icon found in nav.njk
 $nav-item-left-margin: calc($nav-category-gap + $nav-category-icon-width);
+$nav-safari-address-bar-offset: 170px;
 
 .c-nav {
   @include f.font-size('body-s');
@@ -100,7 +101,7 @@ $nav-item-left-margin: calc($nav-category-gap + $nav-category-icon-width);
   top: 0;
   bottom: 0;
   // This is to prevent the ios safari address bar from covering part of the nav in mobile
-  max-height: calc(100vh - 170px);
+  max-height: calc(100vh - $nav-safari-address-bar-offset);
   overflow-y: auto;
 
   @include f.media('>=wide') {
