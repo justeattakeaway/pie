@@ -3,7 +3,7 @@ const COOKIE_NAMES = require('../../../../constants/cookies');
 exports.disableCookieBanner = async (page, context) => {
     const url = new URL(process.env.BASE_URL);
     const hostName = url.hostname;
-    const pathName = url.pathname;
+    const pathName = '/';
 
     await context.addCookies([
         {
