@@ -54,6 +54,8 @@ You can take a look at our Storybook instances:
     ]
 } %}
 
+---
+
 ### Can I build a new component?
 
 Yes. If the component has been approved by designers then you are more than welcome to contribute.
