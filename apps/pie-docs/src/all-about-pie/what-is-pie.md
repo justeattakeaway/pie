@@ -9,9 +9,17 @@ description: Principles for Interfaces and Experiences (PIE) is Just Eat Takeawa
 
 ## Overview
 
-PIE is a **design system** made up of components, patterns, documentation and code. It allows us to build consistent products and high quality design solutions across the organisation.
+A **design system** is like a recipe for creating visually appealing and user-friendly products. Just as a recipe has different ingredients and instructions for cooking a delicious meal, a design system has different components, patterns and documentation which help us when designing digital products such as websites or apps.
 
-Using these pre-built, reusable assets we can enhance the speed at which our teams work while maintaining the alignment between their products.
+For example, just as a recipe might call for specific amounts of ingredients and cooking times to ensure a perfect dish, a design system might dictate certain font sizes, colour palettes, and layout rules to ensure consistency and usability across all JET products.
+
+In both cases, following the recipe or design system instructions helps to ensure a consistent and high-quality end result.
+
+{% contentPageImage {
+src: "../../assets/img/all-about-pie/what-is-pie/ingredients@2x.png",
+mobileSrc: "../../assets/img/all-about-pie/what-is-pie/ingredients_narrow@2x.png",
+caption: "Much like a delicious meal, our design system is made of multiple ingredients which can be used to create high quality products."
+} %}
 
 ---
 
@@ -19,29 +27,19 @@ Using these pre-built, reusable assets we can enhance the speed at which our tea
 
 Here are six reasons why you should use PIE for your products:
 
-### Consistency
-
-PIE provides a single source of truth for designers and developers, which keeps your products consistent and minimises the chance of human errors.
-
-### Reusability
-
-We design and build reusable and scalable components that can be used throughout our products by designers, developers and other teams.
-
-### Craft & Quality
-
-We have specialist developers and designers focusing their energy on crafting and maintaining our design system, and who are here to support you at any time.
-
-### Accessibility
-
-We make sure that we design and build with all users in mind. We have accessibility built in from the start and test accessibility every step of the way.
-
-### Efficiency
-
-By using our library of pre-designed and built components, you can work faster and focus your energy on solving new problems instead of re-building the same assets.
-
-### Alignment
-
-No matter if you are a designer, iOS, Web or Android developer, PIE provides you with a common language and goal.
+{% list {
+    type: listTypes.icon,
+    iconName: "check-circle-filled",
+    iconFill: "support-positive",
+    items: [
+        "**Consistency**: PIE provides a single source of truth for designers and developers, which keeps your products consistent and minimises the chance of human errors.",
+        "**Reusability**: We design and build reusable and scalable components that can be used throughout our products by designers, developers and other teams.",
+        "**Craft & Quality**: We have specialist developers and designers focusing their energy on crafting and maintaining our design system, and who are here to support you at any time.",
+        "**Accessibility**: We make sure that we design and build with all users in mind. We have accessibility built in from the start and test accessibility every step of the way.",
+        "**Efficiency**: By using our library of pre-designed and -built components, you can work faster and focus your energy on solving new problems instead of rebuilding the same assets.",
+        "**Alignment**: No matter if you are a designer, iOS, Web or Android developer, PIE provides you with a common language and goal."
+    ]
+} %}
 
 ---
 

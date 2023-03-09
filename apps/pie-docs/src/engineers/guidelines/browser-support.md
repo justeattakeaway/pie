@@ -1,9 +1,9 @@
 ---
 eleventyNavigation:
-    key: browser-support
+    key: engineers-browser-support
     title: Browser support
     parent: engineers-guidelines
-    order: 1
+    order: 2
 eleventyComputed:
     desktopTableData: "{% include './browser-support-desktop.json' %}"
     mobileTableData: "{% include './browser-support-mobile.json' %}"

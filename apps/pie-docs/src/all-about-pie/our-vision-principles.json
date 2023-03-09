@@ -1,0 +1,28 @@
+{
+    "items": [
+        {
+            "headingText": "Empowered",
+            "imgSrc": "../../assets/img/all-about-pie/our-vision/empowered.svg",
+            "imgSrcNarrow": "../../assets/img/all-about-pie/our-vision/empowered_narrow.svg",
+            "text": "* Everyone at JET contributes to PIE and understands how our decisions are made.\n * Anyone can give us feedback easily and we will listen.\n* We welcome input at every stage from design to development."
+        },
+        {
+            "headingText": "Consistent",
+            "imgSrc": "../../assets/img/all-about-pie/our-vision/consistent.svg",
+            "imgSrcNarrow": "../../assets/img/all-about-pie/our-vision/consistent_narrow.svg",
+            "text": "* We work methodically to ensure our design system is clear and user-friendly.\n* We maximise our flexibility by adopting a modular approach.\n* We give regular, timely progress updates to JET’s product-focused teams."
+        },
+        {
+            "headingText": "Inclusive",
+            "imgSrc": "../../assets/img/all-about-pie/our-vision/inclusive.svg",
+            "imgSrcNarrow": "../../assets/img/all-about-pie/our-vision/inclusive.svg",
+            "text": "* Our output is for everyone: combining accessibility with the best design practices.\n * We design and build with consumers, end users, creatives and engineers in mind.\n * Our output makes our products more intuitive and easy to use."
+        },
+        {
+            "headingText": "Effective",
+            "imgSrc": "../../assets/img/all-about-pie/our-vision/effective.svg",
+            "imgSrcNarrow": "../../assets/img/all-about-pie/our-vision/effective_narrow.svg",
+            "text": "* Our designs and components boost the performance of our products.\n * We test and iterate based on JET expertise, research and competitor analysis.\n * We set the bar for all UI development across JET."
+        }
+    ]
+}
