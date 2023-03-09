@@ -38,7 +38,7 @@ heroCtaHref: /all-about-pie/what-is-pie
           linkText: "Get the libraries",
           icon: "components",
           iconColour: "support-brand-05",
-          href: "/foundations/colour/overview/",
+          href: "/designers/getting-started/figma-files/",
           headingLevel: "3",
           isInternalLink: "true"
         }
