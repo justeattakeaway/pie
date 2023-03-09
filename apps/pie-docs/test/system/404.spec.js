@@ -16,6 +16,10 @@ describe('PIE - 404 Page', async () => {
         // Assert
         const current = new URL(response.url()).pathname;
         const expected = new URL(browser.options.baseUrl).pathname;
-        await expect(current).toEqual(expected);
+
+        const currentWithNoTrailingSlashes = current.replace(/\/+$/, '');
+        const expectedWithNoTrailingSlashes = expected.replace(/\/+$/, '');
+
+        await expect(currentWithNoTrailingSlashes).toEqual(expectedWithNoTrailingSlashes);
     });
 });
