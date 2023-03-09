@@ -30,9 +30,29 @@ Please use one of the workflows in the **#help-designsystem** channel to make a 
 ### How can I find out which components have already been built?
 
 You can take a look at our Storybook instances:
-- [Vue](https://vue.pie.design/)
-- [React for Takeaway.com](https://snacks.takeaway.com/)
-- [React for SkipTheDishes](https://react.pie.design/)
+
+{% card {
+  items: [
+        {
+          linkText: "Vue",
+          href: "https://vue.pie.design/",
+          src: "../../assets/img/engineers/contributing/vue@2x.png",
+          shouldOpenInNewTab: true
+        },
+        {
+          linkText: "React for Takeaway.com",
+          href: "https://snacks.takeaway.com/",
+          src: "../../assets/img/engineers/contributing/react@2x.png",
+          shouldOpenInNewTab: true
+        },
+        {
+          linkText: "React for SkipTheDishes",
+          href: "https://react.pie.design/",
+          src: "../../assets/img/engineers/contributing/react@2x.png",
+          shouldOpenInNewTab: true
+        }
+    ]
+} %}
 
 ### Can I build a new component?
 
