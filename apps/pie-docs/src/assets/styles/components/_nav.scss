@@ -3,6 +3,7 @@
 $nav-category-gap: f.spacing(b);
 $nav-category-icon-width: f.spacing(e); // this needs to be kept in sync with the width given to the icon found in nav.njk
 $nav-item-left-margin: calc($nav-category-gap + $nav-category-icon-width);
+// This roughly corresponds with the height of the address bar in IOS safari
 $nav-safari-address-bar-offset: 170px;
 
 .c-nav {
