@@ -77,6 +77,8 @@ h2 + .c-card-wrapper {
 
     .c-card-labelContainer {
         border-top: 1px solid f.$color-border-default;
+        padding: f.$spacing-e f.$spacing-d;
+        border-radius: 0 0 f.$radius-rounded-c f.$radius-rounded-c;
     }
 }
 
@@ -138,11 +140,6 @@ $iconBackgroundColours: (
 .c-card-labelContainer--internalLink {
     justify-content: start;
     gap: f.$spacing-a;
-}
-
-.c-card-labelContainer--hasImage {
-    padding: f.$spacing-e f.$spacing-d;
-    border-radius: 0 0 f.$radius-rounded-c f.$radius-rounded-c;
 }
 
 .c-card-label {

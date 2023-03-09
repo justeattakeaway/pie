@@ -18,10 +18,9 @@ const buildLinkIcon = (isInternalLink) => (isInternalLink
         },
     }));
 
-const buildCardLabel = (linkText, cardHasImage, href, shouldOpenInNewTab, isInternalLink) => {
+const buildCardLabel = (linkText, href, shouldOpenInNewTab, isInternalLink) => {
     const labelClasses = [
         'c-card-labelContainer',
-        cardHasImage && 'c-card-labelContainer--hasImage',
         isInternalLink && 'c-card-labelContainer--internalLink'
     ].filter(Boolean).join(' ');
 
@@ -99,7 +98,7 @@ module.exports = function ({ items, shouldFillContainer = false }) {
             icon, iconColour, heading, headingLevel, content,
         })}` : ''}
                     ${src ? `<img class="c-card-image" src="${src}" role="presentation" alt="">` : ''}
-                    ${buildCardLabel(linkText, cardHasImage, href, shouldOpenInNewTab, isInternalLink)}
+                    ${buildCardLabel(linkText, href, shouldOpenInNewTab, isInternalLink)}
                 </article>`;
     };
 
