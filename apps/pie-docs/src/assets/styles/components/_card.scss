@@ -2,8 +2,12 @@
 
 $card-min-width: 270px;
 $card-image-height: 180px;
-$card-label-height: 72px;
 $card-gap: f.$spacing-e;
+$card-container-max-width: calc(($card-min-width * 3) + ($card-gap * 2));
+
+.c-card-wrapper {
+    container-type: inline-size;
+}
 
 p + .c-card-wrapper {
     margin-top: f.$spacing-f;
@@ -22,15 +26,39 @@ h2 + .c-card-wrapper {
     padding: 0;
 }
 
+.c-card-list--fillContainer {
+    grid-template-columns: 1fr;
+
+
+    @include f.media('>=mid') {
+        grid-template-columns: auto auto auto;
+
+        @container ((max-width: #{$card-container-max-width})) {
+            li:last-child {
+                grid-column: span 2;
+            }
+        }
+
+    }
+}
 
 .c-card {
     position: relative;
     border: 1px solid f.$color-border-default;
     border-radius: f.$radius-rounded-c;
     background-color: f.$color-container-default;
+    padding: f.$spacing-e;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
     &:hover {
         background-color: darken(f.$color-container-default, f.$color-hover-01);
+
+        .c-card-image {
+            filter: brightness(50%);
+        }
     }
 
     // makes the entire card clickable
@@ -42,6 +70,47 @@ h2 + .c-card-wrapper {
         bottom: 0;
         left: 0;
     }
+}
+
+.c-card--hasImage {
+    padding: 0;
+}
+
+.c-card-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: f.$spacing-b;
+    border-radius: f.$spacing-b;
+
+    path {
+        fill: f.$color-content-interactive-light;
+    }
+}
+
+$iconBackgroundColours: (
+    'support-brand-03' f.$color-support-brand-03,
+    'support-brand-04' f.$color-support-brand-04,
+    'support-brand-05' f.$color-support-brand-05,
+);
+
+@each $color, $token in $iconBackgroundColours {
+    .c-card-icon--#{$color} {
+        background-color: #{$token};
+    }
+}
+
+.c-card-heading {
+    @include f.font-size('heading-s');
+    margin-top: f.$spacing-e;
+
+    @include f.media('>=mid') {
+        @include f.font-size('heading-m');
+    }
+}
+
+.c-card-content {
+    margin-top: f.$spacing-d;
 }
 
 .c-card-image {
@@ -58,11 +127,17 @@ h2 + .c-card-wrapper {
     gap: f.spacing();
     justify-content: space-between;
     align-items: center;
-    min-height: $card-label-height;
-    padding: f.$spacing-e f.$spacing-d;
+    padding-top: f.$spacing-e;
+    padding-bottom: 0;
+}
+
+.c-card-labelContainer--internalLink {
+    justify-content: start;
+    gap: f.$spacing-a;
 }
 
 .c-card-labelContainer--hasImage {
+    padding: f.$spacing-e f.$spacing-d;
     border-radius: 0 0 f.$radius-rounded-c f.$radius-rounded-c;
 }
 
@@ -71,12 +146,12 @@ h2 + .c-card-wrapper {
     margin-top: 0;
 }
 
-.c-card-label a > span {
+.c-card-label > span {
     display: block;
     @include f.truncate(20ch);
 }
 
-.c-card-labelContainer .c-card-label a {
+.c-card-labelContainer .c-card-label {
     color: f.$color-content-default;
     text-decoration: underline;
 
@@ -84,5 +159,9 @@ h2 + .c-card-wrapper {
     &:active,
     &:focus {
         text-decoration: none;
+    }
+
+    &:visited {
+        color: f.$color-content-default;
     }
 }
