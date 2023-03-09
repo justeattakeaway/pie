@@ -74,6 +74,10 @@ h2 + .c-card-wrapper {
 
 .c-card--hasImage {
     padding: 0;
+
+    .c-card-labelContainer {
+        border-top: 1px solid f.$color-border-default;
+    }
 }
 
 .c-card-icon {
@@ -123,7 +127,6 @@ $iconBackgroundColours: (
 
 .c-card-labelContainer {
     border-radius: f.$radius-rounded-c;
-    border-top: 1px solid f.$color-border-default;
     display: flex;
     gap: f.spacing();
     justify-content: space-between;
