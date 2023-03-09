@@ -89,7 +89,12 @@ module.exports = function ({ items, shouldFillContainer = false }) {
         const cardHasImage = !!src;
         const cardHasContent = (!!icon && !!iconColour) || !!heading || !!content;
 
-        return `<article class="c-card">
+        const cardClasses = [
+            'c-card',
+            cardHasImage && 'c-card--hasImage'
+        ].filter(Boolean).join(' ');
+
+        return `<article class="${cardClasses}">
                     ${cardHasContent ? `${buildCardContent({
             icon, iconColour, heading, headingLevel, content,
         })}` : ''}

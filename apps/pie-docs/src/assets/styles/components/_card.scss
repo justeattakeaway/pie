@@ -53,10 +53,6 @@ h2 + .c-card-wrapper {
     flex-direction: column;
     justify-content: space-between;
 
-    &:has(.c-card-image) {
-        padding: 0;
-    }
-
     &:hover {
         background-color: darken(f.$color-container-default, f.$color-hover-01);
 
@@ -74,6 +70,10 @@ h2 + .c-card-wrapper {
         bottom: 0;
         left: 0;
     }
+}
+
+.c-card--hasImage {
+    padding: 0;
 }
 
 .c-card-icon {
