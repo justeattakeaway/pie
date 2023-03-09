@@ -4,6 +4,7 @@ $card-min-width: 270px;
 $card-image-height: 180px;
 $card-gap: f.$spacing-e;
 $card-container-max-width: calc(($card-min-width * 3) + ($card-gap * 2));
+$card-border: 1px solid f.$color-border-default;
 
 .c-card-wrapper {
     container-type: inline-size;
@@ -44,7 +45,7 @@ h2 + .c-card-wrapper {
 
 .c-card {
     position: relative;
-    border: 1px solid f.$color-border-default;
+    border: $card-border;
     border-radius: f.$radius-rounded-c;
     background-color: f.$color-container-default;
     padding: f.$spacing-e;
@@ -76,7 +77,7 @@ h2 + .c-card-wrapper {
     padding: 0;
 
     .c-card-labelContainer {
-        border-top: 1px solid f.$color-border-default;
+        border-top: $card-border;
         padding: f.$spacing-e f.$spacing-d;
         border-radius: 0 0 f.$radius-rounded-c f.$radius-rounded-c;
     }
