@@ -6,12 +6,12 @@ describe('PIE - Footer', async () => {
         const puppeteer = await browser.getPuppeteer();
         const [page] = await puppeteer.pages();
         await page.goto(url);
-        const visitHomepageLinkSelector = '[data-test-id="privacy-policy"]';
+        const privacyPolicyFooterLink = '[data-test-id="privacy-policy"]';
 
         // Act
         const [response] = await Promise.all([
             page.waitForNavigation(),
-            page.click(visitHomepageLinkSelector)
+            page.click(privacyPolicyFooterLink)
         ]);
 
         // Assert
