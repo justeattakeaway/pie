@@ -17,7 +17,7 @@
   ],
   "scripts": {
     "watch": "turbo run watch --filter=!pie-monorepo",
-    "build": "turbo run build --filter=!pie-monorepo --filter=!wc-react18",
+    "build": "turbo run build --filter=!pie-monorepo --filter=!'./apps/examples/*'",
     "changeset": "changeset",
     "changeset:publish": "changeset publish",
     "changeset:version": "changeset version",
