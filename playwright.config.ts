@@ -54,15 +54,20 @@ const config: PlaywrightTestConfig = {
   projects: [
     {
       name: 'chromium',
+      grep: /@desktop/,
       use: {
         ...devices['Desktop Chrome'],
       },
+      testMatch: ['**/test/system/*.spec.js']
     },
     {
       name: 'mobile',
+      grep: /@mobile/,
       use: {
         ...devices['iPhone X'],
+        
       },
+      testMatch: ['**/test/system/*.spec.js']
     },
   ],
 
