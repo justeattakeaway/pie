@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 
 test.beforeEach(async ({ page }) => {
-    await page.goto('http://localhost:8080');
+    await page.goto('/');
 });
 
 test.describe('PIE - Cookie Banner Tests - @desktop', async () => {
@@ -12,7 +12,7 @@ test.describe('PIE - Cookie Banner Tests - @desktop', async () => {
 
         // Expect
         // Ensure Cookie banner exists before clicking
-        expect(cookieBannerComponent).toBeVisible();
+        expect.soft(cookieBannerComponent).toBeVisible();
 
         // Assert
         await cookieAcceptAllSelector.click();
@@ -28,7 +28,7 @@ test.describe('PIE - Cookie Banner Tests - @desktop', async () => {
 
         // Expect
         // Ensure Cookie banner exists before clicking
-        expect(cookieBannerComponent).toBeVisible();
+        expect.soft(cookieBannerComponent).toBeVisible();
 
         // Assert
         await cookieNecessarySelector.click();

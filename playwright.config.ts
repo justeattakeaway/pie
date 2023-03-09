@@ -2,6 +2,8 @@ import type { PlaywrightTestConfig } from '@sand4rt/experimental-ct-web';
 import { devices } from '@playwright/test';
 
 const { getBaseUrl } = require('./apps/pie-docs/test/helpers/configuration-helper');
+const baseURL = getBaseUrl();
+process.env.BASE_URL = baseURL;
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
@@ -37,7 +39,7 @@ const config: PlaywrightTestConfig = {
     /* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
     actionTimeout: 0,
     /* Base URL to use in actions like `await page.goto('/')`. */
-    baseURL: getBaseUrl,
+    baseURL: process.env.BASE_URL,
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on',
@@ -56,7 +58,7 @@ const config: PlaywrightTestConfig = {
       },
     },
     {
-      name: 'mobile safari',
+      name: 'mobile',
       use: {
         ...devices['iPhone X'],
       },
