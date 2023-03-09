@@ -78,7 +78,7 @@ const buildCardContent = ({
  * @param {string} items.linkText - text for card link
  * @param {boolean} items.shouldOpenInNewTab - should be true if card link is Okta secured
  * @param {string} items.src - card image src
- * @param {boolean} shouldFillContainer - If true cards will fill container width when wrapped
+ * @param {boolean} shouldFillContainer - If true card wrapper will fill the container width and cards will expand to fill container when wrapped
  * @returns {string}
  */
 // eslint-disable-next-line func-names
