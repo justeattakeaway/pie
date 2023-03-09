@@ -1,8 +1,10 @@
 import { test, expect } from '@playwright/test';
+import { disableCookieBanner } from '../helpers/playwright-helper';
 import expectedRoutesJson from '../snapshots/expected-routes.snapshot.json';
 
-test.beforeEach(async ({ page }) => {
-    await page.goto('http://localhost:8080');
+test.beforeEach(async ({ page, context }) => {
+    await page.goto('/');
+    await disableCookieBanner(page, context);
 });
 
 test.describe('PIE - Status Code Tests - @desktop', () => {
@@ -21,16 +23,17 @@ test.describe('PIE - Status Code Tests - @desktop', () => {
 test.describe('PIE - site nav menu - @mobile', () => {
     test('Should open and close the mobile navigation menu', async ({ page }) => {
         // Arrange
-        const cookieAcceptAllSelector = page.getByTestId('accept-all-cookies-button');
         const navToggleLabel = page.getByTestId('nav_toggle_label');
-        const navToggleInput = page.getByTestId('nav_toggle_input');
+        const navMenu = page.getByTestId('site_nav');
 
         // Assert
-        await cookieAcceptAllSelector.click();
+        // Opens nav menu
         await navToggleLabel.click();
+
+        // Closes nav menu
         await navToggleLabel.click();
 
         // Expect
-        await expect(navToggleInput).not.toBeFocused();
+        await expect(navMenu).not.toBeVisible();
     });
 });
