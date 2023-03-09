@@ -30,7 +30,7 @@
 }
 
 html:has(.c-navToggle-input:checked) body {
-    /* when modal active */
+    /* when navigation overlay is active */
     touch-action: none;
     -webkit-overflow-scrolling: none;
     overflow: hidden;
