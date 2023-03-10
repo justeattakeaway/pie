@@ -40,7 +40,7 @@ caption: "Example of a library update notification in Figma."
 
 We share updates and news through a variety of communications and Slack channels. These will keep you up to date with what’s happening in the Design System, where are we heading to and what changes or updates have been made to the system.
 
-You can find a list of the Slack channels we use in our [Support]() section.
+You can find a list of the Slack channels we use in our [Support](/support/contact-us) section.
 
 {% contentPageImage {
 src: "../../../assets/img/designers/getting-started/best-practices/monthly-slice.svg",
@@ -54,8 +54,6 @@ caption: "The image above shows one of our usual PIE communications: The PIE mon
 ## Use Auto Layout
 
 To ensure your designs adjust to the layout and are able to scale, try using Auto Layout when designing your product. This will ensure you create designs that grow to fill or shrink to fit your screens, accommodating longer text strings, maintaining alignment with our grid and ensuring the structure of your designs isn’t compromised as they evolve.
-
-If you want to learn more about using Auto Layout, you can check out our ‘[Working with Auto layout]()’ guide.
 
 {% contentPageImage {
 src: "../../../assets/img/designers/getting-started/best-practices/auto-layout.svg",

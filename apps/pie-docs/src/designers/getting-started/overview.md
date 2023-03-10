@@ -11,7 +11,7 @@ eleventyNavigation:
 
 You can access Figma through the browser, but it is recommended that you use the desktop app. If Figma’s desktop app is not installed on your computer, get in touch with your manager to request this.
 
-As a designer within the Just Eat Takeaway organisation, you’ll automatically have access to all of PIE’s libraries and files. However, if that’s not the case, please [get in touch with the PIE team]() to request access.
+As a designer within the Just Eat Takeaway organisation, you’ll automatically have access to all of PIE’s libraries and files. However, if that’s not the case, please [get in touch with the PIE team](/support/contact-us) to request access.
 
 {% notification {
 type: "information",
@@ -23,10 +23,9 @@ message: "If you’re new to Figma, check [these tutorials](https://www.figma.co
 
 ## How is PIE structured?
 
-We have divided our foundations, components and assets into multiple libraries, so they can be easily found and referenced. All of them can be found on the [PIE Team]() section in Figma.
+We have divided our foundations, components and assets into multiple libraries, so they can be easily found and referenced. All of them can be found on the [Getting started with Figma files](/designers/getting-started/figma-files) section.
 
-You’ll need to enable these libraries if you want to use the PIE design system for your products. If you don’t know how to do that, please read our [‘How to enable libraries in Figma’]() guide.
-
+You’ll need to enable these libraries if you want to use the PIE design system for your products.
 
 {% contentPageImage {
 src: "../../../assets/img/designers/getting-started/overview/libraries-wheel.svg",
@@ -56,7 +55,7 @@ These libraries contain assets which can be used in our products, such as icons 
 
 Business Area libraries were created to provide more flexibility to our teams. Components which are unique to a specific Business Area (such as Customer, Restaurant…) and would not be relevant in other ones live within these libraries.
 
-Business Area designers own these libraries, and PIE designers only help with maintaining them and making sure they are consistent with our Core Components libraries. You can learn more about how we support these libraries in our [Getting Support]() section.
+Business Area designers own these libraries, and PIE designers only help with maintaining them and making sure they are consistent with our Core Components libraries. You can learn more about how we support these libraries in our [Getting Support](/designers/how-we-support-you) section.
 
 ---
 
