@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.34.0
+
+### Minor Changes
+
+- [Added] - `examples` folder for containing example apps ([#293](https://github.com/justeattakeaway/pie/pull/293)) by [@LTurns](https://github.com/LTurns)
+
+  [Changed] - build script to exclude `wc-react18` app
+
 ## 1.33.0
 
 ### Minor Changes
