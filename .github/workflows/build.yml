@@ -231,10 +231,20 @@ jobs:
         with:
           path: '**/node_modules'
           key: node-modules-${{ hashFiles('**/yarn.lock') }}
-      # Run System / a11y Tests  
-      - name: Install Playwright
-        run: yarn playwright install --with-deps
-      # Run System / a11y Tests  
+      - name: Get installed Playwright version
+        id: playwright-version
+        run: echo "PLAYWRIGHT_VERSION=`node -p "require('./package.json')['devDependencies']['@playwright/test']"`" >> $GITHUB_ENV
+      - name: Cache playwright binaries
+        uses: actions/cache@v3
+        id: playwright-cache
+        with:
+          path: |
+            ~/.cache/ms-playwright
+          key: ${{ runner.os }}-playwright-${{ env.PLAYWRIGHT_VERSION }}
+      - run: npx playwright install --with-deps
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
+      - run: npx playwright install-deps
+      # Run System / a11y Tests
       - name: Run System / a11y Tests - Changed Packages + Dependants
         if: ${{ !contains(github.ref_name, 'main') }}
         run: |
@@ -245,6 +255,12 @@ jobs:
         run: |
           yarn test:system:ci &&
           yarn test:a11y:ci
+      - uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 3
       - name: Upload a11y Report
         if: failure()
         uses: actions/upload-artifact@v3
@@ -319,7 +335,7 @@ jobs:
         id: check_files
         uses: andstor/file-existence-action@v2.0.0
         with:
-          files: ".changeset/pre.json"
+          files: '.changeset/pre.json'
       - name: exit prerelease mode
         # If .changeset/pre.json does not exist and we did not recently exit
         # prerelease mode.

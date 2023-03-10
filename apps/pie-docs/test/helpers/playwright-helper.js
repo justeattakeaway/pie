@@ -1,9 +1,9 @@
 const COOKIE_NAMES = require('../../../../constants/cookies');
 
-exports.disableCookieBanner = async (page, context) => {
+exports.disableCookieBanner = async (page, context, shouldReload = true) => {
     const url = new URL(process.env.BASE_URL);
     const hostName = url.hostname;
-    const pathName = url.pathname;
+    const pathName = '/';
 
     await context.addCookies([
         {
@@ -18,5 +18,8 @@ exports.disableCookieBanner = async (page, context) => {
             path: pathName,
         }
     ]);
-    await page.reload();
+
+    if (shouldReload) {
+        await page.reload();
+    }
 };

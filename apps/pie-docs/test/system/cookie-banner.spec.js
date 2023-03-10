@@ -1,39 +1,28 @@
 import { test, expect } from '@playwright/test';
 
 test.beforeEach(async ({ page }) => {
-    await page.goto('/');
+    await page.goto(process.env.BASE_URL);
 });
 
 test.describe('PIE - Cookie Banner Tests - @desktop', async () => {
-    test('Should close the cookie banner when the first button is clicked', async ({ page }) => {
-        // Arrange
-        const cookieBannerComponent = page.getByTestId('cookie-banner-component');
-        const cookieAcceptAllSelector = page.getByTestId('accept-all-cookies-button');
+    const cookieTypes = [
+        'accept-all-cookies-button',
+        'accept-necessary-cookies-button'
+    ];
 
-        // Expect
-        // Ensure Cookie banner exists before clicking
-        expect.soft(cookieBannerComponent).toBeVisible();
+    cookieTypes.forEach(async (cookieType) => {
+        test(`Should close the cookie banner when the ${cookieType} button is clicked`, async ({ page }) => {
+            // Arrange
+            const cookieBannerComponent = page.getByTestId('cookie-banner-component');
+            const cookieAcceptSelector = page.getByTestId(cookieType);
 
-        // Assert
-        await cookieAcceptAllSelector.click();
+            // Ensure Cookie banner exists before clicking
+            await expect.soft(cookieBannerComponent).toBeVisible();
 
-        // Expect
-        expect(cookieBannerComponent).not.toBeVisible();
-    });
+            await cookieAcceptSelector.click();
 
-    test('Should close the cookie banner when the second button is clicked', async ({ page }) => {
-        // Arrange
-        const cookieBannerComponent = page.getByTestId('cookie-banner-component');
-        const cookieNecessarySelector = page.getByTestId('accept-necessary-cookies-button');
-
-        // Expect
-        // Ensure Cookie banner exists before clicking
-        expect.soft(cookieBannerComponent).toBeVisible();
-
-        // Assert
-        await cookieNecessarySelector.click();
-
-        // Expect
-        expect(cookieBannerComponent).not.toBeVisible();
+            // Assert
+            await expect(cookieBannerComponent).not.toBeVisible();
+        });
     });
 });
