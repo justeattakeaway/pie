@@ -3634,6 +3634,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@percy/playwright@npm:1.0.4":
+  version: 1.0.4
+  resolution: "@percy/playwright@npm:1.0.4"
+  dependencies:
+    "@percy/sdk-utils": ^1.0.0
+  peerDependencies:
+    playwright-core: ">=1"
+  checksum: d0969b49208178a7221093517b50b5cee1e3094b89be301dc5f194172f4132b601570a89bdad617830dcfce7599cdbbe23cef4398bc58faeec05ef7b1f222802
+  languageName: node
+  linkType: hard
+
 "@percy/sdk-utils@npm:^1.0.0":
   version: 1.20.3
   resolution: "@percy/sdk-utils@npm:1.20.3"
@@ -3649,6 +3660,22 @@ __metadata:
   peerDependencies:
     webdriverio: ~6 || ~7
   checksum: 6d4b0f463b7efd0d4fe18dcaab0b444ae41835dd5a96a23d14635851f8c3e902106715f95db9fdd7bf9de54339565125372c915ab4366ef2a671f3a137337fc5
+  languageName: node
+  linkType: hard
+
+"@playwright/test@npm:1.31.2":
+  version: 1.31.2
+  resolution: "@playwright/test@npm:1.31.2"
+  dependencies:
+    "@types/node": "*"
+    fsevents: 2.3.2
+    playwright-core: 1.31.2
+  dependenciesMeta:
+    fsevents:
+      optional: true
+  bin:
+    playwright: cli.js
+  checksum: 5459ee0ce15b9a54337f4c26e2ee2d29c11e67e6207c167158eb180a4bea6659c988a2897f51dbebf591fc879f0d81f417e70936b9d8a001448c957939882588
   languageName: node
   linkType: hard
 
@@ -3763,6 +3790,17 @@ __metadata:
   version: 1.2.0
   resolution: "@rushstack/eslint-patch@npm:1.2.0"
   checksum: faa749faae0e83c26ae9eb00ad36a897ac78f3cf27da8e8ff21c00bcf7973b598d823d8f2b3957ef66079288bcf577f94df831eae2d65f3f68d8ca32f18b6aff
+  languageName: node
+  linkType: hard
+
+"@sand4rt/experimental-ct-web@npm:1.0.7":
+  version: 1.0.7
+  resolution: "@sand4rt/experimental-ct-web@npm:1.0.7"
+  peerDependencies:
+    "@playwright/test": ">=1.31.0"
+  bin:
+    playwright: cli.js
+  checksum: 115dbe41a89d515bba4a3af66469927c92b462e4dafb9b306bbc5c13ba4910a86199e2d62a4558d8781d6b75920865a84fd2e9a99aabe4e023c83146597e0918
   languageName: node
   linkType: hard
 
@@ -8715,9 +8753,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chromedriver@npm:109.0.0":
-  version: 109.0.0
-  resolution: "chromedriver@npm:109.0.0"
+"chromedriver@npm:110.0.0":
+  version: 110.0.0
+  resolution: "chromedriver@npm:110.0.0"
   dependencies:
     "@testim/chrome-version": ^1.1.3
     axios: ^1.2.1
@@ -8728,7 +8766,7 @@ __metadata:
     tcp-port-used: ^1.0.1
   bin:
     chromedriver: bin/chromedriver
-  checksum: a81347eb8c7dab021f8d94ce6962d1b9eaf5134230dfc589bab01b8db5e97e0120abd0b5df2a6f68c5e0126f9b5c7ae361874c26215d65ba673f6c3b33da8d0b
+  checksum: 52c51f21ef523865af6496736e92689bf8a16d477653cb096ff22ad3bbf16495935b6f42f860a3cdea3123e2d8a4084688acc07a06da4924b7c0e2d2bc646ae4
   languageName: node
   linkType: hard
 
@@ -13086,7 +13124,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fsevents@npm:^2.3.2, fsevents@npm:~2.3.2":
+"fsevents@npm:2.3.2, fsevents@npm:^2.3.2, fsevents@npm:~2.3.2":
   version: 2.3.2
   resolution: "fsevents@npm:2.3.2"
   dependencies:
@@ -13096,7 +13134,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fsevents@patch:fsevents@^2.3.2#~builtin<compat/fsevents>, fsevents@patch:fsevents@~2.3.2#~builtin<compat/fsevents>":
+"fsevents@patch:fsevents@2.3.2#~builtin<compat/fsevents>, fsevents@patch:fsevents@^2.3.2#~builtin<compat/fsevents>, fsevents@patch:fsevents@~2.3.2#~builtin<compat/fsevents>":
   version: 2.3.2
   resolution: "fsevents@patch:fsevents@npm%3A2.3.2#~builtin<compat/fsevents>::version=2.3.2&hash=18f3a7"
   dependencies:
@@ -19644,7 +19682,10 @@ __metadata:
     "@justeat/stylelint-config-fozzie": 3.x
     "@justeattakeaway/pie-icons": 2.0.0-beta.7
     "@percy/cli": 1.20.1
+    "@percy/playwright": 1.0.4
     "@percy/webdriverio": 2.0.2
+    "@playwright/test": 1.31.2
+    "@sand4rt/experimental-ct-web": 1.0.7
     "@wdio/allure-reporter": 7.26.0
     "@wdio/cli": 7.27.0
     "@wdio/devtools-service": 7.27.0
@@ -19654,7 +19695,7 @@ __metadata:
     autoprefixer: 10.4.7
     axe-reports: 1.1.11
     babel-loader: 8.2.3
-    chromedriver: 109.0.0
+    chromedriver: 110.0.0
     commitizen: 4.3.0
     cross-env: 7.0.3
     cssnano: 5.1.13
@@ -19676,7 +19717,7 @@ __metadata:
     stylelint: 14.16.1
     stylelint-config-standard-scss: 5.0.0
     stylelint-order: 5.0.0
-    turbo: 1.3.1
+    turbo: 1.7.0
     typescript: 4.9.4
     vite: 4.0.4
     vue: 2.6.10
@@ -19788,6 +19829,15 @@ __metadata:
   dependencies:
     find-up: ^3.0.0
   checksum: 5bac346b7c7c903613c057ae3ab722f320716199d753f4a7d053d38f2b5955460f3e6ab73b4762c62fd3e947f58e04f1343e92089e7bb6091c90877406fcd8c8
+  languageName: node
+  linkType: hard
+
+"playwright-core@npm:1.31.2":
+  version: 1.31.2
+  resolution: "playwright-core@npm:1.31.2"
+  bin:
+    playwright: cli.js
+  checksum: bf1257b7d80b9d027c99cbfa7ab9d47a2110ec804422b3e3d623bbb3c43e06df7bec4764ca1d852a6d62c76e35c8776efb19941f42ce738db9bc92e7f1b6281c
   languageName: node
   linkType: hard
 
@@ -25497,146 +25547,66 @@ __metadata:
   languageName: node
   linkType: hard
 
-"turbo-android-arm64@npm:1.3.1":
-  version: 1.3.1
-  resolution: "turbo-android-arm64@npm:1.3.1"
-  conditions: os=android & cpu=arm64
-  languageName: node
-  linkType: hard
-
-"turbo-darwin-64@npm:1.3.1":
-  version: 1.3.1
-  resolution: "turbo-darwin-64@npm:1.3.1"
+"turbo-darwin-64@npm:1.7.0":
+  version: 1.7.0
+  resolution: "turbo-darwin-64@npm:1.7.0"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
-"turbo-darwin-arm64@npm:1.3.1":
-  version: 1.3.1
-  resolution: "turbo-darwin-arm64@npm:1.3.1"
+"turbo-darwin-arm64@npm:1.7.0":
+  version: 1.7.0
+  resolution: "turbo-darwin-arm64@npm:1.7.0"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
-"turbo-freebsd-64@npm:1.3.1":
-  version: 1.3.1
-  resolution: "turbo-freebsd-64@npm:1.3.1"
-  conditions: os=freebsd & cpu=x64
-  languageName: node
-  linkType: hard
-
-"turbo-freebsd-arm64@npm:1.3.1":
-  version: 1.3.1
-  resolution: "turbo-freebsd-arm64@npm:1.3.1"
-  conditions: os=freebsd & cpu=arm64
-  languageName: node
-  linkType: hard
-
-"turbo-linux-32@npm:1.3.1":
-  version: 1.3.1
-  resolution: "turbo-linux-32@npm:1.3.1"
-  conditions: os=linux & cpu=ia32
-  languageName: node
-  linkType: hard
-
-"turbo-linux-64@npm:1.3.1":
-  version: 1.3.1
-  resolution: "turbo-linux-64@npm:1.3.1"
+"turbo-linux-64@npm:1.7.0":
+  version: 1.7.0
+  resolution: "turbo-linux-64@npm:1.7.0"
   conditions: os=linux & cpu=x64
   languageName: node
   linkType: hard
 
-"turbo-linux-arm64@npm:1.3.1":
-  version: 1.3.1
-  resolution: "turbo-linux-arm64@npm:1.3.1"
+"turbo-linux-arm64@npm:1.7.0":
+  version: 1.7.0
+  resolution: "turbo-linux-arm64@npm:1.7.0"
   conditions: os=linux & cpu=arm64
   languageName: node
   linkType: hard
 
-"turbo-linux-arm@npm:1.3.1":
-  version: 1.3.1
-  resolution: "turbo-linux-arm@npm:1.3.1"
-  conditions: os=linux & cpu=arm
-  languageName: node
-  linkType: hard
-
-"turbo-linux-mips64le@npm:1.3.1":
-  version: 1.3.1
-  resolution: "turbo-linux-mips64le@npm:1.3.1"
-  conditions: os=linux & cpu=mips64el
-  languageName: node
-  linkType: hard
-
-"turbo-linux-ppc64le@npm:1.3.1":
-  version: 1.3.1
-  resolution: "turbo-linux-ppc64le@npm:1.3.1"
-  conditions: os=linux & cpu=ppc64
-  languageName: node
-  linkType: hard
-
-"turbo-windows-32@npm:1.3.1":
-  version: 1.3.1
-  resolution: "turbo-windows-32@npm:1.3.1"
-  conditions: os=win32 & cpu=ia32
-  languageName: node
-  linkType: hard
-
-"turbo-windows-64@npm:1.3.1":
-  version: 1.3.1
-  resolution: "turbo-windows-64@npm:1.3.1"
+"turbo-windows-64@npm:1.7.0":
+  version: 1.7.0
+  resolution: "turbo-windows-64@npm:1.7.0"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
 
-"turbo-windows-arm64@npm:1.3.1":
-  version: 1.3.1
-  resolution: "turbo-windows-arm64@npm:1.3.1"
+"turbo-windows-arm64@npm:1.7.0":
+  version: 1.7.0
+  resolution: "turbo-windows-arm64@npm:1.7.0"
   conditions: os=win32 & cpu=arm64
   languageName: node
   linkType: hard
 
-"turbo@npm:1.3.1":
-  version: 1.3.1
-  resolution: "turbo@npm:1.3.1"
+"turbo@npm:1.7.0":
+  version: 1.7.0
+  resolution: "turbo@npm:1.7.0"
   dependencies:
-    turbo-android-arm64: 1.3.1
-    turbo-darwin-64: 1.3.1
-    turbo-darwin-arm64: 1.3.1
-    turbo-freebsd-64: 1.3.1
-    turbo-freebsd-arm64: 1.3.1
-    turbo-linux-32: 1.3.1
-    turbo-linux-64: 1.3.1
-    turbo-linux-arm: 1.3.1
-    turbo-linux-arm64: 1.3.1
-    turbo-linux-mips64le: 1.3.1
-    turbo-linux-ppc64le: 1.3.1
-    turbo-windows-32: 1.3.1
-    turbo-windows-64: 1.3.1
-    turbo-windows-arm64: 1.3.1
+    turbo-darwin-64: 1.7.0
+    turbo-darwin-arm64: 1.7.0
+    turbo-linux-64: 1.7.0
+    turbo-linux-arm64: 1.7.0
+    turbo-windows-64: 1.7.0
+    turbo-windows-arm64: 1.7.0
   dependenciesMeta:
-    turbo-android-arm64:
-      optional: true
     turbo-darwin-64:
       optional: true
     turbo-darwin-arm64:
       optional: true
-    turbo-freebsd-64:
-      optional: true
-    turbo-freebsd-arm64:
-      optional: true
-    turbo-linux-32:
-      optional: true
     turbo-linux-64:
       optional: true
-    turbo-linux-arm:
-      optional: true
     turbo-linux-arm64:
-      optional: true
-    turbo-linux-mips64le:
-      optional: true
-    turbo-linux-ppc64le:
-      optional: true
-    turbo-windows-32:
       optional: true
     turbo-windows-64:
       optional: true
@@ -25644,7 +25614,7 @@ __metadata:
       optional: true
   bin:
     turbo: bin/turbo
-  checksum: fced49081f2c64aaf93a2499edb057bb05d30bd2074b9652610f939c9037869501fcc50e7ad05a48cec4a8b9d344cc1c4ea505edd45fe2f9639fb138fa55182b
+  checksum: effefebefeb7531bb33205e368b2b3571fee9e8face3530af25126d4162527f105a5fe7777509a99288326be3b6e28953c7ceacab2c2ef74abb0604c8ec9bbe7
   languageName: node
   linkType: hard
 
