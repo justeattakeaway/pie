@@ -14,7 +14,7 @@ test.describe('PIE - Status Code Tests - @desktop', () => {
             const url = `${await page.url()}/${route}`;
             const response = await page.goto(url);
 
-            // Expect
+            // Assert
             await expect(response.status()).toBe(200);
         });
     });
@@ -26,14 +26,13 @@ test.describe('PIE - site nav menu - @mobile', () => {
         const navToggleLabel = page.getByTestId('nav_toggle_label');
         const navMenu = page.getByTestId('site_nav');
 
+        // Act - Open nav menu
+        await navToggleLabel.click();
+
+        // Act - Close nav menu
+        await navToggleLabel.click();
+
         // Assert
-        // Opens nav menu
-        await navToggleLabel.click();
-
-        // Closes nav menu
-        await navToggleLabel.click();
-
-        // Expect
         await expect(navMenu).not.toBeVisible();
     });
 });

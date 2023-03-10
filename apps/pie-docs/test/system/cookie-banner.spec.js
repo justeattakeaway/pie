@@ -18,12 +18,12 @@ test.describe('PIE - Cookie Banner Tests - @desktop', async () => {
             const cookieAcceptSelector = page.getByTestId(cookieType);
     
             // Ensure Cookie banner exists before clicking
-            expect.soft(cookieBannerComponent).toBeVisible();
+            await expect.soft(cookieBannerComponent).toBeVisible();
     
             await cookieAcceptSelector.click();
     
             // Assert
-            expect(cookieBannerComponent).not.toBeVisible();
+            await expect(cookieBannerComponent).not.toBeVisible();
         });
     });
 });
