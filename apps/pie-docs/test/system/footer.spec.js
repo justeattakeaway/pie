@@ -7,42 +7,19 @@ test.beforeEach(async ({ page, context }) => {
 });
 
 test.describe('PIE - Footer - @desktop', () => {
-    test(`Should ensure links return correct status code`, async ({ page }) => {
-
-        let expectedPath;
-        let expectedUrls = []
-        let requestedUrls = [];
-
-        // Listen for 'response' events and push to 'requestedUrls' if there's a match.
-        await page.on('response', (response) => {
-            if(response.request().resourceType() === 'document') {
-                let responseUrl = response.url();
-                if(responseUrl.includes(expectedPath)) {
-
-                    requestedUrls.push({
-                        'url': responseUrl,
-                        'status': response.status()
-                    });
-                }
-            }
-        });
-
-        for (const link of await page.getByTestId('footer_link').all()) {
-
-            expectedPath = await link.getAttribute('href');
+    test('Should ensure links return correct status code', async ({ page }) => {
+        /* eslint-disable no-await-in-loop, no-restricted-syntax */
+        for await (const link of await page.getByTestId('footer_link').all()) {
+            const href = await link.getAttribute('href');
 
             await Promise.all([
-                page.waitForResponse(resp => resp.url().includes(expectedPath) & resp.status() === 200)
-                .then((resp) => 
-                    expectedUrls.push({
-                        'url': resp.url(),
-                        'status': resp.status()
-                    })),
-
+                page.waitForResponse((resp) => resp.url().includes(href))
+                .then((resp) => {
+                    expect(resp.status(), `${resp.url()} should return successful status code`).toBe(200);
+                }),
                 link.click()
             ]);
         }
-
-        expect(requestedUrls).toEqual(expectedUrls);
+        /* eslint-enable no-await-in-loop, no-restricted-syntax */
     });
 });
