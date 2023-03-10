@@ -1,25 +1,29 @@
-describe('PIE - 404 Page', async () => {
-    it('Should go to the homepage when clicking "Visit homepage" link', async () => {
+import { test, expect } from '@playwright/test';
+import { disableCookieBanner } from '../helpers/playwright-helper';
+
+test.beforeEach(async ({ page }) => {
+    await page.goto(process.env.BASE_URL);
+});
+
+test.describe('PIE - 404 Page - @desktop', () => {
+    test.beforeEach(async ({ page, context }) => {
+        await disableCookieBanner(page, context, false);
+    });
+
+    test('Should go to the homepage when clicking "Visit homepage" link', async ({ page }) => {
         // Arrange
-        const url = `${browser.options.baseUrl}/404.html`;
-        const puppeteer = await browser.getPuppeteer();
-        const [page] = await puppeteer.pages();
+        const url = `${await page.url()}/404.html`;
         await page.goto(url);
-        const visitHomepageLinkSelector = '[data-test-id="404-visit-homepage"]';
+
+        const visitHomepageLink = page.getByTestId('404-visit-homepage');
 
         // Act
-        const [response] = await Promise.all([
-            page.waitForNavigation(),
-            page.click(visitHomepageLinkSelector)
+        await Promise.all([
+            page.waitForURL(process.env.BASE_URL),
+            visitHomepageLink.click()
         ]);
 
         // Assert
-        const current = new URL(response.url()).pathname;
-        const expected = new URL(browser.options.baseUrl).pathname;
-
-        const currentWithNoTrailingSlashes = current.replace(/\/+$/, '');
-        const expectedWithNoTrailingSlashes = expected.replace(/\/+$/, '');
-
-        await expect(currentWithNoTrailingSlashes).toEqual(expectedWithNoTrailingSlashes);
+        await expect(page.url()).toBe(process.env.BASE_URL);
     });
 });
