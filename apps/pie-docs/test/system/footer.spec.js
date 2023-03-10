@@ -1,21 +1,48 @@
-describe('PIE - Footer', async () => {
-    it('Should go to the Privacy Policy when clicking the associated link', async () => {
-        // Arrange
-        const url = browser.options.baseUrl;
-        const privacyPolicyUrl = 'https://www.just-eat.co.uk/info/privacy-policy';
-        const puppeteer = await browser.getPuppeteer();
-        const [page] = await puppeteer.pages();
-        await page.goto(url);
-        const privacyPolicyFooterLink = '[data-test-id="privacy-policy"]';
+import { test, expect } from '@playwright/test';
+import { disableCookieBanner } from '../helpers/playwright-helper';
 
-        // Act
-        const [response] = await Promise.all([
-            page.waitForNavigation(),
-            page.click(privacyPolicyFooterLink)
-        ]);
+test.beforeEach(async ({ page, context }) => {
+    await page.goto(process.env.BASE_URL);
+    await disableCookieBanner(page, context);
+});
 
-        // Assert
-        await expect(response.url()).toEqual(privacyPolicyUrl);
-        await expect(response.status()).toBe(200);
+test.describe('PIE - Footer - @desktop', () => {
+    test(`Should ensure links return correct status code`, async ({ page }) => {
+
+        let expectedPath;
+        let expectedUrls = []
+        let requestedUrls = [];
+
+        // Listen for 'response' events and push to 'requestedUrls' if there's a match.
+        await page.on('response', (response) => {
+            if(response.request().resourceType() === 'document') {
+                let responseUrl = response.url();
+                if(responseUrl.includes(expectedPath)) {
+
+                    requestedUrls.push({
+                        'url': responseUrl,
+                        'status': response.status()
+                    });
+                }
+            }
+        });
+
+        for (const link of await page.getByTestId('footer_link').all()) {
+
+            expectedPath = await link.getAttribute('href');
+
+            await Promise.all([
+                page.waitForResponse(resp => resp.url().includes(expectedPath) & resp.status() === 200)
+                .then((resp) => 
+                    expectedUrls.push({
+                        'url': resp.url(),
+                        'status': resp.status()
+                    })),
+
+                link.click()
+            ]);
+        }
+
+        expect(requestedUrls).toEqual(expectedUrls);
     });
 });

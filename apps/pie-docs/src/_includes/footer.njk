@@ -22,7 +22,7 @@
                             <ul>
                                 {% for page in section %}
                                     <li>
-                                        <a href="{{ page.url | url }}" data-test-id='footer-link'>
+                                        <a href="{{ page.url | url }}" data-test-id='footer_link'>
                                             {{ page.title }}
                                         </a>
                                     </li>
@@ -34,7 +34,7 @@
                 <div class='c-footer-info'>
                     <div>Copyright © {{ metadata.currentYear }} Just Eat Takeaway.com</div>
                     <div>
-                        <a href="https://www.just-eat.co.uk/info/privacy-policy" data-test-id='footer-link'>Privacy policy</a>
+                        <a href="https://www.just-eat.co.uk/info/privacy-policy" data-test-id='footer_link'>Privacy policy</a>
                         <span class='c-footer-info-separator' aria-hidden="true"></span>
                         <span>Updated: <span class="updated-date">{{ metadata.lastUpdated }}</span></span>
                     </div>
