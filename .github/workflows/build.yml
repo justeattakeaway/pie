@@ -2,16 +2,16 @@ name: Build
 
 on:
   pull_request:
-    types: [assigned, opened, synchronize, reopened, 'ready_for_review']
+    types: [assigned, opened, synchronize, reopened, "ready_for_review"]
     paths-ignore:
-      - '.husky/**'
-      - '.idea/**'
-      - 'stories/**'
-      - '.vscode/**'
-      - 'README.md'
-      - 'CONTRIBUTING.md'
-      - 'CHANGELOG.md'
-      - 'LICENSE'
+      - ".husky/**"
+      - ".idea/**"
+      - "stories/**"
+      - ".vscode/**"
+      - "README.md"
+      - "CONTRIBUTING.md"
+      - "CHANGELOG.md"
+      - "LICENSE"
   push:
     branches:
       - main
@@ -38,13 +38,13 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
-          cache: 'yarn'
+          cache: "yarn"
       # Restore node_modules if cache exists. If not, cache is created at end of build.
       - name: Cache Node Modules
         id: cache-node-modules
         uses: actions/cache@v3
         with:
-          path: '**/node_modules'
+          path: "**/node_modules"
           key: node-modules-${{ hashFiles('**/yarn.lock') }}
       # Run 'yarn' if cache doesn't exist. Use --prefer-offline to download packages from yarn cache folder where possible
       - name: Install Dependencies
@@ -63,13 +63,13 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
-          cache: 'yarn'
+          cache: "yarn"
       # Restore node_modules - Cache should exist as one was created in previous 'install' job
       - name: Cache Node Modules
         id: cache-node-modules
         uses: actions/cache@v3
         with:
-          path: '**/node_modules'
+          path: "**/node_modules"
           key: node-modules-${{ hashFiles('**/yarn.lock') }}
       # Restore Turborepo's 'dist' cache - If not, cache is created at end of build.
       - name: Cache Turborepo Dist
@@ -88,7 +88,7 @@ jobs:
       - name: Build Packages
         run: yarn build --cache-dir=".turbo"
         env:
-          PIE_URL_PREFIX: /pr-preview-docs/pr-${{github.event.number}}
+          PIE_URL_PREFIX: /pr-preview-docs/pr-${{github.event.number}}/
       # Lint JS
       - name: Lint JavaScript
         run: yarn lint:scripts --cache-dir=".turbo"
@@ -108,13 +108,13 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
-          cache: 'yarn'
+          cache: "yarn"
       # Restore node_modules - Cache should exist as one was created in previous 'install' job
       - name: Cache Node Modules
         id: cache-node-modules
         uses: actions/cache@v3
         with:
-          path: '**/node_modules'
+          path: "**/node_modules"
           key: node-modules-${{ hashFiles('**/yarn.lock') }}
       # Restore Turborepo's 'dist' cache - If not, cache is created at end of build.
       - name: Cache Turborepo Dist
@@ -165,13 +165,13 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
-          cache: 'yarn'
+          cache: "yarn"
       # Restore node_modules - Cache should exist as one was created in previous 'install' job
       - name: Cache Node Modules
         id: cache-node-modules
         uses: actions/cache@v3
         with:
-          path: '**/node_modules'
+          path: "**/node_modules"
           key: node-modules-${{ hashFiles('**/yarn.lock') }}
       # Restore Turborepo's 'dist' cache - If not, cache is created at end of build.
       - name: Cache Turborepo Dist
@@ -223,13 +223,13 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
-          cache: 'yarn'
+          cache: "yarn"
       # Restore node_modules - Cache should exist as one was created in previous 'install' job
       - name: Cache Node Modules
         id: cache-node-modules
         uses: actions/cache@v3
         with:
-          path: '**/node_modules'
+          path: "**/node_modules"
           key: node-modules-${{ hashFiles('**/yarn.lock') }}
       - name: Get installed Playwright version
         id: playwright-version
@@ -277,7 +277,7 @@ jobs:
         run: |
           yarn test:visual:ci
     env:
-      PIE_URL_PREFIX: pr-preview-docs/pr-${{github.event.number}}
+      PIE_URL_PREFIX: pr-preview-docs/pr-${{github.event.number}}/
       PERCY_TOKEN_PIE_DOCS: ${{ secrets.PERCY_TOKEN_PIE_DOCS }}
 
   release:
@@ -298,13 +298,13 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
-          cache: 'yarn'
+          cache: "yarn"
       # Restore node_modules if cache exists. If not, cache is created at end of build.
       - name: Cache Node Modules
         id: cache-node-modules
         uses: actions/cache@v3
         with:
-          path: '**/node_modules'
+          path: "**/node_modules"
           key: node-modules-${{ hashFiles('**/yarn.lock') }}
       # Run 'yarn' if cache doesn't exist. Use --prefer-offline to download packages from yarn cache folder where possible
       - name: Install Dependencies
@@ -335,7 +335,7 @@ jobs:
         id: check_files
         uses: andstor/file-existence-action@v2.0.0
         with:
-          files: '.changeset/pre.json'
+          files: ".changeset/pre.json"
       - name: exit prerelease mode
         # If .changeset/pre.json does not exist and we did not recently exit
         # prerelease mode.
