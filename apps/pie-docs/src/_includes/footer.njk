@@ -12,7 +12,7 @@
             <picture>
                 <source media="(max-width: 600px)" srcset={{ jetLogoSrcNarrow }}>
                     <img src={{ jetLogoSrc }} alt="Just Eat Takeaway- Logo"></picture>
-                    <span class='c-footer-logo-divider' aria-hidden></span>
+                    <span class='c-footer-logo-divider' aria-hidden="true"></span>
                     {% include "pie-logo.njk" %}
                 </div>
                 <main class='c-footer-main'>
@@ -35,7 +35,7 @@
                     <div>Copyright © {{ metadata.currentYear }} Just Eat Takeaway.com</div>
                     <div>
                         <a href="https://www.just-eat.co.uk/info/privacy-policy">Privacy policy</a>
-                        <span class='c-footer-info-separator' aria-hidden></span>
+                        <span class='c-footer-info-separator' aria-hidden="true"></span>
                         <span>Updated: <span class="updated-date">{{ metadata.lastUpdated }}</span></span>
                     </div>
                 </div>
