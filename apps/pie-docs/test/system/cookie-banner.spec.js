@@ -1,50 +1,28 @@
-const COOKIE_NAMES = require('../../../../constants/cookies');
+import { test, expect } from '@playwright/test';
 
-describe('PIE - Cookie Banner Tests', async () => {
-    const cookieBannerSelector = '[data-test-id="cookie-banner-component"]';
-    const cookieAcceptAllSelector = '[data-test-id="accept-all-cookies-button"]';
-    const cookieNecessarySelector = '[data-test-id="accept-necessary-cookies-button"]';
-    const cookiesToDelete = Object.values(COOKIE_NAMES);
+test.beforeEach(async ({ page }) => {
+    await page.goto(process.env.BASE_URL);
+});
 
-    it('Should close the cookie banner when the first button is clicked', async () => {
-        const puppeteer = await browser.getPuppeteer();
-        const [page] = await puppeteer.pages();
-        const url = browser.options.baseUrl;
+test.describe('PIE - Cookie Banner Tests - @desktop', async () => {
+    const cookieTypes = [
+        'accept-all-cookies-button',
+        'accept-necessary-cookies-button'
+    ];
 
-        await page.goto(url);
+    cookieTypes.forEach(async (cookieType) => {
+        test(`Should close the cookie banner when the ${cookieType} button is clicked`, async ({ page }) => {
+            // Arrange
+            const cookieBannerComponent = page.getByTestId('cookie-banner-component');
+            const cookieAcceptSelector = page.getByTestId(cookieType);
 
-        // Remove cookies to reveal the cookie banner
-        await browser.deleteCookies(cookiesToDelete);
-        await browser.refresh();
+            // Ensure Cookie banner exists before clicking
+            await expect.soft(cookieBannerComponent).toBeVisible();
 
-        // Ensure Cookie banner exists before clicking
-        const cookieBannerBeforeClick = await page.$(cookieBannerSelector);
-        expect(cookieBannerBeforeClick).toBeTruthy();
+            await cookieAcceptSelector.click();
 
-        await page.click(cookieAcceptAllSelector);
-
-        const cookieBannerAfterClick = await page.$(cookieBannerSelector);
-        expect(cookieBannerAfterClick).toBeFalsy();
-    });
-
-    it('Should close the cookie banner when the second button is clicked', async () => {
-        const puppeteer = await browser.getPuppeteer();
-        const [page] = await puppeteer.pages();
-        const url = browser.options.baseUrl;
-
-        await page.goto(url);
-
-        // Remove cookies to reveal the cookie banner
-        await browser.deleteCookies(cookiesToDelete);
-        await browser.refresh();
-
-        // Ensure Cookie banner exists before clicking
-        const cookieBannerBeforeClick = await page.$(cookieBannerSelector);
-        expect(cookieBannerBeforeClick).toBeTruthy();
-
-        await page.click(cookieNecessarySelector);
-
-        const cookieBannerAfterClick = await page.$(cookieBannerSelector);
-        expect(cookieBannerAfterClick).toBeFalsy();
+            // Assert
+            await expect(cookieBannerComponent).not.toBeVisible();
+        });
     });
 });

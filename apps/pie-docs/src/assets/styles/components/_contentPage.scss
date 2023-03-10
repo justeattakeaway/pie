@@ -159,6 +159,10 @@
 
 .c-contentPage-header--hero + .c-contentPage-content {
     border-top: none;
+
+    .c-content-container {
+        padding-top: f.spacing(i);
+    }
 }
 
 .c-contentPage-content hr {

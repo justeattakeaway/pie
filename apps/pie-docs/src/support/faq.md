@@ -29,25 +29,25 @@ We’re always committed to review our Core Components if there are changes and 
 
 Keep in mind that you can always contribute directly to PIE Business Area libraries. With our support, you’ll be able to add or amend components, while we keep an eye on the quality and consistency of the user experience.
 
-Please check our contributing guidelines for [Designers]() and [Engineers]() for more information on how you can collaborate with us.
+Please check our contributing guidelines for [Designers](/designers/contributing) and [Engineers](/engineers/contributing) for more information on how you can collaborate with us.
 
 ---
 
 ## How do I get started with PIE?
 
-We are here to help you get set up! Please check [Designers]() and [Engineers]() to get started with PIE, or reach out directly if you just want to start a conversation about how PIE can help you or your team.
+We are here to help you get set up! Please check [Designers](/designers/getting-started/overview) and [Engineers](/engineers/getting-started/overview) to get started with PIE, or reach out directly if you just want to start a conversation about how PIE can help you or your team.
 
 ---
 
 ## I found a bug. How do I report it?
 
-First, make sure the problem is reproducible. Once confirmed, send us a bug report using [this form]().
+First, make sure the problem is reproducible. Once confirmed, send us a bug report using the **Report defect** workflow in the **#help-designsystem** Slack channel (JET employees only).
 
 ---
 
 ## I need a new icon. How do I add it?
 
-All new icons requests should be submitted through the [icon request form](https://docs.google.com/forms/d/16x_tEnAZS75vamcGQpOwipjCfz6Nczg2TfI0a_Ixh9U/viewform?pli=1&pli=1&edit_requested=true). Please read the [Contact Us]() page for more information on how to contact us directly with an icon request.
+All new icons requests should be submitted through the [icon request form](https://docs.google.com/forms/d/16x_tEnAZS75vamcGQpOwipjCfz6Nczg2TfI0a_Ixh9U/viewform?pli=1&pli=1&edit_requested=true). Please read the [Contact Us](/support/contact-us) page for more information on how to contact us directly with an icon request.
 
 Please keep in mind though that if there’s a similar icon already in use, we will suggest you to use that instead.
 
@@ -55,15 +55,15 @@ Please keep in mind though that if there’s a similar icon already in use, we w
 
 ## I need a new component. How do I request it?
 
-If you need a new component built, please check the processes we’ve outlined in our support guidelines for [Designers]() and [Engineers](). You can also reach out to us directly asking for help and we’ll help you choose the right support model for you or your team.
+If you need a new component built, please check the processes we’ve outlined in our support guidelines for [Designers](/designers/how-we-support-you) and [Engineers](/engineers/contributing). You can also use the **Request help** workflow in the **#help-designsystem** Slack channel (JET employees only) and we’ll help you choose the right support model for you or your team.
 
 ---
 
 ## How can I contribute?
 
-If you have new ideas for components, patterns or general UI improvements for your products, you can certainly contribute. Please check our contributing guidelines for [Designers]() and [Engineers]() for more details.
+If you have new ideas for components, patterns or general UI improvements for your products, you can certainly contribute. Please check our contributing guidelines for [Designers](/designers/contributing) and [Engineers](/engineers/contributing) for more details.
 
 ---
 
 ## I couldn’t find an answer to my question
-If you couldn’t find the answer to your question, please [contact us]() directly.
+If you couldn’t find the answer to your question, please [contact us](/support/contact-us) directly.

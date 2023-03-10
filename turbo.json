@@ -5,7 +5,8 @@
       "cache": true,
       "dependsOn": [
         "^build"
-      ]
+      ],
+      "outputs": ["dist/**"]
     },
     "watch": {
       "cache": true,
@@ -16,7 +17,8 @@
       "dependsOn": [
         "^build",
         "@justeattakeaway/pie-icons#build"
-      ]
+      ],
+      "outputs": ["dist/**"]
     },
     "pie-docs#build:dev": {
       "cache": true,
