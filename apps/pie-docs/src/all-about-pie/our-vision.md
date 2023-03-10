@@ -11,7 +11,7 @@ eleventyComputed:
 
 ## Mission
 
-To maintain and evolve our single source of truth design system and product components for our end users and all JET’s product-focused teams
+To maintain and evolve our single source of truth design system and component libraries for our end users and all JET’s product-focused teams.
 
 ---
 

@@ -15,7 +15,7 @@ exports[`card.js should return the expected HTML 2`] = `
 "<article class=\\"c-card c-card--hasImage\\">
                     
                     <img class=\\"c-card-image\\" src=\\"/path/to/image\\" role=\\"presentation\\" alt=\\"\\">
-                    <div class=\\"c-card-labelContainer c-card-labelContainer--hasImage\\">
+                    <div class=\\"c-card-labelContainer\\">
                 <p class=\\"c-card-label\\" ><span>label</span></p>
                 
             </div>
