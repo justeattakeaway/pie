@@ -5,6 +5,7 @@ import os from 'os';
 const { getBaseUrl } = require('./apps/pie-docs/test/helpers/configuration-helper');
 const baseURL = getBaseUrl();
 process.env.BASE_URL = baseURL;
+
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
@@ -45,7 +46,7 @@ const config: PlaywrightTestConfig = {
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on',
 
-    // Sets the default getByTestId function attribute to the data-test-id format
+    /* Sets the default getByTestId function attribute to the data-test-id format */
     testIdAttribute: 'data-test-id',
   },
 
@@ -82,12 +83,6 @@ const config: PlaywrightTestConfig = {
 
   /* Folder for test artifacts such as screenshots, videos, traces, etc. */
   // outputDir: 'test-results/',
-
-  /* Run your local dev server before starting the tests */
-  // webServer: {
-  //   command: 'npm run start',
-  //   port: 3000,
-  // },
 };
 
 export default config;
