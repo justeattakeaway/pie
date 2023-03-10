@@ -1,5 +1,6 @@
 import type { PlaywrightTestConfig } from '@sand4rt/experimental-ct-web';
 import { devices } from '@playwright/test';
+import os from 'os';
 
 const { getBaseUrl } = require('./apps/pie-docs/test/helpers/configuration-helper');
 const baseURL = getBaseUrl();
@@ -31,9 +32,9 @@ const config: PlaywrightTestConfig = {
   /* Retry on CI only */
   retries: process.env.CI ? 2 : 0,
   /* Opt out of parallel tests on CI. */
-  workers: process.env.CI ? 1 : undefined,
+  workers: os.cpus().length,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: process.env.CI ? 'dot' : 'html',
+  reporter: 'html',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
@@ -52,16 +53,30 @@ const config: PlaywrightTestConfig = {
 
   projects: [
     {
-      name: 'chromium',
+      name: 'system:chrome',
+      grep: /@desktop/,
       use: {
         ...devices['Desktop Chrome'],
       },
+      testMatch: ['**/test/system/*.spec.js']
     },
     {
-      name: 'mobile',
+      name: 'system:ios',
+      grep: /@mobile/,
       use: {
         ...devices['iPhone X'],
+        
       },
+      testMatch: ['**/test/system/*.spec.js']
+    },
+    {
+      name: 'system:android',
+      grep: /@mobile/,
+      use: {
+        ...devices['Pixel 5'],
+        
+      },
+      testMatch: ['**/test/system/*.spec.js']
     },
   ],
 
