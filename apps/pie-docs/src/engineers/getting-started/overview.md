@@ -23,7 +23,7 @@ If you're interested in knowing more about where we are in our engineering journ
 
 If you'd like to contribute to PIE, check out our [contributing guide](/engineers/contributing/).
 
-We also maintain guides for global front-end best practices across JET. These can be found in the [engineering guidelines section of our docs](/engineers/guidelines).
+We also maintain guides for global front-end best practices across JET. These can be found in the [engineering guidelines section of our docs](/engineers/guidelines/overview).
 
 
 <!-- N.B. for the future – we should include a components summary section here like this when we want to start advertising our components:
