@@ -38,11 +38,11 @@ Below you can find the process we’ll follow to implement your suggested design
 
 Before creating a new component or piece of documentation, please make sure there isn’t already a solution that would fit your needs. If you are unsure about this, please get in touch with us so we can help you figure out what the best way forward might be.
 
-We have a [process]() in place to determine whether a new component needs to be created, please make sure you read it and follow the steps outlined when proposing a new component.
+We have a [partnership process](https://www.figma.com/file/BRwqw7B4dm4mVPdvfVLSNY/Process?node-id=440%3A3052&t=bTA5tJ46naOtMqUn-0) in place to determine whether a new component needs to be created, please make sure you read it and follow the steps outlined when proposing a new component.
 
 ### Volunteer to work with us
 
-If you have a particular interest in design systems or would like to help us out with the design, development or documentation of PIE, you can [reach out to us]() at any time to become a new PIE advocate.
+If you have a particular interest in design systems or would like to help us out with the design, development or documentation of PIE, you can [reach out to us](/support/contact-us) at any time to become a new PIE advocate.
 
 We’re always happy to hear about new ideas and opinions on how to improve our system, and will welcome any feedback, suggestions or support from you.
 

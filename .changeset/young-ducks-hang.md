@@ -2,4 +2,4 @@
 "pie-docs": minor
 ---
 
-[Changed] - System tests to Playwright system tests
+[Changed] - Replacing existing WDIO system tests with new Playwright system tests

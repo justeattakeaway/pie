@@ -45,7 +45,11 @@ const config: PlaywrightTestConfig = {
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on',
 
+<<<<<<< HEAD
     // Sets the default getByTestId function attribute to the data-test-id format
+=======
+    /* Sets the default getByTestId function attribute to the data-test-id format */
+>>>>>>> 00336f3f4bac220f3829ed5e0df90ba0dea64598
     testIdAttribute: 'data-test-id',
   },
 
@@ -82,12 +86,15 @@ const config: PlaywrightTestConfig = {
 
   /* Folder for test artifacts such as screenshots, videos, traces, etc. */
   // outputDir: 'test-results/',
+<<<<<<< HEAD
 
   /* Run your local dev server before starting the tests */
   // webServer: {
   //   command: 'npm run start',
   //   port: 3000,
   // },
+=======
+>>>>>>> 00336f3f4bac220f3829ed5e0df90ba0dea64598
 };
 
 export default config;

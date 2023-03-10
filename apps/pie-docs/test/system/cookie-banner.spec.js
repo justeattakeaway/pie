@@ -10,7 +10,7 @@ test.describe('PIE - Cookie Banner Tests - @desktop', async () => {
         'accept-necessary-cookies-button'
     ];
 
-    cookieTypes.forEach((cookieType) => {
+    cookieTypes.forEach(async (cookieType) => {
         test(`Should close the cookie banner when the ${cookieType} button is clicked`, async ({ page }) => {
             // Arrange
             const cookieBannerComponent = page.getByTestId('cookie-banner-component');
