@@ -23,7 +23,7 @@ If you’re unsure about which model might be best for you or your team, or woul
 
 ### Mentoring
 
-With the mentoring model, the business area designer is in charge of creating the component following the contribution process outlined in our [Contribution](/designers/contributing) section.
+With the mentoring model, the business area designer is in charge of creating the component following the contribution process outlined in our [Contributing](/designers/contributing) section.
 
 During this process, a PIE designer will support the business area designer by reviewing the work, offering help and providing feedback at any stage.
 
@@ -95,7 +95,7 @@ As a result of that, we’re often asked how PIE designers are usually involved 
     items: [
         "Screen designs.",
         "Prototype flows.",
-        "Specify **your** products rules.",
+        "Specify **your** product's rules.",
         "Maintain business area libraries."
     ]
 } %}

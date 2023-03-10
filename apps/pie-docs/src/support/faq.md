@@ -41,7 +41,7 @@ We are here to help you get set up! Please check [Designers](/designers/getting-
 
 ## I found a bug. How do I report it?
 
-First, make sure the problem is reproducible. Once confirmed, send us a bug report using the **Report defect** workflow in the **help-designsystem** Slack channel (JET employees only).
+First, make sure the problem is reproducible. Once confirmed, send us a bug report using the **Report defect** workflow in the **#help-designsystem** Slack channel (JET employees only).
 
 ---
 
