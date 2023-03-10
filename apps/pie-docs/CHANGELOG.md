@@ -1,5 +1,31 @@
 # Changelog
 
+## 1.62.0
+
+### Minor Changes
+
+- [updated] card component to allow icons, headings, content and internal links ([#290](https://github.com/justeattakeaway/pie/pull/290)) by [@FayeCarter](https://github.com/FayeCarter)
+
+  [updated] card component to add overlay to card image on hover
+
+- [Added] Content for Engineers > Structure section of the docs site ([#298](https://github.com/justeattakeaway/pie/pull/298)) by [@ashleynolan](https://github.com/ashleynolan)
+
+  [Changed] Some small copy amends to the Engineers > Overview & Engineers > Our Vision pages
+
+- [Added] - Images and visual lists to what is pie and design contribution pages ([#292](https://github.com/justeattakeaway/pie/pull/292)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Changed] - Use `font/ttf` for preload type for PTMono font as `font/truetype' is invalid ([#299](https://github.com/justeattakeaway/pie/pull/299)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Changed] - Use cards for storybook links on the engineers contributing page ([#299](https://github.com/justeattakeaway/pie/pull/299)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Changed] - Made the navigation sticky on desktop and scroll-locked on mobile ([#287](https://github.com/justeattakeaway/pie/pull/287)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Changed] - Minor copy updates to engineer pages and correct aria-hidden usage in footer ([#299](https://github.com/justeattakeaway/pie/pull/299)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - Roadmap page ([#295](https://github.com/justeattakeaway/pie/pull/295)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Changed] - Apply 65ch max width to media element text and update what is pie copy ([#292](https://github.com/justeattakeaway/pie/pull/292)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 1.61.0
 
 ### Minor Changes
