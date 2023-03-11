@@ -21,14 +21,10 @@
     "test": "run -T jest",
     "test:ci": "yarn test",
     "test:generate-routes": "node test/helpers/generate-routes.js",
-    "test:system": "yarn test:system-desktop && yarn test:system-mobile",
-    "test:system-desktop": "npx playwright test -c ../../playwright.config.ts --project=chromium ./test/system/* --grep=@desktop",
-    "test:system-mobile": "npx playwright test -c ../../playwright.config.ts --project=mobile ./test/system/* --grep=@mobile",
-    "test:system:ci": "yarn test:system",
+    "test:browsers": "npx playwright test -c ../../playwright.config.ts",
+    "test:browsers:ci": "yarn test:browsers",
     "test:visual": "run -T cross-env-shell PERCY_TOKEN=${PERCY_TOKEN_PIE_DOCS} TEST_TYPE=visual percy exec -- wdio ../../wdio.conf.js --spec ./test/visual/*.js",
-    "test:visual:ci": "yarn test:visual",
-    "test:a11y": "run -T cross-env-shell TEST_TYPE=a11y wdio run ../../wdio.conf.js --spec ./test/accessibility/*.js",
-    "test:a11y:ci": "yarn test:a11y"
+    "test:visual:ci": "yarn test:visual"
   },
   "browserslist": [
     "extends @justeat/browserslist-config-fozzie"

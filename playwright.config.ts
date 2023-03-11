@@ -52,7 +52,15 @@ const config: PlaywrightTestConfig = {
 
   projects: [
     {
-      name: 'chromium',
+      name: 'a11y:chrome',
+      use: {
+        ...devices['Desktop Chrome'],
+      },
+      testMatch: ['**/test/accessibility/*.spec.js']
+    },
+    {
+      name: 'system:chrome',
+      grep: /@desktop/,
       use: {
         ...devices['Desktop Chrome'],
       },

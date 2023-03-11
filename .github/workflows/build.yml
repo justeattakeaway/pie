@@ -246,9 +246,9 @@ jobs:
       - uses: actions/upload-artifact@v3
         if: always()
         with:
-          name: browsers-report
-          path: browsers-report/
-          retention-days: 7
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 3
       # Run Visual Tests
       - name: Run Visual Tests - Changed Packages + Dependants
         if: ${{ github.event.pull_request.draft == false && !contains(github.ref_name, 'main') }}

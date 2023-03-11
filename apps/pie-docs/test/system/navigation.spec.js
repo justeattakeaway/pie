@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { disableCookieBanner } from '../helpers/playwright-helper';
+import { disableCookieBanner } from '../playwright/playwright-helper';
 import expectedRoutesJson from '../snapshots/expected-routes.snapshot.json';
 
 test.beforeEach(async ({ page, context }) => {
