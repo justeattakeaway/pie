@@ -21,6 +21,6 @@
         "experimentalDecorators": true,
         "forceConsistentCasingInFileNames": true
     },
-    "include": ["src/**/*.ts","./declaration.d.ts"],
+    "include": ["src/**/*.ts","./declaration.d.ts", "test/**/*.ts"],
     "exclude": []
   }

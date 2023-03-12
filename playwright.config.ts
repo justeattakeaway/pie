@@ -1,5 +1,4 @@
-import type { PlaywrightTestConfig } from '@sand4rt/experimental-ct-web';
-import { devices } from '@playwright/test';
+import type { PlaywrightTestConfig ,devices } from '@playwright/test';
 import os from 'os';
 
 const { getBaseUrl } = require('./apps/pie-docs/test/helpers/configuration-helper');
