@@ -18,6 +18,14 @@ const readChildren = (childDirectories, result = []) => {
     // folders in the dist we want to ignore
     const ignores = ['assets'];
 
+    // Files we want to specifically include
+    const includes = ['404.html'];
+
+    if (includes.includes(childDirectories.name) && !childDirectories.children) {
+        result.push(childDirectories.relativePath);
+        return;
+    }
+
     // Ignore directories that don't have subdirectories / files, as these aren't valid routes
     if (ignores.includes(childDirectories.name) || !childDirectories.children) {
         return;
