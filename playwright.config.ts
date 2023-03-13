@@ -5,7 +5,6 @@ import os from 'os';
 const { getBaseUrl } = require('./apps/pie-docs/test/helpers/configuration-helper');
 const baseURL = getBaseUrl();
 process.env.BASE_URL = baseURL;
-
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
