@@ -18,7 +18,7 @@ test.describe('PIE - Page Visual Tests - @desktop', () => {
             await page.goto(url, { waitUntil: 'networkidle' });
 
             // Assert
-            await percyScreenshot(page, { screenshotName: 'Example Site' });
+            await percyScreenshot(page, `PIE - ${route}`);
         });
     });
 });
