@@ -5,7 +5,7 @@ imgSrc: '/assets/img/404.png'
 narrowImgSrc: '/assets/img/404_narrow.png'
 ---
 
-<div class="c-centredPage">
+<div class="c-centredPage" data-test-id="site_content">
     <picture class="c-notFound-image">
         <source media="(min-width: 600px)" srcset="{{ imgSrc | url }}">
         <img src="{{ narrowImgSrc | url }}" alt="">
@@ -16,15 +16,13 @@ narrowImgSrc: '/assets/img/404_narrow.png'
     </h1>
 
     <p class="c-centredPage-text">
-        Sorry about that, but we're unable to find the content you're looking for.
-        <br>
-        Please ensure that the address you typed is correct and try again.
+        Sorry about that, but we're unable to find the content you're looking for. Please ensure that the address you typed is correct and try again.
     </p>
 
     <p class="c-centredPage-text">
         <span class="c-centredPage-text--bold">Error code:</span> 404
     </p>
-    <a href="{{ '/' | url }}" class="c-centredPage-link o-btn o-btn--primary">
+    <a href="{{ '/' | url }}" class="c-centredPage-link o-btn o-btn--primary" data-test-id="404-visit-homepage">
         Visit homepage
     </a>
 </div>

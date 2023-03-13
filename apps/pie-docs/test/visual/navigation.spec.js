@@ -16,14 +16,6 @@ describe('PIE - Page Visual Tests', async () => {
         });
     });
 
-    it('Should display 404 page', async () => {
-        const url = `${browser.options.baseUrl}/404.html`;
-
-        await browser.url(url);
-        // wait til load
-        await browser.percyScreenshot('PIE - 404');
-    });
-
     it('Should display Cookie Banner', async () => {
         const cookieBannerSelector = '[data-test-id="cookie-banner-component"]';
 
