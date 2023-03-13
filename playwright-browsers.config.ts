@@ -83,6 +83,13 @@ const config: PlaywrightTestConfig = {
       },
       testMatch: ['**/test/system/*.spec.js']
     },
+    {
+      name: 'visual',
+      use: {
+        ...devices['Desktop Chrome'],
+      },
+      testMatch: ['**/test/visual/*.spec.js']
+    },
   ],
 
   /* Folder for test artifacts such as screenshots, videos, traces, etc. */

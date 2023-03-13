@@ -42,3 +42,27 @@ test.describe('PIE - Site Nav Menu', () => {
         await percySnapshot(page, 'PIE - Mobile Nav', mobileWidths);
     });
 });
+
+// test.describe('PIE - site nav menu - @mobile', () => {
+//     test.beforeEach(async ({ page, context }) => {
+//         await disableCookieBanner(page, context);
+//     });
+
+//     test('Should open and close the mobile navigation menu', async ({ page }) => {
+//         // Arrange
+//         const navToggleLabel = page.getByTestId('nav_toggle_label');
+//         const navMenu = page.getByTestId('site_nav');
+
+//         // Act - Open nav menu
+//         await navToggleLabel.click();
+
+//         // Assert - Nav menu is open
+//         await expect.soft(navMenu).toBeVisible();
+
+//         // Act - Close nav menu
+//         await navToggleLabel.click();
+
+//         // Assert - Nav menu is closed
+//         await expect(navMenu).not.toBeVisible();
+//     });
+// });

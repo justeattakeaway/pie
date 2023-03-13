@@ -1,5 +1,8 @@
 const base = require('@playwright/test');
 const AxeBuilder = require('@axe-core/playwright').default;
+const percySnapshot = require('@percy/playwright');
+
+const breakpoints = [414, 768, 1280];
 
 // Extend base test by providing "makeAxeBuilder"
 //
