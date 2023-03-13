@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 import { disableCookieBanner } from '../playwright/playwright-helper';
 
 test.describe('PIE - 404 Page - @desktop', () => {
-    test.beforeEach(async ({ page, baseURL, context }) => {
+    test.beforeEach(async ({ page, context, baseURL }) => {
         await page.goto(baseURL);
         await disableCookieBanner(page, context, false);
     });
@@ -16,7 +16,7 @@ test.describe('PIE - 404 Page - @desktop', () => {
 
         // Act
         await Promise.all([
-            page.waitForResponse((resp) => resp.status() === 200),
+            page.waitForResponse((resp) => resp.url() === baseURL),
             visitHomepageLink.click()
         ]);
 

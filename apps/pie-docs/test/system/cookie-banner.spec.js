@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 
-test.beforeEach(async ({ page }) => {
-    await page.goto('/');
+test.beforeEach(async ({ page   , baseURL }) => {
+    await page.goto(baseURL);
 });
 
 test.describe('PIE - Cookie Banner Tests - @desktop', async () => {

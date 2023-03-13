@@ -2,9 +2,8 @@ import { test, expect } from '@playwright/test';
 import { disableCookieBanner } from '../playwright/playwright-helper';
 import expectedRoutesJson from '../snapshots/expected-routes.snapshot.json';
 
-test.beforeEach(async ({ page, context }) => {
-    await page.goto('/');
-    await disableCookieBanner(page, context);
+test.beforeEach(async ({ page, baseURL }) => {
+    await page.goto(baseURL);
 });
 
 test.describe('PIE - Status Code Tests - @desktop', () => {
