@@ -108,7 +108,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@axe-core/playwright@npm:^4.6.0":
+"@axe-core/playwright@npm:4.6.0":
   version: 4.6.0
   resolution: "@axe-core/playwright@npm:4.6.0"
   dependencies:
@@ -19657,7 +19657,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "pie-monorepo@workspace:."
   dependencies:
-    "@axe-core/playwright": ^4.6.0
+    "@axe-core/playwright": 4.6.0
     "@babel/cli": 7.19.3
     "@babel/core": 7.17.10
     "@babel/eslint-parser": 7.19.1

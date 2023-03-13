@@ -11,8 +11,8 @@ exports.test = base.test.extend({
       .withTags(['wcag21a', 'wcag21aa', 'wcag143', 'cat.color', 'cat.aria'])
       .disableRules(['color-contrast', 'color-contrast-enhanced']);
 
-        await use(makeAxeBuilder);
+      await use(makeAxeBuilder);
     },
-});
+}, { timeout: 60000 });
 
 exports.expect = base.expect;
