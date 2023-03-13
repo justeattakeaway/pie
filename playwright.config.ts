@@ -87,8 +87,17 @@ const config: PlaywrightTestConfig = {
     },
     {
       name: 'visual',
+      grepInvert: /@mobile/,
       use: {
         ...devices['Desktop Chrome'],
+      },
+      testMatch: ['**/test/visual/*.spec.js']
+    },
+    {
+      name: 'visual:mobile',
+      grep: /@mobile/,
+      use: {
+        ...devices['Pixel 5'],
       },
       testMatch: ['**/test/visual/*.spec.js']
     },

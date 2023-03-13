@@ -1,48 +1,45 @@
+import PERCY_BREAKPOINTS from './percyBreakpoints';
 import { test } from '../playwright/fixtures';
-import { disableCookieBanner } from '../playwright/playwright-helper';
+import { disableCookieBanner, percySnapshot } from '../playwright/playwright-helper';
 import expectedRoutesJson from '../snapshots/expected-routes.snapshot.json';
 
-test.beforeEach(async ({ page, baseURL }) => {
-    await page.goto(baseURL);
-});
-
-test.describe('PIE - Page Visual Tests - @desktop', () => {
-    test.beforeEach(async ({ page, context }) => {
-        await disableCookieBanner(page, context, false);
+test.describe('PIE - Page Visual Tests', () => {
+    test.beforeEach(async ({ page, context, baseURL }) => {
+        await page.goto(baseURL);
+        await disableCookieBanner(page, context, true);
     });
 
     expectedRoutesJson.forEach((route) => {
-        test(`Should respond take a screenshot of the requested route: - ${route}`, async ({ page, percyScreenshot }) => {
+        test(`Should respond take a screenshot of the requested route: - ${route}`, async ({ page }) => {
             // Arrange
             const url = `${await page.url()}/${route}`;
             await page.goto(url, { waitUntil: 'networkidle' });
 
             // Assert
-            await percyScreenshot(page, `PIE - ${route}`);
+            await percySnapshot(page, `PIE - ${route}`);
         });
     });
 });
 
-// test.describe('PIE - site nav menu - @mobile', () => {
-//     test.beforeEach(async ({ page, context }) => {
-//         await disableCookieBanner(page, context);
-//     });
+test.describe('PIE - Site Nav Menu', () => {
+    test.beforeEach(async ({ page, context, baseURL }) => {
+        await page.goto(baseURL);
+        await disableCookieBanner(page, context, true);
+    });
 
-//     test('Should open and close the mobile navigation menu', async ({ page }) => {
-//         // Arrange
-//         const navToggleLabel = page.getByTestId('nav_toggle_label');
-//         const navMenu = page.getByTestId('site_nav');
+    test('Should open and close the mobile navigation menu - @mobile', async ({ page }) => {
+        // Arrange
+        const navToggleLabel = page.getByTestId('nav_toggle_label');
+        const navMenu = page.getByTestId('site_nav');
 
-//         // Act - Open nav menu
-//         await navToggleLabel.click();
+        // Act - Open nav menu
+        await navToggleLabel.click();
 
-//         // Assert - Nav menu is open
-//         await expect.soft(navMenu).toBeVisible();
+        // Assert - Nav menu is open
+        await navMenu.isVisible();
 
-//         // Act - Close nav menu
-//         await navToggleLabel.click();
+        const mobileWidths = [PERCY_BREAKPOINTS.MOBILE, PERCY_BREAKPOINTS.TABLET];
 
-//         // Assert - Nav menu is closed
-//         await expect(navMenu).not.toBeVisible();
-//     });
-// });
+        await percySnapshot(page, 'PIE - Mobile Nav', mobileWidths);
+    });
+});
