@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { disableCookieBanner } from '../helpers/playwright-helper';
+import { disableCookieBanner } from '../playwright/playwright-helper';
 
 test.describe('PIE - 404 Page - @desktop', () => {
     test.beforeEach(async ({ page, baseURL, context }) => {

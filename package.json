@@ -32,13 +32,11 @@
     "prepack": "pinst --disable",
     "postpack": "pinst --enable",
     "test": "turbo run test --filter=!pie-monorepo",
-    "test:a11y": "turbo run test:a11y --filter=!pie-monorepo",
-    "test:a11y:ci": "turbo run test:a11y:ci --filter=!pie-monorepo",
     "test:ci": "turbo run test:ci --filter=!pie-monorepo",
     "test:coverage": "turbo run test:coverage --filter=!pie-monorepo",
     "test:generate-routes": "turbo run test:generate-routes --filter=!pie-monorepo",
-    "test:system": "turbo run test:system --filter=!pie-monorepo",
-    "test:system:ci": "turbo run test:system:ci --filter=!pie-monorepo",
+    "test:browsers": "turbo run test:browsers --filter=!pie-monorepo",
+    "test:browsers:ci": "turbo run test:browsers:ci --filter=!pie-monorepo",
     "test:visual": "turbo run test:visual --filter=!pie-monorepo",
     "test:visual:ci": "turbo run test:visual:ci --filter=!pie-monorepo"
   },
@@ -46,7 +44,7 @@
     "extends": "@justeat/stylelint-config-fozzie"
   },
   "devDependencies": {
-    "@axe-core/webdriverio": "4.6.0",
+    "@axe-core/playwright": "4.6.0",
     "@babel/cli": "7.19.3",
     "@babel/core": "7.17.10",
     "@babel/eslint-parser": "7.19.1",
@@ -72,7 +70,6 @@
     "@wdio/mocha-framework": "7.26.0",
     "allure-commandline": "2.20.1",
     "autoprefixer": "10.4.7",
-    "axe-reports": "1.1.11",
     "babel-loader": "8.2.3",
     "chromedriver": "110.0.0",
     "commitizen": "4.3.0",
