@@ -1,6 +1,10 @@
 import { test, expect } from '@playwright/test';
 
+<<<<<<< HEAD
 test.beforeEach(async ({ page   , baseURL }) => {
+=======
+test.beforeEach(async ({ page, baseURL }) => {
+>>>>>>> 2f02874aef761367edc70869b9a208994270c86a
     await page.goto(baseURL);
 });
 
