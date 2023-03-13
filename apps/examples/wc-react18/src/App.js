@@ -1,6 +1,13 @@
+import '@justeattakeaway/pie-button';
+
 function App () {
     return (
-        <div>Hello World!</div>
+        <div>
+            <>
+                <pie-button size='large' />
+                <pie-button size='small' />
+            </>
+        </div>
     );
 }
 
