@@ -252,7 +252,7 @@ exports.config = {
                 value: 'full',
             }, {
                 name: COOKIE_NAMES.JE_BANNER_COOKIE,
-                value: 130315,
+                value: '130315',
             }
         ]);
         await browser.refresh();
@@ -313,7 +313,7 @@ exports.config = {
                 value: 'full',
             }, {
                 name: COOKIE_NAMES.JE_BANNER_COOKIE,
-                value: 130315,
+                value: '130315',
             }
         ]);
         await browser.refresh();
