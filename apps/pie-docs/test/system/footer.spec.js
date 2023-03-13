@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { disableCookieBanner } from '../helpers/playwright-helper';
+import { disableCookieBanner } from '../playwright/playwright-helper';
 
 test.beforeEach(async ({ page, context }) => {
     await page.goto(process.env.BASE_URL);
