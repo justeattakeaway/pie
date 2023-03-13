@@ -48,21 +48,19 @@ test.describe('PIE - Site Nav Menu', () => {
 //         await disableCookieBanner(page, context);
 //     });
 
-//     test('Should open and close the mobile navigation menu', async ({ page }) => {
-//         // Arrange
-//         const navToggleLabel = page.getByTestId('nav_toggle_label');
-//         const navMenu = page.getByTestId('site_nav');
+    test('Should open and close the mobile navigation menu - @mobile', async ({ page }) => {
+        // Arrange
+        const navToggleLabel = page.getByTestId('nav_toggle_label');
+        const navMenu = page.getByTestId('site_nav');
 
-//         // Act - Open nav menu
-//         await navToggleLabel.click();
+        // Act - Open nav menu
+        await navToggleLabel.click();
 
-//         // Assert - Nav menu is open
-//         await expect.soft(navMenu).toBeVisible();
+        // Assert - Nav menu is open
+        await navMenu.isVisible();
 
-//         // Act - Close nav menu
-//         await navToggleLabel.click();
+        const mobileWidths = [PERCY_BREAKPOINTS.MOBILE, PERCY_BREAKPOINTS.TABLET];
 
-//         // Assert - Nav menu is closed
-//         await expect(navMenu).not.toBeVisible();
-//     });
-// });
+        await percySnapshot(page, 'PIE - Mobile Nav', mobileWidths);
+    });
+});
