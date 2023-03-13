@@ -3,20 +3,20 @@ import expectedRoutesJson from '../snapshots/expected-routes.snapshot.json';
 const { test, expect } = require('../playwright/fixtures');
 const { disableCookieBanner } = require('../playwright/playwright-helper');
 
-test.beforeEach(async ({ page, context }) => {
-    await page.goto(process.env.BASE_URL);
+test.beforeEach(async ({ page, context, baseURL }) => {
+    await page.goto(baseURL);
     await disableCookieBanner(page, context);
 });
 
 expectedRoutesJson.forEach((route) => {
-    test(`should test page content WCAG compliance for route - ${route}`, async ({ page, makeAxeBuilder }) => {
+    test(`should test page content WCAG compliance for route - ${route}`, async ({ page, baseURL, makeAxeBuilder }) => {
         const selector = 'site_content';
 
-        await page.goto(`${process.env.BASE_URL}/${route}`);
+        await page.goto(`${baseURL}/${route}`);
         await page.getByTestId(selector).waitFor();
 
         const results = await makeAxeBuilder()
-        .include(`[data-test-id=${selector}]`)
+            .include(`[data-test-id=${selector}]`)
             .analyze();
 
         expect(results.violations).toEqual([]);
