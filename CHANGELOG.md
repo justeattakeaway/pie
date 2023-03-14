@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.35.0
+
+### Minor Changes
+
+- [Changed] - Update chromedriver to v110 ([#289](https://github.com/justeattakeaway/pie/pull/289)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Fixed] - Failing test (incorrect type for cookie value - number when it should be a string)
+
+- [Added] - Playwright testing package ([#294](https://github.com/justeattakeaway/pie/pull/294)) by [@JoshuaNg2332](https://github.com/JoshuaNg2332)
+
+- [Updated] - `turbo` dependency to fix a bug that prevented passing of root-level args when using `--filter` ([#294](https://github.com/justeattakeaway/pie/pull/294)) by [@JoshuaNg2332](https://github.com/JoshuaNg2332)
+
 ## 1.34.0
 
 ### Minor Changes

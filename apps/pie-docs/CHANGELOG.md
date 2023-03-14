@@ -1,5 +1,23 @@
 # Changelog
 
+## 1.63.0
+
+### Minor Changes
+
+- [Added] Previously missing links on designer pages. ([#300](https://github.com/justeattakeaway/pie/pull/300)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Changed] Reword some sections to make the link destinations more obvious at a glance.
+  [Removed] Some links that won't be used or aren't currently used. These will be added back in later when they are ready.
+  [Fixed] Some links were pointing to pages that no longer existed, e.g., `/engineers/guidelines` is now `/engineers/guidelines/overview`.
+
+- [Added] - Accessibility tests for 404 page ([#289](https://github.com/justeattakeaway/pie/pull/289)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Added] - System tests for 404 page
+
+- [Removed] Line break on 404 page ([#289](https://github.com/justeattakeaway/pie/pull/289)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- [Changed] - Replacing existing WDIO system tests with new Playwright system tests ([#294](https://github.com/justeattakeaway/pie/pull/294)) by [@JoshuaNg2332](https://github.com/JoshuaNg2332)
+
 ## 1.62.0
 
 ### Minor Changes
