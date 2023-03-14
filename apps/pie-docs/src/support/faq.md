@@ -9,7 +9,7 @@ description: Here you’ll find the answers to our frequently asked questions, b
 
 ## What is PIE?
 
-**PIE** (Principles for Interfaces and Experiences) is a design system made up of components, patterns, documentation and code. It allows us to build consistent products and high quality design solutions across the organisation.
+**Principles for Interfaces and Experiences** (PIE) is a design system made up of components, patterns, documentation and code. It allows us to build consistent products and high quality design solutions across the organisation.
 
 Using these pre-built, reusable assets we can enhance the speed at which our teams work while maintaining the alignment between their products.
 
