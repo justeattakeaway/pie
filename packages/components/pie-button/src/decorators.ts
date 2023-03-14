@@ -1,5 +1,3 @@
-import { property } from "lit/decorators";
-
 /**
  * A decorator for specifying a list of valid values for a property.
  * If this property's setter is called with an invalid value, an error is logged and the default value will be assigned instead.

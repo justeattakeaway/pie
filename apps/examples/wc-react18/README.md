@@ -1,9 +1,37 @@
-### `yarn start`
+### Testing Web Components in React 18
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+When adding a web component with a custom event we will need to wrap the component in [@lit-labs/react package](https://lit.dev/docs/frameworks/react/).
 
+This can be done by using Lit-labs `createComponent` function.
 
-### `yarn build`
+```
+import React, { useState } from 'react';
+import { createComponent } from '@lit-labs/react';
 
-Builds the app for production to the `build` folder.\
+---
+
+const Button = createComponent({
+    tagName: 'pie-button',
+    elementClass: PieButton,
+    react: React,
+    events: { onCustomEvent: 'CustomEvent' },
+});
+
+function App () {
+    ---
+    const onCustomEvent = () => console.log('onCustomEvent was triggered');
+
+    return (
+        <>
+            ---
+
+            <Button
+                onCustomEvent={onCustomEvent}
+            />
+        </>
+    );
+}
+
+```
+
+[More information here](https://www.youtube.com/watch?v=x9yUwiNtzBs)
