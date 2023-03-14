@@ -185,7 +185,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/core@npm:^7.0.0, @babel/core@npm:^7.1.0, @babel/core@npm:^7.11.1, @babel/core@npm:^7.11.6, @babel/core@npm:^7.12.10, @babel/core@npm:^7.12.3, @babel/core@npm:^7.13.16, @babel/core@npm:^7.16.0, @babel/core@npm:^7.19.6, @babel/core@npm:^7.20.2, @babel/core@npm:^7.20.5, @babel/core@npm:^7.7.2, @babel/core@npm:^7.8.0":
+"@babel/core@npm:^7.0.0, @babel/core@npm:^7.1.0, @babel/core@npm:^7.11.1, @babel/core@npm:^7.11.6, @babel/core@npm:^7.12.10, @babel/core@npm:^7.12.3, @babel/core@npm:^7.13.16, @babel/core@npm:^7.16.0, @babel/core@npm:^7.19.6, @babel/core@npm:^7.20.2, @babel/core@npm:^7.7.2, @babel/core@npm:^7.8.0":
   version: 7.21.0
   resolution: "@babel/core@npm:7.21.0"
   dependencies:
@@ -903,7 +903,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/plugin-syntax-jsx@npm:^7.0.0, @babel/plugin-syntax-jsx@npm:^7.18.6, @babel/plugin-syntax-jsx@npm:^7.2.0":
+"@babel/plugin-syntax-jsx@npm:^7.18.6, @babel/plugin-syntax-jsx@npm:^7.2.0":
   version: 7.18.6
   resolution: "@babel/plugin-syntax-jsx@npm:7.18.6"
   dependencies:
@@ -1457,7 +1457,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/plugin-transform-typescript@npm:^7.20.2, @babel/plugin-transform-typescript@npm:^7.21.0":
+"@babel/plugin-transform-typescript@npm:^7.21.0":
   version: 7.21.0
   resolution: "@babel/plugin-transform-typescript@npm:7.21.0"
   dependencies:
@@ -1765,7 +1765,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/template@npm:^7.0.0, @babel/template@npm:^7.16.7, @babel/template@npm:^7.18.10, @babel/template@npm:^7.20.7, @babel/template@npm:^7.3.3":
+"@babel/template@npm:^7.16.7, @babel/template@npm:^7.18.10, @babel/template@npm:^7.20.7, @babel/template@npm:^7.3.3":
   version: 7.20.7
   resolution: "@babel/template@npm:7.20.7"
   dependencies:
@@ -1776,7 +1776,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/traverse@npm:^7.0.0, @babel/traverse@npm:^7.17.10, @babel/traverse@npm:^7.20.5, @babel/traverse@npm:^7.20.7, @babel/traverse@npm:^7.21.0, @babel/traverse@npm:^7.21.2, @babel/traverse@npm:^7.7.2":
+"@babel/traverse@npm:^7.17.10, @babel/traverse@npm:^7.20.5, @babel/traverse@npm:^7.20.7, @babel/traverse@npm:^7.21.0, @babel/traverse@npm:^7.21.2, @babel/traverse@npm:^7.7.2":
   version: 7.21.2
   resolution: "@babel/traverse@npm:7.21.2"
   dependencies:
@@ -5939,20 +5939,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vitejs/plugin-vue-jsx@npm:3.0.0":
-  version: 3.0.0
-  resolution: "@vitejs/plugin-vue-jsx@npm:3.0.0"
-  dependencies:
-    "@babel/core": ^7.20.5
-    "@babel/plugin-transform-typescript": ^7.20.2
-    "@vue/babel-plugin-jsx": ^1.1.1
-  peerDependencies:
-    vite: ^4.0.0
-    vue: ^3.0.0
-  checksum: b0ae327450a69dbddc61aa2e59fb10bd4ffcb6a63d42d9f61dc50ed7e1fc0cc2f7f21c022fb0d794fc6956a7f7e7b2fc8d39df016cf25efcc7d88467f3f1d077
-  languageName: node
-  linkType: hard
-
 "@vitejs/plugin-vue@npm:4.0.0":
   version: 4.0.0
   resolution: "@vitejs/plugin-vue@npm:4.0.0"
@@ -6021,30 +6007,6 @@ __metadata:
   version: 1.4.0
   resolution: "@vue/babel-helper-vue-jsx-merge-props@npm:1.4.0"
   checksum: 2383ff7719b324da2330f7444472e6a2f0c8710d1ad0a1b5cccdda1c5a4160129d0e9db97e6404cc4a4ecb64a7e8510fde0bec381b3eb03103f814534f02b18d
-  languageName: node
-  linkType: hard
-
-"@vue/babel-helper-vue-transform-on@npm:^1.0.2":
-  version: 1.0.2
-  resolution: "@vue/babel-helper-vue-transform-on@npm:1.0.2"
-  checksum: 5a03d293ad8841d276c86cc1071f3bcd3e8d47571e5f9a8ca1c0147a7a8c50c65768fc416140b5edda7d429bdd8e8ab1bf52ff010540e61015ac3f0cd6da6f4e
-  languageName: node
-  linkType: hard
-
-"@vue/babel-plugin-jsx@npm:^1.1.1":
-  version: 1.1.1
-  resolution: "@vue/babel-plugin-jsx@npm:1.1.1"
-  dependencies:
-    "@babel/helper-module-imports": ^7.0.0
-    "@babel/plugin-syntax-jsx": ^7.0.0
-    "@babel/template": ^7.0.0
-    "@babel/traverse": ^7.0.0
-    "@babel/types": ^7.0.0
-    "@vue/babel-helper-vue-transform-on": ^1.0.2
-    camelcase: ^6.0.0
-    html-tags: ^3.1.0
-    svg-tags: ^1.0.0
-  checksum: 2887c041fbd9dcefeca26811a8d3a21835fca50b0e87a3c0a50bd7a4289339ee316426a4066648bad67e090186404457828d46e023eb820aa6865d99b99c4002
   languageName: node
   linkType: hard
 
@@ -14302,7 +14264,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"html-tags@npm:^3.1.0, html-tags@npm:^3.2.0":
+"html-tags@npm:^3.2.0":
   version: 3.2.0
   resolution: "html-tags@npm:3.2.0"
   checksum: a0c9e96ac26c84adad9cc66d15d6711a17f60acda8d987218f1d4cbaacd52864939b230e635cce5a1179f3ddab2a12b9231355617dfbae7945fcfec5e96d2041
@@ -26812,7 +26774,6 @@ __metadata:
   dependencies:
     "@types/node": 18.14.2
     "@vitejs/plugin-vue": 4.0.0
-    "@vitejs/plugin-vue-jsx": 3.0.0
     "@vue/tsconfig": 0.1.3
     npm-run-all: 4.1.5
     typescript: ~4.8.4
