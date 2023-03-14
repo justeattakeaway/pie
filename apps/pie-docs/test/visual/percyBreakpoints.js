@@ -1,7 +1,0 @@
-const PERCY_BREAKPOINTS = {
-    MOBILE: 414,
-    TABLET: 768,
-    DESKTOP: 1280,
-};
-
-module.exports = PERCY_BREAKPOINTS;

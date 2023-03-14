@@ -83,22 +83,6 @@ const config: PlaywrightTestConfig = {
       },
       testMatch: ['**/test/system/*.spec.js']
     },
-    {
-      name: 'visual',
-      grepInvert: /@mobile/,
-      use: {
-        ...devices['Desktop Chrome'],
-      },
-      testMatch: ['**/test/visual/*.spec.js']
-    },
-    {
-      name: 'visual:mobile',
-      grep: /@mobile/,
-      use: {
-        ...devices['Pixel 5'],
-      },
-      testMatch: ['**/test/visual/*.spec.js']
-    },
   ],
 
   /* Folder for test artifacts such as screenshots, videos, traces, etc. */
