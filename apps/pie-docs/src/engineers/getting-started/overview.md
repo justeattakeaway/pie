@@ -17,8 +17,6 @@ For a more detailed look at the component systems the PIE team maintain, the PIE
 
 We also help to maintain a number of other projects that incorporate the PIE Design Language (such as [Fozzie](https://github.com/justeattakeaway/fozzie-components) for VueJS components, or [Snacks](https://snacks.takeaway.com/) and [Skip PIE](https://github.com/justeat/pie-project) for React components).
 
-If you're interested in knowing more about where we are in our engineering journey with PIE and how we got there, then check out the [vision and roadmap section](/engineers/getting-started/our-vision).
-
 ## Contributing & Guidelines
 
 If you'd like to contribute to PIE, check out our [contributing guide](/engineers/contributing/).
