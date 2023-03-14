@@ -1,5 +1,8 @@
 <template>
     <div class="container">
+        <pie-button variant="ghost" />
+    </div>
+    <div class="container">
         <pie-button @click="decrement" />
         <div>{{ count }}</div>
         <pie-button @click="increment" />
