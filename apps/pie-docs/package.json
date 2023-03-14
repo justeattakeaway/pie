@@ -21,9 +21,9 @@
     "test": "run -T jest",
     "test:ci": "yarn test",
     "test:generate-routes": "node test/helpers/generate-routes.js",
-    "test:browsers": "npx playwright test -c ../../playwright.config.ts",
+    "test:browsers": "npx playwright test -c ../../playwright-browsers.config.ts",
     "test:browsers:ci": "yarn test:browsers",
-    "test:visual-playwright": "run -T cross-env-shell PERCY_TOKEN=${PERCY_TOKEN_PIE_DOCS} percy exec -- npx playwright test -c ../../playwright.config.ts --project=visual --project=visual:mobile",
+    "test:visual": "run -T cross-env-shell PERCY_TOKEN=${PERCY_TOKEN_PIE_DOCS} percy exec -- npx playwright test -c ../../playwright-visual.config.ts",
     "test:visual:ci": "yarn test:visual"
   },
   "browserslist": [

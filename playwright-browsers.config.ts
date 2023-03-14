@@ -32,9 +32,9 @@ const config: PlaywrightTestConfig = {
   /* Retry on CI only */
   retries: process.env.CI ? 2 : 0,
   /* Opt out of parallel tests on CI. */
-  workers: os.cpus().length,
+  workers: 3,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'html',
+  reporter: [['html', { outputFolder: 'browsers-report' }]],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
@@ -43,7 +43,7 @@ const config: PlaywrightTestConfig = {
     baseURL: process.env.BASE_URL,
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'on',
+    trace: 'on-first-retry',
 
     /* Sets the default getByTestId function attribute to the data-test-id format */
     testIdAttribute: 'data-test-id',
@@ -84,22 +84,6 @@ const config: PlaywrightTestConfig = {
         
       },
       testMatch: ['**/test/system/*.spec.js']
-    },
-    {
-      name: 'visual',
-      grepInvert: /@mobile/,
-      use: {
-        ...devices['Desktop Chrome'],
-      },
-      testMatch: ['**/test/visual/*.spec.js']
-    },
-    {
-      name: 'visual:mobile',
-      grep: /@mobile/,
-      use: {
-        ...devices['Pixel 5'],
-      },
-      testMatch: ['**/test/visual/*.spec.js']
     },
   ],
 
