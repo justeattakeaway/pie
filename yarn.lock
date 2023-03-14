@@ -24786,6 +24786,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "wc-vue3@workspace:apps/examples/wc-vue3"
   dependencies:
+    "@justeattakeaway/pie-button": "workspace:*"
     "@types/node": 18.14.2
     "@vitejs/plugin-vue": 4.0.0
     "@vue/tsconfig": 0.1.3
