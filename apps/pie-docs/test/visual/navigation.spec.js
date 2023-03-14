@@ -1,4 +1,4 @@
-import PERCY_BREAKPOINTS from './percyBreakpoints';
+import PERCY_BREAKPOINTS from './percy-breakpoints';
 import { test } from '../playwright/fixtures';
 import { disableCookieBanner, percySnapshot } from '../playwright/playwright-helper';
 import expectedRoutesJson from '../snapshots/expected-routes.snapshot.json';
