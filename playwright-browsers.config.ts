@@ -30,8 +30,8 @@ const config: PlaywrightTestConfig = {
   forbidOnly: !!process.env.CI,
   /* Retry on CI only */
   retries: process.env.CI ? 2 : 0,
-  /* All CPUs on CI / half of availible CPUs when testing locally. */
-  workers: process.env.CI ? os.cpus().length : os.cpus().length / 2,
+  /* All CPUs on CI / half of available CPUs when testing locally. */
+  workers: process.env.CI ? '100%' : '50%',
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: [['html', { outputFolder: 'browsers-report' }]],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
