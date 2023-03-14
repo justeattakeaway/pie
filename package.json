@@ -61,7 +61,6 @@
     "@percy/cli": "1.20.1",
     "@percy/playwright": "1.0.4",
     "@playwright/test": "1.31.2",
-    "@sand4rt/experimental-ct-web": "1.0.7",
     "allure-commandline": "2.20.1",
     "autoprefixer": "10.4.7",
     "babel-loader": "8.2.3",

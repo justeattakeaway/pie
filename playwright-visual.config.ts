@@ -1,5 +1,4 @@
-import type { PlaywrightTestConfig } from '@sand4rt/experimental-ct-web';
-import { devices } from '@playwright/test';
+import { PlaywrightTestConfig, devices } from '@playwright/test';
 import os from 'os';
 
 const { getBaseUrl } = require('./apps/pie-docs/test/helpers/configuration-helper');
@@ -31,8 +30,8 @@ const config: PlaywrightTestConfig = {
   forbidOnly: !!process.env.CI,
   /* Retry on CI only */
   retries: process.env.CI ? 2 : 0,
-  /* Opt out of parallel tests on CI. */
-  workers: os.cpus().length,
+  /* All CPUs on CI / half of availible CPUs when testing locally. */
+  workers: process.env.CI ? os.cpus().length : os.cpus().length / 2,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: [['html', { outputFolder: 'visual-report' }]],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */

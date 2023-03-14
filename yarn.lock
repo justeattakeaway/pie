@@ -3790,17 +3790,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sand4rt/experimental-ct-web@npm:1.0.7":
-  version: 1.0.7
-  resolution: "@sand4rt/experimental-ct-web@npm:1.0.7"
-  peerDependencies:
-    "@playwright/test": ">=1.31.0"
-  bin:
-    playwright: cli.js
-  checksum: 115dbe41a89d515bba4a3af66469927c92b462e4dafb9b306bbc5c13ba4910a86199e2d62a4558d8781d6b75920865a84fd2e9a99aabe4e023c83146597e0918
-  languageName: node
-  linkType: hard
-
 "@sinclair/typebox@npm:^0.24.1":
   version: 0.24.51
   resolution: "@sinclair/typebox@npm:0.24.51"
@@ -18263,7 +18252,6 @@ __metadata:
     "@percy/cli": 1.20.1
     "@percy/playwright": 1.0.4
     "@playwright/test": 1.31.2
-    "@sand4rt/experimental-ct-web": 1.0.7
     allure-commandline: 2.20.1
     autoprefixer: 10.4.7
     babel-loader: 8.2.3

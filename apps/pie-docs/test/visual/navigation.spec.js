@@ -34,12 +34,11 @@ test.describe('PIE - Site Nav Menu', () => {
 
         // Act - Open nav menu
         await navToggleLabel.click();
-
-        // Assert - Nav menu is open
         await navMenu.isVisible();
 
         const mobileWidths = [PERCY_BREAKPOINTS.MOBILE, PERCY_BREAKPOINTS.TABLET];
 
+        // Assert
         await percySnapshot(page, 'PIE - Mobile Nav', mobileWidths);
     });
 });
