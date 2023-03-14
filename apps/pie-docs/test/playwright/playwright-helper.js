@@ -1,4 +1,8 @@
+const percySnapshot = require('@percy/playwright');
 const COOKIE_NAMES = require('../../../../constants/cookies');
+const PERCY_BREAKPOINTS = require('../visual/percy-breakpoints');
+
+const percyBreakpoints = Object.values(PERCY_BREAKPOINTS);
 
 exports.disableCookieBanner = async (page, context, shouldReload = true) => {
     const url = new URL(process.env.BASE_URL);
@@ -22,4 +26,8 @@ exports.disableCookieBanner = async (page, context, shouldReload = true) => {
     if (shouldReload) {
         await page.reload();
     }
+};
+
+exports.percySnapshot = async (page, screenshotName, widths = percyBreakpoints) => {
+    await percySnapshot(page, screenshotName, { widths });
 };
