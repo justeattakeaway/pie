@@ -1,46 +1,44 @@
+import PERCY_BREAKPOINTS from './percy-breakpoints';
+import { test } from '../playwright/fixtures';
+import { disableCookieBanner, percySnapshot } from '../playwright/playwright-helper';
 import expectedRoutesJson from '../snapshots/expected-routes.snapshot.json';
 
-describe('PIE - Page Visual Tests', async () => {
-    beforeEach(async () => {
-        await browser.url(browser.options.baseUrl);
+test.describe('PIE - Page Visual Tests', () => {
+    test.beforeEach(async ({ page, context, baseURL }) => {
+        await page.goto(baseURL);
+        await disableCookieBanner(page, context, true);
     });
 
     expectedRoutesJson.forEach((route) => {
-        it(`Should respond take a screenshot of the requested route: - ${route}`, async () => {
-            const url = `${browser.options.baseUrl}/${route}`;
+        test(`Should take a screenshot of the requested route: - ${route}`, async ({ page }) => {
+            // Arrange
+            const url = `${await page.url()}/${route}`;
+            await page.goto(url, { waitUntil: 'networkidle' });
 
-            await browser.url(url);
-
-            // wait til load
-            await browser.percyScreenshot(`PIE - ${route}`);
+            // Assert
+            await percySnapshot(page, `PIE - ${route}`);
         });
     });
+});
 
-    it('Should display Cookie Banner', async () => {
-        const cookieBannerSelector = '[data-test-id="cookie-banner-component"]';
-
-        await browser.deleteCookies(['je-cookieConsent', 'je-banner_cookie']);
-        await browser.refresh();
-
-        const cookieBannerElement = await browser.$(cookieBannerSelector);
-        await cookieBannerElement.waitForDisplayed();
-
-        // wait til load
-        await browser.percyScreenshot('PIE - Cookie Banner');
+test.describe('PIE - Site Nav Menu', () => {
+    test.beforeEach(async ({ page, context, baseURL }) => {
+        await page.goto(baseURL);
+        await disableCookieBanner(page, context, true);
     });
 
-    it('Should display mobile nav', async () => {
-        await browser.emulateDevice('iPhone X');
+    test('Should open and close the mobile navigation menu - @mobile', async ({ page }) => {
+        // Arrange
+        const navToggleLabel = page.getByTestId('nav_toggle_label');
+        const navMenu = page.getByTestId('site_nav');
 
-        const navToggleLabelSelector = '[data-test-id="nav_toggle_label"]';
-        const navToggleInputSelector = '[data-test-id="nav_toggle_input"]';
-
-        const navToggleLabel = await browser.$(navToggleLabelSelector);
-        const navToggleInput = await browser.$(navToggleInputSelector);
-
+        // Act - Open nav menu
         await navToggleLabel.click();
-        await browser.waitUntil(async () => navToggleInput.isSelected());
+        await navMenu.isVisible();
 
-        await browser.percyScreenshot('PIE - Mobile Nav', [414, 768]);
+        const mobileWidths = [PERCY_BREAKPOINTS.MOBILE, PERCY_BREAKPOINTS.TABLET];
+
+        // Assert
+        await percySnapshot(page, 'PIE - Mobile Nav', mobileWidths);
     });
 });
