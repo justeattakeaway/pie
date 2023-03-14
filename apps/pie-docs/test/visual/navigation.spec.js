@@ -10,7 +10,7 @@ test.describe('PIE - Page Visual Tests', () => {
     });
 
     expectedRoutesJson.forEach((route) => {
-        test(`Should respond take a screenshot of the requested route: - ${route}`, async ({ page }) => {
+        test(`Should take a screenshot of the requested route: - ${route}`, async ({ page }) => {
             // Arrange
             const url = `${await page.url()}/${route}`;
             await page.goto(url, { waitUntil: 'networkidle' });
