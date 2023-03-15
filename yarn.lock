@@ -29416,9 +29416,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"wc-nuxt3-d14ec4@workspace:apps/examples/wc-nuxt3":
+"wc-nuxt3@workspace:apps/examples/wc-nuxt3":
   version: 0.0.0-use.local
-  resolution: "wc-nuxt3-d14ec4@workspace:apps/examples/wc-nuxt3"
+  resolution: "wc-nuxt3@workspace:apps/examples/wc-nuxt3"
   dependencies:
     "@nuxt/vite-builder": 3.0.0
     nuxt: 3.0.0
