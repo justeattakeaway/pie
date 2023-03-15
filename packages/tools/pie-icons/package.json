@@ -40,5 +40,8 @@
   },
   "jest": {
     "testEnvironment": "jsdom"
+  },
+  "volta": {
+    "extends": "../../../package.json"
   }
 }

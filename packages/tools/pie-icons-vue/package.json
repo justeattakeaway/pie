@@ -57,5 +57,8 @@
     "marked": "1.2.5",
     "pascal-case": "3.1.2",
     "prismjs": "1.28.0"
+  },
+  "volta": {
+    "extends": "../../../package.json"
   }
 }
