@@ -62,7 +62,7 @@ Business area libraries contain components which are unique to a specific busine
 
 These libraries are owned by designers in the relevant business area. PIE designers will occasionally review these libraries to ensure the components are consistent with the main component libraries.
 
-[Learn more]((/designers/how-we-support-you)) about how PIE supports these libraries.
+[Learn more](/designers/how-we-support-you) about how PIE supports these libraries.
 
 ---
 
