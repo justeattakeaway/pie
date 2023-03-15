@@ -15,5 +15,8 @@
   },
   "browserslist": [
     "extends @justeat/browserslist-config-fozzie"
-  ]
+  ],
+  "volta": {
+    "extends": "../../../package.json"
+  }
 }
