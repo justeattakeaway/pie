@@ -11,20 +11,19 @@ import React, { useState } from 'react';
 import { createComponent } from '@lit-labs/react';
 
 const Button = createComponent({
-    tagName: 'pie-button',
-    elementClass: PieButton,
-    react: React,
-    events: { onCustomEvent: 'CustomEvent' },
+  tagName: 'pie-button',
+  elementClass: PieButton,
+  react: React,
+  events: { onCustomEvent: 'CustomEvent' },
 });
 
-function App () {
-    const onCustomEvent = () => console.log('onCustomEvent was triggered');
+function App() {
+  const onCustomEvent = () => console.log('onCustomEvent was triggered');
 
-    return (
-            <Button
-                onCustomEvent={onCustomEvent}
-            />
-    );
+  return (
+    <Button
+      onCustomEvent={onCustomEvent}
+    />
+  );
 }
-
 ```
