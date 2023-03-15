@@ -1,5 +1,27 @@
 # Changelog
 
+## 1.64.0
+
+### Minor Changes
+
+- [Changed] - Use f-cookie-banner package for cookie banner ([#319](https://github.com/justeattakeaway/pie/pull/319)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Changed] - home page copy based on ux feedback ([#317](https://github.com/justeattakeaway/pie/pull/317)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Changed] - Designers getting started page copy based on ux feedback ([#323](https://github.com/justeattakeaway/pie/pull/323)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Changed] - Add question mark to What is PIE? nav key ([#318](https://github.com/justeattakeaway/pie/pull/318)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Changed] - Replacing existing WDIO visual tests with new Playwright visual tests ([#312](https://github.com/justeattakeaway/pie/pull/312)) by [@JoshuaNg2332](https://github.com/JoshuaNg2332)
+
+- [Changed] - New roadmap copy adding in parts from the engineering roadmap ([#315](https://github.com/justeattakeaway/pie/pull/315)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Removed] - Engineering section 'our vision' page ([#315](https://github.com/justeattakeaway/pie/pull/315)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Changed] - Copy in What is PIE? and Our Vision pages based on ux feedback ([#318](https://github.com/justeattakeaway/pie/pull/318)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Changed] - Support section copy ([#316](https://github.com/justeattakeaway/pie/pull/316)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 1.63.0
 
 ### Minor Changes

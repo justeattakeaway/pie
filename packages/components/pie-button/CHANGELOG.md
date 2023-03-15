@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.7.0
+
+### Minor Changes
+
+- [Updated] button to handle custom events ([#309](https://github.com/justeattakeaway/pie/pull/309)) by [@FayeCarter](https://github.com/FayeCarter)
+
+### Patch Changes
+
+- Add missing Volta settings to package.json ([#322](https://github.com/justeattakeaway/pie/pull/322)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 0.6.1
 
 ### Patch Changes

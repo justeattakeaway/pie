@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.36.0
+
+### Minor Changes
+
+- [Removed] - WDIO references and dependencies ([#312](https://github.com/justeattakeaway/pie/pull/312)) by [@JoshuaNg2332](https://github.com/JoshuaNg2332)
+
+### Patch Changes
+
+- Updated dependencies [[`38734c2d3`](https://github.com/justeattakeaway/pie/commit/38734c2d3fb74f6b77d38b0d2eac95bb0d4dfdc1)]:
+  - @justeattakeaway/pie-icons@2.0.1
+
 ## 1.35.0
 
 ### Minor Changes
