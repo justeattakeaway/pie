@@ -1,19 +1,21 @@
 <template>
     <h2>Button click event</h2>
-    <div class="container">
+    <div class="flex-wrapper">
         <pie-button @click="decrement" />
-        <div>{{ count }}</div>
+        <div class="counter">
+            Counter: {{ count }}
+        </div>
         <pie-button @click="increment" />
     </div>
     <h2>Button variants</h2>
-    <div class="container">
+    <div>
         <pie-button
             v-for="(value, key) in BUTTON_VARIANT"
             :key="key"
             :variant="value" />
     </div>
     <h2>Button sizes</h2>
-    <div class="container">
+    <div>
         <pie-button
             v-for="(value, key) in BUTTON_SIZE"
             :key="key"
@@ -43,10 +45,16 @@ export default {
 };
 </script>
 
-<style>
-.container {
+<style scoped>
+@import './styles.css';
+
+.flex-wrapper {
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.counter {
     padding: 1rem;
 }
 </style>
