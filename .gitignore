@@ -105,7 +105,6 @@ out
 # Nuxt.js build / generate output
 .nuxt
 dist
-nitro-output
 
 # PIE React Icons ESM module
 esm
