@@ -9,29 +9,10 @@
       name="description"
       content="Web site created using create-react-app"
     />
-    <link rel="" href="" />
-    <title></title>
-    <script>
-        (function () {
-            var boldFontUrls = 'url("https://d30v2pzvrfyzpo.cloudfront.net/fonts/JETSansDigital-Bold-optimised.woff2") format("woff2"), url("https://d30v2pzvrfyzpo.cloudfront.net/fonts/JETSansDigital-Bold-optimised.woff") format("woff")';
-            var extraboldFontUrls = 'url("https://d30v2pzvrfyzpo.cloudfront.net/fonts/JETSansDigital-ExtraBold-optimised.woff2") format("woff2"), url("https://d30v2pzvrfyzpo.cloudfront.net/fonts/JETSansDigital-ExtraBold-optimised.woff") format("woff")';
+    <link rel="preload" href="https://d30v2pzvrfyzpo.cloudfront.net/fonts/JETSansDigital-Regular-optimised.woff2" as="font" type="font/woff2">
+    <link rel="preload" href="https://d30v2pzvrfyzpo.cloudfront.net/fonts/JETSansDigital-Bold-optimised.woff2" as="font" type="font/woff2" />
+    <link rel="preload" href="https://d30v2pzvrfyzpo.cloudfront.net/fonts/JETSansDigital-ExtraBold-optimised.woff2" as="font" type="font/woff2" />
 
-            if ('fonts' in document) {
-                var bold = new FontFace('JETSansDigital', boldFontUrls, { weight: '700' });
-                var extrabold = new FontFace('JETSansDigital', extraboldFontUrls, { weight: '800' });
-
-                Promise.all([bold.load(), extrabold.load()])
-                    .then(function (fonts) {
-                        fonts.forEach(function (font) {
-                            document.fonts.add(font);
-                        });
-                    })
-                    .then(function () {
-                        document.documentElement.classList.add('webfonts-loaded');
-                    });
-            }
-        })();
-    </script>
   </head>
   <body>
     <noscript></noscript>
