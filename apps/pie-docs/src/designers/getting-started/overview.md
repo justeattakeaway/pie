@@ -7,23 +7,23 @@ eleventyNavigation:
 
 ## Introduction
 
-[Figma](https://www.figma.com/ui-design-tool) is PIE’s design tool of choice for building our design system. All design-related foundations, components and assets are stored within Figma libraries and files to ensure the whole digital ecosystem can be accessed by any team.
+[Figma](https://www.figma.com/ui-design-tool) is PIE’s design tool of choice for building our design system. All design-related foundations, components and assets are stored in Figma libraries and files. This is to ensure the whole digital ecosystem can be accessed by any team.
 
-You can access Figma through the browser, but it is recommended that you use the desktop app. If Figma’s desktop app is not installed on your computer, get in touch with your manager to request this.
+We recommend you use Figma through the desktop app. If Figma’s desktop app is not installed on your computer, get in touch with your manager to request this.
 
-As a designer within the Just Eat Takeaway organisation, you’ll automatically have access to all of PIE’s libraries and files. However, if that’s not the case, please [get in touch with the PIE team](/support/contact-us) to request access.
+As a designer within the Just Eat Takeaway organisation, you’ll automatically have access to all of PIE’s libraries and files. If you don't have access, please [get in touch with the PIE team](/support/contact-us) to request it.
 
 {% notification {
 type: "information",
 title: "New to Figma?",
-message: "If you’re new to Figma, check [these tutorials](https://www.figma.com/resources/learn-design/?fuid=1093444461414143879) that will help you learn how to use the tool in no time."
+message: "If you’re new to Figma, check out [these tutorials](https://www.figma.com/resources/learn-design/?fuid=1093444461414143879) to help you learn."
 } %}
 
 ---
 
 ## How is PIE structured?
 
-We have divided our foundations, components and assets into multiple libraries, so they can be easily found and referenced. All of them can be found on the [Getting started with Figma files](/designers/getting-started/figma-files) section.
+PIE is split into three parts: **foundations**, **components** and **assets**. Each of these are arranged into libraries, so they can be easily found and referenced.
 
 You’ll need to enable these libraries if you want to use the PIE design system for your products.
 
@@ -31,37 +31,44 @@ You’ll need to enable these libraries if you want to use the PIE design system
 src: "../../../assets/img/designers/getting-started/overview/libraries-wheel.svg",
 mobileSrc: "../../../assets/img/designers/getting-started/overview/libraries-wheel_narrow.svg",
 width: "512px",
-caption: "A map of how Libraries are structured in Figma."
+caption: "A map of how PIE libraries are structured in Figma."
 } %}
-
 
 ### Foundations libraries
 
-These libraries contain the building blocks for our design system. In these libraries you’ll find the styles created using colour, typography, elevation, radius and spacing (among others). These foundations should remain consistent across components, products and pillars.
+Foundations are the **building blocks** of our design system. They are owned by PIE designers and are consistent across components, products and pillars.
 
-PIE designers own and maintain our foundation libraries, which are split into two different themes (PIE 2.0 Light and PIE 2.0 Dark). Make sure you’re working from the right library, and check with the PIE team if you’re unsure about which one you should use.
+They include: colour, typography, elevation, radius, spacing and others.
+
+Foundations are split into two themes: **PIE 2.0 Light** and **PIE 2.0 Dark**. Each theme has its own library, so please check with the PIE team if you're unsure which one to use.
 
 ### Core Components libraries
 
-Our core component libraries are made up of all the components that are used by multiple business areas and teams. These include components like buttons, labels, chips, input fields (among others). These components should remain consistent across products and pillars.
+Core components are the pieces we use to create JET products. They are owned by PIE designers and are consistent across components, products and pillars.
 
-Similarly to foundation libraries, these components are maintained and owned by PIE designers, and they are split into two different themes (PIE 2.0 Core Components – Light and PIE 2.0 Core Components – Dark). Make sure you’re working from the right library, and check with the PIE team if you’re unsure about which one you should use.
+They include: buttons, labels, chips, input fields, and more.
+
+Our core components are also split into two themes: **PIE 2.0 Light** and **PIE 2.0 Dark**. Each theme has its own library, so please check with the PIE team if you're unsure which one to use.
 
 ### Asset libraries
 
-These libraries contain assets which can be used in our products, such as icons and illustrations. They are owned and maintained by PIE designers in collaboration with the JET Creative Studio (Brand).
+Assets are the images we use across JET products, such as icons and illustrations.
+
+They are owned by PIE designers, in collaboration with the JET Creative Studio (Brand team).
 
 ### Business Area libraries
 
-Business Area libraries were created to provide more flexibility to our teams. Components which are unique to a specific Business Area (such as Customer, Restaurant…) and would not be relevant in other ones live within these libraries.
+Business area libraries contain components which are unique to a specific business area, such as Customer, Partner or Operations.
 
-Business Area designers own these libraries, and PIE designers only help with maintaining them and making sure they are consistent with our Core Components libraries. You can learn more about how we support these libraries in our [Getting Support](/designers/how-we-support-you) section.
+These libraries are owned by designers in the relevant business area. PIE designers will occasionally review these libraries to ensure the components are consistent with the main component libraries.
+
+[Learn more]((/designers/how-we-support-you)) about how PIE supports these libraries.
 
 ---
 
 ## Additional guidelines
 
-We’ve compiled some additional guidelines to help you get a better understanding of JET’s visual and verbal standards.
+If you need more detail on JET's visual and verbal standards, you've come to the right place.
 
 {% card {
   items: [
