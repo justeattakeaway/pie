@@ -23,6 +23,19 @@ expectedRoutesJson.forEach((route) => {
     });
 });
 
+test('should test page content WCAG compliance for home page', async ({ page, baseURL, makeAxeBuilder }) => {
+    const selector = 'site_content';
+
+    await page.goto(baseURL);
+    await page.getByTestId(selector).waitFor();
+
+    const results = await makeAxeBuilder()
+        .include(`[data-test-id=${selector}]`)
+        .analyze();
+
+    expect(results.violations).toEqual([]);
+});
+
 const sharedComponents = [
     'site_nav',
     'site_header',
