@@ -2,4 +2,4 @@
 "pie-docs": minor
 ---
 
-[Changed] - Designers page copy
+[Changed] - Designers getting started page copy based on ux feedback
