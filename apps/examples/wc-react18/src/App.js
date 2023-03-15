@@ -13,7 +13,7 @@ const Button = createComponent({
 function App () {
     const [counter, setCounter] = useState(0);
 
-    const onCustomEvent = () => console.log('onCustomEvent was triggered');
+    const onCustomEvent = () => console.info('onCustomEvent was triggered');
 
     return (
         <>

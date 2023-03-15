@@ -3309,7 +3309,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@lit-labs/react@npm:^1.1.1":
+"@lit-labs/react@npm:1.1.1":
   version: 1.1.1
   resolution: "@lit-labs/react@npm:1.1.1"
   checksum: e46b87a3e04b329b62e67360a7a1b21c55abf91c17d3059b550654565b53c73a25832e95426698e9b78488cc4ebaeb20b8a8ca64a220325e31633355a245710d
@@ -24788,7 +24788,7 @@ __metadata:
   resolution: "wc-react18@workspace:apps/examples/wc-react18"
   dependencies:
     "@justeattakeaway/pie-button": "workspace:^"
-    "@lit-labs/react": ^1.1.1
+    "@lit-labs/react": 1.1.1
     react: 18.2.0
     react-dom: 18.2.0
     react-scripts: 5.0.1
