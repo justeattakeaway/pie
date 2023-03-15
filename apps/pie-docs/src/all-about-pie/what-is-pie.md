@@ -1,6 +1,6 @@
 ---
 eleventyNavigation:
-    key: What is PIE
+    key: What is PIE?
     parent: All about PIE
     order: 1
 title: What is PIE?
