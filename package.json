@@ -58,7 +58,7 @@
     "@justeat/browserslist-config-fozzie": "1.x",
     "@justeat/pie-design-tokens": "4.2.0",
     "@justeat/stylelint-config-fozzie": "3.x",
-    "@percy/cli": "1.20.1",
+    "@percy/cli": "1.20.3",
     "@percy/playwright": "1.0.4",
     "@playwright/test": "1.31.2",
     "allure-commandline": "2.20.1",
