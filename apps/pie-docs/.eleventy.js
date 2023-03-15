@@ -39,6 +39,11 @@ module.exports = eleventyConfig => {
     // Allow JS to pass through (can add a bundling step in future if needed)
     eleventyConfig.addPassthroughCopy("./src/assets/js");
 
+    // Any js from node_modules we want to pull in with <script> tags may need to reference the root node_modules folder
+    eleventyConfig.addPassthroughCopy({
+        "../../node_modules/@justeat/f-cookie-banner/dist/static/en-GB.js": "assets/js/en-GB.js"
+    });
+
     return {
         dir: {
         input: "src",
