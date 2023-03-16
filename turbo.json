@@ -68,22 +68,14 @@
         "src/**"
       ]
     },
-    "test:a11y": {
-      "cache": false,
-      "outputs": []
-    },
-    "test:a11y:ci": {
-      "cache": false,
-      "outputs": []
-    },
     "test:coverage": {
       "outputs": []
     },
-    "test:system": {
+    "test:browsers": {
       "cache": false,
       "outputs": []
     },
-    "test:system:ci": {
+    "test:browsers:ci": {
       "cache": false
     },
     "test:visual": {
