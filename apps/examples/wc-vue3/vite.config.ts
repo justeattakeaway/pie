@@ -7,7 +7,8 @@ export default defineConfig({
         vue({
             template: {
                 compilerOptions: {
-                    // treat all tags with a dash as custom elements
+                    // Treat all tags containing dashes as custom elements
+                    // https://vuejs.org/guide/extras/web-components.html#using-custom-elements-in-vue
                     isCustomElement: (tag) => tag.includes('-'),
                 },
             },
