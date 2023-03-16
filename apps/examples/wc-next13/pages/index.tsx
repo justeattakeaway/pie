@@ -1,8 +1,19 @@
+import React, { useState } from 'react';
 import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
+import { createComponent } from '@lit-labs/react';
+import { PieButton, BUTTON_SIZE, BUTTON_VARIANT } from '@justeattakeaway/pie-button';
 
-const inter = Inter({ subsets: ['latin'] })
+// Module parse failed: Unexpected token (4:7)
+// You may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders
+// import { BUTTON_SIZE, BUTTON_VARIANT } from '@justeattakeaway/pie-button/src/defs';
+
+// eslint-disable-next-line no-unused-vars
+const Button = createComponent({
+    tagName: 'pie-button',
+    elementClass: PieButton,
+    react: React,
+    events: { onCustomEvent: 'CustomEvent' },
+});
 
 export default function Home() {
   return (
@@ -14,7 +25,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        Hello world
+        <Button size='large' />
+        <Button variant='secondary' />
+        <Button disabled />
       </main>
     </>
   )
