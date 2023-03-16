@@ -1,7 +1,7 @@
 {
   "name": "pie-monorepo",
   "description": "JustEatTakeaway",
-  "version": "1.35.0",
+  "version": "1.36.0",
   "keywords": [],
   "author": "JustEatTakeaway - Design System Web Team",
   "license": "Apache-2.0",
@@ -53,12 +53,12 @@
     "@babel/register": "7.18.9",
     "@changesets/changelog-github": "0.4.8",
     "@changesets/cli": "2.26.0",
-    "@commitlint/cli": "17.4.3",
+    "@commitlint/cli": "17.4.4",
     "@commitlint/config-conventional": "17.4.4",
     "@justeat/browserslist-config-fozzie": "1.x",
     "@justeat/pie-design-tokens": "4.2.0",
     "@justeat/stylelint-config-fozzie": "3.x",
-    "@percy/cli": "1.20.1",
+    "@percy/cli": "1.20.3",
     "@percy/playwright": "1.0.4",
     "@playwright/test": "1.31.2",
     "allure-commandline": "2.20.1",
@@ -92,7 +92,7 @@
   },
   "dependencies": {
     "@justeat/fozzie": "10.11.0",
-    "@justeattakeaway/pie-icons": "2.0.0-beta.7",
+    "@justeattakeaway/pie-icons": "2.0.1",
     "lit": "2.6.1"
   },
   "config": {
