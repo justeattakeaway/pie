@@ -10,6 +10,8 @@
   "packageRules": [
     {
       "commitMessagePrefix": "chore(pie-monorepo): ",
+      "description": "Group babel devDependencies from package.json within pie-monorepo",
+      "matchFiles": ["./package.json"],
       "matchDepTypes": ["devDependencies"],
       "matchPackagePatterns": ["^@babel/*", "babel-*"],
       "matchUpdateTypes": ["minor", "patch"],
@@ -19,6 +21,8 @@
     },
     {
       "commitMessagePrefix": "chore(pie-monorepo): ",
+      "description": "Group JET devDependencies / dependencies from package.json within pie-monorepo",
+      "matchFiles": ["./package.json"],
       "matchDepTypes": ["devDependencies", "dependencies"],
       "matchPackagePatterns": ["@justeat/*", "@justeattakeaway/*"],
       "matchUpdateTypes": ["minor", "patch"],
@@ -28,8 +32,10 @@
     },
     {
       "commitMessagePrefix": "chore(pie-monorepo): ",
+      "description": "Group playwright / other testing related devDependencies from package.json within pie-monorepo",
+      "matchFiles": ["./package.json"],
       "matchDepTypes": ["devDependencies"],
-      "matchPackagePatterns": ["@percy/*"],
+      "matchPackagePatterns": ["@axe-core/playwright", "@percy/*", "@playwright/*"],
       "matchUpdateTypes": ["minor", "patch"],
       "groupName": "percy",
       "groupSlug": "root-percy-devDeps",
@@ -37,6 +43,8 @@
     },
     {
       "commitMessagePrefix": "chore(pie-monorepo): ",
+      "description": "Group jest devDependencies from package.json within pie-monorepo",
+      "matchFiles": ["./package.json"],
       "matchDepTypes": ["devDependencies"],
       "matchPackagePatterns": ["jest-*"],
       "matchUpdateTypes": ["minor", "patch"],
@@ -46,6 +54,8 @@
     },
     {
       "commitMessagePrefix": "chore(pie-monorepo): ",
+      "description": "Group postcss devDependencies from package.json within pie-monorepo",
+      "matchFiles": ["./package.json"],
       "matchDepTypes": ["devDependencies"],
       "matchPackagePatterns": ["postcss*"],
       "matchUpdateTypes": ["minor", "patch"],
@@ -55,6 +65,8 @@
     },
     {
       "commitMessagePrefix": "chore(pie-monorepo): ",
+      "description": "Group stylelint devDependencies from package.json within pie-docs",
+      "matchFiles": ["./package.json"],
       "matchDepTypes": ["devDependencies"],
       "matchPackagePatterns": ["stylelint*"],
       "matchUpdateTypes": ["minor", "patch"],
@@ -63,47 +75,47 @@
       "enabled": true
     },
     {
-      "commitMessagePrefix": "chore(pie-monorepo): ",
-      "description": "Group dependencies from package.json within apps directory",
-      "matchFiles": ["apps/pie-microsite/package.json"],
+      "commitMessagePrefix": "chore(pie-docs): ",
+      "description": "Group eleventy devDependencies from package.json within pie-docs",
+      "matchFiles": ["apps/pie-docs/package.json"],
       "matchDepTypes": ["devDependencies"],
       "matchPackagePatterns": ["@11ty/*", "eleventy-*"],
       "matchUpdateTypes": ["minor", "patch"],
       "groupName": "11ty",
-      "groupSlug": "root-11ty-devDeps",
+      "groupSlug": "pie-docs-11ty-devDeps",
       "enabled": true
     },
     {
-      "commitMessagePrefix": "chore(pie-monorepo): ",
-      "description": "Group dependencies from package.json within apps directory",
-      "matchFiles": ["apps/pie-microsite/package.json"],
+      "commitMessagePrefix": "chore(pie-docs): ",
+      "description": "Group devdependencies / dependencies from package.json within pie-docs",
+      "matchFiles": ["apps/pie-docs/package.json"],
       "matchDepTypes": ["devDependencies", "dependencies"],
       "matchPackagePatterns": ["markdown-*"],
       "matchUpdateTypes": ["minor", "patch"],
       "groupName": "markdown",
-      "groupSlug": "root-markdown-deps",
+      "groupSlug": "pie-docs-markdown-deps",
       "enabled": true
     },
     {
-      "commitMessagePrefix": "chore(pie-monorepo): ",
-      "description": "Group dependencies from package.json within apps directory",
+      "commitMessagePrefix": "chore(pie-storybook): ",
+      "description": "Group storybook devDependencies / dependencies from package.json within pie-storybook",
       "matchFiles": ["apps/pie-storybook/package.json"],
       "matchDepTypes": ["devDependencies", "dependencies"],
       "matchPackagePatterns": ["@storybook/*", "storybook"],
       "matchUpdateTypes": ["minor", "patch"],
       "groupName": "storybook",
-      "groupSlug": "root-storybook-deps",
+      "groupSlug": "pie-storybook-storybook-deps",
       "enabled": true
     },
     {
-      "commitMessagePrefix": "chore(pie-monorepo): ",
-      "description": "Group dependencies from package.json within apps directory",
-      "matchFiles": ["apps/pie-storybook/**"],
+      "commitMessagePrefix": "chore(pie-storybook): ",
+      "description": "Group react devDependencies from package.json within pie-storybook",
+      "matchFiles": ["apps/pie-storybook/package.json"],
       "matchDepTypes": ["devDependencies"],
       "matchPackagePatterns": ["react*"],
       "matchUpdateTypes": ["minor", "patch"],
       "groupName": "react",
-      "groupSlug": "root-react-devDeps",
+      "groupSlug": "pie-storybook-react-devDeps",
       "enabled": true
     }
   ]
