@@ -2839,6 +2839,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@esbuild/android-arm64@npm:0.17.11":
+  version: 0.17.11
+  resolution: "@esbuild/android-arm64@npm:0.17.11"
+  conditions: os=android & cpu=arm64
+  languageName: node
+  linkType: hard
+
 "@esbuild/android-arm@npm:0.15.18":
   version: 0.15.18
   resolution: "@esbuild/android-arm@npm:0.15.18"
@@ -2853,9 +2860,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@esbuild/android-arm@npm:0.17.11":
+  version: 0.17.11
+  resolution: "@esbuild/android-arm@npm:0.17.11"
+  conditions: os=android & cpu=arm
+  languageName: node
+  linkType: hard
+
 "@esbuild/android-x64@npm:0.16.17":
   version: 0.16.17
   resolution: "@esbuild/android-x64@npm:0.16.17"
+  conditions: os=android & cpu=x64
+  languageName: node
+  linkType: hard
+
+"@esbuild/android-x64@npm:0.17.11":
+  version: 0.17.11
+  resolution: "@esbuild/android-x64@npm:0.17.11"
   conditions: os=android & cpu=x64
   languageName: node
   linkType: hard
@@ -2867,9 +2888,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@esbuild/darwin-arm64@npm:0.17.11":
+  version: 0.17.11
+  resolution: "@esbuild/darwin-arm64@npm:0.17.11"
+  conditions: os=darwin & cpu=arm64
+  languageName: node
+  linkType: hard
+
 "@esbuild/darwin-x64@npm:0.16.17":
   version: 0.16.17
   resolution: "@esbuild/darwin-x64@npm:0.16.17"
+  conditions: os=darwin & cpu=x64
+  languageName: node
+  linkType: hard
+
+"@esbuild/darwin-x64@npm:0.17.11":
+  version: 0.17.11
+  resolution: "@esbuild/darwin-x64@npm:0.17.11"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
@@ -2881,9 +2916,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@esbuild/freebsd-arm64@npm:0.17.11":
+  version: 0.17.11
+  resolution: "@esbuild/freebsd-arm64@npm:0.17.11"
+  conditions: os=freebsd & cpu=arm64
+  languageName: node
+  linkType: hard
+
 "@esbuild/freebsd-x64@npm:0.16.17":
   version: 0.16.17
   resolution: "@esbuild/freebsd-x64@npm:0.16.17"
+  conditions: os=freebsd & cpu=x64
+  languageName: node
+  linkType: hard
+
+"@esbuild/freebsd-x64@npm:0.17.11":
+  version: 0.17.11
+  resolution: "@esbuild/freebsd-x64@npm:0.17.11"
   conditions: os=freebsd & cpu=x64
   languageName: node
   linkType: hard
@@ -2895,6 +2944,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@esbuild/linux-arm64@npm:0.17.11":
+  version: 0.17.11
+  resolution: "@esbuild/linux-arm64@npm:0.17.11"
+  conditions: os=linux & cpu=arm64
+  languageName: node
+  linkType: hard
+
 "@esbuild/linux-arm@npm:0.16.17":
   version: 0.16.17
   resolution: "@esbuild/linux-arm@npm:0.16.17"
@@ -2902,9 +2958,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@esbuild/linux-arm@npm:0.17.11":
+  version: 0.17.11
+  resolution: "@esbuild/linux-arm@npm:0.17.11"
+  conditions: os=linux & cpu=arm
+  languageName: node
+  linkType: hard
+
 "@esbuild/linux-ia32@npm:0.16.17":
   version: 0.16.17
   resolution: "@esbuild/linux-ia32@npm:0.16.17"
+  conditions: os=linux & cpu=ia32
+  languageName: node
+  linkType: hard
+
+"@esbuild/linux-ia32@npm:0.17.11":
+  version: 0.17.11
+  resolution: "@esbuild/linux-ia32@npm:0.17.11"
   conditions: os=linux & cpu=ia32
   languageName: node
   linkType: hard
@@ -2923,9 +2993,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@esbuild/linux-loong64@npm:0.17.11":
+  version: 0.17.11
+  resolution: "@esbuild/linux-loong64@npm:0.17.11"
+  conditions: os=linux & cpu=loong64
+  languageName: node
+  linkType: hard
+
 "@esbuild/linux-mips64el@npm:0.16.17":
   version: 0.16.17
   resolution: "@esbuild/linux-mips64el@npm:0.16.17"
+  conditions: os=linux & cpu=mips64el
+  languageName: node
+  linkType: hard
+
+"@esbuild/linux-mips64el@npm:0.17.11":
+  version: 0.17.11
+  resolution: "@esbuild/linux-mips64el@npm:0.17.11"
   conditions: os=linux & cpu=mips64el
   languageName: node
   linkType: hard
@@ -2937,9 +3021,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@esbuild/linux-ppc64@npm:0.17.11":
+  version: 0.17.11
+  resolution: "@esbuild/linux-ppc64@npm:0.17.11"
+  conditions: os=linux & cpu=ppc64
+  languageName: node
+  linkType: hard
+
 "@esbuild/linux-riscv64@npm:0.16.17":
   version: 0.16.17
   resolution: "@esbuild/linux-riscv64@npm:0.16.17"
+  conditions: os=linux & cpu=riscv64
+  languageName: node
+  linkType: hard
+
+"@esbuild/linux-riscv64@npm:0.17.11":
+  version: 0.17.11
+  resolution: "@esbuild/linux-riscv64@npm:0.17.11"
   conditions: os=linux & cpu=riscv64
   languageName: node
   linkType: hard
@@ -2951,9 +3049,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@esbuild/linux-s390x@npm:0.17.11":
+  version: 0.17.11
+  resolution: "@esbuild/linux-s390x@npm:0.17.11"
+  conditions: os=linux & cpu=s390x
+  languageName: node
+  linkType: hard
+
 "@esbuild/linux-x64@npm:0.16.17":
   version: 0.16.17
   resolution: "@esbuild/linux-x64@npm:0.16.17"
+  conditions: os=linux & cpu=x64
+  languageName: node
+  linkType: hard
+
+"@esbuild/linux-x64@npm:0.17.11":
+  version: 0.17.11
+  resolution: "@esbuild/linux-x64@npm:0.17.11"
   conditions: os=linux & cpu=x64
   languageName: node
   linkType: hard
@@ -2965,9 +3077,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@esbuild/netbsd-x64@npm:0.17.11":
+  version: 0.17.11
+  resolution: "@esbuild/netbsd-x64@npm:0.17.11"
+  conditions: os=netbsd & cpu=x64
+  languageName: node
+  linkType: hard
+
 "@esbuild/openbsd-x64@npm:0.16.17":
   version: 0.16.17
   resolution: "@esbuild/openbsd-x64@npm:0.16.17"
+  conditions: os=openbsd & cpu=x64
+  languageName: node
+  linkType: hard
+
+"@esbuild/openbsd-x64@npm:0.17.11":
+  version: 0.17.11
+  resolution: "@esbuild/openbsd-x64@npm:0.17.11"
   conditions: os=openbsd & cpu=x64
   languageName: node
   linkType: hard
@@ -2979,9 +3105,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@esbuild/sunos-x64@npm:0.17.11":
+  version: 0.17.11
+  resolution: "@esbuild/sunos-x64@npm:0.17.11"
+  conditions: os=sunos & cpu=x64
+  languageName: node
+  linkType: hard
+
 "@esbuild/win32-arm64@npm:0.16.17":
   version: 0.16.17
   resolution: "@esbuild/win32-arm64@npm:0.16.17"
+  conditions: os=win32 & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"@esbuild/win32-arm64@npm:0.17.11":
+  version: 0.17.11
+  resolution: "@esbuild/win32-arm64@npm:0.17.11"
   conditions: os=win32 & cpu=arm64
   languageName: node
   linkType: hard
@@ -2993,9 +3133,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@esbuild/win32-ia32@npm:0.17.11":
+  version: 0.17.11
+  resolution: "@esbuild/win32-ia32@npm:0.17.11"
+  conditions: os=win32 & cpu=ia32
+  languageName: node
+  linkType: hard
+
 "@esbuild/win32-x64@npm:0.16.17":
   version: 0.16.17
   resolution: "@esbuild/win32-x64@npm:0.16.17"
+  conditions: os=win32 & cpu=x64
+  languageName: node
+  linkType: hard
+
+"@esbuild/win32-x64@npm:0.17.11":
+  version: 0.17.11
+  resolution: "@esbuild/win32-x64@npm:0.17.11"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
@@ -3615,7 +3769,7 @@ __metadata:
   resolution: "@justeattakeaway/pie-icons-react@workspace:packages/tools/pie-icons-react"
   dependencies:
     "@babel/node": 7.19.1
-    "@justeattakeaway/pie-icons": 2.0.0
+    "@justeattakeaway/pie-icons": 2.0.1
     "@svgr/core": 6.4.0
     "@types/react": 18.0.21
     pascal-case: 3.1.2
@@ -3631,7 +3785,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-icons-vue@workspace:packages/tools/pie-icons-vue"
   dependencies:
-    "@justeattakeaway/pie-icons": 2.0.0
+    "@justeattakeaway/pie-icons": 2.0.1
     "@vue/babel-helper-vue-jsx-merge-props": 1.4.0
     "@vue/babel-preset-jsx": 1.4.0
     bili: 3.4.2
@@ -3644,7 +3798,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-icons@2.0.0, @justeattakeaway/pie-icons@workspace:packages/tools/pie-icons":
+"@justeattakeaway/pie-icons@2.0.1, @justeattakeaway/pie-icons@workspace:packages/tools/pie-icons":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-icons@workspace:packages/tools/pie-icons"
   dependencies:
@@ -3659,19 +3813,6 @@ __metadata:
     webpack-cli: 4.9.2
   languageName: unknown
   linkType: soft
-
-"@justeattakeaway/pie-icons@npm:2.0.0-beta.7":
-  version: 2.0.0-beta.7
-  resolution: "@justeattakeaway/pie-icons@npm:2.0.0-beta.7"
-  dependencies:
-    cheerio: 1.0.0-rc.10
-    classnames: 2.3.1
-    html-minifier: 4.0.0
-    prettier: 2.5.1
-    svgo: 1.3.2
-  checksum: bf1117a2466af589be4d0766ac1491dc54853571d6fde9198a4421e217c376d150a708ceb4cdffde81a5c0b0cd93da57487bc0a4c20880c043f4dc4ff19daaf7
-  languageName: node
-  linkType: hard
 
 "@justeattakeaway/pie-stylelint-config@workspace:packages/tools/pie-stylelint-config":
   version: 0.0.0-use.local
@@ -4113,128 +4254,128 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@percy/cli-app@npm:1.20.1":
-  version: 1.20.1
-  resolution: "@percy/cli-app@npm:1.20.1"
+"@percy/cli-app@npm:1.20.3":
+  version: 1.20.3
+  resolution: "@percy/cli-app@npm:1.20.3"
   dependencies:
-    "@percy/cli-command": 1.20.1
-    "@percy/cli-exec": 1.20.1
-  checksum: ab698bc77d9e1e2a28a9a7cddc5321a709d65df70aba59492e1f6a20141d63363c76036102bdb49c50cf5cb9013c424aa9185d45464f60f00f834bea6bf6c993
+    "@percy/cli-command": 1.20.3
+    "@percy/cli-exec": 1.20.3
+  checksum: d3119ea37157c2a04454cd1632c5eb219744a0ba825f94c86c08098c8d1498932308e06c55d9009884ccb1769ea9ec556fb881f6317928d3f9f87e5f09dce156
   languageName: node
   linkType: hard
 
-"@percy/cli-build@npm:1.20.1":
-  version: 1.20.1
-  resolution: "@percy/cli-build@npm:1.20.1"
+"@percy/cli-build@npm:1.20.3":
+  version: 1.20.3
+  resolution: "@percy/cli-build@npm:1.20.3"
   dependencies:
-    "@percy/cli-command": 1.20.1
-  checksum: 51e8d5d61528854324badaace8dbfb4a5748a93fc92b4fe5660912d399279031fb8402f99805de1928827983d803d59b578ebd4cff8e07a3cf33607fcd94c4ac
+    "@percy/cli-command": 1.20.3
+  checksum: 5a71daf1f89a5e93af76bc0709eb602897f2ecce2ee3ca94553a17569d4bb09676a3fcf783f1657e1807b5c20f7fc6911b1b830381fa62d0fcf46561f6dd9a28
   languageName: node
   linkType: hard
 
-"@percy/cli-command@npm:1.20.1":
-  version: 1.20.1
-  resolution: "@percy/cli-command@npm:1.20.1"
+"@percy/cli-command@npm:1.20.3":
+  version: 1.20.3
+  resolution: "@percy/cli-command@npm:1.20.3"
   dependencies:
-    "@percy/config": 1.20.1
-    "@percy/core": 1.20.1
-    "@percy/logger": 1.20.1
+    "@percy/config": 1.20.3
+    "@percy/core": 1.20.3
+    "@percy/logger": 1.20.3
   bin:
     percy-cli-readme: bin/readme.js
-  checksum: cdf6a667675079c5011d9857d40027845d1032039e210091a741f80d492bfbb90b9dd1f889df33be14b916d3e018bd1c506581252634a5b8f3f1018426298432
+  checksum: 4ee221d111156d79d6a337f988c78dcdd5ece0c7799f7aeaf36eeb4bc1184c61e129131160ce52bcec1487aaf96d032c516af384bfeaf8eced11441fcf91979e
   languageName: node
   linkType: hard
 
-"@percy/cli-config@npm:1.20.1":
-  version: 1.20.1
-  resolution: "@percy/cli-config@npm:1.20.1"
+"@percy/cli-config@npm:1.20.3":
+  version: 1.20.3
+  resolution: "@percy/cli-config@npm:1.20.3"
   dependencies:
-    "@percy/cli-command": 1.20.1
-  checksum: 387de4b126bc08486835885a01f67d55f6d6549a5e129ad2265a83cd886e1deadb1f65b84ce86c2266533efabaed757f6ea73307518e61b33323e6159f6ece2e
+    "@percy/cli-command": 1.20.3
+  checksum: 83a65ad8e0b2a60cbaedddde9bd389dd99ea84c6b8f364578d3a9326671120d46df82586e10870b06d46efae7d17b1c710cbf3c9a06346d2ea6e76e560b924aa
   languageName: node
   linkType: hard
 
-"@percy/cli-exec@npm:1.20.1":
-  version: 1.20.1
-  resolution: "@percy/cli-exec@npm:1.20.1"
+"@percy/cli-exec@npm:1.20.3":
+  version: 1.20.3
+  resolution: "@percy/cli-exec@npm:1.20.3"
   dependencies:
-    "@percy/cli-command": 1.20.1
+    "@percy/cli-command": 1.20.3
     cross-spawn: ^7.0.3
     which: ^2.0.2
-  checksum: 678c68841683fac7cd09cf2a58178a409ecac068aaf120e106dc3bde6e6f0f25c529b3beeaf3e649f4c5b14698ca40a259011d86a56cc86cb10105429d5c2353
+  checksum: 7542723d80e60850d35c710fe1dc3782cb99736ddb32201f6e6a117dd5e74af2c91da400f510c0ea9279ba3c1090f89e940c8f128cb127b16229a4df0f73e60c
   languageName: node
   linkType: hard
 
-"@percy/cli-snapshot@npm:1.20.1":
-  version: 1.20.1
-  resolution: "@percy/cli-snapshot@npm:1.20.1"
+"@percy/cli-snapshot@npm:1.20.3":
+  version: 1.20.3
+  resolution: "@percy/cli-snapshot@npm:1.20.3"
   dependencies:
-    "@percy/cli-command": 1.20.1
+    "@percy/cli-command": 1.20.3
     yaml: ^2.0.0
-  checksum: 1ea7f60d968ef23a7ee136dccadf3d13e8c936292e509a81167603d312d1557992d634e997a4e583ff9f8e9e8d2612436564f421b31c9d227ac281dad18043b5
+  checksum: 451dc6f9d34c339a8db3933b018678597930a4ff7f5a8e208017821765583c11dec028e06baf6a502e1d14ca288d5666f8564ba69536cddf059b2fb07c6b875b
   languageName: node
   linkType: hard
 
-"@percy/cli-upload@npm:1.20.1":
-  version: 1.20.1
-  resolution: "@percy/cli-upload@npm:1.20.1"
+"@percy/cli-upload@npm:1.20.3":
+  version: 1.20.3
+  resolution: "@percy/cli-upload@npm:1.20.3"
   dependencies:
-    "@percy/cli-command": 1.20.1
+    "@percy/cli-command": 1.20.3
     fast-glob: ^3.2.11
     image-size: ^1.0.0
-  checksum: 4d126d32ffa2c7142ae40518240aaa73684028eb6de92c4abaf0c35862ed2c0493fc8463d429cd556622db4c99e0ab4074ad2f93cbcc7e7709b194c00019af1b
+  checksum: 8d7fdbd73c8992d9368a7739cfe80a1504708f923d2be72c9460a99f3f7460ce368632f72b56f09b0335b62f406cacc798de506a151f403e50c4662760cd2fed
   languageName: node
   linkType: hard
 
-"@percy/cli@npm:1.20.1":
-  version: 1.20.1
-  resolution: "@percy/cli@npm:1.20.1"
+"@percy/cli@npm:1.20.3":
+  version: 1.20.3
+  resolution: "@percy/cli@npm:1.20.3"
   dependencies:
-    "@percy/cli-app": 1.20.1
-    "@percy/cli-build": 1.20.1
-    "@percy/cli-command": 1.20.1
-    "@percy/cli-config": 1.20.1
-    "@percy/cli-exec": 1.20.1
-    "@percy/cli-snapshot": 1.20.1
-    "@percy/cli-upload": 1.20.1
-    "@percy/client": 1.20.1
-    "@percy/logger": 1.20.1
+    "@percy/cli-app": 1.20.3
+    "@percy/cli-build": 1.20.3
+    "@percy/cli-command": 1.20.3
+    "@percy/cli-config": 1.20.3
+    "@percy/cli-exec": 1.20.3
+    "@percy/cli-snapshot": 1.20.3
+    "@percy/cli-upload": 1.20.3
+    "@percy/client": 1.20.3
+    "@percy/logger": 1.20.3
   bin:
     percy: bin/run.cjs
-  checksum: 85a73eb6b0ba314f07a43f61d349c796073f72b384114f5ea870a3e63a90f8fd1a2e393056e090c90a21896c108d79b67472181b521c23d95a9f740530fe11b3
+  checksum: 3a6b7072a1b869406f4e771cc9153063f19732f91d176001213c7121e072e198f38616346758a4e9139f495252f15b04404f80e14f8838c71383e06adcc01986
   languageName: node
   linkType: hard
 
-"@percy/client@npm:1.20.1":
-  version: 1.20.1
-  resolution: "@percy/client@npm:1.20.1"
+"@percy/client@npm:1.20.3":
+  version: 1.20.3
+  resolution: "@percy/client@npm:1.20.3"
   dependencies:
-    "@percy/env": 1.20.1
-    "@percy/logger": 1.20.1
-  checksum: 80917f523626f8745c321e19ca520c1088b36d90bfaff1275f10487555c77bd525354ae5f051159a1cb759ae0a3d5ff809787382a666bd786d4c62ebb6e3db47
+    "@percy/env": 1.20.3
+    "@percy/logger": 1.20.3
+  checksum: 45fa34a207467dd9449d3de013f6f6c542080d82e6cd475e7432e5befe8c48a725d5b8be9f127e765f55095878efce02d5d27db80d3b183146999af4da403372
   languageName: node
   linkType: hard
 
-"@percy/config@npm:1.20.1":
-  version: 1.20.1
-  resolution: "@percy/config@npm:1.20.1"
+"@percy/config@npm:1.20.3":
+  version: 1.20.3
+  resolution: "@percy/config@npm:1.20.3"
   dependencies:
-    "@percy/logger": 1.20.1
+    "@percy/logger": 1.20.3
     ajv: ^8.6.2
     cosmiconfig: ^7.0.0
     yaml: ^2.0.0
-  checksum: a2e8bd1ba9812ecc27f178569e0ec067c2b4ed01181e333c37a1f02f8c7771e0318dec0593e2e9d384d9617dce40be1b8f6ef918788a6e1a6c7d511466d32334
+  checksum: a210c30e58ba61a07286fa0af22377a3e91d9112867d5ecdea56ce3ffb579b1a20ef7dfe50c0a85e306dbb6073688fbe20a7ac4784834092e19fdc7b362fffa6
   languageName: node
   linkType: hard
 
-"@percy/core@npm:1.20.1":
-  version: 1.20.1
-  resolution: "@percy/core@npm:1.20.1"
+"@percy/core@npm:1.20.3":
+  version: 1.20.3
+  resolution: "@percy/core@npm:1.20.3"
   dependencies:
-    "@percy/client": 1.20.1
-    "@percy/config": 1.20.1
-    "@percy/dom": 1.20.1
-    "@percy/logger": 1.20.1
+    "@percy/client": 1.20.3
+    "@percy/config": 1.20.3
+    "@percy/dom": 1.20.3
+    "@percy/logger": 1.20.3
     content-disposition: ^0.5.4
     cross-spawn: ^7.0.3
     extract-zip: ^2.0.1
@@ -4244,28 +4385,28 @@ __metadata:
     path-to-regexp: ^6.2.0
     rimraf: ^3.0.2
     ws: ^8.0.0
-  checksum: 8c2fe42072b1b30a2d66151bb74d2092fc624a777f3d8bdebbe81ffbadcdfa1c5e06d5ce9468fad2dc6f912b26e0b9cfd038ac423bb371d9e603c0317516cb68
+  checksum: 84d58b3cdaa7253df3b7473672232da0a9bd2a4ba0d42fa873d5a81ff779a995a45b26cc0d97e059aa25a586f6ed64b0aa57e17ee33e5912440a61c3e8f24eac
   languageName: node
   linkType: hard
 
-"@percy/dom@npm:1.20.1":
-  version: 1.20.1
-  resolution: "@percy/dom@npm:1.20.1"
-  checksum: 1fa7631cf0817c959962ff9364122fb60297087660aba924bfc2c203df045f7b669ec378148bc66b076ddfaaa4e3ff5ca2a0b79784406aa82a4daafaa58cff7e
+"@percy/dom@npm:1.20.3":
+  version: 1.20.3
+  resolution: "@percy/dom@npm:1.20.3"
+  checksum: fc817fd468274e975ac8045235bbf91c15733a958f99186dfa7e45e9c14da2766a6ea49eafd522b94e7eb2f91186681df818d65e769738da22fc8ea43c2bf96b
   languageName: node
   linkType: hard
 
-"@percy/env@npm:1.20.1":
-  version: 1.20.1
-  resolution: "@percy/env@npm:1.20.1"
-  checksum: e58cfda2a833d2c414274036c40f8b5798e3b2bf2d5294de2b95a43ec3ddfbe5d0220bd6dc2bbe1c50feabfa518f35ff2e7178976163586dbab513a732b4d556
+"@percy/env@npm:1.20.3":
+  version: 1.20.3
+  resolution: "@percy/env@npm:1.20.3"
+  checksum: 203d328a5fef39a7059564d1e84d2fe2f45184f8c3f870b9a7bd421cde11170a6f3c57b342a9c3447421acecf6d49664f2984e3eff6d17d3dc61e4883a53fa84
   languageName: node
   linkType: hard
 
-"@percy/logger@npm:1.20.1":
-  version: 1.20.1
-  resolution: "@percy/logger@npm:1.20.1"
-  checksum: 928d220dd82d92d67e688c185bb12405d1f1070fc3b93412336084901fbf8a13f6e1e8651feeeb6dbe25c44e4f963c39cbe147b206374e6e6e9cb2e1a66393e5
+"@percy/logger@npm:1.20.3":
+  version: 1.20.3
+  resolution: "@percy/logger@npm:1.20.3"
+  checksum: 65608505b5ef68956b2ac25912e9ae1ad9b3f886b715e248c761c5e12f893388a2be5cf836b10a6f73e539108c19f12c6c56bb5d72708a2a86ef375a82f94130
   languageName: node
   linkType: hard
 
@@ -7630,11 +7771,11 @@ __metadata:
   linkType: hard
 
 "ansi-escapes@npm:^6.0.0":
-  version: 6.0.0
-  resolution: "ansi-escapes@npm:6.0.0"
+  version: 6.1.0
+  resolution: "ansi-escapes@npm:6.1.0"
   dependencies:
     type-fest: ^3.0.0
-  checksum: 1ddc0b27b1d040c3c703c9cd80ee0a103817e2f9fa8f1adf0c66e970b57543ec60effdb0bd1a396ed7182bca3b1a0d8fda60ec61fee862d353db81b1c3650a78
+  checksum: 7ce5d9cefd3d7345dc00161aea2ea9ad5fb3dd66658d4e8731ea047be838d755100f0823a05523d0e518e8e080746fc0a45d3ea3053099376bdd572efaedc7c1
   languageName: node
   linkType: hard
 
@@ -11686,9 +11827,9 @@ __metadata:
   linkType: hard
 
 "electron-to-chromium@npm:^1.2.7, electron-to-chromium@npm:^1.4.284":
-  version: 1.4.330
-  resolution: "electron-to-chromium@npm:1.4.330"
-  checksum: aace45fdfc082489f4bd4222f78b495cddbd9cda10100149d42221042053e1ae3c9c651ca39e6c9906939c9e544e6fa6a64058954a6f4075281cd5eecc65b571
+  version: 1.4.332
+  resolution: "electron-to-chromium@npm:1.4.332"
+  checksum: d65870e47b41dce95ca246ddd27179539de1af34a2f79cdb892b70c8bd6c2ed751aeb937bffd1fbd22e1d63b5c6bf4ce67430f208e6970a51c81e98e0beea1f4
   languageName: node
   linkType: hard
 
@@ -12360,6 +12501,83 @@ __metadata:
   bin:
     esbuild: bin/esbuild
   checksum: 4c2cc609ecfb426554bc3f75beb92d89eb2d0c515cfceebaa36c7599d7dcaab7056b70f6d6b51e72b45951ddf9021ee28e356cf205f8e42cc055d522312ea30c
+  languageName: node
+  linkType: hard
+
+"esbuild@npm:^0.17.5":
+  version: 0.17.11
+  resolution: "esbuild@npm:0.17.11"
+  dependencies:
+    "@esbuild/android-arm": 0.17.11
+    "@esbuild/android-arm64": 0.17.11
+    "@esbuild/android-x64": 0.17.11
+    "@esbuild/darwin-arm64": 0.17.11
+    "@esbuild/darwin-x64": 0.17.11
+    "@esbuild/freebsd-arm64": 0.17.11
+    "@esbuild/freebsd-x64": 0.17.11
+    "@esbuild/linux-arm": 0.17.11
+    "@esbuild/linux-arm64": 0.17.11
+    "@esbuild/linux-ia32": 0.17.11
+    "@esbuild/linux-loong64": 0.17.11
+    "@esbuild/linux-mips64el": 0.17.11
+    "@esbuild/linux-ppc64": 0.17.11
+    "@esbuild/linux-riscv64": 0.17.11
+    "@esbuild/linux-s390x": 0.17.11
+    "@esbuild/linux-x64": 0.17.11
+    "@esbuild/netbsd-x64": 0.17.11
+    "@esbuild/openbsd-x64": 0.17.11
+    "@esbuild/sunos-x64": 0.17.11
+    "@esbuild/win32-arm64": 0.17.11
+    "@esbuild/win32-ia32": 0.17.11
+    "@esbuild/win32-x64": 0.17.11
+  dependenciesMeta:
+    "@esbuild/android-arm":
+      optional: true
+    "@esbuild/android-arm64":
+      optional: true
+    "@esbuild/android-x64":
+      optional: true
+    "@esbuild/darwin-arm64":
+      optional: true
+    "@esbuild/darwin-x64":
+      optional: true
+    "@esbuild/freebsd-arm64":
+      optional: true
+    "@esbuild/freebsd-x64":
+      optional: true
+    "@esbuild/linux-arm":
+      optional: true
+    "@esbuild/linux-arm64":
+      optional: true
+    "@esbuild/linux-ia32":
+      optional: true
+    "@esbuild/linux-loong64":
+      optional: true
+    "@esbuild/linux-mips64el":
+      optional: true
+    "@esbuild/linux-ppc64":
+      optional: true
+    "@esbuild/linux-riscv64":
+      optional: true
+    "@esbuild/linux-s390x":
+      optional: true
+    "@esbuild/linux-x64":
+      optional: true
+    "@esbuild/netbsd-x64":
+      optional: true
+    "@esbuild/openbsd-x64":
+      optional: true
+    "@esbuild/sunos-x64":
+      optional: true
+    "@esbuild/win32-arm64":
+      optional: true
+    "@esbuild/win32-ia32":
+      optional: true
+    "@esbuild/win32-x64":
+      optional: true
+  bin:
+    esbuild: bin/esbuild
+  checksum: febf218155513bb9c9c970508c03ec58e0aacfdc23394f425836a09f1da0dae0afa12949274adfd382782eef097f86b2d6b3032293062291f2f471de204f77ec
   languageName: node
   linkType: hard
 
@@ -14544,17 +14762,17 @@ __metadata:
   linkType: hard
 
 "h3@npm:^1.0.1, h3@npm:^1.5.0":
-  version: 1.6.0
-  resolution: "h3@npm:1.6.0"
+  version: 1.6.2
+  resolution: "h3@npm:1.6.2"
   dependencies:
     cookie-es: ^0.5.0
     defu: ^6.1.2
     destr: ^1.2.2
-    iron-webcrypto: ^0.5.0
+    iron-webcrypto: ^0.6.0
     radix3: ^1.0.0
     ufo: ^1.1.1
     uncrypto: ^0.1.2
-  checksum: 5b3295198e17c9b0f3f1c40ea853a5a7b19c28edb41d7908aafe9878eb1d976b91aa4b5cd24b04fe0c76e448a2222830e8a86ebc4ed85b6a14891c7d013af2d3
+  checksum: 3a876f414d6790908b4953684cf2237db1a4e1dd17b46fafd38787f0b1b81ce64d9850342ce0d2ff6b40e8601b07429d666c96a6bd119d9de937ccec7f6ce010
   languageName: node
   linkType: hard
 
@@ -15444,10 +15662,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"iron-webcrypto@npm:^0.5.0":
-  version: 0.5.0
-  resolution: "iron-webcrypto@npm:0.5.0"
-  checksum: 8e806c9fdafee83d7d328a60d5bb3c3529840e9de8085cebc93461879cf581a57812a5591b22d90699d9f9808bf8ce709baaeba36a1c8221cafcd4952ca77d8f
+"iron-webcrypto@npm:^0.6.0":
+  version: 0.6.0
+  resolution: "iron-webcrypto@npm:0.6.0"
+  checksum: a0f2d8ed4374c0d3e37562f8030cf5cbe5def64c8ffc4103d64f93d0bf7fdda004849bc425b69cb931c2ad1b933ddeb01faa10c9bb023182d472036377278132
   languageName: node
   linkType: hard
 
@@ -16967,11 +17185,11 @@ __metadata:
   linkType: hard
 
 "jiti@npm:^1.16.0, jiti@npm:^1.17.1, jiti@npm:^1.17.2":
-  version: 1.17.2
-  resolution: "jiti@npm:1.17.2"
+  version: 1.18.2
+  resolution: "jiti@npm:1.18.2"
   bin:
     jiti: bin/jiti.js
-  checksum: 51941fea3622d1ff80d914ec6ec95ae463ede598a4a2317f1e8ff018823212eba6b9ea1c638c97c18f681870b1c2b9f49fbb13021b7c2415c46c8a3b1910f1e3
+  checksum: 46c41cd82d01c6efdee3fc0ae9b3e86ed37457192d6366f19157d863d64961b07982ab04e9d5879576a1af99cc4d132b0b73b336094f86a5ce9fb1029ec2d29f
   languageName: node
   linkType: hard
 
@@ -20586,8 +20804,8 @@ __metadata:
     "@justeat/fozzie": 10.11.0
     "@justeat/pie-design-tokens": 4.2.0
     "@justeat/stylelint-config-fozzie": 3.x
-    "@justeattakeaway/pie-icons": 2.0.0-beta.7
-    "@percy/cli": 1.20.1
+    "@justeattakeaway/pie-icons": 2.0.1
+    "@percy/cli": 1.20.3
     "@percy/playwright": 1.0.4
     "@playwright/test": 1.31.2
     allure-commandline: 2.20.1
@@ -23965,7 +24183,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup@npm:^2.25.0 || ^3.3.0, rollup@npm:^3.10.0, rollup@npm:^3.7.0":
+"rollup@npm:^2.25.0 || ^3.3.0, rollup@npm:^3.10.0, rollup@npm:^3.18.0, rollup@npm:^3.7.0":
   version: 3.19.1
   resolution: "rollup@npm:3.19.1"
   dependencies:
@@ -27381,7 +27599,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:4.1.4, vite@npm:^3.0.0 || ^4.0.0":
+"vite@npm:4.1.4":
   version: 4.1.4
   resolution: "vite@npm:4.1.4"
   dependencies:
@@ -27416,6 +27634,44 @@ __metadata:
   bin:
     vite: bin/vite.js
   checksum: 50a9a1f2e29e0ee8fefdec60314d38fb9b746df0bb6ae5a8114014b5bfd95e0fc9b29c0d5e73939361ba53af7eb66c7d20c5656bbe53a783e96540bd3b907c47
+  languageName: node
+  linkType: hard
+
+"vite@npm:^3.0.0 || ^4.0.0":
+  version: 4.2.0
+  resolution: "vite@npm:4.2.0"
+  dependencies:
+    esbuild: ^0.17.5
+    fsevents: ~2.3.2
+    postcss: ^8.4.21
+    resolve: ^1.22.1
+    rollup: ^3.18.0
+  peerDependencies:
+    "@types/node": ">= 14"
+    less: "*"
+    sass: "*"
+    stylus: "*"
+    sugarss: "*"
+    terser: ^5.4.0
+  dependenciesMeta:
+    fsevents:
+      optional: true
+  peerDependenciesMeta:
+    "@types/node":
+      optional: true
+    less:
+      optional: true
+    sass:
+      optional: true
+    stylus:
+      optional: true
+    sugarss:
+      optional: true
+    terser:
+      optional: true
+  bin:
+    vite: bin/vite.js
+  checksum: 1088cdc0c89ab835aab07a0a114397b749e8dfb20f4b94241ba179d9c371b72d31e13782b22893860c3d65da596e43b24fce5e023f79cfde427f42549f2e1844
   languageName: node
   linkType: hard
 
@@ -27971,8 +28227,8 @@ __metadata:
   linkType: hard
 
 "webpack@npm:^5.64.4":
-  version: 5.76.1
-  resolution: "webpack@npm:5.76.1"
+  version: 5.76.2
+  resolution: "webpack@npm:5.76.2"
   dependencies:
     "@types/eslint-scope": ^3.7.3
     "@types/estree": ^0.0.51
@@ -28003,7 +28259,7 @@ __metadata:
       optional: true
   bin:
     webpack: bin/webpack.js
-  checksum: b01fe0bc2dbca0e10d290ddb0bf81e807a031de48028176e2b21afd696b4d3f25ab9accdad888ef4a1f7c7f4d41f13d5bf2395b7653fdf3e5e3dafa54e56dab2
+  checksum: 86db98299a175c371031449c26077e87b33acd8f45de7f7945ed4b9b37c8ca11bc5169af9c44743efccd4d55e08042a3aa3a3bc42aff831309a0821ffbcd395e
   languageName: node
   linkType: hard
 

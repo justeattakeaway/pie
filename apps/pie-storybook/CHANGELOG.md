@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.5.2
+
+### Patch Changes
+
+- Add missing Volta settings to package.json ([#322](https://github.com/justeattakeaway/pie/pull/322)) by [@fernandofranca](https://github.com/fernandofranca)
+
+- Updated dependencies [[`38734c2d3`](https://github.com/justeattakeaway/pie/commit/38734c2d3fb74f6b77d38b0d2eac95bb0d4dfdc1), [`92a47712e`](https://github.com/justeattakeaway/pie/commit/92a47712e90dfcd79e792420e291b7eed6896bf8)]:
+  - @justeattakeaway/pie-button@0.7.0
+
 ## 0.5.1
 
 ### Patch Changes
