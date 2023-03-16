@@ -14,7 +14,7 @@ heroCtaHref: /all-about-pie/what-is-pie
   items: [
         {
           heading: "For designers",
-          content: "Find out how to use PIE in your products and the multiple ways how we can support you or your team.",
+          content: "Find out how to use PIE in your products and the many ways we can support you and your team.",
           linkText: "Get started",
           icon: "bulb-lightning",
           iconColour: "support-brand-03",
@@ -24,7 +24,7 @@ heroCtaHref: /all-about-pie/what-is-pie
         },
         {
           heading: "For engineers",
-          content: "Learn how to link the PIE repository and start using our foundations and components in your projects.",
+          content: "Learn about the PIE repository and start using foundations and components in your projects.",
           linkText: "Get started",
           icon: "engineers",
           iconColour: "support-brand-04",
@@ -34,7 +34,7 @@ heroCtaHref: /all-about-pie/what-is-pie
         },
         {
           heading: "Our libraries",
-          content: "Find out how to enable PIE foundations and components libraries in Figma and apply them to your designs.",
+          content: "Enable PIE foundation and component libraries in Figma and apply them to your designs.",
           linkText: "Get the libraries",
           icon: "components",
           iconColour: "support-brand-05",
@@ -49,4 +49,4 @@ heroCtaHref: /all-about-pie/what-is-pie
 
 ## Get support
 
-The PIE design system is maintained by the PIE Team. If you have any questions, ideas or suggestions, you can browse through our [FAQs](/support/faq) or [Contact us](/support/contact-us).
+The PIE design system is maintained by the PIE Team. If you have any questions, ideas or suggestions, check out our [FAQs](/support/faq) or [get in touch with us](/support/contact-us).

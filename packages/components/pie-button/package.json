@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/pie-button",
-  "version": "0.6.1",
+  "version": "0.7.0",
   "description": "PIE design system button built using web components",
   "type": "module",
   "main": "dist/pie-button.js",
@@ -11,5 +11,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "JustEatTakeaway - Design System Web Team",
-  "license": "Apache-2.0"
+  "license": "Apache-2.0",
+  "volta": {
+    "extends": "../../../package.json"
+  }
 }

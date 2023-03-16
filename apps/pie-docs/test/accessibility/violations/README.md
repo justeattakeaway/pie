@@ -1,1 +1,0 @@
-If any axe violations are recorded, the violation files will be found here.

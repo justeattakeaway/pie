@@ -7,14 +7,14 @@
  */
 export const validPropertyValues = (validValues: any[], defaultValue: any) => {
     return function (target: any, propertyKey: string) : void {
-        const privatePropertyKey = `_${propertyKey}`;
+        const privatePropertyKey = `#${propertyKey}`;
 
         Object.defineProperty(target, propertyKey, {
             get () : any {
-                return target[privatePropertyKey];
+                return this[privatePropertyKey];
             },
             set (value: any) : void {
-                const oldValue = target[privatePropertyKey];
+                const oldValue = this[privatePropertyKey];
 
                 if (!validValues.includes(value)) {
                     console.error(
@@ -22,9 +22,9 @@ export const validPropertyValues = (validValues: any[], defaultValue: any) => {
                         `Must be one of: ${validValues.join(' | ')}.`,
                         `Falling back to default value: "${defaultValue}"`
                     );
-                    target[privatePropertyKey] = defaultValue;
+                    this[privatePropertyKey] = defaultValue;
                 } else {
-                    target[privatePropertyKey] = value;
+                    this[privatePropertyKey] = value;
                 }
 
                 this.requestUpdate(propertyKey, oldValue);
