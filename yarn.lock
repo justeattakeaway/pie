@@ -2436,15 +2436,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/cli@npm:17.4.3":
-  version: 17.4.3
-  resolution: "@commitlint/cli@npm:17.4.3"
+"@commitlint/cli@npm:17.4.4":
+  version: 17.4.4
+  resolution: "@commitlint/cli@npm:17.4.4"
   dependencies:
-    "@commitlint/format": ^17.4.0
-    "@commitlint/lint": ^17.4.3
-    "@commitlint/load": ^17.4.2
-    "@commitlint/read": ^17.4.2
-    "@commitlint/types": ^17.4.0
+    "@commitlint/format": ^17.4.4
+    "@commitlint/lint": ^17.4.4
+    "@commitlint/load": ^17.4.4
+    "@commitlint/read": ^17.4.4
+    "@commitlint/types": ^17.4.4
     execa: ^5.0.0
     lodash.isfunction: ^3.0.9
     resolve-from: 5.0.0
@@ -2452,7 +2452,7 @@ __metadata:
     yargs: ^17.0.0
   bin:
     commitlint: cli.js
-  checksum: 352020caefb383cef8d26048ce540c87065df1c0647b6c3c08c9f9782db450b0d30341b52151f41ae94eaa36b99b3f63c24484a8082713b1e3bc9d02041c7320
+  checksum: 5e77737b32f58b7b2ae14f183605c3c3bec2d23d786448ec99e43fd5bf6b21e43f8ba19c98785ee8bef1472a96ac912bffcc34c2ff20c9f6700f848e7f7000a0
   languageName: node
   linkType: hard
 
@@ -2496,7 +2496,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/format@npm:^17.4.0":
+"@commitlint/format@npm:^17.4.4":
   version: 17.4.4
   resolution: "@commitlint/format@npm:17.4.4"
   dependencies:
@@ -2516,7 +2516,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/lint@npm:^17.4.3":
+"@commitlint/lint@npm:^17.4.4":
   version: 17.4.4
   resolution: "@commitlint/lint@npm:17.4.4"
   dependencies:
@@ -2528,7 +2528,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/load@npm:>6.1.1, @commitlint/load@npm:^17.4.2":
+"@commitlint/load@npm:>6.1.1, @commitlint/load@npm:^17.4.4":
   version: 17.4.4
   resolution: "@commitlint/load@npm:17.4.4"
   dependencies:
@@ -2568,7 +2568,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/read@npm:^17.4.2":
+"@commitlint/read@npm:^17.4.4":
   version: 17.4.4
   resolution: "@commitlint/read@npm:17.4.4"
   dependencies:
@@ -2624,7 +2624,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/types@npm:^17.4.0, @commitlint/types@npm:^17.4.4":
+"@commitlint/types@npm:^17.4.4":
   version: 17.4.4
   resolution: "@commitlint/types@npm:17.4.4"
   dependencies:
@@ -3809,7 +3809,7 @@ __metadata:
     nodemon: 2.0.15
     prettier: 2.5.1
     svgo: 1.3.2
-    webpack: 5.69.1
+    webpack: 5.76.0
     webpack-cli: 4.9.2
   languageName: unknown
   linkType: soft
@@ -5450,9 +5450,9 @@ __metadata:
   linkType: hard
 
 "@storybook/mdx2-csf@npm:next":
-  version: 1.0.0-next.5
-  resolution: "@storybook/mdx2-csf@npm:1.0.0-next.5"
-  checksum: 7214e51092eccf298433b68f21082da741197746a33e1cd16e17a9f146f3a39bf4f816bc181ecc34c32f3284c69cfc1fa7812a741d1f4c07df3e83b8dffe78a4
+  version: 1.0.0-next.6
+  resolution: "@storybook/mdx2-csf@npm:1.0.0-next.6"
+  checksum: 1f4a6c93fc69a7ca6a1cb7f0a9cbbc2b8346208149e129a1a0b9f5a8417b90404ec39ec4ebc51e45d970ab32ee5ddd2e6b4da2799a6a415da96eb1bc7480c864
   languageName: node
   linkType: hard
 
@@ -11982,7 +11982,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"enhanced-resolve@npm:^5.10.0, enhanced-resolve@npm:^5.8.3":
+"enhanced-resolve@npm:^5.10.0":
   version: 5.12.0
   resolution: "enhanced-resolve@npm:5.12.0"
   dependencies:
@@ -17386,7 +17386,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"json-parse-better-errors@npm:^1.0.1, json-parse-better-errors@npm:^1.0.2":
+"json-parse-better-errors@npm:^1.0.1":
   version: 1.0.2
   resolution: "json-parse-better-errors@npm:1.0.2"
   checksum: ff2b5ba2a70e88fd97a3cb28c1840144c5ce8fae9cbeeddba15afa333a5c407cf0e42300cd0a2885dbb055227fe68d405070faad941beeffbfde9cf3b2c78c5d
@@ -18959,13 +18959,13 @@ __metadata:
   linkType: hard
 
 "mini-css-extract-plugin@npm:^2.4.5":
-  version: 2.7.3
-  resolution: "mini-css-extract-plugin@npm:2.7.3"
+  version: 2.7.4
+  resolution: "mini-css-extract-plugin@npm:2.7.4"
   dependencies:
     schema-utils: ^4.0.0
   peerDependencies:
     webpack: ^5.0.0
-  checksum: 9f3a25c1298280d40e56552e5cfd7f84fea25ddd8530bd8ecfd6b08caffe59a1c55c020f1f3c8beb7c04f5e92ce71ed43a52a72deed5570c686316348f13b6f4
+  checksum: 5776458eb78fff06eeebfa6682b5387c52cdaff0f6a5012769e81487f91d78b8fd1c6d114d04748de82825a8d155fd8324dbce86da8ceda9f299b4850f77d133
   languageName: node
   linkType: hard
 
@@ -20798,7 +20798,7 @@ __metadata:
     "@babel/register": 7.18.9
     "@changesets/changelog-github": 0.4.8
     "@changesets/cli": 2.26.0
-    "@commitlint/cli": 17.4.3
+    "@commitlint/cli": 17.4.4
     "@commitlint/config-conventional": 17.4.4
     "@justeat/browserslist-config-fozzie": 1.x
     "@justeat/fozzie": 10.11.0
@@ -27925,7 +27925,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"watchpack@npm:^2.2.0, watchpack@npm:^2.3.1, watchpack@npm:^2.4.0":
+"watchpack@npm:^2.2.0, watchpack@npm:^2.4.0":
   version: 2.4.0
   resolution: "watchpack@npm:2.4.0"
   dependencies:
@@ -28189,40 +28189,40 @@ __metadata:
   languageName: node
   linkType: hard
 
-"webpack@npm:5.69.1":
-  version: 5.69.1
-  resolution: "webpack@npm:5.69.1"
+"webpack@npm:5.76.0":
+  version: 5.76.0
+  resolution: "webpack@npm:5.76.0"
   dependencies:
     "@types/eslint-scope": ^3.7.3
     "@types/estree": ^0.0.51
     "@webassemblyjs/ast": 1.11.1
     "@webassemblyjs/wasm-edit": 1.11.1
     "@webassemblyjs/wasm-parser": 1.11.1
-    acorn: ^8.4.1
+    acorn: ^8.7.1
     acorn-import-assertions: ^1.7.6
     browserslist: ^4.14.5
     chrome-trace-event: ^1.0.2
-    enhanced-resolve: ^5.8.3
+    enhanced-resolve: ^5.10.0
     es-module-lexer: ^0.9.0
     eslint-scope: 5.1.1
     events: ^3.2.0
     glob-to-regexp: ^0.4.1
     graceful-fs: ^4.2.9
-    json-parse-better-errors: ^1.0.2
+    json-parse-even-better-errors: ^2.3.1
     loader-runner: ^4.2.0
     mime-types: ^2.1.27
     neo-async: ^2.6.2
     schema-utils: ^3.1.0
     tapable: ^2.1.1
     terser-webpack-plugin: ^5.1.3
-    watchpack: ^2.3.1
+    watchpack: ^2.4.0
     webpack-sources: ^3.2.3
   peerDependenciesMeta:
     webpack-cli:
       optional: true
   bin:
     webpack: bin/webpack.js
-  checksum: 490a6e9e4cd9d0ed3b6c7ca08015da2628919fda8fcf9c36f0f6c0e3ad71eaaaf4b0d12753109f22a4faf79fe9a9063552d9708e0ee2352cf8568433b8e296a7
+  checksum: e897b3b34068222fe910d8894837cbf39f5e66b4772fe8d24dfc0090cd13e19337a3a757a97bc185be6c64d9d5a7b1ae372821b65a6079ce8c7ceba606edb409
   languageName: node
   linkType: hard
 
