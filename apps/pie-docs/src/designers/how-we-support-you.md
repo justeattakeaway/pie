@@ -81,7 +81,7 @@ As a result, we're often asked how PIE designers work together with business are
     items: [
         "Provide guidance and support with foundations, components and patterns",
         "Create, update and maintain our foundations, components and patterns",
-        "Write documentation about the system’s elements behaviour and interactions",
+        "Write documentation about the system’s elements’ behaviours and interactions",
         "Assist business area designers when they create their own components"
     ]
 } %}
