@@ -154,7 +154,7 @@ jobs:
             ./storybook
 
   deploy-storybook:
-    needs: build
+    needs: deploy-docs
     runs-on: ubuntu-latest
     steps:
       # Checkout the Repo
