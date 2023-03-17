@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.65.0
+
+### Minor Changes
+
+- [Changed] - Amend copy on various pages based on design feedback ([#333](https://github.com/justeattakeaway/pie/pull/333)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Fixed] - Sidenav scroll issue on narrow screen widths ([#324](https://github.com/justeattakeaway/pie/pull/324)) by [@ashleynolan](https://github.com/ashleynolan)
+
+- [Changed] - Use 24px spacing between icon list items ([#333](https://github.com/justeattakeaway/pie/pull/333)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 1.64.0
 
 ### Minor Changes
