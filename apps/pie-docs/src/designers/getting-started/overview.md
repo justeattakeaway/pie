@@ -7,9 +7,9 @@ eleventyNavigation:
 
 ## Introduction
 
-[Figma](https://www.figma.com/ui-design-tool) is PIE’s design tool of choice for building our design system. All design-related foundations, components and assets are stored in Figma libraries and files. This is to ensure the whole digital ecosystem can be accessed by any team.
+[Figma](https://www.figma.com/ui-design-tool) is PIE’s **design tool** of choice for building our design system. All design-related foundations, components and assets are stored in Figma libraries and files. This is to ensure the whole digital ecosystem can be accessed by any team.
 
-We recommend you use Figma through the desktop app. If Figma’s desktop app is not installed on your computer, get in touch with your manager to request this.
+We recommend you use Figma through the **desktop app**. If Figma’s desktop app is not installed on your computer, get in touch with your manager to request this.
 
 As a designer within the Just Eat Takeaway organisation, you’ll automatically have access to all of PIE’s libraries and files. If you don't have access, please [get in touch with the PIE team](/support/contact-us) to request it.
 
@@ -52,9 +52,7 @@ Our core components are also split into two themes: **PIE 2.0 Light** and **PIE 
 
 ### Asset libraries
 
-Assets are the images we use across JET products, such as icons and illustrations.
-
-They are owned by PIE designers, in collaboration with the JET Creative Studio (Brand team).
+Assets are the images we use across JET products, such as icons and illustrations. They are owned by PIE designers, in collaboration with the JET Creative Studio (Brand team).
 
 ### Business Area libraries
 
