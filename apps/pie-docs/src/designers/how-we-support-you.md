@@ -68,7 +68,7 @@ caption: "A flow diagram which shows the steps we follow during our Partnership 
 
 ## The role of the PIE designer
 
-PIE designers are specialists in systems thinking and design systems maintenance. Our role it not just to define foundations, components, patterns and documentation, but also to provide you with guidance on how to use PIE and implement it consistently throughout your products.
+PIE designers are specialists in systems thinking and design systems maintenance. Our role is not just to define foundations, components, patterns and documentation, but also to provide you with guidance on how to use PIE and implement it consistently throughout your products.
 
 As a result, we're often asked how PIE designers work together with business area designers. To help describe it, we've put together a list of the things we do and don't do as part of our role:
 
