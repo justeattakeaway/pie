@@ -46,7 +46,7 @@ Foundations are split into two themes: **PIE 2.0 Light** and **PIE 2.0 Dark**. E
 
 Core components are the pieces we use to create JET products. They are owned by PIE designers and are consistent across components, products and pillars.
 
-They include buttons, labels, chips, input fields, and more.
+They include buttons, labels, chips, input fields and more.
 
 Our core components are also split into two themes: **PIE 2.0 Light** and **PIE 2.0 Dark**. Each theme has its own library, so please check with the PIE team if you're unsure which one to use.
 
