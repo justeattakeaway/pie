@@ -8,7 +8,7 @@ eleventyNavigation:
 
 Make sure you always use the styles defined in our Foundations libraries. This will help ensure you’re aligned with the PIE design system and enhance consistency across our products and files.
 
-Also, make sure you’re using the right Foundations library when applying colour, typography, elevation or radius (among others) to your designs. For example, if your file uses the PIE 2.0 Light Theme, make sure you are pulling the styles from our PIE 2.0 Foundations – Light.
+Also make sure you’re using the right Foundations library when applying colour, typography, elevation or radius (among others) to your designs. For example, if your file uses the PIE 2.0 Light Theme, make sure you are pulling the styles from our PIE 2.0 Foundations – Light.
 
 {% contentPageImage {
 src: "../../../assets/img/designers/getting-started/best-practices/token-selection.svg",
@@ -25,7 +25,7 @@ Make sure you are working using the latest version of our component and foundati
 
 When a library has a new update you’ll get a notification on the bottom-right corner of your Figma workspace. Tap on update to bring up the Updates modal, where you will be informed of any changes and updates that have been made to the library.
 
-If you wish to check whether you’re working from the latest version of a library, select the Library icon in the Assets panel. Then click on the Updates section to check whether there are any pending updates from our libraries.
+To check whether you’re working from the latest version of a library, select the Library icon in the Assets panel. Then click on the Updates section to check whether there are any pending updates from our libraries.
 
 {% contentPageImage {
 src: "../../../assets/img/designers/getting-started/best-practices/component-updates.svg",
