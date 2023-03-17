@@ -4,7 +4,7 @@ eleventyNavigation:
     parent: designers-getting-started
     order: 3
 ---
-## Foundations libraries
+## Foundation libraries
 
 {% card {
   items: [
@@ -23,7 +23,7 @@ eleventyNavigation:
 
 ---
 
-## Core Components libraries
+## Core Component libraries
 
 {% card {
   items: [
@@ -47,7 +47,7 @@ eleventyNavigation:
 
 ---
 
-## Assets libraries
+## Asset libraries
 
 {% card {
   items: [
