@@ -2,6 +2,7 @@
   "extends": "@vue/tsconfig/tsconfig.web.json",
   "include": ["env.d.ts", "src/**/*", "src/**/*.vue"],
   "compilerOptions": {
+    "allowJs": true, // allow JavaScript files to be imported
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
