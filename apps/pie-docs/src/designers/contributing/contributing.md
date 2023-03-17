@@ -22,7 +22,7 @@ caption: "Teamwork makes the dream work!"
 
 ## Ways to contribute
 
-We're always on the lookout for new contributions and will be happy to discuss them with you in you decide to get involved. However, new feature requests and changes to existing components or foundations will need to be discussed with the PIE team before they are accepted and work is carried out.
+We're always on the lookout for new contributions and will be happy to discuss them with you if you decide to get involved. However, new feature requests and changes to existing components or foundations will need to be discussed with the PIE team before they are accepted and work is carried out.
 
 ### Suggest a design change
 
