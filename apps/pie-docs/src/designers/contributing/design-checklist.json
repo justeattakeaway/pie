@@ -4,7 +4,7 @@
             "headingText": "Design for scalability and flexibility",
             "imgSrc": "../../assets/img/designers/contributing/checklist-scalability.svg",
             "imgSrcNarrow": "../../assets/img/designers/contributing/checklist-scalability_narrow.svg",
-            "text": "Ensure the component is responsive, flexible and future-proof. Think about all the places it might be used - when, why  and how - and design your new component accordingly."
+            "text": "Ensure the component is responsive, flexible and future-proof. Think about all the places it might be used - when, why and how - and design your new component accordingly."
         },
         {
             "headingText": "Use our foundations libraries",
