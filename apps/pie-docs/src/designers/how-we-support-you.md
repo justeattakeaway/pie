@@ -23,7 +23,7 @@ If you're unsure about which way might be best for you or your team, or would li
 
 ### Mentoring
 
-With Mentoring, the business area designer in in charge of creating the component, following the contribution process outline in our [Contribution](/designers/contributing) section.
+With Mentoring, the business area designer is in charge of creating the component, following the contribution process outlined in our [Contribution](/designers/contributing) section.
 
 During this process, a PIE designer will support the business area designer by reviewing the work, offering help and providing feedback at any stage.
 
