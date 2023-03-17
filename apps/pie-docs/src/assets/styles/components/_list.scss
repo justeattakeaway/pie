@@ -53,10 +53,14 @@
 
 
 .c-list--icon {
+
+    .c-list-item + .c-list-item {
+        margin-top: f.spacing(e);
+    }
+
     .c-list-item {
         display: flex;
         gap: f.spacing();
-        margin-bottom: f.$spacing-02;
 
         & > svg {
             flex-shrink: 0;

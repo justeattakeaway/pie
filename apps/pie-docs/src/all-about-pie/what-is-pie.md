@@ -49,4 +49,7 @@ PIE is both a service and a product. We create and maintain its contents and gui
 
 Our goal isn't to take ownership of design from designers. We're here to support you and ensure all JET's products align to the system, providing scalability, consistency and high levels of craft.
 
-[Learn more about our support models](/designers/how-we-support-you).
+{% notification {
+type: "information",
+message: "Learn more about [our support models](/designers/how-we-support-you)."
+} %}
