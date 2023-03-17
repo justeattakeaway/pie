@@ -4,14 +4,15 @@
 .page {
     min-height: 100%;
     display: grid;
-    grid-template: 64px 1fr max-content / 260px 1fr;
+    grid-template: var(--header-height) 1fr max-content / auto;
     grid-template-areas:
-        'header header'
-        'main main'
-        'footer footer';
+        'header'
+        'main'
+        'footer';
 
     // wider screen grid layout
     @include f.media('>=wide') {
+        grid-template: var(--header-height) 1fr max-content / var(--sidenav-width-wide) 1fr;
         grid-template-areas:
             'header header'
             'nav main'
