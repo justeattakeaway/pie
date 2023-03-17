@@ -4,26 +4,26 @@ eleventyNavigation:
     parent: designers
     order: 3
 title: How we support you
-description: In this section you’ll find everything you need to know about the ways in which we support different teams across the organisation.
+description: All you need to know about the ways in which we support different teams across JET.
 ---
 
 ## Introduction
 
 PIE is both a service and a product to the organisation. As a team, we not only create and maintain all aspects of the design system, but also provide support to our pillars and business areas.
 
-Our goal is never to take ownership from designers in pillars, so we try to provide as much flexibility for you as possible. However,  we are always here to support and help your products align to the system, helping you improve the digital expression of our brand and keep consistency with the rest of our digital ecosystem.
+Our goal is never to take ownership from designers in pillars, so we try to provide you with as much flexibility as possible. We're always here to support you and help your products align to the system.
 
 ---
 
 ## Our support models
 
-We have come up with three different support models which can help you improve the way you implement PIE within your products.
+There are three different ways we can help you implement PIE within your products.
 
-If you’re unsure about which model might be best for you or your team, or would like to know more about how we can support you, please [get in touch with us](/support/contact-us).
+If you're unsure about which way might be best for you or your team, or would like to know more about how we can support you, please [get in touch with us](/support/contact-us).
 
 ### Mentoring
 
-With the mentoring model, the business area designer is in charge of creating the component following the contribution process outlined in our [Contributing](/designers/contributing) section.
+With Mentoring, the business area designer in in charge of creating the component, following the contribution process outline in our [Contribution](/designers/contributing) section.
 
 During this process, a PIE designer will support the business area designer by reviewing the work, offering help and providing feedback at any stage.
 
@@ -38,7 +38,7 @@ caption: "A flow diagram which shows the steps we follow during our Mentorship s
 
 ### Cleanup
 
-With the cleanup model, the business area designer creates the component only **requesting support if/when needed**. Designers must ensure they create the new component following the contribution process outlined in our [Contributing](/designers/contributing) section.
+With Cleanup, the business area designer creates the component only **requesting support if/when needed**. Designers must ensure they create the new component following the contribution process outlined in our [Contribution](/designers/contributing) section.
 
 Once the component is finished, a PIE designer will help the business area designer finalise and finesse the component, making sure it aligns with our design system.
 
@@ -53,7 +53,7 @@ caption: "A flow diagram which shows the steps we follow during our Cleanup supp
 
 ### Partnership
 
-With the partnership model, the business area designer **will work closely with a PIE designer** throughout the component creation process, from research and testing, right through component building and finalisation.
+With Partnership, the business area designer **will work closely with a PIE designer** throughout the component creation process, from research and testing, right through component building and finalisation.
 
 You can take a closer look at this in our [partnership process](https://www.figma.com/file/BRwqw7B4dm4mVPdvfVLSNY/Process?node-id=440%3A3052&t=aVebo2jjEWjKMFwI-0) file.
 
@@ -68,9 +68,9 @@ caption: "A flow diagram which shows the steps we follow during our Partnership 
 
 ## The role of the PIE designer
 
-PIE designers are specialists in systems thinking and design systems maintenance. Our role is not just to define foundations, components, patterns and documentation, but also provide you with guidance on how to use PIE and how to implement it consistently throughout your products.
+PIE designers are specialists in systems thinking and design systems maintenance. Our role it not just to define foundations, components, patterns and documentation, but also to provide you with guidance on how to use PIE and implement it consistently throughout your products.
 
-As a result of that, we’re often asked how PIE designers are usually involved when working together with business area designers. To help describe it, we’ve put together a list of the things we do and don’t as part of our role:
+As a result, we're often asked how PIE designers work together with business area designers. To help describe it, we've put together a list of the things we do and don't do as part of our role:
 
 ### What we do:
 
@@ -79,10 +79,10 @@ As a result of that, we’re often asked how PIE designers are usually involved 
     iconName: "check-circle-filled",
     iconFill: "support-positive",
     items: [
-        "Provide guidance and support with foundations, components and patterns.",
-        "Create, update and maintain our foundations, components and patterns.",
-        "Write documentation about the system’s elements behaviour and interactions.",
-        "Assist business area designers when they create their own components."
+        "Provide guidance and support with foundations, components and patterns",
+        "Create, update and maintain our foundations, components and patterns",
+        "Write documentation about the system’s elements behaviour and interactions",
+        "Assist business area designers when they create their own components"
     ]
 } %}
 
@@ -93,9 +93,9 @@ As a result of that, we’re often asked how PIE designers are usually involved 
     iconName: "close-circle-filled",
     iconFill: "support-error",
     items: [
-        "Screen designs.",
-        "Prototype flows.",
-        "Specify **your** product's rules.",
-        "Maintain business area libraries."
+        "Screen designs",
+        "Prototype flows",
+        "Specify **your** product's rules",
+        "Maintain business area libraries"
     ]
 } %}
