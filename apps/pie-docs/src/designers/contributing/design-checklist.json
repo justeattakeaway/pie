@@ -7,10 +7,10 @@
             "text": "Ensure the component is responsive, flexible and future-proof. Think about all the places it might be used - when, why and how - and design your new component accordingly."
         },
         {
-            "headingText": "Use our foundations libraries",
+            "headingText": "Use our Foundations libraries",
             "imgSrc": "../../assets/img/designers/contributing/checklist-foundations.svg",
             "imgSrcNarrow": "../../assets/img/designers/contributing/checklist-foundations_narrow.svg",
-            "text": "Make sure you use styles from our foundations libraries when using colour, typography, spacing, etc. Ensuring brand alignment is key to preserving a high quality and consistent experience."
+            "text": "Make sure you use styles from our Foundations libraries when using colour, typography, spacing, etc. Ensuring brand alignment is key to preserving a high quality and consistent experience."
         },
         {
             "headingText": "Use appropriate naming and supporting information",

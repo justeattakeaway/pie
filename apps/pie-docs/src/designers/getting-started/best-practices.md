@@ -4,7 +4,7 @@ eleventyNavigation:
     parent: designers-getting-started
     order: 2
 ---
-## Use our foundations
+## Use our Foundations libraries
 
 Make sure you always use the styles defined in our Foundations libraries. This will help ensure you’re aligned with the PIE design system and enhance consistency across our products and files.
 
@@ -21,7 +21,7 @@ caption: "The image above shows that the colour token selected for the Notificat
 
 ## Keep your libraries up to date
 
-Make sure you are working using the latest version of our component and foundations libraries. This will ensure your files use components and styles which are up to date and are consistent with other teams.
+Make sure you are working using the latest version of our component and Foundations libraries. This will ensure your files use components and styles which are up to date and are consistent with other teams.
 
 When a library has a new update you’ll get a notification on the bottom-right corner of your Figma workspace. Tap on update to bring up the Updates modal, where you will be informed of any changes and updates that have been made to the library.
 
