@@ -364,10 +364,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                     
                                     
                                     <a
-                                        href="/foundations/colour/overview/"
+                                        href="/foundations/design-tokens/overview/"
                                         
-                                        class="c-nav-item ">
-                                        Colour
+                                            aria-current="page"
+                                        
+                                        class="c-nav-item is-active">
+                                        Design Tokens
                                     </a>
                                 </li>
                                 
@@ -379,12 +381,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                     
                                     
                                     <a
-                                        href="/foundations/design-tokens/overview/"
+                                        href="/foundations/colour/overview/"
                                         
-                                            aria-current="page"
-                                        
-                                        class="c-nav-item is-active">
-                                        Design Tokens
+                                        class="c-nav-item ">
+                                        Colour
                                     </a>
                                 </li>
                                 
@@ -543,7 +543,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     Design Tokens
                 </h1>
                 <p class="c-contentPage-header-description">
-                     Design Tokens store design decisions within our Foundations, allowing us to apply them consistently throughought designs, products, code and platforms.
+                    Design Tokens store design decisions within our Foundations, enabling us to apply them consistently throughout designs, products, code and platforms.
                 </p>
                 
             </div>
@@ -579,19 +579,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <p>Currently the process of creating, maintaining and updating Design Tokens isn’t automated. This means that a workflow is needed in order to use and implement token updates correctly.</p>
 <p>Our current workflow consists of the following steps:</p>
 <ol>
-<li>PIE designers update design tokens in Figma.</li>
-<li>Updates are published in our Bi-weekly Component + Token roundup.</li>
-<li>DSW web team logs these changes in our design system’s Changelog.</li>
-<li>DSW web team updates the design tokens values in JSON.</li>
-<li>DSW web team communicates this to Android UI, Just UI iOS &amp; Fozzie (VUE).</li>
-<li>Engineering teams update their libraries with the new JSON.</li>
-<li>Engineering teams release the libraries with the new JSON.</li>
-<li>Engineering teams integrate the new versions of the libraries with products.</li>
-<li>Updates are shipped in the release cycle.</li>
+<li>PIE designers update design tokens in Figma</li>
+<li>Updates are published in our Bi-weekly Component + Token roundup</li>
+<li>Design Systems Web team logs these changes in our design system’s Changelog</li>
+<li>Design Systems Web team updates the design tokens values in JSON</li>
+<li>Design Systems Web team communicates this to Android UI, Just UI iOS &amp; Fozzie (Vue)</li>
+<li>Engineering teams update their libraries with the new JSON</li>
+<li>Engineering teams release the libraries with the new JSON</li>
+<li>Engineering teams integrate the new versions of the libraries with products</li>
+<li>Updates are shipped in the release cycle</li>
 </ol>
 <hr>
 <h2>The role of PIE designers</h2>
-<p>These are the responsibilities of the PIE design team when updating design tokens:</p>
+<p>These are the responsibilities of the PIE Design Team when updating design tokens.</p>
 <h3>Update the Design Tokens in Figma</h3>
 <p>PIE designers are in charge of maintaining, updating and creating design tokens. These updates are implemented into the design ecosystem by updating the Foundations libraries in Figma.</p>
 <p>These updates should be carried out using branches to track changes and revert the process when/if necessary. If you’re not familiar with working with branches, please ask a member of the PIE team for guidance.</p>
@@ -600,11 +600,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <p>Updates carried out by PIE designers are communicated through the <a href="https://docs.google.com/document/d/10-_Ev2GsV18ACKHYWc49qgU-LYRYToAKrlfbHKA9cOM/edit?usp=sharing" target="_blank">Bi-weekly Component &amp; Token Roundup</a> document. The file is structured in bi-weekly releases, which show what has changed within the system and includes a description for additional context.</p>
 <figure class="c-contentPage-img c-contentImage c-contentImage--hasBackdrop">        <div class="c-contentImage-backdrop">          <picture>            <source style="--img-width: 696px;" media="(max-width: 600px)" srcset="../../../assets/img/foundations/design-tokens/updates-and-maintenance/component-token-roundup_narrow.svg">            <img src="../../../assets/img/foundations/design-tokens/updates-and-maintenance/component-token-roundup.svg" style="--img-width: 696px;" >          </picture>        </div>        <figcaption class="c-contentImage-caption"><span>Screenshot of our Bi-weekly Component &amp; Token Roundup document.</span></figcaption>      </figure>
 <hr>
-<h2>The role of the DSW web team</h2>
-<p>These are the responsibilities of the DSW web team when updating design tokens:</p>
+<h2>The role of the Design Systems Web team</h2>
+<p>These are the responsibilities of the Design Systems Web (DSW) team when updating design tokens:</p>
 <h3>Compile updates using the Design System Changelog</h3>
-<p>The DSW team’s responsibility is to compile all changes communicated through the Bi-weekly Component + Token Update and include them in our PIE Design Changelog.</p>
-<p>The Changelog, <a href="https://github.com/justeattakeaway/pie/wiki/PIE-Design-Changelog">which is hosted in Github</a>, should be the source of truth for all updates with</p>
+<p>The DSW team’s responsibility is to compile all changes communicated through the Bi-weekly Component + Token Update and include them in our <strong>PIE Design Changelog</strong>.</p>
+<p>The Changelog, <a href="https://github.com/justeattakeaway/pie/wiki/PIE-Design-Changelog">which is hosted in Github</a>, should be the source of truth for all updates.</p>
 <aside class="c-contentPage-notification c-notification" style="--bg-colour: #ebf6fa; --icon-fill: #125fca;">        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" height="24" width="24" fill="#125fca" class="c-pieIcon c-pieIcon--infoCircle u-iconFilled"><path d="M8 1.219A6.781 6.781 0 1014.781 8 6.79 6.79 0 008 1.219zm0 12.25A5.469 5.469 0 118 2.53a5.469 5.469 0 010 10.938zM7.344 7.29h1.312v3.334H7.344V7.291zm1.531-1.916a.875.875 0 11-1.75 0 .875.875 0 011.75 0z" fill="#242E30"></path></svg>        <p class="c-notification-message"><span>If you need any help working with or understanding the Changelog, please get in touch with us using the <b>#help-designsystem</b> channel in Slack.</span></p>    </aside>
 <figure class="c-contentPage-img c-contentImage c-contentImage--hasBackdrop">        <div class="c-contentImage-backdrop">          <picture>            <source style="--img-width: 589px;" media="(max-width: 600px)" srcset="../../../assets/img/foundations/design-tokens/updates-and-maintenance/changelog_narrow.svg">            <img src="../../../assets/img/foundations/design-tokens/updates-and-maintenance/changelog.svg" style="--img-width: 589px;" >          </picture>        </div>        <figcaption class="c-contentImage-caption"><span>Screenshot of the PIE Design Changelog</span></figcaption>      </figure>
 <h3>Update JSON files</h3>
@@ -625,12 +625,12 @@ This is done via NPM, by running <code>npm update @justeat/pie-design-tokens</co
 <h3>Release libraries with the new JSON</h3>
 <p>This part of the process is different depending on the platform (and application), so the below is likely to be slightly simplified:</p>
 <h4>For web</h4>
-<p>The tokens are pulled into our various web component libraries via Sass (SCSS), such as fozzie (Vue) and Snacks (React - L-TKWY). So once the design token package has been released, these libraries are updated to use this new package, so that web applications using these can then update and consume the design tokens via the library update.</p>
+<p>The tokens are pulled into our various web component libraries via Sass (SCSS), such as Fozzie (Vue) and Snacks (React - L-TKWY). So once the design token package has been released, these libraries are updated to use this new package, so that web applications using these can then update and consume the design tokens via the library update.</p>
 <h4>For iOS</h4>
 <p>The tokens are pulled in via JSON, compiled into Swift and released as part of our JustUI iOS app framework.</p>
 <h4>For Android</h4>
 <p>The tokens are pulled in via the clean JSON on unpkg CDN, compiled into XML and also generating Kotlin code (XML for the Android View UI framework, Kotlin for the Android Compose UI framework) and released as part of our Android UI app framework.</p>
-<h3>Integrate and Ship the new versions of the libraries with products</h3>
+<h3>Integrate and ship the new versions of the libraries with products</h3>
 <p>This part of the process is also different depending on the platform (and application), so the below is likely to be slightly simplified:</p>
 <h4>For web</h4>
 <p>Once a new version of Fozzie or Snacks is released, applications that consume these libraries will then need to update to use this new version. Once they do this, the Sass that is used in these libraries will get compiled into application CSS and released as part of these various web applications. How these web applications are released can vary from application to application – for more information, speak to the relevant application team (or ask for more details in <strong>#help-designsystem</strong>.</p>
@@ -639,7 +639,7 @@ This is done via NPM, by running <code>npm update @justeat/pie-design-tokens</co
 <h4>For Android</h4>
 <p>Once a new version of the JSON has been published the Android core team is notified. JIRA tickets will be created to update the android PIE libraries to the latest version of the design tokens. As part of this process the Android engineers will generate new XML and Kotlin assets.</p>
 <p>These assets will then be copied into the Android UI repository via a PR. Once the PR is approved and merged new versions of the pie-view and pie compose libraries will be published.</p>
-<p>Android applications that required the new tokens will then have their versions of the pie libs updated via another PR. Once this PR is merged the next released version of the application will contain the design token updates.</p>
+<p>Android applications that require the new tokens will then have their versions of the pie libs updated via another PR. Once this PR is merged, the next version of the application to be released will contain the design token updates.</p>
 
             </div>
         </div>
@@ -794,7 +794,7 @@ This is done via NPM, by running <code>npm update @justeat/pie-design-tokens</co
                     <div>
                         <a href="https://www.just-eat.co.uk/info/privacy-policy" data-test-id='footer_link'>Privacy policy</a>
                         <span class='c-footer-info-separator' aria-hidden="true"></span>
-                        <span>Updated: <span class="updated-date">17/03/2023</span></span>
+                        <span>Updated: <span class="updated-date">20/03/2023</span></span>
                     </div>
                 </div>
             </div>
