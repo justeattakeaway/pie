@@ -4,7 +4,7 @@ eleventyNavigation:
     parent: designers-getting-started
     order: 3
 ---
-## Foundations libraries
+## Foundation libraries
 
 {% card {
   items: [

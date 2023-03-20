@@ -29,7 +29,7 @@ These are the responsibilities of the PIE Design Team when updating design token
 
 ### Update the Design Tokens in Figma
 
-PIE designers are in charge of maintaining, updating and creating design tokens. These updates are implemented into the design ecosystem by updating the Foundations libraries in Figma.
+PIE designers are in charge of maintaining, updating and creating design tokens. These updates are implemented into the design ecosystem by updating the Foundation libraries in Figma.
 
 These updates should be carried out using branches to track changes and revert the process when/if necessary. If you’re not familiar with working with branches, please ask a member of the PIE team for guidance.
 

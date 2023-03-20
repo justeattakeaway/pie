@@ -34,7 +34,7 @@ width: "512px",
 caption: "A map of how PIE libraries are structured in Figma."
 } %}
 
-### Foundations libraries
+### Foundation libraries
 
 Foundations are the **building blocks** of our design system. They are owned by PIE designers and are consistent across components, products and pillars.
 
