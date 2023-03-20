@@ -4,13 +4,13 @@
             "headingText": "Design for scalability and flexibility",
             "imgSrc": "../../assets/img/designers/contributing/checklist-scalability.svg",
             "imgSrcNarrow": "../../assets/img/designers/contributing/checklist-scalability_narrow.svg",
-            "text": "Ensure the component is responsive, flexible and is future proof. Think about all the places where it might be used, when and what for would designers use it, and design your new component accordingly."
+            "text": "Ensure the component is responsive, flexible and future-proof. Think about all the places it might be used - when, why and how - and design your new component accordingly."
         },
         {
-            "headingText": "Use our foundations libraries",
+            "headingText": "Use our Foundations libraries",
             "imgSrc": "../../assets/img/designers/contributing/checklist-foundations.svg",
             "imgSrcNarrow": "../../assets/img/designers/contributing/checklist-foundations_narrow.svg",
-            "text": "Make sure you use styles from our foundations libraries when using colour, typography, spacing, etc. Ensuring brand alignment is key to preserve a high quality and consistent experience."
+            "text": "Make sure you use styles from our Foundations libraries when using colour, typography, spacing, etc. Ensuring brand alignment is key to preserving a high quality and consistent experience."
         },
         {
             "headingText": "Use appropriate naming and supporting information",
@@ -22,7 +22,7 @@
             "headingText": "Define variants and interactive states",
             "imgSrc": "../../assets/img/designers/contributing/checklist-variants.svg",
             "imgSrcNarrow": "../../assets/img/designers/contributing/checklist-variants_narrow.svg",
-            "text": "Outline all options for the component to ensure all use cases are covered. This will enhance the consistency of the component and set a standard for their use within products."
+            "text": "Outline all options for the component to ensure all use cases are covered. This will enhance the consistency of the component and set a standard for its use within products."
         },
         {
             "headingText": "Write documentation",
