@@ -62,7 +62,7 @@
     "@percy/playwright": "1.0.4",
     "@playwright/test": "1.31.2",
     "allure-commandline": "2.20.1",
-    "autoprefixer": "10.4.7",
+    "autoprefixer": "10.4.14",
     "babel-loader": "8.2.3",
     "commitizen": "4.3.0",
     "cross-env": "7.0.3",
