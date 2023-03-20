@@ -3771,7 +3771,7 @@ __metadata:
     "@babel/node": 7.19.1
     "@justeattakeaway/pie-icons": 2.0.1
     "@svgr/core": 6.4.0
-    "@types/react": 18.0.21
+    "@types/react": 18.0.28
     pascal-case: 3.1.2
     react: 18.2.0
     rollup: 2.56.2
@@ -6356,18 +6356,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:18.0.21":
-  version: 18.0.21
-  resolution: "@types/react@npm:18.0.21"
-  dependencies:
-    "@types/prop-types": "*"
-    "@types/scheduler": "*"
-    csstype: ^3.0.2
-  checksum: 36c1a7c9d507e81e2e629c1ad3db51d7b84d8b010c2d5008da411874286c6a5ccc711ae1d4c470efc0bdc77153cc8804a40e927e929e5164c669ca41b84b846d
-  languageName: node
-  linkType: hard
-
-"@types/react@npm:>=16":
+"@types/react@npm:18.0.28, @types/react@npm:>=16":
   version: 18.0.28
   resolution: "@types/react@npm:18.0.28"
   dependencies:

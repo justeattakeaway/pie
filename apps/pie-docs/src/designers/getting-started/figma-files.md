@@ -23,7 +23,7 @@ eleventyNavigation:
 
 ---
 
-## Core Components libraries
+## Core Component libraries
 
 {% card {
   items: [
@@ -47,7 +47,7 @@ eleventyNavigation:
 
 ---
 
-## Assets libraries
+## Asset libraries
 
 {% card {
   items: [
