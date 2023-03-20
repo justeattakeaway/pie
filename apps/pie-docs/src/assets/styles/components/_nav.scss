@@ -40,6 +40,7 @@ $nav-item-left-margin: calc($nav-category-gap + $nav-category-icon-width);
 
     .c-nav-inner {
         position: sticky;
+        top: 0;
         height: 100%; // 100% of the parent .c-nav container
         overflow-y: auto;
 
