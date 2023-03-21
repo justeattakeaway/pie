@@ -6,7 +6,7 @@ eleventyNavigation:
 ---
 ## Why do we use radius?
 
-Radius aids us in emphasising and highlighting specific design features in our products. It's easier to scan an interface by following circles and curves rather than abrupt edges, which can disrupt our line of sight.
+Radius helps us emphasise and highlight specific design features in our products. It's easier to scan an interface by following circles and curves rather than abrupt edges, which can disrupt our line of sight.
 
 ---
 
@@ -17,23 +17,23 @@ These include:
 
 ### Partial rounding
 
-This group includes all radii that maintain the component’s proportions by partially rounding their edges. We use multiples of 4px/pt/dp to set the levels of roundness.
+This group includes all radiuses that maintain the component proportions by partially rounding their edges. We use multiples of 4px/pt/dp to set the levels of roundness.
 
 {% contentPageImage {
     src:"../../../assets/img/foundations/radius/default-rounding.svg",
     width: "270px",
-    caption: "Visual example of how default rounding looks in a Modal component."
+    caption: "Visual example of how default rounding looks in a modal component."
 } %}
 
 ### Full rounding
 
-It allows us to create fully rounded corners keeping the component’s proportions. We use a set size of 50rem, which ensures our components always have fully rounded corners regardless of their size.
+It allows us to create fully-rounded corners keeping the component proportions. We use a set size of 50rem, which ensures our components always have fully-rounded corners regardless of their size.
 
 
 {% contentPageImage {
     src:"../../../assets/img/foundations/radius/full-rounding.svg",
     width: "97px",
-    caption: "Visual example of how full rounding looks in a Button component."
+    caption: "Visual example of how full rounding looks in a button component."
 } %}
 
 ---
@@ -50,9 +50,7 @@ We’ve put together a quick set of tips that will help you choose which roundin
 
 Use 0px/pt/dp (non-rounded) corners for basic or structural design elements. This would apply to any design element or component that spans full width within its container or the page.
 
-Basic layout structures and containers, such as toolbars or section splitters should use 0dp corners.
-
-The example above shows two components without any radius applied to their corners.
+Basic layout structures and containers, such as toolbars or section splitters, should use 0dp corners.
 
 {% contentPageImage {
     src:"../../../assets/img/foundations/radius/no-radius.svg",
@@ -73,8 +71,7 @@ Partial rounding units are the most commonly used measures for our design elemen
 
 ### Full rounding
 
-Full rounding should be used sparingly, trying to only assign it to elements that sit in a higher position within the visual hierarchy (like Buttons, Chips and FABs). Using full rounding strategically allows us to draw the user’s attention to these design elements, maintaining their position as the highest priority elements in the visual hierarchy.
-
+Full rounding should be used sparingly, try to only assign it to elements that sit in a higher position within the visual hierarchy (like buttons, chips and FABs). Using full rounding strategically allows us to draw the user’s attention to these design elements, maintaining their position as the highest priority elements in the visual hierarchy.
 
 {% contentPageImage {
     src:"../../../assets/img/foundations/radius/full-rounding-components.svg",
