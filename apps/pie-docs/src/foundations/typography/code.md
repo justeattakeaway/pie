@@ -104,9 +104,9 @@ The basic strategy is to load in the `JETSansDigital-Regular` webfont as soon as
    })();
    ```
 
-This lazily loads in the `JETSansDigital-Bold` and `JETSansDigital-ExtraBold` fonts to take over from the faux bold rendering of the regular font.
+  This lazily loads in the `JETSansDigital-Bold` and `JETSansDigital-ExtraBold` fonts to take over from the faux bold rendering of the regular font.
 
-N.b. You should also put the two webfont URLs into your service worker so that they are cached at browser level, saving additional requests on repeat visits.
+  N.b. You should also put the two webfont URLs into your service worker so that they are cached at browser level, saving additional requests on repeat visits.
 
 **3. You should now be able to use the** `JETSansDigital` **font when defining your** `font-family` **in CSS**
 
