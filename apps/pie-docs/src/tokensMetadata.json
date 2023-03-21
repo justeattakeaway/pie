@@ -1244,25 +1244,25 @@
         "interactive-l": {
           "category": "interactive",
           "displayName": "Interactive L",
-          "description": "Used for labels in large sized button components + numeric counter.",
+          "description": "Used for labels in large-sized button components and numeric counters.",
           "globalToken": ["$font-size-20", "$font-family-primary", "$font-weight-bold", "$letter-spacing-00"]
         },
         "interactive-m": {
           "category": "interactive",
           "displayName": "Interactive M",
-          "description": "Used for labels in medium sized button components.",
+          "description": "Used for labels in medium-sized button components.",
           "globalToken": ["$font-size-19", "$font-family-primary", "$font-weight-bold", "$letter-spacing-00"]
         },
         "interactive-s": {
           "category": "interactive",
           "displayName": "Interactive S",
-          "description": "Used for labels in small sized button components.",
+          "description": "Used for labels in small-sized button components.",
           "globalToken": ["$font-size-16", "$font-family-primary", "$font-weight-bold", "$letter-spacing-00"]
         },
         "interactive-xs": {
           "category": "interactive",
           "displayName": "Interactive XS",
-          "description": "Used for labels in extra small sized button components.",
+          "description": "Used for labels in extra-small-sized button components.",
           "globalToken": ["$font-size-14", "$font-family-primary", "$font-weight-bold", "$letter-spacing-00"]
         }
       },
@@ -1384,25 +1384,25 @@
         "interactive-l": {
           "category": "interactive",
           "displayName": "Interactive L",
-          "description": "Used for labels in large sized button components + numeric counter.",
+          "description": "Used for labels in large-sized button components and numeric counters.",
           "globalToken": ["$font-size-20", "$font-family-primary", "$font-weight-bold", "$letter-spacing-00"]
         },
         "interactive-m": {
           "category": "interactive",
           "displayName": "Interactive M",
-          "description": "Used for labels in medium sized button components.",
+          "description": "Used for labels in medium-sized button components.",
           "globalToken": ["$font-size-19", "$font-family-primary", "$font-weight-bold", "$letter-spacing-00"]
         },
         "interactive-s": {
           "category": "interactive",
           "displayName": "Interactive S",
-          "description": "Used for labels in small sized button components.",
+          "description": "Used for labels in small-sized button components.",
           "globalToken": ["$font-size-16", "$font-family-primary", "$font-weight-bold", "$letter-spacing-00"]
         },
         "interactive-xs": {
           "category": "interactive",
           "displayName": "Interactive XS",
-          "description": "Used for labels in extra small sized button components.",
+          "description": "Used for labels in extra-small-sized button components.",
           "globalToken": ["$font-size-14", "$font-family-primary", "$font-weight-bold", "$letter-spacing-00"]
         }
       }
@@ -1603,61 +1603,61 @@
         "01": {
           "category": "defaultElevation",
           "displayName": "Elevation 01",
-          "description": "Used for Map markers and Cards.",
+          "description": "Used for map markers and cards.",
           "globalToken": "$box-shadow-01"
         },
         "02": {
           "category": "defaultElevation",
           "displayName": "Elevation 02",
-          "description": "Used for raised Buttons (e.g. over a map), knobs on sliders and Dropdown input fields.",
+          "description": "Used for raised buttons (e.g. over a map), knobs on sliders and dropdown input fields.",
           "globalToken": "$box-shadow-02"
         },
         "03": {
           "category": "defaultElevation",
           "displayName": "Elevation 03",
-          "description": "Used for FABS and sticky CTAs, sticky headers, navigation bars or Banners and Notifications.",
+          "description": "Used for FABs and sticky CTAs, sticky headers, navigation bars or banners and notifications.",
           "globalToken": "$box-shadow-03"
         },
         "04": {
           "category": "defaultElevation",
           "displayName": "Elevation 04",
-          "description": "Used for Modal.",
+          "description": "Used for modals.",
           "globalToken": "$box-shadow-04"
         },
         "05": {
           "category": "defaultElevation",
           "displayName": "Elevation 05",
-          "description": "Used for Bottom Sheets.",
+          "description": "Used for bottom sheets and bottom menus.",
           "globalToken": "$box-shadow-05"
         },
         "inverse-01": {
           "category": "inverseElevation",
           "displayName": "Elevation inverse 01",
-          "description": "Used for Map markers and cards.",
+          "description": "Used for map markers and cards.",
           "globalToken": "$box-shadow-06"
         },
         "inverse-02": {
           "category": "inverseElevation",
           "displayName": "Elevation inverse 02",
-          "description": "Used for raised Buttons (e.g. over a map), knobs on sliders and Dropdown input fields.",
+          "description": "Used for raised buttons (e.g. over a map), knobs on sliders and dropdown input fields.",
           "globalToken": "$box-shadow-07"
         },
         "inverse-03": {
           "category": "inverseElevation",
           "displayName": "Elevation inverse 03",
-          "description": "Used for FABS and sticky CTAs, sticky headers, navigation bars or Banners and Notifications.",
+          "description": "Used for FABs and sticky CTAs, sticky headers, navigation bars or banners and notifications.",
           "globalToken": "$box-shadow-08"
         },
         "inverse-04": {
           "category": "inverseElevation",
           "displayName": "Elevation inverse 04",
-          "description": "Used for Modal.",
+          "description": "Used for modals.",
           "globalToken": "$box-shadow-09"
         },
         "inverse-05": {
           "category": "inverseElevation",
           "displayName": "Elevation inverse 05",
-          "description": "Used for Modal.",
+          "description": "Used for bottom sheets and bottom menus.",
           "globalToken": "$box-shadow-10"
         }
       },
@@ -1665,14 +1665,14 @@
         "01": {
           "category": "defaultElevation",
           "displayName": "Elevation 01",
-          "description": "Used for Map markers and Cards.",
+          "description": "Used for map markers and cards.",
           "globalToken": "$box-shadow-06"
         },
 
         "02": {
           "category": "defaultElevation",
           "displayName": "Elevation 02",
-          "description": "Used for raised Buttons (e.g. over a map), knobs on sliders and Dropdown input fields.",
+          "description": "Used for raised buttons (e.g. over a map), knobs on sliders and dropdown input fields.",
           "globalToken": "$box-shadow-07"
         },
 
@@ -1686,14 +1686,14 @@
         "04": {
           "category": "defaultElevation",
           "displayName": "Elevation 04",
-          "description": "Used for Modal.",
+          "description": "Used for modals.",
           "globalToken": "$box-shadow-09"
         },
 
         "05": {
           "category": "defaultElevation",
           "displayName": "Elevation 05",
-          "description": "Used for Modal.",
+          "description": "Used for bottom sheets and bottom menus.",
           "globalToken": "$box-shadow-10"
         },
 
@@ -1714,21 +1714,21 @@
         "inverse-03": {
           "category": "inverseElevation",
           "displayName": "Elevation inverse 03",
-          "description": "Used for raised Buttons (e.g. over a map), knobs on sliders and Dropdown input fields.",
+          "description": "Used for raised buttons (e.g. over a map), knobs on sliders and dropdown input fields.",
           "globalToken": "$box-shadow-03"
         },
 
         "inverse-04": {
           "category": "inverseElevation",
           "displayName": "Elevation inverse 04",
-          "description": "Used for Map markers and cards.",
+          "description": "Used for map markers and cards.",
           "globalToken": "$box-shadow-04"
         },
 
         "inverse-05": {
           "category": "inverseElevation",
           "displayName": "Elevation inverse 05",
-          "description": "Used for Map markers and cards.",
+          "description": "Used for bottom sheets and bottom menus.",
           "globalToken": "$box-shadow-05"
         }
       }

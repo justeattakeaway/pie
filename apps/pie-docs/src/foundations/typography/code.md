@@ -5,8 +5,7 @@ eleventyNavigation:
     order: 4
 ---
 ## The JETSansDigital Fontpack
-
-On JET Platforms, we use our custom font `JETSansDigital`. The full fontpack for these fonts [can be downloaded here](https://d30v2pzvrfyzpo.cloudfront.net/fonts/jetsansdigital-fontpack.zip). we recommend that you use the fonts via CDN, and they are all available on these links:
+On JET platforms, we use our custom font `JETSansDigital`. The full fontpack for these fonts [can be downloaded here](https://d30v2pzvrfyzpo.cloudfront.net/fonts/jetsansdigital-fontpack.zip). We recommend that you use the fonts via CDN and they are all available on these links:
 
 ```shell
 # For the base subset
@@ -40,7 +39,9 @@ For more details on font optimisation and how we subset our fonts, check out the
 
 ## Font loading
 
-For any platform wanting to utilise the `JETSansDigital` fonts, we recommend following these implementation steps, which closely follows the [Critical FOFT with Preload](https://www.zachleat.com/web/comprehensive-webfonts/#critical-foft-preload) technique as outlined by Zach Leat. A working demo can also be found of this loading strategy [on Codepen](https://codepen.io/ashleynolan/pen/gOrMpex).
+On the Just Eat and Menulog platform we use our custom font `JETSansDigital`, of which we currently use three weights: Regular, Bold and ExtraBold.
+
+For any platform wanting to consume these fonts, we recommend implementing them using the [Critical FOFT with Preload](https://www.zachleat.com/web/comprehensive-webfonts/#critical-foft-preload) technique as outlined by Zach Leat. A working demo of this loading strategy can be found on [Codepen](https://codepen.io/ashleynolan/pen/gOrMpex).
 
 The basic strategy is to load in the `JETSansDigital-Regular` webfont as soon as possible. A faux bold is applied to this regular font while we lazy load in the `JETSansDigital-Bold` and `JETSansDigital-ExtraBold` webfonts, which then re-renders the faux bold as the intended bold typeface.
 
@@ -103,9 +104,9 @@ The basic strategy is to load in the `JETSansDigital-Regular` webfont as soon as
    })();
    ```
 
-   This lazily loads in the `JETSansDigital-Bold` and `JETSansDigital-ExtraBold` fonts to take over from the Faux Bold rendering of the Regular font.
+  This lazily loads in the `JETSansDigital-Bold` and `JETSansDigital-ExtraBold` fonts to take over from the faux bold rendering of the regular font.
 
-   N.b. You should also put the two webfont URLs into your service worker so that they are cached at browser level, saving additional requests on repeat vists.
+  N.b. You should also put the two webfont URLs into your service worker so that they are cached at browser level, saving additional requests on repeat visits.
 
 **3. You should now be able to use the** `JETSansDigital` **font when defining your** `font-family` **in CSS**
 
@@ -130,11 +131,11 @@ alt: "Overview of the main font specification for JETSans Digital"
 
 ### How to subset a font
 
-To subset a base font like the one we use, you will need to use a command line tool called `pyftsubset` which is [available as part of the fonttools library](https://github.com/fonttools/fonttools). For more information on installing `pyftsubset`, [see this blogpost](https://markoskon.com/creating-font-subsets/#install-fonttools) which explains how to do that and covers any associated dependencies you'll also need (such as `pip`).
+To subset a base font like the one we use, you will need to use a command line tool called `pyftsubset` which is available as part of the fonttools library. For more information on installing `pyftsubset`, see this blogpost which explains how to do that and covers any associated dependencies you'll also need (such as `pip`).
 
-Once you have `pyftsubset` installed, you can then optimise your font!
+Once you have `pyftsubset` installed you can optimise your font!
 
-For JETSansDigital, we create two subsets; base and extended. To create our base subset, we run `pyftsubset` on `JETSansDigital-Regular.ttf`, `JETSansDigital-Bold.ttf` and `JETSansDigital-ExtraBold.ttf`, with the following rules:
+For JETSansDigital, we subset the `JETSansDigital-Regular.ttf`, `JETSansDigital-Bold.ttf` and `JETSansDigital-ExtraBold.ttf`, with the following rules:
 
 ```sh
 # JETSansDigital-Regular
