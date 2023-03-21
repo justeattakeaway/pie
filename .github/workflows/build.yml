@@ -77,8 +77,6 @@ jobs:
       # Build Packages
       - name: Build Packages
         run: yarn build
-        env:
-          PIE_URL_PREFIX: /pr-preview-docs/pr-${{github.event.number}}/
       # Lint JS
       - name: Lint JavaScript
         run: yarn lint:scripts
@@ -86,6 +84,7 @@ jobs:
       - name: Unit Tests
         run: yarn test:ci
     env:
+      PIE_URL_PREFIX: /pr-preview-docs/pr-${{github.event.number}}/
       TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
 
   deploy-docs:
@@ -182,6 +181,7 @@ jobs:
             pr-preview-storybook
     env:
       TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+      PIE_URL_PREFIX: pr-preview-docs/pr-${{github.event.number}}/
 
   browser-tests:
     needs: deploy-docs
