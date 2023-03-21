@@ -18,9 +18,9 @@ export default function Home () {
     const increment = () => setCount(count + 1);
     const decrement = () => setCount(count - 1);
 
-    const variants = Object.keys(BUTTON_VARIANT);
-    const variantKey = variants[variantIndex % variants.length];
-    const variantFromCount = BUTTON_VARIANT[variantKey];
+    const variants:string[] = Object.keys(BUTTON_VARIANT);
+    const variantKey:string = variants[variantIndex % variants.length];
+    const variantFromCount:BUTTON_VARIANT = BUTTON_VARIANT[variantKey as keyof typeof BUTTON_VARIANT];
 
     return (
         <>
@@ -56,9 +56,13 @@ export default function Home () {
                     <div>
                         {
                             Object.keys(BUTTON_SIZE)
-                                .map((key) => (
-                                    <Button size={BUTTON_SIZE[key]} key={key}>{key.toLowerCase()}</Button>
-                                ))
+                                .map((key) => {
+                                    const size:BUTTON_SIZE = BUTTON_SIZE[key as keyof typeof BUTTON_SIZE];
+
+                                    return (
+                                        <Button size={size} key={key}>{key.toLowerCase()}</Button>
+                                    );
+                                })
                         }
                     </div>
                 </div>
