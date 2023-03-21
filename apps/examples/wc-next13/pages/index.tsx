@@ -3,7 +3,6 @@ import Head from 'next/head';
 import { createComponent } from '@lit-labs/react';
 import { PieButton, BUTTON_SIZE, BUTTON_VARIANT } from '@justeattakeaway/pie-button';
 
-// eslint-disable-next-line no-unused-vars
 const Button = createComponent({
     tagName: 'pie-button',
     elementClass: PieButton,
