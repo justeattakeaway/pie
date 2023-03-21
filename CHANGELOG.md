@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.37.0
+
+### Minor Changes
+
+- [Added] - New `commitPrefix` property to branches created by Renovate. ([#329](https://github.com/justeattakeaway/pie/pull/329)) by [@siggerzz](https://github.com/siggerzz)
+
+- [Added] - new nuxt3 example app to `apps/examples` ([#321](https://github.com/justeattakeaway/pie/pull/321)) by [@LTurns](https://github.com/LTurns)
+
+### Patch Changes
+
+- [Fixed] - Issue in `renovate.json` where commitMessagePefix / dependency group names were incorrect ([#332](https://github.com/justeattakeaway/pie/pull/332)) by [@siggerzz](https://github.com/siggerzz)
+
 ## 1.36.0
 
 ### Minor Changes

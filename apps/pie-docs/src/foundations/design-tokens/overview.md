@@ -9,11 +9,11 @@ eleventyNavigation:
 
 Design tokens are the visual design atoms of the design system — specifically, they are named entities that store interface design attributes.
 
-We use them in place of hard-coded values (such as HEX values for Colour, or pixel values for Spacing) in order to maintain a scalable and consistent visual system for UI development.
+We use them in place of hard-coded values (such as HEX values for colour, or pixel values for spacing) in order to maintain a scalable and consistent visual system for UI development.
 
 Our tokens consist of two key elements:
 
-- A **token name**, such as $color-orange-30
+- **A token name**, such as $color-orange-30
 - **Associated values,** such as #FF8000
 
 {% contentPageImage {
@@ -30,7 +30,7 @@ The naming conventions given to these layers create a common language for design
 
 ## Types of Design Tokens
 
-There are two types of Design Tokens which make up the PIE design language.
+There are two types of Design Tokens that make up the PIE design language.
 
 ### Global Tokens
 
@@ -44,12 +44,12 @@ These tokens are both context-agnostic (meaning the name should not reflect any 
     caption: "The example above shows the HEX value assigned to the $color-orange-30 Global Token."
 } %}
 
-**Global Tokens’ key concepts:**
-- They represent the building blocks of our foundations.
-- Their naming should be value-specific.
-- Their naming shouldn’t be context-specific.
-- Their names should be the same across brands and themes.
-- When possible, they should contain only one value.
+**Global Token key concepts:**
+- They represent the building blocks of our foundations
+- Their naming should be value-specific
+- Their naming shouldn’t be context-specific
+- Their names should be the same across brands and themes
+- When possible, they should contain only one value
 
 
 ### Alias Tokens
@@ -65,13 +65,13 @@ These should be singular in their intended purpose, meaning they should relate o
     caption: "The example above shows $color-orange-30 being assigned as the Global Token used for the $brand-support-01 Alias Token."
 } %}
 
-**Alias Tokens’ key concepts:**
-- They hold design decisions.
-- They can be made up of one or many Global Tokens.
-- Their naming should be descriptive or semantic.
-- Their names should be the same across brands and themes.
-- They minimise future manual maintenance for products.
-- They allow easy, scalable theming.
+**Alias Token key concepts:**
+- They hold design decisions
+- They can be made up of one or many Global Tokens
+- Their naming should be descriptive or semantic
+- Their names should be the same across brands and themes
+- They minimise future manual maintenance for products
+- They allow easy, scalable theming
 
 ---
 
@@ -83,7 +83,7 @@ Using Design Tokens in both design and implementation means that style updates w
 
 ### Tokens enhance flexibility
 
-As we’ve mentioned before, tokens are used to replace hard-coded values, which allows designers to create more flexible and consistent design solutions. Design Tokens provide a way for designers to keep complete control over the atomic values used within the design system.
+As we’ve mentioned before, tokens are used to replace hard-coded values, which enables designers to create more flexible and consistent design solutions. Design Tokens provide a way for designers to keep complete control over the atomic values used within the design system.
 
 When a value needs to be updated, this can be done centrally (in one place, usually our source of truth file), and the new changes will be applied globally (in multiple places, usually in all our products and themes) across multiple platforms.
 

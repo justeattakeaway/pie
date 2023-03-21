@@ -1,5 +1,11 @@
 # wc-vue3
 
+## 0.3.0
+
+### Minor Changes
+
+- Add pie-button webcomponent to Vue 3 example app ([#325](https://github.com/justeattakeaway/pie/pull/325)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 0.2.0
 
 ### Minor Changes

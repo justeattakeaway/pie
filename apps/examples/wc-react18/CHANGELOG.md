@@ -1,5 +1,11 @@
 # wc-react18
 
+## 0.3.1
+
+### Patch Changes
+
+- Fix stylelint issues ([#325](https://github.com/justeattakeaway/pie/pull/325)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 0.3.0
 
 ### Minor Changes

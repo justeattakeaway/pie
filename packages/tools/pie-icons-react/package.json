@@ -40,7 +40,7 @@
     "@babel/node": "7.19.1",
     "@justeattakeaway/pie-icons": "2.0.1",
     "@svgr/core": "6.4.0",
-    "@types/react": "18.0.21",
+    "@types/react": "18.0.28",
     "pascal-case": "3.1.2",
     "react": "18.2.0",
     "rollup": "2.56.2",

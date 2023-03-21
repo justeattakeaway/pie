@@ -14,6 +14,7 @@
     },
     "pie-docs#build": {
       "cache": true,
+      "env": ["PIE_URL_PREFIX"],
       "dependsOn": [
         "^build",
         "@justeattakeaway/pie-icons#build"
@@ -72,11 +73,20 @@
       "outputs": []
     },
     "test:browsers": {
-      "cache": false,
+      "cache": true,
+      "inputs": [
+        "src/**",
+        "test/**"
+      ],
       "outputs": []
     },
     "test:browsers:ci": {
-      "cache": false
+      "cache": true,
+      "env": ["PIE_URL_PREFIX"],
+      "inputs": [
+        "src/**",
+        "test/**"
+      ]
     },
     "test:visual": {
       "cache": false,

@@ -14,7 +14,7 @@ description: This roadmap displays our current projects and future plans. Its ai
   * Navigation enhancements
 * Identifying and fixing accessibility violations
 * Supporting internal JET priorities
-* Build out a proof-of-concept (PoC) for a native Web Component implementation of our PIE component system using the [Lit Web Component library](https://lit.dev/).
+* Building out a proof-of-concept (PoC) for a native Web Component implementation of our PIE component system using the [Lit Web Component library](https://lit.dev/)
 * Laying the foundations of our web component library
   * Choosing the technology stack
   * Setting up our PIE monorepo
@@ -29,7 +29,7 @@ description: This roadmap displays our current projects and future plans. Its ai
   * Component pages
   * Pattern pages
   * Accessibility section
-* Roll out and integrate our components into web applications developed across JET
+* Rolling out and integrating our components into web applications across JET
 * Continuing to identify and fix accessibility violations
 * Supporting internal JET priorities
 * Investigating web components
