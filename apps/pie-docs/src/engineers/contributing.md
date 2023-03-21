@@ -20,7 +20,7 @@ We also run a [PIE engineering clinic](https://calendly.com/jetpie/engineering-c
 
 {% notification {
 type: "information",
-message: "Note that the booking link only goes live the day before the clinic."
+message: "The booking link for the PIE clinic goes live the day before each session."
 } %}
 
 ---

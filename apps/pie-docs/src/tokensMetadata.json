@@ -310,12 +310,12 @@
         },
         "divider-default": {
           "category": "dividers",
-          "description": "Divider for use above default and light coloured backgrounds",
+          "description": "Divider for use above default and light-coloured backgrounds",
           "globalToken": "$color-black @8%"
         },
         "divider-inverse": {
           "category": "dividers",
-          "description": "Divider for use above inverse and dark coloured backgrounds",
+          "description": "Divider for use above inverse and dark-coloured backgrounds",
           "globalToken": "$color-white @20%"
         },
         "interactive-brand": {
@@ -350,17 +350,17 @@
         },
         "overlay": {
           "category": "pageBackgrounds",
-          "description": "Transluscent background overlay / scrim",
+          "description": "Translucent background overlay",
           "globalToken": "$color-black @50%"
         },
         "support-neutral": {
           "category": "feedback",
-          "description": "Neutral; Used for neutral messaging and alerts",
+          "description": "Neutral; used for neutral messaging and alerts",
           "globalToken": "$color-mozzarella-20"
         },
         "support-error": {
           "category": "feedback",
-          "description": "Error; High impact messaging",
+          "description": "Error; high-impact messaging",
           "globalToken": "$color-red"
         },
         "support-error-02": {
@@ -370,7 +370,7 @@
         },
         "support-warning": {
           "category": "feedback",
-          "description": "Warning; Moderate impact messaging",
+          "description": "Warning; moderate impact messaging",
           "globalToken": "$color-yellow"
         },
         "support-warning-02": {
@@ -380,7 +380,7 @@
         },
         "support-positive": {
           "category": "feedback",
-          "description": "Success; Positive messaging",
+          "description": "Success; positive messaging",
           "globalToken": "$color-green"
         },
         "support-positive-02": {
@@ -395,7 +395,7 @@
         },
         "support-info": {
           "category": "feedback",
-          "description": "Information; Instructional messaging",
+          "description": "Information; instructional messaging",
           "globalToken": "$color-blue"
         },
         "support-info-02": {
@@ -410,37 +410,37 @@
         },
         "support-brand-01": {
           "category": "brand",
-          "description": "Special; Special attention messaging",
+          "description": "Special; special attention messaging",
           "globalToken": "$color-orange-30"
         },
         "support-brand-02": {
           "category": "brand",
-          "description": "Low contrast version of $support-brand-01 for subtle surfaces + effects",
+          "description": "Low contrast version of $support-brand-01 for subtle surfaces and effects",
           "globalToken": "$color-orange-10"
         },
         "support-brand-03": {
           "category": "brand",
-          "description": "Discretionary brand surfaces + effects",
+          "description": "Discretionary brand surfaces and effects",
           "globalToken": "$color-blue-25"
         },
         "support-brand-04": {
           "category": "brand",
-          "description": "Discretionary brand surfaces + effects",
+          "description": "Discretionary brand surfaces and effects",
           "globalToken": "$color-red-25"
         },
         "support-brand-05": {
           "category": "brand",
-          "description": "Discretionary brand surfaces + effects",
+          "description": "Discretionary brand surfaces and effects",
           "globalToken": "$color-yellow"
         },
         "support-brand-06": {
           "category": "brand",
-          "description": "Discretionary brand surfaces + effects",
+          "description": "Discretionary brand surfaces and effects",
           "globalToken": "$color-purple"
         },
         "support-brand-07": {
           "category": "brand",
-          "description": "Discretionary brand surfaces + effects",
+          "description": "Discretionary brand surfaces and effects",
           "globalToken": "$color-orange-55"
         },
         "content-default": {
@@ -698,12 +698,12 @@
         },
         "divider-default": {
           "category": "dividers",
-          "description": "Divider for use above default and light coloured backgrounds",
+          "description": "Divider for use above default and light-coloured backgrounds",
           "globalToken": "$color-white @20%"
         },
         "divider-inverse": {
           "category": "dividers",
-          "description": "Divider for use above inverse and dark coloured backgrounds",
+          "description": "Divider for use above inverse and dark-coloured backgrounds",
           "globalToken": "$color-black @8%"
         },
         "interactive-brand": {
@@ -738,12 +738,12 @@
         },
         "overlay": {
           "category": "pageBackgrounds",
-          "description": "Transluscent background overlay / scrim",
+          "description": "Translucent background overlay",
           "globalToken": "$color-black @50%"
         },
         "support-neutral": {
           "category": "feedback",
-          "description": "Neutral; Used for neutral messaging and alerts",
+          "description": "Neutral; used for neutral messaging and alerts",
           "globalToken": "$color-mozzarella-100"
         },
         "support-error": {
@@ -768,7 +768,7 @@
         },
         "support-positive": {
           "category": "feedback",
-          "description": "Success; Positive messaging",
+          "description": "Success; positive messaging",
           "globalToken": "$color-green-30"
         },
         "support-positive-02": {
@@ -783,7 +783,7 @@
         },
         "support-info": {
           "category": "feedback",
-          "description": "Information; Instructional messaging",
+          "description": "Information; instructional messaging",
           "globalToken": "$color-blue-30"
         },
         "support-info-02": {
@@ -798,37 +798,37 @@
         },
         "support-brand-01": {
           "category": "brand",
-          "description": "Special; Special attention messaging",
+          "description": "Special; special attention messaging",
           "globalToken": "$color-orange-30"
         },
         "support-brand-02": {
           "category": "brand",
-          "description": "Low contrast version of $support-brand-01 for subtle surfaces + effects",
+          "description": "Low contrast version of $support-brand-01 for subtle surfaces and effects",
           "globalToken": "$color-orange-90"
         },
         "support-brand-03": {
           "category": "brand",
-          "description": "Discretionary brand surfaces + effects",
+          "description": "Discretionary brand surfaces and effects",
           "globalToken": "$color-blue-25"
         },
         "support-brand-04": {
           "category": "brand",
-          "description": "Discretionary brand surfaces + effects",
+          "description": "Discretionary brand surfaces and effects",
           "globalToken": "$color-red-25"
         },
         "support-brand-05": {
           "category": "brand",
-          "description": "Discretionary brand surfaces + effects",
+          "description": "Discretionary brand surfaces and effects",
           "globalToken": "$color-yellow"
         },
         "support-brand-06": {
           "category": "brand",
-          "description": "Discretionary brand surfaces + effects",
+          "description": "Discretionary brand surfaces and effects",
           "globalToken": "$color-purple"
         },
         "support-brand-07": {
           "category": "brand",
-          "description": "Discretionary brand surfaces + effects",
+          "description": "Discretionary brand surfaces and effects",
           "globalToken": "$color-orange-55"
         },
         "content-default": {
