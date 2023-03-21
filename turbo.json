@@ -76,8 +76,7 @@
       "cache": true,
       "inputs": [
         "src/**",
-        "test/system/**",
-        "test/accessibility/**"
+        "test/**"
       ],
       "outputs": []
     },
@@ -86,8 +85,7 @@
       "env": ["PIE_URL_PREFIX"],
       "inputs": [
         "src/**",
-        "test/system/**",
-        "test/accessibility/**"
+        "test/**"
       ]
     },
     "test:visual": {
