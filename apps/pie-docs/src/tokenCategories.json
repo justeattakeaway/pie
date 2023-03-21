@@ -2,7 +2,7 @@
   "color": {
     "global": {
       "whiteBlack": {
-        "displayName": "White and Black"
+        "displayName": "White and black"
       },
       "orange": {
         "displayName": "Orange"
@@ -32,7 +32,7 @@
         "displayName": "System"
       },
       "highContrast": {
-        "displayName": "High Contrast"
+        "displayName": "High contrast"
       }
     },
     "alias": {

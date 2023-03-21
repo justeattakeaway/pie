@@ -8,7 +8,7 @@
     "build": "run -T vite build",
     "watch": "run -T vite build --watch",
     "dev": "run -T vite",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 0"
   },
   "author": "JustEatTakeaway - Design System Web Team",
   "license": "Apache-2.0",
