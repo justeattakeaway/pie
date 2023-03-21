@@ -133,6 +133,7 @@ jobs:
             ./pr-preview-storybook
             ./storybook
     env:
+      PIE_URL_PREFIX: /pr-preview-docs/pr-${{github.event.number}}/
       TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
 
   deploy-storybook:
@@ -181,7 +182,6 @@ jobs:
             pr-preview-storybook
     env:
       TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
-      PIE_URL_PREFIX: pr-preview-docs/pr-${{github.event.number}}/
 
   browser-tests:
     needs: deploy-docs
