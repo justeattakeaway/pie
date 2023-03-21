@@ -34,7 +34,7 @@ Refer to the `nuxt.config.ts` file. A compiler option was added to tell Vue to t
 
 ### Import and use the component
 
-For a complete example refer to `src/App.vue`.
+For a complete example refer to `app.vue`.
 
 ```
 <template>
