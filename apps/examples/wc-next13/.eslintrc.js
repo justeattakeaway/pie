@@ -4,9 +4,4 @@ module.exports = {
         'eslint:recommended',
         'next',
     ],
-    // parserOptions: {
-    //     ecmaFeatures: {
-    //         jsx: true,
-    //     },
-    // },
 };
