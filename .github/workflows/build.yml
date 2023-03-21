@@ -39,6 +39,13 @@ jobs:
         with:
           node-version: 16
           cache: "yarn"
+      # Restore node_modules if cache exists. If not, cache is created at end of build.
+      - name: Cache Node Modules
+        id: cache-node-modules
+        uses: actions/cache@v3
+        with:
+          path: "**/node_modules"
+          key: node-modules-${{ hashFiles('**/yarn.lock') }}
       # Run 'yarn' if cache doesn't exist. Use --prefer-offline to download packages from yarn cache folder where possible
       - name: Install Dependencies
         if: steps.cache-node-modules.outputs.cache-hit != 'true'
@@ -57,6 +64,13 @@ jobs:
         with:
           node-version: 16
           cache: "yarn"
+      # Restore node_modules if cache exists. If not, cache is created at end of build.
+      - name: Cache Node Modules
+        id: cache-node-modules
+        uses: actions/cache@v3
+        with:
+          path: "**/node_modules"
+          key: node-modules-${{ hashFiles('**/yarn.lock') }}
       # Lint Styles
       - name: Lint Styles
         run: yarn lint:style --concurrency=10
@@ -87,6 +101,13 @@ jobs:
         with:
           node-version: 16
           cache: "yarn"
+      # Restore node_modules if cache exists. If not, cache is created at end of build.
+      - name: Cache Node Modules
+        id: cache-node-modules
+        uses: actions/cache@v3
+        with:
+          path: "**/node_modules"
+          key: node-modules-${{ hashFiles('**/yarn.lock') }}
       # Build Projects
       - name: Build Apps
         run: yarn build --filter=pie-docs
@@ -128,6 +149,13 @@ jobs:
         with:
           node-version: 16
           cache: "yarn"
+      # Restore node_modules if cache exists. If not, cache is created at end of build.
+      - name: Cache Node Modules
+        id: cache-node-modules
+        uses: actions/cache@v3
+        with:
+          path: "**/node_modules"
+          key: node-modules-${{ hashFiles('**/yarn.lock') }}
       # Build Projects
       - name: Build Apps
         run: yarn build --filter=pie-storybook
@@ -170,6 +198,13 @@ jobs:
         with:
           node-version: 16
           cache: "yarn"
+      # Restore node_modules if cache exists. If not, cache is created at end of build.
+      - name: Cache Node Modules
+        id: cache-node-modules
+        uses: actions/cache@v3
+        with:
+          path: "**/node_modules"
+          key: node-modules-${{ hashFiles('**/yarn.lock') }}
       - name: Get installed Playwright version
         id: playwright-version
         run: echo "PLAYWRIGHT_VERSION=`node -p "require('./package.json')['devDependencies']['@playwright/test']"`" >> $GITHUB_ENV
@@ -225,6 +260,13 @@ jobs:
         with:
           node-version: 16
           cache: "yarn"
+      # Restore node_modules if cache exists. If not, cache is created at end of build.
+      - name: Cache Node Modules
+        id: cache-node-modules
+        uses: actions/cache@v3
+        with:
+          path: "**/node_modules"
+          key: node-modules-${{ hashFiles('**/yarn.lock') }}
       # Run 'yarn' if cache doesn't exist. Use --prefer-offline to download packages from yarn cache folder where possible
       - name: Install Dependencies
         if: steps.cache-node-modules.outputs.cache-hit != 'true'
