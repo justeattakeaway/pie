@@ -72,11 +72,21 @@
       "outputs": []
     },
     "test:browsers": {
-      "cache": false,
+      "cache": true,
+      "inputs": [
+        "src/**",
+        "test/system/**",
+        "test/accessibility/**"
+      ],
       "outputs": []
     },
     "test:browsers:ci": {
-      "cache": false
+      "cache": true,
+      "inputs": [
+        "src/**",
+        "test/system/**",
+        "test/accessibility/**"
+      ]
     },
     "test:visual": {
       "cache": false,

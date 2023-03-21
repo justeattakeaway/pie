@@ -150,14 +150,12 @@ esm
 #.pnp.*
 .vscode
 
+!.turbo/config.json
 .turbo
 build/**
 dist/
 
 .plugin-clean
-
-# WebDriverIO
-allure-results/
 
 # Playwright
 test-results/
