@@ -1,2 +1,8 @@
 $typography-content-max-width: 65ch;
 $wide-screen-content-max-width: 1200px;
+
+:root {
+    --header-height: 64px;
+    --sidenav-width-narrow: 560px;
+    --sidenav-width-wide: 260px;
+}

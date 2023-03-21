@@ -5,105 +5,109 @@ $nav-category-icon-width: f.spacing(e); // this needs to be kept in sync with th
 $nav-item-left-margin: calc($nav-category-gap + $nav-category-icon-width);
 
 .c-nav {
-  @include f.font-size('body-s');
-  background: f.$color-container-default;
-  padding-top: f.spacing(d);
+    @include f.font-size('body-s');
+    background: f.$color-container-default;
+    padding-top: f.spacing(d);
 
-  ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
+    @include f.media('>=wide') {
+        border-right: 1px solid f.$color-border-default;
+    }
 
-  hr {
-    margin: 0;
-  }
+    @include f.media('<wide') {
+        position: absolute;
+        top: var(--header-height);
+        height: calc(100% - var(--header-height)); // fallback rule for browsers that don't support dvh (used below)
+        height: calc(100dvh - var(--header-height));
+        width: 80%;
+        max-width: var(--sidenav-width-narrow);
+        z-index: f.zIndex(high);
+    }
 
-  @include f.media('>=wide') {
-    border-right: 1px solid f.$color-border-default;
-  }
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
 
-  @include f.media('<wide') {
-    max-width: 80%;
-    position: relative;
-    z-index: f.zIndex(high);
-  }
+    hr {
+        margin: 0;
+    }
 
-  .c-nav-list {
-    margin: f.spacing(a) 0 f.spacing(b) 0;
-  }
+    .c-nav-list {
+        margin: f.spacing(a) 0 f.spacing(b) 0;
+    }
 }
 
-.c-nav-item:hover,
-.c-nav-item:focus,
-.c-nav-category:hover,
-.c-nav-category:focus {
-  background-color: f.$color-container-subtle;
-  text-decoration: underline;
-}
+    .c-nav-inner {
+        position: sticky;
+        top: 0;
+        height: 100%; // 100% of the parent .c-nav container
+        overflow-y: auto;
 
-// Hide the default summary icon
-.c-nav-category::-webkit-details-marker,
-.c-nav-category::marker {
-  display: none;
-  content: '';
-}
+        @include f.media('>=wide') {
+            max-height: 100vh;
+        }
+    }
 
+    .c-nav-category {
+        display: flex;
+        align-items: center;
+        gap: $nav-category-gap;
+        padding: 10px f.spacing(d);
+        font-weight: f.$font-weight-bold;
+    }
+
+    // Hide the default summary icon
+    .c-nav-category::-webkit-details-marker,
+    .c-nav-category::marker {
+        display: none;
+        content: '';
+    }
+
+        .c-nav-item {
+            display: block;
+            padding: 10px f.spacing(d);
+            margin: 0 f.spacing(d) 2px $nav-item-left-margin;
+            text-decoration: none;
+            color: f.$color-content-default;
+
+            &.is-active {
+                background-color: f.$color-container-subtle;
+                font-weight: f.$font-weight-bold;
+            }
+
+            &.is-active,
+            &:hover,
+            &:focus {
+                border-radius: f.$radius-rounded-b;
+            }
+        }
+
+
+    .c-nav-item,
+    .c-nav-category {
+        cursor: pointer;
+
+        &:hover,
+        &:focus {
+            background-color: f.$color-container-subtle;
+            text-decoration: underline;
+        }
+    }
+
+// SideNav accordion toggle
 .c-nav-toggle {
-  margin-left: auto;
-  display: none;
-
-  .c-nav details[open] & {
-    display: block;
-  }
-}
-.c-nav-toggle--open {
-  display: block;
-
-  .c-nav details[open] & {
+    margin-left: auto;
     display: none;
-  }
+
+    .c-nav details[open] & {
+        display: block;
+    }
 }
+    .c-nav-toggle--open {
+        display: block;
 
-.c-nav-category {
-  display: flex;
-  align-items: center;
-  gap: $nav-category-gap;
-  padding: 10px f.spacing(d);
-  font-weight: f.$font-weight-bold;
-}
-
-.c-nav-category,
-.c-nav-item {
-  cursor: pointer;
-}
-
-.c-nav-item {
-  display: block;
-  padding: 10px f.spacing(d);
-  margin: 0 f.spacing(d) 2px $nav-item-left-margin;
-  text-decoration: none;
-  color: f.$color-content-default;
-
-  &.is-active {
-    background-color: f.$color-container-subtle;
-    font-weight: f.$font-weight-bold;
-  }
-
-  &.is-active, &:hover, &:focus {
-    border-radius: f.$radius-rounded-b;
-  }
-}
-
-.c-nav-inner {
-  position: sticky;
-  top: 0;
-  bottom: 0;
-  // This is to prevent the ios safari address bar from covering part of the nav in mobile
-  max-height: 75vh;
-  overflow-y: auto;
-
-  @include f.media('>=wide') {
-    max-height: 100vh;
-  }
-}
+        .c-nav details[open] & {
+            display: none;
+        }
+    }

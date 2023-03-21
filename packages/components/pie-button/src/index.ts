@@ -36,11 +36,18 @@ export class PieButton extends LitElement {
             'o-btn--is-disabled': disabled,
         };
 
+        const raiseWCEvent = () => {
+            const event = new Event('CustomEvent')
+            console.info('WC event dispatched')
+            this.dispatchEvent(event)
+        }
+
         return html`
             <button
                 class=${classMap(classes)}
                 type=${type}
-                ?disabled=${disabled}>
+                ?disabled=${disabled}
+                @click="${raiseWCEvent}">
                 I'm a PIE button
             </button>`;
     }

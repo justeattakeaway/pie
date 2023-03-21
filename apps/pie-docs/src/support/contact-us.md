@@ -9,7 +9,7 @@ description: Have a question about our design system? The PIE team is here to as
 
 ## Have you checked our FAQs?
 
-Please check out our [FAQs](/support/faq) in case we’ve already answered any questions you may have about PIE.
+Please check our [FAQs](/support/faq), in case we've already answered your question.
 
 ---
 

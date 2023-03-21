@@ -1,6 +1,4 @@
-import type { PlaywrightTestConfig } from '@sand4rt/experimental-ct-web';
-import { devices } from '@playwright/test';
-import os from 'os';
+import { PlaywrightTestConfig, devices } from '@playwright/test';
 
 const { getBaseUrl } = require('./apps/pie-docs/test/helpers/configuration-helper');
 const baseURL = getBaseUrl();
@@ -31,10 +29,10 @@ const config: PlaywrightTestConfig = {
   forbidOnly: !!process.env.CI,
   /* Retry on CI only */
   retries: process.env.CI ? 2 : 0,
-  /* Opt out of parallel tests on CI. */
-  workers: os.cpus().length,
+  /* All CPUs on CI / half of available CPUs when testing locally. */
+  workers: process.env.CI ? '100%' : '50%',
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'html',
+  reporter: [['html', { outputFolder: 'visual-report' }]],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
@@ -43,7 +41,7 @@ const config: PlaywrightTestConfig = {
     baseURL: process.env.BASE_URL,
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'on',
+    trace: 'on-first-retry',
 
     /* Sets the default getByTestId function attribute to the data-test-id format */
     testIdAttribute: 'data-test-id',
@@ -53,37 +51,20 @@ const config: PlaywrightTestConfig = {
 
   projects: [
     {
-      name: 'a11y:chrome',
+      name: 'visual:desktop',
+      grepInvert: /@mobile/,
       use: {
         ...devices['Desktop Chrome'],
       },
-      testMatch: ['**/test/accessibility/*.spec.js']
+      testMatch: ['**/test/visual/*.spec.js']
     },
     {
-      name: 'system:chrome',
-      grep: /@desktop/,
-      use: {
-        ...devices['Desktop Chrome'],
-      },
-      testMatch: ['**/test/system/*.spec.js']
-    },
-    {
-      name: 'system:ios',
-      grep: /@mobile/,
-      use: {
-        ...devices['iPhone X'],
-        
-      },
-      testMatch: ['**/test/system/*.spec.js']
-    },
-    {
-      name: 'system:android',
+      name: 'visual:mobile',
       grep: /@mobile/,
       use: {
         ...devices['Pixel 5'],
-        
       },
-      testMatch: ['**/test/system/*.spec.js']
+      testMatch: ['**/test/visual/*.spec.js']
     },
   ],
 
