@@ -33,7 +33,7 @@ This set should be used for illustrative purposes, such as communications or mar
 
 ## Icon anatomy
 
-Our icons are always placed inside a bounding box, which ensures that vertical and horizontal spacing always adhere to the guidance shown in our [spacing guides](/foundations/spacing/overview/).
+Our icons are always placed inside a bounding box, which ensures that vertical and horizontal spacing always adheres to the guidance shown in our [spacing guides](/foundations/spacing/overview/).
 
 When exporting icons for your products, please export the whole bounding box, instead of just the icon area.
 
@@ -148,7 +148,7 @@ This instance uses the fill appearance of the icon to indicate the change in its
 ---
 ## Using icons in your products
 
-Choosing and using icons for your products isn’t an easy task. Especially if we consider that an excellent icon can extract the most important visual characteristics of a product or idea in order to make the depiction instantly recognisable.
+Choosing and using icons for your products isn’t an easy task. An excellent icon can extract the most important visual characteristics of a product or idea, making the depiction instantly recognisable.
 
 In this section you’ll find some factors you need to keep in mind when using icons within your interfaces.
 

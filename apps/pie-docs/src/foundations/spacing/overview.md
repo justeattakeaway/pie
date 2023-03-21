@@ -10,7 +10,7 @@ There are several types of spacing we can use to place elements within layouts a
 
 ### Padding
 
-Padding is the distance between elements within a component, and can be applied vertically any horizontally.
+Padding is the distance between the edge of an element and its content. It can be specified horizontally, vertically, or both.
 
 
 {% contentPageImage {
@@ -45,7 +45,7 @@ caption: "The example above shows how a primary button’s width spans across 32
 
 Our main approach for designing components can be categorised as ‘element first’. This means that the sizing of components and design elements takes priority when matched to our predetermined spatial system. We follow this approach to keep a consistent rhythm within the overall composition and layout of our designs.
 
-For instance, an element might be set to always have a height of 48px, regardless of the content found inside it. This means that if the component has different variations (like different typographic sizes) it will always preserve a 48px height, and it’s the internal padding that’s going to change to accommodate the difference in height.
+For instance, an element might be set to always have a height of 48px, regardless of the content found inside it. This means that if the component has different variations (like different typographic sizes) it will always preserve a 48px height, and it’s the internal padding will change to accommodate the difference in height.
 
 {% contentPageImage {
 src:"../../../assets/img/foundations/spacing/approach-01.svg",
@@ -96,9 +96,9 @@ Here are some examples of use which might help guide your decisions when applyin
 
 ### Layout spacing
 
-Horizontal spacing within design layouts should always try to adhere to our predefined grids.  As we follow an element-first approach, try to expand your components to fill up the necessary columns within the Grid.
+Horizontal spacing within design layouts should always try to adhere to our predefined grids. As we follow an element-first approach, try to expand your components to fill up the necessary columns within the grid.
 
-Regarding vertical spacing, make sure to use spacing as a way to create meaningful blocks of content, using bigger and smaller spacing measures to improve the visual hierarchy of your layout and to keep a consistent vertical rhythm within the page.
+Make sure to use vertical spacing as a way to create meaningful blocks of content. Using bigger and smaller spaces to improve the visual hierarchy of your layout and to keep a consistent vertical rhythm within the page.
 
 {% contentPageImage {
 src:"../../../assets/img/foundations/spacing/layout-spacing.svg",
@@ -118,7 +118,7 @@ width: "424px"
 
 ### Typography spacing
 
-When using spacing between typographic elements, try to ensure legibility is prioritised. You can also use spacing to dictate the visual hierarchy of your text, using tighter spaces to create blocks of content and bigger spaces to separate unrelated bits of content.
+When using spacing between typographic elements, try to prioritise legibility is prioritised. You can also use spacing to dictate the visual hierarchy of your text, using tighter spaces to create blocks of content and bigger spaces to separate unrelated bits of content.
 
 {% contentPageImage {
 src:"../../../assets/img/foundations/spacing/typography-spacing.svg",

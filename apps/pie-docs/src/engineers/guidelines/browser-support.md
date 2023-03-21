@@ -12,11 +12,11 @@ eleventyComputed:
 
 ## Browser support
 
-Users have access to hundreds of browsers, so we've come up with a rating system to measure the level of browser support we want to achieve and the level of testing needed.
+Users have access to hundreds of browsers, so instead of assessing them all individually we've come up with a rating system which defines different levels of browser support and the testing requirements for each level. We've assigned the highest ratings to the browsers that are most commonly used by our customers.
 
 {% notification {
 type: "warning",
-message: "This list needs to be reviewed often,  so we can stay up-to-date with the browsers our users are choosing."
+message: "This list needs to be reviewed often, so we can stay up-to-date with the browsers chosen by our users."
 } %}
 
 ---
@@ -39,7 +39,7 @@ message: "This list needs to be reviewed often,  so we can stay up-to-date with 
 
 {% notification {
 type: "information",
-message: "Browsers rated at B or C may have a higher user experience than expected."
+message: "Browsers rated at B or C may have a better user experience than expected."
 } %}
 
 A good example of this would be users browsing using Opera. The reason we don't "Fully Support" this browser is simply down to user metrics, not the quality of the browser. We'd actually expect most functionality to work with no real issues, although we don't officially test in this browser.

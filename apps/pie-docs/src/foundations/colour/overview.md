@@ -6,7 +6,7 @@ eleventyNavigation:
 ---
 ## Our colour principles
 
-We have a set of principles to help you apply colour in your products more effectively.
+We have a set of principles to help you use colour in your products more effectively.
 
 ### Communication is key
 
@@ -28,7 +28,7 @@ caption: "Some of the meanings we have determined for our ‘Supportive’ colou
 
 ### Colours follow accessibility guidelines
 
-The colour system is designed within the HSLuv colour space to generate themes that meet WCAG 2.1 compliant contrast ratios. This makes interface elements easier to find, identify, and interact with. It also makes the whole experience more accessible for users who are colour-blind or who have low vision. However you should never convey information using colour alone.
+The colour system is designed within the [HSLuv](https://www.hsluv.org) colour space to generate themes that meet WCAG 2.1 compliant contrast ratios. This makes interface elements easier to find, identify, and interact with. It also makes the whole experience more accessible for users who are colour-blind or who have low vision. However you should never convey information using colour alone.
 
 {% contentPageImage {
 src:"../../../assets/img/foundations/colour/colour-accessibility.svg",

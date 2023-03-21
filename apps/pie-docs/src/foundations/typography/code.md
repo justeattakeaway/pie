@@ -131,11 +131,11 @@ alt: "Overview of the main font specification for JETSans Digital"
 
 ### How to subset a font
 
-To subset a base font like the one we use, you will need to use a command line tool called `pyftsubset` which is available as part of the fonttools library. For more information on installing `pyftsubset`, see this blogpost which explains how to do that and covers any associated dependencies you'll also need (such as `pip`).
+To subset a base font like the one we use, you will need to use a command line tool called `pyftsubset` which is available as part of the fonttools library. For more information on installing `pyftsubset`, see this blog post which explains how to do that and covers any associated dependencies you'll also need (such as `pip`).
 
 Once you have `pyftsubset` installed you can optimise your font!
 
-For JETSansDigital, we subset the `JETSansDigital-Regular.ttf`, `JETSansDigital-Bold.ttf` and `JETSansDigital-ExtraBold.ttf`, with the following rules:
+For JETSansDigital, we subset `JETSansDigital-Regular.ttf`, `JETSansDigital-Bold.ttf` and `JETSansDigital-ExtraBold.ttf`, with the following rules:
 
 ```sh
 # JETSansDigital-Regular

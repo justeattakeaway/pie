@@ -39,7 +39,7 @@ Used only for snippets of code.
 ---
 
 ## Our type scale
-Our type scale uses multiples of 4 for type sizes as well as line height, helping it align to our 4px vertical grid.
+Our type scale uses multiples of 4 for type sizes and line heights to align with our 4px vertical grid.
 
 {% contentPageImage {
     src:"../../../assets/img/foundations/typography/type-scale.svg",
@@ -74,7 +74,7 @@ Text size: 24px • Line size: 32px
     caption: "The example above shows how a $heading-l looks on a narrow screen."
 } %}
 
-**Only our heading and subheading typographic styles are responsive.** Our body styles share the same values regardless of the size of the screen they’re being displayed in.
+**Only our heading and subheading typographic styles are responsive.** Our body styles are the same for all screens.
 
 {% notification {
     type: "information",
@@ -84,7 +84,7 @@ Text size: 24px • Line size: 32px
 ---
 
 ## Font weights
-Font weight refers to a value assigned to your font which determines how bold or light your text will seem. We use three types of font weight.
+Font weight refers to how bold or light your text will appear; the higher the font weight, the bolder the text. We use three types of font weight.
 
 ### Extra-bold
 
