@@ -21,3 +21,27 @@ Build the application for production:
 ```bash
 yarn build
 ```
+
+## Using Web Components in Nuxt 3 apps
+
+### Update Nuxt config to enable web components
+
+Refer to the `nuxt.config.ts` file. A compiler option was added to tell Vue to treat tags with dashes as custom components: `isCustomElement: (tag) => tag.includes('-')`.
+
+### Install the `@justeattakeaway/pie-button` package
+
+`yarn add @justeattakeaway/pie-button`
+
+### Import and use the component
+
+For a complete example refer to `src/App.vue`.
+
+```
+<template>
+    <pie-button @click="increment" />
+</template>
+
+<script>
+import '@justeattakeaway/pie-button';
+</script>
+```

@@ -1,4 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+
 export default defineNuxtConfig({
     vite: {
         build: {
@@ -6,5 +7,12 @@ export default defineNuxtConfig({
               external: ['vue/server-renderer'],
             },
         },
-    }
+        vue: {
+            template: {
+                compilerOptions: {
+                    isCustomElement: (tag) => tag.includes('-'),
+                }
+            }
+        },
+    },
 })
