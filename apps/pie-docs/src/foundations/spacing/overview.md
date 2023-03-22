@@ -98,7 +98,7 @@ Here are some examples of use which might help guide your decisions when applyin
 
 Horizontal spacing within design layouts should always try to adhere to our predefined grids. As we follow an element-first approach, try to expand your components to fill up the necessary columns within the grid.
 
-Make sure to use vertical spacing as a way to create meaningful blocks of content. Using bigger and smaller spaces to improve the visual hierarchy of your layout and to keep a consistent vertical rhythm within the page.
+Make sure to use vertical spacing as a way to create meaningful blocks of content, using bigger and smaller spaces to improve the visual hierarchy of your layout and to keep a consistent vertical rhythm within the page.
 
 {% contentPageImage {
 src:"../../../assets/img/foundations/spacing/layout-spacing.svg",
