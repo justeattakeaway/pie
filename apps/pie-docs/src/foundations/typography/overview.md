@@ -140,7 +140,7 @@ We use this style when indicating something is no longer valid, but can still be
 This property defines the horizontal alignment of the text. It includes three types of alignment.
 
 ### Left aligned
-This is the preferred way to align text within our products. Left-aligned text performs better for readers because it helps users to easily identify the start of a new line.
+This is the preferred way to align text within our products because it makes it easier to identify the start of a new line (for left-to-right languages).
 
 {% contentPageImage {
 src:"../../../assets/img/foundations/typography/left-aligned.svg",
@@ -166,7 +166,7 @@ This alignment should also be used sparingly. This approach is usually found in 
 ---
 
 ## Line length
-Setting the right line length is key to the readability of the text in our products. With that in mind, a good practice is to keep the length between 80 and 100 characters per line, with a minimum of 60.
+Setting the right line length is key to the readability of the text in our products. A good practice is to have a maximum line length of between 80 and 100 characters, with a minimum of 60.
 
 
 {% contentPageImage {
@@ -178,10 +178,10 @@ Setting the right line length is key to the readability of the text in our produ
 ---
 
 ## Paragraph spacing
-It represents the amount of white spacing between two paragraphs of your text. Keeping consistent paragraph spacing measures throughout your products will help the user understand the hierarchy of the information and will make your texts easier to read. We use three measures.
+This is the space between two successive paragraphs of text. Keeping consistent paragraph spacing throughout your products will help the user understand the hierarchy of the information and will be easier to read. We use three measures.
 
 ### Paragraph Spacing 1
-This is the most commonly-used paragraph spacing measure. It uses **16px** between paragraphs.
+This is the most common paragraph spacing measure. It uses **16px** between paragraphs.
 
 {% contentPageImage {
     src:"../../../assets/img/foundations/typography/paragraph-spacing-one.svg",

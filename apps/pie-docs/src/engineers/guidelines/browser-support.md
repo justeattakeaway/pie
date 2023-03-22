@@ -12,7 +12,7 @@ eleventyComputed:
 
 ## Browser support
 
-Users have access to hundreds of browsers, so instead of assessing them all individually we've come up with a rating system which defines different levels of browser support and the testing requirements for each level. We've assigned the highest ratings to the browsers that are most commonly used by our customers.
+Users have access to hundreds of versions of browsers, so instead of assessing them all individually we've come up with a rating system which defines different levels of browser support and the testing requirements for each level. We've assigned the highest ratings to the browsers that are most commonly used by our customers.
 
 {% notification {
 type: "warning",
