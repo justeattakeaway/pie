@@ -14,7 +14,7 @@ We use them in place of hard-coded values (such as HEX values for colour, or pix
 Our tokens consist of two key elements:
 
 - **A token name**, such as $color-orange-30
-- **Associated values,** such as #FF8000
+- **Associated values**, such as #FF8000
 
 {% contentPageImage {
     src: "../../../assets/img/foundations/design-tokens/overview/what-are-tokens.svg",
