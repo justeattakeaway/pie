@@ -1,38 +1,45 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## How to use Next.js App
 
-## Getting Started
+### `yarn dev`
 
-First, run the development server:
+Runs the app in the development mode.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+
+
+### `yarn build`
+
+Builds the app for production to the `build` folder.
+
+
+## Testing Web Components in React 18
+
+React 18 and previous versions don't handle web components and custom elements out of the box correctly in all cases due to how React treats custom props and events (More details can be found [here](https://lit.dev/docs/frameworks/react/)). While the React team fixed some of the issues with this [experimental release](https://github.com/justeattakeaway/pie/compare/0.0.0-experimental-56a3c18e5-20230314?expand=1), we shouldn't rely on it as many of our apps are using older instances of React and a few [issues](https://custom-elements-everywhere.com/libraries/react/results/results.html) haven't been addressed yet.
+
+Fortunately, the Lit framework provides a package [@lit-labs/react](https://lit.dev/docs/frameworks/react/) that provides utilities to take care of the issues mentioned above, thus, we need to wrap our web components with `createComponent` function.
+
+#### Using `createComponent` in React
+
 ```
+import React, { useState } from 'react';
+import { createComponent } from '@lit-labs/react';
+import { PieButton, BUTTON_VARIANT } from '@justeattakeaway/pie-button';
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+const Button = createComponent({
+  tagName: 'pie-button',
+  elementClass: PieButton,
+  react: React,
+  events: { onCustomEvent: 'CustomEvent' },
+});
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+function App () {
+  const handleCustomEvent = () => console.log('onCustomEvent was triggered');
+  const handleClick = () => console.log('click event was triggered');
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+  return (
+    <Button variant={BUTTON_VARIANT.PRIMARY} onClick={handleClick} onCustomEvent={handleCustomEvent}>
+      Sample button
+    </Button>
+  );
+}
+```
