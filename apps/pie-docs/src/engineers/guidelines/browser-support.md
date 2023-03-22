@@ -16,7 +16,7 @@ Users have access to hundreds of versions of browsers, so instead of assessing t
 
 {% notification {
 type: "warning",
-message: "This list needs to be reviewed often, so we can stay up-to-date with the browsers chosen by our users."
+message: "This list needs to be reviewed often so we can stay up to date with the browsers chosen by our users."
 } %}
 
 ---

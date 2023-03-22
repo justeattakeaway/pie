@@ -23,5 +23,5 @@ We use an 8px and 4px grid because they’re easily divisible by 4 and 2. This m
 
 ## The importance of sticking to the space scale
 
-Sticking to the space scale is key to every great design. Spatial systems, grids and layouts help us keep a consistent rhythm in our designs, promotes easier decision making and helps our products look visual aligned.
+Sticking to the space scale is key to every great design. Spatial systems, grids and layouts help us keep a consistent rhythm in our designs, promotes easier decision making and helps our products look visually aligned.
 

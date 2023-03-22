@@ -12,7 +12,6 @@ There are several types of spacing we can use to place elements within layouts a
 
 Padding is the distance between the edge of an element and its content. It can be specified horizontally, vertically, or both.
 
-
 {% contentPageImage {
 src:"../../../assets/img/foundations/spacing/spacing-01.svg",
 width: "97px",
@@ -118,7 +117,7 @@ width: "424px"
 
 ### Typography spacing
 
-When using spacing between typographic elements, try to prioritise legibility is prioritised. You can also use spacing to dictate the visual hierarchy of your text, using tighter spaces to create blocks of content and bigger spaces to separate unrelated bits of content.
+When using spacing between typographic elements, try to prioritise legibility. You can also use spacing to dictate the visual hierarchy of your text, using tighter spaces to create blocks of content and bigger spaces to separate unrelated content.
 
 {% contentPageImage {
 src:"../../../assets/img/foundations/spacing/typography-spacing.svg",

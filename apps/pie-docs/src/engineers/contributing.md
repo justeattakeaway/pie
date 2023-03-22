@@ -62,9 +62,7 @@ You can take a look at our Storybook instances:
 
 ### Can I build a new component?
 
-Yes. If the component has been approved by designers then you are more than welcome to contribute.
-
-Please speak to the Design System team about your requirements and we will help by guiding you.
+Yes. If the component has been approved by designers then you are more than welcome to contribute. Please [speak to the Design System team](/support/contact-us) about your requirements and we will help by guiding you.
 
 ---
 

@@ -6,7 +6,7 @@ eleventyNavigation:
     order: 2
 ---
 
-## PIE Component Systems
+## PIE component systems
 
 Currently, JET has several officially supported component systems that implement PIE.
 
@@ -14,12 +14,12 @@ Currently, JET has several officially supported component systems that implement
 - [Snacks](https://snacks.takeaway.com/) – a set of React components created by the legacy Takeaway design system team
 - [Skip PIE Project](https://react.pie.design/) – a set of React components created by the Skip web team
 
-We are also currently building the [PIE Web Component System](https://www.pie.design/storybook). The long-term aim will be to migrate JET teams over to this Web Component System, so we have one single source of truth for our global PIE components.
+We are also currently building the [PIE Web Component System](https://www.pie.design/storybook). The long-term aim will be to migrate JET teams over to this Web Component System, so we have **one single source of truth** for our global PIE components.
 
-For more details on Fozzie, Snacks and Skip PIE, please check out the documentation portals linked above.
+For more details on Fozzie, Snacks and Skip PIE, please check out the **documentation portals** linked above.
 
 
-## PIE Project Structure
+## PIE project structure
 
 ### The PIE Monorepo
 
