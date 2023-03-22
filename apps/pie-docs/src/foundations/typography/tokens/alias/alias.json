@@ -1,7 +1,7 @@
 {
   "layout": "layouts/toggle-page-layout.njk",
   "subtitle": "Alias typography tokens",
-  "subtitleDescription": "Alias type tokens are made of a combination of global tokens. They are divided into groups categorised by typographic hierarchy.",
+  "subtitleDescription": "Alias type tokens are made by combining various global tokens and grouping them based on their typographic hierarchy.",
   "toggleContent": {
     "a": {
       "label": "Wide screens",
