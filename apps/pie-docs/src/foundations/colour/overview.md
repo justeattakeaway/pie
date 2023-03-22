@@ -6,7 +6,7 @@ eleventyNavigation:
 ---
 ## Our colour principles
 
-Here are some principles which can help you apply colour in your products more effectively.
+We have a set of principles to help you use colour in your products more effectively.
 
 ### Communication is key
 
@@ -19,7 +19,7 @@ caption: "The visual above shows a composition made of various of our brand colo
 
 ### Colours have meaning
 
-Colours have assigned roles, which hold a specific meaning based on how they function within the interface. Defined colour roles make things easy to modify and customize later. They also extend the colour system so it works across any touchpoint at JET.
+Colours have assigned roles in the PIE design system. They're used to convey a specific meaning or function based within our products' interfaces. Defined colour roles make things easy to modify and customise later. They also extend the colour system so it works across any touchpoint at JET.
 
 {% contentPageImage {
 src:"../../../assets/img/foundations/colour/colour-meaning.svg",
@@ -28,12 +28,12 @@ caption: "Some of the meanings we have determined for our ‘Supportive’ colou
 
 ### Colours follow accessibility guidelines
 
-The colour system is designed within the HSLuv colour space to generate themes that meet WCAG 2.1 compliant contrast ratios. This makes things easier to find, identify, and interact with. It also makes the whole experience more accessible for merchants who are color blind or who have low vision. However you should never convey information using color alone.
+The colour system is designed within the [HSLuv](https://www.hsluv.org) colour space to generate themes that meet **WCAG 2.1** compliant contrast ratios. This makes interface elements easier to find, identify, and interact with. It also makes the whole experience more accessible for users who are colour-blind or who have low vision. However you should never convey information using colour alone.
 
 {% contentPageImage {
 src:"../../../assets/img/foundations/colour/colour-accessibility.svg",
 width: "360px",
-caption: "The image above shows the colour contrast for white text placed over our ‘Aubergine’ colour."
+caption: "The image above shows the colour contrast for white text placed over our Aubergine colour."
 } %}
 
 ---
@@ -45,9 +45,9 @@ However, there are significant difficulties when using orange in our designs, in
 
 ### Brand orange vs Product orange
 
-Product orange is a modified version of our Brand orange colour which has been created with the objective to use orange in interactive elements and components within our interfaces.
+Product orange is a modified version of our Brand orange colour. Product orange was created specifically for use in interactive elements and components in our interfaces.
 
-Here are some guidelines which outline when to use Brand orange and Product orange in your designs:
+There are guidelines to help you determine when to use Product orange and when to use Brand orange in your designs.
 
 #### Brand orange
 
@@ -62,7 +62,7 @@ You should use Brand orange for:
 - Illustrations
 - Splash screens
 - Navigation bars
-- Marketing panels’ backgrounds
+- Marketing panel backgrounds
 
 #### Product orange
 

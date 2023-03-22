@@ -1,7 +1,7 @@
 {
   "layout": "layouts/toggle-page-layout.njk",
   "subtitle": "Alias tokens by theme",
-  "subtitleDescription": "Alias tokens use different Global Tokens depending on which theme is being used.",
+  "subtitleDescription": "Alias tokens use different global tokens depending on which theme is being used.",
   "toggleContent": {
     "a": {
       "label": "Light theme",

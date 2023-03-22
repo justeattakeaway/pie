@@ -310,12 +310,12 @@
         },
         "divider-default": {
           "category": "dividers",
-          "description": "Divider for use above default and light coloured backgrounds",
+          "description": "Divider for use above default and light-coloured backgrounds",
           "globalToken": "$color-black @8%"
         },
         "divider-inverse": {
           "category": "dividers",
-          "description": "Divider for use above inverse and dark coloured backgrounds",
+          "description": "Divider for use above inverse and dark-coloured backgrounds",
           "globalToken": "$color-white @20%"
         },
         "interactive-brand": {
@@ -350,17 +350,17 @@
         },
         "overlay": {
           "category": "pageBackgrounds",
-          "description": "Transluscent background overlay / scrim",
+          "description": "Translucent background overlay",
           "globalToken": "$color-black @50%"
         },
         "support-neutral": {
           "category": "feedback",
-          "description": "Neutral; Used for neutral messaging and alerts",
+          "description": "Neutral; used for neutral messaging and alerts",
           "globalToken": "$color-mozzarella-20"
         },
         "support-error": {
           "category": "feedback",
-          "description": "Error; High impact messaging",
+          "description": "Error; high-impact messaging",
           "globalToken": "$color-red"
         },
         "support-error-02": {
@@ -370,7 +370,7 @@
         },
         "support-warning": {
           "category": "feedback",
-          "description": "Warning; Moderate impact messaging",
+          "description": "Warning; moderate impact messaging",
           "globalToken": "$color-yellow"
         },
         "support-warning-02": {
@@ -380,7 +380,7 @@
         },
         "support-positive": {
           "category": "feedback",
-          "description": "Success; Positive messaging",
+          "description": "Success; positive messaging",
           "globalToken": "$color-green"
         },
         "support-positive-02": {
@@ -395,7 +395,7 @@
         },
         "support-info": {
           "category": "feedback",
-          "description": "Information; Instructional messaging",
+          "description": "Information; instructional messaging",
           "globalToken": "$color-blue"
         },
         "support-info-02": {
@@ -410,37 +410,37 @@
         },
         "support-brand-01": {
           "category": "brand",
-          "description": "Special; Special attention messaging",
+          "description": "Special; special attention messaging",
           "globalToken": "$color-orange-30"
         },
         "support-brand-02": {
           "category": "brand",
-          "description": "Low contrast version of $support-brand-01 for subtle surfaces + effects",
+          "description": "Low contrast version of $support-brand-01 for subtle surfaces and effects",
           "globalToken": "$color-orange-10"
         },
         "support-brand-03": {
           "category": "brand",
-          "description": "Discretionary brand surfaces + effects",
+          "description": "Discretionary brand surfaces and effects",
           "globalToken": "$color-blue-25"
         },
         "support-brand-04": {
           "category": "brand",
-          "description": "Discretionary brand surfaces + effects",
+          "description": "Discretionary brand surfaces and effects",
           "globalToken": "$color-red-25"
         },
         "support-brand-05": {
           "category": "brand",
-          "description": "Discretionary brand surfaces + effects",
+          "description": "Discretionary brand surfaces and effects",
           "globalToken": "$color-yellow"
         },
         "support-brand-06": {
           "category": "brand",
-          "description": "Discretionary brand surfaces + effects",
+          "description": "Discretionary brand surfaces and effects",
           "globalToken": "$color-purple"
         },
         "support-brand-07": {
           "category": "brand",
-          "description": "Discretionary brand surfaces + effects",
+          "description": "Discretionary brand surfaces and effects",
           "globalToken": "$color-orange-55"
         },
         "content-default": {
@@ -698,12 +698,12 @@
         },
         "divider-default": {
           "category": "dividers",
-          "description": "Divider for use above default and light coloured backgrounds",
+          "description": "Divider for use above default and light-coloured backgrounds",
           "globalToken": "$color-white @20%"
         },
         "divider-inverse": {
           "category": "dividers",
-          "description": "Divider for use above inverse and dark coloured backgrounds",
+          "description": "Divider for use above inverse and dark-coloured backgrounds",
           "globalToken": "$color-black @8%"
         },
         "interactive-brand": {
@@ -738,12 +738,12 @@
         },
         "overlay": {
           "category": "pageBackgrounds",
-          "description": "Transluscent background overlay / scrim",
+          "description": "Translucent background overlay",
           "globalToken": "$color-black @50%"
         },
         "support-neutral": {
           "category": "feedback",
-          "description": "Neutral; Used for neutral messaging and alerts",
+          "description": "Neutral; used for neutral messaging and alerts",
           "globalToken": "$color-mozzarella-100"
         },
         "support-error": {
@@ -768,7 +768,7 @@
         },
         "support-positive": {
           "category": "feedback",
-          "description": "Success; Positive messaging",
+          "description": "Success; positive messaging",
           "globalToken": "$color-green-30"
         },
         "support-positive-02": {
@@ -783,7 +783,7 @@
         },
         "support-info": {
           "category": "feedback",
-          "description": "Information; Instructional messaging",
+          "description": "Information; instructional messaging",
           "globalToken": "$color-blue-30"
         },
         "support-info-02": {
@@ -798,37 +798,37 @@
         },
         "support-brand-01": {
           "category": "brand",
-          "description": "Special; Special attention messaging",
+          "description": "Special; special attention messaging",
           "globalToken": "$color-orange-30"
         },
         "support-brand-02": {
           "category": "brand",
-          "description": "Low contrast version of $support-brand-01 for subtle surfaces + effects",
+          "description": "Low contrast version of $support-brand-01 for subtle surfaces and effects",
           "globalToken": "$color-orange-90"
         },
         "support-brand-03": {
           "category": "brand",
-          "description": "Discretionary brand surfaces + effects",
+          "description": "Discretionary brand surfaces and effects",
           "globalToken": "$color-blue-25"
         },
         "support-brand-04": {
           "category": "brand",
-          "description": "Discretionary brand surfaces + effects",
+          "description": "Discretionary brand surfaces and effects",
           "globalToken": "$color-red-25"
         },
         "support-brand-05": {
           "category": "brand",
-          "description": "Discretionary brand surfaces + effects",
+          "description": "Discretionary brand surfaces and effects",
           "globalToken": "$color-yellow"
         },
         "support-brand-06": {
           "category": "brand",
-          "description": "Discretionary brand surfaces + effects",
+          "description": "Discretionary brand surfaces and effects",
           "globalToken": "$color-purple"
         },
         "support-brand-07": {
           "category": "brand",
-          "description": "Discretionary brand surfaces + effects",
+          "description": "Discretionary brand surfaces and effects",
           "globalToken": "$color-orange-55"
         },
         "content-default": {
@@ -1244,25 +1244,25 @@
         "interactive-l": {
           "category": "interactive",
           "displayName": "Interactive L",
-          "description": "Used for labels in large sized button components + numeric counter.",
+          "description": "Used for labels in large-sized button components and numeric counters.",
           "globalToken": ["$font-size-20", "$font-family-primary", "$font-weight-bold", "$letter-spacing-00"]
         },
         "interactive-m": {
           "category": "interactive",
           "displayName": "Interactive M",
-          "description": "Used for labels in medium sized button components.",
+          "description": "Used for labels in medium-sized button components.",
           "globalToken": ["$font-size-19", "$font-family-primary", "$font-weight-bold", "$letter-spacing-00"]
         },
         "interactive-s": {
           "category": "interactive",
           "displayName": "Interactive S",
-          "description": "Used for labels in small sized button components.",
+          "description": "Used for labels in small-sized button components.",
           "globalToken": ["$font-size-16", "$font-family-primary", "$font-weight-bold", "$letter-spacing-00"]
         },
         "interactive-xs": {
           "category": "interactive",
           "displayName": "Interactive XS",
-          "description": "Used for labels in extra small sized button components.",
+          "description": "Used for labels in extra-small-sized button components.",
           "globalToken": ["$font-size-14", "$font-family-primary", "$font-weight-bold", "$letter-spacing-00"]
         }
       },
@@ -1384,25 +1384,25 @@
         "interactive-l": {
           "category": "interactive",
           "displayName": "Interactive L",
-          "description": "Used for labels in large sized button components + numeric counter.",
+          "description": "Used for labels in large-sized button components and numeric counters.",
           "globalToken": ["$font-size-20", "$font-family-primary", "$font-weight-bold", "$letter-spacing-00"]
         },
         "interactive-m": {
           "category": "interactive",
           "displayName": "Interactive M",
-          "description": "Used for labels in medium sized button components.",
+          "description": "Used for labels in medium-sized button components.",
           "globalToken": ["$font-size-19", "$font-family-primary", "$font-weight-bold", "$letter-spacing-00"]
         },
         "interactive-s": {
           "category": "interactive",
           "displayName": "Interactive S",
-          "description": "Used for labels in small sized button components.",
+          "description": "Used for labels in small-sized button components.",
           "globalToken": ["$font-size-16", "$font-family-primary", "$font-weight-bold", "$letter-spacing-00"]
         },
         "interactive-xs": {
           "category": "interactive",
           "displayName": "Interactive XS",
-          "description": "Used for labels in extra small sized button components.",
+          "description": "Used for labels in extra-small-sized button components.",
           "globalToken": ["$font-size-14", "$font-family-primary", "$font-weight-bold", "$letter-spacing-00"]
         }
       }
@@ -1603,61 +1603,61 @@
         "01": {
           "category": "defaultElevation",
           "displayName": "Elevation 01",
-          "description": "Used for Map markers and Cards.",
+          "description": "Used for map markers and cards.",
           "globalToken": "$box-shadow-01"
         },
         "02": {
           "category": "defaultElevation",
           "displayName": "Elevation 02",
-          "description": "Used for raised Buttons (e.g. over a map), knobs on sliders and Dropdown input fields.",
+          "description": "Used for raised buttons (e.g. over a map), knobs on sliders and dropdown input fields.",
           "globalToken": "$box-shadow-02"
         },
         "03": {
           "category": "defaultElevation",
           "displayName": "Elevation 03",
-          "description": "Used for FABS and sticky CTAs, sticky headers, navigation bars or Banners and Notifications.",
+          "description": "Used for FABs and sticky CTAs, sticky headers, navigation bars or banners and notifications.",
           "globalToken": "$box-shadow-03"
         },
         "04": {
           "category": "defaultElevation",
           "displayName": "Elevation 04",
-          "description": "Used for Modal.",
+          "description": "Used for modals.",
           "globalToken": "$box-shadow-04"
         },
         "05": {
           "category": "defaultElevation",
           "displayName": "Elevation 05",
-          "description": "Used for Bottom Sheets.",
+          "description": "Used for bottom sheets and bottom menus.",
           "globalToken": "$box-shadow-05"
         },
         "inverse-01": {
           "category": "inverseElevation",
           "displayName": "Elevation inverse 01",
-          "description": "Used for Map markers and cards.",
+          "description": "Used for map markers and cards.",
           "globalToken": "$box-shadow-06"
         },
         "inverse-02": {
           "category": "inverseElevation",
           "displayName": "Elevation inverse 02",
-          "description": "Used for raised Buttons (e.g. over a map), knobs on sliders and Dropdown input fields.",
+          "description": "Used for raised buttons (e.g. over a map), knobs on sliders and dropdown input fields.",
           "globalToken": "$box-shadow-07"
         },
         "inverse-03": {
           "category": "inverseElevation",
           "displayName": "Elevation inverse 03",
-          "description": "Used for FABS and sticky CTAs, sticky headers, navigation bars or Banners and Notifications.",
+          "description": "Used for FABs and sticky CTAs, sticky headers, navigation bars or banners and notifications.",
           "globalToken": "$box-shadow-08"
         },
         "inverse-04": {
           "category": "inverseElevation",
           "displayName": "Elevation inverse 04",
-          "description": "Used for Modal.",
+          "description": "Used for modals.",
           "globalToken": "$box-shadow-09"
         },
         "inverse-05": {
           "category": "inverseElevation",
           "displayName": "Elevation inverse 05",
-          "description": "Used for Modal.",
+          "description": "Used for bottom sheets and bottom menus.",
           "globalToken": "$box-shadow-10"
         }
       },
@@ -1665,14 +1665,14 @@
         "01": {
           "category": "defaultElevation",
           "displayName": "Elevation 01",
-          "description": "Used for Map markers and Cards.",
+          "description": "Used for map markers and cards.",
           "globalToken": "$box-shadow-06"
         },
 
         "02": {
           "category": "defaultElevation",
           "displayName": "Elevation 02",
-          "description": "Used for raised Buttons (e.g. over a map), knobs on sliders and Dropdown input fields.",
+          "description": "Used for raised buttons (e.g. over a map), knobs on sliders and dropdown input fields.",
           "globalToken": "$box-shadow-07"
         },
 
@@ -1686,14 +1686,14 @@
         "04": {
           "category": "defaultElevation",
           "displayName": "Elevation 04",
-          "description": "Used for Modal.",
+          "description": "Used for modals.",
           "globalToken": "$box-shadow-09"
         },
 
         "05": {
           "category": "defaultElevation",
           "displayName": "Elevation 05",
-          "description": "Used for Modal.",
+          "description": "Used for bottom sheets and bottom menus.",
           "globalToken": "$box-shadow-10"
         },
 
@@ -1714,21 +1714,21 @@
         "inverse-03": {
           "category": "inverseElevation",
           "displayName": "Elevation inverse 03",
-          "description": "Used for raised Buttons (e.g. over a map), knobs on sliders and Dropdown input fields.",
+          "description": "Used for raised buttons (e.g. over a map), knobs on sliders and dropdown input fields.",
           "globalToken": "$box-shadow-03"
         },
 
         "inverse-04": {
           "category": "inverseElevation",
           "displayName": "Elevation inverse 04",
-          "description": "Used for Map markers and cards.",
+          "description": "Used for map markers and cards.",
           "globalToken": "$box-shadow-04"
         },
 
         "inverse-05": {
           "category": "inverseElevation",
           "displayName": "Elevation inverse 05",
-          "description": "Used for Map markers and cards.",
+          "description": "Used for bottom sheets and bottom menus.",
           "globalToken": "$box-shadow-05"
         }
       }

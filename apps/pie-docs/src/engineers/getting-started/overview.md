@@ -7,7 +7,7 @@ eleventyNavigation:
 
 ## Introduction
 
-One of the core aims of the PIE Design System is to provide engineers with a consistent set of components and best practices for creating and maintaining UIs across JET.
+One of the core aims of the **PIE Design System** is to provide engineers with a consistent set of components and best practices for creating and maintaining UIs across JET.
 
 If you're just starting out with PIE, here's a list of recommended resources to get you started.
 

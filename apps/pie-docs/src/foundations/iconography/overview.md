@@ -16,7 +16,7 @@ This is the default icon set used throughout our products across Web, Android an
 {% contentPageImage {
     src: "../../../assets/img/foundations/iconography/small-icon-set.svg",
     width: "33.91",
-    caption: "The example above shows what our ‘Kebab bowl’ icon looks like on the Small set."
+    caption: "The example above shows what our ‘Kebab bowl’ icon looks like on the small set."
 } %}
 
 ### Large icon set
@@ -33,7 +33,9 @@ This set should be used for illustrative purposes, such as communications or mar
 
 ## Icon anatomy
 
-Our icons are always placed inside a bounding box, which ensures that vertical and horizontal spacing always adhere to the guidance shown in our Spacing guides. When exporting icons for your products, please export the whole Bounding Box, instead of just the Icon Area.
+Our icons are always placed inside a bounding box, which ensures that vertical and horizontal spacing adhere to our [spacing guides](/foundations/spacing/overview/).
+
+When exporting icons for your products, please export the whole bounding box, instead of just the icon area.
 
 {% contentPageImage {
     src: "../../../assets/img/foundations/iconography/icon-anatomy.svg",
@@ -43,8 +45,8 @@ Our icons are always placed inside a bounding box, which ensures that vertical a
 {% list {
     type: listTypes.ordered,
     items: [
-        "**Icon area:** (Small (Default size): 14x14px / Large (Default size): 28x28px).",
-        "**Bounding box:** (Small (Default size): 16x16px / Large (Default size): 32x32px)."
+        "**Icon area:** (small (default size): 14x14px / large (default size): 28x28px).",
+        "**Bounding box:** (small (default size): 16x16px / large (default size): 32x32px)."
     ]
 } %}
 
@@ -52,11 +54,11 @@ Our icons are always placed inside a bounding box, which ensures that vertical a
 
 ## Sizing
 
-When using icons there will be instances where the default sizes assigned to our Icon sets aren’t enough. In these instances you can use the following sizes:
+When using icons there will be instances where the default sizes assigned to our icon sets aren’t enough. In these instances you can use the following sizes:
 
 ### Sizes for the Small icon set
 
-Our Small icon set can be used at the following sizes:
+Our small icon set can be used at the following sizes:
 
 {% list {
     type: listTypes.pill,
@@ -125,9 +127,9 @@ In this first instance the icon can be placed on its own. When the user hovers o
     width: "328px"
 } %}
 
-### Icon Button
+### Icon button
 
-Used for CTAs, in this instance the interactive icon sits inside an Icon Button and uses its hover and active states to highlight that the icon is being interacted with.
+Used for CTA, in this instance the interactive icon sits inside an icon button and uses its hover and active states to highlight that the icon is being interacted with.
 
 {% contentPageImage {
     src: "../../../assets/img/foundations/iconography/interactive-states-button.svg",
@@ -136,7 +138,7 @@ Used for CTAs, in this instance the interactive icon sits inside an Icon Button 
 
 ### Selectable
 
-This instance uses the Fill appearance of the icon to indicate the change in its state. It should only be used when the icon needs to show something is selected.
+This instance uses the fill appearance of the icon to indicate the change in its state. It should only be used when the icon needs to show something is selected.
 
 {% contentPageImage {
     src: "../../../assets/img/foundations/iconography/interactive-states-selectable.svg",
@@ -146,7 +148,7 @@ This instance uses the Fill appearance of the icon to indicate the change in its
 ---
 ## Using icons in your products
 
-Choosing and using icons for your products isn’t an easy task. More so if we consider that an excellent icon can extract the most important visual characteristics of a product or idea in order to make the depiction instantly recognised.
+Choosing and using icons for your products isn’t an easy task. An excellent icon can extract the most important visual characteristics of a product or idea, making the depiction instantly recognisable.
 
 In this section you’ll find some factors you need to keep in mind when using icons within your interfaces.
 
