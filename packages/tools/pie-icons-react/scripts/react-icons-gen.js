@@ -12,7 +12,7 @@ const filePath = join(ICONS_DIR, '/index.tsx');
 async function checkDirExists (directoryPath) {
     try {
         await fs.ensureDir(directoryPath);
-        console.log(`Directory "${directoryPath}" exists.`);
+        console.info(`Directory "${directoryPath}" exists.`);
     } catch (err) {
         console.error(err);
     }
@@ -28,7 +28,7 @@ const indexFile = fs.createWriteStream(
     filePath,
     (err) => {
         console.error(err);
-    }
+    },
 );
 
 const template = (variables, { tpl }) => {
