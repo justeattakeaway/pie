@@ -40,19 +40,19 @@ You can take a look at our Storybook instances:
         {
           linkText: "Vue",
           href: "https://vue.pie.design/",
-          src: "../../assets/img/engineers/contributing/vue@2x.png",
+          src: "../../assets/img/engineers/vue@2x.png",
           shouldOpenInNewTab: true
         },
         {
           linkText: "React for Takeaway.com",
           href: "https://snacks.takeaway.com/",
-          src: "../../assets/img/engineers/contributing/react@2x.png",
+          src: "../../assets/img/engineers/react@2x.png",
           shouldOpenInNewTab: true
         },
         {
           linkText: "React for SkipTheDishes",
           href: "https://react.pie.design/",
-          src: "../../assets/img/engineers/contributing/react@2x.png",
+          src: "../../assets/img/engineers/react@2x.png",
           shouldOpenInNewTab: true
         }
     ]
