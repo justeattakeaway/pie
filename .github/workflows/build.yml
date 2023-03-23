@@ -18,7 +18,9 @@ on:
       - beta-*
       - feature-*
 
-concurrency: CI-${{ github.ref }}
+concurrency:
+  group: CI-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   dependency-changeset:
