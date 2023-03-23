@@ -1,5 +1,20 @@
 # Changelog
 
+## 1.38.0
+
+### Minor Changes
+
+- [Added] - Turborepo remote caching in S3 ([#342](https://github.com/justeattakeaway/pie/pull/342)) by [@siggerzz](https://github.com/siggerzz)
+
+- [Added] - empty NextJS example application ([#310](https://github.com/justeattakeaway/pie/pull/310)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Changed] - Order in which deploys are executed in CI ([#334](https://github.com/justeattakeaway/pie/pull/334)) by [@siggerzz](https://github.com/siggerzz)
+
+### Patch Changes
+
+- Updated dependencies [[`fb666fd3f`](https://github.com/justeattakeaway/pie/commit/fb666fd3facc1cbc5c50026b53bf5008560fa65b), [`79ffb77a9`](https://github.com/justeattakeaway/pie/commit/79ffb77a9cfde9bb47afd9f80e5867be80a5421e), [`79ffb77a9`](https://github.com/justeattakeaway/pie/commit/79ffb77a9cfde9bb47afd9f80e5867be80a5421e)]:
+  - @justeattakeaway/pie-icons@2.1.0
+
 ## 1.37.0
 
 ### Minor Changes

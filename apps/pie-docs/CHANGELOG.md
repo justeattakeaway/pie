@@ -1,5 +1,23 @@
 # Changelog
 
+## 1.66.0
+
+### Minor Changes
+
+- [Added] - New copy changes for designers/getting-started & designers/getting-started/figma-files ([#340](https://github.com/justeattakeaway/pie/pull/340)) by [@siggerzz](https://github.com/siggerzz)
+
+- [Changed] - hardcode the order of items in foundations section of nav menu ([#336](https://github.com/justeattakeaway/pie/pull/336)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Changed] - Updated copy for some engineer and foundations pages ([#343](https://github.com/justeattakeaway/pie/pull/343)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Fixed] Sticky nav on wider viewports now sticky again ([#341](https://github.com/justeattakeaway/pie/pull/341)) by [@ashleynolan](https://github.com/ashleynolan)
+
+- [Changed] - Updated structure page with design amends. Framework cards added and code tags removed from folder headings. ([#349](https://github.com/justeattakeaway/pie/pull/349)) by [@ashleynolan](https://github.com/ashleynolan)
+
+- [Updated] copy for iconography, typography, radius and elevation pages ([#343](https://github.com/justeattakeaway/pie/pull/343)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Changed] - Copy on designer and foundations design tokens pages ([#336](https://github.com/justeattakeaway/pie/pull/336)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 1.65.0
 
 ### Minor Changes
