@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/pie-icons-react",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "main": "esm/index.js",
   "files": [
     "dist",
@@ -38,7 +38,7 @@
   },
   "devDependencies": {
     "@babel/node": "7.19.1",
-    "@justeattakeaway/pie-icons": "2.0.1",
+    "@justeattakeaway/pie-icons": "2.1.0",
     "@svgr/core": "6.4.0",
     "@types/react": "18.0.28",
     "pascal-case": "3.1.2",

@@ -1,5 +1,19 @@
 # Changelog
 
+## 2.1.0
+
+### Minor Changes
+
+- [Fixed] - Sandwhich renamed to Sandwich (typo) ([#348](https://github.com/justeattakeaway/pie/pull/348)) by [@ashleynolan](https://github.com/ashleynolan)
+
+- [Fixed] - Capitalisation of some SVG assets in github now changed to lowercase ([#348](https://github.com/justeattakeaway/pie/pull/348)) by [@ashleynolan](https://github.com/ashleynolan)
+
+### Patch Changes
+
+- dependencies updates: ([#339](https://github.com/justeattakeaway/pie/pull/339)) by [@renovate](https://github.com/apps/renovate)
+
+  - Updated dependency [`cheerio@1.0.0-rc.12` ↗︎](https://www.npmjs.com/package/cheerio/v/1.0.0) (from `1.0.0-rc.10`, in `dependencies`)
+
 ## 2.0.1
 
 ### Patch Changes
