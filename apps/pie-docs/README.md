@@ -18,7 +18,7 @@
 - We write templates using the [Nunjucks templating language](https://mozilla.github.io/nunjucks/)
 - For component-like features, we use [shortcodes](https://www.11ty.dev/docs/shortcodes/) written in `Javascript`
 - Styling is written using [Sass](https://sass-lang.com/) using `SCSS` syntax
-- For additional page functionality, we use `Javascript` and load them into the page as [es modules](https://modern-web.dev/guides/going-buildless/es-modules/). There is no javascript build step or bundling (however this could change in the future)
+- For additional page functionality, we use `Javascript` and load them into the page as [es modules](https://modern-web.dev/guides/going-buildless/es-modules/). There is no `Javascript` build step or bundling (however this could change in the future)
 - Our system tests are written using [Playwright](https://playwright.dev/) and [Percy](https://percy.io/)
 - Our unit tests are written using [Jest](https://jestjs.io/)
 - Our accessibility tests are written using [Axe with Playwright](https://playwright.dev/docs/accessibility-testing)
