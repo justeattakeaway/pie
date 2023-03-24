@@ -21,19 +21,21 @@
 - For additional page functionality, we use `Javascript` and load them into the page as [es modules](https://modern-web.dev/guides/going-buildless/es-modules/). There is no javascript build step or bundling (however this could change in the future)
 - Our system tests are written using [Playwright](https://playwright.dev/) and [Percy](https://percy.io/)
 - Our unit tests are written using [Jest](https://jestjs.io/)
+- Our accessibility tests are written using [Axe with Playwright](https://playwright.dev/docs/accessibility-testing)
 
 ## Testing
 Our primary concerns are:
 1. Ensuring we never lose any pages
 2. Pages contain correct information and are presented correctly
-3. Our shortcodes return the expected HTML
+3. Prevent easy to catch accessibility violations
+4. Our shortcodes return the expected HTML
 
 ### Page testing
 We have route navigation tests that ensure all existing pages can be correctly navigated to. When you add new pages, these tests will fail as there's new unexpected pages (this is by design).
 
 In order to fix the tests, you will need to register the routes to your newly added pages by running: `yarn test:generate-routes`. This will update the json file named `expected-routes.snapshot.json` with the urls to your new page.
 
-From here, we run navigation and visual tests against each route.
+From here, we run navigation, accessibility and visual tests against each route.
 
 #### Running the route tests
 Route tests are ran as part of `yarn test`.
@@ -43,6 +45,7 @@ Running `yarn test:system` will ensure that navigating to the routes stored in `
 
 ### Unit testing
 Our unit testing is quite light. We generally write unit tests for `Javascript` utilities and for `shortcodes`. With shortcodes, we often perform [snapshot tests](https://jestjs.io/docs/snapshot-testing) on the returned markup. Whilst visual tests will catch changes to how the markup looks, snapshot tests will catch any unwanted changes to things like `HTML` attributes.
+
 
 ## Conventions
 - If you want to create some reusable/shared content, you can add it to a markdown file using the following naming format: `**.content.md`. Eleventy knows to ignore these file types during build, so they will not turn into their own pages. Because we use Nunjucks as our markdown rendering engine, we are able to use includes in our markdown files like so: `{% include 'some/path/to/reusable-stuff.content.md' %}`. This allows us to reuse copy if needed.
