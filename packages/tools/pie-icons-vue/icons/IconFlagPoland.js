@@ -15,13 +15,13 @@ export default {
             class: 'c-pieIcon c-pieIcon--poland',
         }, ctx.data]), [h('path', {
             attrs: {
-                d: 'M8 15A7 7 0 108 1a7 7 0 000 14z',
                 fill: '#EEE',
+                d: 'M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14Z',
             },
         }), h('path', {
             attrs: {
-                d: 'M15 8A7 7 0 111 8',
                 fill: '#D80027',
+                d: 'M15 8A7 7 0 1 1 1 8',
             },
         })]);
     },

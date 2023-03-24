@@ -15,31 +15,31 @@ export default {
             class: 'c-pieIcon c-pieIcon--microsoft',
         }, ctx.data]), [h('g', {
             attrs: {
-                'clip-path': 'url(#prefix__clip0_2820_3494)',
+                'clip-path': 'url(#prefix__a)',
             },
         }, [h('path', {
             attrs: {
-                d: 'M7.372 14.5H1.5V8.618h5.905L7.372 14.5z',
                 fill: '#00A3EE',
+                d: 'M7.372 14.5H1.5V8.618h5.905L7.372 14.5Z',
             },
         }), h('path', {
             attrs: {
-                d: 'M8.595 14.5H14.5V8.618H8.595V14.5z',
                 fill: '#FFB700',
+                d: 'M8.595 14.5H14.5V8.618H8.595V14.5Z',
             },
         }), h('path', {
             attrs: {
-                d: 'M7.372 7.382H1.5V1.5h5.905l-.033 5.882z',
                 fill: '#F15121',
+                d: 'M7.372 7.382H1.5V1.5h5.905l-.033 5.882Z',
             },
         }), h('path', {
             attrs: {
-                d: 'M14.5 7.382H8.595V1.5H14.5v5.882z',
                 fill: '#7EB801',
+                d: 'M14.5 7.382H8.595V1.5H14.5v5.882Z',
             },
         })]), h('defs', [h('clipPath', {
             attrs: {
-                id: 'prefix__clip0_2820_3494',
+                id: 'prefix__a',
             },
         }, [h('rect', {
             attrs: {

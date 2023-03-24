@@ -1,6 +1,6 @@
-import SVGO from 'svgo';
 import cheerio from 'cheerio';
 import prettier from 'prettier';
+import { optimize } from 'svgo';
 import { DEFAULT_ATTRS } from '../src/default-attrs';
 
 /**
@@ -10,7 +10,7 @@ import { DEFAULT_ATTRS } from '../src/default-attrs';
  */
 function processSvg (svg) {
     return (
-        optimize(svg)
+        optimizeSVG(svg)
             .then(setAttrs)
             .then((data) => prettier.format(data, {
                 parser: 'babel',
@@ -26,20 +26,27 @@ function processSvg (svg) {
  * @param {string} svg - An SVG string.
  * @returns {Promise<string>}
  */
-function optimize (svg) {
-    const svgo = new SVGO({
-        plugins: [
-            { prefixIds: true },
-            { convertShapeToPath: false },
-            { mergePaths: false },
-            { removeTitle: true },
-            { removeViewBox: false }
-        ],
-    });
-
+function optimizeSVG (svg) {
     return new Promise((resolve) => {
-        svgo.optimize(svg)
-            .then(({ data }) => resolve(data));
+        const optimizedSVG = optimize(svg, {
+            plugins: [
+                {
+                    name: 'preset-default',
+                    params: {
+                        overrides: {
+                            // viewBox is required to resize SVGs with CSS.
+                            // @see https://github.com/svg/svgo/issues/1128
+                            removeViewBox: false,
+                            convertShapeToPath: false,
+                            mergePaths: false,
+                            cleanupIds: false,
+                        },
+                    },
+                },
+                'prefixIds',
+            ],
+        });
+        resolve(optimizedSVG.data);
     });
 }
 

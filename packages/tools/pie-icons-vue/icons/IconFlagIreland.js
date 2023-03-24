@@ -15,18 +15,18 @@ export default {
             class: 'c-pieIcon c-pieIcon--ireland',
         }, ctx.data]), [h('path', {
             attrs: {
-                d: 'M8 15A7 7 0 108 1a7 7 0 000 14z',
                 fill: '#EEE',
+                d: 'M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14Z',
             },
         }), h('path', {
             attrs: {
-                d: 'M15 8a7 7 0 00-4.566-6.563v13.126A7 7 0 0015 8z',
                 fill: '#FF9811',
+                d: 'M15 8a7 7 0 0 0-4.566-6.563v13.126A7 7 0 0 0 15 8Z',
             },
         }), h('path', {
             attrs: {
-                d: 'M1 8a7 7 0 004.566 6.563V1.437A7 7 0 001 8z',
                 fill: '#6DA544',
+                d: 'M1 8a7 7 0 0 0 4.566 6.563V1.437A7 7 0 0 0 1 8Z',
             },
         })]);
     },

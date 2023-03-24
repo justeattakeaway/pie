@@ -15,28 +15,28 @@ export default {
             class: 'c-pieIcon c-pieIcon--microsoftCircleFilledLarge',
         }, ctx.data]), [h('path', {
             attrs: {
-                d: 'M16 28.25a12.25 12.25 0 110-24.5 12.25 12.25 0 010 24.5z',
                 fill: '#242E30',
+                d: 'M16 28.25a12.25 12.25 0 1 1 0-24.5 12.25 12.25 0 0 1 0 24.5Z',
             },
         }), h('path', {
             attrs: {
-                d: 'M10 10h5.5v5.5H10V10z',
                 fill: '#fff',
+                d: 'M10 10h5.5v5.5H10V10Z',
             },
         }), h('path', {
             attrs: {
-                d: 'M10 16.5h5.5V22H10v-5.5z',
                 fill: '#fff',
+                d: 'M10 16.5h5.5V22H10v-5.5Z',
             },
         }), h('path', {
             attrs: {
-                d: 'M16.5 10H22v5.5h-5.5V10z',
                 fill: '#fff',
+                d: 'M16.5 10H22v5.5h-5.5V10Z',
             },
         }), h('path', {
             attrs: {
-                d: 'M16.5 16.5H22V22h-5.5v-5.5z',
                 fill: '#fff',
+                d: 'M16.5 16.5H22V22h-5.5v-5.5Z',
             },
         })]);
     },
