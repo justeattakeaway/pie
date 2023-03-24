@@ -9,7 +9,16 @@ import { BUTTON_SIZE, BUTTON_TYPE, BUTTON_VARIANT } from './defs';
 // Valid values available to consumers
 export { BUTTON_SIZE, BUTTON_TYPE, BUTTON_VARIANT };
 
-@customElement('pie-button')
+// TODO: Extract as a utility function in a shared package
+function defineCustomElement(elementName:string) {
+    return (elementClass:typeof LitElement) => {
+        if(customElements.get(elementName)) return;
+
+        return customElement(elementName)(elementClass);
+    }
+}
+
+@defineCustomElement('pie-button')
 export class PieButton extends LitElement {
     @property()
     @validPropertyValues(Object.values(BUTTON_SIZE), BUTTON_SIZE.MEDIUM)
