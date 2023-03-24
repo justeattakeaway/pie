@@ -2,7 +2,15 @@
   <img align="center" src="src/assets/img/social/landing_home.png" height="200">
 </p>
 
----
+<p align="center">
+  <a href="https://github.com/justeattakeaway/pie/graphs/contributors">
+    <img alt="GitHub contributors" src="https://img.shields.io/github/contributors/justeattakeaway/pie">
+  </a>
+  <a href="https://github.com/justeattakeaway/pie/actions/workflows/build.yml?query=branch%3Amain">
+    <img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/justeattakeaway/pie/build.yml">
+  </a>
+</p>
+
 # PIE Docs
 
 ## Getting Started
