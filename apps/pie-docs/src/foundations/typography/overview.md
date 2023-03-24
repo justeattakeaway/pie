@@ -6,9 +6,10 @@ eleventyNavigation:
 ---
 
 ## Font families
-We use three different font families for our products and communications. These include:
+We use three different font families for our products and communications.
 
 ### JET Sans Digital
+
 This is our primary font family.
 
 {% contentPageImage {
@@ -38,7 +39,7 @@ Used only for snippets of code.
 ---
 
 ## Our type scale
-We use multiples of 4 within our type scale for both type sizes as well as line height, so that it aligns to our 4px vertical grid.
+Our type scale uses multiples of 4 for type sizes and line heights to align with our 4px vertical grid.
 
 {% contentPageImage {
     src:"../../../assets/img/foundations/typography/type-scale.svg",
@@ -48,9 +49,9 @@ We use multiples of 4 within our type scale for both type sizes as well as line 
 ---
 
 ## Responsive type
-We assign different values to some of our typographic styles depending on the size of the users’ screens. Wider screens use bigger type sizes and more generous spacing, while narrow screens use tighter and smaller type settings.
+We assign different values to some of our typographic styles depending on the size of users’ screens. Wider screens use bigger type sizes and more generous spacing, while narrow screens use tighter and smaller type settings.
 
-Here’s an example of how our **$heading-l** looks on wide and narrow screens:
+Here’s an example of how our **$heading-L** looks on wide and narrow screens.
 
 ### Wide screens
 
@@ -73,7 +74,7 @@ Text size: 24px • Line size: 32px
     caption: "The example above shows how a $heading-l looks on a narrow screen."
 } %}
 
-**Only our Heading and Subheading typographic styles are responsive.** Our body styles share the same values regardless of the size of the screen they’re being displayed in.
+**Only our heading and subheading typographic styles are responsive.** Our body styles are the same for all screens.
 
 {% notification {
     type: "information",
@@ -83,7 +84,7 @@ Text size: 24px • Line size: 32px
 ---
 
 ## Font weights
-Font weight refers to a value assigned to your font which determines how bold or light your text will seem. We use three types of font weight:
+Font weight refers to how bold or light your text will appear; the higher the font weight, the bolder the text. We use three types of font weight.
 
 ### Extra-bold
 
@@ -136,10 +137,10 @@ We use this style when indicating something is no longer valid, but can still be
 ---
 
 ## Alignment
-This property defines the horizontal alignment of the text. It includes three types of aligment:
+This property defines the horizontal alignment of the text. It includes three types of alignment.
 
 ### Left aligned
-This is the preferred way to align text within our products. Left-aligned text performs better for readers because it helps the users to easily identify the start of a new line.
+This is the preferred way to align text within our products because it makes it easier to identify the start of a new line (for left-to-right languages).
 
 {% contentPageImage {
 src:"../../../assets/img/foundations/typography/left-aligned.svg",
@@ -147,7 +148,7 @@ width: "248px"
 } %}
 
 ### Centre aligned
-This alignment should be used sparingly, and should never be considered as the primary way to align text in our designs, unless there is a specific need for it to be used.
+This alignment should be used sparingly, and should never be considered as the primary way to align text in our designs unless there is a specific need for it to be used.
 
 {% contentPageImage {
     src:"../../../assets/img/foundations/typography/centre-aligned.svg",
@@ -165,7 +166,7 @@ This alignment should also be used sparingly. This approach is usually found in 
 ---
 
 ## Line length
-Setting the right line length is key to the readability of the text in our products. With that in mind, a good practice is to keep the lenght between 80 and 100 characters per line, with a minimum of 60.
+Setting the right line length is key to the readability of the text in our products. A good practice is to have a maximum line length of between 80 and 100 characters, with a minimum of 60.
 
 
 {% contentPageImage {
@@ -177,10 +178,10 @@ Setting the right line length is key to the readability of the text in our produ
 ---
 
 ## Paragraph spacing
-It represents the amount of white spacing between two paragraphs of your text. Keeping consistent paragraph spacing measures throughout your products will help the user understand the hierarchy of the information and will make your texts easier to read. We use three measures:
+This is the space between two successive paragraphs of text. Keeping consistent paragraph spacing throughout your products will help the user understand the hierarchy of the information and will be easier to read. We use three measures.
 
 ### Paragraph Spacing 1
-This is the most commonly used paragraph spacing measure. It uses **16px** between paragraphs.
+This is the most common paragraph spacing measure. It uses **16px** between paragraphs.
 
 {% contentPageImage {
     src:"../../../assets/img/foundations/typography/paragraph-spacing-one.svg",

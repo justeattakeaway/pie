@@ -10,16 +10,40 @@ eleventyNavigation:
 
 Currently, JET has several officially supported component systems that implement PIE.
 
-- [Fozzie](https://vue.pie.design/) – a set of Vue components created by the legacy Just Eat web team
-- [Snacks](https://snacks.takeaway.com/) – a set of React components created by the legacy Takeaway design system team
-- [Skip PIE Project](https://react.pie.design/) – a set of React components created by the Skip web team
+- [Fozzie](https://vue.pie.design/) – a set of **Vue components** created by the legacy Just Eat web team
+- [Snacks](https://snacks.takeaway.com/) – a set of **React components** created by the legacy Takeaway design system team
+- [Skip PIE Project](https://react.pie.design/) – a set of **React components** created by the Skip web team
 
-We are also currently building the [PIE Web Component System](https://www.pie.design/storybook). The long-term aim will be to migrate JET teams over to this Web Component System, so we have one single source of truth for our global PIE components.
+We are also currently building the [PIE Web Component System](https://www.pie.design/storybook). The long-term aim will be to migrate JET teams over to this Web Component System, so we have **one single source of truth** for our global PIE components.
 
-For more details on Fozzie, Snacks and Skip PIE, please check out the documentation portals linked above.
+For more details on Fozzie, Snacks and Skip PIE, please check out the **documentation portals** linked above.
 
+{% card {
+  items: [
+        {
+          linkText: "Vue",
+          href: "https://vue.pie.design/",
+          src: "../../../assets/img/engineers/vue@2x.png",
+          shouldOpenInNewTab: true
+        },
+        {
+          linkText: "React for Takeaway.com",
+          href: "https://snacks.takeaway.com/",
+          src: "../../../assets/img/engineers/react@2x.png",
+          shouldOpenInNewTab: true
+        },
+        {
+          linkText: "React for SkipTheDishes",
+          href: "https://react.pie.design/",
+          src: "../../../assets/img/engineers/react@2x.png",
+          shouldOpenInNewTab: true
+        }
+    ]
+} %}
 
-## PIE Project Structure
+---
+
+## PIE project structure
 
 ### The PIE Monorepo
 
@@ -30,15 +54,15 @@ type: "information",
 message: "For a detailed description of monorepos and their pros and cons, check out [this useful explainer on Wikipedia](https://en.wikipedia.org/wiki/Monorepo)."
 } %}
 
-The PIE Monorepo is currently organised into two distinct sections; apps and packages.
+The PIE Monorepo is currently organised into two distinct sections; **apps and packages**.
 
-#### Apps – the `/apps` folder
+#### The Apps folder
 
 Projects that live in the `/apps` folder are self-contained web applications that can be published and hosted on a server.
 
 For instance, the code for the `pie.design` documentation site lives inside the apps folder, as does the PIE Web Component Storybook.
 
-#### Packages – the `/packages` folder
+#### The Packages folder
 
 The `/packages` folder contains all the shareable packages that can be installed and used by engineers across JET (available via NPM).
 

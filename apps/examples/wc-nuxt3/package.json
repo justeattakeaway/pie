@@ -1,6 +1,6 @@
 {
   "name": "wc-nuxt3",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "private": true,
   "scripts": {
     "build": "nuxt build",
@@ -9,6 +9,7 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@justeattakeaway/pie-button": "workspace:*",
     "@nuxt/vite-builder": "3.0.0",
     "vue": "3.2.25"
   },

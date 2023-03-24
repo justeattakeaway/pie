@@ -6,5 +6,12 @@ export default defineNuxtConfig({
               external: ['vue/server-renderer'],
             },
         },
-    }
+        vue: {
+            template: {
+                compilerOptions: {
+                    isCustomElement: (tag) => tag.includes('-'),
+                }
+            }
+        },
+    },
 })

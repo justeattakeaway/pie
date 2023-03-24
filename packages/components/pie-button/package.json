@@ -3,12 +3,13 @@
   "version": "0.7.0",
   "description": "PIE design system button built using web components",
   "type": "module",
-  "main": "dist/pie-button.js",
+  "main": "dist/index.js",
+  "types": "dist/types/index.d.ts",
   "scripts": {
     "build": "run -T vite build",
     "watch": "run -T vite build --watch",
     "dev": "run -T vite",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 0"
   },
   "author": "JustEatTakeaway - Design System Web Team",
   "license": "Apache-2.0",

@@ -20,7 +20,7 @@ We also run a [PIE engineering clinic](https://calendly.com/jetpie/engineering-c
 
 {% notification {
 type: "information",
-message: "Note that the booking link only goes live the day before the clinic."
+message: "The booking link for the PIE clinic goes live the day before each session."
 } %}
 
 ---
@@ -40,19 +40,19 @@ You can take a look at our Storybook instances:
         {
           linkText: "Vue",
           href: "https://vue.pie.design/",
-          src: "../../assets/img/engineers/contributing/vue@2x.png",
+          src: "../../assets/img/engineers/vue@2x.png",
           shouldOpenInNewTab: true
         },
         {
           linkText: "React for Takeaway.com",
           href: "https://snacks.takeaway.com/",
-          src: "../../assets/img/engineers/contributing/react@2x.png",
+          src: "../../assets/img/engineers/react@2x.png",
           shouldOpenInNewTab: true
         },
         {
           linkText: "React for SkipTheDishes",
           href: "https://react.pie.design/",
-          src: "../../assets/img/engineers/contributing/react@2x.png",
+          src: "../../assets/img/engineers/react@2x.png",
           shouldOpenInNewTab: true
         }
     ]
@@ -62,9 +62,7 @@ You can take a look at our Storybook instances:
 
 ### Can I build a new component?
 
-Yes. If the component has been approved by designers then you are more than welcome to contribute.
-
-Please speak to the Design System team about your requirements and we will help by guiding you.
+Yes. If the component has been approved by designers then you are more than welcome to contribute. Please [speak to the Design System team](/support/contact-us) about your requirements and we will help by guiding you.
 
 ---
 
