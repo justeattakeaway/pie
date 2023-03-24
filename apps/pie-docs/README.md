@@ -33,7 +33,7 @@ Our primary concerns are:
 ### Page testing
 We have route navigation tests that ensure all existing pages can be correctly navigated to. When you add new pages, these tests will fail as there are new unexpected pages (this is by design).
 
-In order to fix the tests, you will need to register the routes to your newly added pages by running: `yarn test:generate-routes`. This will update the json file named `expected-routes.snapshot.json` with the urls to your new page.
+In order to fix the tests, you will need to register the routes to your newly added pages by running: `yarn test:generate-routes`. This will update the JSON file named `expected-routes.snapshot.json` with the URLs to your new page.
 
 From here, we run navigation, accessibility and visual tests against each route.
 
