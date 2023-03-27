@@ -3714,13 +3714,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@justeat/fozzie@npm:10.11.0":
-  version: 10.11.0
-  resolution: "@justeat/fozzie@npm:10.11.0"
+"@justeat/fozzie@npm:10.11.1":
+  version: 10.11.1
+  resolution: "@justeat/fozzie@npm:10.11.1"
   dependencies:
     "@justeat/pie-design-tokens": 4.2.0
     include-media: "github:eduardoboucas/include-media#2.0-release"
-  checksum: 23cdcc551ff547dec17370c23654e2d0c27dd0439d4f0f17b46550355616fdff99554d5f9852b2df0a2dc793b5960614c30e005ef6a14f53abf3c2d48d28d562
+  checksum: a89c5b42e434867d46765729dc8caa74b30f16eaaed2736d40e81fd5e0244dda46b104d7e1aca584eb4c8615167eafa296825b8b1a16105e8746f1d78b2aa849
   languageName: node
   linkType: hard
 
@@ -21321,7 +21321,7 @@ __metadata:
     "@commitlint/cli": 17.4.4
     "@commitlint/config-conventional": 17.4.4
     "@justeat/browserslist-config-fozzie": 1.x
-    "@justeat/fozzie": 10.11.0
+    "@justeat/fozzie": 10.11.1
     "@justeat/pie-design-tokens": 4.2.0
     "@justeat/stylelint-config-fozzie": 3.x
     "@justeattakeaway/pie-icons": 2.1.0
