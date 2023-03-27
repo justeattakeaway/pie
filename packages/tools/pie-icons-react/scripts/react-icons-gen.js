@@ -47,6 +47,7 @@ const template = (variables, { tpl }) => {
 
 // loop through the icons in pie-icons, generate each component and add it to the index.tsx
 Object.keys(icons).map((iconKey) => {
+    const isLargeIcon = iconKey.endsWith('-large');
     const { pathPrefix } = icons[iconKey];
     const capitalisedPathPrefix = (pathPrefix !== undefined ? (pathPrefix).substring(1, 2).toUpperCase() + (pathPrefix).substring(2) : '');
     const componentName = `Icon${capitalisedPathPrefix + pascalCase(handleComponentName(iconKey))}`;
