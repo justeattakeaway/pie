@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.39.0
+
+### Minor Changes
+
+- [Changed] - Updated Concurrency > cancel-in-progress: true to stop any builds in progress when new changes are pushed to a branch ([#350](https://github.com/justeattakeaway/pie/pull/350)) by [@ashleynolan](https://github.com/ashleynolan)
+
+### Patch Changes
+
+- [Fixed] - Snapshots for pie-docs updated after icon version bump ([#351](https://github.com/justeattakeaway/pie/pull/351)) by [@ashleynolan](https://github.com/ashleynolan)
+
+- [Updated] - Project dependencies ([#346](https://github.com/justeattakeaway/pie/pull/346)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 1.38.0
 
 ### Minor Changes

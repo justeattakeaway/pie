@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.67.0
+
+### Minor Changes
+
+- [Fixed] - Snapshots for pie-docs updated after icon version bump ([#351](https://github.com/justeattakeaway/pie/pull/351)) by [@ashleynolan](https://github.com/ashleynolan)
+
+- [Changed] - Improve the project readme ([#354](https://github.com/justeattakeaway/pie/pull/354)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 1.66.0
 
 ### Minor Changes
