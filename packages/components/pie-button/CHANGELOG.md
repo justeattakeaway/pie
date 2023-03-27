@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.8.0
+
+### Minor Changes
+
+- [Updated] - Register approach for button web component ([#346](https://github.com/justeattakeaway/pie/pull/346)) by [@fernandofranca](https://github.com/fernandofranca)
+
+  [Added] - "types" field in package.json for better DX and IDE TypesScript support
+  [Updated] - Provide Vite settings for generating TypeScript declaration files during build
+
 ## 0.7.0
 
 ### Minor Changes
