@@ -15,18 +15,18 @@ export default {
             class: 'c-pieIcon c-pieIcon--austria',
         }, ctx.data]), [h('path', {
             attrs: {
-                d: 'M8 15A7 7 0 108 1a7 7 0 000 14z',
                 fill: '#EEE',
+                d: 'M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14Z',
             },
         }), h('path', {
             attrs: {
-                d: 'M8 1a7 7 0 00-6.563 4.566h13.126A7 7 0 008 1z',
                 fill: '#D80027',
+                d: 'M8 1a7 7 0 0 0-6.563 4.566h13.126A7 7 0 0 0 8 1Z',
             },
         }), h('path', {
             attrs: {
-                d: 'M8 15a7 7 0 006.563-4.566H1.437A7 7 0 008 15z',
                 fill: '#D80027',
+                d: 'M8 15a7 7 0 0 0 6.563-4.566H1.437A7 7 0 0 0 8 15Z',
             },
         })]);
     },

@@ -15,23 +15,23 @@ export default {
             class: 'c-pieIcon c-pieIcon--microsoftLarge',
         }, ctx.data]), [h('path', {
             attrs: {
-                d: 'M4 4h11v11H4V4z',
                 fill: '#F15121',
+                d: 'M4 4h11v11H4V4Z',
             },
         }), h('path', {
             attrs: {
-                d: 'M4 17h11v11H4V17z',
                 fill: '#00A3EE',
+                d: 'M4 17h11v11H4V17Z',
             },
         }), h('path', {
             attrs: {
-                d: 'M17 4h11v11H17V4z',
                 fill: '#7EB801',
+                d: 'M17 4h11v11H17V4Z',
             },
         }), h('path', {
             attrs: {
-                d: 'M17 17h11v11H17V17z',
                 fill: '#FFB700',
+                d: 'M17 17h11v11H17V17Z',
             },
         })]);
     },

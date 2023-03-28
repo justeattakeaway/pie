@@ -15,23 +15,23 @@ export default {
             class: 'c-pieIcon c-pieIcon--gridViewFilledLarge',
         }, ctx.data]), [h('path', {
             attrs: {
-                d: 'M4.625 14.25h9.625V4.625H4.625v9.625z',
                 fill: '#242E30',
+                d: 'M4.625 14.25h9.625V4.625H4.625v9.625Z',
             },
         }), h('path', {
             attrs: {
-                d: 'M17.75 14.25h9.625V4.625H17.75v9.625z',
                 fill: '#242E30',
+                d: 'M17.75 14.25h9.625V4.625H17.75v9.625Z',
             },
         }), h('path', {
             attrs: {
-                d: 'M4.625 27.375h9.625V17.75H4.625v9.625z',
                 fill: '#242E30',
+                d: 'M4.625 27.375h9.625V17.75H4.625v9.625Z',
             },
         }), h('path', {
             attrs: {
-                d: 'M17.75 27.375h9.625V17.75H17.75v9.625z',
                 fill: '#242E30',
+                d: 'M17.75 27.375h9.625V17.75H17.75v9.625Z',
             },
         })]);
     },

@@ -15,8 +15,8 @@ export default {
             class: 'c-pieIcon c-pieIcon--minusLarge',
         }, ctx.data]), [h('path', {
             attrs: {
-                d: 'M27.375 16.875v-1.75H4.625v1.75h22.75z',
                 fill: '#242E30',
+                d: 'M27.375 16.875v-1.75H4.625v1.75h22.75Z',
             },
         })]);
     },
