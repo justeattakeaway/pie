@@ -30,7 +30,7 @@ export class PieButton extends LitElement {
     @validPropertyValues(Object.values(BUTTON_VARIANT), BUTTON_VARIANT.PRIMARY)
     variant : BUTTON_VARIANT = BUTTON_VARIANT.PRIMARY;
 
-    @property()
+    @property({type: Boolean, reflect: true})
     disabled : boolean = false;
 
     render () {

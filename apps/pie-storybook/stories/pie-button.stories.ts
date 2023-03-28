@@ -1,5 +1,6 @@
 import type { Meta, StoryObj as Story } from '@storybook/web-components';
 import { BUTTON_SIZE, BUTTON_TYPE, BUTTON_VARIANT } from '@justeattakeaway/pie-button';
+import { html } from 'lit';
 
 export default {
     title: 'Button',
@@ -19,6 +20,9 @@ export default {
         },
         disabled: {
             control: 'boolean'
+        },
+        slot: {
+            control: 'text'
         }
     },
     args: {
@@ -33,15 +37,19 @@ const defaultArgs = {
     size: BUTTON_SIZE.MEDIUM,
     type: BUTTON_TYPE.SUBMIT,
     variant: BUTTON_VARIANT.PRIMARY,
-    slot: 'Click Me'
+    slot: 'I am a button',
+    disabled: false
 };
 
 export const Primary: Story = (args) => {
-    const { slot, ...buttonArgs } = args;
-
-    return `
-        <pie-button ...${buttonArgs}>
-            ${slot}
+    console.log(args)
+    return html`
+        <pie-button
+            size=${args.size}
+            variant=${args.variant}
+            type=${args.type}
+            ?disabled=${args.disabled}>
+            ${args.slot}
         </pie-button>
     `;
 };
@@ -50,12 +58,13 @@ Primary.args = {
     ...defaultArgs
 };
 
-export const Secondary : Story = {
-    args: {
-        ...defaultArgs,
-        variant: BUTTON_VARIANT.SECONDARY
-    }
-};
+// export const Secondary : Story = {
+//     args: {
+//         ...defaultArgs,
+//         variant: BUTTON_VARIANT.SECONDARY
+//     },
+//     render: () => html`<pie-button .size="${BUTTON_SIZE.MEDIUM}" label="Click meeee"></pie-button>`
+// };
 
 export const Outline : Story = {
     args: {
