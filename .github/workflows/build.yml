@@ -86,7 +86,7 @@ jobs:
       - name: Unit Tests
         run: yarn test:ci
     env:
-      PIE_URL_PREFIX: /pr-preview-docs/pr-${{github.event.number}}/
+      PIE_URL_PREFIX: pr-${{github.event.number}}/
       TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
 
   deploy-docs:
@@ -113,15 +113,37 @@ jobs:
       - name: Build Apps
         run: yarn build --filter=pie-docs
       # Deployments
-      - name: Deploy - Docs PR Preview
-        id: preview-docs
+      - name: Create GitHub deployment
         if: ${{ github.ref != 'refs/heads/main' }}
-        uses: rossjrw/pr-preview-action@v1
+        uses: chrnorm/deployment-action@v2
+        id: docs-deploy
         with:
-          source-dir: ./apps/pie-docs/dist
-          preview-branch: gh-pages
-          umbrella-dir: pr-preview-docs
-          action: auto
+          token: ${{ secrets.GITHUB_TOKEN }}
+          environment: "docs-pr-${{github.event.number}}"
+      - name: Upload S3
+        uses: shallwefootball/upload-s3-action@v1.2.0
+        with:
+          aws_key_id: ${{ secrets.AWS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_bucket: ${{ secrets.AWS_DOCS_BUCKET }}
+          source_dir: "./apps/pie-docs/dist"
+          destination_dir: "pr-${{github.event.number}}"
+      - name: Update deployment status (success)
+        if: success()
+        uses: chrnorm/deployment-status@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          environment-url: http://${{ secrets.AWS_DOCS_BUCKET }}.s3-website.eu-west-1.amazonaws.com/pr-${{github.event.number}}
+          deployment-id: ${{ steps.docs-deploy.outputs.deployment_id }}
+          state: "success"
+      - name: Update deployment status (failure)
+        if: failure()
+        uses: chrnorm/deployment-status@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          environment-url: http://${{ secrets.AWS_DOCS_BUCKET }}.s3.eu-west-1.amazonaws.com/pr-${{github.event.number}}
+          deployment-id: ${{ steps.docs-deploy.outputs.deployment_id }}
+          state: "failure"
       - name: Deploy - Master
         if: ${{ github.ref == 'refs/heads/main' }}
         uses: JamesIves/github-pages-deploy-action@v4
@@ -135,11 +157,11 @@ jobs:
             ./pr-preview-storybook
             ./storybook
     env:
-      PIE_URL_PREFIX: /pr-preview-docs/pr-${{github.event.number}}/
+      PIE_URL_PREFIX: pr-${{github.event.number}}/
       TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
 
   deploy-storybook:
-    needs: deploy-docs
+    needs: build
     runs-on: ubuntu-latest
     steps:
       # Checkout the Repo
@@ -162,15 +184,36 @@ jobs:
       - name: Build Apps
         run: yarn build --filter=pie-storybook
       # Deployments
-      - name: Deploy - Storybook PR Preview
-        id: preview-storybook
-        if: ${{ github.ref != 'refs/heads/main' }}
-        uses: rossjrw/pr-preview-action@v1
+      - name: Create GitHub deployment
+        uses: chrnorm/deployment-action@v2
+        id: storybook-deploy
         with:
-          source-dir: ./apps/pie-storybook/dist
-          preview-branch: gh-pages
-          umbrella-dir: pr-preview-storybook
-          action: auto
+          token: ${{ secrets.GITHUB_TOKEN }}
+          environment: "storybook-pr-${{github.event.number}}"
+      - name: Upload S3
+        uses: shallwefootball/upload-s3-action@v1.2.0
+        with:
+          aws_key_id: ${{ secrets.AWS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_bucket: ${{ secrets.AWS_STORYBOOK_BUCKET }}
+          source_dir: "./apps/pie-storybook/dist"
+          destination_dir: "pr-${{github.event.number}}"
+      - name: Update deployment status (success)
+        if: success()
+        uses: chrnorm/deployment-status@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          environment-url: http://${{ secrets.AWS_STORYBOOK_BUCKET }}.s3-website.eu-west-1.amazonaws.com/pr-${{github.event.number}}
+          deployment-id: ${{ steps.storybook-deploy.outputs.deployment_id }}
+          state: "success"
+      - name: Update deployment status (failure)
+        if: failure()
+        uses: chrnorm/deployment-status@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          environment-url: http://${{ secrets.AWS_STORYBOOK_BUCKET }}.s3.eu-west-1.amazonaws.com/pr-${{github.event.number}}
+          deployment-id: ${{ steps.storybook-deploy.outputs.deployment_id }}
+          state: "failure"
       - name: Deploy - Master
         if: ${{ github.ref == 'refs/heads/main' }}
         uses: JamesIves/github-pages-deploy-action@v4
@@ -239,7 +282,7 @@ jobs:
           path: visual-report/
           retention-days: 7
     env:
-      PIE_URL_PREFIX: pr-preview-docs/pr-${{github.event.number}}/
+      PIE_URL_PREFIX: pr-${{github.event.number}}/
       PERCY_TOKEN_PIE_DOCS: ${{ secrets.PERCY_TOKEN_PIE_DOCS }}
       TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
 
