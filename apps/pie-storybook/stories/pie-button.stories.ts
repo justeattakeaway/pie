@@ -41,15 +41,15 @@ const defaultArgs = {
     disabled: false
 };
 
-export const Primary: Story = (args) => {
-    console.log(args)
+export const Primary: Story = ({ size, variant, type, disabled, slot }) => {
+
     return html`
         <pie-button
-            size=${args.size}
-            variant=${args.variant}
-            type=${args.type}
-            ?disabled=${args.disabled}>
-            ${args.slot}
+            size=${size}
+            variant=${variant}
+            type=${type}
+            ?disabled=${disabled}>
+            ${slot}
         </pie-button>
     `;
 };
@@ -58,13 +58,23 @@ Primary.args = {
     ...defaultArgs
 };
 
-// export const Secondary : Story = {
-//     args: {
-//         ...defaultArgs,
-//         variant: BUTTON_VARIANT.SECONDARY
-//     },
-//     render: () => html`<pie-button .size="${BUTTON_SIZE.MEDIUM}" label="Click meeee"></pie-button>`
-// };
+export const Secondary: Story = ({ size, variant, type, disabled, slot }) => {
+
+    return html`
+        <pie-button
+            size=${size}
+            variant=${variant}
+            type=${type}
+            ?disabled=${disabled}>
+            ${slot}
+        </pie-button>
+    `;
+};
+
+Secondary.args = {
+    ...defaultArgs,
+    variant: BUTTON_VARIANT.SECONDARY
+};
 
 export const Outline : Story = {
     args: {
