@@ -86,7 +86,6 @@ jobs:
       - name: Unit Tests
         run: yarn test:ci
     env:
-      PIE_URL_PREFIX: pr-${{github.event.number}}/
       TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
 
   deploy-docs:
@@ -133,7 +132,7 @@ jobs:
         uses: chrnorm/deployment-status@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          environment-url: http://${{ secrets.AWS_DOCS_BUCKET }}.s3-website.eu-west-1.amazonaws.com/pr-${{github.event.number}}
+          environment-url: https://d395cqrf1rjsko.cloudfront.net/pr-${{github.event.number}}
           deployment-id: ${{ steps.docs-deploy.outputs.deployment_id }}
           state: "success"
       - name: Update deployment status (failure)
@@ -141,7 +140,7 @@ jobs:
         uses: chrnorm/deployment-status@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          environment-url: http://${{ secrets.AWS_DOCS_BUCKET }}.s3.eu-west-1.amazonaws.com/pr-${{github.event.number}}
+          environment-url: https://d395cqrf1rjsko.cloudfront.net/pr-${{github.event.number}}
           deployment-id: ${{ steps.docs-deploy.outputs.deployment_id }}
           state: "failure"
       - name: Deploy - Master
@@ -157,7 +156,6 @@ jobs:
             ./pr-preview-storybook
             ./storybook
     env:
-      PIE_URL_PREFIX: pr-${{github.event.number}}/
       TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
 
   deploy-storybook:
@@ -282,7 +280,6 @@ jobs:
           path: visual-report/
           retention-days: 7
     env:
-      PIE_URL_PREFIX: pr-${{github.event.number}}/
       PERCY_TOKEN_PIE_DOCS: ${{ secrets.PERCY_TOKEN_PIE_DOCS }}
       TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
 
