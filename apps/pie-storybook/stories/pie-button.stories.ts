@@ -1,5 +1,4 @@
 import type { Meta, StoryObj as Story } from '@storybook/web-components';
-
 import { BUTTON_SIZE, BUTTON_TYPE, BUTTON_VARIANT } from '@justeattakeaway/pie-button';
 
 export default {
@@ -33,11 +32,22 @@ export default {
 const defaultArgs = {
     size: BUTTON_SIZE.MEDIUM,
     type: BUTTON_TYPE.SUBMIT,
-    variant: BUTTON_VARIANT.PRIMARY
+    variant: BUTTON_VARIANT.PRIMARY,
+    slot: 'Click Me'
 };
 
-export const Primary : Story = {
-    args: defaultArgs
+export const Primary: Story = (args) => {
+    const { slot, ...buttonArgs } = args;
+
+    return `
+        <pie-button ...${buttonArgs}>
+            ${slot}
+        </pie-button>
+    `;
+};
+
+Primary.args = {
+    ...defaultArgs
 };
 
 export const Secondary : Story = {
