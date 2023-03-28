@@ -2,18 +2,20 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import IconAlcohol from '../icons/IconAlcohol';
 
-it('renders correctly without extraClass prop', () => {
-  const tree = renderer
-    .create(<IconAlcohol />)
-    .toJSON();
-
-  expect(tree).toMatchSnapshot();
-});
-
-it('renders correctly with extraClass prop', () => {
+describe('Icon', () => {
+  it('renders correctly without className prop', () => {
     const tree = renderer
-      .create(<IconAlcohol extraClass="additional-styling" />)
+      .create(<IconAlcohol />)
       .toJSON();
-
+  
     expect(tree).toMatchSnapshot();
+  });
+  
+  it('renders correctly with className prop', () => {
+      const tree = renderer
+        .create(<IconAlcohol className="additional-styling" />)
+        .toJSON();
+  
+      expect(tree).toMatchSnapshot();
+  });  
 });

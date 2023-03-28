@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "allowJs": true,
     "lib": ["dom", "dom.iterable", "esnext"],
     "jsx": "react",
     "skipLibCheck": true,
@@ -17,6 +16,5 @@
     "noEmit": true,
     "target": "ES6"
   },
-  "include": [
-    "icons"],
+  "include": ["icons"]
 }

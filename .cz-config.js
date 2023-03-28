@@ -4,7 +4,7 @@ const getPackages = () => {
   let outputPackages;
 
   try {
-    outputPackages = execSync('npx turbo run build --dry=json');
+    outputPackages = execSync('npx turbo run build --dry=json --ignore=nitro-output');
   } catch (error) {
     console.info('No changed packages found.');
     process.exit(0);

@@ -12,34 +12,38 @@ const filePath = join(ICONS_DIR, '/index.tsx');
 async function checkDirExists (directoryPath) {
     try {
         await fs.ensureDir(directoryPath);
-        console.info(`Directory "${directoryPath}" exists.`);
+        console.log(`Directory "${directoryPath}" exists.`);
     } catch (err) {
         console.error(err);
     }
 }
 
-let defaultClassName;
-
 const handleComponentName = (name) => name.replace(/\-(\d+)/, '$1'); // eslint-disable-line no-useless-escape
+
 // check that the /icons directory exists, if not create it
 checkDirExists(ICONS_DIR);
+
 // open a write stream to index.tsx
 const indexFile = fs.createWriteStream(
     filePath,
     (err) => {
         console.error(err);
-    },
+    }
 );
 
-const template = (variables, { tpl }) => tpl`
-${variables.imports};
-${variables.interfaces};
-const ${variables.componentName} = (props: any) => (
-${variables.jsx}
-);
+const template = (variables, { tpl }) => {
+    return tpl`
+    ${variables.imports};
+    ${variables.interfaces};
+    const ${variables.componentName} = (props: any) => {
+        const { className, ...remainingProps } = props;
 
-${variables.exports};
+        return (${variables.jsx});
+    }
+
+    ${variables.exports};
 `;
+}
 
 // loop through the icons in pie-icons, generate each component and add it to the index.tsx
 Object.keys(icons).map((iconKey) => {
@@ -47,7 +51,7 @@ Object.keys(icons).map((iconKey) => {
     const capitalisedPathPrefix = (pathPrefix !== undefined ? (pathPrefix).substring(1, 2).toUpperCase() + (pathPrefix).substring(2) : '');
     const componentName = `Icon${capitalisedPathPrefix + pascalCase(handleComponentName(iconKey))}`;
 
-    let componentData = transform.sync(
+    let Comp = transform.sync(
         icons[iconKey].toSvg(),
         {
             icon: true,
@@ -57,12 +61,13 @@ Object.keys(icons).map((iconKey) => {
         { componentName },
     );
 
-    defaultClassName = `"pie-icon pie-icon--${iconKey.toLowerCase()} "`
+    const customClassName = `className={"pie-icon pie-icon--${iconKey.toLowerCase()}" + (props.className ? ' ' : '') + (props.className ?? '') }`;
+    Comp = Comp.replace(/className=".+?"/, customClassName);
+    Comp = Comp.replace('{...props}', '{...remainingProps}');
 
-    const classNameExpression = `className={${defaultClassName} + (props.extraClass ?? '') }`;
-    componentData = componentData.replace(/className="[A-Za-z, -]+"/, classNameExpression);
-    fs.writeFile(`${ICONS_DIR}/${componentName}.tsx`, componentData, (err) => {
+    fs.writeFile(`${ICONS_DIR}/${componentName}.tsx`, Comp, (err) => {
         if (err) console.error(err);
     });
+
     indexFile.write(`export { default as ${componentName} } from './${componentName}';\n`);
 });
