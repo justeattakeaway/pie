@@ -33,6 +33,18 @@ export default {
     },
 } as Meta;
 
+const Template = ({ size, variant, type, disabled, slot }) => {
+    return html`
+        <pie-button
+            size=${size}
+            variant=${variant}
+            type=${type}
+            ?disabled=${disabled}>
+            ${slot}
+        </pie-button>
+    `;
+}
+
 const defaultArgs = {
     size: BUTTON_SIZE.MEDIUM,
     type: BUTTON_TYPE.SUBMIT,
@@ -41,36 +53,12 @@ const defaultArgs = {
     disabled: false
 };
 
-export const Primary: Story = ({ size, variant, type, disabled, slot }) => {
-
-    return html`
-        <pie-button
-            size=${size}
-            variant=${variant}
-            type=${type}
-            ?disabled=${disabled}>
-            ${slot}
-        </pie-button>
-    `;
-};
-
+export const Primary: Story = Template.bind({});
 Primary.args = {
     ...defaultArgs
 };
 
-export const Secondary: Story = ({ size, variant, type, disabled, slot }) => {
-
-    return html`
-        <pie-button
-            size=${size}
-            variant=${variant}
-            type=${type}
-            ?disabled=${disabled}>
-            ${slot}
-        </pie-button>
-    `;
-};
-
+export const Secondary: Story = Template.bind({});
 Secondary.args = {
     ...defaultArgs,
     variant: BUTTON_VARIANT.SECONDARY
