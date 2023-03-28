@@ -12,6 +12,8 @@ export { BUTTON_SIZE, BUTTON_TYPE, BUTTON_VARIANT };
 // TODO: Extract as a utility function in a shared package
 function defineCustomElement(elementName:string) {
     return (elementClass:typeof LitElement) => {
+        if(customElements.get(elementName)) return;
+
         return customElement(elementName)(elementClass);
     }
 }
