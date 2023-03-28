@@ -3,7 +3,7 @@ import Head from 'next/head';
 import { createComponent } from '@lit-labs/react';
 import { PieButton, BUTTON_SIZE, BUTTON_VARIANT } from '@justeattakeaway/pie-button';
 
-const Button = createComponent({
+const PieBtn = createComponent({
     tagName: 'pie-button',
     elementClass: PieButton,
     react: React,
@@ -38,20 +38,20 @@ export default function Home () {
                 <div>
                     <h3>Counter</h3>
                     <div className="flex-wrapper">
-                        <Button onClick={decrement}>decrement</Button>
+                        <PieBtn onClick={decrement}>decrement</PieBtn>
                         <div className="padding">
                             Counter: { count }
                         </div>
-                        <Button onClick={increment}>decrement</Button>
+                        <PieBtn onClick={increment}>decrement</PieBtn>
                     </div>
                 </div>
                 <h2>Test props</h2>
                 <div>
                     <h3>Click the button to switch the variant</h3>
                     <div className="flex-wrapper">
-                        <Button variant={variantName} onClick={switchVariant}>
+                        <PieBtn variant={variantName} onClick={switchVariant}>
                             Switch variant
-                        </Button>
+                        </PieBtn>
                         <div className='padding'>Variant: <b>{variantName}</b></div>
                     </div>
                 </div>
@@ -64,7 +64,7 @@ export default function Home () {
                                     const size:BUTTON_SIZE = BUTTON_SIZE[key as keyof typeof BUTTON_SIZE];
 
                                     return (
-                                        <Button size={size} key={key}>{key.toLowerCase()}</Button>
+                                        <PieBtn size={size} key={key}>{key.toLowerCase()}</PieBtn>
                                     );
                                 })
                         }

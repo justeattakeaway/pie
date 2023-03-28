@@ -4,7 +4,7 @@ import { PieButton } from '@justeattakeaway/pie-button';
 import './styles.css';
 
 // eslint-disable-next-line no-unused-vars
-const Button = createComponent({
+const PieBtn = createComponent({
     tagName: 'pie-button',
     elementClass: PieButton,
     react: React,
@@ -18,16 +18,16 @@ function App () {
 
     return (
         <>
-            <Button size='large' />
-            <Button variant='secondary' />
-            <Button disabled />
+            <PieBtn size='large'>WC Button in React!</PieBtn>
+            <PieBtn variant='secondary'>WC Button in React!</PieBtn>
+            <PieBtn disabled>WC Button in React!</PieBtn>
             <hr />
             <h2>onClick</h2>
-            <p>Count - {counter}</p>
-            <Button
+            <p>Count: {counter}</p>
+            <PieBtn
                 onClick={() => setCounter(counter + 1)}
                 onCustomEvent={onCustomEvent}
-            />
+            >Increment</PieBtn>
         </>
     );
 }
