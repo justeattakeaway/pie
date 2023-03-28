@@ -3,6 +3,7 @@
   "version": "2.2.1",
   "main": "esm/index.js",
   "type": "module",
+  "types": "esm/index.d.ts",
   "files": [
     "dist",
     "esm",
