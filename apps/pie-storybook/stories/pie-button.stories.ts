@@ -49,7 +49,7 @@ const defaultArgs = {
     size: BUTTON_SIZE.MEDIUM,
     type: BUTTON_TYPE.SUBMIT,
     variant: BUTTON_VARIANT.PRIMARY,
-    slot: 'I am a button',
+    slot: 'This is Lit!',
     disabled: false
 };
 
@@ -64,16 +64,14 @@ Secondary.args = {
     variant: BUTTON_VARIANT.SECONDARY
 };
 
-export const Outline : Story = {
-    args: {
-        ...defaultArgs,
-        variant: BUTTON_VARIANT.OUTLINE
-    }
+export const Outline: Story = Template.bind({});
+Outline.args = {
+    ...defaultArgs,
+    variant: BUTTON_VARIANT.OUTLINE
 };
 
-export const Ghost : Story = {
-    args: {
-        ...defaultArgs,
-        variant: BUTTON_VARIANT.GHOST
-    }
+export const Ghost: Story = Template.bind({});
+Ghost.args = {
+    ...defaultArgs,
+    variant: BUTTON_VARIANT.GHOST
 };
