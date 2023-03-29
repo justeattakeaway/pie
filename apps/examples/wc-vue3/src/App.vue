@@ -1,25 +1,35 @@
 <template>
-    <h2>Button click event</h2>
-    <div class="flex-wrapper">
-        <pie-button @click="decrement" />
-        <div class="counter">
-            Counter: {{ count }}
+    <div>
+        <h2>Button click event</h2>
+        <div class="flex-wrapper">
+            <pie-button @click="decrement">
+                Decrement
+            </pie-button>
+            <div class="counter">
+                Counter: {{ count }}
+            </div>
+            <pie-button @click="increment">
+                Increment
+            </pie-button>
         </div>
-        <pie-button @click="increment" />
-    </div>
-    <h2>Button variants</h2>
-    <div>
-        <pie-button
-            v-for="(value, key) in BUTTON_VARIANT"
-            :key="key"
-            :variant="value" />
-    </div>
-    <h2>Button sizes</h2>
-    <div>
-        <pie-button
-            v-for="(value, key) in BUTTON_SIZE"
-            :key="key"
-            :size="value" />
+        <h2>Button variants</h2>
+        <div>
+            <pie-button
+                v-for="(value, key) in BUTTON_VARIANT"
+                :key="key"
+                :variant="value">
+                WC Button in Vue!
+            </pie-button>
+        </div>
+        <h2>Button sizes</h2>
+        <div>
+            <pie-button
+                v-for="(value, key) in BUTTON_SIZE"
+                :key="key"
+                :size="value">
+                WC Button in Vue!
+            </pie-button>
+        </div>
     </div>
 </template>
 

@@ -32,7 +32,7 @@ export class PieButton extends LitElement {
     @validPropertyValues(Object.values(BUTTON_VARIANT), BUTTON_VARIANT.PRIMARY)
     variant : BUTTON_VARIANT = BUTTON_VARIANT.PRIMARY;
 
-    @property()
+    @property({type: Boolean, reflect: true})
     disabled : boolean = false;
 
     render () {
@@ -57,10 +57,16 @@ export class PieButton extends LitElement {
                 type=${type}
                 ?disabled=${disabled}
                 @click="${raiseWCEvent}">
-                I'm a PIE button
+                <slot></slot>
             </button>`;
     }
 
     // Renders a `CSSResult` generated from SCSS by Vite
     static styles = unsafeCSS(styles);
+}
+
+declare global {
+    interface HTMLElementTagNameMap {
+        'pie-button': PieButton;
+    }
 }
