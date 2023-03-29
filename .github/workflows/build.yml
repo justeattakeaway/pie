@@ -134,6 +134,15 @@ jobs:
           bucket-root: '/'
           destination-dir: '/'
           file-path: './pie-docs-pr-${{github.event.number}}.zip'
+      - name: Amplify Deploy
+        uses: actions/amplify-deploy
+        with:
+          amplify-app-id: 'dvskdcoepjoyf'
+          aws-region: 'eu-west-1'
+          branch-name: 'pr-${{github.event.number}}'
+          bucket-name: '${{ secrets.AWS_DOCS_BUCKET }}'
+          package-name: 'pie-docs-pr-${{github.event.number}}.zip'
+
       # - name: Update deployment status (success)
       #   if: success()
       #   uses: chrnorm/deployment-status@v2
