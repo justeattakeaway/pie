@@ -16,6 +16,6 @@
     "vue-template-compiler": "2.7.10"
   },
   "volta": {
-    "node": "14.17.6"
+    "extends": "../../../package.json"
   }
 }
