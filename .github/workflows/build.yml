@@ -111,6 +111,9 @@ jobs:
       # Build Projects
       - name: Build Apps
         run: yarn build --filter=pie-docs
+      # Zip dist
+      - name: Zip build output
+        run: zip -r pie-docs-pr-${{github.event.number}}.zip apps/pie-docs/dist
       # Deployments
       - name: Create GitHub deployment
         if: ${{ github.ref != 'refs/heads/main' }}
@@ -125,8 +128,7 @@ jobs:
           aws_key_id: ${{ secrets.AWS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_bucket: ${{ secrets.AWS_DOCS_BUCKET }}
-          source_dir: "./apps/pie-docs/dist"
-          destination_dir: "pr-${{github.event.number}}"
+          source_dir: "pie-docs-pr-${{github.event.number}}.zip"
       - name: Update deployment status (success)
         if: success()
         uses: chrnorm/deployment-status@v2
@@ -158,73 +160,73 @@ jobs:
     env:
       TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
 
-  deploy-storybook:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      # Checkout the Repo
-      - name: Checkout
-        uses: actions/checkout@v3
-      # Setup Node 16
-      - name: Setup Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16
-          cache: "yarn"
-      # Restore node_modules - Cache should exist as one was created in previous 'install' job
-      - name: Cache Node Modules
-        id: cache-node-modules
-        uses: actions/cache@v3
-        with:
-          path: "**/node_modules"
-          key: node-modules-${{ hashFiles('**/yarn.lock') }}
-      # Build Projects
-      - name: Build Apps
-        run: yarn build --filter=pie-storybook
-      # Deployments
-      - name: Create GitHub deployment
-        uses: chrnorm/deployment-action@v2
-        id: storybook-deploy
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          environment: "storybook-pr-${{github.event.number}}"
-      - name: Upload S3
-        uses: shallwefootball/upload-s3-action@v1.2.0
-        with:
-          aws_key_id: ${{ secrets.AWS_KEY_ID }}
-          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws_bucket: ${{ secrets.AWS_STORYBOOK_BUCKET }}
-          source_dir: "./apps/pie-storybook/dist"
-          destination_dir: "pr-${{github.event.number}}"
-      - name: Update deployment status (success)
-        if: success()
-        uses: chrnorm/deployment-status@v2
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          environment-url: http://${{ secrets.AWS_STORYBOOK_BUCKET }}.s3-website.eu-west-1.amazonaws.com/pr-${{github.event.number}}
-          deployment-id: ${{ steps.storybook-deploy.outputs.deployment_id }}
-          state: "success"
-      - name: Update deployment status (failure)
-        if: failure()
-        uses: chrnorm/deployment-status@v2
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          environment-url: http://${{ secrets.AWS_STORYBOOK_BUCKET }}.s3.eu-west-1.amazonaws.com/pr-${{github.event.number}}
-          deployment-id: ${{ steps.storybook-deploy.outputs.deployment_id }}
-          state: "failure"
-      - name: Deploy - Master
-        if: ${{ github.ref == 'refs/heads/main' }}
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          folder: ./apps/pie-storybook/dist
-          force: false
-          branch: gh-pages
-          target-folder: ./storybook
-          clean-exclude: |
-            pr-preview-docs
-            pr-preview-storybook
-    env:
-      TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+  # deploy-storybook:
+  #   needs: build
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     # Checkout the Repo
+  #     - name: Checkout
+  #       uses: actions/checkout@v3
+  #     # Setup Node 16
+  #     - name: Setup Node
+  #       uses: actions/setup-node@v3
+  #       with:
+  #         node-version: 16
+  #         cache: "yarn"
+  #     # Restore node_modules - Cache should exist as one was created in previous 'install' job
+  #     - name: Cache Node Modules
+  #       id: cache-node-modules
+  #       uses: actions/cache@v3
+  #       with:
+  #         path: "**/node_modules"
+  #         key: node-modules-${{ hashFiles('**/yarn.lock') }}
+  #     # Build Projects
+  #     - name: Build Apps
+  #       run: yarn build --filter=pie-storybook
+  #     # Deployments
+  #     - name: Create GitHub deployment
+  #       uses: chrnorm/deployment-action@v2
+  #       id: storybook-deploy
+  #       with:
+  #         token: ${{ secrets.GITHUB_TOKEN }}
+  #         environment: "storybook-pr-${{github.event.number}}"
+  #     - name: Upload S3
+  #       uses: shallwefootball/upload-s3-action@v1.2.0
+  #       with:
+  #         aws_key_id: ${{ secrets.AWS_KEY_ID }}
+  #         aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  #         aws_bucket: ${{ secrets.AWS_STORYBOOK_BUCKET }}
+  #         source_dir: "./apps/pie-storybook/dist"
+  #         destination_dir: "pr-${{github.event.number}}"
+  #     - name: Update deployment status (success)
+  #       if: success()
+  #       uses: chrnorm/deployment-status@v2
+  #       with:
+  #         token: ${{ secrets.GITHUB_TOKEN }}
+  #         environment-url: http://${{ secrets.AWS_STORYBOOK_BUCKET }}.s3-website.eu-west-1.amazonaws.com/pr-${{github.event.number}}
+  #         deployment-id: ${{ steps.storybook-deploy.outputs.deployment_id }}
+  #         state: "success"
+  #     - name: Update deployment status (failure)
+  #       if: failure()
+  #       uses: chrnorm/deployment-status@v2
+  #       with:
+  #         token: ${{ secrets.GITHUB_TOKEN }}
+  #         environment-url: http://${{ secrets.AWS_STORYBOOK_BUCKET }}.s3.eu-west-1.amazonaws.com/pr-${{github.event.number}}
+  #         deployment-id: ${{ steps.storybook-deploy.outputs.deployment_id }}
+  #         state: "failure"
+  #     - name: Deploy - Master
+  #       if: ${{ github.ref == 'refs/heads/main' }}
+  #       uses: JamesIves/github-pages-deploy-action@v4
+  #       with:
+  #         folder: ./apps/pie-storybook/dist
+  #         force: false
+  #         branch: gh-pages
+  #         target-folder: ./storybook
+  #         clean-exclude: |
+  #           pr-preview-docs
+  #           pr-preview-storybook
+  #   env:
+  #     TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
 
   browser-tests:
     needs: deploy-docs
