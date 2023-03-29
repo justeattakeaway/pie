@@ -42,7 +42,7 @@ export default function Home () {
                         <div className="padding">
                             Counter: { count }
                         </div>
-                        <PieBtn onClick={increment}>decrement</PieBtn>
+                        <PieBtn onClick={increment}>increment</PieBtn>
                     </div>
                 </div>
                 <h2>Test props</h2>
