@@ -134,6 +134,9 @@ jobs:
           bucket-root: '/'
           destination-dir: '/'
           file-path: './pie-docs-pr-${{github.event.number}}.zip'
+      # Checkout the Repo
+      - name: Checkout
+        uses: actions/checkout@v3
       - name: Amplify Deploy
         uses: ./.github/actions/amplify-deploy/
         with:
