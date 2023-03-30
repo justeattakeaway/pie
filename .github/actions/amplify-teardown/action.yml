@@ -1,0 +1,50 @@
+name: amplify-teardown
+description: Teardown preview after merge
+
+inputs:
+  amplify-app-id:
+    description: 'The ID for your app which you can get from the end of its ARN'
+    required: true
+  aws-region:
+    description: 'The AWS region from which to tear down your app'
+    required: true
+  aws-access-key-id:
+    description: 'The AWS Access Key for the account that hosts your app'
+    required: true
+  aws-secret-access-key:
+    description: 'The AWS Secret Access Key for the account that hosts your app'
+    required: true
+  branch-name:
+    description: 'Amplify "branch" name'
+    required: true
+  bucket-name:
+    description: 'The name of the S3 bucket containing your zipped website'
+    required: true
+  package-name:
+    description: 'Name for the generated build zip to be deleted from S3'
+    required: true
+
+runs:
+  using: composite
+  steps:
+  # this step will fail if the branch already exists
+  # so we return 'true' to ensure it'll always pass.
+  - name: delete amplify branch
+    shell: bash
+    run: |
+      aws amplify delete-branch \
+        --app-id ${{ inputs.amplify-app-id }} \
+        --branch-name ${{ inputs.branch-name }} \
+        || true
+    env:
+      AWS_ACCESS_KEY_ID: ${{ inputs.aws-access-key-id }}
+      AWS_SECRET_ACCESS_KEY: ${{ inputs.aws-secret-access-key }}
+      AWS_REGION: ${{ inputs.aws-region }}
+  - name: delete zip from s3
+    uses: vitorsgomes/s3-rm-action@master
+    env:
+      AWS_S3_BUCKET: ${{ inputs.bucket-name }}
+      AWS_ACCESS_KEY_ID: ${{ inputs.aws-access-key-id }}
+      AWS_SECRET_ACCESS_KEY: ${{ inputs.aws-secret-access-key }}
+      AWS_REGION: ${{ inputs.aws-region }}
+      PATH_TO_DELETE: ${{ inputs.package-name }}
