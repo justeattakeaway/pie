@@ -39,13 +39,15 @@ runs:
     env:
       AWS_ACCESS_KEY_ID: ${{ inputs.aws-access-key-id }}
       AWS_SECRET_ACCESS_KEY: ${{ inputs.aws-secret-access-key }}
+      AWS_REGION: ${{ inputs.aws-region }}
   - name: deploy amplify from s3
     shell: bash
     run: |
       aws amplify start-deployment \
         --app-id ${{ inputs.amplify-app-id }} \
         --branch-name ${{ inputs.branch-name }} \
-        --source-url https://${{ inputs.bucket-name }}.s3.${{ inputs.aws-region }}.amazonaws.com/${{ inputs.package-name }}
+        --source-url https://${{ inputs.bucket-name }}.s3.${{ env.aws-region }}.amazonaws.com/${{ inputs.package-name }}
     env:
       AWS_ACCESS_KEY_ID: ${{ inputs.aws-access-key-id }}
       AWS_SECRET_ACCESS_KEY: ${{ inputs.aws-secret-access-key }}
+      AWS_REGION: ${{ inputs.aws-region }}
