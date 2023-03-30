@@ -36,7 +36,6 @@ runs:
         --app-id ${{ inputs.amplify-app-id }} \
         --branch-name ${{ inputs.branch-name }} \
         || true
-
   - name: deploy amplify from s3
     shell: bash
     run: |
@@ -45,5 +44,5 @@ runs:
         --branch-name ${{ inputs.branch-name }} \
         --source-url https://${{ inputs.bucket-name }}.s3.${{ inputs.aws-region }}.amazonaws.com/${{ inputs.package-name }}
     env:
-      AWS_ACCESS_KEY_ID: ${{ inputs.aws-key-id }}
+      AWS_ACCESS_KEY_ID: ${{ inputs.aws-access-key-id }}
       AWS_SECRET_ACCESS_KEY: ${{ inputs.aws-secret-access-key }}
