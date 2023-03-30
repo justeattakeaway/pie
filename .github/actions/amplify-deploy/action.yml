@@ -8,6 +8,12 @@ inputs:
   aws-region:
     description: 'The AWS region to deploy your Amplify app to'
     required: true
+  aws-access-key-id:
+    description: 'The AWS key ID where your Amplify app is hosted'
+    required: true
+  aws-secret-access-key:
+    description: 'The AWS Secret Access Key associated with your account'
+    required: true
   branch-name:
     description: 'Amplify "branch" name'
     required: true
@@ -16,12 +22,6 @@ inputs:
     required: true
   package-name:
     description: 'Name for the generated build zip that will be uploaded to S3'
-    required: true
-  aws-access-key-id:
-    description: 'The AWS key ID where your Amplify app is hosted'
-    required: true
-  aws-secret-access-key:
-    description: 'The AWS Secret Access Key associated with your account'
     required: true
 
 runs:

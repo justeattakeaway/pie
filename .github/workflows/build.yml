@@ -117,13 +117,13 @@ jobs:
           cd apps/pie-docs/dist
           zip -r ../../../pie-docs-pr-${{github.event.number}}.zip .
       # Deployments
-      # - name: Create GitHub deployment
-      #   if: ${{ github.ref != 'refs/heads/main' }}
-      #   uses: chrnorm/deployment-action@v2
-      #   id: docs-deploy
-      #   with:
-      #     token: ${{ secrets.GITHUB_TOKEN }}
-      #     environment: "docs-pr-${{github.event.number}}"
+      - name: Create GitHub deployment
+        if: ${{ github.ref != 'refs/heads/main' }}
+        uses: chrnorm/deployment-action@v2
+        id: docs-deploy
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          environment: "docs-pr-${{github.event.number}}"
       - name: Upload S3
         uses: hkusu/s3-upload-action@v2
         with:
@@ -144,23 +144,22 @@ jobs:
           branch-name: 'pr-${{github.event.number}}'
           bucket-name: '${{ secrets.AWS_DOCS_BUCKET }}'
           package-name: 'pie-docs-pr-${{github.event.number}}.zip'
-
-      # - name: Update deployment status (success)
-      #   if: success()
-      #   uses: chrnorm/deployment-status@v2
-      #   with:
-      #     token: ${{ secrets.GITHUB_TOKEN }}
-      #     environment-url: https://d395cqrf1rjsko.cloudfront.net/pr-${{github.event.number}}
-      #     deployment-id: ${{ steps.docs-deploy.outputs.deployment_id }}
-      #     state: "success"
-      # - name: Update deployment status (failure)
-      #   if: failure()
-      #   uses: chrnorm/deployment-status@v2
-      #   with:
-      #     token: ${{ secrets.GITHUB_TOKEN }}
-      #     environment-url: https://d395cqrf1rjsko.cloudfront.net/pr-${{github.event.number}}
-      #     deployment-id: ${{ steps.docs-deploy.outputs.deployment_id }}
-      #     state: "failure"
+      - name: Update deployment status (success)
+        if: success()
+        uses: chrnorm/deployment-status@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          environment-url: https://pr-${{github.event.number}}.dvskdcoepjoyf.amplifyapp.com
+          deployment-id: ${{ steps.docs-deploy.outputs.deployment_id }}
+          state: "success"
+      - name: Update deployment status (failure)
+        if: failure()
+        uses: chrnorm/deployment-status@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          environment-url: https://pr-${{github.event.number}}.dvskdcoepjoyf.amplifyapp.com
+          deployment-id: ${{ steps.docs-deploy.outputs.deployment_id }}
+          state: "failure"
       - name: Deploy - Master
         if: ${{ github.ref == 'refs/heads/main' }}
         uses: JamesIves/github-pages-deploy-action@v4
