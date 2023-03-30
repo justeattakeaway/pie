@@ -16,5 +16,8 @@
   "devDependencies": {
     "nuxt": "3.0.0",
     "typescript": "4.8.4"
+  },
+  "volta": {
+    "extends": "../../../package.json"
   }
 }
