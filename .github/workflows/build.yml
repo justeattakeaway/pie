@@ -22,6 +22,13 @@ concurrency:
   group: CI-${{ github.ref }}
   cancel-in-progress: true
 
+env:
+  DOCS_AMPLIFY_ID: dvskdcoepjoyf
+  STORYBOOK_AMPLIFY_ID: d17ja0ul7nrdy0
+  HUSKY: 0
+  PR_NUMBER: ${{ github.event.number }}
+  TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+
 jobs:
   dependency-changeset:
     if: github.actor == 'renovate-bot' || github.actor == 'renovate[bot]'
@@ -85,8 +92,6 @@ jobs:
       # Run Unit Tests
       - name: Unit Tests
         run: yarn test:ci
-    env:
-      TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
 
   deploy-docs:
     needs: build
@@ -138,7 +143,7 @@ jobs:
       - name: Amplify Deploy
         uses: ./.github/actions/amplify-deploy
         with:
-          amplify-app-id: 'dvskdcoepjoyf'
+          amplify-app-id: ${{ env.DOCS_AMPLIFY_ID }}
           aws-region: 'eu-west-1'
           aws-access-key-id: ${{ secrets.AWS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -150,7 +155,7 @@ jobs:
         uses: chrnorm/deployment-status@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          environment-url: https://pr-${{github.event.number}}.dvskdcoepjoyf.amplifyapp.com
+          environment-url: https://pr-${{github.event.number}}.${{ env.DOCS_AMPLIFY_ID }}.amplifyapp.com
           deployment-id: ${{ steps.docs-deploy.outputs.deployment_id }}
           state: "success"
       - name: Update deployment status (failure)
@@ -158,7 +163,7 @@ jobs:
         uses: chrnorm/deployment-status@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          environment-url: https://pr-${{github.event.number}}.dvskdcoepjoyf.amplifyapp.com
+          environment-url: https://pr-${{github.event.number}}.${{ env.DOCS_AMPLIFY_ID }}.amplifyapp.com
           deployment-id: ${{ steps.docs-deploy.outputs.deployment_id }}
           state: "failure"
       - name: Deploy - Master
@@ -171,8 +176,6 @@ jobs:
           branch: gh-pages
           clean-exclude: |
             ./storybook
-    env:
-      TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
 
   deploy-storybook:
     needs: deploy-docs
@@ -224,7 +227,7 @@ jobs:
       - name: Amplify Deploy
         uses: ./.github/actions/amplify-deploy
         with:
-          amplify-app-id: 'd17ja0ul7nrdy0'
+          amplify-app-id: ${{ env.STORYBOOK_AMPLIFY_ID }}
           aws-region: 'eu-west-1'
           aws-access-key-id: ${{ secrets.AWS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -236,7 +239,7 @@ jobs:
         uses: chrnorm/deployment-status@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          environment-url: https://pr-${{github.event.number}}.d17ja0ul7nrdy0.amplifyapp.com
+          environment-url: https://pr-${{github.event.number}}.${{ env.STORYBOOK_AMPLIFY_ID }}.amplifyapp.com
           deployment-id: ${{ steps.storybook-deploy.outputs.deployment_id }}
           state: "success"
       - name: Update deployment status (failure)
@@ -244,7 +247,7 @@ jobs:
         uses: chrnorm/deployment-status@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          environment-url: https://pr-${{github.event.number}}.d17ja0ul7nrdy0.amplifyapp.com
+          environment-url: https://pr-${{github.event.number}}.${{ env.STORYBOOK_AMPLIFY_ID }}.amplifyapp.com
           deployment-id: ${{ steps.storybook-deploy.outputs.deployment_id }}
           state: "failure"
       - name: Deploy - Master
@@ -255,8 +258,6 @@ jobs:
           force: false
           branch: gh-pages
           target-folder: ./storybook
-    env:
-      TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
 
   browser-tests:
     needs: deploy-docs
@@ -313,7 +314,6 @@ jobs:
           retention-days: 7
     env:
       PERCY_TOKEN_PIE_DOCS: ${{ secrets.PERCY_TOKEN_PIE_DOCS }}
-      TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
 
   release:
     needs: build
@@ -401,5 +401,3 @@ jobs:
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-      HUSKY: 0
-      TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}

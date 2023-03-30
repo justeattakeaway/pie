@@ -1,8 +1,8 @@
 const {
-    AWS_DOCS_BUCKET,
+    DOCS_AMPLIFY_ID,
     CI,
+    PR_NUMBER,
     GITHUB_REF_NAME,
-    PIE_URL_PREFIX,
 } = process.env;
 
 /*
@@ -20,5 +20,5 @@ exports.getBaseUrl = () => {
     if (GITHUB_REF_NAME === 'main') {
         return 'https://www.pie.design/';
     }
-    return `http://${AWS_DOCS_BUCKET}.s3-website.eu-west-1.amazonaws.com/${PIE_URL_PREFIX}`;
+    return `http://pr-${PR_NUMBER}.${DOCS_AMPLIFY_ID}.amplifyapp.com`;
 };
