@@ -1,57 +1,50 @@
 name: amplify-deploy
+description: deploy to amplify
 
 # Controls when the workflow will run
-on:
-  workflow_call:
-    inputs:
-      amplify-app-id:
-        description: 'The ID for your Amplify app which you can get from the end of its ARN'
-        required: true
-        type: string
-      aws-region:
-        description: 'The AWS region to deploy your Amplify app to'
-        required: true
-        type: string
-      branch-name:
-        description: 'Amplify "branch" name'
-        required: true
-        type: string
-      bucket-name:
-        description: 'The name of the S3 bucket containing your zipped website'
-        required: true
-        type: string
-      package-name:
-        description: 'Name for the generated build zip that will be uploaded to S3'
-        required: true
-        type: string
-    secrets:
-      AWS_KEY_ID:
-        required: true
-      AWS_SECRET_ACCESS_KEY:
-        required: true
+inputs:
+  amplify-app-id:
+    description: 'The ID for your Amplify app which you can get from the end of its ARN'
+    required: true
+  aws-region:
+    description: 'The AWS region to deploy your Amplify app to'
+    required: true
+  branch-name:
+    description: 'Amplify "branch" name'
+    required: true
+  bucket-name:
+    description: 'The name of the S3 bucket containing your zipped website'
+    required: true
+  package-name:
+    description: 'Name for the generated build zip that will be uploaded to S3'
+    required: true
+  aws-access-key-id:
+    description: 'The AWS key ID where your Amplify app is hosted'
+    required: true
+  aws-secret-access-key:
+    description: 'The AWS Secret Access Key associated with your account'
+    required: true
 
-jobs:
-  deploy-branch:
-    runs-on: ubuntu-latest
+runs:
+  using: composite
+  steps:
+  # this step will fail if the branch already exists
+  # so we return 'true' to ensure it'll always pass.
+  - name: create amplify env
+    shell: bash
+    run: |
+      aws amplify create-branch \
+        --app-id ${{ inputs.amplify-app-id }} \
+        --branch-name ${{ inputs.branch-name }} \
+        || true
 
-    environment: ${{ inputs.environment }}
+  - name: deploy amplify from s3
+    shell: bash
+    run: |
+      aws amplify start-deployment \
+        --app-id ${{ inputs.amplify-app-id }} \
+        --branch-name ${{ inputs.branch-name }} \
+        --source-url https://${{ inputs.bucket-name }}.s3.${{ inputs.aws-region }}.amazonaws.com/${{ inputs.package-name }}
     env:
-      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_KEY_ID }}
-      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-
-    steps:
-      # this step will fail if the branch already exists
-      # so we return 'true' to ensure it'll always pass.
-      - name: create amplify env
-        run: |
-          aws amplify create-branch \
-            --app-id ${{ inputs.amplify-app-id }} \
-            --branch-name ${{ inputs.branch-name }} \
-            || true
-
-      - name: deploy amplify from s3
-        run: |
-          aws amplify start-deployment \
-            --app-id ${{ inputs.amplify-app-id }} \
-            --branch-name ${{ inputs.branch-name }} \
-            --source-url https://${{ inputs.bucket-name }}.s3.${{ inputs.aws-region }}.amazonaws.com/${{ inputs.package-name }}
+      AWS_ACCESS_KEY_ID: ${{ inputs.aws-key-id }}
+      AWS_SECRET_ACCESS_KEY: ${{ inputs.aws-secret-access-key }}
