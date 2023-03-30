@@ -51,8 +51,7 @@
     "typescript": "5.0.3"
   },
   "volta": {
-    "node": "16.19.0",
-    "yarn": "3.4.1"
+    "extends": "../../../package.json"
   },
   "dependencies": {
     "@babel/preset-env": "7.20.2",
