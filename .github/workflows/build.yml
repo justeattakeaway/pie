@@ -36,10 +36,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Setup Node
-        # Setup Node 16
+        # Setup Node 18
         uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
           cache: "yarn"
       # Restore node_modules if cache exists. If not, cache is created at end of build.
       - name: Cache Node Modules
@@ -60,11 +60,11 @@ jobs:
       # Checkout the Repo
       - name: Checkout
         uses: actions/checkout@v3
-      # Setup Node 16
+      # Setup Node 18
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
           cache: "yarn"
       # Restore node_modules if cache exists. If not, cache is created at end of build.
       - name: Cache Node Modules
@@ -95,11 +95,11 @@ jobs:
       # Checkout the Repo
       - name: Checkout
         uses: actions/checkout@v3
-      # Setup Node 16
+      # Setup Node 18
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
           cache: "yarn"
       # Restore node_modules - Cache should exist as one was created in previous 'install' job
       - name: Cache Node Modules
@@ -181,11 +181,11 @@ jobs:
   #     # Checkout the Repo
   #     - name: Checkout
   #       uses: actions/checkout@v3
-  #     # Setup Node 16
+  #     # Setup Node 18
   #     - name: Setup Node
   #       uses: actions/setup-node@v3
   #       with:
-  #         node-version: 16
+  #         node-version: 18
   #         cache: "yarn"
   #     # Restore node_modules - Cache should exist as one was created in previous 'install' job
   #     - name: Cache Node Modules
@@ -251,11 +251,11 @@ jobs:
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      # Setup Node 16
+      # Setup Node 18
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
           cache: "yarn"
       # Restore node_modules - Cache should exist as one was created in previous 'install' job
       - name: Cache Node Modules
@@ -313,10 +313,10 @@ jobs:
         with:
           fetch-depth: 0
       - name: Setup Node
-        # Setup Node 16
+        # Setup Node 18
         uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
           cache: "yarn"
       # Restore node_modules - Cache should exist as one was created in previous 'install' job
       - name: Cache Node Modules
