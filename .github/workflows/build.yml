@@ -135,7 +135,7 @@ jobs:
           destination-dir: '/'
           file-path: './pie-docs-pr-${{github.event.number}}.zip'
       - name: Amplify Deploy
-        uses: ./.github/actions/amplify-deploy
+        uses: ./.github/actions/amplify-deploy/
         with:
           amplify-app-id: 'dvskdcoepjoyf'
           aws-region: 'eu-west-1'
