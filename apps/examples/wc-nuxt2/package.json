@@ -9,13 +9,14 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
-    "core-js": "3.25.3",
-    "nuxt": "2.15.8",
-    "vue": "2.7.14",
-    "vue-server-renderer": "2.7.14",
-    "vue-template-compiler": "2.7.14"
+    "core-js": "^3.25.3",
+    "nuxt": "^2.15.8",
+    "vue": "^2.7.10",
+    "vue-server-renderer": "^2.7.10",
+    "vue-template-compiler": "^2.7.10"
   },
-  "volta": {
-    "extends": "../../../package.json"
+  "devDependencies": {
+    "@nuxt/types": "^2.15.8",
+    "@nuxt/typescript-build": "^2.1.0"
   }
 }
