@@ -51,7 +51,8 @@
     "typescript": "5.0.3"
   },
   "volta": {
-    "extends": "../../../package.json"
+    "node": "16.19.0",
+    "yarn": "3.4.1"
   },
   "dependencies": {
     "@babel/preset-env": "7.20.2",
@@ -60,5 +61,8 @@
     "jest": "29.5.0",
     "react-test-renderer": "18.0.0",
     "ts-jest": "29.0.5"
+  },
+  "resolutions": {
+    "tslib": "2.3.1"
   }
 }
