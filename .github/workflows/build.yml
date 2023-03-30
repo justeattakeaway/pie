@@ -134,6 +134,7 @@ jobs:
           bucket-root: '/'
           destination-dir: '/'
           file-path: './pie-docs-pr-${{github.event.number}}.zip'
+          content-type: 'application/zip'
       - name: Amplify Deploy
         uses: ./.github/actions/amplify-deploy
         with:
@@ -219,6 +220,7 @@ jobs:
           bucket-root: '/'
           destination-dir: '/'
           file-path: './pie-storybook-pr-${{github.event.number}}.zip'
+          content-type: 'application/zip'
       - name: Amplify Deploy
         uses: ./.github/actions/amplify-deploy
         with:
