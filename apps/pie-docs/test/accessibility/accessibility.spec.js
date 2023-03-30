@@ -9,10 +9,10 @@ test.beforeEach(async ({ page, context, baseURL }) => {
 });
 
 expectedRoutesJson.forEach((route) => {
-    test(`should test page content WCAG compliance for route - ${route}`, async ({ page, baseURL, makeAxeBuilder }) => {
+    test(`should test page content WCAG compliance for route - ${route}`, async ({ page, makeAxeBuilder }) => {
         const selector = 'site_content';
 
-        await page.goto(`${baseURL}/${route}`);
+        await page.goto(route);
         await page.getByTestId(selector).waitFor();
 
         const results = await makeAxeBuilder()

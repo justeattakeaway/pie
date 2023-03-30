@@ -14,11 +14,5 @@ const {
 // AWS_DOCS_BUCKET / PIE_URL_PREFIX - Set in GitHub Actions config.
 */
 exports.getBaseUrl = () => {
-    if (!CI) {
-        return 'http://localhost:8080/';
-    }
-    if (GITHUB_REF_NAME === 'main') {
-        return 'https://www.pie.design/';
-    }
-    return `https://pr-${PR_NUMBER}.${DOCS_AMPLIFY_ID}.amplifyapp.com`;
+    return `https://pr-${PR_NUMBER}.${DOCS_AMPLIFY_ID}.amplifyapp.com/`;
 };
