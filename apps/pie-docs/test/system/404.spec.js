@@ -7,7 +7,7 @@ test.describe('PIE - 404 Page - @desktop', () => {
         await disableCookieBanner(page, context, false);
     });
 
-    test('Should go to the homepage when clicking "Visit homepage" link', async ({ page }) => {
+    test('Should go to the homepage when clicking "Visit homepage" link', async ({ page, baseURL }) => {
         // Arrange
         await page.goto('404.html');
 
