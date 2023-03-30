@@ -41,7 +41,7 @@ jobs:
 
     steps:
       # this step will fail if the branch already exists
-      # so we return 'true' to ensure it'll always pass
+      # so we return 'true' to ensure it'll always pass.
       - name: create amplify env
         run: |
           aws amplify create-branch \
