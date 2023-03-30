@@ -1,0 +1,22 @@
+{
+  "name": "wc-next10",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "eslint": "^8.37.0",
+    "eslint-config-next": "^13.2.4",
+    "next": "10.2.3",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "react-test-renderer": "16.13.1"
+  },
+  "volta": {
+    "node": "16.13.0"
+  }
+}
