@@ -4,6 +4,9 @@ const getPackages = () => {
   let outputPackages;
 
   try {
+    // nitro is the server engine for nuxt3 and it generates an output folder
+    // when the app builds. This folder has a package.json inside named nitro-output
+    // which means this folder gets picked up every time we run run yarn cz
     outputPackages = execSync('npx turbo run build --dry=json --ignore=nitro-output');
   } catch (error) {
     console.info('No changed packages found.');
