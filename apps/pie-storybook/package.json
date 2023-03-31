@@ -2,6 +2,7 @@
   "name": "pie-storybook",
   "version": "0.5.3",
   "description": "Storybook for PIE Design System components",
+  "type": "module",
   "scripts": {
     "dev": "storybook dev -p 6006",
     "build": "storybook build --output-dir dist",
@@ -13,15 +14,15 @@
     "@justeattakeaway/pie-button": "workspace:*"
   },
   "devDependencies": {
-    "@storybook/addon-essentials": "7.0.0-beta.40",
-    "@storybook/addon-links": "7.0.0-beta.40",
-    "@storybook/blocks": "7.0.0-beta.40",
-    "@storybook/web-components": "7.0.0-beta.40",
-    "@storybook/web-components-vite": "7.0.0-beta.40",
+    "@storybook/addon-essentials": "7.0.0-rc.10",
+    "@storybook/addon-links": "7.0.0-rc.10",
+    "@storybook/blocks": "7.0.0-rc.10",
+    "@storybook/web-components": "7.0.0-rc.10",
+    "@storybook/web-components-vite": "7.0.0-rc.10",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "serve": "14.1.2",
-    "storybook": "7.0.0-beta.40"
+    "storybook": "7.0.0-rc.10"
   },
   "volta": {
     "extends": "../../package.json"
