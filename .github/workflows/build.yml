@@ -116,30 +116,6 @@ jobs:
       # Build Projects
       - name: Build Apps
         run: yarn build --filter=pie-docs
-      # Zip dist
-      - name: Zip build output
-        run: |
-          cd apps/pie-docs/dist
-          zip -r ../../../pie-docs-pr-${{github.event.number}}.zip .
-      # Deployments
-      - name: Create GitHub deployment
-        if: ${{ github.ref != 'refs/heads/main' }}
-        uses: chrnorm/deployment-action@v2
-        id: docs-deploy
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          environment: "docs-pr-${{github.event.number}}"
-      - name: Upload S3
-        uses: hkusu/s3-upload-action@v2
-        with:
-          aws-access-key-id: ${{ secrets.AWS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: 'eu-west-1'
-          aws-bucket: ${{ secrets.AWS_DOCS_BUCKET }}
-          bucket-root: '/'
-          destination-dir: '/'
-          file-path: './pie-docs-pr-${{github.event.number}}.zip'
-          content-type: 'application/zip'
       - name: Amplify Deploy
         uses: ./.github/actions/amplify-deploy
         with:
@@ -149,23 +125,8 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           branch-name: 'pr-${{github.event.number}}'
           bucket-name: '${{ secrets.AWS_DOCS_BUCKET }}'
-          package-name: 'pie-docs-pr-${{github.event.number}}.zip'
-      - name: Update deployment status (success)
-        if: success()
-        uses: chrnorm/deployment-status@v2
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          environment-url: https://pr-${{github.event.number}}.${{ env.DOCS_AMPLIFY_ID }}.amplifyapp.com
-          deployment-id: ${{ steps.docs-deploy.outputs.deployment_id }}
-          state: "success"
-      - name: Update deployment status (failure)
-        if: failure()
-        uses: chrnorm/deployment-status@v2
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          environment-url: https://pr-${{github.event.number}}.${{ env.DOCS_AMPLIFY_ID }}.amplifyapp.com
-          deployment-id: ${{ steps.docs-deploy.outputs.deployment_id }}
-          state: "failure"
+          github-token: '${{ secrets.GITHUB_TOKEN }}'
+          package-name: 'pie-docs'
       - name: Deploy - Master
         if: ${{ github.ref == 'refs/heads/main' }}
         uses: JamesIves/github-pages-deploy-action@v4
@@ -200,30 +161,6 @@ jobs:
       # Build Projects
       - name: Build Apps
         run: yarn build --filter=pie-storybook
-      # Zip dist
-      - name: Zip build output
-        run: |
-          cd apps/pie-storybook/dist
-          zip -r ../../../pie-storybook-pr-${{github.event.number}}.zip .
-      # Deployments
-      - name: Create GitHub deployment
-        if: ${{ github.ref != 'refs/heads/main' }}
-        uses: chrnorm/deployment-action@v2
-        id: storybook-deploy
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          environment: "storybook-pr-${{github.event.number}}"
-      - name: Upload S3
-        uses: hkusu/s3-upload-action@v2
-        with:
-          aws-access-key-id: ${{ secrets.AWS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: 'eu-west-1'
-          aws-bucket: ${{ secrets.AWS_STORYBOOK_BUCKET }}
-          bucket-root: '/'
-          destination-dir: '/'
-          file-path: './pie-storybook-pr-${{github.event.number}}.zip'
-          content-type: 'application/zip'
       - name: Amplify Deploy
         uses: ./.github/actions/amplify-deploy
         with:
@@ -233,23 +170,8 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           branch-name: 'pr-${{github.event.number}}'
           bucket-name: '${{ secrets.AWS_STORYBOOK_BUCKET }}'
-          package-name: 'pie-storybook-pr-${{github.event.number}}.zip'
-      - name: Update deployment status (success)
-        if: success()
-        uses: chrnorm/deployment-status@v2
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          environment-url: https://pr-${{github.event.number}}.${{ env.STORYBOOK_AMPLIFY_ID }}.amplifyapp.com
-          deployment-id: ${{ steps.storybook-deploy.outputs.deployment_id }}
-          state: "success"
-      - name: Update deployment status (failure)
-        if: failure()
-        uses: chrnorm/deployment-status@v2
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          environment-url: https://pr-${{github.event.number}}.${{ env.STORYBOOK_AMPLIFY_ID }}.amplifyapp.com
-          deployment-id: ${{ steps.storybook-deploy.outputs.deployment_id }}
-          state: "failure"
+          github-token: '${{ secrets.GITHUB_TOKEN }}'
+          package-name: 'pie-storybook'
       - name: Deploy - Master
         if: ${{ github.ref == 'refs/heads/main' }}
         uses: JamesIves/github-pages-deploy-action@v4

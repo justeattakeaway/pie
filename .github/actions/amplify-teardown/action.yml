@@ -21,7 +21,7 @@ inputs:
     description: 'The name of the S3 bucket containing your zipped website'
     required: true
   package-name:
-    description: 'Name for the generated build zip to be deleted from S3'
+    description: 'Name for the application being deleted'
     required: true
 
 runs:
@@ -47,4 +47,4 @@ runs:
       AWS_ACCESS_KEY_ID: ${{ inputs.aws-access-key-id }}
       AWS_SECRET_ACCESS_KEY: ${{ inputs.aws-secret-access-key }}
       AWS_REGION: ${{ inputs.aws-region }}
-      PATH_TO_DELETE: ${{ inputs.package-name }}
+      PATH_TO_DELETE: ${{ inputs.package-name }}-pr-${{github.event.number}}.zip

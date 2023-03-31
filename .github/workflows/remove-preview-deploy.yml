@@ -6,6 +6,10 @@ on:
 
 concurrency: remove-preview-deploy-${{ github.ref }}
 
+env:
+  DOCS_AMPLIFY_ID: dvskdcoepjoyf
+  STORYBOOK_AMPLIFY_ID: d17ja0ul7nrdy0
+
 jobs:
   install:
     runs-on: ubuntu-latest
@@ -51,13 +55,16 @@ jobs:
         with:
           path: '**/node_modules'
           key: node-modules-${{ hashFiles('**/yarn.lock') }}
-      - name: Remove PR Preview deploy
-        uses: rossjrw/pr-preview-action@v1
+      - name: Remove Docs Amplify Deploy
+        uses: ./.github/actions/amplify-teardown
         with:
-          source-dir: ./apps/pie-docs/dist
-          preview-branch: gh-pages
-          umbrella-dir: pr-preview-docs
-          action: remove
+          amplify-app-id: ${{ env.DOCS_AMPLIFY_ID }}
+          aws-region: 'eu-west-1'
+          aws-access-key-id: ${{ secrets.AWS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          branch-name: 'pr-${{github.event.number}}'
+          bucket-name: '${{ secrets.AWS_DOCS_BUCKET }}'
+          package-name: 'pie-docs-pr-${{github.event.number}}.zip'
 
   remove-preview-deploy-storybook:
     needs: install
@@ -79,10 +86,13 @@ jobs:
         with:
           path: '**/node_modules'
           key: node-modules-${{ hashFiles('**/yarn.lock') }}
-      - name: Remove PR Preview deploy
-        uses: rossjrw/pr-preview-action@v1
+      - name: Remove Storybook Amplify Deploy
+        uses: ./.github/actions/amplify-teardown
         with:
-          source-dir: ./apps/pie-storybook/dist
-          preview-branch: gh-pages
-          umbrella-dir: pr-preview-storybook
-          action: remove
+          amplify-app-id: ${{ env.STORYBOOK_AMPLIFY_ID }}
+          aws-region: 'eu-west-1'
+          aws-access-key-id: ${{ secrets.AWS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          branch-name: 'pr-${{github.event.number}}'
+          bucket-name: '${{ secrets.AWS_STORYBOOK_BUCKET }}'
+          package-name: 'pie-storybook-pr-${{github.event.number}}.zip'
