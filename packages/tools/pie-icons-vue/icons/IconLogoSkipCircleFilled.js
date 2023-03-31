@@ -15,7 +15,7 @@ export default {
             class: 'c-pieIcon c-pieIcon--skipCircleFilled',
         }, ctx.data]), [h('g', {
             attrs: {
-                'clip-path': 'url(#prefix__a)',
+                'clip-path': 'url(#prefix__clip0_4813_3340)',
             },
         }, [h('path', {
             attrs: {
@@ -26,7 +26,7 @@ export default {
             },
         })]), h('defs', [h('clipPath', {
             attrs: {
-                id: 'prefix__a',
+                id: 'prefix__clip0_4813_3340',
             },
         }, [h('rect', {
             attrs: {

@@ -16,7 +16,7 @@ export default {
         }, ctx.data]), [h('g', {
             attrs: {
                 fill: '#242E30',
-                'clip-path': 'url(#prefix__a)',
+                'clip-path': 'url(#prefix__clip0_5014_3343)',
             },
         }, [h('path', {
             attrs: {
@@ -40,7 +40,7 @@ export default {
             },
         })]), h('defs', [h('clipPath', {
             attrs: {
-                id: 'prefix__a',
+                id: 'prefix__clip0_5014_3343',
             },
         }, [h('rect', {
             attrs: {
