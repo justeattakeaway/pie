@@ -17,7 +17,7 @@ export default {
             attrs: {
                 fill: '#242E30',
                 'fill-rule': 'evenodd',
-                'clip-path': 'url(#prefix__a)',
+                'clip-path': 'url(#prefix__clip0_2_2344)',
                 'clip-rule': 'evenodd',
             },
         }, [h('path', {
@@ -30,7 +30,7 @@ export default {
             },
         })]), h('defs', [h('clipPath', {
             attrs: {
-                id: 'prefix__a',
+                id: 'prefix__clip0_2_2344',
             },
         }, [h('rect', {
             attrs: {
