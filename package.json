@@ -10,11 +10,16 @@
   "engines": {
     "node": "^18"
   },
-  "workspaces": [
-    "apps/**/*",
-    "packages/**/*",
-    "./"
-  ],
+  "workspaces": {
+    "packages": [
+      "apps/**/*",
+      "packages/**/*",
+      "./"
+    ],
+    "nohoist": [
+      "**/wc-nuxt3/**"
+    ]
+  },
   "scripts": {
     "watch": "turbo run watch --filter=!pie-monorepo",
     "build": "cross-env-shell turbo run build --filter=!pie-monorepo --filter=!'./apps/examples/*' --token=${TURBO_TOKEN}",
