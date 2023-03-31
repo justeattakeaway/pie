@@ -1,13 +1,13 @@
-const svgr = require('@svgr/core');
-const pieIcons = require('@justeattakeaway/pie-icons').default;
-const { pascalCase } = require('pascal-case');
-const path = require('path');
-const fs = require('fs-extra');
+import { transform } from '@svgr/core'
+import pieIcons from '@justeattakeaway/pie-icons';
+import { pascalCase } from "pascal-case";
+import { join } from 'path';
+import fs from 'fs-extra';
 
-const { icons } = pieIcons;
+const { icons } = pieIcons.default;
 
 const ICONS_DIR = `${process.cwd()}/icons`;
-const filePath = path.join(ICONS_DIR, '/index.tsx');
+const filePath = join(ICONS_DIR, '/index.tsx');
 
 async function checkDirExists (directoryPath) {
     try {
@@ -36,7 +36,7 @@ Object.keys(icons).map(iconKey => {
     const pathPrefix = icons[iconKey].pathPrefix;
     const capitalisedPathPrefix = (pathPrefix !== undefined ? (pathPrefix).substring(1, 2).toUpperCase() + (pathPrefix).substring(2) : '');
     const componentName = `Icon${capitalisedPathPrefix + pascalCase(handleComponentName(iconKey))}`;
-    const Comp = svgr.transform.sync(
+    const Comp = transform.sync(
         icons[iconKey].toSvg(),
         { icon: true, typescript: true },
         { componentName }
