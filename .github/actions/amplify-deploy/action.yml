@@ -20,9 +20,6 @@ inputs:
   bucket-name:
     description: 'The name of the S3 bucket containing your zipped website'
     required: true
-  github-token:
-    description: 'GitHub token used to create the deployment environment'
-    required: true
   package-name:
     description: 'Name for the application being deployed'
     required: true
@@ -36,14 +33,6 @@ runs:
     run: |
       cd apps/${{ inputs.package-name }}/dist
       zip -r ../../../${{ inputs.package-name }}-pr-${{github.event.number}}.zip .
-  # Deployments
-  - name: Create GitHub deployment
-    if: ${{ github.ref != 'refs/heads/main' }}
-    uses: chrnorm/deployment-action@v2
-    id: ${{ inputs.package-name }}-deploy
-    with:
-      token: ${{ inputs.github-token }}
-      environment: "${{inputs.package-name}}-pr-${{github.event.number}}"
   - name: Upload S3
     uses: hkusu/s3-upload-action@v2
     with:
@@ -71,19 +60,3 @@ runs:
         --app-id ${{ inputs.amplify-app-id }} \
         --branch-name ${{ inputs.branch-name }} \
         --source-url https://${{ inputs.bucket-name }}.s3.${{ inputs.aws-region }}.amazonaws.com/${{ inputs.package-name }}-pr-${{github.event.number}}.zip
-  - name: Update deployment status (success)
-    if: success()
-    uses: chrnorm/deployment-status@v2
-    with:
-      token: ${{ inputs.github-token }}
-      environment-url: https://pr-${{github.event.number}}.${{ inputs.amplify-app-id }}.amplifyapp.com
-      deployment-id: ${{ steps.${{ inputs.package-name }}-deploy.outputs.deployment_id }}
-      state: "success"
-  - name: Update deployment status (failure)
-    if: failure()
-    uses: chrnorm/deployment-status@v2
-    with:
-      token: ${{ inputs.github-token }}
-      environment-url: https://pr-${{github.event.number}}.${{ inputs.amplify-app-id }}.amplifyapp.com
-      deployment-id: ${{ steps.${{ inputs.package-name }}-deploy.outputs.deployment_id }}
-      state: "failure"

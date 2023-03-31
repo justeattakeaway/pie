@@ -116,6 +116,14 @@ jobs:
       # Build Projects
       - name: Build Apps
         run: yarn build --filter=pie-docs
+      # Deployments
+      - name: Create Docs GitHub deployment
+        if: ${{ github.ref != 'refs/heads/main' }}
+        uses: chrnorm/deployment-action@v2
+        id: docs-deploy
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          environment: "pie-docs-pr-${{github.event.number}}"
       - name: Amplify Deploy
         uses: ./.github/actions/amplify-deploy
         with:
@@ -125,8 +133,23 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           branch-name: 'pr-${{github.event.number}}'
           bucket-name: '${{ secrets.AWS_DOCS_BUCKET }}'
-          github-token: '${{ secrets.GITHUB_TOKEN }}'
           package-name: 'pie-docs'
+      - name: Update deployment status (success)
+        if: success()
+        uses: chrnorm/deployment-status@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          environment-url: https://pr-${{github.event.number}}.${{ env.DOCS_AMPLIFY_ID }}.amplifyapp.com
+          deployment-id: ${{ steps.docs-deploy.outputs.deployment_id }}
+          state: "success"
+      - name: Update deployment status (failure)
+        if: failure()
+        uses: chrnorm/deployment-status@v2
+        with:
+          token: ${{ inputs.github-token }}
+          environment-url: https://pr-${{github.event.number}}.${{ env.DOCS_AMPLIFY_ID }}.amplifyapp.com
+          deployment-id: ${{ steps.docs-deploy.outputs.deployment_id }}
+          state: "failure"
       - name: Deploy - Master
         if: ${{ github.ref == 'refs/heads/main' }}
         uses: JamesIves/github-pages-deploy-action@v4
@@ -161,6 +184,14 @@ jobs:
       # Build Projects
       - name: Build Apps
         run: yarn build --filter=pie-storybook
+      # Deployments
+      - name: Create Storybook GitHub deployment
+        if: ${{ github.ref != 'refs/heads/main' }}
+        uses: chrnorm/deployment-action@v2
+        id: storybook-deploy
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          environment: "pie-storybook-pr-${{github.event.number}}"
       - name: Amplify Deploy
         uses: ./.github/actions/amplify-deploy
         with:
@@ -170,8 +201,23 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           branch-name: 'pr-${{github.event.number}}'
           bucket-name: '${{ secrets.AWS_STORYBOOK_BUCKET }}'
-          github-token: '${{ secrets.GITHUB_TOKEN }}'
           package-name: 'pie-storybook'
+      - name: Update deployment status (success)
+        if: success()
+        uses: chrnorm/deployment-status@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          environment-url: https://pr-${{github.event.number}}.${{ env.STORYBOOK_AMPLIFY_ID }}.amplifyapp.com
+          deployment-id: ${{ steps.storybook-deploy.outputs.deployment_id }}
+          state: "success"
+      - name: Update deployment status (failure)
+        if: failure()
+        uses: chrnorm/deployment-status@v2
+        with:
+          token: ${{ inputs.github-token }}
+          environment-url: https://pr-${{github.event.number}}.${{ env.STORYBOOK_AMPLIFY_ID }}.amplifyapp.com
+          deployment-id: ${{ steps.storybook-deploy.outputs.deployment_id }}
+          state: "failure"
       - name: Deploy - Master
         if: ${{ github.ref == 'refs/heads/main' }}
         uses: JamesIves/github-pages-deploy-action@v4
