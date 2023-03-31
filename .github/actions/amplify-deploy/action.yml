@@ -56,7 +56,7 @@ runs:
     env:
       AWS_REGION: ${{ inputs.aws-region }}
       AWS_ACCESS_KEY_ID: ${{ inputs.aws-access-key-id }}
-      AWS_SECRET_ACCESS_KEY: ${{ inputs.aws-access-key-id }}
+      AWS_SECRET_ACCESS_KEY: ${{ inputs.aws-secret-access-key }}
   - name: deploy amplify from s3
     shell: bash
     run: |
@@ -67,4 +67,4 @@ runs:
     env:
       AWS_REGION: ${{ inputs.aws-region }}
       AWS_ACCESS_KEY_ID: ${{ inputs.aws-access-key-id }}
-      AWS_SECRET_ACCESS_KEY: ${{ inputs.aws-access-key-id }}
+      AWS_SECRET_ACCESS_KEY: ${{ inputs.aws-secret-access-key }}
