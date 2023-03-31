@@ -61,7 +61,7 @@ Object.keys(icons).map((iconKey) => {
         { componentName },
     );
 
-    const customClassName = `className={"pie-icon pie-icon--${iconKey.toLowerCase()}" + (props.className ? ' ' : '') + (props.className ?? '') }`;
+    const customClassName = `className={"pie-icon pie-icon--${iconKey.toLowerCase()}" + (props.className ? ' ' + props.className : '') }`;
     Comp = Comp.replace(/className=".+?"/, customClassName);
     Comp = Comp.replace('{...props}', '{...remainingProps}');
 

@@ -50,9 +50,6 @@
     "rollup-plugin-typescript2": "0.34.1",
     "typescript": "5.0.3"
   },
-  "volta": {
-    "extends": "../../../package.json"
-  },
   "dependencies": {
     "@babel/preset-env": "7.20.2",
     "@babel/preset-react": "7.18.6",
@@ -60,8 +57,5 @@
     "jest": "29.5.0",
     "react-test-renderer": "18.0.0",
     "ts-jest": "29.0.5"
-  },
-  "resolutions": {
-    "tslib": "2.3.1"
   }
 }
