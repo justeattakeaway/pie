@@ -131,7 +131,7 @@ jobs:
           aws-region: 'eu-west-1'
           aws-access-key-id: ${{ secrets.AWS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          branch-name: 'pr-${{github.event.number}}'
+          branch-name: 'pr${{github.event.number}}'
           bucket-name: '${{ secrets.AWS_DOCS_BUCKET }}'
           package-name: 'pie-docs'
       - name: Update deployment status (success)
@@ -139,7 +139,7 @@ jobs:
         uses: chrnorm/deployment-status@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          environment-url: https://pr-${{github.event.number}}.${{ env.DOCS_AMPLIFY_ID }}.amplifyapp.com
+          environment-url: https://pr${{github.event.number}}.${{ env.DOCS_AMPLIFY_ID }}.amplifyapp.com
           deployment-id: ${{ steps.docs-deploy.outputs.deployment_id }}
           state: "success"
       - name: Update deployment status (failure)
@@ -147,7 +147,7 @@ jobs:
         uses: chrnorm/deployment-status@v2
         with:
           token: ${{ inputs.github-token }}
-          environment-url: https://pr-${{github.event.number}}.${{ env.DOCS_AMPLIFY_ID }}.amplifyapp.com
+          environment-url: https://pr${{github.event.number}}.${{ env.DOCS_AMPLIFY_ID }}.amplifyapp.com
           deployment-id: ${{ steps.docs-deploy.outputs.deployment_id }}
           state: "failure"
       - name: Deploy - Master
@@ -199,7 +199,7 @@ jobs:
           aws-region: 'eu-west-1'
           aws-access-key-id: ${{ secrets.AWS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          branch-name: 'pr-${{github.event.number}}'
+          branch-name: 'pr${{github.event.number}}'
           bucket-name: '${{ secrets.AWS_STORYBOOK_BUCKET }}'
           package-name: 'pie-storybook'
       - name: Update deployment status (success)
@@ -207,7 +207,7 @@ jobs:
         uses: chrnorm/deployment-status@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          environment-url: https://pr-${{github.event.number}}.${{ env.STORYBOOK_AMPLIFY_ID }}.amplifyapp.com
+          environment-url: https://pr${{github.event.number}}.${{ env.STORYBOOK_AMPLIFY_ID }}.amplifyapp.com
           deployment-id: ${{ steps.storybook-deploy.outputs.deployment_id }}
           state: "success"
       - name: Update deployment status (failure)
@@ -215,7 +215,7 @@ jobs:
         uses: chrnorm/deployment-status@v2
         with:
           token: ${{ inputs.github-token }}
-          environment-url: https://pr-${{github.event.number}}.${{ env.STORYBOOK_AMPLIFY_ID }}.amplifyapp.com
+          environment-url: https://pr${{github.event.number}}.${{ env.STORYBOOK_AMPLIFY_ID }}.amplifyapp.com
           deployment-id: ${{ steps.storybook-deploy.outputs.deployment_id }}
           state: "failure"
       - name: Deploy - Master
