@@ -1,5 +1,20 @@
 # Changelog
 
+## 2.0.0
+
+### Major Changes
+
+- [Changed] - Updating to use Node v18 LTS ([#367](https://github.com/justeattakeaway/pie/pull/367)) by [@ashleynolan](https://github.com/ashleynolan)
+
+  [Added] - `yarn upgrade-interactive` plugin for upgrading package versions
+
+### Patch Changes
+
+- [Changed] - `.cz-config` to ignore nitro package which is generated in nuxt-3 example app ([#363](https://github.com/justeattakeaway/pie/pull/363)) by [@LTurns](https://github.com/LTurns)
+
+- Updated dependencies [[`9a28a2d11`](https://github.com/justeattakeaway/pie/commit/9a28a2d11ee9c6e89a6257b2d92724208490f7f8)]:
+  - @justeattakeaway/pie-icons@2.2.0
+
 ## 1.39.0
 
 ### Minor Changes
