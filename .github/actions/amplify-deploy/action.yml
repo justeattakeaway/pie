@@ -50,6 +50,8 @@ runs:
           repo: context.repo.repo,
           run_id: context.runId
         });
+        console.log('Artifact JSON', JSON.stringify(artifacts));
+        console.log('Artifact names', artifacts.artifacts.map(x => x.name));
         const distArtifact = artifacts.artifacts.find(artifact => artifact.name === '${{ inputs.package-name }}-pr-${{github.event.number}}');
         return { distArtifactUrl: distArtifact.archive_download_url };
   # - name: Upload S3
