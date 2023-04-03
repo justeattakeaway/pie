@@ -146,7 +146,7 @@ jobs:
         if: failure()
         uses: chrnorm/deployment-status@v2
         with:
-          token: ${{ inputs.github-token }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           environment-url: https://pr${{github.event.number}}.${{ env.DOCS_AMPLIFY_ID }}.amplifyapp.com
           deployment-id: ${{ steps.docs-deploy.outputs.deployment_id }}
           state: "failure"
@@ -214,7 +214,7 @@ jobs:
         if: failure()
         uses: chrnorm/deployment-status@v2
         with:
-          token: ${{ inputs.github-token }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           environment-url: https://pr${{github.event.number}}.${{ env.STORYBOOK_AMPLIFY_ID }}.amplifyapp.com
           deployment-id: ${{ steps.storybook-deploy.outputs.deployment_id }}
           state: "failure"

@@ -50,7 +50,7 @@ runs:
           repo: context.repo.repo,
           run_id: context.runId
         });
-        const distArtifact = artifacts.artifacts.find(artifact => artifact.name === 'dist');
+        const distArtifact = artifacts.artifacts.find(artifact => artifact.name === '${{ inputs.package-name }}-pr-${{github.event.number}}');
         return { distArtifactUrl: distArtifact.archive_download_url };
   # - name: Upload S3
   #   uses: hkusu/s3-upload-action@v2
