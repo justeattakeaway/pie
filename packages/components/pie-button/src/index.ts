@@ -64,9 +64,3 @@ export class PieButton extends LitElement {
     // Renders a `CSSResult` generated from SCSS by Vite
     static styles = unsafeCSS(styles);
 }
-
-declare global {
-    interface HTMLElementTagNameMap {
-        'pie-button': PieButton;
-    }
-}
