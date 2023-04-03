@@ -20,13 +20,13 @@ export default {
             },
         }), h('path', {
             attrs: {
-                fill: 'url(#prefix__a)',
+                fill: 'url(#prefix__paint0_linear_3973_4581)',
                 d: 'm7.826 3.792-.251.104.688 1.675.25-.105-.687-1.674Z',
             },
             style: 'mix-blend-mode:multiply',
         }), h('path', {
             attrs: {
-                fill: 'url(#prefix__b)',
+                fill: 'url(#prefix__paint1_linear_3973_4581)',
                 d: 'm9.084 7.565.25-.105-.778-1.895-.251.105.779 1.895Z',
             },
             style: 'mix-blend-mode:multiply',
@@ -37,13 +37,13 @@ export default {
             },
         }), h('path', {
             attrs: {
-                fill: 'url(#prefix__c)',
+                fill: 'url(#prefix__paint2_linear_3973_4581)',
                 d: 'M8.768 6.309c-.522.217-.957.517-1.242.879L6.79 5.402a3.104 3.104 0 0 1 1.242-.88c.521-.217 1.048-.322 1.496-.261l.735 1.786a3.085 3.085 0 0 0-1.496.262Z',
             },
             style: 'mix-blend-mode:multiply',
         }), h('path', {
             attrs: {
-                fill: 'url(#prefix__d)',
+                fill: 'url(#prefix__paint3_linear_3973_4581)',
                 d: 'M8.768 6.309c-.522.217-.957.517-1.242.879L6.79 5.402a3.104 3.104 0 0 1 1.242-.88c.521-.217 1.048-.322 1.496-.261l.735 1.786a3.085 3.085 0 0 0-1.496.262Z',
             },
             style: 'mix-blend-mode:multiply',
@@ -54,7 +54,7 @@ export default {
             },
         }), h('defs', [h('linearGradient', {
             attrs: {
-                id: 'prefix__a',
+                id: 'prefix__paint0_linear_3973_4581',
                 x1: '7.843',
                 x2: '8.107',
                 y1: '10.42',
@@ -91,7 +91,7 @@ export default {
             },
         })]), h('linearGradient', {
             attrs: {
-                id: 'prefix__b',
+                id: 'prefix__paint1_linear_3973_4581',
                 x1: '7.843',
                 x2: '8.107',
                 y1: '10.42',
@@ -128,7 +128,7 @@ export default {
             },
         })]), h('linearGradient', {
             attrs: {
-                id: 'prefix__c',
+                id: 'prefix__paint2_linear_3973_4581',
                 x1: '3.463',
                 x2: '8.084',
                 y1: '9.502',
@@ -159,7 +159,7 @@ export default {
             },
         })]), h('linearGradient', {
             attrs: {
-                id: 'prefix__d',
+                id: 'prefix__paint3_linear_3973_4581',
                 x1: '7.715',
                 x2: '7.536',
                 y1: '6.522',

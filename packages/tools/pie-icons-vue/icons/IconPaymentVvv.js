@@ -15,11 +15,11 @@ export default {
             class: 'c-pieIcon c-pieIcon--vvv',
         }, ctx.data]), [h('g', {
             attrs: {
-                'clip-path': 'url(#prefix__a)',
+                'clip-path': 'url(#prefix__clip0_3973_5794)',
             },
         }, [h('mask', {
             attrs: {
-                id: 'prefix__b',
+                id: 'prefix__mask0_3973_5794',
                 width: '12',
                 height: '12',
                 x: '2',
@@ -34,16 +34,16 @@ export default {
             },
         })]), h('g', {
             attrs: {
-                mask: 'url(#prefix__b)',
+                mask: 'url(#prefix__mask0_3973_5794)',
             },
         }, [h('path', {
             attrs: {
-                fill: 'url(#prefix__c)',
+                fill: 'url(#prefix__paint0_linear_3973_5794)',
                 d: 'M-2.625.982h20.676V15.32H-2.625V.982Z',
             },
         })]), h('mask', {
             attrs: {
-                id: 'prefix__d',
+                id: 'prefix__mask1_3973_5794',
                 width: '12',
                 height: '12',
                 x: '2',
@@ -58,16 +58,16 @@ export default {
             },
         })]), h('g', {
             attrs: {
-                mask: 'url(#prefix__d)',
+                mask: 'url(#prefix__mask1_3973_5794)',
             },
         }, [h('path', {
             attrs: {
-                fill: 'url(#prefix__e)',
+                fill: 'url(#prefix__paint1_linear_3973_5794)',
                 d: 'm25.997 1.343-8.161 14.135a2.551 2.551 0 0 1-4.42 0L7.813 5.776l2.567-4.433h15.618Z',
             },
         })]), h('mask', {
             attrs: {
-                id: 'prefix__f',
+                id: 'prefix__mask2_3973_5794',
                 width: '12',
                 height: '12',
                 x: '2',
@@ -82,16 +82,16 @@ export default {
             },
         })]), h('g', {
             attrs: {
-                mask: 'url(#prefix__f)',
+                mask: 'url(#prefix__mask2_3973_5794)',
             },
         }, [h('path', {
             attrs: {
-                fill: 'url(#prefix__g)',
+                fill: 'url(#prefix__paint2_linear_3973_5794)',
                 d: 'M10.38 1.343 7.811 5.776 5.257 1.343h5.122Z',
             },
         })]), h('mask', {
             attrs: {
-                id: 'prefix__h',
+                id: 'prefix__mask3_3973_5794',
                 width: '12',
                 height: '12',
                 x: '2',
@@ -106,16 +106,16 @@ export default {
             },
         })]), h('g', {
             attrs: {
-                mask: 'url(#prefix__h)',
+                mask: 'url(#prefix__mask3_3973_5794)',
             },
         }, [h('path', {
             attrs: {
-                fill: 'url(#prefix__i)',
+                fill: 'url(#prefix__paint3_linear_3973_5794)',
                 d: 'm5.257 1.343 2.555 4.433-2.562 4.431a2.336 2.336 0 0 1-4.045 0l-5.118-8.864h9.17Z',
             },
         })]), h('mask', {
             attrs: {
-                id: 'prefix__j',
+                id: 'prefix__mask4_3973_5794',
                 width: '12',
                 height: '12',
                 x: '2',
@@ -130,16 +130,16 @@ export default {
             },
         })]), h('g', {
             attrs: {
-                mask: 'url(#prefix__j)',
+                mask: 'url(#prefix__mask4_3973_5794)',
             },
         }, [h('path', {
             attrs: {
-                fill: 'url(#prefix__k)',
+                fill: 'url(#prefix__paint4_linear_3973_5794)',
                 d: 'M2.506 22.3h10.486a1.536 1.536 0 0 0 1.33-2.304l-5.242-9.08a1.536 1.536 0 0 0-2.662 0l-5.242 9.08a1.536 1.536 0 0 0 1.33 2.305Z',
             },
         })]), h('mask', {
             attrs: {
-                id: 'prefix__l',
+                id: 'prefix__mask5_3973_5794',
                 width: '12',
                 height: '12',
                 x: '2',
@@ -154,11 +154,11 @@ export default {
             },
         })]), h('g', {
             attrs: {
-                mask: 'url(#prefix__l)',
+                mask: 'url(#prefix__mask5_3973_5794)',
             },
         }, [h('path', {
             attrs: {
-                fill: 'url(#prefix__m)',
+                fill: 'url(#prefix__paint5_linear_3973_5794)',
                 d: 'M-11.597 22.656H1.676a1.945 1.945 0 0 0 1.684-2.918L-3.276 8.244a1.945 1.945 0 0 0-3.369 0l-6.636 11.494a1.945 1.945 0 0 0 1.684 2.918Z',
             },
         })]), h('path', {
@@ -173,7 +173,7 @@ export default {
             },
         })]), h('defs', [h('linearGradient', {
             attrs: {
-                id: 'prefix__c',
+                id: 'prefix__paint0_linear_3973_5794',
                 x1: '11.78',
                 x2: '-3.5',
                 y1: '7.753',
@@ -197,7 +197,7 @@ export default {
             },
         })]), h('linearGradient', {
             attrs: {
-                id: 'prefix__e',
+                id: 'prefix__paint1_linear_3973_5794',
                 x1: '15.307',
                 x2: '18.027',
                 y1: '.484',
@@ -215,7 +215,7 @@ export default {
             },
         })]), h('linearGradient', {
             attrs: {
-                id: 'prefix__g',
+                id: 'prefix__paint2_linear_3973_5794',
                 x1: '8.626',
                 x2: '8.049',
                 y1: '5.158',
@@ -238,7 +238,7 @@ export default {
             },
         })]), h('linearGradient', {
             attrs: {
-                id: 'prefix__i',
+                id: 'prefix__paint3_linear_3973_5794',
                 x1: '5.148',
                 x2: '1.466',
                 y1: '8.922',
@@ -261,7 +261,7 @@ export default {
             },
         })]), h('linearGradient', {
             attrs: {
-                id: 'prefix__k',
+                id: 'prefix__paint4_linear_3973_5794',
                 x1: '501.324',
                 x2: '585.581',
                 y1: '1233.94',
@@ -284,7 +284,7 @@ export default {
             },
         })]), h('linearGradient', {
             attrs: {
-                id: 'prefix__m',
+                id: 'prefix__paint5_linear_3973_5794',
                 x1: '.015',
                 x2: '-1.568',
                 y1: '12.849',
@@ -302,7 +302,7 @@ export default {
             },
         })]), h('clipPath', {
             attrs: {
-                id: 'prefix__a',
+                id: 'prefix__clip0_3973_5794',
             },
         }, [h('rect', {
             attrs: {
