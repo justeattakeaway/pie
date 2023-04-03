@@ -12,9 +12,9 @@ export default [
             globals: {
                 react: "React",
             },
+            preserveModules: true
         },
-        plugins: [del({ targets: ["esm/*"] }), typescript()],
-        preserveModules: true,
+        plugins: [del({ targets: ["esm/*"] }), typescript()]
     },
     {
         input: ["icons/index.tsx"],
@@ -26,8 +26,8 @@ export default [
             globals: {
                 react: "React",
             },
+            preserveModules: true
         },
-        plugins: [del({ targets: ["dist/*"] }), typescript()],
-        preserveModules: true,
+        plugins: [del({ targets: ["dist/*"] }), typescript()]
     },
 ];

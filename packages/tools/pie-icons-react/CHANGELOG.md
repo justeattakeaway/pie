@@ -1,5 +1,19 @@
 # Changelog
 
+## 2.2.0
+
+### Minor Changes
+
+- [Fixed] - Updating pie-icons-react package to work with Node 18 ([#369](https://github.com/justeattakeaway/pie/pull/369)) by [@ashleynolan](https://github.com/ashleynolan)
+
+- [Added] - className prop for all svgr components ([#363](https://github.com/justeattakeaway/pie/pull/363)) by [@LTurns](https://github.com/LTurns)
+
+  [Added] - snapshot tests to cover the change
+
+- [Changed] - Updated SVGO version to patch snyk security warning ([#357](https://github.com/justeattakeaway/pie/pull/357)) by [@ashleynolan](https://github.com/ashleynolan)
+
+- [Changed] - Updated Rollup to v3 and config changes to support this update ([#369](https://github.com/justeattakeaway/pie/pull/369)) by [@ashleynolan](https://github.com/ashleynolan)
+
 ## 2.1.0
 
 ### Minor Changes
