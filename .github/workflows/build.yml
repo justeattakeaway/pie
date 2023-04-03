@@ -113,8 +113,8 @@ jobs:
         with:
           path: "**/node_modules"
           key: node-modules-${{ hashFiles('**/yarn.lock') }}
-      # Build Projects
-      - name: Build Apps
+      # Build Docs Site
+      - name: Build Docs Site
         run: yarn build --filter=pie-docs
       # Deployments
       - name: Create Docs GitHub deployment
@@ -181,8 +181,8 @@ jobs:
         with:
           path: "**/node_modules"
           key: node-modules-${{ hashFiles('**/yarn.lock') }}
-      # Build Projects
-      - name: Build Apps
+      # Build Storybook
+      - name: Build Storybook
         run: yarn build --filter=pie-storybook
       # Deployments
       - name: Create Storybook GitHub deployment
