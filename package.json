@@ -5,7 +5,7 @@
   "keywords": [],
   "author": "JustEatTakeaway - Design System Web Team",
   "license": "Apache-2.0",
-  "packageManager": "yarn@3.2.1",
+  "packageManager": "yarn@3.5.0",
   "private": true,
   "engines": {
     "node": "^18"
@@ -106,6 +106,6 @@
   },
   "volta": {
     "node": "18.15.0",
-    "yarn": "3.4.1"
+    "yarn": "3.5.0"
   }
 }
