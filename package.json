@@ -1,7 +1,7 @@
 {
   "name": "pie-monorepo",
   "description": "JustEatTakeaway",
-  "version": "1.39.0",
+  "version": "2.0.0",
   "keywords": [],
   "author": "JustEatTakeaway - Design System Web Team",
   "license": "Apache-2.0",
@@ -93,7 +93,7 @@
   },
   "dependencies": {
     "@justeat/fozzie": "10.11.1",
-    "@justeattakeaway/pie-icons": "2.1.0",
+    "@justeattakeaway/pie-icons": "2.2.0",
     "lit": "2.6.1"
   },
   "config": {

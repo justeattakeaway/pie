@@ -1,5 +1,18 @@
 # wc-react18
 
+## 0.4.0
+
+### Minor Changes
+
+- [Added] - Slot functionality to pie-button component and associated SB and example app integrations ([#364](https://github.com/justeattakeaway/pie/pull/364)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- [Added] - HTMLElementTagNameMap entry for pie-button element ([#364](https://github.com/justeattakeaway/pie/pull/364)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- Updated dependencies [[`98ef0d837`](https://github.com/justeattakeaway/pie/commit/98ef0d837ec38636407908ed38518a8595d92efc), [`98ef0d837`](https://github.com/justeattakeaway/pie/commit/98ef0d837ec38636407908ed38518a8595d92efc)]:
+  - @justeattakeaway/pie-button@0.9.0
+
 ## 0.3.2
 
 ### Patch Changes
