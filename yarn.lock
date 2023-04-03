@@ -13496,7 +13496,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-next@npm:13.2.4, eslint-config-next@npm:^13.2.4":
+"eslint-config-next@npm:13.2.4":
   version: 13.2.4
   resolution: "eslint-config-next@npm:13.2.4"
   dependencies:
@@ -14007,7 +14007,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^8.37.0":
+"eslint@npm:8.37.0":
   version: 8.37.0
   resolution: "eslint@npm:8.37.0"
   dependencies:
@@ -30346,8 +30346,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "wc-next10@workspace:apps/examples/wc-next10"
   dependencies:
-    eslint: ^8.37.0
-    eslint-config-next: ^13.2.4
+    eslint: 8.37.0
+    eslint-config-next: 13.2.4
     next: 10.2.3
     react: 16.13.1
     react-dom: 16.13.1
