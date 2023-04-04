@@ -9,7 +9,7 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "@justeattakeaway/pie-button": "workspace:*",
+    "@justeattakeaway/pie-button": "0.7.0",
     "@nuxt/vite-builder": "3.0.0",
     "vue": "3.2.25"
   },

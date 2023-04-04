@@ -4086,6 +4086,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@justeattakeaway/pie-button@npm:0.7.0":
+  version: 0.7.0
+  resolution: "@justeattakeaway/pie-button@npm:0.7.0"
+  checksum: b2daf88511f8dcffe573cb7c53ac41c656c6d2380e2833865af84a0f172317b1c2dfce015d893db16f5cd321999b46946e26cd785e356d555f741740c8ace407
+  languageName: node
+  linkType: hard
+
 "@justeattakeaway/pie-button@workspace:*, @justeattakeaway/pie-button@workspace:^, @justeattakeaway/pie-button@workspace:packages/components/pie-button":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-button@workspace:packages/components/pie-button"
@@ -33010,7 +33017,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "wc-nuxt3@workspace:apps/examples/wc-nuxt3"
   dependencies:
-    "@justeattakeaway/pie-button": "workspace:*"
+    "@justeattakeaway/pie-button": 0.7.0
     "@nuxt/vite-builder": 3.0.0
     nuxt: 3.0.0
     typescript: 4.8.4
