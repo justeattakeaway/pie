@@ -24,11 +24,6 @@ inputs:
     description: 'Name of the application being deployed'
     required: true
 
-outputs:
-  s3-source-url:
-    description: 'The URL of the file that has been uploaded to S3'
-    value: ${{ steps.upload-s3.outputs.file-url }}
-
 runs:
   using: composite
   steps:
@@ -59,9 +54,6 @@ runs:
       destination-dir: '/'
       file-path: './${{ inputs.package-name }}-pr-${{github.event.number}}.zip'
       content-type: 'application/zip'
-  # Debug
-  - run: echo File URL is ${{ steps.upload-s3.outputs.file-url }}
-    shell: bash
   # Create branch on Amplify
   - name: Create Amplify branch
     shell: bash

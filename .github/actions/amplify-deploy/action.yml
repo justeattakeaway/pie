@@ -17,8 +17,8 @@ inputs:
   branch-name:
     description: 'Amplify "branch" name'
     required: true
-  s3-source-url:
-    description: 'The URL of the zipped output on S3 to deploy to Amplify'
+  bucket-name:
+    description: 'The name of the S3 bucket containing your zipped website'
     required: true
   package-name:
     description: 'Name of the application being deployed'
@@ -33,7 +33,7 @@ runs:
       aws amplify start-deployment \
         --app-id ${{ inputs.amplify-app-id }} \
         --branch-name ${{ inputs.branch-name }} \
-        --source-url ${{ inputs.s3-source-url }}
+        --source-url https://${{ inputs.bucket-name }}.s3.${{ inputs.aws-region }}.amazonaws.com/${{ inputs.package-name }}-pr-${{ github.event.number }}.zip
     env:
       AWS_REGION: ${{ inputs.aws-region }}
       AWS_ACCESS_KEY_ID: ${{ inputs.aws-access-key-id }}
