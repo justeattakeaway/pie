@@ -44,7 +44,7 @@
     "extends": "@justeat/stylelint-config-fozzie"
   },
   "devDependencies": {
-    "@axe-core/playwright": "4.6.0",
+    "@axe-core/playwright": "4.6.1",
     "@babel/cli": "7.21.0",
     "@babel/core": "7.21.4",
     "@babel/eslint-parser": "7.21.3",

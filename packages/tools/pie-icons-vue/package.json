@@ -54,9 +54,9 @@
     "eslint-plugin-vue": "^9.9.0",
     "fs-extra": "9.1.0",
     "lodash.kebabcase": "4.1.1",
-    "marked": "1.2.5",
+    "marked": "1.2.9",
     "pascal-case": "3.1.2",
-    "prismjs": "1.28.0"
+    "prismjs": "1.29.0"
   },
   "volta": {
     "extends": "../../../package.json"
