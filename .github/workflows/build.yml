@@ -93,7 +93,7 @@ jobs:
       - name: Unit Tests
         run: yarn test:ci
 
-  build-docs:
+  deploy-docs:
     needs: build
     runs-on: ubuntu-latest
     steps:
@@ -166,7 +166,7 @@ jobs:
             ./storybook
 
   deploy-storybook:
-    needs: deploy-docs
+    needs: build
     runs-on: ubuntu-latest
     steps:
       # Checkout the Repo
