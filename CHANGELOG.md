@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.1.0
+
+### Minor Changes
+
+- [Changed] - Updated Yarn to v3.5.0 (and updated volta config) ([#375](https://github.com/justeattakeaway/pie/pull/375)) by [@ashleynolan](https://github.com/ashleynolan)
+
+- [Added] - Merge queue added to Github actions config ([#375](https://github.com/justeattakeaway/pie/pull/375)) by [@ashleynolan](https://github.com/ashleynolan)
+
 ## 2.0.0
 
 ### Major Changes
