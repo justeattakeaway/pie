@@ -23,8 +23,11 @@ inputs:
   package-name:
     description: 'Name of the application being deployed'
     required: true
+
 outputs:
-  s3-source-url: ${{ steps.upload-s3.outputs.file-url }}
+  s3-source-url:
+    description: 'The URL of the file that has been uploaded to S3'
+    value: ${{ steps.upload-s3.outputs.file-url }}
 
 runs:
   using: composite
