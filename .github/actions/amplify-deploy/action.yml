@@ -28,23 +28,31 @@ runs:
   using: composite
   steps:
   # Download Github artifact
-  - name: Download artifact
-    id: download-artifact
-    uses: actions/download-artifact@v3
-    with:
-      name: '${{ inputs.package-name }}-pr-${{github.event.number}}.zip'
-  # Debug
-  - name: 'Get AWS version'
-    shell: bash
-    run: aws --version
+  # - name: Download artifact
+  #   id: download-artifact
+  #   uses: actions/download-artifact@v3
+  #   with:
+  #     name: '${{ inputs.package-name }}-pr-${{github.event.number}}.zip'
   # Deploy Amplify
-  - name: Deploy Amplify from Github
+  # - name: Deploy Amplify from Github
+  #   shell: bash
+  #   run: |
+  #     aws amplify start-deployment \
+  #       --app-id ${{ inputs.amplify-app-id }} \
+  #       --branch-name ${{ inputs.branch-name }} \
+  #       --source-url fileb://./${{ inputs.package-name }}-pr-${{github.event.number}}.zip
+  #   env:
+  #     AWS_REGION: ${{ inputs.aws-region }}
+  #     AWS_ACCESS_KEY_ID: ${{ inputs.aws-access-key-id }}
+  #     AWS_SECRET_ACCESS_KEY: ${{ inputs.aws-secret-access-key }}
+  # Deploy Amplify from S3
+  - name: Deploy Amplify from S3
     shell: bash
     run: |
       aws amplify start-deployment \
         --app-id ${{ inputs.amplify-app-id }} \
         --branch-name ${{ inputs.branch-name }} \
-        --source-url fileb://./${{ inputs.package-name }}-pr-${{github.event.number}}.zip
+        --source-url https://s3.amazonaws.com/${{ inputs.bucket-name }}/${{ inputs.package-name }}-pr-${{ github.event.number }}.zip
     env:
       AWS_REGION: ${{ inputs.aws-region }}
       AWS_ACCESS_KEY_ID: ${{ inputs.aws-access-key-id }}
