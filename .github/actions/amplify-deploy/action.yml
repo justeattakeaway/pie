@@ -34,9 +34,9 @@ runs:
     with:
       name: '${{ inputs.package-name }}-pr-${{github.event.number}}.zip'
   # Debug
-  - name: 'Echo download path'
+  - name: 'Get AWS version'
     shell: bash
-    run: echo ${{steps.download-artifact.outputs.download-path}}
+    run: aws --version
   # Deploy Amplify
   - name: Deploy Amplify from Github
     shell: bash
