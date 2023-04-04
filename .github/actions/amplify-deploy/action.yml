@@ -44,7 +44,7 @@ runs:
       aws amplify start-deployment \
         --app-id ${{ inputs.amplify-app-id }} \
         --branch-name ${{ inputs.branch-name }} \
-        --source-url file://./${{ inputs.package-name }}-pr-${{github.event.number}}.zip
+        --source-url fileb://./${{ inputs.package-name }}-pr-${{github.event.number}}.zip
     env:
       AWS_REGION: ${{ inputs.aws-region }}
       AWS_ACCESS_KEY_ID: ${{ inputs.aws-access-key-id }}
