@@ -53,7 +53,8 @@ runs:
       bucket-root: '/'
       destination-dir: '/'
       file-path: './${{ inputs.package-name }}-pr-${{github.event.number}}.zip'
-      content-type: 'application/javascript'
+      content-type: 'application/zip'
+      public: true
   # Create branch on Amplify
   - name: Create Amplify branch
     shell: bash
