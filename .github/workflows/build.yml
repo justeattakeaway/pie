@@ -93,7 +93,7 @@ jobs:
       - name: Unit Tests
         run: yarn test:ci
 
-  deploy-docs:
+  build-docs:
     needs: build
     runs-on: ubuntu-latest
     steps:
@@ -135,6 +135,14 @@ jobs:
           branch-name: 'pr${{github.event.number}}'
           bucket-name: ${{ secrets.AWS_DOCS_BUCKET }}
           package-name: 'pie-docs'
+
+  deploy-docs:
+    needs: build-docs
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout the Repo
+      - name: Checkout
+        uses: actions/checkout@v3
       - name: Amplify Deploy
         uses: ./.github/actions/amplify-deploy
         with:
