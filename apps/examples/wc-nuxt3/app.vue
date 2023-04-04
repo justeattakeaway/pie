@@ -34,7 +34,7 @@
 </template>
 
 <script>
-import { BUTTON_SIZE, BUTTON_VARIANT } from '@justeattakeaway/pie-button'
+import { BUTTON_SIZE, BUTTON_VARIANT } from '@justeattakeaway/pie-button';
 
 export default {
     data () {
