@@ -32,13 +32,13 @@ outputs:
 runs:
   using: composite
   steps:
-  # Zip dist
+  # Zip dist folder
   - name: Zip build output
     shell: bash
     run: |
       cd apps/${{ inputs.package-name }}/dist
       zip -r ../../../${{ inputs.package-name }}-pr-${{github.event.number}}.zip .
-  # Upload build artifact
+  # Upload zip as Github Action artifact
   - name: Upload artifact to Github
     id: upload-github
     uses: actions/upload-artifact@v3
@@ -46,6 +46,7 @@ runs:
       name: ${{ inputs.package-name }}-pr-${{github.event.number}}
       path: ${{ inputs.package-name }}-pr-${{github.event.number}}.zip
       retention-days: 7
+  # Upload zip to S3
   - name: Upload to S3
     id: upload-s3
     uses: hkusu/s3-upload-action@v2
@@ -58,6 +59,10 @@ runs:
       destination-dir: '/'
       file-path: './${{ inputs.package-name }}-pr-${{github.event.number}}.zip'
       content-type: 'application/zip'
+  # Debug
+  - run: echo File URL is ${{ steps.upload-s3.outputs.file-url }}
+    shell: bash
+  # Create branch on Amplify
   - name: Create Amplify branch
     shell: bash
     # We return true to prevent the step from failing if the branch already exists
