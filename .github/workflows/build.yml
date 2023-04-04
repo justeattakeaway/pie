@@ -124,25 +124,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           environment: "pie-docs-pr-${{github.event.number}}"
-      - name: Amplify Build
-        id: amplify-build
-        uses: ./.github/actions/amplify-build
-        with:
-          amplify-app-id: ${{ env.DOCS_AMPLIFY_ID }}
-          aws-region: 'eu-west-1'
-          aws-access-key-id: ${{ secrets.AWS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          branch-name: 'pr${{github.event.number}}'
-          bucket-name: ${{ secrets.AWS_DOCS_BUCKET }}
-          package-name: 'pie-docs'
-
-  deploy-docs:
-    needs: build-docs
-    runs-on: ubuntu-latest
-    steps:
-      # Checkout the Repo
-      - name: Checkout
-        uses: actions/checkout@v3
+      # Amplify Deploy
       - name: Amplify Deploy
         uses: ./.github/actions/amplify-deploy
         with:
@@ -153,6 +135,7 @@ jobs:
           branch-name: 'pr${{github.event.number}}'
           bucket-name: ${{ secrets.AWS_DOCS_BUCKET }}
           package-name: 'pie-docs'
+      # If successful
       - name: Update deployment status (success)
         if: success()
         uses: chrnorm/deployment-status@v2
@@ -161,6 +144,7 @@ jobs:
           environment-url: https://pr${{github.event.number}}.${{ env.DOCS_AMPLIFY_ID }}.amplifyapp.com
           deployment-id: ${{ steps.docs-deploy.outputs.deployment_id }}
           state: "success"
+      # If it failed
       - name: Update deployment status (failure)
         if: failure()
         uses: chrnorm/deployment-status@v2
@@ -169,7 +153,8 @@ jobs:
           environment-url: https://pr${{github.event.number}}.${{ env.DOCS_AMPLIFY_ID }}.amplifyapp.com
           deployment-id: ${{ steps.docs-deploy.outputs.deployment_id }}
           state: "failure"
-      - name: Deploy - Master
+      # Main deployments
+      - name: Deploy Main
         if: ${{ github.ref == 'refs/heads/main' }}
         uses: JamesIves/github-pages-deploy-action@v4
         with:
