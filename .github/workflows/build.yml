@@ -124,7 +124,19 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           environment: "pie-docs-pr-${{github.event.number}}"
+      - name: Amplify Build
+        id: amplify-build
+        uses: ./.github/actions/amplify-build
+        with:
+          amplify-app-id: ${{ env.DOCS_AMPLIFY_ID }}
+          aws-region: 'eu-west-1'
+          aws-access-key-id: ${{ secrets.AWS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          branch-name: 'pr${{github.event.number}}'
+          bucket-name: ${{ secrets.AWS_DOCS_BUCKET }}
+          package-name: 'pie-docs'
       - name: Amplify Deploy
+        id: amplify-deploy
         uses: ./.github/actions/amplify-deploy
         with:
           amplify-app-id: ${{ env.DOCS_AMPLIFY_ID }}
@@ -132,7 +144,7 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           branch-name: 'pr${{github.event.number}}'
-          bucket-name: '${{ secrets.AWS_DOCS_BUCKET }}'
+          s3-source-url: ${{ steps.amplify-build.outputs.s3-source-url }}
           package-name: 'pie-docs'
       - name: Update deployment status (success)
         if: success()
