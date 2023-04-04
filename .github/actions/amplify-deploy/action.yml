@@ -27,24 +27,12 @@ inputs:
 runs:
   using: composite
   steps:
-  # Deploy using file from S3
-  # - name: Deploy Amplify from S3
-  #   shell: bash
-  #   run: |
-  #     aws amplify start-deployment \
-  #       --app-id ${{ inputs.amplify-app-id }} \
-  #       --branch-name ${{ inputs.branch-name }} \
-  #       --source-url https://${{ inputs.bucket-name }}.s3.${{ inputs.aws-region }}.amazonaws.com/${{ inputs.package-name }}-pr-${{ github.event.number }}.zip
-  #   env:
-  #     AWS_REGION: ${{ inputs.aws-region }}
-  #     AWS_ACCESS_KEY_ID: ${{ inputs.aws-access-key-id }}
-  #     AWS_SECRET_ACCESS_KEY: ${{ inputs.aws-secret-access-key }}
   # Download Github artifact
   - name: Download artifact
     id: download-artifact
     uses: actions/download-artifact@v3
     with:
-      name: '${{ inputs.package-name }}-pr-${{github.event.number}}'
+      name: '${{ inputs.package-name }}-pr-${{github.event.number}}.zip'
   # Debug
   - name: 'Echo download path'
     shell: bash
@@ -52,12 +40,11 @@ runs:
   # Deploy Amplify
   - name: Deploy Amplify from Github
     shell: bash
-    # source-url only has two slashes because download path already has a leading slash
     run: |
       aws amplify start-deployment \
         --app-id ${{ inputs.amplify-app-id }} \
         --branch-name ${{ inputs.branch-name }} \
-        --source-url file://${{steps.download-artifact.outputs.download-path}}/${{ inputs.package-name }}-pr-${{github.event.number}}
+        --source-url file://./${{ inputs.package-name }}-pr-${{github.event.number}}.zip
     env:
       AWS_REGION: ${{ inputs.aws-region }}
       AWS_ACCESS_KEY_ID: ${{ inputs.aws-access-key-id }}

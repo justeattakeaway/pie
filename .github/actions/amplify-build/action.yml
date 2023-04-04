@@ -38,7 +38,7 @@ runs:
     id: upload-github
     uses: actions/upload-artifact@v3
     with:
-      name: ${{ inputs.package-name }}-pr-${{github.event.number}}
+      name: ${{ inputs.package-name }}-pr-${{github.event.number}}.zip
       path: ${{ inputs.package-name }}-pr-${{github.event.number}}.zip
       retention-days: 7
   # Upload zip to S3
@@ -48,7 +48,7 @@ runs:
     with:
       aws-access-key-id: ${{ inputs.aws-access-key-id }}
       aws-secret-access-key: ${{ inputs.aws-secret-access-key }}
-      aws-region: '${{ inputs.aws-region }}'
+      aws-region: ${{ inputs.aws-region }}
       aws-bucket: ${{ inputs.bucket-name }}
       bucket-root: '/'
       destination-dir: '/'
