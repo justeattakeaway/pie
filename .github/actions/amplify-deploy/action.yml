@@ -38,7 +38,7 @@ runs:
     id: upload-github
     uses: actions/upload-artifact@v3
     with:
-      name: ${{ inputs.package-name }}-pr-${{github.event.number}}.zip
+      name: ${{ inputs.package-name }}-pr-${{github.event.number}}
       path: ${{ inputs.package-name }}-pr-${{github.event.number}}.zip
       retention-days: 7
   # Upload zip to S3
