@@ -12,6 +12,9 @@ on:
       - "CONTRIBUTING.md"
       - "CHANGELOG.md"
       - "LICENSE"
+  merge_group:
+    branches:
+      - main
   push:
     branches:
       - main
