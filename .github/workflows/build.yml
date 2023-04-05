@@ -157,7 +157,7 @@ jobs:
           deployment-id: ${{ steps.docs-deploy.outputs.deployment_id }}
           state: "failure"
       # Main deployments
-      - name: Deploy Main
+      - name: Deploy Main (Github Pages)
         if: ${{ github.ref == 'refs/heads/main' }}
         uses: JamesIves/github-pages-deploy-action@v4
         with:
@@ -167,6 +167,17 @@ jobs:
           branch: gh-pages
           clean-exclude: |
             ./storybook
+      - name: Deploy Main (Amplify)
+        if: ${{ github.ref == 'refs/heads/main' }}
+        uses: ./.github/actions/amplify-deploy
+        with:
+          amplify-app-id: ${{ env.DOCS_AMPLIFY_ID }}
+          aws-region: 'eu-west-1'
+          aws-access-key-id: ${{ secrets.AWS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          branch-name: 'main'
+          bucket-name: ${{ secrets.AWS_DOCS_MAIN_BUCKET }}
+          package-name: 'pie-docs'
 
   deploy-storybook:
     needs: build
@@ -199,6 +210,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           environment: "pie-storybook-pr-${{github.event.number}}"
+      # Amplify Deploy
       - name: Amplify Deploy
         uses: ./.github/actions/amplify-deploy
         with:
@@ -209,6 +221,7 @@ jobs:
           branch-name: 'pr${{github.event.number}}'
           bucket-name: '${{ secrets.AWS_STORYBOOK_BUCKET }}'
           package-name: 'pie-storybook'
+      # If successful
       - name: Update deployment status (success)
         if: success()
         uses: chrnorm/deployment-status@v2
@@ -217,6 +230,7 @@ jobs:
           environment-url: https://pr${{github.event.number}}.${{ env.STORYBOOK_AMPLIFY_ID }}.amplifyapp.com
           deployment-id: ${{ steps.storybook-deploy.outputs.deployment_id }}
           state: "success"
+      # If it failed
       - name: Update deployment status (failure)
         if: failure()
         uses: chrnorm/deployment-status@v2
@@ -225,7 +239,8 @@ jobs:
           environment-url: https://pr${{github.event.number}}.${{ env.STORYBOOK_AMPLIFY_ID }}.amplifyapp.com
           deployment-id: ${{ steps.storybook-deploy.outputs.deployment_id }}
           state: "failure"
-      - name: Deploy - Master
+      # Main deployments
+      - name: Deploy Main (Github Pages)
         if: ${{ github.ref == 'refs/heads/main' }}
         uses: JamesIves/github-pages-deploy-action@v4
         with:
@@ -233,6 +248,17 @@ jobs:
           force: false
           branch: gh-pages
           target-folder: ./storybook
+      - name: Deploy Main (Amplify)
+        if: ${{ github.ref == 'refs/heads/main' }}
+        uses: ./.github/actions/amplify-deploy
+        with:
+          amplify-app-id: ${{ env.DOCS_AMPLIFY_ID }}
+          aws-region: 'eu-west-1'
+          aws-access-key-id: ${{ secrets.AWS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          branch-name: 'main'
+          bucket-name: ${{ secrets.AWS_STORYBOOK_MAIN_BUCKET }}
+          package-name: 'pie-docs'
 
   browser-tests:
     needs: deploy-docs
