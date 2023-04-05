@@ -20,6 +20,8 @@ test.describe('PIE - 404 Page - @desktop', () => {
         ]);
 
         // Assert
-        await expect(page.url()).toBe(baseURL);
+        const actualUrl = new URL(page.url()).href;
+        const expectedUrl = new URL(baseURL).href;
+        await expect(actualUrl).toBe(expectedUrl);
     });
 });
