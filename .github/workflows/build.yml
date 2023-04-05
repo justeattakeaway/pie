@@ -129,6 +129,7 @@ jobs:
           environment: "pie-docs-pr-${{github.event.number}}"
       # Amplify Deploy
       - name: Amplify Deploy
+        if: ${{ github.ref != 'refs/heads/main' }}
         uses: ./.github/actions/amplify-deploy
         with:
           amplify-app-id: ${{ env.DOCS_AMPLIFY_ID }}
@@ -212,6 +213,7 @@ jobs:
           environment: "pie-storybook-pr-${{github.event.number}}"
       # Amplify Deploy
       - name: Amplify Deploy
+        if: ${{ github.ref != 'refs/heads/main' }}
         uses: ./.github/actions/amplify-deploy
         with:
           amplify-app-id: ${{ env.STORYBOOK_AMPLIFY_ID }}
