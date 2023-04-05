@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.3.0
+
+### Minor Changes
+
+- [Changed] - Fixed yarn.lock and minor package bumps by [@ashleynolan](https://github.com/ashleynolan)
+
 ## 2.2.0
 
 ### Minor Changes
