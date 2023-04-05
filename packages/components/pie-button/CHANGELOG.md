@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.10.1
+
+### Patch Changes
+
+- [Fixed] - Added module entry for component ([#378](https://github.com/justeattakeaway/pie/pull/378)) by [@ashleynolan](https://github.com/ashleynolan)
+
 ## 0.10.0
 
 ### Minor Changes
