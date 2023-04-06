@@ -1,17 +1,25 @@
-name: Closed
+name: Remove PR Previews
 
 on:
   pull_request:
-    types:
-      - closed
+    types: [closed]
+
+concurrency: preview-teardown-${{ github.ref }}
 
 env:
   DOCS_AMPLIFY_ID: dvskdcoepjoyf
   STORYBOOK_AMPLIFY_ID: d17ja0ul7nrdy0
-  PR_NUMBER: ${{ github.event.number }}
 
 jobs:
-  closed:
+  install:
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout the repo
+      - name: Checkout
+        uses: actions/checkout@v3
+
+  preview-teardown-docs:
+    needs: install
     runs-on: ubuntu-latest
     steps:
       # Checkout the repo
@@ -19,7 +27,7 @@ jobs:
         uses: actions/checkout@v3
       # Tear down docs preview
       - name: Amplify Teardown (Docs)
-        uses: ./.github/amplify-teardown
+        uses: ./.github/actions/amplify-teardown
         with:
           amplify-app-id: ${{ env.DOCS_AMPLIFY_ID }}
           aws-region: 'eu-west-1'
@@ -27,15 +35,23 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           branch-name: 'pr${{ github.event.number }}'
           bucket-name: ${{ secrets.AWS_DOCS_BUCKET }}
-          package-name: 'pie-docs'
+          package-name: 'pie-docs-pr-${{ github.event.number }}.zip'
+
+  preview-teardown-storybook:
+    needs: install
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout the repo
+      - name: Checkout
+        uses: actions/checkout@v3
       # Tear down storybook preview
       - name: Amplify Teardown (Storybook)
-        uses: ./.github/amplify-teardown
+        uses: ./.github/actions/amplify-teardown
         with:
           amplify-app-id: ${{ env.STORYBOOK_AMPLIFY_ID }}
           aws-region: 'eu-west-1'
           aws-access-key-id: ${{ secrets.AWS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           branch-name: 'pr${{ github.event.number }}'
-          bucket-name: '${{ secrets.AWS_STORYBOOK_BUCKET }}'
-          package-name: 'pie-storybook'
+          bucket-name: ${{ secrets.AWS_STORYBOOK_BUCKET }}
+          package-name: 'pie-storybook-pr-${{github.event.number}}.zip'
