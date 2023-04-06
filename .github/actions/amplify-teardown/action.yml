@@ -17,17 +17,10 @@ inputs:
   branch-name:
     description: 'Amplify "branch" name'
     required: true
-  bucket-name:
-    description: 'The name of the S3 bucket containing your zipped website'
-    required: true
-  package-name:
-    description: 'Name for the application being deleted'
-    required: true
 
 runs:
   using: composite
   steps:
-  # Delete Amplify branch
   - name: Delete Amplify branch
     shell: bash
     run: |
@@ -35,19 +28,6 @@ runs:
         --app-id ${{ inputs.amplify-app-id }} \
         --branch-name ${{ inputs.branch-name }}
     env:
-      AWS_ACCESS_KEY_ID: ${{ inputs.aws-access-key-id }}
-      AWS_SECRET_ACCESS_KEY: ${{ inputs.aws-secret-access-key }}
-      AWS_REGION: ${{ inputs.aws-region }}
-  # Delete zip from S3
-  - name: Delete zip from S3
-    uses: vitorsgomes/s3-rm-action@master
-    with:
-      args: --recursive --exclude=* --include=${{ inputs.package-name }}-pr-${{github.event.number}}.zip
-    # This action suggests setting a PATH_TO_DELETE environment variable,
-    # but it applies a trailing slash meaning you can't delete a single file.
-    # The exclude/include args above should get around this.
-    env:
-      AWS_S3_BUCKET: ${{ inputs.bucket-name }}
       AWS_ACCESS_KEY_ID: ${{ inputs.aws-access-key-id }}
       AWS_SECRET_ACCESS_KEY: ${{ inputs.aws-secret-access-key }}
       AWS_REGION: ${{ inputs.aws-region }}

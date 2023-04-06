@@ -34,8 +34,6 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           branch-name: 'pr${{ github.event.number }}'
-          bucket-name: ${{ secrets.AWS_DOCS_BUCKET }}
-          package-name: 'pie-docs'
 
   preview-teardown-storybook:
     needs: install
@@ -53,5 +51,3 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           branch-name: 'pr${{ github.event.number }}'
-          bucket-name: ${{ secrets.AWS_STORYBOOK_BUCKET }}
-          package-name: 'pie-storybook'
