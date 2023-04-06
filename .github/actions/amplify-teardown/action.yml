@@ -27,20 +27,17 @@ inputs:
 runs:
   using: composite
   steps:
-  # this step will fail if the branch already exists
-  # so we return 'true' to ensure it'll always pass.
-  - name: delete amplify branch
+  - name: Delete Amplify branch
     shell: bash
     run: |
       aws amplify delete-branch \
         --app-id ${{ inputs.amplify-app-id }} \
-        --branch-name ${{ inputs.branch-name }} \
-        || true
+        --branch-name ${{ inputs.branch-name }}
     env:
       AWS_ACCESS_KEY_ID: ${{ inputs.aws-access-key-id }}
       AWS_SECRET_ACCESS_KEY: ${{ inputs.aws-secret-access-key }}
       AWS_REGION: ${{ inputs.aws-region }}
-  - name: delete zip from s3
+  - name: Delete zip from S3
     uses: vitorsgomes/s3-rm-action@master
     env:
       AWS_S3_BUCKET: ${{ inputs.bucket-name }}
