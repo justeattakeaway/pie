@@ -2,4 +2,4 @@
 "pie-monorepo": minor
 ---
 
-[Added] Merged workflow which runs for merged pull requests
+[Added] Closed workflow which runs for closed pull requests

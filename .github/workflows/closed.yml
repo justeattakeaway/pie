@@ -1,10 +1,8 @@
-name: Merged
+name: Closed
 
 on:
   pull_request:
     types:
-      # There is no `merged` event type, so we have to use `closed`
-      # and then specify merged using the `if` below.
       - closed
 
 env:
@@ -13,9 +11,7 @@ env:
   PR_NUMBER: ${{ github.event.number }}
 
 jobs:
-  merged:
-    # Only run the job for merged PRs, not closed ones
-    if: github.event.pull_request.merged == true
+  closed:
     runs-on: ubuntu-latest
     steps:
       # Checkout the repo
