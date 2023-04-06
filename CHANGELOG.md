@@ -1,5 +1,15 @@
 # Changelog
 
+## 2.2.0
+
+### Minor Changes
+
+- [Added] nuxt2 example template ([#374](https://github.com/justeattakeaway/pie/pull/374)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
+### Patch Changes
+
+- [Removed] Pie button as test ([#379](https://github.com/justeattakeaway/pie/pull/379)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
 ## 2.1.0
 
 ### Minor Changes
