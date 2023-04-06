@@ -5,6 +5,10 @@
   "type": "module",
   "description": "",
   "main": "configs.js",
+  "scripts": {
+    "test": "run -T vitest run",
+    "test:watch": "run -T vitest"
+  },
   "volta": {
     "extends": "../../../package.json"
   }
