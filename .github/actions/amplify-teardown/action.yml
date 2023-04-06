@@ -42,7 +42,7 @@ runs:
   - name: Delete zip from S3
     uses: vitorsgomes/s3-rm-action@master
     with:
-      args: --exclude '*' --include '${{ inputs.package-name }}-pr-${{github.event.number}}.zip'
+      args: --recursive --exclude=* --include=${{ inputs.package-name }}-pr-${{github.event.number}}.zip
     # This action suggests setting a PATH_TO_DELETE environment variable,
     # but it applies a trailing slash meaning you can't delete a single file.
     # The exclude/include args above should get around this.
