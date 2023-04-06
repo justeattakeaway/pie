@@ -1,18 +1,19 @@
 import _mergeJSXProps from '@vue/babel-helper-vue-jsx-merge-props';
+import { iconSize, updateContextData } from './configs-vue';
 
 export default {
     name: 'IconRecieptError',
-    props: {},
+    props: {
+        iconSize: iconSize.regular,
+    },
     functional: true,
     render (h, ctx) {
-        const attrs = ctx.data.attrs || {};
-        ctx.data.attrs = attrs;
+        ctx.data = updateContextData(ctx, 'c-pieIcon c-pieIcon--recieptError');
         return h('svg', _mergeJSXProps([{
             attrs: {
                 xmlns: 'http://www.w3.org/2000/svg',
                 viewBox: '0 0 16 16',
             },
-            class: 'c-pieIcon c-pieIcon--recieptError',
         }, ctx.data]), [h('path', {
             attrs: {
                 fill: '#242E30',
