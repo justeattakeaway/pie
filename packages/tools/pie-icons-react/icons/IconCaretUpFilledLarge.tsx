@@ -1,10 +1,20 @@
 import * as React from "react";
-import { SVGProps } from "react";
-const IconCaretUpFilledLarge = (props: any) => {
+import { LargeIconProps } from "../types";
+// @ts-ignore
+import { getSvgProps } from './configs-react';
+const IconCaretUpFilledLarge = (props: LargeIconProps) => {
   const {
     className,
+    iconSize,
+    width,
+    height,
     ...remainingProps
   } = props;
-  return <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" className={"pie-icon pie-icon--caret-up-filled-large" + (props.className ? ' ' + props.className : '') } width="1em" height="1em" {...remainingProps}><path fill="#242E30" d="M17.269 8.125a1.68 1.68 0 0 0-2.844 0l-8.671 14a1.68 1.68 0 0 0 1.426 2.564h17.64a1.68 1.68 0 0 0 1.409-2.625l-8.96-13.939Z" /></svg>;
+  const moreProps = getSvgProps("pie-icon pie-icon--caret-up-filled-large", className, iconSize, "IconCaretUpFilledLarge");
+  const allProps = {
+    ...remainingProps,
+    ...moreProps
+  };
+  return <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"    {...allProps}><path fill="#242E30" d="M17.269 8.125a1.68 1.68 0 0 0-2.844 0l-8.671 14a1.68 1.68 0 0 0 1.426 2.564h17.64a1.68 1.68 0 0 0 1.409-2.625l-8.96-13.939Z" /></svg>;
 };
 export default IconCaretUpFilledLarge;

@@ -1,10 +1,20 @@
 import * as React from "react";
-import { SVGProps } from "react";
-const IconPauseLarge = (props: any) => {
+import { LargeIconProps } from "../types";
+// @ts-ignore
+import { getSvgProps } from './configs-react';
+const IconPauseLarge = (props: LargeIconProps) => {
   const {
     className,
+    iconSize,
+    width,
+    height,
     ...remainingProps
   } = props;
-  return <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" className={"pie-icon pie-icon--pause-large" + (props.className ? ' ' + props.className : '') } width="1em" height="1em" {...remainingProps}><path fill="#242E30" d="M11 9h1.75v14H11V9Zm8.25 0H21v14h-1.75V9Z" /></svg>;
+  const moreProps = getSvgProps("pie-icon pie-icon--pause-large", className, iconSize, "IconPauseLarge");
+  const allProps = {
+    ...remainingProps,
+    ...moreProps
+  };
+  return <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"    {...allProps}><path fill="#242E30" d="M11 9h1.75v14H11V9Zm8.25 0H21v14h-1.75V9Z" /></svg>;
 };
 export default IconPauseLarge;

@@ -1,10 +1,20 @@
 import * as React from "react";
-import { SVGProps } from "react";
-const IconGridViewFilled = (props: any) => {
+import { RegularIconProps } from "../types";
+// @ts-ignore
+import { getSvgProps } from './configs-react';
+const IconGridViewFilled = (props: RegularIconProps) => {
   const {
     className,
+    iconSize,
+    width,
+    height,
     ...remainingProps
   } = props;
-  return <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" className={"pie-icon pie-icon--grid-view-filled" + (props.className ? ' ' + props.className : '') } width="1em" height="1em" {...remainingProps}><path fill="#242E30" d="M2.094 6.906h4.812V2.094H2.094v4.812Z" /><path fill="#242E30" d="M9.094 6.906h4.812V2.094H9.094v4.812Z" /><path fill="#242E30" d="M2.094 13.906h4.812V9.094H2.094v4.812Z" /><path fill="#242E30" d="M9.094 13.906h4.812V9.094H9.094v4.812Z" /></svg>;
+  const moreProps = getSvgProps("pie-icon pie-icon--grid-view-filled", className, iconSize, "IconGridViewFilled");
+  const allProps = {
+    ...remainingProps,
+    ...moreProps
+  };
+  return <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"    {...allProps}><path fill="#242E30" d="M2.094 6.906h4.812V2.094H2.094v4.812Z" /><path fill="#242E30" d="M9.094 6.906h4.812V2.094H9.094v4.812Z" /><path fill="#242E30" d="M2.094 13.906h4.812V9.094H2.094v4.812Z" /><path fill="#242E30" d="M9.094 13.906h4.812V9.094H9.094v4.812Z" /></svg>;
 };
 export default IconGridViewFilled;
