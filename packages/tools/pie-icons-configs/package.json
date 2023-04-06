@@ -1,0 +1,11 @@
+{
+  "name": "@justeattakeaway/pie-icons-configs",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "",
+  "main": "configs.js",
+  "volta": {
+    "extends": "../../../package.json"
+  }
+}

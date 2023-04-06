@@ -168,3 +168,6 @@ lit-visual-report/
 
 # TypeScript
 compiled/
+
+# File is generated during pie-icons-vue build
+packages/tools/pie-icons-vue/icons/configs.js
