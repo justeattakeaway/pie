@@ -8,7 +8,7 @@ export const sizeToClassMap = {
 };
 
 export const regularIconSizes = Object.keys(sizeToClassMap);
-export const regularIconSizeDefault = 'm';
+export const regularIconSizeDefault = 'xs';
 export const largeIconSizeModule = 8;
 export const largeIconSizeDefault = 32;
 
