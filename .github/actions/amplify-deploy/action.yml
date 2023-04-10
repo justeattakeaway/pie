@@ -75,7 +75,7 @@ runs:
         aws amplify start-deployment \
           --app-id ${{ inputs.amplify-app-id }} \
           --branch-name ${{ inputs.branch-name }} \
-          --source-url https://${{ inputs.bucket-name }}.s3.${{ inputs.aws-region }}.amazonaws.com/${{ inputs.package-name }}-pr-${{ github.event.number }}.zip
+          --source-url https://${{ inputs.bucket-name }}.s3.${{ inputs.aws-region }}.amazonaws.com/${{ inputs.package-name }}-pr-${{ github.event.number }}.zip \
           --debug
       env:
         AWS_REGION: ${{ inputs.aws-region }}
