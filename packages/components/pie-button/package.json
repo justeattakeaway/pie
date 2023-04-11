@@ -1,9 +1,10 @@
 {
   "name": "@justeattakeaway/pie-button",
-  "version": "0.10.0",
+  "version": "0.10.1",
   "description": "PIE design system button built using web components",
   "type": "module",
   "main": "dist/index.js",
+  "module": "dist/index.js",
   "types": "dist/types/index.d.ts",
   "scripts": {
     "build": "run -T vite build",
