@@ -36,13 +36,6 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           branch-name: 'pr${{ github.event.number }}'
-      # Delete Github environment
-      - name: Delete Github environment (Docs)
-        uses: strumwolf/delete-deployment-environment@v2.2.3
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          environment: pie-docs-pr-${{github.event.number}}
-          ref: ${{ github.ref_name }}
 
   preview-teardown-storybook:
     needs: install
@@ -60,10 +53,3 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           branch-name: 'pr${{ github.event.number }}'
-      # Delete Github environment
-      - name: Delete Github environment (Storybook)
-        uses: strumwolf/delete-deployment-environment@v2.2.3
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          environment: pie-storybook-pr-${{github.event.number}}
-          ref: ${{ github.ref_name }}
