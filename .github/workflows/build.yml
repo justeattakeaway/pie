@@ -169,7 +169,7 @@ jobs:
           clean-exclude: |
             ./storybook
       - name: Deploy Main (Amplify)
-        if: ${{ github.ref == 'refs/heads/main' }}
+        # if: ${{ github.ref == 'refs/heads/main' }}
         uses: ./.github/actions/amplify-deploy
         with:
           amplify-app-id: ${{ env.DOCS_AMPLIFY_ID }}
@@ -252,7 +252,7 @@ jobs:
           branch: gh-pages
           target-folder: ./storybook
       - name: Deploy Main (Amplify)
-        if: ${{ github.ref == 'refs/heads/main' }}
+        # if: ${{ github.ref == 'refs/heads/main' }}
         uses: ./.github/actions/amplify-deploy
         with:
           amplify-app-id: ${{ env.STORYBOOK_AMPLIFY_ID }}
