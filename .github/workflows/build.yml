@@ -181,7 +181,8 @@ jobs:
           package-name: 'pie-docs'
 
   deploy-storybook:
-    needs: build
+    # This will depend on build once we've migrated off Github Pages
+    needs: deploy-docs
     runs-on: ubuntu-latest
     steps:
       # Checkout the Repo
