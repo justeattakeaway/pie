@@ -254,13 +254,13 @@ jobs:
         if: ${{ github.ref == 'refs/heads/main' }}
         uses: ./.github/actions/amplify-deploy
         with:
-          amplify-app-id: ${{ env.DOCS_AMPLIFY_ID }}
+          amplify-app-id: ${{ env.STORYBOOK_AMPLIFY_ID }}
           aws-region: 'eu-west-1'
           aws-access-key-id: ${{ secrets.AWS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           branch-name: 'main'
           bucket-name: ${{ secrets.AWS_STORYBOOK_MAIN_BUCKET }}
-          package-name: 'pie-docs'
+          package-name: 'pie-storybook'
 
   browser-tests:
     needs: deploy-docs
