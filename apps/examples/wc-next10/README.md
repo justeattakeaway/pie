@@ -31,5 +31,3 @@ In order to use the Pie Button components in the Next 10 application, it needs t
 ```
   const PButton = dynamic(() => import('../components/PieButton'), { ssr: false });
 ```
-
-Dynamically importing components into a React application means that, unless required immediately for a page to load and bundle, the import is held off until needed and until we have access to the window on the client-side.
