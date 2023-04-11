@@ -27,10 +27,9 @@ const withTM = require('next-transpile-modules')(transpileModules);
 module.exports = withTM;
 ```
 
-In order to use Lit components in the next 10 application, they need to be dynamically imported or mounted with UseEffect hooks. Without this, you are likely to receive the `window is not defined` error.
-
+In order to use the Pie Button components in the Next 10 application, it needs to be dynamically imported. Without this, you are likely to receive the `window is not defined` error.
 ```
   const PButton = dynamic(() => import('../components/PieButton'), { ssr: false });
 ```
 
-Dynamically importing components into a React application means that, unless required immediately for a page to load and bundle, the import is held off until needed.
+Dynamically importing components into a React application means that, unless required immediately for a page to load and bundle, the import is held off until needed and until we have access to the window on the client-side.
