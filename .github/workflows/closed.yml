@@ -13,6 +13,8 @@ env:
 jobs:
   install:
     runs-on: ubuntu-latest
+    permissions: write-all
+
     steps:
       # Checkout the repo
       - name: Checkout
@@ -34,6 +36,7 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           branch-name: 'pr${{ github.event.number }}'
+      # Delete Github environment
       - name: Delete Github environment (Docs)
         uses: strumwolf/delete-deployment-environment@v2.2.3
         with:
@@ -57,6 +60,7 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           branch-name: 'pr${{ github.event.number }}'
+      # Delete Github environment
       - name: Delete Github environment (Storybook)
         uses: strumwolf/delete-deployment-environment@v2.2.3
         with:
