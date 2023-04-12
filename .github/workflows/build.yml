@@ -141,7 +141,7 @@ jobs:
           package-name: 'pie-docs'
       # If successful
       - name: Update deployment status (success)
-        if: success()
+        if: ${{ github.ref != 'refs/heads/main' && success() }}
         uses: chrnorm/deployment-status@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -150,7 +150,7 @@ jobs:
           state: "success"
       # If it failed
       - name: Update deployment status (failure)
-        if: failure()
+        if: ${{ github.ref != 'refs/heads/main' && failure() }}
         uses: chrnorm/deployment-status@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -226,7 +226,7 @@ jobs:
           package-name: 'pie-storybook'
       # If successful
       - name: Update deployment status (success)
-        if: success()
+        if: ${{ github.ref != 'refs/heads/main' && success() }}
         uses: chrnorm/deployment-status@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -235,7 +235,7 @@ jobs:
           state: "success"
       # If it failed
       - name: Update deployment status (failure)
-        if: failure()
+        if: ${{ github.ref != 'refs/heads/main' && failure() }}
         uses: chrnorm/deployment-status@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
