@@ -1,6 +1,6 @@
 {
   "name": "wc-nuxt2",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "nuxt",
@@ -11,8 +11,14 @@
   "dependencies": {
     "core-js": "3.30.0",
     "nuxt": "2.15.8",
-    "vue": "2.7.10",
-    "vue-server-renderer": "2.7.10",
+    "vue": "2.7.14",
+    "vue-server-renderer": "2.7.14",
     "vue-template-compiler": "2.7.14"
+  },
+  "engines": {
+    "node": "<=16.19.0"
+  },
+  "volta": {
+    "node": "16.19.0"
   }
 }

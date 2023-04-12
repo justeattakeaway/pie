@@ -38,6 +38,13 @@ build/Release
 node_modules/
 jspm_packages/
 
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
 # TypeScript v1 declaration files
 typings/
 
