@@ -119,42 +119,42 @@ jobs:
       # Build Docs Site
       - name: Build Docs Site
         run: yarn build --filter=pie-docs
-      # Deployments
+      # Create Github Deployment
       - name: Create Docs GitHub deployment
-        if: ${{ github.ref != 'refs/heads/main' }}
+        if: ${{ github.event_name == 'pull_request' }}
         uses: chrnorm/deployment-action@v2
         id: docs-deploy
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          environment: "pie-docs-pr-${{github.event.number}}"
+          environment: "pie-docs-pr-${{ github.event.number }}"
       # Amplify Deploy
       - name: Amplify Deploy
-        if: ${{ github.ref != 'refs/heads/main' }}
+        if: ${{ github.event_name == 'pull_request' }}
         uses: ./.github/actions/amplify-deploy
         with:
           amplify-app-id: ${{ env.DOCS_AMPLIFY_ID }}
           aws-region: 'eu-west-1'
           aws-access-key-id: ${{ secrets.AWS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          branch-name: 'pr${{github.event.number}}'
+          branch-name: 'pr${{ github.event.number }}'
           bucket-name: ${{ secrets.AWS_DOCS_BUCKET }}
           package-name: 'pie-docs'
       # If successful
       - name: Update deployment status (success)
-        if: ${{ github.ref != 'refs/heads/main' && success() }}
+        if: ${{ github.event_name == 'pull_request' && success() }}
         uses: chrnorm/deployment-status@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          environment-url: https://pr${{github.event.number}}.${{ env.DOCS_AMPLIFY_ID }}.amplifyapp.com
+          environment-url: https://pr${{ github.event.number }}.${{ env.DOCS_AMPLIFY_ID }}.amplifyapp.com
           deployment-id: ${{ steps.docs-deploy.outputs.deployment_id }}
           state: "success"
       # If it failed
       - name: Update deployment status (failure)
-        if: ${{ github.ref != 'refs/heads/main' && failure() }}
+        if: ${{ github.event_name == 'pull_request' && failure() }}
         uses: chrnorm/deployment-status@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          environment-url: https://pr${{github.event.number}}.${{ env.DOCS_AMPLIFY_ID }}.amplifyapp.com
+          environment-url: https://pr${{ github.event.number }}.${{ env.DOCS_AMPLIFY_ID }}.amplifyapp.com
           deployment-id: ${{ steps.docs-deploy.outputs.deployment_id }}
           state: "failure"
       # Main deployments
@@ -206,40 +206,40 @@ jobs:
         run: yarn build --filter=pie-storybook
       # Deployments
       - name: Create Storybook GitHub deployment
-        if: ${{ github.ref != 'refs/heads/main' }}
+        if: ${{ github.event_name == 'pull_request' }}
         uses: chrnorm/deployment-action@v2
         id: storybook-deploy
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          environment: "pie-storybook-pr-${{github.event.number}}"
+          environment: "pie-storybook-pr-${{ github.event.number }}"
       # Amplify Deploy
       - name: Amplify Deploy
-        if: ${{ github.ref != 'refs/heads/main' }}
+        if: ${{ github.event_name == 'pull_request' }}
         uses: ./.github/actions/amplify-deploy
         with:
           amplify-app-id: ${{ env.STORYBOOK_AMPLIFY_ID }}
           aws-region: 'eu-west-1'
           aws-access-key-id: ${{ secrets.AWS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          branch-name: 'pr${{github.event.number}}'
+          branch-name: 'pr${{ github.event.number }}'
           bucket-name: '${{ secrets.AWS_STORYBOOK_BUCKET }}'
           package-name: 'pie-storybook'
       # If successful
       - name: Update deployment status (success)
-        if: ${{ github.ref != 'refs/heads/main' && success() }}
+        if: ${{ github.event_name == 'pull_request' && success() }}
         uses: chrnorm/deployment-status@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          environment-url: https://pr${{github.event.number}}.${{ env.STORYBOOK_AMPLIFY_ID }}.amplifyapp.com
+          environment-url: https://pr${{ github.event.number }}.${{ env.STORYBOOK_AMPLIFY_ID }}.amplifyapp.com
           deployment-id: ${{ steps.storybook-deploy.outputs.deployment_id }}
           state: "success"
       # If it failed
       - name: Update deployment status (failure)
-        if: ${{ github.ref != 'refs/heads/main' && failure() }}
+        if: ${{ github.event_name == 'pull_request' && failure() }}
         uses: chrnorm/deployment-status@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          environment-url: https://pr${{github.event.number}}.${{ env.STORYBOOK_AMPLIFY_ID }}.amplifyapp.com
+          environment-url: https://pr${{ github.event.number }}.${{ env.STORYBOOK_AMPLIFY_ID }}.amplifyapp.com
           deployment-id: ${{ steps.storybook-deploy.outputs.deployment_id }}
           state: "failure"
       # Main deployments
