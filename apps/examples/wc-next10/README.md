@@ -27,6 +27,16 @@ const withTM = require('next-transpile-modules')(transpileModules);
 module.exports = withTM;
 ```
 
+You can also pass in nextConfig as a parameter in `withTM` if you have additional configuration settings:
+
+```
+const nextConfig = {
+    // settings
+};
+
+module.exports = withTM(nextConfig);
+```
+
 In order to use the Pie Button components in the Next 10 application, it needs to be dynamically imported. Without this, you are likely to receive the `window is not defined` error.
 ```
   const PButton = dynamic(() => import('../components/PieButton'), { ssr: false });
