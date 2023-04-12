@@ -11,13 +11,14 @@
     "node": "^18"
   },
   "workspaces": [
-    "apps/**/*",
+    "apps/pie-docs",
+    "apps/pie-storybook",
     "packages/**/*",
     "./"
   ],
   "scripts": {
     "watch": "turbo run watch --filter=!pie-monorepo",
-    "build": "cross-env-shell turbo run build --filter=!pie-monorepo --filter=!'./apps/examples/*' --token=${TURBO_TOKEN}",
+    "build": "cross-env-shell turbo run build --filter=!pie-monorepo --token=${TURBO_TOKEN}",
     "changeset": "changeset",
     "changeset:publish": "changeset publish",
     "changeset:version": "changeset version",
