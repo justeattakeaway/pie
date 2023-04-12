@@ -42,13 +42,11 @@
     "@babel/node": "7.20.7",
     "@justeattakeaway/pie-icons": "2.2.0",
     "@svgr/core": "6.4.0",
-    "@types/react": "18.0.31",
     "pascal-case": "3.1.2",
     "react": "18.2.0",
     "rollup": "3.20.2",
     "rollup-plugin-delete": "2.0.0",
-    "rollup-plugin-typescript2": "0.34.1",
-    "typescript": "5.0.3"
+    "rollup-plugin-typescript2": "0.34.1"
   },
   "dependencies": {
     "@babel/preset-react": "7.18.6",
