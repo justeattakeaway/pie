@@ -30,7 +30,7 @@ alt: "Wakamai Fondue font specification for JETSans Digital – the base subset"
 
 {% contentPageImage {
 src:"../../../assets/img/foundations/typography/jetsans-extended-subset.png",
-alt: "Wakamai Fondue font specification for JETSans Digital – the extended base subset"
+alt: "Wakamai Fondue font specification for JETSans Digital – the extended base subset. The subset is approximately double the size, containing more characters, glyphs, layout features and languages."
 } %}
 
 For more details on font optimisation and how we subset our fonts, check out the `Font Optimisation` section below.
@@ -125,7 +125,7 @@ For reference, the JETSans Digital Regular font has the following properties whe
 
 {% contentPageImage {
 src:"../../../assets/img/foundations/typography/jetsansdigital-base.png",
-alt: "Overview of the main font specification for JETSans Digital"
+alt: "Overview of the main font specification for JETSans Digital. This is much larger in size than the optimised subsets as it contains even more characters, glyphs, layout features and languages."
 } %}
 
 
@@ -197,4 +197,3 @@ Let's break it down step-by-step:
 - `--unicodes=U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD`
 
   Specifies which characters to include as part of our optimised set. This character set is the same as those specified by Google font sets – more information on which [can be found in this blog post](https://markoskon.com/creating-font-subsets/#characters).
-
