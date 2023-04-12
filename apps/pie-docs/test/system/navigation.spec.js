@@ -14,8 +14,7 @@ test.describe('PIE - Status Code Tests - @desktop', () => {
     expectedRoutesJson.forEach((route) => {
         test(`Should respond with a '200' status code for route - ${route}`, async ({ page }) => {
             // Arrange
-            const url = `${await page.url()}/${route}`;
-            const response = await page.goto(url);
+            const response = await page.goto(route);
 
             // Assert
             await expect(response.status()).toBe(200);

@@ -25,6 +25,13 @@ concurrency:
   group: CI-${{ github.ref }}
   cancel-in-progress: true
 
+env:
+  DOCS_AMPLIFY_ID: dvskdcoepjoyf
+  STORYBOOK_AMPLIFY_ID: d17ja0ul7nrdy0
+  HUSKY: 0
+  PR_NUMBER: ${{ github.event.number }}
+  TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+
 jobs:
   dependency-changeset:
     if: github.actor == 'renovate-bot' || github.actor == 'renovate[bot]'
@@ -88,9 +95,6 @@ jobs:
       # Run Unit Tests
       - name: Unit Tests
         run: yarn test:ci
-    env:
-      PIE_URL_PREFIX: /pr-preview-docs/pr-${{github.event.number}}/
-      TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
 
   deploy-docs:
     needs: build
@@ -112,20 +116,49 @@ jobs:
         with:
           path: "**/node_modules"
           key: node-modules-${{ hashFiles('**/yarn.lock') }}
-      # Build Projects
-      - name: Build Apps
+      # Build Docs Site
+      - name: Build Docs Site
         run: yarn build --filter=pie-docs
       # Deployments
-      - name: Deploy - Docs PR Preview
-        id: preview-docs
+      - name: Create Docs GitHub deployment
         if: ${{ github.ref != 'refs/heads/main' }}
-        uses: rossjrw/pr-preview-action@v1
+        uses: chrnorm/deployment-action@v2
+        id: docs-deploy
         with:
-          source-dir: ./apps/pie-docs/dist
-          preview-branch: gh-pages
-          umbrella-dir: pr-preview-docs
-          action: auto
-      - name: Deploy - Master
+          token: ${{ secrets.GITHUB_TOKEN }}
+          environment: "pie-docs-pr-${{github.event.number}}"
+      # Amplify Deploy
+      - name: Amplify Deploy
+        if: ${{ github.ref != 'refs/heads/main' }}
+        uses: ./.github/actions/amplify-deploy
+        with:
+          amplify-app-id: ${{ env.DOCS_AMPLIFY_ID }}
+          aws-region: 'eu-west-1'
+          aws-access-key-id: ${{ secrets.AWS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          branch-name: 'pr${{github.event.number}}'
+          bucket-name: ${{ secrets.AWS_DOCS_BUCKET }}
+          package-name: 'pie-docs'
+      # If successful
+      - name: Update deployment status (success)
+        if: success()
+        uses: chrnorm/deployment-status@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          environment-url: https://pr${{github.event.number}}.${{ env.DOCS_AMPLIFY_ID }}.amplifyapp.com
+          deployment-id: ${{ steps.docs-deploy.outputs.deployment_id }}
+          state: "success"
+      # If it failed
+      - name: Update deployment status (failure)
+        if: failure()
+        uses: chrnorm/deployment-status@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          environment-url: https://pr${{github.event.number}}.${{ env.DOCS_AMPLIFY_ID }}.amplifyapp.com
+          deployment-id: ${{ steps.docs-deploy.outputs.deployment_id }}
+          state: "failure"
+      # Main deployments
+      - name: Deploy Main (Github Pages)
         if: ${{ github.ref == 'refs/heads/main' }}
         uses: JamesIves/github-pages-deploy-action@v4
         with:
@@ -134,14 +167,21 @@ jobs:
           target-folder: .
           branch: gh-pages
           clean-exclude: |
-            ./pr-preview-docs
-            ./pr-preview-storybook
             ./storybook
-    env:
-      PIE_URL_PREFIX: /pr-preview-docs/pr-${{github.event.number}}/
-      TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+      - name: Deploy Main (Amplify)
+        if: ${{ github.ref == 'refs/heads/main' }}
+        uses: ./.github/actions/amplify-deploy
+        with:
+          amplify-app-id: ${{ env.DOCS_AMPLIFY_ID }}
+          aws-region: 'eu-west-1'
+          aws-access-key-id: ${{ secrets.AWS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          branch-name: 'main'
+          bucket-name: ${{ secrets.AWS_DOCS_MAIN_BUCKET }}
+          package-name: 'pie-docs'
 
   deploy-storybook:
+    # This will depend on build once we've migrated off Github Pages
     needs: deploy-docs
     runs-on: ubuntu-latest
     steps:
@@ -161,20 +201,49 @@ jobs:
         with:
           path: "**/node_modules"
           key: node-modules-${{ hashFiles('**/yarn.lock') }}
-      # Build Projects
-      - name: Build Apps
+      # Build Storybook
+      - name: Build Storybook
         run: yarn build --filter=pie-storybook
       # Deployments
-      - name: Deploy - Storybook PR Preview
-        id: preview-storybook
+      - name: Create Storybook GitHub deployment
         if: ${{ github.ref != 'refs/heads/main' }}
-        uses: rossjrw/pr-preview-action@v1
+        uses: chrnorm/deployment-action@v2
+        id: storybook-deploy
         with:
-          source-dir: ./apps/pie-storybook/dist
-          preview-branch: gh-pages
-          umbrella-dir: pr-preview-storybook
-          action: auto
-      - name: Deploy - Master
+          token: ${{ secrets.GITHUB_TOKEN }}
+          environment: "pie-storybook-pr-${{github.event.number}}"
+      # Amplify Deploy
+      - name: Amplify Deploy
+        if: ${{ github.ref != 'refs/heads/main' }}
+        uses: ./.github/actions/amplify-deploy
+        with:
+          amplify-app-id: ${{ env.STORYBOOK_AMPLIFY_ID }}
+          aws-region: 'eu-west-1'
+          aws-access-key-id: ${{ secrets.AWS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          branch-name: 'pr${{github.event.number}}'
+          bucket-name: '${{ secrets.AWS_STORYBOOK_BUCKET }}'
+          package-name: 'pie-storybook'
+      # If successful
+      - name: Update deployment status (success)
+        if: success()
+        uses: chrnorm/deployment-status@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          environment-url: https://pr${{github.event.number}}.${{ env.STORYBOOK_AMPLIFY_ID }}.amplifyapp.com
+          deployment-id: ${{ steps.storybook-deploy.outputs.deployment_id }}
+          state: "success"
+      # If it failed
+      - name: Update deployment status (failure)
+        if: failure()
+        uses: chrnorm/deployment-status@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          environment-url: https://pr${{github.event.number}}.${{ env.STORYBOOK_AMPLIFY_ID }}.amplifyapp.com
+          deployment-id: ${{ steps.storybook-deploy.outputs.deployment_id }}
+          state: "failure"
+      # Main deployments
+      - name: Deploy Main (Github Pages)
         if: ${{ github.ref == 'refs/heads/main' }}
         uses: JamesIves/github-pages-deploy-action@v4
         with:
@@ -182,11 +251,17 @@ jobs:
           force: false
           branch: gh-pages
           target-folder: ./storybook
-          clean-exclude: |
-            pr-preview-docs
-            pr-preview-storybook
-    env:
-      TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+      - name: Deploy Main (Amplify)
+        if: ${{ github.ref == 'refs/heads/main' }}
+        uses: ./.github/actions/amplify-deploy
+        with:
+          amplify-app-id: ${{ env.STORYBOOK_AMPLIFY_ID }}
+          aws-region: 'eu-west-1'
+          aws-access-key-id: ${{ secrets.AWS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          branch-name: 'main'
+          bucket-name: ${{ secrets.AWS_STORYBOOK_MAIN_BUCKET }}
+          package-name: 'pie-storybook'
 
   browser-tests:
     needs: deploy-docs
@@ -242,9 +317,7 @@ jobs:
           path: visual-report/
           retention-days: 7
     env:
-      PIE_URL_PREFIX: pr-preview-docs/pr-${{github.event.number}}/
       PERCY_TOKEN_PIE_DOCS: ${{ secrets.PERCY_TOKEN_PIE_DOCS }}
-      TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
 
   release:
     needs: build
@@ -332,5 +405,3 @@ jobs:
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-      HUSKY: 0
-      TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}

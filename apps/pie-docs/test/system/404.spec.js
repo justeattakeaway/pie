@@ -9,8 +9,7 @@ test.describe('PIE - 404 Page - @desktop', () => {
 
     test('Should go to the homepage when clicking "Visit homepage" link', async ({ page, baseURL }) => {
         // Arrange
-        const url = `${baseURL}/404.html`;
-        await page.goto(url);
+        await page.goto('404.html');
 
         const visitHomepageLink = page.getByTestId('404-visit-homepage');
 
@@ -21,6 +20,8 @@ test.describe('PIE - 404 Page - @desktop', () => {
         ]);
 
         // Assert
-        await expect(page.url()).toBe(baseURL);
+        const actualUrl = new URL(page.url()).href;
+        const expectedUrl = new URL(baseURL).href;
+        await expect(actualUrl).toBe(expectedUrl);
     });
 });
