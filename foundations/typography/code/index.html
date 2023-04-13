@@ -605,7 +605,7 @@ https://d30v2pzvrfyzpo.cloudfront.net/fonts/JETSansDigital-Regular-optimised-ext
 <ul>
 <li><code>extended-subset</code> – this is an extended subset of JETSansDigital, which contains the characters for all languages supported across JET (including Cyrillic and Hebrew).</li>
 </ul>
-<figure class="c-contentPage-img c-contentImage c-contentImage--fullWidth">        <div class="c-contentImage-backdrop">          <picture>                        <img src="../../../assets/img/foundations/typography/jetsans-extended-subset.png"  alt="Wakamai Fondue font specification for JETSans Digital – the extended base subset">          </picture>        </div>              </figure>
+<figure class="c-contentPage-img c-contentImage c-contentImage--fullWidth">        <div class="c-contentImage-backdrop">          <picture>                        <img src="../../../assets/img/foundations/typography/jetsans-extended-subset.png"  alt="Wakamai Fondue font specification for JETSans Digital – the extended base subset. The subset is approximately double the size, containing more characters, glyphs, layout features and languages.">          </picture>        </div>              </figure>
 <p>For more details on font optimisation and how we subset our fonts, check out the <code>Font Optimisation</code> section below.</p>
 <hr>
 <h2>Font loading</h2>
@@ -671,7 +671,7 @@ body {
 <p>We currently use the JETSansDigital font on JET platforms: a custom typeface created for use on our products.</p>
 <p>The standard fontset comes with a huge number of glyphs and layout features that aren't required for use on the web. Therefore we optimise this fontset using a process called font-subsetting. Subsetting is the process of removing parts of the base fontset, to leave only the glyphs and features that you require.</p>
 <p>For reference, the JETSans Digital Regular font has the following properties when inspected using the <a href="https://wakamaifondue.com/">Wakamai Fondue tool</a>:</p>
-<figure class="c-contentPage-img c-contentImage c-contentImage--fullWidth">        <div class="c-contentImage-backdrop">          <picture>                        <img src="../../../assets/img/foundations/typography/jetsansdigital-base.png"  alt="Overview of the main font specification for JETSans Digital">          </picture>        </div>              </figure>
+<figure class="c-contentPage-img c-contentImage c-contentImage--fullWidth">        <div class="c-contentImage-backdrop">          <picture>                        <img src="../../../assets/img/foundations/typography/jetsansdigital-base.png"  alt="Overview of the main font specification for JETSans Digital. This is much larger in size than the optimised subsets as it contains even more characters, glyphs, layout features and languages.">          </picture>        </div>              </figure>
 <h3>How to subset a font</h3>
 <p>To subset a base font like the one we use, you will need to use a command line tool called <code>pyftsubset</code> which is available as part of the fonttools library. For more information on installing <code>pyftsubset</code>, see this blog post which explains how to do that and covers any associated dependencies you'll also need (such as <code>pip</code>).</p>
 <p>Once you have <code>pyftsubset</code> installed you can optimise your font!</p>
