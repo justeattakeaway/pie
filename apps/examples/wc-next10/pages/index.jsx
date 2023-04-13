@@ -2,7 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 import dynamic from 'next/dynamic'
 
-const PButton = dynamic(() => import('../components/PieButton'), { ssr: false });
+const PButton = dynamic(() => import('../ButtonLogic'), { ssr: false });
 
 export default function Home() {
     return (
