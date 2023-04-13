@@ -6,7 +6,9 @@
       "dependsOn": [
         "^build"
       ],
-      "outputs": ["dist/**"]
+      "outputs": [
+        "dist/**"
+      ]
     },
     "watch": {
       "cache": true,
@@ -14,12 +16,16 @@
     },
     "pie-docs#build": {
       "cache": true,
-      "env": ["PIE_URL_PREFIX"],
+      "env": [
+        "PIE_URL_PREFIX"
+      ],
       "dependsOn": [
         "^build",
         "@justeattakeaway/pie-icons#build"
       ],
-      "outputs": ["dist/**"]
+      "outputs": [
+        "dist/**"
+      ]
     },
     "pie-docs#build:dev": {
       "cache": true,
@@ -82,7 +88,9 @@
     },
     "test:browsers:ci": {
       "cache": true,
-      "env": ["PIE_URL_PREFIX"],
+      "env": [
+        "PIE_URL_PREFIX"
+      ],
       "inputs": [
         "src/**",
         "test/**"

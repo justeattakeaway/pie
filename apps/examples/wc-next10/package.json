@@ -1,6 +1,5 @@
 {
   "name": "wc-next10",
-  "version": "0.2.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -17,7 +16,10 @@
     "react-dom": "16.13.1",
     "react-test-renderer": "16.13.1"
   },
+  "engines": {
+    "node": "<=16.19.0"
+  },
   "volta": {
-    "node": "16.13.0"
+    "node": "16.19.0"
   }
 }

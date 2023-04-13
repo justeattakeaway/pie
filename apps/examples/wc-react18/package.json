@@ -1,9 +1,8 @@
 {
   "name": "wc-react18",
-  "version": "0.4.2",
   "private": true,
   "dependencies": {
-    "@justeattakeaway/pie-button": "workspace:^",
+    "@justeattakeaway/pie-button": "^0.10.1",
     "@lit-labs/react": "1.1.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",

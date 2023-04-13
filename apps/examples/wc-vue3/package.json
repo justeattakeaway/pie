@@ -1,6 +1,5 @@
 {
   "name": "wc-vue3",
-  "version": "0.4.2",
   "private": true,
   "scripts": {
     "dev": "vite",
@@ -10,7 +9,7 @@
     "type-check": "vue-tsc --noEmit"
   },
   "dependencies": {
-    "@justeattakeaway/pie-button": "workspace:*",
+    "@justeattakeaway/pie-button": "^0.10.1",
     "@vitejs/plugin-vue": "4.0.0",
     "vite": "4.2.1",
     "vue": "3.2.47"
