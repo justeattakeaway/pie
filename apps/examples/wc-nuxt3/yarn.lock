@@ -610,6 +610,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@justeattakeaway/pie-button@npm:^0.10.1":
+  version: 0.10.1
+  resolution: "@justeattakeaway/pie-button@npm:0.10.1"
+  checksum: 8768d6bc0133c7f12483f1571a75499c952ae9c0954b49d5499905fdba3306a0d6e1667b8c30cb34f8b7247f8f5fe1daee70b9b302a354be4148c63eae906257
+  languageName: node
+  linkType: hard
+
 "@mapbox/node-pre-gyp@npm:^1.0.5":
   version: 1.0.10
   resolution: "@mapbox/node-pre-gyp@npm:1.0.10"
@@ -6567,6 +6574,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "wc-nuxt3@workspace:."
   dependencies:
+    "@justeattakeaway/pie-button": ^0.10.1
     "@nuxt/vite-builder": 3.0.0
     nuxt: 3.0.0
     typescript: 5.0.3
