@@ -17,7 +17,7 @@ exports[`contentPageImage.js creates the expected markup for the given config se
         <div class=\\"c-contentImage-backdrop\\">
           <picture>
             
-            <img src=\\"some/path/to/image\\"  >
+            <img src=\\"some/path/to/image\\"  alt=\\"\\">
           </picture>
         </div>
         

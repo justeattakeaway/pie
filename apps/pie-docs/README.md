@@ -1,5 +1,5 @@
 <p align="center">
-  <img align="center" src="src/assets/img/social/landing_home.png" height="200">
+  <img align="center" src="src/assets/img/social/landing_home.png" height="200" alt="">
 </p>
 
 <p align="center">
