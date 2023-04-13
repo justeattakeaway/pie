@@ -14,8 +14,8 @@ export default function PButton () {
     const [count, setCount] = useState(0);
     const [variantName, setVariantName] = useState(BUTTON_VARIANT.PRIMARY);
 
-    const increment = () => setCount(count + 1);
-    const decrement = () => setCount(count - 1);
+    const onIncrement = () => setCount(count + 1);
+    const onDecrement = () => setCount(count - 1);
     const switchVariant = () => {
         variantIndex.current += 1;
         const variantsKeys = Object.keys(BUTTON_VARIANT);
