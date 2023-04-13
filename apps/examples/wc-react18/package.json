@@ -1,6 +1,5 @@
 {
   "name": "wc-react18",
-  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "@justeattakeaway/pie-button": "^0.10.1",
