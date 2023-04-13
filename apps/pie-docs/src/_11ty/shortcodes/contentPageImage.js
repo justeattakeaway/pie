@@ -28,7 +28,7 @@ module.exports = function (config) {
     const contextClass = `c-${context}-img`;
     const isImageFullContainerWidth = !config.width;
     const imageStyles = !isImageFullContainerWidth ? `style="--img-width: ${config.width};"` : ''; // If image isn't full width, set it to required width
-    const imageAlt = config.alt ? `alt="${config.alt}"` : '';
+    const imageAlt = `alt="${config.alt || ''}"`;
     const figureClasses = [
         contextClass,
         'c-contentImage',
