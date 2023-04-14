@@ -6,4 +6,4 @@ const transpileModules = [
 
 const withTM = require('next-transpile-modules')(transpileModules);
 
-module.exports = withTM;
+module.exports = withTM();

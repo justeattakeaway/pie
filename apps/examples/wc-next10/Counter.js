@@ -9,13 +9,13 @@ const PieBtn = createComponent({
     events: { onCustomEvent: 'CustomEvent' },
 });
 
-export default function PButton () {
+export default function Counter () {
     const variantIndex = useRef(0)
     const [count, setCount] = useState(0);
     const [variantName, setVariantName] = useState(BUTTON_VARIANT.PRIMARY);
 
-    const increment = () => setCount(count + 1);
-    const decrement = () => setCount(count - 1);
+    const onIncrement = () => setCount(count + 1);
+    const onDecrement = () => setCount(count - 1);
     const switchVariant = () => {
         variantIndex.current += 1;
         const variantsKeys = Object.keys(BUTTON_VARIANT);
@@ -31,11 +31,11 @@ export default function PButton () {
             <div>
                 <h3>Counter</h3>
                 <div className="flex-wrapper">
-                    <PieBtn onClick={decrement}>decrement</PieBtn>
+                    <PieBtn onClick={onDecrement}>decrement</PieBtn>
                     <div className="padding">
                         Counter: { count }
                     </div>
-                    <PieBtn onClick={increment}>increment</PieBtn>
+                    <PieBtn onClick={onIncrement}>increment</PieBtn>
                 </div>
             </div>
             <h2>Test props</h2>
