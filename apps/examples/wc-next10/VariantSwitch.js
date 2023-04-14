@@ -25,11 +25,11 @@ export default function VariantSwitch () {
     return (
         <>
             <div>
-                <h3>Variant Switcher</h3>
+                <h3>Variant Switch</h3>
                 <p>Click the button to switch the variant</p>
                 <div className="flex-wrapper">
                     <PieBtn variant={variantName} onClick={switchVariant}>
-                        Switch variant
+                        Variant
                     </PieBtn>
                     <div className='padding'>Variant: <b>{variantName}</b></div>
                 </div>
