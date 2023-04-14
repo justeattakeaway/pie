@@ -46,7 +46,7 @@ export class PieButton extends LitElement {
         };
 
         const raiseWCEvent = () => {
-            const event = new Event('CustomEvent')
+            const event = new CustomEvent('CustomEvent', { detail: 'WC event dispatched' })
             console.info('WC event dispatched')
             this.dispatchEvent(event)
         }

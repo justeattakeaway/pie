@@ -299,7 +299,7 @@ jobs:
         if: steps.playwright-cache.outputs.cache-hit != 'true'
       - run: npx playwright install-deps
       # Run System / a11y Tests
-      - name: Run All System / a11y Tests
+      - name: Run All System / Component /  a11y Tests
         run: yarn test:browsers:ci
       - uses: actions/upload-artifact@v3
         if: always()

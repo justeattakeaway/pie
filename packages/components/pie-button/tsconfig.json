@@ -8,6 +8,10 @@
         "sourceMap": true,
         "inlineSources": true,
         "outDir": "./compiled",
+        "baseUrl": ".",
+        "paths": {
+          "@/*": ["./src/*"]
+        },
         "rootDir": "./src",
         "strict": true,
         "noUnusedLocals": true,
@@ -21,6 +25,5 @@
         "experimentalDecorators": true,
         "forceConsistentCasingInFileNames": true
     },
-    "include": ["src/**/*.ts","./declaration.d.ts"],
-    "exclude": []
+    "include": ["src/**/*.ts","./declaration.d.ts", "test/**/*.ts"]
   }
