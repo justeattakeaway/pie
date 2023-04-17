@@ -162,7 +162,9 @@ dist/
 # Playwright
 test-results/
 browsers-report/
+lit-browsers-report/
 visual-report/
+lit-visual-report/
 
 # TypeScript
 compiled/

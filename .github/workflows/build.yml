@@ -299,7 +299,7 @@ jobs:
         if: steps.playwright-cache.outputs.cache-hit != 'true'
       - run: npx playwright install-deps
       # Run System / a11y Tests
-      - name: Run All System / a11y Tests
+      - name: Run All System / Component /  a11y Tests
         run: yarn test:browsers:ci
       - uses: actions/upload-artifact@v3
         if: always()
@@ -309,7 +309,7 @@ jobs:
           retention-days: 7
       # Run Visual Tests
       - name: Run All Visual Tests
-        run: yarn test:visual:ci
+        run: yarn test:visual:ci --concurrency=1
       - uses: actions/upload-artifact@v3
         if: always()
         with:
@@ -318,6 +318,7 @@ jobs:
           retention-days: 7
     env:
       PERCY_TOKEN_PIE_DOCS: ${{ secrets.PERCY_TOKEN_PIE_DOCS }}
+      PERCY_TOKEN_PIE_BUTTON: ${{ secrets.PERCY_TOKEN_PIE_BUTTON }}
 
   release:
     needs: build
