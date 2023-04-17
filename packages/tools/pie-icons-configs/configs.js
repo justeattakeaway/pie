@@ -21,10 +21,10 @@ export const largeIconSizeDefault = 32;
  */
 function validateLargeIconSize (value, minimumSize, moduleSize) {
     const parsedValue = parseInt(value, 10);
-    const sizeIsMultiple = parsedValue % moduleSize === 0;
-    const sizeIsValid = parsedValue >= minimumSize && sizeIsMultiple;
+    const isSizeAMultiple = parsedValue % moduleSize === 0;
+    const isSizeValid = parsedValue >= minimumSize && isSizeAMultiple;
 
-    return sizeIsValid;
+    return isSizeValid;
 }
 
 export const iconSizeValidator = {
