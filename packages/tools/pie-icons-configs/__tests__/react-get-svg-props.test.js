@@ -29,26 +29,24 @@ describe('configs-react getSvgProps', () => {
         });
 
         describe('when provided with invalid parameters', () => {
-            describe('when provided with invalid parameters', () => {
-                it('returns an object with the expected classes', () => {
-                    const received = getSvgProps('pie-icon pie-icon--app-order', 'FOO', null);
+            it('returns an object with the expected classes', () => {
+                const received = getSvgProps('pie-icon pie-icon--app-order', 'FOO', null);
 
-                    expect(received.className).toEqual(expect.stringContaining('pie-icon'));
-                    expect(received.className).toEqual(expect.stringContaining('pie-icon--app-order'));
-                    expect(received.className).toEqual(expect.stringContaining('pieIcon'));
-                });
+                expect(received.className).toEqual(expect.stringContaining('pie-icon'));
+                expect(received.className).toEqual(expect.stringContaining('pie-icon--app-order'));
+                expect(received.className).toEqual(expect.stringContaining('pieIcon'));
+            });
 
-                it('outputs a console error', () => {
-                    const spy = vi.spyOn(console, 'error').mockImplementation(() => {});
-                    const iconName = 'IconAppOrder';
+            it('outputs a console error', () => {
+                const spy = vi.spyOn(console, 'error').mockImplementation(() => {});
+                const iconName = 'IconAppOrder';
 
-                    getSvgProps('pie-icon pie-icon--app-order', 'FOO', null, iconName);
+                getSvgProps('pie-icon pie-icon--app-order', 'FOO', null, iconName);
 
-                    expect(spy).toHaveBeenCalled();
-                    expect(spy).toHaveBeenCalledWith(expect.stringContaining('Invalid prop "iconSize" value'));
-                    expect(spy).toHaveBeenCalledWith(expect.stringContaining(iconName));
-                    spy.mockRestore();
-                });
+                expect(spy).toHaveBeenCalled();
+                expect(spy).toHaveBeenCalledWith(expect.stringContaining('Invalid prop "iconSize" value'));
+                expect(spy).toHaveBeenCalledWith(expect.stringContaining(iconName));
+                spy.mockRestore();
             });
         });
     });
