@@ -12,6 +12,13 @@ export const regularIconSizeDefault = 'xs';
 export const largeIconSizeModule = 8;
 export const largeIconSizeDefault = 32;
 
+/**
+ * Validates the iconSize for large icons
+ * @param {number} value The current value of the iconSize prop
+ * @param {number} minimumSize The minimum size allowed for large icons
+ * @param {number} moduleSize The module size for large icons
+ * @returns {boolean} Whether the value is valid or not
+ */
 function validateLargeIconSize (value, minimumSize, moduleSize) {
     const parsedValue = parseInt(value, 10);
     const sizeIsMultiple = parsedValue % moduleSize === 0;
