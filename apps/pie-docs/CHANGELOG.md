@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.68.0
+
+### Minor Changes
+
+- [Added] Empty alt tags as default for contentPageImage ([#390](https://github.com/justeattakeaway/pie/pull/390)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+### Patch Changes
+
+- [Fixed] Failing browser tests ([#384](https://github.com/justeattakeaway/pie/pull/384)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
 ## 1.67.0
 
 ### Minor Changes

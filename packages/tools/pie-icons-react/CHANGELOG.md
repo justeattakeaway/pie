@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.2.1
+
+### Patch Changes
+
+- [Changed] - Updated Typescript to v5 and tidied up some of the package.json entries and versions ([#385](https://github.com/justeattakeaway/pie/pull/385)) by [@ashleynolan](https://github.com/ashleynolan)
+
 ## 2.2.0
 
 ### Minor Changes

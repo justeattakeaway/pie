@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.10.2
+
+### Patch Changes
+
+- [Added] Declare global statement back in. ([#393](https://github.com/justeattakeaway/pie/pull/393)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
 ## 0.10.1
 
 ### Patch Changes
