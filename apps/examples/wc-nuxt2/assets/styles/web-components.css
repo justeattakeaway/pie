@@ -1,0 +1,4 @@
+/* Hide web components that haven't been registered yet to avoid Flash of Unstyled Content */
+*:not(:defined) {
+    display: none;
+}

@@ -1396,6 +1396,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@justeattakeaway/pie-button@npm:^0.10.1":
+  version: 0.10.1
+  resolution: "@justeattakeaway/pie-button@npm:0.10.1"
+  checksum: 8768d6bc0133c7f12483f1571a75499c952ae9c0954b49d5499905fdba3306a0d6e1667b8c30cb34f8b7247f8f5fe1daee70b9b302a354be4148c63eae906257
+  languageName: node
+  linkType: hard
+
 "@nodelib/fs.scandir@npm:2.1.5":
   version: 2.1.5
   resolution: "@nodelib/fs.scandir@npm:2.1.5"
@@ -10737,6 +10744,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "wc-nuxt2@workspace:."
   dependencies:
+    "@justeattakeaway/pie-button": ^0.10.1
     core-js: 3.30.0
     nuxt: 2.15.8
     vue: 2.7.14
