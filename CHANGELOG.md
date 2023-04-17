@@ -1,5 +1,27 @@
 # Changelog
 
+## 2.3.0
+
+### Minor Changes
+
+- [Added] Closed workflow which runs for closed pull requests ([#384](https://github.com/justeattakeaway/pie/pull/384)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- [Added] - Playwright component / visual tests for pie-button ([#396](https://github.com/justeattakeaway/pie/pull/396)) by [@siggerzz](https://github.com/siggerzz)
+
+- [Removed] - removing example applications from yarn workspaces ([#389](https://github.com/justeattakeaway/pie/pull/389)) by [@ashleynolan](https://github.com/ashleynolan)
+
+- [Added] pie-button to wc-nuxt2 example app ([#395](https://github.com/justeattakeaway/pie/pull/395)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- [Changed] - Updated Typescript to v5 and tidied up some of the package.json entries and versions ([#385](https://github.com/justeattakeaway/pie/pull/385)) by [@ashleynolan](https://github.com/ashleynolan)
+
+- [Changed] - Fixed yarn.lock and minor package bumps ([#377](https://github.com/justeattakeaway/pie/pull/377)) by [@ashleynolan](https://github.com/ashleynolan)
+
+- [Added] - pie-button to nuxt10 example app ([#387](https://github.com/justeattakeaway/pie/pull/387)) by [@LTurns](https://github.com/LTurns)
+
+### Patch Changes
+
+- [Changed] Only run PR-related CI steps for pull requests ([#388](https://github.com/justeattakeaway/pie/pull/388)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
 ## 2.2.0
 
 ### Minor Changes
