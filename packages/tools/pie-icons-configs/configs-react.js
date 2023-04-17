@@ -5,7 +5,7 @@ import {
 /**
  * Returns props for the svg element based on the provided parameters
  * @param {string} svgClasses - String of classes assigned to the icon
- * @param {string} staticClass - String of classes assigned to the component
+ * @param {string} staticClass - Classname String assigned to the component
  * @param {{string|number}} iconSizeValue - Value of the iconSize prop
  * @param {string} componentName - Name of the component
  * @returns {Object} - Object of props to be assigned to the svg element
