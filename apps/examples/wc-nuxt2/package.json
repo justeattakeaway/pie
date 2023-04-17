@@ -8,6 +8,7 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "@justeattakeaway/pie-button": "^0.10.1",
     "core-js": "3.30.0",
     "nuxt": "2.15.8",
     "vue": "2.7.14",
