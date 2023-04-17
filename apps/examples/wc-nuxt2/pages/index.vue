@@ -9,8 +9,7 @@
             <pie-button variant="outline">Outline button</pie-button>
             <pie-button variant="ghost">Ghost button</pie-button>
             <pie-button disabled>Disabled button</pie-button>
-            <pie-button
-                @click="increment">Click me!</pie-button>
+            <pie-button @click="increment">Click me!</pie-button>
         </div>
 
         <span>Counter: {{ counter }}</span>
