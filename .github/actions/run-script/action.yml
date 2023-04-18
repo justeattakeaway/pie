@@ -18,8 +18,8 @@ runs:
     - name: Run ${{ inputs.script-name }}
       shell: bash
       run: |
-        CONCURRENCY_FLAG=""
-        FILTER_FLAG=""
+        CONCURRENCY_FLAG=''
+        FILTER_FLAG=''
 
         if [ -n "${{ inputs.concurrency }}" ]; then
           CONCURRENCY_FLAG="--concurrency=${{ inputs.concurrency }}"
