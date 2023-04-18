@@ -18,6 +18,10 @@ runs:
     - name: Run ${{ inputs.script-name }}
       shell: bash
       run: |
+
+        echo "inputs.concurrency: ${{ inputs.concurrency }}"
+        echo "inputs.package-name: ${{ inputs.package-name }}"
+
         CONCURRENCY_FLAG=''
         FILTER_FLAG=''
 
