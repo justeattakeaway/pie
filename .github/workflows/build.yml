@@ -65,16 +65,25 @@ jobs:
           node-version: 18
       # Lint Styles
       - name: Lint Styles
-        run: yarn lint:style --concurrency=10
+        uses: ./.github/actions/run-script
+        with:
+          script-name: "lint:style"
+          concurrency: 10
       # Build Packages
       - name: Build Packages
-        run: yarn build
+        uses: ./.github/actions/run-script
+        with:
+          script-name: "build"
       # Lint JS
       - name: Lint JavaScript
-        run: yarn lint:scripts
+        uses: ./.github/actions/run-script
+        with:
+          script-name: "lint:scripts"
       # Run Unit Tests
       - name: Unit Tests
-        run: yarn test:ci
+        uses: ./.github/actions/run-script
+        with:
+          script-name: "test:ci"
 
   deploy-docs:
     needs: build
