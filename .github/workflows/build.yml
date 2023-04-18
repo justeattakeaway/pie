@@ -42,27 +42,11 @@ jobs:
   install:
     runs-on: ubuntu-latest
     steps:
-      # Checkout the Repo
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Setup Node
-        # Setup Node 18
-        uses: actions/setup-node@v3
+      - name: Setup Repo
+        uses: ./.github/actions/setup-repo
         with:
           node-version: 18
-          cache: "yarn"
-      # Restore node_modules if cache exists. If not, cache is created at end of build.
-      - name: Cache Node Modules
-        id: cache-node-modules
-        uses: actions/cache@v3
-        with:
-          path: "**/node_modules"
-          key: node-modules-${{ hashFiles('**/yarn.lock') }}
-      # Run 'yarn' if cache doesn't exist. Use --prefer-offline to download packages from yarn cache folder where possible
-      - name: Install Dependencies
-        if: steps.cache-node-modules.outputs.cache-hit != 'true'
-        run: yarn add --cached
-
+      
   build:
     needs: install
     runs-on: ubuntu-latest
