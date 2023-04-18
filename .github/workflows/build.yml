@@ -69,6 +69,7 @@ jobs:
         with:
           script-name: "lint:style"
           concurrency: 10
+          package-name: "pie-docs"
       # Build Packages
       - name: Build Packages
         uses: ./.github/actions/run-script
