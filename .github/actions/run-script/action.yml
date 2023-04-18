@@ -18,9 +18,6 @@ runs:
     - name: Run ${{ inputs.script-name }}
       shell: bash
       run: |
-        echo "inputs.concurrency: ${{ inputs.concurrency }}"
-        echo "inputs.package-name: ${{ inputs.package-name }}"
-
         CONCURRENCY_FLAG=""
         FILTER_FLAG=""
 
@@ -31,8 +28,5 @@ runs:
         if [ ! -z "${{ inputs.package-name }}" ]; then
           FILTER_FLAG="--filter=${{ inputs.package-name }}"
         fi
-
-        echo "CONCURRENCY_FLAG: $CONCURRENCY_FLAG"
-        echo "FILTER_FLAG: $FILTER_FLAG"
 
         yarn ${{ inputs.script-name }} $CONCURRENCY_FLAG $FILTER_FLAG

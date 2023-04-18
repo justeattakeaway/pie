@@ -12,9 +12,7 @@ on:
       - "CONTRIBUTING.md"
       - "CHANGELOG.md"
       - "LICENSE"
-  merge_group:
-    branches:
-      - main
+
   push:
     branches:
       - main
@@ -27,8 +25,11 @@ concurrency:
 
 env:
   DOCS_AMPLIFY_ID: dvskdcoepjoyf
+  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
   STORYBOOK_AMPLIFY_ID: d17ja0ul7nrdy0
   HUSKY: 0
+  PERCY_TOKEN_PIE_DOCS: ${{ secrets.PERCY_TOKEN_PIE_DOCS }}
+  PERCY_TOKEN_PIE_BUTTON: ${{ secrets.PERCY_TOKEN_PIE_BUTTON }}
   PR_NUMBER: ${{ github.event.number }}
   TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
 
@@ -69,7 +70,6 @@ jobs:
         with:
           script-name: "lint:style"
           concurrency: 10
-          package-name: "pie-docs"
       # Build Packages
       - name: Build Packages
         uses: ./.github/actions/run-script
@@ -100,7 +100,10 @@ jobs:
           node-version: 18
       # Build Docs Site
       - name: Build Docs Site
-        run: yarn build --filter=pie-docs
+        uses: ./.github/actions/run-script
+        with:
+          script-name: "build"
+          package-name: "pie-docs"
       # Create Github Deployment
       - name: Create Docs GitHub deployment
         if: ${{ github.event_name == 'pull_request' }}
@@ -167,7 +170,10 @@ jobs:
           node-version: 18
       # Build Storybook
       - name: Build Storybook
-        run: yarn build --filter=pie-storybook
+        uses: ./.github/actions/run-script
+        with:
+          script-name: "build"
+          package-name: "pie-storybook"
       # Deployments
       - name: Create Storybook GitHub deployment
         if: ${{ github.event_name == 'pull_request' }}
@@ -238,7 +244,9 @@ jobs:
         uses: ./.github/actions/setup-playwright
       # Run System / a11y Tests
       - name: Run All System / Component /  a11y Tests
-        run: yarn test:browsers:ci
+        uses: ./.github/actions/run-script
+        with:
+          script-name: "test:browsers:ci"
       - uses: actions/upload-artifact@v3
         if: always()
         with:
@@ -247,16 +255,16 @@ jobs:
           retention-days: 7
       # Run Visual Tests
       - name: Run All Visual Tests
-        run: yarn test:visual:ci --concurrency=1
+        uses: ./.github/actions/run-script
+        with:
+          script-name: "test:visual:ci"
+          concurrency: 1
       - uses: actions/upload-artifact@v3
         if: always()
         with:
           name: visual-report
           path: visual-report/
           retention-days: 7
-    env:
-      PERCY_TOKEN_PIE_DOCS: ${{ secrets.PERCY_TOKEN_PIE_DOCS }}
-      PERCY_TOKEN_PIE_BUTTON: ${{ secrets.PERCY_TOKEN_PIE_BUTTON }}
 
   release:
     needs: build
@@ -285,50 +293,8 @@ jobs:
       - name: Build Docs
         if: ${{ github.event_name != 'pull_request' }} &&
           (contains(github.ref_name, 'main') || contains(github.ref_name, 'beta') || contains(github.ref_name, 'feature'))
-        run: yarn build
-      - name: Check for pre.json file existence
-        id: check_files
-        uses: andstor/file-existence-action@v2.0.0
+        uses: ./.github/actions/run-script
         with:
-          files: ".changeset/pre.json"
-      - name: exit prerelease mode
-        # If .changeset/pre.json does not exist and we did not recently exit
-        # prerelease mode.
-        if: steps.check_files.outputs.files_exists == 'true' && contains(github.ref_name, 'main')
-        run: npx changeset pre exit
-      - name: Create latest release PR
-        if: contains(github.ref_name, 'main')
-        uses: changesets/action@v1
-        with:
-          version: yarn changeset:version
-          publish: yarn changeset:publish
-          commit: "release: release packages with 'latest' tag"
-      # If .changeset/pre.json does not exist and we did not recently exit
-      # prerelease mode, enter prerelease mode with tag beta
-      - name: Enter beta prerelease mode
-        if: steps.check_files.outputs.files_exists == 'false' && contains(github.ref_name, 'beta')
-        # If .changeset/pre.json does not exist and we did not recently exit
-        # prerelease mode, enter prerelease mode with tag beta
-        run: npx changeset pre enter beta
-      - name: Create beta release PR
-        if: contains(github.ref_name, 'beta')
-        uses: changesets/action@v1
-        with:
-          version: yarn changeset:version
-          publish: yarn changeset:publish
-          commit: "release: release packages with 'beta' tag"
-      - name: Enter feature prerelease mode
-        if: steps.check_files.outputs.files_exists == 'false' && contains(github.ref_name, 'feature')
-        # If .changeset/pre.json does not exist and we did not recently exit
-        # prerelease mode, enter prerelease mode with tag next
-        run: npx changeset pre enter next
-      - name: Create feature release PR
-        if: contains(github.ref_name, 'feature')
-        uses: changesets/action@v1
-        with:
-          version: yarn changeset:version
-          publish: yarn changeset:publish
-          commit: "release: release packages with 'next' tag"
-    env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          script-name: "build"
+      - name: Changeset Release
+        uses: ./.github/actions/changeset-release
