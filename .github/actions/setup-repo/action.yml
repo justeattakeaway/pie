@@ -11,14 +11,12 @@ runs:
   steps:
       # Setup Node 18
       - name: Setup Node
-        shell: bash
         uses: actions/setup-node@v3
         with:
           node-version: ${{ inputs.node-version }}
           cache: "yarn"
       # Restore node_modules if cache exists. If not, cache is created at end of build.
       - name: Cache Node Modules
-        shell: bash
         id: cache-node-modules
         uses: actions/cache@v3
         with:
