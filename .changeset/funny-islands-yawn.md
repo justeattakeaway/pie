@@ -3,4 +3,5 @@
 ---
 
 [Changed] update icons build script
+[Added] added README instructions on `iconSize` usage
 [Changed] update icons
