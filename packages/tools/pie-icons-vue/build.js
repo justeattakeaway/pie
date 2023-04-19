@@ -10,7 +10,10 @@ const componentTemplate = (name, svg) => {
     const iconSize = isLargeIcon ? 'large' : 'regular';
     const [, svgClasses] = svg.match(/class="(.+?)"/);
 
-    return `import { iconSize, updateContextData } from './configs-vue';
+    // NOTE: The eslint-disable-next-line is a temporary fix for the fact that the configs-vue file is not being copied to the generated folder
+    // TODO: Remove eslint-disable-next-line as soon as the compilation issue is solved
+    return `// eslint-disable-next-line import/no-unresolved, import/extensions
+import { iconSize, updateContextData } from './configs-vue';
 
 export default {
     name: '${name}',
