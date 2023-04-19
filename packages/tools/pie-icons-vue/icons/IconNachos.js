@@ -1,4 +1,5 @@
 import _mergeJSXProps from '@vue/babel-helper-vue-jsx-merge-props';
+// eslint-disable-next-line import/no-unresolved, import/extensions
 import { iconSize, updateContextData } from './configs-vue';
 
 export default {
