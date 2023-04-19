@@ -3,21 +3,21 @@
     <div>
         <h3>Counter</h3>
         <div class="flex-wrapper">
-        <pie-button (click)="decrement()">decrement</pie-button>
-        <div class="padding">
-            Counter: {{ count }}
-        </div>
-        <pie-button (click)="increment()">increment</pie-button>
+            <pie-button (click)="decrement()">decrement</pie-button>
+            <div class="padding">
+                Counter: {{ count }}
+            </div>
+            <pie-button (click)="increment()">increment</pie-button>
         </div>
     </div>
     <h2>Test props</h2>
     <div>
         <h3>Click the button to switch the variant</h3>
         <div class="flex-wrapper">
-        <pie-button variant={{variantName}} (click)="switchVariant()">
-            Switch variant
-        </pie-button>
-        <div class='padding'>Variant: <b>{{variantName}}</b></div>
+            <pie-button variant={{variantName}} (click)="switchVariant()">
+                Switch variant
+            </pie-button>
+            <div class='padding'>Variant: <b>{{variantName}}</b></div>
         </div>
     </div>
     <div>
