@@ -29,16 +29,42 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Using Web Components in Angular 12 apps
 
-### Install the `@justeattakeaway/pie-button` package
+### Install your web component package
 
 `yarn add @justeattakeaway/pie-button`
 
 ### Import and use the component
 
-#### 
-For a complete example refer to `app.component.ts`.
+To import a web component into Angular we must import the `CUSTOM_ELEMENTS_SCHEMA` from the `@angular/core` package, and then use it in the `schemas` property in `app.module.ts`. (more information about it [look here](https://angular.io/api/core/CUSTOM_ELEMENTS_SCHEMA).)
 
 ```
+// app.module.ts
+
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+
+import { AppComponent } from './app.component';
+
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+})
+
+export class AppModule { }
+
+```
+
+Import the web component into `app.component.ts` and add any js functions and variables needed to make the component work as needed.
+
+```
+// app.component.ts
 import { BUTTON_SIZE, BUTTON_VARIANT } from '@justeattakeaway/pie-button';
 
 export class AppComponent {
@@ -50,8 +76,14 @@ export class AppComponent {
 };
 
 ```
+
+Add the web component to `app.component.html`.
+
 ```
 <div>
     <pie-button @click="increment" />
 </div>
 ```
+For a complete example refer to `app.component.ts` and `app.module.ts`.
+
+For further information about it [look here](https://www.thisdot.co/blog/how-to-integrate-web-components-using-lit-in-angular). 
