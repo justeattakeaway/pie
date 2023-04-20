@@ -47,21 +47,21 @@ jobs:
       node-version: 16
     secrets: inherit
 
-  setup-windows-16:
+  setup-windows-node-16:
     uses: ./.github/workflows/install-build.yml
     with:
       os: windows-latest
       node-version: 16
     secrets: inherit
 
-  setup-ubuntu-18:
+  setup-ubuntu-node-18:
     uses: ./.github/workflows/install-build.yml
     with:
       os: ubuntu-latest
       node-version: 18
     secrets: inherit
 
-  setup-windows-18:
+  setup-windows-node-18:
     uses: ./.github/workflows/install-build.yml
     with:
       os: windows-latest
@@ -69,7 +69,7 @@ jobs:
     secrets: inherit
 
   lint-styles:
-    needs: setup-ubuntu-18
+    needs: setup-ubuntu-node-18
     runs-on: ubuntu-latest
     steps:
       # Checkout the Repo
@@ -88,7 +88,7 @@ jobs:
           concurrency: 10
 
   lint-js:
-    needs: setup-ubuntu-18
+    needs: setup-ubuntu-node-18
     runs-on: ubuntu-latest
     steps:
       # Checkout the Repo
@@ -110,7 +110,7 @@ jobs:
         with:
           script-name: "lint:scripts"
 
-  unit-test:
+  unit-tests:
     needs: lint-js
     runs-on: ubuntu-latest
     steps:
@@ -134,7 +134,7 @@ jobs:
           script-name: "test:ci"
 
   deploy-docs:
-    needs: unit-test
+    needs: unit-tests
     runs-on: ubuntu-latest
     steps:
       # Checkout the Repo
@@ -204,7 +204,7 @@ jobs:
 
   deploy-storybook:
     # This will depend on build once we've migrated off Github Pages
-    needs: unit-test
+    needs: unit-tests
     runs-on: ubuntu-latest
     steps:
       # Checkout the Repo
