@@ -321,7 +321,7 @@ jobs:
 
   release:
     needs: [ 'unit-tests', 'lint-js']
-    uses: ./.github/workflows/install-build.yml
+    uses: ./.github/workflows/changeset-release.yml
     with:
       os: ubuntu-latest
       node-version: 18
