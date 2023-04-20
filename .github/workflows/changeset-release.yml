@@ -23,8 +23,6 @@ env:
 jobs:
   changesets:
     runs-on: ${{ inputs.os }}
-    if: github.repository == 'justeattakeaway/pie' && ${{ github.event_name != 'pull_request' }} &&
-      (contains(github.ref_name, 'main') || contains(github.ref_name, 'beta') || contains(github.ref_name, 'feature'))
     steps:
     # Checkout the Repo
     - name: Checkout
@@ -44,8 +42,6 @@ jobs:
         EOF
     # Build Packages
     - name: Build
-      if: ${{ github.event_name != 'pull_request' }} &&
-        (contains(github.ref_name, 'main') || contains(github.ref_name, 'beta') || contains(github.ref_name, 'feature'))
       uses: ./.github/actions/run-script
       with:
         script-name: "build"
