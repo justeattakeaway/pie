@@ -1,6 +1,13 @@
 name: changeset-release
 description: Executes the required changeset scripts to create a new 'Version' PR or publish to npm.
 
+inputs:
+  npm-token:
+      description: 'The npm token used for publishing design system packages.'
+      required: true
+  github-token:
+      description: 'The github token used for creating version PRs & tagging.'
+
 runs:
   using: composite
   steps:
@@ -50,3 +57,6 @@ runs:
       version: yarn changeset:version
       publish: yarn changeset:publish
       commit: "release: release packages with 'next' tag"
+    env:
+      GITHUB_TOKEN: ${{ inputs.github-token }}
+      npm-token: ${{ inputs.npm-token }}
