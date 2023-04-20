@@ -14,8 +14,13 @@ concurrency:
   group: changeset-release-${{ github.ref }}
   cancel-in-progress: true
 
+env:
+  HUSKY: 0
+  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+  TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+
 jobs:
-  release:
+  changesets:
     runs-on: ${{ inputs.os }}
     if: github.repository == 'justeattakeaway/pie' && ${{ github.event_name != 'pull_request' }} &&
       (contains(github.ref_name, 'main') || contains(github.ref_name, 'beta') || contains(github.ref_name, 'feature'))
@@ -37,7 +42,7 @@ jobs:
           //registry.npmjs.org/:_authToken=$NPM_TOKEN
         EOF
     # Build Packages
-    - name: Build Docs
+    - name: Build
       if: ${{ github.event_name != 'pull_request' }} &&
         (contains(github.ref_name, 'main') || contains(github.ref_name, 'beta') || contains(github.ref_name, 'feature'))
       uses: ./.github/actions/run-script
@@ -49,7 +54,6 @@ jobs:
       with:
         files: ".changeset/pre.json"
     - name: exit prerelease mode
-      shell: bash
       # If .changeset/pre.json does not exist and we did not recently exit
       # prerelease mode.
       if: steps.check_files.outputs.files_exists == 'true' && contains(github.ref_name, 'main')
@@ -64,7 +68,6 @@ jobs:
     # If .changeset/pre.json does not exist and we did not recently exit
     # prerelease mode, enter prerelease mode with tag beta
     - name: Enter beta prerelease mode
-      shell: bash
       if: steps.check_files.outputs.files_exists == 'false' && contains(github.ref_name, 'beta')
       # If .changeset/pre.json does not exist and we did not recently exit
       # prerelease mode, enter prerelease mode with tag beta
@@ -77,7 +80,6 @@ jobs:
         publish: yarn changeset:publish
         commit: "release: release packages with 'beta' tag"
     - name: Enter feature prerelease mode
-      shell: bash
       if: steps.check_files.outputs.files_exists == 'false' && contains(github.ref_name, 'feature')
       # If .changeset/pre.json does not exist and we did not recently exit
       # prerelease mode, enter prerelease mode with tag next
