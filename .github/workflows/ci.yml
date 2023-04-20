@@ -40,20 +40,36 @@ jobs:
     secrets:
       githubToken: ${{ secrets.GITHUB_TOKEN }}
 
-  install:
-    runs-on: ubuntu-latest
-    steps:
-      # Checkout the Repo
-      - name: Checkout
-        uses: actions/checkout@v3
-      # Setup Repo
-      - name: Setup Repo
-        uses: ./.github/actions/setup-repo
-        with:
-          node-version: 18
-      
-  build:
-    needs: install
+  setup-ubuntu-16:
+    uses: ./.github/workflows/install-build.yml
+    with:
+      os: ubuntu-latest
+      node-version: 16
+    secrets: inherit
+
+  setup-windows-16:
+    uses: ./.github/workflows/install-build.yml
+    with:
+      os: windows-latest
+      node-version: 16
+    secrets: inherit
+
+  setup-ubuntu-18:
+    uses: ./.github/workflows/install-build.yml
+    with:
+      os: ubuntu-latest
+      node-version: 18
+    secrets: inherit
+
+  setup-windows-18:
+    uses: ./.github/workflows/install-build.yml
+    with:
+      os: windows-latest
+      node-version: 18
+    secrets: inherit
+
+  lint-styles:
+    needs: setup-ubuntu-18
     runs-on: ubuntu-latest
     steps:
       # Checkout the Repo
@@ -70,7 +86,20 @@ jobs:
         with:
           script-name: "lint:style"
           concurrency: 10
-      # Build Packages
+
+  lint-js:
+    needs: setup-ubuntu-18
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout the Repo
+      - name: Checkout
+        uses: actions/checkout@v3
+      # Setup Repo
+      - name: Setup Repo
+        uses: ./.github/actions/setup-repo
+        with:
+          node-version: 18
+      # Restore Packages from Cache
       - name: Build Packages
         uses: ./.github/actions/run-script
         with:
@@ -80,6 +109,24 @@ jobs:
         uses: ./.github/actions/run-script
         with:
           script-name: "lint:scripts"
+
+  unit-test:
+    needs: lint-js
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout the Repo
+      - name: Checkout
+        uses: actions/checkout@v3
+      # Setup Repo
+      - name: Setup Repo
+        uses: ./.github/actions/setup-repo
+        with:
+          node-version: 18
+      # Restore Packages from Cache
+      - name: Build Packages
+        uses: ./.github/actions/run-script
+        with:
+          script-name: "build"
       # Run Unit Tests
       - name: Unit Tests
         uses: ./.github/actions/run-script
@@ -87,7 +134,7 @@ jobs:
           script-name: "test:ci"
 
   deploy-docs:
-    needs: build
+    needs: unit-test
     runs-on: ubuntu-latest
     steps:
       # Checkout the Repo
@@ -157,7 +204,7 @@ jobs:
 
   deploy-storybook:
     # This will depend on build once we've migrated off Github Pages
-    needs: deploy-docs
+    needs: unit-test
     runs-on: ubuntu-latest
     steps:
       # Checkout the Repo
@@ -267,7 +314,7 @@ jobs:
           retention-days: 7
 
   release:
-    needs: build
+    needs: [ 'unit-tests', 'lint-js']
     if: github.repository == 'justeattakeaway/pie' &&
       ${{ github.event_name != 'pull_request' }} &&
       (contains(github.ref_name, 'main') || contains(github.ref_name, 'beta') || contains(github.ref_name, 'feature'))
