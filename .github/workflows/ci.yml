@@ -25,6 +25,7 @@ concurrency:
 
 env:
   DOCS_AMPLIFY_ID: dvskdcoepjoyf
+  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
   STORYBOOK_AMPLIFY_ID: d17ja0ul7nrdy0
   HUSKY: 0
   PERCY_TOKEN_PIE_DOCS: ${{ secrets.PERCY_TOKEN_PIE_DOCS }}
@@ -320,37 +321,8 @@ jobs:
 
   release:
     needs: [ 'unit-tests', 'lint-js']
-    if: github.repository == 'justeattakeaway/pie' &&
-      ${{ github.event_name != 'pull_request' }} &&
-      (contains(github.ref_name, 'main') || contains(github.ref_name, 'beta') || contains(github.ref_name, 'feature'))
-    name: release
-    runs-on: ubuntu-latest
-    steps:
-      # Checkout the Repo
-      - name: Checkout
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-      # Setup Repo
-      - name: Setup Repo
-        uses: ./.github/actions/setup-repo
-        with:
-          node-version: 18
-          os: ubuntu-latest
-      - name: Append NPM token to .npmrc
-        run: |
-          cat << EOF > "$HOME/.npmrc"
-            //registry.npmjs.org/:_authToken=$NPM_TOKEN
-          EOF
-      # Build Packages
-      - name: Build Docs
-        if: ${{ github.event_name != 'pull_request' }} &&
-          (contains(github.ref_name, 'main') || contains(github.ref_name, 'beta') || contains(github.ref_name, 'feature'))
-        uses: ./.github/actions/run-script
-        with:
-          script-name: "build"
-      - name: Changeset Release
-        uses: ./.github/actions/changeset-release
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          npm-token: ${{ secrets.NPM_TOKEN }}
+    uses: ./.github/workflows/install-build.yml
+    with:
+      os: ubuntu-latest
+      node-version: 18
+    secrets: inherit
