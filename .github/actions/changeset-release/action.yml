@@ -7,6 +7,7 @@ inputs:
       required: true
   github-token:
       description: 'The github token used for creating version PRs & tagging.'
+      required: true
 
 runs:
   using: composite
