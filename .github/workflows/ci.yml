@@ -25,9 +25,7 @@ concurrency:
 
 env:
   DOCS_AMPLIFY_ID: dvskdcoepjoyf
-  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
   STORYBOOK_AMPLIFY_ID: d17ja0ul7nrdy0
-  HUSKY: 0
   PERCY_TOKEN_PIE_DOCS: ${{ secrets.PERCY_TOKEN_PIE_DOCS }}
   PERCY_TOKEN_PIE_BUTTON: ${{ secrets.PERCY_TOKEN_PIE_BUTTON }}
   PR_NUMBER: ${{ github.event.number }}
@@ -40,7 +38,36 @@ jobs:
     secrets:
       githubToken: ${{ secrets.GITHUB_TOKEN }}
 
-  install:
+  build-ubuntu-node-16:
+    uses: ./.github/workflows/install-build.yml
+    with:
+      os: ubuntu-latest
+      node-version: 16
+    secrets: inherit
+
+  build-windows-node-16:
+    uses: ./.github/workflows/install-build.yml
+    with:
+      os: windows-latest
+      node-version: 16
+    secrets: inherit
+
+  build-ubuntu-node-18:
+    uses: ./.github/workflows/install-build.yml
+    with:
+      os: ubuntu-latest
+      node-version: 18
+    secrets: inherit
+
+  build-windows-node-18:
+    uses: ./.github/workflows/install-build.yml
+    with:
+      os: windows-latest
+      node-version: 18
+    secrets: inherit
+
+  lint-styles:
+    needs: build-ubuntu-node-18
     runs-on: ubuntu-latest
     steps:
       # Checkout the Repo
@@ -51,26 +78,28 @@ jobs:
         uses: ./.github/actions/setup-repo
         with:
           node-version: 18
-      
-  build:
-    needs: install
-    runs-on: ubuntu-latest
-    steps:
-      # Checkout the Repo
-      - name: Checkout
-        uses: actions/checkout@v3
-      # Setup Repo
-      - name: Setup Repo
-        uses: ./.github/actions/setup-repo
-        with:
-          node-version: 18
+          os: ubuntu-latest
       # Lint Styles
       - name: Lint Styles
         uses: ./.github/actions/run-script
         with:
           script-name: "lint:style"
           concurrency: 10
-      # Build Packages
+
+  lint-js:
+    needs: build-ubuntu-node-18
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout the Repo
+      - name: Checkout
+        uses: actions/checkout@v3
+      # Setup Repo
+      - name: Setup Repo
+        uses: ./.github/actions/setup-repo
+        with:
+          node-version: 18
+          os: ubuntu-latest
+      # Restore Packages from Cache
       - name: Build Packages
         uses: ./.github/actions/run-script
         with:
@@ -80,14 +109,9 @@ jobs:
         uses: ./.github/actions/run-script
         with:
           script-name: "lint:scripts"
-      # Run Unit Tests
-      - name: Unit Tests
-        uses: ./.github/actions/run-script
-        with:
-          script-name: "test:ci"
 
-  deploy-docs:
-    needs: build
+  unit-tests:
+    needs: lint-js
     runs-on: ubuntu-latest
     steps:
       # Checkout the Repo
@@ -98,6 +122,31 @@ jobs:
         uses: ./.github/actions/setup-repo
         with:
           node-version: 18
+          os: ubuntu-latest
+      # Restore Packages from Cache
+      - name: Build Packages
+        uses: ./.github/actions/run-script
+        with:
+          script-name: "build"
+      # Run Unit Tests
+      - name: Unit Tests
+        uses: ./.github/actions/run-script
+        with:
+          script-name: "test:ci"
+
+  deploy-docs:
+    needs: unit-tests
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout the Repo
+      - name: Checkout
+        uses: actions/checkout@v3
+      # Setup Repo
+      - name: Setup Repo
+        uses: ./.github/actions/setup-repo
+        with:
+          node-version: 18
+          os: ubuntu-latest
       # Build Docs Site
       - name: Build Docs Site
         uses: ./.github/actions/run-script
@@ -157,7 +206,7 @@ jobs:
 
   deploy-storybook:
     # This will depend on build once we've migrated off Github Pages
-    needs: deploy-docs
+    needs: unit-tests
     runs-on: ubuntu-latest
     steps:
       # Checkout the Repo
@@ -168,6 +217,7 @@ jobs:
         uses: ./.github/actions/setup-repo
         with:
           node-version: 18
+          os: ubuntu-latest
       # Build Storybook
       - name: Build Storybook
         uses: ./.github/actions/run-script
@@ -239,6 +289,7 @@ jobs:
         uses: ./.github/actions/setup-repo
         with:
           node-version: 18
+          os: ubuntu-latest
       # Setup Playwright
       - name: Setup Playwright
         uses: ./.github/actions/setup-playwright
@@ -267,34 +318,9 @@ jobs:
           retention-days: 7
 
   release:
-    needs: build
-    if: github.repository == 'justeattakeaway/pie' &&
-      ${{ github.event_name != 'pull_request' }} &&
-      (contains(github.ref_name, 'main') || contains(github.ref_name, 'beta') || contains(github.ref_name, 'feature'))
-    name: release
-    runs-on: ubuntu-latest
-    steps:
-      # Checkout the Repo
-      - name: Checkout
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-      # Setup Repo
-      - name: Setup Repo
-        uses: ./.github/actions/setup-repo
-        with:
-          node-version: 18
-      - name: Append NPM token to .npmrc
-        run: |
-          cat << EOF > "$HOME/.npmrc"
-            //registry.npmjs.org/:_authToken=$NPM_TOKEN
-          EOF
-      # Build Packages
-      - name: Build Docs
-        if: ${{ github.event_name != 'pull_request' }} &&
-          (contains(github.ref_name, 'main') || contains(github.ref_name, 'beta') || contains(github.ref_name, 'feature'))
-        uses: ./.github/actions/run-script
-        with:
-          script-name: "build"
-      - name: Changeset Release
-        uses: ./.github/actions/changeset-release
+    needs: [ 'unit-tests', 'lint-js']
+    uses: ./.github/workflows/changeset-release.yml
+    with:
+      os: ubuntu-latest
+      node-version: 18
+    secrets: inherit
