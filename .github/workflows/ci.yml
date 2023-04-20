@@ -80,6 +80,7 @@ jobs:
         uses: ./.github/actions/setup-repo
         with:
           node-version: 18
+          os: ubuntu-latest
       # Lint Styles
       - name: Lint Styles
         uses: ./.github/actions/run-script
@@ -99,6 +100,7 @@ jobs:
         uses: ./.github/actions/setup-repo
         with:
           node-version: 18
+          os: ubuntu-latest
       # Restore Packages from Cache
       - name: Build Packages
         uses: ./.github/actions/run-script
@@ -122,6 +124,7 @@ jobs:
         uses: ./.github/actions/setup-repo
         with:
           node-version: 18
+          os: ubuntu-latest
       # Restore Packages from Cache
       - name: Build Packages
         uses: ./.github/actions/run-script
@@ -145,6 +148,7 @@ jobs:
         uses: ./.github/actions/setup-repo
         with:
           node-version: 18
+          os: ubuntu-latest
       # Build Docs Site
       - name: Build Docs Site
         uses: ./.github/actions/run-script
@@ -215,6 +219,7 @@ jobs:
         uses: ./.github/actions/setup-repo
         with:
           node-version: 18
+          os: ubuntu-latest
       # Build Storybook
       - name: Build Storybook
         uses: ./.github/actions/run-script
@@ -286,6 +291,7 @@ jobs:
         uses: ./.github/actions/setup-repo
         with:
           node-version: 18
+          os: ubuntu-latest
       # Setup Playwright
       - name: Setup Playwright
         uses: ./.github/actions/setup-playwright
@@ -331,6 +337,7 @@ jobs:
         uses: ./.github/actions/setup-repo
         with:
           node-version: 18
+          os: ubuntu-latest
       - name: Append NPM token to .npmrc
         run: |
           cat << EOF > "$HOME/.npmrc"
