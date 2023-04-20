@@ -23,6 +23,8 @@ env:
 jobs:
   changesets:
     runs-on: ${{ inputs.os }}
+    if: github.repository == 'justeattakeaway/pie' && ${{ github.event_name != 'pull_request' }} &&
+      (contains(github.ref_name, 'main') || contains(github.ref_name, 'beta') || contains(github.ref_name, 'feature'))
     steps:
     # Checkout the Repo
     - name: Checkout
@@ -42,6 +44,8 @@ jobs:
         EOF
     # Build Packages
     - name: Build
+      if: ${{ github.event_name != 'pull_request' }} &&
+        (contains(github.ref_name, 'main') || contains(github.ref_name, 'beta') || contains(github.ref_name, 'feature'))
       uses: ./.github/actions/run-script
       with:
         script-name: "build"
@@ -53,10 +57,10 @@ jobs:
     - name: exit prerelease mode
       # If .changeset/pre.json does not exist and we did not recently exit
       # prerelease mode.
-      # if: steps.check_files.outputs.files_exists == 'true' && contains(github.ref_name, 'main')
+      if: steps.check_files.outputs.files_exists == 'true' && contains(github.ref_name, 'main')
       run: npx changeset pre exit
     - name: Create latest release PR
-      # if: contains(github.ref_name, 'main')
+      if: contains(github.ref_name, 'main')
       uses: changesets/action@v1
       with:
         version: yarn changeset:version
