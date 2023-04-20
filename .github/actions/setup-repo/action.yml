@@ -5,11 +5,14 @@ inputs:
   node-version:
     description: 'The node version required for the GitHub action job.'
     required: true
+  os:
+    description: 'The operating system required for the GitHub action job.'
+    required: true
 
 runs:
   using: composite
   steps:
-      # Setup Node 18
+      # Setup Node
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
@@ -21,7 +24,7 @@ runs:
         uses: actions/cache@v3
         with:
           path: "**/node_modules"
-          key: node-modules-${{ hashFiles('**/yarn.lock') }}
+          key: node-modules-${{ inputs.node-version }}-${{ inputs.os }}-${{ hashFiles('**/yarn.lock') }}
       # Run 'yarn' if cache doesn't exist. Use --prefer-offline to download packages from yarn cache folder where possible
       - name: Install Dependencies
         shell: bash
