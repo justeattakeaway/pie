@@ -4123,6 +4123,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@justeat/pie-design-tokens@npm:5.0.1":
+  version: 5.0.1
+  resolution: "@justeat/pie-design-tokens@npm:5.0.1"
+  dependencies:
+    jsonc-parser: 3.2.0
+    lodash.merge: 4.6.2
+    mkdirp: 1.0.4
+  checksum: 26158854dbfaa76388773e1bba41d47ca5fa63ea0738ea73d2abcbbb5009b804ea20e45eb98f3132f41d7f2c03c64a9beb8c366659f7488261e362f63c0316ba
+  languageName: node
+  linkType: hard
+
 "@justeat/stylelint-config-fozzie@npm:3.x":
   version: 3.2.0
   resolution: "@justeat/stylelint-config-fozzie@npm:3.2.0"
@@ -4130,6 +4141,13 @@ __metadata:
     stylelint: 14.x
     stylelint-config-standard-scss: 5.x
   checksum: 1be27619e961bc8fa4dd24d875672bfda6c9893fe158ba22fe3b8837f12c2a444591e87d5c31ad4185ec7976f4a10f0037de94e136ca9dc1f75fc640b430e67a
+  languageName: node
+  linkType: hard
+
+"@justeattakeaway/pie-button@npm:0.10.0":
+  version: 0.10.0
+  resolution: "@justeattakeaway/pie-button@npm:0.10.0"
+  checksum: 53342690419e6ce9959de02a2c8671bb52c550eed3a88587a3af690a7b03e49df18c84964f4117117bed6caac17704ad359e9673241dc6cf1ef567fe2136b21f
   languageName: node
   linkType: hard
 
@@ -34413,6 +34431,43 @@ __metadata:
   languageName: node
   linkType: hard
 
+"vite@npm:^4.3.0":
+  version: 4.3.1
+  resolution: "vite@npm:4.3.1"
+  dependencies:
+    esbuild: ^0.17.5
+    fsevents: ~2.3.2
+    postcss: ^8.4.21
+    rollup: ^3.20.2
+  peerDependencies:
+    "@types/node": ">= 14"
+    less: "*"
+    sass: "*"
+    stylus: "*"
+    sugarss: "*"
+    terser: ^5.4.0
+  dependenciesMeta:
+    fsevents:
+      optional: true
+  peerDependenciesMeta:
+    "@types/node":
+      optional: true
+    less:
+      optional: true
+    sass:
+      optional: true
+    stylus:
+      optional: true
+    sugarss:
+      optional: true
+    terser:
+      optional: true
+  bin:
+    vite: bin/vite.js
+  checksum: e58ba33ec10af6167686c1c43c61f31fcbc6b3b6a1f16ed03fb6cc8278700c6edaf4ff394ef454291ee35924054c7772feac159f1acf3af1a33d289fe8494d9c
+  languageName: node
+  linkType: hard
+
 "vite@npm:~3.2.4":
   version: 3.2.6
   resolution: "vite@npm:3.2.6"
@@ -34932,6 +34987,16 @@ __metadata:
     react: 18.2.0
     react-dom: 18.2.0
     react-scripts: 5.0.1
+  languageName: unknown
+  linkType: soft
+
+"wc-vanilla@workspace:apps/examples/wc-vanilla":
+  version: 0.0.0-use.local
+  resolution: "wc-vanilla@workspace:apps/examples/wc-vanilla"
+  dependencies:
+    "@justeat/pie-design-tokens": 5.0.1
+    "@justeattakeaway/pie-button": 0.10.0
+    vite: ^4.3.0
   languageName: unknown
   linkType: soft
 
