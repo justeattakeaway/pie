@@ -3092,6 +3092,9 @@ __metadata:
 "@justeattakeaway/pie-button@workspace:*, @justeattakeaway/pie-button@workspace:packages/components/pie-button":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-button@workspace:packages/components/pie-button"
+  dependencies:
+    fs-extra: ^11.1.1
+    pascal-case: ^3.1.2
   languageName: unknown
   linkType: soft
 
@@ -3169,6 +3172,13 @@ __metadata:
     stylelint-order: 5.x
   languageName: unknown
   linkType: soft
+
+"@lit-labs/react@npm:^1.1.1":
+  version: 1.1.1
+  resolution: "@lit-labs/react@npm:1.1.1"
+  checksum: e46b87a3e04b329b62e67360a7a1b21c55abf91c17d3059b550654565b53c73a25832e95426698e9b78488cc4ebaeb20b8a8ca64a220325e31633355a245710d
+  languageName: node
+  linkType: hard
 
 "@lit-labs/ssr-dom-shim@npm:^1.0.0, @lit-labs/ssr-dom-shim@npm:^1.1.0":
   version: 1.1.0
@@ -7258,6 +7268,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"case@npm:^1.6.3":
+  version: 1.6.3
+  resolution: "case@npm:1.6.3"
+  checksum: febe73278f910b0d28aab7efd6f51c235f9aa9e296148edb56dfb83fd58faa88308c30ce9a0122b6e53e0362c44f4407105bd5ef89c46860fc2b184e540fd68d
+  languageName: node
+  linkType: hard
+
 "chalk-template@npm:0.4.0":
   version: 0.4.0
   resolution: "chalk-template@npm:0.4.0"
@@ -10793,7 +10810,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fs-extra@npm:^11.0.0, fs-extra@npm:^11.1.0":
+"fs-extra@npm:^11.0.0, fs-extra@npm:^11.1.0, fs-extra@npm:^11.1.1":
   version: 11.1.1
   resolution: "fs-extra@npm:11.1.1"
   dependencies:
@@ -16315,7 +16332,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pascal-case@npm:3.1.2":
+"pascal-case@npm:3.1.2, pascal-case@npm:^3.1.2":
   version: 3.1.2
   resolution: "pascal-case@npm:3.1.2"
   dependencies:
@@ -16531,6 +16548,7 @@ __metadata:
     "@justeat/pie-design-tokens": 4.2.0
     "@justeat/stylelint-config-fozzie": 3.x
     "@justeattakeaway/pie-icons": 2.2.0
+    "@lit-labs/react": ^1.1.1
     "@percy/cli": 1.23.0
     "@percy/playwright": 1.0.4
     "@playwright/test": 1.32.3
@@ -16539,6 +16557,7 @@ __metadata:
     allure-commandline: 2.21.0
     autoprefixer: 10.4.14
     babel-loader: 8.3.0
+    case: ^1.6.3
     commitizen: 4.3.0
     cross-env: 7.0.3
     cssnano: 5.1.15

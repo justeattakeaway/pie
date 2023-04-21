@@ -19,6 +19,8 @@
   "scripts": {
     "watch": "turbo run watch --filter=!pie-monorepo",
     "build": "cross-env-shell turbo run build --filter=!pie-monorepo --token=${TURBO_TOKEN}",
+    "build-react": "npm run gen-react-wrapper",
+    "gen-react-wrapper": "node cem-react-wrapper.config.js",
     "changeset": "changeset",
     "changeset:publish": "changeset publish",
     "changeset:version": "changeset version",
@@ -97,6 +99,8 @@
   "dependencies": {
     "@justeat/fozzie": "10.11.1",
     "@justeattakeaway/pie-icons": "2.2.0",
+    "@lit-labs/react": "^1.1.1",
+    "case": "^1.6.3",
     "lit": "2.7.1"
   },
   "config": {
