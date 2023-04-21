@@ -4,9 +4,7 @@ import { setupCounter } from './counter';
 document.querySelector('#app').innerHTML = `
     <div>
         <h1>Hello World!</h1>
-        <div class="card">
-            <pie-button id="counter" type="button"></pie-button>
-        </div>
+        <pie-button id="counter" type="button"></pie-button>
 </div>
 `;
 
