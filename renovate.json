@@ -149,6 +149,16 @@
       "enabled": true
     },
     {
+      "commitMessagePrefix": "chore(wc-react17): ",
+      "description": "Group dependencies from package.json within wc-react17",
+      "matchFiles": ["apps/examples/wc-react17/package.json"],
+      "matchDepTypes": ["devDependencies", "dependencies"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "wc-react17",
+      "groupSlug": "wc-react17-deps",
+      "enabled": true
+    }
+    {
       "commitMessagePrefix": "chore(wc-react18): ",
       "description": "Group dependencies from package.json within wc-react18",
       "matchFiles": ["apps/examples/wc-react18/package.json"],
