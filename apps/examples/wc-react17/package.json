@@ -1,6 +1,5 @@
 {
   "name": "wc-react17",
-  "version": "0.1.0",
   "private": true,
   "dependencies": {
     "react": "17.0.2",
@@ -9,7 +8,8 @@
   },
   "scripts": {
     "dev": "react-scripts start",
-    "build": "react-scripts build"
+    "build": "react-scripts build",
+    "build:examples": "yarn build"
   },
   "browserslist": {
     "production": [
@@ -22,5 +22,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "installConfig": {
+    "hoistingLimits": "workspaces"
   }
 }
