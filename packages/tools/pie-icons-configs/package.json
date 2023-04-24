@@ -1,0 +1,19 @@
+{
+  "name": "@justeattakeaway/pie-icons-configs",
+  "version": "2.2.0",
+  "private": true,
+  "type": "module",
+  "description": "",
+  "exports": {
+    ".": "./configs.js",
+    "./configs-react": "./configs-react.js",
+    "./configs-vue": "./configs-vue.js"
+  },
+  "scripts": {
+    "test": "run -T vitest run",
+    "test:watch": "run -T vitest"
+  },
+  "volta": {
+    "extends": "../../../package.json"
+  }
+}

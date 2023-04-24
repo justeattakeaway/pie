@@ -1,10 +1,20 @@
 import * as React from "react";
-import { SVGProps } from "react";
-const IconChatHeart = (props: any) => {
+import { RegularIconProps } from "../types";
+// @ts-ignore
+import { getSvgProps } from './configs-react';
+const IconChatHeart = (props: RegularIconProps) => {
   const {
     className,
+    iconSize,
+    width,
+    height,
     ...remainingProps
   } = props;
-  return <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" className={"pie-icon pie-icon--chat-heart" + (props.className ? ' ' + props.className : '') } width="1em" height="1em" {...remainingProps}><path fill="#242E30" d="M8 9.75 5.926 7.589a1.347 1.347 0 0 1 0-1.838 1.199 1.199 0 0 1 .875-.376c.329.002.644.134.875.367L8 6.058l.324-.307a1.225 1.225 0 0 1 1.75 0 1.365 1.365 0 0 1 0 1.846L8 9.75Z" /><path fill="#242E30" d="M3.538 14.781H2.094V4.5a1.54 1.54 0 0 1 1.531-1.531h8.75A1.54 1.54 0 0 1 13.906 4.5v6.125a1.54 1.54 0 0 1-1.531 1.531H6.25a.254.254 0 0 0-.157.061l-2.555 2.564Zm.087-10.5a.219.219 0 0 0-.219.219v8.557l1.75-1.75a1.522 1.522 0 0 1 1.094-.463h6.125a.219.219 0 0 0 .219-.219V4.5a.219.219 0 0 0-.219-.219h-8.75Z" /></svg>;
+  const moreProps = getSvgProps("pie-icon pie-icon--chat-heart", className, iconSize, "IconChatHeart");
+  const allProps = {
+    ...remainingProps,
+    ...moreProps
+  };
+  return <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"    {...allProps}><path fill="#242E30" d="M8 9.75 5.926 7.589a1.347 1.347 0 0 1 0-1.838 1.199 1.199 0 0 1 .875-.376c.329.002.644.134.875.367L8 6.058l.324-.307a1.225 1.225 0 0 1 1.75 0 1.365 1.365 0 0 1 0 1.846L8 9.75Z" /><path fill="#242E30" d="M3.538 14.781H2.094V4.5a1.54 1.54 0 0 1 1.531-1.531h8.75A1.54 1.54 0 0 1 13.906 4.5v6.125a1.54 1.54 0 0 1-1.531 1.531H6.25a.254.254 0 0 0-.157.061l-2.555 2.564Zm.087-10.5a.219.219 0 0 0-.219.219v8.557l1.75-1.75a1.522 1.522 0 0 1 1.094-.463h6.125a.219.219 0 0 0 .219-.219V4.5a.219.219 0 0 0-.219-.219h-8.75Z" /></svg>;
 };
 export default IconChatHeart;

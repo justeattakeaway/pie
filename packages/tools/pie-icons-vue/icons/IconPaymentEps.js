@@ -1,18 +1,20 @@
 import _mergeJSXProps from '@vue/babel-helper-vue-jsx-merge-props';
+// eslint-disable-next-line import/no-unresolved, import/extensions
+import { iconSize, updateContextData } from './configs-vue';
 
 export default {
     name: 'IconPaymentEps',
-    props: {},
+    props: {
+        iconSize: iconSize.regular,
+    },
     functional: true,
     render (h, ctx) {
-        const attrs = ctx.data.attrs || {};
-        ctx.data.attrs = attrs;
+        ctx.data = updateContextData(ctx, 'c-pieIcon c-pieIcon--eps');
         return h('svg', _mergeJSXProps([{
             attrs: {
                 xmlns: 'http://www.w3.org/2000/svg',
                 viewBox: '0 0 16 16',
             },
-            class: 'c-pieIcon c-pieIcon--eps',
         }, ctx.data]), [h('path', {
             attrs: {
                 fill: '#A7A8A8',

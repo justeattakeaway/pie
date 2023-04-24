@@ -1,18 +1,20 @@
 import _mergeJSXProps from '@vue/babel-helper-vue-jsx-merge-props';
+// eslint-disable-next-line import/no-unresolved, import/extensions
+import { iconSize, updateContextData } from './configs-vue';
 
 export default {
     name: 'IconKeyUnlockLarge',
-    props: {},
+    props: {
+        iconSize: iconSize.large,
+    },
     functional: true,
     render (h, ctx) {
-        const attrs = ctx.data.attrs || {};
-        ctx.data.attrs = attrs;
+        ctx.data = updateContextData(ctx, 'c-pieIcon c-pieIcon--keyUnlockLarge');
         return h('svg', _mergeJSXProps([{
             attrs: {
                 xmlns: 'http://www.w3.org/2000/svg',
                 viewBox: '0 0 32 32',
             },
-            class: 'c-pieIcon c-pieIcon--keyUnlockLarge',
         }, ctx.data]), [h('g', {
             attrs: {
                 'clip-path': 'url(#prefix__clip0_18_2240)',

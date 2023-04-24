@@ -3,6 +3,7 @@
   "version": "2.2.1",
   "main": "esm/index.js",
   "type": "module",
+  "types": "esm/index.d.ts",
   "files": [
     "dist",
     "esm",
@@ -41,6 +42,7 @@
   "devDependencies": {
     "@babel/node": "7.20.7",
     "@justeattakeaway/pie-icons": "2.2.0",
+    "@justeattakeaway/pie-icons-configs": "workspace:*",
     "@svgr/core": "6.4.0",
     "pascal-case": "3.1.2",
     "react": "18.2.0",
