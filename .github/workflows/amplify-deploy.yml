@@ -66,9 +66,7 @@ jobs:
       # Zip dist folder
       - name: Zip build output
         shell: bash
-        run: |
-          cd ${{ inputs.package-dist-directory }}
-          zip -r ./${{ inputs.package-name }}-pr-${{github.event.number}}.zip .
+        run: zip -r ./${{ inputs.package-name }}-pr-${{github.event.number}}.zip ${{ inputs.package-dist-directory }}
       # Upload zip to S3
       - name: Upload to S3
         id: upload-s3
