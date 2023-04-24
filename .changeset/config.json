@@ -6,7 +6,8 @@
       [
         "@justeattakeaway/pie-icons",
         "@justeattakeaway/pie-icons-vue",
-        "@justeattakeaway/pie-icons-react"
+        "@justeattakeaway/pie-icons-react",
+        "@justeattakeaway/pie-icons-configs"
       ]
     ],
     "access": "public",

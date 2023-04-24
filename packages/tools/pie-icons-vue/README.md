@@ -28,29 +28,49 @@ yarn add @justeattakeaway/pie-icons-vue
 
 ```js
 // Only import what you need!
-import { CalendarIcon, MenuExpandIcon, ... } from '@justeattakeaway/pie-icons-vue'
+import { IconCalendar, IconAlertTriangleLarge, ... } from '@justeattakeaway/pie-icons-vue'
 ```
 
 Within the context of a Vue app, that will look like:
 
   ```js
   <template>
-      <calendar-icon />
-      <menu-expand-icon />
+      <icon-calendar />
+      <icon-alert-triangle-large />
   </template>
 
-
   <script>
-  import { CalendarIcon, MenuExpandIcon, ... } from '@justeattakeaway/pie-icons-vue';
+  import { IconCalendar, IconAlertTriangleLarge, ... } from '@justeattakeaway/pie-icons-vue';
 
   export default {
       components: {
-          CalendarIcon,
-          MenuExpandIcon
+          IconCalendar,
+          IconAlertTriangleLarge
       }
   };
   </script>
   ```
+
+#### Props
+
+Icons accept any standard attribute, except for `width` and `height` since those are set implicitly by using the `iconSize` prop.
+
+##### `iconSize`
+
+Icons are made available in different size variants:
+- small
+- large, when its name has the `Large` suffix
+
+Small icons default size is `xs` and can use one of the following pre-determined values for `iconSize`: `xs`, `s`, `m`, `l`, `xl`, and `xxl`. You can learn more about small icon sizes [here](https://www.pie.design/foundations/iconography/overview/#:~:text=Sizes%20for%20the%20Small%20icon%20set).
+
+Large icons `iconSize` default and minimum value is `32`. Values larger than the minimum must be multiples of `8`, otherwise will be automatically rounded. You can learn more about large icon sizes [here](https://www.pie.design/foundations/iconography/overview/#:~:text=Sizes%20for%20the%20Large%20icon%20set).
+
+Example:
+
+```js
+<icon-alert-triangle iconSize="l" />
+<icon-alert-triangle-large iconSize="40" />
+```
 
 ### Tree shaking
 

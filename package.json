@@ -8,17 +8,19 @@
   "packageManager": "yarn@3.5.0",
   "private": true,
   "engines": {
-    "node": "^18"
+    "node": "^16 || ^18"
   },
-  "workspaces": [
-    "apps/pie-docs",
-    "apps/pie-storybook",
-    "packages/**/*",
-    "./"
-  ],
+  "workspaces": {
+    "packages": [
+      "apps/**/*",
+      "packages/**/*",
+      "./"
+    ]
+  },
   "scripts": {
     "watch": "turbo run watch --filter=!pie-monorepo",
-    "build": "cross-env-shell turbo run build --filter=!pie-monorepo --token=${TURBO_TOKEN}",
+    "build": "cross-env-shell turbo run build --filter=!'./apps/examples/*' --filter=!pie-monorepo --token=${TURBO_TOKEN}",
+    "build:examples": "cross-env-shell turbo run build:examples --token=${TURBO_TOKEN}",
     "changeset": "changeset",
     "changeset:publish": "changeset publish",
     "changeset:version": "changeset version",
@@ -93,6 +95,7 @@
     "typescript": "5.0.3",
     "vite": "4.2.1",
     "vite-plugin-dts": "2.2.0",
+    "vitest": "0.29.8",
     "vue": "2.7.14",
     "vue-template-compiler": "2.7.14"
   },

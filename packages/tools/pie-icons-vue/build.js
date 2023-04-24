@@ -3,24 +3,35 @@ const path = require('path');
 const pieIcons = require('@justeattakeaway/pie-icons').default;
 const { pascalCase } = require('pascal-case');
 const fs = require('fs-extra');
+const { execSync } = require('child_process');
 
-const componentTemplate = (name, svg) => `
+const componentTemplate = (name, svg) => {
+    const isLargeIcon = name.endsWith('Large');
+    const iconSize = isLargeIcon ? 'large' : 'regular';
+    const [, svgClasses] = svg.match(/class="(.+?)"/);
+
+    // NOTE: The eslint-disable-next-line is a temporary fix for the fact that the configs-vue file is not being copied to the generated folder
+    // TODO: Remove eslint-disable-next-line as soon as the compilation issue is solved
+    return `// eslint-disable-next-line import/no-unresolved, import/extensions
+import { iconSize, updateContextData } from './configs-vue';
+
 export default {
     name: '${name}',
 
     props: {
+        iconSize: iconSize.${iconSize},
     },
 
     functional: true,
 
     render (h, ctx) {
-        const attrs = ctx.data.attrs || {};
-        ctx.data.attrs = attrs;
+        ctx.data = updateContextData(ctx, '${svgClasses}');
 
-        return ${svg.replace(/<svg([^>]+)>/, '<svg$1 {...ctx.data}>')};
+        return ${svg.replace(/(class=".+?")/, '{...ctx.data}')};
     }
 };
-`.replace(/^\s+/g, ''); // trim start of string
+`;
+};
 
 const { icons } = pieIcons;
 
@@ -32,8 +43,7 @@ const indexPath = path.join(ICONS_DIR, '/index.js');
 async function checkDirExists (directoryPath) {
     try {
         await fs.ensureDir(directoryPath);
-        // eslint-disable-next-line no-console
-        console.log(`Directory "${directoryPath}" exists.`);
+        console.info(`Directory "${directoryPath}" exists.`);
     } catch (err) {
         console.error(err);
     }
@@ -41,28 +51,44 @@ async function checkDirExists (directoryPath) {
 
 const handleComponentName = (name) => name.replace(/\-(\d+)/, '$1'); // eslint-disable-line no-useless-escape
 
-// check that the /generated directory exists, if not create it
-checkDirExists(ICONS_DIR)
-    // check that the /generated/components directory exists, if not create it
-    .then(() => checkDirExists(COMPONENTS_DIR))
-    .then(() => {
-        let indexFileString = '/* eslint-disable camelcase */\n';
+function copyIconsConfigFiles () {
+    const srcFilePaths = [
+        path.resolve(process.cwd(), '../pie-icons-configs/configs.js'),
+        path.resolve(process.cwd(), '../pie-icons-configs/configs-vue.js')
+    ];
+    const destFilePath = path.resolve(process.cwd(), './generated/components/');
 
-        // loop through the icons in pie-icons, generate each component and add it to the index.tsx
-        Promise.all(Object.keys(icons).map((iconKey) => {
-            const { pathPrefix } = icons[iconKey];
-            const capitalisedPathPrefix = (pathPrefix !== undefined ? (pathPrefix).substring(1, 2).toUpperCase() + (pathPrefix).substring(2) : '');
-            const pascalCasedName = pascalCase(handleComponentName(iconKey));
-            const componentName = `Icon${capitalisedPathPrefix + pascalCasedName}`;
+    srcFilePaths.forEach((srcFilePath) => execSync(`cp ${srcFilePath} ${destFilePath}`));
+}
 
-            const svg = pieIcons.icons[iconKey].toSvg();
-            let component = componentTemplate(componentName, svg);
-            component = component.replace(/xlink:href/g, 'xlinkHref'); // replace so it gets parsed by JSX correctly
+async function build () {
+    // check if /generated directory exists, if not create it
+    await checkDirExists(ICONS_DIR);
 
-            indexFileString += `export { default as ${componentName} } from '../icons/${componentName}';\n`;
+    // check if /generated/components directory exists, if not create it
+    await checkDirExists(COMPONENTS_DIR);
 
-            return fs.writeFile(`./generated/components/${componentName}.js`, component, 'utf8', (err) => {
-                if (err) console.error(err);
-            });
-        })).then(() => fs.outputFile(indexPath, indexFileString, 'utf8'));
+    copyIconsConfigFiles();
+
+    let indexFileString = '/* eslint-disable camelcase */\n';
+
+    // loop through the icons in pie-icons, generate each component and add it to the index.tsx
+    Object.keys(icons).forEach((iconKey) => {
+        const { pathPrefix } = icons[iconKey];
+        const capitalisedPathPrefix = (pathPrefix !== undefined ? (pathPrefix).substring(1, 2).toUpperCase() + (pathPrefix).substring(2) : '');
+        const pascalCasedName = pascalCase(handleComponentName(iconKey));
+        const componentName = `Icon${capitalisedPathPrefix + pascalCasedName}`;
+
+        const svg = pieIcons.icons[iconKey].toSvg();
+        let component = componentTemplate(componentName, svg);
+        component = component.replace(/xlink:href/g, 'xlinkHref'); // replace so it gets parsed by JSX correctly
+
+        indexFileString += `export { default as ${componentName} } from '../icons/${componentName}';\n`;
+
+        fs.writeFileSync(`./generated/components/${componentName}.js`, component, 'utf8');
     });
+
+    fs.outputFileSync(indexPath, indexFileString, 'utf8');
+}
+
+build();

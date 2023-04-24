@@ -4,6 +4,7 @@ on:
   pull_request:
     types: [assigned, opened, synchronize, reopened, "ready_for_review"]
     paths-ignore:
+      - "apps/examples/**"
       - ".husky/**"
       - ".idea/**"
       - "stories/**"

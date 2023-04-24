@@ -2,7 +2,7 @@
   "name": "wc-react18",
   "private": true,
   "dependencies": {
-    "@justeattakeaway/pie-button": "^0.10.1",
+    "@justeattakeaway/pie-button": "workspace:*",
     "@lit-labs/react": "1.1.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -10,12 +10,16 @@
   },
   "scripts": {
     "dev": "react-scripts start",
-    "build": "react-scripts build"
+    "build": "react-scripts build",
+    "build:examples": "yarn build"
   },
   "browserslist": [
     "extends @justeat/browserslist-config-fozzie"
   ],
   "volta": {
     "extends": "../../../package.json"
+  },
+  "installConfig": {
+    "hoistingLimits": "workspaces"
   }
 }
