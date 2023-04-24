@@ -158,6 +158,7 @@ jobs:
       bucket-name: pie-docs-preview
       package-name: 'pie-docs'
       package-dist-directory: ./apps/pie-docs/dist
+    secrets: inherit
 
   deploy-storybook:
     # This will depend on build once we've migrated off Github Pages
