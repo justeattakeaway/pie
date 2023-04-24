@@ -66,7 +66,9 @@ jobs:
       # Zip dist folder
       - name: Zip build output
         shell: bash
-        run: zip -r ./${{ inputs.package-name }}-pr-${{github.event.number}}.zip ${{ inputs.package-dist-directory }}
+        run: |
+          cd ${{ inputs.package-dist-directory }}
+          zip -r ./${{ inputs.package-name }}-pr-${{github.event.number}}.zip .
       # Upload zip to S3
       - name: Upload to S3
         id: upload-s3
@@ -78,7 +80,7 @@ jobs:
           aws-bucket: ${{ inputs.bucket-name }}
           bucket-root: "/"
           destination-dir: "/"
-          file-path: "./${{ inputs.package-name }}-pr-${{github.event.number}}.zip"
+          file-path: "${{inputs.package-dist-directory}}/${{ inputs.package-name }}-pr-${{github.event.number}}.zip"
           content-type: "application/zip"
           public: true
       # Create branch on Amplify
