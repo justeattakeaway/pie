@@ -7,7 +7,10 @@ module.exports = {
         'plugin:vue/vue3-recommended'
     ],
     rules: {
-        ...vue.rules, ...vue3.rules, 'vue/sort-keys': 'off',
+        ...vue.rules,
+        ...vue3.rules,
+        'vue/sort-keys': 'off',
+        '@typescript-eslint/no-empty-function': 'off', // this is already covered by vue/require-render-return
     },
     parserOptions: {
         parser: '@babel/eslint-parser',

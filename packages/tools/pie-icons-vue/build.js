@@ -32,6 +32,7 @@ const indexPath = path.join(ICONS_DIR, '/index.js');
 async function checkDirExists (directoryPath) {
     try {
         await fs.ensureDir(directoryPath);
+        // eslint-disable-next-line no-console
         console.log(`Directory "${directoryPath}" exists.`);
     } catch (err) {
         console.error(err);
