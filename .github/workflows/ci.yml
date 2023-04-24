@@ -25,7 +25,9 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  DOCS_AMPLIFY_ID: dvskdcoepjoyf
+  AWS_KEY_ID: ${{ secrets.AWS_KEY_ID }}
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  AWS_REGION: 'eu-west-1'
   STORYBOOK_AMPLIFY_ID: d17ja0ul7nrdy0
   PERCY_TOKEN_PIE_DOCS: ${{ secrets.PERCY_TOKEN_PIE_DOCS }}
   PERCY_TOKEN_PIE_BUTTON: ${{ secrets.PERCY_TOKEN_PIE_BUTTON }}
@@ -135,75 +137,27 @@ jobs:
         with:
           script-name: "test:ci"
 
+#main
+# amplify-app-id: ${{ env.DOCS_AMPLIFY_ID }}
+# aws-region: 'eu-west-1'
+# aws-access-key-id: ${{ secrets.AWS_KEY_ID }}
+# aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+# branch-name: 'main'
+# bucket-name: ${{ secrets.AWS_DOCS_MAIN_BUCKET }}
+# package-name: 'pie-docs'
+
   deploy-docs:
     needs: unit-tests
-    runs-on: ubuntu-latest
-    steps:
-      # Checkout the Repo
-      - name: Checkout
-        uses: actions/checkout@v3
-      # Setup Repo
-      - name: Setup Repo
-        uses: ./.github/actions/setup-repo
-        with:
-          node-version: 18
-          os: ubuntu-latest
-      # Build Docs Site
-      - name: Build Docs Site
-        uses: ./.github/actions/run-script
-        with:
-          script-name: "build"
-          package-name: "pie-docs"
-      # Create Github Deployment
-      - name: Create Docs GitHub deployment
-        if: ${{ github.event_name == 'pull_request' }}
-        uses: chrnorm/deployment-action@v2
-        id: docs-deploy
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          environment: "pie-docs-pr-${{ github.event.number }}"
-      # Amplify Deploy
-      - name: Amplify Deploy
-        if: ${{ github.event_name == 'pull_request' }}
-        uses: ./.github/actions/amplify-deploy
-        with:
-          amplify-app-id: ${{ env.DOCS_AMPLIFY_ID }}
-          aws-region: 'eu-west-1'
-          aws-access-key-id: ${{ secrets.AWS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          branch-name: 'pr${{ github.event.number }}'
-          bucket-name: ${{ secrets.AWS_DOCS_BUCKET }}
-          package-name: 'pie-docs'
-      # If successful
-      - name: Update deployment status (success)
-        if: ${{ github.event_name == 'pull_request' && success() }}
-        uses: chrnorm/deployment-status@v2
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          environment-url: https://pr${{ github.event.number }}.${{ env.DOCS_AMPLIFY_ID }}.amplifyapp.com
-          deployment-id: ${{ steps.docs-deploy.outputs.deployment_id }}
-          state: "success"
-      # If it failed
-      - name: Update deployment status (failure)
-        if: ${{ github.event_name == 'pull_request' && failure() }}
-        uses: chrnorm/deployment-status@v2
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          environment-url: https://pr${{ github.event.number }}.${{ env.DOCS_AMPLIFY_ID }}.amplifyapp.com
-          deployment-id: ${{ steps.docs-deploy.outputs.deployment_id }}
-          state: "failure"
-      # Main deployment
-      - name: Deploy Main (Amplify)
-        if: ${{ github.ref == 'refs/heads/main' }}
-        uses: ./.github/actions/amplify-deploy
-        with:
-          amplify-app-id: ${{ env.DOCS_AMPLIFY_ID }}
-          aws-region: 'eu-west-1'
-          aws-access-key-id: ${{ secrets.AWS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          branch-name: 'main'
-          bucket-name: ${{ secrets.AWS_DOCS_MAIN_BUCKET }}
-          package-name: 'pie-docs'
+    if: ${{ github.event_name == 'pull_request' }}
+    uses: ./.github/workflows/amplify-deploy.yml
+    with:
+      os: ubuntu-latest
+      node-version: 16
+      amplify-app-id: dvskdcoepjoyf
+      branch-name: 'pr${{ github.event.number }}'
+      bucket-name: pie-docs-preview
+      package-name: 'pie-docs'
+      package-dist-directory: ./apps/pie-docs/dist
 
   deploy-storybook:
     # This will depend on build once we've migrated off Github Pages
