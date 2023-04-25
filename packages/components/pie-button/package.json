@@ -8,7 +8,7 @@
   "module": "dist/index.js",
   "types": "dist/types/index.d.ts",
   "scripts": {
-    "build": "yarn gen-react-wrapper && run -T vite build",
+    "build": "run -T vite build",
     "gen-react-wrapper": "node ../../../cem-react-wrapper.config.js",
     "watch": "run -T vite build --watch",
     "dev": "run -T vite",
@@ -17,9 +17,6 @@
     "test:browsers:ci": "yarn test:browsers",
     "test:visual": "run -T cross-env-shell PERCY_TOKEN=${PERCY_TOKEN_PIE_BUTTON} percy exec --allowed-hostname cloudfront.net -- npx playwright test -c ./playwright-lit-visual.config.ts",
     "test:visual:ci": "yarn test:visual"
-  },
-  "exports": {
-    ".": "./src"
   },
   "author": "JustEatTakeaway - Design System Web Team",
   "license": "Apache-2.0",

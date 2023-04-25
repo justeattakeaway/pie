@@ -1,8 +1,7 @@
-import { pascalCase } from 'pascal-case';
-import camelCase from 'camelcase';
+// import { pascalCase } from 'pascal-case';
+// import camelCase from 'camelcase';
 import kebabCase from 'kebab-case';
-import fs, { outputFile } from 'fs-extra';
-import { readFile, appendFile } from 'fs';
+import fs from 'fs-extra';
 
 const loadJSON = (path) => JSON.parse(fs.readFileSync(new URL(path, import.meta.url)));
 

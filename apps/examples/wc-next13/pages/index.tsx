@@ -1,14 +1,16 @@
 import React, { useState, useRef } from 'react';
 import Head from 'next/head';
-import { createComponent } from '@lit-labs/react';
-import { PieButton, BUTTON_SIZE, BUTTON_VARIANT } from '@justeattakeaway/pie-button';
+// import { createComponent } from '@lit-labs/react';
+import { PButton, BUTTON_SIZE, BUTTON_VARIANT } from '@justeattakeaway/pie-button';
 
-const PieBtn = createComponent({
-    tagName: 'pie-button',
-    elementClass: PieButton,
-    react: React,
-    events: { onCustomEvent: 'CustomEvent' },
-});
+// const PieBtn = createComponent({
+//     tagName: 'pie-button',
+//     elementClass: PieButton,
+//     react: React,
+//     events: { onCustomEvent: 'CustomEvent' },
+// });
+
+const CustomEvent = 'heyy';
 
 export default function Home () {
     const variantIndex = useRef(0);
@@ -26,6 +28,8 @@ export default function Home () {
         setVariantName(variant);
     };
 
+    const handleCustomEvent = () => console.log('onCustomEvent was triggered');
+
     return (
         <>
             <Head>
@@ -38,20 +42,21 @@ export default function Home () {
                 <div>
                     <h3>Counter</h3>
                     <div className="flex-wrapper">
-                        <PieBtn onClick={decrement}>decrement</PieBtn>
+                        <PButton onClick={decrement}>decrement</PButton>
                         <div className="padding">
                             Counter: { count }
                         </div>
-                        <PieBtn onClick={increment}>increment</PieBtn>
+                        <PButton onClick={increment}
+                            CustomEvent={handleCustomEvent}>increment</PButton>
                     </div>
                 </div>
                 <h2>Test props</h2>
                 <div>
                     <h3>Click the button to switch the variant</h3>
                     <div className="flex-wrapper">
-                        <PieBtn variant={variantName} onClick={switchVariant}>
+                        <PButton variant={variantName} onClick={switchVariant}>
                             Switch variant
-                        </PieBtn>
+                        </PButton>
                         <div className='padding'>Variant: <b>{variantName}</b></div>
                     </div>
                 </div>
@@ -64,7 +69,7 @@ export default function Home () {
                                     const size:BUTTON_SIZE = BUTTON_SIZE[key as keyof typeof BUTTON_SIZE];
 
                                     return (
-                                        <PieBtn size={size} key={key}>{key.toLowerCase()}</PieBtn>
+                                        <PButton size={size} key={key}>{key.toLowerCase()}</PButton>
                                     );
                                 })
                         }

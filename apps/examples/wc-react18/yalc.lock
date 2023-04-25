@@ -1,0 +1,11 @@
+{
+  "version": "v1",
+  "packages": {
+    "@justeattakeaway/pie-button": {
+      "version": "0.10.2",
+      "signature": "a5dae90f21574b648f07ab7436058977",
+      "file": true,
+      "replaced": "workspace:*"
+    }
+  }
+}
