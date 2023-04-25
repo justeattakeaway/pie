@@ -1,0 +1,115 @@
+name: Amplify Deploy
+
+on:
+  workflow_call:
+    inputs:
+      os:
+        required: true
+        type: string
+      node-version:
+        required: true
+        type: string
+      amplify-app-id:
+        description: "The ID for your Amplify app (which you can get from the end of its ARN)"
+        required: true
+        type: string
+      package-name:
+        description: "Name of the application being deployed"
+        required: true
+        type: string
+      package-dist-directory:
+        description: "The directory where the package dist is located"
+        required: true
+        type: string
+
+env:
+  AMPLIFY_ID: ${{ inputs.amplify-app-id }}
+  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_KEY_ID }}
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  AWS_REGION: 'eu-west-1'
+  BRANCH_NAME: ${{ github.event_name == 'pull_request' && format('pr{0}', github.event.number) || (github.ref == 'refs/heads/main' && 'main' || github.ref == 'refs/heads/master' && 'master') }}
+  BUCKET_NAME: ${{ github.event_name == 'pull_request' && format('{0}-preview', inputs.package-name) || (github.ref == 'refs/heads/main' && format('{0}-main', inputs.package-name) || github.ref == 'refs/heads/master' && format('{0}-master', inputs.package-name)) }}
+  TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+
+jobs:
+  deploy:
+    runs-on: ${{ inputs.os }}
+    steps:
+      # Checkout the Repo
+      - name: Checkout
+        uses: actions/checkout@v3
+      # Setup Repo
+      - name: Setup Repo
+        uses: ./.github/actions/setup-repo
+        with:
+          node-version: ${{ inputs.node-version }}
+          os: ${{ inputs.os }}
+      # Build
+      - name: Build ${{ inputs.package-name }}
+        uses: ./.github/actions/run-script
+        with:
+          script-name: "build"
+          package-name: ${{ inputs.package-name }}
+      # Create Github Deployment
+      - name: Create Docs GitHub deployment
+        if: ${{ github.event_name == 'pull_request' }}
+        uses: chrnorm/deployment-action@v2
+        id: deploy
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          environment: "${{ inputs.package-name}}-pr-${{ github.event.number }}"
+      # Zip dist folder
+      - name: Zip build output
+        shell: bash
+        run: |
+          cd ${{ inputs.package-dist-directory }}
+          zip -r ./${{ inputs.package-name }}-pr-${{github.event.number}}.zip .
+      # Upload zip to S3
+      - name: Upload to S3
+        id: upload-s3
+        uses: hkusu/s3-upload-action@v2
+        with:
+          aws-access-key-id: ${{ env.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ env.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
+          aws-bucket: ${{ env.BUCKET_NAME }}
+          bucket-root: "/"
+          destination-dir: "/"
+          file-path: "${{inputs.package-dist-directory}}/${{ inputs.package-name }}-pr-${{github.event.number}}.zip"
+          content-type: "application/zip"
+          public: true
+      # Create branch on Amplify
+      - name: Create Amplify branch
+        shell: bash
+        # We return true to prevent the step from failing if the branch already exists
+        run: |
+          aws amplify create-branch \
+            --app-id ${{ inputs.amplify-app-id }} \
+            --branch-name ${{ env.BRANCH_NAME }} \
+            || true
+      # Deploy Amplify from S3
+      - name: Deploy Amplify from S3
+        shell: bash
+        run: |
+          aws amplify start-deployment \
+            --app-id ${{ inputs.amplify-app-id }} \
+            --branch-name ${{ env.BRANCH_NAME }} \
+            --source-url https://${{ env.BUCKET_NAME }}.s3.${{ env.AWS_REGION }}.amazonaws.com/${{ inputs.package-name }}-pr-${{ github.event.number }}.zip
+      # If successful
+      - name: Update deployment status (success)
+        if: ${{ github.event_name == 'pull_request' && success() }}
+        uses: chrnorm/deployment-status@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          environment-url: https://pr${{ github.event.number }}.${{ inputs.amplify-app-id }}.amplifyapp.com
+          deployment-id: ${{ steps.deploy.outputs.deployment_id }}
+          state: "success"
+      # If it failed
+      - name: Update deployment status (failure)
+        if: ${{ github.event_name == 'pull_request' && failure() }}
+        uses: chrnorm/deployment-status@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          environment-url: https://pr${{ github.event.number }}.${{ inputs.amplify-app-id }}.amplifyapp.com
+          deployment-id: ${{ steps.deploy.outputs.deployment_id }}
+          state: "failure"
