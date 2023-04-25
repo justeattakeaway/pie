@@ -95,7 +95,7 @@ jobs:
           aws amplify start-deployment \
             --app-id ${{ inputs.amplify-app-id }} \
             --branch-name ${{ env.BRANCH_NAME }} \
-            --source-url https://${{ env.BUCKET_NAME }}.s3.${{ env.AWS_REGION }}.amazonaws.com/${{ inputs.package-name }}-pr-${{ github.event.number }}.zip
+            --source-url https://${{ env.BUCKET_NAME }}.s3.${{ env.AWS_REGION }}.amazonaws.com/${{ env.ZIP_NAME }}
       # If successful
       - name: Update deployment status (success)
         if: ${{ github.event_name == 'pull_request' && success() }}
