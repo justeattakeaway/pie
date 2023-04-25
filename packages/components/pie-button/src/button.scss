@@ -1,10 +1,42 @@
 @use '@justeat/pie-design-tokens/dist/jet.scss' as dt;
 
+$button-height-xs: 32px;
+$button-height-s: 40px;
+$button-height-m: 48px;
+$button-height-l: 56px;
+
+// Sets up the size of a button such as xsmall or large
+@mixin button-sizing($min-height, $padding-block, $padding-inline, $font-size, $font-weight, $line-height) {
+    min-height: $min-height;
+    padding: $padding-block $padding-inline;
+    font-size: $font-size * 1px;
+    font-weight: $font-weight;
+    line-height: $line-height * 1px;
+}
+
+// 'Themes' a button for it's particular variant, such as primary, secondary, outline, ghost
+@mixin button-variant($bg-color, $text-color, $outline-color: null) {
+    background-color: $bg-color;
+    color: $text-color;
+
+    &:hover {
+        background-color: darken($bg-color, dt.$color-hover-01);
+    }
+
+    &:active {
+        background-color: darken($bg-color, dt.$color-active-01);
+    }
+
+    @if $outline-color != null {
+        outline: 1px solid $outline-color;
+    }
+}
+
+// Base button styles
 .o-btn {
     border-radius: dt.$radius-rounded-e;
     border: none;
     font-family: dt.$font-interactive-m-family;
-    font-weight: dt.$font-interactive-m-weight;
 
     cursor: pointer;
     user-select: none;
@@ -15,91 +47,83 @@
     }
 }
 
-.o-btn--xsmall {
-    padding: 6px dt.$spacing-b;
-    min-height: 32px;
-    font-size: dt.$font-size-14 * 1px;
-    line-height: dt.$font-size-14-line-height * 1px;
+// Sizes
+$button-sizes: (
+    'xsmall': (
+        'min-height': $button-height-xs,
+        'padding-block': 6px,
+        'padding-inline': dt.$spacing-b,
+        'font-size': dt.$font-interactive-xs-size,
+        'font-weight': dt.$font-interactive-xs-weight,
+        'line-height': dt.$font-interactive-xs-line-height
+    ),
+    'small-productive': (
+        'min-height': $button-height-s,
+        'padding-block': dt.$spacing-b,
+        'padding-inline': dt.$spacing-d,
+        'font-size': dt.$font-interactive-s-size,
+        'font-weight': dt.$font-interactive-s-weight,
+        'line-height': dt.$font-interactive-s-line-height
+    ),
+    'small-expressive': (
+        'min-height': $button-height-s,
+        'padding-block': 6px,
+        'padding-inline': dt.$spacing-d,
+        'font-size': dt.$font-interactive-l-size,
+        'font-weight': dt.$font-interactive-l-weight,
+        'line-height': dt.$font-interactive-l-line-height
+    ),
+    'medium': (
+        'min-height': $button-height-m,
+        'padding-block': 10px,
+        'padding-inline': dt.$spacing-e,
+        'font-size': dt.$font-interactive-l-size,
+        'font-weight': dt.$font-interactive-l-weight,
+        'line-height': dt.$font-interactive-l-line-height
+    ),
+    'large': (
+        'min-height': $button-height-l,
+        'padding-block': 14px,
+        'padding-inline': dt.$spacing-e,
+        'font-size': dt.$font-interactive-l-size,
+        'font-weight': dt.$font-interactive-l-weight,
+        'line-height': dt.$font-interactive-l-line-height
+    )
+);
+
+@each $size, $values in $button-sizes {
+    .o-btn--#{$size} {
+        @include button-sizing(
+            map-get($values, 'min-height'),
+            map-get($values, 'padding-block'),
+            map-get($values, 'padding-inline'),
+            map-get($values, 'font-size'),
+            map-get($values, 'font-weight'),
+            map-get($values, 'line-height')
+        );
+    }
 }
 
-.o-btn--small {
-    padding: 8px dt.$spacing-d;
-    min-height: 40px;
-    font-size: dt.$font-size-19 * 1px;
-    line-height: dt.$font-size-19-line-height * 1px;
-}
 
-.o-btn--medium {
-    padding: 10px dt.$spacing-e;
-    min-height: 48px;
-    font-size: dt.$font-size-20 * 1px;
-    line-height: dt.$font-size-20-line-height * 1px;
-}
-
-.o-btn--large {
-    padding: 14px dt.$spacing-e;
-    min-height: 56px;
-    font-size: dt.$font-size-20 * 1px;
-    line-height: dt.$font-size-20-line-height * 1px;
-}
-
+// Variants
 .o-btn--primary {
-    background-color: dt.$color-interactive-brand;
-    color: dt.$color-content-interactive-primary;
-
-    &:hover {
-        background-color: darken(dt.$color-interactive-brand, dt.$color-hover-01);
-    }
-
-    &:active {
-        background-color: darken(dt.$color-interactive-brand, dt.$color-active-01);
-    }
+    @include button-variant(dt.$color-interactive-brand, dt.$color-content-interactive-primary);
 }
 
 .o-btn--secondary {
-    background-color: dt.$color-interactive-secondary;
-    color: dt.$color-content-interactive-secondary;
-
-    &:hover {
-        background-color: darken(dt.$color-interactive-secondary, dt.$color-hover-01);
-    }
-
-    &:active {
-        background-color: darken(dt.$color-interactive-secondary, dt.$color-active-01);
-    }
+    @include button-variant(dt.$color-interactive-secondary, dt.$color-content-interactive-secondary);
 }
 
 .o-btn--outline {
-    outline: 1px solid dt.$color-border-strong;
-    background-color: dt.$color-container-default;
-    color: dt.$color-content-interactive-tertiary;
-
-    &:hover {
-        background-color: darken(dt.$color-container-default, dt.$color-hover-01);
-    }
-
-    &:active {
-        background-color: darken(dt.$color-container-default, dt.$color-active-01);
-    }
+    @include button-variant(dt.$color-container-default, dt.$color-content-interactive-tertiary, dt.$color-border-strong);
 }
 
 .o-btn--ghost {
-    background-color: dt.$color-container-default;
-    color: dt.$color-content-link;
-
-    &:hover {
-        background-color: darken(dt.$color-container-default, dt.$color-hover-01);
-    }
-
-    &:active {
-        background-color: darken(dt.$color-container-default, dt.$color-active-01);
-    }
+    @include button-variant(dt.$color-container-default, dt.$color-content-link);
 }
 
 .o-btn.o-btn--is-disabled {
-    background-color: dt.$color-disabled-01;
-    color: dt.$color-content-disabled;
-    outline: 1px solid dt.$color-disabled-01;
+    @include button-variant(dt.$color-disabled-01, dt.$color-content-disabled, dt.$color-disabled-01);
 
     cursor: default;
 
