@@ -1,6 +1,6 @@
 import { LitElement, html, unsafeCSS } from 'lit';
 import { classMap } from 'lit/directives/class-map.js';
-import { customElement, property } from 'lit/decorators.js';
+import { property } from 'lit/decorators.js';
 
 import styles from './button.scss?inline';
 import { validPropertyValues } from './decorators';
@@ -10,15 +10,14 @@ import { BUTTON_SIZE, BUTTON_TYPE, BUTTON_VARIANT } from './defs';
 export { BUTTON_SIZE, BUTTON_TYPE, BUTTON_VARIANT };
 
 // TODO: Extract as a utility function in a shared package
-function defineCustomElement(elementName:string) {
-    return (elementClass:typeof LitElement) => {
-        if(customElements.get(elementName)) return;
+// function defineCustomElement(elementName:string) {
+//     return (elementClass:typeof LitElement) => {
+//         if(customElements.get(elementName)) return;
 
-        return customElement(elementName)(elementClass);
-    }
-}
+//         return customElement(elementName)(elementClass);
+//     }
+// }
 
-@defineCustomElement('pie-button')
 export class PieButton extends LitElement {
     @property()
     @validPropertyValues(Object.values(BUTTON_SIZE), BUTTON_SIZE.MEDIUM)
@@ -46,9 +45,9 @@ export class PieButton extends LitElement {
         };
 
         const raiseWCEvent = () => {
-            const event = new CustomEvent('CustomEvent', { detail: 'WC event dispatched' })
+            // const event = new CustomEvent('CustomEvent', { detail: 'WC event dispatched' })
             console.info('WC event dispatched')
-            this.dispatchEvent(event)
+            this.dispatchEvent(new CustomEvent('CustomEvent', { detail: 'WC event dispatched' }))
         }
 
         return html`
@@ -65,8 +64,13 @@ export class PieButton extends LitElement {
     static styles = unsafeCSS(styles);
 }
 
+customElements.define('pie-button', PieButton);
+
 declare global {
     interface HTMLElementTagNameMap {
         'pie-button': PieButton;
     }
 }
+import { PButton } from './react-wrapper';
+ 
+export { PButton };

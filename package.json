@@ -17,9 +17,10 @@
     "./"
   ],
   "scripts": {
+    "analyze": "lit-analyzer \"{packages,tools}/**/src/**/!(*.css).ts\"",
     "watch": "turbo run watch --filter=!pie-monorepo",
     "build": "cross-env-shell turbo run build --filter=!pie-monorepo --token=${TURBO_TOKEN}",
-    "build-react": "npm run gen-react-wrapper",
+    "build-react": "npm run gen-react-wrapper &&  yarn tsc --build",
     "gen-react-wrapper": "node cem-react-wrapper.config.js",
     "changeset": "changeset",
     "changeset:publish": "changeset publish",
@@ -91,17 +92,23 @@
     "stylelint-order": "5.0.0",
     "turbo": "1.7.0",
     "typescript": "5.0.3",
-    "vite": "4.2.1",
+    "vite": "^4.3.1",
     "vite-plugin-dts": "2.2.0",
     "vue": "2.7.14",
     "vue-template-compiler": "2.7.14"
   },
   "dependencies": {
+    "@custom-elements-manifest/analyzer": "^0.8.0",
     "@justeat/fozzie": "10.11.1",
     "@justeattakeaway/pie-icons": "2.2.0",
     "@lit-labs/react": "^1.1.1",
+    "camelcase": "^7.0.1",
     "case": "^1.6.3",
-    "lit": "2.7.1"
+    "cem-plugin-module-file-extensions": "^0.0.5",
+    "custom-elements-manifest": "^2.0.0",
+    "kebab-case": "^1.0.2",
+    "lit": "2.7.1",
+    "lit-analyzer": "^1.2.1"
   },
   "config": {
     "commitizen": {
