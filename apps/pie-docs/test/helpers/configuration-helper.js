@@ -1,5 +1,5 @@
 const {
-    AMPLIFY_ID,
+    DOCS_AMPLIFY_ID,
     CI,
     PR_NUMBER,
     GITHUB_REF_NAME,
