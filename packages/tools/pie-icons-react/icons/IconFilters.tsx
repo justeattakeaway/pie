@@ -1,10 +1,20 @@
 import * as React from "react";
-import { SVGProps } from "react";
-const IconFilters = (props: any) => {
+import { RegularIconProps } from "../types";
+// @ts-ignore
+import { getSvgProps } from './configs-react';
+const IconFilters = (props: RegularIconProps) => {
   const {
     className,
+    iconSize,
+    width,
+    height,
     ...remainingProps
   } = props;
-  return <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" className={"pie-icon pie-icon--filters" + (props.className ? ' ' + props.className : '') } width="1em" height="1em" {...remainingProps}><path fill="#242E30" d="M15 3.844v1.312H6.031v1.532H4.72V5.155H1V3.844h3.719V2.313H6.03v1.53H15Zm-3.719 5.469H9.97v1.53H1v1.313h8.969v1.531h1.312v-1.53H15v-1.313h-3.719V9.313Z" /></svg>;
+  const moreProps = getSvgProps("pie-icon pie-icon--filters", className, iconSize, "IconFilters");
+  const allProps = {
+    ...remainingProps,
+    ...moreProps
+  };
+  return <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"    {...allProps}><path fill="#242E30" d="M15 3.844v1.312H6.031v1.532H4.72V5.155H1V3.844h3.719V2.313H6.03v1.53H15Zm-3.719 5.469H9.97v1.53H1v1.313h8.969v1.531h1.312v-1.53H15v-1.313h-3.719V9.313Z" /></svg>;
 };
 export default IconFilters;
