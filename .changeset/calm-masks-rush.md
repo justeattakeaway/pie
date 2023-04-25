@@ -1,5 +1,4 @@
 ---
-"wc-vanilla": minor
 "pie-monorepo": minor
 ---
 
