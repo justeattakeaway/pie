@@ -41,7 +41,7 @@ jobs:
       - name: Setup Repo
         uses: ./.github/actions/setup-repo
         with:
-          node-version: 18
+          node-version: ${{ inputs.node-version }}
           os: ubuntu-latest
       # Build Docs Site
       - name: Build ${{ inputs.package-name }}
