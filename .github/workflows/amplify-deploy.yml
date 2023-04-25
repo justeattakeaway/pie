@@ -28,8 +28,9 @@ env:
   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
   AWS_REGION: 'eu-west-1'
   BRANCH_NAME: ${{ github.event_name == 'pull_request' && format('pr{0}', github.event.number) || (github.ref == 'refs/heads/main' && 'main' || github.ref == 'refs/heads/master' && 'master') }}
-  BUCKET_NAME: ${{ github.event_name == 'pull_request' && format('{0}-preview', inputs.package-name) || (github.ref == 'refs/heads/main' && format('{0}-main', inputs.package-name) || github.ref == 'refs/heads/master' && format('{0}-master', inputs.package-name)) }}
+  BUCKET_NAME: ${{ github.event_name == 'pull_request' && format('{0}-preview', inputs.package-name) || (github.ref == 'refs/heads/main' && inputs.package-name || github.ref == 'refs/heads/master' && inputs.package-name) }}
   TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+  ZIP_NAME: ${{ github.event_name == 'pull_request' && format('{0}-{1}-preview.zip', inputs.package-name, github.event.number) || (github.ref == 'refs/heads/main' && format('{0}-main.zip', inputs.package-name) || github.ref == 'refs/heads/master' && format('{0}-master.zip', inputs.package-name)) }}
 
 jobs:
   deploy:
@@ -63,7 +64,7 @@ jobs:
         shell: bash
         run: |
           cd ${{ inputs.package-dist-directory }}
-          zip -r ./${{ inputs.package-name }}-pr-${{github.event.number}}.zip .
+          zip -r ./${{ env.ZIP_NAME }} .
       # Upload zip to S3
       - name: Upload to S3
         id: upload-s3
@@ -75,7 +76,7 @@ jobs:
           aws-bucket: ${{ env.BUCKET_NAME }}
           bucket-root: "/"
           destination-dir: "/"
-          file-path: "${{inputs.package-dist-directory}}/${{ inputs.package-name }}-pr-${{github.event.number}}.zip"
+          file-path: "${{inputs.package-dist-directory}}/${{ env.ZIP_NAME }}"
           content-type: "application/zip"
           public: true
       # Create branch on Amplify
@@ -94,7 +95,7 @@ jobs:
           aws amplify start-deployment \
             --app-id ${{ inputs.amplify-app-id }} \
             --branch-name ${{ env.BRANCH_NAME }} \
-            --source-url https://${{ env.BUCKET_NAME }}.s3.${{ env.AWS_REGION }}.amazonaws.com/${{ inputs.package-name }}-pr-${{ github.event.number }}.zip
+            --source-url https://${{ env.BUCKET_NAME }}.s3.${{ env.AWS_REGION }}.amazonaws.com/${{ env.ZIP_NAME }}
       # If successful
       - name: Update deployment status (success)
         if: ${{ github.event_name == 'pull_request' && success() }}
