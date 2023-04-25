@@ -1,11 +1,21 @@
 import * as React from "react";
-import { SVGProps } from "react";
-const IconPaymentVvv = (props: any) => {
+import { RegularIconProps } from "../types";
+// @ts-ignore
+import { getSvgProps } from './configs-react';
+const IconPaymentVvv = (props: RegularIconProps) => {
   const {
     className,
+    iconSize,
+    width,
+    height,
     ...remainingProps
   } = props;
-  return <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" className={"pie-icon pie-icon--vvv" + (props.className ? ' ' + props.className : '') } width="1em" height="1em" {...remainingProps}><g clipPath="url(#prefix__clip0_3973_5794)"><mask id="prefix__mask0_3973_5794" width={12} height={12} x={2} y={2} maskUnits="userSpaceOnUse" style={{
+  const moreProps = getSvgProps("pie-icon pie-icon--vvv", className, iconSize, "IconPaymentVvv");
+  const allProps = {
+    ...remainingProps,
+    ...moreProps
+  };
+  return <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"    {...allProps}><g clipPath="url(#prefix__clip0_3973_5794)"><mask id="prefix__mask0_3973_5794" width={12} height={12} x={2} y={2} maskUnits="userSpaceOnUse" style={{
         maskType: "alpha"
       }}><path fill="#fff" d="M12.373 2H3.627C2.728 2 2 2.728 2 3.627v8.746C2 13.272 2.728 14 3.627 14h8.746c.899 0 1.627-.728 1.627-1.627V3.627C14 2.728 13.272 2 12.373 2Z" /></mask><g mask="url(#prefix__mask0_3973_5794)"><path fill="url(#prefix__paint0_linear_3973_5794)" d="M-2.625.982h20.676V15.32H-2.625V.982Z" /></g><mask id="prefix__mask1_3973_5794" width={12} height={12} x={2} y={2} maskUnits="userSpaceOnUse" style={{
         maskType: "alpha"
