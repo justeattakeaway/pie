@@ -1,5 +1,5 @@
 const {
-    DOCS_AMPLIFY_ID,
+    AMPLIFY_ID,
     CI,
     PR_NUMBER,
     GITHUB_REF_NAME,
@@ -20,5 +20,5 @@ exports.getBaseUrl = () => {
     if (GITHUB_REF_NAME === 'main') {
         return 'https://www.pie.design/';
     }
-    return `https://pr${PR_NUMBER}.${DOCS_AMPLIFY_ID}.amplifyapp.com/`;
+    return `https://pr${PR_NUMBER}.${AMPLIFY_ID}.amplifyapp.com/`;
 };

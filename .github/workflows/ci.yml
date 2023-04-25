@@ -27,7 +27,6 @@ concurrency:
 env:
   PERCY_TOKEN_PIE_DOCS: ${{ secrets.PERCY_TOKEN_PIE_DOCS }}
   PERCY_TOKEN_PIE_BUTTON: ${{ secrets.PERCY_TOKEN_PIE_BUTTON }}
-  PR_NUMBER: ${{ github.event.number }}
   TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
 
 jobs:
@@ -132,15 +131,6 @@ jobs:
         uses: ./.github/actions/run-script
         with:
           script-name: "test:ci"
-
-#main
-# amplify-app-id: ${{ env.DOCS_AMPLIFY_ID }}
-# aws-region: 'eu-west-1'
-# aws-access-key-id: ${{ secrets.AWS_KEY_ID }}
-# aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-# branch-name: 'main'
-# bucket-name: ${{ secrets.AWS_DOCS_MAIN_BUCKET }}
-# package-name: 'pie-docs'
 
   deploy-docs:
     needs: unit-tests
