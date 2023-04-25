@@ -3,16 +3,21 @@
   "private": true,
   "scripts": {
     "build": "nuxt build",
+    "build:examples": "yarn build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@justeattakeaway/pie-button": "^0.10.1",
     "@nuxt/vite-builder": "3.0.0",
     "vue": "3.2.25"
   },
   "devDependencies": {
     "nuxt": "3.0.0",
     "typescript": "5.0.3"
+  },
+  "installConfig": {
+    "hoistingLimits": "workspaces"
   }
 }

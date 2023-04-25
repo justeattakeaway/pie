@@ -1,0 +1,32 @@
+name: run-script
+description: Executes a package.json script for the monorepo or individual package.
+
+inputs:
+  script-name:
+    description: 'The name of the package.json script to execute.'
+    required: true
+  concurrency:
+    description: 'The number of concurrent scripts to execute.'
+    required: false
+  package-name:
+    description: 'The package the script is executed for (uses Turborepo --filter argument)'
+    required: false
+
+runs:
+  using: composite
+  steps:
+    - name: Run ${{ inputs.script-name }}
+      shell: bash
+      run: |
+        CONCURRENCY_FLAG=""
+        FILTER_FLAG=""
+
+        if [ ! -z "${{ inputs.concurrency }}" ]; then
+          CONCURRENCY_FLAG="--concurrency=${{ inputs.concurrency }}"
+        fi
+
+        if [ ! -z "${{ inputs.package-name }}" ]; then
+          FILTER_FLAG="--filter=${{ inputs.package-name }}"
+        fi
+
+        yarn ${{ inputs.script-name }} $CONCURRENCY_FLAG $FILTER_FLAG

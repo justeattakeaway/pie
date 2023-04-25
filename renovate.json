@@ -117,6 +117,66 @@
       "groupName": "react",
       "groupSlug": "pie-storybook-react-devDeps",
       "enabled": true
+    },
+    {
+      "commitMessagePrefix": "chore(wc-angular12): ",
+      "description": "Group dependencies from package.json within wc-angular12",
+      "matchFiles": ["apps/examples/wc-angular12/package.json"],
+      "matchDepTypes": ["devDependencies", "dependencies"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "wc-angular12",
+      "groupSlug": "wc-angular12-deps",
+      "enabled": true
+    },
+    {
+      "commitMessagePrefix": "chore(wc-next13): ",
+      "description": "Group dependencies from package.json within wc-next13",
+      "matchFiles": ["apps/examples/wc-next13/package.json"],
+      "matchDepTypes": ["devDependencies", "dependencies"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "wc-next13",
+      "groupSlug": "wc-next13-deps",
+      "enabled": true
+    },
+    {
+      "commitMessagePrefix": "chore(wc-nuxt3): ",
+      "description": "Group dependencies from package.json within wc-nuxt3",
+      "matchFiles": ["apps/examples/wc-nuxt3/package.json"],
+      "matchDepTypes": ["devDependencies", "dependencies"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "wc-nuxt3",
+      "groupSlug": "wc-nuxt3-deps",
+      "enabled": true
+    },
+    {
+      "commitMessagePrefix": "chore(wc-react17): ",
+      "description": "Group dependencies from package.json within wc-react17",
+      "matchFiles": ["apps/examples/wc-react17/package.json"],
+      "matchDepTypes": ["devDependencies", "dependencies"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "wc-react17",
+      "groupSlug": "wc-react17-deps",
+      "enabled": true
+    }
+    {
+      "commitMessagePrefix": "chore(wc-react18): ",
+      "description": "Group dependencies from package.json within wc-react18",
+      "matchFiles": ["apps/examples/wc-react18/package.json"],
+      "matchDepTypes": ["devDependencies", "dependencies"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "wc-react18",
+      "groupSlug": "wc-react18-deps",
+      "enabled": true
+    },
+    {
+      "commitMessagePrefix": "chore(wc-vue3): ",
+      "description": "Group dependencies from package.json within wc-vue3",
+      "matchFiles": ["apps/examples/wc-vue3/package.json"],
+      "matchDepTypes": ["devDependencies", "dependencies"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "wc-vue3",
+      "groupSlug": "wc-vue3-deps",
+      "enabled": true
     }
   ]
 }

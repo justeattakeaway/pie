@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Vite App</title>
+        <link rel="preload" href="https://d30v2pzvrfyzpo.cloudfront.net/fonts/JETSansDigital-Regular-optimised.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="preload" href="https://d30v2pzvrfyzpo.cloudfront.net/fonts/JETSansDigital-Bold-optimised.woff2" as="font" type="font/woff2" crossorigin>
+        <style>
+        @font-face {
+            font-family: JETSansDigital;
+            src: url('https://d30v2pzvrfyzpo.cloudfront.net/fonts/JETSansDigital-Regular-optimised.woff2') format("woff2"),
+            url('https://d30v2pzvrfyzpo.cloudfront.net/fonts/JETSansDigital-Regular-optimised.woff') format("woff");
+            font-weight: 400;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: JETSansDigital;
+            src: url('https://d30v2pzvrfyzpo.cloudfront.net/fonts/JETSansDigital-Bold-optimised.woff2') format("woff2"),
+            url('https://d30v2pzvrfyzpo.cloudfront.net/fonts/JETSansDigital-Bold-optimised.woff') format("woff");
+            font-weight: 700;
+            font-display: swap;
+        }
+        body {
+            font-feature-settings: "tnum"; /* Enable tabular numbers */
+        }
+        </style>
+        <link rel="stylesheet" href="/node_modules/@justeat/pie-design-tokens/dist/jet.css"/>
+    </head>
+    <body>
+        <div id="app"></div>
+        <script type="module" src="/main.js"></script>
+        <script type="module" src="./node_modules/@justeattakeaway/pie-button"></script>
+    </body>
+</html>
