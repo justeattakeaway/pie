@@ -144,28 +144,22 @@ jobs:
 
   deploy-docs:
     needs: unit-tests
-    if: ${{ github.event_name == 'pull_request' }}
     uses: ./.github/workflows/amplify-deploy.yml
     with:
       os: ubuntu-latest
       node-version: 16
       amplify-app-id: dvskdcoepjoyf
-      branch-name: 'pr${{ github.event.number }}'
-      bucket-name: pie-docs-preview
       package-name: 'pie-docs'
       package-dist-directory: ./apps/pie-docs/dist
     secrets: inherit
 
   deploy-storybook:
     needs: unit-tests
-    if: ${{ github.event_name == 'pull_request' }}
     uses: ./.github/workflows/amplify-deploy.yml
     with:
       os: ubuntu-latest
       node-version: 16
       amplify-app-id: d17ja0ul7nrdy0
-      branch-name: 'pr${{ github.event.number }}'
-      bucket-name: pie-storybook-preview
       package-name: 'pie-storybook'
       package-dist-directory: ./apps/pie-storybook/dist
     secrets: inherit
