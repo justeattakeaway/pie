@@ -137,7 +137,7 @@ jobs:
     uses: ./.github/workflows/amplify-deploy.yml
     with:
       os: ubuntu-latest
-      node-version: 16
+      node-version: 18
       amplify-app-id: dvskdcoepjoyf
       package-name: 'pie-docs'
       package-dist-directory: ./apps/pie-docs/dist
@@ -148,7 +148,7 @@ jobs:
     uses: ./.github/workflows/amplify-deploy.yml
     with:
       os: ubuntu-latest
-      node-version: 16
+      node-version: 18
       amplify-app-id: d17ja0ul7nrdy0
       package-name: 'pie-storybook'
       package-dist-directory: ./apps/pie-storybook/dist
@@ -195,6 +195,9 @@ jobs:
           name: visual-report
           path: visual-report/
           retention-days: 7
+    env:
+      DOCS_AMPLIFY_ID: dvskdcoepjoyf
+      PR_NUMBER: ${{ github.event.number }}
 
   release:
     needs: [ 'unit-tests', 'lint-js']
