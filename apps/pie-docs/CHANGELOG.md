@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.69.0
+
+### Minor Changes
+
+- [Changed] Update colours for code snippets and re-enable color-contrast Axe checks by [@xander-marjoram](https://github.com/xander-marjoram)
+
 ## 1.68.0
 
 ### Minor Changes
