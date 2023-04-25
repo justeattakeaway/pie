@@ -5,6 +5,28 @@ $button-height-s: 40px;
 $button-height-m: 48px;
 $button-height-l: 56px;
 
+$button-border-radius: dt.$radius-rounded-e;
+$button-font: dt.$font-interactive-m-family;
+$button-focus: dt.$color-focus;
+
+$button-bg-color-primary: dt.$color-interactive-brand;
+$button-text-color-primary: dt.$color-content-interactive-primary;
+
+$button-bg-color-secondary: dt.$color-interactive-secondary;
+$button-text-color-secondary: dt.$color-content-interactive-secondary;
+
+$button-bg-color-outline: dt.$color-container-default;
+$button-text-color-outline: dt.$color-content-interactive-tertiary;
+$button-outline-color-outline: dt.$color-border-strong;
+
+$button-bg-color-ghost: dt.$color-container-default;
+$button-text-color-ghost: dt.$color-content-link;
+$button-disabled-bg-color-ghost: dt.$color-container-default;
+
+$button-bg-color-disabled: dt.$color-disabled-01;
+$button-text-color-disabled: dt.$color-content-disabled;
+$button-outline-color-disabled: dt.$color-disabled-01;
+
 // Sets up the size of a button such as xsmall or large
 @mixin button-sizing($min-height, $padding-block, $padding-inline, $font-size, $font-weight, $line-height) {
     min-height: $min-height;
@@ -34,16 +56,16 @@ $button-height-l: 56px;
 
 // Base button styles
 .o-btn {
-    border-radius: dt.$radius-rounded-e;
+    border-radius: $button-border-radius;
     border: none;
-    font-family: dt.$font-interactive-m-family;
+    font-family: $button-font;
 
     cursor: pointer;
     user-select: none;
     outline: none;
 
     &:focus-visible {
-        outline: 2px solid dt.$color-focus;
+        outline: 2px solid $button-focus;
     }
 }
 
@@ -104,31 +126,30 @@ $button-sizes: (
     }
 }
 
-
 // Variants
 .o-btn--primary {
-    @include button-variant(dt.$color-interactive-brand, dt.$color-content-interactive-primary);
+    @include button-variant($button-bg-color-primary, $button-text-color-primary);
 }
 
 .o-btn--secondary {
-    @include button-variant(dt.$color-interactive-secondary, dt.$color-content-interactive-secondary);
+    @include button-variant($button-bg-color-secondary, $button-text-color-secondary);
 }
 
 .o-btn--outline {
-    @include button-variant(dt.$color-container-default, dt.$color-content-interactive-tertiary, dt.$color-border-strong);
+    @include button-variant($button-bg-color-outline, $button-text-color-outline, $button-outline-color-outline);
 }
 
 .o-btn--ghost {
-    @include button-variant(dt.$color-container-default, dt.$color-content-link);
+    @include button-variant($button-bg-color-ghost, $button-text-color-ghost);
 }
 
 .o-btn.o-btn--is-disabled {
-    @include button-variant(dt.$color-disabled-01, dt.$color-content-disabled, dt.$color-disabled-01);
+    @include button-variant($button-bg-color-disabled, $button-text-color-disabled, $button-outline-color-disabled);
 
     cursor: default;
 
     &.o-btn--ghost {
-        background-color: dt.$color-container-default;
+        background-color: $button-disabled-bg-color-ghost;
         outline: none;
     }
 }
