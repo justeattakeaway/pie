@@ -25,10 +25,6 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  AWS_KEY_ID: ${{ secrets.AWS_KEY_ID }}
-  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-  AWS_REGION: 'eu-west-1'
-  STORYBOOK_AMPLIFY_ID: d17ja0ul7nrdy0
   PERCY_TOKEN_PIE_DOCS: ${{ secrets.PERCY_TOKEN_PIE_DOCS }}
   PERCY_TOKEN_PIE_BUTTON: ${{ secrets.PERCY_TOKEN_PIE_BUTTON }}
   PR_NUMBER: ${{ github.event.number }}
@@ -161,75 +157,18 @@ jobs:
     secrets: inherit
 
   deploy-storybook:
-    # This will depend on build once we've migrated off Github Pages
     needs: unit-tests
-    runs-on: ubuntu-latest
-    steps:
-      # Checkout the Repo
-      - name: Checkout
-        uses: actions/checkout@v3
-      # Setup Repo
-      - name: Setup Repo
-        uses: ./.github/actions/setup-repo
-        with:
-          node-version: 18
-          os: ubuntu-latest
-      # Build Storybook
-      - name: Build Storybook
-        uses: ./.github/actions/run-script
-        with:
-          script-name: "build"
-          package-name: "pie-storybook"
-      # Deployments
-      - name: Create Storybook GitHub deployment
-        if: ${{ github.event_name == 'pull_request' }}
-        uses: chrnorm/deployment-action@v2
-        id: storybook-deploy
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          environment: "pie-storybook-pr-${{ github.event.number }}"
-      # Amplify Deploy
-      - name: Amplify Deploy
-        if: ${{ github.event_name == 'pull_request' }}
-        uses: ./.github/actions/amplify-deploy
-        with:
-          amplify-app-id: ${{ env.STORYBOOK_AMPLIFY_ID }}
-          aws-region: 'eu-west-1'
-          aws-access-key-id: ${{ secrets.AWS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          branch-name: 'pr${{ github.event.number }}'
-          bucket-name: '${{ secrets.AWS_STORYBOOK_BUCKET }}'
-          package-name: 'pie-storybook'
-      # If successful
-      - name: Update deployment status (success)
-        if: ${{ github.event_name == 'pull_request' && success() }}
-        uses: chrnorm/deployment-status@v2
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          environment-url: https://pr${{ github.event.number }}.${{ env.STORYBOOK_AMPLIFY_ID }}.amplifyapp.com
-          deployment-id: ${{ steps.storybook-deploy.outputs.deployment_id }}
-          state: "success"
-      # If it failed
-      - name: Update deployment status (failure)
-        if: ${{ github.event_name == 'pull_request' && failure() }}
-        uses: chrnorm/deployment-status@v2
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          environment-url: https://pr${{ github.event.number }}.${{ env.STORYBOOK_AMPLIFY_ID }}.amplifyapp.com
-          deployment-id: ${{ steps.storybook-deploy.outputs.deployment_id }}
-          state: "failure"
-      # Main deployment
-      - name: Deploy Main (Amplify)
-        if: ${{ github.ref == 'refs/heads/main' }}
-        uses: ./.github/actions/amplify-deploy
-        with:
-          amplify-app-id: ${{ env.STORYBOOK_AMPLIFY_ID }}
-          aws-region: 'eu-west-1'
-          aws-access-key-id: ${{ secrets.AWS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          branch-name: 'main'
-          bucket-name: ${{ secrets.AWS_STORYBOOK_MAIN_BUCKET }}
-          package-name: 'pie-storybook'
+    if: ${{ github.event_name == 'pull_request' }}
+    uses: ./.github/workflows/amplify-deploy.yml
+    with:
+      os: ubuntu-latest
+      node-version: 16
+      amplify-app-id: d17ja0ul7nrdy0
+      branch-name: 'pr${{ github.event.number }}'
+      bucket-name: pie-storybook-preview
+      package-name: 'pie-storybook'
+      package-dist-directory: ./apps/pie-storybook/dist
+    secrets: inherit
 
   browser-tests:
     needs: deploy-docs
