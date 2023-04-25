@@ -4144,18 +4144,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@justeattakeaway/pie-button@^0.10.1, @justeattakeaway/pie-button@workspace:*, @justeattakeaway/pie-button@workspace:packages/components/pie-button":
+  version: 0.0.0-use.local
+  resolution: "@justeattakeaway/pie-button@workspace:packages/components/pie-button"
+  languageName: unknown
+  linkType: soft
+
 "@justeattakeaway/pie-button@npm:0.10.0":
   version: 0.10.0
   resolution: "@justeattakeaway/pie-button@npm:0.10.0"
   checksum: 53342690419e6ce9959de02a2c8671bb52c550eed3a88587a3af690a7b03e49df18c84964f4117117bed6caac17704ad359e9673241dc6cf1ef567fe2136b21f
   languageName: node
   linkType: hard
-
-"@justeattakeaway/pie-button@workspace:*, @justeattakeaway/pie-button@workspace:packages/components/pie-button":
-  version: 0.0.0-use.local
-  resolution: "@justeattakeaway/pie-button@workspace:packages/components/pie-button"
-  languageName: unknown
-  linkType: soft
 
 "@justeattakeaway/pie-eslint-config@workspace:packages/tools/pie-eslint-config":
   version: 0.0.0-use.local
@@ -35208,6 +35208,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "wc-nuxt3@workspace:apps/examples/wc-nuxt3"
   dependencies:
+    "@justeattakeaway/pie-button": ^0.10.1
     "@nuxt/vite-builder": 3.0.0
     nuxt: 3.0.0
     typescript: 5.0.3
