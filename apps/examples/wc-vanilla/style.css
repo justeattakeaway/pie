@@ -1,0 +1,17 @@
+html {
+    box-sizing: border-box;
+    height: 100%;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: JetSansDigital;
+    margin: 0;
+    display: grid;
+    justify-content: center;
+    place-content: center;
+    min-height: 100%;
+}
