@@ -23,6 +23,6 @@
     "node": "16.19.0"
   },
   "installConfig": {
-    "hoistingLimits": "workspaces"
+    "hoistingLimits": "none"
   }
 }

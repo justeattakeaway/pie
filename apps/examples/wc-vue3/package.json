@@ -26,6 +26,6 @@
     "extends": "../../../package.json"
   },
   "installConfig": {
-    "hoistingLimits": "workspaces"
+    "hoistingLimits": "none"
   }
 }
