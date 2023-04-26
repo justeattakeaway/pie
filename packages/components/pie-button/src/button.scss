@@ -28,8 +28,8 @@ $button-text-color-disabled: dt.$color-content-disabled;
 $button-outline-color-disabled: dt.$color-disabled-01;
 
 // Sets up the size of a button such as xsmall or large
-@mixin button-sizing($min-height, $padding-block, $padding-inline, $font-size, $font-weight, $line-height) {
-    min-height: $min-height;
+@mixin button-sizing($min-block-size, $padding-block, $padding-inline, $font-size, $font-weight, $line-height) {
+    min-block-size: $min-block-size;
     padding: $padding-block $padding-inline;
     font-size: $font-size * 1px;
     font-weight: $font-weight;
@@ -72,7 +72,7 @@ $button-outline-color-disabled: dt.$color-disabled-01;
 // Sizes
 $button-sizes: (
     'xsmall': (
-        'min-height': $button-height-xs,
+        'min-block-size': $button-height-xs,
         'padding-block': 6px,
         'padding-inline': dt.$spacing-b,
         'font-size': dt.$font-interactive-xs-size,
@@ -80,7 +80,7 @@ $button-sizes: (
         'line-height': dt.$font-interactive-xs-line-height
     ),
     'small-productive': (
-        'min-height': $button-height-s,
+        'min-block-size': $button-height-s,
         'padding-block': dt.$spacing-b,
         'padding-inline': dt.$spacing-d,
         'font-size': dt.$font-interactive-s-size,
@@ -88,7 +88,7 @@ $button-sizes: (
         'line-height': dt.$font-interactive-s-line-height
     ),
     'small-expressive': (
-        'min-height': $button-height-s,
+        'min-block-size': $button-height-s,
         'padding-block': 6px,
         'padding-inline': dt.$spacing-d,
         'font-size': dt.$font-interactive-l-size,
@@ -96,7 +96,7 @@ $button-sizes: (
         'line-height': dt.$font-interactive-l-line-height
     ),
     'medium': (
-        'min-height': $button-height-m,
+        'min-block-size': $button-height-m,
         'padding-block': 10px,
         'padding-inline': dt.$spacing-e,
         'font-size': dt.$font-interactive-l-size,
@@ -104,7 +104,7 @@ $button-sizes: (
         'line-height': dt.$font-interactive-l-line-height
     ),
     'large': (
-        'min-height': $button-height-l,
+        'min-block-size': $button-height-l,
         'padding-block': 14px,
         'padding-inline': dt.$spacing-e,
         'font-size': dt.$font-interactive-l-size,
@@ -116,7 +116,7 @@ $button-sizes: (
 @each $size, $values in $button-sizes {
     .o-btn--#{$size} {
         @include button-sizing(
-            map-get($values, 'min-height'),
+            map-get($values, 'min-block-size'),
             map-get($values, 'padding-block'),
             map-get($values, 'padding-inline'),
             map-get($values, 'font-size'),
