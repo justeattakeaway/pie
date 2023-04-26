@@ -38,7 +38,7 @@ export default defineConfig({
       use: {
         ...devices['Desktop Chrome'],
       },
-      testMatch: ['**/test/visual/*.spec.js']
+      testMatch: ['**/test/visual/*.spec.ts']
     },
     {
       name: 'visual:mobile',
@@ -46,7 +46,7 @@ export default defineConfig({
       use: {
         ...devices['Pixel 5'],
       },
-      testMatch: ['**/test/visual/*.spec.js']
+      testMatch: ['**/test/visual/*.spec.ts']
     },
   ],
 });
