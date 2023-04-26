@@ -3003,6 +3003,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
+=======
+"@esbuild/android-arm64@npm:0.16.17":
+  version: 0.16.17
+  resolution: "@esbuild/android-arm64@npm:0.16.17"
+  conditions: os=android & cpu=arm64
+  languageName: node
+  linkType: hard
+
+>>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
 "@esbuild/android-arm64@npm:0.17.18":
   version: 0.17.18
   resolution: "@esbuild/android-arm64@npm:0.17.18"
@@ -3024,6 +3034,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
+=======
+"@esbuild/android-arm@npm:0.16.17":
+  version: 0.16.17
+  resolution: "@esbuild/android-arm@npm:0.16.17"
+  conditions: os=android & cpu=arm
+  languageName: node
+  linkType: hard
+
+>>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
 "@esbuild/android-arm@npm:0.17.18":
   version: 0.17.18
   resolution: "@esbuild/android-arm@npm:0.17.18"
@@ -3038,6 +3058,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
+=======
+"@esbuild/android-x64@npm:0.16.17":
+  version: 0.16.17
+  resolution: "@esbuild/android-x64@npm:0.16.17"
+  conditions: os=android & cpu=x64
+  languageName: node
+  linkType: hard
+
+>>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
 "@esbuild/android-x64@npm:0.17.18":
   version: 0.17.18
   resolution: "@esbuild/android-x64@npm:0.17.18"
@@ -3052,6 +3082,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
+=======
+"@esbuild/darwin-arm64@npm:0.16.17":
+  version: 0.16.17
+  resolution: "@esbuild/darwin-arm64@npm:0.16.17"
+  conditions: os=darwin & cpu=arm64
+  languageName: node
+  linkType: hard
+
+>>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
 "@esbuild/darwin-arm64@npm:0.17.18":
   version: 0.17.18
   resolution: "@esbuild/darwin-arm64@npm:0.17.18"
@@ -3066,6 +3106,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
+=======
+"@esbuild/darwin-x64@npm:0.16.17":
+  version: 0.16.17
+  resolution: "@esbuild/darwin-x64@npm:0.16.17"
+  conditions: os=darwin & cpu=x64
+  languageName: node
+  linkType: hard
+
+>>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
 "@esbuild/darwin-x64@npm:0.17.18":
   version: 0.17.18
   resolution: "@esbuild/darwin-x64@npm:0.17.18"
@@ -3080,6 +3130,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
+=======
+"@esbuild/freebsd-arm64@npm:0.16.17":
+  version: 0.16.17
+  resolution: "@esbuild/freebsd-arm64@npm:0.16.17"
+  conditions: os=freebsd & cpu=arm64
+  languageName: node
+  linkType: hard
+
+>>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
 "@esbuild/freebsd-arm64@npm:0.17.18":
   version: 0.17.18
   resolution: "@esbuild/freebsd-arm64@npm:0.17.18"
@@ -3094,6 +3154,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
+=======
+"@esbuild/freebsd-x64@npm:0.16.17":
+  version: 0.16.17
+  resolution: "@esbuild/freebsd-x64@npm:0.16.17"
+  conditions: os=freebsd & cpu=x64
+  languageName: node
+  linkType: hard
+
+>>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
 "@esbuild/freebsd-x64@npm:0.17.18":
   version: 0.17.18
   resolution: "@esbuild/freebsd-x64@npm:0.17.18"
@@ -3108,6 +3178,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
+=======
+"@esbuild/linux-arm64@npm:0.16.17":
+  version: 0.16.17
+  resolution: "@esbuild/linux-arm64@npm:0.16.17"
+  conditions: os=linux & cpu=arm64
+  languageName: node
+  linkType: hard
+
+>>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
 "@esbuild/linux-arm64@npm:0.17.18":
   version: 0.17.18
   resolution: "@esbuild/linux-arm64@npm:0.17.18"
@@ -3122,6 +3202,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
+=======
+"@esbuild/linux-arm@npm:0.16.17":
+  version: 0.16.17
+  resolution: "@esbuild/linux-arm@npm:0.16.17"
+  conditions: os=linux & cpu=arm
+  languageName: node
+  linkType: hard
+
+>>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
 "@esbuild/linux-arm@npm:0.17.18":
   version: 0.17.18
   resolution: "@esbuild/linux-arm@npm:0.17.18"
@@ -3136,6 +3226,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
+=======
+"@esbuild/linux-ia32@npm:0.16.17":
+  version: 0.16.17
+  resolution: "@esbuild/linux-ia32@npm:0.16.17"
+  conditions: os=linux & cpu=ia32
+  languageName: node
+  linkType: hard
+
+>>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
 "@esbuild/linux-ia32@npm:0.17.18":
   version: 0.17.18
   resolution: "@esbuild/linux-ia32@npm:0.17.18"
@@ -3157,6 +3257,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
+=======
+"@esbuild/linux-loong64@npm:0.16.17":
+  version: 0.16.17
+  resolution: "@esbuild/linux-loong64@npm:0.16.17"
+  conditions: os=linux & cpu=loong64
+  languageName: node
+  linkType: hard
+
+>>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
 "@esbuild/linux-loong64@npm:0.17.18":
   version: 0.17.18
   resolution: "@esbuild/linux-loong64@npm:0.17.18"
@@ -3171,6 +3281,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
+=======
+"@esbuild/linux-mips64el@npm:0.16.17":
+  version: 0.16.17
+  resolution: "@esbuild/linux-mips64el@npm:0.16.17"
+  conditions: os=linux & cpu=mips64el
+  languageName: node
+  linkType: hard
+
+>>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
 "@esbuild/linux-mips64el@npm:0.17.18":
   version: 0.17.18
   resolution: "@esbuild/linux-mips64el@npm:0.17.18"
@@ -3185,6 +3305,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
+=======
+"@esbuild/linux-ppc64@npm:0.16.17":
+  version: 0.16.17
+  resolution: "@esbuild/linux-ppc64@npm:0.16.17"
+  conditions: os=linux & cpu=ppc64
+  languageName: node
+  linkType: hard
+
+>>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
 "@esbuild/linux-ppc64@npm:0.17.18":
   version: 0.17.18
   resolution: "@esbuild/linux-ppc64@npm:0.17.18"
@@ -3199,6 +3329,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
+=======
+"@esbuild/linux-riscv64@npm:0.16.17":
+  version: 0.16.17
+  resolution: "@esbuild/linux-riscv64@npm:0.16.17"
+  conditions: os=linux & cpu=riscv64
+  languageName: node
+  linkType: hard
+
+>>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
 "@esbuild/linux-riscv64@npm:0.17.18":
   version: 0.17.18
   resolution: "@esbuild/linux-riscv64@npm:0.17.18"
@@ -3213,6 +3353,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
+=======
+"@esbuild/linux-s390x@npm:0.16.17":
+  version: 0.16.17
+  resolution: "@esbuild/linux-s390x@npm:0.16.17"
+  conditions: os=linux & cpu=s390x
+  languageName: node
+  linkType: hard
+
+>>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
 "@esbuild/linux-s390x@npm:0.17.18":
   version: 0.17.18
   resolution: "@esbuild/linux-s390x@npm:0.17.18"
@@ -3227,6 +3377,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
+=======
+"@esbuild/linux-x64@npm:0.16.17":
+  version: 0.16.17
+  resolution: "@esbuild/linux-x64@npm:0.16.17"
+  conditions: os=linux & cpu=x64
+  languageName: node
+  linkType: hard
+
+>>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
 "@esbuild/linux-x64@npm:0.17.18":
   version: 0.17.18
   resolution: "@esbuild/linux-x64@npm:0.17.18"
@@ -3241,6 +3401,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
+=======
+"@esbuild/netbsd-x64@npm:0.16.17":
+  version: 0.16.17
+  resolution: "@esbuild/netbsd-x64@npm:0.16.17"
+  conditions: os=netbsd & cpu=x64
+  languageName: node
+  linkType: hard
+
+>>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
 "@esbuild/netbsd-x64@npm:0.17.18":
   version: 0.17.18
   resolution: "@esbuild/netbsd-x64@npm:0.17.18"
@@ -3255,6 +3425,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
+=======
+"@esbuild/openbsd-x64@npm:0.16.17":
+  version: 0.16.17
+  resolution: "@esbuild/openbsd-x64@npm:0.16.17"
+  conditions: os=openbsd & cpu=x64
+  languageName: node
+  linkType: hard
+
+>>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
 "@esbuild/openbsd-x64@npm:0.17.18":
   version: 0.17.18
   resolution: "@esbuild/openbsd-x64@npm:0.17.18"
@@ -3269,6 +3449,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
+=======
+"@esbuild/sunos-x64@npm:0.16.17":
+  version: 0.16.17
+  resolution: "@esbuild/sunos-x64@npm:0.16.17"
+  conditions: os=sunos & cpu=x64
+  languageName: node
+  linkType: hard
+
+>>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
 "@esbuild/sunos-x64@npm:0.17.18":
   version: 0.17.18
   resolution: "@esbuild/sunos-x64@npm:0.17.18"
@@ -3283,6 +3473,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
+=======
+"@esbuild/win32-arm64@npm:0.16.17":
+  version: 0.16.17
+  resolution: "@esbuild/win32-arm64@npm:0.16.17"
+  conditions: os=win32 & cpu=arm64
+  languageName: node
+  linkType: hard
+
+>>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
 "@esbuild/win32-arm64@npm:0.17.18":
   version: 0.17.18
   resolution: "@esbuild/win32-arm64@npm:0.17.18"
@@ -3297,6 +3497,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
+=======
+"@esbuild/win32-ia32@npm:0.16.17":
+  version: 0.16.17
+  resolution: "@esbuild/win32-ia32@npm:0.16.17"
+  conditions: os=win32 & cpu=ia32
+  languageName: node
+  linkType: hard
+
+>>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
 "@esbuild/win32-ia32@npm:0.17.18":
   version: 0.17.18
   resolution: "@esbuild/win32-ia32@npm:0.17.18"
@@ -3311,6 +3521,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
+=======
+"@esbuild/win32-x64@npm:0.16.17":
+  version: 0.16.17
+  resolution: "@esbuild/win32-x64@npm:0.16.17"
+  conditions: os=win32 & cpu=x64
+  languageName: node
+  linkType: hard
+
+>>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
 "@esbuild/win32-x64@npm:0.17.18":
   version: 0.17.18
   resolution: "@esbuild/win32-x64@npm:0.17.18"
@@ -3367,10 +3587,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "@eslint/js@npm:8.40.0":
   version: 8.40.0
   resolution: "@eslint/js@npm:8.40.0"
   checksum: e84936b8ebd1c8fd90e860182e95d1404006da4cbca722b14950b298aeeca102b080aa9b62c8e69f90824ec54e19f1ba79b239046223624d1414ee82e8e628ac
+=======
+"@eslint/js@npm:8.39.0":
+  version: 8.39.0
+  resolution: "@eslint/js@npm:8.39.0"
+  checksum: 63fe36e2bfb5ff5705d1c1a8ccecd8eb2f81d9af239713489e767b0e398759c0177fcc75ad62581d02942f2776903a8496d5fae48dc2d883dff1b96fcb19e9e2
+>>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
   languageName: node
   linkType: hard
 
@@ -4255,7 +4482,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "@lit-labs/react@npm:1.1.1, @lit-labs/react@npm:^1.0.2":
+=======
+"@lit-labs/nextjs@npm:0.1.1":
+  version: 0.1.1
+  resolution: "@lit-labs/nextjs@npm:0.1.1"
+  dependencies:
+    "@lit-labs/ssr-react": ^0.1.0
+    imports-loader: ^4.0.1
+  peerDependencies:
+    next: 12 || 13
+  checksum: 4023abe954119e2e064b271133a0533d88acc5c8908939906944af728c45bb821ffa3052533023124781fa62e46c344a8c60c2079c52d59c8358a84bcf82e9b1
+  languageName: node
+  linkType: hard
+
+"@lit-labs/react@npm:1.1.1":
+>>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
   version: 1.1.1
   resolution: "@lit-labs/react@npm:1.1.1"
   checksum: e46b87a3e04b329b62e67360a7a1b21c55abf91c17d3059b550654565b53c73a25832e95426698e9b78488cc4ebaeb20b8a8ca64a220325e31633355a245710d
@@ -4280,9 +4523,29 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "@lit-labs/ssr@npm:^3.1.1":
   version: 3.1.2
   resolution: "@lit-labs/ssr@npm:3.1.2"
+=======
+"@lit-labs/ssr-react@npm:^0.1.0":
+  version: 0.1.1
+  resolution: "@lit-labs/ssr-react@npm:0.1.1"
+  dependencies:
+    "@lit-labs/ssr": ^3.1.0
+    "@lit-labs/ssr-client": ^1.1.0
+    lit: ^2.7.0
+  peerDependencies:
+    "@types/react": 17 || 18
+    react: 17 || 18
+  checksum: eb8fb28d4e7bc7b76544eff96426dccc3d90078897b155ca5d3f18fd64f5a7e9f7861a5f0906c1de8c09cf730761d42b81f695f7e36267a60fae58bd5abc4d1f
+  languageName: node
+  linkType: hard
+
+"@lit-labs/ssr@npm:^3.1.0":
+  version: 3.1.1
+  resolution: "@lit-labs/ssr@npm:3.1.1"
+>>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
   dependencies:
     "@lit-labs/ssr-client": ^1.1.0
     "@lit-labs/ssr-dom-shim": ^1.1.0
@@ -4295,7 +4558,11 @@ __metadata:
     lit-html: ^2.7.0
     node-fetch: ^3.2.8
     parse5: ^7.1.1
+<<<<<<< HEAD
   checksum: 32efb60c7f243eead114521c7102885bbe2057b995c26addceea9b253b2f10f8f8d5915dc2dfe9e90fd4c40d36e0d8a7b2dff60bb835154197f36ea05bcf7246
+=======
+  checksum: 4262a2ebf26c8eb7ebdeaa7a04684e0131c27e9e5104c9d950fc38d1fbb93f181cf11aa2696f4f69806801dd6a23511f9fdefb34367db773f13023dfb8fc4b7a
+>>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
   languageName: node
   linkType: hard
 
@@ -5580,6 +5847,7 @@ __metadata:
   version: 1.24.0
   resolution: "@percy/sdk-utils@npm:1.24.0"
   checksum: 1ca0679e7d6170f278e75ae70d441c305d4f81b72f1cd7e05a04a882fcd558469444d187e39d174f4857fc6834c5cdbeafdad4e6c8376003e3cb1a7eb8c1caa4
+<<<<<<< HEAD
   languageName: node
   linkType: hard
 
@@ -5587,6 +5855,8 @@ __metadata:
   version: 0.11.0
   resolution: "@pkgjs/parseargs@npm:0.11.0"
   checksum: 6ad6a00fc4f2f2cfc6bff76fb1d88b8ee20bc0601e18ebb01b6d4be583733a860239a521a7fbca73b612e66705078809483549d2b18f370eb346c5155c8e4a0f
+=======
+>>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
   languageName: node
   linkType: hard
 
@@ -6706,10 +6976,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "@storybook/mdx2-csf@npm:^1.0.0":
   version: 1.0.0
   resolution: "@storybook/mdx2-csf@npm:1.0.0"
   checksum: 3a5e7f71dff1d62cccc8539eb55a38694f2864dc424ae25757a847e658816f19e1db2e06ac2aa270f8219e4fce34bae68a80ae403792d58e7017597385a8934f
+=======
+"@storybook/mdx2-csf@npm:next":
+  version: 1.1.0-next.0
+  resolution: "@storybook/mdx2-csf@npm:1.1.0-next.0"
+  checksum: 8803ec9f83a70b6ca2e76312f15056c735e9c7a7e524057bbcfa4c639f6f5aef387ddd9ec313b743eaea2c02d210dd1b51b60e01b577f87a06c6c4f6e5fa9e99
+>>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
   languageName: node
   linkType: hard
 
@@ -7260,11 +7537,19 @@ __metadata:
   linkType: hard
 
 "@types/babel__traverse@npm:*, @types/babel__traverse@npm:^7.0.4, @types/babel__traverse@npm:^7.0.6":
+<<<<<<< HEAD
   version: 7.18.5
   resolution: "@types/babel__traverse@npm:7.18.5"
   dependencies:
     "@babel/types": ^7.3.0
   checksum: b9e7f39eb84626cc8f83ebf75a621d47f04b53cb085a3ea738a9633d57cf65208e503b1830db91aa5e297bc2ba761681ac0b0cbfb7a3d56afcfb2296212668ef
+=======
+  version: 7.18.4
+  resolution: "@types/babel__traverse@npm:7.18.4"
+  dependencies:
+    "@babel/types": ^7.3.0
+  checksum: ca7e1ac37696c7d4699877f17ca531208edfe98c7a4f0ac064dd148ef980f11e73696df7bd3b5ccd4a897e518f8489b882983b49886ceac36c2e28572debfd43
+>>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
   languageName: node
   linkType: hard
 
@@ -7573,7 +7858,11 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "@types/minimatch@npm:*, @types/minimatch@npm:^5.1.2":
+=======
+"@types/minimatch@npm:*":
+>>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
   version: 5.1.2
   resolution: "@types/minimatch@npm:5.1.2"
   checksum: 0391a282860c7cb6fe262c12b99564732401bdaa5e395bee9ca323c312c1a0f45efbf34dce974682036e857db59a5c9b1da522f3d6055aeead7097264c8705a8
@@ -7605,6 +7894,7 @@ __metadata:
   linkType: hard
 
 "@types/node@npm:*, @types/node@npm:>=10.0.0":
+<<<<<<< HEAD
   version: 20.1.1
   resolution: "@types/node@npm:20.1.1"
   checksum: 47961ee23f873c14c3f6045422ff3059f3bfb10231ef3080a7a72d7215cc8c2623fa8cedb7b246305962fa9c1e0c9e381e04b12eb3e9ec5d076025c6231ac8da
@@ -7615,6 +7905,11 @@ __metadata:
   version: 18.16.6
   resolution: "@types/node@npm:18.16.6"
   checksum: 99417418952c0b1a6ff5dd40ccf01c2cd18db6a1c54bfaaff29c700c877e2e541aa31ea33090592f3817adb2b8c0946b86c7fb57049131e7c08252d70075f09b
+=======
+  version: 18.16.1
+  resolution: "@types/node@npm:18.16.1"
+  checksum: 799026b949a48993cba7c9b81b2eabfdfb34c880744cb44c1c990fbedc9e315f3634d126eb2cf9a6e0795577c01016e2326d98565bef695ada9d363fadeb6946
+>>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
   languageName: node
   linkType: hard
 
@@ -7633,9 +7928,15 @@ __metadata:
   linkType: hard
 
 "@types/node@npm:^16.0.0":
+<<<<<<< HEAD
   version: 16.18.27
   resolution: "@types/node@npm:16.18.27"
   checksum: 23a89da6c648fcf0033e1618c9585c5aaba7bd536b4473591d92f63b993f7aa7bf00e72b0af4438a096ab9856a02040a2877fbe00bd7e223b361f78642d0be77
+=======
+  version: 16.18.25
+  resolution: "@types/node@npm:16.18.25"
+  checksum: 181760ad6b54fcc498dfeb249e98bbf0be51d7c35e92e760e1a82004fa42b86e8c33a8f8dd7743b5ef872bda0753d9e6a5b8e3f0aed63e9eb79b4e65760c1fbe
+>>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
   languageName: node
   linkType: hard
 
@@ -7712,13 +8013,22 @@ __metadata:
   linkType: hard
 
 "@types/react@npm:*, @types/react@npm:>=16":
+<<<<<<< HEAD
   version: 18.2.6
   resolution: "@types/react@npm:18.2.6"
+=======
+  version: 18.2.0
+  resolution: "@types/react@npm:18.2.0"
+>>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
   dependencies:
     "@types/prop-types": "*"
     "@types/scheduler": "*"
     csstype: ^3.0.2
+<<<<<<< HEAD
   checksum: dea9d232d8df7ac357367a69dcb557711ab3d5501807ffa77cebeee73d49ee94d095f298e36853c63ed47cce097eee4c7eae2aaa8c02fac3f0171ec1b523a819
+=======
+  checksum: db3d92b423150222a666329f7aa3023e3e942044700557b8a7d161530847e621aec9f56c9e7f71761b06dd164c8a7b17ad52355863efe80963dffa5537e8e5fd
+>>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
   languageName: node
   linkType: hard
 
@@ -7774,6 +8084,16 @@ __metadata:
   version: 7.5.0
   resolution: "@types/semver@npm:7.5.0"
   checksum: 0a64b9b9c7424d9a467658b18dd70d1d781c2d6f033096a6e05762d20ebbad23c1b69b0083b0484722aabf35640b78ccc3de26368bcae1129c87e9df028a22e2
+  languageName: node
+  linkType: hard
+
+"@types/send@npm:*":
+  version: 0.17.1
+  resolution: "@types/send@npm:0.17.1"
+  dependencies:
+    "@types/mime": ^1
+    "@types/node": "*"
+  checksum: 10b620a5960058ef009afbc17686f680d6486277c62f640845381ec4baa0ea683fdd77c3afea4803daf5fcddd3fb2972c8aa32e078939f1d4e96f83195c89793
   languageName: node
   linkType: hard
 
@@ -7927,6 +8247,7 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "@typescript-eslint/eslint-plugin@npm:5.59.2":
   version: 5.59.2
   resolution: "@typescript-eslint/eslint-plugin@npm:5.59.2"
@@ -7935,6 +8256,16 @@ __metadata:
     "@typescript-eslint/scope-manager": 5.59.2
     "@typescript-eslint/type-utils": 5.59.2
     "@typescript-eslint/utils": 5.59.2
+=======
+"@typescript-eslint/eslint-plugin@npm:^5.5.0":
+  version: 5.59.1
+  resolution: "@typescript-eslint/eslint-plugin@npm:5.59.1"
+  dependencies:
+    "@eslint-community/regexpp": ^4.4.0
+    "@typescript-eslint/scope-manager": 5.59.1
+    "@typescript-eslint/type-utils": 5.59.1
+    "@typescript-eslint/utils": 5.59.1
+>>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
     debug: ^4.3.4
     grapheme-splitter: ^1.0.4
     ignore: ^5.2.0
@@ -7947,6 +8278,7 @@ __metadata:
   peerDependenciesMeta:
     typescript:
       optional: true
+<<<<<<< HEAD
   checksum: 1045883173a36a069b56e906ed7e5b4106e1efc2ed0969a1718683aef58fd39e5dfa17774b8782c3ced0529a4edd6dedfcb54348a14525f191a6816e6f3b90dc
   languageName: node
   linkType: hard
@@ -7972,10 +8304,14 @@ __metadata:
     typescript:
       optional: true
   checksum: cc0e5ad8d70e140f0dada2fd1ad69d7c31d3f3dfe75939286fdc3950ff2e37033889acc7c9d92c074b67de3bbb6e46916d688e848fb98dde63b23c08a8b07884
+=======
+  checksum: 9ada3ae721594ddd8101a6093e6383bc95e4dcb19b3929210dee5480637786473a9eba2e69e61e560fa592965f4fd02aeb98ddfda91b00b448ae01c5d77431d6
+>>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
   languageName: node
   linkType: hard
 
 "@typescript-eslint/experimental-utils@npm:^5.0.0":
+<<<<<<< HEAD
   version: 5.59.5
   resolution: "@typescript-eslint/experimental-utils@npm:5.59.5"
   dependencies:
@@ -7993,12 +8329,32 @@ __metadata:
     "@typescript-eslint/scope-manager": 5.59.2
     "@typescript-eslint/types": 5.59.2
     "@typescript-eslint/typescript-estree": 5.59.2
+=======
+  version: 5.59.1
+  resolution: "@typescript-eslint/experimental-utils@npm:5.59.1"
+  dependencies:
+    "@typescript-eslint/utils": 5.59.1
+  peerDependencies:
+    eslint: ^6.0.0 || ^7.0.0 || ^8.0.0
+  checksum: 081d5fd2573b1a585a0d27b9ce3557b661065943059f5876c7c795877d4be77a9318bf708e52841144af4a216fc732541c3cb2f2a4be2be2d962664ce20d536e
+  languageName: node
+  linkType: hard
+
+"@typescript-eslint/parser@npm:^5.42.0, @typescript-eslint/parser@npm:^5.5.0":
+  version: 5.59.1
+  resolution: "@typescript-eslint/parser@npm:5.59.1"
+  dependencies:
+    "@typescript-eslint/scope-manager": 5.59.1
+    "@typescript-eslint/types": 5.59.1
+    "@typescript-eslint/typescript-estree": 5.59.1
+>>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
     debug: ^4.3.4
   peerDependencies:
     eslint: ^6.0.0 || ^7.0.0 || ^8.0.0
   peerDependenciesMeta:
     typescript:
       optional: true
+<<<<<<< HEAD
   checksum: 0d3f992c49e062ff509606fb72846abaa66602d93ca15bc6498c345c55effa28c8d523b829cd180d901eaf04bca3d93a165d56a387ce109333d60d67b09b5638
   languageName: node
   linkType: hard
@@ -8046,6 +8402,28 @@ __metadata:
   dependencies:
     "@typescript-eslint/typescript-estree": 5.59.2
     "@typescript-eslint/utils": 5.59.2
+=======
+  checksum: d324d32a69e06ab12aacb72cd3e2a8eb8ade6c2a4d4e6bb013941588a675e818a8ebd973bef1cd818da6a76eb00908bf66d84ef214c3f015dfcb40f8067a335e
+  languageName: node
+  linkType: hard
+
+"@typescript-eslint/scope-manager@npm:5.59.1":
+  version: 5.59.1
+  resolution: "@typescript-eslint/scope-manager@npm:5.59.1"
+  dependencies:
+    "@typescript-eslint/types": 5.59.1
+    "@typescript-eslint/visitor-keys": 5.59.1
+  checksum: ae7758181d0f18d1ad20abf95164553fa98c20410968d538ac7abd430ec59f69e30d4da16ad968d029feced1ed49abc65daf6685c996eb4529d798e8320204ff
+  languageName: node
+  linkType: hard
+
+"@typescript-eslint/type-utils@npm:5.59.1":
+  version: 5.59.1
+  resolution: "@typescript-eslint/type-utils@npm:5.59.1"
+  dependencies:
+    "@typescript-eslint/typescript-estree": 5.59.1
+    "@typescript-eslint/utils": 5.59.1
+>>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
     debug: ^4.3.4
     tsutils: ^3.21.0
   peerDependencies:
@@ -8053,6 +8431,7 @@ __metadata:
   peerDependenciesMeta:
     typescript:
       optional: true
+<<<<<<< HEAD
   checksum: d9dc037509a97b11a3c7f758f0f6e985cf5b4909fab860018a75b1550711ce9ff07bf5b67d4197ba7a0a831fec7255851b1e6a773a69030fc8ea7ec649859f52
   languageName: node
   linkType: hard
@@ -8094,6 +8473,25 @@ __metadata:
   dependencies:
     "@typescript-eslint/types": 5.59.2
     "@typescript-eslint/visitor-keys": 5.59.2
+=======
+  checksum: ff46cc049995bb6505a6170550a9e658c42cd5699a95e1976822318fef2963381223505f797051fc727938ace66d4a7dc072a4b4cadbbdf91d2fda1a16c05c98
+  languageName: node
+  linkType: hard
+
+"@typescript-eslint/types@npm:5.59.1":
+  version: 5.59.1
+  resolution: "@typescript-eslint/types@npm:5.59.1"
+  checksum: 40ea7ccf59c4951797d3761e53c866a5979e07fbdabef9dc07d3a3f625a99d4318d5329ae8e628cdfdc0bb9bb6e6d8dfb740f33c7bf318e63fa0a863b9ae85c7
+  languageName: node
+  linkType: hard
+
+"@typescript-eslint/typescript-estree@npm:5.59.1":
+  version: 5.59.1
+  resolution: "@typescript-eslint/typescript-estree@npm:5.59.1"
+  dependencies:
+    "@typescript-eslint/types": 5.59.1
+    "@typescript-eslint/visitor-keys": 5.59.1
+>>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
     debug: ^4.3.4
     globby: ^11.1.0
     is-glob: ^4.0.3
@@ -8102,6 +8500,7 @@ __metadata:
   peerDependenciesMeta:
     typescript:
       optional: true
+<<<<<<< HEAD
   checksum: e8bb8817fe53f826f54e4ca584e48a6700dae25e0cc20ab7db38e7e5308987c5759408b39a4e494d4d6dcd7b4bca9f9c507fae987213380dc1c98607cb0a60b1
   languageName: node
   linkType: hard
@@ -8127,17 +8526,33 @@ __metadata:
 "@typescript-eslint/utils@npm:5.59.2":
   version: 5.59.2
   resolution: "@typescript-eslint/utils@npm:5.59.2"
+=======
+  checksum: e33081937225f38e717ac2f9e90c4a8c6b71b701923eea3e03be76d8c466f0d3c6a4ec1d65c9fc1da4f1989416d386305353c5b53aa736d3af9503061001e3eb
+  languageName: node
+  linkType: hard
+
+"@typescript-eslint/utils@npm:5.59.1, @typescript-eslint/utils@npm:^5.58.0":
+  version: 5.59.1
+  resolution: "@typescript-eslint/utils@npm:5.59.1"
+>>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
   dependencies:
     "@eslint-community/eslint-utils": ^4.2.0
     "@types/json-schema": ^7.0.9
     "@types/semver": ^7.3.12
+<<<<<<< HEAD
     "@typescript-eslint/scope-manager": 5.59.2
     "@typescript-eslint/types": 5.59.2
     "@typescript-eslint/typescript-estree": 5.59.2
+=======
+    "@typescript-eslint/scope-manager": 5.59.1
+    "@typescript-eslint/types": 5.59.1
+    "@typescript-eslint/typescript-estree": 5.59.1
+>>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
     eslint-scope: ^5.1.1
     semver: ^7.3.7
   peerDependencies:
     eslint: ^6.0.0 || ^7.0.0 || ^8.0.0
+<<<<<<< HEAD
   checksum: 483c35a592a36a5973204ce4cd11d52935c097b414d7edac2ecd15dba460b8c540b793ffc232c0f8580fef0624eb7704156ce33c66bd09a76769ed019bddd1d1
   languageName: node
   linkType: hard
@@ -8177,6 +8592,19 @@ __metadata:
     "@typescript-eslint/types": 5.59.5
     eslint-visitor-keys: ^3.3.0
   checksum: 94db281ec8ea3a7ede46763aaa0d3349e035b19334fd03e2e560f89c70faebcfa937d51b53d2eaad2506b60a5d901428cc8b5a65ad8e90ca1c12a133dbe977fc
+=======
+  checksum: ca32c90efa57e937ebf812221e070c0604ca99f900fbca60578b42d40c923d5a94fd9503cf5918ecd75b687b68a1be562f7c6593a329bc40b880c95036a021c0
+  languageName: node
+  linkType: hard
+
+"@typescript-eslint/visitor-keys@npm:5.59.1":
+  version: 5.59.1
+  resolution: "@typescript-eslint/visitor-keys@npm:5.59.1"
+  dependencies:
+    "@typescript-eslint/types": 5.59.1
+    eslint-visitor-keys: ^3.3.0
+  checksum: f98e399147310cad67de718a8a6336f053d46753bade380c89ddac3dd49512555c3f613636b255ce0b5e2b004654d1c167eb5e53fc8085148b637a5afc20cdd8
+>>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
   languageName: node
   linkType: hard
 
@@ -9678,6 +10106,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
+=======
+"ansi-escapes@npm:^6.0.0":
+  version: 6.2.0
+  resolution: "ansi-escapes@npm:6.2.0"
+  dependencies:
+    type-fest: ^3.0.0
+  checksum: f0bc667d5f1ededc3ea89b73c34f0cba95473525b07e1290ddfd3fc868c94614e95f3549f5c4fd0c05424af7d3fd298101fb3d9a52a597d3782508b340783bd7
+  languageName: node
+  linkType: hard
+
+>>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
 "ansi-html-community@npm:0.0.8, ansi-html-community@npm:^0.0.8":
   version: 0.0.8
   resolution: "ansi-html-community@npm:0.0.8"
@@ -11716,16 +12156,28 @@ __metadata:
   linkType: hard
 
 "caniuse-db@npm:^1.0.30000529, caniuse-db@npm:^1.0.30000634, caniuse-db@npm:^1.0.30000639":
+<<<<<<< HEAD
   version: 1.0.30001486
   resolution: "caniuse-db@npm:1.0.30001486"
   checksum: 163862b75a209a7605e5e18395955a97957e4be69b61160fa983ecd639d2fa5786eb44c2192269242dcc306a25aa530cd8b70bb69c8e98c7aaf58292911bfff4
+=======
+  version: 1.0.30001481
+  resolution: "caniuse-db@npm:1.0.30001481"
+  checksum: 79efd3c6d8c4204b8903f1f8975eb44a66be89fc24ff92d036c9cf0876a5b2b8c847be7158f547dc1af94c8fe16eb401db3682254efd8caa74372e703253a74d
+>>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
   languageName: node
   linkType: hard
 
 "caniuse-lite@npm:^1.0.0, caniuse-lite@npm:^1.0.30000981, caniuse-lite@npm:^1.0.30001109, caniuse-lite@npm:^1.0.30001202, caniuse-lite@npm:^1.0.30001219, caniuse-lite@npm:^1.0.30001228, caniuse-lite@npm:^1.0.30001406, caniuse-lite@npm:^1.0.30001426, caniuse-lite@npm:^1.0.30001449, caniuse-lite@npm:^1.0.30001464":
+<<<<<<< HEAD
   version: 1.0.30001486
   resolution: "caniuse-lite@npm:1.0.30001486"
   checksum: 5e8c2ba2679e4ad17dea6d2761a6449b814441bfeac81af6cc9d58af187df6af4b79b27befcbfc4a557e720b21c0399a7d1911c8705922e38938dcc0f40b5d4b
+=======
+  version: 1.0.30001481
+  resolution: "caniuse-lite@npm:1.0.30001481"
+  checksum: 8200a043c191b4fd4fe0beda37a58fd61869c895ab93f87bdd0420e5927453f48434d716ce9da8552ff6c3ecc4dcd1366354cda3a134f3cc844af741574a7cab
+>>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
   languageName: node
   linkType: hard
 
@@ -14852,9 +15304,15 @@ __metadata:
   linkType: hard
 
 "electron-to-chromium@npm:^1.2.7, electron-to-chromium@npm:^1.3.723, electron-to-chromium@npm:^1.4.284":
+<<<<<<< HEAD
   version: 1.4.387
   resolution: "electron-to-chromium@npm:1.4.387"
   checksum: 3c1ddddad5b9d86aa68cbe002e76b9ce1ed2b220b766f33249ea40cd3ae7be8af93f75a05f27a3e13e039801d936ce302b61f74cb054023180369541e4a31197
+=======
+  version: 1.4.372
+  resolution: "electron-to-chromium@npm:1.4.372"
+  checksum: 946c50f1ec5df2408fc90164ab3814081dacd20cad7c440b829da391f864fefcda202e9e5a7016ce9d06d3c8746a505ffad820dfc51aa269dd13a6fdbf71d15d
+>>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
   languageName: node
   linkType: hard
 
@@ -15680,6 +16138,86 @@ __metadata:
       optional: true
   bin:
     esbuild: bin/esbuild
+<<<<<<< HEAD
+=======
+  checksum: 4c2cc609ecfb426554bc3f75beb92d89eb2d0c515cfceebaa36c7599d7dcaab7056b70f6d6b51e72b45951ddf9021ee28e356cf205f8e42cc055d522312ea30c
+  languageName: node
+  linkType: hard
+
+"esbuild@npm:^0.17.5":
+  version: 0.17.18
+  resolution: "esbuild@npm:0.17.18"
+  dependencies:
+    "@esbuild/android-arm": 0.17.18
+    "@esbuild/android-arm64": 0.17.18
+    "@esbuild/android-x64": 0.17.18
+    "@esbuild/darwin-arm64": 0.17.18
+    "@esbuild/darwin-x64": 0.17.18
+    "@esbuild/freebsd-arm64": 0.17.18
+    "@esbuild/freebsd-x64": 0.17.18
+    "@esbuild/linux-arm": 0.17.18
+    "@esbuild/linux-arm64": 0.17.18
+    "@esbuild/linux-ia32": 0.17.18
+    "@esbuild/linux-loong64": 0.17.18
+    "@esbuild/linux-mips64el": 0.17.18
+    "@esbuild/linux-ppc64": 0.17.18
+    "@esbuild/linux-riscv64": 0.17.18
+    "@esbuild/linux-s390x": 0.17.18
+    "@esbuild/linux-x64": 0.17.18
+    "@esbuild/netbsd-x64": 0.17.18
+    "@esbuild/openbsd-x64": 0.17.18
+    "@esbuild/sunos-x64": 0.17.18
+    "@esbuild/win32-arm64": 0.17.18
+    "@esbuild/win32-ia32": 0.17.18
+    "@esbuild/win32-x64": 0.17.18
+  dependenciesMeta:
+    "@esbuild/android-arm":
+      optional: true
+    "@esbuild/android-arm64":
+      optional: true
+    "@esbuild/android-x64":
+      optional: true
+    "@esbuild/darwin-arm64":
+      optional: true
+    "@esbuild/darwin-x64":
+      optional: true
+    "@esbuild/freebsd-arm64":
+      optional: true
+    "@esbuild/freebsd-x64":
+      optional: true
+    "@esbuild/linux-arm":
+      optional: true
+    "@esbuild/linux-arm64":
+      optional: true
+    "@esbuild/linux-ia32":
+      optional: true
+    "@esbuild/linux-loong64":
+      optional: true
+    "@esbuild/linux-mips64el":
+      optional: true
+    "@esbuild/linux-ppc64":
+      optional: true
+    "@esbuild/linux-riscv64":
+      optional: true
+    "@esbuild/linux-s390x":
+      optional: true
+    "@esbuild/linux-x64":
+      optional: true
+    "@esbuild/netbsd-x64":
+      optional: true
+    "@esbuild/openbsd-x64":
+      optional: true
+    "@esbuild/sunos-x64":
+      optional: true
+    "@esbuild/win32-arm64":
+      optional: true
+    "@esbuild/win32-ia32":
+      optional: true
+    "@esbuild/win32-x64":
+      optional: true
+  bin:
+    esbuild: bin/esbuild
+>>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
   checksum: 900b333f649fd89804216fb61fb5a0ffadc6dc37a2ec3b5981b588f72821676ea649a7c0ec785f0dbe6e774080b084c8af5f6ee7adbc1b138faf2a8c35e2c69c
   languageName: node
   linkType: hard
@@ -16148,6 +16686,7 @@ __metadata:
   linkType: hard
 
 "eslint@npm:^8.3.0":
+<<<<<<< HEAD
   version: 8.40.0
   resolution: "eslint@npm:8.40.0"
   dependencies:
@@ -16155,6 +16694,15 @@ __metadata:
     "@eslint-community/regexpp": ^4.4.0
     "@eslint/eslintrc": ^2.0.3
     "@eslint/js": 8.40.0
+=======
+  version: 8.39.0
+  resolution: "eslint@npm:8.39.0"
+  dependencies:
+    "@eslint-community/eslint-utils": ^4.2.0
+    "@eslint-community/regexpp": ^4.4.0
+    "@eslint/eslintrc": ^2.0.2
+    "@eslint/js": 8.39.0
+>>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
     "@humanwhocodes/config-array": ^0.11.8
     "@humanwhocodes/module-importer": ^1.0.1
     "@nodelib/fs.walk": ^1.2.8
@@ -16165,8 +16713,13 @@ __metadata:
     doctrine: ^3.0.0
     escape-string-regexp: ^4.0.0
     eslint-scope: ^7.2.0
+<<<<<<< HEAD
     eslint-visitor-keys: ^3.4.1
     espree: ^9.5.2
+=======
+    eslint-visitor-keys: ^3.4.0
+    espree: ^9.5.1
+>>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
     esquery: ^1.4.2
     esutils: ^2.0.2
     fast-deep-equal: ^3.1.3
@@ -16193,7 +16746,11 @@ __metadata:
     text-table: ^0.2.0
   bin:
     eslint: bin/eslint.js
+<<<<<<< HEAD
   checksum: b79eba37f52f517a420eec99a80ae9f284d2cbe73afc0d4d3d4d5ed1cce0b06f21badc0374bfb7ac239efd2d49a1fd7c6111d6c3d52888521f377ba33de77e61
+=======
+  checksum: d7a074ff326e7ea482500dc0427a7d4b0260460f0f812d19b46b1cca681806b67309f23da9d17cd3de8eb74dd3c14cb549c4d58b05b140564d14cc1a391122a0
+>>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
   languageName: node
   linkType: hard
 
@@ -17051,9 +17608,15 @@ __metadata:
   linkType: hard
 
 "flow-parser@npm:0.*":
+<<<<<<< HEAD
   version: 0.205.1
   resolution: "flow-parser@npm:0.205.1"
   checksum: 1435ad8eaac772511c11440a988be29e3a26398cd22cf8fd02f46fa022f686550a52f7eb56a0919f49fe81399ddad46c925805cc091dd0efea92eb26234406bb
+=======
+  version: 0.204.1
+  resolution: "flow-parser@npm:0.204.1"
+  checksum: dcd1e12d1944647fc368df8b9e31214c4d147f322cba0f639f0fbc2c80fce26ab8ad8e08eb4de08dbb556649f7563a601472026438f4ce967e243399a68ef9fa
+>>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
   languageName: node
   linkType: hard
 
@@ -18932,6 +19495,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"imports-loader@npm:^4.0.1":
+  version: 4.0.1
+  resolution: "imports-loader@npm:4.0.1"
+  dependencies:
+    source-map: ^0.6.1
+    strip-comments: ^2.0.1
+  peerDependencies:
+    webpack: ^5.0.0
+  checksum: 831882988de72f40be8c1177a18ef207a3e351efec088d7ebd94a31583b713c256ce89dd4af87469b77f650ec78e5fd78089d58ef648b20f3f1dc5e437425e03
+  languageName: node
+  linkType: hard
+
 "imurmurhash@npm:^0.1.4":
   version: 0.1.4
   resolution: "imurmurhash@npm:0.1.4"
@@ -19108,8 +19683,13 @@ __metadata:
   linkType: hard
 
 "inquirer@npm:^9.1.5":
+<<<<<<< HEAD
   version: 9.2.2
   resolution: "inquirer@npm:9.2.2"
+=======
+  version: 9.2.0
+  resolution: "inquirer@npm:9.2.0"
+>>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
   dependencies:
     ansi-escapes: ^4.3.2
     chalk: ^5.2.0
@@ -19125,8 +19705,13 @@ __metadata:
     string-width: ^4.2.3
     strip-ansi: ^7.0.1
     through: ^2.3.6
+<<<<<<< HEAD
     wrap-ansi: ^6.0.1
   checksum: 774ddc8023a32119838311fa098648e0b58426e649ee8ce4e3ff0644fdaf029359627b84d012c935c48675ee2619e1e3dcae47b563ec4cb3edbb071463e22a2e
+=======
+    wrap-ansi: ^8.1.0
+  checksum: ea795406a654e9eddf9782fbb1f4a4240a78bda825e23ee2cf059ea0723e470cbae8cc9d6c1ae8a58cadd0207d29f8cd8ac20ff7399958a8886dd17ff2f30136
+>>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
   languageName: node
   linkType: hard
 
@@ -22018,14 +22603,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lit@npm:2.7.1":
-  version: 2.7.1
-  resolution: "lit@npm:2.7.1"
+"lit@npm:2.7.3, lit@npm:^2.0.0, lit@npm:^2.7.0":
+  version: 2.7.3
+  resolution: "lit@npm:2.7.3"
   dependencies:
     "@lit/reactive-element": ^1.6.0
     lit-element: ^3.3.0
     lit-html: ^2.7.0
-  checksum: 52a3de2c8720bbfd1aa166f035e53692230426387529d36a0c160680cc0ec0534f5148e83ed035fad8b14d0d6c902d9e9924f86de2bafb825898e6b0bf64a392
+  checksum: 325be0255e8b95ba066d56f3e40dd8530cd423d1687ea6d55b2919df8fb1d63a399be439c5601de65a990dfa9a131d07b2e84a1004b1a52d34ce51569cdf4255
   languageName: node
   linkType: hard
 
@@ -22563,7 +23148,11 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "lru-cache@npm:^9.0.0, lru-cache@npm:^9.1.1":
+=======
+"lru-cache@npm:^9.0.0, lru-cache@npm:^9.0.3":
+>>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
   version: 9.1.1
   resolution: "lru-cache@npm:9.1.1"
   checksum: 4d703bb9b66216bbee55ead82a9682820a2b6acbdfca491b235390b1ef1056000a032d56dfb373fdf9ad4492f1fa9d04cc9a05a77f25bd7ce6901d21ad9b68b7
@@ -25896,7 +26485,7 @@ __metadata:
     husky: 8.0.3
     jest: 27.5.1
     jest-expect-message: 1.1.3
-    lit: 2.7.1
+    lit: 2.7.3
     npm-run-all: 4.1.5
     pinst: 3.0.0
     postcss: 8.4.21
@@ -30385,8 +30974,13 @@ __metadata:
   linkType: hard
 
 "rollup@npm:^2.25.0 || ^3.3.0, rollup@npm:^3.18.0, rollup@npm:^3.21.0":
+<<<<<<< HEAD
   version: 3.21.5
   resolution: "rollup@npm:3.21.5"
+=======
+  version: 3.21.0
+  resolution: "rollup@npm:3.21.0"
+>>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
   dependencies:
     fsevents: ~2.3.2
   dependenciesMeta:
@@ -30394,7 +30988,11 @@ __metadata:
       optional: true
   bin:
     rollup: dist/bin/rollup
+<<<<<<< HEAD
   checksum: dfe2e4002fbfbc0a67591595f137c23082c639b1a790854ebe8611264b945e77caaf8c8ec9365faf9580f5df9cb9a954915443df020dc2ee391c477659484cf0
+=======
+  checksum: f3294d712147c0975c59ff81b3010dc08d07743cdad72fbe12879044b3e467139b3c2aeec85768656c4f7ec6a7b3d19354a78fc2050044bf8e90a499e145e31e
+>>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
   languageName: node
   linkType: hard
 
@@ -30471,6 +31069,7 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "rxjs@npm:^7.5.5, rxjs@npm:^7.8.1":
   version: 7.8.1
   resolution: "rxjs@npm:7.8.1"
@@ -30480,6 +31079,8 @@ __metadata:
   languageName: node
   linkType: hard
 
+=======
+>>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
 "safe-array-concat@npm:^1.0.0":
   version: 1.0.0
   resolution: "safe-array-concat@npm:1.0.0"
@@ -33781,6 +34382,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
+=======
+"type-fest@npm:^3.0.0":
+  version: 3.9.0
+  resolution: "type-fest@npm:3.9.0"
+  checksum: daec3f72db7af2b285ac10a27231675a18418dea073a5fe40d9720472072786b6e38263a41e1c91daf99d7ecda80d5cf914b5bb0dd308593fa33ad9d3ff410dc
+  languageName: node
+  linkType: hard
+
+>>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
 "type-is@npm:~1.6.18":
   version: 1.6.18
   resolution: "type-is@npm:1.6.18"
@@ -34832,9 +35443,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "vite@npm:^3.0.0 || ^4.0.0, vite@npm:^4.3.0":
   version: 4.3.5
   resolution: "vite@npm:4.3.5"
+=======
+"vite@npm:^3.0.0 || ^4.0.0":
+  version: 4.3.3
+  resolution: "vite@npm:4.3.3"
+>>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
   dependencies:
     esbuild: ^0.17.5
     fsevents: ~2.3.2
@@ -34865,7 +35482,11 @@ __metadata:
       optional: true
   bin:
     vite: bin/vite.js
+<<<<<<< HEAD
   checksum: 6b7f2189f097110846e49a3f1d463bd620dfe9e4f433b1967e5b99f0789610ff4475e85e3e71476e6fa40be25449bb6f1c45edb95c79deba6f3f173699bff948
+=======
+  checksum: 99970cb1fed3330458e60f8341ec73c4260c82d815e51c95295321ab496e4c8cb447bc942daf4d94f78bbc8b2bed36cbc237f43fdc1cede19250fac737e5a0fc
+>>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
   languageName: node
   linkType: hard
 
@@ -35381,6 +36002,7 @@ __metadata:
   resolution: "wc-next13@workspace:apps/examples/wc-next13"
   dependencies:
     "@justeattakeaway/pie-button": "workspace:*"
+    "@lit-labs/nextjs": 0.1.1
     "@lit-labs/react": 1.1.1
     "@types/node": 18.15.11
     "@types/react-dom": 18.0.11
@@ -35914,8 +36536,13 @@ __metadata:
   linkType: hard
 
 "webpack@npm:^5.64.4":
+<<<<<<< HEAD
   version: 5.82.0
   resolution: "webpack@npm:5.82.0"
+=======
+  version: 5.81.0
+  resolution: "webpack@npm:5.81.0"
+>>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
   dependencies:
     "@types/eslint-scope": ^3.7.3
     "@types/estree": ^1.0.0
@@ -35946,7 +36573,11 @@ __metadata:
       optional: true
   bin:
     webpack: bin/webpack.js
+<<<<<<< HEAD
   checksum: 499e7f5f24fccaa76f64f2a01f91f371073416f568ef6171dc73187a89078f0c33410d4c9f40d411f0827bab8455f8476eabd803ef4d2920d9a2e5f17efa2703
+=======
+  checksum: 1a6eecaffac3226d80f4e8f330b32e0ff117d9dafd8700166d230afbc171d68ea1ff55a9939fa789307f7b9d11881889ccb8e6cd79d4ccbaeef916788ce73fdb
+>>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
   languageName: node
   linkType: hard
 
