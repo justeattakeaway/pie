@@ -3,7 +3,8 @@
  */
 export enum BUTTON_SIZE {
     XSMALL = 'xsmall',
-    SMALL = 'small',
+    SMALL_EXPRESSIVE = 'small-expressive',
+    SMALL_PRODUCTIVE = 'small-productive',
     MEDIUM = 'medium',
     LARGE = 'large'
 }
