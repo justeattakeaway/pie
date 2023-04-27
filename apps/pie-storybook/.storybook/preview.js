@@ -9,7 +9,7 @@ export default {
         toolbar: {
           icon: 'globe',
           items: [
-            { value: 'rtl', title: 'Right to left (RTL' },
+            { value: 'rtl', title: 'Right to left (RTL)' },
             { value: 'ltr', title: 'Left to right (LTR)' }
           ],
         },
