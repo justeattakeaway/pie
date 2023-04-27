@@ -1,6 +1,6 @@
 import { LitElement, html, unsafeCSS } from 'lit';
 import { classMap } from 'lit/directives/class-map.js';
-import { customElement, property } from 'lit/decorators.js';
+import { property } from 'lit/decorators.js';
 
 import styles from './button.scss?inline';
 import { validPropertyValues } from './decorators';
@@ -8,15 +8,6 @@ import { BUTTON_SIZE, BUTTON_TYPE, BUTTON_VARIANT } from './defs';
 
 // Valid values available to consumers
 export { BUTTON_SIZE, BUTTON_TYPE, BUTTON_VARIANT };
-
-// TODO: Extract as a utility function in a shared package
-function defineCustomElement(elementName:string) {
-    return (elementClass:typeof LitElement) => {
-        if(customElements.get(elementName)) return;
-
-        return customElement(elementName)(elementClass);
-    }
-}
 
 export class PieButton extends LitElement {
     @property()
@@ -71,7 +62,4 @@ declare global {
         'pie-button': PieButton;
     }
 }
-
-
-
 

@@ -4,13 +4,13 @@ import { readFile, appendFile, writeFile } from 'fs'
 
 const loadJSON = (path) => JSON.parse(fs.readFileSync(new URL(path, import.meta.url)));
 
-const componentObject = loadJSON(`./custom-elements.json`);
+const componentObject = loadJSON(`../../../../custom-elements.json`);
 
 let declMap = []
 let components = []
 let fileImports = []
 const reactComponents = [];
-const reactComponent = {};
+export const reactComponent = {};
 
 const customComponents = Object.entries(componentObject)
 
@@ -61,6 +61,10 @@ for (let component of components) {
         }
     });
 
+    console.log('yoo', customComponents.length)
+
+    console.log('heyyyy', component.name)
+
     reactComponent.name = `${component.name}`;
     reactComponent.swcComponentName = `${component.name}`;
     reactComponent.elementName = component.tagName;
@@ -69,6 +73,8 @@ for (let component of components) {
     reactComponent.events = uniqueBy(events.flat(), 'name');
     reactComponents.push(reactComponent);
 }
+
+console.log('yooo', reactComponents.length)
 
 
 const componentSrc = `
@@ -106,7 +112,7 @@ ${reactComponents.reduce(
 `;
 
 async function genReactWrapper() {
-    appendFile(`packages/components/${kebabCase(reactComponent.name).slice(1)}/src/index.ts`, componentSrc, (err) => {
+    appendFile(`../../components/${reactComponent.elementName}/src/index.ts`, componentSrc, (err) => {
         if (err) console.error(err);
     });
 };

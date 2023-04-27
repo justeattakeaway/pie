@@ -2,7 +2,7 @@ import { moduleFileExtensionsPlugin } from 'cem-plugin-module-file-extensions';
 
 export default {
     globs: [
-        'packages/**/src/**/!(*.css).ts',
+        'packages/components/**/src/**/!(*.css).ts',
     ],
     exclude: [
         '**/*.d.ts',

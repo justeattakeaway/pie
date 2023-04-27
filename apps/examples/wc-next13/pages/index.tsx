@@ -1,16 +1,6 @@
 import React, { useState, useRef } from 'react';
 import Head from 'next/head';
-// import { createComponent } from '@lit-labs/react';
 import { PButton, BUTTON_SIZE, BUTTON_VARIANT } from '@justeattakeaway/pie-button';
-
-// const PieBtn = createComponent({
-//     tagName: 'pie-button',
-//     elementClass: PieButton,
-//     react: React,
-//     events: { onCustomEvent: 'CustomEvent' },
-// });
-
-const CustomEvent = 'heyy';
 
 export default function Home () {
     const variantIndex = useRef(0);

@@ -1,0 +1,27 @@
+{
+  "name": "@justeattakeaway/pie-wrappers-react",
+  "packageManager": "yarn@3.5.0",
+  "version": "0.1.0",
+  "description": "Common react wrappers for use for PIE Project",
+  "main": "dist/react-gen-wrapper.js",
+  "license": "Apache-2.0",
+  "type": "module",
+  "keywords": [
+    "PIE"
+  ],
+  "author": "",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build:wrapper": "yarn analyze:components && node ./scripts/react-gen-wrapper.js",
+    "remove:wrapper": "node ./scripts/react-remove-wrapper.js"
+  },
+  "dependencies": {
+    "@lit-labs/react": "^1.1.1",
+    "lit": "2.7.1"
+  },
+  "volta": {
+    "extends": "../../../package.json"
+  }
+}

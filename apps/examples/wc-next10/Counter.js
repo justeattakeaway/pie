@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { PButton } from '@justeattakeaway/pie-button';
 
 export default function Counter () {

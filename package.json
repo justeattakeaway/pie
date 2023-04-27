@@ -102,15 +102,8 @@
     "@custom-elements-manifest/analyzer": "^0.8.0",
     "@justeat/fozzie": "10.11.1",
     "@justeattakeaway/pie-icons": "2.2.0",
-    "@lit-labs/react": "^1.1.1",
-    "camelcase": "^7.0.1",
-    "case": "^1.6.3",
     "cem-plugin-module-file-extensions": "^0.0.5",
-    "custom-elements-manifest": "^2.0.0",
-    "dotenv": "^16.0.3",
-    "kebab-case": "^1.0.2",
-    "lit": "2.7.1",
-    "lit-analyzer": "^1.2.1"
+    "lit": "2.7.1"
   },
   "config": {
     "commitizen": {

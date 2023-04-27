@@ -1,30 +1,7 @@
 import { useState } from 'react';
-// import { createComponent } from '@lit-labs/react';
-// import { PieButton } from '@justeattakeaway/pie-button';
 import { PButton } from '@justeattakeaway/pie-button';
 
 import './styles.css';
-
-// import { PieButton } from '@justeattakeaway/pie-button';
-// import { createComponent } from '@lit-labs/react';
-// import { PieBtn } from '@justeattakeaway/pie-button';
-
-// eslint-disable-next-line no-unused-vars
-// const PieBtn = createComponent({
-//     tagName: 'pie-button',
-//     elementClass: PieButton,
-//     react: React,
-//     events: { onCustomEvent: 'CustomEvent' },
-// });#
-
-// const PieBtn = createComponent({
-//     elementClass: PieButton,
-//     react: React,
-//     tagName: 'pie-button',
-//     events: {
-//         hello: 'CustomEvent',
-//     },
-// });
 
 function App () {
     const [counter, setCounter] = useState(0);

@@ -8,8 +8,8 @@
   "module": "dist/index.js",
   "scripts": {
     "build": "yarn create-react-wrapper && run -T vite build && yarn remove-wrapper",
-    "create-react-wrapper": "cd ../../../ && yarn cem analyze && node react-gen-wrapper.js",
-    "remove-wrapper": "node ../../../remove-react-wrapper.js",
+    "create-react-wrapper": "cd ../../tools/pie-wrappers-react && yarn build:wrapper",
+    "remove-wrapper": "cd ../../tools/pie-wrappers-react && yarn remove:wrapper",
     "watch": "run -T vite build --watch",
     "dev": "run -T vite",
     "test": "echo \"Error: no test specified\" && exit 0",
