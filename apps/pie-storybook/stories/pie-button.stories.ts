@@ -1,6 +1,6 @@
 import type { Meta, StoryObj as Story } from '@storybook/web-components';
 import { BUTTON_SIZE, BUTTON_TYPE, BUTTON_VARIANT } from '@justeattakeaway/pie-button';
-import withGlobalDirection from './withGlobalDirection';
+import withStorybookDirection from './withStorybookDirection';
 import { html, TemplateResult } from 'lit';
 
 export default {
@@ -42,7 +42,7 @@ interface ButtonProps {
     slot: TemplateResult;
 }
 
-const Template = withGlobalDirection(({ size, variant, type, disabled, slot }: ButtonProps): TemplateResult => {
+const Template = withStorybookDirection(({ size, variant, type, disabled, slot }: ButtonProps): TemplateResult => {
     return html`
         <pie-button
             size="${size}"

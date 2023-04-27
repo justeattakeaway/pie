@@ -18,7 +18,7 @@ type TemplateFn<T> = (args: T, storybookContext: StorybookContext) => TemplateRe
  * @returns {TemplateFn<T>} - A new template function with the same signature as the input
  *                       template function, but with the 'dir' attribute automatically set.
  */
-export default function withGlobalDirection<T>(templateFn: TemplateFn<T>): TemplateFn<T> {
+export default function withStorybookDirection<T>(templateFn: TemplateFn<T>): TemplateFn<T> {
     // Storybook will automatically provide the storybookContext parameter when this returned function is called
     return (args: T, storybookContext: StorybookContext): TemplateResult => {
         const writingDirections = {
