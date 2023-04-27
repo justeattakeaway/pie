@@ -1,18 +1,16 @@
-// .storybook/preview.js
-
 export default {
     globalTypes: {
-      writingDirection: {
-        name: 'Writing direction',
-        description: 'Which direction should content be written in',
-        defaultValue: 'en',
-        toolbar: {
-          icon: 'globe',
-          items: [
-            { value: 'rtl', title: 'Right to left (RTL)' },
-            { value: 'ltr', title: 'Left to right (LTR)' }
-          ],
+        writingDirection: {
+            description: 'Which direction should content be written in',
+            defaultValue: 'ltr',
+            toolbar: {
+                title: 'Writing Direction',
+                icon: 'globe',
+                items: [
+                    { value: 'ltr', right: 'LTR', title: 'Left to right' },
+                    { value: 'rtl', right: 'RTL', title: 'Right to left' }
+                ],
+            },
         },
-      },
     },
-  };
+};

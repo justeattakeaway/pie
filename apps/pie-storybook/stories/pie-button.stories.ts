@@ -1,6 +1,7 @@
 import type { Meta, StoryObj as Story } from '@storybook/web-components';
 import { BUTTON_SIZE, BUTTON_TYPE, BUTTON_VARIANT } from '@justeattakeaway/pie-button';
-import { html } from 'lit';
+import withGlobalDirection from './withGlobalDirection';
+import { html, TemplateResult } from 'lit';
 
 export default {
     title: 'Button',
@@ -33,31 +34,26 @@ export default {
     },
 } as Meta;
 
-// In the actual implementation we would define this once for all stories to consume
-const writingDirections = {
-    ltr: 'ltr',
-    rtl: 'rtl'
-};
-
-// In the actual implementation we would only want to access globals once. Not in every story
-const Template = ({ size, variant, type, disabled, slot },
-    {
-        globals: {
-            writingDirection
-        }
-    }) => {
-    return html`
-        <div dir="${writingDirections[writingDirection] ?? "auto"}">
-            <pie-button
-                size=${size}
-                variant=${variant}
-                type=${type}
-                ?disabled=${disabled}>
-                ${slot}
-            </pie-button>
-        </div>
-    `;
+interface ButtonProps {
+    size: BUTTON_SIZE;
+    variant: BUTTON_VARIANT;
+    type: BUTTON_TYPE;
+    disabled: boolean;
+    slot: TemplateResult;
 }
+
+const Template = withGlobalDirection(({ size, variant, type, disabled, slot }: ButtonProps): TemplateResult => {
+    return html`
+        <pie-button
+            size="${size}"
+            variant="${variant}"
+            type="${type}"
+            ?disabled="${disabled}">
+            ${slot}
+        </pie-button>
+        `;
+});
+
 
 const defaultArgs = {
     size: BUTTON_SIZE.MEDIUM,
