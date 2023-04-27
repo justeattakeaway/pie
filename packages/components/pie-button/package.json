@@ -6,10 +6,10 @@
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
-  "types": "dist/types/index.d.ts",
   "scripts": {
-    "build": "run -T vite build",
-    "gen-react-wrapper": "node ../../../cem-react-wrapper.config.js",
+    "build": "yarn create-react-wrapper && run -T vite build && yarn remove-wrapper",
+    "create-react-wrapper": "cd ../../../ && yarn cem analyze && node react-gen-wrapper.js",
+    "remove-wrapper": "node ../../../remove-react-wrapper.js",
     "watch": "run -T vite build --watch",
     "dev": "run -T vite",
     "test": "echo \"Error: no test specified\" && exit 0",
@@ -24,7 +24,11 @@
     "extends": "../../../package.json"
   },
   "dependencies": {
+    "@custom-elements-manifest/analyzer": "^0.8.0",
     "@lit-labs/react": "1.1.1",
+    "cross-env": "^7.0.3",
+    "custom-elements-manifest": "^2.0.0",
+    "dotenv": "^16.0.3",
     "fs-extra": "^11.1.1",
     "pascal-case": "^3.1.2",
     "react": "18.2.0",

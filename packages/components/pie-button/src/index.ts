@@ -1,6 +1,6 @@
 import { LitElement, html, unsafeCSS } from 'lit';
 import { classMap } from 'lit/directives/class-map.js';
-import { property } from 'lit/decorators.js';
+import { customElement, property } from 'lit/decorators.js';
 
 import styles from './button.scss?inline';
 import { validPropertyValues } from './decorators';
@@ -10,13 +10,13 @@ import { BUTTON_SIZE, BUTTON_TYPE, BUTTON_VARIANT } from './defs';
 export { BUTTON_SIZE, BUTTON_TYPE, BUTTON_VARIANT };
 
 // TODO: Extract as a utility function in a shared package
-// function defineCustomElement(elementName:string) {
-//     return (elementClass:typeof LitElement) => {
-//         if(customElements.get(elementName)) return;
+function defineCustomElement(elementName:string) {
+    return (elementClass:typeof LitElement) => {
+        if(customElements.get(elementName)) return;
 
-//         return customElement(elementName)(elementClass);
-//     }
-// }
+        return customElement(elementName)(elementClass);
+    }
+}
 
 export class PieButton extends LitElement {
     @property()
@@ -45,9 +45,8 @@ export class PieButton extends LitElement {
         };
 
         const raiseWCEvent = () => {
-            // const event = new CustomEvent('CustomEvent', { detail: 'WC event dispatched' })
             console.info('WC event dispatched')
-            this.dispatchEvent(new CustomEvent('CustomEvent', { detail: 'WC event dispatched' }))
+            this.dispatchEvent(new CustomEvent('onCustomEvent', { detail: 'WC event dispatched' }))
         }
 
         return html`
@@ -58,6 +57,7 @@ export class PieButton extends LitElement {
                 @click="${raiseWCEvent}">
                 <slot></slot>
             </button>`;
+            ;
     }
 
     // Renders a `CSSResult` generated from SCSS by Vite
@@ -72,24 +72,6 @@ declare global {
     }
 }
 
-import * as React from 'react';
-import { createComponent } from '@lit-labs/react';
-import type { EventName } from '@lit-labs/react';
-import { PieButton as WCPieButton } from './index';
-
-import './decorators.ts'
-import './defs.ts'
-import './index.ts'
 
 
-export const PButton = createComponent({
-        displayName: 'PieButton',
-        elementClass: WCPieButton,
-        react: React,
-        tagName: 'pie-button',
-        events: {
-            CustomEvent: 'CustomEvent' as EventName<CustomEvent>, 
-        }
-    });
 
-export type PieButtonType = EventTarget & WCPieButton;

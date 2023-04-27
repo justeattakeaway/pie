@@ -1,13 +1,5 @@
 import React from 'react';
-import { createComponent } from '@lit-labs/react';
-import { PieButton, BUTTON_SIZE } from '@justeattakeaway/pie-button';
-
-const PieBtn = createComponent({
-    tagName: 'pie-button',
-    elementClass: PieButton,
-    react: React,
-    events: { onCustomEvent: 'CustomEvent' },
-});
+import { PButton, BUTTON_SIZE } from '@justeattakeaway/pie-button';
 
 export default function ButtonSizes () {
     return (
@@ -21,7 +13,7 @@ export default function ButtonSizes () {
                                 const size= BUTTON_SIZE[key];
 
                                 return (
-                                    <PieBtn size={size} key={key}>{key.toLowerCase()}</PieBtn>
+                                    <PButton size={size} key={key}>{key.toLowerCase()}</PButton>
                                 );
                             })
                     }

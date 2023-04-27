@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 // import { createComponent } from '@lit-labs/react';
 // import { PieButton } from '@justeattakeaway/pie-button';
 import { PButton } from '@justeattakeaway/pie-button';
@@ -41,7 +41,7 @@ function App () {
             <p>Count: {counter}</p>
             <PButton
                 onClick={() => setCounter(counter + 1)}
-                CustomEvent={customEvent}
+                onCustomEvent={customEvent}
             >Increment</PButton>
         </>
     );

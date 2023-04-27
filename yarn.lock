@@ -4185,7 +4185,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-button@workspace:packages/components/pie-button"
   dependencies:
+    "@custom-elements-manifest/analyzer": ^0.8.0
     "@lit-labs/react": 1.1.1
+    cross-env: ^7.0.3
+    custom-elements-manifest: ^2.0.0
+    dotenv: ^16.0.3
     fs-extra: ^11.1.1
     pascal-case: ^3.1.2
     react: 18.2.0
@@ -13174,7 +13178,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cross-env@npm:7.0.3":
+"cross-env@npm:7.0.3, cross-env@npm:^7.0.3":
   version: 7.0.3
   resolution: "cross-env@npm:7.0.3"
   dependencies:
@@ -25952,6 +25956,7 @@ __metadata:
     cssnano: 5.1.15
     custom-elements-manifest: ^2.0.0
     cz-customizable: 7.0.0
+    dotenv: ^16.0.3
     dree: 3.4.5
     eslint: 8.37.0
     eslint-plugin-import: 2.27.5

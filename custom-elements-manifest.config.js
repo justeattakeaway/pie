@@ -6,14 +6,9 @@ export default {
     ],
     exclude: [
         '**/*.d.ts',
-        '**/stories/**',
         '**/test/**',
         'node_modules/*',
         '**/node_modules/**',
-        '**/*.dev.*',
     ],
-    outdir: '.',
-    litelement: true,
-    packagejson: false,
     plugins: [moduleFileExtensionsPlugin()],
 };

@@ -18,11 +18,11 @@
     ]
   },
   "scripts": {
-    "analyze": "lit-analyzer \"{packages,tools}/**/src/**/!(*.css).ts\"",
     "watch": "turbo run watch --filter=!pie-monorepo",
     "build": "cross-env-shell turbo run build --filter=!'./apps/examples/*' --filter=!pie-monorepo --token=${TURBO_TOKEN}",
     "build:examples": "cross-env-shell turbo run build:examples --token=${TURBO_TOKEN}",
     "changeset": "changeset",
+    "analyze:components": "yarn cem analyze",
     "changeset:publish": "changeset publish",
     "changeset:version": "changeset version",
     "clean": "turbo run clean --filter=!pie-monorepo",
@@ -107,6 +107,7 @@
     "case": "^1.6.3",
     "cem-plugin-module-file-extensions": "^0.0.5",
     "custom-elements-manifest": "^2.0.0",
+    "dotenv": "^16.0.3",
     "kebab-case": "^1.0.2",
     "lit": "2.7.1",
     "lit-analyzer": "^1.2.1"

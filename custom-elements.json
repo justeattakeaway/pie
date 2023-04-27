@@ -64,24 +64,21 @@
               "name": "size",
               "type": {
                 "text": "BUTTON_SIZE"
-              },
-              "attribute": "size"
+              }
             },
             {
               "kind": "field",
               "name": "type",
               "type": {
                 "text": "BUTTON_TYPE"
-              },
-              "attribute": "type"
+              }
             },
             {
               "kind": "field",
               "name": "variant",
               "type": {
                 "text": "BUTTON_VARIANT"
-              },
-              "attribute": "variant"
+              }
             },
             {
               "kind": "field",
@@ -89,48 +86,24 @@
               "type": {
                 "text": "boolean"
               },
-              "default": "false",
-              "attribute": "disabled",
-              "reflects": true
+              "default": "false"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            },
+            {
+              "kind": "field",
+              "name": "styles",
+              "static": true
             }
           ],
           "events": [
             {
-              "name": "CustomEvent",
+              "name": "onCustomEvent",
               "type": {
                 "text": "CustomEvent"
               }
-            }
-          ],
-          "attributes": [
-            {
-              "name": "size",
-              "type": {
-                "text": "BUTTON_SIZE"
-              },
-              "fieldName": "size"
-            },
-            {
-              "name": "type",
-              "type": {
-                "text": "BUTTON_TYPE"
-              },
-              "fieldName": "type"
-            },
-            {
-              "name": "variant",
-              "type": {
-                "text": "BUTTON_VARIANT"
-              },
-              "fieldName": "variant"
-            },
-            {
-              "name": "disabled",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "fieldName": "disabled"
             }
           ],
           "superclass": {
@@ -180,26 +153,6 @@
           "declaration": {
             "name": "PieButton",
             "module": "packages/components/pie-button/src/index.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "packages/components/pie-button/src/react-wrapper.js",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "PButton"
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "PButton",
-          "declaration": {
-            "name": "PButton",
-            "module": "packages/components/pie-button/src/react-wrapper.js"
           }
         }
       ]

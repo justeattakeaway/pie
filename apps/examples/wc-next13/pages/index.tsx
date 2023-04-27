@@ -47,7 +47,7 @@ export default function Home () {
                             Counter: { count }
                         </div>
                         <PButton onClick={increment}
-                            CustomEvent={handleCustomEvent}>increment</PButton>
+                            onCustomEvent={handleCustomEvent}>increment</PButton>
                     </div>
                 </div>
                 <h2>Test props</h2>
