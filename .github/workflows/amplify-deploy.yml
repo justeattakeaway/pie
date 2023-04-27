@@ -55,7 +55,7 @@ jobs:
           os: ${{ inputs.os }}
       # Build
       - name: Build ${{ inputs.package-name }}
-        uses: ./.github/actions/run-script
+        uses: justeattakeaway/pie/.github/actions/run-script@8c4859b81084cb81d7b08580826aed45cfd24895
         with:
           script-name: "build"
           package-name: ${{ inputs.package-name }}
