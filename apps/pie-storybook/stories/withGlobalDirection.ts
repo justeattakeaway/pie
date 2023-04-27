@@ -19,6 +19,7 @@ type TemplateFn<T> = (args: T, storybookContext: StorybookContext) => TemplateRe
  *                       template function, but with the 'dir' attribute automatically set.
  */
 export default function withGlobalDirection<T>(templateFn: TemplateFn<T>): TemplateFn<T> {
+    // Storybook will automatically provide the storybookContext parameter when this returned function is called
     return (args: T, storybookContext: StorybookContext): TemplateResult => {
         const writingDirections = {
             ltr: 'ltr',
