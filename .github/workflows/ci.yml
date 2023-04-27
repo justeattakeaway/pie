@@ -142,7 +142,7 @@ jobs:
       package-name: 'pie-docs'
       package-dist-directory: ./apps/pie-docs/dist
       bucket-name-preview: 'pie-docs-preview'
-      bucket-name-main: 'pie-docs-main'
+      bucket-name-main: 'pie-docs'
     secrets: inherit
 
   deploy-storybook:
@@ -155,7 +155,7 @@ jobs:
       package-name: 'pie-storybook'
       package-dist-directory: ./apps/pie-storybook/dist
       bucket-name-preview: 'pie-storybook-preview'
-      bucket-name-main: 'pie-storybook-main'
+      bucket-name-main: 'pie-storybook'
     secrets: inherit
 
   browser-tests:
