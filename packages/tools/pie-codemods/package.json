@@ -1,0 +1,22 @@
+{
+  "name": "@justeattakeaway/pie-codemods",
+  "version": "0.1.0",
+  "description": "PIE design system codemod utilities",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/types/index.d.ts",
+  "scripts": {
+    "build": "run -T vite build"
+  },
+  "bin": {
+    "pie-codemods": "./index.js"
+  },
+  "author": "JustEatTakeaway - Design System Web Team",
+  "license": "Apache-2.0",
+  "volta": {
+    "extends": "../../../package.json"
+  },
+  "dependencies": {
+    "jscodeshift": "^0.14.0"
+  }
+}

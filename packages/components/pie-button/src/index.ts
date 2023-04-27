@@ -1,6 +1,7 @@
-import { LitElement, html, unsafeCSS } from 'lit';
+import { LitElement, html, unsafeCSS, } from 'lit';
 import { classMap } from 'lit/directives/class-map.js';
-import { customElement, property } from 'lit/decorators.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
+import { customElement, property, } from 'lit/decorators.js';
 
 import styles from './button.scss?inline';
 import { validPropertyValues } from './decorators';
@@ -26,8 +27,11 @@ export class PieButton extends LitElement {
     @property({type: Boolean, reflect: true})
     disabled : boolean = false;
 
+    @property({type: String, attribute: 'data-test-id'})
+    testId: string | null = null;
+
     render () {
-        const { size, type, variant, disabled } = this;
+        const { size, type, variant, testId, disabled } = this;
 
         const classes = {
             'o-btn': true,
@@ -47,6 +51,7 @@ export class PieButton extends LitElement {
                 class=${classMap(classes)}
                 type=${type}
                 ?disabled=${disabled}
+                data-test-id="${ifDefined(testId ? `${testId}-${type}-button` : null)}"
                 @click="${raiseWCEvent}">
                 <slot></slot>
             </button>`;

@@ -33,10 +33,11 @@ export default {
     },
 } as Meta;
 
-const Template = ({ size, variant, type, disabled, slot }) => {
+const Template = ({ size, variant, type, disabled, testId, slot }) => {
     return html`
         <pie-button
             size=${size}
+            data-test-id=${testId}
             variant=${variant}
             type=${type}
             ?disabled=${disabled}>
@@ -50,6 +51,7 @@ const defaultArgs = {
     type: BUTTON_TYPE.SUBMIT,
     variant: BUTTON_VARIANT.PRIMARY,
     slot: 'This is Lit!',
+    testId: "checkout",
     disabled: false
 };
 
