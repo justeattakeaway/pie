@@ -54,7 +54,6 @@ const Template = withGlobalDirection(({ size, variant, type, disabled, slot }: B
         `;
 });
 
-
 const defaultArgs = {
     size: BUTTON_SIZE.MEDIUM,
     type: BUTTON_TYPE.SUBMIT,
