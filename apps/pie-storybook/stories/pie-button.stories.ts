@@ -33,15 +33,29 @@ export default {
     },
 } as Meta;
 
-const Template = ({ size, variant, type, disabled, slot }) => {
+// In the actual implementation we would define this once for all stories to consume
+const writingDirections = {
+    ltr: 'ltr',
+    rtl: 'rtl'
+};
+
+// In the actual implementation we would only want to access globals once. Not in every story
+const Template = ({ size, variant, type, disabled, slot },
+    {
+        globals: {
+            writingDirection
+        }
+    }) => {
     return html`
-        <pie-button
-            size=${size}
-            variant=${variant}
-            type=${type}
-            ?disabled=${disabled}>
-            ${slot}
-        </pie-button>
+        <div dir="${writingDirections[writingDirection] ?? "auto"}">
+            <pie-button
+                size=${size}
+                variant=${variant}
+                type=${type}
+                ?disabled=${disabled}>
+                ${slot}
+            </pie-button>
+        </div>
     `;
 }
 
