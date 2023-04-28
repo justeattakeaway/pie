@@ -43,6 +43,7 @@ function getEvents(component, events) {
         }
     }
 
+// create wrapper src code and add to index.ts file
 components.forEach(component => {
     const events = []
     getEvents(component, events)
@@ -72,7 +73,6 @@ import { createComponent } from '@lit-labs/react';${
         }
     });`
 
-    // appends wrapper to the src/index.ts file of the component
     appendFile(`../../components/${component.tagName}/src/index.ts`, componentSrc, (err) => {
         if (err) throw(err);
     });

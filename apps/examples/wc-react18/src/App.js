@@ -6,7 +6,7 @@ import './styles.css';
 function App () {
     const [counter, setCounter] = useState(0);
 
-    const customEvent = () => console.info('onCustomEvent was triggered');
+    const onCustomEvent = () => console.info('onCustomEvent was triggered');
 
     return (
         <>
@@ -18,7 +18,7 @@ function App () {
             <p>Count: {counter}</p>
             <PButton
                 onClick={() => setCounter(counter + 1)}
-                onCustomEvent={customEvent}
+                onCustomEvent={onCustomEvent}
             >Increment</PButton>
         </>
     );
