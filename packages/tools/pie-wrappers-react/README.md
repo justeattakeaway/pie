@@ -2,10 +2,29 @@
 
 ## Usage
 
-This package is for generating a react wrapper during the build process of a lit component. Previously, react developers would need to manually wrap web components within a `createComponent` function before using the component. This is because React 18 and previous versions don't handle web components and custom elements out of the box correctly, due to how React treats custom props and events.
+This package is for generating a react wrapper during the build process of a lit component. Previously, react developers would need to install the component, then manually wrap it within a `createComponent` function before being used. This is because React 18 and previous versions don't handle web components and custom elements out of the box correctly, due to how React treats custom props and events.
 
-With this package, the below code is automatically generated into the component's `src/index.ts` file. The wrapper then gets saved to the component's `dist` folder before being removed again from the `src/index.ts` file.
+With this package, the below code (with the example of `pie-button`) is automatically generated into the component's `src/index.ts` file. The wrapper then gets saved to the component's `dist` folder before being removed again from the `src/index.ts` file.
 
+```
+import * as React from 'react';
+import { createComponent } from '@lit-labs/react';
+import type { EventName } from '@lit-labs/react';
+
+export const PButton = createComponent({
+        displayName: 'PieButton',
+        elementClass: PieButton,
+        react: React,
+        tagName: 'pie-button',
+        events: {
+            onCustomEvent: 'onCustomEvent' as EventName<CustomEvent>, 
+        }
+    });
+```
+
+This package references a `custom-elements.json` file from the root of the repo. This file is generated via a `yarn cem analyze` command from the package `@custom-elements-manifest/analyzer`. This package searches through the repo for any web components and condenses it's information, such as events and attributes, into a large json object - making it easier to use for wrappers.
+
+To use the react wrapper in a react application, import the `P{Component}`. For example, you would use `PButton` instead of `PieButton` for the button component.
 
 ## Credits
 

@@ -1,27 +1,18 @@
-import kebabCase from 'kebab-case';
 import fs from 'fs-extra';
-import { readFile, appendFile, writeFile } from 'fs'
+import { appendFile } from 'fs'
 
+// fetches custom-elements.json file from the root
 const loadJSON = (path) => JSON.parse(fs.readFileSync(new URL(path, import.meta.url)));
 
 const componentObject = loadJSON(`../../../../custom-elements.json`);
 
-let declMap = []
 let components = []
-let fileImports = []
 const reactComponents = [];
 export const reactComponent = {};
 
 const customComponents = Object.entries(componentObject)
 
-customComponents.forEach(([key, value]) => {
-    if ( key === 'modules') {
-        value.forEach(k => {
-            k.declarations.map((decl) => declMap.push(decl.name, decl))
-        })
-    }
-  });
-
+// sort through json and put all components into a separate array
 customComponents.forEach(([key, value]) => {
     if ( key === 'modules') {
         return value.forEach(k => {
@@ -32,10 +23,13 @@ customComponents.forEach(([key, value]) => {
     }
 })
 
-function uniqueBy(arr, prop) {
-    return [...new Map(arr.map((m) => [m[prop], m])).values()];
-}
 
+/**
+ * function to fetch events from the component
+ *
+ * @param {*} component object from within components array
+ * @param {*} event empty array to be populated with events
+ */
 async function getEvents(component, events) {
        if (component?.events) {
             events.push(
@@ -52,33 +46,20 @@ async function getEvents(component, events) {
         }
     }
 
+    console.log('heyyy', components)
+// sorts component into a reactComponent object
 for (let component of components) {
-    customComponents.forEach(([key, value]) => {
-        if ( key === 'modules') {
-            return value.forEach(k => {
-                fileImports.push(`import '${k.path.replace(`packages/components/${kebabCase(component.name).slice(1)}/src`, '.').replace('js', 'ts')}'`)
-            })
-        }
-    });
-
-    console.log('yoo', customComponents.length)
-
-    console.log('heyyyy', component.name)
-
     reactComponent.name = `${component.name}`;
     reactComponent.swcComponentName = `${component.name}`;
     reactComponent.elementName = component.tagName;
     const events = [];
     await getEvents(component, events);
-    reactComponent.events = uniqueBy(events.flat(), 'name');
+    reactComponent.events = events.flat();
     reactComponents.push(reactComponent);
 }
 
-console.log('yooo', reactComponents.length)
-
-
-const componentSrc = `
-import * as React from 'react';
+// generates wrapper from reactComponent
+const componentSrc = `import * as React from 'react';
 import { createComponent } from '@lit-labs/react';${
     reactComponents.flatMap((component) => component.events)
         .length > 0
@@ -91,7 +72,7 @@ ${reactComponents.reduce(
         pre +
         `export const ${component.name.replace('Pie', 'P')} = createComponent({
         displayName: '${component.name}',
-        elementClass: ${component.swcComponentName},
+        elementClass: ${component.name},
         react: React,
         tagName: '${component.elementName}',
         events: {
@@ -111,15 +92,7 @@ ${reactComponents.reduce(
 )}
 `;
 
-async function genReactWrapper() {
-    appendFile(`../../components/${reactComponent.elementName}/src/index.ts`, componentSrc, (err) => {
-        if (err) console.error(err);
-    });
-};
-
-export default {
-    plugins: [
-        genReactWrapper(),
-    ],
-};
-
+// appends wrapper to the src/index.ts file of the component
+appendFile(`../../components/${reactComponent.elementName}/src/index.ts`, componentSrc, (err) => {
+    if (err) throw(err);
+});
