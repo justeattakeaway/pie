@@ -41,7 +41,7 @@ test('should emit an event when clicked', async ({ mount }) => {
         default: 'Click me!'
       },
       on: {
-        CustomEvent: (data: string) => messages.push(data),
+        onCustomEvent: (data: string) => messages.push(data),
       },
     });
 
