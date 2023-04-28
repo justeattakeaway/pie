@@ -168,3 +168,5 @@ lit-visual-report/
 
 # TypeScript
 compiled/
+
+custom-elements.json

@@ -92,7 +92,7 @@
     "stylelint-order": "5.0.0",
     "turbo": "1.7.0",
     "typescript": "5.0.3",
-    "vite": "^4.3.1",
+    "vite": "4.2.1",
     "vite-plugin-dts": "2.2.0",
     "vitest": "0.29.8",
     "vue": "2.7.14",

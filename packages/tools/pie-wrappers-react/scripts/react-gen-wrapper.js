@@ -4,16 +4,16 @@ import { appendFile } from 'fs'
 // fetches custom-elements.json file from the root
 const loadJSON = (path) => JSON.parse(fs.readFileSync(new URL(path, import.meta.url)));
 
-const componentObject = loadJSON(`../../../../custom-elements.json`);
+const customElementsObject = loadJSON(`../../../../custom-elements.json`);
 
 let components = []
 const reactComponents = [];
 export const reactComponent = {};
 
-const customComponents = Object.entries(componentObject)
+const customElements = Object.entries(customElementsObject)
 
-// sort through json and put all components into a separate array
-customComponents.forEach(([key, value]) => {
+// sort through customElements array and put all components into a separate array
+customElements.forEach(([key, value]) => {
     if ( key === 'modules') {
         return value.forEach(k => {
             k.declarations.forEach((decl) => {
@@ -22,7 +22,6 @@ customComponents.forEach(([key, value]) => {
         })
     }
 })
-
 
 /**
  * function to fetch events from the component
@@ -46,7 +45,6 @@ async function getEvents(component, events) {
         }
     }
 
-    console.log('heyyy', components)
 // sorts component into a reactComponent object
 for (let component of components) {
     reactComponent.name = `${component.name}`;
