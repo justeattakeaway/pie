@@ -49,13 +49,13 @@ jobs:
         uses: actions/checkout@v3
       # Setup Repo
       - name: Setup Repo
-        uses: justeattakeaway/pie/.github/actions/setup-repo
+        uses: justeattakeaway/pie/.github/actions/setup-repo@b1782cbce6a0bf2a6db2b71ad0bd4f4f4d033500
         with:
           node-version: ${{ inputs.node-version }}
           os: ${{ inputs.os }}
       # Build
       - name: Build ${{ inputs.package-name }}
-        uses: justeattakeaway/pie/.github/actions/run-script
+        uses: justeattakeaway/pie/.github/actions/run-script@b1782cbce6a0bf2a6db2b71ad0bd4f4f4d033500
         with:
           script-name: "build"
           package-name: ${{ inputs.package-name }}
