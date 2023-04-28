@@ -29,6 +29,11 @@ on:
         description: "Name of the main bucket being deployed to"
         required: true
         type: string
+      build-script-name:
+        description: "Name of the build script to execute before deploy"
+        required: false
+        default: build
+        type: string
 
 env:
   AMPLIFY_ID: ${{ inputs.amplify-app-id }}
@@ -57,7 +62,7 @@ jobs:
       - name: Build ${{ inputs.package-name }}
         uses: justeattakeaway/pie/.github/actions/run-script@b1782cbce6a0bf2a6db2b71ad0bd4f4f4d033500
         with:
-          script-name: "build"
+          script-name: ${{ inputs.build-script-name }}
           package-name: ${{ inputs.package-name }}
       # Create Github Deployment
       - name: Create Docs GitHub deployment
