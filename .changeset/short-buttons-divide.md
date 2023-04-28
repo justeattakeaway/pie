@@ -2,4 +2,4 @@
 "pie-monorepo": patch
 ---
 
-[Added]: vitest dependency
+[Fixed] - Bucket names in CI
