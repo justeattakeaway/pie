@@ -1,6 +1,9 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-    ssr: false,
+    ssr: true,
+    modules: [
+      ["nuxt-ssr-lit", { litElementPrefix: ["pie-"] }]
+    ],
     vite: {
         build: {
             rollupOptions: {
