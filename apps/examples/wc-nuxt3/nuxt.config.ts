@@ -4,18 +4,4 @@ export default defineNuxtConfig({
     modules: [
       ["nuxt-ssr-lit", { litElementPrefix: ["pie-"] }]
     ],
-    vite: {
-        build: {
-            rollupOptions: {
-              external: ['vue/server-renderer'],
-            },
-        },
-        vue: {
-            template: {
-                compilerOptions: {
-                    isCustomElement: (tag) => tag.includes('-'),
-                }
-            }
-        },
-    },
 })
