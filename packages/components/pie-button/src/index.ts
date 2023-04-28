@@ -48,7 +48,6 @@ export class PieButton extends LitElement {
                 @click="${raiseWCEvent}">
                 <slot></slot>
             </button>`;
-            ;
     }
 
     // Renders a `CSSResult` generated from SCSS by Vite

@@ -18,7 +18,7 @@ export default function Home () {
         setVariantName(variant);
     };
 
-    const handleCustomEvent = () => console.log('onCustomEvent was triggered');
+    const handleCustomEvent = () => console.info('onCustomEvent was triggered');
 
     return (
         <>

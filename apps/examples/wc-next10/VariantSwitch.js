@@ -14,7 +14,7 @@ export default function VariantSwitch () {
         setVariantName(variant);
     };
 
-    const handleCustomEvent = () => console.log('onCustomEvent was triggered');
+    const handleCustomEvent = () => console.info('onCustomEvent was triggered');
 
     return (
         <>

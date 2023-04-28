@@ -6,7 +6,7 @@ import './styles.css';
 function App () {
     const [counter, setCounter] = useState(0);
 
-    const customEvent = () => console.log('onCustomEvent was triggered');
+    const customEvent = () => console.info('onCustomEvent was triggered');
 
     return (
         <>
