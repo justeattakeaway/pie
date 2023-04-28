@@ -6,9 +6,7 @@ const loadJSON = (path) => JSON.parse(fs.readFileSync(new URL(path, import.meta.
 
 const customElementsObject = loadJSON(`../../../../custom-elements.json`);
 
-let components = []
-const reactComponents = [];
-export const reactComponent = {};
+export let components = []
 
 const customElements = Object.entries(customElementsObject)
 
@@ -29,7 +27,7 @@ customElements.forEach(([key, value]) => {
  * @param {*} component object from within components array
  * @param {*} event empty array to be populated with events
  */
-async function getEvents(component, events) {
+function getEvents(component, events) {
        if (component?.events) {
             events.push(
                 component?.events
@@ -45,36 +43,23 @@ async function getEvents(component, events) {
         }
     }
 
-// sorts component into a reactComponent object
-for (let component of components) {
-    reactComponent.name = `${component.name}`;
-    reactComponent.swcComponentName = `${component.name}`;
-    reactComponent.elementName = component.tagName;
-    const events = [];
-    await getEvents(component, events);
-    reactComponent.events = events.flat();
-    reactComponents.push(reactComponent);
-}
+components.forEach(component => {
+    const events = []
+    getEvents(component, events)
 
-// generates wrapper from reactComponent
-const componentSrc = `import * as React from 'react';
+    const componentSrc = `import * as React from 'react';
 import { createComponent } from '@lit-labs/react';${
-    reactComponents.flatMap((component) => component.events)
-        .length > 0
+    component.events.length > 0
         ? "\nimport type { EventName } from '@lit-labs/react';"
         : ''
-}
-
-${reactComponents.reduce(
-    (pre, component) =>
-        pre +
-        `export const ${component.name.replace('Pie', 'P')} = createComponent({
+    }
+        export const ${component.name.replace('Pie', 'P')} = createComponent({
         displayName: '${component.name}',
         elementClass: ${component.name},
         react: React,
-        tagName: '${component.elementName}',
+        tagName: '${component.tagName}',
         events: {
-            ${component.events.reduce(
+            ${events.flat().reduce(
                 (pre, event) =>
                     pre +
                     `${event.name.replace(/-./g, (m) =>
@@ -85,12 +70,10 @@ ${reactComponents.reduce(
                 ''
             )}
         }
-    });`,
-    ''
-)}
-`;
+    });`
 
-// appends wrapper to the src/index.ts file of the component
-appendFile(`../../components/${reactComponent.elementName}/src/index.ts`, componentSrc, (err) => {
-    if (err) throw(err);
-});
+    // appends wrapper to the src/index.ts file of the component
+    appendFile(`../../components/${component.tagName}/src/index.ts`, componentSrc, (err) => {
+        if (err) throw(err);
+    });
+})

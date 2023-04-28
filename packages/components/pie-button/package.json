@@ -26,7 +26,6 @@
   "dependencies": {
     "@lit-labs/react": "1.1.1",
     "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "vite": "2.7.1"
+    "react-dom": "18.2.0"
   }
 }
