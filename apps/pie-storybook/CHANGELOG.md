@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.7.0
+
+### Minor Changes
+
+- [Changed] - Use a decorator for toggling writing direction ([#428](https://github.com/justeattakeaway/pie/pull/428)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Changed] - Upgrade to Storybook 7 and add a writing direction toolbar dropdown ([#424](https://github.com/justeattakeaway/pie/pull/424)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies [[`2baba6fb5`](https://github.com/justeattakeaway/pie/commit/2baba6fb5a98ff9792027d67212c963aeefe1236), [`4b081762f`](https://github.com/justeattakeaway/pie/commit/4b081762fbf574235d862f9cd984e80738f99f2f), [`4b081762f`](https://github.com/justeattakeaway/pie/commit/4b081762fbf574235d862f9cd984e80738f99f2f), [`26f5b6b9e`](https://github.com/justeattakeaway/pie/commit/26f5b6b9ef9c257c961030c88f31e2ab2f416240), [`4b081762f`](https://github.com/justeattakeaway/pie/commit/4b081762fbf574235d862f9cd984e80738f99f2f)]:
+  - @justeattakeaway/pie-button@0.11.0
+
 ## 0.6.3
 
 ### Patch Changes
