@@ -1,4 +1,7 @@
+import { WritingDirection } from '../decorators';
+
 export default {
+    decorators: [WritingDirection],
     globalTypes: {
         writingDirection: {
             description: 'Which direction should content be written in',
