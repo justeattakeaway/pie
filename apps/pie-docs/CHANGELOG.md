@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.70.0
+
+### Minor Changes
+
+- [Changed] - Improved readme files ([#418](https://github.com/justeattakeaway/pie/pull/418)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 1.69.0
 
 ### Minor Changes
