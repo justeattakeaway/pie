@@ -3,7 +3,7 @@
 $button-height-xs: 32px;
 $button-height-s: 40px;
 $button-height-m: 48px;
-$button-height-l: 56px;
+$button-height-l: 70px;
 
 $button-border-radius: dt.$radius-rounded-e;
 $button-font: dt.$font-interactive-m-family;
@@ -128,7 +128,7 @@ $button-sizes: (
 
 // Variants
 .o-btn--primary {
-    @include button-variant($button-bg-color-primary, $button-text-color-primary);
+    @include button-variant(saddlebrown, $button-text-color-primary);
 }
 
 .o-btn--secondary {
