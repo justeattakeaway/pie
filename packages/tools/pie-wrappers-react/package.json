@@ -14,12 +14,14 @@
     "dist"
   ],
   "scripts": {
-    "build:wrapper": "yarn analyze:components && node ./scripts/react-gen-wrapper.js",
+    "build:wrapper": "yarn cem analyze && node ./scripts/react-gen-wrapper.js",
     "remove:wrapper": "node ./scripts/react-remove-wrapper.js"
   },
-  "dependencies": {
-    "@lit-labs/react": "^1.1.1",
-    "lit": "2.7.1"
+  "devDependencies": {
+    "@custom-elements-manifest/analyzer": "0.8.0",
+    "@lit-labs/react": "1.1.1",
+    "cem-plugin-module-file-extensions": "0.0.5",
+    "fs-extra": "9.1.0"
   },
   "volta": {
     "extends": "../../../package.json"

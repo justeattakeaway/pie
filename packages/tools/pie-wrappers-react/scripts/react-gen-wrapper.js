@@ -4,7 +4,7 @@ import { appendFile } from 'fs'
 // fetches custom-elements.json file from the root
 const loadJSON = (path) => JSON.parse(fs.readFileSync(new URL(path, import.meta.url)));
 
-const customElementsObject = loadJSON(`../../../../custom-elements.json`);
+const customElementsObject = loadJSON(`../custom-elements.json`);
 
 export let components = []
 
@@ -50,7 +50,7 @@ components.forEach(component => {
 
     const componentSrc = `import * as React from 'react';
 import { createComponent } from '@lit-labs/react';${
-    component.events.length > 0
+    component?.events?.length > 0
         ? "\nimport type { EventName } from '@lit-labs/react';"
         : ''
     }
@@ -63,9 +63,7 @@ import { createComponent } from '@lit-labs/react';${
             ${events.flat().reduce(
                 (pre, event) =>
                     pre +
-                    `${event.name.replace(/-./g, (m) =>
-                        m[1].toUpperCase()
-                    )}: '${event.name}' as EventName<${event.type}>, ${
+                    `${'on' + event.name}: '${event.name}' as EventName<${event.type}>, ${
                         event.description ? `// ${event.description}` : ''
                     }`,
                 ''

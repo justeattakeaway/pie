@@ -2,13 +2,14 @@ import { moduleFileExtensionsPlugin } from 'cem-plugin-module-file-extensions';
 
 export default {
     globs: [
-        'packages/components/**/src/**/!(*.css).ts',
+        '../../components/**/src/**/!(*.css).ts',
     ],
     exclude: [
-        '**/*.d.ts',
-        '**/test/**',
+        '../../**/*.d.ts',
+        '../../**/*.d.js',
+        '../../**/test/**',
         'node_modules/*',
-        '**/node_modules/**',
+        '../../**/node_modules/**',
     ],
     plugins: [moduleFileExtensionsPlugin()],
 };

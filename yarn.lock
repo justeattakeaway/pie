@@ -2872,7 +2872,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@custom-elements-manifest/analyzer@npm:^0.8.0":
+"@custom-elements-manifest/analyzer@npm:0.8.0":
   version: 0.8.0
   resolution: "@custom-elements-manifest/analyzer@npm:0.8.0"
   dependencies:
@@ -4044,10 +4044,6 @@ __metadata:
 "@justeattakeaway/pie-button@^0.10.1, @justeattakeaway/pie-button@workspace:*, @justeattakeaway/pie-button@workspace:packages/components/pie-button":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-button@workspace:packages/components/pie-button"
-  dependencies:
-    "@lit-labs/react": 1.1.1
-    react: 18.2.0
-    react-dom: 18.2.0
   languageName: unknown
   linkType: soft
 
@@ -4133,10 +4129,6 @@ __metadata:
 "@justeattakeaway/pie-label@workspace:*, @justeattakeaway/pie-label@workspace:packages/components/pie-label":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-label@workspace:packages/components/pie-label"
-  dependencies:
-    "@lit-labs/react": 1.1.1
-    react: 18.2.0
-    react-dom: 18.2.0
   languageName: unknown
   linkType: soft
 
@@ -4154,8 +4146,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-wrappers-react@workspace:packages/tools/pie-wrappers-react"
   dependencies:
-    "@lit-labs/react": ^1.1.1
-    lit: 2.7.1
+    "@custom-elements-manifest/analyzer": 0.8.0
+    "@lit-labs/react": 1.1.1
+    cem-plugin-module-file-extensions: 0.0.5
+    fs-extra: 9.1.0
   languageName: unknown
   linkType: soft
 
@@ -4166,7 +4160,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@lit-labs/react@npm:1.1.1, @lit-labs/react@npm:^1.1.1":
+"@lit-labs/react@npm:1.1.1":
   version: 1.1.1
   resolution: "@lit-labs/react@npm:1.1.1"
   checksum: e46b87a3e04b329b62e67360a7a1b21c55abf91c17d3059b550654565b53c73a25832e95426698e9b78488cc4ebaeb20b8a8ca64a220325e31633355a245710d
@@ -11630,7 +11624,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cem-plugin-module-file-extensions@npm:^0.0.5":
+"cem-plugin-module-file-extensions@npm:0.0.5":
   version: 0.0.5
   resolution: "cem-plugin-module-file-extensions@npm:0.0.5"
   peerDependencies:
@@ -25776,7 +25770,6 @@ __metadata:
     "@changesets/cli": 2.26.1
     "@commitlint/cli": 17.5.1
     "@commitlint/config-conventional": 17.4.4
-    "@custom-elements-manifest/analyzer": ^0.8.0
     "@justeat/browserslist-config-fozzie": 1.x
     "@justeat/fozzie": 10.11.1
     "@justeat/pie-design-tokens": 4.2.0
@@ -25790,7 +25783,6 @@ __metadata:
     allure-commandline: 2.21.0
     autoprefixer: 10.4.14
     babel-loader: 8.3.0
-    cem-plugin-module-file-extensions: ^0.0.5
     commitizen: 4.3.0
     cross-env: 7.0.3
     cssnano: 5.1.15

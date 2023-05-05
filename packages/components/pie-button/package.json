@@ -7,9 +7,7 @@
   "main": "dist/index.js",
   "module": "dist/index.js",
   "scripts": {
-    "build": "yarn create-react-wrapper && run -T vite build && yarn remove-wrapper",
-    "create-react-wrapper": "cd ../../tools/pie-wrappers-react && yarn build:wrapper",
-    "remove-wrapper": "cd ../../tools/pie-wrappers-react && yarn remove:wrapper",
+    "build": "yarn build:wrapper && run -T vite build && yarn remove:wrapper",
     "watch": "run -T vite build --watch",
     "dev": "run -T vite",
     "test": "echo \"Error: no test specified\" && exit 0",
@@ -22,10 +20,5 @@
   "license": "Apache-2.0",
   "volta": {
     "extends": "../../../package.json"
-  },
-  "dependencies": {
-    "@lit-labs/react": "1.1.1",
-    "react": "18.2.0",
-    "react-dom": "18.2.0"
   }
 }

@@ -99,10 +99,8 @@
     "vue-template-compiler": "2.7.14"
   },
   "dependencies": {
-    "@custom-elements-manifest/analyzer": "^0.8.0",
     "@justeat/fozzie": "10.11.1",
     "@justeattakeaway/pie-icons": "2.2.0",
-    "cem-plugin-module-file-extensions": "^0.0.5",
     "lit": "2.7.1"
   },
   "config": {
