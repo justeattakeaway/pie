@@ -22,7 +22,6 @@
     "build": "cross-env-shell turbo run build --filter=!'./apps/examples/*' --filter=!pie-monorepo --token=${TURBO_TOKEN}",
     "build:examples": "cross-env-shell turbo run build:examples --token=${TURBO_TOKEN}",
     "changeset": "changeset",
-    "analyze:components": "yarn cem analyze",
     "changeset:publish": "changeset publish",
     "changeset:version": "changeset version",
     "clean": "turbo run clean --filter=!pie-monorepo",
