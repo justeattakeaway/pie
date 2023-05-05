@@ -1,5 +1,14 @@
 # Changelog
 
+## 3.0.0
+
+### Major Changes
+
+- [Changed] update icons build script ([#386](https://github.com/justeattakeaway/pie/pull/386)) by [@fernandofranca](https://github.com/fernandofranca)
+
+  [Added] added README instructions on `iconSize` usage
+  [Changed] update icons
+
 ## 2.2.0
 
 ### Minor Changes

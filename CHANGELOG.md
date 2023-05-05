@@ -1,5 +1,51 @@
 # Changelog
 
+## 2.5.0
+
+### Minor Changes
+
+- [Changed] - Improved readme files ([#418](https://github.com/justeattakeaway/pie/pull/418)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- Updated amplify deploy to support bucket name ([#421](https://github.com/justeattakeaway/pie/pull/421)) by [@JoshuaNg2332](https://github.com/JoshuaNg2332)
+
+- [Changed] - Upgrade to Storybook 7 and add a writing direction toolbar dropdown ([#424](https://github.com/justeattakeaway/pie/pull/424)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- [Fixed] - Bucket names in CI ([#422](https://github.com/justeattakeaway/pie/pull/422)) by [@siggerzz](https://github.com/siggerzz)
+
+- - [Updated] Yarn module resolution for `@lit-labs/ssr-dom-shim` to use the latest version (1.1.1) ([#417](https://github.com/justeattakeaway/pie/pull/417)) by [@fernandofranca](https://github.com/fernandofranca)
+
+## 2.4.0
+
+### Minor Changes
+
+- [Added] - A vanilla JS example application for using pie-button ([#409](https://github.com/justeattakeaway/pie/pull/409)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - Renovate config for example apps ([#406](https://github.com/justeattakeaway/pie/pull/406)) by [@siggerzz](https://github.com/siggerzz)
+
+- [Changed] - Amplify Deploy logic to be a reusable workflow ([#410](https://github.com/justeattakeaway/pie/pull/410)) by [@siggerzz](https://github.com/siggerzz)
+
+- [Added] Pie button and markup to nuxt3 example folder. ([#411](https://github.com/justeattakeaway/pie/pull/411)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
+- [Added] wc react 17 app ([#402](https://github.com/justeattakeaway/pie/pull/402)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
+- [Added] - Support for Windows/Ubuntu Node 16/18 CI builds. ([#401](https://github.com/justeattakeaway/pie/pull/401)) by [@siggerzz](https://github.com/siggerzz)
+
+- [Added] - Example apps back to workspace, and prevented node_modules from being hoisted to the workspace root. ([#406](https://github.com/justeattakeaway/pie/pull/406)) by [@siggerzz](https://github.com/siggerzz)
+
+### Patch Changes
+
+- [Fixed] - Refactored Changesets action to be a dispatchable workflow ([#403](https://github.com/justeattakeaway/pie/pull/403)) by [@siggerzz](https://github.com/siggerzz)
+
+- [Fixed] - Issue where main amplify deploy wasn't setting zip file name correctly ([#415](https://github.com/justeattakeaway/pie/pull/415)) by [@siggerzz](https://github.com/siggerzz)
+
+- [Added]: vitest dependency ([#386](https://github.com/justeattakeaway/pie/pull/386)) by [@fernandofranca](https://github.com/fernandofranca)
+
+- [added] - example angular 12 app ([#398](https://github.com/justeattakeaway/pie/pull/398)) by [@FayeCarter](https://github.com/FayeCarter)
+
+  [added] - `pie-button` to angular 12 app
+
 ## 2.3.0
 
 ### Minor Changes

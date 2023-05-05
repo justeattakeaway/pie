@@ -33,11 +33,20 @@ export default defineConfig({
   /* Configure projects for major browsers */
   projects: [
     {
-      name: 'component:chrome',
+      name: 'visual:desktop',
+      grepInvert: /@mobile/,
       use: {
         ...devices['Desktop Chrome'],
       },
       testMatch: ['**/test/visual/*.spec.ts']
-    }
+    },
+    {
+      name: 'visual:mobile',
+      grep: /@mobile/,
+      use: {
+        ...devices['Pixel 5'],
+      },
+      testMatch: ['**/test/visual/*.spec.ts']
+    },
   ],
 });

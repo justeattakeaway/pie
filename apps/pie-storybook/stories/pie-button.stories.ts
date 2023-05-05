@@ -1,6 +1,6 @@
 import type { Meta, StoryObj as Story } from '@storybook/web-components';
 import { BUTTON_SIZE, BUTTON_TYPE, BUTTON_VARIANT } from '@justeattakeaway/pie-button';
-import { html } from 'lit';
+import { html, TemplateResult } from 'lit';
 
 export default {
     title: 'Button',
@@ -33,17 +33,25 @@ export default {
     },
 } as Meta;
 
-const Template = ({ size, variant, type, disabled, slot }) => {
+interface ButtonProps {
+    size: BUTTON_SIZE;
+    variant: BUTTON_VARIANT;
+    type: BUTTON_TYPE;
+    disabled: boolean;
+    slot: TemplateResult;
+}
+
+const Template = ({ size, variant, type, disabled, slot }: ButtonProps): TemplateResult => {
     return html`
         <pie-button
-            size=${size}
-            variant=${variant}
-            type=${type}
-            ?disabled=${disabled}>
+            size="${size}"
+            variant="${variant}"
+            type="${type}"
+            ?disabled="${disabled}">
             ${slot}
         </pie-button>
-    `;
-}
+        `;
+};
 
 const defaultArgs = {
     size: BUTTON_SIZE.MEDIUM,

@@ -1,5 +1,21 @@
 # Changelog
 
+## 0.11.0
+
+### Minor Changes
+
+- [Changed] - Improved readme files ([#418](https://github.com/justeattakeaway/pie/pull/418)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Changed] - Refactor SCSS to reduce duplication ([#416](https://github.com/justeattakeaway/pie/pull/416)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Changed] - Copy playwright projects from monorepo root ([#416](https://github.com/justeattakeaway/pie/pull/416)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Changed] - Split small size into expressive and productive ([#416](https://github.com/justeattakeaway/pie/pull/416)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- [Removed] the custom decorator and uses the native `customElement` decorator instead ([#417](https://github.com/justeattakeaway/pie/pull/417)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 0.10.2
 
 ### Patch Changes

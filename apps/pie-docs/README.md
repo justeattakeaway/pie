@@ -49,7 +49,9 @@ From here, we run navigation, accessibility and visual tests against each route.
 Route tests are ran as part of `yarn test`.
 
 #### Testing navigation responses
-Running `yarn test:system` will ensure that navigating to the routes stored in `expected-routes.snapshot.json` result in Status Code `200` responses. In order to run this command you will need the site to be served to localhost by running `yarn dev --filter=pie-docs` in another terminal.
+Running `yarn test:browsers` will ensure that navigating to the routes stored in `expected-routes.snapshot.json` result in Status Code `200` responses.
+
+In order to run this command you will need the site to be served to localhost by running `yarn dev --filter=pie-docs` in another terminal.
 
 ### Unit testing
 Our unit testing is quite light. We generally write unit tests for `Javascript` utilities and for `shortcodes`. With shortcodes, we often perform [snapshot tests](https://jestjs.io/docs/snapshot-testing) on the returned markup. Whilst visual tests will catch changes to how the markup looks, snapshot tests will catch any unwanted changes to things like `HTML` attributes.

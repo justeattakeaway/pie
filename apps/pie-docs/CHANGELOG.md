@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.70.0
+
+### Minor Changes
+
+- [Changed] - Improved readme files ([#418](https://github.com/justeattakeaway/pie/pull/418)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+## 1.69.0
+
+### Minor Changes
+
+- [Changed] Update colours for code snippets and re-enable color-contrast Axe checks by [@xander-marjoram](https://github.com/xander-marjoram)
+
 ## 1.68.0
 
 ### Minor Changes
