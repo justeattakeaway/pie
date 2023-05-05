@@ -11,7 +11,6 @@
   },
   "dependencies": {
     "@justeattakeaway/pie-button": "workspace:*",
-    "@lit-labs/react": "1.1.1",
     "@types/node": "18.15.11",
     "@types/react-dom": "18.0.11",
     "eslint-config-next": "13.2.4",

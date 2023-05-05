@@ -4126,12 +4126,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-label@workspace:*, @justeattakeaway/pie-label@workspace:packages/components/pie-label":
-  version: 0.0.0-use.local
-  resolution: "@justeattakeaway/pie-label@workspace:packages/components/pie-label"
-  languageName: unknown
-  linkType: soft
-
 "@justeattakeaway/pie-stylelint-config@workspace:packages/tools/pie-stylelint-config":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-stylelint-config@workspace:packages/tools/pie-stylelint-config"
@@ -35288,7 +35282,6 @@ __metadata:
     "@babel/preset-env": 7.21.4
     "@babel/preset-react": 7.18.6
     "@justeattakeaway/pie-button": "workspace:*"
-    "@lit-labs/react": 1.1.1
     eslint: 8.37.0
     eslint-config-next: 13.2.4
     next: 10.2.3
@@ -35303,7 +35296,6 @@ __metadata:
   resolution: "wc-next13@workspace:apps/examples/wc-next13"
   dependencies:
     "@justeattakeaway/pie-button": "workspace:*"
-    "@lit-labs/react": 1.1.1
     "@types/node": 18.15.11
     "@types/react-dom": 18.0.11
     eslint-config-next: 13.2.4
@@ -35354,8 +35346,6 @@ __metadata:
   resolution: "wc-react18@workspace:apps/examples/wc-react18"
   dependencies:
     "@justeattakeaway/pie-button": "workspace:*"
-    "@justeattakeaway/pie-label": "workspace:*"
-    "@lit-labs/react": 1.1.1
     react: 18.2.0
     react-dom: 18.2.0
     react-scripts: 5.0.1
