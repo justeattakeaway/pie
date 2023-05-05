@@ -34,6 +34,11 @@ on:
         required: false
         default: build
         type: string
+      filter-build:
+        description: "Filter 'build-script-name' to run against 'package-name'"
+        required: false
+        default: false
+        type: boolean
 
 env:
   AMPLIFY_ID: ${{ inputs.amplify-app-id }}
@@ -63,7 +68,7 @@ jobs:
         uses: justeattakeaway/pie/.github/actions/run-script@b1782cbce6a0bf2a6db2b71ad0bd4f4f4d033500
         with:
           script-name: ${{ inputs.build-script-name }}
-          package-name: ${{ inputs.package-name }}
+          package-name: ${{ inputs.filter-build && inputs.package-name }}
       # Create Github Deployment
       - name: Create Docs GitHub deployment
         if: ${{ github.event_name == 'pull_request' }}
