@@ -32,6 +32,10 @@ module.exports = function (iconConfig = {
         fill: '#000',
     };
 
-    const attributes = { ...defaultAttributes, ...(iconConfig.attrs ? iconConfig.attrs : {}) };
+    const attributes = {
+        ...defaultAttributes,
+        ...(iconConfig && iconConfig.attrs ? iconConfig.attrs : {})
+    };
+
     return iconConfig && iconConfig.name ? getIconByName(iconConfig.name, attributes) : getAllIcons(attributes);
 };

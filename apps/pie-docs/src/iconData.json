@@ -1,0 +1,62 @@
+{
+    "categories": [
+        {
+            "displayName": "Age limit",
+            "icons": [
+                {
+                    "name": "over-16-filled",
+                    "displayName": "Over 16"
+                },
+                {
+                    "name": "over-18-filled",
+                    "displayName": "Over 18"
+                },
+                {
+                    "name": "over-21-filled",
+                    "displayName": "Over 21"
+                }
+            ]
+        },
+        {
+            "displayName": "Alert & Info",
+            "icons": [
+                {
+                    "name": "alert-circle",
+                    "displayName": "Alert Circle"
+                },
+                {
+                    "name": "alert-circle-filled",
+                    "displayName": "Alert Circle Filled"
+                },
+                {
+                    "name": "alert-triangle",
+                    "displayName": "Alert Triangle"
+                },
+                {
+                    "name": "alert-triangle-filled",
+                    "displayName": "Alert Triangle Filled"
+                },
+                {
+                    "name": "help-circle",
+                    "displayName": "Help Circle"
+                },
+                {
+                    "name": "help-circle-filled",
+                    "displayName": "Help Circle Filled"
+                },
+                {
+                    "name": "info-circle",
+                    "displayName": "Info Circle"
+                },
+                {
+                    "name": "info-circle-filled",
+                    "displayName": "Info Circle Filled"
+                },
+                {
+                    "name": "info-marker",
+                    "displayName": "Info Marker"
+                }
+            ]
+        }
+    ]
+}
