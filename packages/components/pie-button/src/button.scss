@@ -41,16 +41,16 @@ $button-outline-color-disabled: dt.$color-disabled-01;
     background-color: $bg-color;
     color: $text-color;
 
-    &:hover {
+    &:hover:not(:disabled) {
         background-color: darken($bg-color, dt.$color-hover-01);
     }
 
-    &:active {
+    &:active:not(:disabled) {
         background-color: darken($bg-color, dt.$color-active-01);
     }
 
     @if $outline-color != null {
-        outline: 1px solid $outline-color;
+        border: 1px solid $outline-color;
     }
 }
 
@@ -146,7 +146,7 @@ $button-sizes: (
 .o-btn.o-btn--is-disabled {
     @include button-variant($button-bg-color-disabled, $button-text-color-disabled, $button-outline-color-disabled);
 
-    cursor: default;
+    cursor: not-allowed;
 
     &.o-btn--ghost {
         background-color: $button-disabled-bg-color-ghost;
