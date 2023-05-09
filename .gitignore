@@ -165,6 +165,7 @@ browsers-report/
 lit-browsers-report/
 visual-report/
 lit-visual-report/
+lit-visual-report/
 
 # TypeScript
 compiled/
