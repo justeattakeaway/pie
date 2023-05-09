@@ -129,6 +129,16 @@
       "enabled": true
     },
     {
+      "commitMessagePrefix": "chore(wc-next10): ",
+      "description": "Group dependencies from package.json within wc-next10",
+      "matchFiles": ["apps/examples/wc-next10/package.json"],
+      "matchDepTypes": ["devDependencies", "dependencies"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "wc-next10",
+      "groupSlug": "wc-next10-deps",
+      "enabled": true
+    },
+    {
       "commitMessagePrefix": "chore(wc-next13): ",
       "description": "Group dependencies from package.json within wc-next13",
       "matchFiles": ["apps/examples/wc-next13/package.json"],
@@ -136,6 +146,16 @@
       "matchUpdateTypes": ["minor", "patch"],
       "groupName": "wc-next13",
       "groupSlug": "wc-next13-deps",
+      "enabled": true
+    },
+    {
+      "commitMessagePrefix": "chore(wc-nuxt2): ",
+      "description": "Group dependencies from package.json within wc-nuxt2",
+      "matchFiles": ["apps/examples/wc-nuxt2/package.json"],
+      "matchDepTypes": ["devDependencies", "dependencies"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "wc-nuxt2",
+      "groupSlug": "wc-nuxt2-deps",
       "enabled": true
     },
     {
@@ -157,7 +177,7 @@
       "groupName": "wc-react17",
       "groupSlug": "wc-react17-deps",
       "enabled": true
-    }
+    },
     {
       "commitMessagePrefix": "chore(wc-react18): ",
       "description": "Group dependencies from package.json within wc-react18",
@@ -166,6 +186,16 @@
       "matchUpdateTypes": ["minor", "patch"],
       "groupName": "wc-react18",
       "groupSlug": "wc-react18-deps",
+      "enabled": true
+    },
+    {
+      "commitMessagePrefix": "chore(wc-vanilla): ",
+      "description": "Group dependencies from package.json within wc-vanilla",
+      "matchFiles": ["apps/examples/wc-vanilla/package.json"],
+      "matchDepTypes": ["devDependencies", "dependencies"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "wc-vanilla",
+      "groupSlug": "wc-vanilla-deps",
       "enabled": true
     },
     {

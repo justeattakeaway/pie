@@ -1,5 +1,21 @@
 # Changelog
 
+## 2.5.0
+
+### Minor Changes
+
+- [Changed] - Improved readme files ([#418](https://github.com/justeattakeaway/pie/pull/418)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- Updated amplify deploy to support bucket name ([#421](https://github.com/justeattakeaway/pie/pull/421)) by [@JoshuaNg2332](https://github.com/JoshuaNg2332)
+
+- [Changed] - Upgrade to Storybook 7 and add a writing direction toolbar dropdown ([#424](https://github.com/justeattakeaway/pie/pull/424)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- [Fixed] - Bucket names in CI ([#422](https://github.com/justeattakeaway/pie/pull/422)) by [@siggerzz](https://github.com/siggerzz)
+
+- - [Updated] Yarn module resolution for `@lit-labs/ssr-dom-shim` to use the latest version (1.1.1) ([#417](https://github.com/justeattakeaway/pie/pull/417)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 2.4.0
 
 ### Minor Changes
