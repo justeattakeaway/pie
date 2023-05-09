@@ -31,7 +31,7 @@ export class PieButton extends LitElement {
 
     render () {
         const {
-            size, type, variant, disabled,
+            size, type, variant, disabled, isFullWidth,
         } = this;
 
         const classes = {
@@ -39,7 +39,7 @@ export class PieButton extends LitElement {
             [`o-btn--${size}`]: size,
             [`o-btn--${variant}`]: variant,
             'o-btn--is-disabled': disabled,
-            'o-btn--is-fullWidth': this.isFullWidth,
+            'o-btn--fullWidth': isFullWidth,
         };
 
         const raiseWCEvent = () => {
