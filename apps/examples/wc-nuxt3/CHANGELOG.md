@@ -1,0 +1,12 @@
+# wc-nuxt3
+
+## 0.2.0
+
+### Minor Changes
+
+- [Added] - Example apps back to changesets to prevent failures when internal deps such as `pie-button` are updated ([#431](https://github.com/justeattakeaway/pie/pull/431)) by [@siggerzz](https://github.com/siggerzz)
+
+### Patch Changes
+
+- Updated dependencies [[`2baba6fb5`](https://github.com/justeattakeaway/pie/commit/2baba6fb5a98ff9792027d67212c963aeefe1236), [`4b081762f`](https://github.com/justeattakeaway/pie/commit/4b081762fbf574235d862f9cd984e80738f99f2f), [`4b081762f`](https://github.com/justeattakeaway/pie/commit/4b081762fbf574235d862f9cd984e80738f99f2f), [`26f5b6b9e`](https://github.com/justeattakeaway/pie/commit/26f5b6b9ef9c257c961030c88f31e2ab2f416240), [`4b081762f`](https://github.com/justeattakeaway/pie/commit/4b081762fbf574235d862f9cd984e80738f99f2f)]:
+  - @justeattakeaway/pie-button@0.11.0
