@@ -153,3 +153,8 @@ $button-sizes: (
         outline: none;
     }
 }
+
+// Additional modifiers
+.o-btn--is-fullWidth {
+    inline-size: 100%;
+}
