@@ -2,7 +2,7 @@
 eleventyNavigation:
     key: Global tokens
     parent: Typography
-    order: 2
+    order: 3
 ---
 
 ## Global typography tokens
