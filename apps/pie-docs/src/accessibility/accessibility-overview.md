@@ -76,10 +76,7 @@ To learn more about the guidelines we adhere to, check out these resources:
     ]
 } %}
 
-<!-- {% notification {
+{% notification {
   type: "information",
   message: "You can find more useful links in our [accessibility resources](/accessibility/accessibility-resources) section."
-} %} -->
-<!--  TODO: Remove comment when page is ready -->
-
-
+} %}
