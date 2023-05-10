@@ -53,6 +53,7 @@ export class PieButton extends LitElement {
                 class=${classMap(classes)}
                 type=${type}
                 ?disabled=${disabled}
+                ?isFullWidth=${isFullWidth}
                 @click="${raiseWCEvent}">
                 <slot></slot>
             </button>`;
