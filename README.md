@@ -122,9 +122,6 @@ If your change is intended to be released under the `latest` tag on npm, you mus
 
 A Beta release is a release that contains experimental changes. These are ready for early adoption and testing by consumers but may introduce bugs (or be considered work-in-progress).
 
-A Feature release is for larger changes that may require multiple PRs, across several packages, before it is released. These changes are unstable and are not intended to be used by consumers. Typically, these releases will be used for testing changes in consuming applications as an alternative to using something like `yalc`.
-
-
 If your change is intended to be released under the `beta` tag on npm, you must follow this workflow:
 - Create a new branch with the `beta-*` prefix, and push this to the remote. E.g. `git push origin feature-myawesomework`.
 - Create another branch, off this initial beta branch, to implement your code changes. Ensure that this branch **does not** use a prefix.
