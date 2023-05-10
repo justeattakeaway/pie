@@ -42,19 +42,12 @@ export class PieButton extends LitElement {
             'o-btn--fullWidth': isFullWidth,
         };
 
-        const raiseWCEvent = () => {
-            const event = new CustomEvent('CustomEvent', { detail: 'WC event dispatched' });
-            console.info('WC event dispatched');
-            this.dispatchEvent(event);
-        };
-
         return html`
             <button
                 class=${classMap(classes)}
                 type=${type}
                 ?disabled=${disabled}
-                ?isFullWidth=${isFullWidth}
-                @click="${raiseWCEvent}">
+                ?isFullWidth=${isFullWidth}>
                 <slot></slot>
             </button>`;
     }

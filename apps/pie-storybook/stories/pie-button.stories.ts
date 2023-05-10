@@ -37,10 +37,10 @@ export default {
     },
     parameters: {
         design: {
-            type: "figma",
-            url: "https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%5BPIE-2.0%5D?node-id=33988-388504&t=gZ1UZWnGXcilMsSC-4",
-        }
-    }
+            type: 'figma',
+            url: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%5BPIE-2.0%5D?node-id=33988-388504&t=gZ1UZWnGXcilMsSC-4',
+        },
+    },
 } as Meta;
 
 interface ButtonProps {
