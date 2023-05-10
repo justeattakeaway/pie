@@ -22822,6 +22822,7 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "lit@npm:2.7.3":
   version: 2.7.3
   resolution: "lit@npm:2.7.3"
@@ -22850,6 +22851,9 @@ __metadata:
   resolution: "lmdb@npm:2.7.11"
 =======
 "lit@npm:^2.0.0, lit@npm:^2.7.0":
+=======
+"lit@npm:2.7.4, lit@npm:^2.0.0, lit@npm:^2.7.0":
+>>>>>>> 7a5e68a25 (feat(pie-monorepo): revert some changes and tidy things up)
   version: 2.7.4
   resolution: "lit@npm:2.7.4"
 >>>>>>> 4b3ad5f55 (feat(pie-monorepo): render button via ssr in next 13)
@@ -26737,7 +26741,7 @@ __metadata:
     husky: 8.0.3
     jest: 27.5.1
     jest-expect-message: 1.1.3
-    lit: 2.7.3
+    lit: 2.7.4
     npm-run-all: 4.1.5
     pinst: 3.0.0
     postcss: 8.4.21
