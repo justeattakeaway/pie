@@ -29,16 +29,20 @@ on:
         description: "Name of the main bucket being deployed to"
         required: true
         type: string
+      bucket-name-staging:
+        description: "Name of the staging bucket being deployed to"
+        required: false
+        type: string
 
 env:
   AMPLIFY_ID: ${{ inputs.amplify-app-id }}
   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_KEY_ID }}
   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
   AWS_REGION: 'eu-west-1'
-  BRANCH_NAME: ${{ github.event_name == 'pull_request' && format('pr{0}', github.event.number) || (github.ref == 'refs/heads/main' && 'main' || github.ref == 'refs/heads/master' && 'master') }}
-  BUCKET_NAME: ${{ github.event_name == 'pull_request' && inputs.bucket-name-preview || (github.ref == 'refs/heads/main' && inputs.bucket-name-main || github.ref == 'refs/heads/master' && inputs.bucket-name-main) }}
+  BRANCH_NAME: ${{ github.event_name == 'pull_request' && format('pr{0}', github.event.number) || (github.ref == 'refs/heads/main' && 'main' || github.ref == 'refs/heads/master' && 'master') || (github.ref == 'refs/heads/staging' && 'staging') }}
+  BUCKET_NAME: ${{ github.event_name == 'pull_request' && inputs.bucket-name-preview || (github.ref == 'refs/heads/main' && inputs.bucket-name-main || github.ref == 'refs/heads/master' && inputs.bucket-name-main) || (github.ref == 'refs/heads/staging' && inputs.bucket-name-staging) }}
   TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
-  ZIP_NAME: ${{ github.event_name == 'pull_request' && format('{0}-{1}-preview.zip', inputs.package-name, github.event.number) || (github.ref == 'refs/heads/main' && format('{0}-main.zip', inputs.package-name) || github.ref == 'refs/heads/master' && format('{0}-master.zip', inputs.package-name)) }}
+  ZIP_NAME: ${{ github.event_name == 'pull_request' && format('{0}-{1}-preview.zip', inputs.package-name, github.event.number) || (github.ref == 'refs/heads/main' && format('{0}-main.zip', inputs.package-name) || github.ref == 'refs/heads/master' && format('{0}-master.zip', inputs.package-name)) || github.ref == 'refs/heads/master' && format('{0}-staging.zip', inputs.package-name)  }}
 
 jobs:
   deploy:

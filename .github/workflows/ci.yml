@@ -143,6 +143,7 @@ jobs:
       package-dist-directory: ./apps/pie-docs/dist
       bucket-name-preview: 'pie-docs-preview'
       bucket-name-main: 'pie-docs'
+      bucket-name-staging: 'pie-docs-staging'
     secrets: inherit
 
   deploy-storybook:
