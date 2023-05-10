@@ -16,7 +16,7 @@
 4. [Events](#events)
    - [HTML example](#html)
    - [Vue example (using Nuxt 3)](#vue-templates-using-nuxt-3)
-   - [React example (using Next 13)](#jsx-using-next-13)
+   - [React example (using Next 13)](#react-templates-using-next-13)
 5. [TypeScript Enum Exports](#typescript-enum-exports)
 6. [Testing](#testing)
    - [Browser Tests](#browser-tests)
