@@ -18,7 +18,7 @@ on:
     branches:
       - main
       - beta-*
-      - feature-*
+      - staging
 
 concurrency:
   group: CI-${{ github.ref }}
