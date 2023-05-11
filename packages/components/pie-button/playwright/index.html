@@ -31,19 +31,24 @@
     body {
         font-feature-settings: "tnum"; /* Enable tabular numbers */
     }
+    /* basic styles to center align components and give them some spacing */
     #root {
-        padding: 1.5em;
-        display: flex;
-        gap: 1em;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
+        padding: 1em;
+    }
+
+    #root > * {
+        display: block;
+        margin-inline: auto;
+    }
+
+    #root > * + * {
+        margin-top: 1em;
     }
 </style>
     <title>Testing Page</title>
-  </head>
-  <body>
+</head>
+<body>
     <div id="root"></div>
     <script type="module" src="./index.ts"></script>
-  </body>
+</body>
 </html>
