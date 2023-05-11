@@ -34,7 +34,7 @@ module.exports = function (iconConfig = {
 
     const attributes = {
         ...defaultAttributes,
-        ...(iconConfig && iconConfig.attrs ? iconConfig.attrs : {})
+        ...(iconConfig && iconConfig.attrs ? iconConfig.attrs : {}),
     };
 
     return iconConfig && iconConfig.name ? getIconByName(iconConfig.name, attributes) : getAllIcons(attributes);
