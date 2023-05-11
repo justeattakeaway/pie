@@ -4,7 +4,7 @@ eleventyNavigation:
     parent: Accessibility
     order: 1
 title: Accessibility overview
-description: In this section you’ll find useful information about accessibility and why it is important at justeattakeaway.com
+description: In this section you’ll find useful information about accessibility and why it is important at Just Eat Takeaway.com
 ---
 
 ## Introduction
