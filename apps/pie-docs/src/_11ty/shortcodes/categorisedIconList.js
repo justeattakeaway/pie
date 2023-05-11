@@ -6,7 +6,7 @@ const pieIcons = require('../filters/pieIconsSvg')();
  * @param {*} icon - An object representing the icon to be displayed in the card.
  * @param {String} icon.name - The name of the icon, this should map directly to icon name from pie-icons.
  * @param {String} icon.displayName - The text to be displayed on the icon card, usually the icon name.
- * @param {Boolean} [icon.oneSize=false] - Defaults to `false`. If there is no large variant, this should be set to `true` otherwise the card will attempt to also render the icon named `${icon.name}-large`.
+ * @param {Boolean} [icon.oneSize=false] - Defaults to `false` and hence the card will attempt to also render `${icon.name}-large`.
  * @returns
  */
 const buildIconCard = (icon) => {
