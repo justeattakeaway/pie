@@ -16,9 +16,7 @@
     "incremental": true,
     "paths": {
       "@/*": ["./*"]
-    },
-    "experimentalDecorators": true,
-    "useDefineForClassFields": false
+    }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]

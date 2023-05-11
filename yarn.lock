@@ -575,11 +575,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "@babel/core@npm:^7.0.0, @babel/core@npm:^7.1.0, @babel/core@npm:^7.11.1, @babel/core@npm:^7.11.6, @babel/core@npm:^7.12.10, @babel/core@npm:^7.12.3, @babel/core@npm:^7.13.16, @babel/core@npm:^7.14.0, @babel/core@npm:^7.16.0, @babel/core@npm:^7.19.6, @babel/core@npm:^7.20.2, @babel/core@npm:^7.21.3, @babel/core@npm:^7.7.2, @babel/core@npm:^7.8.0, @babel/core@npm:~7.21.0":
-=======
-"@babel/core@npm:^7.0.0, @babel/core@npm:^7.1.0, @babel/core@npm:^7.11.1, @babel/core@npm:^7.11.6, @babel/core@npm:^7.12.10, @babel/core@npm:^7.12.3, @babel/core@npm:^7.13.16, @babel/core@npm:^7.14.0, @babel/core@npm:^7.16.0, @babel/core@npm:^7.19.6, @babel/core@npm:^7.20.2, @babel/core@npm:^7.21.3, @babel/core@npm:^7.7.2, @babel/core@npm:^7.8.0":
->>>>>>> 4b3ad5f55 (feat(pie-monorepo): render button via ssr in next 13)
   version: 7.21.8
   resolution: "@babel/core@npm:7.21.8"
   dependencies:
@@ -641,11 +637,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "@babel/generator@npm:^7.19.3, @babel/generator@npm:^7.20.7, @babel/generator@npm:^7.21.4, @babel/generator@npm:^7.21.5, @babel/generator@npm:^7.7.2, @babel/generator@npm:~7.21.1":
-=======
-"@babel/generator@npm:^7.19.3, @babel/generator@npm:^7.20.7, @babel/generator@npm:^7.21.4, @babel/generator@npm:^7.21.5, @babel/generator@npm:^7.7.2":
->>>>>>> 4b3ad5f55 (feat(pie-monorepo): render button via ssr in next 13)
   version: 7.21.5
   resolution: "@babel/generator@npm:7.21.5"
   dependencies:
@@ -942,11 +934,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "@babel/parser@npm:^7.1.0, @babel/parser@npm:^7.13.16, @babel/parser@npm:^7.14.7, @babel/parser@npm:^7.16.4, @babel/parser@npm:^7.18.4, @babel/parser@npm:^7.19.3, @babel/parser@npm:^7.20.15, @babel/parser@npm:^7.20.7, @babel/parser@npm:^7.21.3, @babel/parser@npm:^7.21.4, @babel/parser@npm:^7.21.5, @babel/parser@npm:^7.21.8, @babel/parser@npm:^7.6.0, @babel/parser@npm:^7.9.6, @babel/parser@npm:~7.21.2":
-=======
-"@babel/parser@npm:^7.1.0, @babel/parser@npm:^7.13.16, @babel/parser@npm:^7.14.7, @babel/parser@npm:^7.16.4, @babel/parser@npm:^7.18.4, @babel/parser@npm:^7.19.3, @babel/parser@npm:^7.20.15, @babel/parser@npm:^7.20.7, @babel/parser@npm:^7.21.3, @babel/parser@npm:^7.21.4, @babel/parser@npm:^7.21.5, @babel/parser@npm:^7.21.8, @babel/parser@npm:^7.6.0, @babel/parser@npm:^7.9.6":
->>>>>>> 4b3ad5f55 (feat(pie-monorepo): render button via ssr in next 13)
   version: 7.21.8
   resolution: "@babel/parser@npm:7.21.8"
   bin:
@@ -2081,11 +2069,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "@babel/preset-env@npm:^7.0.0, @babel/preset-env@npm:^7.11.0, @babel/preset-env@npm:^7.12.1, @babel/preset-env@npm:^7.14.1, @babel/preset-env@npm:^7.16.4, @babel/preset-env@npm:^7.20.2, @babel/preset-env@npm:~7.21.0":
-=======
-"@babel/preset-env@npm:^7.0.0, @babel/preset-env@npm:^7.11.0, @babel/preset-env@npm:^7.12.1, @babel/preset-env@npm:^7.14.1, @babel/preset-env@npm:^7.16.4, @babel/preset-env@npm:^7.20.2":
->>>>>>> 4b3ad5f55 (feat(pie-monorepo): render button via ssr in next 13)
   version: 7.21.5
   resolution: "@babel/preset-env@npm:7.21.5"
   dependencies:
@@ -2297,11 +2281,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "@babel/traverse@npm:^7.0.0, @babel/traverse@npm:^7.19.3, @babel/traverse@npm:^7.20.12, @babel/traverse@npm:^7.20.5, @babel/traverse@npm:^7.21.4, @babel/traverse@npm:^7.21.5, @babel/traverse@npm:^7.7.2, @babel/traverse@npm:~7.21.2":
-=======
-"@babel/traverse@npm:^7.0.0, @babel/traverse@npm:^7.19.3, @babel/traverse@npm:^7.20.12, @babel/traverse@npm:^7.20.5, @babel/traverse@npm:^7.21.4, @babel/traverse@npm:^7.21.5, @babel/traverse@npm:^7.7.2":
->>>>>>> 4b3ad5f55 (feat(pie-monorepo): render button via ssr in next 13)
   version: 7.21.5
   resolution: "@babel/traverse@npm:7.21.5"
   dependencies:
@@ -2330,11 +2310,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "@babel/types@npm:^7.0.0, @babel/types@npm:^7.12.6, @babel/types@npm:^7.18.6, @babel/types@npm:^7.18.9, @babel/types@npm:^7.19.3, @babel/types@npm:^7.20.0, @babel/types@npm:^7.20.2, @babel/types@npm:^7.20.5, @babel/types@npm:^7.20.7, @babel/types@npm:^7.21.0, @babel/types@npm:^7.21.3, @babel/types@npm:^7.21.4, @babel/types@npm:^7.21.5, @babel/types@npm:^7.3.0, @babel/types@npm:^7.3.3, @babel/types@npm:^7.4.4, @babel/types@npm:^7.6.1, @babel/types@npm:^7.8.3, @babel/types@npm:^7.9.6, @babel/types@npm:~7.21.2":
-=======
-"@babel/types@npm:^7.0.0, @babel/types@npm:^7.12.6, @babel/types@npm:^7.18.6, @babel/types@npm:^7.18.9, @babel/types@npm:^7.19.3, @babel/types@npm:^7.20.0, @babel/types@npm:^7.20.2, @babel/types@npm:^7.20.5, @babel/types@npm:^7.20.7, @babel/types@npm:^7.21.0, @babel/types@npm:^7.21.3, @babel/types@npm:^7.21.4, @babel/types@npm:^7.21.5, @babel/types@npm:^7.3.0, @babel/types@npm:^7.3.3, @babel/types@npm:^7.4.4, @babel/types@npm:^7.6.1, @babel/types@npm:^7.8.3, @babel/types@npm:^7.9.6":
->>>>>>> 4b3ad5f55 (feat(pie-monorepo): render button via ssr in next 13)
   version: 7.21.5
   resolution: "@babel/types@npm:7.21.5"
   dependencies:
@@ -3027,16 +3003,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
-=======
-"@esbuild/android-arm64@npm:0.16.17":
-  version: 0.16.17
-  resolution: "@esbuild/android-arm64@npm:0.16.17"
-  conditions: os=android & cpu=arm64
-  languageName: node
-  linkType: hard
-
->>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
 "@esbuild/android-arm64@npm:0.17.18":
   version: 0.17.18
   resolution: "@esbuild/android-arm64@npm:0.17.18"
@@ -3058,16 +3024,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
-=======
-"@esbuild/android-arm@npm:0.16.17":
-  version: 0.16.17
-  resolution: "@esbuild/android-arm@npm:0.16.17"
-  conditions: os=android & cpu=arm
-  languageName: node
-  linkType: hard
-
->>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
 "@esbuild/android-arm@npm:0.17.18":
   version: 0.17.18
   resolution: "@esbuild/android-arm@npm:0.17.18"
@@ -3082,16 +3038,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
-=======
-"@esbuild/android-x64@npm:0.16.17":
-  version: 0.16.17
-  resolution: "@esbuild/android-x64@npm:0.16.17"
-  conditions: os=android & cpu=x64
-  languageName: node
-  linkType: hard
-
->>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
 "@esbuild/android-x64@npm:0.17.18":
   version: 0.17.18
   resolution: "@esbuild/android-x64@npm:0.17.18"
@@ -3106,16 +3052,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
-=======
-"@esbuild/darwin-arm64@npm:0.16.17":
-  version: 0.16.17
-  resolution: "@esbuild/darwin-arm64@npm:0.16.17"
-  conditions: os=darwin & cpu=arm64
-  languageName: node
-  linkType: hard
-
->>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
 "@esbuild/darwin-arm64@npm:0.17.18":
   version: 0.17.18
   resolution: "@esbuild/darwin-arm64@npm:0.17.18"
@@ -3130,16 +3066,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
-=======
-"@esbuild/darwin-x64@npm:0.16.17":
-  version: 0.16.17
-  resolution: "@esbuild/darwin-x64@npm:0.16.17"
-  conditions: os=darwin & cpu=x64
-  languageName: node
-  linkType: hard
-
->>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
 "@esbuild/darwin-x64@npm:0.17.18":
   version: 0.17.18
   resolution: "@esbuild/darwin-x64@npm:0.17.18"
@@ -3154,16 +3080,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
-=======
-"@esbuild/freebsd-arm64@npm:0.16.17":
-  version: 0.16.17
-  resolution: "@esbuild/freebsd-arm64@npm:0.16.17"
-  conditions: os=freebsd & cpu=arm64
-  languageName: node
-  linkType: hard
-
->>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
 "@esbuild/freebsd-arm64@npm:0.17.18":
   version: 0.17.18
   resolution: "@esbuild/freebsd-arm64@npm:0.17.18"
@@ -3178,16 +3094,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
-=======
-"@esbuild/freebsd-x64@npm:0.16.17":
-  version: 0.16.17
-  resolution: "@esbuild/freebsd-x64@npm:0.16.17"
-  conditions: os=freebsd & cpu=x64
-  languageName: node
-  linkType: hard
-
->>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
 "@esbuild/freebsd-x64@npm:0.17.18":
   version: 0.17.18
   resolution: "@esbuild/freebsd-x64@npm:0.17.18"
@@ -3202,16 +3108,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
-=======
-"@esbuild/linux-arm64@npm:0.16.17":
-  version: 0.16.17
-  resolution: "@esbuild/linux-arm64@npm:0.16.17"
-  conditions: os=linux & cpu=arm64
-  languageName: node
-  linkType: hard
-
->>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
 "@esbuild/linux-arm64@npm:0.17.18":
   version: 0.17.18
   resolution: "@esbuild/linux-arm64@npm:0.17.18"
@@ -3226,16 +3122,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
-=======
-"@esbuild/linux-arm@npm:0.16.17":
-  version: 0.16.17
-  resolution: "@esbuild/linux-arm@npm:0.16.17"
-  conditions: os=linux & cpu=arm
-  languageName: node
-  linkType: hard
-
->>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
 "@esbuild/linux-arm@npm:0.17.18":
   version: 0.17.18
   resolution: "@esbuild/linux-arm@npm:0.17.18"
@@ -3250,16 +3136,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
-=======
-"@esbuild/linux-ia32@npm:0.16.17":
-  version: 0.16.17
-  resolution: "@esbuild/linux-ia32@npm:0.16.17"
-  conditions: os=linux & cpu=ia32
-  languageName: node
-  linkType: hard
-
->>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
 "@esbuild/linux-ia32@npm:0.17.18":
   version: 0.17.18
   resolution: "@esbuild/linux-ia32@npm:0.17.18"
@@ -3281,16 +3157,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
-=======
-"@esbuild/linux-loong64@npm:0.16.17":
-  version: 0.16.17
-  resolution: "@esbuild/linux-loong64@npm:0.16.17"
-  conditions: os=linux & cpu=loong64
-  languageName: node
-  linkType: hard
-
->>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
 "@esbuild/linux-loong64@npm:0.17.18":
   version: 0.17.18
   resolution: "@esbuild/linux-loong64@npm:0.17.18"
@@ -3305,16 +3171,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
-=======
-"@esbuild/linux-mips64el@npm:0.16.17":
-  version: 0.16.17
-  resolution: "@esbuild/linux-mips64el@npm:0.16.17"
-  conditions: os=linux & cpu=mips64el
-  languageName: node
-  linkType: hard
-
->>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
 "@esbuild/linux-mips64el@npm:0.17.18":
   version: 0.17.18
   resolution: "@esbuild/linux-mips64el@npm:0.17.18"
@@ -3329,16 +3185,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
-=======
-"@esbuild/linux-ppc64@npm:0.16.17":
-  version: 0.16.17
-  resolution: "@esbuild/linux-ppc64@npm:0.16.17"
-  conditions: os=linux & cpu=ppc64
-  languageName: node
-  linkType: hard
-
->>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
 "@esbuild/linux-ppc64@npm:0.17.18":
   version: 0.17.18
   resolution: "@esbuild/linux-ppc64@npm:0.17.18"
@@ -3353,16 +3199,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
-=======
-"@esbuild/linux-riscv64@npm:0.16.17":
-  version: 0.16.17
-  resolution: "@esbuild/linux-riscv64@npm:0.16.17"
-  conditions: os=linux & cpu=riscv64
-  languageName: node
-  linkType: hard
-
->>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
 "@esbuild/linux-riscv64@npm:0.17.18":
   version: 0.17.18
   resolution: "@esbuild/linux-riscv64@npm:0.17.18"
@@ -3377,16 +3213,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
-=======
-"@esbuild/linux-s390x@npm:0.16.17":
-  version: 0.16.17
-  resolution: "@esbuild/linux-s390x@npm:0.16.17"
-  conditions: os=linux & cpu=s390x
-  languageName: node
-  linkType: hard
-
->>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
 "@esbuild/linux-s390x@npm:0.17.18":
   version: 0.17.18
   resolution: "@esbuild/linux-s390x@npm:0.17.18"
@@ -3401,16 +3227,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
-=======
-"@esbuild/linux-x64@npm:0.16.17":
-  version: 0.16.17
-  resolution: "@esbuild/linux-x64@npm:0.16.17"
-  conditions: os=linux & cpu=x64
-  languageName: node
-  linkType: hard
-
->>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
 "@esbuild/linux-x64@npm:0.17.18":
   version: 0.17.18
   resolution: "@esbuild/linux-x64@npm:0.17.18"
@@ -3425,16 +3241,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
-=======
-"@esbuild/netbsd-x64@npm:0.16.17":
-  version: 0.16.17
-  resolution: "@esbuild/netbsd-x64@npm:0.16.17"
-  conditions: os=netbsd & cpu=x64
-  languageName: node
-  linkType: hard
-
->>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
 "@esbuild/netbsd-x64@npm:0.17.18":
   version: 0.17.18
   resolution: "@esbuild/netbsd-x64@npm:0.17.18"
@@ -3449,16 +3255,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
-=======
-"@esbuild/openbsd-x64@npm:0.16.17":
-  version: 0.16.17
-  resolution: "@esbuild/openbsd-x64@npm:0.16.17"
-  conditions: os=openbsd & cpu=x64
-  languageName: node
-  linkType: hard
-
->>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
 "@esbuild/openbsd-x64@npm:0.17.18":
   version: 0.17.18
   resolution: "@esbuild/openbsd-x64@npm:0.17.18"
@@ -3473,16 +3269,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
-=======
-"@esbuild/sunos-x64@npm:0.16.17":
-  version: 0.16.17
-  resolution: "@esbuild/sunos-x64@npm:0.16.17"
-  conditions: os=sunos & cpu=x64
-  languageName: node
-  linkType: hard
-
->>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
 "@esbuild/sunos-x64@npm:0.17.18":
   version: 0.17.18
   resolution: "@esbuild/sunos-x64@npm:0.17.18"
@@ -3497,16 +3283,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
-=======
-"@esbuild/win32-arm64@npm:0.16.17":
-  version: 0.16.17
-  resolution: "@esbuild/win32-arm64@npm:0.16.17"
-  conditions: os=win32 & cpu=arm64
-  languageName: node
-  linkType: hard
-
->>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
 "@esbuild/win32-arm64@npm:0.17.18":
   version: 0.17.18
   resolution: "@esbuild/win32-arm64@npm:0.17.18"
@@ -3521,16 +3297,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
-=======
-"@esbuild/win32-ia32@npm:0.16.17":
-  version: 0.16.17
-  resolution: "@esbuild/win32-ia32@npm:0.16.17"
-  conditions: os=win32 & cpu=ia32
-  languageName: node
-  linkType: hard
-
->>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
 "@esbuild/win32-ia32@npm:0.17.18":
   version: 0.17.18
   resolution: "@esbuild/win32-ia32@npm:0.17.18"
@@ -3545,16 +3311,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
-=======
-"@esbuild/win32-x64@npm:0.16.17":
-  version: 0.16.17
-  resolution: "@esbuild/win32-x64@npm:0.16.17"
-  conditions: os=win32 & cpu=x64
-  languageName: node
-  linkType: hard
-
->>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
 "@esbuild/win32-x64@npm:0.17.18":
   version: 0.17.18
   resolution: "@esbuild/win32-x64@npm:0.17.18"
@@ -3611,23 +3367,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 4b3ad5f55 (feat(pie-monorepo): render button via ssr in next 13)
 "@eslint/js@npm:8.40.0":
   version: 8.40.0
   resolution: "@eslint/js@npm:8.40.0"
   checksum: e84936b8ebd1c8fd90e860182e95d1404006da4cbca722b14950b298aeeca102b080aa9b62c8e69f90824ec54e19f1ba79b239046223624d1414ee82e8e628ac
-<<<<<<< HEAD
-=======
-"@eslint/js@npm:8.39.0":
-  version: 8.39.0
-  resolution: "@eslint/js@npm:8.39.0"
-  checksum: 63fe36e2bfb5ff5705d1c1a8ccecd8eb2f81d9af239713489e767b0e398759c0177fcc75ad62581d02942f2776903a8496d5fae48dc2d883dff1b96fcb19e9e2
->>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
-=======
->>>>>>> 4b3ad5f55 (feat(pie-monorepo): render button via ssr in next 13)
   languageName: node
   linkType: hard
 
@@ -4512,9 +4255,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
-"@lit-labs/react@npm:1.1.1, @lit-labs/react@npm:^1.0.2":
-=======
 "@lit-labs/nextjs@npm:0.1.1":
   version: 0.1.1
   resolution: "@lit-labs/nextjs@npm:0.1.1"
@@ -4527,8 +4267,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@lit-labs/react@npm:1.1.1":
->>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
+"@lit-labs/react@npm:1.1.1, @lit-labs/react@npm:^1.0.2":
   version: 1.1.1
   resolution: "@lit-labs/react@npm:1.1.1"
   checksum: e46b87a3e04b329b62e67360a7a1b21c55abf91c17d3059b550654565b53c73a25832e95426698e9b78488cc4ebaeb20b8a8ca64a220325e31633355a245710d
@@ -4553,11 +4292,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
-"@lit-labs/ssr@npm:^3.1.1":
-  version: 3.1.2
-  resolution: "@lit-labs/ssr@npm:3.1.2"
-=======
 "@lit-labs/ssr-react@npm:^0.1.0":
   version: 0.1.2
   resolution: "@lit-labs/ssr-react@npm:0.1.2"
@@ -4572,15 +4306,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@lit-labs/ssr@npm:^3.1.0":
-<<<<<<< HEAD
-  version: 3.1.1
-  resolution: "@lit-labs/ssr@npm:3.1.1"
->>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
-=======
+"@lit-labs/ssr@npm:^3.1.0, @lit-labs/ssr@npm:^3.1.1":
   version: 3.1.2
   resolution: "@lit-labs/ssr@npm:3.1.2"
->>>>>>> 4b3ad5f55 (feat(pie-monorepo): render button via ssr in next 13)
   dependencies:
     "@lit-labs/ssr-client": ^1.1.0
     "@lit-labs/ssr-dom-shim": ^1.1.0
@@ -4593,15 +4321,7 @@ __metadata:
     lit-html: ^2.7.0
     node-fetch: ^3.2.8
     parse5: ^7.1.1
-<<<<<<< HEAD
-<<<<<<< HEAD
   checksum: 32efb60c7f243eead114521c7102885bbe2057b995c26addceea9b253b2f10f8f8d5915dc2dfe9e90fd4c40d36e0d8a7b2dff60bb835154197f36ea05bcf7246
-=======
-  checksum: 4262a2ebf26c8eb7ebdeaa7a04684e0131c27e9e5104c9d950fc38d1fbb93f181cf11aa2696f4f69806801dd6a23511f9fdefb34367db773f13023dfb8fc4b7a
->>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
-=======
-  checksum: 32efb60c7f243eead114521c7102885bbe2057b995c26addceea9b253b2f10f8f8d5915dc2dfe9e90fd4c40d36e0d8a7b2dff60bb835154197f36ea05bcf7246
->>>>>>> 4b3ad5f55 (feat(pie-monorepo): render button via ssr in next 13)
   languageName: node
   linkType: hard
 
@@ -5348,11 +5068,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "@nuxt/kit@npm:^3.3.3, @nuxt/kit@npm:^3.4.1":
-=======
-"@nuxt/kit@npm:^3.3.3":
->>>>>>> 4b3ad5f55 (feat(pie-monorepo): render button via ssr in next 13)
   version: 3.4.3
   resolution: "@nuxt/kit@npm:3.4.3"
   dependencies:
@@ -5890,16 +5606,6 @@ __metadata:
   version: 1.24.0
   resolution: "@percy/sdk-utils@npm:1.24.0"
   checksum: 1ca0679e7d6170f278e75ae70d441c305d4f81b72f1cd7e05a04a882fcd558469444d187e39d174f4857fc6834c5cdbeafdad4e6c8376003e3cb1a7eb8c1caa4
-<<<<<<< HEAD
-  languageName: node
-  linkType: hard
-
-"@pkgjs/parseargs@npm:^0.11.0":
-  version: 0.11.0
-  resolution: "@pkgjs/parseargs@npm:0.11.0"
-  checksum: 6ad6a00fc4f2f2cfc6bff76fb1d88b8ee20bc0601e18ebb01b6d4be583733a860239a521a7fbca73b612e66705078809483549d2b18f370eb346c5155c8e4a0f
-=======
->>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
   languageName: node
   linkType: hard
 
@@ -7026,23 +6732,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "@storybook/mdx2-csf@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "@storybook/mdx2-csf@npm:1.0.0"
-  checksum: 3a5e7f71dff1d62cccc8539eb55a38694f2864dc424ae25757a847e658816f19e1db2e06ac2aa270f8219e4fce34bae68a80ae403792d58e7017597385a8934f
-=======
-"@storybook/mdx2-csf@npm:next":
-<<<<<<< HEAD
-  version: 1.1.0-next.0
-  resolution: "@storybook/mdx2-csf@npm:1.1.0-next.0"
-  checksum: 8803ec9f83a70b6ca2e76312f15056c735e9c7a7e524057bbcfa4c639f6f5aef387ddd9ec313b743eaea2c02d210dd1b51b60e01b577f87a06c6c4f6e5fa9e99
->>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
-=======
-  version: 1.1.0-next.1
-  resolution: "@storybook/mdx2-csf@npm:1.1.0-next.1"
-  checksum: b7d4f66e2dab3186e22d81b81d906d517043db168009fcddbf2f0f30d1bb114900555698af2951a963b289c77c0b7610a41601b2f258d1ad47d733a9067110da
->>>>>>> 4b3ad5f55 (feat(pie-monorepo): render button via ssr in next 13)
+  version: 1.1.0
+  resolution: "@storybook/mdx2-csf@npm:1.1.0"
+  checksum: 5ccdb13f4e59b989499f76e54ffaffb96b5710a696346efe19989b3373f375703adf516780894b270fa64a7e765b55274dc18575fc4a84e7fa92b844a4467c5d
   languageName: node
   linkType: hard
 
@@ -7593,27 +7286,11 @@ __metadata:
   linkType: hard
 
 "@types/babel__traverse@npm:*, @types/babel__traverse@npm:^7.0.4, @types/babel__traverse@npm:^7.0.6":
-<<<<<<< HEAD
-<<<<<<< HEAD
   version: 7.18.5
   resolution: "@types/babel__traverse@npm:7.18.5"
   dependencies:
     "@babel/types": ^7.3.0
   checksum: b9e7f39eb84626cc8f83ebf75a621d47f04b53cb085a3ea738a9633d57cf65208e503b1830db91aa5e297bc2ba761681ac0b0cbfb7a3d56afcfb2296212668ef
-=======
-  version: 7.18.4
-  resolution: "@types/babel__traverse@npm:7.18.4"
-  dependencies:
-    "@babel/types": ^7.3.0
-  checksum: ca7e1ac37696c7d4699877f17ca531208edfe98c7a4f0ac064dd148ef980f11e73696df7bd3b5ccd4a897e518f8489b882983b49886ceac36c2e28572debfd43
->>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
-=======
-  version: 7.18.5
-  resolution: "@types/babel__traverse@npm:7.18.5"
-  dependencies:
-    "@babel/types": ^7.3.0
-  checksum: b9e7f39eb84626cc8f83ebf75a621d47f04b53cb085a3ea738a9633d57cf65208e503b1830db91aa5e297bc2ba761681ac0b0cbfb7a3d56afcfb2296212668ef
->>>>>>> 4b3ad5f55 (feat(pie-monorepo): render button via ssr in next 13)
   languageName: node
   linkType: hard
 
@@ -7922,11 +7599,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "@types/minimatch@npm:*, @types/minimatch@npm:^5.1.2":
-=======
-"@types/minimatch@npm:*":
->>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
   version: 5.1.2
   resolution: "@types/minimatch@npm:5.1.2"
   checksum: 0391a282860c7cb6fe262c12b99564732401bdaa5e395bee9ca323c312c1a0f45efbf34dce974682036e857db59a5c9b1da522f3d6055aeead7097264c8705a8
@@ -7958,28 +7631,16 @@ __metadata:
   linkType: hard
 
 "@types/node@npm:*, @types/node@npm:>=10.0.0":
-<<<<<<< HEAD
-<<<<<<< HEAD
-  version: 20.1.1
-  resolution: "@types/node@npm:20.1.1"
-  checksum: 47961ee23f873c14c3f6045422ff3059f3bfb10231ef3080a7a72d7215cc8c2623fa8cedb7b246305962fa9c1e0c9e381e04b12eb3e9ec5d076025c6231ac8da
+  version: 20.1.2
+  resolution: "@types/node@npm:20.1.2"
+  checksum: 9bb2cf0a846e60cc06c44a5622c1998d8373c8675b24d11c86845a29f32c60f5bca9627f2a2535640f902be3dbcc60f126a895abe8e10f12e1467ae3deaba56d
   languageName: node
   linkType: hard
 
 "@types/node@npm:18":
-  version: 18.16.6
-  resolution: "@types/node@npm:18.16.6"
-  checksum: 99417418952c0b1a6ff5dd40ccf01c2cd18db6a1c54bfaaff29c700c877e2e541aa31ea33090592f3817adb2b8c0946b86c7fb57049131e7c08252d70075f09b
-=======
-  version: 18.16.1
-  resolution: "@types/node@npm:18.16.1"
-  checksum: 799026b949a48993cba7c9b81b2eabfdfb34c880744cb44c1c990fbedc9e315f3634d126eb2cf9a6e0795577c01016e2326d98565bef695ada9d363fadeb6946
->>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
-=======
-  version: 20.1.2
-  resolution: "@types/node@npm:20.1.2"
-  checksum: 9bb2cf0a846e60cc06c44a5622c1998d8373c8675b24d11c86845a29f32c60f5bca9627f2a2535640f902be3dbcc60f126a895abe8e10f12e1467ae3deaba56d
->>>>>>> 4b3ad5f55 (feat(pie-monorepo): render button via ssr in next 13)
+  version: 18.16.7
+  resolution: "@types/node@npm:18.16.7"
+  checksum: dbff7d41a050557cc81aa37cb186aaf3a799b3001bc4bb1015b240398abde1f9d0ac1e943959bba7f2ab2701292ae407a9ee2fc0f735a05b28bfc97d0b2b5e91
   languageName: node
   linkType: hard
 
@@ -7998,21 +7659,9 @@ __metadata:
   linkType: hard
 
 "@types/node@npm:^16.0.0":
-<<<<<<< HEAD
-<<<<<<< HEAD
-  version: 16.18.27
-  resolution: "@types/node@npm:16.18.27"
-  checksum: 23a89da6c648fcf0033e1618c9585c5aaba7bd536b4473591d92f63b993f7aa7bf00e72b0af4438a096ab9856a02040a2877fbe00bd7e223b361f78642d0be77
-=======
-  version: 16.18.25
-  resolution: "@types/node@npm:16.18.25"
-  checksum: 181760ad6b54fcc498dfeb249e98bbf0be51d7c35e92e760e1a82004fa42b86e8c33a8f8dd7743b5ef872bda0753d9e6a5b8e3f0aed63e9eb79b4e65760c1fbe
->>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
-=======
   version: 16.18.28
   resolution: "@types/node@npm:16.18.28"
   checksum: b70ce5195cbda1df195e09a5e1633232b96a3be19765e52448cdf2295053c34eece54d46e6529caf826d249cf2ea917d20fc2bd947b57631bbbe1d8efbb64db9
->>>>>>> 4b3ad5f55 (feat(pie-monorepo): render button via ssr in next 13)
   languageName: node
   linkType: hard
 
@@ -8089,31 +7738,13 @@ __metadata:
   linkType: hard
 
 "@types/react@npm:*, @types/react@npm:>=16":
-<<<<<<< HEAD
-<<<<<<< HEAD
   version: 18.2.6
   resolution: "@types/react@npm:18.2.6"
-=======
-  version: 18.2.0
-  resolution: "@types/react@npm:18.2.0"
->>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
-=======
-  version: 18.2.6
-  resolution: "@types/react@npm:18.2.6"
->>>>>>> 4b3ad5f55 (feat(pie-monorepo): render button via ssr in next 13)
   dependencies:
     "@types/prop-types": "*"
     "@types/scheduler": "*"
     csstype: ^3.0.2
-<<<<<<< HEAD
-<<<<<<< HEAD
   checksum: dea9d232d8df7ac357367a69dcb557711ab3d5501807ffa77cebeee73d49ee94d095f298e36853c63ed47cce097eee4c7eae2aaa8c02fac3f0171ec1b523a819
-=======
-  checksum: db3d92b423150222a666329f7aa3023e3e942044700557b8a7d161530847e621aec9f56c9e7f71761b06dd164c8a7b17ad52355863efe80963dffa5537e8e5fd
->>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
-=======
-  checksum: dea9d232d8df7ac357367a69dcb557711ab3d5501807ffa77cebeee73d49ee94d095f298e36853c63ed47cce097eee4c7eae2aaa8c02fac3f0171ec1b523a819
->>>>>>> 4b3ad5f55 (feat(pie-monorepo): render button via ssr in next 13)
   languageName: node
   linkType: hard
 
@@ -8169,19 +7800,6 @@ __metadata:
   version: 7.5.0
   resolution: "@types/semver@npm:7.5.0"
   checksum: 0a64b9b9c7424d9a467658b18dd70d1d781c2d6f033096a6e05762d20ebbad23c1b69b0083b0484722aabf35640b78ccc3de26368bcae1129c87e9df028a22e2
-<<<<<<< HEAD
-  languageName: node
-  linkType: hard
-
-"@types/send@npm:*":
-  version: 0.17.1
-  resolution: "@types/send@npm:0.17.1"
-  dependencies:
-    "@types/mime": ^1
-    "@types/node": "*"
-  checksum: 10b620a5960058ef009afbc17686f680d6486277c62f640845381ec4baa0ea683fdd77c3afea4803daf5fcddd3fb2972c8aa32e078939f1d4e96f83195c89793
-=======
->>>>>>> 4b3ad5f55 (feat(pie-monorepo): render button via ssr in next 13)
   languageName: node
   linkType: hard
 
@@ -8335,7 +7953,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "@typescript-eslint/eslint-plugin@npm:5.59.2":
   version: 5.59.2
   resolution: "@typescript-eslint/eslint-plugin@npm:5.59.2"
@@ -8344,22 +7961,6 @@ __metadata:
     "@typescript-eslint/scope-manager": 5.59.2
     "@typescript-eslint/type-utils": 5.59.2
     "@typescript-eslint/utils": 5.59.2
-=======
-"@typescript-eslint/eslint-plugin@npm:^5.5.0":
-  version: 5.59.5
-  resolution: "@typescript-eslint/eslint-plugin@npm:5.59.5"
-  dependencies:
-    "@eslint-community/regexpp": ^4.4.0
-<<<<<<< HEAD
-    "@typescript-eslint/scope-manager": 5.59.1
-    "@typescript-eslint/type-utils": 5.59.1
-    "@typescript-eslint/utils": 5.59.1
->>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
-=======
-    "@typescript-eslint/scope-manager": 5.59.5
-    "@typescript-eslint/type-utils": 5.59.5
-    "@typescript-eslint/utils": 5.59.5
->>>>>>> 4b3ad5f55 (feat(pie-monorepo): render button via ssr in next 13)
     debug: ^4.3.4
     grapheme-splitter: ^1.0.4
     ignore: ^5.2.0
@@ -8372,8 +7973,6 @@ __metadata:
   peerDependenciesMeta:
     typescript:
       optional: true
-<<<<<<< HEAD
-<<<<<<< HEAD
   checksum: 1045883173a36a069b56e906ed7e5b4106e1efc2ed0969a1718683aef58fd39e5dfa17774b8782c3ced0529a4edd6dedfcb54348a14525f191a6816e6f3b90dc
   languageName: node
   linkType: hard
@@ -8399,18 +7998,10 @@ __metadata:
     typescript:
       optional: true
   checksum: cc0e5ad8d70e140f0dada2fd1ad69d7c31d3f3dfe75939286fdc3950ff2e37033889acc7c9d92c074b67de3bbb6e46916d688e848fb98dde63b23c08a8b07884
-=======
-  checksum: 9ada3ae721594ddd8101a6093e6383bc95e4dcb19b3929210dee5480637786473a9eba2e69e61e560fa592965f4fd02aeb98ddfda91b00b448ae01c5d77431d6
->>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
-=======
-  checksum: cc0e5ad8d70e140f0dada2fd1ad69d7c31d3f3dfe75939286fdc3950ff2e37033889acc7c9d92c074b67de3bbb6e46916d688e848fb98dde63b23c08a8b07884
->>>>>>> 4b3ad5f55 (feat(pie-monorepo): render button via ssr in next 13)
   languageName: node
   linkType: hard
 
 "@typescript-eslint/experimental-utils@npm:^5.0.0":
-<<<<<<< HEAD
-<<<<<<< HEAD
   version: 5.59.5
   resolution: "@typescript-eslint/experimental-utils@npm:5.59.5"
   dependencies:
@@ -8428,43 +8019,12 @@ __metadata:
     "@typescript-eslint/scope-manager": 5.59.2
     "@typescript-eslint/types": 5.59.2
     "@typescript-eslint/typescript-estree": 5.59.2
-=======
-  version: 5.59.1
-  resolution: "@typescript-eslint/experimental-utils@npm:5.59.1"
-=======
-  version: 5.59.5
-  resolution: "@typescript-eslint/experimental-utils@npm:5.59.5"
->>>>>>> 4b3ad5f55 (feat(pie-monorepo): render button via ssr in next 13)
-  dependencies:
-    "@typescript-eslint/utils": 5.59.5
-  peerDependencies:
-    eslint: ^6.0.0 || ^7.0.0 || ^8.0.0
-  checksum: 38257173191d0a1fc13339229c6c727202420abc3e05522b93bed105c7f42e7470eadc38945385b4e06a5024f66e6021fa5117e1b3a34858ef736c4f9f57116f
-  languageName: node
-  linkType: hard
-
-"@typescript-eslint/parser@npm:^5.42.0, @typescript-eslint/parser@npm:^5.5.0":
-  version: 5.59.5
-  resolution: "@typescript-eslint/parser@npm:5.59.5"
-  dependencies:
-<<<<<<< HEAD
-    "@typescript-eslint/scope-manager": 5.59.1
-    "@typescript-eslint/types": 5.59.1
-    "@typescript-eslint/typescript-estree": 5.59.1
->>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
-=======
-    "@typescript-eslint/scope-manager": 5.59.5
-    "@typescript-eslint/types": 5.59.5
-    "@typescript-eslint/typescript-estree": 5.59.5
->>>>>>> 4b3ad5f55 (feat(pie-monorepo): render button via ssr in next 13)
     debug: ^4.3.4
   peerDependencies:
     eslint: ^6.0.0 || ^7.0.0 || ^8.0.0
   peerDependenciesMeta:
     typescript:
       optional: true
-<<<<<<< HEAD
-<<<<<<< HEAD
   checksum: 0d3f992c49e062ff509606fb72846abaa66602d93ca15bc6498c345c55effa28c8d523b829cd180d901eaf04bca3d93a165d56a387ce109333d60d67b09b5638
   languageName: node
   linkType: hard
@@ -8512,36 +8072,6 @@ __metadata:
   dependencies:
     "@typescript-eslint/typescript-estree": 5.59.2
     "@typescript-eslint/utils": 5.59.2
-=======
-  checksum: d324d32a69e06ab12aacb72cd3e2a8eb8ade6c2a4d4e6bb013941588a675e818a8ebd973bef1cd818da6a76eb00908bf66d84ef214c3f015dfcb40f8067a335e
-=======
-  checksum: ef4122074f2c00be1dabbb3fb5534280f81b45f8de6c1a696092af5175684fea65bc002814546d06f880ea5beff2006589e2633662e92d65035437c8e2d9134c
->>>>>>> 4b3ad5f55 (feat(pie-monorepo): render button via ssr in next 13)
-  languageName: node
-  linkType: hard
-
-"@typescript-eslint/scope-manager@npm:5.59.5":
-  version: 5.59.5
-  resolution: "@typescript-eslint/scope-manager@npm:5.59.5"
-  dependencies:
-    "@typescript-eslint/types": 5.59.5
-    "@typescript-eslint/visitor-keys": 5.59.5
-  checksum: b3d8a5b70e741b9bef60d0a297da77e844cb744895f31fb6880fdac4c53f7c58f3e04065a7d644afb6e1dc51591285ec866eca2fbd2ad50de6b376031aaccfbd
-  languageName: node
-  linkType: hard
-
-"@typescript-eslint/type-utils@npm:5.59.5":
-  version: 5.59.5
-  resolution: "@typescript-eslint/type-utils@npm:5.59.5"
-  dependencies:
-<<<<<<< HEAD
-    "@typescript-eslint/typescript-estree": 5.59.1
-    "@typescript-eslint/utils": 5.59.1
->>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
-=======
-    "@typescript-eslint/typescript-estree": 5.59.5
-    "@typescript-eslint/utils": 5.59.5
->>>>>>> 4b3ad5f55 (feat(pie-monorepo): render button via ssr in next 13)
     debug: ^4.3.4
     tsutils: ^3.21.0
   peerDependencies:
@@ -8549,8 +8079,6 @@ __metadata:
   peerDependenciesMeta:
     typescript:
       optional: true
-<<<<<<< HEAD
-<<<<<<< HEAD
   checksum: d9dc037509a97b11a3c7f758f0f6e985cf5b4909fab860018a75b1550711ce9ff07bf5b67d4197ba7a0a831fec7255851b1e6a773a69030fc8ea7ec649859f52
   languageName: node
   linkType: hard
@@ -8592,33 +8120,6 @@ __metadata:
   dependencies:
     "@typescript-eslint/types": 5.59.2
     "@typescript-eslint/visitor-keys": 5.59.2
-=======
-  checksum: ff46cc049995bb6505a6170550a9e658c42cd5699a95e1976822318fef2963381223505f797051fc727938ace66d4a7dc072a4b4cadbbdf91d2fda1a16c05c98
-=======
-  checksum: 9ef2b219c71abe3d2ffa4c791ec3da8d120b6a202e7f9c7722d1e8193f8709d6ebec2abc2862b9fa78dffe6214d033898d21c925fc961feb4488070b66aab9f5
->>>>>>> 4b3ad5f55 (feat(pie-monorepo): render button via ssr in next 13)
-  languageName: node
-  linkType: hard
-
-"@typescript-eslint/types@npm:5.59.5":
-  version: 5.59.5
-  resolution: "@typescript-eslint/types@npm:5.59.5"
-  checksum: 98c93d354d6410934f468ba8bd468d2746f20b2910c0ef5b08fc788c0742aa7cb82eb2edc4194c85d3fabac5563c1a91d377e84bf5c25caeb4ac9e871aabd4bb
-  languageName: node
-  linkType: hard
-
-"@typescript-eslint/typescript-estree@npm:5.59.5":
-  version: 5.59.5
-  resolution: "@typescript-eslint/typescript-estree@npm:5.59.5"
-  dependencies:
-<<<<<<< HEAD
-    "@typescript-eslint/types": 5.59.1
-    "@typescript-eslint/visitor-keys": 5.59.1
->>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
-=======
-    "@typescript-eslint/types": 5.59.5
-    "@typescript-eslint/visitor-keys": 5.59.5
->>>>>>> 4b3ad5f55 (feat(pie-monorepo): render button via ssr in next 13)
     debug: ^4.3.4
     globby: ^11.1.0
     is-glob: ^4.0.3
@@ -8627,8 +8128,6 @@ __metadata:
   peerDependenciesMeta:
     typescript:
       optional: true
-<<<<<<< HEAD
-<<<<<<< HEAD
   checksum: e8bb8817fe53f826f54e4ca584e48a6700dae25e0cc20ab7db38e7e5308987c5759408b39a4e494d4d6dcd7b4bca9f9c507fae987213380dc1c98607cb0a60b1
   languageName: node
   linkType: hard
@@ -8654,49 +8153,17 @@ __metadata:
 "@typescript-eslint/utils@npm:5.59.2":
   version: 5.59.2
   resolution: "@typescript-eslint/utils@npm:5.59.2"
-=======
-  checksum: e33081937225f38e717ac2f9e90c4a8c6b71b701923eea3e03be76d8c466f0d3c6a4ec1d65c9fc1da4f1989416d386305353c5b53aa736d3af9503061001e3eb
-  languageName: node
-  linkType: hard
-
-"@typescript-eslint/utils@npm:5.59.1, @typescript-eslint/utils@npm:^5.58.0":
-  version: 5.59.1
-  resolution: "@typescript-eslint/utils@npm:5.59.1"
->>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
-=======
-  checksum: 10a8c01ad53da115ca698668941dcb18c497035ba07faf08237bfa3ab92185bdfaf1df93562915a936b49e9f72a4cc6b10b1d9296b7cdc8c34ba0ca323c37677
-  languageName: node
-  linkType: hard
-
-"@typescript-eslint/utils@npm:5.59.5, @typescript-eslint/utils@npm:^5.58.0":
-  version: 5.59.5
-  resolution: "@typescript-eslint/utils@npm:5.59.5"
->>>>>>> 4b3ad5f55 (feat(pie-monorepo): render button via ssr in next 13)
   dependencies:
     "@eslint-community/eslint-utils": ^4.2.0
     "@types/json-schema": ^7.0.9
     "@types/semver": ^7.3.12
-<<<<<<< HEAD
-<<<<<<< HEAD
     "@typescript-eslint/scope-manager": 5.59.2
     "@typescript-eslint/types": 5.59.2
     "@typescript-eslint/typescript-estree": 5.59.2
-=======
-    "@typescript-eslint/scope-manager": 5.59.1
-    "@typescript-eslint/types": 5.59.1
-    "@typescript-eslint/typescript-estree": 5.59.1
->>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
-=======
-    "@typescript-eslint/scope-manager": 5.59.5
-    "@typescript-eslint/types": 5.59.5
-    "@typescript-eslint/typescript-estree": 5.59.5
->>>>>>> 4b3ad5f55 (feat(pie-monorepo): render button via ssr in next 13)
     eslint-scope: ^5.1.1
     semver: ^7.3.7
   peerDependencies:
     eslint: ^6.0.0 || ^7.0.0 || ^8.0.0
-<<<<<<< HEAD
-<<<<<<< HEAD
   checksum: 483c35a592a36a5973204ce4cd11d52935c097b414d7edac2ecd15dba460b8c540b793ffc232c0f8580fef0624eb7704156ce33c66bd09a76769ed019bddd1d1
   languageName: node
   linkType: hard
@@ -8736,26 +8203,6 @@ __metadata:
     "@typescript-eslint/types": 5.59.5
     eslint-visitor-keys: ^3.3.0
   checksum: 94db281ec8ea3a7ede46763aaa0d3349e035b19334fd03e2e560f89c70faebcfa937d51b53d2eaad2506b60a5d901428cc8b5a65ad8e90ca1c12a133dbe977fc
-=======
-  checksum: ca32c90efa57e937ebf812221e070c0604ca99f900fbca60578b42d40c923d5a94fd9503cf5918ecd75b687b68a1be562f7c6593a329bc40b880c95036a021c0
-=======
-  checksum: 2703972653d3c6eab2423d9a2586908086afa3b89580969ed38e454bc372265d5ca9fadf7967e4ea639d482ad069f763981ef4a03a42d79df28f43f00ee9d43a
->>>>>>> 4b3ad5f55 (feat(pie-monorepo): render button via ssr in next 13)
-  languageName: node
-  linkType: hard
-
-"@typescript-eslint/visitor-keys@npm:5.59.5":
-  version: 5.59.5
-  resolution: "@typescript-eslint/visitor-keys@npm:5.59.5"
-  dependencies:
-    "@typescript-eslint/types": 5.59.5
-    eslint-visitor-keys: ^3.3.0
-<<<<<<< HEAD
-  checksum: f98e399147310cad67de718a8a6336f053d46753bade380c89ddac3dd49512555c3f613636b255ce0b5e2b004654d1c167eb5e53fc8085148b637a5afc20cdd8
->>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
-=======
-  checksum: 94db281ec8ea3a7ede46763aaa0d3349e035b19334fd03e2e560f89c70faebcfa937d51b53d2eaad2506b60a5d901428cc8b5a65ad8e90ca1c12a133dbe977fc
->>>>>>> 4b3ad5f55 (feat(pie-monorepo): render button via ssr in next 13)
   languageName: node
   linkType: hard
 
@@ -9130,6 +8577,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@vue/compiler-core@npm:3.3.1":
+  version: 3.3.1
+  resolution: "@vue/compiler-core@npm:3.3.1"
+  dependencies:
+    "@babel/parser": ^7.21.3
+    "@vue/shared": 3.3.1
+    estree-walker: ^2.0.2
+    source-map-js: ^1.0.2
+  checksum: 905c3ed9bb54c34837fbac95ef4213e971c04fcdc8ab6858007239d091f64aba37b6b7438c31dc4c669989b18bd2e62e801e289142882420a42cc339baa0a9dd
+  languageName: node
+  linkType: hard
+
 "@vue/compiler-dom@npm:3.2.47":
   version: 3.2.47
   resolution: "@vue/compiler-dom@npm:3.2.47"
@@ -9147,6 +8606,16 @@ __metadata:
     "@vue/compiler-core": 3.3.0-alpha.6
     "@vue/shared": 3.3.0-alpha.6
   checksum: 82220fb0906a7840704b1aabc1b397d7c833c923494d4de47cd214e28e03bbed4cb8defda42a5b4fa55d94c9d707d685763dc7f24c828329f35d3ad20f684b8d
+  languageName: node
+  linkType: hard
+
+"@vue/compiler-dom@npm:3.3.1":
+  version: 3.3.1
+  resolution: "@vue/compiler-dom@npm:3.3.1"
+  dependencies:
+    "@vue/compiler-core": 3.3.1
+    "@vue/shared": 3.3.1
+  checksum: 7d549ce625788403f12c32ff6ff921344b4570a0ea95029a1e6c70c8551a93dbf0dab085e8599aee43587868f5cb1fe066528da49d49bdf24de37e3e6931d333
   languageName: node
   linkType: hard
 
@@ -9197,6 +8666,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@vue/compiler-sfc@npm:3.3.1":
+  version: 3.3.1
+  resolution: "@vue/compiler-sfc@npm:3.3.1"
+  dependencies:
+    "@babel/parser": ^7.20.15
+    "@vue/compiler-core": 3.3.1
+    "@vue/compiler-dom": 3.3.1
+    "@vue/compiler-ssr": 3.3.1
+    "@vue/reactivity-transform": 3.3.1
+    "@vue/shared": 3.3.1
+    estree-walker: ^2.0.2
+    magic-string: ^0.30.0
+    postcss: ^8.1.10
+    source-map-js: ^1.0.2
+  checksum: fb4495fa67c3b540ea8869620e85951b6fa50fb6b106a155c2fcab39aa3f6f792e75f902074f539b39c1dc1228828cb6cdb32744650b8142c03f0ba1bda26efa
+  languageName: node
+  linkType: hard
+
 "@vue/compiler-ssr@npm:3.2.47":
   version: 3.2.47
   resolution: "@vue/compiler-ssr@npm:3.2.47"
@@ -9214,6 +8701,16 @@ __metadata:
     "@vue/compiler-dom": 3.3.0-alpha.6
     "@vue/shared": 3.3.0-alpha.6
   checksum: 6ff85171a035d3c179db77cafc3c73029abedf5fa36b48077539cde157834cdf1383b06aeba1aac09e11361af45cf2a3a478eb06b0c4c019ca0eeb675e48b5f7
+  languageName: node
+  linkType: hard
+
+"@vue/compiler-ssr@npm:3.3.1":
+  version: 3.3.1
+  resolution: "@vue/compiler-ssr@npm:3.3.1"
+  dependencies:
+    "@vue/compiler-dom": 3.3.1
+    "@vue/shared": 3.3.1
+  checksum: 52714af7c74428211f32a89639330a563c73706bf898792f3c800c36454839907b1517d07b3bab8e73af6c3071f9fde8b6c490f53db8d0c2cad43498b68afd61
   languageName: node
   linkType: hard
 
@@ -9270,7 +8767,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vue/reactivity@npm:3.2.47, @vue/reactivity@npm:^3.2.45":
+"@vue/reactivity-transform@npm:3.3.1":
+  version: 3.3.1
+  resolution: "@vue/reactivity-transform@npm:3.3.1"
+  dependencies:
+    "@babel/parser": ^7.20.15
+    "@vue/compiler-core": 3.3.1
+    "@vue/shared": 3.3.1
+    estree-walker: ^2.0.2
+    magic-string: ^0.30.0
+  checksum: 102e407141cf54d46db878f5baa2a9607c2cd178fe11cbcddd68b09ff438f8d430ed2a994077e2ec230517e4e8a35542b18ecf3805b5c85cb1216da3a816fa06
+  languageName: node
+  linkType: hard
+
+"@vue/reactivity@npm:3.2.47":
   version: 3.2.47
   resolution: "@vue/reactivity@npm:3.2.47"
   dependencies:
@@ -9288,6 +8798,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@vue/reactivity@npm:3.3.1, @vue/reactivity@npm:^3.2.45":
+  version: 3.3.1
+  resolution: "@vue/reactivity@npm:3.3.1"
+  dependencies:
+    "@vue/shared": 3.3.1
+  checksum: bf7d0dcd63bff44387e174428bc47389cbb0ca46e353408739e6ab97b8042a522d3a52880ab35a4f89c12bb0fe1980a7c6abebed6da66bd313c7ac7de58bb829
+  languageName: node
+  linkType: hard
+
 "@vue/runtime-core@npm:3.2.47":
   version: 3.2.47
   resolution: "@vue/runtime-core@npm:3.2.47"
@@ -9295,6 +8814,16 @@ __metadata:
     "@vue/reactivity": 3.2.47
     "@vue/shared": 3.2.47
   checksum: 56fd41368cb56ac83d88ef93ffb9e8d2cdad30adf8395351c38ac744691dfe50c0add0bd14e8aa817cd59afd2534213eb2aaabf46b03aacce9a4af7497af2e69
+  languageName: node
+  linkType: hard
+
+"@vue/runtime-core@npm:3.3.1":
+  version: 3.3.1
+  resolution: "@vue/runtime-core@npm:3.3.1"
+  dependencies:
+    "@vue/reactivity": 3.3.1
+    "@vue/shared": 3.3.1
+  checksum: 2b92c561cecae1e5cae6ebf953ccfc6a0b80d98b1bd56bf8f041281424ac203c5eb5a39b0014181d6b4a3aebc1e2fc8d7d65303089d9c991b9db59cfde4fc77b
   languageName: node
   linkType: hard
 
@@ -9306,6 +8835,17 @@ __metadata:
     "@vue/shared": 3.2.47
     csstype: ^2.6.8
   checksum: 8987d7276174120ed346c456752cdb3633c400432ae89a1a866e342c964b7ed2f9e3e09926f2b4b81fe175b1e4fb3935fe3920c113bcc71464ff39b4e50931f5
+  languageName: node
+  linkType: hard
+
+"@vue/runtime-dom@npm:3.3.1":
+  version: 3.3.1
+  resolution: "@vue/runtime-dom@npm:3.3.1"
+  dependencies:
+    "@vue/runtime-core": 3.3.1
+    "@vue/shared": 3.3.1
+    csstype: ^3.1.1
+  checksum: 1f2db4cca5cf865abcbaa367e2e4b61d47f8f44218e1db07c06a4db27b95c30fe7909453a9c5995baaba5f41343f3395643392026b4405f9a056a48c0beefde3
   languageName: node
   linkType: hard
 
@@ -9321,7 +8861,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vue/shared@npm:3.2.47, @vue/shared@npm:^3.2.45":
+"@vue/server-renderer@npm:3.3.1":
+  version: 3.3.1
+  resolution: "@vue/server-renderer@npm:3.3.1"
+  dependencies:
+    "@vue/compiler-ssr": 3.3.1
+    "@vue/shared": 3.3.1
+  peerDependencies:
+    vue: 3.3.1
+  checksum: 19185f41bb7a09d5546f38bafc111cd4bb720f25b4acfbec0931bf8fda9fab1d47f8a2e1dc8be3f24a19bb6d325a5b8eb24bcbcbd28989696d1109ffe58577da
+  languageName: node
+  linkType: hard
+
+"@vue/shared@npm:3.2.47":
   version: 3.2.47
   resolution: "@vue/shared@npm:3.2.47"
   checksum: 0aa711dc9160fa0e476e6e94eea4e019398adf2211352d0e4a672cfb6b65b104bbd5d234807d1c091107bdc0f5d818d0f12378987eb7861d39be3aa9f6cd6e3e
@@ -9332,6 +8884,13 @@ __metadata:
   version: 3.3.0-alpha.6
   resolution: "@vue/shared@npm:3.3.0-alpha.6"
   checksum: 5a19cfc9f23d164f80325e71b81eb56ecee089e7ea429761f87eae78d57bdc337e858adcfa9ef33b635aa916e7ed850579ff7b7002da5e096a72176fef7e2018
+  languageName: node
+  linkType: hard
+
+"@vue/shared@npm:3.3.1, @vue/shared@npm:^3.2.45":
+  version: 3.3.1
+  resolution: "@vue/shared@npm:3.3.1"
+  checksum: 06579b34b71316e8dacc8681167c0b491371f5aa5a67aa8ab4a1b74def5329ec988aaf6ad223fd949394f49f46353b91daeb1f153a28764849a18c2b4caeff2d
   languageName: node
   linkType: hard
 
@@ -10257,21 +9816,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-"ansi-escapes@npm:^6.0.0":
-  version: 6.2.0
-  resolution: "ansi-escapes@npm:6.2.0"
-  dependencies:
-    type-fest: ^3.0.0
-  checksum: f0bc667d5f1ededc3ea89b73c34f0cba95473525b07e1290ddfd3fc868c94614e95f3549f5c4fd0c05424af7d3fd298101fb3d9a52a597d3782508b340783bd7
-  languageName: node
-  linkType: hard
-
->>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
-=======
->>>>>>> 4b3ad5f55 (feat(pie-monorepo): render button via ssr in next 13)
 "ansi-html-community@npm:0.0.8, ansi-html-community@npm:^0.0.8":
   version: 0.0.8
   resolution: "ansi-html-community@npm:0.0.8"
@@ -12310,40 +11854,16 @@ __metadata:
   linkType: hard
 
 "caniuse-db@npm:^1.0.30000529, caniuse-db@npm:^1.0.30000634, caniuse-db@npm:^1.0.30000639":
-<<<<<<< HEAD
-<<<<<<< HEAD
   version: 1.0.30001486
   resolution: "caniuse-db@npm:1.0.30001486"
   checksum: 163862b75a209a7605e5e18395955a97957e4be69b61160fa983ecd639d2fa5786eb44c2192269242dcc306a25aa530cd8b70bb69c8e98c7aaf58292911bfff4
-=======
-  version: 1.0.30001481
-  resolution: "caniuse-db@npm:1.0.30001481"
-  checksum: 79efd3c6d8c4204b8903f1f8975eb44a66be89fc24ff92d036c9cf0876a5b2b8c847be7158f547dc1af94c8fe16eb401db3682254efd8caa74372e703253a74d
->>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
-=======
-  version: 1.0.30001486
-  resolution: "caniuse-db@npm:1.0.30001486"
-  checksum: 163862b75a209a7605e5e18395955a97957e4be69b61160fa983ecd639d2fa5786eb44c2192269242dcc306a25aa530cd8b70bb69c8e98c7aaf58292911bfff4
->>>>>>> 4b3ad5f55 (feat(pie-monorepo): render button via ssr in next 13)
   languageName: node
   linkType: hard
 
 "caniuse-lite@npm:^1.0.0, caniuse-lite@npm:^1.0.30000981, caniuse-lite@npm:^1.0.30001109, caniuse-lite@npm:^1.0.30001202, caniuse-lite@npm:^1.0.30001219, caniuse-lite@npm:^1.0.30001228, caniuse-lite@npm:^1.0.30001406, caniuse-lite@npm:^1.0.30001426, caniuse-lite@npm:^1.0.30001449, caniuse-lite@npm:^1.0.30001464":
-<<<<<<< HEAD
-<<<<<<< HEAD
   version: 1.0.30001486
   resolution: "caniuse-lite@npm:1.0.30001486"
   checksum: 5e8c2ba2679e4ad17dea6d2761a6449b814441bfeac81af6cc9d58af187df6af4b79b27befcbfc4a557e720b21c0399a7d1911c8705922e38938dcc0f40b5d4b
-=======
-  version: 1.0.30001481
-  resolution: "caniuse-lite@npm:1.0.30001481"
-  checksum: 8200a043c191b4fd4fe0beda37a58fd61869c895ab93f87bdd0420e5927453f48434d716ce9da8552ff6c3ecc4dcd1366354cda3a134f3cc844af741574a7cab
->>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
-=======
-  version: 1.0.30001486
-  resolution: "caniuse-lite@npm:1.0.30001486"
-  checksum: 5e8c2ba2679e4ad17dea6d2761a6449b814441bfeac81af6cc9d58af187df6af4b79b27befcbfc4a557e720b21c0399a7d1911c8705922e38938dcc0f40b5d4b
->>>>>>> 4b3ad5f55 (feat(pie-monorepo): render button via ssr in next 13)
   languageName: node
   linkType: hard
 
@@ -14422,7 +13942,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"csstype@npm:^3.0.2, csstype@npm:^3.1.0":
+"csstype@npm:^3.0.2, csstype@npm:^3.1.0, csstype@npm:^3.1.1":
   version: 3.1.2
   resolution: "csstype@npm:3.1.2"
   checksum: e1a52e6c25c1314d6beef5168da704ab29c5186b877c07d822bd0806717d9a265e8493a2e35ca7e68d0f5d472d43fac1cdce70fd79fd0853dff81f3028d857b5
@@ -15470,21 +14990,9 @@ __metadata:
   linkType: hard
 
 "electron-to-chromium@npm:^1.2.7, electron-to-chromium@npm:^1.3.723, electron-to-chromium@npm:^1.4.284":
-<<<<<<< HEAD
-<<<<<<< HEAD
-  version: 1.4.387
-  resolution: "electron-to-chromium@npm:1.4.387"
-  checksum: 3c1ddddad5b9d86aa68cbe002e76b9ce1ed2b220b766f33249ea40cd3ae7be8af93f75a05f27a3e13e039801d936ce302b61f74cb054023180369541e4a31197
-=======
-  version: 1.4.372
-  resolution: "electron-to-chromium@npm:1.4.372"
-  checksum: 946c50f1ec5df2408fc90164ab3814081dacd20cad7c440b829da391f864fefcda202e9e5a7016ce9d06d3c8746a505ffad820dfc51aa269dd13a6fdbf71d15d
->>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
-=======
-  version: 1.4.388
-  resolution: "electron-to-chromium@npm:1.4.388"
-  checksum: 4a0117b3bdde350b5281de5bd3c33deff19979bb26350d70372b5b35aaed920421465ce93f56c48499add95d44cfb148bbedeb0be20bca2e770bc4539c38e67c
->>>>>>> 4b3ad5f55 (feat(pie-monorepo): render button via ssr in next 13)
+  version: 1.4.391
+  resolution: "electron-to-chromium@npm:1.4.391"
+  checksum: 7e9021b092ddad8a7243a7dc49bf8a571c1c8e10d32ca74137ecd4347e8386783d4ec4e0167c4b84d63216378dee16489b30536c3bb9cb5901044db947af5c20
   languageName: node
   linkType: hard
 
@@ -15692,7 +15200,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"enhanced-resolve@npm:^5.10.0, enhanced-resolve@npm:^5.12.0, enhanced-resolve@npm:^5.13.0":
+"enhanced-resolve@npm:^5.10.0, enhanced-resolve@npm:^5.12.0, enhanced-resolve@npm:^5.14.0":
   version: 5.14.0
   resolution: "enhanced-resolve@npm:5.14.0"
   dependencies:
@@ -16310,86 +15818,6 @@ __metadata:
       optional: true
   bin:
     esbuild: bin/esbuild
-<<<<<<< HEAD
-=======
-  checksum: 4c2cc609ecfb426554bc3f75beb92d89eb2d0c515cfceebaa36c7599d7dcaab7056b70f6d6b51e72b45951ddf9021ee28e356cf205f8e42cc055d522312ea30c
-  languageName: node
-  linkType: hard
-
-"esbuild@npm:^0.17.5":
-  version: 0.17.18
-  resolution: "esbuild@npm:0.17.18"
-  dependencies:
-    "@esbuild/android-arm": 0.17.18
-    "@esbuild/android-arm64": 0.17.18
-    "@esbuild/android-x64": 0.17.18
-    "@esbuild/darwin-arm64": 0.17.18
-    "@esbuild/darwin-x64": 0.17.18
-    "@esbuild/freebsd-arm64": 0.17.18
-    "@esbuild/freebsd-x64": 0.17.18
-    "@esbuild/linux-arm": 0.17.18
-    "@esbuild/linux-arm64": 0.17.18
-    "@esbuild/linux-ia32": 0.17.18
-    "@esbuild/linux-loong64": 0.17.18
-    "@esbuild/linux-mips64el": 0.17.18
-    "@esbuild/linux-ppc64": 0.17.18
-    "@esbuild/linux-riscv64": 0.17.18
-    "@esbuild/linux-s390x": 0.17.18
-    "@esbuild/linux-x64": 0.17.18
-    "@esbuild/netbsd-x64": 0.17.18
-    "@esbuild/openbsd-x64": 0.17.18
-    "@esbuild/sunos-x64": 0.17.18
-    "@esbuild/win32-arm64": 0.17.18
-    "@esbuild/win32-ia32": 0.17.18
-    "@esbuild/win32-x64": 0.17.18
-  dependenciesMeta:
-    "@esbuild/android-arm":
-      optional: true
-    "@esbuild/android-arm64":
-      optional: true
-    "@esbuild/android-x64":
-      optional: true
-    "@esbuild/darwin-arm64":
-      optional: true
-    "@esbuild/darwin-x64":
-      optional: true
-    "@esbuild/freebsd-arm64":
-      optional: true
-    "@esbuild/freebsd-x64":
-      optional: true
-    "@esbuild/linux-arm":
-      optional: true
-    "@esbuild/linux-arm64":
-      optional: true
-    "@esbuild/linux-ia32":
-      optional: true
-    "@esbuild/linux-loong64":
-      optional: true
-    "@esbuild/linux-mips64el":
-      optional: true
-    "@esbuild/linux-ppc64":
-      optional: true
-    "@esbuild/linux-riscv64":
-      optional: true
-    "@esbuild/linux-s390x":
-      optional: true
-    "@esbuild/linux-x64":
-      optional: true
-    "@esbuild/netbsd-x64":
-      optional: true
-    "@esbuild/openbsd-x64":
-      optional: true
-    "@esbuild/sunos-x64":
-      optional: true
-    "@esbuild/win32-arm64":
-      optional: true
-    "@esbuild/win32-ia32":
-      optional: true
-    "@esbuild/win32-x64":
-      optional: true
-  bin:
-    esbuild: bin/esbuild
->>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
   checksum: 900b333f649fd89804216fb61fb5a0ffadc6dc37a2ec3b5981b588f72821676ea649a7c0ec785f0dbe6e774080b084c8af5f6ee7adbc1b138faf2a8c35e2c69c
   languageName: node
   linkType: hard
@@ -16724,8 +16152,8 @@ __metadata:
   linkType: hard
 
 "eslint-plugin-vue@npm:^9.9.0":
-  version: 9.11.1
-  resolution: "eslint-plugin-vue@npm:9.11.1"
+  version: 9.12.0
+  resolution: "eslint-plugin-vue@npm:9.12.0"
   dependencies:
     "@eslint-community/eslint-utils": ^4.3.0
     natural-compare: ^1.4.0
@@ -16736,7 +16164,7 @@ __metadata:
     xml-name-validator: ^4.0.0
   peerDependencies:
     eslint: ^6.2.0 || ^7.0.0 || ^8.0.0
-  checksum: dda3a135b411a0fab6dda06cfcf3dfcaebaff50150cc21860914d6fc2f17b23363e11e1ed96771904d1089f0fc7bdde3ac9fe292ed249c643d6ca9c3f51d4f6f
+  checksum: 77727261d0137f88869f978c6ea2bafe002b6275e90e95849d0ed668bb87c295e21a562aa2ef8d5b884c67c142e245163fb3fca09a3a90ec49e7b3d4b416fa99
   languageName: node
   linkType: hard
 
@@ -16858,8 +16286,6 @@ __metadata:
   linkType: hard
 
 "eslint@npm:^8.3.0":
-<<<<<<< HEAD
-<<<<<<< HEAD
   version: 8.40.0
   resolution: "eslint@npm:8.40.0"
   dependencies:
@@ -16867,24 +16293,6 @@ __metadata:
     "@eslint-community/regexpp": ^4.4.0
     "@eslint/eslintrc": ^2.0.3
     "@eslint/js": 8.40.0
-=======
-  version: 8.39.0
-  resolution: "eslint@npm:8.39.0"
-  dependencies:
-    "@eslint-community/eslint-utils": ^4.2.0
-    "@eslint-community/regexpp": ^4.4.0
-    "@eslint/eslintrc": ^2.0.2
-    "@eslint/js": 8.39.0
->>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
-=======
-  version: 8.40.0
-  resolution: "eslint@npm:8.40.0"
-  dependencies:
-    "@eslint-community/eslint-utils": ^4.2.0
-    "@eslint-community/regexpp": ^4.4.0
-    "@eslint/eslintrc": ^2.0.3
-    "@eslint/js": 8.40.0
->>>>>>> 4b3ad5f55 (feat(pie-monorepo): render button via ssr in next 13)
     "@humanwhocodes/config-array": ^0.11.8
     "@humanwhocodes/module-importer": ^1.0.1
     "@nodelib/fs.walk": ^1.2.8
@@ -16895,18 +16303,8 @@ __metadata:
     doctrine: ^3.0.0
     escape-string-regexp: ^4.0.0
     eslint-scope: ^7.2.0
-<<<<<<< HEAD
-<<<<<<< HEAD
     eslint-visitor-keys: ^3.4.1
     espree: ^9.5.2
-=======
-    eslint-visitor-keys: ^3.4.0
-    espree: ^9.5.1
->>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
-=======
-    eslint-visitor-keys: ^3.4.1
-    espree: ^9.5.2
->>>>>>> 4b3ad5f55 (feat(pie-monorepo): render button via ssr in next 13)
     esquery: ^1.4.2
     esutils: ^2.0.2
     fast-deep-equal: ^3.1.3
@@ -16933,15 +16331,7 @@ __metadata:
     text-table: ^0.2.0
   bin:
     eslint: bin/eslint.js
-<<<<<<< HEAD
-<<<<<<< HEAD
   checksum: b79eba37f52f517a420eec99a80ae9f284d2cbe73afc0d4d3d4d5ed1cce0b06f21badc0374bfb7ac239efd2d49a1fd7c6111d6c3d52888521f377ba33de77e61
-=======
-  checksum: d7a074ff326e7ea482500dc0427a7d4b0260460f0f812d19b46b1cca681806b67309f23da9d17cd3de8eb74dd3c14cb549c4d58b05b140564d14cc1a391122a0
->>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
-=======
-  checksum: b79eba37f52f517a420eec99a80ae9f284d2cbe73afc0d4d3d4d5ed1cce0b06f21badc0374bfb7ac239efd2d49a1fd7c6111d6c3d52888521f377ba33de77e61
->>>>>>> 4b3ad5f55 (feat(pie-monorepo): render button via ssr in next 13)
   languageName: node
   linkType: hard
 
@@ -17799,21 +17189,9 @@ __metadata:
   linkType: hard
 
 "flow-parser@npm:0.*":
-<<<<<<< HEAD
-<<<<<<< HEAD
-  version: 0.205.1
-  resolution: "flow-parser@npm:0.205.1"
-  checksum: 1435ad8eaac772511c11440a988be29e3a26398cd22cf8fd02f46fa022f686550a52f7eb56a0919f49fe81399ddad46c925805cc091dd0efea92eb26234406bb
-=======
-  version: 0.204.1
-  resolution: "flow-parser@npm:0.204.1"
-  checksum: dcd1e12d1944647fc368df8b9e31214c4d147f322cba0f639f0fbc2c80fce26ab8ad8e08eb4de08dbb556649f7563a601472026438f4ce967e243399a68ef9fa
->>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
-=======
-  version: 0.205.1
-  resolution: "flow-parser@npm:0.205.1"
-  checksum: 1435ad8eaac772511c11440a988be29e3a26398cd22cf8fd02f46fa022f686550a52f7eb56a0919f49fe81399ddad46c925805cc091dd0efea92eb26234406bb
->>>>>>> 4b3ad5f55 (feat(pie-monorepo): render button via ssr in next 13)
+  version: 0.206.0
+  resolution: "flow-parser@npm:0.206.0"
+  checksum: 1b87d87b59815b09852a6981543ad222da7f4d0e0c26702f9d5e0065174f5f64d2563db76d07a487c6b55e1979344e3845ac42929db70f77a82e8c9171a62a86
   languageName: node
   linkType: hard
 
@@ -18535,13 +17913,8 @@ __metadata:
   linkType: hard
 
 "glob@npm:^10.2.2":
-<<<<<<< HEAD
-  version: 10.2.2
-  resolution: "glob@npm:10.2.2"
-=======
   version: 10.2.3
   resolution: "glob@npm:10.2.3"
->>>>>>> 4b3ad5f55 (feat(pie-monorepo): render button via ssr in next 13)
   dependencies:
     foreground-child: ^3.1.0
     jackspeak: ^2.0.3
@@ -18550,11 +17923,7 @@ __metadata:
     path-scurry: ^1.7.0
   bin:
     glob: dist/cjs/src/bin.js
-<<<<<<< HEAD
-  checksum: 33cbbbea74deb605107715f2ee51937953271ff2f6ce712b57d95a714e2f1bf272fa2c2b0c5101097bf98d3e5d40856941af498b05bce07567aca1a6e3cc7ae9
-=======
   checksum: 338c7522a60728397faa26a1197d6d1348444042d47de1456bbeae50228b32cd6c7423485f8f4e8eec577c6162b592a6098239752f8d4d03b8d2d2580c932666
->>>>>>> 4b3ad5f55 (feat(pie-monorepo): render button via ssr in next 13)
   languageName: node
   linkType: hard
 
@@ -19889,18 +19258,8 @@ __metadata:
   linkType: hard
 
 "inquirer@npm:^9.1.5":
-<<<<<<< HEAD
-<<<<<<< HEAD
   version: 9.2.2
   resolution: "inquirer@npm:9.2.2"
-=======
-  version: 9.2.0
-  resolution: "inquirer@npm:9.2.0"
->>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
-=======
-  version: 9.2.2
-  resolution: "inquirer@npm:9.2.2"
->>>>>>> 4b3ad5f55 (feat(pie-monorepo): render button via ssr in next 13)
   dependencies:
     ansi-escapes: ^4.3.2
     chalk: ^5.2.0
@@ -19916,18 +19275,8 @@ __metadata:
     string-width: ^4.2.3
     strip-ansi: ^7.0.1
     through: ^2.3.6
-<<<<<<< HEAD
-<<<<<<< HEAD
     wrap-ansi: ^6.0.1
   checksum: 774ddc8023a32119838311fa098648e0b58426e649ee8ce4e3ff0644fdaf029359627b84d012c935c48675ee2619e1e3dcae47b563ec4cb3edbb071463e22a2e
-=======
-    wrap-ansi: ^8.1.0
-  checksum: ea795406a654e9eddf9782fbb1f4a4240a78bda825e23ee2cf059ea0723e470cbae8cc9d6c1ae8a58cadd0207d29f8cd8ac20ff7399958a8886dd17ff2f30136
->>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
-=======
-    wrap-ansi: ^6.0.1
-  checksum: 774ddc8023a32119838311fa098648e0b58426e649ee8ce4e3ff0644fdaf029359627b84d012c935c48675ee2619e1e3dcae47b563ec4cb3edbb071463e22a2e
->>>>>>> 4b3ad5f55 (feat(pie-monorepo): render button via ssr in next 13)
   languageName: node
   linkType: hard
 
@@ -20374,7 +19723,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "is-gzip@npm:^1.0.0":
   version: 1.0.0
   resolution: "is-gzip@npm:1.0.0"
@@ -20382,8 +19730,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-=======
->>>>>>> 4b3ad5f55 (feat(pie-monorepo): render button via ssr in next 13)
 "is-inside-container@npm:^1.0.0":
   version: 1.0.0
   resolution: "is-inside-container@npm:1.0.0"
@@ -22822,41 +22168,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
-"lit@npm:2.7.3":
-  version: 2.7.3
-  resolution: "lit@npm:2.7.3"
-  dependencies:
-    "@lit/reactive-element": ^1.6.0
-    lit-element: ^3.3.0
-    lit-html: ^2.7.0
-  checksum: 325be0255e8b95ba066d56f3e40dd8530cd423d1687ea6d55b2919df8fb1d63a399be439c5601de65a990dfa9a131d07b2e84a1004b1a52d34ce51569cdf4255
-  languageName: node
-  linkType: hard
-
-<<<<<<< HEAD
-"lit@npm:^2.0.0, lit@npm:^2.1.3, lit@npm:^2.7.0":
+"lit@npm:2.7.4, lit@npm:^2.0.0, lit@npm:^2.1.3, lit@npm:^2.7.0":
   version: 2.7.4
   resolution: "lit@npm:2.7.4"
-  dependencies:
-    "@lit/reactive-element": ^1.6.0
-    lit-element: ^3.3.0
-    lit-html: ^2.7.0
-  checksum: 7494f4e814fca0ebf7a73923c85454531aac26ff83f0d4d5afe62ebbc6225363c9df41f88147d79d5d3ab518925ceb9b27a557bee610bbb414ae0339c513f5a3
-  languageName: node
-  linkType: hard
-
-"lmdb@npm:^2.4.4":
-  version: 2.7.11
-  resolution: "lmdb@npm:2.7.11"
-=======
-"lit@npm:^2.0.0, lit@npm:^2.7.0":
-=======
-"lit@npm:2.7.4, lit@npm:^2.0.0, lit@npm:^2.7.0":
->>>>>>> 7a5e68a25 (feat(pie-monorepo): revert some changes and tidy things up)
-  version: 2.7.4
-  resolution: "lit@npm:2.7.4"
->>>>>>> 4b3ad5f55 (feat(pie-monorepo): render button via ssr in next 13)
   dependencies:
     "@lit/reactive-element": ^1.6.0
     lit-element: ^3.3.0
@@ -23389,15 +22703,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-"lru-cache@npm:^9.0.0, lru-cache@npm:^9.1.1":
-=======
-"lru-cache@npm:^9.0.0, lru-cache@npm:^9.0.3":
->>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
-=======
-"lru-cache@npm:^9.0.0, lru-cache@npm:^9.1.1":
->>>>>>> 4b3ad5f55 (feat(pie-monorepo): render button via ssr in next 13)
+"lru-cache@npm:^9.1.1":
   version: 9.1.1
   resolution: "lru-cache@npm:9.1.1"
   checksum: 4d703bb9b66216bbee55ead82a9682820a2b6acbdfca491b235390b1ef1056000a032d56dfb373fdf9ad4492f1fa9d04cc9a05a77f25bd7ce6901d21ad9b68b7
@@ -24984,13 +24290,8 @@ __metadata:
   linkType: hard
 
 "node-fetch@npm:^2.5.0, node-fetch@npm:^2.6.1, node-fetch@npm:^2.6.7":
-<<<<<<< HEAD
-  version: 2.6.10
-  resolution: "node-fetch@npm:2.6.10"
-=======
   version: 2.6.11
   resolution: "node-fetch@npm:2.6.11"
->>>>>>> 4b3ad5f55 (feat(pie-monorepo): render button via ssr in next 13)
   dependencies:
     whatwg-url: ^5.0.0
   peerDependencies:
@@ -24998,11 +24299,7 @@ __metadata:
   peerDependenciesMeta:
     encoding:
       optional: true
-<<<<<<< HEAD
-  checksum: 9250e5266ccb4cc43e0ba5a4e23447d65f207a445d8f968420ef5f135cb9db3f03e527647a3762c1ba06872cbd13640e572d9eea63ba6754e936a6e824ed85a3
-=======
   checksum: 249d0666a9497553384d46b5ab296ba223521ac88fed4d8a17d6ee6c2efb0fc890f3e8091cafe7f9fba8151a5b8d925db2671543b3409a56c3cd522b468b47b3
->>>>>>> 4b3ad5f55 (feat(pie-monorepo): render button via ssr in next 13)
   languageName: node
   linkType: hard
 
@@ -26516,12 +25813,12 @@ __metadata:
   linkType: hard
 
 "path-scurry@npm:^1.7.0":
-  version: 1.7.0
-  resolution: "path-scurry@npm:1.7.0"
+  version: 1.8.0
+  resolution: "path-scurry@npm:1.8.0"
   dependencies:
-    lru-cache: ^9.0.0
+    lru-cache: ^9.1.1
     minipass: ^5.0.0
-  checksum: 4e86df0fa6848cef1ba672d4a332b8dbd0297c42d5123bcc419d714c34b25ee6775b0d2e66dd5e698a38e9bcd808f8fc47333e3a3357307cada98e16bfae8b98
+  checksum: 53974a328e379aa3e22b18bbc97f135522d329597faa924bc99bc95959a21ae07c1aa7747a00c21c3579a5d25af4596ea1ed7f135cafd12ec949e35969a39e3e
   languageName: node
   linkType: hard
 
@@ -31230,18 +30527,8 @@ __metadata:
   linkType: hard
 
 "rollup@npm:^2.25.0 || ^3.3.0, rollup@npm:^3.18.0, rollup@npm:^3.21.0":
-<<<<<<< HEAD
-<<<<<<< HEAD
-  version: 3.21.5
-  resolution: "rollup@npm:3.21.5"
-=======
-  version: 3.21.0
-  resolution: "rollup@npm:3.21.0"
->>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
-=======
   version: 3.21.6
   resolution: "rollup@npm:3.21.6"
->>>>>>> 4b3ad5f55 (feat(pie-monorepo): render button via ssr in next 13)
   dependencies:
     fsevents: ~2.3.2
   dependenciesMeta:
@@ -31249,15 +30536,7 @@ __metadata:
       optional: true
   bin:
     rollup: dist/bin/rollup
-<<<<<<< HEAD
-<<<<<<< HEAD
-  checksum: dfe2e4002fbfbc0a67591595f137c23082c639b1a790854ebe8611264b945e77caaf8c8ec9365faf9580f5df9cb9a954915443df020dc2ee391c477659484cf0
-=======
-  checksum: f3294d712147c0975c59ff81b3010dc08d07743cdad72fbe12879044b3e467139b3c2aeec85768656c4f7ec6a7b3d19354a78fc2050044bf8e90a499e145e31e
->>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
-=======
   checksum: bb6786ee0d755f253d3aa3820b05806a482abe9c9fd6dad14df83b386a370d48af20c4be66f732a15b5e89c0ae6269a7b82736b64f34ae61552c58de0eecedeb
->>>>>>> 4b3ad5f55 (feat(pie-monorepo): render button via ssr in next 13)
   languageName: node
   linkType: hard
 
@@ -31334,10 +30613,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 4b3ad5f55 (feat(pie-monorepo): render button via ssr in next 13)
 "rxjs@npm:^7.5.5, rxjs@npm:^7.8.1":
   version: 7.8.1
   resolution: "rxjs@npm:7.8.1"
@@ -31347,11 +30622,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
-=======
->>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
-=======
->>>>>>> 4b3ad5f55 (feat(pie-monorepo): render button via ssr in next 13)
 "safe-array-concat@npm:^1.0.0":
   version: 1.0.0
   resolution: "safe-array-concat@npm:1.0.0"
@@ -32064,9 +31334,9 @@ __metadata:
   linkType: hard
 
 "signal-exit@npm:^4.0.1":
-  version: 4.0.1
-  resolution: "signal-exit@npm:4.0.1"
-  checksum: 832043367dca23e61ab6033e8b41c595fc805119bfe4fee63dea201cdc809a8b086bc54597bbbc1b2cde1a63c7dd554d1295ed2cca92db598233834a0b59b281
+  version: 4.0.2
+  resolution: "signal-exit@npm:4.0.2"
+  checksum: 41f5928431cc6e91087bf0343db786a6313dd7c6fd7e551dbc141c95bb5fb26663444fd9df8ea47c5d7fc202f60aa7468c3162a9365cbb0615fc5e1b1328fe31
   languageName: node
   linkType: hard
 
@@ -33948,13 +33218,8 @@ __metadata:
   linkType: hard
 
 "terser@npm:^5.0.0, terser@npm:^5.10.0, terser@npm:^5.16.8, terser@npm:^5.3.4":
-<<<<<<< HEAD
-  version: 5.17.2
-  resolution: "terser@npm:5.17.2"
-=======
   version: 5.17.3
   resolution: "terser@npm:5.17.3"
->>>>>>> 4b3ad5f55 (feat(pie-monorepo): render button via ssr in next 13)
   dependencies:
     "@jridgewell/source-map": ^0.3.2
     acorn: ^8.5.0
@@ -33962,11 +33227,7 @@ __metadata:
     source-map-support: ~0.5.20
   bin:
     terser: bin/terser
-<<<<<<< HEAD
-  checksum: 20153b0887065ff7d026bbbd9d0df065871406f9b66b0fa83786400c32c10b93b2309bff0df48f42473e7c3559bfd22d3ce593b82797bac9c882a243d008f5b9
-=======
   checksum: 6b5a859bf9707f34be6e4c567437bc4e47e9364eec37a48b0ae3bff46bb510ef43caf543a23a89b8f43eca47c90a6759105add171fdb0d768dd639deb4545ac9
->>>>>>> 4b3ad5f55 (feat(pie-monorepo): render button via ssr in next 13)
   languageName: node
   linkType: hard
 
@@ -34494,14 +33755,6 @@ __metadata:
   linkType: hard
 
 "tuf-js@npm:^1.1.3":
-<<<<<<< HEAD
-  version: 1.1.5
-  resolution: "tuf-js@npm:1.1.5"
-  dependencies:
-    "@tufjs/models": 1.0.4
-    make-fetch-happen: ^11.1.0
-  checksum: 59b0b0abb6d3a10a4b7c984e6326bed0b88adac2c86b8905fb1259d490ec761fb349ff61d3923566d7c11c2ee70aaa99bf393826a1b12410ed40ed7fde32a92e
-=======
   version: 1.1.6
   resolution: "tuf-js@npm:1.1.6"
   dependencies:
@@ -34509,7 +33762,6 @@ __metadata:
     debug: ^4.3.4
     make-fetch-happen: ^11.1.0
   checksum: ab4b777251a47f0d9e961f7f0d83c865b37c6cf7e4fa3cb9cd1050c6b1440a099627390f7636570cfbc9d42271cc61dd5386f6941a09e6b898c3409f2fa82784
->>>>>>> 4b3ad5f55 (feat(pie-monorepo): render button via ssr in next 13)
   languageName: node
   linkType: hard
 
@@ -34672,19 +33924,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-"type-fest@npm:^3.0.0":
-  version: 3.9.0
-  resolution: "type-fest@npm:3.9.0"
-  checksum: daec3f72db7af2b285ac10a27231675a18418dea073a5fe40d9720472072786b6e38263a41e1c91daf99d7ecda80d5cf914b5bb0dd308593fa33ad9d3ff410dc
-  languageName: node
-  linkType: hard
-
->>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
-=======
->>>>>>> 4b3ad5f55 (feat(pie-monorepo): render button via ssr in next 13)
 "type-is@npm:~1.6.18":
   version: 1.6.18
   resolution: "type-is@npm:1.6.18"
@@ -34837,11 +34076,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "ufo@npm:^1.0.0, ufo@npm:^1.0.1, ufo@npm:^1.1.0, ufo@npm:^1.1.1, ufo@npm:^1.1.2":
-=======
-"ufo@npm:^1.0.0, ufo@npm:^1.1.0, ufo@npm:^1.1.1, ufo@npm:^1.1.2":
->>>>>>> 4b3ad5f55 (feat(pie-monorepo): render button via ssr in next 13)
   version: 1.1.2
   resolution: "ufo@npm:1.1.2"
   checksum: 83c940a6a23b6d4fc0cd116265bb5dcf88ab34a408ad9196e413270ca607a4781c09b547dc518f43caee128a096f20fe80b5a0e62b4bcc0a868619896106d048
@@ -35740,20 +34975,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-<<<<<<< HEAD
 "vite@npm:^3.0.0 || ^4.0.0, vite@npm:^4.3.0":
   version: 4.3.5
   resolution: "vite@npm:4.3.5"
-=======
-"vite@npm:^3.0.0 || ^4.0.0":
-<<<<<<< HEAD
-  version: 4.3.3
-  resolution: "vite@npm:4.3.3"
->>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
-=======
-  version: 4.3.5
-  resolution: "vite@npm:4.3.5"
->>>>>>> 4b3ad5f55 (feat(pie-monorepo): render button via ssr in next 13)
   dependencies:
     esbuild: ^0.17.5
     fsevents: ~2.3.2
@@ -35784,15 +35008,7 @@ __metadata:
       optional: true
   bin:
     vite: bin/vite.js
-<<<<<<< HEAD
-<<<<<<< HEAD
   checksum: 6b7f2189f097110846e49a3f1d463bd620dfe9e4f433b1967e5b99f0789610ff4475e85e3e71476e6fa40be25449bb6f1c45edb95c79deba6f3f173699bff948
-=======
-  checksum: 99970cb1fed3330458e60f8341ec73c4260c82d815e51c95295321ab496e4c8cb447bc942daf4d94f78bbc8b2bed36cbc237f43fdc1cede19250fac737e5a0fc
->>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
-=======
-  checksum: 6b7f2189f097110846e49a3f1d463bd620dfe9e4f433b1967e5b99f0789610ff4475e85e3e71476e6fa40be25449bb6f1c45edb95c79deba6f3f173699bff948
->>>>>>> 4b3ad5f55 (feat(pie-monorepo): render button via ssr in next 13)
   languageName: node
   linkType: hard
 
@@ -36151,7 +35367,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vue@npm:3.2.47, vue@npm:^3.2.45":
+"vue@npm:3.2.47":
   version: 3.2.47
   resolution: "vue@npm:3.2.47"
   dependencies:
@@ -36161,6 +35377,19 @@ __metadata:
     "@vue/server-renderer": 3.2.47
     "@vue/shared": 3.2.47
   checksum: 3b586f61fd2cdfdd24459a946a2831c0f164056993cc005badde4fea10d53e430f1cedf1b62d52a6992b58fe656fc5fc67b32f594a2832dfe440c6db46d6f158
+  languageName: node
+  linkType: hard
+
+"vue@npm:^3.2.45":
+  version: 3.3.1
+  resolution: "vue@npm:3.3.1"
+  dependencies:
+    "@vue/compiler-dom": 3.3.1
+    "@vue/compiler-sfc": 3.3.1
+    "@vue/runtime-dom": 3.3.1
+    "@vue/server-renderer": 3.3.1
+    "@vue/shared": 3.3.1
+  checksum: 37655d81ba3b22b237082bad8cc63fdf29a4eb15b058b453a5cfe58e3d23ba65be2aa3e8123b0a49b86230ee23486283ec89fdc3d94e2111ab29ec76c54f3bdc
   languageName: node
   linkType: hard
 
@@ -36842,18 +36071,8 @@ __metadata:
   linkType: hard
 
 "webpack@npm:^5.64.4":
-<<<<<<< HEAD
-<<<<<<< HEAD
-  version: 5.82.0
-  resolution: "webpack@npm:5.82.0"
-=======
-  version: 5.81.0
-  resolution: "webpack@npm:5.81.0"
->>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
-=======
-  version: 5.82.0
-  resolution: "webpack@npm:5.82.0"
->>>>>>> 4b3ad5f55 (feat(pie-monorepo): render button via ssr in next 13)
+  version: 5.82.1
+  resolution: "webpack@npm:5.82.1"
   dependencies:
     "@types/eslint-scope": ^3.7.3
     "@types/estree": ^1.0.0
@@ -36864,7 +36083,7 @@ __metadata:
     acorn-import-assertions: ^1.7.6
     browserslist: ^4.14.5
     chrome-trace-event: ^1.0.2
-    enhanced-resolve: ^5.13.0
+    enhanced-resolve: ^5.14.0
     es-module-lexer: ^1.2.1
     eslint-scope: 5.1.1
     events: ^3.2.0
@@ -36884,15 +36103,7 @@ __metadata:
       optional: true
   bin:
     webpack: bin/webpack.js
-<<<<<<< HEAD
-<<<<<<< HEAD
-  checksum: 499e7f5f24fccaa76f64f2a01f91f371073416f568ef6171dc73187a89078f0c33410d4c9f40d411f0827bab8455f8476eabd803ef4d2920d9a2e5f17efa2703
-=======
-  checksum: 1a6eecaffac3226d80f4e8f330b32e0ff117d9dafd8700166d230afbc171d68ea1ff55a9939fa789307f7b9d11881889ccb8e6cd79d4ccbaeef916788ce73fdb
->>>>>>> 12e84387f (feat(pie-monorepo): init Pix x Nextjs@13)
-=======
-  checksum: 499e7f5f24fccaa76f64f2a01f91f371073416f568ef6171dc73187a89078f0c33410d4c9f40d411f0827bab8455f8476eabd803ef4d2920d9a2e5f17efa2703
->>>>>>> 4b3ad5f55 (feat(pie-monorepo): render button via ssr in next 13)
+  checksum: 747ee7ebd238c15249c2652060e3c6ca6d62cc66dcf7e4e2824ecd4875b7ea5e01fce8f4179080a3e84dfdb3c8d0992700444c7c5a05ef47b38c0623d3ac76de
   languageName: node
   linkType: hard
 
@@ -37748,8 +36959,6 @@ __metadata:
     y18n: ^5.0.5
     yargs-parser: ^21.1.1
   checksum: 73b572e863aa4a8cbef323dd911d79d193b772defd5a51aab0aca2d446655216f5002c42c5306033968193bdbf892a7a4c110b0d77954a7fdf563e653967b56a
-<<<<<<< HEAD
-=======
   languageName: node
   linkType: hard
 
@@ -37760,7 +36969,6 @@ __metadata:
     yarn: bin/yarn.js
     yarnpkg: bin/yarn.js
   checksum: b43d2cc5fee7e933beb12a8aee7dfceca9e9ef2dd17c5d04d15a12ab7bec5f5744ea34a07b86e013da7f291a18c4e1ad8f70e150f5ed2f4666e6723c7f0a8452
->>>>>>> 4b3ad5f55 (feat(pie-monorepo): render button via ssr in next 13)
   languageName: node
   linkType: hard
 
