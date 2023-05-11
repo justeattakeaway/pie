@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/pie-icons-vue",
-  "version": "3.0.0",
+  "version": "3.1.0-next.0",
   "main": "dist/pie-icons-vue.cjs.js",
   "cdn": "dist/pie-icons-vue.min.js",
   "unpkg": "dist/pie-icons-vue.min.js",
@@ -48,7 +48,7 @@
     "@vue/babel-helper-vue-jsx-merge-props": "1.4.0"
   },
   "devDependencies": {
-    "@justeattakeaway/pie-icons": "2.2.0",
+    "@justeattakeaway/pie-icons": "3.1.0-next.0",
     "@vue/babel-preset-jsx": "1.4.0",
     "bili": "3.4.2",
     "eslint-plugin-vue": "^9.9.0",

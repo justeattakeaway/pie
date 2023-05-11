@@ -1,0 +1,37 @@
+{
+  "mode": "pre",
+  "tag": "next",
+  "initialVersions": {
+    "pie-monorepo": "2.5.0",
+    "wc-angular12": "0.2.0",
+    "wc-next10": "0.2.0",
+    "wc-next13": "0.2.0",
+    "wc-nuxt2": "0.2.0",
+    "wc-nuxt3": "0.2.0",
+    "wc-react17": "0.2.0",
+    "wc-react18": "0.2.0",
+    "wc-vanilla": "0.2.0",
+    "wc-vue3": "0.2.0",
+    "pie-docs": "1.70.0",
+    "pie-storybook": "0.7.0",
+    "@justeattakeaway/pie-button": "0.11.0",
+    "@justeattakeaway/pie-eslint-config": "0.1.2",
+    "@justeattakeaway/pie-icons": "2.2.0",
+    "@justeattakeaway/pie-icons-configs": "3.0.0",
+    "@justeattakeaway/pie-icons-react": "3.0.0",
+    "@justeattakeaway/pie-icons-vue": "3.0.0",
+    "@justeattakeaway/pie-stylelint-config": "0.1.1"
+  },
+  "changesets": [
+    "brave-knives-build",
+    "brave-parents-push",
+    "fast-seahorses-call",
+    "fifty-pens-perform",
+    "fluffy-teachers-beg",
+    "fuzzy-stingrays-protect",
+    "shaggy-phones-chew",
+    "shy-onions-turn",
+    "thirty-mangos-call",
+    "wet-mugs-hammer"
+  ]
+}

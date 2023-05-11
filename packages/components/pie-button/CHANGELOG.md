@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.12.0-next.0
+
+### Minor Changes
+
+- [Changed] - extended readme file to mention props, events and enum exports ([#434](https://github.com/justeattakeaway/pie/pull/434)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Changed] - Prevent hover and active status on disabled btns and change outline to border for safari support ([#434](https://github.com/justeattakeaway/pie/pull/434)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Removed] - custom event handler and updated tests accordingly ([#434](https://github.com/justeattakeaway/pie/pull/434)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - isFullWidth prop to button ([#434](https://github.com/justeattakeaway/pie/pull/434)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.11.0
 
 ### Minor Changes
