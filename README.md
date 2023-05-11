@@ -123,7 +123,7 @@ If your change is intended to be released under the `latest` tag on npm, you mus
 A Beta release is a release that contains experimental changes. These are ready for early adoption and testing by consumers but may introduce bugs (or be considered work-in-progress).
 
 If your change is intended to be released under the `beta` tag on npm, you must follow this workflow:
-- Create a new branch with the `beta-*` prefix, and push this to the remote. E.g. `git push origin feature-myawesomework`.
+- Create a new branch with the `beta-*` prefix, and push this to the remote. E.g. `git push origin beta-myawesomework`.
 - Create another branch, off this initial beta branch, to implement your code changes. Ensure that this branch **does not** use a prefix.
 - When you create your PR, target the `beta-*` branch.
 - Upon merging to your `beta-*` branch, a new PR titled **release: Release Packages (beta)** is automatically created. This PR includes the `CHANGELOG.md` and `package.json` version bump. Merging this PR will execute a publish to npm using the appropriate tag.
