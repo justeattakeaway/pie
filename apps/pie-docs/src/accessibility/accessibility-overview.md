@@ -4,7 +4,7 @@ eleventyNavigation:
     parent: Accessibility
     order: 1
 title: Accessibility overview
-description: In this section you’ll find useful information about accessibility and why it is important at JustEatTakeaway.com
+description: In this section you’ll find useful information about accessibility and why it is important at justeattakeaway.com
 ---
 
 ## Introduction
@@ -21,29 +21,35 @@ Welcome to the **Accessibility** section of PIE design system’s documentation 
 
 ## Why is accessibility important?
 
-Just as a good recipe caters to the diverse tastes and dietary needs of all diners, a design system that incorporates accessibility ensures that all users, **regardless of their abilities or disabilities**, can access and use digital products and services.
+Just as a good recipe caters to the diverse tastes and dietary needs of all diners, a design system that incorporates accessibility ensures that all users, **regardless of their abilities and disabilities**, can access and use digital products and services.
 
-Incorporating accessibility into a design system can lead to a **better user experience, increased engagement**, and **increased customer loyalty**.
+Incorporating accessibility into a design system can lead to a **better user experience**, **increased engagement**, and **increased customer loyalty**.
 
-Finally, it’s important to highlight that designing with accessibility in mind can help organisations comply with accessibility standards and regulations, avoiding **legal and financial consequences**.
+Finally, it’s important to highlight that **designing with accessibility in mind can help organisations comply with accessibility standards and regulations**, avoiding legal and financial consequences.
 
 ---
 
 ## How we build inclusive experiences
 
-Using our components is a way to improve accessibility and consistency when building products for JustEatTakeaway.com.
+Using our components is a great way to improve accessibility and consistency when building products for JustEatTakeaway.com.
 
 The component library in this documentation site includes code that we can use across applications, and this code includes **accessible markup**. Since the code exists in a single component that gets reused, it's easier to update and fix any bugs.
 
 The build-it-once, use-it-everywhere model means the **accessibility knowledge** of the designers and developers who build these components is available to all of JET and our partners.
 
-Many accessibility features come free in the components, but it's important to make sure that components are integrated in a way that doesn't create **unforeseen accessibility barriers**. Depending on how components are used, there may be more design and implementation considerations.
+Many accessibility features come free in the components, but it's important to make sure they are integrated correctly, **in a fully accessible way**. Depending on how components are used, there may be more design and implementation considerations.
+
 
 ---
 
 ## Assistive technology support
 
 Our components are tested for accessibility with automated and manual techniques. Users should expect to be able to access features built with our components using **modern assistive technologies**, including native and **third-party tools** like screen readers, speech recognition programs, supports for low vision and colour blindness, alternative keyboards, switch devices, and tools for readability.
+
+{% notification {
+  type: "information",
+  message: "Find out more about automated and manual techniques in our [testing for accessibility](/accessibility/testing-for-accessibility) page."
+} %}
 
 ---
 
