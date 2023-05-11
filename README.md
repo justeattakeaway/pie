@@ -140,7 +140,7 @@ If your change is intended to be released under the `next` tag on npm, you must 
 - Upon merging to `staging`, a new PR titled **release: Release Packages (next)** is automatically created. This PR includes the `CHANGELOG.md` and `package.json` version bump. Merging this PR will commit these changes to `staging` and execute a publish to npm under the `next` tag.
 
 
-**Notes:** Any new PRs that target the `beta-*` / `staging` branch will cause GitHub actions to include the changes as part of that beta release.
+**Notes:** Any new PRs that target the `beta-*` / `staging` branch will cause GitHub actions to include the changes as part of that beta / next deployment.
 Any package that uses the `beta` tag **must** follow this workflow until it's ready to be promoted to the `latest` tag (see Stable Versions section). PRs that combine changes in `latest` and `beta` / `next` packages will result in the beta / next package being versioned incorrectly.
 
 #### Promoting to stable
