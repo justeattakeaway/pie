@@ -8,6 +8,6 @@ const notification = require('../notification');
 module.exports = function () {
     return notification({
         type: 'warning',
-        message: "**Don't use Global Tokens directly.** Please make sure you're using Alias Tokens in your products.",
+        message: "**Don't use Global Tokens directly.** Please make sure you're using alias tokens in your products.",
     });
 };
