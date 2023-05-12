@@ -24,10 +24,11 @@ module.exports = function (options = {
     tokenName: '',
     tokenPath: [],
 }) {
-    try {
-        return getDesignTokenColour(options.tokenName, options.tokenPath);
-    } catch (error) {
-        // eslint-disable-next-line no-console
-        console.error(`Could not find design token color of name: ${options.tokenName}. Error: ${error}`);
+    const colourValue = getDesignTokenColour(options.tokenName, options.tokenPath);
+
+    if (!colourValue || colourValue === '') {
+        throw new Error(`No colour value found for design token ${options.tokenName}`);
     }
+
+    return colourValue;
 };
