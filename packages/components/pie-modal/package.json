@@ -1,0 +1,19 @@
+{
+  "name": "@justeattakeaway/pie-modal",
+  "version": "0.1.0",
+  "description": "PIE design system modal built using web components",
+  "type": "module",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/types/index.d.ts",
+  "scripts": {
+    "build": "run -T vite build",
+    "watch": "run -T vite build --watch",
+    "test": "echo \"Error: no test specified\" && exit 0"
+  },
+  "author": "JustEatTakeaway - Design System Web Team",
+  "license": "Apache-2.0",
+  "volta": {
+    "extends": "../../../package.json"
+  }
+}

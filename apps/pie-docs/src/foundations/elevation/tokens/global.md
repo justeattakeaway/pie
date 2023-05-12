@@ -2,7 +2,7 @@
 eleventyNavigation:
     key: Global tokens
     parent: Elevation
-    order: 2
+    order: 3
 ---
 
 ## Global elevation tokens
