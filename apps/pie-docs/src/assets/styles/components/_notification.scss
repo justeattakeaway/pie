@@ -30,7 +30,7 @@ $notification-bg-colour:            var(--bg-colour);
 
 // The first text child (title or message if there's no title)
 //on the component should sit in line with the icon
-.c-notification :nth-child(2) {
+.c-notification > :nth-child(2) {
     margin-top: 0;
     width: calc(100% - $combinedIconAndPaddingWidth);
     margin-left: $notification-padding;
