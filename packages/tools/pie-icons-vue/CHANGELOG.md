@@ -1,5 +1,28 @@
 # Changelog
 
+## 3.1.0
+
+### Minor Changes
+
+- [Fixed] Naming of Over18Filled icon (was OverFilled18) ([#437](https://github.com/justeattakeaway/pie/pull/437)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- [Fixed] Typo in icon name: check-circl-large -> check-circle-large ([#443](https://github.com/justeattakeaway/pie/pull/443)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Fixed] Typo in icon name: delivery-dee-large -> delivery-fee-large
+  [Fixed] Typo in icon name: locatoin-pin-food -> location-pin-food
+  [Fixed] Typo in icon name: reciept-error -> receipt-error
+  [Fixed] Typo in icon name: reciept-error-large -> receipt-error-large
+  [Fixed] Typo in icon name: swiss-fanc-large -> swiss-franc-large
+  [Fixed] Typo in icon name: targer -> target
+  [Updated] pie-docs iconList snapshot tests with updated icon names
+
+### Patch Changes
+
+- [Fixed] Linting errors in pie-icons-vue. ([#413](https://github.com/justeattakeaway/pie/pull/413)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Changed] Allow pie-eslint-config to use itself as linting config.
+  [Added] Typescript linting to pie-monorepo.
+
 ## 3.0.0
 
 ### Major Changes

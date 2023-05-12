@@ -1,5 +1,25 @@
 # Changelog
 
+## 1.71.0
+
+### Minor Changes
+
+- [Added] - a reusable warning about global token usage to all global tokens pages ([#447](https://github.com/justeattakeaway/pie/pull/447)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - missing horizontal dividers to spacing token pages ([#447](https://github.com/justeattakeaway/pie/pull/447)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- [Fixed] Typo in icon name: check-circl-large -> check-circle-large ([#443](https://github.com/justeattakeaway/pie/pull/443)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Fixed] Typo in icon name: delivery-dee-large -> delivery-fee-large
+  [Fixed] Typo in icon name: locatoin-pin-food -> location-pin-food
+  [Fixed] Typo in icon name: reciept-error -> receipt-error
+  [Fixed] Typo in icon name: reciept-error-large -> receipt-error-large
+  [Fixed] Typo in icon name: swiss-fanc-large -> swiss-franc-large
+  [Fixed] Typo in icon name: targer -> target
+  [Updated] pie-docs iconList snapshot tests with updated icon names
+
 ## 1.70.0
 
 ### Minor Changes

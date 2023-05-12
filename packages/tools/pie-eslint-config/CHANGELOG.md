@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.2.0
+
+### Minor Changes
+
+- [Fixed] Linting errors in pie-icons-vue. ([#413](https://github.com/justeattakeaway/pie/pull/413)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Changed] Allow pie-eslint-config to use itself as linting config.
+  [Added] Typescript linting to pie-monorepo.
+
 ## 0.1.2
 
 ### Patch Changes
