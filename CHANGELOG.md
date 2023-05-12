@@ -1,5 +1,25 @@
 # Changelog
 
+## 2.6.0
+
+### Minor Changes
+
+- [Added] - Figma integration into Storybook ([#427](https://github.com/justeattakeaway/pie/pull/427)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - New renovate groupings for example apps ([#435](https://github.com/justeattakeaway/pie/pull/435)) by [@siggerzz](https://github.com/siggerzz)
+
+- [Fixed] Linting errors in pie-icons-vue. ([#413](https://github.com/justeattakeaway/pie/pull/413)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Changed] Allow pie-eslint-config to use itself as linting config.
+  [Added] Typescript linting to pie-monorepo.
+
+### Patch Changes
+
+- [Fixed] - Invalid JSON in `renovate.json` ([#435](https://github.com/justeattakeaway/pie/pull/435)) by [@siggerzz](https://github.com/siggerzz)
+
+- Updated dependencies [[`6d1d84695`](https://github.com/justeattakeaway/pie/commit/6d1d8469557b10cb12e63c56c677bd5b1defa0eb), [`5f25a416b`](https://github.com/justeattakeaway/pie/commit/5f25a416b892dd13473f203e9ea5d691af55ba52)]:
+  - @justeattakeaway/pie-icons@3.1.0
+
 ## 2.5.0
 
 ### Minor Changes
