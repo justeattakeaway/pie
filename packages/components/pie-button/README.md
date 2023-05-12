@@ -45,10 +45,6 @@ Compile and watch for changes (auto-compiles `dist` on save)
 yarn watch
 ```
 
-Run local dev server (with hot module reloading)
-```
-yarn dev
-```
 ## Props
 
 | Property    | Type      | Default         | Description                                                          |
