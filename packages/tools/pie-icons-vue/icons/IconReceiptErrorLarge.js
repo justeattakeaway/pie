@@ -3,13 +3,13 @@ import _mergeJSXProps from '@vue/babel-helper-vue-jsx-merge-props';
 import { iconSize, updateContextData } from './configs-vue';
 
 export default {
-    name: 'IconRecieptErrorLarge',
+    name: 'IconReceiptErrorLarge',
     props: {
         iconSize: iconSize.large,
     },
     functional: true,
     render (h, ctx) {
-        ctx.data = updateContextData(ctx, 'c-pieIcon c-pieIcon--recieptErrorLarge');
+        ctx.data = updateContextData(ctx, 'c-pieIcon c-pieIcon--receiptErrorLarge');
         return h('svg', _mergeJSXProps([{
             attrs: {
                 xmlns: 'http://www.w3.org/2000/svg',

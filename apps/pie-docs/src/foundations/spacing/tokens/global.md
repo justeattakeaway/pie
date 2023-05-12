@@ -8,6 +8,9 @@ eleventyNavigation:
 
 We have defined a series of global tokens to define our various spacing measures. The global spacing scale works in increments of 8px and 4px.
 
+{% globalTokensWarning '/foundations/spacing/tokens/alias/' %}
+
+---
 
 {% tokensTable {
     path: 'spacing.global',
