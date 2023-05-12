@@ -1,5 +1,26 @@
 # Changelog
 
+## 1.72.0-next.0
+
+### Minor Changes
+
+- [Changed] - ensure pieDesignTokenColours.js throws an error if a token is undefined ([#451](https://github.com/justeattakeaway/pie/pull/451)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Removed] - iconList shortcode now that it has been replaced by categorisedIconList ([#446](https://github.com/justeattakeaway/pie/pull/446)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- [Changed] - use content-default colour design token for nav icon svg fill. Previous token no longer existed and was empty ([#451](https://github.com/justeattakeaway/pie/pull/451)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - New tab ordering for token pages. ([#440](https://github.com/justeattakeaway/pie/pull/440)) by [@siggerzz](https://github.com/siggerzz)
+
+- [Added] - Categorisation data for remaining icons, and add snapshot test ([#446](https://github.com/justeattakeaway/pie/pull/446)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- [Added] - Accessibility resources page ([#453](https://github.com/justeattakeaway/pie/pull/453)) by [@FayeCarter](https://github.com/FayeCarter)
+
+- [Added] - Accessibility section to doc site ([#444](https://github.com/justeattakeaway/pie/pull/444)) by [@FayeCarter](https://github.com/FayeCarter)
+
+  [Added] - Accessibility overview page
+  [Updated] - Nav and Footer components to show accessibility section
+
 ## 1.71.0
 
 ### Minor Changes

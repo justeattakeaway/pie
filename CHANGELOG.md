@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.7.0-next.0
+
+### Minor Changes
+
+- [Changed] - Updated github labeler ([#439](https://github.com/justeattakeaway/pie/pull/439)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 2.6.0
 
 ### Minor Changes

@@ -1,0 +1,38 @@
+{
+  "mode": "pre",
+  "tag": "next",
+  "initialVersions": {
+    "pie-monorepo": "2.6.0",
+    "wc-angular12": "0.2.1",
+    "wc-next10": "0.2.1",
+    "wc-next13": "0.2.1",
+    "wc-nuxt2": "0.2.1",
+    "wc-nuxt3": "0.2.1",
+    "wc-react17": "0.2.0",
+    "wc-react18": "0.2.1",
+    "wc-vanilla": "0.2.1",
+    "wc-vue3": "0.2.1",
+    "pie-docs": "1.71.0",
+    "pie-storybook": "0.8.0",
+    "@justeattakeaway/pie-button": "0.12.0",
+    "@justeattakeaway/pie-modal": "0.1.0",
+    "@justeattakeaway/pie-eslint-config": "0.2.0",
+    "@justeattakeaway/pie-icons": "3.1.0",
+    "@justeattakeaway/pie-icons-configs": "3.0.0",
+    "@justeattakeaway/pie-icons-react": "3.1.0",
+    "@justeattakeaway/pie-icons-vue": "3.1.0",
+    "@justeattakeaway/pie-stylelint-config": "0.1.1"
+  },
+  "changesets": [
+    "gorgeous-buses-buy",
+    "large-foxes-taste",
+    "light-cameras-rush",
+    "pink-planets-trade",
+    "shiny-bats-marry",
+    "sixty-bottles-brake",
+    "small-dingos-smoke",
+    "thirty-forks-smell",
+    "tiny-squids-cover",
+    "tricky-kids-approve"
+  ]
+}
