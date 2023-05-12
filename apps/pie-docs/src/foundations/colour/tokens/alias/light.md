@@ -2,7 +2,7 @@
 eleventyNavigation:
     key: Alias tokens
     parent: Colour
-    order: 3
+    order: 2
 
 eleventyComputed:
   # This is set in _data/togglePageOptions.js
