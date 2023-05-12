@@ -2,4 +2,4 @@
 "pie-docs": minor
 ---
 
-Add accessibility resorces page
+[Added] - Accessibility resources page
