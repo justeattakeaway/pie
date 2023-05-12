@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.8.0
+
+### Minor Changes
+
+- [Added] - Figma integration into Storybook ([#427](https://github.com/justeattakeaway/pie/pull/427)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - isFullWidth prop to button ([#434](https://github.com/justeattakeaway/pie/pull/434)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies [[`5a411d919`](https://github.com/justeattakeaway/pie/commit/5a411d9197aeda8c41a8ccb8eb7885491345998a), [`5a411d919`](https://github.com/justeattakeaway/pie/commit/5a411d9197aeda8c41a8ccb8eb7885491345998a), [`5a411d919`](https://github.com/justeattakeaway/pie/commit/5a411d9197aeda8c41a8ccb8eb7885491345998a), [`5a411d919`](https://github.com/justeattakeaway/pie/commit/5a411d9197aeda8c41a8ccb8eb7885491345998a)]:
+  - @justeattakeaway/pie-button@0.12.0
+
 ## 0.7.0
 
 ### Minor Changes

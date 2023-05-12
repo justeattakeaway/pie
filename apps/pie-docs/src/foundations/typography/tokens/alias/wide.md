@@ -2,7 +2,7 @@
 eleventyNavigation:
     key: Alias tokens
     parent: Typography
-    order: 3
+    order: 2
 
 eleventyComputed:
   # This is set in _data/togglePageOptions.js
