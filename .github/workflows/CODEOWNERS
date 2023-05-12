@@ -1,1 +1,7 @@
-/apps/pie-docs @justeattakeaway/ui-reviewers-design-system
+# By default, the design system UI reviewers should be the default owners for everything
+* @justeattakeaway/ui-reviewers-design-system
+
+# We would like the design system UI reviewers _and_ design system designers to review docs site and component changes
+/apps/pie-docs @justeattakeaway/ui-reviewers-design-system @justeattakeaway/ui-reviewers-design-system-designers
+
+/packages/components/* @justeattakeaway/ui-reviewers-design-system @justeattakeaway/ui-reviewers-design-system-designers
