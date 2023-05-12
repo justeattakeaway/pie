@@ -2,7 +2,7 @@
 eleventyNavigation:
     key: Global tokens
     parent: Colour
-    order: 2
+    order: 3
 ---
 
 ## Global colour tokens
