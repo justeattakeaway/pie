@@ -1,0 +1,46 @@
+<link rel="preload" href="https://d30v2pzvrfyzpo.cloudfront.net/fonts/JETSansDigital-Regular-optimised.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face {
+    font-family: JETSansDigital;
+    src: url('https://d30v2pzvrfyzpo.cloudfront.net/fonts/JETSansDigital-Regular-optimised.woff2') format("woff2"),
+    url('https://d30v2pzvrfyzpo.cloudfront.net/fonts/JETSansDigital-Regular-optimised.woff') format("woff");
+    font-weight: 400;
+    font-display: swap;
+}
+body {
+    font-feature-settings: "tnum"; /* Enable tabular numbers */
+}
+</style>
+<script>
+    (function () {
+ var boldFontUrls = 'url("https://d30v2pzvrfyzpo.cloudfront.net/fonts/JETSansDigital-Bold-optimised.woff2") format("woff2"), url("https://d30v2pzvrfyzpo.cloudfront.net/fonts/   JETSansDigital-Bold-optimised.woff") format("woff")';
+ var extraboldFontUrls = 'url("https://d30v2pzvrfyzpo.cloudfront.net/fonts/JETSansDigital-ExtraBold-optimised.woff2") format("woff2"), url("https://d30v2pzvrfyzpo.cloudfront.net/fonts/   JETSansDigital-ExtraBold-optimised.woff") format("woff")';
+
+    if('fonts' in document ) {
+     var bold = new FontFace('JETSansDigital', boldFontUrls, {    weight: '700' });
+     var extrabold = new FontFace('JETSansDigital',    extraboldFontUrls, { weight: '800' });
+
+        Promise.all([bold.load(), extrabold.load()])
+            .then(function (fonts) {
+                fonts.forEach(function (font) {
+                    document.fonts.add(font);
+                });
+            })
+            .then(function () {
+             document.documentElement.classList.add   ('webfonts-loaded');
+            });
+    }
+
+ // This next block is for IE11 and old Edge support, which don't    support the new Font loading API
+    if(!('fonts' in document) && 'head' in document) {
+     // Awkwardly dump the second stage @font-face blocks in the    head
+        var style = document.createElement('style');
+        // Note: Edge supports WOFF2
+     style.innerHTML = '@font-face { font-family: JETSansDigital;    font-weight: 700; src: ' + boldFontUrls + '; }';
+     style.innerHTML += ' @font-face { font-family: JETSansDigital; font-weight: 800; src: ' + extraboldFontUrls    + '; }';
+        document.head.appendChild(style);
+        document.documentElement.classList.add('webfonts-loaded');
+    }
+})();
+
+</script>

@@ -1,6 +1,6 @@
 import { addons } from '@storybook/addons';
-import { themes } from '@storybook/theming';
+import pieTheme from './pieTheme';
 
 addons.setConfig({
-    theme: themes.light,
+    theme: pieTheme,
 });

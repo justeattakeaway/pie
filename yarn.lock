@@ -25919,6 +25919,7 @@ __metadata:
     "@storybook/addon-links": 7.0.7
     "@storybook/blocks": 7.0.7
     "@storybook/components": 7.0.7
+    "@storybook/theming": 7.0.7
     "@storybook/web-components": 7.0.7
     "@storybook/web-components-vite": 7.0.7
     react: 18.2.0
