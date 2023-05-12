@@ -19,15 +19,16 @@ const getDesignTokenColour = (tokenName, tokenPath) => {
  * @param {string[]} options.tokenPath - an array of path segments to find the token. i.e. ['alias', 'default']
  * @returns
  */
-// eslint-disable-next-line func-names, consistent-return
+// eslint-disable-next-line func-names
 module.exports = function (options = {
     tokenName: '',
     tokenPath: [],
 }) {
-    try {
-        return getDesignTokenColour(options.tokenName, options.tokenPath);
-    } catch (error) {
-        // eslint-disable-next-line no-console
-        console.error(`Could not find design token color of name: ${options.tokenName}. Error: ${error}`);
+    const colourValue = getDesignTokenColour(options.tokenName, options.tokenPath);
+
+    if (!colourValue || colourValue === '') {
+        throw new Error(`No colour value found for design token ${options.tokenName}`);
     }
+
+    return colourValue;
 };
