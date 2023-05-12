@@ -12,6 +12,6 @@ module.exports = function (aliasTokenPagePath) {
 
     return notification({
         type: 'warning',
-        message: `**Don't use Global Tokens directly.** Please make sure you're using [alias tokens](${aliasTokenPagePath}) in your products.`,
+        message: `**Don't use global tokens directly.** Please make sure you're using [alias tokens](${aliasTokenPagePath}) in your products.`,
     });
 };
