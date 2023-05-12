@@ -3,13 +3,13 @@ import _mergeJSXProps from '@vue/babel-helper-vue-jsx-merge-props';
 import { iconSize, updateContextData } from './configs-vue';
 
 export default {
-    name: 'IconDeliveryDeeLarge',
+    name: 'IconDeliveryFeeLarge',
     props: {
         iconSize: iconSize.large,
     },
     functional: true,
     render (h, ctx) {
-        ctx.data = updateContextData(ctx, 'c-pieIcon c-pieIcon--deliveryDeeLarge');
+        ctx.data = updateContextData(ctx, 'c-pieIcon c-pieIcon--deliveryFeeLarge');
         return h('svg', _mergeJSXProps([{
             attrs: {
                 xmlns: 'http://www.w3.org/2000/svg',
