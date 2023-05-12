@@ -23,7 +23,7 @@ const addAllShortCodes = (eleventyConfig) => {
     eleventyConfig.addShortcode('notification', (shortcodeArgs) => deindentHTML(notification(shortcodeArgs)));
     eleventyConfig.addShortcode('tokensTable', (shortcodeArgs) => deindentHTML(tokensTable(shortcodeArgs)));
     eleventyConfig.addShortcode('simpleTable', (shortcodeArgs) => deindentHTML(simpleTable(shortcodeArgs)));
-    eleventyConfig.addShortcode('globalTokensWarning', () => deindentHTML(globalTokensWarning()));
+    eleventyConfig.addShortcode('globalTokensWarning', (shortcodeArgs) => deindentHTML(globalTokensWarning(shortcodeArgs)));
 };
 
 module.exports = {

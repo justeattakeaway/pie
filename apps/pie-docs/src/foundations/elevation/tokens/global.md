@@ -8,7 +8,7 @@ eleventyNavigation:
 ## Global elevation tokens
 Our global elevation tokens are created using multiple shadows to give elevated elements a more natural appearance.
 
-{% globalTokensWarning %}
+{% globalTokensWarning '/foundations/elevation/tokens/alias/light/' %}
 
 ---
 
