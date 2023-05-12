@@ -4232,6 +4232,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@justeattakeaway/pie-modal@workspace:packages/components/pie-modal":
+  version: 0.0.0-use.local
+  resolution: "@justeattakeaway/pie-modal@workspace:packages/components/pie-modal"
+  languageName: unknown
+  linkType: soft
+
 "@justeattakeaway/pie-stylelint-config@workspace:packages/tools/pie-stylelint-config":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-stylelint-config@workspace:packages/tools/pie-stylelint-config"

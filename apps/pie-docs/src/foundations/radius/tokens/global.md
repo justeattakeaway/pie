@@ -2,7 +2,7 @@
 eleventyNavigation:
     key: Global tokens
     parent: Radius
-    order: 2
+    order: 3
 ---
 
 ## Global radius tokens

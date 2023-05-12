@@ -2,7 +2,7 @@
 eleventyNavigation:
     key: Global tokens
     parent: Spacing
-    order: 2
+    order: 3
 ---
 ## Our global spacing scale
 
