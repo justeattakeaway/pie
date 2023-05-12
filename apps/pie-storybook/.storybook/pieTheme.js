@@ -1,16 +1,59 @@
 import { create } from '@storybook/theming/create';
 import logo from '../public/logo--pie.svg';
+import designTokens from '@justeat/pie-design-tokens/dist/tokens.json';
+
+const jetDesignTokens = designTokens.theme.jet;
+
+// All the variables we can override:
+// {
+//     base: 'light' | 'dark';
+//     colorPrimary?: string;
+//     colorSecondary?: string;
+//     appBg?: string;
+//     appContentBg?: string;
+//     appBorderColor?: string;
+//     appBorderRadius?: number;
+//     fontBase?: string;
+//     fontCode?: string;
+//     textColor?: string;
+//     textInverseColor?: string;
+//     textMutedColor?: string;
+//     barTextColor?: string;
+//     barSelectedColor?: string;
+//     barBg?: string;
+//     buttonBg?: string;
+//     buttonBorder?: string;
+//     booleanBg?: string;
+//     booleanSelectedBg?: string;
+//     inputBg?: string;
+//     inputBorder?: string;
+//     inputTextColor?: string;
+//     inputBorderRadius?: number;
+//     brandTitle?: string;
+//     brandUrl?: string;
+//     brandImage?: string;
+//     brandTarget?: string;
+//     gridCellSize?: number;
+// }
 
 export default create({
+    // Side bar background
+    appBg: jetDesignTokens.color.alias.default['background-default'],
+    // Controls background
+    // appContentBg: 'hotpink',
+
     base: 'light',
     brandTitle: 'PIE Storybook',
     brandUrl: 'https://pie.design/',
     brandImage: logo,
+
+    booleanBg: jetDesignTokens.color.alias.default['container-strong'],
+    booleanSelectedBg: jetDesignTokens.color.alias.default['container-default'],
 
     // Fonts
     fontBase: '"JETSansDigital", Arial, sans-serif',
     fontCode: "monospace",
 
     // Text colors
-    textColor: '#242e30'
+    textColor: jetDesignTokens.color.alias.default['content-default'],
 });

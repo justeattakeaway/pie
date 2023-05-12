@@ -1,15 +1,28 @@
 <link rel="preload" href="https://d30v2pzvrfyzpo.cloudfront.net/fonts/JETSansDigital-Regular-optimised.woff2" as="font" type="font/woff2" crossorigin>
+
+<!-- Design tokens -->
+<link rel="stylesheet" href="https://unpkg.com/@justeat/pie-design-tokens/dist/jet.css">
+
 <style>
-@font-face {
-    font-family: JETSansDigital;
-    src: url('https://d30v2pzvrfyzpo.cloudfront.net/fonts/JETSansDigital-Regular-optimised.woff2') format("woff2"),
-    url('https://d30v2pzvrfyzpo.cloudfront.net/fonts/JETSansDigital-Regular-optimised.woff') format("woff");
-    font-weight: 400;
-    font-display: swap;
-}
-body {
-    font-feature-settings: "tnum"; /* Enable tabular numbers */
-}
+    @font-face {
+        font-family: JETSansDigital;
+        src: url('https://d30v2pzvrfyzpo.cloudfront.net/fonts/JETSansDigital-Regular-optimised.woff2') format("woff2"),
+        url('https://d30v2pzvrfyzpo.cloudfront.net/fonts/JETSansDigital-Regular-optimised.woff') format("woff");
+        font-weight: 400;
+        font-display: swap;
+    }
+
+    body {
+        font-feature-settings: "tnum"; /* Enable tabular numbers */
+    }
+
+    /* Side bar overrides */
+    button.sidebar-item,
+    a.sidebar-item {
+        padding-block: var(--dt-spacing-b);
+        font-size: calc(var(--dt-font-interactive-xs-size) * 1px);
+        margin-block-end: var(--dt-spacing-a);
+    }
 </style>
 <script>
     (function () {
