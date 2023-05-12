@@ -19,7 +19,7 @@ const getDesignTokenColour = (tokenName, tokenPath) => {
  * @param {string[]} options.tokenPath - an array of path segments to find the token. i.e. ['alias', 'default']
  * @returns
  */
-// eslint-disable-next-line func-names, consistent-return
+// eslint-disable-next-line func-names
 module.exports = function (options = {
     tokenName: '',
     tokenPath: [],
