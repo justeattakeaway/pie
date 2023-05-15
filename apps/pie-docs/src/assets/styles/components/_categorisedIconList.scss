@@ -10,12 +10,19 @@ $icon-preview-size: 64px;
     inline-size: $size;
 }
 
+.c-categorisedIconList {
+    padding-inline-start: 0;
+    max-inline-size: 100%;
+    list-style-type: none;
+}
+
 .c-categorisedIconList-heading {
     @include f.font-size('heading-m');
     margin-block: f.spacing(f);
 }
 
 .c-categorisedIconList-iconList {
+    padding-inline-start: 0;
     display: flex;
     flex-flow: row wrap;
     gap: f.spacing(e);
