@@ -4,14 +4,14 @@ eleventyNavigation:
     parent: Accessibility
     order: 3
 title: Testing for accessibility
-description: Find out more about how we test for accessibility and ensure ensure that our products meet accessibility standards.
+description: Find out more about how we test for accessibility and ensure that our products meet accessibility standards.
 ---
 
 ## Why do we need to test for accessibility?
 
 At JET we understand that accessibility is crucial when it comes to designing and building products. We are aiming for our products and services to meet at least **level AA** of the **Web Content Accessibility Guidelines 2.1 (WCAG)**. To achieve this, it's essential that you consider accessibility at the start of a project and run accessibility tests regularly throughout the design process.
 
-We offer guidance on the different types of accessibility testing that should be used in your projects. We recommend a **mixture of automated, manual, and user testing  methods** to ensure that most accessibility issues can be detected.
+We offer guidance on the different types of accessibility testing that should be used in your projects. We recommend a **mixture of automated**, **manual**, and **user testing methods** to ensure that most accessibility issues can be detected.
 
 {% contentPageImage {
     src:"../../../assets/img/accessibility/testing-for-accessibility/aa-wcag.svg",
@@ -23,9 +23,9 @@ We offer guidance on the different types of accessibility testing that should be
 
 ## Automated testing
 
-Automated testing tools can audit your product against the WCAG to ensure that you're following best practices that can be detected.
+We use automated testing tools to audit our products for WCAG compliance, ensuring we follow best practices seamlessly.
 
-We estimate that **automated testing can detect a great amount of common WCAG issues**. Automated testing also gives your team more time to focus on the more complex accessibility tests that need to be completed manually.
+We estimate that **automated testing can detect a large number of common WCAG issues**. Automated testing also gives your team more time to focus on the more complex accessibility tests that need to be completed manually.
 
 We recommend using tools such as Deque’s [axe-core](https://www.deque.com/axe/) for the web, [Google’s Toolbox for Accessibility for iOS](https://github.com/google/GTXiLib) (GTXiLib), or [Google’s Accessibility Test Framework for Android](https://github.com/google/Accessibility-Test-Framework-for-Android) (ATF) for automated testing.
 
@@ -36,7 +36,7 @@ We recommend using tools such as Deque’s [axe-core](https://www.deque.com/axe/
 
 It’s important to note that whilst automated accessibility tests are a great step towards providing an accessible application, **they do not guarantee that your app is accessible to real users**.
 
-Some of the issues that automatic checks don’t usually cover are:
+Some of the issues that automated checks don’t usually cover are:
 - Correct reading order of content
 - Appropriate use of HTML
 - Good keyboard navigation experience
@@ -58,7 +58,7 @@ For manual accessibility testing, we recommend referring to a comprehensive [acc
 
 {% notification {
   type: "information",
-  message: "You can use The A11y Project’s [accessibility checklist](https://www.a11yproject.com/checklist/) as a main resource to manual test your products."
+  message: "You can use The A11y Project’s [accessibility checklist](https://www.a11yproject.com/checklist/) as a main resource to manually test your products."
 } %}
 
 {% contentPageImage {
@@ -101,11 +101,11 @@ Below are some important factors we test when conducting screen reader testing:
 
 We have partnered with [Applause](https://www.applause.com/), a third-party crowdsourcing company, to help us with accessibility testing through a contract.
 
-Through this partnership, we can arrange **one-off specialised audits**, conducted by trained accessibility testers from Applause, for both new and existing features. By doing this, we can help teams **understand the state of accessibility in their current products** and how they can improve them to increase their level of accessibility.
+Through this partnership, we can arrange **as-hoc specialised audits**, conducted by trained accessibility testers from Applause, for both new and existing features. By doing this, we can help teams **understand the state of accessibility in their current products** and how they can improve them to increase their level of accessibility.
 
 {% notification {
   type: "information",
-  message: "If your team would like to schedule and audit then [get in touch](/support/contact-us/) with us."
+  message: "If your team would like to schedule an audit then please [get in touch](/support/contact-us/) with us."
 } %}
 
 ---
@@ -116,7 +116,7 @@ Browser plugins provide an alternative to implementing automated testing tools i
 
 Our recommended browser plugins are [axe DevTools - Web Accessibility Testing](https://www.deque.com/axe/devtools/) and [Accessibility Insights for Web](https://accessibilityinsights.io/docs/web/overview/). They offer fully automated checks and semi-automated or ‘review’ checks that **flag potential issues to be assessed by a human user**.
 
-For our web components that use **Storybook**, we also use the [storybook-addon-a11y plugin](https://storybook.js.org/addons/@storybook/addon-a11y) that allows for similar features for instant accessibility feedback on the page for each component.
+For our web components that use **Storybook**, we also use the [storybook-addon-a11y plugin](https://storybook.js.org/addons/@storybook/addon-a11y) that has similar features for instant accessibility feedback on the page for each component.
 
 ---
 
