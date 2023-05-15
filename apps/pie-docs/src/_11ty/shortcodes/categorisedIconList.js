@@ -22,7 +22,7 @@ const buildIconCard = (icon) => {
         ? 'c-categorisedIconList-icon-large'
         : 'c-categorisedIconList-icon';
 
-    return `<div class="c-categorisedIconList-iconCard">
+    return `<li class="c-categorisedIconList-iconCard">
         <div class="c-categorisedIconList-iconCard-iconContainer">
             ${largeIcon ? `<div class="c-categorisedIconList-icon-large" aria-hidden="true">
                 ${largeIcon}
@@ -33,7 +33,7 @@ const buildIconCard = (icon) => {
         </div>
         <span class="c-categorisedIconList-iconCard-separator"></span>
         <p>${icon.displayName}</p>
-    </div>`;
+    </li>`;
 };
 
 /**
@@ -45,14 +45,18 @@ const buildIconCard = (icon) => {
  * @returns {string}
  */
 const categorisedIconList = () => `<div>
-    ${iconData.categories.map((cat) => `
-        <h3 class="c-categorisedIconList-heading">
-            ${cat.displayName}
-        </h3>
+        <ul class="c-categorisedIconList">
+            ${iconData.categories.map((cat) => `
+                <li>
+                    <h3 class="c-categorisedIconList-heading" id="category-${cat.name}">
+                        ${cat.displayName}
+                    </h3>
 
-        <div class="c-categorisedIconList-iconList">
-            ${cat.icons.map((i) => buildIconCard(i)).join('')}
-        </div>`).join('')}
-    </div>`;
+                    <ul class="c-categorisedIconList-iconList" aria-labelledby="category-${cat.name}">
+                        ${cat.icons.map((i) => buildIconCard(i)).join('')}
+                    </ul>`).join('')}
+                </li>
+            </ul>
+        </div>`;
 
 module.exports = categorisedIconList;
