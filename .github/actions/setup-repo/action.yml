@@ -29,4 +29,4 @@ runs:
       - name: Install Dependencies
         shell: bash
         if: steps.cache-node-modules.outputs.cache-hit != 'true'
-        run: yarn add --cached
+        run: yarn add

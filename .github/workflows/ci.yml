@@ -17,8 +17,6 @@ on:
   push:
     branches:
       - main
-      - beta-*
-      - feature-*
 
 concurrency:
   group: CI-${{ github.ref }}
