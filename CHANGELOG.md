@@ -1,5 +1,17 @@
 # Changelog
 
+## 2.7.0
+
+### Minor Changes
+
+- [Changed] - Updated github labeler ([#439](https://github.com/justeattakeaway/pie/pull/439)) by [@fernandofranca](https://github.com/fernandofranca)
+
+### Patch Changes
+
+- [Fixed] - Updating eslint configs to reference new pkg name ([#460](https://github.com/justeattakeaway/pie/pull/460)) by [@ashleynolan](https://github.com/ashleynolan)
+
+- [Fixed] - Issue where deploys would fail when 'push' events occured to `feature-*` / `beta-*` branches due to no associated pull-request number. These branches will now only be triggered once a PR has been created. ([#458](https://github.com/justeattakeaway/pie/pull/458)) by [@siggerzz](https://github.com/siggerzz)
+
 ## 2.6.0
 
 ### Minor Changes

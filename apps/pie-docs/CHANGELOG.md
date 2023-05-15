@@ -1,5 +1,25 @@
 # Changelog
 
+## 1.72.0
+
+### Minor Changes
+
+- [Changed] - ensure pieDesignTokenColours.js throws an error if a token is undefined ([#451](https://github.com/justeattakeaway/pie/pull/451)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Removed] - iconList shortcode now that it has been replaced by categorisedIconList ([#446](https://github.com/justeattakeaway/pie/pull/446)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- [Changed] - Improve accessibility of updated iconography library page ([#455](https://github.com/justeattakeaway/pie/pull/455)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- [Changed] - use content-default colour design token for nav icon svg fill. Previous token no longer existed and was empty ([#451](https://github.com/justeattakeaway/pie/pull/451)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - New tab ordering for token pages. ([#440](https://github.com/justeattakeaway/pie/pull/440)) by [@siggerzz](https://github.com/siggerzz)
+
+- [Added] - Categorisation data for remaining icons, and add snapshot test ([#446](https://github.com/justeattakeaway/pie/pull/446)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+### Patch Changes
+
+- [Fixed] - Updating eslint configs to reference new pkg name ([#460](https://github.com/justeattakeaway/pie/pull/460)) by [@ashleynolan](https://github.com/ashleynolan)
+
 ## 1.71.0
 
 ### Minor Changes
