@@ -5,5 +5,5 @@ module.exports = {
         jest: true,
         node: true,
     },
-    extends: [require.resolve('@justeattakeaway/pie-eslint-config/strict')],
+    extends: [require.resolve('@justeattakeaway/eslint-config-pie/strict')],
 };
