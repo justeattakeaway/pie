@@ -14,11 +14,19 @@ export const RtlMixin =
     <T extends Constructor<LitElement>>(superClass: T) => {
         class RTLElement extends superClass {
             @property({ type: String })
-                dir: string = '';
+                dir = '';
 
             // getter and setter for isRTL based on dir
             get isRTL () {
-                return this.dir === 'rtl' || document?.documentElement?.dir === 'rtl'
+                if (this.dir === 'ltr') {
+                    return false;
+                }
+
+                if (this.dir === 'rtl' || document?.documentElement?.dir === 'rtl') {
+                    return true;
+                }
+
+                return false;
             }
         }
         return RTLElement as Constructor<RTLInterface> & T;
