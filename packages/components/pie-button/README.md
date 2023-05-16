@@ -45,6 +45,16 @@ Compile and watch for changes (auto-compiles `dist` on save)
 yarn watch
 ```
 
+### Importing the component
+
+```javascript
+// default
+import { PieButton } from '@justeattakeaway/pie-button';
+
+// react
+import { PieButtonReact } from '@justeattakeaway/pie-button';
+```
+
 ## Props
 
 | Property    | Type      | Default         | Description                                                          |

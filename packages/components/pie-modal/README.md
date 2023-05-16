@@ -29,3 +29,13 @@ Compile and watch for changes (auto-compiles `dist` on save)
 ```
 yarn watch
 ```
+
+### Importing the component
+
+```javascript
+// default
+import { PieModal } from '@justeattakeaway/pie-button';
+
+// react
+import { PieModalReact } from '@justeattakeaway/pie-button';
+```
