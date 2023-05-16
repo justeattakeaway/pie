@@ -4154,21 +4154,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@justeattakeaway/pie-button@0.12.0, @justeattakeaway/pie-button@workspace:*, @justeattakeaway/pie-button@workspace:packages/components/pie-button":
+"@justeattakeaway/eslint-config-pie@workspace:packages/tools/eslint-config-pie":
   version: 0.0.0-use.local
-  resolution: "@justeattakeaway/pie-button@workspace:packages/components/pie-button"
-  languageName: unknown
-  linkType: soft
-
-"@justeattakeaway/pie-eslint-config@workspace:packages/tools/pie-eslint-config":
-  version: 0.0.0-use.local
-  resolution: "@justeattakeaway/pie-eslint-config@workspace:packages/tools/pie-eslint-config"
+  resolution: "@justeattakeaway/eslint-config-pie@workspace:packages/tools/eslint-config-pie"
   dependencies:
     eslint-config-airbnb-base: 15.0.0
     eslint-find-rules: 4.1.0
   peerDependencies:
     eslint: 7.x || 8.x
     eslint-plugin-import: ^2.26.0
+  languageName: unknown
+  linkType: soft
+
+"@justeattakeaway/pie-button@0.12.0, @justeattakeaway/pie-button@workspace:*, @justeattakeaway/pie-button@workspace:packages/components/pie-button":
+  version: 0.0.0-use.local
+  resolution: "@justeattakeaway/pie-button@workspace:packages/components/pie-button"
   languageName: unknown
   linkType: soft
 

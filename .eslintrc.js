@@ -1,6 +1,6 @@
 module.exports = {
     extends: [
-        require.resolve('@justeattakeaway/pie-eslint-config/strict'),
+        require.resolve('@justeattakeaway/eslint-config-pie/strict'),
         'plugin:@typescript-eslint/recommended'
     ],
     plugins: [
