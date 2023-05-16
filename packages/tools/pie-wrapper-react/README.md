@@ -2,7 +2,7 @@
 
 ## Usage
 
-This package is for generating react wrappers during the build process of a lit component. Previously, react developers would need to install the component, then manually wrap it within a `createComponent` function before it could be used. This is because React 18 and previous versions don't handle web components and custom elements out of the box correctly, due to how React treats custom props and events.
+This package is for generating React wrappers during the build process of a Lit component. Previously, React developers would need to install the component, then manually wrap it within a `createComponent` function before it could be used. This is because React 18 and previous versions don't handle web components and custom elements out of the box correctly, due to how React treats custom props and events.
 
 With this package, the below code (example of `pie-button`) is automatically generated into the component's `src/index.ts` file. The wrapper then gets saved to the component's `dist` folder during the build, before being removed again from the `src/index.ts` file.
 

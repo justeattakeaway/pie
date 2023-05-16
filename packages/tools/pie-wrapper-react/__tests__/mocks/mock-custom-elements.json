@@ -1,0 +1,37 @@
+{
+    "schemaVersion": "1.0.0",
+    "readme": "",
+    "modules": [
+        {
+        "kind": "javascript-module",
+        "path": "__tests__/mocks/mock-button.ts",
+        "declarations": [
+            {
+            "kind": "class",
+            "description": "",
+            "name": "MockButton",
+            "members": [
+                {
+                "kind": "method",
+                "name": "render"
+                }
+            ],
+            "events": [
+                {
+                "name": "CustomEvent",
+                "type": {
+                    "text": "CustomEvent"
+                }
+                }
+            ],
+            "superclass": {
+                "name": "LitElement",
+                "package": "lit"
+            },
+            "tagName": "mock-button",
+            "customElement": true
+            }
+        ]
+        }
+    ]
+}
