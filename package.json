@@ -101,7 +101,7 @@
   },
   "dependencies": {
     "@justeat/fozzie": "10.11.1",
-    "@justeattakeaway/pie-icons": "2.2.0",
+    "@justeattakeaway/pie-icons": "3.1.0",
     "lit": "2.7.4"
   },
   "config": {
