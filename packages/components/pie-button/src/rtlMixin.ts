@@ -8,7 +8,6 @@ export declare class RTLInterface {
     dir: string;
     isRTL: boolean;
 }
-/* playground-fold-end */
 
 export const RtlMixin =
     <T extends Constructor<LitElement>>(superClass: T) => {
@@ -16,7 +15,11 @@ export const RtlMixin =
             @property({ type: String })
                 dir = '';
 
-            // getter and setter for isRTL based on dir
+            // if no prop provided, falls back to html dir attribute (ltr by default)
+            // if prop provided, use that value over anything else present on the page
+
+            // prop provided = reactive
+            // no prop = non-reactive (most of our use cases don't need reactivity)
             get isRTL () {
                 if (this.dir === 'ltr') {
                     return false;
