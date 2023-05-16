@@ -1,6 +1,6 @@
 ---
 eleventyNavigation:
-    key: Accessibility overview
+    key: Overview
     parent: Accessibility
     order: 1
 title: Accessibility overview

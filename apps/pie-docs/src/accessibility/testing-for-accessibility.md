@@ -2,7 +2,7 @@
 eleventyNavigation:
     key: Testing for accessibility
     parent: Accessibility
-    order: 3
+    order: 2
 title: Testing for accessibility
 description: Find out more about how we test for accessibility and ensure that our products meet accessibility standards.
 ---
