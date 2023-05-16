@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.12.1
+
+### Patch Changes
+
+- [Changed] - Added missing newline at the end of tsconfig.json ([#439](https://github.com/justeattakeaway/pie/pull/439)) by [@fernandofranca](https://github.com/fernandofranca)
+
+  [Changed] - Updated README.md
+  [Removed] - Removed npm `dev` script
+
 ## 0.12.0
 
 ### Minor Changes
