@@ -1,4 +1,4 @@
-{% set toggleIconFill = { tokenName: 'interactive-dark', tokenPath: ['alias', 'default'] } | pieDesignTokenColours %}
+{% set toggleIconFill = { tokenName: 'content-default', tokenPath: ['alias', 'default'] } | pieDesignTokenColours %}
 <input id="navToggle" class="c-navToggle-input is-visuallyHidden" data-test-id='nav_toggle_input' type="checkbox" aria-label="Toggle Navigation"/>
 <label class="c-navToggle" data-test-id='nav_toggle_label' for="navToggle" style="--icon-fill: {{ toggleIconFill }};">
     {{ { name: 'menu', attrs: { fill: toggleIconFill, height: '24', width: '24', class: 'u-iconFilled' } } | pieIconsSvg | safe }}

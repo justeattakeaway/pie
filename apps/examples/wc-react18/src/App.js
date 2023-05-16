@@ -6,8 +6,6 @@ import './styles.css';
 function App () {
     const [counter, setCounter] = useState(0);
 
-    const onCustomEvent = () => console.info('onCustomEvent was triggered');
-
     return (
         <>
             <PButton size='large'>WC Button in React!</PButton>
@@ -18,7 +16,6 @@ function App () {
             <p>Count: {counter}</p>
             <PButton
                 onClick={() => setCounter(counter + 1)}
-                onCustomEvent={onCustomEvent}
             >Increment</PButton>
         </>
     );

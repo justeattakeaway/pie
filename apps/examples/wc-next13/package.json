@@ -1,6 +1,6 @@
 {
   "name": "wc-next13",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@justeattakeaway/pie-button": "workspace:*",
+    "@justeattakeaway/pie-modal": "workspace:*",
     "@types/node": "18.15.11",
     "@types/react-dom": "18.0.11",
     "eslint-config-next": "13.2.4",

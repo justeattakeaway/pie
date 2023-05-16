@@ -1,22 +1,25 @@
 {
   "name": "wc-nuxt3",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "private": true,
   "scripts": {
     "build": "nuxt build",
     "build:examples": "yarn build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
+    "start": "nuxt start",
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "@justeattakeaway/pie-button": "^0.11.0",
-    "@nuxt/vite-builder": "3.0.0",
-    "vue": "3.2.25"
+    "@justeattakeaway/pie-button": "workspace:*",
+    "nuxt-ssr-lit": "1.5.1"
   },
   "devDependencies": {
-    "nuxt": "3.0.0",
-    "typescript": "5.0.3"
+    "@types/node": "18",
+    "nuxt": "3.0.0"
+  },
+  "volta": {
+    "extends": "../../../package.json"
   },
   "installConfig": {
     "hoistingLimits": "workspaces"

@@ -12,40 +12,41 @@ export { BUTTON_SIZE, BUTTON_TYPE, BUTTON_VARIANT };
 export class PieButton extends LitElement {
     @property()
     @validPropertyValues(Object.values(BUTTON_SIZE), BUTTON_SIZE.MEDIUM)
-    size : BUTTON_SIZE = BUTTON_SIZE.MEDIUM;
+        size : BUTTON_SIZE = BUTTON_SIZE.MEDIUM;
 
     @property()
     @validPropertyValues(Object.values(BUTTON_TYPE), BUTTON_TYPE.SUBMIT)
-    type : BUTTON_TYPE = BUTTON_TYPE.SUBMIT;
+        type : BUTTON_TYPE = BUTTON_TYPE.SUBMIT;
 
     @property()
     @validPropertyValues(Object.values(BUTTON_VARIANT), BUTTON_VARIANT.PRIMARY)
-    variant : BUTTON_VARIANT = BUTTON_VARIANT.PRIMARY;
+        variant : BUTTON_VARIANT = BUTTON_VARIANT.PRIMARY;
 
-    @property({type: Boolean, reflect: true})
-    disabled : boolean = false;
+    @property({ type: Boolean, reflect: true })
+        disabled = false;
+
+    @property({ type: Boolean, reflect: true })
+        isFullWidth = false;
 
     render () {
-        const { size, type, variant, disabled } = this;
+        const {
+            size, type, variant, disabled, isFullWidth,
+        } = this;
 
         const classes = {
             'o-btn': true,
             [`o-btn--${size}`]: size,
             [`o-btn--${variant}`]: variant,
             'o-btn--is-disabled': disabled,
+            'o-btn--fullWidth': isFullWidth,
         };
-
-        const raiseWCEvent = () => {
-            console.info('WC event dispatched')
-            this.dispatchEvent(new CustomEvent('CustomEvent', { detail: 'WC event dispatched' }))
-        }
 
         return html`
             <button
                 class=${classMap(classes)}
                 type=${type}
                 ?disabled=${disabled}
-                @click="${raiseWCEvent}">
+                ?isFullWidth=${isFullWidth}>
                 <slot></slot>
             </button>`;
     }
@@ -61,4 +62,3 @@ declare global {
         'pie-button': PieButton;
     }
 }
-  

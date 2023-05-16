@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-button",
   "customElements": "custom-elements.json",
-  "version": "0.11.0",
+  "version": "0.12.0",
   "description": "PIE design system button built using web components",
   "type": "module",
   "main": "dist/index.js",
@@ -9,7 +9,6 @@
   "scripts": {
     "build": "yarn build:wrapper && run -T vite build && yarn remove:wrapper",
     "watch": "run -T vite build --watch",
-    "dev": "run -T vite",
     "test": "echo \"Error: no test specified\" && exit 0",
     "test:browsers": "npx playwright test -c ./playwright-lit.config.ts",
     "test:browsers:ci": "yarn test:browsers",

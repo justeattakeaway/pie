@@ -18,8 +18,6 @@ export default function Home () {
         setVariantName(variant);
     };
 
-    const handleCustomEvent = () => console.info('onCustomEvent was triggered');
-
     return (
         <>
             <Head>
@@ -36,8 +34,7 @@ export default function Home () {
                         <div className="padding">
                             Counter: { count }
                         </div>
-                        <PButton onClick={increment}
-                            onCustomEvent={handleCustomEvent}>increment</PButton>
+                        <PButton onClick={increment}>increment</PButton>
                     </div>
                 </div>
                 <h2>Test props</h2>

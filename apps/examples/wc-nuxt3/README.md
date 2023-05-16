@@ -45,3 +45,16 @@ For a complete example refer to `app.vue`.
 import '@justeattakeaway/pie-button';
 </script>
 ```
+
+### Optional: enable server side rendering
+
+Install the module `nuxt-ssr-lit`: `yarn add nuxt-ssr-lit`
+
+Add the following settings to the `nuxt.config.ts` file:
+
+```js
+    ssr: true,
+    modules: [
+      ["nuxt-ssr-lit", { litElementPrefix: ["pie-"] }]
+    ],
+```
