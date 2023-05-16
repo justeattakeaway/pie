@@ -2,6 +2,7 @@ import { LitElement, html, unsafeCSS } from 'lit';
 import { classMap } from 'lit/directives/class-map.js';
 import { customElement, property } from 'lit/decorators.js';
 
+import { RtlMixin } from './rtlMixin';
 import styles from './button.scss?inline';
 import { validPropertyValues } from './decorators';
 import { BUTTON_SIZE, BUTTON_TYPE, BUTTON_VARIANT } from './defs';
@@ -10,7 +11,7 @@ import { BUTTON_SIZE, BUTTON_TYPE, BUTTON_VARIANT } from './defs';
 export { BUTTON_SIZE, BUTTON_TYPE, BUTTON_VARIANT };
 
 @customElement('pie-button')
-export class PieButton extends LitElement {
+export class PieButton extends RtlMixin(LitElement) {
     @property()
     @validPropertyValues(Object.values(BUTTON_SIZE), BUTTON_SIZE.MEDIUM)
         size : BUTTON_SIZE = BUTTON_SIZE.MEDIUM;
@@ -31,7 +32,7 @@ export class PieButton extends LitElement {
 
     render () {
         const {
-            size, type, variant, disabled, isFullWidth,
+            size, type, variant, disabled, isFullWidth, isRTL,
         } = this;
 
         const classes = {
@@ -48,6 +49,9 @@ export class PieButton extends LitElement {
                 type=${type}
                 ?disabled=${disabled}
                 ?isFullWidth=${isFullWidth}>
+                ${isRTL
+            ? html`<span>RTL ICON</span>`
+            : html`<span>LTR ICON</span>`}
                 <slot></slot>
             </button>`;
     }
