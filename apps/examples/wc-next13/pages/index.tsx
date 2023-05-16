@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import Head from 'next/head';
-import { PButton, BUTTON_SIZE, BUTTON_VARIANT } from '@justeattakeaway/pie-button';
+import { PieButtonReact, BUTTON_SIZE, BUTTON_VARIANT } from '@justeattakeaway/pie-button';
 
 export default function Home () {
     const variantIndex = useRef(0);
@@ -30,20 +30,20 @@ export default function Home () {
                 <div>
                     <h3>Counter</h3>
                     <div className="flex-wrapper">
-                        <PButton onClick={decrement}>decrement</PButton>
+                        <PieButtonReact onClick={decrement}>decrement</PieButtonReact>
                         <div className="padding">
                             Counter: { count }
                         </div>
-                        <PButton onClick={increment}>increment</PButton>
+                        <PieButtonReact onClick={increment}>increment</PieButtonReact>
                     </div>
                 </div>
                 <h2>Test props</h2>
                 <div>
                     <h3>Click the button to switch the variant</h3>
                     <div className="flex-wrapper">
-                        <PButton variant={variantName} onClick={switchVariant}>
+                        <PieButtonReact variant={variantName} onClick={switchVariant}>
                             Switch variant
-                        </PButton>
+                        </PieButtonReact>
                         <div className='padding'>Variant: <b>{variantName}</b></div>
                     </div>
                 </div>
@@ -56,7 +56,7 @@ export default function Home () {
                                     const size:BUTTON_SIZE = BUTTON_SIZE[key as keyof typeof BUTTON_SIZE];
 
                                     return (
-                                        <PButton size={size} key={key}>{key.toLowerCase()}</PButton>
+                                        <PieButtonReact size={size} key={key}>{key.toLowerCase()}</PieButtonReact>
                                     );
                                 })
                         }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { PButton, BUTTON_SIZE } from '@justeattakeaway/pie-button';
+import { PieButtonReact, BUTTON_SIZE } from '@justeattakeaway/pie-button';
 
 export default function ButtonSizes () {
     return (
@@ -13,7 +13,7 @@ export default function ButtonSizes () {
                                 const size= BUTTON_SIZE[key];
 
                                 return (
-                                    <PButton size={size} key={key}>{key.toLowerCase()}</PButton>
+                                    <PieButtonReact size={size} key={key}>{key.toLowerCase()}</PieButtonReact>
                                 );
                             })
                     }

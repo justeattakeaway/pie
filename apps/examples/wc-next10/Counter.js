@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { PButton } from '@justeattakeaway/pie-button';
+import { PieButtonReact } from '@justeattakeaway/pie-button';
 
 export default function Counter () {
     const [count, setCount] = useState(0);
@@ -12,11 +12,11 @@ export default function Counter () {
             <div>
                 <h3>Counter</h3>
                 <div className="flex-wrapper">
-                    <PButton onClick={onDecrement}>decrement</PButton>
+                    <PieButtonReact onClick={onDecrement}>decrement</PieButtonReact>
                     <div className="padding">
                         Counter: { count }
                     </div>
-                    <PButton onClick={onIncrement}>increment</PButton>
+                    <PieButtonReact onClick={onIncrement}>increment</PieButtonReact>
                 </div>
             </div>
         </>

@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { PButton, BUTTON_VARIANT } from '@justeattakeaway/pie-button';
+import { PieButtonReact, BUTTON_VARIANT } from '@justeattakeaway/pie-button';
 
 export default function VariantSwitch () {
     const variantIndex = useRef(0)
@@ -14,17 +14,15 @@ export default function VariantSwitch () {
         setVariantName(variant);
     };
 
-    const handleCustomEvent = () => console.info('onCustomEvent was triggered');
-
     return (
         <>
             <div>
                 <h3>Variant Switch</h3>
                 <p>Click the button to switch the variant</p>
                 <div className="flex-wrapper">
-                    <PButton variant={variantName} onClick={switchVariant} onCustomEvent={handleCustomEvent}>
+                    <PieButtonReact variant={variantName} onClick={switchVariant}>
                         Variant
-                    </PButton>
+                    </PieButtonReact>
                     <div className='padding'>Variant: <b>{variantName}</b></div>
                 </div>
             </div>

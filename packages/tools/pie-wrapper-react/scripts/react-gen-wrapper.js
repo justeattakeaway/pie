@@ -1,10 +1,8 @@
-import { appendFileSync } from 'fs'
-
+import { appendFileSync, readFileSync } from 'fs'
 let componentSrc;
 
-export default function genReactWrapper(customElementsObject){
+export default function genReactWrapper(customElementsObject){    
     let components = []
-    let componentPath = []
     const customElements = Object.entries(customElementsObject)
 
     // sort through customElements array and put all components into a separate array
@@ -54,7 +52,7 @@ export default function genReactWrapper(customElementsObject){
         ''
         }
         
-        export const ${component.class.name.replace('Pie', 'P')} = createComponent({
+        export const ${component.class.name + 'React'} = createComponent({
             displayName: '${component.class.name}',
             elementClass: ${component.class.name},
             react: React,
@@ -72,7 +70,10 @@ export default function genReactWrapper(customElementsObject){
         });`
 
         if (componentSrc.length > 0) {
+            const file = readFileSync(component.path)
+            if (!file.includes(componentSrc)) {
                 appendFileSync(component.path, componentSrc);
+            }
         }
     })
 
