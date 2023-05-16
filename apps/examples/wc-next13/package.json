@@ -1,9 +1,9 @@
 {
   "name": "wc-next13",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "NODE_OPTIONS=--conditions=development next dev",
     "build": "yarn build-static",
     "build:examples": "yarn build",
     "build-static": "next build && next export -o build",
@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@justeattakeaway/pie-button": "workspace:*",
+    "@lit-labs/nextjs": "0.1.1",
     "@lit-labs/react": "1.1.1",
     "@types/node": "18.15.11",
     "@types/react-dom": "18.0.11",

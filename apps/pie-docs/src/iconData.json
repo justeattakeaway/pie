@@ -1,0 +1,1906 @@
+{
+    "categories": [
+        {
+            "name": "age-limit",
+            "displayName": "Age limit",
+            "icons": [
+                {
+                    "name": "over-16-filled",
+                    "displayName": "Over 16"
+                },
+                {
+                    "name": "over-18-filled",
+                    "displayName": "Over 18"
+                },
+                {
+                    "name": "over-21-filled",
+                    "displayName": "Over 21"
+                }
+            ]
+        },
+        {
+            "name": "alert-and-info",
+            "displayName": "Alert & Info",
+            "icons": [
+                {
+                    "name": "alert-circle",
+                    "displayName": "Alert Circle"
+                },
+                {
+                    "name": "alert-circle-filled",
+                    "displayName": "Alert Circle Filled"
+                },
+                {
+                    "name": "alert-triangle",
+                    "displayName": "Alert Triangle"
+                },
+                {
+                    "name": "alert-triangle-filled",
+                    "displayName": "Alert Triangle Filled"
+                },
+                {
+                    "name": "help-circle",
+                    "displayName": "Help Circle"
+                },
+                {
+                    "name": "help-circle-filled",
+                    "displayName": "Help Circle Filled"
+                },
+                {
+                    "name": "info-circle",
+                    "displayName": "Info Circle"
+                },
+                {
+                    "name": "info-circle-filled",
+                    "displayName": "Info Circle Filled"
+                },
+                {
+                    "name": "info-marker",
+                    "displayName": "Info Marker"
+                }
+            ]
+        },
+        {
+            "name": "app",
+            "displayName": "App",
+            "icons": [
+                {
+                    "name": "app-order",
+                    "displayName": "App Order"
+                },
+                {
+                    "name": "app-restaurant",
+                    "displayName": "App Restaurant"
+                },
+                {
+                    "name": "app-success",
+                    "displayName": "App Success"
+                },
+                {
+                    "name": "app-users",
+                    "displayName": "App Users"
+                }
+            ]
+        },
+        {
+            "name": "arrow",
+            "displayName": "Arrow",
+            "icons": [
+                {
+                    "name": "arrow-down",
+                    "displayName": "Arrow Down"
+                },
+                {
+                    "name": "arrow-left",
+                    "displayName": "Arrow Left"
+                },
+                {
+                    "name": "arrow-right",
+                    "displayName": "Arrow Right"
+                },
+                {
+                    "name": "arrow-up",
+                    "displayName": "Arrow Up"
+                },
+                {
+                    "name": "arrow-up-left",
+                    "displayName": "Arrow Up Left"
+                },
+                {
+                    "name": "arrow-down-circle",
+                    "displayName": "Arrow Down Circle"
+                },
+                {
+                    "name": "arrow-down-circle-filled",
+                    "displayName": "Arrow Down Circle Filled"
+                },
+                {
+                    "name": "arrow-in-circle",
+                    "displayName": "Arrow In Circle"
+                },
+                {
+                    "name": "arrow-out-circle",
+                    "displayName": "Arrow Out Circle"
+                }
+            ]
+        },
+        {
+            "name": "audiovisual",
+            "displayName": "Audiovisual (AV)",
+            "icons": [
+                {
+                    "name": "camera",
+                    "displayName": "Camera"
+                },
+                {
+                    "name": "headset",
+                    "displayName": "Headset"
+                },
+                {
+                    "name": "image",
+                    "displayName": "Image"
+                },
+                {
+                    "name": "image-filled",
+                    "displayName": "Image Filled"
+                },
+                {
+                    "name": "image-add",
+                    "displayName": "Image Add"
+                },
+                {
+                    "name": "megaphone",
+                    "displayName": "Megaphone"
+                },
+                {
+                    "name": "microphone",
+                    "displayName": "Microphone"
+                },
+                {
+                    "name": "sound-on",
+                    "displayName": "Sound On"
+                },
+                {
+                    "name": "sound-on-filled",
+                    "displayName": "Sound On Filled"
+                },
+                {
+                    "name": "sound-off",
+                    "displayName": "Sound Off"
+                },
+                {
+                    "name": "pause",
+                    "displayName": "Pause"
+                },
+                {
+                    "name": "pause-circle",
+                    "displayName": "Pause Circle"
+                },
+                {
+                    "name": "pause-circle-filled",
+                    "displayName": "Pause Circle Filled"
+                },
+                {
+                    "name": "play",
+                    "displayName": "Play"
+                },
+                {
+                    "name": "play-circle",
+                    "displayName": "Play Circle"
+                },
+                {
+                    "name": "play-circle-filled",
+                    "displayName": "Play Circle Filled"
+                }
+            ]
+        },
+        {
+            "name": "bag-and-basket",
+            "displayName": "Bag & Basket",
+            "icons": [
+                {
+                    "name": "backpack",
+                    "displayName": "Backpack"
+                },
+                {
+                    "name": "bag",
+                    "displayName": "Bag"
+                },
+                {
+                    "name": "bag-filled",
+                    "displayName": "Bag Filled"
+                },
+                {
+                    "name": "basket",
+                    "displayName": "Basket"
+                }
+            ]
+        },
+        {
+            "name": "benefits",
+            "displayName": "Benefits",
+            "icons": [
+                {
+                    "name": "gift",
+                    "displayName": "Gift"
+                },
+                {
+                    "name": "gift-filled",
+                    "displayName": "Gift Filled"
+                },
+                {
+                    "name": "gift-card",
+                    "displayName": "Gift Card"
+                },
+                {
+                    "name": "meal-voucher",
+                    "displayName": "Meal Voucher"
+                },
+                {
+                    "name": "meal-voucher-filled",
+                    "displayName": "Meal Voucher Filled"
+                },
+                {
+                    "name": "offer",
+                    "displayName": "Offer"
+                },
+                {
+                    "name": "offer-star",
+                    "displayName": "Offer Star"
+                },
+                {
+                    "name": "offer-star-filled",
+                    "displayName": "Offer Star Filled"
+                },
+                {
+                    "name": "voucher",
+                    "displayName": "Voucher"
+                }
+            ]
+        },
+        {
+            "name": "brand",
+            "displayName": "Brand",
+            "icons": [
+                {
+                    "name": "brand-highlight",
+                    "displayName": "Brand Highlight"
+                }
+            ]
+        },
+        {
+            "name": "calendar",
+            "displayName": "Calendar",
+            "icons": [
+                {
+                    "name": "calendar",
+                    "displayName": "Calendar"
+                },
+                {
+                    "name": "calendar-filled",
+                    "displayName": "Calendar Filled"
+                },
+                {
+                    "name": "calendar-add",
+                    "displayName": "Calendar Add"
+                },
+                {
+                    "name": "calendar-alert",
+                    "displayName": "Calendar Alert"
+                },
+                {
+                    "name": "calendar-day",
+                    "displayName": "Calendar Day"
+                },
+                {
+                    "name": "calendar-edit",
+                    "displayName": "Calendar Edit"
+                },
+                {
+                    "name": "calendar-error",
+                    "displayName": "Calendar Error"
+                },
+                {
+                    "name": "calendar-repeat",
+                    "displayName": "Calendar Repeat"
+                },
+                {
+                    "name": "calendar-star",
+                    "displayName": "Calendar Star"
+                }
+            ]
+        },
+        {
+            "name": "caret",
+            "displayName": "Caret",
+            "icons": [
+                {
+                    "name": "caret-down",
+                    "displayName": "Caret Down"
+                },
+                {
+                    "name": "caret-down-filled",
+                    "displayName": "Caret Down Filled"
+                },
+                {
+                    "name": "caret-left",
+                    "displayName": "Caret Left"
+                },
+                {
+                    "name": "caret-left-filled",
+                    "displayName": "Caret Left Filled"
+                },
+                {
+                    "name": "caret-right",
+                    "displayName": "Caret Right"
+                },
+                {
+                    "name": "caret-right-filled",
+                    "displayName": "Caret Right Filled"
+                },
+                {
+                    "name": "caret-up",
+                    "displayName": "Caret Up"
+                },
+                {
+                    "name": "caret-up-filled",
+                    "displayName": "Caret Up Filled"
+                }
+            ]
+        },
+        {
+            "name": "chat",
+            "displayName": "Chat",
+            "icons": [
+                {
+                    "name": "chat",
+                    "displayName": "Chat"
+                },
+                {
+                    "name": "chat-filled",
+                    "displayName": "Chat Filled"
+                },
+                {
+                    "name": "chat-bot",
+                    "displayName": "Chat Bot"
+                },
+                {
+                    "name": "chat-conversation",
+                    "displayName": "Chat Conversation"
+                },
+                {
+                    "name": "chat-heart",
+                    "displayName": "Chat Heart"
+                },
+                {
+                    "name": "chat-help",
+                    "displayName": "Chat Help"
+                }
+            ]
+        },
+        {
+            "name": "chevron",
+            "displayName": "Chevron",
+            "icons": [
+                {
+                    "name": "chevron-down",
+                    "displayName": "Chevron Down"
+                },
+                {
+                    "name": "chevron-left",
+                    "displayName": "Chevron Left"
+                },
+                {
+                    "name": "chevron-right",
+                    "displayName": "Chevron Right"
+                },
+                {
+                    "name": "chevron-up",
+                    "displayName": "Chevron Up"
+                },
+                {
+                    "name": "chevron-double-left",
+                    "displayName": "Chevron Double Left"
+                },
+                {
+                    "name": "chevron-double-right",
+                    "displayName": "Chevron Double Right"
+                },
+                {
+                    "name": "chevron-split",
+                    "displayName": "Chevron Split"
+                }
+            ]
+        },
+        {
+            "name": "communication",
+            "displayName": "Communication",
+            "icons": [
+                {
+                    "name": "copy",
+                    "displayName": "Copy"
+                },
+                {
+                    "name": "copy-filled",
+                    "displayName": "Copy Filled"
+                },
+                {
+                    "name": "email",
+                    "displayName": "Email"
+                },
+                {
+                    "name": "email-filled",
+                    "displayName": "Email Filled"
+                },
+                {
+                    "name": "send",
+                    "displayName": "Send"
+                },
+                {
+                    "name": "share",
+                    "displayName": "Share"
+                }
+            ]
+        },
+        {
+            "name": "controls",
+            "displayName": "Controls",
+            "icons": [
+                {
+                    "name": "checkbox-unselected",
+                    "displayName": "Checkbox"
+                },
+                {
+                    "name": "checkbox-selected",
+                    "displayName": "Checkbox Selected"
+                },
+                {
+                    "name": "radio-unselected",
+                    "displayName": "Radio"
+                },
+                {
+                    "name": "radio-selected",
+                    "displayName": "Radio Selected"
+                }
+            ]
+        },
+        {
+            "name": "corporate",
+            "displayName": "Corporate",
+            "icons": [
+                {
+                    "name": "chart-increase",
+                    "displayName": "Chart Increase"
+                },
+                {
+                    "name": "chart-marker",
+                    "displayName": "Chart Marker"
+                },
+                {
+                    "name": "employee-search",
+                    "displayName": "Employee Search"
+                },
+                {
+                    "name": "hand-coins",
+                    "displayName": "Hand Coins"
+                },
+                {
+                    "name": "hand-heart",
+                    "displayName": "Hand Heart"
+                },
+                {
+                    "name": "id-card",
+                    "displayName": "ID Card"
+                },
+                {
+                    "name": "office",
+                    "displayName": "Office"
+                },
+                {
+                    "name": "pie-chart",
+                    "displayName": "Pie Chart"
+                },
+                {
+                    "name": "presentation-chart",
+                    "displayName": "Presentation Chart"
+                },
+                {
+                    "name": "target",
+                    "displayName": "Target"
+                },
+                {
+                    "name": "vision",
+                    "displayName": "Vision"
+                }
+            ]
+        },
+        {
+            "name": "currency",
+            "displayName": "Currency",
+            "icons": [
+                {
+                    "name": "conversion-rate",
+                    "displayName": "Conversion Rate"
+                },
+                {
+                    "name": "dollar",
+                    "displayName": "Dollar"
+                },
+                {
+                    "name": "euro",
+                    "displayName": "Euro"
+                },
+                {
+                    "name": "lei",
+                    "displayName": "Lei"
+                },
+                {
+                    "name": "lev",
+                    "displayName": "Lev"
+                },
+                {
+                    "name": "pound",
+                    "displayName": "Pound"
+                },
+                {
+                    "name": "shekel",
+                    "displayName": "Shekel"
+                },
+                {
+                    "name": "swiss-franc",
+                    "displayName": "Swiss Franc"
+                }
+            ]
+        },
+        {
+            "name": "dietary",
+            "displayName": "Dietary",
+            "icons": [
+                {
+                    "name": "kosher",
+                    "displayName": "Kosher"
+                },
+                {
+                    "name": "nuts",
+                    "displayName": "Nuts"
+                },
+                {
+                    "name": "spicy",
+                    "displayName": "Spicy"
+                },
+                {
+                    "name": "vegan",
+                    "displayName": "Vegan"
+                },
+                {
+                    "name": "vegetarian",
+                    "displayName": "Vegetarian"
+                },
+                {
+                    "name": "vegetarian-filled",
+                    "displayName": "Vegetarian Filled"
+                }
+            ]
+        },
+        {
+            "name": "documents",
+            "displayName": "Documents",
+            "icons": [
+                {
+                    "name": "consent",
+                    "displayName": "Consent"
+                },
+                {
+                    "name": "cookie-policy",
+                    "displayName": "Cookie Policy"
+                },
+                {
+                    "name": "document",
+                    "displayName": "Document"
+                },
+                {
+                    "name": "terms-and-conditions",
+                    "displayName": "Terms and Conditions"
+                }
+            ]
+        },
+        {
+            "name": "elements",
+            "displayName": "Elements",
+            "icons": [
+                {
+                    "name": "fire",
+                    "displayName": "Fire"
+                },
+                {
+                    "name": "lightning",
+                    "displayName": "Lightning"
+                },
+                {
+                    "name": "moon",
+                    "displayName": "Moon"
+                },
+                {
+                    "name": "snowflake",
+                    "displayName": "Snowflake"
+                },
+                {
+                    "name": "sun",
+                    "displayName": "Sun"
+                },
+                {
+                    "name": "temp",
+                    "displayName": "Temp"
+                }
+            ]
+        },
+        {
+            "name": "eye",
+            "displayName": "Eye",
+            "icons": [
+                {
+                    "name": "eye-on",
+                    "displayName": "Eye On"
+                },
+                {
+                    "name": "eye-on-filled",
+                    "displayName": "Eye On Filled"
+                },
+                {
+                    "name": "eye-off",
+                    "displayName": "Eye Off"
+                },
+                {
+                    "name": "eye-off-filled",
+                    "displayName": "Eye Off Filled"
+                }
+            ]
+        },
+        {
+            "name": "flags",
+            "displayName": "Flags",
+            "icons": [
+                {
+                    "name": "australia",
+                    "displayName": "Australia",
+                    "oneSize": true
+                },
+                {
+                    "name": "austria",
+                    "displayName": "Austria",
+                    "oneSize": true
+                },
+                {
+                    "name": "belgium",
+                    "displayName": "Belgium",
+                    "oneSize": true
+                },
+                {
+                    "name": "bulgaria",
+                    "displayName": "Bulgaria",
+                    "oneSize": true
+                },
+                {
+                    "name": "canada",
+                    "displayName": "Canada",
+                    "oneSize": true
+                },
+                {
+                    "name": "denmark",
+                    "displayName": "Denmark",
+                    "oneSize": true
+                },
+                {
+                    "name": "france",
+                    "displayName": "France",
+                    "oneSize": true
+                },
+                {
+                    "name": "germany",
+                    "displayName": "Germany",
+                    "oneSize": true
+                },
+                {
+                    "name": "israel",
+                    "displayName": "Israel",
+                    "oneSize": true
+                },
+                {
+                    "name": "italy",
+                    "displayName": "Italy",
+                    "oneSize": true
+                },
+                {
+                    "name": "luxembourg",
+                    "displayName": "Luxembourg",
+                    "oneSize": true
+                },
+                {
+                    "name": "netherlands",
+                    "displayName": "Netherlands",
+                    "oneSize": true
+                },
+                {
+                    "name": "new-zealand",
+                    "displayName": "New Zealand",
+                    "oneSize": true
+                },
+                {
+                    "name": "norway",
+                    "displayName": "Norway",
+                    "oneSize": true
+                },
+                {
+                    "name": "poland",
+                    "displayName": "Poland",
+                    "oneSize": true
+                },
+                {
+                    "name": "portugal",
+                    "displayName": "Portugal",
+                    "oneSize": true
+                },
+                {
+                    "name": "romania",
+                    "displayName": "Romania",
+                    "oneSize": true
+                },
+                {
+                    "name": "slovakia",
+                    "displayName": "Slovakia",
+                    "oneSize": true
+                },
+                {
+                    "name": "spain",
+                    "displayName": "Spain",
+                    "oneSize": true
+                },
+                {
+                    "name": "switzerland",
+                    "displayName": "Switzerland",
+                    "oneSize": true
+                },
+                {
+                    "name": "united-kingdom",
+                    "displayName": "United Kingdom",
+                    "oneSize": true
+                },
+                {
+                    "name": "united-states",
+                    "displayName": "United States",
+                    "oneSize": true
+                }
+            ]
+        },
+        {
+            "name": "food",
+            "displayName": "Food",
+            "icons": [
+                {
+                    "name": "food",
+                    "displayName": "Food"
+                },
+                {
+                    "name": "food-filled",
+                    "displayName": "Food Filled"
+                },
+                {
+                    "name": "alcohol",
+                    "displayName": "Alcohol"
+                },
+                {
+                    "name": "alcohol-filled",
+                    "displayName": "Alcohol Filled"
+                },
+                {
+                    "name": "curry",
+                    "displayName": "Curry"
+                },
+                {
+                    "name": "drink",
+                    "displayName": "Drink"
+                },
+                {
+                    "name": "fried-chicken",
+                    "displayName": "Fried Chicken"
+                },
+                {
+                    "name": "fries",
+                    "displayName": "Fries"
+                },
+                {
+                    "name": "ice-cream",
+                    "displayName": "Ice Cream"
+                },
+                {
+                    "name": "kebab",
+                    "displayName": "Kebab"
+                },
+                {
+                    "name": "kebab-bowl",
+                    "displayName": "Kebab Bowl"
+                },
+                {
+                    "name": "nachos",
+                    "displayName": "Nachos"
+                },
+                {
+                    "name": "noodles",
+                    "displayName": "Noodles"
+                },
+                {
+                    "name": "pizza",
+                    "displayName": "Pizza"
+                },
+                {
+                    "name": "salad",
+                    "displayName": "Salad"
+                },
+                {
+                    "name": "sandwich",
+                    "displayName": "Sandwich"
+                },
+                {
+                    "name": "sushi",
+                    "displayName": "Sushi"
+                },
+                {
+                    "name": "wrap",
+                    "displayName": "Wrap"
+                }
+            ]
+        },
+        {
+            "name": "fullscreen",
+            "displayName": "Fullscreen",
+            "icons": [
+                {
+                    "name": "fullscreen-expand",
+                    "displayName": "Fullscreen Expand"
+                },
+                {
+                    "name": "fullscreen-exit",
+                    "displayName": "Fullscreen Exit"
+                }
+            ]
+        },
+        {
+            "name": "functionality",
+            "displayName": "Functionality",
+            "icons": [
+                {
+                    "name": "check",
+                    "displayName": "Check"
+                },
+                {
+                    "name": "check-circle",
+                    "displayName": "Check Circle"
+                },
+                {
+                    "name": "check-circle-filled",
+                    "displayName": "Check Circle Filled"
+                },
+                {
+                    "name": "close",
+                    "displayName": "Close"
+                },
+                {
+                    "name": "close-circle",
+                    "displayName": "Close Circle"
+                },
+                {
+                    "name": "close-circle-filled",
+                    "displayName": "Close Circle Filled"
+                },
+                {
+                    "name": "minus",
+                    "displayName": "Minus"
+                },
+                {
+                    "name": "minus-circle",
+                    "displayName": "Minus Circle"
+                },
+                {
+                    "name": "minus-circle-filled",
+                    "displayName": "Minus Circle Filled"
+                },
+                {
+                    "name": "plus",
+                    "displayName": "Plus"
+                },
+                {
+                    "name": "plus-circle",
+                    "displayName": "Plus Circle"
+                },
+                {
+                    "name": "plus-circle-filled",
+                    "displayName": "Plus Circle Filled"
+                },
+                {
+                    "name": "drag",
+                    "displayName": "Drag"
+                },
+                {
+                    "name": "edit",
+                    "displayName": "Edit"
+                },
+                {
+                    "name": "edit-filled",
+                    "displayName": "Edit Filled"
+                },
+                {
+                    "name": "filters",
+                    "displayName": "Filters"
+                },
+                {
+                    "name": "filters-filled",
+                    "displayName": "Filters Filled"
+                },
+                {
+                    "name": "grid-view",
+                    "displayName": "Grid View"
+                },
+                {
+                    "name": "grid-view-filled",
+                    "displayName": "Grid View Filled"
+                },
+                {
+                    "name": "more-horizontal",
+                    "displayName": "More Horizontal"
+                },
+                {
+                    "name": "more-vertical",
+                    "displayName": "More Vertical"
+                },
+                {
+                    "name": "layers",
+                    "displayName": "Layers"
+                },
+                {
+                    "name": "list",
+                    "displayName": "List"
+                },
+                {
+                    "name": "log-out",
+                    "displayName": "Log Out"
+                },
+                {
+                    "name": "menu",
+                    "displayName": "Menu"
+                },
+                {
+                    "name": "navigation-collapse",
+                    "displayName": "Navigation Collapse"
+                },
+                {
+                    "name": "navigation-expand",
+                    "displayName": "Navigation Expand"
+                },
+                {
+                    "name": "note",
+                    "displayName": "Note"
+                },
+                {
+                    "name": "refresh",
+                    "displayName": "Refresh"
+                },
+                {
+                    "name": "resize",
+                    "displayName": "Resize"
+                },
+                {
+                    "name": "restricted",
+                    "displayName": "Restricted"
+                },
+                {
+                    "name": "search",
+                    "displayName": "Search"
+                },
+                {
+                    "name": "settings",
+                    "displayName": "Settings"
+                },
+                {
+                    "name": "settings-filled",
+                    "displayName": "Settings Filled"
+                },
+                {
+                    "name": "sort",
+                    "displayName": "Sort"
+                },
+                {
+                    "name": "sort-ascending",
+                    "displayName": "Sort Ascending"
+                },
+                {
+                    "name": "sort-descending",
+                    "displayName": "Sort Descending"
+                },
+                {
+                    "name": "sync",
+                    "displayName": "Sync"
+                },
+                {
+                    "name": "trash",
+                    "displayName": "Trash"
+                },
+                {
+                    "name": "trash-filled",
+                    "displayName": "Trash Filled"
+                }
+            ]
+        },
+        {
+            "name": "home",
+            "displayName": "Home",
+            "icons": [
+                {
+                    "name": "house",
+                    "displayName": "House"
+                },
+                {
+                    "name": "house-filled",
+                    "displayName": "House Filled"
+                }
+            ]
+        },
+        {
+            "name": "language",
+            "displayName": "Language",
+            "icons": [
+                {
+                    "name": "language",
+                    "displayName": "Language"
+                },
+                {
+                    "name": "translate-filled",
+                    "displayName": "Translate"
+                }
+            ]
+        },
+        {
+            "name": "link",
+            "displayName": "Link",
+            "icons": [
+                {
+                    "name": "link",
+                    "displayName": "Link"
+                },
+                {
+                    "name": "unlink",
+                    "displayName": "Unlink"
+                },
+                {
+                    "name": "link-external",
+                    "displayName": "External Link"
+                }
+            ]
+        },
+        {
+            "name": "location",
+            "displayName": "Location",
+            "icons": [
+                {
+                    "name": "geolocation",
+                    "displayName": "Geolocation"
+                },
+                {
+                    "name": "geolocation-filled",
+                    "displayName": "Geolocation Filled"
+                },
+                {
+                    "name": "geolocation-circle",
+                    "displayName": "Geolocation Circle"
+                },
+                {
+                    "name": "geolocation-circle-filled",
+                    "displayName": "Geolocation Circle Filled"
+                },
+                {
+                    "name": "location-pin",
+                    "displayName": "Location Pin"
+                },
+                {
+                    "name": "location-pin-filled",
+                    "displayName": "Location Pin Filled"
+                },
+                {
+                    "name": "location-pin-food",
+                    "displayName": "Location Pin Food"
+                },
+                {
+                    "name": "location-pin-food-filled",
+                    "displayName": "Location Pin Food Filled"
+                },
+                {
+                    "name": "location-pin-restaurant",
+                    "displayName": "Location Pin Restaurant"
+                },
+                {
+                    "name": "location-pin-user",
+                    "displayName": "Location Pin User"
+                },
+                {
+                    "name": "location-restaurant",
+                    "displayName": "Location Restaurant"
+                },
+                {
+                    "name": "location-target",
+                    "displayName": "Location Target"
+                },
+                {
+                    "name": "route-pin",
+                    "displayName": "Route Pin"
+                }
+            ]
+        },
+        {
+            "name": "lock",
+            "displayName": "Lock",
+            "icons": [
+                {
+                    "name": "key",
+                    "displayName": "Key"
+                },
+                {
+                    "name": "key-unlock",
+                    "displayName": "Key Unlock"
+                },
+                {
+                    "name": "lock",
+                    "displayName": "Lock"
+                }
+            ]
+        },
+        {
+            "name": "miscellaneous",
+            "displayName": "Miscellaneous",
+            "icons": [
+                {
+                    "name": "ballot-box",
+                    "displayName": "Ballot Box"
+                },
+                {
+                    "name": "bulb-lightning",
+                    "displayName": "Bulb Lightning"
+                },
+                {
+                    "name": "convenience",
+                    "displayName": "Convenience"
+                },
+                {
+                    "name": "directions",
+                    "displayName": "Directions"
+                },
+                {
+                    "name": "flowers",
+                    "displayName": "Flowers"
+                },
+                {
+                    "name": "grocery",
+                    "displayName": "Grocery"
+                },
+                {
+                    "name": "hi-vis",
+                    "displayName": "Hi-Vis"
+                },
+                {
+                    "name": "high-contrast",
+                    "displayName": "High Contrast"
+                },
+                {
+                    "name": "loading",
+                    "displayName": "Loading"
+                },
+                {
+                    "name": "paintbrush",
+                    "displayName": "Paintbrush"
+                },
+                {
+                    "name": "pet-supplies",
+                    "displayName": "Pet Supplies"
+                },
+                {
+                    "name": "pharmacy",
+                    "displayName": "Pharmacy"
+                },
+                {
+                    "name": "recycle",
+                    "displayName": "Recycle"
+                },
+                {
+                    "name": "sponsored-filled",
+                    "displayName": "Sponsored"
+                },
+                {
+                    "name": "toilet",
+                    "displayName": "Toilet"
+                }
+            ]
+        },
+        {
+            "name": "notifications",
+            "displayName": "Notifications",
+            "icons": [
+                {
+                    "name": "notification",
+                    "displayName": "Notification"
+                },
+                {
+                    "name": "notification-filled",
+                    "displayName": "Notification Filled"
+                },
+                {
+                    "name": "notification-off",
+                    "displayName": "Notification Off"
+                }
+            ]
+        },
+        {
+            "name": "number",
+            "displayName": "Number",
+            "icons": [
+                {
+                    "name": "number-symbol",
+                    "displayName": "Number Symbol"
+                },
+                {
+                    "name": "numero-symbol",
+                    "displayName": "Numero Symbol"
+                }
+            ]
+        },
+        {
+            "name": "online",
+            "displayName": "Online",
+            "icons": [
+                {
+                    "name": "cloud",
+                    "displayName": "Cloud"
+                },
+                {
+                    "name": "cloud-download",
+                    "displayName": "Cloud Download"
+                },
+                {
+                    "name": "cloud-error",
+                    "displayName": "Cloud Error"
+                },
+                {
+                    "name": "cloud-success",
+                    "displayName": "Cloud Success"
+                },
+                {
+                    "name": "cloud-upload",
+                    "displayName": "Cloud Upload"
+                },
+                {
+                    "name": "download",
+                    "displayName": "Download"
+                },
+                {
+                    "name": "upload",
+                    "displayName": "Upload"
+                },
+                {
+                    "name": "network-error",
+                    "displayName": "Network Error"
+                },
+                {
+                    "name": "rss",
+                    "displayName": "RSS"
+                },
+                {
+                    "name": "wifi",
+                    "displayName": "WiFi"
+                },
+                {
+                    "name": "wifi-alert",
+                    "displayName": "WiFi Alert"
+                }
+            ]
+        },
+        {
+            "name": "pay",
+            "displayName": "Pay",
+            "icons": [
+                {
+                    "name": "barcode",
+                    "displayName": "Barcode"
+                },
+                {
+                    "name": "cash",
+                    "displayName": "Cash"
+                },
+                {
+                    "name": "cash-filled",
+                    "displayName": "Cash Filled"
+                },
+                {
+                    "name": "cash-card",
+                    "displayName": "Cash Card"
+                },
+                {
+                    "name": "cash-card-filled",
+                    "displayName": "Cash Card Filled"
+                },
+                {
+                    "name": "cheque",
+                    "displayName": "Cheque"
+                },
+                {
+                    "name": "cheque-filled",
+                    "displayName": "Cheque Filled"
+                },
+                {
+                    "name": "credit-card",
+                    "displayName": "Credit Card"
+                },
+                {
+                    "name": "credit-card-filled",
+                    "displayName": "Credit Card Filled"
+                },
+                {
+                    "name": "credit-card-home",
+                    "displayName": "Credit Card Home"
+                },
+                {
+                    "name": "credit-card-home-filled",
+                    "displayName": "Credit Card Home Filled"
+                },
+                {
+                    "name": "pin-at-home",
+                    "displayName": "Pin Home"
+                },
+                {
+                    "name": "pin-at-home-filled",
+                    "displayName": "Pin Home Filled"
+                },
+                {
+                    "name": "service-charge",
+                    "displayName": "Service Charge"
+                },
+                {
+                    "name": "takeaway-pay",
+                    "displayName": "Takeaway Pay"
+                },
+                {
+                    "name": "takeaway-pay-filled",
+                    "displayName": "Takeaway Pay Filled"
+                },
+                {
+                    "name": "wallet",
+                    "displayName": "Wallet"
+                },
+                {
+                    "name": "wallet-filled",
+                    "displayName": "Wallet Filled"
+                }
+            ]
+        },
+        {
+            "name": "people",
+            "displayName": "People",
+            "icons": [
+                {
+                    "name": "face-happy",
+                    "displayName": "Face Happy"
+                },
+                {
+                    "name": "user",
+                    "displayName": "User"
+                },
+                {
+                    "name": "user-filled",
+                    "displayName": "User Filled"
+                },
+                {
+                    "name": "user-circle",
+                    "displayName": "User Circle"
+                },
+                {
+                    "name": "user-circle-filled",
+                    "displayName": "User Circle Filled"
+                },
+                {
+                    "name": "user-add",
+                    "displayName": "User Add"
+                },
+                {
+                    "name": "user-community",
+                    "displayName": "User Community"
+                },
+                {
+                    "name": "user-group",
+                    "displayName": "User Group"
+                },
+                {
+                    "name": "user-highlight",
+                    "displayName": "User Highlight"
+                },
+                {
+                    "name": "user-marker",
+                    "displayName": "User Marker"
+                },
+                {
+                    "name": "user-partnership",
+                    "displayName": "User Partnership"
+                },
+                {
+                    "name": "user-repeat",
+                    "displayName": "User Repeat"
+                },
+                {
+                    "name": "user-shield",
+                    "displayName": "User Shield"
+                },
+                {
+                    "name": "users",
+                    "displayName": "Users"
+                }
+            ]
+        },
+        {
+            "name": "reaction",
+            "displayName": "Reaction",
+            "icons": [
+                {
+                    "name": "heart",
+                    "displayName": "Heart"
+                },
+                {
+                    "name": "heart-filled",
+                    "displayName": "Heart Filled"
+                },
+                {
+                    "name": "star",
+                    "displayName": "Star"
+                },
+                {
+                    "name": "star-half-filled",
+                    "displayName": "Star Half Filled"
+                },
+                {
+                    "name": "star-filled",
+                    "displayName": "Star Filled"
+                },
+                {
+                    "name": "star-circle",
+                    "displayName": "Star Circle"
+                },
+                {
+                    "name": "star-circle-filled",
+                    "displayName": "Star Circle Filled"
+                }
+            ]
+        },
+        {
+            "name": "restaurant",
+            "displayName": "Restaurant",
+            "icons": [
+                {
+                    "name": "cutlery",
+                    "displayName": "Cutlery"
+                },
+                {
+                    "name": "delivery-fee",
+                    "displayName": "Delivery Fee"
+                },
+                {
+                    "name": "dine-in",
+                    "displayName": "Dine In"
+                },
+                {
+                    "name": "dish",
+                    "displayName": "Dish"
+                },
+                {
+                    "name": "food-ready",
+                    "displayName": "Food Ready"
+                },
+                {
+                    "name": "order",
+                    "displayName": "Order"
+                },
+                {
+                    "name": "order-filled",
+                    "displayName": "Order Filled"
+                },
+                {
+                    "name": "pick-up",
+                    "displayName": "Pick Up"
+                },
+                {
+                    "name": "receipt",
+                    "displayName": "Receipt"
+                },
+                {
+                    "name": "receipt-error",
+                    "displayName": "Receipt Error"
+                },
+                {
+                    "name": "receipt-success",
+                    "displayName": "Receipt Success"
+                },
+                {
+                    "name": "restaurant",
+                    "displayName": "Restaurant"
+                },
+                {
+                    "name": "restaurant-filled",
+                    "displayName": "Restaurant Filled"
+                },
+                {
+                    "name": "restaurant-menu",
+                    "displayName": "Restaurant Menu"
+                },
+                {
+                    "name": "review",
+                    "displayName": "Review"
+                },
+                {
+                    "name": "sign-closed",
+                    "displayName": "Sign Closed"
+                }
+            ]
+        },
+        {
+            "name": "ribbon",
+            "displayName": "Ribbon",
+            "icons": [
+                {
+                    "name": "ribbon-heart",
+                    "displayName": "Ribbon Heart"
+                },
+                {
+                    "name": "ribbon-success",
+                    "displayName": "Ribbon Success"
+                },
+                {
+                    "name": "ribbon-star",
+                    "displayName": "Ribbon Star"
+                }
+            ]
+        },
+        {
+            "name": "stamp-card",
+            "displayName": "Stamp Card",
+            "icons": [
+                {
+                    "name": "percentage",
+                    "displayName": "Percentage"
+                },
+                {
+                    "name": "stampcard",
+                    "displayName": "StampCard"
+                },
+                {
+                    "name": "stampcard-filled",
+                    "displayName": "StampCard Filled"
+                },
+                {
+                    "name": "stampcard-10",
+                    "displayName": "StampCard 10"
+                },
+                {
+                    "name": "stampcard-10-filled",
+                    "displayName": "StampCard 10 Filled"
+                }
+            ]
+        },
+        {
+            "name": "social",
+            "displayName": "Social",
+            "icons": [
+                {
+                    "name": "facebook",
+                    "displayName": "Facebook"
+                },
+                {
+                    "name": "facebook-circle",
+                    "displayName": "Facebook Circle"
+                },
+                {
+                    "name": "facebook-circle-filled",
+                    "displayName": "Facebook Circle Filled"
+                },
+                {
+                    "name": "instagram",
+                    "displayName": "Instagram"
+                },
+                {
+                    "name": "instagram-circle-filled",
+                    "displayName": "Instagram Circle Filled"
+                },
+                {
+                    "name": "twitter",
+                    "displayName": "Twitter"
+                },
+                {
+                    "name": "twitter-circle",
+                    "displayName": "Twitter Circle"
+                },
+                {
+                    "name": "twitter-circle-filled",
+                    "displayName": "Twitter Circle Filled"
+                },
+                {
+                    "name": "youtube",
+                    "displayName": "Youtube"
+                },
+                {
+                    "name": "youtube-circle",
+                    "displayName": "Youtube Circle"
+                },
+                {
+                    "name": "youtube-circle-filled",
+                    "displayName": "Youtube Circle Filled"
+                },
+                {
+                    "name": "apple",
+                    "displayName": "Apple"
+                },
+                {
+                    "name": "apple-circle",
+                    "displayName": "Apple Circle"
+                },
+                {
+                    "name": "apple-circle-filled",
+                    "displayName": "Apple Circle Filled"
+                },
+                {
+                    "name": "google",
+                    "displayName": "Google"
+                },
+                {
+                    "name": "google-circle",
+                    "displayName": "Google Circle"
+                },
+                {
+                    "name": "google-circle-filled",
+                    "displayName": "Google Circle Filled"
+                },
+                {
+                    "name": "pinterest",
+                    "displayName": "Pinterest"
+                },
+                {
+                    "name": "pinterest-circle",
+                    "displayName": "Pinterest Circle"
+                },
+                {
+                    "name": "pinterest-circle-filled",
+                    "displayName": "Pinterest Circle Filled"
+                },
+                {
+                    "name": "linkedin",
+                    "displayName": "LinkedIn"
+                },
+                {
+                    "name": "linkedin-circle",
+                    "displayName": "LinkedIn Circle"
+                },
+                {
+                    "name": "linkedin-circle-filled",
+                    "displayName": "LinkedIn Circle Filled"
+                },
+                {
+                    "name": "microsoft",
+                    "displayName": "Microsoft"
+                },
+                {
+                    "name": "microsoft-circle",
+                    "displayName": "Microsoft Circle"
+                },
+                {
+                    "name": "microsoft-circle-filled",
+                    "displayName": "Microsoft Circle Filled"
+                },
+                {
+                    "name": "blogger",
+                    "displayName": "Blogger"
+                },
+                {
+                    "name": "blogger-circle",
+                    "displayName": "Blogger Circle"
+                },
+                {
+                    "name": "blogger-circle-filled",
+                    "displayName": "Blogger Circle Filled"
+                },
+                {
+                    "name": "android",
+                    "displayName": "Android"
+                },
+                {
+                    "name": "android-circle",
+                    "displayName": "Android Circle"
+                },
+                {
+                    "name": "android-circle-filled",
+                    "displayName": "Android Circle Filled"
+                }
+            ]
+        },
+        {
+            "name": "technology",
+            "displayName": "Technology",
+            "icons": [
+                {
+                    "name": "at-symbol",
+                    "displayName": "At Symbol"
+                },
+                {
+                    "name": "atom",
+                    "displayName": "Atom"
+                },
+                {
+                    "name": "battery",
+                    "displayName": "Battery"
+                },
+                {
+                    "name": "bug",
+                    "displayName": "Bug"
+                },
+                {
+                    "name": "fingerprint",
+                    "displayName": "Fingerprint"
+                },
+                {
+                    "name": "google-voice",
+                    "displayName": "Google Voice"
+                },
+                {
+                    "name": "laptop",
+                    "displayName": "Laptop"
+                },
+                {
+                    "name": "laptop-error",
+                    "displayName": "Laptop Error"
+                },
+                {
+                    "name": "laptop-success",
+                    "displayName": "Laptop Success"
+                },
+                {
+                    "name": "laptop-highlight",
+                    "displayName": "Laptop Highlight"
+                },
+                {
+                    "name": "phone",
+                    "displayName": "Phone"
+                },
+                {
+                    "name": "phone-filled",
+                    "displayName": "Phone Filled"
+                },
+                {
+                    "name": "phone-off",
+                    "displayName": "Phone Off"
+                },
+                {
+                    "name": "printer",
+                    "displayName": "Printer"
+                },
+                {
+                    "name": "printer-filled",
+                    "displayName": "Printer Filled"
+                }
+            ]
+        },
+        {
+            "name": "thumbs",
+            "displayName": "Thumbs",
+            "icons": [
+                {
+                    "name": "thumbs-up",
+                    "displayName": "Thumbs Up"
+                },
+                {
+                    "name": "thumbs-up-filled",
+                    "displayName": "Thumbs Up Filled"
+                },
+                {
+                    "name": "thumbs-down",
+                    "displayName": "Thumbs Down"
+                },
+                {
+                    "name": "thumbs-down-filled",
+                    "displayName": "Thumbs Down Filled"
+                }
+            ]
+        },
+        {
+            "name": "time",
+            "displayName": "Time",
+            "icons": [
+                {
+                    "name": "clock",
+                    "displayName": "Clock"
+                },
+                {
+                    "name": "clock-filled",
+                    "displayName": "Clock Filled"
+                },
+                {
+                    "name": "clock-add",
+                    "displayName": "Clock Add"
+                },
+                {
+                    "name": "clock-alert",
+                    "displayName": "Clock Alert"
+                },
+                {
+                    "name": "clock-refresh",
+                    "displayName": "Clock Refresh"
+                },
+                {
+                    "name": "stopwatch",
+                    "displayName": "Stopwatch"
+                },
+                {
+                    "name": "stopwatch-filled",
+                    "displayName": "Stopwatch Filled"
+                }
+            ]
+        },
+        {
+            "name": "travel-and-transport",
+            "displayName": "Travel & Transport",
+            "icons": [
+                {
+                    "name": "bike",
+                    "displayName": "Bike"
+                },
+                {
+                    "name": "bike-filled",
+                    "displayName": "Bike Filled"
+                },
+                {
+                    "name": "car",
+                    "displayName": "Car"
+                },
+                {
+                    "name": "car-clock",
+                    "displayName": "Car Clock"
+                },
+                {
+                    "name": "dashboard",
+                    "displayName": "Dashboard"
+                },
+                {
+                    "name": "driver-car",
+                    "displayName": "Driver Car"
+                },
+                {
+                    "name": "driver-moped",
+                    "displayName": "Driver Moped"
+                },
+                {
+                    "name": "helmet",
+                    "displayName": "Helmet"
+                },
+                {
+                    "name": "moped",
+                    "displayName": "Moped"
+                },
+                {
+                    "name": "plane",
+                    "displayName": "Plane"
+                },
+                {
+                    "name": "rocket-ship",
+                    "displayName": "Rocket Ship"
+                },
+                {
+                    "name": "walking",
+                    "displayName": "Walking"
+                },
+                {
+                    "name": "world",
+                    "displayName": "World"
+                }
+            ]
+        }
+    ]
+}

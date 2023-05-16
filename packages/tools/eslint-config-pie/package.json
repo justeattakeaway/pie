@@ -1,5 +1,5 @@
 {
-  "name": "@justeattakeaway/pie-eslint-config",
+  "name": "@justeattakeaway/eslint-config-pie",
   "version": "0.2.0",
   "description": "Shareable ESLint config for use with any front-end web projects across JET.",
   "exports": {
