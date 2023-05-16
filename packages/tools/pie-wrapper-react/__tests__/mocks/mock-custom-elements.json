@@ -4,12 +4,12 @@
     "modules": [
         {
         "kind": "javascript-module",
-        "path": "__tests__/mocks/mock-button.ts",
+        "path": "__tests__/mocks/mock-component.ts",
         "declarations": [
             {
             "kind": "class",
             "description": "",
-            "name": "MockButton",
+            "name": "MockComponent",
             "members": [
                 {
                 "kind": "method",
@@ -28,7 +28,7 @@
                 "name": "LitElement",
                 "package": "lit"
             },
-            "tagName": "mock-button",
+            "tagName": "mock-component",
             "customElement": true
             }
         ]
