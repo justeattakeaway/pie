@@ -1,5 +1,5 @@
-# pie-eslint-config
-[![npm version](https://badge.fury.io/js/%40justeattakeaway%2Fpie-eslint-config.svg)](https://badge.fury.io/js/%40justeattakeaway%2Fpie-eslint-config)
+# eslint-config-pie
+[![npm version](https://badge.fury.io/js/%40justeattakeaway%2Feslint-config-pie.svg)](https://badge.fury.io/js/%40justeattakeaway%2Feslint-config-pie)
 
 This package provides Just Eat Takeaway's base JS .eslintrc as an extensible shared config and it builds upon the previous work done on `@justeat/eslint-config-fozzie`
 
@@ -9,20 +9,20 @@ Many thanks to the work that the Airbnb team have put in on creating their templ
 
 ## Usage
 
-### pie-eslint-config
+### eslint-config-pie
 
 Our default export contains our base ESLint rules, including ECMAScript 6+. It requires `eslint` and `eslint-plugin-import`.
 
 1. Install the correct versions of each package, which are listed by the command:
 
   ```sh
-  npm info "@justeattakeaway/pie-eslint-config@latest" peerDependencies
+  npm info "@justeattakeaway/eslint-config-pie@latest" peerDependencies
   ```
 
   Linux/OSX users can simply run
   ```sh
   (
-    export PKG=@justeattakeaway/pie-eslint-config;
+    export PKG=@justeattakeaway/eslint-config-pie;
     npm info "$PKG@latest" peerDependencies --json | command sed 's/[\{\},]//g ; s/: /@/g' | xargs npm install --save-dev "$PKG@latest"
   )
   ```
@@ -30,29 +30,29 @@ Our default export contains our base ESLint rules, including ECMAScript 6+. It r
   Which produces and runs a command like:
 
   ```sh
-    npm install --save-dev @justeattakeaway/pie-eslint-config eslint@^#.#.# eslint-plugin-import@^#.#.#
+    npm install --save-dev @justeattakeaway/eslint-config-pie eslint@^#.#.# eslint-plugin-import@^#.#.#
   ```
 
   Windows users can either install all the peer dependencies manually, or use the [install-peerdeps](https://github.com/nathanhleung/install-peerdeps) cli tool.
 
   ```sh
   npm install -g install-peerdeps
-  install-peerdeps --dev @justeattakeaway/pie-eslint-config
+  install-peerdeps --dev @justeattakeaway/eslint-config-pie
   ```
 
   The cli will produce and run a command like:
 
   ```sh
-  npm install --save-dev @justeattakeaway/pie-eslint-config eslint@^#.#.# eslint-plugin-import@^#.#.#
+  npm install --save-dev @justeattakeaway/eslint-config-pie eslint@^#.#.# eslint-plugin-import@^#.#.#
   ```
 
-2. Add `"extends": "@justeattakeaway/pie-eslint-config"` to your `.eslintrc` file, which should look like this:
+2. Add `"extends": "@justeattakeaway/eslint-config-pie"` to your `.eslintrc` file, which should look like this:
 
 ```
 // Use this file as a starting point for your project's .eslintrc.js
 // Rule overrides can be added as needed
 module.exports = {
-    extends: '@justeattakeaway/pie-eslint-config'
+    extends: '@justeattakeaway/eslint-config-pie'
 }
 ```
 
@@ -62,7 +62,7 @@ The usage in Pie monorepo is a bit different, since it's preferrable to use the 
 
 ```js
 module.exports = {
-    extends: [require.resolve('@justeattakeaway/pie-eslint-config/strict')],
+    extends: [require.resolve('@justeattakeaway/eslint-config-pie/strict')],
 }
 ```
 
@@ -77,11 +77,11 @@ In order to use the strict set, update the `extends` field:
 
 ```js
 module.exports = {
-    extends: '@justeattakeaway/pie-eslint-config/strict'
+    extends: '@justeattakeaway/eslint-config-pie/strict'
 }
 ```
 
-The rules for both sets can be found at `pie-eslint-config/base|strict/rules`.
+The rules for both sets can be found at `eslint-config-pie/base|strict/rules`.
 
 ## Framework specific rules
 
@@ -91,7 +91,7 @@ Both `base` and `strict` rulesets are framework agnostic, though Vue.js rules ar
 In order to use Vue.js rules, import them from `frameworks` and merge them to your config rules field:
 
 ```js
-const { vue, vue3 } = require('@justeattakeaway/pie-eslint-config/frameworks');
+const { vue, vue3 } = require('@justeattakeaway/eslint-config-pie/frameworks');
 
 module.exports = {
     rules: {
