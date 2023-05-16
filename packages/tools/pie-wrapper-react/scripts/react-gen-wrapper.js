@@ -24,7 +24,8 @@ export default function genReactWrapper(customElementsObject){
      * @param {*} component object from within components array
      * @param {*} event empty array to be populated with events
      */
-    function getEvents(component, events) {
+    function getEvents(component) {
+        const events = []
         if (component?.events) {
             events.push(
                 component.events
@@ -39,13 +40,12 @@ export default function genReactWrapper(customElementsObject){
             );
         }
 
-        return component;
+        return events;
     }
 
     // create wrapper src code and add to index.ts file
     components.forEach(component => {
-        const events = []
-        getEvents(component.class, events)
+        const events = getEvents(component.class)
 
         componentSrc = `import * as React from 'react';
         import { createComponent } from '@lit-labs/react'; ${
