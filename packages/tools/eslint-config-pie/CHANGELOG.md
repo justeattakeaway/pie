@@ -5,11 +5,6 @@
 ### Minor Changes
 
 - [Fixed] - Package name changed to be correct extension format ([#460](https://github.com/justeattakeaway/pie/pull/460)) by [@ashleynolan](https://github.com/ashleynolan)
-
-## 0.2.0
-
-### Minor Changes
-
 - [Fixed] Linting errors in pie-icons-vue. ([#413](https://github.com/justeattakeaway/pie/pull/413)) by [@xander-marjoram](https://github.com/xander-marjoram)
 
   [Changed] Allow pie-eslint-config to use itself as linting config.

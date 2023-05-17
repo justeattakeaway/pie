@@ -1,6 +1,6 @@
-# pie-stylelint-config
+# stylelint-config-pie
 
-[![npm version](https://badge.fury.io/js/@justeattakeaway%2Fpie-stylelint-config.svg)](https://badge.fury.io/js/@justeattakeaway%2Fpie-stylelint-config)
+[![npm version](https://badge.fury.io/js/@justeattakeaway%stylelint-config-pie.svg)](https://badge.fury.io/js/@justeattakeaway%stylelint-config-pie)
 
 > PIE shareable stylelint config.
 
@@ -14,7 +14,7 @@ To see the rules that this config uses, please read the [config itself](./index.
 ## Installation
 
 ```bash
-npm install @justeattakeaway/pie-stylelint-config --save-dev
+npm install @justeattakeaway/stylelint-config-pie --save-dev
 ```
 
 ## Usage
@@ -25,15 +25,15 @@ Currently there are 3 different sets of rules:
 
 1. `base` - the base rules that we'd advise all projects use and extend as needed.
 2. `strict` - a smaller collection of _optional_ opinionated rules.
-3. `ordering` - an even smaller collection of _optional_ rules that specify the ordering of CSS properties. 
+3. `ordering` - an even smaller collection of _optional_ rules that specify the ordering of CSS properties.
 
 ### In your projects
 
-If you've installed `pie-stylelint-config` locally within your project, just set your `stylelint` config to:
+If you've installed `stylelint-config-pie` locally within your project, just set your `stylelint` config to:
 
 ```json
 {
-  "extends": "@justeattakeaway/pie-stylelint-config/base"
+  "extends": "@justeattakeaway/stylelint-config-pie/base"
 }
 ```
 
@@ -41,7 +41,7 @@ The easiest way to do this is by adding the following section to your package.js
 
 ```json
 "stylelint": {
-  "extends": "@justeattakeaway/pie-stylelint-config/base"
+  "extends": "@justeattakeaway/stylelint-config-pie/base"
 }
 ```
 
@@ -50,20 +50,20 @@ You may only want to use a specific ruleset such as `base`, `strict` or `orderin
 ```json
 "stylelint": {
   "extends": [
-    "@justeattakeaway/pie-stylelint-config/base",
-    "@justeattakeaway/pie-stylelint-config/strict",
-    "@justeattakeaway/pie-stylelint-config/ordering" 
+    "@justeattakeaway/stylelint-config-pie/base",
+    "@justeattakeaway/stylelint-config-pie/strict",
+    "@justeattakeaway/stylelint-config-pie/ordering"
   ]
 }
 ```
 
-_Note:  `@justeattakeaway/pie-stylelint-config` includes all rules. We would strongly recommend using `@justeattakeaway/pie-stylelint-config/base` and going from there._
+_Note:  `@justeattakeaway/stylelint-config-pie` includes all rules. We would strongly recommend using `@justeattakeaway/stylelint-config-pie/base` and going from there._
 
-If you've globally installed `pie-stylelint-config` using the `-g` flag, then you'll need to use the absolute path to `pie-stylelint-config` in your config e.g.
+If you've globally installed `stylelint-config-pie` using the `-g` flag, then you'll need to use the absolute path to `stylelint-config-pie` in your config e.g.
 
 ```json
 {
-  "extends": "/absolute/path/to/@justeattakeaway/pie-stylelint-config/base"
+  "extends": "/absolute/path/to/@justeattakeaway/stylelint-config-pie/base"
 }
 ```
 
@@ -75,7 +75,7 @@ For example, to change the `indentation` to tabs, and turn off the `number-leadi
 
 ```json
 {
-  "extends": "@justeattakeaway/pie-stylelint-config/base",
+  "extends": "@justeattakeaway/stylelint-config-pie/base",
   "rules": {
     "indentation": "tab",
     "number-leading-zero": null
@@ -87,7 +87,7 @@ For example, to change the `indentation` to tabs, and turn off the `number-leadi
 
 #### Configured Lints
 
-`pie-stylelint-config` is a great foundation for your own config. Here is a list of the rules turned on in this config, and what they do:
+`stylelint-config-pie` is a great foundation for your own config. Here is a list of the rules turned on in this config, and what they do:
 
 ### Base
 - [alpha-value-notation](https://stylelint.io/user-guide/rules/alpha-value-notation/)
@@ -185,10 +185,10 @@ For example, to change the `indentation` to tabs, and turn off the `number-leadi
 - [max-nesting-depth](https://stylelint.io/user-guide/rules/max-nesting-depth/)
 - [media-query-list-comma-newline-after](https://stylelint.io/user-guide/rules/media-query-list-comma-newline-after/)
 - [selector-max-compound-selectors](https://stylelint.io/user-guide/rules/selector-max-compound-selectors/)
-- [selector-max-id](https://stylelint.io/user-guide/rules/selector-max-id/) 
+- [selector-max-id](https://stylelint.io/user-guide/rules/selector-max-id/)
 
 ### Ordering
 - [order/order](https://github.com/hudochenkov/stylelint-order/blob/master/rules/order/README.md)
-- [order/properties-order](https://github.com/hudochenkov/stylelint-order/blob/master/rules/properties-order/README.md) 
+- [order/properties-order](https://github.com/hudochenkov/stylelint-order/blob/master/rules/properties-order/README.md)
 
 ## [Changelog](CHANGELOG.md)
