@@ -4238,9 +4238,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-stylelint-config@workspace:packages/tools/pie-stylelint-config":
+"@justeattakeaway/stylelint-config-pie@workspace:packages/tools/pie-stylelint-config":
   version: 0.0.0-use.local
-  resolution: "@justeattakeaway/pie-stylelint-config@workspace:packages/tools/pie-stylelint-config"
+  resolution: "@justeattakeaway/stylelint-config-pie@workspace:packages/tools/pie-stylelint-config"
   peerDependencies:
     stylelint: 14.x
     stylelint-config-standard-scss: 5.x
