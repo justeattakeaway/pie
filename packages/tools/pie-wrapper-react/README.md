@@ -1,4 +1,4 @@
-# pie-wrappers-react
+# pie-wrapper-react
 
 ## Usage
 
@@ -28,7 +28,7 @@ To use the react wrapper in an application, import `Pie{Component}React` from th
 import { PieButtonReact } from '@justeattakeaway/pie-button'
 ```
 
-Note: In order for the `custom-elements-manifest/analyzer` to recognise events, please declare the event with this `this.dispatchEvent` function. For example:
+Note: In order for the `custom-elements-manifest/analyzer` to recognise events inside your component, please declare the event inside the `this.dispatchEvent` function. For example:
 
 ```
 this.dispatchEvent(new CustomEvent('CustomEvent', { detail: 'WC event dispatched' }))

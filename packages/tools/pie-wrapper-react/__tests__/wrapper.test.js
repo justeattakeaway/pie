@@ -5,7 +5,7 @@ import fs from 'fs-extra';
 const loadJSON = (path) => JSON.parse(fs.readFileSync(__dirname + path));
 
 describe('React Wrapper', () => {
-    it('should generate wrapper from mock custom elements JSON', () => {    
+    it('should generate wrapper from mock custom elements JSON', () => {
 
       const wrapper = genReactWrapper(loadJSON(`/mocks/mock-custom-elements.json`))
 
