@@ -2,4 +2,4 @@
 "pie-storybook": minor
 ---
 
-Added Axe Addon to Storybook
+[Added] - Axe Add-on to Storybook
