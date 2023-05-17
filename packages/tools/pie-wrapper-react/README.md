@@ -28,6 +28,12 @@ To use the react wrapper in an application, import `Pie{Component}React` from th
 import { PieButtonReact } from '@justeattakeaway/pie-button'
 ```
 
+Note: In order for the `custom-elements-manifest/analyzer` to recognise events, please declare the event with this `this.dispatchEvent` function. For example:
+
+```
+this.dispatchEvent(new CustomEvent('CustomEvent', { detail: 'WC event dispatched' }))
+```
+
 ## Credits
 
 This package was heavily inspired by [`spectrum-web-components`](https://github.com/adobe/spectrum-web-components).

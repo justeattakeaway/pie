@@ -1,4 +1,4 @@
-import { readFileSync, writeFileSync } from 'fs';
+import { readFileSync, writeFileSync, unlink } from 'fs';
 
 // removes react wrapper from index.ts after dist has built
 export default function removeReactWrapper (customElementsObject) {
