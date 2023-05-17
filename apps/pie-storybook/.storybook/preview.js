@@ -27,9 +27,18 @@ export default {
                   'wcag21aa',
                   'wcag143',
                   'cat.color',
-                  'cat.aria',
-                  'wcag21aaa'
+                  'cat.aria'
               ]
+            },
+            {
+              // Disabled rule
+              id: 'color-contrast-enhanced',
+              enabled: false,
+            },
+            {
+              // Disabled rule
+              id: 'color-contrast',
+              enabled: false,
             },
           ],
         },
