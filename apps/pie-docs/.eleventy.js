@@ -5,7 +5,13 @@ const {
     plugins
 } = require('./src/_11ty');
 
+const { execSync } = require('child_process')
+
 module.exports = eleventyConfig => {
+    eleventyConfig.on('eleventy.after', () => {
+        execSync(`npx pagefind --source dist --glob \"**/*.html\"`, { encoding: 'utf-8' })
+    })
+
     // Copy over img directory to dist directory.
     eleventyConfig.addPassthroughCopy({ 'src/assets/img': 'assets/img' });
 

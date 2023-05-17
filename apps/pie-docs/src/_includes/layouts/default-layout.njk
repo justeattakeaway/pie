@@ -6,10 +6,11 @@ icon_fill: orange
 <html lang="{{ metadata.language }}" prefix="og: https://ogp.me/ns#">
     {% include "head.njk" %}
     <body {{bodyDataAttribute}}>
+        {% include "search.njk" %}
         <div class="page">
             {% include "header.njk" %}
             {% include "nav.njk" %}
-            <main class="c-main">
+            <main class="c-main" data-pagefind-body>
                 {{ content | safe }}
             </main>
 
