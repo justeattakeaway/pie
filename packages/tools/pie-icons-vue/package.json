@@ -39,7 +39,8 @@
     "lint:scripts": "run -T eslint .",
     "lint:scripts:fix": "yarn lint:scripts --fix",
     "prebuild:example": "yarn build:icons",
-    "prepublishOnly": "yarn lint:scripts && yarn build"
+    "prepublishOnly": "yarn lint:scripts && yarn build",
+    "test": "run -T jest"
   },
   "browserslist": [
     "extends @justeat/browserslist-config-fozzie"
@@ -50,6 +51,7 @@
   "devDependencies": {
     "@justeattakeaway/pie-icons": "3.1.0",
     "@vue/babel-preset-jsx": "1.4.0",
+    "@vue/test-utils": "1.1.3",
     "bili": "3.4.2",
     "eslint-plugin-vue": "^9.9.0",
     "fs-extra": "9.1.0",

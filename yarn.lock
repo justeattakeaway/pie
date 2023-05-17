@@ -4206,6 +4206,7 @@ __metadata:
     "@justeattakeaway/pie-icons": 3.1.0
     "@vue/babel-helper-vue-jsx-merge-props": 1.4.0
     "@vue/babel-preset-jsx": 1.4.0
+    "@vue/test-utils": 1.1.3
     bili: 3.4.2
     eslint-plugin-vue: ^9.9.0
     fs-extra: 9.1.0
@@ -8891,6 +8892,20 @@ __metadata:
   version: 3.3.2
   resolution: "@vue/shared@npm:3.3.2"
   checksum: b142c410186e65b51dfb11409137a2f47862dbc7b74d0e6b331966695539eef98ae0f52d66c8072b69fc7327a07c0f4b27db723d6d9052a5c439a7e4b44e155f
+  languageName: node
+  linkType: hard
+
+"@vue/test-utils@npm:1.1.3":
+  version: 1.1.3
+  resolution: "@vue/test-utils@npm:1.1.3"
+  dependencies:
+    dom-event-types: ^1.0.0
+    lodash: ^4.17.15
+    pretty: ^2.0.0
+  peerDependencies:
+    vue: 2.x
+    vue-template-compiler: ^2.x
+  checksum: 3082d25b1a482b1b1695d706c6423a66415f0322f9c820778de177b9f49bd074b9eee7fe76b39b0f7174418d13f0207ef2bf81b8a241c321b8bc823092e197c2
   languageName: node
   linkType: hard
 
@@ -14691,6 +14706,13 @@ __metadata:
   dependencies:
     utila: ~0.4
   checksum: ea52fe303f5392e48dea563abef0e6fb3a478b8dbe3c599e99bb5d53981c6c38fc4944e56bb92a8ead6bb989d10b7914722ae11febbd2fd0910e33b9fc4aaa77
+  languageName: node
+  linkType: hard
+
+"dom-event-types@npm:^1.0.0":
+  version: 1.1.0
+  resolution: "dom-event-types@npm:1.1.0"
+  checksum: 58bb4d4b3a0caf719ce42ab8445576b6309d43a3db3ca45ca3dabaa4d69d99472e75b89127c25a177fe8fd7b390530fc43cb1252d57ab25d7e4845ed647cb159
   languageName: node
   linkType: hard
 
