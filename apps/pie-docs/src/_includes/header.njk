@@ -9,4 +9,13 @@
     <a class="c-header-logo" href="{{ '/' | url }}" aria-label="Go to the PIE home page">
         {% include "pie-logo.njk" %}
     </a>
+    <a
+        href="https://github.com/justeattakeaway/pie/edit/main/apps/pie-docs/{{ page.inputPath.slice(2) }}"
+        target="_blank"
+        aria-labelledBy="suggest-changes-link">
+        {{ { name: 'edit-filled', attrs: { fill: toggleIconFill, height: '24', width: '24', class: 'u-iconFilled' } } | pieIconsSvg | safe }}
+        <span id="suggest-changes-link" aria-hidden style="display: none;">
+            Suggest changes to this page on GitHub
+        </span>
+    </a>
 </header>
