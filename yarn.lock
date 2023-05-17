@@ -25518,6 +25518,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"pagefind@npm:^0.12.0":
+  version: 0.12.0
+  resolution: "pagefind@npm:0.12.0"
+  dependencies:
+    https-proxy-agent: ^5.0.0
+    proxy-from-env: ^1.1.0
+  bin:
+    pagefind: lib/index.js
+  checksum: 7189127d113cea57b098a4970e00cc6d1f8c2b21f1ef57dd2811c864440bf8eeac75310b080e0bd60d271e0f262e39d6f3839ecb5969180be526b40a4cba2b11
+  languageName: node
+  linkType: hard
+
 "pako@npm:^1.0.3, pako@npm:~1.0.5":
   version: 1.0.11
   resolution: "pako@npm:1.0.11"
@@ -26002,6 +26014,7 @@ __metadata:
     eleventy-sass: 2.2.1
     markdown-it: 13.0.1
     markdown-it-attrs: 4.1.6
+    pagefind: ^0.12.0
   languageName: unknown
   linkType: soft
 
@@ -28687,7 +28700,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"proxy-from-env@npm:^1.0.0":
+"proxy-from-env@npm:^1.0.0, proxy-from-env@npm:^1.1.0":
   version: 1.1.0
   resolution: "proxy-from-env@npm:1.1.0"
   checksum: ed7fcc2ba0a33404958e34d95d18638249a68c430e30fcb6c478497d72739ba64ce9810a24f53a7d921d0c065e5b78e3822759800698167256b04659366ca4d4
