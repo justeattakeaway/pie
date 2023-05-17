@@ -101,7 +101,7 @@ Below are some important factors we test when conducting screen reader testing:
 
 We have partnered with [Applause](https://www.applause.com/), a third-party crowdsourcing company, to help us with accessibility testing through a contract.
 
-Through this partnership, we can arrange **as-hoc specialised audits**, conducted by trained accessibility testers from Applause, for both new and existing features. By doing this, we can help teams **understand the state of accessibility in their current products** and how they can improve them to increase their level of accessibility.
+Through this partnership, we can arrange **ad-hoc specialised audits**, conducted by trained accessibility testers from Applause, for both new and existing features. By doing this, we can help teams **understand the state of accessibility in their current products** and how they can improve them to increase their level of accessibility.
 
 {% notification {
   type: "information",
