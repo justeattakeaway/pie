@@ -6095,6 +6095,35 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@storybook/addon-a11y@npm:7.0.7":
+  version: 7.0.7
+  resolution: "@storybook/addon-a11y@npm:7.0.7"
+  dependencies:
+    "@storybook/addon-highlight": 7.0.7
+    "@storybook/channels": 7.0.7
+    "@storybook/client-logger": 7.0.7
+    "@storybook/components": 7.0.7
+    "@storybook/core-events": 7.0.7
+    "@storybook/global": ^5.0.0
+    "@storybook/manager-api": 7.0.7
+    "@storybook/preview-api": 7.0.7
+    "@storybook/theming": 7.0.7
+    "@storybook/types": 7.0.7
+    axe-core: ^4.2.0
+    lodash: ^4.17.21
+    react-resize-detector: ^7.1.2
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+  checksum: 5080482fa0cbc193c969c53e0793e403568b59f9c3fc12c87b0604c555a4e97e17dad1c428ea3b440122dfd600ed3a47bb16f4fd8ede52cdbea694c8967b805c
+  languageName: node
+  linkType: hard
+
 "@storybook/addon-actions@npm:7.0.7":
   version: 7.0.7
   resolution: "@storybook/addon-actions@npm:7.0.7"
@@ -10539,7 +10568,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axe-core@npm:^4.6.2, axe-core@npm:^4.6.3":
+"axe-core@npm:^4.2.0, axe-core@npm:^4.6.2, axe-core@npm:^4.6.3":
   version: 4.7.1
   resolution: "axe-core@npm:4.7.1"
   checksum: ff6fb92d6cadb749977af72b7d28009dec2b1842d4fdc4114a295ce973a39d0ac477e541be360eb9482a8d63f55840196813d7d892c0bd8437f52d9f7349c788
@@ -11740,8 +11769,8 @@ __metadata:
   linkType: hard
 
 "cacache@npm:^17.0.0":
-  version: 17.1.0
-  resolution: "cacache@npm:17.1.0"
+  version: 17.1.1
+  resolution: "cacache@npm:17.1.1"
   dependencies:
     "@npmcli/fs": ^3.1.0
     fs-minipass: ^3.0.0
@@ -11755,7 +11784,7 @@ __metadata:
     ssri: ^10.0.0
     tar: ^6.1.11
     unique-filename: ^3.0.0
-  checksum: ae1f072f84b9bf0a3a6cfb8516774386c22ea902b25ca6b5dec471d370a4947fdec40dee7de5edd6b97f66407a52d40afee9eaeac49700b24bb1e932359ba277
+  checksum: 232e18fed01a53cea90b120dac42e853bf628eb8fe9c6cde46ad1d135590c21f1caf98d318cf973faddbd598f9a29e60fee3bd3eb0be8682c3fee0f7dc896a68
   languageName: node
   linkType: hard
 
@@ -26234,6 +26263,7 @@ __metadata:
   dependencies:
     "@justeattakeaway/pie-button": "workspace:*"
     "@justeattakeaway/pie-modal": "workspace:*"
+    "@storybook/addon-a11y": 7.0.7
     "@storybook/addon-essentials": 7.0.7
     "@storybook/addon-links": 7.0.7
     "@storybook/blocks": 7.0.7
@@ -29473,6 +29503,18 @@ __metadata:
   version: 0.11.0
   resolution: "react-refresh@npm:0.11.0"
   checksum: 112178a05b1e0ffeaf5d9fb4e56b4410a34a73adeb04dbf13abdc50d9ac9df2ada83e81485156cca0b3fa296aa3612751b3d6cd13be4464642a43679b819cbc7
+  languageName: node
+  linkType: hard
+
+"react-resize-detector@npm:^7.1.2":
+  version: 7.1.2
+  resolution: "react-resize-detector@npm:7.1.2"
+  dependencies:
+    lodash: ^4.17.21
+  peerDependencies:
+    react: ^16.0.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.0.0 || ^17.0.0 || ^18.0.0
+  checksum: 55f4abad7f7523d16b081b5ab20f75c539a54a08253ce7e9df473d48386f42ceca6c31584ba9fa26e3528b498ef6685ec77fb9a22cffc97df05fb326d0bf1b26
   languageName: node
   linkType: hard
 
@@ -35191,8 +35233,8 @@ __metadata:
   linkType: hard
 
 "vite@npm:^3.0.0 || ^4.0.0, vite@npm:^4.3.0":
-  version: 4.3.6
-  resolution: "vite@npm:4.3.6"
+  version: 4.3.7
+  resolution: "vite@npm:4.3.7"
   dependencies:
     esbuild: ^0.17.5
     fsevents: ~2.3.2
@@ -35223,7 +35265,7 @@ __metadata:
       optional: true
   bin:
     vite: bin/vite.js
-  checksum: fa6a323308da58f08d59c1b96186fc7d054d6bbf2e976129f17cae4d439d50605584d0ec1cf245ac360024998e484422cb504e724c8efb936b3c22a120b4a210
+  checksum: cda8c86fd9f9ab984f2ab8ae09f89bfef7dc636142f0b1ed30d37b8155516729cf91d95eab7ba43d43bb51d8068f0d938ac85dc80d3f53497fbd35f50d27ec25
   languageName: node
   linkType: hard
 
