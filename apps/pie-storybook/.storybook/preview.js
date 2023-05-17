@@ -22,7 +22,14 @@ export default {
           rules: [
             {
               id: 'WCAG Rules',
-              tags: ['wcag21a', 'wcag21aa', 'wcag143', 'cat.color', 'cat.aria', 'wcag21aaa']
+              tags: [
+                  'wcag21a',
+                  'wcag21aa',
+                  'wcag143',
+                  'cat.color',
+                  'cat.aria',
+                  'wcag21aaa'
+              ]
             },
           ],
         },
