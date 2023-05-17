@@ -84,5 +84,5 @@ To learn more about the guidelines we adhere to, check out these resources:
 
 {% notification {
   type: "information",
-  message: "You can find more useful links in our [accessibility resources](/accessibility/accessibility-resources) section."
+  message: "You can find more useful links in our [accessibility resources](/accessibility/resources) section."
 } %}
