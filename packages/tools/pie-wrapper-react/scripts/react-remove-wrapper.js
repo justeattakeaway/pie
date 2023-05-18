@@ -1,4 +1,4 @@
-import { readFileSync, writeFileSync, unlink } from 'fs';
+import { unlink, existsSync } from 'fs';
 
 // removes react wrapper from index.ts after dist has built
 export default function removeReactWrapper (customElementsObject) {
@@ -11,7 +11,7 @@ export default function removeReactWrapper (customElementsObject) {
         if ( key === 'modules') {
             return value.forEach(k => {
                 k.declarations.forEach((decl) => {
-                    decl.customElement === true ? components.push({class: decl, path: k.path.replace('.js', '.ts')}) : ''
+                    decl.customElement === true ? components.push({class: decl, path: k.path.replace('index.js', 'react.ts')}) : ''
                 })
             })
         }
@@ -19,11 +19,12 @@ export default function removeReactWrapper (customElementsObject) {
 
     if (components.length > 0) {
         components.forEach((component) => {
-            const data = readFileSync(component.path, { encoding: 'utf8', flag: 'r' })
+            const data = existsSync(component.path, { encoding: 'utf8', flag: 'r' })
 
-            if (data.includes('import * as React')) {
-                const fileData = data.split(`import * as React`)[0];
-                removedWrapper = writeFileSync(component.path, fileData);
+            if (data) {
+                unlink(component.path, (err) => {
+                    if (err) throw err;
+                })
             }
         })
     }

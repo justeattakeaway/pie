@@ -1,13 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`React Wrapper should generate wrapper from mock custom elements JSON 1`] = `
-"import * as React from 'react';
-        import { createComponent } from '@lit-labs/react'; 
-         import type { EventName } from '@lit-labs/react';
+"// @ts-nocheck 
+    import * as React from 'react';
+    import { MockComponent as MockComponentReact} from './index';
+    import { createComponent } from '@lit-labs/react'; 
+        import { EventName } from '@lit-labs/react';
         
-        export const MockComponentReact = createComponent({
+        export const MockComponent = createComponent({
             displayName: 'MockComponent',
-            elementClass: MockComponent,
+            elementClass: MockComponentReact,
             react: React,
             tagName: 'mock-component',
             events: {
@@ -16,4 +18,4 @@ exports[`React Wrapper should generate wrapper from mock custom elements JSON 1`
         });"
 `;
 
-exports[`React Wrapper should remove generated wrapper from mock component 1`] = `undefined`;
+exports[`React Wrapper should remove generated wrapper from mock component 1`] = `""`;

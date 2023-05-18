@@ -4275,16 +4275,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/stylelint-config-pie@workspace:packages/tools/pie-stylelint-config":
-  version: 0.0.0-use.local
-  resolution: "@justeattakeaway/stylelint-config-pie@workspace:packages/tools/pie-stylelint-config"
-  peerDependencies:
-    stylelint: 14.x
-    stylelint-config-standard-scss: 5.x
-    stylelint-order: 5.x
-  languageName: unknown
-  linkType: soft
-
 "@justeattakeaway/pie-wrapper-react@workspace:packages/tools/pie-wrapper-react":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-wrapper-react@workspace:packages/tools/pie-wrapper-react"
@@ -4300,6 +4290,16 @@ __metadata:
     lit-element: ^3.3.2
     react-test-renderer: 18.0.0
     ts-jest: 29.1.0
+  languageName: unknown
+  linkType: soft
+
+"@justeattakeaway/stylelint-config-pie@workspace:packages/tools/pie-stylelint-config":
+  version: 0.0.0-use.local
+  resolution: "@justeattakeaway/stylelint-config-pie@workspace:packages/tools/pie-stylelint-config"
+  peerDependencies:
+    stylelint: 14.x
+    stylelint-config-standard-scss: 5.x
+    stylelint-order: 5.x
   languageName: unknown
   linkType: soft
 
@@ -35844,6 +35844,7 @@ __metadata:
   resolution: "wc-react18@workspace:apps/examples/wc-react18"
   dependencies:
     "@justeattakeaway/pie-button": "workspace:*"
+    "@justeattakeaway/pie-modal": "workspace:*"
     react: 18.2.0
     react-dom: 18.2.0
     react-scripts: 5.0.1

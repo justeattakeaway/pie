@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { PieButtonReact } from '@justeattakeaway/pie-button';
+import { PieButton } from '@justeattakeaway/pie-button/dist/react';
 
 import './styles.css';
 
@@ -8,15 +8,15 @@ function App () {
 
     return (
         <>
-            <PieButtonReact size='large'>WC Button in React!</PieButtonReact>
-            <PieButtonReact variant='secondary'>WC Button in React!</PieButtonReact>
-            <PieButtonReact disabled>WC Button in React!</PieButtonReact>
+            <PieButton size='large'>WC Button in React!</PieButton>
+            <PieButton variant='secondary'>WC Button in React!</PieButton>
+            <PieButton disabled>WC Button in React!</PieButton>
             <hr />
             <h2>onClick</h2>
             <p>Count: {counter}</p>
-            <PieButtonReact
+            <PieButton
                 onClick={() => setCounter(counter + 1)}
-            >Increment</PieButtonReact>
+            >Increment</PieButton>
         </>
     );
 }

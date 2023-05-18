@@ -18,6 +18,9 @@
     "remove:wrapper": "node react-remove-wrapper-config.js",
     "test": "run jest"
   },
+  "jest": {
+    "testPathIgnorePatterns": ["__tests__/mocks/"]
+  },
   "devDependencies": {
     "@custom-elements-manifest/analyzer": "0.8.0",
     "@lit-labs/react": "1.1.1",

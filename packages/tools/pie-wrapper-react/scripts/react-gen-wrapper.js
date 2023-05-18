@@ -1,4 +1,4 @@
-import { appendFileSync, readFileSync } from 'fs'
+import { createWriteStream } from 'fs'
 let componentSrc;
 
 export default function genReactWrapper(customElementsObject){    
@@ -10,7 +10,7 @@ export default function genReactWrapper(customElementsObject){
         if ( key === 'modules') {
             return value.forEach(k => {
                 k.declarations.forEach((decl) => {
-                    decl.customElement === true ? components.push({class: decl, path: k.path.replace('.js', '.ts')}) : ''
+                    decl.customElement === true ? components.push({class: decl, path: k.path.replace('index.js', 'react.ts')}) : ''
                 })
             })
         }
@@ -45,16 +45,18 @@ export default function genReactWrapper(customElementsObject){
     components.forEach(component => {
         const events = getEvents(component.class)
 
-        componentSrc = `import * as React from 'react';
-        import { createComponent } from '@lit-labs/react'; ${
-        component.class.events?.length > 0 ? 
-        "\n         import type { EventName } from '@lit-labs/react';" : 
-        ''
-        }
+        componentSrc = `// @ts-nocheck 
+    import * as React from 'react';
+    import { ${component.class.name} as ${component.class.name + 'React'}} from './index';
+    import { createComponent } from '@lit-labs/react'; ${
+    component.class.events?.length > 0 ? 
+    "\n        import { EventName } from '@lit-labs/react';" : 
+    ''
+    }
         
-        export const ${component.class.name + 'React'} = createComponent({
+        export const ${component.class.name} = createComponent({
             displayName: '${component.class.name}',
-            elementClass: ${component.class.name},
+            elementClass: ${component.class.name + 'React'},
             react: React,
             tagName: '${component.class.tagName}',
             events: {
@@ -69,11 +71,15 @@ export default function genReactWrapper(customElementsObject){
             }
         });`
 
+        const reactFile = createWriteStream(
+            component.path,
+            (err) => {
+                console.error(err);
+            },
+        );
+
         if (componentSrc.length > 0) {
-            const file = readFileSync(component.path)
-            if (!file.includes(componentSrc)) {
-                appendFileSync(component.path, componentSrc);
-            }
+            reactFile.write(componentSrc)
         }
     })
 
