@@ -32,15 +32,12 @@ export class PieButton extends LitElement {
 
     render () {
         const {
-            size, type, variant, disabled, isFullWidth,
+            type, disabled, isFullWidth,
+
         } = this;
 
         const classes = {
             'o-btn': true,
-            [`o-btn--${size}`]: size,
-            [`o-btn--${variant}`]: variant,
-            'o-btn--is-disabled': disabled,
-            'o-btn--fullWidth': isFullWidth,
         };
 
         return html`
