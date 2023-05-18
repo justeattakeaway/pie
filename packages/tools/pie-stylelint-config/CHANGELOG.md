@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.0
+
+### Minor Changes
+
+- [Fixed] - Updating pkg name to use conventional stylelint pkg naming ([#468](https://github.com/justeattakeaway/pie/pull/468)) by [@ashleynolan](https://github.com/ashleynolan)
+
 ## 0.1.1
 
 ### Patch Changes
