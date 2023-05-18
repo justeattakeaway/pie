@@ -1,5 +1,19 @@
 # Changelog
 
+## 2.8.0
+
+### Minor Changes
+
+- [Changed] - update codeowners file to include designers ([#452](https://github.com/justeattakeaway/pie/pull/452)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- [Fixed] - Updating references to pie-stylelint-config pkg (to stylelint-config-pie) ([#468](https://github.com/justeattakeaway/pie/pull/468)) by [@ashleynolan](https://github.com/ashleynolan)
+
+- [Changed] - Updated PR template to prompt contributors to check Storybook for component changes ([#461](https://github.com/justeattakeaway/pie/pull/461)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- [Fixed] - Updated CODEOWNERS location to root of .github file ([#469](https://github.com/justeattakeaway/pie/pull/469)) by [@ashleynolan](https://github.com/ashleynolan)
+
 ## 2.7.0
 
 ### Minor Changes

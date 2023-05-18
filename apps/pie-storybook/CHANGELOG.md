@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.9.0
+
+### Minor Changes
+
+- [Added] - Axe Add-on to Storybook ([#465](https://github.com/justeattakeaway/pie/pull/465)) by [@JoshuaNg2332](https://github.com/JoshuaNg2332)
+
+- [Added] Initial story for pie-modal component ([#461](https://github.com/justeattakeaway/pie/pull/461)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
 ## 0.8.1
 
 ### Patch Changes
