@@ -1,5 +1,24 @@
 # Changelog
 
+## 1.73.0
+
+### Minor Changes
+
+- [Added] - 'Testing for Accessibility' page ([#450](https://github.com/justeattakeaway/pie/pull/450)) by [@siggerzz](https://github.com/siggerzz)
+
+- [Added] - Accessibility resources page ([#450](https://github.com/justeattakeaway/pie/pull/450)) by [@siggerzz](https://github.com/siggerzz)
+
+- [Added] - Accessibility section to doc site ([#450](https://github.com/justeattakeaway/pie/pull/450)) by [@siggerzz](https://github.com/siggerzz)
+
+  [Added] - Accessibility overview page
+  [Updated] - Nav and Footer components to show accessibility section
+
+- [Updated] - urls for accessibility pages ([#464](https://github.com/justeattakeaway/pie/pull/464)) by [@FayeCarter](https://github.com/FayeCarter)
+
+### Patch Changes
+
+- [Fixed] - Updating references to pie-stylelint-config pkg (to stylelint-config-pie) ([#468](https://github.com/justeattakeaway/pie/pull/468)) by [@ashleynolan](https://github.com/ashleynolan)
+
 ## 1.72.0
 
 ### Minor Changes
