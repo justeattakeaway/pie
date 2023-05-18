@@ -16,19 +16,15 @@
     --button-focus: var(--dt-color-focus-outer);
 }
 
+@mixin button-interactive-states($bg-color) {
+    & .o-btn:hover:not(:disabled) {
+        background-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), calc(var(#{$bg-color}-l) - var(--dt-color-hover-01)));
+    }
 
-// TODO: Can get rid of this - should be replaced by CSS Custom props
-// 'Themes' a button for it's particular variant, such as primary, secondary, outline, ghost
-@mixin button-variant($bg-color, $text-color, $outline-color: null) {
-    // &:hover:not(:disabled) {
-    //     background-color: darken($bg-color, dt.$color-hover-01);
-    // }
-
-    // &:active:not(:disabled) {
-    //     background-color: darken($bg-color, dt.$color-active-01);
-    // }
+    & .o-btn:active:not(:disabled) {
+        background-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), calc(var(#{$bg-color}-l) - var(--dt-color-active-01)));
+    }
 }
-
 
 // Base button styles
 .o-btn {
@@ -53,20 +49,14 @@
 
 // Variants
 :host([variant='primary']) {
-    // should use the default CSS variables for primary state
-
-    & .o-btn:hover:not(:disabled) {
-        background-color: hsl(var(--dt-color-interactive-brand-h), var(--dt-color-interactive-brand-s), calc(var(--dt-color-interactive-brand-l) - var(--dt-color-hover-01)));
-    }
-
-    & .o-btn:active:not(:disabled) {
-        background-color: hsl(var(--dt-color-interactive-brand-h), var(--dt-color-interactive-brand-s), calc(var(--dt-color-interactive-brand-l) - var(--dt-color-active-01)));
-    }
+    @include button-interactive-states('--dt-color-interactive-brand');
 }
 
 :host([variant='secondary']) {
     --btn-bg-color: var(--dt-color-interactive-secondary);
     --btn-text-color: var(--dt-color-content-interactive-secondary);
+
+    @include button-interactive-states('--dt-color-interactive-secondary');
 }
 
 :host([variant='outline']) {
@@ -76,11 +66,15 @@
     & .o-btn {
         border: 1px solid var(--dt-color-border-strong);
     }
+
+    @include button-interactive-states('--dt-color-container-default');
 }
 
 :host([variant='ghost']) {
     --btn-bg-color: var(--dt-color-container-default);
     --btn-text-color: var(--dt-color-content-link);
+
+    @include button-interactive-states('--dt-color-container-default');
 }
 
 :host([disabled]) {
