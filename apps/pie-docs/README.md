@@ -31,6 +31,18 @@
 - Our unit tests are written using [Jest](https://jestjs.io/)
 - Our accessibility tests are written using [Axe with Playwright](https://playwright.dev/docs/accessibility-testing)
 
+## Drafts
+
+When building a page that is not yet ready for production we can mark the page as a `draft` by adding `data: true` to the page front matter. This will allow 11ty to build the page during development mode but will exclude the page from builds during production.
+
+```
+---
+title: Test Page
+description: Test page
+draft: true
+---
+```
+
 ## Testing
 Our primary concerns are:
 1. Ensuring we never lose any pages

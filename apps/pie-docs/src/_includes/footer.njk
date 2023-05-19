@@ -1,3 +1,4 @@
+{# // TODO: need to be able to hide section if in draft #}
 {% set allAboutPiePages = collections.all | eleventyNavigation("All about PIE") %}
 {% set designersPages = collections.all | eleventyNavigation("designers") %}
 {% set engineersPages = collections.all | eleventyNavigation("engineers") %}
@@ -6,7 +7,6 @@
 {% set footerNavItems = [allAboutPiePages, designersPages, engineersPages, accessibilityPages, supportPages] %}
 {% set jetLogoSrc = '/assets/img/jet-logo.svg' | url %}
 {% set jetLogoSrcNarrow = '/assets/img/jet-logo-narrow.svg' | url %}
-
 <footer class="c-footer" data-test-id="site_footer">
     <div class='c-content-container'>
         <div class="c-footer-logo">
