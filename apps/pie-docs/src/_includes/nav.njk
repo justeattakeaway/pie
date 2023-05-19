@@ -22,7 +22,7 @@
             {# build up a list of categories such as 'components', 'foundations' #}
             {% for category in section %}
                 <li>
-                    <details {% if page.url.includes(category.url) %} open{% endif %}>
+                    <details {% if page.url.includes(category.url) %} open algolia-category={{category.title}} {% endif %}>
                         <summary class="c-nav-category" style="--icon-fill: {{categoryIconFill}};">
                             {{ { name: navigationIcons[category.key], attrs: { fill: categoryIconFill, height: '16', width: '16', class:'u-iconFilled', 'aria-hidden': 'true' } } | pieIconsSvg | safe }}
                             {{ category.title }}

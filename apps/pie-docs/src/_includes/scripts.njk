@@ -4,4 +4,13 @@
 <script defer src="{{ '/assets/js/toggled-content.js' | url }}" type="module"></script>
 <script defer src="{{ '/assets/js/prism.js' | url }}" type="module"></script>
 <script defer src="{{ '/assets/js/awesome.js' | url }}" type="module"></script>
-<script src="/_pagefind/pagefind-ui.js" onload="new PagefindUI({ element: '#search', showImages: false });"></script>
+{# <script src="/_pagefind/pagefind-ui.js" onload="new PagefindUI({ element: '#search', showImages: false });"></script> #}
+<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
+<script type="text/javascript">
+  docsearch({
+    appId: 'L21G25CLL1',
+    apiKey: '892643e4fb7de4be3c9b35241dc64b7f',
+    indexName: 'pie',
+    container: '#docsearch'
+  });
+</script>

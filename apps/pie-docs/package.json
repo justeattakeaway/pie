@@ -39,6 +39,7 @@
     "pagefind": "0.12.0"
   },
   "dependencies": {
+    "@docsearch/js": "3",
     "@justeat/f-cookie-banner": "4.7.0",
     "markdown-it": "13.0.1"
   },
