@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-web-components-core",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.0.0",
   "description": "PIE design system base classes, mixins and utilities for web components",
   "type": "module",
   "main": "index.ts",

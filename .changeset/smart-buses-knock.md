@@ -1,5 +1,5 @@
 ---
-"@justeattakeaway/pie-web-components-core": patch
+"@justeattakeaway/pie-web-components-core": minor
 ---
 
 [Added] - RTL Mixin and base project
