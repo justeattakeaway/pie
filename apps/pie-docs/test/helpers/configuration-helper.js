@@ -18,7 +18,7 @@ exports.getBaseUrl = () => {
         return 'http://localhost:8080/';
     }
     if (GITHUB_REF_NAME === 'main') {
-        return 'https://www.pie.design/';
+        return 'https://pie.design/';
     }
     return `https://pr${PR_NUMBER}.${DOCS_AMPLIFY_ID}.amplifyapp.com/`;
 };
