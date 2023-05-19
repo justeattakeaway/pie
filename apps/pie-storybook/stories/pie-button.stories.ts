@@ -1,6 +1,7 @@
 import type { Meta, StoryObj as Story } from '@storybook/web-components';
 import { BUTTON_SIZE, BUTTON_TYPE, BUTTON_VARIANT } from '@justeattakeaway/pie-button';
 import { html, TemplateResult } from 'lit';
+import { StorybookContext } from '../interfaces/storybook-context';
 
 export default {
     title: 'Button',
@@ -65,6 +66,20 @@ const Template = ({
         </pie-button>
         `;
 
+const TemplateWithDir = ({
+    size, variant, type, disabled, isFullWidth, slot,
+}: ButtonProps, storybookContext: StorybookContext): TemplateResult => html`
+            <pie-button
+                size="${size}"
+                variant="${variant}"
+                type="${type}"
+                ?disabled="${disabled}"
+                dir="${storybookContext.globals.writingDirection}"
+                ?isFullWidth="${isFullWidth}">
+                ${slot}
+            </pie-button>
+            `;
+
 const defaultArgs = {
     size: BUTTON_SIZE.MEDIUM,
     type: BUTTON_TYPE.SUBMIT,
@@ -95,4 +110,9 @@ export const Ghost: Story = Template.bind({});
 Ghost.args = {
     ...defaultArgs,
     variant: BUTTON_VARIANT.GHOST,
+};
+
+export const PrimaryWithReactiveDirection: Story = TemplateWithDir.bind({});
+PrimaryWithReactiveDirection.args = {
+    ...defaultArgs,
 };

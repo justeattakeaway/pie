@@ -4169,6 +4169,8 @@ __metadata:
 "@justeattakeaway/pie-button@0.12.1, @justeattakeaway/pie-button@workspace:*, @justeattakeaway/pie-button@workspace:packages/components/pie-button":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-button@workspace:packages/components/pie-button"
+  dependencies:
+    "@justeattakeaway/pie-web-components-core": "workspace:*"
   languageName: unknown
   linkType: soft
 
@@ -4235,6 +4237,14 @@ __metadata:
 "@justeattakeaway/pie-modal@workspace:*, @justeattakeaway/pie-modal@workspace:packages/components/pie-modal":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-modal@workspace:packages/components/pie-modal"
+  dependencies:
+    "@justeattakeaway/pie-web-components-core": "workspace:*"
+  languageName: unknown
+  linkType: soft
+
+"@justeattakeaway/pie-web-components-core@workspace:*, @justeattakeaway/pie-web-components-core@workspace:packages/components/pie-web-components-core":
+  version: 0.0.0-use.local
+  resolution: "@justeattakeaway/pie-web-components-core@workspace:packages/components/pie-web-components-core"
   languageName: unknown
   linkType: soft
 
