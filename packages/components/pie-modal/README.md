@@ -37,5 +37,5 @@ yarn watch
 import { PieModal } from '@justeattakeaway/pie-button';
 
 // react
-import { PieModalReact } from '@justeattakeaway/pie-button';
+import { PieModal } from '@justeattakeaway/pie-button/dist/react';
 ```

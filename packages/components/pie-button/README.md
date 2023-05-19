@@ -52,7 +52,7 @@ yarn watch
 import { PieButton } from '@justeattakeaway/pie-button';
 
 // react
-import { PieButtonReact } from '@justeattakeaway/pie-button';
+import { PieButton } from '@justeattakeaway/pie-button/dist/react';
 ```
 
 ## Props
