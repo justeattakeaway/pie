@@ -1,8 +1,6 @@
 import { LitElement, html, unsafeCSS } from 'lit';
 import { classMap } from 'lit/directives/class-map.js';
 import { customElement, property } from 'lit/decorators.js';
-
-import { RtlMixin } from '@justeattakeaway/pie-web-components-core';
 import styles from './button.scss?inline';
 import { validPropertyValues } from './decorators';
 import { BUTTON_SIZE, BUTTON_TYPE, BUTTON_VARIANT } from './defs';
@@ -11,7 +9,7 @@ import { BUTTON_SIZE, BUTTON_TYPE, BUTTON_VARIANT } from './defs';
 export { BUTTON_SIZE, BUTTON_TYPE, BUTTON_VARIANT };
 
 @customElement('pie-button')
-export class PieButton extends RtlMixin(LitElement) {
+export class PieButton extends LitElement {
     @property()
     @validPropertyValues(Object.values(BUTTON_SIZE), BUTTON_SIZE.MEDIUM)
         size : BUTTON_SIZE = BUTTON_SIZE.MEDIUM;
@@ -32,12 +30,8 @@ export class PieButton extends RtlMixin(LitElement) {
 
     render () {
         const {
-            size, type, variant, disabled, isFullWidth, isRTL,
+            size, type, variant, disabled, isFullWidth,
         } = this;
-
-        if (isRTL) {
-            console.info('RTL mode detected');
-        }
 
         const classes = {
             'o-btn': true,

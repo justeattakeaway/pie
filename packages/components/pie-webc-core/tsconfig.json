@@ -7,12 +7,12 @@
       "declarationMap": true,
       "sourceMap": true,
       "inlineSources": true,
-      "outDir": "../pie-webc-core/compiled",
-      "baseUrl": "../pie-webc-core",
+      "outDir": "./compiled",
+      "baseUrl": ".",
       "paths": {
-        "@/*": ["../pie-webc-core/src/*"]
+        "@/*": ["./src/*"]
       },
-      "rootDir": "../pie-webc-core",
+      "rootDir": ".",
       "strict": true,
       "noUnusedLocals": true,
       "noUnusedParameters": true,
@@ -25,6 +25,6 @@
       "experimentalDecorators": true,
       "forceConsistentCasingInFileNames": true
   },
-  "include": ["../pie-webc-core/src/**/*.ts","../pie-webc-core/declaration.d.ts", "../pie-webc-core/test/**/*.ts"],
+  "include": ["src/**/*.ts","./declaration.d.ts", "test/**/*.ts"],
   "exclude": []
 }

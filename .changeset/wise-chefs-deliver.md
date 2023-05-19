@@ -2,4 +2,4 @@
 "pie-monorepo": minor
 ---
 
-[Added] - new project pie-web-components-core
+[Added] - new project pie-webc-core
