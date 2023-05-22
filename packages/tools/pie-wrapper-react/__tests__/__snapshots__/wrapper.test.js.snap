@@ -18,4 +18,4 @@ exports[`React Wrapper should generate wrapper from mock custom elements JSON 1`
         });"
 `;
 
-exports[`React Wrapper should remove generated wrapper from mock component 1`] = `""`;
+exports[`React Wrapper should remove generated wrapper from mock component 1`] = `undefined`;

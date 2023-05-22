@@ -3,7 +3,6 @@ import { unlink, existsSync } from 'fs';
 // removes react wrapper from index.ts after dist has built
 export default function removeReactWrapper (customElementsObject) {
     let components = []
-    let removedWrapper = ''
     const customElements = Object.entries(customElementsObject)
 
     // sort through customElements array and put all components into a separate array
@@ -28,6 +27,4 @@ export default function removeReactWrapper (customElementsObject) {
             }
         })
     }
-
-    return removedWrapper;
 }

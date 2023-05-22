@@ -1,4 +1,4 @@
-import { createWriteStream } from 'fs'
+import { createWriteStream } from 'fs';
 let componentSrc;
 
 export default function genReactWrapper(customElementsObject){    
