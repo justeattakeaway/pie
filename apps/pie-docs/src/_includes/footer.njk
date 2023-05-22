@@ -24,11 +24,13 @@
                                 <h3>{{ section[0].parent }}</h3>
                                 <ul>
                                     {% for page in section %}
-                                        <li>
-                                            <a href="{{page.url | url }}" data-test-id='footer_link'>
-                                                {{ page.title }}
-                                            </a>
-                                        </li>
+                                        {% if page.url %}
+                                            <li>
+                                                <a href="{{page.url | url }}" data-test-id='footer_link'>
+                                                    {{ page.title }}
+                                                </a>
+                                            </li>
+                                        {% endif %}
                                     {% endfor %}
                                 </ul>
                             </section>
