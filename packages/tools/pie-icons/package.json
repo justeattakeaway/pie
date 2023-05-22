@@ -27,7 +27,6 @@
   "dependencies": {
     "cheerio": "1.0.0-rc.12",
     "classnames": "2.3.2",
-    "html-minifier": "4.0.0",
     "prettier": "2.8.7",
     "svgo": "3.0.2"
   },
