@@ -43,6 +43,10 @@ draft: true
 ---
 ```
 
+To create a new section that will be in draft mode, each page in the section will need to have `data: true` added to the page front matter.
+
+> When running `yarn test:generate-routes`, the routes are generated based off of what is in the `/dist/` folder. If you need to regenerate routes while we have a section in drafts you will first need to run `yarn build` and then run `yarn test:generate-routes` to generate the routes that will be used in production.
+
 ## Testing
 Our primary concerns are:
 1. Ensuring we never lose any pages

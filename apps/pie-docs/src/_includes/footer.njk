@@ -3,9 +3,11 @@
 {% set engineersPages = collections.all | eleventyNavigation("engineers") %}
 {% set accessibilityPages = collections.all | eleventyNavigation("Accessibility") %}
 {% set supportPages = collections.all | eleventyNavigation("Support") %}
-{% set footerNavItems = [allAboutPiePages, designersPages, engineersPages, accessibilityPages, supportPages] %}
+{% set testPages = collections.all | eleventyNavigation("Test") %}
+{% set footerNavItems = [allAboutPiePages, designersPages, engineersPages, accessibilityPages, supportPages, testPages] %}
 {% set jetLogoSrc = '/assets/img/jet-logo.svg' | url %}
 {% set jetLogoSrcNarrow = '/assets/img/jet-logo-narrow.svg' | url %}
+
 <footer class="c-footer" data-test-id="site_footer">
     <div class='c-content-container'>
         <div class="c-footer-logo">
@@ -22,7 +24,7 @@
                             <ul>
                                 {% for page in section %}
                                     <li>
-                                        <a href="{{ page.url | url }}" data-test-id='footer_link'>
+                                        <a href="{{ page.url and page.url | url }}" data-test-id='footer_link'>
                                             {{ page.title }}
                                         </a>
                                     </li>
