@@ -15,14 +15,5 @@ module.exports = {
             // or default empty string).
             return data.permalink;
         },
-        eleventyExcludeFromCollections (data) {
-            // If the page is in `draft:true` or has `permalink:false` and the site is not in 'development' mode, exclude
-            // it from any collections since it shouldn't be visible anywhere.
-            if ((data.draft || data.permalink === false) && !shouldBuildDrafts) {
-                return true;
-            }
-
-            return data.eleventyExcludeFromCollections;
-        },
     },
 };
