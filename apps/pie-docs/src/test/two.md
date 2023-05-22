@@ -4,7 +4,7 @@ eleventyNavigation:
     parent: Test
     order: 2
 title: Test page 2
-description: lalalala
+description: Test description
 ---
 
-p2
+This is a draft page and will not be rendered in production
