@@ -1,7 +1,6 @@
 import { LitElement, html, unsafeCSS } from 'lit';
 import { classMap } from 'lit/directives/class-map.js';
 import { customElement, property } from 'lit/decorators.js';
-
 import styles from './button.scss?inline';
 import { validPropertyValues } from './decorators';
 import { BUTTON_SIZE, BUTTON_TYPE, BUTTON_VARIANT } from './defs';
