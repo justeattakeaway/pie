@@ -1,5 +1,5 @@
 import { html } from 'lit';
-import { StorybookContext } from './interfaces';
+import { StorybookContext } from '../interfaces/storybook-context';
 
 export const WritingDirection = (story, storybookContext : StorybookContext) => {
     const { globals } = storybookContext;
