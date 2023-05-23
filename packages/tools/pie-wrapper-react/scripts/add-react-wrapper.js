@@ -1,8 +1,15 @@
 import { createWriteStream } from 'fs';
+import path from 'path';
+import fs from 'fs-extra';
 
 let componentSrc;
 
-export default function genReactWrapper (customElementsObject) {
+const componentPath = path.resolve(process.cwd(), './custom-elements.json');
+
+// fetches custom-elements.json file
+const loadJSON = (file) => JSON.parse(fs.readFileSync(file));
+
+export default function addReactWrapper (customElementsObject) {
     const components = [];
     const customElements = Object.entries(customElementsObject);
 
@@ -42,46 +49,53 @@ export default function genReactWrapper (customElementsObject) {
     }
 
     // create wrapper src code and add to index.ts file
-    components.forEach((component) => {
-        const events = getEvents(component.class);
+    if (components.length > 0) {
+        components.forEach((component) => {
+            const events = getEvents(component.class);
 
-        componentSrc = `
-// eslint-disable
+            componentSrc = `
 import * as React from 'react';
 import { ${component.class.name} as ${`${component.class.name}React`}} from './index';
-import { createComponent } from '@lit-labs/react'; ${
+import { createComponent } from '@lit-labs/react';${
 component.class.events?.length > 0
-    ? "\n        import { EventName } from '@lit-labs/react';"
+    ? "\nimport { EventName } from '@lit-labs/react';"
     : ''
 }
-        
+
 export const ${component.class.name} = createComponent({
     displayName: '${component.class.name}',
     elementClass: ${`${component.class.name}React`},
     react: React,
     tagName: '${component.class.tagName}',
-    events: {
-        ${events?.flat().reduce(
+    events: { ${events?.flat().reduce(
     (pre, event) => `${pre
                 }${`on${event.name}`}: '${event.name}' as EventName<${event.type}>, ${
                     event.description ? `// ${event.description}` : ''
                 }`,
     '',
-)}
+)}},
+});
+`;
+            let reactFile;
+
+            if (component.path.length) {
+                reactFile = createWriteStream(
+                    component.path,
+                    (err) => {
+                        throw (err);
+                    },
+                );
+            }
+
+            if (componentSrc.length > 0 && reactFile !== undefined) {
+                reactFile.write(componentSrc);
+            }
+        });
+    } else {
+        componentSrc = '';
     }
-});`;
-
-        const reactFile = createWriteStream(
-            component.path,
-            (err) => {
-                console.error(err);
-            },
-        );
-
-        if (componentSrc.length > 0) {
-            reactFile.write(componentSrc);
-        }
-    });
 
     return componentSrc;
 }
+
+addReactWrapper(loadJSON(componentPath));

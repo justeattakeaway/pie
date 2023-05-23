@@ -168,3 +168,5 @@ lit-visual-report/
 
 # TypeScript
 compiled/
+
+mock-component.js

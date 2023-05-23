@@ -1,21 +1,54 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`React Wrapper should generate wrapper from mock custom elements JSON 1`] = `
-"// @ts-nocheck 
-    import * as React from 'react';
-    import { MockComponent as MockComponentReact} from './index';
-    import { createComponent } from '@lit-labs/react'; 
-        import { EventName } from '@lit-labs/react';
-        
-        export const MockComponent = createComponent({
-            displayName: 'MockComponent',
-            elementClass: MockComponentReact,
-            react: React,
-            tagName: 'mock-component',
-            events: {
-                onCustomEvent: 'CustomEvent' as EventName<CustomEvent>, 
-            }
-        });"
+exports[`React Wrapper should be added from mock custom elements JSON 1`] = `
+"
+import * as React from 'react';
+import { MockComponent as MockComponentReact} from './index';
+import { createComponent } from '@lit-labs/react';
+import { EventName } from '@lit-labs/react';
+
+export const MockComponent = createComponent({
+    displayName: 'MockComponent',
+    elementClass: MockComponentReact,
+    react: React,
+    tagName: 'mock-component',
+    events: { onCustomEvent: 'CustomEvent' as EventName<CustomEvent>, onAnotherCustomEvent: 'AnotherCustomEvent' as EventName<CustomEvent>, },
+});
+"
 `;
+
+exports[`React Wrapper should be named the same as the component itself 1`] = `
+"
+import * as React from 'react';
+import { ButtonComponent as ButtonComponentReact} from './index';
+import { createComponent } from '@lit-labs/react';
+
+export const ButtonComponent = createComponent({
+    displayName: 'ButtonComponent',
+    elementClass: ButtonComponentReact,
+    react: React,
+    tagName: 'mock-component',
+    events: { },
+});
+"
+`;
+
+exports[`React Wrapper should leave the events object empty if the component contains no custom events 1`] = `
+"
+import * as React from 'react';
+import { MockComponent as MockComponentReact} from './index';
+import { createComponent } from '@lit-labs/react';
+
+export const MockComponent = createComponent({
+    displayName: 'MockComponent',
+    elementClass: MockComponentReact,
+    react: React,
+    tagName: 'mock-component',
+    events: { },
+});
+"
+`;
+
+exports[`React Wrapper should only be added if the component contains custom elements 1`] = `""`;
 
 exports[`React Wrapper should remove generated wrapper from mock component 1`] = `undefined`;

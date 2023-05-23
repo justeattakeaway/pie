@@ -1,4 +1,11 @@
 import { unlink, existsSync } from 'fs';
+import path from 'path';
+import fs from 'fs-extra';
+
+const componentPath = path.resolve(process.cwd(), './custom-elements.json');
+
+// fetches custom-elements.json file
+const loadJSON = (file) => JSON.parse(fs.readFileSync(file));
 
 // removes react wrapper from index.ts after dist has built
 export default function removeReactWrapper (customElementsObject) {
@@ -31,3 +38,5 @@ export default function removeReactWrapper (customElementsObject) {
         });
     }
 }
+
+removeReactWrapper(loadJSON(componentPath));

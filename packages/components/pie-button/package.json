@@ -6,8 +6,7 @@
   "main": "dist/index.js",
   "module": "dist/index.js",
   "scripts": {
-    "build": "yarn clean && yarn build:wrapper && run -T vite build && yarn clean",
-    "clean": "yarn remove:wrapper",
+    "build": "yarn wrapper-react:remove && yarn wrapper-react:add && run -T vite build && yarn wrapper-react:remove",
     "watch": "run -T vite build --watch",
     "test": "echo \"Error: no test specified\" && exit 0",
     "test:browsers": "npx playwright test -c ./playwright-lit.config.ts",

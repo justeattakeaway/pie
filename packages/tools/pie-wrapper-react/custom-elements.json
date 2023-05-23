@@ -169,6 +169,37 @@
             {
               "kind": "method",
               "name": "render"
+            },
+            {
+              "kind": "field",
+              "name": "dir",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "inheritedFrom": {
+                "name": "RtlMixin",
+                "module": "../../components/pie-webc-core/src/mixins/rtl/rtlMixin.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "isRTL",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Returns true if the element is in Right to Left mode.\r\nIf a dir attribute is not explicitly set on the web component\r\nthen it falls back to the nearest parent with a dir attribute set.\r\n\r\nA dir attribute being set will result in a reactive property.\r\nIf the component falls back to a parent dir attribute then the value\r\nwill not be reactive and is only computed once",
+              "readonly": true,
+              "inheritedFrom": {
+                "name": "RtlMixin",
+                "module": "../../components/pie-webc-core/src/mixins/rtl/rtlMixin.js"
+              }
+            }
+          ],
+          "mixins": [
+            {
+              "name": "RtlMixin",
+              "package": "@justeattakeaway/pie-webc-core"
             }
           ],
           "superclass": {
@@ -185,6 +216,84 @@
           "declaration": {
             "name": "PieModal",
             "module": "../../components/pie-modal/src/index.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../../components/pie-webc-core/src/index.js",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./mixins"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../../components/pie-webc-core/src/mixins/index.js",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./rtl/rtlMixin"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../../components/pie-webc-core/src/mixins/rtl/rtlMixin.js",
+      "declarations": [
+        {
+          "kind": "mixin",
+          "description": "",
+          "name": "RtlMixin",
+          "members": [
+            {
+              "kind": "field",
+              "name": "dir",
+              "type": {
+                "text": "string"
+              },
+              "default": "''"
+            },
+            {
+              "kind": "field",
+              "name": "isRTL",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Returns true if the element is in Right to Left mode.\r\nIf a dir attribute is not explicitly set on the web component\r\nthen it falls back to the nearest parent with a dir attribute set.\r\n\r\nA dir attribute being set will result in a reactive property.\r\nIf the component falls back to a parent dir attribute then the value\r\nwill not be reactive and is only computed once",
+              "readonly": true
+            }
+          ],
+          "parameters": [
+            {
+              "name": "superClass",
+              "type": {
+                "text": "T"
+              }
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "RtlMixin",
+          "declaration": {
+            "name": "RtlMixin",
+            "module": "../../components/pie-webc-core/src/mixins/rtl/rtlMixin.js"
           }
         }
       ]

@@ -15,7 +15,7 @@ function App () {
             <h2>onClick</h2>
             <p>Count: {counter}</p>
             <PieButton
-                onClick={() => setCounter(counter + 1)}
+                onClick={(e) => setCounter(counter + 1) + console.log(e)}
             >Increment</PieButton>
         </>
     );

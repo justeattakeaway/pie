@@ -1,23 +1,65 @@
-import genReactWrapper from '../scripts/react-gen-wrapper.js';
-import removeReactWrapper from '../scripts/react-remove-wrapper.js';
 import fs from 'fs-extra';
+import path from 'path';
+import addReactWrapper from '../scripts/add-react-wrapper';
+import removeReactWrapper from '../scripts/remove-react-wrapper';
 
-const loadJSON = (path) => JSON.parse(fs.readFileSync(__dirname + path));
+const loadJSON = (file) => JSON.parse(fs.readFileSync(path.resolve(__dirname, file)));
+
+const mockExample = loadJSON('./mocks/mock-custom-elements.json');
 
 describe('React Wrapper', () => {
-    it('should generate wrapper from mock custom elements JSON', () => {
+    it('should be added from mock custom elements JSON', () => {
+        const wrapper = addReactWrapper(mockExample);
 
-      const wrapper = genReactWrapper(loadJSON(`/mocks/mock-custom-elements.json`))
+        expect(wrapper).toMatchSnapshot();
+    });
 
-      expect(wrapper).toMatchSnapshot();
+    it('should only be added if the component contains custom elements', () => {
+        mockExample.modules.forEach((m) => {
+            m.declarations[0].customElement = false;
+        });
+
+        const wrapper = addReactWrapper(mockExample);
+
+        expect(wrapper).toMatchSnapshot();
+        expect(wrapper.length).toBe(0);
+    });
+
+    it('should leave the events object empty if the component contains no custom events', () => {
+        mockExample.modules.forEach((m) => {
+            m.declarations[0].customElement = true;
+            delete m.declarations[0].events;
+        });
+
+        const wrapper = addReactWrapper(mockExample);
+
+        const result = 'events: { }';
+
+        expect(wrapper).toMatchSnapshot();
+        expect(wrapper.includes(result)).toBe(true);
+    });
+
+    it('should be named the same as the component itself', () => {
+        mockExample.modules.forEach((m) => {
+            m.declarations[0].name = 'ButtonComponent';
+        });
+
+        const wrapper = addReactWrapper(mockExample);
+
+        const result = 'export const ButtonComponent';
+
+        expect(wrapper).toMatchSnapshot();
+        expect(wrapper.includes(result)).toBe(true);
     });
 
     it('should remove generated wrapper from mock component', () => {
+        mockExample.modules.forEach((m) => {
+            m.path = '__tests__/mocks/mock-component.js';
+        });
 
-      const wrapper = removeReactWrapper(loadJSON(`/mocks/mock-custom-elements.json`))
+        const wrapper = removeReactWrapper(mockExample);
 
-      expect(wrapper).toMatchSnapshot();
+        expect(wrapper).toMatchSnapshot();
+        expect(wrapper).toBe(undefined);
     });
-})
-
-
+});
