@@ -1,6 +1,6 @@
 import fs from 'fs-extra';
 import path from 'path';
-import addReactWrapper from '../scripts/add-react-wrapper';
+import { addReactWrapper } from '../scripts/add-react-wrapper';
 import removeReactWrapper from '../scripts/remove-react-wrapper';
 
 const loadJSON = (file) => JSON.parse(fs.readFileSync(path.resolve(__dirname, file)));
@@ -9,7 +9,7 @@ const mockExample = loadJSON('./mocks/mock-custom-elements.json');
 
 describe('React Wrapper', () => {
     it('should be added from mock custom elements JSON', () => {
-        const wrapper = addReactWrapper(mockExample);
+        const wrapper = addReactWrapper(mockExample, 'pie-wrapper-react');
 
         expect(wrapper).toMatchSnapshot();
     });
@@ -19,7 +19,7 @@ describe('React Wrapper', () => {
             m.declarations[0].customElement = false;
         });
 
-        const wrapper = addReactWrapper(mockExample);
+        const wrapper = addReactWrapper(mockExample, 'pie-wrapper-react');
 
         expect(wrapper).toMatchSnapshot();
         expect(wrapper.length).toBe(0);
@@ -31,7 +31,7 @@ describe('React Wrapper', () => {
             delete m.declarations[0].events;
         });
 
-        const wrapper = addReactWrapper(mockExample);
+        const wrapper = addReactWrapper(mockExample, 'pie-wrapper-react');
 
         const result = 'events: { }';
 
@@ -44,7 +44,7 @@ describe('React Wrapper', () => {
             m.declarations[0].name = 'ButtonComponent';
         });
 
-        const wrapper = addReactWrapper(mockExample);
+        const wrapper = addReactWrapper(mockExample, 'pie-wrapper-react');
 
         const result = 'export const ButtonComponent';
 

@@ -17,6 +17,7 @@ function App () {
             <PieButton
                 onClick={(e) => setCounter(counter + 1) + console.log(e)}
             >Increment</PieButton>
+            <PieModal>Hello</PieModal>
         </>
     );
 }

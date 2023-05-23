@@ -9,7 +9,14 @@ const componentPath = path.resolve(process.cwd(), './custom-elements.json');
 // fetches custom-elements.json file
 const loadJSON = (file) => JSON.parse(fs.readFileSync(file));
 
-export default function addReactWrapper (customElementsObject) {
+/**
+ * This function generates a react wrapper to enable custom lit components to be used in react apps.
+ *
+ * @param {JSON} - A JSON file of custom components and their attributes, generated from the @custom-elements-manifest/analyzer package
+ * @return {string} - The source code of the react wrapper
+ *
+ */
+export function addReactWrapper (customElementsObject, folderName = process.argv[2]) {
     const components = [];
     const customElements = Object.entries(customElementsObject);
 
@@ -18,9 +25,11 @@ export default function addReactWrapper (customElementsObject) {
         let componentObject;
         if (key === 'modules') {
             value.forEach((k) => {
-                k.declarations.forEach((decl) => {
-                    componentObject = decl.customElement === true ? components.push({ class: decl, path: k.path.replace('index.js', 'react.ts') }) : '';
-                });
+                if (k.path.includes(folderName)) {
+                    k.declarations.forEach((decl) => {
+                        componentObject = decl.customElement === true ? components.push({ class: decl, path: k.path.replace('index.js', 'react.ts') }) : '';
+                    });
+                }
             });
         }
 
@@ -31,7 +40,7 @@ export default function addReactWrapper (customElementsObject) {
      * function to fetch events from the component
      *
      * @param {*} component object from within components array
-     * @param {*} event empty array to be populated with events
+     * @return {*} events array containing a component's custom events
      */
     function getEvents (component) {
         const events = [];
@@ -48,14 +57,14 @@ export default function addReactWrapper (customElementsObject) {
         return events;
     }
 
-    // create wrapper src code and add to index.ts file
+    // create wrapper src code and add to react.ts file
     if (components.length > 0) {
         components.forEach((component) => {
             const events = getEvents(component.class);
 
             componentSrc = `
 import * as React from 'react';
-import { ${component.class.name} as ${`${component.class.name}React`}} from './index';
+import { ${component.class.name} as ${`${component.class.name}React`} } from './index';
 import { createComponent } from '@lit-labs/react';${
 component.class.events?.length > 0
     ? "\nimport { EventName } from '@lit-labs/react';"
@@ -78,7 +87,7 @@ export const ${component.class.name} = createComponent({
 `;
             let reactFile;
 
-            if (component.path.length) {
+            if (component.path !== 'pie-wrapper-react') {
                 reactFile = createWriteStream(
                     component.path,
                     (err) => {
@@ -89,6 +98,8 @@ export const ${component.class.name} = createComponent({
 
             if (componentSrc.length > 0 && reactFile !== undefined) {
                 reactFile.write(componentSrc);
+
+                console.info('react wrapper has been added!');
             }
         });
     } else {

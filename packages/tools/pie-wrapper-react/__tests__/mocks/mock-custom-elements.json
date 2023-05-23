@@ -4,7 +4,7 @@
     "modules": [
         {
         "kind": "javascript-module",
-        "path": "",
+        "path": "pie-wrapper-react",
         "declarations": [
             {
             "kind": "class",

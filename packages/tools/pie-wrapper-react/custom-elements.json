@@ -206,6 +206,7 @@
             "name": "LitElement",
             "package": "lit"
           },
+          "tagName": "pie-modal",
           "customElement": true
         }
       ],
@@ -213,6 +214,14 @@
         {
           "kind": "js",
           "name": "PieModal",
+          "declaration": {
+            "name": "PieModal",
+            "module": "../../components/pie-modal/src/index.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "pie-modal",
           "declaration": {
             "name": "PieModal",
             "module": "../../components/pie-modal/src/index.js"

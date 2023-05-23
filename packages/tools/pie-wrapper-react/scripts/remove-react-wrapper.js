@@ -7,6 +7,13 @@ const componentPath = path.resolve(process.cwd(), './custom-elements.json');
 // fetches custom-elements.json file
 const loadJSON = (file) => JSON.parse(fs.readFileSync(file));
 
+/**
+ * This function removes the react wrapper and react.ts file if it has been generated
+ *
+ * @param {JSON} - A JSON file of custom components and their attributes, generated from the @custom-elements-manifest/analyzer package
+ * @return {undefined} - text to confirm that wrapper has been removed
+ *
+ */
 // removes react wrapper from index.ts after dist has built
 export default function removeReactWrapper (customElementsObject) {
     const components = [];
