@@ -4,5 +4,4 @@ eleventyNavigation:
     parent: Docs-secondary
     order: 3
 title: Test
-draft: true
 ---

@@ -43,7 +43,13 @@ draft: true
 ---
 ```
 
-To create a new section that will be in draft mode, each page in the section will need to have `draft: true` added to the page front matter.
+To create a new section that will be in draft mode, you can add a new `<New_section_name>.json` file to your section's folder and set `draft: true`. This will apply the front matter to each page of the new section.
+
+```
+{
+  "draft": true
+}
+```
 
 > When running `yarn test:generate-routes`, the routes are generated based off of what is in the `/dist/` folder. If you need to regenerate routes while we have a section in drafts you will first need to run `yarn build` and then run `yarn test:generate-routes` to generate the routes that will be used in production.
 
