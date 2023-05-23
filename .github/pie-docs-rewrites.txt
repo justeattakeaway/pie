@@ -1,0 +1,32 @@
+[
+    {
+        "source": "https://www.pie.design",
+        "target": "https://pie.design",
+        "status": "301",
+        "condition": null
+    },
+    {
+        "source": "/(.*[^/])$",
+        "target": "/$1/",
+        "status": "200",
+        "condition": null
+    },
+    {
+        "source": "/<*>",
+        "target": "/404",
+        "status": "404",
+        "condition": null
+    },
+    {
+        "source": "/accessibility/accessibility-overview/",
+        "target": "/accessibility/overview/",
+        "status": "301",
+        "condition": null
+    },
+    {
+        "source": "/accessibility/accessibility-resources/",
+        "target": "/accessibility/resources/",
+        "status": "301",
+        "condition": null
+    }
+]
