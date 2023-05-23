@@ -156,8 +156,16 @@ jobs:
       bucket-name-main: 'pie-storybook'
     secrets: inherit
 
+  lighthouse:
+    needs: [ 'deploy-docs']
+    uses: ./.github/workflows/lighthouse-ci.yml
+    with:
+      os: ubuntu-latest
+      host-url: https://pie.design
+    secrets: inherit
+
   browser-tests:
-    needs: deploy-docs
+    needs: lighthouse
     runs-on: ubuntu-latest
     steps:
       # Checkout the Repo
