@@ -15,6 +15,6 @@ const IconDragLarge = (props: LargeIconProps) => {
     ...remainingProps,
     ...moreProps
   };
-  return <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"    {...allProps}><path fill="#242E30" d="M28.25 11.188H3.75v1.75h24.5v-1.75Z" /><path fill="#242E30" d="M28.25 19.063H3.75v1.75h24.5v-1.75Z" /></svg>;
+  return <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="presentation" focusable="false"    {...allProps}><path fill="#242E30" d="M28.25 11.188H3.75v1.75h24.5v-1.75Z" /><path fill="#242E30" d="M28.25 19.063H3.75v1.75h24.5v-1.75Z" /></svg>;
 };
 export default IconDragLarge;
