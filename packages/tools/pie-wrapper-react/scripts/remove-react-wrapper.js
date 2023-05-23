@@ -25,7 +25,7 @@ export default function removeReactWrapper (customElementsObject) {
         if (key === 'modules') {
             value.forEach((k) => {
                 k.declarations.forEach((decl) => {
-                    componentObject = decl.customElement === true ? components.push({ class: decl, path: k.path.replace('index.js', 'react.ts') }) : '';
+                    if (decl.customElement === true) components.push({ class: decl, path: k.path.replace('index.js', 'react.ts') });
                 });
             });
         }
