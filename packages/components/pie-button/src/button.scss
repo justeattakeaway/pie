@@ -13,7 +13,7 @@
     // currently this sets the primary button styles
     --btn-bg-color: var(--dt-color-interactive-brand);
     --btn-text-color: var(--dt-color-content-interactive-primary);
-    --button-focus: var(--dt-color-focus-outer);
+    --btn-focus: var(--dt-color-focus-outer);
 }
 
 @mixin button-interactive-states($bg-color) {
@@ -43,7 +43,8 @@
     user-select: none;
 
     &:focus-visible {
-        outline: 2px solid var(--button-focus);
+        // TODO - Need to update to use the latest focus styling
+        outline: 2px solid var(--btn-focus);
     }
 }
 
@@ -87,17 +88,17 @@
     }
 }
 
+// Additional modifiers
+:host([isFullWidth]) .o-btn {
+    inline-size: 100%;
+}
+
 :host([disabled][variant='ghost']) {
     --btn-bg-color: var(--dt-color-container-default);
 
     & .o-btn {
         outline: none;
     }
-}
-
-// Additional modifiers
-:host([isFullWidth]) .o-btn {
-    inline-size: 100%;
 }
 
 :host([size='xsmall']) {

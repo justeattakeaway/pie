@@ -36,13 +36,9 @@ export class PieButton extends LitElement {
 
         } = this;
 
-        const classes = {
-            'o-btn': true,
-        };
-
         return html`
             <button
-                class=${classMap(classes)}
+                class="o-btn"
                 type=${type}
                 ?disabled=${disabled}
                 ?isFullWidth=${isFullWidth}>
