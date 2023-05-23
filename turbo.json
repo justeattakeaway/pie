@@ -68,7 +68,10 @@
         "^build"
       ]
     },
-    "test:generate-routes": {
+    "pie-docs#test:generate-routes": {
+      "dependsOn": [
+        "pie-docs#build"
+      ],
       "cache": false
     },
     "test": {
