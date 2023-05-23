@@ -52,11 +52,7 @@ describe('React Wrapper', () => {
         expect(wrapper.includes(result)).toBe(true);
     });
 
-    it('should remove generated wrapper from mock component', () => {
-        mockExample.modules.forEach((m) => {
-            m.path = '__tests__/mocks/mock-component.js';
-        });
-
+    it('should be removed from the component after dist is built', () => {
         const wrapper = removeReactWrapper(mockExample);
 
         expect(wrapper).toMatchSnapshot();

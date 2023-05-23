@@ -33,6 +33,8 @@ export const ButtonComponent = createComponent({
 "
 `;
 
+exports[`React Wrapper should be removed from the component after dist is built 1`] = `undefined`;
+
 exports[`React Wrapper should leave the events object empty if the component contains no custom events 1`] = `
 "
 import * as React from 'react';
@@ -50,5 +52,3 @@ export const MockComponent = createComponent({
 `;
 
 exports[`React Wrapper should only be added if the component contains custom elements 1`] = `""`;
-
-exports[`React Wrapper should remove generated wrapper from mock component 1`] = `undefined`;

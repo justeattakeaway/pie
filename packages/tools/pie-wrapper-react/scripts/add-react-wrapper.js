@@ -13,6 +13,7 @@ const loadJSON = (file) => JSON.parse(fs.readFileSync(file));
  * This function generates a react wrapper to enable custom lit components to be used in react apps.
  *
  * @param {JSON} - A JSON file of custom components and their attributes, generated from the @custom-elements-manifest/analyzer package
+ * @param {string} - component folder name fetched from package.json script
  * @return {string} - The source code of the react wrapper
  *
  */
