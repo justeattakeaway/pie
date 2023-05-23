@@ -31,6 +31,26 @@
 - Our unit tests are written using [Jest](https://jestjs.io/)
 - Our accessibility tests are written using [Axe with Playwright](https://playwright.dev/docs/accessibility-testing)
 
+## Drafts
+
+When building a page that is not yet ready for production we can mark the page as a `draft` by adding `draft: true` to the page front matter. This will allow 11ty to build the page during development mode but will exclude the page from builds during production.
+
+```
+---
+title: Test Page
+description: Test page
+draft: true
+---
+```
+
+To create a new section that will be in draft mode, you can add a new `<new_section_name>.json` file to your section's folder and set `draft: true`. This will apply the front matter to each page of the new section.
+
+```
+{
+  "draft": true
+}
+```
+
 ## Testing
 Our primary concerns are:
 1. Ensuring we never lose any pages
