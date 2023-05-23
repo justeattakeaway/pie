@@ -4,4 +4,4 @@
 "@justeattakeaway/pie-icons": minor
 ---
 
-[Updated] - icons to use accessbility attributes
+[Updated] - icons to use accessibility attributes
