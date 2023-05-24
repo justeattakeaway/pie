@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.74.0
+
+### Minor Changes
+
+- [Added] - 11ty drafts ([#473](https://github.com/justeattakeaway/pie/pull/473)) by [@FayeCarter](https://github.com/FayeCarter)
+
+### Patch Changes
+
+- [Fixed] - Issue where cookie banner wasn't disappearing in Playwright due to new www.pie.design > pie.design redirect ([#475](https://github.com/justeattakeaway/pie/pull/475)) by [@siggerzz](https://github.com/siggerzz)
+
 ## 1.73.0
 
 ### Minor Changes
