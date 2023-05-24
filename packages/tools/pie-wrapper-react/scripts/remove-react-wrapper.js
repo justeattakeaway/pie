@@ -15,7 +15,7 @@ const loadJSON = (file) => JSON.parse(fs.readFileSync(file));
  *
  */
 // removes react wrapper from index.ts after dist has built
-export default function removeReactWrapper (customElementsObject) {
+export function removeReactWrapper (customElementsObject) {
     const components = [];
     const customElements = Object.entries(customElementsObject);
 

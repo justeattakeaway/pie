@@ -1,7 +1,7 @@
 import fs from 'fs-extra';
 import path from 'path';
 import { addReactWrapper } from '../scripts/add-react-wrapper';
-import removeReactWrapper from '../scripts/remove-react-wrapper';
+import { removeReactWrapper } from '../scripts/remove-react-wrapper';
 
 const loadJSON = (file) => JSON.parse(fs.readFileSync(path.resolve(__dirname, file)));
 
