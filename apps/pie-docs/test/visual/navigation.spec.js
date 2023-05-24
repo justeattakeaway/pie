@@ -26,7 +26,7 @@ test.describe('PIE - Site Nav Menu', () => {
         await disableCookieBanner(page, context, true);
     });
 
-    test('Should open and close the mobile navigation menu - @mobile', async ({ page }) => {
+    test('Should open and close the navigation menu', async ({ page }) => {
         // Arrange
         const navToggleLabel = page.getByTestId('nav_toggle_label');
         const navMenu = page.getByTestId('site_nav');
@@ -35,9 +35,9 @@ test.describe('PIE - Site Nav Menu', () => {
         await navToggleLabel.click();
         await navMenu.isVisible();
 
-        const mobileWidths = [PERCY_BREAKPOINTS.MOBILE, PERCY_BREAKPOINTS.TABLET, PERCY_BREAKPOINTS.DESKTOP];
+        const screenWidths = [PERCY_BREAKPOINTS.MOBILE, PERCY_BREAKPOINTS.TABLET, PERCY_BREAKPOINTS.DESKTOP];
 
         // Assert
-        await percySnapshot(page, 'PIE - Mobile Nav', mobileWidths);
+        await percySnapshot(page, 'PIE - Navigation', screenWidths);
     });
 });
