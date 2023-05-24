@@ -2,4 +2,4 @@
 "pie-monorepo": minor
 ---
 
-[Removed] - react `createComponent` wrappers from react/next apps
+[Removed] - React `createComponent` wrappers from react/next apps
