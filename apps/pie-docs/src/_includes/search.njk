@@ -1,7 +1,7 @@
-{# <div id="search" class="search"></div> #}
-<div id="docsearch" class="search"></div>
+<div class="pagefind">PageFind:<div id="search" class="search"></div></div>
+<div class="algolia">Algolia: <div id="docsearch" class="search"></div></div>
 
-{# <style>
+<style>
   @media (prefers-color-scheme: dark) {
     :root {
       --pagefind-ui-primary: #eeeeee;
@@ -11,4 +11,37 @@
       --pagefind-ui-tag: #152028;
     }
   }
-</style> #}
+
+  .pagefind, .algolia {
+    padding: 2%;
+  }
+
+  .search-examples {
+    display: flex;
+  }
+
+  {# .pagefind {
+    margin-left: 5%;
+  } #}
+
+  .pagefind-ui__form.svelte-1bkqzc5 {
+    width: 80%;
+    display: block;
+    margin: auto;
+  }
+
+  .pagefind-ui__results.svelte-1bkqzc5 {
+    padding: 5%;
+  }
+
+  .DocSearch-Button {
+    width: 80%;
+    height: 50px;
+    display: block;
+    margin: auto;
+  }
+
+  .DocSearch-Button-Keys {
+    float: right;
+  }
+</style>
