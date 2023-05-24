@@ -7,7 +7,7 @@ module.exports = {
             {
                 except: ['blockless-after-blockless', 'first-nested'],
                 ignore: ['after-comment'],
-                ignoreAtRules: ['if', 'else']
+                ignoreAtRules: ['if', 'else'],
             }
         ],
         'at-rule-name-case': 'lower',
@@ -16,7 +16,7 @@ module.exports = {
         'block-closing-brace-newline-after': [
             'always',
             {
-                ignoreAtRules: ['if', 'else']
+                ignoreAtRules: ['if', 'else'],
             }
         ],
         'block-closing-brace-newline-before': 'always',
@@ -32,7 +32,7 @@ module.exports = {
             'always',
             {
                 except: ['first-nested'],
-                ignore: ['stylelint-commands']
+                ignore: ['stylelint-commands'],
             }
         ],
         'comment-whitespace-inside': 'always',
@@ -40,7 +40,7 @@ module.exports = {
         'declaration-bang-space-before': 'always',
         'declaration-block-no-duplicate-properties': [
             true, {
-                ignore: ['consecutive-duplicates-with-different-values']
+                ignore: ['consecutive-duplicates-with-different-values'],
             }
         ],
         'declaration-block-no-shorthand-property-overrides': true,
@@ -67,6 +67,12 @@ module.exports = {
         'keyframes-name-pattern': '^([a-z0-9]+)(((([A-Z]){1}([a-z0-9]+))?)+)',
         'length-zero-no-unit': true,
         'max-empty-lines': 2,
+        'max-line-length': [
+            120,
+            {
+                ignorePattern: '/hsl\\(/',
+            }
+        ],
         'media-feature-colon-space-after': 'always',
         'media-feature-colon-space-before': 'never',
         'media-feature-name-case': 'lower',
@@ -91,7 +97,7 @@ module.exports = {
             'always',
             {
                 except: ['first-nested'],
-                ignore: ['after-comment']
+                ignore: ['after-comment'],
             }
         ],
         'scss/at-else-closing-brace-newline-after': 'always-last-in-chain',
@@ -119,6 +125,6 @@ module.exports = {
         'value-list-comma-newline-before': 'never-multi-line',
         'value-list-comma-space-after': 'always-single-line',
         'value-list-comma-space-before': 'never',
-        'value-no-vendor-prefix': true
-    }
+        'value-no-vendor-prefix': true,
+    },
 };
