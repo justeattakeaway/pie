@@ -35,7 +35,7 @@ test.describe('PIE - Site Nav Menu', () => {
         await navToggleLabel.click();
         await navMenu.isVisible();
 
-        const mobileWidths = [PERCY_BREAKPOINTS.MOBILE, PERCY_BREAKPOINTS.TABLET];
+        const mobileWidths = [PERCY_BREAKPOINTS.MOBILE, PERCY_BREAKPOINTS.TABLET, PERCY_BREAKPOINTS.DESKTOP];
 
         // Assert
         await percySnapshot(page, 'PIE - Mobile Nav', mobileWidths);
