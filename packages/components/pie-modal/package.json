@@ -7,7 +7,7 @@
   "module": "dist/index.js",
   "types": "dist/types/index.d.ts",
   "scripts": {
-    "build": "yarn wrapper-react:remove && yarn wrapper-react:add pie-modal && run -T vite build && yarn wrapper-react:remove",
+    "build": "yarn build:wrapper pie-modal && run -T vite build && yarn remove:wrapper",
     "watch": "run -T vite build --watch",
     "test": "echo \"Error: no test specified\" && exit 0"
   },
