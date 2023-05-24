@@ -24,6 +24,9 @@
   "scripts": {
     "test": "run -T jest"
   },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
   "volta": {
     "extends": "../../../package.json"
   }
