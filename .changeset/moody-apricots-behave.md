@@ -2,4 +2,4 @@
 "@justeattakeaway/pie-button": minor
 ---
 
-[Changed] - build script to include generating and removing react wrapper
+[Changed] - Build script to include generating and removing react wrapper

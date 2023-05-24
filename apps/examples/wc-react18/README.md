@@ -13,6 +13,8 @@ Builds the app for production to the `build` folder.\
 
 #### Using Web Components in React
 
-React 18 and previous versions don't handle web components and custom elements out of the box correctly in all cases due to how React treats custom props and events (More details can be found [here](https://lit.dev/docs/frameworks/react/)). We have created the fix for this by generating a `react` file inside the component's `dist` folder. Therefore, in order to import the web component into your React application, please use:
+React 18 and previous versions don't handle web components and custom elements out of the box correctly in all cases due to how React treats custom props and events (More details can be found [here](https://lit.dev/docs/frameworks/react/)). Our solution for this is to wrap the web component to include the `[@lit-labs/react](https://lit.dev/docs/frameworks/react/)` package, generating a `react` file inside the component's `dist` folder.
+
+Therefore, in order to import the web component into your React application, please use:
 
 import { PieButton } from '@justeattakeaway/pie-button/dist/react';
