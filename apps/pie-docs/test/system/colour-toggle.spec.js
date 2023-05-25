@@ -10,7 +10,7 @@ test.describe('PIE - colour page toggle - @desktop', () => {
         await disableCookieBanner(page, context);
     });
 
-    test('Should check the functionality of the colour page toggle', async ({ page }) => {
+    test('Should display the content associated with the toggle that has been clicked', async ({ page }) => {
         // Arrange
         await page.goto('foundations/colour/tokens/alias/light');
 
