@@ -15,7 +15,6 @@
   ],
   "scripts": {
     "build:wrapper": "yarn cem analyze && node ./scripts/add-react-wrapper.js",
-    "remove:wrapper": "node ./scripts/remove-react-wrapper.js",
     "test": "run -T jest"
   },
   "jest": {

@@ -159,6 +159,26 @@
     },
     {
       "kind": "javascript-module",
+      "path": "../../components/pie-button/src/react.js",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "PieButton"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "PieButton",
+          "declaration": {
+            "name": "PieButton",
+            "module": "../../components/pie-button/src/react.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "../../components/pie-modal/src/index.js",
       "declarations": [
         {
@@ -225,6 +245,26 @@
           "declaration": {
             "name": "PieModal",
             "module": "../../components/pie-modal/src/index.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../../components/pie-modal/src/react.js",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "PieModal"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "PieModal",
+          "declaration": {
+            "name": "PieModal",
+            "module": "../../components/pie-modal/src/react.js"
           }
         }
       ]

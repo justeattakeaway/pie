@@ -1,7 +1,6 @@
 import fs from 'fs-extra';
 import path from 'path';
 import { addReactWrapper } from '../scripts/add-react-wrapper';
-import { removeReactWrapper } from '../scripts/remove-react-wrapper';
 
 const loadJSON = (file) => JSON.parse(fs.readFileSync(path.resolve(__dirname, file)));
 
@@ -50,12 +49,5 @@ describe('React Wrapper', () => {
 
         expect(wrapper).toMatchSnapshot();
         expect(wrapper.includes(result)).toBe(true);
-    });
-
-    it('should be removed from the component after dist is built', () => {
-        const wrapper = removeReactWrapper(mockExample);
-
-        expect(wrapper).toMatchSnapshot();
-        expect(wrapper).toBe(undefined);
     });
 });

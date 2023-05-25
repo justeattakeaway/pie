@@ -33,8 +33,6 @@ export const ButtonComponent = createComponent({
 "
 `;
 
-exports[`React Wrapper should be removed from the component after dist is built 1`] = `undefined`;
-
 exports[`React Wrapper should leave the events object empty if the component contains no custom events 1`] = `
 "
 import * as React from 'react';
