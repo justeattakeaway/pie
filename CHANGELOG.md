@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.10.0
+
+### Minor Changes
+
+- [Added] - pie-icon-button component package with empty component code ([#486](https://github.com/justeattakeaway/pie/pull/486)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 2.9.0
 
 ### Minor Changes
