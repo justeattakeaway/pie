@@ -45,3 +45,27 @@ test.describe('PIE - site nav menu - @mobile', () => {
         await expect(navMenu).not.toBeVisible();
     });
 });
+
+test.describe('PIE - site nav menu - @desktop', () => {
+    test.beforeEach(async ({ page, context }) => {
+        await disableCookieBanner(page, context);
+    });
+
+    test('Should still be visible when the page has scrolled down', async ({ page }) => {
+        // Arrange
+        await page.goto('all-about-pie/what-is-pie/');
+        const firstNavSection = page.getByTestId('site_nav_section_1');
+        const siteHeader = page.getByTestId('site_header');
+
+        // Assert - Navigation and top of the page are visible
+        await expect.soft(firstNavSection).toBeVisible();
+        await expect.soft(siteHeader).toBeVisible();
+
+        // Act - Scroll to the bottom of the page
+        await page.keyboard.down('End');
+
+        // Assert - Navigation is still visible, but top of the page is not
+        await expect(firstNavSection).toBeVisible();
+        await expect(siteHeader).not.toBeVisible();
+    });
+});
