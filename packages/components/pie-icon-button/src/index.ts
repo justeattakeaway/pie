@@ -1,15 +1,17 @@
 import { LitElement, html } from 'lit'; // eslint-disable-line import/no-extraneous-dependencies
 import { customElement, property } from 'lit/decorators.js'; // eslint-disable-line import/no-extraneous-dependencies
+import { validPropertyValues } from '@justeattakeaway/pie-webc-core';
 import { ICON_BUTTON_VARIANT } from './defs';
-import { validPropertyValues } from './decorators';
 
 // Valid values available to consumers
 export { ICON_BUTTON_VARIANT };
 
-@customElement('pie-icon-button')
+const componentSelector = 'pie-icon-button';
+
+@customElement(componentSelector)
 export class PieIconButton extends LitElement {
     @property()
-    @validPropertyValues(Object.values(ICON_BUTTON_VARIANT), ICON_BUTTON_VARIANT.PRIMARY)
+    @validPropertyValues(componentSelector, Object.values(ICON_BUTTON_VARIANT), ICON_BUTTON_VARIANT.PRIMARY)
         variant : ICON_BUTTON_VARIANT = ICON_BUTTON_VARIANT.PRIMARY;
 
     // eslint-disable-next-line class-methods-use-this
@@ -23,6 +25,6 @@ export class PieIconButton extends LitElement {
 
 declare global {
     interface HTMLElementTagNameMap {
-        'pie-icon-button': PieIconButton;
+        [componentSelector]: PieIconButton;
     }
 }

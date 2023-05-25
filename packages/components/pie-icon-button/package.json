@@ -13,6 +13,9 @@
   },
   "author": "JustEatTakeaway - Design System Web Team",
   "license": "Apache-2.0",
+  "dependencies": {
+    "@justeattakeaway/pie-webc-core": "workspace:*"
+  },
   "volta": {
     "extends": "../../../package.json"
   }

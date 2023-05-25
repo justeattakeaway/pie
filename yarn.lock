@@ -4177,6 +4177,8 @@ __metadata:
 "@justeattakeaway/pie-icon-button@workspace:*, @justeattakeaway/pie-icon-button@workspace:packages/components/pie-icon-button":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-icon-button@workspace:packages/components/pie-icon-button"
+  dependencies:
+    "@justeattakeaway/pie-webc-core": "workspace:*"
   languageName: unknown
   linkType: soft
 
