@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-icon-button",
   "version": "0.0.0",
-  "description": "PIE design system icon button built using web components",
+  "description": "PIE Design System Icon Button built using Web Components",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
