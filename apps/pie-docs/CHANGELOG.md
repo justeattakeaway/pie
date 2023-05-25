@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.74.1
+
+### Patch Changes
+
+- [Changed] - updated snapshot tests that use icons to include new a11y attributes ([#486](https://github.com/justeattakeaway/pie/pull/486)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 1.74.0
 
 ### Minor Changes
