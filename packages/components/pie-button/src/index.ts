@@ -1,6 +1,5 @@
 import { LitElement, html, unsafeCSS } from 'lit';
-import { classMap } from 'lit/directives/class-map.js';
-import { property } from 'lit/decorators.js';
+import { customElement, property } from 'lit/decorators.js';
 import { validPropertyValues } from '@justeattakeaway/pie-webc-core';
 
 import styles from './button.scss?inline';
@@ -33,7 +32,6 @@ export class PieButton extends LitElement {
     render () {
         const {
             type, disabled, isFullWidth,
-
         } = this;
 
         return html`
