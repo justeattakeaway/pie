@@ -40,23 +40,4 @@ test.describe('PIE - Site Nav Menu', () => {
         // Assert
         await percySnapshot(page, 'PIE - Mobile Nav', mobileWidths);
     });
-
-    test('Should remain at the top of the page on Desktop', async ({ page }) => {
-        // Arrange
-        const navMenu = page.getByTestId('site_nav');
-
-        // Act - Open nav menu
-        await page.evaluate(async () => {
-            for (let i = 0; i < document.body.scrollHeight; i += 100) {
-                window.scrollTo(0, i);
-            }
-        });
-
-        await navMenu.isVisible();
-
-        const screenWidth = PERCY_BREAKPOINTS.DESKTOP;
-
-        // Assert
-        await percySnapshot(page, 'PIE - Desktop sticky nav', screenWidth);
-    });
 });

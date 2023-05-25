@@ -2,4 +2,4 @@
 "pie-docs": minor
 ---
 
-[Added] - Percy test for sticky nav on desktop
+[Added] - System test for sticky nav on desktop
