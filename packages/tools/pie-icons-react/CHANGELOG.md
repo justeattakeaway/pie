@@ -1,5 +1,17 @@
 # Changelog
 
+## 3.2.0
+
+### Minor Changes
+
+- [Changed] - icons to use accessibility attributes ([#481](https://github.com/justeattakeaway/pie/pull/481)) by [@FayeCarter](https://github.com/FayeCarter)
+
+### Patch Changes
+
+- [Changed] - Replaced html-minifier by html-minifier-terser ([#479](https://github.com/justeattakeaway/pie/pull/479)) by [@fernandofranca](https://github.com/fernandofranca)
+
+  [Changed] - Updated icons object builder function and script to async
+
 ## 3.1.0
 
 ### Minor Changes

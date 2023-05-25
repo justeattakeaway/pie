@@ -1,7 +1,7 @@
 {
-  "name": "@justeattakeaway/pie-modal",
-  "version": "0.2.0",
-  "description": "PIE design system modal built using web components",
+  "name": "@justeattakeaway/pie-icon-button",
+  "version": "0.1.0",
+  "description": "PIE Design System Icon Button built using Web Components",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -13,9 +13,6 @@
   },
   "author": "JustEatTakeaway - Design System Web Team",
   "license": "Apache-2.0",
-  "dependencies": {
-    "@justeattakeaway/pie-webc-core": "workspace:*"
-  },
   "volta": {
     "extends": "../../../package.json"
   }
