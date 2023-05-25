@@ -1,5 +1,36 @@
 # Changelog
 
+## 2.9.0
+
+### Minor Changes
+
+- [Added] - text file to document PIE documentation site redirect rules ([#477](https://github.com/justeattakeaway/pie/pull/477)) by [@FayeCarter](https://github.com/FayeCarter)
+
+- [Updated] - pie-docs `test:generate-routes` script to run `build` before running tests ([#473](https://github.com/justeattakeaway/pie/pull/473)) by [@FayeCarter](https://github.com/FayeCarter)
+
+- [Added] - new project pie-webc-core ([#478](https://github.com/justeattakeaway/pie/pull/478)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- [Removed] - empty folder ([#480](https://github.com/justeattakeaway/pie/pull/480)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- Updated dependencies [[`ce810b027`](https://github.com/justeattakeaway/pie/commit/ce810b027ab32c79f908c1265b4116fb1d0d37d2), [`5109f5d97`](https://github.com/justeattakeaway/pie/commit/5109f5d975d5ad77d936d8513bb499899d7552b9)]:
+  - @justeattakeaway/pie-icons@3.2.0
+
+## 2.8.0
+
+### Minor Changes
+
+- [Changed] - update codeowners file to include designers ([#452](https://github.com/justeattakeaway/pie/pull/452)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- [Fixed] - Updating references to pie-stylelint-config pkg (to stylelint-config-pie) ([#468](https://github.com/justeattakeaway/pie/pull/468)) by [@ashleynolan](https://github.com/ashleynolan)
+
+- [Changed] - Updated PR template to prompt contributors to check Storybook for component changes ([#461](https://github.com/justeattakeaway/pie/pull/461)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- [Fixed] - Updated CODEOWNERS location to root of .github file ([#469](https://github.com/justeattakeaway/pie/pull/469)) by [@ashleynolan](https://github.com/ashleynolan)
+
 ## 2.7.0
 
 ### Minor Changes

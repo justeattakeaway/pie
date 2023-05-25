@@ -1,5 +1,21 @@
 # Changelog
 
+## 0.9.1
+
+### Patch Changes
+
+- Updated dependencies [[`1f79d9d1a`](https://github.com/justeattakeaway/pie/commit/1f79d9d1a6fe9160b244e82d956290136b87187b)]:
+  - @justeattakeaway/pie-modal@0.2.0
+  - @justeattakeaway/pie-button@0.12.2
+
+## 0.9.0
+
+### Minor Changes
+
+- [Added] - Axe Add-on to Storybook ([#465](https://github.com/justeattakeaway/pie/pull/465)) by [@JoshuaNg2332](https://github.com/JoshuaNg2332)
+
+- [Added] Initial story for pie-modal component ([#461](https://github.com/justeattakeaway/pie/pull/461)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
 ## 0.8.1
 
 ### Patch Changes
