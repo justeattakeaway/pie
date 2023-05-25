@@ -7,7 +7,7 @@ module.exports = {
             {
                 except: ['blockless-after-blockless', 'first-nested'],
                 ignore: ['after-comment'],
-                ignoreAtRules: ['if', 'else'],
+                ignoreAtRules: ['if', 'else', 'include', 'use', 'forward'],
             }
         ],
         'at-rule-name-case': 'lower',
@@ -51,6 +51,7 @@ module.exports = {
         'declaration-colon-newline-after': 'always-multi-line',
         'declaration-colon-space-after': 'always-single-line',
         'declaration-colon-space-before': 'never',
+        'declaration-empty-line-before': null,
         'font-family-name-quotes': 'always-where-recommended',
         'font-weight-notation': 'numeric',
         'function-calc-no-unspaced-operator': true,
@@ -59,7 +60,12 @@ module.exports = {
         'function-comma-space-after': 'always',
         'function-comma-space-before': 'never',
         'function-linear-gradient-no-nonstandard-direction': true,
-        'function-name-case': 'lower',
+        'function-name-case': [
+            'lower',
+            {
+                ignoreFunctions: ['/zIndex/'],
+            }
+        ],
         'function-parentheses-space-inside': 'never',
         'function-url-quotes': 'always',
         'function-whitespace-after': 'always',
@@ -70,6 +76,7 @@ module.exports = {
         'max-line-length': [
             120,
             {
+                ignore: ['non-comments'],
                 ignorePattern: '/hsl\\(/',
             }
         ],
@@ -83,6 +90,12 @@ module.exports = {
         'media-query-list-comma-newline-before': null,
         'media-query-list-comma-space-after': 'always-single-line',
         'media-query-list-comma-space-before': 'never',
+        'no-descending-specificity': [
+            true,
+            {
+                ignore: ['selectors-within-list'],
+            }
+        ],
         'no-duplicate-selectors': null,
         'no-eol-whitespace': true,
         'no-missing-end-of-source-newline': true,
@@ -105,6 +118,8 @@ module.exports = {
         'scss/at-else-empty-line-before': 'never',
         'scss/at-else-if-parentheses-space-before': 'always',
         'scss/at-if-closing-brace-newline-after': 'always-last-in-chain',
+        'scss/dollar-variable-colon-space-after': 'at-least-one-space',
+        'scss/dollar-variable-pattern': null,
         'selector-attribute-quotes': 'always',
         'selector-class-pattern': null,
         'selector-combinator-space-after': 'always',
