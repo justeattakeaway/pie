@@ -1,0 +1,8 @@
+.c-skipLink {
+    position: absolute;
+    transform: translateY(-120%);
+
+    &:focus {
+        transform: translateY(0);
+    }
+}
