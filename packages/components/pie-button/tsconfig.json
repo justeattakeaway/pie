@@ -1,4 +1,4 @@
 {
-  "extends": "../../../configs/components-config/tsconfig.json",
+  "extends": "../../../configs/pie-components-config/tsconfig.json",
   "include": ["src/**/*.ts","./declaration.d.ts", "test/**/*.ts"],
 }
