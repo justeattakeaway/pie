@@ -1,8 +1,9 @@
 /* eslint-disable import/no-extraneous-dependencies */
+import { defineConfig } from 'vite';
 import dts from 'vite-plugin-dts';
 
 // https://vitejs.dev/config/
-export const viteConfig = {
+export default defineConfig({
     build: {
         lib: {
             entry: 'src/index.ts',
@@ -17,4 +18,4 @@ export const viteConfig = {
         insertTypesEntry: true,
         outputDir: 'dist/types',
     })],
-};
+});
