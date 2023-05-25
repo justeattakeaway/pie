@@ -1,0 +1,19 @@
+{
+  "name": "@justeattakeaway/pie-icon-button",
+  "version": "0.0.0",
+  "description": "PIE Design System Icon Button built using Web Components",
+  "type": "module",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/types/index.d.ts",
+  "scripts": {
+    "build": "run -T vite build",
+    "watch": "run -T vite build --watch",
+    "test": "echo \"Error: no test specified\" && exit 0"
+  },
+  "author": "JustEatTakeaway - Design System Web Team",
+  "license": "Apache-2.0",
+  "volta": {
+    "extends": "../../../package.json"
+  }
+}
