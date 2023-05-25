@@ -17,6 +17,9 @@
   "dependencies": {
     "@justeattakeaway/pie-webc-core": "workspace:*"
   },
+  "devDependencies": {
+    "@justeattakeaway/pie-components-config": "workspace:*"
+  },
   "volta": {
     "extends": "../../../package.json"
   }
