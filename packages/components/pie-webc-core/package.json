@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-webc-core",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "PIE design system base classes, mixins and utilities for web components",
   "type": "module",
   "main": "index.ts",

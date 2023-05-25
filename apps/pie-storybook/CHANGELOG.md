@@ -1,5 +1,24 @@
 # Changelog
 
+## 0.10.0
+
+### Minor Changes
+
+- [Added] - basic pie-icon-button integration ([#486](https://github.com/justeattakeaway/pie/pull/486)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies [[`8f57fc6a3`](https://github.com/justeattakeaway/pie/commit/8f57fc6a35d33a917d7590dcdb5d2a24653e1478)]:
+  - @justeattakeaway/pie-icon-button@0.1.0
+
+## 0.9.1
+
+### Patch Changes
+
+- Updated dependencies [[`1f79d9d1a`](https://github.com/justeattakeaway/pie/commit/1f79d9d1a6fe9160b244e82d956290136b87187b)]:
+  - @justeattakeaway/pie-modal@0.2.0
+  - @justeattakeaway/pie-button@0.12.2
+
 ## 0.9.0
 
 ### Minor Changes
