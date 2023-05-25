@@ -11,8 +11,8 @@ export default {
             control: 'select',
             options: Object.values(ICON_BUTTON_VARIANT),
         },
-        slot: {
-            control: 'text',
+        disabled: {
+            control: 'boolean',
         },
     },
     args: {
@@ -28,21 +28,21 @@ export default {
 
 interface IconButtonProps {
     variant: ICON_BUTTON_VARIANT;
-    slot: TemplateResult;
+    disabled: boolean;
 }
 
 const Template = ({
-    variant, slot,
+    variant, disabled,
 }: IconButtonProps): TemplateResult => html`
         <pie-icon-button
-            variant="${variant}">
-            ${slot}
+            variant="${variant}"
+            ?disabled="${disabled}">
         </pie-icon-button>
         `;
 
 const defaultArgs = {
     variant: ICON_BUTTON_VARIANT.PRIMARY,
-    slot: 'This is Lit!',
+    disabled: false,
 };
 
 export const Primary: Story = Template.bind({});

@@ -6,5 +6,5 @@ export enum ICON_BUTTON_VARIANT {
     SECONDARY = 'secondary',
     OUTLINE = 'outline',
     GHOST = 'ghost',
-    GHOST_TERTIARY = 'ghost-tertiary'
+    GHOST_TERTIARY = 'ghost-tertiary',
 }
