@@ -1,0 +1,11 @@
+{
+  "name": "@justeattakeaway/pie-components-config",
+  "version": "0.1.0",
+  "private": true,
+  "main": "index.js",
+  "type": "module",
+  "description": "Shared configuration files for PIE components",
+  "volta": {
+    "extends": "../../package.json"
+  }
+}
