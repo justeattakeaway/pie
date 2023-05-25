@@ -1,15 +1,23 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import type { Meta, StoryObj as Story } from '@storybook/web-components';
+import { ICON_BUTTON_VARIANT } from '@justeattakeaway/pie-icon-button';
 import { html, TemplateResult } from 'lit';
 
 export default {
     title: 'Icon Button',
     component: 'pie-icon-button',
     argTypes: {
+        variant: {
+            control: 'select',
+            options: Object.values(ICON_BUTTON_VARIANT),
+        },
         slot: {
             control: 'text',
         },
     },
-    args: {},
+    args: {
+        variant: ICON_BUTTON_VARIANT.PRIMARY,
+    },
     parameters: {
         design: {
             type: 'figma',
@@ -19,22 +27,49 @@ export default {
 } as Meta;
 
 interface IconButtonProps {
+    variant: ICON_BUTTON_VARIANT;
     slot: TemplateResult;
 }
 
 const Template = ({
-    slot,
+    variant, slot,
 }: IconButtonProps): TemplateResult => html`
-        <pie-icon-button>
+        <pie-icon-button
+            variant="${variant}">
             ${slot}
         </pie-icon-button>
-    `;
+        `;
 
 const defaultArgs = {
+    variant: ICON_BUTTON_VARIANT.PRIMARY,
     slot: 'This is Lit!',
 };
 
-export const Default: Story = Template.bind({});
-Default.args = {
+export const Primary: Story = Template.bind({});
+Primary.args = {
     ...defaultArgs,
+};
+
+export const Secondary: Story = Template.bind({});
+Secondary.args = {
+    ...defaultArgs,
+    variant: ICON_BUTTON_VARIANT.SECONDARY,
+};
+
+export const Outline: Story = Template.bind({});
+Outline.args = {
+    ...defaultArgs,
+    variant: ICON_BUTTON_VARIANT.OUTLINE,
+};
+
+export const Ghost: Story = Template.bind({});
+Ghost.args = {
+    ...defaultArgs,
+    variant: ICON_BUTTON_VARIANT.GHOST,
+};
+
+export const GhostTertiary: Story = Template.bind({});
+GhostTertiary.args = {
+    ...defaultArgs,
+    variant: ICON_BUTTON_VARIANT.GHOST_TERTIARY,
 };
