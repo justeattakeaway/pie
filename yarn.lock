@@ -4174,6 +4174,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@justeattakeaway/pie-icon-button@workspace:*, @justeattakeaway/pie-icon-button@workspace:packages/components/pie-icon-button":
+  version: 0.0.0-use.local
+  resolution: "@justeattakeaway/pie-icon-button@workspace:packages/components/pie-icon-button"
+  languageName: unknown
+  linkType: soft
+
 "@justeattakeaway/pie-icons-configs@workspace:*, @justeattakeaway/pie-icons-configs@workspace:packages/tools/pie-icons-configs":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-icons-configs@workspace:packages/tools/pie-icons-configs"
@@ -26134,6 +26140,7 @@ __metadata:
   resolution: "pie-storybook@workspace:apps/pie-storybook"
   dependencies:
     "@justeattakeaway/pie-button": "workspace:*"
+    "@justeattakeaway/pie-icon-button": "workspace:*"
     "@justeattakeaway/pie-modal": "workspace:*"
     "@storybook/addon-a11y": 7.0.7
     "@storybook/addon-essentials": 7.0.7

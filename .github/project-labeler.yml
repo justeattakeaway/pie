@@ -35,3 +35,6 @@ pie-button:
 
 pie-modal:
 - 'packages/components/pie-modal/**/*'
+
+pie-icon-button:
+- 'packages/components/pie-icon-button/**/*'
