@@ -6,7 +6,7 @@ This package is for generating a React wrapper during the build process of a Lit
 
 With this package, the below code (example of `pie-button`) is automatically generated into a `react.ts` file within the component's `src` directory. The wrapper then gets saved to the component's `dist` folder during the build.
 
-```
+```js
 import * as React from 'react';
 import { createComponent } from '@lit-labs/react';
 import type { EventName } from '@lit-labs/react';
@@ -24,13 +24,13 @@ This package references a `custom-elements.json` file, which is generated via a 
 
 To use the React wrapper in an application, import `Pie{Component}` from the package of the component, with the additional import of `dist/react`. For example:
 
-```
+```js
 import { PieButton } from '@justeattakeaway/pie-button/dist/react'
 ```
 
 Note: In order for the `custom-elements-manifest/analyzer` to recognise events inside your component, please declare the event inside the `this.dispatchEvent` function. For example:
 
-```
+```js
 this.dispatchEvent(new CustomEvent('CustomEvent', { detail: 'WC event dispatched' }))
 ```
 
