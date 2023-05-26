@@ -1,7 +1,5 @@
 import { LitElement, html } from 'lit'; // eslint-disable-line import/no-extraneous-dependencies
-import { customElement } from 'lit/decorators.js'; // eslint-disable-line import/no-extraneous-dependencies
 
-@customElement('pie-icon-button')
 export class PieIconButton extends LitElement {
     // eslint-disable-next-line class-methods-use-this
     render () {
@@ -12,6 +10,8 @@ export class PieIconButton extends LitElement {
             </button>`;
     }
 }
+
+customElements.define('pie-icon-button', PieIconButton);
 
 declare global {
     interface HTMLElementTagNameMap {

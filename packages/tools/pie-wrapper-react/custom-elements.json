@@ -159,15 +159,41 @@
     },
     {
       "kind": "javascript-module",
-      "path": "../../components/pie-webc-core/src/index.js",
-      "declarations": [],
+      "path": "../../components/pie-icon-button/src/index.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "PieIconButton",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "pie-icon-button",
+          "customElement": true
+        }
+      ],
       "exports": [
         {
           "kind": "js",
-          "name": "*",
+          "name": "PieIconButton",
           "declaration": {
-            "name": "*",
-            "package": "./mixins"
+            "name": "PieIconButton",
+            "module": "../../components/pie-icon-button/src/index.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "pie-icon-button",
+          "declaration": {
+            "name": "PieIconButton",
+            "module": "../../components/pie-icon-button/src/index.js"
           }
         }
       ]
@@ -240,6 +266,21 @@
           "declaration": {
             "name": "PieModal",
             "module": "../../components/pie-modal/src/index.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../../components/pie-webc-core/src/index.js",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./mixins"
           }
         }
       ]
