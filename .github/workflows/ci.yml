@@ -143,6 +143,15 @@ jobs:
       bucket-name-main: 'pie-docs'
     secrets: inherit
 
+  lighthouse:
+    needs: [ 'deploy-docs']
+    uses: ./.github/workflows/lighthouse.yml
+    with:
+      os: ubuntu-latest
+      node-version: 18
+      environment-url: https://pr${{ github.event.number }}.dvskdcoepjoyf.amplifyapp.com
+    secrets: inherit
+
   deploy-storybook:
     needs: unit-tests
     uses: ./.github/workflows/amplify-deploy.yml
