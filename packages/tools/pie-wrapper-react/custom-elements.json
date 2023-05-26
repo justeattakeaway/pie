@@ -159,20 +159,15 @@
     },
     {
       "kind": "javascript-module",
-      "path": "../../components/pie-button/src/react.js",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "PieButton"
-        }
-      ],
+      "path": "../../components/pie-webc-core/src/index.js",
+      "declarations": [],
       "exports": [
         {
           "kind": "js",
-          "name": "PieButton",
+          "name": "*",
           "declaration": {
-            "name": "PieButton",
-            "module": "../../components/pie-button/src/react.js"
+            "name": "*",
+            "package": "./mixins"
           }
         }
       ]
@@ -245,41 +240,6 @@
           "declaration": {
             "name": "PieModal",
             "module": "../../components/pie-modal/src/index.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "../../components/pie-modal/src/react.js",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "PieModal"
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "PieModal",
-          "declaration": {
-            "name": "PieModal",
-            "module": "../../components/pie-modal/src/react.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "../../components/pie-webc-core/src/index.js",
-      "declarations": [],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "*",
-          "declaration": {
-            "name": "*",
-            "package": "./mixins"
           }
         }
       ]

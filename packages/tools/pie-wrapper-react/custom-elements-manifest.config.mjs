@@ -7,6 +7,7 @@ export default {
     exclude: [
         '../../**/*.d.ts',
         '../../**/*.d.js',
+        '../../**/react.ts',
         '../../**/test/**',
         'node_modules/*',
         '../../**/node_modules/**',
