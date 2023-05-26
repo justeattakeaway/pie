@@ -32,7 +32,6 @@
   "devDependencies": {
     "@11ty/eleventy": "1.0.2",
     "@11ty/eleventy-navigation": "0.3.5",
-    "@justeattakeaway/pie-icons": "3.2.0",
     "eleventy-plugin-clean": "1.2.5",
     "eleventy-plugin-rev": "1.1.1",
     "eleventy-sass": "2.2.1",
@@ -40,6 +39,7 @@
   },
   "dependencies": {
     "@justeat/f-cookie-banner": "4.7.0",
+    "@justeattakeaway/pie-icons": "3.2.0",
     "markdown-it": "13.0.1"
   },
   "volta": {
