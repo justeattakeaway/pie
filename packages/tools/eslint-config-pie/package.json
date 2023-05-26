@@ -13,7 +13,6 @@
     "check-rules": "eslint-find-rules --unused",
     "pretest": "yarn lint:scripts && yarn check-rules",
     "test": "yarn tests-only",
-    "test:ci": "yarn test",
     "tests-only": "run -T jest"
   },
   "license": "Apache-2.0",

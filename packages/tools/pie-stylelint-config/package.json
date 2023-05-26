@@ -22,8 +22,7 @@
     "stylelint-order": "5.x"
   },
   "scripts": {
-    "test": "run -T jest",
-    "test:ci": "yarn test"
+    "test": "run -T jest"
   },
   "jest": {
     "testEnvironment": "jsdom"
