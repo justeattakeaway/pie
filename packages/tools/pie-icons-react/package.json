@@ -37,7 +37,8 @@
     "build": "yarn clean && yarn build:icons && yarn build:lib",
     "clean": "run -T rimraf -rf ./icons/",
     "prepublishOnly": "yarn build",
-    "test": "run jest"
+    "test": "run jest",
+    "test:ci": "yarn test"
   },
   "devDependencies": {
     "@babel/node": "7.20.7",
