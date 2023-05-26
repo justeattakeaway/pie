@@ -5,6 +5,7 @@
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
+  "types": "dist/types/index.d.ts",
   "scripts": {
     "build": "yarn build:wrapper pie-button && run -T vite build",
     "watch": "run -T vite build --watch",
