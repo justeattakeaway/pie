@@ -31,7 +31,7 @@ jobs:
         id: load-urls
         run: |
           HOST_URL="${{inputs.environment-url}}"
-          URLS_JSON=$(jq -r '.[]' < path-to-your-file.json | while read path; do echo "$HOST_URL/$path"; done | paste -sd ',' -)
+          URLS_JSON=$(jq -r '.[]' < ./apps/pie-docs/test/snapshots/expected-routes.snapshot.json | while read path; do echo "$HOST_URL/$path"; done | paste -sd ',' -)
           echo "URLS_JSON=$URLS_JSON" >> $GITHUB_ENV
 
       - name: Run Lighthouse CI
