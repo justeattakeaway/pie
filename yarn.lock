@@ -26068,6 +26068,7 @@ __metadata:
     "@11ty/eleventy": 1.0.2
     "@11ty/eleventy-navigation": 0.3.5
     "@justeat/f-cookie-banner": 4.7.0
+    "@justeattakeaway/pie-icons": 3.2.0
     eleventy-plugin-clean: 1.2.5
     eleventy-plugin-rev: 1.1.1
     eleventy-sass: 2.2.1
@@ -26095,7 +26096,6 @@ __metadata:
     "@justeat/fozzie": 10.11.1
     "@justeat/pie-design-tokens": 4.2.0
     "@justeat/stylelint-config-fozzie": 3.x
-    "@justeattakeaway/pie-icons": 3.2.0
     "@percy/cli": 1.23.0
     "@percy/playwright": 1.0.4
     "@playwright/test": 1.32.3

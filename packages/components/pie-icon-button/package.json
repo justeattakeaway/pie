@@ -9,7 +9,8 @@
   "scripts": {
     "build": "run -T vite build",
     "watch": "run -T vite build --watch",
-    "test": "echo \"Error: no test specified\" && exit 0"
+    "test": "echo \"Error: no test specified\" && exit 0",
+    "test:ci": "yarn test"
   },
   "author": "JustEatTakeaway - Design System Web Team",
   "license": "Apache-2.0",
