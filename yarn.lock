@@ -4166,9 +4166,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-button@0.12.1, @justeattakeaway/pie-button@workspace:*, @justeattakeaway/pie-button@workspace:packages/components/pie-button":
+"@justeattakeaway/pie-button@0.12.2, @justeattakeaway/pie-button@workspace:*, @justeattakeaway/pie-button@workspace:packages/components/pie-button":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-button@workspace:packages/components/pie-button"
+  dependencies:
+    "@justeattakeaway/pie-webc-core": "workspace:*"
+  languageName: unknown
+  linkType: soft
+
+"@justeattakeaway/pie-icon-button@workspace:*, @justeattakeaway/pie-icon-button@workspace:packages/components/pie-icon-button":
+  version: 0.0.0-use.local
+  resolution: "@justeattakeaway/pie-icon-button@workspace:packages/components/pie-icon-button"
   languageName: unknown
   linkType: soft
 
@@ -4184,7 +4192,7 @@ __metadata:
   dependencies:
     "@babel/node": 7.20.7
     "@babel/preset-react": 7.18.6
-    "@justeattakeaway/pie-icons": 3.1.0
+    "@justeattakeaway/pie-icons": 3.2.0
     "@justeattakeaway/pie-icons-configs": "workspace:*"
     "@svgr/core": 6.4.0
     babel-jest: 29.5.0
@@ -4203,7 +4211,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-icons-vue@workspace:packages/tools/pie-icons-vue"
   dependencies:
-    "@justeattakeaway/pie-icons": 3.1.0
+    "@justeattakeaway/pie-icons": 3.2.0
     "@vue/babel-helper-vue-jsx-merge-props": 1.4.0
     "@vue/babel-preset-jsx": 1.4.0
     "@vue/test-utils": 1.1.3
@@ -4217,13 +4225,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-icons@3.1.0, @justeattakeaway/pie-icons@workspace:packages/tools/pie-icons":
+"@justeattakeaway/pie-icons@3.2.0, @justeattakeaway/pie-icons@workspace:packages/tools/pie-icons":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-icons@workspace:packages/tools/pie-icons"
   dependencies:
     cheerio: 1.0.0-rc.12
     classnames: 2.3.2
-    html-minifier: 4.0.0
+    html-minifier-terser: 7.2.0
     lint-staged: 12.5.0
     nodemon: 2.0.22
     prettier: 2.8.7
@@ -4236,6 +4244,14 @@ __metadata:
 "@justeattakeaway/pie-modal@workspace:*, @justeattakeaway/pie-modal@workspace:packages/components/pie-modal":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-modal@workspace:packages/components/pie-modal"
+  dependencies:
+    "@justeattakeaway/pie-webc-core": "workspace:*"
+  languageName: unknown
+  linkType: soft
+
+"@justeattakeaway/pie-webc-core@workspace:*, @justeattakeaway/pie-webc-core@workspace:packages/components/pie-webc-core":
+  version: 0.0.0-use.local
+  resolution: "@justeattakeaway/pie-webc-core@workspace:packages/components/pie-webc-core"
   languageName: unknown
   linkType: soft
 
@@ -12230,7 +12246,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"clean-css@npm:^5.2.2":
+"clean-css@npm:^5.2.2, clean-css@npm:~5.3.2":
   version: 5.3.2
   resolution: "clean-css@npm:5.3.2"
   dependencies:
@@ -12624,6 +12640,13 @@ __metadata:
   dependencies:
     delayed-stream: ~1.0.0
   checksum: 49fa4aeb4916567e33ea81d088f6584749fc90c7abec76fd516bf1c5aa5c79f3584b5ba3de6b86d26ddd64bae5329c4c7479343250cfe71c75bb366eae53bb7c
+  languageName: node
+  linkType: hard
+
+"commander@npm:^10.0.0":
+  version: 10.0.1
+  resolution: "commander@npm:10.0.1"
+  checksum: 436901d64a818295803c1996cd856621a74f30b9f9e28a588e726b2b1670665bccd7c1a77007ebf328729f0139838a88a19265858a0fa7a8728c4656796db948
   languageName: node
   linkType: hard
 
@@ -18615,6 +18638,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"html-minifier-terser@npm:7.2.0":
+  version: 7.2.0
+  resolution: "html-minifier-terser@npm:7.2.0"
+  dependencies:
+    camel-case: ^4.1.2
+    clean-css: ~5.3.2
+    commander: ^10.0.0
+    entities: ^4.4.0
+    param-case: ^3.0.4
+    relateurl: ^0.2.7
+    terser: ^5.15.1
+  bin:
+    html-minifier-terser: cli.js
+  checksum: 39feed354b5a8aafc8e910977d68cfd961d6db330a8e1a5b16a528c86b8ee7745d8945134822cf00acf7bf0d0135bf1abad650bf308bee4ea73adb003f5b8656
+  languageName: node
+  linkType: hard
+
 "html-minifier-terser@npm:^5.0.1":
   version: 5.1.1
   resolution: "html-minifier-terser@npm:5.1.1"
@@ -18649,7 +18689,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"html-minifier@npm:4.0.0, html-minifier@npm:^4.0.0":
+"html-minifier@npm:^4.0.0":
   version: 4.0.0
   resolution: "html-minifier@npm:4.0.0"
   dependencies:
@@ -26075,7 +26115,7 @@ __metadata:
     "@justeat/fozzie": 10.11.1
     "@justeat/pie-design-tokens": 4.2.0
     "@justeat/stylelint-config-fozzie": 3.x
-    "@justeattakeaway/pie-icons": 3.1.0
+    "@justeattakeaway/pie-icons": 3.2.0
     "@percy/cli": 1.23.0
     "@percy/playwright": 1.0.4
     "@playwright/test": 1.32.3
@@ -26122,6 +26162,7 @@ __metadata:
   resolution: "pie-storybook@workspace:apps/pie-storybook"
   dependencies:
     "@justeattakeaway/pie-button": "workspace:*"
+    "@justeattakeaway/pie-icon-button": "workspace:*"
     "@justeattakeaway/pie-modal": "workspace:*"
     "@storybook/addon-a11y": 7.0.7
     "@storybook/addon-essentials": 7.0.7
@@ -33321,6 +33362,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"terser@npm:^5.15.1":
+  version: 5.17.5
+  resolution: "terser@npm:5.17.5"
+  dependencies:
+    "@jridgewell/source-map": ^0.3.2
+    acorn: ^8.5.0
+    commander: ^2.20.0
+    source-map-support: ~0.5.20
+  bin:
+    terser: bin/terser
+  checksum: f9990932a62ef6fcc424894f483d71aa647b0524ac18167f945201a32401c09702e480a3198dcaf9d6d755243d3d73c13418cdb28711ef167c028d3ff2a866bf
+  languageName: node
+  linkType: hard
+
 "test-exclude@npm:^6.0.0":
   version: 6.0.0
   resolution: "test-exclude@npm:6.0.0"
@@ -35690,7 +35745,7 @@ __metadata:
   resolution: "wc-vanilla@workspace:apps/examples/wc-vanilla"
   dependencies:
     "@justeat/pie-design-tokens": 5.0.1
-    "@justeattakeaway/pie-button": 0.12.1
+    "@justeattakeaway/pie-button": 0.12.2
     vite: ^4.3.0
   languageName: unknown
   linkType: soft
