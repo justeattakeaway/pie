@@ -1,52 +1,30 @@
 import { test } from '@sand4rt/experimental-ct-web';
 import percySnapshot from '@percy/playwright';
+import { getAllPropCombinations } from '@justeattakeaway/pie-webc-core';
 import { PieButton } from '@/index';
 import { BUTTON_SIZE, BUTTON_TYPE, BUTTON_VARIANT } from '@/defs';
 
-const sizes = Object.values(BUTTON_SIZE);
-const variants = Object.values(BUTTON_VARIANT);
-const disabledStates = [true, false];
+const props = {
+    variant: Object.values(BUTTON_VARIANT),
+    size: Object.values(BUTTON_SIZE),
+    type: Object.values(BUTTON_TYPE),
+    isFullWidth: [true, false],
+    disabled: [true, false],
+};
 
-variants.forEach((variant) => {
-    test(`should render - ${variant}`, async ({ page, mount }) => {
-        for (const size of sizes) {
-            for (const disabledState of disabledStates) {
-                await mount(
-                    PieButton,
-                    {
-                        props: {
-                            type: BUTTON_TYPE.BUTTON,
-                            size,
-                            variant,
-                            disabled: disabledState,
-                            isFullWidth: false,
-                        },
-                        slots: {
-                            default: `Hello, ${size} ${variant} Button!`,
-                        },
-                    },
-                );
-            }
+test('Render all prop variations', async ({ page, mount }) => {
+    const combinations = getAllPropCombinations(props);
+    await Promise.all(combinations.map(async (combo) => {
+        await mount(
+            PieButton,
+            {
+                props: { ...combo },
+                slots: {
+                    default: `Variant: ${combo.variant}, Size: ${combo.size}, Type: ${combo.type}, isFullWidth: ${combo.isFullWidth}, disabled: ${combo.disabled}`,
+                },
+            },
+        );
+    }));
 
-            for (const disabledState of disabledStates) {
-                await mount(
-                    PieButton,
-                    {
-                        props: {
-                            type: BUTTON_TYPE.BUTTON,
-                            size,
-                            variant,
-                            disabled: disabledState,
-                            isFullWidth: true,
-                        },
-                        slots: {
-                            default: `Hello, ${size} ${variant} Button!`,
-                        },
-                    },
-                );
-            }
-        }
-
-        await percySnapshot(page, `PIE Button - ${variant}`);
-    });
+    await percySnapshot(page, 'PIE Button - Visual Tests');
 });
