@@ -27,14 +27,18 @@ jobs:
           os: ${{ inputs.os }}
 
 
-      - name: Load URLs from JSON
-        id: load-urls
-        run: |
-          HOST_URL="${{ inputs.environment-url }}"
-          URLS=$(jq -c '[.[] | "'"$HOST_URL"'/"+.]' < ./apps/pie-docs/test/snapshots/expected-routes.snapshot.json)
-          echo "::set-output name=urls::$URLS"
-  
-      - name: Run Lighthouse CI
-        uses: treosh/lighthouse-ci-action@v10
+      - name: Get audit urls
+        id: audit-urls
+        uses: actions/github-script@v6.3.3
         with:
-          urls: ${{ fromJSON(steps.load-urls.outputs.urls) }}
+          script: |
+            const testPaths = require('./.lighthouse/testPaths.json');
+            const testUrls = testPaths.map(testPath => `${{inputs.environment-url}}${testPath}`);
+            core.setOutput("urls", [targetUrl, ...testUrls].join('\n'));
+    
+        - name: Audit URLs using Lighthouse
+          id: audit
+          uses: treosh/lighthouse-ci-action@v9
+          with:
+            urls: ${{ steps.audit-urls.outputs.urls }}
+
