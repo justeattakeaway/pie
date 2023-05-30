@@ -30,10 +30,11 @@ jobs:
         id: load-urls
         run: |
           HOST_URL="${{ inputs.environment-url }}"
-          jq -r '.[]' < ./apps/pie-docs/test/snapshots/expected-routes.snapshot.json | while read path; do echo "$HOST_URL/$path"; done > lighthouse-urls.txt
+          URLS=(jq -r '.[]' < ./apps/pie-docs/test/snapshots/expected-routes.snapshot.json | while read path; do echo "$HOST_URL/$path"; done)
+          echo "::set-output name=urls::$URLS"
 
       - name: Run Lighthouse CI
         uses: treosh/lighthouse-ci-action@v7
         with:
           urls: |
-            $(cat urls.txt)
+            ${{ steps.load-urls.outputs.urls }}
