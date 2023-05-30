@@ -215,5 +215,5 @@ jobs:
     uses: ./.github/workflows/changeset-release.yml
     with:
       os: ubuntu-latest
-      node-version: 16
+      node-version: 18
     secrets: inherit
