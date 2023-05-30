@@ -3,3 +3,4 @@
 ---
 
 [Added] - System test for sticky nav on desktop
+[Added] - `isElementVisibleInViewport` test helper function
