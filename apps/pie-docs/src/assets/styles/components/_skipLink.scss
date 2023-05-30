@@ -1,0 +1,20 @@
+@use '../fozzie-config' as f;
+
+.c-skipLink {
+    background-color: f.$color-container-subtle;
+    color: f.$color-content-link-distinct;
+    padding-block: f.$spacing-02;
+    text-align: center;
+    outline: none;
+    position: absolute;
+    inset-inline: 0;
+    transform: translateY(-120%);
+
+    &:focus {
+        transform: translateY(0);
+    }
+
+    &:focus span {
+        outline: 2px solid f.$color-focus;
+    }
+}
