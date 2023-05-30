@@ -249,7 +249,7 @@ const buildCategorisedLists = ({
 
     // for each category, create an h2 and a list of token elements to render
     const categoryTokenLists = Object.keys(categories).map((category) => {
-        const heading = `<h2 class="c-tokensTable-title">${categories[category].displayName}</h2>`;
+        const heading = `<h2>${categories[category].displayName}</h2>`;
         const tokensList = buildTokensListForCategory(tokens, path, category, tokenType);
 
         // returns a 'chunk' of the tokens table page (a heading, the column headers, list of tokens and an option HR element)
@@ -286,7 +286,7 @@ const buildCategoryListsWithParents = ({
 
         // create heading and description for parent category
         const { displayName, description } = parentCategories[parentCategoryKey];
-        const heading = `<h2 class="c-tokensTable-title c-tokensTable-sectionHeading">${displayName}</h2>`;
+        const heading = `<h2 class="c-tokensTable-sectionHeading">${displayName}</h2>`;
         const descriptionMarkup = `<p class="c-tokensTable-sectionDescription">${description}</p>`;
 
         // return heading, description and lists
