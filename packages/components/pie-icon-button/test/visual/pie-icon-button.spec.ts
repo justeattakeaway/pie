@@ -1,18 +1,24 @@
 import { test } from '@sand4rt/experimental-ct-web';
 import percySnapshot from '@percy/playwright';
+import { PropObject, Combination, getAllPropCombinations } from '@justeattakeaway/pie-webc-core/src/test-helpers/get-all-prop-combos.ts';
 import { PieIconButton } from '@/index';
 import { ICON_BUTTON_VARIANT } from '@/defs';
 
-const variants = Object.values(ICON_BUTTON_VARIANT);
-test('should render', async ({ page, mount }) => {
-    await mount(
-        PieIconButton,
-        {
-            props: {
-                variant: ICON_BUTTON_VARIANT.PRIMARY,
-            },
-        },
-    );
+const props: PropObject = {
+    variant: Object.values(ICON_BUTTON_VARIANT),
+    disabled: [true, false],
+};
 
-    await percySnapshot(page, 'PIE Icon Button');
+test('Render all prop variations', async ({ page, mount }) => {
+    const combinations = getAllPropCombinations(props);
+    await Promise.all(combinations.map(async (combo: Combination) => {
+        await mount(
+            PieIconButton,
+            {
+                props: { ...combo },
+            },
+        );
+    }));
+
+    await percySnapshot(page, 'PIE Icon Button - Visual Tests');
 });

@@ -1,10 +1,10 @@
 import { test } from '@sand4rt/experimental-ct-web';
 import percySnapshot from '@percy/playwright';
-import { getAllPropCombinations } from '@justeattakeaway/pie-webc-core';
+import { PropObject, Combination, getAllPropCombinations } from '@justeattakeaway/pie-webc-core/src/test-helpers/get-all-prop-combos.ts';
 import { PieButton } from '@/index';
 import { BUTTON_SIZE, BUTTON_TYPE, BUTTON_VARIANT } from '@/defs';
 
-const props = {
+const props: PropObject = {
     variant: Object.values(BUTTON_VARIANT),
     size: Object.values(BUTTON_SIZE),
     type: Object.values(BUTTON_TYPE),
@@ -14,7 +14,7 @@ const props = {
 
 test('Render all prop variations', async ({ page, mount }) => {
     const combinations = getAllPropCombinations(props);
-    await Promise.all(combinations.map(async (combo) => {
+    await Promise.all(combinations.map(async (combo: Combination) => {
         await mount(
             PieButton,
             {

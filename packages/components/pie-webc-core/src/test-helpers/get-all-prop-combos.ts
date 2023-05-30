@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-type PropObject = {
+export type PropObject = {
     [key: string]: boolean | any[];
 };
 
-type Combination = {
+export type Combination = {
     [key: string]: boolean | any;
 };
 
@@ -15,7 +15,7 @@ type Combination = {
  *
  * @returns {Combination[]} An array of objects, where each object is a unique combination of property values.
  */
-export function getAllPropCombinations (obj: PropObject): Combination[] {
+export const getAllPropCombinations = (obj: PropObject): Combination[] => {
     // Get the keys from the passed object
     const keys = Object.keys(obj);
     // Initialize an array to store all combinations
@@ -56,4 +56,4 @@ export function getAllPropCombinations (obj: PropObject): Combination[] {
     helper([], 0);
 
     return combinations;
-}
+};
