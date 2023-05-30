@@ -1,7 +1,7 @@
-const { removeHyphenBeforeDigits } = require('../index');
+import { removeHyphenBeforeDigits } from '../index';
 
 describe('removeHyphenBeforeDigits', () => {
-    it.each([
+    test.each([
         ['component-123', 'component123'],
         ['test-', 'test-'],
         ['test123', 'test123'],
