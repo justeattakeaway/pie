@@ -6,10 +6,11 @@ icon_fill: orange
 <html lang="{{ metadata.language }}" prefix="og: https://ogp.me/ns#">
     {% include "head.njk" %}
     <body {{bodyDataAttribute}}>
+        <a href="#main-content" class="c-skipLink"><span>Skip to main content</span></a>
         <div class="page">
             {% include "header.njk" %}
             {% include "nav.njk" %}
-            <main class="c-main">
+            <main id="main-content" class="c-main" tabindex="-1">
                 {{ content | safe }}
             </main>
 
