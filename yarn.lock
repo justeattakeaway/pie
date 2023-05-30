@@ -598,21 +598,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/eslint-parser@npm:7.21.3":
-  version: 7.21.3
-  resolution: "@babel/eslint-parser@npm:7.21.3"
-  dependencies:
-    "@nicolo-ribaudo/eslint-scope-5-internals": 5.1.1-v1
-    eslint-visitor-keys: ^2.1.0
-    semver: ^6.3.0
-  peerDependencies:
-    "@babel/core": ">=7.11.0"
-    eslint: ^7.5.0 || ^8.0.0
-  checksum: cc44a26a518c62ca93cdbee4ec4fa195c5a69b4f85d696c9df572b1ada99446ebdf3caef58a124f401a798279a765f858c88292bc7a8fc0485c34e178b1a9e82
-  languageName: node
-  linkType: hard
-
-"@babel/eslint-parser@npm:^7.16.3":
+"@babel/eslint-parser@npm:7.21.8, @babel/eslint-parser@npm:^7.16.3":
   version: 7.21.8
   resolution: "@babel/eslint-parser@npm:7.21.8"
   dependencies:
@@ -26082,7 +26068,7 @@ __metadata:
     "@axe-core/playwright": 4.6.1
     "@babel/cli": 7.21.0
     "@babel/core": 7.21.4
-    "@babel/eslint-parser": 7.21.3
+    "@babel/eslint-parser": 7.21.8
     "@babel/node": 7.20.7
     "@babel/preset-env": 7.21.4
     "@babel/register": 7.21.0
