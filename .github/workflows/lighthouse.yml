@@ -38,4 +38,4 @@ jobs:
         with:
           urls: |
             ${{ steps.load-urls.outputs.urls }}
-          config-path: ./lighthouserc.json
+          configPath: ./lighthouserc.json
