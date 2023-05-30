@@ -17,7 +17,6 @@ $icon-preview-size: 64px;
 }
 
 .c-categorisedIconList-heading {
-    @include f.font-size('heading-m');
     margin-block: f.spacing(f);
 }
 
