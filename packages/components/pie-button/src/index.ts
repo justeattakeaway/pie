@@ -1,7 +1,8 @@
 import { LitElement, html, unsafeCSS } from 'lit';
 import { classMap } from 'lit/directives/class-map.js';
-import { customElement, property } from 'lit/decorators.js';
+import { property } from 'lit/decorators.js';
 import { validPropertyValues } from '@justeattakeaway/pie-webc-core';
+
 import styles from './button.scss?inline';
 import { BUTTON_SIZE, BUTTON_TYPE, BUTTON_VARIANT } from './defs';
 
@@ -10,7 +11,6 @@ export { BUTTON_SIZE, BUTTON_TYPE, BUTTON_VARIANT };
 
 const componentSelector = 'pie-button';
 
-@customElement(componentSelector)
 export class PieButton extends LitElement {
     @property({ reflect: true })
     @validPropertyValues(componentSelector, Object.values(BUTTON_SIZE), BUTTON_SIZE.MEDIUM)
@@ -56,6 +56,8 @@ export class PieButton extends LitElement {
     // Renders a `CSSResult` generated from SCSS by Vite
     static styles = unsafeCSS(styles);
 }
+
+customElements.define(componentSelector, PieButton);
 
 declare global {
     interface HTMLElementTagNameMap {
