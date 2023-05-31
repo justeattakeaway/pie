@@ -9,7 +9,7 @@
   "scripts": {
     "build": "run -T vite build --config ../../../configs/pie-components-config/vite.config.js",
     "watch": "run -T vite build --config ../../../configs/pie-components-config/vite.config.js --watch",
-    "test": "echo \"Error: no test specified\" && exit 0"
+    "test": "echo \"Error: no test specified\" && exit 0",
     "test:ci": "yarn test"
   },
   "author": "JustEatTakeaway - Design System Web Team",
