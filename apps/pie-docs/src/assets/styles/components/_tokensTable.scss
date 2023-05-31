@@ -8,22 +8,6 @@ $tokensTable-spacing-radius-height: 176px;
 $tokensTable-item-min-height: 128px;
 $tokensTable-item-vertical-padding: f.spacing(e);
 
-.c-tokensTable-title {
-    @include f.font-size('heading-l');
-
-    @include f.media('>mid') {
-        @include f.font-size('heading-xl');
-    }
-}
-
-.c-tokensTable-sectionSubheading {
-    @include f.font-size('subheading-s');
-
-    @include f.media('>mid') {
-        @include f.font-size('subheading-l');
-    }
-}
-
 .c-tokensTable-list {
     list-style: none;
     padding: 0;
@@ -343,4 +327,3 @@ $tokensTable-item-vertical-padding: f.spacing(e);
         }
     }
 }
-
