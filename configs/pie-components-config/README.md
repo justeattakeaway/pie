@@ -4,4 +4,4 @@
 
 # pie-components-config
 
-The purpose of this package is to concentrate components configurations (build, testing, etc...) in a single place to avoid synchronization issues and unnecessary maintenance.
+The purpose of this package is to centralize components configurations (build, testing, etc...) in one place to avoid synchronization issues and unnecessary maintenance.
