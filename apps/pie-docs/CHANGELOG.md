@@ -1,5 +1,21 @@
 # Changelog
 
+## 2.0.0
+
+### Major Changes
+
+- [Added] - Colour page toggle test ([#489](https://github.com/justeattakeaway/pie/pull/489)) by [@JoshuaNg2332](https://github.com/JoshuaNg2332)
+
+### Minor Changes
+
+- [Added] - Skip to content link and implement smooth scrolling as default behaviour for users without motion preferences ([#485](https://github.com/justeattakeaway/pie/pull/485)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - Placeholder section to icon library page ([#474](https://github.com/justeattakeaway/pie/pull/474)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- [Changed] - Headings to use site-wide font-size rules ([#474](https://github.com/justeattakeaway/pie/pull/474)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- [Changed] - Fix broken snapshot test by including a11y attributes on icons ([#485](https://github.com/justeattakeaway/pie/pull/485)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 1.74.1
 
 ### Patch Changes

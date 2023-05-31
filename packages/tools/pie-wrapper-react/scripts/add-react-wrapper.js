@@ -36,7 +36,7 @@ export function addReactWrapper (customElementsObject, folderName = process.argv
     });
 
     /**
-     * function to fetch events from the component
+     * Fetch events from the component
      *
      * @param {*} component object from within components array
      * @return {*} events array containing a component's custom events
