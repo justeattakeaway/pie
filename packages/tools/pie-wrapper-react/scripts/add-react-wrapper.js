@@ -4,10 +4,8 @@ import fs from 'fs-extra';
 
 let componentSrc;
 
-const componentPath = path.resolve(process.cwd(), './custom-elements.json');
-
 // fetches custom-elements.json file
-const loadJSON = (file) => JSON.parse(fs.readFileSync(file));
+const loadCustomElementsFile = () => JSON.parse(fs.readFileSync(path.resolve(process.cwd(), './custom-elements.json')));
 
 /**
  * This function generates a react wrapper to enable custom lit components to be used in react apps.
@@ -110,4 +108,4 @@ export const ${component.class.name} = createComponent({
     return componentSrc;
 }
 
-addReactWrapper(loadJSON(componentPath));
+addReactWrapper(loadCustomElementsFile());
