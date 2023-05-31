@@ -47,7 +47,7 @@ yarn watch
 
 ### Importing the component
 
-```javascript
+```js
 // default
 import { PieButton } from '@justeattakeaway/pie-button';
 
