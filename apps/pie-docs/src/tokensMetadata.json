@@ -677,6 +677,16 @@
           "description": "Divider for use above inverse and dark-coloured backgrounds",
           "globalToken": "$color-black @8%"
         },
+        "focus-inner": {
+          "category": "states",
+          "description": "Colour used for outline focus states",
+          "globalToken": "$color-black"
+        },
+        "focus-outer": {
+          "category": "states",
+          "description": "Colour used for outline focus states",
+          "globalToken": "$color-blue-30"
+        },
         "interactive-brand": {
           "category": "interactiveBackgrounds",
           "description": "Brand interactive colour used mainly in button and CTA backgrounds, accent fills and borders",
