@@ -42,7 +42,7 @@ $toggle-item-elevation--checked: f.$elevation-02;
     white-space: nowrap;
 
     &:focus-visible ~ .c-toggle-label {
-        box-shadow: inset 0 0 0 2px f.$color-focus;
+        box-shadow: inset 0 0 0 2px f.$color-focus-outer;
         outline: 2px solid transparent;
     }
 }

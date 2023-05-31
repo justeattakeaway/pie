@@ -4112,24 +4112,24 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@justeat/fozzie@npm:10.11.1":
-  version: 10.11.1
-  resolution: "@justeat/fozzie@npm:10.11.1"
+"@justeat/fozzie@npm:11.0.0":
+  version: 11.0.0
+  resolution: "@justeat/fozzie@npm:11.0.0"
   dependencies:
-    "@justeat/pie-design-tokens": 4.2.0
+    "@justeat/pie-design-tokens": 5.0.0
     include-media: "github:eduardoboucas/include-media#2.0-release"
-  checksum: a89c5b42e434867d46765729dc8caa74b30f16eaaed2736d40e81fd5e0244dda46b104d7e1aca584eb4c8615167eafa296825b8b1a16105e8746f1d78b2aa849
+  checksum: bdacef44563fb9b928e3bc8e4fab36087a849ff6048a873feb748c9429e5639485127bcf0f0ad83aaf145c7e68cebe6d73d659ad871f325f83caa80cc9d937e0
   languageName: node
   linkType: hard
 
-"@justeat/pie-design-tokens@npm:4.2.0":
-  version: 4.2.0
-  resolution: "@justeat/pie-design-tokens@npm:4.2.0"
+"@justeat/pie-design-tokens@npm:5.0.0":
+  version: 5.0.0
+  resolution: "@justeat/pie-design-tokens@npm:5.0.0"
   dependencies:
     jsonc-parser: 3.2.0
     lodash.merge: 4.6.2
     mkdirp: 1.0.4
-  checksum: 0d31d6a6416533cd6bcdcecc522174a407ac863212470aa72b5346842b5ad6f94cd894fe1dd1e278907741882d1bb89757547392b7955f691241108a9da2b9ed
+  checksum: 2022460cf646c2896a525eee56618b69f7d5335cde2c4b35bef4b8aad6424ecc45c93c97b230dae3fe169a50ab11b2667a0ddc678e88ba4f4d0a974e3174a51d
   languageName: node
   linkType: hard
 
@@ -4141,6 +4141,17 @@ __metadata:
     lodash.merge: 4.6.2
     mkdirp: 1.0.4
   checksum: 26158854dbfaa76388773e1bba41d47ca5fa63ea0738ea73d2abcbbb5009b804ea20e45eb98f3132f41d7f2c03c64a9beb8c366659f7488261e362f63c0316ba
+  languageName: node
+  linkType: hard
+
+"@justeat/pie-design-tokens@npm:5.1.0":
+  version: 5.1.0
+  resolution: "@justeat/pie-design-tokens@npm:5.1.0"
+  dependencies:
+    jsonc-parser: 3.2.0
+    lodash.merge: 4.6.2
+    mkdirp: 1.0.4
+  checksum: e60d7b45c4314b24804507da44a43484c11f62b608a0bc299cb1eb5724f5fb7cf274dcdf0dc490dd1e11a53617aa438aee382bcd2e935daa6988060a653cb5d7
   languageName: node
   linkType: hard
 
@@ -26060,8 +26071,8 @@ __metadata:
     "@commitlint/cli": 17.5.1
     "@commitlint/config-conventional": 17.4.4
     "@justeat/browserslist-config-fozzie": 1.x
-    "@justeat/fozzie": 10.11.1
-    "@justeat/pie-design-tokens": 4.2.0
+    "@justeat/fozzie": 11.0.0
+    "@justeat/pie-design-tokens": 5.1.0
     "@justeat/stylelint-config-fozzie": 3.x
     "@justeattakeaway/pie-icons": 3.1.0
     "@percy/cli": 1.23.0
