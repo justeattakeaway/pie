@@ -9,7 +9,7 @@ import { BUTTON_SIZE, BUTTON_TYPE, BUTTON_VARIANT } from '@/defs';
 const props: PropObject = {
     variant: Object.values(BUTTON_VARIANT),
     size: Object.values(BUTTON_SIZE),
-    type: Object.values(BUTTON_TYPE),
+    type: BUTTON_TYPE.BUTTON,
     isFullWidth: [true, false],
     disabled: [true, false],
 };
