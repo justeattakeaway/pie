@@ -7,8 +7,8 @@
   "module": "dist/index.js",
   "types": "dist/types/index.d.ts",
   "scripts": {
-    "build": "yarn build:wrapper pie-button && run -T vite build",
-    "watch": "run -T vite build --watch",
+    "build": "yarn build:wrapper pie-button && run -T vite build --config ../../../configs/pie-components-config/vite.config.js",
+    "watch": "run -T vite build --config ../../../configs/pie-components-config/vite.config.js --watch",
     "test": "echo \"Error: no test specified\" && exit 0",
     "test:ci": "yarn test",
     "test:browsers": "npx playwright test -c ./playwright-lit.config.ts",
@@ -20,6 +20,9 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@justeattakeaway/pie-webc-core": "workspace:*"
+  },
+  "devDependencies": {
+    "@justeattakeaway/pie-components-config": "workspace:*"
   },
   "volta": {
     "extends": "../../../package.json"

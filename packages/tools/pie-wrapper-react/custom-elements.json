@@ -4,48 +4,6 @@
   "modules": [
     {
       "kind": "javascript-module",
-      "path": "../../components/pie-button/src/decorators.js",
-      "declarations": [
-        {
-          "kind": "function",
-          "name": "validPropertyValues",
-          "parameters": [
-            {
-              "name": "validValues",
-              "type": {
-                "text": "any[]"
-              },
-              "description": "The array of valid values"
-            },
-            {
-              "name": "defaultValue",
-              "type": {
-                "text": "any"
-              },
-              "description": "The value to fall back on"
-            }
-          ],
-          "description": "A decorator for specifying a list of valid values for a property.\r\nIf this property's setter is called with an invalid value, an error is logged and the default value will be assigned instead.",
-          "return": {
-            "type": {
-              "text": ""
-            }
-          }
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "validPropertyValues",
-          "declaration": {
-            "name": "validPropertyValues",
-            "module": "../../components/pie-button/src/decorators.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "../../components/pie-button/src/defs.js",
       "declarations": [],
       "exports": []
@@ -54,6 +12,14 @@
       "kind": "javascript-module",
       "path": "../../components/pie-button/src/index.js",
       "declarations": [
+        {
+          "kind": "variable",
+          "name": "componentSelector",
+          "type": {
+            "text": "string"
+          },
+          "default": "'pie-button'"
+        },
         {
           "kind": "class",
           "description": "",
@@ -110,7 +76,7 @@
             "name": "LitElement",
             "package": "lit"
           },
-          "tagName": "pie-button",
+          "tagName": "componentSelector",
           "customElement": true
         }
       ],
@@ -149,7 +115,7 @@
         },
         {
           "kind": "custom-element-definition",
-          "name": "pie-button",
+          "name": "componentSelector",
           "declaration": {
             "name": "PieButton",
             "module": "../../components/pie-button/src/index.js"
@@ -159,27 +125,69 @@
     },
     {
       "kind": "javascript-module",
+      "path": "../../components/pie-icon-button/src/defs.js",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
       "path": "../../components/pie-icon-button/src/index.js",
       "declarations": [
+        {
+          "kind": "variable",
+          "name": "componentSelector",
+          "type": {
+            "text": "string"
+          },
+          "default": "'pie-icon-button'"
+        },
         {
           "kind": "class",
           "description": "",
           "name": "PieIconButton",
           "members": [
             {
+              "kind": "field",
+              "name": "variant",
+              "type": {
+                "text": "ICON_BUTTON_VARIANT"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false"
+            },
+            {
               "kind": "method",
               "name": "render"
+            },
+            {
+              "kind": "field",
+              "name": "styles",
+              "static": true
             }
           ],
           "superclass": {
             "name": "LitElement",
             "package": "lit"
           },
-          "tagName": "pie-icon-button",
+          "tagName": "componentSelector",
           "customElement": true
         }
       ],
       "exports": [
+        {
+          "kind": "js",
+          "name": "ICON_BUTTON_VARIANT",
+          "declaration": {
+            "name": "ICON_BUTTON_VARIANT",
+            "module": "../../components/pie-icon-button/src/index.js"
+          }
+        },
         {
           "kind": "js",
           "name": "PieIconButton",
@@ -190,7 +198,7 @@
         },
         {
           "kind": "custom-element-definition",
-          "name": "pie-icon-button",
+          "name": "componentSelector",
           "declaration": {
             "name": "PieIconButton",
             "module": "../../components/pie-icon-button/src/index.js"
@@ -282,6 +290,29 @@
             "name": "*",
             "package": "./mixins"
           }
+        },
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./decorators"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../../components/pie-webc-core/src/decorators/index.js",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./valid-property-values/validPropertyValues"
+          }
         }
       ]
     },
@@ -296,6 +327,54 @@
           "declaration": {
             "name": "*",
             "package": "./rtl/rtlMixin"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../../components/pie-webc-core/src/decorators/valid-property-values/validPropertyValues.js",
+      "declarations": [
+        {
+          "kind": "function",
+          "name": "validPropertyValues",
+          "parameters": [
+            {
+              "name": "componentName",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "validValues",
+              "type": {
+                "text": "any[]"
+              },
+              "description": "The array of valid values"
+            },
+            {
+              "name": "defaultValue",
+              "type": {
+                "text": "any"
+              },
+              "description": "The value to fall back on"
+            }
+          ],
+          "description": "A decorator for specifying a list of valid values for a property.\r\nIf this property's setter is called with an invalid value, an error is logged and the default value will be assigned instead.",
+          "return": {
+            "type": {
+              "text": ""
+            }
+          }
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "validPropertyValues",
+          "declaration": {
+            "name": "validPropertyValues",
+            "module": "../../components/pie-webc-core/src/decorators/valid-property-values/validPropertyValues.js"
           }
         }
       ]

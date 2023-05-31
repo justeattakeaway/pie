@@ -1,25 +1,27 @@
 import { LitElement, html, unsafeCSS } from 'lit';
 import { classMap } from 'lit/directives/class-map.js';
 import { property } from 'lit/decorators.js';
+import { validPropertyValues } from '@justeattakeaway/pie-webc-core';
 
 import styles from './button.scss?inline';
-import { validPropertyValues } from './decorators';
 import { BUTTON_SIZE, BUTTON_TYPE, BUTTON_VARIANT } from './defs';
 
 // Valid values available to consumers
 export { BUTTON_SIZE, BUTTON_TYPE, BUTTON_VARIANT };
 
+const componentSelector = 'pie-button';
+
 export class PieButton extends LitElement {
     @property()
-    @validPropertyValues(Object.values(BUTTON_SIZE), BUTTON_SIZE.MEDIUM)
+    @validPropertyValues(componentSelector, Object.values(BUTTON_SIZE), BUTTON_SIZE.MEDIUM)
         size : BUTTON_SIZE = BUTTON_SIZE.MEDIUM;
 
     @property()
-    @validPropertyValues(Object.values(BUTTON_TYPE), BUTTON_TYPE.SUBMIT)
+    @validPropertyValues(componentSelector, Object.values(BUTTON_TYPE), BUTTON_TYPE.SUBMIT)
         type : BUTTON_TYPE = BUTTON_TYPE.SUBMIT;
 
     @property()
-    @validPropertyValues(Object.values(BUTTON_VARIANT), BUTTON_VARIANT.PRIMARY)
+    @validPropertyValues(componentSelector, Object.values(BUTTON_VARIANT), BUTTON_VARIANT.PRIMARY)
         variant : BUTTON_VARIANT = BUTTON_VARIANT.PRIMARY;
 
     @property({ type: Boolean, reflect: true })
@@ -55,10 +57,10 @@ export class PieButton extends LitElement {
     static styles = unsafeCSS(styles);
 }
 
-customElements.define('pie-button', PieButton);
+customElements.define(componentSelector, PieButton);
 
 declare global {
     interface HTMLElementTagNameMap {
-        'pie-button': PieButton;
+        [componentSelector]: PieButton;
     }
 }
