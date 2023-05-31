@@ -48,20 +48,25 @@ test.describe('PIE - site nav menu - @mobile', () => {
 });
 
 test.describe('PIE - site nav menu - @desktop', () => {
+    let siteNavigation;
+    let contentHeader;
+
     test.beforeEach(async ({ page, context }) => {
         await disableCookieBanner(page, context);
+        await page.goto('all-about-pie/what-is-pie/');
+
+        // Arrange
+        siteNavigation = await page.getByTestId('site_nav_section_1');
+        contentHeader = await page.getByTestId('content_header');
     });
 
-    test('Should still be visible when the page has scrolled down', async ({ page }) => {
-        // Arrange
-        await page.goto('all-about-pie/what-is-pie/');
-        const siteNavigation = await page.getByTestId('site_nav_section_1');
-        const contentHeader = await page.getByTestId('content_header');
-
+    test('Should be visible at the top of the page', async ({ page }) => {
         // Assert - Navigation and top of the page are visible
         await expect.soft(await isElementVisibleInViewport(siteNavigation)).toBeTruthy();
         await expect.soft(await isElementVisibleInViewport(contentHeader)).toBeTruthy();
+    });
 
+    test('Should still be visible when the page has scrolled down', async ({ page }) => {
         // Act - Scroll to the bottom of the page
         await page.keyboard.press('End');
         await page.waitForTimeout(1000);
