@@ -2,4 +2,4 @@
 "pie-docs": minor
 ---
 
-Update iconography overview copy
+[Updated] - iconography overview copy
