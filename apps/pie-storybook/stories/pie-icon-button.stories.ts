@@ -1,15 +1,23 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import type { Meta, StoryObj as Story } from '@storybook/web-components';
+import { ICON_BUTTON_VARIANT } from '@justeattakeaway/pie-icon-button';
 import { html, TemplateResult } from 'lit';
 
 export default {
     title: 'Icon Button',
     component: 'pie-icon-button',
     argTypes: {
-        slot: {
-            control: 'text',
+        variant: {
+            control: 'select',
+            options: Object.values(ICON_BUTTON_VARIANT),
+        },
+        disabled: {
+            control: 'boolean',
         },
     },
-    args: {},
+    args: {
+        variant: ICON_BUTTON_VARIANT.PRIMARY,
+    },
     parameters: {
         design: {
             type: 'figma',
@@ -19,22 +27,50 @@ export default {
 } as Meta;
 
 interface IconButtonProps {
-    slot: TemplateResult;
+    variant: ICON_BUTTON_VARIANT;
+    disabled: boolean;
 }
 
 const Template = ({
-    slot,
+    variant,
+    disabled,
 }: IconButtonProps): TemplateResult => html`
-        <pie-icon-button>
-            ${slot}
+        <pie-icon-button
+            variant="${variant}"
+            ?disabled="${disabled}">
         </pie-icon-button>
-    `;
+        `;
 
 const defaultArgs = {
-    slot: 'This is Lit!',
+    variant: ICON_BUTTON_VARIANT.PRIMARY,
+    disabled: false,
 };
 
-export const Default: Story = Template.bind({});
-Default.args = {
+export const Primary: Story = Template.bind({});
+Primary.args = {
     ...defaultArgs,
+};
+
+export const Secondary: Story = Template.bind({});
+Secondary.args = {
+    ...defaultArgs,
+    variant: ICON_BUTTON_VARIANT.SECONDARY,
+};
+
+export const Outline: Story = Template.bind({});
+Outline.args = {
+    ...defaultArgs,
+    variant: ICON_BUTTON_VARIANT.OUTLINE,
+};
+
+export const Ghost: Story = Template.bind({});
+Ghost.args = {
+    ...defaultArgs,
+    variant: ICON_BUTTON_VARIANT.GHOST,
+};
+
+export const GhostTertiary: Story = Template.bind({});
+GhostTertiary.args = {
+    ...defaultArgs,
+    variant: ICON_BUTTON_VARIANT.GHOST_TERTIARY,
 };
