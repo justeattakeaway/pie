@@ -56,3 +56,27 @@ export const getAllPropCombinations = (obj: PropObject): Combination[] => {
 
     return combinations;
 };
+
+/**
+ * Splits an array of component prop combinations by a particular property value.
+ *
+ * @param {Combination[]} combinations - The array of combinations to split.
+ * @param {string} property - The property to split by.
+ *
+ * @returns {Record<string, Combination[]>} An object mapping each unique property value to the combinations that have it.
+ */
+export const splitCombinationsByPropertyValue = (combinations: Combination[], property: string): Record<string, Combination[]> => combinations
+    .reduce((splitCombinations: Record<string, Combination[]>, combination: Combination) => {
+        const propertyValue = combination[property];
+        const propertyValueKey = String(propertyValue);
+
+        if (!(propertyValueKey in splitCombinations)) {
+            splitCombinations[propertyValueKey] = [];
+        }
+
+        // Add the current combination to the array for its property value
+        splitCombinations[propertyValueKey].push(combination);
+
+        return splitCombinations;
+    }, {});
+
