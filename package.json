@@ -50,7 +50,7 @@
     "@axe-core/playwright": "4.6.1",
     "@babel/cli": "7.21.0",
     "@babel/core": "7.21.4",
-    "@babel/eslint-parser": "7.21.3",
+    "@babel/eslint-parser": "7.21.8",
     "@babel/node": "7.20.7",
     "@babel/preset-env": "7.21.4",
     "@babel/register": "7.21.0",
