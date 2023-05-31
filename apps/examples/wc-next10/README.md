@@ -39,7 +39,7 @@ module.exports = withTM(nextConfig);
 
 In order to use the Pie Button components in the Next 10 application, it needs to be dynamically imported. Without this, you are likely to receive the `window is not defined` error.
 ```
-  const PButton = dynamic(() => import('../components/PieButton'), { ssr: false });
+  const PieButton = dynamic(() => import('../components/PieButton/dist/react'), { ssr: false });
 ```
 
 
