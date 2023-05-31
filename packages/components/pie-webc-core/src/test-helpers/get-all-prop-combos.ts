@@ -22,10 +22,9 @@ export const getAllPropCombinations = (obj: PropObject): Combination[] => {
     const combinations: Combination[] = [];
 
     // Helper function to generate combinations recursively
-    function helper (prefix: (boolean | any)[], i: number): void {
+    function generatePropCombinations (prefix: (boolean | any)[], i: number): void {
         // If all keys have been processed, we've found a new combination
         if (i === keys.length) {
-            // Initialize a new combination object
             const combo: Combination = {};
             // Assign each key-value pair to the new combination object
             for (let j = 0; j < prefix.length; j++) {
@@ -42,18 +41,18 @@ export const getAllPropCombinations = (obj: PropObject): Combination[] => {
 
         // If the value is a boolean, recurse with both true and false
         if (typeof values === 'boolean') {
-            helper(prefix.concat(true), i + 1);
-            helper(prefix.concat(false), i + 1);
+            generatePropCombinations(prefix.concat(true), i + 1);
+            generatePropCombinations(prefix.concat(false), i + 1);
         } else if (Array.isArray(values)) {
             // If the value is an array, recurse with each value in the array
             for (let j = 0; j < values.length; j++) {
-                helper(prefix.concat(values[j]), i + 1);
+                generatePropCombinations(prefix.concat(values[j]), i + 1);
             }
         }
     }
 
     // Start the helper function with an empty prefix and at the first key
-    helper([], 0);
+    generatePropCombinations([], 0);
 
     return combinations;
 };
