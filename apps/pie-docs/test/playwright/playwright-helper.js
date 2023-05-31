@@ -1,5 +1,5 @@
 const percySnapshot = require('@percy/playwright');
-const COOKIE_NAMES = require('../../../../constants/cookies');
+const COOKIE_NAMES = require('../../../../configs/constants/cookies');
 const PERCY_BREAKPOINTS = require('../visual/percy-breakpoints');
 
 const percyBreakpoints = Object.values(PERCY_BREAKPOINTS);

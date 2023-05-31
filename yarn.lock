@@ -598,21 +598,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/eslint-parser@npm:7.21.3":
-  version: 7.21.3
-  resolution: "@babel/eslint-parser@npm:7.21.3"
-  dependencies:
-    "@nicolo-ribaudo/eslint-scope-5-internals": 5.1.1-v1
-    eslint-visitor-keys: ^2.1.0
-    semver: ^6.3.0
-  peerDependencies:
-    "@babel/core": ">=7.11.0"
-    eslint: ^7.5.0 || ^8.0.0
-  checksum: cc44a26a518c62ca93cdbee4ec4fa195c5a69b4f85d696c9df572b1ada99446ebdf3caef58a124f401a798279a765f858c88292bc7a8fc0485c34e178b1a9e82
-  languageName: node
-  linkType: hard
-
-"@babel/eslint-parser@npm:^7.16.3":
+"@babel/eslint-parser@npm:7.21.8, @babel/eslint-parser@npm:^7.16.3":
   version: 7.21.8
   resolution: "@babel/eslint-parser@npm:7.21.8"
   dependencies:
@@ -4177,9 +4163,24 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-button@0.12.1, @justeattakeaway/pie-button@workspace:*, @justeattakeaway/pie-button@workspace:packages/components/pie-button":
+"@justeattakeaway/pie-button@0.12.2, @justeattakeaway/pie-button@workspace:*, @justeattakeaway/pie-button@workspace:packages/components/pie-button":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-button@workspace:packages/components/pie-button"
+  dependencies:
+    "@justeattakeaway/pie-components-config": "workspace:*"
+    "@justeattakeaway/pie-webc-core": "workspace:*"
+  languageName: unknown
+  linkType: soft
+
+"@justeattakeaway/pie-components-config@workspace:*, @justeattakeaway/pie-components-config@workspace:configs/pie-components-config":
+  version: 0.0.0-use.local
+  resolution: "@justeattakeaway/pie-components-config@workspace:configs/pie-components-config"
+  languageName: unknown
+  linkType: soft
+
+"@justeattakeaway/pie-icon-button@workspace:*, @justeattakeaway/pie-icon-button@workspace:packages/components/pie-icon-button":
+  version: 0.0.0-use.local
+  resolution: "@justeattakeaway/pie-icon-button@workspace:packages/components/pie-icon-button"
   dependencies:
     "@justeattakeaway/pie-webc-core": "workspace:*"
   languageName: unknown
@@ -4197,7 +4198,7 @@ __metadata:
   dependencies:
     "@babel/node": 7.20.7
     "@babel/preset-react": 7.18.6
-    "@justeattakeaway/pie-icons": 3.1.0
+    "@justeattakeaway/pie-icons": 3.2.0
     "@justeattakeaway/pie-icons-configs": "workspace:*"
     "@svgr/core": 6.4.0
     babel-jest: 29.5.0
@@ -4216,9 +4217,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-icons-vue@workspace:packages/tools/pie-icons-vue"
   dependencies:
-    "@justeattakeaway/pie-icons": 3.1.0
+    "@justeattakeaway/pie-icons": 3.2.0
     "@vue/babel-helper-vue-jsx-merge-props": 1.4.0
     "@vue/babel-preset-jsx": 1.4.0
+    "@vue/test-utils": 1.1.3
     bili: 3.4.2
     eslint-plugin-vue: ^9.9.0
     fs-extra: 9.1.0
@@ -4229,13 +4231,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-icons@3.1.0, @justeattakeaway/pie-icons@workspace:packages/tools/pie-icons":
+"@justeattakeaway/pie-icons@3.2.0, @justeattakeaway/pie-icons@workspace:packages/tools/pie-icons":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-icons@workspace:packages/tools/pie-icons"
   dependencies:
     cheerio: 1.0.0-rc.12
     classnames: 2.3.2
-    html-minifier: 4.0.0
+    html-minifier-terser: 7.2.0
     lint-staged: 12.5.0
     nodemon: 2.0.22
     prettier: 2.8.7
@@ -4249,6 +4251,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-modal@workspace:packages/components/pie-modal"
   dependencies:
+    "@justeattakeaway/pie-components-config": "workspace:*"
     "@justeattakeaway/pie-webc-core": "workspace:*"
   languageName: unknown
   linkType: soft
@@ -8944,6 +8947,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@vue/test-utils@npm:1.1.3":
+  version: 1.1.3
+  resolution: "@vue/test-utils@npm:1.1.3"
+  dependencies:
+    dom-event-types: ^1.0.0
+    lodash: ^4.17.15
+    pretty: ^2.0.0
+  peerDependencies:
+    vue: 2.x
+    vue-template-compiler: ^2.x
+  checksum: 3082d25b1a482b1b1695d706c6423a66415f0322f9c820778de177b9f49bd074b9eee7fe76b39b0f7174418d13f0207ef2bf81b8a241c321b8bc823092e197c2
+  languageName: node
+  linkType: hard
+
 "@vue/tsconfig@npm:0.1.3":
   version: 0.1.3
   resolution: "@vue/tsconfig@npm:0.1.3"
@@ -12236,7 +12253,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"clean-css@npm:^5.2.2":
+"clean-css@npm:^5.2.2, clean-css@npm:~5.3.2":
   version: 5.3.2
   resolution: "clean-css@npm:5.3.2"
   dependencies:
@@ -12630,6 +12647,13 @@ __metadata:
   dependencies:
     delayed-stream: ~1.0.0
   checksum: 49fa4aeb4916567e33ea81d088f6584749fc90c7abec76fd516bf1c5aa5c79f3584b5ba3de6b86d26ddd64bae5329c4c7479343250cfe71c75bb366eae53bb7c
+  languageName: node
+  linkType: hard
+
+"commander@npm:^10.0.0":
+  version: 10.0.1
+  resolution: "commander@npm:10.0.1"
+  checksum: 436901d64a818295803c1996cd856621a74f30b9f9e28a588e726b2b1670665bccd7c1a77007ebf328729f0139838a88a19265858a0fa7a8728c4656796db948
   languageName: node
   linkType: hard
 
@@ -14741,6 +14765,13 @@ __metadata:
   dependencies:
     utila: ~0.4
   checksum: ea52fe303f5392e48dea563abef0e6fb3a478b8dbe3c599e99bb5d53981c6c38fc4944e56bb92a8ead6bb989d10b7914722ae11febbd2fd0910e33b9fc4aaa77
+  languageName: node
+  linkType: hard
+
+"dom-event-types@npm:^1.0.0":
+  version: 1.1.0
+  resolution: "dom-event-types@npm:1.1.0"
+  checksum: 58bb4d4b3a0caf719ce42ab8445576b6309d43a3db3ca45ca3dabaa4d69d99472e75b89127c25a177fe8fd7b390530fc43cb1252d57ab25d7e4845ed647cb159
   languageName: node
   linkType: hard
 
@@ -18614,6 +18645,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"html-minifier-terser@npm:7.2.0":
+  version: 7.2.0
+  resolution: "html-minifier-terser@npm:7.2.0"
+  dependencies:
+    camel-case: ^4.1.2
+    clean-css: ~5.3.2
+    commander: ^10.0.0
+    entities: ^4.4.0
+    param-case: ^3.0.4
+    relateurl: ^0.2.7
+    terser: ^5.15.1
+  bin:
+    html-minifier-terser: cli.js
+  checksum: 39feed354b5a8aafc8e910977d68cfd961d6db330a8e1a5b16a528c86b8ee7745d8945134822cf00acf7bf0d0135bf1abad650bf308bee4ea73adb003f5b8656
+  languageName: node
+  linkType: hard
+
 "html-minifier-terser@npm:^5.0.1":
   version: 5.1.1
   resolution: "html-minifier-terser@npm:5.1.1"
@@ -18648,7 +18696,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"html-minifier@npm:4.0.0, html-minifier@npm:^4.0.0":
+"html-minifier@npm:^4.0.0":
   version: 4.0.0
   resolution: "html-minifier@npm:4.0.0"
   dependencies:
@@ -26047,6 +26095,7 @@ __metadata:
     "@11ty/eleventy": 1.0.2
     "@11ty/eleventy-navigation": 0.3.5
     "@justeat/f-cookie-banner": 4.7.0
+    "@justeattakeaway/pie-icons": 3.2.0
     eleventy-plugin-clean: 1.2.5
     eleventy-plugin-rev: 1.1.1
     eleventy-sass: 2.2.1
@@ -26062,7 +26111,7 @@ __metadata:
     "@axe-core/playwright": 4.6.1
     "@babel/cli": 7.21.0
     "@babel/core": 7.21.4
-    "@babel/eslint-parser": 7.21.3
+    "@babel/eslint-parser": 7.21.8
     "@babel/node": 7.20.7
     "@babel/preset-env": 7.21.4
     "@babel/register": 7.21.0
@@ -26074,7 +26123,6 @@ __metadata:
     "@justeat/fozzie": 11.0.0
     "@justeat/pie-design-tokens": 5.1.0
     "@justeat/stylelint-config-fozzie": 3.x
-    "@justeattakeaway/pie-icons": 3.1.0
     "@percy/cli": 1.23.0
     "@percy/playwright": 1.0.4
     "@playwright/test": 1.32.3
@@ -26121,6 +26169,7 @@ __metadata:
   resolution: "pie-storybook@workspace:apps/pie-storybook"
   dependencies:
     "@justeattakeaway/pie-button": "workspace:*"
+    "@justeattakeaway/pie-icon-button": "workspace:*"
     "@justeattakeaway/pie-modal": "workspace:*"
     "@storybook/addon-a11y": 7.0.7
     "@storybook/addon-essentials": 7.0.7
@@ -33320,6 +33369,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"terser@npm:^5.15.1":
+  version: 5.17.5
+  resolution: "terser@npm:5.17.5"
+  dependencies:
+    "@jridgewell/source-map": ^0.3.2
+    acorn: ^8.5.0
+    commander: ^2.20.0
+    source-map-support: ~0.5.20
+  bin:
+    terser: bin/terser
+  checksum: f9990932a62ef6fcc424894f483d71aa647b0524ac18167f945201a32401c09702e480a3198dcaf9d6d755243d3d73c13418cdb28711ef167c028d3ff2a866bf
+  languageName: node
+  linkType: hard
+
 "test-exclude@npm:^6.0.0":
   version: 6.0.0
   resolution: "test-exclude@npm:6.0.0"
@@ -35689,7 +35752,7 @@ __metadata:
   resolution: "wc-vanilla@workspace:apps/examples/wc-vanilla"
   dependencies:
     "@justeat/pie-design-tokens": 5.0.1
-    "@justeattakeaway/pie-button": 0.12.1
+    "@justeattakeaway/pie-button": 0.12.2
     vite: ^4.3.0
   languageName: unknown
   linkType: soft

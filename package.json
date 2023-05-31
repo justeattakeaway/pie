@@ -1,7 +1,7 @@
 {
   "name": "pie-monorepo",
   "description": "JustEatTakeaway",
-  "version": "2.8.0",
+  "version": "2.10.0",
   "keywords": [],
   "author": "JustEatTakeaway - Design System Web Team",
   "license": "Apache-2.0",
@@ -13,6 +13,7 @@
   "workspaces": {
     "packages": [
       "apps/**/*",
+      "configs/**/*",
       "packages/**/*",
       "./"
     ]
@@ -35,7 +36,7 @@
     "prepack": "pinst --disable",
     "postpack": "pinst --enable",
     "test": "cross-env-shell turbo run test --filter=!pie-monorepo --token=${TURBO_TOKEN}",
-    "test:ci": "cross-env-shell turbo run test:ci --filter=!pie-monorepo --token=${TURBO_TOKEN}",
+    "test:ci": "cross-env-shell turbo run test:ci --filter=!'./apps/examples/*' --filter=!pie-monorepo --token=${TURBO_TOKEN}",
     "test:coverage": "turbo run test:coverage --filter=!pie-monorepo",
     "test:generate-routes": "turbo run test:generate-routes --filter=!pie-monorepo",
     "test:browsers": "cross-env-shell turbo run test:browsers --filter=!pie-monorepo --token=${TURBO_TOKEN}",
@@ -50,7 +51,7 @@
     "@axe-core/playwright": "4.6.1",
     "@babel/cli": "7.21.0",
     "@babel/core": "7.21.4",
-    "@babel/eslint-parser": "7.21.3",
+    "@babel/eslint-parser": "7.21.8",
     "@babel/node": "7.20.7",
     "@babel/preset-env": "7.21.4",
     "@babel/register": "7.21.0",
@@ -101,7 +102,6 @@
   },
   "dependencies": {
     "@justeat/fozzie": "11.0.0",
-    "@justeattakeaway/pie-icons": "3.1.0",
     "lit": "2.7.4"
   },
   "config": {
