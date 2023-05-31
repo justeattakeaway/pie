@@ -15,7 +15,7 @@ export class PieIconButton extends LitElement {
     @validPropertyValues(componentSelector, Object.values(ICON_BUTTON_VARIANT), ICON_BUTTON_VARIANT.PRIMARY)
         variant : ICON_BUTTON_VARIANT = ICON_BUTTON_VARIANT.PRIMARY;
 
-    @property({ type: Boolean, reflect: true })
+    @property({ type: Boolean })
         disabled = false;
 
     render () {
