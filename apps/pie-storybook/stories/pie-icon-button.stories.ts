@@ -32,7 +32,8 @@ interface IconButtonProps {
 }
 
 const Template = ({
-    variant, disabled,
+    variant,
+    disabled,
 }: IconButtonProps): TemplateResult => html`
         <pie-icon-button
             variant="${variant}"
