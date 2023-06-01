@@ -33,36 +33,10 @@ const nextConfig = {
 module.exports = withLitSSR(nextConfig);
 ```
 
-## Testing Web Components in React <=18
+#### Using Web Components in React
 
-Besides integrating the SSR plugin above, React 18 and previous versions don't handle web components and custom elements out of the box correctly in all cases due to how React treats custom props and events (More details can be found [here](https://lit.dev/docs/frameworks/react/)).
+React 18 and previous versions don't handle web components and custom elements out of the box correctly in all cases due to how React treats custom props and events (More details can be found [here](https://lit.dev/docs/frameworks/react/)). Our solution for this is to wrap the web component to include the `[@lit-labs/react](https://lit.dev/docs/frameworks/react/)` package, generating a `react` file inside the component's `dist` folder.
 
-While the React team has fixed some of the issues with this [experimental release](https://github.com/justeattakeaway/pie/compare/0.0.0-experimental-56a3c18e5-20230314?expand=1), we can't rely on it as many of our apps are using older instances of React and several [issues](https://custom-elements-everywhere.com/libraries/react/results/results.html) haven't been addressed yet.
+Therefore, in order to import the web component into your React application, please use:
 
-Fortunately, the Lit framework provides a package [@lit-labs/react](https://lit.dev/docs/frameworks/react/) that provides utilities to take care of the issues, thus, we need to wrap our web components with `createComponent` function.
-
-#### Using `createComponent` in React
-
-```
-import React, { useState } from 'react';
-import { createComponent } from '@lit-labs/react';
-import { PieButton, BUTTON_VARIANT } from '@justeattakeaway/pie-button';
-
-const Button = createComponent({
-  tagName: 'pie-button',
-  elementClass: PieButton,
-  react: React,
-  events: { onCustomEvent: 'CustomEvent' },
-});
-
-function App () {
-  const handleCustomEvent = () => console.log('onCustomEvent was triggered');
-  const handleClick = () => console.log('click event was triggered');
-
-  return (
-    <Button variant={BUTTON_VARIANT.PRIMARY} onClick={handleClick} onCustomEvent={handleCustomEvent}>
-      Sample button
-    </Button>
-  );
-}
-```
+import { PieButton } from '@justeattakeaway/pie-button/dist/react';

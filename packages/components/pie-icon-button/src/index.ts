@@ -1,5 +1,6 @@
+import { LitElement, html } from 'lit'; // eslint-disable-line import/no-extraneous-dependencies
 import { LitElement, html, unsafeCSS } from 'lit'; // eslint-disable-line import/no-extraneous-dependencies
-import { customElement, property } from 'lit/decorators.js'; // eslint-disable-line import/no-extraneous-dependencies
+import { property } from 'lit/decorators.js'; // eslint-disable-line import/no-extraneous-dependencies
 import { validPropertyValues } from '@justeattakeaway/pie-webc-core';
 import { ICON_BUTTON_VARIANT } from './defs';
 import styles from './iconButton.scss?inline';
@@ -9,7 +10,6 @@ export { ICON_BUTTON_VARIANT };
 
 const componentSelector = 'pie-icon-button';
 
-@customElement(componentSelector)
 export class PieIconButton extends LitElement {
     @property()
     @validPropertyValues(componentSelector, Object.values(ICON_BUTTON_VARIANT), ICON_BUTTON_VARIANT.PRIMARY)
@@ -37,6 +37,8 @@ export class PieIconButton extends LitElement {
     // Renders a `CSSResult` generated from SCSS by Vite
     static styles = unsafeCSS(styles);
 }
+
+customElements.define(componentSelector, PieIconButton);
 
 declare global {
     interface HTMLElementTagNameMap {
