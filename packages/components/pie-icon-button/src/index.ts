@@ -1,4 +1,3 @@
-import { LitElement, html } from 'lit'; // eslint-disable-line import/no-extraneous-dependencies
 import { LitElement, html, unsafeCSS } from 'lit'; // eslint-disable-line import/no-extraneous-dependencies
 import { property } from 'lit/decorators.js'; // eslint-disable-line import/no-extraneous-dependencies
 import { validPropertyValues } from '@justeattakeaway/pie-webc-core';

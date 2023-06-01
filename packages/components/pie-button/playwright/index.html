@@ -1,51 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preload" href="https://d30v2pzvrfyzpo.cloudfront.net/fonts/JETSansDigital-Regular-optimised.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="https://d30v2pzvrfyzpo.cloudfront.net/fonts/JETSansDigital-Bold-optimised.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="https://d30v2pzvrfyzpo.cloudfront.net/fonts/JETSansDigital-ExtraBold-optimised.woff2" as="font" type="font/woff2" crossorigin>
-<style>
-    @font-face {
-        font-family: JETSansDigital;
-        src: url('https://d30v2pzvrfyzpo.cloudfront.net/fonts/JETSansDigital-Regular-optimised.woff2') format("woff2"),
-        url('https://d30v2pzvrfyzpo.cloudfront.net/fonts/JETSansDigital-Regular-optimised.woff') format("woff");
-        font-weight: 400;
-        font-display: swap;
-    }
-    @font-face {
-        font-family: JETSansDigital;
-        src: url('https://d30v2pzvrfyzpo.cloudfront.net/fonts/JETSansDigital-Bold-optimised.woff2') format("woff2"),
-        url('https://d30v2pzvrfyzpo.cloudfront.net/fonts/JETSansDigital-Bold-optimised.woff') format("woff");
-        font-weight: 700;
-        font-display: swap;
-    }
-    @font-face {
-        font-family: JETSansDigital;
-        src: url('https://d30v2pzvrfyzpo.cloudfront.net/fonts/JETSansDigital-ExtraBold-optimised.woff2') format("woff2"),
-        url('https://d30v2pzvrfyzpo.cloudfront.net/fonts/JETSansDigital-ExtraBold-optimised.woff') format("woff");
-        font-weight: 800;
-        font-display: swap;
-    }
-    body {
-        font-feature-settings: "tnum"; /* Enable tabular numbers */
-    }
-    /* basic styles to center align components and give them some spacing */
-    #root {
-        padding: 1em;
-    }
+    <style>
+        @font-face {
+            font-family: JETSansDigital;
+            src: url('https://d30v2pzvrfyzpo.cloudfront.net/fonts/JETSansDigital-Regular-optimised.woff2') format("woff2"),
+            url('https://d30v2pzvrfyzpo.cloudfront.net/fonts/JETSansDigital-Regular-optimised.woff') format("woff");
+            font-weight: 400;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: JETSansDigital;
+            src: url('https://d30v2pzvrfyzpo.cloudfront.net/fonts/JETSansDigital-Bold-optimised.woff2') format("woff2"),
+            url('https://d30v2pzvrfyzpo.cloudfront.net/fonts/JETSansDigital-Bold-optimised.woff') format("woff");
+            font-weight: 700;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: JETSansDigital;
+            src: url('https://d30v2pzvrfyzpo.cloudfront.net/fonts/JETSansDigital-ExtraBold-optimised.woff2') format("woff2"),
+            url('https://d30v2pzvrfyzpo.cloudfront.net/fonts/JETSansDigital-ExtraBold-optimised.woff') format("woff");
+            font-weight: 800;
+            font-display: swap;
+        }
+        body {
+            font-feature-settings: "tnum"; /* Enable tabular numbers */
+        }
+        /* basic styles to center align components and give them some spacing */
+        #root {
+            padding: 1em;
+        }
 
-    #root > * {
-        display: block;
-        margin-inline: auto;
-    }
+        #root > * {
+            display: block;
+            margin-inline: auto;
+        }
 
-    #root > * + * {
-        margin-top: 1em;
-    }
-</style>
+        #root > * + * {
+            margin-top: 1em;
+        }
+    </style>
     <title>Testing Page</title>
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/@justeat/pie-design-tokens/dist/jet.css" />
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/@justeat/pie-design-tokens/dist/jet-hsl-colors.css" />
 </head>
 <body>
     <div id="root"></div>
