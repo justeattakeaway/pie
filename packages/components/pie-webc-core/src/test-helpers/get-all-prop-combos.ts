@@ -1,18 +1,17 @@
-export type PropValue = boolean | any[] | any;
-
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export type PropObject = {
-    [key: string]: PropValue;
+    [key: string]: any;
 };
 
 export type Combination = {
-    [key: string]: PropValue;
+    [key: string]: any;
 };
 
 /**
  * Generate all possible combinations of properties for a given object.
  *
  * @param {PropObject} obj - The object containing properties for which combinations are to be generated.
- * Each property value can be a boolean, an array of any data type, or any data type.
+ * Each property value can any data type.
  *
  * @returns {Combination[]} An array of objects, where each object is a unique combination of property values.
  */
@@ -20,7 +19,7 @@ export const getAllPropCombinations = (obj: PropObject): Combination[] => {
     const keys = Object.keys(obj);
     const combinations: Combination[] = [];
 
-    function generatePropCombinations (prefix: PropValue[], i: number): void {
+    function generatePropCombinations (prefix: any[], i: number): void {
         if (i === keys.length) {
             const combo: Combination = {};
             for (let j = 0; j < prefix.length; j++) {
