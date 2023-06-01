@@ -60,7 +60,7 @@
     "@commitlint/cli": "17.5.1",
     "@commitlint/config-conventional": "17.4.4",
     "@justeat/browserslist-config-fozzie": "1.x",
-    "@justeat/pie-design-tokens": "4.2.0",
+    "@justeat/pie-design-tokens": "5.1.0",
     "@justeat/stylelint-config-fozzie": "3.x",
     "@percy/cli": "1.23.0",
     "@percy/playwright": "1.0.4",
@@ -101,7 +101,7 @@
     "vue-template-compiler": "2.7.14"
   },
   "dependencies": {
-    "@justeat/fozzie": "10.11.1",
+    "@justeat/fozzie": "11.0.0",
     "lit": "2.7.4"
   },
   "config": {
