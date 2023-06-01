@@ -1,13 +1,6 @@
 import React, { useState, useRef } from 'react';
-import { createComponent } from '@lit-labs/react';
-import { PieButton, BUTTON_VARIANT } from '@justeattakeaway/pie-button';
-
-const PieBtn = createComponent({
-    tagName: 'pie-button',
-    elementClass: PieButton,
-    react: React,
-    events: { onCustomEvent: 'CustomEvent' },
-});
+import { BUTTON_VARIANT } from '@justeattakeaway/pie-button';
+import { PieButton } from '@justeattakeaway/pie-button/dist/react';
 
 export default function VariantSwitch () {
     const variantIndex = useRef(0)
@@ -28,9 +21,9 @@ export default function VariantSwitch () {
                 <h3>Variant Switch</h3>
                 <p>Click the button to switch the variant</p>
                 <div className="flex-wrapper">
-                    <PieBtn variant={variantName} onClick={switchVariant}>
+                    <PieButton variant={variantName} onClick={switchVariant}>
                         Variant
-                    </PieBtn>
+                    </PieButton>
                     <div className='padding'>Variant: <b>{variantName}</b></div>
                 </div>
             </div>

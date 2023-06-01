@@ -1,33 +1,22 @@
-import React, { useState } from 'react';
-import { createComponent } from '@lit-labs/react';
-import { PieButton } from '@justeattakeaway/pie-button';
-import './styles.css';
+import { useState } from 'react';
+import { PieButton } from '@justeattakeaway/pie-button/dist/react';
 
-// eslint-disable-next-line no-unused-vars
-const PieBtn = createComponent({
-    tagName: 'pie-button',
-    elementClass: PieButton,
-    react: React,
-    events: { onCustomEvent: 'CustomEvent' },
-});
+import './styles.css';
 
 function App () {
     const [counter, setCounter] = useState(0);
 
-    const onCustomEvent = () => console.info('onCustomEvent was triggered');
-
     return (
         <>
-            <PieBtn size='large'>WC Button in React!</PieBtn>
-            <PieBtn variant='secondary'>WC Button in React!</PieBtn>
-            <PieBtn disabled>WC Button in React!</PieBtn>
+            <PieButton size='large'>WC Button in React!</PieButton>
+            <PieButton variant='secondary'>WC Button in React!</PieButton>
+            <PieButton disabled>WC Button in React!</PieButton>
             <hr />
             <h2>onClick</h2>
             <p>Count: {counter}</p>
-            <PieBtn
-                onClick={() => setCounter(counter + 1)}
-                onCustomEvent={onCustomEvent}
-            >Increment</PieBtn>
+            <PieButton
+                onClick={(e) => setCounter(counter + 1) + console.log(e)}
+            >Increment</PieButton>
         </>
     );
 }
