@@ -38,62 +38,61 @@ $nav-item-left-margin: calc($nav-category-gap + $nav-category-icon-width);
     }
 }
 
-    .c-nav-inner {
-        position: sticky;
-        top: 0;
-        height: 100%; // 100% of the parent .c-nav container
-        overflow-y: auto;
+.c-nav-inner {
+    position: sticky;
+    top: 0;
+    height: 100%; // 100% of the parent .c-nav container
+    overflow-y: auto;
 
-        @include f.media('>=wide') {
-            max-height: 100vh;
-        }
+    @include f.media('>=wide') {
+        max-height: 100vh;
     }
+}
 
-    .c-nav-category {
-        display: flex;
-        align-items: center;
-        gap: $nav-category-gap;
-        padding: 10px f.spacing(d);
+.c-nav-category {
+    display: flex;
+    align-items: center;
+    gap: $nav-category-gap;
+    padding: 10px f.spacing(d);
+    font-weight: f.$font-weight-bold;
+}
+
+// Hide the default summary icon
+.c-nav-category::-webkit-details-marker,
+.c-nav-category::marker {
+    display: none;
+    content: '';
+}
+
+.c-nav-item {
+    display: block;
+    padding: 10px f.spacing(d);
+    margin: 0 f.spacing(d) 2px $nav-item-left-margin;
+    text-decoration: none;
+    color: f.$color-content-default;
+
+    &.is-active {
+        background-color: f.$color-container-subtle;
         font-weight: f.$font-weight-bold;
     }
 
-    // Hide the default summary icon
-    .c-nav-category::-webkit-details-marker,
-    .c-nav-category::marker {
-        display: none;
-        content: '';
+    &.is-active,
+    &:hover,
+    &:focus {
+        border-radius: f.$radius-rounded-b;
     }
+}
 
-        .c-nav-item {
-            display: block;
-            padding: 10px f.spacing(d);
-            margin: 0 f.spacing(d) 2px $nav-item-left-margin;
-            text-decoration: none;
-            color: f.$color-content-default;
+.c-nav-item,
+.c-nav-category {
+    cursor: pointer;
 
-            &.is-active {
-                background-color: f.$color-container-subtle;
-                font-weight: f.$font-weight-bold;
-            }
-
-            &.is-active,
-            &:hover,
-            &:focus {
-                border-radius: f.$radius-rounded-b;
-            }
-        }
-
-
-    .c-nav-item,
-    .c-nav-category {
-        cursor: pointer;
-
-        &:hover,
-        &:focus {
-            background-color: f.$color-container-subtle;
-            text-decoration: underline;
-        }
+    &:hover,
+    &:focus {
+        background-color: f.$color-container-subtle;
+        text-decoration: underline;
     }
+}
 
 // SideNav accordion toggle
 .c-nav-toggle {
@@ -104,10 +103,11 @@ $nav-item-left-margin: calc($nav-category-gap + $nav-category-icon-width);
         display: block;
     }
 }
-    .c-nav-toggle--open {
-        display: block;
 
-        .c-nav details[open] & {
-            display: none;
-        }
+.c-nav-toggle--open {
+    display: block;
+
+    .c-nav details[open] & {
+        display: none;
     }
+}

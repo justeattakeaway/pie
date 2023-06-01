@@ -1,3 +1,4 @@
+@use 'sass:color';
 @use '../fozzie-config' as f;
 
 $toggle-bg: f.$color-container-strong;
@@ -9,12 +10,17 @@ $toggle-item-fw--checked: f.$font-weight-bold;
 $toggle-item-padding-y: 10px;
 $toggle-item-padding-x: f.spacing(e);
 $toggle-item-bg: f.$color-container-strong;
-$toggle-item-bg--hover: darken(f.$color-container-strong, f.$color-hover-01);
-$toggle-item-bg--active: darken(f.$color-container-strong, f.$color-active-01);
+
+// This is really annoying, but it's the only way to get darkness to work with Custom Props
+// TODO: We should likely make a utility function for this in the future
+// For ref, I tried using string interpolation with -#{f.$color-hover-01}, but it doesn't work as
+// CSS then complains about it then not being a number ¯\_(ツ)_/¯
+$toggle-item-bg--hover: color.adjust(f.$color-container-strong, $lightness: calc(f.$color-hover-01 * -1));
+$toggle-item-bg--active: color.adjust(f.$color-container-strong, $lightness: calc(f.$color-active-01 * -1));
 $toggle-item-bg--checked: f.$color-interactive-light;
-$toggle-item-bg--checked-hover: darken(f.$color-interactive-light, f.$color-hover-01);
+$toggle-item-bg--checked-hover: color.adjust(f.$color-interactive-light, $lightness: calc(f.$color-hover-01 * -1));
 $toggle-item-bg--checked-focus: f.$color-interactive-light;
-$toggle-item-bg--checked-active: darken(f.$color-interactive-light, f.$color-active-01);
+$toggle-item-bg--checked-active: color.adjust(f.$color-interactive-light, $lightness: calc(f.$color-active-01 * -1));
 $toggle-item-color: f.$color-content-interactive-dark;
 $toggle-item-color--hover: f.$color-content-interactive-dark;
 $toggle-item-color--active: f.$color-content-interactive-dark;
@@ -29,39 +35,6 @@ $toggle-item-elevation--checked: f.$elevation-02;
     padding: $toggle-padding;
     border-radius: $toggle-radius;
     background-color: $toggle-bg;
-}
-
-.c-toggle-input {
-    position: absolute;
-    display: block;
-    overflow: hidden;
-    // IE fallback
-    clip: rect(1px, 1px, 1px, 1px);
-    // modern browsers
-    clip-path: inset(1px);
-    white-space: nowrap;
-
-    &:focus-visible ~ .c-toggle-label {
-        box-shadow: inset 0 0 0 2px f.$color-focus-outer;
-        outline: 2px solid transparent;
-    }
-}
-
-.c-toggle-item {
-    height: $toggle-item-height;
-
-    &:not(.is-active) {
-        .c-toggle-input:active ~ .c-toggle-label {
-            background-color: $toggle-item-bg--active;
-            color: $toggle-item-color--active;
-        }
-        .c-toggle-label {
-            &:hover {
-                background-color: $toggle-item-bg--hover;
-                color: $toggle-item-color--hover;
-            }
-        }
-    }
 }
 
 .c-toggle-label {
@@ -93,6 +66,7 @@ $toggle-item-elevation--checked: f.$elevation-02;
         background-color: $toggle-item-bg--checked;
         font-weight: $toggle-item-fw--checked;
         color: $toggle-item-color--checked;
+
         // apply box-shadow separate to prevent overwrite by global focus
         &:before {
             content: '';
@@ -102,6 +76,42 @@ $toggle-item-elevation--checked: f.$elevation-02;
             height: 100%;
             border-radius: $toggle-radius;
             box-shadow: $toggle-item-elevation--checked;
+        }
+    }
+}
+
+.c-toggle-input {
+    position: absolute;
+    display: block;
+    overflow: hidden;
+
+    // IE fallback
+    clip: rect(1px, 1px, 1px, 1px);
+
+    // modern browsers
+    clip-path: inset(1px);
+    white-space: nowrap;
+
+    &:focus-visible ~ .c-toggle-label {
+        box-shadow: inset 0 0 0 2px f.$color-focus-outer;
+        outline: 2px solid transparent;
+    }
+}
+
+.c-toggle-item {
+    height: $toggle-item-height;
+
+    &:not(.is-active) {
+        .c-toggle-label {
+            &:hover {
+                background-color: $toggle-item-bg--hover;
+                color: $toggle-item-color--hover;
+            }
+        }
+
+        .c-toggle-input:active ~ .c-toggle-label {
+            background-color: $toggle-item-bg--active;
+            color: $toggle-item-color--active;
         }
     }
 }
