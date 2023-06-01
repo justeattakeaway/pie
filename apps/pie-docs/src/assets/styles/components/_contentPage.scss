@@ -38,6 +38,16 @@
     }
 }
 
+.c-contentPage-header-description {
+    @include f.font-size('body-l');
+    margin-top: f.spacing(e);
+    max-width: 50ch;
+
+    @include f.media('>=wide') {
+        @include f.font-size('heading-s');
+    }
+}
+
 .c-contentPage-header--hero {
     background-color: f.$color-background-default;
     padding-top: f.$spacing-e;
@@ -79,20 +89,31 @@
     max-width: 500px;
 }
 
-.c-contentPage-header-description {
-    @include f.font-size('body-l');
-    margin-top: f.spacing(e);
-    max-width: 50ch;
-
-    @include f.media('>=wide') {
-        @include f.font-size('heading-s');
-    }
-}
 
 .c-contentPage-content {
     flex: 1;
     background-color: f.$color-background-default;
     border-top: 1px solid f.$color-border-default;
+
+    & a {
+        color: f.$color-content-link-distinct;
+
+        &:visited {
+            color: f.$color-content-link-visited;
+        }
+
+        &:hover,
+        &:active,
+        &:focus {
+            text-decoration: none;
+        }
+    }
+
+    & p:has(+ .c-tokensTable) {
+        // For a tokens table directly following a description add margin.
+        // Descriptions normally have a `<hr />` as a separator
+        margin-bottom: f.spacing(f);
+    }
 
     .c-content-container {
         padding-top: f.spacing(f);
@@ -119,6 +140,19 @@
             }
         }
 
+        > h1,
+        > h2,
+        > h3,
+        > h4,
+        > h5,
+        > h6,
+        > p,
+        > a,
+        > span,
+        > ul {
+            max-width: v.$typography-content-max-width;
+        }
+
         > h2 + h3,
         > h3 + h4,
         > p + .c-contentPage-img,
@@ -131,28 +165,15 @@
         }
 
         > ul + h3,
-        > .c-contentPage-img + h3,
-        > .c-contentPage-img + h4,
         > p + h3,
         > p + h4,
-        > ul + h4,
         > table + h3,
+        > ul + h4,
+        > .c-contentPage-img + h3,
+        > .c-contentPage-img + h4,
         > .c-contentPage-notification + h3,
         & .c-contentPage-notification {
             margin-top: f.spacing(f);
-        }
-
-        > h1,
-        > h2,
-        > h3,
-        > h4,
-        > h5,
-        > h6,
-        > p,
-        > a,
-        > span,
-        > ul {
-            max-width: v.$typography-content-max-width;
         }
     }
 }
@@ -172,22 +193,5 @@
     @include f.media('>=wide') {
         margin-top: f.spacing(i);
         margin-bottom: f.spacing(i);
-    }
-}
-.c-contentPage-content a {
-    color: f.$color-content-link-distinct;
-
-    &:visited {
-        color: f.$color-content-link-visited;
-    }
-
-    &:hover, &:active, &:focus {
-        text-decoration: none;
-    }
-}
-
-.c-contentPage-content {
-    p:has(+ .c-tokensTable) {
-        margin-bottom: f.spacing(f); // for a tokens table directly following a description add margin. Descriptions normally have a `<hr />` as a separator.
     }
 }

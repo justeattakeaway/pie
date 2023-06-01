@@ -4178,13 +4178,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@justeat/stylelint-config-fozzie@npm:3.x":
-  version: 3.2.0
-  resolution: "@justeat/stylelint-config-fozzie@npm:3.2.0"
-  peerDependencies:
-    stylelint: 14.x
-    stylelint-config-standard-scss: 5.x
-  checksum: 1be27619e961bc8fa4dd24d875672bfda6c9893fe158ba22fe3b8837f12c2a444591e87d5c31ad4185ec7976f4a10f0037de94e136ca9dc1f75fc640b430e67a
+"@justeat/pie-design-tokens@npm:5.1.0":
+  version: 5.1.0
+  resolution: "@justeat/pie-design-tokens@npm:5.1.0"
+  dependencies:
+    jsonc-parser: 3.2.0
+    lodash.merge: 4.6.2
+    mkdirp: 1.0.4
+  checksum: e60d7b45c4314b24804507da44a43484c11f62b608a0bc299cb1eb5724f5fb7cf274dcdf0dc490dd1e11a53617aa438aee382bcd2e935daa6988060a653cb5d7
   languageName: node
   linkType: hard
 
@@ -4204,6 +4205,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-button@workspace:packages/components/pie-button"
   dependencies:
+    "@justeat/pie-design-tokens": 5.1.0
     "@justeattakeaway/pie-components-config": "workspace:*"
     "@justeattakeaway/pie-webc-core": "workspace:*"
   languageName: unknown
@@ -4311,7 +4313,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/stylelint-config-pie@workspace:packages/tools/pie-stylelint-config":
+"@justeattakeaway/stylelint-config-pie@workspace:*, @justeattakeaway/stylelint-config-pie@workspace:packages/tools/pie-stylelint-config":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/stylelint-config-pie@workspace:packages/tools/pie-stylelint-config"
   peerDependencies:
@@ -26293,7 +26295,7 @@ __metadata:
     "@justeat/browserslist-config-fozzie": 1.x
     "@justeat/fozzie": 10.11.1
     "@justeat/pie-design-tokens": 4.2.0
-    "@justeat/stylelint-config-fozzie": 3.x
+    "@justeattakeaway/stylelint-config-pie": "workspace:*"
     "@percy/cli": 1.23.0
     "@percy/playwright": 1.0.4
     "@playwright/test": 1.32.3
