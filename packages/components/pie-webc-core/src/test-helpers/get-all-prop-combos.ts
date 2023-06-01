@@ -1,57 +1,50 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+export type PropValue = boolean | any[] | any;
+
 export type PropObject = {
-    [key: string]: boolean | any[];
+    [key: string]: PropValue;
 };
 
 export type Combination = {
-    [key: string]: boolean | any;
+    [key: string]: PropValue;
 };
 
 /**
  * Generate all possible combinations of properties for a given object.
  *
  * @param {PropObject} obj - The object containing properties for which combinations are to be generated.
- * Each property value can be a boolean or an array of any data type.
+ * Each property value can be a boolean, an array of any data type, or any data type.
  *
  * @returns {Combination[]} An array of objects, where each object is a unique combination of property values.
  */
 export const getAllPropCombinations = (obj: PropObject): Combination[] => {
-    // Get the keys from the passed object
     const keys = Object.keys(obj);
-    // Initialize an array to store all combinations
     const combinations: Combination[] = [];
 
-    // Helper function to generate combinations recursively
-    function generatePropCombinations (prefix: (boolean | any)[], i: number): void {
-        // If all keys have been processed, we've found a new combination
+    function generatePropCombinations (prefix: PropValue[], i: number): void {
         if (i === keys.length) {
             const combo: Combination = {};
-            // Assign each key-value pair to the new combination object
             for (let j = 0; j < prefix.length; j++) {
                 combo[keys[j]] = prefix[j];
             }
-            // Add the new combination to the result array
             combinations.push(combo);
             return;
         }
 
-        // Get the current key and its corresponding value
         const key = keys[i];
         const values = obj[key];
 
-        // If the value is a boolean, recurse with both true and false
         if (typeof values === 'boolean') {
             generatePropCombinations(prefix.concat(true), i + 1);
             generatePropCombinations(prefix.concat(false), i + 1);
         } else if (Array.isArray(values)) {
-            // If the value is an array, recurse with each value in the array
             for (let j = 0; j < values.length; j++) {
                 generatePropCombinations(prefix.concat(values[j]), i + 1);
             }
+        } else {
+            generatePropCombinations(prefix.concat(values), i + 1);
         }
     }
 
-    // Start the helper function with an empty prefix and at the first key
     generatePropCombinations([], 0);
 
     return combinations;

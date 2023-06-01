@@ -14,12 +14,12 @@ const props: PropObject = {
     disabled: [true, false],
 };
 
-const combinations = getAllPropCombinations(props);
-const splitCombinationsByVariant = splitCombinationsByPropertyValue(combinations, 'variant');
-const variants = Object.keys(splitCombinationsByVariant);
+const componentPropsMatrix : Combination[] = getAllPropCombinations(props);
+const componentPropsMatrixByVariant: Record<string, Combination[]> = splitCombinationsByPropertyValue(componentPropsMatrix, 'variant');
+const componentVariants: string[] = Object.keys(componentPropsMatrixByVariant);
 
-variants.map((variant) => test(`Render all prop variations for Variant: ${variant}`, async ({ page, mount }) => {
-    await Promise.all(splitCombinationsByVariant[variant].map(async (combo: Combination) => {
+componentVariants.map((variant) => test(`Render all prop variations for Variant: ${variant}`, async ({ page, mount }) => {
+    await Promise.all(componentPropsMatrixByVariant[variant].map(async (combo: Combination) => {
         await mount(
             PieButton,
             {
