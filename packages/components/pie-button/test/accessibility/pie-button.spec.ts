@@ -1,36 +1,40 @@
 import { test, expect } from '@sand4rt/experimental-ct-web';
-import { PieButton } from '@/index';
-import { BUTTON_SIZE, BUTTON_VARIANT } from '@/defs';
 import AxeBuilder from '@axe-core/playwright';
+import {
+    PropObject, Combination, getAllPropCombinations, splitCombinationsByPropertyValue,
+} from '@justeattakeaway/pie-webc-core/src/test-helpers/get-all-prop-combos.ts';
+import { PieButton } from '@/index';
+import { BUTTON_TYPE, BUTTON_SIZE, BUTTON_VARIANT } from '@/defs';
 
-const sizes = Object.values(BUTTON_SIZE);
-const variants = Object.values(BUTTON_VARIANT);
-const disabledStates = [true, false];
+const props: PropObject = {
+    variant: Object.values(BUTTON_VARIANT),
+    size: Object.values(BUTTON_SIZE),
+    type: BUTTON_TYPE.BUTTON,
+    isFullWidth: [true, false],
+    disabled: [true, false],
+};
 
-variants.forEach(variant => {
-  test(`should render - ${variant}`, async ({ mount, page }) => {
+const componentPropsMatrix : Combination[] = getAllPropCombinations(props);
+const componentPropsMatrixByVariant: Record<string, Combination[]> = splitCombinationsByPropertyValue(componentPropsMatrix, 'variant');
+const componentVariants: string[] = Object.keys(componentPropsMatrixByVariant);
 
-    for (const size of sizes) {
-      for (const isDisabled of disabledStates) {
-        const component = await mount(PieButton,
-          {
-            props: {
-              size,
-              variant,
-              disabled: isDisabled
+componentVariants.forEach((variant) => test(`Render all prop variations for Variant: ${variant}`, async ({ page, mount }) => {
+    await Promise.all(componentPropsMatrixByVariant[variant].map(async (combo: Combination) => {
+        await mount(
+            PieButton,
+            {
+                props: { ...combo },
+                slots: {
+                    default: 'Hello world',
+                },
             },
-            slots: {
-              default: `Hello, ${size} ${variant} Button!`
-            },
-          });
-      }
-    }
+        );
+    }));
 
     const results = await new AxeBuilder.default({ page })
-    .withTags(['wcag21a', 'wcag21aa', 'wcag143', 'cat.color', 'cat.aria'])
-    .disableRules(['color-contrast', 'color-contrast-enhanced'])
-    .analyze();
+        .withTags(['wcag21a', 'wcag21aa', 'wcag143', 'cat.color', 'cat.aria'])
+        .disableRules(['color-contrast', 'color-contrast-enhanced'])
+        .analyze();
 
     expect(results.violations).toEqual([]);
-  });
-})
+}));

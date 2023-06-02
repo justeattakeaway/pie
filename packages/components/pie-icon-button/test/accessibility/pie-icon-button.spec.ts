@@ -1,5 +1,5 @@
-import { test } from '@sand4rt/experimental-ct-web';
-import percySnapshot from '@percy/playwright';
+import { test, expect } from '@sand4rt/experimental-ct-web';
+import AxeBuilder from '@axe-core/playwright';
 import {
     PropObject, Combination, getAllPropCombinations, splitCombinationsByPropertyValue,
 } from '@justeattakeaway/pie-webc-core/src/test-helpers/get-all-prop-combos.ts';
@@ -21,9 +21,17 @@ componentVariants.forEach((variant) => test(`Render all prop variations for Vari
             PieIconButton,
             {
                 props: { ...combo },
+                slots: {
+                    default: 'Hello world',
+                },
             },
         );
     }));
 
-    await percySnapshot(page, `PIE Icon Button - Variant: ${variant}`);
+    const results = await new AxeBuilder.default({ page })
+        .withTags(['wcag21a', 'wcag21aa', 'wcag143', 'cat.color', 'cat.aria'])
+        .disableRules(['color-contrast', 'color-contrast-enhanced'])
+        .analyze();
+
+    expect(results.violations).toEqual([]);
 }));
