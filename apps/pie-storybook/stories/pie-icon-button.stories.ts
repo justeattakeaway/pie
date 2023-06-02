@@ -1,6 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import type { Meta, StoryObj as Story } from '@storybook/web-components';
-import { ICON_BUTTON_VARIANT, IconButtonVariant } from '@justeattakeaway/pie-icon-button';
+import { IconButtonVariant, ICON_BUTTON_VARIANT } from '@justeattakeaway/pie-icon-button';
 import { html, TemplateResult } from 'lit';
 
 export default {
