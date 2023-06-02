@@ -9,14 +9,14 @@ export default {
     argTypes: {
         variant: {
             control: 'select',
-            options: ICON_BUTTON_VARIANT,
+            options: Object.values(ICON_BUTTON_VARIANT),
         },
         disabled: {
             control: 'boolean',
         },
     },
     args: {
-        variant: 'primary',
+        variant: ICON_BUTTON_VARIANT.PRIMARY,
     },
     parameters: {
         design: {
@@ -42,7 +42,7 @@ const Template = ({
         `;
 
 const defaultArgs = {
-    variant: 'primary',
+    variant: ICON_BUTTON_VARIANT.PRIMARY,
     disabled: false,
 };
 
@@ -54,23 +54,23 @@ Primary.args = {
 export const Secondary: Story = Template.bind({});
 Secondary.args = {
     ...defaultArgs,
-    variant: 'secondary',
+    variant: ICON_BUTTON_VARIANT.SECONDARY,
 };
 
 export const Outline: Story = Template.bind({});
 Outline.args = {
     ...defaultArgs,
-    variant: 'outline',
+    variant: ICON_BUTTON_VARIANT.OUTLINE,
 };
 
 export const Ghost: Story = Template.bind({});
 Ghost.args = {
     ...defaultArgs,
-    variant: 'ghost',
+    variant: ICON_BUTTON_VARIANT.GHOST,
 };
 
 export const GhostTertiary: Story = Template.bind({});
 GhostTertiary.args = {
     ...defaultArgs,
-    variant: 'ghost-tertiary',
+    variant: ICON_BUTTON_VARIANT.GHOST_TERTIARY,
 };

@@ -16,16 +16,16 @@ const componentSelector = 'pie-button';
 
 export class PieButton extends LitElement {
     @property()
-    @validPropertyValues(componentSelector, Array.values(BUTTON_SIZE), 'medium')
-        size: ButtonSize = 'medium';
+    @validPropertyValues(componentSelector, Object.values(BUTTON_SIZE), BUTTON_SIZE.MEDIUM)
+        size: ButtonSize = BUTTON_SIZE.MEDIUM;
 
     @property()
-    @validPropertyValues(componentSelector, Array.values(BUTTON_TYPE), 'submit')
-        type: ButtonType = 'submit';
+    @validPropertyValues(componentSelector, Object.values(BUTTON_TYPE), BUTTON_TYPE.SUBMIT)
+        type: ButtonType = BUTTON_TYPE.SUBMIT;
 
     @property()
-    @validPropertyValues(componentSelector, Array.values(BUTTON_VARIANT), 'primary')
-        variant: ButtonVariant = 'primary';
+    @validPropertyValues(componentSelector, Object.values(BUTTON_VARIANT), BUTTON_VARIANT.PRIMARY)
+        variant: ButtonVariant = BUTTON_VARIANT.PRIMARY;
 
     @property({ type: Boolean, reflect: true })
         disabled = false;

@@ -11,15 +11,15 @@ export default {
     argTypes: {
         size: {
             control: 'select',
-            options: BUTTON_SIZE,
+            options: Object.values(BUTTON_SIZE),
         },
         type: {
             control: 'select',
-            options: BUTTON_TYPE,
+            options: Object.values(BUTTON_TYPE),
         },
         variant: {
             control: 'select',
-            options: BUTTON_VARIANT,
+            options: Object.values(BUTTON_VARIANT),
         },
         disabled: {
             control: 'boolean',
@@ -32,9 +32,9 @@ export default {
         },
     },
     args: {
-        size: 'medium',
-        type: 'submit',
-        variant: 'primary',
+        size: BUTTON_SIZE.MEDIUM,
+        type: BUTTON_TYPE.SUBMIT,
+        variant: BUTTON_VARIANT.PRIMARY,
         disabled: false,
         isFullWidth: false,
     },
@@ -69,9 +69,9 @@ const Template = ({
         `;
 
 const defaultArgs = {
-    size: 'medium',
-    type: 'submit',
-    variant: 'primary',
+    size: BUTTON_SIZE.MEDIUM,
+    type: BUTTON_TYPE.SUBMIT,
+    variant: BUTTON_VARIANT.PRIMARY,
     disabled: false,
     isFullWidth: false,
     slot: 'This is Lit!',
@@ -85,17 +85,17 @@ Primary.args = {
 export const Secondary: Story = Template.bind({});
 Secondary.args = {
     ...defaultArgs,
-    variant: 'secondary',
+    variant: BUTTON_VARIANT.SECONDARY,
 };
 
 export const Outline: Story = Template.bind({});
 Outline.args = {
     ...defaultArgs,
-    variant: 'outline',
+    variant: BUTTON_VARIANT.OUTLINE,
 };
 
 export const Ghost: Story = Template.bind({});
 Ghost.args = {
     ...defaultArgs,
-    variant: 'ghost',
+    variant: BUTTON_VARIANT.GHOST,
 };
