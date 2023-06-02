@@ -30,7 +30,7 @@ To use the React wrapper in an application, import `Pie{Component}` from the pac
 import { PieButton } from '@justeattakeaway/pie-button/dist/react'
 ```
 
-When constructing your component, please define your custom element like so:
+When constructing your component, please define your custom element with the string and component class. For example:
 
 `customElements.define('pie-icon-button', PieIconButton);`
 
