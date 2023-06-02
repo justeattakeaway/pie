@@ -18,7 +18,7 @@
 <nav class="c-nav" data-test-id="site_nav">
     <div class="c-nav-inner">
     {% for section in navSections %}
-        <ul>
+        <ul data-test-id="site_nav_section_{{loop.index}}"">
             {# build up a list of categories such as 'components', 'foundations' #}
             {% for category in section %}
                 {% if category.url %}
