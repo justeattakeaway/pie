@@ -197,6 +197,37 @@
     },
     {
       "kind": "javascript-module",
+      "path": "../../components/pie-webc-core/src/index.js",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./mixins"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./decorators"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./test-helpers"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "../../components/pie-icon-button/src/defs.js",
       "declarations": [],
       "exports": []
@@ -280,29 +311,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "../../components/pie-webc-core/src/index.js",
-      "declarations": [],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "*",
-          "declaration": {
-            "name": "*",
-            "package": "./mixins"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "*",
-          "declaration": {
-            "name": "*",
-            "package": "./decorators"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "../../components/pie-webc-core/src/decorators/index.js",
       "declarations": [],
       "exports": [
@@ -318,6 +326,90 @@
     },
     {
       "kind": "javascript-module",
+      "path": "../../components/pie-webc-core/src/test-helpers/get-all-prop-combos.js",
+      "declarations": [
+        {
+          "kind": "function",
+          "name": "getAllPropCombinations",
+          "return": {
+            "type": {
+              "text": "Combination[]"
+            }
+          },
+          "parameters": [
+            {
+              "name": "obj",
+              "type": {
+                "text": "PropObject"
+              },
+              "description": "The object containing properties for which combinations are to be generated.\nEach property value can any data type."
+            }
+          ],
+          "description": "Generate all possible combinations of properties for a given object."
+        },
+        {
+          "kind": "function",
+          "name": "splitCombinationsByPropertyValue",
+          "return": {
+            "type": {
+              "text": "Record<string, Combination[]>"
+            }
+          },
+          "parameters": [
+            {
+              "name": "combinations",
+              "type": {
+                "text": "Combination[]"
+              },
+              "description": "The array of combinations to split."
+            },
+            {
+              "name": "property",
+              "type": {
+                "text": "string"
+              },
+              "description": "The property to split by."
+            }
+          ],
+          "description": "Splits an array of component prop combinations by a particular property value."
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "getAllPropCombinations",
+          "declaration": {
+            "name": "getAllPropCombinations",
+            "module": "../../components/pie-webc-core/src/test-helpers/get-all-prop-combos.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "splitCombinationsByPropertyValue",
+          "declaration": {
+            "name": "splitCombinationsByPropertyValue",
+            "module": "../../components/pie-webc-core/src/test-helpers/get-all-prop-combos.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../../components/pie-webc-core/src/test-helpers/index.js",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./get-all-prop-combos"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "../../components/pie-webc-core/src/mixins/index.js",
       "declarations": [],
       "exports": [
@@ -327,54 +419,6 @@
           "declaration": {
             "name": "*",
             "package": "./rtl/rtlMixin"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "../../components/pie-webc-core/src/mixins/rtl/rtlMixin.js",
-      "declarations": [
-        {
-          "kind": "mixin",
-          "description": "",
-          "name": "RtlMixin",
-          "members": [
-            {
-              "kind": "field",
-              "name": "dir",
-              "type": {
-                "text": "string"
-              },
-              "default": "''"
-            },
-            {
-              "kind": "field",
-              "name": "isRTL",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Returns true if the element is in Right to Left mode.\nIf a dir attribute is not explicitly set on the web component\nthen it falls back to the nearest parent with a dir attribute set.\n\nA dir attribute being set will result in a reactive property.\nIf the component falls back to a parent dir attribute then the value\nwill not be reactive and is only computed once",
-              "readonly": true
-            }
-          ],
-          "parameters": [
-            {
-              "name": "superClass",
-              "type": {
-                "text": "T"
-              }
-            }
-          ]
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "RtlMixin",
-          "declaration": {
-            "name": "RtlMixin",
-            "module": "../../components/pie-webc-core/src/mixins/rtl/rtlMixin.js"
           }
         }
       ]
@@ -423,6 +467,54 @@
           "declaration": {
             "name": "validPropertyValues",
             "module": "../../components/pie-webc-core/src/decorators/valid-property-values/validPropertyValues.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../../components/pie-webc-core/src/mixins/rtl/rtlMixin.js",
+      "declarations": [
+        {
+          "kind": "mixin",
+          "description": "",
+          "name": "RtlMixin",
+          "members": [
+            {
+              "kind": "field",
+              "name": "dir",
+              "type": {
+                "text": "string"
+              },
+              "default": "''"
+            },
+            {
+              "kind": "field",
+              "name": "isRTL",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Returns true if the element is in Right to Left mode.\nIf a dir attribute is not explicitly set on the web component\nthen it falls back to the nearest parent with a dir attribute set.\n\nA dir attribute being set will result in a reactive property.\nIf the component falls back to a parent dir attribute then the value\nwill not be reactive and is only computed once",
+              "readonly": true
+            }
+          ],
+          "parameters": [
+            {
+              "name": "superClass",
+              "type": {
+                "text": "T"
+              }
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "RtlMixin",
+          "declaration": {
+            "name": "RtlMixin",
+            "module": "../../components/pie-webc-core/src/mixins/rtl/rtlMixin.js"
           }
         }
       ]
