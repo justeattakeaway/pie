@@ -4,48 +4,48 @@
 $tabs-link-padding:                f.spacing(d);
 
 .c-tabs {
-  z-index: f.zIndex(mid);
-  font-weight: f.$font-weight-bold;
+    z-index: f.zIndex(mid);
+    font-weight: f.$font-weight-bold;
 
-  ul {
-    .c-tabs-item {
-      display: inline-block;
-    }
-
-    .c-tabs-link {
-      position: relative;
-      display: block;
-      padding: $tabs-link-padding;
-      text-decoration: none;
-      color: f.$color-content-subdued;
-
-      &.is-active,
-      &:hover,
-      &:focus {
-        color: f.$color-content-default;
-
-        &:before {
-          content: '';
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          right: 0;
-          background: f.$color-interactive-brand;
-          height: 4px;
-          border-top-left-radius: 2px 2px;
-          border-top-right-radius: 2px 2px;
+    ul {
+        .c-tabs-item {
+            display: inline-block;
         }
-      }
-    }
-  }
 
-  @include f.media('<wide') {
-    position: sticky;
-    top: 0;
-    background-color: f.$color-container-default;
-    box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.06);
-    width: 100%;
-    overflow: auto;
-    white-space: nowrap;
-  }
+        .c-tabs-link {
+            position: relative;
+            display: block;
+            padding: $tabs-link-padding;
+            text-decoration: none;
+            color: f.$color-content-subdued;
+
+            &.is-active,
+            &:hover,
+            &:focus {
+                color: f.$color-content-default;
+
+                &:before {
+                    content: '';
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    background: f.$color-interactive-brand;
+                    height: 4px;
+                    border-top-left-radius: 2px 2px;
+                    border-top-right-radius: 2px 2px;
+                }
+            }
+        }
+    }
+
+    @include f.media('<wide') {
+        position: sticky;
+        top: 0;
+        background-color: f.$color-container-default;
+        box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.06);
+        width: 100%;
+        overflow: auto;
+        white-space: nowrap;
+    }
 }
