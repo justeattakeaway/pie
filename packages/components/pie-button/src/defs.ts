@@ -19,7 +19,7 @@ export const BUTTON_TYPE = {
     BUTTON: 'button',
     RESET: 'reset',
     MENU: 'menu',
-};
+} as const;
 
 export type ButtonType = typeof BUTTON_TYPE[keyof typeof BUTTON_TYPE];
 
@@ -31,6 +31,6 @@ export const BUTTON_VARIANT = {
     SECONDARY: 'secondary',
     OUTLINE: 'outline',
     GHOST: 'ghost',
-};
+} as const;
 
 export type ButtonVariant = typeof BUTTON_VARIANT[keyof typeof BUTTON_VARIANT];
