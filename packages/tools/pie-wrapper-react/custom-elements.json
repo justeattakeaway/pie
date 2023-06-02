@@ -13,14 +13,6 @@
       "path": "../../components/pie-button/src/index.js",
       "declarations": [
         {
-          "kind": "variable",
-          "name": "componentSelector",
-          "type": {
-            "text": "string"
-          },
-          "default": "'pie-button'"
-        },
-        {
           "kind": "class",
           "description": "",
           "name": "PieButton",
@@ -76,7 +68,7 @@
             "name": "LitElement",
             "package": "lit"
           },
-          "tagName": "componentSelector",
+          "tagName": "pie-button",
           "customElement": true
         }
       ],
@@ -115,7 +107,7 @@
         },
         {
           "kind": "custom-element-definition",
-          "name": "componentSelector",
+          "name": "pie-button",
           "declaration": {
             "name": "PieButton",
             "module": "../../components/pie-button/src/index.js"
@@ -133,14 +125,6 @@
       "kind": "javascript-module",
       "path": "../../components/pie-icon-button/src/index.js",
       "declarations": [
-        {
-          "kind": "variable",
-          "name": "componentSelector",
-          "type": {
-            "text": "string"
-          },
-          "default": "'pie-icon-button'"
-        },
         {
           "kind": "class",
           "description": "",
@@ -175,7 +159,7 @@
             "name": "LitElement",
             "package": "lit"
           },
-          "tagName": "componentSelector",
+          "tagName": "pie-icon-button",
           "customElement": true
         }
       ],
@@ -198,7 +182,7 @@
         },
         {
           "kind": "custom-element-definition",
-          "name": "componentSelector",
+          "name": "pie-icon-button",
           "declaration": {
             "name": "PieIconButton",
             "module": "../../components/pie-icon-button/src/index.js"
