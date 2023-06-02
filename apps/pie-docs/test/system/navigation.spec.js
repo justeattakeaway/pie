@@ -62,7 +62,7 @@ test.describe('PIE - site nav menu - @desktop', () => {
 
     test('Should be visible at the top of the page', async () => {
         // Assert - Navigation and top of the page are visible
-        await expect(await isElementVisibleInViewport(siteNavigation)).toBeTruthy();
+        await expect.soft(await isElementVisibleInViewport(siteNavigation)).toBeTruthy();
         await expect(await isElementVisibleInViewport(contentHeader)).toBeTruthy();
     });
 
