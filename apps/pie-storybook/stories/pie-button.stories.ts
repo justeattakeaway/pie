@@ -1,5 +1,8 @@
 import type { Meta, StoryObj as Story } from '@storybook/web-components';
-import { BUTTON_SIZE, BUTTON_TYPE, BUTTON_VARIANT } from '@justeattakeaway/pie-button';
+import {
+    ButtonSize, ButtonType, ButtonVariant,
+    BUTTON_SIZE, BUTTON_TYPE, BUTTON_VARIANT,
+} from '@justeattakeaway/pie-button';
 import { html, TemplateResult } from 'lit';
 
 export default {
@@ -8,15 +11,15 @@ export default {
     argTypes: {
         size: {
             control: 'select',
-            options: Object.values(BUTTON_SIZE),
+            options: BUTTON_SIZE,
         },
         type: {
             control: 'select',
-            options: Object.values(BUTTON_TYPE),
+            options: BUTTON_TYPE,
         },
         variant: {
             control: 'select',
-            options: Object.values(BUTTON_VARIANT),
+            options: BUTTON_VARIANT,
         },
         disabled: {
             control: 'boolean',
@@ -29,9 +32,9 @@ export default {
         },
     },
     args: {
-        size: BUTTON_SIZE.MEDIUM,
-        type: BUTTON_TYPE.SUBMIT,
-        variant: BUTTON_VARIANT.PRIMARY,
+        size: 'medium',
+        type: 'submit',
+        variant: 'primary',
         disabled: false,
         isFullWidth: false,
     },
@@ -44,9 +47,9 @@ export default {
 } as Meta;
 
 interface ButtonProps {
-    size: BUTTON_SIZE;
-    variant: BUTTON_VARIANT;
-    type: BUTTON_TYPE;
+    size: ButtonSize;
+    variant: ButtonVariant;
+    type: ButtonType;
     disabled: boolean;
     isFullWidth: boolean;
     slot: TemplateResult;
@@ -66,9 +69,9 @@ const Template = ({
         `;
 
 const defaultArgs = {
-    size: BUTTON_SIZE.MEDIUM,
-    type: BUTTON_TYPE.SUBMIT,
-    variant: BUTTON_VARIANT.PRIMARY,
+    size: 'medium',
+    type: 'submit',
+    variant: 'primary',
     disabled: false,
     isFullWidth: false,
     slot: 'This is Lit!',
@@ -82,17 +85,17 @@ Primary.args = {
 export const Secondary: Story = Template.bind({});
 Secondary.args = {
     ...defaultArgs,
-    variant: BUTTON_VARIANT.SECONDARY,
+    variant: 'secondary',
 };
 
 export const Outline: Story = Template.bind({});
 Outline.args = {
     ...defaultArgs,
-    variant: BUTTON_VARIANT.OUTLINE,
+    variant: 'outline',
 };
 
 export const Ghost: Story = Template.bind({});
 Ghost.args = {
     ...defaultArgs,
-    variant: BUTTON_VARIANT.GHOST,
+    variant: 'ghost',
 };

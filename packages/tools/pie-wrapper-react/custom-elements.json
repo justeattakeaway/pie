@@ -5,8 +5,61 @@
     {
       "kind": "javascript-module",
       "path": "../../components/pie-button/src/defs.js",
-      "declarations": [],
-      "exports": []
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "BUTTON_SIZE",
+          "type": {
+            "text": "['xsmall', 'small-expressive', 'small-productive', 'medium', 'large']"
+          },
+          "default": "['xsmall', 'small-expressive', 'small-productive', 'medium', 'large']",
+          "description": "Button size variants"
+        },
+        {
+          "kind": "variable",
+          "name": "BUTTON_TYPE",
+          "type": {
+            "text": "['submit', 'button', 'reset', 'menu']"
+          },
+          "default": "['submit', 'button', 'reset', 'menu']",
+          "description": "Button style variants"
+        },
+        {
+          "kind": "variable",
+          "name": "BUTTON_VARIANT",
+          "type": {
+            "text": "['primary', 'secondary', 'outline', 'ghost']"
+          },
+          "default": "['primary', 'secondary', 'outline', 'ghost']",
+          "description": "Button style variants"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "BUTTON_SIZE",
+          "declaration": {
+            "name": "BUTTON_SIZE",
+            "module": "../../components/pie-button/src/defs.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "BUTTON_TYPE",
+          "declaration": {
+            "name": "BUTTON_TYPE",
+            "module": "../../components/pie-button/src/defs.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "BUTTON_VARIANT",
+          "declaration": {
+            "name": "BUTTON_VARIANT",
+            "module": "../../components/pie-button/src/defs.js"
+          }
+        }
+      ]
     },
     {
       "kind": "javascript-module",
@@ -29,22 +82,25 @@
               "kind": "field",
               "name": "size",
               "type": {
-                "text": "BUTTON_SIZE"
-              }
+                "text": "ButtonSize"
+              },
+              "default": "'medium'"
             },
             {
               "kind": "field",
               "name": "type",
               "type": {
-                "text": "BUTTON_TYPE"
-              }
+                "text": "ButtonType"
+              },
+              "default": "'submit'"
             },
             {
               "kind": "field",
               "name": "variant",
               "type": {
-                "text": "BUTTON_VARIANT"
-              }
+                "text": "ButtonVariant"
+              },
+              "default": "'primary'"
             },
             {
               "kind": "field",
@@ -126,8 +182,27 @@
     {
       "kind": "javascript-module",
       "path": "../../components/pie-icon-button/src/defs.js",
-      "declarations": [],
-      "exports": []
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "ICON_BUTTON_VARIANT",
+          "type": {
+            "text": "['primary', 'secondary', 'outline', 'ghost']"
+          },
+          "default": "['primary', 'secondary', 'outline', 'ghost']",
+          "description": "Icon Button style variants"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "ICON_BUTTON_VARIANT",
+          "declaration": {
+            "name": "ICON_BUTTON_VARIANT",
+            "module": "../../components/pie-icon-button/src/defs.js"
+          }
+        }
+      ]
     },
     {
       "kind": "javascript-module",
@@ -150,8 +225,9 @@
               "kind": "field",
               "name": "variant",
               "type": {
-                "text": "ICON_BUTTON_VARIANT"
-              }
+                "text": "IconButtonVariant"
+              },
+              "default": "'primary'"
             },
             {
               "kind": "field",
@@ -208,6 +284,29 @@
     },
     {
       "kind": "javascript-module",
+      "path": "../../components/pie-webc-core/src/index.js",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./mixins"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./decorators"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "../../components/pie-modal/src/index.js",
       "declarations": [
         {
@@ -237,7 +336,7 @@
               "type": {
                 "text": "boolean"
               },
-              "description": "Returns true if the element is in Right to Left mode.\r\nIf a dir attribute is not explicitly set on the web component\r\nthen it falls back to the nearest parent with a dir attribute set.\r\n\r\nA dir attribute being set will result in a reactive property.\r\nIf the component falls back to a parent dir attribute then the value\r\nwill not be reactive and is only computed once",
+              "description": "Returns true if the element is in Right to Left mode.\nIf a dir attribute is not explicitly set on the web component\nthen it falls back to the nearest parent with a dir attribute set.\n\nA dir attribute being set will result in a reactive property.\nIf the component falls back to a parent dir attribute then the value\nwill not be reactive and is only computed once",
               "readonly": true,
               "inheritedFrom": {
                 "name": "RtlMixin",
@@ -274,29 +373,6 @@
           "declaration": {
             "name": "PieModal",
             "module": "../../components/pie-modal/src/index.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "../../components/pie-webc-core/src/index.js",
-      "declarations": [],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "*",
-          "declaration": {
-            "name": "*",
-            "package": "./mixins"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "*",
-          "declaration": {
-            "name": "*",
-            "package": "./decorators"
           }
         }
       ]
@@ -360,7 +436,7 @@
               "description": "The value to fall back on"
             }
           ],
-          "description": "A decorator for specifying a list of valid values for a property.\r\nIf this property's setter is called with an invalid value, an error is logged and the default value will be assigned instead.",
+          "description": "A decorator for specifying a list of valid values for a property.\nIf this property's setter is called with an invalid value, an error is logged and the default value will be assigned instead.",
           "return": {
             "type": {
               "text": ""
@@ -402,7 +478,7 @@
               "type": {
                 "text": "boolean"
               },
-              "description": "Returns true if the element is in Right to Left mode.\r\nIf a dir attribute is not explicitly set on the web component\r\nthen it falls back to the nearest parent with a dir attribute set.\r\n\r\nA dir attribute being set will result in a reactive property.\r\nIf the component falls back to a parent dir attribute then the value\r\nwill not be reactive and is only computed once",
+              "description": "Returns true if the element is in Right to Left mode.\nIf a dir attribute is not explicitly set on the web component\nthen it falls back to the nearest parent with a dir attribute set.\n\nA dir attribute being set will result in a reactive property.\nIf the component falls back to a parent dir attribute then the value\nwill not be reactive and is only computed once",
               "readonly": true
             }
           ],
