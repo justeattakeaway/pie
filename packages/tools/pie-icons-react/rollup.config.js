@@ -10,7 +10,6 @@ export default [
             dir: "esm",
             format: "esm",
             name: "@justeattakeaway/pie-icons-react",
-            preserveModules: true,
             preserveModulesRoot: 'icons',
             globals: {
                 react: "React",
@@ -30,7 +29,6 @@ export default [
             dir: "dist",
             format: "cjs",
             name: "@justeattakeaway/pie-icons-react",
-            preserveModules: true,
             preserveModulesRoot: 'icons',
             globals: {
                 react: "React",
