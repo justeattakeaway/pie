@@ -7,10 +7,10 @@
 
 @use 'fozzie-config' as f;
 
-@include f.normalize();
-@include f.reset();
-@include f.typography();
-@include f.trumps-utilities();
-@include f.buttons();
-@include f.trumps-spacing();
-@include f.trumps-rwd();
+@include f.normalize;
+@include f.reset;
+@include f.typography;
+@include f.trumps-utilities;
+@include f.buttons;
+@include f.trumps-spacing;
+@include f.trumps-rwd;
