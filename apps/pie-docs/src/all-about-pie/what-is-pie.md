@@ -29,7 +29,7 @@ Here are six reasons why you should use PIE for your products:
 
 {% list {
     type: listTypes.icon,
-    iconName: "check-circle-filled",
+    iconName: "check-circle",
     iconFill: "support-positive",
     items: [
         "**Consistency**: PIE provides a single source of truth for designers and developers, which keeps your products consistent and minimises the chance of human errors.",
