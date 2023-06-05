@@ -7,8 +7,8 @@
   "module": "dist/index.js",
   "types": "dist/types/index.d.ts",
   "scripts": {
-    "build": "yarn build:wrapper pie-icon-button && run -T vite build --config ../../../configs/pie-components-config/vite.config.js",
-    "watch": "run -T vite build --config ../../../configs/pie-components-config/vite.config.js --watch",
+    "build": "yarn build:wrapper pie-icon-button && run -T vite build",
+    "watch": "run -T vite build --watch",
     "test": "echo \"Error: no test specified\" && exit 0",
     "test:ci": "yarn test"
   },

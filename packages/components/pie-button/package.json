@@ -7,10 +7,10 @@
   "module": "dist/index.js",
   "types": "dist/types/index.d.ts",
   "scripts": {
-    "build": "yarn build:wrapper pie-button && run -T vite build --config ../../../configs/pie-components-config/vite.config.js",
+    "build": "yarn build:wrapper pie-button && run -T vite build ",
     "lint:style": "run -T stylelint ./src/**/*.{css,scss}",
     "lint:style:fix": "yarn lint:style --fix",
-    "watch": "run -T vite build --config ../../../configs/pie-components-config/vite.config.js --watch",
+    "watch": "run -T vite build --watch",
     "test": "echo \"Error: no test specified\" && exit 0",
     "test:ci": "yarn test",
     "test:browsers": "npx playwright test -c ./playwright-lit.config.ts",
