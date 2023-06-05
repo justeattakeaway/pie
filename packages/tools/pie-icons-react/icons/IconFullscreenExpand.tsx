@@ -1,7 +1,7 @@
 import * as React from "react";
 import { RegularIconProps } from "../types";
 // @ts-ignore
-import { getSvgProps } from './configs-react';
+import { getSvgProps } from '@justeattakeaway/pie-icons-configs/configs-react';
 const IconFullscreenExpand = (props: RegularIconProps) => {
   const {
     className,
@@ -10,7 +10,7 @@ const IconFullscreenExpand = (props: RegularIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--fullscreen-expand", className, iconSize, "IconFullscreenExpand");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--fullscreen-expand", className, iconSize, "IconFullscreenExpand");
   const allProps = {
     ...remainingProps,
     ...moreProps

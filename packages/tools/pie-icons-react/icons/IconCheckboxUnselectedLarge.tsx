@@ -1,7 +1,7 @@
 import * as React from "react";
 import { LargeIconProps } from "../types";
 // @ts-ignore
-import { getSvgProps } from './configs-react';
+import { getSvgProps } from '@justeattakeaway/pie-icons-configs/configs-react';
 const IconCheckboxUnselectedLarge = (props: LargeIconProps) => {
   const {
     className,
@@ -10,7 +10,7 @@ const IconCheckboxUnselectedLarge = (props: LargeIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--checkbox-unselected-large", className, iconSize, "IconCheckboxUnselectedLarge");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--checkbox-unselected-large", className, iconSize, "IconCheckboxUnselectedLarge");
   const allProps = {
     ...remainingProps,
     ...moreProps
