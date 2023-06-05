@@ -1,7 +1,7 @@
 import * as React from "react";
 import { LargeIconProps } from "../types";
 // @ts-ignore
-import { getSvgProps } from './configs-react';
+import { getSvgProps } from '@justeattakeaway/pie-icons-configs/configs-react';
 const IconCalendarErrorLarge = (props: LargeIconProps) => {
   const {
     className,
@@ -10,7 +10,7 @@ const IconCalendarErrorLarge = (props: LargeIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--calendar-error-large", className, iconSize, "IconCalendarErrorLarge");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--calendar-error-large", className, iconSize, "IconCalendarErrorLarge");
   const allProps = {
     ...remainingProps,
     ...moreProps

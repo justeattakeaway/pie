@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/pie-icons-vue",
-  "version": "3.2.0",
+  "version": "3.3.0",
   "main": "dist/pie-icons-vue.cjs.js",
   "cdn": "dist/pie-icons-vue.min.js",
   "unpkg": "dist/pie-icons-vue.min.js",

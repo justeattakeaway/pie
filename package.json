@@ -1,7 +1,7 @@
 {
   "name": "pie-monorepo",
   "description": "JustEatTakeaway",
-  "version": "2.10.0",
+  "version": "2.11.0",
   "keywords": [],
   "author": "JustEatTakeaway - Design System Web Team",
   "license": "Apache-2.0",
@@ -45,7 +45,7 @@
     "test:visual:ci": "turbo run test:visual:ci --filter=!pie-monorepo"
   },
   "stylelint": {
-    "extends": "@justeat/stylelint-config-fozzie"
+    "extends": "@justeattakeaway/stylelint-config-pie/base"
   },
   "devDependencies": {
     "@axe-core/playwright": "4.6.1",
@@ -61,7 +61,7 @@
     "@commitlint/config-conventional": "17.4.4",
     "@justeat/browserslist-config-fozzie": "1.x",
     "@justeat/pie-design-tokens": "4.2.0",
-    "@justeat/stylelint-config-fozzie": "3.x",
+    "@justeattakeaway/stylelint-config-pie": "workspace:*",
     "@percy/cli": "1.23.0",
     "@percy/playwright": "1.0.4",
     "@playwright/test": "1.32.3",

@@ -20,7 +20,9 @@ export const PButton = createComponent({
     });
 ```
 
-This package references a `custom-elements.json` file, which is generated via a `yarn cem analyze` command from the npm package `@custom-elements-manifest/analyzer`. This package searches through the repo for any custom elements and condenses it's information, such as events and attributes, into a large json object - making it easier to use for wrappers.
+This package references a `custom-elements.json` file, which is generated via a `yarn cem analyze` command from the npm package `@custom-elements-manifest/analyzer`. This package searches through the repo for any custom elements and condenses it's information, such as events and attributes, into a large json object - making it easier to use for wrappers. Therefore, any changes made to a web component will automatically be reflected in the `custom-elements.json` file during the build process.
+
+If you notice changes in this file, please commit this as part of your PR. These are necessary for the react-wrapper to be generated with the most up to date version of the component so should be committed along with your other file changes.
 
 To use the React wrapper in an application, import `Pie{Component}` from the package of the component, with the additional import of `dist/react`. For example:
 

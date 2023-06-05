@@ -82,7 +82,7 @@ Below are some important factors we test when conducting screen reader testing:
 
 {% list {
     type: listTypes.icon,
-    iconName: "check-circle-filled",
+    iconName: "check-circle",
     iconFill: "support-positive",
     items: [
         "**Compatibility**: The screen reader should be able to navigate through the content, read the text, and interact with the controls.",

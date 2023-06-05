@@ -1,7 +1,7 @@
 import * as React from "react";
 import { RegularIconProps } from "../types";
 // @ts-ignore
-import { getSvgProps } from './configs-react';
+import { getSvgProps } from '@justeattakeaway/pie-icons-configs/configs-react';
 const IconPaymentGooglePay = (props: RegularIconProps) => {
   const {
     className,
@@ -10,7 +10,7 @@ const IconPaymentGooglePay = (props: RegularIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--google-pay", className, iconSize, "IconPaymentGooglePay");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--google-pay", className, iconSize, "IconPaymentGooglePay");
   const allProps = {
     ...remainingProps,
     ...moreProps
