@@ -1,7 +1,7 @@
 import * as React from "react";
 import { RegularIconProps } from "../types";
 // @ts-ignore
-import { getSvgProps } from './configs-react';
+import { getSvgProps } from '@justeattakeaway/pie-icons-configs/configs-react';
 const IconThumbsDownFilled = (props: RegularIconProps) => {
   const {
     className,
@@ -10,7 +10,7 @@ const IconThumbsDownFilled = (props: RegularIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--thumbs-down-filled", className, iconSize, "IconThumbsDownFilled");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--thumbs-down-filled", className, iconSize, "IconThumbsDownFilled");
   const allProps = {
     ...remainingProps,
     ...moreProps

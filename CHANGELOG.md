@@ -1,5 +1,21 @@
 # Changelog
 
+## 2.11.0
+
+### Minor Changes
+
+- [Added] - pie-components-config package ([#487](https://github.com/justeattakeaway/pie/pull/487)) by [@fernandofranca](https://github.com/fernandofranca)
+
+- [Removed] - React `createComponent` wrappers from react/next apps ([#426](https://github.com/justeattakeaway/pie/pull/426)) by [@LTurns](https://github.com/LTurns)
+
+- [Changed] - Updated to use stylelint-config-pie ([#482](https://github.com/justeattakeaway/pie/pull/482)) by [@ashleynolan](https://github.com/ashleynolan)
+
+### Patch Changes
+
+- [Fixed] - Issue where `yarn test` cache wasn't invalidated when `__snapshots__` directory was updated. ([#492](https://github.com/justeattakeaway/pie/pull/492)) by [@siggerzz](https://github.com/siggerzz)
+
+- [Removed] - `@justeattakeaway/pie-icons` dependency ([#492](https://github.com/justeattakeaway/pie/pull/492)) by [@siggerzz](https://github.com/siggerzz)
+
 ## 2.10.0
 
 ### Minor Changes

@@ -1,7 +1,7 @@
 import * as React from "react";
 import { RegularIconProps } from "../types";
 // @ts-ignore
-import { getSvgProps } from './configs-react';
+import { getSvgProps } from '@justeattakeaway/pie-icons-configs/configs-react';
 const IconSocialTwitter = (props: RegularIconProps) => {
   const {
     className,
@@ -10,7 +10,7 @@ const IconSocialTwitter = (props: RegularIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--twitter", className, iconSize, "IconSocialTwitter");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--twitter", className, iconSize, "IconSocialTwitter");
   const allProps = {
     ...remainingProps,
     ...moreProps

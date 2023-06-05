@@ -82,7 +82,8 @@ $tokensTable-item-vertical-padding: f.spacing(e);
 
 .c-tokensTable-example--checked {
     background-color: f.$color-container-default;
-    background-image: linear-gradient(45deg, f.$color-dark-content-subdued 25%, transparent 25%, transparent 75%, f.$color-dark-content-subdued 75%, f.$color-dark-content-subdued),
+    background-image:
+        linear-gradient(45deg, f.$color-dark-content-subdued 25%, transparent 25%, transparent 75%, f.$color-dark-content-subdued 75%, f.$color-dark-content-subdued),
         linear-gradient(45deg, f.$color-dark-content-subdued 25%, transparent 25%, transparent 75%, f.$color-dark-content-subdued 75%, f.$color-dark-content-subdued);
     background-size: 20px 20px;
     background-position: 0 0, 30px 30px;
@@ -104,7 +105,7 @@ $tokensTable-item-vertical-padding: f.spacing(e);
     // calculates the vertical positioning of the spacing examples (always slightly off-centre)
     --base-negative-space: calc((#{$tokensTable-spacing-container-height} - var(--example-spacing)) / 2);
     background-color: f.$color-content-default;
-    opacity: 10%;
+    opacity: 0.1;
     width: var(--example-spacing);
     height: var(--example-spacing);
     border-radius: 2px;
@@ -233,7 +234,8 @@ $tokensTable-item-vertical-padding: f.spacing(e);
         border-width: 0 0 $tokensTable-border-width 0;
 
         // Any final token item at the end of a parent category list should not have a bottom border
-        // In pages where there are no parent categories, there should not be a bottom border on the final item in each list either
+        // In pages where there are no parent categories,
+        // there should not be a bottom border on the final item in each list either
         &:last-of-type:not(.c-tokensTable-sectionSubheading ~ .c-tokensTable-list .c-tokensTable-item),
         .c-tokensTable-list:has(+ hr) &:last-of-type {
             border-width: 0;
@@ -308,6 +310,7 @@ $tokensTable-item-vertical-padding: f.spacing(e);
     &:not(:first-of-type) {
         margin-top: f.spacing(i);
         position: relative;
+
         // adds a visual divider above subheadings on mobile to add a bit of separation
         &:before {
             content: '';
@@ -321,6 +324,7 @@ $tokensTable-item-vertical-padding: f.spacing(e);
 
         @include f.media('>=wide') {
             margin-top: f.spacing(f);
+
             &:before {
                 display: none;
             }

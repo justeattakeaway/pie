@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.3.0
+
+### Minor Changes
+
+- [Added] - Ignore rule for max-line-length for hsl ([#482](https://github.com/justeattakeaway/pie/pull/482)) by [@ashleynolan](https://github.com/ashleynolan)
+
+  [Added] - Update ruleset with adjusted sensible defaults
+
 ## 0.2.0
 
 ### Minor Changes

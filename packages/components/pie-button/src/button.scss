@@ -1,160 +1,127 @@
-@use '@justeat/pie-design-tokens/dist/jet.scss' as dt;
+:host {
+    --btn-border-radius: var(--dt-radius-rounded-e);
+    --btn-font-family: var(--dt-font-interactive-m-family);
+    --btn-font-weight: var(--dt-font-interactive-m-weight);
 
-$button-height-xs: 32px;
-$button-height-s: 40px;
-$button-height-m: 48px;
-$button-height-l: 56px;
+    // The base values are set to the size default, which is for the medium button size
+    --btn-padding: 10px var(--dt-spacing-e);
+    --btn-min-height: 48px;
+    --btn-font-size: calc(var(--dt-font-size-20) * 1px);
+    --btn-line-height: calc(var(--dt-font-size-20-line-height) * 1px);
 
-$button-border-radius: dt.$radius-rounded-e;
-$button-font: dt.$font-interactive-m-family;
-$button-focus: dt.$color-focus;
-
-$button-bg-color-primary: dt.$color-interactive-brand;
-$button-text-color-primary: dt.$color-content-interactive-primary;
-
-$button-bg-color-secondary: dt.$color-interactive-secondary;
-$button-text-color-secondary: dt.$color-content-interactive-secondary;
-
-$button-bg-color-outline: dt.$color-container-default;
-$button-text-color-outline: dt.$color-content-interactive-tertiary;
-$button-outline-color-outline: dt.$color-border-strong;
-
-$button-bg-color-ghost: dt.$color-container-default;
-$button-text-color-ghost: dt.$color-content-link;
-$button-disabled-bg-color-ghost: dt.$color-container-default;
-
-$button-bg-color-disabled: dt.$color-disabled-01;
-$button-text-color-disabled: dt.$color-content-disabled;
-$button-outline-color-disabled: dt.$color-disabled-01;
-
-// Sets up the size of a button such as xsmall or large
-@mixin button-sizing($min-block-size, $padding-block, $padding-inline, $font-size, $font-weight, $line-height) {
-    min-block-size: $min-block-size;
-    padding: $padding-block $padding-inline;
-    font-size: $font-size * 1px;
-    font-weight: $font-weight;
-    line-height: $line-height * 1px;
+    // The following values set to default background and color
+    // currently this sets the primary button styles
+    --btn-bg-color: var(--dt-color-interactive-brand);
+    --btn-text-color: var(--dt-color-content-interactive-primary);
+    --btn-focus: var(--dt-color-focus-outer);
 }
 
-// 'Themes' a button for it's particular variant, such as primary, secondary, outline, ghost
-@mixin button-variant($bg-color, $text-color, $outline-color: null) {
-    background-color: $bg-color;
-    color: $text-color;
-
-    &:hover:not(:disabled) {
-        background-color: darken($bg-color, dt.$color-hover-01);
+@mixin button-interactive-states($bg-color) {
+    & .o-btn:hover:not(:disabled) {
+        background-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), calc(var(#{$bg-color}-l) - var(--dt-color-hover-01)));
     }
 
-    &:active:not(:disabled) {
-        background-color: darken($bg-color, dt.$color-active-01);
-    }
-
-    @if $outline-color != null {
-        border: 1px solid $outline-color;
+    & .o-btn:active:not(:disabled) {
+        background-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), calc(var(#{$bg-color}-l) - var(--dt-color-active-01)));
     }
 }
 
 // Base button styles
 .o-btn {
-    border-radius: $button-border-radius;
+    min-block-size: var(--btn-min-block-size);
+    padding: var(--btn-padding);
     border: none;
-    font-family: $button-font;
-
+    border-radius: var(--btn-border-radius);
+    outline: none;
+    background-color: var(--btn-bg-color);
+    font-family: var(--btn-font-family);
+    font-size: var(--btn-font-size);
+    font-weight: var(--btn-font-weight);
+    color: var(--btn-text-color);
+    line-height: var(--btn-line-height);
     cursor: pointer;
     user-select: none;
-    outline: none;
 
     &:focus-visible {
-        outline: 2px solid $button-focus;
-    }
-}
-
-// Sizes
-$button-sizes: (
-    'xsmall': (
-        'min-block-size': $button-height-xs,
-        'padding-block': 6px,
-        'padding-inline': dt.$spacing-b,
-        'font-size': dt.$font-interactive-xs-size,
-        'font-weight': dt.$font-interactive-xs-weight,
-        'line-height': dt.$font-interactive-xs-line-height
-    ),
-    'small-productive': (
-        'min-block-size': $button-height-s,
-        'padding-block': dt.$spacing-b,
-        'padding-inline': dt.$spacing-d,
-        'font-size': dt.$font-interactive-s-size,
-        'font-weight': dt.$font-interactive-s-weight,
-        'line-height': dt.$font-interactive-s-line-height
-    ),
-    'small-expressive': (
-        'min-block-size': $button-height-s,
-        'padding-block': 6px,
-        'padding-inline': dt.$spacing-d,
-        'font-size': dt.$font-interactive-l-size,
-        'font-weight': dt.$font-interactive-l-weight,
-        'line-height': dt.$font-interactive-l-line-height
-    ),
-    'medium': (
-        'min-block-size': $button-height-m,
-        'padding-block': 10px,
-        'padding-inline': dt.$spacing-e,
-        'font-size': dt.$font-interactive-l-size,
-        'font-weight': dt.$font-interactive-l-weight,
-        'line-height': dt.$font-interactive-l-line-height
-    ),
-    'large': (
-        'min-block-size': $button-height-l,
-        'padding-block': 14px,
-        'padding-inline': dt.$spacing-e,
-        'font-size': dt.$font-interactive-l-size,
-        'font-weight': dt.$font-interactive-l-weight,
-        'line-height': dt.$font-interactive-l-line-height
-    )
-);
-
-@each $size, $values in $button-sizes {
-    .o-btn--#{$size} {
-        @include button-sizing(
-            map-get($values, 'min-block-size'),
-            map-get($values, 'padding-block'),
-            map-get($values, 'padding-inline'),
-            map-get($values, 'font-size'),
-            map-get($values, 'font-weight'),
-            map-get($values, 'line-height')
-        );
+        // TODO - Need to update to use the latest focus styling
+        outline: 2px solid var(--btn-focus);
     }
 }
 
 // Variants
-.o-btn--primary {
-    @include button-variant($button-bg-color-primary, $button-text-color-primary);
+:host([variant='primary']) {
+    @include button-interactive-states('--dt-color-interactive-brand');
 }
 
-.o-btn--secondary {
-    @include button-variant($button-bg-color-secondary, $button-text-color-secondary);
+:host([variant='secondary']) {
+    --btn-bg-color: var(--dt-color-interactive-secondary);
+    --btn-text-color: var(--dt-color-content-interactive-secondary);
+
+    @include button-interactive-states('--dt-color-interactive-secondary');
 }
 
-.o-btn--outline {
-    @include button-variant($button-bg-color-outline, $button-text-color-outline, $button-outline-color-outline);
+:host([variant='outline']) {
+    --btn-bg-color: var(--dt-color-container-default);
+    --btn-text-color: var(--dt-color-content-interactive-tertiary);
+
+    & .o-btn {
+        border: 1px solid var(--dt-color-border-strong);
+    }
+
+    @include button-interactive-states('--dt-color-container-default');
 }
 
-.o-btn--ghost {
-    @include button-variant($button-bg-color-ghost, $button-text-color-ghost);
+:host([variant='ghost']) {
+    --btn-bg-color: var(--dt-color-container-default);
+    --btn-text-color: var(--dt-color-content-link);
+
+    @include button-interactive-states('--dt-color-container-default');
 }
 
-.o-btn.o-btn--is-disabled {
-    @include button-variant($button-bg-color-disabled, $button-text-color-disabled, $button-outline-color-disabled);
+:host([disabled]) {
+    --btn-bg-color: var(--dt-color-disabled-01);
+    --btn-text-color: var(--dt-color-content-disabled);
 
-    cursor: not-allowed;
-
-    &.o-btn--ghost {
-        background-color: $button-disabled-bg-color-ghost;
-        outline: none;
+    & .o-btn {
+        border: 1px solid var(--dt-color-disabled-01);
+        cursor: not-allowed;
     }
 }
 
 // Additional modifiers
-.o-btn--fullWidth {
+:host([isFullWidth]) .o-btn {
     inline-size: 100%;
+}
+
+:host([disabled][variant='ghost']) {
+    --btn-bg-color: var(--dt-color-container-default);
+
+    & .o-btn {
+        outline: none;
+    }
+}
+
+:host([size='xsmall']) {
+    --btn-padding: 6px var(--dt-spacing-b);
+    --btn-min-block-size: 32px;
+    --btn-font-size: calc(var(--dt-font-size-14) * 1px);
+    --btn-line-height: calc(var(--dt-font-size-14-line-height) * 1px);
+}
+
+:host([size='small']) {
+    --btn-padding: 8px var(--dt-spacing-d);
+    --btn-min-block-size: 40px;
+    --btn-font-size: calc(var(--dt-font-size-19) * 1px);
+    --btn-line-height: calc(var(--dt-font-size-19-line-height) * 1px);
+}
+
+:host([size='medium']) {
+    /* Same as default styles */
+}
+
+:host([size='large']) {
+    --btn-padding: 14px var(--dt-spacing-e);
+    --btn-min-block-size: 56px;
+    --btn-font-size: calc(var(--dt-font-size-20) * 1px);
+    --btn-line-height: calc(var(--dt-font-size-20-line-height) * 1px);
 }
