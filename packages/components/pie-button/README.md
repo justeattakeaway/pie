@@ -59,9 +59,9 @@ import { PieButton } from '@justeattakeaway/pie-button/dist/react';
 
 | Property    | Type      | Default         | Description                                                          |
 |-------------|-----------|-----------------|----------------------------------------------------------------------|
-| size        | `String`  | `BUTTON_SIZE.MEDIUM`    | Size of the button, one of `BUTTON_SIZE` enum values (TypeScript Enum) or a raw string value such as `'large'` |
-| type        | `String`  | `BUTTON_TYPE.SUBMIT`    | Type of the button, one of `BUTTON_TYPE` enum values (TypeScript Enum) or a raw string value such as `'submit'` |
-| variant     | `String`  | `BUTTON_VARIANT.PRIMARY` | Variant of the button, one of `BUTTON_VARIANT` enum values (TypeScript Enum) or a raw string value such as `'primary'` |
+| size        | `String`  | 'medium'    | Size of the button, one of `buttonSizes`  values |
+| type        | `String`  | 'submit    | Type of the button, one of `buttonTypes` |
+| variant     | `String`  | 'primary | Variant of the button, one of `buttonVariants`  values |
 | disabled    | `Boolean` | `false`         | If `true`, disables the button.                                      |
 | isFullWidth | `Boolean` | `false`         | If `true`, sets the button width to 100% of it's container.                            |
 
@@ -91,27 +91,14 @@ For example, to add a click handler in various templates:
 
 ```
 
-## TypeScript Enum Exports
+## TypeScript Type Exports
 
-For TypeScript projects, we export three enums related to button properties: `BUTTON_SIZE`, `BUTTON_TYPE`, and `BUTTON_VARIANT`. You can import and use these enums to set the corresponding property values for the `pie-button` component. This ensures better type safety and autocompletion in your project.
+For TypeScript projects, we export three types related to button properties: `BUTTON_SIZE`, `BUTTON_TYPE`, and `BUTTON_VARIANT`. You can import and use these types to set the corresponding property values for the `pie-button` component. This ensures better type safety and autocompletion in your project.
 
 Here's an example of how to import and use the enums in a TypeScript project:
 
 ```typescript
 import { BUTTON_SIZE, BUTTON_TYPE, BUTTON_VARIANT } from '@justeattakeaway/pie-button';
-
-// Using the enums to set property values
-const myButtonSize = BUTTON_SIZE.LARGE;
-const myButtonType = BUTTON_TYPE.RESET;
-const myButtonVariant = BUTTON_VARIANT.SECONDARY;
-```
-
-In your markup or JSX, you can then use these variables to set the properties for the pie-button component:
-
-```html
-<PieButton size={myButtonSize} type={myButtonType} variant={myButtonVariant}>Click me!</PieButton>
-```
-
 
 ## Testing
 

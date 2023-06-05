@@ -1,9 +1,16 @@
-import { LitElement, html } from 'lit'; // eslint-disable-line import/no-extraneous-dependencies
 import { LitElement, html, unsafeCSS } from 'lit'; // eslint-disable-line import/no-extraneous-dependencies
 import { property } from 'lit/decorators.js'; // eslint-disable-line import/no-extraneous-dependencies
 import { validPropertyValues } from '@justeattakeaway/pie-webc-core';
-import { IconButtonVariant, ICON_BUTTON_VARIANT } from './defs';
 import styles from './iconButton.scss?inline';
+import type { ICON_BUTTON_VARIANT } from './defs';
+
+export const iconButtonVariants: ICON_BUTTON_VARIANT[] = [
+    'primary',
+    'secondary',
+    'outline',
+    'ghost',
+    'ghost-tertiary',
+];
 
 // Valid values available to consumers
 export { ICON_BUTTON_VARIANT };
@@ -12,8 +19,8 @@ const componentSelector = 'pie-icon-button';
 
 export class PieIconButton extends LitElement {
     @property()
-    @validPropertyValues(componentSelector, Object.values(ICON_BUTTON_VARIANT), ICON_BUTTON_VARIANT.PRIMARY)
-        variant : IconButtonVariant = ICON_BUTTON_VARIANT.PRIMARY;
+    @validPropertyValues(componentSelector, iconButtonVariants, 'primary')
+        variant: ICON_BUTTON_VARIANT = 'primary';
 
     @property({ type: Boolean })
         disabled = false;

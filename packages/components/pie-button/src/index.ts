@@ -4,10 +4,31 @@ import { property } from 'lit/decorators.js';
 import { validPropertyValues } from '@justeattakeaway/pie-webc-core';
 
 import styles from './button.scss?inline';
-import {
-    ButtonSize, ButtonType, ButtonVariant,
+import type {
     BUTTON_SIZE, BUTTON_TYPE, BUTTON_VARIANT,
 } from './defs';
+
+export const buttonSizes: BUTTON_SIZE[] = [
+    'xsmall',
+    'small-expressive',
+    'small-productive',
+    'medium',
+    'large'
+];
+
+export const buttonTypes: BUTTON_TYPE[] = [
+    'submit',
+    'button',
+    'reset',
+    'menu'
+];
+
+export const buttonVariants: BUTTON_VARIANT[] = [
+    'primary',
+    'secondary',
+    'outline',
+    'ghost'
+];
 
 // Valid values available to consumers
 export { BUTTON_SIZE, BUTTON_TYPE, BUTTON_VARIANT };
@@ -16,16 +37,16 @@ const componentSelector = 'pie-button';
 
 export class PieButton extends LitElement {
     @property()
-    @validPropertyValues(componentSelector, Object.values(BUTTON_SIZE), BUTTON_SIZE.MEDIUM)
-        size: ButtonSize = BUTTON_SIZE.MEDIUM;
+    @validPropertyValues(componentSelector, buttonSizes, 'medium')
+        size: BUTTON_SIZE = 'medium';
 
     @property()
-    @validPropertyValues(componentSelector, Object.values(BUTTON_TYPE), BUTTON_TYPE.SUBMIT)
-        type: ButtonType = BUTTON_TYPE.SUBMIT;
+    @validPropertyValues(componentSelector, buttonTypes, 'submit')
+        type: BUTTON_TYPE = 'submit';
 
     @property()
-    @validPropertyValues(componentSelector, Object.values(BUTTON_VARIANT), BUTTON_VARIANT.PRIMARY)
-        variant: ButtonVariant = BUTTON_VARIANT.PRIMARY;
+    @validPropertyValues(componentSelector, buttonVariants, 'primary')
+        variant: BUTTON_VARIANT = 'primary';
 
     @property({ type: Boolean, reflect: true })
         disabled = false;

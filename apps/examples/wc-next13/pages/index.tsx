@@ -1,20 +1,21 @@
 import React, { useState, useRef } from 'react';
 import Head from 'next/head';
-import { BUTTON_SIZE, BUTTON_VARIANT } from '@justeattakeaway/pie-button';
+import { buttonSizes, buttonVariants } from '@justeattakeaway/pie-button';
+import type { BUTTON_SIZE, BUTTON_VARIANT } from '@justeattakeaway/pie-button';
 import { PieButton } from '@justeattakeaway/pie-button/dist/react'
 
 export default function Home () {
     const variantIndex = useRef(0);
     const [count, setCount] = useState(0);
-    const [variantName, setVariantName] = useState(BUTTON_VARIANT.PRIMARY);
+    const [variantName, setVariantName] = useState('primry');
 
     const increment = () => setCount(count + 1);
     const decrement = () => setCount(count - 1);
     const switchVariant = () => {
         variantIndex.current += 1;
-        const variantsKeys:string[] = Object.keys(BUTTON_VARIANT);
+        const variantsKeys: string[] = buttonVariants;
         const variantKey:string = variantsKeys[variantIndex.current % variantsKeys.length];
-        const variant:BUTTON_VARIANT = BUTTON_VARIANT[variantKey as keyof typeof BUTTON_VARIANT];
+        const variant: BUTTON_VARIANT = buttonVariants[variantKey as keyof typeof BUTTON_VARIANT];
 
         setVariantName(variant);
     };
@@ -52,9 +53,9 @@ export default function Home () {
                     <h3>Button sizes</h3>
                     <div>
                         {
-                            Object.keys(BUTTON_SIZE)
+                            buttonSizes
                                 .map((key) => {
-                                    const size:BUTTON_SIZE = BUTTON_SIZE[key as keyof typeof BUTTON_SIZE];
+                                    const size: BUTTON_SIZE = buttonSizes[key as keyof typeof BUTTON_SIZE];
 
                                     return (
                                         <PieButton size={size} key={key}>{key.toLowerCase()}</PieButton>

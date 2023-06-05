@@ -1,21 +1,20 @@
 import { test } from '@sand4rt/experimental-ct-web';
 import percySnapshot from '@percy/playwright';
 import { PieButton } from '@/index';
-import { BUTTON_SIZE, BUTTON_TYPE, BUTTON_VARIANT } from '@/defs';
+import { buttonSizes, buttonVariants } from '@/defs';
 
-const sizes = Object.values(BUTTON_SIZE);
-const variants = Object.values(BUTTON_VARIANT);
 const disabledStates = [true, false];
+const buttonType = 'button';
 
-variants.forEach((variant) => {
+buttonVariants.forEach((variant) => {
     test(`should render - ${variant}`, async ({ page, mount }) => {
-        for (const size of sizes) {
+        for (const size of buttonSizes) {
             for (const disabledState of disabledStates) {
                 await mount(
                     PieButton,
                     {
                         props: {
-                            type: BUTTON_TYPE.BUTTON,
+                            type: buttonType,
                             size,
                             variant,
                             disabled: disabledState,
@@ -33,7 +32,7 @@ variants.forEach((variant) => {
                     PieButton,
                     {
                         props: {
-                            type: BUTTON_TYPE.BUTTON,
+                            type: buttonType,
                             size,
                             variant,
                             disabled: disabledState,
