@@ -10,7 +10,7 @@ const IconBookmarkFilled = (props: RegularIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--bookmark-filled", className, iconSize, "IconBookmarkFilled");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--bookmark-filled", className, iconSize, "IconBookmarkFilled");
   const allProps = {
     ...remainingProps,
     ...moreProps

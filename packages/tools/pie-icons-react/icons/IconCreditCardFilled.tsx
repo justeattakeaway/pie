@@ -10,7 +10,7 @@ const IconCreditCardFilled = (props: RegularIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--credit-card-filled", className, iconSize, "IconCreditCardFilled");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--credit-card-filled", className, iconSize, "IconCreditCardFilled");
   const allProps = {
     ...remainingProps,
     ...moreProps

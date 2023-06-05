@@ -10,7 +10,7 @@ const IconNachos = (props: RegularIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--nachos", className, iconSize, "IconNachos");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--nachos", className, iconSize, "IconNachos");
   const allProps = {
     ...remainingProps,
     ...moreProps

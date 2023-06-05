@@ -10,7 +10,7 @@ const IconCarLarge = (props: LargeIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--car-large", className, iconSize, "IconCarLarge");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--car-large", className, iconSize, "IconCarLarge");
   const allProps = {
     ...remainingProps,
     ...moreProps

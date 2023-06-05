@@ -10,7 +10,7 @@ const IconPreparePause = (props: RegularIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--prepare-pause", className, iconSize, "IconPreparePause");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--prepare-pause", className, iconSize, "IconPreparePause");
   const allProps = {
     ...remainingProps,
     ...moreProps

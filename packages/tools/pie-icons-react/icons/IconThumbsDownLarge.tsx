@@ -10,7 +10,7 @@ const IconThumbsDownLarge = (props: LargeIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--thumbs-down-large", className, iconSize, "IconThumbsDownLarge");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--thumbs-down-large", className, iconSize, "IconThumbsDownLarge");
   const allProps = {
     ...remainingProps,
     ...moreProps

@@ -10,7 +10,7 @@ const IconSyncLarge = (props: LargeIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--sync-large", className, iconSize, "IconSyncLarge");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--sync-large", className, iconSize, "IconSyncLarge");
   const allProps = {
     ...remainingProps,
     ...moreProps

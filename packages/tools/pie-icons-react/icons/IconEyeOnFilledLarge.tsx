@@ -10,7 +10,7 @@ const IconEyeOnFilledLarge = (props: LargeIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--eye-on-filled-large", className, iconSize, "IconEyeOnFilledLarge");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--eye-on-filled-large", className, iconSize, "IconEyeOnFilledLarge");
   const allProps = {
     ...remainingProps,
     ...moreProps

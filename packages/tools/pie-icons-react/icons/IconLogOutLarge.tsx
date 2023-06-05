@@ -10,7 +10,7 @@ const IconLogOutLarge = (props: LargeIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--log-out-large", className, iconSize, "IconLogOutLarge");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--log-out-large", className, iconSize, "IconLogOutLarge");
   const allProps = {
     ...remainingProps,
     ...moreProps

@@ -10,7 +10,7 @@ const IconSocialFacebookCircle = (props: RegularIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--facebook-circle", className, iconSize, "IconSocialFacebookCircle");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--facebook-circle", className, iconSize, "IconSocialFacebookCircle");
   const allProps = {
     ...remainingProps,
     ...moreProps

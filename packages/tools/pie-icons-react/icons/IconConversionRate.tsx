@@ -10,7 +10,7 @@ const IconConversionRate = (props: RegularIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--conversion-rate", className, iconSize, "IconConversionRate");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--conversion-rate", className, iconSize, "IconConversionRate");
   const allProps = {
     ...remainingProps,
     ...moreProps

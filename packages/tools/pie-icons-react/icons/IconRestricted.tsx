@@ -10,7 +10,7 @@ const IconRestricted = (props: RegularIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--restricted", className, iconSize, "IconRestricted");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--restricted", className, iconSize, "IconRestricted");
   const allProps = {
     ...remainingProps,
     ...moreProps

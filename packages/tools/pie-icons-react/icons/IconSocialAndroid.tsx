@@ -10,7 +10,7 @@ const IconSocialAndroid = (props: RegularIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--android", className, iconSize, "IconSocialAndroid");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--android", className, iconSize, "IconSocialAndroid");
   const allProps = {
     ...remainingProps,
     ...moreProps

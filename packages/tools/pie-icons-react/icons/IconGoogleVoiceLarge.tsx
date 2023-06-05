@@ -10,7 +10,7 @@ const IconGoogleVoiceLarge = (props: LargeIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--google-voice-large", className, iconSize, "IconGoogleVoiceLarge");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--google-voice-large", className, iconSize, "IconGoogleVoiceLarge");
   const allProps = {
     ...remainingProps,
     ...moreProps

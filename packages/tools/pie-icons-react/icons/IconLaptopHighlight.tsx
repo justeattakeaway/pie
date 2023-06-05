@@ -10,7 +10,7 @@ const IconLaptopHighlight = (props: RegularIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--laptop-highlight", className, iconSize, "IconLaptopHighlight");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--laptop-highlight", className, iconSize, "IconLaptopHighlight");
   const allProps = {
     ...remainingProps,
     ...moreProps

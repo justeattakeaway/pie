@@ -10,7 +10,7 @@ const IconPlaceholderLarge = (props: LargeIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--placeholder-large", className, iconSize, "IconPlaceholderLarge");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--placeholder-large", className, iconSize, "IconPlaceholderLarge");
   const allProps = {
     ...remainingProps,
     ...moreProps

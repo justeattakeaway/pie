@@ -10,7 +10,7 @@ const IconSortLarge = (props: LargeIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--sort-large", className, iconSize, "IconSortLarge");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--sort-large", className, iconSize, "IconSortLarge");
   const allProps = {
     ...remainingProps,
     ...moreProps

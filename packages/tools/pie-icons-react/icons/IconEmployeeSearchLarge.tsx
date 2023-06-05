@@ -10,7 +10,7 @@ const IconEmployeeSearchLarge = (props: LargeIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--employee-search-large", className, iconSize, "IconEmployeeSearchLarge");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--employee-search-large", className, iconSize, "IconEmployeeSearchLarge");
   const allProps = {
     ...remainingProps,
     ...moreProps

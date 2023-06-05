@@ -10,7 +10,7 @@ const IconRefresh = (props: RegularIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--refresh", className, iconSize, "IconRefresh");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--refresh", className, iconSize, "IconRefresh");
   const allProps = {
     ...remainingProps,
     ...moreProps
