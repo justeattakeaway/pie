@@ -10,7 +10,7 @@ const IconMinusCircle = (props: RegularIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--minus-circle", className, iconSize, "IconMinusCircle");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--minus-circle", className, iconSize, "IconMinusCircle");
   const allProps = {
     ...remainingProps,
     ...moreProps

@@ -10,7 +10,7 @@ const IconPlay = (props: RegularIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--play", className, iconSize, "IconPlay");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--play", className, iconSize, "IconPlay");
   const allProps = {
     ...remainingProps,
     ...moreProps

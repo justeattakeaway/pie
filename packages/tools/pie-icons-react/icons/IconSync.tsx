@@ -10,7 +10,7 @@ const IconSync = (props: RegularIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--sync", className, iconSize, "IconSync");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--sync", className, iconSize, "IconSync");
   const allProps = {
     ...remainingProps,
     ...moreProps

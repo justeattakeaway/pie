@@ -10,7 +10,7 @@ const IconMoreHorizontal = (props: RegularIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--more-horizontal", className, iconSize, "IconMoreHorizontal");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--more-horizontal", className, iconSize, "IconMoreHorizontal");
   const allProps = {
     ...remainingProps,
     ...moreProps

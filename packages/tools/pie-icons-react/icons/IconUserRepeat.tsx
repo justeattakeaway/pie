@@ -10,7 +10,7 @@ const IconUserRepeat = (props: RegularIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--user-repeat", className, iconSize, "IconUserRepeat");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--user-repeat", className, iconSize, "IconUserRepeat");
   const allProps = {
     ...remainingProps,
     ...moreProps

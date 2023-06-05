@@ -10,7 +10,7 @@ const IconGiftCard = (props: RegularIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--gift-card", className, iconSize, "IconGiftCard");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--gift-card", className, iconSize, "IconGiftCard");
   const allProps = {
     ...remainingProps,
     ...moreProps

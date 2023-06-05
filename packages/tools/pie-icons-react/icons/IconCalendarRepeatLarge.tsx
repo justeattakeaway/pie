@@ -10,7 +10,7 @@ const IconCalendarRepeatLarge = (props: LargeIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--calendar-repeat-large", className, iconSize, "IconCalendarRepeatLarge");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--calendar-repeat-large", className, iconSize, "IconCalendarRepeatLarge");
   const allProps = {
     ...remainingProps,
     ...moreProps

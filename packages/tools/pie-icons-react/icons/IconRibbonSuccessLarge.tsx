@@ -10,7 +10,7 @@ const IconRibbonSuccessLarge = (props: LargeIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--ribbon-success-large", className, iconSize, "IconRibbonSuccessLarge");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--ribbon-success-large", className, iconSize, "IconRibbonSuccessLarge");
   const allProps = {
     ...remainingProps,
     ...moreProps

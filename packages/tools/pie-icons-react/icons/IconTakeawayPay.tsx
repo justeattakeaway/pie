@@ -10,7 +10,7 @@ const IconTakeawayPay = (props: RegularIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--takeaway-pay", className, iconSize, "IconTakeawayPay");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--takeaway-pay", className, iconSize, "IconTakeawayPay");
   const allProps = {
     ...remainingProps,
     ...moreProps

@@ -10,7 +10,7 @@ const IconStopwatch = (props: RegularIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--stopwatch", className, iconSize, "IconStopwatch");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--stopwatch", className, iconSize, "IconStopwatch");
   const allProps = {
     ...remainingProps,
     ...moreProps

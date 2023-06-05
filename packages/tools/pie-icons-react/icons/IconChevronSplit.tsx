@@ -10,7 +10,7 @@ const IconChevronSplit = (props: RegularIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--chevron-split", className, iconSize, "IconChevronSplit");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--chevron-split", className, iconSize, "IconChevronSplit");
   const allProps = {
     ...remainingProps,
     ...moreProps

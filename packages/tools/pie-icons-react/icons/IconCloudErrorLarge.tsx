@@ -10,7 +10,7 @@ const IconCloudErrorLarge = (props: LargeIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--cloud-error-large", className, iconSize, "IconCloudErrorLarge");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--cloud-error-large", className, iconSize, "IconCloudErrorLarge");
   const allProps = {
     ...remainingProps,
     ...moreProps

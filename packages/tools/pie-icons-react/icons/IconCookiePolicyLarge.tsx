@@ -10,7 +10,7 @@ const IconCookiePolicyLarge = (props: LargeIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--cookie-policy-large", className, iconSize, "IconCookiePolicyLarge");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--cookie-policy-large", className, iconSize, "IconCookiePolicyLarge");
   const allProps = {
     ...remainingProps,
     ...moreProps
