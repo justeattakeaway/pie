@@ -1,5 +1,16 @@
 # wc-nuxt2
 
+## 0.3.0
+
+### Minor Changes
+
+- [Added] - CSS Variables added to examples apps ([#507](https://github.com/justeattakeaway/pie/pull/507)) by [@LTurns](https://github.com/LTurns)
+
+### Patch Changes
+
+- Updated dependencies [[`09a7b4b56`](https://github.com/justeattakeaway/pie/commit/09a7b4b5684e54d9f12a9854a99493536f1004e2), [`09a7b4b56`](https://github.com/justeattakeaway/pie/commit/09a7b4b5684e54d9f12a9854a99493536f1004e2)]:
+  - @justeattakeaway/pie-button@0.14.0
+
 ## 0.2.4
 
 ### Patch Changes
