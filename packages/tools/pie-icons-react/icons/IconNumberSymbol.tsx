@@ -10,7 +10,7 @@ const IconNumberSymbol = (props: RegularIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--number-symbol", className, iconSize, "IconNumberSymbol");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--number-symbol", className, iconSize, "IconNumberSymbol");
   const allProps = {
     ...remainingProps,
     ...moreProps

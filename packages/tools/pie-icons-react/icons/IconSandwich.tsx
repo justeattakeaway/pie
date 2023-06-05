@@ -10,7 +10,7 @@ const IconSandwich = (props: RegularIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--sandwich", className, iconSize, "IconSandwich");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--sandwich", className, iconSize, "IconSandwich");
   const allProps = {
     ...remainingProps,
     ...moreProps

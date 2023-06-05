@@ -10,7 +10,7 @@ const IconSoundOnFilled = (props: RegularIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--sound-on-filled", className, iconSize, "IconSoundOnFilled");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--sound-on-filled", className, iconSize, "IconSoundOnFilled");
   const allProps = {
     ...remainingProps,
     ...moreProps

@@ -10,7 +10,7 @@ const IconAlertCircleFilled = (props: RegularIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--alert-circle-filled", className, iconSize, "IconAlertCircleFilled");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--alert-circle-filled", className, iconSize, "IconAlertCircleFilled");
   const allProps = {
     ...remainingProps,
     ...moreProps

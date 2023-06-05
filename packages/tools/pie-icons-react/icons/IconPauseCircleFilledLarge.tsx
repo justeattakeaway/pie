@@ -10,7 +10,7 @@ const IconPauseCircleFilledLarge = (props: LargeIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--pause-circle-filled-large", className, iconSize, "IconPauseCircleFilledLarge");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--pause-circle-filled-large", className, iconSize, "IconPauseCircleFilledLarge");
   const allProps = {
     ...remainingProps,
     ...moreProps

@@ -10,7 +10,7 @@ const IconClockRefreshLarge = (props: LargeIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--clock-refresh-large", className, iconSize, "IconClockRefreshLarge");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--clock-refresh-large", className, iconSize, "IconClockRefreshLarge");
   const allProps = {
     ...remainingProps,
     ...moreProps

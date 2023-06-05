@@ -10,7 +10,7 @@ const IconCheckboxUnselected = (props: RegularIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--checkbox-unselected", className, iconSize, "IconCheckboxUnselected");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--checkbox-unselected", className, iconSize, "IconCheckboxUnselected");
   const allProps = {
     ...remainingProps,
     ...moreProps

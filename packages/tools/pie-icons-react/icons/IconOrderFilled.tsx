@@ -10,7 +10,7 @@ const IconOrderFilled = (props: RegularIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--order-filled", className, iconSize, "IconOrderFilled");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--order-filled", className, iconSize, "IconOrderFilled");
   const allProps = {
     ...remainingProps,
     ...moreProps

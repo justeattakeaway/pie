@@ -10,7 +10,7 @@ const IconNotificationOffLarge = (props: LargeIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--notification-off-large", className, iconSize, "IconNotificationOffLarge");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--notification-off-large", className, iconSize, "IconNotificationOffLarge");
   const allProps = {
     ...remainingProps,
     ...moreProps

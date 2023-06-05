@@ -10,7 +10,7 @@ const IconSocialAppleCircleFilled = (props: RegularIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--apple-circle-filled", className, iconSize, "IconSocialAppleCircleFilled");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--apple-circle-filled", className, iconSize, "IconSocialAppleCircleFilled");
   const allProps = {
     ...remainingProps,
     ...moreProps

@@ -10,7 +10,7 @@ const IconAlcoholFilled = (props: RegularIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--alcohol-filled", className, iconSize, "IconAlcoholFilled");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--alcohol-filled", className, iconSize, "IconAlcoholFilled");
   const allProps = {
     ...remainingProps,
     ...moreProps

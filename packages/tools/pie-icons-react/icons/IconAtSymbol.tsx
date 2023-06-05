@@ -10,7 +10,7 @@ const IconAtSymbol = (props: RegularIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--at-symbol", className, iconSize, "IconAtSymbol");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--at-symbol", className, iconSize, "IconAtSymbol");
   const allProps = {
     ...remainingProps,
     ...moreProps

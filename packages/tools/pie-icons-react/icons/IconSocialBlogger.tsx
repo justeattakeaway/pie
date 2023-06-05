@@ -10,7 +10,7 @@ const IconSocialBlogger = (props: RegularIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--blogger", className, iconSize, "IconSocialBlogger");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--blogger", className, iconSize, "IconSocialBlogger");
   const allProps = {
     ...remainingProps,
     ...moreProps

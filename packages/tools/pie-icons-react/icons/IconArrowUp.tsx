@@ -10,7 +10,7 @@ const IconArrowUp = (props: RegularIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--arrow-up", className, iconSize, "IconArrowUp");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--arrow-up", className, iconSize, "IconArrowUp");
   const allProps = {
     ...remainingProps,
     ...moreProps

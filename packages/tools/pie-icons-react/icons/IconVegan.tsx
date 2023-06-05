@@ -10,7 +10,7 @@ const IconVegan = (props: RegularIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--vegan", className, iconSize, "IconVegan");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--vegan", className, iconSize, "IconVegan");
   const allProps = {
     ...remainingProps,
     ...moreProps

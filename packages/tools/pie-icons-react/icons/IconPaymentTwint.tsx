@@ -10,7 +10,7 @@ const IconPaymentTwint = (props: RegularIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--twint", className, iconSize, "IconPaymentTwint");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--twint", className, iconSize, "IconPaymentTwint");
   const allProps = {
     ...remainingProps,
     ...moreProps

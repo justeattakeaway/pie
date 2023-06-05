@@ -10,7 +10,7 @@ const IconHandHeartLarge = (props: LargeIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--hand-heart-large", className, iconSize, "IconHandHeartLarge");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--hand-heart-large", className, iconSize, "IconHandHeartLarge");
   const allProps = {
     ...remainingProps,
     ...moreProps

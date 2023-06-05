@@ -10,7 +10,7 @@ const IconClockFilledLarge = (props: LargeIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--clock-filled-large", className, iconSize, "IconClockFilledLarge");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--clock-filled-large", className, iconSize, "IconClockFilledLarge");
   const allProps = {
     ...remainingProps,
     ...moreProps

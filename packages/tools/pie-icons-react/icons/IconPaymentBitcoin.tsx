@@ -10,7 +10,7 @@ const IconPaymentBitcoin = (props: RegularIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--bitcoin", className, iconSize, "IconPaymentBitcoin");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--bitcoin", className, iconSize, "IconPaymentBitcoin");
   const allProps = {
     ...remainingProps,
     ...moreProps

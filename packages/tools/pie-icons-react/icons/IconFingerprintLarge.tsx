@@ -10,7 +10,7 @@ const IconFingerprintLarge = (props: LargeIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--fingerprint-large", className, iconSize, "IconFingerprintLarge");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--fingerprint-large", className, iconSize, "IconFingerprintLarge");
   const allProps = {
     ...remainingProps,
     ...moreProps

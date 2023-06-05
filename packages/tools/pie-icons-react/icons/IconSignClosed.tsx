@@ -10,7 +10,7 @@ const IconSignClosed = (props: RegularIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--sign-closed", className, iconSize, "IconSignClosed");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--sign-closed", className, iconSize, "IconSignClosed");
   const allProps = {
     ...remainingProps,
     ...moreProps

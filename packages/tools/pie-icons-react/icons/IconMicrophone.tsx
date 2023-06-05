@@ -10,7 +10,7 @@ const IconMicrophone = (props: RegularIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--microphone", className, iconSize, "IconMicrophone");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--microphone", className, iconSize, "IconMicrophone");
   const allProps = {
     ...remainingProps,
     ...moreProps

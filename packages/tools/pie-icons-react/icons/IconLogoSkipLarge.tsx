@@ -10,7 +10,7 @@ const IconLogoSkipLarge = (props: LargeIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--skip-large", className, iconSize, "IconLogoSkipLarge");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--skip-large", className, iconSize, "IconLogoSkipLarge");
   const allProps = {
     ...remainingProps,
     ...moreProps

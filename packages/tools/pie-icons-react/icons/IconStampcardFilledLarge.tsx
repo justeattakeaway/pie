@@ -10,7 +10,7 @@ const IconStampcardFilledLarge = (props: LargeIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--stampcard-filled-large", className, iconSize, "IconStampcardFilledLarge");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--stampcard-filled-large", className, iconSize, "IconStampcardFilledLarge");
   const allProps = {
     ...remainingProps,
     ...moreProps

@@ -10,7 +10,7 @@ const IconStampcard = (props: RegularIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--stampcard", className, iconSize, "IconStampcard");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--stampcard", className, iconSize, "IconStampcard");
   const allProps = {
     ...remainingProps,
     ...moreProps

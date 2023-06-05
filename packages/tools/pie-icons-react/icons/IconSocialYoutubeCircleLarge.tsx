@@ -10,7 +10,7 @@ const IconSocialYoutubeCircleLarge = (props: LargeIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--youtube-circle-large", className, iconSize, "IconSocialYoutubeCircleLarge");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--youtube-circle-large", className, iconSize, "IconSocialYoutubeCircleLarge");
   const allProps = {
     ...remainingProps,
     ...moreProps
