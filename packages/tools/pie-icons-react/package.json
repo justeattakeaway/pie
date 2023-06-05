@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/pie-icons-react",
-  "version": "3.2.0",
+  "version": "3.3.0",
   "main": "esm/index.js",
   "type": "module",
   "types": "esm/index.d.ts",

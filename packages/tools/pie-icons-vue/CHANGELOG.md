@@ -1,5 +1,13 @@
 # Changelog
 
+## 3.3.0
+
+### Minor Changes
+
+- [Added] - Jest test support and basic demo tests ([#472](https://github.com/justeattakeaway/pie/pull/472)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- [Changed] - Use vitest instead of jest and add missing sample tests ([#472](https://github.com/justeattakeaway/pie/pull/472)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
 ## 3.2.0
 
 ### Minor Changes
