@@ -76,7 +76,7 @@ As a result, we're often asked how PIE designers work together with business are
 
 {% list {
     type: listTypes.icon,
-    iconName: "check-circle-filled",
+    iconName: "check-circle",
     iconFill: "support-positive",
     items: [
         "Provide guidance and support with foundations, components and patterns",
@@ -90,7 +90,7 @@ As a result, we're often asked how PIE designers work together with business are
 
 {% list {
     type: listTypes.icon,
-    iconName: "close-circle-filled",
+    iconName: "close-circle",
     iconFill: "support-error",
     items: [
         "Screen designs",
