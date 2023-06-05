@@ -1,6 +1,5 @@
 import { test, expect } from '@sand4rt/experimental-ct-web';
-import { PieButton } from '@/index';
-import { buttonSizes, buttonVariants } from '@/defs';
+import { PieButton, buttonSizes, buttonVariants } from '@/index';
 
 const disabledStates = [true, false];
 
