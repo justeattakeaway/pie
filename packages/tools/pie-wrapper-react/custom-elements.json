@@ -13,14 +13,6 @@
       "path": "../../components/pie-button/src/index.js",
       "declarations": [
         {
-          "kind": "variable",
-          "name": "componentSelector",
-          "type": {
-            "text": "string"
-          },
-          "default": "'pie-button'"
-        },
-        {
           "kind": "class",
           "description": "",
           "name": "PieButton",
@@ -76,7 +68,7 @@
             "name": "LitElement",
             "package": "lit"
           },
-          "tagName": "componentSelector",
+          "tagName": "pie-button",
           "customElement": true
         }
       ],
@@ -115,10 +107,33 @@
         },
         {
           "kind": "custom-element-definition",
-          "name": "componentSelector",
+          "name": "pie-button",
           "declaration": {
             "name": "PieButton",
             "module": "../../components/pie-button/src/index.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../../components/pie-webc-core/src/index.js",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./mixins"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./decorators"
           }
         }
       ]
@@ -133,14 +148,6 @@
       "kind": "javascript-module",
       "path": "../../components/pie-icon-button/src/index.js",
       "declarations": [
-        {
-          "kind": "variable",
-          "name": "componentSelector",
-          "type": {
-            "text": "string"
-          },
-          "default": "'pie-icon-button'"
-        },
         {
           "kind": "class",
           "description": "",
@@ -175,7 +182,7 @@
             "name": "LitElement",
             "package": "lit"
           },
-          "tagName": "componentSelector",
+          "tagName": "pie-icon-button",
           "customElement": true
         }
       ],
@@ -198,7 +205,7 @@
         },
         {
           "kind": "custom-element-definition",
-          "name": "componentSelector",
+          "name": "pie-icon-button",
           "declaration": {
             "name": "PieIconButton",
             "module": "../../components/pie-icon-button/src/index.js"
@@ -237,7 +244,7 @@
               "type": {
                 "text": "boolean"
               },
-              "description": "Returns true if the element is in Right to Left mode.\r\nIf a dir attribute is not explicitly set on the web component\r\nthen it falls back to the nearest parent with a dir attribute set.\r\n\r\nA dir attribute being set will result in a reactive property.\r\nIf the component falls back to a parent dir attribute then the value\r\nwill not be reactive and is only computed once",
+              "description": "Returns true if the element is in Right to Left mode.\nIf a dir attribute is not explicitly set on the web component\nthen it falls back to the nearest parent with a dir attribute set.\n\nA dir attribute being set will result in a reactive property.\nIf the component falls back to a parent dir attribute then the value\nwill not be reactive and is only computed once",
               "readonly": true,
               "inheritedFrom": {
                 "name": "RtlMixin",
@@ -274,29 +281,6 @@
           "declaration": {
             "name": "PieModal",
             "module": "../../components/pie-modal/src/index.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "../../components/pie-webc-core/src/index.js",
-      "declarations": [],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "*",
-          "declaration": {
-            "name": "*",
-            "package": "./mixins"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "*",
-          "declaration": {
-            "name": "*",
-            "package": "./decorators"
           }
         }
       ]
@@ -360,7 +344,7 @@
               "description": "The value to fall back on"
             }
           ],
-          "description": "A decorator for specifying a list of valid values for a property.\r\nIf this property's setter is called with an invalid value, an error is logged and the default value will be assigned instead.",
+          "description": "A decorator for specifying a list of valid values for a property.\nIf this property's setter is called with an invalid value, an error is logged and the default value will be assigned instead.",
           "return": {
             "type": {
               "text": ""
@@ -402,7 +386,7 @@
               "type": {
                 "text": "boolean"
               },
-              "description": "Returns true if the element is in Right to Left mode.\r\nIf a dir attribute is not explicitly set on the web component\r\nthen it falls back to the nearest parent with a dir attribute set.\r\n\r\nA dir attribute being set will result in a reactive property.\r\nIf the component falls back to a parent dir attribute then the value\r\nwill not be reactive and is only computed once",
+              "description": "Returns true if the element is in Right to Left mode.\nIf a dir attribute is not explicitly set on the web component\nthen it falls back to the nearest parent with a dir attribute set.\n\nA dir attribute being set will result in a reactive property.\nIf the component falls back to a parent dir attribute then the value\nwill not be reactive and is only computed once",
               "readonly": true
             }
           ],
