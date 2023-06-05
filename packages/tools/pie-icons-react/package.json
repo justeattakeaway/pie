@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/pie-icons-react",
-  "version": "3.2.0",
+  "version": "3.3.0",
   "main": "esm/index.js",
   "type": "module",
   "types": "esm/index.d.ts",
@@ -43,6 +43,7 @@
     "@babel/node": "7.20.7",
     "@justeattakeaway/pie-icons": "3.2.0",
     "@justeattakeaway/pie-icons-configs": "workspace:*",
+    "@rollup/plugin-node-resolve": "15.1.0",
     "@svgr/core": "6.4.0",
     "pascal-case": "3.1.2",
     "react": "18.2.0",

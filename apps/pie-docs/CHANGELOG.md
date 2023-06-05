@@ -1,5 +1,21 @@
 # Changelog
 
+## 2.1.0
+
+### Minor Changes
+
+- [Changed] - Updating styles inline with new Stylelint rules ([#482](https://github.com/justeattakeaway/pie/pull/482)) by [@ashleynolan](https://github.com/ashleynolan)
+
+- [Updated] - markdown lists to use correct icons ([#503](https://github.com/justeattakeaway/pie/pull/503)) by [@FayeCarter](https://github.com/FayeCarter)
+
+- [Added] - System test for sticky nav on desktop ([#484](https://github.com/justeattakeaway/pie/pull/484)) by [@FayeCarter](https://github.com/FayeCarter)
+
+  [Added] - `isElementVisibleInViewport` test helper function
+
+- [Added] - `@justeattakeaway/pie-icons` as an explicit dependency to ensure dependant tasks are correct for pie-docs ([#492](https://github.com/justeattakeaway/pie/pull/492)) by [@siggerzz](https://github.com/siggerzz)
+
+- [Updated] - iconography overview copy ([#500](https://github.com/justeattakeaway/pie/pull/500)) by [@FayeCarter](https://github.com/FayeCarter)
+
 ## 2.0.0
 
 ### Major Changes
