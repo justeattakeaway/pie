@@ -13,14 +13,6 @@
       "path": "../../components/pie-button/src/index.js",
       "declarations": [
         {
-          "kind": "variable",
-          "name": "componentSelector",
-          "type": {
-            "text": "string"
-          },
-          "default": "'pie-button'"
-        },
-        {
           "kind": "class",
           "description": "",
           "name": "PieButton",
@@ -76,7 +68,7 @@
             "name": "LitElement",
             "package": "lit"
           },
-          "tagName": "componentSelector",
+          "tagName": "pie-button",
           "customElement": true
         }
       ],
@@ -115,10 +107,85 @@
         },
         {
           "kind": "custom-element-definition",
-          "name": "componentSelector",
+          "name": "pie-button",
           "declaration": {
             "name": "PieButton",
             "module": "../../components/pie-button/src/index.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../../components/pie-icon-button/src/defs.js",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../../components/pie-icon-button/src/index.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "PieIconButton",
+          "members": [
+            {
+              "kind": "field",
+              "name": "variant",
+              "type": {
+                "text": "ICON_BUTTON_VARIANT"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            },
+            {
+              "kind": "field",
+              "name": "styles",
+              "static": true
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "pie-icon-button",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "ICON_BUTTON_VARIANT",
+          "declaration": {
+            "name": "ICON_BUTTON_VARIANT",
+            "module": "../../components/pie-icon-button/src/index.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "PieIconButton",
+          "declaration": {
+            "name": "PieIconButton",
+            "module": "../../components/pie-icon-button/src/index.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "pie-icon-button",
+          "declaration": {
+            "name": "PieIconButton",
+            "module": "../../components/pie-icon-button/src/index.js"
           }
         }
       ]
@@ -228,89 +295,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "../../components/pie-icon-button/src/defs.js",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "../../components/pie-icon-button/src/index.js",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "componentSelector",
-          "type": {
-            "text": "string"
-          },
-          "default": "'pie-icon-button'"
-        },
-        {
-          "kind": "class",
-          "description": "",
-          "name": "PieIconButton",
-          "members": [
-            {
-              "kind": "field",
-              "name": "variant",
-              "type": {
-                "text": "ICON_BUTTON_VARIANT"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "disabled",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false"
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            },
-            {
-              "kind": "field",
-              "name": "styles",
-              "static": true
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "componentSelector",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "ICON_BUTTON_VARIANT",
-          "declaration": {
-            "name": "ICON_BUTTON_VARIANT",
-            "module": "../../components/pie-icon-button/src/index.js"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "PieIconButton",
-          "declaration": {
-            "name": "PieIconButton",
-            "module": "../../components/pie-icon-button/src/index.js"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "componentSelector",
-          "declaration": {
-            "name": "PieIconButton",
-            "module": "../../components/pie-icon-button/src/index.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "../../components/pie-webc-core/src/decorators/index.js",
       "declarations": [],
       "exports": [
@@ -320,6 +304,21 @@
           "declaration": {
             "name": "*",
             "package": "./valid-property-values/validPropertyValues"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../../components/pie-webc-core/src/mixins/index.js",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./rtl/rtlMixin"
           }
         }
       ]
@@ -404,21 +403,6 @@
           "declaration": {
             "name": "*",
             "package": "./get-all-prop-combos"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "../../components/pie-webc-core/src/mixins/index.js",
-      "declarations": [],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "*",
-          "declaration": {
-            "name": "*",
-            "package": "./rtl/rtlMixin"
           }
         }
       ]

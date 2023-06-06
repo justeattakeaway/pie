@@ -23,21 +23,23 @@ export class PieButton extends LitElement {
     @validPropertyValues(componentSelector, Object.values(BUTTON_VARIANT), BUTTON_VARIANT.PRIMARY)
         variant : BUTTON_VARIANT = BUTTON_VARIANT.PRIMARY;
 
-    @property({ type: Boolean, reflect: true })
+    @property({ type: Boolean })
         disabled = false;
 
-    @property({ type: Boolean, reflect: true })
+    @property({ type: Boolean })
         isFullWidth = false;
 
     render () {
         const {
-            type, disabled, isFullWidth,
+            type, disabled, isFullWidth, variant, size,
         } = this;
 
         return html`
             <button
                 class="o-btn"
                 type=${type}
+                variant=${variant}
+                size=${size}
                 ?disabled=${disabled}
                 ?isFullWidth=${isFullWidth}>
                 <slot></slot>
@@ -48,7 +50,7 @@ export class PieButton extends LitElement {
     static styles = unsafeCSS(styles);
 }
 
-customElements.define(componentSelector, PieButton);
+customElements.define('pie-button', PieButton);
 
 declare global {
     interface HTMLElementTagNameMap {

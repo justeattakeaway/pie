@@ -1,7 +1,7 @@
 import * as React from "react";
 import { RegularIconProps } from "../types";
 // @ts-ignore
-import { getSvgProps } from './configs-react';
+import { getSvgProps } from '@justeattakeaway/pie-icons-configs/configs-react';
 const IconEyeOn = (props: RegularIconProps) => {
   const {
     className,
@@ -10,7 +10,7 @@ const IconEyeOn = (props: RegularIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--eye-on", className, iconSize, "IconEyeOn");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--eye-on", className, iconSize, "IconEyeOn");
   const allProps = {
     ...remainingProps,
     ...moreProps
