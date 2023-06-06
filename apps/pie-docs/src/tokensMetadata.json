@@ -45,10 +45,6 @@
         "category": "blue",
         "description": "#125FCA<br />rgb (18,95,202)"
       },
-      "blue-60": {
-        "category": "blue",
-        "description": "#0D4696<br />rgb (13,70,150)"
-      },
       "blue-90": {
         "category": "blue",
         "description": "#083343<br />rgb (8,51,67)"
@@ -69,10 +65,6 @@
         "category": "red",
         "description": "#D50525<br />rgb (213,5,37)"
       },
-      "red-60": {
-        "category": "red",
-        "description": "#9F041C<br />rgb (159,4,28)"
-      },
       "red-90": {
         "category": "red",
         "description": "#491E24<br />rgb (73,30,36)"
@@ -80,10 +72,6 @@
       "yellow-10": {
         "category": "yellow",
         "description": "#FFF9DF<br />rgb (255,249,223)"
-      },
-      "yellow-30": {
-        "category": "yellow",
-        "description": "#FFD97D<br />rgb (255,217,125)"
       },
       "yellow": {
         "category": "yellow",
@@ -105,17 +93,9 @@
         "category": "green",
         "description": "#017A39<br />rgb (1,122,57)"
       },
-      "green-60": {
-        "category": "green",
-        "description": "#006631<br />rgb (0,102,49)"
-      },
       "green-90": {
         "category": "green",
         "description": "#273F33<br />rgb (39,63,51)"
-      },
-      "purple-10": {
-        "category": "purple",
-        "description": "#EAD9F0<br />rgb (234,217,240)"
       },
       "purple": {
         "category": "purple",
@@ -197,10 +177,6 @@
         "category": "highContrast",
         "description": "#A33100<br />rgb (163,49,0)"
       },
-      "orange-light-hc": {
-        "category": "highContrast",
-        "description": "#FFA514<br />rgb (255,165,20)"
-      },
       "red-dark-hc": {
         "category": "highContrast",
         "description": "#A4041F<br />rgb (239,237,234)"
@@ -208,10 +184,6 @@
       "red-light-hc": {
         "category": "highContrast",
         "description": "#FF7A80<br />rgb (164,4,31)"
-      },
-      "red-30-hc": {
-        "category": "highContrast",
-        "description": "#F99FAC<br />rgb (249,159,172)"
       },
       "yellow-dark-hc": {
         "category": "highContrast",
@@ -598,11 +570,6 @@
           "description": "Opacity effect for active states on light backgrounds. Uses the same global token in all themes",
           "globalToken": "$color-active-darken"
         },
-        "focus": {
-          "category": "states",
-          "description": "Colour used for outline focus states",
-          "globalToken": "$color-blue-30"
-        },
         "disabled-01": {
           "category": "states",
           "description": "Colour used for disabled UI elements",
@@ -612,6 +579,16 @@
           "category": "states",
           "description": "Colour used for disabled UI elements on inverse backgrounds",
           "globalToken": "$color-mozzarella-80"
+        },
+        "focus-inner": {
+          "category": "states",
+          "description": "Colour used for outline focus states",
+          "globalToken": "$color-white"
+        },
+        "focus-outer": {
+          "category": "states",
+          "description": "Colour used for outline focus states",
+          "globalToken": "$color-blue-70"
         },
         "skeleton-01": {
           "category": "skeleton",
@@ -627,12 +604,6 @@
           "category": "skeleton",
           "description": "Colour used for skeletons used as placeholders for UI elements while loading",
           "globalToken": "$color-white"
-        },
-        "external-bta-background": {
-          "category": ""
-        },
-        "external-bta-text": {
-          "category": ""
         }
       },
       "dark": {
@@ -986,11 +957,6 @@
           "description": "Opacity effect for active states on light backgrounds. Uses the same global token in all themes",
           "globalToken": "$color-active-darken"
         },
-        "focus": {
-          "category": "states",
-          "description": "Colour used for outline focus states",
-          "globalToken": "$color-blue-30"
-        },
         "disabled-01": {
           "category": "states",
           "description": "Colour used for disabled UI elements",
@@ -1015,12 +981,6 @@
           "category": "skeleton",
           "description": "Colour used for skeletons used as placeholders for UI elements while loading",
           "globalToken": "$color-mozzarella-90"
-        },
-        "external-bta-background": {
-          "category": ""
-        },
-        "external-bta-text": {
-          "category": ""
         }
       }
     }
@@ -1118,11 +1078,6 @@
         "category": "paragraphSpacing",
         "displayName": "Paragraph spacing 3",
         "description": "Space between paragraphs: 12px"
-      },
-      "letter-spacing-00": {
-        "category": "letterSpacing",
-        "displayName": "Letter spacing 0",
-        "description": "Default letter spacing"
       }
     },
     "alias": {
@@ -1553,10 +1508,6 @@
   },
   "elevation": {
     "global": {
-      "box-shadow-00": {
-        "displayName": "Box shadow 00",
-        "description": "0,0,0,0 rgba(0,0,0,0)<br /> 0,0,0,0 rgba(0,0,0,0)<br /> 0,0,0,0 rgba(0,0,0,0)"
-      },
       "box-shadow-01": {
         "displayName": "Box shadow 01",
         "description": "0,2,2,0 rgba(0,0,0,.03)<br /> 0,3,1,-2 rgba(0,0,0,.07)<br /> 0,1,5,0 rgba(0,0,0,.06)"
