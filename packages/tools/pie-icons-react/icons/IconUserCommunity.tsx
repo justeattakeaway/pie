@@ -10,7 +10,7 @@ const IconUserCommunity = (props: RegularIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--user-community", className, iconSize, "IconUserCommunity");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--user-community", className, iconSize, "IconUserCommunity");
   const allProps = {
     ...remainingProps,
     ...moreProps

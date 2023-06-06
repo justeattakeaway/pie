@@ -10,7 +10,7 @@ const IconFullscreenExpand = (props: RegularIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--fullscreen-expand", className, iconSize, "IconFullscreenExpand");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--fullscreen-expand", className, iconSize, "IconFullscreenExpand");
   const allProps = {
     ...remainingProps,
     ...moreProps

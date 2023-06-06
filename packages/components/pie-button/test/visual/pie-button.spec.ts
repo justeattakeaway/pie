@@ -1,52 +1,35 @@
 import { test } from '@sand4rt/experimental-ct-web';
 import percySnapshot from '@percy/playwright';
+import {
+    PropObject, Combination, getAllPropCombinations, splitCombinationsByPropertyValue,
+} from '@justeattakeaway/pie-webc-core/src/test-helpers/get-all-prop-combos.ts';
 import { PieButton } from '@/index';
 import { BUTTON_SIZE, BUTTON_TYPE, BUTTON_VARIANT } from '@/defs';
 
-const sizes = Object.values(BUTTON_SIZE);
-const variants = Object.values(BUTTON_VARIANT);
-const disabledStates = [true, false];
+const props: PropObject = {
+    variant: Object.values(BUTTON_VARIANT),
+    size: Object.values(BUTTON_SIZE),
+    type: BUTTON_TYPE.BUTTON, // Changing the type does not affect the appearance of the button
+    isFullWidth: [true, false],
+    disabled: [true, false],
+};
 
-variants.forEach((variant) => {
-    test(`should render - ${variant}`, async ({ page, mount }) => {
-        for (const size of sizes) {
-            for (const disabledState of disabledStates) {
-                await mount(
-                    PieButton,
-                    {
-                        props: {
-                            type: BUTTON_TYPE.BUTTON,
-                            size,
-                            variant,
-                            disabled: disabledState,
-                            isFullWidth: false,
-                        },
-                        slots: {
-                            default: `Hello, ${size} ${variant} Button!`,
-                        },
-                    },
-                );
-            }
+const componentPropsMatrix : Combination[] = getAllPropCombinations(props);
+const componentPropsMatrixByVariant: Record<string, Combination[]> = splitCombinationsByPropertyValue(componentPropsMatrix, 'variant');
+const componentVariants: string[] = Object.keys(componentPropsMatrixByVariant);
 
-            for (const disabledState of disabledStates) {
-                await mount(
-                    PieButton,
-                    {
-                        props: {
-                            type: BUTTON_TYPE.BUTTON,
-                            size,
-                            variant,
-                            disabled: disabledState,
-                            isFullWidth: true,
-                        },
-                        slots: {
-                            default: `Hello, ${size} ${variant} Button!`,
-                        },
-                    },
-                );
-            }
-        }
+componentVariants.forEach((variant) => test(`Render all prop variations for Variant: ${variant}`, async ({ page, mount }) => {
+    await Promise.all(componentPropsMatrixByVariant[variant].map(async (combo: Combination) => {
+        await mount(
+            PieButton,
+            {
+                props: { ...combo },
+                slots: {
+                    default: 'Hello world',
+                },
+            },
+        );
+    }));
 
-        await percySnapshot(page, `PIE Button - ${variant}`);
-    });
-});
+    await percySnapshot(page, `PIE Button - Variant: ${variant}`);
+}));

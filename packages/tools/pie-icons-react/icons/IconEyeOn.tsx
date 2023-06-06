@@ -10,7 +10,7 @@ const IconEyeOn = (props: RegularIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--eye-on", className, iconSize, "IconEyeOn");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--eye-on", className, iconSize, "IconEyeOn");
   const allProps = {
     ...remainingProps,
     ...moreProps

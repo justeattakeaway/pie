@@ -10,7 +10,7 @@ const IconBallotBox = (props: RegularIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--ballot-box", className, iconSize, "IconBallotBox");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--ballot-box", className, iconSize, "IconBallotBox");
   const allProps = {
     ...remainingProps,
     ...moreProps

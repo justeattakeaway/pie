@@ -10,7 +10,7 @@ const IconCaretUpFilledLarge = (props: LargeIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--caret-up-filled-large", className, iconSize, "IconCaretUpFilledLarge");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--caret-up-filled-large", className, iconSize, "IconCaretUpFilledLarge");
   const allProps = {
     ...remainingProps,
     ...moreProps

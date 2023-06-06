@@ -45,7 +45,7 @@ html:has(.c-navToggle-input:checked) body {
 }
 
 .c-navToggle-input:focus ~ .c-navToggle {
-    outline: 2px solid f.$color-focus;
+    outline: 2px solid f.$color-focus-outer;
     outline-offset: 4px;
 }
 

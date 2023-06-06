@@ -10,7 +10,7 @@ const IconSocialMicrosoft = (props: RegularIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--microsoft", className, iconSize, "IconSocialMicrosoft");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--microsoft", className, iconSize, "IconSocialMicrosoft");
   const allProps = {
     ...remainingProps,
     ...moreProps

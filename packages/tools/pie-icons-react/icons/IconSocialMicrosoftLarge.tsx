@@ -10,7 +10,7 @@ const IconSocialMicrosoftLarge = (props: LargeIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--microsoft-large", className, iconSize, "IconSocialMicrosoftLarge");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--microsoft-large", className, iconSize, "IconSocialMicrosoftLarge");
   const allProps = {
     ...remainingProps,
     ...moreProps

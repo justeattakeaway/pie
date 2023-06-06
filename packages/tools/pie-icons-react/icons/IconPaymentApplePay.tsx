@@ -10,7 +10,7 @@ const IconPaymentApplePay = (props: RegularIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--apple-pay", className, iconSize, "IconPaymentApplePay");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--apple-pay", className, iconSize, "IconPaymentApplePay");
   const allProps = {
     ...remainingProps,
     ...moreProps

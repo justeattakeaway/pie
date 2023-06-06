@@ -10,7 +10,7 @@ const IconSocialPinterestLarge = (props: LargeIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--pinterest-large", className, iconSize, "IconSocialPinterestLarge");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--pinterest-large", className, iconSize, "IconSocialPinterestLarge");
   const allProps = {
     ...remainingProps,
     ...moreProps

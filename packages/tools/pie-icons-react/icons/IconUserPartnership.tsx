@@ -10,7 +10,7 @@ const IconUserPartnership = (props: RegularIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--user-partnership", className, iconSize, "IconUserPartnership");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--user-partnership", className, iconSize, "IconUserPartnership");
   const allProps = {
     ...remainingProps,
     ...moreProps

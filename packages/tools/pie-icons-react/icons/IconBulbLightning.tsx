@@ -10,7 +10,7 @@ const IconBulbLightning = (props: RegularIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--bulb-lightning", className, iconSize, "IconBulbLightning");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--bulb-lightning", className, iconSize, "IconBulbLightning");
   const allProps = {
     ...remainingProps,
     ...moreProps

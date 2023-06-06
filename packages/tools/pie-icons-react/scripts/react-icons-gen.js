@@ -66,7 +66,7 @@ async function build() {
         const { pathPrefix } = icons[iconKey];
         const capitalisedPathPrefix = (pathPrefix !== undefined ? (pathPrefix).substring(1, 2).toUpperCase() + (pathPrefix).substring(2) : '');
         const componentName = `Icon${capitalisedPathPrefix + pascalCase(handleComponentName(iconKey))}`;
-        const iconClasses = `pie-icon pie-icon--${iconKey.toLowerCase()}`;
+        const iconClasses = `c-pieIcon c-pieIcon--${iconKey.toLowerCase()}`;
 
         let Comp = transform.sync(
             icons[iconKey].toSvg(),

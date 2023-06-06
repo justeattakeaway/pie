@@ -10,7 +10,7 @@ const IconChatBot = (props: RegularIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--chat-bot", className, iconSize, "IconChatBot");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--chat-bot", className, iconSize, "IconChatBot");
   const allProps = {
     ...remainingProps,
     ...moreProps

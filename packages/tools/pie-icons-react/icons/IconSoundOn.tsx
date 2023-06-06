@@ -10,7 +10,7 @@ const IconSoundOn = (props: RegularIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--sound-on", className, iconSize, "IconSoundOn");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--sound-on", className, iconSize, "IconSoundOn");
   const allProps = {
     ...remainingProps,
     ...moreProps

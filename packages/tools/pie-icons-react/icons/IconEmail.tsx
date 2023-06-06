@@ -10,7 +10,7 @@ const IconEmail = (props: RegularIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--email", className, iconSize, "IconEmail");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--email", className, iconSize, "IconEmail");
   const allProps = {
     ...remainingProps,
     ...moreProps

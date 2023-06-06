@@ -10,7 +10,7 @@ const IconMealVoucher = (props: RegularIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--meal-voucher", className, iconSize, "IconMealVoucher");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--meal-voucher", className, iconSize, "IconMealVoucher");
   const allProps = {
     ...remainingProps,
     ...moreProps

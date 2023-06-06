@@ -10,7 +10,7 @@ const IconPlane = (props: RegularIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--plane", className, iconSize, "IconPlane");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--plane", className, iconSize, "IconPlane");
   const allProps = {
     ...remainingProps,
     ...moreProps

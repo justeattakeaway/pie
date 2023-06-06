@@ -10,7 +10,7 @@ const IconFlagNorway = (props: RegularIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--norway", className, iconSize, "IconFlagNorway");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--norway", className, iconSize, "IconFlagNorway");
   const allProps = {
     ...remainingProps,
     ...moreProps

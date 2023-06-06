@@ -10,7 +10,7 @@ const IconPaymentPostFinance = (props: RegularIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--post-finance", className, iconSize, "IconPaymentPostFinance");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--post-finance", className, iconSize, "IconPaymentPostFinance");
   const allProps = {
     ...remainingProps,
     ...moreProps

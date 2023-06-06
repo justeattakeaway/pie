@@ -10,7 +10,7 @@ const IconSocialInstagramCircle = (props: RegularIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--instagram-circle", className, iconSize, "IconSocialInstagramCircle");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--instagram-circle", className, iconSize, "IconSocialInstagramCircle");
   const allProps = {
     ...remainingProps,
     ...moreProps

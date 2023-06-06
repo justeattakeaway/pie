@@ -4,7 +4,7 @@ import { BUTTON_SIZE, BUTTON_VARIANT } from '@justeattakeaway/pie-button';
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
-    styleUrls: ['./app.component.scss']
+    styleUrls: ['./app.component.scss'],
 })
 
 export class AppComponent {
@@ -16,11 +16,11 @@ export class AppComponent {
     variantName = BUTTON_VARIANT.PRIMARY;
 
     increment () {
-        this.count ++;
+        this.count++;
     }
 
     decrement () {
-        this.count --;
+        this.count--;
     }
 
     switchVariant () {
