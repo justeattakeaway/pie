@@ -41,7 +41,7 @@ const componentVariants: string[] = Object.keys(componentPropsMatrixByVariant);
 componentVariants.forEach((variant) => test(`Render all prop variations for Variant: ${variant}`, async ({ page, mount }) => {
     await Promise.all(componentPropsMatrixByVariant[variant].map(async (combo: Combination) => {
         const testComponent = createTestComponent(combo);
-        const label = `variant: ${testComponent.propValues.variant}, size: ${testComponent.propValues.size}, type: ${testComponent.propValues.type}, isFullWidth: ${testComponent.propValues.isFullWidth}, disabled: ${testComponent.propValues.disabled}`;
+        const label = `size: ${testComponent.propValues.size}, isFullWidth: ${testComponent.propValues.isFullWidth}, disabled: ${testComponent.propValues.disabled}`;
 
         await mount(
             LabelledComponent,

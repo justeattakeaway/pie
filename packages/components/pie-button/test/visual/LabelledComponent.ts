@@ -8,16 +8,22 @@ export class LabelledComponent extends LitElement {
     @property({ type: String })
         label = '';
 
+    _renderLabel () {
+        return this.label.split(',').map((propKeyValueString) => {
+            const [key, value] = propKeyValueString.split(':');
+
+            return html`<p class="c-labelledComponent-label"><b>${key}</b>: <code>${value}</code></p>`;
+        });
+    }
+
     // eslint-disable-next-line class-methods-use-this
     render () {
         return html`
-            <div>
-                <p>${this.label.split(',').map((propKeyValueString) => {
-            const [key, value] = propKeyValueString.split(':');
-
-            return html`<b>${key}</b>: ${value}`;
-        })}</p>
-                <slot></slot>
+            <div class="c-labelledComponent">
+                ${this._renderLabel()}
+                <div class="c-labelledComponent-slot">
+                    <slot></slot>
+                </div>
             </div>`;
     }
 }
