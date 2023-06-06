@@ -4,6 +4,153 @@
   "modules": [
     {
       "kind": "javascript-module",
+      "path": "../../components/pie-modal/src/index.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "PieModal",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            },
+            {
+              "kind": "field",
+              "name": "dir",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "inheritedFrom": {
+                "name": "RtlMixin",
+                "module": "../../components/pie-webc-core/src/mixins/rtl/rtlMixin.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "isRTL",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Returns true if the element is in Right to Left mode.\nIf a dir attribute is not explicitly set on the web component\nthen it falls back to the nearest parent with a dir attribute set.\n\nA dir attribute being set will result in a reactive property.\nIf the component falls back to a parent dir attribute then the value\nwill not be reactive and is only computed once",
+              "readonly": true,
+              "inheritedFrom": {
+                "name": "RtlMixin",
+                "module": "../../components/pie-webc-core/src/mixins/rtl/rtlMixin.js"
+              }
+            }
+          ],
+          "mixins": [
+            {
+              "name": "RtlMixin",
+              "package": "@justeattakeaway/pie-webc-core"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "pie-modal",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "PieModal",
+          "declaration": {
+            "name": "PieModal",
+            "module": "../../components/pie-modal/src/index.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "pie-modal",
+          "declaration": {
+            "name": "PieModal",
+            "module": "../../components/pie-modal/src/index.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../../components/pie-icon-button/src/defs.js",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../../components/pie-icon-button/src/index.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "PieIconButton",
+          "members": [
+            {
+              "kind": "field",
+              "name": "variant",
+              "type": {
+                "text": "ICON_BUTTON_VARIANT"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            },
+            {
+              "kind": "field",
+              "name": "styles",
+              "static": true
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "pie-icon-button",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "ICON_BUTTON_VARIANT",
+          "declaration": {
+            "name": "ICON_BUTTON_VARIANT",
+            "module": "../../components/pie-icon-button/src/index.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "PieIconButton",
+          "declaration": {
+            "name": "PieIconButton",
+            "module": "../../components/pie-icon-button/src/index.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "pie-icon-button",
+          "declaration": {
+            "name": "PieIconButton",
+            "module": "../../components/pie-icon-button/src/index.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "../../components/pie-button/src/defs.js",
       "declarations": [],
       "exports": []
@@ -111,153 +258,6 @@
           "declaration": {
             "name": "PieButton",
             "module": "../../components/pie-button/src/index.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "../../components/pie-icon-button/src/defs.js",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "../../components/pie-icon-button/src/index.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "PieIconButton",
-          "members": [
-            {
-              "kind": "field",
-              "name": "variant",
-              "type": {
-                "text": "ICON_BUTTON_VARIANT"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "disabled",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false"
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            },
-            {
-              "kind": "field",
-              "name": "styles",
-              "static": true
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "pie-icon-button",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "ICON_BUTTON_VARIANT",
-          "declaration": {
-            "name": "ICON_BUTTON_VARIANT",
-            "module": "../../components/pie-icon-button/src/index.js"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "PieIconButton",
-          "declaration": {
-            "name": "PieIconButton",
-            "module": "../../components/pie-icon-button/src/index.js"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "pie-icon-button",
-          "declaration": {
-            "name": "PieIconButton",
-            "module": "../../components/pie-icon-button/src/index.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "../../components/pie-modal/src/index.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "PieModal",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            },
-            {
-              "kind": "field",
-              "name": "dir",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "inheritedFrom": {
-                "name": "RtlMixin",
-                "module": "../../components/pie-webc-core/src/mixins/rtl/rtlMixin.js"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "isRTL",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Returns true if the element is in Right to Left mode.\nIf a dir attribute is not explicitly set on the web component\nthen it falls back to the nearest parent with a dir attribute set.\n\nA dir attribute being set will result in a reactive property.\nIf the component falls back to a parent dir attribute then the value\nwill not be reactive and is only computed once",
-              "readonly": true,
-              "inheritedFrom": {
-                "name": "RtlMixin",
-                "module": "../../components/pie-webc-core/src/mixins/rtl/rtlMixin.js"
-              }
-            }
-          ],
-          "mixins": [
-            {
-              "name": "RtlMixin",
-              "package": "@justeattakeaway/pie-webc-core"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "pie-modal",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "PieModal",
-          "declaration": {
-            "name": "PieModal",
-            "module": "../../components/pie-modal/src/index.js"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "pie-modal",
-          "declaration": {
-            "name": "PieModal",
-            "module": "../../components/pie-modal/src/index.js"
           }
         }
       ]
