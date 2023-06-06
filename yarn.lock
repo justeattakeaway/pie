@@ -4225,7 +4225,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-icons-configs@workspace:^, @justeattakeaway/pie-icons-configs@workspace:packages/tools/pie-icons-configs":
+"@justeattakeaway/pie-icons-configs@workspace:*, @justeattakeaway/pie-icons-configs@workspace:packages/tools/pie-icons-configs":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-icons-configs@workspace:packages/tools/pie-icons-configs"
   languageName: unknown
@@ -4238,7 +4238,7 @@ __metadata:
     "@babel/node": 7.20.7
     "@babel/preset-react": 7.18.6
     "@justeattakeaway/pie-icons": 3.2.0
-    "@justeattakeaway/pie-icons-configs": "workspace:^"
+    "@justeattakeaway/pie-icons-configs": "workspace:*"
     "@rollup/plugin-node-resolve": 15.1.0
     "@svgr/core": 6.4.0
     babel-jest: 29.5.0
