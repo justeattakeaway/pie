@@ -10,7 +10,7 @@ const IconSocialPinterestCircleFilledLarge = (props: LargeIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--pinterest-circle-filled-large", className, iconSize, "IconSocialPinterestCircleFilledLarge");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--pinterest-circle-filled-large", className, iconSize, "IconSocialPinterestCircleFilledLarge");
   const allProps = {
     ...remainingProps,
     ...moreProps

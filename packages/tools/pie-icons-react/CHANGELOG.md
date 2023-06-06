@@ -1,5 +1,17 @@
 # Changelog
 
+## 3.3.1
+
+### Patch Changes
+
+- [Fixed] Renames css icon classes to match size classes and vue library ([#510](https://github.com/justeattakeaway/pie/pull/510)) by [@dandel10n](https://github.com/dandel10n)
+
+## 3.3.0
+
+### Minor Changes
+
+- [Fixed] - updates icons compilation settings to embed pie-icons-configs in the icons bundle ([#497](https://github.com/justeattakeaway/pie/pull/497)) by [@dandel10n](https://github.com/dandel10n)
+
 ## 3.2.0
 
 ### Minor Changes

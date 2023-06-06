@@ -10,7 +10,7 @@ const IconPinAtHome = (props: RegularIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--pin-at-home", className, iconSize, "IconPinAtHome");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--pin-at-home", className, iconSize, "IconPinAtHome");
   const allProps = {
     ...remainingProps,
     ...moreProps

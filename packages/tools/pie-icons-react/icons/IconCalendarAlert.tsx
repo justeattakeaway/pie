@@ -10,7 +10,7 @@ const IconCalendarAlert = (props: RegularIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--calendar-alert", className, iconSize, "IconCalendarAlert");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--calendar-alert", className, iconSize, "IconCalendarAlert");
   const allProps = {
     ...remainingProps,
     ...moreProps

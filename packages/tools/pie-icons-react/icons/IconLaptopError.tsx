@@ -10,7 +10,7 @@ const IconLaptopError = (props: RegularIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--laptop-error", className, iconSize, "IconLaptopError");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--laptop-error", className, iconSize, "IconLaptopError");
   const allProps = {
     ...remainingProps,
     ...moreProps

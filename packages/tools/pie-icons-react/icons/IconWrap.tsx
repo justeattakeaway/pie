@@ -10,7 +10,7 @@ const IconWrap = (props: RegularIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--wrap", className, iconSize, "IconWrap");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--wrap", className, iconSize, "IconWrap");
   const allProps = {
     ...remainingProps,
     ...moreProps

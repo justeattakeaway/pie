@@ -10,7 +10,7 @@ const IconAlertTriangle = (props: RegularIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--alert-triangle", className, iconSize, "IconAlertTriangle");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--alert-triangle", className, iconSize, "IconAlertTriangle");
   const allProps = {
     ...remainingProps,
     ...moreProps

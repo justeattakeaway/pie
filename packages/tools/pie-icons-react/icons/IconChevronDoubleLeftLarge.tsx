@@ -10,7 +10,7 @@ const IconChevronDoubleLeftLarge = (props: LargeIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--chevron-double-left-large", className, iconSize, "IconChevronDoubleLeftLarge");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--chevron-double-left-large", className, iconSize, "IconChevronDoubleLeftLarge");
   const allProps = {
     ...remainingProps,
     ...moreProps

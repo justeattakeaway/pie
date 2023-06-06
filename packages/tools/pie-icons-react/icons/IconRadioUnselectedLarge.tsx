@@ -10,7 +10,7 @@ const IconRadioUnselectedLarge = (props: LargeIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--radio-unselected-large", className, iconSize, "IconRadioUnselectedLarge");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--radio-unselected-large", className, iconSize, "IconRadioUnselectedLarge");
   const allProps = {
     ...remainingProps,
     ...moreProps

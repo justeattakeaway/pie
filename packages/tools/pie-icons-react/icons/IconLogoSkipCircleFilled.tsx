@@ -10,7 +10,7 @@ const IconLogoSkipCircleFilled = (props: RegularIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--skip-circle-filled", className, iconSize, "IconLogoSkipCircleFilled");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--skip-circle-filled", className, iconSize, "IconLogoSkipCircleFilled");
   const allProps = {
     ...remainingProps,
     ...moreProps

@@ -10,7 +10,7 @@ const IconGridViewLarge = (props: LargeIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--grid-view-large", className, iconSize, "IconGridViewLarge");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--grid-view-large", className, iconSize, "IconGridViewLarge");
   const allProps = {
     ...remainingProps,
     ...moreProps

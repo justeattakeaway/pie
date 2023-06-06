@@ -10,7 +10,7 @@ const IconFilters = (props: RegularIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--filters", className, iconSize, "IconFilters");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--filters", className, iconSize, "IconFilters");
   const allProps = {
     ...remainingProps,
     ...moreProps

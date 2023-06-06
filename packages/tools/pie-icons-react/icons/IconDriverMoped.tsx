@@ -10,7 +10,7 @@ const IconDriverMoped = (props: RegularIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--driver-moped", className, iconSize, "IconDriverMoped");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--driver-moped", className, iconSize, "IconDriverMoped");
   const allProps = {
     ...remainingProps,
     ...moreProps

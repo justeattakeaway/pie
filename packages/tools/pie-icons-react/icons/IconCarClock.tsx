@@ -10,7 +10,7 @@ const IconCarClock = (props: RegularIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--car-clock", className, iconSize, "IconCarClock");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--car-clock", className, iconSize, "IconCarClock");
   const allProps = {
     ...remainingProps,
     ...moreProps

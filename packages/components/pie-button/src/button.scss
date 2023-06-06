@@ -1,4 +1,19 @@
-:host {
+// Defines button interactive states for hover and active using HSL & calc
+// Takes a color token name as an argument
+@mixin button-interactive-states($bg-color) {
+    &:hover:not(:disabled) {
+        background-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), calc(var(#{$bg-color}-l) - var(--dt-color-hover-01)));
+    }
+
+    &:active:not(:disabled) {
+        background-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), calc(var(#{$bg-color}-l) - var(--dt-color-active-01)));
+    }
+}
+
+// Base button styles
+.o-btn {
+    // Custom Property Declarations
+    // These are defined here instead of :host to encapsulate them inside Shadow DOM
     --btn-border-radius: var(--dt-radius-rounded-e);
     --btn-font-family: var(--dt-font-interactive-m-family);
     --btn-font-weight: var(--dt-font-interactive-m-weight);
@@ -14,20 +29,7 @@
     --btn-bg-color: var(--dt-color-interactive-brand);
     --btn-text-color: var(--dt-color-content-interactive-primary);
     --btn-focus: var(--dt-color-focus-outer);
-}
 
-@mixin button-interactive-states($bg-color) {
-    & .o-btn:hover:not(:disabled) {
-        background-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), calc(var(#{$bg-color}-l) - var(--dt-color-hover-01)));
-    }
-
-    & .o-btn:active:not(:disabled) {
-        background-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), calc(var(#{$bg-color}-l) - var(--dt-color-active-01)));
-    }
-}
-
-// Base button styles
-.o-btn {
     min-block-size: var(--btn-min-block-size);
     padding: var(--btn-padding);
     border: none;
@@ -46,82 +48,76 @@
         // TODO - Need to update to use the latest focus styling
         outline: 2px solid var(--btn-focus);
     }
-}
 
-// Variants
-:host([variant='primary']) {
-    @include button-interactive-states('--dt-color-interactive-brand');
-}
-
-:host([variant='secondary']) {
-    --btn-bg-color: var(--dt-color-interactive-secondary);
-    --btn-text-color: var(--dt-color-content-interactive-secondary);
-
-    @include button-interactive-states('--dt-color-interactive-secondary');
-}
-
-:host([variant='outline']) {
-    --btn-bg-color: var(--dt-color-container-default);
-    --btn-text-color: var(--dt-color-content-interactive-tertiary);
-
-    & .o-btn {
-        border: 1px solid var(--dt-color-border-strong);
+    // Variant
+    &[variant='primary'] {
+        @include button-interactive-states('--dt-color-interactive-brand');
     }
 
-    @include button-interactive-states('--dt-color-container-default');
-}
+    &[variant='secondary'] {
+        --btn-bg-color: var(--dt-color-interactive-secondary);
+        --btn-text-color: var(--dt-color-content-interactive-secondary);
 
-:host([variant='ghost']) {
-    --btn-bg-color: var(--dt-color-container-default);
-    --btn-text-color: var(--dt-color-content-link);
+        @include button-interactive-states('--dt-color-interactive-secondary');
+    }
 
-    @include button-interactive-states('--dt-color-container-default');
-}
+    &[variant='outline'] {
+        --btn-bg-color: var(--dt-color-container-default);
+        --btn-text-color: var(--dt-color-content-interactive-tertiary);
 
-:host([disabled]) {
-    --btn-bg-color: var(--dt-color-disabled-01);
-    --btn-text-color: var(--dt-color-content-disabled);
+        border: 1px solid var(--dt-color-border-strong);
 
-    & .o-btn {
+        @include button-interactive-states('--dt-color-container-default');
+    }
+
+    &[variant='ghost'] {
+        --btn-bg-color: var(--dt-color-container-default);
+        --btn-text-color: var(--dt-color-content-link);
+
+        @include button-interactive-states('--dt-color-container-default');
+    }
+
+    // Additional modifiers
+    &[isFullWidth] {
+        inline-size: 100%;
+    }
+
+    &[disabled] {
+        --btn-bg-color: var(--dt-color-disabled-01);
+        --btn-text-color: var(--dt-color-content-disabled);
+
         border: 1px solid var(--dt-color-disabled-01);
         cursor: not-allowed;
     }
-}
 
-// Additional modifiers
-:host([isFullWidth]) .o-btn {
-    inline-size: 100%;
-}
+    &[disabled][variant='ghost'] {
+        --btn-bg-color: var(--dt-color-container-default);
 
-:host([disabled][variant='ghost']) {
-    --btn-bg-color: var(--dt-color-container-default);
-
-    & .o-btn {
         outline: none;
     }
-}
 
-:host([size='xsmall']) {
-    --btn-padding: 6px var(--dt-spacing-b);
-    --btn-min-block-size: 32px;
-    --btn-font-size: calc(var(--dt-font-size-14) * 1px);
-    --btn-line-height: calc(var(--dt-font-size-14-line-height) * 1px);
-}
+    &[size='xsmall'] {
+        --btn-padding: 6px var(--dt-spacing-b);
+        --btn-min-block-size: 32px;
+        --btn-font-size: calc(var(--dt-font-size-14) * 1px);
+        --btn-line-height: calc(var(--dt-font-size-14-line-height) * 1px);
+    }
 
-:host([size='small']) {
-    --btn-padding: 8px var(--dt-spacing-d);
-    --btn-min-block-size: 40px;
-    --btn-font-size: calc(var(--dt-font-size-19) * 1px);
-    --btn-line-height: calc(var(--dt-font-size-19-line-height) * 1px);
-}
+    &[size='small'] {
+        --btn-padding: 8px var(--dt-spacing-d);
+        --btn-min-block-size: 40px;
+        --btn-font-size: calc(var(--dt-font-size-19) * 1px);
+        --btn-line-height: calc(var(--dt-font-size-19-line-height) * 1px);
+    }
 
-:host([size='medium']) {
-    /* Same as default styles */
-}
+    &[size='medium'] {
+        /* Same as default styles */
+    }
 
-:host([size='large']) {
-    --btn-padding: 14px var(--dt-spacing-e);
-    --btn-min-block-size: 56px;
-    --btn-font-size: calc(var(--dt-font-size-20) * 1px);
-    --btn-line-height: calc(var(--dt-font-size-20-line-height) * 1px);
+    &[size='large'] {
+        --btn-padding: 14px var(--dt-spacing-e);
+        --btn-min-block-size: 56px;
+        --btn-font-size: calc(var(--dt-font-size-20) * 1px);
+        --btn-line-height: calc(var(--dt-font-size-20-line-height) * 1px);
+    }
 }

@@ -10,7 +10,7 @@ const IconGeolocationFilledLarge = (props: LargeIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--geolocation-filled-large", className, iconSize, "IconGeolocationFilledLarge");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--geolocation-filled-large", className, iconSize, "IconGeolocationFilledLarge");
   const allProps = {
     ...remainingProps,
     ...moreProps

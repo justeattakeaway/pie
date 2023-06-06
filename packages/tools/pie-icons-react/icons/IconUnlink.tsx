@@ -10,7 +10,7 @@ const IconUnlink = (props: RegularIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--unlink", className, iconSize, "IconUnlink");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--unlink", className, iconSize, "IconUnlink");
   const allProps = {
     ...remainingProps,
     ...moreProps

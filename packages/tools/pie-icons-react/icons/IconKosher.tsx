@@ -10,7 +10,7 @@ const IconKosher = (props: RegularIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--kosher", className, iconSize, "IconKosher");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--kosher", className, iconSize, "IconKosher");
   const allProps = {
     ...remainingProps,
     ...moreProps

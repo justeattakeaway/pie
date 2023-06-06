@@ -10,7 +10,7 @@ const IconWifiAlertLarge = (props: LargeIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--wifi-alert-large", className, iconSize, "IconWifiAlertLarge");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--wifi-alert-large", className, iconSize, "IconWifiAlertLarge");
   const allProps = {
     ...remainingProps,
     ...moreProps

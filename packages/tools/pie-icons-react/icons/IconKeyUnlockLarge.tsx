@@ -10,7 +10,7 @@ const IconKeyUnlockLarge = (props: LargeIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--key-unlock-large", className, iconSize, "IconKeyUnlockLarge");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--key-unlock-large", className, iconSize, "IconKeyUnlockLarge");
   const allProps = {
     ...remainingProps,
     ...moreProps

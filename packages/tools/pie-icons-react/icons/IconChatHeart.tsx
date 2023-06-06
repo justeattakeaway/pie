@@ -10,7 +10,7 @@ const IconChatHeart = (props: RegularIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--chat-heart", className, iconSize, "IconChatHeart");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--chat-heart", className, iconSize, "IconChatHeart");
   const allProps = {
     ...remainingProps,
     ...moreProps

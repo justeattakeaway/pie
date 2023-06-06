@@ -10,7 +10,7 @@ const IconLanguageLarge = (props: LargeIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--language-large", className, iconSize, "IconLanguageLarge");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--language-large", className, iconSize, "IconLanguageLarge");
   const allProps = {
     ...remainingProps,
     ...moreProps

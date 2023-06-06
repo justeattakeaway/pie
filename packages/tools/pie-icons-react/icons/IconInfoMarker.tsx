@@ -10,7 +10,7 @@ const IconInfoMarker = (props: RegularIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--info-marker", className, iconSize, "IconInfoMarker");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--info-marker", className, iconSize, "IconInfoMarker");
   const allProps = {
     ...remainingProps,
     ...moreProps

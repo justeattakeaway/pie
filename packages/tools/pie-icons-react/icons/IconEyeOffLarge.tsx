@@ -10,7 +10,7 @@ const IconEyeOffLarge = (props: LargeIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--eye-off-large", className, iconSize, "IconEyeOffLarge");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--eye-off-large", className, iconSize, "IconEyeOffLarge");
   const allProps = {
     ...remainingProps,
     ...moreProps

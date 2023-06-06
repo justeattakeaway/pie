@@ -1,24 +1,22 @@
 {
   "name": "@justeattakeaway/pie-modal",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "PIE design system modal built using web components",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/types/index.d.ts",
   "scripts": {
-    "build": "yarn build:wrapper pie-modal && run -T vite build --config ../../../configs/pie-components-config/vite.config.js",
-    "watch": "run -T vite build --config ../../../configs/pie-components-config/vite.config.js --watch",
+    "build": "yarn build:wrapper pie-modal && run -T vite build",
+    "watch": "run -T vite build --watch",
     "test": "echo \"Error: no test specified\" && exit 0",
     "test:ci": "yarn test"
   },
   "author": "JustEatTakeaway - Design System Web Team",
   "license": "Apache-2.0",
-  "dependencies": {
-    "@justeattakeaway/pie-webc-core": "workspace:*"
-  },
   "devDependencies": {
-    "@justeattakeaway/pie-components-config": "workspace:*"
+    "@justeattakeaway/pie-components-config": "workspace:*",
+    "@justeattakeaway/pie-webc-core": "workspace:*"
   },
   "volta": {
     "extends": "../../../package.json"

@@ -10,7 +10,7 @@ const IconRecycle = (props: RegularIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--recycle", className, iconSize, "IconRecycle");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--recycle", className, iconSize, "IconRecycle");
   const allProps = {
     ...remainingProps,
     ...moreProps

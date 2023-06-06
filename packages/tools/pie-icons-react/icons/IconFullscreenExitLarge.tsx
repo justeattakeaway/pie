@@ -10,7 +10,7 @@ const IconFullscreenExitLarge = (props: LargeIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--fullscreen-exit-large", className, iconSize, "IconFullscreenExitLarge");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--fullscreen-exit-large", className, iconSize, "IconFullscreenExitLarge");
   const allProps = {
     ...remainingProps,
     ...moreProps

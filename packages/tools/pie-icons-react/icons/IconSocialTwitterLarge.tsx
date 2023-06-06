@@ -10,7 +10,7 @@ const IconSocialTwitterLarge = (props: LargeIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--twitter-large", className, iconSize, "IconSocialTwitterLarge");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--twitter-large", className, iconSize, "IconSocialTwitterLarge");
   const allProps = {
     ...remainingProps,
     ...moreProps

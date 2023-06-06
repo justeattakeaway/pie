@@ -10,7 +10,7 @@ const IconArrowInCircle = (props: RegularIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--arrow-in-circle", className, iconSize, "IconArrowInCircle");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--arrow-in-circle", className, iconSize, "IconArrowInCircle");
   const allProps = {
     ...remainingProps,
     ...moreProps
