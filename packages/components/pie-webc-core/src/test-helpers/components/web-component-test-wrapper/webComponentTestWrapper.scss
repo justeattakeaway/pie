@@ -1,4 +1,4 @@
-.c-labelledComponent {
+.c-webComponentTestWrapper {
     padding: var(--dt-spacing-c) var(--dt-spacing-e);
     font-family: var(--dt-font-interactive-m-family);
     font-size: calc(var(--dt-font-size-20) * 1px);
@@ -7,11 +7,11 @@
     grid-template-columns: 1fr 1fr;
 }
 
-.c-labelledComponent-label {
+.c-webComponentTestWrapper-label {
     margin-block: var(--dt-spacing-c);
 }
 
-.c-labelledComponent-slot {
+.c-webComponentTestWrapper-slot {
     padding: var(--dt-spacing-c);
     border: 1px dashed var(--dt-color-background-dark);
     grid-column: 1 / 3;

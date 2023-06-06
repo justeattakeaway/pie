@@ -10,8 +10,8 @@ import {
     createTestWebComponent,
 } from '@justeattakeaway/pie-webc-core/src/test-helpers/rendering.ts';
 import {
-    LabelledComponent,
-} from '@justeattakeaway/pie-webc-core/src/test-helpers/components/labelled-component/LabelledComponent.ts';
+    WebComponentTestWrapper,
+} from '@justeattakeaway/pie-webc-core/src/test-helpers/components/web-component-test-wrapper/WebComponentTestWrapper.ts';
 import { PieIconButton } from '@/index';
 import { ICON_BUTTON_VARIANT } from '@/defs';
 
@@ -41,12 +41,12 @@ test('Component registered in the DOM', async ({ mount }) => {
 componentVariants.forEach((variant) => test(`Render all prop variations for Variant: ${variant}`, async ({ page, mount }) => {
     await Promise.all(componentPropsMatrixByVariant[variant].map(async (combo: WebComponentPropValues) => {
         const testComponent: WebComponentTestInput = createTestWebComponent(combo, renderTestPieIconButton);
-        const label = `disabled: ${testComponent.propValues.disabled}`;
+        const propKeyValues = `disabled: ${testComponent.propValues.disabled}`;
 
         await mount(
-            LabelledComponent,
+            WebComponentTestWrapper,
             {
-                props: { label },
+                props: { propKeyValues },
                 slots: {
                     default: testComponent.renderedString,
                 },

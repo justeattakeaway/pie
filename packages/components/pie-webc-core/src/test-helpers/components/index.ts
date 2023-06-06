@@ -1,1 +1,1 @@
-export * from './labelled-component/LabelledComponent';
+export * from './web-component-test-wrapper/WebComponentTestWrapper';
