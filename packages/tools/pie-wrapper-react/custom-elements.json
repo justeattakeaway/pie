@@ -4,6 +4,119 @@
   "modules": [
     {
       "kind": "javascript-module",
+      "path": "../../components/pie-button/src/defs.js",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../../components/pie-button/src/index.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "PieButton",
+          "members": [
+            {
+              "kind": "field",
+              "name": "size",
+              "type": {
+                "text": "BUTTON_SIZE"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "type",
+              "type": {
+                "text": "BUTTON_TYPE"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "variant",
+              "type": {
+                "text": "BUTTON_VARIANT"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false"
+            },
+            {
+              "kind": "field",
+              "name": "isFullWidth",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            },
+            {
+              "kind": "field",
+              "name": "styles",
+              "static": true
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "pie-button",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "BUTTON_SIZE",
+          "declaration": {
+            "name": "BUTTON_SIZE",
+            "module": "../../components/pie-button/src/index.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "BUTTON_TYPE",
+          "declaration": {
+            "name": "BUTTON_TYPE",
+            "module": "../../components/pie-button/src/index.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "BUTTON_VARIANT",
+          "declaration": {
+            "name": "BUTTON_VARIANT",
+            "module": "../../components/pie-button/src/index.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "PieButton",
+          "declaration": {
+            "name": "PieButton",
+            "module": "../../components/pie-button/src/index.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "pie-button",
+          "declaration": {
+            "name": "PieButton",
+            "module": "../../components/pie-button/src/index.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "../../components/pie-icon-button/src/defs.js",
       "declarations": [],
       "exports": []
@@ -176,119 +289,6 @@
           "declaration": {
             "name": "*",
             "package": "./test-helpers"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "../../components/pie-button/src/defs.js",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "../../components/pie-button/src/index.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "PieButton",
-          "members": [
-            {
-              "kind": "field",
-              "name": "size",
-              "type": {
-                "text": "BUTTON_SIZE"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "type",
-              "type": {
-                "text": "BUTTON_TYPE"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "variant",
-              "type": {
-                "text": "BUTTON_VARIANT"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "disabled",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false"
-            },
-            {
-              "kind": "field",
-              "name": "isFullWidth",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false"
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            },
-            {
-              "kind": "field",
-              "name": "styles",
-              "static": true
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "pie-button",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "BUTTON_SIZE",
-          "declaration": {
-            "name": "BUTTON_SIZE",
-            "module": "../../components/pie-button/src/index.js"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "BUTTON_TYPE",
-          "declaration": {
-            "name": "BUTTON_TYPE",
-            "module": "../../components/pie-button/src/index.js"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "BUTTON_VARIANT",
-          "declaration": {
-            "name": "BUTTON_VARIANT",
-            "module": "../../components/pie-button/src/index.js"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "PieButton",
-          "declaration": {
-            "name": "PieButton",
-            "module": "../../components/pie-button/src/index.js"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "pie-button",
-          "declaration": {
-            "name": "PieButton",
-            "module": "../../components/pie-button/src/index.js"
           }
         }
       ]

@@ -11,15 +11,15 @@ export { BUTTON_SIZE, BUTTON_TYPE, BUTTON_VARIANT };
 const componentSelector = 'pie-button';
 
 export class PieButton extends LitElement {
-    @property({ reflect: true })
+    @property()
     @validPropertyValues(componentSelector, Object.values(BUTTON_SIZE), BUTTON_SIZE.MEDIUM)
         size : BUTTON_SIZE = BUTTON_SIZE.MEDIUM;
 
-    @property({ reflect: true })
+    @property()
     @validPropertyValues(componentSelector, Object.values(BUTTON_TYPE), BUTTON_TYPE.SUBMIT)
         type : BUTTON_TYPE = BUTTON_TYPE.SUBMIT;
 
-    @property({ reflect: true })
+    @property()
     @validPropertyValues(componentSelector, Object.values(BUTTON_VARIANT), BUTTON_VARIANT.PRIMARY)
         variant : BUTTON_VARIANT = BUTTON_VARIANT.PRIMARY;
 
