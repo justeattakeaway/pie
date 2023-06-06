@@ -7,8 +7,8 @@
   "module": "dist/index.js",
   "types": "dist/types/index.d.ts",
   "scripts": {
-    "build": "yarn build:wrapper pie-icon-button && run -T vite build --config ../../../configs/pie-components-config/vite.config.js",
-    "watch": "run -T vite build --config ../../../configs/pie-components-config/vite.config.js --watch",
+    "build": "yarn build:wrapper pie-icon-button && run -T vite build",
+    "watch": "run -T vite build --watch",
     "test": "echo \"Error: no test specified\" && exit 0",
     "test:visual": "run -T cross-env-shell PERCY_TOKEN=${PERCY_TOKEN_PIE_ICON_BUTTON} percy exec --allowed-hostname cloudfront.net -- npx playwright test -c ./playwright-lit-visual.config.ts",
     "test:visual:ci": "yarn test:visual"
