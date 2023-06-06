@@ -75,4 +75,18 @@ describe('IconAlcohol', () => {
         expect(wrapper.html()).not.toContain('width');
         expect(wrapper.html()).not.toContain('height');
     });
+
+    test('should respect user-defined classes', () => {
+        // Arrange
+        const context = {
+            class: 'test-class',
+        };
+
+        // Act
+        const wrapper = mount(IconAlcohol, { context });
+
+        // Assert
+        expect(wrapper.classes()).toContain('test-class');
+        expect(wrapper.classes()).toHaveLength(4);
+    });
 });

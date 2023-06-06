@@ -1,5 +1,12 @@
 import { mount } from '@vue/test-utils';
-import { describe, expect, test } from 'vitest'; // eslint-disable-line import/no-extraneous-dependencies
+/* eslint-disable import/no-extraneous-dependencies */
+import {
+    describe,
+    expect,
+    test,
+    vi,
+} from 'vitest';
+/* eslint-enable import/no-extraneous-dependencies */
 
 import IconAlcoholLarge from '../icons/IconAlcoholLarge';
 import { largeIconSizeDefault } from '../icons/configs';
@@ -68,6 +75,9 @@ describe('IconAlcoholLarge', () => {
             36, // Not a multiple of 8
         ])('should fall back to the default size - %s', (iconSize) => {
             // Arrange
+            const consoleError = console.error;
+            const errorMock = vi.fn();
+            console.error = errorMock;
             const propsData = { iconSize };
 
             // Act
@@ -76,6 +86,8 @@ describe('IconAlcoholLarge', () => {
             // Assert
             expect(wrapper.html()).toContain(`width="${largeIconSizeDefault}"`);
             expect(wrapper.html()).toContain(`height="${largeIconSizeDefault}"`);
+
+            console.error = consoleError;
         });
     });
 });
