@@ -1,14 +1,14 @@
 {
   "name": "@justeattakeaway/pie-icon-button",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "PIE Design System Icon Button built using Web Components",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/types/index.d.ts",
   "scripts": {
-    "build": "yarn build:wrapper pie-icon-button && run -T vite build --config ../../../configs/pie-components-config/vite.config.js",
-    "watch": "run -T vite build --config ../../../configs/pie-components-config/vite.config.js --watch",
+    "build": "yarn build:wrapper pie-icon-button && run -T vite build",
+    "watch": "run -T vite build --watch",
     "test": "echo \"Error: no test specified\" && exit 0",
     "test:ci": "yarn test"
   },

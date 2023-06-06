@@ -1,6 +1,6 @@
 {
   "name": "wc-vanilla",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "private": true,
   "type": "module",
   "scripts": {
@@ -13,6 +13,6 @@
   },
   "dependencies": {
     "@justeat/pie-design-tokens": "5.0.1",
-    "@justeattakeaway/pie-button": "0.13.0"
+    "@justeattakeaway/pie-button": "0.14.0"
   }
 }
