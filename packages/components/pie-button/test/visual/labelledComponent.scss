@@ -1,0 +1,10 @@
+div {
+    padding: var(--dt-spacing-c);
+    font-family: var(--dt-font-interactive-m-family);
+    font-size: calc(var(--dt-font-size-20) * 1px);
+    // font-weight: var(--dt-font-interactive-m-weight);
+}
+
+div + div {
+    margin-top: var(--dt-spacing-e);
+}
