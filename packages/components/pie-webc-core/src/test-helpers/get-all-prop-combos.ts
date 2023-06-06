@@ -16,31 +16,47 @@ export type Combination = {
  * @returns {Combination[]} An array of objects, where each object is a unique combination of property values.
  */
 export const getAllPropCombinations = (obj: PropObject): Combination[] => {
-    const keys = Object.keys(obj);
+    const propertyKeys = Object.keys(obj);
     const combinations: Combination[] = [];
 
-    function generatePropCombinations (prefix: any[], i: number): void {
-        if (i === keys.length) {
+    // This function generates combinations of properties from a given object.
+    // It does this by recursively concatenating each property value to an 'accumulatedPropertyValues' array,
+    // and adding the resulting combination to a 'combinations' array when it reaches the end of the keys.
+    function generatePropCombinations (accumulatedPropertyValues: any[], i: number): void {
+    // When 'i' equals the length of 'keys', we've reached the end of the keys.
+    // This means we've formed a complete combination.
+        if (i === propertyKeys.length) {
+            // Create an empty object to hold the current combination.
             const combo: Combination = {};
-            for (let j = 0; j < prefix.length; j++) {
-                combo[keys[j]] = prefix[j];
+            // Loop over the 'accumulatedPropertyValues' array, which contains the property values for this combination.
+            for (let j = 0; j < accumulatedPropertyValues.length; j++) {
+            // Assign each value to the corresponding key in the 'combo' object.
+                combo[propertyKeys[j]] = accumulatedPropertyValues[j];
             }
+            // Add this combination to the 'combinations' array.
             combinations.push(combo);
+            // End the recursion for this branch.
             return;
         }
 
-        const key = keys[i];
-        const values = obj[key];
+        // Get the current key and its values from the input object.
+        const propertyKey = propertyKeys[i];
+        const propertyValues = obj[propertyKey];
 
-        if (typeof values === 'boolean') {
-            generatePropCombinations(prefix.concat(true), i + 1);
-            generatePropCombinations(prefix.concat(false), i + 1);
-        } else if (Array.isArray(values)) {
-            for (let j = 0; j < values.length; j++) {
-                generatePropCombinations(prefix.concat(values[j]), i + 1);
+        if (typeof propertyValues === 'boolean') {
+            // If the values for this key are a boolean, we generate two combinations:
+            // one with the value 'true', and one with the value 'false'.
+            generatePropCombinations([...accumulatedPropertyValues, true], i + 1);
+            generatePropCombinations([...accumulatedPropertyValues, false], i + 1);
+        } else if (Array.isArray(propertyValues)) {
+            // If the values for this key are an array, we generate a combination for each value in the array.
+            for (let j = 0; j < propertyValues.length; j++) {
+                generatePropCombinations([...accumulatedPropertyValues, propertyValues[j]], i + 1);
             }
         } else {
-            generatePropCombinations(prefix.concat(values), i + 1);
+            // If the values for this key are neither a boolean nor an array,
+            // we simply generate a single combination with the value as is.
+            generatePropCombinations([...accumulatedPropertyValues, propertyValues], i + 1);
         }
     }
 
