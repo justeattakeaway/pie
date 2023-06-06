@@ -4726,6 +4726,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-modal@workspace:packages/components/pie-modal"
   dependencies:
+    "@justeat/pie-design-tokens": 5.1.0
     "@justeattakeaway/pie-components-config": "workspace:*"
     "@justeattakeaway/pie-webc-core": "workspace:*"
   languageName: unknown
