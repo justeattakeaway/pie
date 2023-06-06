@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.14.0
+
+### Minor Changes
+
+- [Changed] - customElement.define parameter to string ([#507](https://github.com/justeattakeaway/pie/pull/507)) by [@LTurns](https://github.com/LTurns)
+
+- [Fixed] – Encapsulated styles and removed reflect ([#507](https://github.com/justeattakeaway/pie/pull/507)) by [@LTurns](https://github.com/LTurns)
+
 ## 0.13.0
 
 ### Minor Changes

@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.11.1
+
+### Patch Changes
+
+- Updated dependencies [[`09a7b4b56`](https://github.com/justeattakeaway/pie/commit/09a7b4b5684e54d9f12a9854a99493536f1004e2), [`09a7b4b56`](https://github.com/justeattakeaway/pie/commit/09a7b4b5684e54d9f12a9854a99493536f1004e2)]:
+  - @justeattakeaway/pie-icon-button@0.3.0
+  - @justeattakeaway/pie-button@0.14.0
+
 ## 0.11.0
 
 ### Minor Changes
