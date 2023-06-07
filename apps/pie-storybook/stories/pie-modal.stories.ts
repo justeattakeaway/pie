@@ -11,8 +11,13 @@ export default {
         slot: {
             control: 'text',
         },
+        isOpen: {
+            control: 'boolean',
+        },
     },
-    args: {},
+    args: {
+        isOpen: false,
+    },
     parameters: {
         design: {
             type: 'figma',
@@ -23,12 +28,13 @@ export default {
 
 interface ModalProps {
     slot: TemplateResult;
+    isOpen: boolean;
 }
 
 const Template = ({
-    slot,
+    slot, isOpen,
 }: ModalProps): TemplateResult => html`
-        <pie-modal>
+        <pie-modal ?isOpen="${isOpen}" >
             ${slot}
         </pie-modal>
     `;
