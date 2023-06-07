@@ -31,8 +31,9 @@ jobs:
         uses: actions/github-script@v6.3.3
         with:
           script: |
+            const targetUrl = '${{ inputs.environment-url }}';
             const testPaths = require('./apps/pie-docs/test/snapshots/expected-routes.snapshot.json');
-            const testUrls = testPaths.map(testPath => `${{inputs.environment-url}}${testPath}`);
+            const testUrls = testPaths.map(testPath => `${targetUrl}${testPath}`);
             core.setOutput("urls", [targetUrl, ...testUrls].join('\n'));
     
       - name: Audit URLs using Lighthouse
