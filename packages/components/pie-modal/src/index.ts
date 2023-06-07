@@ -10,8 +10,6 @@ export class PieModal extends RtlMixin(LitElement) {
 
     // eslint-disable-next-line class-methods-use-this
     render () {
-        // if (!this.isOpen) return html``;
-
         return html`
             <dialog class="c-modal" ?open=${this.isOpen}>
                 <h3 class="c-modal-heading">Modal header####</h3>
