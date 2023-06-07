@@ -1,0 +1,120 @@
+@mixin button-interactive-states($bg-color) {
+    &:hover:not(:disabled) {
+        background-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), calc(var(#{$bg-color}-l) - var(--dt-color-hover-01)));
+    }
+
+    &:active:not(:disabled) {
+        background-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), calc(var(#{$bg-color}-l) - var(--dt-color-active-01)));
+    }
+}
+
+// Base button styles
+.o-iconBtn {
+    --btn-border-radius: var(--dt-radius-rounded-e);
+
+    // The base values are set to the size default, which is for the medium button size
+    --btn-height: 48px;
+    --btn-width: var(--btn-height);
+
+    // The following values set to default background and color
+    // currently this sets the primary button styles
+    --btn-bg-color: var(--dt-color-interactive-brand);
+    --btn-icon-fill: var(--dt-color-content-interactive-primary);
+    --btn-focus: var(--dt-color-focus-outer);
+
+    min-block-size: var(--btn-height);
+    aspect-ratio: 1 / 1;
+
+    @supports not (aspect-ratio: 1 / 1) {
+        min-inline-size: var(--btn-width);
+    }
+
+    border: none;
+    border-radius: var(--btn-border-radius);
+    outline: none;
+    background-color: var(--btn-bg-color);
+    cursor: pointer;
+    user-select: none;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:focus-visible {
+        // TODO - Need to update to use the latest focus styling
+        outline: 2px solid var(--btn-focus);
+    }
+
+    svg {
+        height: 24.5px;
+        width: 24.5px;
+    }
+
+    svg, path {
+        fill: var(--btn-icon-fill);
+    }
+
+    &[variant='primary'] {
+        @include button-interactive-states('--dt-color-interactive-brand');
+    }
+
+    &[variant='secondary'] {
+        --btn-bg-color: var(--dt-color-interactive-secondary);
+        --btn-icon-fill: var(--dt-color-content-interactive-secondary);
+
+        @include button-interactive-states('--dt-color-interactive-secondary');
+    }
+
+    &[variant='outline'] {
+        --btn-bg-color: var(--dt-color-container-default);
+        --btn-icon-fill: var(--dt-color-content-interactive-brand);
+
+        & .o-iconBtn {
+            border: 1px solid var(--dt-color-border-strong);
+        }
+
+        @include button-interactive-states('--dt-color-container-default');
+    }
+
+    &[variant='ghost'] {
+        --btn-bg-color: var(--dt-color-container-default);
+        --btn-icon-fill: var(--dt-color-content-interactive-brand);
+
+        @include button-interactive-states('--dt-color-container-default');
+    }
+
+    &[variant='ghost-tertiary'] {
+        --btn-bg-color: var(--dt-color-container-default);
+        --btn-icon-fill: var(--dt-color-content-interactive-tertiary);
+
+        @include button-interactive-states('--dt-color-container-default');
+    }
+
+    &[disabled] {
+        --btn-bg-color: var(--dt-color-disabled-01);
+        --btn-icon-fill: var(--dt-color-content-disabled);
+
+        & .o-iconBtn {
+            border: 1px solid var(--dt-color-disabled-01);
+            cursor: not-allowed;
+        }
+    }
+
+    &[disabled][variant='outline'] {
+        & .o-iconBtn {
+            outline: none;
+        }
+    }
+
+    &[disabled][variant='ghost'],
+    &[disabled][variant='ghost-tertiary'] {
+        --btn-bg-color: transparent;
+        --btn-icon-fill: var(--dt-color-content-default);
+
+        & .o-iconBtn {
+            outline: none;
+            border: none;
+        }
+    }
+}
+

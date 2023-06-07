@@ -6,7 +6,8 @@
 }
 
 .c-list--ordered {
-    // create a counter 'item'. Each `.c-list-item` increases the counter by 1. This value is added as the list item number in `.c-list-item::before`
+    // create a counter 'item'. Each `.c-list-item` increases the counter by 1.
+    // This value is added as the list item number in `.c-list-item::before`
     // https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Counter_Styles/Using_CSS_counters
     counter-reset: item;
 
@@ -43,7 +44,7 @@
     gap: f.spacing();
     flex-wrap: wrap;
 
-    .c-list-item {
+    & .c-list-item {
         @include f.font-size('body-s');
         background-color: f.$color-container-strong;
         padding: 2px 4px;
@@ -51,20 +52,18 @@
     }
 }
 
-
 .c-list--icon {
-
-    .c-list-item + .c-list-item {
-        margin-top: f.spacing(e);
-    }
-
-    .c-list-item {
+    & .c-list-item {
         display: flex;
         gap: f.spacing();
 
         & > svg {
             flex-shrink: 0;
             margin-top: 2px;
+        }
+
+        & + .c-list-item {
+            margin-top: f.spacing(e);
         }
     }
 }

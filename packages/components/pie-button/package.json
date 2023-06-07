@@ -1,13 +1,15 @@
 {
   "name": "@justeattakeaway/pie-button",
-  "version": "0.12.2",
+  "version": "0.14.0",
   "description": "PIE design system button built using web components",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/types/index.d.ts",
   "scripts": {
-    "build": "run -T vite build",
+    "build": "yarn build:wrapper pie-button && run -T vite build ",
+    "lint:style": "run -T stylelint ./src/**/*.{css,scss}",
+    "lint:style:fix": "yarn lint:style --fix",
     "watch": "run -T vite build --watch",
     "test": "echo \"Error: no test specified\" && exit 0",
     "test:ci": "yarn test",
@@ -18,7 +20,9 @@
   },
   "author": "JustEatTakeaway - Design System Web Team",
   "license": "Apache-2.0",
-  "dependencies": {
+  "devDependencies": {
+    "@justeat/pie-design-tokens": "5.1.0",
+    "@justeattakeaway/pie-components-config": "workspace:*",
     "@justeattakeaway/pie-webc-core": "workspace:*"
   },
   "volta": {

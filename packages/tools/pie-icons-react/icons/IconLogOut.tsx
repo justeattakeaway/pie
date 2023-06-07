@@ -1,7 +1,7 @@
 import * as React from "react";
 import { RegularIconProps } from "../types";
 // @ts-ignore
-import { getSvgProps } from './configs-react';
+import { getSvgProps } from '@justeattakeaway/pie-icons-configs/configs-react';
 const IconLogOut = (props: RegularIconProps) => {
   const {
     className,
@@ -10,7 +10,7 @@ const IconLogOut = (props: RegularIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--log-out", className, iconSize, "IconLogOut");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--log-out", className, iconSize, "IconLogOut");
   const allProps = {
     ...remainingProps,
     ...moreProps

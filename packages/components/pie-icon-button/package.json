@@ -1,19 +1,23 @@
 {
   "name": "@justeattakeaway/pie-icon-button",
-  "version": "0.1.0",
+  "version": "0.3.0",
   "description": "PIE Design System Icon Button built using Web Components",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/types/index.d.ts",
   "scripts": {
-    "build": "run -T vite build",
+    "build": "yarn build:wrapper pie-icon-button && run -T vite build",
     "watch": "run -T vite build --watch",
     "test": "echo \"Error: no test specified\" && exit 0",
-    "test:ci": "yarn test"
+    "test:visual": "run -T cross-env-shell PERCY_TOKEN=${PERCY_TOKEN_PIE_ICON_BUTTON} percy exec --allowed-hostname cloudfront.net -- npx playwright test -c ./playwright-lit-visual.config.ts",
+    "test:visual:ci": "yarn test:visual"
   },
   "author": "JustEatTakeaway - Design System Web Team",
   "license": "Apache-2.0",
+  "devDependencies": {
+    "@justeattakeaway/pie-webc-core": "workspace:*"
+  },
   "volta": {
     "extends": "../../../package.json"
   }

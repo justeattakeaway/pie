@@ -1,7 +1,7 @@
 import * as React from "react";
 import { LargeIconProps } from "../types";
 // @ts-ignore
-import { getSvgProps } from './configs-react';
+import { getSvgProps } from '@justeattakeaway/pie-icons-configs/configs-react';
 const IconPatternsLarge = (props: LargeIconProps) => {
   const {
     className,
@@ -10,7 +10,7 @@ const IconPatternsLarge = (props: LargeIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--patterns-large", className, iconSize, "IconPatternsLarge");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--patterns-large", className, iconSize, "IconPatternsLarge");
   const allProps = {
     ...remainingProps,
     ...moreProps

@@ -34,6 +34,7 @@ html:has(.c-navToggle-input:checked) body {
     touch-action: none;
     -webkit-overflow-scrolling: none;
     overflow: hidden;
+
     /* non webkit browsers */
     overscroll-behavior: none;
 }
@@ -44,7 +45,7 @@ html:has(.c-navToggle-input:checked) body {
 }
 
 .c-navToggle-input:focus ~ .c-navToggle {
-    outline: 2px solid f.$color-focus;
+    outline: 2px solid f.$color-focus-outer;
     outline-offset: 4px;
 }
 
@@ -67,7 +68,6 @@ html:has(.c-navToggle-input:checked) body {
 }
 
 .c-navToggle-input:checked ~ .c-navToggle svg {
-
     &:first-of-type {
         display: none;
     }

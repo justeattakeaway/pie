@@ -1,7 +1,7 @@
 import * as React from "react";
 import { LargeIconProps } from "../types";
 // @ts-ignore
-import { getSvgProps } from './configs-react';
+import { getSvgProps } from '@justeattakeaway/pie-icons-configs/configs-react';
 const IconGeolocationLarge = (props: LargeIconProps) => {
   const {
     className,
@@ -10,7 +10,7 @@ const IconGeolocationLarge = (props: LargeIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--geolocation-large", className, iconSize, "IconGeolocationLarge");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--geolocation-large", className, iconSize, "IconGeolocationLarge");
   const allProps = {
     ...remainingProps,
     ...moreProps

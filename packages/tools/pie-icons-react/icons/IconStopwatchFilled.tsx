@@ -1,7 +1,7 @@
 import * as React from "react";
 import { RegularIconProps } from "../types";
 // @ts-ignore
-import { getSvgProps } from './configs-react';
+import { getSvgProps } from '@justeattakeaway/pie-icons-configs/configs-react';
 const IconStopwatchFilled = (props: RegularIconProps) => {
   const {
     className,
@@ -10,7 +10,7 @@ const IconStopwatchFilled = (props: RegularIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--stopwatch-filled", className, iconSize, "IconStopwatchFilled");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--stopwatch-filled", className, iconSize, "IconStopwatchFilled");
   const allProps = {
     ...remainingProps,
     ...moreProps

@@ -1,5 +1,8 @@
 import type { Meta, StoryObj as Story } from '@storybook/web-components';
+import { PieModal } from '@justeattakeaway/pie-modal';
 import { html, TemplateResult } from 'lit';
+
+const keptReference = PieModal; // TODO: Remove this const when other exports from PieModal are used on Stories, otherwise tree-shaking will get rid of the web component definition
 
 export default {
     title: 'Modal',

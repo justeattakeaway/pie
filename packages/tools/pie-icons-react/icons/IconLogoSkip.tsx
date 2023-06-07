@@ -1,7 +1,7 @@
 import * as React from "react";
 import { RegularIconProps } from "../types";
 // @ts-ignore
-import { getSvgProps } from './configs-react';
+import { getSvgProps } from '@justeattakeaway/pie-icons-configs/configs-react';
 const IconLogoSkip = (props: RegularIconProps) => {
   const {
     className,
@@ -10,7 +10,7 @@ const IconLogoSkip = (props: RegularIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("pie-icon pie-icon--skip", className, iconSize, "IconLogoSkip");
+  const moreProps = getSvgProps("c-pieIcon c-pieIcon--skip", className, iconSize, "IconLogoSkip");
   const allProps = {
     ...remainingProps,
     ...moreProps
