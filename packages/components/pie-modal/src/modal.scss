@@ -26,7 +26,7 @@ $modal-contentWrapper-padding-block-start: var(--dt-spacing-a);
   background-color: $modal-bg-color;
 
   padding: 0;
-  width: $modal-size-m;
+  inline-size: $modal-size-m;
 
   box-shadow: $modal-elevation;
 
