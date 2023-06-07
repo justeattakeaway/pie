@@ -9,7 +9,7 @@ export type WebComponentPropValues = {
 
 export type WebComponentTestInput = {
     propValues: WebComponentPropValues;
-    renderedString: string
+    renderedString: string;
 };
 
 export type WebComponentRenderFn = (propVals: WebComponentPropValues) => string;
