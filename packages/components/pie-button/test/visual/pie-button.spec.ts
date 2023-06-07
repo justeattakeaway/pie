@@ -24,7 +24,15 @@ const props: PropObject = {
 };
 
 // Renders a <pie-button> HTML string with the given prop values
-const renderTestPieButton = (propVals: WebComponentPropValues) => `<pie-button variant="${propVals.variant}" size="${propVals.size}" type="${propVals.type}" ${propVals.isFullWidth ? 'isFullWidth' : ''} ${propVals.disabled ? 'disabled' : ''}>Hello world</pie-button>`;
+const renderTestPieButton = (propVals: WebComponentPropValues) => `
+    <pie-button
+        variant="${propVals.variant}"
+        size="${propVals.size}"
+        type="${propVals.type}"
+        ${propVals.isFullWidth ? 'isFullWidth' : ''}
+        ${propVals.disabled ? 'disabled' : ''}>
+        Hello world
+    </pie-button>`;
 
 const componentPropsMatrix : WebComponentPropValues[] = getAllPropCombinations(props);
 const componentPropsMatrixByVariant: Record<string, WebComponentPropValues[]> = splitCombinationsByPropertyValue(componentPropsMatrix, 'variant');
