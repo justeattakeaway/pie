@@ -1,5 +1,6 @@
 .c-webComponentTestWrapper {
-    padding: var(--dt-spacing-c) var(--dt-spacing-e);
+    padding-block: var(--dt-spacing-c);
+    padding-inline: var(--dt-spacing-e);
     font-family: var(--dt-font-interactive-m-family);
     font-size: calc(var(--dt-font-size-20) * 1px);
     border: 1px solid var(--dt-color-background-dark);
