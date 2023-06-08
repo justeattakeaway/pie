@@ -1,5 +1,4 @@
 import type { Meta, StoryObj as Story } from '@storybook/web-components';
-// @ts-ignore
 import { PieModal } from '@justeattakeaway/pie-modal';
 import { html, TemplateResult } from 'lit';
 
