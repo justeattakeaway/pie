@@ -41,4 +41,5 @@ jobs:
         uses: treosh/lighthouse-ci-action@v9
         with:
           urls: ${{ steps.audit-urls.outputs.urls }}
+          temporaryPublicStorage: true
 
