@@ -100,8 +100,7 @@ Run `yarn build` to compile the module.
 
 ## Icon list
 
-You can check the list of all the icons in our [Storybook](https://vue.pie.design/?path=/story/components-atoms--icons).
-
+You can check the list of all the icons on our [documentation site](https://pie.design/foundations/iconography/library/).
 
 ## Credits
 
