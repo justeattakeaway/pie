@@ -26,6 +26,7 @@ yarn add @justeattakeaway/pie-icons-react
 
 ```tsx
 import { IconAlertTriangleLarge, IconCalendar } from "@justeattakeaway/pie-icons-react";
+import { styles as globalStyles } from '@ds-library/src/styles';
 
 export default function App() {
   return (
