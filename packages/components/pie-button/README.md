@@ -128,3 +128,5 @@ Run at the root of the monorepo:
 ```
 yarn test:visual --filter=pie-button
 ```
+
+Note: To run these locally, you will need to ensure that any environment variables required are set up on your machine to mirror those on CI (such as Percy tokens). How you achieve this will differ between operating systems.
