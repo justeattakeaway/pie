@@ -8,6 +8,13 @@
   </a>
 </p>
 
+# Table of Contents
+
+1. [Introduction](#pie-modal)
+2. [Local Development](#local-development)
+3. [Importing the component](#importing-the-component)
+4. [Props](#props)
+
 # pie-modal
 
 This modal is a Web Component built using Lit.
@@ -39,3 +46,9 @@ import { PieModal } from '@justeattakeaway/pie-button';
 // react
 import { PieModal } from '@justeattakeaway/pie-button/dist/react';
 ```
+
+## Props
+
+| Property | Type      | Default | Description                                     |
+|----------|-----------|---------|-------------------------------------------------|
+| isOpen   | `Boolean` | `false` | Controls if the modal element is open or closed |
