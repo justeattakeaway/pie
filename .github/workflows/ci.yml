@@ -151,7 +151,7 @@ jobs:
     with:
       os: ubuntu-latest
       node-version: 18
-      environment-url: https://pr${{ github.event.number }}.dvskdcoepjoyf.amplifyapp.com
+      environment-url: https://pr${{ github.event.number }}.dvskdcoepjoyf.amplifyapp.com/
     secrets: inherit
 
   deploy-storybook:
