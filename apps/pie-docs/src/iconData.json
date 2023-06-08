@@ -6,15 +6,15 @@
             "icons": [
                 {
                     "name": "over-16-filled",
-                    "displayName": "Over 16"
+                    "displayName": "Over 16 Filled"
                 },
                 {
                     "name": "over-18-filled",
-                    "displayName": "Over 18"
+                    "displayName": "Over 18 Filled"
                 },
                 {
                     "name": "over-21-filled",
-                    "displayName": "Over 21"
+                    "displayName": "Over 21 Filled"
                 }
             ]
         },
@@ -255,6 +255,10 @@
                 {
                     "name": "voucher",
                     "displayName": "Voucher"
+                },
+                {
+                    "name": "voucher-filled",
+                    "displayName": "Voucher Filled"
                 }
             ]
         },
@@ -557,12 +561,36 @@
             "displayName": "Dietary",
             "icons": [
                 {
+                    "name": "eggs",
+                    "displayName": "Eggs"
+                },
+                {
+                    "name": "gluten",
+                    "displayName": "Gluten"
+                },
+                {
                     "name": "kosher",
                     "displayName": "Kosher"
                 },
                 {
+                    "name": "milk",
+                    "displayName": "Milk"
+                },
+                {
+                    "name": "molluscs",
+                    "displayName": "Molluscs"
+                },
+                {
+                    "name": "mustard",
+                    "displayName": "Mustard"
+                },
+                {
                     "name": "nuts",
                     "displayName": "Nuts"
+                },
+                {
+                    "name": "peanuts",
+                    "displayName": "Peanuts"
                 },
                 {
                     "name": "spicy",
@@ -845,6 +873,10 @@
                     "displayName": "Sushi"
                 },
                 {
+                    "name": "taco",
+                    "displayName": "Taco"
+                },
+                {
                     "name": "wrap",
                     "displayName": "Wrap"
                 }
@@ -868,6 +900,14 @@
             "name": "functionality",
             "displayName": "Functionality",
             "icons": [
+                {
+                    "name": "bookmark",
+                    "displayName": "Bookmark"
+                },
+                {
+                    "name": "bookmark-filled",
+                    "displayName": "Bookmark Filled"
+                },
                 {
                     "name": "check",
                     "displayName": "Check"
@@ -1017,6 +1057,10 @@
                     "displayName": "Sort Descending"
                 },
                 {
+                    "name": "switch-product",
+                    "displayName": "Switch Product"
+                },
+                {
                     "name": "sync",
                     "displayName": "Sync"
                 },
@@ -1054,7 +1098,7 @@
                 },
                 {
                     "name": "translate-filled",
-                    "displayName": "Translate"
+                    "displayName": "Translate Filled"
                 }
             ]
         },
@@ -1189,6 +1233,10 @@
                     "displayName": "High Contrast"
                 },
                 {
+                    "name": "law",
+                    "displayName": "Law"
+                },
+                {
                     "name": "loading",
                     "displayName": "Loading"
                 },
@@ -1210,11 +1258,15 @@
                 },
                 {
                     "name": "sponsored-filled",
-                    "displayName": "Sponsored"
+                    "displayName": "Sponsored Filled"
                 },
                 {
                     "name": "toilet",
                     "displayName": "Toilet"
+                },
+                {
+                    "name": "tutorial",
+                    "displayName": "Tutorial"
                 }
             ]
         },
@@ -1441,6 +1493,32 @@
             ]
         },
         {
+            "name": "pie",
+            "displayName": "PIE",
+            "icons": [
+                {
+                    "name": "components",
+                    "displayName": "Components"
+                },
+                {
+                    "name": "engineers",
+                    "displayName": "Engineers"
+                },
+                {
+                    "name": "foundations",
+                    "displayName": "Foundations"
+                },
+                {
+                    "name": "patterns",
+                    "displayName": "Patterns"
+                },
+                {
+                    "name": "pie",
+                    "displayName": "Pie"
+                }
+            ]
+        },
+        {
             "name": "placeholder",
             "displayName": "Placeholder",
             "icons": [
@@ -1493,6 +1571,14 @@
                     "displayName": "Cutlery"
                 },
                 {
+                    "name": "cutlery-circle-filled",
+                    "displayName": "Cutlery Circle Filled"
+                },
+                {
+                    "name": "cutlery-filled",
+                    "displayName": "Cutlery Filled"
+                },
+                {
                     "name": "delivery-fee",
                     "displayName": "Delivery Fee"
                 },
@@ -1519,6 +1605,14 @@
                 {
                     "name": "pick-up",
                     "displayName": "Pick Up"
+                },
+                {
+                    "name": "prepare",
+                    "displayName": "Prepare"
+                },
+                {
+                    "name": "prepare-pause",
+                    "displayName": "Prepare Pause"
                 },
                 {
                     "name": "receipt",
@@ -1573,8 +1667,8 @@
             ]
         },
         {
-            "name": "stamp-card",
-            "displayName": "Stamp Card",
+            "name": "stampcard",
+            "displayName": "StampCard",
             "icons": [
                 {
                     "name": "percentage",
@@ -1619,6 +1713,10 @@
                     "displayName": "Instagram"
                 },
                 {
+                    "name": "instagram-circle",
+                    "displayName": "Instagram Circle"
+                },
+                {
                     "name": "instagram-circle-filled",
                     "displayName": "Instagram Circle Filled"
                 },
@@ -1636,15 +1734,15 @@
                 },
                 {
                     "name": "youtube",
-                    "displayName": "Youtube"
+                    "displayName": "YouTube"
                 },
                 {
                     "name": "youtube-circle",
-                    "displayName": "Youtube Circle"
+                    "displayName": "YouTube Circle"
                 },
                 {
                     "name": "youtube-circle-filled",
-                    "displayName": "Youtube Circle Filled"
+                    "displayName": "YouTube Circle Filled"
                 },
                 {
                     "name": "apple",
