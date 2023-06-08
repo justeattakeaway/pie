@@ -50,7 +50,7 @@
   "devDependencies": {
     "@axe-core/playwright": "4.6.1",
     "@babel/cli": "7.21.5",
-    "@babel/core": "7.21.4",
+    "@babel/core": "7.22.1",
     "@babel/eslint-parser": "7.21.8",
     "@babel/node": "7.20.7",
     "@babel/preset-env": "7.21.4",
