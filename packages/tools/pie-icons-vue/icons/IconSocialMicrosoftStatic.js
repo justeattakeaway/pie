@@ -3,32 +3,48 @@ import _mergeJSXProps from '@vue/babel-helper-vue-jsx-merge-props';
 import { iconSize, updateContextData } from './configs-vue';
 
 export default {
-    name: 'IconSocialFacebook',
+    name: 'IconSocialMicrosoftStatic',
     props: {
         iconSize: iconSize.regular,
     },
     functional: true,
     render (h, ctx) {
-        ctx.data = updateContextData(ctx, 'c-pieIcon c-pieIcon--facebook');
+        ctx.data = updateContextData(ctx, 'c-pieIcon c-pieIcon--microsoftStatic');
         return h('svg', _mergeJSXProps([{
             attrs: {
                 xmlns: 'http://www.w3.org/2000/svg',
-                viewBox: '0 0 16 16',
                 role: 'presentation',
                 focusable: 'false',
+                fill: 'currentColor',
+                viewBox: '0 0 16 16',
             },
         }, ctx.data]), [h('g', {
             attrs: {
-                'clip-path': 'url(#prefix__clip0_1595_1545)',
+                'clip-path': 'url(#prefix__clip0_2820_3494)',
             },
         }, [h('path', {
             attrs: {
-                fill: '#1778F2',
-                d: 'M8 1.455A6.545 6.545 0 0 0 6.96 14.466V9.89H5.296V8H6.96V6.556A2.31 2.31 0 0 1 9.435 4.01c.49.007.978.051 1.461.131v1.61h-.822a.945.945 0 0 0-1.068 1.024V8h1.812l-.289 1.89H9.006v4.576A6.545 6.545 0 0 0 8 1.455Z',
+                fill: '#00A3EE',
+                d: 'M7.372 14.5H1.5V8.618h5.905L7.372 14.5Z',
+            },
+        }), h('path', {
+            attrs: {
+                fill: '#FFB700',
+                d: 'M8.595 14.5H14.5V8.618H8.595V14.5Z',
+            },
+        }), h('path', {
+            attrs: {
+                fill: '#F15121',
+                d: 'M7.372 7.382H1.5V1.5h5.905l-.033 5.882Z',
+            },
+        }), h('path', {
+            attrs: {
+                fill: '#7EB801',
+                d: 'M14.5 7.382H8.595V1.5H14.5v5.882Z',
             },
         })]), h('defs', [h('clipPath', {
             attrs: {
-                id: 'prefix__clip0_1595_1545',
+                id: 'prefix__clip0_2820_3494',
             },
         }, [h('rect', {
             attrs: {

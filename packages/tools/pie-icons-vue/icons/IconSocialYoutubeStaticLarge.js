@@ -3,29 +3,30 @@ import _mergeJSXProps from '@vue/babel-helper-vue-jsx-merge-props';
 import { iconSize, updateContextData } from './configs-vue';
 
 export default {
-    name: 'IconSocialYoutube',
+    name: 'IconSocialYoutubeStaticLarge',
     props: {
-        iconSize: iconSize.regular,
+        iconSize: iconSize.large,
     },
     functional: true,
     render (h, ctx) {
-        ctx.data = updateContextData(ctx, 'c-pieIcon c-pieIcon--youtube');
+        ctx.data = updateContextData(ctx, 'c-pieIcon c-pieIcon--youtubeStaticLarge');
         return h('svg', _mergeJSXProps([{
             attrs: {
                 xmlns: 'http://www.w3.org/2000/svg',
-                viewBox: '0 0 16 16',
                 role: 'presentation',
                 focusable: 'false',
+                fill: 'currentColor',
+                viewBox: '0 0 32 32',
             },
         }, ctx.data]), [h('path', {
             attrs: {
                 fill: 'red',
-                d: 'M13.95 4.985a1.567 1.567 0 0 0-1.093-1.118c-.964-.264-4.831-.264-4.831-.264s-3.867 0-4.831.264a1.567 1.567 0 0 0-1.093 1.118c-.259.987-.259 3.045-.259 3.045s0 2.058.259 3.045c.142.544.56.973 1.093 1.119.964.264 4.83.264 4.83.264s3.867 0 4.832-.264a1.567 1.567 0 0 0 1.093-1.119c.258-.986.258-3.045.258-3.045s0-2.058-.258-3.045Z',
+                d: 'M27.9 9.97a3.134 3.134 0 0 0-2.186-2.236c-1.928-.529-9.662-.529-9.662-.529s-7.733 0-9.662.529A3.133 3.133 0 0 0 4.204 9.97c-.517 1.973-.517 6.09-.517 6.09s0 4.116.517 6.09a3.134 3.134 0 0 0 2.186 2.236c1.929.529 9.662.529 9.662.529s7.734 0 9.662-.529a3.134 3.134 0 0 0 2.187-2.237c.516-1.973.516-6.09.516-6.09s0-4.116-.516-6.09Z',
             },
         }), h('path', {
             attrs: {
                 fill: '#fff',
-                d: 'M6.761 9.899 9.993 8.03 6.761 6.161V9.9Z',
+                d: 'm13.523 19.798 6.464-3.738-6.464-3.737v7.475Z',
             },
         })]);
     },

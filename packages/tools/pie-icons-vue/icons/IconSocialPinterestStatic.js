@@ -3,13 +3,13 @@ import _mergeJSXProps from '@vue/babel-helper-vue-jsx-merge-props';
 import { iconSize, updateContextData } from './configs-vue';
 
 export default {
-    name: 'IconBookmarkFilled',
+    name: 'IconSocialPinterestStatic',
     props: {
         iconSize: iconSize.regular,
     },
     functional: true,
     render (h, ctx) {
-        ctx.data = updateContextData(ctx, 'c-pieIcon c-pieIcon--bookmarkFilled');
+        ctx.data = updateContextData(ctx, 'c-pieIcon c-pieIcon--pinterestStatic');
         return h('svg', _mergeJSXProps([{
             attrs: {
                 xmlns: 'http://www.w3.org/2000/svg',
@@ -20,22 +20,22 @@ export default {
             },
         }, ctx.data]), [h('g', {
             attrs: {
-                'clip-path': 'url(#prefix__clip0_7724_3886)',
+                'clip-path': 'url(#prefix__clip0_1615_900)',
             },
         }, [h('path', {
             attrs: {
-                'fill-rule': 'evenodd',
-                d: 'M3.835 1.84h8.321c1.085 0 1.969.884 1.969 1.969v10.57L8 11.465l-6.134 2.914V3.809c0-1.085.884-1.969 1.969-1.969ZM8 4.491l.709 1.453 1.592.227L9.155 7.3l.271 1.584L8 8.13l-1.426.753.28-1.584-1.155-1.129 1.592-.227L8 4.49Z',
-                'clip-rule': 'evenodd',
+                fill: '#E60023',
+                d: 'M8 1.875a6.125 6.125 0 0 0-2.232 11.83c-.054-.484-.102-1.23.021-1.758.111-.478.718-3.045.718-3.045s-.183-.367-.183-.91c0-.851.494-1.487 1.108-1.487.523 0 .775.393.775.863 0 .526-.334 1.311-.507 2.04-.144.609.306 1.106.907 1.106 1.089 0 1.926-1.148 1.926-2.805 0-1.466-1.054-2.492-2.559-2.492-1.743 0-2.766 1.308-2.766 2.659 0 .526.203 1.09.456 1.397.05.061.058.114.043.176l-.17.695c-.027.112-.09.136-.205.082-.765-.357-1.243-1.475-1.243-2.373 0-1.932 1.403-3.707 4.047-3.707 2.124 0 3.776 1.514 3.776 3.538 0 2.11-1.332 3.81-3.179 3.81-.62 0-1.204-.323-1.404-.704l-.381 1.456c-.139.532-.512 1.199-.762 1.606A6.125 6.125 0 1 0 8 1.875Z',
             },
         })]), h('defs', [h('clipPath', {
             attrs: {
-                id: 'prefix__clip0_7724_3886',
+                id: 'prefix__clip0_1615_900',
             },
         }, [h('rect', {
             attrs: {
                 width: '14',
                 height: '14',
+                fill: '#fff',
                 transform: 'translate(1 1)',
             },
         })])])]);

@@ -3,19 +3,20 @@ import _mergeJSXProps from '@vue/babel-helper-vue-jsx-merge-props';
 import { iconSize, updateContextData } from './configs-vue';
 
 export default {
-    name: 'IconSocialAppleLarge',
+    name: 'IconSocialAppleStaticLarge',
     props: {
         iconSize: iconSize.large,
     },
     functional: true,
     render (h, ctx) {
-        ctx.data = updateContextData(ctx, 'c-pieIcon c-pieIcon--appleLarge');
+        ctx.data = updateContextData(ctx, 'c-pieIcon c-pieIcon--appleStaticLarge');
         return h('svg', _mergeJSXProps([{
             attrs: {
                 xmlns: 'http://www.w3.org/2000/svg',
-                viewBox: '0 0 32 32',
                 role: 'presentation',
                 focusable: 'false',
+                fill: 'currentColor',
+                viewBox: '0 0 32 32',
             },
         }, ctx.data]), [h('g', {
             attrs: {

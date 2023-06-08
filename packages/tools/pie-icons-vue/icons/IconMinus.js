@@ -13,13 +13,13 @@ export default {
         return h('svg', _mergeJSXProps([{
             attrs: {
                 xmlns: 'http://www.w3.org/2000/svg',
-                viewBox: '0 0 16 16',
                 role: 'presentation',
                 focusable: 'false',
+                fill: 'currentColor',
+                viewBox: '0 0 16 16',
             },
         }, ctx.data]), [h('path', {
             attrs: {
-                fill: '#242E30',
                 d: 'M14.125 7.344H1.875v1.312h12.25V7.344Z',
             },
         })]);
