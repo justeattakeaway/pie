@@ -8,7 +8,7 @@ The icons are bundled in CommonJS and ES Modules, to be more easily adopted for 
 
 ---
 
-[![npm version](https://badge.fury.io/js/%40justeattakeaway%2Fpie-icons-react.svg)](https://badge.fury.io/js/%40justeattakeaway%2Fpie-icons-react)
+[![npm version](https://img.shields.io/npm/v/@justeattakeaway/pie-icons-react.svg)](https://img.shields.io/npm/v/@justeattakeaway/pie-icons-react.svg)
 
 ---
 
@@ -26,13 +26,12 @@ yarn add @justeattakeaway/pie-icons-react
 
 ```tsx
 import { IconAlertTriangleLarge, IconCalendar } from "@justeattakeaway/pie-icons-react";
-import { styles as globalStyles } from '@ds-library/src/styles';
 
 export default function App() {
   return (
     <div className="App">
       <IconCalendar />
-      <IconAlertTriangleLarge fill={globalStyles.xdsColorSupportWarning} />
+      <IconAlertTriangleLarge fill={PIE_ALIAS_COLOR_TOKEN} />
     </div>
   );
 }
@@ -85,7 +84,7 @@ Run `yarn turbo run build --filter=pie-icons-react` from the root level to compi
 
 ## Icon list
 
-You can check the list of all the icons on our PIe documentation site: https://pie.design/foundations/iconography/library/.
+You can check the list of all the icons on our PIE documentation site: https://pie.design/foundations/iconography/library/.
 
 ## Credits
 

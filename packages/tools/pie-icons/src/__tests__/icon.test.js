@@ -24,10 +24,10 @@ describe('toSvg()', () => {
         expect(icon1.toSvg()).toMatchSnapshot();
     });
     test('appends color and stroke-width attributes when passed through', () => {
-        expect(icon1.toSvg({ color: 'red', 'stroke-width': 1 })).toMatchSnapshot();
+        expect(icon1.toSvg({ fill: 'red', 'stroke-width': 1 })).toMatchSnapshot();
     });
     test('appends classnames and attributes when passed through as attrs', () => {
-        expect(icon1.toSvg({ class: 'foo bar', color: 'red' })).toMatchSnapshot();
+        expect(icon1.toSvg({ class: 'foo bar', fill: 'red' })).toMatchSnapshot();
     });
 
     test('adds React Native default attrs when platform = "reactNative"', () => {

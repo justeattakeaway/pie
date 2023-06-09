@@ -9,7 +9,7 @@ The package is tested and is fully compatible with Vue 2. To use these icon comp
 
 ---
 
-[![npm version](https://badge.fury.io/js/%40justeattakeaway%2Fpie-icons-vue.svg)](https://badge.fury.io/js/%40justeattakeaway%2Fpie-icons-vue)
+[![npm version](https://img.shields.io/npm/v/@justeattakeaway/pie-icons-vue.svg)](https://img.shields.io/npm/v/@justeattakeaway/pie-icons-vue.svg)
 
 ---
 ## Usage
@@ -34,7 +34,7 @@ Within the context of a Vue app, that will look like:
   ```js
   <template>
       <icon-calendar />
-      <icon-alert-triangle-large />
+      <icon-alert-triangle-large fill={PIE_ALIAS_COLOR_TOKEN} />
   </template>
 
   <script>
