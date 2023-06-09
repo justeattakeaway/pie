@@ -12,8 +12,7 @@ console.log(`Processing SVGs in ${IN_DIR}...`);
 const svgFiles = getAllSvgs().filter((file) => path.extname(file.fileName) === '.svg');
 
 svgFiles.forEach((svgObject) => {
-    const normalisedFilename = (svgObject.fileName).toLowerCase();
-    const fullPath = path.join(svgObject.path, '/', normalisedFilename);
+    const fullPath = path.join(svgObject.path, '/', svgObject.fileName);
 
     const svg = fs.readFileSync(fullPath);
     const directorySuffix = pathHelpers.getAssetDirectoryName(svgObject.path);
@@ -21,6 +20,7 @@ svgFiles.forEach((svgObject) => {
     processSvg(svg, svgObject.fileName, fullPath)
         .then((svg) => {
             const outputDirectory = OUT_DIR + directorySuffix;
+            const normalisedFilename = (svgObject.fileName).toLowerCase();
 
             fs.mkdirSync(outputDirectory, { recursive: true });
             fs.writeFileSync(path.join(outputDirectory, normalisedFilename), svg);
