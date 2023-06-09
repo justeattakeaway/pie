@@ -125,88 +125,80 @@
     },
     {
       "kind": "javascript-module",
-      "path": "../../components/pie-icon-button/src/defs.js",
+      "path": "../../components/pie-webc-core/src/index.js",
       "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "../../components/pie-icon-button/src/index.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "PieIconButton",
-          "members": [
-            {
-              "kind": "field",
-              "name": "variant",
-              "type": {
-                "text": "ICON_BUTTON_VARIANT"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "disabled",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false"
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            },
-            {
-              "kind": "field",
-              "name": "styles",
-              "static": true
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "pie-icon-button",
-          "customElement": true
-        }
-      ],
       "exports": [
         {
           "kind": "js",
-          "name": "ICON_BUTTON_VARIANT",
+          "name": "*",
           "declaration": {
-            "name": "ICON_BUTTON_VARIANT",
-            "module": "../../components/pie-icon-button/src/index.js"
+            "name": "*",
+            "package": "./mixins"
           }
         },
         {
           "kind": "js",
-          "name": "PieIconButton",
+          "name": "*",
           "declaration": {
-            "name": "PieIconButton",
-            "module": "../../components/pie-icon-button/src/index.js"
+            "name": "*",
+            "package": "./decorators"
           }
         },
         {
-          "kind": "custom-element-definition",
-          "name": "pie-icon-button",
+          "kind": "js",
+          "name": "*",
           "declaration": {
-            "name": "PieIconButton",
-            "module": "../../components/pie-icon-button/src/index.js"
+            "name": "*",
+            "package": "./test-helpers"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
+      "path": "../../components/pie-modal/src/defs.js",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
       "path": "../../components/pie-modal/src/index.js",
       "declarations": [
+        {
+          "kind": "variable",
+          "name": "componentSelector",
+          "type": {
+            "text": "string"
+          },
+          "default": "'pie-modal'"
+        },
         {
           "kind": "class",
           "description": "",
           "name": "PieModal",
           "members": [
+            {
+              "kind": "field",
+              "name": "isOpen",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false"
+            },
+            {
+              "kind": "field",
+              "name": "heading",
+              "type": {
+                "text": "string | undefined"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "headingLevel",
+              "type": {
+                "text": "HEADING_LEVELS"
+              }
+            },
             {
               "kind": "method",
               "name": "render"
@@ -252,11 +244,19 @@
             "name": "LitElement",
             "package": "lit"
           },
-          "tagName": "pie-modal",
+          "tagName": "componentSelector",
           "customElement": true
         }
       ],
       "exports": [
+        {
+          "kind": "js",
+          "name": "HEADING_LEVELS",
+          "declaration": {
+            "name": "HEADING_LEVELS",
+            "module": "../../components/pie-modal/src/index.js"
+          }
+        },
         {
           "kind": "js",
           "name": "PieModal",
@@ -267,7 +267,7 @@
         },
         {
           "kind": "custom-element-definition",
-          "name": "pie-modal",
+          "name": "componentSelector",
           "declaration": {
             "name": "PieModal",
             "module": "../../components/pie-modal/src/index.js"
@@ -277,31 +277,83 @@
     },
     {
       "kind": "javascript-module",
-      "path": "../../components/pie-webc-core/src/index.js",
+      "path": "../../components/pie-icon-button/src/defs.js",
       "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../../components/pie-icon-button/src/index.js",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "componentSelector",
+          "type": {
+            "text": "string"
+          },
+          "default": "'pie-icon-button'"
+        },
+        {
+          "kind": "class",
+          "description": "",
+          "name": "PieIconButton",
+          "members": [
+            {
+              "kind": "field",
+              "name": "variant",
+              "type": {
+                "text": "ICON_BUTTON_VARIANT"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            },
+            {
+              "kind": "field",
+              "name": "styles",
+              "static": true
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "componentSelector",
+          "customElement": true
+        }
+      ],
       "exports": [
         {
           "kind": "js",
-          "name": "*",
+          "name": "ICON_BUTTON_VARIANT",
           "declaration": {
-            "name": "*",
-            "package": "./mixins"
+            "name": "ICON_BUTTON_VARIANT",
+            "module": "../../components/pie-icon-button/src/index.js"
           }
         },
         {
           "kind": "js",
-          "name": "*",
+          "name": "PieIconButton",
           "declaration": {
-            "name": "*",
-            "package": "./decorators"
+            "name": "PieIconButton",
+            "module": "../../components/pie-icon-button/src/index.js"
           }
         },
         {
-          "kind": "js",
-          "name": "*",
+          "kind": "custom-element-definition",
+          "name": "componentSelector",
           "declaration": {
-            "name": "*",
-            "package": "./test-helpers"
+            "name": "PieIconButton",
+            "module": "../../components/pie-icon-button/src/index.js"
           }
         }
       ]
@@ -316,7 +368,112 @@
           "name": "*",
           "declaration": {
             "name": "*",
-            "package": "./valid-property-values/validPropertyValues"
+            "package": "./valid-property-values"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./required-property"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../../components/pie-webc-core/src/decorators/required-property.js",
+      "declarations": [
+        {
+          "kind": "function",
+          "name": "requiredProperty",
+          "parameters": [
+            {
+              "name": "componentName",
+              "type": {
+                "text": "string"
+              }
+            }
+          ],
+          "description": "A decorator for marking a property as required.\nIf the property's value is `undefined`, `null` or empty string, an error is logged.",
+          "return": {
+            "type": {
+              "text": "Function"
+            }
+          }
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "requiredProperty",
+          "declaration": {
+            "name": "requiredProperty",
+            "module": "../../components/pie-webc-core/src/decorators/required-property.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../../components/pie-webc-core/src/decorators/valid-property-values.js",
+      "declarations": [
+        {
+          "kind": "function",
+          "name": "validPropertyValues",
+          "parameters": [
+            {
+              "name": "componentName",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "validValues",
+              "type": {
+                "text": "any[]"
+              },
+              "description": "The array of valid values"
+            },
+            {
+              "name": "defaultValue",
+              "type": {
+                "text": "any"
+              },
+              "description": "The value to fall back on"
+            }
+          ],
+          "description": "A decorator for specifying a list of valid values for a property.\nIf this property's setter is called with an invalid value, an error is logged and the default value will be assigned instead.",
+          "return": {
+            "type": {
+              "text": ""
+            }
+          }
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "validPropertyValues",
+          "declaration": {
+            "name": "validPropertyValues",
+            "module": "../../components/pie-webc-core/src/decorators/valid-property-values.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../../components/pie-webc-core/src/mixins/index.js",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./rtl/rtlMixin"
           }
         }
       ]
@@ -476,6 +633,54 @@
     },
     {
       "kind": "javascript-module",
+      "path": "../../components/pie-webc-core/src/mixins/rtl/rtlMixin.js",
+      "declarations": [
+        {
+          "kind": "mixin",
+          "description": "",
+          "name": "RtlMixin",
+          "members": [
+            {
+              "kind": "field",
+              "name": "dir",
+              "type": {
+                "text": "string"
+              },
+              "default": "''"
+            },
+            {
+              "kind": "field",
+              "name": "isRTL",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Returns true if the element is in Right to Left mode.\nIf a dir attribute is not explicitly set on the web component\nthen it falls back to the nearest parent with a dir attribute set.\n\nA dir attribute being set will result in a reactive property.\nIf the component falls back to a parent dir attribute then the value\nwill not be reactive and is only computed once",
+              "readonly": true
+            }
+          ],
+          "parameters": [
+            {
+              "name": "superClass",
+              "type": {
+                "text": "T"
+              }
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "RtlMixin",
+          "declaration": {
+            "name": "RtlMixin",
+            "module": "../../components/pie-webc-core/src/mixins/rtl/rtlMixin.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "../../components/pie-webc-core/src/test-helpers/components/index.js",
       "declarations": [],
       "exports": [
@@ -485,69 +690,6 @@
           "declaration": {
             "name": "*",
             "package": "./web-component-test-wrapper/WebComponentTestWrapper"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "../../components/pie-webc-core/src/mixins/index.js",
-      "declarations": [],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "*",
-          "declaration": {
-            "name": "*",
-            "package": "./rtl/rtlMixin"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "../../components/pie-webc-core/src/decorators/valid-property-values/validPropertyValues.js",
-      "declarations": [
-        {
-          "kind": "function",
-          "name": "validPropertyValues",
-          "parameters": [
-            {
-              "name": "componentName",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "name": "validValues",
-              "type": {
-                "text": "any[]"
-              },
-              "description": "The array of valid values"
-            },
-            {
-              "name": "defaultValue",
-              "type": {
-                "text": "any"
-              },
-              "description": "The value to fall back on"
-            }
-          ],
-          "description": "A decorator for specifying a list of valid values for a property.\nIf this property's setter is called with an invalid value, an error is logged and the default value will be assigned instead.",
-          "return": {
-            "type": {
-              "text": ""
-            }
-          }
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "validPropertyValues",
-          "declaration": {
-            "name": "validPropertyValues",
-            "module": "../../components/pie-webc-core/src/decorators/valid-property-values/validPropertyValues.js"
           }
         }
       ]
@@ -607,54 +749,6 @@
           "declaration": {
             "name": "WebComponentTestWrapper",
             "module": "../../components/pie-webc-core/src/test-helpers/components/web-component-test-wrapper/WebComponentTestWrapper.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "../../components/pie-webc-core/src/mixins/rtl/rtlMixin.js",
-      "declarations": [
-        {
-          "kind": "mixin",
-          "description": "",
-          "name": "RtlMixin",
-          "members": [
-            {
-              "kind": "field",
-              "name": "dir",
-              "type": {
-                "text": "string"
-              },
-              "default": "''"
-            },
-            {
-              "kind": "field",
-              "name": "isRTL",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Returns true if the element is in Right to Left mode.\nIf a dir attribute is not explicitly set on the web component\nthen it falls back to the nearest parent with a dir attribute set.\n\nA dir attribute being set will result in a reactive property.\nIf the component falls back to a parent dir attribute then the value\nwill not be reactive and is only computed once",
-              "readonly": true
-            }
-          ],
-          "parameters": [
-            {
-              "name": "superClass",
-              "type": {
-                "text": "T"
-              }
-            }
-          ]
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "RtlMixin",
-          "declaration": {
-            "name": "RtlMixin",
-            "module": "../../components/pie-webc-core/src/mixins/rtl/rtlMixin.js"
           }
         }
       ]

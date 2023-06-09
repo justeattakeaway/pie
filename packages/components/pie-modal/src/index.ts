@@ -25,13 +25,15 @@ export class PieModal extends RtlMixin(LitElement) {
 
     render () {
         const {
+            isOpen,
             heading,
+            headingLevel,
         } = this;
 
-        const headingTag = unsafeStatic(this.headingLevel);
+        const headingTag = unsafeStatic(headingLevel);
 
         return html`
-            <dialog class="c-modal" ?open="${this.isOpen}">
+            <dialog class="c-modal" ?open="${isOpen}">
                 <${headingTag} class="c-modal-heading">${heading}</${headingTag}>
                 <div class="c-modal-contentWrapper">
                     <slot></slot>
