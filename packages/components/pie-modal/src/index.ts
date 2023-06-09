@@ -1,18 +1,38 @@
-import { LitElement, html, unsafeCSS } from 'lit'; // eslint-disable-line import/no-extraneous-dependencies
-import { property } from 'lit/decorators.js';
-import { RtlMixin } from '@justeattakeaway/pie-webc-core';
+import { LitElement, unsafeCSS } from 'lit'; // eslint-disable-line import/no-extraneous-dependencies
+import { html, unsafeStatic } from 'lit/static-html.js';
+import { property } from 'lit/decorators.js'; // eslint-disable-line import/no-extraneous-dependencies
+import { RtlMixin, validPropertyValues, requiredProperty } from '@justeattakeaway/pie-webc-core';
 
 import styles from './modal.scss?inline';
+import { HEADING_LEVELS } from './defs';
+
+// Valid values available to consumers
+export { HEADING_LEVELS };
+
+const componentSelector = 'pie-modal';
 
 export class PieModal extends RtlMixin(LitElement) {
     @property({ type: Boolean })
         isOpen = false;
 
-    // eslint-disable-next-line class-methods-use-this
+    @property({ type: String })
+    @requiredProperty(componentSelector)
+        heading: string | undefined;
+
+    @property()
+    @validPropertyValues(componentSelector, Object.values(HEADING_LEVELS), HEADING_LEVELS.H2)
+        headingLevel : HEADING_LEVELS = HEADING_LEVELS.H2;
+
     render () {
+        const {
+            heading,
+        } = this;
+
+        const headingTag = unsafeStatic(this.headingLevel);
+
         return html`
             <dialog class="c-modal" ?open="${this.isOpen}">
-                <h3 class="c-modal-heading">Modal header</h3>
+                <${headingTag} class="c-modal-heading">${heading}</${headingTag}>
                 <div class="c-modal-contentWrapper">
                     <slot></slot>
                 </div>
@@ -24,7 +44,7 @@ export class PieModal extends RtlMixin(LitElement) {
     static styles = unsafeCSS(styles);
 }
 
-customElements.define('pie-modal', PieModal);
+customElements.define(componentSelector, PieModal);
 
 declare global {
     interface HTMLElementTagNameMap {
