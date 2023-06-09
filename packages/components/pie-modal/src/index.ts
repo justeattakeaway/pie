@@ -17,7 +17,7 @@ export class PieModal extends RtlMixin(LitElement) {
 
     @property({ type: String })
     @requiredProperty(componentSelector)
-        heading: string | undefined;
+        heading!: string;
 
     @property()
     @validPropertyValues(componentSelector, Object.values(HEADING_LEVELS), HEADING_LEVELS.H2)
