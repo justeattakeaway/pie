@@ -1,4 +1,4 @@
 ---
 "pie-storybook": minor
 ---
-[Added] `heading` and `headingLevel` controls
+[Added] `heading` and `headingLevel` story controls
