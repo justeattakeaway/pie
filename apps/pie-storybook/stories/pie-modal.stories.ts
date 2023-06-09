@@ -2,6 +2,13 @@ import type { Meta, StoryObj as Story } from '@storybook/web-components';
 import { HEADING_LEVELS } from '@justeattakeaway/pie-modal';
 import { html, TemplateResult } from 'lit';
 
+const defaultArgs = {
+    isOpen: false,
+    heading: 'Modal header',
+    headingLevel: HEADING_LEVELS.H2,
+    slot: 'This is Lit!',
+};
+
 export default {
     title: 'Modal',
     component: 'pie-modal',
@@ -20,11 +27,7 @@ export default {
             control: 'text',
         },
     },
-    args: {
-        isOpen: false,
-        heading: 'Model Header',
-        headingLevel: HEADING_LEVELS.H2,
-    },
+    args: { ...defaultArgs },
     parameters: {
         design: {
             type: 'figma',
@@ -53,13 +56,6 @@ const Template = ({
             ${slot}
         </pie-modal>
     `;
-
-const defaultArgs = {
-    isOpen: false,
-    heading: 'Modal header',
-    headingLevel: HEADING_LEVELS.H2,
-    slot: 'This is Lit!',
-};
 
 export const Default: Story = Template.bind({});
 Default.args = {
