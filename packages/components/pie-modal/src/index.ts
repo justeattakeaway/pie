@@ -59,7 +59,10 @@ export class PieModal extends RtlMixin(LitElement) {
     render () {
         return html`
             <dialog class="c-modal">
-                <h3 class="c-modal-heading">Modal header</h3>
+                <h3 class="c-modal-heading">
+                    Modal header
+                    <button @click=${this.handleCloseButtonClick}>close</button>
+                </h3>
                 <div class="c-modal-contentWrapper">
                     <slot></slot>
                 </div>
@@ -72,9 +75,14 @@ export class PieModal extends RtlMixin(LitElement) {
     }
 
     handleBackdropClick = (event) => {
+        // Note: This is a bit hackish, we need to find the most suitable solution for detecting clicks outside the Dialog. Another possible solution is using event.target.getBoundingClientRect() and event.clientX/Y
         if (event.target && event.target.nodeName === 'DIALOG') {
             this._dialog.close();
         }
+    };
+
+    handleCloseButtonClick = () => {
+        this._dialog.close();
     };
 
     // Renders a `CSSResult` generated from SCSS by Vite
