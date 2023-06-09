@@ -1,6 +1,6 @@
 /**
  * A decorator for marking a property as required.
- * If the property's value is `undefined` or `null`, an error is logged.
+ * If the property's value is `undefined`, `null` or empty string, an error is logged.
  * @returns {Function} - The decorator function.
  */
 export const requiredProperty = (componentName: string) => function (target: any, propertyKey: string) : void {

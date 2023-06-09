@@ -1,5 +1,4 @@
 ---
 "@justeattakeaway/pie-modal": minor
 ---
-
-[Added] heading and headingLevels props
+[Added] `heading` and `headingLevel` props to the
