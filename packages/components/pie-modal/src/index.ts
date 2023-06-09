@@ -22,6 +22,8 @@ export class PieModal extends RtlMixin(LitElement) {
 
             if (dialog) {
                 if (this.isOpen) dialog.showModal();
+
+                dialog.addEventListener('click', this.handleBackdropClick);
                 dialog.addEventListener('close', this.handleDialogClose);
             }
         }, 0);
@@ -33,6 +35,7 @@ export class PieModal extends RtlMixin(LitElement) {
         const dialog = this._dialog;
 
         if (dialog) {
+            dialog.removeEventListener('click', this.handleBackdropClick);
             dialog.removeEventListener('close', this.handleDialogClose);
         }
     }
@@ -55,7 +58,7 @@ export class PieModal extends RtlMixin(LitElement) {
     // eslint-disable-next-line class-methods-use-this
     render () {
         return html`
-            <dialog class="c-modal" ?open=${false}>
+            <dialog class="c-modal">
                 <h3 class="c-modal-heading">Modal header</h3>
                 <div class="c-modal-contentWrapper">
                     <slot></slot>
@@ -67,6 +70,12 @@ export class PieModal extends RtlMixin(LitElement) {
     handleDialogClose () {
         this.dispatchEvent(new CustomEvent('onClose'));
     }
+
+    handleBackdropClick = (event) => {
+        if (event.target && event.target.nodeName === 'DIALOG') {
+            this._dialog.close();
+        }
+    };
 
     // Renders a `CSSResult` generated from SCSS by Vite
     static styles = unsafeCSS(styles);
