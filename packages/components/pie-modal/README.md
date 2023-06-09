@@ -52,3 +52,16 @@ import { PieModal } from '@justeattakeaway/pie-button/dist/react';
 | Property | Type      | Default | Description                                     |
 |----------|-----------|---------|-------------------------------------------------|
 | isOpen   | `Boolean` | `false` | Controls if the modal element is open or closed |
+
+
+## Testing
+
+### Visual tests
+
+Run at the root of the monorepo:
+```
+yarn test:visual --filter=pie-modal
+```
+
+Note: To run these locally, you will need to ensure that any environment variables required are set up on your machine to mirror those on CI (such as Percy tokens). How you achieve this will differ between operating systems.
+
