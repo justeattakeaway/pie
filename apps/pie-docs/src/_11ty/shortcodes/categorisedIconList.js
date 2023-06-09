@@ -16,6 +16,10 @@ const buildIconCard = (icon) => {
         throw new Error(`Could not find icon with name "${icon.name}".`);
     }
 
+    if (!pieIcon) {
+        throw new Error(`Could not find icon with name "${icon.name}".`);
+    }
+
     let largeIcon;
 
     if (!icon.oneSize) {
