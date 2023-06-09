@@ -1,22 +1,29 @@
 import type { Meta, StoryObj as Story } from '@storybook/web-components';
-import { PieModal } from '@justeattakeaway/pie-modal';
+import { HEADING_LEVELS } from '@justeattakeaway/pie-modal';
 import { html, TemplateResult } from 'lit';
-
-const keptReference = PieModal; // TODO: Remove this const when other exports from PieModal are used on Stories, otherwise tree-shaking will get rid of the web component definition
 
 export default {
     title: 'Modal',
     component: 'pie-modal',
     argTypes: {
-        slot: {
-            control: 'text',
-        },
         isOpen: {
             control: 'boolean',
         },
+        heading: {
+            control: 'text',
+        },
+        headingLevel: {
+            control: 'select',
+            options: Object.values(HEADING_LEVELS),
+        },
+        slot: {
+            control: 'text',
+        },
     },
     args: {
-        isOpen: false
+        isOpen: false,
+        heading: 'Model Header',
+        headingLevel: HEADING_LEVELS.H2,
     },
     parameters: {
         design: {
@@ -27,23 +34,31 @@ export default {
 } as Meta;
 
 interface ModalProps {
-    slot: string;
     isOpen: boolean;
+    heading: string;
+    headingLevel: HEADING_LEVELS;
+    slot: TemplateResult;
 }
 
 const Template = ({
-    slot,
     isOpen,
+    heading,
+    headingLevel,
+    slot,
 }: ModalProps): TemplateResult => html`
-        <pie-modal ?isOpen="${isOpen}">
+        <pie-modal 
+        ?isOpen="${isOpen}"
+        heading="${heading}"
+        headingLevel="${headingLevel}">
             ${slot}
-            ${isOpen}
         </pie-modal>
     `;
 
 const defaultArgs = {
-    slot: 'This is Lit!',
     isOpen: false,
+    heading: 'Modal header',
+    headingLevel: HEADING_LEVELS.H2,
+    slot: 'This is Lit!',
 };
 
 export const Default: Story = Template.bind({});
