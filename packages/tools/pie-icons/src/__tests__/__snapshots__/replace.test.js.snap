@@ -2,12 +2,12 @@
 
 exports[`copies placeholder element attributes to <svg> Tag 1`] = `"<i data-pie-icons=\\"icon1\\" id=\\"test\\" class=\\"foo bar\\" stroke-width=\\"1\\"></i>"`;
 
-exports[`copies placeholder element attributes to <svg> Tag 2`] = `"<svg xmlns=\\"http://www.w3.org/2000/svg\\" role=\\"presentation\\" focusable=\\"false\\" id=\\"test\\" class=\\"c-pieIcon c-pieIcon--icon1 foo bar\\" stroke-width=\\"1\\"><line x1=\\"23\\" y1=\\"1\\" x2=\\"1\\" y2=\\"23\\"></line><line x1=\\"1\\" y1=\\"1\\" x2=\\"23\\" y2=\\"23\\"></line></svg>"`;
+exports[`copies placeholder element attributes to <svg> Tag 2`] = `"<svg xmlns=\\"http://www.w3.org/2000/svg\\" role=\\"presentation\\" focusable=\\"false\\" fill=\\"currentColor\\" id=\\"test\\" class=\\"c-pieIcon c-pieIcon--icon1 foo bar\\" stroke-width=\\"1\\"><line x1=\\"23\\" y1=\\"1\\" x2=\\"1\\" y2=\\"23\\"></line><line x1=\\"1\\" y1=\\"1\\" x2=\\"23\\" y2=\\"23\\"></line></svg>"`;
 
 exports[`replaces [data-pie-icons] elements with SVG markup 1`] = `"<i data-pie-icons=\\"icon1\\"></i><span data-pie-icons=\\"icon2\\"></span>"`;
 
-exports[`replaces [data-pie-icons] elements with SVG markup 2`] = `"<svg xmlns=\\"http://www.w3.org/2000/svg\\" role=\\"presentation\\" focusable=\\"false\\" class=\\"c-pieIcon c-pieIcon--icon1\\"><line x1=\\"23\\" y1=\\"1\\" x2=\\"1\\" y2=\\"23\\"></line><line x1=\\"1\\" y1=\\"1\\" x2=\\"23\\" y2=\\"23\\"></line></svg><svg xmlns=\\"http://www.w3.org/2000/svg\\" role=\\"presentation\\" focusable=\\"false\\" class=\\"c-pieIcon c-pieIcon--icon2\\"><circle cx=\\"12\\" cy=\\"12\\" r=\\"11\\"></circle></svg>"`;
+exports[`replaces [data-pie-icons] elements with SVG markup 2`] = `"<svg xmlns=\\"http://www.w3.org/2000/svg\\" role=\\"presentation\\" focusable=\\"false\\" fill=\\"currentColor\\" class=\\"c-pieIcon c-pieIcon--icon1\\"><line x1=\\"23\\" y1=\\"1\\" x2=\\"1\\" y2=\\"23\\"></line><line x1=\\"1\\" y1=\\"1\\" x2=\\"23\\" y2=\\"23\\"></line></svg><svg xmlns=\\"http://www.w3.org/2000/svg\\" role=\\"presentation\\" focusable=\\"false\\" fill=\\"currentColor\\" class=\\"c-pieIcon c-pieIcon--icon2\\"><circle cx=\\"12\\" cy=\\"12\\" r=\\"11\\"></circle></svg>"`;
 
 exports[`sets attributes passed as parameters 1`] = `"<i data-pie-icons=\\"icon1\\" id=\\"test\\" class=\\"foo bar\\" stroke-width=\\"1\\"></i>"`;
 
-exports[`sets attributes passed as parameters 2`] = `"<svg xmlns=\\"http://www.w3.org/2000/svg\\" role=\\"presentation\\" focusable=\\"false\\" class=\\"c-pieIcon c-pieIcon--icon1 foo bar hello\\" color=\\"salmon\\" stroke-width=\\"1\\" id=\\"test\\"><line x1=\\"23\\" y1=\\"1\\" x2=\\"1\\" y2=\\"23\\"></line><line x1=\\"1\\" y1=\\"1\\" x2=\\"23\\" y2=\\"23\\"></line></svg>"`;
+exports[`sets attributes passed as parameters 2`] = `"<svg xmlns=\\"http://www.w3.org/2000/svg\\" role=\\"presentation\\" focusable=\\"false\\" fill=\\"currentColor\\" class=\\"c-pieIcon c-pieIcon--icon1 foo bar hello\\" color=\\"salmon\\" stroke-width=\\"1\\" id=\\"test\\"><line x1=\\"23\\" y1=\\"1\\" x2=\\"1\\" y2=\\"23\\"></line><line x1=\\"1\\" y1=\\"1\\" x2=\\"23\\" y2=\\"23\\"></line></svg>"`;
