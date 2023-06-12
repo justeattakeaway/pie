@@ -1,6 +1,7 @@
 import { mount } from '@vue/test-utils';
 /* eslint-disable import/no-extraneous-dependencies */
 import {
+    afterEach,
     describe,
     expect,
     test,
@@ -11,6 +12,10 @@ import {
 import IconAlcoholLarge from '../icons/IconAlcoholLarge';
 
 describe('IconAlcoholLarge', () => {
+    afterEach(() => {
+        vi.restoreAllMocks();
+    });
+
     test('should exist', () => {
         // Arrange & Act
         const wrapper = mount(IconAlcoholLarge);
@@ -74,9 +79,9 @@ describe('IconAlcoholLarge', () => {
             36, // Not a multiple of 8
         ])('should fall back from %s to the default size', (iconSize) => {
             // Arrange
-            const consoleError = console.error;
             const errorMock = vi.fn();
             console.error = errorMock;
+
             const propsData = { iconSize };
 
             // Act
@@ -85,8 +90,7 @@ describe('IconAlcoholLarge', () => {
             // Assert
             expect(wrapper.html()).toContain('width="32"');
             expect(wrapper.html()).toContain('height="32"');
-
-            console.error = consoleError;
+            expect(errorMock).toHaveBeenCalledTimes(1);
         });
     });
 });

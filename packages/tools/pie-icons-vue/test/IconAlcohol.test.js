@@ -1,6 +1,7 @@
 import { mount } from '@vue/test-utils';
 /* eslint-disable import/no-extraneous-dependencies */
 import {
+    afterEach,
     describe,
     expect,
     test,
@@ -11,6 +12,10 @@ import {
 import IconAlcohol from '../icons/IconAlcohol';
 
 describe('IconAlcohol (Regular)', () => {
+    afterEach(() => {
+        vi.restoreAllMocks();
+    });
+
     test('should exist', () => {
         // Arrange & Act
         const wrapper = mount(IconAlcohol);
@@ -44,9 +49,9 @@ describe('IconAlcohol (Regular)', () => {
         '',
     ])('should not allow invalid sizes - %s', (iconSize) => {
         // Arrange
-        const consoleError = console.error;
         const errorMock = vi.fn();
         console.error = errorMock;
+
         const propsData = { iconSize };
 
         // Act
@@ -55,9 +60,7 @@ describe('IconAlcohol (Regular)', () => {
         // Assert
         expect(wrapper.classes()).not.toContain(`c-pieIcon--${iconSize}`);
         expect(wrapper.classes()).toContain('c-pieIcon--xs'); // Default size
-        expect(errorMock.mock.calls[0][0].startsWith('[Vue warn]: Invalid prop')).toBeTruthy();
-
-        console.error = consoleError;
+        expect(errorMock).toHaveBeenCalledTimes(1);
     });
 
     test('should ignore custom height and width', () => {
