@@ -4201,7 +4201,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-button@0.12.2, @justeattakeaway/pie-button@workspace:*, @justeattakeaway/pie-button@workspace:packages/components/pie-button":
+"@justeattakeaway/pie-button@0.14.0, @justeattakeaway/pie-button@workspace:*, @justeattakeaway/pie-button@workspace:packages/components/pie-button":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-button@workspace:packages/components/pie-button"
   dependencies:
@@ -4225,7 +4225,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-icons-configs@workspace:^, @justeattakeaway/pie-icons-configs@workspace:packages/tools/pie-icons-configs":
+"@justeattakeaway/pie-icons-configs@workspace:*, @justeattakeaway/pie-icons-configs@workspace:packages/tools/pie-icons-configs":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-icons-configs@workspace:packages/tools/pie-icons-configs"
   languageName: unknown
@@ -4238,7 +4238,7 @@ __metadata:
     "@babel/node": 7.20.7
     "@babel/preset-react": 7.18.6
     "@justeattakeaway/pie-icons": 3.2.0
-    "@justeattakeaway/pie-icons-configs": "workspace:^"
+    "@justeattakeaway/pie-icons-configs": "workspace:*"
     "@rollup/plugin-node-resolve": 15.1.0
     "@svgr/core": 6.4.0
     babel-jest: 29.5.0
@@ -23200,6 +23200,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"markdown-it-anchor@npm:^8.6.7":
+  version: 8.6.7
+  resolution: "markdown-it-anchor@npm:8.6.7"
+  peerDependencies:
+    "@types/markdown-it": "*"
+    markdown-it: "*"
+  checksum: 828236768ac7f61ed5591393c1b1bfc5dbf2b6d0c58a3deec606c61dddaa12658a34450cbef37ab50a04453e618ce1efd47d86e4e52595024334898fd306225b
+  languageName: node
+  linkType: hard
+
 "markdown-it-attrs@npm:4.1.6":
   version: 4.1.6
   resolution: "markdown-it-attrs@npm:4.1.6"
@@ -26293,7 +26303,9 @@ __metadata:
     eleventy-plugin-rev: 1.1.1
     eleventy-sass: 2.2.1
     markdown-it: 13.0.1
+    markdown-it-anchor: ^8.6.7
     markdown-it-attrs: 4.1.6
+    slugify: ^1.6.6
   languageName: unknown
   linkType: soft
 
@@ -31787,7 +31799,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"slugify@npm:^1.6.5":
+"slugify@npm:^1.6.5, slugify@npm:^1.6.6":
   version: 1.6.6
   resolution: "slugify@npm:1.6.6"
   checksum: 04773c2d3b7aea8d2a61fa47cc7e5d29ce04e1a96cbaec409da57139df906acb3a449fac30b167d203212c806e73690abd4ff94fbad0a9a7b7ea109a2a638ae9
@@ -35944,7 +35956,7 @@ __metadata:
   resolution: "wc-vanilla@workspace:apps/examples/wc-vanilla"
   dependencies:
     "@justeat/pie-design-tokens": 5.0.1
-    "@justeattakeaway/pie-button": 0.12.2
+    "@justeattakeaway/pie-button": 0.14.0
     vite: ^4.3.0
   languageName: unknown
   linkType: soft
