@@ -4,6 +4,158 @@
   "modules": [
     {
       "kind": "javascript-module",
+      "path": "../../components/pie-icon-button/src/defs.js",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../../components/pie-icon-button/src/index.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "PieIconButton",
+          "members": [
+            {
+              "kind": "field",
+              "name": "variant",
+              "type": {
+                "text": "ICON_BUTTON_VARIANT"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            },
+            {
+              "kind": "field",
+              "name": "styles",
+              "static": true
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "pie-icon-button",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "ICON_BUTTON_VARIANT",
+          "declaration": {
+            "name": "ICON_BUTTON_VARIANT",
+            "module": "../../components/pie-icon-button/src/index.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "PieIconButton",
+          "declaration": {
+            "name": "PieIconButton",
+            "module": "../../components/pie-icon-button/src/index.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "pie-icon-button",
+          "declaration": {
+            "name": "PieIconButton",
+            "module": "../../components/pie-icon-button/src/index.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../../components/pie-modal/src/index.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "PieModal",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            },
+            {
+              "kind": "field",
+              "name": "styles",
+              "static": true
+            },
+            {
+              "kind": "field",
+              "name": "dir",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "inheritedFrom": {
+                "name": "RtlMixin",
+                "module": "../../components/pie-webc-core/src/mixins/rtl/rtlMixin.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "isRTL",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Returns true if the element is in Right to Left mode.\nIf a dir attribute is not explicitly set on the web component\nthen it falls back to the nearest parent with a dir attribute set.\n\nA dir attribute being set will result in a reactive property.\nIf the component falls back to a parent dir attribute then the value\nwill not be reactive and is only computed once",
+              "readonly": true,
+              "inheritedFrom": {
+                "name": "RtlMixin",
+                "module": "../../components/pie-webc-core/src/mixins/rtl/rtlMixin.js"
+              }
+            }
+          ],
+          "mixins": [
+            {
+              "name": "RtlMixin",
+              "package": "@justeattakeaway/pie-webc-core"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "pie-modal",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "PieModal",
+          "declaration": {
+            "name": "PieModal",
+            "module": "../../components/pie-modal/src/index.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "pie-modal",
+          "declaration": {
+            "name": "PieModal",
+            "module": "../../components/pie-modal/src/index.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "../../components/pie-button/src/defs.js",
       "declarations": [],
       "exports": []
@@ -162,161 +314,13 @@
             "name": "*",
             "package": "./decorators"
           }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "../../components/pie-icon-button/src/defs.js",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "../../components/pie-icon-button/src/index.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "PieIconButton",
-          "members": [
-            {
-              "kind": "field",
-              "name": "variant",
-              "type": {
-                "text": "ICON_BUTTON_VARIANT"
-              },
-              "default": "'primary'"
-            },
-            {
-              "kind": "field",
-              "name": "disabled",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false"
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            },
-            {
-              "kind": "field",
-              "name": "styles",
-              "static": true
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "pie-icon-button",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "iconButtonVariants",
-          "declaration": {
-            "name": "iconButtonVariants",
-            "module": "../../components/pie-icon-button/src/index.js"
-          }
         },
         {
           "kind": "js",
-          "name": "ICON_BUTTON_VARIANT",
+          "name": "*",
           "declaration": {
-            "name": "ICON_BUTTON_VARIANT",
-            "module": "../../components/pie-icon-button/src/index.js"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "PieIconButton",
-          "declaration": {
-            "name": "PieIconButton",
-            "module": "../../components/pie-icon-button/src/index.js"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "pie-icon-button",
-          "declaration": {
-            "name": "PieIconButton",
-            "module": "../../components/pie-icon-button/src/index.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "../../components/pie-modal/src/index.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "PieModal",
-          "members": [
-            {
-              "kind": "method",
-              "name": "render"
-            },
-            {
-              "kind": "field",
-              "name": "dir",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "inheritedFrom": {
-                "name": "RtlMixin",
-                "module": "../../components/pie-webc-core/src/mixins/rtl/rtlMixin.js"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "isRTL",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Returns true if the element is in Right to Left mode.\nIf a dir attribute is not explicitly set on the web component\nthen it falls back to the nearest parent with a dir attribute set.\n\nA dir attribute being set will result in a reactive property.\nIf the component falls back to a parent dir attribute then the value\nwill not be reactive and is only computed once",
-              "readonly": true,
-              "inheritedFrom": {
-                "name": "RtlMixin",
-                "module": "../../components/pie-webc-core/src/mixins/rtl/rtlMixin.js"
-              }
-            }
-          ],
-          "mixins": [
-            {
-              "name": "RtlMixin",
-              "package": "@justeattakeaway/pie-webc-core"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "pie-modal",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "PieModal",
-          "declaration": {
-            "name": "PieModal",
-            "module": "../../components/pie-modal/src/index.js"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "pie-modal",
-          "declaration": {
-            "name": "PieModal",
-            "module": "../../components/pie-modal/src/index.js"
+            "name": "*",
+            "package": "./test-helpers"
           }
         }
       ]
@@ -347,6 +351,90 @@
           "declaration": {
             "name": "*",
             "package": "./rtl/rtlMixin"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../../components/pie-webc-core/src/test-helpers/get-all-prop-combos.js",
+      "declarations": [
+        {
+          "kind": "function",
+          "name": "getAllPropCombinations",
+          "return": {
+            "type": {
+              "text": "Combination[]"
+            }
+          },
+          "parameters": [
+            {
+              "name": "obj",
+              "type": {
+                "text": "PropObject"
+              },
+              "description": "The object containing properties for which combinations are to be generated.\nEach property value can any data type."
+            }
+          ],
+          "description": "Generate all possible combinations of properties for a given object."
+        },
+        {
+          "kind": "function",
+          "name": "splitCombinationsByPropertyValue",
+          "return": {
+            "type": {
+              "text": "Record<string, Combination[]>"
+            }
+          },
+          "parameters": [
+            {
+              "name": "combinations",
+              "type": {
+                "text": "Combination[]"
+              },
+              "description": "The array of combinations to split."
+            },
+            {
+              "name": "property",
+              "type": {
+                "text": "string"
+              },
+              "description": "The property to split by."
+            }
+          ],
+          "description": "Splits an array of component prop combinations by a particular property value."
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "getAllPropCombinations",
+          "declaration": {
+            "name": "getAllPropCombinations",
+            "module": "../../components/pie-webc-core/src/test-helpers/get-all-prop-combos.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "splitCombinationsByPropertyValue",
+          "declaration": {
+            "name": "splitCombinationsByPropertyValue",
+            "module": "../../components/pie-webc-core/src/test-helpers/get-all-prop-combos.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../../components/pie-webc-core/src/test-helpers/index.js",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./get-all-prop-combos"
           }
         }
       ]

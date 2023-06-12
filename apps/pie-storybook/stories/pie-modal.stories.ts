@@ -1,5 +1,8 @@
 import type { Meta, StoryObj as Story } from '@storybook/web-components';
+import { PieModal } from '@justeattakeaway/pie-modal';
 import { html, TemplateResult } from 'lit';
+
+const keptReference = PieModal; // TODO: Remove this const when other exports from PieModal are used on Stories, otherwise tree-shaking will get rid of the web component definition
 
 export default {
     title: 'Modal',
@@ -8,8 +11,13 @@ export default {
         slot: {
             control: 'text',
         },
+        isOpen: {
+            control: 'boolean',
+        },
     },
-    args: {},
+    args: {
+        isOpen: false
+    },
     parameters: {
         design: {
             type: 'figma',
@@ -19,19 +27,23 @@ export default {
 } as Meta;
 
 interface ModalProps {
-    slot: TemplateResult;
+    slot: string;
+    isOpen: boolean;
 }
 
 const Template = ({
     slot,
+    isOpen,
 }: ModalProps): TemplateResult => html`
-        <pie-modal>
+        <pie-modal ?isOpen="${isOpen}">
             ${slot}
+            ${isOpen}
         </pie-modal>
     `;
 
 const defaultArgs = {
     slot: 'This is Lit!',
+    isOpen: false,
 };
 
 export const Default: Story = Template.bind({});

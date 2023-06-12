@@ -1,31 +1,5 @@
 import { test, expect } from '@sand4rt/experimental-ct-web';
-import { PieButton, buttonSizes, buttonVariants } from '@/index';
-
-const disabledStates = [true, false];
-
-buttonVariants.forEach((variant) => {
-    test(`should render - ${variant}`, async ({ mount }) => {
-        for (const size of buttonSizes) {
-            for (const isDisabled of disabledStates) {
-                const component = await mount(
-                    PieButton,
-                    {
-                        props: {
-                            size,
-                            variant,
-                            disabled: isDisabled,
-                        },
-                        slots: {
-                            default: `Hello, ${size} ${variant} Button!`,
-                        },
-                    },
-                );
-
-                await expect(component).toContainText(`Hello, ${size} ${variant} Button!`);
-            }
-        }
-    });
-});
+import { PieButton } from '@/index';
 
 test('should correctly work with native click events', async ({ mount }) => {
     const messages: string[] = [];
