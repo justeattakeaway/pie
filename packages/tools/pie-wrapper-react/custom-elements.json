@@ -14,6 +14,30 @@
       "declarations": [
         {
           "kind": "variable",
+          "name": "buttonSizes",
+          "type": {
+            "text": "BUTTON_SIZE[]"
+          },
+          "default": "[\n    'xsmall',\n    'small-expressive',\n    'small-productive',\n    'medium',\n    'large'\n]"
+        },
+        {
+          "kind": "variable",
+          "name": "buttonTypes",
+          "type": {
+            "text": "BUTTON_TYPE[]"
+          },
+          "default": "[\n    'submit',\n    'button',\n    'reset',\n    'menu'\n]"
+        },
+        {
+          "kind": "variable",
+          "name": "buttonVariants",
+          "type": {
+            "text": "BUTTON_VARIANT[]"
+          },
+          "default": "[\n    'primary',\n    'secondary',\n    'outline',\n    'ghost'\n]"
+        },
+        {
+          "kind": "variable",
           "name": "componentSelector",
           "type": {
             "text": "string"
@@ -30,21 +54,24 @@
               "name": "size",
               "type": {
                 "text": "BUTTON_SIZE"
-              }
+              },
+              "default": "'medium'"
             },
             {
               "kind": "field",
               "name": "type",
               "type": {
                 "text": "BUTTON_TYPE"
-              }
+              },
+              "default": "'submit'"
             },
             {
               "kind": "field",
               "name": "variant",
               "type": {
                 "text": "BUTTON_VARIANT"
-              }
+              },
+              "default": "'primary'"
             },
             {
               "kind": "field",
@@ -98,152 +125,24 @@
           }
         },
         {
-          "kind": "custom-element-definition",
-          "name": "componentSelector",
+          "kind": "js",
+          "name": "buttonVariants",
           "declaration": {
-            "name": "PieButton",
+            "name": "buttonVariants",
             "module": "../../components/pie-button/src/index.js"
           }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "../../components/pie-webc-core/src/index.js",
-      "declarations": [],
-      "exports": [
+        },
         {
           "kind": "js",
-          "name": "*",
+          "name": "BUTTON_SIZE",
           "declaration": {
-            "name": "*",
-            "package": "./mixins"
+            "name": "BUTTON_SIZE",
+            "module": "../../components/pie-button/src/index.js"
           }
         },
         {
           "kind": "js",
-          "name": "*",
-          "declaration": {
-            "name": "*",
-            "package": "./decorators"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "*",
-          "declaration": {
-            "name": "*",
-            "package": "./test-helpers"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "../../components/pie-modal/src/defs.js",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "../../components/pie-modal/src/index.js",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "componentSelector",
-          "type": {
-            "text": "string"
-          },
-          "default": "'pie-modal'"
-        },
-        {
-          "kind": "class",
-          "description": "",
-          "name": "PieModal",
-          "members": [
-            {
-              "kind": "field",
-              "name": "isOpen",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false"
-            },
-            {
-              "kind": "field",
-              "name": "heading",
-              "type": {
-                "text": "string | undefined"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "headingLevel",
-              "type": {
-                "text": "HEADING_LEVELS"
-              }
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            },
-            {
-              "kind": "field",
-              "name": "styles",
-              "static": true
-            },
-            {
-              "kind": "field",
-              "name": "dir",
-              "type": {
-                "text": "string"
-              },
-              "default": "''",
-              "inheritedFrom": {
-                "name": "RtlMixin",
-                "module": "../../components/pie-webc-core/src/mixins/rtl/rtlMixin.js"
-              }
-            },
-            {
-              "kind": "field",
-              "name": "isRTL",
-              "type": {
-                "text": "boolean"
-              },
-              "description": "Returns true if the element is in Right to Left mode.\nIf a dir attribute is not explicitly set on the web component\nthen it falls back to the nearest parent with a dir attribute set.\n\nA dir attribute being set will result in a reactive property.\nIf the component falls back to a parent dir attribute then the value\nwill not be reactive and is only computed once",
-              "readonly": true,
-              "inheritedFrom": {
-                "name": "RtlMixin",
-                "module": "../../components/pie-webc-core/src/mixins/rtl/rtlMixin.js"
-              }
-            }
-          ],
-          "mixins": [
-            {
-              "name": "RtlMixin",
-              "package": "@justeattakeaway/pie-webc-core"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "componentSelector",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "HEADING_LEVELS",
-          "declaration": {
-            "name": "HEADING_LEVELS",
-            "module": "../../components/pie-modal/src/index.js"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "PieModal",
+          "name": "BUTTON_TYPE",
           "declaration": {
             "name": "BUTTON_TYPE",
             "module": "../../components/pie-button/src/index.js"
@@ -285,6 +184,14 @@
       "kind": "javascript-module",
       "path": "../../components/pie-icon-button/src/index.js",
       "declarations": [
+        {
+          "kind": "variable",
+          "name": "iconButtonVariants",
+          "type": {
+            "text": "ICON_BUTTON_VARIANT[]"
+          },
+          "default": "[\n    'primary',\n    'secondary',\n    'outline',\n    'ghost',\n    'ghost-tertiary',\n]"
+        },
         {
           "kind": "variable",
           "name": "componentSelector",
@@ -363,6 +270,190 @@
           "declaration": {
             "name": "PieIconButton",
             "module": "../../components/pie-icon-button/src/index.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../../components/pie-modal/src/defs.js",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../../components/pie-modal/src/index.js",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "componentSelector",
+          "type": {
+            "text": "string"
+          },
+          "default": "'pie-modal'"
+        },
+        {
+          "kind": "variable",
+          "name": "headingLevels",
+          "type": {
+            "text": "HEADING_LEVELS[]"
+          },
+          "default": "['h1', 'h2', 'h3', 'h4', 'h5', 'h6']"
+        },
+        {
+          "kind": "class",
+          "description": "",
+          "name": "PieModal",
+          "members": [
+            {
+              "kind": "field",
+              "name": "isOpen",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false"
+            },
+            {
+              "kind": "field",
+              "name": "heading",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "headingLevel",
+              "type": {
+                "text": "HEADING_LEVELS"
+              },
+              "default": "'h2'"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            },
+            {
+              "kind": "field",
+              "name": "styles",
+              "static": true
+            },
+            {
+              "kind": "field",
+              "name": "dir",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "inheritedFrom": {
+                "name": "RtlMixin",
+                "module": "../../components/pie-webc-core/src/mixins/rtl/rtlMixin.js"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "isRTL",
+              "type": {
+                "text": "boolean"
+              },
+              "description": "Returns true if the element is in Right to Left mode.\nIf a dir attribute is not explicitly set on the web component\nthen it falls back to the nearest parent with a dir attribute set.\n\nA dir attribute being set will result in a reactive property.\nIf the component falls back to a parent dir attribute then the value\nwill not be reactive and is only computed once",
+              "readonly": true,
+              "inheritedFrom": {
+                "name": "RtlMixin",
+                "module": "../../components/pie-webc-core/src/mixins/rtl/rtlMixin.js"
+              }
+            }
+          ],
+          "mixins": [
+            {
+              "name": "RtlMixin",
+              "package": "@justeattakeaway/pie-webc-core"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "componentSelector",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "HEADING_LEVELS",
+          "declaration": {
+            "name": "HEADING_LEVELS",
+            "module": "../../components/pie-modal/src/index.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "headingLevels",
+          "declaration": {
+            "name": "headingLevels",
+            "module": "../../components/pie-modal/src/index.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "PieModal",
+          "declaration": {
+            "name": "PieModal",
+            "module": "../../components/pie-modal/src/index.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "componentSelector",
+          "declaration": {
+            "name": "PieModal",
+            "module": "../../components/pie-modal/src/index.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../../components/pie-webc-core/src/index.js",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./mixins"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./decorators"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./test-helpers"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../../components/pie-webc-core/src/mixins/index.js",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./rtl/rtlMixin"
           }
         }
       ]
@@ -468,21 +559,6 @@
           "declaration": {
             "name": "validPropertyValues",
             "module": "../../components/pie-webc-core/src/decorators/valid-property-values.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "../../components/pie-webc-core/src/mixins/index.js",
-      "declarations": [],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "*",
-          "declaration": {
-            "name": "*",
-            "package": "./rtl/rtlMixin"
           }
         }
       ]
@@ -739,8 +815,16 @@
             "name": "LitElement",
             "package": "lit"
           },
-          "tagName": "web-component-test-wrapper",
+          "tagName": "componentSelector",
           "customElement": true
+        },
+        {
+          "kind": "variable",
+          "name": "componentSelector",
+          "type": {
+            "text": "string"
+          },
+          "default": "'web-component-test-wrapper'"
         }
       ],
       "exports": [
@@ -754,7 +838,7 @@
         },
         {
           "kind": "custom-element-definition",
-          "name": "web-component-test-wrapper",
+          "name": "componentSelector",
           "declaration": {
             "name": "WebComponentTestWrapper",
             "module": "../../components/pie-webc-core/src/test-helpers/components/web-component-test-wrapper/WebComponentTestWrapper.js"

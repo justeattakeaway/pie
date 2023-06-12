@@ -59,9 +59,9 @@ import { PieButton } from '@justeattakeaway/pie-button/dist/react';
 
 | Property    | Type      | Default         | Description                                                          |
 |-------------|-----------|-----------------|----------------------------------------------------------------------|
-| size        | `String`  | 'medium'    | Size of the button, one of `buttonSizes`  values |
-| type        | `String`  | 'submit    | Type of the button, one of `buttonTypes` |
-| variant     | `String`  | 'primary | Variant of the button, one of `buttonVariants`  values |
+| size        | `String`  | `medium`        | Size of the button, one of `buttonSizes` |
+| type        | `String`  | `submit`        | Type of the button, one of `buttonTypes` |
+| variant     | `String`  | `primary`       | Variant of the button, one of `buttonVariants` |
 | disabled    | `Boolean` | `false`         | If `true`, disables the button.                                      |
 | isFullWidth | `Boolean` | `false`         | If `true`, sets the button width to 100% of it's container.                            |
 
