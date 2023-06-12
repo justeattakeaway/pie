@@ -1,1 +1,3 @@
-export * from './valid-property-values/validPropertyValues';
+export * from './valid-property-values';
+export * from './required-property';
+

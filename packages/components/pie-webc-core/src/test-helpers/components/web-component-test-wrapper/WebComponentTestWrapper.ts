@@ -45,10 +45,14 @@ export class WebComponentTestWrapper extends LitElement {
     }
 }
 
-customElements.define('web-component-test-wrapper', WebComponentTestWrapper);
+const componentSelector = 'web-component-test-wrapper';
+
+if (!customElements.get(componentSelector)) {
+    customElements.define(componentSelector, WebComponentTestWrapper);
+}
 
 declare global {
     interface HTMLElementTagNameMap {
-        'web-component-test-wrapper': WebComponentTestWrapper;
+        [componentSelector]: WebComponentTestWrapper;
     }
 }
