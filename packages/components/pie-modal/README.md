@@ -52,6 +52,8 @@ import { PieModal } from '@justeattakeaway/pie-button/dist/react';
 | Property | Type      | Default | Description                                     |
 |----------|-----------|---------|-------------------------------------------------|
 | isOpen   | `Boolean` | `false` | Controls if the modal element is open or closed |
+| heading*   | `String` | - | Sets the heading of the modal |
+| headingLevel   | `String` | `h2` | Allows you to set the heading tag (from `h1` to `h6`) |
 
 
 ## Testing
@@ -77,4 +79,3 @@ Under scripts `test:visual` replace the environment variable with the below:
 
 ```
 PERCY_TOKEN_PIE_MODAL=abcde
-
