@@ -1,0 +1,51 @@
+$modal-size-l: 1080px;
+$modal-size-m: 600px;
+$modal-size-s: 450px;
+
+$modal-border-radius: var(--dt-radius-rounded-d);
+$modal-font: var(--dt-font-interactive-m-family);
+$modal-bg-color: var(--dt-color-container-default);
+$modal-elevation: var(--dt-elevation-04);
+
+$modal-header-font-size: calc(var(--dt-font-heading-m-size--wide) * 1px);
+$modal-header-font-line-height: calc(var(--dt-font-heading-m-line-height--wide) * 1px);
+$modal-header-font-weight: var(--dt-font-heading-m-weight);
+$modal-header-padding: var(--dt-spacing-e);
+$modal-header-padding-block-end: var(--dt-spacing-d);
+
+$modal-contentWrapper-font-size: calc(var(--dt-font-size-16) * 1px);
+$modal-contentWrapper-line-height: calc(var(--dt-font-size-16-line-height) * 1px);
+$modal-contentWrapper-font-weight: var(--dt-font-weight-regular);
+$modal-contentWrapper-padding: var(--dt-spacing-e);
+$modal-contentWrapper-padding-block-start: var(--dt-spacing-a);
+
+.c-modal {
+  border-radius: $modal-border-radius;
+  border: none;
+  font-family: $modal-font;
+  background-color: $modal-bg-color;
+
+  padding: 0;
+  inline-size: $modal-size-m;
+
+  box-shadow: $modal-elevation;
+
+  & .c-modal-heading {
+    font-size: $modal-header-font-size;
+    line-height: $modal-header-font-line-height;
+    font-weight: $modal-header-font-weight;
+
+    margin: 0;
+    padding-block: $modal-header-padding $modal-header-padding-block-end;
+    padding-inline: $modal-header-padding;
+  }
+
+  & .c-modal-contentWrapper {
+    font-size: $modal-contentWrapper-font-size;
+    line-height: $modal-contentWrapper-line-height;
+    font-weight: $modal-contentWrapper-font-weight;
+
+    padding-block: $modal-contentWrapper-padding-block-start $modal-contentWrapper-padding;
+    padding-inline: $modal-contentWrapper-padding;
+  }
+}

@@ -1,6 +1,5 @@
 {
   "name": "@justeattakeaway/pie-webc-core",
-  "private": true,
   "version": "0.2.0",
   "description": "PIE design system base classes, mixins and utilities for web components",
   "type": "module",
