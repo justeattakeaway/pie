@@ -26,9 +26,7 @@ export class AppComponent {
 
     switchVariant () {
         this.variantIndex += 1;
-        const variantsKeys: string[] = buttonVariants;
-        const variantKey: string = variantsKeys[this.variantIndex % variantsKeys.length];
-        const variant: BUTTON_VARIANT = buttonVariants[variantKey as keyof typeof BUTTON_VARIANT];
+        const variant: BUTTON_VARIANT = buttonVariants[this.variantIndex % buttonVariants.length];
 
         this.variantName = variant;
     }

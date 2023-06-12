@@ -8,9 +8,7 @@ export default function VariantSwitch () {
 
     const switchVariant = () => {
         variantIndex.current += 1;
-        const variantsKeys = buttonVariants;
-        const variantKey = variantsKeys[variantIndex.current % variantsKeys.length];
-        const variant = buttonVariants[variantKey];
+        const variant = buttonVariants[variantIndex.current % buttonVariants.length];
 
         setVariantName(variant);
     };

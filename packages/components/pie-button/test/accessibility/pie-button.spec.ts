@@ -1,9 +1,9 @@
 import { test, expect } from '@sand4rt/experimental-ct-web';
 import AxeBuilder from '@axe-core/playwright';
-import { PieButton, buttonSizes, buttonVariants } from '@/index';
 import {
     PropObject, Combination, getAllPropCombinations, splitCombinationsByPropertyValue,
 } from '@justeattakeaway/pie-webc-core/src/test-helpers/get-all-prop-combos.ts';
+import { PieButton, buttonSizes, buttonVariants } from '@/index';
 
 const props: PropObject = {
     variant: buttonVariants,

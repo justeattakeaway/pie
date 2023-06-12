@@ -2,20 +2,19 @@ import React, { useState, useRef } from 'react';
 import Head from 'next/head';
 import { buttonSizes, buttonVariants } from '@justeattakeaway/pie-button';
 import type { BUTTON_SIZE, BUTTON_VARIANT } from '@justeattakeaway/pie-button';
-import { PieButton } from '@justeattakeaway/pie-button/dist/react'
+import { PieButton } from '@justeattakeaway/pie-button/dist/react';
 
 export default function Home () {
     const variantIndex = useRef(0);
     const [count, setCount] = useState(0);
-    const [variantName, setVariantName] = useState('primry');
+    const [variantName, setVariantName] = useState('primary');
 
     const increment = () => setCount(count + 1);
     const decrement = () => setCount(count - 1);
     const switchVariant = () => {
         variantIndex.current += 1;
         const variantsKeys: string[] = buttonVariants;
-        const variantKey:string = variantsKeys[variantIndex.current % variantsKeys.length];
-        const variant: BUTTON_VARIANT = buttonVariants[variantKey as keyof typeof BUTTON_VARIANT];
+        const variant: BUTTON_VARIANT = buttonVariants[variantIndex.current % variantsKeys.length];
 
         setVariantName(variant);
     };
@@ -54,8 +53,8 @@ export default function Home () {
                     <div>
                         {
                             buttonSizes
-                                .map((key) => {
-                                    const size: BUTTON_SIZE = buttonSizes[key as keyof typeof BUTTON_SIZE];
+                                .map((key, index) => {
+                                    const size: BUTTON_SIZE = buttonSizes[index];
 
                                     return (
                                         <PieButton size={size} key={key}>{key.toLowerCase()}</PieButton>
