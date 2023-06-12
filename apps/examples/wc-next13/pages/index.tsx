@@ -1,12 +1,14 @@
 import React, { useState, useRef } from 'react';
 import Head from 'next/head';
 import { BUTTON_SIZE, BUTTON_VARIANT } from '@justeattakeaway/pie-button';
-import { PieButton } from '@justeattakeaway/pie-button/dist/react'
+import { PieButton } from '@justeattakeaway/pie-button/dist/react';
+import { PieModal } from '@justeattakeaway/pie-modal/dist/react';
 
 export default function Home () {
     const variantIndex = useRef(0);
     const [count, setCount] = useState(0);
     const [variantName, setVariantName] = useState(BUTTON_VARIANT.PRIMARY);
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     const increment = () => setCount(count + 1);
     const decrement = () => setCount(count - 1);
@@ -19,6 +21,10 @@ export default function Home () {
         setVariantName(variant);
     };
 
+    const handleToggleModal = () => {
+        setIsModalOpen(!isModalOpen);
+    };
+
     return (
         <>
             <Head>
@@ -28,6 +34,10 @@ export default function Home () {
             </Head>
             <main>
                 <h2>Test click event</h2>
+                <div>
+                    <button onClick={handleToggleModal}>toggle modal {isModalOpen ? 'TRUE' : 'FALSE'}</button>
+                </div>
+                <PieModal isOpen={isModalOpen}>Content goes here</PieModal>
                 <div>
                     <h3>Counter</h3>
                     <div className="flex-wrapper">
