@@ -2,7 +2,7 @@ import { test, expect } from '@sand4rt/experimental-ct-web';
 import { PieModal } from '@/index';
 import { HEADING_LEVELS } from '@/defs';
 
-Object.values(HEADING_LEVELS).forEach((headingLevel) => test(`should render the correct heading tag based on the value of headingLevel: ${headingLevel} `, async ({ mount }) => {
+Object.values(HEADING_LEVELS).forEach((headingLevel) => test(`should render the correct heading tag based on the value of headingLevel: ${headingLevel}`, async ({ mount }) => {
     const props = {
         heading: 'Modal Header',
         headingLevel,
@@ -16,7 +16,7 @@ Object.values(HEADING_LEVELS).forEach((headingLevel) => test(`should render the 
 ['span', 'section'].forEach((headingLevel) => test(`should render the fallback heading level ${HEADING_LEVELS.H2} if invalid headingLevel: ${headingLevel} is passed`, async ({ mount }) => {
     const props = {
         heading: 'Modal Header',
-        // assert type checking to purposely provide incorrect value
+        // assert type checking as we purposely provide incorrect value
         headingLevel: headingLevel as HEADING_LEVELS,
     };
 

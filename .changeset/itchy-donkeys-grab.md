@@ -1,4 +1,4 @@
 ---
 "@justeattakeaway/pie-webc-core": minor
 ---
-[Added] **- `required`** property decorator
+[Added] - `required` property decorator
