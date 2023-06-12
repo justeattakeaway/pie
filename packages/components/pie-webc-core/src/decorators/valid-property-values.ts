@@ -3,7 +3,7 @@
  * If this property's setter is called with an invalid value, an error is logged and the default value will be assigned instead.
  * @param validValues - The array of valid values
  * @param defaultValue - The value to fall back on
- * @returns
+ * @returns  - The decorator function
  */
 export const validPropertyValues = (componentName: string, validValues: any[], defaultValue: any) => function (target: any, propertyKey: string) : void {
     const privatePropertyKey = `#${propertyKey}`;
