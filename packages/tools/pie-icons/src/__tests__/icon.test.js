@@ -23,7 +23,7 @@ describe('toSvg()', () => {
     test('returns correct string when run with no additional attrs', () => {
         expect(icon1.toSvg()).toMatchSnapshot();
     });
-    test('appends color and stroke-width attributes when passed through', () => {
+    test('appends fill and stroke-width attributes when passed through', () => {
         expect(icon1.toSvg({ fill: 'red', 'stroke-width': 1 })).toMatchSnapshot();
     });
     test('appends classnames and attributes when passed through as attrs', () => {

@@ -32,6 +32,6 @@ exports[`toSvg() adds React Native default attrs when platform = "reactNative" 1
 
 exports[`toSvg() appends classnames and attributes when passed through as attrs 1`] = `"<svg xmlns=\\"http://www.w3.org/2000/svg\\" role=\\"presentation\\" focusable=\\"false\\" fill=\\"red\\" class=\\"c-pieIcon c-pieIcon--test foo bar\\"><line x1=\\"23\\" y1=\\"1\\" x2=\\"1\\" y2=\\"23\\" /><line x1=\\"1\\" y1=\\"1\\" x2=\\"23\\" y2=\\"23\\" /></svg>"`;
 
-exports[`toSvg() appends color and stroke-width attributes when passed through 1`] = `"<svg xmlns=\\"http://www.w3.org/2000/svg\\" role=\\"presentation\\" focusable=\\"false\\" fill=\\"red\\" stroke-width=\\"1\\" class=\\"c-pieIcon c-pieIcon--test\\"><line x1=\\"23\\" y1=\\"1\\" x2=\\"1\\" y2=\\"23\\" /><line x1=\\"1\\" y1=\\"1\\" x2=\\"23\\" y2=\\"23\\" /></svg>"`;
+exports[`toSvg() appends fill and stroke-width attributes when passed through 1`] = `"<svg xmlns=\\"http://www.w3.org/2000/svg\\" role=\\"presentation\\" focusable=\\"false\\" fill=\\"red\\" stroke-width=\\"1\\" class=\\"c-pieIcon c-pieIcon--test\\"><line x1=\\"23\\" y1=\\"1\\" x2=\\"1\\" y2=\\"23\\" /><line x1=\\"1\\" y1=\\"1\\" x2=\\"23\\" y2=\\"23\\" /></svg>"`;
 
 exports[`toSvg() returns correct string when run with no additional attrs 1`] = `"<svg xmlns=\\"http://www.w3.org/2000/svg\\" role=\\"presentation\\" focusable=\\"false\\" fill=\\"currentColor\\" class=\\"c-pieIcon c-pieIcon--test\\"><line x1=\\"23\\" y1=\\"1\\" x2=\\"1\\" y2=\\"23\\" /><line x1=\\"1\\" y1=\\"1\\" x2=\\"23\\" y2=\\"23\\" /></svg>"`;

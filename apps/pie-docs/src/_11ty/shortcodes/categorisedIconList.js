@@ -10,7 +10,7 @@ const pieIcons = require('../filters/pieIconsSvg')();
  * @returns
  */
 const buildIconCard = (icon) => {
-    const pieIcon = pieIcons.find((x) => x.name === icon.name).icon;
+    const pieIcon = pieIcons.find((x) => x.name === icon.name)?.icon;
 
     if (!pieIcon) {
         throw new Error(`Could not find icon with name "${icon.name}".`);
