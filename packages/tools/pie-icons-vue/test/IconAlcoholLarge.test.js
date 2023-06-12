@@ -11,7 +11,7 @@ import {
 
 import IconAlcoholLarge from '../icons/IconAlcoholLarge';
 
-describe('IconAlcoholLarge', () => {
+describe('IconAlcoholLarge (Large variant) ::', () => {
     afterEach(() => {
         vi.restoreAllMocks();
     });
@@ -24,7 +24,7 @@ describe('IconAlcoholLarge', () => {
         expect(wrapper.exists()).toBe(true);
     });
 
-    describe('iconSize prop', () => {
+    describe('`iconSize` prop', () => {
         describe('validator', () => {
             test.each([
                 32,

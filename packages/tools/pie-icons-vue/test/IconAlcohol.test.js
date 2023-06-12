@@ -11,7 +11,7 @@ import {
 
 import IconAlcohol from '../icons/IconAlcohol';
 
-describe('IconAlcohol (Regular)', () => {
+describe('IconAlcohol (Regular variant) ::', () => {
     afterEach(() => {
         vi.restoreAllMocks();
     });
