@@ -13,38 +13,6 @@
       "path": "../../components/pie-button/src/index.js",
       "declarations": [
         {
-          "kind": "variable",
-          "name": "buttonSizes",
-          "type": {
-            "text": "BUTTON_SIZE[]"
-          },
-          "default": "[\n    'xsmall',\n    'small-expressive',\n    'small-productive',\n    'medium',\n    'large'\n]"
-        },
-        {
-          "kind": "variable",
-          "name": "buttonTypes",
-          "type": {
-            "text": "BUTTON_TYPE[]"
-          },
-          "default": "[\n    'submit',\n    'button',\n    'reset',\n    'menu'\n]"
-        },
-        {
-          "kind": "variable",
-          "name": "buttonVariants",
-          "type": {
-            "text": "BUTTON_VARIANT[]"
-          },
-          "default": "[\n    'primary',\n    'secondary',\n    'outline',\n    'ghost'\n]"
-        },
-        {
-          "kind": "variable",
-          "name": "componentSelector",
-          "type": {
-            "text": "string"
-          },
-          "default": "'pie-button'"
-        },
-        {
           "kind": "class",
           "description": "",
           "name": "PieButton",
@@ -103,7 +71,7 @@
             "name": "LitElement",
             "package": "lit"
           },
-          "tagName": "componentSelector",
+          "tagName": "pie-button",
           "customElement": true
         }
       ],
@@ -166,10 +134,33 @@
         },
         {
           "kind": "custom-element-definition",
-          "name": "componentSelector",
+          "name": "pie-button",
           "declaration": {
             "name": "PieButton",
             "module": "../../components/pie-button/src/index.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../../components/pie-webc-core/src/index.js",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./mixins"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./decorators"
           }
         }
       ]
@@ -184,22 +175,6 @@
       "kind": "javascript-module",
       "path": "../../components/pie-icon-button/src/index.js",
       "declarations": [
-        {
-          "kind": "variable",
-          "name": "iconButtonVariants",
-          "type": {
-            "text": "ICON_BUTTON_VARIANT[]"
-          },
-          "default": "[\n    'primary',\n    'secondary',\n    'outline',\n    'ghost',\n    'ghost-tertiary',\n]"
-        },
-        {
-          "kind": "variable",
-          "name": "componentSelector",
-          "type": {
-            "text": "string"
-          },
-          "default": "'pie-icon-button'"
-        },
         {
           "kind": "class",
           "description": "",
@@ -235,7 +210,7 @@
             "name": "LitElement",
             "package": "lit"
           },
-          "tagName": "componentSelector",
+          "tagName": "pie-icon-button",
           "customElement": true
         }
       ],
@@ -266,7 +241,7 @@
         },
         {
           "kind": "custom-element-definition",
-          "name": "componentSelector",
+          "name": "pie-icon-button",
           "declaration": {
             "name": "PieIconButton",
             "module": "../../components/pie-icon-button/src/index.js"
@@ -342,29 +317,6 @@
           "declaration": {
             "name": "PieModal",
             "module": "../../components/pie-modal/src/index.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "../../components/pie-webc-core/src/index.js",
-      "declarations": [],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "*",
-          "declaration": {
-            "name": "*",
-            "package": "./mixins"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "*",
-          "declaration": {
-            "name": "*",
-            "package": "./decorators"
           }
         }
       ]

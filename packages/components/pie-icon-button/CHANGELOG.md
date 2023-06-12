@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-icon-button
 
+## 0.3.0
+
+### Minor Changes
+
+- [Changed] - customElement.define parameter to string ([#507](https://github.com/justeattakeaway/pie/pull/507)) by [@LTurns](https://github.com/LTurns)
+
 ## 0.2.0
 
 ### Minor Changes
