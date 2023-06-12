@@ -9,7 +9,6 @@ import {
 /* eslint-enable import/no-extraneous-dependencies */
 
 import IconAlcohol from '../icons/IconAlcohol';
-import { regularIconSizeDefault } from '../icons/configs';
 
 describe('IconAlcohol (Regular)', () => {
     test('should exist', () => {
@@ -55,7 +54,7 @@ describe('IconAlcohol (Regular)', () => {
 
         // Assert
         expect(wrapper.classes()).not.toContain(`c-pieIcon--${iconSize}`);
-        expect(wrapper.classes()).toContain(`c-pieIcon--${regularIconSizeDefault}`);
+        expect(wrapper.classes()).toContain('c-pieIcon--xs'); // Default size
         expect(errorMock.mock.calls[0][0].startsWith('[Vue warn]: Invalid prop')).toBeTruthy();
 
         console.error = consoleError;

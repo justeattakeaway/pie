@@ -9,7 +9,6 @@ import {
 /* eslint-enable import/no-extraneous-dependencies */
 
 import IconAlcoholLarge from '../icons/IconAlcoholLarge';
-import { largeIconSizeDefault } from '../icons/configs';
 
 describe('IconAlcoholLarge', () => {
     test('should exist', () => {
@@ -73,7 +72,7 @@ describe('IconAlcoholLarge', () => {
         test.each([
             24, // Too small
             36, // Not a multiple of 8
-        ])('should fall back to the default size - %s', (iconSize) => {
+        ])('should fall back from %s to the default size', (iconSize) => {
             // Arrange
             const consoleError = console.error;
             const errorMock = vi.fn();
@@ -84,8 +83,8 @@ describe('IconAlcoholLarge', () => {
             const wrapper = mount(IconAlcoholLarge, { propsData });
 
             // Assert
-            expect(wrapper.html()).toContain(`width="${largeIconSizeDefault}"`);
-            expect(wrapper.html()).toContain(`height="${largeIconSizeDefault}"`);
+            expect(wrapper.html()).toContain('width="32"');
+            expect(wrapper.html()).toContain('height="32"');
 
             console.error = consoleError;
         });
