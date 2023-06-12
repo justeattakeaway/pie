@@ -11,7 +11,7 @@ import type { BUTTON_VARIANT } from '@justeattakeaway/pie-button';
 export class AppComponent {
     title = 'wc-angular12';
 
-    buttonSizes = buttonSizes.map((size) => size);
+    buttonSizes = buttonSizes;
     count = 0;
     variantIndex = 0;
     variantName = 'primary';

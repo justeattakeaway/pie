@@ -1,9 +1,5 @@
 import { test } from '@sand4rt/experimental-ct-web';
 import percySnapshot from '@percy/playwright';
-import { PieButton, buttonSizes, buttonVariants } from '@/index';
-import {
-    PropObject, Combination, getAllPropCombinations, splitCombinationsByPropertyValue,
-} from '@justeattakeaway/pie-webc-core/src/test-helpers/get-all-prop-combos.ts';
 import type {
     PropObject, WebComponentPropValues, WebComponentTestInput,
 } from '@justeattakeaway/pie-webc-core/src/test-helpers/defs.ts';
@@ -16,8 +12,7 @@ import {
 import {
     WebComponentTestWrapper,
 } from '@justeattakeaway/pie-webc-core/src/test-helpers/components/web-component-test-wrapper/WebComponentTestWrapper.ts';
-import { PieButton } from '@/index';
-import { BUTTON_SIZE, BUTTON_TYPE, BUTTON_VARIANT } from '@/defs';
+import { PieButton, buttonSizes, buttonVariants } from '@/index';
 
 const props: PropObject = {
     variant: buttonVariants,
