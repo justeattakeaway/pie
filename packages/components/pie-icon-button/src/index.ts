@@ -20,7 +20,7 @@ const componentSelector = 'pie-icon-button';
 export class PieIconButton extends LitElement {
     @property()
     @validPropertyValues(componentSelector, iconButtonVariants, 'primary')
-        variant: ICON_BUTTON_VARIANT = 'primary';
+        variant : ICON_BUTTON_VARIANT = 'primary';
 
     @property({ type: Boolean })
         disabled = false;
