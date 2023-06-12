@@ -1,4 +1,3 @@
-@use 'sass:color';
 @use '../fozzie-config' as f;
 @use '../variables' as v;
 
@@ -194,86 +193,5 @@
     @include f.media('>=wide') {
         margin-top: f.spacing(i);
         margin-bottom: f.spacing(i);
-    }
-}
-
-
-.c-heading-anchor {
-    visibility: hidden;
-    display: span;
-    height: 24px;
-    width: 24px;
-    border-radius: 4px;
-    margin-right: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    order: -1;
-
-    &:hover {
-        background-color: color.adjust(f.$color-background-default, $lightness: calc(f.$color-hover-01 * -1));
-    }
-
-    &:focus {
-        background-color: color.adjust(f.$color-background-default, $lightness: calc(f.$color-active-01 * -1));
-    }
-
-    &:active {
-        background-color: color.adjust(f.$color-background-default, $lightness: calc(f.$color-active-01 * -1));
-
-
-    }
-
-
-
-    svg {
-        path {
-            fill: f.$color-content-brand;
-        }
-    }
-
-
-}
-
-// .c-heading-anchor:not(:active) {
-//     ::after {
-//         visibility: hidden;
-
-//         transition: visibility 4000ms ease-in-out;
-//     }
-
-// }
-
-
-h2,
-h3,
-h4 {
-    display: flex;
-    align-items: center;
-    margin-left: -32px;
-}
-
-
-h2:hover,
-h3:hover,
-h4:hover {
-    .c-heading-anchor {
-        visibility: visible;
-    }
-}
-
-
-.c-heading-anchor--clicked {
-    &::after {
-        content: 'Copied!';
-        color: white;
-        font-size: 12px;
-        background-color: f.$color-content-inverse;
-        background-color: black;
-        padding-block: 4px;
-        padding-inline: 12px;
-        border-radius: 100px;
-        margin-top: 56px;
-        // visibility: hidden;
     }
 }
