@@ -70,6 +70,9 @@ Example:
 <icon-alert-triangle-large iconSize="40" />
 ```
 
+### Styles
+Vue icons package doesn't provide css styles. Css classes `c-pieIcon c-pieIcon--{iconName}` are available for consuming applications to add styles needed for the their project.
+
 ### Tree shaking
 
 By using ES imports like `import { IconCalendar } from '@justeattakeaway/pie-icons-vue'` with Webpack v4+ or Rollup, unused exports in this module will be automatically eliminated.

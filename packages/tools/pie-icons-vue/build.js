@@ -27,7 +27,7 @@ export default {
     functional: true,
 
     render (h, ctx) {
-        ctx.data = updateContextData(ctx, '${svgClasses}');
+        ctx.data = updateContextData(ctx, '${svgClasses}', '${name}');
 
         return ${svg.replace(/(class=".+?")/, '{...ctx.data}')};
     }

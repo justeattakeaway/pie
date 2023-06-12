@@ -1,7 +1,7 @@
 import * as React from "react";
 import { RegularIconProps } from "../types";
 // @ts-ignore
-import { getSvgProps } from '@justeattakeaway/pie-icons-configs/configs-react';
+import { getReactSvgProps } from '@justeattakeaway/pie-icons-configs/configs-react';
 const IconRadioSelected = (props: RegularIconProps) => {
   const {
     className,
@@ -10,7 +10,7 @@ const IconRadioSelected = (props: RegularIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("c-pieIcon c-pieIcon--radio-selected", className, iconSize, "IconRadioSelected");
+  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--radio-selected", className, iconSize, "IconRadioSelected");
   const allProps = {
     ...remainingProps,
     ...moreProps

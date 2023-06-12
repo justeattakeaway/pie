@@ -1,7 +1,7 @@
 import * as React from "react";
 import { RegularIconProps } from "../types";
 // @ts-ignore
-import { getSvgProps } from '@justeattakeaway/pie-icons-configs/configs-react';
+import { getReactSvgProps } from '@justeattakeaway/pie-icons-configs/configs-react';
 const IconMinusCircle = (props: RegularIconProps) => {
   const {
     className,
@@ -10,7 +10,7 @@ const IconMinusCircle = (props: RegularIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("c-pieIcon c-pieIcon--minus-circle", className, iconSize, "IconMinusCircle");
+  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--minus-circle", className, iconSize, "IconMinusCircle");
   const allProps = {
     ...remainingProps,
     ...moreProps
