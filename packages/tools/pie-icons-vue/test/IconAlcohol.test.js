@@ -11,7 +11,7 @@ import {
 import IconAlcohol from '../icons/IconAlcohol';
 import { regularIconSizeDefault } from '../icons/configs';
 
-describe('IconAlcohol', () => {
+describe('IconAlcohol (Regular)', () => {
     test('should exist', () => {
         // Arrange & Act
         const wrapper = mount(IconAlcohol);
