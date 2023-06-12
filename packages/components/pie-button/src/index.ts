@@ -74,7 +74,7 @@ export class PieButton extends LitElement {
     static styles = unsafeCSS(styles);
 }
 
-customElements.define(componentSelector, PieButton);
+customElements.define('pie-button', PieButton);
 
 declare global {
     interface HTMLElementTagNameMap {
