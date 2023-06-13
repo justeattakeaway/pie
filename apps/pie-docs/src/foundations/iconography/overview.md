@@ -68,7 +68,7 @@ Our small icon set can be used at the following sizes:
         "24px",
         "28px",
         "32px",
-        "30px"
+        "40px"
     ]
 } %}
 

@@ -2,9 +2,13 @@
 
 Shared PIE Icon Components for ReactJS.
 
-This package generates an iconset for React applications using the base [pie-icons](https://www.npmjs.com/package/@justeattakeaway/pie-icons) package. The SVGs in pie-icons are compiled into single file components that can be imported into Vue applications.
+This package generates an iconset for React applications using the base [pie-icons](https://www.npmjs.com/package/@justeattakeaway/pie-icons) package. The SVGs in pie-icons are compiled into React components.
 
 The icons are bundled in CommonJS and ES Modules, to be more easily adopted for modern React Applications.
+
+---
+
+[![npm version](https://img.shields.io/npm/v/@justeattakeaway/pie-icons-react.svg)](https://img.shields.io/npm/v/@justeattakeaway/pie-icons-react.svg)
 
 ---
 
@@ -27,7 +31,7 @@ export default function App() {
   return (
     <div className="App">
       <IconCalendar />
-      <IconAlertTriangleLarge fill="lightgrey" />
+      <IconAlertTriangleLarge fill={PIE_ALIAS_COLOR_TOKEN} />
     </div>
   );
 }
@@ -66,21 +70,21 @@ import AlertTriangle from "@justeattakeaway/pie-icons-react/dist/AlertTriangle";
 
 ## Contributing
 
-Before starting please read our [contributing guide](https://vue.pie.design/?path=/story/documentation-getting-started-contributing--page)
+Before starting please read our [contributing guide](https://pie.design/engineers/contributing/)
 
 ### Adding new icons
 
 Icons should be added as SVGs to the main pie-icons package and published, before simply incrementing the dependency of `pie-icons` in the `pie-icons-react` package, to generate the new set of Vue components.
 
-The PIE iconset is managed by our PIE design team and new icon requests should go through them to ensure that they are designed inline with our standards and guildelines. Please reach out to the #proj-pie-design-system team who can help with these requests.
+The PIE iconset is managed by our PIE design system team and new icon requests should go through them to ensure that they are designed inline with our standards and guildelines. Please reach out to PIE design system team using #help-designsystem slack channel.
 
 ### Building the Module
 
-Run `yarn build` to compile the module.
+Run `yarn build --filter=pie-icons-react` from the project level or `yarn turbo run build --filter=pie-icons-vue` from the root level to compile the module.
 
 ## Icon list
 
-You can check the list of all the icons in our [Storybook](https://react.pie.design/?path=/story/design-pie-icons--icons-story).
+You can check the list of all the icons on our PIE documentation site: https://pie.design/foundations/iconography/library/.
 
 ## Credits
 
