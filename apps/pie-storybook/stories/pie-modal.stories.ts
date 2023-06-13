@@ -1,5 +1,5 @@
 import type { Meta, StoryObj as Story } from '@storybook/web-components';
-import type { HEADING_LEVELS } from '@justeattakeaway/pie-modal';
+import type { HeadingLevel } from '@justeattakeaway/pie-modal';
 import { headingLevels } from '@justeattakeaway/pie-modal';
 import { html, TemplateResult } from 'lit';
 
@@ -40,7 +40,7 @@ export default {
 interface ModalProps {
     isOpen: boolean;
     heading: string;
-    headingLevel: HEADING_LEVELS;
+    headingLevel: HeadingLevel;
     slot: TemplateResult;
 }
 

@@ -13,7 +13,7 @@ import {
     WebComponentTestWrapper,
 } from '@justeattakeaway/pie-webc-core/src/test-helpers/components/web-component-test-wrapper/WebComponentTestWrapper.ts';
 import { PieIconButton } from '@/index';
-import { iconButtonVariants } from '@/helpers';
+import { iconButtonVariants } from '@/defs';
 
 const props: PropObject = {
     variant: iconButtonVariants,

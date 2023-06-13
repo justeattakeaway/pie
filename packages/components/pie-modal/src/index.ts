@@ -4,11 +4,11 @@ import { property } from 'lit/decorators.js'; // eslint-disable-line import/no-e
 import { RtlMixin, validPropertyValues, requiredProperty } from '@justeattakeaway/pie-webc-core';
 
 import styles from './modal.scss?inline';
-import type { HEADING_LEVELS } from './defs';
-import { headingLevels } from './helpers';
+import type { HeadingLevel } from '@/defs';
+import { headingLevels } from '@/defs';
 
 // Valid values available to consumers
-export { HEADING_LEVELS, headingLevels };
+export { HeadingLevel, headingLevels };
 
 const componentSelector = 'pie-modal';
 
@@ -22,7 +22,7 @@ export class PieModal extends RtlMixin(LitElement) {
 
     @property()
     @validPropertyValues(componentSelector, headingLevels, 'h2')
-        headingLevel : HEADING_LEVELS = 'h2';
+        headingLevel : HeadingLevel = 'h2';
 
     render () {
         const {

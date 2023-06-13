@@ -1,27 +1,36 @@
 /**
  * Button size variants
  */
-export type BUTTON_SIZE =
-    | 'xsmall'
-    | 'small-expressive'
-    | 'small-productive'
-    | 'medium'
-    | 'large';
+export type ButtonSize = 'xsmall' | 'small-expressive' | 'small-productive' | 'medium' | 'large';
+
+export const buttonSizes: ButtonSize[] = [
+    'xsmall',
+    'small-expressive',
+    'small-productive',
+    'medium',
+    'large',
+];
 
 /**
  * Button style variants
  */
-export type BUTTON_TYPE =
-    | 'submit'
-    | 'button'
-    | 'reset'
-    | 'menu';
+export type ButtonType = 'submit' | 'button' | 'reset' | 'menu';
+
+export const buttonTypes: ButtonTyps[] = [
+    'submit',
+    'button',
+    'reset',
+    'menu',
+];
 
 /**
  * Button style variants
  */
-export type BUTTON_VARIANT =
-    | 'primary'
-    | 'secondary'
-    | 'outline'
-    | 'ghost';
+export type ButtonVariant = 'primary' | 'secondary' | 'outline' | 'ghost';
+
+export const buttonVariants: ButtonVariant[] = [
+    'primary',
+    'secondary',
+    'outline',
+    'ghost',
+];

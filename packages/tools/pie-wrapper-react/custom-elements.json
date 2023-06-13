@@ -10,7 +10,7 @@
           "kind": "variable",
           "name": "buttonSizes",
           "type": {
-            "text": "BUTTON_SIZE[]"
+            "text": "ButtonSize[]"
           },
           "default": "[\n    'xsmall',\n    'small-expressive',\n    'small-productive',\n    'medium',\n    'large',\n]"
         },
@@ -18,7 +18,7 @@
           "kind": "variable",
           "name": "buttonTypes",
           "type": {
-            "text": "BUTTON_TYPE[]"
+            "text": "ButtonTyps[]"
           },
           "default": "[\n    'submit',\n    'button',\n    'reset',\n    'menu',\n]"
         },
@@ -26,7 +26,7 @@
           "kind": "variable",
           "name": "buttonVariants",
           "type": {
-            "text": "BUTTON_VARIANT[]"
+            "text": "ButtonVariant[]"
           },
           "default": "[\n    'primary',\n    'secondary',\n    'outline',\n    'ghost',\n]"
         }
@@ -71,7 +71,7 @@
               "kind": "field",
               "name": "size",
               "type": {
-                "text": "BUTTON_SIZE"
+                "text": "ButtonSize"
               },
               "default": "'medium'"
             },
@@ -79,7 +79,7 @@
               "kind": "field",
               "name": "type",
               "type": {
-                "text": "BUTTON_TYPE"
+                "text": "ButtonTypes"
               },
               "default": "'submit'"
             },
@@ -87,7 +87,7 @@
               "kind": "field",
               "name": "variant",
               "type": {
-                "text": "BUTTON_VARIANT"
+                "text": "ButtonVariants"
               },
               "default": "'primary'"
             },
@@ -128,25 +128,25 @@
       "exports": [
         {
           "kind": "js",
-          "name": "BUTTON_SIZE",
+          "name": "ButtonSize",
           "declaration": {
-            "name": "BUTTON_SIZE",
+            "name": "ButtonSize",
             "module": "../../components/pie-button/src/index.js"
           }
         },
         {
           "kind": "js",
-          "name": "BUTTON_TYPE",
+          "name": "ButtonTypes",
           "declaration": {
-            "name": "BUTTON_TYPE",
+            "name": "ButtonTypes",
             "module": "../../components/pie-button/src/index.js"
           }
         },
         {
           "kind": "js",
-          "name": "BUTTON_VARIANT",
+          "name": "ButtonVariants",
           "declaration": {
-            "name": "BUTTON_VARIANT",
+            "name": "ButtonVariants",
             "module": "../../components/pie-button/src/index.js"
           }
         },
@@ -200,7 +200,7 @@
           "kind": "variable",
           "name": "iconButtonVariants",
           "type": {
-            "text": "ICON_BUTTON_VARIANT[]"
+            "text": "IconButtonVariant[]"
           },
           "default": "[\n    'primary',\n    'secondary',\n    'outline',\n    'ghost',\n    'ghost-tertiary',\n]"
         }
@@ -229,7 +229,7 @@
               "kind": "field",
               "name": "variant",
               "type": {
-                "text": "ICON_BUTTON_VARIANT"
+                "text": "IconButtonVariant"
               },
               "default": "'primary'"
             },
@@ -262,9 +262,9 @@
       "exports": [
         {
           "kind": "js",
-          "name": "ICON_BUTTON_VARIANT",
+          "name": "IconButtonVariant",
           "declaration": {
-            "name": "ICON_BUTTON_VARIANT",
+            "name": "IconButtonVariant",
             "module": "../../components/pie-icon-button/src/index.js"
           }
         },
@@ -302,7 +302,7 @@
           "kind": "variable",
           "name": "headingLevels",
           "type": {
-            "text": "HEADING_LEVELS[]"
+            "text": "HeadingLevel[]"
           },
           "default": "['h1', 'h2', 'h3', 'h4', 'h5', 'h6']"
         }
@@ -346,7 +346,7 @@
               "kind": "field",
               "name": "headingLevel",
               "type": {
-                "text": "HEADING_LEVELS"
+                "text": "HeadingLevel"
               },
               "default": "'h2'"
             },
@@ -402,9 +402,9 @@
       "exports": [
         {
           "kind": "js",
-          "name": "HEADING_LEVELS",
+          "name": "HeadingLevel",
           "declaration": {
-            "name": "HEADING_LEVELS",
+            "name": "HeadingLevel",
             "module": "../../components/pie-modal/src/index.js"
           }
         },
@@ -461,6 +461,21 @@
           "declaration": {
             "name": "*",
             "package": "./test-helpers"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../../components/pie-webc-core/src/mixins/index.js",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./rtl/rtlMixin"
           }
         }
       ]
@@ -566,21 +581,6 @@
           "declaration": {
             "name": "validPropertyValues",
             "module": "../../components/pie-webc-core/src/decorators/valid-property-values.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "../../components/pie-webc-core/src/mixins/index.js",
-      "declarations": [],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "*",
-          "declaration": {
-            "name": "*",
-            "package": "./rtl/rtlMixin"
           }
         }
       ]
