@@ -1,5 +1,22 @@
 # Changelog
 
+## 2.2.0
+
+### Minor Changes
+
+- [Added] Add icons to icon library page that are new to pie-icons. ([#506](https://github.com/justeattakeaway/pie/pull/506)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Changed] Update names of some icons to better reflect the fill state.
+
+- [Added] - fozzie and pie token package upgrades plus fix older removed variables ([#505](https://github.com/justeattakeaway/pie/pull/505)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
+- [changed] - updates names of some social icons to reflect their static behaviour ([#528](https://github.com/justeattakeaway/pie/pull/528)) by [@dandel10n](https://github.com/dandel10n)
+
+### Patch Changes
+
+- Updated dependencies [[`868d9d3f1`](https://github.com/justeattakeaway/pie/commit/868d9d3f1d8cd4e8de2f2a1bb8a96ddb55e16e36), [`2955fe8c4`](https://github.com/justeattakeaway/pie/commit/2955fe8c497bb965d12abe39388dd409730b3388)]:
+  - @justeattakeaway/pie-icons@3.4.0
+
 ## 2.1.0
 
 ### Minor Changes

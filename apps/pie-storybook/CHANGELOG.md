@@ -1,5 +1,20 @@
 # Changelog
 
+## 0.12.0
+
+### Minor Changes
+
+- [Added] - `heading` **and** `headingLevel` story controls ([#530](https://github.com/justeattakeaway/pie/pull/530)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Changed] - Added modal component to storybook file ([#513](https://github.com/justeattakeaway/pie/pull/513)) by [@fernandofranca](https://github.com/fernandofranca)
+
+### Patch Changes
+
+- Updated dependencies [[`575f559e7`](https://github.com/justeattakeaway/pie/commit/575f559e775cddf2118539c295241bdd5c6d3452), [`1948c7605`](https://github.com/justeattakeaway/pie/commit/1948c7605073d98a39a8e9dc174eb39b2d11431c), [`3bd8b3bf5`](https://github.com/justeattakeaway/pie/commit/3bd8b3bf5cec095db19f7b5a4cbaa6c640737125), [`2019a959a`](https://github.com/justeattakeaway/pie/commit/2019a959a59c8dc8087a0971960bd6649fe4da93), [`3bd8b3bf5`](https://github.com/justeattakeaway/pie/commit/3bd8b3bf5cec095db19f7b5a4cbaa6c640737125), [`575f559e7`](https://github.com/justeattakeaway/pie/commit/575f559e775cddf2118539c295241bdd5c6d3452), [`15ff86928`](https://github.com/justeattakeaway/pie/commit/15ff86928a4a7271fa3c7ecbb0156267b3ee6990), [`15ff86928`](https://github.com/justeattakeaway/pie/commit/15ff86928a4a7271fa3c7ecbb0156267b3ee6990), [`575f559e7`](https://github.com/justeattakeaway/pie/commit/575f559e775cddf2118539c295241bdd5c6d3452), [`15ff86928`](https://github.com/justeattakeaway/pie/commit/15ff86928a4a7271fa3c7ecbb0156267b3ee6990), [`15ff86928`](https://github.com/justeattakeaway/pie/commit/15ff86928a4a7271fa3c7ecbb0156267b3ee6990), [`790b7600f`](https://github.com/justeattakeaway/pie/commit/790b7600f17f352386300de274d5235756cee8da), [`251400a4a`](https://github.com/justeattakeaway/pie/commit/251400a4a797ebb049a7ae392aeb76fa596907e4), [`429ce9b2a`](https://github.com/justeattakeaway/pie/commit/429ce9b2a4a74af971c4c81d0edbf3e127fcf959)]:
+  - @justeattakeaway/pie-modal@0.4.0
+  - @justeattakeaway/pie-button@0.15.0
+  - @justeattakeaway/pie-icon-button@0.4.0
+
 ## 0.11.1
 
 ### Patch Changes
