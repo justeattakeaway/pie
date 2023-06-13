@@ -53,7 +53,13 @@ export const getSvgProps = (svgClasses, staticClass, iconSizeValue) => {
  */
 export const updateContextData = (ctx, svgClasses) => {
     const { staticClass } = ctx.data;
-    const { width, height, ...rest } = ctx.data.attrs || {};
+    /* eslint-disable @typescript-eslint/no-unused-vars */
+    const {
+        width,
+        height,
+        ...rest
+    } = ctx.data.attrs || {};
+    /* eslint-enable @typescript-eslint/no-unused-vars */
 
     const props = getSvgProps(svgClasses, staticClass, ctx.props.iconSize);
 
