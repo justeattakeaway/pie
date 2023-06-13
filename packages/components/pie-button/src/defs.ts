@@ -16,7 +16,7 @@ export const buttonSizes: ButtonSize[] = [
  */
 export type ButtonType = 'submit' | 'button' | 'reset' | 'menu';
 
-export const buttonTypes: ButtonTyps[] = [
+export const buttonTypes: ButtonType[] = [
     'submit',
     'button',
     'reset',

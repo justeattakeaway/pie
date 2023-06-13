@@ -5,12 +5,6 @@
     {
       "kind": "javascript-module",
       "path": "../../components/pie-button/src/defs.js",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "../../components/pie-button/src/helpers.js",
       "declarations": [
         {
           "kind": "variable",
@@ -24,7 +18,7 @@
           "kind": "variable",
           "name": "buttonTypes",
           "type": {
-            "text": "ButtonTyps[]"
+            "text": "ButtonType[]"
           },
           "default": "[\n    'submit',\n    'button',\n    'reset',\n    'menu',\n]"
         },
@@ -43,7 +37,7 @@
           "name": "buttonSizes",
           "declaration": {
             "name": "buttonSizes",
-            "module": "../../components/pie-button/src/helpers.js"
+            "module": "../../components/pie-button/src/defs.js"
           }
         },
         {
@@ -51,7 +45,7 @@
           "name": "buttonTypes",
           "declaration": {
             "name": "buttonTypes",
-            "module": "../../components/pie-button/src/helpers.js"
+            "module": "../../components/pie-button/src/defs.js"
           }
         },
         {
@@ -59,7 +53,7 @@
           "name": "buttonVariants",
           "declaration": {
             "name": "buttonVariants",
-            "module": "../../components/pie-button/src/helpers.js"
+            "module": "../../components/pie-button/src/defs.js"
           }
         }
       ]
@@ -93,7 +87,7 @@
               "kind": "field",
               "name": "type",
               "type": {
-                "text": "ButtonTypes"
+                "text": "ButtonType"
               },
               "default": "'submit'"
             },
@@ -101,7 +95,7 @@
               "kind": "field",
               "name": "variant",
               "type": {
-                "text": "ButtonVariants"
+                "text": "ButtonVariant"
               },
               "default": "'primary'"
             },
@@ -150,17 +144,17 @@
         },
         {
           "kind": "js",
-          "name": "ButtonTypes",
+          "name": "ButtonType",
           "declaration": {
-            "name": "ButtonTypes",
+            "name": "ButtonType",
             "module": "../../components/pie-button/src/index.js"
           }
         },
         {
           "kind": "js",
-          "name": "ButtonVariants",
+          "name": "ButtonVariant",
           "declaration": {
-            "name": "ButtonVariants",
+            "name": "ButtonVariant",
             "module": "../../components/pie-button/src/index.js"
           }
         },
@@ -209,12 +203,6 @@
     {
       "kind": "javascript-module",
       "path": "../../components/pie-icon-button/src/defs.js",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "../../components/pie-icon-button/src/helpers.js",
       "declarations": [
         {
           "kind": "variable",
@@ -231,7 +219,7 @@
           "name": "iconButtonVariants",
           "declaration": {
             "name": "iconButtonVariants",
-            "module": "../../components/pie-icon-button/src/helpers.js"
+            "module": "../../components/pie-icon-button/src/defs.js"
           }
         }
       ]
@@ -356,12 +344,6 @@
     {
       "kind": "javascript-module",
       "path": "../../components/pie-modal/src/defs.js",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "../../components/pie-modal/src/helpers.js",
       "declarations": [
         {
           "kind": "variable",
@@ -378,7 +360,7 @@
           "name": "headingLevels",
           "declaration": {
             "name": "headingLevels",
-            "module": "../../components/pie-modal/src/helpers.js"
+            "module": "../../components/pie-modal/src/defs.js"
           }
         }
       ]
@@ -503,36 +485,6 @@
           "declaration": {
             "name": "PieModal",
             "module": "../../components/pie-modal/src/index.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "../../components/pie-webc-core/src/mixins/index.js",
-      "declarations": [],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "*",
-          "declaration": {
-            "name": "*",
-            "package": "./rtl/rtlMixin"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "../../components/pie-webc-core/src/mixins/index.js",
-      "declarations": [],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "*",
-          "declaration": {
-            "name": "*",
-            "package": "./rtl/rtlMixin"
           }
         }
       ]
@@ -797,6 +749,36 @@
     },
     {
       "kind": "javascript-module",
+      "path": "../../components/pie-webc-core/src/mixins/index.js",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./rtl/rtlMixin"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../../components/pie-webc-core/src/test-helpers/components/index.js",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./web-component-test-wrapper/WebComponentTestWrapper"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "../../components/pie-webc-core/src/mixins/rtl/rtlMixin.js",
       "declarations": [
         {
@@ -839,21 +821,6 @@
           "declaration": {
             "name": "RtlMixin",
             "module": "../../components/pie-webc-core/src/mixins/rtl/rtlMixin.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "../../components/pie-webc-core/src/test-helpers/components/index.js",
-      "declarations": [],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "*",
-          "declaration": {
-            "name": "*",
-            "package": "./web-component-test-wrapper/WebComponentTestWrapper"
           }
         }
       ]

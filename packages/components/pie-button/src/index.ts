@@ -3,12 +3,12 @@ import { property } from 'lit/decorators.js';
 import { validPropertyValues } from '@justeattakeaway/pie-webc-core';
 
 import styles from './button.scss?inline';
-import type { ButtonSize, ButtonTypes, ButtonVariants } from '@/defs';
-import { buttonSizes, buttonTypes, buttonVariants } from '@/defs';
+import type { ButtonSize, ButtonType, ButtonVariant } from './defs';
+import { buttonSizes, buttonTypes, buttonVariants } from './defs';
 
 // Valid values available to consumers
 export {
-    ButtonSize, ButtonTypes, ButtonVariants,
+    ButtonSize, ButtonType, ButtonVariant,
     buttonSizes, buttonTypes, buttonVariants,
 };
 
@@ -21,11 +21,11 @@ export class PieButton extends LitElement {
 
     @property()
     @validPropertyValues(componentSelector, buttonTypes, 'submit')
-        type: ButtonTypes = 'submit';
+        type: ButtonType = 'submit';
 
     @property()
     @validPropertyValues(componentSelector, buttonVariants, 'primary')
-        variant: ButtonVariants = 'primary';
+        variant: ButtonVariant = 'primary';
 
     @property({ type: Boolean })
         disabled = false;

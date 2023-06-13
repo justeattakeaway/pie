@@ -4,7 +4,7 @@ import {
     PropObject, Combination, getAllPropCombinations, splitCombinationsByPropertyValue,
 } from '@justeattakeaway/pie-webc-core/src/test-helpers/get-all-prop-combos.ts';
 import { PieButton } from '../../src/index.ts';
-import { buttonSizes, buttonVariants } from '@/defs.js';
+import { buttonSizes, buttonVariants } from '@/defs';
 
 const props: PropObject = {
     variant: buttonVariants,
