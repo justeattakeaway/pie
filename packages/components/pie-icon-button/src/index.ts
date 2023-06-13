@@ -3,17 +3,10 @@ import { property } from 'lit/decorators.js'; // eslint-disable-line import/no-e
 import { validPropertyValues } from '@justeattakeaway/pie-webc-core';
 import styles from './iconButton.scss?inline';
 import type { ICON_BUTTON_VARIANT } from './defs';
-
-export const iconButtonVariants: ICON_BUTTON_VARIANT[] = [
-    'primary',
-    'secondary',
-    'outline',
-    'ghost',
-    'ghost-tertiary',
-];
+import { iconButtonVariants } from './helpers';
 
 // Valid values available to consumers
-export { ICON_BUTTON_VARIANT };
+export { ICON_BUTTON_VARIANT, iconButtonVariants };
 
 const componentSelector = 'pie-icon-button';
 

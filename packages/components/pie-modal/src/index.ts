@@ -5,11 +5,10 @@ import { RtlMixin, validPropertyValues, requiredProperty } from '@justeattakeawa
 
 import styles from './modal.scss?inline';
 import type { HEADING_LEVELS } from './defs';
-
-export const headingLevels: HEADING_LEVELS[] = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
+import { headingLevels } from './helpers';
 
 // Valid values available to consumers
-export { HEADING_LEVELS };
+export { HEADING_LEVELS, headingLevels };
 
 const componentSelector = 'pie-modal';
 

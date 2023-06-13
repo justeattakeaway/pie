@@ -3,7 +3,8 @@ import AxeBuilder from '@axe-core/playwright';
 import {
     PropObject, Combination, getAllPropCombinations, splitCombinationsByPropertyValue,
 } from '@justeattakeaway/pie-webc-core/src/test-helpers/get-all-prop-combos.ts';
-import { PieButton, buttonSizes, buttonVariants } from '../../src/index.ts';
+import { PieButton } from '../../src/index.ts';
+import { buttonSizes, buttonVariants } from '@/helpers.js';
 
 const props: PropObject = {
     variant: buttonVariants,

@@ -12,7 +12,8 @@ import {
 import {
     WebComponentTestWrapper,
 } from '@justeattakeaway/pie-webc-core/src/test-helpers/components/web-component-test-wrapper/WebComponentTestWrapper.ts';
-import { PieButton, buttonSizes, buttonVariants } from '@/index';
+import { PieButton } from '@/index';
+import { buttonSizes, buttonVariants } from '@/helpers';
 
 const props: PropObject = {
     variant: buttonVariants,
