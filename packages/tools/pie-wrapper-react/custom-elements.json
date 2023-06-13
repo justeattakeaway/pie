@@ -5,6 +5,12 @@
     {
       "kind": "javascript-module",
       "path": "../../components/pie-button/src/defs.js",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../../components/pie-button/src/helpers.js",
       "declarations": [
         {
           "kind": "variable",
@@ -37,7 +43,7 @@
           "name": "buttonSizes",
           "declaration": {
             "name": "buttonSizes",
-            "module": "../../components/pie-button/src/defs.js"
+            "module": "../../components/pie-button/src/helpers.js"
           }
         },
         {
@@ -45,7 +51,7 @@
           "name": "buttonTypes",
           "declaration": {
             "name": "buttonTypes",
-            "module": "../../components/pie-button/src/defs.js"
+            "module": "../../components/pie-button/src/helpers.js"
           }
         },
         {
@@ -53,7 +59,7 @@
           "name": "buttonVariants",
           "declaration": {
             "name": "buttonVariants",
-            "module": "../../components/pie-button/src/defs.js"
+            "module": "../../components/pie-button/src/helpers.js"
           }
         }
       ]
@@ -62,6 +68,14 @@
       "kind": "javascript-module",
       "path": "../../components/pie-button/src/index.js",
       "declarations": [
+        {
+          "kind": "variable",
+          "name": "componentSelector",
+          "type": {
+            "text": "string"
+          },
+          "default": "'pie-button'"
+        },
         {
           "kind": "class",
           "description": "",
@@ -121,7 +135,7 @@
             "name": "LitElement",
             "package": "lit"
           },
-          "tagName": "pie-button",
+          "tagName": "componentSelector",
           "customElement": true
         }
       ],
@@ -184,7 +198,7 @@
         },
         {
           "kind": "custom-element-definition",
-          "name": "pie-button",
+          "name": "componentSelector",
           "declaration": {
             "name": "PieButton",
             "module": "../../components/pie-button/src/index.js"
@@ -195,6 +209,12 @@
     {
       "kind": "javascript-module",
       "path": "../../components/pie-icon-button/src/defs.js",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../../components/pie-icon-button/src/helpers.js",
       "declarations": [
         {
           "kind": "variable",
@@ -211,7 +231,7 @@
           "name": "iconButtonVariants",
           "declaration": {
             "name": "iconButtonVariants",
-            "module": "../../components/pie-icon-button/src/defs.js"
+            "module": "../../components/pie-icon-button/src/helpers.js"
           }
         }
       ]
@@ -220,6 +240,14 @@
       "kind": "javascript-module",
       "path": "../../components/pie-icon-button/src/index.js",
       "declarations": [
+        {
+          "kind": "variable",
+          "name": "componentSelector",
+          "type": {
+            "text": "string"
+          },
+          "default": "'pie-icon-button'"
+        },
         {
           "kind": "class",
           "description": "",
@@ -255,7 +283,7 @@
             "name": "LitElement",
             "package": "lit"
           },
-          "tagName": "pie-icon-button",
+          "tagName": "componentSelector",
           "customElement": true
         }
       ],
@@ -286,7 +314,7 @@
         },
         {
           "kind": "custom-element-definition",
-          "name": "pie-icon-button",
+          "name": "componentSelector",
           "declaration": {
             "name": "PieIconButton",
             "module": "../../components/pie-icon-button/src/index.js"
@@ -296,7 +324,44 @@
     },
     {
       "kind": "javascript-module",
+      "path": "../../components/pie-webc-core/src/index.js",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./mixins"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./decorators"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./test-helpers"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "../../components/pie-modal/src/defs.js",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../../components/pie-modal/src/helpers.js",
       "declarations": [
         {
           "kind": "variable",
@@ -313,7 +378,7 @@
           "name": "headingLevels",
           "declaration": {
             "name": "headingLevels",
-            "module": "../../components/pie-modal/src/defs.js"
+            "module": "../../components/pie-modal/src/helpers.js"
           }
         }
       ]
@@ -322,6 +387,14 @@
       "kind": "javascript-module",
       "path": "../../components/pie-modal/src/index.js",
       "declarations": [
+        {
+          "kind": "variable",
+          "name": "componentSelector",
+          "type": {
+            "text": "string"
+          },
+          "default": "'pie-modal'"
+        },
         {
           "kind": "class",
           "description": "",
@@ -395,7 +468,7 @@
             "name": "LitElement",
             "package": "lit"
           },
-          "tagName": "pie-modal",
+          "tagName": "componentSelector",
           "customElement": true
         }
       ],
@@ -426,7 +499,7 @@
         },
         {
           "kind": "custom-element-definition",
-          "name": "pie-modal",
+          "name": "componentSelector",
           "declaration": {
             "name": "PieModal",
             "module": "../../components/pie-modal/src/index.js"
@@ -436,7 +509,7 @@
     },
     {
       "kind": "javascript-module",
-      "path": "../../components/pie-webc-core/src/index.js",
+      "path": "../../components/pie-webc-core/src/mixins/index.js",
       "declarations": [],
       "exports": [
         {
@@ -444,23 +517,7 @@
           "name": "*",
           "declaration": {
             "name": "*",
-            "package": "./mixins"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "*",
-          "declaration": {
-            "name": "*",
-            "package": "./decorators"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "*",
-          "declaration": {
-            "name": "*",
-            "package": "./test-helpers"
+            "package": "./rtl/rtlMixin"
           }
         }
       ]
@@ -566,21 +623,6 @@
           "declaration": {
             "name": "validPropertyValues",
             "module": "../../components/pie-webc-core/src/decorators/valid-property-values.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "../../components/pie-webc-core/src/mixins/index.js",
-      "declarations": [],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "*",
-          "declaration": {
-            "name": "*",
-            "package": "./rtl/rtlMixin"
           }
         }
       ]

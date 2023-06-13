@@ -47,10 +47,10 @@ export class PieModal extends RtlMixin(LitElement) {
     static styles = unsafeCSS(styles);
 }
 
-customElements.define('pie-modal', PieModal);
+customElements.define(componentSelector, PieModal);
 
 declare global {
     interface HTMLElementTagNameMap {
-        'pie-modal': PieModal;
+        [componentSelector]: PieModal;
     }
 }
