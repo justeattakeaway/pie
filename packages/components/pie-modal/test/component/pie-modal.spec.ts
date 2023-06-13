@@ -1,7 +1,9 @@
 import { test, expect } from '@sand4rt/experimental-ct-web';
-import { PieModal, headingLevels } from '@/index';
+import { HEADING_LEVELS, PieModal } from '@/index';
 
-headingLevels.forEach((headingLevel) => test(`should render the correct heading tag based on the value of headingLevel: ${headingLevel}`, async ({ mount }) => {
+const levels : HEADING_LEVELS[] = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
+
+levels.forEach((headingLevel) => test(`should render the correct heading tag based on the value of headingLevel: ${headingLevel}`, async ({ mount }) => {
     const props = {
         heading: 'Modal Header',
         headingLevel,

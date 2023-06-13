@@ -12,21 +12,21 @@ export const buttonSizes: BUTTON_SIZE[] = [
     'small-expressive',
     'small-productive',
     'medium',
-    'large'
+    'large',
 ];
 
 export const buttonTypes: BUTTON_TYPE[] = [
     'submit',
     'button',
     'reset',
-    'menu'
+    'menu',
 ];
 
 export const buttonVariants: BUTTON_VARIANT[] = [
     'primary',
     'secondary',
     'outline',
-    'ghost'
+    'ghost',
 ];
 
 // Valid values available to consumers

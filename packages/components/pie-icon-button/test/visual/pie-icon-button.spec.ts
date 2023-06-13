@@ -12,11 +12,10 @@ import {
 import {
     WebComponentTestWrapper,
 } from '@justeattakeaway/pie-webc-core/src/test-helpers/components/web-component-test-wrapper/WebComponentTestWrapper.ts';
-import { PieIconButton } from '@/index';
-import { ICON_BUTTON_VARIANT } from '@/defs';
+import { PieIconButton, iconButtonVariants } from '@/index';
 
 const props: PropObject = {
-    variant: Object.values(ICON_BUTTON_VARIANT),
+    variant: iconButtonVariants,
     disabled: [true, false],
 };
 
