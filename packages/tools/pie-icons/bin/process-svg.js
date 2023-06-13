@@ -6,11 +6,14 @@ import { DEFAULT_ATTRS } from '../src/default-attrs';
 /**
  * Process SVG string.
  * @param {string} svg - An SVG string.
+ * @param {string} fileName - An svg file name string.
+ * @param {string} filePath - An svg file path string.
  * @param {Promise<string>}
  */
-function processSvg (svg) {
+function processSvg (svg, fileName, filePath) {
     return (
         optimizeSVG(svg)
+            .then((svg) => removeFillAttribute(svg, fileName, filePath))
             .then(setAttrs)
             .then((data) => prettier.format(data, {
                 parser: 'babel',
@@ -61,6 +64,22 @@ function setAttrs (svg) {
     Object.keys(DEFAULT_ATTRS).forEach((key) => $('svg').attr(key, DEFAULT_ATTRS[key]));
 
     return $('body').html();
+}
+
+/**
+ * Remove fill attr from an svg if the svgName doesn't contain "-static" and it is not a flag or payment icon.
+ * @param {string} svg - An SVG string.
+ * @param {string} fileName - An svg file name string.
+ * @param {string} filePath - An svg file path string.
+ * @returns {string}
+ */
+
+function removeFillAttribute (svg, fileName, filePath) {
+    const shouldNotProcessFile = fileName.includes('-static') || filePath.includes('assets/flag') || filePath.includes('assets/payment');
+    if (shouldNotProcessFile) {
+        return svg;
+    }
+    return svg.replace(/fill=".*?"/gm, '');
 }
 
 export default processSvg;
