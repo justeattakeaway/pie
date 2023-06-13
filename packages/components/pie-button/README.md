@@ -99,6 +99,13 @@ Here's an example of how to import and use the enums in a TypeScript project:
 
 ```typescript
 import { ButtonSize, ButtonType, ButtonVariant } from '@justeattakeaway/pie-button';
+```
+
+In your markup or JSX, you can then use these variables to set the properties for the pie-button component:
+
+```html
+<PieButton size='medium' type='button' variant='primary'>Click me!</PieButton>
+```
 
 ## Testing
 
