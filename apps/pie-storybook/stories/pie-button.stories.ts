@@ -1,6 +1,6 @@
 import type { Meta, StoryObj as Story } from '@storybook/web-components';
 import type {
-    BUTTON_SIZE, BUTTON_TYPE, BUTTON_VARIANT,
+    ButtonSize, ButtonType, ButtonVairant,
 } from '@justeattakeaway/pie-button';
 import {
     buttonSizes, buttonTypes, buttonVariants,
@@ -49,9 +49,9 @@ export default {
 } as Meta;
 
 interface ButtonProps {
-    size: BUTTON_SIZE;
-    variant: BUTTON_VARIANT;
-    type: BUTTON_TYPE;
+    size: ButtonSize;
+    variant: ButtonVairant;
+    type: ButtonType;
     disabled: boolean;
     isFullWidth: boolean;
     slot: TemplateResult;
