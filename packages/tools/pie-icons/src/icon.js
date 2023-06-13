@@ -9,8 +9,6 @@ class Icon {
         this.attrs = {
             ...DEFAULT_ATTRS,
             ...attrs,
-            role: 'presentation',
-            focusable: false,
         };
         if (pathPrefix !== undefined && pathPrefix !== '') {
             this.pathPrefix = pathPrefix;

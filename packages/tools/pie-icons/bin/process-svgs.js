@@ -17,7 +17,7 @@ svgFiles.forEach((svgObject) => {
     const svg = fs.readFileSync(fullPath);
     const directorySuffix = pathHelpers.getAssetDirectoryName(svgObject.path);
 
-    processSvg(svg)
+    processSvg(svg, svgObject.fileName, fullPath)
         .then((svg) => {
             const outputDirectory = OUT_DIR + directorySuffix;
             const normalisedFilename = (svgObject.fileName).toLowerCase();

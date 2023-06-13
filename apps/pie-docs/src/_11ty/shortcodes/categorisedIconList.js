@@ -10,11 +10,20 @@ const pieIcons = require('../filters/pieIconsSvg')();
  * @returns
  */
 const buildIconCard = (icon) => {
-    const pieIcon = pieIcons.find((x) => x.name === icon.name).icon;
+    const pieIcon = pieIcons.find((x) => x.name === icon.name)?.icon;
+
+    if (!pieIcon) {
+        throw new Error(`Could not find icon with name "${icon.name}".`);
+    }
 
     let largeIcon;
+
     if (!icon.oneSize) {
-        largeIcon = pieIcons.find((x) => x.name === `${icon.name}-large`).icon;
+        largeIcon = pieIcons.find((x) => x.name === `${icon.name}-large`)?.icon;
+
+        if (!largeIcon) {
+            throw new Error(`Could not find icon with name "${icon.name}-large".`);
+        }
     }
 
     // If there is only one size of icon then make the regular one larger

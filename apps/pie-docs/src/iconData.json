@@ -1697,8 +1697,8 @@
             "displayName": "Social",
             "icons": [
                 {
-                    "name": "facebook",
-                    "displayName": "Facebook"
+                    "name": "facebook-static",
+                    "displayName": "Facebook Static"
                 },
                 {
                     "name": "facebook-circle",
@@ -1709,8 +1709,8 @@
                     "displayName": "Facebook Circle Filled"
                 },
                 {
-                    "name": "instagram",
-                    "displayName": "Instagram"
+                    "name": "instagram-static",
+                    "displayName": "Instagram Static"
                 },
                 {
                     "name": "instagram-circle",
@@ -1721,8 +1721,8 @@
                     "displayName": "Instagram Circle Filled"
                 },
                 {
-                    "name": "twitter",
-                    "displayName": "Twitter"
+                    "name": "twitter-static",
+                    "displayName": "Twitter Static"
                 },
                 {
                     "name": "twitter-circle",
@@ -1733,8 +1733,8 @@
                     "displayName": "Twitter Circle Filled"
                 },
                 {
-                    "name": "youtube",
-                    "displayName": "YouTube"
+                    "name": "youtube-static",
+                    "displayName": "YouTube Static"
                 },
                 {
                     "name": "youtube-circle",
@@ -1745,8 +1745,8 @@
                     "displayName": "YouTube Circle Filled"
                 },
                 {
-                    "name": "apple",
-                    "displayName": "Apple"
+                    "name": "apple-static",
+                    "displayName": "Apple Static"
                 },
                 {
                     "name": "apple-circle",
@@ -1757,8 +1757,8 @@
                     "displayName": "Apple Circle Filled"
                 },
                 {
-                    "name": "google",
-                    "displayName": "Google"
+                    "name": "google-static",
+                    "displayName": "Google Static"
                 },
                 {
                     "name": "google-circle",
@@ -1769,8 +1769,8 @@
                     "displayName": "Google Circle Filled"
                 },
                 {
-                    "name": "pinterest",
-                    "displayName": "Pinterest"
+                    "name": "pinterest-static",
+                    "displayName": "Pinterest Static"
                 },
                 {
                     "name": "pinterest-circle",
@@ -1781,8 +1781,8 @@
                     "displayName": "Pinterest Circle Filled"
                 },
                 {
-                    "name": "linkedin",
-                    "displayName": "LinkedIn"
+                    "name": "linkedin-static",
+                    "displayName": "LinkedIn Static"
                 },
                 {
                     "name": "linkedin-circle",
@@ -1793,20 +1793,20 @@
                     "displayName": "LinkedIn Circle Filled"
                 },
                 {
-                    "name": "microsoft",
-                    "displayName": "Microsoft"
+                    "name": "microsoft-static",
+                    "displayName": "Microsoft Static"
                 },
                 {
-                    "name": "microsoft-circle",
-                    "displayName": "Microsoft Circle"
+                    "name": "microsoft-circle-static",
+                    "displayName": "Microsoft Circle Static"
                 },
                 {
-                    "name": "microsoft-circle-filled",
-                    "displayName": "Microsoft Circle Filled"
+                    "name": "microsoft-circle-filled-static",
+                    "displayName": "Microsoft Circle Filled Static"
                 },
                 {
-                    "name": "blogger",
-                    "displayName": "Blogger"
+                    "name": "blogger-static",
+                    "displayName": "Blogger Static"
                 },
                 {
                     "name": "blogger-circle",
@@ -1817,8 +1817,8 @@
                     "displayName": "Blogger Circle Filled"
                 },
                 {
-                    "name": "android",
-                    "displayName": "Android"
+                    "name": "android-static",
+                    "displayName": "Android Static"
                 },
                 {
                     "name": "android-circle",
