@@ -1,10 +1,6 @@
 import type { Meta, StoryObj as Story } from '@storybook/web-components';
-import type {
-    ButtonSize, ButtonType, ButtonVairant,
-} from '@justeattakeaway/pie-button';
-import {
-    buttonSizes, buttonTypes, buttonVariants,
-} from '@justeattakeaway/pie-button';
+import type { ButtonSize, ButtonType, ButtonVairant } from '@justeattakeaway/pie-button';
+import { buttonSizes, buttonTypes, buttonVariants } from '@justeattakeaway/pie-button';
 import { html, TemplateResult } from 'lit';
 
 export default {

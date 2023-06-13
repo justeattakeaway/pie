@@ -4,4 +4,4 @@
 "@justeattakeaway/pie-modal": minor
 ---
 
-[Update] - enum types to string union typess to string union types
+[Updated] - enum types to string union typess to string union types

@@ -93,12 +93,12 @@ For example, to add a click handler in various templates:
 
 ## TypeScript Type Exports
 
-For TypeScript projects, we export three types related to button properties: `BUTTON_SIZE`, `BUTTON_TYPE`, and `BUTTON_VARIANT`. You can import and use these types to set the corresponding property values for the `pie-button` component. This ensures better type safety and autocompletion in your project.
+For TypeScript projects, we export three types related to button properties: `ButtonSize`, `ButtonType`, and `ButtonVariant`. You can import and use these types to set the corresponding property values for the `pie-button` component. This ensures better type safety and autocompletion in your project.
 
 Here's an example of how to import and use the enums in a TypeScript project:
 
 ```typescript
-import { BUTTON_SIZE, BUTTON_TYPE, BUTTON_VARIANT } from '@justeattakeaway/pie-button';
+import { ButtonSize, ButtonType, ButtonVariant } from '@justeattakeaway/pie-button';
 
 ## Testing
 
