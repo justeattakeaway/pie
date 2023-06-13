@@ -71,7 +71,7 @@ Example:
 ```
 
 ### Styles
-Vue icons package doesn't provide css styles. Css classes `c-pieIcon c-pieIcon--{iconName}` are available for consuming applications to add styles needed for the their project.
+The Vue icons package doesn't provide CSS styles. CSS classes `c-pieIcon c-pieIcon--{iconName}` are available for consuming applications to add the styles they require.
 
 ### Tree shaking
 

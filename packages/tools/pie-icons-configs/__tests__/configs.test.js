@@ -187,6 +187,8 @@ describe('getSvgProps', () => {
         describe('when provided with invalid parameters', () => {
             describe('when provided with an invalid iconSize', () => {
                 const iconName = 'IconAppOrder';
+                const errorMock = vi.fn();
+                console.error = errorMock;
 
                 it('returns an object with width and height properties', () => {
                     const received = getSvgProps('pie-icon pie-icon--app-order-large', null, null, iconName);
@@ -218,7 +220,7 @@ describe('getSvgProps', () => {
                 });
 
                 it('outputs a console error', () => {
-                    const spy = vi.spyOn(console, 'error').mockImplementation(() => {});
+                    const spy = vi.spyOn(console, 'error').mockImplementation(vi.fn());
 
                     getSvgProps('pie-icon pie-icon--app-order-large', 'FOO', null, iconName);
 

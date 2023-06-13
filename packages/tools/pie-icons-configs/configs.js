@@ -61,14 +61,11 @@ export function validateGetLargeIconSize (iconSizeValue) {
 export function validateGetRegularIconSize (iconSizeValue) {
     const isValid = iconSizeValidator.regular(iconSizeValue);
 
-    if (!isValid) {
-        const iconSize = sizeToValueMap[regularIconSizeDefault];
-        return { isValid: false, iconSize };
-    }
+    const iconSize = isValid
+        ? sizeToValueMap[iconSizeValue]
+        : sizeToValueMap[regularIconSizeDefault];
 
-    const iconSize = sizeToValueMap[iconSizeValue];
-
-    return { isValid: true, iconSize };
+    return { isValid, iconSize };
 }
 
 /**
@@ -83,7 +80,7 @@ export function validateGetRegularIconSize (iconSizeValue) {
 export const getSvgProps = (svgClasses, staticClasses, iconSizeValue, componentName) => {
     const isLargeIcon = svgClasses.endsWith('Large') || svgClasses.endsWith('-large');
 
-    const { isValid, iconSize: validIconSize } = isLargeIcon
+    const { isValid, iconSize } = isLargeIcon
         ? validateGetLargeIconSize(iconSizeValue)
         : validateGetRegularIconSize(iconSizeValue);
 
@@ -97,7 +94,7 @@ export const getSvgProps = (svgClasses, staticClasses, iconSizeValue, componentN
 
     return {
         class: [svgClasses, staticClasses].filter(Boolean).join(' '),
-        width: validIconSize,
-        height: validIconSize,
+        width: iconSize,
+        height: iconSize,
     };
 };

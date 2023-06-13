@@ -35,7 +35,7 @@ Check the JSDocs attached to each of the utility functions if you want to know m
 
 The tests were added to ensure the utility functions behavior consistency.
 
-You can run the tests with `yarn test`.
+You can run the tests with `yarn test --filter=pie-icons-configs`.
 
 
 ## Contributing
