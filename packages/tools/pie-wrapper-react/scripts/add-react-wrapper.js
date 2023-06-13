@@ -27,8 +27,8 @@ export function addReactWrapper (customElementsObject, folderName = process.argv
                 if (k.path.includes(folderName)) {
                     k.declarations.forEach((decl) => {
                         if (decl.customElement === true) {
-                            const variableKind = k.declarations.filter((i) => i.kind === 'variable');
-                            components.push({ class: { ...decl, tagName: variableKind[0]?.default.replace(/'/g, '') ?? decl.tagName }, path: k.path.replace('index.js', 'react.ts') });
+                            const componentSelector = k.declarations.find((i) => i.kind === 'variable' && i.name === 'componentSelector');
+                            components.push({ class: { ...decl, tagName: componentSelector?.default.replace(/'/g, '') ?? decl.tagName }, path: k.path.replace('index.js', 'react.ts') });
                         }
                     });
                 }

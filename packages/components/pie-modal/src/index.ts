@@ -50,6 +50,6 @@ customElements.define(componentSelector, PieModal);
 
 declare global {
     interface HTMLElementTagNameMap {
-        'pie-modal': PieModal;
+        [componentSelector]: PieModal;
     }
 }
