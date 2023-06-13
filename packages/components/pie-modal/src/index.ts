@@ -6,12 +6,13 @@ import { RtlMixin, validPropertyValues, requiredProperty } from '@justeattakeawa
 import styles from './modal.scss?inline';
 import type { HEADING_LEVELS } from './defs';
 
+export const headingLevels: HEADING_LEVELS[] = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
+
 // Valid values available to consumers
 export { HEADING_LEVELS };
 
 const componentSelector = 'pie-modal';
 
-export const headingLevels: HEADING_LEVELS[] = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
 export class PieModal extends RtlMixin(LitElement) {
     @property({ type: Boolean })
         isOpen = false;
