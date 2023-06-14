@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.0
+
+### Minor Changes
+
+- [Added] - New function to fix CSS loading in Safari Percy tests ([#534](https://github.com/justeattakeaway/pie/pull/534)) by [@siggerzz](https://github.com/siggerzz)
+
 ## 0.3.0
 
 ### Minor Changes
