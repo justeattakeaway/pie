@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.12.1
+
+### Patch Changes
+
+- [Fixed] - Issue where changeset PR's weren't running CI jobs ([#537](https://github.com/justeattakeaway/pie/pull/537)) by [@siggerzz](https://github.com/siggerzz)
+
 ## 2.12.0
 
 ### Minor Changes
