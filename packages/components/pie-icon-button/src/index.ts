@@ -1,5 +1,5 @@
-import { LitElement, html, unsafeCSS } from 'lit'; // eslint-disable-line import/no-extraneous-dependencies
-import { property } from 'lit/decorators.js'; // eslint-disable-line import/no-extraneous-dependencies
+import { LitElement, html, unsafeCSS } from 'lit';
+import { property } from 'lit/decorators.js';
 import { validPropertyValues } from '@justeattakeaway/pie-webc-core';
 import styles from './iconButton.scss?inline';
 import { IconButtonProps, iconButtonVariants } from './defs';

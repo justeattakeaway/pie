@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
 const { vue, vue3 } = require('@justeattakeaway/eslint-config-pie/frameworks');
 
 module.exports = {

@@ -1,6 +1,6 @@
-import { LitElement, unsafeCSS } from 'lit'; // eslint-disable-line import/no-extraneous-dependencies
+import { LitElement, unsafeCSS } from 'lit';
 import { html, unsafeStatic } from 'lit/static-html.js';
-import { property } from 'lit/decorators.js'; // eslint-disable-line import/no-extraneous-dependencies
+import { property } from 'lit/decorators.js';
 import { RtlMixin, validPropertyValues, requiredProperty } from '@justeattakeaway/pie-webc-core';
 
 import styles from './modal.scss?inline';
@@ -27,7 +27,7 @@ export class PieModal extends RtlMixin(LitElement) {
         const {
             isOpen,
             heading,
-            headingLevel,
+            headingLevel = 'h2',
         } = this;
 
         const headingTag = unsafeStatic(headingLevel);

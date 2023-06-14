@@ -5,6 +5,11 @@ module.exports = {
 
         'import/no-relative-packages': 'error',
         'import/no-relative-parent-imports': 'off',
+        'import/no-extraneous-dependencies': 'off',
+        'import/extensions': ['error', 'ignorePackages', {
+            ts: 'never',
+            js: 'never',
+        }],
 
         'import/no-unresolved': [
             'error',
@@ -15,5 +20,12 @@ module.exports = {
         ],
 
         'import/no-unused-modules': 'off',
+    },
+    settings: {
+        'import/resolver': {
+            node: {
+                extensions: ['.js', '.jsx', '.ts', '.tsx'],
+            },
+        },
     },
 };

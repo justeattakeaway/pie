@@ -1,4 +1,4 @@
-import { LitElement, html, unsafeCSS } from 'lit'; // eslint-disable-line import/no-extraneous-dependencies
+import { LitElement, html, unsafeCSS } from 'lit';
 import { property } from 'lit/decorators.js';
 import styles from './webComponentTestWrapper.scss?inline';
 

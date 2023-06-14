@@ -1,10 +1,10 @@
 import { test, expect } from '@sand4rt/experimental-ct-web';
 import AxeBuilder from '@axe-core/playwright';
-import {
-    PropObject, Combination, getAllPropCombinations, splitCombinationsByPropertyValue,
+import { getAllPropCombinations, splitCombinationsByPropertyValue,
 } from '@justeattakeaway/pie-webc-core/src/test-helpers/get-all-prop-combos.ts';
-import { PieButton } from '@/index.ts';
+import { PieButton } from '@/index';
 import { buttonSizes, buttonVariants } from '@/defs';
+import { PropObject, WebComponentPropValues } from '@justeattakeaway/pie-webc-core/src/test-helpers/defs.ts';
 
 const props: PropObject = {
     variant: buttonVariants,
@@ -14,12 +14,12 @@ const props: PropObject = {
     disabled: [true, false],
 };
 
-const componentPropsMatrix : Combination[] = getAllPropCombinations(props);
-const componentPropsMatrixByVariant: Record<string, Combination[]> = splitCombinationsByPropertyValue(componentPropsMatrix, 'variant');
+const componentPropsMatrix : WebComponentPropValues[] = getAllPropCombinations(props);
+const componentPropsMatrixByVariant: Record<string, WebComponentPropValues[]> = splitCombinationsByPropertyValue(componentPropsMatrix, 'variant');
 const componentVariants: string[] = Object.keys(componentPropsMatrixByVariant);
 
 componentVariants.forEach((variant) => test(`Render all prop variations for Variant: ${variant}`, async ({ page, mount }) => {
-    await Promise.all(componentPropsMatrixByVariant[variant].map(async (combo: Combination) => {
+    await Promise.all(componentPropsMatrixByVariant[variant].map(async (combo: WebComponentPropValues) => {
         await mount(
             PieButton,
             {
@@ -31,7 +31,7 @@ componentVariants.forEach((variant) => test(`Render all prop variations for Vari
         );
     }));
 
-    const results = await new AxeBuilder.default({ page })
+    const results = await new AxeBuilder({ page })
         .withTags(['wcag21a', 'wcag21aa', 'wcag143', 'cat.color', 'cat.aria'])
         .disableRules(['color-contrast', 'color-contrast-enhanced'])
         .analyze();

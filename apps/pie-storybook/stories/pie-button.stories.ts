@@ -1,6 +1,6 @@
 import type { Meta, StoryObj as Story } from '@storybook/web-components';
 import {
-    ButtonProps, buttonSizes, buttonTypes, buttonVariants,
+    ButtonProps as ButtonPropsBase, buttonSizes, buttonTypes, buttonVariants,
 } from '@justeattakeaway/pie-button';
 import { html, TemplateResult } from 'lit';
 
@@ -45,11 +45,7 @@ export default {
     },
 } as Meta;
 
-interface ButtonProps {
-    disabled: boolean;
-    isFullWidth: boolean;
-    slot: TemplateResult;
-}
+type ButtonProps = ButtonPropsBase & { slot: string }
 
 const Template = ({
     size, variant, type, disabled, isFullWidth, slot,
@@ -64,7 +60,7 @@ const Template = ({
         </pie-button>
         `;
 
-const defaultArgs = {
+const defaultArgs:ButtonProps = {
     size: 'medium',
     type: 'submit',
     variant: 'primary',
@@ -73,24 +69,24 @@ const defaultArgs = {
     slot: 'This is Lit!',
 };
 
-export const Primary: Story = Template.bind({});
+export const Primary: Story<ButtonProps> = (args: ButtonProps) => Template(args);
 Primary.args = {
     ...defaultArgs,
 };
 
-export const Secondary: Story = Template.bind({});
+export const Secondary: Story<ButtonProps> = (args: ButtonProps) => Template(args);
 Secondary.args = {
     ...defaultArgs,
     variant: 'secondary',
 };
 
-export const Outline: Story = Template.bind({});
+export const Outline: Story<ButtonProps> = (args: ButtonProps) => Template(args);
 Outline.args = {
     ...defaultArgs,
     variant: 'outline',
 };
 
-export const Ghost: Story = Template.bind({});
+export const Ghost: Story<ButtonProps> = (args: ButtonProps) => Template(args);
 Ghost.args = {
     ...defaultArgs,
     variant: 'ghost',

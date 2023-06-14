@@ -443,14 +443,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@axe-core/playwright@npm:4.6.1":
-  version: 4.6.1
-  resolution: "@axe-core/playwright@npm:4.6.1"
+"@axe-core/playwright@npm:4.7.3":
+  version: 4.7.3
+  resolution: "@axe-core/playwright@npm:4.7.3"
   dependencies:
-    axe-core: ^4.6.3
+    axe-core: ^4.7.0
   peerDependencies:
-    playwright: ">= 1.0.0"
-  checksum: 5609c49cbfea423a5b7fcd7af995a550cffb7f5807a5f9b4e9ab6be54224b850c05dc7d65808719ce19e9d5cdef295b8d4cebb7880c1973ab7423fe020d55370
+    playwright-core: ">= 1.0.0"
+  checksum: c913cf6a816af283fc733411013460656213cf6c0efffcc36db1fd2984ffac3d780efd0a9aabd3b41ce78e2a536fee9ba5436d19311f660067e4c3560677b115
   languageName: node
   linkType: hard
 
@@ -11015,7 +11015,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axe-core@npm:^4.2.0, axe-core@npm:^4.6.2, axe-core@npm:^4.6.3":
+"axe-core@npm:^4.2.0, axe-core@npm:^4.6.2, axe-core@npm:^4.7.0":
   version: 4.7.2
   resolution: "axe-core@npm:4.7.2"
   checksum: 5d86fa0f45213b0e54cbb5d713ce885c4a8fe3a72b92dd915a47aa396d6fd149c4a87fec53aa978511f6d941402256cfeb26f2db35129e370f25a453c688655a
@@ -26746,7 +26746,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "pie-monorepo@workspace:."
   dependencies:
-    "@axe-core/playwright": 4.6.1
+    "@axe-core/playwright": 4.7.3
     "@babel/cli": 7.21.5
     "@babel/core": 7.22.1
     "@babel/eslint-parser": 7.21.8
