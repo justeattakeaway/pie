@@ -57,8 +57,7 @@ jobs:
       - name: Build ${{ inputs.package-name }}
         uses: ./.github/actions/run-script
         with:
-          script-name: "build"
-          package-name: ${{ inputs.package-name }}
+          script-name: "build --filter=${{ inputs.package-name}}"
       # Create Github Deployment
       - name: Create Docs GitHub deployment
         if: ${{ github.event_name == 'pull_request' }}

@@ -9,17 +9,17 @@ export default {
     },
     functional: true,
     render (h, ctx) {
-        ctx.data = updateContextData(ctx, 'c-pieIcon c-pieIcon--pauseCircleFilledLarge');
+        ctx.data = updateContextData(ctx, 'c-pieIcon c-pieIcon--pauseCircleFilledLarge', 'IconPauseCircleFilledLarge');
         return h('svg', _mergeJSXProps([{
             attrs: {
                 xmlns: 'http://www.w3.org/2000/svg',
-                viewBox: '0 0 32 32',
                 role: 'presentation',
                 focusable: 'false',
+                fill: 'currentColor',
+                viewBox: '0 0 32 32',
             },
         }, ctx.data]), [h('path', {
             attrs: {
-                fill: '#242E30',
                 d: 'M16 3.75a12.25 12.25 0 1 0 0 24.5 12.25 12.25 0 0 0 0-24.5ZM14.25 20.2H12.5v-8.4h1.75v8.4Zm5.25 0h-1.75v-8.4h1.75v8.4Z',
             },
         })]);

@@ -8,6 +8,13 @@
   </a>
 </p>
 
+# Table of Contents
+
+1. [Introduction](#pie-modal)
+2. [Local Development](#local-development)
+3. [Importing the component](#importing-the-component)
+4. [Props](#props)
+
 # pie-modal
 
 This modal is a Web Component built using Lit.
@@ -39,3 +46,36 @@ import { PieModal } from '@justeattakeaway/pie-button';
 // react
 import { PieModal } from '@justeattakeaway/pie-button/dist/react';
 ```
+
+## Props
+
+| Property | Type      | Default | Description                                     |
+|----------|-----------|---------|-------------------------------------------------|
+| isOpen   | `Boolean` | `false` | Controls if the modal element is open or closed |
+| heading*   | `String` | - | Sets the heading of the modal |
+| headingLevel   | `String` | `h2` | Allows you to set the heading tag (from `h1` to `h6`) |
+
+
+## Testing
+
+### Visual tests
+
+Run at the root of the monorepo:
+```
+yarn test:visual --filter=pie-modal
+```
+
+Note: To run these locally, you will need to ensure that any environment variables required are set up on your machine to mirror those on CI (such as Percy tokens). How you achieve this will differ between operating systems.
+
+### Setup via bash:
+
+```
+export PERCY_TOKEN_PIE_MODAL=abcde
+```
+
+### Setup via package.json:
+
+Under scripts `test:visual` replace the environment variable with the below:
+
+```
+PERCY_TOKEN_PIE_MODAL=abcde

@@ -4,6 +4,7 @@ exports[`exports correct object 1`] = `
 Object {
   "icon1": Icon {
     "attrs": Object {
+      "fill": "currentColor",
       "focusable": false,
       "role": "presentation",
       "xmlns": "http://www.w3.org/2000/svg",
@@ -13,6 +14,7 @@ Object {
   },
   "icon2": Icon {
     "attrs": Object {
+      "fill": "currentColor",
       "focusable": false,
       "role": "presentation",
       "xmlns": "http://www.w3.org/2000/svg",

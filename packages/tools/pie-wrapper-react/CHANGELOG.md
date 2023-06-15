@@ -1,5 +1,19 @@
 # @justeattakeaway/pie-wrapper-react
 
+## 0.4.1
+
+### Patch Changes
+
+- [Fixed] - Ignore temporary manifest file `pie-wrapper-react` ([#524](https://github.com/justeattakeaway/pie/pull/524)) by [@fernandofranca](https://github.com/fernandofranca)
+
+## 0.4.0
+
+### Minor Changes
+
+- [Fixed] - React wrapper points to the wrong value when a variable is used to define custom elements ([#530](https://github.com/justeattakeaway/pie/pull/530)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Changed] - Custom Element Definitions ([#513](https://github.com/justeattakeaway/pie/pull/513)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 0.3.0
 
 ### Minor Changes

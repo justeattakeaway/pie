@@ -40,12 +40,12 @@ function getTemplate(buildTimeClasses) {
         ${interfaces};
         ${propsImportStatement};
         // @ts-ignore
-        import { getSvgProps } from '@justeattakeaway/pie-icons-configs/configs-react';
+        import { getReactSvgProps } from '@justeattakeaway/pie-icons-configs/configs-react';
 
         const ${componentName} = (props: ${componentPropsInterface}) => {
             const { className, iconSize, width, height, ...remainingProps } = props;
 
-            const moreProps = getSvgProps("${buildTimeClasses}", className, iconSize, "${componentName}");
+            const moreProps = getReactSvgProps("${buildTimeClasses}", className, iconSize, "${componentName}");
 
             const allProps = { ...remainingProps, ...moreProps };
 

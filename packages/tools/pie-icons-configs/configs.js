@@ -1,13 +1,13 @@
-export const sizeToClassMap = {
-    xs: 'c-pieIcon--xs',
-    s: 'c-pieIcon--s',
-    m: 'c-pieIcon--m',
-    l: 'c-pieIcon--l',
-    xl: 'c-pieIcon--xl',
-    xxl: 'c-pieIcon--xxl',
+export const sizeToValueMap = {
+    xs: 16,
+    s: 20,
+    m: 24,
+    l: 28,
+    xl: 32,
+    xxl: 40,
 };
 
-export const regularIconSizes = Object.keys(sizeToClassMap);
+export const regularIconSizes = Object.keys(sizeToValueMap);
 export const regularIconSizeDefault = 'xs';
 export const largeIconSizeModule = 8;
 export const largeIconSizeDefault = 32;
@@ -56,17 +56,45 @@ export function validateGetLargeIconSize (iconSizeValue) {
 /**
  * Validates the iconSize for regular icons
  * @param {string} iconSizeValue - Value of the iconSize prop
- * @returns {{isValid: boolean, iconSizeClass: string}} - Object with the validation result and the icon size class
+ * @returns {{isValid: boolean, iconSize: number}} - Object with the validation result and the icon size
  */
-export function validateGetRegularIconClass (iconSizeValue) {
+export function validateGetRegularIconSize (iconSizeValue) {
     const isValid = iconSizeValidator.regular(iconSizeValue);
 
+    const iconSize = isValid
+        ? sizeToValueMap[iconSizeValue]
+        : sizeToValueMap[regularIconSizeDefault];
+
+    return { isValid, iconSize };
+}
+
+/**
+ * Returns props for the svg element based on the provided parameters
+ * @param {string} svgClasses - String of classes assigned to the icon
+ * @param {string} staticClasses - String of classes assigned to the component
+ * @param {{string|number}} iconSizeValue - Value of the iconSize prop
+ * * @param {string} componentName - Name of the component
+ * @returns {Object} - Object of props to be assigned to the svg element
+ */
+
+export const getSvgProps = (svgClasses, staticClasses, iconSizeValue, componentName) => {
+    const isLargeIcon = svgClasses.endsWith('Large') || svgClasses.endsWith('-large');
+
+    const { isValid, iconSize } = isLargeIcon
+        ? validateGetLargeIconSize(iconSizeValue)
+        : validateGetRegularIconSize(iconSizeValue);
+
     if (!isValid) {
-        const iconSizeClass = sizeToClassMap[regularIconSizeDefault];
-        return { isValid: false, iconSizeClass };
+        const errorMessage = isLargeIcon
+            ? `Invalid prop "iconSize" value supplied to "${componentName}". The prop value should be a number equal or greater than ${largeIconSizeDefault} and multiple of ${largeIconSizeModule}.`
+            : `Invalid prop "iconSize" value supplied to "${componentName}". The prop value should be one of the following values: ${regularIconSizes.join(', ')}.`;
+
+        console.error(errorMessage);
     }
 
-    const iconSizeClass = sizeToClassMap[iconSizeValue];
-
-    return { isValid: true, iconSizeClass };
-}
+    return {
+        class: [svgClasses, staticClasses].filter(Boolean).join(' '),
+        width: iconSize,
+        height: iconSize,
+    };
+};

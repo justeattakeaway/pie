@@ -9,13 +9,14 @@ export default {
     },
     functional: true,
     render (h, ctx) {
-        ctx.data = updateContextData(ctx, 'c-pieIcon c-pieIcon--twint');
+        ctx.data = updateContextData(ctx, 'c-pieIcon c-pieIcon--twint', 'IconPaymentTwint');
         return h('svg', _mergeJSXProps([{
             attrs: {
                 xmlns: 'http://www.w3.org/2000/svg',
-                viewBox: '0 0 16 16',
                 role: 'presentation',
                 focusable: 'false',
+                fill: 'currentColor',
+                viewBox: '0 0 16 16',
             },
         }, ctx.data]), [h('rect', {
             attrs: {

@@ -9,17 +9,17 @@ export default {
     },
     functional: true,
     render (h, ctx) {
-        ctx.data = updateContextData(ctx, 'c-pieIcon c-pieIcon--restaurantLarge');
+        ctx.data = updateContextData(ctx, 'c-pieIcon c-pieIcon--restaurantLarge', 'IconRestaurantLarge');
         return h('svg', _mergeJSXProps([{
             attrs: {
                 xmlns: 'http://www.w3.org/2000/svg',
-                viewBox: '0 0 32 32',
                 role: 'presentation',
                 focusable: 'false',
+                fill: 'currentColor',
+                viewBox: '0 0 32 32',
             },
         }, ctx.data]), [h('g', {
             attrs: {
-                fill: '#242E30',
                 'fill-rule': 'evenodd',
                 'clip-path': 'url(#prefix__clip0_2_2344)',
                 'clip-rule': 'evenodd',
@@ -40,7 +40,6 @@ export default {
             attrs: {
                 width: '28',
                 height: '28',
-                fill: '#fff',
                 transform: 'translate(2 2)',
             },
         })])])]);

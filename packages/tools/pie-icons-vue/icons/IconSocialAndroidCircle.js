@@ -9,17 +9,17 @@ export default {
     },
     functional: true,
     render (h, ctx) {
-        ctx.data = updateContextData(ctx, 'c-pieIcon c-pieIcon--androidCircle');
+        ctx.data = updateContextData(ctx, 'c-pieIcon c-pieIcon--androidCircle', 'IconSocialAndroidCircle');
         return h('svg', _mergeJSXProps([{
             attrs: {
                 xmlns: 'http://www.w3.org/2000/svg',
-                viewBox: '0 0 16 16',
                 role: 'presentation',
                 focusable: 'false',
+                fill: 'currentColor',
+                viewBox: '0 0 16 16',
             },
         }, ctx.data]), [h('g', {
             attrs: {
-                fill: '#242E30',
                 'clip-path': 'url(#prefix__clip0_4814_3493)',
             },
         }, [h('path', {
@@ -54,7 +54,6 @@ export default {
             attrs: {
                 width: '14',
                 height: '14',
-                fill: '#fff',
                 transform: 'translate(1 1)',
             },
         })])])]);

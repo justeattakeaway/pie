@@ -9,17 +9,17 @@ export default {
     },
     functional: true,
     render (h, ctx) {
-        ctx.data = updateContextData(ctx, 'c-pieIcon c-pieIcon--chevronLeft');
+        ctx.data = updateContextData(ctx, 'c-pieIcon c-pieIcon--chevronLeft', 'IconChevronLeft');
         return h('svg', _mergeJSXProps([{
             attrs: {
                 xmlns: 'http://www.w3.org/2000/svg',
-                viewBox: '0 0 16 16',
                 role: 'presentation',
                 focusable: 'false',
+                fill: 'currentColor',
+                viewBox: '0 0 16 16',
             },
         }, ctx.data]), [h('path', {
             attrs: {
-                fill: '#242E30',
                 d: 'M10.96 2.82 5.605 8l5.399 5.197-.875.963-5.565-5.364a1.164 1.164 0 0 1 0-1.671l5.495-5.25.901.945Z',
             },
         })]);

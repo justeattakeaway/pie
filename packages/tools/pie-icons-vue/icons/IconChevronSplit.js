@@ -9,22 +9,21 @@ export default {
     },
     functional: true,
     render (h, ctx) {
-        ctx.data = updateContextData(ctx, 'c-pieIcon c-pieIcon--chevronSplit');
+        ctx.data = updateContextData(ctx, 'c-pieIcon c-pieIcon--chevronSplit', 'IconChevronSplit');
         return h('svg', _mergeJSXProps([{
             attrs: {
                 xmlns: 'http://www.w3.org/2000/svg',
-                viewBox: '0 0 16 16',
                 role: 'presentation',
                 focusable: 'false',
+                fill: 'currentColor',
+                viewBox: '0 0 16 16',
             },
         }, ctx.data]), [h('path', {
             attrs: {
-                fill: '#242E30',
                 d: 'M11.307 6.25 8 2.864 4.693 6.25l-.902-.936 3.5-3.597a1.068 1.068 0 0 1 1.444 0l3.509 3.658-.937.875Z',
             },
         }), h('path', {
             attrs: {
-                fill: '#242E30',
                 d: 'M4.693 9.75 8 13.049l3.307-3.378.893.919-3.5 3.596a1.068 1.068 0 0 1-1.444 0l-3.5-3.561.937-.875Z',
             },
         })]);

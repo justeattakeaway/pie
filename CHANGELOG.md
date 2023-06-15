@@ -1,5 +1,23 @@
 # Changelog
 
+## 2.12.1
+
+### Patch Changes
+
+- [Fixed] - Issue where changeset PR's weren't running CI jobs ([#537](https://github.com/justeattakeaway/pie/pull/537)) by [@siggerzz](https://github.com/siggerzz)
+
+## 2.12.0
+
+### Minor Changes
+
+- [Added] - percy token for pie-modal ([#522](https://github.com/justeattakeaway/pie/pull/522)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- [Changed] - Make pie-webc-core public ([#523](https://github.com/justeattakeaway/pie/pull/523)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Changed] - yarn.lock ([#513](https://github.com/justeattakeaway/pie/pull/513)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 2.11.0
 
 ### Minor Changes
