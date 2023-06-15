@@ -1,4 +1,5 @@
 const pieIcons = require('@justeattakeaway/pie-icons');
+const pieDesignTokenColours = require('./pieDesignTokenColours');
 
 // eslint-disable-next-line consistent-return
 const getIconByName = (iconName, iconAttributes) => {
@@ -26,11 +27,16 @@ module.exports = function (iconConfig = {
     name: '',
     attrs: {},
 }) {
+    const iconFillHexcode = iconConfig.attrs.fill ? pieDesignTokenColours({ tokenName: iconConfig.attrs.fill, tokenPath: ['alias', 'default'] }) : null;
     const defaultAttributes = {
         height: 50,
         width: 50,
         fill: '#000',
     };
+
+    if (iconFillHexcode) {
+        iconConfig.attrs.fill = iconFillHexcode;
+    }
 
     const attributes = {
         ...defaultAttributes,

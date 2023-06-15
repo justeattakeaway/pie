@@ -8,8 +8,8 @@
     engineers: 'engineers'
 } %}
 
-{% set chevronFill = { tokenName: 'interactive-primary', tokenPath: ['alias', 'default'] } | pieDesignTokenColours %}
-{% set categoryIconFill = { tokenName: 'interactive-brand', tokenPath: ['alias', 'default'] } | pieDesignTokenColours %}
+{% set chevronFill = 'interactive-primary' %}
+{% set categoryIconFill = 'interactive-brand' %}
 {% set navPagesPrimary = collections.all | eleventyNavigation("Docs") %}
 {% set navPagesSecondary = collections.all | eleventyNavigation("Docs-secondary") %}
 {% set navPagesTertiary = collections.all | eleventyNavigation("Docs-tertiary") %}
