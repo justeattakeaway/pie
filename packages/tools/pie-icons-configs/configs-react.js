@@ -14,6 +14,7 @@ export const getReactSvgProps = (svgClasses, staticClasses, iconSizeValue, compo
 
     return {
         className: result.class,
-        ...result,
+        width: result.width,
+        height: result.height,
     };
 };
