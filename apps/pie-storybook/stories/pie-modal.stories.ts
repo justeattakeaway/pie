@@ -1,6 +1,5 @@
 import type { Meta, StoryObj as Story } from '@storybook/web-components';
-import type { HeadingLevel } from '@justeattakeaway/pie-modal';
-import { headingLevels } from '@justeattakeaway/pie-modal';
+import { ModalProps, headingLevels } from '@justeattakeaway/pie-modal';
 import { html, TemplateResult } from 'lit';
 
 const defaultArgs = {
@@ -40,7 +39,6 @@ export default {
 interface ModalProps {
     isOpen: boolean;
     heading: string;
-    headingLevel: HeadingLevel;
     slot: TemplateResult;
 }
 
@@ -50,7 +48,7 @@ const Template = ({
     headingLevel,
     slot,
 }: ModalProps): TemplateResult => html`
-        <pie-modal 
+        <pie-modal
         ?isOpen="${isOpen}"
         heading="${heading}"
         headingLevel="${headingLevel}">

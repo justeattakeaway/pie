@@ -1,7 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import type { Meta, StoryObj as Story } from '@storybook/web-components';
-import type { IconButtonVariant } from '@justeattakeaway/pie-icon-button';
-import { iconButtonVariants } from '@justeattakeaway/pie-icon-button';
+import { IconButtonProps, iconButtonVariants } from '@justeattakeaway/pie-icon-button';
 import { html, TemplateResult } from 'lit';
 
 export default {
@@ -28,7 +27,6 @@ export default {
 } as Meta;
 
 interface IconButtonProps {
-    variant: IconButtonVariant;
     disabled: boolean;
 }
 

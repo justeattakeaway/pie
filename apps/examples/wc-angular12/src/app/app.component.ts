@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { buttonSizes, buttonVariants } from '@justeattakeaway/pie-button';
-import type { ButtonVariant } from '@justeattakeaway/pie-button';
+import { ButtonProps, buttonSizes, buttonVariants } from '@justeattakeaway/pie-button';
 
 @Component({
     selector: 'app-root',
@@ -26,7 +25,7 @@ export class AppComponent {
 
     switchVariant () {
         this.variantIndex += 1;
-        const variant: ButtonVariant = buttonVariants[this.variantIndex % buttonVariants.length];
+        const variant: ButtonProps['variant'] = buttonVariants[this.variantIndex % buttonVariants.length];
 
         this.variantName = variant;
     }

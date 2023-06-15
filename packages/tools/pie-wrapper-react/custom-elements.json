@@ -10,25 +10,25 @@
           "kind": "variable",
           "name": "buttonSizes",
           "type": {
-            "text": "ButtonSize[]"
+            "text": "ButtonProps['size'][]"
           },
-          "default": "[\n    'xsmall',\n    'small-expressive',\n    'small-productive',\n    'medium',\n    'large',\n]"
-        },
-        {
-          "kind": "variable",
-          "name": "buttonTypes",
-          "type": {
-            "text": "ButtonType[]"
-          },
-          "default": "[\n    'submit',\n    'button',\n    'reset',\n    'menu',\n]"
+          "default": "[\n    'xsmall',\n    'small-expressive',\n    'small-productive',\n    'medium',\n    'large'\n]"
         },
         {
           "kind": "variable",
           "name": "buttonVariants",
           "type": {
-            "text": "ButtonVariant[]"
+            "text": "ButtonProps['variant'][]"
           },
           "default": "[\n    'primary',\n    'secondary',\n    'outline',\n    'ghost',\n]"
+        },
+        {
+          "kind": "variable",
+          "name": "buttonTypes",
+          "type": {
+            "text": "ButtonProps['type'][]"
+          },
+          "default": "[\n    'submit',\n    'button',\n    'reset',\n    'menu',\n]"
         }
       ],
       "exports": [
@@ -42,17 +42,17 @@
         },
         {
           "kind": "js",
-          "name": "buttonTypes",
+          "name": "buttonVariants",
           "declaration": {
-            "name": "buttonTypes",
+            "name": "buttonVariants",
             "module": "../../components/pie-button/src/defs.js"
           }
         },
         {
           "kind": "js",
-          "name": "buttonVariants",
+          "name": "buttonTypes",
           "declaration": {
-            "name": "buttonVariants",
+            "name": "buttonTypes",
             "module": "../../components/pie-button/src/defs.js"
           }
         }
@@ -79,7 +79,7 @@
               "kind": "field",
               "name": "size",
               "type": {
-                "text": "ButtonSize"
+                "text": "ButtonProps['size']"
               },
               "default": "'medium'"
             },
@@ -87,7 +87,7 @@
               "kind": "field",
               "name": "type",
               "type": {
-                "text": "ButtonType"
+                "text": "ButtonProps['type']"
               },
               "default": "'submit'"
             },
@@ -95,7 +95,7 @@
               "kind": "field",
               "name": "variant",
               "type": {
-                "text": "ButtonVariant"
+                "text": "ButtonProps['variant']"
               },
               "default": "'primary'"
             },
@@ -136,25 +136,17 @@
       "exports": [
         {
           "kind": "js",
-          "name": "ButtonSize",
+          "name": "type",
           "declaration": {
-            "name": "ButtonSize",
+            "name": "type",
             "module": "../../components/pie-button/src/index.js"
           }
         },
         {
           "kind": "js",
-          "name": "ButtonType",
+          "name": "ButtonProps",
           "declaration": {
-            "name": "ButtonType",
-            "module": "../../components/pie-button/src/index.js"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "ButtonVariant",
-          "declaration": {
-            "name": "ButtonVariant",
+            "name": "ButtonProps",
             "module": "../../components/pie-button/src/index.js"
           }
         },
@@ -202,6 +194,125 @@
     },
     {
       "kind": "javascript-module",
+      "path": "../../components/pie-icon-button/src/defs.js",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "iconButtonVariants",
+          "type": {
+            "text": "IconButtonProps['variant'][]"
+          },
+          "default": "[\n    'primary',\n    'secondary',\n    'outline',\n    'ghost',\n    'ghost-tertiary',\n]",
+          "description": "Icon Button style variants"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "iconButtonVariants",
+          "declaration": {
+            "name": "iconButtonVariants",
+            "module": "../../components/pie-icon-button/src/defs.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../../components/pie-icon-button/src/index.js",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "componentSelector",
+          "type": {
+            "text": "string"
+          },
+          "default": "'pie-icon-button'"
+        },
+        {
+          "kind": "class",
+          "description": "",
+          "name": "PieIconButton",
+          "members": [
+            {
+              "kind": "field",
+              "name": "variant",
+              "type": {
+                "text": "IconButtonProps['variant']"
+              },
+              "default": "'primary'"
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            },
+            {
+              "kind": "field",
+              "name": "styles",
+              "static": true
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "componentSelector",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "type",
+          "declaration": {
+            "name": "type",
+            "module": "../../components/pie-icon-button/src/index.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "IconButtonProps",
+          "declaration": {
+            "name": "IconButtonProps",
+            "module": "../../components/pie-icon-button/src/index.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "iconButtonVariants",
+          "declaration": {
+            "name": "iconButtonVariants",
+            "module": "../../components/pie-icon-button/src/index.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "PieIconButton",
+          "declaration": {
+            "name": "PieIconButton",
+            "module": "../../components/pie-icon-button/src/index.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "componentSelector",
+          "declaration": {
+            "name": "PieIconButton",
+            "module": "../../components/pie-icon-button/src/index.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "../../components/pie-webc-core/src/index.js",
       "declarations": [],
       "exports": [
@@ -239,9 +350,10 @@
           "kind": "variable",
           "name": "headingLevels",
           "type": {
-            "text": "HeadingLevel[]"
+            "text": "ModalProps['headingLevel'][]"
           },
-          "default": "['h1', 'h2', 'h3', 'h4', 'h5', 'h6']"
+          "default": "['h1', 'h2', 'h3', 'h4', 'h5', 'h6']",
+          "description": "Modal heading levels/tags"
         }
       ],
       "exports": [
@@ -291,7 +403,7 @@
               "kind": "field",
               "name": "headingLevel",
               "type": {
-                "text": "HeadingLevel"
+                "text": "ModalProps['headingLevel']"
               },
               "default": "'h2'"
             },
@@ -347,9 +459,17 @@
       "exports": [
         {
           "kind": "js",
-          "name": "HeadingLevel",
+          "name": "type",
           "declaration": {
-            "name": "HeadingLevel",
+            "name": "type",
+            "module": "../../components/pie-modal/src/index.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "ModalProps",
+          "declaration": {
+            "name": "ModalProps",
             "module": "../../components/pie-modal/src/index.js"
           }
         },
@@ -381,116 +501,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "../../components/pie-icon-button/src/defs.js",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "iconButtonVariants",
-          "type": {
-            "text": "IconButtonVariant[]"
-          },
-          "default": "[\n    'primary',\n    'secondary',\n    'outline',\n    'ghost',\n    'ghost-tertiary',\n]"
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "iconButtonVariants",
-          "declaration": {
-            "name": "iconButtonVariants",
-            "module": "../../components/pie-icon-button/src/defs.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "../../components/pie-icon-button/src/index.js",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "componentSelector",
-          "type": {
-            "text": "string"
-          },
-          "default": "'pie-icon-button'"
-        },
-        {
-          "kind": "class",
-          "description": "",
-          "name": "PieIconButton",
-          "members": [
-            {
-              "kind": "field",
-              "name": "variant",
-              "type": {
-                "text": "IconButtonVariant"
-              },
-              "default": "'primary'"
-            },
-            {
-              "kind": "field",
-              "name": "disabled",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false"
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            },
-            {
-              "kind": "field",
-              "name": "styles",
-              "static": true
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "componentSelector",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "IconButtonVariant",
-          "declaration": {
-            "name": "IconButtonVariant",
-            "module": "../../components/pie-icon-button/src/index.js"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "iconButtonVariants",
-          "declaration": {
-            "name": "iconButtonVariants",
-            "module": "../../components/pie-icon-button/src/index.js"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "PieIconButton",
-          "declaration": {
-            "name": "PieIconButton",
-            "module": "../../components/pie-icon-button/src/index.js"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "componentSelector",
-          "declaration": {
-            "name": "PieIconButton",
-            "module": "../../components/pie-icon-button/src/index.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "../../components/pie-webc-core/src/mixins/index.js",
       "declarations": [],
       "exports": [
@@ -500,6 +510,111 @@
           "declaration": {
             "name": "*",
             "package": "./rtl/rtlMixin"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../../components/pie-webc-core/src/decorators/index.js",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./valid-property-values"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./required-property"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../../components/pie-webc-core/src/decorators/required-property.js",
+      "declarations": [
+        {
+          "kind": "function",
+          "name": "requiredProperty",
+          "parameters": [
+            {
+              "name": "componentName",
+              "type": {
+                "text": "string"
+              }
+            }
+          ],
+          "description": "A decorator for marking a property as required.\nIf the property's value is `undefined`, `null` or empty string, an error is logged.",
+          "return": {
+            "type": {
+              "text": "Function"
+            }
+          }
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "requiredProperty",
+          "declaration": {
+            "name": "requiredProperty",
+            "module": "../../components/pie-webc-core/src/decorators/required-property.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../../components/pie-webc-core/src/decorators/valid-property-values.js",
+      "declarations": [
+        {
+          "kind": "function",
+          "name": "validPropertyValues",
+          "parameters": [
+            {
+              "name": "componentName",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "validValues",
+              "type": {
+                "text": "any[]"
+              },
+              "description": "The array of valid values"
+            },
+            {
+              "name": "defaultValue",
+              "type": {
+                "text": "any"
+              },
+              "description": "The value to fall back on"
+            }
+          ],
+          "description": "A decorator for specifying a list of valid values for a property.\nIf this property's setter is called with an invalid value, an error is logged and the default value will be assigned instead.",
+          "return": {
+            "type": {
+              "text": ""
+            }
+          }
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "validPropertyValues",
+          "declaration": {
+            "name": "validPropertyValues",
+            "module": "../../components/pie-webc-core/src/decorators/valid-property-values.js"
           }
         }
       ]
@@ -653,111 +768,6 @@
           "declaration": {
             "name": "createTestWebComponent",
             "module": "../../components/pie-webc-core/src/test-helpers/rendering.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "../../components/pie-webc-core/src/decorators/index.js",
-      "declarations": [],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "*",
-          "declaration": {
-            "name": "*",
-            "package": "./valid-property-values"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "*",
-          "declaration": {
-            "name": "*",
-            "package": "./required-property"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "../../components/pie-webc-core/src/decorators/required-property.js",
-      "declarations": [
-        {
-          "kind": "function",
-          "name": "requiredProperty",
-          "parameters": [
-            {
-              "name": "componentName",
-              "type": {
-                "text": "string"
-              }
-            }
-          ],
-          "description": "A decorator for marking a property as required.\nIf the property's value is `undefined`, `null` or empty string, an error is logged.",
-          "return": {
-            "type": {
-              "text": "Function"
-            }
-          }
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "requiredProperty",
-          "declaration": {
-            "name": "requiredProperty",
-            "module": "../../components/pie-webc-core/src/decorators/required-property.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "../../components/pie-webc-core/src/decorators/valid-property-values.js",
-      "declarations": [
-        {
-          "kind": "function",
-          "name": "validPropertyValues",
-          "parameters": [
-            {
-              "name": "componentName",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "name": "validValues",
-              "type": {
-                "text": "any[]"
-              },
-              "description": "The array of valid values"
-            },
-            {
-              "name": "defaultValue",
-              "type": {
-                "text": "any"
-              },
-              "description": "The value to fall back on"
-            }
-          ],
-          "description": "A decorator for specifying a list of valid values for a property.\nIf this property's setter is called with an invalid value, an error is logged and the default value will be assigned instead.",
-          "return": {
-            "type": {
-              "text": ""
-            }
-          }
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "validPropertyValues",
-          "declaration": {
-            "name": "validPropertyValues",
-            "module": "../../components/pie-webc-core/src/decorators/valid-property-values.js"
           }
         }
       ]

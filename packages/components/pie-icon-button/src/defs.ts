@@ -1,9 +1,11 @@
+export interface IconButtonProps {
+    variant: 'primary' | 'secondary' | 'outline' | 'ghost' | 'ghost-tertiary';
+}
+
 /**
  * Icon Button style variants
  */
-export type IconButtonVariant = 'primary' | 'secondary' | 'outline' | 'ghost' | 'ghost-tertiary';
-
-export const iconButtonVariants: IconButtonVariant[] = [
+export const iconButtonVariants: IconButtonProps['variant'][] = [
     'primary',
     'secondary',
     'outline',
