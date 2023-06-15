@@ -1,6 +1,6 @@
 const iconData = require('../../iconData.json');
 const pieIcons = require('../filters/pieIconsSvg')();
-
+const markdown = require('../filters/markdown');
 /**
  *
  * @param {*} icon - An object representing the icon to be displayed in the card.
@@ -53,7 +53,7 @@ const buildIconCard = (icon) => {
  * unless specified with `"oneSize": true`.
  * @returns {string}
  */
-const categorisedIconList = () => `<div>
+const categorisedIconList = () => markdown(`<div>
         <ul class="c-categorisedIconList">
             ${iconData.categories.map((cat) => `
                 <li>
@@ -66,6 +66,6 @@ const categorisedIconList = () => `<div>
                     </ul>`).join('')}
                 </li>
             </ul>
-        </div>`;
+        </div>`, true);
 
 module.exports = categorisedIconList;
