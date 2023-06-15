@@ -122,11 +122,11 @@
       ]
     },
     "test:visual": {
-      "cache": false,
+      "cache": true,
       "outputs": []
     },
     "test:visual:ci": {
-      "cache": false
+      "cache": true
     },
     "lint:scripts": {
       "cache": true,

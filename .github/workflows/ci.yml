@@ -188,18 +188,19 @@ jobs:
           path: browsers-report/
           retention-days: 7
       # Run Visual Tests
-      - name: Run All Visual Tests
+      - name: Run Visual Tests
         if: contains(github.ref_name, 'main')
         uses: ./.github/actions/run-script
         with:
-          script-name: "test:visual:ci"
+          # Force visual tests to run against packages changed in the last commit to update baseline images
+          script-name: "test:visual:ci --filter=[HEAD^1] --force"
           concurrency: 1
-      # Run Visual Tests for changed components
+      # Run Visual Tests - Changed Components
       - name: Run Changed Component Visual Tests
         if: github.ref != 'refs/heads/main'
         uses: ./.github/actions/run-script
         with:
-          script-name: "test:visual:ci --filter=[HEAD^1]"
+          script-name: "test:visual:ci"
           concurrency: 1
       - uses: actions/upload-artifact@v3
         if: always()
