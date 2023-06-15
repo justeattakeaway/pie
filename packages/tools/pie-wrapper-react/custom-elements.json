@@ -12,7 +12,8 @@
           "type": {
             "text": "ButtonProps['size'][]"
           },
-          "default": "[\n    'xsmall',\n    'small-expressive',\n    'small-productive',\n    'medium',\n    'large'\n]"
+          "default": "[\n    'xsmall',\n    'small-expressive',\n    'small-productive',\n    'medium',\n    'large'\n]",
+          "description": "Button size variants"
         },
         {
           "kind": "variable",
@@ -20,7 +21,8 @@
           "type": {
             "text": "ButtonProps['variant'][]"
           },
-          "default": "[\n    'primary',\n    'secondary',\n    'outline',\n    'ghost',\n]"
+          "default": "[\n    'primary',\n    'secondary',\n    'outline',\n    'ghost',\n]",
+          "description": "Button style variants"
         },
         {
           "kind": "variable",
@@ -28,7 +30,8 @@
           "type": {
             "text": "ButtonProps['type'][]"
           },
-          "default": "[\n    'submit',\n    'button',\n    'reset',\n    'menu',\n]"
+          "default": "[\n    'submit',\n    'button',\n    'reset',\n    'menu',\n]",
+          "description": "Button type variants"
         }
       ],
       "exports": [
@@ -313,37 +316,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "../../components/pie-webc-core/src/index.js",
-      "declarations": [],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "*",
-          "declaration": {
-            "name": "*",
-            "package": "./mixins"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "*",
-          "declaration": {
-            "name": "*",
-            "package": "./decorators"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "*",
-          "declaration": {
-            "name": "*",
-            "package": "./test-helpers"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "../../components/pie-modal/src/defs.js",
       "declarations": [
         {
@@ -501,7 +473,7 @@
     },
     {
       "kind": "javascript-module",
-      "path": "../../components/pie-webc-core/src/mixins/index.js",
+      "path": "../../components/pie-webc-core/src/index.js",
       "declarations": [],
       "exports": [
         {
@@ -509,7 +481,23 @@
           "name": "*",
           "declaration": {
             "name": "*",
-            "package": "./rtl/rtlMixin"
+            "package": "./mixins"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./decorators"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./test-helpers"
           }
         }
       ]
@@ -615,6 +603,21 @@
           "declaration": {
             "name": "validPropertyValues",
             "module": "../../components/pie-webc-core/src/decorators/valid-property-values.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../../components/pie-webc-core/src/mixins/index.js",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./rtl/rtlMixin"
           }
         }
       ]
@@ -730,6 +733,34 @@
             "name": "*",
             "package": "./components"
           }
+        },
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./percy-lit-options"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../../components/pie-webc-core/src/test-helpers/percy-lit-options.js",
+      "declarations": [
+        {
+          "kind": "function",
+          "name": "getLitPercyOptions"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "getLitPercyOptions",
+          "declaration": {
+            "name": "getLitPercyOptions",
+            "module": "../../components/pie-webc-core/src/test-helpers/percy-lit-options.js"
+          }
         }
       ]
     },
@@ -768,6 +799,21 @@
           "declaration": {
             "name": "createTestWebComponent",
             "module": "../../components/pie-webc-core/src/test-helpers/rendering.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../../components/pie-webc-core/src/test-helpers/components/index.js",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./web-component-test-wrapper/WebComponentTestWrapper"
           }
         }
       ]
@@ -816,21 +862,6 @@
           "declaration": {
             "name": "RtlMixin",
             "module": "../../components/pie-webc-core/src/mixins/rtl/rtlMixin.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "../../components/pie-webc-core/src/test-helpers/components/index.js",
-      "declarations": [],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "*",
-          "declaration": {
-            "name": "*",
-            "package": "./web-component-test-wrapper/WebComponentTestWrapper"
           }
         }
       ]

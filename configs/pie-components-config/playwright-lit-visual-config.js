@@ -8,7 +8,7 @@ import path from 'path';
 export function getPlaywrightVisualConfig () {
     return {
         /* Maximum time one test can run for. */
-        timeout: 10 * 1000,
+        timeout: 30 * 1000,
         /* Run tests in files in parallel */
         fullyParallel: true,
         /* Fail the build on CI if you accidentally left test.only in the source code. */
