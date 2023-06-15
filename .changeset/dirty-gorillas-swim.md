@@ -6,10 +6,10 @@
 [Removed] - `--filter` argument in run-script action. This argument is now passed as part of the build script argument:
 
 ```yml
-      - name: Run Changed Component Visual Tests
-        if: github.ref != 'refs/heads/main'
+      - name: Run Visual Tests
+        if: contains(github.ref_name, 'main')
         uses: ./.github/actions/run-script
         with:
-          script-name: "test:visual:ci --filter=[HEAD^1]"
+          script-name: "test:visual:ci --filter=[HEAD^1] --force"
           concurrency: 1
 ```
