@@ -199,7 +199,7 @@ jobs:
         if: github.ref != 'refs/heads/main'
         uses: ./.github/actions/run-script
         with:
-          script-name: "test:visual:ci --filter=[main]"
+          script-name: "test:visual:ci --filter=[origin/main...HEAD]"
           concurrency: 1
       - uses: actions/upload-artifact@v3
         if: always()
