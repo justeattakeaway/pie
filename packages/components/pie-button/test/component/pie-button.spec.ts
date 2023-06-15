@@ -2,7 +2,7 @@ import { test, expect } from '@sand4rt/experimental-ct-web';
 import { PieButton } from '@/index';
 import { BUTTON_SIZE, BUTTON_VARIANT } from '@/defs';
 
-test('should correctly work with native click events', async ({ mount }) => {
+test('should correctly work with native click events - foo', async ({ mount }) => {
     const messages: string[] = [];
     const expectedEventMessage = 'Native event dispatched';
     const component = await mount(
