@@ -4613,7 +4613,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-button@0.14.0, @justeattakeaway/pie-button@workspace:*, @justeattakeaway/pie-button@workspace:packages/components/pie-button":
+"@justeattakeaway/pie-button@0.15.0, @justeattakeaway/pie-button@workspace:*, @justeattakeaway/pie-button@workspace:packages/components/pie-button":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-button@workspace:packages/components/pie-button"
   dependencies:
@@ -4649,7 +4649,7 @@ __metadata:
   dependencies:
     "@babel/node": 7.20.7
     "@babel/preset-react": 7.18.6
-    "@justeattakeaway/pie-icons": 3.2.0
+    "@justeattakeaway/pie-icons": 3.4.0
     "@justeattakeaway/pie-icons-configs": "workspace:*"
     "@rollup/plugin-node-resolve": 15.1.0
     "@svgr/core": 6.4.0
@@ -4669,7 +4669,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-icons-vue@workspace:packages/tools/pie-icons-vue"
   dependencies:
-    "@justeattakeaway/pie-icons": 3.2.0
+    "@justeattakeaway/pie-icons": 3.4.0
     "@vue/babel-helper-vue-jsx-merge-props": 1.4.0
     "@vue/babel-preset-jsx": 1.4.0
     "@vue/test-utils": 1.1.3
@@ -4683,7 +4683,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-icons@3.2.0, @justeattakeaway/pie-icons@workspace:packages/tools/pie-icons":
+"@justeattakeaway/pie-icons@3.4.0, @justeattakeaway/pie-icons@workspace:packages/tools/pie-icons":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-icons@workspace:packages/tools/pie-icons"
   dependencies:
@@ -18496,7 +18496,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"github-slugger@npm:^1.0.0":
+"github-slugger@npm:^1.0.0, github-slugger@npm:^1.1.1":
   version: 1.5.0
   resolution: "github-slugger@npm:1.5.0"
   checksum: c70988224578b3bdaa25df65973ffc8c24594a77a28550c3636e495e49d17aef5cdb04c04fa3f1744babef98c61eecc6a43299a13ea7f3cc33d680bf9053ffbe
@@ -19269,6 +19269,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"html-entities@npm:^1.2.0":
+  version: 1.4.0
+  resolution: "html-entities@npm:1.4.0"
+  checksum: 4b73ffb9eead200f99146e4fbe70acb0af2fea136901a131fc3a782e9ef876a7cbb07dec303ca1f8804232b812249dbf3643a270c9c524852065d9224a8dcdd0
+  languageName: node
+  linkType: hard
+
 "html-entities@npm:^2.1.0, html-entities@npm:^2.3.2":
   version: 2.3.3
   resolution: "html-entities@npm:2.3.3"
@@ -19903,6 +19910,15 @@ __metadata:
   version: 1.3.8
   resolution: "ini@npm:1.3.8"
   checksum: dfd98b0ca3a4fc1e323e38a6c8eb8936e31a97a918d3b377649ea15bdb15d481207a0dda1021efbd86b464cae29a0d33c1d7dcaf6c5672bee17fa849bc50a1b3
+  languageName: node
+  linkType: hard
+
+"innertext@npm:^1.0.1":
+  version: 1.0.3
+  resolution: "innertext@npm:1.0.3"
+  dependencies:
+    html-entities: ^1.2.0
+  checksum: 36b50fa79d56d7f4a1e73fe894d3be1fc4d3f93d1d80e40d32bbd55c6d2fa524236ea60570376e6059eb7a46009dd0f5c5b6a7cc712905169b4df31beebc7f21
   languageName: node
   linkType: hard
 
@@ -23645,12 +23661,32 @@ __metadata:
   languageName: node
   linkType: hard
 
+"markdown-it-anchor@npm:^8.6.7":
+  version: 8.6.7
+  resolution: "markdown-it-anchor@npm:8.6.7"
+  peerDependencies:
+    "@types/markdown-it": "*"
+    markdown-it: "*"
+  checksum: 828236768ac7f61ed5591393c1b1bfc5dbf2b6d0c58a3deec606c61dddaa12658a34450cbef37ab50a04453e618ce1efd47d86e4e52595024334898fd306225b
+  languageName: node
+  linkType: hard
+
 "markdown-it-attrs@npm:4.1.6":
   version: 4.1.6
   resolution: "markdown-it-attrs@npm:4.1.6"
   peerDependencies:
     markdown-it: ">= 9.0.0"
   checksum: 3487fab315a5955f1882edcb29b5362fcdc9a369c4cd1c38688b3d32a145254094d2d8389bdd6887c3af66f9a9a75143f167d88421dcf201e54ec587675756a0
+  languageName: node
+  linkType: hard
+
+"markdown-it-github-headings@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "markdown-it-github-headings@npm:2.0.1"
+  dependencies:
+    github-slugger: ^1.1.1
+    innertext: ^1.0.1
+  checksum: 2ce2d8c043d4c031871c9370831b38ae7636e396e25204ec287a0344d203f8bb17d68aa1473bd850dfaccb561643d0feae2fd234b1f3e8154de12c95e8a459c5
   languageName: node
   linkType: hard
 
@@ -26733,12 +26769,14 @@ __metadata:
     "@11ty/eleventy": 1.0.2
     "@11ty/eleventy-navigation": 0.3.5
     "@justeat/f-cookie-banner": 4.7.0
-    "@justeattakeaway/pie-icons": 3.2.0
+    "@justeattakeaway/pie-icons": 3.4.0
     eleventy-plugin-clean: 1.2.5
     eleventy-plugin-rev: 1.1.1
     eleventy-sass: 2.2.1
     markdown-it: 13.0.1
+    markdown-it-anchor: ^8.6.7
     markdown-it-attrs: 4.1.6
+    slugify: ^1.6.6
   languageName: unknown
   linkType: soft
 
@@ -26783,6 +26821,7 @@ __metadata:
     jest: 27.5.1
     jest-expect-message: 1.1.3
     lit: 2.7.4
+    markdown-it-github-headings: ^2.0.1
     npm-run-all: 4.1.5
     pinst: 3.0.0
     postcss: 8.4.21
@@ -32239,7 +32278,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"slugify@npm:^1.6.5":
+"slugify@npm:^1.6.5, slugify@npm:^1.6.6":
   version: 1.6.6
   resolution: "slugify@npm:1.6.6"
   checksum: 04773c2d3b7aea8d2a61fa47cc7e5d29ce04e1a96cbaec409da57139df906acb3a449fac30b167d203212c806e73690abd4ff94fbad0a9a7b7ea109a2a638ae9
@@ -36396,7 +36435,7 @@ __metadata:
   resolution: "wc-vanilla@workspace:apps/examples/wc-vanilla"
   dependencies:
     "@justeat/pie-design-tokens": 5.0.1
-    "@justeattakeaway/pie-button": 0.14.0
+    "@justeattakeaway/pie-button": 0.15.0
     vite: ^4.3.0
   languageName: unknown
   linkType: soft

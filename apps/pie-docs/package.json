@@ -40,7 +40,9 @@
   "dependencies": {
     "@justeat/f-cookie-banner": "4.7.0",
     "@justeattakeaway/pie-icons": "3.4.0",
-    "markdown-it": "13.0.1"
+    "markdown-it": "13.0.1",
+    "markdown-it-anchor": "^8.6.7",
+    "slugify": "^1.6.6"
   },
   "volta": {
     "extends": "../../package.json"

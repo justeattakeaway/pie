@@ -1,0 +1,36 @@
+@use 'sass:color';
+@use '../fozzie-config' as f;
+
+h2:has(.c-anchor-icon),
+h3:has(.c-anchor-icon),
+h4:has(.c-anchor-icon) {
+    display: flex;
+    align-items: center;
+    margin-left: -32px;
+
+    &:hover {
+        .c-anchor-icon {
+            visibility: visible;
+        }
+    }
+}
+
+.c-anchor-icon {
+    height: 24px;
+    width: 24px;
+    margin-right: 8px;
+    display: flex;
+    border-radius: 4px;
+    padding: 4px;
+    visibility: hidden;
+
+
+    &:hover {
+        background-color: color.adjust(f.$color-container-default, $lightness: calc(f.$color-hover-01 * -1));
+    }
+
+    &:focus,
+    &:active {
+        background-color: color.adjust(f.$color-container-default, $lightness: calc(f.$color-active-01 * -1));
+    }
+}
