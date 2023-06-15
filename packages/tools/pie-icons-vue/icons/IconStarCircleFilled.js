@@ -9,7 +9,7 @@ export default {
     },
     functional: true,
     render (h, ctx) {
-        ctx.data = updateContextData(ctx, 'c-pieIcon c-pieIcon--starCircleFilled');
+        ctx.data = updateContextData(ctx, 'c-pieIcon c-pieIcon--starCircleFilled', 'IconStarCircleFilled');
         return h('svg', _mergeJSXProps([{
             attrs: {
                 xmlns: 'http://www.w3.org/2000/svg',
