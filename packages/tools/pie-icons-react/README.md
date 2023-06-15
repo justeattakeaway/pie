@@ -58,6 +58,9 @@ Example:
 <IconAlertTriangleLarge iconSize={40} />
 ```
 
+### Styles
+The React icons package doesn't provide CSS styles. CSS classes `c-pieIcon c-pieIcon--{iconName}` are available for consuming applications to add the styles they require.
+
 ### Tree shaking
 
 By using ES imports like `import { IconCalendar } from '@justeattakeaway/pie-icons-react'` with Webpack v4+ or Rollup, unused exports in this module will be automatically eliminated.

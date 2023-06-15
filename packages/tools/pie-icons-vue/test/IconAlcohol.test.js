@@ -1,7 +1,6 @@
 import { mount } from '@vue/test-utils';
 /* eslint-disable import/no-extraneous-dependencies */
 import {
-    afterEach,
     describe,
     expect,
     test,
@@ -9,13 +8,12 @@ import {
 } from 'vitest';
 /* eslint-enable import/no-extraneous-dependencies */
 
+// eslint-disable-next-line import/no-unresolved
+import { sizeToValueMap } from '@justeattakeaway/pie-icons-configs';
+
 import IconAlcohol from '../icons/IconAlcohol';
 
 describe('IconAlcohol (Regular variant) ::', () => {
-    afterEach(() => {
-        vi.restoreAllMocks();
-    });
-
     test('should exist', () => {
         // Arrange & Act
         const wrapper = mount(IconAlcohol);
@@ -25,22 +23,22 @@ describe('IconAlcohol (Regular variant) ::', () => {
     });
 
     test.each([
-        'xs',
-        's',
-        'm',
-        'l',
-        'xl',
-        'xxl',
-    ])('should apply correct class for size "%s"', (iconSize) => {
+        ['xs', sizeToValueMap.xs],
+        ['s', sizeToValueMap.s],
+        ['m', sizeToValueMap.m],
+        ['l', sizeToValueMap.l],
+        ['xl', sizeToValueMap.xl],
+        ['xxl', sizeToValueMap.xxl],
+    ])('should apply correct width and height for each icon size', (iconSizeKey, iconSizeValue) => {
         // Arrange
-        const propsData = { iconSize };
+        const propsData = { iconSize: iconSizeKey };
 
         // Act
         const wrapper = mount(IconAlcohol, { propsData });
 
         // Assert
-        expect(wrapper.classes()).toContain(`c-pieIcon--${iconSize}`);
-        expect(wrapper.classes()).toHaveLength(3);
+        expect(wrapper.html()).toContain(`width="${iconSizeValue}"`);
+        expect(wrapper.html()).toContain(`height="${iconSizeValue}"`);
     });
 
     test.each([
@@ -49,8 +47,8 @@ describe('IconAlcohol (Regular variant) ::', () => {
         '',
     ])('should not allow invalid sizes - %s', (iconSize) => {
         // Arrange
-        const errorMock = vi.fn();
-        console.error = errorMock;
+        const defaultIconSize = sizeToValueMap.xs;
+        const spy = vi.spyOn(console, 'error').mockImplementation(vi.fn());
 
         const propsData = { iconSize };
 
@@ -58,13 +56,16 @@ describe('IconAlcohol (Regular variant) ::', () => {
         const wrapper = mount(IconAlcohol, { propsData });
 
         // Assert
-        expect(wrapper.classes()).not.toContain(`c-pieIcon--${iconSize}`);
-        expect(wrapper.classes()).toContain('c-pieIcon--xs'); // Default size
-        expect(errorMock).toHaveBeenCalledTimes(1);
+        expect(wrapper.html()).toContain(`width="${defaultIconSize}"`);
+        expect(wrapper.html()).toContain(`height="${defaultIconSize}"`);
+        expect(spy).toHaveBeenCalled();
+        spy.mockRestore();
     });
 
     test('should ignore custom height and width', () => {
         // Arrange
+        const defaultIconSize = sizeToValueMap.xs;
+
         const propsData = {
             height: '40px',
             width: '100px',
@@ -74,8 +75,8 @@ describe('IconAlcohol (Regular variant) ::', () => {
         const wrapper = mount(IconAlcohol, { propsData });
 
         // Assert
-        expect(wrapper.html()).not.toContain('width');
-        expect(wrapper.html()).not.toContain('height');
+        expect(wrapper.html()).toContain(`width="${defaultIconSize}"`);
+        expect(wrapper.html()).toContain(`height="${defaultIconSize}"`);
     });
 
     test('should respect user-defined classes', () => {
@@ -89,6 +90,6 @@ describe('IconAlcohol (Regular variant) ::', () => {
 
         // Assert
         expect(wrapper.classes()).toContain('test-class');
-        expect(wrapper.classes()).toHaveLength(4);
+        expect(wrapper.classes()).toHaveLength(3);
     });
 });

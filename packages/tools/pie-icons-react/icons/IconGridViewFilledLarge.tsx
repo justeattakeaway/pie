@@ -1,7 +1,7 @@
 import * as React from "react";
 import { LargeIconProps } from "../types";
 // @ts-ignore
-import { getSvgProps } from '@justeattakeaway/pie-icons-configs/configs-react';
+import { getReactSvgProps } from '@justeattakeaway/pie-icons-configs/configs-react';
 const IconGridViewFilledLarge = (props: LargeIconProps) => {
   const {
     className,
@@ -10,7 +10,7 @@ const IconGridViewFilledLarge = (props: LargeIconProps) => {
     height,
     ...remainingProps
   } = props;
-  const moreProps = getSvgProps("c-pieIcon c-pieIcon--grid-view-filled-large", className, iconSize, "IconGridViewFilledLarge");
+  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--grid-view-filled-large", className, iconSize, "IconGridViewFilledLarge");
   const allProps = {
     ...remainingProps,
     ...moreProps

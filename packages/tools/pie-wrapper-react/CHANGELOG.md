@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-wrapper-react
 
+## 0.4.1
+
+### Patch Changes
+
+- [Fixed] - Ignore temporary manifest file `pie-wrapper-react` ([#524](https://github.com/justeattakeaway/pie/pull/524)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 0.4.0
 
 ### Minor Changes
