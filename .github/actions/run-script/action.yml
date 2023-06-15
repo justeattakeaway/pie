@@ -8,9 +8,6 @@ inputs:
   concurrency:
     description: 'The number of concurrent scripts to execute.'
     required: false
-  package-name:
-    description: 'The package the script is executed for (uses Turborepo --filter argument)'
-    required: false
 
 runs:
   using: composite
@@ -19,14 +16,9 @@ runs:
       shell: bash
       run: |
         CONCURRENCY_FLAG=""
-        FILTER_FLAG=""
 
         if [ ! -z "${{ inputs.concurrency }}" ]; then
           CONCURRENCY_FLAG="--concurrency=${{ inputs.concurrency }}"
         fi
 
-        if [ ! -z "${{ inputs.package-name }}" ]; then
-          FILTER_FLAG="--filter=${{ inputs.package-name }}"
-        fi
-
-        yarn ${{ inputs.script-name }} $CONCURRENCY_FLAG $FILTER_FLAG
+        yarn ${{ inputs.script-name }} $CONCURRENCY_FLAG
