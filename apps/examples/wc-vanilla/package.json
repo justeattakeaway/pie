@@ -13,6 +13,6 @@
   },
   "dependencies": {
     "@justeat/pie-design-tokens": "5.0.1",
-    "@justeattakeaway/pie-button": "workspace:*"
+    "@justeattakeaway/pie-button": "0.15.0"
   }
 }
