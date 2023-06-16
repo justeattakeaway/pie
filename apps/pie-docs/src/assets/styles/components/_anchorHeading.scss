@@ -4,25 +4,42 @@
 h2:has(.c-anchor-icon),
 h3:has(.c-anchor-icon),
 h4:has(.c-anchor-icon) {
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    margin-left: -32px;
+    // flex-wrap: wrap;
+    // margin-top: auto;
+    // margin-bottom: auto;
+
 
     &:hover {
         .c-anchor-icon {
             visibility: visible;
         }
     }
+    & > {
+        display: inline;
+    }
+
+    @include f.media('>=mid') {
+        flex-direction: row-reverse;
+        justify-content: start;
+        margin-left: -32px;
+    }
 }
 
 .c-anchor-icon {
     height: 24px;
     width: 24px;
-    margin-right: 8px;
-    display: flex;
+    display: inline-flex;
     border-radius: 4px;
     padding: 4px;
-    visibility: hidden;
+    // visibility: hidden;
+    margin-left: 8px;
+
+    @include f.media('>=mid') {
+        margin-right: 8px;
+            margin-left: 0;
+    }
 
 
     &:hover {

@@ -4,7 +4,7 @@ const slugify = require('slugify');
 const anchor = require('markdown-it-anchor');
 const pieIconsSvg = require('../_11ty/filters/pieIconsSvg');
 
-const anchorIcon = pieIconsSvg({
+const AnchorIcon = pieIconsSvg({
     name: 'link',
     attrs: {
         'aria-hidden': 'true',
@@ -19,14 +19,21 @@ const md = new MarkdownIt({
 }).use(markdownItAttrs)
     .use(anchor, {
         level: [2, 3, 4],
-        permalink: [
-            anchor.permalink.ariaHidden({
-                placement: 'before',
-            }),
-        ],
-        permalinkClass: 'c-anchor-icon',
-        permalinkSymbol: anchorIcon,
-        permalinkBefore: true,
+        // permalink: anchor.permalink.headerLink({
+        //     safariReaderFix: true,
+        //     permalinkClass: 'c-anchor-icon',
+        //     permalinkSymbol: anchorIcon,
+        // }),
+        // permalinkClass: 'c-anchor-icon',
+        // permalinkSymbol: anchorIcon,
+        // permalinkBefore: true,
+        permalink: anchor.permalink.linkInsideHeader({
+            symbol: `
+                <span class="is-visuallyHidden">Jump to heading</span>
+                ${AnchorIcon}
+            `,
+            placement: 'after',
+        }),
         slugify: (s) => slugify(s, { lower: true, remove: /[$*_+~.()'"!/\-:@?]+/g }),
     });
 
