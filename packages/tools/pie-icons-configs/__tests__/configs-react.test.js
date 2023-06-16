@@ -8,6 +8,7 @@ describe('getReactSvgProps', () => {
             const received = getReactSvgProps('c-pieIcon c-pieIcon--app-order', null, 'xs', 'IconAppOrder');
 
             expect(received).toHaveProperty('className');
+            expect(received).not.toHaveProperty('class');
             expect(received).toHaveProperty('width');
             expect(received).toHaveProperty('height');
         });
