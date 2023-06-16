@@ -66,6 +66,7 @@ jobs:
         version: yarn changeset:version
         publish: yarn changeset:publish
         commit: "release: release packages with 'latest' tag"
+        setupGitUser: false
     # If .changeset/pre.json does not exist and we did not recently exit
     # prerelease mode, enter prerelease mode with tag beta
     - name: Enter beta prerelease mode
@@ -80,6 +81,7 @@ jobs:
         version: yarn changeset:version
         publish: yarn changeset:publish
         commit: "release: release packages with 'beta' tag"
+        setupGitUser: false
     - name: Enter feature prerelease mode
       if: steps.check_files.outputs.files_exists == 'false' && contains(github.ref_name, 'feature')
       # If .changeset/pre.json does not exist and we did not recently exit
@@ -92,3 +94,4 @@ jobs:
         version: yarn changeset:version
         publish: yarn changeset:publish
         commit: "release: release packages with 'next' tag"
+        setupGitUser: false
