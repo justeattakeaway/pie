@@ -10,6 +10,6 @@
         if: github.ref != 'refs/heads/main'
         uses: ./.github/actions/run-script
         with:
-          script-name: "test:visual:ci --filter=[HEAD^1]"
+          script-name: "test:visual:ci --filter=[origin/main...HEAD]"
           concurrency: 1
 ```
