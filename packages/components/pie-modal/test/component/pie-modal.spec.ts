@@ -1,4 +1,5 @@
 import { test, expect } from '@sand4rt/experimental-ct-web';
+import * as events from 'events';
 import { PieModal } from '@/index';
 import { headingLevels } from '@/defs';
 
@@ -25,3 +26,28 @@ headingLevels.forEach((headingLevel) => test(`should render the correct heading 
     // h2 is the default / fallback value
     await expect(component.locator('h2.c-modal-heading')).toContainText(props.heading);
 }));
+
+test.describe('`When the Pie Modal is closed`', () => {
+    test('should dispatch event `pie-modal-close`', async ({ mount }) => {
+        const messages: string[] = [];
+        const component = await mount(
+            PieModal,
+            {
+                props: {
+                    isOpen: true,
+                },
+            },
+        );
+
+        await component.update({
+            on: {
+                click: (event: string) => messages.push(event),
+            },
+        });
+
+        await component.locator('.c-modal-closeBtn').click();
+
+        expect(messages).toHaveLength(1);
+    });
+});
+

@@ -11,6 +11,7 @@
     --modal-bg-color: var(--dt-color-container-default);
     --modal-elevation: var(--dt-elevation-04);
 
+    position: relative;
     border-radius: var(--modal-border-radius);
     border: none;
     font-family: var(--modal-font);
@@ -52,5 +53,11 @@
 
         padding-block: var(--modal-content-padding-block-start) var(--modal-content-padding);
         padding-inline: var(--modal-content-padding);
+    }
+
+    & .c-modal-closeBtn {
+        position: absolute;
+        right: var(--dt-spacing-d);
+        top: var(--dt-spacing-d);
     }
 }
