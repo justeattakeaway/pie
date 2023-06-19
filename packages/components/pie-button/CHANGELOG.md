@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.16.0
+
+### Minor Changes
+
+- [Updated] - enum types to string union types to string union types ([#508](https://github.com/justeattakeaway/pie/pull/508)) by [@FayeCarter](https://github.com/FayeCarter)
+
 ## 0.15.0
 
 ### Minor Changes
