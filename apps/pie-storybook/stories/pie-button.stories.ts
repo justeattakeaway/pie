@@ -60,7 +60,7 @@ const Template = ({
         </pie-button>
         `;
 
-const defaultArgs:ButtonProps = {
+const defaultArgs: ButtonProps = {
     size: 'medium',
     type: 'submit',
     variant: 'primary',

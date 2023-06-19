@@ -24,7 +24,6 @@
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": true,
-    "allowImportingTsExtensions": true,
     "noEmit": true,
   },
   "exclude": []

@@ -12,9 +12,7 @@ export default function Counter () {
             <h3>Counter</h3>
             <div className="flex-wrapper">
                 <PieButton onClick={onDecrement}>decrement</PieButton>
-                <div className="padding">
-                        Counter: { count }
-                </div>
+                <div className="padding">Counter: {count}</div>
                 <PieButton onClick={onIncrement}>increment</PieButton>
             </div>
         </div>
