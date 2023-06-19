@@ -3,13 +3,13 @@ import AxeBuilder from '@axe-core/playwright';
 import {
     PropObject, Combination, getAllPropCombinations, splitCombinationsByPropertyValue,
 } from '@justeattakeaway/pie-webc-core/src/test-helpers/get-all-prop-combos.ts';
-import { PieButton } from '@/index';
-import { BUTTON_TYPE, BUTTON_SIZE, BUTTON_VARIANT } from '@/defs';
+import { PieButton } from '@/index.ts';
+import { buttonSizes, buttonVariants } from '@/defs';
 
 const props: PropObject = {
-    variant: Object.values(BUTTON_VARIANT),
-    size: Object.values(BUTTON_SIZE),
-    type: BUTTON_TYPE.BUTTON, // Changing the type does not affect the appearance of the button
+    variant: buttonVariants,
+    size: buttonSizes,
+    type: 'button', // Changing the type does not affect the appearance of the button
     isFullWidth: [true, false],
     disabled: [true, false],
 };

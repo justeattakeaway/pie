@@ -14,12 +14,12 @@ import {
     WebComponentTestWrapper,
 } from '@justeattakeaway/pie-webc-core/src/test-helpers/components/web-component-test-wrapper/WebComponentTestWrapper.ts';
 import { PieButton } from '@/index';
-import { BUTTON_SIZE, BUTTON_TYPE, BUTTON_VARIANT } from '@/defs';
+import { buttonSizes, buttonVariants } from '@/defs';
 
 const props: PropObject = {
-    variant: Object.values(BUTTON_VARIANT),
-    size: Object.values(BUTTON_SIZE),
-    type: BUTTON_TYPE.BUTTON, // Changing the type does not affect the appearance of the button
+    variant: buttonVariants,
+    size: buttonSizes,
+    type: 'button', // Changing the type does not affect the appearance of the button
     isFullWidth: [true, false],
     disabled: [true, false],
 };

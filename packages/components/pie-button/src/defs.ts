@@ -1,30 +1,36 @@
+export interface ButtonProps {
+    size: 'xsmall' | 'small-expressive' | 'small-productive' | 'medium' | 'large';
+    type: 'submit' | 'button' | 'reset' | 'menu';
+    variant: 'primary' | 'secondary' | 'outline' | 'ghost';
+}
+
 /**
  * Button size variants
  */
-export enum BUTTON_SIZE {
-    XSMALL = 'xsmall',
-    SMALL_EXPRESSIVE = 'small-expressive',
-    SMALL_PRODUCTIVE = 'small-productive',
-    MEDIUM = 'medium',
-    LARGE = 'large'
-}
+export const buttonSizes: ButtonProps['size'][] = [
+    'xsmall',
+    'small-expressive',
+    'small-productive',
+    'medium',
+    'large'
+];
 
 /**
  * Button style variants
  */
-export enum BUTTON_TYPE {
-    SUBMIT = 'submit',
-    BUTTON = 'button',
-    RESET = 'reset',
-    MENU = 'menu'
-}
+export const buttonVariants: ButtonProps['variant'][] = [
+    'primary',
+    'secondary',
+    'outline',
+    'ghost',
+];
 
 /**
- * Button style variants
+ * Button type variants
  */
-export enum BUTTON_VARIANT {
-    PRIMARY = 'primary',
-    SECONDARY = 'secondary',
-    OUTLINE = 'outline',
-    GHOST = 'ghost'
-}
+export const buttonTypes: ButtonProps['type'][] = [
+    'submit',
+    'button',
+    'reset',
+    'menu',
+];

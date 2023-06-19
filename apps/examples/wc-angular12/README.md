@@ -65,7 +65,7 @@ Import the web component into `app.component.ts` and add any js functions and va
 
 ```
 // app.component.ts
-import { BUTTON_SIZE, BUTTON_VARIANT } from '@justeattakeaway/pie-button';
+import { buttonSizes, buttonVariants } from '@justeattakeaway/pie-button';
 
 export class AppComponent {
   count = 0;

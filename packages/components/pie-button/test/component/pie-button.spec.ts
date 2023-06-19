@@ -1,6 +1,5 @@
 import { test, expect } from '@sand4rt/experimental-ct-web';
 import { PieButton } from '@/index';
-import { BUTTON_SIZE, BUTTON_VARIANT } from '@/defs';
 
 test('should correctly work with native click events', async ({ mount }) => {
     const messages: string[] = [];
@@ -9,8 +8,8 @@ test('should correctly work with native click events', async ({ mount }) => {
         PieButton,
         {
             props: {
-                size: BUTTON_SIZE.LARGE,
-                variant: BUTTON_VARIANT.PRIMARY,
+                size: 'large',
+                variant: 'primary',
             },
             slots: {
                 default: 'Click me!',

@@ -1,6 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import type { Meta, StoryObj as Story } from '@storybook/web-components';
-import { ICON_BUTTON_VARIANT } from '@justeattakeaway/pie-icon-button';
+import { IconButtonProps, iconButtonVariants } from '@justeattakeaway/pie-icon-button';
 import { html, TemplateResult } from 'lit';
 
 export default {
@@ -9,14 +9,14 @@ export default {
     argTypes: {
         variant: {
             control: 'select',
-            options: Object.values(ICON_BUTTON_VARIANT),
+            options: iconButtonVariants,
         },
         disabled: {
             control: 'boolean',
         },
     },
     args: {
-        variant: ICON_BUTTON_VARIANT.PRIMARY,
+        variant: 'primary',
     },
     parameters: {
         design: {
@@ -27,7 +27,6 @@ export default {
 } as Meta;
 
 interface IconButtonProps {
-    variant: ICON_BUTTON_VARIANT;
     disabled: boolean;
 }
 
@@ -42,7 +41,7 @@ const Template = ({
         `;
 
 const defaultArgs = {
-    variant: ICON_BUTTON_VARIANT.PRIMARY,
+    variant: 'primary',
     disabled: false,
 };
 
@@ -54,23 +53,23 @@ Primary.args = {
 export const Secondary: Story = Template.bind({});
 Secondary.args = {
     ...defaultArgs,
-    variant: ICON_BUTTON_VARIANT.SECONDARY,
+    variant: 'secondary',
 };
 
 export const Outline: Story = Template.bind({});
 Outline.args = {
     ...defaultArgs,
-    variant: ICON_BUTTON_VARIANT.OUTLINE,
+    variant: 'outline',
 };
 
 export const Ghost: Story = Template.bind({});
 Ghost.args = {
     ...defaultArgs,
-    variant: ICON_BUTTON_VARIANT.GHOST,
+    variant: 'ghost',
 };
 
 export const GhostTertiary: Story = Template.bind({});
 GhostTertiary.args = {
     ...defaultArgs,
-    variant: ICON_BUTTON_VARIANT.GHOST_TERTIARY,
+    variant: 'ghost-tertiary',
 };
