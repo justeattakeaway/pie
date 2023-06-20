@@ -32,6 +32,7 @@ h3:has(.c-anchor-icon),
 h4:has(.c-anchor-icon) {
     display: inline-flex;
     align-items: center;
+    margin-block: 0;
 
     &:hover {
         .c-anchor-icon {
