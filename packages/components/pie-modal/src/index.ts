@@ -35,7 +35,7 @@ export class PieModal extends RtlMixin(LitElement) {
         return html`
             <dialog class="c-modal" ?open="${isOpen}">
                 <${headingTag} class="c-modal-heading">${heading}</${headingTag}>
-                <div class="c-modal-contentWrapper">
+                <div class="c-modal-content">
                     <slot></slot>
                 </div>
             </dialog>
