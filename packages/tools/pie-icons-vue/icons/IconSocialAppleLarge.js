@@ -3,13 +3,13 @@ import _mergeJSXProps from '@vue/babel-helper-vue-jsx-merge-props';
 import { iconSize, updateContextData } from './configs-vue';
 
 export default {
-    name: 'IconSocialAppleStaticLarge',
+    name: 'IconSocialAppleLarge',
     props: {
         iconSize: iconSize.large,
     },
     functional: true,
     render (h, ctx) {
-        ctx.data = updateContextData(ctx, 'c-pieIcon c-pieIcon--appleStaticLarge', 'IconSocialAppleStaticLarge');
+        ctx.data = updateContextData(ctx, 'c-pieIcon c-pieIcon--appleLarge', 'IconSocialAppleLarge');
         return h('svg', _mergeJSXProps([{
             attrs: {
                 xmlns: 'http://www.w3.org/2000/svg',
@@ -20,7 +20,6 @@ export default {
             },
         }, ctx.data]), [h('g', {
             attrs: {
-                fill: '#000',
                 'clip-path': 'url(#prefix__clip0_923_536)',
             },
         }, [h('path', {
@@ -39,7 +38,6 @@ export default {
             attrs: {
                 width: '28',
                 height: '28',
-                fill: '#fff',
                 transform: 'translate(2 2)',
             },
         })])])]);
