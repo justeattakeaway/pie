@@ -45,7 +45,7 @@ test.describe('`When the Pie Modal is closed`', () => {
             },
         });
 
-        await component.click('.c-modal-closeBtn', { timeout: 99999 });
+        await component.locator('.c-modal-closeBtn').click();
 
         expect(messages).toHaveLength(1);
     });

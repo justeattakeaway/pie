@@ -316,6 +316,37 @@
     },
     {
       "kind": "javascript-module",
+      "path": "../../components/pie-webc-core/src/index.js",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./mixins"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./decorators"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./test-helpers"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "../../components/pie-modal/src/defs.js",
       "declarations": [
         {
@@ -326,6 +357,15 @@
           },
           "default": "['h1', 'h2', 'h3', 'h4', 'h5', 'h6']",
           "description": "Modal heading levels/tags"
+        },
+        {
+          "kind": "variable",
+          "name": "ON_MODAL_CLOSE_EVENT",
+          "type": {
+            "text": "string"
+          },
+          "default": "'pie-modal-close'",
+          "description": "Event name for when the modal is closed."
         }
       ],
       "exports": [
@@ -334,6 +374,14 @@
           "name": "headingLevels",
           "declaration": {
             "name": "headingLevels",
+            "module": "../../components/pie-modal/src/defs.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "ON_MODAL_CLOSE_EVENT",
+          "declaration": {
+            "name": "ON_MODAL_CLOSE_EVENT",
             "module": "../../components/pie-modal/src/defs.js"
           }
         }
@@ -380,8 +428,24 @@
               "default": "'h2'"
             },
             {
+              "kind": "field",
+              "name": "_dialog",
+              "type": {
+                "text": "HTMLDialogElement"
+              }
+            },
+            {
               "kind": "method",
               "name": "render"
+            },
+            {
+              "kind": "field",
+              "name": "_handleCloseDialog"
+            },
+            {
+              "kind": "field",
+              "name": "_onDialogClose",
+              "description": "Dispatch `ON_MODAL_CLOSE_EVENT` event.\nTo be used whenever we close the modal."
             },
             {
               "kind": "field",
@@ -467,37 +531,6 @@
           "declaration": {
             "name": "PieModal",
             "module": "../../components/pie-modal/src/index.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "../../components/pie-webc-core/src/index.js",
-      "declarations": [],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "*",
-          "declaration": {
-            "name": "*",
-            "package": "./mixins"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "*",
-          "declaration": {
-            "name": "*",
-            "package": "./decorators"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "*",
-          "declaration": {
-            "name": "*",
-            "package": "./test-helpers"
           }
         }
       ]
@@ -603,21 +636,6 @@
           "declaration": {
             "name": "validPropertyValues",
             "module": "../../components/pie-webc-core/src/decorators/valid-property-values.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "../../components/pie-webc-core/src/mixins/index.js",
-      "declarations": [],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "*",
-          "declaration": {
-            "name": "*",
-            "package": "./rtl/rtlMixin"
           }
         }
       ]
@@ -805,6 +823,36 @@
     },
     {
       "kind": "javascript-module",
+      "path": "../../components/pie-webc-core/src/mixins/index.js",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./rtl/rtlMixin"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../../components/pie-webc-core/src/test-helpers/components/index.js",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./web-component-test-wrapper/WebComponentTestWrapper"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "../../components/pie-webc-core/src/mixins/rtl/rtlMixin.js",
       "declarations": [
         {
@@ -847,21 +895,6 @@
           "declaration": {
             "name": "RtlMixin",
             "module": "../../components/pie-webc-core/src/mixins/rtl/rtlMixin.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "../../components/pie-webc-core/src/test-helpers/components/index.js",
-      "declarations": [],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "*",
-          "declaration": {
-            "name": "*",
-            "package": "./web-component-test-wrapper/WebComponentTestWrapper"
           }
         }
       ]
