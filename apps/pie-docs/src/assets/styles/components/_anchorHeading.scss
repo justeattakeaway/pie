@@ -30,9 +30,8 @@ $anchor-margin: f.spacing(b);
 h2:has(.c-anchor-icon),
 h3:has(.c-anchor-icon),
 h4:has(.c-anchor-icon) {
-    display: inline-flex;
+    display: flex;
     align-items: center;
-    margin-block: 0;
 
     &:hover {
         .c-anchor-icon {
