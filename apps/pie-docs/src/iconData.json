@@ -1745,8 +1745,8 @@
                     "displayName": "YouTube Circle Filled"
                 },
                 {
-                    "name": "apple-static",
-                    "displayName": "Apple Static"
+                    "name": "apple",
+                    "displayName": "Apple"
                 },
                 {
                     "name": "apple-circle",
@@ -1797,12 +1797,12 @@
                     "displayName": "Microsoft Static"
                 },
                 {
-                    "name": "microsoft-circle-static",
-                    "displayName": "Microsoft Circle Static"
+                    "name": "microsoft-circle",
+                    "displayName": "Microsoft Circle"
                 },
                 {
-                    "name": "microsoft-circle-filled-static",
-                    "displayName": "Microsoft Circle Filled Static"
+                    "name": "microsoft-circle-filled",
+                    "displayName": "Microsoft Circle Filled"
                 },
                 {
                     "name": "blogger-static",

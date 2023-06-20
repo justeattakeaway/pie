@@ -1,10 +1,14 @@
+export interface IconButtonProps {
+    variant: 'primary' | 'secondary' | 'outline' | 'ghost' | 'ghost-tertiary';
+}
+
 /**
  * Icon Button style variants
  */
-export enum ICON_BUTTON_VARIANT {
-    PRIMARY = 'primary',
-    SECONDARY = 'secondary',
-    OUTLINE = 'outline',
-    GHOST = 'ghost',
-    GHOST_TERTIARY = 'ghost-tertiary',
-}
+export const iconButtonVariants: IconButtonProps['variant'][] = [
+    'primary',
+    'secondary',
+    'outline',
+    'ghost',
+    'ghost-tertiary',
+];

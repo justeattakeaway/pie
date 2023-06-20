@@ -4,10 +4,10 @@ import { property } from 'lit/decorators.js'; // eslint-disable-line import/no-e
 import { RtlMixin, validPropertyValues, requiredProperty } from '@justeattakeaway/pie-webc-core';
 
 import styles from './modal.scss?inline';
-import { HEADING_LEVELS } from './defs';
+import { ModalProps, headingLevels } from './defs';
 
 // Valid values available to consumers
-export { HEADING_LEVELS };
+export { type ModalProps, headingLevels };
 
 const componentSelector = 'pie-modal';
 
@@ -20,8 +20,8 @@ export class PieModal extends RtlMixin(LitElement) {
         heading!: string;
 
     @property()
-    @validPropertyValues(componentSelector, Object.values(HEADING_LEVELS), HEADING_LEVELS.H2)
-        headingLevel : HEADING_LEVELS = HEADING_LEVELS.H2;
+    @validPropertyValues(componentSelector, headingLevels, 'h2')
+        headingLevel: ModalProps['headingLevel'] = 'h2';
 
     render () {
         const {
@@ -35,7 +35,7 @@ export class PieModal extends RtlMixin(LitElement) {
         return html`
             <dialog class="c-modal" ?open="${isOpen}">
                 <${headingTag} class="c-modal-heading">${heading}</${headingTag}>
-                <div class="c-modal-contentWrapper">
+                <div class="c-modal-content">
                     <slot></slot>
                 </div>
             </dialog>
@@ -50,6 +50,6 @@ customElements.define(componentSelector, PieModal);
 
 declare global {
     interface HTMLElementTagNameMap {
-        'pie-modal': PieModal;
+        [componentSelector]: PieModal;
     }
 }

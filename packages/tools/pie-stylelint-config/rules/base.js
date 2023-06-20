@@ -36,6 +36,7 @@ module.exports = {
             }
         ],
         'comment-whitespace-inside': 'always',
+        'custom-property-pattern': '^([a-z][a-z0-9]*)(-[-a-z0-9]+)*$',
         'declaration-bang-space-after': 'never',
         'declaration-bang-space-before': 'always',
         'declaration-block-no-duplicate-properties': [

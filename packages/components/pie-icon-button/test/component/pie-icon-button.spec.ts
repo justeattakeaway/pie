@@ -1,6 +1,5 @@
 import { test, expect } from '@sand4rt/experimental-ct-web';
 import { PieIconButton } from '@/index';
-import { ICON_BUTTON_VARIANT } from '@/defs';
 
 test('should correctly work with native click events', async ({ mount }) => {
     const messages: string[] = [];
@@ -9,7 +8,7 @@ test('should correctly work with native click events', async ({ mount }) => {
         PieIconButton,
         {
             props: {
-                variant: ICON_BUTTON_VARIANT.PRIMARY,
+                variant: 'primary',
             },
             on: {
                 click: () => {

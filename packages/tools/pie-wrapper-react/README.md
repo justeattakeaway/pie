@@ -30,11 +30,15 @@ To use the React wrapper in an application, import `Pie{Component}` from the pac
 import { PieButton } from '@justeattakeaway/pie-button/dist/react'
 ```
 
-When constructing your component, please define your custom element with the string and component class. For example:
+When constructing your web component, please reference the `componentSelector` variable and component class to define your custom element to have consistent identifiers across the component. For example:
+
+`customElements.define(componentSelector, PieIconButton);`
+
+Alternatively, you can define your custom element with a string and component class directly. For example
 
 `customElements.define('pie-icon-button', PieIconButton);`
 
-The first parameter must contain a **string** - this will be used to construct the tag name in the react component.
+The first parameter must be a reference to **componentSelector** or a **string** - this will be used to construct the tag name in the react component.
 
 Note: In order for the `custom-elements-manifest/analyzer` to recognise events inside your component, please declare the event inside the `this.dispatchEvent` function. For example:
 
