@@ -4,26 +4,6 @@
 $anchor-size: f.spacing(e);
 $anchor-margin: f.spacing(b);
 
-
-h2:has(.c-anchor-icon),
-h3:has(.c-anchor-icon),
-h4:has(.c-anchor-icon) {
-    display: inline-flex;
-    align-items: center;
-
-    &:hover {
-        .c-anchor-icon {
-            visibility: visible;
-        }
-    }
-
-    @include f.media('>=mid') {
-        flex-direction: row-reverse;
-        justify-content: start;
-        margin-inline: -(calc($anchor-size + $anchor-margin)) 0;
-    }
-}
-
 .c-anchor-icon {
     visibility: hidden;
     height: $anchor-size;
@@ -44,5 +24,24 @@ h4:has(.c-anchor-icon) {
     &:focus,
     &:active {
         background-color: color.adjust(f.$color-container-default, $lightness: calc(f.$color-active-01 * -1));
+    }
+}
+
+h2:has(.c-anchor-icon),
+h3:has(.c-anchor-icon),
+h4:has(.c-anchor-icon) {
+    display: inline-flex;
+    align-items: center;
+
+    &:hover {
+        .c-anchor-icon {
+            visibility: visible;
+        }
+    }
+
+    @include f.media('>=mid') {
+        flex-direction: row-reverse;
+        justify-content: start;
+        margin-inline: -(calc($anchor-size + $anchor-margin)) 0;
     }
 }
