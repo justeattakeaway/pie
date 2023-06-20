@@ -3396,9 +3396,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@custom-elements-manifest/analyzer@npm:0.8.0":
-  version: 0.8.0
-  resolution: "@custom-elements-manifest/analyzer@npm:0.8.0"
+"@custom-elements-manifest/analyzer@npm:0.8.3":
+  version: 0.8.3
+  resolution: "@custom-elements-manifest/analyzer@npm:0.8.3"
   dependencies:
     "@custom-elements-manifest/find-dependencies": ^0.0.5
     "@github/catalyst": ^1.6.0
@@ -3413,7 +3413,7 @@ __metadata:
   bin:
     cem: cem.js
     custom-elements-manifest: cem.js
-  checksum: aeda4bb51e160d75a5f32d964dcfb0b660f1a58c6befa08df43e1b878b28896f949f1c2375ccd36ee869e2f1097121f466af11c8faa2fe582c371459f66bd560
+  checksum: d9003a939290806a864396bb5371d306955d21c5617a9b51a5510ff5c1bf1431c4bc19abd16f8eef27b28a80aef694af73c239e6f109133c1e05e89e4aaf8308
   languageName: node
   linkType: hard
 
@@ -4613,7 +4613,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-button@0.15.0, @justeattakeaway/pie-button@workspace:*, @justeattakeaway/pie-button@workspace:packages/components/pie-button":
+"@justeattakeaway/pie-button@0.16.0, @justeattakeaway/pie-button@workspace:*, @justeattakeaway/pie-button@workspace:packages/components/pie-button":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-button@workspace:packages/components/pie-button"
   dependencies:
@@ -4719,7 +4719,7 @@ __metadata:
   resolution: "@justeattakeaway/pie-wrapper-react@workspace:packages/tools/pie-wrapper-react"
   dependencies:
     "@babel/preset-react": 7.18.6
-    "@custom-elements-manifest/analyzer": 0.8.0
+    "@custom-elements-manifest/analyzer": 0.8.3
     "@lit-labs/react": 1.1.1
     cem-plugin-module-file-extensions: 0.0.5
     fs-extra: 9.1.0
@@ -36396,7 +36396,7 @@ __metadata:
   resolution: "wc-vanilla@workspace:apps/examples/wc-vanilla"
   dependencies:
     "@justeat/pie-design-tokens": 5.0.1
-    "@justeattakeaway/pie-button": 0.15.0
+    "@justeattakeaway/pie-button": 0.16.0
     vite: ^4.3.0
   languageName: unknown
   linkType: soft
