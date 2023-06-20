@@ -4,10 +4,7 @@ import { property, query } from 'lit/decorators.js'; // eslint-disable-line impo
 import { RtlMixin, validPropertyValues, requiredProperty } from '@justeattakeaway/pie-webc-core';
 
 import styles from './modal.scss?inline';
-import { ModalProps, headingLevels } from './defs';
-
-// Events
-import { ON_MODAL_CLOSE_EVENT } from './constants';
+import { ModalProps, headingLevels, ON_MODAL_CLOSE_EVENT } from './defs';
 
 // Valid values available to consumers
 export { type ModalProps, headingLevels };
@@ -39,7 +36,7 @@ export class PieModal extends RtlMixin(LitElement) {
         const headingTag = unsafeStatic(headingLevel);
 
         return html`
-            <dialog id="dialog" class="c-modal" ?open="${isOpen}" @click="${this._handleCloseDialog}">
+            <dialog id="dialog" class="c-modal" ?open="${isOpen}">
                 <header>
                     <${headingTag} class="c-modal-heading">${heading}</${headingTag}>
                     <pie-icon-button
