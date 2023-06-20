@@ -9,7 +9,7 @@ const { buildSpacingExample } = require('./tokenTypes/spacing');
 const { buildFontExample } = require('./tokenTypes/font');
 const { buildRadiusExample } = require('./tokenTypes/radius');
 const { deindentHTML } = require('../shortcode-utilities');
-const markdown = require('../../filters/markdown');
+const headingAnchor = require('../../filters/headingAnchor');
 
 const {
     getSubcategoriesForParentCategory,
@@ -287,7 +287,7 @@ const buildCategoryListsWithParents = ({
 
         // create heading and description for parent category
         const { displayName, description } = parentCategories[parentCategoryKey];
-        const heading = markdown(`<h2 class="c-tokensTable-sectionHeading">${displayName}</h2>`);
+        const heading = `<h2 class="c-tokensTable-sectionHeading">${displayName}</h2>`;
         const descriptionMarkup = `<p class="c-tokensTable-sectionDescription">${description}</p>`;
 
         // return heading, description and lists
@@ -332,5 +332,5 @@ module.exports = function ({ path, tokenType }) {
     validateConfiguration({ path, tokenType });
     const lists = buildTokenLists(path, tokenType);
 
-    return `<div class="c-tokensTable">${lists}</div>`;
+    return headingAnchor(`<div class="c-tokensTable">${lists}</div>`);
 };

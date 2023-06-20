@@ -19,19 +19,12 @@ const md = new MarkdownIt({
 }).use(markdownItAttrs)
     .use(anchor, {
         level: [2, 3, 4],
-        // permalink: anchor.permalink.headerLink({
-        //     safariReaderFix: true,
-        //     permalinkClass: 'c-anchor-icon',
-        //     permalinkSymbol: anchorIcon,
-        // }),
-        // permalinkClass: 'c-anchor-icon',
-        // permalinkSymbol: anchorIcon,
-        // permalinkBefore: true,
         permalink: anchor.permalink.linkInsideHeader({
             symbol: `
                 <span class="is-visuallyHidden">Jump to heading</span>
                 ${AnchorIcon}
             `,
+            class: 'c-anchor-icon',
             placement: 'after',
         }),
         slugify: (s) => slugify(s, { lower: true, remove: /[$*_+~.()'"!/\-:@?]+/g }),

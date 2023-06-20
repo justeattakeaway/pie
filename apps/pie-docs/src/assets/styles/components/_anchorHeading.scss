@@ -1,46 +1,41 @@
 @use 'sass:color';
 @use '../fozzie-config' as f;
 
+$anchor-size: f.spacing(e);
+$anchor-margin: f.spacing(b);
+
+
 h2:has(.c-anchor-icon),
 h3:has(.c-anchor-icon),
 h4:has(.c-anchor-icon) {
     display: inline-flex;
     align-items: center;
-    // flex-wrap: wrap;
-    // margin-top: auto;
-    // margin-bottom: auto;
-
 
     &:hover {
         .c-anchor-icon {
             visibility: visible;
         }
     }
-    & > {
-        display: inline;
-    }
 
     @include f.media('>=mid') {
         flex-direction: row-reverse;
         justify-content: start;
-        margin-left: -32px;
+        margin-inline: -(calc($anchor-size + $anchor-margin)) 0;
     }
 }
 
 .c-anchor-icon {
-    height: 24px;
-    width: 24px;
+    visibility: hidden;
+    height: $anchor-size;
+    width: $anchor-size;
     display: inline-flex;
-    border-radius: 4px;
-    padding: 4px;
-    // visibility: hidden;
-    margin-left: 8px;
+    border-radius: f.$radius-rounded-a;
+    padding: f.spacing(a);
+    margin-inline: $anchor-margin 0;
 
     @include f.media('>=mid') {
-        margin-right: 8px;
-            margin-left: 0;
+        margin-inline: 0 $anchor-margin;
     }
-
 
     &:hover {
         background-color: color.adjust(f.$color-container-default, $lightness: calc(f.$color-hover-01 * -1));
