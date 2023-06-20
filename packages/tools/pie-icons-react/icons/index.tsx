@@ -671,8 +671,8 @@ export { default as IconSocialAppleCircleFilledLarge } from './IconSocialAppleCi
 export { default as IconSocialAppleCircleFilled } from './IconSocialAppleCircleFilled';
 export { default as IconSocialAppleCircleLarge } from './IconSocialAppleCircleLarge';
 export { default as IconSocialAppleCircle } from './IconSocialAppleCircle';
-export { default as IconSocialAppleStaticLarge } from './IconSocialAppleStaticLarge';
-export { default as IconSocialAppleStatic } from './IconSocialAppleStatic';
+export { default as IconSocialAppleLarge } from './IconSocialAppleLarge';
+export { default as IconSocialApple } from './IconSocialApple';
 export { default as IconSocialBloggerCircleFilledLarge } from './IconSocialBloggerCircleFilledLarge';
 export { default as IconSocialBloggerCircleFilled } from './IconSocialBloggerCircleFilled';
 export { default as IconSocialBloggerCircleLarge } from './IconSocialBloggerCircleLarge';
@@ -703,10 +703,10 @@ export { default as IconSocialLinkedinCircleLarge } from './IconSocialLinkedinCi
 export { default as IconSocialLinkedinCircle } from './IconSocialLinkedinCircle';
 export { default as IconSocialLinkedinStaticLarge } from './IconSocialLinkedinStaticLarge';
 export { default as IconSocialLinkedinStatic } from './IconSocialLinkedinStatic';
-export { default as IconSocialMicrosoftCircleFilledStaticLarge } from './IconSocialMicrosoftCircleFilledStaticLarge';
-export { default as IconSocialMicrosoftCircleFilledStatic } from './IconSocialMicrosoftCircleFilledStatic';
-export { default as IconSocialMicrosoftCircleStaticLarge } from './IconSocialMicrosoftCircleStaticLarge';
-export { default as IconSocialMicrosoftCircleStatic } from './IconSocialMicrosoftCircleStatic';
+export { default as IconSocialMicrosoftCircleFilledLarge } from './IconSocialMicrosoftCircleFilledLarge';
+export { default as IconSocialMicrosoftCircleFilled } from './IconSocialMicrosoftCircleFilled';
+export { default as IconSocialMicrosoftCircleLarge } from './IconSocialMicrosoftCircleLarge';
+export { default as IconSocialMicrosoftCircle } from './IconSocialMicrosoftCircle';
 export { default as IconSocialMicrosoftStaticLarge } from './IconSocialMicrosoftStaticLarge';
 export { default as IconSocialMicrosoftStatic } from './IconSocialMicrosoftStatic';
 export { default as IconSocialPinterestCircleFilledLarge } from './IconSocialPinterestCircleFilledLarge';
