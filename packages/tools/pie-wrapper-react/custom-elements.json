@@ -222,6 +222,40 @@
     },
     {
       "kind": "javascript-module",
+      "path": "../../components/pie-icon-button/src/icon.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "IconAlcohol",
+          "superclass": {
+            "name": "HTMLElement"
+          },
+          "tagName": "corner-kitten",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "IconAlcohol",
+          "declaration": {
+            "name": "IconAlcohol",
+            "module": "../../components/pie-icon-button/src/icon.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "corner-kitten",
+          "declaration": {
+            "name": "IconAlcohol",
+            "module": "../../components/pie-icon-button/src/icon.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "../../components/pie-icon-button/src/index.js",
       "declarations": [
         {
@@ -406,7 +440,7 @@
               "type": {
                 "text": "boolean"
               },
-              "description": "Returns true if the element is in Right to Left mode.\nIf a dir attribute is not explicitly set on the web component\nthen it falls back to the nearest parent with a dir attribute set.\n\nA dir attribute being set will result in a reactive property.\nIf the component falls back to a parent dir attribute then the value\nwill not be reactive and is only computed once",
+              "description": "Returns true if the element is in Right to Left mode.\r\nIf a dir attribute is not explicitly set on the web component\r\nthen it falls back to the nearest parent with a dir attribute set.\r\n\r\nA dir attribute being set will result in a reactive property.\r\nIf the component falls back to a parent dir attribute then the value\r\nwill not be reactive and is only computed once",
               "readonly": true,
               "inheritedFrom": {
                 "name": "RtlMixin",
@@ -826,7 +860,7 @@
               "type": {
                 "text": "boolean"
               },
-              "description": "Returns true if the element is in Right to Left mode.\nIf a dir attribute is not explicitly set on the web component\nthen it falls back to the nearest parent with a dir attribute set.\n\nA dir attribute being set will result in a reactive property.\nIf the component falls back to a parent dir attribute then the value\nwill not be reactive and is only computed once",
+              "description": "Returns true if the element is in Right to Left mode.\r\nIf a dir attribute is not explicitly set on the web component\r\nthen it falls back to the nearest parent with a dir attribute set.\r\n\r\nA dir attribute being set will result in a reactive property.\r\nIf the component falls back to a parent dir attribute then the value\r\nwill not be reactive and is only computed once",
               "readonly": true
             }
           ],

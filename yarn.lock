@@ -4633,6 +4633,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-icon-button@workspace:packages/components/pie-icon-button"
   dependencies:
+    "@justeattakeaway/pie-icons-webc": "workspace:*"
     "@justeattakeaway/pie-webc-core": "workspace:*"
   languageName: unknown
   linkType: soft
@@ -4680,6 +4681,24 @@ __metadata:
     marked: 1.2.9
     pascal-case: 3.1.2
     prismjs: 1.29.0
+  languageName: unknown
+  linkType: soft
+
+"@justeattakeaway/pie-icons-webc@workspace:*, @justeattakeaway/pie-icons-webc@workspace:packages/tools/pie-icons-webc":
+  version: 0.0.0-use.local
+  resolution: "@justeattakeaway/pie-icons-webc@workspace:packages/tools/pie-icons-webc"
+  dependencies:
+    "@babel/node": 7.20.7
+    "@justeattakeaway/pie-icons": 3.4.0
+    "@justeattakeaway/pie-icons-configs": "workspace:*"
+    "@rollup/plugin-node-resolve": 15.1.0
+    fs-extra: 9.1.0
+    kebab-case: 1.0.2
+    lodash.kebabcase: 4.1.1
+    marked: 1.2.9
+    pascal-case: 3.1.2
+    prismjs: 1.29.0
+    rollup: 3.20.2
   languageName: unknown
   linkType: soft
 
@@ -4759,6 +4778,13 @@ __metadata:
   version: 1.1.1
   resolution: "@lit-labs/react@npm:1.1.1"
   checksum: e46b87a3e04b329b62e67360a7a1b21c55abf91c17d3059b550654565b53c73a25832e95426698e9b78488cc4ebaeb20b8a8ca64a220325e31633355a245710d
+  languageName: node
+  linkType: hard
+
+"@lit-labs/react@npm:^1.2.0":
+  version: 1.2.0
+  resolution: "@lit-labs/react@npm:1.2.0"
+  checksum: a5dbcbb29dc0fd3848e51487b231ee3815ed739586f2abffd2bc96554e5313657b4d930dc651ca2695b12062eb0f6d85e27b8aaa5daa7f1b75c9f2c053e70849
   languageName: node
   linkType: hard
 
@@ -22524,6 +22550,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"kebab-case@npm:1.0.2":
+  version: 1.0.2
+  resolution: "kebab-case@npm:1.0.2"
+  checksum: bf01164e11c544ee9b3aa1a91c2e7d6aa6b3356b834a5e885d43f36db14aae5d347cd4a298a566133321b82fde6bac6b597f148ac19bfd3d3fc81e1034a79729
+  languageName: node
+  linkType: hard
+
 "kind-of@npm:^3.0.2, kind-of@npm:^3.0.3, kind-of@npm:^3.2.0":
   version: 3.2.2
   resolution: "kind-of@npm:3.2.2"
@@ -36385,6 +36418,8 @@ __metadata:
   resolution: "wc-react18@workspace:apps/examples/wc-react18"
   dependencies:
     "@justeattakeaway/pie-button": "workspace:*"
+    "@justeattakeaway/pie-icons-webc": "workspace:*"
+    "@lit-labs/react": ^1.2.0
     react: 18.2.0
     react-dom: 18.2.0
     react-scripts: 5.0.1
@@ -36406,6 +36441,7 @@ __metadata:
   resolution: "wc-vue3@workspace:apps/examples/wc-vue3"
   dependencies:
     "@justeattakeaway/pie-button": "workspace:*"
+    "@justeattakeaway/pie-icons-webc": "workspace:*"
     "@types/node": 18.15.11
     "@vitejs/plugin-vue": 4.0.0
     "@vue/tsconfig": 0.1.3

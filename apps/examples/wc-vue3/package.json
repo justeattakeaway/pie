@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@justeattakeaway/pie-button": "workspace:*",
+    "@justeattakeaway/pie-icons-webc": "workspace:*",
     "@vitejs/plugin-vue": "4.0.0",
     "vite": "4.2.3",
     "vue": "3.2.47"
