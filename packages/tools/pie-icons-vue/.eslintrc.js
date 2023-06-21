@@ -9,6 +9,7 @@ module.exports = {
         ...vue.rules,
         ...vue3.rules,
         'vue/sort-keys': 'off',
+        'import/no-extraneous-dependencies': 'off',
     },
     parserOptions: {
         parser: '@babel/eslint-parser',

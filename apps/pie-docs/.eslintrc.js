@@ -12,5 +12,6 @@ module.exports = {
         'no-shadow': 'off',
         'no-use-before-define': 'off',
         'vue/sort-keys': 'off',
+        'import/no-extraneous-dependencies': 'off',
     },
 };

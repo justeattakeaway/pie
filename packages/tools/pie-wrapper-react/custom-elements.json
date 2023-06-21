@@ -197,6 +197,125 @@
     },
     {
       "kind": "javascript-module",
+      "path": "../../components/pie-icon-button/src/defs.js",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "iconButtonVariants",
+          "type": {
+            "text": "IconButtonProps['variant'][]"
+          },
+          "default": "[\n    'primary',\n    'secondary',\n    'outline',\n    'ghost',\n    'ghost-tertiary',\n]",
+          "description": "Icon Button style variants"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "iconButtonVariants",
+          "declaration": {
+            "name": "iconButtonVariants",
+            "module": "../../components/pie-icon-button/src/defs.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../../components/pie-icon-button/src/index.js",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "componentSelector",
+          "type": {
+            "text": "string"
+          },
+          "default": "'pie-icon-button'"
+        },
+        {
+          "kind": "class",
+          "description": "",
+          "name": "PieIconButton",
+          "members": [
+            {
+              "kind": "field",
+              "name": "variant",
+              "type": {
+                "text": "IconButtonProps['variant']"
+              },
+              "default": "'primary'"
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            },
+            {
+              "kind": "field",
+              "name": "styles",
+              "static": true
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "componentSelector",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "type",
+          "declaration": {
+            "name": "type",
+            "module": "../../components/pie-icon-button/src/index.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "IconButtonProps",
+          "declaration": {
+            "name": "IconButtonProps",
+            "module": "../../components/pie-icon-button/src/index.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "iconButtonVariants",
+          "declaration": {
+            "name": "iconButtonVariants",
+            "module": "../../components/pie-icon-button/src/index.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "PieIconButton",
+          "declaration": {
+            "name": "PieIconButton",
+            "module": "../../components/pie-icon-button/src/index.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "componentSelector",
+          "declaration": {
+            "name": "PieIconButton",
+            "module": "../../components/pie-icon-button/src/index.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "../../components/pie-modal/src/defs.js",
       "declarations": [
         {
@@ -412,125 +531,6 @@
           "declaration": {
             "name": "*",
             "package": "./test-helpers"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "../../components/pie-icon-button/src/defs.js",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "iconButtonVariants",
-          "type": {
-            "text": "IconButtonProps['variant'][]"
-          },
-          "default": "[\n    'primary',\n    'secondary',\n    'outline',\n    'ghost',\n    'ghost-tertiary',\n]",
-          "description": "Icon Button style variants"
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "iconButtonVariants",
-          "declaration": {
-            "name": "iconButtonVariants",
-            "module": "../../components/pie-icon-button/src/defs.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "../../components/pie-icon-button/src/index.js",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "componentSelector",
-          "type": {
-            "text": "string"
-          },
-          "default": "'pie-icon-button'"
-        },
-        {
-          "kind": "class",
-          "description": "",
-          "name": "PieIconButton",
-          "members": [
-            {
-              "kind": "field",
-              "name": "variant",
-              "type": {
-                "text": "IconButtonProps['variant']"
-              },
-              "default": "'primary'"
-            },
-            {
-              "kind": "field",
-              "name": "disabled",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false"
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            },
-            {
-              "kind": "field",
-              "name": "styles",
-              "static": true
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "componentSelector",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "type",
-          "declaration": {
-            "name": "type",
-            "module": "../../components/pie-icon-button/src/index.js"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "IconButtonProps",
-          "declaration": {
-            "name": "IconButtonProps",
-            "module": "../../components/pie-icon-button/src/index.js"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "iconButtonVariants",
-          "declaration": {
-            "name": "iconButtonVariants",
-            "module": "../../components/pie-icon-button/src/index.js"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "PieIconButton",
-          "declaration": {
-            "name": "PieIconButton",
-            "module": "../../components/pie-icon-button/src/index.js"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "componentSelector",
-          "declaration": {
-            "name": "PieIconButton",
-            "module": "../../components/pie-icon-button/src/index.js"
           }
         }
       ]
@@ -843,21 +843,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "../../components/pie-webc-core/src/test-helpers/components/index.js",
-      "declarations": [],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "*",
-          "declaration": {
-            "name": "*",
-            "package": "./web-component-test-wrapper/WebComponentTestWrapper"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "../../components/pie-webc-core/src/mixins/rtl/rtlMixin.js",
       "declarations": [
         {
@@ -900,6 +885,21 @@
           "declaration": {
             "name": "RtlMixin",
             "module": "../../components/pie-webc-core/src/mixins/rtl/rtlMixin.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../../components/pie-webc-core/src/test-helpers/components/index.js",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./web-component-test-wrapper/WebComponentTestWrapper"
           }
         }
       ]
