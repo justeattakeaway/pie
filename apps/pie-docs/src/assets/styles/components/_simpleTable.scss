@@ -3,7 +3,8 @@
 
 .c-simpleTable {
     background-color: f.$color-container-default;
-    border: 1px solid f.$color-border-default;
+    box-shadow: 0 0 1px 1px f.$color-border-default;
+    border-collapse: collapse;
     border-radius: f.$radius-rounded-c;
     margin-block-start: f.$spacing-f;
     max-inline-size: v.$typography-content-max-width;
@@ -16,9 +17,9 @@
         inline-size: 50%;
     }
 
-    // If the table has no header, the top data row should not have a top border
-    tr:not(:first-child) > td {
-        border-block-start: 1px solid f.$color-border-default;
+    th,
+    tr:not(:last-child) {
+        border-block-end: 1px solid f.$color-border-default;
     }
 }
 
@@ -32,7 +33,7 @@
 
 .c-simpleTable--headerless {
     td:first-child {
-        font-weight: bold;
+        font-weight: f.$font-weight-bold;
 
         & ~ td {
             color: f.$color-content-subdued;
@@ -48,9 +49,8 @@
             td {
                 inline-size: 100%;
 
-                // Remove padding and borders between stacked rows
+                // Remove padding between stacked rows
                 &:not(:first-child) {
-                    border-block-start: none;
                     padding-block-start: 0;
                 }
 
