@@ -40,9 +40,9 @@ export class PieModal extends RtlMixin(LitElement) {
                 <header>
                     <${headingTag} class="c-modal-heading">${heading}</${headingTag}>
                     <pie-icon-button
-                            @click="${this._handleCloseDialog}"
-                            variant="ghost-tertiary"
-                            class="c-modal-closeBtn"></pie-icon-button>
+                        @click="${this._handleCloseDialog}"
+                        variant="ghost-tertiary"
+                        class="c-modal-closeBtn"></pie-icon-button>
                 </header>
                 <article class="c-modal-content">
                     <slot></slot>
