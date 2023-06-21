@@ -1003,7 +1003,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/parser@npm:^7.1.0, @babel/parser@npm:^7.13.16, @babel/parser@npm:^7.14.7, @babel/parser@npm:^7.16.4, @babel/parser@npm:^7.18.4, @babel/parser@npm:^7.19.3, @babel/parser@npm:^7.20.15, @babel/parser@npm:^7.20.7, @babel/parser@npm:^7.21.3, @babel/parser@npm:^7.21.5, @babel/parser@npm:^7.21.8, @babel/parser@npm:^7.22.0, @babel/parser@npm:^7.22.5, @babel/parser@npm:^7.6.0, @babel/parser@npm:^7.9.6":
+"@babel/parser@npm:^7.1.0, @babel/parser@npm:^7.13.16, @babel/parser@npm:^7.14.7, @babel/parser@npm:^7.16.4, @babel/parser@npm:^7.18.4, @babel/parser@npm:^7.19.3, @babel/parser@npm:^7.20.15, @babel/parser@npm:^7.20.7, @babel/parser@npm:^7.21.3, @babel/parser@npm:^7.21.4, @babel/parser@npm:^7.21.5, @babel/parser@npm:^7.21.8, @babel/parser@npm:^7.22.0, @babel/parser@npm:^7.22.5, @babel/parser@npm:^7.6.0, @babel/parser@npm:^7.9.6":
   version: 7.22.5
   resolution: "@babel/parser@npm:7.22.5"
   bin:
@@ -5031,7 +5031,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@microsoft/api-extractor@npm:^7.33.5":
+"@microsoft/api-extractor@npm:^7.34.4":
   version: 7.36.0
   resolution: "@microsoft/api-extractor@npm:7.36.0"
   dependencies:
@@ -6458,7 +6458,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rushstack/node-core-library@npm:3.59.4, @rushstack/node-core-library@npm:^3.53.2":
+"@rushstack/node-core-library@npm:3.59.4, @rushstack/node-core-library@npm:^3.55.2":
   version: 3.59.4
   resolution: "@rushstack/node-core-library@npm:3.59.4"
   dependencies:
@@ -7795,15 +7795,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ts-morph/common@npm:~0.18.0":
-  version: 0.18.1
-  resolution: "@ts-morph/common@npm:0.18.1"
+"@ts-morph/common@npm:~0.19.0":
+  version: 0.19.0
+  resolution: "@ts-morph/common@npm:0.19.0"
   dependencies:
     fast-glob: ^3.2.12
-    minimatch: ^5.1.0
-    mkdirp: ^1.0.4
+    minimatch: ^7.4.3
+    mkdirp: ^2.1.6
     path-browserify: ^1.0.1
-  checksum: 848fff5f7a6428d7c2f055de20cf8df864a967aac0cc03adc558d853442085a8fd9dec70429da24d67d263794b315edb0791c46d23ad9ae513251a7702df8031
+  checksum: 6b02a63ded0ce77e2bf86e135c17a6d5126307bbb926a4085d3cc2acaf28cb732780cf8d16961e9600efcc599876f706a2c9e8d135f7668704bb04a1a6fd37ec
   languageName: node
   linkType: hard
 
@@ -13102,10 +13102,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"code-block-writer@npm:^11.0.3":
-  version: 11.0.3
-  resolution: "code-block-writer@npm:11.0.3"
-  checksum: f0a2605f19963d7087267c9b0fd0b05a6638a50e7b29b70f97aa01a514f59475b0626f8aa092188df853ee6d96745426dfa132d6a677795df462c6ce32c21639
+"code-block-writer@npm:^12.0.0":
+  version: 12.0.0
+  resolution: "code-block-writer@npm:12.0.0"
+  checksum: 9f6505a4d668c9131c6f3f686359079439e66d5f50c236614d52fcfa53aeb0bc615b2c6c64ef05b5511e3b0433ccfd9f7756ad40eb3b9298af6a7d791ab1981d
   languageName: node
   linkType: hard
 
@@ -18918,7 +18918,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"h3@npm:^1.0.1, h3@npm:^1.6.6":
+"h3@npm:^1.0.1, h3@npm:^1.7.0":
   version: 1.7.0
   resolution: "h3@npm:1.7.0"
   dependencies:
@@ -22594,7 +22594,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"kolorist@npm:^1.6.0":
+"kolorist@npm:^1.7.0":
   version: 1.8.0
   resolution: "kolorist@npm:1.8.0"
   checksum: b056de671acc8a17f1e78d6d46c47dae3e06481eabc9fed213dd9079a7454fd3a7ea1226ec718df81c9208877f7475d038ac27a400958fec278d975839e33643
@@ -23419,6 +23419,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"lru-cache@npm:^10.0.0":
+  version: 10.0.0
+  resolution: "lru-cache@npm:10.0.0"
+  checksum: 18f101675fe283bc09cda0ef1e3cc83781aeb8373b439f086f758d1d91b28730950db785999cd060d3c825a8571c03073e8c14512b6655af2188d623031baf50
+  languageName: node
+  linkType: hard
+
 "lru-cache@npm:^4.0.1, lru-cache@npm:^4.1.2, lru-cache@npm:^4.1.5":
   version: 4.1.5
   resolution: "lru-cache@npm:4.1.5"
@@ -24171,6 +24178,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"minimatch@npm:^7.4.3":
+  version: 7.4.6
+  resolution: "minimatch@npm:7.4.6"
+  dependencies:
+    brace-expansion: ^2.0.1
+  checksum: 1a6c8d22618df9d2a88aabeef1de5622eb7b558e9f8010be791cb6b0fa6e102d39b11c28d75b855a1e377b12edc7db8ff12a99c20353441caa6a05e78deb5da9
+  languageName: node
+  linkType: hard
+
 "minimatch@npm:^9.0.0, minimatch@npm:^9.0.1":
   version: 9.0.1
   resolution: "minimatch@npm:9.0.1"
@@ -24391,6 +24407,15 @@ __metadata:
   bin:
     mkdirp: bin/cmd.js
   checksum: 0c91b721bb12c3f9af4b77ebf73604baf350e64d80df91754dc509491ae93bf238581e59c7188360cec7cb62fc4100959245a42cfe01834efedc5e9d068376c2
+  languageName: node
+  linkType: hard
+
+"mkdirp@npm:^2.1.6":
+  version: 2.1.6
+  resolution: "mkdirp@npm:2.1.6"
+  bin:
+    mkdirp: dist/cjs/src/bin.js
+  checksum: 8a1d09ffac585e55f41c54f445051f5bc33a7de99b952bb04c576cafdf1a67bb4bae8cb93736f7da6838771fbf75bc630430a3a59e1252047d2278690bd150ee
   languageName: node
   linkType: hard
 
@@ -25804,7 +25829,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ofetch@npm:^1.0.0, ofetch@npm:^1.0.1":
+"ofetch@npm:^1.0.0, ofetch@npm:^1.0.1, ofetch@npm:^1.1.1":
   version: 1.1.1
   resolution: "ofetch@npm:1.1.1"
   dependencies:
@@ -26776,9 +26801,9 @@ __metadata:
     stylelint-config-standard-scss: 5.0.0
     stylelint-order: 5.0.0
     turbo: 1.7.0
-    typescript: 5.0.3
-    vite: 4.2.3
-    vite-plugin-dts: 2.2.0
+    typescript: 5.1.3
+    vite: 4.3.9
+    vite-plugin-dts: 2.3.0
     vitest: 0.29.8
     vue: 2.7.14
     vue-template-compiler: 2.7.14
@@ -34356,13 +34381,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ts-morph@npm:17.0.1":
-  version: 17.0.1
-  resolution: "ts-morph@npm:17.0.1"
+"ts-morph@npm:18.0.0":
+  version: 18.0.0
+  resolution: "ts-morph@npm:18.0.0"
   dependencies:
-    "@ts-morph/common": ~0.18.0
-    code-block-writer: ^11.0.3
-  checksum: 4748ab45d0fb0be235f69399ea217cf1c5984ad2ef3ff9eba5a417571f73098c6f1f765fc011eaadc48179471b977f1e44f72eb993932e5c74c5031ab6c60f3a
+    "@ts-morph/common": ~0.19.0
+    code-block-writer: ^12.0.0
+  checksum: e3d3099b9a632dfcea2ddc75f00e0d0866b4f6d27b73f9e0ff96cf64fe24ce8074098d6709873afce9edb852c2127c40ad4013f54fdf68dafe0231f1a71827c8
   languageName: node
   linkType: hard
 
@@ -34730,7 +34755,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^4.6.4 || ^5.0.0":
+"typescript@npm:5.1.3, typescript@npm:^4.6.4 || ^5.0.0":
   version: 5.1.3
   resolution: "typescript@npm:5.1.3"
   bin:
@@ -34780,7 +34805,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@^4.6.4 || ^5.0.0#~builtin<compat/typescript>":
+"typescript@patch:typescript@5.1.3#~builtin<compat/typescript>, typescript@patch:typescript@^4.6.4 || ^5.0.0#~builtin<compat/typescript>":
   version: 5.1.3
   resolution: "typescript@patch:typescript@npm%3A5.1.3#~builtin<compat/typescript>::version=5.1.3&hash=85af82"
   bin:
@@ -35176,19 +35201,19 @@ __metadata:
   linkType: hard
 
 "unstorage@npm:^1.0.1":
-  version: 1.6.1
-  resolution: "unstorage@npm:1.6.1"
+  version: 1.7.0
+  resolution: "unstorage@npm:1.7.0"
   dependencies:
     anymatch: ^3.1.3
     chokidar: ^3.5.3
-    destr: ^1.2.2
-    h3: ^1.6.6
+    destr: ^2.0.0
+    h3: ^1.7.0
     ioredis: ^5.3.2
     listhen: ^1.0.4
-    lru-cache: ^9.1.1
+    lru-cache: ^10.0.0
     mri: ^1.2.0
-    node-fetch-native: ^1.1.1
-    ofetch: ^1.0.1
+    node-fetch-native: ^1.2.0
+    ofetch: ^1.1.1
     ufo: ^1.1.2
   peerDependencies:
     "@azure/app-configuration": ^1.4.1
@@ -35219,7 +35244,7 @@ __metadata:
       optional: true
     "@vercel/kv":
       optional: true
-  checksum: 3f0cd74cb252f79976ce6da7114d522ccbad496e0892714dd224cb50279f89a263519adf4355bb101ffcf924182c9b71c1ac6484ed48e1710779ba95a43a89ff
+  checksum: 9c314249a7f91fffe9d1e1ce676deba65ccfa3cc828407419cc3c9658b6d50de110b7f371bd179e76416addb18ed8d6a59250deb656cd7810b654ad12392cfe4
   languageName: node
   linkType: hard
 
@@ -35669,23 +35694,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite-plugin-dts@npm:2.2.0":
-  version: 2.2.0
-  resolution: "vite-plugin-dts@npm:2.2.0"
+"vite-plugin-dts@npm:2.3.0":
+  version: 2.3.0
+  resolution: "vite-plugin-dts@npm:2.3.0"
   dependencies:
-    "@babel/parser": ^7.20.15
-    "@microsoft/api-extractor": ^7.33.5
+    "@babel/parser": ^7.21.4
+    "@microsoft/api-extractor": ^7.34.4
     "@rollup/pluginutils": ^5.0.2
-    "@rushstack/node-core-library": ^3.53.2
+    "@rushstack/node-core-library": ^3.55.2
     debug: ^4.3.4
     fast-glob: ^3.2.12
     fs-extra: ^10.1.0
-    kolorist: ^1.6.0
+    kolorist: ^1.7.0
     magic-string: ^0.29.0
-    ts-morph: 17.0.1
+    ts-morph: 18.0.0
   peerDependencies:
     vite: ">=2.9.0"
-  checksum: 28de6c500c31c6274ea70dcfcc78ac1b8a4ed68e793817b26a65caf6626ef3bd50a64501c77d363965658b5d0efa3474ad1eb49499ad5ee0b99baeb572908448
+  checksum: b4247d9f7800bd72addd62fb07fbd3f5a1535a6de771420e4ed896fb5db156335b2abf810091ecd998ac05d6ebbd857a186ec3d468216f0bc6e54064c4886b31
   languageName: node
   linkType: hard
 
@@ -35727,7 +35752,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:^3.0.0 || ^4.0.0, vite@npm:^4.3.0":
+"vite@npm:4.3.9, vite@npm:^3.0.0 || ^4.0.0, vite@npm:^4.3.0":
   version: 4.3.9
   resolution: "vite@npm:4.3.9"
   dependencies:

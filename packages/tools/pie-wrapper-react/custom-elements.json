@@ -387,6 +387,37 @@
     },
     {
       "kind": "javascript-module",
+      "path": "../../components/pie-webc-core/src/index.js",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./mixins"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./decorators"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./test-helpers"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "../../components/pie-icon-button/src/defs.js",
       "declarations": [
         {
@@ -500,37 +531,6 @@
           "declaration": {
             "name": "PieIconButton",
             "module": "../../components/pie-icon-button/src/index.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "../../components/pie-webc-core/src/index.js",
-      "declarations": [],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "*",
-          "declaration": {
-            "name": "*",
-            "package": "./mixins"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "*",
-          "declaration": {
-            "name": "*",
-            "package": "./decorators"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "*",
-          "declaration": {
-            "name": "*",
-            "package": "./test-helpers"
           }
         }
       ]
@@ -843,6 +843,21 @@
     },
     {
       "kind": "javascript-module",
+      "path": "../../components/pie-webc-core/src/test-helpers/components/index.js",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./web-component-test-wrapper/WebComponentTestWrapper"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "../../components/pie-webc-core/src/mixins/rtl/rtlMixin.js",
       "declarations": [
         {
@@ -885,21 +900,6 @@
           "declaration": {
             "name": "RtlMixin",
             "module": "../../components/pie-webc-core/src/mixins/rtl/rtlMixin.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "../../components/pie-webc-core/src/test-helpers/components/index.js",
-      "declarations": [],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "*",
-          "declaration": {
-            "name": "*",
-            "package": "./web-component-test-wrapper/WebComponentTestWrapper"
           }
         }
       ]
