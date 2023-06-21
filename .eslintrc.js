@@ -11,6 +11,11 @@ module.exports = {
     settings: {
         'json/sort-package-json': false,
     },
+    rules: {
+        'import/no-unresolved': 'off',
+        'import/extensions': 'off',
+        'import/no-extraneous-dependencies': 'off',
+    },
     overrides: [
         {
             files: ['**/*.ts', '**/*.tsx'],

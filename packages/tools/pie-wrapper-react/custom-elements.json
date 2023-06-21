@@ -537,6 +537,126 @@
     },
     {
       "kind": "javascript-module",
+      "path": "../../components/pie-webc-core/src/decorators/index.js",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./valid-property-values"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./required-property"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../../components/pie-webc-core/src/decorators/required-property.js",
+      "declarations": [
+        {
+          "kind": "function",
+          "name": "requiredProperty",
+          "parameters": [
+            {
+              "name": "componentName",
+              "type": {
+                "text": "string"
+              }
+            }
+          ],
+          "description": "A decorator for marking a property as required.\nIf the property's value is `undefined`, `null` or empty string, an error is logged.",
+          "return": {
+            "type": {
+              "text": "Function"
+            }
+          }
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "requiredProperty",
+          "declaration": {
+            "name": "requiredProperty",
+            "module": "../../components/pie-webc-core/src/decorators/required-property.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../../components/pie-webc-core/src/decorators/valid-property-values.js",
+      "declarations": [
+        {
+          "kind": "function",
+          "name": "validPropertyValues",
+          "parameters": [
+            {
+              "name": "componentName",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "name": "validValues",
+              "type": {
+                "text": "any[]"
+              },
+              "description": "The array of valid values"
+            },
+            {
+              "name": "defaultValue",
+              "type": {
+                "text": "any"
+              },
+              "description": "The value to fall back on"
+            }
+          ],
+          "description": "A decorator for specifying a list of valid values for a property.\nIf this property's setter is called with an invalid value, an error is logged and the default value will be assigned instead.",
+          "return": {
+            "type": {
+              "text": ""
+            }
+          }
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "validPropertyValues",
+          "declaration": {
+            "name": "validPropertyValues",
+            "module": "../../components/pie-webc-core/src/decorators/valid-property-values.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../../components/pie-webc-core/src/mixins/index.js",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./rtl/rtlMixin"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "../../components/pie-webc-core/src/test-helpers/defs.js",
       "declarations": [],
       "exports": []
@@ -723,141 +843,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "../../components/pie-webc-core/src/mixins/index.js",
-      "declarations": [],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "*",
-          "declaration": {
-            "name": "*",
-            "package": "./rtl/rtlMixin"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "../../components/pie-webc-core/src/decorators/index.js",
-      "declarations": [],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "*",
-          "declaration": {
-            "name": "*",
-            "package": "./valid-property-values"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "*",
-          "declaration": {
-            "name": "*",
-            "package": "./required-property"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "../../components/pie-webc-core/src/decorators/required-property.js",
-      "declarations": [
-        {
-          "kind": "function",
-          "name": "requiredProperty",
-          "parameters": [
-            {
-              "name": "componentName",
-              "type": {
-                "text": "string"
-              }
-            }
-          ],
-          "description": "A decorator for marking a property as required.\nIf the property's value is `undefined`, `null` or empty string, an error is logged.",
-          "return": {
-            "type": {
-              "text": "Function"
-            }
-          }
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "requiredProperty",
-          "declaration": {
-            "name": "requiredProperty",
-            "module": "../../components/pie-webc-core/src/decorators/required-property.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "../../components/pie-webc-core/src/decorators/valid-property-values.js",
-      "declarations": [
-        {
-          "kind": "function",
-          "name": "validPropertyValues",
-          "parameters": [
-            {
-              "name": "componentName",
-              "type": {
-                "text": "string"
-              }
-            },
-            {
-              "name": "validValues",
-              "type": {
-                "text": "any[]"
-              },
-              "description": "The array of valid values"
-            },
-            {
-              "name": "defaultValue",
-              "type": {
-                "text": "any"
-              },
-              "description": "The value to fall back on"
-            }
-          ],
-          "description": "A decorator for specifying a list of valid values for a property.\nIf this property's setter is called with an invalid value, an error is logged and the default value will be assigned instead.",
-          "return": {
-            "type": {
-              "text": ""
-            }
-          }
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "validPropertyValues",
-          "declaration": {
-            "name": "validPropertyValues",
-            "module": "../../components/pie-webc-core/src/decorators/valid-property-values.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "../../components/pie-webc-core/src/test-helpers/components/index.js",
-      "declarations": [],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "*",
-          "declaration": {
-            "name": "*",
-            "package": "./web-component-test-wrapper/WebComponentTestWrapper"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "../../components/pie-webc-core/src/mixins/rtl/rtlMixin.js",
       "declarations": [
         {
@@ -900,6 +885,21 @@
           "declaration": {
             "name": "RtlMixin",
             "module": "../../components/pie-webc-core/src/mixins/rtl/rtlMixin.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../../components/pie-webc-core/src/test-helpers/components/index.js",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./web-component-test-wrapper/WebComponentTestWrapper"
           }
         }
       ]
