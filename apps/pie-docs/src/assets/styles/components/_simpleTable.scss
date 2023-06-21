@@ -29,6 +29,7 @@
 
 .c-simpleTable--monospace {
     font-family: PTMono, Consolas, monospace;
+    @include f.font-size(body-s);
 }
 
 .c-simpleTable--headerless {
