@@ -39,7 +39,7 @@
   },
   "dependencies": {
     "@justeat/f-cookie-banner": "4.7.0",
-    "@justeattakeaway/pie-icons": "3.4.0",
+    "@justeattakeaway/pie-icons": "1.0.0",
     "markdown-it": "13.0.1"
   },
   "volta": {
