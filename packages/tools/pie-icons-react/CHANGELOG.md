@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.5.1
+
+### Patch Changes
+
+- [Changed]: removes class attr application for react icons ([#543](https://github.com/justeattakeaway/pie/pull/543)) by [@dandel10n](https://github.com/dandel10n)
+
 ## 3.5.0
 
 ### Minor Changes

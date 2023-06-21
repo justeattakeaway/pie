@@ -189,17 +189,9 @@ jobs:
           retention-days: 7
       # Run Visual Tests
       - name: Run All Visual Tests
-        if: contains(github.ref_name, 'main')
         uses: ./.github/actions/run-script
         with:
           script-name: "test:visual:ci"
-          concurrency: 1
-      # Run Visual Tests for changed components
-      - name: Run Changed Component Visual Tests
-        if: github.ref != 'refs/heads/main'
-        uses: ./.github/actions/run-script
-        with:
-          script-name: "test:visual:ci --filter=[origin/main...HEAD]"
           concurrency: 1
       - uses: actions/upload-artifact@v3
         if: always()
