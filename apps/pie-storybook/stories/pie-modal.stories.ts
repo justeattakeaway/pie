@@ -49,6 +49,7 @@ const Template = ({
     slot,
 }: ModalProps): TemplateResult => html`
         <pie-modal
+                id="dialog"
         ?isOpen="${isOpen}"
         heading="${heading}"
         headingLevel="${headingLevel}">

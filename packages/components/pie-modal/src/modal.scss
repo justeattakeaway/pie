@@ -11,6 +11,8 @@
     --modal-bg-color: var(--dt-color-container-default);
     --modal-elevation: var(--dt-elevation-04);
 
+    --modal-overlay-color: var(--dt-color-overlay);
+
     border-radius: var(--modal-border-radius);
     border: none;
     font-family: var(--modal-font);
@@ -56,7 +58,15 @@
 
     & .c-modal-closeBtn {
         position: absolute;
-        right: var(--dt-spacing-d);
-        top: var(--dt-spacing-d);
+        inset-inline-end: var(--dt-spacing-d);
+        inset-block-start: var(--dt-spacing-d);
     }
+}
+
+::backdrop {
+  --color-backdrop: rgb(0,0,0,0.5);
+}
+
+dialog::backdrop {
+  background: var(--color-backdrop);
 }

@@ -24,7 +24,7 @@ export class PieModal extends RtlMixin(LitElement) {
         headingLevel: ModalProps['headingLevel'] = 'h2';
 
     @query('dialog')
-        _dialog: HTMLDialogElement;
+        _dialog!: HTMLDialogElement;
 
     render () {
         const {
@@ -40,22 +40,59 @@ export class PieModal extends RtlMixin(LitElement) {
                 <header>
                     <${headingTag} class="c-modal-heading">${heading}</${headingTag}>
                     <pie-icon-button
-                        @click="${this._handleCloseDialog}"
-                        variant="ghost-tertiary"
-                        class="c-modal-closeBtn"></pie-icon-button>
+                            @click="${this._handleCloseDialog}"
+                            variant="ghost-tertiary"
+                            class="c-modal-closeBtn"></pie-icon-button>
                 </header>
-                <article>
-                    <div class="c-modal-content">
-                        <slot></slot>
-                    </div>
+                <article class="c-modal-content">
+                    <slot></slot>
                 </article>
             </dialog>
         `;
     }
 
+    updated () {
+        this._handleModalLightDismiss();
+    }
+
+    /**
+     * We require this because toggling the prop `isOpen` itself won't
+     * allow the modal to open in the correct way (with the default background),
+     * the method `showModal()` needs to be invoked.
+     *
+     * https://lit.dev/docs/components/lifecycle/#willupdate
+     *
+     * @param changedProperties
+     */
+    willUpdate (changedProperties: Map<string, any>) {
+        if (changedProperties.has('isOpen') && this._dialog) {
+            const dialog = this._dialog;
+            const isClosed = changedProperties.get('isOpen') === false;
+
+            isClosed
+                ? dialog.showModal()
+                : dialog.close();
+        }
+    };
+
     _handleCloseDialog = () => {
         this._dialog.close();
         this._onDialogClose();
+    };
+
+    /**
+     * Dismiss modal via `_handleCloseDialog()` on backdrop click
+     * and will proceed to fire an `ON_MODAL_CLOSE_EVENT` event.
+     *
+     */
+    _handleModalLightDismiss = () => {
+        this._dialog.addEventListener('click', event => {
+            const rect = this._dialog.getBoundingClientRect();
+            const isWithinDialogArea = (rect.top <= event.clientY && event.clientY <= rect.top + rect.height
+                && rect.left <= event.clientX && event.clientX <= rect.left + rect.width);
+
+            if (!isWithinDialogArea) this._handleCloseDialog();
+        });
     };
 
     /**
