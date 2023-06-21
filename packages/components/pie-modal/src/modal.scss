@@ -1,3 +1,5 @@
+@use '@justeat/pie-design-tokens/dist/jet.scss' as dt;
+
 .c-modal {
     // Custom Property Declarations
     // These are defined here instead of :host to encapsulate them inside Shadow DOM
@@ -11,6 +13,9 @@
     --modal-bg-color: var(--dt-color-container-default);
     --modal-elevation: var(--dt-elevation-04);
 
+    // Modal dialog backdrop
+    //--color-backdrop: #{dt.$color-overlay};
+
     border-radius: var(--modal-border-radius);
     border: none;
     font-family: var(--modal-font);
@@ -20,6 +25,10 @@
     inline-size: var(--modal-size-m);
 
     box-shadow: var(--modal-elevation);
+
+    &::backdrop {
+        background: #{dt.$color-overlay};
+    }
 
     & .c-modal-heading {
         // Modal header Custom Props
@@ -59,8 +68,4 @@
         inset-inline-end: var(--dt-spacing-d);
         inset-block-start: var(--dt-spacing-d);
     }
-}
-
-dialog::backdrop {
-  background: var(--dt-color-overlay);
 }
