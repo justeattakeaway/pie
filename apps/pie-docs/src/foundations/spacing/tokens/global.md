@@ -4,7 +4,7 @@ eleventyNavigation:
     parent: Spacing
     order: 3
 eleventyComputed:
-    spacingTokensData: "{% include './spacingTokens.json' %}"
+    tableData: "{% include './globalSpacingTokens.json' %}"
 ---
 ## Our global spacing scale
 
@@ -12,11 +12,9 @@ We have defined a series of global tokens to define our various spacing measures
 
 {% globalTokensWarning '/foundations/spacing/tokens/alias/' %}
 
----
-
 {% simpleTable {
     isFullWidth: true,
-    tableData: spacingTokensData,
+    tableData: tableData,
     useMonospace: true
 } %}
 
