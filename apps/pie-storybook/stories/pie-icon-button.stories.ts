@@ -1,11 +1,15 @@
 import type { Meta, StoryObj as Story } from '@storybook/web-components';
-import { IconButtonProps, iconButtonVariants } from '@justeattakeaway/pie-icon-button';
+import { IconButtonProps, iconButtonSizes, iconButtonVariants } from '@justeattakeaway/pie-icon-button';
 import { html, TemplateResult } from 'lit';
 
 export default {
     title: 'Icon Button',
     component: 'pie-icon-button',
     argTypes: {
+        size: {
+            control: 'select',
+            options: iconButtonSizes,
+        },
         variant: {
             control: 'select',
             options: iconButtonVariants,
@@ -15,6 +19,7 @@ export default {
         },
     },
     args: {
+        size: 'medium',
         variant: 'primary',
     },
     parameters: {
@@ -26,16 +31,19 @@ export default {
 } as Meta;
 
 const Template = ({
+    size,
     variant,
     disabled,
 }: IconButtonProps): TemplateResult => html`
         <pie-icon-button
+            size="${size}"
             variant="${variant}"
             ?disabled="${disabled}">
         </pie-icon-button>
         `;
 
 const defaultArgs: IconButtonProps = {
+    size: 'medium',
     variant: 'primary',
     disabled: false,
 };
