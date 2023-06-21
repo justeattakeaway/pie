@@ -52,12 +52,12 @@ export class PieModal extends RtlMixin(LitElement) {
     }
 
     updated () {
-        this._handleModalLightDismiss();
+        this._handleDialogLightDismiss();
     }
 
     /**
      * We require this because toggling the prop `isOpen` itself won't
-     * allow the modal to open in the correct way (with the default background),
+     * allow the dialog to open in the correct way (with the default background),
      * the method `showModal()` needs to be invoked.
      *
      * https://lit.dev/docs/components/lifecycle/#willupdate
@@ -85,7 +85,7 @@ export class PieModal extends RtlMixin(LitElement) {
      * and will proceed to fire an `ON_MODAL_CLOSE_EVENT` event.
      *
      */
-    _handleModalLightDismiss = () => {
+    _handleDialogLightDismiss = () => {
         this._dialog.addEventListener('click', event => {
             const rect = this._dialog.getBoundingClientRect();
             const isWithinDialogArea = (rect.top <= event.clientY && event.clientY <= rect.top + rect.height
