@@ -5,18 +5,59 @@
     background-color: f.$color-container-default;
     border: 1px solid f.$color-border-default;
     border-radius: f.$radius-rounded-c;
-    margin-top: f.$spacing-f;
-    max-width: v.$typography-content-max-width;
-    width: 100%;
+    margin-block-start: f.$spacing-f;
+    max-inline-size: v.$typography-content-max-width;
+    inline-size: 100%;
 
     th,
     td {
-        text-align: left;
+        text-align: start;
         padding: f.$spacing-d;
-        width: 50%;
+        inline-size: 50%;
     }
 
-    tr > td {
-        border-top: 1px solid f.$color-border-default;
+    // If the table has no header, the top data row should not have a top border
+    tr:not(:first-child) > td {
+        border-block-start: 1px solid f.$color-border-default;
+    }
+}
+
+.c-simpleTable--fullWidth {
+    max-inline-size: 100%;
+}
+
+.c-simpleTable--monospace {
+    font-family: PTMono, Consolas, monospace;
+}
+
+.c-simpleTable--headerless {
+    td:first-child {
+        font-weight: bold;
+
+        & ~ td {
+            color: f.$color-content-subdued;
+        }
+    }
+
+    // When rows stack at narrow viewports
+    @include f.media('<narrowMid') {
+        tr {
+            display: grid;
+            grid-template-columns: 1fr;
+
+            td {
+                inline-size: 100%;
+
+                // Remove padding and borders between stacked rows
+                &:not(:first-child) {
+                    border-block-start: none;
+                    padding-block-start: 0;
+                }
+
+                &:not(:last-child) {
+                    padding-block-end: 0;
+                }
+            }
+        }
     }
 }
