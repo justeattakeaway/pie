@@ -10,7 +10,7 @@
     --modal-font: var(--dt-font-interactive-m-family);
     --modal-bg-color: var(--dt-color-container-default);
     --modal-elevation: var(--dt-elevation-04);
-  
+
     border-radius: var(--modal-border-radius);
     border: none;
     font-family: var(--modal-font);
@@ -61,10 +61,6 @@
     }
 }
 
-::backdrop {
-  --color-backdrop: rgb(0,0,0,0.5);
-}
-
 dialog::backdrop {
-  background: var(--color-backdrop);
+  background: var(--dt-color-overlay);
 }
