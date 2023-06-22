@@ -26,7 +26,7 @@ export class PieModal extends RtlMixin(LitElement) {
         headingLevel: ModalProps['headingLevel'] = 'h2';
 
     @query('dialog')
-        _dialog: HTMLDialogElement;
+        _dialog!: HTMLDialogElement;
 
     firstUpdated (changedProperties: Map<string, ModalProps[keyof ModalProps]>) {
         this._handleModalOpenOnFirstRender(changedProperties);
