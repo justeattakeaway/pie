@@ -28,42 +28,45 @@ export class PieModal extends RtlMixin(LitElement) {
     @query('dialog')
         _dialog: HTMLDialogElement;
 
-    // eslint-disable-next-line class-methods-use-this
     firstUpdated (changedProperties: Map<string, any>) {
-        // This ensures if the modal is open on first render, the scroll lock is applied
-        if (changedProperties.has('isOpen')) {
-            const previousValue = changedProperties.get('isOpen');
-            if (previousValue === undefined && this.isOpen) {
-                this._onDialogOpen();
-            }
-        }
+        this._handleModalOpenOnFirstRender(changedProperties);
     }
 
-    // eslint-disable-next-line class-methods-use-this
     updated (changedProperties: Map<string, any>) {
-        if (changedProperties.has('isOpen')) {
-            const previousValue = changedProperties.get('isOpen');
-            if (previousValue) {
-                this._onDialogClose();
-            } else if (previousValue === false) {
-                this._onDialogOpen();
-            }
-        }
+        this._handleModalStateChanged(changedProperties);
     }
 
     connectedCallback () {
         super.connectedCallback();
-
         document.addEventListener(ON_MODAL_OPEN_EVENT, this._disableScrolling);
         document.addEventListener(ON_MODAL_CLOSE_EVENT, this._enableScrolling);
     }
 
     disconnectedCallback () {
-        // Clean up event listeners
         document.removeEventListener(ON_MODAL_OPEN_EVENT, this._disableScrolling);
         document.removeEventListener(ON_MODAL_CLOSE_EVENT, this._enableScrolling);
-
         super.disconnectedCallback();
+    }
+
+    private _handleModalOpenOnFirstRender (changedProperties: Map<string, any>) {
+        // This ensures if the modal is open on first render, the scroll lock is applied
+        if (changedProperties.has('isOpen')) {
+            const previousValue = changedProperties.get('isOpen');
+            if (previousValue === undefined && this.isOpen) {
+                this._dispatchModalOpenEvent();
+            }
+        }
+    }
+
+    private _handleModalStateChanged (changedProperties: Map<string, any>) {
+        if (changedProperties.has('isOpen')) {
+            const previousValue = changedProperties.get('isOpen');
+            if (previousValue) {
+                this._dispatchModalCloseEvent();
+            } else if (previousValue === false) {
+                this._dispatchModalOpenEvent();
+            }
+        }
     }
 
     render () {
@@ -93,10 +96,10 @@ export class PieModal extends RtlMixin(LitElement) {
         `;
     }
 
-    _handleCloseDialog = () => {
+    private _handleCloseDialog = () => {
         this._dialog.close();
         this.isOpen = false;
-        this._onDialogClose();
+        this._dispatchModalCloseEvent();
     };
 
     /**
@@ -105,7 +108,7 @@ export class PieModal extends RtlMixin(LitElement) {
      *
      * @event
      */
-    _onDialogClose = () : void => {
+    private _dispatchModalCloseEvent = () : void => {
         const event = new CustomEvent(ON_MODAL_CLOSE_EVENT, {
             bubbles: true,
             composed: true,
@@ -120,7 +123,7 @@ export class PieModal extends RtlMixin(LitElement) {
      *
      * @event
      */
-    _onDialogOpen = () : void => {
+    private _dispatchModalOpenEvent = () : void => {
         const event = new CustomEvent(ON_MODAL_OPEN_EVENT, {
             bubbles: true,
             composed: true,
@@ -129,11 +132,11 @@ export class PieModal extends RtlMixin(LitElement) {
         this.dispatchEvent(event);
     };
 
-    _enableScrolling = () => {
+    private _enableScrolling = () : void => {
         enableBodyScroll(this);
     };
 
-    _disableScrolling = () => {
+    private _disableScrolling = () : void => {
         disableBodyScroll(this);
     };
 
