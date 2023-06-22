@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { PieButton } from '@justeattakeaway/pie-button/dist/react';
-import { IconAlcoholFilled } from '@justeattakeaway/pie-icons-webc/icons/IconAlcoholFilled';
+import { IconAppRestaurant } from '@justeattakeaway/pie-icons-webc/icons/IconAppRestaurant';
 
 import * as React from 'react';
 import { createComponent } from '@lit-labs/react';
@@ -8,9 +8,9 @@ import './styles.css';
 
 export const IconAlcohol = createComponent({
     displayName: 'IconAlcohol',
-    elementClass: IconAlcoholFilled,
+    elementClass: IconAppRestaurant,
     react: React,
-    tagName: 'icon-alcohol-filled',
+    tagName: 'icon-app-restaurant',
     events: { },
 });
 
@@ -28,7 +28,7 @@ function App () {
             <PieButton
                 onClick={(e) => setCounter(counter + 1) + console.log(e)}
             >Increment</PieButton>
-            <IconAlcohol />
+            <IconAlcohol size="l"/>
         </>
     );
 }

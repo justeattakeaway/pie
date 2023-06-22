@@ -8,15 +8,9 @@ const { execSync } = require('child_process');
 
 const { removeHyphenBeforeDigits } = require('./helpers');
 
-const componentTemplate = (name, svg) => {
-    const isLargeIcon = name.endsWith('Large');
-    const iconSize = isLargeIcon ? 'large' : 'regular';
-
-    // NOTE: The eslint-disable-next-line is a temporary fix for the fact that the configs-vue file is not being copied to the generated folder
-    // TODO: Remove eslint-disable-next-line as soon as the compilation issue is solved
-    return `
+const componentTemplate = (name, svg) => `
 // eslint-disable-next-line import/no-unresolved, import/extensions
-import { iconSize, updateContextData } from '@justeattakeaway/pie-icons-configs/configs-vue';
+import { getDefaultIconSize, iconSize, getSvgProps } from '@justeattakeaway/pie-icons-configs/configs';
 
 const template = document.createElement('template');
 template.innerHTML = '${svg}'
@@ -24,18 +18,49 @@ template.innerHTML = '${svg}'
 export class ${name} extends HTMLElement {
     constructor () {
         super();
-
         const clone = template.content.cloneNode(true);
 
-        this
-            .attachShadow({ mode: 'open' })
-            .append(clone);
+        this.root = this.attachShadow({ mode: 'open' });
+        this.root.append(clone);
+    }
+
+    static get observedAttributes () {
+        return ['size'];
+    }
+
+    get size () {
+        return this.getAttribute('size');
+    }
+
+    set size (value) {
+        this.setAttribute('size', value);
+    }
+
+    connectedCallback () {
+        const svg = this.root.querySelector('svg');
+
+        const defaultSize = getDefaultIconSize('${name}');
+
+        svg.setAttribute('width', iconSize[defaultSize]);
+        svg.setAttribute('height', iconSize[defaultSize]);
+
+        this.root.append(svg);
+    }
+
+    attributeChangedCallback (attr, oldVal, newVal) {
+        const svg = this.root.querySelector('svg');
+
+        const svgSize = getSvgProps('', '', newVal, '${name}');
+
+        svg.setAttribute('width', svgSize.width);
+        svg.setAttribute('height', svgSize.height);
+
+        this.root.append(svg);
     }
 }
 
 customElements.define('${kebabCase(name).replace(/-/, '')}', ${name});
 `;
-};
 
 const { icons } = pieIcons;
 
@@ -53,15 +78,14 @@ async function checkDirExists (directoryPath) {
     }
 }
 
-// function copyIconsConfigFiles () {
-//     const srcFilePaths = [
-//         path.resolve(process.cwd(), '../pie-icons-configs/configs.js'),
-//         path.resolve(process.cwd(), '../pie-icons-configs/configs-vue.js')
-//     ];
-//     const destFilePath = path.resolve(process.cwd(), './generated/components/');
+function copyIconsConfigFiles () {
+    const srcFilePaths = [
+        path.resolve(process.cwd(), '../pie-icons-configs/configs.js'),
+    ];
+    const destFilePath = path.resolve(process.cwd(), './icons');
 
-//     srcFilePaths.forEach((srcFilePath) => execSync(`cp ${srcFilePath} ${destFilePath}`));
-// }
+    srcFilePaths.forEach((srcFilePath) => execSync(`copy ${srcFilePath} ${destFilePath}`));
+}
 
 async function build () {
     // check if /generated directory exists, if not create it
@@ -70,7 +94,7 @@ async function build () {
     // check if /generated/components directory exists, if not create it
     // await checkDirExists(COMPONENTS_DIR);
 
-    // copyIconsConfigFiles();
+    copyIconsConfigFiles();
 
     let indexFileString = '/* eslint-disable camelcase */\n';
 

@@ -29,6 +29,7 @@ export const iconSize = {
  */
 export const updateContextData = (ctx, svgClasses, componentName) => {
     const { staticClass } = ctx.data;
+
     /* eslint-disable @typescript-eslint/no-unused-vars */
     const {
         width,

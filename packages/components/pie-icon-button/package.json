@@ -16,8 +16,11 @@
   "author": "JustEatTakeaway - Design System Web Team",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@justeattakeaway/pie-icons-webc": "workspace:*",
     "@justeattakeaway/pie-webc-core": "workspace:*"
+  },
+  "dependencies": {
+    "@justeattakeaway/pie-icons-webc": "workspace:*",
+    "@justeattakeaway/pie-icons-react": "workspace:*"
   },
   "volta": {
     "extends": "../../../package.json"

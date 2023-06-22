@@ -1,10 +1,13 @@
 import { LitElement, html, unsafeCSS } from 'lit'; // eslint-disable-line import/no-extraneous-dependencies
 import { property } from 'lit/decorators.js'; // eslint-disable-line import/no-extraneous-dependencies
 import { validPropertyValues } from '@justeattakeaway/pie-webc-core';
+import { IconAppRestaurant } from '@justeattakeaway/pie-icons-webc/icons/IconAppRestaurant';
 import styles from './iconButton.scss?inline';
 import { IconButtonProps, iconButtonVariants } from './defs';
 // Valid values available to consumers
 export { type IconButtonProps, iconButtonVariants };
+
+console.log('yoo', IconAppRestaurant);
 
 const componentSelector = 'pie-icon-button';
 
@@ -15,6 +18,9 @@ export class PieIconButton extends LitElement {
 
     @property({ type: Boolean })
         disabled = false;
+
+    @property({ type: Boolean })
+        hello = false;
 
     render () {
         const {
@@ -27,7 +33,8 @@ export class PieIconButton extends LitElement {
                 class="o-iconBtn"
                 variant=${variant}
                 ?disabled=${disabled}>
-            </button>`;
+            </button>
+            <icon-app-restaurant size="xs">`;
     }
 
     // Renders a `CSSResult` generated from SCSS by Vite
