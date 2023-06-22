@@ -56,3 +56,37 @@ export const Default: Story<ModalProps> = (args: ModalProps) => Template(args);
 Default.args = {
     ...defaultArgs,
 };
+
+// Creates some test page markup to test scroll locking
+const createTestPageHTML = () => {
+    const items = [];
+    for (let i = 0; i < 200; i++) {
+        items.push(html`<li>Item ${i}</li>`);
+    }
+
+    return html`
+    <h1>Test Page</h1>
+    <p> Test copy </p>
+    <ul>${items}</ul>`;
+};
+
+const PageContextTemplate = ({
+    isOpen,
+    heading,
+    headingLevel,
+    slot,
+}: ModalProps) => html`
+    <pie-modal
+        ?isOpen="${isOpen}"
+        heading="${heading}"
+        headingLevel="${headingLevel}"
+    >
+        ${slot}
+    </pie-modal>
+    ${createTestPageHTML()}
+`;
+
+export const InScrollablePage: Story<ModalProps> = (args: ModalProps) => PageContextTemplate(args);
+InScrollablePage.args = {
+    ...defaultArgs,
+};
