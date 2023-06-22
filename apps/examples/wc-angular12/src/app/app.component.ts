@@ -6,7 +6,6 @@ import { ButtonProps, buttonSizes, buttonVariants } from '@justeattakeaway/pie-b
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss'],
 })
-
 export class AppComponent {
     title = 'wc-angular12';
 
@@ -15,17 +14,18 @@ export class AppComponent {
     variantIndex = 0;
     variantName = 'primary';
 
-    increment () {
+    increment() {
         this.count++;
     }
 
-    decrement () {
+    decrement() {
         this.count--;
     }
 
-    switchVariant () {
+    switchVariant() {
         this.variantIndex += 1;
-        const variant: ButtonProps['variant'] = buttonVariants[this.variantIndex % buttonVariants.length];
+        const variant: ButtonProps['variant'] =
+            buttonVariants[this.variantIndex % buttonVariants.length];
 
         this.variantName = variant;
     }

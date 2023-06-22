@@ -1,4 +1,4 @@
-function App () {
+function App() {
     return (
         <div className="App">
             <button>Pie button to go here!</button>

@@ -26,26 +26,31 @@ const getIconSvg = (iconName, iconFill) => {
  * @returns {string}
  */
 // eslint-disable-next-line func-names
-module.exports = function ({
-    type, items, iconName, iconFill,
-}) {
+module.exports = function ({ type, items, iconName, iconFill }) {
     if (!type || !listTypes[type]) {
-        throw new Error(`List 'type = ${type}' not recognised. Try ${Object.values(listTypes).join(', ')}`);
+        throw new Error(
+            `List 'type = ${type}' not recognised. Try ${Object.values(listTypes).join(', ')}`,
+        );
     }
 
     const isIconType = type === listTypes.icon;
-    const iconFillHexcode = iconFill ? pieDesignTokenColours({ tokenName: iconFill, tokenPath: ['alias', 'default'] }) : null;
-    const listItems = items.map((item) => `<li class="c-list-item">
+    const iconFillHexcode = iconFill
+        ? pieDesignTokenColours({ tokenName: iconFill, tokenPath: ['alias', 'default'] })
+        : null;
+    const listItems = items
+        .map(
+            (item) => `<li class="c-list-item">
         ${isIconType ? getIconSvg(iconName, iconFillHexcode) : ''}
         ${markdownFilter(item, true)}
-        </li>`).join('');
+        </li>`,
+        )
+        .join('');
     const listTag = type === listTypes.ordered ? 'ol' : 'ul';
-    const listClasses = [
-        'c-list',
-        `c-list--${type}`
-    ];
+    const listClasses = ['c-list', `c-list--${type}`];
 
-    return `<${listTag} class="${listClasses.join(' ')}"  ${isIconType ? `style="--icon-fill: ${iconFillHexcode}";` : ''}>
+    return `<${listTag} class="${listClasses.join(' ')}"  ${
+        isIconType ? `style="--icon-fill: ${iconFillHexcode}";` : ''
+    }>
         ${listItems}
     </${listTag}>`;
 };

@@ -13,11 +13,15 @@ test.describe('PIE - Footer - @desktop', () => {
             const href = await link.getAttribute('href');
 
             await Promise.all([
-                page.waitForResponse((resp) => resp.url().includes(href))
-                .then((resp) => {
-                    expect(resp.status(), `${resp.url()} should return successful status code`).toBe(200);
-                }),
-                link.click()
+                page
+                    .waitForResponse((resp) => resp.url().includes(href))
+                    .then((resp) => {
+                        expect(
+                            resp.status(),
+                            `${resp.url()} should return successful status code`,
+                        ).toBe(200);
+                    }),
+                link.click(),
             ]);
         }
         /* eslint-enable no-await-in-loop, no-restricted-syntax */

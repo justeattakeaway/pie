@@ -15,12 +15,13 @@ exports.disableCookieBanner = async (page, context, shouldReload = true) => {
             value: 'full',
             domain: hostName,
             path: pathName,
-        }, {
+        },
+        {
             name: COOKIE_NAMES.JE_BANNER_COOKIE,
             value: '130315',
             domain: hostName,
             path: pathName,
-        }
+        },
     ]);
 
     if (shouldReload) {

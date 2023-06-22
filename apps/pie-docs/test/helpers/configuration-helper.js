@@ -1,9 +1,4 @@
-const {
-    DOCS_AMPLIFY_ID,
-    CI,
-    PR_NUMBER,
-    GITHUB_REF_NAME,
-} = process.env;
+const { DOCS_AMPLIFY_ID, CI, PR_NUMBER, GITHUB_REF_NAME } = process.env;
 
 /*
 // This function is used to set the correct URL for WebDriverIO tests.

@@ -1,6 +1,6 @@
 // Kindly taken from: https://css-tricks.com/how-to-animate-the-details-element-using-waapi/
 class Accordion {
-    constructor (element) {
+    constructor(element) {
         // Store the <details> element
         this.element = element;
         // Store the <summary> element
@@ -18,7 +18,7 @@ class Accordion {
         this.summary.addEventListener('click', (event) => this.onClick(event));
     }
 
-    onClick (event) {
+    onClick(event) {
         // Stop default behaviour from the browser
         event.preventDefault();
         // Add an overflow on the <details> to avoid content overflowing
@@ -32,7 +32,7 @@ class Accordion {
         }
     }
 
-    shrink () {
+    shrink() {
         // Set the element as "being closed"
         this.isClosing = true;
         // Store the current height of the element
@@ -65,7 +65,7 @@ class Accordion {
         this.animation.oncancel = () => (this.isClosing = false);
     }
 
-    open () {
+    open() {
         // Apply a fixed height on the element
         this.element.style.height = `${this.element.offsetHeight}px`;
         // Force the [open] attribute on the details element
@@ -74,7 +74,7 @@ class Accordion {
         window.requestAnimationFrame(() => this.expand());
     }
 
-    expand () {
+    expand() {
         // Set the element as "being expanding"
         this.isExpanding = true;
         // Get the current fixed height of the element
@@ -107,7 +107,7 @@ class Accordion {
         this.animation.oncancel = () => (this.isExpanding = false);
     }
 
-    onAnimationFinish (open) {
+    onAnimationFinish(open) {
         // Set the open attribute based on the parameter
         this.element.open = open;
         // Clear the stored animation
@@ -121,7 +121,7 @@ class Accordion {
     }
 }
 
-function initialise () {
+function initialise() {
     const accordions = [];
 
     const resizeObserver = new ResizeObserver((entries) => {
@@ -130,7 +130,7 @@ function initialise () {
 
             // ensure we don't duplicate accordion instances
             if (width > 600 && !accordions.length) {
-            // TODO: use fozzie JS breakpoint helpers instead of hardcoding 600px
+                // TODO: use fozzie JS breakpoint helpers instead of hardcoding 600px
                 document.querySelectorAll('.c-nav details').forEach((el) => {
                     accordions.push(new Accordion(el));
                 });

@@ -109,7 +109,9 @@ const buildGlobalTokenUsedElement = (globalToken) => {
  */
 const buildTokenDescriptionElement = (tokenMetadata) => {
     let description = tokenMetadata.description
-        ? `<span class="c-tokensTable-tokenDescription ${tokenMetadata.globalToken ? 'u-spacing-b--bottom' : ''}">
+        ? `<span class="c-tokensTable-tokenDescription ${
+              tokenMetadata.globalToken ? 'u-spacing-b--bottom' : ''
+          }">
             ${tokenMetadata.description}
            </span>`
         : '';
@@ -126,7 +128,8 @@ const buildTokenDescriptionElement = (tokenMetadata) => {
  * @param {string} tokenScssName - the design token SCSS name i.e. '$color-black'
  * @returns {string} - the token pill HTML string
  */
-const buildTokenPill = (tokenScssName) => `<span class="c-tokensTable-token">${tokenScssName}</span>`;
+const buildTokenPill = (tokenScssName) =>
+    `<span class="c-tokensTable-token">${tokenScssName}</span>`;
 
 /**
  * Builds a token list item element to add to the tokens list.
@@ -171,8 +174,11 @@ const buildTokenListElements = ({
  * @param {string[]} listElements - the list items to render within the list
  * @returns {string} - the tokens list HTML elements
  */
-const buildTokensList = (listElements, tokenType) => deindentHTML(`
-    <div class="c-tokensTable-row u-spacing-e--top u-showAboveWide c-tokensTable-heading" style="${getExampleColumnSize(tokenType)}">
+const buildTokensList = (listElements, tokenType) =>
+    deindentHTML(`
+    <div class="c-tokensTable-row u-spacing-e--top u-showAboveWide c-tokensTable-heading" style="${getExampleColumnSize(
+        tokenType,
+    )}">
         <span>Example</span>
         <span>Description</span>
         <span>Token name</span>
@@ -194,14 +200,17 @@ const buildTokensListForCategory = (tokens, path, category, tokenType) => {
     const tokensForCategory = getTokensForCategory(category, tokenTypeMetadata);
 
     // create a list item for the current token
-    const tokenListElements = tokensForCategory.map((key) => buildTokenListElements({
-        token: tokens[key],
-        tokenScssName: createScssTokenName(key, tokenType, path),
-        tokenDisplayName: tokenTypeMetadata[key].displayName ?? createTokenDisplayName(key, tokenType),
-        tokenType,
-        tokenMetadata: tokenTypeMetadata[key],
-        path,
-    }));
+    const tokenListElements = tokensForCategory.map((key) =>
+        buildTokenListElements({
+            token: tokens[key],
+            tokenScssName: createScssTokenName(key, tokenType, path),
+            tokenDisplayName:
+                tokenTypeMetadata[key].displayName ?? createTokenDisplayName(key, tokenType),
+            tokenType,
+            tokenMetadata: tokenTypeMetadata[key],
+            path,
+        }),
+    );
 
     return buildTokensList(tokenListElements, tokenType);
 };
@@ -213,9 +222,7 @@ const buildTokensListForCategory = (tokens, path, category, tokenType) => {
  * @param {object} path - path to the category i.e.  'path:color.alias.default' / 'path:color.alias.dark'
  * @returns - a string of html containing the list of tokens - with example, description and token name
  */
-const buildUncategorisedLists = ({
-    tokens, path, tokenType,
-}) => {
+const buildUncategorisedLists = ({ tokens, path, tokenType }) => {
     const tokenTypeMetadata = getTokenTypeMetadata(path);
 
     // if tokens are numbers (spacing / radius), sort in ascending order
@@ -223,14 +230,20 @@ const buildUncategorisedLists = ({
         ? Object.entries(tokens).sort((a, b) => a[1] - b[1]) // [[key, value]]
         : Object.entries(tokens);
 
-    const tokenListElements = sortedTokens.map((token) => buildTokenListElements({
-        token: tokens[token[0]],
-        tokenScssName: tokenTypeMetadata[token[0]]?.scssName ?? createScssTokenName(token[0], tokenType, path),
-        tokenDisplayName: tokenTypeMetadata[token[0]]?.displayName ?? createTokenDisplayName(token[0], tokenType),
-        tokenType,
-        tokenMetadata: tokenTypeMetadata[token[0]],
-        path,
-    }));
+    const tokenListElements = sortedTokens.map((token) =>
+        buildTokenListElements({
+            token: tokens[token[0]],
+            tokenScssName:
+                tokenTypeMetadata[token[0]]?.scssName ??
+                createScssTokenName(token[0], tokenType, path),
+            tokenDisplayName:
+                tokenTypeMetadata[token[0]]?.displayName ??
+                createTokenDisplayName(token[0], tokenType),
+            tokenType,
+            tokenMetadata: tokenTypeMetadata[token[0]],
+            path,
+        }),
+    );
 
     return buildTokensList(tokenListElements, tokenType);
 };
@@ -242,9 +255,7 @@ const buildUncategorisedLists = ({
  * @param {object} tokens
  * @returns - - a string of html containing the list of tokens - with category, example, description and token name
  */
-const buildCategorisedLists = ({
-    path, tokenType, tokens,
-}) => {
+const buildCategorisedLists = ({ path, tokenType, tokens }) => {
     const categories = objectHelpers.getObjectPropertyByPath(pieTokenCategories, path);
 
     // for each category, create an h2 and a list of token elements to render
@@ -265,9 +276,7 @@ const buildCategorisedLists = ({
  * @param {object} config
  * @returns {string} - list of tokens categorised by parent and subcategory
  */
-const buildCategoryListsWithParents = ({
-    parentCategories, path, tokenType, isGlobal, tokens,
-}) => {
+const buildCategoryListsWithParents = ({ parentCategories, path, tokenType, isGlobal, tokens }) => {
     const subcategories = isGlobal
         ? pieTokenCategories[tokenType].global
         : pieTokenCategories[tokenType].alias;
@@ -305,8 +314,14 @@ const buildCategoryListsWithParents = ({
  */
 const buildTokenLists = (path, tokenType) => {
     const isGlobal = path.includes('global');
-    const tokens = objectHelpers.getObjectPropertyByPath(normalisedPieDesignTokens, `theme.jet.${path}`);
-    const parentCategories = objectHelpers.getObjectPropertyByPath(pieTokenCategories, `${tokenType}.${isGlobal ? 'global' : 'alias'}.parentCategories`);
+    const tokens = objectHelpers.getObjectPropertyByPath(
+        normalisedPieDesignTokens,
+        `theme.jet.${path}`,
+    );
+    const parentCategories = objectHelpers.getObjectPropertyByPath(
+        pieTokenCategories,
+        `${tokenType}.${isGlobal ? 'global' : 'alias'}.parentCategories`,
+    );
     const regularCategories = objectHelpers.getObjectPropertyByPath(pieTokenCategories, path);
 
     const config = {
@@ -321,9 +336,7 @@ const buildTokenLists = (path, tokenType) => {
         return buildUncategorisedLists(config);
     }
 
-    return parentCategories
-        ? buildCategoryListsWithParents(config)
-        : buildCategorisedLists(config);
+    return parentCategories ? buildCategoryListsWithParents(config) : buildCategorisedLists(config);
 };
 
 // eslint-disable-next-line func-names

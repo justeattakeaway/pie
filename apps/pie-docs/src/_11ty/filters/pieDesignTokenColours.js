@@ -20,10 +20,12 @@ const getDesignTokenColour = (tokenName, tokenPath) => {
  * @returns
  */
 // eslint-disable-next-line func-names
-module.exports = function (options = {
-    tokenName: '',
-    tokenPath: [],
-}) {
+module.exports = function (
+    options = {
+        tokenName: '',
+        tokenPath: [],
+    },
+) {
     const colourValue = getDesignTokenColour(options.tokenName, options.tokenPath);
 
     if (!colourValue || colourValue === '') {

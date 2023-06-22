@@ -1,6 +1,9 @@
 import type { Meta, StoryObj as Story } from '@storybook/web-components';
 import {
-    ButtonProps as ButtonPropsBase, buttonSizes, buttonTypes, buttonVariants,
+    ButtonProps as ButtonPropsBase,
+    buttonSizes,
+    buttonTypes,
+    buttonVariants,
 } from '@justeattakeaway/pie-button';
 import { html, TemplateResult } from 'lit';
 
@@ -45,20 +48,26 @@ export default {
     },
 } as Meta;
 
-type ButtonProps = ButtonPropsBase & { slot: string }
+type ButtonProps = ButtonPropsBase & { slot: string };
 
 const Template = ({
-    size, variant, type, disabled, isFullWidth, slot,
+    size,
+    variant,
+    type,
+    disabled,
+    isFullWidth,
+    slot,
 }: ButtonProps): TemplateResult => html`
-        <pie-button
-            size="${size}"
-            variant="${variant}"
-            type="${type}"
-            ?disabled="${disabled}"
-            ?isFullWidth="${isFullWidth}">
-            ${slot}
-        </pie-button>
-        `;
+    <pie-button
+        size="${size}"
+        variant="${variant}"
+        type="${type}"
+        ?disabled="${disabled}"
+        ?isFullWidth="${isFullWidth}"
+    >
+        ${slot}
+    </pie-button>
+`;
 
 const defaultArgs: ButtonProps = {
     size: 'medium',

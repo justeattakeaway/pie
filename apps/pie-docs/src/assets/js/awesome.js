@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 
-function initialiseAwesome () {
+function initialiseAwesome() {
     console.info(`
 ______ _____ _____
 | ___ \\_   _|  ___|

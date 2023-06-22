@@ -1,6 +1,4 @@
-const standard = [
-    'eslint-config-airbnb-base'
-];
+const standard = ['eslint-config-airbnb-base'];
 
 const base = [
     './rules/best-practices',
@@ -9,7 +7,7 @@ const base = [
     './rules/node',
     './rules/style',
     './rules/es6',
-    './rules/imports'
+    './rules/imports',
 ].map(require.resolve);
 
 module.exports = {

@@ -8,7 +8,7 @@ module.exports = {
                 except: ['blockless-after-blockless', 'first-nested'],
                 ignore: ['after-comment'],
                 ignoreAtRules: ['if', 'else', 'include', 'use', 'forward'],
-            }
+            },
         ],
         'at-rule-name-case': 'lower',
         'at-rule-name-space-after': 'always',
@@ -17,7 +17,7 @@ module.exports = {
             'always',
             {
                 ignoreAtRules: ['if', 'else'],
-            }
+            },
         ],
         'block-closing-brace-newline-before': 'always',
         'block-closing-brace-space-before': 'always-single-line',
@@ -33,16 +33,17 @@ module.exports = {
             {
                 except: ['first-nested'],
                 ignore: ['stylelint-commands'],
-            }
+            },
         ],
         'comment-whitespace-inside': 'always',
         'custom-property-pattern': '^([a-z][a-z0-9]*)(-[-a-z0-9]+)*$',
         'declaration-bang-space-after': 'never',
         'declaration-bang-space-before': 'always',
         'declaration-block-no-duplicate-properties': [
-            true, {
+            true,
+            {
                 ignore: ['consecutive-duplicates-with-different-values'],
-            }
+            },
         ],
         'declaration-block-no-shorthand-property-overrides': true,
         'declaration-block-semicolon-newline-after': 'always',
@@ -65,7 +66,7 @@ module.exports = {
             'lower',
             {
                 ignoreFunctions: ['/zIndex/'],
-            }
+            },
         ],
         'function-parentheses-space-inside': 'never',
         'function-url-quotes': 'always',
@@ -79,7 +80,7 @@ module.exports = {
             {
                 ignore: ['non-comments'],
                 ignorePattern: '/hsl\\(/',
-            }
+            },
         ],
         'media-feature-colon-space-after': 'always',
         'media-feature-colon-space-before': 'never',
@@ -95,7 +96,7 @@ module.exports = {
             true,
             {
                 ignore: ['selectors-within-list'],
-            }
+            },
         ],
         'no-duplicate-selectors': null,
         'no-eol-whitespace': true,
@@ -112,7 +113,7 @@ module.exports = {
             {
                 except: ['first-nested'],
                 ignore: ['after-comment'],
-            }
+            },
         ],
         'scss/at-else-closing-brace-newline-after': 'always-last-in-chain',
         'scss/at-else-closing-brace-space-after': 'always-intermediate',

@@ -11,37 +11,31 @@ export default {
                 icon: 'globe',
                 items: [
                     { value: 'ltr', right: 'LTR', icon: 'arrowrightalt', title: 'Left to right' },
-                    { value: 'rtl', right: 'RTL', icon: 'arrowleftalt', title: 'Right to left' }
+                    { value: 'rtl', right: 'RTL', icon: 'arrowleftalt', title: 'Right to left' },
                 ],
             },
         },
     },
     parameters: {
-      a11y: {
-        config: {
-          rules: [
-            {
-              id: 'WCAG Rules',
-              tags: [
-                  'wcag21a',
-                  'wcag21aa',
-                  'wcag143',
-                  'cat.color',
-                  'cat.aria'
-              ]
+        a11y: {
+            config: {
+                rules: [
+                    {
+                        id: 'WCAG Rules',
+                        tags: ['wcag21a', 'wcag21aa', 'wcag143', 'cat.color', 'cat.aria'],
+                    },
+                    {
+                        // Disabled rule
+                        id: 'color-contrast-enhanced',
+                        enabled: false,
+                    },
+                    {
+                        // Disabled rule
+                        id: 'color-contrast',
+                        enabled: false,
+                    },
+                ],
             },
-            {
-              // Disabled rule
-              id: 'color-contrast-enhanced',
-              enabled: false,
-            },
-            {
-              // Disabled rule
-              id: 'color-contrast',
-              enabled: false,
-            },
-          ],
         },
-      },
-    }
+    },
 };

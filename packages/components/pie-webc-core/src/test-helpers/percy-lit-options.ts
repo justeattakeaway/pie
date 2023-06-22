@@ -8,15 +8,16 @@ import { SnapshotOptions } from '@percy/core';
 ///*
 const percyOptions = {
     domTransformation: (documentElement: any) => {
-        function updateLinks (root : any) {
-            root.querySelectorAll('[data-percy-adopted-stylesheets-serialized]').forEach((link : any) => {
-                let href = link.getAttribute('data-percy-serialized-attribute-href');
-                href = href.replace(/localhost[:\d+]*/, 'render.percy.local');
-                link.setAttribute('data-percy-serialized-attribute-href', href);
-            });
+        function updateLinks(root: any) {
+            root.querySelectorAll('[data-percy-adopted-stylesheets-serialized]').forEach(
+                (link: any) => {
+                    let href = link.getAttribute('data-percy-serialized-attribute-href');
+                    href = href.replace(/localhost[:\d+]*/, 'render.percy.local');
+                    link.setAttribute('data-percy-serialized-attribute-href', href);
+                },
+            );
 
-            root.querySelectorAll('[data-percy-shadow-host]')
-            .forEach((shadowHost : any) => {
+            root.querySelectorAll('[data-percy-shadow-host]').forEach((shadowHost: any) => {
                 if (shadowHost?.shadowRoot) updateLinks(shadowHost.shadowRoot);
             });
         }
@@ -36,4 +37,4 @@ const getLitPercyOptions = (): ExtendedSnapshotOptions => {
     return options;
 };
 
-export { getLitPercyOptions }
+export { getLitPercyOptions };

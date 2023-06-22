@@ -25,15 +25,9 @@ export default {
     },
 } as Meta;
 
-const Template = ({
-    variant,
-    disabled,
-}: IconButtonProps): TemplateResult => html`
-        <pie-icon-button
-            variant="${variant}"
-            ?disabled="${disabled}">
-        </pie-icon-button>
-        `;
+const Template = ({ variant, disabled }: IconButtonProps): TemplateResult => html`
+    <pie-icon-button variant="${variant}" ?disabled="${disabled}"> </pie-icon-button>
+`;
 
 const defaultArgs: IconButtonProps = {
     variant: 'primary',

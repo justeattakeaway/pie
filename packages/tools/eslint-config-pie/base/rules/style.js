@@ -7,13 +7,16 @@ module.exports = {
         camelcase: ['error', { properties: 'always' }],
 
         // Enable dangling commas
-        'comma-dangle': ['error', {
-            arrays: 'only-multiline',
-            objects: 'always-multiline',
-            imports: 'always-multiline',
-            exports: 'always-multiline',
-            functions: 'always-multiline',
-        }],
+        'comma-dangle': [
+            'error',
+            {
+                arrays: 'only-multiline',
+                objects: 'always-multiline',
+                imports: 'always-multiline',
+                exports: 'always-multiline',
+                functions: 'always-multiline',
+            },
+        ],
 
         'function-call-argument-newline': 'off',
 
@@ -22,32 +25,39 @@ module.exports = {
         'import/no-anonymous-default-export': 'off',
         // this option sets a specific tab width for your code
         // http://eslint.org/docs/rules/indent
-        indent: ['error', 4, {
-            FunctionDeclaration: {
-                body: 1,
-                parameters: 1,
+        indent: [
+            'error',
+            4,
+            {
+                FunctionDeclaration: {
+                    body: 1,
+                    parameters: 1,
+                },
+
+                FunctionExpression: {
+                    body: 1,
+                    parameters: 1,
+                },
+
+                MemberExpression: 'off',
+                SwitchCase: 1,
+                VariableDeclarator: 1,
+
+                ignoredNodes: ['TemplateLiteral'],
+
+                outerIIFEBody: 1,
             },
-
-            FunctionExpression: {
-                body: 1,
-                parameters: 1,
-            },
-
-            MemberExpression: 'off',
-            SwitchCase: 1,
-            VariableDeclarator: 1,
-
-            ignoredNodes: ['TemplateLiteral'],
-
-            outerIIFEBody: 1,
-        }],
+        ],
 
         // enforces spacing between keys and values in object literal properties
-        'key-spacing': ['error', {
-            afterColon: true,
-            beforeColon: false,
-            mode: 'minimum',
-        }],
+        'key-spacing': [
+            'error',
+            {
+                afterColon: true,
+                beforeColon: false,
+                mode: 'minimum',
+            },
+        ],
 
         // disallow mixed 'LF' and 'CRLF' as linebreaks
         // http://eslint.org/docs/rules/linebreak-style
@@ -57,13 +67,18 @@ module.exports = {
 
         // specify the maximum length of a line in your program
         // http://eslint.org/docs/rules/max-len
-        'max-len': ['error', 200, 4, {
-            ignoreComments: false,
-            ignoreRegExpLiterals: true,
-            ignoreStrings: true,
-            ignoreTemplateLiterals: true,
-            ignoreUrls: true,
-        }],
+        'max-len': [
+            'error',
+            200,
+            4,
+            {
+                ignoreComments: false,
+                ignoreRegExpLiterals: true,
+                ignoreStrings: true,
+                ignoreTemplateLiterals: true,
+                ignoreUrls: true,
+            },
+        ],
 
         'max-lines-per-function': 'off',
 
@@ -96,24 +111,31 @@ module.exports = {
 
         // require or disallow space before function opening parenthesis
         // http://eslint.org/docs/rules/space-before-function-paren
-        'space-before-function-paren': ['error', {
-            anonymous: 'always',
-            asyncArrow: 'always',
-            named: 'always',
-        }],
+        'space-before-function-paren': [
+            'error',
+            {
+                anonymous: 'always',
+                asyncArrow: 'always',
+                named: 'always',
+            },
+        ],
 
         // require or disallow a space immediately following the // or /* in a comment
         // http://eslint.org/docs/rules/spaced-comment
-        'spaced-comment': ['error', 'always', {
-            block: {
-                balanced: false,
-                exceptions: ['-', '*'],
+        'spaced-comment': [
+            'error',
+            'always',
+            {
+                block: {
+                    balanced: false,
+                    exceptions: ['-', '*'],
+                },
+                line: {
+                    exceptions: ['-', '*'],
+                    markers: ['global'],
+                },
             },
-            line: {
-                exceptions: ['-', '*'],
-                markers: ['global'],
-            },
-        }],
+        ],
 
         'switch-colon-spacing': ['error', { after: true, before: false }],
     },

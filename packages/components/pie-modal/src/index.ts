@@ -13,25 +13,21 @@ const componentSelector = 'pie-modal';
 
 export class PieModal extends RtlMixin(LitElement) {
     @property({ type: Boolean })
-        isOpen = false;
+    isOpen = false;
 
     @property({ type: String })
     @requiredProperty(componentSelector)
-        heading!: string;
+    heading!: string;
 
     @property()
     @validPropertyValues(componentSelector, headingLevels, 'h2')
-        headingLevel: ModalProps['headingLevel'] = 'h2';
+    headingLevel: ModalProps['headingLevel'] = 'h2';
 
     @query('dialog')
-        _dialog: HTMLDialogElement;
+    _dialog: HTMLDialogElement;
 
-    render () {
-        const {
-            isOpen,
-            heading,
-            headingLevel = 'h2',
-        } = this;
+    render() {
+        const { isOpen, heading, headingLevel = 'h2' } = this;
 
         const headingTag = unsafeStatic(headingLevel);
 

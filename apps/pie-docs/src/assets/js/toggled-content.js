@@ -5,7 +5,8 @@ const activeClass = 'is-active';
  * @param {HTMLElement} contentVariantWrapper - the wrapper containing the content variant
  * @returns {boolean} - whether or not the content is already selected to display
  */
-const isContentAlreadySelected = (contentVariantWrapper) => contentVariantWrapper.classList.contains(activeClass);
+const isContentAlreadySelected = (contentVariantWrapper) =>
+    contentVariantWrapper.classList.contains(activeClass);
 
 /**
  * Update the current URL to the new slug without reloading the page

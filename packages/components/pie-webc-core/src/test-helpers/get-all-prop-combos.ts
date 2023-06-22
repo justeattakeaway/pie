@@ -15,15 +15,15 @@ export const getAllPropCombinations = (obj: PropObject): WebComponentPropValues[
     // This function generates combinations of properties from a given object.
     // It does this by recursively concatenating each property value to an 'accumulatedPropertyValues' array,
     // and adding the resulting combination to a 'WebComponentPropValues' array when it reaches the end of the keys.
-    function generatePropCombinations (accumulatedPropertyValues: any[], i: number): void {
-    // When 'i' equals the length of 'keys', we've reached the end of the keys.
-    // This means we've formed a complete combination.
+    function generatePropCombinations(accumulatedPropertyValues: any[], i: number): void {
+        // When 'i' equals the length of 'keys', we've reached the end of the keys.
+        // This means we've formed a complete combination.
         if (i === propertyKeys.length) {
             // Create an empty object to hold the current WebComponentPropValues.
             const combo: WebComponentPropValues = {};
             // Loop over the 'accumulatedPropertyValues' array, which contains the property values for this combination.
             for (let j = 0; j < accumulatedPropertyValues.length; j++) {
-            // Assign each value to the corresponding key in the 'combo' object.
+                // Assign each value to the corresponding key in the 'combo' object.
                 combo[propertyKeys[j]] = accumulatedPropertyValues[j];
             }
             // Add this combination to the 'combinationsOfPropValues' array.
@@ -66,18 +66,26 @@ export const getAllPropCombinations = (obj: PropObject): WebComponentPropValues[
  *
  * @returns {Record<string, WebComponentPropValues[]>} An object mapping each unique property value to the combinations that have it.
  */
-export const splitCombinationsByPropertyValue = (propValueCombinations: WebComponentPropValues[], property: string): Record<string, WebComponentPropValues[]> => propValueCombinations
-    .reduce((splitCombinations: Record<string, WebComponentPropValues[]>, combination: WebComponentPropValues) => {
-        const propertyValue = combination[property];
-        const propertyValueKey = String(propertyValue);
+export const splitCombinationsByPropertyValue = (
+    propValueCombinations: WebComponentPropValues[],
+    property: string,
+): Record<string, WebComponentPropValues[]> =>
+    propValueCombinations.reduce(
+        (
+            splitCombinations: Record<string, WebComponentPropValues[]>,
+            combination: WebComponentPropValues,
+        ) => {
+            const propertyValue = combination[property];
+            const propertyValueKey = String(propertyValue);
 
-        if (!(propertyValueKey in splitCombinations)) {
-            splitCombinations[propertyValueKey] = [];
-        }
+            if (!(propertyValueKey in splitCombinations)) {
+                splitCombinations[propertyValueKey] = [];
+            }
 
-        // Add the current combination to the array for its property value
-        splitCombinations[propertyValueKey].push(combination);
+            // Add the current combination to the array for its property value
+            splitCombinations[propertyValueKey].push(combination);
 
-        return splitCombinations;
-    }, {});
-
+            return splitCombinations;
+        },
+        {},
+    );

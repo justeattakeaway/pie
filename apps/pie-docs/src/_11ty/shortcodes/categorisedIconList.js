@@ -33,12 +33,20 @@ const buildIconCard = (icon) => {
 
     return `<li class="c-categorisedIconList-iconCard">
         <div class="c-categorisedIconList-iconCard-iconContainer">
-            ${largeIcon ? `<div class="c-categorisedIconList-icon-large" aria-hidden="true">
+            ${
+                largeIcon
+                    ? `<div class="c-categorisedIconList-icon-large" aria-hidden="true">
                 ${largeIcon}
-            </div>` : ''}
-            ${pieIcon ? `<div class="${regularSizeClass}" aria-hidden="true">
+            </div>`
+                    : ''
+            }
+            ${
+                pieIcon
+                    ? `<div class="${regularSizeClass}" aria-hidden="true">
                 ${pieIcon}
-            </div>` : ''}
+            </div>`
+                    : ''
+            }
         </div>
         <span class="c-categorisedIconList-iconCard-separator"></span>
         <p>${icon.displayName}</p>
@@ -55,15 +63,21 @@ const buildIconCard = (icon) => {
  */
 const categorisedIconList = () => `<div>
         <ul class="c-categorisedIconList">
-            ${iconData.categories.map((cat) => `
+            ${iconData.categories
+                .map(
+                    (cat) => `
                 <li>
                     <h3 class="c-categorisedIconList-heading" id="category-${cat.name}">
                         ${cat.displayName}
                     </h3>
 
-                    <ul class="c-categorisedIconList-iconList" aria-labelledby="category-${cat.name}">
+                    <ul class="c-categorisedIconList-iconList" aria-labelledby="category-${
+                        cat.name
+                    }">
                         ${cat.icons.map((i) => buildIconCard(i)).join('')}
-                    </ul>`).join('')}
+                    </ul>`,
+                )
+                .join('')}
                 </li>
             </ul>
         </div>`;

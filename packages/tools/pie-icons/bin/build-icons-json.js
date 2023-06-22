@@ -7,7 +7,7 @@ import buildIconsObject from './build-icons-object';
 /**
  * Read SVG files and write a JSON file for an object in the format: `{ <icon-name>: {attrs:Object, content:string } }`
  */
-async function buildIconsJson () {
+async function buildIconsJson() {
     const IN_DIR = `${process.cwd()}/src/assets/_optimised`; // get optimised SVG files
     const OUT_FILE = `${process.cwd()}/dist/icons.json`;
 

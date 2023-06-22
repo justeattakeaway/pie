@@ -42,7 +42,7 @@ describe('card.js', () => {
         [[itemWithInternalLink]],
         [[itemWithContent]],
         [[item, item, item], true],
-        [[item, item]]
+        [[item, item]],
     ])('should return the expected HTML', (items, shouldFillContainer = false) => {
         // act
         const result = card({ items, shouldFillContainer });

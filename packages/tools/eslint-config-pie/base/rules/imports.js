@@ -11,7 +11,7 @@ module.exports = {
             {
                 caseSensitive: false,
                 commonjs: true,
-            }
+            },
         ],
 
         'import/no-unused-modules': 'off',

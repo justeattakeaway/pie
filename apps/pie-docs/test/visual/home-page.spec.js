@@ -5,7 +5,11 @@ test.describe('PIE - Home Page Tests', async () => {
     const showCookieBannerValues = [true, false];
 
     showCookieBannerValues.forEach((showCookieBanner) => {
-        test(`Should display Cookie Banner: ${showCookieBanner}`, async ({ page, context, baseURL }) => {
+        test(`Should display Cookie Banner: ${showCookieBanner}`, async ({
+            page,
+            context,
+            baseURL,
+        }) => {
             // Arrange
             await page.goto(baseURL);
 

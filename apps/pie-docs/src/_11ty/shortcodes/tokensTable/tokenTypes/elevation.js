@@ -24,19 +24,19 @@ const buildElevationExample = (token, tokenMetadata, path) => {
         },
     };
 
-    const elevationContainer = `--example-container: ${pieDesignTokenColours({ tokenName: styling[theme].elevationContainer, tokenPath })};`;
-    const elevationBox = `--example-elevation: ${pieDesignTokenColours({ tokenName: styling[theme].elevationBox, tokenPath })};`;
+    const elevationContainer = `--example-container: ${pieDesignTokenColours({
+        tokenName: styling[theme].elevationContainer,
+        tokenPath,
+    })};`;
+    const elevationBox = `--example-elevation: ${pieDesignTokenColours({
+        tokenName: styling[theme].elevationBox,
+        tokenPath,
+    })};`;
 
-    const boxShadowValues = token.shadows.map(({
-        x,
-        y,
-        blur,
-        spread,
-        r,
-        g,
-        b,
-        opacity,
-    }) => `${x}px ${y}px ${blur}px ${spread}px rgba(${r}, ${g}, ${b}, ${opacity})`);
+    const boxShadowValues = token.shadows.map(
+        ({ x, y, blur, spread, r, g, b, opacity }) =>
+            `${x}px ${y}px ${blur}px ${spread}px rgba(${r}, ${g}, ${b}, ${opacity})`,
+    );
 
     const elevationBoxShadow = `--example-shadow: ${boxShadowValues};`;
 

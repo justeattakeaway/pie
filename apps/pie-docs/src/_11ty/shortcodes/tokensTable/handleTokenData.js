@@ -14,7 +14,7 @@ const getExampleColumnSize = (tokenType) => {
         default: '152px',
     };
 
-    return `--template-columns: ${(tokenColumnHandler[tokenType] || tokenColumnHandler.default)}`;
+    return `--template-columns: ${tokenColumnHandler[tokenType] || tokenColumnHandler.default}`;
 };
 
 /**
@@ -22,7 +22,8 @@ const getExampleColumnSize = (tokenType) => {
  * @param {string} path - path to the category i.e. 'path:color.alias.default' / 'path:color.alias.dark'
  * @returns {object} - object of tokens and the category they are sorted by i.e. white: { category: 'whiteBlack' }
  */
-const getTokenTypeMetadata = (path) => objectHelpers.getObjectPropertyByPath(pieTokensMetadata, path);
+const getTokenTypeMetadata = (path) =>
+    objectHelpers.getObjectPropertyByPath(pieTokensMetadata, path);
 
 /**
  * Gets all tokens for a given category such as 'orange'
@@ -30,9 +31,10 @@ const getTokenTypeMetadata = (path) => objectHelpers.getObjectPropertyByPath(pie
  * @param {string} tokenTypeMetadata - the type of token i.e. color, spacing, radius
  * @returns {string[]} - i.e. an array of tokens in each category [ 'divider-default', 'divider-inverse' ]
  */
-const getTokensForCategory = (category, tokenTypeMetadata) => Object
-    .keys(tokenTypeMetadata)
-    .filter((token) => tokenTypeMetadata[token].category === category);
+const getTokensForCategory = (category, tokenTypeMetadata) =>
+    Object.keys(tokenTypeMetadata).filter(
+        (token) => tokenTypeMetadata[token].category === category,
+    );
 
 /**
  * Gets all subcategory keys for a given parent category
@@ -40,9 +42,10 @@ const getTokensForCategory = (category, tokenTypeMetadata) => Object
  * @param {string} parentCategoryKey - token category name i.e. 'reactive'
  * @returns - list of subcategory keys for a given parent category
  */
-const getSubcategoriesForParentCategory = (tokenTypeCategories, parentCategoryKey) => Object
-          .keys(tokenTypeCategories)
-          .filter((categoryKey) => tokenTypeCategories[categoryKey].parentCategory === parentCategoryKey);
+const getSubcategoriesForParentCategory = (tokenTypeCategories, parentCategoryKey) =>
+    Object.keys(tokenTypeCategories).filter(
+        (categoryKey) => tokenTypeCategories[categoryKey].parentCategory === parentCategoryKey,
+    );
 
 /**
  * Throws an error listing which configuration properties are missing (if any)

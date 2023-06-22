@@ -10,14 +10,16 @@ import { DEFAULT_ATTRS } from '../src/default-attrs';
  * @param {string} filePath - An svg file path string.
  * @param {Promise<string>}
  */
-function processSvg (svg, fileName, filePath) {
+function processSvg(svg, fileName, filePath) {
     return (
         optimizeSVG(svg)
             .then((svg) => removeFillAttribute(svg, fileName, filePath))
             .then(setAttrs)
-            .then((data) => prettier.format(data, {
-                parser: 'babel',
-            }))
+            .then((data) =>
+                prettier.format(data, {
+                    parser: 'babel',
+                }),
+            )
             // remove semicolon inserted by prettier
             // because prettier thinks it's formatting JSX not HTML
             .then((svg) => svg.replace(/;/g, ''))
@@ -29,7 +31,7 @@ function processSvg (svg, fileName, filePath) {
  * @param {string} svg - An SVG string.
  * @returns {Promise<string>}
  */
-function optimizeSVG (svg) {
+function optimizeSVG(svg) {
     return new Promise((resolve) => {
         const optimizedSVG = optimize(svg, {
             plugins: [
@@ -58,7 +60,7 @@ function optimizeSVG (svg) {
  * @param {string} svg - An SVG string.
  * @returns {string}
  */
-function setAttrs (svg) {
+function setAttrs(svg) {
     const $ = cheerio.load(svg);
 
     Object.keys(DEFAULT_ATTRS).forEach((key) => $('svg').attr(key, DEFAULT_ATTRS[key]));
@@ -74,8 +76,11 @@ function setAttrs (svg) {
  * @returns {string}
  */
 
-function removeFillAttribute (svg, fileName, filePath) {
-    const shouldNotProcessFile = fileName.includes('-static') || filePath.includes('assets/flag') || filePath.includes('assets/payment');
+function removeFillAttribute(svg, fileName, filePath) {
+    const shouldNotProcessFile =
+        fileName.includes('-static') ||
+        filePath.includes('assets/flag') ||
+        filePath.includes('assets/payment');
     if (shouldNotProcessFile) {
         return svg;
     }

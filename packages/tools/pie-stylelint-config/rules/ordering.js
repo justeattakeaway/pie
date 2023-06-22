@@ -7,55 +7,55 @@ module.exports = {
             {
                 hasBlock: false,
                 name: 'include',
-                type: 'at-rule'
+                type: 'at-rule',
             },
             'declarations',
             {
                 hasBlock: true,
                 name: 'include',
                 parameter: /focus|hover/,
-                type: 'at-rule'
+                type: 'at-rule',
             },
             {
                 hasBlock: true,
                 name: 'include',
                 parameter: 'active',
-                type: 'at-rule'
+                type: 'at-rule',
             },
             {
                 selector: '^&:focus|hover$',
-                type: 'rule'
+                type: 'rule',
             },
             {
                 selector: '^&:active$',
-                type: 'rule'
+                type: 'rule',
             },
             {
                 hasBlock: true,
                 name: 'include',
-                type: 'at-rule'
+                type: 'at-rule',
             },
             {
                 name: 'media',
-                type: 'at-rule'
+                type: 'at-rule',
             },
-            'rules'
+            'rules',
         ],
         'order/properties-order': [
             'composes',
             'content',
             {
                 emptyLineBefore: 'always',
-                properties: ['position']
+                properties: ['position'],
             },
             {
                 order: 'flexible',
-                properties: ['top', 'bottom', 'left', 'right', 'z-index']
+                properties: ['top', 'bottom', 'left', 'right', 'z-index'],
             },
             {
                 emptyLineBefore: 'always',
                 order: 'flexible',
-                properties: ['display', 'vertical-align']
+                properties: ['display', 'vertical-align'],
             },
             {
                 emptyLineBefore: 'always',
@@ -74,8 +74,8 @@ module.exports = {
                     'align-content',
                     'align-items',
                     'align-self',
-                    'align'
-                ]
+                    'align',
+                ],
             },
             {
                 emptyLineBefore: 'always',
@@ -90,8 +90,8 @@ module.exports = {
                     'overflow',
                     'overflow-x',
                     'overflow-y',
-                    'box-sizing'
-                ]
+                    'box-sizing',
+                ],
             },
             {
                 emptyLineBefore: 'always',
@@ -106,8 +106,8 @@ module.exports = {
                     'padding-top',
                     'padding-bottom',
                     'padding-left',
-                    'padding-right'
-                ]
+                    'padding-right',
+                ],
             },
             {
                 emptyLineBefore: 'always',
@@ -162,8 +162,8 @@ module.exports = {
                     'background-position',
                     'background-repeat',
                     'background-size',
-                    'box-shadow'
-                ]
+                    'box-shadow',
+                ],
             },
             {
                 emptyLineBefore: 'always',
@@ -191,18 +191,18 @@ module.exports = {
                     'text-transform',
                     'text-underline-position',
                     'white-space',
-                    'word'
-                ]
+                    'word',
+                ],
             },
             {
                 emptyLineBefore: 'always',
                 order: 'flexible',
-                properties: ['opacity', 'visibility']
+                properties: ['opacity', 'visibility'],
             },
             {
                 emptyLineBefore: 'always',
                 order: 'flexible',
-                properties: ['cursor', 'user-select', 'pointer-events']
+                properties: ['cursor', 'user-select', 'pointer-events'],
             },
             {
                 emptyLineBefore: 'always',
@@ -224,9 +224,9 @@ module.exports = {
                     'animation-iteration-count',
                     'animation-name',
                     'animation-play-state',
-                    'animation-timing-function'
-                ]
-            }
-        ]
-    }
+                    'animation-timing-function',
+                ],
+            },
+        ],
+    },
 };

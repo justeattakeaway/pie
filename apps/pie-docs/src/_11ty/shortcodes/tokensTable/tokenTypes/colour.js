@@ -56,8 +56,8 @@ const buildColorExample = (token) => {
     }
 
     const cssVariables = [
-        ...tokenValues.opacity ? [`--example-checked-opacity: ${tokenValues.opacity}`] : [],
-        ...tokenValues.hexcode ? [`--example-background-color: ${tokenValues.hexcode}`] : []
+        ...(tokenValues.opacity ? [`--example-checked-opacity: ${tokenValues.opacity}`] : []),
+        ...(tokenValues.hexcode ? [`--example-background-color: ${tokenValues.hexcode}`] : []),
     ];
 
     return `<div class="${classes.join(' ')}" style="${cssVariables.join('; ')}";></div>`;

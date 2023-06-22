@@ -61,12 +61,14 @@ describe('ESLint', () => {
             const eslint = new ESLint(baseConfig);
             const results = await eslint.lintText('console.log(1);\n');
 
-            expect(results[0].messages).toEqual(expect.arrayContaining([
-                expect.objectContaining({
-                    ruleId: 'no-console',
-                    severity: ESLINT_SEVERITY.WARN,
-                }),
-            ]));
+            expect(results[0].messages).toEqual(
+                expect.arrayContaining([
+                    expect.objectContaining({
+                        ruleId: 'no-console',
+                        severity: ESLINT_SEVERITY.WARN,
+                    }),
+                ]),
+            );
         });
 
         it('no-multiple-empty-lines should not raise an error for 2 empty lines', async () => {
@@ -74,12 +76,14 @@ describe('ESLint', () => {
             const eslint = new ESLint(baseConfig);
             const results = await eslint.lintText(src);
 
-            expect(results[0].messages).not.toEqual(expect.arrayContaining([
-                expect.objectContaining({
-                    ruleId: 'no-multiple-empty-lines',
-                    severity: ESLINT_SEVERITY.ERROR,
-                }),
-            ]));
+            expect(results[0].messages).not.toEqual(
+                expect.arrayContaining([
+                    expect.objectContaining({
+                        ruleId: 'no-multiple-empty-lines',
+                        severity: ESLINT_SEVERITY.ERROR,
+                    }),
+                ]),
+            );
         });
     });
 
@@ -107,12 +111,14 @@ describe('ESLint', () => {
                 const eslint = new ESLint(strictConfig);
                 const results = await eslint.lintText('console.log(1);\n');
 
-                expect(results[0].messages).toEqual(expect.arrayContaining([
-                    expect.objectContaining({
-                        ruleId: 'no-console',
-                        severity: ESLINT_SEVERITY.WARN,
-                    }),
-                ]));
+                expect(results[0].messages).toEqual(
+                    expect.arrayContaining([
+                        expect.objectContaining({
+                            ruleId: 'no-console',
+                            severity: ESLINT_SEVERITY.WARN,
+                        }),
+                    ]),
+                );
             });
 
             it('no-multiple-empty-lines should raise an error when more than 1 empty line is found', async () => {
@@ -120,12 +126,14 @@ describe('ESLint', () => {
                 const eslint = new ESLint(strictConfig);
                 const results = await eslint.lintText(src);
 
-                expect(results[0].messages).toEqual(expect.arrayContaining([
-                    expect.objectContaining({
-                        ruleId: 'no-multiple-empty-lines',
-                        severity: ESLINT_SEVERITY.ERROR,
-                    }),
-                ]));
+                expect(results[0].messages).toEqual(
+                    expect.arrayContaining([
+                        expect.objectContaining({
+                            ruleId: 'no-multiple-empty-lines',
+                            severity: ESLINT_SEVERITY.ERROR,
+                        }),
+                    ]),
+                );
             });
         });
     });

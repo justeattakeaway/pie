@@ -1,35 +1,40 @@
 const pieIconsSvg = require('../filters/pieIconsSvg');
 
-const buildLinkIcon = (isInternalLink) => (isInternalLink
-    ? pieIconsSvg({
-        name: 'arrow-right',
-        attrs: {
-            'aria-hidden': 'true',
-            height: 16,
-            width: 16,
-        },
-    })
-    : pieIconsSvg({
-        name: 'link-external',
-        attrs: {
-            'aria-hidden': 'true',
-            height: 21,
-            width: 21,
-        },
-    }));
+const buildLinkIcon = (isInternalLink) =>
+    isInternalLink
+        ? pieIconsSvg({
+              name: 'arrow-right',
+              attrs: {
+                  'aria-hidden': 'true',
+                  height: 16,
+                  width: 16,
+              },
+          })
+        : pieIconsSvg({
+              name: 'link-external',
+              attrs: {
+                  'aria-hidden': 'true',
+                  height: 21,
+                  width: 21,
+              },
+          });
 
 const buildCardLabel = (linkText, href, shouldOpenInNewTab, isInternalLink) => {
     const labelClasses = [
         'c-card-labelContainer',
-        isInternalLink && 'c-card-labelContainer--internalLink'
-    ].filter(Boolean).join(' ');
+        isInternalLink && 'c-card-labelContainer--internalLink',
+    ]
+        .filter(Boolean)
+        .join(' ');
 
     const labelTag = href ? 'a' : 'p';
 
     const labelAttributes = [
         href && `href="${href}"`,
-        href && shouldOpenInNewTab && 'target="_blank"'
-    ].filter(Boolean).join(' ');
+        href && shouldOpenInNewTab && 'target="_blank"',
+    ]
+        .filter(Boolean)
+        .join(' ');
 
     return `<div class="${labelClasses}">
                 <${labelTag} class="c-card-label" ${labelAttributes}><span>${linkText}</span></${labelTag}>
@@ -37,21 +42,30 @@ const buildCardLabel = (linkText, href, shouldOpenInNewTab, isInternalLink) => {
             </div>`;
 };
 
-const buildCardIcon = (icon, iconColour) => pieIconsSvg({
-    name: icon,
-    attrs: {
-        class: `c-card-icon c-card-icon--${iconColour}`,
-        'aria-hidden': 'true',
-        height: 48,
-        width: 48,
-    },
-});
+const buildCardIcon = (icon, iconColour) =>
+    pieIconsSvg({
+        name: icon,
+        attrs: {
+            class: `c-card-icon c-card-icon--${iconColour}`,
+            'aria-hidden': 'true',
+            height: 48,
+            width: 48,
+        },
+    });
 
 const buildCardContent = ({
-    icon, iconColour, heading, headingLevel = '2', content,
+    icon,
+    iconColour,
+    heading,
+    headingLevel = '2',
+    content,
 }) => `<div class="c-card-container">
             ${icon && iconColour ? `${buildCardIcon(icon, iconColour)}` : ''}
-            ${heading ? `<h${headingLevel} class="c-card-heading">${heading}</h${headingLevel}>` : ''}
+            ${
+                heading
+                    ? `<h${headingLevel} class="c-card-heading">${heading}</h${headingLevel}>`
+                    : ''
+            }
             ${content ? `<p class="c-card-content">${content}</p>` : ''}
         </div>`;
 
@@ -88,29 +102,41 @@ module.exports = function ({ items, shouldFillContainer = false }) {
         const cardHasImage = !!src;
         const cardHasContent = (!!icon && !!iconColour) || !!heading || !!content;
 
-        const cardClasses = [
-            'c-card',
-            cardHasImage && 'c-card--hasImage'
-        ].filter(Boolean).join(' ');
+        const cardClasses = ['c-card', cardHasImage && 'c-card--hasImage']
+            .filter(Boolean)
+            .join(' ');
 
         return `<article class="${cardClasses}">
-                    ${cardHasContent ? `${buildCardContent({
-            icon, iconColour, heading, headingLevel, content,
-        })}` : ''}
-                    ${src ? `<img class="c-card-image" src="${src}" role="presentation" alt="">` : ''}
+                    ${
+                        cardHasContent
+                            ? `${buildCardContent({
+                                  icon,
+                                  iconColour,
+                                  heading,
+                                  headingLevel,
+                                  content,
+                              })}`
+                            : ''
+                    }
+                    ${
+                        src
+                            ? `<img class="c-card-image" src="${src}" role="presentation" alt="">`
+                            : ''
+                    }
                     ${buildCardLabel(linkText, href, shouldOpenInNewTab, isInternalLink)}
                 </article>`;
     };
 
     if (items.length > 1) {
-        const listClasses = [
-            'c-card-list',
-            shouldFillContainer && 'c-card-list--fillContainer'
-        ].filter(Boolean).join(' ');
+        const listClasses = ['c-card-list', shouldFillContainer && 'c-card-list--fillContainer']
+            .filter(Boolean)
+            .join(' ');
 
         return `<div class="c-card-wrapper">
                     <ul class="${listClasses}">
-                        ${Object.values(items).map((card) => `<li>${buildCard(card)}</li>`).join('')}
+                        ${Object.values(items)
+                            .map((card) => `<li>${buildCard(card)}</li>`)
+                            .join('')}
                     </ul>
                 </div>`;
     }

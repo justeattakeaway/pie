@@ -16,14 +16,28 @@ const { deindentHTML } = require('./shortcode-utilities');
  */
 const addAllShortCodes = (eleventyConfig) => {
     eleventyConfig.addShortcode('card', (shortcodeArgs) => deindentHTML(card(shortcodeArgs)));
-    eleventyConfig.addShortcode('categorisedIconList', (shortcodeArgs) => deindentHTML(categorisedIconList(shortcodeArgs)));
-    eleventyConfig.addShortcode('contentPageImage', (shortcodeArgs) => deindentHTML(contentPageImage(shortcodeArgs)));
-    eleventyConfig.addShortcode('globalTokensWarning', (shortcodeArgs) => deindentHTML(globalTokensWarning(shortcodeArgs)));
+    eleventyConfig.addShortcode('categorisedIconList', (shortcodeArgs) =>
+        deindentHTML(categorisedIconList(shortcodeArgs)),
+    );
+    eleventyConfig.addShortcode('contentPageImage', (shortcodeArgs) =>
+        deindentHTML(contentPageImage(shortcodeArgs)),
+    );
+    eleventyConfig.addShortcode('globalTokensWarning', (shortcodeArgs) =>
+        deindentHTML(globalTokensWarning(shortcodeArgs)),
+    );
     eleventyConfig.addShortcode('list', (shortcodeArgs) => deindentHTML(list(shortcodeArgs)));
-    eleventyConfig.addShortcode('mediaElementList', (shortcodeArgs) => deindentHTML(mediaElement(shortcodeArgs)));
-    eleventyConfig.addShortcode('notification', (shortcodeArgs) => deindentHTML(notification(shortcodeArgs)));
-    eleventyConfig.addShortcode('simpleTable', (shortcodeArgs) => deindentHTML(simpleTable(shortcodeArgs)));
-    eleventyConfig.addShortcode('tokensTable', (shortcodeArgs) => deindentHTML(tokensTable(shortcodeArgs)));
+    eleventyConfig.addShortcode('mediaElementList', (shortcodeArgs) =>
+        deindentHTML(mediaElement(shortcodeArgs)),
+    );
+    eleventyConfig.addShortcode('notification', (shortcodeArgs) =>
+        deindentHTML(notification(shortcodeArgs)),
+    );
+    eleventyConfig.addShortcode('simpleTable', (shortcodeArgs) =>
+        deindentHTML(simpleTable(shortcodeArgs)),
+    );
+    eleventyConfig.addShortcode('tokensTable', (shortcodeArgs) =>
+        deindentHTML(tokensTable(shortcodeArgs)),
+    );
 };
 
 module.exports = {

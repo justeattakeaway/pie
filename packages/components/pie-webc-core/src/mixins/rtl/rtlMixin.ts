@@ -9,33 +9,32 @@ declare class RTLInterface {
     isRTL: boolean;
 }
 
-export const RtlMixin =
-    <T extends Constructor<LitElement>>(superClass: T) => {
-        class RTLElement extends superClass {
-            @property({ type: String })
-                dir = '';
+export const RtlMixin = <T extends Constructor<LitElement>>(superClass: T) => {
+    class RTLElement extends superClass {
+        @property({ type: String })
+        dir = '';
 
-            /**
-             * Returns true if the element is in Right to Left mode.
-             * If a dir attribute is not explicitly set on the web component
-             * then it falls back to the nearest parent with a dir attribute set.
-             *
-             * A dir attribute being set will result in a reactive property.
-             * If the component falls back to a parent dir attribute then the value
-             * will not be reactive and is only computed once
-             */
-            get isRTL () : boolean {
-                if (this.dir === 'ltr') {
-                    return false;
-                }
-
-                if (this.dir === 'rtl' || window?.getComputedStyle(this)?.direction === 'rtl') {
-                    return true;
-                }
-
+        /**
+         * Returns true if the element is in Right to Left mode.
+         * If a dir attribute is not explicitly set on the web component
+         * then it falls back to the nearest parent with a dir attribute set.
+         *
+         * A dir attribute being set will result in a reactive property.
+         * If the component falls back to a parent dir attribute then the value
+         * will not be reactive and is only computed once
+         */
+        get isRTL(): boolean {
+            if (this.dir === 'ltr') {
                 return false;
             }
-        }
 
-        return RTLElement as Constructor<RTLInterface> & T;
-    };
+            if (this.dir === 'rtl' || window?.getComputedStyle(this)?.direction === 'rtl') {
+                return true;
+            }
+
+            return false;
+        }
+    }
+
+    return RTLElement as Constructor<RTLInterface> & T;
+};

@@ -8,7 +8,7 @@ import icons from './icons';
  * corresponding to the element's `data-pie-icons` attribute value.
  * @param {Object} attrs
  */
-function replace (attrs = {}) {
+function replace(attrs = {}) {
     if (typeof document === 'undefined') {
         throw new Error('`pie-icons.replace()` only works in a browser environment.');
     }
@@ -24,7 +24,7 @@ function replace (attrs = {}) {
  * @param {HTMLElement} element
  * @param {Object} attrs
  */
-function replaceElement (element, attrs = {}) {
+function replaceElement(element, attrs = {}) {
     const elementAttrs = getAttrs(element);
     const name = elementAttrs['data-pie-icons'];
     delete elementAttrs['data-pie-icons'];
@@ -34,10 +34,7 @@ function replaceElement (element, attrs = {}) {
         ...elementAttrs,
         ...{ class: classnames(attrs.class, elementAttrs.class) },
     });
-    const svgDocument = new DOMParser().parseFromString(
-        svgString,
-        'image/svg+xml',
-    );
+    const svgDocument = new DOMParser().parseFromString(svgString, 'image/svg+xml');
     const svgElement = svgDocument.querySelector('svg');
 
     element.parentNode.replaceChild(svgElement, element);
@@ -48,7 +45,7 @@ function replaceElement (element, attrs = {}) {
  * @param {HTMLElement} element
  * @returns {Object}
  */
-function getAttrs (element) {
+function getAttrs(element) {
     return Array.from(element.attributes).reduce((attrs, attr) => {
         attrs[attr.name] = attr.value;
         return attrs;

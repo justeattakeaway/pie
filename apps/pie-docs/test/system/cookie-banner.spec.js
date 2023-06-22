@@ -6,13 +6,12 @@ test.beforeEach(async ({ page, baseURL }) => {
 });
 
 test.describe('PIE - Cookie Banner Tests - @desktop', async () => {
-    const cookieTypes = [
-        'accept-all-cookies-button',
-        'accept-necessary-cookies-button'
-    ];
+    const cookieTypes = ['accept-all-cookies-button', 'accept-necessary-cookies-button'];
 
     cookieTypes.forEach(async (cookieType) => {
-        test(`Should close the cookie banner when the ${cookieType} button is clicked`, async ({ page }) => {
+        test(`Should close the cookie banner when the ${cookieType} button is clicked`, async ({
+            page,
+        }) => {
             // Arrange
             const cookieBannerComponent = page.getByTestId('cookie-banner-component');
             const cookieAcceptSelector = page.getByTestId(cookieType);
@@ -27,7 +26,10 @@ test.describe('PIE - Cookie Banner Tests - @desktop', async () => {
         });
     });
 
-    test('Should not display cookie banner when cookie values are set', async ({ page, context }) => {
+    test('Should not display cookie banner when cookie values are set', async ({
+        page,
+        context,
+    }) => {
         // Arrange
         const cookieBannerComponent = page.getByTestId('cookie-banner-component');
 

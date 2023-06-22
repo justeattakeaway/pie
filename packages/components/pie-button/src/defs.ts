@@ -34,7 +34,7 @@ export const buttonSizes: ButtonProps['size'][] = [
     'small-expressive',
     'small-productive',
     'medium',
-    'large'
+    'large',
 ];
 
 /**
@@ -50,9 +50,4 @@ export const buttonVariants: ButtonProps['variant'][] = [
 /**
  * Button type variants
  */
-export const buttonTypes: ButtonProps['type'][] = [
-    'submit',
-    'button',
-    'reset',
-    'menu',
-];
+export const buttonTypes: ButtonProps['type'][] = ['submit', 'button', 'reset', 'menu'];

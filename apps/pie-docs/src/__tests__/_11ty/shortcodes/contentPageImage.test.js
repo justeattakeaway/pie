@@ -12,7 +12,7 @@ describe('contentPageImage.js', () => {
         },
         {
             src: 'some/path/to/image',
-        }
+        },
     ])('creates the expected markup for the given config settings', (config) => {
         const result = contentPageImage(config);
 

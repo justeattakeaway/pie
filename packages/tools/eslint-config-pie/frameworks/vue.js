@@ -22,21 +22,25 @@ module.exports = {
         'vue/comma-spacing': ['error', { after: true, before: false }],
 
         // enforce one true comma style
-        'vue/comma-style': ['error', 'last', {
-            exceptions: {
-                ArrayExpression: false,
-                ArrayPattern: false,
-                ArrowFunctionExpression: false,
-                CallExpression: false,
-                FunctionDeclaration: false,
-                FunctionExpression: false,
-                ImportDeclaration: false,
-                NewExpression: false,
-                ObjectExpression: false,
-                ObjectPattern: false,
-                VariableDeclaration: false,
+        'vue/comma-style': [
+            'error',
+            'last',
+            {
+                exceptions: {
+                    ArrayExpression: false,
+                    ArrayPattern: false,
+                    ArrowFunctionExpression: false,
+                    CallExpression: false,
+                    FunctionDeclaration: false,
+                    FunctionExpression: false,
+                    ImportDeclaration: false,
+                    NewExpression: false,
+                    ObjectExpression: false,
+                    ObjectPattern: false,
+                    VariableDeclaration: false,
+                },
             },
-        }],
+        ],
 
         'vue/component-api-style': 'off',
 
@@ -49,9 +53,12 @@ module.exports = {
         // Default is "PascalCase"
         'vue/component-options-name-casing': 'error',
 
-        'vue/component-tags-order': ['error', {
-            order: ['template', 'script', 'style'],
-        }],
+        'vue/component-tags-order': [
+            'error',
+            {
+                order: ['template', 'script', 'style'],
+            },
+        ],
 
         'vue/custom-event-name-casing': 'off',
 
@@ -81,21 +88,27 @@ module.exports = {
 
         'vue/html-indent': ['error', 4],
 
-        'vue/key-spacing': ['error', {
-            afterColon: true,
-            beforeColon: false,
-            mode: 'minimum',
-        }],
-
-        'vue/keyword-spacing': ['error', {
-            after: true,
-            before: true,
-            overrides: {
-                case: { after: true },
-                return: { after: true },
-                throw: { after: true },
+        'vue/key-spacing': [
+            'error',
+            {
+                afterColon: true,
+                beforeColon: false,
+                mode: 'minimum',
             },
-        }],
+        ],
+
+        'vue/keyword-spacing': [
+            'error',
+            {
+                after: true,
+                before: true,
+                overrides: {
+                    case: { after: true },
+                    return: { after: true },
+                    throw: { after: true },
+                },
+            },
+        ],
 
         'vue/match-component-file-name': 'off',
 
@@ -171,21 +184,25 @@ module.exports = {
         'vue/no-restricted-syntax': [
             'error',
             {
-                message: 'for..in loops iterate over the entire prototype chain, which is virtually never what you want. Use Object.{keys,values,entries}, and iterate over the resulting array.',
+                message:
+                    'for..in loops iterate over the entire prototype chain, which is virtually never what you want. Use Object.{keys,values,entries}, and iterate over the resulting array.',
                 selector: 'ForInStatement',
             },
             {
-                message: 'iterators/generators require regenerator-runtime, which is too heavyweight for this guide to allow them. Separately, loops should be avoided in favor of array iterations.',
+                message:
+                    'iterators/generators require regenerator-runtime, which is too heavyweight for this guide to allow them. Separately, loops should be avoided in favor of array iterations.',
                 selector: 'ForOfStatement',
             },
             {
-                message: 'Labels are a form of GOTO; using them makes code confusing and hard to maintain and understand.',
+                message:
+                    'Labels are a form of GOTO; using them makes code confusing and hard to maintain and understand.',
                 selector: 'LabeledStatement',
             },
             {
-                message: '`with` is disallowed in strict mode because it makes code impossible to predict and optimize.',
+                message:
+                    '`with` is disallowed in strict mode because it makes code impossible to predict and optimize.',
                 selector: 'WithStatement',
-            }
+            },
         ],
 
         'vue/no-restricted-v-bind': 'off',
@@ -225,27 +242,37 @@ module.exports = {
 
         // enforce line breaks between braces
         // https://eslint.org/docs/rules/object-curly-newline
-        'vue/object-curly-newline': ['error', {
-            ExportDeclaration: { consistent: true, minProperties: 4, multiline: true },
-            ImportDeclaration: { consistent: true, minProperties: 4, multiline: true },
-            ObjectExpression: { consistent: true, minProperties: 4, multiline: true },
-            ObjectPattern: { consistent: true, minProperties: 4, multiline: true },
-        }],
+        'vue/object-curly-newline': [
+            'error',
+            {
+                ExportDeclaration: { consistent: true, minProperties: 4, multiline: true },
+                ImportDeclaration: { consistent: true, minProperties: 4, multiline: true },
+                ObjectExpression: { consistent: true, minProperties: 4, multiline: true },
+                ObjectPattern: { consistent: true, minProperties: 4, multiline: true },
+            },
+        ],
 
         'vue/object-curly-spacing': ['error', 'always'],
 
         // enforce "same line" or "multiple line" on object properties.
         // https://eslint.org/docs/rules/object-property-newline
-        'vue/object-property-newline': ['error', {
-            allowAllPropertiesOnSameLine: true,
-        }],
+        'vue/object-property-newline': [
+            'error',
+            {
+                allowAllPropertiesOnSameLine: true,
+            },
+        ],
 
         // require method and property shorthand syntax for object literals
         // https://eslint.org/docs/rules/object-shorthand
-        'vue/object-shorthand': ['error', 'always', {
-            avoidQuotes: true,
-            ignoreConstructors: false,
-        }],
+        'vue/object-shorthand': [
+            'error',
+            'always',
+            {
+                avoidQuotes: true,
+                ignoreConstructors: false,
+            },
+        ],
 
         // Requires operator at the beginning of the line in multiline statements
         // https://eslint.org/docs/rules/operator-linebreak
@@ -264,7 +291,11 @@ module.exports = {
 
         // require quotes around object literal property names
         // https://eslint.org/docs/rules/quote-props.html
-        'vue/quote-props': ['error', 'as-needed', { keywords: false, numbers: false, unnecessary: true }],
+        'vue/quote-props': [
+            'error',
+            'as-needed',
+            { keywords: false, numbers: false, unnecessary: true },
+        ],
 
         'vue/require-direct-export': 'off',
 
@@ -283,10 +314,13 @@ module.exports = {
 
         // Require or disallow spaces before/after unary operators
         // https://eslint.org/docs/rules/space-unary-ops
-        'vue/space-unary-ops': ['error', {
-            nonwords: false,
-            words: true,
-        }],
+        'vue/space-unary-ops': [
+            'error',
+            {
+                nonwords: false,
+                words: true,
+            },
+        ],
 
         'vue/static-class-names-order': 'off',
 

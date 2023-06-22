@@ -19,29 +19,30 @@ export class WebComponentTestWrapper extends LitElement {
      * Such as: 'size: small, isFullWidth: true'
      */
     @property({ type: String })
-        propKeyValues = '';
+    propKeyValues = '';
 
     // Renders a string such as 'size: small, isFullWidth: true'
     // as HTML such as:
     // <p class="c-webComponentTestWrapper-label"><b>size</b>: <code>small</code></p>
     // <p class="c-webComponentTestWrapper-label"><b>isFullWidth</b>: <code>true</code></p>
-    _renderPropKeyValues () {
+    _renderPropKeyValues() {
         return this.propKeyValues.split(',').map((propKeyValueString) => {
             const [key, value] = propKeyValueString.split(':');
 
-            return html`<p class="c-webComponentTestWrapper-label"><b>${key}</b>: <code>${value}</code></p>`;
+            return html`<p class="c-webComponentTestWrapper-label">
+                <b>${key}</b>: <code>${value}</code>
+            </p>`;
         });
     }
 
     // eslint-disable-next-line class-methods-use-this
-    render () {
-        return html`
-            <div class="c-webComponentTestWrapper">
-                ${this._renderPropKeyValues()}
-                <div class="c-webComponentTestWrapper-slot">
-                    <slot></slot>
-                </div>
-            </div>`;
+    render() {
+        return html` <div class="c-webComponentTestWrapper">
+            ${this._renderPropKeyValues()}
+            <div class="c-webComponentTestWrapper-slot">
+                <slot></slot>
+            </div>
+        </div>`;
     }
 }
 

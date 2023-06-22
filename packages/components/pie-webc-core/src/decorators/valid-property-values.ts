@@ -5,28 +5,29 @@
  * @param defaultValue - The value to fall back on
  * @returns  - The decorator function
  */
-export const validPropertyValues = (componentName: string, validValues: any[], defaultValue: any) => function (target: any, propertyKey: string) : void {
-    const privatePropertyKey = `#${propertyKey}`;
+export const validPropertyValues = (componentName: string, validValues: any[], defaultValue: any) =>
+    function (target: any, propertyKey: string): void {
+        const privatePropertyKey = `#${propertyKey}`;
 
-    Object.defineProperty(target, propertyKey, {
-        get () : any {
-            return this[privatePropertyKey];
-        },
-        set (value: any) : void {
-            const oldValue = this[privatePropertyKey];
+        Object.defineProperty(target, propertyKey, {
+            get(): any {
+                return this[privatePropertyKey];
+            },
+            set(value: any): void {
+                const oldValue = this[privatePropertyKey];
 
-            if (!validValues.includes(value)) {
-                console.error(
+                if (!validValues.includes(value)) {
+                    console.error(
                         `<${componentName}> Invalid value "${value}" provided for property "${propertyKey}".`,
                         `Must be one of: ${validValues.join(' | ')}.`,
                         `Falling back to default value: "${defaultValue}"`,
-                );
-                this[privatePropertyKey] = defaultValue;
-            } else {
-                this[privatePropertyKey] = value;
-            }
+                    );
+                    this[privatePropertyKey] = defaultValue;
+                } else {
+                    this[privatePropertyKey] = value;
+                }
 
-            this.requestUpdate(propertyKey, oldValue);
-        },
-    });
-};
+                this.requestUpdate(propertyKey, oldValue);
+            },
+        });
+    };

@@ -1,9 +1,4 @@
-import {
-    describe,
-    it,
-    expect,
-    vi,
-} from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import {
     sizeToValueMap,
     validateGetLargeIconSize,
@@ -115,7 +110,12 @@ describe('getSvgProps', () => {
 
         describe('when provided with valid parameters', () => {
             it('returns an object that contains a class and width and height properties', () => {
-                const received = getSvgProps('pie-icon pie-icon--app-order', null, regularIconSizeDefault, iconName);
+                const received = getSvgProps(
+                    'pie-icon pie-icon--app-order',
+                    null,
+                    regularIconSizeDefault,
+                    iconName,
+                );
 
                 expect(received).toHaveProperty('class');
                 expect(received).toHaveProperty('width');
@@ -123,7 +123,12 @@ describe('getSvgProps', () => {
             });
 
             it('has expected width and height values', () => {
-                const received = getSvgProps('pie-icon pie-icon--app-order', null, regularIconSizeDefault, iconName);
+                const received = getSvgProps(
+                    'pie-icon pie-icon--app-order',
+                    null,
+                    regularIconSizeDefault,
+                    iconName,
+                );
                 const expectedRegularIconSizeValue = sizeToValueMap[regularIconSizeDefault];
 
                 expect(received.width).toEqual(expectedRegularIconSizeValue);
@@ -132,7 +137,12 @@ describe('getSvgProps', () => {
 
             describe('when provided with a staticClasses parameter', () => {
                 it('returns an object with the expected classes', () => {
-                    const received = getSvgProps('pie-icon pie-icon--app-order', 'FOO BAR', regularIconSizeDefault, iconName);
+                    const received = getSvgProps(
+                        'pie-icon pie-icon--app-order',
+                        'FOO BAR',
+                        regularIconSizeDefault,
+                        iconName,
+                    );
 
                     expect(received.class).toEqual(expect.stringContaining('pie-icon'));
                     expect(received.class).toEqual(expect.stringContaining('pie-icon--app-order'));
@@ -155,7 +165,9 @@ describe('getSvgProps', () => {
                 getSvgProps('pie-icon pie-icon--app-order', 'FOO', null, iconName);
 
                 expect(spy).toHaveBeenCalled();
-                expect(spy).toHaveBeenCalledWith(expect.stringContaining('Invalid prop "iconSize" value'));
+                expect(spy).toHaveBeenCalledWith(
+                    expect.stringContaining('Invalid prop "iconSize" value'),
+                );
                 expect(spy).toHaveBeenCalledWith(expect.stringContaining(iconName));
                 spy.mockRestore();
             });
@@ -165,7 +177,11 @@ describe('getSvgProps', () => {
     describe('when provided with a class for large size icon', () => {
         describe('when provided with valid parameters', () => {
             it('returns an object that contains a class and width and height properties', () => {
-                const received = getSvgProps('pie-icon pie-icon--app-order-large', null, largeIconSizeDefault);
+                const received = getSvgProps(
+                    'pie-icon pie-icon--app-order-large',
+                    null,
+                    largeIconSizeDefault,
+                );
 
                 expect(received).toHaveProperty('class');
                 expect(received).toHaveProperty('width');
@@ -174,7 +190,11 @@ describe('getSvgProps', () => {
 
             describe('when provided with a staticClasses parameter', () => {
                 it('returns an object with the expected classes', () => {
-                    const received = getSvgProps('pie-icon pie-icon--app-order-large', 'FOO BAR', largeIconSizeDefault);
+                    const received = getSvgProps(
+                        'pie-icon pie-icon--app-order-large',
+                        'FOO BAR',
+                        largeIconSizeDefault,
+                    );
 
                     expect(received.class).toEqual(expect.stringContaining('pie-icon'));
                     expect(received.class).toEqual(expect.stringContaining('pie-icon--app-order'));
@@ -190,7 +210,12 @@ describe('getSvgProps', () => {
                 console.error = errorMock;
 
                 it('returns an object with width and height properties', () => {
-                    const received = getSvgProps('pie-icon pie-icon--app-order-large', null, null, iconName);
+                    const received = getSvgProps(
+                        'pie-icon pie-icon--app-order-large',
+                        null,
+                        null,
+                        iconName,
+                    );
 
                     expect(received).toHaveProperty('class');
                     expect(received).toHaveProperty('width');
@@ -198,21 +223,38 @@ describe('getSvgProps', () => {
                 });
 
                 it('returns an object with the default width and height', () => {
-                    const received = getSvgProps('pie-icon pie-icon--app-order-large', null, null, iconName);
+                    const received = getSvgProps(
+                        'pie-icon pie-icon--app-order-large',
+                        null,
+                        null,
+                        iconName,
+                    );
 
                     expect(received.width).toEqual(largeIconSizeDefault);
                     expect(received.height).toEqual(largeIconSizeDefault);
                 });
 
                 it('returns an object with the expected classes', () => {
-                    const received = getSvgProps('pie-icon pie-icon--app-order-large', null, null, iconName);
+                    const received = getSvgProps(
+                        'pie-icon pie-icon--app-order-large',
+                        null,
+                        null,
+                        iconName,
+                    );
 
                     expect(received.class).toEqual(expect.stringContaining('pie-icon'));
-                    expect(received.class).toEqual(expect.stringContaining('pie-icon--app-order-large'));
+                    expect(received.class).toEqual(
+                        expect.stringContaining('pie-icon--app-order-large'),
+                    );
                 });
 
                 it('returns an object with valid width and height properties', () => {
-                    const received = getSvgProps('pie-icon pie-icon--app-order-large', null, 49, iconName);
+                    const received = getSvgProps(
+                        'pie-icon pie-icon--app-order-large',
+                        null,
+                        49,
+                        iconName,
+                    );
                     const expected = 48;
                     expect(received.width).toEqual(expected);
                     expect(received.height).toEqual(expected);
@@ -224,7 +266,9 @@ describe('getSvgProps', () => {
                     getSvgProps('pie-icon pie-icon--app-order-large', 'FOO', null, iconName);
 
                     expect(spy).toHaveBeenCalled();
-                    expect(spy).toHaveBeenCalledWith(expect.stringContaining('Invalid prop "iconSize" value'));
+                    expect(spy).toHaveBeenCalledWith(
+                        expect.stringContaining('Invalid prop "iconSize" value'),
+                    );
                     expect(spy).toHaveBeenCalledWith(expect.stringContaining(iconName));
                     spy.mockRestore();
                 });
@@ -232,4 +276,3 @@ describe('getSvgProps', () => {
         });
     });
 });
-

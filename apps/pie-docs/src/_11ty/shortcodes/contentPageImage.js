@@ -6,9 +6,13 @@ const markdownFilter = require('../filters/markdown');
  * @param {String} config.caption - A string to use as the image caption. This can be raw text or markdown (which will be transformed into HTML).
  * @returns {String} a <figcaption> element containing the caption text, or an empty string if no caption is provided.
  */
-const createCaption = (config) => (config.caption
-    ? `<figcaption class="c-contentImage-caption">${markdownFilter(config.caption, true)}</figcaption>`
-    : '');
+const createCaption = (config) =>
+    config.caption
+        ? `<figcaption class="c-contentImage-caption">${markdownFilter(
+              config.caption,
+              true,
+          )}</figcaption>`
+        : '';
 
 /**
  * Creates an image to render on a content page.
@@ -34,7 +38,7 @@ module.exports = function (config) {
         'c-contentImage',
         ...(isImageFullContainerWidth
             ? ['c-contentImage--fullWidth']
-            : ['c-contentImage--hasBackdrop'])
+            : ['c-contentImage--hasBackdrop']),
     ];
 
     // This is based on the narrowMid breakpoint defined in fozzie:
@@ -44,7 +48,11 @@ module.exports = function (config) {
     return `<figure class="${figureClasses.join(' ')}">
         <div class="c-contentImage-backdrop">
           <picture>
-            ${config.mobileSrc ? `<source ${imageStyles} media="(max-width: ${mobileImageMaxWidth})" srcset="${config.mobileSrc}">` : ''}
+            ${
+                config.mobileSrc
+                    ? `<source ${imageStyles} media="(max-width: ${mobileImageMaxWidth})" srcset="${config.mobileSrc}">`
+                    : ''
+            }
             <img src="${config.src}" ${imageStyles} ${imageAlt}>
           </picture>
         </div>

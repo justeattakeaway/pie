@@ -2,54 +2,45 @@ import { LitElement, html, unsafeCSS } from 'lit';
 import { property } from 'lit/decorators.js';
 import { validPropertyValues } from '@justeattakeaway/pie-webc-core';
 import styles from './button.scss?inline';
-import {
-    ButtonProps, buttonSizes, buttonTypes, buttonVariants,
-} from './defs';
+import { ButtonProps, buttonSizes, buttonTypes, buttonVariants } from './defs';
 
 // Valid values available to consumers
-export {
-    type ButtonProps,
-    buttonSizes,
-    buttonTypes,
-    buttonVariants,
-};
+export { type ButtonProps, buttonSizes, buttonTypes, buttonVariants };
 
 const componentSelector = 'pie-button';
 
 export class PieButton extends LitElement {
     @property()
     @validPropertyValues(componentSelector, buttonSizes, 'medium')
-        size: ButtonProps['size'] = 'medium';
+    size: ButtonProps['size'] = 'medium';
 
     @property()
     @validPropertyValues(componentSelector, buttonTypes, 'submit')
-        type: ButtonProps['type'] = 'submit';
+    type: ButtonProps['type'] = 'submit';
 
     @property()
     @validPropertyValues(componentSelector, buttonVariants, 'primary')
-        variant: ButtonProps['variant'] = 'primary';
+    variant: ButtonProps['variant'] = 'primary';
 
     @property({ type: Boolean })
-        disabled = false;
+    disabled = false;
 
     @property({ type: Boolean })
-        isFullWidth = false;
+    isFullWidth = false;
 
-    render () {
-        const {
-            type, disabled, isFullWidth, variant, size,
-        } = this;
+    render() {
+        const { type, disabled, isFullWidth, variant, size } = this;
 
-        return html`
-            <button
-                class="o-btn"
-                type=${type}
-                variant=${variant}
-                size=${size}
-                ?disabled=${disabled}
-                ?isFullWidth=${isFullWidth}>
-                <slot></slot>
-            </button>`;
+        return html` <button
+            class="o-btn"
+            type=${type}
+            variant=${variant}
+            size=${size}
+            ?disabled=${disabled}
+            ?isFullWidth=${isFullWidth}
+        >
+            <slot></slot>
+        </button>`;
     }
 
     // Renders a `CSSResult` generated from SCSS by Vite

@@ -20,7 +20,7 @@ svgFiles.forEach((svgObject) => {
     processSvg(svg, svgObject.fileName, fullPath)
         .then((svg) => {
             const outputDirectory = OUT_DIR + directorySuffix;
-            const normalisedFilename = (svgObject.fileName).toLowerCase();
+            const normalisedFilename = svgObject.fileName.toLowerCase();
 
             fs.mkdirSync(outputDirectory, { recursive: true });
             fs.writeFileSync(path.join(outputDirectory, normalisedFilename), svg);

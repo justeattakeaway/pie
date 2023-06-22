@@ -9,10 +9,13 @@ const getIconByName = (iconName, iconAttributes) => {
     }
 };
 
-const getAllIcons = (iconAttributes) => Object.entries(pieIcons.default.icons).map(([key, value]) => ({
-    name: key,
-    icon: value.toSvg(iconAttributes),
-})).sort((a, b) => a.name.localeCompare(b.name)); // sort icons alphabetically by name
+const getAllIcons = (iconAttributes) =>
+    Object.entries(pieIcons.default.icons)
+        .map(([key, value]) => ({
+            name: key,
+            icon: value.toSvg(iconAttributes),
+        }))
+        .sort((a, b) => a.name.localeCompare(b.name)); // sort icons alphabetically by name
 
 /**
  * Custom filter that returns either an SVG HTML string for a specified PIE Icon or a HTML string for all PIE icons
@@ -22,10 +25,12 @@ const getAllIcons = (iconAttributes) => Object.entries(pieIcons.default.icons).m
  * @returns
  */
 // eslint-disable-next-line func-names, consistent-return
-module.exports = function (iconConfig = {
-    name: '',
-    attrs: {},
-}) {
+module.exports = function (
+    iconConfig = {
+        name: '',
+        attrs: {},
+    },
+) {
     const defaultAttributes = {
         height: 50,
         width: 50,
@@ -37,5 +42,7 @@ module.exports = function (iconConfig = {
         ...(iconConfig && iconConfig.attrs ? iconConfig.attrs : {}),
     };
 
-    return iconConfig && iconConfig.name ? getIconByName(iconConfig.name, attributes) : getAllIcons(attributes);
+    return iconConfig && iconConfig.name
+        ? getIconByName(iconConfig.name, attributes)
+        : getAllIcons(attributes);
 };

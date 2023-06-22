@@ -4,7 +4,7 @@ import path from 'path';
 /**
  * See https://playwright.dev/docs/test-configuration
  */
-export function getPlaywrightVisualConfig () {
+export function getPlaywrightVisualConfig() {
     return {
         /* Maximum time one test can run for. */
         timeout: 30 * 1000,

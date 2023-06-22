@@ -1,12 +1,9 @@
 module.exports = {
     extends: [
         require.resolve('@justeattakeaway/eslint-config-pie/strict'),
-        'plugin:@typescript-eslint/recommended'
+        'plugin:@typescript-eslint/recommended',
     ],
-    plugins: [
-        'json-format',
-        '@typescript-eslint'
-    ],
+    plugins: ['json-format', '@typescript-eslint'],
     root: true,
     settings: {
         'json/sort-package-json': false,
@@ -23,6 +20,6 @@ module.exports = {
             parserOptions: {
                 project: './tsconfig.json',
             },
-        }
+        },
     ],
 };

@@ -2,7 +2,7 @@ import fs from 'fs';
 
 const IN_DIR = `${process.cwd()}/src/assets`;
 
-function getAllSvgs (dirPath = IN_DIR, arrayOfFiles = []) {
+function getAllSvgs(dirPath = IN_DIR, arrayOfFiles = []) {
     console.log(`Getting SVGs from ${dirPath}...`);
 
     const allFiles = fs.readdirSync(dirPath) || [];

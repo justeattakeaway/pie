@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { PieButton } from '@justeattakeaway/pie-button/dist/react';
 
-export default function Counter () {
+export default function Counter() {
     const [count, setCount] = useState(0);
 
     const onIncrement = () => setCount(count + 1);

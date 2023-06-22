@@ -7,7 +7,10 @@ test.describe('PIE - 404 Page - @desktop', () => {
         await disableCookieBanner(page, context, false);
     });
 
-    test('Should go to the homepage when clicking "Visit homepage" link', async ({ page, baseURL }) => {
+    test('Should go to the homepage when clicking "Visit homepage" link', async ({
+        page,
+        baseURL,
+    }) => {
         // Arrange
         await page.goto('404.html');
 
@@ -16,7 +19,7 @@ test.describe('PIE - 404 Page - @desktop', () => {
         // Act
         await Promise.all([
             page.waitForResponse((resp) => resp.status() === 200),
-            visitHomepageLink.click()
+            visitHomepageLink.click(),
         ]);
 
         // Assert

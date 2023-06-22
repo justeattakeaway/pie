@@ -6,7 +6,7 @@
  * @param {String} fullPath – Full string path to a file
  * @returns {String} – the subdirectory name inside assets (or an empty string, if the file isn't in a subdirectory)
  */
-function getAssetDirectoryName (fullPath) {
+function getAssetDirectoryName(fullPath) {
     let index = fullPath.lastIndexOf('/');
     if (index === -1) {
         index = fullPath.lastIndexOf('\\');

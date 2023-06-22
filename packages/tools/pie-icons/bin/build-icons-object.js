@@ -10,7 +10,7 @@ import pathHelpers from './path-helpers';
  * @param {Function} getSvg - A function that returns the contents of an SVG file given a filename.
  * @returns {Object}
  */
-async function buildIconsObject (svgFiles, getSvg) {
+async function buildIconsObject(svgFiles, getSvg) {
     const mapSvgFilesToObjects = async (svgFile) => {
         const svg = getSvg(svgFile);
         const attributes = getSvgAttributes(svg);
@@ -20,7 +20,10 @@ async function buildIconsObject (svgFiles, getSvg) {
         const name = getSvgName(svgFile);
 
         return {
-            attributes, contents, name, pathPrefix,
+            attributes,
+            contents,
+            name,
+            pathPrefix,
         };
     };
 
@@ -41,7 +44,7 @@ async function buildIconsObject (svgFiles, getSvg) {
  * @param {string} svg
  * @returns {Promise<string>}
  */
-function getSvgContents (svg) {
+function getSvgContents(svg) {
     const $ = cheerio.load(svg);
     return minify($('svg').html(), {
         caseSensitive: true,
@@ -49,13 +52,13 @@ function getSvgContents (svg) {
     });
 }
 
-function getSvgAttributes (svg) {
+function getSvgAttributes(svg) {
     const $ = cheerio.load(svg);
     const viewBox = $('svg').attr('viewBox');
     return { viewBox };
 }
 
-function getSvgName (svgFile) {
+function getSvgName(svgFile) {
     return path.basename(svgFile, '.svg');
 }
 

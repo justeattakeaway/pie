@@ -17,15 +17,10 @@ const addAllPlugins = (eleventyConfig) => {
     eleventyConfig.addPlugin(eleventyPluginRev);
     eleventyConfig.addPlugin(eleventyPluginClean);
     eleventyConfig.addPlugin(eleventySass, {
-        postcss: postcss([
-            autoprefixer,
-            cssnano
-        ]),
+        postcss: postcss([autoprefixer, cssnano]),
         rev: true,
         sass: {
-            loadPaths: [
-                '../../node_modules/'
-            ],
+            loadPaths: ['../../node_modules/'],
             sourceMap: true,
         },
     });
