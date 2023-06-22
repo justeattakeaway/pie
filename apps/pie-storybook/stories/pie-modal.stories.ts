@@ -38,12 +38,23 @@ export default {
     },
 } as Meta;
 
+/**
+ * Helper function to toggle the modal open/closed within the actual template (separate to the Storybook controls)
+ */
+const toggleModal = () => {
+    const modal = document.querySelector('pie-modal');
+    if (modal) {
+        modal.isOpen = !modal.isOpen;
+    }
+};
+
 const Template = ({
     isOpen,
     heading,
     headingLevel,
     slot,
 }: ModalProps): TemplateResult => html`
+        <button @click=${toggleModal}>Toggle Modal</button>
         <pie-modal
         ?isOpen="${isOpen}"
         heading="${heading}"
@@ -76,6 +87,7 @@ const PageContextTemplate = ({
     headingLevel,
     slot,
 }: ModalProps) => html`
+    <button @click=${toggleModal}>Toggle Modal</button>
     <pie-modal
         ?isOpen="${isOpen}"
         heading="${heading}"
