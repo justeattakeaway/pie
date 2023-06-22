@@ -39,7 +39,7 @@ export class WebComponentTestWrapper extends LitElement {
             <div class="c-webComponentTestWrapper">
                 ${this._renderPropKeyValues()}
                 <div class="c-webComponentTestWrapper-slot">
-                    <slot></slot>
+                    <slot name="component"></slot>
                 </div>
             </div>`;
     }

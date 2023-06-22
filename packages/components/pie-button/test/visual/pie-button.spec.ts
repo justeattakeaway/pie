@@ -53,7 +53,7 @@ componentVariants.forEach((variant) => test(`Render all prop variations for Vari
             {
                 props: { propKeyValues },
                 slots: {
-                    default: testComponent.renderedString.trim(),
+                    component: testComponent.renderedString.trim(),
                 },
             },
         );
