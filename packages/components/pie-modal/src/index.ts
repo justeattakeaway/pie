@@ -28,11 +28,11 @@ export class PieModal extends RtlMixin(LitElement) {
     @query('dialog')
         _dialog: HTMLDialogElement;
 
-    firstUpdated (changedProperties: Map<string, any>) {
+    firstUpdated (changedProperties: Map<string, ModalProps[keyof ModalProps]>) {
         this._handleModalOpenOnFirstRender(changedProperties);
     }
 
-    updated (changedProperties: Map<string, any>) {
+    updated (changedProperties: Map<string, ModalProps[keyof ModalProps]>) {
         this._handleModalStateChanged(changedProperties);
     }
 
@@ -45,22 +45,23 @@ export class PieModal extends RtlMixin(LitElement) {
     disconnectedCallback () {
         document.removeEventListener(ON_MODAL_OPEN_EVENT, this._disableScrolling);
         document.removeEventListener(ON_MODAL_CLOSE_EVENT, this._enableScrolling);
+        this._enableScrolling();
         super.disconnectedCallback();
     }
 
-    private _handleModalOpenOnFirstRender (changedProperties: Map<string, any>) {
+    private _handleModalOpenOnFirstRender (changedProperties: Map<string, ModalProps[keyof ModalProps]>) {
         // This ensures if the modal is open on first render, the scroll lock is applied
         if (changedProperties.has('isOpen')) {
-            const previousValue = changedProperties.get('isOpen');
+            const previousValue = changedProperties.get('isOpen') as boolean;
             if (previousValue === undefined && this.isOpen) {
                 this._dispatchModalOpenEvent();
             }
         }
     }
 
-    private _handleModalStateChanged (changedProperties: Map<string, any>) {
+    private _handleModalStateChanged (changedProperties: Map<string, ModalProps[keyof ModalProps]>) {
         if (changedProperties.has('isOpen')) {
-            const previousValue = changedProperties.get('isOpen');
+            const previousValue = changedProperties.get('isOpen') as boolean;
             if (previousValue) {
                 this._dispatchModalCloseEvent();
             } else if (previousValue === false) {
