@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-icon-button
 
+## 0.6.0
+
+### Minor Changes
+
+- [Added] - `size` prop added to pie-icon-button ([#557](https://github.com/justeattakeaway/pie/pull/557)) by [@ashleynolan](https://github.com/ashleynolan)
+
 ## 0.5.0
 
 ### Minor Changes
