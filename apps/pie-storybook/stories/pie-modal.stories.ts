@@ -5,7 +5,7 @@ import { html, TemplateResult } from 'lit';
 type ModalProps = ModalPropsBase & { slot: string }
 
 const defaultArgs: ModalProps = {
-    isOpen: false,
+    isOpen: true,
     heading: 'Modal header',
     headingLevel: 'h2',
     slot: 'This is Lit!',
