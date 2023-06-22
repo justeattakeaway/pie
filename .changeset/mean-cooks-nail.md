@@ -2,4 +2,4 @@
 "@justeattakeaway/pie-wrapper-react": minor
 ---
 
-[Added] Order by length to custom-elements.json to prevent re-ordering
+[Added] Order by length to custom-elements.json to prevent reordering
