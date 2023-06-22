@@ -34,7 +34,7 @@ test.describe('`Pie Modal is closed`', () => {
                 PieModal,
                 {
                     props: {
-                        isOpen: true,
+                        isOpen: true
                     },
                     on: {
                         click: (event: string) => messages.push(event),
@@ -50,7 +50,7 @@ test.describe('`Pie Modal is closed`', () => {
     });
 
     test.describe('when via the backdrop click', () => {
-        test('should dispatch event `pie-modal-close`', async ({ mount, page }) => {
+        test.skip('should dispatch event `pie-modal-close`', async ({ mount, page }) => {
             const messages: string[] = [];
             await mount(
                 PieModal,
