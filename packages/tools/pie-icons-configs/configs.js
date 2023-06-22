@@ -40,17 +40,9 @@ export const iconSizeValidator = {
 export function validateGetLargeIconSize (iconSizeValue) {
     const isValid = iconSizeValidator.large(iconSizeValue);
 
-    if (!isValid) {
-        const parsedValue = parseInt(iconSizeValue, 10) || 0;
-        // Ensure the size is a multiple of module
-        const multipleOfModule = Math.floor(parsedValue / largeIconSizeModule) * largeIconSizeModule;
-        // Ensure to return the default size if the size is smaller than the default size
-        const normalizedIconSize = Math.max(multipleOfModule, largeIconSizeDefault);
+    const iconSize = isValid ? iconSizeValue : largeIconSizeDefault;
 
-        return { isValid: false, iconSize: normalizedIconSize };
-    }
-
-    return { isValid: true, iconSize: iconSizeValue };
+    return { isValid, iconSize };
 }
 
 /**
