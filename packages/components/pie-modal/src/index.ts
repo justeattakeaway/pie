@@ -1,7 +1,10 @@
 import { LitElement, unsafeCSS } from 'lit';
 import { html, unsafeStatic } from 'lit/static-html.js';
 import { property, query } from 'lit/decorators.js';
-import { RtlMixin, validPropertyValues, requiredProperty } from '@justeattakeaway/pie-webc-core';
+import {
+    RtlMixin, validPropertyValues, requiredProperty,
+} from '@justeattakeaway/pie-webc-core';
+import type { DependentMap } from '@justeattakeaway/pie-webc-core';
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 import styles from './modal.scss?inline';
 import {
@@ -28,11 +31,11 @@ export class PieModal extends RtlMixin(LitElement) {
     @query('dialog')
         _dialog!: HTMLDialogElement;
 
-    firstUpdated (changedProperties: Map<string, ModalProps[keyof ModalProps]>) {
+    firstUpdated (changedProperties: DependentMap<ModalProps>) {
         this._handleModalOpenOnFirstRender(changedProperties);
     }
 
-    updated (changedProperties: Map<string, ModalProps[keyof ModalProps]>) {
+    updated (changedProperties: DependentMap<ModalProps>) {
         this._handleModalStateChanged(changedProperties);
     }
 
@@ -49,7 +52,7 @@ export class PieModal extends RtlMixin(LitElement) {
         super.disconnectedCallback();
     }
 
-    private _handleModalOpenOnFirstRender (changedProperties: Map<string, ModalProps[keyof ModalProps]>) {
+    private _handleModalOpenOnFirstRender (changedProperties: DependentMap<ModalProps>) {
         // This ensures if the modal is open on first render, the scroll lock is applied
         if (changedProperties.has('isOpen')) {
             const previousValue = changedProperties.get('isOpen') as boolean;
@@ -59,7 +62,7 @@ export class PieModal extends RtlMixin(LitElement) {
         }
     }
 
-    private _handleModalStateChanged (changedProperties: Map<string, ModalProps[keyof ModalProps]>) {
+    private _handleModalStateChanged (changedProperties: DependentMap<ModalProps>) {
         if (changedProperties.has('isOpen')) {
             const previousValue = changedProperties.get('isOpen') as boolean;
             if (previousValue) {

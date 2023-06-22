@@ -197,37 +197,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "../../components/pie-webc-core/src/index.js",
-      "declarations": [],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "*",
-          "declaration": {
-            "name": "*",
-            "package": "./mixins"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "*",
-          "declaration": {
-            "name": "*",
-            "package": "./decorators"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "*",
-          "declaration": {
-            "name": "*",
-            "package": "./test-helpers"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "../../components/pie-icon-button/src/defs.js",
       "declarations": [
         {
@@ -491,7 +460,7 @@
                 {
                   "name": "changedProperties",
                   "type": {
-                    "text": "Map<string, ModalProps[keyof ModalProps]>"
+                    "text": "DependentMap<ModalProps>"
                   }
                 }
               ]
@@ -503,7 +472,7 @@
                 {
                   "name": "changedProperties",
                   "type": {
-                    "text": "Map<string, ModalProps[keyof ModalProps]>"
+                    "text": "DependentMap<ModalProps>"
                   }
                 }
               ]
@@ -516,7 +485,7 @@
                 {
                   "name": "changedProperties",
                   "type": {
-                    "text": "Map<string, ModalProps[keyof ModalProps]>"
+                    "text": "DependentMap<ModalProps>"
                   }
                 }
               ]
@@ -529,7 +498,7 @@
                 {
                   "name": "changedProperties",
                   "type": {
-                    "text": "Map<string, ModalProps[keyof ModalProps]>"
+                    "text": "DependentMap<ModalProps>"
                   }
                 }
               ]
@@ -649,6 +618,45 @@
           "declaration": {
             "name": "PieModal",
             "module": "../../components/pie-modal/src/index.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../../components/pie-webc-core/src/index.js",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./mixins"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./decorators"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./test-helpers"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./type-helpers"
           }
         }
       ]
@@ -961,18 +969,9 @@
     },
     {
       "kind": "javascript-module",
-      "path": "../../components/pie-webc-core/src/test-helpers/components/index.js",
+      "path": "../../components/pie-webc-core/src/type-helpers/index.js",
       "declarations": [],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "*",
-          "declaration": {
-            "name": "*",
-            "package": "./web-component-test-wrapper/WebComponentTestWrapper"
-          }
-        }
-      ]
+      "exports": []
     },
     {
       "kind": "javascript-module",
@@ -1018,6 +1017,21 @@
           "declaration": {
             "name": "RtlMixin",
             "module": "../../components/pie-webc-core/src/mixins/rtl/rtlMixin.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../../components/pie-webc-core/src/test-helpers/components/index.js",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./web-component-test-wrapper/WebComponentTestWrapper"
           }
         }
       ]
