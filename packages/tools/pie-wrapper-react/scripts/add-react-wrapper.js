@@ -19,10 +19,14 @@ export function addReactWrapper (customElementsObject, folderName = process.argv
     const components = [];
     const customElements = Object.entries(customElementsObject);
 
+    let sortedModules;
+
     // sort through customElements array and put all components into a separate array
     customElements.forEach(([key, value]) => {
         let componentObject;
         if (key === 'modules') {
+            sortedModules = value.sort((a, b) => a.path.length - b.path.length);
+
             value.forEach((k) => {
                 if (k.path.includes(folderName)) {
                     k.declarations.forEach((decl) => {
@@ -37,6 +41,18 @@ export function addReactWrapper (customElementsObject, folderName = process.argv
 
         return componentObject;
     });
+
+    const customElementsCopy = Object.fromEntries(customElements);
+    customElementsCopy.modules = sortedModules;
+
+    const customElementsFile = createWriteStream(
+        'custom-elements.json',
+        (err) => {
+            throw (err);
+        },
+    );
+
+    customElementsFile.write(JSON.stringify(customElementsCopy, null, 4));
 
     /**
      * Fetch events from the component
