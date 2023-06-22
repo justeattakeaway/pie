@@ -1,5 +1,15 @@
 # @justeattakeaway/pie-wrapper-react
 
+## 0.5.0
+
+### Minor Changes
+
+- [Added] - `size` prop added to pie-icon-button ([#557](https://github.com/justeattakeaway/pie/pull/557)) by [@ashleynolan](https://github.com/ashleynolan)
+
+### Patch Changes
+
+- [Fixed] - Ignore temporary manifest file `pie-wrapper-react` ([#536](https://github.com/justeattakeaway/pie/pull/536)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.4.1
 
 ### Patch Changes
