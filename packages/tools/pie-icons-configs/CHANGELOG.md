@@ -1,5 +1,13 @@
 # @justeattakeaway/pie-icons-configs
 
+## 3.6.0
+
+### Patch Changes
+
+- [Fixed]: removes a console error if iconSize prop is not passed ([#556](https://github.com/justeattakeaway/pie/pull/556)) by [@dandel10n](https://github.com/dandel10n)
+
+  [Changed]: in case of invalid `iconSize` being passed to large icons now the size defaults to the `largeIconSizeDefault`
+
 ## 3.5.1
 
 ### Patch Changes
