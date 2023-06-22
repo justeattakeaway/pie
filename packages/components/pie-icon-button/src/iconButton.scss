@@ -13,8 +13,7 @@
     --btn-border-radius: var(--dt-radius-rounded-e);
 
     // The base values are set to the size default, which is for the medium button size
-    --btn-height: 48px;
-    --btn-width: var(--btn-height);
+    --btn-dimension: 48px;
 
     // The following values set to default background and color
     // currently this sets the primary button styles
@@ -22,11 +21,14 @@
     --btn-icon-fill: var(--dt-color-content-interactive-primary);
     --btn-focus: var(--dt-color-focus-outer);
 
-    min-block-size: var(--btn-height);
+    // Sizing is set to Medium button icon size, as that is the default
+    --btn-icon-size: 24px;
+
+    min-block-size: var(--btn-dimension);
     aspect-ratio: 1 / 1;
 
     @supports not (aspect-ratio: 1 / 1) {
-        min-inline-size: var(--btn-width);
+        min-inline-size: var(--btn-dimension);
     }
 
     border: none;
@@ -46,11 +48,12 @@
     }
 
     svg {
-        height: 24.5px;
-        width: 24.5px;
+        height: var(--btn-icon-size);
+        width: var(--btn-icon-size);
     }
 
-    svg, path {
+    svg,
+    path {
         fill: var(--btn-icon-fill);
     }
 
@@ -115,6 +118,23 @@
             outline: none;
             border: none;
         }
+    }
+
+    &[size='xsmall'] {
+        --btn-dimension: 32px;
+    }
+
+    &[size='small'] {
+        --btn-dimension: 40px;
+    }
+
+    &[size='medium'] {
+        /* Same as default styles */
+    }
+
+    &[size='large'] {
+        --btn-dimension: 56px;
+        --btn-icon-size: 28px;
     }
 }
 
