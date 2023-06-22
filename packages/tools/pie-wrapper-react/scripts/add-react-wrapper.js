@@ -42,6 +42,7 @@ export function addReactWrapper (customElementsObject, folderName = process.argv
         return componentObject;
     });
 
+    // replace custom-elements.json with an ordered object
     const customElementsCopy = Object.fromEntries(customElements);
     customElementsCopy.modules = sortedModules;
 
