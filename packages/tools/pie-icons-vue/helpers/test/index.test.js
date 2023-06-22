@@ -1,4 +1,4 @@
-import { describe, expect, test } from 'vitest'; // eslint-disable-line import/no-extraneous-dependencies
+import { describe, expect, test } from 'vitest';
 import { removeHyphenBeforeDigits } from '../index';
 
 describe('removeHyphenBeforeDigits', () => {

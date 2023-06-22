@@ -14,17 +14,15 @@ export default function VariantSwitch () {
     };
 
     return (
-        <>
-            <div>
-                <h3>Variant Switch</h3>
-                <p>Click the button to switch the variant</p>
-                <div className="flex-wrapper">
-                    <PieButton variant={variantName} onClick={switchVariant}>
-                        Variant
-                    </PieButton>
-                    <div className='padding'>Variant: <b>{variantName}</b></div>
-                </div>
+        <div>
+            <h3>Variant Switch</h3>
+            <p>Click the button to switch the variant</p>
+            <div className="flex-wrapper">
+                <PieButton variant={variantName} onClick={switchVariant}>
+                    Variant
+                </PieButton>
+                <div className='padding'>Variant: <b>{variantName}</b></div>
             </div>
-        </>
+        </div>
     );
 }

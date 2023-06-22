@@ -1,8 +1,10 @@
 import type { Meta, StoryObj as Story } from '@storybook/web-components';
-import { ModalProps, headingLevels } from '@justeattakeaway/pie-modal';
+import { ModalProps as ModalPropsBase, headingLevels } from '@justeattakeaway/pie-modal';
 import { html, TemplateResult } from 'lit';
 
-const defaultArgs = {
+type ModalProps = ModalPropsBase & { slot: string }
+
+const defaultArgs: ModalProps = {
     isOpen: false,
     heading: 'Modal header',
     headingLevel: 'h2',
@@ -36,12 +38,6 @@ export default {
     },
 } as Meta;
 
-interface ModalProps {
-    isOpen: boolean;
-    heading: string;
-    slot: TemplateResult;
-}
-
 const Template = ({
     isOpen,
     heading,
@@ -56,7 +52,7 @@ const Template = ({
         </pie-modal>
     `;
 
-export const Default: Story = Template.bind({});
+export const Default: Story<ModalProps> = (args: ModalProps) => Template(args);
 Default.args = {
     ...defaultArgs,
 };

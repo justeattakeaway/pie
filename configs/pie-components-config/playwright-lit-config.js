@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { devices } from '@sand4rt/experimental-ct-web';
 import path from 'path';
 

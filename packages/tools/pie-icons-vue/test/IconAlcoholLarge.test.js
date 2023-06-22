@@ -1,12 +1,10 @@
 import { mount } from '@vue/test-utils';
-/* eslint-disable import/no-extraneous-dependencies */
 import {
     describe,
     expect,
     test,
     vi,
 } from 'vitest';
-/* eslint-enable import/no-extraneous-dependencies */
 
 import IconAlcoholLarge from '../icons/IconAlcoholLarge';
 
