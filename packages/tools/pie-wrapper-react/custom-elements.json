@@ -491,7 +491,7 @@
                 {
                   "name": "changedProperties",
                   "type": {
-                    "text": "Map<string, any>"
+                    "text": "Map<string, ModalProps[keyof ModalProps]>"
                   }
                 }
               ]
@@ -503,7 +503,7 @@
                 {
                   "name": "changedProperties",
                   "type": {
-                    "text": "Map<string, any>"
+                    "text": "Map<string, ModalProps[keyof ModalProps]>"
                   }
                 }
               ]
@@ -516,7 +516,7 @@
                 {
                   "name": "changedProperties",
                   "type": {
-                    "text": "Map<string, any>"
+                    "text": "Map<string, ModalProps[keyof ModalProps]>"
                   }
                 }
               ]
@@ -529,7 +529,7 @@
                 {
                   "name": "changedProperties",
                   "type": {
-                    "text": "Map<string, any>"
+                    "text": "Map<string, ModalProps[keyof ModalProps]>"
                   }
                 }
               ]
@@ -961,21 +961,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "../../components/pie-webc-core/src/test-helpers/components/index.js",
-      "declarations": [],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "*",
-          "declaration": {
-            "name": "*",
-            "package": "./web-component-test-wrapper/WebComponentTestWrapper"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "../../components/pie-webc-core/src/mixins/rtl/rtlMixin.js",
       "declarations": [
         {
@@ -1018,6 +1003,21 @@
           "declaration": {
             "name": "RtlMixin",
             "module": "../../components/pie-webc-core/src/mixins/rtl/rtlMixin.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../../components/pie-webc-core/src/test-helpers/components/index.js",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./web-component-test-wrapper/WebComponentTestWrapper"
           }
         }
       ]
