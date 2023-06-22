@@ -1,6 +1,7 @@
 import type { Meta, StoryObj as Story } from '@storybook/web-components';
 import { ModalProps as ModalPropsBase, headingLevels } from '@justeattakeaway/pie-modal';
 import { html, TemplateResult } from 'lit';
+import '@justeattakeaway/pie-button'; // Ensures the button WC is available for use in the templates
 
 type ModalProps = ModalPropsBase & { slot: string }
 
@@ -54,7 +55,7 @@ const Template = ({
     headingLevel,
     slot,
 }: ModalProps): TemplateResult => html`
-        <button @click=${toggleModal}>Toggle Modal</button>
+        <pie-button @click=${toggleModal}>Toggle Modal</pie-button>
         <pie-modal
         ?isOpen="${isOpen}"
         heading="${heading}"
@@ -87,7 +88,7 @@ const PageContextTemplate = ({
     headingLevel,
     slot,
 }: ModalProps) => html`
-    <button @click=${toggleModal}>Toggle Modal</button>
+    <pie-button @click=${toggleModal}>Toggle Modal</pie-button>
     <pie-modal
         ?isOpen="${isOpen}"
         heading="${heading}"
