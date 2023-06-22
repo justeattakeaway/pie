@@ -7,6 +7,12 @@ import styles from './webComponentTestWrapper.scss?inline';
  * It allows us to wrap a component we'd like to test in a container
  * that displays the component's props as a label.
  *
+ * Alternatively, this component supports a page mode. In this mode,
+ * the test component is not wrapped and labelled, however you can add
+ * any amount of HTML to the page to help with testing. This useful for components
+ * such as Modal and Dialog components where we need to test the component in the context of
+ * the page markup.
+ *
  * Components can be tested without this, but it's useful if your tests
  * require additional markup when testing a component.
  */
@@ -21,6 +27,13 @@ export class WebComponentTestWrapper extends LitElement {
     @property({ type: String })
         propKeyValues = '';
 
+    /**
+     * Use in combination with the `pageMarkup` named slot to render the component alongside additional HTML
+     * to test the component in the context of the page.
+     */
+    @property({ type: Boolean })
+        pageMode = false;
+
     // Renders a string such as 'size: small, isFullWidth: true'
     // as HTML such as:
     // <p class="c-webComponentTestWrapper-label"><b>size</b>: <code>small</code></p>
@@ -33,8 +46,15 @@ export class WebComponentTestWrapper extends LitElement {
         });
     }
 
-    // eslint-disable-next-line class-methods-use-this
     render () {
+        if (this.pageMode) {
+            return html`
+            <div>
+                <slot name="component"></slot>
+                <slot name="pageMarkup"></slot>
+            </div>`;
+        }
+
         return html`
             <div class="c-webComponentTestWrapper">
                 ${this._renderPropKeyValues()}
