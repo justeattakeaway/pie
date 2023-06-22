@@ -23,7 +23,7 @@ propIsOpenValues.forEach((props) => test(`should render Modal correctly when pro
     await percySnapshot(page, `PIE Modal when isOpen is set to ${props.isOpen}`, getLitPercyOptions());
 }));
 
-const renderTestPieModal = (propVals: WebComponentPropValues) => `<pie-modal isOpen="${propVals.isOpen}" heading="${propVals.heading}" headingLevel="${propVals.headingLevel}"></pie-modal>`;
+const renderTestPieModal = (propVals: WebComponentPropValues) => `<pie-modal ${propVals.isOpen ? 'isOpen' : ''} heading="${propVals.heading}" headingLevel="${propVals.headingLevel}"></pie-modal>`;
 
 // Creates a <ul> with a large number of <li> nodes for testing page scrolling
 const createTestPageHTML = () : string => {
@@ -38,7 +38,7 @@ const createTestPageHTML = () : string => {
     return list;
 };
 
-test('Should scroll lock when modal is open', async ({ page, mount }) => {
+test('Should not be able to scroll when modal is open', async ({ page, mount }) => {
     const props: WebComponentPropValues = {
         heading: 'I am a Modal!',
         headingLevel: 'h2',
@@ -60,5 +60,10 @@ test('Should scroll lock when modal is open', async ({ page, mount }) => {
         },
     );
 
-    await percySnapshot(page, 'PIE Modal scroll locks when open', getLitPercyOptions());
+    // Scroll 800 pixels down the page
+    await page.mouse.wheel(0, 800);
+
+    await page.waitForTimeout(3000); // The mouse.wheel function causes scrolling, but doesn't wait for the scroll to finish before returning.
+
+    await percySnapshot(page, 'PIE Modal scroll locking', getLitPercyOptions());
 });
