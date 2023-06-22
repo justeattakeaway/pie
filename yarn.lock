@@ -4797,8 +4797,8 @@ __metadata:
   dependencies:
     "@justeattakeaway/pie-components-config": "workspace:*"
     "@justeattakeaway/pie-webc-core": "workspace:*"
-    "@types/body-scroll-lock": ^3.1.0
-    body-scroll-lock: ^4.0.0-beta.0
+    "@types/body-scroll-lock": 3.1.0
+    body-scroll-lock: 4.0.0-beta.0
   languageName: unknown
   linkType: soft
 
@@ -7912,7 +7912,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/body-scroll-lock@npm:^3.1.0":
+"@types/body-scroll-lock@npm:3.1.0":
   version: 3.1.0
   resolution: "@types/body-scroll-lock@npm:3.1.0"
   checksum: 9b0d88053cd65abfc7b0f4946da844f4c822f58d47413457e03220a62bc3de897f7682339e6a04eba07658020910bbfc5dcd0a12ef8f0282780d1ce6e4d71570
@@ -11703,7 +11703,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"body-scroll-lock@npm:^4.0.0-beta.0":
+"body-scroll-lock@npm:4.0.0-beta.0":
   version: 4.0.0-beta.0
   resolution: "body-scroll-lock@npm:4.0.0-beta.0"
   checksum: 61d40007fddf64ecc69e9e02ed9d96bb895f88d7da65cea7651081110225de48efa44ffc4acd376ed004788e242a9af12059fec728c096774b49365524ea6f46
