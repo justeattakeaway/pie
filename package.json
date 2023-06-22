@@ -67,7 +67,7 @@
     "@playwright/test": "1.32.3",
     "@sand4rt/experimental-ct-web": "1.0.8",
     "@types/react": "18.0.33",
-    "@typescript-eslint/eslint-plugin": "5.59.2",
+    "@typescript-eslint/eslint-plugin": "5.60.0",
     "@typescript-eslint/parser": "5.59.2",
     "allure-commandline": "2.21.0",
     "autoprefixer": "10.4.14",
