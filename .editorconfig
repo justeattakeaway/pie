@@ -4,11 +4,10 @@ root = true
 charset = utf-8
 end_of_line = lf
 indent_style = space
+indent_size = 2
 insert_final_newline = true
+max_line_length = off
 trim_trailing_whitespace = true
 
-[**/*.{config,csproj,dotsettings,feature,fxcop,json,markdown,md,ncrunch*,ndepend,rb,targets,xml,xsd,yml}]
-indent_size = 2
-
-[**/*.{cs,cshtml,css,html,js,less,vue}]
+[**/*.{css,scss,html,js,jsx,ts,tsx,vue}]
 indent_size = 4

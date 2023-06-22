@@ -1,6 +1,9 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
+# If tty is available, apply fix from https://github.com/typicode/husky/issues/968#issuecomment-1176848345
+if sh -c ": >/dev/tty" >/dev/null 2>/dev/null; then exec >/dev/tty 2>&1; fi
+
 # Section for git-secrets
 if ! command -v git-secrets &> /dev/null
 then
@@ -11,6 +14,8 @@ fi
 # Initialise git-secrets configuration
 git-secrets --register-aws > /dev/null
 
-echo "Running git-secrets..."
-# Scans all files that are about to be committed.
-git-secrets --pre_commit_hook -- "$@"
+# https://github.blog/2021-04-05-behind-githubs-new-authentication-token-formats/#identifiable-prefixes
+git-secrets --add 'gh[pours]_.+' || true
+
+# Heavy checks should only be done on staged files
+yarn lint-staged
