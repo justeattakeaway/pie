@@ -1,5 +1,4 @@
 import { test, expect } from '@sand4rt/experimental-ct-web';
-import * as events from 'events';
 import { PieModal } from '@/index';
 import { headingLevels } from '@/defs';
 
@@ -28,7 +27,7 @@ headingLevels.forEach((headingLevel) => test(`should render the correct heading 
 }));
 
 test.describe('`When the Pie Modal is closed`', () => {
-    test.skip('should dispatch event `pie-modal-close`', async ({ mount }) => {
+    test('should dispatch event `pie-modal-close`', async ({ mount }) => {
         const messages: string[] = [];
         const component = await mount(
             PieModal,
