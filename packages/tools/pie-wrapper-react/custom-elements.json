@@ -8,54 +8,51 @@
       "declarations": [
         {
           "kind": "variable",
-          "name": "buttonSizes",
+          "name": "sizes",
           "type": {
-            "text": "ButtonProps['size'][]"
+            "text": "['xsmall', 'small-expressive', 'small-productive', 'medium', 'large']"
           },
-          "default": "[\n    'xsmall',\n    'small-expressive',\n    'small-productive',\n    'medium',\n    'large'\n]",
-          "description": "Button size variants"
+          "default": "['xsmall', 'small-expressive', 'small-productive', 'medium', 'large']"
         },
         {
           "kind": "variable",
-          "name": "buttonVariants",
+          "name": "types",
           "type": {
-            "text": "ButtonProps['variant'][]"
+            "text": "['submit', 'button', 'reset', 'menu']"
           },
-          "default": "[\n    'primary',\n    'secondary',\n    'outline',\n    'ghost',\n]",
-          "description": "Button style variants"
+          "default": "['submit', 'button', 'reset', 'menu']"
         },
         {
           "kind": "variable",
-          "name": "buttonTypes",
+          "name": "variants",
           "type": {
-            "text": "ButtonProps['type'][]"
+            "text": "['primary', 'secondary', 'outline', 'ghost']"
           },
-          "default": "[\n    'submit',\n    'button',\n    'reset',\n    'menu',\n]",
-          "description": "Button type variants"
+          "default": "['primary', 'secondary', 'outline', 'ghost']"
         }
       ],
       "exports": [
         {
           "kind": "js",
-          "name": "buttonSizes",
+          "name": "sizes",
           "declaration": {
-            "name": "buttonSizes",
+            "name": "sizes",
             "module": "../../components/pie-button/src/defs.js"
           }
         },
         {
           "kind": "js",
-          "name": "buttonVariants",
+          "name": "types",
           "declaration": {
-            "name": "buttonVariants",
+            "name": "types",
             "module": "../../components/pie-button/src/defs.js"
           }
         },
         {
           "kind": "js",
-          "name": "buttonTypes",
+          "name": "variants",
           "declaration": {
-            "name": "buttonTypes",
+            "name": "variants",
             "module": "../../components/pie-button/src/defs.js"
           }
         }
@@ -155,25 +152,25 @@
         },
         {
           "kind": "js",
-          "name": "buttonSizes",
+          "name": "sizes",
           "declaration": {
-            "name": "buttonSizes",
+            "name": "sizes",
             "module": "../../components/pie-button/src/index.js"
           }
         },
         {
           "kind": "js",
-          "name": "buttonTypes",
+          "name": "types",
           "declaration": {
-            "name": "buttonTypes",
+            "name": "types",
             "module": "../../components/pie-button/src/index.js"
           }
         },
         {
           "kind": "js",
-          "name": "buttonVariants",
+          "name": "variants",
           "declaration": {
-            "name": "buttonVariants",
+            "name": "variants",
             "module": "../../components/pie-button/src/index.js"
           }
         },
@@ -197,168 +194,15 @@
     },
     {
       "kind": "javascript-module",
-      "path": "../../components/pie-icon-button/src/defs.js",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "iconButtonSizes",
-          "type": {
-            "text": "IconButtonProps['size'][]"
-          },
-          "default": "[\n    'xsmall',\n    'small',\n    'medium',\n    'large'\n]",
-          "description": "Icon Button size variants"
-        },
-        {
-          "kind": "variable",
-          "name": "iconButtonVariants",
-          "type": {
-            "text": "IconButtonProps['variant'][]"
-          },
-          "default": "[\n    'primary',\n    'secondary',\n    'outline',\n    'ghost',\n    'ghost-tertiary',\n]",
-          "description": "Icon Button style variants"
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "iconButtonSizes",
-          "declaration": {
-            "name": "iconButtonSizes",
-            "module": "../../components/pie-icon-button/src/defs.js"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "iconButtonVariants",
-          "declaration": {
-            "name": "iconButtonVariants",
-            "module": "../../components/pie-icon-button/src/defs.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "../../components/pie-icon-button/src/index.js",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "componentSelector",
-          "type": {
-            "text": "string"
-          },
-          "default": "'pie-icon-button'"
-        },
-        {
-          "kind": "class",
-          "description": "",
-          "name": "PieIconButton",
-          "members": [
-            {
-              "kind": "field",
-              "name": "size",
-              "type": {
-                "text": "IconButtonProps['size']"
-              },
-              "default": "'medium'"
-            },
-            {
-              "kind": "field",
-              "name": "variant",
-              "type": {
-                "text": "IconButtonProps['variant']"
-              },
-              "default": "'primary'"
-            },
-            {
-              "kind": "field",
-              "name": "disabled",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false"
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            },
-            {
-              "kind": "field",
-              "name": "styles",
-              "static": true
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "componentSelector",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "type",
-          "declaration": {
-            "name": "type",
-            "module": "../../components/pie-icon-button/src/index.js"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "IconButtonProps",
-          "declaration": {
-            "name": "IconButtonProps",
-            "module": "../../components/pie-icon-button/src/index.js"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "iconButtonSizes",
-          "declaration": {
-            "name": "iconButtonSizes",
-            "module": "../../components/pie-icon-button/src/index.js"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "iconButtonVariants",
-          "declaration": {
-            "name": "iconButtonVariants",
-            "module": "../../components/pie-icon-button/src/index.js"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "PieIconButton",
-          "declaration": {
-            "name": "PieIconButton",
-            "module": "../../components/pie-icon-button/src/index.js"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "componentSelector",
-          "declaration": {
-            "name": "PieIconButton",
-            "module": "../../components/pie-icon-button/src/index.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "../../components/pie-modal/src/defs.js",
       "declarations": [
         {
           "kind": "variable",
           "name": "headingLevels",
           "type": {
-            "text": "ModalProps['headingLevel'][]"
+            "text": "['h1', 'h2', 'h3', 'h4', 'h5', 'h6']"
           },
-          "default": "['h1', 'h2', 'h3', 'h4', 'h5', 'h6']",
-          "description": "Modal heading levels/tags"
+          "default": "['h1', 'h2', 'h3', 'h4', 'h5', 'h6']"
         },
         {
           "kind": "variable",
@@ -624,6 +468,156 @@
     },
     {
       "kind": "javascript-module",
+      "path": "../../components/pie-icon-button/src/defs.js",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "sizes",
+          "type": {
+            "text": "['xsmall', 'small', 'medium', 'large']"
+          },
+          "default": "['xsmall', 'small', 'medium', 'large']"
+        },
+        {
+          "kind": "variable",
+          "name": "variants",
+          "type": {
+            "text": "['primary', 'secondary', 'outline', 'ghost', 'ghost-tertiary']"
+          },
+          "default": "['primary', 'secondary', 'outline', 'ghost', 'ghost-tertiary']"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "sizes",
+          "declaration": {
+            "name": "sizes",
+            "module": "../../components/pie-icon-button/src/defs.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "variants",
+          "declaration": {
+            "name": "variants",
+            "module": "../../components/pie-icon-button/src/defs.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../../components/pie-icon-button/src/index.js",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "componentSelector",
+          "type": {
+            "text": "string"
+          },
+          "default": "'pie-icon-button'"
+        },
+        {
+          "kind": "class",
+          "description": "",
+          "name": "PieIconButton",
+          "members": [
+            {
+              "kind": "field",
+              "name": "size",
+              "type": {
+                "text": "IconButtonProps['size']"
+              },
+              "default": "'medium'"
+            },
+            {
+              "kind": "field",
+              "name": "variant",
+              "type": {
+                "text": "IconButtonProps['variant']"
+              },
+              "default": "'primary'"
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            },
+            {
+              "kind": "field",
+              "name": "styles",
+              "static": true
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "componentSelector",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "type",
+          "declaration": {
+            "name": "type",
+            "module": "../../components/pie-icon-button/src/index.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "IconButtonProps",
+          "declaration": {
+            "name": "IconButtonProps",
+            "module": "../../components/pie-icon-button/src/index.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "sizes",
+          "declaration": {
+            "name": "sizes",
+            "module": "../../components/pie-icon-button/src/index.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "variants",
+          "declaration": {
+            "name": "variants",
+            "module": "../../components/pie-icon-button/src/index.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "PieIconButton",
+          "declaration": {
+            "name": "PieIconButton",
+            "module": "../../components/pie-icon-button/src/index.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "componentSelector",
+          "declaration": {
+            "name": "PieIconButton",
+            "module": "../../components/pie-icon-button/src/index.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "../../components/pie-webc-core/src/index.js",
       "declarations": [],
       "exports": [
@@ -735,7 +729,7 @@
             {
               "name": "validValues",
               "type": {
-                "text": "T[]"
+                "text": "readonly T[]"
               },
               "description": "The array of valid values"
             },
@@ -969,9 +963,24 @@
     },
     {
       "kind": "javascript-module",
-      "path": "../../components/pie-webc-core/src/type-helpers/index.js",
+      "path": "../../components/pie-webc-core/src/type-helpers/DependentMap.js",
       "declarations": [],
       "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../../components/pie-webc-core/src/type-helpers/index.js",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./DependentMap"
+          }
+        }
+      ]
     },
     {
       "kind": "javascript-module",

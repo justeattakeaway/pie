@@ -1,13 +1,10 @@
+export const headingLevels = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'] as const;
+
 export interface ModalProps {
     heading: string;
-    headingLevel: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+    headingLevel: typeof headingLevels[number];
     isOpen: boolean;
 }
-
-/**
- * Modal heading levels/tags
- */
-export const headingLevels: ModalProps['headingLevel'][] = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
 
 /**
  * Event name for when the modal is closed.

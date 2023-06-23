@@ -59,9 +59,9 @@ import { PieButton } from '@justeattakeaway/pie-button/dist/react';
 
 | Property    | Type      | Default         | Description                                                          |
 |-------------|-----------|-----------------|----------------------------------------------------------------------|
-| size        | `String`  | `medium`        | Size of the button, one of `buttonSizes` |
-| type        | `String`  | `submit`        | Type of the button, one of `buttonTypes` |
-| variant     | `String`  | `primary`       | Variant of the button, one of `buttonVariants` |
+| size        | `String`  | `medium`        | Size of the button, one of `sizes` |
+| type        | `String`  | `submit`        | Type of the button, one of `types` |
+| variant     | `String`  | `primary`       | Variant of the button, one of `variants` |
 | disabled    | `Boolean` | `false`         | If `true`, disables the button.                                      |
 | isFullWidth | `Boolean` | `false`         | If `true`, sets the button width to 100% of it's container.                            |
 
@@ -93,7 +93,7 @@ For example, to add a click handler in various templates:
 
 ## TypeScript Type Exports
 
-For TypeScript projects, we export one interface for the button properties: `ButtonProps`. This contains three props `buttonSizes`, `buttonTypes`, and `buttonVariants`. You can import and use these types to set the corresponding property values for the `pie-button` component. This ensures better type safety and autocompletion in your project.
+For TypeScript projects, we export one interface for the button properties: `ButtonProps`. This contains three props `sizes`, `types`, and `variants`. You can import and use these types to set the corresponding property values for the `pie-button` component. This ensures better type safety and autocompletion in your project.
 
 Here's an example of how to import and use the enums in a TypeScript project:
 
