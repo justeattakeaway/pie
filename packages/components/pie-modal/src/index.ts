@@ -1,6 +1,6 @@
 import { LitElement, unsafeCSS } from 'lit';
 import { html, unsafeStatic } from 'lit/static-html.js';
-import { property, query } from 'lit/decorators.js'; // eslint-disable-line import/no-extraneous-dependencies
+import { property, query } from 'lit/decorators.js';
 import { RtlMixin, validPropertyValues, requiredProperty } from '@justeattakeaway/pie-webc-core';
 import '@justeattakeaway/pie-icon-button';
 import styles from './modal.scss?inline';
