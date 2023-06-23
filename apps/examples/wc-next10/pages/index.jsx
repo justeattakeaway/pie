@@ -1,18 +1,17 @@
 import React from 'react';
-import dynamic from 'next/dynamic'
+import dynamic from 'next/dynamic';
 
 const Counter = dynamic(() => import('../Counter'), { ssr: false });
 const VariantSwitch = dynamic(() => import('../VariantSwitch'), { ssr: false });
 const ButtonSizes = dynamic(() => import('../ButtonSizes'), { ssr: false });
 
-export default function Home() {
+export default function Home () {
     return (
         <>
-            <main>
-                <Counter />
-                <VariantSwitch />
-                <ButtonSizes />
-            </main>
+            <Counter />
+            <VariantSwitch />
+            <ButtonSizes />
         </>
-    )
-};
+
+    );
+}

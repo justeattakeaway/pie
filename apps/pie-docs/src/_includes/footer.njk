@@ -1,8 +1,9 @@
 {% set allAboutPiePages = collections.all | eleventyNavigation("All about PIE") %}
 {% set designersPages = collections.all | eleventyNavigation("designers") %}
 {% set engineersPages = collections.all | eleventyNavigation("engineers") %}
+{% set accessibilityPages = collections.all | eleventyNavigation("Accessibility") %}
 {% set supportPages = collections.all | eleventyNavigation("Support") %}
-{% set footerNavItems = [allAboutPiePages, designersPages, engineersPages, supportPages] %}
+{% set footerNavItems = [allAboutPiePages, designersPages, engineersPages, accessibilityPages, supportPages] %}
 {% set jetLogoSrc = '/assets/img/jet-logo.svg' | url %}
 {% set jetLogoSrcNarrow = '/assets/img/jet-logo-narrow.svg' | url %}
 
@@ -17,18 +18,22 @@
                 </div>
                 <main class='c-footer-main'>
                     {% for section in footerNavItems %}
-                        <section>
-                            <h3>{{ section[0].parent }}</h3>
-                            <ul>
-                                {% for page in section %}
-                                    <li>
-                                        <a href="{{ page.url | url }}" data-test-id='footer_link'>
-                                            {{ page.title }}
-                                        </a>
-                                    </li>
-                                {% endfor %}
-                            </ul>
-                        </section>
+                        {% if section[0].url %}
+                            <section>
+                                <h3>{{ section[0].parent }}</h3>
+                                <ul>
+                                    {% for page in section %}
+                                        {% if page.url %}
+                                            <li>
+                                                <a href="{{page.url | url }}" data-test-id='footer_link'>
+                                                    {{ page.title }}
+                                                </a>
+                                            </li>
+                                        {% endif %}
+                                    {% endfor %}
+                                </ul>
+                            </section>
+                        {% endif %}
                     {% endfor %}
                 </main>
                 <div class='c-footer-info'>

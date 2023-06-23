@@ -1,5 +1,7 @@
 import type { Meta, StoryObj as Story } from '@storybook/web-components';
-import { BUTTON_SIZE, BUTTON_TYPE, BUTTON_VARIANT } from '@justeattakeaway/pie-button';
+import {
+    ButtonProps as ButtonPropsBase, buttonSizes, buttonTypes, buttonVariants,
+} from '@justeattakeaway/pie-button';
 import { html, TemplateResult } from 'lit';
 
 export default {
@@ -8,15 +10,15 @@ export default {
     argTypes: {
         size: {
             control: 'select',
-            options: Object.values(BUTTON_SIZE),
+            options: buttonSizes,
         },
         type: {
             control: 'select',
-            options: Object.values(BUTTON_TYPE),
+            options: buttonTypes,
         },
         variant: {
             control: 'select',
-            options: Object.values(BUTTON_VARIANT),
+            options: buttonVariants,
         },
         disabled: {
             control: 'boolean',
@@ -29,28 +31,21 @@ export default {
         },
     },
     args: {
-        size: BUTTON_SIZE.MEDIUM,
-        type: BUTTON_TYPE.SUBMIT,
-        variant: BUTTON_VARIANT.PRIMARY,
+        size: 'medium',
+        type: 'submit',
+        variant: 'primary',
         disabled: false,
         isFullWidth: false,
     },
     parameters: {
         design: {
             type: 'figma',
-            url: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%5BPIE-2.0%5D?node-id=33988-388504&t=gZ1UZWnGXcilMsSC-4',
+            url: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=34706-406376&t=8JLrEVbwx7AEJbEL-0',
         },
     },
 } as Meta;
 
-interface ButtonProps {
-    size: BUTTON_SIZE;
-    variant: BUTTON_VARIANT;
-    type: BUTTON_TYPE;
-    disabled: boolean;
-    isFullWidth: boolean;
-    slot: TemplateResult;
-}
+type ButtonProps = ButtonPropsBase & { slot: string }
 
 const Template = ({
     size, variant, type, disabled, isFullWidth, slot,
@@ -65,34 +60,34 @@ const Template = ({
         </pie-button>
         `;
 
-const defaultArgs = {
-    size: BUTTON_SIZE.MEDIUM,
-    type: BUTTON_TYPE.SUBMIT,
-    variant: BUTTON_VARIANT.PRIMARY,
+const defaultArgs: ButtonProps = {
+    size: 'medium',
+    type: 'submit',
+    variant: 'primary',
     disabled: false,
     isFullWidth: false,
     slot: 'This is Lit!',
 };
 
-export const Primary: Story = Template.bind({});
+export const Primary: Story<ButtonProps> = (args: ButtonProps) => Template(args);
 Primary.args = {
     ...defaultArgs,
 };
 
-export const Secondary: Story = Template.bind({});
+export const Secondary: Story<ButtonProps> = (args: ButtonProps) => Template(args);
 Secondary.args = {
     ...defaultArgs,
-    variant: BUTTON_VARIANT.SECONDARY,
+    variant: 'secondary',
 };
 
-export const Outline: Story = Template.bind({});
+export const Outline: Story<ButtonProps> = (args: ButtonProps) => Template(args);
 Outline.args = {
     ...defaultArgs,
-    variant: BUTTON_VARIANT.OUTLINE,
+    variant: 'outline',
 };
 
-export const Ghost: Story = Template.bind({});
+export const Ghost: Story<ButtonProps> = (args: ButtonProps) => Template(args);
 Ghost.args = {
     ...defaultArgs,
-    variant: BUTTON_VARIANT.GHOST,
+    variant: 'ghost',
 };

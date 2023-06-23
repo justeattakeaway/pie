@@ -68,7 +68,7 @@ Our small icon set can be used at the following sizes:
         "24px",
         "28px",
         "32px",
-        "30px"
+        "40px"
     ]
 } %}
 
@@ -105,7 +105,7 @@ This is the default look for our icons and should always be considered as the fi
 
 ### Fill
 
-This is the default look for our icons and should always be considered as the first option to use when placing icons in your designs.
+Fill icons should be used sparingly, mainly for icons that need to present interactive states (e.g. selected/unselected) or in certain specific places in legacy products.
 
 {% contentPageImage {
     src: "../../../assets/img/foundations/iconography/appearance-fill.svg",

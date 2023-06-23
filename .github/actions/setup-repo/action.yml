@@ -18,15 +18,8 @@ runs:
         with:
           node-version: ${{ inputs.node-version }}
           cache: "yarn"
-      # Restore node_modules if cache exists. If not, cache is created at end of build.
-      - name: Cache Node Modules
-        id: cache-node-modules
-        uses: actions/cache@v3
-        with:
-          path: "**/node_modules"
-          key: node-modules-${{ inputs.node-version }}-${{ inputs.os }}-${{ hashFiles('**/yarn.lock') }}
       # Run 'yarn' if cache doesn't exist. Use --prefer-offline to download packages from yarn cache folder where possible
       - name: Install Dependencies
         shell: bash
         if: steps.cache-node-modules.outputs.cache-hit != 'true'
-        run: yarn add --cached
+        run: yarn add

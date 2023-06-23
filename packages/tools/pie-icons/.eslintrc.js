@@ -1,5 +1,5 @@
 module.exports = {
-    extends: [require.resolve('@justeattakeaway/pie-eslint-config/strict')],
+    extends: [require.resolve('@justeattakeaway/eslint-config-pie/strict')],
     rules: {
         'no-console': 'off',
         'no-param-reassign': 'off',

@@ -2,7 +2,7 @@
 eleventyNavigation:
     key: Alias tokens
     parent: Radius
-    order: 3
+    order: 2
 ---
 
 ## Alias radius tokens

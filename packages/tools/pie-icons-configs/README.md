@@ -14,13 +14,13 @@ Install the package:
 
 Import the desired config or function from the common config file:
 
-`import { sizeToClassMap } from '@justeattakeaway/pie-icons-configs'`
+`import { sizeToValueMap } from '@justeattakeaway/pie-icons-configs'`
 
 If you are using a framework, use the dedicated export for it, described below.
 
 ### React
 
-`import { getSvgProps } from '@justeattakeaway/pie-icons-configs/configs-react'`
+`import { getReactSvgProps } from '@justeattakeaway/pie-icons-configs/configs-react'`
 
 ### Vue
 
@@ -35,9 +35,9 @@ Check the JSDocs attached to each of the utility functions if you want to know m
 
 The tests were added to ensure the utility functions behavior consistency.
 
-You can run the tests with `yarn test`.
+You can run the tests with `yarn test --filter=pie-icons-configs`.
 
 
 ## Contributing
 
-Before starting please read our [contributing guide](https://vue.pie.design/?path=/story/documentation-getting-started-contributing--page)
+Before starting please read our [contributing guide](https://pie.design/engineers/contributing/)

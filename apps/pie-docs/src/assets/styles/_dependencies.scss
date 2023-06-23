@@ -30,13 +30,13 @@
  * This is where the majority of our day-to-day styling will take place.  Component styles should be prefixed with `.c-`
  */
 @use 'components/card';
+@use 'components/categorisedIconList';
 @use 'components/centredPage';
 @use 'components/contentPage';
 @use 'components/contentImage';
 @use 'components/comingSoon';
 @use 'components/footer';
 @use 'components/header';
-@use 'components/iconList';
 @use 'components/list';
 @use 'components/mediaElementList';
 @use 'components/nav';
@@ -47,10 +47,12 @@
 @use 'components/tabs';
 @use 'components/toggle';
 @use 'components/tokensTable';
+@use 'components/skipLink';
 
 /**
  * Overrides:
  * =================================
- * We shouldn't be using these much, but they are for overriding/extending styles of 3rd party components such as cookie banners
+ * We shouldn't be using these much, but they are for overriding/extending styles
+ * of 3rd party components such as cookie banners
  */
 @use './overrides'

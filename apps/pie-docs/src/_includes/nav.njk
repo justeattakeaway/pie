@@ -1,6 +1,6 @@
 {# Each navigation item has a unique key that is mapped to an Icon name #}
 {% set navigationIcons = {
-    Accessibility: 'PersonalityTest',
+    Accessibility: 'user-highlight',
     'All about PIE': 'pie',
     designers: 'bulb-lightning',
     Foundations: 'foundations',
@@ -18,42 +18,46 @@
 <nav class="c-nav" data-test-id="site_nav">
     <div class="c-nav-inner">
     {% for section in navSections %}
-        <ul>
+        <ul data-test-id="site_nav_section_{{loop.index}}"">
             {# build up a list of categories such as 'components', 'foundations' #}
             {% for category in section %}
-                <li>
-                    <details {% if page.url.includes(category.url) %} open{% endif %}>
-                        <summary class="c-nav-category" style="--icon-fill: {{categoryIconFill}};">
-                            {{ { name: navigationIcons[category.key], attrs: { fill: categoryIconFill, height: '16', width: '16', class:'u-iconFilled', 'aria-hidden': 'true' } } | pieIconsSvg | safe }}
-                            {{ category.title }}
-                            {{ { name: 'chevron-up', attrs: { fill: chevronFill, height: '16', width: '16', class:'c-nav-toggle c-nav-toggle--close', 'aria-hidden': 'true' } } | pieIconsSvg | safe }}
-                            {{ { name: 'chevron-down', attrs: { fill: chevronFill, height: '16', width: '16', class:'c-nav-toggle c-nav-toggle--open', 'aria-hidden': 'true' } } | pieIconsSvg | safe }}
-                        </summary>
-                        {% if category.children.length %}
-                        {# build up a list of subpages for each category such as 'colour' and 'spacing' for 'foundations' #}
-                            <ul class="c-nav-list">
-                                {% for subpage in category.children %}
-                                <li>
-                                    {% set splitSubPageUrl = subpage.url.split("/") %}
-                                    {% set subPageArea = [splitSubPageUrl[1], splitSubPageUrl[2]] | join('/') %}
-                                    {% set splitPageUrl = page.url.split("/") %}
-                                    {% set currentPageArea = [splitPageUrl[1], splitPageUrl[2]] | join('/') %}
-                                    {# Set the nav item to active if the url contains it's category #}
-                                    {# this means something like /foundations/colour/overview/ and /foundations/colour/tokens/global/ will activate 'colour' #}
-                                    <a
-                                        href="{{ subpage.url | url}}"
-                                        {% if subPageArea == currentPageArea %}
-                                            aria-current="page"
+                {% if category.url %}
+                    <li>
+                        <details {% if page.url and page.url.includes(category.url) %} open{% endif %}>
+                            <summary class="c-nav-category" style="--icon-fill: {{categoryIconFill}};">
+                                {{ { name: navigationIcons[category.key], attrs: { fill: categoryIconFill, height: '16', width: '16', class:'u-iconFilled', 'aria-hidden': 'true' } } | pieIconsSvg | safe }}
+                                {{ category.title }}
+                                {{ { name: 'chevron-up', attrs: { fill: chevronFill, height: '16', width: '16', class:'c-nav-toggle c-nav-toggle--close', 'aria-hidden': 'true' } } | pieIconsSvg | safe }}
+                                {{ { name: 'chevron-down', attrs: { fill: chevronFill, height: '16', width: '16', class:'c-nav-toggle c-nav-toggle--open', 'aria-hidden': 'true' } } | pieIconsSvg | safe }}
+                            </summary>
+                            {% if category.children.length %}
+                            {# build up a list of subpages for each category such as 'colour' and 'spacing' for 'foundations' #}
+                                <ul class="c-nav-list">
+                                    {% for subpage in category.children %}
+                                        {% if subpage.url %}
+                                            <li>
+                                                {% set splitSubPageUrl = ([] if subpage.url === false else subpage.url.split("/")) %}
+                                                {% set subPageArea = [splitSubPageUrl[1], splitSubPageUrl[2]] | join('/') %}
+                                                {% set splitPageUrl = ([] if page.url === false else page.url.split("/")) %}
+                                                {% set currentPageArea = [splitPageUrl[1], splitPageUrl[2]] | join('/') %}
+                                                {# Set the nav item to active if the url contains it's category #}
+                                                {# this means something like /foundations/colour/overview/ and /foundations/colour/tokens/global/ will activate 'colour' #}
+                                                <a
+                                                    href="{{ subpage.url | url}}"
+                                                    {% if subPageArea == currentPageArea %}
+                                                        aria-current="page"
+                                                    {% endif %}
+                                                    class="c-nav-item {% if subPageArea == currentPageArea %}is-active{% endif %}">
+                                                    {{ subpage.title }}
+                                                </a>
+                                            </li>
                                         {% endif %}
-                                        class="c-nav-item {% if subPageArea == currentPageArea %}is-active{% endif %}">
-                                        {{ subpage.title }}
-                                    </a>
-                                </li>
-                                {% endfor %}
-                            </ul>
-                        {% endif %}
-                    </details>
-                </li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+                        </details>
+                    </li>
+                {% endif %}
             {% endfor %}
         </ul>
         {% if not loop.last %}

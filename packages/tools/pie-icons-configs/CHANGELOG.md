@@ -1,5 +1,34 @@
 # @justeattakeaway/pie-icons-configs
 
+## 3.6.0
+
+### Patch Changes
+
+- [Fixed]: removes a console error if iconSize prop is not passed ([#556](https://github.com/justeattakeaway/pie/pull/556)) by [@dandel10n](https://github.com/dandel10n)
+
+  [Changed]: in case of invalid `iconSize` being passed to large icons now the size defaults to the `largeIconSizeDefault`
+
+## 3.5.1
+
+### Patch Changes
+
+- [Changed]: removes class attr application for react icons ([#543](https://github.com/justeattakeaway/pie/pull/543)) by [@dandel10n](https://github.com/dandel10n)
+
+## 3.5.0
+
+### Minor Changes
+
+- [Changed] replaces icon size css classes with width and height attr application. ([#532](https://github.com/justeattakeaway/pie/pull/532)) by [@dandel10n](https://github.com/dandel10n)
+
+  [Changed] moves getSvgProps logic to shared configs.js from react and vue configs.
+  [Changed] rebuilds icons to apply the changes.
+
+## 3.4.0
+
+### Patch Changes
+
+- [Fixed] - Minor linting fix ([#520](https://github.com/justeattakeaway/pie/pull/520)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
 ## 3.0.0
 
 ### Major Changes

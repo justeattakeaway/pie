@@ -2,10 +2,10 @@
   "name": "pie-docs",
   "private": true,
   "description": "Documentation website for the PIE design system",
-  "version": "1.70.0",
+  "version": "2.3.0",
   "main": "index.js",
   "keywords": [],
-  "author": "JustEatTakeaway - Vue Design System Team",
+  "author": "JustEatTakeaway - Design System Team",
   "license": "Apache-2.0",
   "packageManager": "yarn@3.2.1",
   "scripts": {
@@ -39,6 +39,7 @@
   },
   "dependencies": {
     "@justeat/f-cookie-banner": "4.7.0",
+    "@justeattakeaway/pie-icons": "3.6.0",
     "markdown-it": "13.0.1"
   },
   "volta": {

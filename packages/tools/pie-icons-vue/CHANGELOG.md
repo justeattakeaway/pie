@@ -1,5 +1,81 @@
 # Changelog
 
+## 3.6.0
+
+### Minor Changes
+
+- [Changed]: Updates instagram-circle-large and star-circle-filled-large svg. Updates microsoft-circle-static, microsoft-circle-filled-static and apple-static both large and default and removes static postfix from them. ([#552](https://github.com/justeattakeaway/pie/pull/552)) by [@dandel10n](https://github.com/dandel10n)
+
+### Patch Changes
+
+- [Fixed]: removes a console error if iconSize prop is not passed ([#556](https://github.com/justeattakeaway/pie/pull/556)) by [@dandel10n](https://github.com/dandel10n)
+
+  [Changed]: in case of invalid `iconSize` being passed to large icons now the size defaults to the `largeIconSizeDefault`
+
+## 3.5.0
+
+### Minor Changes
+
+- [Changed] replaces icon size css classes with width and height attr application. ([#532](https://github.com/justeattakeaway/pie/pull/532)) by [@dandel10n](https://github.com/dandel10n)
+
+  [Changed] moves getSvgProps logic to shared configs.js from react and vue configs.
+  [Changed] rebuilds icons to apply the changes.
+
+## 3.4.0
+
+### Minor Changes
+
+- [Added] Icons that were missing from the set. ([#506](https://github.com/justeattakeaway/pie/pull/506)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Changed] The icon that was previously used for Nuts is now used for Peanuts (new). A new replacement icon for nuts has been added.
+
+- [Changed] - pie-icons build to remove fill attr from icon paths and add fill=currentColor for svg elements ([#528](https://github.com/justeattakeaway/pie/pull/528)) by [@dandel10n](https://github.com/dandel10n)
+
+- [Added] - Expand test coverage for pie-icons-vue ([#520](https://github.com/justeattakeaway/pie/pull/520)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+## 3.3.0
+
+### Minor Changes
+
+- [Added] - Jest test support and basic demo tests ([#472](https://github.com/justeattakeaway/pie/pull/472)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- [Changed] - Use vitest instead of jest and add missing sample tests ([#472](https://github.com/justeattakeaway/pie/pull/472)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+## 3.2.0
+
+### Minor Changes
+
+- [Changed] - icons to use accessibility attributes ([#481](https://github.com/justeattakeaway/pie/pull/481)) by [@FayeCarter](https://github.com/FayeCarter)
+
+### Patch Changes
+
+- [Changed] - Replaced html-minifier by html-minifier-terser ([#479](https://github.com/justeattakeaway/pie/pull/479)) by [@fernandofranca](https://github.com/fernandofranca)
+
+  [Changed] - Updated icons object builder function and script to async
+
+## 3.1.0
+
+### Minor Changes
+
+- [Fixed] Naming of Over18Filled icon (was OverFilled18) ([#437](https://github.com/justeattakeaway/pie/pull/437)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- [Fixed] Typo in icon name: check-circl-large -> check-circle-large ([#443](https://github.com/justeattakeaway/pie/pull/443)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Fixed] Typo in icon name: delivery-dee-large -> delivery-fee-large
+  [Fixed] Typo in icon name: locatoin-pin-food -> location-pin-food
+  [Fixed] Typo in icon name: reciept-error -> receipt-error
+  [Fixed] Typo in icon name: reciept-error-large -> receipt-error-large
+  [Fixed] Typo in icon name: swiss-fanc-large -> swiss-franc-large
+  [Fixed] Typo in icon name: targer -> target
+  [Updated] pie-docs iconList snapshot tests with updated icon names
+
+### Patch Changes
+
+- [Fixed] Linting errors in pie-icons-vue. ([#413](https://github.com/justeattakeaway/pie/pull/413)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Changed] Allow pie-eslint-config to use itself as linting config.
+  [Added] Typescript linting to pie-monorepo.
+
 ## 3.0.0
 
 ### Major Changes

@@ -9,36 +9,20 @@ export default {
     },
     functional: true,
     render (h, ctx) {
-        ctx.data = updateContextData(ctx, 'c-pieIcon c-pieIcon--microsoftCircleFilledLarge');
+        ctx.data = updateContextData(ctx, 'c-pieIcon c-pieIcon--microsoftCircleFilledLarge', 'IconSocialMicrosoftCircleFilledLarge');
         return h('svg', _mergeJSXProps([{
             attrs: {
                 xmlns: 'http://www.w3.org/2000/svg',
+                role: 'presentation',
+                focusable: 'false',
+                fill: 'currentColor',
                 viewBox: '0 0 32 32',
             },
         }, ctx.data]), [h('path', {
             attrs: {
-                fill: '#242E30',
-                d: 'M16 28.25a12.25 12.25 0 1 1 0-24.5 12.25 12.25 0 0 1 0 24.5Z',
-            },
-        }), h('path', {
-            attrs: {
-                fill: '#fff',
-                d: 'M10 10h5.5v5.5H10V10Z',
-            },
-        }), h('path', {
-            attrs: {
-                fill: '#fff',
-                d: 'M10 16.5h5.5V22H10v-5.5Z',
-            },
-        }), h('path', {
-            attrs: {
-                fill: '#fff',
-                d: 'M16.5 10H22v5.5h-5.5V10Z',
-            },
-        }), h('path', {
-            attrs: {
-                fill: '#fff',
-                d: 'M16.5 16.5H22V22h-5.5v-5.5Z',
+                'fill-rule': 'evenodd',
+                d: 'M16 28.25a12.25 12.25 0 1 1 0-24.5 12.25 12.25 0 0 1 0 24.5ZM15.5 10H10v5.5h5.5V10Zm0 6.5H10V22h5.5v-5.5Zm1-6.5H22v5.5h-5.5V10Zm5.5 6.5h-5.5V22H22v-5.5Z',
+                'clip-rule': 'evenodd',
             },
         })]);
     },

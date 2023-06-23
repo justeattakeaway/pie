@@ -1,16 +1,18 @@
 {
   "name": "@justeattakeaway/pie-button",
-  "version": "0.11.0",
+  "version": "0.16.0",
   "description": "PIE design system button built using web components",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/types/index.d.ts",
   "scripts": {
-    "build": "run -T vite build",
+    "build": "yarn build:wrapper pie-button && run -T vite build ",
+    "lint:style": "run -T stylelint ./src/**/*.{css,scss}",
+    "lint:style:fix": "yarn lint:style --fix",
     "watch": "run -T vite build --watch",
-    "dev": "run -T vite",
     "test": "echo \"Error: no test specified\" && exit 0",
+    "test:ci": "yarn test",
     "test:browsers": "npx playwright test -c ./playwright-lit.config.ts",
     "test:browsers:ci": "yarn test:browsers",
     "test:visual": "run -T cross-env-shell PERCY_TOKEN=${PERCY_TOKEN_PIE_BUTTON} percy exec --allowed-hostname cloudfront.net -- npx playwright test -c ./playwright-lit-visual.config.ts",
@@ -18,6 +20,11 @@
   },
   "author": "JustEatTakeaway - Design System Web Team",
   "license": "Apache-2.0",
+  "devDependencies": {
+    "@justeat/pie-design-tokens": "5.1.0",
+    "@justeattakeaway/pie-components-config": "workspace:*",
+    "@justeattakeaway/pie-webc-core": "workspace:*"
+  },
   "volta": {
     "extends": "../../../package.json"
   }

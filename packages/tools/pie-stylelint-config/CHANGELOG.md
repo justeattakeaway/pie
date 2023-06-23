@@ -1,5 +1,25 @@
 # Changelog
 
+## 0.4.0
+
+### Minor Changes
+
+- [Added] - Rule for custom property naming convention ([#550](https://github.com/justeattakeaway/pie/pull/550)) by [@ashleynolan](https://github.com/ashleynolan)
+
+## 0.3.0
+
+### Minor Changes
+
+- [Added] - Ignore rule for max-line-length for hsl ([#482](https://github.com/justeattakeaway/pie/pull/482)) by [@ashleynolan](https://github.com/ashleynolan)
+
+  [Added] - Update ruleset with adjusted sensible defaults
+
+## 0.2.0
+
+### Minor Changes
+
+- [Fixed] - Updating pkg name to use conventional stylelint pkg naming ([#468](https://github.com/justeattakeaway/pie/pull/468)) by [@ashleynolan](https://github.com/ashleynolan)
+
 ## 0.1.1
 
 ### Patch Changes

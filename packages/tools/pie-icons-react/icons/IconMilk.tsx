@@ -1,0 +1,20 @@
+import * as React from "react";
+import { RegularIconProps } from "../types";
+// @ts-ignore
+import { getReactSvgProps } from '@justeattakeaway/pie-icons-configs/configs-react';
+const IconMilk = (props: RegularIconProps) => {
+  const {
+    className,
+    iconSize,
+    width,
+    height,
+    ...remainingProps
+  } = props;
+  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--milk", className, iconSize, "IconMilk");
+  const allProps = {
+    ...remainingProps,
+    ...moreProps
+  };
+  return <svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 16 16"    {...allProps}><path d="m10.81 5.095-.697-1.046v-.888h.496V1.854H5.67V3.16h.427v.888L5.4 5.095c-.182.27-.27.583-.27.897v6.734c0 1.08.88 1.96 1.96 1.96h2.03c1.08 0 1.96-.88 1.96-1.96V5.992c0-.322-.095-.636-.27-.906v.009ZM8.806 3.16v1.28l.915 1.377a.314.314 0 0 1 .052.174v1.307c-.436.13-.81-.053-1.429-.375-.523-.279-1.159-.584-1.908-.618v-.314c0-.061.018-.122.052-.174l.915-1.377v-1.28h1.403Zm.313 10.219H7.09a.658.658 0 0 1-.653-.654V7.612c.444.026.863.244 1.298.47.514.27 1.09.576 1.76.576.096 0 .183-.009.279-.018v4.095a.658.658 0 0 1-.654.653v-.008Z" /></svg>;
+};
+export default IconMilk;

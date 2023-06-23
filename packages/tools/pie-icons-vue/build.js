@@ -1,9 +1,10 @@
-/* eslint-disable import/no-extraneous-dependencies */
 const path = require('path');
 const pieIcons = require('@justeattakeaway/pie-icons').default;
 const { pascalCase } = require('pascal-case');
 const fs = require('fs-extra');
 const { execSync } = require('child_process');
+
+const { removeHyphenBeforeDigits } = require('./helpers');
 
 const componentTemplate = (name, svg) => {
     const isLargeIcon = name.endsWith('Large');
@@ -25,7 +26,7 @@ export default {
     functional: true,
 
     render (h, ctx) {
-        ctx.data = updateContextData(ctx, '${svgClasses}');
+        ctx.data = updateContextData(ctx, '${svgClasses}', '${name}');
 
         return ${svg.replace(/(class=".+?")/, '{...ctx.data}')};
     }
@@ -48,8 +49,6 @@ async function checkDirExists (directoryPath) {
         console.error(err);
     }
 }
-
-const handleComponentName = (name) => name.replace(/\-(\d+)/, '$1'); // eslint-disable-line no-useless-escape
 
 function copyIconsConfigFiles () {
     const srcFilePaths = [
@@ -76,7 +75,7 @@ async function build () {
     Object.keys(icons).forEach((iconKey) => {
         const { pathPrefix } = icons[iconKey];
         const capitalisedPathPrefix = (pathPrefix !== undefined ? (pathPrefix).substring(1, 2).toUpperCase() + (pathPrefix).substring(2) : '');
-        const pascalCasedName = pascalCase(handleComponentName(iconKey));
+        const pascalCasedName = pascalCase(removeHyphenBeforeDigits(iconKey));
         const componentName = `Icon${capitalisedPathPrefix + pascalCasedName}`;
 
         const svg = pieIcons.icons[iconKey].toSvg();

@@ -1,5 +1,49 @@
 # Changelog
 
+## 3.6.0
+
+### Minor Changes
+
+- [Changed]: Updates instagram-circle-large and star-circle-filled-large svg. Updates microsoft-circle-static, microsoft-circle-filled-static and apple-static both large and default and removes static postfix from them. ([#552](https://github.com/justeattakeaway/pie/pull/552)) by [@dandel10n](https://github.com/dandel10n)
+
+## 3.4.0
+
+### Minor Changes
+
+- [Added] Icons that were missing from the set. ([#506](https://github.com/justeattakeaway/pie/pull/506)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Changed] The icon that was previously used for Nuts is now used for Peanuts (new). A new replacement icon for nuts has been added.
+
+- [Changed] - pie-icons build to remove fill attr from icon paths and add fill=currentColor for svg elements ([#528](https://github.com/justeattakeaway/pie/pull/528)) by [@dandel10n](https://github.com/dandel10n)
+
+## 3.2.0
+
+### Minor Changes
+
+- [Changed] - icons to use accessibility attributes ([#481](https://github.com/justeattakeaway/pie/pull/481)) by [@FayeCarter](https://github.com/FayeCarter)
+
+### Patch Changes
+
+- [Changed] - Replaced html-minifier by html-minifier-terser ([#479](https://github.com/justeattakeaway/pie/pull/479)) by [@fernandofranca](https://github.com/fernandofranca)
+
+  [Changed] - Updated icons object builder function and script to async
+
+## 3.1.0
+
+### Minor Changes
+
+- [Fixed] Naming of Over18Filled icon (was OverFilled18) ([#437](https://github.com/justeattakeaway/pie/pull/437)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- [Fixed] Typo in icon name: check-circl-large -> check-circle-large ([#443](https://github.com/justeattakeaway/pie/pull/443)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Fixed] Typo in icon name: delivery-dee-large -> delivery-fee-large
+  [Fixed] Typo in icon name: locatoin-pin-food -> location-pin-food
+  [Fixed] Typo in icon name: reciept-error -> receipt-error
+  [Fixed] Typo in icon name: reciept-error-large -> receipt-error-large
+  [Fixed] Typo in icon name: swiss-fanc-large -> swiss-franc-large
+  [Fixed] Typo in icon name: targer -> target
+  [Updated] pie-docs iconList snapshot tests with updated icon names
+
 ## 2.2.0
 
 ### Minor Changes

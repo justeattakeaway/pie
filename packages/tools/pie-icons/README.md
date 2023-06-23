@@ -1,11 +1,10 @@
 # `pie-icons` — PIE Icon Set
 
-[![npm version](https://badge.fury.io/js/%40justeattakeaway%2Fpie-icons.svg)](https://badge.fury.io/js/%40justeattakeaway%2Fpie-icons)
-[![CircleCI](https://circleci.com/gh/justeat/pie-project.svg?style=svg)](https://circleci.com/gh/justeat/workflows/pie-project)
+[![npm version](https://img.shields.io/npm/v/@justeattakeaway/pie-icons.svg)](https://img.shields.io/npm/v/@justeattakeaway/pie-icons.svg)
 
 ## Contributing
 
-If you want to add a new icon please check [our icon list](https://react.pie.design/?path=/story/design-pie-icons--icons-story) first to avoid duplications. Before adding an svg file, please run it through [svgomg](https://jakearchibald.github.io/svgomg/) with the default settings applied and make sure to **turn off** “Clean IDs” setting and **turn on** "Prefer viewBox to width/height" and "Prettify markup" settings.
+If you want to add a new icon please check [our icon set](https://pie.design/foundations/iconography/library/) first to avoid duplications. Before adding an svg file, please run it through [svgomg](https://jakearchibald.github.io/svgomg/) with the default settings applied and make sure to **turn off** “Clean IDs” setting and **turn on** "Prefer viewBox to width/height" and "Prettify markup" settings.
 
 On top of that please prefix all the ids in the files with the icon name. For example `id="symbol"` for close-circle.svg should become `id="close-circle-symbol"`, as same ids in different SVG files can conflict and cause visual issues as well as invalidate the markup.
 
@@ -64,8 +63,6 @@ To use an icon on your page, add a `data-pie-icons` attribute with the icon name
 ```html
 <i data-pie-icons="alert"></i>
 ```
-
-<!-- ### TODO – add full icon list to docs ––  See the complete list of icons at [fozzie.just-eat.com](https://fozzie.just-eat.com/). -->
 
 #### 4. Replace
 

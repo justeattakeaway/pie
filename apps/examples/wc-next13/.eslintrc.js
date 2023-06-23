@@ -1,6 +1,6 @@
-module.exports = {
+export default {
     extends: [
-        require.resolve('@justeattakeaway/pie-eslint-config/strict'),
+        require.resolve('@justeattakeaway/eslint-config-pie/strict'),
         'eslint:recommended',
         'next',
     ],

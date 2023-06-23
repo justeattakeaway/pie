@@ -17,8 +17,6 @@ on:
   push:
     branches:
       - main
-      - beta-*
-      - feature-*
 
 concurrency:
   group: CI-${{ github.ref }}
@@ -27,6 +25,8 @@ concurrency:
 env:
   PERCY_TOKEN_PIE_DOCS: ${{ secrets.PERCY_TOKEN_PIE_DOCS }}
   PERCY_TOKEN_PIE_BUTTON: ${{ secrets.PERCY_TOKEN_PIE_BUTTON }}
+  PERCY_TOKEN_PIE_ICON_BUTTON: ${{ secrets.PERCY_TOKEN_PIE_ICON_BUTTON }}
+  PERCY_TOKEN_PIE_MODAL: ${{ secrets.PERCY_TOKEN_PIE_MODAL }}
   TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
 
 jobs:

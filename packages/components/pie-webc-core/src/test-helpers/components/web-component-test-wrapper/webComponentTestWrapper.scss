@@ -1,0 +1,20 @@
+.c-webComponentTestWrapper {
+    padding-block: var(--dt-spacing-c);
+    padding-inline: var(--dt-spacing-e);
+    font-family: var(--dt-font-interactive-m-family);
+    font-size: calc(var(--dt-font-size-20) * 1px);
+    border: 1px solid var(--dt-color-background-dark);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.c-webComponentTestWrapper-label {
+    margin-block: var(--dt-spacing-c);
+}
+
+.c-webComponentTestWrapper-slot {
+    padding: var(--dt-spacing-c);
+    border: 1px dashed var(--dt-color-background-dark);
+    grid-column: 1 / 3;
+    margin-block-start: var(--dt-spacing-c);
+}

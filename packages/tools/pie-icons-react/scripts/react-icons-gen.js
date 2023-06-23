@@ -3,8 +3,6 @@ import pieIcons from '@justeattakeaway/pie-icons';
 import { pascalCase } from "pascal-case";
 import { join } from 'path';
 import fs from 'fs-extra';
-import path from 'path';
-import { execSync } from 'child_process';
 
 const { icons } = pieIcons.default;
 
@@ -18,16 +16,6 @@ async function checkDirExists (directoryPath) {
     } catch (err) {
         console.error(err);
     }
-}
-
-function copyIconsConfigFiles() {
-    const srcFilePaths = [
-        path.resolve(process.cwd(), '../pie-icons-configs/configs.js'),
-        path.resolve(process.cwd(), '../pie-icons-configs/configs-react.js')
-    ];
-    const destFilePath = path.resolve(process.cwd(), './icons/');
-
-    srcFilePaths.forEach((srcFilePath) => execSync(`cp ${srcFilePath} ${destFilePath}`));
 }
 
 const handleComponentName = (name) => name.replace(/\-(\d+)/, '$1'); // eslint-disable-line no-useless-escape
@@ -52,12 +40,12 @@ function getTemplate(buildTimeClasses) {
         ${interfaces};
         ${propsImportStatement};
         // @ts-ignore
-        import { getSvgProps } from './configs-react';
+        import { getReactSvgProps } from '@justeattakeaway/pie-icons-configs/configs-react';
 
         const ${componentName} = (props: ${componentPropsInterface}) => {
             const { className, iconSize, width, height, ...remainingProps } = props;
 
-            const moreProps = getSvgProps("${buildTimeClasses}", className, iconSize, "${componentName}");
+            const moreProps = getReactSvgProps("${buildTimeClasses}", className, iconSize, "${componentName}");
 
             const allProps = { ...remainingProps, ...moreProps };
 
@@ -72,14 +60,13 @@ function getTemplate(buildTimeClasses) {
 async function build() {
     // check that the /icons directory exists, if not create it
     await checkDirExists(ICONS_DIR);
-    copyIconsConfigFiles();
 
     // loop through the icons in pie-icons, generate each component and add it to the index.tsx
     Object.keys(icons).forEach((iconKey) => {
         const { pathPrefix } = icons[iconKey];
         const capitalisedPathPrefix = (pathPrefix !== undefined ? (pathPrefix).substring(1, 2).toUpperCase() + (pathPrefix).substring(2) : '');
         const componentName = `Icon${capitalisedPathPrefix + pascalCase(handleComponentName(iconKey))}`;
-        const iconClasses = `pie-icon pie-icon--${iconKey.toLowerCase()}`;
+        const iconClasses = `c-pieIcon c-pieIcon--${iconKey.toLowerCase()}`;
 
         let Comp = transform.sync(
             icons[iconKey].toSvg(),

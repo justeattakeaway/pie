@@ -9,9 +9,7 @@ The package is tested and is fully compatible with Vue 2. To use these icon comp
 
 ---
 
-[![npm version](https://badge.fury.io/js/%40justeattakeaway%2Fpie-icons-vue.svg)](https://badge.fury.io/js/%40justeattakeaway%2Fpie-icons-vue)
-[![CircleCI](https://circleci.com/gh/justeat/pie-project.svg?style=svg)](https://circleci.com/gh/justeat/workflows/pie-project)
-
+[![npm version](https://img.shields.io/npm/v/@justeattakeaway/pie-icons-vue.svg)](https://img.shields.io/npm/v/@justeattakeaway/pie-icons-vue.svg)
 
 ---
 ## Usage
@@ -36,7 +34,7 @@ Within the context of a Vue app, that will look like:
   ```js
   <template>
       <icon-calendar />
-      <icon-alert-triangle-large />
+      <icon-alert-triangle-large fill={PIE_ALIAS_COLOR_TOKEN} />
   </template>
 
   <script>
@@ -72,11 +70,14 @@ Example:
 <icon-alert-triangle-large iconSize="40" />
 ```
 
+### Styles
+The Vue icons package doesn't provide CSS styles. CSS classes `c-pieIcon c-pieIcon--{iconName}` are available for consuming applications to add the styles they require.
+
 ### Tree shaking
 
-By using ES imports like `import { CalendarIcon } from '@justeattakeaway/pie-icons-vue'` with Webpack v4+ or Rollup, unused exports in this module will be automatically eliminated.
+By using ES imports like `import { IconCalendar } from '@justeattakeaway/pie-icons-vue'` with Webpack v4+ or Rollup, unused exports in this module will be automatically eliminated.
 
-If you can't use a tree-shaking compatible build tool, then you can use the per-file icons from the [`/icons`](https://unpkg.com/@justeattakeaway/pie-icons-vue/icons/) directory, e.g. `import CalendarIcon from '@justeattakeaway/pie-icons-vue/icons/CalendarIcon'`.
+If you can't use a tree-shaking compatible build tool, then you can use the per-file icons from the [`/icons`](https://unpkg.com/@justeattakeaway/pie-icons-vue/icons/) directory, e.g. `import IconCalendar from '@justeattakeaway/pie-icons-vue/icons/IconCalendar'`.
 
 
 ### Browser Support
@@ -86,22 +87,21 @@ The component extends [@justeat/browserslist-config-fozzie](https://github.com/j
 
 ## Contributing
 
-Before starting please read our [contributing guide](https://vue.pie.design/?path=/story/documentation-getting-started-contributing--page)
+Before starting please read our [contributing guide](https://pie.design/engineers/contributing/)
 
 ### Adding new icons
 
 Icons should be added as SVGs to the main pie-icons package and published, before simply incrementing the dependency of `pie-icons` in the `pie-icons-vue` package, to generate the new set of Vue components.
 
-The PIE iconset is managed by our PIE design team and new icon requests should go through them to ensure that they are designed inline with our standards and guildelines. Please reach out to the #proj-pie-design-system team who can help with these requests.
+The PIE iconset is managed by our PIE design team and new icon requests should go through them to ensure that they are designed inline with our standards and guildelines. Please reach out to PIE design system team using #help-designsystem slack channel.
 
 ### Building the Module
 
-Run `yarn build` to compile the module.
+Run `yarn build --filter=pie-icons-vue` from the project level or `yarn turbo run build --filter=pie-icons-vue` from the root level to compile the module.
 
 ## Icon list
 
-You can check the list of all the icons in our [Storybook](https://vue.pie.design/?path=/story/components-atoms--icons).
-
+You can check the list of all the icons on our [documentation site](https://pie.design/foundations/iconography/library/).
 
 ## Credits
 

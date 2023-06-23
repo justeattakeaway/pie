@@ -1,7 +1,7 @@
-import { html } from 'lit';
-import { StorybookContext } from './interfaces';
+import { html, TemplateResult } from 'lit';
+import { StorybookContext } from '../interfaces/storybook-context';
 
-export const WritingDirection = (story, storybookContext : StorybookContext) => {
+export const WritingDirection = (story: () => TemplateResult, storybookContext : StorybookContext) => {
     const { globals } = storybookContext;
     const writingDirection = ['ltr', 'rtl', 'auto'].includes(globals.writingDirection)
         ? globals.writingDirection

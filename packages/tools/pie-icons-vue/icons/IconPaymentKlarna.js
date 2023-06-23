@@ -9,10 +9,13 @@ export default {
     },
     functional: true,
     render (h, ctx) {
-        ctx.data = updateContextData(ctx, 'c-pieIcon c-pieIcon--klarna');
+        ctx.data = updateContextData(ctx, 'c-pieIcon c-pieIcon--klarna', 'IconPaymentKlarna');
         return h('svg', _mergeJSXProps([{
             attrs: {
                 xmlns: 'http://www.w3.org/2000/svg',
+                role: 'presentation',
+                focusable: 'false',
+                fill: 'currentColor',
                 viewBox: '0 0 24 24',
             },
         }, ctx.data]), [h('path', {

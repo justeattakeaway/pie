@@ -1,30 +1,58 @@
+export interface ButtonProps {
+    /**
+     * the size of the button.
+     * @default medium
+     */
+    size: 'xsmall' | 'small-expressive' | 'small-productive' | 'medium' | 'large';
+    /**
+     * The html button type to use.
+     * @default submit
+     */
+    type: 'submit' | 'button' | 'reset' | 'menu';
+    /**
+     * the variant of the button.
+     * @default primary
+     */
+    variant: 'primary' | 'secondary' | 'outline' | 'ghost';
+    /**
+     * If `true`, the button will be disabled.
+     * @default false
+     */
+    disabled: boolean;
+    /**
+     * If `true`, the button will span the full width.
+     * @default false
+     */
+    isFullWidth: boolean;
+}
+
 /**
  * Button size variants
  */
-export enum BUTTON_SIZE {
-    XSMALL = 'xsmall',
-    SMALL_EXPRESSIVE = 'small-expressive',
-    SMALL_PRODUCTIVE = 'small-productive',
-    MEDIUM = 'medium',
-    LARGE = 'large'
-}
+export const buttonSizes: ButtonProps['size'][] = [
+    'xsmall',
+    'small-expressive',
+    'small-productive',
+    'medium',
+    'large'
+];
 
 /**
  * Button style variants
  */
-export enum BUTTON_TYPE {
-    SUBMIT = 'submit',
-    BUTTON = 'button',
-    RESET = 'reset',
-    MENU = 'menu'
-}
+export const buttonVariants: ButtonProps['variant'][] = [
+    'primary',
+    'secondary',
+    'outline',
+    'ghost',
+];
 
 /**
- * Button style variants
+ * Button type variants
  */
-export enum BUTTON_VARIANT {
-    PRIMARY = 'primary',
-    SECONDARY = 'secondary',
-    OUTLINE = 'outline',
-    GHOST = 'ghost'
-}
+export const buttonTypes: ButtonProps['type'][] = [
+    'submit',
+    'button',
+    'reset',
+    'menu',
+];

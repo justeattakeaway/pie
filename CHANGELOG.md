@@ -1,5 +1,108 @@
 # Changelog
 
+## 2.12.1
+
+### Patch Changes
+
+- [Fixed] - Issue where changeset PR's weren't running CI jobs ([#537](https://github.com/justeattakeaway/pie/pull/537)) by [@siggerzz](https://github.com/siggerzz)
+
+## 2.12.0
+
+### Minor Changes
+
+- [Added] - percy token for pie-modal ([#522](https://github.com/justeattakeaway/pie/pull/522)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- [Changed] - Make pie-webc-core public ([#523](https://github.com/justeattakeaway/pie/pull/523)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Changed] - yarn.lock ([#513](https://github.com/justeattakeaway/pie/pull/513)) by [@fernandofranca](https://github.com/fernandofranca)
+
+## 2.11.0
+
+### Minor Changes
+
+- [Added] - pie-components-config package ([#487](https://github.com/justeattakeaway/pie/pull/487)) by [@fernandofranca](https://github.com/fernandofranca)
+
+- [Removed] - React `createComponent` wrappers from react/next apps ([#426](https://github.com/justeattakeaway/pie/pull/426)) by [@LTurns](https://github.com/LTurns)
+
+- [Changed] - Updated to use stylelint-config-pie ([#482](https://github.com/justeattakeaway/pie/pull/482)) by [@ashleynolan](https://github.com/ashleynolan)
+
+### Patch Changes
+
+- [Fixed] - Issue where `yarn test` cache wasn't invalidated when `__snapshots__` directory was updated. ([#492](https://github.com/justeattakeaway/pie/pull/492)) by [@siggerzz](https://github.com/siggerzz)
+
+- [Removed] - `@justeattakeaway/pie-icons` dependency ([#492](https://github.com/justeattakeaway/pie/pull/492)) by [@siggerzz](https://github.com/siggerzz)
+
+## 2.10.0
+
+### Minor Changes
+
+- [Added] - pie-icon-button component package with empty component code ([#486](https://github.com/justeattakeaway/pie/pull/486)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+## 2.9.0
+
+### Minor Changes
+
+- [Added] - text file to document PIE documentation site redirect rules ([#477](https://github.com/justeattakeaway/pie/pull/477)) by [@FayeCarter](https://github.com/FayeCarter)
+
+- [Updated] - pie-docs `test:generate-routes` script to run `build` before running tests ([#473](https://github.com/justeattakeaway/pie/pull/473)) by [@FayeCarter](https://github.com/FayeCarter)
+
+- [Added] - new project pie-webc-core ([#478](https://github.com/justeattakeaway/pie/pull/478)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- [Removed] - empty folder ([#480](https://github.com/justeattakeaway/pie/pull/480)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- Updated dependencies [[`ce810b027`](https://github.com/justeattakeaway/pie/commit/ce810b027ab32c79f908c1265b4116fb1d0d37d2), [`5109f5d97`](https://github.com/justeattakeaway/pie/commit/5109f5d975d5ad77d936d8513bb499899d7552b9)]:
+  - @justeattakeaway/pie-icons@3.2.0
+
+## 2.8.0
+
+### Minor Changes
+
+- [Changed] - update codeowners file to include designers ([#452](https://github.com/justeattakeaway/pie/pull/452)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- [Fixed] - Updating references to pie-stylelint-config pkg (to stylelint-config-pie) ([#468](https://github.com/justeattakeaway/pie/pull/468)) by [@ashleynolan](https://github.com/ashleynolan)
+
+- [Changed] - Updated PR template to prompt contributors to check Storybook for component changes ([#461](https://github.com/justeattakeaway/pie/pull/461)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- [Fixed] - Updated CODEOWNERS location to root of .github file ([#469](https://github.com/justeattakeaway/pie/pull/469)) by [@ashleynolan](https://github.com/ashleynolan)
+
+## 2.7.0
+
+### Minor Changes
+
+- [Changed] - Updated github labeler ([#439](https://github.com/justeattakeaway/pie/pull/439)) by [@fernandofranca](https://github.com/fernandofranca)
+
+### Patch Changes
+
+- [Fixed] - Updating eslint configs to reference new pkg name ([#460](https://github.com/justeattakeaway/pie/pull/460)) by [@ashleynolan](https://github.com/ashleynolan)
+
+- [Fixed] - Issue where deploys would fail when 'push' events occured to `feature-*` / `beta-*` branches due to no associated pull-request number. These branches will now only be triggered once a PR has been created. ([#458](https://github.com/justeattakeaway/pie/pull/458)) by [@siggerzz](https://github.com/siggerzz)
+
+## 2.6.0
+
+### Minor Changes
+
+- [Added] - Figma integration into Storybook ([#427](https://github.com/justeattakeaway/pie/pull/427)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - New renovate groupings for example apps ([#435](https://github.com/justeattakeaway/pie/pull/435)) by [@siggerzz](https://github.com/siggerzz)
+
+- [Fixed] Linting errors in pie-icons-vue. ([#413](https://github.com/justeattakeaway/pie/pull/413)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Changed] Allow pie-eslint-config to use itself as linting config.
+  [Added] Typescript linting to pie-monorepo.
+
+### Patch Changes
+
+- [Fixed] - Invalid JSON in `renovate.json` ([#435](https://github.com/justeattakeaway/pie/pull/435)) by [@siggerzz](https://github.com/siggerzz)
+
+- Updated dependencies [[`6d1d84695`](https://github.com/justeattakeaway/pie/commit/6d1d8469557b10cb12e63c56c677bd5b1defa0eb), [`5f25a416b`](https://github.com/justeattakeaway/pie/commit/5f25a416b892dd13473f203e9ea5d691af55ba52)]:
+  - @justeattakeaway/pie-icons@3.1.0
+
 ## 2.5.0
 
 ### Minor Changes

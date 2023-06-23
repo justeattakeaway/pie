@@ -23,8 +23,8 @@ pie-icons-react:
 pie-icons-vue:
 - 'packages/tools/pie-icons-vue/**/*'
 
-pie-stylelint-config:
-- 'packages/tools/pie-stylelint-config/**/*'
+stylelint-config-pie:
+- 'packages/tools/stylelint-config-pie/**/*'
 
 # Component projects
 components:
@@ -32,3 +32,9 @@ components:
 
 pie-button:
 - 'packages/components/pie-button/**/*'
+
+pie-modal:
+- 'packages/components/pie-modal/**/*'
+
+pie-icon-button:
+- 'packages/components/pie-icon-button/**/*'

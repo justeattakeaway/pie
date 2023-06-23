@@ -1,9 +1,9 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-const { vue, vue3 } = require('@justeattakeaway/pie-eslint-config/frameworks');
+const { vue, vue3 } = require('@justeattakeaway/eslint-config-pie/frameworks');
 
 module.exports = {
     extends: [
-        require.resolve('@justeattakeaway/pie-eslint-config/strict'),
+        require.resolve('@justeattakeaway/eslint-config-pie/strict'),
         'plugin:vue/vue3-recommended'
     ],
     rules: {

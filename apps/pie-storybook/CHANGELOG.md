@@ -1,5 +1,109 @@
 # Changelog
 
+## 0.13.0
+
+### Minor Changes
+
+- [Added] - `size` prop added to pie-icon-button ([#557](https://github.com/justeattakeaway/pie/pull/557)) by [@ashleynolan](https://github.com/ashleynolan)
+
+### Patch Changes
+
+- Updated dependencies [[`36254afa5`](https://github.com/justeattakeaway/pie/commit/36254afa52585cdef99bd479c189e391cdd9619c), [`3a1a863a4`](https://github.com/justeattakeaway/pie/commit/3a1a863a4397e95899e49dd36cb021e00dd41524), [`c54a8e723`](https://github.com/justeattakeaway/pie/commit/c54a8e723ff6de45d2dda65e435d8af7587dabdf)]:
+  - @justeattakeaway/pie-modal@0.6.0
+  - @justeattakeaway/pie-icon-button@0.6.0
+
+## 0.12.1
+
+### Patch Changes
+
+- Updated dependencies [[`16c8af6e6`](https://github.com/justeattakeaway/pie/commit/16c8af6e6c1d7206d27034b08da117532a161ac3)]:
+  - @justeattakeaway/pie-button@0.16.0
+  - @justeattakeaway/pie-icon-button@0.5.0
+  - @justeattakeaway/pie-modal@0.5.0
+
+## 0.12.0
+
+### Minor Changes
+
+- [Added] - `heading` **and** `headingLevel` story controls ([#530](https://github.com/justeattakeaway/pie/pull/530)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Changed] - Added modal component to storybook file ([#513](https://github.com/justeattakeaway/pie/pull/513)) by [@fernandofranca](https://github.com/fernandofranca)
+
+### Patch Changes
+
+- Updated dependencies [[`575f559e7`](https://github.com/justeattakeaway/pie/commit/575f559e775cddf2118539c295241bdd5c6d3452), [`1948c7605`](https://github.com/justeattakeaway/pie/commit/1948c7605073d98a39a8e9dc174eb39b2d11431c), [`3bd8b3bf5`](https://github.com/justeattakeaway/pie/commit/3bd8b3bf5cec095db19f7b5a4cbaa6c640737125), [`2019a959a`](https://github.com/justeattakeaway/pie/commit/2019a959a59c8dc8087a0971960bd6649fe4da93), [`3bd8b3bf5`](https://github.com/justeattakeaway/pie/commit/3bd8b3bf5cec095db19f7b5a4cbaa6c640737125), [`575f559e7`](https://github.com/justeattakeaway/pie/commit/575f559e775cddf2118539c295241bdd5c6d3452), [`15ff86928`](https://github.com/justeattakeaway/pie/commit/15ff86928a4a7271fa3c7ecbb0156267b3ee6990), [`15ff86928`](https://github.com/justeattakeaway/pie/commit/15ff86928a4a7271fa3c7ecbb0156267b3ee6990), [`575f559e7`](https://github.com/justeattakeaway/pie/commit/575f559e775cddf2118539c295241bdd5c6d3452), [`15ff86928`](https://github.com/justeattakeaway/pie/commit/15ff86928a4a7271fa3c7ecbb0156267b3ee6990), [`15ff86928`](https://github.com/justeattakeaway/pie/commit/15ff86928a4a7271fa3c7ecbb0156267b3ee6990), [`790b7600f`](https://github.com/justeattakeaway/pie/commit/790b7600f17f352386300de274d5235756cee8da), [`251400a4a`](https://github.com/justeattakeaway/pie/commit/251400a4a797ebb049a7ae392aeb76fa596907e4), [`429ce9b2a`](https://github.com/justeattakeaway/pie/commit/429ce9b2a4a74af971c4c81d0edbf3e127fcf959)]:
+  - @justeattakeaway/pie-modal@0.4.0
+  - @justeattakeaway/pie-button@0.15.0
+  - @justeattakeaway/pie-icon-button@0.4.0
+
+## 0.11.1
+
+### Patch Changes
+
+- Updated dependencies [[`09a7b4b56`](https://github.com/justeattakeaway/pie/commit/09a7b4b5684e54d9f12a9854a99493536f1004e2), [`09a7b4b56`](https://github.com/justeattakeaway/pie/commit/09a7b4b5684e54d9f12a9854a99493536f1004e2)]:
+  - @justeattakeaway/pie-icon-button@0.3.0
+  - @justeattakeaway/pie-button@0.14.0
+
+## 0.11.0
+
+### Minor Changes
+
+- [Added] - Variant and disabled props to icon button stories ([#491](https://github.com/justeattakeaway/pie/pull/491)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies [[`3a75f8ae7`](https://github.com/justeattakeaway/pie/commit/3a75f8ae72471b262c740814893ef5bb556d135d), [`090354733`](https://github.com/justeattakeaway/pie/commit/090354733f24f0aa52ce287db7f8d13648414150), [`cb6854511`](https://github.com/justeattakeaway/pie/commit/cb68545113e019d2a292d3f1ff2907a383b208fb), [`cb6854511`](https://github.com/justeattakeaway/pie/commit/cb68545113e019d2a292d3f1ff2907a383b208fb), [`0bb3e9a71`](https://github.com/justeattakeaway/pie/commit/0bb3e9a71403fa96cea4c97190f827434abdb13f), [`cb6854511`](https://github.com/justeattakeaway/pie/commit/cb68545113e019d2a292d3f1ff2907a383b208fb), [`f2e6a7a7e`](https://github.com/justeattakeaway/pie/commit/f2e6a7a7e474eef7f7e32f465bdd2c2a3f851ce3), [`090354733`](https://github.com/justeattakeaway/pie/commit/090354733f24f0aa52ce287db7f8d13648414150), [`0bb3e9a71`](https://github.com/justeattakeaway/pie/commit/0bb3e9a71403fa96cea4c97190f827434abdb13f)]:
+  - @justeattakeaway/pie-icon-button@0.2.0
+  - @justeattakeaway/pie-button@0.13.0
+  - @justeattakeaway/pie-modal@0.3.0
+
+## 0.10.0
+
+### Minor Changes
+
+- [Added] - basic pie-icon-button integration ([#486](https://github.com/justeattakeaway/pie/pull/486)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies [[`8f57fc6a3`](https://github.com/justeattakeaway/pie/commit/8f57fc6a35d33a917d7590dcdb5d2a24653e1478)]:
+  - @justeattakeaway/pie-icon-button@0.1.0
+
+## 0.9.1
+
+### Patch Changes
+
+- Updated dependencies [[`1f79d9d1a`](https://github.com/justeattakeaway/pie/commit/1f79d9d1a6fe9160b244e82d956290136b87187b)]:
+  - @justeattakeaway/pie-modal@0.2.0
+  - @justeattakeaway/pie-button@0.12.2
+
+## 0.9.0
+
+### Minor Changes
+
+- [Added] - Axe Add-on to Storybook ([#465](https://github.com/justeattakeaway/pie/pull/465)) by [@JoshuaNg2332](https://github.com/JoshuaNg2332)
+
+- [Added] Initial story for pie-modal component ([#461](https://github.com/justeattakeaway/pie/pull/461)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+## 0.8.1
+
+### Patch Changes
+
+- Updated dependencies [[`457d60446`](https://github.com/justeattakeaway/pie/commit/457d6044602de2027549e9db14510072a361ee46)]:
+  - @justeattakeaway/pie-button@0.12.1
+
+## 0.8.0
+
+### Minor Changes
+
+- [Added] - Figma integration into Storybook ([#427](https://github.com/justeattakeaway/pie/pull/427)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - isFullWidth prop to button ([#434](https://github.com/justeattakeaway/pie/pull/434)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies [[`5a411d919`](https://github.com/justeattakeaway/pie/commit/5a411d9197aeda8c41a8ccb8eb7885491345998a), [`5a411d919`](https://github.com/justeattakeaway/pie/commit/5a411d9197aeda8c41a8ccb8eb7885491345998a), [`5a411d919`](https://github.com/justeattakeaway/pie/commit/5a411d9197aeda8c41a8ccb8eb7885491345998a), [`5a411d919`](https://github.com/justeattakeaway/pie/commit/5a411d9197aeda8c41a8ccb8eb7885491345998a)]:
+  - @justeattakeaway/pie-button@0.12.0
+
 ## 0.7.0
 
 ### Minor Changes

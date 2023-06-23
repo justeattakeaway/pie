@@ -33,8 +33,7 @@
         "PIE_URL_PREFIX"
       ],
       "dependsOn": [
-        "^build",
-        "@justeattakeaway/pie-icons#build"
+        "^build"
       ],
       "outputs": [
         "dist/**"
@@ -43,8 +42,7 @@
     "pie-docs#build:dev": {
       "cache": true,
       "dependsOn": [
-        "^build",
-        "@justeattakeaway/pie-icons#build"
+        "^build"
       ]
     },
     "pie-docs#dev": {
@@ -68,22 +66,36 @@
         "^build"
       ]
     },
-    "test:generate-routes": {
+    "pie-docs#test:generate-routes": {
+      "dependsOn": [
+        "pie-docs#build"
+      ],
       "cache": false
     },
     "test": {
       "cache": true,
       "dependsOn": [
-        "build"
+        "build",
+        "^test"
       ],
-      "outputs": [],
+      "outputs": [
+        "**/__snapshots__/**",
+        "**/snapshots/**"
+      ],
       "inputs": [
         "src/**"
       ]
     },
     "test:ci": {
       "cache": true,
-      "outputs": [],
+      "dependsOn": [
+        "build",
+        "^test:ci"
+      ],
+      "outputs": [
+        "**/__snapshots__/**",
+        "**/snapshots/**"
+      ],
       "inputs": [
         "src/**"
       ]

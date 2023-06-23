@@ -1,5 +1,146 @@
 # Changelog
 
+## 2.3.0
+
+### Minor Changes
+
+- [Changed]: Updates instagram-circle-large and star-circle-filled-large svg. Updates microsoft-circle-static, microsoft-circle-filled-static and apple-static both large and default and removes static postfix from them. ([#552](https://github.com/justeattakeaway/pie/pull/552)) by [@dandel10n](https://github.com/dandel10n)
+
+- [Added] - `useMonospace` and `isFullWidth` flags to `simpleTable` ([#558](https://github.com/justeattakeaway/pie/pull/558)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Changed] - Update `simpleTable` to allow headerless tables
+  [Changed] - Use `simpleTable` on global spacing tokens page
+  [Added] - `globalSpacingTokens.json` to hold page data
+
+### Patch Changes
+
+- Updated dependencies [[`fe0a9e266`](https://github.com/justeattakeaway/pie/commit/fe0a9e2666e42cbe486032e240cc2f9ddd711679)]:
+  - @justeattakeaway/pie-icons@3.6.0
+
+## 2.2.0
+
+### Minor Changes
+
+- [Added] Add icons to icon library page that are new to pie-icons. ([#506](https://github.com/justeattakeaway/pie/pull/506)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Changed] Update names of some icons to better reflect the fill state.
+
+- [Added] - fozzie and pie token package upgrades plus fix older removed variables ([#505](https://github.com/justeattakeaway/pie/pull/505)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
+- [changed] - updates names of some social icons to reflect their static behaviour ([#528](https://github.com/justeattakeaway/pie/pull/528)) by [@dandel10n](https://github.com/dandel10n)
+
+### Patch Changes
+
+- Updated dependencies [[`868d9d3f1`](https://github.com/justeattakeaway/pie/commit/868d9d3f1d8cd4e8de2f2a1bb8a96ddb55e16e36), [`2955fe8c4`](https://github.com/justeattakeaway/pie/commit/2955fe8c497bb965d12abe39388dd409730b3388)]:
+  - @justeattakeaway/pie-icons@3.4.0
+
+## 2.1.0
+
+### Minor Changes
+
+- [Changed] - Updating styles inline with new Stylelint rules ([#482](https://github.com/justeattakeaway/pie/pull/482)) by [@ashleynolan](https://github.com/ashleynolan)
+
+- [Updated] - markdown lists to use correct icons ([#503](https://github.com/justeattakeaway/pie/pull/503)) by [@FayeCarter](https://github.com/FayeCarter)
+
+- [Added] - System test for sticky nav on desktop ([#484](https://github.com/justeattakeaway/pie/pull/484)) by [@FayeCarter](https://github.com/FayeCarter)
+
+  [Added] - `isElementVisibleInViewport` test helper function
+
+- [Added] - `@justeattakeaway/pie-icons` as an explicit dependency to ensure dependant tasks are correct for pie-docs ([#492](https://github.com/justeattakeaway/pie/pull/492)) by [@siggerzz](https://github.com/siggerzz)
+
+- [Updated] - iconography overview copy ([#500](https://github.com/justeattakeaway/pie/pull/500)) by [@FayeCarter](https://github.com/FayeCarter)
+
+## 2.0.0
+
+### Major Changes
+
+- [Added] - Colour page toggle test ([#489](https://github.com/justeattakeaway/pie/pull/489)) by [@JoshuaNg2332](https://github.com/JoshuaNg2332)
+
+### Minor Changes
+
+- [Added] - Skip to content link and implement smooth scrolling as default behaviour for users without motion preferences ([#485](https://github.com/justeattakeaway/pie/pull/485)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - Placeholder section to icon library page ([#474](https://github.com/justeattakeaway/pie/pull/474)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- [Changed] - Headings to use site-wide font-size rules ([#474](https://github.com/justeattakeaway/pie/pull/474)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- [Changed] - Fix broken snapshot test by including a11y attributes on icons ([#485](https://github.com/justeattakeaway/pie/pull/485)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+## 1.74.1
+
+### Patch Changes
+
+- [Changed] - updated snapshot tests that use icons to include new a11y attributes ([#486](https://github.com/justeattakeaway/pie/pull/486)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+## 1.74.0
+
+### Minor Changes
+
+- [Added] - 11ty drafts ([#473](https://github.com/justeattakeaway/pie/pull/473)) by [@FayeCarter](https://github.com/FayeCarter)
+
+### Patch Changes
+
+- [Fixed] - Issue where cookie banner wasn't disappearing in Playwright due to new www.pie.design > pie.design redirect ([#475](https://github.com/justeattakeaway/pie/pull/475)) by [@siggerzz](https://github.com/siggerzz)
+
+## 1.73.0
+
+### Minor Changes
+
+- [Added] - 'Testing for Accessibility' page ([#450](https://github.com/justeattakeaway/pie/pull/450)) by [@siggerzz](https://github.com/siggerzz)
+
+- [Added] - Accessibility resources page ([#450](https://github.com/justeattakeaway/pie/pull/450)) by [@siggerzz](https://github.com/siggerzz)
+
+- [Added] - Accessibility section to doc site ([#450](https://github.com/justeattakeaway/pie/pull/450)) by [@siggerzz](https://github.com/siggerzz)
+
+  [Added] - Accessibility overview page
+  [Updated] - Nav and Footer components to show accessibility section
+
+- [Updated] - urls for accessibility pages ([#464](https://github.com/justeattakeaway/pie/pull/464)) by [@FayeCarter](https://github.com/FayeCarter)
+
+### Patch Changes
+
+- [Fixed] - Updating references to pie-stylelint-config pkg (to stylelint-config-pie) ([#468](https://github.com/justeattakeaway/pie/pull/468)) by [@ashleynolan](https://github.com/ashleynolan)
+
+## 1.72.0
+
+### Minor Changes
+
+- [Changed] - ensure pieDesignTokenColours.js throws an error if a token is undefined ([#451](https://github.com/justeattakeaway/pie/pull/451)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Removed] - iconList shortcode now that it has been replaced by categorisedIconList ([#446](https://github.com/justeattakeaway/pie/pull/446)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- [Changed] - Improve accessibility of updated iconography library page ([#455](https://github.com/justeattakeaway/pie/pull/455)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- [Changed] - use content-default colour design token for nav icon svg fill. Previous token no longer existed and was empty ([#451](https://github.com/justeattakeaway/pie/pull/451)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - New tab ordering for token pages. ([#440](https://github.com/justeattakeaway/pie/pull/440)) by [@siggerzz](https://github.com/siggerzz)
+
+- [Added] - Categorisation data for remaining icons, and add snapshot test ([#446](https://github.com/justeattakeaway/pie/pull/446)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+### Patch Changes
+
+- [Fixed] - Updating eslint configs to reference new pkg name ([#460](https://github.com/justeattakeaway/pie/pull/460)) by [@ashleynolan](https://github.com/ashleynolan)
+
+## 1.71.0
+
+### Minor Changes
+
+- [Added] - a reusable warning about global token usage to all global tokens pages ([#447](https://github.com/justeattakeaway/pie/pull/447)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - missing horizontal dividers to spacing token pages ([#447](https://github.com/justeattakeaway/pie/pull/447)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- [Fixed] Typo in icon name: check-circl-large -> check-circle-large ([#443](https://github.com/justeattakeaway/pie/pull/443)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Fixed] Typo in icon name: delivery-dee-large -> delivery-fee-large
+  [Fixed] Typo in icon name: locatoin-pin-food -> location-pin-food
+  [Fixed] Typo in icon name: reciept-error -> receipt-error
+  [Fixed] Typo in icon name: reciept-error-large -> receipt-error-large
+  [Fixed] Typo in icon name: swiss-fanc-large -> swiss-franc-large
+  [Fixed] Typo in icon name: targer -> target
+  [Updated] pie-docs iconList snapshot tests with updated icon names
+
 ## 1.70.0
 
 ### Minor Changes
