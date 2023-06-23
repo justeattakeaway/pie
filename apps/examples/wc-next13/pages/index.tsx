@@ -12,7 +12,7 @@ export default function Home () {
     const decrement = () => setCount(count - 1);
     const switchVariant = () => {
         variantIndex.current += 1;
-        const variantsKeys: readonly string[] = sizes;
+        const variantsKeys: readonly string[] = variants;
         const variant: ButtonProps['variant'] = variants[variantIndex.current % variantsKeys.length];
 
         setVariantName(variant);
