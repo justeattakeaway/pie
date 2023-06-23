@@ -1,9 +1,11 @@
-// /*
-// /* This code snippet was provided by Percy as a way to get our Lit components working correctly when running against the Safari browser.
-// /* Safari blocks requests coming from localhost, resulting in our CSS not loading when requested.
-// /* This function is passed to Percy and executed against the serialized DOM to rewrite all 'localhost' urls to 'render.percy.local'.
-// /* This is a temporary workaround, and a long-term solution will be implemented by Percy at a later date.
-// /*
+import { SnapshotOptions } from '@percy/core';
+
+///*
+///* This code snippet was provided by Percy as a way to get our Lit components working correctly when running against the Safari browser.
+///* Safari blocks requests coming from localhost, resulting in our CSS not loading when requested.
+///* This function is passed to Percy and executed against the serialised DOM to rewrite all 'localhost' urls to 'render.percy.local'.
+///* This is a temporary workaround, and a long-term solution will be implemented by Percy at a later date.
+///*
 const percyOptions = {
     domTransformation: (documentElement: any) => {
         function updateLinks (root : any) {
@@ -22,7 +24,11 @@ const percyOptions = {
     },
 };
 
-const getLitPercyOptions = () => {
+interface ExtendedSnapshotOptions extends SnapshotOptions {
+    domTransformation?: string;
+}
+
+const getLitPercyOptions = (): ExtendedSnapshotOptions => {
     const options = {
         domTransformation: percyOptions.domTransformation.toString(),
     };
@@ -30,4 +36,4 @@ const getLitPercyOptions = () => {
     return options;
 };
 
-export { getLitPercyOptions };
+export { getLitPercyOptions }

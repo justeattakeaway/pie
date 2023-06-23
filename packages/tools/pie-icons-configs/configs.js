@@ -40,17 +40,9 @@ export const iconSizeValidator = {
 export function validateGetLargeIconSize (iconSizeValue) {
     const isValid = iconSizeValidator.large(iconSizeValue);
 
-    if (!isValid) {
-        const parsedValue = parseInt(iconSizeValue, 10) || 0;
-        // Ensure the size is a multiple of module
-        const multipleOfModule = Math.floor(parsedValue / largeIconSizeModule) * largeIconSizeModule;
-        // Ensure to return the default size if the size is smaller than the default size
-        const normalizedIconSize = Math.max(multipleOfModule, largeIconSizeDefault);
+    const iconSize = isValid ? iconSizeValue : largeIconSizeDefault;
 
-        return { isValid: false, iconSize: normalizedIconSize };
-    }
-
-    return { isValid: true, iconSize: iconSizeValue };
+    return { isValid, iconSize };
 }
 
 /**
@@ -80,18 +72,23 @@ export function validateGetRegularIconSize (iconSizeValue) {
 export const getSvgProps = (svgClasses, staticClasses, iconSizeValue, componentName) => {
     const isLargeIcon = svgClasses.endsWith('Large') || svgClasses.endsWith('-large') || componentName.endsWith('Large');
 
-    const { isValid, iconSize } = isLargeIcon
-        ? validateGetLargeIconSize(iconSizeValue)
-        : validateGetRegularIconSize(iconSizeValue);
+    let isValid;
+    let iconSize;
 
-        console.log('wooooo', iconSizeValue);
+    if (iconSizeValue) {
+        ({ isValid, iconSize } = isLargeIcon
+            ? validateGetLargeIconSize(iconSizeValue)
+            : validateGetRegularIconSize(iconSizeValue));
 
-    if (!isValid) {
-        const errorMessage = isLargeIcon
-            ? `Invalid prop "iconSize" value supplied to "${componentName}". The prop value should be a number equal or greater than ${largeIconSizeDefault} and multiple of ${largeIconSizeModule}.`
-            : `Invalid prop "iconSize" value supplied to "${componentName}". The prop value should be one of the following values: ${regularIconSizes.join(', ')}.`;
+        if (!isValid) {
+            const errorMessage = isLargeIcon
+                ? `Invalid prop "iconSize" value supplied to "${componentName}". The prop value should be a number equal or greater than ${largeIconSizeDefault} and multiple of ${largeIconSizeModule}.`
+                : `Invalid prop "iconSize" value supplied to "${componentName}". The prop value should be one of the following values: ${regularIconSizes.join(', ')}.`;
 
-        console.error(errorMessage);
+            console.error(errorMessage);
+        }
+    } else {
+        iconSize = isLargeIcon ? largeIconSizeDefault : sizeToValueMap[regularIconSizeDefault];
     }
 
     return {

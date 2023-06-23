@@ -1,5 +1,19 @@
 # @justeattakeaway/pie-modal
 
+## 0.6.0
+
+### Minor Changes
+
+- [Changed] - Updated styles to use custom props ([#551](https://github.com/justeattakeaway/pie/pull/551)) by [@ashleynolan](https://github.com/ashleynolan)
+
+- [Added] - close button to modal ([#549](https://github.com/justeattakeaway/pie/pull/549)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
+## 0.5.0
+
+### Minor Changes
+
+- [Updated] - enum types to string union types to string union types ([#508](https://github.com/justeattakeaway/pie/pull/508)) by [@FayeCarter](https://github.com/FayeCarter)
+
 ## 0.4.0
 
 ### Minor Changes
