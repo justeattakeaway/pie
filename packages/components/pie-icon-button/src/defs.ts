@@ -19,7 +19,7 @@ export interface IconButtonProps {
 /**
  * Icon Button size variants
  */
-export const iconButtonSizes: IconButtonProps['size'][] = [
+export const iconButtonSizes: Array<IconButtonProps['size']> = [
     'xsmall',
     'small',
     'medium',
@@ -29,7 +29,7 @@ export const iconButtonSizes: IconButtonProps['size'][] = [
 /**
  * Icon Button style variants
  */
-export const iconButtonVariants: IconButtonProps['variant'][] = [
+export const iconButtonVariants: Array<IconButtonProps['variant']> = [
     'primary',
     'secondary',
     'outline',
