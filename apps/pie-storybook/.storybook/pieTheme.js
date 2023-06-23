@@ -1,5 +1,5 @@
 import { create } from '@storybook/theming/create';
-import logo from '../public/logo--pie.svg';
+import logo from '../public/pie-logo.png';
 import designTokens from '@justeat/pie-design-tokens/dist/tokens.json';
 
 const jetDesignTokens = designTokens.theme.jet;
@@ -46,6 +46,13 @@ export default create({
     brandTitle: 'PIE Storybook',
     brandUrl: 'https://pie.design/',
     brandImage: logo,
+    // barBg: '#1A1A19',
+    // colorPrimary: 'blue',
+    // colorSecondary: '#F36805',
+    barTextColor: '#5C6F73',
+    barSelectedColor: '#242E30',
+    inputBorder: '#DBD9D7',
+    inputBorderRadius: '8px',
 
     booleanBg: jetDesignTokens.color.alias.default['container-strong'],
     booleanSelectedBg: jetDesignTokens.color.alias.default['container-default'],
