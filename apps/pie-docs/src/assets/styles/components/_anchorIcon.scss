@@ -1,10 +1,11 @@
 @use 'sass:color';
 @use '../fozzie-config' as f;
+@use '../variables' as v;
 
 $anchor-size: f.spacing(e);
 $anchor-margin: f.spacing(b);
 
-.c-anchor-icon {
+.c-anchorIcon {
     visibility: hidden;
     height: $anchor-size;
     width: $anchor-size;
@@ -27,21 +28,23 @@ $anchor-margin: f.spacing(b);
     }
 }
 
-h2:has(.c-anchor-icon),
-h3:has(.c-anchor-icon),
-h4:has(.c-anchor-icon) {
-    display: flex;
-    align-items: center;
+h2:has(.c-anchorIcon),
+h3:has(.c-anchorIcon),
+h4:has(.c-anchorIcon) {
+    scroll-margin-top: var(--header-height);
 
     &:hover {
-        .c-anchor-icon {
+        .c-anchorIcon {
             visibility: visible;
         }
     }
 
     @include f.media('>=mid') {
+        display: flex;
+        align-items: center;
         flex-direction: row-reverse;
         justify-content: start;
         margin-inline: -(calc($anchor-size + $anchor-margin)) 0;
+        scroll-margin-top: 0;
     }
 }

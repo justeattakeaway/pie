@@ -20,11 +20,8 @@ const md = new MarkdownIt({
     .use(anchor, {
         level: [2, 3, 4],
         permalink: anchor.permalink.linkInsideHeader({
-            symbol: `
-                <span class="is-visuallyHidden">Jump to heading</span>
-                ${AnchorIcon}
-            `,
-            class: 'c-anchor-icon',
+            symbol: AnchorIcon,
+            class: 'c-anchorIcon',
             placement: 'after',
         }),
         slugify: (s) => slugify(s, { lower: true, remove: /[$*_+~.()'"!/\-:@?]+/g }),
