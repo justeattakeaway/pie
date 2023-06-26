@@ -1,6 +1,8 @@
 .c-modal {
     // Custom Property Declarations
     // These are defined here instead of :host to encapsulate them inside Shadow DOM
+    $breakpoint-wide: 768px;
+
     --modal-size-s: 450px;
     --modal-size-m: 600px;
     --modal-size-l: 1080px;
@@ -13,13 +15,34 @@
 
     border-radius: var(--modal-border-radius);
     border: none;
-    font-family: var(--modal-font);
+    box-shadow: var(--modal-elevation);
     background-color: var(--modal-bg-color);
+    font-family: var(--modal-font);
 
     padding: 0;
-    inline-size: var(--modal-size-m);
 
-    box-shadow: var(--modal-elevation);
+    --modal-max-inline-size: var(--modal-size-m);
+    --modal-inline-size: 75%;
+
+    max-inline-size: var(--modal-max-inline-size);
+    inline-size: var(--modal-inline-size);
+
+    &[size='small'] {
+        --modal-max-inline-size: var(--modal-size-s);
+    }
+
+    &[size='medium'] {
+        /* Same as default styles */
+    }
+
+    &[size='large'] {
+        --modal-max-inline-size: var(--modal-size-l);
+        --modal-inline-size: 100%;
+
+        @media (min-width: $breakpoint-wide) {
+            --modal-inline-size: 75%;
+        }
+    }
 
     & .c-modal-heading {
         // Modal header Custom Props

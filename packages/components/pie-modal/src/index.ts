@@ -4,10 +4,15 @@ import { property, query } from 'lit/decorators.js'; // eslint-disable-line impo
 import { RtlMixin, validPropertyValues, requiredProperty } from '@justeattakeaway/pie-webc-core';
 
 import styles from './modal.scss?inline';
-import { ModalProps, headingLevels, ON_MODAL_CLOSE_EVENT } from './defs';
+import {
+    ModalProps,
+    headingLevels,
+    ON_MODAL_CLOSE_EVENT,
+    sizes,
+} from './defs';
 
 // Valid values available to consumers
-export { type ModalProps, headingLevels };
+export { type ModalProps, headingLevels, sizes };
 
 const componentSelector = 'pie-modal';
 
@@ -23,20 +28,29 @@ export class PieModal extends RtlMixin(LitElement) {
     @validPropertyValues(componentSelector, headingLevels, 'h2')
         headingLevel: ModalProps['headingLevel'] = 'h2';
 
+    @property()
+    @validPropertyValues(componentSelector, sizes, 'medium')
+        size: ModalProps['size'] = 'medium';
+
     @query('dialog')
-        _dialog: HTMLDialogElement;
+        _dialog: HTMLDialogElement | undefined;
 
     render () {
         const {
             isOpen,
             heading,
             headingLevel = 'h2',
+            size,
         } = this;
 
         const headingTag = unsafeStatic(headingLevel);
 
         return html`
-            <dialog id="dialog" class="c-modal" ?open="${isOpen}">
+            <dialog
+                id="dialog"
+                class="c-modal"
+                ?open="${isOpen}"
+                size="${size}">
                 <header>
                     <${headingTag} class="c-modal-heading">${heading}</${headingTag}>
                     <pie-icon-button
@@ -54,7 +68,7 @@ export class PieModal extends RtlMixin(LitElement) {
     }
 
     _handleCloseDialog = () => {
-        this._dialog.close();
+        this._dialog?.close();
         this._onDialogClose();
     };
 
