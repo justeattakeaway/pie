@@ -23,6 +23,7 @@
 
     box-shadow: var(--modal-elevation);
 
+    // We need to pull in the token directly here because the pseudo element `::backdrop` doesn't seem to pick up custom css properties.
     &::backdrop {
         background: #{dt.$color-overlay};
     }
