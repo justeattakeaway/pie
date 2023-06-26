@@ -24,7 +24,7 @@ export class PieModal extends RtlMixin(LitElement) {
         headingLevel: ModalProps['headingLevel'] = 'h2';
 
     @query('dialog')
-        _dialog!: HTMLDialogElement;
+        _dialog?: HTMLDialogElement;
 
     render () {
         const {
@@ -78,7 +78,7 @@ export class PieModal extends RtlMixin(LitElement) {
     }
 
     _handleCloseDialog = () => {
-        this._dialog.close();
+        this._dialog?.close();
         this._onDialogClose();
     };
 
@@ -88,12 +88,15 @@ export class PieModal extends RtlMixin(LitElement) {
      *
      */
     _handleDialogLightDismiss = () => {
-        this._dialog.addEventListener('click', (event) => {
-            const rect = this._dialog.getBoundingClientRect();
-            const isWithinDialogArea = (rect.top <= event.clientY && event.clientY <= rect.top + rect.height &&
-                rect.left <= event.clientX && event.clientX <= rect.left + rect.width);
+        this._dialog?.addEventListener('click', (event) => {
+            const rect = this._dialog?.getBoundingClientRect();
 
-            if (!isWithinDialogArea) this._handleCloseDialog();
+            if (typeof rect !== 'undefined') {
+                const isWithinDialogArea = (rect.top <= event.clientY && event.clientY <= rect.top + rect.height &&
+                    rect.left <= event.clientX && event.clientX <= rect.left + rect.width);
+
+                if (!isWithinDialogArea) this._handleCloseDialog();
+            }
         });
     };
 
