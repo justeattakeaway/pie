@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
 const { vue, vue3 } = require('@justeattakeaway/eslint-config-pie/frameworks');
 
 module.exports = {
@@ -10,6 +9,7 @@ module.exports = {
         ...vue.rules,
         ...vue3.rules,
         'vue/sort-keys': 'off',
+        'import/no-extraneous-dependencies': 'off',
     },
     parserOptions: {
         parser: '@babel/eslint-parser',

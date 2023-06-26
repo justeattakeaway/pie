@@ -1,15 +1,22 @@
-import { LitElement, html, unsafeCSS } from 'lit'; // eslint-disable-line import/no-extraneous-dependencies
-import { property } from 'lit/decorators.js'; // eslint-disable-line import/no-extraneous-dependencies
+import { LitElement, html, unsafeCSS } from 'lit';
+import { property } from 'lit/decorators.js';
 import { validPropertyValues } from '@justeattakeaway/pie-webc-core';
+
 import styles from './iconButton.scss?inline';
-import { IconButtonProps, iconButtonVariants } from './defs';
+import {
+    IconButtonProps, iconButtonSizes, iconButtonVariants,
+} from './defs';
 
 // Valid values available to consumers
-export { type IconButtonProps, iconButtonVariants };
+export { type IconButtonProps, iconButtonSizes, iconButtonVariants };
 
 const componentSelector = 'pie-icon-button';
 
 export class PieIconButton extends LitElement {
+    @property()
+    @validPropertyValues(componentSelector, iconButtonSizes, 'medium')
+        size: IconButtonProps['size'] = 'medium';
+
     @property()
     @validPropertyValues(componentSelector, iconButtonVariants, 'primary')
         variant: IconButtonProps['variant'] = 'primary';
@@ -19,13 +26,14 @@ export class PieIconButton extends LitElement {
 
     render () {
         const {
-            disabled, variant,
+            disabled, size, variant,
         } = this;
 
         // The inline SVG is temporary until we have a proper icon integration
         return html`
             <button
                 class="o-iconBtn"
+                size=${size}
                 variant=${variant}
                 ?disabled=${disabled}>
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">

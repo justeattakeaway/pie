@@ -201,6 +201,15 @@
       "declarations": [
         {
           "kind": "variable",
+          "name": "iconButtonSizes",
+          "type": {
+            "text": "IconButtonProps['size'][]"
+          },
+          "default": "[\n    'xsmall',\n    'small',\n    'medium',\n    'large'\n]",
+          "description": "Icon Button size variants"
+        },
+        {
+          "kind": "variable",
           "name": "iconButtonVariants",
           "type": {
             "text": "IconButtonProps['variant'][]"
@@ -210,6 +219,14 @@
         }
       ],
       "exports": [
+        {
+          "kind": "js",
+          "name": "iconButtonSizes",
+          "declaration": {
+            "name": "iconButtonSizes",
+            "module": "../../components/pie-icon-button/src/defs.js"
+          }
+        },
         {
           "kind": "js",
           "name": "iconButtonVariants",
@@ -237,6 +254,14 @@
           "description": "",
           "name": "PieIconButton",
           "members": [
+            {
+              "kind": "field",
+              "name": "size",
+              "type": {
+                "text": "IconButtonProps['size']"
+              },
+              "default": "'medium'"
+            },
             {
               "kind": "field",
               "name": "variant",
@@ -290,6 +315,14 @@
         },
         {
           "kind": "js",
+          "name": "iconButtonSizes",
+          "declaration": {
+            "name": "iconButtonSizes",
+            "module": "../../components/pie-icon-button/src/index.js"
+          }
+        },
+        {
+          "kind": "js",
           "name": "iconButtonVariants",
           "declaration": {
             "name": "iconButtonVariants",
@@ -310,37 +343,6 @@
           "declaration": {
             "name": "PieIconButton",
             "module": "../../components/pie-icon-button/src/index.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "../../components/pie-webc-core/src/index.js",
-      "declarations": [],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "*",
-          "declaration": {
-            "name": "*",
-            "package": "./mixins"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "*",
-          "declaration": {
-            "name": "*",
-            "package": "./decorators"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "*",
-          "declaration": {
-            "name": "*",
-            "package": "./test-helpers"
           }
         }
       ]
@@ -537,6 +539,37 @@
     },
     {
       "kind": "javascript-module",
+      "path": "../../components/pie-webc-core/src/index.js",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./mixins"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./decorators"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./test-helpers"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "../../components/pie-webc-core/src/decorators/index.js",
       "declarations": [],
       "exports": [
@@ -636,6 +669,21 @@
           "declaration": {
             "name": "validPropertyValues",
             "module": "../../components/pie-webc-core/src/decorators/valid-property-values.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../../components/pie-webc-core/src/mixins/index.js",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./rtl/rtlMixin"
           }
         }
       ]
@@ -768,7 +816,12 @@
       "declarations": [
         {
           "kind": "function",
-          "name": "getLitPercyOptions"
+          "name": "getLitPercyOptions",
+          "return": {
+            "type": {
+              "text": "ExtendedSnapshotOptions"
+            }
+          }
         }
       ],
       "exports": [
@@ -817,21 +870,6 @@
           "declaration": {
             "name": "createTestWebComponent",
             "module": "../../components/pie-webc-core/src/test-helpers/rendering.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "../../components/pie-webc-core/src/mixins/index.js",
-      "declarations": [],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "*",
-          "declaration": {
-            "name": "*",
-            "package": "./rtl/rtlMixin"
           }
         }
       ]

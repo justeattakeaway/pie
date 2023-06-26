@@ -1,10 +1,10 @@
-/* eslint-disable react/no-danger */
 import React from 'react';
 import Document, {
     Html, Main, NextScript, Head,
 } from 'next/document';
 
 export default class CustomDocument extends Document {
+    // eslint-disable-next-line class-methods-use-this
     render () {
         return (
             <Html>

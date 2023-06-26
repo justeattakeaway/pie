@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.13.0
+
+### Minor Changes
+
+- [Added] - `size` prop added to pie-icon-button ([#557](https://github.com/justeattakeaway/pie/pull/557)) by [@ashleynolan](https://github.com/ashleynolan)
+
+### Patch Changes
+
+- Updated dependencies [[`36254afa5`](https://github.com/justeattakeaway/pie/commit/36254afa52585cdef99bd479c189e391cdd9619c), [`3a1a863a4`](https://github.com/justeattakeaway/pie/commit/3a1a863a4397e95899e49dd36cb021e00dd41524), [`c54a8e723`](https://github.com/justeattakeaway/pie/commit/c54a8e723ff6de45d2dda65e435d8af7587dabdf)]:
+  - @justeattakeaway/pie-modal@0.6.0
+  - @justeattakeaway/pie-icon-button@0.6.0
+
 ## 0.12.1
 
 ### Patch Changes

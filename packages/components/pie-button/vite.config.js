@@ -1,3 +1,3 @@
-import viteConfig from '@justeattakeaway/pie-components-config/vite.config'; // eslint-disable-line import/no-extraneous-dependencies
+import viteConfig from '@justeattakeaway/pie-components-config/vite.config';
 
 export default viteConfig;

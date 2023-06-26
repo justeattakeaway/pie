@@ -1,7 +1,6 @@
 import { LitElement, html, unsafeCSS } from 'lit';
 import { property } from 'lit/decorators.js';
 import { validPropertyValues } from '@justeattakeaway/pie-webc-core';
-
 import styles from './button.scss?inline';
 import {
     ButtonProps, buttonSizes, buttonTypes, buttonVariants,
