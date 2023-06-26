@@ -1,19 +1,27 @@
 /* eslint-disable import/no-extraneous-dependencies */
-const path = require('path');
-const pieIcons = require('@justeattakeaway/pie-icons').default;
-const { pascalCase } = require('pascal-case');
-const kebabCase = require('kebab-case');
-const fs = require('fs-extra');
-const { execSync } = require('child_process');
+// const path = require('path');
+// const pieIcons = require('@justeattakeaway/pie-icons').default;
+// const { pascalCase } = require('pascal-case');
+// const kebabCase = require('kebab-case');
+// const fs = require('fs-extra');
+// const { execSync } = require('child_process');
+import pieIcons from '@justeattakeaway/pie-icons';
+import { pascalCase } from 'pascal-case';
+import path from 'path';
+import fs from 'fs-extra';
+import { execSync } from 'child_process';
+import kebabCase from 'kebab-case';
+import { removeHyphenBeforeDigits } from './helpers/index.js';
+// const { removeHyphenBeforeDigits } = require('./helpers');
 
-const { removeHyphenBeforeDigits } = require('./helpers');
+const { icons } = pieIcons.default;
 
 const componentTemplate = (name, svg) => `
 // eslint-disable-next-line import/no-unresolved, import/extensions
 import { getDefaultIconSize, iconSize, getSvgProps } from '@justeattakeaway/pie-icons-configs/configs';
 
 const template = document.createElement('template');
-template.innerHTML = '${svg}'
+template.innerHTML = '${svg};';
 
 export class ${name} extends HTMLElement {
     constructor () {
@@ -62,8 +70,6 @@ export class ${name} extends HTMLElement {
 customElements.define('${kebabCase(name).replace(/-/, '')}', ${name});
 `;
 
-const { icons } = pieIcons;
-
 const ICONS_DIR = `${process.cwd()}/icons`;
 // const COMPONENTS_DIR = `${ICONS_DIR}/components`;
 const indexPath = path.join(ICONS_DIR, '/index.js');
@@ -105,7 +111,8 @@ async function build () {
         const pascalCasedName = pascalCase(removeHyphenBeforeDigits(iconKey));
         const componentName = `Icon${capitalisedPathPrefix + pascalCasedName}`;
 
-        const svg = pieIcons.icons[iconKey].toSvg();
+        const svg = icons[iconKey].toSvg();
+
         let component = componentTemplate(componentName, svg);
         component = component.replace(/xlink:href/g, 'xlinkHref'); // replace so it gets parsed by JSX correctly
 

@@ -4,9 +4,10 @@ export default [
     {
         input: ['icons/index.js'],
         output: {
-            exports: 'named',
             dir: 'dist',
-            format: 'es',
+            format: 'cjs',
+            name: '@justeattakeaway/pie-icons-webc',
+            preserveModulesRoot: 'icons',
             preserveModules: true,
         },
         plugins: [

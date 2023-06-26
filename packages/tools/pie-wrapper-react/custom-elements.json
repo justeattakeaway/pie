@@ -239,40 +239,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "../../components/pie-icon-button/src/icon.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "IconAlcohol",
-          "superclass": {
-            "name": "HTMLElement"
-          },
-          "tagName": "corner-kitten",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "IconAlcohol",
-          "declaration": {
-            "name": "IconAlcohol",
-            "module": "../../components/pie-icon-button/src/icon.js"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "corner-kitten",
-          "declaration": {
-            "name": "IconAlcohol",
-            "module": "../../components/pie-icon-button/src/icon.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "../../components/pie-icon-button/src/index.js",
       "declarations": [
         {
@@ -288,14 +254,6 @@
           "description": "",
           "name": "PieIconButton",
           "members": [
-            {
-              "kind": "field",
-              "name": "size",
-              "type": {
-                "text": "IconButtonProps['size']"
-              },
-              "default": "'medium'"
-            },
             {
               "kind": "field",
               "name": "variant",
@@ -910,21 +868,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "../../components/pie-webc-core/src/test-helpers/components/index.js",
-      "declarations": [],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "*",
-          "declaration": {
-            "name": "*",
-            "package": "./web-component-test-wrapper/WebComponentTestWrapper"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "../../components/pie-webc-core/src/mixins/rtl/rtlMixin.js",
       "declarations": [
         {
@@ -967,6 +910,21 @@
           "declaration": {
             "name": "RtlMixin",
             "module": "../../components/pie-webc-core/src/mixins/rtl/rtlMixin.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "../../components/pie-webc-core/src/test-helpers/components/index.js",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./web-component-test-wrapper/WebComponentTestWrapper"
           }
         }
       ]

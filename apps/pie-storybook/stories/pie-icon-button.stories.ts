@@ -43,7 +43,7 @@ const Template = ({
         `;
 
 const defaultArgs: IconButtonProps = {
-    size: 'medium',
+    size: 's',
     variant: 'primary',
     disabled: false,
 };

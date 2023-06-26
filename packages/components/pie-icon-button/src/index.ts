@@ -3,6 +3,8 @@ import { property } from 'lit/decorators.js';
 import { validPropertyValues } from '@justeattakeaway/pie-webc-core';
 import { IconAppRestaurant } from '@justeattakeaway/pie-icons-webc/icons/IconAppRestaurant';
 
+console.log(IconAppRestaurant);
+
 import styles from './iconButton.scss?inline';
 import {
     IconButtonProps, iconButtonSizes, iconButtonVariants,
@@ -11,14 +13,12 @@ import {
 // Valid values available to consumers
 export { type IconButtonProps, iconButtonSizes, iconButtonVariants };
 
-console.log('yoo', IconAppRestaurant);
-
 const componentSelector = 'pie-icon-button';
 
 export class PieIconButton extends LitElement {
     @property()
     @validPropertyValues(componentSelector, iconButtonSizes, 'medium')
-        size: IconButtonProps['size'] = 'medium';
+        size: IconButtonProps['size'] = 's';
 
     @property()
     @validPropertyValues(componentSelector, iconButtonVariants, 'primary')
@@ -27,23 +27,19 @@ export class PieIconButton extends LitElement {
     @property({ type: Boolean })
         disabled = false;
 
-    @property({ type: Boolean })
-        hello = false;
-
     render () {
         const {
-            disabled, size, variant,
+            disabled, variant, size,
         } = this;
 
         // The inline SVG is temporary until we have a proper icon integration
         return html`
             <button
                 class="o-iconBtn"
-                size=${size}
                 variant=${variant}
                 ?disabled=${disabled}>
             </button>
-            <icon-app-restaurant size="xs">`;
+            <icon-app-restaurant size=${size}>`;
     }
 
     // Renders a `CSSResult` generated from SCSS by Vite

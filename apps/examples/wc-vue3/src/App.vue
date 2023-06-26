@@ -15,20 +15,23 @@
         <h2>Button variants</h2>
         <h2>Button sizes</h2>
         <div>
-            <icon-alcohol-filled />
+            <icon-alcohol-filled size="xs"/>
         </div>
     </div>
 </template>
 
 <script>
-// import { buttonVariants, buttonSizes } from '@justeattakeaway/pie-button';
+import { buttonVariants, buttonSizes } from '@justeattakeaway/pie-button';
+import { IconAlcoholFilled } from '@justeattakeaway/pie-icons-webc/icons/IconAlcoholFilled';
+
+console.log(IconAlcoholFilled);
 
 export default {
     data () {
         return {
             count: 0,
-            // BUTTON_VARIANT,
-            // buttonSizes,
+            buttonVariants,
+            buttonSizes,
         };
     },
     methods: {
