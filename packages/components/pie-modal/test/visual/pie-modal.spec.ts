@@ -1,21 +1,14 @@
 import { test } from '@sand4rt/experimental-ct-web';
 import percySnapshot from '@percy/playwright';
-import {
-    createTestWebComponent,
-    getAllPropCombinations,
-    getLitPercyOptions,
-    PropObject,
-    splitCombinationsByPropertyValue,
-    WebComponentPropValues,
-    WebComponentTestWrapper,
-} from '@justeattakeaway/pie-webc-core';
+import { getLitPercyOptions } from '@justeattakeaway/pie-webc-core/src/test-helpers/percy-lit-options.ts';
 
-import {
-    headingLevels,
-    ModalProps,
-    PieModal,
-    sizes,
-} from '@/index';
+import type { PropObject, WebComponentPropValues } from '@justeattakeaway/pie-webc-core/src/test-helpers/defs.ts';
+import { getAllPropCombinations, splitCombinationsByPropertyValue } from '@justeattakeaway/pie-webc-core/src/test-helpers/get-all-prop-combos.ts';
+import { createTestWebComponent } from '@justeattakeaway/pie-webc-core/src/test-helpers/rendering.ts';
+import { WebComponentTestWrapper } from '@justeattakeaway/pie-webc-core/src/test-helpers/components/web-component-test-wrapper/WebComponentTestWrapper.ts';
+
+import { ModalProps, PieModal } from '@/index';
+import { headingLevels, sizes } from '@/defs';
 
 const props: PropObject = {
     heading: 'This is a heading',
