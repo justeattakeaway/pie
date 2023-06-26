@@ -28,7 +28,7 @@ headingLevels.forEach((headingLevel) => test(`should render the correct heading 
 
 test.describe('`Pie Modal is closed`', () => {
     test.describe('when via the close button click', () => {
-        test.skip('should dispatch event `pie-modal-close`', async ({ mount, page }) => {
+        test('should dispatch event `pie-modal-close`', async ({ mount, page }) => {
             const messages: string[] = [];
             await mount(
                 PieModal,
@@ -50,7 +50,7 @@ test.describe('`Pie Modal is closed`', () => {
     });
 
     test.describe('when via the backdrop click', () => {
-        test.skip('should dispatch event `pie-modal-close`', async ({ mount, page }) => {
+        test('should dispatch event `pie-modal-close`', async ({ mount, page }) => {
             const messages: string[] = [];
             await mount(
                 PieModal,
