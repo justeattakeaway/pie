@@ -2,6 +2,7 @@ import { LitElement, unsafeCSS } from 'lit';
 import { html, unsafeStatic } from 'lit/static-html.js';
 import { property, query } from 'lit/decorators.js'; // eslint-disable-line import/no-extraneous-dependencies
 import { RtlMixin, validPropertyValues, requiredProperty } from '@justeattakeaway/pie-webc-core';
+import '@justeattakeaway/pie-icon-button';
 
 import styles from './modal.scss?inline';
 import { ModalProps, headingLevels, ON_MODAL_CLOSE_EVENT } from './defs';
@@ -69,11 +70,13 @@ export class PieModal extends RtlMixin(LitElement) {
             const dialog = this._dialog;
             const isClosed = changedProperties.get('isOpen') === false;
 
-            isClosed
-                ? dialog.showModal()
-                : dialog.close();
+            if (isClosed) {
+                dialog.showModal();
+            } else {
+                dialog.close();
+            }
         }
-    };
+    }
 
     _handleCloseDialog = () => {
         this._dialog.close();
@@ -86,10 +89,10 @@ export class PieModal extends RtlMixin(LitElement) {
      *
      */
     _handleDialogLightDismiss = () => {
-        this._dialog.addEventListener('click', event => {
+        this._dialog.addEventListener('click', (event) => {
             const rect = this._dialog.getBoundingClientRect();
-            const isWithinDialogArea = (rect.top <= event.clientY && event.clientY <= rect.top + rect.height
-                && rect.left <= event.clientX && event.clientX <= rect.left + rect.width);
+            const isWithinDialogArea = (rect.top <= event.clientY && event.clientY <= rect.top + rect.height &&
+                rect.left <= event.clientX && event.clientX <= rect.left + rect.width);
 
             if (!isWithinDialogArea) this._handleCloseDialog();
         });
