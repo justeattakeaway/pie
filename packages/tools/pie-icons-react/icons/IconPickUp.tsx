@@ -5,12 +5,12 @@ import { getReactSvgProps } from '@justeattakeaway/pie-icons-configs/configs-rea
 const IconPickUp = (props: RegularIconProps) => {
   const {
     className,
-    iconSize,
+    size,
     width,
     height,
     ...remainingProps
   } = props;
-  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--pick-up", className, iconSize, "IconPickUp");
+  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--pick-up", className, size, "IconPickUp");
   const allProps = {
     ...remainingProps,
     ...moreProps

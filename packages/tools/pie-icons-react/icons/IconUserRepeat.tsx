@@ -5,12 +5,12 @@ import { getReactSvgProps } from '@justeattakeaway/pie-icons-configs/configs-rea
 const IconUserRepeat = (props: RegularIconProps) => {
   const {
     className,
-    iconSize,
+    size,
     width,
     height,
     ...remainingProps
   } = props;
-  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--user-repeat", className, iconSize, "IconUserRepeat");
+  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--user-repeat", className, size, "IconUserRepeat");
   const allProps = {
     ...remainingProps,
     ...moreProps

@@ -5,12 +5,12 @@ import { getReactSvgProps } from '@justeattakeaway/pie-icons-configs/configs-rea
 const IconGoogleVoice = (props: RegularIconProps) => {
   const {
     className,
-    iconSize,
+    size,
     width,
     height,
     ...remainingProps
   } = props;
-  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--google-voice", className, iconSize, "IconGoogleVoice");
+  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--google-voice", className, size, "IconGoogleVoice");
   const allProps = {
     ...remainingProps,
     ...moreProps

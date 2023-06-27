@@ -5,12 +5,12 @@ import { getReactSvgProps } from '@justeattakeaway/pie-icons-configs/configs-rea
 const IconFullscreenExit = (props: RegularIconProps) => {
   const {
     className,
-    iconSize,
+    size,
     width,
     height,
     ...remainingProps
   } = props;
-  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--fullscreen-exit", className, iconSize, "IconFullscreenExit");
+  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--fullscreen-exit", className, size, "IconFullscreenExit");
   const allProps = {
     ...remainingProps,
     ...moreProps

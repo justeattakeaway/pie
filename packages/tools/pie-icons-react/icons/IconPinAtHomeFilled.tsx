@@ -5,12 +5,12 @@ import { getReactSvgProps } from '@justeattakeaway/pie-icons-configs/configs-rea
 const IconPinAtHomeFilled = (props: RegularIconProps) => {
   const {
     className,
-    iconSize,
+    size,
     width,
     height,
     ...remainingProps
   } = props;
-  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--pin-at-home-filled", className, iconSize, "IconPinAtHomeFilled");
+  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--pin-at-home-filled", className, size, "IconPinAtHomeFilled");
   const allProps = {
     ...remainingProps,
     ...moreProps

@@ -1,6 +1,6 @@
 {
   "name": "wc-nuxt3",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "private": true,
   "scripts": {
     "build": "nuxt build",
@@ -16,7 +16,7 @@
   },
   "devDependencies": {
     "@types/node": "18",
-    "nuxt": "3.0.0"
+    "nuxt": "3.4.3"
   },
   "volta": {
     "extends": "../../../package.json"

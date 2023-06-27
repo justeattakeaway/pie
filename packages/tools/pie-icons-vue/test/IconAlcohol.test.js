@@ -1,12 +1,10 @@
 import { mount } from '@vue/test-utils';
-/* eslint-disable import/no-extraneous-dependencies */
 import {
     describe,
     expect,
     test,
     vi,
 } from 'vitest';
-/* eslint-enable import/no-extraneous-dependencies */
 
 // eslint-disable-next-line import/no-unresolved
 import { sizeToValueMap } from '@justeattakeaway/pie-icons-configs';
@@ -29,28 +27,28 @@ describe('IconAlcohol (Regular variant) ::', () => {
         ['l', sizeToValueMap.l],
         ['xl', sizeToValueMap.xl],
         ['xxl', sizeToValueMap.xxl],
-    ])('should apply correct width and height for each icon size', (iconSizeKey, iconSizeValue) => {
+    ])('should apply correct width and height for each icon size', (sizeKey, sizeValue) => {
         // Arrange
-        const propsData = { iconSize: iconSizeKey };
+        const propsData = { size: sizeKey };
 
         // Act
         const wrapper = mount(IconAlcohol, { propsData });
 
         // Assert
-        expect(wrapper.html()).toContain(`width="${iconSizeValue}"`);
-        expect(wrapper.html()).toContain(`height="${iconSizeValue}"`);
+        expect(wrapper.html()).toContain(`width="${sizeValue}"`);
+        expect(wrapper.html()).toContain(`height="${sizeValue}"`);
     });
 
     test.each([
         'xxs',
         'xxxl',
         '',
-    ])('should not allow invalid sizes - %s', (iconSize) => {
+    ])('should not allow invalid sizes - %s', (size) => {
         // Arrange
         const defaultIconSize = sizeToValueMap.xs;
         const spy = vi.spyOn(console, 'error').mockImplementation(vi.fn());
 
-        const propsData = { iconSize };
+        const propsData = { size };
 
         // Act
         const wrapper = mount(IconAlcohol, { propsData });

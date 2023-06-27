@@ -5,12 +5,12 @@ import { getReactSvgProps } from '@justeattakeaway/pie-icons-configs/configs-rea
 const IconSoundOff = (props: RegularIconProps) => {
   const {
     className,
-    iconSize,
+    size,
     width,
     height,
     ...remainingProps
   } = props;
-  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--sound-off", className, iconSize, "IconSoundOff");
+  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--sound-off", className, size, "IconSoundOff");
   const allProps = {
     ...remainingProps,
     ...moreProps

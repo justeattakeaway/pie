@@ -1,4 +1,4 @@
-import { LitElement, unsafeCSS } from 'lit'; // eslint-disable-line import/no-extraneous-dependencies
+import { LitElement, unsafeCSS } from 'lit';
 import { html, unsafeStatic } from 'lit/static-html.js';
 import { property, query } from 'lit/decorators.js'; // eslint-disable-line import/no-extraneous-dependencies
 import { RtlMixin, validPropertyValues, requiredProperty } from '@justeattakeaway/pie-webc-core';
@@ -24,13 +24,18 @@ export class PieModal extends RtlMixin(LitElement) {
         headingLevel: ModalProps['headingLevel'] = 'h2';
 
     @query('dialog')
-        _dialog: HTMLDialogElement;
+        _dialog?: HTMLDialogElement;
+
+    constructor () {
+        super();
+        this.addEventListener('click', (event) => this._handleDialogLightDismiss(event));
+    }
 
     render () {
         const {
             isOpen,
             heading,
-            headingLevel,
+            headingLevel = 'h2',
         } = this;
 
         const headingTag = unsafeStatic(headingLevel);
@@ -44,18 +49,58 @@ export class PieModal extends RtlMixin(LitElement) {
                         variant="ghost-tertiary"
                         class="c-modal-closeBtn"></pie-icon-button>
                 </header>
-                <article>
-                    <div class="c-modal-content">
-                        <slot></slot>
-                    </div>
+                <article class="c-modal-content">
+                    <slot></slot>
                 </article>
             </dialog>
         `;
     }
 
+    /**
+     * We require this because toggling the prop `isOpen` itself won't
+     * allow the dialog to open in the correct way (with the default background),
+     * the method `showModal()` needs to be invoked.
+     *
+     * https://lit.dev/docs/components/lifecycle/#willupdate
+     *
+     * @param changedProperties
+     */
+    willUpdate (changedProperties: Map<string, unknown>) {
+        if (changedProperties.has('isOpen') && this._dialog) {
+            const dialog = this._dialog;
+            const isClosed = changedProperties.get('isOpen') === false;
+
+            if (isClosed) {
+                dialog.showModal();
+            } else {
+                dialog.close();
+            }
+        }
+    }
+
     _handleCloseDialog = () => {
-        this._dialog.close();
+        this._dialog?.close();
         this._onDialogClose();
+    };
+
+    /**
+     * Dismiss modal via `_handleCloseDialog()` on backdrop click
+     * and will proceed to fire an `ON_MODAL_CLOSE_EVENT` event.
+     *
+     */
+    private _handleDialogLightDismiss = (event: MouseEvent) => {
+        const rect = this._dialog?.getBoundingClientRect();
+
+        if (typeof rect !== 'undefined') {
+            const isClickOutsideDialog = event.clientY < rect.top ||
+                event.clientY > rect.bottom ||
+                event.clientX < rect.left ||
+                event.clientX > rect.right;
+
+            if (isClickOutsideDialog) {
+                this._handleCloseDialog();
+            }
+        }
     };
 
     /**

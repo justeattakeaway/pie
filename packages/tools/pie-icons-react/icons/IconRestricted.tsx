@@ -5,12 +5,12 @@ import { getReactSvgProps } from '@justeattakeaway/pie-icons-configs/configs-rea
 const IconRestricted = (props: RegularIconProps) => {
   const {
     className,
-    iconSize,
+    size,
     width,
     height,
     ...remainingProps
   } = props;
-  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--restricted", className, iconSize, "IconRestricted");
+  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--restricted", className, size, "IconRestricted");
   const allProps = {
     ...remainingProps,
     ...moreProps

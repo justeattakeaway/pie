@@ -17,54 +17,71 @@
    - [HTML example](#html)
    - [Vue example (using Nuxt 3)](#vue-templates-using-nuxt-3)
    - [React example (using Next 13)](#react-templates-using-next-13)
-5. [TypeScript Enum Exports](#typescript-enum-exports)
-6. [Testing](#testing)
+5. [Testing](#testing)
    - [Browser Tests](#browser-tests)
    - [Visual Tests](#visual-tests)
 
 
 ## `pie-button`
 
-`pie-button` is a Web Component built using the Lit library. It offers a simple and accessible button component for web applications. This component can be easily integrated into various frontend frameworks and customized through a set of properties. For TypeScript projects, it also provides exported enums for type safety and autocompletion.
+`pie-button` is a Web Component built using the Lit library. It offers a simple and accessible button component for web applications.
+
+This component can be easily integrated into various frontend frameworks and customized through a set of properties.
 
 ## Local development
 
-Install dependencies at the root
-```
+Install the dependencies. Note that this, and the following commands below, should be run from the **root of the monorepo**:
+
+```bash
 yarn
 ```
 
-Navigate to this folder, compile with TypeScript and build with Vite
-```
-cd packages/components/pie-button
-yarn build
+To build the `pie-button` package, run the following command:
+
+```bash
+yarn build --filter=pie-button
 ```
 
-Compile and watch for changes (auto-compiles `dist` on save)
-```
-yarn watch
+If you'd like to develop using the component storybook, then you should build the component in `watch` mode, and run storybook in a separate terminal tab:
+
+```bash
+yarn watch --filter=pie-button
+
+# in a separate terminal tab, run
+yarn dev --filter=pie-storybook
 ```
 
 ### Importing the component
 
 ```js
-// default
+// Default – for Native JS Applications, Vue, Angular, Svelte etc.
 import { PieButton } from '@justeattakeaway/pie-button';
 
-// react
+// React
+// For React, you will need to import our React specific component build
+// Which wraps the web component using the @lit-labs/react package
 import { PieButton } from '@justeattakeaway/pie-button/dist/react';
 ```
 
 ## Props
 
-| Property    | Type      | Default         | Description                                                          |
-|-------------|-----------|-----------------|----------------------------------------------------------------------|
-| size        | `String`  | `medium`        | Size of the button, one of `buttonSizes` |
-| type        | `String`  | `submit`        | Type of the button, one of `buttonTypes` |
-| variant     | `String`  | `primary`       | Variant of the button, one of `buttonVariants` |
-| disabled    | `Boolean` | `false`         | If `true`, disables the button.                                      |
-| isFullWidth | `Boolean` | `false`         | If `true`, sets the button width to 100% of it's container.                            |
+| Property    | Type      | Default         | Description                                                                                                    |
+|-------------|-----------|-----------------|----------------------------------------------------------------------------------------------------------------|
+| size        | `String`  | `medium`        | Size of the button, one of `buttonSizes` – `xsmall`, `small-expressive`, `small-productive`, `medium`, `large` |
+| type        | `String`  | `submit`        | Type of the button, one of `buttonTypes` – `submit`, `button`, `reset`, `menu`                                 |
+| variant     | `String`  | `primary`       | Variant of the button, one of `buttonVariants`– `primary`, `secondary`, `outline`, `ghost`                     |
+| disabled    | `Boolean` | `false`         | If `true`, disables the button.                                                                                |
+| isFullWidth | `Boolean` | `false`         | If `true`, sets the button width to 100% of it's container.                                                    |
 
+In your markup or JSX, you can then use these to set the properties for the `pie-button` component:
+
+```html
+<!-- Native HTML -->
+<pie-button size='medium' type='button' variant='primary'>Click me!</pie-button>
+
+<!-- JSX -->
+<PieButton size='medium' type='button' variant='primary'>Click me!</PieButton>
+```
 
 ## Events
 
@@ -73,67 +90,58 @@ This component does not use any custom event handlers. In order to add event lis
 For example, to add a click handler in various templates:
 
 ### HTML
+
 ```html
 <!-- Other attributes omitted for clarity -->
 <pie-button onclick="e => console.log(e)">Click me!</pie-button>
 ```
 
 ### Vue templates (using Nuxt 3)
+
 ```html
 <!-- Other attributes omitted for clarity -->
 <pie-button @click="handleClick">Click me!</pie-button>
 ```
 
 ### React templates (using Next 13)
+
 ```html
 <!-- Other attributes omitted for clarity -->
 <PieButton onClick={handleClick}>increment</PieButton>
 
 ```
 
-## TypeScript Type Exports
-
-For TypeScript projects, we export one interface for the button properties: `ButtonProps`. This contains three props `buttonSizes`, `buttonTypes`, and `buttonVariants`. You can import and use these types to set the corresponding property values for the `pie-button` component. This ensures better type safety and autocompletion in your project.
-
-Here's an example of how to import and use the enums in a TypeScript project:
-
-```typescript
-import { ButtonProps } from '@justeattakeaway/pie-button';
-```
-
-In your markup or JSX, you can then use these variables to set the properties for the pie-button component:
-
-```html
-<PieButton size='medium' type='button' variant='primary'>Click me!</PieButton>
-```
 
 ## Testing
 
 ### Browser tests
 
-Run at the root of the monorepo:
-```
+To run the browser tests, run the following command from the root of the monorepo:
+
+```bash
 yarn test:browsers --filter=pie-button
 ```
 
 ### Visual tests
 
-Run at the root of the monorepo:
-```
+To run the visual regression tests, run the following command from the root of the monorepo:
+
+```bash
 yarn test:visual --filter=pie-button
 ```
 
 Note: To run these locally, you will need to ensure that any environment variables required are set up on your machine to mirror those on CI (such as Percy tokens). How you achieve this will differ between operating systems.
 
-Setup via bash:
+#### Setup via bash
 
-```
+```bash
 export PERCY_TOKEN_PIE_BUTTON=abcde
 ```
 
-Setup via package.json:
+#### Setup via package.json
 
 Under scripts `test:visual` replace the environment variable with the below:
 
-```
+```bash
 PERCY_TOKEN_PIE_BUTTON=abcde
+```

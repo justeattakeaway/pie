@@ -1,5 +1,23 @@
 # Changelog
 
+## 4.0.0
+
+### Major Changes
+
+- [Changed]: iconSize prop renamed to size prop ([#574](https://github.com/justeattakeaway/pie/pull/574)) by [@dandel10n](https://github.com/dandel10n)
+
+## 3.6.0
+
+### Minor Changes
+
+- [Changed]: Updates instagram-circle-large and star-circle-filled-large svg. Updates microsoft-circle-static, microsoft-circle-filled-static and apple-static both large and default and removes static postfix from them. ([#552](https://github.com/justeattakeaway/pie/pull/552)) by [@dandel10n](https://github.com/dandel10n)
+
+### Patch Changes
+
+- [Fixed]: removes a console error if iconSize prop is not passed ([#556](https://github.com/justeattakeaway/pie/pull/556)) by [@dandel10n](https://github.com/dandel10n)
+
+  [Changed]: in case of invalid `iconSize` being passed to large icons now the size defaults to the `largeIconSizeDefault`
+
 ## 3.5.0
 
 ### Minor Changes

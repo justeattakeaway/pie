@@ -5,12 +5,12 @@ import { getReactSvgProps } from '@justeattakeaway/pie-icons-configs/configs-rea
 const IconNavigationExpand = (props: RegularIconProps) => {
   const {
     className,
-    iconSize,
+    size,
     width,
     height,
     ...remainingProps
   } = props;
-  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--navigation-expand", className, iconSize, "IconNavigationExpand");
+  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--navigation-expand", className, size, "IconNavigationExpand");
   const allProps = {
     ...remainingProps,
     ...moreProps

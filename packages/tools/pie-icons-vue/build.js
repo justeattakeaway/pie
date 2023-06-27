@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 const path = require('path');
 const pieIcons = require('@justeattakeaway/pie-icons').default;
 const { pascalCase } = require('pascal-case');
@@ -21,7 +20,7 @@ export default {
     name: '${name}',
 
     props: {
-        iconSize: iconSize.${iconSize},
+        size: iconSize.${iconSize},
     },
 
     functional: true,
