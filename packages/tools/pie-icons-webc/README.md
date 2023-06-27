@@ -24,7 +24,7 @@ yarn add @justeattakeaway/pie-icons-webc
 
 ```js
 // Only import what you need!
-import { IconAppRestaurant } from '@justeattakeaway/pie-icons-webc/icons/IconAppRestaurant';
+import { IconAppRestaurant, IconAppRestaurantLarge } from '@justeattakeaway/pie-icons-webc';
 ```
 
 Within the context of a Vue app, that will look like:
@@ -36,7 +36,7 @@ Within the context of a Vue app, that will look like:
   </template>
 
   <script>
-  import { IconAlcoholFilled } from '@justeattakeaway/pie-icons-webc/icons/IconAlcoholFilled';
+  import { IconAlcoholFilled } from '@justeattakeaway/pie-icons-webc';
   </script>
   ```
 

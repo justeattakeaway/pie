@@ -1,11 +1,10 @@
 
-// eslint-disable-next-line import/no-unresolved, import/extensions
 import { getDefaultIconSize, iconSize, getSvgProps } from '@justeattakeaway/pie-icons-configs/configs';
 
 const template = document.createElement('template');
 template.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 32 32" class="c-pieIcon c-pieIcon--microsoftCircleFilledStaticLarge"><path fill="#242E30" d="M16 28.25a12.25 12.25 0 1 1 0-24.5 12.25 12.25 0 0 1 0 24.5Z"></path><path fill="#fff" d="M10 10h5.5v5.5H10V10Z"></path><path fill="#fff" d="M10 16.5h5.5V22H10v-5.5Z"></path><path fill="#fff" d="M16.5 10H22v5.5h-5.5V10Z"></path><path fill="#fff" d="M16.5 16.5H22V22h-5.5v-5.5Z"></path></svg>';
 
-export class IconSocialMicrosoftCircleFilledStaticLarge extends HTMLElement {
+export default class IconSocialMicrosoftCircleFilledStaticLarge extends HTMLElement {
     constructor () {
         super();
         const clone = template.content.cloneNode(true);

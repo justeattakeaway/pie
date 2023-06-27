@@ -14,7 +14,7 @@ import { getDefaultIconSize, iconSize, getSvgProps } from '@justeattakeaway/pie-
 const template = document.createElement('template');
 template.innerHTML = '${svg}';
 
-export class ${name} extends HTMLElement {
+export default class ${name} extends HTMLElement {
     constructor () {
         super();
         const clone = template.content.cloneNode(true);
@@ -103,7 +103,7 @@ async function build () {
         let component = componentTemplate(componentName, svg);
         component = component.replace(/xlink:href/g, 'xlinkHref'); // replace so it gets parsed by JSX correctly
 
-        indexFileString += `export { ${componentName} } from './${componentName}';\n`;
+        indexFileString += `export { default as ${componentName} } from './${componentName}';\n`;
 
         fs.writeFileSync(`./icons/${componentName}.js`, component, 'utf8');
     });

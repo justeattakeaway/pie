@@ -1,11 +1,10 @@
 
-// eslint-disable-next-line import/no-unresolved, import/extensions
 import { getDefaultIconSize, iconSize, getSvgProps } from '@justeattakeaway/pie-icons-configs/configs';
 
 const template = document.createElement('template');
 template.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 16 16" class="c-pieIcon c-pieIcon--poland"><path fill="#EEE" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14Z"></path><path fill="#D80027" d="M15 8A7 7 0 1 1 1 8"></path></svg>';
 
-export class IconFlagPoland extends HTMLElement {
+export default class IconFlagPoland extends HTMLElement {
     constructor () {
         super();
         const clone = template.content.cloneNode(true);

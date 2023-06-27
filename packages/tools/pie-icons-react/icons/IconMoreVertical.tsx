@@ -5,12 +5,12 @@ import { getReactSvgProps } from '@justeattakeaway/pie-icons-configs/configs-rea
 const IconMoreVertical = (props: RegularIconProps) => {
   const {
     className,
-    iconSize,
+    size,
     width,
     height,
     ...remainingProps
   } = props;
-  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--more-vertical", className, iconSize, "IconMoreVertical");
+  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--more-vertical", className, size, "IconMoreVertical");
   const allProps = {
     ...remainingProps,
     ...moreProps

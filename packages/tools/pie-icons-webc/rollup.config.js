@@ -1,9 +1,26 @@
 import { nodeResolve } from '@rollup/plugin-node-resolve';
+import del from 'rollup-plugin-delete';
 
 export default [
     {
         input: ['icons/index.js'],
         output: {
+            exports: 'named',
+            dir: 'esm',
+            format: 'esm',
+            name: '@justeattakeaway/pie-icons-webc',
+            preserveModulesRoot: 'icons',
+            preserveModules: true,
+        },
+        plugins: [
+            del({ targets: ['esm/*'] }),
+            nodeResolve({ resolveOnly: ['@justeattakeaway/pie-icons-configs'] }),
+        ],
+    },
+    {
+        input: ['icons/index.js'],
+        output: {
+            exports: 'named',
             dir: 'dist',
             format: 'cjs',
             name: '@justeattakeaway/pie-icons-webc',
@@ -11,7 +28,10 @@ export default [
             preserveModules: true,
         },
         plugins: [
-            nodeResolve({ resolveOnly: ['@justeattakeaway/pie-icons-configs'] }),
+            del({ targets: ['dist/*'] }),
+            nodeResolve({
+                resolveOnly: ['@justeattakeaway/pie-icons-configs'],
+            })
         ],
     },
 ];

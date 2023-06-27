@@ -1,10 +1,11 @@
 {
   "name": "@justeattakeaway/pie-icons-webc",
   "version": "0.1.0",
-  "main": "dist/index.js",
   "type": "module",
+  "main": "icons/index.js",
   "files": [
     "dist",
+    "esm",
     "icons"
   ],
   "publishConfig": {
@@ -50,7 +51,8 @@
     "fs-extra": "9.1.0",
     "kebab-case": "1.0.2",
     "pascal-case": "3.1.2",
-    "rollup": "3.20.2"
+    "rollup": "3.20.2",
+    "rollup-plugin-delete": "2.0.0"
   },
   "volta": {
     "extends": "../../../package.json"

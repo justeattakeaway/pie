@@ -5,12 +5,12 @@ import { getReactSvgProps } from '@justeattakeaway/pie-icons-configs/configs-rea
 const IconLogoSkipLarge = (props: LargeIconProps) => {
   const {
     className,
-    iconSize,
+    size,
     width,
     height,
     ...remainingProps
   } = props;
-  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--skip-large", className, iconSize, "IconLogoSkipLarge");
+  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--skip-large", className, size, "IconLogoSkipLarge");
   const allProps = {
     ...remainingProps,
     ...moreProps

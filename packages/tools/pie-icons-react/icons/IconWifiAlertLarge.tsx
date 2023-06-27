@@ -5,12 +5,12 @@ import { getReactSvgProps } from '@justeattakeaway/pie-icons-configs/configs-rea
 const IconWifiAlertLarge = (props: LargeIconProps) => {
   const {
     className,
-    iconSize,
+    size,
     width,
     height,
     ...remainingProps
   } = props;
-  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--wifi-alert-large", className, iconSize, "IconWifiAlertLarge");
+  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--wifi-alert-large", className, size, "IconWifiAlertLarge");
   const allProps = {
     ...remainingProps,
     ...moreProps

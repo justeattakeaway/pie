@@ -5,12 +5,12 @@ import { getReactSvgProps } from '@justeattakeaway/pie-icons-configs/configs-rea
 const IconPercentage = (props: RegularIconProps) => {
   const {
     className,
-    iconSize,
+    size,
     width,
     height,
     ...remainingProps
   } = props;
-  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--percentage", className, iconSize, "IconPercentage");
+  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--percentage", className, size, "IconPercentage");
   const allProps = {
     ...remainingProps,
     ...moreProps

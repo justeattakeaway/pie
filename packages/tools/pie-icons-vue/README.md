@@ -51,23 +51,23 @@ Within the context of a Vue app, that will look like:
 
 #### Props
 
-Icons accept any standard attribute, except for `width` and `height` since those are set implicitly by using the `iconSize` prop.
+Icons accept any standard attribute, except for `width` and `height` since those are set implicitly by using the `size` prop.
 
-##### `iconSize`
+##### `size`
 
 Icons are made available in different size variants:
 - small
 - large, when its name has the `Large` suffix
 
-Small icons default size is `xs` and can use one of the following pre-determined values for `iconSize`: `xs`, `s`, `m`, `l`, `xl`, and `xxl`. You can learn more about small icon sizes [here](https://www.pie.design/foundations/iconography/overview/#:~:text=Sizes%20for%20the%20Small%20icon%20set).
+Small icons default size is `xs` and can use one of the following pre-determined values for `size`: `xs`, `s`, `m`, `l`, `xl`, and `xxl`. You can learn more about small icon sizes [here](https://www.pie.design/foundations/iconography/overview/#:~:text=Sizes%20for%20the%20Small%20icon%20set).
 
-Large icons `iconSize` default and minimum value is `32`. Values larger than the minimum must be multiples of `8`, otherwise will be automatically rounded. You can learn more about large icon sizes [here](https://www.pie.design/foundations/iconography/overview/#:~:text=Sizes%20for%20the%20Large%20icon%20set).
+Large icons `size` default and minimum value is `32`. Values larger than the minimum must be multiples of `8`, otherwise will be automatically rounded. You can learn more about large icon sizes [here](https://www.pie.design/foundations/iconography/overview/#:~:text=Sizes%20for%20the%20Large%20icon%20set).
 
 Example:
 
 ```js
-<icon-alert-triangle iconSize="l" />
-<icon-alert-triangle-large iconSize="40" />
+<icon-alert-triangle size="l" />
+<icon-alert-triangle-large size="40" />
 ```
 
 ### Styles

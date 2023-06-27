@@ -5,12 +5,12 @@ import { getReactSvgProps } from '@justeattakeaway/pie-icons-configs/configs-rea
 const IconPauseCircle = (props: RegularIconProps) => {
   const {
     className,
-    iconSize,
+    size,
     width,
     height,
     ...remainingProps
   } = props;
-  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--pause-circle", className, iconSize, "IconPauseCircle");
+  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--pause-circle", className, size, "IconPauseCircle");
   const allProps = {
     ...remainingProps,
     ...moreProps

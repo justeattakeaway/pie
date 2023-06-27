@@ -20,7 +20,7 @@ export default {
     name: '${name}',
 
     props: {
-        iconSize: iconSize.${iconSize},
+        size: iconSize.${iconSize},
     },
 
     functional: true,
