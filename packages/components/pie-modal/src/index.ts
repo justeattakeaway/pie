@@ -5,6 +5,7 @@ import { RtlMixin, validPropertyValues, requiredProperty } from '@justeattakeawa
 
 import styles from './modal.scss?inline';
 import { ModalProps, headingLevels, ON_MODAL_CLOSE_EVENT } from './defs';
+import * as events from "events";
 
 // Valid values available to consumers
 export { type ModalProps, headingLevels };
@@ -25,6 +26,11 @@ export class PieModal extends RtlMixin(LitElement) {
 
     @query('dialog')
         _dialog?: HTMLDialogElement;
+
+    constructor () {
+        super();
+        this.addEventListener('click', (event) => this._handleDialogLightDismiss(event));
+    }
 
     render () {
         const {
@@ -49,10 +55,6 @@ export class PieModal extends RtlMixin(LitElement) {
                 </article>
             </dialog>
         `;
-    }
-
-    updated () {
-        this._handleDialogLightDismiss();
     }
 
     /**
@@ -87,17 +89,19 @@ export class PieModal extends RtlMixin(LitElement) {
      * and will proceed to fire an `ON_MODAL_CLOSE_EVENT` event.
      *
      */
-    _handleDialogLightDismiss = () => {
-        this._dialog?.addEventListener('click', (event) => {
-            const rect = this._dialog?.getBoundingClientRect();
+    private _handleDialogLightDismiss = (event: MouseEvent) => {
+        const rect = this._dialog?.getBoundingClientRect();
 
-            if (typeof rect !== 'undefined') {
-                const isWithinDialogArea = (rect.top <= event.clientY && event.clientY <= rect.top + rect.height &&
-                    rect.left <= event.clientX && event.clientX <= rect.left + rect.width);
+        if (typeof rect !== 'undefined') {
+            const isClickOutsideDialog = event.clientY < rect.top ||
+                event.clientY > rect.bottom ||
+                event.clientX < rect.left ||
+                event.clientX > rect.right;
 
-                if (!isWithinDialogArea) this._handleCloseDialog();
+            if (isClickOutsideDialog) {
+                this._handleCloseDialog();
             }
-        });
+        }
     };
 
     /**
