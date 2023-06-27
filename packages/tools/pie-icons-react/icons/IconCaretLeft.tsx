@@ -5,12 +5,12 @@ import { getReactSvgProps } from '@justeattakeaway/pie-icons-configs/configs-rea
 const IconCaretLeft = (props: RegularIconProps) => {
   const {
     className,
-    iconSize,
+    size,
     width,
     height,
     ...remainingProps
   } = props;
-  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--caret-left", className, iconSize, "IconCaretLeft");
+  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--caret-left", className, size, "IconCaretLeft");
   const allProps = {
     ...remainingProps,
     ...moreProps

@@ -1,6 +1,5 @@
 import { test } from '@sand4rt/experimental-ct-web';
 import percySnapshot from '@percy/playwright';
-import { getLitPercyOptions } from '@justeattakeaway/pie-webc-core/src/test-helpers/percy-lit-options.ts';
 import {
     WebComponentTestWrapper,
 } from '@justeattakeaway/pie-webc-core/src/test-helpers/components/web-component-test-wrapper/WebComponentTestWrapper.ts';
@@ -20,7 +19,7 @@ propIsOpenValues.forEach((props) => test(`should render Modal correctly when pro
         },
     );
 
-    await percySnapshot(page, `PIE Modal when isOpen is set to ${props.isOpen}`, getLitPercyOptions());
+    await percySnapshot(page, `PIE Modal when isOpen is set to ${props.isOpen}`);
 }));
 
 const renderTestPieModal = (propVals: WebComponentPropValues) => `<pie-modal ${propVals.isOpen ? 'isOpen' : ''} heading="${propVals.heading}" headingLevel="${propVals.headingLevel}"></pie-modal>`;
@@ -65,5 +64,5 @@ test('Should not be able to scroll when modal is open', async ({ page, mount }) 
 
     await page.waitForTimeout(3000); // The mouse.wheel function causes scrolling, but doesn't wait for the scroll to finish before returning.
 
-    await percySnapshot(page, 'PIE Modal scroll locking', getLitPercyOptions());
+    await percySnapshot(page, 'PIE Modal scroll locking');
 });

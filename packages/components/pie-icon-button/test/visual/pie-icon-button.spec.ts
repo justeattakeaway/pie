@@ -1,6 +1,5 @@
 import { test } from '@sand4rt/experimental-ct-web';
 import percySnapshot from '@percy/playwright';
-import { getLitPercyOptions } from '@justeattakeaway/pie-webc-core/src/test-helpers/percy-lit-options.ts';
 import type {
     PropObject, WebComponentPropValues, WebComponentTestInput,
 } from '@justeattakeaway/pie-webc-core/src/test-helpers/defs.ts';
@@ -56,5 +55,5 @@ componentVariants.forEach((variant) => test(`Render all prop variations for Vari
         );
     }));
 
-    await percySnapshot(page, `PIE Icon Button - Variant: ${variant}`, getLitPercyOptions());
+    await percySnapshot(page, `PIE Icon Button - Variant: ${variant}`);
 }));

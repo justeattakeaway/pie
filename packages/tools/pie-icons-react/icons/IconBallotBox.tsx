@@ -5,12 +5,12 @@ import { getReactSvgProps } from '@justeattakeaway/pie-icons-configs/configs-rea
 const IconBallotBox = (props: RegularIconProps) => {
   const {
     className,
-    iconSize,
+    size,
     width,
     height,
     ...remainingProps
   } = props;
-  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--ballot-box", className, iconSize, "IconBallotBox");
+  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--ballot-box", className, size, "IconBallotBox");
   const allProps = {
     ...remainingProps,
     ...moreProps

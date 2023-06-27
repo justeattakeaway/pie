@@ -43,9 +43,9 @@ function getTemplate(buildTimeClasses) {
         import { getReactSvgProps } from '@justeattakeaway/pie-icons-configs/configs-react';
 
         const ${componentName} = (props: ${componentPropsInterface}) => {
-            const { className, iconSize, width, height, ...remainingProps } = props;
+            const { className, size, width, height, ...remainingProps } = props;
 
-            const moreProps = getReactSvgProps("${buildTimeClasses}", className, iconSize, "${componentName}");
+            const moreProps = getReactSvgProps("${buildTimeClasses}", className, size, "${componentName}");
 
             const allProps = { ...remainingProps, ...moreProps };
 

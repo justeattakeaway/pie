@@ -5,12 +5,12 @@ import { getReactSvgProps } from '@justeattakeaway/pie-icons-configs/configs-rea
 const IconConversionRate = (props: RegularIconProps) => {
   const {
     className,
-    iconSize,
+    size,
     width,
     height,
     ...remainingProps
   } = props;
-  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--conversion-rate", className, iconSize, "IconConversionRate");
+  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--conversion-rate", className, size, "IconConversionRate");
   const allProps = {
     ...remainingProps,
     ...moreProps

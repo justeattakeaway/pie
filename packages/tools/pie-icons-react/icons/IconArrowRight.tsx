@@ -5,12 +5,12 @@ import { getReactSvgProps } from '@justeattakeaway/pie-icons-configs/configs-rea
 const IconArrowRight = (props: RegularIconProps) => {
   const {
     className,
-    iconSize,
+    size,
     width,
     height,
     ...remainingProps
   } = props;
-  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--arrow-right", className, iconSize, "IconArrowRight");
+  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--arrow-right", className, size, "IconArrowRight");
   const allProps = {
     ...remainingProps,
     ...moreProps
