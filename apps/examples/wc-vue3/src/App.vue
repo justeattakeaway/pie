@@ -22,12 +22,14 @@
             </pie-button>
         </div>
         <h2>Button sizes</h2>
-        <pie-button
-            v-for="(value, key) in buttonSizes"
-            :key="key"
-            :size="value">
-            WC Button in Vue!
-        </pie-button>
+        <div>
+            <pie-button
+                v-for="(value, key) in buttonSizes"
+                :key="key"
+                :size="value">
+                WC Button in Vue!
+            </pie-button>
+        </div>
     </div>
 </template>
 
