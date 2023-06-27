@@ -4915,6 +4915,7 @@ __metadata:
     "@justeattakeaway/pie-components-config": "workspace:*"
     "@justeattakeaway/pie-webc-core": "workspace:*"
     "@types/body-scroll-lock": 3.1.0
+  peerDependencies:
     body-scroll-lock: 4.0.0-beta.0
   languageName: unknown
   linkType: soft
@@ -26833,6 +26834,7 @@ __metadata:
     allure-commandline: 2.21.0
     autoprefixer: 10.4.14
     babel-loader: 8.3.0
+    body-scroll-lock: 4.0.0-beta.0
     commitizen: 4.3.0
     cross-env: 7.0.3
     cssnano: 5.1.15
