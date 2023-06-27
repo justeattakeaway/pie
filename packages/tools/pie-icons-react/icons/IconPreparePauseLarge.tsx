@@ -5,12 +5,12 @@ import { getReactSvgProps } from '@justeattakeaway/pie-icons-configs/configs-rea
 const IconPreparePauseLarge = (props: LargeIconProps) => {
   const {
     className,
-    iconSize,
+    size,
     width,
     height,
     ...remainingProps
   } = props;
-  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--prepare-pause-large", className, iconSize, "IconPreparePauseLarge");
+  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--prepare-pause-large", className, size, "IconPreparePauseLarge");
   const allProps = {
     ...remainingProps,
     ...moreProps

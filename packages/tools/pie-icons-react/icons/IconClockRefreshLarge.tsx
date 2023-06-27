@@ -5,12 +5,12 @@ import { getReactSvgProps } from '@justeattakeaway/pie-icons-configs/configs-rea
 const IconClockRefreshLarge = (props: LargeIconProps) => {
   const {
     className,
-    iconSize,
+    size,
     width,
     height,
     ...remainingProps
   } = props;
-  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--clock-refresh-large", className, iconSize, "IconClockRefreshLarge");
+  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--clock-refresh-large", className, size, "IconClockRefreshLarge");
   const allProps = {
     ...remainingProps,
     ...moreProps

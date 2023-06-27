@@ -5,12 +5,12 @@ import { getReactSvgProps } from '@justeattakeaway/pie-icons-configs/configs-rea
 const IconAlertTriangleFilled = (props: RegularIconProps) => {
   const {
     className,
-    iconSize,
+    size,
     width,
     height,
     ...remainingProps
   } = props;
-  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--alert-triangle-filled", className, iconSize, "IconAlertTriangleFilled");
+  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--alert-triangle-filled", className, size, "IconAlertTriangleFilled");
   const allProps = {
     ...remainingProps,
     ...moreProps

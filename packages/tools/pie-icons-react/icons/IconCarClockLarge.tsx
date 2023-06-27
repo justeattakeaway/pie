@@ -5,12 +5,12 @@ import { getReactSvgProps } from '@justeattakeaway/pie-icons-configs/configs-rea
 const IconCarClockLarge = (props: LargeIconProps) => {
   const {
     className,
-    iconSize,
+    size,
     width,
     height,
     ...remainingProps
   } = props;
-  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--car-clock-large", className, iconSize, "IconCarClockLarge");
+  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--car-clock-large", className, size, "IconCarClockLarge");
   const allProps = {
     ...remainingProps,
     ...moreProps

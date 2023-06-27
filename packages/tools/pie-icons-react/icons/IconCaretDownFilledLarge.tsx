@@ -5,12 +5,12 @@ import { getReactSvgProps } from '@justeattakeaway/pie-icons-configs/configs-rea
 const IconCaretDownFilledLarge = (props: LargeIconProps) => {
   const {
     className,
-    iconSize,
+    size,
     width,
     height,
     ...remainingProps
   } = props;
-  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--caret-down-filled-large", className, iconSize, "IconCaretDownFilledLarge");
+  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--caret-down-filled-large", className, size, "IconCaretDownFilledLarge");
   const allProps = {
     ...remainingProps,
     ...moreProps

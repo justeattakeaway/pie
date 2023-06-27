@@ -5,12 +5,12 @@ import { getReactSvgProps } from '@justeattakeaway/pie-icons-configs/configs-rea
 const IconNetworkError = (props: RegularIconProps) => {
   const {
     className,
-    iconSize,
+    size,
     width,
     height,
     ...remainingProps
   } = props;
-  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--network-error", className, iconSize, "IconNetworkError");
+  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--network-error", className, size, "IconNetworkError");
   const allProps = {
     ...remainingProps,
     ...moreProps
