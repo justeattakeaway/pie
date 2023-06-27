@@ -4810,6 +4810,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@justeat/pie-design-tokens@npm:5.2.0":
+  version: 5.2.0
+  resolution: "@justeat/pie-design-tokens@npm:5.2.0"
+  dependencies:
+    jsonc-parser: 3.2.0
+    lodash.merge: 4.6.2
+    mkdirp: 1.0.4
+  checksum: bb18a8335b6eedcf91dcbced78786dfd0d7f41ac6974e4e193c855d0f17019d4bb032bd512d369f7dad4d6b27220d2839586fb10862bdda45b400307fa01fe48
+  languageName: node
+  linkType: hard
+
 "@justeattakeaway/eslint-config-pie@workspace:packages/tools/eslint-config-pie":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/eslint-config-pie@workspace:packages/tools/eslint-config-pie"
@@ -26807,7 +26818,7 @@ __metadata:
     "@commitlint/config-conventional": 17.4.4
     "@justeat/browserslist-config-fozzie": 1.x
     "@justeat/fozzie": 11.0.0
-    "@justeat/pie-design-tokens": 5.1.0
+    "@justeat/pie-design-tokens": 5.2.0
     "@justeattakeaway/stylelint-config-pie": "workspace:*"
     "@percy/cli": 1.26.1
     "@percy/playwright": 1.0.4
