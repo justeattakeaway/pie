@@ -66,6 +66,6 @@ const categorisedIconList = () => headingAnchor(`<div>
                     </ul>`).join('')}
                 </li>
             </ul>
-        </div>`, true);
+        </div>`);
 
 module.exports = categorisedIconList;

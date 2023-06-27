@@ -1,22 +1,17 @@
 @use 'sass:color';
 @use '../fozzie-config' as f;
-@use '../variables' as v;
 
 $anchor-size: f.spacing(e);
 $anchor-margin: f.spacing(b);
+$anchor-width: calc($anchor-size + $anchor-margin);
 
-.c-anchorIcon {
+.c-anchor-icon {
     visibility: hidden;
     height: $anchor-size;
     width: $anchor-size;
     display: inline-flex;
-    border-radius: f.$radius-rounded-a;
     padding: f.spacing(a);
-    margin-inline: $anchor-margin 0;
-
-    @include f.media('>=mid') {
-        margin-inline: 0 $anchor-margin;
-    }
+    border-radius: f.$radius-rounded-a;
 
     &:hover {
         background-color: color.adjust(f.$color-container-default, $lightness: calc(f.$color-hover-01 * -1));
@@ -28,23 +23,31 @@ $anchor-margin: f.spacing(b);
     }
 }
 
-h2:has(.c-anchorIcon),
-h3:has(.c-anchorIcon),
-h4:has(.c-anchorIcon) {
+h2:has(.c-anchor-icon),
+h3:has(.c-anchor-icon),
+h4:has(.c-anchor-icon) {
+    display: flex;
+    align-items: center;
+    gap: $anchor-margin;
     scroll-margin-top: var(--header-height);
 
+    .c-anchor-text {
+        max-width: calc(100% - $anchor-width);
+    }
+
     &:hover {
-        .c-anchorIcon {
+        .c-anchor-icon {
             visibility: visible;
         }
     }
 
     @include f.media('>=mid') {
-        display: flex;
-        align-items: center;
         flex-direction: row-reverse;
         justify-content: start;
-        margin-inline: -(calc($anchor-size + $anchor-margin)) 0;
+        margin-inline-start: -($anchor-width);
+    }
+
+    @include f.media('>=wide') {
         scroll-margin-top: 0;
     }
 }
