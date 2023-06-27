@@ -1,3 +1,5 @@
+@use '@justeat/pie-design-tokens/dist/jet.scss' as dt;
+
 .c-modal {
     // Custom Property Declarations
     // These are defined here instead of :host to encapsulate them inside Shadow DOM
@@ -20,6 +22,12 @@
     inline-size: var(--modal-size-m);
 
     box-shadow: var(--modal-elevation);
+
+    // We need to pull in the token directly here because the
+    // pseudo element `::backdrop` doesn't seem to pick up custom css properties.
+    &::backdrop {
+        background: #{dt.$color-overlay};
+    }
 
     & .c-modal-heading {
         // Modal header Custom Props
@@ -59,7 +67,7 @@
 
     & .c-modal-closeBtn {
         position: absolute;
-        right: var(--dt-spacing-d);
-        top: var(--dt-spacing-d);
+        inset-inline-end: var(--dt-spacing-d);
+        inset-block-start: var(--dt-spacing-d);
     }
 }

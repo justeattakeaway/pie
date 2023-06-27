@@ -160,7 +160,7 @@
                             "kind": "field",
                             "name": "_dialog",
                             "type": {
-                                "text": "HTMLDialogElement"
+                                "text": "HTMLDialogElement | undefined"
                             }
                         },
                         {
@@ -218,9 +218,28 @@
                             "name": "render"
                         },
                         {
+                            "kind": "method",
+                            "name": "willUpdate",
+                            "parameters": [
+                                {
+                                    "name": "changedProperties",
+                                    "type": {
+                                        "text": "Map<string, unknown>"
+                                    }
+                                }
+                            ],
+                            "description": "We require this because toggling the prop `isOpen` itself won't\nallow the dialog to open in the correct way (with the default background),\nthe method `showModal()` needs to be invoked.\n\nhttps://lit.dev/docs/components/lifecycle/#willupdate"
+                        },
+                        {
                             "kind": "field",
                             "name": "_handleCloseDialog",
                             "privacy": "private"
+                        },
+                        {
+                            "kind": "field",
+                            "name": "_handleDialogLightDismiss",
+                            "privacy": "private",
+                            "description": "Dismiss modal via `_handleCloseDialog()` on backdrop click\nand will proceed to fire an `ON_MODAL_CLOSE_EVENT` event."
                         },
                         {
                             "kind": "field",
@@ -735,14 +754,6 @@
                         "name": "*",
                         "package": "./components"
                     }
-                },
-                {
-                    "kind": "js",
-                    "name": "*",
-                    "declaration": {
-                        "name": "*",
-                        "package": "./percy-lit-options"
-                    }
                 }
             ]
         },
@@ -899,31 +910,6 @@
                     "declaration": {
                         "name": "*",
                         "package": "./web-component-test-wrapper/WebComponentTestWrapper"
-                    }
-                }
-            ]
-        },
-        {
-            "kind": "javascript-module",
-            "path": "../../components/pie-webc-core/src/test-helpers/percy-lit-options.js",
-            "declarations": [
-                {
-                    "kind": "function",
-                    "name": "getLitPercyOptions",
-                    "return": {
-                        "type": {
-                            "text": "ExtendedSnapshotOptions"
-                        }
-                    }
-                }
-            ],
-            "exports": [
-                {
-                    "kind": "js",
-                    "name": "getLitPercyOptions",
-                    "declaration": {
-                        "name": "getLitPercyOptions",
-                        "module": "../../components/pie-webc-core/src/test-helpers/percy-lit-options.js"
                     }
                 }
             ]
