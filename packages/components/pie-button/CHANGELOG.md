@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.16.1
+
+### Patch Changes
+
+- [Changed] - Updated defs to use different array type syntax ([#566](https://github.com/justeattakeaway/pie/pull/566)) by [@ashleynolan](https://github.com/ashleynolan)
+
 ## 0.16.0
 
 ### Minor Changes

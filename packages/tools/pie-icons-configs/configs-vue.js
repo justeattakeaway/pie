@@ -6,7 +6,7 @@ import {
 } from './configs.js'; // eslint-disable-line import/extensions
 
 /**
- * Object with iconSize props configuration for large and regular icons
+ * Object with size props configuration for large and regular icons
  */
 export const iconSize = {
     large: {
@@ -37,7 +37,7 @@ export const updateContextData = (ctx, svgClasses, componentName) => {
     } = ctx.data.attrs || {};
     /* eslint-enable @typescript-eslint/no-unused-vars */
 
-    const props = getSvgProps(svgClasses, staticClass, ctx.props.iconSize, componentName);
+    const props = getSvgProps(svgClasses, staticClass, ctx.props.size, componentName);
 
     ctx.data.attrs = { ...rest, ...props };
     ctx.data.staticClass = ctx.data.attrs.class; // Necessary otherwise classes assigned in markup override the ones assigned in getSvgProps

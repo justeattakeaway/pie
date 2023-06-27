@@ -17,18 +17,18 @@ describe('IconAlcoholLarge (Large variant) ::', () => {
         expect(wrapper.exists()).toBe(true);
     });
 
-    describe('`iconSize` prop', () => {
+    describe('`size` prop', () => {
         describe('validator', () => {
             test.each([
                 32,
                 40,
                 120
-            ])('should allow valid sizes - %s', (iconSize) => {
+            ])('should allow valid sizes - %s', (size) => {
                 // Arrange
-                const { validator } = IconAlcoholLarge.props.iconSize;
+                const { validator } = IconAlcoholLarge.props.size;
 
                 // Act
-                const isValid = validator(iconSize);
+                const isValid = validator(size);
 
                 // Assert
                 expect(isValid).toBe(true);
@@ -37,12 +37,12 @@ describe('IconAlcoholLarge (Large variant) ::', () => {
             test.each([
                 24, // Too small
                 36, // Not a multiple of 8
-            ])('should not allow invalid sizes - %s', (iconSize) => {
+            ])('should not allow invalid sizes - %s', (size) => {
                 // Arrange
-                const { validator } = IconAlcoholLarge.props.iconSize;
+                const { validator } = IconAlcoholLarge.props.size;
 
                 // Act
-                const isValid = validator(iconSize);
+                const isValid = validator(size);
 
                 // Assert
                 expect(isValid).toBe(false);
@@ -55,26 +55,26 @@ describe('IconAlcoholLarge (Large variant) ::', () => {
             32,
             40,
             120
-        ])('should be correctly mapped to width and height - %s', (iconSize) => {
+        ])('should be correctly mapped to width and height - %s', (size) => {
             // Arrange
-            const propsData = { iconSize };
+            const propsData = { size };
 
             // Act
             const wrapper = mount(IconAlcoholLarge, { propsData });
 
             // Assert
-            expect(wrapper.html()).toContain(`width="${iconSize}"`);
-            expect(wrapper.html()).toContain(`height="${iconSize}"`);
+            expect(wrapper.html()).toContain(`width="${size}"`);
+            expect(wrapper.html()).toContain(`height="${size}"`);
         });
 
         test.each([
             24, // Too small
             36, // Not a multiple of 8
-        ])('should fall back from %s to the default size', (iconSize) => {
+        ])('should fall back from %s to the default size', (size) => {
             // Arrange
             const spy = vi.spyOn(console, 'error').mockImplementation(vi.fn());
 
-            const propsData = { iconSize };
+            const propsData = { size };
 
             // Act
             const wrapper = mount(IconAlcoholLarge, { propsData });

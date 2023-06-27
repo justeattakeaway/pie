@@ -21,20 +21,20 @@ describe('validateGetLargeIconSize', () => {
         vi.restoreAllMocks();
     });
 
-    describe('when provided with valid iconSize value', () => {
+    describe('when provided with valid size prop', () => {
         it('returns an object with the expected keys and values', () => {
             const received = validateGetLargeIconSize(largeIconSizeDefault);
             const expected = {
-                iconSize: largeIconSizeDefault,
+                size: largeIconSizeDefault,
                 isValid: true,
             };
             expect(received).toEqual(expected);
         });
     });
 
-    describe('when provided with invalid iconSize value', () => {
+    describe('when provided with invalid size prop', () => {
         const expected = {
-            iconSize: largeIconSizeDefault,
+            size: largeIconSizeDefault,
             isValid: false,
         };
 
@@ -69,20 +69,20 @@ describe('validateGetLargeIconSize', () => {
 });
 
 describe('validateGetRegularIconSize', () => {
-    describe('when provided with valid iconSize value', () => {
+    describe('when provided with valid size value', () => {
         it('returns an object with the expected keys and values', () => {
             const received = validateGetRegularIconSize('xs');
             const expected = {
-                iconSize: defaultRegularIconSize,
+                size: defaultRegularIconSize,
                 isValid: true,
             };
             expect(received).toEqual(expected);
         });
     });
 
-    describe('when provided with invalid iconSize value', () => {
+    describe('when provided with invalid size value', () => {
         const expected = {
-            iconSize: defaultRegularIconSize,
+            size: defaultRegularIconSize,
             isValid: false,
         };
 
@@ -137,7 +137,7 @@ describe('getSvgProps', () => {
             });
         });
 
-        describe('valid iconSizeValue parameter', () => {
+        describe('valid size prop', () => {
             it('returns an object that contains a width and height attr with the correct values', () => {
                 const received = getSvgProps('icon-test', null, regularIconSizeDefault, regularIconSizeName);
                 const expectedRegularIconSizeValue = sizeToValueMap[regularIconSizeDefault];
@@ -150,12 +150,12 @@ describe('getSvgProps', () => {
         });
     });
 
-    describe('when provided with invalid iconSizeValue parameter', () => {
-        const invalidIconSizeValue = 'n';
+    describe('when provided with invalid size prop', () => {
+        const invalidSize = 'n';
 
         it('returns an object with default width and height properties', () => {
             vi.spyOn(console, 'error').mockImplementation(vi.fn());
-            const received = getSvgProps('icon-test', null, invalidIconSizeValue, regularIconSizeName);
+            const received = getSvgProps('icon-test', null, invalidSize, regularIconSizeName);
 
             expect(received.width).toEqual(defaultRegularIconSize);
             expect(received.height).toEqual(defaultRegularIconSize);
@@ -163,15 +163,15 @@ describe('getSvgProps', () => {
 
         it('outputs a console error', () => {
             const spy = vi.spyOn(console, 'error').mockImplementation(vi.fn());
-            getSvgProps('icon-test', null, invalidIconSizeValue, regularIconSizeName);
+            getSvgProps('icon-test', null, invalidSize, regularIconSizeName);
 
             expect(spy).toHaveBeenCalled();
-            expect(spy).toHaveBeenCalledWith(expect.stringContaining('Invalid prop "iconSize" value'));
+            expect(spy).toHaveBeenCalledWith(expect.stringContaining('Invalid prop "size" value'));
             expect(spy).toHaveBeenCalledWith(expect.stringContaining(regularIconSizeName));
         });
     });
 
-    describe('when iconSizeValue is not provided', () => {
+    describe('when size is not provided', () => {
         it('returns an object with default icon width and height properties', () => {
             const received = getSvgProps('icon-test', null, null, regularIconSizeName);
 
@@ -187,7 +187,7 @@ describe('getSvgProps', () => {
 
     describe('when svgClasses parameter contains -large in class name', () => {
         const largeIconSizeName = 'IconTestLarge';
-        describe('when provided with valid iconSizeValue parameter', () => {
+        describe('when provided with valid size prop', () => {
             it('returns an object that contains a width and height attr with the correct values', () => {
                 const validLargeIconSize = 48;
                 const received = getSvgProps('icon-test-large', null, validLargeIconSize, largeIconSizeName);
@@ -199,7 +199,7 @@ describe('getSvgProps', () => {
             });
         });
 
-        describe('when provided with invalid iconSizeValue parameter', () => {
+        describe('when provided with invalid size prop', () => {
             const invalidSize = 49;
 
             it('returns an object with the default width and height', () => {
@@ -223,12 +223,12 @@ describe('getSvgProps', () => {
                 getSvgProps('icon-test-large', null, invalidSize, largeIconSizeName);
 
                 expect(spy).toHaveBeenCalled();
-                expect(spy).toHaveBeenCalledWith(expect.stringContaining('Invalid prop "iconSize" value'));
+                expect(spy).toHaveBeenCalledWith(expect.stringContaining('Invalid prop "size" value'));
                 expect(spy).toHaveBeenCalledWith(expect.stringContaining(largeIconSizeName));
             });
         });
 
-        describe('when iconSize is not provided', () => {
+        describe('when size is not provided', () => {
             it('returns an object with default icon width and height properties', () => {
                 const received = getSvgProps('test-large', null, null, largeIconSizeName);
 

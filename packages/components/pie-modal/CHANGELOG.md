@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-modal
 
+## 0.6.1
+
+### Patch Changes
+
+- [Changed] - Updated defs to use different array type syntax ([#566](https://github.com/justeattakeaway/pie/pull/566)) by [@ashleynolan](https://github.com/ashleynolan)
+
 ## 0.6.0
 
 ### Minor Changes

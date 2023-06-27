@@ -5,12 +5,12 @@ import { getReactSvgProps } from '@justeattakeaway/pie-icons-configs/configs-rea
 const IconStopwatch = (props: RegularIconProps) => {
   const {
     className,
-    iconSize,
+    size,
     width,
     height,
     ...remainingProps
   } = props;
-  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--stopwatch", className, iconSize, "IconStopwatch");
+  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--stopwatch", className, size, "IconStopwatch");
   const allProps = {
     ...remainingProps,
     ...moreProps

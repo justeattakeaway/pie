@@ -5,12 +5,12 @@ import { getReactSvgProps } from '@justeattakeaway/pie-icons-configs/configs-rea
 const IconSocialInstagramCircleFilled = (props: RegularIconProps) => {
   const {
     className,
-    iconSize,
+    size,
     width,
     height,
     ...remainingProps
   } = props;
-  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--instagram-circle-filled", className, iconSize, "IconSocialInstagramCircleFilled");
+  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--instagram-circle-filled", className, size, "IconSocialInstagramCircleFilled");
   const allProps = {
     ...remainingProps,
     ...moreProps

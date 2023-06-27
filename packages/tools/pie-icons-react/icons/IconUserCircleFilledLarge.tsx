@@ -5,12 +5,12 @@ import { getReactSvgProps } from '@justeattakeaway/pie-icons-configs/configs-rea
 const IconUserCircleFilledLarge = (props: LargeIconProps) => {
   const {
     className,
-    iconSize,
+    size,
     width,
     height,
     ...remainingProps
   } = props;
-  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--user-circle-filled-large", className, iconSize, "IconUserCircleFilledLarge");
+  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--user-circle-filled-large", className, size, "IconUserCircleFilledLarge");
   const allProps = {
     ...remainingProps,
     ...moreProps

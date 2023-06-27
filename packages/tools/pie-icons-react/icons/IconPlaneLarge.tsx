@@ -5,12 +5,12 @@ import { getReactSvgProps } from '@justeattakeaway/pie-icons-configs/configs-rea
 const IconPlaneLarge = (props: LargeIconProps) => {
   const {
     className,
-    iconSize,
+    size,
     width,
     height,
     ...remainingProps
   } = props;
-  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--plane-large", className, iconSize, "IconPlaneLarge");
+  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--plane-large", className, size, "IconPlaneLarge");
   const allProps = {
     ...remainingProps,
     ...moreProps

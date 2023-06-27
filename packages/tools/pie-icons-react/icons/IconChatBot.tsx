@@ -5,12 +5,12 @@ import { getReactSvgProps } from '@justeattakeaway/pie-icons-configs/configs-rea
 const IconChatBot = (props: RegularIconProps) => {
   const {
     className,
-    iconSize,
+    size,
     width,
     height,
     ...remainingProps
   } = props;
-  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--chat-bot", className, iconSize, "IconChatBot");
+  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--chat-bot", className, size, "IconChatBot");
   const allProps = {
     ...remainingProps,
     ...moreProps

@@ -5,12 +5,12 @@ import { getReactSvgProps } from '@justeattakeaway/pie-icons-configs/configs-rea
 const IconSignClosed = (props: RegularIconProps) => {
   const {
     className,
-    iconSize,
+    size,
     width,
     height,
     ...remainingProps
   } = props;
-  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--sign-closed", className, iconSize, "IconSignClosed");
+  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--sign-closed", className, size, "IconSignClosed");
   const allProps = {
     ...remainingProps,
     ...moreProps
