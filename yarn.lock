@@ -4923,6 +4923,7 @@ __metadata:
   resolution: "@justeattakeaway/pie-icons-vue@workspace:packages/tools/pie-icons-vue"
   dependencies:
     "@justeattakeaway/pie-icons": 3.6.0
+    "@justeattakeaway/pie-icons-configs": "workspace:*"
     "@vue/babel-helper-vue-jsx-merge-props": 1.4.0
     "@vue/babel-preset-jsx": 1.4.0
     "@vue/test-utils": 1.1.3

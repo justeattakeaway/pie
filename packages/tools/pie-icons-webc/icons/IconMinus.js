@@ -3,7 +3,7 @@
 import { getDefaultIconSize, iconSize, getSvgProps } from '@justeattakeaway/pie-icons-configs/configs';
 
 const template = document.createElement('template');
-template.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 16 16" class="c-pieIcon c-pieIcon--minus"><path d="M14.125 7.344H1.875v1.312h12.25V7.344Z"></path></svg>;';
+template.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 16 16" class="c-pieIcon c-pieIcon--minus"><path d="M14.125 7.344H1.875v1.312h12.25V7.344Z"></path></svg>';
 
 export class IconMinus extends HTMLElement {
     constructor () {

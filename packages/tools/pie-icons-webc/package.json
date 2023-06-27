@@ -32,7 +32,7 @@
     "build": "yarn clean && yarn build:icons && yarn build:dist",
     "build:dist": "rollup -c",
     "build:icons": "babel-node ./build.js",
-    "clean": "run -T rimraf -rf ./icons/ ./generated/",
+    "clean": "run -T rimraf -rf ./icons/",
     "lint:scripts": "run -T eslint .",
     "lint:scripts:fix": "yarn lint:scripts --fix",
     "prebuild:example": "yarn build:icons",

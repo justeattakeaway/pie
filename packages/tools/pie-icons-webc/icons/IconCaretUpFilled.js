@@ -3,7 +3,7 @@
 import { getDefaultIconSize, iconSize, getSvgProps } from '@justeattakeaway/pie-icons-configs/configs';
 
 const template = document.createElement('template');
-template.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 16 16" class="c-pieIcon c-pieIcon--caretUpFilled"><path d="M12.996 10.231 8.936 4.29a1.313 1.313 0 0 0-1.076-.577 1.313 1.313 0 0 0-1.085.612l-3.798 5.941a1.33 1.33 0 0 0 0 1.339 1.312 1.312 0 0 0 1.155.682h7.823a1.312 1.312 0 0 0 1.085-2.056h-.044Z"></path></svg>;';
+template.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 16 16" class="c-pieIcon c-pieIcon--caretUpFilled"><path d="M12.996 10.231 8.936 4.29a1.313 1.313 0 0 0-1.076-.577 1.313 1.313 0 0 0-1.085.612l-3.798 5.941a1.33 1.33 0 0 0 0 1.339 1.312 1.312 0 0 0 1.155.682h7.823a1.312 1.312 0 0 0 1.085-2.056h-.044Z"></path></svg>';
 
 export class IconCaretUpFilled extends HTMLElement {
     constructor () {
