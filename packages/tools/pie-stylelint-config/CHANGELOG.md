@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.0
+
+### Minor Changes
+
+- [Added] - Rule for custom property naming convention ([#550](https://github.com/justeattakeaway/pie/pull/550)) by [@ashleynolan](https://github.com/ashleynolan)
+
 ## 0.3.0
 
 ### Minor Changes

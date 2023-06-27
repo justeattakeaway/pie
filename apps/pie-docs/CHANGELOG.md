@@ -1,5 +1,22 @@
 # Changelog
 
+## 2.3.0
+
+### Minor Changes
+
+- [Changed]: Updates instagram-circle-large and star-circle-filled-large svg. Updates microsoft-circle-static, microsoft-circle-filled-static and apple-static both large and default and removes static postfix from them. ([#552](https://github.com/justeattakeaway/pie/pull/552)) by [@dandel10n](https://github.com/dandel10n)
+
+- [Added] - `useMonospace` and `isFullWidth` flags to `simpleTable` ([#558](https://github.com/justeattakeaway/pie/pull/558)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Changed] - Update `simpleTable` to allow headerless tables
+  [Changed] - Use `simpleTable` on global spacing tokens page
+  [Added] - `globalSpacingTokens.json` to hold page data
+
+### Patch Changes
+
+- Updated dependencies [[`fe0a9e266`](https://github.com/justeattakeaway/pie/commit/fe0a9e2666e42cbe486032e240cc2f9ddd711679)]:
+  - @justeattakeaway/pie-icons@3.6.0
+
 ## 2.2.0
 
 ### Minor Changes
