@@ -5,12 +5,12 @@ import { getReactSvgProps } from '@justeattakeaway/pie-icons-configs/configs-rea
 const IconClockAdd = (props: RegularIconProps) => {
   const {
     className,
-    iconSize,
+    size,
     width,
     height,
     ...remainingProps
   } = props;
-  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--clock-add", className, iconSize, "IconClockAdd");
+  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--clock-add", className, size, "IconClockAdd");
   const allProps = {
     ...remainingProps,
     ...moreProps

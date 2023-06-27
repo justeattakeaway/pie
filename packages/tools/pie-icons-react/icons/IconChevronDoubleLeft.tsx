@@ -5,12 +5,12 @@ import { getReactSvgProps } from '@justeattakeaway/pie-icons-configs/configs-rea
 const IconChevronDoubleLeft = (props: RegularIconProps) => {
   const {
     className,
-    iconSize,
+    size,
     width,
     height,
     ...remainingProps
   } = props;
-  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--chevron-double-left", className, iconSize, "IconChevronDoubleLeft");
+  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--chevron-double-left", className, size, "IconChevronDoubleLeft");
   const allProps = {
     ...remainingProps,
     ...moreProps

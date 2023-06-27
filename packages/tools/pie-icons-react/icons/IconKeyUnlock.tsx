@@ -5,12 +5,12 @@ import { getReactSvgProps } from '@justeattakeaway/pie-icons-configs/configs-rea
 const IconKeyUnlock = (props: RegularIconProps) => {
   const {
     className,
-    iconSize,
+    size,
     width,
     height,
     ...remainingProps
   } = props;
-  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--key-unlock", className, iconSize, "IconKeyUnlock");
+  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--key-unlock", className, size, "IconKeyUnlock");
   const allProps = {
     ...remainingProps,
     ...moreProps

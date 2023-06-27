@@ -5,12 +5,12 @@ import { getReactSvgProps } from '@justeattakeaway/pie-icons-configs/configs-rea
 const IconCreditCardHomeFilled = (props: RegularIconProps) => {
   const {
     className,
-    iconSize,
+    size,
     width,
     height,
     ...remainingProps
   } = props;
-  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--credit-card-home-filled", className, iconSize, "IconCreditCardHomeFilled");
+  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--credit-card-home-filled", className, size, "IconCreditCardHomeFilled");
   const allProps = {
     ...remainingProps,
     ...moreProps
