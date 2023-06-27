@@ -44,7 +44,7 @@ export class PieModal extends RtlMixin(LitElement) {
         this._handleModalOpenStateChanged(changedProperties);
     }
 
-    _handleModalOpened () : void {
+    private _handleModalOpened () : void {
         this._disableScrolling();
         //  We require this because toggling the prop `isOpen` itself won't
         //  allow the dialog to open in the correct way (with the default background),
@@ -52,7 +52,7 @@ export class PieModal extends RtlMixin(LitElement) {
         this._dialog?.showModal();
     }
 
-    _handleModalClosed () : void {
+    private _handleModalClosed () : void {
         this._enableScrolling();
         //  Closes the native dialog element
         this._dialog?.close();
