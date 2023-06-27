@@ -96,7 +96,7 @@ export class PieModal extends RtlMixin(LitElement) {
                         variant="ghost-tertiary"
                         class="c-modal-closeBtn"></pie-icon-button>
                 </header>
-                <article >
+                <article>
                     <div class="c-modal-content">
                         <slot></slot>
                     </div>
