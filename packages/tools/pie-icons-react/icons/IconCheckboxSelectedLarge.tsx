@@ -5,12 +5,12 @@ import { getReactSvgProps } from '@justeattakeaway/pie-icons-configs/configs-rea
 const IconCheckboxSelectedLarge = (props: LargeIconProps) => {
   const {
     className,
-    iconSize,
+    size,
     width,
     height,
     ...remainingProps
   } = props;
-  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--checkbox-selected-large", className, iconSize, "IconCheckboxSelectedLarge");
+  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--checkbox-selected-large", className, size, "IconCheckboxSelectedLarge");
   const allProps = {
     ...remainingProps,
     ...moreProps

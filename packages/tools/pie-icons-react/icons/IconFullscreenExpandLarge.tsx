@@ -5,12 +5,12 @@ import { getReactSvgProps } from '@justeattakeaway/pie-icons-configs/configs-rea
 const IconFullscreenExpandLarge = (props: LargeIconProps) => {
   const {
     className,
-    iconSize,
+    size,
     width,
     height,
     ...remainingProps
   } = props;
-  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--fullscreen-expand-large", className, iconSize, "IconFullscreenExpandLarge");
+  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--fullscreen-expand-large", className, size, "IconFullscreenExpandLarge");
   const allProps = {
     ...remainingProps,
     ...moreProps

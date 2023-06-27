@@ -5,12 +5,12 @@ import { getReactSvgProps } from '@justeattakeaway/pie-icons-configs/configs-rea
 const IconMinus = (props: RegularIconProps) => {
   const {
     className,
-    iconSize,
+    size,
     width,
     height,
     ...remainingProps
   } = props;
-  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--minus", className, iconSize, "IconMinus");
+  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--minus", className, size, "IconMinus");
   const allProps = {
     ...remainingProps,
     ...moreProps

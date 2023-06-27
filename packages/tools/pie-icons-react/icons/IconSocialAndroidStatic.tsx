@@ -5,12 +5,12 @@ import { getReactSvgProps } from '@justeattakeaway/pie-icons-configs/configs-rea
 const IconSocialAndroidStatic = (props: RegularIconProps) => {
   const {
     className,
-    iconSize,
+    size,
     width,
     height,
     ...remainingProps
   } = props;
-  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--android-static", className, iconSize, "IconSocialAndroidStatic");
+  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--android-static", className, size, "IconSocialAndroidStatic");
   const allProps = {
     ...remainingProps,
     ...moreProps

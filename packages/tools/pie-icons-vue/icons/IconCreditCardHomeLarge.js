@@ -5,7 +5,7 @@ import { iconSize, updateContextData } from './configs-vue';
 export default {
     name: 'IconCreditCardHomeLarge',
     props: {
-        iconSize: iconSize.large,
+        size: iconSize.large,
     },
     functional: true,
     render (h, ctx) {

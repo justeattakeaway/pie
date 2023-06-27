@@ -5,12 +5,12 @@ import { getReactSvgProps } from '@justeattakeaway/pie-icons-configs/configs-rea
 const IconGeolocationCircleLarge = (props: LargeIconProps) => {
   const {
     className,
-    iconSize,
+    size,
     width,
     height,
     ...remainingProps
   } = props;
-  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--geolocation-circle-large", className, iconSize, "IconGeolocationCircleLarge");
+  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--geolocation-circle-large", className, size, "IconGeolocationCircleLarge");
   const allProps = {
     ...remainingProps,
     ...moreProps

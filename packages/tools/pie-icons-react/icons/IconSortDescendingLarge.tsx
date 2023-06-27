@@ -5,12 +5,12 @@ import { getReactSvgProps } from '@justeattakeaway/pie-icons-configs/configs-rea
 const IconSortDescendingLarge = (props: LargeIconProps) => {
   const {
     className,
-    iconSize,
+    size,
     width,
     height,
     ...remainingProps
   } = props;
-  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--sort-descending-large", className, iconSize, "IconSortDescendingLarge");
+  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--sort-descending-large", className, size, "IconSortDescendingLarge");
   const allProps = {
     ...remainingProps,
     ...moreProps

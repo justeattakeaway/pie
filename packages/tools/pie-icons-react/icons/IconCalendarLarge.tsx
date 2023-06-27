@@ -5,12 +5,12 @@ import { getReactSvgProps } from '@justeattakeaway/pie-icons-configs/configs-rea
 const IconCalendarLarge = (props: LargeIconProps) => {
   const {
     className,
-    iconSize,
+    size,
     width,
     height,
     ...remainingProps
   } = props;
-  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--calendar-large", className, iconSize, "IconCalendarLarge");
+  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--calendar-large", className, size, "IconCalendarLarge");
   const allProps = {
     ...remainingProps,
     ...moreProps

@@ -5,12 +5,12 @@ import { getReactSvgProps } from '@justeattakeaway/pie-icons-configs/configs-rea
 const IconLocationRestaurant = (props: RegularIconProps) => {
   const {
     className,
-    iconSize,
+    size,
     width,
     height,
     ...remainingProps
   } = props;
-  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--location-restaurant", className, iconSize, "IconLocationRestaurant");
+  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--location-restaurant", className, size, "IconLocationRestaurant");
   const allProps = {
     ...remainingProps,
     ...moreProps
