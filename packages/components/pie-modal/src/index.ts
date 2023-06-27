@@ -28,55 +28,51 @@ export class PieModal extends RtlMixin(LitElement) {
     @validPropertyValues(componentSelector, headingLevels, 'h2')
         headingLevel: ModalProps['headingLevel'] = 'h2';
 
+    @query('dialog')
+        _dialog?: HTMLDialogElement;
+
     constructor () {
-        console.log('constructor');
         super();
         this.addEventListener('click', (event) => this._handleDialogLightDismiss(event));
     }
 
-    @query('dialog')
-        _dialog?: HTMLDialogElement;
-
-    firstUpdated (changedProperties: DependentMap<ModalProps>) {
-        console.log('firstUpdated');
-        console.log(changedProperties.has('isOpen'));
-        console.log(this._dialog);
-        console.log(changedProperties.get('isOpen'));
-        this._handleModalOpenOnFirstRender(changedProperties);
+    firstUpdated (changedProperties: DependentMap<ModalProps>) : void {
+        this._handleModalOpenStateOnFirstRender(changedProperties);
     }
 
-    updated (changedProperties: DependentMap<ModalProps>) {
-        console.log('updated');
-        this._handleModalStateChanged(changedProperties);
-        if (changedProperties.has('isOpen') && this._dialog) {
-            const dialog = this._dialog;
-            const isClosed = !changedProperties.get('isOpen');
-            console.log('isClosed', isClosed);
-            if (isClosed) {
-                dialog.showModal();
-            } else {
-                dialog.close();
-            }
-        }
+    updated (changedProperties: DependentMap<ModalProps>) : void {
+        this._handleModalOpenStateChanged(changedProperties);
     }
 
-    connectedCallback () {
-        console.log('connectedCallback');
-        super.connectedCallback();
-        document.addEventListener(ON_MODAL_OPEN_EVENT, this._disableScrolling);
-        document.addEventListener(ON_MODAL_CLOSE_EVENT, this._enableScrolling);
+    _handleModalOpened () : void {
+        this._disableScrolling();
+        //  We require this because toggling the prop `isOpen` itself won't
+        //  allow the dialog to open in the correct way (with the default background),
+        //  the method `showModal()` needs to be invoked.
+        this._dialog?.showModal();
     }
 
-    disconnectedCallback () {
-        console.log('disconnectedCallback');
-        document.removeEventListener(ON_MODAL_OPEN_EVENT, this._disableScrolling);
-        document.removeEventListener(ON_MODAL_CLOSE_EVENT, this._enableScrolling);
+    _handleModalClosed () : void {
         this._enableScrolling();
+        //  Closes the native dialog element
+        this._dialog?.close();
+    }
+
+    connectedCallback () : void {
+        super.connectedCallback();
+        document.addEventListener(ON_MODAL_OPEN_EVENT, this._handleModalOpened.bind(this));
+        document.addEventListener(ON_MODAL_CLOSE_EVENT, this._handleModalClosed.bind(this));
+    }
+
+    disconnectedCallback () : void {
+        document.removeEventListener(ON_MODAL_OPEN_EVENT, this._handleModalOpened.bind(this));
+        document.removeEventListener(ON_MODAL_CLOSE_EVENT, this._handleModalClosed.bind(this));
         super.disconnectedCallback();
     }
 
-    private _handleModalOpenOnFirstRender (changedProperties: DependentMap<ModalProps>) {
-        // This ensures if the modal is open on first render, the scroll lock is applied
+    // Handles the value of the isOpen property on first render of the component
+    private _handleModalOpenStateOnFirstRender (changedProperties: DependentMap<ModalProps>) : void {
+        // This ensures if the modal is open on first render, the scroll lock and backdrop are applied
         if (changedProperties.has('isOpen')) {
             const previousValue = changedProperties.get('isOpen') as boolean;
             if (previousValue === undefined && this.isOpen) {
@@ -85,7 +81,8 @@ export class PieModal extends RtlMixin(LitElement) {
         }
     }
 
-    private _handleModalStateChanged (changedProperties: DependentMap<ModalProps>) {
+    // Handles changes to the modal isOpen property by dispatching any appropriate events
+    private _handleModalOpenStateChanged (changedProperties: DependentMap<ModalProps>) : void {
         if (changedProperties.has('isOpen')) {
             const previousValue = changedProperties.get('isOpen') as boolean;
 
@@ -125,32 +122,8 @@ export class PieModal extends RtlMixin(LitElement) {
         `;
     }
 
-    /**
-     * We require this because toggling the prop `isOpen` itself won't
-     * allow the dialog to open in the correct way (with the default background),
-     * the method `showModal()` needs to be invoked.
-     *
-     * https://lit.dev/docs/components/lifecycle/#willupdate
-     *
-     * @param changedProperties
-     */
-    // willUpdate (changedProperties: Map<string, unknown>) {
-    //     console.log('will update call!');
-    //     console.log(changedProperties.has('isOpen'));
-    //     console.log(this._dialog);
-    //     if (changedProperties.has('isOpen') && this._dialog) {
-    //         const dialog = this._dialog;
-    //         const isClosed = changedProperties.get('isOpen') === false;
-    //         console.log('isClosed', isClosed);
-    //         if (isClosed) {
-    //             dialog.showModal();
-    //         } else {
-    //             dialog.close();
-    //         }
-    //     }
-    // }
-
-    private _handleCloseDialog = () => {
+    private _handleCloseDialog = () : void => {
+        //  Closes the native dialog element
         this._dialog?.close();
         this.isOpen = false;
         this._dispatchModalCloseEvent();
@@ -161,7 +134,7 @@ export class PieModal extends RtlMixin(LitElement) {
      * and will proceed to fire an `ON_MODAL_CLOSE_EVENT` event.
      *
      */
-    private _handleDialogLightDismiss = (event: MouseEvent) => {
+    private _handleDialogLightDismiss = (event: MouseEvent) : void => {
         const rect = this._dialog?.getBoundingClientRect();
 
         if (typeof rect !== 'undefined') {
