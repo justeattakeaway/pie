@@ -29,7 +29,6 @@ h4:has(.c-anchor-icon) {
     display: flex;
     align-items: center;
     gap: $anchor-margin;
-    scroll-margin-top: var(--header-height);
 
     .c-anchor-text {
         max-width: calc(100% - $anchor-width);
@@ -45,9 +44,5 @@ h4:has(.c-anchor-icon) {
         flex-direction: row-reverse;
         justify-content: start;
         margin-inline-start: -($anchor-width);
-    }
-
-    @include f.media('>=wide') {
-        scroll-margin-top: 0;
     }
 }

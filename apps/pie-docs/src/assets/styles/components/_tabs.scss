@@ -49,3 +49,13 @@ $tabs-link-padding:                f.spacing(d);
         white-space: nowrap;
     }
 }
+
+.c-tabs + .c-contentPage-content {
+    [id] {
+        scroll-margin-top: var(--header-height);
+
+        @include f.media('>=wide') {
+            scroll-margin-top: 0;
+        }
+    }
+}
