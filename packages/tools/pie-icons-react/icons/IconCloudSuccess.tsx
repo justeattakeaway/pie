@@ -5,12 +5,12 @@ import { getReactSvgProps } from '@justeattakeaway/pie-icons-configs/configs-rea
 const IconCloudSuccess = (props: RegularIconProps) => {
   const {
     className,
-    iconSize,
+    size,
     width,
     height,
     ...remainingProps
   } = props;
-  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--cloud-success", className, iconSize, "IconCloudSuccess");
+  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--cloud-success", className, size, "IconCloudSuccess");
   const allProps = {
     ...remainingProps,
     ...moreProps

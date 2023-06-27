@@ -5,12 +5,12 @@ import { getReactSvgProps } from '@justeattakeaway/pie-icons-configs/configs-rea
 const IconLock = (props: RegularIconProps) => {
   const {
     className,
-    iconSize,
+    size,
     width,
     height,
     ...remainingProps
   } = props;
-  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--lock", className, iconSize, "IconLock");
+  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--lock", className, size, "IconLock");
   const allProps = {
     ...remainingProps,
     ...moreProps

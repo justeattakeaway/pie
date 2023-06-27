@@ -5,12 +5,12 @@ import { getReactSvgProps } from '@justeattakeaway/pie-icons-configs/configs-rea
 const IconFingerprintLarge = (props: LargeIconProps) => {
   const {
     className,
-    iconSize,
+    size,
     width,
     height,
     ...remainingProps
   } = props;
-  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--fingerprint-large", className, iconSize, "IconFingerprintLarge");
+  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--fingerprint-large", className, size, "IconFingerprintLarge");
   const allProps = {
     ...remainingProps,
     ...moreProps

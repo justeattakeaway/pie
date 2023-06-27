@@ -5,7 +5,7 @@ import { iconSize, updateContextData } from './configs-vue';
 export default {
     name: 'IconFoodReadyLarge',
     props: {
-        iconSize: iconSize.large,
+        size: iconSize.large,
     },
     functional: true,
     render (h, ctx) {

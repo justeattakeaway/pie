@@ -5,7 +5,7 @@ import { iconSize, updateContextData } from './configs-vue';
 export default {
     name: 'IconEngineers',
     props: {
-        iconSize: iconSize.regular,
+        size: iconSize.regular,
     },
     functional: true,
     render (h, ctx) {

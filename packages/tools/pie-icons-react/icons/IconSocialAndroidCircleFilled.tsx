@@ -5,12 +5,12 @@ import { getReactSvgProps } from '@justeattakeaway/pie-icons-configs/configs-rea
 const IconSocialAndroidCircleFilled = (props: RegularIconProps) => {
   const {
     className,
-    iconSize,
+    size,
     width,
     height,
     ...remainingProps
   } = props;
-  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--android-circle-filled", className, iconSize, "IconSocialAndroidCircleFilled");
+  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--android-circle-filled", className, size, "IconSocialAndroidCircleFilled");
   const allProps = {
     ...remainingProps,
     ...moreProps
