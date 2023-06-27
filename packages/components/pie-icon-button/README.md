@@ -24,7 +24,9 @@
 
 ## `pie-icon-button`
 
-`pie-icon-button` is a Web Component built using the Lit library. It offers a simple and accessible icon button component for web applications. This component can be easily integrated into various frontend frameworks and customized through a set of properties.
+`pie-icon-button` is a Web Component built using the Lit library. It offers a simple and accessible icon button component for web applications.
+
+This component can be easily integrated into various frontend frameworks and customized through a set of properties.
 
 ## Local development
 
@@ -90,18 +92,21 @@ For example, to add a click handler in various templates:
 
 
 ### HTML
+
 ```html
 <!-- Other attributes omitted for clarity -->
 <pie-icon-button onclick="e => console.log(e)">Click me!</pie-icon-button>
 ```
 
 ### Vue templates (using Nuxt 3)
+
 ```html
 <!-- Other attributes omitted for clarity -->
 <pie-icon-button @click="handleClick">Click me!</pie-icon-button>
 ```
 
 ### React templates (using Next 13)
+
 ```html
 <!-- Other attributes omitted for clarity -->
 <PieIconButton onClick={handleClick}>increment</PieIconButton>
@@ -129,13 +134,13 @@ yarn test:visual --filter=pie-icon-button
 
 Note: To run these locally, you will need to ensure that any environment variables required are set up on your machine to mirror those on CI (such as Percy tokens). How you achieve this will differ between operating systems.
 
-Setup via bash:
+#### Setup via bash
 
 ```bash
 export PERCY_TOKEN_PIE_ICON_BUTTON=abcde
 ```
 
-Setup via package.json:
+#### Setup via package.json
 
 Under scripts `test:visual` replace the environment variable with the below:
 
