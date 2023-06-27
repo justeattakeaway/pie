@@ -3,7 +3,7 @@
 
 Shared PIE Icon Components for Web Components.
 
-This package generates an Web Component iconset for applications using the base [pie-icons](https://www.npmjs.com/package/@justeattakeaway/pie-icons) package. The SVGs in pie-icons are compiled into single file components that can be imported into Vue applications.
+This package generates an Web Component iconset for applications using the base [pie-icons](https://www.npmjs.com/package/@justeattakeaway/pie-icons) package. The SVGs in pie-icons are compiled into single file components that can be imported into applications.
 
 ---
 
@@ -24,7 +24,7 @@ yarn add @justeattakeaway/pie-icons-webc
 
 ```js
 // Only import what you need!
-import { IconCalendar, IconAlertTriangleLarge, ... } from '@justeattakeaway/pie-icons-webc'
+import { IconAppRestaurant } from '@justeattakeaway/pie-icons-webc/icons/IconAppRestaurant';
 ```
 
 Within the context of a Vue app, that will look like:
@@ -32,7 +32,7 @@ Within the context of a Vue app, that will look like:
   ```js
   <template>
       <icon-calendar />
-      <icon-alcohol-filled size="xs"/>
+      <icon-app-restaurant size="xs"/>
   </template>
 
   <script>
@@ -46,7 +46,6 @@ Within the context of a React app, that will look like:
 import { IconAppRestaurant } from '@justeattakeaway/pie-icons-webc/icons/IconAppRestaurant';
 import * as React from 'react';
 import { createComponent } from '@lit-labs/react';
-import './styles.css';
 
 export const IconAlcohol = createComponent({
     displayName: 'IconAlcohol',

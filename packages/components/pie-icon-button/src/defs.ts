@@ -3,7 +3,7 @@ export interface IconButtonProps {
      * the size of the icon button.
      * @default medium
      */
-    size: 'xs' | 's' | 'l' | 'xl';
+    size: 'xsmall' | 'small' | 'medium' | 'large';
     /**
      * the variant of the icon button.
      * @default primary
@@ -20,10 +20,10 @@ export interface IconButtonProps {
  * Icon Button size variants
  */
 export const iconButtonSizes: IconButtonProps['size'][] = [
-    's',
-    'xs',
-    'l',
-    'xl'
+    'xsmall',
+    'small',
+    'medium',
+    'large'
 ];
 
 /**

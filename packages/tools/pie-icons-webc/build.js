@@ -9,7 +9,6 @@ import { removeHyphenBeforeDigits } from './helpers/index.js';
 const { icons } = pieIcons.default;
 
 const componentTemplate = (name, svg) => `
-// eslint-disable-next-line import/no-unresolved, import/extensions
 import { getDefaultIconSize, iconSize, getSvgProps } from '@justeattakeaway/pie-icons-configs/configs';
 
 const template = document.createElement('template');
@@ -65,7 +64,6 @@ customElements.define('${kebabCase(name).replace(/-/, '')}', ${name});
 const ICONS_DIR = `${process.cwd()}/icons`;
 const indexPath = path.join(ICONS_DIR, '/index.js');
 
-// Try to convert to the same as React build gen
 async function checkDirExists (directoryPath) {
     try {
         await fs.ensureDir(directoryPath);

@@ -1,5 +1,3 @@
-
-// eslint-disable-next-line import/no-unresolved, import/extensions
 import { getDefaultIconSize, iconSize, getSvgProps } from '@justeattakeaway/pie-icons-configs/configs';
 
 const template = document.createElement('template');

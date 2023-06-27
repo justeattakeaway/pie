@@ -4913,7 +4913,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-icons-webc@workspace:*, @justeattakeaway/pie-icons-webc@workspace:packages/tools/pie-icons-webc":
+"@justeattakeaway/pie-icons-webc@workspace:*, @justeattakeaway/pie-icons-webc@workspace:^, @justeattakeaway/pie-icons-webc@workspace:packages/tools/pie-icons-webc":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-icons-webc@workspace:packages/tools/pie-icons-webc"
   dependencies:
@@ -4925,10 +4925,7 @@ __metadata:
     "@web/test-runner": 0.16.1
     fs-extra: 9.1.0
     kebab-case: 1.0.2
-    lodash.kebabcase: 4.1.1
-    marked: 1.2.9
     pascal-case: 3.1.2
-    prismjs: 1.29.0
     rollup: 3.20.2
   languageName: unknown
   linkType: soft
@@ -37736,8 +37733,6 @@ __metadata:
   resolution: "wc-react18@workspace:apps/examples/wc-react18"
   dependencies:
     "@justeattakeaway/pie-button": "workspace:*"
-    "@justeattakeaway/pie-icons-react": "workspace:*"
-    "@justeattakeaway/pie-icons-webc": "workspace:*"
     "@lit-labs/react": ^1.2.0
     react: 18.2.0
     react-dom: 18.2.0
@@ -37760,7 +37755,7 @@ __metadata:
   resolution: "wc-vue3@workspace:apps/examples/wc-vue3"
   dependencies:
     "@justeattakeaway/pie-button": "workspace:*"
-    "@justeattakeaway/pie-icons-webc": "workspace:*"
+    "@justeattakeaway/pie-icons-webc": "workspace:^"
     "@types/node": 18.15.11
     "@vitejs/plugin-vue": 4.0.0
     "@vue/tsconfig": 0.1.3

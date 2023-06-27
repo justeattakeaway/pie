@@ -8,7 +8,7 @@ export const sizeToValueMap = {
 };
 
 export const regularIconSizes = Object.keys(sizeToValueMap);
-export const regularIconSizeDefault = 16;
+export const regularIconSizeDefault = 'xs';
 export const largeIconSizeModule = 8;
 export const largeIconSizeDefault = 32;
 
@@ -103,10 +103,10 @@ export const getSvgProps = (svgClasses, staticClasses, iconSizeValue, componentN
  */
 export const iconSize = {
     large: largeIconSizeDefault,
-    regular: regularIconSizeDefault,
+    regular: sizeToValueMap[regularIconSizeDefault],
 };
 
-export const getDefaultIconSize = (componentName) =>{
+export const getDefaultIconSize = (componentName) => {
     const isLargeIcon = componentName.endsWith('Large');
     const size = isLargeIcon ? 'large' : 'regular';
 

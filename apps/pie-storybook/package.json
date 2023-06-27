@@ -12,7 +12,6 @@
   "dependencies": {
     "@justeattakeaway/pie-button": "workspace:*",
     "@justeattakeaway/pie-icon-button": "workspace:*",
-    "@justeattakeaway/pie-icons-webc": "workspace:*",
     "@justeattakeaway/pie-modal": "workspace:*"
   },
   "devDependencies": {
