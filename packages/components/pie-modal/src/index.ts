@@ -65,9 +65,14 @@ export class PieModal extends RtlMixin(LitElement) {
     private _handleModalStateChanged (changedProperties: DependentMap<ModalProps>) {
         if (changedProperties.has('isOpen')) {
             const previousValue = changedProperties.get('isOpen') as boolean;
+
+            if (previousValue === undefined) {
+                return;
+            }
+
             if (previousValue) {
                 this._dispatchModalCloseEvent();
-            } else if (previousValue === false) {
+            } else {
                 this._dispatchModalOpenEvent();
             }
         }
