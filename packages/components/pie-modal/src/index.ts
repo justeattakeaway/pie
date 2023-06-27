@@ -64,7 +64,7 @@ export class PieModal extends RtlMixin(LitElement) {
      *
      * @param changedProperties
      */
-    willUpdate (changedProperties: Map<string, unknown>): void {
+    willUpdate (changedProperties: Map<string, unknown>) {
         if (changedProperties.has('isOpen') && this._dialog) {
             const dialog = this._dialog;
             const isClosed = changedProperties.get('isOpen') === false;
