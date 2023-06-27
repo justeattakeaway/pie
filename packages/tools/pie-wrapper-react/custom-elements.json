@@ -10,7 +10,7 @@
                     "kind": "variable",
                     "name": "headingLevels",
                     "type": {
-                        "text": "ModalProps['headingLevel'][]"
+                        "text": "Array<ModalProps['headingLevel']>"
                     },
                     "default": "['h1', 'h2', 'h3', 'h4', 'h5', 'h6']",
                     "description": "Modal heading levels/tags"
@@ -52,7 +52,7 @@
                     "kind": "variable",
                     "name": "buttonSizes",
                     "type": {
-                        "text": "ButtonProps['size'][]"
+                        "text": "Array<ButtonProps['size']>"
                     },
                     "default": "[\n    'xsmall',\n    'small-expressive',\n    'small-productive',\n    'medium',\n    'large'\n]",
                     "description": "Button size variants"
@@ -61,7 +61,7 @@
                     "kind": "variable",
                     "name": "buttonVariants",
                     "type": {
-                        "text": "ButtonProps['variant'][]"
+                        "text": "Array<ButtonProps['variant']>"
                     },
                     "default": "[\n    'primary',\n    'secondary',\n    'outline',\n    'ghost',\n]",
                     "description": "Button style variants"
@@ -70,7 +70,7 @@
                     "kind": "variable",
                     "name": "buttonTypes",
                     "type": {
-                        "text": "ButtonProps['type'][]"
+                        "text": "Array<ButtonProps['type']>"
                     },
                     "default": "[\n    'submit',\n    'button',\n    'reset',\n    'menu',\n]",
                     "description": "Button type variants"
@@ -147,7 +147,7 @@
                             "kind": "field",
                             "name": "_dialog",
                             "type": {
-                                "text": "HTMLDialogElement"
+                                "text": "HTMLDialogElement | undefined"
                             }
                         },
                         {
@@ -155,8 +155,30 @@
                             "name": "render"
                         },
                         {
+                            "kind": "method",
+                            "name": "firstUpdated"
+                        },
+                        {
+                            "kind": "method",
+                            "name": "willUpdate",
+                            "parameters": [
+                                {
+                                    "name": "changedProperties",
+                                    "type": {
+                                        "text": "Map<string, unknown>"
+                                    }
+                                }
+                            ],
+                            "description": "We require this because toggling the prop `isOpen` itself won't\nallow the dialog to open in the correct way (with the default background),\nthe method `showModal()` needs to be invoked.\n\nhttps://lit.dev/docs/components/lifecycle/#willupdate"
+                        },
+                        {
                             "kind": "field",
                             "name": "_handleCloseDialog"
+                        },
+                        {
+                            "kind": "field",
+                            "name": "_handleDialogLightDismiss",
+                            "description": "Dismiss modal via `_handleCloseDialog()` on backdrop click\nand will proceed to fire an `ON_MODAL_CLOSE_EVENT` event."
                         },
                         {
                             "kind": "field",
@@ -186,7 +208,7 @@
                             "type": {
                                 "text": "boolean"
                             },
-                            "description": "Returns true if the element is in Right to Left mode.\r\nIf a dir attribute is not explicitly set on the web component\r\nthen it falls back to the nearest parent with a dir attribute set.\r\n\r\nA dir attribute being set will result in a reactive property.\r\nIf the component falls back to a parent dir attribute then the value\r\nwill not be reactive and is only computed once",
+                            "description": "Returns true if the element is in Right to Left mode.\nIf a dir attribute is not explicitly set on the web component\nthen it falls back to the nearest parent with a dir attribute set.\n\nA dir attribute being set will result in a reactive property.\nIf the component falls back to a parent dir attribute then the value\nwill not be reactive and is only computed once",
                             "readonly": true,
                             "inheritedFrom": {
                                 "name": "RtlMixin",
@@ -424,7 +446,7 @@
                     "kind": "variable",
                     "name": "iconButtonSizes",
                     "type": {
-                        "text": "IconButtonProps['size'][]"
+                        "text": "Array<IconButtonProps['size']>"
                     },
                     "default": "[\n    'xsmall',\n    'small',\n    'medium',\n    'large'\n]",
                     "description": "Icon Button size variants"
@@ -433,7 +455,7 @@
                     "kind": "variable",
                     "name": "iconButtonVariants",
                     "type": {
-                        "text": "IconButtonProps['variant'][]"
+                        "text": "Array<IconButtonProps['variant']>"
                     },
                     "default": "[\n    'primary',\n    'secondary',\n    'outline',\n    'ghost',\n    'ghost-tertiary',\n]",
                     "description": "Icon Button style variants"
@@ -682,7 +704,7 @@
                             "type": {
                                 "text": "boolean"
                             },
-                            "description": "Returns true if the element is in Right to Left mode.\r\nIf a dir attribute is not explicitly set on the web component\r\nthen it falls back to the nearest parent with a dir attribute set.\r\n\r\nA dir attribute being set will result in a reactive property.\r\nIf the component falls back to a parent dir attribute then the value\r\nwill not be reactive and is only computed once",
+                            "description": "Returns true if the element is in Right to Left mode.\nIf a dir attribute is not explicitly set on the web component\nthen it falls back to the nearest parent with a dir attribute set.\n\nA dir attribute being set will result in a reactive property.\nIf the component falls back to a parent dir attribute then the value\nwill not be reactive and is only computed once",
                             "readonly": true
                         }
                     ],

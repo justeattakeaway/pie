@@ -1,7 +1,6 @@
 import { test } from '@sand4rt/experimental-ct-web';
 import percySnapshot from '@percy/playwright';
 import { PieModal } from '@/index';
-import { getLitPercyOptions } from '@justeattakeaway/pie-webc-core/src/test-helpers/percy-lit-options.ts';
 
 const propIsOpenValues = [{ heading: 'Modal Heading', isOpen: true }, { isOpen: false }];
 
@@ -16,5 +15,5 @@ propIsOpenValues.forEach((props) => test(`should render Modal correctly when pro
         },
     );
 
-    await percySnapshot(page, `PIE Modal when isOpen is set to ${props.isOpen}`, getLitPercyOptions());
+    await percySnapshot(page, `PIE Modal when isOpen is set to ${props.isOpen}`);
 }));
