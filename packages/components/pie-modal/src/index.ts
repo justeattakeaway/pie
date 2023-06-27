@@ -5,7 +5,6 @@ import { RtlMixin, validPropertyValues, requiredProperty } from '@justeattakeawa
 
 import styles from './modal.scss?inline';
 import { ModalProps, headingLevels, ON_MODAL_CLOSE_EVENT } from './defs';
-import * as events from "events";
 
 // Valid values available to consumers
 export { type ModalProps, headingLevels };
