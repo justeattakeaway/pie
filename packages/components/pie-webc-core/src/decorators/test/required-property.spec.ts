@@ -24,7 +24,7 @@ describe('requiredProperty', () => {
     // Mock class to test the decorator
     class MockComponent {
         @requiredProperty('mock-component')
-            color?: string;
+            color?: string | null;
 
         private _requestUpdateArgs = {};
 
@@ -53,8 +53,6 @@ describe('requiredProperty', () => {
         const mockComponent = new MockComponent();
 
         // Act
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
         mockComponent.color = null;
 
         // Assert
