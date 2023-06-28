@@ -7,10 +7,12 @@ export interface ModalProps {
     heading: string;
     /**
      * The HTML heading tag to use for the modal's heading. Can be H1-H6.
+     * @default "h2"
      */
     headingLevel: typeof headingLevels[number];
     /**
      * When true, the modal will be open.
+     * @default false
      */
     isOpen: boolean;
 }

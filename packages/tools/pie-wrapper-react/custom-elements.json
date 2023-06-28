@@ -740,21 +740,6 @@
         },
         {
             "kind": "javascript-module",
-            "path": "../../components/pie-webc-core/src/type-helpers/index.js",
-            "declarations": [],
-            "exports": [
-                {
-                    "kind": "js",
-                    "name": "*",
-                    "declaration": {
-                        "name": "*",
-                        "package": "./DependentMap"
-                    }
-                }
-            ]
-        },
-        {
-            "kind": "javascript-module",
             "path": "../../components/pie-webc-core/src/test-helpers/index.js",
             "declarations": [],
             "exports": [
@@ -788,6 +773,21 @@
                     "declaration": {
                         "name": "*",
                         "package": "./components"
+                    }
+                }
+            ]
+        },
+        {
+            "kind": "javascript-module",
+            "path": "../../components/pie-webc-core/src/type-helpers/index.js",
+            "declarations": [],
+            "exports": [
+                {
+                    "kind": "js",
+                    "name": "*",
+                    "declaration": {
+                        "name": "*",
+                        "package": "./DependentMap"
                     }
                 }
             ]
