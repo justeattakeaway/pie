@@ -1,5 +1,13 @@
 # @justeattakeaway/pie-modal
 
+## 0.7.0
+
+### Minor Changes
+
+- [Added] - Modal backdrop functionality ([#559](https://github.com/justeattakeaway/pie/pull/559)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
+- [Added] - Scroll locking to modal ([#564](https://github.com/justeattakeaway/pie/pull/564)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.6.1
 
 ### Patch Changes
