@@ -5,12 +5,12 @@ import { getReactSvgProps } from '@justeattakeaway/pie-icons-configs/configs-rea
 const IconLogOut = (props: RegularIconProps) => {
   const {
     className,
-    iconSize,
+    size,
     width,
     height,
     ...remainingProps
   } = props;
-  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--log-out", className, iconSize, "IconLogOut");
+  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--log-out", className, size, "IconLogOut");
   const allProps = {
     ...remainingProps,
     ...moreProps

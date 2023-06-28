@@ -1,5 +1,4 @@
 import { test, expect } from '@sand4rt/experimental-ct-web';
-import * as events from 'events';
 import { PieModal } from '@/index';
 import { headingLevels } from '@/defs';
 
@@ -21,33 +20,57 @@ headingLevels.forEach((headingLevel) => test(`should render the correct heading 
         headingLevel,
     };
 
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore // Added this as we want to deliberately test with invalid headingLevel (which is an invalid type based on ModalProps)
     const component = await mount(PieModal, { props });
 
     // h2 is the default / fallback value
     await expect(component.locator('h2.c-modal-heading')).toContainText(props.heading);
 }));
 
-test.describe('`When the Pie Modal is closed`', () => {
-    test.skip('should dispatch event `pie-modal-close`', async ({ mount }) => {
-        const messages: string[] = [];
-        const component = await mount(
-            PieModal,
-            {
-                props: {
-                    isOpen: true,
+test.describe('`Pie Modal is closed`', () => {
+    test.describe('when via the close button click', () => {
+        test.skip('should dispatch event `pie-modal-close`', async ({ mount, page }) => {
+            const messages: string[] = [];
+            await mount(
+                PieModal,
+                {
+                    props: {
+                        isOpen: true
+                    },
+                    on: {
+                        click: (event: string) => messages.push(event),
+                    },
                 },
-            },
-        );
+            );
 
-        await component.update({
-            on: {
-                click: (event: string) => messages.push(event),
-            },
+            await page.locator('.c-modal-closeBtn').click();
+
+
+            expect(messages).toHaveLength(1);
         });
+    });
 
-        await component.locator('.c-modal-closeBtn').click({ });
+    test.describe('when via the backdrop click', () => {
+        test.skip('should dispatch event `pie-modal-close`', async ({ mount, page }) => {
+            const messages: string[] = [];
+            await mount(
+                PieModal,
+                {
+                    props: {
+                        isOpen: true,
+                    },
+                    on: {
+                        click: (event: string) => messages.push(event),
+                    },
+                },
+            );
 
-        expect(messages).toHaveLength(1);
+            await page.locator('#dialog').click();
+
+
+            expect(messages).toHaveLength(1);
+        });
     });
 });
 

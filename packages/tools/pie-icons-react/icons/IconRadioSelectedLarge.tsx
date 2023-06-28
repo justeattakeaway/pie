@@ -5,12 +5,12 @@ import { getReactSvgProps } from '@justeattakeaway/pie-icons-configs/configs-rea
 const IconRadioSelectedLarge = (props: LargeIconProps) => {
   const {
     className,
-    iconSize,
+    size,
     width,
     height,
     ...remainingProps
   } = props;
-  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--radio-selected-large", className, iconSize, "IconRadioSelectedLarge");
+  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--radio-selected-large", className, size, "IconRadioSelectedLarge");
   const allProps = {
     ...remainingProps,
     ...moreProps

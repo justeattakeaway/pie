@@ -5,12 +5,12 @@ import { getReactSvgProps } from '@justeattakeaway/pie-icons-configs/configs-rea
 const IconThumbsDown = (props: RegularIconProps) => {
   const {
     className,
-    iconSize,
+    size,
     width,
     height,
     ...remainingProps
   } = props;
-  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--thumbs-down", className, iconSize, "IconThumbsDown");
+  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--thumbs-down", className, size, "IconThumbsDown");
   const allProps = {
     ...remainingProps,
     ...moreProps

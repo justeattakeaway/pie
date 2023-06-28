@@ -5,12 +5,12 @@ import { getReactSvgProps } from '@justeattakeaway/pie-icons-configs/configs-rea
 const IconSocialYoutubeStatic = (props: RegularIconProps) => {
   const {
     className,
-    iconSize,
+    size,
     width,
     height,
     ...remainingProps
   } = props;
-  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--youtube-static", className, iconSize, "IconSocialYoutubeStatic");
+  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--youtube-static", className, size, "IconSocialYoutubeStatic");
   const allProps = {
     ...remainingProps,
     ...moreProps

@@ -5,12 +5,12 @@ import { getReactSvgProps } from '@justeattakeaway/pie-icons-configs/configs-rea
 const IconMicrophone = (props: RegularIconProps) => {
   const {
     className,
-    iconSize,
+    size,
     width,
     height,
     ...remainingProps
   } = props;
-  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--microphone", className, iconSize, "IconMicrophone");
+  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--microphone", className, size, "IconMicrophone");
   const allProps = {
     ...remainingProps,
     ...moreProps

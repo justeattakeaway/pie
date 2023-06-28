@@ -1,3 +1,5 @@
+@use '@justeat/pie-design-tokens/dist/jet.scss' as dt;
+
 .c-modal {
     // Custom Property Declarations
     // These are defined here instead of :host to encapsulate them inside Shadow DOM
@@ -44,6 +46,12 @@
         }
     }
 
+    // We need to pull in the token directly here because the
+    // pseudo element `::backdrop` doesn't seem to pick up custom css properties.
+    &::backdrop {
+        background: #{dt.$color-overlay};
+    }
+
     & .c-modal-heading {
         // Modal header Custom Props
         --modal-header-font-size: calc(var(--dt-font-heading-m-size--wide) * 1px);
@@ -75,11 +83,14 @@
 
         padding-block: var(--modal-content-padding-block-start) var(--modal-content-padding);
         padding-inline: var(--modal-content-padding);
+
+        overflow-y: scroll;
+        max-block-size: 300px; // This is just a placeholder before we add the proper container styles to slotted content to demonstrate scrollable slot content
     }
 
     & .c-modal-closeBtn {
         position: absolute;
-        right: var(--dt-spacing-d);
-        top: var(--dt-spacing-d);
+        inset-inline-end: var(--dt-spacing-d);
+        inset-block-start: var(--dt-spacing-d);
     }
 }

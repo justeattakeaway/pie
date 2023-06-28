@@ -5,12 +5,12 @@ import { getReactSvgProps } from '@justeattakeaway/pie-icons-configs/configs-rea
 const IconGridViewFilled = (props: RegularIconProps) => {
   const {
     className,
-    iconSize,
+    size,
     width,
     height,
     ...remainingProps
   } = props;
-  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--grid-view-filled", className, iconSize, "IconGridViewFilled");
+  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--grid-view-filled", className, size, "IconGridViewFilled");
   const allProps = {
     ...remainingProps,
     ...moreProps

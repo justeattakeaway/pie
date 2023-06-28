@@ -3,30 +3,30 @@ import { property } from 'lit/decorators.js';
 import { validPropertyValues } from '@justeattakeaway/pie-webc-core';
 import styles from './button.scss?inline';
 import {
-    ButtonProps, buttonSizes, buttonTypes, buttonVariants,
+    ButtonProps, sizes, types, variants,
 } from './defs';
 
 // Valid values available to consumers
 export {
     type ButtonProps,
-    buttonSizes,
-    buttonTypes,
-    buttonVariants,
+    sizes,
+    types,
+    variants,
 };
 
 const componentSelector = 'pie-button';
 
 export class PieButton extends LitElement {
     @property()
-    @validPropertyValues(componentSelector, buttonSizes, 'medium')
+    @validPropertyValues(componentSelector, sizes, 'medium')
         size: ButtonProps['size'] = 'medium';
 
     @property()
-    @validPropertyValues(componentSelector, buttonTypes, 'submit')
+    @validPropertyValues(componentSelector, types, 'submit')
         type: ButtonProps['type'] = 'submit';
 
     @property()
-    @validPropertyValues(componentSelector, buttonVariants, 'primary')
+    @validPropertyValues(componentSelector, variants, 'primary')
         variant: ButtonProps['variant'] = 'primary';
 
     @property({ type: Boolean })

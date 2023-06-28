@@ -5,12 +5,12 @@ import { getReactSvgProps } from '@justeattakeaway/pie-icons-configs/configs-rea
 const IconLogoSkipCircle = (props: RegularIconProps) => {
   const {
     className,
-    iconSize,
+    size,
     width,
     height,
     ...remainingProps
   } = props;
-  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--skip-circle", className, iconSize, "IconLogoSkipCircle");
+  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--skip-circle", className, size, "IconLogoSkipCircle");
   const allProps = {
     ...remainingProps,
     ...moreProps

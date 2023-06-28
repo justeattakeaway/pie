@@ -5,12 +5,12 @@ import { getReactSvgProps } from '@justeattakeaway/pie-icons-configs/configs-rea
 const IconThumbsUpFilledLarge = (props: LargeIconProps) => {
   const {
     className,
-    iconSize,
+    size,
     width,
     height,
     ...remainingProps
   } = props;
-  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--thumbs-up-filled-large", className, iconSize, "IconThumbsUpFilledLarge");
+  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--thumbs-up-filled-large", className, size, "IconThumbsUpFilledLarge");
   const allProps = {
     ...remainingProps,
     ...moreProps

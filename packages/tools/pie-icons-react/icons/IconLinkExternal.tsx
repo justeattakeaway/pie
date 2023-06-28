@@ -5,12 +5,12 @@ import { getReactSvgProps } from '@justeattakeaway/pie-icons-configs/configs-rea
 const IconLinkExternal = (props: RegularIconProps) => {
   const {
     className,
-    iconSize,
+    size,
     width,
     height,
     ...remainingProps
   } = props;
-  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--link-external", className, iconSize, "IconLinkExternal");
+  const moreProps = getReactSvgProps("c-pieIcon c-pieIcon--link-external", className, size, "IconLinkExternal");
   const allProps = {
     ...remainingProps,
     ...moreProps
