@@ -9,8 +9,8 @@ import {
 
 import { requiredPropertyDecoratorFactory } from '../required-property';
 
-const mockComponentName = 'mock-component';
-const requiredProperty = requiredPropertyDecoratorFactory(mockComponentName);
+const mockComponentSelector = 'mock-component';
+const requiredProperty = requiredPropertyDecoratorFactory(mockComponentSelector);
 
 describe('requiredProperty', () => {
     let consoleErrorSpy: unknown;

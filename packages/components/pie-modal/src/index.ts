@@ -16,9 +16,9 @@ import {
 // Valid values available to consumers
 export { type ModalProps, headingLevels };
 
-const componentName = 'pie-modal';
-const validPropertyValues = validPropertyValuesDecoratorFactory(componentName);
-const requiredProperty = requiredPropertyDecoratorFactory(componentName);
+const componentSelector = 'pie-modal';
+const validPropertyValues = validPropertyValuesDecoratorFactory(componentSelector);
+const requiredProperty = requiredPropertyDecoratorFactory(componentSelector);
 
 export class PieModal extends RtlMixin(LitElement) {
     @property({ type: Boolean })
@@ -196,10 +196,10 @@ export class PieModal extends RtlMixin(LitElement) {
     static styles = unsafeCSS(styles);
 }
 
-customElements.define(componentName, PieModal);
+customElements.define(componentSelector, PieModal);
 
 declare global {
     interface HTMLElementTagNameMap {
-        [componentName]: PieModal;
+        [componentSelector]: PieModal;
     }
 }

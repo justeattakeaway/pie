@@ -9,8 +9,8 @@ import {
 
 import { validPropertyValuesDecoratorFactory } from '../valid-property-values';
 
-const mockComponentName = 'mock-component';
-const validPropertyValues = validPropertyValuesDecoratorFactory(mockComponentName);
+const mockComponentSelector = 'mock-component';
+const validPropertyValues = validPropertyValuesDecoratorFactory(mockComponentSelector);
 
 describe('validPropertyValues', () => {
     let consoleErrorSpy: unknown;

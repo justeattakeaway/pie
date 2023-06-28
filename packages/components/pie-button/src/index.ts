@@ -14,8 +14,8 @@ export {
     variants,
 };
 
-const componentName = 'pie-button';
-const validPropertyValues = validPropertyValuesDecoratorFactory(componentName);
+const componentSelector = 'pie-button';
+const validPropertyValues = validPropertyValuesDecoratorFactory(componentSelector);
 
 export class PieButton extends LitElement {
     @property()
@@ -57,10 +57,10 @@ export class PieButton extends LitElement {
     static styles = unsafeCSS(styles);
 }
 
-customElements.define(componentName, PieButton);
+customElements.define(componentSelector, PieButton);
 
 declare global {
     interface HTMLElementTagNameMap {
-        [componentName]: PieButton;
+        [componentSelector]: PieButton;
     }
 }

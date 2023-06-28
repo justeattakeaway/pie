@@ -10,8 +10,8 @@ import {
 // Valid values available to consumers
 export { type IconButtonProps, sizes, variants };
 
-const componentName = 'pie-icon-button';
-const validPropertyValues = validPropertyValuesDecoratorFactory(componentName);
+const componentSelector = 'pie-icon-button';
+const validPropertyValues = validPropertyValuesDecoratorFactory(componentSelector);
 
 export class PieIconButton extends LitElement {
     @property()
@@ -47,10 +47,10 @@ export class PieIconButton extends LitElement {
     static styles = unsafeCSS(styles);
 }
 
-customElements.define(componentName, PieIconButton);
+customElements.define(componentSelector, PieIconButton);
 
 declare global {
     interface HTMLElementTagNameMap {
-        [componentName]: PieIconButton;
+        [componentSelector]: PieIconButton;
     }
 }
