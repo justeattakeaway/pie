@@ -166,6 +166,11 @@
                         {
                             "kind": "method",
                             "name": "firstUpdated",
+                            "return": {
+                                "type": {
+                                    "text": "void"
+                                }
+                            },
                             "parameters": [
                                 {
                                     "name": "changedProperties",
@@ -178,6 +183,11 @@
                         {
                             "kind": "method",
                             "name": "updated",
+                            "return": {
+                                "type": {
+                                    "text": "void"
+                                }
+                            },
                             "parameters": [
                                 {
                                     "name": "changedProperties",
@@ -189,8 +199,33 @@
                         },
                         {
                             "kind": "method",
-                            "name": "_handleModalOpenOnFirstRender",
+                            "name": "_handleModalOpened",
                             "privacy": "private",
+                            "return": {
+                                "type": {
+                                    "text": "void"
+                                }
+                            }
+                        },
+                        {
+                            "kind": "method",
+                            "name": "_handleModalClosed",
+                            "privacy": "private",
+                            "return": {
+                                "type": {
+                                    "text": "void"
+                                }
+                            }
+                        },
+                        {
+                            "kind": "method",
+                            "name": "_handleModalOpenStateOnFirstRender",
+                            "privacy": "private",
+                            "return": {
+                                "type": {
+                                    "text": "void"
+                                }
+                            },
                             "parameters": [
                                 {
                                     "name": "changedProperties",
@@ -202,8 +237,13 @@
                         },
                         {
                             "kind": "method",
-                            "name": "_handleModalStateChanged",
+                            "name": "_handleModalOpenStateChanged",
                             "privacy": "private",
+                            "return": {
+                                "type": {
+                                    "text": "void"
+                                }
+                            },
                             "parameters": [
                                 {
                                     "name": "changedProperties",
@@ -216,19 +256,6 @@
                         {
                             "kind": "method",
                             "name": "render"
-                        },
-                        {
-                            "kind": "method",
-                            "name": "willUpdate",
-                            "parameters": [
-                                {
-                                    "name": "changedProperties",
-                                    "type": {
-                                        "text": "Map<string, unknown>"
-                                    }
-                                }
-                            ],
-                            "description": "We require this because toggling the prop `isOpen` itself won't\nallow the dialog to open in the correct way (with the default background),\nthe method `showModal()` needs to be invoked.\n\nhttps://lit.dev/docs/components/lifecycle/#willupdate"
                         },
                         {
                             "kind": "field",

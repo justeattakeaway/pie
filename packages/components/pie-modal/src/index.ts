@@ -44,19 +44,33 @@ export class PieModal extends RtlMixin(LitElement) {
         this._handleModalOpenStateChanged(changedProperties);
     }
 
+    /**
+     * Opens the dialog element and disables page scrolling
+     */
     private _handleModalOpened () : void {
-        this._disableScrolling();
+        disableBodyScroll(this);
         //  We require this because toggling the prop `isOpen` itself won't
         //  allow the dialog to open in the correct way (with the default background),
         //  the method `showModal()` needs to be invoked.
         this._dialog?.showModal();
     }
 
+    /**
+     * Closes the dialog element and re-enables page scrolling
+     */
     private _handleModalClosed () : void {
-        this._enableScrolling();
+        enableBodyScroll(this);
         //  Closes the native dialog element
         this._dialog?.close();
     }
+
+    /**
+     * This is only to be used inside the component template as direct property
+     * reassignment is not allowed.
+     */
+    private _triggerCloseModal = () : void => {
+        this.isOpen = false;
+    };
 
     connectedCallback () : void {
         super.connectedCallback();
@@ -73,24 +87,19 @@ export class PieModal extends RtlMixin(LitElement) {
     // Handles the value of the isOpen property on first render of the component
     private _handleModalOpenStateOnFirstRender (changedProperties: DependentMap<ModalProps>) : void {
         // This ensures if the modal is open on first render, the scroll lock and backdrop are applied
-        if (changedProperties.has('isOpen')) {
-            const previousValue = changedProperties.get('isOpen') as boolean;
-            if (previousValue === undefined && this.isOpen) {
-                this._dispatchModalOpenEvent();
-            }
+        const previousValue = changedProperties.get('isOpen');
+
+        if (previousValue === undefined && this.isOpen) {
+            this._dispatchModalOpenEvent();
         }
     }
 
     // Handles changes to the modal isOpen property by dispatching any appropriate events
     private _handleModalOpenStateChanged (changedProperties: DependentMap<ModalProps>) : void {
-        if (changedProperties.has('isOpen')) {
-            const previousValue = changedProperties.get('isOpen') as boolean;
+        const previousValue = changedProperties.get('isOpen');
 
-            if (previousValue === undefined) {
-                return;
-            }
-
-            if (previousValue) {
+        if (previousValue !== undefined) {
+            if (previousValue as boolean) {
                 this._dispatchModalCloseEvent();
             } else {
                 this._dispatchModalOpenEvent();
@@ -111,7 +120,7 @@ export class PieModal extends RtlMixin(LitElement) {
                 <header>
                     <${headingTag} class="c-modal-heading">${heading}</${headingTag}>
                     <pie-icon-button
-                        @click="${this._handleCloseDialog}"
+                        @click="${this._triggerCloseModal}"
                         variant="ghost-tertiary"
                         class="c-modal-closeBtn"></pie-icon-button>
                 </header>
@@ -122,13 +131,6 @@ export class PieModal extends RtlMixin(LitElement) {
         `;
     }
 
-    private _handleCloseDialog = () : void => {
-        //  Closes the native dialog element
-        this._dialog?.close();
-        this.isOpen = false;
-        this._dispatchModalCloseEvent();
-    };
-
     /**
      * Dismiss modal via `_handleCloseDialog()` on backdrop click
      * and will proceed to fire an `ON_MODAL_CLOSE_EVENT` event.
@@ -137,15 +139,23 @@ export class PieModal extends RtlMixin(LitElement) {
     private _handleDialogLightDismiss = (event: MouseEvent) : void => {
         const rect = this._dialog?.getBoundingClientRect();
 
-        if (typeof rect !== 'undefined') {
-            const isClickOutsideDialog = event.clientY < rect.top ||
-                event.clientY > rect.bottom ||
-                event.clientX < rect.left ||
-                event.clientX > rect.right;
+        const {
+            top = 0, bottom = 0, left = 0, right = 0,
+        } = rect || {};
 
-            if (isClickOutsideDialog) {
-                this._handleCloseDialog();
-            }
+        // This means the dialog is not open due to clicking the close button so
+        // we want to escape early
+        if (top === 0 && bottom === 0 && left === 0 && right === 0) {
+            return;
+        }
+
+        const isClickOutsideDialog = event.clientY < top ||
+            event.clientY > bottom ||
+            event.clientX < left ||
+            event.clientX > right;
+
+        if (isClickOutsideDialog) {
+            this.isOpen = false;
         }
     };
 
@@ -177,14 +187,6 @@ export class PieModal extends RtlMixin(LitElement) {
         });
 
         this.dispatchEvent(event);
-    };
-
-    private _enableScrolling = () : void => {
-        enableBodyScroll(this);
-    };
-
-    private _disableScrolling = () : void => {
-        disableBodyScroll(this);
     };
 
     // Renders a `CSSResult` generated from SCSS by Vite
