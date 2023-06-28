@@ -10,10 +10,9 @@
                     "kind": "variable",
                     "name": "headingLevels",
                     "type": {
-                        "text": "Array<ModalProps['headingLevel']>"
+                        "text": "['h1', 'h2', 'h3', 'h4', 'h5', 'h6']"
                     },
-                    "default": "['h1', 'h2', 'h3', 'h4', 'h5', 'h6']",
-                    "description": "Modal heading levels/tags"
+                    "default": "['h1', 'h2', 'h3', 'h4', 'h5', 'h6']"
                 },
                 {
                     "kind": "variable",
@@ -23,6 +22,15 @@
                     },
                     "default": "'pie-modal-close'",
                     "description": "Event name for when the modal is closed."
+                },
+                {
+                    "kind": "variable",
+                    "name": "ON_MODAL_OPEN_EVENT",
+                    "type": {
+                        "text": "string"
+                    },
+                    "default": "'pie-modal-open'",
+                    "description": "Event name for when the modal is opened."
                 }
             ],
             "exports": [
@@ -41,6 +49,14 @@
                         "name": "ON_MODAL_CLOSE_EVENT",
                         "module": "../../components/pie-modal/src/defs.js"
                     }
+                },
+                {
+                    "kind": "js",
+                    "name": "ON_MODAL_OPEN_EVENT",
+                    "declaration": {
+                        "name": "ON_MODAL_OPEN_EVENT",
+                        "module": "../../components/pie-modal/src/defs.js"
+                    }
                 }
             ]
         },
@@ -50,54 +66,51 @@
             "declarations": [
                 {
                     "kind": "variable",
-                    "name": "buttonSizes",
+                    "name": "sizes",
                     "type": {
-                        "text": "Array<ButtonProps['size']>"
+                        "text": "['xsmall', 'small-expressive', 'small-productive', 'medium', 'large']"
                     },
-                    "default": "[\n    'xsmall',\n    'small-expressive',\n    'small-productive',\n    'medium',\n    'large'\n]",
-                    "description": "Button size variants"
+                    "default": "['xsmall', 'small-expressive', 'small-productive', 'medium', 'large']"
                 },
                 {
                     "kind": "variable",
-                    "name": "buttonVariants",
+                    "name": "types",
                     "type": {
-                        "text": "Array<ButtonProps['variant']>"
+                        "text": "['submit', 'button', 'reset', 'menu']"
                     },
-                    "default": "[\n    'primary',\n    'secondary',\n    'outline',\n    'ghost',\n]",
-                    "description": "Button style variants"
+                    "default": "['submit', 'button', 'reset', 'menu']"
                 },
                 {
                     "kind": "variable",
-                    "name": "buttonTypes",
+                    "name": "variants",
                     "type": {
-                        "text": "Array<ButtonProps['type']>"
+                        "text": "['primary', 'secondary', 'outline', 'ghost']"
                     },
-                    "default": "[\n    'submit',\n    'button',\n    'reset',\n    'menu',\n]",
-                    "description": "Button type variants"
+                    "default": "['primary', 'secondary', 'outline', 'ghost']"
                 }
             ],
             "exports": [
                 {
                     "kind": "js",
-                    "name": "buttonSizes",
+                    "name": "sizes",
                     "declaration": {
-                        "name": "buttonSizes",
+                        "name": "sizes",
                         "module": "../../components/pie-button/src/defs.js"
                     }
                 },
                 {
                     "kind": "js",
-                    "name": "buttonVariants",
+                    "name": "types",
                     "declaration": {
-                        "name": "buttonVariants",
+                        "name": "types",
                         "module": "../../components/pie-button/src/defs.js"
                     }
                 },
                 {
                     "kind": "js",
-                    "name": "buttonTypes",
+                    "name": "variants",
                     "declaration": {
-                        "name": "buttonTypes",
+                        "name": "variants",
                         "module": "../../components/pie-button/src/defs.js"
                     }
                 }
@@ -152,38 +165,130 @@
                         },
                         {
                             "kind": "method",
-                            "name": "render"
-                        },
-                        {
-                            "kind": "method",
-                            "name": "firstUpdated"
-                        },
-                        {
-                            "kind": "method",
-                            "name": "willUpdate",
+                            "name": "firstUpdated",
+                            "return": {
+                                "type": {
+                                    "text": "void"
+                                }
+                            },
                             "parameters": [
                                 {
                                     "name": "changedProperties",
                                     "type": {
-                                        "text": "Map<string, unknown>"
+                                        "text": "DependentMap<ModalProps>"
                                     }
                                 }
-                            ],
-                            "description": "We require this because toggling the prop `isOpen` itself won't\nallow the dialog to open in the correct way (with the default background),\nthe method `showModal()` needs to be invoked.\n\nhttps://lit.dev/docs/components/lifecycle/#willupdate"
+                            ]
+                        },
+                        {
+                            "kind": "method",
+                            "name": "updated",
+                            "return": {
+                                "type": {
+                                    "text": "void"
+                                }
+                            },
+                            "parameters": [
+                                {
+                                    "name": "changedProperties",
+                                    "type": {
+                                        "text": "DependentMap<ModalProps>"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "kind": "method",
+                            "name": "_handleModalOpened",
+                            "privacy": "private",
+                            "return": {
+                                "type": {
+                                    "text": "void"
+                                }
+                            }
+                        },
+                        {
+                            "kind": "method",
+                            "name": "_handleModalClosed",
+                            "privacy": "private",
+                            "return": {
+                                "type": {
+                                    "text": "void"
+                                }
+                            }
+                        },
+                        {
+                            "kind": "method",
+                            "name": "_handleModalOpenStateOnFirstRender",
+                            "privacy": "private",
+                            "return": {
+                                "type": {
+                                    "text": "void"
+                                }
+                            },
+                            "parameters": [
+                                {
+                                    "name": "changedProperties",
+                                    "type": {
+                                        "text": "DependentMap<ModalProps>"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "kind": "method",
+                            "name": "_handleModalOpenStateChanged",
+                            "privacy": "private",
+                            "return": {
+                                "type": {
+                                    "text": "void"
+                                }
+                            },
+                            "parameters": [
+                                {
+                                    "name": "changedProperties",
+                                    "type": {
+                                        "text": "DependentMap<ModalProps>"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "kind": "method",
+                            "name": "render"
                         },
                         {
                             "kind": "field",
-                            "name": "_handleCloseDialog"
+                            "name": "_handleCloseDialog",
+                            "privacy": "private"
                         },
                         {
                             "kind": "field",
                             "name": "_handleDialogLightDismiss",
+                            "privacy": "private",
                             "description": "Dismiss modal via `_handleCloseDialog()` on backdrop click\nand will proceed to fire an `ON_MODAL_CLOSE_EVENT` event."
                         },
                         {
                             "kind": "field",
-                            "name": "_onDialogClose",
+                            "name": "_dispatchModalCloseEvent",
+                            "privacy": "private",
                             "description": "Dispatch `ON_MODAL_CLOSE_EVENT` event.\nTo be used whenever we close the modal."
+                        },
+                        {
+                            "kind": "field",
+                            "name": "_dispatchModalOpenEvent",
+                            "privacy": "private",
+                            "description": "Dispatch `ON_MODAL_OPEN_EVENT` event.\nTo be used whenever we open the modal."
+                        },
+                        {
+                            "kind": "field",
+                            "name": "_enableScrolling",
+                            "privacy": "private"
+                        },
+                        {
+                            "kind": "field",
+                            "name": "_disableScrolling",
+                            "privacy": "private"
                         },
                         {
                             "kind": "field",
@@ -367,25 +472,25 @@
                 },
                 {
                     "kind": "js",
-                    "name": "buttonSizes",
+                    "name": "sizes",
                     "declaration": {
-                        "name": "buttonSizes",
+                        "name": "sizes",
                         "module": "../../components/pie-button/src/index.js"
                     }
                 },
                 {
                     "kind": "js",
-                    "name": "buttonTypes",
+                    "name": "types",
                     "declaration": {
-                        "name": "buttonTypes",
+                        "name": "types",
                         "module": "../../components/pie-button/src/index.js"
                     }
                 },
                 {
                     "kind": "js",
-                    "name": "buttonVariants",
+                    "name": "variants",
                     "declaration": {
-                        "name": "buttonVariants",
+                        "name": "variants",
                         "module": "../../components/pie-button/src/index.js"
                     }
                 },
@@ -435,6 +540,14 @@
                         "name": "*",
                         "package": "./test-helpers"
                     }
+                },
+                {
+                    "kind": "js",
+                    "name": "*",
+                    "declaration": {
+                        "name": "*",
+                        "package": "./type-helpers"
+                    }
                 }
             ]
         },
@@ -444,37 +557,35 @@
             "declarations": [
                 {
                     "kind": "variable",
-                    "name": "iconButtonSizes",
+                    "name": "sizes",
                     "type": {
-                        "text": "Array<IconButtonProps['size']>"
+                        "text": "['xsmall', 'small', 'medium', 'large']"
                     },
-                    "default": "[\n    'xsmall',\n    'small',\n    'medium',\n    'large'\n]",
-                    "description": "Icon Button size variants"
+                    "default": "['xsmall', 'small', 'medium', 'large']"
                 },
                 {
                     "kind": "variable",
-                    "name": "iconButtonVariants",
+                    "name": "variants",
                     "type": {
-                        "text": "Array<IconButtonProps['variant']>"
+                        "text": "['primary', 'secondary', 'outline', 'ghost', 'ghost-tertiary']"
                     },
-                    "default": "[\n    'primary',\n    'secondary',\n    'outline',\n    'ghost',\n    'ghost-tertiary',\n]",
-                    "description": "Icon Button style variants"
+                    "default": "['primary', 'secondary', 'outline', 'ghost', 'ghost-tertiary']"
                 }
             ],
             "exports": [
                 {
                     "kind": "js",
-                    "name": "iconButtonSizes",
+                    "name": "sizes",
                     "declaration": {
-                        "name": "iconButtonSizes",
+                        "name": "sizes",
                         "module": "../../components/pie-icon-button/src/defs.js"
                     }
                 },
                 {
                     "kind": "js",
-                    "name": "iconButtonVariants",
+                    "name": "variants",
                     "declaration": {
-                        "name": "iconButtonVariants",
+                        "name": "variants",
                         "module": "../../components/pie-icon-button/src/defs.js"
                     }
                 }
@@ -558,17 +669,17 @@
                 },
                 {
                     "kind": "js",
-                    "name": "iconButtonSizes",
+                    "name": "sizes",
                     "declaration": {
-                        "name": "iconButtonSizes",
+                        "name": "sizes",
                         "module": "../../components/pie-icon-button/src/index.js"
                     }
                 },
                 {
                     "kind": "js",
-                    "name": "iconButtonVariants",
+                    "name": "variants",
                     "declaration": {
-                        "name": "iconButtonVariants",
+                        "name": "variants",
                         "module": "../../components/pie-icon-button/src/index.js"
                     }
                 },
@@ -670,13 +781,20 @@
                         "name": "*",
                         "package": "./components"
                     }
-                },
+                }
+            ]
+        },
+        {
+            "kind": "javascript-module",
+            "path": "../../components/pie-webc-core/src/type-helpers/index.js",
+            "declarations": [],
+            "exports": [
                 {
                     "kind": "js",
                     "name": "*",
                     "declaration": {
                         "name": "*",
-                        "package": "./percy-lit-options"
+                        "package": "./DependentMap"
                     }
                 }
             ]
@@ -770,6 +888,12 @@
         },
         {
             "kind": "javascript-module",
+            "path": "../../components/pie-webc-core/src/type-helpers/DependentMap.js",
+            "declarations": [],
+            "exports": []
+        },
+        {
+            "kind": "javascript-module",
             "path": "../../components/pie-webc-core/src/decorators/required-property.js",
             "declarations": [
                 {
@@ -819,31 +943,6 @@
         },
         {
             "kind": "javascript-module",
-            "path": "../../components/pie-webc-core/src/test-helpers/percy-lit-options.js",
-            "declarations": [
-                {
-                    "kind": "function",
-                    "name": "getLitPercyOptions",
-                    "return": {
-                        "type": {
-                            "text": "ExtendedSnapshotOptions"
-                        }
-                    }
-                }
-            ],
-            "exports": [
-                {
-                    "kind": "js",
-                    "name": "getLitPercyOptions",
-                    "declaration": {
-                        "name": "getLitPercyOptions",
-                        "module": "../../components/pie-webc-core/src/test-helpers/percy-lit-options.js"
-                    }
-                }
-            ]
-        },
-        {
-            "kind": "javascript-module",
             "path": "../../components/pie-webc-core/src/decorators/valid-property-values.js",
             "declarations": [
                 {
@@ -859,14 +958,14 @@
                         {
                             "name": "validValues",
                             "type": {
-                                "text": "any[]"
+                                "text": "readonly T[]"
                             },
                             "description": "The array of valid values"
                         },
                         {
                             "name": "defaultValue",
                             "type": {
-                                "text": "any"
+                                "text": "T"
                             },
                             "description": "The value to fall back on"
                         }
@@ -965,7 +1064,7 @@
             "declarations": [
                 {
                     "kind": "class",
-                    "description": "This is a Web Component used for visual testing purposes.\nIt allows us to wrap a component we'd like to test in a container\nthat displays the component's props as a label.\n\nComponents can be tested without this, but it's useful if your tests\nrequire additional markup when testing a component.",
+                    "description": "This is a Web Component used for visual testing purposes.\nIt allows us to wrap a component we'd like to test in a container\nthat displays the component's props as a label.\n\nAlternatively, this component supports a page mode. In this mode,\nthe test component is not wrapped and labelled, however you can add\nany amount of HTML to the page to help with testing. This useful for components\nsuch as Modal and Dialog components where we need to test the component in the context of\nthe page markup.\n\nComponents can be tested without this, but it's useful if your tests\nrequire additional markup when testing a component.",
                     "name": "WebComponentTestWrapper",
                     "members": [
                         {
@@ -981,6 +1080,15 @@
                             },
                             "default": "''",
                             "description": "The prop key and values to display above the component.\nThis should be a single string representing a comma separated list of prop key/value pairs.\nSuch as: 'size: small, isFullWidth: true'"
+                        },
+                        {
+                            "kind": "field",
+                            "name": "pageMode",
+                            "type": {
+                                "text": "boolean"
+                            },
+                            "default": "false",
+                            "description": "Use in combination with the `pageMarkup` named slot to render the component alongside additional HTML\nto test the component in the context of the page."
                         },
                         {
                             "kind": "method",
