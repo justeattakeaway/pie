@@ -3,17 +3,17 @@ export const variants = ['primary', 'secondary', 'outline', 'ghost', 'ghost-tert
 
 export interface IconButtonProps {
     /**
-     * What size the button should be
+     * What size the button should be.
      * @default "medium"
      */
     size: typeof sizes[number];
     /**
-     * What style variant the button should be such as primary, outline or ghost
+     * What style variant the button should be such as primary, outline or ghost.
      * @default "primary"
      */
     variant: typeof variants[number];
     /**
-     * When true, the button element is disabled
+     * When true, the button element is disabled.
      * @default false
      */
     disabled: boolean;
