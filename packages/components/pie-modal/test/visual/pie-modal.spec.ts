@@ -1,10 +1,16 @@
 import { test } from '@sand4rt/experimental-ct-web';
 import percySnapshot from '@percy/playwright';
 
-import type { PropObject, WebComponentPropValues } from '@justeattakeaway/pie-webc-core/src/test-helpers/defs';
-import { getAllPropCombinations, splitCombinationsByPropertyValue } from '@justeattakeaway/pie-webc-core/src/test-helpers/get-all-prop-combos.ts';
-import { createTestWebComponent } from '@justeattakeaway/pie-webc-core/src/test-helpers/rendering.ts';
-import { WebComponentTestWrapper } from '@justeattakeaway/pie-webc-core/src/test-helpers/components/web-component-test-wrapper/WebComponentTestWrapper.ts';
+import { WebComponentTestWrapper } from '@justeattakeaway/pie-webc-core/src/test-helpers/components/web-component-test-wrapper/WebComponentTestWrapper';
+import { createTestWebComponent } from '@justeattakeaway/pie-webc-core/src/test-helpers/rendering';
+import {
+    PropObject,
+    WebComponentPropValues,
+} from '@justeattakeaway/pie-webc-core/src/test-helpers/defs';
+import {
+    getAllPropCombinations,
+    splitCombinationsByPropertyValue,
+} from '@justeattakeaway/pie-webc-core/src/test-helpers/get-all-prop-combos';
 
 import { ModalProps, PieModal } from '@/index';
 import { headingLevels, sizes } from '@/defs';
