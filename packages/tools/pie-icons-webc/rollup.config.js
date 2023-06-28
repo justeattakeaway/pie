@@ -1,7 +1,8 @@
-import { nodeResolve } from '@rollup/plugin-node-resolve';
-import del from 'rollup-plugin-delete';
+/* eslint-disable */
+const { nodeResolve } = require('@rollup/plugin-node-resolve')
+const del = require('rollup-plugin-delete')
 
-export default [
+module.exports = [
     {
         input: ['icons/index.js'],
         output: {

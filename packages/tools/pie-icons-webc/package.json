@@ -1,7 +1,6 @@
 {
   "name": "@justeattakeaway/pie-icons-webc",
   "version": "0.1.0",
-  "type": "module",
   "main": "icons/index.js",
   "files": [
     "dist",

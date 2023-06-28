@@ -1,10 +1,9 @@
-
 import { getDefaultIconSize, iconSize, getSvgProps } from '@justeattakeaway/pie-icons-configs/configs';
 
 const template = document.createElement('template');
 template.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 32 32" class="c-pieIcon c-pieIcon--microsoftStaticLarge"><path fill="#F15121" d="M4 4h11v11H4V4Z"></path><path fill="#00A3EE" d="M4 17h11v11H4V17Z"></path><path fill="#7EB801" d="M17 4h11v11H17V4Z"></path><path fill="#FFB700" d="M17 17h11v11H17V17Z"></path></svg>';
 
-export default class IconSocialMicrosoftStaticLarge extends HTMLElement {
+export class IconSocialMicrosoftStaticLarge extends HTMLElement {
     constructor () {
         super();
         const clone = template.content.cloneNode(true);

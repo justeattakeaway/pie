@@ -31,24 +31,24 @@ Within the context of a Vue app, that will look like:
 
   ```js
   <template>
-      <icon-calendar />
-      <icon-app-restaurant size="xs"/>
+      <icon-app-restaurant size="l" />
+      <icon-app-restaurant-large size="80"/>
   </template>
 
   <script>
-  import { IconAlcoholFilled } from '@justeattakeaway/pie-icons-webc';
+  import { IconAppRestaurant, IconAppRestaurantLarge } from '@justeattakeaway/pie-icons-webc';
   </script>
   ```
 
 Within the context of a React app, that will look like:
 
   ```js
-import { IconAppRestaurant } from '@justeattakeaway/pie-icons-webc/icons/IconAppRestaurant';
+import { IconAppRestaurant } from '@justeattakeaway/pie-icons-webc';
 import * as React from 'react';
 import { createComponent } from '@lit-labs/react';
 
-export const IconAlcohol = createComponent({
-    displayName: 'IconAlcohol',
+export const IconRestaurant = createComponent({
+    displayName: 'IconAppRestaurant',
     elementClass: IconAppRestaurant,
     react: React,
     tagName: 'icon-app-restaurant',
@@ -56,7 +56,7 @@ export const IconAlcohol = createComponent({
 });
 
   <template>
-      <IconAlcohol size="l"/>
+      <IconRestaurant size="l"/>
   </template>
   ```
 
@@ -77,8 +77,8 @@ Large icons `size` default and minimum value is `32`. Values larger than the min
 Example:
 
 ```js
-<icon-alert-triangle size="l" />
-<icon-alert-triangle-large iconSize="40" />
+<icon-alert-triangle size="s" />
+<icon-alert-triangle-large size="80" />
 ```
 
 ### Tree shaking

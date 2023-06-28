@@ -1,20 +1,20 @@
-import pieIcons from '@justeattakeaway/pie-icons';
-import { pascalCase } from 'pascal-case';
-import path from 'path';
-import fs from 'fs-extra';
-import { execSync } from 'child_process';
-import kebabCase from 'kebab-case';
-import { removeHyphenBeforeDigits } from './helpers/index.js';
+/* eslint-disable */
+const path = require('path');
+const pieIcons = require('@justeattakeaway/pie-icons').default;
+const { pascalCase } = require('pascal-case');
+const fs = require('fs-extra');
+const { execSync } = require('child_process');
+const kebabCase = require('kebab-case');
+const { removeHyphenBeforeDigits } = require('./helpers');
 
-const { icons } = pieIcons.default;
+const { icons } = pieIcons;
 
-const componentTemplate = (name, svg) => `
-import { getDefaultIconSize, iconSize, getSvgProps } from '@justeattakeaway/pie-icons-configs/configs';
+const componentTemplate = (name, svg) => `import { getDefaultIconSize, iconSize, getSvgProps } from '@justeattakeaway/pie-icons-configs/configs';
 
 const template = document.createElement('template');
 template.innerHTML = '${svg}';
 
-export default class ${name} extends HTMLElement {
+export class ${name} extends HTMLElement {
     constructor () {
         super();
         const clone = template.content.cloneNode(true);
@@ -79,7 +79,7 @@ function copyIconsConfigFiles () {
     ];
     const destFilePath = path.resolve(process.cwd(), './icons');
 
-    srcFilePaths.forEach((srcFilePath) => execSync(`copy ${srcFilePath} ${destFilePath}`));
+    srcFilePaths.forEach((srcFilePath) => execSync(`cp ${srcFilePath} ${destFilePath}`));
 }
 
 async function build () {
@@ -103,7 +103,7 @@ async function build () {
         let component = componentTemplate(componentName, svg);
         component = component.replace(/xlink:href/g, 'xlinkHref'); // replace so it gets parsed by JSX correctly
 
-        indexFileString += `export { default as ${componentName} } from './${componentName}';\n`;
+        indexFileString += `export { ${componentName} } from './${componentName}';\n`;
 
         fs.writeFileSync(`./icons/${componentName}.js`, component, 'utf8');
     });

@@ -1,10 +1,9 @@
-
 import { getDefaultIconSize, iconSize, getSvgProps } from '@justeattakeaway/pie-icons-configs/configs';
 
 const template = document.createElement('template');
 template.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 32 32" class="c-pieIcon c-pieIcon--arrowUpLeftLarge"><path d="M25.284 24.041 9.814 8.571h9.922v-1.75H8.58a1.75 1.75 0 0 0-1.75 1.75v11.165h1.75V9.805l15.47 15.47 1.234-1.234Z"></path></svg>';
 
-export default class IconArrowUpLeftLarge extends HTMLElement {
+export class IconArrowUpLeftLarge extends HTMLElement {
     constructor () {
         super();
         const clone = template.content.cloneNode(true);
