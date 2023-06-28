@@ -1,8 +1,17 @@
 export const headingLevels = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'] as const;
 
 export interface ModalProps {
+    /**
+     * The text to display in the modal's heading.
+     */
     heading: string;
+    /**
+     * The HTML heading tag to use for the modal's heading. Can be H1-H6.
+     */
     headingLevel: typeof headingLevels[number];
+    /**
+     * When true, the modal will be open.
+     */
     isOpen: boolean;
 }
 
