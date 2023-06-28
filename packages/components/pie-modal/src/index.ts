@@ -2,7 +2,9 @@ import { LitElement, unsafeCSS } from 'lit';
 import { html, unsafeStatic } from 'lit/static-html.js';
 import { property, query } from 'lit/decorators.js';
 import {
-    RtlMixin, validPropertyValues, requiredProperty,
+    RtlMixin,
+    validPropertyValuesDecoratorFactory,
+    requiredPropertyDecoratorFactory,
 } from '@justeattakeaway/pie-webc-core';
 import type { DependentMap } from '@justeattakeaway/pie-webc-core';
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
@@ -14,18 +16,20 @@ import {
 // Valid values available to consumers
 export { type ModalProps, headingLevels };
 
-const componentSelector = 'pie-modal';
+const componentName = 'pie-modal';
+const validPropertyValues = validPropertyValuesDecoratorFactory(componentName);
+const requiredProperty = requiredPropertyDecoratorFactory(componentName);
 
 export class PieModal extends RtlMixin(LitElement) {
     @property({ type: Boolean })
         isOpen = false;
 
     @property({ type: String })
-    @requiredProperty(componentSelector)
+    @requiredProperty()
         heading!: string;
 
     @property()
-    @validPropertyValues(componentSelector, headingLevels, 'h2')
+    @validPropertyValues(headingLevels, 'h2')
         headingLevel: ModalProps['headingLevel'] = 'h2';
 
     @query('dialog')
@@ -192,10 +196,10 @@ export class PieModal extends RtlMixin(LitElement) {
     static styles = unsafeCSS(styles);
 }
 
-customElements.define(componentSelector, PieModal);
+customElements.define(componentName, PieModal);
 
 declare global {
     interface HTMLElementTagNameMap {
-        [componentSelector]: PieModal;
+        [componentName]: PieModal;
     }
 }

@@ -1,6 +1,6 @@
 import { LitElement, html, unsafeCSS } from 'lit';
 import { property } from 'lit/decorators.js';
-import { validPropertyValues } from '@justeattakeaway/pie-webc-core';
+import { validPropertyValuesDecoratorFactory } from '@justeattakeaway/pie-webc-core';
 import styles from './button.scss?inline';
 import {
     ButtonProps, sizes, types, variants,
@@ -14,19 +14,20 @@ export {
     variants,
 };
 
-const componentSelector = 'pie-button';
+const componentName = 'pie-button';
+const validPropertyValues = validPropertyValuesDecoratorFactory(componentName);
 
 export class PieButton extends LitElement {
     @property()
-    @validPropertyValues(componentSelector, sizes, 'medium')
+    @validPropertyValues(sizes, 'medium')
         size: ButtonProps['size'] = 'medium';
 
     @property()
-    @validPropertyValues(componentSelector, types, 'submit')
+    @validPropertyValues(types, 'submit')
         type: ButtonProps['type'] = 'submit';
 
     @property()
-    @validPropertyValues(componentSelector, variants, 'primary')
+    @validPropertyValues(variants, 'primary')
         variant: ButtonProps['variant'] = 'primary';
 
     @property({ type: Boolean })
@@ -56,10 +57,10 @@ export class PieButton extends LitElement {
     static styles = unsafeCSS(styles);
 }
 
-customElements.define(componentSelector, PieButton);
+customElements.define(componentName, PieButton);
 
 declare global {
     interface HTMLElementTagNameMap {
-        [componentSelector]: PieButton;
+        [componentName]: PieButton;
     }
 }

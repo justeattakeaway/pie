@@ -7,7 +7,10 @@ import {
     vi,
 } from 'vitest';
 
-import { requiredProperty } from '../required-property';
+import { requiredPropertyDecoratorFactory } from '../required-property';
+
+const mockComponentName = 'mock-component';
+const requiredProperty = requiredPropertyDecoratorFactory(mockComponentName);
 
 describe('requiredProperty', () => {
     let consoleErrorSpy: unknown;
@@ -23,7 +26,7 @@ describe('requiredProperty', () => {
 
     // Mock class to test the decorator
     class MockComponent {
-        @requiredProperty('mock-component')
+        @requiredProperty()
             color?: string | null;
 
         private _requestUpdateArgs = {};

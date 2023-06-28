@@ -7,7 +7,10 @@ import {
     vi,
 } from 'vitest';
 
-import { validPropertyValues } from '../valid-property-values';
+import { validPropertyValuesDecoratorFactory } from '../valid-property-values';
+
+const mockComponentName = 'mock-component';
+const validPropertyValues = validPropertyValuesDecoratorFactory(mockComponentName);
 
 describe('validPropertyValues', () => {
     let consoleErrorSpy: unknown;
@@ -23,7 +26,7 @@ describe('validPropertyValues', () => {
 
     // Mock class to test the decorator
     class MockComponent {
-        @validPropertyValues('mock-component', ['red', 'green', 'blue'], 'red')
+        @validPropertyValues(['red', 'green', 'blue'], 'red')
             color = 'red';
 
         private _requestUpdateArgs = {};
