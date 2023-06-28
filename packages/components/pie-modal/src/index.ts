@@ -133,7 +133,6 @@ export class PieModal extends RtlMixin(LitElement) {
 
     /**
      * Dismiss modal via `_handleCloseDialog()` on backdrop click
-     * and will proceed to fire an `ON_MODAL_CLOSE_EVENT` event.
      *
      */
     private _handleDialogLightDismiss = (event: MouseEvent) : void => {
