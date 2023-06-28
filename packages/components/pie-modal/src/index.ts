@@ -99,7 +99,7 @@ export class PieModal extends RtlMixin(LitElement) {
         const previousValue = changedProperties.get('isOpen');
 
         if (previousValue !== undefined) {
-            if (previousValue as boolean) {
+            if (previousValue) {
                 this._dispatchModalCloseEvent();
             } else {
                 this._dispatchModalOpenEvent();
@@ -132,7 +132,7 @@ export class PieModal extends RtlMixin(LitElement) {
     }
 
     /**
-     * Dismiss modal via `_handleCloseDialog()` on backdrop click
+     * Dismisses the modal on backdrop click
      *
      */
     private _handleDialogLightDismiss = (event: MouseEvent) : void => {
