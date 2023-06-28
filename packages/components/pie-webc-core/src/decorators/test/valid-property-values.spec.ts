@@ -37,7 +37,7 @@ describe('validPropertyValues', () => {
         }
     }
 
-    it('should not change the value if it is valid', () => {
+    it('should allow value to be updated with a valid value', () => {
         // Arrange
         const mockComponent = new MockComponent();
 
