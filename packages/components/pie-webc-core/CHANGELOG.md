@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.5.0
+
+### Minor Changes
+
+- [Removed] - Function for CSS loading in Safari visual tests due to fix on Percy side. ([#575](https://github.com/justeattakeaway/pie/pull/575)) by [@JoshuaNg2332](https://github.com/JoshuaNg2332)
+
 ## 0.4.0
 
 ### Minor Changes
