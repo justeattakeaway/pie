@@ -156,10 +156,6 @@
                         },
                         {
                             "kind": "method",
-                            "name": "firstUpdated"
-                        },
-                        {
-                            "kind": "method",
                             "name": "willUpdate",
                             "parameters": [
                                 {
@@ -178,6 +174,7 @@
                         {
                             "kind": "field",
                             "name": "_handleDialogLightDismiss",
+                            "privacy": "private",
                             "description": "Dismiss modal via `_handleCloseDialog()` on backdrop click\nand will proceed to fire an `ON_MODAL_CLOSE_EVENT` event."
                         },
                         {
@@ -208,7 +205,7 @@
                             "type": {
                                 "text": "boolean"
                             },
-                            "description": "Returns true if the element is in Right to Left mode.\nIf a dir attribute is not explicitly set on the web component\nthen it falls back to the nearest parent with a dir attribute set.\n\nA dir attribute being set will result in a reactive property.\nIf the component falls back to a parent dir attribute then the value\nwill not be reactive and is only computed once",
+                            "description": "Returns true if the element is in Right to Left mode.\r\nIf a dir attribute is not explicitly set on the web component\r\nthen it falls back to the nearest parent with a dir attribute set.\r\n\r\nA dir attribute being set will result in a reactive property.\r\nIf the component falls back to a parent dir attribute then the value\r\nwill not be reactive and is only computed once",
                             "readonly": true,
                             "inheritedFrom": {
                                 "name": "RtlMixin",
@@ -670,13 +667,20 @@
                         "name": "*",
                         "package": "./components"
                     }
-                },
+                }
+            ]
+        },
+        {
+            "kind": "javascript-module",
+            "path": "../../components/pie-webc-core/src/type-helpers/index.js",
+            "declarations": [],
+            "exports": [
                 {
                     "kind": "js",
                     "name": "*",
                     "declaration": {
                         "name": "*",
-                        "package": "./percy-lit-options"
+                        "package": "./DependentMap"
                     }
                 }
             ]
@@ -704,7 +708,7 @@
                             "type": {
                                 "text": "boolean"
                             },
-                            "description": "Returns true if the element is in Right to Left mode.\nIf a dir attribute is not explicitly set on the web component\nthen it falls back to the nearest parent with a dir attribute set.\n\nA dir attribute being set will result in a reactive property.\nIf the component falls back to a parent dir attribute then the value\nwill not be reactive and is only computed once",
+                            "description": "Returns true if the element is in Right to Left mode.\r\nIf a dir attribute is not explicitly set on the web component\r\nthen it falls back to the nearest parent with a dir attribute set.\r\n\r\nA dir attribute being set will result in a reactive property.\r\nIf the component falls back to a parent dir attribute then the value\r\nwill not be reactive and is only computed once",
                             "readonly": true
                         }
                     ],
@@ -770,6 +774,12 @@
         },
         {
             "kind": "javascript-module",
+            "path": "../../components/pie-webc-core/src/type-helpers/DependentMap.js",
+            "declarations": [],
+            "exports": []
+        },
+        {
+            "kind": "javascript-module",
             "path": "../../components/pie-webc-core/src/decorators/required-property.js",
             "declarations": [
                 {
@@ -813,31 +823,6 @@
                     "declaration": {
                         "name": "*",
                         "package": "./web-component-test-wrapper/WebComponentTestWrapper"
-                    }
-                }
-            ]
-        },
-        {
-            "kind": "javascript-module",
-            "path": "../../components/pie-webc-core/src/test-helpers/percy-lit-options.js",
-            "declarations": [
-                {
-                    "kind": "function",
-                    "name": "getLitPercyOptions",
-                    "return": {
-                        "type": {
-                            "text": "ExtendedSnapshotOptions"
-                        }
-                    }
-                }
-            ],
-            "exports": [
-                {
-                    "kind": "js",
-                    "name": "getLitPercyOptions",
-                    "declaration": {
-                        "name": "getLitPercyOptions",
-                        "module": "../../components/pie-webc-core/src/test-helpers/percy-lit-options.js"
                     }
                 }
             ]
