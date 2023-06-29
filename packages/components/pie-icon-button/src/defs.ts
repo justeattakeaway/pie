@@ -1,5 +1,5 @@
 export const sizes = ['xsmall', 'small', 'medium', 'large'] as const;
-export const variants = ['primary', 'secondary', 'outline', 'ghost', 'ghost-tertiary'] as const;
+export const variants = ['primary', 'secondary', 'outline', 'ghost', 'ghost-secondary'] as const;
 
 export interface IconButtonProps {
     /**

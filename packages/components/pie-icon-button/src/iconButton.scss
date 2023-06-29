@@ -86,9 +86,9 @@
         @include button-interactive-states('--dt-color-container-default');
     }
 
-    &[variant='ghost-tertiary'] {
+    &[variant='ghost-secondary'] {
         --btn-bg-color: var(--dt-color-container-default);
-        --btn-icon-fill: var(--dt-color-content-interactive-tertiary);
+        --btn-icon-fill: var(--dt-color-content-interactive-secondary);
 
         @include button-interactive-states('--dt-color-container-default');
     }
@@ -110,7 +110,7 @@
     }
 
     &[disabled][variant='ghost'],
-    &[disabled][variant='ghost-tertiary'] {
+    &[disabled][variant='ghost-secondary'] {
         --btn-bg-color: transparent;
         --btn-icon-fill: var(--dt-color-content-default);
 
