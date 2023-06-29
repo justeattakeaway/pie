@@ -936,6 +936,54 @@
         },
         {
             "kind": "javascript-module",
+            "path": "../../components/pie-webc-core/src/decorators/valid-property-values.js",
+            "declarations": [
+                {
+                    "kind": "function",
+                    "name": "validPropertyValues",
+                    "parameters": [
+                        {
+                            "name": "componentName",
+                            "type": {
+                                "text": "string"
+                            }
+                        },
+                        {
+                            "name": "validValues",
+                            "type": {
+                                "text": "readonly T[]"
+                            },
+                            "description": "The array of valid values"
+                        },
+                        {
+                            "name": "defaultValue",
+                            "type": {
+                                "text": "T"
+                            },
+                            "description": "The value to fall back on"
+                        }
+                    ],
+                    "description": "A decorator for specifying a list of valid values for a property.\nIf this property's setter is called with an invalid value, an error is logged and the default value will be assigned instead.",
+                    "return": {
+                        "type": {
+                            "text": ""
+                        }
+                    }
+                }
+            ],
+            "exports": [
+                {
+                    "kind": "js",
+                    "name": "validPropertyValues",
+                    "declaration": {
+                        "name": "validPropertyValues",
+                        "module": "../../components/pie-webc-core/src/decorators/valid-property-values.js"
+                    }
+                }
+            ]
+        },
+        {
+            "kind": "javascript-module",
             "path": "../../components/pie-webc-core/src/test-helpers/get-all-prop-combos.js",
             "declarations": [
                 {
@@ -999,54 +1047,6 @@
                     "declaration": {
                         "name": "splitCombinationsByPropertyValue",
                         "module": "../../components/pie-webc-core/src/test-helpers/get-all-prop-combos.js"
-                    }
-                }
-            ]
-        },
-        {
-            "kind": "javascript-module",
-            "path": "../../components/pie-webc-core/src/decorators/valid-property-values.js",
-            "declarations": [
-                {
-                    "kind": "function",
-                    "name": "validPropertyValues",
-                    "parameters": [
-                        {
-                            "name": "componentName",
-                            "type": {
-                                "text": "string"
-                            }
-                        },
-                        {
-                            "name": "validValues",
-                            "type": {
-                                "text": "readonly T[]"
-                            },
-                            "description": "The array of valid values"
-                        },
-                        {
-                            "name": "defaultValue",
-                            "type": {
-                                "text": "T"
-                            },
-                            "description": "The value to fall back on"
-                        }
-                    ],
-                    "description": "A decorator for specifying a list of valid values for a property.\nIf this property's setter is called with an invalid value, an error is logged and the default value will be assigned instead.",
-                    "return": {
-                        "type": {
-                            "text": ""
-                        }
-                    }
-                }
-            ],
-            "exports": [
-                {
-                    "kind": "js",
-                    "name": "validPropertyValues",
-                    "declaration": {
-                        "name": "validPropertyValues",
-                        "module": "../../components/pie-webc-core/src/decorators/valid-property-values.js"
                     }
                 }
             ]

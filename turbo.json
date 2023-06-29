@@ -106,7 +106,7 @@
     "test:browsers": {
       "cache": true,
       "dependsOn": [
-        "build"
+        "^build"
       ],
       "inputs": [
         "src/**",
@@ -117,7 +117,7 @@
     "test:browsers:ci": {
       "cache": true,
       "dependsOn": [
-        "build"
+        "^build"
       ],
       "env": [
         "PIE_URL_PREFIX"
@@ -130,14 +130,14 @@
     "test:visual": {
       "cache": false,
       "dependsOn": [
-        "build"
+        "^build"
       ],
       "outputs": []
     },
     "test:visual:ci": {
       "cache": false,
       "dependsOn": [
-        "build"
+        "^build"
       ]
     },
     "lint:scripts": {
