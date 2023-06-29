@@ -78,6 +78,62 @@
         },
         {
             "kind": "javascript-module",
+            "path": "../../components/pie-button/src/defs.js",
+            "declarations": [
+                {
+                    "kind": "variable",
+                    "name": "sizes",
+                    "type": {
+                        "text": "['xsmall', 'small-expressive', 'small-productive', 'medium', 'large']"
+                    },
+                    "default": "['xsmall', 'small-expressive', 'small-productive', 'medium', 'large']"
+                },
+                {
+                    "kind": "variable",
+                    "name": "types",
+                    "type": {
+                        "text": "['submit', 'button', 'reset', 'menu']"
+                    },
+                    "default": "['submit', 'button', 'reset', 'menu']"
+                },
+                {
+                    "kind": "variable",
+                    "name": "variants",
+                    "type": {
+                        "text": "['primary', 'secondary', 'outline', 'ghost']"
+                    },
+                    "default": "['primary', 'secondary', 'outline', 'ghost']"
+                }
+            ],
+            "exports": [
+                {
+                    "kind": "js",
+                    "name": "sizes",
+                    "declaration": {
+                        "name": "sizes",
+                        "module": "../../components/pie-button/src/defs.js"
+                    }
+                },
+                {
+                    "kind": "js",
+                    "name": "types",
+                    "declaration": {
+                        "name": "types",
+                        "module": "../../components/pie-button/src/defs.js"
+                    }
+                },
+                {
+                    "kind": "js",
+                    "name": "variants",
+                    "declaration": {
+                        "name": "variants",
+                        "module": "../../components/pie-button/src/defs.js"
+                    }
+                }
+            ]
+        },
+        {
+            "kind": "javascript-module",
             "path": "../../components/pie-modal/src/index.js",
             "declarations": [
                 {
@@ -343,62 +399,6 @@
                     "declaration": {
                         "name": "PieModal",
                         "module": "../../components/pie-modal/src/index.js"
-                    }
-                }
-            ]
-        },
-        {
-            "kind": "javascript-module",
-            "path": "../../components/pie-button/src/defs.js",
-            "declarations": [
-                {
-                    "kind": "variable",
-                    "name": "sizes",
-                    "type": {
-                        "text": "['xsmall', 'small-expressive', 'small-productive', 'medium', 'large']"
-                    },
-                    "default": "['xsmall', 'small-expressive', 'small-productive', 'medium', 'large']"
-                },
-                {
-                    "kind": "variable",
-                    "name": "types",
-                    "type": {
-                        "text": "['submit', 'button', 'reset', 'menu']"
-                    },
-                    "default": "['submit', 'button', 'reset', 'menu']"
-                },
-                {
-                    "kind": "variable",
-                    "name": "variants",
-                    "type": {
-                        "text": "['primary', 'secondary', 'outline', 'ghost']"
-                    },
-                    "default": "['primary', 'secondary', 'outline', 'ghost']"
-                }
-            ],
-            "exports": [
-                {
-                    "kind": "js",
-                    "name": "sizes",
-                    "declaration": {
-                        "name": "sizes",
-                        "module": "../../components/pie-button/src/defs.js"
-                    }
-                },
-                {
-                    "kind": "js",
-                    "name": "types",
-                    "declaration": {
-                        "name": "types",
-                        "module": "../../components/pie-button/src/defs.js"
-                    }
-                },
-                {
-                    "kind": "js",
-                    "name": "variants",
-                    "declaration": {
-                        "name": "variants",
-                        "module": "../../components/pie-button/src/defs.js"
                     }
                 }
             ]

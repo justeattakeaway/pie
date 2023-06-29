@@ -58,7 +58,7 @@ test('Should not be able to scroll when modal is open', async ({ page, mount }) 
 
     await page.waitForTimeout(3000); // The mouse.wheel function causes scrolling, but doesn't wait for the scroll to finish before returning.
 
-    await percySnapshot(page, 'PIE Modal scroll locking');
+    await percySnapshot(page, 'Modal - scroll locking');
 });
 
 test('should not render when isOpen = false', async ({ page, mount }) => {
