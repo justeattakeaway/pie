@@ -15,7 +15,7 @@
         <h2>Button variants</h2>
         <div>
             <pie-button
-                v-for="(value, key) in variants"
+                v-for="(value, key) in buttonVariants"
                 :key="key"
                 :variant="value">
                 WC Button in Vue!
@@ -24,7 +24,7 @@
         <h2>Button sizes</h2>
         <div>
             <pie-button
-                v-for="(value, key) in sizes"
+                v-for="(value, key) in buttonSizes"
                 :key="key"
                 :size="value">
                 WC Button in Vue!
@@ -34,14 +34,14 @@
 </template>
 
 <script>
-import { variants, sizes } from '@justeattakeaway/pie-button';
+import { buttonVariants, buttonSizes } from '@justeattakeaway/pie-button';
 
 export default {
     data () {
         return {
             count: 0,
-            variants,
-            sizes,
+            buttonVariants,
+            buttonSizes,
         };
     },
     methods: {

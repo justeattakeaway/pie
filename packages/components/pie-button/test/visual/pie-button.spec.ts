@@ -13,11 +13,11 @@ import {
     WebComponentTestWrapper,
 } from '@justeattakeaway/pie-webc-core/src/test-helpers/components/web-component-test-wrapper/WebComponentTestWrapper.ts';
 import { PieButton } from '@/index';
-import { sizes, variants } from '@/defs';
+import { buttonSizes, buttonVariants } from '@/defs';
 
 const props: PropObject = {
-    variant: variants,
-    size: sizes,
+    variant: buttonVariants,
+    size: buttonSizes,
     type: 'button', // Changing the type does not affect the appearance of the button
     isFullWidth: [true, false],
     disabled: [true, false],
@@ -52,7 +52,7 @@ componentVariants.forEach((variant) => test(`Render all prop variations for Vari
             {
                 props: { propKeyValues },
                 slots: {
-                    component: testComponent.renderedString.trim(),
+                    default: testComponent.renderedString.trim(),
                 },
             },
         );

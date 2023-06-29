@@ -5,9 +5,10 @@
   "type": "module",
   "description": "",
   "exports": {
-    "./configs": "./configs.js",
+    ".": "./configs.js",
     "./configs-react": "./configs-react.js",
-    "./configs-vue": "./configs-vue.js"
+    "./configs-vue": "./configs-vue.js",
+    "./configs": "./configs.js"
   },
   "scripts": {
     "test": "run -T vitest run",

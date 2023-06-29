@@ -4,21 +4,21 @@ import { validPropertyValues } from '@justeattakeaway/pie-webc-core';
 
 import styles from './iconButton.scss?inline';
 import {
-    IconButtonProps, sizes, variants,
+    IconButtonProps, iconButtonSizes, iconButtonVariants,
 } from './defs';
 
 // Valid values available to consumers
-export { type IconButtonProps, sizes, variants };
+export { type IconButtonProps, iconButtonSizes, iconButtonVariants };
 
 const componentSelector = 'pie-icon-button';
 
 export class PieIconButton extends LitElement {
     @property()
-    @validPropertyValues(componentSelector, sizes, 'medium')
+    @validPropertyValues(componentSelector, iconButtonSizes, 'medium')
         size: IconButtonProps['size'] = 'medium';
 
     @property()
-    @validPropertyValues(componentSelector, variants, 'primary')
+    @validPropertyValues(componentSelector, iconButtonVariants, 'primary')
         variant: IconButtonProps['variant'] = 'primary';
 
     @property({ type: Boolean })

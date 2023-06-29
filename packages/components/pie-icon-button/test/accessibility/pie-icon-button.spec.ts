@@ -7,10 +7,10 @@ import {
     getAllPropCombinations, splitCombinationsByPropertyValue,
 } from '@justeattakeaway/pie-webc-core/src/test-helpers/get-all-prop-combos.ts';
 import { PieIconButton } from '@/index';
-import { variants } from '@/defs';
+import { iconButtonVariants } from '@/defs';
 
 const props: PropObject = {
-    variant: variants,
+    variant: iconButtonVariants,
     disabled: [true, false],
 };
 

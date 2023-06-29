@@ -1,31 +1,58 @@
-export const sizes = ['xsmall', 'small-expressive', 'small-productive', 'medium', 'large'] as const;
-export const types = ['submit', 'button', 'reset', 'menu'] as const;
-export const variants = ['primary', 'secondary', 'outline', 'ghost'] as const;
-
 export interface ButtonProps {
     /**
-     * (Optional) What size the button should be.
-     * @default "medium"
+     * the size of the button.
+     * @default medium
      */
-    size: typeof sizes[number];
+    size: 'xsmall' | 'small-expressive' | 'small-productive' | 'medium' | 'large';
     /**
-     * (Optional) What type attribute should be applied to the button. For example submit, button or menu.
-     * @default "submit"
+     * The html button type to use.
+     * @default submit
      */
-    type: typeof types[number];
+    type: 'submit' | 'button' | 'reset' | 'menu';
     /**
-     * (Optional) What style variant the button should be such as primary, outline or ghost.
-     * @default "primary"
+     * the variant of the button.
+     * @default primary
      */
-    variant: typeof variants[number];
+    variant: 'primary' | 'secondary' | 'outline' | 'ghost';
     /**
-     * (Optional) When true, the button element is disabled.
+     * If `true`, the button will be disabled.
      * @default false
      */
     disabled: boolean;
     /**
-     * (Optional) When true, the button element will occupy the full width of its container.
+     * If `true`, the button will span the full width.
      * @default false
      */
     isFullWidth: boolean;
 }
+
+/**
+ * Button size variants
+ */
+export const buttonSizes: Array<ButtonProps['size']> = [
+    'xsmall',
+    'small-expressive',
+    'small-productive',
+    'medium',
+    'large'
+];
+
+/**
+ * Button style variants
+ */
+export const buttonVariants: Array<ButtonProps['variant']> = [
+    'primary',
+    'secondary',
+    'outline',
+    'ghost',
+];
+
+/**
+ * Button type variants
+ */
+export const buttonTypes: Array<ButtonProps['type']> = [
+    'submit',
+    'button',
+    'reset',
+    'menu',
+];

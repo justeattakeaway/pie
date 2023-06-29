@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ButtonProps, sizes, variants } from '@justeattakeaway/pie-button';
+import { ButtonProps, buttonSizes, buttonVariants } from '@justeattakeaway/pie-button';
 
 @Component({
     selector: 'app-root',
@@ -10,7 +10,7 @@ import { ButtonProps, sizes, variants } from '@justeattakeaway/pie-button';
 export class AppComponent {
     title = 'wc-angular12';
 
-    buttonSizes = sizes;
+    buttonSizes = buttonSizes;
     count = 0;
     variantIndex = 0;
     variantName = 'primary';
@@ -25,7 +25,7 @@ export class AppComponent {
 
     switchVariant () {
         this.variantIndex += 1;
-        const variant: ButtonProps['variant'] = variants[this.variantIndex % variants.length];
+        const variant: ButtonProps['variant'] = buttonVariants[this.variantIndex % buttonVariants.length];
 
         this.variantName = variant;
     }

@@ -1,20 +1,38 @@
-export const sizes = ['xsmall', 'small', 'medium', 'large'] as const;
-export const variants = ['primary', 'secondary', 'outline', 'ghost', 'ghost-tertiary'] as const;
-
 export interface IconButtonProps {
     /**
-     * (Optional) What size the button should be.
-     * @default "medium"
+     * the size of the icon button.
+     * @default medium
      */
-    size: typeof sizes[number];
+    size: 'xsmall' | 'small' | 'medium' | 'large';
     /**
-     * (Optional) What style variant the button should be such as primary, outline or ghost.
-     * @default "primary"
+     * the variant of the icon button.
+     * @default primary
      */
-    variant: typeof variants[number];
+    variant: 'primary' | 'secondary' | 'outline' | 'ghost' | 'ghost-tertiary';
     /**
-     * (Optional) When true, the button element is disabled.
+     * If `true`, the icon button will be disabled.
      * @default false
      */
-    disabled: boolean;
+    disabled?: boolean;
 }
+
+/**
+ * Icon Button size variants
+ */
+export const iconButtonSizes: Array<IconButtonProps['size']> = [
+    'xsmall',
+    'small',
+    'medium',
+    'large'
+];
+
+/**
+ * Icon Button style variants
+ */
+export const iconButtonVariants: Array<IconButtonProps['variant']> = [
+    'primary',
+    'secondary',
+    'outline',
+    'ghost',
+    'ghost-tertiary',
+];

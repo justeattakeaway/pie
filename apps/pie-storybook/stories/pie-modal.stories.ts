@@ -1,12 +1,11 @@
 import type { Meta, StoryObj as Story } from '@storybook/web-components';
 import { ModalProps as ModalPropsBase, headingLevels } from '@justeattakeaway/pie-modal';
 import { html, TemplateResult } from 'lit';
-import '@justeattakeaway/pie-button'; // Ensures the button WC is available for use in the templates
 
 type ModalProps = ModalPropsBase & { slot: string }
 
 const defaultArgs: ModalProps = {
-    isOpen: true,
+    isOpen: false,
     heading: 'Modal header',
     headingLevel: 'h2',
     slot: 'This is Lit!',
@@ -39,23 +38,12 @@ export default {
     },
 } as Meta;
 
-/**
- * Helper function to toggle the modal open/closed within the actual template (separate to the Storybook controls)
- */
-const toggleModal = () => {
-    const modal = document.querySelector('pie-modal');
-    if (modal) {
-        modal.isOpen = !modal.isOpen;
-    }
-};
-
 const Template = ({
     isOpen,
     heading,
     headingLevel,
     slot,
 }: ModalProps): TemplateResult => html`
-        <pie-button @click=${toggleModal}>Toggle Modal</pie-button>
         <pie-modal
         ?isOpen="${isOpen}"
         heading="${heading}"
@@ -66,40 +54,5 @@ const Template = ({
 
 export const Default: Story<ModalProps> = (args: ModalProps) => Template(args);
 Default.args = {
-    ...defaultArgs,
-};
-
-// Creates some test page markup to test scroll locking
-const createTestPageHTML = () => {
-    const items = [];
-    for (let i = 0; i < 200; i++) {
-        items.push(html`<li>Item ${i}</li>`);
-    }
-
-    return html`
-    <h1>Test Page</h1>
-    <p> Test copy </p>
-    <ul>${items}</ul>`;
-};
-
-const PageContextTemplate = ({
-    isOpen,
-    heading,
-    headingLevel,
-    slot,
-}: ModalProps) => html`
-    <pie-button @click=${toggleModal}>Toggle Modal</pie-button>
-    <pie-modal
-        ?isOpen="${isOpen}"
-        heading="${heading}"
-        headingLevel="${headingLevel}"
-    >
-        ${slot}
-    </pie-modal>
-    ${createTestPageHTML()}
-`;
-
-export const InScrollablePage: Story<ModalProps> = (args: ModalProps) => PageContextTemplate(args);
-InScrollablePage.args = {
     ...defaultArgs,
 };

@@ -60,9 +60,6 @@
 
         padding-block: var(--modal-content-padding-block-start) var(--modal-content-padding);
         padding-inline: var(--modal-content-padding);
-
-        overflow-y: scroll;
-        max-block-size: 300px; // This is just a placeholder before we add the proper container styles to slotted content to demonstrate scrollable slot content
     }
 
     & .c-modal-closeBtn {

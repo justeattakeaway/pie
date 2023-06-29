@@ -5,14 +5,14 @@
  * @param defaultValue - The value to fall back on
  * @returns  - The decorator function
  */
-export const validPropertyValues = <T>(componentName: string, validValues: readonly T[], defaultValue: T) => function validatePropertyValues (target: object, propertyKey: string): void {
+export const validPropertyValues = (componentName: string, validValues: any[], defaultValue: any) => function (target: any, propertyKey: string) : void {
     const privatePropertyKey = `#${propertyKey}`;
 
     Object.defineProperty(target, propertyKey, {
-        get (): T {
+        get () : any {
             return this[privatePropertyKey];
         },
-        set (value: T): void {
+        set (value: any) : void {
             const oldValue = this[privatePropertyKey];
 
             if (!validValues.includes(value)) {

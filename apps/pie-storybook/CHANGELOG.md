@@ -1,18 +1,5 @@
 # Changelog
 
-## 0.14.0
-
-### Minor Changes
-
-- [Added] - pie-modal story for scroll-locking and toggle button to open/close modal in stories ([#564](https://github.com/justeattakeaway/pie/pull/564)) by [@jamieomaguire](https://github.com/jamieomaguire)
-
-### Patch Changes
-
-- Updated dependencies [[`b1215f22c`](https://github.com/justeattakeaway/pie/commit/b1215f22ce1da9e126187cb3cf862abbd6815a56), [`0a4a7133c`](https://github.com/justeattakeaway/pie/commit/0a4a7133c0e19c1b76989f3080be21ab860cc9d5)]:
-  - @justeattakeaway/pie-modal@0.7.0
-  - @justeattakeaway/pie-button@0.16.1
-  - @justeattakeaway/pie-icon-button@0.6.1
-
 ## 0.13.1
 
 ### Patch Changes

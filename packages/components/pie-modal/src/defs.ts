@@ -1,21 +1,24 @@
-export const headingLevels = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'] as const;
-
 export interface ModalProps {
     /**
-     * (Required) The text to display in the modal's heading.
+     * the heading of the modal .
      */
     heading: string;
     /**
-     * (Optional) The HTML heading tag to use for the modal's heading. Can be H1-H6.
-     * @default "h2"
+     * the rendered heading tag of the modal header.
+     * @default h2
      */
-    headingLevel: typeof headingLevels[number];
+    headingLevel: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
     /**
-     * (Optional) When true, the modal will be open.
+     * If `true`, the modal will be opened.
      * @default false
      */
-    isOpen: boolean;
+    isOpen?: boolean;
 }
+
+/**
+ * Modal heading levels/tags
+ */
+export const headingLevels: Array<ModalProps['headingLevel']> = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
 
 /**
  * Event name for when the modal is closed.
@@ -23,10 +26,3 @@ export interface ModalProps {
  * @constant
  */
 export const ON_MODAL_CLOSE_EVENT = 'pie-modal-close';
-
-/**
- * Event name for when the modal is opened.
- *
- * @constant
- */
-export const ON_MODAL_OPEN_EVENT = 'pie-modal-open';
