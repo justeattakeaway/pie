@@ -1,5 +1,5 @@
 import type { Meta, StoryObj as Story } from '@storybook/web-components';
-import { IconButtonProps, iconButtonSizes, iconButtonVariants } from '@justeattakeaway/pie-icon-button';
+import { IconButtonProps, sizes, variants } from '@justeattakeaway/pie-icon-button';
 import { html, TemplateResult } from 'lit';
 
 export default {
@@ -8,11 +8,11 @@ export default {
     argTypes: {
         size: {
             control: 'select',
-            options: iconButtonSizes,
+            options: sizes,
         },
         variant: {
             control: 'select',
-            options: iconButtonVariants,
+            options: variants,
         },
         disabled: {
             control: 'boolean',

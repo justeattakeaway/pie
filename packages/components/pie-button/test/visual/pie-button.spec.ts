@@ -2,22 +2,22 @@ import { test } from '@sand4rt/experimental-ct-web';
 import percySnapshot from '@percy/playwright';
 import type {
     PropObject, WebComponentPropValues, WebComponentTestInput,
-} from '@justeattakeaway/pie-webc-core/src/test-helpers/defs.ts';
+} from '@justeattakeaway/pie-webc-testing/src/helpers/defs.ts';
 import {
     getAllPropCombinations, splitCombinationsByPropertyValue,
-} from '@justeattakeaway/pie-webc-core/src/test-helpers/get-all-prop-combos.ts';
+} from '@justeattakeaway/pie-webc-testing/src/helpers/get-all-prop-combos.ts';
 import {
     createTestWebComponent,
-} from '@justeattakeaway/pie-webc-core/src/test-helpers/rendering.ts';
+} from '@justeattakeaway/pie-webc-testing/src/helpers/rendering.ts';
 import {
     WebComponentTestWrapper,
-} from '@justeattakeaway/pie-webc-core/src/test-helpers/components/web-component-test-wrapper/WebComponentTestWrapper.ts';
+} from '@justeattakeaway/pie-webc-testing/src/helpers/components/web-component-test-wrapper/WebComponentTestWrapper.ts';
 import { PieButton } from '@/index';
-import { buttonSizes, buttonVariants } from '@/defs';
+import { sizes, variants } from '@/defs';
 
 const props: PropObject = {
-    variant: buttonVariants,
-    size: buttonSizes,
+    variant: variants,
+    size: sizes,
     type: 'button', // Changing the type does not affect the appearance of the button
     isFullWidth: [true, false],
     disabled: [true, false],
@@ -32,14 +32,17 @@ const componentVariants: string[] = Object.keys(componentPropsMatrixByVariant);
 
 // This ensures the component is registered in the DOM for each test
 // This is not required if your tests mount the web component directly in the tests
-test('Component registered in the DOM', async ({ mount }) => {
+test.beforeEach(async ({ page, mount }) => {
     await mount(
         PieButton,
-        {
-            props: {},
-            slots: {},
-        },
+        {},
     );
+
+    // Removing the element so it's not present in the tests (but is still registered in the DOM)
+    await page.evaluate(() => {
+        const element : Element | null = document.querySelector('pie-button');
+        element?.remove();
+    });
 });
 
 componentVariants.forEach((variant) => test(`Render all prop variations for Variant: ${variant}`, async ({ page, mount }) => {
@@ -52,7 +55,7 @@ componentVariants.forEach((variant) => test(`Render all prop variations for Vari
             {
                 props: { propKeyValues },
                 slots: {
-                    default: testComponent.renderedString.trim(),
+                    component: testComponent.renderedString.trim(),
                 },
             },
         );

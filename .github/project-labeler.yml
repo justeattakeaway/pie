@@ -38,3 +38,9 @@ pie-modal:
 
 pie-icon-button:
 - 'packages/components/pie-icon-button/**/*'
+
+pie-webc-core:
+- 'packages/components/pie-webc-core/**/*'
+
+pie-webc-testing:
+- 'packages/components/pie-webc-testing/**/*'
