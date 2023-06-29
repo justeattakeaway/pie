@@ -28,7 +28,6 @@
     // currently this sets the primary button styles
     --btn-bg-color: var(--dt-color-interactive-brand);
     --btn-text-color: var(--dt-color-content-interactive-primary);
-    --btn-focus: var(--dt-color-focus-outer);
 
     min-block-size: var(--btn-min-block-size);
     padding: var(--btn-padding);
@@ -45,13 +44,59 @@
     user-select: none;
 
     &:focus-visible {
-        // TODO - Need to update to use the latest focus styling
-        outline: 2px solid var(--btn-focus);
+        /*
+        TODO: This focus styling should be extracted out into a shared mixin to share among other components
+        Applying both shadows in a single declaration gives anti-aliasing artefacts.
+        box-shadow: 0 0 0 2px dt.$color-focus-inner, 0 0 0 4px dt.$color-focus-outer;
+
+        To prevent this, they should be separated so they don't bleed into each other,
+        i.e., one shadow on the element and another on a pseudo element like :after
+        */
+        box-shadow: 0 0 0 2px var(--dt-color-focus-inner);
+        outline: none;
+
+        /*
+        Setting the position to relative prevents the pseudo-element from
+        anchoring instead to the nearest ancestor with a specified position.
+
+        You can override this if you need another value.
+        */
+        position: relative;
+
+        &:after {
+            content: '';
+            display: block;
+
+            /*
+            The pseudo element has to be larger than the element itself, but not just by
+            2px (the thickness of the inner shadow), it has to be 1px larger than that to
+            account for the border thickness.
+            */
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            border-radius: var(--btn-border-radius);
+
+            box-shadow: 0 0 0 2px var(--dt-color-focus-outer);
+        }
     }
 
     // Variant
     &[variant='primary'] {
         @include button-interactive-states('--dt-color-interactive-brand');
+
+        &[size='xsmall'],
+        &[size='small-productive'] {
+            /**
+            * Where the font-size is smaller,
+            * update the button backgrounds so that the text is accessible
+            **/
+            --btn-bg-color: var(--dt-color-interactive-primary);
+
+            @include button-interactive-states('--dt-color-interactive-primary');
+        }
     }
 
     &[variant='secondary'] {
@@ -63,7 +108,7 @@
 
     &[variant='outline'] {
         --btn-bg-color: var(--dt-color-container-default);
-        --btn-text-color: var(--dt-color-content-interactive-tertiary);
+        --btn-text-color: var(--dt-color-content-interactive-secondary);
 
         border: 1px solid var(--dt-color-border-strong);
 
@@ -71,7 +116,7 @@
     }
 
     &[variant='ghost'] {
-        --btn-bg-color: var(--dt-color-container-default);
+        --btn-bg-color: transparent;
         --btn-text-color: var(--dt-color-content-link);
 
         @include button-interactive-states('--dt-color-container-default');
@@ -83,31 +128,37 @@
     }
 
     &[disabled] {
-        --btn-bg-color: var(--dt-color-disabled-01);
-        --btn-text-color: var(--dt-color-content-disabled);
+        --btn-text-color: var(--dt-color-content-disabled) !important;
 
-        border: 1px solid var(--dt-color-disabled-01);
         cursor: not-allowed;
-    }
 
-    &[disabled][variant='ghost'] {
-        --btn-bg-color: var(--dt-color-container-default);
+        // For every variant except ghost, set the disabled background color
+        &:not([variant='ghost']) {
+            --btn-bg-color: var(--dt-color-disabled-01) !important;
+        }
 
-        outline: none;
+        // For outline variants, set the border to the disabled color
+        &[variant='outline'] {
+            border-color: var(--dt-color-disabled-01) !important;
+        }
     }
 
     &[size='xsmall'] {
         --btn-padding: 6px var(--dt-spacing-b);
-        --btn-min-block-size: 32px;
         --btn-font-size: calc(var(--dt-font-size-14) * 1px);
         --btn-line-height: calc(var(--dt-font-size-14-line-height) * 1px);
     }
 
-    &[size='small'] {
+    &[size='small-expressive'] {
+        --btn-padding: 6px var(--dt-spacing-d);
+        --btn-font-size: calc(var(--dt-font-size-20) * 1px);
+        --btn-line-height: calc(var(--dt-font-size-20-line-height) * 1px);
+    }
+
+    &[size='small-productive'] {
         --btn-padding: 8px var(--dt-spacing-d);
-        --btn-min-block-size: 40px;
-        --btn-font-size: calc(var(--dt-font-size-19) * 1px);
-        --btn-line-height: calc(var(--dt-font-size-19-line-height) * 1px);
+        --btn-font-size: calc(var(--dt-font-size-16) * 1px);
+        --btn-line-height: calc(var(--dt-font-size-16-line-height) * 1px);
     }
 
     &[size='medium'] {
@@ -116,7 +167,6 @@
 
     &[size='large'] {
         --btn-padding: 14px var(--dt-spacing-e);
-        --btn-min-block-size: 56px;
         --btn-font-size: calc(var(--dt-font-size-20) * 1px);
         --btn-line-height: calc(var(--dt-font-size-20-line-height) * 1px);
     }
