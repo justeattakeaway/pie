@@ -2,10 +2,10 @@ import { test, expect } from '@sand4rt/experimental-ct-web';
 import AxeBuilder from '@axe-core/playwright';
 import type {
     PropObject, WebComponentPropValues,
-} from '@justeattakeaway/pie-webc-core/src/test-helpers/defs.ts';
+} from '@justeattakeaway/pie-webc-testing/src/helpers/defs.ts';
 import {
     getAllPropCombinations, splitCombinationsByPropertyValue,
-} from '@justeattakeaway/pie-webc-core/src/test-helpers/get-all-prop-combos.ts';
+} from '@justeattakeaway/pie-webc-testing/src/helpers/get-all-prop-combos.ts';
 import { PieIconButton } from '@/index';
 import { variants } from '@/defs';
 

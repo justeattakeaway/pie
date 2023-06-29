@@ -1,11 +1,11 @@
 import { test } from '@sand4rt/experimental-ct-web';
 import percySnapshot from '@percy/playwright';
-
+import {
+    WebComponentTestWrapper,
+} from '@justeattakeaway/pie-webc-testing/src/helpers/components/web-component-test-wrapper/WebComponentTestWrapper.ts';
 import { PieIconButton } from '@justeattakeaway/pie-icon-button';
-
-import { WebComponentTestWrapper } from '@justeattakeaway/pie-webc-core/src/test-helpers/components/web-component-test-wrapper/WebComponentTestWrapper';
-import { ModalProps, PieModal } from '@/index';
-import { sizes } from '@/defs';
+import { PieModal } from '@/index';
+import { ModalProps, sizes } from '@/defs';
 
 // Renders a <pie-modal> HTML string with the given prop values
 const renderTestPieModal = ({
