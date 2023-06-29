@@ -1,11 +1,14 @@
 {
   "name": "@justeattakeaway/pie-webc-core",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "PIE design system base classes, mixins and utilities for web components",
   "type": "module",
   "main": "index.ts",
   "author": "JustEatTakeaway - Design System Web Team",
   "license": "Apache-2.0",
+  "scripts": {
+    "test": "run -T vitest run"
+  },
   "volta": {
     "extends": "../../../package.json"
   }
