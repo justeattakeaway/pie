@@ -121,6 +121,16 @@
         "test/**"
       ]
     },
+    "@justeattakeaway/pie-modal#test:browsers": {
+      "dependsOn": [
+        "@justeattakeaway/pie-icon-button#build"
+      ]
+    },
+    "@justeattakeaway/pie-modal#test:visual": {
+      "dependsOn": [
+        "@justeattakeaway/pie-icon-button#build"
+      ]
+    },
     "test:visual": {
       "cache": false,
       "outputs": []
