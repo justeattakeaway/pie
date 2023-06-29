@@ -6,9 +6,7 @@
   "main": "index.ts",
   "author": "JustEatTakeaway - Design System Web Team",
   "license": "Apache-2.0",
-  "scripts": {
-    "test": "run -T vitest run"
-  },
+  "scripts": {},
   "volta": {
     "extends": "../../../package.json"
   }
