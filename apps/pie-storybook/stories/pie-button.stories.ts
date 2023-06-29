@@ -1,6 +1,6 @@
 import type { Meta, StoryObj as Story } from '@storybook/web-components';
 import {
-    ButtonProps as ButtonPropsBase, buttonSizes, buttonTypes, buttonVariants,
+    ButtonProps as ButtonPropsBase, sizes, types, variants,
 } from '@justeattakeaway/pie-button';
 import { html, TemplateResult } from 'lit';
 
@@ -10,15 +10,15 @@ export default {
     argTypes: {
         size: {
             control: 'select',
-            options: buttonSizes,
+            options: sizes,
         },
         type: {
             control: 'select',
-            options: buttonTypes,
+            options: types,
         },
         variant: {
             control: 'select',
-            options: buttonVariants,
+            options: variants,
         },
         disabled: {
             control: 'boolean',

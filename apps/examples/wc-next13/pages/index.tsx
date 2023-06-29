@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import Head from 'next/head';
-import { ButtonProps, buttonSizes, buttonVariants } from '@justeattakeaway/pie-button';
+import { ButtonProps, sizes, variants } from '@justeattakeaway/pie-button';
 import { PieButton } from '@justeattakeaway/pie-button/dist/react';
 
 export default function Home () {
@@ -12,8 +12,8 @@ export default function Home () {
     const decrement = () => setCount(count - 1);
     const switchVariant = () => {
         variantIndex.current += 1;
-        const variantsKeys: string[] = buttonVariants;
-        const variant: ButtonProps['variant'] = buttonVariants[variantIndex.current % variantsKeys.length];
+        const variantsKeys: readonly string[] = variants;
+        const variant: ButtonProps['variant'] = variants[variantIndex.current % variantsKeys.length];
 
         setVariantName(variant);
     };
@@ -24,6 +24,8 @@ export default function Home () {
                 <title>Create Next App</title>
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <link rel="icon" href="/favicon.ico" />
+                <link rel="stylesheet" type="text/css" href="https://unpkg.com/@justeat/pie-design-tokens/dist/jet.css" />
+                <link rel="stylesheet" type="text/css" href="https://unpkg.com/@justeat/pie-design-tokens/dist/jet-hsl-colors.css" />
             </Head>
             <main>
                 <h2>Test click event</h2>
@@ -51,9 +53,9 @@ export default function Home () {
                     <h3>Button sizes</h3>
                     <div>
                         {
-                            buttonSizes
+                            sizes
                                 .map((key, index) => {
-                                    const size: ButtonProps['size'] = buttonSizes[index];
+                                    const size: ButtonProps['size'] = sizes[index];
 
                                     return (
                                         <PieButton size={size} key={key}>{key.toLowerCase()}</PieButton>

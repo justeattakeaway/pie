@@ -1,7 +1,7 @@
 {
   "name": "pie-monorepo",
   "description": "JustEatTakeaway",
-  "version": "2.12.1",
+  "version": "2.13.0",
   "keywords": [],
   "author": "JustEatTakeaway - Design System Web Team",
   "license": "Apache-2.0",
@@ -72,6 +72,7 @@
     "allure-commandline": "2.21.0",
     "autoprefixer": "10.4.14",
     "babel-loader": "8.3.0",
+    "body-scroll-lock": "4.0.0-beta.0",
     "commitizen": "4.3.0",
     "cross-env": "7.0.3",
     "cssnano": "5.1.15",

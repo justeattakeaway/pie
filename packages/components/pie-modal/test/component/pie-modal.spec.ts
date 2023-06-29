@@ -20,6 +20,8 @@ headingLevels.forEach((headingLevel) => test(`should render the correct heading 
         headingLevel,
     };
 
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore // Added this as we want to deliberately test with invalid headingLevel (which is an invalid type based on ModalProps)
     const component = await mount(PieModal, { props });
 
     // h2 is the default / fallback value

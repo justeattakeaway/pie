@@ -1,5 +1,5 @@
 import React from 'react';
-import { buttonSizes } from '@justeattakeaway/pie-button';
+import { sizes } from '@justeattakeaway/pie-button';
 import { PieButton } from '@justeattakeaway/pie-button/dist/react';
 
 export default function ButtonSizes () {
@@ -7,8 +7,8 @@ export default function ButtonSizes () {
         <div>
             <h3>Button sizes</h3>
             <div>
-                {buttonSizes.map((key, index) => {
-                    const size = buttonSizes[index];
+                {sizes.map((key, index) => {
+                    const size = sizes[index];
                     return (
                         <PieButton size={size} key={key}>
                             {key.toLowerCase()}

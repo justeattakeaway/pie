@@ -19,7 +19,7 @@ export const largeIconSizeDefault = 32;
  * @param {number} moduleSize The module size for large icons
  * @returns {boolean} Whether the value is valid or not
  */
-function validateLargeIconSize (value, minimumSize, moduleSize) {
+export function validateLargeIconSize (value, minimumSize, moduleSize) {
     const parsedValue = parseInt(value, 10);
     const isSizeAMultiple = parsedValue % moduleSize === 0;
     const isSizeValid = parsedValue >= minimumSize && isSizeAMultiple;
