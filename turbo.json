@@ -105,6 +105,9 @@
     },
     "test:browsers": {
       "cache": true,
+      "dependsOn": [
+        "build"
+      ],
       "inputs": [
         "src/**",
         "test/**"
@@ -113,6 +116,9 @@
     },
     "test:browsers:ci": {
       "cache": true,
+      "dependsOn": [
+        "build"
+      ],
       "env": [
         "PIE_URL_PREFIX"
       ],
@@ -121,22 +127,18 @@
         "test/**"
       ]
     },
-    "@justeattakeaway/pie-modal#test:browsers": {
-      "dependsOn": [
-        "@justeattakeaway/pie-icon-button#build"
-      ]
-    },
-    "@justeattakeaway/pie-modal#test:visual": {
-      "dependsOn": [
-        "@justeattakeaway/pie-icon-button#build"
-      ]
-    },
     "test:visual": {
       "cache": false,
+      "dependsOn": [
+        "build"
+      ],
       "outputs": []
     },
     "test:visual:ci": {
-      "cache": false
+      "cache": false,
+      "dependsOn": [
+        "build"
+      ]
     },
     "lint:scripts": {
       "cache": true,

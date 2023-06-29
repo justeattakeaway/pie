@@ -13,9 +13,6 @@ const sharedConfig = (extendedConfig = {}) => defineConfig({
         },
         rollupOptions: {
             external: /^lit/,
-            output: {
-                format: 'cjs',
-            },
         },
     },
     plugins: [dts({
