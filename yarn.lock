@@ -4924,6 +4924,7 @@ __metadata:
   resolution: "@justeattakeaway/pie-modal@workspace:packages/components/pie-modal"
   dependencies:
     "@justeattakeaway/pie-components-config": "workspace:*"
+    "@justeattakeaway/pie-icon-button": "workspace:*"
     "@justeattakeaway/pie-webc-core": "workspace:*"
     "@types/body-scroll-lock": 3.1.0
   peerDependencies:

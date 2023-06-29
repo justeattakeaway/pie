@@ -5,8 +5,7 @@
     "scripts": {
         "ng": "ng",
         "dev": "ng serve",
-        "build": "ng build",
-        "build:examples": "yarn build",
+        "build:examples": "ng build",
         "watch": "ng build --watch --configuration development"
     },
     "dependencies": {
