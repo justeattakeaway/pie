@@ -3,8 +3,7 @@
   "version": "0.3.3",
   "private": true,
   "scripts": {
-    "build": "nuxt build",
-    "build:examples": "yarn build",
+    "build:examples": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "start": "nuxt start",
