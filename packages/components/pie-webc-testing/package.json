@@ -1,0 +1,15 @@
+{
+  "name": "@justeattakeaway/pie-webc-testing",
+  "version": "0.0.0",
+  "description": "PIE design system helpers and utilities for testing our web components",
+  "type": "module",
+  "main": "index.ts",
+  "author": "JustEatTakeaway - Design System Web Team",
+  "license": "Apache-2.0",
+  "scripts": {
+    "test": "run -T vitest run"
+  },
+  "volta": {
+    "extends": "../../../package.json"
+  }
+}

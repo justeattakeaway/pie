@@ -61,6 +61,7 @@
     "@commitlint/config-conventional": "17.4.4",
     "@justeat/browserslist-config-fozzie": "1.x",
     "@justeat/pie-design-tokens": "5.2.0",
+    "@justeattakeaway/pie-webc-testing": "workspace:*",
     "@justeattakeaway/stylelint-config-pie": "workspace:*",
     "@percy/cli": "1.26.1",
     "@percy/playwright": "1.0.4",
