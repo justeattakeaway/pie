@@ -9,7 +9,7 @@ const sharedConfig = (extendedConfig = {}) => defineConfig({
                 index: 'src/index.ts',
                 react: 'src/react.ts',
             },
-            formats: ['es'],
+            formats: ['es', 'cjs'],
         },
         rollupOptions: {
             external: /^lit/,
