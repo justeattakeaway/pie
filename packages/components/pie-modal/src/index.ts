@@ -18,6 +18,9 @@ const componentSelector = 'pie-modal';
 
 export class PieModal extends RtlMixin(LitElement) {
     @property({ type: Boolean })
+        isDismissible = true;
+
+    @property({ type: Boolean })
         isOpen = false;
 
     @property({ type: String })
@@ -37,6 +40,7 @@ export class PieModal extends RtlMixin(LitElement) {
     }
 
     firstUpdated (changedProperties: DependentMap<ModalProps>) : void {
+        this._dialog?.addEventListener('cancel', (event) => this._handleDialogCancelEvent(event));
         this._handleModalOpenStateOnFirstRender(changedProperties);
     }
 
@@ -72,6 +76,16 @@ export class PieModal extends RtlMixin(LitElement) {
         this.isOpen = false;
     };
 
+    /**
+     * Prevents the user from dismissing the dialog via the `cancel`
+     * event (ESC key) when `isDismissible` is set to false.
+     *
+     * @param event
+     */
+    private _handleDialogCancelEvent = (event: Event) : void => {
+        if (!this.isDismissible) event.preventDefault();
+    };
+
     connectedCallback () : void {
         super.connectedCallback();
         document.addEventListener(ON_MODAL_OPEN_EVENT, this._handleModalOpened.bind(this));
@@ -79,6 +93,7 @@ export class PieModal extends RtlMixin(LitElement) {
     }
 
     disconnectedCallback () : void {
+        this._dialog?.removeEventListener('cancel', (event) => this._handleEscKey(event));
         document.removeEventListener(ON_MODAL_OPEN_EVENT, this._handleModalOpened.bind(this));
         document.removeEventListener(ON_MODAL_CLOSE_EVENT, this._handleModalClosed.bind(this));
         super.disconnectedCallback();
@@ -119,10 +134,10 @@ export class PieModal extends RtlMixin(LitElement) {
             <dialog id="dialog" class="c-modal">
                 <header>
                     <${headingTag} class="c-modal-heading">${heading}</${headingTag}>
-                    <pie-icon-button
-                        @click="${this._triggerCloseModal}"
-                        variant="ghost-tertiary"
-                        class="c-modal-closeBtn"></pie-icon-button>
+                         ${this.isDismissible ? html`<pie-icon-button
+                                    @click="${this._triggerCloseModal}"
+                                    variant="ghost-tertiary"
+                                    class="c-modal-closeBtn"></pie-icon-button>` : ''}
                 </header>
                 <article class="c-modal-content">
                     <slot></slot>
@@ -153,7 +168,7 @@ export class PieModal extends RtlMixin(LitElement) {
             event.clientX < left ||
             event.clientX > right;
 
-        if (isClickOutsideDialog) {
+        if (isClickOutsideDialog && this.isDismissible) {
             this.isOpen = false;
         }
     };

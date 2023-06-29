@@ -135,6 +135,14 @@
                     "members": [
                         {
                             "kind": "field",
+                            "name": "isDismissible",
+                            "type": {
+                                "text": "boolean"
+                            },
+                            "default": "false"
+                        },
+                        {
+                            "kind": "field",
                             "name": "isOpen",
                             "type": {
                                 "text": "boolean"
@@ -205,7 +213,8 @@
                                 "type": {
                                     "text": "void"
                                 }
-                            }
+                            },
+                            "description": "Opens the dialog element and disables page scrolling"
                         },
                         {
                             "kind": "method",
@@ -215,7 +224,14 @@
                                 "type": {
                                     "text": "void"
                                 }
-                            }
+                            },
+                            "description": "Closes the dialog element and re-enables page scrolling"
+                        },
+                        {
+                            "kind": "field",
+                            "name": "_triggerCloseModal",
+                            "privacy": "private",
+                            "description": "This is only to be used inside the component template as direct property\nreassignment is not allowed."
                         },
                         {
                             "kind": "method",
@@ -259,14 +275,9 @@
                         },
                         {
                             "kind": "field",
-                            "name": "_handleCloseDialog",
-                            "privacy": "private"
-                        },
-                        {
-                            "kind": "field",
                             "name": "_handleDialogLightDismiss",
                             "privacy": "private",
-                            "description": "Dismiss modal via `_handleCloseDialog()` on backdrop click\nand will proceed to fire an `ON_MODAL_CLOSE_EVENT` event."
+                            "description": "Dismisses the modal on backdrop click"
                         },
                         {
                             "kind": "field",
@@ -279,16 +290,6 @@
                             "name": "_dispatchModalOpenEvent",
                             "privacy": "private",
                             "description": "Dispatch `ON_MODAL_OPEN_EVENT` event.\nTo be used whenever we open the modal."
-                        },
-                        {
-                            "kind": "field",
-                            "name": "_enableScrolling",
-                            "privacy": "private"
-                        },
-                        {
-                            "kind": "field",
-                            "name": "_disableScrolling",
-                            "privacy": "private"
                         },
                         {
                             "kind": "field",

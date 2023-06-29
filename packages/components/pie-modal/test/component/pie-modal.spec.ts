@@ -30,13 +30,15 @@ headingLevels.forEach((headingLevel) => test(`should render the correct heading 
 
 test.describe('`Pie Modal is closed`', () => {
     test.describe('when via the close button click', () => {
-        test.skip('should dispatch event `pie-modal-close`', async ({ mount, page }) => {
+        test('should dispatch event `pie-modal-close`', async ({ mount, page }) => {
             const messages: string[] = [];
-            await mount(
+            const component = await mount(
                 PieModal,
                 {
                     props: {
-                        isOpen: true
+                        isOpen: true,
+                        heading: 'Modal Header',
+                        headingLevel: 'h1',
                     },
                     on: {
                         click: (event: string) => messages.push(event),
@@ -44,7 +46,7 @@ test.describe('`Pie Modal is closed`', () => {
                 },
             );
 
-            await page.locator('.c-modal-closeBtn').click();
+            await component.locator('.c-modal-closeBtn').click();
 
 
             expect(messages).toHaveLength(1);
