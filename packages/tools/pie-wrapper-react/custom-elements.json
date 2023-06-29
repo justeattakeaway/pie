@@ -16,6 +16,14 @@
                 },
                 {
                     "kind": "variable",
+                    "name": "sizes",
+                    "type": {
+                        "text": "['small', 'medium', 'large']"
+                    },
+                    "default": "['small', 'medium', 'large']"
+                },
+                {
+                    "kind": "variable",
                     "name": "ON_MODAL_CLOSE_EVENT",
                     "type": {
                         "text": "string"
@@ -44,6 +52,14 @@
                 },
                 {
                     "kind": "js",
+                    "name": "sizes",
+                    "declaration": {
+                        "name": "sizes",
+                        "module": "../../components/pie-modal/src/defs.js"
+                    }
+                },
+                {
+                    "kind": "js",
                     "name": "ON_MODAL_CLOSE_EVENT",
                     "declaration": {
                         "name": "ON_MODAL_CLOSE_EVENT",
@@ -56,62 +72,6 @@
                     "declaration": {
                         "name": "ON_MODAL_OPEN_EVENT",
                         "module": "../../components/pie-modal/src/defs.js"
-                    }
-                }
-            ]
-        },
-        {
-            "kind": "javascript-module",
-            "path": "../../components/pie-button/src/defs.js",
-            "declarations": [
-                {
-                    "kind": "variable",
-                    "name": "sizes",
-                    "type": {
-                        "text": "['xsmall', 'small-expressive', 'small-productive', 'medium', 'large']"
-                    },
-                    "default": "['xsmall', 'small-expressive', 'small-productive', 'medium', 'large']"
-                },
-                {
-                    "kind": "variable",
-                    "name": "types",
-                    "type": {
-                        "text": "['submit', 'button', 'reset', 'menu']"
-                    },
-                    "default": "['submit', 'button', 'reset', 'menu']"
-                },
-                {
-                    "kind": "variable",
-                    "name": "variants",
-                    "type": {
-                        "text": "['primary', 'secondary', 'outline', 'ghost']"
-                    },
-                    "default": "['primary', 'secondary', 'outline', 'ghost']"
-                }
-            ],
-            "exports": [
-                {
-                    "kind": "js",
-                    "name": "sizes",
-                    "declaration": {
-                        "name": "sizes",
-                        "module": "../../components/pie-button/src/defs.js"
-                    }
-                },
-                {
-                    "kind": "js",
-                    "name": "types",
-                    "declaration": {
-                        "name": "types",
-                        "module": "../../components/pie-button/src/defs.js"
-                    }
-                },
-                {
-                    "kind": "js",
-                    "name": "variants",
-                    "declaration": {
-                        "name": "variants",
-                        "module": "../../components/pie-button/src/defs.js"
                     }
                 }
             ]
@@ -155,6 +115,14 @@
                                 "text": "ModalProps['headingLevel']"
                             },
                             "default": "'h2'"
+                        },
+                        {
+                            "kind": "field",
+                            "name": "size",
+                            "type": {
+                                "text": "ModalProps['size']"
+                            },
+                            "default": "'medium'"
                         },
                         {
                             "kind": "field",
@@ -223,7 +191,7 @@
                             "kind": "field",
                             "name": "_triggerCloseModal",
                             "privacy": "private",
-                            "description": "This is only to be used inside the component template as direct property\nreassignment is not allowed."
+                            "description": "This is only to be used inside the component template as direct property\r\nreassignment is not allowed."
                         },
                         {
                             "kind": "method",
@@ -275,13 +243,13 @@
                             "kind": "field",
                             "name": "_dispatchModalCloseEvent",
                             "privacy": "private",
-                            "description": "Dispatch `ON_MODAL_CLOSE_EVENT` event.\nTo be used whenever we close the modal."
+                            "description": "Dispatch `ON_MODAL_CLOSE_EVENT` event.\r\nTo be used whenever we close the modal."
                         },
                         {
                             "kind": "field",
                             "name": "_dispatchModalOpenEvent",
                             "privacy": "private",
-                            "description": "Dispatch `ON_MODAL_OPEN_EVENT` event.\nTo be used whenever we open the modal."
+                            "description": "Dispatch `ON_MODAL_OPEN_EVENT` event.\r\nTo be used whenever we open the modal."
                         },
                         {
                             "kind": "field",
@@ -306,7 +274,7 @@
                             "type": {
                                 "text": "boolean"
                             },
-                            "description": "Returns true if the element is in Right to Left mode.\nIf a dir attribute is not explicitly set on the web component\nthen it falls back to the nearest parent with a dir attribute set.\n\nA dir attribute being set will result in a reactive property.\nIf the component falls back to a parent dir attribute then the value\nwill not be reactive and is only computed once",
+                            "description": "Returns true if the element is in Right to Left mode.\r\nIf a dir attribute is not explicitly set on the web component\r\nthen it falls back to the nearest parent with a dir attribute set.\r\n\r\nA dir attribute being set will result in a reactive property.\r\nIf the component falls back to a parent dir attribute then the value\r\nwill not be reactive and is only computed once",
                             "readonly": true,
                             "inheritedFrom": {
                                 "name": "RtlMixin",
@@ -355,6 +323,14 @@
                 },
                 {
                     "kind": "js",
+                    "name": "sizes",
+                    "declaration": {
+                        "name": "sizes",
+                        "module": "../../components/pie-modal/src/index.js"
+                    }
+                },
+                {
+                    "kind": "js",
                     "name": "PieModal",
                     "declaration": {
                         "name": "PieModal",
@@ -367,6 +343,62 @@
                     "declaration": {
                         "name": "PieModal",
                         "module": "../../components/pie-modal/src/index.js"
+                    }
+                }
+            ]
+        },
+        {
+            "kind": "javascript-module",
+            "path": "../../components/pie-button/src/defs.js",
+            "declarations": [
+                {
+                    "kind": "variable",
+                    "name": "sizes",
+                    "type": {
+                        "text": "['xsmall', 'small-expressive', 'small-productive', 'medium', 'large']"
+                    },
+                    "default": "['xsmall', 'small-expressive', 'small-productive', 'medium', 'large']"
+                },
+                {
+                    "kind": "variable",
+                    "name": "types",
+                    "type": {
+                        "text": "['submit', 'button', 'reset', 'menu']"
+                    },
+                    "default": "['submit', 'button', 'reset', 'menu']"
+                },
+                {
+                    "kind": "variable",
+                    "name": "variants",
+                    "type": {
+                        "text": "['primary', 'secondary', 'outline', 'ghost']"
+                    },
+                    "default": "['primary', 'secondary', 'outline', 'ghost']"
+                }
+            ],
+            "exports": [
+                {
+                    "kind": "js",
+                    "name": "sizes",
+                    "declaration": {
+                        "name": "sizes",
+                        "module": "../../components/pie-button/src/defs.js"
+                    }
+                },
+                {
+                    "kind": "js",
+                    "name": "types",
+                    "declaration": {
+                        "name": "types",
+                        "module": "../../components/pie-button/src/defs.js"
+                    }
+                },
+                {
+                    "kind": "js",
+                    "name": "variants",
+                    "declaration": {
+                        "name": "variants",
+                        "module": "../../components/pie-button/src/defs.js"
                     }
                 }
             ]
@@ -815,7 +847,7 @@
                             "type": {
                                 "text": "boolean"
                             },
-                            "description": "Returns true if the element is in Right to Left mode.\nIf a dir attribute is not explicitly set on the web component\nthen it falls back to the nearest parent with a dir attribute set.\n\nA dir attribute being set will result in a reactive property.\nIf the component falls back to a parent dir attribute then the value\nwill not be reactive and is only computed once",
+                            "description": "Returns true if the element is in Right to Left mode.\r\nIf a dir attribute is not explicitly set on the web component\r\nthen it falls back to the nearest parent with a dir attribute set.\r\n\r\nA dir attribute being set will result in a reactive property.\r\nIf the component falls back to a parent dir attribute then the value\r\nwill not be reactive and is only computed once",
                             "readonly": true
                         }
                     ],
@@ -900,7 +932,7 @@
                             }
                         }
                     ],
-                    "description": "A decorator for marking a property as required.\nIf the property's value is `undefined`, `null` or empty string, an error is logged.",
+                    "description": "A decorator for marking a property as required.\r\nIf the property's value is `undefined`, `null` or empty string, an error is logged.",
                     "return": {
                         "type": {
                             "text": "Function"
@@ -963,7 +995,7 @@
                             "description": "The value to fall back on"
                         }
                     ],
-                    "description": "A decorator for specifying a list of valid values for a property.\nIf this property's setter is called with an invalid value, an error is logged and the default value will be assigned instead.",
+                    "description": "A decorator for specifying a list of valid values for a property.\r\nIf this property's setter is called with an invalid value, an error is logged and the default value will be assigned instead.",
                     "return": {
                         "type": {
                             "text": ""
@@ -1000,7 +1032,7 @@
                             "type": {
                                 "text": "PropObject"
                             },
-                            "description": "The object containing properties for which combinations are to be generated.\nEach property value can any data type."
+                            "description": "The object containing properties for which combinations are to be generated.\r\nEach property value can any data type."
                         }
                     ],
                     "description": "Generate all possible combinations of properties for a given object."
@@ -1057,7 +1089,7 @@
             "declarations": [
                 {
                     "kind": "class",
-                    "description": "This is a Web Component used for visual testing purposes.\nIt allows us to wrap a component we'd like to test in a container\nthat displays the component's props as a label.\n\nAlternatively, this component supports a page mode. In this mode,\nthe test component is not wrapped and labelled, however you can add\nany amount of HTML to the page to help with testing. This useful for components\nsuch as Modal and Dialog components where we need to test the component in the context of\nthe page markup.\n\nComponents can be tested without this, but it's useful if your tests\nrequire additional markup when testing a component.",
+                    "description": "This is a Web Component used for visual testing purposes.\r\nIt allows us to wrap a component we'd like to test in a container\r\nthat displays the component's props as a label.\r\n\r\nAlternatively, this component supports a page mode. In this mode,\r\nthe test component is not wrapped and labelled, however you can add\r\nany amount of HTML to the page to help with testing. This useful for components\r\nsuch as Modal and Dialog components where we need to test the component in the context of\r\nthe page markup.\r\n\r\nComponents can be tested without this, but it's useful if your tests\r\nrequire additional markup when testing a component.",
                     "name": "WebComponentTestWrapper",
                     "members": [
                         {
@@ -1072,7 +1104,7 @@
                                 "text": "string"
                             },
                             "default": "''",
-                            "description": "The prop key and values to display above the component.\nThis should be a single string representing a comma separated list of prop key/value pairs.\nSuch as: 'size: small, isFullWidth: true'"
+                            "description": "The prop key and values to display above the component.\r\nThis should be a single string representing a comma separated list of prop key/value pairs.\r\nSuch as: 'size: small, isFullWidth: true'"
                         },
                         {
                             "kind": "field",
@@ -1081,7 +1113,7 @@
                                 "text": "boolean"
                             },
                             "default": "false",
-                            "description": "Use in combination with the `pageMarkup` named slot to render the component alongside additional HTML\nto test the component in the context of the page."
+                            "description": "Use in combination with the `pageMarkup` named slot to render the component alongside additional HTML\r\nto test the component in the context of the page."
                         },
                         {
                             "kind": "method",

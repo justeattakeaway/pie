@@ -10,8 +10,7 @@
   },
   "scripts": {
     "dev": "react-scripts start",
-    "build": "react-scripts build",
-    "build:examples": "yarn build"
+    "build:examples": "react-scripts build"
   },
   "browserslist": [
     "extends @justeat/browserslist-config-fozzie"

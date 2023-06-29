@@ -1,6 +1,8 @@
 import { test } from '@sand4rt/experimental-ct-web';
 import percySnapshot from '@percy/playwright';
 
+import { PieIconButton } from '@justeattakeaway/pie-icon-button';
+
 import { WebComponentTestWrapper } from '@justeattakeaway/pie-webc-core/src/test-helpers/components/web-component-test-wrapper/WebComponentTestWrapper';
 import { ModalProps, PieModal } from '@/index';
 import { sizes } from '@/defs';
@@ -11,22 +13,28 @@ const renderTestPieModal = ({
     headingLevel = 'h2',
     size = 'medium',
     isOpen = true,
-}: Partial<ModalProps> = {}) => `<pie-modal ${isOpen ? 'isOpen' : ''} heading="${heading}" headingLevel="${headingLevel}" size="${size}"></pie-modal>`;
+} : Partial<ModalProps> = {}) => `<pie-modal ${isOpen ? 'isOpen' : ''} heading="${heading}" headingLevel="${headingLevel}" size="${size}"></pie-modal>`;
 
 // Creates a <ol> with a large number of <li> nodes for testing page scrolling
-const createTestPageHTML = () : string => `<ol>
+const createTestPageHTML = () => `<ol>
         ${'<li>List item</li>'.repeat(200)}
     </ol>`;
 
-// This ensures the component is registered in the DOM for each test
-// This is not required if your tests mount the web component directly in the tests
-test('Component registered in the DOM', async ({ mount }) => {
+// Mount any components that are used inside of pie-modal so that
+// they have been registered with the browser before the tests run.
+// There is likely a nicer way to do this but this will temporarily
+// unblock tests.
+test.beforeEach(async ({ page, mount }) => {
     await mount(
-        PieModal,
-        {
-            props: { heading: 'This is a heading' } as ModalProps,
-        },
+        PieIconButton,
+        {},
     );
+
+    // Removing the element so it's not present in the tests (but is still registered in the DOM)
+    await page.evaluate(() => {
+        const element : Element | null = document.querySelector('pie-icon-button');
+        element?.remove();
+    });
 });
 
 test('Should not be able to scroll when modal is open', async ({ page, mount }) => {
