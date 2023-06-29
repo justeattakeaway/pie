@@ -52,9 +52,9 @@ h4:has(.c-anchorIcon) {
 }
 
 $headingSizes: (
-    "h2" f.$font-heading-l-line-height--wide f.$font-heading-l-line-height--narrow,
-    "h3" f.$font-heading-m-line-height--wide f.$font-heading-m-line-height--narrow,
-    "h4" f.$font-heading-s-line-height--wide f.$font-heading-s-line-height--narrow
+    'h2' f.$font-heading-l-line-height--wide f.$font-heading-l-line-height--narrow,
+    'h3' f.$font-heading-m-line-height--wide f.$font-heading-m-line-height--narrow,
+    'h4' f.$font-heading-s-line-height--wide f.$font-heading-s-line-height--narrow
 );
 
 @each $headingSize, $wideToken, $narrowToken in $headingSizes {
