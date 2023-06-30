@@ -5,7 +5,7 @@
   "type": "module",
   "description": "",
   "exports": {
-    ".": "./configs.js",
+    "./configs": "./configs.js",
     "./configs-react": "./configs-react.js",
     "./configs-vue": "./configs-vue.js"
   },
