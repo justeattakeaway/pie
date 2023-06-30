@@ -97,18 +97,3 @@ export const getSvgProps = (svgClasses, staticClasses, sizeValue, componentName)
         height: size,
     };
 };
-
-/**
- * Object with iconSize props configuration for large and regular icons
- */
-export const iconSize = {
-    large: largeIconSizeDefault,
-    regular: sizeToValueMap[regularIconSizeDefault],
-};
-
-export const getDefaultIconSize = (svgClasses) => {
-    const isLargeIcon = svgClasses.endsWith('-large');
-    const size = isLargeIcon ? 'large' : 'regular';
-
-    return size;
-};

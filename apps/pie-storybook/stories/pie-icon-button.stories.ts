@@ -19,7 +19,7 @@ export default {
         },
     },
     args: {
-        size: 'medium',
+        size: 'm',
         variant: 'primary',
     },
     parameters: {

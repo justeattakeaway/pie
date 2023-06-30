@@ -1,7 +1,7 @@
-import { getDefaultIconSize, iconSize, getSvgProps } from '@justeattakeaway/pie-icons-configs/configs';
+import { getSvgProps } from '@justeattakeaway/pie-icons-configs';
 
 const template = document.createElement('template');
-template.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 16 16" class="c-pieIcon c-pieIcon--starCircleFilled"><path d="M8 1.219A6.781 6.781 0 1 0 14.781 8 6.79 6.79 0 0 0 8 1.219Zm1.627 9.117L8 9.48l-1.628.875.307-1.829-1.304-1.286 1.82-.263L8 5.322l.814 1.654 1.82.263L9.32 8.525l.306 1.811Z"></path></svg>';
+template.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 16 16" ><path d="M8 1.219A6.781 6.781 0 1 0 14.781 8 6.79 6.79 0 0 0 8 1.219Zm1.627 9.117L8 9.48l-1.628.875.307-1.829-1.304-1.286 1.82-.263L8 5.322l.814 1.654 1.82.263L9.32 8.525l.306 1.811Z"></path></svg>';
 
 export class IconStarCircleFilled extends HTMLElement {
     constructor () {
@@ -23,20 +23,37 @@ export class IconStarCircleFilled extends HTMLElement {
         this.setAttribute('size', value);
     }
 
+    get class () {
+        return this.getAttribute('class');
+    }
+
+    set class (value) {
+        this.setAttribute('class', value);
+    }
+
     connectedCallback () {
         const svg = this.root.querySelector('svg');
-        const defaultSize = getDefaultIconSize('c-pieIcon c-pieIcon--starCircleFilled');
-        svg.setAttribute('width', iconSize[defaultSize]);
-        svg.setAttribute('height', iconSize[defaultSize]);
+        const svgSize = getSvgProps('c-pieIcon c-pieIcon--starCircleFilled', '', null, 'IconStarCircleFilled');
+        svg.setAttribute('width', svgSize.width);
+        svg.setAttribute('height', svgSize.height);
+        this.setAttribute('class', 'c-pieIcon c-pieIcon--starCircleFilled');
         this.root.append(svg);
     }
 
     attributeChangedCallback (attr, oldVal, newVal) {
         const svg = this.root.querySelector('svg');
-        const svgSize = getSvgProps('c-pieIcon c-pieIcon--starCircleFilled', '', newVal, 'IconStarCircleFilled');
-        svg.setAttribute('width', svgSize.width);
-        svg.setAttribute('height', svgSize.height);
-        this.root.append(svg);
+        let svgSize;
+
+        console.log(attr);
+        if (attr === 'size') {
+            svgSize = getSvgProps('c-pieIcon c-pieIcon--starCircleFilled', '', newVal, 'IconStarCircleFilled');
+
+            svg.setAttribute('width', svgSize.width);
+            svg.setAttribute('height', svgSize.height);
+            this.root.append(svg);
+        }
+
+        this.setAttribute('class', 'c-pieIcon c-pieIcon--starCircleFilled', newVal);
     }
 }
 

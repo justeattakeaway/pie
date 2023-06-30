@@ -1,7 +1,7 @@
-import { getDefaultIconSize, iconSize, getSvgProps } from '@justeattakeaway/pie-icons-configs/configs';
+import { getSvgProps } from '@justeattakeaway/pie-icons-configs';
 
 const template = document.createElement('template');
-template.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 16 16" class="c-pieIcon c-pieIcon--restricted"><path d="M8 1.219A6.781 6.781 0 1 0 14.781 8 6.79 6.79 0 0 0 8 1.219ZM2.531 8A5.469 5.469 0 0 1 8 2.531a5.408 5.408 0 0 1 3.369 1.173l-7.665 7.665A5.408 5.408 0 0 1 2.53 8ZM8 13.469a5.408 5.408 0 0 1-3.369-1.173l7.665-7.665A5.408 5.408 0 0 1 13.47 8 5.47 5.47 0 0 1 8 13.469Z"></path></svg>';
+template.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 16 16" ><path d="M8 1.219A6.781 6.781 0 1 0 14.781 8 6.79 6.79 0 0 0 8 1.219ZM2.531 8A5.469 5.469 0 0 1 8 2.531a5.408 5.408 0 0 1 3.369 1.173l-7.665 7.665A5.408 5.408 0 0 1 2.53 8ZM8 13.469a5.408 5.408 0 0 1-3.369-1.173l7.665-7.665A5.408 5.408 0 0 1 13.47 8 5.47 5.47 0 0 1 8 13.469Z"></path></svg>';
 
 export class IconRestricted extends HTMLElement {
     constructor () {
@@ -23,20 +23,37 @@ export class IconRestricted extends HTMLElement {
         this.setAttribute('size', value);
     }
 
+    get class () {
+        return this.getAttribute('class');
+    }
+
+    set class (value) {
+        this.setAttribute('class', value);
+    }
+
     connectedCallback () {
         const svg = this.root.querySelector('svg');
-        const defaultSize = getDefaultIconSize('c-pieIcon c-pieIcon--restricted');
-        svg.setAttribute('width', iconSize[defaultSize]);
-        svg.setAttribute('height', iconSize[defaultSize]);
+        const svgSize = getSvgProps('c-pieIcon c-pieIcon--restricted', '', null, 'IconRestricted');
+        svg.setAttribute('width', svgSize.width);
+        svg.setAttribute('height', svgSize.height);
+        this.setAttribute('class', 'c-pieIcon c-pieIcon--restricted');
         this.root.append(svg);
     }
 
     attributeChangedCallback (attr, oldVal, newVal) {
         const svg = this.root.querySelector('svg');
-        const svgSize = getSvgProps('c-pieIcon c-pieIcon--restricted', '', newVal, 'IconRestricted');
-        svg.setAttribute('width', svgSize.width);
-        svg.setAttribute('height', svgSize.height);
-        this.root.append(svg);
+        let svgSize;
+
+        console.log(attr);
+        if (attr === 'size') {
+            svgSize = getSvgProps('c-pieIcon c-pieIcon--restricted', '', newVal, 'IconRestricted');
+
+            svg.setAttribute('width', svgSize.width);
+            svg.setAttribute('height', svgSize.height);
+            this.root.append(svg);
+        }
+
+        this.setAttribute('class', 'c-pieIcon c-pieIcon--restricted', newVal);
     }
 }
 

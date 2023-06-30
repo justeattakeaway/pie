@@ -1,7 +1,7 @@
-import { getDefaultIconSize, iconSize, getSvgProps } from '@justeattakeaway/pie-icons-configs/configs';
+import { getSvgProps } from '@justeattakeaway/pie-icons-configs';
 
 const template = document.createElement('template');
-template.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 32 32" class="c-pieIcon c-pieIcon--caretUpLarge"><path d="m26.229 22.125-8.96-14a1.68 1.68 0 0 0-2.844 0l-8.671 14a1.68 1.68 0 0 0 1.426 2.564h17.64a1.68 1.68 0 0 0 1.409-2.564ZM7.31 23 15.86 9.131l8.829 13.808L7.31 23Z"></path></svg>';
+template.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 32 32" ><path d="m26.229 22.125-8.96-14a1.68 1.68 0 0 0-2.844 0l-8.671 14a1.68 1.68 0 0 0 1.426 2.564h17.64a1.68 1.68 0 0 0 1.409-2.564ZM7.31 23 15.86 9.131l8.829 13.808L7.31 23Z"></path></svg>';
 
 export class IconCaretUpLarge extends HTMLElement {
     constructor () {
@@ -23,20 +23,37 @@ export class IconCaretUpLarge extends HTMLElement {
         this.setAttribute('size', value);
     }
 
+    get class () {
+        return this.getAttribute('class');
+    }
+
+    set class (value) {
+        this.setAttribute('class', value);
+    }
+
     connectedCallback () {
         const svg = this.root.querySelector('svg');
-        const defaultSize = getDefaultIconSize('c-pieIcon c-pieIcon--caretUpLarge');
-        svg.setAttribute('width', iconSize[defaultSize]);
-        svg.setAttribute('height', iconSize[defaultSize]);
+        const svgSize = getSvgProps('c-pieIcon c-pieIcon--caretUpLarge', '', null, 'IconCaretUpLarge');
+        svg.setAttribute('width', svgSize.width);
+        svg.setAttribute('height', svgSize.height);
+        this.setAttribute('class', 'c-pieIcon c-pieIcon--caretUpLarge');
         this.root.append(svg);
     }
 
     attributeChangedCallback (attr, oldVal, newVal) {
         const svg = this.root.querySelector('svg');
-        const svgSize = getSvgProps('c-pieIcon c-pieIcon--caretUpLarge', '', newVal, 'IconCaretUpLarge');
-        svg.setAttribute('width', svgSize.width);
-        svg.setAttribute('height', svgSize.height);
-        this.root.append(svg);
+        let svgSize;
+
+        console.log(attr);
+        if (attr === 'size') {
+            svgSize = getSvgProps('c-pieIcon c-pieIcon--caretUpLarge', '', newVal, 'IconCaretUpLarge');
+
+            svg.setAttribute('width', svgSize.width);
+            svg.setAttribute('height', svgSize.height);
+            this.root.append(svg);
+        }
+
+        this.setAttribute('class', 'c-pieIcon c-pieIcon--caretUpLarge', newVal);
     }
 }
 

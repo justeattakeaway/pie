@@ -1,21 +1,21 @@
-/* eslint-disable */
-const path = require('path');
-const pieIcons = require('@justeattakeaway/pie-icons').default;
-const { pascalCase } = require('pascal-case');
-const fs = require('fs-extra');
-const { execSync } = require('child_process');
-const kebabCase = require('kebab-case');
-const { removeHyphenBeforeDigits } = require('./helpers');
+import pieIcons from '@justeattakeaway/pie-icons';
+import { pascalCase } from 'pascal-case';
+import path from 'path';
+import fs from 'fs-extra';
+import kebabCase from 'kebab-case';
 
-const { icons } = pieIcons;
+const { icons } = pieIcons.default;
 
 const componentTemplate = (name, svg) => {
-    const [, svgClasses] = svg?.match(/class="(.+?)"/);
+    const [, svgClasses] = svg.match(/class="(.+?)"/);
 
-    return `import { getDefaultIconSize, iconSize, getSvgProps } from '@justeattakeaway/pie-icons-configs/configs';
+    // move class from inside svg to inside web-component
+    const newSvg = svg.replace(`class="${svgClasses}"`, '');
+
+    return `import { getSvgProps } from '@justeattakeaway/pie-icons-configs';
 
 const template = document.createElement('template');
-template.innerHTML = '${svg}';
+template.innerHTML = '${newSvg}';
 
 export class ${name} extends HTMLElement {
     constructor () {
@@ -37,20 +37,37 @@ export class ${name} extends HTMLElement {
         this.setAttribute('size', value);
     }
 
+    get class () {
+        return this.getAttribute('class');
+    }
+
+    set class (value) {
+        this.setAttribute('class', value);
+    }
+
     connectedCallback () {
         const svg = this.root.querySelector('svg');
-        const defaultSize = getDefaultIconSize('${svgClasses}');
-        svg.setAttribute('width', iconSize[defaultSize]);
-        svg.setAttribute('height', iconSize[defaultSize]);
+        const svgSize = getSvgProps('${svgClasses}', '', null, '${name}');
+        svg.setAttribute('width', svgSize.width);
+        svg.setAttribute('height', svgSize.height);
+        this.setAttribute('class', '${svgClasses}');
         this.root.append(svg);
     }
 
     attributeChangedCallback (attr, oldVal, newVal) {
         const svg = this.root.querySelector('svg');
-        const svgSize = getSvgProps('${svgClasses}', '', newVal, '${name}');
-        svg.setAttribute('width', svgSize.width);
-        svg.setAttribute('height', svgSize.height);
-        this.root.append(svg);
+        let svgSize;
+
+        console.log(attr);
+        if (attr === 'size') {
+            svgSize = getSvgProps('${svgClasses}', '', newVal, '${name}');
+
+            svg.setAttribute('width', svgSize.width);
+            svg.setAttribute('height', svgSize.height);
+            this.root.append(svg);
+        }
+
+        this.setAttribute('class', '${svgClasses}', newVal);
     }
 }
 
@@ -69,20 +86,12 @@ async function checkDirExists (directoryPath) {
     }
 }
 
-function copyIconsConfigFiles () {
-    const srcFilePaths = [
-        path.resolve(process.cwd(), '../pie-icons-configs/configs.js'),
-    ];
-    const destFilePath = path.resolve(process.cwd(), './icons');
+const handleComponentName = (name) => name.replace(/\-(\d+)/, '$1'); // eslint-disable-line no-useless-escape
 
-    srcFilePaths.forEach((srcFilePath) => execSync(`copy ${srcFilePath} ${destFilePath}`));
-}
 
 async function build () {
     // check if /icons directory exists, if not create it
     await checkDirExists(ICONS_DIR);
-
-    copyIconsConfigFiles();
 
     let indexFileString = '/* eslint-disable camelcase */\n';
 
@@ -90,7 +99,7 @@ async function build () {
     Object.keys(icons).forEach((iconKey) => {
         const { pathPrefix } = icons[iconKey];
         const capitalisedPathPrefix = (pathPrefix !== undefined ? (pathPrefix).substring(1, 2).toUpperCase() + (pathPrefix).substring(2) : '');
-        const pascalCasedName = pascalCase(removeHyphenBeforeDigits(iconKey));
+        const pascalCasedName = pascalCase(handleComponentName(iconKey));
 
         const componentName = `Icon${capitalisedPathPrefix + pascalCasedName}`;
 

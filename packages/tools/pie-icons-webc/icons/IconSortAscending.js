@@ -1,7 +1,7 @@
-import { getDefaultIconSize, iconSize, getSvgProps } from '@justeattakeaway/pie-icons-configs/configs';
+import { getSvgProps } from '@justeattakeaway/pie-icons-configs';
 
 const template = document.createElement('template');
-template.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 16 16" class="c-pieIcon c-pieIcon--sortAscending"><path d="M1 7.344h6.816l-.551 1.312H1V7.344Zm8.286-3.5H1v1.312h7.735l.551-1.312ZM1 12.156h4.786l.56-1.312H1v1.312Zm12.994-2.502L12.156 11.5V6.25h-1.312v5.25L9.006 9.654l-.927.971 2.625 2.625a1.075 1.075 0 0 0 1.54 0l2.625-2.625-.875-.971Z"></path></svg>';
+template.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 16 16" ><path d="M1 7.344h6.816l-.551 1.312H1V7.344Zm8.286-3.5H1v1.312h7.735l.551-1.312ZM1 12.156h4.786l.56-1.312H1v1.312Zm12.994-2.502L12.156 11.5V6.25h-1.312v5.25L9.006 9.654l-.927.971 2.625 2.625a1.075 1.075 0 0 0 1.54 0l2.625-2.625-.875-.971Z"></path></svg>';
 
 export class IconSortAscending extends HTMLElement {
     constructor () {
@@ -23,20 +23,37 @@ export class IconSortAscending extends HTMLElement {
         this.setAttribute('size', value);
     }
 
+    get class () {
+        return this.getAttribute('class');
+    }
+
+    set class (value) {
+        this.setAttribute('class', value);
+    }
+
     connectedCallback () {
         const svg = this.root.querySelector('svg');
-        const defaultSize = getDefaultIconSize('c-pieIcon c-pieIcon--sortAscending');
-        svg.setAttribute('width', iconSize[defaultSize]);
-        svg.setAttribute('height', iconSize[defaultSize]);
+        const svgSize = getSvgProps('c-pieIcon c-pieIcon--sortAscending', '', null, 'IconSortAscending');
+        svg.setAttribute('width', svgSize.width);
+        svg.setAttribute('height', svgSize.height);
+        this.setAttribute('class', 'c-pieIcon c-pieIcon--sortAscending');
         this.root.append(svg);
     }
 
     attributeChangedCallback (attr, oldVal, newVal) {
         const svg = this.root.querySelector('svg');
-        const svgSize = getSvgProps('c-pieIcon c-pieIcon--sortAscending', '', newVal, 'IconSortAscending');
-        svg.setAttribute('width', svgSize.width);
-        svg.setAttribute('height', svgSize.height);
-        this.root.append(svg);
+        let svgSize;
+
+        console.log(attr);
+        if (attr === 'size') {
+            svgSize = getSvgProps('c-pieIcon c-pieIcon--sortAscending', '', newVal, 'IconSortAscending');
+
+            svg.setAttribute('width', svgSize.width);
+            svg.setAttribute('height', svgSize.height);
+            this.root.append(svg);
+        }
+
+        this.setAttribute('class', 'c-pieIcon c-pieIcon--sortAscending', newVal);
     }
 }
 

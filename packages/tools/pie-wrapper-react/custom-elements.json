@@ -646,6 +646,14 @@
             "exports": [
                 {
                     "kind": "js",
+                    "name": "IconAlcoholFilled",
+                    "declaration": {
+                        "name": "IconAlcoholFilled",
+                        "module": "../../components/pie-icon-button/src/index.js"
+                    }
+                },
+                {
+                    "kind": "js",
                     "name": "type",
                     "declaration": {
                         "name": "type",
