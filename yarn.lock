@@ -4988,6 +4988,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@justeattakeaway/pie-webc-testing@workspace:*, @justeattakeaway/pie-webc-testing@workspace:packages/components/pie-webc-testing":
+  version: 0.0.0-use.local
+  resolution: "@justeattakeaway/pie-webc-testing@workspace:packages/components/pie-webc-testing"
+  languageName: unknown
+  linkType: soft
+
 "@justeattakeaway/pie-wrapper-react@workspace:packages/tools/pie-wrapper-react":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-wrapper-react@workspace:packages/tools/pie-wrapper-react"
@@ -27674,6 +27680,7 @@ __metadata:
     "@justeat/browserslist-config-fozzie": 1.x
     "@justeat/fozzie": 11.0.0
     "@justeat/pie-design-tokens": 5.2.0
+    "@justeattakeaway/pie-webc-testing": "workspace:*"
     "@justeattakeaway/stylelint-config-pie": "workspace:*"
     "@percy/cli": 1.26.1
     "@percy/playwright": 1.0.4
