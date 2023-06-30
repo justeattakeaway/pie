@@ -8,11 +8,15 @@ import type { DependentMap } from '@justeattakeaway/pie-webc-core';
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 import styles from './modal.scss?inline';
 import {
-    ModalProps, headingLevels, ON_MODAL_CLOSE_EVENT, ON_MODAL_OPEN_EVENT,
+    ModalProps,
+    headingLevels,
+    ON_MODAL_CLOSE_EVENT,
+    ON_MODAL_OPEN_EVENT,
+    sizes,
 } from './defs';
 
 // Valid values available to consumers
-export { type ModalProps, headingLevels };
+export { type ModalProps, headingLevels, sizes };
 
 const componentSelector = 'pie-modal';
 
@@ -27,6 +31,10 @@ export class PieModal extends RtlMixin(LitElement) {
     @property()
     @validPropertyValues(componentSelector, headingLevels, 'h2')
         headingLevel: ModalProps['headingLevel'] = 'h2';
+
+    @property()
+    @validPropertyValues(componentSelector, sizes, 'medium')
+        size: ModalProps['size'] = 'medium';
 
     @query('dialog')
         _dialog?: HTMLDialogElement;
@@ -111,12 +119,16 @@ export class PieModal extends RtlMixin(LitElement) {
         const {
             heading,
             headingLevel = 'h2',
+            size,
         } = this;
 
         const headingTag = unsafeStatic(headingLevel);
 
         return html`
-            <dialog id="dialog" class="c-modal">
+            <dialog
+                id="dialog"
+                size="${size}"
+                class="c-modal">
                 <header>
                     <${headingTag} class="c-modal-heading">${heading}</${headingTag}>
                     <pie-icon-button
