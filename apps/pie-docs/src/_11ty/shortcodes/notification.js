@@ -50,7 +50,7 @@ module.exports = function (config) {
         attrs: {
             height: 24,
             width: 24,
-            fill: iconFill,
+            fill: notificationSettings[config.type].iconFill,
             class: 'u-iconFilled',
         },
     });

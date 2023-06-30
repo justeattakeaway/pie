@@ -36,7 +36,7 @@ module.exports = function ({
     const isIconType = type === listTypes.icon;
     const iconFillHexcode = iconFill ? pieDesignTokenColours({ tokenName: iconFill, tokenPath: ['alias', 'default'] }) : null;
     const listItems = items.map((item) => `<li class="c-list-item">
-        ${isIconType ? getIconSvg(iconName, iconFillHexcode) : ''}
+        ${isIconType ? getIconSvg(iconName, iconFill) : ''}
         ${markdownFilter(item, true)}
         </li>`).join('');
     const listTag = type === listTypes.ordered ? 'ol' : 'ul';
