@@ -305,18 +305,20 @@ $tokensTable-item-vertical-padding: f.spacing(e);
 }
 
 .c-tokensTable-sectionSubheading {
-    margin-top: f.spacing(f);
+    margin-block-start: f.spacing(f);
 
     &:not(:first-of-type) {
-        padding-top: f.spacing(f);
-        border-top: 1px solid f.$color-border-default;
+        padding-block-start: f.spacing(f);
+        border-block-start: 1px solid f.$color-border-default;
 
         @include f.media('>=wide') {
-            padding-top: f.spacing(d);
+            padding-block-start: 0;
+            border-block-start: none;
         }
     }
 }
 
 .c-tokensTable-sectionDescription + .c-tokensTable-sectionSubheading {
-    border-top: none;
+    padding-block-start: 0;
+    border-block-start: none;
 }
