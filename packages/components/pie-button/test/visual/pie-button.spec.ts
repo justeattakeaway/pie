@@ -32,14 +32,17 @@ const componentVariants: string[] = Object.keys(componentPropsMatrixByVariant);
 
 // This ensures the component is registered in the DOM for each test
 // This is not required if your tests mount the web component directly in the tests
-test('Component registered in the DOM', async ({ mount }) => {
+test.beforeEach(async ({ page, mount }) => {
     await mount(
         PieButton,
-        {
-            props: {},
-            slots: {},
-        },
+        {},
     );
+
+    // Removing the element so it's not present in the tests (but is still registered in the DOM)
+    await page.evaluate(() => {
+        const element : Element | null = document.querySelector('pie-button');
+        element?.remove();
+    });
 });
 
 componentVariants.forEach((variant) => test(`Render all prop variations for Variant: ${variant}`, async ({ page, mount }) => {

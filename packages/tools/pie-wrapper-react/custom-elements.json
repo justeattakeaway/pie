@@ -139,7 +139,7 @@
                             "type": {
                                 "text": "boolean"
                             },
-                            "default": "false"
+                            "default": "true"
                         },
                         {
                             "kind": "field",
@@ -234,6 +234,17 @@
                             "description": "This is only to be used inside the component template as direct property\nreassignment is not allowed."
                         },
                         {
+                            "kind": "field",
+                            "name": "_handleDialogCancelEvent",
+                            "privacy": "private",
+                            "description": "Prevents the user from dismissing the dialog via the `cancel`\nevent (ESC key) when `isDismissible` is set to false.",
+                            "parameters": [
+                                {
+                                    "name": "event"
+                                }
+                            ]
+                        },
+                        {
                             "kind": "method",
                             "name": "_handleModalOpenStateOnFirstRender",
                             "privacy": "private",
@@ -281,15 +292,9 @@
                         },
                         {
                             "kind": "field",
-                            "name": "_dispatchModalCloseEvent",
+                            "name": "_dispatchModalCustomEvent",
                             "privacy": "private",
-                            "description": "Dispatch `ON_MODAL_CLOSE_EVENT` event.\nTo be used whenever we close the modal."
-                        },
-                        {
-                            "kind": "field",
-                            "name": "_dispatchModalOpenEvent",
-                            "privacy": "private",
-                            "description": "Dispatch `ON_MODAL_OPEN_EVENT` event.\nTo be used whenever we open the modal."
+                            "description": "Note: We should aim to have a shareable event helper system to allow\nus to share this across components in-future.\n\nDispatch a custom event.\n\nTo be used whenever we have behavioural events we want to\nbubble up through the modal."
                         },
                         {
                             "kind": "field",

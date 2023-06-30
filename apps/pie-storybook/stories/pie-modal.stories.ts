@@ -6,10 +6,10 @@ import '@justeattakeaway/pie-button'; // Ensures the button WC is available for 
 type ModalProps = ModalPropsBase & { slot: string }
 
 const defaultArgs: ModalProps = {
-    isDismissible: true,
-    isOpen: true,
     heading: 'Modal header',
     headingLevel: 'h2',
+    isDismissible: true,
+    isOpen: true,
     slot: 'This is Lit!',
 };
 
@@ -97,7 +97,7 @@ const PageContextTemplate = ({
 }: ModalProps) => html`
     <pie-button @click=${toggleModal}>Toggle Modal</pie-button>
     <pie-modal
-        isDismissible="${isDismissible}"
+        ?isDismissible="${isDismissible}"
         ?isOpen="${isOpen}"
         heading="${heading}"
         headingLevel="${headingLevel}"
