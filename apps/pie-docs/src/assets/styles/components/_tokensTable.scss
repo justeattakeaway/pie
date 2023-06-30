@@ -17,8 +17,8 @@ $tokensTable-item-vertical-padding: f.spacing(e);
     @include f.media('>=wide') {
         margin-top: 0;
     }
-
 }
+
 .c-tokensTable-list,
 .c-tokensTable-sectionDescription {
     &:has(+ .c-tokensTable-sectionSubheading) {
