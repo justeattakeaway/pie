@@ -51,6 +51,7 @@ $tabs-link-padding:                f.spacing(d);
 }
 
 .c-tabs + .c-contentPage-content {
+    // adds a max scroll height to elements with an id so they don't scroll behind the tab container
     [id] {
         scroll-margin-top: var(--header-height);
 

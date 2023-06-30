@@ -18,7 +18,7 @@ $tokensTable-item-vertical-padding: f.spacing(e);
         margin-top: 0;
     }
 
-    &:not(:last-of-type) {
+    &:has(+ .c-tokensTable-sectionSubheading) {
         margin-bottom: f.spacing(i);
         position: relative;
 

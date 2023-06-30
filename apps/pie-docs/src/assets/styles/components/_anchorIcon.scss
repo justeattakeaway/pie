@@ -43,6 +43,7 @@ h4:has(.c-anchorIcon) {
     @include f.media('>=mid') {
         margin-inline-start: -$anchor-width;
 
+        // adds area to the left of the heading on desktop views so anchor can be selected when heading is hovered
         &:before {
             content: '';
             width: $anchor-width;
@@ -52,7 +53,7 @@ h4:has(.c-anchorIcon) {
 }
 
 $headingSizes: (
-    'h2' f.$font-heading-l-line-height--wide f.$font-heading-l-line-height--narrow,
+    'h2' f.$font-heading-xl-line-height--wide f.$font-heading-xl-line-height--narrow,
     'h3' f.$font-heading-m-line-height--wide f.$font-heading-m-line-height--narrow,
     'h4' f.$font-heading-s-line-height--wide f.$font-heading-s-line-height--narrow
 );
