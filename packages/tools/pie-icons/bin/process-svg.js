@@ -1,3 +1,4 @@
+import path from 'path';
 import cheerio from 'cheerio';
 import prettier from 'prettier';
 import { optimize } from 'svgo';
@@ -75,7 +76,7 @@ function setAttrs (svg) {
  */
 
 function removeFillAttribute (svg, fileName, filePath) {
-    const shouldNotProcessFile = fileName.includes('-static') || filePath.includes('assets/flag') || filePath.includes('assets/payment');
+    const shouldNotProcessFile = fileName.includes('-static') || filePath.includes(`assets${path.sep}flag`) || filePath.includes(`assets${path.sep}payment`);
     if (shouldNotProcessFile) {
         return svg;
     }

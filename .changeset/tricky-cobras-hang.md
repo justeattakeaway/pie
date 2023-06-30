@@ -1,7 +1,7 @@
 ---
 "@justeattakeaway/pie-modal": minor
 "pie-storybook": minor
-"pie-wrapper-react": patch
+"@justeattakeaway/pie-wrapper-react": patch
 ---
 
 [Added] - New size prop for pie-modal
