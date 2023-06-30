@@ -2,8 +2,8 @@ import { test } from '@sand4rt/experimental-ct-web';
 import percySnapshot from '@percy/playwright';
 import {
     WebComponentTestWrapper,
-} from '@justeattakeaway/pie-webc-core/src/test-helpers/components/web-component-test-wrapper/WebComponentTestWrapper.ts';
-import { WebComponentPropValues } from '@justeattakeaway/pie-webc-core/src/test-helpers/defs';
+} from '@justeattakeaway/pie-webc-testing/src/helpers/components/web-component-test-wrapper/WebComponentTestWrapper.ts';
+import { WebComponentPropValues } from '@justeattakeaway/pie-webc-testing/src/helpers/defs.ts';
 import { PieIconButton } from '@justeattakeaway/pie-icon-button';
 import { PieModal } from '@/index';
 

@@ -71,8 +71,8 @@ Ghost.args = {
     variant: 'ghost',
 };
 
-export const GhostTertiary: Story<IconButtonProps> = (args: IconButtonProps) => Template(args);
-GhostTertiary.args = {
+export const GhostSecondary: Story<IconButtonProps> = (args: IconButtonProps) => Template(args);
+GhostSecondary.args = {
     ...defaultArgs,
-    variant: 'ghost-tertiary',
+    variant: 'ghost-secondary',
 };
