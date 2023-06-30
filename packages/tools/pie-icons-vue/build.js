@@ -57,7 +57,7 @@ function copyIconsConfigFiles () {
     ];
     const destFilePath = path.resolve(process.cwd(), './generated/components/');
 
-    srcFilePaths.forEach((srcFilePath) => execSync(`copy ${srcFilePath} ${destFilePath}`));
+    srcFilePaths.forEach((srcFilePath) => execSync(`cp ${srcFilePath} ${destFilePath}`));
 }
 
 async function build () {
