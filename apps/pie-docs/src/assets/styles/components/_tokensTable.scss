@@ -17,30 +17,6 @@ $tokensTable-item-vertical-padding: f.spacing(e);
     @include f.media('>=wide') {
         margin-top: 0;
     }
-
-    &:has(+ .c-tokensTable-sectionSubheading) {
-        margin-bottom: f.spacing(i);
-        position: relative;
-
-        // adds a visual divider above subheadings on mobile to add a bit of separation
-        &:after {
-            content: '';
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: -#{f.spacing(f)};
-            background-color: f.$color-border-default;
-            height: $tokensTable-border-width;
-        }
-
-        @include f.media('>=wide') {
-            margin-bottom: f.spacing(f);
-
-            &:after {
-                position: static;
-            }
-        }
-    }
 }
 
 .c-tokensTable-example-container--spacing {
@@ -330,4 +306,17 @@ $tokensTable-item-vertical-padding: f.spacing(e);
 
 .c-tokensTable-sectionSubheading {
     margin-top: f.spacing(f);
+
+    &:not(:first-of-type) {
+        padding-top: f.spacing(f);
+        border-top: 1px solid f.$color-border-default;
+
+        @include f.media('>=wide') {
+            padding-top: f.spacing(d);
+        }
+    }
+}
+
+.c-tokensTable-sectionDescription + .c-tokensTable-sectionSubheading {
+    border-top: none;
 }
