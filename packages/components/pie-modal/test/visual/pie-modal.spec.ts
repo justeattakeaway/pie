@@ -13,7 +13,8 @@ const renderTestPieModal = ({
     headingLevel = 'h2',
     size = 'medium',
     isOpen = true,
-} : Partial<ModalProps> = {}) => `<pie-modal ${isOpen ? 'isOpen' : ''} heading="${heading}" headingLevel="${headingLevel}" size="${size}"></pie-modal>`;
+    isDismissible = true,
+} : Partial<ModalProps> = {}) => `<pie-modal ${isOpen ? 'isOpen' : ''} heading="${heading}" headingLevel="${headingLevel}" size="${size}" isDismissible="${isDismissible}"></pie-modal>`;
 
 // Creates a <ol> with a large number of <li> nodes for testing page scrolling
 const createTestPageHTML = () => `<ol>
@@ -86,5 +87,37 @@ sizes.forEach((size) => {
         });
 
         await percySnapshot(page, `Modal - size = ${size}`);
+    });
+});
+
+test.describe('PIE Modal `isDismissible`', () => {
+    test.describe('when truthy', () => {
+        test('should display a close button within the modal', async ({ mount, page }) => {
+            await mount(PieModal, {
+                props: {
+                    heading: 'This is a modal heading',
+                    headingLevel: 'h2',
+                    isOpen: true,
+                    isDismissible: true,
+                },
+            });
+
+            await percySnapshot(page, 'Modal with close button displayed - isDismissible: `truthy`');
+        });
+    });
+
+    test.describe('when falsey', () => {
+        test('should NOT display a close button within the modal', async ({ mount, page }) => {
+            await mount(PieModal, {
+                props: {
+                    heading: 'This is a modal heading',
+                    headingLevel: 'h2',
+                    isOpen: true,
+                    isDismissible: false,
+                },
+            });
+
+            await percySnapshot(page, 'Modal without close button - isDismissible: `falsey`');
+        });
     });
 });

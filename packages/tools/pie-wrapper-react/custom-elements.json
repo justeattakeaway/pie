@@ -16,6 +16,14 @@
                 },
                 {
                     "kind": "variable",
+                    "name": "sizes",
+                    "type": {
+                        "text": "['small', 'medium', 'large']"
+                    },
+                    "default": "['small', 'medium', 'large']"
+                },
+                {
+                    "kind": "variable",
                     "name": "ON_MODAL_CLOSE_EVENT",
                     "type": {
                         "text": "string"
@@ -39,6 +47,14 @@
                     "name": "headingLevels",
                     "declaration": {
                         "name": "headingLevels",
+                        "module": "../../components/pie-modal/src/defs.js"
+                    }
+                },
+                {
+                    "kind": "js",
+                    "name": "sizes",
+                    "declaration": {
+                        "name": "sizes",
                         "module": "../../components/pie-modal/src/defs.js"
                     }
                 },
@@ -68,9 +84,9 @@
                     "kind": "variable",
                     "name": "sizes",
                     "type": {
-                        "text": "['xsmall', 'small-expressive', 'small-productive', 'medium', 'large']"
+                        "text": "['xsmall', 'small-productive', 'small-expressive', 'medium', 'large']"
                     },
-                    "default": "['xsmall', 'small-expressive', 'small-productive', 'medium', 'large']"
+                    "default": "['xsmall', 'small-productive', 'small-expressive', 'medium', 'large']"
                 },
                 {
                     "kind": "variable",
@@ -139,7 +155,7 @@
                             "type": {
                                 "text": "boolean"
                             },
-                            "default": "false"
+                            "default": "true"
                         },
                         {
                             "kind": "field",
@@ -234,6 +250,17 @@
                             "description": "This is only to be used inside the component template as direct property\nreassignment is not allowed."
                         },
                         {
+                            "kind": "field",
+                            "name": "_handleDialogCancelEvent",
+                            "privacy": "private",
+                            "description": "Prevents the user from dismissing the dialog via the `cancel`\nevent (ESC key) when `isDismissible` is set to false.",
+                            "parameters": [
+                                {
+                                    "name": "event"
+                                }
+                            ]
+                        },
+                        {
                             "kind": "method",
                             "name": "_handleModalOpenStateOnFirstRender",
                             "privacy": "private",
@@ -281,15 +308,9 @@
                         },
                         {
                             "kind": "field",
-                            "name": "_dispatchModalCloseEvent",
+                            "name": "_dispatchModalCustomEvent",
                             "privacy": "private",
-                            "description": "Dispatch `ON_MODAL_CLOSE_EVENT` event.\nTo be used whenever we close the modal."
-                        },
-                        {
-                            "kind": "field",
-                            "name": "_dispatchModalOpenEvent",
-                            "privacy": "private",
-                            "description": "Dispatch `ON_MODAL_OPEN_EVENT` event.\nTo be used whenever we open the modal."
+                            "description": "Note: We should aim to have a shareable event helper system to allow\nus to share this across components in-future.\n\nDispatch a custom event.\n\nTo be used whenever we have behavioural events we want to\nbubble up through the modal."
                         },
                         {
                             "kind": "field",
@@ -358,6 +379,14 @@
                     "name": "headingLevels",
                     "declaration": {
                         "name": "headingLevels",
+                        "module": "../../components/pie-modal/src/index.js"
+                    }
+                },
+                {
+                    "kind": "js",
+                    "name": "sizes",
+                    "declaration": {
+                        "name": "sizes",
                         "module": "../../components/pie-modal/src/index.js"
                     }
                 },
@@ -539,14 +568,6 @@
                     "name": "*",
                     "declaration": {
                         "name": "*",
-                        "package": "./test-helpers"
-                    }
-                },
-                {
-                    "kind": "js",
-                    "name": "*",
-                    "declaration": {
-                        "name": "*",
                         "package": "./type-helpers"
                     }
                 }
@@ -568,9 +589,9 @@
                     "kind": "variable",
                     "name": "variants",
                     "type": {
-                        "text": "['primary', 'secondary', 'outline', 'ghost', 'ghost-tertiary']"
+                        "text": "['primary', 'secondary', 'outline', 'ghost', 'ghost-secondary']"
                     },
-                    "default": "['primary', 'secondary', 'outline', 'ghost', 'ghost-tertiary']"
+                    "default": "['primary', 'secondary', 'outline', 'ghost', 'ghost-secondary']"
                 }
             ],
             "exports": [
@@ -742,51 +763,6 @@
         },
         {
             "kind": "javascript-module",
-            "path": "../../components/pie-webc-core/src/test-helpers/defs.js",
-            "declarations": [],
-            "exports": []
-        },
-        {
-            "kind": "javascript-module",
-            "path": "../../components/pie-webc-core/src/test-helpers/index.js",
-            "declarations": [],
-            "exports": [
-                {
-                    "kind": "js",
-                    "name": "*",
-                    "declaration": {
-                        "name": "*",
-                        "package": "./get-all-prop-combos"
-                    }
-                },
-                {
-                    "kind": "js",
-                    "name": "*",
-                    "declaration": {
-                        "name": "*",
-                        "package": "./defs"
-                    }
-                },
-                {
-                    "kind": "js",
-                    "name": "*",
-                    "declaration": {
-                        "name": "*",
-                        "package": "./rendering"
-                    }
-                },
-                {
-                    "kind": "js",
-                    "name": "*",
-                    "declaration": {
-                        "name": "*",
-                        "package": "./components"
-                    }
-                }
-            ]
-        },
-        {
-            "kind": "javascript-module",
             "path": "../../components/pie-webc-core/src/type-helpers/index.js",
             "declarations": [],
             "exports": [
@@ -850,45 +826,6 @@
         },
         {
             "kind": "javascript-module",
-            "path": "../../components/pie-webc-core/src/test-helpers/rendering.js",
-            "declarations": [
-                {
-                    "kind": "function",
-                    "name": "createTestWebComponent",
-                    "return": {
-                        "type": {
-                            "text": "WebComponentTestInput"
-                        }
-                    },
-                    "parameters": [
-                        {
-                            "name": "propVals",
-                            "type": {
-                                "text": "WebComponentPropValues"
-                            }
-                        },
-                        {
-                            "name": "componentRenderFn",
-                            "type": {
-                                "text": "WebComponentRenderFn"
-                            }
-                        }
-                    ]
-                }
-            ],
-            "exports": [
-                {
-                    "kind": "js",
-                    "name": "createTestWebComponent",
-                    "declaration": {
-                        "name": "createTestWebComponent",
-                        "module": "../../components/pie-webc-core/src/test-helpers/rendering.js"
-                    }
-                }
-            ]
-        },
-        {
-            "kind": "javascript-module",
             "path": "../../components/pie-webc-core/src/type-helpers/DependentMap.js",
             "declarations": [],
             "exports": []
@@ -923,21 +860,6 @@
                     "declaration": {
                         "name": "requiredProperty",
                         "module": "../../components/pie-webc-core/src/decorators/required-property.js"
-                    }
-                }
-            ]
-        },
-        {
-            "kind": "javascript-module",
-            "path": "../../components/pie-webc-core/src/test-helpers/components/index.js",
-            "declarations": [],
-            "exports": [
-                {
-                    "kind": "js",
-                    "name": "*",
-                    "declaration": {
-                        "name": "*",
-                        "package": "./web-component-test-wrapper/WebComponentTestWrapper"
                     }
                 }
             ]
@@ -986,151 +908,6 @@
                     "declaration": {
                         "name": "validPropertyValues",
                         "module": "../../components/pie-webc-core/src/decorators/valid-property-values.js"
-                    }
-                }
-            ]
-        },
-        {
-            "kind": "javascript-module",
-            "path": "../../components/pie-webc-core/src/test-helpers/get-all-prop-combos.js",
-            "declarations": [
-                {
-                    "kind": "function",
-                    "name": "getAllPropCombinations",
-                    "return": {
-                        "type": {
-                            "text": "WebComponentPropValues[]"
-                        }
-                    },
-                    "parameters": [
-                        {
-                            "name": "obj",
-                            "type": {
-                                "text": "PropObject"
-                            },
-                            "description": "The object containing properties for which combinations are to be generated.\nEach property value can any data type."
-                        }
-                    ],
-                    "description": "Generate all possible combinations of properties for a given object."
-                },
-                {
-                    "kind": "function",
-                    "name": "splitCombinationsByPropertyValue",
-                    "return": {
-                        "type": {
-                            "text": "Record<string, WebComponentPropValues[]>"
-                        }
-                    },
-                    "parameters": [
-                        {
-                            "name": "propValueCombinations",
-                            "type": {
-                                "text": "WebComponentPropValues[]"
-                            },
-                            "description": "The array of combinations to split."
-                        },
-                        {
-                            "name": "property",
-                            "type": {
-                                "text": "string"
-                            },
-                            "description": "The property to split by."
-                        }
-                    ],
-                    "description": "Splits an array of component prop combinations by a particular property value."
-                }
-            ],
-            "exports": [
-                {
-                    "kind": "js",
-                    "name": "getAllPropCombinations",
-                    "declaration": {
-                        "name": "getAllPropCombinations",
-                        "module": "../../components/pie-webc-core/src/test-helpers/get-all-prop-combos.js"
-                    }
-                },
-                {
-                    "kind": "js",
-                    "name": "splitCombinationsByPropertyValue",
-                    "declaration": {
-                        "name": "splitCombinationsByPropertyValue",
-                        "module": "../../components/pie-webc-core/src/test-helpers/get-all-prop-combos.js"
-                    }
-                }
-            ]
-        },
-        {
-            "kind": "javascript-module",
-            "path": "../../components/pie-webc-core/src/test-helpers/components/web-component-test-wrapper/WebComponentTestWrapper.js",
-            "declarations": [
-                {
-                    "kind": "class",
-                    "description": "This is a Web Component used for visual testing purposes.\nIt allows us to wrap a component we'd like to test in a container\nthat displays the component's props as a label.\n\nAlternatively, this component supports a page mode. In this mode,\nthe test component is not wrapped and labelled, however you can add\nany amount of HTML to the page to help with testing. This useful for components\nsuch as Modal and Dialog components where we need to test the component in the context of\nthe page markup.\n\nComponents can be tested without this, but it's useful if your tests\nrequire additional markup when testing a component.",
-                    "name": "WebComponentTestWrapper",
-                    "members": [
-                        {
-                            "kind": "field",
-                            "name": "styles",
-                            "static": true
-                        },
-                        {
-                            "kind": "field",
-                            "name": "propKeyValues",
-                            "type": {
-                                "text": "string"
-                            },
-                            "default": "''",
-                            "description": "The prop key and values to display above the component.\nThis should be a single string representing a comma separated list of prop key/value pairs.\nSuch as: 'size: small, isFullWidth: true'"
-                        },
-                        {
-                            "kind": "field",
-                            "name": "pageMode",
-                            "type": {
-                                "text": "boolean"
-                            },
-                            "default": "false",
-                            "description": "Use in combination with the `pageMarkup` named slot to render the component alongside additional HTML\nto test the component in the context of the page."
-                        },
-                        {
-                            "kind": "method",
-                            "name": "_renderPropKeyValues"
-                        },
-                        {
-                            "kind": "method",
-                            "name": "render"
-                        }
-                    ],
-                    "superclass": {
-                        "name": "LitElement",
-                        "package": "lit"
-                    },
-                    "tagName": "componentSelector",
-                    "customElement": true
-                },
-                {
-                    "kind": "variable",
-                    "name": "componentSelector",
-                    "type": {
-                        "text": "string"
-                    },
-                    "default": "'web-component-test-wrapper'"
-                }
-            ],
-            "exports": [
-                {
-                    "kind": "js",
-                    "name": "WebComponentTestWrapper",
-                    "declaration": {
-                        "name": "WebComponentTestWrapper",
-                        "module": "../../components/pie-webc-core/src/test-helpers/components/web-component-test-wrapper/WebComponentTestWrapper.js"
-                    }
-                },
-                {
-                    "kind": "custom-element-definition",
-                    "name": "componentSelector",
-                    "declaration": {
-                        "name": "WebComponentTestWrapper",
-                        "module": "../../components/pie-webc-core/src/test-helpers/components/web-component-test-wrapper/WebComponentTestWrapper.js"
                     }
                 }
             ]

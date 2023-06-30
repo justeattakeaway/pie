@@ -35,10 +35,6 @@ export class PieModal extends RtlMixin(LitElement) {
     @validPropertyValues(componentSelector, headingLevels, 'h2')
         headingLevel: ModalProps['headingLevel'] = 'h2';
 
-    @property()
-    @validPropertyValues(componentSelector, sizes, 'medium')
-        size: ModalProps['size'] = 'medium';
-
     @query('dialog')
         _dialog?: HTMLDialogElement;
 
@@ -101,7 +97,7 @@ export class PieModal extends RtlMixin(LitElement) {
     }
 
     disconnectedCallback () : void {
-        this._dialog?.removeEventListener('cancel', (event) => this._handleEscKey(event));
+        this._dialog?.removeEventListener('cancel', (event) => this._handleDialogCancelEvent(event));
         document.removeEventListener(ON_MODAL_OPEN_EVENT, this._handleModalOpened.bind(this));
         document.removeEventListener(ON_MODAL_CLOSE_EVENT, this._handleModalClosed.bind(this));
         super.disconnectedCallback();
@@ -113,7 +109,7 @@ export class PieModal extends RtlMixin(LitElement) {
         const previousValue = changedProperties.get('isOpen');
 
         if (previousValue === undefined && this.isOpen) {
-            this._dispatchModalOpenEvent();
+            this._dispatchModalCustomEvent(ON_MODAL_OPEN_EVENT);
         }
     }
 
@@ -123,9 +119,9 @@ export class PieModal extends RtlMixin(LitElement) {
 
         if (previousValue !== undefined) {
             if (previousValue) {
-                this._dispatchModalCloseEvent();
+                this._dispatchModalCustomEvent(ON_MODAL_CLOSE_EVENT);
             } else {
-                this._dispatchModalOpenEvent();
+                this._dispatchModalCustomEvent(ON_MODAL_OPEN_EVENT);
             }
         }
     }
@@ -134,16 +130,12 @@ export class PieModal extends RtlMixin(LitElement) {
         const {
             heading,
             headingLevel = 'h2',
-            size,
         } = this;
 
         const headingTag = unsafeStatic(headingLevel);
 
         return html`
-            <dialog
-                id="dialog"
-                size="${size}"
-                class="c-modal">
+            <dialog id="dialog" class="c-modal">
                 <header>
                     <${headingTag} class="c-modal-heading">${heading}</${headingTag}>
                          ${this.isDismissible ? html`<pie-icon-button
@@ -186,28 +178,18 @@ export class PieModal extends RtlMixin(LitElement) {
     };
 
     /**
-     * Dispatch `ON_MODAL_CLOSE_EVENT` event.
-     * To be used whenever we close the modal.
+     * Note: We should aim to have a shareable event helper system to allow
+     * us to share this across components in-future.
      *
-     * @event
-     */
-    private _dispatchModalCloseEvent = () : void => {
-        const event = new CustomEvent(ON_MODAL_CLOSE_EVENT, {
-            bubbles: true,
-            composed: true,
-        });
-
-        this.dispatchEvent(event);
-    };
-
-    /**
-     * Dispatch `ON_MODAL_OPEN_EVENT` event.
-     * To be used whenever we open the modal.
+     * Dispatch a custom event.
      *
-     * @event
+     * To be used whenever we have behavioural events we want to
+     * bubble up through the modal.
+     *
+     * @eventType
      */
-    private _dispatchModalOpenEvent = () : void => {
-        const event = new CustomEvent(ON_MODAL_OPEN_EVENT, {
+    private _dispatchModalCustomEvent = (eventType: string) : void => {
+        const event = new CustomEvent(eventType, {
             bubbles: true,
             composed: true,
         });
