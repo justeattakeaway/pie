@@ -70,7 +70,7 @@ export { IconAppRestaurant }
     render () {
       return html`
         <button>
-          <icon-alcohol-filled size="xs" />
+          <icon-app-restaurant size="xs" />
         </button>`;
     }
   }
