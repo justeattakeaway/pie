@@ -1,7 +1,7 @@
 import { getSvgProps } from '@justeattakeaway/pie-icons-configs';
 
 const template = document.createElement('template');
-template.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 16 16" ><path d="M5.044 13.18 10.399 8 5 2.82l.875-.962 5.539 5.346a1.164 1.164 0 0 1 0 1.636l-5.469 5.285-.901-.945Z"></path></svg>';
+template.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 16 16" class="c-pieIcon c-pieIcon--chevronRight"><path d="M5.044 13.18 10.399 8 5 2.82l.875-.962 5.539 5.346a1.164 1.164 0 0 1 0 1.636l-5.469 5.285-.901-.945Z"></path></svg>';
 
 export class IconChevronRight extends HTMLElement {
     constructor () {
@@ -44,7 +44,6 @@ export class IconChevronRight extends HTMLElement {
         const svg = this.root.querySelector('svg');
         let svgSize;
 
-        console.log(attr);
         if (attr === 'size') {
             svgSize = getSvgProps('c-pieIcon c-pieIcon--chevronRight', '', newVal, 'IconChevronRight');
 
@@ -52,8 +51,6 @@ export class IconChevronRight extends HTMLElement {
             svg.setAttribute('height', svgSize.height);
             this.root.append(svg);
         }
-
-        this.setAttribute('class', 'c-pieIcon c-pieIcon--chevronRight', newVal);
     }
 }
 

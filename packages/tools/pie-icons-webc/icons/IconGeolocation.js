@@ -1,7 +1,7 @@
 import { getSvgProps } from '@justeattakeaway/pie-icons-configs';
 
 const template = document.createElement('template');
-template.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 16 16" ><path d="M9.452 14.466H8.044l-.534-2.091A5.25 5.25 0 0 0 3.669 8.49L1.534 8V6.547l11.882-3.963-3.964 11.882ZM3.81 7.17h.175a6.598 6.598 0 0 1 4.803 4.847v.175l2.503-7.525L3.809 7.17Z"></path></svg>';
+template.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 16 16" class="c-pieIcon c-pieIcon--geolocation"><path d="M9.452 14.466H8.044l-.534-2.091A5.25 5.25 0 0 0 3.669 8.49L1.534 8V6.547l11.882-3.963-3.964 11.882ZM3.81 7.17h.175a6.598 6.598 0 0 1 4.803 4.847v.175l2.503-7.525L3.809 7.17Z"></path></svg>';
 
 export class IconGeolocation extends HTMLElement {
     constructor () {
@@ -44,7 +44,6 @@ export class IconGeolocation extends HTMLElement {
         const svg = this.root.querySelector('svg');
         let svgSize;
 
-        console.log(attr);
         if (attr === 'size') {
             svgSize = getSvgProps('c-pieIcon c-pieIcon--geolocation', '', newVal, 'IconGeolocation');
 
@@ -52,8 +51,6 @@ export class IconGeolocation extends HTMLElement {
             svg.setAttribute('height', svgSize.height);
             this.root.append(svg);
         }
-
-        this.setAttribute('class', 'c-pieIcon c-pieIcon--geolocation', newVal);
     }
 }
 

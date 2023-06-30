@@ -1,7 +1,7 @@
 import { getSvgProps } from '@justeattakeaway/pie-icons-configs';
 
 const template = document.createElement('template');
-template.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 16 16" ><path fill="#D80027" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14Z"></path><path fill="#EEE" d="M11.653 6.783H9.22V4.35H6.783v2.433H4.35v2.434h2.433v2.433h2.434V9.217h2.433l.003-2.434Z"></path></svg>';
+template.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 16 16" class="c-pieIcon c-pieIcon--switzerland"><path fill="#D80027" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14Z"></path><path fill="#EEE" d="M11.653 6.783H9.22V4.35H6.783v2.433H4.35v2.434h2.433v2.433h2.434V9.217h2.433l.003-2.434Z"></path></svg>';
 
 export class IconFlagSwitzerland extends HTMLElement {
     constructor () {
@@ -44,7 +44,6 @@ export class IconFlagSwitzerland extends HTMLElement {
         const svg = this.root.querySelector('svg');
         let svgSize;
 
-        console.log(attr);
         if (attr === 'size') {
             svgSize = getSvgProps('c-pieIcon c-pieIcon--switzerland', '', newVal, 'IconFlagSwitzerland');
 
@@ -52,8 +51,6 @@ export class IconFlagSwitzerland extends HTMLElement {
             svg.setAttribute('height', svgSize.height);
             this.root.append(svg);
         }
-
-        this.setAttribute('class', 'c-pieIcon c-pieIcon--switzerland', newVal);
     }
 }
 

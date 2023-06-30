@@ -4872,7 +4872,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-icon-button@workspace:packages/components/pie-icon-button"
   dependencies:
-    "@justeattakeaway/pie-icons-webc": "workspace:*"
     "@justeattakeaway/pie-webc-core": "workspace:*"
   languageName: unknown
   linkType: soft
@@ -4986,6 +4985,12 @@ __metadata:
 "@justeattakeaway/pie-webc-core@workspace:*, @justeattakeaway/pie-webc-core@workspace:packages/components/pie-webc-core":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-webc-core@workspace:packages/components/pie-webc-core"
+  languageName: unknown
+  linkType: soft
+
+"@justeattakeaway/pie-webc-testing@workspace:*, @justeattakeaway/pie-webc-testing@workspace:packages/components/pie-webc-testing":
+  version: 0.0.0-use.local
+  resolution: "@justeattakeaway/pie-webc-testing@workspace:packages/components/pie-webc-testing"
   languageName: unknown
   linkType: soft
 
@@ -27675,6 +27680,7 @@ __metadata:
     "@justeat/browserslist-config-fozzie": 1.x
     "@justeat/fozzie": 11.0.0
     "@justeat/pie-design-tokens": 5.2.0
+    "@justeattakeaway/pie-webc-testing": "workspace:*"
     "@justeattakeaway/stylelint-config-pie": "workspace:*"
     "@percy/cli": 1.26.1
     "@percy/playwright": 1.0.4
@@ -37670,7 +37676,6 @@ __metadata:
   resolution: "wc-react18@workspace:apps/examples/wc-react18"
   dependencies:
     "@justeattakeaway/pie-button": "workspace:*"
-    "@justeattakeaway/pie-icons-webc": "workspace:*"
     "@lit-labs/react": ^1.2.0
     react: 18.2.0
     react-dom: 18.2.0
@@ -37693,6 +37698,7 @@ __metadata:
   resolution: "wc-vue3@workspace:apps/examples/wc-vue3"
   dependencies:
     "@justeattakeaway/pie-button": "workspace:*"
+    "@justeattakeaway/pie-icons-webc": "workspace:*"
     "@types/node": 18.15.11
     "@vitejs/plugin-vue": 4.0.0
     "@vue/tsconfig": 0.1.3

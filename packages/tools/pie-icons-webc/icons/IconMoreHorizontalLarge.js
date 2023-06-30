@@ -1,7 +1,7 @@
 import { getSvgProps } from '@justeattakeaway/pie-icons-configs';
 
 const template = document.createElement('template');
-template.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 32 32" ><path d="M7.688 14.031a1.969 1.969 0 1 1 0 3.938 1.969 1.969 0 0 1 0-3.938ZM14.03 16a1.97 1.97 0 1 0 3.938 0 1.97 1.97 0 0 0-3.938 0Zm8.313 0a1.97 1.97 0 1 0 3.938 0 1.97 1.97 0 0 0-3.938 0Z"></path></svg>';
+template.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 32 32" class="c-pieIcon c-pieIcon--moreHorizontalLarge"><path d="M7.688 14.031a1.969 1.969 0 1 1 0 3.938 1.969 1.969 0 0 1 0-3.938ZM14.03 16a1.97 1.97 0 1 0 3.938 0 1.97 1.97 0 0 0-3.938 0Zm8.313 0a1.97 1.97 0 1 0 3.938 0 1.97 1.97 0 0 0-3.938 0Z"></path></svg>';
 
 export class IconMoreHorizontalLarge extends HTMLElement {
     constructor () {
@@ -44,7 +44,6 @@ export class IconMoreHorizontalLarge extends HTMLElement {
         const svg = this.root.querySelector('svg');
         let svgSize;
 
-        console.log(attr);
         if (attr === 'size') {
             svgSize = getSvgProps('c-pieIcon c-pieIcon--moreHorizontalLarge', '', newVal, 'IconMoreHorizontalLarge');
 
@@ -52,8 +51,6 @@ export class IconMoreHorizontalLarge extends HTMLElement {
             svg.setAttribute('height', svgSize.height);
             this.root.append(svg);
         }
-
-        this.setAttribute('class', 'c-pieIcon c-pieIcon--moreHorizontalLarge', newVal);
     }
 }
 

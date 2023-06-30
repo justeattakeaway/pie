@@ -1,8 +1,4 @@
-/* eslint-disable */
-// const { nodeResolve } = require('@rollup/plugin-node-resolve')
-// const del = require('rollup-plugin-delete')
-
-import del from "rollup-plugin-delete";
+import del from 'rollup-plugin-delete';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 
 export default [

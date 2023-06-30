@@ -1,7 +1,7 @@
 import { getSvgProps } from '@justeattakeaway/pie-icons-configs';
 
 const template = document.createElement('template');
-template.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 16 16" ><path d="M15 4.281H1V2.97h14V4.28Zm0 7.438H1v1.312h14V11.72Zm0-4.375H1v1.312h14V7.344Z"></path></svg>';
+template.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 16 16" class="c-pieIcon c-pieIcon--menu"><path d="M15 4.281H1V2.97h14V4.28Zm0 7.438H1v1.312h14V11.72Zm0-4.375H1v1.312h14V7.344Z"></path></svg>';
 
 export class IconMenu extends HTMLElement {
     constructor () {
@@ -44,7 +44,6 @@ export class IconMenu extends HTMLElement {
         const svg = this.root.querySelector('svg');
         let svgSize;
 
-        console.log(attr);
         if (attr === 'size') {
             svgSize = getSvgProps('c-pieIcon c-pieIcon--menu', '', newVal, 'IconMenu');
 
@@ -52,8 +51,6 @@ export class IconMenu extends HTMLElement {
             svg.setAttribute('height', svgSize.height);
             this.root.append(svg);
         }
-
-        this.setAttribute('class', 'c-pieIcon c-pieIcon--menu', newVal);
     }
 }
 

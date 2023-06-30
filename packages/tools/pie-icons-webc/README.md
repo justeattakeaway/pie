@@ -26,40 +26,6 @@ yarn add @justeattakeaway/pie-icons-webc
 // Only import what you need!
 import { IconAppRestaurant, IconAppRestaurantLarge } from '@justeattakeaway/pie-icons-webc';
 ```
-
-Within the context of a Vue app, that will look like:
-
-  ```js
-  <template>
-      <icon-app-restaurant size="l" />
-      <icon-app-restaurant-large size="80"/>
-  </template>
-
-  <script>
-  import { IconAppRestaurant, IconAppRestaurantLarge } from '@justeattakeaway/pie-icons-webc';
-  </script>
-  ```
-
-Within the context of a React app, that will look like:
-
-  ```js
-import { IconAppRestaurant } from '@justeattakeaway/pie-icons-webc';
-import * as React from 'react';
-import { createComponent } from '@lit-labs/react';
-
-export const IconRestaurant = createComponent({
-    displayName: 'IconAppRestaurant',
-    elementClass: IconAppRestaurant,
-    react: React,
-    tagName: 'icon-app-restaurant',
-    events: { },
-});
-
-  <template>
-      <IconRestaurant size="l"/>
-  </template>
-  ```
-
 Within the context of a Lit app, that will look like:
 
   ```js
@@ -70,11 +36,16 @@ export { IconAppRestaurant }
     render () {
       return html`
         <button>
-          <icon-alcohol-filled size="xs" />
+          <icon-app-restaurant size="xs" />
         </button>`;
     }
   }
   ```
+
+If you require icons for a React app, please head to [pie-icons-react](https://www.npmjs.com/package/@justeattakeaway/pie-icons-react)
+
+
+If you require icons for a Vue app, please head to [pie-icons-vue](https://www.npmjs.com/package/@justeattakeaway/pie-icons-vue)
 
 #### Props
 

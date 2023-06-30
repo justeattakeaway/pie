@@ -9,13 +9,10 @@ const { icons } = pieIcons.default;
 const componentTemplate = (name, svg) => {
     const [, svgClasses] = svg.match(/class="(.+?)"/);
 
-    // move class from inside svg to inside web-component
-    const newSvg = svg.replace(`class="${svgClasses}"`, '');
-
     return `import { getSvgProps } from '@justeattakeaway/pie-icons-configs';
 
 const template = document.createElement('template');
-template.innerHTML = '${newSvg}';
+template.innerHTML = '${svg}';
 
 export class ${name} extends HTMLElement {
     constructor () {
@@ -58,7 +55,6 @@ export class ${name} extends HTMLElement {
         const svg = this.root.querySelector('svg');
         let svgSize;
 
-        console.log(attr);
         if (attr === 'size') {
             svgSize = getSvgProps('${svgClasses}', '', newVal, '${name}');
 
@@ -66,13 +62,12 @@ export class ${name} extends HTMLElement {
             svg.setAttribute('height', svgSize.height);
             this.root.append(svg);
         }
-
-        this.setAttribute('class', '${svgClasses}', newVal);
     }
 }
 
 customElements.define('${kebabCase(name).replace(/-/, '')}', ${name});
-`};
+`;
+};
 
 const ICONS_DIR = `${process.cwd()}/icons`;
 const indexPath = path.join(ICONS_DIR, '/index.js');
@@ -87,7 +82,6 @@ async function checkDirExists (directoryPath) {
 }
 
 const handleComponentName = (name) => name.replace(/\-(\d+)/, '$1'); // eslint-disable-line no-useless-escape
-
 
 async function build () {
     // check if /icons directory exists, if not create it

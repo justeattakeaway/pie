@@ -1,7 +1,7 @@
 import { getSvgProps } from '@justeattakeaway/pie-icons-configs';
 
 const template = document.createElement('template');
-template.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 32 32" ><path d="m26.229 22.125-8.96-14a1.68 1.68 0 0 0-2.844 0l-8.671 14a1.68 1.68 0 0 0 1.426 2.564h17.64a1.68 1.68 0 0 0 1.409-2.564ZM7.31 23 15.86 9.131l8.829 13.808L7.31 23Z"></path></svg>';
+template.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 32 32" class="c-pieIcon c-pieIcon--caretUpLarge"><path d="m26.229 22.125-8.96-14a1.68 1.68 0 0 0-2.844 0l-8.671 14a1.68 1.68 0 0 0 1.426 2.564h17.64a1.68 1.68 0 0 0 1.409-2.564ZM7.31 23 15.86 9.131l8.829 13.808L7.31 23Z"></path></svg>';
 
 export class IconCaretUpLarge extends HTMLElement {
     constructor () {
@@ -44,7 +44,6 @@ export class IconCaretUpLarge extends HTMLElement {
         const svg = this.root.querySelector('svg');
         let svgSize;
 
-        console.log(attr);
         if (attr === 'size') {
             svgSize = getSvgProps('c-pieIcon c-pieIcon--caretUpLarge', '', newVal, 'IconCaretUpLarge');
 
@@ -52,8 +51,6 @@ export class IconCaretUpLarge extends HTMLElement {
             svg.setAttribute('height', svgSize.height);
             this.root.append(svg);
         }
-
-        this.setAttribute('class', 'c-pieIcon c-pieIcon--caretUpLarge', newVal);
     }
 }
 

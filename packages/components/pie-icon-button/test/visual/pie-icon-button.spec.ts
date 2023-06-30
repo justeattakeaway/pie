@@ -2,16 +2,16 @@ import { test } from '@sand4rt/experimental-ct-web';
 import percySnapshot from '@percy/playwright';
 import type {
     PropObject, WebComponentPropValues, WebComponentTestInput,
-} from '@justeattakeaway/pie-webc-core/src/test-helpers/defs.ts';
+} from '@justeattakeaway/pie-webc-testing/src/helpers/defs.ts';
 import {
     getAllPropCombinations, splitCombinationsByPropertyValue,
-} from '@justeattakeaway/pie-webc-core/src/test-helpers/get-all-prop-combos.ts';
+} from '@justeattakeaway/pie-webc-testing/src/helpers/get-all-prop-combos.ts';
 import {
     createTestWebComponent,
-} from '@justeattakeaway/pie-webc-core/src/test-helpers/rendering.ts';
+} from '@justeattakeaway/pie-webc-testing/src/helpers/rendering.ts';
 import {
     WebComponentTestWrapper,
-} from '@justeattakeaway/pie-webc-core/src/test-helpers/components/web-component-test-wrapper/WebComponentTestWrapper.ts';
+} from '@justeattakeaway/pie-webc-testing/src/helpers/components/web-component-test-wrapper/WebComponentTestWrapper.ts';
 import { PieIconButton } from '@/index';
 import { sizes, variants } from '@/defs';
 

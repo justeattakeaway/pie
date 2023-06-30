@@ -1,7 +1,7 @@
 import { getSvgProps } from '@justeattakeaway/pie-icons-configs';
 
 const template = document.createElement('template');
-template.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 16 16" ><path d="M13.906 8a5.906 5.906 0 1 1-8.531-5.25v1.487a4.594 4.594 0 1 0 5.25 0V2.75A5.915 5.915 0 0 1 13.906 8Zm-5.25-7H7.344v5.25h1.312V1Z"></path></svg>';
+template.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 16 16" class="c-pieIcon c-pieIcon--logOut"><path d="M13.906 8a5.906 5.906 0 1 1-8.531-5.25v1.487a4.594 4.594 0 1 0 5.25 0V2.75A5.915 5.915 0 0 1 13.906 8Zm-5.25-7H7.344v5.25h1.312V1Z"></path></svg>';
 
 export class IconLogOut extends HTMLElement {
     constructor () {
@@ -44,7 +44,6 @@ export class IconLogOut extends HTMLElement {
         const svg = this.root.querySelector('svg');
         let svgSize;
 
-        console.log(attr);
         if (attr === 'size') {
             svgSize = getSvgProps('c-pieIcon c-pieIcon--logOut', '', newVal, 'IconLogOut');
 
@@ -52,8 +51,6 @@ export class IconLogOut extends HTMLElement {
             svg.setAttribute('height', svgSize.height);
             this.root.append(svg);
         }
-
-        this.setAttribute('class', 'c-pieIcon c-pieIcon--logOut', newVal);
     }
 }
 

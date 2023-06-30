@@ -1,7 +1,7 @@
 import { getSvgProps } from '@justeattakeaway/pie-icons-configs';
 
 const template = document.createElement('template');
-template.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 16 16" ><path d="M7.25 1v11.65L3.49 8.89 2.43 10l4.69 4.68a1.239 1.239 0 0 0 1.76 0L13.57 10l-1.06-1.11-3.76 3.76V1h-1.5Z"></path></svg>';
+template.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 16 16" class="c-pieIcon c-pieIcon--arrowDown"><path d="M7.25 1v11.65L3.49 8.89 2.43 10l4.69 4.68a1.239 1.239 0 0 0 1.76 0L13.57 10l-1.06-1.11-3.76 3.76V1h-1.5Z"></path></svg>';
 
 export class IconArrowDown extends HTMLElement {
     constructor () {
@@ -44,7 +44,6 @@ export class IconArrowDown extends HTMLElement {
         const svg = this.root.querySelector('svg');
         let svgSize;
 
-        console.log(attr);
         if (attr === 'size') {
             svgSize = getSvgProps('c-pieIcon c-pieIcon--arrowDown', '', newVal, 'IconArrowDown');
 
@@ -52,8 +51,6 @@ export class IconArrowDown extends HTMLElement {
             svg.setAttribute('height', svgSize.height);
             this.root.append(svg);
         }
-
-        this.setAttribute('class', 'c-pieIcon c-pieIcon--arrowDown', newVal);
     }
 }
 

@@ -1,9 +1,6 @@
 import { LitElement, html, unsafeCSS } from 'lit';
 import { property } from 'lit/decorators.js';
 import { validPropertyValues } from '@justeattakeaway/pie-webc-core';
-import { IconAlcoholFilled } from '@justeattakeaway/pie-icons-webc';
-
-export { IconAlcoholFilled };
 
 import styles from './iconButton.scss?inline';
 import {
@@ -39,7 +36,6 @@ export class PieIconButton extends LitElement {
                 size=${size}
                 variant=${variant}
                 ?disabled=${disabled}>
-                <icon-alcohol-filled size="${size}" />
             </button>`;
     }
 

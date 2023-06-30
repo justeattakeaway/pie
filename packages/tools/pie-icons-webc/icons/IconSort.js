@@ -1,7 +1,7 @@
 import { getSvgProps } from '@justeattakeaway/pie-icons-configs';
 
 const template = document.createElement('template');
-template.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 16 16" ><path d="M9.75 11.719h-3.5v1.312h3.5V11.72Z"></path><path d="M12.375 7.344h-8.75v1.312h8.75V7.344Z"></path><path d="M15 2.969H1V4.28h14V2.97Z"></path></svg>';
+template.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 16 16" class="c-pieIcon c-pieIcon--sort"><path d="M9.75 11.719h-3.5v1.312h3.5V11.72Z"></path><path d="M12.375 7.344h-8.75v1.312h8.75V7.344Z"></path><path d="M15 2.969H1V4.28h14V2.97Z"></path></svg>';
 
 export class IconSort extends HTMLElement {
     constructor () {
@@ -44,7 +44,6 @@ export class IconSort extends HTMLElement {
         const svg = this.root.querySelector('svg');
         let svgSize;
 
-        console.log(attr);
         if (attr === 'size') {
             svgSize = getSvgProps('c-pieIcon c-pieIcon--sort', '', newVal, 'IconSort');
 
@@ -52,8 +51,6 @@ export class IconSort extends HTMLElement {
             svg.setAttribute('height', svgSize.height);
             this.root.append(svg);
         }
-
-        this.setAttribute('class', 'c-pieIcon c-pieIcon--sort', newVal);
     }
 }
 

@@ -1,7 +1,7 @@
 import { getSvgProps } from '@justeattakeaway/pie-icons-configs';
 
 const template = document.createElement('template');
-template.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 32 32" ><path d="M16 3.75a12.25 12.25 0 1 0 0 24.5 12.25 12.25 0 0 0 0-24.5ZM14.25 20.2H12.5v-8.4h1.75v8.4Zm5.25 0h-1.75v-8.4h1.75v8.4Z"></path></svg>';
+template.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 32 32" class="c-pieIcon c-pieIcon--pauseCircleFilledLarge"><path d="M16 3.75a12.25 12.25 0 1 0 0 24.5 12.25 12.25 0 0 0 0-24.5ZM14.25 20.2H12.5v-8.4h1.75v8.4Zm5.25 0h-1.75v-8.4h1.75v8.4Z"></path></svg>';
 
 export class IconPauseCircleFilledLarge extends HTMLElement {
     constructor () {
@@ -44,7 +44,6 @@ export class IconPauseCircleFilledLarge extends HTMLElement {
         const svg = this.root.querySelector('svg');
         let svgSize;
 
-        console.log(attr);
         if (attr === 'size') {
             svgSize = getSvgProps('c-pieIcon c-pieIcon--pauseCircleFilledLarge', '', newVal, 'IconPauseCircleFilledLarge');
 
@@ -52,8 +51,6 @@ export class IconPauseCircleFilledLarge extends HTMLElement {
             svg.setAttribute('height', svgSize.height);
             this.root.append(svg);
         }
-
-        this.setAttribute('class', 'c-pieIcon c-pieIcon--pauseCircleFilledLarge', newVal);
     }
 }
 
