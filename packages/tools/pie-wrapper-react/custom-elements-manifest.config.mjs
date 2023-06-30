@@ -11,6 +11,7 @@ export default {
         '../../**/test/**',
         'node_modules/*',
         '../../**/node_modules/**',
+        '../../**/pie-webc-testing/**',
     ],
     plugins: [moduleFileExtensionsPlugin()],
 };
