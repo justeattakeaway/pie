@@ -10,8 +10,6 @@ $anchor-width: calc($anchor-size + $anchor-margin);
     position: absolute;
     inline-size: $anchor-size;
     block-size: $anchor-size;
-    height: $anchor-size;
-        width: $anchor-size;
     padding: f.spacing(a);
     border-radius: f.$radius-rounded-a;
     margin-inline-start: $anchor-margin;

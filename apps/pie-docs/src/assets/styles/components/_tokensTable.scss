@@ -18,29 +18,29 @@ $tokensTable-item-vertical-padding: f.spacing(e);
         margin-top: 0;
     }
 
-        &:not(:last-of-type) {
-            margin-bottom: f.spacing(i);
-            position: relative;
+    &:not(:last-of-type) {
+        margin-bottom: f.spacing(i);
+        position: relative;
 
-            // adds a visual divider above subheadings on mobile to add a bit of separation
+        // adds a visual divider above subheadings on mobile to add a bit of separation
+        &:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -#{f.spacing(f)};
+            background-color: f.$color-border-default;
+            height: $tokensTable-border-width;
+        }
+
+        @include f.media('>=wide') {
+            margin-bottom: f.spacing(f);
+
             &:before {
-                content: '';
-                position: absolute;
-                left: 0;
-                right: 0;
-                bottom: -#{f.spacing(f)};
-                background-color: f.$color-border-default;
-                height: $tokensTable-border-width;
-            }
-
-            @include f.media('>=wide') {
-                margin-bottom: f.spacing(f);
-
-                &:before {
-                    position: static;
-                }
+                position: static;
             }
         }
+    }
 }
 
 .c-tokensTable-example-container--spacing {
