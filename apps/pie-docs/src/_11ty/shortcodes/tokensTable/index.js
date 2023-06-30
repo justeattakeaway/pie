@@ -9,6 +9,7 @@ const { buildSpacingExample } = require('./tokenTypes/spacing');
 const { buildFontExample } = require('./tokenTypes/font');
 const { buildRadiusExample } = require('./tokenTypes/radius');
 const { deindentHTML } = require('../shortcode-utilities');
+const headingAnchor = require('../../filters/headingAnchor');
 
 const {
     getSubcategoriesForParentCategory,
@@ -331,5 +332,5 @@ module.exports = function ({ path, tokenType }) {
     validateConfiguration({ path, tokenType });
     const lists = buildTokenLists(path, tokenType);
 
-    return `<div class="c-tokensTable">${lists}</div>`;
+    return headingAnchor(`<div class="c-tokensTable">${lists}</div>`);
 };

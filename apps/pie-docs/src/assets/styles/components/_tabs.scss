@@ -2,6 +2,7 @@
 @use '../variables' as v;
 
 $tabs-link-padding:                f.spacing(d);
+$max-scroll-height:                f.spacing(d);
 
 .c-tabs {
     z-index: f.zIndex(mid);
@@ -47,5 +48,20 @@ $tabs-link-padding:                f.spacing(d);
         width: 100%;
         overflow: auto;
         white-space: nowrap;
+    }
+}
+
+// adds a max scroll height to elements with an id so they don't scroll behind the tab container
+[id] {
+    scroll-margin-top: $max-scroll-height;
+}
+
+.c-tabs + .c-contentPage-content {
+    [id] {
+        scroll-margin-top: calc(var(--header-height) + $max-scroll-height);
+
+        @include f.media('>=wide') {
+            scroll-margin-top: $max-scroll-height;
+        }
     }
 }

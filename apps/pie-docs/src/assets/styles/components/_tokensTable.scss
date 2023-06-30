@@ -305,29 +305,27 @@ $tokensTable-item-vertical-padding: f.spacing(e);
 }
 
 .c-tokensTable-sectionSubheading {
-    margin-top: f.spacing(f);
+    margin-block-start: f.spacing(f);
 
     &:not(:first-of-type) {
-        margin-top: f.spacing(i);
-        position: relative;
+        padding-block-start: f.spacing(f);
+        box-shadow:
+            inset 0 -3px 2px 2px f.$color-background-default,
+            inset 1px 0 1px 1px f.$color-border-default;
 
-        // adds a visual divider above subheadings on mobile to add a bit of separation
-        &:before {
-            content: '';
-            position: absolute;
-            left: 0;
-            right: 0;
-            top: -#{f.spacing(f)};
-            background-color: f.$color-border-default;
-            height: $tokensTable-border-width;
+        @include f.media('>=mid') {
+            box-shadow:
+                inset 32px -3px 2px 2px f.$color-background-default,
+                inset 1px 0 1px 1px f.$color-border-default;
         }
 
         @include f.media('>=wide') {
-            margin-top: f.spacing(f);
-
-            &:before {
-                display: none;
-            }
+            padding-block-start: 0;
+            box-shadow: none;
         }
     }
+}
+
+.c-tokensTable-sectionDescription + .c-tokensTable-sectionSubheading {
+    box-shadow: none;
 }
