@@ -309,12 +309,14 @@ $tokensTable-item-vertical-padding: f.spacing(e);
 
     &:not(:first-of-type) {
         padding-block-start: f.spacing(f);
-        box-shadow: inset 0 -3px 2px 2px f.$color-background-default,
-                    inset 1px 0 1px 1px f.$color-border-default;
+        box-shadow:
+            inset 0 -3px 2px 2px f.$color-background-default,
+            inset 1px 0 1px 1px f.$color-border-default;
 
         @include f.media('>=mid') {
-            box-shadow: inset 32px -3px 2px 2px f.$color-background-default,
-                    inset 1px 0 1px 1px f.$color-border-default;
+            box-shadow:
+                inset 32px -3px 2px 2px f.$color-background-default,
+                inset 1px 0 1px 1px f.$color-border-default;
         }
 
         @include f.media('>=wide') {
@@ -325,6 +327,5 @@ $tokensTable-item-vertical-padding: f.spacing(e);
 }
 
 .c-tokensTable-sectionDescription + .c-tokensTable-sectionSubheading {
-    padding-block-start: 0;
     box-shadow: none;
 }
