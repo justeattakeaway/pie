@@ -133,7 +133,7 @@ export class PieModal extends RtlMixin(LitElement) {
                     <${headingTag} class="c-modal-heading">${heading}</${headingTag}>
                     <pie-icon-button
                         @click="${this._triggerCloseModal}"
-                        variant="ghost-tertiary"
+                        variant="ghost-secondary"
                         class="c-modal-closeBtn"></pie-icon-button>
                 </header>
                 <article class="c-modal-content">
