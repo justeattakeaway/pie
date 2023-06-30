@@ -23,7 +23,7 @@ $tokensTable-item-vertical-padding: f.spacing(e);
         position: relative;
 
         // adds a visual divider above subheadings on mobile to add a bit of separation
-        &:before {
+        &:after {
             content: '';
             position: absolute;
             left: 0;
@@ -36,7 +36,7 @@ $tokensTable-item-vertical-padding: f.spacing(e);
         @include f.media('>=wide') {
             margin-bottom: f.spacing(f);
 
-            &:before {
+            &:after {
                 position: static;
             }
         }
