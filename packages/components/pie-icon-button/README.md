@@ -71,7 +71,7 @@ import { PieIconButton } from '@justeattakeaway/pie-icon-button/dist/react';
 | Property    | Type      | Default         | Description                                                          |
 |-------------|-----------|-----------------|----------------------------------------------------------------------|
 | size        | `String`  | `medium`        | Size of the Icon Button, one of `sizes` – `xsmall`, `small`, `medium`, `large` |
-| variant     | `String`  | `primary`       | Variant of the button, one of `variants` – `primary`, `secondary`, `outline`, `ghost`, `ghost-tertiary` |
+| variant     | `String`  | `primary`       | Variant of the button, one of `variants` – `primary`, `secondary`, `outline`, `ghost`, `ghost-secondary` |
 | disabled    | `Boolean` | `false`         | If `true`, disables the button.                                      |
 
 In your markup or JSX, you can then use these to set the properties for the `pie-icon-button` component:
