@@ -8,8 +8,10 @@ $anchor-width: calc($anchor-size + $anchor-margin);
 .c-anchorIcon {
     visibility: hidden;
     position: absolute;
+    inline-size: $anchor-size;
+    block-size: $anchor-size;
     height: $anchor-size;
-    width: $anchor-size;
+        width: $anchor-size;
     padding: f.spacing(a);
     border-radius: f.$radius-rounded-a;
     margin-inline-start: $anchor-margin;
@@ -62,7 +64,7 @@ $headingSizes: (
         .c-anchorIcon {
             bottom: calc((($narrowToken * 1px) - $anchor-size) / 2);
 
-            @include f.media('>=mid') {
+            @include f.media('>=wide') {
                 bottom: calc((($wideToken * 1px) - $anchor-size) / 2);
             }
         }

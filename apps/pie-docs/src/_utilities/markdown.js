@@ -23,6 +23,7 @@ const md = new MarkdownIt({
         permalink: anchor.permalink.linkInsideHeader({
             symbol: AnchorIcon,
             placement: 'after',
+            space: false,
         }),
         slugify: (s) => slugify(s, { lower: true, remove: /[$*_+~.()'"!/\-:@?]+/g }),
     });

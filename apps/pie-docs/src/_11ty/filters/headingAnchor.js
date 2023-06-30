@@ -14,9 +14,11 @@ const AnchorIcon = pieIconsSvg({
 });
 
 function addAnchor (element) {
-    const slug = element.getAttribute('id') || slugify(element.textContent);
+    const headingText = element.textContent.trim();
+    const slug = element.getAttribute('id') || slugify(headingText);
+
     element.setAttribute('id', slug);
-    element.innerHTML += `<a href="#${slug}">${AnchorIcon}</a>`;
+    element.innerHTML = `${headingText}<a href="#${slug}">${AnchorIcon}</a>`;
 }
 
 /**
