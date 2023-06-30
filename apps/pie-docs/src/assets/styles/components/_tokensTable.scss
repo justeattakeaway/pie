@@ -18,6 +18,9 @@ $tokensTable-item-vertical-padding: f.spacing(e);
         margin-top: 0;
     }
 
+}
+.c-tokensTable-list,
+.c-tokensTable-sectionDescription {
     &:has(+ .c-tokensTable-sectionSubheading) {
         margin-bottom: f.spacing(i);
         position: relative;
