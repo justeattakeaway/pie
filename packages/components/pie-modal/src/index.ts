@@ -32,6 +32,10 @@ export class PieModal extends RtlMixin(LitElement) {
         heading!: string;
 
     @property()
+    @validPropertyValues(componentSelector, sizes, 'medium')
+        size: ModalProps['size'] = 'medium';
+
+    @property()
     @validPropertyValues(componentSelector, headingLevels, 'h2')
         headingLevel: ModalProps['headingLevel'] = 'h2';
 
@@ -130,12 +134,16 @@ export class PieModal extends RtlMixin(LitElement) {
         const {
             heading,
             headingLevel = 'h2',
+            size,
         } = this;
 
         const headingTag = unsafeStatic(headingLevel);
 
         return html`
-            <dialog id="dialog" class="c-modal">
+            <dialog
+                id="dialog"
+                class="c-modal"
+                size="${size}">
                 <header>
                     <${headingTag} class="c-modal-heading">${heading}</${headingTag}>
                          ${this.isDismissible ? html`<pie-icon-button
