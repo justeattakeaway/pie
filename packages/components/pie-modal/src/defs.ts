@@ -15,9 +15,6 @@ export interface ModalProps {
      */
     isOpen: boolean;
     /**
-     * The size of the modal; this controls how wide it will appear on the page.
-     */
-    /**
      * (Optional) When true, the modal will be dismissible.
      * @default true
      */
