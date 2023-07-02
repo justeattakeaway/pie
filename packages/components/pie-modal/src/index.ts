@@ -32,12 +32,12 @@ export class PieModal extends RtlMixin(LitElement) {
         heading!: string;
 
     @property()
-    @validPropertyValues(componentSelector, sizes, 'medium')
-        size: ModalProps['size'] = 'medium';
-
-    @property()
     @validPropertyValues(componentSelector, headingLevels, 'h2')
         headingLevel: ModalProps['headingLevel'] = 'h2';
+
+    @property()
+    @validPropertyValues(componentSelector, sizes, 'medium')
+        size: ModalProps['size'] = 'medium';
 
     @query('dialog')
         _dialog?: HTMLDialogElement;
