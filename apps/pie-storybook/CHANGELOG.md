@@ -1,5 +1,21 @@
 # Changelog
 
+## 0.15.0
+
+### Minor Changes
+
+- [Added] - New size prop for pie-modal ([#572](https://github.com/justeattakeaway/pie/pull/572)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Added] - Visual regression test for each size
+  [Changed] - Modal story to include new size prop
+
+### Patch Changes
+
+- Updated dependencies [[`5f8586b81`](https://github.com/justeattakeaway/pie/commit/5f8586b818eb45ccf48508f01202786f6c47b35e), [`88c8aabd6`](https://github.com/justeattakeaway/pie/commit/88c8aabd6a59946fdea03f249bfe2dc0769e4b8b), [`3865b0026`](https://github.com/justeattakeaway/pie/commit/3865b0026261d4fe6db836f7dc57c85aa13e4c76)]:
+  - @justeattakeaway/pie-button@0.17.0
+  - @justeattakeaway/pie-icon-button@0.7.0
+  - @justeattakeaway/pie-modal@0.8.0
+
 ## 0.14.0
 
 ### Minor Changes

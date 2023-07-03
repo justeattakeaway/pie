@@ -1,5 +1,13 @@
 # Changelog
 
+## 4.1.0
+
+### Minor Changes
+
+- [Removed] - Helper folder with `removeHyphenBeforeDigits` function ([#585](https://github.com/justeattakeaway/pie/pull/585)) by [@LTurns](https://github.com/LTurns)
+
+  [Added] - `handleComponentName` function to `build.js` for generating correct icon names i.e from `over-18-filled` to `IconOver18Filled`
+
 ## 4.0.0
 
 ### Major Changes
