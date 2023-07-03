@@ -182,6 +182,14 @@
                         },
                         {
                             "kind": "field",
+                            "name": "size",
+                            "type": {
+                                "text": "ModalProps['size']"
+                            },
+                            "default": "'medium'"
+                        },
+                        {
+                            "kind": "field",
                             "name": "_dialog",
                             "type": {
                                 "text": "HTMLDialogElement | undefined"

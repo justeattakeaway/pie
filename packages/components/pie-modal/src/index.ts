@@ -47,6 +47,18 @@ export class PieModal extends RtlMixin(LitElement) {
         this.addEventListener('click', (event) => this._handleDialogLightDismiss(event));
     }
 
+    connectedCallback () : void {
+        super.connectedCallback();
+        document.addEventListener(ON_MODAL_OPEN_EVENT, this._handleModalOpened.bind(this));
+        document.addEventListener(ON_MODAL_CLOSE_EVENT, this._handleModalClosed.bind(this));
+    }
+
+    disconnectedCallback () : void {
+        document.removeEventListener(ON_MODAL_OPEN_EVENT, this._handleModalOpened.bind(this));
+        document.removeEventListener(ON_MODAL_CLOSE_EVENT, this._handleModalClosed.bind(this));
+        super.disconnectedCallback();
+    }
+
     firstUpdated (changedProperties: DependentMap<ModalProps>) : void {
         this._dialog?.addEventListener('cancel', (event) => this._handleDialogCancelEvent(event));
         this._handleModalOpenStateOnFirstRender(changedProperties);
@@ -93,19 +105,6 @@ export class PieModal extends RtlMixin(LitElement) {
     private _handleDialogCancelEvent = (event: Event) : void => {
         if (!this.isDismissible) event.preventDefault();
     };
-
-    connectedCallback () : void {
-        super.connectedCallback();
-        document.addEventListener(ON_MODAL_OPEN_EVENT, this._handleModalOpened.bind(this));
-        document.addEventListener(ON_MODAL_CLOSE_EVENT, this._handleModalClosed.bind(this));
-    }
-
-    disconnectedCallback () : void {
-        this._dialog?.removeEventListener('cancel', (event) => this._handleDialogCancelEvent(event));
-        document.removeEventListener(ON_MODAL_OPEN_EVENT, this._handleModalOpened.bind(this));
-        document.removeEventListener(ON_MODAL_CLOSE_EVENT, this._handleModalClosed.bind(this));
-        super.disconnectedCallback();
-    }
 
     // Handles the value of the isOpen property on first render of the component
     private _handleModalOpenStateOnFirstRender (changedProperties: DependentMap<ModalProps>) : void {
