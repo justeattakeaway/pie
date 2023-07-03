@@ -14,6 +14,7 @@
 2. [Local Development](#local-development)
 3. [Importing the component](#importing-the-component)
 4. [Props](#props)
+5. [Testing](#testing)
 
 # pie-modal
 

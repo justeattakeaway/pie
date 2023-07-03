@@ -133,7 +133,7 @@ test.describe('Pie Modal `isDismissible`', () => {
             );
 
             // Act
-            await component.locator('.c-modal-closeBtn').click();
+            await component.locator('[data-test-id="c-modal-closeBtn"]').click();
 
             // Assert
             await expect(component).not.toBeVisible();

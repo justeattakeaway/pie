@@ -148,7 +148,8 @@ export class PieModal extends RtlMixin(LitElement) {
                          ${this.isDismissible ? html`<pie-icon-button
                                     @click="${this._triggerCloseModal}"
                                     variant="ghost-secondary"
-                                    class="c-modal-closeBtn"></pie-icon-button>` : ''}
+                                    class="c-modal-closeBtn"
+                                    data-test-id="c-modal-closeBtn"></pie-icon-button>` : ''}
                 </header>
                 <article class="c-modal-content">
                     <slot></slot>
