@@ -4,6 +4,8 @@ const { pascalCase } = require('pascal-case');
 const fs = require('fs-extra');
 const { execSync } = require('child_process');
 
+const { normalizeIconName } = require('@justeattakeaway/pie-icons-configs');
+
 const componentTemplate = (name, svg) => {
     const isLargeIcon = name.endsWith('Large');
     const iconSize = isLargeIcon ? 'large' : 'regular';
@@ -48,8 +50,6 @@ async function checkDirExists (directoryPath) {
     }
 }
 
-const handleComponentName = (name) => name.replace(/\-(\d+)/, '$1'); // eslint-disable-line no-useless-escape
-
 function copyIconsConfigFiles () {
     const srcFilePaths = [
         path.resolve(process.cwd(), '../pie-icons-configs/configs.js'),
@@ -75,7 +75,7 @@ async function build () {
     Object.keys(icons).forEach((iconKey) => {
         const { pathPrefix } = icons[iconKey];
         const capitalisedPathPrefix = (pathPrefix !== undefined ? (pathPrefix).substring(1, 2).toUpperCase() + (pathPrefix).substring(2) : '');
-        const pascalCasedName = pascalCase(handleComponentName(iconKey));
+        const pascalCasedName = pascalCase(normalizeIconName(iconKey));
         const componentName = `Icon${capitalisedPathPrefix + pascalCasedName}`;
 
         const svg = pieIcons.icons[iconKey].toSvg();
