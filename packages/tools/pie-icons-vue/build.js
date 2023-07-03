@@ -1,10 +1,10 @@
-const path = require('path');
-const pieIcons = require('@justeattakeaway/pie-icons').default;
-const { pascalCase } = require('pascal-case');
-const fs = require('fs-extra');
-const { execSync } = require('child_process');
+import path from 'path';
+import { pascalCase } from 'pascal-case';
+import fs from 'fs-extra';
+import { execSync } from 'child_process';
 
-const { normalizeIconName } = require('@justeattakeaway/pie-icons-configs');
+import pieIcons from '@justeattakeaway/pie-icons';
+import { normalizeIconName } from '@justeattakeaway/pie-icons-configs';
 
 const componentTemplate = (name, svg) => {
     const isLargeIcon = name.endsWith('Large');
@@ -34,7 +34,7 @@ export default {
 `;
 };
 
-const { icons } = pieIcons;
+const { icons } = pieIcons.default;
 
 const ICONS_DIR = `${process.cwd()}/generated`;
 const COMPONENTS_DIR = `${ICONS_DIR}/components`;
@@ -78,7 +78,7 @@ async function build () {
         const pascalCasedName = pascalCase(normalizeIconName(iconKey));
         const componentName = `Icon${capitalisedPathPrefix + pascalCasedName}`;
 
-        const svg = pieIcons.icons[iconKey].toSvg();
+        const svg = pieIcons.default.icons[iconKey].toSvg();
         let component = componentTemplate(componentName, svg);
         component = component.replace(/xlink:href/g, 'xlinkHref'); // replace so it gets parsed by JSX correctly
 

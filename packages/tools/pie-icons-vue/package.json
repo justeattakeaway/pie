@@ -9,6 +9,7 @@
     "dist",
     "icons"
   ],
+  "type": "module",
   "publishConfig": {
     "access": "public"
   },
