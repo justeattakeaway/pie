@@ -32,7 +32,3 @@ execSync('npx babel-node bin/build-svgs.js', { stdio: 'inherit' });
 console.log('Building JavaScript library');
 execSync('npx webpack --output-filename pie-icons.js --mode development');
 execSync('npx webpack --output-filename pie-icons.min.js --mode production');
-
-// Copy helpers directory
-console.log('Copy src/helpers directory to dist/helpers');
-execSync('npx copyfiles -e "**/*.test.js" -u 1 ./src/helpers/index.js dist');
