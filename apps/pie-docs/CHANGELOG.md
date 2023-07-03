@@ -1,5 +1,12 @@
 # Changelog
 
+## 2.4.1
+
+### Patch Changes
+
+- Updated dependencies [[`a904150c6`](https://github.com/justeattakeaway/pie/commit/a904150c64833f5c841e845f55e16a3cb0aa439b)]:
+  - @justeattakeaway/pie-icons@4.2.0
+
 ## 2.4.0
 
 ### Minor Changes

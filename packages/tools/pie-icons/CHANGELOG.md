@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.2.0
+
+### Minor Changes
+
+- [Added] - helper method for normalizing component icon names ([#592](https://github.com/justeattakeaway/pie/pull/592)) by [@ashleynolan](https://github.com/ashleynolan)
+
 ## 4.1.0
 
 ### Patch Changes
