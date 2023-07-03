@@ -102,7 +102,7 @@ test.describe('PIE Modal `isDismissible`', () => {
                 },
             });
 
-            await percySnapshot(page, 'Modal with close button displayed - isDismissible: `truthy`');
+            await percySnapshot(page, 'Modal with close button displayed - isDismissible: `true`');
         });
     });
 
@@ -117,7 +117,7 @@ test.describe('PIE Modal `isDismissible`', () => {
                 },
             });
 
-            await percySnapshot(page, 'Modal without close button - isDismissible: `falsey`');
+            await percySnapshot(page, 'Modal without close button - isDismissible: `false`');
         });
     });
 });
