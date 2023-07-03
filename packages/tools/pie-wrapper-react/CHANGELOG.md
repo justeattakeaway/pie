@@ -1,5 +1,14 @@
 # @justeattakeaway/pie-wrapper-react
 
+## 0.6.1
+
+### Patch Changes
+
+- [Added] - New size prop for pie-modal ([#572](https://github.com/justeattakeaway/pie/pull/572)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Added] - Visual regression test for each size
+  [Changed] - Modal story to include new size prop
+
 ## 0.6.0
 
 ### Minor Changes

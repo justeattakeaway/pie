@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.14.0
+
+### Minor Changes
+
+- [Added] pie-webc-testing library ([#582](https://github.com/justeattakeaway/pie/pull/582)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 2.13.0
 
 ### Minor Changes

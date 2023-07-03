@@ -1,6 +1,6 @@
 {
     "name": "@justeattakeaway/pie-icons-webc",
-    "version": "0.0.0",
+    "version": "0.1.0",
     "main": "icons/index.js",
     "type": "module",
     "files": [
@@ -45,7 +45,7 @@
     ],
     "devDependencies": {
         "@babel/node": "7.20.7",
-        "@justeattakeaway/pie-icons": "3.4.0",
+        "@justeattakeaway/pie-icons": "4.1.0",
         "@justeattakeaway/pie-icons-configs": "workspace:*",
         "@rollup/plugin-node-resolve": "15.1.0",
         "fs-extra": "9.1.0",
