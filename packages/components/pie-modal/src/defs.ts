@@ -15,12 +15,12 @@ export interface ModalProps {
      */
     isOpen: boolean;
     /**
-     * When set to true:
-     *  1. The close button within the modal will be visible
-     *  2. The user can dismiss the modal via the ECSAPE key, clicking the backdrop
+     * When set to `true`:
+     *  1. The close button within the modal will be visible.
+     *  2. The user can dismiss the modal via the ESCAPE key, clicking the backdrop
      *     or via a close button.
      *
-     * When set to False:
+     * When set to `false`:
      *  1. The close button within the modal will be hidden.
      *  2. The user can NOT dismiss the modal via the ESCAPE key or clicking the backdrop.
      *
