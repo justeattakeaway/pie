@@ -192,7 +192,7 @@ test.describe('Pie Modal `isDismissible`', () => {
             );
 
             // Act & Assert
-            await expect(component).not.toBeVisible();
+            await expect(component.locator('[data-test-id="c-modal-closeBtn"]')).not.toBeVisible();
         });
 
         test('should NOT close the modal when the backdrop is clicked', async ({ mount }) => {
