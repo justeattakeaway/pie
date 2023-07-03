@@ -84,9 +84,9 @@
                     "kind": "variable",
                     "name": "sizes",
                     "type": {
-                        "text": "['xsmall', 'small-expressive', 'small-productive', 'medium', 'large']"
+                        "text": "['xsmall', 'small-productive', 'small-expressive', 'medium', 'large']"
                     },
-                    "default": "['xsmall', 'small-expressive', 'small-productive', 'medium', 'large']"
+                    "default": "['xsmall', 'small-productive', 'small-expressive', 'medium', 'large']"
                 },
                 {
                     "kind": "variable",
@@ -247,7 +247,7 @@
                             "kind": "field",
                             "name": "_triggerCloseModal",
                             "privacy": "private",
-                            "description": "This is only to be used inside the component template as direct property\r\nreassignment is not allowed."
+                            "description": "This is only to be used inside the component template as direct property\nreassignment is not allowed."
                         },
                         {
                             "kind": "method",
@@ -299,13 +299,13 @@
                             "kind": "field",
                             "name": "_dispatchModalCloseEvent",
                             "privacy": "private",
-                            "description": "Dispatch `ON_MODAL_CLOSE_EVENT` event.\r\nTo be used whenever we close the modal."
+                            "description": "Dispatch `ON_MODAL_CLOSE_EVENT` event.\nTo be used whenever we close the modal."
                         },
                         {
                             "kind": "field",
                             "name": "_dispatchModalOpenEvent",
                             "privacy": "private",
-                            "description": "Dispatch `ON_MODAL_OPEN_EVENT` event.\r\nTo be used whenever we open the modal."
+                            "description": "Dispatch `ON_MODAL_OPEN_EVENT` event.\nTo be used whenever we open the modal."
                         },
                         {
                             "kind": "field",
@@ -584,9 +584,9 @@
                     "kind": "variable",
                     "name": "variants",
                     "type": {
-                        "text": "['primary', 'secondary', 'outline', 'ghost', 'ghost-tertiary']"
+                        "text": "['primary', 'secondary', 'outline', 'ghost', 'ghost-secondary']"
                     },
-                    "default": "['primary', 'secondary', 'outline', 'ghost', 'ghost-tertiary']"
+                    "default": "['primary', 'secondary', 'outline', 'ghost', 'ghost-secondary']"
                 }
             ],
             "exports": [
@@ -697,6 +697,14 @@
                     "name": "variants",
                     "declaration": {
                         "name": "variants",
+                        "module": "../../components/pie-icon-button/src/index.js"
+                    }
+                },
+                {
+                    "kind": "js",
+                    "name": "IconCloseLarge",
+                    "declaration": {
+                        "name": "IconCloseLarge",
                         "module": "../../components/pie-icon-button/src/index.js"
                     }
                 },
@@ -840,7 +848,7 @@
                             }
                         }
                     ],
-                    "description": "A decorator for marking a property as required.\r\nIf the property's value is `undefined`, `null` or empty string, an error is logged.",
+                    "description": "A decorator for marking a property as required.\nIf the property's value is `undefined`, `null` or empty string, an error is logged.",
                     "return": {
                         "type": {
                             "text": "Function"
@@ -888,7 +896,7 @@
                             "description": "The value to fall back on"
                         }
                     ],
-                    "description": "A decorator for specifying a list of valid values for a property.\r\nIf this property's setter is called with an invalid value, an error is logged and the default value will be assigned instead.",
+                    "description": "A decorator for specifying a list of valid values for a property.\nIf this property's setter is called with an invalid value, an error is logged and the default value will be assigned instead.",
                     "return": {
                         "type": {
                             "text": ""
