@@ -91,3 +91,27 @@ Ghost.args = {
     ...defaultArgs,
     variant: 'ghost',
 };
+
+export const Inverse: Story<ButtonProps> = (args: ButtonProps) => Template(args);
+Inverse.args = {
+    ...defaultArgs,
+    variant: 'inverse',
+};
+
+Inverse.parameters = {
+    backgrounds: {
+        default: 'dark',
+    },
+};
+
+export const GhostInverse: Story<ButtonProps> = (args: ButtonProps) => Template(args);
+GhostInverse.args = {
+    ...defaultArgs,
+    variant: 'ghost-inverse',
+};
+
+GhostInverse.parameters = {
+    backgrounds: {
+        default: 'dark',
+    },
+};

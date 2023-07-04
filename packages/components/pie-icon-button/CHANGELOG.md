@@ -1,5 +1,16 @@
 # @justeattakeaway/pie-icon-button
 
+## 0.7.0
+
+### Minor Changes
+
+- [Changed] - ghost-tertiary renamed to ghost-secondary ([#583](https://github.com/justeattakeaway/pie/pull/583)) by [@ashleynolan](https://github.com/ashleynolan)
+
+### Patch Changes
+
+- Updated dependencies [[`4c3f9348a`](https://github.com/justeattakeaway/pie/commit/4c3f9348a2041494f640cfc35e4c321eee6e550b)]:
+  - @justeattakeaway/pie-icons-webc@0.1.0
+
 ## 0.6.1
 
 ### Patch Changes

@@ -1,5 +1,27 @@
 # Changelog
 
+## 2.4.1
+
+### Patch Changes
+
+- Updated dependencies [[`a904150c6`](https://github.com/justeattakeaway/pie/commit/a904150c64833f5c841e845f55e16a3cb0aa439b)]:
+  - @justeattakeaway/pie-icons@4.2.0
+
+## 2.4.0
+
+### Minor Changes
+
+- [Updated] - `pieIconsSvg` filter to handle icon colours ([#554](https://github.com/justeattakeaway/pie/pull/554)) by [@FayeCarter](https://github.com/FayeCarter)
+
+  [Updated] - `markdown` filter to add anchors to all markdown headings
+  [Added] - `headingAnchor` filter to add anchors to all HTML headings
+  [Added] - `scroll-margin-top` to elements so they do not scroll behind the tab container
+
+### Patch Changes
+
+- Updated dependencies [[`585a4fd70`](https://github.com/justeattakeaway/pie/commit/585a4fd701660e0c4fc8058415033a760948a30a)]:
+  - @justeattakeaway/pie-icons@4.1.0
+
 ## 2.3.0
 
 ### Minor Changes

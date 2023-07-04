@@ -1,0 +1,64 @@
+{
+    "name": "@justeattakeaway/pie-icons-webc",
+    "version": "0.1.0",
+    "main": "icons/index.js",
+    "type": "module",
+    "files": [
+        "dist",
+        "esm",
+        "icons"
+    ],
+    "publishConfig": {
+        "access": "public"
+    },
+    "sideEffects": false,
+    "homepage": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons-webc",
+    "contributors": [
+        "Github contributors <https://github.com/justeattakeaway/pie/graphs/contributors>"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:justeattakeaway/pie.git"
+    },
+    "bugs": {
+        "url": "https://github.com/justeat/pie/issues"
+    },
+    "license": "Apache-2.0",
+    "engines": {
+        "node": ">=14.0.0"
+    },
+    "keywords": [
+        "PIE"
+    ],
+    "scripts": {
+        "build": "yarn clean && yarn build:icons && yarn build:dist",
+        "build:dist": "rollup -c",
+        "build:icons": "node ./build.js",
+        "clean": "run -T rimraf -rf ./icons/",
+        "lint:scripts": "run -T eslint .",
+        "lint:scripts:fix": "yarn lint:scripts --fix",
+        "prebuild:example": "yarn build:icons",
+        "test": "wtr tests/*.test.js --node-resolve"
+    },
+    "browserslist": [
+        "extends @justeat/browserslist-config-fozzie"
+    ],
+    "devDependencies": {
+        "@babel/node": "7.20.7",
+        "@justeattakeaway/pie-icons": "4.2.0",
+        "@justeattakeaway/pie-icons-configs": "workspace:*",
+        "@rollup/plugin-node-resolve": "15.1.0",
+        "fs-extra": "9.1.0",
+        "kebab-case": "1.0.2",
+        "pascal-case": "3.1.2",
+        "rollup": "3.20.2",
+        "rollup-plugin-delete": "2.0.0"
+    },
+    "volta": {
+        "extends": "../../../package.json"
+    },
+    "dependencies": {
+        "@open-wc/testing": "^3.2.0",
+        "@web/test-runner": "0.16.1"
+    }
+}
