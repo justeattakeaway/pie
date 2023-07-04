@@ -51,18 +51,19 @@ export class PieModal extends RtlMixin(LitElement) {
 
     connectedCallback () : void {
         super.connectedCallback();
+        document.addEventListener('cancel', (event) => this._handleDialogCancelEvent(event));
         document.addEventListener(ON_MODAL_OPEN_EVENT, this._handleModalOpened.bind(this));
         document.addEventListener(ON_MODAL_CLOSE_EVENT, this._handleModalClosed.bind(this));
     }
 
     disconnectedCallback () : void {
+        document.removeEventListener('cancel', (event) => this._handleDialogCancelEvent(event));
         document.removeEventListener(ON_MODAL_OPEN_EVENT, this._handleModalOpened.bind(this));
         document.removeEventListener(ON_MODAL_CLOSE_EVENT, this._handleModalClosed.bind(this));
         super.disconnectedCallback();
     }
 
     firstUpdated (changedProperties: DependentMap<ModalProps>) : void {
-        this._dialog?.addEventListener('cancel', (event) => this._handleDialogCancelEvent(event));
         this._handleModalOpenStateOnFirstRender(changedProperties);
     }
 
