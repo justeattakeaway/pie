@@ -19,21 +19,21 @@ const componentSelector = 'pie-button';
 export class PieButton extends LitElement {
     @property()
     @validPropertyValues(componentSelector, sizes, 'medium')
-        size: ButtonProps['size'] = 'medium';
+    public size: ButtonProps['size'] = 'medium';
 
     @property()
     @validPropertyValues(componentSelector, types, 'submit')
-        type: ButtonProps['type'] = 'submit';
+    public type: ButtonProps['type'] = 'submit';
 
     @property()
     @validPropertyValues(componentSelector, variants, 'primary')
-        variant: ButtonProps['variant'] = 'primary';
+    public variant: ButtonProps['variant'] = 'primary';
 
     @property({ type: Boolean })
-        disabled = false;
+    public disabled = false;
 
     @property({ type: Boolean })
-        isFullWidth = false;
+    public isFullWidth = false;
 
     render () {
         const {
