@@ -91,7 +91,7 @@ sizes.forEach((size) => {
 });
 
 test.describe('PIE Modal `dismissible`', () => {
-    test.describe('when truthy', () => {
+    test.describe('when `true`', () => {
         test('should display a close button within the modal', async ({ mount, page }) => {
             await mount(PieModal, {
                 props: {

@@ -151,11 +151,12 @@
                     "members": [
                         {
                             "kind": "field",
-                            "name": "isDismissible",
+                            "name": "dismissible",
                             "type": {
                                 "text": "boolean"
                             },
-                            "default": "true"
+                            "privacy": "public",
+                            "default": "false"
                         },
                         {
                             "kind": "field",
@@ -261,7 +262,7 @@
                             "kind": "field",
                             "name": "_handleDialogCancelEvent",
                             "privacy": "private",
-                            "description": "Prevents the user from dismissing the dialog via the `cancel`\nevent (ESC key) when `isDismissible` is set to false.",
+                            "description": "Prevents the user from dismissing the dialog via the `cancel`\nevent (ESC key) when `dismissible` is set to false.",
                             "parameters": [
                                 {
                                     "name": "event"
@@ -312,13 +313,24 @@
                             "kind": "field",
                             "name": "_handleDialogLightDismiss",
                             "privacy": "private",
-                            "description": "Dismisses the modal on backdrop click. (dependent on prop: `isDismissible`)"
+                            "description": "Dismisses the modal on backdrop click. (dependent on prop: `dismissible`)"
                         },
                         {
                             "kind": "field",
                             "name": "_dispatchModalCustomEvent",
                             "privacy": "private",
                             "description": "Note: We should aim to have a shareable event helper system to allow\nus to share this across components in-future.\n\nDispatch a custom event.\n\nTo be used whenever we have behavioural events we want to\nbubble up through the modal."
+                        },
+                        {
+                            "kind": "method",
+                            "name": "renderCloseButton",
+                            "privacy": "protected",
+                            "return": {
+                                "type": {
+                                    "text": "TemplateResult"
+                                }
+                            },
+                            "description": "Template for the close button element. Called within the\nmain render function."
                         },
                         {
                             "kind": "field",
