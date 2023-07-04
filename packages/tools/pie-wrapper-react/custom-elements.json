@@ -100,9 +100,9 @@
                     "kind": "variable",
                     "name": "variants",
                     "type": {
-                        "text": "['primary', 'secondary', 'outline', 'ghost']"
+                        "text": "['primary', 'secondary', 'outline', 'ghost', 'inverse', 'ghost-inverse']"
                     },
-                    "default": "['primary', 'secondary', 'outline', 'ghost']"
+                    "default": "['primary', 'secondary', 'outline', 'ghost', 'inverse', 'ghost-inverse']"
                 }
             ],
             "exports": [
@@ -330,7 +330,7 @@
                             "type": {
                                 "text": "boolean"
                             },
-                            "description": "Returns true if the element is in Right to Left mode.\r\nIf a dir attribute is not explicitly set on the web component\r\nthen it falls back to the nearest parent with a dir attribute set.\r\n\r\nA dir attribute being set will result in a reactive property.\r\nIf the component falls back to a parent dir attribute then the value\r\nwill not be reactive and is only computed once",
+                            "description": "Returns true if the element is in Right to Left mode.\nIf a dir attribute is not explicitly set on the web component\nthen it falls back to the nearest parent with a dir attribute set.\n\nA dir attribute being set will result in a reactive property.\nIf the component falls back to a parent dir attribute then the value\nwill not be reactive and is only computed once",
                             "readonly": true,
                             "inheritedFrom": {
                                 "name": "RtlMixin",
@@ -802,7 +802,7 @@
                             "type": {
                                 "text": "boolean"
                             },
-                            "description": "Returns true if the element is in Right to Left mode.\r\nIf a dir attribute is not explicitly set on the web component\r\nthen it falls back to the nearest parent with a dir attribute set.\r\n\r\nA dir attribute being set will result in a reactive property.\r\nIf the component falls back to a parent dir attribute then the value\r\nwill not be reactive and is only computed once",
+                            "description": "Returns true if the element is in Right to Left mode.\nIf a dir attribute is not explicitly set on the web component\nthen it falls back to the nearest parent with a dir attribute set.\n\nA dir attribute being set will result in a reactive property.\nIf the component falls back to a parent dir attribute then the value\nwill not be reactive and is only computed once",
                             "readonly": true
                         }
                     ],
