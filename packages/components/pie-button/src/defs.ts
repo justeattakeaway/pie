@@ -4,28 +4,27 @@ export const variants = ['primary', 'secondary', 'outline', 'ghost', 'inverse', 
 
 export interface ButtonProps {
     /**
-     * (Optional) What size the button should be.
-     * @default "medium"
+     * What size the button should be.
      */
     size: typeof sizes[number];
     /**
-     * (Optional) What type attribute should be applied to the button. For example submit, button or menu.
-     * @default "submit"
+     * What type attribute should be applied to the button. For example submit, button or menu.
      */
     type: typeof types[number];
     /**
-     * (Optional) What style variant the button should be such as primary, outline or ghost.
-     * @default "primary"
+     * What style variant the button should be such as primary, outline or ghost.
      */
     variant: typeof variants[number];
     /**
-     * (Optional) When true, the button element is disabled.
-     * @default false
+     * When true, the button element is disabled.
      */
     disabled: boolean;
     /**
-     * (Optional) When true, the button element will occupy the full width of its container.
-     * @default false
+     * When true, the button element will occupy the full width of its container.
      */
     isFullWidth: boolean;
+    /**
+     * When true, displays a loading indicator inside the button.
+     */
+    loading: boolean;
 }

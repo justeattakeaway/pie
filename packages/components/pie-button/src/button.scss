@@ -10,6 +10,16 @@
     }
 }
 
+// Spin animation for loading state
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(359deg);
+    }
+}
+
 // Base button styles
 .o-btn {
     // Custom Property Declarations
@@ -20,7 +30,8 @@
 
     // The base values are set to the size default, which is for the medium button size
     --btn-padding: 10px var(--dt-spacing-e);
-    --btn-min-height: 48px;
+    --btn-min-block-size: 48px;
+    --btn-min-inline-size: 97px;
     --btn-font-size: calc(var(--dt-font-size-20) * 1px);
     --btn-line-height: calc(var(--dt-font-size-20-line-height) * 1px);
 
@@ -29,7 +40,12 @@
     --btn-bg-color: var(--dt-color-interactive-brand);
     --btn-text-color: var(--dt-color-content-interactive-primary);
 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     min-block-size: var(--btn-min-block-size);
+    min-inline-size: var(--btn-min-inline-size);
     padding: var(--btn-padding);
     border: none;
     border-radius: var(--btn-border-radius);
@@ -157,22 +173,32 @@
         }
     }
 
+    &[loading] icon-loading {
+        animation: spin 1s linear infinite;
+    }
+
     &[size='xsmall'] {
         --btn-padding: 6px var(--dt-spacing-b);
         --btn-font-size: calc(var(--dt-font-size-14) * 1px);
         --btn-line-height: calc(var(--dt-font-size-14-line-height) * 1px);
+        --btn-min-inline-size: 50px;
+        --btn-min-block-size: 32px;
     }
 
     &[size='small-expressive'] {
         --btn-padding: 6px var(--dt-spacing-d);
         --btn-font-size: calc(var(--dt-font-size-20) * 1px);
         --btn-line-height: calc(var(--dt-font-size-20-line-height) * 1px);
+        --btn-min-inline-size: 81px;
+        --btn-min-block-size: 40px;
     }
 
     &[size='small-productive'] {
         --btn-padding: 8px var(--dt-spacing-d);
         --btn-font-size: calc(var(--dt-font-size-16) * 1px);
         --btn-line-height: calc(var(--dt-font-size-16-line-height) * 1px);
+        --btn-min-inline-size: 71px;
+        --btn-min-block-size: 40px;
     }
 
     &[size='medium'] {
@@ -183,5 +209,7 @@
         --btn-padding: 14px var(--dt-spacing-e);
         --btn-font-size: calc(var(--dt-font-size-20) * 1px);
         --btn-line-height: calc(var(--dt-font-size-20-line-height) * 1px);
+        --btn-min-inline-size: 97px;
+        --btn-min-block-size: 56px;
     }
 }

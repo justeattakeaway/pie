@@ -1,6 +1,7 @@
 import { LitElement, html, unsafeCSS } from 'lit';
 import { property } from 'lit/decorators.js';
 import { validPropertyValues } from '@justeattakeaway/pie-webc-core';
+import { IconLoading } from '@justeattakeaway/pie-icons-webc';
 import styles from './button.scss?inline';
 import {
     ButtonProps, sizes, types, variants,
@@ -13,6 +14,7 @@ export {
     types,
     variants,
 };
+export { IconLoading };
 
 const componentSelector = 'pie-button';
 
@@ -32,12 +34,19 @@ export class PieButton extends LitElement {
     @property({ type: Boolean })
     public disabled = false;
 
+    @property({ type: Boolean, reflect: true })
+    public loading = false;
+
     @property({ type: Boolean })
     public isFullWidth = false;
 
+    private renderLoadingSpinner () {
+        return html`<icon-loading size="m" class="o-btn-spinner" />`;
+    }
+
     render () {
         const {
-            type, disabled, isFullWidth, variant, size,
+            type, disabled, isFullWidth, variant, size, loading,
         } = this;
 
         return html`
@@ -47,8 +56,9 @@ export class PieButton extends LitElement {
                 variant=${variant}
                 size=${size}
                 ?disabled=${disabled}
+                ?loading=${loading}
                 ?isFullWidth=${isFullWidth}>
-                <slot></slot>
+                ${loading ? this.renderLoadingSpinner() : html`<slot></slot>`}
             </button>`;
     }
 
