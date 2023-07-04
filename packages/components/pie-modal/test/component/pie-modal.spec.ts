@@ -139,9 +139,9 @@ test.describe('Pie Modal `isDismissible`', () => {
             await expect(component).not.toBeVisible();
         });
 
-        test('should close the modal when the backdrop is clicked', async ({ mount }) => {
+        test('should close the modal when the backdrop is clicked', async ({ mount, page }) => {
             // Arrange
-            const component = await mount(
+            await mount(
                 PieModal,
                 {
                     props: {
@@ -152,10 +152,19 @@ test.describe('Pie Modal `isDismissible`', () => {
             );
 
             // Act
-            await component.locator('dialog').click();
+            await page.locator('body').click();
+
+            const element = await page.locator('#dialog');
+
+            const styles = await element.evaluate((modal) => {
+                const computedStyles = window.getComputedStyle(modal);
+                return {
+                    display: computedStyles.getPropertyValue('display'),
+                };
+            });
 
             // Assert
-            await expect(component).not.toBeVisible();
+            expect(styles.display).toBe('none');
         });
 
         test('should close the modal when the ESC key is triggered', async ({ mount, page }) => {
@@ -195,9 +204,9 @@ test.describe('Pie Modal `isDismissible`', () => {
             await expect(component.locator('[data-test-id="c-modal-closeBtn"]')).not.toBeVisible();
         });
 
-        test('should NOT close the modal when the backdrop is clicked', async ({ mount }) => {
+        test('should NOT close the modal when the backdrop is clicked', async ({ mount, page }) => {
             // Arrange
-            const component = await mount(
+            await mount(
                 PieModal,
                 {
                     props: {
@@ -208,10 +217,19 @@ test.describe('Pie Modal `isDismissible`', () => {
             );
 
             // Act
-            await component.locator('dialog').click();
+            await page.locator('body').click();
+
+            const element = await page.locator('#dialog');
+
+            const styles = await element.evaluate((modal) => {
+                const computedStyles = window.getComputedStyle(modal);
+                return {
+                    display: computedStyles.getPropertyValue('display'),
+                };
+            });
 
             // Assert
-            await expect(component.locator('dialog')).toBeVisible();
+            expect(styles.display).toBe('block');
         });
 
         test('should NOT close the modal when the ESC key is triggered', async ({ mount, page }) => {
