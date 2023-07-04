@@ -34,6 +34,12 @@ export class WebComponentTestWrapper extends LitElement {
     @property({ type: Boolean })
         pageMode = false;
 
+    /**
+     * When true, the component will be rendered on a dark background
+     */
+    @property({ type: Boolean, reflect: true })
+        darkMode = false;
+
     // Renders a string such as 'size: small, isFullWidth: true'
     // as HTML such as:
     // <p class="c-webComponentTestWrapper-label"><b>size</b>: <code>small</code></p>
@@ -58,7 +64,7 @@ export class WebComponentTestWrapper extends LitElement {
         return html`
             <div class="c-webComponentTestWrapper">
                 ${this._renderPropKeyValues()}
-                <div class="c-webComponentTestWrapper-slot">
+                <div ?darkmode=${this.darkMode} class="c-webComponentTestWrapper-slot">
                     <slot name="component"></slot>
                 </div>
             </div>`;

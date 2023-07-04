@@ -12,6 +12,10 @@
     margin-block: var(--dt-spacing-c);
 }
 
+.c-webComponentTestWrapper-slot[darkmode] {
+    background-color: var(--dt-color-container-inverse);
+}
+
 .c-webComponentTestWrapper-slot {
     padding: var(--dt-spacing-c);
     border: 1px dashed var(--dt-color-background-dark);
