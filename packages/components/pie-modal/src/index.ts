@@ -1,4 +1,6 @@
-import { LitElement, unsafeCSS } from 'lit';
+import {
+    LitElement, nothing, TemplateResult, unsafeCSS,
+} from 'lit';
 import { html, unsafeStatic } from 'lit/static-html.js';
 import { property, query } from 'lit/decorators.js';
 import {
@@ -145,11 +147,7 @@ export class PieModal extends RtlMixin(LitElement) {
                 size="${size}">
                 <header>
                     <${headingTag} class="c-modal-heading">${heading}</${headingTag}>
-                         ${this.isDismissible ? html`<pie-icon-button
-                                    @click="${this._triggerCloseModal}"
-                                    variant="ghost-secondary"
-                                    class="c-modal-closeBtn"
-                                    data-test-id="c-modal-closeBtn"></pie-icon-button>` : ''}
+                     ${this.isDismissible ? this.renderCloseButton() : nothing}
                 </header>
                 <article class="c-modal-content">
                     <slot></slot>
@@ -206,6 +204,22 @@ export class PieModal extends RtlMixin(LitElement) {
 
         this.dispatchEvent(event);
     };
+
+    /**
+     * Template for the close button element. Called within the
+     * main render function.
+     *
+     * @protected
+     */
+    protected renderCloseButton (): TemplateResult {
+        return html`
+            <pie-icon-button
+                @click="${this._triggerCloseModal}"
+                variant="ghost-secondary"
+                class="c-modal-closeBtn"
+                data-test-id="c-modal-closeBtn"></pie-icon-button>
+        `;
+    }
 
     // Renders a `CSSResult` generated from SCSS by Vite
     static styles = unsafeCSS(styles);
