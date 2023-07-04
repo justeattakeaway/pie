@@ -151,7 +151,7 @@
                     "members": [
                         {
                             "kind": "field",
-                            "name": "dismissible",
+                            "name": "isDismissible",
                             "type": {
                                 "text": "boolean"
                             },
@@ -262,7 +262,7 @@
                             "kind": "field",
                             "name": "_handleDialogCancelEvent",
                             "privacy": "private",
-                            "description": "Prevents the user from dismissing the dialog via the `cancel`\nevent (ESC key) when `dismissible` is set to false.",
+                            "description": "Prevents the user from dismissing the dialog via the `cancel`\nevent (ESC key) when `isDismissible` is set to false.",
                             "parameters": [
                                 {
                                     "name": "event"
@@ -313,7 +313,7 @@
                             "kind": "field",
                             "name": "_handleDialogLightDismiss",
                             "privacy": "private",
-                            "description": "Dismisses the modal on backdrop click. (dependent on prop: `dismissible`)"
+                            "description": "Dismisses the modal on backdrop click. (dependent on prop: `isDismissible`)"
                         },
                         {
                             "kind": "field",

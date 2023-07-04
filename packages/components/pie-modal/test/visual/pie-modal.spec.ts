@@ -13,8 +13,8 @@ const renderTestPieModal = ({
     headingLevel = 'h2',
     size = 'medium',
     isOpen = true,
-    dismissible = true,
-} : Partial<ModalProps> = {}) => `<pie-modal ${isOpen ? 'isOpen' : ''} heading="${heading}" headingLevel="${headingLevel}" size="${size}" dismissible="${dismissible}"></pie-modal>`;
+    isDismissible = true,
+} : Partial<ModalProps> = {}) => `<pie-modal ${isOpen ? 'isOpen' : ''} heading="${heading}" headingLevel="${headingLevel}" size="${size}" isDismissible="${isDismissible}"></pie-modal>`;
 
 // Creates a <ol> with a large number of <li> nodes for testing page scrolling
 const createTestPageHTML = () => `<ol>
@@ -90,7 +90,7 @@ sizes.forEach((size) => {
     });
 });
 
-test.describe('PIE Modal `dismissible`', () => {
+test.describe('PIE Modal `isDismissible`', () => {
     test.describe('when `true`', () => {
         test('should display a close button within the modal', async ({ mount, page }) => {
             await mount(PieModal, {
@@ -98,11 +98,11 @@ test.describe('PIE Modal `dismissible`', () => {
                     heading: 'This is a modal heading',
                     headingLevel: 'h2',
                     isOpen: true,
-                    dismissible: true,
+                    isDismissible: true,
                 },
             });
 
-            await percySnapshot(page, 'Modal with close button displayed - dismissible: `true`');
+            await percySnapshot(page, 'Modal with close button displayed - isDismissible: `true`');
         });
     });
 
@@ -113,11 +113,11 @@ test.describe('PIE Modal `dismissible`', () => {
                     heading: 'This is a modal heading',
                     headingLevel: 'h2',
                     isOpen: true,
-                    dismissible: false,
+                    isDismissible: false,
                 },
             });
 
-            await percySnapshot(page, 'Modal without close button - dismissible: `false`');
+            await percySnapshot(page, 'Modal without close button - isDismissible: `false`');
         });
     });
 });

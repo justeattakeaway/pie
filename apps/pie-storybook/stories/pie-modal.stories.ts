@@ -11,7 +11,7 @@ import {
 type ModalProps = ModalPropsBase & { slot: string }
 
 const defaultArgs: ModalProps = {
-    dismissible: false,
+    isDismissible: false,
     isOpen: true,
     heading: 'Modal header',
     headingLevel: 'h2',
@@ -23,7 +23,7 @@ export default {
     title: 'Modal',
     component: 'pie-modal',
     argTypes: {
-        dismissible: {
+        isDismissible: {
             control: 'boolean',
         },
         isOpen: {
@@ -64,7 +64,7 @@ const toggleModal = () => {
 };
 
 const Template = ({
-    dismissible,
+    isDismissible,
     isOpen,
     heading,
     headingLevel,
@@ -73,7 +73,7 @@ const Template = ({
 }: ModalProps): TemplateResult => html`
         <pie-button @click=${toggleModal}>Toggle Modal</pie-button>
         <pie-modal
-        ?dismissible="${dismissible}"
+        ?isDismissible="${isDismissible}"
         ?isOpen="${isOpen}"
         heading="${heading}"
         size="${size}"

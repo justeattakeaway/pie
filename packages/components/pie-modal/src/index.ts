@@ -24,7 +24,7 @@ const componentSelector = 'pie-modal';
 
 export class PieModal extends RtlMixin(LitElement) {
     @property({ type: Boolean, reflect: true })
-    public dismissible = false;
+    public isDismissible = false;
 
     @property({ type: Boolean })
         isOpen = false;
@@ -100,12 +100,12 @@ export class PieModal extends RtlMixin(LitElement) {
 
     /**
      * Prevents the user from dismissing the dialog via the `cancel`
-     * event (ESC key) when `dismissible` is set to false.
+     * event (ESC key) when `isDismissible` is set to false.
      *
      * @param event
      */
     private _handleDialogCancelEvent = (event: Event) : void => {
-        if (!this.dismissible) event.preventDefault();
+        if (!this.isDismissible) event.preventDefault();
     };
 
     // Handles the value of the isOpen property on first render of the component
@@ -147,7 +147,7 @@ export class PieModal extends RtlMixin(LitElement) {
                 size="${size}">
                 <header>
                     <${headingTag} class="c-modal-heading">${heading}</${headingTag}>
-                     ${this.dismissible ? this.renderCloseButton() : nothing}
+                     ${this.isDismissible ? this.renderCloseButton() : nothing}
                 </header>
                 <article class="c-modal-content">
                     <slot></slot>
@@ -157,11 +157,11 @@ export class PieModal extends RtlMixin(LitElement) {
     }
 
     /**
-     * Dismisses the modal on backdrop click. (dependent on prop: `dismissible`)
+     * Dismisses the modal on backdrop click. (dependent on prop: `isDismissible`)
      *
      */
     private _handleDialogLightDismiss = (event: MouseEvent) : void => {
-        if (this.dismissible) {
+        if (this.isDismissible) {
             const rect = this._dialog?.getBoundingClientRect();
 
             const {

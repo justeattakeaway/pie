@@ -25,7 +25,7 @@ export interface ModalProps {
      *  2. The user can NOT dismiss the modal via the ESCAPE key or clicking the backdrop.
      *
      */
-    dismissible: boolean;
+    isDismissible: boolean;
 
     /**
      * The size of the modal; this controls how wide it will appear on the page.
