@@ -147,7 +147,7 @@
         cursor: not-allowed;
 
         // For every variant except ghost and ghost-inverse, set the disabled background color
-        &:not([variant='ghost']):not([variant='ghost-inverse']) {
+        &:not([variant='ghost'], [variant='ghost-inverse']) {
             --btn-bg-color: var(--dt-color-disabled-01) !important;
         }
 
