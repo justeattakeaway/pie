@@ -17,14 +17,14 @@ const componentSelector = 'pie-icon-button';
 export class PieIconButton extends LitElement {
     @property()
     @validPropertyValues(componentSelector, sizes, 'medium')
-        size: IconButtonProps['size'] = 'medium';
+    public size: IconButtonProps['size'] = 'medium';
 
     @property()
     @validPropertyValues(componentSelector, variants, 'primary')
-        variant: IconButtonProps['variant'] = 'primary';
+    public variant: IconButtonProps['variant'] = 'primary';
 
     @property({ type: Boolean })
-        disabled = false;
+    public disabled = false;
 
     render () {
         const {
