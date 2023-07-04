@@ -103,7 +103,7 @@ test.describe('`Pie Modal is closed`', () => {
 });
 
 test.describe('Pie Modal `isDismissible`', () => {
-    test.describe('when `isDismissible` is truthy', () => {
+    test.describe('when `isDismissible` is `true`', () => {
         test('should contain a close button so the modal can be dismissed', async ({ mount }) => {
             // Arrange
             const component = await mount(
@@ -187,7 +187,7 @@ test.describe('Pie Modal `isDismissible`', () => {
         });
     });
 
-    test.describe('when `isDismissible` is falsey', () => {
+    test.describe('when `isDismissible` is `false`', () => {
         test('should NOT contain a close button so the modal can not be dismissed', async ({ mount }) => {
             // Arrange
             const component = await mount(
