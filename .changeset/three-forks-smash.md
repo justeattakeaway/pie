@@ -2,4 +2,4 @@
 "@justeattakeaway/pie-modal": minor
 ---
 
-[Added] isDismissible prop and tests
+[Added] dismissible prop and tests
