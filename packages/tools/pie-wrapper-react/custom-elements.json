@@ -100,9 +100,9 @@
                     "kind": "variable",
                     "name": "variants",
                     "type": {
-                        "text": "['primary', 'secondary', 'outline', 'ghost', 'inverse']"
+                        "text": "['primary', 'secondary', 'outline', 'ghost', 'inverse', 'ghost-inverse']"
                     },
-                    "default": "['primary', 'secondary', 'outline', 'ghost', 'inverse']"
+                    "default": "['primary', 'secondary', 'outline', 'ghost', 'inverse', 'ghost-inverse']"
                 }
             ],
             "exports": [
