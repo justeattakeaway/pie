@@ -19,7 +19,7 @@ export interface ModalProps {
      */
     size: typeof sizes[number];
     /**
-     * The size of the modal; this controls how wide it will appear on the page.
+     * The width of the modal; this controls whether it will cover the full width of the page when below the mid breakpoint.
      */
     isFullWidthBelowMid: boolean;
 }
