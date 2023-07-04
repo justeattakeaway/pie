@@ -3,7 +3,7 @@ import { property } from 'lit/decorators.js';
 import styles from './webComponentTestWrapper.scss?inline';
 
 /**
- * This is a Web Component used for visual testing purposes.
+ * This is a Web Component used for testing purposes.
  * It allows us to wrap a component we'd like to test in a container
  * that displays the component's props as a label.
  *

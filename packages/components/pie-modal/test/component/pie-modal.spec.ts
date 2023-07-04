@@ -1,5 +1,10 @@
 import { test, expect } from '@sand4rt/experimental-ct-web';
 import { PieIconButton } from '@justeattakeaway/pie-icon-button';
+import {
+    WebComponentTestWrapper,
+} from '@justeattakeaway/pie-webc-testing/src/helpers/components/web-component-test-wrapper/WebComponentTestWrapper.ts';
+import { renderTestPieModal } from '../helpers/index.ts';
+
 import { PieModal } from '@/index';
 import { headingLevels } from '@/defs';
 
@@ -47,6 +52,8 @@ headingLevels.forEach((headingLevel) => test(`should render the correct heading 
 }));
 
 test.describe('`Pie Modal is closed`', () => {
+    const closeButtonSelector = '[data-test-id="modal-close-button"]';
+
     test.describe('when via the close button click', () => {
         test('should dispatch event `pie-modal-close`', async ({ mount, page }) => {
             const messages: string[] = [];
@@ -62,7 +69,7 @@ test.describe('`Pie Modal is closed`', () => {
                 },
             );
 
-            await page.locator('.c-modal-closeBtn').click();
+            await page.locator(closeButtonSelector).click();
 
             expect(messages).toHaveLength(1);
         });
@@ -88,5 +95,64 @@ test.describe('`Pie Modal is closed`', () => {
             expect(messages).toHaveLength(1);
         });
     });
-});
 
+    test('should return focus to specified element', async ({ mount, page }) => {
+        // Arrange
+        const component = renderTestPieModal({
+            returnFocusAfterCloseSelector: '#focus-me',
+        });
+
+        await mount(WebComponentTestWrapper, {
+            props: {
+                pageMode: true,
+            },
+            slots: {
+                component,
+                pageMarkup: `<div>
+                    <button id="default"></button>
+                    <button id="focus-me"></button>
+                    <button id="not-me"></button>
+                </div>`,
+            },
+        });
+
+        // Act
+        await page.locator(closeButtonSelector).click();
+
+        const focusedElement = await page.locator(':focus');
+        const focusedElementId = await focusedElement.getAttribute('id');
+
+        // Assert
+        expect(focusedElementId).toBe('focus-me');
+    });
+
+    test('should return focus to first matching element', async ({ page, mount }) => {
+        // Arrange
+        const component = renderTestPieModal({
+            returnFocusAfterCloseSelector: '#focus-me',
+        });
+
+        await mount(WebComponentTestWrapper, {
+            props: {
+                pageMode: true,
+            },
+            slots: {
+                component,
+                pageMarkup: `<div>
+                    <button id="default"></button>
+                    <button id="focus-me" data-test-id="actual-focus"></button>
+                    <button id="focus-me"></button>
+                </div>`,
+            },
+        });
+
+        // Act
+        await page.locator(closeButtonSelector).click();
+
+        const focusedElement = await page.locator(':focus');
+        const focusedElementDataTestId = await focusedElement.getAttribute('data-test-id');
+
+        // Assert
+        expect(focusedElementDataTestId).toBe('actual-focus');
+    });
+});

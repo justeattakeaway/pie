@@ -5,15 +5,8 @@ import {
 } from '@justeattakeaway/pie-webc-testing/src/helpers/components/web-component-test-wrapper/WebComponentTestWrapper.ts';
 import { PieIconButton } from '@justeattakeaway/pie-icon-button';
 import { PieModal } from '@/index';
-import { ModalProps, sizes } from '@/defs';
-
-// Renders a <pie-modal> HTML string with the given prop values
-const renderTestPieModal = ({
-    heading = 'This is a modal heading',
-    headingLevel = 'h2',
-    size = 'medium',
-    isOpen = true,
-} : Partial<ModalProps> = {}) => `<pie-modal ${isOpen ? 'isOpen' : ''} heading="${heading}" headingLevel="${headingLevel}" size="${size}"></pie-modal>`;
+import { sizes } from '@/defs';
+import { renderTestPieModal } from '../helpers/index.ts';
 
 // Creates a <ol> with a large number of <li> nodes for testing page scrolling
 const createTestPageHTML = () => `<ol>

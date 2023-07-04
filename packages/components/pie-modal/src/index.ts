@@ -36,6 +36,9 @@ export class PieModal extends RtlMixin(LitElement) {
     @validPropertyValues(componentSelector, sizes, 'medium')
         size: ModalProps['size'] = 'medium';
 
+    @property()
+        returnFocusAfterCloseSelector?: string;
+
     @query('dialog')
         _dialog?: HTMLDialogElement;
 
@@ -68,8 +71,8 @@ export class PieModal extends RtlMixin(LitElement) {
      */
     private _handleModalClosed () : void {
         enableBodyScroll(this);
-        //  Closes the native dialog element
         this._dialog?.close();
+        this._returnFocus();
     }
 
     /**
@@ -115,6 +118,24 @@ export class PieModal extends RtlMixin(LitElement) {
         }
     }
 
+    /**
+     * Return focus to the specified element, providing the selector is valid
+     * and the chosen element can be found.
+     * Fails silently.
+     */
+    private _returnFocus () {
+        const selector = this.returnFocusAfterCloseSelector?.trim();
+
+        if (selector) {
+            try {
+                const focalPoint = document.querySelector(selector) as HTMLElement;
+                focalPoint?.focus();
+            } catch (ignore) {
+                // Not necessary to throw an error here.
+            }
+        }
+    }
+
     render () {
         const {
             heading,
@@ -134,6 +155,7 @@ export class PieModal extends RtlMixin(LitElement) {
                     <pie-icon-button
                         @click="${this._triggerCloseModal}"
                         variant="ghost-secondary"
+                        data-test-id="modal-close-button"
                         class="c-modal-closeBtn"></pie-icon-button>
                 </header>
                 <article class="c-modal-content">

@@ -84,9 +84,9 @@
                     "kind": "variable",
                     "name": "sizes",
                     "type": {
-                        "text": "['xsmall', 'small-expressive', 'small-productive', 'medium', 'large']"
+                        "text": "['xsmall', 'small-productive', 'small-expressive', 'medium', 'large']"
                     },
-                    "default": "['xsmall', 'small-expressive', 'small-productive', 'medium', 'large']"
+                    "default": "['xsmall', 'small-productive', 'small-expressive', 'medium', 'large']"
                 },
                 {
                     "kind": "variable",
@@ -179,6 +179,13 @@
                                 "text": "ModalProps['size']"
                             },
                             "default": "'medium'"
+                        },
+                        {
+                            "kind": "field",
+                            "name": "returnFocusAfterCloseSelector",
+                            "type": {
+                                "text": "string | undefined"
+                            }
                         },
                         {
                             "kind": "field",
@@ -284,6 +291,12 @@
                                     }
                                 }
                             ]
+                        },
+                        {
+                            "kind": "method",
+                            "name": "_returnFocus",
+                            "privacy": "private",
+                            "description": "Return focus to the specified element, providing the selector is valid\r\nand the chosen element can be found.\r\nFails silently."
                         },
                         {
                             "kind": "method",
@@ -584,9 +597,9 @@
                     "kind": "variable",
                     "name": "variants",
                     "type": {
-                        "text": "['primary', 'secondary', 'outline', 'ghost', 'ghost-tertiary']"
+                        "text": "['primary', 'secondary', 'outline', 'ghost', 'ghost-secondary']"
                     },
-                    "default": "['primary', 'secondary', 'outline', 'ghost', 'ghost-tertiary']"
+                    "default": "['primary', 'secondary', 'outline', 'ghost', 'ghost-secondary']"
                 }
             ],
             "exports": [

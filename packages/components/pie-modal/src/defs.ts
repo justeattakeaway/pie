@@ -18,6 +18,10 @@ export interface ModalProps {
      * The size of the modal; this controls how wide it will appear on the page.
      */
     size: typeof sizes[number];
+    /**
+     * The selector for the element that you would like focus to be returned to when the modal is closed, e.g., #skipToMain
+     */
+    returnFocusAfterCloseSelector?: string;
 }
 
 /**
