@@ -122,6 +122,20 @@
         @include button-interactive-states('--dt-color-container-default');
     }
 
+    &[variant='inverse'] {
+        --btn-bg-color: var(--dt-color-interactive-inverse);
+        --btn-text-color: var(--dt-color-content-interactive-secondary);
+
+        @include button-interactive-states('--dt-color-interactive-inverse');
+    }
+
+    &[variant='ghost-inverse'] {
+        --btn-bg-color: transparent;
+        --btn-text-color: var(--dt-color-content-interactive-primary);
+
+        @include button-interactive-states('--dt-color-container-inverse');
+    }
+
     // Additional modifiers
     &[isFullWidth] {
         inline-size: 100%;
