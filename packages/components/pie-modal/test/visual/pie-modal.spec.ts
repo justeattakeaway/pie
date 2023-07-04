@@ -13,8 +13,8 @@ const renderTestPieModal = ({
     headingLevel = 'h2',
     size = 'medium',
     isOpen = true,
-    isDismissible = true,
-} : Partial<ModalProps> = {}) => `<pie-modal ${isOpen ? 'isOpen' : ''} heading="${heading}" headingLevel="${headingLevel}" size="${size}" isDismissible="${isDismissible}"></pie-modal>`;
+    dismissible = true,
+} : Partial<ModalProps> = {}) => `<pie-modal ${isOpen ? 'isOpen' : ''} heading="${heading}" headingLevel="${headingLevel}" size="${size}" dismissible="${dismissible}"></pie-modal>`;
 
 // Creates a <ol> with a large number of <li> nodes for testing page scrolling
 const createTestPageHTML = () => `<ol>
@@ -90,7 +90,7 @@ sizes.forEach((size) => {
     });
 });
 
-test.describe('PIE Modal `isDismissible`', () => {
+test.describe('PIE Modal `dismissible`', () => {
     test.describe('when truthy', () => {
         test('should display a close button within the modal', async ({ mount, page }) => {
             await mount(PieModal, {
@@ -98,11 +98,11 @@ test.describe('PIE Modal `isDismissible`', () => {
                     heading: 'This is a modal heading',
                     headingLevel: 'h2',
                     isOpen: true,
-                    isDismissible: true,
+                    dismissible: true,
                 },
             });
 
-            await percySnapshot(page, 'Modal with close button displayed - isDismissible: `true`');
+            await percySnapshot(page, 'Modal with close button displayed - dismissible: `true`');
         });
     });
 
@@ -113,11 +113,11 @@ test.describe('PIE Modal `isDismissible`', () => {
                     heading: 'This is a modal heading',
                     headingLevel: 'h2',
                     isOpen: true,
-                    isDismissible: false,
+                    dismissible: false,
                 },
             });
 
-            await percySnapshot(page, 'Modal without close button - isDismissible: `false`');
+            await percySnapshot(page, 'Modal without close button - dismissible: `false`');
         });
     });
 });

@@ -62,6 +62,7 @@ test.describe('`Pie Modal is closed`', () => {
                 {
                     props: {
                         isOpen: true,
+                        dismissible: true,
                     },
                     on: {
                         click: (event: string) => messages.push(event),
@@ -70,7 +71,7 @@ test.describe('`Pie Modal is closed`', () => {
             );
 
             // Act
-            await page.locator('.c-modal-closeBtn').click();
+            await page.locator('[data-test-id="c-modal-closeBtn"]').click();
 
             // Assert
             expect(messages).toHaveLength(1);
@@ -102,8 +103,8 @@ test.describe('`Pie Modal is closed`', () => {
     });
 });
 
-test.describe('Pie Modal `isDismissible`', () => {
-    test.describe('when `isDismissible` is `true`', () => {
+test.describe('Pie Modal `dismissible`', () => {
+    test.describe('when `dismissible` is `true`', () => {
         test('should contain a close button so the modal can be dismissed', async ({ mount }) => {
             // Arrange
             const component = await mount(
@@ -111,13 +112,13 @@ test.describe('Pie Modal `isDismissible`', () => {
                 {
                     props: {
                         isOpen: true,
-                        isDismissible: true,
+                        dismissible: true,
                     },
                 },
             );
 
             // Act & Assert
-            await expect(component.locator('.c-modal-closeBtn')).toBeVisible();
+            await expect(component.locator('[data-test-id="c-modal-closeBtn"]')).toBeVisible();
         });
 
         test('should close the modal when the close button is clicked', async ({ mount }) => {
@@ -127,7 +128,7 @@ test.describe('Pie Modal `isDismissible`', () => {
                 {
                     props: {
                         isOpen: true,
-                        isDismissible: true,
+                        dismissible: true,
                     },
                 },
             );
@@ -146,7 +147,7 @@ test.describe('Pie Modal `isDismissible`', () => {
                 {
                     props: {
                         isOpen: true,
-                        isDismissible: true,
+                        dismissible: true,
                     },
                 },
             );
@@ -174,7 +175,7 @@ test.describe('Pie Modal `isDismissible`', () => {
                 {
                     props: {
                         isOpen: true,
-                        isDismissible: false,
+                        dismissible: false,
                     },
                 },
             );
@@ -187,7 +188,7 @@ test.describe('Pie Modal `isDismissible`', () => {
         });
     });
 
-    test.describe('when `isDismissible` is `false`', () => {
+    test.describe('when `dismissible` is `false`', () => {
         test('should NOT contain a close button so the modal can not be dismissed', async ({ mount }) => {
             // Arrange
             const component = await mount(
@@ -195,7 +196,7 @@ test.describe('Pie Modal `isDismissible`', () => {
                 {
                     props: {
                         isOpen: true,
-                        isDismissible: false,
+                        dismissible: false,
                     },
                 },
             );
@@ -211,7 +212,7 @@ test.describe('Pie Modal `isDismissible`', () => {
                 {
                     props: {
                         isOpen: true,
-                        isDismissible: false,
+                        dismissible: false,
                     },
                 },
             );
@@ -239,7 +240,7 @@ test.describe('Pie Modal `isDismissible`', () => {
                 {
                     props: {
                         isOpen: true,
-                        isDismissible: false,
+                        dismissible: false,
                     },
                 },
             );
