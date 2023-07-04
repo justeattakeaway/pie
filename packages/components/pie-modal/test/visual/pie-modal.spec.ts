@@ -13,7 +13,8 @@ const renderTestPieModal = ({
     headingLevel = 'h2',
     size = 'medium',
     isOpen = true,
-} : Partial<ModalProps> = {}) => `<pie-modal ${isOpen ? 'isOpen' : ''} heading="${heading}" headingLevel="${headingLevel}" size="${size}"></pie-modal>`;
+    isFullWidthBelowMid = false,
+} : Partial<ModalProps> = {}) => `<pie-modal ${isOpen ? 'isOpen' : ''} ${isFullWidthBelowMid ? 'isFullWidthBelowMid' : ''} heading="${heading}" headingLevel="${headingLevel}" size="${size}"></pie-modal>`;
 
 // Creates a <ol> with a large number of <li> nodes for testing page scrolling
 const createTestPageHTML = () => `<ol>
@@ -66,6 +67,7 @@ test('should not render when isOpen = false', async ({ page, mount }) => {
         props: {
             heading: 'This is a modal heading',
             headingLevel: 'h2',
+            isFullWidthBelowMid: false,
             isOpen: false,
             size: 'medium',
         },
@@ -80,11 +82,28 @@ sizes.forEach((size) => {
             props: {
                 heading: 'This is a modal heading',
                 headingLevel: 'h2',
+                isFullWidthBelowMid: false,
                 isOpen: true,
                 size,
             },
         });
 
         await percySnapshot(page, `Modal - size = ${size}`);
+    });
+});
+
+test.describe('Pie Modal size = medium', () => {
+    test('Should render modal correctly when isFullWidthBelowMid = true', async ({ page, mount }) => {
+        await mount(PieModal, {
+            props: {
+                heading: 'This is a modal heading',
+                headingLevel: 'h2',
+                isOpen: true,
+                size: 'medium',
+                isFullWidthBelowMid: true,
+            },
+        });
+
+        await percySnapshot(page, 'Modal - isFullWidthBelowMid = true');
     });
 });

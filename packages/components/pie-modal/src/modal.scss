@@ -35,6 +35,11 @@
 
     &[size='medium'] {
         /* Same as default styles */
+        &[isfullwidthbelowmid] {
+            @media (max-width: $breakpoint-wide) {
+                --modal-inline-size: 100%;
+            }
+        }
     }
 
     &[size='large'] {

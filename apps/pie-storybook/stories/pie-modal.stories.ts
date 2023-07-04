@@ -12,6 +12,7 @@ type ModalProps = ModalPropsBase & { slot: string }
 
 const defaultArgs: ModalProps = {
     isOpen: true,
+    isFullWidthBelowMid: false,
     heading: 'Modal header',
     headingLevel: 'h2',
     size: 'medium',
@@ -31,6 +32,9 @@ export default {
         headingLevel: {
             control: 'select',
             options: headingLevels,
+        },
+        isFullWidthBelowMid: {
+            control: 'boolean',
         },
         size: {
             control: 'select',
@@ -61,6 +65,7 @@ const toggleModal = () => {
 
 const Template = ({
     isOpen,
+    isFullWidthBelowMid,
     heading,
     headingLevel,
     size,
@@ -71,6 +76,7 @@ const Template = ({
         ?isOpen="${isOpen}"
         heading="${heading}"
         size="${size}"
+        ?isFullWidthBelowMid="${isFullWidthBelowMid}"
         headingLevel="${headingLevel}">
             ${slot}
         </pie-modal>
@@ -98,6 +104,7 @@ const PageContextTemplate = ({
     isOpen,
     heading,
     headingLevel,
+    isFullWidthBelowMid,
     slot,
 }: ModalProps) => html`
     <pie-button @click=${toggleModal}>Toggle Modal</pie-button>
@@ -105,6 +112,7 @@ const PageContextTemplate = ({
         ?isOpen="${isOpen}"
         heading="${heading}"
         headingLevel="${headingLevel}"
+        ?isFullWidthBelowMid="${isFullWidthBelowMid}"
     >
         ${slot}
     </pie-modal>

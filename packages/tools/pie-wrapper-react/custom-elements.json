@@ -182,6 +182,14 @@
                         },
                         {
                             "kind": "field",
+                            "name": "isFullWidthBelowMid",
+                            "type": {
+                                "text": "boolean"
+                            },
+                            "default": "true"
+                        },
+                        {
+                            "kind": "field",
                             "name": "_dialog",
                             "type": {
                                 "text": "HTMLDialogElement | undefined"
