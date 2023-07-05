@@ -265,7 +265,11 @@
                             "description": "Prevents the user from dismissing the dialog via the `cancel`\nevent (ESC key) when `isDismissible` is set to false.",
                             "parameters": [
                                 {
-                                    "name": "event"
+                                    "description": "The event object.",
+                                    "name": "event",
+                                    "type": {
+                                        "text": "Event"
+                                    }
                                 }
                             ]
                         },
@@ -319,12 +323,20 @@
                             "kind": "field",
                             "name": "_dispatchModalCustomEvent",
                             "privacy": "private",
-                            "description": "Note: We should aim to have a shareable event helper system to allow\nus to share this across components in-future.\n\nDispatch a custom event.\n\nTo be used whenever we have behavioural events we want to\nbubble up through the modal."
+                            "description": "Note: We should aim to have a shareable event helper system to allow\nus to share this across components in-future.\n\nDispatch a custom event.\n\nTo be used whenever we have behavioural events we want to\nbubble up through the modal.",
+                            "parameters": [
+                                {
+                                    "name": "eventType",
+                                    "type": {
+                                        "text": "string"
+                                    }
+                                }
+                            ]
                         },
                         {
                             "kind": "method",
                             "name": "renderCloseButton",
-                            "privacy": "protected",
+                            "privacy": "private",
                             "return": {
                                 "type": {
                                     "text": "TemplateResult"
