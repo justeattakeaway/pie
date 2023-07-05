@@ -42,4 +42,4 @@ jobs:
       - name: Build Packages
         uses: ./.github/actions/run-script
         with:
-          script-name: "build"
+          script-name: ${{ inputs.build-script }}
