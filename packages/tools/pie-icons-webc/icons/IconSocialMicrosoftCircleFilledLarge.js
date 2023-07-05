@@ -1,9 +1,9 @@
 import { getSvgProps } from '@justeattakeaway/pie-icons-configs';
 
 const template = document.createElement('template');
-template.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 32 32" class="c-pieIcon c-pieIcon--microsoftCircleFilledStaticLarge"><path fill="#242E30" d="M16 28.25a12.25 12.25 0 1 1 0-24.5 12.25 12.25 0 0 1 0 24.5Z"></path><path fill="#fff" d="M10 10h5.5v5.5H10V10Z"></path><path fill="#fff" d="M10 16.5h5.5V22H10v-5.5Z"></path><path fill="#fff" d="M16.5 10H22v5.5h-5.5V10Z"></path><path fill="#fff" d="M16.5 16.5H22V22h-5.5v-5.5Z"></path></svg>';
+template.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 32 32" class="c-pieIcon c-pieIcon--microsoftCircleFilledLarge"><path fill-rule="evenodd" d="M16 28.25a12.25 12.25 0 1 1 0-24.5 12.25 12.25 0 0 1 0 24.5ZM15.5 10H10v5.5h5.5V10Zm0 6.5H10V22h5.5v-5.5Zm1-6.5H22v5.5h-5.5V10Zm5.5 6.5h-5.5V22H22v-5.5Z" clip-rule="evenodd"></path></svg>';
 
-export class IconSocialMicrosoftCircleFilledStaticLarge extends HTMLElement {
+export class IconSocialMicrosoftCircleFilledLarge extends HTMLElement {
     constructor () {
         super();
         const clone = template.content.cloneNode(true);
@@ -33,10 +33,10 @@ export class IconSocialMicrosoftCircleFilledStaticLarge extends HTMLElement {
 
     connectedCallback () {
         const svg = this.root.querySelector('svg');
-        const svgSize = getSvgProps('c-pieIcon c-pieIcon--microsoftCircleFilledStaticLarge', '', null, 'IconSocialMicrosoftCircleFilledStaticLarge');
+        const svgSize = getSvgProps('c-pieIcon c-pieIcon--microsoftCircleFilledLarge', '', null, 'IconSocialMicrosoftCircleFilledLarge');
         svg.setAttribute('width', svgSize.width);
         svg.setAttribute('height', svgSize.height);
-        this.setAttribute('class', 'c-pieIcon c-pieIcon--microsoftCircleFilledStaticLarge');
+        this.setAttribute('class', 'c-pieIcon c-pieIcon--microsoftCircleFilledLarge');
         this.root.append(svg);
     }
 
@@ -45,7 +45,7 @@ export class IconSocialMicrosoftCircleFilledStaticLarge extends HTMLElement {
         let svgSize;
 
         if (attr === 'size') {
-            svgSize = getSvgProps('c-pieIcon c-pieIcon--microsoftCircleFilledStaticLarge', '', newVal, 'IconSocialMicrosoftCircleFilledStaticLarge');
+            svgSize = getSvgProps('c-pieIcon c-pieIcon--microsoftCircleFilledLarge', '', newVal, 'IconSocialMicrosoftCircleFilledLarge');
 
             svg.setAttribute('width', svgSize.width);
             svg.setAttribute('height', svgSize.height);
@@ -54,4 +54,4 @@ export class IconSocialMicrosoftCircleFilledStaticLarge extends HTMLElement {
     }
 }
 
-customElements.define('icon-social-microsoft-circle-filled-static-large', IconSocialMicrosoftCircleFilledStaticLarge);
+customElements.define('icon-social-microsoft-circle-filled-large', IconSocialMicrosoftCircleFilledLarge);

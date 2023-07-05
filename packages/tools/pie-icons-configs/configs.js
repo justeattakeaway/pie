@@ -97,3 +97,13 @@ export const getSvgProps = (svgClasses, staticClasses, sizeValue, componentName)
         height: size,
     };
 };
+
+/**
+ * Normalizes a component name by removing any hyphens
+ * directly before digits in the passed string
+ * For example: over-18-filled-large
+ * Without this normlization the PascalCase generation would return Over-16Filled
+ * @param {string} name - a string, for example an icon name
+ * @returns {string}
+ */
+export const normalizeIconName = (name) => name.replace(/\-(\d+)/, '$1'); // eslint-disable-line no-useless-escape

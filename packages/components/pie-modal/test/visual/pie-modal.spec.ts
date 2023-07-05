@@ -13,7 +13,9 @@ const renderTestPieModal = ({
     headingLevel = 'h2',
     size = 'medium',
     isOpen = true,
-} : Partial<ModalProps> = {}) => `<pie-modal ${isOpen ? 'isOpen' : ''} heading="${heading}" headingLevel="${headingLevel}" size="${size}"></pie-modal>`;
+    isFullWidthBelowMid = false,
+    isDismissible = true,
+} : Partial<ModalProps> = {}) => `<pie-modal ${isOpen ? 'isOpen' : ''} ${isFullWidthBelowMid ? 'isFullWidthBelowMid' : ''} heading="${heading}" headingLevel="${headingLevel}" size="${size}" isDismissible="${isDismissible}"></pie-modal>`;
 
 // Creates a <ol> with a large number of <li> nodes for testing page scrolling
 const createTestPageHTML = () => `<ol>
@@ -66,6 +68,7 @@ test('should not render when isOpen = false', async ({ page, mount }) => {
         props: {
             heading: 'This is a modal heading',
             headingLevel: 'h2',
+            isFullWidthBelowMid: false,
             isOpen: false,
             size: 'medium',
         },
@@ -80,11 +83,86 @@ sizes.forEach((size) => {
             props: {
                 heading: 'This is a modal heading',
                 headingLevel: 'h2',
+                isFullWidthBelowMid: false,
                 isOpen: true,
                 size,
             },
         });
 
         await percySnapshot(page, `Modal - size = ${size}`);
+    });
+});
+
+test('Should render with full width when size = medium and isFullWidthBelowMid = true', async ({ page, mount }) => {
+    await mount(PieModal, {
+        props: {
+            heading: 'This is a modal heading',
+            headingLevel: 'h2',
+            isOpen: true,
+            size: 'medium',
+            isFullWidthBelowMid: true,
+        },
+    });
+
+    await percySnapshot(page, 'Modal - size = medium & isFullWidthBelowMid = true');
+});
+
+test('Should not render with full width when size is NOT medium and isFullWidthBelowMid = true', async ({ page, mount }) => {
+    await mount(PieModal, {
+        props: {
+            heading: 'This is a modal heading',
+            headingLevel: 'h2',
+            isOpen: true,
+            size: 'small',
+            isFullWidthBelowMid: true,
+        },
+    });
+
+    await percySnapshot(page, 'Modal - size = small & isFullWidthBelowMid = true');
+});
+
+test('Should not render with full width when isFullWidthBelowMid = false', async ({ page, mount }) => {
+    await mount(PieModal, {
+        props: {
+            heading: 'This is a modal heading',
+            headingLevel: 'h2',
+            isOpen: true,
+            size: 'small',
+            isFullWidthBelowMid: true,
+        },
+    });
+
+    await percySnapshot(page, 'Modal - isFullWidthBelowMid = false');
+})
+
+test.describe('PIE Modal `isDismissible`', () => {
+    test.describe('when `true`', () => {
+        test('should display a close button within the modal', async ({ mount, page }) => {
+            await mount(PieModal, {
+                props: {
+                    heading: 'This is a modal heading',
+                    headingLevel: 'h2',
+                    isOpen: true,
+                    isDismissible: true,
+                },
+            });
+
+            await percySnapshot(page, 'Modal with close button displayed - isDismissible: `true`');
+        });
+    });
+
+    test.describe('when falsey', () => {
+        test('should NOT display a close button within the modal', async ({ mount, page }) => {
+            await mount(PieModal, {
+                props: {
+                    heading: 'This is a modal heading',
+                    headingLevel: 'h2',
+                    isOpen: true,
+                    isDismissible: false,
+                },
+            });
+
+            await percySnapshot(page, 'Modal without close button - isDismissible: `false`');
+        });
     });
 });

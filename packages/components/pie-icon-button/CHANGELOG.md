@@ -1,5 +1,16 @@
 # @justeattakeaway/pie-icon-button
 
+## 0.8.0
+
+### Minor Changes
+
+- [Changed] - Set all component props to public ([#597](https://github.com/justeattakeaway/pie/pull/597)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies [[`816909e55`](https://github.com/justeattakeaway/pie/commit/816909e55f464fd191fa8a54e3407b8fbd0cdc29), [`816909e55`](https://github.com/justeattakeaway/pie/commit/816909e55f464fd191fa8a54e3407b8fbd0cdc29), [`816909e55`](https://github.com/justeattakeaway/pie/commit/816909e55f464fd191fa8a54e3407b8fbd0cdc29)]:
+  - @justeattakeaway/pie-icons-webc@0.2.0
+
 ## 0.7.0
 
 ### Minor Changes

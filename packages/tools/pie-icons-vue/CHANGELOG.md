@@ -1,5 +1,15 @@
 # Changelog
 
+## 4.3.0
+
+### Minor Changes
+
+- [Changed] - Updated pie-icons-vue build to use ESM ([#594](https://github.com/justeattakeaway/pie/pull/594)) by [@ashleynolan](https://github.com/ashleynolan)
+
+- [Changed] - using shared normalizeIconName function in pie-icons-configs ([#594](https://github.com/justeattakeaway/pie/pull/594)) by [@ashleynolan](https://github.com/ashleynolan)
+
+- [Fixed] - Adding TS declaration and linting ignore ([#594](https://github.com/justeattakeaway/pie/pull/594)) by [@ashleynolan](https://github.com/ashleynolan)
+
 ## 4.1.0
 
 ### Minor Changes

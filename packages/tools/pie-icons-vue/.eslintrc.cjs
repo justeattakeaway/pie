@@ -3,7 +3,7 @@ const { vue, vue3 } = require('@justeattakeaway/eslint-config-pie/frameworks');
 module.exports = {
     extends: [
         require.resolve('@justeattakeaway/eslint-config-pie/strict'),
-        'plugin:vue/vue3-recommended'
+        'plugin:vue/vue3-recommended',
     ],
     rules: {
         ...vue.rules,

@@ -4,6 +4,9 @@ import { pascalCase } from "pascal-case";
 import { join } from 'path';
 import fs from 'fs-extra';
 
+import { normalizeIconName } from '@justeattakeaway/pie-icons-configs';
+
+
 const { icons } = pieIcons.default;
 
 const ICONS_DIR = `${process.cwd()}/icons`;
@@ -17,9 +20,6 @@ async function checkDirExists (directoryPath) {
         console.error(err);
     }
 }
-
-const handleComponentName = (name) => name.replace(/\-(\d+)/, '$1'); // eslint-disable-line no-useless-escape
-
 // open a write stream to index.tsx
 const indexFile = fs.createWriteStream(
     filePath,
@@ -28,11 +28,11 @@ const indexFile = fs.createWriteStream(
     },
 );
 
-function getTemplate(buildTimeClasses) {
+function getTemplate (buildTimeClasses) {
     return (variables, { tpl }) => {
         const { imports, interfaces, componentName, jsx, exports } = variables;
         const isLargeIcon = variables.componentName.endsWith('Large');
-        const componentPropsInterface = isLargeIcon ? 'LargeIconProps': 'RegularIconProps'
+        const componentPropsInterface = isLargeIcon ? 'LargeIconProps' : 'RegularIconProps'
         const propsImportStatement = `import { ${componentPropsInterface} } from "../types"`
 
         return tpl`
@@ -57,7 +57,7 @@ function getTemplate(buildTimeClasses) {
     }
 }
 
-async function build() {
+async function build () {
     // check that the /icons directory exists, if not create it
     await checkDirExists(ICONS_DIR);
 
@@ -65,7 +65,7 @@ async function build() {
     Object.keys(icons).forEach((iconKey) => {
         const { pathPrefix } = icons[iconKey];
         const capitalisedPathPrefix = (pathPrefix !== undefined ? (pathPrefix).substring(1, 2).toUpperCase() + (pathPrefix).substring(2) : '');
-        const componentName = `Icon${capitalisedPathPrefix + pascalCase(handleComponentName(iconKey))}`;
+        const componentName = `Icon${capitalisedPathPrefix + pascalCase(normalizeIconName(iconKey))}`;
         const iconClasses = `c-pieIcon c-pieIcon--${iconKey.toLowerCase()}`;
 
         let Comp = transform.sync(
