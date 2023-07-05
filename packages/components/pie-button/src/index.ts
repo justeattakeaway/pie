@@ -18,7 +18,7 @@ export { IconLoading };
 
 const componentSelector = 'pie-button';
 
-export class PieButton extends LitElement {
+export class PieButton extends LitElement implements ButtonProps {
     @property()
     @validPropertyValues(componentSelector, sizes, 'medium')
     public size: ButtonProps['size'] = 'medium';
@@ -35,18 +35,18 @@ export class PieButton extends LitElement {
     public disabled = false;
 
     @property({ type: Boolean, reflect: true })
-    public loading = false;
+    public isLoading = false;
 
     @property({ type: Boolean })
     public isFullWidth = false;
 
     private renderLoadingSpinner () {
-        return html`<icon-loading size="m" class="o-btn-spinner" />`;
+        return html`<div class="o-btn-spinner"></div>`;
     }
 
     render () {
         const {
-            type, disabled, isFullWidth, variant, size, loading,
+            type, disabled, isFullWidth, variant, size, isLoading: loading,
         } = this;
 
         return html`

@@ -26,7 +26,7 @@ export default {
         isFullWidth: {
             control: 'boolean',
         },
-        loading: {
+        isLoading: {
             control: 'boolean',
         },
         slot: {
@@ -39,7 +39,7 @@ export default {
         variant: 'primary',
         disabled: false,
         isFullWidth: false,
-        loading: false,
+        isLoading: false,
     },
     parameters: {
         design: {
@@ -52,14 +52,14 @@ export default {
 type ButtonProps = ButtonPropsBase & { slot: string }
 
 const Template = ({
-    size, variant, type, disabled, isFullWidth, loading, slot,
+    size, variant, type, disabled, isFullWidth, isLoading, slot,
 }: ButtonProps): TemplateResult => html`
         <pie-button
             size="${size}"
             variant="${variant}"
             type="${type}"
             ?disabled="${disabled}"
-            ?loading="${loading}"
+            ?isLoading="${isLoading}"
             ?isFullWidth="${isFullWidth}">
             ${slot}
         </pie-button>
@@ -71,7 +71,7 @@ const defaultArgs: ButtonProps = {
     variant: 'primary',
     disabled: false,
     isFullWidth: false,
-    loading: false,
+    isLoading: false,
     slot: 'This is Lit!',
 };
 

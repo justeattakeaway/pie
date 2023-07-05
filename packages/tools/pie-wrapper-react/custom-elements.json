@@ -525,7 +525,7 @@
                         },
                         {
                             "kind": "field",
-                            "name": "loading",
+                            "name": "isLoading",
                             "type": {
                                 "text": "boolean"
                             },

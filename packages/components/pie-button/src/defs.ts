@@ -26,5 +26,5 @@ export interface ButtonProps {
     /**
      * When true, displays a loading indicator inside the button.
      */
-    loading: boolean;
+    isLoading: boolean;
 }
