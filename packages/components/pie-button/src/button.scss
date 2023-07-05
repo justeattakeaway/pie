@@ -41,35 +41,33 @@
     --btn-bg-color: var(--dt-color-interactive-brand);
     --btn-text-color: var(--dt-color-content-interactive-primary);
 
-    // Spinner defaults
+    // Spinner sizes defaults - currently set for the medium button styles
     --spinner-size-s: 20px;
     --spinner-size-m: 24px;
     --spinner-border-width-s: 2.5px;
     --spinner-border-width-m: 3px;
-
     --spinner-size: var(--spinner-size-m);
     --spinner-border-width: var(--spinner-border-width-m);
 
-    // currently set for the primary button styles
+    // Spinner colors - currently set for the primary button styles
     --spinner-base-color-h: var(--dt-color-content-interactive-primary-h);
     --spinner-base-color-s: var(--dt-color-content-interactive-primary-s);
     --spinner-base-color-l: var(--dt-color-content-interactive-primary-l);
-
     --spinner-left-color-opacity: 0.35;
     --spinner-left-color: hsl(var(--spinner-base-color-h), var(--spinner-base-color-s), var(--spinner-base-color-l), var(--spinner-left-color-opacity));
     --spinner-right-color: hsl(var(--spinner-base-color-h), var(--spinner-base-color-s), var(--spinner-base-color-l), 1);
 
+    // Spinner animations
     --spinner-animation-duration: 1.15s;
     --spinner-animation-timing-function: linear;
     --spinner-animation-iteration-count: infinite;
     --spinner-transition-duration: 0.15s;
-    --spinner-transition-timing-function: cubic-bezier(0,0,0.3,1);
+    --spinner-transition-timing-function: cubic-bezier(0, 0, 0.3, 1);
     --spinner-transition-delay: 0s;
 
     display: grid;
     place-content: center;
     box-sizing: border-box;
-
     min-block-size: var(--btn-min-block-size);
     min-inline-size: var(--btn-min-inline-size);
     padding: var(--btn-padding);
@@ -144,7 +142,6 @@
     &[variant='secondary'] {
         --btn-bg-color: var(--dt-color-interactive-secondary);
         --btn-text-color: var(--dt-color-content-interactive-secondary);
-
         --spinner-base-color-h: var(--dt-color-content-interactive-secondary-h);
         --spinner-base-color-s: var(--dt-color-content-interactive-secondary-s);
         --spinner-base-color-l: var(--dt-color-content-interactive-secondary-l);
@@ -155,7 +152,6 @@
     &[variant='outline'] {
         --btn-bg-color: var(--dt-color-container-default);
         --btn-text-color: var(--dt-color-content-interactive-secondary);
-
         --spinner-base-color-h: var(--dt-color-content-interactive-secondary-h);
         --spinner-base-color-s: var(--dt-color-content-interactive-secondary-s);
         --spinner-base-color-l: var(--dt-color-content-interactive-secondary-l);
@@ -168,7 +164,6 @@
     &[variant='ghost'] {
         --btn-bg-color: transparent;
         --btn-text-color: var(--dt-color-content-link);
-
         --spinner-base-color-h: var(--dt-color-content-interactive-secondary-h);
         --spinner-base-color-s: var(--dt-color-content-interactive-secondary-s);
         --spinner-base-color-l: var(--dt-color-content-interactive-secondary-l);
@@ -179,7 +174,6 @@
     &[variant='inverse'] {
         --btn-bg-color: var(--dt-color-interactive-inverse);
         --btn-text-color: var(--dt-color-content-interactive-secondary);
-
         --spinner-base-color-h: var(--dt-color-content-interactive-secondary-h);
         --spinner-base-color-s: var(--dt-color-content-interactive-secondary-s);
         --spinner-base-color-l: var(--dt-color-content-interactive-secondary-l);
@@ -190,7 +184,6 @@
     &[variant='ghost-inverse'] {
         --btn-bg-color: transparent;
         --btn-text-color: var(--dt-color-content-interactive-primary);
-
         --spinner-base-color-h: var(--dt-color-content-interactive-primary-h);
         --spinner-base-color-s: var(--dt-color-content-interactive-primary-s);
         --spinner-base-color-l: var(--dt-color-content-interactive-primary-l);
@@ -271,10 +264,7 @@
     display: block;
     background-color: transparent;
     border-radius: 50%;
-    border-top-color: var(--spinner-left-color);
-    border-left-color: var(--spinner-left-color);
-    border-right-color: var(--spinner-right-color);
-    border-bottom-color: var(--spinner-right-color);
+    border-color: var(--spinner-left-color) var(--spinner-right-color) var(--spinner-right-color) var(--spinner-left-color);
     border-width: var(--spinner-border-width);
     border-style: solid;
     will-change: transform;
