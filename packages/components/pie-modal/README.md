@@ -62,7 +62,7 @@ import { PieModal } from '@justeattakeaway/pie-modal/dist/react';
 | heading | `String` | n/a (Required) | The heading text of the modal |
 | headingLevel | `String` | `h2` | The HTML tag to use for the modal's heading (can be `h1`-`h6`) |
 | size | `String` | `medium` | Determines the maximum width of the modal. Large modals will expand to fill the entire page width at narrow viewports. Can be `small`, `medium` or `large`. |
-| returnFocusAfterCloseSelector | `String` | `undefined` | If provided, focus will be sent to the first element that matches this selector when the modal is closed. |
+| returnFocusAfterCloseSelector | `String` | `undefined` | If provided, focus will be sent to the first element that matches this selector when the modal is closed. If not provided, the `dialog` component will return focus to the element that opened the modal. |
 
 
 In your markup or JSX, you can then use these to set the properties for the `pie-modal` component:

@@ -1,5 +1,6 @@
 import type { Meta, StoryObj as Story } from '@storybook/web-components';
 import { html, TemplateResult } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import '@justeattakeaway/pie-button'; // Ensures the button WC is available for use in the templates
 
 import {
@@ -31,6 +32,9 @@ export default {
         headingLevel: {
             control: 'select',
             options: headingLevels,
+        },
+        returnFocusAfterCloseSelector: {
+            control: 'text',
         },
         size: {
             control: 'select',
@@ -89,9 +93,9 @@ const createTestPageHTML = () => {
     }
 
     return html`
-    <h1>Test Page</h1>
-    <p> Test copy </p>
-    <ul>${items}</ul>`;
+        <h1>Test Page</h1>
+        <p> Test copy </p>
+        <ul>${items}</ul>`;
 };
 
 const PageContextTemplate = ({
@@ -114,4 +118,33 @@ const PageContextTemplate = ({
 export const InScrollablePage: Story<ModalProps> = (args: ModalProps) => PageContextTemplate(args);
 InScrollablePage.args = {
     ...defaultArgs,
+};
+
+const FocusableElementsPageTemplate = ({
+    isOpen,
+    heading,
+    headingLevel,
+    returnFocusAfterCloseSelector,
+    slot,
+}: ModalProps) => html`
+    <pie-button @click=${toggleModal}>Toggle Modal</pie-button>
+    <pie-modal
+        ?isOpen="${isOpen}"
+        heading="${heading}"
+        headingLevel="${headingLevel}"
+        returnFocusAfterCloseSelector="${ifDefined(returnFocusAfterCloseSelector)}"
+    >
+        ${slot}
+    </pie-modal>
+    <button id="focus-1">#focus-1</button>
+    <button id="focus-2">#focus-2</button>
+    <button id="focus-3">#focus-3</button>
+    <button id="focus-4">#focus-4</button>
+    <button id="focus-5">#focus-5</button>
+`;
+
+export const WithFocusableElements: Story<ModalProps> = (args: ModalProps) => FocusableElementsPageTemplate(args);
+WithFocusableElements.args = {
+    ...defaultArgs,
+    returnFocusAfterCloseSelector: '#focus-3',
 };

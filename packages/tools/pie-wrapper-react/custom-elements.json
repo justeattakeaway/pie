@@ -155,6 +155,7 @@
                             "type": {
                                 "text": "boolean"
                             },
+                            "privacy": "public",
                             "default": "false"
                         },
                         {
@@ -162,7 +163,8 @@
                             "name": "heading",
                             "type": {
                                 "text": "string"
-                            }
+                            },
+                            "privacy": "public"
                         },
                         {
                             "kind": "field",
@@ -170,6 +172,7 @@
                             "type": {
                                 "text": "ModalProps['headingLevel']"
                             },
+                            "privacy": "public",
                             "default": "'h2'"
                         },
                         {
@@ -178,6 +181,7 @@
                             "type": {
                                 "text": "ModalProps['size']"
                             },
+                            "privacy": "public",
                             "default": "'medium'"
                         },
                         {
@@ -254,7 +258,7 @@
                             "kind": "field",
                             "name": "_triggerCloseModal",
                             "privacy": "private",
-                            "description": "This is only to be used inside the component template as direct property\nreassignment is not allowed."
+                            "description": "This is only to be used inside the component template as direct property\r\nreassignment is not allowed."
                         },
                         {
                             "kind": "method",
@@ -312,13 +316,13 @@
                             "kind": "field",
                             "name": "_dispatchModalCloseEvent",
                             "privacy": "private",
-                            "description": "Dispatch `ON_MODAL_CLOSE_EVENT` event.\nTo be used whenever we close the modal."
+                            "description": "Dispatch `ON_MODAL_CLOSE_EVENT` event.\r\nTo be used whenever we close the modal."
                         },
                         {
                             "kind": "field",
                             "name": "_dispatchModalOpenEvent",
                             "privacy": "private",
-                            "description": "Dispatch `ON_MODAL_OPEN_EVENT` event.\nTo be used whenever we open the modal."
+                            "description": "Dispatch `ON_MODAL_OPEN_EVENT` event.\r\nTo be used whenever we open the modal."
                         },
                         {
                             "kind": "field",
@@ -343,7 +347,7 @@
                             "type": {
                                 "text": "boolean"
                             },
-                            "description": "Returns true if the element is in Right to Left mode.\nIf a dir attribute is not explicitly set on the web component\nthen it falls back to the nearest parent with a dir attribute set.\n\nA dir attribute being set will result in a reactive property.\nIf the component falls back to a parent dir attribute then the value\nwill not be reactive and is only computed once",
+                            "description": "Returns true if the element is in Right to Left mode.\r\nIf a dir attribute is not explicitly set on the web component\r\nthen it falls back to the nearest parent with a dir attribute set.\r\n\r\nA dir attribute being set will result in a reactive property.\r\nIf the component falls back to a parent dir attribute then the value\r\nwill not be reactive and is only computed once",
                             "readonly": true,
                             "inheritedFrom": {
                                 "name": "RtlMixin",
@@ -439,6 +443,7 @@
                             "type": {
                                 "text": "ButtonProps['size']"
                             },
+                            "privacy": "public",
                             "default": "'medium'"
                         },
                         {
@@ -447,6 +452,7 @@
                             "type": {
                                 "text": "ButtonProps['type']"
                             },
+                            "privacy": "public",
                             "default": "'submit'"
                         },
                         {
@@ -455,6 +461,7 @@
                             "type": {
                                 "text": "ButtonProps['variant']"
                             },
+                            "privacy": "public",
                             "default": "'primary'"
                         },
                         {
@@ -463,6 +470,7 @@
                             "type": {
                                 "text": "boolean"
                             },
+                            "privacy": "public",
                             "default": "false"
                         },
                         {
@@ -471,6 +479,7 @@
                             "type": {
                                 "text": "boolean"
                             },
+                            "privacy": "public",
                             "default": "false"
                         },
                         {
@@ -644,6 +653,7 @@
                             "type": {
                                 "text": "IconButtonProps['size']"
                             },
+                            "privacy": "public",
                             "default": "'medium'"
                         },
                         {
@@ -652,6 +662,7 @@
                             "type": {
                                 "text": "IconButtonProps['variant']"
                             },
+                            "privacy": "public",
                             "default": "'primary'"
                         },
                         {
@@ -660,6 +671,7 @@
                             "type": {
                                 "text": "boolean"
                             },
+                            "privacy": "public",
                             "default": "false"
                         },
                         {
@@ -815,7 +827,7 @@
                             "type": {
                                 "text": "boolean"
                             },
-                            "description": "Returns true if the element is in Right to Left mode.\nIf a dir attribute is not explicitly set on the web component\nthen it falls back to the nearest parent with a dir attribute set.\n\nA dir attribute being set will result in a reactive property.\nIf the component falls back to a parent dir attribute then the value\nwill not be reactive and is only computed once",
+                            "description": "Returns true if the element is in Right to Left mode.\r\nIf a dir attribute is not explicitly set on the web component\r\nthen it falls back to the nearest parent with a dir attribute set.\r\n\r\nA dir attribute being set will result in a reactive property.\r\nIf the component falls back to a parent dir attribute then the value\r\nwill not be reactive and is only computed once",
                             "readonly": true
                         }
                     ],
@@ -861,7 +873,7 @@
                             }
                         }
                     ],
-                    "description": "A decorator for marking a property as required.\nIf the property's value is `undefined`, `null` or empty string, an error is logged.",
+                    "description": "A decorator for marking a property as required.\r\nIf the property's value is `undefined`, `null` or empty string, an error is logged.",
                     "return": {
                         "type": {
                             "text": "Function"
@@ -909,7 +921,7 @@
                             "description": "The value to fall back on"
                         }
                     ],
-                    "description": "A decorator for specifying a list of valid values for a property.\nIf this property's setter is called with an invalid value, an error is logged and the default value will be assigned instead.",
+                    "description": "A decorator for specifying a list of valid values for a property.\r\nIf this property's setter is called with an invalid value, an error is logged and the default value will be assigned instead.",
                     "return": {
                         "type": {
                             "text": ""
