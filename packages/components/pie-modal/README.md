@@ -14,6 +14,7 @@
 2. [Local Development](#local-development)
 3. [Importing the component](#importing-the-component)
 4. [Props](#props)
+5. [Testing](#testing)
 
 # pie-modal
 
@@ -56,13 +57,13 @@ import { PieModal } from '@justeattakeaway/pie-modal/dist/react';
 
 ## Props
 
-| Property       | Type      | Default | Description                                           |
-|----------------|-----------|---------|-------------------------------------------------------|
-| isOpen         | `Boolean` | `false` | Controls if the modal element is open or closed       |
-| heading*       | `String`  | -       | Sets the heading of the modal                         |
-| headingLevel   | `String`  | `h2`    | Allows you to set the heading tag (from `h1` to `h6`) |
+| Property      | Type      | Default | Description                                           |
+|---------------|-----------|---------|-------------------------------------------------------|
+| isOpen        | `Boolean` | `false` | Controls if the modal element is open or closed       |
+| heading*      | `String`  | -       | Sets the heading of the modal                         |
+| headingLevel  | `String`  | `h2`    | Allows you to set the heading tag (from `h1` to `h6`) |
+| isDismissible | `Boolean` | `false` | Controls if the modal element is dismissible or not.  |
 | isFullWidthBelowMid   | `Boolean`  | `false`    | Controls if width is set to full (when size = medium) |
-
 
 In your markup or JSX, you can then use these to set the properties for the `pie-modal` component:
 
