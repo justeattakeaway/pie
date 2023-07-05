@@ -92,18 +92,44 @@ sizes.forEach((size) => {
     });
 });
 
-test.describe('Pie Modal size = medium', () => {
-    test('Should render modal correctly when isFullWidthBelowMid = true', async ({ page, mount }) => {
-        await mount(PieModal, {
-            props: {
-                heading: 'This is a modal heading',
-                headingLevel: 'h2',
-                isOpen: true,
-                size: 'medium',
-                isFullWidthBelowMid: true,
-            },
-        });
-
-        await percySnapshot(page, 'Modal - isFullWidthBelowMid = true');
+test('Should render with full width when size = medium and isFullWidthBelowMid = true', async ({ page, mount }) => {
+    await mount(PieModal, {
+        props: {
+            heading: 'This is a modal heading',
+            headingLevel: 'h2',
+            isOpen: true,
+            size: 'medium',
+            isFullWidthBelowMid: true,
+        },
     });
+
+    await percySnapshot(page, 'Modal - size = medium & isFullWidthBelowMid = true');
+});
+
+test('Should not render with full width when size is NOT medium and isFullWidthBelowMid = true', async ({ page, mount }) => {
+    await mount(PieModal, {
+        props: {
+            heading: 'This is a modal heading',
+            headingLevel: 'h2',
+            isOpen: true,
+            size: 'large',
+            isFullWidthBelowMid: true,
+        },
+    });
+
+    await percySnapshot(page, 'Modal - size = large & isFullWidthBelowMid = true');
+});
+
+test('Should not render with full width when isFullWidthBelowMid = false', async ({ page, mount }) => {
+    await mount(PieModal, {
+        props: {
+            heading: 'This is a modal heading',
+            headingLevel: 'h2',
+            isOpen: true,
+            size: 'large',
+            isFullWidthBelowMid: true,
+        },
+    });
+
+    await percySnapshot(page, 'Modal - isFullWidthBelowMid = false');
 });
