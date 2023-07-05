@@ -4,7 +4,8 @@ import fs from 'fs-extra';
 import { execSync } from 'child_process';
 
 import pieIcons from '@justeattakeaway/pie-icons';
-import { normalizeIconName } from '@justeattakeaway/pie-icons-configs';
+// TODO: No idea why the following line causes an ESLint unresolved error - have disabled for now
+import { normalizeIconName } from '@justeattakeaway/pie-icons-configs'; // eslint-disable-line import/no-unresolved
 
 const componentTemplate = (name, svg) => {
     const isLargeIcon = name.endsWith('Large');
