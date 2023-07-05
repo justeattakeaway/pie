@@ -40,6 +40,16 @@
     --btn-bg-color: var(--dt-color-interactive-brand);
     --btn-text-color: var(--dt-color-content-interactive-primary);
 
+    // Spinner default colors
+    // current set for the primary button styles
+    --spinner-base-color-h: var(--dt-color-content-interactive-primary-h);
+    --spinner-base-color-s: var(--dt-color-content-interactive-primary-s);
+    --spinner-base-color-l: var(--dt-color-content-interactive-primary-l);
+
+    --spinner-left-color-opacity: 0.35;
+    --spinner-left-color: hsl(var(--spinner-base-color-h), var(--spinner-base-color-s), var(--spinner-base-color-l), var(--spinner-left-color-opacity));
+    --spinner-right-color: hsl(var(--spinner-base-color-h), var(--spinner-base-color-s), var(--spinner-base-color-l), 1);
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -119,12 +129,20 @@
         --btn-bg-color: var(--dt-color-interactive-secondary);
         --btn-text-color: var(--dt-color-content-interactive-secondary);
 
+        --spinner-base-color-h: var(--dt-color-content-interactive-secondary-h);
+        --spinner-base-color-s: var(--dt-color-content-interactive-secondary-s);
+        --spinner-base-color-l: var(--dt-color-content-interactive-secondary-l);
+
         @include button-interactive-states('--dt-color-interactive-secondary');
     }
 
     &[variant='outline'] {
         --btn-bg-color: var(--dt-color-container-default);
         --btn-text-color: var(--dt-color-content-interactive-secondary);
+
+        --spinner-base-color-h: var(--dt-color-content-interactive-secondary-h);
+        --spinner-base-color-s: var(--dt-color-content-interactive-secondary-s);
+        --spinner-base-color-l: var(--dt-color-content-interactive-secondary-l);
 
         border: 1px solid var(--dt-color-border-strong);
 
@@ -135,6 +153,10 @@
         --btn-bg-color: transparent;
         --btn-text-color: var(--dt-color-content-link);
 
+        --spinner-base-color-h: var(--dt-color-content-interactive-secondary-h);
+        --spinner-base-color-s: var(--dt-color-content-interactive-secondary-s);
+        --spinner-base-color-l: var(--dt-color-content-interactive-secondary-l);
+
         @include button-interactive-states('--dt-color-container-default');
     }
 
@@ -142,12 +164,20 @@
         --btn-bg-color: var(--dt-color-interactive-inverse);
         --btn-text-color: var(--dt-color-content-interactive-secondary);
 
+        --spinner-base-color-h: var(--dt-color-content-interactive-secondary-h);
+        --spinner-base-color-s: var(--dt-color-content-interactive-secondary-s);
+        --spinner-base-color-l: var(--dt-color-content-interactive-secondary-l);
+
         @include button-interactive-states('--dt-color-interactive-inverse');
     }
 
     &[variant='ghost-inverse'] {
         --btn-bg-color: transparent;
         --btn-text-color: var(--dt-color-content-interactive-primary);
+
+        --spinner-base-color-h: var(--dt-color-content-interactive-primary-h);
+        --spinner-base-color-s: var(--dt-color-content-interactive-primary-s);
+        --spinner-base-color-l: var(--dt-color-content-interactive-primary-l);
 
         @include button-interactive-states('--dt-color-container-inverse');
     }
@@ -212,4 +242,19 @@
         --btn-min-inline-size: 97px;
         --btn-min-block-size: 56px;
     }
+}
+
+.o-btn-spinner {
+    height: 24px;
+    width: 24px;
+    background-color: transparent;
+    border-radius: 50%;
+    border-top-color: var(--spinner-left-color);
+    border-left-color: var(--spinner-left-color);
+    border-right-color: var(--spinner-right-color);
+    border-bottom-color: var(--spinner-right-color);
+    border-width: 4px;
+    border-style: solid;
+    // rotate the span so the borders that connect are vertical
+    transform: rotate(135deg);
 }
