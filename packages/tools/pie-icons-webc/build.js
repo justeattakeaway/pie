@@ -4,6 +4,8 @@ import path from 'path';
 import fs from 'fs-extra';
 import kebabCase from 'kebab-case';
 
+import { normalizeIconName } from '@justeattakeaway/pie-icons-configs';
+
 const { icons } = pieIcons.default;
 
 const componentTemplate = (name, svg) => {
@@ -81,8 +83,6 @@ async function checkDirExists (directoryPath) {
     }
 }
 
-const handleComponentName = (name) => name.replace(/\-(\d+)/, '$1'); // eslint-disable-line no-useless-escape
-
 async function build () {
     // check if /icons directory exists, if not create it
     await checkDirExists(ICONS_DIR);
@@ -93,7 +93,7 @@ async function build () {
     Object.keys(icons).forEach((iconKey) => {
         const { pathPrefix } = icons[iconKey];
         const capitalisedPathPrefix = (pathPrefix !== undefined ? (pathPrefix).substring(1, 2).toUpperCase() + (pathPrefix).substring(2) : '');
-        const pascalCasedName = pascalCase(handleComponentName(iconKey));
+        const pascalCasedName = pascalCase(normalizeIconName(iconKey));
 
         const componentName = `Icon${capitalisedPathPrefix + pascalCasedName}`;
 
