@@ -71,7 +71,7 @@ test.describe('`Pie Modal is closed`', () => {
             );
 
             // Act
-            await page.locator('[data-test-id="c-modal-closeBtn"]').click();
+            await page.locator('[data-test-id="modal-close-button"]').click();
 
             // Assert
             expect(messages).toHaveLength(1);
@@ -118,7 +118,7 @@ test.describe('Pie Modal `isDismissible`', () => {
             );
 
             // Act & Assert
-            await expect(component.locator('[data-test-id="c-modal-closeBtn"]')).toBeVisible();
+            await expect(component.locator('[data-test-id="modal-close-button"]')).toBeVisible();
         });
 
         test('should close the modal when the close button is clicked', async ({ mount }) => {
@@ -134,7 +134,7 @@ test.describe('Pie Modal `isDismissible`', () => {
             );
 
             // Act
-            await component.locator('[data-test-id="c-modal-closeBtn"]').click();
+            await component.locator('[data-test-id="modal-close-button"]').click();
 
             // Assert
             await expect(component).not.toBeVisible();
@@ -202,7 +202,7 @@ test.describe('Pie Modal `isDismissible`', () => {
             );
 
             // Act & Assert
-            await expect(component.locator('[data-test-id="c-modal-closeBtn"]')).not.toBeVisible();
+            await expect(component.locator('[data-test-id="modal-close-button"]')).not.toBeVisible();
         });
 
         test('should NOT close the modal when the backdrop is clicked', async ({ mount, page }) => {
