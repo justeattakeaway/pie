@@ -27,19 +27,19 @@ export class PieModal extends RtlMixin(LitElement) {
     public isDismissible = false;
 
     @property({ type: Boolean })
-        isOpen = false;
+    public isOpen = false;
 
     @property({ type: String })
     @requiredProperty(componentSelector)
-        heading!: string;
+    public heading!: string;
 
     @property()
     @validPropertyValues(componentSelector, headingLevels, 'h2')
-        headingLevel: ModalProps['headingLevel'] = 'h2';
+    public headingLevel: ModalProps['headingLevel'] = 'h2';
 
     @property()
     @validPropertyValues(componentSelector, sizes, 'medium')
-        size: ModalProps['size'] = 'medium';
+    public size: ModalProps['size'] = 'medium';
 
     @query('dialog')
         _dialog?: HTMLDialogElement;

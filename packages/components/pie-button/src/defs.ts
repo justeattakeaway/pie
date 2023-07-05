@@ -1,6 +1,6 @@
 export const sizes = ['xsmall', 'small-productive', 'small-expressive', 'medium', 'large'] as const;
 export const types = ['submit', 'button', 'reset', 'menu'] as const;
-export const variants = ['primary', 'secondary', 'outline', 'ghost'] as const;
+export const variants = ['primary', 'secondary', 'outline', 'ghost', 'inverse', 'ghost-inverse'] as const;
 
 export interface ButtonProps {
     /**
