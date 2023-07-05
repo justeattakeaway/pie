@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.3.0
+
+### Minor Changes
+
+- [Removed] - helpers moved to pie-icons-configs ([#594](https://github.com/justeattakeaway/pie/pull/594)) by [@ashleynolan](https://github.com/ashleynolan)
+
 ## 4.2.0
 
 ### Minor Changes

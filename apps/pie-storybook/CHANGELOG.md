@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.16.0
+
+### Minor Changes
+
+- [Added] - inverse and ghost-inverse variants to pie-button ([#596](https://github.com/justeattakeaway/pie/pull/596)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies [[`478bc993e`](https://github.com/justeattakeaway/pie/commit/478bc993ea46bb2894968352d1a6404b07b67de5), [`e80d4f39a`](https://github.com/justeattakeaway/pie/commit/e80d4f39ad466b4c247781e9cca699f557ffb27a), [`478bc993e`](https://github.com/justeattakeaway/pie/commit/478bc993ea46bb2894968352d1a6404b07b67de5)]:
+  - @justeattakeaway/pie-modal@0.9.0
+  - @justeattakeaway/pie-button@0.18.0
+  - @justeattakeaway/pie-icon-button@0.8.0
+
 ## 0.15.0
 
 ### Minor Changes
