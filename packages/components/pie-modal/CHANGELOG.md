@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-modal
 
+## 0.9.0
+
+### Minor Changes
+
+- [Changed] - Set modal props to public ([#597](https://github.com/justeattakeaway/pie/pull/597)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.8.0
 
 ### Minor Changes
