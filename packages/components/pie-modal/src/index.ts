@@ -211,9 +211,9 @@ export class PieModal extends RtlMixin(LitElement) {
      * Template for the close button element. Called within the
      * main render function.
      *
-     * @protected
+     * @private
      */
-    protected renderCloseButton (): TemplateResult {
+    private renderCloseButton (): TemplateResult {
         return html`
             <pie-icon-button
                 @click="${this._triggerCloseModal}"
