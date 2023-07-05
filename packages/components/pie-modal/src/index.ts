@@ -1,4 +1,6 @@
-import { LitElement, unsafeCSS } from 'lit';
+import {
+    LitElement, nothing, TemplateResult, unsafeCSS,
+} from 'lit';
 import { html, unsafeStatic } from 'lit/static-html.js';
 import { property, query } from 'lit/decorators.js';
 import {
@@ -21,6 +23,9 @@ export { type ModalProps, headingLevels, sizes };
 const componentSelector = 'pie-modal';
 
 export class PieModal extends RtlMixin(LitElement) {
+    @property({ type: Boolean, reflect: true })
+    public isDismissible = false;
+
     @property({ type: Boolean })
     public isOpen = false;
 
@@ -44,7 +49,20 @@ export class PieModal extends RtlMixin(LitElement) {
         this.addEventListener('click', (event) => this._handleDialogLightDismiss(event));
     }
 
+    connectedCallback () : void {
+        super.connectedCallback();
+        document.addEventListener(ON_MODAL_OPEN_EVENT, this._handleModalOpened.bind(this));
+        document.addEventListener(ON_MODAL_CLOSE_EVENT, this._handleModalClosed.bind(this));
+    }
+
+    disconnectedCallback () : void {
+        document.removeEventListener(ON_MODAL_OPEN_EVENT, this._handleModalOpened.bind(this));
+        document.removeEventListener(ON_MODAL_CLOSE_EVENT, this._handleModalClosed.bind(this));
+        super.disconnectedCallback();
+    }
+
     firstUpdated (changedProperties: DependentMap<ModalProps>) : void {
+        this._dialog?.addEventListener('cancel', (event) => this._handleDialogCancelEvent(event));
         this._handleModalOpenStateOnFirstRender(changedProperties);
     }
 
@@ -80,17 +98,17 @@ export class PieModal extends RtlMixin(LitElement) {
         this.isOpen = false;
     };
 
-    connectedCallback () : void {
-        super.connectedCallback();
-        document.addEventListener(ON_MODAL_OPEN_EVENT, this._handleModalOpened.bind(this));
-        document.addEventListener(ON_MODAL_CLOSE_EVENT, this._handleModalClosed.bind(this));
-    }
-
-    disconnectedCallback () : void {
-        document.removeEventListener(ON_MODAL_OPEN_EVENT, this._handleModalOpened.bind(this));
-        document.removeEventListener(ON_MODAL_CLOSE_EVENT, this._handleModalClosed.bind(this));
-        super.disconnectedCallback();
-    }
+    /**
+     * Prevents the user from dismissing the dialog via the `cancel`
+     * event (ESC key) when `isDismissible` is set to false.
+     *
+     * @param {Event} event - The event object.
+     */
+    private _handleDialogCancelEvent = (event: Event) : void => {
+        if (!this.isDismissible) {
+            event.preventDefault();
+        }
+    };
 
     // Handles the value of the isOpen property on first render of the component
     private _handleModalOpenStateOnFirstRender (changedProperties: DependentMap<ModalProps>) : void {
@@ -98,7 +116,7 @@ export class PieModal extends RtlMixin(LitElement) {
         const previousValue = changedProperties.get('isOpen');
 
         if (previousValue === undefined && this.isOpen) {
-            this._dispatchModalOpenEvent();
+            this._dispatchModalCustomEvent(ON_MODAL_OPEN_EVENT);
         }
     }
 
@@ -108,9 +126,9 @@ export class PieModal extends RtlMixin(LitElement) {
 
         if (previousValue !== undefined) {
             if (previousValue) {
-                this._dispatchModalCloseEvent();
+                this._dispatchModalCustomEvent(ON_MODAL_CLOSE_EVENT);
             } else {
-                this._dispatchModalOpenEvent();
+                this._dispatchModalCustomEvent(ON_MODAL_OPEN_EVENT);
             }
         }
     }
@@ -127,14 +145,11 @@ export class PieModal extends RtlMixin(LitElement) {
         return html`
             <dialog
                 id="dialog"
-                size="${size}"
-                class="c-modal">
+                class="c-modal"
+                size="${size}">
                 <header>
                     <${headingTag} class="c-modal-heading">${heading}</${headingTag}>
-                    <pie-icon-button
-                        @click="${this._triggerCloseModal}"
-                        variant="ghost-secondary"
-                        class="c-modal-closeBtn"></pie-icon-button>
+                     ${this.isDismissible ? this.renderCloseButton() : nothing}
                 </header>
                 <article class="c-modal-content">
                     <slot></slot>
@@ -144,10 +159,14 @@ export class PieModal extends RtlMixin(LitElement) {
     }
 
     /**
-     * Dismisses the modal on backdrop click
+     * Dismisses the modal on backdrop click. (dependent on prop: `isDismissible`)
      *
      */
     private _handleDialogLightDismiss = (event: MouseEvent) : void => {
+        if (!this.isDismissible) {
+            return;
+        }
+
         const rect = this._dialog?.getBoundingClientRect();
 
         const {
@@ -161,9 +180,9 @@ export class PieModal extends RtlMixin(LitElement) {
         }
 
         const isClickOutsideDialog = event.clientY < top ||
-            event.clientY > bottom ||
-            event.clientX < left ||
-            event.clientX > right;
+                event.clientY > bottom ||
+                event.clientX < left ||
+                event.clientX > right;
 
         if (isClickOutsideDialog) {
             this.isOpen = false;
@@ -171,13 +190,18 @@ export class PieModal extends RtlMixin(LitElement) {
     };
 
     /**
-     * Dispatch `ON_MODAL_CLOSE_EVENT` event.
-     * To be used whenever we close the modal.
+     * Note: We should aim to have a shareable event helper system to allow
+     * us to share this across components in-future.
      *
-     * @event
+     * Dispatch a custom event.
+     *
+     * To be used whenever we have behavioural events we want to
+     * bubble up through the modal.
+     *
+     * @param {string} eventType
      */
-    private _dispatchModalCloseEvent = () : void => {
-        const event = new CustomEvent(ON_MODAL_CLOSE_EVENT, {
+    private _dispatchModalCustomEvent = (eventType: string) : void => {
+        const event = new CustomEvent(eventType, {
             bubbles: true,
             composed: true,
         });
@@ -186,19 +210,20 @@ export class PieModal extends RtlMixin(LitElement) {
     };
 
     /**
-     * Dispatch `ON_MODAL_OPEN_EVENT` event.
-     * To be used whenever we open the modal.
+     * Template for the close button element. Called within the
+     * main render function.
      *
-     * @event
+     * @private
      */
-    private _dispatchModalOpenEvent = () : void => {
-        const event = new CustomEvent(ON_MODAL_OPEN_EVENT, {
-            bubbles: true,
-            composed: true,
-        });
-
-        this.dispatchEvent(event);
-    };
+    private renderCloseButton (): TemplateResult {
+        return html`
+            <pie-icon-button
+                @click="${this._triggerCloseModal}"
+                variant="ghost-secondary"
+                class="c-modal-closeBtn"
+                data-test-id="modal-close-button"></pie-icon-button>
+        `;
+    }
 
     // Renders a `CSSResult` generated from SCSS by Vite
     static styles = unsafeCSS(styles);
