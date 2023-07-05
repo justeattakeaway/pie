@@ -196,7 +196,7 @@ export class PieModal extends RtlMixin(LitElement) {
      * To be used whenever we have behavioural events we want to
      * bubble up through the modal.
      *
-     * @eventType
+     * @param {string} eventType
      */
     private _dispatchModalCustomEvent = (eventType: string) : void => {
         const event = new CustomEvent(eventType, {
