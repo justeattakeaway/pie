@@ -46,7 +46,7 @@ export class PieButton extends LitElement implements ButtonProps {
 
     render () {
         const {
-            type, disabled, isFullWidth, variant, size, isLoading: loading,
+            type, disabled, isFullWidth, variant, size, isLoading,
         } = this;
 
         return html`
@@ -56,9 +56,8 @@ export class PieButton extends LitElement implements ButtonProps {
                 variant=${variant}
                 size=${size}
                 ?disabled=${disabled}
-                ?loading=${loading}
                 ?isFullWidth=${isFullWidth}>
-                ${loading ? this.renderLoadingSpinner() : html`<slot></slot>`}
+                ${isLoading ? this.renderLoadingSpinner() : html`<slot></slot>`}
             </button>`;
     }
 
