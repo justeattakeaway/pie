@@ -37,7 +37,7 @@ export class PieModal extends RtlMixin(LitElement) {
     public size: ModalProps['size'] = 'medium';
 
     @property({ type: Boolean })
-        isFullWidthBelowMid = false;
+    public isFullWidthBelowMid = false;
 
     @query('dialog')
         _dialog?: HTMLDialogElement;
