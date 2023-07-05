@@ -12,6 +12,7 @@ import {
     largeIconSizeDefault,
     validateGetRegularIconSize,
     getSvgProps,
+    normalizeIconName,
 } from '../configs';
 
 const defaultRegularIconSize = sizeToValueMap[regularIconSizeDefault];
@@ -241,5 +242,48 @@ describe('getSvgProps', () => {
                 expect(spy).not.toHaveBeenCalled();
             });
         });
+    });
+});
+
+describe('normalizeIconName', () => {
+    it.each([
+        ['component-123', 'component123'],
+        ['-123', '123']
+    ])('should remove a hyphen before digits - case = "%s"', (testString, expected) => {
+        // Act
+        const result = normalizeIconName(testString);
+
+        // Assert
+        expect(result).toBe(expected);
+    });
+
+    it.each([
+        ['component-1-2-3', 'component1-2-3'],
+        ['component-123-extra', 'component123-extra'],
+        ['component-extra-1-2-3', 'component-extra1-2-3']
+    ])('should only remove the first hyphen before digits - case = "%s"', (testString, expected) => {
+        // Act
+        const result = normalizeIconName(testString);
+
+        // Assert
+        expect(result).toBe(expected);
+    });
+
+    it.each([
+        '',
+        '7',
+        'test-',
+        'test123',
+        'component-name'
+    ])('should do nothing if there are no hyphens before digits - case = "%s"', (testString) => {
+        // Arrange
+        let result;
+
+        // Act & Assert
+        expect(() => {
+            result = normalizeIconName(testString);
+        }).not.toThrowError();
+
+        expect(result).toBe(testString);
     });
 });
