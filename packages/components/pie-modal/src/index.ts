@@ -163,27 +163,27 @@ export class PieModal extends RtlMixin(LitElement) {
      *
      */
     private _handleDialogLightDismiss = (event: MouseEvent) : void => {
-        if (this.isDismissible) {
-            const rect = this._dialog?.getBoundingClientRect();
+        if (this.isDismissible) return;
 
-            const {
-                top = 0, bottom = 0, left = 0, right = 0,
-            } = rect || {};
+        const rect = this._dialog?.getBoundingClientRect();
 
-            // This means the dialog is not open due to clicking the close button so
-            // we want to escape early
-            if (top === 0 && bottom === 0 && left === 0 && right === 0) {
-                return;
-            }
+        const {
+            top = 0, bottom = 0, left = 0, right = 0,
+        } = rect || {};
 
-            const isClickOutsideDialog = event.clientY < top ||
+        // This means the dialog is not open due to clicking the close button so
+        // we want to escape early
+        if (top === 0 && bottom === 0 && left === 0 && right === 0) {
+            return;
+        }
+
+        const isClickOutsideDialog = event.clientY < top ||
                 event.clientY > bottom ||
                 event.clientX < left ||
                 event.clientX > right;
 
-            if (isClickOutsideDialog) {
-                this.isOpen = false;
-            }
+        if (isClickOutsideDialog) {
+            this.isOpen = false;
         }
     };
 
