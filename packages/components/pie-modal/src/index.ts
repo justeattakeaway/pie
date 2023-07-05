@@ -163,7 +163,7 @@ export class PieModal extends RtlMixin(LitElement) {
      *
      */
     private _handleDialogLightDismiss = (event: MouseEvent) : void => {
-        if (this.isDismissible) {
+        if (!this.isDismissible) {
             return;
         }
 
