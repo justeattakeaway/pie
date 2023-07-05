@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { buttonVariants } from '@justeattakeaway/pie-button';
+import { variants } from '@justeattakeaway/pie-button';
 import { PieButton } from '@justeattakeaway/pie-button/dist/react';
 
 export default function VariantSwitch () {
@@ -8,7 +8,7 @@ export default function VariantSwitch () {
 
     const switchVariant = () => {
         variantIndex.current += 1;
-        const variant = buttonVariants[variantIndex.current % buttonVariants.length];
+        const variant = variants[variantIndex.current % variants.length];
 
         setVariantName(variant);
     };
