@@ -129,7 +129,7 @@ test.describe('`Pie Modal is closed`', () => {
     test('should return focus to first matching element', async ({ page, mount }) => {
         // Arrange
         const component = renderTestPieModal({
-            returnFocusAfterCloseSelector: '#focus-me',
+            returnFocusAfterCloseSelector: '[data-test-id="focus-me"]',
         });
 
         await mount(WebComponentTestWrapper, {
@@ -140,8 +140,8 @@ test.describe('`Pie Modal is closed`', () => {
                 component,
                 pageMarkup: `<div>
                     <button id="default"></button>
-                    <button id="focus-me" data-test-id="actual-focus"></button>
-                    <button id="focus-me"></button>
+                    <button data-test-id="focus-me" id="actual-focus"></button>
+                    <button data-test-id="focus-me"></button>
                 </div>`,
             },
         });
@@ -150,9 +150,9 @@ test.describe('`Pie Modal is closed`', () => {
         await page.locator(closeButtonSelector).click();
 
         const focusedElement = await page.locator(':focus');
-        const focusedElementDataTestId = await focusedElement.getAttribute('data-test-id');
+        const focusedElementId = await focusedElement.getAttribute('id');
 
         // Assert
-        expect(focusedElementDataTestId).toBe('actual-focus');
+        expect(focusedElementId).toBe('actual-focus');
     });
 });
