@@ -31,6 +31,7 @@
     "lint:config": "eslint --fix turbo.json",
     "lint:scripts": "cross-env-shell turbo run lint:scripts --filter=!pie-monorepo --token=${TURBO_TOKEN}",
     "lint:scripts:fix": "turbo run lint:scripts:fix --filter=!pie-monorepo",
+    "lint:examples": "cross-env-shell turbo run lint:examples --filter=!pie-monorepo --token=${TURBO_TOKEN}",
     "lint:style": "cross-env-shell turbo run lint:style --continue --filter=!pie-monorepo --token=${TURBO_TOKEN}",
     "postinstall": "husky install",
     "prepack": "pinst --disable",
