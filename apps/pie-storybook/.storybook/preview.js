@@ -17,31 +17,44 @@ export default {
         },
     },
     parameters: {
-      a11y: {
-        config: {
-          rules: [
-            {
-              id: 'WCAG Rules',
-              tags: [
-                  'wcag21a',
-                  'wcag21aa',
-                  'wcag143',
-                  'cat.color',
-                  'cat.aria'
-              ]
+        a11y: {
+            config: {
+                rules: [
+                    {
+                        id: 'WCAG Rules',
+                        tags: [
+                            'wcag21a',
+                            'wcag21aa',
+                            'wcag143',
+                            'cat.color',
+                            'cat.aria'
+                        ]
+                    },
+                    {
+                        // Disabled rule
+                        id: 'color-contrast-enhanced',
+                        enabled: false,
+                    },
+                    {
+                        // Disabled rule
+                        id: 'color-contrast',
+                        enabled: false,
+                    },
+                ],
             },
-            {
-              // Disabled rule
-              id: 'color-contrast-enhanced',
-              enabled: false,
-            },
-            {
-              // Disabled rule
-              id: 'color-contrast',
-              enabled: false,
-            },
-          ],
         },
-      },
+        backgrounds: {
+            default: 'light',
+            values: [
+                {
+                    name: 'light',
+                    value: '#ffffff',
+                },
+                {
+                    name: 'dark',
+                    value: '#262626',
+                },
+            ]
+        }
     }
 };
