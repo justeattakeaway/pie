@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.18.0
+
+### Minor Changes
+
+- [Added] - inverse and ghost-inverse variants to pie-button ([#596](https://github.com/justeattakeaway/pie/pull/596)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Changed] - Set all component props to public ([#597](https://github.com/justeattakeaway/pie/pull/597)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.17.0
 
 ### Minor Changes
