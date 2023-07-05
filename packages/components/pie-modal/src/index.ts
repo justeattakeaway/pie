@@ -105,7 +105,9 @@ export class PieModal extends RtlMixin(LitElement) {
      * @param event
      */
     private _handleDialogCancelEvent = (event: Event) : void => {
-        if (!this.isDismissible) event.preventDefault();
+        if (!this.isDismissible) {
+            event.preventDefault();
+        }
     };
 
     // Handles the value of the isOpen property on first render of the component
