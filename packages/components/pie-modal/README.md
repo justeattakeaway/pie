@@ -63,6 +63,7 @@ import { PieModal } from '@justeattakeaway/pie-modal/dist/react';
 | heading*      | `String`  | -       | Sets the heading of the modal                         |
 | headingLevel  | `String`  | `h2`    | Allows you to set the heading tag (from `h1` to `h6`) |
 | isDismissible | `Boolean` | `false` | Controls if the modal element is dismissible or not.  |
+| isFullWidthBelowMid   | `Boolean`  | `false`    | Controls if width is set to full (when size = medium) |
 
 In your markup or JSX, you can then use these to set the properties for the `pie-modal` component:
 

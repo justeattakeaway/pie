@@ -41,6 +41,9 @@ export class PieModal extends RtlMixin(LitElement) {
     @validPropertyValues(componentSelector, sizes, 'medium')
     public size: ModalProps['size'] = 'medium';
 
+    @property({ type: Boolean })
+    public isFullWidthBelowMid = false;
+
     @query('dialog')
         _dialog?: HTMLDialogElement;
 
@@ -138,6 +141,7 @@ export class PieModal extends RtlMixin(LitElement) {
             heading,
             headingLevel = 'h2',
             size,
+            isFullWidthBelowMid,
         } = this;
 
         const headingTag = unsafeStatic(headingLevel);
@@ -146,7 +150,8 @@ export class PieModal extends RtlMixin(LitElement) {
             <dialog
                 id="dialog"
                 class="c-modal"
-                size="${size}">
+                size="${size}"
+                ?isFullWidthBelowMid=${isFullWidthBelowMid}>
                 <header>
                     <${headingTag} class="c-modal-heading">${heading}</${headingTag}>
                      ${this.isDismissible ? this.renderCloseButton() : nothing}

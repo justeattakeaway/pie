@@ -164,6 +164,7 @@
                             "type": {
                                 "text": "boolean"
                             },
+                            "privacy": "public",
                             "default": "false"
                         },
                         {
@@ -171,7 +172,8 @@
                             "name": "heading",
                             "type": {
                                 "text": "string"
-                            }
+                            },
+                            "privacy": "public"
                         },
                         {
                             "kind": "field",
@@ -179,6 +181,7 @@
                             "type": {
                                 "text": "ModalProps['headingLevel']"
                             },
+                            "privacy": "public",
                             "default": "'h2'"
                         },
                         {
@@ -187,7 +190,17 @@
                             "type": {
                                 "text": "ModalProps['size']"
                             },
+                            "privacy": "public",
                             "default": "'medium'"
+                        },
+                        {
+                            "kind": "field",
+                            "name": "isFullWidthBelowMid",
+                            "type": {
+                                "text": "boolean"
+                            },
+                            "privacy": "public",
+                            "default": "false"
                         },
                         {
                             "kind": "field",
@@ -367,7 +380,7 @@
                             "type": {
                                 "text": "boolean"
                             },
-                            "description": "Returns true if the element is in Right to Left mode.\nIf a dir attribute is not explicitly set on the web component\nthen it falls back to the nearest parent with a dir attribute set.\n\nA dir attribute being set will result in a reactive property.\nIf the component falls back to a parent dir attribute then the value\nwill not be reactive and is only computed once",
+                            "description": "Returns true if the element is in Right to Left mode.\r\nIf a dir attribute is not explicitly set on the web component\r\nthen it falls back to the nearest parent with a dir attribute set.\r\n\r\nA dir attribute being set will result in a reactive property.\r\nIf the component falls back to a parent dir attribute then the value\r\nwill not be reactive and is only computed once",
                             "readonly": true,
                             "inheritedFrom": {
                                 "name": "RtlMixin",
@@ -463,6 +476,7 @@
                             "type": {
                                 "text": "ButtonProps['size']"
                             },
+                            "privacy": "public",
                             "default": "'medium'"
                         },
                         {
@@ -471,6 +485,7 @@
                             "type": {
                                 "text": "ButtonProps['type']"
                             },
+                            "privacy": "public",
                             "default": "'submit'"
                         },
                         {
@@ -479,6 +494,7 @@
                             "type": {
                                 "text": "ButtonProps['variant']"
                             },
+                            "privacy": "public",
                             "default": "'primary'"
                         },
                         {
@@ -487,6 +503,7 @@
                             "type": {
                                 "text": "boolean"
                             },
+                            "privacy": "public",
                             "default": "false"
                         },
                         {
@@ -495,6 +512,7 @@
                             "type": {
                                 "text": "boolean"
                             },
+                            "privacy": "public",
                             "default": "false"
                         },
                         {
@@ -668,6 +686,7 @@
                             "type": {
                                 "text": "IconButtonProps['size']"
                             },
+                            "privacy": "public",
                             "default": "'medium'"
                         },
                         {
@@ -676,6 +695,7 @@
                             "type": {
                                 "text": "IconButtonProps['variant']"
                             },
+                            "privacy": "public",
                             "default": "'primary'"
                         },
                         {
@@ -684,6 +704,7 @@
                             "type": {
                                 "text": "boolean"
                             },
+                            "privacy": "public",
                             "default": "false"
                         },
                         {
@@ -839,7 +860,7 @@
                             "type": {
                                 "text": "boolean"
                             },
-                            "description": "Returns true if the element is in Right to Left mode.\nIf a dir attribute is not explicitly set on the web component\nthen it falls back to the nearest parent with a dir attribute set.\n\nA dir attribute being set will result in a reactive property.\nIf the component falls back to a parent dir attribute then the value\nwill not be reactive and is only computed once",
+                            "description": "Returns true if the element is in Right to Left mode.\r\nIf a dir attribute is not explicitly set on the web component\r\nthen it falls back to the nearest parent with a dir attribute set.\r\n\r\nA dir attribute being set will result in a reactive property.\r\nIf the component falls back to a parent dir attribute then the value\r\nwill not be reactive and is only computed once",
                             "readonly": true
                         }
                     ],
