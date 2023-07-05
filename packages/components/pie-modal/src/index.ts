@@ -102,7 +102,7 @@ export class PieModal extends RtlMixin(LitElement) {
      * Prevents the user from dismissing the dialog via the `cancel`
      * event (ESC key) when `isDismissible` is set to false.
      *
-     * @param event
+     * @param {Event} event - The event object.
      */
     private _handleDialogCancelEvent = (event: Event) : void => {
         if (!this.isDismissible) {
