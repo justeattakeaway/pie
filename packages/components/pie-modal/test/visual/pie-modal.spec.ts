@@ -112,7 +112,7 @@ test('Should not render with full width when size is NOT medium and isFullWidthB
             heading: 'This is a modal heading',
             headingLevel: 'h2',
             isOpen: true,
-            size: 'large',
+            size: 'small',
             isFullWidthBelowMid: true,
         },
     });
@@ -126,7 +126,7 @@ test('Should not render with full width when isFullWidthBelowMid = false', async
             heading: 'This is a modal heading',
             headingLevel: 'h2',
             isOpen: true,
-            size: 'large',
+            size: 'small',
             isFullWidthBelowMid: true,
         },
     });
