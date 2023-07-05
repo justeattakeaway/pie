@@ -117,7 +117,7 @@ test('Should not render with full width when size is NOT medium and isFullWidthB
         },
     });
 
-    await percySnapshot(page, 'Modal - size = large & isFullWidthBelowMid = true');
+    await percySnapshot(page, 'Modal - size = small & isFullWidthBelowMid = true');
 });
 
 test('Should not render with full width when isFullWidthBelowMid = false', async ({ page, mount }) => {
