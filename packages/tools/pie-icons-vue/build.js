@@ -1,8 +1,11 @@
-const path = require('path');
-const pieIcons = require('@justeattakeaway/pie-icons').default;
-const { pascalCase } = require('pascal-case');
-const fs = require('fs-extra');
-const { execSync } = require('child_process');
+import path from 'path';
+import { pascalCase } from 'pascal-case';
+import fs from 'fs-extra';
+import { execSync } from 'child_process';
+
+import pieIcons from '@justeattakeaway/pie-icons';
+// TODO: No idea why the following line causes an ESLint unresolved error - have disabled for now
+import { normalizeIconName } from '@justeattakeaway/pie-icons-configs'; // eslint-disable-line import/no-unresolved
 
 const componentTemplate = (name, svg) => {
     const isLargeIcon = name.endsWith('Large');
@@ -32,7 +35,7 @@ export default {
 `;
 };
 
-const { icons } = pieIcons;
+const { icons } = pieIcons.default;
 
 const ICONS_DIR = `${process.cwd()}/generated`;
 const COMPONENTS_DIR = `${ICONS_DIR}/components`;
@@ -47,8 +50,6 @@ async function checkDirExists (directoryPath) {
         console.error(err);
     }
 }
-
-const handleComponentName = (name) => name.replace(/\-(\d+)/, '$1'); // eslint-disable-line no-useless-escape
 
 function copyIconsConfigFiles () {
     const srcFilePaths = [
@@ -75,10 +76,10 @@ async function build () {
     Object.keys(icons).forEach((iconKey) => {
         const { pathPrefix } = icons[iconKey];
         const capitalisedPathPrefix = (pathPrefix !== undefined ? (pathPrefix).substring(1, 2).toUpperCase() + (pathPrefix).substring(2) : '');
-        const pascalCasedName = pascalCase(handleComponentName(iconKey));
+        const pascalCasedName = pascalCase(normalizeIconName(iconKey));
         const componentName = `Icon${capitalisedPathPrefix + pascalCasedName}`;
 
-        const svg = pieIcons.icons[iconKey].toSvg();
+        const svg = pieIcons.default.icons[iconKey].toSvg();
         let component = componentTemplate(componentName, svg);
         component = component.replace(/xlink:href/g, 'xlinkHref'); // replace so it gets parsed by JSX correctly
 

@@ -4910,6 +4910,7 @@ __metadata:
   resolution: "@justeattakeaway/pie-icons-vue@workspace:packages/tools/pie-icons-vue"
   dependencies:
     "@justeattakeaway/pie-icons": 4.2.0
+    "@justeattakeaway/pie-icons-configs": "workspace:*"
     "@vue/babel-helper-vue-jsx-merge-props": 1.4.0
     "@vue/babel-preset-jsx": 1.4.0
     "@vue/test-utils": 1.1.3
@@ -4947,7 +4948,6 @@ __metadata:
   dependencies:
     cheerio: 1.0.0-rc.12
     classnames: 2.3.2
-    copyfiles: 2.4.1
     html-minifier-terser: 7.2.0
     lint-staged: 12.5.0
     nodemon: 2.0.22
@@ -14584,24 +14584,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"copyfiles@npm:2.4.1":
-  version: 2.4.1
-  resolution: "copyfiles@npm:2.4.1"
-  dependencies:
-    glob: ^7.0.5
-    minimatch: ^3.0.3
-    mkdirp: ^1.0.4
-    noms: 0.0.0
-    through2: ^2.0.1
-    untildify: ^4.0.0
-    yargs: ^16.1.0
-  bin:
-    copyfiles: copyfiles
-    copyup: copyfiles
-  checksum: aea69873bb99cc5f553967660cbfb70e4eeda198f572a36fb0f748b36877ff2c90fd906c58b1d540adbad8afa8ee82820172f1c18e69736f7ab52792c12745a7
-  languageName: node
-  linkType: hard
-
 "core-js-compat@npm:^3.12.1, core-js-compat@npm:^3.25.1, core-js-compat@npm:^3.30.1, core-js-compat@npm:^3.30.2":
   version: 3.31.0
   resolution: "core-js-compat@npm:3.31.0"
@@ -19407,7 +19389,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"glob@npm:7.2.3, glob@npm:^7.0.0, glob@npm:^7.0.5, glob@npm:^7.1.1, glob@npm:^7.1.2, glob@npm:^7.1.3, glob@npm:^7.1.4, glob@npm:^7.1.6, glob@npm:^7.1.7, glob@npm:^7.2.0":
+"glob@npm:7.2.3, glob@npm:^7.0.0, glob@npm:^7.1.1, glob@npm:^7.1.2, glob@npm:^7.1.3, glob@npm:^7.1.4, glob@npm:^7.1.6, glob@npm:^7.1.7, glob@npm:^7.2.0":
   version: 7.2.3
   resolution: "glob@npm:7.2.3"
   dependencies:
@@ -21720,13 +21702,6 @@ __metadata:
   dependencies:
     is-docker: ^2.0.0
   checksum: 20849846ae414997d290b75e16868e5261e86ff5047f104027026fd61d8b5a9b0b3ade16239f35e1a067b3c7cc02f70183cb661010ed16f4b6c7c93dad1b19d8
-  languageName: node
-  linkType: hard
-
-"isarray@npm:0.0.1":
-  version: 0.0.1
-  resolution: "isarray@npm:0.0.1"
-  checksum: 49191f1425681df4a18c2f0f93db3adb85573bcdd6a4482539d98eac9e705d8961317b01175627e860516a2fc45f8f9302db26e5a380a97a520e272e2a40a8d4
   languageName: node
   linkType: hard
 
@@ -25117,7 +25092,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"minimatch@npm:3.1.2, minimatch@npm:^3.0.0, minimatch@npm:^3.0.2, minimatch@npm:^3.0.3, minimatch@npm:^3.0.4, minimatch@npm:^3.0.5, minimatch@npm:^3.1.1, minimatch@npm:^3.1.2":
+"minimatch@npm:3.1.2, minimatch@npm:^3.0.0, minimatch@npm:^3.0.2, minimatch@npm:^3.0.4, minimatch@npm:^3.0.5, minimatch@npm:^3.1.1, minimatch@npm:^3.1.2":
   version: 3.1.2
   resolution: "minimatch@npm:3.1.2"
   dependencies:
@@ -26265,16 +26240,6 @@ __metadata:
   version: 3.2.9
   resolution: "nodent-transform@npm:3.2.9"
   checksum: 53295920319bf4dcae73fa7a371d8cbf650f6a8ce449d0ac82efd910f123b8271e07a2d1b17f196e23fd45037f1c28085e7d99e773db1e6656e897d3ae3b19eb
-  languageName: node
-  linkType: hard
-
-"noms@npm:0.0.0":
-  version: 0.0.0
-  resolution: "noms@npm:0.0.0"
-  dependencies:
-    inherits: ^2.0.1
-    readable-stream: ~1.0.31
-  checksum: a05f056dabf764c86472b6b5aad10455f3adcb6971f366cdf36a72b559b29310a940e316bca30802f2804fdd41707941366224f4cba80c4f53071512245bf200
   languageName: node
   linkType: hard
 
@@ -31701,18 +31666,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"readable-stream@npm:~1.0.31":
-  version: 1.0.34
-  resolution: "readable-stream@npm:1.0.34"
-  dependencies:
-    core-util-is: ~1.0.0
-    inherits: ~2.0.1
-    isarray: 0.0.1
-    string_decoder: ~0.10.x
-  checksum: 85042c537e4f067daa1448a7e257a201070bfec3dd2706abdbd8ebc7f3418eb4d3ed4b8e5af63e2544d69f88ab09c28d5da3c0b77dc76185fddd189a59863b60
-  languageName: node
-  linkType: hard
-
 "readdir-glob@npm:^1.0.0":
   version: 1.1.3
   resolution: "readdir-glob@npm:1.1.3"
@@ -34555,13 +34508,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"string_decoder@npm:~0.10.x":
-  version: 0.10.31
-  resolution: "string_decoder@npm:0.10.31"
-  checksum: fe00f8e303647e5db919948ccb5ce0da7dea209ab54702894dd0c664edd98e5d4df4b80d6fabf7b9e92b237359d21136c95bf068b2f7760b772ca974ba970202
-  languageName: node
-  linkType: hard
-
 "string_decoder@npm:~1.1.1":
   version: 1.1.1
   resolution: "string_decoder@npm:1.1.1"
@@ -35564,7 +35510,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"through2@npm:^2.0.0, through2@npm:^2.0.1, through2@npm:^2.0.3":
+"through2@npm:^2.0.0, through2@npm:^2.0.3":
   version: 2.0.5
   resolution: "through2@npm:2.0.5"
   dependencies:
@@ -39230,7 +39176,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"yargs@npm:^16.1.0, yargs@npm:^16.1.1, yargs@npm:^16.2.0":
+"yargs@npm:^16.1.1, yargs@npm:^16.2.0":
   version: 16.2.0
   resolution: "yargs@npm:16.2.0"
   dependencies:
