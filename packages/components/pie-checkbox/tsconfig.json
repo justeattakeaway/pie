@@ -1,0 +1,8 @@
+{
+  "extends": "../../../configs/pie-components-config/tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "rootDir": ".",
+  },
+  "include": ["src/**/*.ts","./declaration.d.ts", "test/**/*.ts"],
+}

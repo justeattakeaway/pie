@@ -12,7 +12,8 @@
   "dependencies": {
     "@justeattakeaway/pie-button": "workspace:*",
     "@justeattakeaway/pie-icon-button": "workspace:*",
-    "@justeattakeaway/pie-modal": "workspace:*"
+    "@justeattakeaway/pie-modal": "workspace:*",
+    "@justeattakeaway/pie-checkbox": "workspace:*"
   },
   "devDependencies": {
     "@storybook/addon-a11y": "7.0.7",

@@ -594,6 +594,86 @@
         },
         {
             "kind": "javascript-module",
+            "path": "../../components/pie-checkbox/src/defs.js",
+            "declarations": [],
+            "exports": []
+        },
+        {
+            "kind": "javascript-module",
+            "path": "../../components/pie-checkbox/src/index.js",
+            "declarations": [
+                {
+                    "kind": "variable",
+                    "name": "componentSelector",
+                    "type": {
+                        "text": "string"
+                    },
+                    "default": "'pie-checkbox'"
+                },
+                {
+                    "kind": "class",
+                    "description": "",
+                    "name": "PieCheckbox",
+                    "members": [
+                        {
+                            "kind": "field",
+                            "name": "checked",
+                            "type": {
+                                "text": "boolean"
+                            },
+                            "privacy": "public",
+                            "default": "false"
+                        },
+                        {
+                            "kind": "method",
+                            "name": "render"
+                        }
+                    ],
+                    "superclass": {
+                        "name": "LitElement",
+                        "package": "lit-element"
+                    },
+                    "tagName": "componentSelector",
+                    "customElement": true
+                }
+            ],
+            "exports": [
+                {
+                    "kind": "js",
+                    "name": "type",
+                    "declaration": {
+                        "name": "type",
+                        "module": "../../components/pie-checkbox/src/index.js"
+                    }
+                },
+                {
+                    "kind": "js",
+                    "name": "CheckboxProps",
+                    "declaration": {
+                        "name": "CheckboxProps",
+                        "module": "../../components/pie-checkbox/src/index.js"
+                    }
+                },
+                {
+                    "kind": "js",
+                    "name": "PieCheckbox",
+                    "declaration": {
+                        "name": "PieCheckbox",
+                        "module": "../../components/pie-checkbox/src/index.js"
+                    }
+                },
+                {
+                    "kind": "custom-element-definition",
+                    "name": "componentSelector",
+                    "declaration": {
+                        "name": "PieCheckbox",
+                        "module": "../../components/pie-checkbox/src/index.js"
+                    }
+                }
+            ]
+        },
+        {
+            "kind": "javascript-module",
             "path": "../../components/pie-webc-core/src/index.js",
             "declarations": [],
             "exports": [

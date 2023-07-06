@@ -1,0 +1,244 @@
+# Changelog
+
+## 0.18.0
+
+### Minor Changes
+
+- [Added] - inverse and ghost-inverse variants to pie-button ([#596](https://github.com/justeattakeaway/pie/pull/596)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Changed] - Set all component props to public ([#597](https://github.com/justeattakeaway/pie/pull/597)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+## 0.17.0
+
+### Minor Changes
+
+- [Changed] - Styles updated to fully match design updates ([#581](https://github.com/justeattakeaway/pie/pull/581)) by [@ashleynolan](https://github.com/ashleynolan)
+
+  - Focus styles have been updated to the new style
+  - Padding, font-size and line-heights adjusted inline with designs
+  - Outline button text colour updated from `color-content-interactive-tertiary` to `color-content-interactive-secondary`
+  - Primary buttons at `xsmall` and `small-productive` now have darker background
+  - `ghost` variant background colour changed to `transparent` (rather than #fff)
+
+## 0.16.1
+
+### Patch Changes
+
+- [Changed] - Updated defs to use different array type syntax ([#566](https://github.com/justeattakeaway/pie/pull/566)) by [@ashleynolan](https://github.com/ashleynolan)
+
+## 0.16.0
+
+### Minor Changes
+
+- [Updated] - enum types to string union types to string union types ([#508](https://github.com/justeattakeaway/pie/pull/508)) by [@FayeCarter](https://github.com/FayeCarter)
+
+## 0.15.0
+
+### Minor Changes
+
+- [Changed] - Refactor visual tests to have labels showing props ([#519](https://github.com/justeattakeaway/pie/pull/519)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Changed] - use prop variant helper for simpler and more extensive visual tests ([#499](https://github.com/justeattakeaway/pie/pull/499)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Changed] - moved pie-webc-core dependency to devDependencies in each component ([#499](https://github.com/justeattakeaway/pie/pull/499)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - Additional notes on visual tests and environment variables ([#525](https://github.com/justeattakeaway/pie/pull/525)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] Read me percy config examples ([#529](https://github.com/justeattakeaway/pie/pull/529)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
+### Patch Changes
+
+- [Changed] - Use `componentSelector` to define the custom element ([#530](https://github.com/justeattakeaway/pie/pull/530)) by [@raoufswe](https://github.com/raoufswe)
+
+## 0.14.0
+
+### Minor Changes
+
+- [Changed] - customElement.define parameter to string ([#507](https://github.com/justeattakeaway/pie/pull/507)) by [@LTurns](https://github.com/LTurns)
+
+- [Fixed] – Encapsulated styles and removed reflect ([#507](https://github.com/justeattakeaway/pie/pull/507)) by [@LTurns](https://github.com/LTurns)
+
+## 0.13.0
+
+### Minor Changes
+
+- [Changed] - Build script to include generating react wrapper ([#426](https://github.com/justeattakeaway/pie/pull/426)) by [@LTurns](https://github.com/LTurns)
+
+- [Changed] - Deleted old prop validation decorator to replace with shared one from the core package ([#491](https://github.com/justeattakeaway/pie/pull/491)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Changed] - Changed styles to use CSS Custom Props and host attrs ([#482](https://github.com/justeattakeaway/pie/pull/482)) by [@ashleynolan](https://github.com/ashleynolan)
+
+### Patch Changes
+
+- [Added] - Missing `test:ci` scripts to package.json ([#492](https://github.com/justeattakeaway/pie/pull/492)) by [@siggerzz](https://github.com/siggerzz)
+
+- [Fixed] - Resolved TS Build errors ([#482](https://github.com/justeattakeaway/pie/pull/482)) by [@ashleynolan](https://github.com/ashleynolan)
+
+- [Updated] - components to use the shared configurations ([#487](https://github.com/justeattakeaway/pie/pull/487)) by [@fernandofranca](https://github.com/fernandofranca)
+
+- Updated dependencies [[`090354733`](https://github.com/justeattakeaway/pie/commit/090354733f24f0aa52ce287db7f8d13648414150)]:
+  - @justeattakeaway/pie-webc-core@0.2.0
+
+## 0.12.2
+
+### Patch Changes
+
+- Updated dependencies [[`1f79d9d1a`](https://github.com/justeattakeaway/pie/commit/1f79d9d1a6fe9160b244e82d956290136b87187b)]:
+  - @justeattakeaway/pie-webc-core@0.1.0
+
+## 0.12.1
+
+### Patch Changes
+
+- [Changed] - Added missing newline at the end of tsconfig.json ([#439](https://github.com/justeattakeaway/pie/pull/439)) by [@fernandofranca](https://github.com/fernandofranca)
+
+  [Changed] - Updated README.md
+  [Removed] - Removed npm `dev` script
+
+## 0.12.0
+
+### Minor Changes
+
+- [Changed] - extended readme file to mention props, events and enum exports ([#434](https://github.com/justeattakeaway/pie/pull/434)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Changed] - Prevent hover and active status on disabled btns and change outline to border for safari support ([#434](https://github.com/justeattakeaway/pie/pull/434)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Removed] - custom event handler and updated tests accordingly ([#434](https://github.com/justeattakeaway/pie/pull/434)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - isFullWidth prop to button ([#434](https://github.com/justeattakeaway/pie/pull/434)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+## 0.11.0
+
+### Minor Changes
+
+- [Changed] - Improved readme files ([#418](https://github.com/justeattakeaway/pie/pull/418)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Changed] - Refactor SCSS to reduce duplication ([#416](https://github.com/justeattakeaway/pie/pull/416)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Changed] - Copy playwright projects from monorepo root ([#416](https://github.com/justeattakeaway/pie/pull/416)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Changed] - Split small size into expressive and productive ([#416](https://github.com/justeattakeaway/pie/pull/416)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- [Removed] the custom decorator and uses the native `customElement` decorator instead ([#417](https://github.com/justeattakeaway/pie/pull/417)) by [@fernandofranca](https://github.com/fernandofranca)
+
+## 0.10.2
+
+### Patch Changes
+
+- [Added] Declare global statement back in. ([#393](https://github.com/justeattakeaway/pie/pull/393)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
+## 0.10.1
+
+### Patch Changes
+
+- [Fixed] - Added module entry for component ([#378](https://github.com/justeattakeaway/pie/pull/378)) by [@ashleynolan](https://github.com/ashleynolan)
+
+## 0.10.0
+
+### Minor Changes
+
+- [Removed] Global declare statement ([#371](https://github.com/justeattakeaway/pie/pull/371)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
+## 0.9.0
+
+### Minor Changes
+
+- [Added] - HTMLElementTagNameMap entry for pie-button element ([#364](https://github.com/justeattakeaway/pie/pull/364)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - Slot functionality to pie-button component and associated SB and example app integrations ([#364](https://github.com/justeattakeaway/pie/pull/364)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+## 0.8.0
+
+### Minor Changes
+
+- [Updated] - Register approach for button web component ([#346](https://github.com/justeattakeaway/pie/pull/346)) by [@fernandofranca](https://github.com/fernandofranca)
+
+  [Added] - "types" field in package.json for better DX and IDE TypesScript support
+  [Updated] - Provide Vite settings for generating TypeScript declaration files during build
+
+## 0.7.0
+
+### Minor Changes
+
+- [Updated] button to handle custom events ([#309](https://github.com/justeattakeaway/pie/pull/309)) by [@FayeCarter](https://github.com/FayeCarter)
+
+### Patch Changes
+
+- Add missing Volta settings to package.json ([#322](https://github.com/justeattakeaway/pie/pull/322)) by [@fernandofranca](https://github.com/fernandofranca)
+
+## 0.6.1
+
+### Patch Changes
+
+- [Added] `watch` script in `package.json` ([#233](https://github.com/justeattakeaway/pie/pull/233)) by [@LTurns](https://github.com/LTurns)
+
+  [Added] README content for `yarn watch` script
+
+## 0.6.0
+
+### Minor Changes
+
+- [Added] - state styling to button (focus/hover/active/disabled) ([#234](https://github.com/justeattakeaway/pie/pull/234)) by [@raoufswe](https://github.com/raoufswe)
+
+## 0.5.1
+
+### Patch Changes
+
+- [Changed] - Replaced hard-coded font values with scss variables ([#226](https://github.com/justeattakeaway/pie/pull/226)) by [@LTurns](https://github.com/LTurns)
+
+## 0.5.0
+
+### Minor Changes
+
+- [Changed] - Bring button styles into the component ([#178](https://github.com/justeattakeaway/pie/pull/178)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- [Added] - Size property to pie-button component ([#178](https://github.com/justeattakeaway/pie/pull/178)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- [Removed] - index.html file in favour of Storybook ([#178](https://github.com/justeattakeaway/pie/pull/178)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+## 0.4.0
+
+### Minor Changes
+
+- [Changed] - Set TSconfig target to ES6 to allow modern syntax such as property accessors ([#171](https://github.com/justeattakeaway/pie/pull/171)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] Create decorator for validating property values ([#171](https://github.com/justeattakeaway/pie/pull/171)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - `variant` property to decide how we style the button ([#171](https://github.com/justeattakeaway/pie/pull/171)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - Lit `classmap` directive to handle conditional css class logic and rendering ([#171](https://github.com/justeattakeaway/pie/pull/171)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Changed] - Refactored props to include validation based on enums and add console errors for invalid values ([#171](https://github.com/justeattakeaway/pie/pull/171)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Changed] - Renamed `actionType` property to `type` ([#171](https://github.com/justeattakeaway/pie/pull/171)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
+and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
+
+## v0.3.0
+
+_January 24, 2023_
+
+### Added
+
+- Button default styling (medium).
+- JET font family to html file.
+
+## v0.2.0
+
+_January 23, 2023_
+
+### Added
+
+- `actionType` property mapped to `type` attribute.
+
+## v0.1.0
+
+_January 19, 2023_
+
+### Added
+
+- Basic button using Lit
+- Initial TypeScript and Vite config
