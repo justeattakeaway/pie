@@ -5,7 +5,7 @@ import {
 } from '@justeattakeaway/pie-webc-testing/src/helpers/components/web-component-test-wrapper/WebComponentTestWrapper.ts';
 import { PieIconButton } from '@justeattakeaway/pie-icon-button';
 import { PieModal } from '@/index';
-import { sizes } from '@/defs';
+import { ModalProps, sizes } from '@/defs';
 import { renderTestPieModal } from '../helpers/index.ts';
 
 // Creates a <ol> with a large number of <li> nodes for testing page scrolling
@@ -59,6 +59,7 @@ test('should not render when isOpen = false', async ({ page, mount }) => {
         props: {
             heading: 'This is a modal heading',
             headingLevel: 'h2',
+            isFullWidthBelowMid: false,
             isOpen: false,
             size: 'medium',
         },
@@ -73,11 +74,95 @@ sizes.forEach((size) => {
             props: {
                 heading: 'This is a modal heading',
                 headingLevel: 'h2',
+                isFullWidthBelowMid: false,
                 isOpen: true,
                 size,
             },
         });
 
         await percySnapshot(page, `Modal - size = ${size}`);
+    });
+});
+
+test.describe('`isFullWidthBelowMid`', () => {
+    test.describe('when true', () => {
+        test('should be full width for a modal with size = medium', async ({ page, mount }) => {
+            await mount(PieModal, {
+                props: {
+                    heading: 'This is a modal heading',
+                    headingLevel: 'h2',
+                    isOpen: true,
+                    size: 'medium',
+                    isFullWidthBelowMid: true,
+                },
+            });
+
+            await percySnapshot(page, 'Modal - isFullWidthBelowMid = true, size = medium');
+        });
+
+        test('should not be full width when size = small', async ({ page, mount }) => {
+            await mount(PieModal, {
+                props: {
+                    heading: 'This is a modal heading',
+                    headingLevel: 'h2',
+                    isOpen: true,
+                    size: 'small',
+                    isFullWidthBelowMid: true,
+                },
+            });
+
+            await percySnapshot(page, 'Modal - isFullWidthBelowMid = true, size = small');
+        });
+    });
+
+    test.describe('when false', () => {
+        (['small', 'medium'] as Array<ModalProps['size']>)
+        .forEach((size) => {
+            test(`should not be full width for a modal with size = ${size}`, async ({ page, mount }) => {
+                await mount(PieModal, {
+                    props: {
+                        heading: 'This is a modal heading',
+                        headingLevel: 'h2',
+                        isOpen: true,
+                        size,
+                        isFullWidthBelowMid: true,
+                    },
+                });
+
+                await percySnapshot(page, `Modal - isFullWidthBelowMid = false, size = ${size}`);
+            });
+        });
+    });
+});
+
+test.describe('`isDismissible`', () => {
+    test.describe('when true', () => {
+        test('should display a close button within the modal', async ({ mount, page }) => {
+            await mount(PieModal, {
+                props: {
+                    heading: 'This is a modal heading',
+                    headingLevel: 'h2',
+                    isOpen: true,
+                    isDismissible: true,
+                },
+            });
+
+            await percySnapshot(page, 'Modal with close button displayed - isDismissible: `true`');
+        });
+    });
+
+    test.describe('when false', () => {
+        test('should NOT display a close button', async ({ mount, page }) => {
+            await mount(PieModal, {
+                props: {
+                    heading: 'This is a modal heading',
+                    headingLevel: 'h2',
+                    isOpen: true,
+                    isDismissible: false,
+                },
+            });
+
+            await percySnapshot(page, 'Modal without close button - isDismissible: `false`');
+        });
     });
 });

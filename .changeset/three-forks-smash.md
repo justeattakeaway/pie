@@ -2,4 +2,4 @@
 "@justeattakeaway/pie-modal": minor
 ---
 
-[Changed] - Set modal props to public
+[Added] isDismissible prop and tests

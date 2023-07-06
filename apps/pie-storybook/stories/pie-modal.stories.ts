@@ -12,9 +12,11 @@ import {
 type ModalProps = ModalPropsBase & { slot: string }
 
 const defaultArgs: ModalProps = {
-    isOpen: true,
     heading: 'Modal header',
     headingLevel: 'h2',
+    isDismissible: false,
+    isFullWidthBelowMid: false,
+    isOpen: true,
     size: 'medium',
     slot: 'This is Lit!',
 };
@@ -23,6 +25,12 @@ export default {
     title: 'Modal',
     component: 'pie-modal',
     argTypes: {
+        isDismissible: {
+            control: 'boolean',
+        },
+        isFullWidthBelowMid: {
+            control: 'boolean',
+        },
         isOpen: {
             control: 'boolean',
         },
@@ -64,18 +72,22 @@ const toggleModal = () => {
 };
 
 const Template = ({
-    isOpen,
     heading,
     headingLevel,
+    isDismissible,
+    isFullWidthBelowMid,
+    isOpen,
     size,
     slot,
 }: ModalProps): TemplateResult => html`
         <pie-button @click=${toggleModal}>Toggle Modal</pie-button>
         <pie-modal
-        ?isOpen="${isOpen}"
-        heading="${heading}"
-        size="${size}"
-        headingLevel="${headingLevel}">
+            heading="${heading}"
+            headingLevel="${headingLevel}"
+            ?isDismissible="${isDismissible}"
+            ?isFullWidthBelowMid="${isFullWidthBelowMid}"
+            ?isOpen="${isOpen}"
+            size="${size}">
             ${slot}
         </pie-modal>
     `;
@@ -99,17 +111,18 @@ const createTestPageHTML = () => {
 };
 
 const PageContextTemplate = ({
-    isOpen,
     heading,
     headingLevel,
+    isFullWidthBelowMid,
+    isOpen,
     slot,
 }: ModalProps) => html`
     <pie-button @click=${toggleModal}>Toggle Modal</pie-button>
     <pie-modal
-        ?isOpen="${isOpen}"
         heading="${heading}"
         headingLevel="${headingLevel}"
-    >
+        ?isFullWidthBelowMid="${isFullWidthBelowMid}"
+        ?isOpen="${isOpen}">
         ${slot}
     </pie-modal>
     ${createTestPageHTML()}
@@ -129,9 +142,9 @@ const FocusableElementsPageTemplate = ({
 }: ModalProps) => html`
     <pie-button @click=${toggleModal}>Toggle Modal</pie-button>
     <pie-modal
-        ?isOpen="${isOpen}"
         heading="${heading}"
         headingLevel="${headingLevel}"
+        ?isOpen="${isOpen}"
         returnFocusAfterCloseSelector="${ifDefined(returnFocusAfterCloseSelector)}"
     >
         ${slot}

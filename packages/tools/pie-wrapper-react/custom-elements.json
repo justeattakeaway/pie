@@ -151,15 +151,6 @@
                     "members": [
                         {
                             "kind": "field",
-                            "name": "isOpen",
-                            "type": {
-                                "text": "boolean"
-                            },
-                            "privacy": "public",
-                            "default": "false"
-                        },
-                        {
-                            "kind": "field",
                             "name": "heading",
                             "type": {
                                 "text": "string"
@@ -177,19 +168,47 @@
                         },
                         {
                             "kind": "field",
-                            "name": "size",
+                            "name": "isDismissible",
                             "type": {
-                                "text": "ModalProps['size']"
+                                "text": "boolean"
                             },
                             "privacy": "public",
-                            "default": "'medium'"
+                            "default": "false"
+                        },
+                        {
+                            "kind": "field",
+                            "name": "isFullWidthBelowMid",
+                            "type": {
+                                "text": "boolean"
+                            },
+                            "privacy": "public",
+                            "default": "false"
+                        },
+                        {
+                            "kind": "field",
+                            "name": "isOpen",
+                            "type": {
+                                "text": "boolean"
+                            },
+                            "privacy": "public",
+                            "default": "false"
                         },
                         {
                             "kind": "field",
                             "name": "returnFocusAfterCloseSelector",
                             "type": {
                                 "text": "string | undefined"
-                            }
+                            },
+                            "privacy": "public"
+                        },
+                        {
+                            "kind": "field",
+                            "name": "size",
+                            "type": {
+                                "text": "ModalProps['size']"
+                            },
+                            "privacy": "public",
+                            "default": "'medium'"
                         },
                         {
                             "kind": "field",
@@ -261,6 +280,21 @@
                             "description": "This is only to be used inside the component template as direct property\r\nreassignment is not allowed."
                         },
                         {
+                            "kind": "field",
+                            "name": "_handleDialogCancelEvent",
+                            "privacy": "private",
+                            "description": "Prevents the user from dismissing the dialog via the `cancel`\r\nevent (ESC key) when `isDismissible` is set to false.",
+                            "parameters": [
+                                {
+                                    "description": "The event object.",
+                                    "name": "event",
+                                    "type": {
+                                        "text": "Event"
+                                    }
+                                }
+                            ]
+                        },
+                        {
                             "kind": "method",
                             "name": "_handleModalOpenStateOnFirstRender",
                             "privacy": "private",
@@ -315,19 +349,41 @@
                             "kind": "field",
                             "name": "_handleDialogLightDismiss",
                             "privacy": "private",
-                            "description": "Dismisses the modal on backdrop click"
+                            "description": "Dismisses the modal on backdrop click if `isDismissible` is `true`.",
+                            "parameters": [
+                                {
+                                    "description": "the click event targetting the modal/backdrop",
+                                    "name": "event",
+                                    "type": {
+                                        "text": "MouseEvent"
+                                    }
+                                }
+                            ]
                         },
                         {
                             "kind": "field",
-                            "name": "_dispatchModalCloseEvent",
+                            "name": "_dispatchModalCustomEvent",
                             "privacy": "private",
-                            "description": "Dispatch `ON_MODAL_CLOSE_EVENT` event.\r\nTo be used whenever we close the modal."
+                            "description": "Note: We should aim to have a shareable event helper system to allow\r\nus to share this across components in-future.\r\n\r\nDispatch a custom event.\r\n\r\nTo be used whenever we have behavioural events we want to\r\nbubble up through the modal.",
+                            "parameters": [
+                                {
+                                    "name": "eventType",
+                                    "type": {
+                                        "text": "string"
+                                    }
+                                }
+                            ]
                         },
                         {
-                            "kind": "field",
-                            "name": "_dispatchModalOpenEvent",
+                            "kind": "method",
+                            "name": "renderCloseButton",
                             "privacy": "private",
-                            "description": "Dispatch `ON_MODAL_OPEN_EVENT` event.\r\nTo be used whenever we open the modal."
+                            "return": {
+                                "type": {
+                                    "text": "TemplateResult | typeof nothing"
+                                }
+                            },
+                            "description": "Template for the close button element. Called within the\r\nmain render function."
                         },
                         {
                             "kind": "field",

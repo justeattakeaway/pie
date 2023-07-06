@@ -4,7 +4,17 @@ import { ModalProps } from '@/defs';
 export const renderTestPieModal = ({
     heading = 'This is a modal heading',
     headingLevel = 'h2',
-    size = 'medium',
+    isDismissible = true,
+    isFullWidthBelowMid = false,
     isOpen = true,
     returnFocusAfterCloseSelector = undefined,
-} : Partial<ModalProps> = {}) => `<pie-modal ${isOpen ? 'isOpen' : ''} heading="${heading}" headingLevel="${headingLevel}" size="${size}" ${returnFocusAfterCloseSelector ? `returnFocusAfterCloseSelector=${returnFocusAfterCloseSelector}` : ''}></pie-modal>`;
+    size = 'medium',
+} : Partial<ModalProps> = {}) => `<pie-modal
+        heading="${heading}"
+        headingLevel="${headingLevel}"
+        ${isFullWidthBelowMid ? 'isFullWidthBelowMid' : ''}
+        ${isDismissible ? 'isDismissible' : ''}
+        ${isOpen ? 'isOpen' : ''}
+        ${returnFocusAfterCloseSelector ? `returnFocusAfterCloseSelector=${returnFocusAfterCloseSelector}` : ''}
+        size="${size}">
+    </pie-modal>`;
