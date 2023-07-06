@@ -36,8 +36,7 @@ export class PieIconButton extends LitElement {
                 size=${size}
                 variant=${variant}
                 ?disabled=${disabled}>
-                <slot>
-                </slot>
+                <slot></slot>
             </button>`;
     }
 

@@ -13,6 +13,7 @@ import {
     WebComponentTestWrapper,
 } from '@justeattakeaway/pie-webc-testing/src/helpers/components/web-component-test-wrapper/WebComponentTestWrapper.ts';
 import { PieIconButton } from '@/index';
+import '@justeattakeaway/pie-icons-webc/icons/IconClose';
 import { sizes, variants } from '@/defs';
 
 const props: PropObject = {
@@ -22,7 +23,7 @@ const props: PropObject = {
 };
 
 // Renders a <pie-icon-button> HTML string with the given prop values
-const renderTestPieIconButton = (propVals: WebComponentPropValues) => `<pie-icon-button size="${propVals.size}" variant="${propVals.variant}" ${propVals.disabled ? 'disabled' : ''}></pie-icon-button>`;
+const renderTestPieIconButton = (propVals: WebComponentPropValues) => `<pie-icon-button size="${propVals.size}" variant="${propVals.variant}" ${propVals.disabled ? 'disabled' : ''}><icon-close  /></pie-icon-button>`;
 
 const componentPropsMatrix : WebComponentPropValues[] = getAllPropCombinations(props);
 const componentPropsMatrixByVariant: Record<string, WebComponentPropValues[]> = splitCombinationsByPropertyValue(componentPropsMatrix, 'variant');
