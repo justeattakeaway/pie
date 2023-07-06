@@ -85,9 +85,10 @@ export class PieModal extends RtlMixin(LitElement) {
      */
     private _handleModalOpened () : void {
         disableBodyScroll(this);
-        //  We require this because toggling the prop `isOpen` itself won't
-        //  allow the dialog to open in the correct way (with the default background),
-        //  the method `showModal()` needs to be invoked.
+        if (this._dialog?.hasAttribute('open') || !this._dialog?.isConnected) {
+            return;
+        }
+        // The ::backdrop pseudoelement is only shown if the modal is opened via JS
         this._dialog?.showModal();
     }
 
@@ -99,14 +100,6 @@ export class PieModal extends RtlMixin(LitElement) {
         this._dialog?.close();
         this._returnFocus();
     }
-
-    /**
-     * This is only to be used inside the component template as direct property
-     * reassignment is not allowed.
-     */
-    private _triggerCloseModal = () : void => {
-        this.isOpen = false;
-    };
 
     /**
      * Prevents the user from dismissing the dialog via the `cancel`
@@ -249,7 +242,7 @@ export class PieModal extends RtlMixin(LitElement) {
         return this.isDismissible
             ? html`
                 <pie-icon-button
-                    @click="${this._triggerCloseModal}"
+                    @click="${() => { this.isOpen = false; }}"
                     variant="ghost-secondary"
                     class="c-modal-closeBtn"
                     data-test-id="modal-close-button"></pie-icon-button>`
