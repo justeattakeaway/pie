@@ -39,19 +39,20 @@ Within the context of a Lit app, that will look like:
 ```js
 import '@justeattakeaway/pie-icons-webc/icons/IconAppRestaurant';
 
-export class IconButton extends LitElement {
+export class MyAmazingComponent extends LitElement {
   render () {
     return html`
-      <button>
+      <h2>
+        This is a heading
         <icon-app-restaurant size="xs" />
-      </button>`;
+      </h2>`;
   }
 }
 ```
 
 If you require icons for a React application, you can either use these icons, or use our native React component package – [pie-icons-react](https://www.npmjs.com/package/@justeattakeaway/pie-icons-react).
 
-If you require icons for a Vue app, , you can either use these icons, or use our native Vue component package – [pie-icons-vue](https://www.npmjs.com/package/@justeattakeaway/pie-icons-vue).
+If you require icons for a Vue app, you can either use these icons, or use our native Vue component package – [pie-icons-vue](https://www.npmjs.com/package/@justeattakeaway/pie-icons-vue).
 
 
 #### Props
