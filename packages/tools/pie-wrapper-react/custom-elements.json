@@ -275,12 +275,6 @@
                         },
                         {
                             "kind": "field",
-                            "name": "_triggerCloseModal",
-                            "privacy": "private",
-                            "description": "This is only to be used inside the component template as direct property\r\nreassignment is not allowed."
-                        },
-                        {
-                            "kind": "field",
                             "name": "_handleDialogCancelEvent",
                             "privacy": "private",
                             "description": "Prevents the user from dismissing the dialog via the `cancel`\r\nevent (ESC key) when `isDismissible` is set to false.",

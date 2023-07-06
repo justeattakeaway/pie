@@ -1,4 +1,5 @@
 import { test, expect } from '@sand4rt/experimental-ct-web';
+import { type Page } from '@playwright/test';
 import { PieIconButton } from '@justeattakeaway/pie-icon-button';
 import {
     WebComponentTestWrapper,
@@ -166,6 +167,57 @@ test.describe('When modal is closed', () => {
 
                 // Assert
                 expect(focusedElementId).toBe('actual-focus');
+            });
+        });
+
+        test.describe('when not given', () => {
+            [{
+                mechanism: 'close button',
+                modalCloseFunction: async (page : Page) => {
+                    await page.locator(closeButtonSelector).click();
+                },
+            }, {
+                mechanism: 'Esc key',
+                modalCloseFunction: async (page : Page) => {
+                    await page.keyboard.press('Escape');
+                },
+            }].forEach(({ mechanism, modalCloseFunction }) => {
+                test.describe(`and closed by the ${mechanism}`, () => {
+                    test('should return focus to the element that opens the modal', async ({ page, mount }) => {
+                        // Arrange
+                        const component = renderTestPieModal({ isOpen: false });
+
+                        await mount(WebComponentTestWrapper, {
+                            props: {
+                                pageMode: true,
+                            },
+                            slots: {
+                                component,
+                                pageMarkup: `<div>
+                                    <button id="not-me"></button>
+                                    <button data-test-id="open-modal" id="default"></button>
+                                </div>`,
+                            },
+                        });
+
+                        await page.evaluate(() => {
+                            // Set up a button which opens the modal when clicked
+                            document.querySelector('[data-test-id="open-modal"]')?.addEventListener('click', () => {
+                                document.querySelector('pie-modal')?.setAttribute('isOpen', 'true');
+                            });
+                        });
+
+                        // Act
+                        await page.locator('[data-test-id="open-modal"]').click();
+                        await modalCloseFunction(page);
+
+                        const focusedElement = await page.locator(':focus');
+                        const focusedElementId = await focusedElement.getAttribute('id');
+
+                        // Assert
+                        expect(focusedElementId).toBe('default');
+                    });
+                });
             });
         });
     });
