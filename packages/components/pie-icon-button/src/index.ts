@@ -1,7 +1,6 @@
 import { LitElement, html, unsafeCSS } from 'lit';
 import { property } from 'lit/decorators.js';
 import { validPropertyValues } from '@justeattakeaway/pie-webc-core';
-import { IconCloseLarge } from '@justeattakeaway/pie-icons-webc';
 
 import styles from './iconButton.scss?inline';
 import {
@@ -10,7 +9,6 @@ import {
 
 // Valid values available to consumers
 export { type IconButtonProps, sizes, variants };
-export { IconCloseLarge };
 
 const componentSelector = 'pie-icon-button';
 
@@ -38,7 +36,8 @@ export class PieIconButton extends LitElement {
                 size=${size}
                 variant=${variant}
                 ?disabled=${disabled}>
-                <icon-close-large />
+                <slot>
+                </slot>
             </button>`;
     }
 
