@@ -136,11 +136,17 @@ const FocusableElementsPageTemplate = ({
     >
         ${slot}
     </pie-modal>
-    <button id="focus-1">#focus-1</button>
-    <button id="focus-2">#focus-2</button>
-    <button id="focus-3">#focus-3</button>
-    <button id="focus-4">#focus-4</button>
-    <button id="focus-5">#focus-5</button>
+    <pie-button id="focus-1">#focus-1</pie-button>
+    <pie-button id="focus-2">#focus-2</pie-button>
+    <pie-button id="focus-3">#focus-3</pie-button>
+    <pie-button id="focus-4">#focus-4</pie-button>
+    <pie-button id="focus-5">#focus-5</pie-button>
+    <style>
+        pie-button {
+            margin: 8px;
+            display: inline-block;
+        }
+    </style>
 `;
 
 export const WithFocusableElements: Story<ModalProps> = (args: ModalProps) => FocusableElementsPageTemplate(args);

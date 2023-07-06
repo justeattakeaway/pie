@@ -52,6 +52,10 @@ export class PieButton extends LitElement {
             </button>`;
     }
 
+    focus () {
+        this.shadowRoot?.querySelector('button')?.focus();
+    }
+
     // Renders a `CSSResult` generated from SCSS by Vite
     static styles = unsafeCSS(styles);
 }

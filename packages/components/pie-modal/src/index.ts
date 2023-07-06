@@ -49,6 +49,9 @@ export class PieModal extends RtlMixin(LitElement) {
 
     firstUpdated (changedProperties: DependentMap<ModalProps>) : void {
         this._handleModalOpenStateOnFirstRender(changedProperties);
+        this._dialog?.addEventListener('close', () => {
+            this.isOpen = false;
+        });
     }
 
     updated (changedProperties: DependentMap<ModalProps>) : void {
@@ -123,7 +126,7 @@ export class PieModal extends RtlMixin(LitElement) {
      * and the chosen element can be found.
      * Fails silently.
      */
-    private _returnFocus () {
+    private _returnFocus () : void {
         const selector = this.returnFocusAfterCloseSelector?.trim();
 
         if (selector) {

@@ -300,6 +300,11 @@
                             "kind": "method",
                             "name": "_returnFocus",
                             "privacy": "private",
+                            "return": {
+                                "type": {
+                                    "text": "void"
+                                }
+                            },
                             "description": "Return focus to the specified element, providing the selector is valid\r\nand the chosen element can be found.\r\nFails silently."
                         },
                         {
@@ -485,6 +490,10 @@
                         {
                             "kind": "method",
                             "name": "render"
+                        },
+                        {
+                            "kind": "method",
+                            "name": "focus"
                         },
                         {
                             "kind": "field",
