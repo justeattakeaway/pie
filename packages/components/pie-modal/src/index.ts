@@ -70,6 +70,7 @@ export class PieModal extends RtlMixin(LitElement) {
     firstUpdated (changedProperties: DependentMap<ModalProps>) : void {
         this._dialog?.addEventListener('cancel', (event) => this._handleDialogCancelEvent(event));
         this._handleModalOpenStateOnFirstRender(changedProperties);
+
         this._dialog?.addEventListener('close', () => {
             this.isOpen = false;
         });
