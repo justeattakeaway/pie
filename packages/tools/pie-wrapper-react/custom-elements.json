@@ -595,8 +595,26 @@
         {
             "kind": "javascript-module",
             "path": "../../components/pie-checkbox/src/defs.js",
-            "declarations": [],
-            "exports": []
+            "declarations": [
+                {
+                    "kind": "variable",
+                    "name": "inputTypes",
+                    "type": {
+                        "text": "array"
+                    },
+                    "default": "['checkbox', 'radio']"
+                }
+            ],
+            "exports": [
+                {
+                    "kind": "js",
+                    "name": "inputTypes",
+                    "declaration": {
+                        "name": "inputTypes",
+                        "module": "../../components/pie-checkbox/src/defs.js"
+                    }
+                }
+            ]
         },
         {
             "kind": "javascript-module",
@@ -625,8 +643,47 @@
                             "default": "false"
                         },
                         {
+                            "kind": "field",
+                            "name": "disabled",
+                            "type": {
+                                "text": "boolean"
+                            },
+                            "privacy": "public",
+                            "default": "false"
+                        },
+                        {
+                            "kind": "field",
+                            "name": "inputType",
+                            "type": {
+                                "text": "CheckboxProps['inputType']"
+                            },
+                            "privacy": "public",
+                            "default": "'checkbox'"
+                        },
+                        {
                             "kind": "method",
                             "name": "render"
+                        },
+                        {
+                            "kind": "method",
+                            "name": "_handleInputChange",
+                            "privacy": "private",
+                            "parameters": [
+                                {
+                                    "name": "event",
+                                    "type": {
+                                        "text": "Event"
+                                    }
+                                }
+                            ]
+                        }
+                    ],
+                    "events": [
+                        {
+                            "name": "change",
+                            "type": {
+                                "text": "CustomEvent"
+                            }
                         }
                     ],
                     "superclass": {
@@ -651,6 +708,14 @@
                     "name": "CheckboxProps",
                     "declaration": {
                         "name": "CheckboxProps",
+                        "module": "../../components/pie-checkbox/src/index.js"
+                    }
+                },
+                {
+                    "kind": "js",
+                    "name": "inputTypes",
+                    "declaration": {
+                        "name": "inputTypes",
                         "module": "../../components/pie-checkbox/src/index.js"
                     }
                 },

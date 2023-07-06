@@ -1,3 +1,5 @@
+export const inputTypes = ['checkbox', 'radio'];
+
 export interface CheckboxProps {
     /**
      * (Optional) When true, the checkbox element is checked.
@@ -5,13 +7,13 @@ export interface CheckboxProps {
      */
     checked: boolean;
     /**
-     * (Optional) When true, the button element is disabled.
+     * (Optional) When true, the checkbox element is disabled.
      * @default false
      */
     disabled: boolean;
     /**
-     * (Optional) When true, the button element will occupy the full width of its container.
+     * What input type should be applied.
      * @default false
      */
-    isFullWidth: boolean;
+    inputType: typeof inputTypes[number];
 }
