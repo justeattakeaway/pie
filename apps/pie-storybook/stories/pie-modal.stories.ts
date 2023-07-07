@@ -9,7 +9,17 @@ import {
     sizes,
 } from '@justeattakeaway/pie-modal';
 
-import { createScrollablePageHTML } from '@justeattakeaway/pie-modal/test/helpers';
+const createScrollablePageHTML = () => {
+    const items = [];
+    for (let i = 0; i < 200; i++) {
+        items.push(html`<li>Item ${i}</li>`);
+    }
+
+    return html`
+        <h1>Test Page</h1>
+        <p>Test copy</p>
+        <ul>${items}</ul>`;
+};
 
 type ModalProps = ModalPropsBase & { slot: string }
 
