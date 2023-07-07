@@ -145,12 +145,7 @@ export class PieModal extends RtlMixin(LitElement) {
         const selector = this.returnFocusAfterCloseSelector?.trim();
 
         if (selector) {
-            try {
-                const focalPoint = document.querySelector(selector) as HTMLElement;
-                focalPoint?.focus();
-            } catch (ignore) {
-                // Not necessary to throw an error here.
-            }
+            (document.querySelector(selector) as HTMLElement)?.focus();
         }
     }
 
