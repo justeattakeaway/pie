@@ -1,3 +1,4 @@
+// Duplicate of console log transform for now
 export default (fileInfo, api) => {
     const j = api.jscodeshift;
 
