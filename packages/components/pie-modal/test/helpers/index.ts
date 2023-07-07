@@ -20,9 +20,10 @@ export const renderTestPieModal = ({
     </pie-modal>`;
 
 // Creates some test page markup to test scroll locking
-export const createScrollablePageHTML = () => `
-    <h1>Test Page</h1>
-    <p> Test copy </p>
-    <ol>
-        ${'<li>List item</li>'.repeat(200)}
-    </ol>`;
+export const createScrollablePageHTML = () => `<div>
+        <h1>Test Page</h1>
+        <p> Test copy </p>
+        <ol>
+            ${'<li>List item</li>'.repeat(200)}
+        </ol>
+    </div>`;
