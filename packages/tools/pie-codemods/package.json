@@ -3,19 +3,21 @@
   "version": "0.2.10",
   "description": "",
   "type": "module",
-  "bin": {
-    "pie-codemod-cli": "./codemod-cli.js",
-    "pie-codemod-gui": "./codemod-gui.js"
-  },
+  "bin": "./codemod.js",
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "jscodeshift": "0.15.0",
     "meow": "12.0.1",
     "postcss": "8.4.25",
     "vue-jscodeshift-adapter": "2.2.0"
   },
   "dependencies": {
-    "@inquirer/prompts": "2.3.0"
+    "chalk": "5.3.0",
+    "execa": "7.1.1",
+    "globby": "13.2.2",
+    "inquirer": "9.2.0",
+    "is-git-clean": "1.1.0",
+    "jscodeshift": "0.15.0",
+    "meow": "12.0.1"
   }
 }
