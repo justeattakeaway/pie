@@ -6,12 +6,7 @@ import {
 import { PieIconButton } from '@justeattakeaway/pie-icon-button';
 import { PieModal } from '@/index';
 import { ModalProps, sizes } from '@/defs';
-import { renderTestPieModal } from '../helpers/index.ts';
-
-// Creates a <ol> with a large number of <li> nodes for testing page scrolling
-const createTestPageHTML = () => `<ol>
-        ${'<li>List item</li>'.repeat(200)}
-    </ol>`;
+import { createScrollablePageHTML, renderTestPieModal } from '../helpers/index.ts';
 
 // Mount any components that are used inside of pie-modal so that
 // they have been registered with the browser before the tests run.
@@ -41,7 +36,7 @@ test('Should not be able to scroll when modal is open', async ({ page, mount }) 
             },
             slots: {
                 component: modalComponent,
-                pageMarkup: createTestPageHTML(),
+                pageMarkup: createScrollablePageHTML(),
             },
         },
     );
@@ -58,10 +53,7 @@ test('should not render when isOpen = false', async ({ page, mount }) => {
     await mount(PieModal, {
         props: {
             heading: 'This is a modal heading',
-            headingLevel: 'h2',
-            isFullWidthBelowMid: false,
             isOpen: false,
-            size: 'medium',
         },
     });
 
@@ -73,8 +65,6 @@ sizes.forEach((size) => {
         await mount(PieModal, {
             props: {
                 heading: 'This is a modal heading',
-                headingLevel: 'h2',
-                isFullWidthBelowMid: false,
                 isOpen: true,
                 size,
             },
@@ -90,10 +80,9 @@ test.describe('`isFullWidthBelowMid`', () => {
             await mount(PieModal, {
                 props: {
                     heading: 'This is a modal heading',
-                    headingLevel: 'h2',
+                    isFullWidthBelowMid: true,
                     isOpen: true,
                     size: 'medium',
-                    isFullWidthBelowMid: true,
                 },
             });
 
@@ -104,10 +93,9 @@ test.describe('`isFullWidthBelowMid`', () => {
             await mount(PieModal, {
                 props: {
                     heading: 'This is a modal heading',
-                    headingLevel: 'h2',
+                    isFullWidthBelowMid: true,
                     isOpen: true,
                     size: 'small',
-                    isFullWidthBelowMid: true,
                 },
             });
 
@@ -122,10 +110,9 @@ test.describe('`isFullWidthBelowMid`', () => {
                 await mount(PieModal, {
                     props: {
                         heading: 'This is a modal heading',
-                        headingLevel: 'h2',
+                        isFullWidthBelowMid: false,
                         isOpen: true,
                         size,
-                        isFullWidthBelowMid: true,
                     },
                 });
 
@@ -141,9 +128,8 @@ test.describe('`isDismissible`', () => {
             await mount(PieModal, {
                 props: {
                     heading: 'This is a modal heading',
-                    headingLevel: 'h2',
-                    isOpen: true,
                     isDismissible: true,
+                    isOpen: true,
                 },
             });
 
@@ -156,9 +142,8 @@ test.describe('`isDismissible`', () => {
             await mount(PieModal, {
                 props: {
                     heading: 'This is a modal heading',
-                    headingLevel: 'h2',
-                    isOpen: true,
                     isDismissible: false,
+                    isOpen: true,
                 },
             });
 

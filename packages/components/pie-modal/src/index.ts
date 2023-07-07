@@ -238,16 +238,12 @@ export class PieModal extends RtlMixin(LitElement) {
      *
      * @private
      */
-    private renderCloseButton (): TemplateResult | typeof nothing {
-        return this.isDismissible
-            ? html`
-                <pie-icon-button
-                    @click="${() => { this.isOpen = false; }}"
-                    variant="ghost-secondary"
-                    class="c-modal-closeBtn"
-                    data-test-id="modal-close-button"></pie-icon-button>`
-            : nothing;
-    }
+    private renderCloseButton = () : TemplateResult => html`
+        <pie-icon-button
+            @click="${() => { this.isOpen = false; }}"
+            variant="ghost-secondary"
+            class="c-modal-closeBtn"
+            data-test-id="modal-close-button"></pie-icon-button>`;
 
     // Renders a `CSSResult` generated from SCSS by Vite
     static styles = unsafeCSS(styles);

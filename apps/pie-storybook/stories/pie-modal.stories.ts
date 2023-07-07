@@ -9,6 +9,8 @@ import {
     sizes,
 } from '@justeattakeaway/pie-modal';
 
+import { createScrollablePageHTML } from '@justeattakeaway/pie-modal/test/helpers';
+
 type ModalProps = ModalPropsBase & { slot: string }
 
 const defaultArgs: ModalProps = {
@@ -71,19 +73,6 @@ const toggleModal = () => {
     }
 };
 
-// Creates some test page markup to test scroll locking
-const createScrollablePageHTML = () => {
-    const items = [];
-    for (let i = 0; i < 200; i++) {
-        items.push(html`<li>Item ${i}</li>`);
-    }
-
-    return html`
-        <h1>Test Page</h1>
-        <p> Test copy </p>
-        <ul>${items}</ul>`;
-};
-
 const createFocusableElementsPageHTML = () => html`
     <pie-button id="focus-1">#focus-1</pie-button>
     <pie-button id="focus-2">#focus-2</pie-button>
@@ -140,11 +129,11 @@ const FocusableElementsPageTemplate = (props: ModalProps) => html`
 export const Default: Story<ModalProps> = (args: ModalProps) => BaseStory(args);
 Default.args = defaultArgs;
 
-export const InScrollablePage: Story<ModalProps> = (args: ModalProps) => ScrollablePageStory(args);
-InScrollablePage.args = defaultArgs;
+export const ScrollLocking: Story<ModalProps> = (args: ModalProps) => ScrollablePageStory(args);
+ScrollLocking.args = defaultArgs;
 
-export const WithFocusableElements: Story<ModalProps> = (args: ModalProps) => FocusableElementsPageTemplate(args);
-WithFocusableElements.args = {
+export const FocusManagement: Story<ModalProps> = (args: ModalProps) => FocusableElementsPageTemplate(args);
+FocusManagement.args = {
     ...defaultArgs,
     returnFocusAfterCloseSelector: '#focus-3',
 };

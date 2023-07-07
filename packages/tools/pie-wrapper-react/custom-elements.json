@@ -369,14 +369,9 @@
                             ]
                         },
                         {
-                            "kind": "method",
+                            "kind": "field",
                             "name": "renderCloseButton",
                             "privacy": "private",
-                            "return": {
-                                "type": {
-                                    "text": "TemplateResult | typeof nothing"
-                                }
-                            },
                             "description": "Template for the close button element. Called within the\r\nmain render function."
                         },
                         {
