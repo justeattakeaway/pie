@@ -1,21 +1,47 @@
 # Demo
 
-This branchs code is able to remove all console.logs from the codebase.
+This branches code is able to remove all console.logs from the codebase.
 This is just a basic example.
 
-# Global dependencies
+## Testing this package
 
-For now, there are 2 global dependencies you need to install:
+To test this package currently, it's best to publish it to a private proxy npm registry using [Verdaccio](https://verdaccio.org/).
 
-and
+First install Verdaccio:
 
-`npx @codeshift/cli init --package-name css-codemod --preset update-css-api`
+```js
+npm install --global verdaccio
+```
+
+Once installed, running the following command will start your local npm registry:
+
+```bash
+$ verdaccio
+```
+
+This should by default start a local registry, hosted at `http://localhost:4873/`.
+
+Now, if you navigate to the root of this package in terminal, you can publish the package to your local registry using:
+
+```bash
+$ npm publish --registry http://localhost:4873
+```
+
+Once published, you can run any of the following codemod commands to run the package.
+
 
 # Commands
 
-At this repos root
+```bash
+# To run the PIE Migration GUI
+$ npx pie-codemod-gui
 
-Native javascript:
+# To run the PIE Codemod CLI
+$ npx pie-codemod-cli
+```
+
+
+<!-- Native javascript:
 
 `jscodeshift -t ./codemod/my-transform.js ./demoapp/src/index.js`
 
@@ -29,4 +55,4 @@ TS Files:
 
 CSS Files:
 
-`npx @codeshift/cli -t ./codemod/css.js -e css ./demoapp/src/styles.css`
+`npx @codeshift/cli -t ./codemod/css.js -e css ./demoapp/src/styles.css` -->

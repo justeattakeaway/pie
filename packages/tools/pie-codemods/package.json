@@ -1,9 +1,12 @@
 {
   "name": "@justeattakeaway/pie-codemods",
-  "version": "0.2.6",
+  "version": "0.2.10",
   "description": "",
-  "main": "pie-cli.js",
-  "bin": "pie-cli.js",
+  "type": "module",
+  "bin": {
+    "pie-codemod-cli": "./codemod-cli.js",
+    "pie-codemod-gui": "./codemod-gui.js"
+  },
   "author": "",
   "license": "ISC",
   "devDependencies": {
@@ -11,5 +14,8 @@
     "meow": "12.0.1",
     "postcss": "8.4.25",
     "vue-jscodeshift-adapter": "2.2.0"
+  },
+  "dependencies": {
+    "@inquirer/prompts": "2.3.0"
   }
 }
