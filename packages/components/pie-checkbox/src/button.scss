@@ -1,187 +1,67 @@
-// Defines button interactive states for hover and active using HSL & calc
-// Takes a color token name as an argument
-@mixin button-interactive-states($bg-color) {
-    &:hover:not(:disabled) {
-        background-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), calc(var(#{$bg-color}-l) - var(--dt-color-hover-01)));
-    }
-
-    &:active:not(:disabled) {
-        background-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), calc(var(#{$bg-color}-l) - var(--dt-color-active-01)));
-    }
+[type='radio'], [type='checkbox'] {
+    // opacity: 0;
+    position: absolute;
+    opacity: 0;
+    z-index: 1;
 }
 
-// Base button styles
-.o-btn {
-    // Custom Property Declarations
-    // These are defined here instead of :host to encapsulate them inside Shadow DOM
-    --btn-border-radius: var(--dt-radius-rounded-e);
-    --btn-font-family: var(--dt-font-interactive-m-family);
-    --btn-font-weight: var(--dt-font-interactive-m-weight);
-
-    // The base values are set to the size default, which is for the medium button size
-    --btn-padding: 10px var(--dt-spacing-e);
-    --btn-min-height: 48px;
-    --btn-font-size: calc(var(--dt-font-size-20) * 1px);
-    --btn-line-height: calc(var(--dt-font-size-20-line-height) * 1px);
-
-    // The following values set to default background and color
-    // currently this sets the primary button styles
-    --btn-bg-color: var(--dt-color-interactive-brand);
-    --btn-text-color: var(--dt-color-content-interactive-primary);
-
-    min-block-size: var(--btn-min-block-size);
-    padding: var(--btn-padding);
-    border: none;
-    border-radius: var(--btn-border-radius);
-    outline: none;
-    background-color: var(--btn-bg-color);
-    font-family: var(--btn-font-family);
-    font-size: var(--btn-font-size);
-    font-weight: var(--btn-font-weight);
-    color: var(--btn-text-color);
-    line-height: var(--btn-line-height);
+[type='radio'] + label,
+[type='checkbox'] + label {
     cursor: pointer;
-    user-select: none;
+    font-weight: normal;
+}
 
-    &:focus-visible {
-        /*
-        TODO: This focus styling should be extracted out into a shared mixin to share among other components
-        Applying both shadows in a single declaration gives anti-aliasing artefacts.
-        box-shadow: 0 0 0 2px dt.$color-focus-inner, 0 0 0 4px dt.$color-focus-outer;
+[type='radio']:disabled + label span,
+[type='checkbox']:disabled + label span {
+    cursor: default;
+    color: var(--dt-color-content-disabled);
+}
 
-        To prevent this, they should be separated so they don't bleed into each other,
-        i.e., one shadow on the element and another on a pseudo element like :after
-        */
-        box-shadow: 0 0 0 2px var(--dt-color-focus-inner);
-        outline: none;
+[type='radio'] + label:before,
+[type='checkbox'] + label:before {
+    content: '';
+    border: 1px solid var(--dt-color-interactive-form);
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    margin-right: var(--dt-spacing-b);
+    margin-top: var(--dt-spacing-none);
+    vertical-align: -5px;
+}
 
-        /*
-        Setting the position to relative prevents the pseudo-element from
-        anchoring instead to the nearest ancestor with a specified position.
+[type='radio'] + label:before {
+    border-radius: 50%;
+}
 
-        You can override this if you need another value.
-        */
-        position: relative;
+[type='checkbox'] + label:before {
+    border-radius: 2px;
+}
 
-        &:after {
-            content: '';
-            display: block;
+[type='radio'][ischecked='true'] + label:before {
+    border: 7px solid var(--dt-color-interactive-brand);
+    width: 10px;
+    height: 10px;
+    background-color: white;
+}
 
-            /*
-            The pseudo element has to be larger than the element itself, but not just by
-            2px (the thickness of the inner shadow), it has to be 1px larger than that to
-            account for the border thickness.
-            */
-            position: absolute;
-            top: -3px;
-            left: -3px;
-            right: -3px;
-            bottom: -3px;
-            border-radius: var(--btn-border-radius);
+[type='checkbox'][ischecked='true'] + label:before {
+    --svg: url('data:image/svg+xml,\
+    <svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="white" viewBox="0 0 16 16" class="c-pieIcon c-pieIcon--check"><path d="M5.865 12.489a1.217 1.217 0 0 1-.875-.385L1.875 8.656l.98-.875 3.028 3.369 7.253-7.822.963.875-7.35 7.875a1.216 1.216 0 0 1-.875.385l-.009.026Z"></path></svg>');
+    background-image: var(--svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 14px;
+    border: 1px solid var(--dt-color-interactive-brand);
+    background-color: var(--dt-color-interactive-brand);
+    color: white !important;
+}
 
-            box-shadow: 0 0 0 2px var(--dt-color-focus-outer);
-        }
-    }
 
-    // Variant
-    &[variant='primary'] {
-        @include button-interactive-states('--dt-color-interactive-brand');
-
-        &[size='xsmall'],
-        &[size='small-productive'] {
-            /**
-            * Where the font-size is smaller,
-            * update the button backgrounds so that the text is accessible
-            **/
-            --btn-bg-color: var(--dt-color-interactive-primary);
-
-            @include button-interactive-states('--dt-color-interactive-primary');
-        }
-    }
-
-    &[variant='secondary'] {
-        --btn-bg-color: var(--dt-color-interactive-secondary);
-        --btn-text-color: var(--dt-color-content-interactive-secondary);
-
-        @include button-interactive-states('--dt-color-interactive-secondary');
-    }
-
-    &[variant='outline'] {
-        --btn-bg-color: var(--dt-color-container-default);
-        --btn-text-color: var(--dt-color-content-interactive-secondary);
-
-        border: 1px solid var(--dt-color-border-strong);
-
-        @include button-interactive-states('--dt-color-container-default');
-    }
-
-    &[variant='ghost'] {
-        --btn-bg-color: transparent;
-        --btn-text-color: var(--dt-color-content-link);
-
-        @include button-interactive-states('--dt-color-container-default');
-    }
-
-    &[variant='inverse'] {
-        --btn-bg-color: var(--dt-color-interactive-inverse);
-        --btn-text-color: var(--dt-color-content-interactive-secondary);
-
-        @include button-interactive-states('--dt-color-interactive-inverse');
-    }
-
-    &[variant='ghost-inverse'] {
-        --btn-bg-color: transparent;
-        --btn-text-color: var(--dt-color-content-interactive-primary);
-
-        @include button-interactive-states('--dt-color-container-inverse');
-    }
-
-    // Additional modifiers
-    &[isFullWidth] {
-        inline-size: 100%;
-    }
-
-    &[disabled] {
-        --btn-text-color: var(--dt-color-content-disabled) !important;
-
-        cursor: not-allowed;
-
-        // For every variant except ghost and ghost-inverse, set the disabled background color
-        &:not([variant='ghost'], [variant='ghost-inverse']) {
-            --btn-bg-color: var(--dt-color-disabled-01) !important;
-        }
-
-        // For outline variants, set the border to the disabled color
-        &[variant='outline'] {
-            border-color: var(--dt-color-disabled-01) !important;
-        }
-    }
-
-    &[size='xsmall'] {
-        --btn-padding: 6px var(--dt-spacing-b);
-        --btn-font-size: calc(var(--dt-font-size-14) * 1px);
-        --btn-line-height: calc(var(--dt-font-size-14-line-height) * 1px);
-    }
-
-    &[size='small-expressive'] {
-        --btn-padding: 6px var(--dt-spacing-d);
-        --btn-font-size: calc(var(--dt-font-size-20) * 1px);
-        --btn-line-height: calc(var(--dt-font-size-20-line-height) * 1px);
-    }
-
-    &[size='small-productive'] {
-        --btn-padding: 8px var(--dt-spacing-d);
-        --btn-font-size: calc(var(--dt-font-size-16) * 1px);
-        --btn-line-height: calc(var(--dt-font-size-16-line-height) * 1px);
-    }
-
-    &[size='medium'] {
-        /* Same as default styles */
-    }
-
-    &[size='large'] {
-        --btn-padding: 14px var(--dt-spacing-e);
-        --btn-font-size: calc(var(--dt-font-size-20) * 1px);
-        --btn-line-height: calc(var(--dt-font-size-20-line-height) * 1px);
-    }
+.text {
+    --selector-font-family: var(--dt-font-interactive-m-family);
+    --selecto-font-size: calc(var(--dt-font-size-16) * 1px);
+    font-weight: normal;
+    font-family: var(--selector-font-family);
+    font-size: var(--selector-font-size);
+    color: var(--dt-color-content-default);
 }

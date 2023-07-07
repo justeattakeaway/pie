@@ -1,6 +1,7 @@
-import { LitElement, html } from 'lit-element';
+import { LitElement, html, unsafeCSS } from 'lit-element';
 import { property } from 'lit/decorators.js';
 import { validPropertyValues } from '@justeattakeaway/pie-webc-core';
+import styles from './button.scss?inline';
 import {
     CheckboxProps, inputTypes,
 } from './defs';
@@ -32,8 +33,24 @@ export class PieCheckbox extends LitElement {
         } = this;
         return html`
         <div>
-            <slot></slot>
-            <input type=${inputType} role="checkbox" .checked=${checked} @change=${this._handleInputChange} ?disabled=${disabled} />
+            <input 
+                class="c-formSelector" 
+                type=${inputType} 
+                role="checkbox" 
+                .checked=${checked} 
+                isChecked=${checked} 
+                @change=${this._handleInputChange} 
+                ?disabled=${disabled} 
+            >
+            <label 
+                class="label"
+            >
+                <span 
+                    class="text"
+                >
+                    <slot></slot>
+                </span>
+            </label>
         </div>`;
     }
 
@@ -44,6 +61,8 @@ export class PieCheckbox extends LitElement {
 
         this.dispatchEvent(new CustomEvent('change', { detail: this.checked }));
     }
+
+    static styles = unsafeCSS(styles);
 }
 
 customElements.define(componentSelector, PieCheckbox);

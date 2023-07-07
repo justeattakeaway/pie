@@ -36,8 +36,8 @@ const Template = ({
     inputType,
     slot,
 }: CheckboxProps): TemplateResult => html`
-        <pie-checkbox inputType="${inputType}" .checked="${checked}" ?disabled="${disabled}">
-            ${slot}
+        <pie-checkbox inputType="${inputType}" .checked="${checked}" isChecked="${checked}" ?disabled="${disabled}">
+            <label>${slot}</label>
         </pie-checkbox>
         `;
 

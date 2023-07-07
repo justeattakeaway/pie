@@ -676,6 +676,11 @@
                                     }
                                 }
                             ]
+                        },
+                        {
+                            "kind": "field",
+                            "name": "styles",
+                            "static": true
                         }
                     ],
                     "events": [
