@@ -31,8 +31,6 @@
 
     // The base values are set to the size default, which is for the medium button size
     --btn-padding: 10px var(--dt-spacing-e);
-    --btn-min-block-size: 48px;
-    --btn-min-inline-size: 97px;
     --btn-font-size: calc(var(--dt-font-size-20) * 1px);
     --btn-line-height: calc(var(--dt-font-size-20-line-height) * 1px);
 
@@ -61,15 +59,9 @@
     --spinner-animation-duration: 1.15s;
     --spinner-animation-timing-function: linear;
     --spinner-animation-iteration-count: infinite;
-    --spinner-transition-duration: 0.15s;
-    --spinner-transition-timing-function: cubic-bezier(0, 0, 0.3, 1);
-    --spinner-transition-delay: 0s;
 
-    display: grid;
-    place-content: center;
+    position: relative;
     box-sizing: border-box;
-    min-block-size: var(--btn-min-block-size);
-    min-inline-size: var(--btn-min-inline-size);
     padding: var(--btn-padding);
     border: none;
     border-radius: var(--btn-border-radius);
@@ -216,8 +208,6 @@
         --btn-padding: 6px var(--dt-spacing-b);
         --btn-font-size: calc(var(--dt-font-size-14) * 1px);
         --btn-line-height: calc(var(--dt-font-size-14-line-height) * 1px);
-        --btn-min-inline-size: 55px;
-        --btn-min-block-size: 32px;
         --spinner-size: var(--spinner-size-s);
         --spinner-border-width: var(--spinner-border-width-s);
     }
@@ -226,8 +216,6 @@
         --btn-padding: 6px var(--dt-spacing-d);
         --btn-font-size: calc(var(--dt-font-size-20) * 1px);
         --btn-line-height: calc(var(--dt-font-size-20-line-height) * 1px);
-        --btn-min-inline-size: 81px;
-        --btn-min-block-size: 40px;
         --spinner-size: var(--spinner-size-s);
         --spinner-border-width: var(--spinner-border-width-s);
     }
@@ -236,8 +224,6 @@
         --btn-padding: 8px var(--dt-spacing-d);
         --btn-font-size: calc(var(--dt-font-size-16) * 1px);
         --btn-line-height: calc(var(--dt-font-size-16-line-height) * 1px);
-        --btn-min-inline-size: 71px;
-        --btn-min-block-size: 40px;
         --spinner-size: var(--spinner-size-s);
         --spinner-border-width: var(--spinner-border-width-s);
     }
@@ -250,24 +236,45 @@
         --btn-padding: 14px var(--dt-spacing-e);
         --btn-font-size: calc(var(--dt-font-size-20) * 1px);
         --btn-line-height: calc(var(--dt-font-size-20-line-height) * 1px);
-        --btn-min-inline-size: 97px;
-        --btn-min-block-size: 56px;
         --spinner-size: var(--spinner-size-m);
         --spinner-border-width: var(--spinner-border-width-m);
     }
-}
 
-.o-btn-spinner {
-    box-sizing: border-box;
-    height: var(--spinner-size);
-    width: var(--spinner-size);
-    display: block;
-    background-color: transparent;
-    border-radius: 50%;
-    border-color: var(--spinner-left-color) var(--spinner-right-color) var(--spinner-right-color) var(--spinner-left-color);
-    border-width: var(--spinner-border-width);
-    border-style: solid;
-    will-change: transform;
-    transition: opacity var(--spinner-transition-duration) var(--spinner-transition-timing-function) var(--spinner-transition-delay);
-    animation: rotate360 var(--spinner-animation-duration) var(--spinner-animation-timing-function) var(--spinner-animation-iteration-count);
+    &:before {
+        content: '';
+
+        // Centre the spinner over the top of the button text
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        translate: -50% -50%;
+
+        height: var(--spinner-size);
+        width: var(--spinner-size);
+        display: block;
+        background-color: transparent;
+        border-radius: 50%;
+        border-color: var(--spinner-left-color) var(--spinner-right-color) var(--spinner-right-color) var(--spinner-left-color);
+        border-width: var(--spinner-border-width);
+        border-style: solid;
+        will-change: transform;
+        opacity: 0;
+
+        transition: opacity 350ms ease-in-out;
+        animation: rotate360 var(--spinner-animation-duration) var(--spinner-animation-timing-function) var(--spinner-animation-iteration-count);
+    }
+
+    .o-btn-text {
+        transition: opacity 250ms ease-in-out;
+    }
+
+    &[isLoading] {
+        &:before {
+            opacity: 1;
+        }
+
+        & .o-btn-text {
+            opacity: 0;
+        }
+    }
 }
