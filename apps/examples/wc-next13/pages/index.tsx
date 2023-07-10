@@ -1,6 +1,8 @@
 import React, { useState, useRef } from 'react';
 import Head from 'next/head';
 import { ButtonProps, sizes, variants } from '@justeattakeaway/pie-button';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 import { PieButton } from '@justeattakeaway/pie-button/dist/react';
 
 export default function Home () {
