@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build:examples": "vite build",
     "preview": "vite preview"
   },
   "devDependencies": {
@@ -14,5 +14,8 @@
   "dependencies": {
     "@justeat/pie-design-tokens": "5.0.1",
     "@justeattakeaway/pie-button": "0.18.0"
+  },
+  "installConfig": {
+    "hoistingLimits": "workspaces"
   }
 }
