@@ -6,21 +6,7 @@ import {
 import { PieIconButton } from '@justeattakeaway/pie-icon-button';
 import { PieModal } from '@/index';
 import { ModalProps, sizes } from '@/defs';
-
-// Renders a <pie-modal> HTML string with the given prop values
-const renderTestPieModal = ({
-    heading = 'This is a modal heading',
-    headingLevel = 'h2',
-    size = 'medium',
-    isOpen = true,
-    isFullWidthBelowMid = false,
-    isDismissible = true,
-} : Partial<ModalProps> = {}) => `<pie-modal ${isOpen ? 'isOpen' : ''} ${isFullWidthBelowMid ? 'isFullWidthBelowMid' : ''} heading="${heading}" headingLevel="${headingLevel}" size="${size}" isDismissible="${isDismissible}"></pie-modal>`;
-
-// Creates a <ol> with a large number of <li> nodes for testing page scrolling
-const createTestPageHTML = () => `<ol>
-        ${'<li>List item</li>'.repeat(200)}
-    </ol>`;
+import { createScrollablePageHTML, renderTestPieModal } from '../helpers/index.ts';
 
 // Mount any components that are used inside of pie-modal so that
 // they have been registered with the browser before the tests run.
@@ -50,7 +36,7 @@ test('Should not be able to scroll when modal is open', async ({ page, mount }) 
             },
             slots: {
                 component: modalComponent,
-                pageMarkup: createTestPageHTML(),
+                pageMarkup: createScrollablePageHTML(),
             },
         },
     );
@@ -67,10 +53,7 @@ test('should not render when isOpen = false', async ({ page, mount }) => {
     await mount(PieModal, {
         props: {
             heading: 'This is a modal heading',
-            headingLevel: 'h2',
-            isFullWidthBelowMid: false,
             isOpen: false,
-            size: 'medium',
         },
     });
 
@@ -82,8 +65,6 @@ sizes.forEach((size) => {
         await mount(PieModal, {
             props: {
                 heading: 'This is a modal heading',
-                headingLevel: 'h2',
-                isFullWidthBelowMid: false,
                 isOpen: true,
                 size,
             },
@@ -93,57 +74,62 @@ sizes.forEach((size) => {
     });
 });
 
-test('Should render with full width when size = medium and isFullWidthBelowMid = true', async ({ page, mount }) => {
-    await mount(PieModal, {
-        props: {
-            heading: 'This is a modal heading',
-            headingLevel: 'h2',
-            isOpen: true,
-            size: 'medium',
-            isFullWidthBelowMid: true,
-        },
+test.describe('`isFullWidthBelowMid`', () => {
+    test.describe('when true', () => {
+        test('should be full width for a modal with size = medium', async ({ page, mount }) => {
+            await mount(PieModal, {
+                props: {
+                    heading: 'This is a modal heading',
+                    isFullWidthBelowMid: true,
+                    isOpen: true,
+                    size: 'medium',
+                },
+            });
+
+            await percySnapshot(page, 'Modal - isFullWidthBelowMid = true, size = medium');
+        });
+
+        test('should not be full width when size = small', async ({ page, mount }) => {
+            await mount(PieModal, {
+                props: {
+                    heading: 'This is a modal heading',
+                    isFullWidthBelowMid: true,
+                    isOpen: true,
+                    size: 'small',
+                },
+            });
+
+            await percySnapshot(page, 'Modal - isFullWidthBelowMid = true, size = small');
+        });
     });
 
-    await percySnapshot(page, 'Modal - size = medium & isFullWidthBelowMid = true');
+    test.describe('when false', () => {
+        (['small', 'medium'] as Array<ModalProps['size']>)
+        .forEach((size) => {
+            test(`should not be full width for a modal with size = ${size}`, async ({ page, mount }) => {
+                await mount(PieModal, {
+                    props: {
+                        heading: 'This is a modal heading',
+                        isFullWidthBelowMid: false,
+                        isOpen: true,
+                        size,
+                    },
+                });
+
+                await percySnapshot(page, `Modal - isFullWidthBelowMid = false, size = ${size}`);
+            });
+        });
+    });
 });
 
-test('Should not render with full width when size is NOT medium and isFullWidthBelowMid = true', async ({ page, mount }) => {
-    await mount(PieModal, {
-        props: {
-            heading: 'This is a modal heading',
-            headingLevel: 'h2',
-            isOpen: true,
-            size: 'small',
-            isFullWidthBelowMid: true,
-        },
-    });
-
-    await percySnapshot(page, 'Modal - size = small & isFullWidthBelowMid = true');
-});
-
-test('Should not render with full width when isFullWidthBelowMid = false', async ({ page, mount }) => {
-    await mount(PieModal, {
-        props: {
-            heading: 'This is a modal heading',
-            headingLevel: 'h2',
-            isOpen: true,
-            size: 'small',
-            isFullWidthBelowMid: true,
-        },
-    });
-
-    await percySnapshot(page, 'Modal - isFullWidthBelowMid = false');
-})
-
-test.describe('PIE Modal `isDismissible`', () => {
-    test.describe('when `true`', () => {
+test.describe('`isDismissible`', () => {
+    test.describe('when true', () => {
         test('should display a close button within the modal', async ({ mount, page }) => {
             await mount(PieModal, {
                 props: {
                     heading: 'This is a modal heading',
-                    headingLevel: 'h2',
-                    isOpen: true,
                     isDismissible: true,
+                    isOpen: true,
                 },
             });
 
@@ -151,14 +137,13 @@ test.describe('PIE Modal `isDismissible`', () => {
         });
     });
 
-    test.describe('when falsey', () => {
-        test('should NOT display a close button within the modal', async ({ mount, page }) => {
+    test.describe('when false', () => {
+        test('should NOT display a close button', async ({ mount, page }) => {
             await mount(PieModal, {
                 props: {
                     heading: 'This is a modal heading',
-                    headingLevel: 'h2',
-                    isOpen: true,
                     isDismissible: false,
+                    isOpen: true,
                 },
             });
 

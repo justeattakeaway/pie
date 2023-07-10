@@ -1,5 +1,6 @@
 import type { Meta, StoryObj as Story } from '@storybook/web-components';
 import { html, TemplateResult } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import '@justeattakeaway/pie-button'; // Ensures the button WC is available for use in the templates
 
 import {
@@ -8,14 +9,26 @@ import {
     sizes,
 } from '@justeattakeaway/pie-modal';
 
+const createScrollablePageHTML = () => {
+    const items = [];
+    for (let i = 0; i < 200; i++) {
+        items.push(html`<li>Item ${i}</li>`);
+    }
+
+    return html`
+        <h1>Test Page</h1>
+        <p>Test copy</p>
+        <ul>${items}</ul>`;
+};
+
 type ModalProps = ModalPropsBase & { slot: string }
 
 const defaultArgs: ModalProps = {
-    isDismissible: false,
-    isOpen: true,
-    isFullWidthBelowMid: false,
     heading: 'Modal header',
     headingLevel: 'h2',
+    isDismissible: true,
+    isFullWidthBelowMid: false,
+    isOpen: true,
     size: 'medium',
     slot: 'This is Lit!',
 };
@@ -25,6 +38,9 @@ export default {
     component: 'pie-modal',
     argTypes: {
         isDismissible: {
+            control: 'boolean',
+        },
+        isFullWidthBelowMid: {
             control: 'boolean',
         },
         isOpen: {
@@ -37,8 +53,8 @@ export default {
             control: 'select',
             options: headingLevels,
         },
-        isFullWidthBelowMid: {
-            control: 'boolean',
+        returnFocusAfterCloseSelector: {
+            control: 'text',
         },
         size: {
             control: 'select',
@@ -48,7 +64,7 @@ export default {
             control: 'text',
         },
     },
-    args: { ...defaultArgs },
+    args: defaultArgs,
     parameters: {
         design: {
             type: 'figma',
@@ -67,65 +83,67 @@ const toggleModal = () => {
     }
 };
 
-const Template = ({
-    isDismissible,
-    isOpen,
-    isFullWidthBelowMid,
-    heading,
-    headingLevel,
-    size,
-    slot,
-}: ModalProps): TemplateResult => html`
+const createFocusableElementsPageHTML = () => html`
+    <pie-button id="focus-1">#focus-1</pie-button>
+    <pie-button id="focus-2">#focus-2</pie-button>
+    <pie-button id="focus-3">#focus-3</pie-button>
+    <pie-button id="focus-4">#focus-4</pie-button>
+    <pie-button id="focus-5">#focus-5</pie-button>
+    <p>Try closing the modal in one of the following ways to see how focus is managed:</p>
+    <ol>
+        <li>Clicking on the backdrop</li>
+        <li>Pressing the modal's close button</li>
+        <li>Pressing the modal's close button using the keyboard</li>
+        <li>Pressing the Esc key</li>
+    </ol>
+    <style>
+        pie-button {
+            margin: 8px;
+            display: inline-block;
+        }
+    </style>`;
+
+const BaseStory = (props: ModalProps): TemplateResult => {
+    const {
+        heading,
+        headingLevel,
+        isDismissible,
+        isFullWidthBelowMid,
+        isOpen,
+        returnFocusAfterCloseSelector,
+        size,
+        slot,
+    } = props;
+    return html`
         <pie-button @click=${toggleModal}>Toggle Modal</pie-button>
         <pie-modal
-        ?isDismissible="${isDismissible}"
-        ?isOpen="${isOpen}"
-        heading="${heading}"
-        size="${size}"
-        ?isFullWidthBelowMid="${isFullWidthBelowMid}"
-        headingLevel="${headingLevel}">
+            heading="${heading}"
+            headingLevel="${headingLevel}"
+            ?isDismissible="${isDismissible}"
+            ?isFullWidthBelowMid="${isFullWidthBelowMid}"
+            returnFocusAfterCloseSelector="${ifDefined(returnFocusAfterCloseSelector)}"
+            ?isOpen="${isOpen}"
+            size="${size}">
             ${slot}
-        </pie-modal>
-    `;
-
-export const Default: Story<ModalProps> = (args: ModalProps) => Template(args);
-Default.args = {
-    ...defaultArgs,
+        </pie-modal>`;
 };
 
-// Creates some test page markup to test scroll locking
-const createTestPageHTML = () => {
-    const items = [];
-    for (let i = 0; i < 200; i++) {
-        items.push(html`<li>Item ${i}</li>`);
-    }
+const ScrollablePageStory = (props: ModalProps) => html`
+    ${BaseStory(props)}
+    ${createScrollablePageHTML()}`;
 
-    return html`
-    <h1>Test Page</h1>
-    <p> Test copy </p>
-    <ul>${items}</ul>`;
-};
+const FocusableElementsPageTemplate = (props: ModalProps) => html`
+    ${BaseStory(props)}
+    ${createFocusableElementsPageHTML()}`;
 
-const PageContextTemplate = ({
-    isOpen,
-    heading,
-    headingLevel,
-    isFullWidthBelowMid,
-    slot,
-}: ModalProps) => html`
-    <pie-button @click=${toggleModal}>Toggle Modal</pie-button>
-    <pie-modal
-        ?isOpen="${isOpen}"
-        heading="${heading}"
-        headingLevel="${headingLevel}"
-        ?isFullWidthBelowMid="${isFullWidthBelowMid}"
-    >
-        ${slot}
-    </pie-modal>
-    ${createTestPageHTML()}
-`;
+export const Default: Story<ModalProps> = (args: ModalProps) => BaseStory(args);
+Default.args = defaultArgs;
 
-export const InScrollablePage: Story<ModalProps> = (args: ModalProps) => PageContextTemplate(args);
-InScrollablePage.args = {
+export const ScrollLocking: Story<ModalProps> = (args: ModalProps) => ScrollablePageStory(args);
+ScrollLocking.args = defaultArgs;
+
+export const FocusManagement: Story<ModalProps> = (args: ModalProps) => FocusableElementsPageTemplate(args);
+FocusManagement.args = {
     ...defaultArgs,
+    returnFocusAfterCloseSelector: '#focus-3',
 };
