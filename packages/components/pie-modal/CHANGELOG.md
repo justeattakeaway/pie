@@ -1,5 +1,20 @@
 # @justeattakeaway/pie-modal
 
+## 0.10.0
+
+### Minor Changes
+
+- [Added] - Add returnFocusAfterCloseSelector prop ([#599](https://github.com/justeattakeaway/pie/pull/599)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Changed] - Extract `renderTestPieModal` into test helper file so it can be used for component tests too
+  [Added] - Add README documentation for new props
+
+- [Fixed] - Fix console errors when switching between stories ([#599](https://github.com/justeattakeaway/pie/pull/599)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- [Added] - New `isFullWidthBelowMid` prop for pie-modal ([#600](https://github.com/justeattakeaway/pie/pull/600)) by [@LTurns](https://github.com/LTurns)
+
+- [Added] isDismissible prop and tests ([#588](https://github.com/justeattakeaway/pie/pull/588)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
 ## 0.9.0
 
 ### Minor Changes
