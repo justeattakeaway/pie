@@ -7,12 +7,11 @@ on:
       - "apps/examples/**"
       - ".husky/**"
       - ".idea/**"
-      - "stories/**"
       - ".vscode/**"
-      - "README.md"
-      - "CONTRIBUTING.md"
-      - "CHANGELOG.md"
-      - "LICENSE"
+      - "**/{README,readme}.md"
+      - "**/CONTRIBUTING.md"
+      - "**/CHANGELOG.md"
+      - "**/LICENSE"
 
   push:
     branches:
