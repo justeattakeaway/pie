@@ -1,7 +1,6 @@
 import { LitElement, html, unsafeCSS } from 'lit';
 import { property } from 'lit/decorators.js';
 import { validPropertyValues } from '@justeattakeaway/pie-webc-core';
-import { IconLoading } from '@justeattakeaway/pie-icons-webc';
 import styles from './button.scss?inline';
 import {
     ButtonProps, sizes, types, variants,
@@ -14,7 +13,6 @@ export {
     types,
     variants,
 };
-export { IconLoading };
 
 const componentSelector = 'pie-button';
 
