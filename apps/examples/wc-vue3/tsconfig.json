@@ -4,6 +4,7 @@
   "compilerOptions": {
     "allowJs": true, // allow JavaScript files to be imported
     "baseUrl": ".",
+    "ignoreDeprecations": "5.0",
     "paths": {
       "@/*": ["./src/*"]
     }

@@ -9,13 +9,13 @@ on:
       node-version:
         required: true
         type: string
+      build-script:
+        required: false
+        type: string
+        default: 'build'
 
 env:
     TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
-
-concurrency:
-    group: install-build-${{ github.ref }}-${{ inputs.os }}-${{ inputs.node-version }}
-    cancel-in-progress: true
 
 jobs:
   install:
@@ -42,4 +42,4 @@ jobs:
       - name: Build Packages
         uses: ./.github/actions/run-script
         with:
-          script-name: "build"
+          script-name: ${{ inputs.build-script }}
