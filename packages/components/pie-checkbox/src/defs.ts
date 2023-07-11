@@ -12,6 +12,11 @@ export interface CheckboxProps {
      */
     disabled: boolean;
     /**
+     * (Optional) When true, the checkbox will be invalid.
+     * @default false
+     */
+    hasError: boolean;
+    /**
      * What input type should be applied.
      * @default false
      */

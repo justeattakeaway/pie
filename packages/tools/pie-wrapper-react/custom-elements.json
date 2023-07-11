@@ -653,6 +653,15 @@
                         },
                         {
                             "kind": "field",
+                            "name": "hasError",
+                            "type": {
+                                "text": "boolean"
+                            },
+                            "privacy": "public",
+                            "default": "false"
+                        },
+                        {
+                            "kind": "field",
                             "name": "inputType",
                             "type": {
                                 "text": "CheckboxProps['inputType']"

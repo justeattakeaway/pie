@@ -14,6 +14,10 @@ export default {
             control: 'boolean',
         },
 
+        hasError: {
+            control: 'boolean',
+        },
+
         inputType: {
             control: 'select',
             options: inputTypes,
@@ -26,6 +30,7 @@ export default {
     args: {
         checked: false,
         disabled: false,
+        hasError: false,
         inputType: 'checkbox',
     },
 } as Meta;
@@ -34,9 +39,10 @@ const Template = ({
     checked,
     disabled,
     inputType,
+    hasError,
     slot,
 }: CheckboxProps): TemplateResult => html`
-        <pie-checkbox inputType="${inputType}" .checked="${checked}" isChecked="${checked}" ?disabled="${disabled}">
+        <pie-checkbox inputType="${inputType}" .checked="${checked}" isChecked="${checked}" ?hasError="${hasError}" ?disabled="${disabled}">
             <label>${slot}</label>
         </pie-checkbox>
         `;
@@ -45,6 +51,7 @@ const defaultArgs: CheckboxProps = {
     checked: true,
     disabled: false,
     inputType: 'checkbox',
+    hasError: false,
     slot: 'This is a label!',
 
 };

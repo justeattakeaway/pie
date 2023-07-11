@@ -21,6 +21,9 @@ export class PieCheckbox extends LitElement {
     @property({ type: Boolean })
     public disabled = false;
 
+    @property({ type: Boolean })
+    public hasError = false;
+
     @property()
     @validPropertyValues(componentSelector, inputTypes, 'checkbox')
     public inputType: CheckboxProps['inputType'] = 'checkbox';
@@ -30,11 +33,13 @@ export class PieCheckbox extends LitElement {
             checked,
             disabled,
             inputType,
+            hasError,
         } = this;
         return html`
         <div>
             <input 
-                class="c-formSelector" 
+                class="c-formSelector"
+                ?hasError=${hasError}
                 type=${inputType} 
                 role="checkbox" 
                 .checked=${checked} 
