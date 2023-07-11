@@ -17,83 +17,32 @@ env:
   TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
 
 jobs:
-  build-wc-angular-12:
-    name: Build Angular 12 / Node 18
+  build-example-app:
+    strategy:
+      matrix:
+        include:
+          - node-version: 18
+            example-app: wc-angular-12
+          - node-version: 16
+            example-app: wc-next-10
+          - node-version: 18
+            example-app: wc-next-13
+          - node-version: 16
+            example-app: wc-nuxt-2
+          - node-version: 18
+            example-app: wc-nuxt-3
+          - node-version: 18
+            example-app: wc-react-17
+          - node-version: 18
+            example-app: wc-react-18
+          - node-version: 18
+            example-app: wc-vanilla
+          - node-version: 18
+            example-app: wc-vue3
+    name: Build ${{matrix.example-app}} / Node ${{ matrix}}
     uses: ./.github/workflows/install-build.yml
     with:
       os: ubuntu-latest
-      node-version: 18
-      build-script: build:examples --filter=wc-angular12
-    secrets: inherit
-
-  build-wc-next-10:
-    name: Build Next 10 / Node 16
-    uses: ./.github/workflows/install-build.yml
-    with:
-        os: ubuntu-latest
-        node-version: 16
-        build-script: build:examples --filter=wc-next10
-    secrets: inherit
-
-  build-wc-next-13:
-    name: Build Next 13 / Node 18
-    uses: ./.github/workflows/install-build.yml
-    with:
-        os: ubuntu-latest
-        node-version: 18
-        build-script: build:examples --filter=wc-next13
-    secrets: inherit
-
-  build-wc-nuxt-2:
-    name: Build Nuxt 2 / Node 16
-    uses: ./.github/workflows/install-build.yml
-    with:
-        os: ubuntu-latest
-        node-version: 16
-        build-script: build:examples --filter=wc-nuxt2
-    secrets: inherit
-
-  build-wc-nuxt-3:
-    name: Build Nuxt 3 / Node 18
-    uses: ./.github/workflows/install-build.yml
-    with:
-        os: ubuntu-latest
-        node-version: 18
-        build-script: build:examples --filter=wc-nuxt3
-    secrets: inherit
-
-  build-wc-react-17:
-    name: Build React 17 / Node 18
-    uses: ./.github/workflows/install-build.yml
-    with:
-        os: ubuntu-latest
-        node-version: 18
-        build-script: build:examples --filter=wc-react17
-    secrets: inherit
-
-  build-wc-react-18:
-    name: Build React 18 / Node 18
-    uses: ./.github/workflows/install-build.yml
-    with:
-        os: ubuntu-latest
-        node-version: 18
-        build-script: build:examples --filter=wc-react18
-    secrets: inherit
-
-  build-wc-vanilla:
-    name: Build Vanila / Node 18
-    uses: ./.github/workflows/install-build.yml
-    with:
-        os: ubuntu-latest
-        node-version: 18
-        build-script: build:examples --filter=wc-vanilla
-    secrets: inherit
-
-  build-wc-vue-3:
-    name: Build Vue 3 / Node 18
-    uses: ./.github/workflows/install-build.yml
-    with:
-        os: ubuntu-latest
-        node-version: 18
-        build-script: build:examples --filter=wc-vue3
+      node-version: ${{ matrix.node-version }}
+      build-script: build:examples --filter=${{ matrix.example-app }}
     secrets: inherit
