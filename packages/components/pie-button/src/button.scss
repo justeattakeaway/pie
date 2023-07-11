@@ -1,3 +1,7 @@
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
 // Defines button interactive states for hover and active using HSL & calc
 // Takes a color token name as an argument
 @mixin button-interactive-states($bg-color) {
@@ -259,17 +263,11 @@
         border-style: solid;
         will-change: transform;
         opacity: 0;
-
-        transition: opacity 350ms ease-in-out;
-        animation: rotate360 var(--spinner-animation-duration) var(--spinner-animation-timing-function) var(--spinner-animation-iteration-count);
-    }
-
-    .o-btn-text {
-        transition: opacity 250ms ease-in-out;
     }
 
     &[isLoading] {
         &:before {
+            animation: rotate360 var(--spinner-animation-duration) var(--spinner-animation-timing-function) var(--spinner-animation-iteration-count);
             opacity: 1;
         }
 
