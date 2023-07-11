@@ -21,10 +21,11 @@ const props: PropObject = {
     type: 'button', // Changing the type does not affect the appearance of the button
     isFullWidth: [true, false],
     disabled: [true, false],
+    isLoading: [true, false],
 };
 
 // Renders a <pie-button> HTML string with the given prop values
-const renderTestPieButton = (propVals: WebComponentPropValues) => `<pie-button variant="${propVals.variant}" size="${propVals.size}" type="${propVals.type}" ${propVals.isFullWidth ? 'isFullWidth' : ''} ${propVals.disabled ? 'disabled' : ''}>Hello world</pie-button>`;
+const renderTestPieButton = (propVals: WebComponentPropValues) => `<pie-button variant="${propVals.variant}" size="${propVals.size}" type="${propVals.type}" ${propVals.isFullWidth ? 'isFullWidth' : ''} ${propVals.disabled ? 'disabled' : ''} ${propVals.isLoading ? 'isLoading' : ''}>Hello world</pie-button>`;
 
 const componentPropsMatrix : WebComponentPropValues[] = getAllPropCombinations(props);
 const componentPropsMatrixByVariant: Record<string, WebComponentPropValues[]> = splitCombinationsByPropertyValue(componentPropsMatrix, 'variant');
@@ -48,7 +49,7 @@ test.beforeEach(async ({ page, mount }) => {
 componentVariants.forEach((variant) => test(`Render all prop variations for Variant: ${variant}`, async ({ page, mount }) => {
     await Promise.all(componentPropsMatrixByVariant[variant].map(async (combo: WebComponentPropValues) => {
         const testComponent: WebComponentTestInput = createTestWebComponent(combo, renderTestPieButton);
-        const propKeyValues = `size: ${testComponent.propValues.size}, isFullWidth: ${testComponent.propValues.isFullWidth}, disabled: ${testComponent.propValues.disabled}`;
+        const propKeyValues = `size: ${testComponent.propValues.size}, isFullWidth: ${testComponent.propValues.isFullWidth}, disabled: ${testComponent.propValues.disabled}, isLoading: ${testComponent.propValues.isLoading}`;
         const darkMode = variant === 'inverse' || variant === 'ghost-inverse';
 
         await mount(
