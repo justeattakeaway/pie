@@ -123,6 +123,7 @@ jobs:
             dist-folder: ./apps/examples/wc-react17/dist
 
     name: Deploy ${{matrix.example-app}}
+    needs: lint-example-apps
     uses: ./.github/workflows/amplify-deploy.yml
     with:
       os: ubuntu-latest
