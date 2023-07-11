@@ -1,5 +1,14 @@
 # @justeattakeaway/pie-wrapper-react
 
+## 0.6.2
+
+### Patch Changes
+
+- [Added] - Add returnFocusAfterCloseSelector prop ([#599](https://github.com/justeattakeaway/pie/pull/599)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Changed] - Extract `renderTestPieModal` into test helper file so it can be used for component tests too
+  [Added] - Add README documentation for new props
+
 ## 0.6.1
 
 ### Patch Changes
