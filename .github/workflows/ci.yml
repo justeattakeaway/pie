@@ -8,7 +8,7 @@ on:
       - ".husky/**"
       - ".idea/**"
       - ".vscode/**"
-      - "**/{README,readme}.md"
+      - "**/README.md"
       - "**/CONTRIBUTING.md"
       - "**/CHANGELOG.md"
       - "**/LICENSE"
