@@ -57,13 +57,19 @@ import { PieModal } from '@justeattakeaway/pie-modal/dist/react';
 
 ## Props
 
-| Property      | Type      | Default | Description                                           |
-|---------------|-----------|---------|-------------------------------------------------------|
-| isOpen        | `Boolean` | `false` | Controls if the modal element is open or closed       |
-| heading*      | `String`  | -       | Sets the heading of the modal                         |
-| headingLevel  | `String`  | `h2`    | Allows you to set the heading tag (from `h1` to `h6`) |
-| isDismissible | `Boolean` | `false` | Controls if the modal element is dismissible or not.  |
-| isFullWidthBelowMid   | `Boolean`  | `false`    | Controls if width is set to full (when size = medium) |
+| Property | Type | Default | Description |
+|---|---|---|---|
+| headingLevel | `String` | `h2` |  |
+
+| Property | Type | Default | Description |
+|---|---|---|---|
+| heading | `String` | n/a (Required) | The heading text of the modal |
+| headingLevel | `String` | `h2` | The HTML tag to use for the modal's heading (can be `h1`-`h6`) |
+| isDismissible | `Boolean` | `false` | If true, the modal includes a close button and can be dismissed by clicking on the backdrop or pressing the Esc key |
+| isFullWidthBelowMid | `Boolean` | `false` | If true and the page is narrower than the mid breakpoint, a **medium-sized** modal will take up the full width of the screen. |
+| isOpen | `Boolean` | `false` | Controls if the modal element is open or closed |
+| size | `String` | `medium` | Determines the maximum width of the modal. Large modals will expand to fill the entire page width at narrow viewports. Can be `small`, `medium` or `large`. |
+| returnFocusAfterCloseSelector | `String` | `undefined` | If provided, focus will be sent to the first element that matches this selector when the modal is closed. If not provided, the `dialog` element will return focus to the element that opened the modal. |
 
 In your markup or JSX, you can then use these to set the properties for the `pie-modal` component:
 

@@ -23,12 +23,6 @@ export { type ModalProps, headingLevels, sizes };
 const componentSelector = 'pie-modal';
 
 export class PieModal extends RtlMixin(LitElement) {
-    @property({ type: Boolean, reflect: true })
-    public isDismissible = false;
-
-    @property({ type: Boolean })
-    public isOpen = false;
-
     @property({ type: String })
     @requiredProperty(componentSelector)
     public heading!: string;
@@ -37,12 +31,21 @@ export class PieModal extends RtlMixin(LitElement) {
     @validPropertyValues(componentSelector, headingLevels, 'h2')
     public headingLevel: ModalProps['headingLevel'] = 'h2';
 
-    @property()
-    @validPropertyValues(componentSelector, sizes, 'medium')
-    public size: ModalProps['size'] = 'medium';
+    @property({ type: Boolean, reflect: true })
+    public isDismissible = false;
 
     @property({ type: Boolean })
     public isFullWidthBelowMid = false;
+
+    @property({ type: Boolean })
+    public isOpen = false;
+
+    @property()
+    public returnFocusAfterCloseSelector?: string;
+
+    @property()
+    @validPropertyValues(componentSelector, sizes, 'medium')
+    public size: ModalProps['size'] = 'medium';
 
     @query('dialog')
         _dialog?: HTMLDialogElement;
@@ -67,6 +70,10 @@ export class PieModal extends RtlMixin(LitElement) {
     firstUpdated (changedProperties: DependentMap<ModalProps>) : void {
         this._dialog?.addEventListener('cancel', (event) => this._handleDialogCancelEvent(event));
         this._handleModalOpenStateOnFirstRender(changedProperties);
+
+        this._dialog?.addEventListener('close', () => {
+            this.isOpen = false;
+        });
     }
 
     updated (changedProperties: DependentMap<ModalProps>) : void {
@@ -78,9 +85,10 @@ export class PieModal extends RtlMixin(LitElement) {
      */
     private _handleModalOpened () : void {
         disableBodyScroll(this);
-        //  We require this because toggling the prop `isOpen` itself won't
-        //  allow the dialog to open in the correct way (with the default background),
-        //  the method `showModal()` needs to be invoked.
+        if (this._dialog?.hasAttribute('open') || !this._dialog?.isConnected) {
+            return;
+        }
+        // The ::backdrop pseudoelement is only shown if the modal is opened via JS
         this._dialog?.showModal();
     }
 
@@ -89,17 +97,9 @@ export class PieModal extends RtlMixin(LitElement) {
      */
     private _handleModalClosed () : void {
         enableBodyScroll(this);
-        //  Closes the native dialog element
         this._dialog?.close();
+        this._returnFocus();
     }
-
-    /**
-     * This is only to be used inside the component template as direct property
-     * reassignment is not allowed.
-     */
-    private _triggerCloseModal = () : void => {
-        this.isOpen = false;
-    };
 
     /**
      * Prevents the user from dismissing the dialog via the `cancel`
@@ -136,6 +136,19 @@ export class PieModal extends RtlMixin(LitElement) {
         }
     }
 
+    /**
+     * Return focus to the specified element, providing the selector is valid
+     * and the chosen element can be found.
+     * Fails silently.
+     */
+    private _returnFocus () : void {
+        const selector = this.returnFocusAfterCloseSelector?.trim();
+
+        if (selector) {
+            (document.querySelector(selector) as HTMLElement)?.focus();
+        }
+    }
+
     render () {
         const {
             heading,
@@ -164,8 +177,8 @@ export class PieModal extends RtlMixin(LitElement) {
     }
 
     /**
-     * Dismisses the modal on backdrop click. (dependent on prop: `isDismissible`)
-     *
+     * Dismisses the modal on backdrop click if `isDismissible` is `true`.
+     * @param {MouseEvent} event - the click event targetting the modal/backdrop
      */
     private _handleDialogLightDismiss = (event: MouseEvent) : void => {
         if (!this.isDismissible) {
@@ -220,15 +233,12 @@ export class PieModal extends RtlMixin(LitElement) {
      *
      * @private
      */
-    private renderCloseButton (): TemplateResult {
-        return html`
-            <pie-icon-button
-                @click="${this._triggerCloseModal}"
-                variant="ghost-secondary"
-                class="c-modal-closeBtn"
-                data-test-id="modal-close-button"></pie-icon-button>
-        `;
-    }
+    private renderCloseButton = () : TemplateResult => html`
+        <pie-icon-button
+            @click="${() => { this.isOpen = false; }}"
+            variant="ghost-secondary"
+            class="c-modal-closeBtn"
+            data-test-id="modal-close-button"></pie-icon-button>`;
 
     // Renders a `CSSResult` generated from SCSS by Vite
     static styles = unsafeCSS(styles);

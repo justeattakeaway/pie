@@ -151,24 +151,6 @@
                     "members": [
                         {
                             "kind": "field",
-                            "name": "isDismissible",
-                            "type": {
-                                "text": "boolean"
-                            },
-                            "privacy": "public",
-                            "default": "false"
-                        },
-                        {
-                            "kind": "field",
-                            "name": "isOpen",
-                            "type": {
-                                "text": "boolean"
-                            },
-                            "privacy": "public",
-                            "default": "false"
-                        },
-                        {
-                            "kind": "field",
                             "name": "heading",
                             "type": {
                                 "text": "string"
@@ -186,12 +168,12 @@
                         },
                         {
                             "kind": "field",
-                            "name": "size",
+                            "name": "isDismissible",
                             "type": {
-                                "text": "ModalProps['size']"
+                                "text": "boolean"
                             },
                             "privacy": "public",
-                            "default": "'medium'"
+                            "default": "false"
                         },
                         {
                             "kind": "field",
@@ -201,6 +183,32 @@
                             },
                             "privacy": "public",
                             "default": "false"
+                        },
+                        {
+                            "kind": "field",
+                            "name": "isOpen",
+                            "type": {
+                                "text": "boolean"
+                            },
+                            "privacy": "public",
+                            "default": "false"
+                        },
+                        {
+                            "kind": "field",
+                            "name": "returnFocusAfterCloseSelector",
+                            "type": {
+                                "text": "string | undefined"
+                            },
+                            "privacy": "public"
+                        },
+                        {
+                            "kind": "field",
+                            "name": "size",
+                            "type": {
+                                "text": "ModalProps['size']"
+                            },
+                            "privacy": "public",
+                            "default": "'medium'"
                         },
                         {
                             "kind": "field",
@@ -267,15 +275,9 @@
                         },
                         {
                             "kind": "field",
-                            "name": "_triggerCloseModal",
-                            "privacy": "private",
-                            "description": "This is only to be used inside the component template as direct property\nreassignment is not allowed."
-                        },
-                        {
-                            "kind": "field",
                             "name": "_handleDialogCancelEvent",
                             "privacy": "private",
-                            "description": "Prevents the user from dismissing the dialog via the `cancel`\nevent (ESC key) when `isDismissible` is set to false.",
+                            "description": "Prevents the user from dismissing the dialog via the `cancel`\r\nevent (ESC key) when `isDismissible` is set to false.",
                             "parameters": [
                                 {
                                     "description": "The event object.",
@@ -324,19 +326,39 @@
                         },
                         {
                             "kind": "method",
+                            "name": "_returnFocus",
+                            "privacy": "private",
+                            "return": {
+                                "type": {
+                                    "text": "void"
+                                }
+                            },
+                            "description": "Return focus to the specified element, providing the selector is valid\r\nand the chosen element can be found.\r\nFails silently."
+                        },
+                        {
+                            "kind": "method",
                             "name": "render"
                         },
                         {
                             "kind": "field",
                             "name": "_handleDialogLightDismiss",
                             "privacy": "private",
-                            "description": "Dismisses the modal on backdrop click. (dependent on prop: `isDismissible`)"
+                            "description": "Dismisses the modal on backdrop click if `isDismissible` is `true`.",
+                            "parameters": [
+                                {
+                                    "description": "the click event targetting the modal/backdrop",
+                                    "name": "event",
+                                    "type": {
+                                        "text": "MouseEvent"
+                                    }
+                                }
+                            ]
                         },
                         {
                             "kind": "field",
                             "name": "_dispatchModalCustomEvent",
                             "privacy": "private",
-                            "description": "Note: We should aim to have a shareable event helper system to allow\nus to share this across components in-future.\n\nDispatch a custom event.\n\nTo be used whenever we have behavioural events we want to\nbubble up through the modal.",
+                            "description": "Note: We should aim to have a shareable event helper system to allow\r\nus to share this across components in-future.\r\n\r\nDispatch a custom event.\r\n\r\nTo be used whenever we have behavioural events we want to\r\nbubble up through the modal.",
                             "parameters": [
                                 {
                                     "name": "eventType",
@@ -347,15 +369,10 @@
                             ]
                         },
                         {
-                            "kind": "method",
+                            "kind": "field",
                             "name": "renderCloseButton",
                             "privacy": "private",
-                            "return": {
-                                "type": {
-                                    "text": "TemplateResult"
-                                }
-                            },
-                            "description": "Template for the close button element. Called within the\nmain render function."
+                            "description": "Template for the close button element. Called within the\r\nmain render function."
                         },
                         {
                             "kind": "field",
@@ -518,6 +535,10 @@
                         {
                             "kind": "method",
                             "name": "render"
+                        },
+                        {
+                            "kind": "method",
+                            "name": "focus"
                         },
                         {
                             "kind": "field",
@@ -906,7 +927,7 @@
                             }
                         }
                     ],
-                    "description": "A decorator for marking a property as required.\nIf the property's value is `undefined`, `null` or empty string, an error is logged.",
+                    "description": "A decorator for marking a property as required.\r\nIf the property's value is `undefined`, `null` or empty string, an error is logged.",
                     "return": {
                         "type": {
                             "text": "Function"
@@ -954,7 +975,7 @@
                             "description": "The value to fall back on"
                         }
                     ],
-                    "description": "A decorator for specifying a list of valid values for a property.\nIf this property's setter is called with an invalid value, an error is logged and the default value will be assigned instead.",
+                    "description": "A decorator for specifying a list of valid values for a property.\r\nIf this property's setter is called with an invalid value, an error is logged and the default value will be assigned instead.",
                     "return": {
                         "type": {
                             "text": ""
