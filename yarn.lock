@@ -5257,6 +5257,8 @@ __metadata:
   dependencies:
     "@justeattakeaway/pie-icons-webc": "workspace:*"
     "@justeattakeaway/pie-webc-core": "workspace:*"
+  peerDependencies:
+    pie-design-tokens: 5.3.0
   languageName: unknown
   linkType: soft
 
@@ -5347,6 +5349,7 @@ __metadata:
   dependencies:
     "@justeattakeaway/pie-components-config": "workspace:*"
     "@justeattakeaway/pie-icon-button": "workspace:*"
+    "@justeattakeaway/pie-icons-webc": "workspace:*"
     "@justeattakeaway/pie-webc-core": "workspace:*"
     "@types/body-scroll-lock": 3.1.0
   peerDependencies:
