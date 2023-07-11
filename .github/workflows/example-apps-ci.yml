@@ -3,8 +3,6 @@ name: Build Example Apps
 on:
   pull_request:
     types: [assigned, opened, synchronize, reopened, "ready_for_review"]
-    # paths:
-    #   - "apps/examples/**"
   push:
     branches:
       - main
@@ -17,24 +15,24 @@ env:
   TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
 
 jobs:
-  build-example-app:
+  build-example-apps:
     strategy:
       matrix:
         include:
           - node-version: 18
-            example-app: wc-angular-12
+            example-app: wc-angular12
           - node-version: 16
-            example-app: wc-next-10
+            example-app: wc-next10
           - node-version: 18
-            example-app: wc-next-13
+            example-app: wc-next13
           - node-version: 16
-            example-app: wc-nuxt-2
+            example-app: wc-nuxt2
           - node-version: 18
-            example-app: wc-nuxt-3
+            example-app: wc-nuxt3
           - node-version: 18
-            example-app: wc-react-17
+            example-app: wc-react17
           - node-version: 18
-            example-app: wc-react-18
+            example-app: wc-react18
           - node-version: 18
             example-app: wc-vanilla
           - node-version: 18
@@ -45,4 +43,94 @@ jobs:
       os: ubuntu-latest
       node-version: ${{ matrix.node-version }}
       build-script: build:examples --filter=${{ matrix.example-app }}
+    secrets: inherit
+
+  lint-example-apps:
+    strategy:
+      matrix:
+        include:
+          - node-version: 16
+            example-app: wc-next10
+            os: ubuntu-latest
+          - node-version: 18
+            example-app: wc-next13
+            os: ubuntu-latest
+    needs: build-example-apps
+    runs-on: ${{ matrix.os }}
+    steps:
+      # Checkout the Repo
+      - name: Checkout
+        uses: actions/checkout@v3
+      # Setup Repo
+      - name: Setup Repo
+        uses: ./.github/actions/setup-repo
+        with:
+          node-version: ${{ matrix.node-version }}
+          os: ${{ matrix.os }}
+      # Linting
+      - name: Linting
+        uses: ./.github/actions/run-script
+        with:
+          script-name: "lint:examples --filter=${{ matrix.example-app }}"
+
+  deploy-example-apps:
+    strategy:
+      matrix:
+        include:
+          - node-version: 18
+            amplify-app-id: d3krjop5uu4oza
+            example-app: wc-angular12
+            dist-folder: ./apps/examples/wc-angular12/dist
+
+          - node-version: 16
+            amplify-app-id: d2po5gzj2z57w1
+            example-app: wc-next10
+            dist-folder: ./apps/examples/wc-next10/build
+
+          - node-version: 18
+            amplify-app-id: d3g23senqajlhy
+            example-app: wc-next13
+            dist-folder: ./apps/examples/wc-next13/build
+
+          - node-version: 16
+            amplify-app-id: d3puta7o12ynlf
+            example-app: wc-nuxt2
+            dist-folder: ./apps/examples/wc-nuxt2/dist
+
+          - node-version: 18
+            amplify-app-id: d1mfepkt71qwu0
+            example-app: wc-nuxt3
+            dist-folder: ./apps/examples/wc-nuxt3/dist
+
+          - node-version: 18
+            amplify-app-id: d2a3kuvjs3esad
+            example-app: wc-react17
+            dist-folder: ./apps/examples/wc-react17/build
+
+          - node-version: 18
+            amplify-app-id: d1zlc7g0rtfm9g
+            example-app: wc-react18
+            dist-folder: ./apps/examples/wc-react18/build
+
+          - node-version: 18
+            amplify-app-id: d1vykunmq1k4jp
+            example-app: wc-vanilla
+            dist-folder: ./apps/examples/wc-vanilla/dist
+
+          - node-version: 18
+            amplify-app-id: dtgmklfymp81v
+            example-app: wc-vue3
+            dist-folder: ./apps/examples/wc-react17/dist
+
+    name: Deploy ${{matrix.example-app}}
+    uses: ./.github/workflows/amplify-deploy.yml
+    with:
+      os: ubuntu-latest
+      node-version: 18
+      amplify-app-id: ${{ matrix.amplify-app-id }}
+      package-name: ${{ matrix.example-app}}
+      package-dist-directory: ${{ matrix.dist-folder }}
+      bucket-name-main: 'pie-example-apps-main'
+      bucket-name-preview: 'pie-example-apps-preview'
+      build-script: build:examples
     secrets: inherit
