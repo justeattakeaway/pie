@@ -2,7 +2,6 @@
 
 {% set razor = ['/assets/img/Razor.svg'] | join | url %}
 
-<div class="c-homePage-row">
 <div class="c-homePage" data-test-id="site_content">
     <div data-test-id="content_header" class="c-homePage-header {% if heroImageSrc %}c-homePage-header--hero{% endif %}">
         <div class="c-content-container">
@@ -24,16 +23,13 @@
                 </div>
             {% endif %}
         </div>
+        <div class="slanted"></div>
     </div>
 
     {% if navKey %}
         {% include "page-tabs.njk" %}
     {% endif %}
-{# 
-    <div class="slanted"></div> #}
-
     <div class="c-content-subtitles">
-         <img class="razor" src={{ razor }} alt="" />
         {# temporarily adding a condition to check if the title is PIE Design System - this allows an empty home page not to display the coming soon graphic in the page body #}
         {% if content %}
             <div class="c-homePage-content">
@@ -51,4 +47,3 @@
         {% endif %}
     </div>
     </div>
-</div>

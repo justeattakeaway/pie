@@ -21,10 +21,10 @@
             padding-right: 0;
         }
 
-        @include f.media('>mid') {
-            padding-left: 0;
-            padding-right: 0;
-        }
+        // @include f.media('>mid') {
+        //     padding-left: f.spacing(h);
+        //     padding-right: f.spacing(h);
+        // }
     }
 
     & p,
@@ -44,11 +44,6 @@
     }
 }
 
-.c-homePage-header--hero:after {
-    content: '';
-    background-color: black;
-}
-
 .c-homePage-header-description {
     @include f.font-size('body-l');
     margin-top: f.spacing(e);
@@ -64,12 +59,20 @@
     padding-top: f.$spacing-e;
     padding-bottom: f.$spacing-f;
 
+
+
     .c-content-container {
         display: flex;
         align-items: flex-start;
-        position: relative;
-        background-color: f.$color-background-subtle;
-        padding: 0;
+        padding: f.$spacing-f;
+
+        @include f.media('>=narrowMid') {
+            padding-bottom: 0;
+        }
+    }
+
+    @include f.media('>=narrowMid') {
+        padding-bottom: f.$spacing-f;
     }
 
     .c-homePage-header-description {
@@ -84,7 +87,7 @@
     @include f.media('>mid') {
         .c-content-container {
             justify-content: space-between;
-            gap: f.$spacing-f;
+            gap: f.$spacing-e;
             padding: 0;
             // padding: f.$spacing-i;
         }
@@ -105,26 +108,23 @@
 
 .c-content-title {
     padding-top: 88px;
-    padding-left: 64px;
+    padding-left: f.spacing(i);
+    padding-right: f.spacing(h);
 }
 
 .c-content-img {
     padding-top: f.$spacing-b;
+    padding-right: f.spacing(i);
 }
 
 .c-content-subtitles {
-    .razor {
-        z-index: 0;
-        width: 100vw;
-        top: 287px;
-        position: absolute;
-    }
+    margin-top: 34px;
+    position: relative;
 }
-
 
 .c-homePage-content {
     flex: 1;
-    border-top: 1px solid f.$color-border-default;
+    // border-top: 1px solid f.$color-border-default;
 
     & a {
         color: f.$color-content-link-distinct;
@@ -148,7 +148,9 @@
 
     .c-content-container {
         padding-top: 0;
-        padding-bottom: 0;
+        padding-bottom: f.spacing(j);
+        padding-left: f.spacing(i);
+        padding-right: f.spacing(i);
 
         h2 {
             @include f.font-size('heading-xl', $scale: 'narrow');
@@ -159,8 +161,7 @@
         }
 
         @include f.media('>=wide') {
-            // padding-top: f.spacing(h);
-            // padding-bottom: calc(f.spacing(j) + f.spacing(d));
+            padding-bottom: calc(f.spacing(j) + f.spacing(d));
 
             h2 {
                 @include f.font-size('heading-xl');
@@ -188,7 +189,7 @@
         > h3 + h4,
         > p + .c-homePage-img,
         > .c-homePage-img + p {
-            margin-top: 0;
+            margin-top: f.spacing(e);
         }
 
         > p + h2 {
@@ -204,7 +205,7 @@
         > .c-homePage-img + h4,
         > .c-homePage-notification + h3,
         & .c-homePage-notification {
-            margin-top: 0;
+            margin-top: f.spacing(f);
         }
     }
 }
@@ -213,42 +214,25 @@
     border-top: none;
 
     .c-content-container {
-        padding-top: 0;
+        padding-top: f.spacing(i);
     }
 }
 
 .c-homePage-content hr {
-    // margin-top: f.spacing(h);
-    // margin-bottom: f.spacing(h);
+    margin-top: f.spacing(h);
+    margin-bottom: f.spacing(h);
 
     @include f.media('>=wide') {
-        // margin-top: f.spacing(i);
-        // margin-bottom: f.spacing(i);
+        margin-top: f.spacing(i);
+        margin-bottom: f.spacing(i);
     }
 }
 
-// .razor {
-//     width: 100%;
-//     height: auto;
-// }
-
-// .slanted {
-//     position: relative;
-//     width: 100%;
-//     height: 403px;
-//     background: f.$color-support-brand-01;
-// }
-
-// .slanted:before {
-//     position: absolute;
-//     width: 100%;
-//     height: 803px;
-//     content: '';
-//     background: f.$color-support-brand-01;
-//     top: 0;
-//     right: 0;
-//     bottom: 0;
-//     left: 0;
-//     transform-origin: top left;
-//     transform: skewY(-8deg);
-// }
+.slanted {
+    width: 100%;
+    height: 65%;
+    position: absolute;
+    top: -80px;
+    background: f.$color-support-brand-01;
+    clip-path: polygon(0 68%, 100% 51%, 100% 100%, 0% 100%);
+}
