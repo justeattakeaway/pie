@@ -149,32 +149,58 @@ export class PieModal extends RtlMixin(LitElement) {
         }
     }
 
-    render () {
-        const {
-            heading,
-            headingLevel = 'h2',
-            size,
-            isFullWidthBelowMid,
-        } = this;
+    public render = () => html`
+        <dialog
+            id="dialog"
+            class="c-modal"
+            size="${this.size}"
+            ?isFullWidthBelowMid=${this.isFullWidthBelowMid}>
+            <header>
+                ${this._renderModalHeader()}
+            </header>
+            <article class="c-modal-content">
+                <slot></slot>
+            </article>
+            <footer class="c-modal-footer">
+                ${this._renderModalFooter()}
+            </footer>
+        </dialog>`;
 
-        const headingTag = unsafeStatic(headingLevel);
+    /**
+     * Returns the HTML content for the header.
+     * Extracted to keep the render method succinct.
+     * @returns {TemplateResult} HTML template for the modal's header
+     */
+    private _renderModalHeader () : TemplateResult {
+        const headingTag = unsafeStatic(this.headingLevel);
 
         return html`
-            <dialog
-                id="dialog"
-                class="c-modal"
-                size="${size}"
-                ?isFullWidthBelowMid=${isFullWidthBelowMid}>
-                <header>
-                    <${headingTag} class="c-modal-heading">${heading}</${headingTag}>
-                     ${this.isDismissible ? this.renderCloseButton() : nothing}
-                </header>
-                <article class="c-modal-content">
-                    <slot></slot>
-                </article>
-            </dialog>
-        `;
+            <${headingTag} class="c-modal-heading">
+                ${this.heading}
+            </${headingTag}>
+            ${this.isDismissible ? this.renderCloseButton() : nothing}`;
     }
+
+    /**
+     * Returns the HTML content for the footer.
+     * Extracted to keep the render method succinct.
+     * @returns {TemplateResult} HTML template for the modal's footer
+    */
+    private _renderModalFooter = () : TemplateResult => html`
+        <pie-button
+            variant="primary"
+            type="submit"
+            @click="${() => this._dialog?.close('leading')}"
+            value="leading">
+            Confirm
+        </pie-button>
+        <pie-button
+            variant="ghost"
+            type="reset"
+            @click="${() => this._dialog?.close('supporting')}"
+            value="supporting">
+            Cancel
+        </pie-button>`;
 
     /**
      * Dismisses the modal on backdrop click if `isDismissible` is `true`.

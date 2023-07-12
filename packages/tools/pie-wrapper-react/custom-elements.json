@@ -336,8 +336,31 @@
                             "description": "Return focus to the specified element, providing the selector is valid\r\nand the chosen element can be found.\r\nFails silently."
                         },
                         {
+                            "kind": "field",
+                            "name": "render",
+                            "privacy": "public"
+                        },
+                        {
                             "kind": "method",
-                            "name": "render"
+                            "name": "_renderModalHeader",
+                            "privacy": "private",
+                            "return": {
+                                "type": {
+                                    "text": "TemplateResult"
+                                }
+                            },
+                            "description": "Returns the HTML content for the header.\r\nExtracted to keep the render method succinct."
+                        },
+                        {
+                            "kind": "field",
+                            "name": "_renderModalFooter",
+                            "privacy": "private",
+                            "description": "Returns the HTML content for the footer.\r\nExtracted to keep the render method succinct.",
+                            "return": {
+                                "type": {
+                                    "text": "TemplateResult"
+                                }
+                            }
                         },
                         {
                             "kind": "field",
