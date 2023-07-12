@@ -3,7 +3,9 @@ layout: layouts/default-layout.njk
 ---
 
 {# temporarily adding a condition to check if the title is PIE - this allows an empty home page not to display the coming soon graphic #}
-{% if content or navKey %}
+{% if title === 'PIE Design System' %}
+    {% include "home-page.njk" %}
+{% elif content or navKey %}
     {% include "content-page.njk" %}
 {% else %}
     {# By default we will show the coming soon graphic for an empty page #}
