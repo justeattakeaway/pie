@@ -1,7 +1,7 @@
 import { getSvgProps } from '@justeattakeaway/pie-icons-configs';
 
 const template = document.createElement('template');
-template.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 16 16" class="c-pieIcon c-pieIcon--menu"><path d="M15 4.281H1V2.97h14V4.28Zm0 7.438H1v1.312h14V11.72Zm0-4.375H1v1.312h14V7.344Z"></path></svg>';
+template.innerHTML = '<style>:host-context(pie-icon-button) svg { width: var(--btn-icon-size); height: var(--btn-icon-size); }</style><svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 16 16" class="c-pieIcon c-pieIcon--menu"><path d="M15 4.281H1V2.97h14V4.28Zm0 7.438H1v1.312h14V11.72Zm0-4.375H1v1.312h14V7.344Z"></path></svg>';
 
 export class IconMenu extends HTMLElement {
     constructor () {
@@ -33,9 +33,13 @@ export class IconMenu extends HTMLElement {
 
     connectedCallback () {
         const svg = this.root.querySelector('svg');
-        const svgSize = getSvgProps('c-pieIcon c-pieIcon--menu', '', null, 'IconMenu');
-        svg.setAttribute('width', svgSize.width);
-        svg.setAttribute('height', svgSize.height);
+
+        if (svg.getAttribute('width') === null) {
+            const svgSize = getSvgProps('c-pieIcon c-pieIcon--menu', '', null, 'IconMenu');
+            svg.setAttribute('width', svgSize.width);
+            svg.setAttribute('height', svgSize.height);
+        }
+
         this.setAttribute('class', 'c-pieIcon c-pieIcon--menu');
         this.root.append(svg);
     }
