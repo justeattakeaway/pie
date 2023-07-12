@@ -163,6 +163,7 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
             <dialog
                 id="dialog"
                 class="c-modal"
+                data-test-id="c-modal"
                 size="${size}"
                 ?isFullWidthBelowMid=${isFullWidthBelowMid}>
                 <header>

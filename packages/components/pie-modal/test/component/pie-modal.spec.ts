@@ -4,12 +4,13 @@ import { PieIconButton } from '@justeattakeaway/pie-icon-button';
 import {
     WebComponentTestWrapper,
 } from '@justeattakeaway/pie-webc-testing/src/helpers/components/web-component-test-wrapper/WebComponentTestWrapper.ts';
-import { renderTestPieModal } from '../helpers/index.ts';
+import { createScrollablePageHTML, renderTestPieModal } from '../helpers/index.ts';
 
 import { PieModal } from '@/index';
 import { headingLevels } from '@/defs';
 
 const closeButtonSelector = '[data-test-id="modal-close-button"]';
+const modalSelector = '[data-test-id="c-modal"]';
 
 // Mount any components that are used inside of pie-modal so that
 // they have been registered with the browser before the tests run.
@@ -372,4 +373,50 @@ test.describe('`isDismissible` prop', () => {
             await expect(component.locator('dialog')).toBeVisible();
         });
     });
+});
+
+test.describe('isOpen prop', () => {
+    test('should not render when isOpen = false', async ({ mount, page }) => {
+        await mount(PieModal, {
+            props: {
+                isOpen: false,
+            },
+        });
+
+        await expect(page.locator(modalSelector)).not.toBeVisible();
+    });
+
+    test('should not render when isOpen = true', async ({ mount, page }) => {
+        await mount(PieModal, {
+            props: {
+                isOpen: true,
+            },
+        });
+
+        await expect(page.locator(modalSelector)).toBeVisible();
+    });
+});
+
+test('Should not be able to scroll when modal is open', async ({ page, mount }) => {
+    const modalComponent = renderTestPieModal();
+
+    await mount(
+        WebComponentTestWrapper,
+        {
+            props: {
+                pageMode: true,
+            },
+            slots: {
+                component: modalComponent,
+                pageMarkup: createScrollablePageHTML(),
+            },
+        },
+    );
+
+    // Scroll 800 pixels down the page
+    await page.mouse.wheel(0, 800);
+
+    await page.waitForTimeout(3000); // The mouse.wheel function causes scrolling, but doesn't wait for the scroll to finish before returning.
+
+    await expect(page.locator(modalSelector)).toBeInViewport();
 });
