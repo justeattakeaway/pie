@@ -65,6 +65,31 @@ import { PieIconButton } from '@justeattakeaway/pie-icon-button';
 import { PieIconButton } from '@justeattakeaway/pie-icon-button/dist/react';
 ```
 
+## Importing Icons
+
+We recommend using the `pie-icon-button` component alongside the `pie-icons-webc` package. This package contains all of the PIE iconset as importable web components and are built to work alongside our other PIE components.
+
+`pie-icon-button` provides a slot into which you can pass your chosen icon, and it will automatically size it to the correct dimensions depending on the `size` of the `pie-icon-button` component.
+
+### Importing an icon with `pie-icons-webc`
+
+To import an icon using `pie-icons-webc`, you should import the icon that you would like to use alongside the `pie-icon-button` component:
+
+```js
+import { PieIconButton } from '@justeattakeaway/pie-icon-button';
+import '@justeattakeaway/pie-icons-webc/icons/IconClose';
+```
+
+Then, in your markup, you would implement the component like this:
+
+```html
+<pie-icon-button><icon-close /></pie-icon-button>
+```
+
+> **Warning**
+> Usually, icons imported from `pie-icons-webc` can be resized by specifying the `size` prop (such as `<icon-close size="xl" />`).
+> These size props will have no effect when used alongside the `pie-icon-button` component, as the icon is resized with respect to the size of the `pie-icon-button`.
+
 
 ## Props
 
@@ -74,14 +99,14 @@ import { PieIconButton } from '@justeattakeaway/pie-icon-button/dist/react';
 | variant     | `String`  | `primary`       | Variant of the button, one of `variants` – `primary`, `secondary`, `outline`, `ghost`, `ghost-secondary` |
 | disabled    | `Boolean` | `false`         | If `true`, disables the button.                                      |
 
-In your markup or JSX, you can then use these to set the properties for the `pie-icon-button` component:
+In your HTML markup or JSX, you can then use these to set the properties for the `pie-icon-button` component, like so:
 
 ```html
 <!-- Native HTML -->
-<pie-icon-button size='medium' type='button' variant='primary'>Click me!</pie-icon-button>
+<pie-icon-button size='small' type='button' variant='secondary'><icon-close /></pie-icon-button>
 
 <!-- JSX -->
-<PieIconButton size='medium' type='button' variant='primary'>Click me!</PieIconButton>
+<PieIconButton size='small' type='button' variant='secondary'><icon-close /></PieIconButton>
 ```
 
 ## Events
@@ -95,21 +120,21 @@ For example, to add a click handler in various templates:
 
 ```html
 <!-- Other attributes omitted for clarity -->
-<pie-icon-button onclick="e => console.log(e)">Click me!</pie-icon-button>
+<pie-icon-button onclick="e => console.log(e)"><icon-close /></pie-icon-button>
 ```
 
 ### Vue templates (using Nuxt 3)
 
 ```html
 <!-- Other attributes omitted for clarity -->
-<pie-icon-button @click="handleClick">Click me!</pie-icon-button>
+<pie-icon-button @click="handleClick"><icon-close /></pie-icon-button>
 ```
 
 ### React templates (using Next 13)
 
 ```html
 <!-- Other attributes omitted for clarity -->
-<PieIconButton onClick={handleClick}>increment</PieIconButton>
+<PieIconButton onClick={handleClick}><icon-close /></PieIconButton>
 
 ```
 
