@@ -10,7 +10,7 @@ import { PieModal } from '@/index';
 import { headingLevels } from '@/defs';
 
 const closeButtonSelector = '[data-test-id="modal-close-button"]';
-const modalSelector = '[data-test-id="c-modal"]';
+const modalSelector = '[data-test-id="pie-modal"]';
 
 // Mount any components that are used inside of pie-modal so that
 // they have been registered with the browser before the tests run.
@@ -376,7 +376,7 @@ test.describe('`isDismissible` prop', () => {
 });
 
 test.describe('isOpen prop', () => {
-    test('should not render when isOpen = false', async ({ mount, page }) => {
+    test('should not render open when isOpen = false', async ({ mount, page }) => {
         await mount(PieModal, {
             props: {
                 isOpen: false,
@@ -386,7 +386,7 @@ test.describe('isOpen prop', () => {
         await expect(page.locator(modalSelector)).not.toBeVisible();
     });
 
-    test('should not render when isOpen = true', async ({ mount, page }) => {
+    test('should render open when isOpen = true', async ({ mount, page }) => {
         await mount(PieModal, {
             props: {
                 isOpen: true,
