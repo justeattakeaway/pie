@@ -2,4 +2,4 @@
 "@justeattakeaway/pie-modal": minor
 ---
 
-Moved testing from Visual to Component
+[Changed] - Moved some tests from Visual to Component
