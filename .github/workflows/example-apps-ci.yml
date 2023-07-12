@@ -132,7 +132,7 @@ jobs:
           - node-version: 18
             amplify-app-id: dtgmklfymp81v
             build-script: build:examples
-            dist-folder: ./apps/examples/wc-react17/dist
+            dist-folder: ./apps/examples/wc-vue3/dist
             example-app: wc-vue3
 
     name: Deploy ${{matrix.example-app}}
