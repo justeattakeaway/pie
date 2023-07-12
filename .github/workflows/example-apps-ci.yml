@@ -84,7 +84,7 @@ jobs:
           - node-version: 18
             amplify-app-id: d3krjop5uu4oza
             build-script: build:examples
-            dist-folder: ./apps/examples/wc-angular12/dist
+            dist-folder: ./apps/examples/wc-angular12/dist/wc-angular12
             example-app: wc-angular12
 
           - node-version: 16
