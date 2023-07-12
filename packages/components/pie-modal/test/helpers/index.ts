@@ -25,5 +25,6 @@ export const createScrollablePageHTML = () => `<div>
         <p> Test copy </p>
         <ol>
             ${'<li>List item</li>'.repeat(200)}
+            <li>Test Item</li>
         </ol>
     </div>`;

@@ -377,27 +377,32 @@ test.describe('`isDismissible` prop', () => {
 
 test.describe('isOpen prop', () => {
     test('should not render open when isOpen = false', async ({ mount, page }) => {
+        // Arrange
         await mount(PieModal, {
             props: {
                 isOpen: false,
             },
         });
 
+        // Assert
         await expect(page.locator(modalSelector)).not.toBeVisible();
     });
 
     test('should render open when isOpen = true', async ({ mount, page }) => {
+        // Arrange
         await mount(PieModal, {
             props: {
                 isOpen: true,
             },
         });
 
+        // Assert
         await expect(page.locator(modalSelector)).toBeVisible();
     });
 });
 
 test('Should not be able to scroll when modal is open', async ({ page, mount }) => {
+    // Arrange
     const modalComponent = renderTestPieModal();
 
     await mount(
@@ -413,10 +418,14 @@ test('Should not be able to scroll when modal is open', async ({ page, mount }) 
         },
     );
 
+    // Act
     // Scroll 800 pixels down the page
-    await page.mouse.wheel(0, 800);
+    await page.mouse.wheel(0, 1000);
 
-    await page.waitForTimeout(3000); // The mouse.wheel function causes scrolling, but doesn't wait for the scroll to finish before returning.
+    // The mouse.wheel function causes scrolling, but doesn't wait for the scroll to finish before returning.
+    await page.waitForTimeout(3000);
 
-    await expect(page.locator(modalSelector)).toBeInViewport();
+    // Assert
+    await expect.soft(page.getByText('Test Page')).toBeInViewport();
+    await expect(page.getByText('Test Item')).not.toBeInViewport();
 });
