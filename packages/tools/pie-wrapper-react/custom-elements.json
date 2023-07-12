@@ -369,9 +369,14 @@
                             ]
                         },
                         {
-                            "kind": "field",
+                            "kind": "method",
                             "name": "renderCloseButton",
                             "privacy": "private",
+                            "return": {
+                                "type": {
+                                    "text": "TemplateResult"
+                                }
+                            },
                             "description": "Template for the close button element. Called within the\nmain render function."
                         },
                         {
@@ -407,10 +412,16 @@
                     ],
                     "events": [
                         {
+                            "type": {
+                                "text": "CustomEvent"
+                            },
                             "description": "when the modal is opened.",
                             "name": "pie-modal-open"
                         },
                         {
+                            "type": {
+                                "text": "CustomEvent"
+                            },
                             "description": "when the modal is closed.",
                             "name": "pie-modal-close"
                         }
