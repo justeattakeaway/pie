@@ -22,7 +22,7 @@ export { type ModalProps, headingLevels, sizes };
 
 const componentSelector = 'pie-modal';
 
-export class PieModal extends RtlMixin(LitElement) {
+export class PieModal extends RtlMixin(LitElement) implements ModalProps {
     @property({ type: String })
     @requiredProperty(componentSelector)
     public heading!: string;

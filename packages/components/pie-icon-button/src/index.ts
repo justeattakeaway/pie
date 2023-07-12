@@ -14,7 +14,7 @@ export { IconCloseLarge };
 
 const componentSelector = 'pie-icon-button';
 
-export class PieIconButton extends LitElement {
+export class PieIconButton extends LitElement implements IconButtonProps {
     @property()
     @validPropertyValues(componentSelector, sizes, 'medium')
     public size: IconButtonProps['size'] = 'medium';
