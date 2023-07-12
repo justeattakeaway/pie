@@ -23,6 +23,17 @@
         ".output/**"
       ]
     },
+    "generate:examples": {
+      "cache": true,
+      "dependsOn": [
+        "^build"
+      ],
+      "outputs": [
+        "dist/**",
+        ".nuxt/**",
+        ".output/**"
+      ]
+    },
     "watch": {
       "cache": true,
       "dependsOn": []

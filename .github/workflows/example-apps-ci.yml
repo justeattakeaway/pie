@@ -83,59 +83,68 @@ jobs:
         include:
           - node-version: 18
             amplify-app-id: d3krjop5uu4oza
-            example-app: wc-angular12
+            build-script: build:examples
             dist-folder: ./apps/examples/wc-angular12/dist
+            example-app: wc-angular12
 
           - node-version: 16
             amplify-app-id: d2po5gzj2z57w1
-            example-app: wc-next10
+            build-script: build:examples
             dist-folder: ./apps/examples/wc-next10/build
+            example-app: wc-next10
 
           - node-version: 18
             amplify-app-id: d3g23senqajlhy
-            example-app: wc-next13
+            build-script: build:examples
             dist-folder: ./apps/examples/wc-next13/build
-
+            example-app: wc-next13
+          # Using the generate:examples script for static hosting. SSR requires more investigation
           - node-version: 16
             amplify-app-id: d3puta7o12ynlf
-            example-app: wc-nuxt2
+            build-script: generate:examples
             dist-folder: ./apps/examples/wc-nuxt2/dist
-
+            example-app: wc-nuxt2
+          # Using the generate:examples script for static hosting. SSR requires more investigation
           - node-version: 18
             amplify-app-id: d1mfepkt71qwu0
-            example-app: wc-nuxt3
+            build-script: generate:examples
             dist-folder: ./apps/examples/wc-nuxt3/dist
+            example-app: wc-nuxt3
 
           - node-version: 18
             amplify-app-id: d2a3kuvjs3esad
-            example-app: wc-react17
+            build-script: build:examples
             dist-folder: ./apps/examples/wc-react17/build
+            example-app: wc-react17
 
           - node-version: 18
             amplify-app-id: d1zlc7g0rtfm9g
-            example-app: wc-react18
+            build-script: build:examples
             dist-folder: ./apps/examples/wc-react18/build
+            example-app: wc-react18
 
           - node-version: 18
             amplify-app-id: d1vykunmq1k4jp
-            example-app: wc-vanilla
+            build-script: build:examples
             dist-folder: ./apps/examples/wc-vanilla/dist
+            example-app: wc-vanilla
 
           - node-version: 18
             amplify-app-id: dtgmklfymp81v
-            example-app: wc-vue3
+            build-script: build:examples
             dist-folder: ./apps/examples/wc-react17/dist
+            example-app: wc-vue3
 
     name: Deploy ${{matrix.example-app}}
     needs: build-example-apps
     uses: ./.github/workflows/amplify-deploy.yml
     with:
       os: ubuntu-latest
-      node-version: 18
+      node-version: ${{ matrix.node-version }}
       amplify-app-id: ${{ matrix.amplify-app-id }}
       package-name: ${{ matrix.example-app}}
       package-dist-directory: ${{ matrix.dist-folder }}
       bucket-name-main: 'pie-example-apps-main'
       bucket-name-preview: 'pie-example-apps-preview'
-      build-script: build:examples
+      build-script: ${{ matrix.build-script }}
     secrets: inherit

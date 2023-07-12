@@ -606,14 +606,6 @@
                 },
                 {
                     "kind": "js",
-                    "name": "IconLoading",
-                    "declaration": {
-                        "name": "IconLoading",
-                        "module": "../../components/pie-button/src/index.js"
-                    }
-                },
-                {
-                    "kind": "js",
                     "name": "PieButton",
                     "declaration": {
                         "name": "PieButton",
