@@ -1,21 +1,26 @@
+const fs = require('fs')
 const { execSync } = require('child_process');
+const { globSync } = require('glob')
+
 
 const getPackages = () => {
-  let outputPackages;
+    const ignore = [
+        'apps/examples/**',
+        'node_modules/**', '**/node_modules/**'
+    ];
 
-  try {
-    // nitro is the server engine for nuxt3 and it generates an output folder
-    // when the app builds. This folder has a package.json inside named nitro-output
-    // which means this folder gets picked up every time we run run yarn cz
-    outputPackages = execSync('npx turbo run build --dry=json --filter=!"./apps/examples/**"');
-  } catch (error) {
-    console.info('No changed packages found.');
-    process.exit(0);
-  }
+    const allPackageJsonFiles = globSync('**/package.json', { ignore });
 
-  const packagesArray = JSON.parse(outputPackages.toString());
+    const packageNames = allPackageJsonFiles
+        .map((filePath) => {
+            const fileContent = fs.readFileSync(filePath, 'utf-8');
+            const fileData = JSON.parse(fileContent);
 
-  return packagesArray.packages.map((packageName) => packageName.replace('@justeattakeaway/', ''));;
+            return fileData.name.replace('@justeattakeaway/', '');
+        })
+        .sort();
+
+    return packageNames;
 };
 
 module.exports = {
