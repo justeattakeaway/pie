@@ -800,14 +800,6 @@
                 },
                 {
                     "kind": "js",
-                    "name": "IconCloseLarge",
-                    "declaration": {
-                        "name": "IconCloseLarge",
-                        "module": "../../components/pie-icon-button/src/index.js"
-                    }
-                },
-                {
-                    "kind": "js",
                     "name": "PieIconButton",
                     "declaration": {
                         "name": "PieIconButton",
