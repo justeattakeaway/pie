@@ -22,6 +22,10 @@ export { type ModalProps, headingLevels, sizes };
 
 const componentSelector = 'pie-modal';
 
+/**
+ * @fires pie-modal-open - when the modal is opened.
+ * @fires pie-modal-close - when the modal is closed.
+ */
 export class PieModal extends RtlMixin(LitElement) implements ModalProps {
     @property({ type: String })
     @requiredProperty(componentSelector)

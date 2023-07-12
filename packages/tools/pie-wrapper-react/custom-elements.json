@@ -405,6 +405,16 @@
                             }
                         }
                     ],
+                    "events": [
+                        {
+                            "description": "when the modal is opened.",
+                            "name": "pie-modal-open"
+                        },
+                        {
+                            "description": "when the modal is closed.",
+                            "name": "pie-modal-close"
+                        }
+                    ],
                     "mixins": [
                         {
                             "name": "RtlMixin",
@@ -601,14 +611,6 @@
                     "name": "variants",
                     "declaration": {
                         "name": "variants",
-                        "module": "../../components/pie-button/src/index.js"
-                    }
-                },
-                {
-                    "kind": "js",
-                    "name": "IconLoading",
-                    "declaration": {
-                        "name": "IconLoading",
                         "module": "../../components/pie-button/src/index.js"
                     }
                 },
