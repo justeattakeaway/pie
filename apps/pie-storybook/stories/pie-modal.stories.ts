@@ -2,6 +2,7 @@ import type { Meta, StoryObj as Story } from '@storybook/web-components';
 import { html, TemplateResult } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import '@justeattakeaway/pie-button'; // Ensures the button WC is available for use in the templates
+import { IconClose } from '@justeattakeaway/pie-icons-webc';
 
 import {
     ModalProps as ModalPropsBase,
