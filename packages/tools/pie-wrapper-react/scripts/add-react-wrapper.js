@@ -76,6 +76,15 @@ export function addReactWrapper (customElementsObject, folderName = process.argv
         return events;
     }
 
+    // format event names in a React friendly way - removes hyphens and capitalises
+    // i.e. foo-bar-baz becomes FooBarBaz
+    function formatEventName (eventName) {
+        return eventName
+            .split('-')
+            .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+            .join('');
+    }
+
     // create wrapper src code and add to react.ts file
     if (components.length > 0) {
         components.forEach((component) => {
@@ -84,11 +93,8 @@ export function addReactWrapper (customElementsObject, folderName = process.argv
             // Prepare the event names and comments
             let eventNames = '';
             if (component.class.events && component.class.events.length > 0) {
-                eventNames = events?.flat().reduce((pre, event) => {
-                    const eventNameClone = event.name.slice();
-                    return `${pre
-                    }        ${`on${eventNameClone.replace(/-/g, '')}`}: '${event.name}' as EventName<${event.type}>, ${event.description ? `// ${event.description}` : ''}\n`;
-                }, '');
+                eventNames = events?.flat().reduce((pre, event) => `${pre
+                    }        ${`on${formatEventName(event.name)}`}: '${event.name}' as EventName<${event.type}>, ${event.description ? `// ${event.description}` : ''}\n`, '');
             }
 
             let eventsObject = '{}';
