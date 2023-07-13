@@ -2,48 +2,54 @@
 
 {% set razor = ['/assets/img/Razor.svg'] | join | url %}
 
-<div class="c-homePage" data-test-id="site_content">
-    <div data-test-id="content_header" class="c-homePage-header {% if heroImageSrc %}c-homePage-header--hero{% endif %}">
-        <div class="c-content-container">
-            <div class="c-content-title">
-                <h1 class="c-homePage-header-heading alpha--standout">
-                    {{ title }}
-                </h1>
-                <p class="c-homePage-header-description">
-                    {{ description }}
-                </p>
-                {% if heroCtaTitle and heroCtaHref %}
-                    <a class='o-btn' href={{ heroCtaHref | url }}>{{ heroCtaTitle }}
-                    </a>
+<div class="c-homePage">
+    <div class="c-homePage-column">
+        <div class="c-homePage-row c-content-container">
+            <div class="c-homePage-header">
+                <div class="c-content-title">
+                    <h1 class="c-homePage-header-heading alpha--standout">
+                        {{ title }}
+                    </h1>
+                    <p class="c-homePage-header-description">
+                        {{ description }}
+                    </p>
+                    {% if heroCtaTitle and heroCtaHref %}
+                        <a class='o-btn' href={{ heroCtaHref | url }}>{{ heroCtaTitle }}
+                        </a>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="c-homePage-image">
+                    {% if heroImageSrc %}
+                        <div class="c-content-img">
+                            <img class="hero-image u-showAboveMid" src={{ heroSrc }} alt="" />
+                        </div>
+                    {% endif %}
+            </div>
+        </div>
+        <div class="rectangle">
+            <div class="circle"></div>
+        </div>
+    </div>
+    <div>
+        <div class="c-homePage" data-test-id="site_content">
+            <div>
+                {# temporarily adding a condition to check if the title is PIE Design System - this allows an empty home page not to display the coming soon graphic in the page body  #}
+                {% if content %}
+                    <div class="c-homePage-content">
+                        <div class="c-content c-content-container">
+                            {{ content | safe }}
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="c-homePage-content u-noPad">
+                        <div class="c-content-container">
+                            {# By default we will show the coming soon graphic for an empty page within a tabbed section #}
+                            {% include "coming-soon.njk" %}
+                        </div>
+                    </div>
                 {% endif %}
             </div>
-            {% if heroImageSrc %}
-                <div class="c-content-img">
-                    <img class="hero-image u-showAboveMid" src={{ heroSrc }} alt="" />
-                </div>
-            {% endif %}
         </div>
-        <div class="slanted"></div>
     </div>
-
-    {% if navKey %}
-        {% include "page-tabs.njk" %}
-    {% endif %}
-    <div class="c-content-subtitles">
-        {# temporarily adding a condition to check if the title is PIE Design System - this allows an empty home page not to display the coming soon graphic in the page body #}
-        {% if content %}
-            <div class="c-homePage-content">
-                <div class="c-content-container">
-                    {{ content | safe }}
-                </div>
-            </div>
-        {% else %}
-            <div class="c-homePage-content u-noPad">
-                <div class="c-content-container">
-                    {# By default we will show the coming soon graphic for an empty page within a tabbed section #}
-                    {% include "coming-soon.njk" %}
-                </div>
-            </div>
-        {% endif %}
-    </div>
-    </div>
+</div>
