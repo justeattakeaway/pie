@@ -376,6 +376,22 @@
                             }
                         }
                     ],
+                    "events": [
+                        {
+                            "type": {
+                                "text": "CustomEvent"
+                            },
+                            "description": "when the modal is opened.",
+                            "name": "pie-modal-open"
+                        },
+                        {
+                            "type": {
+                                "text": "CustomEvent"
+                            },
+                            "description": "when the modal is closed.",
+                            "name": "pie-modal-close"
+                        }
+                    ],
                     "attributes": [
                         {
                             "name": "heading",
