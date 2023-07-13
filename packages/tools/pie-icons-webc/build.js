@@ -10,11 +10,12 @@ const { icons } = pieIcons.default;
 
 const componentTemplate = (name, svg) => {
     const [, svgClasses] = svg.match(/class="(.+?)"/);
-
+    // The following styles make sure that if the icon is used inside pie-icon-button, it will be sized correctly
+    const styleTag = '<style>:host-context(pie-icon-button) svg { width: var(--btn-icon-size); height: var(--btn-icon-size); }</style>';
     return `import { getSvgProps } from '@justeattakeaway/pie-icons-configs';
 
 const template = document.createElement('template');
-template.innerHTML = '${svg}';
+template.innerHTML = '${styleTag}${svg}';
 
 export class ${name} extends HTMLElement {
     constructor () {
@@ -46,9 +47,13 @@ export class ${name} extends HTMLElement {
 
     connectedCallback () {
         const svg = this.root.querySelector('svg');
-        const svgSize = getSvgProps('${svgClasses}', '', null, '${name}');
-        svg.setAttribute('width', svgSize.width);
-        svg.setAttribute('height', svgSize.height);
+
+        if (svg.getAttribute('width') === null) {
+            const svgSize = getSvgProps('${svgClasses}', '', null, '${name}');
+            svg.setAttribute('width', svgSize.width);
+            svg.setAttribute('height', svgSize.height);
+        }
+
         this.setAttribute('class', '${svgClasses}');
         this.root.append(svg);
     }

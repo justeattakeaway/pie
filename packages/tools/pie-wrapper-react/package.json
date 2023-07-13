@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/pie-wrapper-react",
-  "version": "0.6.2",
+  "version": "0.7.0",
   "description": "Common react wrapper for use for PIE custom elements",
   "license": "Apache-2.0",
   "type": "module",
@@ -9,7 +9,7 @@
   ],
   "author": "",
   "scripts": {
-    "build:wrapper": "yarn cem analyze && node ./scripts/add-react-wrapper.js",
+    "build:wrapper": "yarn cem analyze --litelement && node ./scripts/add-react-wrapper.js",
     "test": "run -T jest"
   },
   "jest": {

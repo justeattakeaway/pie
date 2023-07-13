@@ -1,6 +1,7 @@
 import type { Meta, StoryObj as Story } from '@storybook/web-components';
 import { IconButtonProps, sizes, variants } from '@justeattakeaway/pie-icon-button';
 import { html, TemplateResult } from 'lit';
+import '@justeattakeaway/pie-icons-webc/icons/IconClose';
 
 export default {
     title: 'Icon Button',
@@ -39,6 +40,7 @@ const Template = ({
             size="${size}"
             variant="${variant}"
             ?disabled="${disabled}">
+            <icon-close  />
         </pie-icon-button>
         `;
 

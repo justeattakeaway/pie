@@ -18,13 +18,13 @@
             ],
             "events": [
                 {
-                "name": "CustomEvent",
+                "name": "custom-event",
                 "type": {
                     "text": "CustomEvent"
                 }
                 },
                 {
-                    "name": "AnotherCustomEvent",
+                    "name": "another-custom-event",
                     "type": {
                         "text": "CustomEvent"
                     }

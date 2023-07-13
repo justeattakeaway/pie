@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.18.0
+
+### Minor Changes
+
+- [Added] - Slot added to pie-icon-button ([#604](https://github.com/justeattakeaway/pie/pull/604)) by [@ashleynolan](https://github.com/ashleynolan)
+
+### Patch Changes
+
+- Updated dependencies [[`03550a16e`](https://github.com/justeattakeaway/pie/commit/03550a16e2caf96c7b2f372b2a327db5245d1091), [`4b09d6f6f`](https://github.com/justeattakeaway/pie/commit/4b09d6f6fca81ff091b92c84fed2e2f219537524), [`f58ac61e3`](https://github.com/justeattakeaway/pie/commit/f58ac61e31d90c926d14d727b28ea6afc0614c07), [`4b09d6f6f`](https://github.com/justeattakeaway/pie/commit/4b09d6f6fca81ff091b92c84fed2e2f219537524), [`4b09d6f6f`](https://github.com/justeattakeaway/pie/commit/4b09d6f6fca81ff091b92c84fed2e2f219537524)]:
+  - @justeattakeaway/pie-button@0.19.0
+  - @justeattakeaway/pie-icon-button@0.9.0
+  - @justeattakeaway/pie-modal@0.11.0
+
 ## 0.17.0
 
 ### Minor Changes
