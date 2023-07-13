@@ -1,99 +1,99 @@
-name: Build Example Apps
+# name: Build Example Apps
 
-on:
-  pull_request:
-    types: [assigned, opened, synchronize, reopened, "ready_for_review"]
-    # paths:
-    #   - "apps/examples/**"
-  push:
-    branches:
-      - main
+# on:
+#   pull_request:
+#     types: [assigned, opened, synchronize, reopened, "ready_for_review"]
+#     # paths:
+#     #   - "apps/examples/**"
+#   push:
+#     branches:
+#       - main
 
-concurrency:
-  group: CI-Example-Apps-${{ github.ref }}
-  cancel-in-progress: true
+# concurrency:
+#   group: CI-Example-Apps-${{ github.ref }}
+#   cancel-in-progress: true
 
-env:
-  TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+# env:
+#   TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
 
-jobs:
-  build-wc-angular-12:
-    name: Build Angular 12 / Node 18
-    uses: ./.github/workflows/install-build.yml
-    with:
-      os: ubuntu-latest
-      node-version: 18
-      build-script: build:examples --filter=wc-angular12
-    secrets: inherit
+# jobs:
+#   build-wc-angular-12:
+#     name: Build Angular 12 / Node 18
+#     uses: ./.github/workflows/install-build.yml
+#     with:
+#       os: ubuntu-latest
+#       node-version: 18
+#       build-script: build:examples --filter=wc-angular12
+#     secrets: inherit
 
-  build-wc-next-10:
-    name: Build Next 10 / Node 16
-    uses: ./.github/workflows/install-build.yml
-    with:
-        os: ubuntu-latest
-        node-version: 16
-        build-script: build:examples --filter=wc-next10
-    secrets: inherit
+#   build-wc-next-10:
+#     name: Build Next 10 / Node 16
+#     uses: ./.github/workflows/install-build.yml
+#     with:
+#         os: ubuntu-latest
+#         node-version: 16
+#         build-script: build:examples --filter=wc-next10
+#     secrets: inherit
 
-  build-wc-next-13:
-    name: Build Next 13 / Node 18
-    uses: ./.github/workflows/install-build.yml
-    with:
-        os: ubuntu-latest
-        node-version: 18
-        build-script: build:examples --filter=wc-next13
-    secrets: inherit
+#   build-wc-next-13:
+#     name: Build Next 13 / Node 18
+#     uses: ./.github/workflows/install-build.yml
+#     with:
+#         os: ubuntu-latest
+#         node-version: 18
+#         build-script: build:examples --filter=wc-next13
+#     secrets: inherit
 
-  build-wc-nuxt-2:
-    name: Build Nuxt 2 / Node 16
-    uses: ./.github/workflows/install-build.yml
-    with:
-        os: ubuntu-latest
-        node-version: 16
-        build-script: build:examples --filter=wc-nuxt2
-    secrets: inherit
+#   build-wc-nuxt-2:
+#     name: Build Nuxt 2 / Node 16
+#     uses: ./.github/workflows/install-build.yml
+#     with:
+#         os: ubuntu-latest
+#         node-version: 16
+#         build-script: build:examples --filter=wc-nuxt2
+#     secrets: inherit
 
-  build-wc-nuxt-3:
-    name: Build Nuxt 3 / Node 18
-    uses: ./.github/workflows/install-build.yml
-    with:
-        os: ubuntu-latest
-        node-version: 18
-        build-script: build:examples --filter=wc-nuxt3
-    secrets: inherit
+#   build-wc-nuxt-3:
+#     name: Build Nuxt 3 / Node 18
+#     uses: ./.github/workflows/install-build.yml
+#     with:
+#         os: ubuntu-latest
+#         node-version: 18
+#         build-script: build:examples --filter=wc-nuxt3
+#     secrets: inherit
 
-  build-wc-react-17:
-    name: Build React 17 / Node 18
-    uses: ./.github/workflows/install-build.yml
-    with:
-        os: ubuntu-latest
-        node-version: 18
-        build-script: build:examples --filter=wc-react17
-    secrets: inherit
+#   build-wc-react-17:
+#     name: Build React 17 / Node 18
+#     uses: ./.github/workflows/install-build.yml
+#     with:
+#         os: ubuntu-latest
+#         node-version: 18
+#         build-script: build:examples --filter=wc-react17
+#     secrets: inherit
 
-  build-wc-react-18:
-    name: Build React 18 / Node 18
-    uses: ./.github/workflows/install-build.yml
-    with:
-        os: ubuntu-latest
-        node-version: 18
-        build-script: build:examples --filter=wc-react18
-    secrets: inherit
+#   build-wc-react-18:
+#     name: Build React 18 / Node 18
+#     uses: ./.github/workflows/install-build.yml
+#     with:
+#         os: ubuntu-latest
+#         node-version: 18
+#         build-script: build:examples --filter=wc-react18
+#     secrets: inherit
 
-  build-wc-vanilla:
-    name: Build Vanila / Node 18
-    uses: ./.github/workflows/install-build.yml
-    with:
-        os: ubuntu-latest
-        node-version: 18
-        build-script: build:examples --filter=wc-vanilla
-    secrets: inherit
+#   build-wc-vanilla:
+#     name: Build Vanila / Node 18
+#     uses: ./.github/workflows/install-build.yml
+#     with:
+#         os: ubuntu-latest
+#         node-version: 18
+#         build-script: build:examples --filter=wc-vanilla
+#     secrets: inherit
 
-  build-wc-vue-3:
-    name: Build Vue 3 / Node 18
-    uses: ./.github/workflows/install-build.yml
-    with:
-        os: ubuntu-latest
-        node-version: 18
-        build-script: build:examples --filter=wc-vue3
-    secrets: inherit
+#   build-wc-vue-3:
+#     name: Build Vue 3 / Node 18
+#     uses: ./.github/workflows/install-build.yml
+#     with:
+#         os: ubuntu-latest
+#         node-version: 18
+#         build-script: build:examples --filter=wc-vue3
+#     secrets: inherit
