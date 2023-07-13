@@ -158,7 +158,7 @@ export class PieModal extends RtlMixin(LitElement) {
             <header>
                 ${this._renderModalHeader()}
             </header>
-            <article class="c-modal-content">
+            <article class="c-modal-content c-modal-content--scrollable">
                 <slot></slot>
             </article>
             <footer class="c-modal-footer">
