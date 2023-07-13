@@ -9,7 +9,7 @@
   ],
   "author": "",
   "scripts": {
-    "build:wrapper": "yarn cem analyze && node ./scripts/add-react-wrapper.js",
+    "build:wrapper": "yarn cem analyze --litelement && node ./scripts/add-react-wrapper.js",
     "test": "run -T jest"
   },
   "jest": {
