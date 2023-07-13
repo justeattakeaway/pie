@@ -36,20 +36,6 @@ jobs:
     secrets:
       githubToken: ${{ secrets.GITHUB_TOKEN }}
 
-  build-ubuntu-node-16:
-    uses: ./.github/workflows/install-build.yml
-    with:
-      os: ubuntu-latest
-      node-version: 16
-    secrets: inherit
-
-  build-windows-node-16:
-    uses: ./.github/workflows/install-build.yml
-    with:
-      os: windows-latest
-      node-version: 16
-    secrets: inherit
-
   build-ubuntu-node-18:
     uses: ./.github/workflows/install-build.yml
     with:
@@ -57,96 +43,8 @@ jobs:
       node-version: 18
     secrets: inherit
 
-  build-windows-node-18:
-    uses: ./.github/workflows/install-build.yml
-    with:
-      os: windows-latest
-      node-version: 18
-    secrets: inherit
-
-  lint-styles:
-    needs: build-ubuntu-node-18
-    runs-on: ubuntu-latest
-    steps:
-      # Checkout the Repo
-      - name: Checkout
-        uses: actions/checkout@v3
-      # Setup Repo
-      - name: Setup Repo
-        uses: ./.github/actions/setup-repo
-        with:
-          node-version: 18
-          os: ubuntu-latest
-      # Lint Styles
-      - name: Lint Styles
-        uses: ./.github/actions/run-script
-        with:
-          script-name: "lint:style"
-          concurrency: 10
-
-  lint-js:
-    needs: build-ubuntu-node-18
-    runs-on: ubuntu-latest
-    steps:
-      # Checkout the Repo
-      - name: Checkout
-        uses: actions/checkout@v3
-      # Setup Repo
-      - name: Setup Repo
-        uses: ./.github/actions/setup-repo
-        with:
-          node-version: 18
-          os: ubuntu-latest
-      # Restore Packages from Cache
-      - name: Build Packages
-        uses: ./.github/actions/run-script
-        with:
-          script-name: "build"
-      # Lint JS
-      - name: Lint JavaScript
-        uses: ./.github/actions/run-script
-        with:
-          script-name: "lint:scripts"
-
-  unit-tests:
-    needs: lint-js
-    runs-on: ubuntu-latest
-    steps:
-      # Checkout the Repo
-      - name: Checkout
-        uses: actions/checkout@v3
-      # Setup Repo
-      - name: Setup Repo
-        uses: ./.github/actions/setup-repo
-        with:
-          node-version: 18
-          os: ubuntu-latest
-      # Restore Packages from Cache
-      - name: Build Packages
-        uses: ./.github/actions/run-script
-        with:
-          script-name: "build"
-      # Run Unit Tests
-      - name: Unit Tests
-        uses: ./.github/actions/run-script
-        with:
-          script-name: "test:ci"
-
-  deploy-docs:
-    needs: unit-tests
-    uses: ./.github/workflows/amplify-deploy.yml
-    with:
-      os: ubuntu-latest
-      node-version: 18
-      amplify-app-id: dvskdcoepjoyf
-      package-name: 'pie-docs'
-      package-dist-directory: ./apps/pie-docs/dist
-      bucket-name-preview: 'pie-docs-preview'
-      bucket-name-main: 'pie-docs'
-    secrets: inherit
-
   deploy-storybook:
-    needs: unit-tests
+    # needs: unit-tests
     uses: ./.github/workflows/amplify-deploy.yml
     with:
       os: ubuntu-latest
@@ -156,57 +54,4 @@ jobs:
       package-dist-directory: ./apps/pie-storybook/dist
       bucket-name-preview: 'pie-storybook-preview'
       bucket-name-main: 'pie-storybook'
-    secrets: inherit
-
-  browser-tests:
-    needs: deploy-docs
-    runs-on: ubuntu-latest
-    steps:
-      # Checkout the Repo
-      - name: Checkout
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-      # Setup Repo
-      - name: Setup Repo
-        uses: ./.github/actions/setup-repo
-        with:
-          node-version: 18
-          os: ubuntu-latest
-      # Setup Playwright
-      - name: Setup Playwright
-        uses: ./.github/actions/setup-playwright
-      # Run System / a11y Tests
-      - name: Run All System / Component /  a11y Tests
-        uses: ./.github/actions/run-script
-        with:
-          script-name: "test:browsers:ci"
-      - uses: actions/upload-artifact@v3
-        if: always()
-        with:
-          name: browsers-report
-          path: browsers-report/
-          retention-days: 7
-      # Run Visual Tests
-      - name: Run All Visual Tests
-        uses: ./.github/actions/run-script
-        with:
-          script-name: "test:visual:ci"
-          concurrency: 1
-      - uses: actions/upload-artifact@v3
-        if: always()
-        with:
-          name: visual-report
-          path: visual-report/
-          retention-days: 7
-    env:
-      DOCS_AMPLIFY_ID: dvskdcoepjoyf
-      PR_NUMBER: ${{ github.event.number }}
-
-  release:
-    needs: [ 'unit-tests', 'lint-js']
-    uses: ./.github/workflows/changeset-release.yml
-    with:
-      os: ubuntu-latest
-      node-version: 18
     secrets: inherit

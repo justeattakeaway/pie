@@ -10,19 +10,6 @@
         "dist/**"
       ]
     },
-    "build:examples": {
-      "cache": true,
-      "dependsOn": [
-        "^build"
-      ],
-      "outputs": [
-        "build/**",
-        "dist/**",
-        ".next/**",
-        ".nuxt/**",
-        ".output/**"
-      ]
-    },
     "watch": {
       "cache": true,
       "dependsOn": []
