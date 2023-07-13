@@ -52,9 +52,6 @@
     "clean": {
       "cache": true
     },
-    "pie-storybook#build": {
-      "cache": false
-    },
     "pie-storybook#serve": {
       "dependsOn": [
         "pie-storybook#build"
