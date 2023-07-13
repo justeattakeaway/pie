@@ -1,5 +1,13 @@
 # @justeattakeaway/pie-wrapper-react
 
+## 0.8.0
+
+### Minor Changes
+
+- [Fixed] - Correctly handle event casing and their descriptions in react wrappers ([#612](https://github.com/justeattakeaway/pie/pull/612)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Changed] - ensure onEventName format used for react wrapper callbacks ([#617](https://github.com/justeattakeaway/pie/pull/617)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.7.0
 
 ### Minor Changes
