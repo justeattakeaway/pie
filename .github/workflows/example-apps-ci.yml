@@ -37,7 +37,7 @@ jobs:
             example-app: wc-vanilla
           - node-version: 18
             example-app: wc-vue3
-    name: Build ${{matrix.example-app}} / Node ${{ matrix}}
+    name: Build ${{matrix.example-app}} - Node ${{ matrix.node-version }}
     uses: ./.github/workflows/install-build.yml
     with:
       os: ubuntu-latest
