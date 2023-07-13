@@ -1,7 +1,7 @@
 import { getSvgProps } from '@justeattakeaway/pie-icons-configs';
 
 const template = document.createElement('template');
-template.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 16 16" class="c-pieIcon c-pieIcon--chartMarker"><path d="M3.844 11.5h1.312V15H3.844v-3.5Zm3.5 3.5h1.312V8.875H7.344V15Zm3.5-4.375V15h1.312v-4.375h-1.312Zm-.158-4.751L8 8 5.314 5.874a1.531 1.531 0 0 1-.595-1.208V1.22h6.562v3.447a1.53 1.53 0 0 1-.595 1.208ZM9.97 2.53H6.03v2.135a.245.245 0 0 0 .088.175L8 6.294 9.881 4.84a.245.245 0 0 0 .088-.175V2.531Z"></path></svg>';
+template.innerHTML = '<style>:host-context(pie-icon-button) svg { width: var(--btn-icon-size); height: var(--btn-icon-size); }</style><svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 16 16" class="c-pieIcon c-pieIcon--chartMarker"><path d="M3.844 11.5h1.312V15H3.844v-3.5Zm3.5 3.5h1.312V8.875H7.344V15Zm3.5-4.375V15h1.312v-4.375h-1.312Zm-.158-4.751L8 8 5.314 5.874a1.531 1.531 0 0 1-.595-1.208V1.22h6.562v3.447a1.53 1.53 0 0 1-.595 1.208ZM9.97 2.53H6.03v2.135a.245.245 0 0 0 .088.175L8 6.294 9.881 4.84a.245.245 0 0 0 .088-.175V2.531Z"></path></svg>';
 
 export class IconChartMarker extends HTMLElement {
     constructor () {
@@ -33,9 +33,13 @@ export class IconChartMarker extends HTMLElement {
 
     connectedCallback () {
         const svg = this.root.querySelector('svg');
-        const svgSize = getSvgProps('c-pieIcon c-pieIcon--chartMarker', '', null, 'IconChartMarker');
-        svg.setAttribute('width', svgSize.width);
-        svg.setAttribute('height', svgSize.height);
+
+        if (svg.getAttribute('width') === null) {
+            const svgSize = getSvgProps('c-pieIcon c-pieIcon--chartMarker', '', null, 'IconChartMarker');
+            svg.setAttribute('width', svgSize.width);
+            svg.setAttribute('height', svgSize.height);
+        }
+
         this.setAttribute('class', 'c-pieIcon c-pieIcon--chartMarker');
         this.root.append(svg);
     }

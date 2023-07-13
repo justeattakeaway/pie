@@ -8,6 +8,7 @@ import {
 } from '@justeattakeaway/pie-webc-core';
 import type { DependentMap } from '@justeattakeaway/pie-webc-core';
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
+import '@justeattakeaway/pie-icons-webc/icons/IconClose';
 import styles from './modal.scss?inline';
 import {
     ModalProps,
@@ -22,6 +23,10 @@ export { type ModalProps, headingLevels, sizes };
 
 const componentSelector = 'pie-modal';
 
+/**
+ * @event {CustomEvent} pie-modal-open - when the modal is opened.
+ * @event {CustomEvent} pie-modal-close - when the modal is closed.
+ */
 export class PieModal extends RtlMixin(LitElement) implements ModalProps {
     @property({ type: String })
     @requiredProperty(componentSelector)
@@ -233,12 +238,15 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
      *
      * @private
      */
-    private renderCloseButton = () : TemplateResult => html`
-        <pie-icon-button
-            @click="${() => { this.isOpen = false; }}"
-            variant="ghost-secondary"
-            class="c-modal-closeBtn"
-            data-test-id="modal-close-button"></pie-icon-button>`;
+    private renderCloseButton (): TemplateResult {
+        return html`
+            <pie-icon-button
+                @click="${() => { this.isOpen = false; }}"
+                variant="ghost-secondary"
+                class="c-modal-closeBtn"
+                data-test-id="modal-close-button"><icon-close /></pie-icon-button>
+        `;
+    }
 
     // Renders a `CSSResult` generated from SCSS by Vite
     static styles = unsafeCSS(styles);

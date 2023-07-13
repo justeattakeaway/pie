@@ -13,6 +13,7 @@ import {
     WebComponentTestWrapper,
 } from '@justeattakeaway/pie-webc-testing/src/helpers/components/web-component-test-wrapper/WebComponentTestWrapper.ts';
 import { PieIconButton } from '@/index';
+
 import { sizes, variants } from '@/defs';
 
 const props: PropObject = {
@@ -21,8 +22,14 @@ const props: PropObject = {
     disabled: [true, false],
 };
 
+// TODO: Currently setting the slot to use a straight up SVG
+//       This should be updated to use pie-icons-webc, but after some investigation, we think that we'll
+//       need to convert the webc icons to use Lit, as currently the components don't work well in a Node env like Playwright
+//       Atm, importing them like `import '@justeattakeaway/pie-icons-webc/icons/IconClose.js';` results in an `HTMLElement is not defined` error
+const closeSVG = '<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 16 16" class="c-pieIcon c-pieIcon--close"><path d="M11.868 3.205 8 7.072 4.133 3.205l-.928.927L7.073 8l-3.868 3.867.928.928L8 8.927l3.868 3.868.927-.928L8.928 8l3.867-3.868-.927-.927Z"></path></svg>';
+
 // Renders a <pie-icon-button> HTML string with the given prop values
-const renderTestPieIconButton = (propVals: WebComponentPropValues) => `<pie-icon-button size="${propVals.size}" variant="${propVals.variant}" ${propVals.disabled ? 'disabled' : ''}></pie-icon-button>`;
+const renderTestPieIconButton = (propVals: WebComponentPropValues) => `<pie-icon-button size="${propVals.size}" variant="${propVals.variant}" ${propVals.disabled ? 'disabled' : ''}>${closeSVG}</pie-icon-button>`;
 
 const componentPropsMatrix : WebComponentPropValues[] = getAllPropCombinations(props);
 const componentPropsMatrixByVariant: Record<string, WebComponentPropValues[]> = splitCombinationsByPropertyValue(componentPropsMatrix, 'variant');
