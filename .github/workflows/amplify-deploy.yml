@@ -23,7 +23,7 @@ on:
         type: string
       bucket-name-preview:
         description: "Name of the preview bucket being deployed to"
-        required: true
+        required: false
         type: string
       bucket-name-main:
         description: "Name of the main bucket being deployed to"

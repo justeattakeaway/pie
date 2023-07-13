@@ -78,6 +78,7 @@ jobs:
   #         script-name: "lint:examples --filter=${{ matrix.example-app }}"
 
   deploy-example-apps:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     strategy:
       matrix:
         include:
@@ -145,6 +146,5 @@ jobs:
       package-name: ${{ matrix.example-app}}
       package-dist-directory: ${{ matrix.dist-folder }}
       bucket-name-main: 'pie-example-apps-main'
-      bucket-name-preview: 'pie-example-apps-preview'
       build-script: ${{ matrix.build-script }}
     secrets: inherit
