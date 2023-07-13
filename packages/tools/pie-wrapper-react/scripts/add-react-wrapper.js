@@ -81,27 +81,33 @@ export function addReactWrapper (customElementsObject, folderName = process.argv
         components.forEach((component) => {
             const events = getEvents(component.class);
 
+            // Prepare the event names and comments
+            let eventNames = '';
+            if (component.class.events && component.class.events.length > 0) {
+                eventNames = events?.flat().reduce((pre, event) => {
+                    const eventNameClone = event.name.slice();
+                    return `${pre
+                    }        ${`on${eventNameClone.replace(/-/g, '')}`}: '${event.name}' as EventName<${event.type}>, ${event.description ? `// ${event.description}` : ''}\n`;
+                }, '');
+            }
+
+            let eventsObject = '{}';
+            if (eventNames) {
+                eventsObject = `{\n${eventNames}    }`;
+            }
+
+            // Create the main source code
             componentSrc = `
 import * as React from 'react';
-import { ${component.class.name} as ${`${component.class.name}React`} } from './index';
-import { createComponent } from '@lit-labs/react';${
-component.class.events?.length > 0
-    ? "\nimport { EventName } from '@lit-labs/react';"
-    : ''
-}
+import { createComponent${component.class.events?.length > 0 ? ', EventName' : ''} } from '@lit-labs/react';
+import { ${component.class.name} as ${component.class.name}React } from './index';
 
 export const ${component.class.name} = createComponent({
     displayName: '${component.class.name}',
-    elementClass: ${`${component.class.name}React`},
+    elementClass: ${component.class.name}React,
     react: React,
     tagName: '${component.class.tagName}',
-    events: { ${events?.flat().reduce(
-    (pre, event) => `${pre
-                }${`on${event.name}`}: '${event.name}' as EventName<${event.type}>, ${
-                    event.description ? `// ${event.description}` : ''
-                }`,
-    '',
-)}},
+    events: ${eventsObject},
 });
 `;
             let reactFile;

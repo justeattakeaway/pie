@@ -32,7 +32,7 @@ describe('React Wrapper', () => {
 
         const wrapper = addReactWrapper(mockExample, 'pie-wrapper-react');
 
-        const result = 'events: { }';
+        const result = 'events: {}';
 
         expect(wrapper).toMatchSnapshot();
         expect(wrapper.includes(result)).toBe(true);
