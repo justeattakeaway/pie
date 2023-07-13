@@ -12,8 +12,8 @@ export const MockComponent = createComponent({
     react: React,
     tagName: 'mock-component',
     events: {
-        onCustomEvent: 'CustomEvent' as EventName<CustomEvent>, 
-        onAnotherCustomEvent: 'AnotherCustomEvent' as EventName<CustomEvent>, 
+        onCustomEvent: 'custom-event' as EventName<CustomEvent>, 
+        onAnotherCustomEvent: 'another-custom-event' as EventName<CustomEvent>, 
     },
 });
 "
