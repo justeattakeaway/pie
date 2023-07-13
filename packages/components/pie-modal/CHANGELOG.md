@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-modal
 
+## 0.12.0
+
+### Minor Changes
+
+- [Added] - @event jsdoc comments for modal events for react wrapper to analyse ([#612](https://github.com/justeattakeaway/pie/pull/612)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.11.0
 
 ### Minor Changes
