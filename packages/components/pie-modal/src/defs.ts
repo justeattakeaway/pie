@@ -1,7 +1,9 @@
+import { RTLComponentProps } from '@justeattakeaway/pie-webc-core';
+
 export const headingLevels = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'] as const;
 export const sizes = ['small', 'medium', 'large'] as const;
 
-export interface ModalProps {
+export interface ModalProps extends RTLComponentProps {
     /**
      * The text to display in the modal's heading.
      */
@@ -29,6 +31,11 @@ export interface ModalProps {
      *
      */
     isDismissible: boolean;
+
+    /**
+     * When true, the modal will have a back button. This currently behaves the same as the close button.
+     */
+    hasBackButton: boolean;
 
     /**
      * This controls whether a *medium-sized* modal will cover the full width of the page when below the mid breakpoint.

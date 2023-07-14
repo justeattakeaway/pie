@@ -181,6 +181,17 @@
                         },
                         {
                             "kind": "field",
+                            "name": "hasBackButton",
+                            "type": {
+                                "text": "boolean"
+                            },
+                            "privacy": "public",
+                            "default": "false",
+                            "attribute": "hasBackButton",
+                            "reflects": true
+                        },
+                        {
+                            "kind": "field",
                             "name": "isFullWidthBelowMid",
                             "type": {
                                 "text": "boolean"
@@ -223,7 +234,8 @@
                             "name": "_dialog",
                             "type": {
                                 "text": "HTMLDialogElement | undefined"
-                            }
+                            },
+                            "privacy": "private"
                         },
                         {
                             "kind": "method",
@@ -310,6 +322,28 @@
                             "description": "Return focus to the specified element, providing the selector is valid\nand the chosen element can be found.\nFails silently."
                         },
                         {
+                            "kind": "method",
+                            "name": "renderCloseButton",
+                            "privacy": "private",
+                            "return": {
+                                "type": {
+                                    "text": "TemplateResult"
+                                }
+                            },
+                            "description": "Template for the close button element. Called within the\nmain render function."
+                        },
+                        {
+                            "kind": "method",
+                            "name": "renderBackButton",
+                            "privacy": "private",
+                            "return": {
+                                "type": {
+                                    "text": "TemplateResult"
+                                }
+                            },
+                            "description": "Template for the back button element. Called within the\nmain render function."
+                        },
+                        {
                             "kind": "field",
                             "name": "_handleDialogLightDismiss",
                             "privacy": "private",
@@ -339,23 +373,12 @@
                             ]
                         },
                         {
-                            "kind": "method",
-                            "name": "renderCloseButton",
-                            "privacy": "private",
-                            "return": {
-                                "type": {
-                                    "text": "TemplateResult"
-                                }
-                            },
-                            "description": "Template for the close button element. Called within the\nmain render function."
-                        },
-                        {
                             "kind": "field",
                             "name": "dir",
                             "type": {
-                                "text": "string"
+                                "text": "htmlDirAttribute"
                             },
-                            "default": "''",
+                            "default": "'ltr'",
                             "attribute": "dir",
                             "inheritedFrom": {
                                 "name": "RtlMixin",
@@ -417,6 +440,14 @@
                             "fieldName": "isDismissible"
                         },
                         {
+                            "name": "hasBackButton",
+                            "type": {
+                                "text": "boolean"
+                            },
+                            "default": "false",
+                            "fieldName": "hasBackButton"
+                        },
+                        {
                             "name": "isFullWidthBelowMid",
                             "type": {
                                 "text": "boolean"
@@ -450,9 +481,9 @@
                         {
                             "name": "dir",
                             "type": {
-                                "text": "string"
+                                "text": "htmlDirAttribute"
                             },
-                            "default": "''",
+                            "default": "'ltr'",
                             "fieldName": "dir",
                             "inheritedFrom": {
                                 "name": "RtlMixin",
@@ -995,9 +1026,9 @@
                             "kind": "field",
                             "name": "dir",
                             "type": {
-                                "text": "string"
+                                "text": "htmlDirAttribute"
                             },
-                            "default": "''",
+                            "default": "'ltr'",
                             "attribute": "dir"
                         },
                         {
@@ -1014,9 +1045,9 @@
                         {
                             "name": "dir",
                             "type": {
-                                "text": "string"
+                                "text": "htmlDirAttribute"
                             },
-                            "default": "''",
+                            "default": "'ltr'",
                             "fieldName": "dir"
                         }
                     ],

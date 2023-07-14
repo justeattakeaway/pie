@@ -9,6 +9,9 @@ import {
 import type { DependentMap } from '@justeattakeaway/pie-webc-core';
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 import '@justeattakeaway/pie-icons-webc/icons/IconClose';
+import '@justeattakeaway/pie-icons-webc/icons/IconChevronLeft';
+import '@justeattakeaway/pie-icons-webc/icons/IconChevronRight';
+
 import styles from './modal.scss?inline';
 import {
     ModalProps,
@@ -39,6 +42,9 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
     @property({ type: Boolean, reflect: true })
     public isDismissible = false;
 
+    @property({ type: Boolean, reflect: true })
+    public hasBackButton = false;
+
     @property({ type: Boolean })
     public isFullWidthBelowMid = false;
 
@@ -53,7 +59,10 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
     public size: ModalProps['size'] = 'medium';
 
     @query('dialog')
-        _dialog?: HTMLDialogElement;
+    private _dialog?: HTMLDialogElement;
+
+    // Renders a `CSSResult` generated from SCSS by Vite
+    static styles = unsafeCSS(styles);
 
     constructor () {
         super();
@@ -154,12 +163,48 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
         }
     }
 
+    /**
+     * Template for the close button element. Called within the
+     * main render function.
+     *
+     * @private
+     */
+    private renderCloseButton (): TemplateResult {
+        return html`
+            <pie-icon-button
+                @click="${() => { this.isOpen = false; }}"
+                variant="ghost-secondary"
+                class="c-modal-closeBtn"
+                data-test-id="modal-close-button"><icon-close /></pie-icon-button>
+        `;
+    }
+
+    /**
+     * Template for the back button element. Called within the
+     * main render function.
+     *
+     * @private
+     */
+    private renderBackButton () : TemplateResult {
+        return html`
+            <pie-icon-button
+                @click="${() => { this.isOpen = false; }}"
+                variant="ghost-secondary"
+                class="c-modal-backBtn"
+                data-test-id="modal-back-button">
+                ${this.isRTL ? html`<icon-chevron-right />` : html`<icon-chevron-left />`}
+            </pie-icon-button>
+        `;
+    }
+
     render () {
         const {
             heading,
             headingLevel = 'h2',
             size,
             isFullWidthBelowMid,
+            isDismissible,
+            hasBackButton,
         } = this;
 
         const headingTag = unsafeStatic(headingLevel);
@@ -169,10 +214,13 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
                 id="dialog"
                 class="c-modal"
                 size="${size}"
-                ?isFullWidthBelowMid=${isFullWidthBelowMid}>
-                <header>
+                ?isFullWidthBelowMid=${isFullWidthBelowMid}
+                ?isDismissible=${isDismissible}
+                ?hasBackButton=${hasBackButton}>
+                <header class="c-modal-header">
+                    ${hasBackButton ? this.renderBackButton() : nothing}
                     <${headingTag} class="c-modal-heading">${heading}</${headingTag}>
-                     ${this.isDismissible ? this.renderCloseButton() : nothing}
+                    ${isDismissible ? this.renderCloseButton() : nothing}
                 </header>
                 <article class="c-modal-content">
                     <slot></slot>
@@ -231,25 +279,6 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
 
         this.dispatchEvent(event);
     };
-
-    /**
-     * Template for the close button element. Called within the
-     * main render function.
-     *
-     * @private
-     */
-    private renderCloseButton (): TemplateResult {
-        return html`
-            <pie-icon-button
-                @click="${() => { this.isOpen = false; }}"
-                variant="ghost-secondary"
-                class="c-modal-closeBtn"
-                data-test-id="modal-close-button"><icon-close /></pie-icon-button>
-        `;
-    }
-
-    // Renders a `CSSResult` generated from SCSS by Vite
-    static styles = unsafeCSS(styles);
 }
 
 customElements.define(componentSelector, PieModal);

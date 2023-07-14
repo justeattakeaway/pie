@@ -1,5 +1,11 @@
 @use '@justeat/pie-design-tokens/dist/jet.scss' as dt;
 
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
 .c-modal {
     // Custom Property Declarations
     // These are defined here instead of :host to encapsulate them inside Shadow DOM
@@ -57,21 +63,46 @@
         background: #{dt.$color-overlay};
     }
 
+    & .c-modal-header {
+        --modal-header-padding: var(--dt-spacing-e);
+
+        padding-inline: var(--modal-header-padding);
+        padding-block: var(--modal-header-padding);
+        align-items: center;
+        display: flex;
+    }
+
+    &[hasbackbutton] .c-modal-header {
+        padding-block: var(--dt-spacing-c);
+        padding-inline-start: var(--dt-spacing-c);
+    }
+
+    &[isdismissible] .c-modal-header {
+        justify-content: space-between;
+        padding-block: var(--dt-spacing-c);
+        padding-inline-end: var(--dt-spacing-c);
+    }
+
+
     & .c-modal-heading {
-        // Modal header Custom Props
         --modal-header-font-size: calc(var(--dt-font-heading-m-size--wide) * 1px);
         --modal-header-font-line-height: calc(var(--dt-font-heading-m-line-height--wide) * 1px);
         --modal-header-font-weight: var(--dt-font-heading-m-weight);
-        --modal-header-padding: var(--dt-spacing-e);
-        --modal-header-padding-block-end: var(--dt-spacing-d);
 
         font-size: var(--modal-header-font-size);
         line-height: var(--modal-header-font-line-height);
         font-weight: var(--modal-header-font-weight);
-
         margin: 0;
-        padding-block: var(--modal-header-padding) var(--modal-header-padding-block-end);
-        padding-inline: var(--modal-header-padding);
+    }
+
+    // Ensure correct padding when there is a back button in front of the heading
+    &[hasbackbutton] .c-modal-heading {
+        margin-inline-start: var(--dt-spacing-c);
+    }
+
+    // Ensure correct padding when there is a close button behind the heading
+    &[isdismissible] .c-modal-heading {
+        margin-inline-end: var(--dt-spacing-e);
     }
 
     & .c-modal-content {
@@ -94,8 +125,6 @@
     }
 
     & .c-modal-closeBtn {
-        position: absolute;
-        inset-inline-end: var(--dt-spacing-d);
-        inset-block-start: var(--dt-spacing-d);
+        margin-inline-start: auto;
     }
 }
