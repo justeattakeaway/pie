@@ -1,5 +1,6 @@
 import { test, expect } from '@sand4rt/experimental-ct-web';
 import { type Page } from '@playwright/test';
+import { PieButton } from '@justeattakeaway/pie-button';
 import { PieIconButton } from '@justeattakeaway/pie-icon-button';
 import {
     WebComponentTestWrapper,
@@ -7,24 +8,25 @@ import {
 import { renderTestPieModal } from '../helpers/index.ts';
 
 import { PieModal } from '@/index';
-import { headingLevels } from '@/defs';
+import { ON_MODAL_CLOSE_EVENT, headingLevels } from '@/defs';
 
 const closeButtonSelector = '[data-test-id="modal-close-button"]';
+const modalSelector = '#dialog';
 
 // Mount any components that are used inside of pie-modal so that
 // they have been registered with the browser before the tests run.
 // There is likely a nicer way to do this but this will temporarily
 // unblock tests.
-test.beforeEach(async ({ page, mount }) => {
-    await mount(
-        PieIconButton,
-        {},
-    );
+test.beforeEach(async ({ mount, page }) => {
+    await mount(PieButton, {});
+    await mount(PieIconButton, {});
 
     // Removing the element so it's not present in the tests (but is still registered in the DOM)
     await page.evaluate(() => {
-        const element : Element | null = document.querySelector('pie-icon-button');
-        element?.remove();
+        const button : Element | null = document.querySelector('pie-button');
+        button?.remove();
+        const iconButton : Element | null = document.querySelector('pie-icon-button');
+        iconButton?.remove();
     });
 });
 
@@ -62,7 +64,8 @@ test.describe('When modal is closed', () => {
     test.describe('by clicking the close button', () => {
         test('should dispatch event `pie-modal-close`', async ({ mount, page }) => {
             // Arrange
-            const messages: string[] = [];
+            const events : Array<Event> = [];
+
             await mount(
                 PieModal,
                 {
@@ -71,39 +74,75 @@ test.describe('When modal is closed', () => {
                         isDismissible: true,
                     },
                     on: {
-                        click: (event: string) => messages.push(event),
+                        [ON_MODAL_CLOSE_EVENT]: (event: Event) => events.push(event),
                     },
                 },
             );
 
-            await page.locator(closeButtonSelector).click();
+            await page.click(closeButtonSelector);
 
             // Assert
-            expect(messages).toHaveLength(1);
+            expect(events).toHaveLength(1);
+        });
+
+        test('should close the modal', async ({ mount, page }) => {
+            // Arrange
+            await mount(PieModal, {
+                props: {
+                    isOpen: true,
+                    isDismissible: true,
+                },
+            });
+
+            const modal = page.locator(modalSelector);
+            expect(modal).toBeVisible();
+
+            await page.click(closeButtonSelector);
+
+            // Assert
+            expect(modal).not.toBeVisible();
         });
     });
 
     test.describe('by clicking the backdrop', () => {
         test('should dispatch event `pie-modal-close`', async ({ mount, page }) => {
             // Arrange
-            const messages: string[] = [];
-            await mount(
-                PieModal,
-                {
-                    props: {
-                        isOpen: true,
-                    },
-                    on: {
-                        click: (event: string) => messages.push(event),
-                    },
-                },
-            );
+            const events : Array<Event> = [];
 
-            // Act
-            await page.locator('#dialog').click();
+            await mount(PieModal, {
+                props: {
+                    isOpen: true,
+                    isDismissible: true,
+                },
+                on: {
+                    [ON_MODAL_CLOSE_EVENT]: (event: Event) => events.push(event),
+                },
+            });
+
+            // Act - Click outside dialog
+            await page.click(modalSelector, { position: { x: -10, y: -10 } });
 
             // Assert
-            expect(messages).toHaveLength(1);
+            expect(events).toHaveLength(1); // TODO - Event object is null for this test
+        });
+
+        test('should close the modal', async ({ mount, page }) => {
+            // Arrange
+            await mount(PieModal, {
+                props: {
+                    isOpen: true,
+                    isDismissible: true,
+                },
+            });
+
+            const modal = await page.locator(modalSelector);
+            expect(modal).toBeVisible();
+
+            // Act - Click outside dialog
+            await modal.click({ position: { x: -10, y: -10 } });
+
+            // Assert
+            expect(modal).not.toBeVisible();
         });
     });
 
@@ -130,7 +169,7 @@ test.describe('When modal is closed', () => {
                 });
 
                 // Act
-                await page.locator(closeButtonSelector).click();
+                await page.click(closeButtonSelector);
 
                 const focusedElement = await page.locator(':focus');
                 const focusedElementId = await focusedElement.getAttribute('id');
@@ -160,7 +199,7 @@ test.describe('When modal is closed', () => {
                 });
 
                 // Act
-                await page.locator(closeButtonSelector).click();
+                await page.click(closeButtonSelector);
 
                 const focusedElement = await page.locator(':focus');
                 const focusedElementId = await focusedElement.getAttribute('id');
@@ -174,7 +213,7 @@ test.describe('When modal is closed', () => {
             [{
                 mechanism: 'close button',
                 modalCloseFunction: async (page : Page) => {
-                    await page.locator(closeButtonSelector).click();
+                    await page.click(closeButtonSelector);
                 },
             }, {
                 mechanism: 'Esc key',
@@ -208,7 +247,7 @@ test.describe('When modal is closed', () => {
                         });
 
                         // Act
-                        await page.locator('[data-test-id="open-modal"]').click();
+                        await page.click('[data-test-id="open-modal"]');
                         await modalCloseFunction(page);
 
                         const focusedElement = await page.locator(':focus');
@@ -237,11 +276,14 @@ test.describe('`isDismissible` prop', () => {
                 },
             );
 
-            // Act & Assert
-            await expect(component.locator(closeButtonSelector)).toBeVisible();
+            // Act
+            const closeButton = component.locator(closeButtonSelector);
+
+            // Assert
+            await expect(closeButton).toBeVisible();
         });
 
-        test('should close the modal when the close button is clicked', async ({ mount }) => {
+        test('should close the modal when the close button is clicked', async ({ mount, page }) => {
             // Arrange
             const component = await mount(
                 PieModal,
@@ -254,7 +296,7 @@ test.describe('`isDismissible` prop', () => {
             );
 
             // Act
-            await component.locator('[data-test-id="modal-close-button"]').click();
+            await page.click('[data-test-id="modal-close-button"]');
 
             // Assert
             await expect(component).not.toBeVisible();
@@ -273,9 +315,9 @@ test.describe('`isDismissible` prop', () => {
             );
 
             // Act
-            await page.locator('body').click();
+            await page.click('body');
 
-            const element = await page.locator('#dialog');
+            const element = await page.locator(modalSelector);
 
             const styles = await element.evaluate((modal) => {
                 const computedStyles = window.getComputedStyle(modal);
@@ -290,39 +332,39 @@ test.describe('`isDismissible` prop', () => {
 
         test('should close the modal when the Escape key is pressed', async ({ mount, page }) => {
             // Arrange
-            const component = await mount(
-                PieModal,
-                {
-                    props: {
-                        isOpen: true,
-                        isDismissible: false,
-                    },
+            await mount(PieModal, {
+                props: {
+                    isOpen: true,
+                    isDismissible: true,
                 },
-            );
+            });
+
+            const modal = await page.locator(modalSelector);
+            await expect(modal).toBeVisible();
 
             // Act
             await page.keyboard.press('Escape');
 
             // Assert
-            await expect(component).not.toBeVisible();
+            await expect(modal).not.toBeVisible();
         });
     });
 
     test.describe('when `isDismissible` is `false`', () => {
         test('should make the modal NOT contain a close button', async ({ mount }) => {
             // Arrange
-            const component = await mount(
-                PieModal,
-                {
-                    props: {
-                        isOpen: true,
-                        isDismissible: false,
-                    },
+            const component = await mount(PieModal, {
+                props: {
+                    isOpen: true,
+                    isDismissible: false,
                 },
-            );
+            });
 
-            // Act & Assert
-            await expect(component.locator(closeButtonSelector)).not.toBeVisible();
+            // Act
+            const closeButton = await component.locator(closeButtonSelector);
+
+            // Assert
+            await expect(closeButton).not.toBeVisible();
         });
 
         test('should NOT close the modal when the backdrop is clicked', async ({ mount, page }) => {
@@ -340,7 +382,7 @@ test.describe('`isDismissible` prop', () => {
             // Act
             await page.locator('body').click();
 
-            const element = await page.locator('#dialog');
+            const element = await page.locator(modalSelector);
 
             const styles = await element.evaluate((modal) => {
                 const computedStyles = window.getComputedStyle(modal);
@@ -350,26 +392,71 @@ test.describe('`isDismissible` prop', () => {
             });
 
             // Assert
-            expect(styles.display).toBe('block');
+            expect(styles.display).toBe('flex');
         });
 
         test('should NOT close the modal when the Escape key is pressed', async ({ mount, page }) => {
             // Arrange
-            const component = await mount(
-                PieModal,
-                {
-                    props: {
-                        isOpen: true,
-                        isDismissible: false,
-                    },
+            await mount(PieModal, {
+                props: {
+                    isOpen: true,
+                    isDismissible: false,
                 },
-            );
+            });
 
             // Act
             await page.keyboard.press('Escape');
+            const modal = await page.locator(modalSelector);
 
             // Assert
-            await expect(component.locator('dialog')).toBeVisible();
+            await expect(modal).toBeVisible();
+        });
+    });
+});
+
+test.describe('actions', () => {
+    ['leading', 'supporting'].forEach((actionName) => {
+        test.describe(`${actionName} action, when clicked`, () => {
+            const buttonSelector = `[data-test-id="modal-${actionName}-action"]`;
+
+            test('should close the modal', async ({ page, mount }) => {
+                // Arrange
+                await mount(PieModal, {
+                    props: {
+                        heading: 'Modal Header',
+                        isOpen: true,
+                    },
+                });
+
+                const modal = await page.locator(modalSelector);
+                expect(modal).toBeVisible();
+
+                // Act
+                await page.click(buttonSelector);
+
+                // Assert
+                expect(modal).not.toBeVisible();
+            });
+
+            test('should submit the correct return value', async ({ page, mount }) => {
+                // Arrange
+                await mount(PieModal, {
+                    props: {
+                        heading: 'Modal Header',
+                        isOpen: true,
+                    },
+                });
+
+                // Act
+                await page.click(buttonSelector);
+                const returnValue = await page.$eval(
+                    modalSelector,
+                    (dialog : HTMLDialogElement) => dialog.returnValue,
+                );
+
+                // Assert
+                expect(returnValue).toBe(actionName);
+            });
         });
     });
 });
