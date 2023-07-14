@@ -5222,9 +5222,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/generator-pie-component@workspace:*, @justeattakeaway/generator-pie-component@workspace:packages/tools/generator-pie-compoment":
+"@justeattakeaway/generator-pie-component@workspace:*, @justeattakeaway/generator-pie-component@workspace:packages/tools/generator-pie-component":
   version: 0.0.0-use.local
-  resolution: "@justeattakeaway/generator-pie-component@workspace:packages/tools/generator-pie-compoment"
+  resolution: "@justeattakeaway/generator-pie-component@workspace:packages/tools/generator-pie-component"
   dependencies:
     "@types/yeoman-generator": 5.2.11
     chalk: 5.3.0
@@ -5234,7 +5234,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-button@0.18.0, @justeattakeaway/pie-button@workspace:*, @justeattakeaway/pie-button@workspace:packages/components/pie-button":
+"@justeattakeaway/pie-button@0.19.0, @justeattakeaway/pie-button@workspace:*, @justeattakeaway/pie-button@workspace:packages/components/pie-button":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-button@workspace:packages/components/pie-button"
   dependencies:
@@ -32627,9 +32627,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup@npm:^2.25.0 || ^3.3.0, rollup@npm:^3.18.0, rollup@npm:^3.21.0, rollup@npm:^3.25.3":
-  version: 3.26.1
-  resolution: "rollup@npm:3.26.1"
+"rollup@npm:^2.25.0 || ^3.3.0, rollup@npm:^3.18.0, rollup@npm:^3.20.2, rollup@npm:^3.21.0, rollup@npm:^3.25.2, rollup@npm:^3.25.3":
+  version: 3.26.2
+  resolution: "rollup@npm:3.26.2"
   dependencies:
     fsevents: ~2.3.2
   dependenciesMeta:
@@ -37192,7 +37192,44 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:4.3.9, vite@npm:^3.0.0 || ^4.0.0, vite@npm:~4.3.3":
+"vite@npm:4.3.0":
+  version: 4.3.0
+  resolution: "vite@npm:4.3.0"
+  dependencies:
+    esbuild: ^0.17.5
+    fsevents: ~2.3.2
+    postcss: ^8.4.21
+    rollup: ^3.20.2
+  peerDependencies:
+    "@types/node": ">= 14"
+    less: "*"
+    sass: "*"
+    stylus: "*"
+    sugarss: "*"
+    terser: ^5.4.0
+  dependenciesMeta:
+    fsevents:
+      optional: true
+  peerDependenciesMeta:
+    "@types/node":
+      optional: true
+    less:
+      optional: true
+    sass:
+      optional: true
+    stylus:
+      optional: true
+    sugarss:
+      optional: true
+    terser:
+      optional: true
+  bin:
+    vite: bin/vite.js
+  checksum: 9b6084c92e234e74c47514d864477abb7ad40cf53aa904f84b0a87c1b1238d64ea13ecc7595cf06df4aab1649bda8fa86671f40731a8fc00f4bca3b2c6d76f93
+  languageName: node
+  linkType: hard
+
+"vite@npm:4.3.9, vite@npm:~4.3.3":
   version: 4.3.9
   resolution: "vite@npm:4.3.9"
   dependencies:
@@ -37229,7 +37266,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:^3.0.0 || ^4.0.0, vite@npm:^4.3.0":
+"vite@npm:^3.0.0 || ^4.0.0":
   version: 4.4.3
   resolution: "vite@npm:4.4.3"
   dependencies:
