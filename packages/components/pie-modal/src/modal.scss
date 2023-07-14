@@ -1,8 +1,8 @@
 @use '@justeat/pie-design-tokens/dist/jet.scss' as dt;
 
 *,
-*::before,
-*::after {
+*:before,
+*:after {
     box-sizing: border-box;
 }
 
