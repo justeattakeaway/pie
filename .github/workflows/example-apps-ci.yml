@@ -135,7 +135,6 @@ jobs:
             example-app: wc-vue3
 
     name: Deploy ${{matrix.example-app}}
-    needs: build-example-apps
     uses: ./.github/workflows/amplify-deploy.yml
     with:
       os: ubuntu-latest
