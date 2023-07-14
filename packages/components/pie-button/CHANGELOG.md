@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.19.0
+
+### Minor Changes
+
+- [Added] - pie-button loading state ([#603](https://github.com/justeattakeaway/pie/pull/603)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.18.0
 
 ### Minor Changes

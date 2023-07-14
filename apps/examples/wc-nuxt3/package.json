@@ -1,11 +1,11 @@
 {
   "name": "wc-nuxt3",
-  "version": "0.3.5",
+  "version": "0.3.6",
   "private": true,
   "scripts": {
     "build:examples": "nuxt build",
     "dev": "nuxt dev",
-    "generate": "nuxt generate",
+    "generate:examples": "nuxt generate",
     "start": "nuxt start",
     "postinstall": "nuxt prepare"
   },

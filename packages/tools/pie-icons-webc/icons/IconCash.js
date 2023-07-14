@@ -1,7 +1,7 @@
 import { getSvgProps } from '@justeattakeaway/pie-icons-configs';
 
 const template = document.createElement('template');
-template.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 16 16" class="c-pieIcon c-pieIcon--cash"><path d="M14.781 2.969H3.844v2.625H1.219v6.562h10.937V9.531h2.625V2.97Zm-3.937 7.875H2.53V6.906h1.313v2.625h7v1.313Zm2.625-2.625H5.156V4.28h8.313V8.22ZM8.219 6.25a1.094 1.094 0 1 1 2.187 0 1.094 1.094 0 0 1-2.187 0Z"></path></svg>';
+template.innerHTML = '<style>:host-context(pie-icon-button) svg { width: var(--btn-icon-size); height: var(--btn-icon-size); }</style><svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 16 16" class="c-pieIcon c-pieIcon--cash"><path d="M14.781 2.969H3.844v2.625H1.219v6.562h10.937V9.531h2.625V2.97Zm-3.937 7.875H2.53V6.906h1.313v2.625h7v1.313Zm2.625-2.625H5.156V4.28h8.313V8.22ZM8.219 6.25a1.094 1.094 0 1 1 2.187 0 1.094 1.094 0 0 1-2.187 0Z"></path></svg>';
 
 export class IconCash extends HTMLElement {
     constructor () {
@@ -33,9 +33,13 @@ export class IconCash extends HTMLElement {
 
     connectedCallback () {
         const svg = this.root.querySelector('svg');
-        const svgSize = getSvgProps('c-pieIcon c-pieIcon--cash', '', null, 'IconCash');
-        svg.setAttribute('width', svgSize.width);
-        svg.setAttribute('height', svgSize.height);
+
+        if (svg.getAttribute('width') === null) {
+            const svgSize = getSvgProps('c-pieIcon c-pieIcon--cash', '', null, 'IconCash');
+            svg.setAttribute('width', svgSize.width);
+            svg.setAttribute('height', svgSize.height);
+        }
+
         this.setAttribute('class', 'c-pieIcon c-pieIcon--cash');
         this.root.append(svg);
     }

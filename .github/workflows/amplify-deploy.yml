@@ -23,12 +23,16 @@ on:
         type: string
       bucket-name-preview:
         description: "Name of the preview bucket being deployed to"
-        required: true
+        required: false
         type: string
       bucket-name-main:
         description: "Name of the main bucket being deployed to"
         required: true
         type: string
+      build-script:
+        required: false
+        type: string
+        default: 'build'
 
 env:
   AMPLIFY_ID: ${{ inputs.amplify-app-id }}
@@ -57,7 +61,7 @@ jobs:
       - name: Build ${{ inputs.package-name }}
         uses: ./.github/actions/run-script
         with:
-          script-name: "build --filter=${{ inputs.package-name}}"
+          script-name: "${{inputs.build-script }} --filter=${{ inputs.package-name }}"
       # Create Github Deployment
       - name: Create Docs GitHub deployment
         if: ${{ github.event_name == 'pull_request' }}

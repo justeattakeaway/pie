@@ -1,7 +1,7 @@
 import { getSvgProps } from '@justeattakeaway/pie-icons-configs';
 
 const template = document.createElement('template');
-template.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 32 32" class="c-pieIcon c-pieIcon--playLarge"><path d="m8.807 8.361.088.044L23.192 16 8.895 23.595s0 .053-.079.07V8.361h-.009Zm.01-1.75a1.75 1.75 0 0 0-1.75 1.75v15.304a1.75 1.75 0 0 0 2.624 1.47l14.306-7.63a1.75 1.75 0 0 0 0-3.062L9.717 6.865a1.75 1.75 0 0 0-.918-.271l.017.017Z"></path></svg>';
+template.innerHTML = '<style>:host-context(pie-icon-button) svg { width: var(--btn-icon-size); height: var(--btn-icon-size); }</style><svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 32 32" class="c-pieIcon c-pieIcon--playLarge"><path d="m8.807 8.361.088.044L23.192 16 8.895 23.595s0 .053-.079.07V8.361h-.009Zm.01-1.75a1.75 1.75 0 0 0-1.75 1.75v15.304a1.75 1.75 0 0 0 2.624 1.47l14.306-7.63a1.75 1.75 0 0 0 0-3.062L9.717 6.865a1.75 1.75 0 0 0-.918-.271l.017.017Z"></path></svg>';
 
 export class IconPlayLarge extends HTMLElement {
     constructor () {
@@ -33,9 +33,13 @@ export class IconPlayLarge extends HTMLElement {
 
     connectedCallback () {
         const svg = this.root.querySelector('svg');
-        const svgSize = getSvgProps('c-pieIcon c-pieIcon--playLarge', '', null, 'IconPlayLarge');
-        svg.setAttribute('width', svgSize.width);
-        svg.setAttribute('height', svgSize.height);
+
+        if (svg.getAttribute('width') === null) {
+            const svgSize = getSvgProps('c-pieIcon c-pieIcon--playLarge', '', null, 'IconPlayLarge');
+            svg.setAttribute('width', svgSize.width);
+            svg.setAttribute('height', svgSize.height);
+        }
+
         this.setAttribute('class', 'c-pieIcon c-pieIcon--playLarge');
         this.root.append(svg);
     }

@@ -1,5 +1,14 @@
 # wc-vue3
 
+## 0.2.11
+
+### Patch Changes
+
+- [Added] - `"ignoreDeprecations": "5.0"` property to tsconfig.json to prevent build errors. ([#602](https://github.com/justeattakeaway/pie/pull/602)) by [@siggerzz](https://github.com/siggerzz)
+
+- Updated dependencies [[`03550a16e`](https://github.com/justeattakeaway/pie/commit/03550a16e2caf96c7b2f372b2a327db5245d1091)]:
+  - @justeattakeaway/pie-button@0.19.0
+
 ## 0.2.10
 
 ### Patch Changes

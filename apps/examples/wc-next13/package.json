@@ -1,13 +1,13 @@
 {
   "name": "wc-next13",
-  "version": "0.2.10",
+  "version": "0.2.11",
   "private": true,
   "scripts": {
     "dev": "NODE_OPTIONS=--conditions=development next dev",
     "build:examples": "yarn build-static",
     "build-static": "next build && next export -o build",
     "start": "next start",
-    "lint": "next lint"
+    "lint:examples": "next lint"
   },
   "dependencies": {
     "@justeattakeaway/pie-button": "workspace:*",

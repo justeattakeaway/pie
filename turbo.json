@@ -23,15 +23,23 @@
         ".output/**"
       ]
     },
+    "generate:examples": {
+      "cache": true,
+      "dependsOn": [
+        "^build"
+      ],
+      "outputs": [
+        "dist/**",
+        ".nuxt/**",
+        ".output/**"
+      ]
+    },
     "watch": {
       "cache": true,
       "dependsOn": []
     },
     "pie-docs#build": {
       "cache": true,
-      "env": [
-        "PIE_URL_PREFIX"
-      ],
       "dependsOn": [
         "^build"
       ],
@@ -119,9 +127,6 @@
       "dependsOn": [
         "^build"
       ],
-      "env": [
-        "PIE_URL_PREFIX"
-      ],
       "inputs": [
         "src/**",
         "test/**"
@@ -156,6 +161,13 @@
       "dependsOn": [
         "^build"
       ]
+    },
+    "lint:examples": {
+      "cache": true,
+      "dependsOn": [
+        "^build:examples"
+      ],
+      "outputs": []
     },
     "dev": {
       "cache": false,

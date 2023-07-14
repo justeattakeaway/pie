@@ -1,9 +1,11 @@
 
 # pie-icons-webc
 
-Shared PIE Icon Components for Web Components.
+Shared PIE Icon Components built using native Web Components.
 
-This package generates a Web Component iconset for applications using the base [pie-icons](https://www.npmjs.com/package/@justeattakeaway/pie-icons) package. The SVGs in pie-icons are compiled into web components that can be imported into applications.
+This package provides the PIE iconset as importable Web Components, to ensure icons are used to PIE guidelines for sizing.
+
+The base [pie-icons](https://www.npmjs.com/package/@justeattakeaway/pie-icons) package is used to provide the SVGs that are compiled into native web components that can be imported into any application.
 
 ---
 
@@ -20,36 +22,43 @@ Add the module to your project
 yarn add @justeattakeaway/pie-icons-webc
 ```
 
+
 ### Applications
 
 ```js
 // Only import what you need!
-import { IconAppRestaurant, IconAppRestaurantLarge } from '@justeattakeaway/pie-icons-webc';
+import '@justeattakeaway/pie-icons-webc/icons/IconAppRestaurant';
+
+// Note, we don't recommend referencing named exports such as:
+// `import { IconAppRestaurant } from '@justeattakeaway/pie-icons-webc`
+// As this will require you to make a call to the icon so that it doesn't get tree-shaken by your build tool
 ```
+
 Within the context of a Lit app, that will look like:
 
-  ```js
-import { IconAppRestaurant } from '@justeattakeaway/pie-icons-webc';
-export { IconAppRestaurant }
+```js
+import '@justeattakeaway/pie-icons-webc/icons/IconAppRestaurant';
 
-  export class IconButton extends LitElement {
-    render () {
-      return html`
-        <button>
-          <icon-app-restaurant size="xs" />
-        </button>`;
-    }
+export class MyAmazingComponent extends LitElement {
+  render () {
+    return html`
+      <h2>
+        This is a heading
+        <icon-app-restaurant size="xs" />
+      </h2>`;
   }
-  ```
+}
+```
 
-If you require icons for a React app, please head to [pie-icons-react](https://www.npmjs.com/package/@justeattakeaway/pie-icons-react)
+If you require icons for a React application, you can either use these icons, or use our native React component package – [pie-icons-react](https://www.npmjs.com/package/@justeattakeaway/pie-icons-react).
 
+If you require icons for a Vue app, you can either use these icons, or use our native Vue component package – [pie-icons-vue](https://www.npmjs.com/package/@justeattakeaway/pie-icons-vue).
 
-If you require icons for a Vue app, please head to [pie-icons-vue](https://www.npmjs.com/package/@justeattakeaway/pie-icons-vue)
 
 #### Props
 
 Icons accept any standard attribute, except for `width` and `height` since those are set implicitly by using the `size` prop.
+
 
 ##### `size`
 
