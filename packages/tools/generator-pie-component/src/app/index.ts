@@ -1,0 +1,67 @@
+import Generator, { Answers } from 'yeoman-generator';
+import chalk from 'chalk';
+
+import {
+    transformName, setDate,
+} from './services';
+import type { TransformedName } from './services';
+
+type Props = {
+  answers: Answers;
+  changelogDate: string;
+  componentPath: string;
+  storyPath: string;
+} & TransformedName;
+
+export default class extends Generator {
+    props: Props;
+
+    async initializing () {
+        this.log(chalk`A Yeoman generator for Pie Web Components`);
+    }
+
+    async prompting () {
+        const answers = await this.prompt([{
+            message: "What's your new component name (without the 'pie-' prefix)? e.g. 'form-label'",
+            name: 'name',
+            type: 'input',
+        }]);
+        const transformedName = transformName(answers.name);
+        const currentDate = setDate();
+        this.props = {
+            answers,
+            ...transformedName,
+            changelogDate: `${currentDate.month} ${currentDate.day}, ${currentDate.year}`,
+            componentPath: `packages/components/pie-${transformedName.fileName}/`,
+            storyPath: 'apps/pie-storybook/stories/',
+        };
+    }
+
+    async writing () {
+        const { fileName, componentPath, storyPath } = this.props;
+        const processDestinationPath = (filePath: string) => filePath.replace(/\b(component)\b/g, fileName).replace(/__/g, '');
+
+        this.fs.copyTpl(
+            this.templatePath('**/*'),
+            this.destinationPath(componentPath),
+            this.props,
+            undefined,
+            {
+                globOptions: { dot: true, ignore: ['**/component.__stories__.ts'] },
+                processDestinationPath,
+            },
+        );
+
+        this.fs.copyTpl(
+            this.templatePath('**/component.__stories__.ts'),
+            this.destinationPath(storyPath),
+            this.props,
+            undefined,
+            { processDestinationPath },
+        );
+    }
+
+    async end () {
+        this.log(chalk`Your component has been created at ${this.props.componentPath}`);
+    }
+}
