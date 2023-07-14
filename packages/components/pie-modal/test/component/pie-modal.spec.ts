@@ -7,9 +7,10 @@ import {
 import { renderTestPieModal } from '../helpers/index.ts';
 
 import { PieModal } from '@/index';
-import { headingLevels } from '@/defs';
+import { headingLevels, ON_MODAL_BACK_EVENT } from '@/defs';
 
 const closeButtonSelector = '[data-test-id="modal-close-button"]';
+const backButtonSelector = '[data-test-id="modal-back-button"]';
 
 // Mount any components that are used inside of pie-modal so that
 // they have been registered with the browser before the tests run.
@@ -80,6 +81,30 @@ test.describe('When modal is closed', () => {
 
             // Assert
             expect(messages).toHaveLength(1);
+        });
+    });
+
+    test.describe('by clicking the back button', () => {
+        test('should dispatch event `pie-modal-back`', async ({ mount, page }) => {
+            // Arrange
+            const events: Event[] = [];
+            await mount(
+                PieModal,
+                {
+                    props: {
+                        isOpen: true,
+                        hasBackButton: true,
+                    },
+                    on: {
+                        [ON_MODAL_BACK_EVENT]: (event: Event) => events.push(event),
+                    },
+                },
+            );
+
+            await page.locator(backButtonSelector).click();
+
+            // Assert
+            expect(events).toHaveLength(1);
         });
     });
 
@@ -370,6 +395,63 @@ test.describe('`isDismissible` prop', () => {
 
             // Assert
             await expect(component.locator('dialog')).toBeVisible();
+        });
+    });
+});
+
+test.describe('`hasBackButton` prop', () => {
+    test.describe('when `true`', () => {
+        test('should make the modal contain a back button', async ({ mount }) => {
+            // Arrange
+            const component = await mount(
+                PieModal,
+                {
+                    props: {
+                        isOpen: true,
+                        hasBackButton: true,
+                    },
+                },
+            );
+
+            // Act & Assert
+            await expect(component.locator(backButtonSelector)).toBeVisible();
+        });
+
+        test('should close the modal when the back button is clicked', async ({ mount }) => {
+            // Arrange
+            const component = await mount(
+                PieModal,
+                {
+                    props: {
+                        isOpen: true,
+                        hasBackButton: true,
+                    },
+                },
+            );
+
+            // Act
+            await component.locator(backButtonSelector).click();
+
+            // Assert
+            await expect(component).not.toBeVisible();
+        });
+    });
+
+    test.describe('when `hasBackButton` is `false`', () => {
+        test('should make the modal NOT contain a back button', async ({ mount }) => {
+            // Arrange
+            const component = await mount(
+                PieModal,
+                {
+                    props: {
+                        isOpen: true,
+                        hasBackButton: false,
+                    },
+                },
+            );
+
+            // Act & Assert
+            await expect(component.locator(backButtonSelector)).not.toBeVisible();
         });
     });
 });

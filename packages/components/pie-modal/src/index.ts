@@ -18,6 +18,7 @@ import {
     headingLevels,
     ON_MODAL_CLOSE_EVENT,
     ON_MODAL_OPEN_EVENT,
+    ON_MODAL_BACK_EVENT,
     sizes,
 } from './defs';
 
@@ -29,6 +30,7 @@ const componentSelector = 'pie-modal';
 /**
  * @event {CustomEvent} pie-modal-open - when the modal is opened.
  * @event {CustomEvent} pie-modal-close - when the modal is closed.
+ * @event {CustomEvent} pie-modal-back - when the modal back button is clicked.
  */
 export class PieModal extends RtlMixin(LitElement) implements ModalProps {
     @property({ type: String })
@@ -61,6 +63,8 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
     @query('dialog')
     private _dialog?: HTMLDialogElement;
 
+    private _backButtonClicked = false;
+
     // Renders a `CSSResult` generated from SCSS by Vite
     static styles = unsafeCSS(styles);
 
@@ -73,11 +77,13 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
         super.connectedCallback();
         document.addEventListener(ON_MODAL_OPEN_EVENT, this._handleModalOpened.bind(this));
         document.addEventListener(ON_MODAL_CLOSE_EVENT, this._handleModalClosed.bind(this));
+        document.addEventListener(ON_MODAL_BACK_EVENT, this._handleModalClosed.bind(this));
     }
 
     disconnectedCallback () : void {
         document.removeEventListener(ON_MODAL_OPEN_EVENT, this._handleModalOpened.bind(this));
         document.removeEventListener(ON_MODAL_CLOSE_EVENT, this._handleModalClosed.bind(this));
+        document.removeEventListener(ON_MODAL_BACK_EVENT, this._handleModalClosed.bind(this));
         super.disconnectedCallback();
     }
 
@@ -143,7 +149,13 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
 
         if (previousValue !== undefined) {
             if (previousValue) {
-                this._dispatchModalCustomEvent(ON_MODAL_CLOSE_EVENT);
+                if (this._backButtonClicked) {
+                    // Reset the flag
+                    this._backButtonClicked = false;
+                    this._dispatchModalCustomEvent(ON_MODAL_BACK_EVENT);
+                } else {
+                    this._dispatchModalCustomEvent(ON_MODAL_CLOSE_EVENT);
+                }
             } else {
                 this._dispatchModalCustomEvent(ON_MODAL_OPEN_EVENT);
             }
@@ -188,7 +200,7 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
     private renderBackButton () : TemplateResult {
         return html`
             <pie-icon-button
-                @click="${() => { this.isOpen = false; }}"
+                @click="${() => { this._backButtonClicked = true; this.isOpen = false; }}"
                 variant="ghost-secondary"
                 class="c-modal-backBtn"
                 data-test-id="modal-back-button">

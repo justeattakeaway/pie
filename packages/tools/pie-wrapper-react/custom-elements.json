@@ -39,6 +39,15 @@
                     },
                     "default": "'pie-modal-open'",
                     "description": "Event name for when the modal is opened."
+                },
+                {
+                    "kind": "variable",
+                    "name": "ON_MODAL_BACK_EVENT",
+                    "type": {
+                        "text": "string"
+                    },
+                    "default": "'pie-modal-back'",
+                    "description": "Event name for when the modal back button is clicked."
                 }
             ],
             "exports": [
@@ -71,6 +80,14 @@
                     "name": "ON_MODAL_OPEN_EVENT",
                     "declaration": {
                         "name": "ON_MODAL_OPEN_EVENT",
+                        "module": "../../components/pie-modal/src/defs.js"
+                    }
+                },
+                {
+                    "kind": "js",
+                    "name": "ON_MODAL_BACK_EVENT",
+                    "declaration": {
+                        "name": "ON_MODAL_BACK_EVENT",
                         "module": "../../components/pie-modal/src/defs.js"
                     }
                 }
@@ -236,6 +253,15 @@
                                 "text": "HTMLDialogElement | undefined"
                             },
                             "privacy": "private"
+                        },
+                        {
+                            "kind": "field",
+                            "name": "_backButtonClicked",
+                            "type": {
+                                "text": "boolean"
+                            },
+                            "privacy": "private",
+                            "default": "false"
                         },
                         {
                             "kind": "method",
@@ -414,6 +440,13 @@
                             },
                             "description": "when the modal is closed.",
                             "name": "pie-modal-close"
+                        },
+                        {
+                            "type": {
+                                "text": "CustomEvent"
+                            },
+                            "description": "when the modal back button is clicked.",
+                            "name": "pie-modal-back"
                         }
                     ],
                     "attributes": [

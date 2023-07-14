@@ -66,3 +66,10 @@ export const ON_MODAL_CLOSE_EVENT = 'pie-modal-close';
  * @constant
  */
 export const ON_MODAL_OPEN_EVENT = 'pie-modal-open';
+
+/**
+ * Event name for when the modal back button is clicked.
+ *
+ * @constant
+ */
+export const ON_MODAL_BACK_EVENT = 'pie-modal-back';
