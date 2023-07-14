@@ -9,7 +9,7 @@ export {
 
 const componentSelector = 'pie-<%= fileName%>';
 
-export class Pie<%= componentName%> extends LitElement implements <%= componentName%>Props {
+export class Pie<%= componentName %> extends LitElement implements <%= componentName%>Props {
     render () {
         return html`<h1>Hello world!</h1>`;
     }
@@ -18,10 +18,10 @@ export class Pie<%= componentName%> extends LitElement implements <%= componentN
     static styles = unsafeCSS(styles);
 }
 
-customElements.define(componentSelector, Pie<%= componentName%>);
+customElements.define(componentSelector, Pie<%= componentName %>);
 
 declare global {
     interface HTMLElementTagNameMap {
-        [componentSelector]: Pie<%= componentName%>;
+        [componentSelector]: Pie<%= componentName %>;
     }
 }
