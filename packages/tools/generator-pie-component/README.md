@@ -14,13 +14,13 @@
 First, install `yeoman` globally if you haven't already done so:
 
 ```sh
-$ npm install --global yo
+$ yarn add --global yo
 ```
 
 And then install the component generator:
 
 ```sh
-$ npm install --global @justeattakeaway/generator-pie-component
+$ yarn add --global @justeattakeaway/generator-pie-component
 ```
 
 ### Running the generator
@@ -62,5 +62,5 @@ In order to contribute to the `generator-pie-component`, it's advised to link yo
 
 To do this, run `yarn link` from the root of the `generator-pie-component` folder in the mono-repo.
 
-Once you have done this, running `yo @justeattakeaway/generator-pie-component` will run your local copy of the generator (rather than the version installed globally via NPM).
+Once you have done this, running `yo @justeattakeaway/generator-pie-component` will run your local copy of the generator (rather than the version installed globally via Yarn).
 

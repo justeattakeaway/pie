@@ -19,7 +19,7 @@ export default class extends Generator {
 
     async prompting () {
         const answers = await this.prompt([{
-            message: "What's your new component name (without the 'pie-' prefix)? e.g. 'form-label'",
+            message: "What's the name of your new component (without the 'pie-' prefix e.g. 'form-label')?",
             name: 'name',
             type: 'input',
         }]);
