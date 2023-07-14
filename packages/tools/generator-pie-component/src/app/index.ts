@@ -1,14 +1,11 @@
 import Generator, { Answers } from 'yeoman-generator';
 import chalk from 'chalk';
 
-import {
-    transformName, setDate,
-} from './services';
+import { transformName } from './services';
 import type { TransformedName } from './services';
 
 type Props = {
   answers: Answers;
-  changelogDate: string;
   componentPath: string;
   storyPath: string;
 } & TransformedName;
@@ -27,11 +24,9 @@ export default class extends Generator {
             type: 'input',
         }]);
         const transformedName = transformName(answers.name);
-        const currentDate = setDate();
         this.props = {
             answers,
             ...transformedName,
-            changelogDate: `${currentDate.month} ${currentDate.day}, ${currentDate.year}`,
             componentPath: `packages/components/pie-${transformedName.fileName}/`,
             storyPath: 'apps/pie-storybook/stories/',
         };

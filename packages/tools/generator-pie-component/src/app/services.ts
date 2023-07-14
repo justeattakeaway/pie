@@ -13,11 +13,6 @@ export type TransformedName = {
     percyComponentName: string;
 }
 
-export type GeneratorDate = {
-    day: string;
-    month: string;
-    year: string
-}
 /**
  *
  * @param {string} name – String input during prompts for the name of the component
@@ -34,19 +29,3 @@ export function transformName (name: string): TransformedName {
         percyComponentName: getPercyComponentName(normalisedName), // e.g. ICON_BUTTON
     };
 }
-
-/**
- * Get Today's date in Changelog format
- *
- * @returns Object - day/month/year values
- */
-export function setDate (): GeneratorDate {
-    const date = new Date();
-
-    return {
-        day: date.toLocaleString('en-GB', { day: 'numeric' }),
-        month: date.toLocaleString('en-GB', { month: 'long' }),
-        year: date.toLocaleString('en-GB', { year: 'numeric' }),
-    };
-}
-
