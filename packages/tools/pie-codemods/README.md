@@ -34,11 +34,16 @@ Once published, you can run any of the following codemod commands to run the pac
 
 ```bash
 # To run the PIE Migration GUI
-$ npx pie-codemod-gui
+$ npx pie-codemods
 
 # To run the PIE Codemod CLI
-$ npx pie-codemod-cli
+$ npx pie-codemods {FILES/DIRECTORY}
 ```
+
+
+
+
+
 
 
 <!-- Native javascript:

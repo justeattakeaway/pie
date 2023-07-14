@@ -122,8 +122,12 @@ const MIGRATION_INQUIRER_CHOICES = [
 
 const TRANSFORMER_INQUIRER_CHOICES = [
     {
-        name: 'add test-ids: Adds a bunch of test IDs to web components.',
+        name: 'add test-ids: Adds a bunch of test IDs to web components',
         value: 'add-test-ids',
+    },
+    {
+        name: 'transform-css: Transform some things in CSS',
+        value: 'transform-css',
     }
 ];
 
@@ -204,7 +208,7 @@ function run () {
 
             // Set of prompts for if the tool is used with some CLI input
             // The API for the CLI tool should be
-            // `npx @justeattakeaway/pie-codemods {FILES/DIRECTORY}`
+            // `npx pie-codemods {FILES/DIRECTORY}`
             {
                 type: 'list',
                 name: 'transformer',
@@ -215,91 +219,16 @@ function run () {
                 pageSize: TRANSFORMER_INQUIRER_CHOICES.length,
                 choices: TRANSFORMER_INQUIRER_CHOICES,
             },
+
             {
                 type: 'list',
                 name: 'parser',
                 message: 'Which dialect of JavaScript do you use?',
-                default: 'babel',
                 when: cli.input[0] && !cli.flags.parser,
+                default: 'babel',
                 pageSize: PARSER_INQUIRER_CHOICES.length,
                 choices: PARSER_INQUIRER_CHOICES,
             },
-
-            // if transformer === 'class'
-            // {
-            //     type: 'confirm',
-            //     name: 'classFlow',
-            //     when: (answers) => cli.input[0] === 'class' || answers.transformer === 'class',
-            //     message: 'Generate Flow annotations from propTypes?',
-            //     default: true,
-            // },
-            // {
-            //     type: 'confirm',
-            //     name: 'classRemoveRuntimePropTypes',
-            //     when: (answers) => answers.classFlow === true,
-            //     message: 'Remove runtime PropTypes?',
-            //     default: false,
-            // },
-            // {
-            //     type: 'confirm',
-            //     name: 'classPureComponent',
-            //     when: (answers) => cli.input[0] === 'class' || answers.transformer === 'class',
-            //     message:
-            //   'replace react-addons-pure-render-mixin with React.PureComponent?',
-            //     default: true,
-            // },
-            // {
-            //     type: 'input',
-            //     name: 'classMixinModuleName',
-            //     when: (answers) => answers.classPureComponent === true,
-            //     // validate: () =>
-            //     message: 'What module exports this mixin?',
-            //     default: 'react-addons-pure-render-mixin',
-            //     filter: (x) => x.trim(),
-            // },
-            // // if transformer === 'pure-render-mixin'
-            // {
-            //     type: 'input',
-            //     name: 'pureRenderMixinMixinName',
-            //     when: (answers) => (
-            //         cli.input[0] === 'pure-render-mixin' ||
-            //     answers.transformer === 'pure-render-mixin'
-            //     ),
-            //     message: 'What is the name of the mixin?',
-            //     default: 'PureRenderMixin',
-            //     filter: (x) => x.trim(),
-            // },
-            // // if transformer === 'pure-component'
-            // {
-            //     type: 'confirm',
-            //     name: 'pureComponentUseArrows',
-            //     when: (answers) => (
-            //         cli.input[0] === 'pure-component' ||
-            //     answers.transformer === 'pure-component'
-            //     ),
-            //     message: 'Use arrow functions?',
-            //     default: false,
-            // },
-            // {
-            //     type: 'confirm',
-            //     name: 'pureComponentDestructuring',
-            //     when: (answers) => (
-            //         cli.input[0] === 'pure-component' ||
-            //     answers.transformer === 'pure-component'
-            //     ),
-            //     message: 'Destructure props?',
-            //     default: false,
-            // },
-            // {
-            //     type: 'confirm',
-            //     name: 'destructureNamespaceImports',
-            //     when: (answers) => (
-            //         cli.input[0] === 'update-react-imports' ||
-            //     answers.transformer === 'update-react-imports'
-            //     ),
-            //     message: 'Destructure namespace imports (import *) too?',
-            //     default: false,
-            // }
         ])
         .then((answers) => {
             const { transformer, parser } = answers;
@@ -324,21 +253,6 @@ function run () {
             });
         });
 }
-
-// console.log(answer);
-
-// switch (answer) {
-//     case 'pie-design-tokens@v5.0.0':
-//         console.log('tokens');
-
-//         break;
-//     case 'pie-button@v2.0.0':
-//         console.log('button');
-//         // do some stuff
-//         break;
-//     default:
-//         break;
-// }
 
 export {
     run,
