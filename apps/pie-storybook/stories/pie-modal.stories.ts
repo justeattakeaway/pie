@@ -12,7 +12,7 @@ import {
     headingLevels,
     sizes,
 } from '@justeattakeaway/pie-modal/src/defs';
-import { i18nArgTypes } from '../args/commonArgs';
+import { i18nArgTypes } from '../args/commonArgsTypes';
 
 type ModalProps = ModalPropsBase & { slot: string }
 
