@@ -137,6 +137,10 @@
         flex-wrap: wrap;
         gap: var(--modal-button-spacing);
         padding: var(--modal-footer-padding);
+
+        @media (min-width: $breakpoint-wide) {
+            --modal-footer-padding: var(--dt-spacing-e);
+        }
     }
 
     .c-modal-heading {
