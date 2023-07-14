@@ -7,12 +7,12 @@ import '@justeattakeaway/pie-modal'; // Register pie-modal
 import '@justeattakeaway/pie-icons-webc/icons/IconClose'; // Register icon-close
 import '@justeattakeaway/pie-icons-webc/icons/IconChevronLeft'; // Register icon-chevron-left
 import '@justeattakeaway/pie-icons-webc/icons/IconChevronRight'; // Register icon-chevron-right
-
 import {
     ModalProps as ModalPropsBase,
     headingLevels,
     sizes,
 } from '@justeattakeaway/pie-modal/src/defs';
+import { i18nArgTypes } from '../args/commonArgs';
 
 type ModalProps = ModalPropsBase & { slot: string }
 
@@ -41,6 +41,7 @@ const modalStoryMeta: ModalStoryMeta = {
     title: 'Modal',
     component: 'pie-modal',
     argTypes: {
+        ...i18nArgTypes,
         isDismissible: {
             control: 'boolean',
         },
@@ -69,10 +70,6 @@ const modalStoryMeta: ModalStoryMeta = {
         },
         slot: {
             control: 'text',
-        },
-        dir: {
-            control: 'select',
-            options: ['ltr', 'rtl', 'auto'],
         },
     },
     args: defaultArgs,

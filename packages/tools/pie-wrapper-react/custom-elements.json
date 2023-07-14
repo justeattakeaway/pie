@@ -380,6 +380,7 @@
                             },
                             "default": "'ltr'",
                             "attribute": "dir",
+                            "reflects": true,
                             "inheritedFrom": {
                                 "name": "RtlMixin",
                                 "module": "../../components/pie-webc-core/src/mixins/rtl/rtlMixin.js"
@@ -1029,7 +1030,8 @@
                                 "text": "htmlDirAttribute"
                             },
                             "default": "'ltr'",
-                            "attribute": "dir"
+                            "attribute": "dir",
+                            "reflects": true
                         },
                         {
                             "kind": "field",
