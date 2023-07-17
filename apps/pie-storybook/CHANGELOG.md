@@ -1,5 +1,38 @@
 # Changelog
 
+## 0.18.1
+
+### Patch Changes
+
+- Updated dependencies [[`1d822d1a2`](https://github.com/justeattakeaway/pie/commit/1d822d1a227bcee23759780315ded301c357a21f)]:
+  - @justeattakeaway/pie-modal@0.12.0
+
+## 0.18.0
+
+### Minor Changes
+
+- [Added] - Slot added to pie-icon-button ([#604](https://github.com/justeattakeaway/pie/pull/604)) by [@ashleynolan](https://github.com/ashleynolan)
+
+### Patch Changes
+
+- Updated dependencies [[`03550a16e`](https://github.com/justeattakeaway/pie/commit/03550a16e2caf96c7b2f372b2a327db5245d1091), [`4b09d6f6f`](https://github.com/justeattakeaway/pie/commit/4b09d6f6fca81ff091b92c84fed2e2f219537524), [`f58ac61e3`](https://github.com/justeattakeaway/pie/commit/f58ac61e31d90c926d14d727b28ea6afc0614c07), [`4b09d6f6f`](https://github.com/justeattakeaway/pie/commit/4b09d6f6fca81ff091b92c84fed2e2f219537524), [`4b09d6f6f`](https://github.com/justeattakeaway/pie/commit/4b09d6f6fca81ff091b92c84fed2e2f219537524)]:
+  - @justeattakeaway/pie-button@0.19.0
+  - @justeattakeaway/pie-icon-button@0.9.0
+  - @justeattakeaway/pie-modal@0.11.0
+
+## 0.17.0
+
+### Minor Changes
+
+- [Added] - New `isFullWidthBelowMid` prop for pie-modal ([#600](https://github.com/justeattakeaway/pie/pull/600)) by [@LTurns](https://github.com/LTurns)
+
+- [Changed] - Refactor modal story to reduce duplication ([#599](https://github.com/justeattakeaway/pie/pull/599)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+### Patch Changes
+
+- Updated dependencies [[`b6a5ee967`](https://github.com/justeattakeaway/pie/commit/b6a5ee9678ffaaca41e759d2b1b133bb3fac8703), [`b6a5ee967`](https://github.com/justeattakeaway/pie/commit/b6a5ee9678ffaaca41e759d2b1b133bb3fac8703), [`ecec72a75`](https://github.com/justeattakeaway/pie/commit/ecec72a75d25f938b8cb7d1156fc3e454a2cb94a), [`7418905dd`](https://github.com/justeattakeaway/pie/commit/7418905dd94e64b0878e9907f03a4c5db4beefce)]:
+  - @justeattakeaway/pie-modal@0.10.0
+
 ## 0.16.0
 
 ### Minor Changes

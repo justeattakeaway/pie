@@ -16,7 +16,7 @@ export {
 
 const componentSelector = 'pie-button';
 
-export class PieButton extends LitElement {
+export class PieButton extends LitElement implements ButtonProps {
     @property()
     @validPropertyValues(componentSelector, sizes, 'medium')
     public size: ButtonProps['size'] = 'medium';
@@ -32,12 +32,15 @@ export class PieButton extends LitElement {
     @property({ type: Boolean })
     public disabled = false;
 
+    @property({ type: Boolean, reflect: true })
+    public isLoading = false;
+
     @property({ type: Boolean })
     public isFullWidth = false;
 
     render () {
         const {
-            type, disabled, isFullWidth, variant, size,
+            type, disabled, isFullWidth, variant, size, isLoading,
         } = this;
 
         return html`
@@ -47,8 +50,9 @@ export class PieButton extends LitElement {
                 variant=${variant}
                 size=${size}
                 ?disabled=${disabled}
-                ?isFullWidth=${isFullWidth}>
-                <slot></slot>
+                ?isFullWidth=${isFullWidth}
+                ?isLoading=${isLoading}>
+                <span class="o-btn-text"><slot></slot></span>
             </button>`;
     }
 

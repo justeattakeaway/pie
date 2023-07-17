@@ -9,16 +9,16 @@ on:
       node-version:
         required: true
         type: string
+      build-script:
+        required: false
+        type: string
+        default: 'build'
 
 env:
     TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
 
-concurrency:
-    group: install-build-${{ github.ref }}-${{ inputs.os }}-${{ inputs.node-version }}
-    cancel-in-progress: true
-
 jobs:
-  install:
+  install-build:
     runs-on: ${{ inputs.os }}
     steps:
       - name: Checkout
@@ -28,18 +28,7 @@ jobs:
         with:
           node-version: ${{ inputs.node-version }}
           os: ${{ inputs.os }}
-
-  build:
-    runs-on: ${{ inputs.os }}
-    needs: install
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Setup Repo
-        uses: ./.github/actions/setup-repo
-        with:
-          node-version: ${{ inputs.node-version }}
       - name: Build Packages
         uses: ./.github/actions/run-script
         with:
-          script-name: "build"
+          script-name: ${{ inputs.build-script }}

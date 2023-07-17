@@ -1,5 +1,14 @@
 # wc-nuxt2
 
+## 0.3.6
+
+### Patch Changes
+
+- [Updated] - `nuxt` dependency to fix the following babel issue - https://github.com/nuxt/nuxt/issues/21489 ([#602](https://github.com/justeattakeaway/pie/pull/602)) by [@siggerzz](https://github.com/siggerzz)
+
+- Updated dependencies [[`03550a16e`](https://github.com/justeattakeaway/pie/commit/03550a16e2caf96c7b2f372b2a327db5245d1091)]:
+  - @justeattakeaway/pie-button@0.19.0
+
 ## 0.3.5
 
 ### Patch Changes

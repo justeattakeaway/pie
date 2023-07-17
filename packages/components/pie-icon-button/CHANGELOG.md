@@ -1,5 +1,17 @@
 # @justeattakeaway/pie-icon-button
 
+## 0.9.0
+
+### Minor Changes
+
+- [Changed] - Added slot info the the readme and peerDep added ([#604](https://github.com/justeattakeaway/pie/pull/604)) by [@ashleynolan](https://github.com/ashleynolan)
+
+- [Changed] - Ensure component implements it's props interface ([#611](https://github.com/justeattakeaway/pie/pull/611)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Fixed] - Added IconClose to Visual tests and modal ([#604](https://github.com/justeattakeaway/pie/pull/604)) by [@ashleynolan](https://github.com/ashleynolan)
+
+- [Added] - Slot added to pie-icon-button ([#604](https://github.com/justeattakeaway/pie/pull/604)) by [@ashleynolan](https://github.com/ashleynolan)
+
 ## 0.8.0
 
 ### Minor Changes

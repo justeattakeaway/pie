@@ -1,3 +1,9 @@
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
 // Defines button interactive states for hover and active using HSL & calc
 // Takes a color token name as an argument
 @mixin button-interactive-states($bg-color) {
@@ -7,6 +13,17 @@
 
     &:active:not(:disabled) {
         background-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), calc(var(#{$bg-color}-l) - var(--dt-color-active-01)));
+    }
+}
+
+// Spin animation for loading state
+@keyframes rotate360 {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
     }
 }
 
@@ -20,7 +37,6 @@
 
     // The base values are set to the size default, which is for the medium button size
     --btn-padding: 10px var(--dt-spacing-e);
-    --btn-min-height: 48px;
     --btn-font-size: calc(var(--dt-font-size-20) * 1px);
     --btn-line-height: calc(var(--dt-font-size-20-line-height) * 1px);
 
@@ -29,7 +45,29 @@
     --btn-bg-color: var(--dt-color-interactive-brand);
     --btn-text-color: var(--dt-color-content-interactive-primary);
 
-    min-block-size: var(--btn-min-block-size);
+    // Spinner sizes defaults - currently set for the medium button styles
+    --spinner-size-s: 20px;
+    --spinner-size-m: 24px;
+    --spinner-border-width-s: 2.5px;
+    --spinner-border-width-m: 3px;
+    --spinner-size: var(--spinner-size-m);
+    --spinner-border-width: var(--spinner-border-width-m);
+
+    // Spinner colors - currently set for the primary button styles
+    --spinner-base-color-h: var(--dt-color-content-interactive-primary-h);
+    --spinner-base-color-s: var(--dt-color-content-interactive-primary-s);
+    --spinner-base-color-l: var(--dt-color-content-interactive-primary-l);
+    --spinner-left-color-opacity: 0.35;
+    --spinner-left-color: hsl(var(--spinner-base-color-h), var(--spinner-base-color-s), var(--spinner-base-color-l), var(--spinner-left-color-opacity));
+    --spinner-right-color: hsl(var(--spinner-base-color-h), var(--spinner-base-color-s), var(--spinner-base-color-l), 1);
+
+    // Spinner animations
+    --spinner-animation-duration: 1.15s;
+    --spinner-animation-timing-function: linear;
+    --spinner-animation-iteration-count: infinite;
+
+    position: relative;
+    box-sizing: border-box;
     padding: var(--btn-padding);
     border: none;
     border-radius: var(--btn-border-radius);
@@ -102,6 +140,9 @@
     &[variant='secondary'] {
         --btn-bg-color: var(--dt-color-interactive-secondary);
         --btn-text-color: var(--dt-color-content-interactive-secondary);
+        --spinner-base-color-h: var(--dt-color-content-interactive-secondary-h);
+        --spinner-base-color-s: var(--dt-color-content-interactive-secondary-s);
+        --spinner-base-color-l: var(--dt-color-content-interactive-secondary-l);
 
         @include button-interactive-states('--dt-color-interactive-secondary');
     }
@@ -109,6 +150,9 @@
     &[variant='outline'] {
         --btn-bg-color: var(--dt-color-container-default);
         --btn-text-color: var(--dt-color-content-interactive-secondary);
+        --spinner-base-color-h: var(--dt-color-content-interactive-secondary-h);
+        --spinner-base-color-s: var(--dt-color-content-interactive-secondary-s);
+        --spinner-base-color-l: var(--dt-color-content-interactive-secondary-l);
 
         border: 1px solid var(--dt-color-border-strong);
 
@@ -118,6 +162,9 @@
     &[variant='ghost'] {
         --btn-bg-color: transparent;
         --btn-text-color: var(--dt-color-content-link);
+        --spinner-base-color-h: var(--dt-color-content-interactive-secondary-h);
+        --spinner-base-color-s: var(--dt-color-content-interactive-secondary-s);
+        --spinner-base-color-l: var(--dt-color-content-interactive-secondary-l);
 
         @include button-interactive-states('--dt-color-container-default');
     }
@@ -125,6 +172,9 @@
     &[variant='inverse'] {
         --btn-bg-color: var(--dt-color-interactive-inverse);
         --btn-text-color: var(--dt-color-content-interactive-secondary);
+        --spinner-base-color-h: var(--dt-color-content-interactive-secondary-h);
+        --spinner-base-color-s: var(--dt-color-content-interactive-secondary-s);
+        --spinner-base-color-l: var(--dt-color-content-interactive-secondary-l);
 
         @include button-interactive-states('--dt-color-interactive-inverse');
     }
@@ -132,6 +182,9 @@
     &[variant='ghost-inverse'] {
         --btn-bg-color: transparent;
         --btn-text-color: var(--dt-color-content-interactive-primary);
+        --spinner-base-color-h: var(--dt-color-content-interactive-primary-h);
+        --spinner-base-color-s: var(--dt-color-content-interactive-primary-s);
+        --spinner-base-color-l: var(--dt-color-content-interactive-primary-l);
 
         @include button-interactive-states('--dt-color-container-inverse');
     }
@@ -161,18 +214,24 @@
         --btn-padding: 6px var(--dt-spacing-b);
         --btn-font-size: calc(var(--dt-font-size-14) * 1px);
         --btn-line-height: calc(var(--dt-font-size-14-line-height) * 1px);
+        --spinner-size: var(--spinner-size-s);
+        --spinner-border-width: var(--spinner-border-width-s);
     }
 
     &[size='small-expressive'] {
         --btn-padding: 6px var(--dt-spacing-d);
         --btn-font-size: calc(var(--dt-font-size-20) * 1px);
         --btn-line-height: calc(var(--dt-font-size-20-line-height) * 1px);
+        --spinner-size: var(--spinner-size-s);
+        --spinner-border-width: var(--spinner-border-width-s);
     }
 
     &[size='small-productive'] {
         --btn-padding: 8px var(--dt-spacing-d);
         --btn-font-size: calc(var(--dt-font-size-16) * 1px);
         --btn-line-height: calc(var(--dt-font-size-16-line-height) * 1px);
+        --spinner-size: var(--spinner-size-s);
+        --spinner-border-width: var(--spinner-border-width-s);
     }
 
     &[size='medium'] {
@@ -183,5 +242,39 @@
         --btn-padding: 14px var(--dt-spacing-e);
         --btn-font-size: calc(var(--dt-font-size-20) * 1px);
         --btn-line-height: calc(var(--dt-font-size-20-line-height) * 1px);
+        --spinner-size: var(--spinner-size-m);
+        --spinner-border-width: var(--spinner-border-width-m);
+    }
+
+    &:before {
+        content: '';
+
+        // Centre the spinner over the top of the button text
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        translate: -50% -50%;
+
+        height: var(--spinner-size);
+        width: var(--spinner-size);
+        display: block;
+        background-color: transparent;
+        border-radius: 50%;
+        border-color: var(--spinner-left-color) var(--spinner-right-color) var(--spinner-right-color) var(--spinner-left-color);
+        border-width: var(--spinner-border-width);
+        border-style: solid;
+        will-change: transform;
+        opacity: 0;
+    }
+
+    &[isLoading] {
+        &:before {
+            animation: rotate360 var(--spinner-animation-duration) var(--spinner-animation-timing-function) var(--spinner-animation-iteration-count);
+            opacity: 1;
+        }
+
+        & .o-btn-text {
+            opacity: 0;
+        }
     }
 }

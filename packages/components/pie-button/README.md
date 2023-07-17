@@ -72,6 +72,7 @@ import { PieButton } from '@justeattakeaway/pie-button/dist/react';
 | variant     | `String`  | `primary`       | Variant of the button, one of `variants` – `primary`, `secondary`, `outline`, `ghost`, `inverse`, `ghost-inverse` |
 | disabled    | `Boolean` | `false`         | If `true`, disables the button.                                      |
 | isFullWidth | `Boolean` | `false`         | If `true`, sets the button width to 100% of it's container.                            |
+| isLoading | `Boolean` | `false`         | If `true`, displays a loading indicator inside the button.
 
 In your markup or JSX, you can then use these to set the properties for the `pie-button` component:
 
