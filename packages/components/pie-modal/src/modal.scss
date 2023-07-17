@@ -38,9 +38,9 @@
     --modal-margin-none: var(--dt-spacing-none);
     --modal-margin-small: var(--dt-spacing-g);
     --modal-margin-large: var(--dt-spacing-j);
-
     --modal-margin-block: var(--modal-margin-small);
-    @media(min-width: $breakpoint-wide) {
+
+    @media (min-width: $breakpoint-wide) {
         --modal-margin-block: var(--modal-margin-large);
     }
 
@@ -114,12 +114,14 @@
 
         &--scrollable {
             background:
-                // Scroll shadow cover - a top-to-bottom opacity gradient from transparent to the component background colour
+                // Scroll shadow cover
+                // A top-to-bottom opacity gradient from transparent to the component background colour
                 linear-gradient(to bottom, transparent, var(--dt-color-container-default) 75%) center bottom,
                 // Scroll shadow
                 linear-gradient(transparent, var(--dt-color-border-strong)) center bottom;
             background-repeat: no-repeat;
             background-size: 100% 48px, 100% 12px;
+
             // The shadow cover is an opacity gradient which is attached to the bottom of the scrollable element
             // and scrolls with it, so as you reach the bottom of the content the more opaque portion covers
             // (and therefore hides) the shadow. This gives the effect of the shadow fading away.
