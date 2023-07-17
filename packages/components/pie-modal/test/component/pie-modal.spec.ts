@@ -13,21 +13,13 @@ import { ON_MODAL_CLOSE_EVENT, headingLevels } from '@/defs';
 const closeButtonSelector = '[data-test-id="modal-close-button"]';
 const modalSelector = '#dialog';
 
-// Mount any components that are used inside of pie-modal so that
+// Mount then unmount any components that are used inside of pie-modal so that
 // they have been registered with the browser before the tests run.
 // There is likely a nicer way to do this but this will temporarily
 // unblock tests.
-test.beforeEach(async ({ mount, page }) => {
-    await mount(PieButton, {});
-    await mount(PieIconButton, {});
-
-    // Removing the element so it's not present in the tests (but is still registered in the DOM)
-    await page.evaluate(() => {
-        const button : Element | null = document.querySelector('pie-button');
-        button?.remove();
-        const iconButton : Element | null = document.querySelector('pie-icon-button');
-        iconButton?.remove();
-    });
+test.beforeEach(async ({ mount }) => {
+    await (await mount(PieButton)).unmount();
+    await (await mount(PieIconButton)).unmount();
 });
 
 headingLevels.forEach((headingLevel) => test(`should render the correct heading tag based on the value of headingLevel: ${headingLevel}`, async ({ mount }) => {
