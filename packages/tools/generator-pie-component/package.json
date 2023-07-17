@@ -1,8 +1,8 @@
 {
   "name": "@justeattakeaway/generator-pie-component",
   "version": "0.0.0",
-  "description": "A generator for pie web components",
-  "author": "Just Eat Takeaway.com - Design System Web Team",
+  "description": "A generator for PIE Web Components",
+  "author": "JustEatTakeaway - Design System Team",
   "files": [
     "generators"
   ],

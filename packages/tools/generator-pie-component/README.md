@@ -1,8 +1,18 @@
+<p align="center">
+  <img align="center" src="../../../readme_image.png" height="200" alt="">
+</p>
+
+<p align="center">
+  <a href="https://www.npmjs.com/@justeattakeaway/generator-pie-component">
+    <img alt="Currently released NPM version" src="https://img.shields.io/npm/v/@justeattakeaway/generator-pie-component.svg">
+  </a>
+</p>
+
 <div align="center">
 
-# generator-pie-component
+  # generator-pie-component
 
- `generator-pie-component` is a generator for Pie Web Components.
+  `generator-pie-component` is a generator for Pie Web Components.
 
 </div>
 
@@ -11,16 +21,20 @@
 
 ### Installation
 
-First, install `yeoman` globally if you haven't already done so:
+Install `yeoman` and the pie-component generator globally:
 
 ```sh
-$ yarn add --global yo
+# Via NPM
+$ npm install --global yo @justeattakeaway/generator-pie-component
+
+# Using Yarn
+$ yarn add --global yo @justeattakeaway/generator-pie-component
 ```
 
-And then install the component generator:
+Or if you'd rather, you can use the generator without installing it globally, by running:
 
 ```sh
-$ yarn add --global @justeattakeaway/generator-pie-component
+$ npm init yo @justeattakeaway/generator-pie-component
 ```
 
 ### Running the generator
@@ -31,7 +45,7 @@ To run the generator, use this command from any directory within the monorepo:
 yo @justeattakeaway/pie-component
 ```
 
-An interactive prompt should now be displayed asking for a Component name.
+An interactive prompt should now be displayed asking for a component name.
 
 Once you have completed all the prompts, your scaffolded component will be generated 🎉
 
@@ -62,5 +76,5 @@ In order to contribute to the `generator-pie-component`, it's advised to link yo
 
 To do this, run `yarn link` from the root of the `generator-pie-component` folder in the mono-repo.
 
-Once you have done this, running `yo @justeattakeaway/generator-pie-component` will run your local copy of the generator (rather than the version installed globally via Yarn).
+Once you have done this, running `yo @justeattakeaway/generator-pie-component` will run your local copy of the generator (rather than the version installed globally via NPM/Yarn).
 

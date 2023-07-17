@@ -1,4 +1,4 @@
 ---
 "@justeattakeaway/generator-pie-component": minor
 ---
-[Added] init a yeoman generator for pie web components
+[Added] - Init a Yeoman generator for PIE Web Components
