@@ -154,7 +154,8 @@ export class PieModal extends RtlMixin(LitElement) {
             id="dialog"
             class="c-modal"
             size="${this.size}"
-            ?isFullWidthBelowMid=${this.isFullWidthBelowMid}>
+            ?isFullWidthBelowMid=${this.isFullWidthBelowMid}
+            data-test-id="pie-modal">
             <header>
                 ${this._renderModalHeader()}
             </header>
@@ -191,7 +192,6 @@ export class PieModal extends RtlMixin(LitElement) {
             variant="primary"
             type="submit"
             @click="${() => this._dialog?.close('leading')}"
-            value="leading"
             data-test-id="modal-leading-action">
             Confirm
         </pie-button>
@@ -199,7 +199,6 @@ export class PieModal extends RtlMixin(LitElement) {
             variant="ghost"
             type="reset"
             @click="${() => this._dialog?.close('supporting')}"
-            value="supporting"
             data-test-id="modal-supporting-action">
             Cancel
         </pie-button>`;

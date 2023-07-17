@@ -11,7 +11,7 @@ import { PieModal } from '@/index';
 import { ON_MODAL_CLOSE_EVENT, headingLevels } from '@/defs';
 
 const closeButtonSelector = '[data-test-id="modal-close-button"]';
-const modalSelector = '#dialog';
+const modalSelector = '[data-test-id="pie-modal"]';
 
 // Mount then unmount any components that are used inside of pie-modal so that
 // they have been registered with the browser before the tests run.
@@ -89,6 +89,7 @@ test.describe('When modal is closed', () => {
             const modal = page.locator(modalSelector);
             expect(modal).toBeVisible();
 
+            // Act
             await page.click(closeButtonSelector);
 
             // Assert
@@ -111,8 +112,8 @@ test.describe('When modal is closed', () => {
                 },
             });
 
-            // Act - Click outside dialog
-            await page.click(modalSelector, { position: { x: -10, y: -10 } });
+            // Act
+            await page.click(modalSelector, { position: { x: -10, y: -10 } }); // Click outside dialog
 
             // Assert
             expect(events).toHaveLength(1); // TODO - Event object is null for this test
@@ -130,8 +131,8 @@ test.describe('When modal is closed', () => {
             const modal = await page.locator(modalSelector);
             expect(modal).toBeVisible();
 
-            // Act - Click outside dialog
-            await modal.click({ position: { x: -10, y: -10 } });
+            // Act
+            await modal.click({ position: { x: -10, y: -10 } }); // Click outside dialog
 
             // Assert
             expect(modal).not.toBeVisible();
