@@ -3,7 +3,7 @@
  *
  * @template T - Represents the original props of the component. This should be an interface or type that matches the props of the component.
  *
- * @property {string} slot - Represents the `slot` attribute for the web component. It is a DOM string attribute where the named slot is to be used as the container for all child nodes.
+ * @property {string} slot - Represents the `slot` for the web component.
  *
  * The resulting type will have the same properties as `T`, plus a `slot` property.
  *
