@@ -39,6 +39,15 @@
                     },
                     "default": "'pie-modal-open'",
                     "description": "Event name for when the modal is opened."
+                },
+                {
+                    "kind": "variable",
+                    "name": "ON_MODAL_BACK_EVENT",
+                    "type": {
+                        "text": "string"
+                    },
+                    "default": "'pie-modal-back'",
+                    "description": "Event name for when the modal back button is clicked."
                 }
             ],
             "exports": [
@@ -71,6 +80,14 @@
                     "name": "ON_MODAL_OPEN_EVENT",
                     "declaration": {
                         "name": "ON_MODAL_OPEN_EVENT",
+                        "module": "../../components/pie-modal/src/defs.js"
+                    }
+                },
+                {
+                    "kind": "js",
+                    "name": "ON_MODAL_BACK_EVENT",
+                    "declaration": {
+                        "name": "ON_MODAL_BACK_EVENT",
                         "module": "../../components/pie-modal/src/defs.js"
                     }
                 }
@@ -181,6 +198,16 @@
                         },
                         {
                             "kind": "field",
+                            "name": "hasBackButton",
+                            "type": {
+                                "text": "boolean"
+                            },
+                            "privacy": "public",
+                            "default": "false",
+                            "attribute": "hasBackButton"
+                        },
+                        {
+                            "kind": "field",
                             "name": "isFullWidthBelowMid",
                             "type": {
                                 "text": "boolean"
@@ -223,7 +250,17 @@
                             "name": "_dialog",
                             "type": {
                                 "text": "HTMLDialogElement | undefined"
-                            }
+                            },
+                            "privacy": "private"
+                        },
+                        {
+                            "kind": "field",
+                            "name": "_backButtonClicked",
+                            "type": {
+                                "text": "boolean"
+                            },
+                            "privacy": "private",
+                            "default": "false"
                         },
                         {
                             "kind": "method",
@@ -307,29 +344,29 @@
                                     "text": "void"
                                 }
                             },
-                            "description": "Return focus to the specified element, providing the selector is valid\r\nand the chosen element can be found.\r\nFails silently."
+                            "description": "Return focus to the specified element, providing the selector is valid\r\nand the chosen element can be found."
                         },
                         {
                             "kind": "method",
-                            "name": "_renderModalHeader",
+                            "name": "renderCloseButton",
                             "privacy": "private",
                             "return": {
                                 "type": {
                                     "text": "TemplateResult"
                                 }
                             },
-                            "description": "Returns the HTML content for the header.\r\nExtracted to keep the render method succinct."
+                            "description": "Template for the close button element. Called within the\r\nmain render function."
                         },
                         {
-                            "kind": "field",
-                            "name": "_renderModalFooter",
+                            "kind": "method",
+                            "name": "renderBackButton",
                             "privacy": "private",
-                            "description": "Returns the HTML content for the footer.\r\nExtracted to keep the render method succinct.",
                             "return": {
                                 "type": {
                                     "text": "TemplateResult"
                                 }
-                            }
+                            },
+                            "description": "Template for the back button element. Called within the\r\nmain render function."
                         },
                         {
                             "kind": "field",
@@ -361,24 +398,14 @@
                             ]
                         },
                         {
-                            "kind": "method",
-                            "name": "renderCloseButton",
-                            "privacy": "private",
-                            "return": {
-                                "type": {
-                                    "text": "TemplateResult"
-                                }
-                            },
-                            "description": "Template for the close button element. Called within the\r\nmain render function."
-                        },
-                        {
                             "kind": "field",
                             "name": "dir",
                             "type": {
-                                "text": "string"
+                                "text": "htmlDirAttribute"
                             },
-                            "default": "''",
+                            "default": "'ltr'",
                             "attribute": "dir",
+                            "reflects": true,
                             "inheritedFrom": {
                                 "name": "RtlMixin",
                                 "module": "../../components/pie-webc-core/src/mixins/rtl/rtlMixin.js"
@@ -412,6 +439,13 @@
                             },
                             "description": "when the modal is closed.",
                             "name": "pie-modal-close"
+                        },
+                        {
+                            "type": {
+                                "text": "CustomEvent"
+                            },
+                            "description": "when the modal back button is clicked.",
+                            "name": "pie-modal-back"
                         }
                     ],
                     "attributes": [
@@ -437,6 +471,14 @@
                             },
                             "default": "false",
                             "fieldName": "isDismissible"
+                        },
+                        {
+                            "name": "hasBackButton",
+                            "type": {
+                                "text": "boolean"
+                            },
+                            "default": "false",
+                            "fieldName": "hasBackButton"
                         },
                         {
                             "name": "isFullWidthBelowMid",
@@ -472,9 +514,9 @@
                         {
                             "name": "dir",
                             "type": {
-                                "text": "string"
+                                "text": "htmlDirAttribute"
                             },
-                            "default": "''",
+                            "default": "'ltr'",
                             "fieldName": "dir",
                             "inheritedFrom": {
                                 "name": "RtlMixin",
@@ -1017,10 +1059,11 @@
                             "kind": "field",
                             "name": "dir",
                             "type": {
-                                "text": "string"
+                                "text": "htmlDirAttribute"
                             },
-                            "default": "''",
-                            "attribute": "dir"
+                            "default": "'ltr'",
+                            "attribute": "dir",
+                            "reflects": true
                         },
                         {
                             "kind": "field",
@@ -1036,9 +1079,9 @@
                         {
                             "name": "dir",
                             "type": {
-                                "text": "string"
+                                "text": "htmlDirAttribute"
                             },
-                            "default": "''",
+                            "default": "'ltr'",
                             "fieldName": "dir"
                         }
                     ],
