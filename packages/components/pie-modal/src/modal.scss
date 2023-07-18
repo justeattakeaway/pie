@@ -67,8 +67,9 @@
     & .c-modal-header {
         padding-inline: var(--dt-spacing-d);
         padding-block: 14px;
+
         @media (min-width: $breakpoint-wide) {
-            padding-inline: 24px;
+            padding-inline: var(--dt-spacing-e);
             padding-block: 20px;
         }
 
@@ -81,15 +82,21 @@
     }
 
     &[hasbackbutton] .c-modal-header {
+        padding-block: var(--dt-spacing-b);
         padding-inline-start: var(--dt-spacing-b);
+
         @media (min-width: $breakpoint-wide) {
+            padding-block: var(--dt-spacing-c);
             padding-inline-start: var(--dt-spacing-c);
         }
     }
 
     &[isdismissible] .c-modal-header {
+        padding-block: var(--dt-spacing-b);
         padding-inline-end: var(--dt-spacing-b);
+
         @media (min-width: $breakpoint-wide) {
+            padding-block: var(--dt-spacing-c);
             padding-inline-end: var(--dt-spacing-c);
         }
     }
@@ -108,17 +115,17 @@
 
     // Ensure correct padding when there is a back button in front of the heading
     &[hasbackbutton] .c-modal-heading {
-        margin-inline-start: var(--dt-spacing-b);
+        padding-inline-start: var(--dt-spacing-b);
         @media (min-width: $breakpoint-wide) {
-            margin-inline-start: var(--dt-spacing-c);
+            padding-inline-start: var(--dt-spacing-c);
         }
     }
 
     // Ensure correct padding when there is a close button behind the heading
     &[isdismissible] .c-modal-heading {
-        margin-inline-end: var(--dt-spacing-d);
+        padding-inline-end: var(--dt-spacing-d);
         @media (min-width: $breakpoint-wide) {
-            margin-inline-end: var(--dt-spacing-e);
+            padding-inline-end: var(--dt-spacing-e);
         }
     }
 
@@ -128,16 +135,6 @@
 
     & .c-modal-closeBtn {
         grid-area: close
-    }
-
-    & .c-modal-closeBtn,
-    & .c-modal-backBtn {
-        margin-block-start: -6px;
-        margin-block-end: -6px;
-        @media (min-width: $breakpoint-wide) {
-            margin-block-start: calc(var(--dt-spacing-b) * -1);
-            margin-block-end: calc(var(--dt-spacing-b) * -1);
-        }
     }
 
     & .c-modal-content {

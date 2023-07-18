@@ -187,6 +187,7 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
                 @click="${() => { this.isOpen = false; }}"
                 variant="ghost-secondary"
                 class="c-modal-closeBtn"
+                size="medium"
                 data-test-id="modal-close-button"><icon-close /></pie-icon-button>
         `;
     }
@@ -203,6 +204,7 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
                 @click="${() => { this._backButtonClicked = true; this.isOpen = false; }}"
                 variant="ghost-secondary"
                 class="c-modal-backBtn"
+                size="medium"
                 data-test-id="modal-back-button">
                 ${this.isRTL ? html`<icon-chevron-right />` : html`<icon-chevron-left />`}
             </pie-icon-button>
