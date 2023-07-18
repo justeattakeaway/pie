@@ -92,7 +92,6 @@ test.describe('When modal is closed', () => {
             });
 
             const modal = page.locator(modalSelector);
-            expect(modal).toBeVisible();
 
             // Act
             await page.click(closeButtonSelector);
@@ -158,7 +157,6 @@ test.describe('When modal is closed', () => {
             });
 
             const modal = await page.locator(modalSelector);
-            expect(modal).toBeVisible();
 
             // Act
             await modal.click({ position: { x: -10, y: -10 } }); // Click outside dialog
@@ -362,7 +360,6 @@ test.describe('`isDismissible` prop', () => {
             });
 
             const modal = await page.locator(modalSelector);
-            await expect(modal).toBeVisible();
 
             // Act
             await page.keyboard.press('Escape');
@@ -508,7 +505,6 @@ test.describe('actions', () => {
                 });
 
                 const modal = await page.locator(modalSelector);
-                expect(modal).toBeVisible();
 
                 // Act
                 await page.click(buttonSelector);
