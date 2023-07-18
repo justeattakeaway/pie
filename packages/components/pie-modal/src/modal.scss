@@ -68,17 +68,17 @@
         padding-inline: var(--dt-spacing-d);
         padding-block: 14px; // This is deliberately not a custom property
 
-        @media (min-width: $breakpoint-wide) {
-            padding-inline: var(--dt-spacing-e);
-            padding-block: 20px; // This is deliberately not a custom property
-        }
-
         display: grid;
         grid-template-areas:
             "back heading close"
             ". heading .";
         grid-template-columns: minmax(0px, max-content) minmax(0px, 1fr) minmax(0px, max-content);
         align-items: center;
+
+        @media (min-width: $breakpoint-wide) {
+            padding-inline: var(--dt-spacing-e);
+            padding-block: 20px; // This is deliberately not a custom property
+        }
     }
 
     &[hasbackbutton] .c-modal-header {
@@ -116,6 +116,7 @@
     // Ensure correct padding when there is a back button in front of the heading
     &[hasbackbutton] .c-modal-heading {
         padding-inline-start: var(--dt-spacing-b);
+
         @media (min-width: $breakpoint-wide) {
             padding-inline-start: var(--dt-spacing-c);
         }
@@ -124,6 +125,7 @@
     // Ensure correct padding when there is a close button behind the heading
     &[isdismissible] .c-modal-heading {
         padding-inline-end: var(--dt-spacing-d);
+
         @media (min-width: $breakpoint-wide) {
             padding-inline-end: var(--dt-spacing-e);
         }
