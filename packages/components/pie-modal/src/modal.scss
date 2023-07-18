@@ -66,11 +66,11 @@
 
     & .c-modal-header {
         padding-inline: var(--dt-spacing-d);
-        padding-block: 14px;
+        padding-block: 14px; // This is deliberately not a custom property
 
         @media (min-width: $breakpoint-wide) {
             padding-inline: var(--dt-spacing-e);
-            padding-block: 20px;
+            padding-block: 20px; // This is deliberately not a custom property
         }
 
         display: grid;
