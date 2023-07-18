@@ -10,7 +10,7 @@ import { PieModal } from '@/index';
 import { headingLevels } from '@/defs';
 
 const closeButtonSelector = '[data-test-id="modal-close-button"]';
-const modalSelector = '[data-test-id="pie-modal"]';
+const componentSelector = '[data-test-id="pie-modal"]';
 
 // Mount any components that are used inside of pie-modal so that
 // they have been registered with the browser before the tests run.
@@ -385,7 +385,7 @@ test.describe('isOpen prop', () => {
         });
 
         // Assert
-        await expect(page.locator(modalSelector)).not.toBeVisible();
+        await expect(page.locator(componentSelector)).not.toBeVisible();
     });
 
     test('should render open when isOpen = true', async ({ mount, page }) => {
@@ -397,35 +397,68 @@ test.describe('isOpen prop', () => {
         });
 
         // Assert
-        await expect(page.locator(modalSelector)).toBeVisible();
+        await expect(page.locator(componentSelector)).toBeVisible();
     });
 });
 
-test('Should not be able to scroll when modal is open', async ({ page, mount }) => {
-    // Arrange
-    const modalComponent = renderTestPieModal();
+test.describe('scrolling logic', () => {
+    test('Should not be able to scroll when isOpen = true', async ({ page, mount }) => {
+        // Arrange
+        const modalComponent = renderTestPieModal();
 
-    await mount(
-        WebComponentTestWrapper,
-        {
-            props: {
-                pageMode: true,
+        await mount(
+            WebComponentTestWrapper,
+            {
+                props: {
+                    pageMode: true,
+                },
+                slots: {
+                    component: modalComponent,
+                    pageMarkup: createScrollablePageHTML(),
+                },
             },
-            slots: {
-                component: modalComponent,
-                pageMarkup: createScrollablePageHTML(),
+        );
+
+        // Act
+        // Scroll 800 pixels down the page
+        await page.mouse.wheel(0, 5000);
+
+        // The mouse.wheel function causes scrolling, but doesn't wait for the scroll to finish before returning.
+        await page.waitForTimeout(3000);
+
+        // Assert
+        await expect.soft(page.getByText('Top of page copy')).toBeInViewport();
+        await expect(page.getByText('Bottom of page copy')).not.toBeInViewport();
+    });
+
+    test('Should scroll to the bottom when Pie Modal is closed', async ({ page, mount }) => {
+        // Arrange
+        const modalComponent = renderTestPieModal();
+
+        await mount(
+            WebComponentTestWrapper,
+            {
+                props: {
+                    pageMode: true,
+                },
+                slots: {
+                    component: modalComponent,
+                    pageMarkup: createScrollablePageHTML(),
+                },
             },
-        },
-    );
+        );
 
-    // Act
-    // Scroll 800 pixels down the page
-    await page.mouse.wheel(0, 1000);
+        // Act
+        await page.locator('[data-test-id="modal-close-button"]').click();
 
-    // The mouse.wheel function causes scrolling, but doesn't wait for the scroll to finish before returning.
-    await page.waitForTimeout(3000);
+        // Scroll 800 pixels down the page
+        await page.mouse.wheel(0, 5000);
 
-    // Assert
-    await expect.soft(page.getByText('Test Page')).toBeInViewport();
-    await expect(page.getByText('Test Item')).not.toBeInViewport();
+        // The mouse.wheel function causes scrolling, but doesn't wait for the scroll to finish before returning.
+        await page.waitForTimeout(3000);
+
+        // Assert
+        await expect.soft(page.getByText('Top of page copy')).not.toBeInViewport();
+        await expect(page.getByText('Bottom of page copy')).toBeInViewport();
+    });
 });

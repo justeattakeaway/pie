@@ -22,9 +22,10 @@ export const renderTestPieModal = ({
 // Creates some test page markup to test scroll locking
 export const createScrollablePageHTML = () => `<div>
         <h1>Test Page</h1>
+        <p>Top of page copy</p>
         <p> Test copy </p>
         <ol>
             ${'<li>List item</li>'.repeat(200)}
-            <li>Test Item</li>
+            <li>Bottom of page copy</li>
         </ol>
     </div>`;
