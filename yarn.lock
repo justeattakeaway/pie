@@ -5338,6 +5338,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-modal@workspace:packages/components/pie-modal"
   dependencies:
+    "@justeattakeaway/pie-button": "workspace:*"
     "@justeattakeaway/pie-components-config": "workspace:*"
     "@justeattakeaway/pie-icon-button": "workspace:*"
     "@justeattakeaway/pie-icons-webc": "workspace:*"
