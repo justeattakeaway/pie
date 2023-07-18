@@ -174,6 +174,40 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
         }
     }
 
+    /**
+     * Template for the close button element. Called within the
+     * main render function.
+     *
+     * @private
+     */
+    private renderCloseButton (): TemplateResult {
+        return html`
+            <pie-icon-button
+                @click="${() => { this.isOpen = false; }}"
+                variant="ghost-secondary"
+                class="c-modal-closeBtn"
+                data-test-id="modal-close-button"><icon-close /></pie-icon-button>
+        `;
+    }
+
+    /**
+     * Template for the back button element. Called within the
+     * main render function.
+     *
+     * @private
+     */
+    private renderBackButton () : TemplateResult {
+        return html`
+            <pie-icon-button
+                @click="${() => { this._backButtonClicked = true; this.isOpen = false; }}"
+                variant="ghost-secondary"
+                class="c-modal-backBtn"
+                data-test-id="modal-back-button">
+                ${this.isRTL ? html`<icon-chevron-right />` : html`<icon-chevron-left />`}
+            </pie-icon-button>
+        `;
+    }
+
     public render () {
         const {
             hasBackButton,
@@ -223,40 +257,6 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
                 </pie-button>
             </footer>
         </dialog>`;
-    }
-
-    /**
-     * Template for the close button element. Called within the
-     * main render function.
-     *
-     * @private
-     */
-    private renderCloseButton (): TemplateResult {
-        return html`
-            <pie-icon-button
-                @click="${() => { this.isOpen = false; }}"
-                variant="ghost-secondary"
-                class="c-modal-closeBtn"
-                data-test-id="modal-close-button"><icon-close /></pie-icon-button>
-        `;
-    }
-
-    /**
-     * Template for the back button element. Called within the
-     * main render function.
-     *
-     * @private
-     */
-    private renderBackButton () : TemplateResult {
-        return html`
-            <pie-icon-button
-                @click="${() => { this._backButtonClicked = true; this.isOpen = false; }}"
-                variant="ghost-secondary"
-                class="c-modal-backBtn"
-                data-test-id="modal-back-button">
-                ${this.isRTL ? html`<icon-chevron-right />` : html`<icon-chevron-left />`}
-            </pie-icon-button>
-        `;
     }
 
     /**
