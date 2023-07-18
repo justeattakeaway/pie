@@ -288,7 +288,7 @@
                             "kind": "field",
                             "name": "_handleDialogCancelEvent",
                             "privacy": "private",
-                            "description": "Prevents the user from dismissing the dialog via the `cancel`\r\nevent (ESC key) when `isDismissible` is set to false.",
+                            "description": "Prevents the user from dismissing the dialog via the `cancel`\nevent (ESC key) when `isDismissible` is set to false.",
                             "parameters": [
                                 {
                                     "description": "The event object.",
@@ -344,7 +344,7 @@
                                     "text": "void"
                                 }
                             },
-                            "description": "Return focus to the specified element, providing the selector is valid\r\nand the chosen element can be found."
+                            "description": "Return focus to the specified element, providing the selector is valid\nand the chosen element can be found."
                         },
                         {
                             "kind": "method",
@@ -355,7 +355,7 @@
                                     "text": "TemplateResult"
                                 }
                             },
-                            "description": "Template for the close button element. Called within the\r\nmain render function."
+                            "description": "Template for the close button element. Called within the\nmain render function."
                         },
                         {
                             "kind": "method",
@@ -366,7 +366,7 @@
                                     "text": "TemplateResult"
                                 }
                             },
-                            "description": "Template for the back button element. Called within the\r\nmain render function."
+                            "description": "Template for the back button element. Called within the\nmain render function."
                         },
                         {
                             "kind": "field",
@@ -387,7 +387,7 @@
                             "kind": "field",
                             "name": "_dispatchModalCustomEvent",
                             "privacy": "private",
-                            "description": "Note: We should aim to have a shareable event helper system to allow\r\nus to share this across components in-future.\r\n\r\nDispatch a custom event.\r\n\r\nTo be used whenever we have behavioural events we want to\r\nbubble up through the modal.",
+                            "description": "Note: We should aim to have a shareable event helper system to allow\nus to share this across components in-future.\n\nDispatch a custom event.\n\nTo be used whenever we have behavioural events we want to\nbubble up through the modal.",
                             "parameters": [
                                 {
                                     "name": "eventType",
@@ -417,7 +417,7 @@
                             "type": {
                                 "text": "boolean"
                             },
-                            "description": "Returns true if the element is in Right to Left mode.\r\nIf a dir attribute is not explicitly set on the web component\r\nthen it falls back to the nearest parent with a dir attribute set.\r\n\r\nA dir attribute being set will result in a reactive property.\r\nIf the component falls back to a parent dir attribute then the value\r\nwill not be reactive and is only computed once",
+                            "description": "Returns true if the element is in Right to Left mode.\nIf a dir attribute is not explicitly set on the web component\nthen it falls back to the nearest parent with a dir attribute set.\n\nA dir attribute being set will result in a reactive property.\nIf the component falls back to a parent dir attribute then the value\nwill not be reactive and is only computed once",
                             "readonly": true,
                             "inheritedFrom": {
                                 "name": "RtlMixin",
@@ -1071,7 +1071,7 @@
                             "type": {
                                 "text": "boolean"
                             },
-                            "description": "Returns true if the element is in Right to Left mode.\r\nIf a dir attribute is not explicitly set on the web component\r\nthen it falls back to the nearest parent with a dir attribute set.\r\n\r\nA dir attribute being set will result in a reactive property.\r\nIf the component falls back to a parent dir attribute then the value\r\nwill not be reactive and is only computed once",
+                            "description": "Returns true if the element is in Right to Left mode.\nIf a dir attribute is not explicitly set on the web component\nthen it falls back to the nearest parent with a dir attribute set.\n\nA dir attribute being set will result in a reactive property.\nIf the component falls back to a parent dir attribute then the value\nwill not be reactive and is only computed once",
                             "readonly": true
                         }
                     ],
@@ -1127,7 +1127,7 @@
                             }
                         }
                     ],
-                    "description": "A decorator for marking a property as required.\r\nIf the property's value is `undefined`, `null` or empty string, an error is logged.",
+                    "description": "A decorator for marking a property as required.\nIf the property's value is `undefined`, `null` or empty string, an error is logged.",
                     "return": {
                         "type": {
                             "text": "Function"
@@ -1175,7 +1175,7 @@
                             "description": "The value to fall back on"
                         }
                     ],
-                    "description": "A decorator for specifying a list of valid values for a property.\r\nIf this property's setter is called with an invalid value, an error is logged and the default value will be assigned instead.",
+                    "description": "A decorator for specifying a list of valid values for a property.\nIf this property's setter is called with an invalid value, an error is logged and the default value will be assigned instead.",
                     "return": {
                         "type": {
                             "text": ""

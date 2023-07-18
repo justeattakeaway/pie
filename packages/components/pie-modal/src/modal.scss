@@ -125,9 +125,9 @@
         padding-block: 14px; // This is deliberately not a custom property
         display: grid;
         grid-template-areas:
-            "back heading close"
-            ". heading .";
-        grid-template-columns: minmax(0px, max-content) minmax(0px, 1fr) minmax(0px, max-content);
+            'back heading close'
+            '. heading .';
+        grid-template-columns: minmax(0, max-content) minmax(0, 1fr) minmax(0, max-content);
         align-items: center;
 
         @media (min-width: $breakpoint-wide) {
@@ -191,7 +191,7 @@
     }
 
     & .c-modal-closeBtn {
-        grid-area: close
+        grid-area: close;
     }
 
     & .c-modal-content {
