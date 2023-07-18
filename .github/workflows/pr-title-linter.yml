@@ -11,9 +11,9 @@ jobs:
       - uses: morrisoncole/pr-lint-action@v1.7.0
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
-          title-regex: "[A-Z]+?-\\d+? \\w.*"
+          title-regex: "^[a-z]+?\\([a-z0-9-]+?\\): [A-Z]+?-\\d+? \\w.*|^Version Packages|^\\[Snyk\\].*"
           on-failed-regex-fail-action: true
           on-failed-regex-create-review: true
-          on-failed-regex-request-changes: false
-          on-failed-regex-comment: "[Lint PR Title] Failed. Regex `%regex%`"
-          on-succeeded-regex-dismiss-review-comment: "[Lint PR Title] Success!"
+          on-failed-regex-request-changes: true
+          on-failed-regex-comment: "[Lint PR Title] ❌ Failed.\nThe PR title should follow the same convention used for commits, e.g.:\n`type(scope): DSW-123 title` where `DSW-123` is the Jira ticket id or `DSW-000` when one is not available."
+          on-succeeded-regex-dismiss-review-comment: "[Lint PR Title] ✅ All good!"
