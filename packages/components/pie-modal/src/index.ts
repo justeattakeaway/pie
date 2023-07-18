@@ -145,11 +145,10 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
 
     // Handles changes to the modal isOpen property by dispatching any appropriate events
     private _handleModalOpenStateChanged (changedProperties: DependentMap<ModalProps>) : void {
-        // This is the value of isOpen before the update occurred
-        const previousValue = changedProperties.get('isOpen');
+        const wasPreviouslyOpen = changedProperties.get('isOpen');
 
-        if (previousValue !== undefined) {
-            if (previousValue) {
+        if (wasPreviouslyOpen !== undefined) {
+            if (wasPreviouslyOpen) {
                 if (this._backButtonClicked) {
                     // Reset the flag
                     this._backButtonClicked = false;
