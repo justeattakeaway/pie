@@ -44,7 +44,7 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
     @property({ type: Boolean, reflect: true })
     public isDismissible = false;
 
-    @property({ type: Boolean, reflect: true })
+    @property({ type: Boolean })
     public hasBackButton = false;
 
     @property({ type: Boolean })
