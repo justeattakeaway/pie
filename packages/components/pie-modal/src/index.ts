@@ -165,7 +165,6 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
     /**
      * Return focus to the specified element, providing the selector is valid
      * and the chosen element can be found.
-     * Fails silently.
      */
     private _returnFocus () : void {
         const selector = this.returnFocusAfterCloseSelector?.trim();
@@ -211,36 +210,54 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
         `;
     }
 
-    render () {
+    public render () {
         const {
+            hasBackButton,
             heading,
             headingLevel = 'h2',
-            size,
-            isFullWidthBelowMid,
             isDismissible,
-            hasBackButton,
+            isFullWidthBelowMid,
+            size,
         } = this;
 
         const headingTag = unsafeStatic(headingLevel);
 
         return html`
-            <dialog
-                id="dialog"
-                class="c-modal"
-                size="${size}"
-                ?isFullWidthBelowMid=${isFullWidthBelowMid}
-                ?isDismissible=${isDismissible}
-                ?hasBackButton=${hasBackButton}>
-                <header class="c-modal-header">
-                    ${hasBackButton ? this.renderBackButton() : nothing}
-                    <${headingTag} class="c-modal-heading">${heading}</${headingTag}>
-                    ${isDismissible ? this.renderCloseButton() : nothing}
-                </header>
-                <article class="c-modal-content">
-                    <slot></slot>
-                </article>
-            </dialog>
-        `;
+        <dialog
+            id="dialog"
+            class="c-modal"
+            size="${size}"
+            ?hasBackButton=${hasBackButton}
+            ?isDismissible=${isDismissible}
+            ?isFullWidthBelowMid=${isFullWidthBelowMid}
+            data-test-id="pie-modal">
+            <header class="c-modal-header">
+                ${hasBackButton ? this.renderBackButton() : nothing}
+                <${headingTag} class="c-modal-heading">
+                    ${heading}
+                </${headingTag}>
+                ${isDismissible ? this.renderCloseButton() : nothing}
+            </header>
+            <article class="c-modal-content c-modal-content--scrollable">
+                <slot></slot>
+            </article>
+            <footer class="c-modal-footer">
+                <pie-button
+                    variant="primary"
+                    type="submit"
+                    @click="${() => this._dialog?.close('leading')}"
+                    data-test-id="modal-leading-action">
+                    Confirm
+                </pie-button>
+                <pie-button
+                    variant="ghost"
+                    type="reset"
+                    @click="${() => this._dialog?.close('supporting')}"
+                    data-test-id="modal-supporting-action">
+                    Cancel
+                </pie-button>
+            </footer>
+        </dialog>`;
     }
 
     /**
