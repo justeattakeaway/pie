@@ -27,7 +27,7 @@ test.beforeEach(async ({ mount }) => {
     await (await mount(PieIconButton)).unmount();
 });
 
-describe('modal', () => {
+test.describe('modal', () => {
     test('should be visible when opened', async ({ mount, page }) => {
         // Arrange
         await mount(PieModal, {

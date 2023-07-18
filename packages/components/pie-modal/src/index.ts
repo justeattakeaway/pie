@@ -216,7 +216,6 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
             isDismissible,
             isFullWidthBelowMid,
             size,
-            _dialog,
         } = this;
 
         const headingTag = unsafeStatic(headingLevel);
@@ -244,14 +243,14 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
                 <pie-button
                     variant="primary"
                     type="submit"
-                    @click="${() => _dialog?.close('leading')}"
+                    @click="${() => this._dialog?.close('leading')}"
                     data-test-id="modal-leading-action">
                     Confirm
                 </pie-button>
                 <pie-button
                     variant="ghost"
                     type="reset"
-                    @click="${() => _dialog?.close('supporting')}"
+                    @click="${() => this._dialog?.close('supporting')}"
                     data-test-id="modal-supporting-action">
                     Cancel
                 </pie-button>
