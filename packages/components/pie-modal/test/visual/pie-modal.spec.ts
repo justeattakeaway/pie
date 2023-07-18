@@ -187,3 +187,17 @@ test.describe('`hasBackButton`', () => {
         });
     });
 });
+
+test('Should display loading spinner when `isLoading` is true', async ({ mount, page }) => {
+    await mount(PieModal, {
+        props: {
+            heading: 'This is a modal heading',
+            hasBackButton: true,
+            isDismissible: true,
+            isOpen: true,
+            isLoading: true,
+        },
+    });
+
+    await percySnapshot(page, `Modal displays loading spinner - isLoading: ${true}`);
+});

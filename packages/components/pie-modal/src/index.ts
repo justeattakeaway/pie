@@ -53,6 +53,9 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
     @property({ type: Boolean })
     public isOpen = false;
 
+    @property({ type: Boolean, reflect: true })
+    public isLoading = false;
+
     @property()
     public returnFocusAfterCloseSelector?: string;
 
@@ -215,6 +218,7 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
             headingLevel = 'h2',
             isDismissible,
             isFullWidthBelowMid,
+            isLoading,
             size,
         } = this;
 
@@ -228,6 +232,7 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
             ?hasBackButton=${hasBackButton}
             ?isDismissible=${isDismissible}
             ?isFullWidthBelowMid=${isFullWidthBelowMid}
+            ?isLoading=${isLoading}
             data-test-id="pie-modal">
             <header class="c-modal-header">
                 ${hasBackButton ? this.renderBackButton() : nothing}
@@ -237,7 +242,9 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
                 ${isDismissible ? this.renderCloseButton() : nothing}
             </header>
             <article class="c-modal-content c-modal-content--scrollable">
-                <slot></slot>
+                <div class="c-modal-contentInner">
+                    <slot></slot>
+                </div>
             </article>
             <footer class="c-modal-footer">
                 <pie-button
