@@ -204,8 +204,7 @@
                             },
                             "privacy": "public",
                             "default": "false",
-                            "attribute": "hasBackButton",
-                            "reflects": true
+                            "attribute": "hasBackButton"
                         },
                         {
                             "kind": "field",
