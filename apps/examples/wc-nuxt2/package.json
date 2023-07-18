@@ -6,7 +6,7 @@
     "dev": "nuxt",
     "build:examples": "nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate"
+    "generate:examples": "nuxt generate"
   },
   "dependencies": {
     "@justeattakeaway/pie-button": "workspace:*",

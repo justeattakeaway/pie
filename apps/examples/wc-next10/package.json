@@ -7,7 +7,7 @@
     "build:examples": "yarn build-static",
     "build-static": "next build && next export -o build",
     "start": "next start",
-    "lint:examples": "next lint"
+    "lint:examples": "eslint ."
   },
   "dependencies": {
     "@babel/plugin-transform-runtime": "7.21.4",

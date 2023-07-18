@@ -28,6 +28,7 @@
     "clean": "turbo run clean --filter=!pie-monorepo",
     "cz": "./node_modules/cz-customizable/standalone.js",
     "dev": "turbo run dev --filter=!pie-monorepo",
+    "generate:examples": "cross-env-shell turbo run generate:examples --token=${TURBO_TOKEN}",
     "lint:config": "eslint --fix turbo.json",
     "lint:scripts": "cross-env-shell turbo run lint:scripts --filter=!pie-monorepo --token=${TURBO_TOKEN}",
     "lint:scripts:fix": "turbo run lint:scripts:fix --filter=!pie-monorepo",
