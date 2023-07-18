@@ -1,9 +1,18 @@
-import type { Meta, StoryObj as Story } from '@storybook/web-components';
+import type { StoryObj as Story } from '@storybook/web-components';
 import { IconButtonProps, sizes, variants } from '@justeattakeaway/pie-icon-button';
 import { html, TemplateResult } from 'lit';
+import { StoryMeta } from '../types';
 import '@justeattakeaway/pie-icons-webc/icons/IconClose';
 
-export default {
+type IconButtonStoryMeta = StoryMeta<IconButtonProps>;
+
+const defaultArgs: IconButtonProps = {
+    size: 'medium',
+    variant: 'primary',
+    disabled: false,
+};
+
+const iconButtonStoryMeta: IconButtonStoryMeta = {
     title: 'Icon Button',
     component: 'pie-icon-button',
     argTypes: {
@@ -19,17 +28,16 @@ export default {
             control: 'boolean',
         },
     },
-    args: {
-        size: 'medium',
-        variant: 'primary',
-    },
+    args: defaultArgs,
     parameters: {
         design: {
             type: 'figma',
             url: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=32007-361476&t=gIg91Y13QC8Ndhly-4',
         },
     },
-} as Meta;
+};
+
+export default iconButtonStoryMeta;
 
 const Template = ({
     size,
@@ -40,15 +48,9 @@ const Template = ({
             size="${size}"
             variant="${variant}"
             ?disabled="${disabled}">
-            <icon-close  />
+            <icon-close></icon-close>
         </pie-icon-button>
         `;
-
-const defaultArgs: IconButtonProps = {
-    size: 'medium',
-    variant: 'primary',
-    disabled: false,
-};
 
 export const Primary: Story<IconButtonProps> = (args: IconButtonProps) => Template(args);
 Primary.args = {

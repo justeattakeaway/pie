@@ -13,8 +13,10 @@ import {
     sizes,
 } from '@justeattakeaway/pie-modal/src/defs';
 import { i18nArgTypes } from '../args/commonArgsTypes';
+import { StoryMeta, SlottedComponentProps } from '../types';
 
-type ModalProps = ModalPropsBase & { slot: string }
+type ModalProps = SlottedComponentProps<ModalPropsBase>;
+type ModalStoryMeta = StoryMeta<ModalProps>;
 
 const defaultArgs: ModalProps = {
     heading: 'Modal header',
@@ -27,15 +29,6 @@ const defaultArgs: ModalProps = {
     slot: 'This is Lit!',
     dir: 'ltr',
 };
-
-type ModalStoryArgTypes = {
-    [K in keyof ModalProps]: object;
-}
-
-type ModalStoryMeta = Meta & {
-    argTypes: ModalStoryArgTypes,
-    args: ModalProps
-}
 
 const modalStoryMeta: ModalStoryMeta = {
     title: 'Modal',

@@ -1,10 +1,24 @@
-import type { Meta, StoryObj as Story } from '@storybook/web-components';
+import type { StoryObj as Story } from '@storybook/web-components';
 import {
     ButtonProps as ButtonPropsBase, sizes, types, variants,
 } from '@justeattakeaway/pie-button';
 import { html, TemplateResult } from 'lit';
+import { StoryMeta, SlottedComponentProps } from '../types';
 
-export default {
+type ButtonProps = SlottedComponentProps<ButtonPropsBase>;
+type ButtonStoryMeta = StoryMeta<ButtonProps>;
+
+const defaultArgs: ButtonProps = {
+    size: 'medium',
+    type: 'submit',
+    variant: 'primary',
+    disabled: false,
+    isFullWidth: false,
+    isLoading: false,
+    slot: 'This is Lit!',
+};
+
+const buttonStoryMeta: ButtonStoryMeta = {
     title: 'Button',
     component: 'pie-button',
     argTypes: {
@@ -33,23 +47,16 @@ export default {
             control: 'text',
         },
     },
-    args: {
-        size: 'medium',
-        type: 'submit',
-        variant: 'primary',
-        disabled: false,
-        isFullWidth: false,
-        isLoading: false,
-    },
+    args: defaultArgs,
     parameters: {
         design: {
             type: 'figma',
             url: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=34706-406376&t=8JLrEVbwx7AEJbEL-0',
         },
     },
-} as Meta;
+};
 
-type ButtonProps = ButtonPropsBase & { slot: string }
+export default buttonStoryMeta;
 
 const Template = ({
     size, variant, type, disabled, isFullWidth, isLoading, slot,
@@ -64,16 +71,6 @@ const Template = ({
             ${slot}
         </pie-button>
         `;
-
-const defaultArgs: ButtonProps = {
-    size: 'medium',
-    type: 'submit',
-    variant: 'primary',
-    disabled: false,
-    isFullWidth: false,
-    isLoading: false,
-    slot: 'This is Lit!',
-};
 
 export const Primary: Story<ButtonProps> = (args: ButtonProps) => Template(args);
 Primary.args = {
