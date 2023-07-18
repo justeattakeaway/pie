@@ -27,6 +27,24 @@ test.beforeEach(async ({ mount }) => {
     await (await mount(PieIconButton)).unmount();
 });
 
+describe('modal', () => {
+    test('should be visible when opened', async ({ mount, page }) => {
+        // Arrange
+        await mount(PieModal, {
+            props: {
+                heading: 'Modal heading',
+                isOpen: true,
+            },
+        });
+
+        // Act
+        const modal = page.locator(modalSelector);
+
+        // Assert
+        expect(modal).toBeVisible();
+    });
+});
+
 headingLevels.forEach((headingLevel) => test(`should render the correct heading tag based on the value of headingLevel: ${headingLevel}`, async ({ mount }) => {
     // Arrange
     const props = {
