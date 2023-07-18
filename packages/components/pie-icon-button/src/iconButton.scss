@@ -35,6 +35,7 @@
     border-radius: var(--btn-border-radius);
     outline: none;
     background-color: var(--btn-bg-color);
+    color: var(--btn-icon-fill);
     cursor: pointer;
     user-select: none;
 
@@ -50,11 +51,6 @@
     svg {
         height: var(--btn-icon-size);
         width: var(--btn-icon-size);
-    }
-
-    svg,
-    path {
-        fill: var(--btn-icon-fill);
     }
 
     &[variant='primary'] {
@@ -94,8 +90,8 @@
     }
 
     &[disabled] {
-        --btn-bg-color: var(--dt-color-disabled-01);
-        --btn-icon-fill: var(--dt-color-content-disabled);
+        --btn-bg-color: var(--dt-color-disabled-01) !important;
+        --btn-icon-fill: var(--dt-color-content-disabled) !important;
 
         & .o-iconBtn {
             border: 1px solid var(--dt-color-disabled-01);

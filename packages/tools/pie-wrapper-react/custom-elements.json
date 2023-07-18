@@ -155,7 +155,8 @@
                             "type": {
                                 "text": "string"
                             },
-                            "privacy": "public"
+                            "privacy": "public",
+                            "attribute": "heading"
                         },
                         {
                             "kind": "field",
@@ -164,7 +165,8 @@
                                 "text": "ModalProps['headingLevel']"
                             },
                             "privacy": "public",
-                            "default": "'h2'"
+                            "default": "'h2'",
+                            "attribute": "headingLevel"
                         },
                         {
                             "kind": "field",
@@ -173,7 +175,9 @@
                                 "text": "boolean"
                             },
                             "privacy": "public",
-                            "default": "false"
+                            "default": "false",
+                            "attribute": "isDismissible",
+                            "reflects": true
                         },
                         {
                             "kind": "field",
@@ -182,7 +186,8 @@
                                 "text": "boolean"
                             },
                             "privacy": "public",
-                            "default": "false"
+                            "default": "false",
+                            "attribute": "isFullWidthBelowMid"
                         },
                         {
                             "kind": "field",
@@ -191,7 +196,8 @@
                                 "text": "boolean"
                             },
                             "privacy": "public",
-                            "default": "false"
+                            "default": "false",
+                            "attribute": "isOpen"
                         },
                         {
                             "kind": "field",
@@ -199,7 +205,8 @@
                             "type": {
                                 "text": "string | undefined"
                             },
-                            "privacy": "public"
+                            "privacy": "public",
+                            "attribute": "returnFocusAfterCloseSelector"
                         },
                         {
                             "kind": "field",
@@ -208,7 +215,8 @@
                                 "text": "ModalProps['size']"
                             },
                             "privacy": "public",
-                            "default": "'medium'"
+                            "default": "'medium'",
+                            "attribute": "size"
                         },
                         {
                             "kind": "field",
@@ -216,40 +224,6 @@
                             "type": {
                                 "text": "HTMLDialogElement | undefined"
                             }
-                        },
-                        {
-                            "kind": "method",
-                            "name": "firstUpdated",
-                            "return": {
-                                "type": {
-                                    "text": "void"
-                                }
-                            },
-                            "parameters": [
-                                {
-                                    "name": "changedProperties",
-                                    "type": {
-                                        "text": "DependentMap<ModalProps>"
-                                    }
-                                }
-                            ]
-                        },
-                        {
-                            "kind": "method",
-                            "name": "updated",
-                            "return": {
-                                "type": {
-                                    "text": "void"
-                                }
-                            },
-                            "parameters": [
-                                {
-                                    "name": "changedProperties",
-                                    "type": {
-                                        "text": "DependentMap<ModalProps>"
-                                    }
-                                }
-                            ]
                         },
                         {
                             "kind": "method",
@@ -336,10 +310,6 @@
                             "description": "Return focus to the specified element, providing the selector is valid\nand the chosen element can be found.\nFails silently."
                         },
                         {
-                            "kind": "method",
-                            "name": "render"
-                        },
-                        {
                             "kind": "field",
                             "name": "_handleDialogLightDismiss",
                             "privacy": "private",
@@ -369,15 +339,15 @@
                             ]
                         },
                         {
-                            "kind": "field",
+                            "kind": "method",
                             "name": "renderCloseButton",
                             "privacy": "private",
+                            "return": {
+                                "type": {
+                                    "text": "TemplateResult"
+                                }
+                            },
                             "description": "Template for the close button element. Called within the\nmain render function."
-                        },
-                        {
-                            "kind": "field",
-                            "name": "styles",
-                            "static": true
                         },
                         {
                             "kind": "field",
@@ -386,6 +356,7 @@
                                 "text": "string"
                             },
                             "default": "''",
+                            "attribute": "dir",
                             "inheritedFrom": {
                                 "name": "RtlMixin",
                                 "module": "../../components/pie-webc-core/src/mixins/rtl/rtlMixin.js"
@@ -402,6 +373,90 @@
                             "inheritedFrom": {
                                 "name": "RtlMixin",
                                 "module": "../../components/pie-webc-core/src/mixins/rtl/rtlMixin.js"
+                            }
+                        }
+                    ],
+                    "events": [
+                        {
+                            "type": {
+                                "text": "CustomEvent"
+                            },
+                            "description": "when the modal is opened.",
+                            "name": "pie-modal-open"
+                        },
+                        {
+                            "type": {
+                                "text": "CustomEvent"
+                            },
+                            "description": "when the modal is closed.",
+                            "name": "pie-modal-close"
+                        }
+                    ],
+                    "attributes": [
+                        {
+                            "name": "heading",
+                            "type": {
+                                "text": "string"
+                            },
+                            "fieldName": "heading"
+                        },
+                        {
+                            "name": "headingLevel",
+                            "type": {
+                                "text": "ModalProps['headingLevel']"
+                            },
+                            "default": "'h2'",
+                            "fieldName": "headingLevel"
+                        },
+                        {
+                            "name": "isDismissible",
+                            "type": {
+                                "text": "boolean"
+                            },
+                            "default": "false",
+                            "fieldName": "isDismissible"
+                        },
+                        {
+                            "name": "isFullWidthBelowMid",
+                            "type": {
+                                "text": "boolean"
+                            },
+                            "default": "false",
+                            "fieldName": "isFullWidthBelowMid"
+                        },
+                        {
+                            "name": "isOpen",
+                            "type": {
+                                "text": "boolean"
+                            },
+                            "default": "false",
+                            "fieldName": "isOpen"
+                        },
+                        {
+                            "name": "returnFocusAfterCloseSelector",
+                            "type": {
+                                "text": "string | undefined"
+                            },
+                            "fieldName": "returnFocusAfterCloseSelector"
+                        },
+                        {
+                            "name": "size",
+                            "type": {
+                                "text": "ModalProps['size']"
+                            },
+                            "default": "'medium'",
+                            "fieldName": "size"
+                        },
+                        {
+                            "name": "dir",
+                            "type": {
+                                "text": "string"
+                            },
+                            "default": "''",
+                            "fieldName": "dir",
+                            "inheritedFrom": {
+                                "name": "RtlMixin",
+                                "module": "../../components/pie-webc-core/src/mixins/rtl/rtlMixin.ts"
                             }
                         }
                     ],
@@ -494,7 +549,8 @@
                                 "text": "ButtonProps['size']"
                             },
                             "privacy": "public",
-                            "default": "'medium'"
+                            "default": "'medium'",
+                            "attribute": "size"
                         },
                         {
                             "kind": "field",
@@ -503,7 +559,8 @@
                                 "text": "ButtonProps['type']"
                             },
                             "privacy": "public",
-                            "default": "'submit'"
+                            "default": "'submit'",
+                            "attribute": "type"
                         },
                         {
                             "kind": "field",
@@ -512,7 +569,8 @@
                                 "text": "ButtonProps['variant']"
                             },
                             "privacy": "public",
-                            "default": "'primary'"
+                            "default": "'primary'",
+                            "attribute": "variant"
                         },
                         {
                             "kind": "field",
@@ -521,7 +579,8 @@
                                 "text": "boolean"
                             },
                             "privacy": "public",
-                            "default": "false"
+                            "default": "false",
+                            "attribute": "disabled"
                         },
                         {
                             "kind": "field",
@@ -530,7 +589,9 @@
                                 "text": "boolean"
                             },
                             "privacy": "public",
-                            "default": "false"
+                            "default": "false",
+                            "attribute": "isLoading",
+                            "reflects": true
                         },
                         {
                             "kind": "field",
@@ -539,20 +600,62 @@
                                 "text": "boolean"
                             },
                             "privacy": "public",
-                            "default": "false"
-                        },
-                        {
-                            "kind": "method",
-                            "name": "render"
+                            "default": "false",
+                            "attribute": "isFullWidth"
                         },
                         {
                             "kind": "method",
                             "name": "focus"
+                        }
+                    ],
+                    "attributes": [
+                        {
+                            "name": "size",
+                            "type": {
+                                "text": "ButtonProps['size']"
+                            },
+                            "default": "'medium'",
+                            "fieldName": "size"
                         },
                         {
-                            "kind": "field",
-                            "name": "styles",
-                            "static": true
+                            "name": "type",
+                            "type": {
+                                "text": "ButtonProps['type']"
+                            },
+                            "default": "'submit'",
+                            "fieldName": "type"
+                        },
+                        {
+                            "name": "variant",
+                            "type": {
+                                "text": "ButtonProps['variant']"
+                            },
+                            "default": "'primary'",
+                            "fieldName": "variant"
+                        },
+                        {
+                            "name": "disabled",
+                            "type": {
+                                "text": "boolean"
+                            },
+                            "default": "false",
+                            "fieldName": "disabled"
+                        },
+                        {
+                            "name": "isLoading",
+                            "type": {
+                                "text": "boolean"
+                            },
+                            "default": "false",
+                            "fieldName": "isLoading"
+                        },
+                        {
+                            "name": "isFullWidth",
+                            "type": {
+                                "text": "boolean"
+                            },
+                            "default": "false",
+                            "fieldName": "isFullWidth"
                         }
                     ],
                     "superclass": {
@@ -601,14 +704,6 @@
                     "name": "variants",
                     "declaration": {
                         "name": "variants",
-                        "module": "../../components/pie-button/src/index.js"
-                    }
-                },
-                {
-                    "kind": "js",
-                    "name": "IconLoading",
-                    "declaration": {
-                        "name": "IconLoading",
                         "module": "../../components/pie-button/src/index.js"
                     }
                 },
@@ -725,7 +820,8 @@
                                 "text": "IconButtonProps['size']"
                             },
                             "privacy": "public",
-                            "default": "'medium'"
+                            "default": "'medium'",
+                            "attribute": "size"
                         },
                         {
                             "kind": "field",
@@ -734,7 +830,8 @@
                                 "text": "IconButtonProps['variant']"
                             },
                             "privacy": "public",
-                            "default": "'primary'"
+                            "default": "'primary'",
+                            "attribute": "variant"
                         },
                         {
                             "kind": "field",
@@ -743,16 +840,34 @@
                                 "text": "boolean"
                             },
                             "privacy": "public",
-                            "default": "false"
+                            "default": "false",
+                            "attribute": "disabled"
+                        }
+                    ],
+                    "attributes": [
+                        {
+                            "name": "size",
+                            "type": {
+                                "text": "IconButtonProps['size']"
+                            },
+                            "default": "'medium'",
+                            "fieldName": "size"
                         },
                         {
-                            "kind": "method",
-                            "name": "render"
+                            "name": "variant",
+                            "type": {
+                                "text": "IconButtonProps['variant']"
+                            },
+                            "default": "'primary'",
+                            "fieldName": "variant"
                         },
                         {
-                            "kind": "field",
-                            "name": "styles",
-                            "static": true
+                            "name": "disabled",
+                            "type": {
+                                "text": "boolean"
+                            },
+                            "default": "false",
+                            "fieldName": "disabled"
                         }
                     ],
                     "superclass": {
@@ -793,14 +908,6 @@
                     "name": "variants",
                     "declaration": {
                         "name": "variants",
-                        "module": "../../components/pie-icon-button/src/index.js"
-                    }
-                },
-                {
-                    "kind": "js",
-                    "name": "IconCloseLarge",
-                    "declaration": {
-                        "name": "IconCloseLarge",
                         "module": "../../components/pie-icon-button/src/index.js"
                     }
                 },
@@ -890,7 +997,8 @@
                             "type": {
                                 "text": "string"
                             },
-                            "default": "''"
+                            "default": "''",
+                            "attribute": "dir"
                         },
                         {
                             "kind": "field",
@@ -900,6 +1008,16 @@
                             },
                             "description": "Returns true if the element is in Right to Left mode.\nIf a dir attribute is not explicitly set on the web component\nthen it falls back to the nearest parent with a dir attribute set.\n\nA dir attribute being set will result in a reactive property.\nIf the component falls back to a parent dir attribute then the value\nwill not be reactive and is only computed once",
                             "readonly": true
+                        }
+                    ],
+                    "attributes": [
+                        {
+                            "name": "dir",
+                            "type": {
+                                "text": "string"
+                            },
+                            "default": "''",
+                            "fieldName": "dir"
                         }
                     ],
                     "parameters": [
