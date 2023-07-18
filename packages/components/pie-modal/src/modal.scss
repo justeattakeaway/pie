@@ -65,25 +65,35 @@
     }
 
     & .c-modal-header {
-        --modal-header-padding: var(--dt-spacing-e);
+        --modal-header-padding: var(--dt-spacing-c);
+        padding-inline: var(--dt-spacing-d);
+        padding-block: 14px;
+        @media (min-width: $breakpoint-wide) {
+            padding-inline: 24px;
+            padding-block: 20px;
+        }
 
-        padding-inline: var(--modal-header-padding);
-        padding-block: var(--modal-header-padding);
+        display: grid;
+        grid-template-areas:
+            "back heading close"
+            ". heading .";
+        grid-template-columns: minmax(0px, max-content) minmax(0px, 1fr) minmax(0px, max-content);
         align-items: center;
-        display: flex;
     }
 
     &[hasbackbutton] .c-modal-header {
-        padding-block: var(--dt-spacing-c);
-        padding-inline-start: var(--dt-spacing-c);
+        padding-inline-start: var(--dt-spacing-b);
+        @media (min-width: $breakpoint-wide) {
+            padding-inline-start: var(--dt-spacing-c);
+        }
     }
 
     &[isdismissible] .c-modal-header {
-        justify-content: space-between;
-        padding-block: var(--dt-spacing-c);
-        padding-inline-end: var(--dt-spacing-c);
+        padding-inline-end: var(--dt-spacing-b);
+        @media (min-width: $breakpoint-wide) {
+            padding-inline-end: var(--dt-spacing-c);
+        }
     }
-
 
     & .c-modal-heading {
         --modal-header-font-size: calc(var(--dt-font-heading-m-size--wide) * 1px);
@@ -94,16 +104,41 @@
         line-height: var(--modal-header-font-line-height);
         font-weight: var(--modal-header-font-weight);
         margin: 0;
+        grid-area: heading;
     }
 
     // Ensure correct padding when there is a back button in front of the heading
     &[hasbackbutton] .c-modal-heading {
-        margin-inline-start: var(--dt-spacing-c);
+        margin-inline-start: var(--dt-spacing-b);
+        @media (min-width: $breakpoint-wide) {
+            margin-inline-start: var(--dt-spacing-c);
+        }
     }
 
     // Ensure correct padding when there is a close button behind the heading
     &[isdismissible] .c-modal-heading {
-        margin-inline-end: var(--dt-spacing-e);
+        margin-inline-end: var(--dt-spacing-d);
+        @media (min-width: $breakpoint-wide) {
+            margin-inline-end: var(--dt-spacing-e);
+        }
+    }
+
+    & .c-modal-backBtn {
+        grid-area: back;
+    }
+
+    & .c-modal-closeBtn {
+        grid-area: close
+    }
+
+    & .c-modal-closeBtn,
+    & .c-modal-backBtn {
+        margin-block-start: -6px;
+        margin-block-end: -6px;
+        @media (min-width: $breakpoint-wide) {
+            margin-block-start: calc(var(--dt-spacing-b) * -1);
+            margin-block-end: calc(var(--dt-spacing-b) * -1);
+        }
     }
 
     & .c-modal-content {
@@ -123,9 +158,5 @@
 
         overflow-y: scroll;
         max-block-size: 300px; // This is just a placeholder before we add the proper container styles to slotted content to demonstrate scrollable slot content
-    }
-
-    & .c-modal-closeBtn {
-        margin-inline-start: auto;
     }
 }
