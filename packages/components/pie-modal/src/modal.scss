@@ -198,7 +198,7 @@
         --spinner-animation-iteration-count: infinite;
 
         position: relative;
-        min-block-size: 60px;
+        min-block-size: var(--dt-spacing-j);
 
         font-size: var(--modal-content-font-size);
         line-height: var(--modal-content-line-height);

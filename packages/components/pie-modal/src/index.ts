@@ -20,6 +20,7 @@ import {
     ON_MODAL_OPEN_EVENT,
     ON_MODAL_BACK_EVENT,
     sizes,
+    positions,
 } from './defs';
 
 // Valid values available to consumers
@@ -62,6 +63,10 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
     @property()
     @validPropertyValues(componentSelector, sizes, 'medium')
     public size: ModalProps['size'] = 'medium';
+
+    @property()
+    @validPropertyValues(componentSelector, positions, 'center')
+    public position: ModalProps['position'] = 'center';
 
     @query('dialog')
     private _dialog?: HTMLDialogElement;
@@ -220,6 +225,7 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
             isFullWidthBelowMid,
             isLoading,
             size,
+            position,
         } = this;
 
         const headingTag = unsafeStatic(headingLevel);
@@ -229,6 +235,7 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
             id="dialog"
             class="c-modal"
             size="${size}"
+            position="${position}"
             ?hasBackButton=${hasBackButton}
             ?isDismissible=${isDismissible}
             ?isFullWidthBelowMid=${isFullWidthBelowMid}

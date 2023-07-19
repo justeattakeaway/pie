@@ -2,6 +2,7 @@ import { RTLComponentProps } from '@justeattakeaway/pie-webc-core';
 
 export const headingLevels = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'] as const;
 export const sizes = ['small', 'medium', 'large'] as const;
+export const positions = ['top', 'center'] as const;
 
 export interface ModalProps extends RTLComponentProps {
     /**
@@ -56,6 +57,11 @@ export interface ModalProps extends RTLComponentProps {
      * The size of the modal; this controls how wide it will appear on the page.
      */
     size: typeof sizes[number];
+
+    /**
+     * The position of the modal; this controls where it will appear on the page.
+     */
+    position: typeof positions[number];
 }
 
 /**
