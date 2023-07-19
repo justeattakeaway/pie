@@ -5,7 +5,7 @@ import { PieIconButton } from '@justeattakeaway/pie-icon-button';
 import {
     WebComponentTestWrapper,
 } from '@justeattakeaway/pie-webc-testing/src/helpers/components/web-component-test-wrapper/WebComponentTestWrapper.ts';
-import { renderTestPieModal } from '../helpers/index.ts';
+import { createScrollablePageHTML, renderTestPieModal } from '../helpers/index.ts';
 
 import { PieModal } from '@/index';
 import {
@@ -14,7 +14,7 @@ import {
     headingLevels,
 } from '@/defs';
 
-const modalSelector = '[data-test-id="pie-modal"]';
+const componentSelector = '[data-test-id="pie-modal"]';
 const backButtonSelector = '[data-test-id="modal-back-button"]';
 const closeButtonSelector = '[data-test-id="modal-close-button"]';
 
@@ -38,7 +38,7 @@ test.describe('modal', () => {
         });
 
         // Act
-        const modal = page.locator(modalSelector);
+        const modal = page.locator(componentSelector);
 
         // Assert
         expect(modal).toBeVisible();
@@ -109,7 +109,7 @@ test.describe('When modal is closed', () => {
                 },
             });
 
-            const modal = page.locator(modalSelector);
+            const modal = page.locator(componentSelector);
 
             // Act
             await page.click(closeButtonSelector);
@@ -159,7 +159,7 @@ test.describe('When modal is closed', () => {
             });
 
             // Act
-            await page.click(modalSelector, { position: { x: -10, y: -10 } }); // Click outside dialog
+            await page.click(componentSelector, { position: { x: -10, y: -10 } }); // Click outside dialog
 
             // Assert
             expect(events).toHaveLength(1); // TODO - Event object is null for this test
@@ -174,7 +174,7 @@ test.describe('When modal is closed', () => {
                 },
             });
 
-            const modal = await page.locator(modalSelector);
+            const modal = await page.locator(componentSelector);
 
             // Act
             await modal.click({ position: { x: -10, y: -10 } }); // Click outside dialog
@@ -355,7 +355,7 @@ test.describe('`isDismissible` prop', () => {
             // Act
             await page.click('body');
 
-            const element = await page.locator(modalSelector);
+            const element = await page.locator(componentSelector);
 
             const styles = await element.evaluate((modal) => {
                 const computedStyles = window.getComputedStyle(modal);
@@ -377,7 +377,7 @@ test.describe('`isDismissible` prop', () => {
                 },
             });
 
-            const modal = await page.locator(modalSelector);
+            const modal = await page.locator(componentSelector);
 
             // Act
             await page.keyboard.press('Escape');
@@ -419,7 +419,7 @@ test.describe('`isDismissible` prop', () => {
             // Act
             await page.locator('body').click();
 
-            const element = await page.locator(modalSelector);
+            const element = await page.locator(componentSelector);
 
             const styles = await element.evaluate((modal) => {
                 const computedStyles = window.getComputedStyle(modal);
@@ -443,11 +443,99 @@ test.describe('`isDismissible` prop', () => {
 
             // Act
             await page.keyboard.press('Escape');
-            const modal = await page.locator(modalSelector);
+            const modal = await page.locator(componentSelector);
 
             // Assert
             await expect(modal).toBeVisible();
         });
+    });
+});
+
+test.describe('isOpen prop', () => {
+    test('should not render open when isOpen = false', async ({ mount, page }) => {
+        // Arrange
+        await mount(PieModal, {
+            props: {
+                isOpen: false,
+            },
+        });
+
+        // Assert
+        await expect(page.locator(componentSelector)).not.toBeVisible();
+    });
+
+    test('should render open when isOpen = true', async ({ mount, page }) => {
+        // Arrange
+        await mount(PieModal, {
+            props: {
+                isOpen: true,
+            },
+        });
+
+        // Assert
+        await expect(page.locator(componentSelector)).toBeVisible();
+    });
+});
+
+test.describe('scrolling logic', () => {
+    test('Should not be able to scroll when isOpen = true', async ({ page, mount }) => {
+        // Arrange
+        const modalComponent = renderTestPieModal();
+
+        await mount(
+            WebComponentTestWrapper,
+            {
+                props: {
+                    pageMode: true,
+                },
+                slots: {
+                    component: modalComponent,
+                    pageMarkup: createScrollablePageHTML(),
+                },
+            },
+        );
+
+        // Act
+        // Scroll 800 pixels down the page
+        await page.mouse.wheel(0, 5000);
+
+        // The mouse.wheel function causes scrolling, but doesn't wait for the scroll to finish before returning.
+        await page.waitForTimeout(3000);
+
+        // Assert
+        await expect.soft(page.getByText('Top of page copy')).toBeInViewport();
+        await expect(page.getByText('Bottom of page copy')).not.toBeInViewport();
+    });
+
+    test('Should scroll to the bottom when Pie Modal is closed', async ({ page, mount }) => {
+        // Arrange
+        const modalComponent = renderTestPieModal();
+
+        await mount(
+            WebComponentTestWrapper,
+            {
+                props: {
+                    pageMode: true,
+                },
+                slots: {
+                    component: modalComponent,
+                    pageMarkup: createScrollablePageHTML(),
+                },
+            },
+        );
+
+        // Act
+        await page.locator('[data-test-id="modal-close-button"]').click();
+
+        // Scroll 800 pixels down the page
+        await page.mouse.wheel(0, 5000);
+
+        // The mouse.wheel function causes scrolling, but doesn't wait for the scroll to finish before returning.
+        await page.waitForTimeout(3000);
+
+        // Assert
+        await expect.soft(page.getByText('Top of page copy')).not.toBeInViewport();
+        await expect(page.getByText('Bottom of page copy')).toBeInViewport();
     });
 });
 
@@ -522,7 +610,7 @@ test.describe('actions', () => {
                     },
                 });
 
-                const modal = await page.locator(modalSelector);
+                const modal = await page.locator(componentSelector);
 
                 // Act
                 await page.click(buttonSelector);
@@ -543,7 +631,7 @@ test.describe('actions', () => {
                 // Act
                 await page.click(buttonSelector);
                 const returnValue = await page.$eval(
-                    modalSelector,
+                    componentSelector,
                     (dialog : HTMLDialogElement) => dialog.returnValue,
                 );
 
