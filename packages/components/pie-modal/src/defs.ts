@@ -56,6 +56,27 @@ export interface ModalProps extends RTLComponentProps {
      * The size of the modal; this controls how wide it will appear on the page.
      */
     size: typeof sizes[number];
+
+    /**
+     * The leading action configuration for the modal.
+     */
+    leadingAction?: {
+        /**
+         * The text to display for the leading action button.
+         */
+        text: string;
+
+        /**
+         * The variant of the leading action button.
+         * Default: 'primary'
+         */
+        variant?: string;
+
+        /**
+         * The ARIA label for the leading action button.
+         */
+        ariaLabel?: string;
+    };
 }
 
 /**

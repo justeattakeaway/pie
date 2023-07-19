@@ -63,6 +63,13 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
     @validPropertyValues(componentSelector, sizes, 'medium')
     public size: ModalProps['size'] = 'medium';
 
+    @property()
+    public leadingAction!: {
+        text: string;
+        variant?: string;
+        ariaLabel?: string;
+    };
+
     @query('dialog')
     private _dialog?: HTMLDialogElement;
 
@@ -211,6 +218,27 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
         `;
     }
 
+    /**
+     * Render leadingAction button depending on prop availability.
+     *
+     * @param action
+     * @private
+     */
+    private renderLeadingAction (action: { text: string; variant?: string; ariaLabel?: string }): TemplateResult {
+        const { text, variant = 'primary', ariaLabel } = action;
+
+        return html`
+              <pie-button
+                  variant="${variant}"
+                  aria-label="${ariaLabel}"
+                  type="submit"
+                  @click="${() => this._dialog?.close('leading')}"
+                  data-test-id="modal-leading-action">
+                ${text}
+              </pie-button>
+        `;
+    }
+
     public render () {
         const {
             hasBackButton,
@@ -220,6 +248,7 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
             isFullWidthBelowMid,
             isLoading,
             size,
+            leadingAction,
         } = this;
 
         const headingTag = unsafeStatic(headingLevel);
@@ -248,13 +277,7 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
                 </div>
             </article>
             <footer class="c-modal-footer">
-                <pie-button
-                    variant="primary"
-                    type="submit"
-                    @click="${() => this._dialog?.close('leading')}"
-                    data-test-id="modal-leading-action">
-                    Confirm
-                </pie-button>
+                ${leadingAction ? this.renderLeadingAction(leadingAction) : nothing}
                 <pie-button
                     variant="ghost"
                     type="reset"

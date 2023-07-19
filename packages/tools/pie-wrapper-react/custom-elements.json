@@ -258,6 +258,15 @@
                         },
                         {
                             "kind": "field",
+                            "name": "leadingAction",
+                            "type": {
+                                "text": "{\n        text: string;\n        variant?: string;\n        ariaLabel?: string;\n    } | undefined"
+                            },
+                            "privacy": "public",
+                            "attribute": "leadingAction"
+                        },
+                        {
+                            "kind": "field",
                             "name": "_dialog",
                             "type": {
                                 "text": "HTMLDialogElement | undefined"
@@ -409,6 +418,25 @@
                             ]
                         },
                         {
+                            "kind": "method",
+                            "name": "renderLeadingAction",
+                            "privacy": "private",
+                            "return": {
+                                "type": {
+                                    "text": "TemplateResult"
+                                }
+                            },
+                            "parameters": [
+                                {
+                                    "name": "action",
+                                    "type": {
+                                        "text": "{ text: string; variant?: string; ariaLabel?: string }"
+                                    }
+                                }
+                            ],
+                            "description": "Render leading action CTA depending on prop availability."
+                        },
+                        {
                             "kind": "field",
                             "name": "dir",
                             "type": {
@@ -529,6 +557,13 @@
                             },
                             "default": "'medium'",
                             "fieldName": "size"
+                        },
+                        {
+                            "name": "leadingAction",
+                            "type": {
+                                "text": "{\n        text: string;\n        variant?: string;\n        ariaLabel?: string;\n    } | undefined"
+                            },
+                            "fieldName": "leadingAction"
                         },
                         {
                             "name": "dir",

@@ -149,16 +149,55 @@ test.describe('`hasBackButton`', () => {
     });
 });
 
-test('Should display loading spinner when `isLoading` is true', async ({ mount, page }) => {
-    await mount(PieModal, {
-        props: {
-            heading: 'This is a modal heading',
-            hasBackButton: true,
-            isDismissible: true,
-            isOpen: true,
-            isLoading: true,
-        },
+test.describe('`isLoading`', () => {
+    test('Should display loading spinner when `isLoading` is true', async ({ mount, page }) => {
+        await mount(PieModal, {
+            props: {
+                heading: 'This is a modal heading',
+                hasBackButton: true,
+                isDismissible: true,
+                isOpen: true,
+                isLoading: true,
+            },
+        });
+
+        await percySnapshot(page, `Modal displays loading spinner - isLoading: ${true}`);
+    });
+});
+
+test.describe('`leadingAction`', () => {
+    test.describe('when prop is passed in to component', () => {
+        test('Should display `leadingAction` when props are passed correctly', async ({ mount, page }) => {
+            await mount(PieModal, {
+                props: {
+                    heading: 'This is a modal heading',
+                    hasBackButton: true,
+                    isDismissible: true,
+                    isOpen: true,
+                    leadingAction: {
+                        text: 'Confirm',
+                        variant: 'primary',
+                        ariaLabel: 'Confirmation text',
+                    },
+                },
+            });
+
+            await percySnapshot(page, 'Modal displays leadingAction');
+        });
     });
 
-    await percySnapshot(page, `Modal displays loading spinner - isLoading: ${true}`);
+    test.describe('when prop is NOT passed into component', () => {
+        test('Should NOT display `leadingAction`', async ({ mount, page }) => {
+            await mount(PieModal, {
+                props: {
+                    heading: 'This is a modal heading',
+                    hasBackButton: true,
+                    isDismissible: true,
+                    isOpen: true,
+                },
+            });
+
+            await percySnapshot(page, 'Modal does not display leadingAction');
+        });
+    });
 });
