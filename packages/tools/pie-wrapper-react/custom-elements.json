@@ -228,6 +228,17 @@
                         },
                         {
                             "kind": "field",
+                            "name": "isLoading",
+                            "type": {
+                                "text": "boolean"
+                            },
+                            "privacy": "public",
+                            "default": "false",
+                            "attribute": "isLoading",
+                            "reflects": true
+                        },
+                        {
+                            "kind": "field",
                             "name": "returnFocusAfterCloseSelector",
                             "type": {
                                 "text": "string | undefined"
@@ -495,6 +506,14 @@
                             },
                             "default": "false",
                             "fieldName": "isOpen"
+                        },
+                        {
+                            "name": "isLoading",
+                            "type": {
+                                "text": "boolean"
+                            },
+                            "default": "false",
+                            "fieldName": "isLoading"
                         },
                         {
                             "name": "returnFocusAfterCloseSelector",
