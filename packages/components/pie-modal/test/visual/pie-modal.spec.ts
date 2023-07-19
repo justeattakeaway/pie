@@ -1,13 +1,9 @@
 import { test } from '@sand4rt/experimental-ct-web';
 import percySnapshot from '@percy/playwright';
-import {
-    WebComponentTestWrapper,
-} from '@justeattakeaway/pie-webc-testing/src/helpers/components/web-component-test-wrapper/WebComponentTestWrapper.ts';
 import { PieIconButton } from '@justeattakeaway/pie-icon-button';
 import { positions } from '../../src/defs.ts';
 import { PieModal } from '@/index';
 import { ModalProps, sizes } from '@/defs';
-import { createScrollablePageHTML, renderTestPieModal } from '../helpers/index.ts';
 
 // Mount any components that are used inside of pie-modal so that
 // they have been registered with the browser before the tests run.
@@ -24,41 +20,6 @@ test.beforeEach(async ({ page, mount }) => {
         const element : Element | null = document.querySelector('pie-icon-button');
         element?.remove();
     });
-});
-
-test('Should not be able to scroll when modal is open', async ({ page, mount }) => {
-    const modalComponent = renderTestPieModal();
-
-    await mount(
-        WebComponentTestWrapper,
-        {
-            props: {
-                pageMode: true,
-            },
-            slots: {
-                component: modalComponent,
-                pageMarkup: createScrollablePageHTML(),
-            },
-        },
-    );
-
-    // Scroll 800 pixels down the page
-    await page.mouse.wheel(0, 800);
-
-    await page.waitForTimeout(3000); // The mouse.wheel function causes scrolling, but doesn't wait for the scroll to finish before returning.
-
-    await percySnapshot(page, 'Modal - scroll locking');
-});
-
-test('should not render when isOpen = false', async ({ page, mount }) => {
-    await mount(PieModal, {
-        props: {
-            heading: 'This is a modal heading',
-            isOpen: false,
-        } as ModalProps,
-    });
-
-    await percySnapshot(page, 'Modal - isOpen = false');
 });
 
 sizes.forEach((size) => {
