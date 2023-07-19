@@ -221,6 +221,10 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
     /**
      * Render leadingAction button depending on prop availability.
      *
+     * 1. If the prop `leadingAction` is not provided, the button is not rendered.
+     * 2. If the prop `leadingAction` is provided but any of the optional properties
+     * are not provided, they fall back to their default values.
+     *
      * @param action
      * @private
      */
