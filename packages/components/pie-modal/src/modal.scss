@@ -37,6 +37,13 @@
         outline: none;
     }
 
+    // We need to override the icon sizes at different screen sizes regardless of size prop passed in
+    pie-icon-button {
+        @media (max-width: $breakpoint-wide) {
+            --btn-dimension: 40px;
+        }
+    }
+
     &[open] {
         // We only apply this when the modal is open,
         // otherwise it interferes with the native
@@ -136,23 +143,39 @@
     }
 
     & .c-modal-header {
-        --modal-header-padding: var(--dt-spacing-e);
-
-        padding-inline: var(--modal-header-padding);
-        padding-block: var(--modal-header-padding);
+        padding-inline: var(--dt-spacing-d);
+        padding-block: 14px; // This is deliberately not a custom property
+        display: grid;
+        grid-template-areas:
+            'back heading close'
+            '. heading .';
+        grid-template-columns: minmax(0, max-content) minmax(0, 1fr) minmax(0, max-content);
         align-items: center;
-        display: flex;
+
+        @media (min-width: $breakpoint-wide) {
+            padding-inline: var(--dt-spacing-e);
+            padding-block: 20px; // This is deliberately not a custom property
+        }
     }
 
     &[hasbackbutton] .c-modal-header {
-        padding-block: var(--dt-spacing-c);
-        padding-inline-start: var(--dt-spacing-c);
+        padding-block: var(--dt-spacing-b);
+        padding-inline-start: var(--dt-spacing-b);
+
+        @media (min-width: $breakpoint-wide) {
+            padding-block: var(--dt-spacing-c);
+            padding-inline-start: var(--dt-spacing-c);
+        }
     }
 
     &[isdismissible] .c-modal-header {
-        justify-content: space-between;
-        padding-block: var(--dt-spacing-c);
-        padding-inline-end: var(--dt-spacing-c);
+        padding-block: var(--dt-spacing-b);
+        padding-inline-end: var(--dt-spacing-b);
+
+        @media (min-width: $breakpoint-wide) {
+            padding-block: var(--dt-spacing-c);
+            padding-inline-end: var(--dt-spacing-c);
+        }
     }
 
     & .c-modal-heading {
@@ -164,16 +187,33 @@
         line-height: var(--modal-header-font-line-height);
         font-weight: var(--modal-header-font-weight);
         margin: 0;
+        grid-area: heading;
     }
 
     // Ensure correct padding when there is a back button in front of the heading
     &[hasbackbutton] .c-modal-heading {
-        margin-inline-start: var(--dt-spacing-c);
+        padding-inline-start: var(--dt-spacing-b);
+
+        @media (min-width: $breakpoint-wide) {
+            padding-inline-start: var(--dt-spacing-c);
+        }
     }
 
     // Ensure correct padding when there is a close button behind the heading
     &[isdismissible] .c-modal-heading {
-        margin-inline-end: var(--dt-spacing-e);
+        padding-inline-end: var(--dt-spacing-d);
+
+        @media (min-width: $breakpoint-wide) {
+            padding-inline-end: var(--dt-spacing-e);
+        }
+    }
+
+    & .c-modal-backBtn {
+        grid-area: back;
+    }
+
+    & .c-modal-closeBtn {
+        grid-area: close;
     }
 
     & .c-modal-content {
@@ -261,9 +301,5 @@
         & .c-modal-contentInner {
             opacity: 0;
         }
-    }
-
-    & .c-modal-closeBtn {
-        margin-inline-start: auto;
     }
 }
