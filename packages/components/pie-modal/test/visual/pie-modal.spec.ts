@@ -149,6 +149,20 @@ test.describe('`hasBackButton`', () => {
     });
 });
 
+test('long heading renders correctly', async ({ page, mount }) => {
+    await mount(PieModal, {
+        props: {
+            heading: 'This is a modal heading but super long and should span multiple lines, hopefully this should never happen on production!',
+            isOpen: true,
+            size: 'medium',
+            hasBackButton: true,
+            isDismissible: true,
+        },
+    });
+
+    await percySnapshot(page, 'Modal - Long heading');
+});
+
 test('Should display loading spinner when `isLoading` is true', async ({ mount, page }) => {
     await mount(PieModal, {
         props: {
