@@ -4,4 +4,4 @@
 "@justeattakeaway/pie-wrapper-react": patch
 ---
 
-add prop for leadingAction
+[Added] - prop for `leadingAction` to pie-modal
