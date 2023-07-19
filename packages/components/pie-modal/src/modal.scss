@@ -37,6 +37,15 @@
         outline: none;
     }
 
+    // We need to override the icon sizes at different screen sizes regardless of size prop passed in
+    pie-icon-button {
+        --btn-dimension: 40px;
+
+        @media (min-width: $breakpoint-wide) {
+            --btn-dimension: 48px;
+        }
+    }
+
     &[open] {
         // We only apply this when the modal is open,
         // otherwise it interferes with the native
