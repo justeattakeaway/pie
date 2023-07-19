@@ -228,6 +228,7 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
         <dialog
             id="dialog"
             class="c-modal"
+            data-test-id="pie-modal"
             size="${size}"
             ?hasBackButton=${hasBackButton}
             ?isDismissible=${isDismissible}
