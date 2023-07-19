@@ -64,11 +64,11 @@ const modalStoryMeta: ModalStoryMeta = {
             control: 'text',
         },
         size: {
-            control: 'select',
+            control: 'radio',
             options: sizes,
         },
         position: {
-            control: 'select',
+            control: 'radio',
             options: positions,
         },
         slot: {
