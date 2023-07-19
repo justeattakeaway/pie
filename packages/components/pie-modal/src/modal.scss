@@ -110,6 +110,10 @@
         }
     }
 
+    &[position='top']:not([isfullwidthbelowmid]) {
+        margin-block-start: var(--dt-spacing-j);
+    }
+
     // We need to pull in the token directly here because the
     // pseudo element `::backdrop` doesn't seem to pick up custom css properties.
     &::backdrop {
