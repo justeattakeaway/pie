@@ -1,4 +1,4 @@
-import type { Meta, StoryObj as Story } from '@storybook/web-components';
+import type { StoryObj as Story } from '@storybook/web-components';
 import { html, TemplateResult } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import '@justeattakeaway/pie-button'; // Register pie-button
@@ -25,6 +25,7 @@ const defaultArgs: ModalProps = {
     hasBackButton: true,
     isFullWidthBelowMid: false,
     isOpen: true,
+    isLoading: false,
     size: 'medium',
     slot: 'This is Lit!',
     dir: 'ltr',
@@ -45,6 +46,9 @@ const modalStoryMeta: ModalStoryMeta = {
             control: 'boolean',
         },
         isOpen: {
+            control: 'boolean',
+        },
+        isLoading: {
             control: 'boolean',
         },
         heading: {
@@ -114,6 +118,7 @@ const BaseStoryTemplate = (props: ModalProps): TemplateResult => {
         hasBackButton,
         isFullWidthBelowMid,
         isOpen,
+        isLoading,
         returnFocusAfterCloseSelector,
         size,
         slot,
@@ -127,6 +132,7 @@ const BaseStoryTemplate = (props: ModalProps): TemplateResult => {
             ?isDismissible="${isDismissible}"
             ?hasBackButton="${hasBackButton}"
             ?isFullWidthBelowMid="${isFullWidthBelowMid}"
+            ?isLoading="${isLoading}"
             returnFocusAfterCloseSelector="${ifDefined(returnFocusAfterCloseSelector)}"
             ?isOpen="${isOpen}"
             dir="${dir}"

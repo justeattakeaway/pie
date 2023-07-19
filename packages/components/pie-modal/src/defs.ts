@@ -33,6 +33,11 @@ export interface ModalProps extends RTLComponentProps {
     isDismissible: boolean;
 
     /**
+     * When true, displays a loading spinner in the modal.
+     */
+    isLoading: boolean;
+
+    /**
      * When true, the modal will have a back button. This currently behaves the same as the close button.
      */
     hasBackButton: boolean;
