@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.6.0
+
+### Minor Changes
+
+- [Changed] - Improve TS typings in RTL mixin and provde extendable prop interface for components ([#623](https://github.com/justeattakeaway/pie/pull/623)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.5.0
 
 ### Minor Changes

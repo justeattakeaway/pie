@@ -1,5 +1,15 @@
 # @justeattakeaway/pie-wrapper-react
 
+## 0.8.1
+
+### Patch Changes
+
+- [Added] - Default modal footer ([#619](https://github.com/justeattakeaway/pie/pull/619)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Added] - Height styles for the different sizes
+  [Removed] - Unnecessary `:focus-visible` outline for the modal
+  [Fixed] - Modal width should be able to exceed 600px for `isFullWidthBelowMid`
+
 ## 0.8.0
 
 ### Minor Changes

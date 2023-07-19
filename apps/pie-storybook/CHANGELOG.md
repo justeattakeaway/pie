@@ -1,5 +1,24 @@
 # Changelog
 
+## 0.19.0
+
+### Minor Changes
+
+- [Changed] - Use strict typings to ensure storybook build errors when component interfaces change ([#623](https://github.com/justeattakeaway/pie/pull/623)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - loading spinner to modal ([#628](https://github.com/justeattakeaway/pie/pull/628)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - Typed stories ([#626](https://github.com/justeattakeaway/pie/pull/626)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - hasBackButton prop to modal ([#623](https://github.com/justeattakeaway/pie/pull/623)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies [[`13341cea1`](https://github.com/justeattakeaway/pie/commit/13341cea18da02ee63ae43b36cd0a686b6d448e6), [`7ad36c8ca`](https://github.com/justeattakeaway/pie/commit/7ad36c8cac13b95c5c925c30c58eb2c644ec42e8), [`13341cea1`](https://github.com/justeattakeaway/pie/commit/13341cea18da02ee63ae43b36cd0a686b6d448e6), [`13341cea1`](https://github.com/justeattakeaway/pie/commit/13341cea18da02ee63ae43b36cd0a686b6d448e6), [`520d8cdce`](https://github.com/justeattakeaway/pie/commit/520d8cdceb80eac7339ed7d4871eabaa24862151)]:
+  - @justeattakeaway/pie-modal@0.13.0
+  - @justeattakeaway/pie-button@0.19.0
+  - @justeattakeaway/pie-icon-button@0.9.0
+
 ## 0.18.1
 
 ### Patch Changes
