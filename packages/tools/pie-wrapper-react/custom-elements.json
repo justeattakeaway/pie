@@ -260,7 +260,7 @@
                             "kind": "field",
                             "name": "leadingAction",
                             "type": {
-                                "text": "{\n        text: string;\n        variant?: string;\n        ariaLabel?: string;\n    } | undefined"
+                                "text": "{\n        text: string;\n        variant?: string;\n        ariaLabel?: string;\n    }"
                             },
                             "privacy": "public",
                             "attribute": "leadingAction"
@@ -389,6 +389,17 @@
                             "description": "Template for the back button element. Called within the\nmain render function."
                         },
                         {
+                            "kind": "method",
+                            "name": "renderLeadingAction",
+                            "privacy": "private",
+                            "return": {
+                                "type": {
+                                    "text": "TemplateResult"
+                                }
+                            },
+                            "description": "Render leadingAction button depending on prop availability.\n\n1. If the prop `leadingAction` is not provided, the button is not rendered.\n2. If the prop `leadingAction` is provided but any of the optional properties\nare not provided, they fall back to their default values."
+                        },
+                        {
                             "kind": "field",
                             "name": "_handleDialogLightDismiss",
                             "privacy": "private",
@@ -416,25 +427,6 @@
                                     }
                                 }
                             ]
-                        },
-                        {
-                            "kind": "method",
-                            "name": "renderLeadingAction",
-                            "privacy": "private",
-                            "return": {
-                                "type": {
-                                    "text": "TemplateResult"
-                                }
-                            },
-                            "parameters": [
-                                {
-                                    "name": "action",
-                                    "type": {
-                                        "text": "{ text: string; variant?: string; ariaLabel?: string }"
-                                    }
-                                }
-                            ],
-                            "description": "Render leading action CTA depending on prop availability."
                         },
                         {
                             "kind": "field",
@@ -561,7 +553,7 @@
                         {
                             "name": "leadingAction",
                             "type": {
-                                "text": "{\n        text: string;\n        variant?: string;\n        ariaLabel?: string;\n    } | undefined"
+                                "text": "{\n        text: string;\n        variant?: string;\n        ariaLabel?: string;\n    }"
                             },
                             "fieldName": "leadingAction"
                         },

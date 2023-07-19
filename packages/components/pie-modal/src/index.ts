@@ -225,11 +225,10 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
      * 2. If the prop `leadingAction` is provided but any of the optional properties
      * are not provided, they fall back to their default values.
      *
-     * @param action
      * @private
      */
-    private renderLeadingAction (action: { text: string; variant?: string; ariaLabel?: string }): TemplateResult {
-        const { text, variant = 'primary', ariaLabel } = action;
+    private renderLeadingAction (): TemplateResult {
+        const { text, variant = 'primary', ariaLabel } = this.leadingAction;
 
         return html`
               <pie-button
@@ -281,7 +280,7 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
                 </div>
             </article>
             <footer class="c-modal-footer">
-                ${leadingAction ? this.renderLeadingAction(leadingAction) : nothing}
+                ${leadingAction ? this.renderLeadingAction() : nothing}
                 <pie-button
                     variant="ghost"
                     type="reset"

@@ -40,7 +40,7 @@ sizes.forEach((size) => {
     });
 });
 
-test.describe('`isFullWidthBelowMid`', () => {
+test.describe('Prop: `isFullWidthBelowMid`', () => {
     test.describe('when true', () => {
         test('should be full width for a modal with size = medium', async ({ page, mount }) => {
             await mount(PieModal, {
@@ -88,7 +88,7 @@ test.describe('`isFullWidthBelowMid`', () => {
     });
 });
 
-test.describe('`isDismissible`', () => {
+test.describe('Prop: `isDismissible`', () => {
     test.describe('when true', () => {
         test('should display a close button within the modal', async ({ mount, page }) => {
             await mount(PieModal, {
@@ -104,7 +104,7 @@ test.describe('`isDismissible`', () => {
     });
 
     test.describe('when false', () => {
-        test('should NOT display a close button', async ({ mount, page }) => {
+        test('should not display a close button', async ({ mount, page }) => {
             await mount(PieModal, {
                 props: {
                     heading: 'This is a modal heading',
@@ -120,7 +120,7 @@ test.describe('`isDismissible`', () => {
 
 const directions = ['ltr', 'rtl', 'auto'] as const;
 
-test.describe('`hasBackButton`', () => {
+test.describe('Prop: `hasBackButton`', () => {
     directions.forEach((dir) => {
         test.describe('when true', () => {
             test(`should display a back button within the modal and dir is ${dir}`, async ({ mount, page }) => {
@@ -138,7 +138,7 @@ test.describe('`hasBackButton`', () => {
         });
 
         test.describe('when false', () => {
-            test(`should NOT display a back button and dir is ${dir}`, async ({ mount, page }) => {
+            test(`should not display a back button and dir is ${dir}`, async ({ mount, page }) => {
                 await mount(PieModal, {
                     props: {
                         heading: 'This is a modal heading',
@@ -170,7 +170,7 @@ test.describe('Prop: `heading`', () => {
     });
 });
 
-test.describe('`isLoading`', () => {
+test.describe('Prop: `isLoading`', () => {
     test('should display loading spinner when `isLoading` is true', async ({ mount, page }) => {
         await mount(PieModal, {
             props: {
@@ -186,7 +186,7 @@ test.describe('`isLoading`', () => {
     });
 });
 
-test.describe('`leadingAction`', () => {
+test.describe('Prop: `leadingAction`', () => {
     test.describe('when prop is passed into component', () => {
         test('should display `leadingAction` when props are passed correctly', async ({ mount, page }) => {
             await mount(PieModal, {
@@ -225,8 +225,8 @@ test.describe('`leadingAction`', () => {
         });
     });
 
-    test.describe('when prop is NOT passed into component', () => {
-        test('should NOT display `leadingAction`', async ({ mount, page }) => {
+    test.describe('when prop is not passed into component', () => {
+        test('should not display `leadingAction`', async ({ mount, page }) => {
             await mount(PieModal, {
                 props: {
                     heading: 'This is a modal heading',
