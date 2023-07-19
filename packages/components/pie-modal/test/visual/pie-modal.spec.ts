@@ -155,7 +155,7 @@ test.describe('`hasBackButton`', () => {
 });
 
 test.describe('Prop: `heading`', () => {
-    test('should display long heading renders correctly', async ({ page, mount }) => {
+    test('should display & render long headings correctly', async ({ page, mount }) => {
         await mount(PieModal, {
             props: {
                 heading: 'This is a modal heading but super long and should span multiple lines, hopefully this should never happen on production!',
