@@ -231,9 +231,9 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
         const { text, variant = 'primary', ariaLabel } = this.leadingAction;
 
         return html`
-              <pie-button
+            <pie-button
                   variant="${variant}"
-                  aria-label="${ariaLabel}"
+                  aria-label="${ariaLabel || nothing}"
                   type="submit"
                   @click="${() => this._dialog?.close('leading')}"
                   data-test-id="modal-leading-action">
