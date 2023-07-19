@@ -4,6 +4,7 @@ import {
     WebComponentTestWrapper,
 } from '@justeattakeaway/pie-webc-testing/src/helpers/components/web-component-test-wrapper/WebComponentTestWrapper.ts';
 import { PieIconButton } from '@justeattakeaway/pie-icon-button';
+import { positions } from '../../src/defs.ts';
 import { PieModal } from '@/index';
 import { ModalProps, sizes } from '@/defs';
 import { createScrollablePageHTML, renderTestPieModal } from '../helpers/index.ts';
@@ -54,7 +55,7 @@ test('should not render when isOpen = false', async ({ page, mount }) => {
         props: {
             heading: 'This is a modal heading',
             isOpen: false,
-        },
+        } as ModalProps,
     });
 
     await percySnapshot(page, 'Modal - isOpen = false');
@@ -67,7 +68,7 @@ sizes.forEach((size) => {
                 heading: 'This is a modal heading',
                 isOpen: true,
                 size,
-            },
+            } as ModalProps,
         });
 
         await percySnapshot(page, `Modal - size = ${size}`);
@@ -83,7 +84,7 @@ test.describe('`isFullWidthBelowMid`', () => {
                     isFullWidthBelowMid: true,
                     isOpen: true,
                     size: 'medium',
-                },
+                } as ModalProps,
             });
 
             await percySnapshot(page, 'Modal - isFullWidthBelowMid = true, size = medium');
@@ -96,7 +97,7 @@ test.describe('`isFullWidthBelowMid`', () => {
                     isFullWidthBelowMid: true,
                     isOpen: true,
                     size: 'small',
-                },
+                } as ModalProps,
             });
 
             await percySnapshot(page, 'Modal - isFullWidthBelowMid = true, size = small');
@@ -113,7 +114,7 @@ test.describe('`isFullWidthBelowMid`', () => {
                         isFullWidthBelowMid: false,
                         isOpen: true,
                         size,
-                    },
+                    } as ModalProps,
                 });
 
                 await percySnapshot(page, `Modal - isFullWidthBelowMid = false, size = ${size}`);
@@ -130,7 +131,7 @@ test.describe('`isDismissible`', () => {
                     heading: 'This is a modal heading',
                     isDismissible: true,
                     isOpen: true,
-                },
+                } as ModalProps,
             });
 
             await percySnapshot(page, 'Modal with close button displayed - isDismissible: `true`');
@@ -144,7 +145,7 @@ test.describe('`isDismissible`', () => {
                     heading: 'This is a modal heading',
                     isDismissible: false,
                     isOpen: true,
-                },
+                } as ModalProps,
             });
 
             await percySnapshot(page, 'Modal without close button - isDismissible: `false`');
@@ -164,7 +165,7 @@ test.describe('`hasBackButton`', () => {
                         hasBackButton: true,
                         isOpen: true,
                         dir,
-                    },
+                    } as ModalProps,
                 });
 
                 await percySnapshot(page, `Modal with back button displayed - hasBackButton: ${true} - dir: ${dir}`);
@@ -179,7 +180,7 @@ test.describe('`hasBackButton`', () => {
                         hasBackButton: false,
                         isOpen: true,
                         dir,
-                    },
+                    } as ModalProps,
                 });
 
                 await percySnapshot(page, `Modal without back button - hasBackButton: ${false} - dir: ${dir}`);
@@ -196,8 +197,23 @@ test('Should display loading spinner when `isLoading` is true', async ({ mount, 
             isDismissible: true,
             isOpen: true,
             isLoading: true,
-        },
+        } as ModalProps,
     });
 
     await percySnapshot(page, `Modal displays loading spinner - isLoading: ${true}`);
+});
+
+test.describe('`position`', () => {
+    positions.forEach((position) => {
+        test(`should be positioned in the correct part of the page when position is: ${position}`, async ({ mount, page }) => {
+            await mount(PieModal, {
+                props: {
+                    heading: 'This is a modal heading',
+                    position,
+                } as ModalProps,
+            });
+
+            await percySnapshot(page, `Modal position: ${position}`);
+        });
+    });
 });
