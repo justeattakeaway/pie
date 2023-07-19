@@ -1,5 +1,26 @@
 # @justeattakeaway/pie-modal
 
+## 0.13.0
+
+### Minor Changes
+
+- [Added] - Default modal footer ([#619](https://github.com/justeattakeaway/pie/pull/619)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Added] - Height styles for the different sizes
+  [Removed] - Unnecessary `:focus-visible` outline for the modal
+  [Fixed] - Modal width should be able to exceed 600px for `isFullWidthBelowMid`
+
+- [Added] - loading spinner to modal ([#628](https://github.com/justeattakeaway/pie/pull/628)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - Scroll shadow for modal contents ([#619](https://github.com/justeattakeaway/pie/pull/619)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- [Added] - Tests to validate leading/supporting action buttons ([#619](https://github.com/justeattakeaway/pie/pull/619)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Added] - Missing tests to check that the modal closes when expected to
+  [Changed] - Updated tests to verify that the correct event is being triggered
+
+- [Added] - hasBackButton prop to modal ([#623](https://github.com/justeattakeaway/pie/pull/623)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.12.0
 
 ### Minor Changes

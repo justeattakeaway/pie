@@ -1,5 +1,17 @@
 # Changelog
 
+## 2.15.0
+
+### Minor Changes
+
+- [Added] - New deploy step for example apps on `push` events to `main` ([#610](https://github.com/justeattakeaway/pie/pull/610)) by [@siggerzz](https://github.com/siggerzz)
+
+  [Added] - `generate:examples` script to package.json
+
+### Patch Changes
+
+- [Removed] - Duplicate `needs` property .github/workflows/example-apps-ci.yml ([#621](https://github.com/justeattakeaway/pie/pull/621)) by [@siggerzz](https://github.com/siggerzz)
+
 ## 2.14.0
 
 ### Minor Changes
