@@ -1,9 +1,9 @@
 import { test } from '@sand4rt/experimental-ct-web';
 import percySnapshot from '@percy/playwright';
 import { PieIconButton } from '@justeattakeaway/pie-icon-button';
+import { PieButton } from '@justeattakeaway/pie-button';
 import { PieModal } from '@/index';
 import { ModalProps, sizes } from '@/defs';
-import {PieButton} from "@justeattakeaway/pie-button";
 
 // Mount any components that are used inside of pie-modal so that
 // they have been registered with the browser before the tests run.
@@ -151,6 +151,22 @@ test.describe('`hasBackButton`', () => {
                 await percySnapshot(page, `Modal without back button - hasBackButton: ${false} - dir: ${dir}`);
             });
         });
+    });
+});
+
+test.describe('Prop: `heading`', () => {
+    test('should display long heading renders correctly', async ({ page, mount }) => {
+        await mount(PieModal, {
+            props: {
+                heading: 'This is a modal heading but super long and should span multiple lines, hopefully this should never happen on production!',
+                isOpen: true,
+                size: 'medium',
+                hasBackButton: true,
+                isDismissible: true,
+            },
+        });
+
+        await percySnapshot(page, 'Modal - Long heading');
     });
 });
 

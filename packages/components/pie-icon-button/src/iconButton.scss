@@ -8,21 +8,23 @@
     }
 }
 
+// Normally we don't expect consumers to override these, but there are situations where it may be necessary
+:host {
+    // The base values are set to the size default, which is for the medium button size
+    --btn-dimension: 48px;
+    // Sizing is set to Medium button icon size, as that is the default
+    --btn-icon-size: 24px;
+}
+
 // Base button styles
 .o-iconBtn {
     --btn-border-radius: var(--dt-radius-rounded-e);
-
-    // The base values are set to the size default, which is for the medium button size
-    --btn-dimension: 48px;
 
     // The following values set to default background and color
     // currently this sets the primary button styles
     --btn-bg-color: var(--dt-color-interactive-brand);
     --btn-icon-fill: var(--dt-color-content-interactive-primary);
     --btn-focus: var(--dt-color-focus-outer);
-
-    // Sizing is set to Medium button icon size, as that is the default
-    --btn-icon-size: 24px;
 
     min-block-size: var(--btn-dimension);
     aspect-ratio: 1 / 1;
