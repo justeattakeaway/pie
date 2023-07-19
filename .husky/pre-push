@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# Checks branch name for Jira ticket id
+node scripts/git-hooks/check-branch-name.js $(git symbolic-ref --short HEAD)

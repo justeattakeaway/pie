@@ -1,5 +1,4 @@
 const fs = require('fs')
-const { execSync } = require('child_process');
 const { globSync } = require('glob')
 
 
@@ -46,6 +45,7 @@ module.exports = {
   messages: {
     type: "Select the type of change that you're committing:",
     scope: 'Denote the SCOPE of this change:',
+    ticketNumber: "Jira ticket number (enter 0 to fill automatically):",
     subject: 'Write a SHORT, IMPERATIVE tense description of the change:',
     body: '(optional) Provide a LONGER description of the change. Use "|" to break new line:',
     breaking: '(optional) List any BREAKING CHANGES:',
@@ -53,5 +53,9 @@ module.exports = {
   },
   allowBreakingChanges: ['feat', 'fix', 'refactor'],
   allowCustomScopes: false,
-  skipQuestions: ['footer']
+  skipQuestions: ['footer'],
+  allowTicketNumber: true,
+  isTicketNumberRequired: true,
+  ticketNumberPrefix: 'DSW-',
+  ticketNumberRegExp: '\\d{1,7}',
 };
