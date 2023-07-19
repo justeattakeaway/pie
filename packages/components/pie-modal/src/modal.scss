@@ -117,8 +117,14 @@
         }
     }
 
-    &[position='top']:not([isfullwidthbelowmid]) {
+    &[position='top'] {
         margin-block-start: var(--dt-spacing-j);
+
+        &[isfullwidthbelowmid] {
+            @media (max-width: calc($breakpoint-wide - 1px)) {
+                margin-block-start: var(--dt-spacing-none);
+            }
+        }
     }
 
     // We need to pull in the token directly here because the
