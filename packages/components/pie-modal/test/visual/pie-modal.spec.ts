@@ -3,6 +3,7 @@ import percySnapshot from '@percy/playwright';
 import { PieIconButton } from '@justeattakeaway/pie-icon-button';
 import { PieModal } from '@/index';
 import { ModalProps, sizes } from '@/defs';
+import {PieButton} from "@justeattakeaway/pie-button";
 
 // Mount any components that are used inside of pie-modal so that
 // they have been registered with the browser before the tests run.
@@ -19,6 +20,10 @@ test.beforeEach(async ({ page, mount }) => {
         const element : Element | null = document.querySelector('pie-icon-button');
         element?.remove();
     });
+});
+
+test.beforeEach(async ({ mount }) => {
+    await (await mount(PieButton)).unmount();
 });
 
 sizes.forEach((size) => {
@@ -150,7 +155,7 @@ test.describe('`hasBackButton`', () => {
 });
 
 test.describe('`isLoading`', () => {
-    test('Should display loading spinner when `isLoading` is true', async ({ mount, page }) => {
+    test('should display loading spinner when `isLoading` is true', async ({ mount, page }) => {
         await mount(PieModal, {
             props: {
                 heading: 'This is a modal heading',
@@ -166,8 +171,8 @@ test.describe('`isLoading`', () => {
 });
 
 test.describe('`leadingAction`', () => {
-    test.describe('when prop is passed in to component', () => {
-        test('Should display `leadingAction` when props are passed correctly', async ({ mount, page }) => {
+    test.describe('when prop is passed into component', () => {
+        test('should display `leadingAction` when props are passed correctly', async ({ mount, page }) => {
             await mount(PieModal, {
                 props: {
                     heading: 'This is a modal heading',
@@ -186,8 +191,26 @@ test.describe('`leadingAction`', () => {
         });
     });
 
+    test.describe('when prop is provided but the optional child properties of `leadingAction` are not provided', () => {
+        test('should fallback to defaults', async ({ mount, page }) => {
+            await mount(PieModal, {
+                props: {
+                    heading: 'This is a modal heading',
+                    hasBackButton: true,
+                    isDismissible: true,
+                    isOpen: true,
+                    leadingAction: {
+                        text: 'Confirm',
+                    },
+                },
+            });
+
+            await percySnapshot(page, 'Modal fallback to default property `primary`');
+        });
+    });
+
     test.describe('when prop is NOT passed into component', () => {
-        test('Should NOT display `leadingAction`', async ({ mount, page }) => {
+        test('should NOT display `leadingAction`', async ({ mount, page }) => {
             await mount(PieModal, {
                 props: {
                     heading: 'This is a modal heading',
