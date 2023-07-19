@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/pie-wrapper-react",
-  "version": "0.8.0",
+  "version": "0.8.1",
   "description": "Common react wrapper for use for PIE custom elements",
   "license": "Apache-2.0",
   "type": "module",
