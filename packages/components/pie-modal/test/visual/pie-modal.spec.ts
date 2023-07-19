@@ -1,6 +1,7 @@
 import { test } from '@sand4rt/experimental-ct-web';
 import percySnapshot from '@percy/playwright';
 import { PieIconButton } from '@justeattakeaway/pie-icon-button';
+import { PieButton } from '@justeattakeaway/pie-button';
 import { positions } from '../../src/defs.ts';
 import { PieModal } from '@/index';
 import { ModalProps, sizes } from '@/defs';
@@ -9,17 +10,9 @@ import { ModalProps, sizes } from '@/defs';
 // they have been registered with the browser before the tests run.
 // There is likely a nicer way to do this but this will temporarily
 // unblock tests.
-test.beforeEach(async ({ page, mount }) => {
-    await mount(
-        PieIconButton,
-        {},
-    );
-
-    // Removing the element so it's not present in the tests (but is still registered in the DOM)
-    await page.evaluate(() => {
-        const element : Element | null = document.querySelector('pie-icon-button');
-        element?.remove();
-    });
+test.beforeEach(async ({ mount }) => {
+    await (await mount(PieButton)).unmount();
+    await (await mount(PieIconButton)).unmount();
 });
 
 sizes.forEach((size) => {
@@ -170,6 +163,7 @@ test.describe('`position`', () => {
             await mount(PieModal, {
                 props: {
                     heading: 'This is a modal heading',
+                    isOpen: true,
                     position,
                 } as ModalProps,
             });
