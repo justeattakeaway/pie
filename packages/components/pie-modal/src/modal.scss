@@ -39,10 +39,8 @@
 
     // We need to override the icon sizes at different screen sizes regardless of size prop passed in
     pie-icon-button {
-        --btn-dimension: 40px;
-
-        @media (min-width: $breakpoint-wide) {
-            --btn-dimension: 48px;
+        @media (max-width: $breakpoint-wide) {
+            --btn-dimension: 40px;
         }
     }
 
