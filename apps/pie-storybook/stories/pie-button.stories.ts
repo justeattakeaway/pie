@@ -5,6 +5,9 @@ import {
 } from '@justeattakeaway/pie-button';
 import { StoryMeta, SlottedComponentProps } from '../types';
 
+import '@justeattakeaway/pie-icons-webc/icons/IconPlusCircle'; // Register icon-plus-circle
+import '@justeattakeaway/pie-icons-webc/icons/IconChevronDown'; // Register icon-chevron-down
+
 type ButtonProps = SlottedComponentProps<ButtonPropsBase>;
 type ButtonStoryMeta = StoryMeta<ButtonProps>;
 
@@ -16,6 +19,7 @@ const defaultArgs: ButtonProps = {
     isFullWidth: false,
     isLoading: false,
     slot: 'This is Lit!',
+    buttonIcons: [],
 };
 
 const buttonStoryMeta: ButtonStoryMeta = {
@@ -23,28 +27,61 @@ const buttonStoryMeta: ButtonStoryMeta = {
     component: 'pie-button',
     argTypes: {
         size: {
+            description: 'Set the size of the button',
             control: 'select',
             options: sizes,
+            defaultValue: {
+                summary: 'medium',
+            },
         },
         type: {
+            description: 'Set the type the button,',
             control: 'select',
             options: types,
+            defaultValue: {
+                summary: 'submit',
+            },
         },
         variant: {
+            description: 'Set the variant of the button.',
             control: 'select',
             options: variants,
+            defaultValue: {
+                summary: 'primary',
+            },
         },
         disabled: {
+            description: 'If `true`, disables the button.',
             control: 'boolean',
+            defaultValue: {
+                summary: false,
+            },
         },
         isFullWidth: {
+            description: 'If `true`, sets the button width to 100% of it’s container.',
             control: 'boolean',
+            defaultValue: {
+                summary: false,
+            },
         },
         isLoading: {
+            description: 'If `true`, displays a loading indicator inside the button.',
             control: 'boolean',
+            defaultValue: {
+                summary: false,
+            },
         },
         slot: {
+            description: 'The default slot is used to pass the button text into the component.',
             control: 'text',
+            defaultValue: {
+                summary: '',
+            },
+        },
+        buttonIcons: {
+            description: 'Show a leading and/or trailing icon.<br /><br />To use this with pie-button, you can pass an icon into the `icon-leading` or `icon-trailing` slot',
+            control: 'check',
+            options: ['Leading', 'Trailing'],
         },
     },
     args: defaultArgs,
@@ -59,7 +96,7 @@ const buttonStoryMeta: ButtonStoryMeta = {
 export default buttonStoryMeta;
 
 const Template = ({
-    size, variant, type, disabled, isFullWidth, isLoading, slot,
+    size, variant, type, disabled, isFullWidth, isLoading, slot, buttonIcons,
 }: ButtonProps): TemplateResult => html`
         <pie-button
             size="${size}"
@@ -68,7 +105,9 @@ const Template = ({
             ?disabled="${disabled}"
             ?isLoading="${isLoading}"
             ?isFullWidth="${isFullWidth}">
+            ${buttonIcons.includes('Leading') ? html`<icon-plus-circle slot="icon-leading"></icon-plus-circle>` : ''}
             ${slot}
+            ${buttonIcons.includes('Trailing') ? html`<icon-chevron-down slot="icon-trailing"></icon-chevron-down>` : ''}
         </pie-button>
         `;
 
@@ -93,6 +132,12 @@ export const Ghost: Story<ButtonProps> = (args: ButtonProps) => Template(args);
 Ghost.args = {
     ...defaultArgs,
     variant: 'ghost',
+};
+
+Ghost.parameters = {
+    backgrounds: {
+        default: 'dark',
+    },
 };
 
 export const Inverse: Story<ButtonProps> = (args: ButtonProps) => Template(args);
