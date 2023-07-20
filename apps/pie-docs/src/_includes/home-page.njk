@@ -13,14 +13,16 @@
             </p>
             <a class='o-btn' href={{ heroCtaHref | url }}>{{ heroCtaTitle }}</a>
         </div>
+        <div class="image-hey">
         <div class="u-showAboveMid c-homePage-image">
         {% if heroImageSrc %}
-            <img src={{ heroSrc }} alt="" />
+            <img class="image" src={{ heroSrc }} alt="" />
         {% endif %}
+        </div>
         </div>
     </div>
         <div class="header">
-        <div class="circle"></div>
+        <div class="polygon"></div>
         </div>
         <div data-test-id="site_content" class="c-contentPage-content">
         {# temporarily adding a condition to check if the title is PIE Design System - this allows an empty home page not to display the coming soon graphic in the page body  #}
