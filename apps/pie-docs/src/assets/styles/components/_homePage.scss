@@ -1,100 +1,97 @@
 @use '../fozzie-config' as f;
 @use '../variables' as v;
 
-.homePage-- {
+.c-homePage {
     min-height: 100%;
-    display: flex;
-    min-height: 100%;
-    flex-direction: column;
+    display: grid;
+    grid-template-rows: minmax(0, 300px) minmax(0, 100px) auto;
     background-color: f.$color-background-subtle;
+
+    @include f.media('>=narrowMid') {
+        grid-template-rows: minmax(0, 250px) minmax(0, 250px) auto;
+    }
 }
 
-.polygon{
-    top: 315px;
-    height:550px;
+.razor{
+    grid-row: 2;
+    grid-column: 1;
     width:100%;
+    height: 500px;
     background-color: f.$color-support-brand-01;
-    position: absolute;
+    align-self: flex-start;
     clip-path: polygon(0 12%, 100% 0%, 100% 100%, 0% 100%);
 
     @include f.media('>=narrowMid') {
-        top: 250px;
-    }
-
-    @include f.media('>=mid') {
-        clip-path: polygon(0 45%, 100% 0%, 100% 100%, 0% 100%);
-        height: 350px;
-    }
-
-    @include f.media('>=wide') {
-        clip-path: polygon(0 50%, 100% 0%, 100% 100%, 0% 100%);
-        top: 280px;
+        clip-path: polygon(0 55%, 100% 0%, 100% 100%, 0% 100%);
+        height: 400px;
     }
 }
 
-
 .c-homePage-heading {
+    grid-row: 1 / span 2;
+    grid-column: 1;
     min-height: 100%;
-    height: 400px;
-    align-items: center;
-    justify-content: center;
-    padding-inline: f.spacing(d);
     z-index: 1;
+    padding-inline: f.spacing(d);
 
     @include f.media('>=narrowMid') {
+        display: grid;
         padding-inline: f.spacing(e);
-        padding-block-start: f.spacing(e);
     }
 
     @include f.media('>=mid') {
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-gap: f.spacing(e);
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        height: 450px;
         padding-inline: f.spacing(i);
+        grid-template-columns: 1fr 1fr;
+        gap: f.spacing(e);
+    }
+}
+
+.c-homePage-title {
+    align-self: start;
+    padding-block-start: 40px;
+
+    @include f.media('>=mid') {
+        padding-block-start: 88px;
+        max-width: 500px;
     }
 
-    .c-homePage-title {
-        align-self: start;
-        padding-block-start: f.spacing(g);;
-        // padding-block-end: 88px;
-
-        @include f.media('>mid') {
-            max-width: 500px;
+    .c-homePage-description {
+        @include f.font-size('body-l');
+        margin-top: f.spacing(e);
+        max-width: 50ch;
+        margin-bottom: f.spacing(d);
+    
+    
+        @include f.media('>=wide') {
+            @include f.font-size('heading-s');
+        }
+    }
+    
+    h1 {
+        @include f.font-size('heading-xl');
+        @include f.media('>=mid') {
+            @include f.font-size('heading-xxl');
         }
     }
 }
 
-.image {
-    object-fit: fill;
-    width: 100%;
-    max-height: 100%;
-    position: relative;
-}
+.c-homePage-image {
+    align-self: center;
 
-.c-homePage-description {
-    @include f.font-size('body-l');
-    margin-top: f.spacing(e);
-    max-width: 50ch;
-    margin-bottom: f.spacing(d);
-
-
-    @include f.media('>=wide') {
-        @include f.font-size('heading-s');
+    & img {
+        object-fit: contain;
+        width: 100%;
+        max-height: 100%;
+        position: relative;
     }
 }
 
-h1 {
-    @include f.font-size('heading-xl');
-    @include f.media('>=mid') {
-        @include f.font-size('heading-xxl');
-    }
-}
 
 .c-homePage-content {
     height: 100%;
+    grid-row: 3;
     padding-inline: f.spacing(d);
+
     @include f.media('>=narrowMid') {
         padding-inline: f.spacing(e);
     }
@@ -102,4 +99,8 @@ h1 {
     @include f.media('>=mid') {
         padding-inline: f.spacing(i);
     }
+}
+
+.c-content-container {
+    padding-top: 0 !important;
 }
