@@ -5309,10 +5309,10 @@ __metadata:
     "@justeattakeaway/pie-icons-configs": "workspace:*"
     "@open-wc/testing": ^3.2.0
     "@rollup/plugin-node-resolve": 15.1.0
+    "@rollup/plugin-typescript": 11.1.2
     "@web/test-runner": 0.16.1
-    fs-extra: 9.1.0
-    kebab-case: 1.0.2
-    pascal-case: 3.1.2
+    just-kebab-case: 4.2.0
+    just-pascal-case: 3.2.0
     rollup: 3.20.2
     rollup-plugin-delete: 2.0.0
   languageName: unknown
@@ -7064,6 +7064,25 @@ __metadata:
     rollup:
       optional: true
   checksum: 0d697e816f32e9609c48defbda6f3ed90548126fbf673451cfde2c576a7511073cd25d45a9669f179d0b89485e62f56cabeb65428c2232469ab6057ae5dc7709
+  languageName: node
+  linkType: hard
+
+"@rollup/plugin-typescript@npm:11.1.2":
+  version: 11.1.2
+  resolution: "@rollup/plugin-typescript@npm:11.1.2"
+  dependencies:
+    "@rollup/pluginutils": ^5.0.1
+    resolve: ^1.22.1
+  peerDependencies:
+    rollup: ^2.14.0||^3.0.0
+    tslib: "*"
+    typescript: ">=3.7.0"
+  peerDependenciesMeta:
+    rollup:
+      optional: true
+    tslib:
+      optional: true
+  checksum: f4655a35e08639574e86dbce578b76468ee8627e4a3d8a46b7e0703d5d98c39a9bda9aa7144510aae11c5d8ce9c3b065e7f3e52dd31fbc6780015dd7802e01f7
   languageName: node
   linkType: hard
 
@@ -23346,6 +23365,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"just-kebab-case@npm:4.2.0":
+  version: 4.2.0
+  resolution: "just-kebab-case@npm:4.2.0"
+  checksum: 3f8b1041a56bfb7dd9d789ba4da8c244fa10775c7ed900440eb6c9002292caa3dbb6c88792907c830fea328db85a92ba2c302c31dbd740a58d81fd364423db4c
+  languageName: node
+  linkType: hard
+
+"just-pascal-case@npm:3.2.0":
+  version: 3.2.0
+  resolution: "just-pascal-case@npm:3.2.0"
+  checksum: c894fa1eaa57e4210ba1fdb64ef1fe2fa5688d955267b2bad32f6d5088ceb24ba3701c68143aada0da0cea6bd5e1228a211afbd13130247a4b00e939f0be2564
+  languageName: node
+  linkType: hard
+
 "karma-chrome-launcher@npm:3.1.0":
   version: 3.1.0
   resolution: "karma-chrome-launcher@npm:3.1.0"
@@ -23431,13 +23464,6 @@ __metadata:
   bin:
     karma: bin/karma
   checksum: c449df10aebea344ec8771b7cc35e571c783e452a1e4659a90849d0695488bebca8bf27d5ee9165de6dc3c5f4ba04ee5d67789c2b6ed45f1400268fa27f6682e
-  languageName: node
-  linkType: hard
-
-"kebab-case@npm:1.0.2":
-  version: 1.0.2
-  resolution: "kebab-case@npm:1.0.2"
-  checksum: bf01164e11c544ee9b3aa1a91c2e7d6aa6b3356b834a5e885d43f36db14aae5d347cd4a298a566133321b82fde6bac6b597f148ac19bfd3d3fc81e1034a79729
   languageName: node
   linkType: hard
 

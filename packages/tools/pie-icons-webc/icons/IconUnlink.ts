@@ -1,0 +1,58 @@
+import {
+    html, LitElement, TemplateResult,
+} from 'lit';
+import { property, query } from 'lit/decorators.js';
+import type { DependentMap } from '@justeattakeaway/pie-webc-core';
+import { getSvgProps } from '@justeattakeaway/pie-icons-configs';
+
+const sizes = ['small', 'medium', 'large', 'xlarge', 'xxlarge'] as const;
+type Size = typeof sizes[number];
+
+interface IconProps {
+    size: Size;
+    class: string;
+}
+
+const componentSelector = 'icon-unlink';
+
+export class IconUnlink extends LitElement implements IconProps {
+    @property({ type: String, reflect: true })
+    public size : Size = 'medium';
+
+    @property({ type: String, reflect: true })
+    public class : string = 'c-pieIcon c-pieIcon--unlink';
+
+    @query('svg')
+    private _svg? : SVGElement;
+
+    connectedCallback () : void {
+        if (this._svg?.getAttribute('width') === null) {
+            const svgSize = getSvgProps('c-pieIcon c-pieIcon--unlink', '', null, 'IconUnlink');
+            this._svg?.setAttribute('width', svgSize.width);
+            this._svg?.setAttribute('height', svgSize.height);
+        }
+    }
+
+    updated (changedProperties: DependentMap<IconProps>) : void {
+        let svgSize : { width: string, height: string, class: string };
+
+        if (changedProperties.has('size')) {
+            svgSize = getSvgProps('c-pieIcon c-pieIcon--unlink', '', this.size, 'IconUnlink');
+
+            this._svg?.setAttribute('width', svgSize.width);
+            this._svg?.setAttribute('height', svgSize.height);
+        }
+    }
+
+    render () : TemplateResult {
+        return html`[object Object]<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 16 16" class="c-pieIcon c-pieIcon--unlink"><path d="M5.48 11.719h1.645v1.312H5.48a4.445 4.445 0 0 1-4.261-4.594A4.813 4.813 0 0 1 2.444 5.21 4.121 4.121 0 0 1 5.48 3.844h1.645v1.312H5.48a2.791 2.791 0 0 0-2.065.945 3.448 3.448 0 0 0-.875 2.337 3.132 3.132 0 0 0 2.94 3.28Zm5.04-7.875H8.875v1.312h1.645a3.133 3.133 0 0 1 2.949 3.282c.01.86-.302 1.694-.875 2.336a2.792 2.792 0 0 1-2.065.945H8.875v1.312h1.645a4.12 4.12 0 0 0 3.036-1.365 4.812 4.812 0 0 0 1.225-3.229 4.445 4.445 0 0 0-4.261-4.593Zm-.306 5.906L8.927 8.437l1.287-1.312-.928-.875L8 7.51 6.714 6.25l-.928.875 1.286 1.313L5.786 9.75l.928.875L8 9.365l1.286 1.26.928-.875Z"></path></svg>`;
+    }
+}
+
+customElements.define(componentSelector, IconUnlink);
+
+declare global {
+    interface HTMLElementTagNameMap {
+        [componentSelector]: IconUnlink;
+    }
+}

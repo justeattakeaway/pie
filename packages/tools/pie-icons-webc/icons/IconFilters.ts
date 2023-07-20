@@ -1,0 +1,58 @@
+import {
+    html, LitElement, TemplateResult,
+} from 'lit';
+import { property, query } from 'lit/decorators.js';
+import type { DependentMap } from '@justeattakeaway/pie-webc-core';
+import { getSvgProps } from '@justeattakeaway/pie-icons-configs';
+
+const sizes = ['small', 'medium', 'large', 'xlarge', 'xxlarge'] as const;
+type Size = typeof sizes[number];
+
+interface IconProps {
+    size: Size;
+    class: string;
+}
+
+const componentSelector = 'icon-filters';
+
+export class IconFilters extends LitElement implements IconProps {
+    @property({ type: String, reflect: true })
+    public size : Size = 'medium';
+
+    @property({ type: String, reflect: true })
+    public class : string = 'c-pieIcon c-pieIcon--filters';
+
+    @query('svg')
+    private _svg? : SVGElement;
+
+    connectedCallback () : void {
+        if (this._svg?.getAttribute('width') === null) {
+            const svgSize = getSvgProps('c-pieIcon c-pieIcon--filters', '', null, 'IconFilters');
+            this._svg?.setAttribute('width', svgSize.width);
+            this._svg?.setAttribute('height', svgSize.height);
+        }
+    }
+
+    updated (changedProperties: DependentMap<IconProps>) : void {
+        let svgSize : { width: string, height: string, class: string };
+
+        if (changedProperties.has('size')) {
+            svgSize = getSvgProps('c-pieIcon c-pieIcon--filters', '', this.size, 'IconFilters');
+
+            this._svg?.setAttribute('width', svgSize.width);
+            this._svg?.setAttribute('height', svgSize.height);
+        }
+    }
+
+    render () : TemplateResult {
+        return html`[object Object]<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 16 16" class="c-pieIcon c-pieIcon--filters"><path d="M15 3.844v1.312H6.031v1.532H4.72V5.155H1V3.844h3.719V2.313H6.03v1.53H15Zm-3.719 5.469H9.97v1.53H1v1.313h8.969v1.531h1.312v-1.53H15v-1.313h-3.719V9.313Z"></path></svg>`;
+    }
+}
+
+customElements.define(componentSelector, IconFilters);
+
+declare global {
+    interface HTMLElementTagNameMap {
+        [componentSelector]: IconFilters;
+    }
+}

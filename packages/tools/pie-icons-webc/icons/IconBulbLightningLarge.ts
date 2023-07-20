@@ -1,0 +1,58 @@
+import {
+    html, LitElement, TemplateResult,
+} from 'lit';
+import { property, query } from 'lit/decorators.js';
+import type { DependentMap } from '@justeattakeaway/pie-webc-core';
+import { getSvgProps } from '@justeattakeaway/pie-icons-configs';
+
+const sizes = ['small', 'medium', 'large', 'xlarge', 'xxlarge'] as const;
+type Size = typeof sizes[number];
+
+interface IconProps {
+    size: Size;
+    class: string;
+}
+
+const componentSelector = 'icon-bulb-lightning-large';
+
+export class IconBulbLightningLarge extends LitElement implements IconProps {
+    @property({ type: String, reflect: true })
+    public size : Size = 'medium';
+
+    @property({ type: String, reflect: true })
+    public class : string = 'c-pieIcon c-pieIcon--bulbLightningLarge';
+
+    @query('svg')
+    private _svg? : SVGElement;
+
+    connectedCallback () : void {
+        if (this._svg?.getAttribute('width') === null) {
+            const svgSize = getSvgProps('c-pieIcon c-pieIcon--bulbLightningLarge', '', null, 'IconBulbLightningLarge');
+            this._svg?.setAttribute('width', svgSize.width);
+            this._svg?.setAttribute('height', svgSize.height);
+        }
+    }
+
+    updated (changedProperties: DependentMap<IconProps>) : void {
+        let svgSize : { width: string, height: string, class: string };
+
+        if (changedProperties.has('size')) {
+            svgSize = getSvgProps('c-pieIcon c-pieIcon--bulbLightningLarge', '', this.size, 'IconBulbLightningLarge');
+
+            this._svg?.setAttribute('width', svgSize.width);
+            this._svg?.setAttribute('height', svgSize.height);
+        }
+    }
+
+    render () : TemplateResult {
+        return html`[object Object]<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 32 32" class="c-pieIcon c-pieIcon--bulbLightningLarge"><path d="m10.96 20.891.665 3.859h8.75l.639-3.867a4.489 4.489 0 0 1 1.33-2.407 9.083 9.083 0 0 0-.63-13.562 9.17 9.17 0 0 0-7.692-1.838 9.1 9.1 0 0 0-4.427 15.365 4.655 4.655 0 0 1 1.365 2.45ZM8.746 10.75a7.359 7.359 0 1 1 14.041 4.085 7.271 7.271 0 0 1-1.642 2.399 6.196 6.196 0 0 0-1.829 3.368L18.914 23h-5.828l-.402-2.398A6.247 6.247 0 0 0 10.82 17.2a7.324 7.324 0 0 1-2.074-6.449Z"></path><path d="m16 17.75 3.027-5.758H16V8.125l-3.028 5.801H16v3.824Z"></path><path d="M20.2 26.5h-8.4l.463 1.75h7.473l.464-1.75Z"></path></svg>`;
+    }
+}
+
+customElements.define(componentSelector, IconBulbLightningLarge);
+
+declare global {
+    interface HTMLElementTagNameMap {
+        [componentSelector]: IconBulbLightningLarge;
+    }
+}

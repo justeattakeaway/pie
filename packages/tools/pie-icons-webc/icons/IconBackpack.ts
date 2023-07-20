@@ -1,0 +1,58 @@
+import {
+    html, LitElement, TemplateResult,
+} from 'lit';
+import { property, query } from 'lit/decorators.js';
+import type { DependentMap } from '@justeattakeaway/pie-webc-core';
+import { getSvgProps } from '@justeattakeaway/pie-icons-configs';
+
+const sizes = ['small', 'medium', 'large', 'xlarge', 'xxlarge'] as const;
+type Size = typeof sizes[number];
+
+interface IconProps {
+    size: Size;
+    class: string;
+}
+
+const componentSelector = 'icon-backpack';
+
+export class IconBackpack extends LitElement implements IconProps {
+    @property({ type: String, reflect: true })
+    public size : Size = 'medium';
+
+    @property({ type: String, reflect: true })
+    public class : string = 'c-pieIcon c-pieIcon--backpack';
+
+    @query('svg')
+    private _svg? : SVGElement;
+
+    connectedCallback () : void {
+        if (this._svg?.getAttribute('width') === null) {
+            const svgSize = getSvgProps('c-pieIcon c-pieIcon--backpack', '', null, 'IconBackpack');
+            this._svg?.setAttribute('width', svgSize.width);
+            this._svg?.setAttribute('height', svgSize.height);
+        }
+    }
+
+    updated (changedProperties: DependentMap<IconProps>) : void {
+        let svgSize : { width: string, height: string, class: string };
+
+        if (changedProperties.has('size')) {
+            svgSize = getSvgProps('c-pieIcon c-pieIcon--backpack', '', this.size, 'IconBackpack');
+
+            this._svg?.setAttribute('width', svgSize.width);
+            this._svg?.setAttribute('height', svgSize.height);
+        }
+    }
+
+    render () : TemplateResult {
+        return html`[object Object]<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 16 16" class="c-pieIcon c-pieIcon--backpack"><path d="M13.25 8V5.436a1.601 1.601 0 0 0-1.592-1.592h-.578l-.875-2.625H5.777l-.875 2.625h-.56A1.601 1.601 0 0 0 2.75 5.436V8a.875.875 0 0 0-.875.875v3.5a.875.875 0 0 0 .875.875.937.937 0 0 0 .271-.053 1.576 1.576 0 0 0 1.322.71h7.315a1.575 1.575 0 0 0 1.32-.71c.088.031.18.049.272.053a.875.875 0 0 0 .875-.875v-3.5A.875.875 0 0 0 13.25 8ZM6.723 2.531h2.554l.42 1.313H6.303l.42-1.313Zm5.25 9.783a.28.28 0 0 1-.28.28h-7.35a.28.28 0 0 1-.28-.28V5.436a.28.28 0 0 1 .28-.28h7.315a.28.28 0 0 1 .28.28l.034 6.878Z"></path></svg>`;
+    }
+}
+
+customElements.define(componentSelector, IconBackpack);
+
+declare global {
+    interface HTMLElementTagNameMap {
+        [componentSelector]: IconBackpack;
+    }
+}

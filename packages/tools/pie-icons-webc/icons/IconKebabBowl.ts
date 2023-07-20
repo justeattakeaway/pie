@@ -1,0 +1,58 @@
+import {
+    html, LitElement, TemplateResult,
+} from 'lit';
+import { property, query } from 'lit/decorators.js';
+import type { DependentMap } from '@justeattakeaway/pie-webc-core';
+import { getSvgProps } from '@justeattakeaway/pie-icons-configs';
+
+const sizes = ['small', 'medium', 'large', 'xlarge', 'xxlarge'] as const;
+type Size = typeof sizes[number];
+
+interface IconProps {
+    size: Size;
+    class: string;
+}
+
+const componentSelector = 'icon-kebab-bowl';
+
+export class IconKebabBowl extends LitElement implements IconProps {
+    @property({ type: String, reflect: true })
+    public size : Size = 'medium';
+
+    @property({ type: String, reflect: true })
+    public class : string = 'c-pieIcon c-pieIcon--kebabBowl';
+
+    @query('svg')
+    private _svg? : SVGElement;
+
+    connectedCallback () : void {
+        if (this._svg?.getAttribute('width') === null) {
+            const svgSize = getSvgProps('c-pieIcon c-pieIcon--kebabBowl', '', null, 'IconKebabBowl');
+            this._svg?.setAttribute('width', svgSize.width);
+            this._svg?.setAttribute('height', svgSize.height);
+        }
+    }
+
+    updated (changedProperties: DependentMap<IconProps>) : void {
+        let svgSize : { width: string, height: string, class: string };
+
+        if (changedProperties.has('size')) {
+            svgSize = getSvgProps('c-pieIcon c-pieIcon--kebabBowl', '', this.size, 'IconKebabBowl');
+
+            this._svg?.setAttribute('width', svgSize.width);
+            this._svg?.setAttribute('height', svgSize.height);
+        }
+    }
+
+    render () : TemplateResult {
+        return html`[object Object]<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 16 16" class="c-pieIcon c-pieIcon--kebabBowl"><path d="m14.711 7.886-.096-.542h-.271a3.23 3.23 0 0 0 .402-1.89 1.252 1.252 0 0 0-.604-.875 1.347 1.347 0 0 0-.892-.079 1.917 1.917 0 0 0-.131-.665 1.295 1.295 0 0 0-.814-.77 1.592 1.592 0 0 0-1.68.56 1.058 1.058 0 0 0-.875-.332c-.586 0-1.068.525-1.435 1.452a2.143 2.143 0 0 0-.341 0 2.372 2.372 0 0 0-.35 0c-.35-.875-.823-1.356-1.4-1.391a1.12 1.12 0 0 0-.875.332 1.566 1.566 0 0 0-1.637-.656 1.269 1.269 0 0 0-.813.77c-.09.223-.14.46-.149.7a1.251 1.251 0 0 0-1.496.954 3.229 3.229 0 0 0 .402 1.89h-.271l-.096.542c-.047.29-.07.582-.07.875 0 3.317 3.045 6.012 6.781 6.012 3.736 0 6.781-2.695 6.781-6.012 0-.293-.023-.585-.07-.875ZM9.83 4.72c.067.11.123.228.166.35a.639.639 0 0 0 .578.411.648.648 0 0 0 .612-.359 2.52 2.52 0 0 1 .691-.875c.07.318.045.65-.07.954a.647.647 0 0 0 .07.761.656.656 0 0 0 .875.088 3.88 3.88 0 0 1 .683-.35 3.133 3.133 0 0 1-.613 1.627h-1.925a2.819 2.819 0 0 0-1.312-2.161c.067-.156.149-.306.245-.446Zm-.245 2.625H6.416a1.61 1.61 0 0 1 3.168 0ZM2.53 5.778c.245.077.473.199.674.358a.656.656 0 0 0 1.015-.761 2.774 2.774 0 0 1-.149-1.076c.32.219.575.522.735.875a.674.674 0 0 0 .622.376.656.656 0 0 0 .586-.42c.045-.133.107-.26.183-.376.082.128.152.262.21.402a2.835 2.835 0 0 0-1.303 2.188H3.152a3.5 3.5 0 0 1-.62-1.566ZM8 13.468c-3.019 0-5.469-2.108-5.469-4.698v-.114H13.47v.114c0 2.59-2.45 4.699-5.469 4.699Z"></path></svg>`;
+    }
+}
+
+customElements.define(componentSelector, IconKebabBowl);
+
+declare global {
+    interface HTMLElementTagNameMap {
+        [componentSelector]: IconKebabBowl;
+    }
+}

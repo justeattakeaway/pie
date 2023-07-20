@@ -1,0 +1,9 @@
+{
+    "extends": "../../../configs/pie-components-config/tsconfig.json",
+    "compilerOptions": {
+      "baseUrl": ".",
+      "rootDir": ".",
+      "outDir": "esm"
+    },
+    "include": ["icons/**/*.ts"],
+}
