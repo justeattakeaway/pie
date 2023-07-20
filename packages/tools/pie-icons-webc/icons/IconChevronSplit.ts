@@ -1,5 +1,5 @@
 import {
-    html, LitElement, TemplateResult,
+    html, LitElement, TemplateResult, css,
 } from 'lit';
 import { property, query } from 'lit/decorators.js';
 import type { DependentMap } from '@justeattakeaway/pie-webc-core';
@@ -16,11 +16,20 @@ interface IconProps {
 const componentSelector = 'icon-chevron-split';
 
 export class IconChevronSplit extends LitElement implements IconProps {
+    static styles = css`
+        :host-context(pie-icon-button) svg,
+        :host-context(pie-button) svg {
+            display:block;
+            width: var(--btn-icon-size);
+            height: var(--btn-icon-size);
+        }
+    `;
+
     @property({ type: String, reflect: true })
     public size : Size = 'medium';
 
     @property({ type: String, reflect: true })
-    public class : string = 'c-pieIcon c-pieIcon--chevronSplit';
+    public class = 'c-pieIcon c-pieIcon--chevronSplit';
 
     @query('svg')
     private _svg? : SVGElement;
@@ -45,7 +54,7 @@ export class IconChevronSplit extends LitElement implements IconProps {
     }
 
     render () : TemplateResult {
-        return html`[object Object]<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 16 16" class="c-pieIcon c-pieIcon--chevronSplit"><path d="M11.307 6.25 8 2.864 4.693 6.25l-.902-.936 3.5-3.597a1.068 1.068 0 0 1 1.444 0l3.509 3.658-.937.875Z"></path><path d="M4.693 9.75 8 13.049l3.307-3.378.893.919-3.5 3.596a1.068 1.068 0 0 1-1.444 0l-3.5-3.561.937-.875Z"></path></svg>`;
+        return html`<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 16 16" class="c-pieIcon c-pieIcon--chevronSplit"><path d="M11.307 6.25 8 2.864 4.693 6.25l-.902-.936 3.5-3.597a1.068 1.068 0 0 1 1.444 0l3.509 3.658-.937.875Z"></path><path d="M4.693 9.75 8 13.049l3.307-3.378.893.919-3.5 3.596a1.068 1.068 0 0 1-1.444 0l-3.5-3.561.937-.875Z"></path></svg>`;
     }
 }
 

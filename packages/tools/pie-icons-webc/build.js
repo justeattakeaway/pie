@@ -24,7 +24,7 @@ const componentTemplate = (name, svg) => {
     const svgClasses = svg.match(/class="(.+?)"/)?.[1];
 
     return `import {
-    html, LitElement, TemplateResult,
+    html, LitElement, TemplateResult, css,
 } from 'lit';
 import { property, query } from 'lit/decorators.js';
 import type { DependentMap } from '@justeattakeaway/pie-webc-core';
@@ -41,11 +41,20 @@ interface IconProps {
 const componentSelector = '${kebabCase(name)}';
 
 export class ${name} extends LitElement implements IconProps {
+    static styles = css\`
+        :host-context(pie-icon-button) svg,
+        :host-context(pie-button) svg {
+            display:block;
+            width: var(--btn-icon-size);
+            height: var(--btn-icon-size);
+        }
+    \`;
+
     @property({ type: String, reflect: true })
     public size : Size = 'medium';
 
     @property({ type: String, reflect: true })
-    public class : string = '${svgClasses}';
+    public class = '${svgClasses}';
 
     @query('svg')
     private _svg? : SVGElement;
@@ -70,7 +79,7 @@ export class ${name} extends LitElement implements IconProps {
     }
 
     render () : TemplateResult {
-        return html\`${styleTag}${svg}\`;
+        return html\`${svg}\`;
     }
 }
 

@@ -1,5 +1,5 @@
 import {
-    html, LitElement, TemplateResult,
+    html, LitElement, TemplateResult, css,
 } from 'lit';
 import { property, query } from 'lit/decorators.js';
 import type { DependentMap } from '@justeattakeaway/pie-webc-core';
@@ -16,11 +16,20 @@ interface IconProps {
 const componentSelector = 'icon-switch-product';
 
 export class IconSwitchProduct extends LitElement implements IconProps {
+    static styles = css`
+        :host-context(pie-icon-button) svg,
+        :host-context(pie-button) svg {
+            display:block;
+            width: var(--btn-icon-size);
+            height: var(--btn-icon-size);
+        }
+    `;
+
     @property({ type: String, reflect: true })
     public size : Size = 'medium';
 
     @property({ type: String, reflect: true })
-    public class : string = 'c-pieIcon c-pieIcon--switchProduct';
+    public class = 'c-pieIcon c-pieIcon--switchProduct';
 
     @query('svg')
     private _svg? : SVGElement;
@@ -45,7 +54,7 @@ export class IconSwitchProduct extends LitElement implements IconProps {
     }
 
     render () : TemplateResult {
-        return html`[object Object]<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 16 16" class="c-pieIcon c-pieIcon--switchProduct"><path d="M5.261 2.094H2.094V5.26H5.26V2.094Z"></path><path d="M5.261 6.407H2.094v3.168H5.26V6.408Z"></path><path d="M9.584 2.094H6.416V5.26h3.168V2.094Z"></path><path d="M9.584 6.407H6.416v3.168h3.168V6.408Z"></path><path d="M5.261 10.73H2.094v3.168H5.26V10.73Z"></path><path d="M9.584 10.73H6.416v3.168h3.168V10.73Z"></path><path d="M13.898 2.094H10.73V5.26h3.168V2.094Z"></path><path d="M13.898 6.407H10.73v3.168h3.168V6.408Z"></path><path d="M13.898 10.73H10.73v3.168h3.168V10.73Z"></path></svg>`;
+        return html`<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 16 16" class="c-pieIcon c-pieIcon--switchProduct"><path d="M5.261 2.094H2.094V5.26H5.26V2.094Z"></path><path d="M5.261 6.407H2.094v3.168H5.26V6.408Z"></path><path d="M9.584 2.094H6.416V5.26h3.168V2.094Z"></path><path d="M9.584 6.407H6.416v3.168h3.168V6.408Z"></path><path d="M5.261 10.73H2.094v3.168H5.26V10.73Z"></path><path d="M9.584 10.73H6.416v3.168h3.168V10.73Z"></path><path d="M13.898 2.094H10.73V5.26h3.168V2.094Z"></path><path d="M13.898 6.407H10.73v3.168h3.168V6.408Z"></path><path d="M13.898 10.73H10.73v3.168h3.168V10.73Z"></path></svg>`;
     }
 }
 

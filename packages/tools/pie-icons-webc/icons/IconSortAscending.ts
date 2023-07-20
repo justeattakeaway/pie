@@ -1,5 +1,5 @@
 import {
-    html, LitElement, TemplateResult,
+    html, LitElement, TemplateResult, css,
 } from 'lit';
 import { property, query } from 'lit/decorators.js';
 import type { DependentMap } from '@justeattakeaway/pie-webc-core';
@@ -16,11 +16,20 @@ interface IconProps {
 const componentSelector = 'icon-sort-ascending';
 
 export class IconSortAscending extends LitElement implements IconProps {
+    static styles = css`
+        :host-context(pie-icon-button) svg,
+        :host-context(pie-button) svg {
+            display:block;
+            width: var(--btn-icon-size);
+            height: var(--btn-icon-size);
+        }
+    `;
+
     @property({ type: String, reflect: true })
     public size : Size = 'medium';
 
     @property({ type: String, reflect: true })
-    public class : string = 'c-pieIcon c-pieIcon--sortAscending';
+    public class = 'c-pieIcon c-pieIcon--sortAscending';
 
     @query('svg')
     private _svg? : SVGElement;
@@ -45,7 +54,7 @@ export class IconSortAscending extends LitElement implements IconProps {
     }
 
     render () : TemplateResult {
-        return html`[object Object]<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 16 16" class="c-pieIcon c-pieIcon--sortAscending"><path d="M1 7.344h6.816l-.551 1.312H1V7.344Zm8.286-3.5H1v1.312h7.735l.551-1.312ZM1 12.156h4.786l.56-1.312H1v1.312Zm12.994-2.502L12.156 11.5V6.25h-1.312v5.25L9.006 9.654l-.927.971 2.625 2.625a1.075 1.075 0 0 0 1.54 0l2.625-2.625-.875-.971Z"></path></svg>`;
+        return html`<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 16 16" class="c-pieIcon c-pieIcon--sortAscending"><path d="M1 7.344h6.816l-.551 1.312H1V7.344Zm8.286-3.5H1v1.312h7.735l.551-1.312ZM1 12.156h4.786l.56-1.312H1v1.312Zm12.994-2.502L12.156 11.5V6.25h-1.312v5.25L9.006 9.654l-.927.971 2.625 2.625a1.075 1.075 0 0 0 1.54 0l2.625-2.625-.875-.971Z"></path></svg>`;
     }
 }
 

@@ -1,5 +1,5 @@
 import {
-    html, LitElement, TemplateResult,
+    html, LitElement, TemplateResult, css,
 } from 'lit';
 import { property, query } from 'lit/decorators.js';
 import type { DependentMap } from '@justeattakeaway/pie-webc-core';
@@ -16,11 +16,20 @@ interface IconProps {
 const componentSelector = 'icon-fullscreen-exit-large';
 
 export class IconFullscreenExitLarge extends LitElement implements IconProps {
+    static styles = css`
+        :host-context(pie-icon-button) svg,
+        :host-context(pie-button) svg {
+            display:block;
+            width: var(--btn-icon-size);
+            height: var(--btn-icon-size);
+        }
+    `;
+
     @property({ type: String, reflect: true })
     public size : Size = 'medium';
 
     @property({ type: String, reflect: true })
-    public class : string = 'c-pieIcon c-pieIcon--fullscreenExitLarge';
+    public class = 'c-pieIcon c-pieIcon--fullscreenExitLarge';
 
     @query('svg')
     private _svg? : SVGElement;
@@ -45,7 +54,7 @@ export class IconFullscreenExitLarge extends LitElement implements IconProps {
     }
 
     render () : TemplateResult {
-        return html`[object Object]<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 32 32" class="c-pieIcon c-pieIcon--fullscreenExitLarge"><path d="m21.25 4.188-1.75-.875V12.5h9.132l-.986-1.75H21.25V4.187Z"></path><path d="m4.354 21.25-.986-1.75H12.5v9.188l-1.75-.875V21.25H4.354Z"></path><path d="m28.688 19.5-.875 1.75H21.25v6.396l-1.75.986V19.5h9.188Z"></path><path d="m10.75 4.354 1.75-.986V12.5H3.312l.876-1.75h6.562V4.354Z"></path></svg>`;
+        return html`<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 32 32" class="c-pieIcon c-pieIcon--fullscreenExitLarge"><path d="m21.25 4.188-1.75-.875V12.5h9.132l-.986-1.75H21.25V4.187Z"></path><path d="m4.354 21.25-.986-1.75H12.5v9.188l-1.75-.875V21.25H4.354Z"></path><path d="m28.688 19.5-.875 1.75H21.25v6.396l-1.75.986V19.5h9.188Z"></path><path d="m10.75 4.354 1.75-.986V12.5H3.312l.876-1.75h6.562V4.354Z"></path></svg>`;
     }
 }
 

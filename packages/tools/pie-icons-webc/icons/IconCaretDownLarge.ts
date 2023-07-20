@@ -1,5 +1,5 @@
 import {
-    html, LitElement, TemplateResult,
+    html, LitElement, TemplateResult, css,
 } from 'lit';
 import { property, query } from 'lit/decorators.js';
 import type { DependentMap } from '@justeattakeaway/pie-webc-core';
@@ -16,11 +16,20 @@ interface IconProps {
 const componentSelector = 'icon-caret-down-large';
 
 export class IconCaretDownLarge extends LitElement implements IconProps {
+    static styles = css`
+        :host-context(pie-icon-button) svg,
+        :host-context(pie-button) svg {
+            display:block;
+            width: var(--btn-icon-size);
+            height: var(--btn-icon-size);
+        }
+    `;
+
     @property({ type: String, reflect: true })
     public size : Size = 'medium';
 
     @property({ type: String, reflect: true })
-    public class : string = 'c-pieIcon c-pieIcon--caretDownLarge';
+    public class = 'c-pieIcon c-pieIcon--caretDownLarge';
 
     @query('svg')
     private _svg? : SVGElement;
@@ -45,7 +54,7 @@ export class IconCaretDownLarge extends LitElement implements IconProps {
     }
 
     render () : TemplateResult {
-        return html`[object Object]<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 32 32" class="c-pieIcon c-pieIcon--caretDownLarge"><path d="M24.82 8.169H7.18a1.671 1.671 0 0 0-1.409 2.625l8.96 13.956a1.679 1.679 0 0 0 2.844 0l8.671-14a1.672 1.672 0 0 0-1.426-2.581Zm-8.68 15.549-8.829-13.8H24.69l-8.549 13.8Z"></path></svg>`;
+        return html`<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 32 32" class="c-pieIcon c-pieIcon--caretDownLarge"><path d="M24.82 8.169H7.18a1.671 1.671 0 0 0-1.409 2.625l8.96 13.956a1.679 1.679 0 0 0 2.844 0l8.671-14a1.672 1.672 0 0 0-1.426-2.581Zm-8.68 15.549-8.829-13.8H24.69l-8.549 13.8Z"></path></svg>`;
     }
 }
 

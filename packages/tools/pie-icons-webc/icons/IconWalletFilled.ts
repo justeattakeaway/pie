@@ -1,5 +1,5 @@
 import {
-    html, LitElement, TemplateResult,
+    html, LitElement, TemplateResult, css,
 } from 'lit';
 import { property, query } from 'lit/decorators.js';
 import type { DependentMap } from '@justeattakeaway/pie-webc-core';
@@ -16,11 +16,20 @@ interface IconProps {
 const componentSelector = 'icon-wallet-filled';
 
 export class IconWalletFilled extends LitElement implements IconProps {
+    static styles = css`
+        :host-context(pie-icon-button) svg,
+        :host-context(pie-button) svg {
+            display:block;
+            width: var(--btn-icon-size);
+            height: var(--btn-icon-size);
+        }
+    `;
+
     @property({ type: String, reflect: true })
     public size : Size = 'medium';
 
     @property({ type: String, reflect: true })
-    public class : string = 'c-pieIcon c-pieIcon--walletFilled';
+    public class = 'c-pieIcon c-pieIcon--walletFilled';
 
     @query('svg')
     private _svg? : SVGElement;
@@ -45,7 +54,7 @@ export class IconWalletFilled extends LitElement implements IconProps {
     }
 
     render () : TemplateResult {
-        return html`[object Object]<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 16 16" class="c-pieIcon c-pieIcon--walletFilled"><path d="m9.75 3.065-.263-.735a1.531 1.531 0 0 0-1.995-.831L3.73 3.065h6.02Z"></path><path d="M10.397 11.325a.394.394 0 0 1-.394-.394v-3.15c.001-.075.025-.149.07-.21a.385.385 0 0 1 .298-.184h3.115V5.91a1.531 1.531 0 0 0-1.531-1.532h-8.97a1.549 1.549 0 0 0-.664.123 1.496 1.496 0 0 0-.761.875c-.071.169-.107.35-.105.534v7a1.54 1.54 0 0 0 1.53 1.531h8.97a1.54 1.54 0 0 0 1.53-1.531v-1.584h-3.088Z"></path><path d="M11.316 8.7v1.304h3.019V8.7h-3.02Z"></path></svg>`;
+        return html`<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 16 16" class="c-pieIcon c-pieIcon--walletFilled"><path d="m9.75 3.065-.263-.735a1.531 1.531 0 0 0-1.995-.831L3.73 3.065h6.02Z"></path><path d="M10.397 11.325a.394.394 0 0 1-.394-.394v-3.15c.001-.075.025-.149.07-.21a.385.385 0 0 1 .298-.184h3.115V5.91a1.531 1.531 0 0 0-1.531-1.532h-8.97a1.549 1.549 0 0 0-.664.123 1.496 1.496 0 0 0-.761.875c-.071.169-.107.35-.105.534v7a1.54 1.54 0 0 0 1.53 1.531h8.97a1.54 1.54 0 0 0 1.53-1.531v-1.584h-3.088Z"></path><path d="M11.316 8.7v1.304h3.019V8.7h-3.02Z"></path></svg>`;
     }
 }
 

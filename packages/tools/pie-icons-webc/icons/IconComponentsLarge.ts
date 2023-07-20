@@ -1,5 +1,5 @@
 import {
-    html, LitElement, TemplateResult,
+    html, LitElement, TemplateResult, css,
 } from 'lit';
 import { property, query } from 'lit/decorators.js';
 import type { DependentMap } from '@justeattakeaway/pie-webc-core';
@@ -16,11 +16,20 @@ interface IconProps {
 const componentSelector = 'icon-components-large';
 
 export class IconComponentsLarge extends LitElement implements IconProps {
+    static styles = css`
+        :host-context(pie-icon-button) svg,
+        :host-context(pie-button) svg {
+            display:block;
+            width: var(--btn-icon-size);
+            height: var(--btn-icon-size);
+        }
+    `;
+
     @property({ type: String, reflect: true })
     public size : Size = 'medium';
 
     @property({ type: String, reflect: true })
-    public class : string = 'c-pieIcon c-pieIcon--componentsLarge';
+    public class = 'c-pieIcon c-pieIcon--componentsLarge';
 
     @query('svg')
     private _svg? : SVGElement;
@@ -45,7 +54,7 @@ export class IconComponentsLarge extends LitElement implements IconProps {
     }
 
     render () : TemplateResult {
-        return html`[object Object]<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 32 32" class="c-pieIcon c-pieIcon--componentsLarge"><path d="M21.539 9.21 16 3.662 10.453 9.21 16 14.757l5.548-5.547h-.01ZM15.99 6.139l3.072 3.071-3.072 3.071-3.07-3.071 3.07-3.071Z"></path><path d="M22.79 10.453 17.243 16l5.547 5.547L28.338 16l-5.548-5.547ZM19.72 16l3.071-3.071L25.861 16l-3.07 3.071L19.718 16Z"></path><path d="M9.21 10.444 3.663 15.99 9.21 21.54l5.548-5.548-5.548-5.547ZM6.14 15.99 9.21 12.92l3.071 3.071-3.07 3.072-3.072-3.072Z"></path><path d="M10.453 22.781 16 28.33l5.548-5.548L16 17.234l-5.547 5.547ZM16 25.853 12.93 22.78 16 19.71l3.071 3.071-3.07 3.072Z"></path></svg>`;
+        return html`<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 32 32" class="c-pieIcon c-pieIcon--componentsLarge"><path d="M21.539 9.21 16 3.662 10.453 9.21 16 14.757l5.548-5.547h-.01ZM15.99 6.139l3.072 3.071-3.072 3.071-3.07-3.071 3.07-3.071Z"></path><path d="M22.79 10.453 17.243 16l5.547 5.547L28.338 16l-5.548-5.547ZM19.72 16l3.071-3.071L25.861 16l-3.07 3.071L19.718 16Z"></path><path d="M9.21 10.444 3.663 15.99 9.21 21.54l5.548-5.548-5.548-5.547ZM6.14 15.99 9.21 12.92l3.071 3.071-3.07 3.072-3.072-3.072Z"></path><path d="M10.453 22.781 16 28.33l5.548-5.548L16 17.234l-5.547 5.547ZM16 25.853 12.93 22.78 16 19.71l3.071 3.071-3.07 3.072Z"></path></svg>`;
     }
 }
 

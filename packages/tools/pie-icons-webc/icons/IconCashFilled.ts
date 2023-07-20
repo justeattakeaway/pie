@@ -1,5 +1,5 @@
 import {
-    html, LitElement, TemplateResult,
+    html, LitElement, TemplateResult, css,
 } from 'lit';
 import { property, query } from 'lit/decorators.js';
 import type { DependentMap } from '@justeattakeaway/pie-webc-core';
@@ -16,11 +16,20 @@ interface IconProps {
 const componentSelector = 'icon-cash-filled';
 
 export class IconCashFilled extends LitElement implements IconProps {
+    static styles = css`
+        :host-context(pie-icon-button) svg,
+        :host-context(pie-button) svg {
+            display:block;
+            width: var(--btn-icon-size);
+            height: var(--btn-icon-size);
+        }
+    `;
+
     @property({ type: String, reflect: true })
     public size : Size = 'medium';
 
     @property({ type: String, reflect: true })
-    public class : string = 'c-pieIcon c-pieIcon--cashFilled';
+    public class = 'c-pieIcon c-pieIcon--cashFilled';
 
     @query('svg')
     private _svg? : SVGElement;
@@ -45,7 +54,7 @@ export class IconCashFilled extends LitElement implements IconProps {
     }
 
     render () : TemplateResult {
-        return html`[object Object]<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 16 16" class="c-pieIcon c-pieIcon--cashFilled"><path d="M2.75 9.75h9.625v1.75H1V5.375h1.75V9.75Zm12.031-6.729v5.583H3.844V3.02H14.78ZM10.53 5.812a1.217 1.217 0 1 0-2.433 0 1.217 1.217 0 0 0 2.433 0Z"></path></svg>`;
+        return html`<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 16 16" class="c-pieIcon c-pieIcon--cashFilled"><path d="M2.75 9.75h9.625v1.75H1V5.375h1.75V9.75Zm12.031-6.729v5.583H3.844V3.02H14.78ZM10.53 5.812a1.217 1.217 0 1 0-2.433 0 1.217 1.217 0 0 0 2.433 0Z"></path></svg>`;
     }
 }
 

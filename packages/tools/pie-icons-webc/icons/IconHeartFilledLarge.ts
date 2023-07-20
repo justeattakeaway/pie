@@ -1,5 +1,5 @@
 import {
-    html, LitElement, TemplateResult,
+    html, LitElement, TemplateResult, css,
 } from 'lit';
 import { property, query } from 'lit/decorators.js';
 import type { DependentMap } from '@justeattakeaway/pie-webc-core';
@@ -16,11 +16,20 @@ interface IconProps {
 const componentSelector = 'icon-heart-filled-large';
 
 export class IconHeartFilledLarge extends LitElement implements IconProps {
+    static styles = css`
+        :host-context(pie-icon-button) svg,
+        :host-context(pie-button) svg {
+            display:block;
+            width: var(--btn-icon-size);
+            height: var(--btn-icon-size);
+        }
+    `;
+
     @property({ type: String, reflect: true })
     public size : Size = 'medium';
 
     @property({ type: String, reflect: true })
-    public class : string = 'c-pieIcon c-pieIcon--heartFilledLarge';
+    public class = 'c-pieIcon c-pieIcon--heartFilledLarge';
 
     @query('svg')
     private _svg? : SVGElement;
@@ -45,7 +54,7 @@ export class IconHeartFilledLarge extends LitElement implements IconProps {
     }
 
     render () : TemplateResult {
-        return html`[object Object]<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 32 32" class="c-pieIcon c-pieIcon--heartFilledLarge"><path d="M16 27.751 26.824 16.63a7.315 7.315 0 0 0 0-9.984 6.675 6.675 0 0 0-9.573 0L16 7.88l-1.277-1.225a6.668 6.668 0 0 0-9.573 0 7.315 7.315 0 0 0 0 9.984L16 27.75Z"></path></svg>`;
+        return html`<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 32 32" class="c-pieIcon c-pieIcon--heartFilledLarge"><path d="M16 27.751 26.824 16.63a7.315 7.315 0 0 0 0-9.984 6.675 6.675 0 0 0-9.573 0L16 7.88l-1.277-1.225a6.668 6.668 0 0 0-9.573 0 7.315 7.315 0 0 0 0 9.984L16 27.75Z"></path></svg>`;
     }
 }
 

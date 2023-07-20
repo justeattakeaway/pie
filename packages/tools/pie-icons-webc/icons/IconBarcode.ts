@@ -1,5 +1,5 @@
 import {
-    html, LitElement, TemplateResult,
+    html, LitElement, TemplateResult, css,
 } from 'lit';
 import { property, query } from 'lit/decorators.js';
 import type { DependentMap } from '@justeattakeaway/pie-webc-core';
@@ -16,11 +16,20 @@ interface IconProps {
 const componentSelector = 'icon-barcode';
 
 export class IconBarcode extends LitElement implements IconProps {
+    static styles = css`
+        :host-context(pie-icon-button) svg,
+        :host-context(pie-button) svg {
+            display:block;
+            width: var(--btn-icon-size);
+            height: var(--btn-icon-size);
+        }
+    `;
+
     @property({ type: String, reflect: true })
     public size : Size = 'medium';
 
     @property({ type: String, reflect: true })
-    public class : string = 'c-pieIcon c-pieIcon--barcode';
+    public class = 'c-pieIcon c-pieIcon--barcode';
 
     @query('svg')
     private _svg? : SVGElement;
@@ -45,7 +54,7 @@ export class IconBarcode extends LitElement implements IconProps {
     }
 
     render () : TemplateResult {
-        return html`[object Object]<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 16 16" class="c-pieIcon c-pieIcon--barcode"><path d="M3.188 12.375H1.875V2.75h1.313v9.625Zm10.5-9.625h-1.313v9.625h1.313V2.75Zm-2.626 0H9.75v7.875h1.313V2.75Zm-2.624 0H7.125v7.875h1.313V2.75Zm-2.626 0H4.5v7.875h1.313V2.75Z"></path></svg>`;
+        return html`<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 16 16" class="c-pieIcon c-pieIcon--barcode"><path d="M3.188 12.375H1.875V2.75h1.313v9.625Zm10.5-9.625h-1.313v9.625h1.313V2.75Zm-2.626 0H9.75v7.875h1.313V2.75Zm-2.624 0H7.125v7.875h1.313V2.75Zm-2.626 0H4.5v7.875h1.313V2.75Z"></path></svg>`;
     }
 }
 

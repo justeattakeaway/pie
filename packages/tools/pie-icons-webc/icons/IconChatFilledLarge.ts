@@ -1,5 +1,5 @@
 import {
-    html, LitElement, TemplateResult,
+    html, LitElement, TemplateResult, css,
 } from 'lit';
 import { property, query } from 'lit/decorators.js';
 import type { DependentMap } from '@justeattakeaway/pie-webc-core';
@@ -16,11 +16,20 @@ interface IconProps {
 const componentSelector = 'icon-chat-filled-large';
 
 export class IconChatFilledLarge extends LitElement implements IconProps {
+    static styles = css`
+        :host-context(pie-icon-button) svg,
+        :host-context(pie-button) svg {
+            display:block;
+            width: var(--btn-icon-size);
+            height: var(--btn-icon-size);
+        }
+    `;
+
     @property({ type: String, reflect: true })
     public size : Size = 'medium';
 
     @property({ type: String, reflect: true })
-    public class : string = 'c-pieIcon c-pieIcon--chatFilledLarge';
+    public class = 'c-pieIcon c-pieIcon--chatFilledLarge';
 
     @query('svg')
     private _svg? : SVGElement;
@@ -45,7 +54,7 @@ export class IconChatFilledLarge extends LitElement implements IconProps {
     }
 
     render () : TemplateResult {
-        return html`[object Object]<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 32 32" class="c-pieIcon c-pieIcon--chatFilledLarge"><path d="M25.625 4.625H6.375A2.625 2.625 0 0 0 3.75 7.25v21.875h2.266l4.988-4.996a.92.92 0 0 1 .621-.254h14a2.625 2.625 0 0 0 2.625-2.625v-14a2.625 2.625 0 0 0-2.625-2.625ZM9.437 14.25a1.313 1.313 0 1 1 2.626 0 1.313 1.313 0 0 1-2.626 0Zm5.25 0a1.313 1.313 0 1 1 2.626 0 1.313 1.313 0 0 1-2.625 0Zm6.563 1.313a1.313 1.313 0 1 1 0-2.626 1.313 1.313 0 0 1 0 2.626Z"></path></svg>`;
+        return html`<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 32 32" class="c-pieIcon c-pieIcon--chatFilledLarge"><path d="M25.625 4.625H6.375A2.625 2.625 0 0 0 3.75 7.25v21.875h2.266l4.988-4.996a.92.92 0 0 1 .621-.254h14a2.625 2.625 0 0 0 2.625-2.625v-14a2.625 2.625 0 0 0-2.625-2.625ZM9.437 14.25a1.313 1.313 0 1 1 2.626 0 1.313 1.313 0 0 1-2.626 0Zm5.25 0a1.313 1.313 0 1 1 2.626 0 1.313 1.313 0 0 1-2.625 0Zm6.563 1.313a1.313 1.313 0 1 1 0-2.626 1.313 1.313 0 0 1 0 2.626Z"></path></svg>`;
     }
 }
 

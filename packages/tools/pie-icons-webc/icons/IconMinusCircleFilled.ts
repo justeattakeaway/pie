@@ -1,5 +1,5 @@
 import {
-    html, LitElement, TemplateResult,
+    html, LitElement, TemplateResult, css,
 } from 'lit';
 import { property, query } from 'lit/decorators.js';
 import type { DependentMap } from '@justeattakeaway/pie-webc-core';
@@ -16,11 +16,20 @@ interface IconProps {
 const componentSelector = 'icon-minus-circle-filled';
 
 export class IconMinusCircleFilled extends LitElement implements IconProps {
+    static styles = css`
+        :host-context(pie-icon-button) svg,
+        :host-context(pie-button) svg {
+            display:block;
+            width: var(--btn-icon-size);
+            height: var(--btn-icon-size);
+        }
+    `;
+
     @property({ type: String, reflect: true })
     public size : Size = 'medium';
 
     @property({ type: String, reflect: true })
-    public class : string = 'c-pieIcon c-pieIcon--minusCircleFilled';
+    public class = 'c-pieIcon c-pieIcon--minusCircleFilled';
 
     @query('svg')
     private _svg? : SVGElement;
@@ -45,7 +54,7 @@ export class IconMinusCircleFilled extends LitElement implements IconProps {
     }
 
     render () : TemplateResult {
-        return html`[object Object]<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 16 16" class="c-pieIcon c-pieIcon--minusCircleFilled"><path d="M12.795 3.205a6.781 6.781 0 1 0 0 9.625 6.792 6.792 0 0 0 0-9.625Zm-1.391 5.451H4.596V7.344h6.808v1.312Z"></path></svg>`;
+        return html`<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 16 16" class="c-pieIcon c-pieIcon--minusCircleFilled"><path d="M12.795 3.205a6.781 6.781 0 1 0 0 9.625 6.792 6.792 0 0 0 0-9.625Zm-1.391 5.451H4.596V7.344h6.808v1.312Z"></path></svg>`;
     }
 }
 

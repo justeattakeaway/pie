@@ -1,5 +1,5 @@
 import {
-    html, LitElement, TemplateResult,
+    html, LitElement, TemplateResult, css,
 } from 'lit';
 import { property, query } from 'lit/decorators.js';
 import type { DependentMap } from '@justeattakeaway/pie-webc-core';
@@ -16,11 +16,20 @@ interface IconProps {
 const componentSelector = 'icon-sort-large';
 
 export class IconSortLarge extends LitElement implements IconProps {
+    static styles = css`
+        :host-context(pie-icon-button) svg,
+        :host-context(pie-button) svg {
+            display:block;
+            width: var(--btn-icon-size);
+            height: var(--btn-icon-size);
+        }
+    `;
+
     @property({ type: String, reflect: true })
     public size : Size = 'medium';
 
     @property({ type: String, reflect: true })
-    public class : string = 'c-pieIcon c-pieIcon--sortLarge';
+    public class = 'c-pieIcon c-pieIcon--sortLarge';
 
     @query('svg')
     private _svg? : SVGElement;
@@ -45,7 +54,7 @@ export class IconSortLarge extends LitElement implements IconProps {
     }
 
     render () : TemplateResult {
-        return html`[object Object]<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 32 32" class="c-pieIcon c-pieIcon--sortLarge"><path d="M18.625 20.125h-5.25v1.75h5.25v-1.75Z"></path><path d="M5.5 6.375v1.75h22.75v-1.75H5.5Z"></path><path d="M5.5 6.375H3.75v1.75H5.5v-1.75Z"></path><path d="M23 13.25H9V15h14v-1.75Z"></path></svg>`;
+        return html`<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 32 32" class="c-pieIcon c-pieIcon--sortLarge"><path d="M18.625 20.125h-5.25v1.75h5.25v-1.75Z"></path><path d="M5.5 6.375v1.75h22.75v-1.75H5.5Z"></path><path d="M5.5 6.375H3.75v1.75H5.5v-1.75Z"></path><path d="M23 13.25H9V15h14v-1.75Z"></path></svg>`;
     }
 }
 

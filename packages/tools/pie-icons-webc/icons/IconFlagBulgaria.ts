@@ -1,5 +1,5 @@
 import {
-    html, LitElement, TemplateResult,
+    html, LitElement, TemplateResult, css,
 } from 'lit';
 import { property, query } from 'lit/decorators.js';
 import type { DependentMap } from '@justeattakeaway/pie-webc-core';
@@ -16,11 +16,20 @@ interface IconProps {
 const componentSelector = 'icon-flag-bulgaria';
 
 export class IconFlagBulgaria extends LitElement implements IconProps {
+    static styles = css`
+        :host-context(pie-icon-button) svg,
+        :host-context(pie-button) svg {
+            display:block;
+            width: var(--btn-icon-size);
+            height: var(--btn-icon-size);
+        }
+    `;
+
     @property({ type: String, reflect: true })
     public size : Size = 'medium';
 
     @property({ type: String, reflect: true })
-    public class : string = 'c-pieIcon c-pieIcon--bulgaria';
+    public class = 'c-pieIcon c-pieIcon--bulgaria';
 
     @query('svg')
     private _svg? : SVGElement;
@@ -45,7 +54,7 @@ export class IconFlagBulgaria extends LitElement implements IconProps {
     }
 
     render () : TemplateResult {
-        return html`[object Object]<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 16 16" class="c-pieIcon c-pieIcon--bulgaria"><path fill="#496E2D" d="M15.002 7.999a6.91 6.91 0 0 0-.437-2.434L8 5.259l-6.563.306a6.987 6.987 0 0 0 0 4.868L8 10.739l6.564-.306a6.91 6.91 0 0 0 .437-2.434Z"></path><path fill="#D80027" d="M8.001 15a7 7 0 0 0 6.564-4.567H1.438A7 7 0 0 0 8 15Z"></path><path fill="#EEE" d="M1.438 5.565h13.127a7.002 7.002 0 0 0-13.127 0Z"></path></svg>`;
+        return html`<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 16 16" class="c-pieIcon c-pieIcon--bulgaria"><path fill="#496E2D" d="M15.002 7.999a6.91 6.91 0 0 0-.437-2.434L8 5.259l-6.563.306a6.987 6.987 0 0 0 0 4.868L8 10.739l6.564-.306a6.91 6.91 0 0 0 .437-2.434Z"></path><path fill="#D80027" d="M8.001 15a7 7 0 0 0 6.564-4.567H1.438A7 7 0 0 0 8 15Z"></path><path fill="#EEE" d="M1.438 5.565h13.127a7.002 7.002 0 0 0-13.127 0Z"></path></svg>`;
     }
 }
 

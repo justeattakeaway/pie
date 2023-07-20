@@ -1,5 +1,5 @@
 import {
-    html, LitElement, TemplateResult,
+    html, LitElement, TemplateResult, css,
 } from 'lit';
 import { property, query } from 'lit/decorators.js';
 import type { DependentMap } from '@justeattakeaway/pie-webc-core';
@@ -16,11 +16,20 @@ interface IconProps {
 const componentSelector = 'icon-geolocation-circle-filled-large';
 
 export class IconGeolocationCircleFilledLarge extends LitElement implements IconProps {
+    static styles = css`
+        :host-context(pie-icon-button) svg,
+        :host-context(pie-button) svg {
+            display:block;
+            width: var(--btn-icon-size);
+            height: var(--btn-icon-size);
+        }
+    `;
+
     @property({ type: String, reflect: true })
     public size : Size = 'medium';
 
     @property({ type: String, reflect: true })
-    public class : string = 'c-pieIcon c-pieIcon--geolocationCircleFilledLarge';
+    public class = 'c-pieIcon c-pieIcon--geolocationCircleFilledLarge';
 
     @query('svg')
     private _svg? : SVGElement;
@@ -45,7 +54,7 @@ export class IconGeolocationCircleFilledLarge extends LitElement implements Icon
     }
 
     render () : TemplateResult {
-        return html`[object Object]<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 32 32" class="c-pieIcon c-pieIcon--geolocationCircleFilledLarge"><path d="m16.718 19.185 1.96-5.862-5.863 1.96a6.431 6.431 0 0 1 3.903 3.902Z"></path><path d="M16 3.75a12.25 12.25 0 1 0 0 24.5 12.25 12.25 0 0 0 0-24.5Zm1.479 18.69h-1.75l-.551-2.205a4.752 4.752 0 0 0-3.448-3.447l-2.205-.552v-1.75l11.917-3.929L17.48 22.44Z"></path></svg>`;
+        return html`<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 32 32" class="c-pieIcon c-pieIcon--geolocationCircleFilledLarge"><path d="m16.718 19.185 1.96-5.862-5.863 1.96a6.431 6.431 0 0 1 3.903 3.902Z"></path><path d="M16 3.75a12.25 12.25 0 1 0 0 24.5 12.25 12.25 0 0 0 0-24.5Zm1.479 18.69h-1.75l-.551-2.205a4.752 4.752 0 0 0-3.448-3.447l-2.205-.552v-1.75l11.917-3.929L17.48 22.44Z"></path></svg>`;
     }
 }
 

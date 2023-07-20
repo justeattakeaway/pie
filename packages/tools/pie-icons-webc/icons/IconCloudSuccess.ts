@@ -1,5 +1,5 @@
 import {
-    html, LitElement, TemplateResult,
+    html, LitElement, TemplateResult, css,
 } from 'lit';
 import { property, query } from 'lit/decorators.js';
 import type { DependentMap } from '@justeattakeaway/pie-webc-core';
@@ -16,11 +16,20 @@ interface IconProps {
 const componentSelector = 'icon-cloud-success';
 
 export class IconCloudSuccess extends LitElement implements IconProps {
+    static styles = css`
+        :host-context(pie-icon-button) svg,
+        :host-context(pie-button) svg {
+            display:block;
+            width: var(--btn-icon-size);
+            height: var(--btn-icon-size);
+        }
+    `;
+
     @property({ type: String, reflect: true })
     public size : Size = 'medium';
 
     @property({ type: String, reflect: true })
-    public class : string = 'c-pieIcon c-pieIcon--cloudSuccess';
+    public class = 'c-pieIcon c-pieIcon--cloudSuccess';
 
     @query('svg')
     private _svg? : SVGElement;
@@ -45,7 +54,7 @@ export class IconCloudSuccess extends LitElement implements IconProps {
     }
 
     render () : TemplateResult {
-        return html`[object Object]<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 16 16" class="c-pieIcon c-pieIcon--cloudSuccess"><g clip-path="url(#prefix__clip0_15_608)"><path d="M12.016 13.189H4.378A3.378 3.378 0 0 1 1 9.81 3.342 3.342 0 0 1 2.969 6.75a5.18 5.18 0 0 1 10.176.682 2.992 2.992 0 0 1-1.129 5.758ZM8 4.124a3.859 3.859 0 0 0-3.815 3.22l-.061.394-.385.113a2.039 2.039 0 0 0-1.426 1.96 2.065 2.065 0 0 0 2.065 2.065h7.638a1.68 1.68 0 0 0 .359-3.316l-.499-.114V7.93A3.885 3.885 0 0 0 8 4.124Zm-.289 5.985 2.826-3.054-.962-.875L7.02 8.875 6.189 8l-.989.875 1.129 1.269a.947.947 0 0 0 .691.297.92.92 0 0 0 .691-.332Z"></path></g><defs><clipPath id="prefix__clip0_15_608"><rect width="14" height="14" transform="translate(1 1)"></rect></clipPath></defs></svg>`;
+        return html`<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 16 16" class="c-pieIcon c-pieIcon--cloudSuccess"><g clip-path="url(#prefix__clip0_15_608)"><path d="M12.016 13.189H4.378A3.378 3.378 0 0 1 1 9.81 3.342 3.342 0 0 1 2.969 6.75a5.18 5.18 0 0 1 10.176.682 2.992 2.992 0 0 1-1.129 5.758ZM8 4.124a3.859 3.859 0 0 0-3.815 3.22l-.061.394-.385.113a2.039 2.039 0 0 0-1.426 1.96 2.065 2.065 0 0 0 2.065 2.065h7.638a1.68 1.68 0 0 0 .359-3.316l-.499-.114V7.93A3.885 3.885 0 0 0 8 4.124Zm-.289 5.985 2.826-3.054-.962-.875L7.02 8.875 6.189 8l-.989.875 1.129 1.269a.947.947 0 0 0 .691.297.92.92 0 0 0 .691-.332Z"></path></g><defs><clipPath id="prefix__clip0_15_608"><rect width="14" height="14" transform="translate(1 1)"></rect></clipPath></defs></svg>`;
     }
 }
 

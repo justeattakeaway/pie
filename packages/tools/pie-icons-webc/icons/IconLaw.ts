@@ -1,5 +1,5 @@
 import {
-    html, LitElement, TemplateResult,
+    html, LitElement, TemplateResult, css,
 } from 'lit';
 import { property, query } from 'lit/decorators.js';
 import type { DependentMap } from '@justeattakeaway/pie-webc-core';
@@ -16,11 +16,20 @@ interface IconProps {
 const componentSelector = 'icon-law';
 
 export class IconLaw extends LitElement implements IconProps {
+    static styles = css`
+        :host-context(pie-icon-button) svg,
+        :host-context(pie-button) svg {
+            display:block;
+            width: var(--btn-icon-size);
+            height: var(--btn-icon-size);
+        }
+    `;
+
     @property({ type: String, reflect: true })
     public size : Size = 'medium';
 
     @property({ type: String, reflect: true })
-    public class : string = 'c-pieIcon c-pieIcon--law';
+    public class = 'c-pieIcon c-pieIcon--law';
 
     @query('svg')
     private _svg? : SVGElement;
@@ -45,7 +54,7 @@ export class IconLaw extends LitElement implements IconProps {
     }
 
     render () : TemplateResult {
-        return html`[object Object]<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 16 16" class="c-pieIcon c-pieIcon--law"><g clip-path="url(#prefix__clip0_6703_3640)"><path fill-rule="evenodd" d="m9.247 8.634-.45.451.935.936 4-3.999-.937-.936-.455.455L9.899 3.1l.455-.455-.937-.936-3.99 3.99.937.936.455-.455.743.744-5.827 5.836.936.936L8.49 7.877l.757.757Zm-1.5-3.382 2.44 2.442 1.217-1.217-2.442-2.44-1.216 1.215Z" clip-rule="evenodd"></path><path d="M8.035 11.929h5.574l-.35-1.322H8.385l-.35 1.322Z"></path><path d="M13.845 12.813H7.8l-.35 1.32h6.746l-.35-1.32Z"></path></g><defs><clipPath id="prefix__clip0_6703_3640"><rect width="14" height="14" transform="translate(1 1)"></rect></clipPath></defs></svg>`;
+        return html`<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 16 16" class="c-pieIcon c-pieIcon--law"><g clip-path="url(#prefix__clip0_6703_3640)"><path fill-rule="evenodd" d="m9.247 8.634-.45.451.935.936 4-3.999-.937-.936-.455.455L9.899 3.1l.455-.455-.937-.936-3.99 3.99.937.936.455-.455.743.744-5.827 5.836.936.936L8.49 7.877l.757.757Zm-1.5-3.382 2.44 2.442 1.217-1.217-2.442-2.44-1.216 1.215Z" clip-rule="evenodd"></path><path d="M8.035 11.929h5.574l-.35-1.322H8.385l-.35 1.322Z"></path><path d="M13.845 12.813H7.8l-.35 1.32h6.746l-.35-1.32Z"></path></g><defs><clipPath id="prefix__clip0_6703_3640"><rect width="14" height="14" transform="translate(1 1)"></rect></clipPath></defs></svg>`;
     }
 }
 

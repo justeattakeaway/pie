@@ -1,10 +1,9 @@
 {
   "name": "@justeattakeaway/pie-icons-webc",
   "version": "0.3.0",
-  "main": "icons/index.js",
+  "main": "esm/index.js",
   "type": "module",
   "files": [
-    "dist",
     "esm",
     "icons"
   ],
