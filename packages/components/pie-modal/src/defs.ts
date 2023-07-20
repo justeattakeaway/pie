@@ -1,4 +1,5 @@
 import { RTLComponentProps } from '@justeattakeaway/pie-webc-core';
+import { Variant } from '@justeattakeaway/pie-button/src/defs.ts';
 
 export const headingLevels = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'] as const;
 export const sizes = ['small', 'medium', 'large'] as const;
@@ -70,7 +71,7 @@ export interface ModalProps extends RTLComponentProps {
          * The variant of the leading action button.
          * Default: 'primary'
          */
-        variant?: string;
+        variant?: Variant;
 
         /**
          * The ARIA label for the leading action button.
