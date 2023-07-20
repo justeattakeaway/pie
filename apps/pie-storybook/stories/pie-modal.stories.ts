@@ -1,49 +1,54 @@
-import type { Meta, StoryObj as Story } from '@storybook/web-components';
+import type { StoryObj as Story } from '@storybook/web-components';
 import { html, TemplateResult } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import '@justeattakeaway/pie-button'; // Ensures the button WC is available for use in the templates
-
+import '@justeattakeaway/pie-button'; // Register pie-button
+import '@justeattakeaway/pie-icon-button'; // Register pie-icon-button
+import '@justeattakeaway/pie-modal'; // Register pie-modal
+import '@justeattakeaway/pie-icons-webc/icons/IconClose'; // Register icon-close
+import '@justeattakeaway/pie-icons-webc/icons/IconChevronLeft'; // Register icon-chevron-left
+import '@justeattakeaway/pie-icons-webc/icons/IconChevronRight'; // Register icon-chevron-right
 import {
     ModalProps as ModalPropsBase,
     headingLevels,
     sizes,
-} from '@justeattakeaway/pie-modal';
+} from '@justeattakeaway/pie-modal/src/defs';
+import { i18nArgTypes } from '../args/commonArgsTypes';
+import { StoryMeta, SlottedComponentProps } from '../types';
 
-const createScrollablePageHTML = () => {
-    const items = [];
-    for (let i = 0; i < 200; i++) {
-        items.push(html`<li>Item ${i}</li>`);
-    }
-
-    return html`
-        <h1>Test Page</h1>
-        <p>Test copy</p>
-        <ul>${items}</ul>`;
-};
-
-type ModalProps = ModalPropsBase & { slot: string }
+type ModalProps = SlottedComponentProps<ModalPropsBase>;
+type ModalStoryMeta = StoryMeta<ModalProps>;
 
 const defaultArgs: ModalProps = {
     heading: 'Modal header',
     headingLevel: 'h2',
     isDismissible: true,
+    hasBackButton: true,
     isFullWidthBelowMid: false,
     isOpen: true,
+    isLoading: false,
     size: 'medium',
     slot: 'This is Lit!',
+    dir: 'ltr',
 };
 
-export default {
+const modalStoryMeta: ModalStoryMeta = {
     title: 'Modal',
     component: 'pie-modal',
     argTypes: {
+        ...i18nArgTypes,
         isDismissible: {
+            control: 'boolean',
+        },
+        hasBackButton: {
             control: 'boolean',
         },
         isFullWidthBelowMid: {
             control: 'boolean',
         },
         isOpen: {
+            control: 'boolean',
+        },
+        isLoading: {
             control: 'boolean',
         },
         heading: {
@@ -71,7 +76,9 @@ export default {
             url: 'https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%5BPIE-2.0%5D?type=design&node-id=32007-376358&t=HIfzk0Y1IEnAJyUi-0',
         },
     },
-} as Meta;
+};
+
+export default modalStoryMeta;
 
 /**
  * Helper function to toggle the modal open/closed within the actual template (separate to the Storybook controls)
@@ -83,7 +90,7 @@ const toggleModal = () => {
     }
 };
 
-const createFocusableElementsPageHTML = () => html`
+const createFocusableElementsPageHTML = () : TemplateResult => html`
     <pie-button id="focus-1">#focus-1</pie-button>
     <pie-button id="focus-2">#focus-2</pie-button>
     <pie-button id="focus-3">#focus-3</pie-button>
@@ -103,16 +110,19 @@ const createFocusableElementsPageHTML = () => html`
         }
     </style>`;
 
-const BaseStory = (props: ModalProps): TemplateResult => {
+const BaseStoryTemplate = (props: ModalProps): TemplateResult => {
     const {
         heading,
         headingLevel,
         isDismissible,
+        hasBackButton,
         isFullWidthBelowMid,
         isOpen,
+        isLoading,
         returnFocusAfterCloseSelector,
         size,
         slot,
+        dir,
     } = props;
     return html`
         <pie-button @click=${toggleModal}>Toggle Modal</pie-button>
@@ -120,29 +130,44 @@ const BaseStory = (props: ModalProps): TemplateResult => {
             heading="${heading}"
             headingLevel="${headingLevel}"
             ?isDismissible="${isDismissible}"
+            ?hasBackButton="${hasBackButton}"
             ?isFullWidthBelowMid="${isFullWidthBelowMid}"
+            ?isLoading="${isLoading}"
             returnFocusAfterCloseSelector="${ifDefined(returnFocusAfterCloseSelector)}"
             ?isOpen="${isOpen}"
+            dir="${dir}"
             size="${size}">
             ${slot}
         </pie-modal>`;
 };
 
-const ScrollablePageStory = (props: ModalProps) => html`
-    ${BaseStory(props)}
+const createScrollablePageHTML = () => {
+    const items = [];
+    for (let i = 0; i < 200; i++) {
+        items.push(html`<li>Item ${i}</li>`);
+    }
+
+    return html`
+        <h1>Test Page</h1>
+        <p>Test copy</p>
+        <ul>${items}</ul>`;
+};
+
+const ScrollablePageStoryTemplate = (props: ModalProps) : TemplateResult => html`
+    ${BaseStoryTemplate(props)}
     ${createScrollablePageHTML()}`;
 
-const FocusableElementsPageTemplate = (props: ModalProps) => html`
-    ${BaseStory(props)}
+const FocusableElementsPageStoryTemplate = (props: ModalProps) : TemplateResult => html`
+    ${BaseStoryTemplate(props)}
     ${createFocusableElementsPageHTML()}`;
 
-export const Default: Story<ModalProps> = (args: ModalProps) => BaseStory(args);
+export const Default: Story<ModalProps> = (args: ModalProps) => BaseStoryTemplate(args);
 Default.args = defaultArgs;
 
-export const ScrollLocking: Story<ModalProps> = (args: ModalProps) => ScrollablePageStory(args);
+export const ScrollLocking: Story<ModalProps> = (args: ModalProps) => ScrollablePageStoryTemplate(args);
 ScrollLocking.args = defaultArgs;
 
-export const FocusManagement: Story<ModalProps> = (args: ModalProps) => FocusableElementsPageTemplate(args);
+export const FocusManagement: Story<ModalProps> = (args: ModalProps) => FocusableElementsPageStoryTemplate(args);
 FocusManagement.args = {
     ...defaultArgs,
     returnFocusAfterCloseSelector: '#focus-3',

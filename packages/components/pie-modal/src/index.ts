@@ -9,12 +9,16 @@ import {
 import type { DependentMap } from '@justeattakeaway/pie-webc-core';
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 import '@justeattakeaway/pie-icons-webc/icons/IconClose';
+import '@justeattakeaway/pie-icons-webc/icons/IconChevronLeft';
+import '@justeattakeaway/pie-icons-webc/icons/IconChevronRight';
+
 import styles from './modal.scss?inline';
 import {
     ModalProps,
     headingLevels,
     ON_MODAL_CLOSE_EVENT,
     ON_MODAL_OPEN_EVENT,
+    ON_MODAL_BACK_EVENT,
     sizes,
 } from './defs';
 
@@ -26,6 +30,7 @@ const componentSelector = 'pie-modal';
 /**
  * @event {CustomEvent} pie-modal-open - when the modal is opened.
  * @event {CustomEvent} pie-modal-close - when the modal is closed.
+ * @event {CustomEvent} pie-modal-back - when the modal back button is clicked.
  */
 export class PieModal extends RtlMixin(LitElement) implements ModalProps {
     @property({ type: String })
@@ -40,10 +45,16 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
     public isDismissible = false;
 
     @property({ type: Boolean })
+    public hasBackButton = false;
+
+    @property({ type: Boolean })
     public isFullWidthBelowMid = false;
 
     @property({ type: Boolean })
     public isOpen = false;
+
+    @property({ type: Boolean, reflect: true })
+    public isLoading = false;
 
     @property()
     public returnFocusAfterCloseSelector?: string;
@@ -53,7 +64,12 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
     public size: ModalProps['size'] = 'medium';
 
     @query('dialog')
-        _dialog?: HTMLDialogElement;
+    private _dialog?: HTMLDialogElement;
+
+    private _backButtonClicked = false;
+
+    // Renders a `CSSResult` generated from SCSS by Vite
+    static styles = unsafeCSS(styles);
 
     constructor () {
         super();
@@ -64,11 +80,13 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
         super.connectedCallback();
         document.addEventListener(ON_MODAL_OPEN_EVENT, this._handleModalOpened.bind(this));
         document.addEventListener(ON_MODAL_CLOSE_EVENT, this._handleModalClosed.bind(this));
+        document.addEventListener(ON_MODAL_BACK_EVENT, this._handleModalClosed.bind(this));
     }
 
     disconnectedCallback () : void {
         document.removeEventListener(ON_MODAL_OPEN_EVENT, this._handleModalOpened.bind(this));
         document.removeEventListener(ON_MODAL_CLOSE_EVENT, this._handleModalClosed.bind(this));
+        document.removeEventListener(ON_MODAL_BACK_EVENT, this._handleModalClosed.bind(this));
         super.disconnectedCallback();
     }
 
@@ -130,11 +148,17 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
 
     // Handles changes to the modal isOpen property by dispatching any appropriate events
     private _handleModalOpenStateChanged (changedProperties: DependentMap<ModalProps>) : void {
-        const previousValue = changedProperties.get('isOpen');
+        const wasPreviouslyOpen = changedProperties.get('isOpen');
 
-        if (previousValue !== undefined) {
-            if (previousValue) {
-                this._dispatchModalCustomEvent(ON_MODAL_CLOSE_EVENT);
+        if (wasPreviouslyOpen !== undefined) {
+            if (wasPreviouslyOpen) {
+                if (this._backButtonClicked) {
+                    // Reset the flag
+                    this._backButtonClicked = false;
+                    this._dispatchModalCustomEvent(ON_MODAL_BACK_EVENT);
+                } else {
+                    this._dispatchModalCustomEvent(ON_MODAL_CLOSE_EVENT);
+                }
             } else {
                 this._dispatchModalCustomEvent(ON_MODAL_OPEN_EVENT);
             }
@@ -144,7 +168,6 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
     /**
      * Return focus to the specified element, providing the selector is valid
      * and the chosen element can be found.
-     * Fails silently.
      */
     private _returnFocus () : void {
         const selector = this.returnFocusAfterCloseSelector?.trim();
@@ -154,31 +177,92 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
         }
     }
 
-    render () {
+    /**
+     * Template for the close button element. Called within the
+     * main render function.
+     *
+     * @private
+     */
+    private renderCloseButton (): TemplateResult {
+        return html`
+            <pie-icon-button
+                @click="${() => { this.isOpen = false; }}"
+                variant="ghost-secondary"
+                class="c-modal-closeBtn"
+                data-test-id="modal-close-button"><icon-close /></pie-icon-button>
+        `;
+    }
+
+    /**
+     * Template for the back button element. Called within the
+     * main render function.
+     *
+     * @private
+     */
+    private renderBackButton () : TemplateResult {
+        return html`
+            <pie-icon-button
+                @click="${() => { this._backButtonClicked = true; this.isOpen = false; }}"
+                variant="ghost-secondary"
+                class="c-modal-backBtn"
+                data-test-id="modal-back-button">
+                ${this.isRTL ? html`<icon-chevron-right />` : html`<icon-chevron-left />`}
+            </pie-icon-button>
+        `;
+    }
+
+    public render () {
         const {
+            hasBackButton,
             heading,
             headingLevel = 'h2',
-            size,
+            isDismissible,
             isFullWidthBelowMid,
+            isLoading,
+            size,
         } = this;
 
         const headingTag = unsafeStatic(headingLevel);
 
         return html`
-            <dialog
-                id="dialog"
-                class="c-modal"
-                size="${size}"
-                ?isFullWidthBelowMid=${isFullWidthBelowMid}>
-                <header>
-                    <${headingTag} class="c-modal-heading">${heading}</${headingTag}>
-                     ${this.isDismissible ? this.renderCloseButton() : nothing}
-                </header>
-                <article class="c-modal-content">
+        <dialog
+            id="dialog"
+            class="c-modal"
+            size="${size}"
+            ?hasBackButton=${hasBackButton}
+            ?isDismissible=${isDismissible}
+            ?isFullWidthBelowMid=${isFullWidthBelowMid}
+            ?isLoading=${isLoading}
+            data-test-id="pie-modal">
+            <header class="c-modal-header">
+                ${hasBackButton ? this.renderBackButton() : nothing}
+                <${headingTag} class="c-modal-heading">
+                    ${heading}
+                </${headingTag}>
+                ${isDismissible ? this.renderCloseButton() : nothing}
+            </header>
+            <article class="c-modal-content c-modal-content--scrollable">
+                <div class="c-modal-contentInner">
                     <slot></slot>
-                </article>
-            </dialog>
-        `;
+                </div>
+            </article>
+            <footer class="c-modal-footer">
+                <pie-button
+                    variant="primary"
+                    type="submit"
+                    @click="${() => this._dialog?.close('leading')}"
+                    data-test-id="modal-leading-action">
+                    Confirm
+                </pie-button>
+                <pie-button
+                    variant="ghost"
+                    type="reset"
+                    @click="${() => this._dialog?.close('supporting')}"
+                    data-test-id="modal-supporting-action">
+                    Cancel
+                </pie-button>
+            </footer>
+        </dialog>`;
     }
 
     /**
@@ -231,25 +315,6 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
 
         this.dispatchEvent(event);
     };
-
-    /**
-     * Template for the close button element. Called within the
-     * main render function.
-     *
-     * @private
-     */
-    private renderCloseButton (): TemplateResult {
-        return html`
-            <pie-icon-button
-                @click="${() => { this.isOpen = false; }}"
-                variant="ghost-secondary"
-                class="c-modal-closeBtn"
-                data-test-id="modal-close-button"><icon-close /></pie-icon-button>
-        `;
-    }
-
-    // Renders a `CSSResult` generated from SCSS by Vite
-    static styles = unsafeCSS(styles);
 }
 
 customElements.define(componentSelector, PieModal);

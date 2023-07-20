@@ -151,3 +151,53 @@ test.describe('`isDismissible`', () => {
         });
     });
 });
+
+const directions = ['ltr', 'rtl', 'auto'] as const;
+
+test.describe('`hasBackButton`', () => {
+    directions.forEach((dir) => {
+        test.describe('when true', () => {
+            test(`should display a back button within the modal and dir is ${dir}`, async ({ mount, page }) => {
+                await mount(PieModal, {
+                    props: {
+                        heading: 'This is a modal heading',
+                        hasBackButton: true,
+                        isOpen: true,
+                        dir,
+                    },
+                });
+
+                await percySnapshot(page, `Modal with back button displayed - hasBackButton: ${true} - dir: ${dir}`);
+            });
+        });
+
+        test.describe('when false', () => {
+            test(`should NOT display a back button and dir is ${dir}`, async ({ mount, page }) => {
+                await mount(PieModal, {
+                    props: {
+                        heading: 'This is a modal heading',
+                        hasBackButton: false,
+                        isOpen: true,
+                        dir,
+                    },
+                });
+
+                await percySnapshot(page, `Modal without back button - hasBackButton: ${false} - dir: ${dir}`);
+            });
+        });
+    });
+});
+
+test('Should display loading spinner when `isLoading` is true', async ({ mount, page }) => {
+    await mount(PieModal, {
+        props: {
+            heading: 'This is a modal heading',
+            hasBackButton: true,
+            isDismissible: true,
+            isOpen: true,
+            isLoading: true,
+        },
+    });
+
+    await percySnapshot(page, `Modal displays loading spinner - isLoading: ${true}`);
+});

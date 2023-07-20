@@ -66,8 +66,10 @@ import { PieModal } from '@justeattakeaway/pie-modal/dist/react';
 | heading | `String` | n/a (Required) | The heading text of the modal |
 | headingLevel | `String` | `h2` | The HTML tag to use for the modal's heading (can be `h1`-`h6`) |
 | isDismissible | `Boolean` | `false` | If true, the modal includes a close button and can be dismissed by clicking on the backdrop or pressing the Esc key |
+| hasBackButton | `Boolean` | `false` | If true, the modal includes a back button which closes the modal when clicked |
 | isFullWidthBelowMid | `Boolean` | `false` | If true and the page is narrower than the mid breakpoint, a **medium-sized** modal will take up the full width of the screen. |
 | isOpen | `Boolean` | `false` | Controls if the modal element is open or closed |
+| isLoading | `Boolean` | `false` | When true, displays a loading spinner in the modal |
 | size | `String` | `medium` | Determines the maximum width of the modal. Large modals will expand to fill the entire page width at narrow viewports. Can be `small`, `medium` or `large`. |
 | returnFocusAfterCloseSelector | `String` | `undefined` | If provided, focus will be sent to the first element that matches this selector when the modal is closed. If not provided, the `dialog` element will return focus to the element that opened the modal. |
 

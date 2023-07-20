@@ -1,5 +1,23 @@
 @use '@justeat/pie-design-tokens/dist/jet.scss' as dt;
 
+// TODO - add to CSS lib once created
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+// Spin animation for loading state
+@keyframes rotate360 {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 .c-modal {
     // Custom Property Declarations
     // These are defined here instead of :host to encapsulate them inside Shadow DOM
@@ -15,6 +33,18 @@
     --modal-bg-color: var(--dt-color-container-default);
     --modal-elevation: var(--dt-elevation-04);
 
+    &:focus-visible {
+        outline: none;
+    }
+
+    &[open] {
+        // We only apply this when the modal is open,
+        // otherwise it interferes with the native
+        // `display: none;` on the dialog element.
+        display: flex;
+        flex-direction: column;
+    }
+
     border-radius: var(--modal-border-radius);
     border: none;
     box-shadow: var(--modal-elevation);
@@ -23,31 +53,60 @@
 
     padding: 0;
 
-    --modal-max-inline-size: var(--modal-size-m);
-    --modal-inline-size: 75%;
+    --modal-margin-none: var(--dt-spacing-none);
+    --modal-margin-small: var(--dt-spacing-g);
+    --modal-margin-large: var(--dt-spacing-j);
+    --modal-margin-block: var(--modal-margin-small);
 
-    max-inline-size: var(--modal-max-inline-size);
+    @media (min-width: $breakpoint-wide) {
+        --modal-margin-block: var(--modal-margin-large);
+    }
+
+    // The initial values for these variables apply to the medium-sized modal
+    // Other sizes will update the variables as needed
+    --modal-block-size: fit-content;
+    --modal-inline-size: 75%;
+    --modal-max-block-size: calc(100vh - calc(var(--modal-margin-block) * 2));
+    --modal-max-inline-size: var(--modal-size-m);
+
+    block-size: var(--modal-block-size);
     inline-size: var(--modal-inline-size);
+    max-block-size: var(--modal-max-block-size);
+    max-inline-size: var(--modal-max-inline-size);
 
     &[size='small'] {
         --modal-max-inline-size: var(--modal-size-s);
+
+        @media (min-width: $breakpoint-wide) {
+            --modal-margin-block: var(--modal-margin-large);
+        }
     }
 
     &[size='medium'] {
         /* Same as default styles */
         &[isfullwidthbelowmid] {
-            @media (max-width: $breakpoint-wide) {
+            @media (max-width: calc($breakpoint-wide - 1px)) {
+                --modal-margin-block: var(--modal-margin-none);
+                --modal-border-radius: var(--dt-radius-rounded-none);
+                --modal-block-size: 100%;
                 --modal-inline-size: 100%;
+
+                // In this case, the modal must exceed the previous maximum width
+                --modal-max-inline-size: 100%;
             }
         }
     }
 
     &[size='large'] {
+        --modal-inline-size: 75%;
         --modal-max-inline-size: var(--modal-size-l);
-        --modal-inline-size: 100%;
+        --modal-margin-block: var(--modal-margin-large);
 
-        @media (min-width: $breakpoint-wide) {
-            --modal-inline-size: 75%;
+        @media (max-width: calc($breakpoint-wide - 1px)) {
+            --modal-margin-block: var(--modal-margin-none);
+            --modal-border-radius: var(--dt-radius-rounded-none);
+            --modal-block-size: 100%;
+            --modal-inline-size: 100%;
         }
     }
 
@@ -57,21 +116,60 @@
         background: #{dt.$color-overlay};
     }
 
+    & .c-modal-footer {
+        --modal-button-spacing: var(--dt-spacing-d);
+        --modal-footer-padding: var(--dt-spacing-d);
+
+        display: flex;
+        flex-flow: row-reverse;
+        flex-wrap: wrap;
+        gap: var(--modal-button-spacing);
+        padding: var(--modal-footer-padding);
+
+        @media (min-width: $breakpoint-wide) {
+            --modal-footer-padding: var(--dt-spacing-e);
+        }
+    }
+
+    & .c-modal-header {
+        --modal-header-padding: var(--dt-spacing-e);
+
+        padding-inline: var(--modal-header-padding);
+        padding-block: var(--modal-header-padding);
+        align-items: center;
+        display: flex;
+    }
+
+    &[hasbackbutton] .c-modal-header {
+        padding-block: var(--dt-spacing-c);
+        padding-inline-start: var(--dt-spacing-c);
+    }
+
+    &[isdismissible] .c-modal-header {
+        justify-content: space-between;
+        padding-block: var(--dt-spacing-c);
+        padding-inline-end: var(--dt-spacing-c);
+    }
+
     & .c-modal-heading {
-        // Modal header Custom Props
         --modal-header-font-size: calc(var(--dt-font-heading-m-size--wide) * 1px);
         --modal-header-font-line-height: calc(var(--dt-font-heading-m-line-height--wide) * 1px);
         --modal-header-font-weight: var(--dt-font-heading-m-weight);
-        --modal-header-padding: var(--dt-spacing-e);
-        --modal-header-padding-block-end: var(--dt-spacing-d);
 
         font-size: var(--modal-header-font-size);
         line-height: var(--modal-header-font-line-height);
         font-weight: var(--modal-header-font-weight);
-
         margin: 0;
-        padding-block: var(--modal-header-padding) var(--modal-header-padding-block-end);
-        padding-inline: var(--modal-header-padding);
+    }
+
+    // Ensure correct padding when there is a back button in front of the heading
+    &[hasbackbutton] .c-modal-heading {
+        margin-inline-start: var(--dt-spacing-c);
+    }
+
+    // Ensure correct padding when there is a close button behind the heading
+    &[isdismissible] .c-modal-heading {
+        margin-inline-end: var(--dt-spacing-e);
     }
 
     & .c-modal-content {
@@ -80,22 +178,88 @@
         --modal-content-font-weight: var(--dt-font-weight-regular);
         --modal-content-line-height: calc(var(--dt-font-size-16-line-height) * 1px);
         --modal-content-padding: var(--dt-spacing-e);
-        --modal-content-padding-block-start: var(--dt-spacing-a);
+        --modal-content-padding-block: var(--dt-spacing-a);
+
+        // Spinner sizes defaults
+        --spinner-size: 48px;
+        --spinner-border-width: 6px;
+
+        // Spinner colors - currently set for the primary button styles
+        --spinner-base-color-h: var(--dt-color-content-interactive-secondary-h);
+        --spinner-base-color-s: var(--dt-color-content-interactive-secondary-s);
+        --spinner-base-color-l: var(--dt-color-content-interactive-secondary-l);
+        --spinner-left-color-opacity: 0.35;
+        --spinner-left-color: hsl(var(--spinner-base-color-h), var(--spinner-base-color-s), var(--spinner-base-color-l), var(--spinner-left-color-opacity));
+        --spinner-right-color: hsl(var(--spinner-base-color-h), var(--spinner-base-color-s), var(--spinner-base-color-l), 1);
+
+        // Spinner animations
+        --spinner-animation-duration: 1.15s;
+        --spinner-animation-timing-function: linear;
+        --spinner-animation-iteration-count: infinite;
+
+        position: relative;
+        min-block-size: 60px;
 
         font-size: var(--modal-content-font-size);
         line-height: var(--modal-content-line-height);
         font-weight: var(--modal-content-font-weight);
 
-        padding-block: var(--modal-content-padding-block-start) var(--modal-content-padding);
         padding-inline: var(--modal-content-padding);
+        padding-block: var(--modal-content-padding-block);
 
-        overflow-y: scroll;
-        max-block-size: 300px; // This is just a placeholder before we add the proper container styles to slotted content to demonstrate scrollable slot content
+        overflow-y: auto;
+
+        &--scrollable {
+            background:
+                // Scroll shadow cover
+                // A top-to-bottom opacity gradient from transparent to the component background colour
+                linear-gradient(to bottom, transparent, var(--dt-color-container-default) 75%) center bottom,
+                // Scroll shadow
+                linear-gradient(transparent, var(--dt-color-border-strong)) center bottom;
+            background-repeat: no-repeat;
+            background-size: 100% 48px, 100% 12px;
+
+            // The shadow cover is an opacity gradient which is attached to the bottom of the scrollable element
+            // and scrolls with it, so as you reach the bottom of the content the more opaque portion covers
+            // (and therefore hides) the shadow. This gives the effect of the shadow fading away.
+            // The shadow itself does not move as you scroll.
+            background-attachment: local, scroll;
+        }
+
+        &:before {
+            content: '';
+
+            // Centre the spinner over the top of the button text
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            translate: -50% -50%;
+
+            height: var(--spinner-size);
+            width: var(--spinner-size);
+            display: block;
+            background-color: transparent;
+            border-radius: 50%;
+            border-color: var(--spinner-left-color) var(--spinner-right-color) var(--spinner-right-color) var(--spinner-left-color);
+            border-width: var(--spinner-border-width);
+            border-style: solid;
+            will-change: transform;
+            opacity: 0;
+        }
+    }
+
+    &[isLoading] .c-modal-content {
+        &:before {
+            animation: rotate360 var(--spinner-animation-duration) var(--spinner-animation-timing-function) var(--spinner-animation-iteration-count);
+            opacity: 1;
+        }
+
+        & .c-modal-contentInner {
+            opacity: 0;
+        }
     }
 
     & .c-modal-closeBtn {
-        position: absolute;
-        inset-inline-end: var(--dt-spacing-d);
-        inset-block-start: var(--dt-spacing-d);
+        margin-inline-start: auto;
     }
 }
