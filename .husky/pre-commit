@@ -2,7 +2,7 @@
 . "$(dirname -- "$0")/_/husky.sh"
 
 # Checks branch name for Jira ticket id
-node scripts/git-hooks/check-branch-name.js $(git symbolic-ref --short HEAD)
+scripts/git-hooks/check-branch-name.js $(git symbolic-ref --short HEAD)
 
 # Section for git-secrets
 if ! command -v git-secrets &> /dev/null

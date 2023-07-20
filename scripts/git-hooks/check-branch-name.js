@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 /* eslint-disable @typescript-eslint/no-var-requires */
 const { validateBranchName } = require('./git-hooks-utils.js');
 
