@@ -1,8 +1,10 @@
-const { objectHelpers } = require('../../_utilities/helpers');
+const { objectHelpers, numberHelpers } = require('../../_utilities/helpers');
 const normalisedPieDesignTokens = require('../../_data/normaliseTokens');
 const pieTokenCategories = require('../../tokenCategories.json');
 const {
-    getTokensForCategory,
+    createListForCategory,
+    createScssTokenName,
+    createTokenDisplayName,
     getTokenTypeMetadata,
 } = require('./tokensTable/handleTokenData');
 
@@ -36,36 +38,46 @@ const buildTable = ({ headings, rows }, useMonospace, isFullWidth) => {
         `).join('')}
     </table>`;
 };
-
-const createScssTokenName = (tokenKey, tokenType, path) => {
-    // TODO: This is a little hacky and we should revisit it as part of a wider refactor
-    // of how token information is generated for the docs site
-    const isDarkToken = path.includes('dark');
-
-    return `$${tokenType}-${isDarkToken ? 'dark-' : ''}${tokenKey}`;
-};
-
-const buildTableListForCategory = (tokens, path, category, tokenType) => {
-    const tokenTypeMetadata = getTokenTypeMetadata(path);
-    const tokensForCategory = getTokensForCategory(category, tokenTypeMetadata);
-
-    // create a list item for the current token
-    const elements = tokensForCategory.map((key) => ([
-        createScssTokenName(key, tokenType, path),
-        tokenTypeMetadata[key].description,
-    ]));
-    return { rows: elements };
-};
-
-const buildListWithHeadings = (categories, data, useMonospace, isFullWidth, tokenType, path, tokens) => {
+const buildListWithHeadings = (categories, tokens, tokenType, path, useMonospace, isFullWidth) => {
     const categoryTokenLists = Object.keys(categories).map((category) => {
         const heading = `<h2>${categories[category].displayName}</h2>`;
-        const data = buildTableListForCategory(tokens, path, category, tokenType);
-        const table = buildTable(data, useMonospace, isFullWidth);
+        const listItems = createListForCategory(tokens, path, category, tokenType);
+        const rows = listItems.map((item) => [item.tokenScssName, item.description]);
+        const table = buildTable({ rows }, useMonospace, isFullWidth);
+
         return `${heading}${table}`;
     });
 
     return `${categoryTokenLists.join('')}`;
+};
+
+const createTokenList = (tokens, tokenType, path, tokenTypeMetadata) => {
+    // if tokens are numbers (spacing / radius), sort in ascending order
+    const sortedTokens = Object.keys(tokens).every(numberHelpers.isNumber)
+        ? Object.entries(tokens).sort((a, b) => a[1] - b[1]) // [[key, value]]
+        : tokens;
+
+    const tokenListElements = sortedTokens.map((token) => ({
+        tokenScssName: createScssTokenName(token[0], tokenType, path),
+        description: tokenTypeMetadata[token[0]].description,
+    }));
+
+    return tokenListElements.map((item) => [item.tokenScssName, item.description]);
+};
+
+const buildTokenTable = (useMonospace, isFullWidth, tokenType, path) => {
+    const tokens = objectHelpers.getObjectPropertyByPath(normalisedPieDesignTokens, `theme.jet.${path}`);
+    const tokenTypeMetadata = getTokenTypeMetadata(path);
+
+    const categories = objectHelpers.getObjectPropertyByPath(pieTokenCategories, path);
+
+    if (categories) {
+        return `${buildListWithHeadings(categories, tokens, tokenType, path, useMonospace, isFullWidth)}`;
+    }
+
+    const rows = createTokenList(tokens, tokenType, path, tokenTypeMetadata);
+
+    return `${buildTable({ rows }, useMonospace, isFullWidth)}`;
 };
 
 /**
@@ -85,20 +97,11 @@ module.exports = ({
     path,
     tokenType,
 }) => {
-    let categories;
-    let data;
-
-    if (tableData) {
-        data = JSON.parse(tableData);
-    } else {
-        const tokens = objectHelpers.getObjectPropertyByPath(normalisedPieDesignTokens, `theme.jet.${path}`);
-
-        categories = objectHelpers.getObjectPropertyByPath(pieTokenCategories, path);
-
-        data = tokens;
+    if (path) {
+        return buildTokenTable(useMonospace, isFullWidth, tokenType, path);
     }
 
-    return categories
-        ? `${buildListWithHeadings(categories, data, useMonospace, isFullWidth, tokenType, path, data)}`
-        : `${buildTable(normaliseData(data), useMonospace, isFullWidth)}`;
+    const data = JSON.parse(tableData);
+
+    return `${buildTable(normaliseData(data), useMonospace, isFullWidth)}`;
 };

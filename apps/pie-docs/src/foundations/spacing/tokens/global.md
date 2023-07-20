@@ -14,7 +14,8 @@ We have defined a series of global tokens to define our various spacing measures
 
 {% simpleTable {
     isFullWidth: true,
-    tableData: tableData,
+    path: 'spacing.global',
+    tokenType: tokenTypes.SPACING,
     useMonospace: true
 } %}
 
