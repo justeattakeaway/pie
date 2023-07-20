@@ -117,6 +117,16 @@
         }
     }
 
+    &[position='top'] {
+        margin-block-start: var(--dt-spacing-j);
+
+        &[isfullwidthbelowmid] {
+            @media (max-width: calc($breakpoint-wide - 1px)) {
+                margin-block-start: var(--dt-spacing-none);
+            }
+        }
+    }
+
     // We need to pull in the token directly here because the
     // pseudo element `::backdrop` doesn't seem to pick up custom css properties.
     &::backdrop {
@@ -238,7 +248,7 @@
         --spinner-animation-iteration-count: infinite;
 
         position: relative;
-        min-block-size: 60px;
+        min-block-size: var(--dt-spacing-j);
 
         font-size: var(--modal-content-font-size);
         line-height: var(--modal-content-line-height);

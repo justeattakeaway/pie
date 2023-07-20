@@ -1,7 +1,7 @@
 import { getSvgProps } from '@justeattakeaway/pie-icons-configs';
 
 const template = document.createElement('template');
-template.innerHTML = '<style>:host-context(pie-icon-button) svg { width: var(--btn-icon-size); height: var(--btn-icon-size); }</style><svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 32 32" class="c-pieIcon c-pieIcon--gridViewFilledLarge"><path d="M4.625 14.25h9.625V4.625H4.625v9.625Z"></path><path d="M17.75 14.25h9.625V4.625H17.75v9.625Z"></path><path d="M4.625 27.375h9.625V17.75H4.625v9.625Z"></path><path d="M17.75 27.375h9.625V17.75H17.75v9.625Z"></path></svg>';
+template.innerHTML = '<style>:host-context(pie-icon-button) svg, :host-context(pie-button) svg { display:block; width: var(--btn-icon-size); height: var(--btn-icon-size); }</style><svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 32 32" class="c-pieIcon c-pieIcon--gridViewFilledLarge"><path d="M4.625 14.25h9.625V4.625H4.625v9.625Z"></path><path d="M17.75 14.25h9.625V4.625H17.75v9.625Z"></path><path d="M4.625 27.375h9.625V17.75H4.625v9.625Z"></path><path d="M17.75 27.375h9.625V17.75H17.75v9.625Z"></path></svg>';
 
 export class IconGridViewFilledLarge extends HTMLElement {
     constructor () {

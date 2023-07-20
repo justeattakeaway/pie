@@ -3,6 +3,7 @@ import { Variant } from '@justeattakeaway/pie-button/src/defs.ts';
 
 export const headingLevels = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'] as const;
 export const sizes = ['small', 'medium', 'large'] as const;
+export const positions = ['top', 'center'] as const;
 
 export interface ModalProps extends RTLComponentProps {
     /**
@@ -61,7 +62,7 @@ export interface ModalProps extends RTLComponentProps {
     /**
      * The leading action configuration for the modal.
      */
-    leadingAction?: {
+    leadingAction: {
         /**
          * The text to display for the leading action button.
          */
@@ -78,6 +79,11 @@ export interface ModalProps extends RTLComponentProps {
          */
         ariaLabel?: string;
     };
+
+    /*
+     * The position of the modal; this controls where it will appear on the page.
+     */
+    position: typeof positions[number];
 }
 
 /**

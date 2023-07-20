@@ -11,6 +11,7 @@ import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 import '@justeattakeaway/pie-icons-webc/icons/IconClose';
 import '@justeattakeaway/pie-icons-webc/icons/IconChevronLeft';
 import '@justeattakeaway/pie-icons-webc/icons/IconChevronRight';
+import { Variant } from '@justeattakeaway/pie-button/src/defs.ts';
 
 import styles from './modal.scss?inline';
 import {
@@ -20,6 +21,7 @@ import {
     ON_MODAL_OPEN_EVENT,
     ON_MODAL_BACK_EVENT,
     sizes,
+    positions,
 } from './defs';
 
 // Valid values available to consumers
@@ -66,9 +68,12 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
     @property()
     public leadingAction!: {
         text: string;
-        variant?: string;
+        variant?: Variant;
         ariaLabel?: string;
     };
+
+    @validPropertyValues(componentSelector, positions, 'center')
+    public position: ModalProps['position'] = 'center';
 
     @query('dialog')
     private _dialog?: HTMLDialogElement;
@@ -252,6 +257,7 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
             isLoading,
             size,
             leadingAction,
+            position,
         } = this;
 
         const headingTag = unsafeStatic(headingLevel);
@@ -262,6 +268,7 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
             class="c-modal"
             data-test-id="pie-modal"
             size="${size}"
+            position="${position}"
             ?hasBackButton=${hasBackButton}
             ?isDismissible=${isDismissible}
             ?isFullWidthBelowMid=${isFullWidthBelowMid}

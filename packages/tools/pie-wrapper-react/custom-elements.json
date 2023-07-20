@@ -24,6 +24,14 @@
                 },
                 {
                     "kind": "variable",
+                    "name": "positions",
+                    "type": {
+                        "text": "['top', 'center']"
+                    },
+                    "default": "['top', 'center']"
+                },
+                {
+                    "kind": "variable",
                     "name": "ON_MODAL_CLOSE_EVENT",
                     "type": {
                         "text": "string"
@@ -64,6 +72,14 @@
                     "name": "sizes",
                     "declaration": {
                         "name": "sizes",
+                        "module": "../../components/pie-modal/src/defs.js"
+                    }
+                },
+                {
+                    "kind": "js",
+                    "name": "positions",
+                    "declaration": {
+                        "name": "positions",
                         "module": "../../components/pie-modal/src/defs.js"
                     }
                 },
@@ -260,10 +276,19 @@
                             "kind": "field",
                             "name": "leadingAction",
                             "type": {
-                                "text": "{\n        text: string;\n        variant?: string;\n        ariaLabel?: string;\n    }"
+                                "text": "{\n        text: string;\n        variant?: Variant;\n        ariaLabel?: string;\n    }"
                             },
                             "privacy": "public",
                             "attribute": "leadingAction"
+                        },
+                        {
+                            "kind": "field",
+                            "name": "position",
+                            "type": {
+                                "text": "ModalProps['position']"
+                            },
+                            "privacy": "public",
+                            "default": "'center'"
                         },
                         {
                             "kind": "field",
@@ -553,7 +578,7 @@
                         {
                             "name": "leadingAction",
                             "type": {
-                                "text": "{\n        text: string;\n        variant?: string;\n        ariaLabel?: string;\n    }"
+                                "text": "{\n        text: string;\n        variant?: Variant;\n        ariaLabel?: string;\n    }"
                             },
                             "fieldName": "leadingAction"
                         },

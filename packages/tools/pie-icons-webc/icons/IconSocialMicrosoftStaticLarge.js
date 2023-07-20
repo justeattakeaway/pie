@@ -1,7 +1,7 @@
 import { getSvgProps } from '@justeattakeaway/pie-icons-configs';
 
 const template = document.createElement('template');
-template.innerHTML = '<style>:host-context(pie-icon-button) svg { width: var(--btn-icon-size); height: var(--btn-icon-size); }</style><svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 32 32" class="c-pieIcon c-pieIcon--microsoftStaticLarge"><path fill="#F15121" d="M4 4h11v11H4V4Z"></path><path fill="#00A3EE" d="M4 17h11v11H4V17Z"></path><path fill="#7EB801" d="M17 4h11v11H17V4Z"></path><path fill="#FFB700" d="M17 17h11v11H17V17Z"></path></svg>';
+template.innerHTML = '<style>:host-context(pie-icon-button) svg, :host-context(pie-button) svg { display:block; width: var(--btn-icon-size); height: var(--btn-icon-size); }</style><svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 32 32" class="c-pieIcon c-pieIcon--microsoftStaticLarge"><path fill="#F15121" d="M4 4h11v11H4V4Z"></path><path fill="#00A3EE" d="M4 17h11v11H4V17Z"></path><path fill="#7EB801" d="M17 4h11v11H17V4Z"></path><path fill="#FFB700" d="M17 17h11v11H17V17Z"></path></svg>';
 
 export class IconSocialMicrosoftStaticLarge extends HTMLElement {
     constructor () {

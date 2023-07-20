@@ -2,28 +2,17 @@ import { test } from '@sand4rt/experimental-ct-web';
 import percySnapshot from '@percy/playwright';
 import { PieIconButton } from '@justeattakeaway/pie-icon-button';
 import { PieButton } from '@justeattakeaway/pie-button';
+import { positions } from '@/defs.ts';
 import { PieModal } from '@/index';
 import { ModalProps, sizes } from '@/defs';
 
-// Mount any components that are used inside of pie-modal so that
+// Mount any components that are used inside pie-modal so that
 // they have been registered with the browser before the tests run.
 // There is likely a nicer way to do this but this will temporarily
 // unblock tests.
-test.beforeEach(async ({ page, mount }) => {
-    await mount(
-        PieIconButton,
-        {},
-    );
-
-    // Removing the element so it's not present in the tests (but is still registered in the DOM)
-    await page.evaluate(() => {
-        const element : Element | null = document.querySelector('pie-icon-button');
-        element?.remove();
-    });
-});
-
 test.beforeEach(async ({ mount }) => {
     await (await mount(PieButton)).unmount();
+    await (await mount(PieIconButton)).unmount();
 });
 
 sizes.forEach((size) => {
@@ -33,7 +22,7 @@ sizes.forEach((size) => {
                 heading: 'This is a modal heading',
                 isOpen: true,
                 size,
-            },
+            } as ModalProps,
         });
 
         await percySnapshot(page, `Modal - size = ${size}`);
@@ -49,7 +38,7 @@ test.describe('Prop: `isFullWidthBelowMid`', () => {
                     isFullWidthBelowMid: true,
                     isOpen: true,
                     size: 'medium',
-                },
+                } as ModalProps,
             });
 
             await percySnapshot(page, 'Modal - isFullWidthBelowMid = true, size = medium');
@@ -62,7 +51,7 @@ test.describe('Prop: `isFullWidthBelowMid`', () => {
                     isFullWidthBelowMid: true,
                     isOpen: true,
                     size: 'small',
-                },
+                } as ModalProps,
             });
 
             await percySnapshot(page, 'Modal - isFullWidthBelowMid = true, size = small');
@@ -79,7 +68,7 @@ test.describe('Prop: `isFullWidthBelowMid`', () => {
                         isFullWidthBelowMid: false,
                         isOpen: true,
                         size,
-                    },
+                    } as ModalProps,
                 });
 
                 await percySnapshot(page, `Modal - isFullWidthBelowMid = false, size = ${size}`);
@@ -96,7 +85,7 @@ test.describe('Prop: `isDismissible`', () => {
                     heading: 'This is a modal heading',
                     isDismissible: true,
                     isOpen: true,
-                },
+                } as ModalProps,
             });
 
             await percySnapshot(page, 'Modal with close button displayed - isDismissible: `true`');
@@ -110,7 +99,7 @@ test.describe('Prop: `isDismissible`', () => {
                     heading: 'This is a modal heading',
                     isDismissible: false,
                     isOpen: true,
-                },
+                } as ModalProps,
             });
 
             await percySnapshot(page, 'Modal without close button - isDismissible: `false`');
@@ -130,7 +119,7 @@ test.describe('Prop: `hasBackButton`', () => {
                         hasBackButton: true,
                         isOpen: true,
                         dir,
-                    },
+                    } as ModalProps,
                 });
 
                 await percySnapshot(page, `Modal with back button displayed - hasBackButton: ${true} - dir: ${dir}`);
@@ -145,7 +134,7 @@ test.describe('Prop: `hasBackButton`', () => {
                         hasBackButton: false,
                         isOpen: true,
                         dir,
-                    },
+                    } as ModalProps,
                 });
 
                 await percySnapshot(page, `Modal without back button - hasBackButton: ${false} - dir: ${dir}`);
@@ -163,7 +152,7 @@ test.describe('Prop: `heading`', () => {
                 size: 'medium',
                 hasBackButton: true,
                 isDismissible: true,
-            },
+            } as ModalProps,
         });
 
         await percySnapshot(page, 'Modal - Long heading');
@@ -179,7 +168,7 @@ test.describe('Prop: `isLoading`', () => {
                 isDismissible: true,
                 isOpen: true,
                 isLoading: true,
-            },
+            } as ModalProps,
         });
 
         await percySnapshot(page, `Modal displays loading spinner - isLoading: ${true}`);
@@ -200,7 +189,7 @@ test.describe('Prop: `leadingAction`', () => {
                         variant: 'primary',
                         ariaLabel: 'Confirmation text',
                     },
-                },
+                } as ModalProps,
             });
 
             await percySnapshot(page, 'Modal displays leadingAction');
@@ -218,7 +207,7 @@ test.describe('Prop: `leadingAction`', () => {
                     leadingAction: {
                         text: 'Confirm',
                     },
-                },
+                } as ModalProps,
             });
 
             await percySnapshot(page, 'Modal fallback to default property `primary`');
@@ -233,10 +222,26 @@ test.describe('Prop: `leadingAction`', () => {
                     hasBackButton: true,
                     isDismissible: true,
                     isOpen: true,
-                },
+                } as ModalProps,
             });
 
             await percySnapshot(page, 'Modal does not display leadingAction');
+        });
+    });
+});
+
+test.describe('`position`', () => {
+    positions.forEach((position) => {
+        test(`should be positioned in the correct part of the page when position is: ${position}`, async ({ mount, page }) => {
+            await mount(PieModal, {
+                props: {
+                    heading: 'This is a modal heading',
+                    isOpen: true,
+                    position,
+                } as ModalProps,
+            });
+
+            await percySnapshot(page, `Modal position: ${position}`);
         });
     });
 });
