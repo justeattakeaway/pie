@@ -8,16 +8,7 @@
                 <p class="c-contentPage-header-description">
                     {{ description }}
                 </p>
-                {% if heroCtaTitle and heroCtaHref %}
-                    <a class='o-btn' href={{ heroCtaHref | url }}>{{ heroCtaTitle }}
-                    </a>
-                {% endif %}
             </div>
-            {% if heroImageSrc %}
-                <div>
-                    <img class="u-showAboveMid" src={{ heroSrc }} alt="" />
-                </div>
-            {% endif %}
         </div>
     </div>
 
