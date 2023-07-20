@@ -1,7 +1,7 @@
 import { getSvgProps } from '@justeattakeaway/pie-icons-configs';
 
 const template = document.createElement('template');
-template.innerHTML = '<style>:host-context(pie-icon-button) svg { width: var(--btn-icon-size); height: var(--btn-icon-size); }</style><svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 32 32" class="c-pieIcon c-pieIcon--microsoftCircleFilledLarge"><path fill-rule="evenodd" d="M16 28.25a12.25 12.25 0 1 1 0-24.5 12.25 12.25 0 0 1 0 24.5ZM15.5 10H10v5.5h5.5V10Zm0 6.5H10V22h5.5v-5.5Zm1-6.5H22v5.5h-5.5V10Zm5.5 6.5h-5.5V22H22v-5.5Z" clip-rule="evenodd"></path></svg>';
+template.innerHTML = '<style>:host-context(pie-icon-button) svg, :host-context(pie-button) svg { display:block; width: var(--btn-icon-size); height: var(--btn-icon-size); }</style><svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 32 32" class="c-pieIcon c-pieIcon--microsoftCircleFilledLarge"><path fill-rule="evenodd" d="M16 28.25a12.25 12.25 0 1 1 0-24.5 12.25 12.25 0 0 1 0 24.5ZM15.5 10H10v5.5h5.5V10Zm0 6.5H10V22h5.5v-5.5Zm1-6.5H22v5.5h-5.5V10Zm5.5 6.5h-5.5V22H22v-5.5Z" clip-rule="evenodd"></path></svg>';
 
 export class IconSocialMicrosoftCircleFilledLarge extends HTMLElement {
     constructor () {

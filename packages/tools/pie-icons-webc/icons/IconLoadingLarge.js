@@ -1,7 +1,7 @@
 import { getSvgProps } from '@justeattakeaway/pie-icons-configs';
 
 const template = document.createElement('template');
-template.innerHTML = '<style>:host-context(pie-icon-button) svg { width: var(--btn-icon-size); height: var(--btn-icon-size); }</style><svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 32 32" class="c-pieIcon c-pieIcon--loadingLarge"><path d="M28.25 16A12.25 12.25 0 1 1 16 3.75V5.5A10.5 10.5 0 1 0 26.5 16h1.75ZM9 16h1.75A5.25 5.25 0 1 1 16 21.25V23a7 7 0 1 0-7-7Z"></path></svg>';
+template.innerHTML = '<style>:host-context(pie-icon-button) svg, :host-context(pie-button) svg { display:block; width: var(--btn-icon-size); height: var(--btn-icon-size); }</style><svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 32 32" class="c-pieIcon c-pieIcon--loadingLarge"><path d="M28.25 16A12.25 12.25 0 1 1 16 3.75V5.5A10.5 10.5 0 1 0 26.5 16h1.75ZM9 16h1.75A5.25 5.25 0 1 1 16 21.25V23a7 7 0 1 0-7-7Z"></path></svg>';
 
 export class IconLoadingLarge extends HTMLElement {
     constructor () {
