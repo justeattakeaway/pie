@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 export { IconAlcoholFilledLarge } from './IconAlcoholFilledLarge';
 export { IconAlcoholFilled } from './IconAlcoholFilled';
 export { IconAlcoholLarge } from './IconAlcoholLarge';

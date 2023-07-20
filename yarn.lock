@@ -5307,7 +5307,7 @@ __metadata:
     "@babel/node": 7.20.7
     "@justeattakeaway/pie-icons": 4.3.0
     "@justeattakeaway/pie-icons-configs": "workspace:*"
-    "@open-wc/testing": ^3.2.0
+    "@open-wc/testing": 3.2.0
     "@rollup/plugin-node-resolve": 15.1.0
     "@rollup/plugin-typescript": 11.1.2
     "@web/test-runner": 0.16.1
@@ -6586,7 +6586,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@open-wc/testing@npm:^3.2.0":
+"@open-wc/testing@npm:3.2.0":
   version: 3.2.0
   resolution: "@open-wc/testing@npm:3.2.0"
   dependencies:

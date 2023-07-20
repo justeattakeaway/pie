@@ -113,7 +113,7 @@ async function build () {
     // check if /icons directory exists, if not create it
     await checkDirExists(ICONS_DIR);
 
-    let indexFileString = '/* eslint-disable camelcase */\n';
+    let indexFileString = '';
 
     // loop through the icons in pie-icons, generate each component and add it to the index.ts
     Object.keys(icons).forEach((iconKey) => {
