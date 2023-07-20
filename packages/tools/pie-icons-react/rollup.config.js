@@ -1,46 +1,46 @@
-import typescript from "rollup-plugin-typescript2";
-import del from "rollup-plugin-delete";
+import typescript from 'rollup-plugin-typescript2';
+import del from 'rollup-plugin-delete';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 
 export default [
     {
-        input: ["icons/index.tsx"],
+        input: ['icons/index.tsx'],
         output: {
-            exports: "named",
-            dir: "esm",
-            format: "esm",
-            name: "@justeattakeaway/pie-icons-react",
+            exports: 'named',
+            dir: 'esm',
+            format: 'esm',
+            name: '@justeattakeaway/pie-icons-react',
             preserveModulesRoot: 'icons',
             globals: {
-                react: "React",
+                react: 'React',
             },
-            preserveModules: true
+            preserveModules: true,
         },
         plugins: [
-            del({ targets: ["esm/*"] }),
+            del({ targets: ['esm/*'] }),
             typescript(),
-            nodeResolve({resolveOnly: ['@justeattakeaway/pie-icons-configs']}),
-        ]
+            nodeResolve({ resolveOnly: ['@justeattakeaway/pie-icons-configs'] }),
+        ],
     },
     {
-        input: ["icons/index.tsx"],
+        input: ['icons/index.tsx'],
         output: {
-            exports: "named",
-            dir: "dist",
-            format: "cjs",
-            name: "@justeattakeaway/pie-icons-react",
+            exports: 'named',
+            dir: 'dist',
+            format: 'cjs',
+            name: '@justeattakeaway/pie-icons-react',
             preserveModulesRoot: 'icons',
             globals: {
-                react: "React",
+                react: 'React',
             },
-            preserveModules: true
+            preserveModules: true,
         },
         plugins: [
-            del({ targets: ["dist/*"] }),
+            del({ targets: ['dist/*'] }),
             typescript(),
             nodeResolve({
-                resolveOnly: ['@justeattakeaway/pie-icons-configs']
+                resolveOnly: ['@justeattakeaway/pie-icons-configs'],
             })
-        ]
+        ],
     },
 ];
