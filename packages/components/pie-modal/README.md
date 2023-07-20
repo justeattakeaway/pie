@@ -71,6 +71,7 @@ import { PieModal } from '@justeattakeaway/pie-modal/dist/react';
 | isOpen | `Boolean` | `false` | Controls if the modal element is open or closed |
 | isLoading | `Boolean` | `false` | When true, displays a loading spinner in the modal |
 | size | `String` | `medium` | Determines the maximum width of the modal. Large modals will expand to fill the entire page width at narrow viewports. Can be `small`, `medium` or `large`. |
+| position | `String` | `center` | The position of the modal; this controls where it will appear on the page. Can be `top` or `center`. |
 | returnFocusAfterCloseSelector | `String` | `undefined` | If provided, focus will be sent to the first element that matches this selector when the modal is closed. If not provided, the `dialog` element will return focus to the element that opened the modal. |
 
 In your markup or JSX, you can then use these to set the properties for the `pie-modal` component:

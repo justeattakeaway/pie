@@ -3,7 +3,7 @@
  */
 export const i18nArgTypes = {
     dir: {
-        control: 'select',
+        control: 'radio',
         options: ['ltr', 'rtl', 'auto'],
     },
 };

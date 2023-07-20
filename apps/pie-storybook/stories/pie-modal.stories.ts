@@ -11,6 +11,7 @@ import {
     ModalProps as ModalPropsBase,
     headingLevels,
     sizes,
+    positions,
 } from '@justeattakeaway/pie-modal/src/defs';
 import { i18nArgTypes } from '../args/commonArgsTypes';
 import { StoryMeta, SlottedComponentProps } from '../types';
@@ -27,6 +28,7 @@ const defaultArgs: ModalProps = {
     isOpen: true,
     isLoading: false,
     size: 'medium',
+    position: 'center',
     slot: 'This is Lit!',
     dir: 'ltr',
 };
@@ -62,8 +64,12 @@ const modalStoryMeta: ModalStoryMeta = {
             control: 'text',
         },
         size: {
-            control: 'select',
+            control: 'radio',
             options: sizes,
+        },
+        position: {
+            control: 'radio',
+            options: positions,
         },
         slot: {
             control: 'text',
@@ -121,6 +127,7 @@ const BaseStoryTemplate = (props: ModalProps): TemplateResult => {
         isLoading,
         returnFocusAfterCloseSelector,
         size,
+        position,
         slot,
         dir,
     } = props;
@@ -136,7 +143,8 @@ const BaseStoryTemplate = (props: ModalProps): TemplateResult => {
             returnFocusAfterCloseSelector="${ifDefined(returnFocusAfterCloseSelector)}"
             ?isOpen="${isOpen}"
             dir="${dir}"
-            size="${size}">
+            size="${size}"
+            position="${position}">
             ${slot}
         </pie-modal>`;
 };

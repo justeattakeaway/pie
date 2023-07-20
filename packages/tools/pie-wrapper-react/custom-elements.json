@@ -24,6 +24,14 @@
                 },
                 {
                     "kind": "variable",
+                    "name": "positions",
+                    "type": {
+                        "text": "['top', 'center']"
+                    },
+                    "default": "['top', 'center']"
+                },
+                {
+                    "kind": "variable",
                     "name": "ON_MODAL_CLOSE_EVENT",
                     "type": {
                         "text": "string"
@@ -64,6 +72,14 @@
                     "name": "sizes",
                     "declaration": {
                         "name": "sizes",
+                        "module": "../../components/pie-modal/src/defs.js"
+                    }
+                },
+                {
+                    "kind": "js",
+                    "name": "positions",
+                    "declaration": {
+                        "name": "positions",
                         "module": "../../components/pie-modal/src/defs.js"
                     }
                 },
@@ -255,6 +271,16 @@
                             "privacy": "public",
                             "default": "'medium'",
                             "attribute": "size"
+                        },
+                        {
+                            "kind": "field",
+                            "name": "position",
+                            "type": {
+                                "text": "ModalProps['position']"
+                            },
+                            "privacy": "public",
+                            "default": "'center'",
+                            "attribute": "position"
                         },
                         {
                             "kind": "field",
@@ -529,6 +555,14 @@
                             },
                             "default": "'medium'",
                             "fieldName": "size"
+                        },
+                        {
+                            "name": "position",
+                            "type": {
+                                "text": "ModalProps['position']"
+                            },
+                            "default": "'center'",
+                            "fieldName": "position"
                         },
                         {
                             "name": "dir",
