@@ -33,24 +33,24 @@
     .c-homePage-text {
         align-self: start;
         padding-block-start: f.spacing(g);
-    
+
         @include f.media('>=mid') {
             padding-block-start: f.spacing(j);
             max-width: 500px;
         }
-    
+
         .c-homePage-description {
             @include f.font-size('body-l');
             margin-top: f.spacing(e);
             max-width: 50ch;
             margin-bottom: f.spacing(d);
-        
-        
+
+
             @include f.media('>=wide') {
                 @include f.font-size('heading-s');
             }
         }
-        
+
         .c-homePage-title {
             @include f.font-size('heading-xl');
             @include f.media('>=mid') {
@@ -58,10 +58,10 @@
             }
         }
     }
-    
+
     .c-homePage-image {
         align-self: center;
-    
+
         & img {
             object-fit: contain;
             width: 100%;
@@ -71,10 +71,10 @@
     }
 }
 
-.razor{
+.razor {
     grid-row: 2;
     grid-column: 1;
-    width:100%;
+    width: 100%;
     height: 500px;
     background-color: f.$color-support-brand-01;
     align-self: flex-start;
