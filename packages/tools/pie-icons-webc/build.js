@@ -60,6 +60,7 @@ export class ${name} extends LitElement implements IconProps {
     private _svg? : SVGElement;
 
     connectedCallback () : void {
+        super.connectedCallback();
         if (this._svg?.getAttribute('width') === null) {
             const svgSize = getSvgProps('${svgClasses}', '', null, '${name}');
             this._svg?.setAttribute('width', svgSize.width);
@@ -83,7 +84,9 @@ export class ${name} extends LitElement implements IconProps {
     }
 }
 
-customElements.define(componentSelector, ${name});
+if (customElements.get(componentSelector) === undefined) {
+    customElements.define(componentSelector, ${name});
+}
 
 declare global {
     interface HTMLElementTagNameMap {

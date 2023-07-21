@@ -8,9 +8,6 @@ import {
 } from '@justeattakeaway/pie-webc-core';
 import type { DependentMap } from '@justeattakeaway/pie-webc-core';
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
-import '@justeattakeaway/pie-icons-webc/icons/IconClose';
-import '@justeattakeaway/pie-icons-webc/icons/IconChevronLeft';
-import '@justeattakeaway/pie-icons-webc/icons/IconChevronRight';
 
 import styles from './modal.scss?inline';
 import {
@@ -194,7 +191,9 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
                 @click="${() => { this.isOpen = false; }}"
                 variant="ghost-secondary"
                 class="c-modal-closeBtn"
-                data-test-id="modal-close-button"><icon-close /></pie-icon-button>
+                data-test-id="modal-close-button">
+                <icon-close></icon-close>
+            </pie-icon-button>
         `;
     }
 
@@ -211,7 +210,7 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
                 variant="ghost-secondary"
                 class="c-modal-backBtn"
                 data-test-id="modal-back-button">
-                ${this.isRTL ? html`<icon-chevron-right />` : html`<icon-chevron-left />`}
+                ${this.isRTL ? html`<icon-chevron-right></icon-chevron-right>` : html`<icon-chevron-left></icon-chevron-left>`}
             </pie-icon-button>
         `;
     }

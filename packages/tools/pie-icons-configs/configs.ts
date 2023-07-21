@@ -13,7 +13,7 @@ export const sizeToValueMap : Record<RegularIconSize, number> = {
 
 export const regularIconSizeDefault : RegularIconSize = 'xs';
 export const largeIconSizeModule = 8;
-export const largeIconSizeDefault : LargeIconSize = 32;
+export const largeIconSizeDefault = 32;
 
 /**
  * Validates the size for large icons
@@ -44,9 +44,12 @@ export const iconSizeValidator = {
  * @returns {{isValid: boolean, size: number}} - Object with the validation result and the normalized icon size
  */
 export function validateGetLargeIconSize (sizeValue : LargeIconSize) {
+    let size = largeIconSizeDefault as number;
     const isValid = iconSizeValidator.large(sizeValue);
 
-    const size = isValid ? sizeValue : largeIconSizeDefault;
+    if (isValid) {
+        size = parseInt(`${sizeValue}`, 10);
+    }
 
     return { isValid, size };
 }
@@ -75,7 +78,7 @@ export function validateGetRegularIconSize (sizeValue : RegularIconSize) {
  * @returns {Object} - Object of props to be assigned to the svg element
  */
 
-export const getSvgProps = (svgClasses: string, staticClasses: string, sizeValue: RegularIconSize | LargeIconSize, componentName: string) => {
+export const getSvgProps = (svgClasses: string, staticClasses: string, sizeValue: RegularIconSize | LargeIconSize | null, componentName: string) => {
     const isLargeIcon = svgClasses.endsWith('Large') || svgClasses.endsWith('-large');
 
     let isValid;

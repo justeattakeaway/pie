@@ -1,12 +1,9 @@
 {
   "name": "@justeattakeaway/pie-icons-webc",
   "version": "0.3.0",
-  "main": "esm/index.js",
   "type": "module",
-  "files": [
-    "esm",
-    "icons"
-  ],
+  "main": "esm/index.js",
+  "module": "dist/esm/index.js",
   "publishConfig": {
     "access": "public"
   },
@@ -24,7 +21,7 @@
   },
   "license": "Apache-2.0",
   "engines": {
-    "node": ">=14.0.0"
+    "node": ">=18.0.0"
   },
   "keywords": [
     "PIE"

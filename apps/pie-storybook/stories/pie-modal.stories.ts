@@ -4,9 +4,9 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import '@justeattakeaway/pie-button'; // Register pie-button
 import '@justeattakeaway/pie-icon-button'; // Register pie-icon-button
 import '@justeattakeaway/pie-modal'; // Register pie-modal
-import '@justeattakeaway/pie-icons-webc/icons/IconClose'; // Register icon-close
-import '@justeattakeaway/pie-icons-webc/icons/IconChevronLeft'; // Register icon-chevron-left
-import '@justeattakeaway/pie-icons-webc/icons/IconChevronRight'; // Register icon-chevron-right
+import '@justeattakeaway/pie-icons-webc/dist/esm/IconClose.js'; // Register icon-close
+import '@justeattakeaway/pie-icons-webc/dist/esm/IconChevronLeft.js'; // Register icon-chevron-left
+import '@justeattakeaway/pie-icons-webc/dist/esm/IconChevronRight.js'; // Register icon-chevron-right
 import {
     ModalProps as ModalPropsBase,
     headingLevels,

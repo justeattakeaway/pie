@@ -17,7 +17,7 @@ declare const iconSizeValidator: IconSizeValidator;
 declare function validateGetLargeIconSize(sizeValue: LargeIconSize): { isValid: boolean, size: number };
 declare function validateGetRegularIconSize(sizeValue: RegularIconSize): { isValid: boolean, size: number };
 
-declare function getSvgProps(svgClasses: string, staticClasses: string, sizeValue: RegularIconSize | LargeIconSize, componentName: string): object;
+declare function getSvgProps(svgClasses: string, staticClasses: string, sizeValue: RegularIconSize | LargeIconSize | null, componentName: string): { width: string, height: string, class: string };
 
 declare function normalizeIconName(name: string): string;
 

@@ -11,7 +11,7 @@ export default [
         input: ['icons/index.ts'],
         output: {
             exports: 'named',
-            dir: 'esm',
+            dir: 'dist/esm',
             format: 'esm',
             name: '@justeattakeaway/pie-icons-webc',
             preserveModulesRoot: 'icons',
@@ -22,25 +22,35 @@ export default [
             nodeResolve({
                 resolveOnly: ['@justeattakeaway/pie-icons-configs'],
             }),
-            typescript({ compilerOptions }),
+            typescript({
+                compilerOptions: {
+                    ...compilerOptions,
+                    outDir: './dist/esm',
+                },
+            }),
         ],
     },
     // {
     //     input: ['icons/index.ts'],
     //     output: {
     //         exports: 'named',
-    //         dir: 'dist',
+    //         dir: 'dist/cjs',
     //         format: 'cjs',
     //         name: '@justeattakeaway/pie-icons-webc',
     //         preserveModulesRoot: 'icons',
     //         preserveModules: true,
     //     },
     //     plugins: [
-    //         del({ targets: ['dist/*'] }),
+    //         del({ targets: ['cjs/*'] }),
     //         nodeResolve({
     //             resolveOnly: ['@justeattakeaway/pie-icons-configs'],
     //         }),
-    //         typescript({ compilerOptions }),
+    //         typescript({
+    //             compilerOptions: {
+    //                 ...compilerOptions,
+    //                 outDir: './dist/cjs',
+    //             },
+    //         }),
     //     ],
     // },
 ];
