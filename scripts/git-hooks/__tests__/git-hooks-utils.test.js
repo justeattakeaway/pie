@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
 import {
     describe, it, expect,
 } from 'vitest';
@@ -27,7 +26,7 @@ describe('getTicketIdFromBranchName', () => {
     });
 
     describe('when called with a valid argument', () => {
-        it('should return the ticket id', () => {
+        it('should return the ticket id in upper case', () => {
             const expected = 'JIRA-1234';
 
             expect(getTicketIdFromBranchName('jira-1234-branch-name')).toBe(expected);
