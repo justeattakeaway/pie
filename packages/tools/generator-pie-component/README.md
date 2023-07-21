@@ -10,7 +10,7 @@
 
 # generator-pie-component
 
-  `generator-pie-component` is a generator for Pie Web Components.
+`generator-pie-component` is a generator for Pie Web Components.
 
 ---
 
