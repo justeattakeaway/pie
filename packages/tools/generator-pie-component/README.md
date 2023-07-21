@@ -60,7 +60,7 @@ To build the `generator-pie-component` package, run the following command:
 yarn build --filter=generator-pie-component
 ```
 
-You can also build the component in `watch` mode if desired with the following command
+You can also build the component in `watch` mode if desired with the following command:
 
 ```bash
 yarn watch --filter=generator-pie-component
