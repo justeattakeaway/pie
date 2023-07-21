@@ -59,7 +59,7 @@
 
         @include f.media('>=wide') {
             align-self: flex-start;
-            padding-top: f.spacing(j);
+            padding-top: calc(f.spacing(e) + f.spacing(i)); // 88px
         }
     }
 
