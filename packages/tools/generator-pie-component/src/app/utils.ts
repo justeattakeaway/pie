@@ -14,7 +14,7 @@ function getComponentNameCamelCase (str: string) {
 }
 
 function getComponentFilename (str:string) {
-    return `${trim(str)}`;
+    return trim(str);
 }
 
 function getDisplayName (str: string) {

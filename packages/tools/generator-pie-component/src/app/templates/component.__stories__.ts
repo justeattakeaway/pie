@@ -3,7 +3,7 @@ import type { StoryObj as Story } from '@storybook/web-components';
 import { Pie<%= componentName %>, <%= componentName %>Props } from '@justeattakeaway/pie-<%= fileName %>';
 import { StoryMeta } from '../types';
 
-// TODO: Remove this const when other exports from PieModal are used on Stories, 
+// TODO: Remove this const when other exports from Pie<%= componentName %> are used on Stories, 
 // otherwise tree-shaking will get rid of the web component definition
 const keptReference = Pie<%= componentName %>;
 
