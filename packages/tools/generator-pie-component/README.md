@@ -8,15 +8,12 @@
   </a>
 </p>
 
-<div align="center">
-
-  # generator-pie-component
+# generator-pie-component
 
   `generator-pie-component` is a generator for Pie Web Components.
 
-</div>
-
 ---
+
 ## Usage
 
 ### Installation
@@ -63,8 +60,7 @@ To build the `generator-pie-component` package, run the following command:
 yarn build --filter=generator-pie-component
 ```
 
-you can also build the component in `watch` mode if desired with the following command
-
+You can also build the component in `watch` mode if desired with the following command
 
 ```bash
 yarn watch --filter=generator-pie-component
@@ -77,4 +73,3 @@ In order to contribute to the `generator-pie-component`, it's advised to link yo
 To do this, run `yarn link` from the root of the `generator-pie-component` folder in the mono-repo.
 
 Once you have done this, running `yo @justeattakeaway/generator-pie-component` will run your local copy of the generator (rather than the version installed globally via NPM/Yarn).
-
