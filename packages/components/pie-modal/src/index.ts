@@ -232,8 +232,12 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
      *
      * @private
      */
-    private renderLeadingAction (): TemplateResult {
-        const { text, variant = 'primary', ariaLabel } = this.leadingAction;
+    private renderLeadingAction (): TemplateResult | typeof nothing {
+        const { text = 'Confirm', variant = 'primary', ariaLabel } = this.leadingAction;
+
+        if (!text) {
+            return nothing;
+        }
 
         return html`
             <pie-button
