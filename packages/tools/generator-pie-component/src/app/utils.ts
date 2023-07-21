@@ -1,19 +1,23 @@
-import { startCase, snakeCase } from 'lodash';
+import { startCase, snakeCase, camelCase } from 'lodash';
 import { TransformedName } from './types';
 
 function trim (str: string) {
     return str.replace(/\s/g, '');
 }
 
-function getComponentName (str: string) {
+function getComponentNameStartCase (str: string) {
     return trim(startCase(str));
+}
+
+function getComponentNameCamelCase (str: string) {
+    return trim(camelCase(str));
 }
 
 function getComponentFilename (str:string) {
     return `${trim(str)}`;
 }
 
-function getReadmeName (str: string) {
+function getDisplayName (str: string) {
     return startCase(str);
 }
 
@@ -30,10 +34,11 @@ export function transformName (name: string): TransformedName {
     const normalisedName = name.toLowerCase();
 
     return {
-        componentName: getComponentName(normalisedName), // e.g IconButton,
+        componentName: getComponentNameStartCase(normalisedName), // e.g IconButton,
+        componentNameCamelCase: getComponentNameCamelCase(normalisedName), // e.g iconButton,
         defaultName: name, // e.g. button
         fileName: getComponentFilename(normalisedName), // e.g. button.scss
-        readmeName: getReadmeName(normalisedName), // e.g. Icon Button
+        displayName: getDisplayName(normalisedName), // e.g. Icon Button
         percyComponentName: getPercyComponentName(normalisedName), // e.g. ICON_BUTTON
     };
 }

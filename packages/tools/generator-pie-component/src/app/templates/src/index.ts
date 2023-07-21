@@ -4,7 +4,7 @@ import { <%= componentName %>Props } from './defs';
 
 // Valid values available to consumers
 export {
-    type <%= componentName% >Props,
+    type <%= componentName %>Props,
 };
 
 const componentSelector = 'pie-<%= fileName %>';

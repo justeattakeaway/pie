@@ -1,8 +1,8 @@
+import { html, TemplateResult } from 'lit';
 import type { StoryObj as Story } from '@storybook/web-components';
 import {
     ButtonProps as ButtonPropsBase, sizes, types, variants,
 } from '@justeattakeaway/pie-button';
-import { html, TemplateResult } from 'lit';
 import { StoryMeta, SlottedComponentProps } from '../types';
 
 type ButtonProps = SlottedComponentProps<ButtonPropsBase>;

@@ -2,9 +2,10 @@ import { Answers } from 'yeoman-generator';
 
 export type TransformedName = {
   componentName: string;
+  componentNameCamelCase: string;
   defaultName: string;
   fileName: string;
-  readmeName: string;
+  displayName: string;
   percyComponentName: string;
 }
 
