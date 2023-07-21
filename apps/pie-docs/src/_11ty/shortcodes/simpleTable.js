@@ -1,12 +1,4 @@
-const { objectHelpers, numberHelpers } = require('../../_utilities/helpers');
-const normalisedPieDesignTokens = require('../../_data/normaliseTokens');
-const pieTokenCategories = require('../../tokenCategories.json');
-const {
-    createListForCategory,
-    createScssTokenName,
-    createTokenDisplayName,
-    getTokenTypeMetadata,
-} = require('./tokensTable/handleTokenData');
+const { getTokenData } = require('../../_data/handleTokenData');
 
 const normaliseData = (data) => {
     if (data.rows) {
@@ -19,7 +11,7 @@ const normaliseData = (data) => {
     return { rows: Object.entries(data) };
 };
 
-const buildTable = ({ headings, rows }, useMonospace, isFullWidth) => {
+const buildTable = ({ rows, headings }, useMonospace, isFullWidth) => {
     const headerClass = headings ? '' : 'c-simpleTable--headerless';
     const fontClass = useMonospace ? 'c-simpleTable--monospace' : '';
     const widthClass = isFullWidth ? 'c-simpleTable--fullWidth' : '';
@@ -38,47 +30,12 @@ const buildTable = ({ headings, rows }, useMonospace, isFullWidth) => {
         `).join('')}
     </table>`;
 };
-const buildListWithHeadings = (categories, tokens, tokenType, path, useMonospace, isFullWidth) => {
-    const categoryTokenLists = Object.keys(categories).map((category) => {
-        const heading = `<h2>${categories[category].displayName}</h2>`;
-        const listItems = createListForCategory(tokens, path, category, tokenType);
-        const rows = listItems.map((item) => [item.tokenScssName, item.description]);
-        const table = buildTable({ rows }, useMonospace, isFullWidth);
 
-        return `${heading}${table}`;
-    });
+const buildCategorisedTables = (tableData, useMonospace, isFullWidth) => Object.values(tableData).map(({ category, data }) => {
+    const table = buildTable(data, useMonospace, isFullWidth);
 
-    return `${categoryTokenLists.join('')}`;
-};
-
-const createTokenList = (tokens, tokenType, path, tokenTypeMetadata) => {
-    // if tokens are numbers (spacing / radius), sort in ascending order
-    const sortedTokens = Object.keys(tokens).every(numberHelpers.isNumber)
-        ? Object.entries(tokens).sort((a, b) => a[1] - b[1]) // [[key, value]]
-        : tokens;
-
-    const tokenListElements = sortedTokens.map((token) => ({
-        tokenScssName: createScssTokenName(token[0], tokenType, path),
-        description: tokenTypeMetadata[token[0]].description,
-    }));
-
-    return tokenListElements.map((item) => [item.tokenScssName, item.description]);
-};
-
-const buildTokenTable = (useMonospace, isFullWidth, tokenType, path) => {
-    const tokens = objectHelpers.getObjectPropertyByPath(normalisedPieDesignTokens, `theme.jet.${path}`);
-    const tokenTypeMetadata = getTokenTypeMetadata(path);
-
-    const categories = objectHelpers.getObjectPropertyByPath(pieTokenCategories, path);
-
-    if (categories) {
-        return `${buildListWithHeadings(categories, tokens, tokenType, path, useMonospace, isFullWidth)}`;
-    }
-
-    const rows = createTokenList(tokens, tokenType, path, tokenTypeMetadata);
-
-    return `${buildTable({ rows }, useMonospace, isFullWidth)}`;
-};
+    return `${category}${table}`;
+}).join('');
 
 /**
  * If `tableData` contains no headings, the table will enter a headerless mode, where:
@@ -94,14 +51,15 @@ module.exports = ({
     isFullWidth = false,
     tableData,
     useMonospace = false,
-    path,
-    tokenType,
+    tokens,
 }) => {
-    if (path) {
-        return buildTokenTable(useMonospace, isFullWidth, tokenType, path);
-    }
+    const data = tokens
+        ? getTokenData(tokens)
+        : normaliseData(JSON.parse(tableData));
 
-    const data = JSON.parse(tableData);
+    const hasMultipleTables = Array.isArray(data);
 
-    return `${buildTable(normaliseData(data), useMonospace, isFullWidth)}`;
+    return hasMultipleTables
+        ? `${buildCategorisedTables(data, useMonospace, isFullWidth)}`
+        : `${buildTable(data, useMonospace, isFullWidth)}`;
 };

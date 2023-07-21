@@ -16,6 +16,8 @@ These are the original values in our design language, represented by context-agn
 {% simpleTable {
     isFullWidth: true,
     useMonospace: true,
-    path: 'font.global',
-    tokenType: tokenTypes.FONT
+    tokens: {
+        path: 'font.global',
+        tokenType: tokenTypes.FONT
+    }
 } %}
