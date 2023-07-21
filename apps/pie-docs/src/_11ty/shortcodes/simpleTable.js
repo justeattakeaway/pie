@@ -1,4 +1,4 @@
-const { getTokenData } = require('../../_data/handleTokenData');
+const { getTokenData } = require('../../_utilities/tokens');
 
 const normaliseData = (data) => {
     if (data.rows) {
@@ -34,7 +34,7 @@ const buildTable = ({ rows, headings }, useMonospace, isFullWidth) => {
 const buildCategorisedTables = (tableData, useMonospace, isFullWidth) => Object.values(tableData).map(({ category, data }) => {
     const table = buildTable(data, useMonospace, isFullWidth);
 
-    return `${category}${table}`;
+    return `<h2>${category}</h2>${table}`;
 }).join('');
 
 /**

@@ -1,7 +1,7 @@
 /* eslint-disable no-trailing-spaces */
 const normalisedPieDesignTokens = require('../../../_data/normaliseTokens');
 const pieTokenCategories = require('../../../tokenCategories.json');
-const { objectHelpers, numberHelpers } = require('../../../_utilities/helpers');
+const { objectHelpers } = require('../../../_utilities/helpers');
 const tokenTypes = require('../../../_data/tokenTypes');
 const { buildColorExample } = require('./tokenTypes/colour');
 const { buildElevationExample } = require('./tokenTypes/elevation');
@@ -12,14 +12,12 @@ const { deindentHTML } = require('../shortcode-utilities');
 const headingAnchor = require('../../filters/headingAnchor');
 
 const {
-    createScssTokenName,
-    createTokenDisplayName,
-    createListForCategory,
     getSubcategoriesForParentCategory,
     getExampleColumnSize,
-    getTokenTypeMetadata,
     validateConfiguration,
 } = require('./handleTokenData');
+
+const { getTokenList } = require('../../../_utilities/tokens');
 
 /**
  * Builds an example element to display in the token list item.
@@ -151,47 +149,19 @@ const buildTokensList = (listElements, tokenType) => deindentHTML(`
         ${listElements.join('')}
     </ul>`);
 
+// TODO: probably all of these could use a better name
 /**
- * Creates a tokens list for a given category
+ * Creates a list of Token elements
  * @param {object} tokens
  * @param {string} path - path to the category i.e.  'path:color.alias.default' / 'path:color.alias.dark'
  * @param {string} category - category that pie tokens are grouped by i.e.  'containerBackgrounds' / 'borders'
  * @param {string} tokenType - the type of token i.e. color, spacing, radius
  * @returns - a list of HTML token components separated by a <hr />
  */
-const buildTokensListForCategory = (tokens, path, category, tokenType) => {
-    const listItems = createListForCategory(tokens, path, category, tokenType);
+const buildTokenElementList = (tokens, path, tokenType, category) => {
+    const listItems = getTokenList(tokens, tokenType, path, category);
 
     const tokenListElements = listItems.map((item) => buildTokenListElements(item));
-
-    return buildTokensList(tokenListElements, tokenType);
-};
-
-/**
- * Builds uncategorised list of tokens
- * @param {string} tokenType - the type of token i.e. color, spacing, radius
- * @param {object} tokens
- * @param {object} path - path to the category i.e.  'path:color.alias.default' / 'path:color.alias.dark'
- * @returns - a string of html containing the list of tokens - with example, description and token name
- */
-const buildUncategorisedLists = ({
-    tokens, path, tokenType,
-}) => {
-    const tokenTypeMetadata = getTokenTypeMetadata(path);
-
-    // if tokens are numbers (spacing / radius), sort in ascending order
-    const sortedTokens = Object.keys(tokens).every(numberHelpers.isNumber)
-        ? Object.entries(tokens).sort((a, b) => a[1] - b[1]) // [[key, value]]
-        : Object.entries(tokens);
-
-    const tokenListElements = sortedTokens.map((token) => buildTokenListElements({
-        token: tokens[token[0]],
-        tokenScssName: tokenTypeMetadata[token[0]]?.scssName ?? createScssTokenName(token[0], tokenType, path),
-        tokenDisplayName: tokenTypeMetadata[token[0]]?.displayName ?? createTokenDisplayName(token[0], tokenType),
-        tokenType,
-        tokenMetadata: tokenTypeMetadata[token[0]],
-        path,
-    }));
 
     return buildTokensList(tokenListElements, tokenType);
 };
@@ -211,7 +181,7 @@ const buildCategorisedLists = ({
     // for each category, create an h2 and a list of token elements to render
     const categoryTokenLists = Object.keys(categories).map((category) => {
         const heading = `<h2>${categories[category].displayName}</h2>`;
-        const tokensList = buildTokensListForCategory(tokens, path, category, tokenType);
+        const tokensList = buildTokenElementList(tokens, path, tokenType, category);
 
         // returns a 'chunk' of the tokens table page (a heading, the column headers, list of tokens and an option HR element)
         return `${heading}${tokensList}`;
@@ -221,6 +191,7 @@ const buildCategorisedLists = ({
     return categoryTokenLists.join('<hr />');
 };
 
+// TODO: can we tidy this with an existing function?
 /**
  * Builds a list of tokens that are categorised by parent and subcategory
  * @param {object} config
@@ -240,7 +211,7 @@ const buildCategoryListsWithParents = ({
         // for each subCategory, create a list of tokens with a subheading
         const subcategoryTokenLists = subcategoryKeys.map((categoryKey) => {
             const subHeading = `<h3 class="c-tokensTable-sectionSubheading">${subcategories[categoryKey].displayName}</h3>`;
-            const tokensList = buildTokensListForCategory(tokens, path, categoryKey, tokenType);
+            const tokensList = buildTokenElementList(tokens, path, tokenType, categoryKey);
 
             return `${subHeading}${tokensList}`;
         });
@@ -279,7 +250,7 @@ const buildTokenLists = (path, tokenType) => {
     };
 
     if (!parentCategories && !regularCategories) {
-        return buildUncategorisedLists(config);
+        return buildTokenElementList(tokens, path, tokenType);
     }
 
     return parentCategories
