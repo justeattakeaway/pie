@@ -1,15 +1,15 @@
 import { LitElement, html, unsafeCSS } from 'lit';
-import styles from './<%= fileName%>.scss?inline';
-import { <%= componentName%>Props } from './defs';
+import styles from './<%= fileName %>.scss?inline';
+import { <%= componentName %>Props } from './defs';
 
 // Valid values available to consumers
 export {
-    type <%= componentName%>Props,
+    type <%= componentName% >Props,
 };
 
-const componentSelector = 'pie-<%= fileName%>';
+const componentSelector = 'pie-<%= fileName %>';
 
-export class Pie<%= componentName %> extends LitElement implements <%= componentName%>Props {
+export class Pie<%= componentName %> extends LitElement implements <%= componentName %>Props {
     render () {
         return html`<h1>Hello world!</h1>`;
     }

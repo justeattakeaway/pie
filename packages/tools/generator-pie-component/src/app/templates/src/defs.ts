@@ -1,1 +1,1 @@
-export interface <%= componentName%>Props {}
+export interface <%= componentName %>Props {}
