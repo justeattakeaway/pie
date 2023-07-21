@@ -1,14 +1,8 @@
-import Generator, { Answers } from 'yeoman-generator';
+import Generator from 'yeoman-generator';
 import chalk from 'chalk';
 
-import { transformName } from './services';
-import type { TransformedName } from './services';
-
-type Props = {
-  answers: Answers;
-  componentPath: string;
-  storyPath: string;
-} & TransformedName;
+import { transformName } from './utils';
+import type { Props } from './types';
 
 export default class extends Generator {
     props: Props;

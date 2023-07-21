@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/pie-<%= fileName %>",
-  "description": "PIE Design System <%= readme %> built using Web Components",
+  "description": "PIE Design System <%= readmeName %> built using Web Components",
   "version": "0.0.0",
   "type": "module",
   "main": "dist/index.js",

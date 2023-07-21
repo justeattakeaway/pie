@@ -39,7 +39,7 @@ $ npm init yo @justeattakeaway/generator-pie-component
 
 ### Running the generator
 
-To run the generator, use this command from any directory within the monorepo:
+To run the generator, use this command from the root directory within the monorepo:
 
 ```sh
 yo @justeattakeaway/pie-component

@@ -6,7 +6,7 @@ import { html, TemplateResult } from 'lit';
 // otherwise tree-shaking will get rid of the web component definition
 const keptReference = Pie<%= componentName%>; 
 export default {
-    title: '<%= readme %>',
+    title: '<%= readmeName %>',
     component: 'pie-<%= fileName %>',
     argTypes: {
 
