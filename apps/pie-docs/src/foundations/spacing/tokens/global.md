@@ -3,8 +3,6 @@ eleventyNavigation:
     key: Global tokens
     parent: Spacing
     order: 3
-eleventyComputed:
-    tableData: "{% include './globalSpacingTokens.json' %}"
 ---
 ## Our global spacing scale
 
