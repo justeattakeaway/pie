@@ -1,12 +1,10 @@
 import type { StoryObj as Story } from '@storybook/web-components';
 import { html, TemplateResult } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import '@justeattakeaway/pie-button'; // Register pie-button
-import '@justeattakeaway/pie-icon-button'; // Register pie-icon-button
-import '@justeattakeaway/pie-modal'; // Register pie-modal
-import '@justeattakeaway/pie-icons-webc/dist/esm/IconClose.js'; // Register icon-close
-import '@justeattakeaway/pie-icons-webc/dist/esm/IconChevronLeft.js'; // Register icon-chevron-left
-import '@justeattakeaway/pie-icons-webc/dist/esm/IconChevronRight.js'; // Register icon-chevron-right
+import { PieIconButton } from '@justeattakeaway/pie-icon-button';
+import { PieModal } from '@justeattakeaway/pie-modal';
+import { PieButton } from '@justeattakeaway/pie-button';
+import { IconClose, IconChevronLeft, IconChevronRight } from '@justeattakeaway/pie-icons-webc';
 import {
     ModalProps as ModalPropsBase,
     headingLevels,
@@ -15,6 +13,16 @@ import {
 } from '@justeattakeaway/pie-modal/src/defs';
 import { i18nArgTypes } from '../args/commonArgsTypes';
 import { StoryMeta, SlottedComponentProps } from '../types';
+
+// This prevents storybook from tree shaking the components
+const keptReferences = [
+    PieIconButton,
+    PieModal,
+    PieButton,
+    IconClose,
+    IconChevronLeft,
+    IconChevronRight
+];
 
 type ModalProps = SlottedComponentProps<ModalPropsBase>;
 type ModalStoryMeta = StoryMeta<ModalProps>;

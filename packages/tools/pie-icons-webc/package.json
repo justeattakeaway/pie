@@ -8,7 +8,9 @@
   "publishConfig": {
     "access": "public"
   },
-  "sideEffects": false,
+  "sideEffects": [
+    "dist/esm/*.js"
+  ],
   "homepage": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons-webc",
   "contributors": [
     "Github contributors <https://github.com/justeattakeaway/pie/graphs/contributors>"
