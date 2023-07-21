@@ -3,6 +3,7 @@
 .c-homePage {
     min-height: 100%;
     display: grid;
+
     // helps scale the razor with the page
     grid-template-rows: minmax(0, 300px) minmax(0, 100px) auto;
     background-color: f.$color-background-subtle;
@@ -88,7 +89,8 @@
     height: 500px;
     background-color: f.$color-support-brand-01;
     align-self: flex-start;
-    // percentages fit grid rows above
+
+    // percentages so razor fits grid rows above
     clip-path: polygon(0 10%, 100% 0%, 100% 100%, 0% 100%);
 
     @include f.media('>=mid') {
