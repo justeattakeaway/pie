@@ -34,6 +34,7 @@ const defaultArgs: ModalProps = {
     leadingAction: {
         text: 'Confirm',
         variant: 'primary',
+        ariaLabel: 'Descriptive text',
     },
 };
 

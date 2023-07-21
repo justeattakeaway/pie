@@ -197,7 +197,7 @@ test.describe('Prop: `leadingAction`', () => {
     });
 
     test.describe('when prop is provided but the optional child properties of `leadingAction` are not provided', () => {
-        test('should fallback to defaults', async ({ mount, page }) => {
+        test('should falls back to defaults', async ({ mount, page }) => {
             await mount(PieModal, {
                 props: {
                     heading: 'This is a modal heading',
@@ -210,7 +210,7 @@ test.describe('Prop: `leadingAction`', () => {
                 } as ModalProps,
             });
 
-            await percySnapshot(page, 'Modal fallback to default property `primary`');
+            await percySnapshot(page, 'Modal falls back to default property `primary`');
         });
     });
 
