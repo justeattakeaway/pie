@@ -214,6 +214,24 @@ test.describe('Prop: `leadingAction`', () => {
         });
     });
 
+    test.describe('when prop is provided but the `text` child property of `leadingAction` is empty', () => {
+        test('should not render leadingAction markup', async ({ mount, page }) => {
+            await mount(PieModal, {
+                props: {
+                    heading: 'This is a modal heading',
+                    hasBackButton: true,
+                    isDismissible: true,
+                    isOpen: true,
+                    leadingAction: {
+                        text: '',
+                    },
+                } as ModalProps,
+            });
+
+            await percySnapshot(page, 'Modal will not render `leadingAction` markup');
+        });
+    });
+
     test.describe('when prop is not passed into component', () => {
         test('should not display `leadingAction`', async ({ mount, page }) => {
             await mount(PieModal, {
