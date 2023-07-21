@@ -1,7 +1,7 @@
 {% set heroSrc = ['/assets/img/heroes/', heroImageSrc] | join | url %}
 
 <div class="c-contentPage" data-test-id="site_content">
-    <div data-test-id="content_header" class="c-contentPage-header {% if heroImageSrc %}c-contentPage-header--hero{% endif %}">
+    <div data-test-id="content_header" class="c-contentPage-header">
         <div class="c-content-container">
             <div>
                 <h1 class="c-contentPage-header-heading alpha--standout">
@@ -10,16 +10,7 @@
                 <p class="c-contentPage-header-description">
                     {{ description }}
                 </p>
-                {% if heroCtaTitle and heroCtaHref %}
-                    <a class='o-btn' href={{ heroCtaHref | url }}>{{ heroCtaTitle }}
-                    </a>
-                {% endif %}
             </div>
-            {% if heroImageSrc %}
-                <div>
-                    <img class="u-showAboveMid" src={{ heroSrc }} alt="" />
-                </div>
-            {% endif %}
         </div>
     </div>
 
