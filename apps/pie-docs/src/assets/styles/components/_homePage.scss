@@ -1,0 +1,121 @@
+@use '../fozzie-config' as f;
+
+.c-homePage {
+    min-height: 100%;
+    display: grid;
+    // helps scale the razor with the page
+    grid-template-rows: minmax(0, 300px) minmax(0, 100px) auto;
+    background-color: f.$color-background-subtle;
+
+    @include f.media('>=mid') {
+        grid-template-rows: minmax(0, 200px) minmax(0, 200px) auto;
+    }
+
+    @include f.media('>=wide') {
+        grid-template-rows: minmax(0, 220px) minmax(0, 240px) auto;
+    }
+}
+
+.c-homePage-header,
+.c-homePage-content {
+    padding-inline: f.$spacing-d;
+
+    @include f.media('>=narrowMid') {
+        padding-inline: f.spacing(e);
+    }
+
+    @include f.media('>=mid') {
+        padding-inline: f.spacing(i);
+    }
+}
+
+.c-homePage-header {
+    background-color: f.$color-background-subtle;
+}
+
+.c-homePage-content {
+    background-color: f.$color-background-default;
+}
+
+.c-homePage-heading {
+    grid-row: 1 / span 2;
+    display: flex;
+    flex-direction: row;
+    min-height: 400px;
+    gap: f.$spacing-e;
+    justify-content: space-between;
+
+    .c-homePage-title {
+        width: 100%;
+        padding-top: f.spacing(g);
+
+        @include f.media('>=mid') {
+            width: 50%;
+            max-width: 500px;
+            padding-top: 0;
+            align-self: center;
+        }
+
+        @include f.media('>=wide') {
+            align-self: flex-start;
+            padding-top: f.spacing(j);
+        }
+    }
+
+    .c-homePage-button {
+        margin-top: f.spacing(f);
+    }
+
+    .c-homePage-image {
+        align-self: center;
+        z-index: 1;
+        width: 50%;
+
+        img {
+            object-fit: contain;
+            width: 100%;
+            max-height: 100%;
+            min-width: 350px;
+            position: relative;
+        }
+    }
+}
+
+.razor {
+    grid-row: 2;
+    grid-column: 1;
+    width: 100%;
+    height: 500px;
+    background-color: f.$color-support-brand-01;
+    align-self: flex-start;
+    // percentages fit grid rows above
+    clip-path: polygon(0 10%, 100% 0%, 100% 100%, 0% 100%);
+
+    @include f.media('>=mid') {
+        clip-path: polygon(0 50%, 100% 0%, 100% 100%, 0% 100%);
+        height: 400px;
+    }
+
+    @include f.media('>=wide') {
+        clip-path: polygon(0 60%, 100% 0%, 100% 100%, 0% 100%);
+    }
+}
+
+.c-homePage-content {
+    grid-row: 3;
+    padding-inline: f.spacing(d);
+
+    @include f.media('>=narrowMid') {
+        padding-inline: f.spacing(e);
+    }
+
+    @include f.media('>=mid') {
+        padding-inline: f.spacing(i);
+    }
+}
+
+.c-content-container {
+    @include f.media('<mid') {
+        padding-top: 0 !important;
+    }
+}
