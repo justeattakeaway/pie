@@ -22,6 +22,11 @@ sizes.forEach((size) => {
                 heading: 'This is a modal heading',
                 isOpen: true,
                 size,
+                leadingAction: {
+                    text: 'Confirm',
+                    variant: 'primary',
+                    ariaLabel: 'Confirmation text',
+                },
             } as ModalProps,
         });
 
@@ -38,6 +43,11 @@ test.describe('Prop: `isFullWidthBelowMid`', () => {
                     isFullWidthBelowMid: true,
                     isOpen: true,
                     size: 'medium',
+                    leadingAction: {
+                        text: 'Confirm',
+                        variant: 'primary',
+                        ariaLabel: 'Confirmation text',
+                    },
                 } as ModalProps,
             });
 
@@ -51,6 +61,11 @@ test.describe('Prop: `isFullWidthBelowMid`', () => {
                     isFullWidthBelowMid: true,
                     isOpen: true,
                     size: 'small',
+                    leadingAction: {
+                        text: 'Confirm',
+                        variant: 'primary',
+                        ariaLabel: 'Confirmation text',
+                    },
                 } as ModalProps,
             });
 
@@ -68,6 +83,11 @@ test.describe('Prop: `isFullWidthBelowMid`', () => {
                         isFullWidthBelowMid: false,
                         isOpen: true,
                         size,
+                        leadingAction: {
+                            text: 'Confirm',
+                            variant: 'primary',
+                            ariaLabel: 'Confirmation text',
+                        },
                     } as ModalProps,
                 });
 
@@ -85,6 +105,11 @@ test.describe('Prop: `isDismissible`', () => {
                     heading: 'This is a modal heading',
                     isDismissible: true,
                     isOpen: true,
+                    leadingAction: {
+                        text: 'Confirm',
+                        variant: 'primary',
+                        ariaLabel: 'Confirmation text',
+                    },
                 } as ModalProps,
             });
 
@@ -99,6 +124,11 @@ test.describe('Prop: `isDismissible`', () => {
                     heading: 'This is a modal heading',
                     isDismissible: false,
                     isOpen: true,
+                    leadingAction: {
+                        text: 'Confirm',
+                        variant: 'primary',
+                        ariaLabel: 'Confirmation text',
+                    },
                 } as ModalProps,
             });
 
@@ -119,6 +149,11 @@ test.describe('Prop: `hasBackButton`', () => {
                         hasBackButton: true,
                         isOpen: true,
                         dir,
+                        leadingAction: {
+                            text: 'Confirm',
+                            variant: 'primary',
+                            ariaLabel: 'Confirmation text',
+                        },
                     } as ModalProps,
                 });
 
@@ -134,6 +169,11 @@ test.describe('Prop: `hasBackButton`', () => {
                         hasBackButton: false,
                         isOpen: true,
                         dir,
+                        leadingAction: {
+                            text: 'Confirm',
+                            variant: 'primary',
+                            ariaLabel: 'Confirmation text',
+                        },
                     } as ModalProps,
                 });
 
@@ -152,6 +192,11 @@ test.describe('Prop: `heading`', () => {
                 size: 'medium',
                 hasBackButton: true,
                 isDismissible: true,
+                leadingAction: {
+                    text: 'Confirm',
+                    variant: 'primary',
+                    ariaLabel: 'Confirmation text',
+                },
             } as ModalProps,
         });
 
@@ -168,6 +213,11 @@ test.describe('Prop: `isLoading`', () => {
                 isDismissible: true,
                 isOpen: true,
                 isLoading: true,
+                leadingAction: {
+                    text: 'Confirm',
+                    variant: 'primary',
+                    ariaLabel: 'Confirmation text',
+                },
             } as ModalProps,
         });
 
@@ -228,7 +278,7 @@ test.describe('Prop: `leadingAction`', () => {
                 } as ModalProps,
             });
 
-            await percySnapshot(page, 'Modal will not render `leadingAction` markup');
+            await percySnapshot(page, 'Modal will not render `leadingAction` button when `text` is empty');
         });
     });
 
@@ -256,6 +306,11 @@ test.describe('`position`', () => {
                     heading: 'This is a modal heading',
                     isOpen: true,
                     position,
+                    leadingAction: {
+                        text: 'Confirm',
+                        variant: 'primary',
+                        ariaLabel: 'Confirmation text',
+                    },
                 } as ModalProps,
             });
 
