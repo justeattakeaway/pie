@@ -5238,6 +5238,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@justeattakeaway/git-hooks-scripts@workspace:packages/tools/git-hooks-scripts":
+  version: 0.0.0-use.local
+  resolution: "@justeattakeaway/git-hooks-scripts@workspace:packages/tools/git-hooks-scripts"
+  languageName: unknown
+  linkType: soft
+
 "@justeattakeaway/pie-button@0.19.0, @justeattakeaway/pie-button@workspace:*, @justeattakeaway/pie-button@workspace:packages/components/pie-button":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-button@workspace:packages/components/pie-button"
