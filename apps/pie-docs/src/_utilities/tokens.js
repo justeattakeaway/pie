@@ -109,7 +109,7 @@ const getTokenData = (tokens, tokenType, path, category) => {
 
     return tokenList.map((token) => ({
         token: tokens[token],
-        tokenScssName: createScssTokenName(token, tokenType, path),
+        tokenScssName: tokenTypeMetadata[token]?.scssName ?? createScssTokenName(token, tokenType, path),
         tokenDisplayName: tokenTypeMetadata[token]?.displayName ?? createTokenDisplayName(token, tokenType),
         tokenType,
         tokenMetadata: tokenTypeMetadata[token],
