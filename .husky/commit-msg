@@ -11,9 +11,6 @@ then
     exit 1
 fi
 
-# Initialise git-secrets configuration
-git-secrets --register-aws > /dev/null
-
-echo "Running git-secrets..."
-# Scans the commit message.
+echo "Checking commit message for secrets..."
 git-secrets --commit_msg_hook -- "$@"
+echo "Checking commit message for secrets...DONE"

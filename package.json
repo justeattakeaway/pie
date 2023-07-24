@@ -34,7 +34,7 @@
     "lint:scripts:fix": "turbo run lint:scripts:fix --filter=!pie-monorepo",
     "lint:examples": "cross-env-shell turbo run lint:examples --filter=!pie-monorepo --token=${TURBO_TOKEN}",
     "lint:style": "cross-env-shell turbo run lint:style --continue --filter=!pie-monorepo --token=${TURBO_TOKEN}",
-    "postinstall": "husky install",
+    "prepare": "husky install",
     "prepack": "pinst --disable",
     "postpack": "pinst --enable",
     "test": "cross-env-shell turbo run test --filter=!pie-monorepo --token=${TURBO_TOKEN}",
@@ -48,6 +48,13 @@
   },
   "stylelint": {
     "extends": "@justeattakeaway/stylelint-config-pie/base"
+  },
+  "lint-staged": {
+    "*": "git-secrets --scan",
+    "*.@(ts|tsx)": "bash -c 'tsc --skipLibCheck --noEmit'",
+    "*.@(ts|tsx|js|jsx)": "eslint --max-warnings 0",
+    "*.@(ts|tsx|js|jsx|json|jsonc|json5|md|mdx|yaml|yml)": "prettier --write",
+    "*.@(css|scss)": "stylelint --fix"
   },
   "devDependencies": {
     "@axe-core/playwright": "4.7.3",
@@ -85,9 +92,10 @@
     "eslint": "8.37.0",
     "eslint-plugin-import": "2.27.5",
     "eslint-plugin-json-format": "2.0.1",
-    "husky": "8.0.3",
+    "husky": "=8.0.3",
     "jest": "27.5.1",
     "jest-expect-message": "1.1.3",
+    "lint-staged": "=13.2.1",
     "npm-run-all": "4.1.5",
     "pinst": "3.0.0",
     "postcss": "8.4.25",
