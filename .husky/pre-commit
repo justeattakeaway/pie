@@ -1,6 +1,9 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
+# Checks branch name for Jira ticket id
+packages/tools/git-hooks-scripts/check-branch-name.js $(git symbolic-ref --short HEAD)
+
 # Section for git-secrets
 if ! command -v git-secrets &> /dev/null
 then
