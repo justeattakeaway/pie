@@ -23,12 +23,16 @@ export const largeIconSizeDefault = 32;
  * @returns {boolean} Whether the value is valid or not
  */
 function validateLargeIconSize (value: LargeIconSize, minimumSize: number, moduleSize: number) {
-    let parsedValue: LargeIconSize = value;
+    let parsedValue: number;
+
     if (typeof value === 'string') {
         parsedValue = parseInt(value, 10);
+    } else {
+        parsedValue = value;
     }
-    const isSizeAMultiple = (parsedValue as number) % moduleSize === 0;
-    const isSizeValid = (parsedValue as number) >= minimumSize && isSizeAMultiple;
+
+    const isSizeAMultiple = parsedValue % moduleSize === 0;
+    const isSizeValid = parsedValue >= minimumSize && isSizeAMultiple;
 
     return isSizeValid;
 }
@@ -44,11 +48,15 @@ export const iconSizeValidator = {
  * @returns {{isValid: boolean, size: number}} - Object with the validation result and the normalized icon size
  */
 export function validateGetLargeIconSize (sizeValue : LargeIconSize) {
-    let size = largeIconSizeDefault as number;
+    let size = largeIconSizeDefault;
     const isValid = iconSizeValidator.large(sizeValue);
 
     if (isValid) {
-        size = parseInt(`${sizeValue}`, 10);
+        if (typeof sizeValue === 'string') {
+            size = parseInt(sizeValue, 10);
+        } else {
+            size = sizeValue;
+        }
     }
 
     return { isValid, size };
