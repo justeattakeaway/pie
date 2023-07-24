@@ -73,6 +73,7 @@
     display: flex;
     gap: var(--dt-spacing-b);
     align-items: center;
+    justify-content: center;
     box-sizing: border-box;
     padding: var(--btn-padding);
     border: none;
@@ -280,6 +281,10 @@
         border-style: solid;
         will-change: transform;
         opacity: 0;
+    }
+
+    .o-btn-text {
+        flex-grow: 1;
     }
 
     &[isLoading] {
