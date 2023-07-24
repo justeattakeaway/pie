@@ -1,6 +1,6 @@
-import type { StoryObj as Story } from '@storybook/web-components';
 import { html, TemplateResult } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
+import type { StoryObj as Story } from '@storybook/web-components';
 import '@justeattakeaway/pie-button'; // Register pie-button
 import '@justeattakeaway/pie-icon-button'; // Register pie-icon-button
 import '@justeattakeaway/pie-modal'; // Register pie-modal
