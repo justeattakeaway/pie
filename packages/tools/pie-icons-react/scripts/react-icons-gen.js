@@ -1,11 +1,10 @@
-import { transform } from '@svgr/core'
+import { transform } from '@svgr/core';
 import pieIcons from '@justeattakeaway/pie-icons';
-import { pascalCase } from "pascal-case";
+import { pascalCase } from 'pascal-case';
 import { join } from 'path';
 import fs from 'fs-extra';
 
 import { normalizeIconName } from '@justeattakeaway/pie-icons-configs';
-
 
 const { icons } = pieIcons.default;
 
@@ -30,10 +29,12 @@ const indexFile = fs.createWriteStream(
 
 function getTemplate (buildTimeClasses) {
     return (variables, { tpl }) => {
-        const { imports, interfaces, componentName, jsx, exports } = variables;
+        const {
+            imports, interfaces, componentName, jsx, exports,
+        } = variables;
         const isLargeIcon = variables.componentName.endsWith('Large');
-        const componentPropsInterface = isLargeIcon ? 'LargeIconProps' : 'RegularIconProps'
-        const propsImportStatement = `import { ${componentPropsInterface} } from "../types"`
+        const componentPropsInterface = isLargeIcon ? 'LargeIconProps' : 'RegularIconProps';
+        const propsImportStatement = `import { ${componentPropsInterface} } from "../types"`;
 
         return tpl`
         ${imports};
@@ -54,7 +55,7 @@ function getTemplate (buildTimeClasses) {
 
         ${exports};
         `;
-    }
+    };
 }
 
 async function build () {

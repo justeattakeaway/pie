@@ -1,0 +1,32 @@
+{
+  "name": "@justeattakeaway/pie-<%= fileName %>",
+  "description": "PIE Design System <%= displayName %> built using Web Components",
+  "version": "0.0.0",
+  "type": "module",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/types/index.d.ts",
+  "scripts": {
+    "build": "yarn build:wrapper pie-<%= fileName %> && run -T vite build",
+    "lint:style": "run -T stylelint ./src/**/*.{css,scss}",
+    "lint:style:fix": "yarn lint:style --fix",
+    "watch": "run -T vite build --watch",
+    "test": "echo \"Error: no test specified\" && exit 0",
+    "test:ci": "yarn test",
+    "test:browsers": "npx playwright test -c ./playwright-lit.config.ts",
+    "test:browsers:ci": "yarn test:browsers",
+    "test:visual": "run -T cross-env-shell PERCY_TOKEN=${PERCY_TOKEN_PIE_<%= percyComponentName %>} percy exec --allowed-hostname cloudfront.net -- npx playwright test -c ./playwright-lit-visual.config.ts",
+    "test:visual:ci": "yarn test:visual"
+  },
+  "author": "JustEatTakeaway.com - Design System Web Team",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@justeattakeaway/pie-components-config": "workspace:*"
+  },
+  "dependencies": {
+    "@justeattakeaway/pie-webc-core": "workspace:*"
+  },
+  "volta": {
+    "extends": "../../../package.json"
+  }
+}

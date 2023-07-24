@@ -607,6 +607,11 @@ test.describe('actions', () => {
                     props: {
                         heading: 'Modal Header',
                         isOpen: true,
+                        leadingAction: {
+                            text: 'Confirm',
+                            variant: 'primary',
+                            ariaLabel: 'Descriptive message',
+                        },
                     },
                 });
 
@@ -625,6 +630,11 @@ test.describe('actions', () => {
                     props: {
                         heading: 'Modal Header',
                         isOpen: true,
+                        leadingAction: {
+                            text: 'Confirm',
+                            variant: 'primary',
+                            ariaLabel: 'Descriptive message',
+                        },
                     },
                 });
 
