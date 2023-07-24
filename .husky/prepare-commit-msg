@@ -9,10 +9,7 @@ then
     exit 1
 fi
 
-# Initialise git-secrets configuration
-git-secrets --register-aws > /dev/null
-
-echo "Running git-secrets..."
-# Determines if merging in a commit will introduce tainted history.
+echo "Checking history for secrets..."
 git-secrets --prepare_commit_msg_hook -- "$@"
+echo "Checking history for secrets...DONE"
 
