@@ -1,0 +1,30 @@
+{
+  "name": "@justeattakeaway/generator-pie-component",
+  "version": "0.0.0",
+  "description": "A generator for PIE Web Components",
+  "author": "JustEatTakeaway - Design System Web Team",
+  "files": [
+    "generators"
+  ],
+  "type": "module",
+  "main": "generators/app/index.js",
+  "scripts": {
+    "build": "run -T vite build ",
+    "watch": "run -T vite build --watch"
+  },
+  "keywords": [
+    "PIE",
+    "yeoman-generator"
+  ],
+  "dependencies": {
+    "chalk": "5.3.0",
+    "yeoman-generator": "5.9.0"
+  },
+  "devDependencies": {
+    "@types/yeoman-generator": "5.2.11",
+    "rollup-plugin-copy": "3.4.0",
+    "rollup-plugin-delete": "2.0.0"
+  },
+  "repository": "https://github.com/justeattakeaway/pie.git",
+  "license": "Apache-2.0"
+}
