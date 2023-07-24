@@ -1,4 +1,3 @@
-import { html } from 'lit';
 import pascalCase from 'just-pascal-case';
 import kebabCase from 'just-kebab-case';
 import path from 'path';
@@ -9,17 +8,6 @@ import { normalizeIconName } from '@justeattakeaway/pie-icons-configs';
 
 const { icons } = pieIcons.default;
 
-// The following styles make sure that if the icon is used inside pie-icon-button, it will be sized correctly
-const styleTag = html`
-    <style>
-        :host-context(pie-icon-button) svg,
-        :host-context(pie-button) svg {
-            display:block;
-            width: var(--btn-icon-size);
-            height: var(--btn-icon-size);
-        }
-    </style>`;
-
 const componentTemplate = (name, svg) => {
     const svgClasses = svg.match(/class="(.+?)"/)?.[1];
 
@@ -28,10 +16,9 @@ const componentTemplate = (name, svg) => {
 } from 'lit';
 import { property, query } from 'lit/decorators.js';
 import type { DependentMap } from '@justeattakeaway/pie-webc-core';
-import { getSvgProps } from '@justeattakeaway/pie-icons-configs';
+import { getSvgProps, regularIconSizes } from '@justeattakeaway/pie-icons-configs';
 
-const sizes = ['small', 'medium', 'large', 'xlarge', 'xxlarge'] as const;
-type Size = typeof sizes[number];
+type Size = typeof regularIconSizes[number] | number;
 
 interface IconProps {
     size: Size;
@@ -41,17 +28,18 @@ interface IconProps {
 const componentSelector = '${kebabCase(name)}';
 
 export class ${name} extends LitElement implements IconProps {
+    // The following styles make sure that the icon will be sized correctly
     static styles = css\`
         :host-context(pie-icon-button) svg,
         :host-context(pie-button) svg {
-            display:block;
+            display: block;
             width: var(--btn-icon-size);
             height: var(--btn-icon-size);
         }
     \`;
 
     @property({ type: String, reflect: true })
-    public size : Size = 'medium';
+    public size : Size = 'xs';
 
     @property({ type: String, reflect: true })
     public class = '${svgClasses}';
