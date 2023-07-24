@@ -1,4 +1,4 @@
-const { getTokenData } = require('../../_utilities/tokens');
+const { getTokenCategories, getTokenData } = require('../../_utilities/tokens');
 
 const normaliseData = (data) => {
     if (data.rows) {
@@ -9,6 +9,28 @@ const normaliseData = (data) => {
     }
 
     return { rows: Object.entries(data) };
+};
+
+const createTokenList = (tokens, tokenType, path, category, displayName) => {
+    const tokenData = getTokenData(tokens, tokenType, path, category);
+    const data = {
+        rows: tokenData.map((item) => [item.tokenScssName, item.tokenDescription]),
+    };
+
+    return {
+        ...category ? {
+            category: displayName,
+            data,
+        } : data,
+    };
+};
+
+const getTokens = ({ tokenType, path }) => {
+    const { tokens, categories } = getTokenCategories(path, tokenType);
+
+    return categories
+        ? Object.entries(categories).map(([category, { displayName }]) => createTokenList(tokens, tokenType, path, category, displayName))
+        : createTokenList(tokens, tokenType, path);
 };
 
 const buildTable = ({ rows, headings }, useMonospace, isFullWidth) => {
@@ -54,7 +76,7 @@ module.exports = ({
     tokens,
 }) => {
     const data = tokens
-        ? getTokenData(tokens)
+        ? getTokens(tokens)
         : normaliseData(JSON.parse(tableData));
 
     const hasMultipleTables = Array.isArray(data);

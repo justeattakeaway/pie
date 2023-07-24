@@ -80,28 +80,11 @@ const createScssTokenName = (tokenKey, tokenType, path) => {
     return `$${tokenType}-${isDarkToken ? 'dark-' : ''}${tokenKey}`;
 };
 
-// TODO: JS docs + can we merge it with another function?
-const createCategorisedTokenList = (categories, tokens, tokenType, path) => {
-    const categorisedTokenLists = Object.keys(categories).map((tokenCategory) => {
-        const category = categories[tokenCategory].displayName;
-        const listItems = getTokenList(tokens, tokenType, path, tokenCategory);
-        const rows = listItems.map((item) => [item.tokenScssName, item.tokenDescription]);
-
-        return { category, data: { rows } };
-    });
-
-    return categorisedTokenLists;
-};
-
-// TODO: JS docs + can we merge it with another function?
-const createUncategorisedTokenList = (tokens, tokenType, path) => {
-    const tokenListElements = getTokenList(tokens, tokenType, path);
-    const rows = tokenListElements.map((item) => [item.tokenScssName, item.tokenDescription]);
-
-    return { rows };
-};
-
-// TODO: JS docs + a better name
+/**
+ * If tokens are numbers (spacing / radius), sort and return tokens in ascending order
+ * @param {object} tokens
+ * @returns { object; }
+ */
 const sortTokenList = (tokens) => {
     const sortedTokens = Object.keys(tokens).every(numberHelpers.isNumber)
         ? Object.entries(tokens).sort((a, b) => a[1] - b[1]) // [[key, value]]
@@ -110,8 +93,15 @@ const sortTokenList = (tokens) => {
     return sortedTokens.map((token) => token[0]);
 };
 
-// TODO: JS docs + a better name
-const getTokenList = (tokens, tokenType, path, category) => {
+/**
+ * Creates an object of token data
+ * @param {object} tokens
+ * @param {string} tokenType - the type of token i.e. color, spacing, radius
+ * @param {string} path - path to the category i.e.  'path:color.alias.default' / 'path:color.alias.dark'
+ * @param {string} category - category that pie tokens are grouped by i.e.  'containerBackgrounds' / 'borders'
+ * @returns { object; }
+ */
+const getTokenData = (tokens, tokenType, path, category) => {
     const tokenTypeMetadata = getTokenTypeMetadata(path);
     const tokenList = category
         ? getTokensForCategory(category, tokenTypeMetadata)
@@ -123,25 +113,28 @@ const getTokenList = (tokens, tokenType, path, category) => {
         tokenDisplayName: tokenTypeMetadata[token]?.displayName ?? createTokenDisplayName(token, tokenType),
         tokenType,
         tokenMetadata: tokenTypeMetadata[token],
-        tokenDescription: tokenTypeMetadata[token].description,
+        tokenDescription: tokenTypeMetadata[token]?.description,
         path,
     }));
 };
 
-// TODO: JS docs + a better name
-const getTokenData = (tokenData) => {
-    const { tokenType, path } = tokenData;
+/**
+ * Creates an object of token data for  SimpleTable
+ * @param { string; } tokenType - the type of token i.e.color, spacing, radius
+ * @param { string; } path - path to the category i.e.  'path:color.alias.default' / 'path:color.alias.dark'
+ * @returns { object; }
+ */
+const getTokenCategories = (path, tokenType) => {
+    const isGlobal = path.includes('global');
     const tokens = objectHelpers.getObjectPropertyByPath(normalisedPieDesignTokens, `theme.jet.${path}`);
-
+    const parentCategories = objectHelpers.getObjectPropertyByPath(pieTokenCategories, `${tokenType}.${isGlobal ? 'global' : 'alias'}.parentCategories`);
     const categories = objectHelpers.getObjectPropertyByPath(pieTokenCategories, path);
 
-    return categories
-        ? createCategorisedTokenList(categories, tokens, tokenType, path)
-        : createUncategorisedTokenList(tokens, tokenType, path);
+    return { tokens, parentCategories, categories };
 };
 
 module.exports = {
-    getTokenList,
     getTokenData,
+    getTokenCategories,
 };
 

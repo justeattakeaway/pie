@@ -1,7 +1,5 @@
 /* eslint-disable no-trailing-spaces */
-const normalisedPieDesignTokens = require('../../../_data/normaliseTokens');
 const pieTokenCategories = require('../../../tokenCategories.json');
-const { objectHelpers } = require('../../../_utilities/helpers');
 const tokenTypes = require('../../../_data/tokenTypes');
 const { buildColorExample } = require('./tokenTypes/colour');
 const { buildElevationExample } = require('./tokenTypes/elevation');
@@ -17,7 +15,7 @@ const {
     validateConfiguration,
 } = require('./handleTokenData');
 
-const { getTokenList } = require('../../../_utilities/tokens');
+const { getTokenData, getTokenCategories } = require('../../../_utilities/tokens');
 
 /**
  * Builds an example element to display in the token list item.
@@ -159,7 +157,7 @@ const buildTokensList = (listElements, tokenType) => deindentHTML(`
  * @returns - a list of HTML token components separated by a <hr />
  */
 const buildTokenElementList = (tokens, path, tokenType, category) => {
-    const listItems = getTokenList(tokens, tokenType, path, category);
+    const listItems = getTokenData(tokens, tokenType, path, category);
 
     const tokenListElements = listItems.map((item) => buildTokenListElements(item));
 
@@ -174,10 +172,8 @@ const buildTokenElementList = (tokens, path, tokenType, category) => {
  * @returns - - a string of html containing the list of tokens - with category, example, description and token name
  */
 const buildCategorisedLists = ({
-    path, tokenType, tokens,
+    path, tokenType, tokens, categories,
 }) => {
-    const categories = objectHelpers.getObjectPropertyByPath(pieTokenCategories, path);
-
     // for each category, create an h2 and a list of token elements to render
     const categoryTokenLists = Object.keys(categories).map((category) => {
         const heading = `<h2>${categories[category].displayName}</h2>`;
@@ -191,7 +187,6 @@ const buildCategorisedLists = ({
     return categoryTokenLists.join('<hr />');
 };
 
-// TODO: can we tidy this with an existing function?
 /**
  * Builds a list of tokens that are categorised by parent and subcategory
  * @param {object} config
@@ -236,24 +231,17 @@ const buildCategoryListsWithParents = ({
  * @returns {string} - HTML list of tokens
  */
 const buildTokenLists = (path, tokenType) => {
-    const isGlobal = path.includes('global');
-    const tokens = objectHelpers.getObjectPropertyByPath(normalisedPieDesignTokens, `theme.jet.${path}`);
-    const parentCategories = objectHelpers.getObjectPropertyByPath(pieTokenCategories, `${tokenType}.${isGlobal ? 'global' : 'alias'}.parentCategories`);
-    const regularCategories = objectHelpers.getObjectPropertyByPath(pieTokenCategories, path);
-
     const config = {
-        parentCategories,
+        ...getTokenCategories(path, tokenType),
         path,
         tokenType,
-        isGlobal,
-        tokens,
     };
 
-    if (!parentCategories && !regularCategories) {
-        return buildTokenElementList(tokens, path, tokenType);
+    if (!config.parentCategories && !config.categories) {
+        return buildTokenElementList(config.tokens, path, tokenType);
     }
 
-    return parentCategories
+    return config.parentCategories
         ? buildCategoryListsWithParents(config)
         : buildCategorisedLists(config);
 };
