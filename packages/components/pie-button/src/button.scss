@@ -294,7 +294,7 @@
     }
 }
 
-// Used to size an SVG if one is passed in (so not using the component icons
+// Used to size an SVG if one is passed in (when not using the component icons)
 ::slotted(svg) {
     height: var(--btn-icon-size);
     width: var(--btn-icon-size);

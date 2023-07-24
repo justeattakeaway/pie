@@ -27,7 +27,7 @@ const buttonStoryMeta: ButtonStoryMeta = {
     component: 'pie-button',
     argTypes: {
         size: {
-            description: 'Set the size of the button',
+            description: 'Set the size of the button.',
             control: 'select',
             options: sizes,
             defaultValue: {
@@ -35,7 +35,7 @@ const buttonStoryMeta: ButtonStoryMeta = {
             },
         },
         type: {
-            description: 'Set the type the button,',
+            description: 'Set the type of the button.',
             control: 'select',
             options: types,
             defaultValue: {

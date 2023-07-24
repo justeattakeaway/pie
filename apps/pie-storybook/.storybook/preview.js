@@ -57,7 +57,7 @@ export default {
             ]
         },
         controls: {
-        expanded: true,
+            expanded: true,
         }
     }
 };
