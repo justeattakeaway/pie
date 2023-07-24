@@ -4,24 +4,29 @@ import path from 'path';
 import fs from 'fs';
 
 import pieIcons from '@justeattakeaway/pie-icons';
-import { normalizeIconName } from '@justeattakeaway/pie-icons-configs';
+import {
+    normalizeIconName,
+    largeIconSizeDefault,
+    regularIconSizeDefault,
+} from '@justeattakeaway/pie-icons-configs';
 
 const { icons } = pieIcons.default;
 
 const componentTemplate = (name, svg) => {
     const svgClasses = svg.match(/class="(.+?)"/)?.[1];
 
+    const isLargeIcon = name.endsWith('Large');
+    const sizeType = isLargeIcon ? 'LargeIconSize' : 'RegularIconSize';
+
     return `import {
     html, LitElement, TemplateResult, css,
 } from 'lit';
 import { property, query } from 'lit/decorators.js';
 import type { DependentMap } from '@justeattakeaway/pie-webc-core';
-import { getSvgProps, regularIconSizes } from '@justeattakeaway/pie-icons-configs';
-
-type Size = typeof regularIconSizes[number] | number;
+import { getSvgProps, ${sizeType} } from '@justeattakeaway/pie-icons-configs';
 
 interface IconProps {
-    size: Size;
+    size: ${sizeType};
     class: string;
 }
 
@@ -39,7 +44,7 @@ export class ${name} extends LitElement implements IconProps {
     \`;
 
     @property({ type: String, reflect: true })
-    public size : Size = 'xs';
+    public size : ${sizeType} = ${isLargeIcon ? largeIconSizeDefault : `'${regularIconSizeDefault}'`};
 
     @property({ type: String, reflect: true })
     public class = '${svgClasses}';

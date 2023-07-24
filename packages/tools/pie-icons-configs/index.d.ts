@@ -1,6 +1,6 @@
 declare const regularIconSizes: readonly ['xs', 's', 'm', 'l', 'xl', 'xxl'];
-type RegularIconSize = typeof regularIconSizes[number];
-type LargeIconSize = number | string;
+declare type RegularIconSize = typeof regularIconSizes[number];
+declare type LargeIconSize = number | string;
 
 declare const sizeToValueMap: Record<RegularIconSize, number>;
 
@@ -22,14 +22,16 @@ declare function getSvgProps(svgClasses: string, staticClasses: string, sizeValu
 declare function normalizeIconName(name: string): string;
 
 export {
+    LargeIconSize,
+    RegularIconSize,
+    iconSizeValidator,
+    largeIconSizeDefault,
+    largeIconSizeModule,
+    regularIconSizeDefault,
     regularIconSizes,
     sizeToValueMap,
-    regularIconSizeDefault,
-    largeIconSizeModule,
-    largeIconSizeDefault,
-    iconSizeValidator,
-    validateGetLargeIconSize,
-    validateGetRegularIconSize,
     getSvgProps,
     normalizeIconName,
+    validateGetLargeIconSize,
+    validateGetRegularIconSize,
 };

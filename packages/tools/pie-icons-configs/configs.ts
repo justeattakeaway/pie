@@ -1,6 +1,6 @@
 export const regularIconSizes = ['xs', 's', 'm', 'l', 'xl', 'xxl'] as const;
-type RegularIconSize = typeof regularIconSizes[number];
-type LargeIconSize = number | string;
+export type RegularIconSize = typeof regularIconSizes[number];
+export type LargeIconSize = number | string;
 
 export const sizeToValueMap : Record<RegularIconSize, number> = {
     xs: 16,
