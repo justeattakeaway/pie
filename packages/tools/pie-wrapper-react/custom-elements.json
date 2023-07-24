@@ -274,13 +274,21 @@
                         },
                         {
                             "kind": "field",
+                            "name": "leadingAction",
+                            "type": {
+                                "text": "{\n        text: string;\n        variant?: Variant;\n        ariaLabel?: string;\n    }"
+                            },
+                            "privacy": "public",
+                            "attribute": "leadingAction"
+                        },
+                        {
+                            "kind": "field",
                             "name": "position",
                             "type": {
                                 "text": "ModalProps['position']"
                             },
                             "privacy": "public",
-                            "default": "'center'",
-                            "attribute": "position"
+                            "default": "'center'"
                         },
                         {
                             "kind": "field",
@@ -404,6 +412,17 @@
                                 }
                             },
                             "description": "Template for the back button element. Called within the\nmain render function."
+                        },
+                        {
+                            "kind": "method",
+                            "name": "renderLeadingAction",
+                            "privacy": "private",
+                            "return": {
+                                "type": {
+                                    "text": "TemplateResult"
+                                }
+                            },
+                            "description": "Render leadingAction button depending on prop availability.\n\n1. If the prop `leadingAction` is not provided, the button is not rendered.\n2. If the prop `leadingAction` is provided but any of the optional properties\nare not provided, they fall back to their default values."
                         },
                         {
                             "kind": "field",
@@ -557,12 +576,11 @@
                             "fieldName": "size"
                         },
                         {
-                            "name": "position",
+                            "name": "leadingAction",
                             "type": {
-                                "text": "ModalProps['position']"
+                                "text": "{\n        text: string;\n        variant?: Variant;\n        ariaLabel?: string;\n    }"
                             },
-                            "default": "'center'",
-                            "fieldName": "position"
+                            "fieldName": "leadingAction"
                         },
                         {
                             "name": "dir",

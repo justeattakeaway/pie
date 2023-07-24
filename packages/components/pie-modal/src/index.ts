@@ -11,6 +11,7 @@ import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 import '@justeattakeaway/pie-icons-webc/icons/IconClose';
 import '@justeattakeaway/pie-icons-webc/icons/IconChevronLeft';
 import '@justeattakeaway/pie-icons-webc/icons/IconChevronRight';
+import { Variant } from '@justeattakeaway/pie-button/src/defs.ts';
 
 import styles from './modal.scss?inline';
 import {
@@ -65,6 +66,12 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
     public size: ModalProps['size'] = 'medium';
 
     @property()
+    public leadingAction!: {
+        text: string;
+        variant?: Variant;
+        ariaLabel?: string;
+    };
+
     @validPropertyValues(componentSelector, positions, 'center')
     public position: ModalProps['position'] = 'center';
 
@@ -216,6 +223,34 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
         `;
     }
 
+    /**
+     * Render leadingAction button depending on prop availability.
+     *
+     * 1. If the prop `leadingAction` is not provided, the button is not rendered.
+     * 2. If the prop `leadingAction` is provided but any of the optional properties
+     * are not provided, they fall back to their default values.
+     *
+     * @private
+     */
+    private renderLeadingAction (): TemplateResult | typeof nothing {
+        const { text = 'Confirm', variant = 'primary', ariaLabel } = this.leadingAction;
+
+        if (!text) {
+            return nothing;
+        }
+
+        return html`
+            <pie-button
+                  variant="${variant}"
+                  aria-label="${ariaLabel || nothing}"
+                  type="submit"
+                  @click="${() => this._dialog?.close('leading')}"
+                  data-test-id="modal-leading-action">
+                ${text}
+              </pie-button>
+        `;
+    }
+
     public render () {
         const {
             hasBackButton,
@@ -225,6 +260,7 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
             isFullWidthBelowMid,
             isLoading,
             size,
+            leadingAction,
             position,
         } = this;
 
@@ -255,13 +291,7 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
                 </div>
             </article>
             <footer class="c-modal-footer">
-                <pie-button
-                    variant="primary"
-                    type="submit"
-                    @click="${() => this._dialog?.close('leading')}"
-                    data-test-id="modal-leading-action">
-                    Confirm
-                </pie-button>
+                ${leadingAction ? this.renderLeadingAction() : nothing}
                 <pie-button
                     variant="ghost"
                     type="reset"

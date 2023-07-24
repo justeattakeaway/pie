@@ -31,6 +31,11 @@ const defaultArgs: ModalProps = {
     position: 'center',
     slot: 'This is Lit!',
     dir: 'ltr',
+    leadingAction: {
+        text: 'Confirm',
+        variant: 'primary',
+        ariaLabel: 'Descriptive text',
+    },
 };
 
 const modalStoryMeta: ModalStoryMeta = {
@@ -73,6 +78,9 @@ const modalStoryMeta: ModalStoryMeta = {
         },
         slot: {
             control: 'text',
+        },
+        leadingAction: {
+            control: 'object',
         },
     },
     args: defaultArgs,
@@ -130,6 +138,7 @@ const BaseStoryTemplate = (props: ModalProps): TemplateResult => {
         position,
         slot,
         dir,
+        leadingAction,
     } = props;
     return html`
         <pie-button @click=${toggleModal}>Toggle Modal</pie-button>
@@ -144,6 +153,7 @@ const BaseStoryTemplate = (props: ModalProps): TemplateResult => {
             ?isOpen="${isOpen}"
             dir="${dir}"
             size="${size}"
+            .leadingAction="${leadingAction}"
             position="${position}">
             ${slot}
         </pie-modal>`;
