@@ -10,7 +10,7 @@ module.exports = {
     },
     parserPreset: {
         parserOpts: {
-            headerPattern: /^(\w*)\((\w.*)\): (\w+?-\d{1,7}) (\w.*)$/,
+            headerPattern: /^(\w*)\((\w.*)\): (DSW-\d{1,7}) (\w.*)$/,
             headerCorrespondence: ['type', 'scope', 'ticket', 'subject'],
             issuePrefixes: [czConfig.ticketNumberPrefix],
         },
