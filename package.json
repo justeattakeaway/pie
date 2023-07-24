@@ -14,7 +14,6 @@
     "packages": [
       "apps/**/*",
       "configs/**/*",
-      "scripts/**/*",
       "packages/**/*",
       "./"
     ]
@@ -27,7 +26,7 @@
     "changeset:publish": "changeset publish",
     "changeset:version": "changeset version",
     "clean": "turbo run clean --filter=!pie-monorepo",
-    "cz": "./scripts/git-hooks/check-branch-name.js $(git symbolic-ref --short HEAD) && ./node_modules/cz-customizable/standalone.js",
+    "cz": "./packages/tools/git-hooks-scripts/check-branch-name.js $(git symbolic-ref --short HEAD) && ./node_modules/cz-customizable/standalone.js",
     "dev": "turbo run dev --filter=!pie-monorepo",
     "generate:examples": "cross-env-shell turbo run generate:examples --token=${TURBO_TOKEN}",
     "lint:config": "eslint --fix turbo.json",

@@ -5,7 +5,7 @@
 npx --no -- commitlint --edit ${1}
 
 # Adds Jira ticket id to commit message
-scripts/git-hooks/check-ticket-id.js $1 $(git symbolic-ref --short HEAD)
+packages/tools/git-hooks-scripts/check-ticket-id.js $1 $(git symbolic-ref --short HEAD)
 
 # Section for git-secrets
 if ! command -v git-secrets &> /dev/null
