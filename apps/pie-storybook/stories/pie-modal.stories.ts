@@ -24,6 +24,7 @@ const defaultArgs: ModalProps = {
     headingLevel: 'h2',
     isDismissible: true,
     hasBackButton: true,
+    isFooterPinned: true,
     isFullWidthBelowMid: false,
     isOpen: true,
     isLoading: false,
@@ -47,6 +48,9 @@ const modalStoryMeta: ModalStoryMeta = {
             control: 'boolean',
         },
         hasBackButton: {
+            control: 'boolean',
+        },
+        isFooterPinned: {
             control: 'boolean',
         },
         isFullWidthBelowMid: {
@@ -130,6 +134,7 @@ const BaseStoryTemplate = (props: ModalProps): TemplateResult => {
         headingLevel,
         isDismissible,
         hasBackButton,
+        isFooterPinned,
         isFullWidthBelowMid,
         isOpen,
         isLoading,
@@ -147,6 +152,7 @@ const BaseStoryTemplate = (props: ModalProps): TemplateResult => {
             headingLevel="${headingLevel}"
             ?isDismissible="${isDismissible}"
             ?hasBackButton="${hasBackButton}"
+            ?isFooterPinned="${isFooterPinned}"
             ?isFullWidthBelowMid="${isFullWidthBelowMid}"
             ?isLoading="${isLoading}"
             returnFocusAfterCloseSelector="${ifDefined(returnFocusAfterCloseSelector)}"

@@ -50,6 +50,9 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
     public hasBackButton = false;
 
     @property({ type: Boolean })
+    public isFooterPinned = true;
+
+    @property({ type: Boolean })
     public isFullWidthBelowMid = false;
 
     @property({ type: Boolean })
@@ -241,14 +244,37 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
 
         return html`
             <pie-button
-                  variant="${variant}"
-                  aria-label="${ariaLabel || nothing}"
-                  type="submit"
-                  @click="${() => this._dialog?.close('leading')}"
-                  data-test-id="modal-leading-action">
+                variant="${variant}"
+                aria-label="${ariaLabel || nothing}"
+                type="submit"
+                @click="${() => this._dialog?.close('leading')}"
+                data-test-id="modal-leading-action">
                 ${text}
-              </pie-button>
+            </pie-button>
         `;
+    }
+
+    /**
+     * Renders the modal inner content and footer of the modal.
+     * @private
+     */
+    private renderModalContentAndFooter () : TemplateResult {
+        return html`
+        <article class="c-modal-content c-modal-content--scrollable">
+            <div class="c-modal-contentInner">
+                <slot></slot>
+            </div>
+        </article>
+        <footer class="c-modal-footer">
+            ${this.leadingAction ? this.renderLeadingAction() : nothing}
+            <pie-button
+                variant="ghost"
+                type="reset"
+                @click="${() => this._dialog?.close('supporting')}"
+                data-test-id="modal-supporting-action">
+                Cancel
+            </pie-button>
+        </footer>`;
     }
 
     public render () {
@@ -257,6 +283,7 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
             heading,
             headingLevel = 'h2',
             isDismissible,
+            isFooterPinned,
             isFullWidthBelowMid,
             isLoading,
             size,
@@ -274,7 +301,9 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
             size="${size}"
             position="${position}"
             ?hasBackButton=${hasBackButton}
+            ?hasActions=${!!leadingAction}
             ?isDismissible=${isDismissible}
+            ?isFooterPinned=${isFooterPinned}
             ?isFullWidthBelowMid=${isFullWidthBelowMid}
             ?isLoading=${isLoading}
             data-test-id="pie-modal">
@@ -285,21 +314,16 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
                 </${headingTag}>
                 ${isDismissible ? this.renderCloseButton() : nothing}
             </header>
-            <article class="c-modal-content c-modal-content--scrollable">
-                <div class="c-modal-contentInner">
-                    <slot></slot>
-                </div>
-            </article>
-            <footer class="c-modal-footer">
-                ${leadingAction ? this.renderLeadingAction() : nothing}
-                <pie-button
-                    variant="ghost"
-                    type="reset"
-                    @click="${() => this._dialog?.close('supporting')}"
-                    data-test-id="modal-supporting-action">
-                    Cancel
-                </pie-button>
-            </footer>
+            ${
+                // We need to wrap the remaining content in a shared scrollable container if the footer is not pinned
+                isFooterPinned
+                    ? this.renderModalContentAndFooter()
+                    : html`
+                        <div class="c-modal-scrollContainer">
+                            ${this.renderModalContentAndFooter()}
+                        </div>
+                        `
+            }
         </dialog>`;
     }
 
