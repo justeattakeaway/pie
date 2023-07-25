@@ -56,7 +56,7 @@ const buildTable = ({ rows, headings }, useMonospace, isFullWidth) => {
 const buildCategorisedTables = (tableData, useMonospace, isFullWidth) => Object.values(tableData).map(({ category, data }) => {
     const table = buildTable(data, useMonospace, isFullWidth);
 
-    return `<h2>${category}</h2>${table}`;
+    return `<h3>${category}</h3>${table}`;
 }).join('');
 
 /**
