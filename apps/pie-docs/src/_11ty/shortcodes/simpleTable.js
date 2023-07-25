@@ -2,7 +2,7 @@ const { getTokenCategories, getTokenData } = require('../../_utilities/tokens');
 
 const normaliseData = (data) => {
     if (data.rows) {
-        const headings = data?.headings.map((heading) => heading.text) : [];
+        const headings = data?.headings.map((heading) => heading.text) ?? [];
         const rows = data.rows.map((row) => row.data.map((data) => data.text));
 
         return { headings, rows };
