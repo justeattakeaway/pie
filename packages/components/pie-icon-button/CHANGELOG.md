@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-icon-button
 
+## 0.10.0
+
+### Minor Changes
+
+- [Changed] - expose icon-button size css variables for consumers ([#627](https://github.com/justeattakeaway/pie/pull/627)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.9.0
 
 ### Minor Changes

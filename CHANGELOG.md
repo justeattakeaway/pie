@@ -1,5 +1,18 @@
 # Changelog
 
+## 2.16.0
+
+### Minor Changes
+
+- [Changed] - commitlint config to check for a Jira ticket in the commit message ([#625](https://github.com/justeattakeaway/pie/pull/625)) by [@fernandofranca](https://github.com/fernandofranca)
+
+  [Changed] - commit-message and pre-commit git hooks scripts to check for the presence of a Jira ticket in the commit message
+  [Added] - pre-pull git hooks script to check the presence of a Jira ticket in the branch name
+  [Added] - Github workflow for checking PRs title format
+  [Changed] - performance improvements for commitizen
+
+- [Changed] - Upgrade Storybook to 7.1.0 ([#644](https://github.com/justeattakeaway/pie/pull/644)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 2.15.0
 
 ### Minor Changes
