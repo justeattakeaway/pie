@@ -325,6 +325,7 @@
 
     &[isLoading] .c-modal-content {
         overflow-y: hidden;
+
         &:before {
             animation: rotate360 var(--spinner-animation-duration) var(--spinner-animation-timing-function) var(--spinner-animation-iteration-count);
             opacity: 1;
