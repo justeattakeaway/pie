@@ -68,6 +68,7 @@ const buildCategorisedTables = (tableData, useMonospace, isFullWidth) => Object.
  * @param {Object} tableData - Contains heading and table data
  * @param {boolean} isFullWidth - Should the table use the full available width
  * @param {boolean} useMonospace - Should the table use a monospace font
+ * @param {object} tokens - An object of token information - path:  tokenType - the type of token
  */
 module.exports = ({
     isFullWidth = false,
