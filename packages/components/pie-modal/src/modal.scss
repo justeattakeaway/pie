@@ -45,26 +45,10 @@
         }
     }
 
-    &[open] {
-        // We only apply this when the modal is open,
-        // otherwise it interferes with the native
-        // `display: none;` on the dialog element.
-        display: grid;
-    }
-
     grid-template-areas:
         'header'
         'content';
     grid-template-rows: min-content minmax(var(--modal-content-min-height), 1fr);
-
-    &[isfooterpinned] {
-        grid-template-areas:
-            'header'
-            'content'
-            'footer';
-        grid-template-rows: min-content minmax(var(--modal-content-min-height), 1fr) min-content;
-    }
-
     position: relative;
     border-radius: var(--modal-border-radius);
     border: none;
@@ -94,6 +78,21 @@
     inline-size: var(--modal-inline-size);
     max-inline-size: var(--modal-max-inline-size);
     max-block-size: var(--modal-max-block-size);
+
+    &[open] {
+        // We only apply this when the modal is open,
+        // otherwise it interferes with the native
+        // `display: none;` on the dialog element.
+        display: grid;
+    }
+
+    &[isfooterpinned] {
+        grid-template-areas:
+            'header'
+            'content'
+            'footer';
+        grid-template-rows: min-content minmax(var(--modal-content-min-height), 1fr) min-content;
+    }
 
     &[size='small'] {
         --modal-max-inline-size: var(--modal-size-s);

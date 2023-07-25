@@ -45,7 +45,7 @@ export interface ModalProps extends RTLComponentProps {
     hasBackButton: boolean;
 
     /**
-     * When true, the modal footer will scroll with the content inside the modal body.
+     * When false, the modal footer will scroll with the content inside the modal body.
      */
     isFooterPinned: boolean;
 
