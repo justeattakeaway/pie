@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-icons-webc
 
+## 0.4.0
+
+### Minor Changes
+
+- [Added] - host-context for pie-button icons and display property for the generated svgs ([#631](https://github.com/justeattakeaway/pie/pull/631)) by [@ashleynolan](https://github.com/ashleynolan)
+
 ## 0.3.0
 
 ### Minor Changes
