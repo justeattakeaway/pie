@@ -4,7 +4,7 @@ import {
 import { html, unsafeStatic } from 'lit/static-html.js';
 import { property, query } from 'lit/decorators.js';
 import {
-    RtlMixin, validPropertyValues, requiredProperty,
+    requiredProperty, RtlMixin, validPropertyValues,
 } from '@justeattakeaway/pie-webc-core';
 import type { DependentMap } from '@justeattakeaway/pie-webc-core';
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
@@ -20,9 +20,9 @@ import {
     ON_MODAL_CLOSE_EVENT,
     ON_MODAL_OPEN_EVENT,
     ON_MODAL_BACK_EVENT,
-    sizes,
     positions,
     AriaProps,
+    sizes,
 } from './defs';
 
 // Valid values available to consumers
@@ -36,6 +36,9 @@ const componentSelector = 'pie-modal';
  * @event {CustomEvent} pie-modal-back - when the modal back button is clicked.
  */
 export class PieModal extends RtlMixin(LitElement) implements ModalProps {
+    @property({ type: Object })
+    public aria!: AriaProps;
+
     @property({ type: String })
     @requiredProperty(componentSelector)
     public heading!: string;
@@ -44,11 +47,14 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
     @validPropertyValues(componentSelector, headingLevels, 'h2')
     public headingLevel: ModalProps['headingLevel'] = 'h2';
 
-    @property({ type: Boolean, reflect: true })
-    public isDismissible = false;
-
     @property({ type: Boolean })
     public hasBackButton = false;
+
+    @property({ type: Boolean })
+    public hasStackedActions = false;
+
+    @property({ type: Boolean, reflect: true })
+    public isDismissible = false;
 
     @property({ type: Boolean })
     public isFooterPinned = true;
@@ -56,11 +62,21 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
     @property({ type: Boolean })
     public isFullWidthBelowMid = false;
 
+    @property({ type: Boolean, reflect: true })
+    public isLoading = false;
+
     @property({ type: Boolean })
     public isOpen = false;
 
-    @property({ type: Boolean, reflect: true })
-    public isLoading = false;
+    @property({ type: Object })
+    public leadingAction!: {
+        text: string;
+        variant?: Variant;
+        ariaLabel?: string;
+    };
+
+    @validPropertyValues(componentSelector, positions, 'center')
+    public position: ModalProps['position'] = 'center';
 
     @property()
     public returnFocusAfterCloseSelector?: string;
@@ -70,24 +86,11 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
     public size: ModalProps['size'] = 'medium';
 
     @property({ type: Object })
-    public leadingAction!: {
-        text: string;
-        variant?: Variant;
-        ariaLabel?: string;
-    };
-
-    @property({ type: Object })
     public supportingAction!: {
         text: string;
         variant?: Variant;
         ariaLabel?: string;
     };
-
-    @property({ type: Object })
-    public aria!: AriaProps;
-
-    @validPropertyValues(componentSelector, positions, 'center')
-    public position: ModalProps['position'] = 'center';
 
     @query('dialog')
     private _dialog?: HTMLDialogElement;
@@ -97,26 +100,26 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
     // Renders a `CSSResult` generated from SCSS by Vite
     static styles = unsafeCSS(styles);
 
-    constructor () {
+    constructor() {
         super();
         this.addEventListener('click', (event) => this._handleDialogLightDismiss(event));
     }
 
-    connectedCallback () : void {
+    connectedCallback(): void {
         super.connectedCallback();
         document.addEventListener(ON_MODAL_OPEN_EVENT, this._handleModalOpened.bind(this));
         document.addEventListener(ON_MODAL_CLOSE_EVENT, this._handleModalClosed.bind(this));
         document.addEventListener(ON_MODAL_BACK_EVENT, this._handleModalClosed.bind(this));
     }
 
-    disconnectedCallback () : void {
+    disconnectedCallback(): void {
         document.removeEventListener(ON_MODAL_OPEN_EVENT, this._handleModalOpened.bind(this));
         document.removeEventListener(ON_MODAL_CLOSE_EVENT, this._handleModalClosed.bind(this));
         document.removeEventListener(ON_MODAL_BACK_EVENT, this._handleModalClosed.bind(this));
         super.disconnectedCallback();
     }
 
-    firstUpdated (changedProperties: DependentMap<ModalProps>) : void {
+    firstUpdated(changedProperties: DependentMap<ModalProps>): void {
         this._dialog?.addEventListener('cancel', (event) => this._handleDialogCancelEvent(event));
         this._handleModalOpenStateOnFirstRender(changedProperties);
 
@@ -125,14 +128,14 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
         });
     }
 
-    updated (changedProperties: DependentMap<ModalProps>) : void {
+    updated(changedProperties: DependentMap<ModalProps>): void {
         this._handleModalOpenStateChanged(changedProperties);
     }
 
     /**
      * Opens the dialog element and disables page scrolling
      */
-    private _handleModalOpened () : void {
+    private _handleModalOpened(): void {
         disableBodyScroll(this);
         if (this._dialog?.hasAttribute('open') || !this._dialog?.isConnected) {
             return;
@@ -144,7 +147,7 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
     /**
      * Closes the dialog element and re-enables page scrolling
      */
-    private _handleModalClosed () : void {
+    private _handleModalClosed(): void {
         enableBodyScroll(this);
         this._dialog?.close();
         this._returnFocus();
@@ -156,14 +159,14 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
      *
      * @param {Event} event - The event object.
      */
-    private _handleDialogCancelEvent = (event: Event) : void => {
+    private _handleDialogCancelEvent = (event: Event): void => {
         if (!this.isDismissible) {
             event.preventDefault();
         }
     };
 
     // Handles the value of the isOpen property on first render of the component
-    private _handleModalOpenStateOnFirstRender (changedProperties: DependentMap<ModalProps>) : void {
+    private _handleModalOpenStateOnFirstRender(changedProperties: DependentMap<ModalProps>): void {
         // This ensures if the modal is open on first render, the scroll lock and backdrop are applied
         const previousValue = changedProperties.get('isOpen');
 
@@ -173,7 +176,7 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
     }
 
     // Handles changes to the modal isOpen property by dispatching any appropriate events
-    private _handleModalOpenStateChanged (changedProperties: DependentMap<ModalProps>) : void {
+    private _handleModalOpenStateChanged(changedProperties: DependentMap<ModalProps>): void {
         const wasPreviouslyOpen = changedProperties.get('isOpen');
 
         if (wasPreviouslyOpen !== undefined) {
@@ -195,7 +198,7 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
      * Return focus to the specified element, providing the selector is valid
      * and the chosen element can be found.
      */
-    private _returnFocus () : void {
+    private _returnFocus(): void {
         const selector = this.returnFocusAfterCloseSelector?.trim();
 
         if (selector) {
@@ -209,7 +212,7 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
      *
      * @private
      */
-    private renderCloseButton (): TemplateResult {
+    private renderCloseButton(): TemplateResult {
         return html`
             <pie-icon-button
                 @click="${() => { this.isOpen = false; }}"
@@ -226,7 +229,7 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
      *
      * @private
      */
-    private renderBackButton () : TemplateResult {
+    private renderBackButton(): TemplateResult {
         return html`
             <pie-icon-button
                 @click="${() => { this._backButtonClicked = true; this.isOpen = false; }}"
@@ -248,7 +251,7 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
      *
      * @private
      */
-    private renderLeadingAction (): TemplateResult | typeof nothing {
+    private renderLeadingAction(): TemplateResult | typeof nothing {
         const { text, variant = 'primary', ariaLabel } = this.leadingAction;
 
         if (!text) {
@@ -278,7 +281,7 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
      *
      * @private
      */
-    private renderSupportingAction (): TemplateResult | typeof nothing {
+    private renderSupportingAction(): TemplateResult | typeof nothing {
         const { text, variant = 'ghost', ariaLabel } = this.supportingAction;
 
         if (!text) {
@@ -306,7 +309,7 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
      * Renders the modal inner content and footer of the modal.
      * @private
      */
-    private renderModalContentAndFooter () : TemplateResult {
+    private renderModalContentAndFooter(): TemplateResult {
         return html`
         <article class="c-modal-content c-modal-content--scrollable">
             <div class="c-modal-contentInner">
@@ -319,10 +322,11 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
         </footer>`;
     }
 
-    public render () {
+    public render() {
         const {
             aria,
             hasBackButton,
+            hasStackedActions,
             heading,
             headingLevel = 'h2',
             isDismissible,
@@ -343,8 +347,9 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
             class="c-modal"
             size="${size}"
             position="${position}"
-            ?hasBackButton=${hasBackButton}
             ?hasActions=${leadingAction || supportingAction}
+            ?hasBackButton=${hasBackButton}
+            ?hasStackedActions=${hasStackedActions}
             ?isDismissible=${isDismissible}
             ?isFooterPinned=${isFooterPinned}
             ?isFullWidthBelowMid=${isFullWidthBelowMid}
@@ -360,10 +365,10 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
                 ${isDismissible ? this.renderCloseButton() : nothing}
             </header>
             ${
-                // We need to wrap the remaining content in a shared scrollable container if the footer is not pinned
-                isFooterPinned
-                    ? this.renderModalContentAndFooter()
-                    : html`
+            // We need to wrap the remaining content in a shared scrollable container if the footer is not pinned
+            isFooterPinned
+                ? this.renderModalContentAndFooter()
+                : html`
                         <div class="c-modal-scrollContainer">
                             ${this.renderModalContentAndFooter()}
                         </div>
@@ -376,7 +381,7 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
      * Dismisses the modal on backdrop click if `isDismissible` is `true`.
      * @param {MouseEvent} event - the click event targetting the modal/backdrop
      */
-    private _handleDialogLightDismiss = (event: MouseEvent) : void => {
+    private _handleDialogLightDismiss = (event: MouseEvent): void => {
         if (!this.isDismissible) {
             return;
         }
@@ -394,9 +399,9 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
         }
 
         const isClickOutsideDialog = event.clientY < top ||
-                event.clientY > bottom ||
-                event.clientX < left ||
-                event.clientX > right;
+            event.clientY > bottom ||
+            event.clientX < left ||
+            event.clientX > right;
 
         if (isClickOutsideDialog) {
             this.isOpen = false;
@@ -414,7 +419,7 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
      *
      * @param {string} eventType
      */
-    private _dispatchModalCustomEvent = (eventType: string) : void => {
+    private _dispatchModalCustomEvent = (eventType: string): void => {
         const event = new CustomEvent(eventType, {
             bubbles: true,
             composed: true,

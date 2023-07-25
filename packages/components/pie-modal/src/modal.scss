@@ -33,6 +33,12 @@
     --modal-bg-color: var(--dt-color-container-default);
     --modal-elevation: var(--dt-elevation-04);
 
+    // TODO: This should be moved into global CSS typography setting
+    // This should be imported by consuming apps and set on the application body
+    text-rendering: optimizelegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: antialiased;
+
     &:focus-visible {
         outline: none;
     }
@@ -41,6 +47,12 @@
     pie-icon-button {
         @media (max-width: $breakpoint-wide) {
             --btn-dimension: 40px;
+        }
+    }
+
+    &[hasstackedactions] pie-button {
+        @media (max-width: 768px) {
+            flex-basis: 100%;
         }
     }
 

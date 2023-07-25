@@ -304,3 +304,12 @@
     height: var(--btn-icon-size);
     width: var(--btn-icon-size);
 }
+
+// Ensure that any component context that sets hasStackedActions="true"
+// makes the button full width on narrow viewports
+:host-context([hasstackedactions]) .o-btn {
+    // TODO: Move breakpoint sizes into shared CSS component utilties
+    @media (max-width: 768px) {
+        inline-size: 100%;
+    }
+}
