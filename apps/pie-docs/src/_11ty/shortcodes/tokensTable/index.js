@@ -1,9 +1,7 @@
 /* eslint-disable no-trailing-spaces */
-const normalisedPieDesignTokens = require('../../../_data/normaliseTokens');
 const pieTokenCategories = require('../../../tokenCategories.json');
-const { stringHelpers, objectHelpers, numberHelpers } = require('../../../_utilities/helpers');
 const tokenTypes = require('../../../_data/tokenTypes');
-const { buildColorName, buildColorExample } = require('./tokenTypes/colour');
+const { buildColorExample } = require('./tokenTypes/colour');
 const { buildElevationExample } = require('./tokenTypes/elevation');
 const { buildSpacingExample } = require('./tokenTypes/spacing');
 const { buildFontExample } = require('./tokenTypes/font');
@@ -14,43 +12,10 @@ const headingAnchor = require('../../filters/headingAnchor');
 const {
     getSubcategoriesForParentCategory,
     getExampleColumnSize,
-    getTokensForCategory,
-    getTokenTypeMetadata,
     validateConfiguration,
 } = require('./handleTokenData');
 
-/**
- * Takes the token key and token type and
- * Creates a SCSS token name such as '$color-black'
- * @param {string} tokenKey - the token key i.e. 'support-positive-02'
- * @param {string} tokenType - the type of token i.e. color, spacing, radius
- * @returns {string} the SCSS variable name
- */
-const createScssTokenName = (tokenKey, tokenType, path) => {
-    // TODO: This is a little hacky and we should revisit it as part of a wider refactor
-    // of how token information is generated for the docs site
-    const isDarkToken = path.includes('dark');
-
-    return `$${tokenType}-${isDarkToken ? 'dark-' : ''}${tokenKey}`;
-};
-
-/**
- * Creates a display name of the provided token. 'system-purple' would become 'System Purple'
- * @param {string} tokenKey - the token key i.e. 'support-positive-02'
- * @param {string} tokenType - the type of token i.e. color, spacing, radius
- * @returns {string} the display name of the token
- */
-const createTokenDisplayName = (tokenKey, tokenType) => {
-    // Some tokens don't require a prefix in front of their display names
-    const prefixExcludes = [tokenTypes.COLOR];
-    const shouldShowPrefix = tokenType && !prefixExcludes.includes(tokenType);
-    const tokenNameSegments = tokenKey.split('-');
-    const tokenName = tokenNameSegments.join(' ');
-
-    return shouldShowPrefix
-        ? `${stringHelpers.capitaliseFirstLetter(tokenType)} ${tokenName}`
-        : stringHelpers.capitaliseFirstLetter(buildColorName(tokenName));
-};
+const { getTokenData, getTokenCategories } = require('../../../_utilities/tokens');
 
 /**
  * Builds an example element to display in the token list item.
@@ -182,56 +147,19 @@ const buildTokensList = (listElements, tokenType) => deindentHTML(`
         ${listElements.join('')}
     </ul>`);
 
+// TODO: probably all of these could use a better name
 /**
- * Creates a tokens list for a given category
+ * Creates a list of Token elements
  * @param {object} tokens
  * @param {string} path - path to the category i.e.  'path:color.alias.default' / 'path:color.alias.dark'
  * @param {string} category - category that pie tokens are grouped by i.e.  'containerBackgrounds' / 'borders'
  * @param {string} tokenType - the type of token i.e. color, spacing, radius
  * @returns - a list of HTML token components separated by a <hr />
  */
-const buildTokensListForCategory = (tokens, path, category, tokenType) => {
-    const tokenTypeMetadata = getTokenTypeMetadata(path);
-    const tokensForCategory = getTokensForCategory(category, tokenTypeMetadata);
+const buildTokenElementList = (tokens, path, tokenType, category) => {
+    const listItems = getTokenData(tokens, tokenType, path, category);
 
-    // create a list item for the current token
-    const tokenListElements = tokensForCategory.map((key) => buildTokenListElements({
-        token: tokens[key],
-        tokenScssName: createScssTokenName(key, tokenType, path),
-        tokenDisplayName: tokenTypeMetadata[key].displayName ?? createTokenDisplayName(key, tokenType),
-        tokenType,
-        tokenMetadata: tokenTypeMetadata[key],
-        path,
-    }));
-
-    return buildTokensList(tokenListElements, tokenType);
-};
-
-/**
- * Builds uncategorised list of tokens
- * @param {string} tokenType - the type of token i.e. color, spacing, radius
- * @param {object} tokens
- * @param {object} path - path to the category i.e.  'path:color.alias.default' / 'path:color.alias.dark'
- * @returns - a string of html containing the list of tokens - with example, description and token name
- */
-const buildUncategorisedLists = ({
-    tokens, path, tokenType,
-}) => {
-    const tokenTypeMetadata = getTokenTypeMetadata(path);
-
-    // if tokens are numbers (spacing / radius), sort in ascending order
-    const sortedTokens = Object.keys(tokens).every(numberHelpers.isNumber)
-        ? Object.entries(tokens).sort((a, b) => a[1] - b[1]) // [[key, value]]
-        : Object.entries(tokens);
-
-    const tokenListElements = sortedTokens.map((token) => buildTokenListElements({
-        token: tokens[token[0]],
-        tokenScssName: tokenTypeMetadata[token[0]]?.scssName ?? createScssTokenName(token[0], tokenType, path),
-        tokenDisplayName: tokenTypeMetadata[token[0]]?.displayName ?? createTokenDisplayName(token[0], tokenType),
-        tokenType,
-        tokenMetadata: tokenTypeMetadata[token[0]],
-        path,
-    }));
+    const tokenListElements = listItems.map((item) => buildTokenListElements(item));
 
     return buildTokensList(tokenListElements, tokenType);
 };
@@ -244,14 +172,12 @@ const buildUncategorisedLists = ({
  * @returns - - a string of html containing the list of tokens - with category, example, description and token name
  */
 const buildCategorisedLists = ({
-    path, tokenType, tokens,
+    path, tokenType, tokens, categories,
 }) => {
-    const categories = objectHelpers.getObjectPropertyByPath(pieTokenCategories, path);
-
     // for each category, create an h2 and a list of token elements to render
     const categoryTokenLists = Object.keys(categories).map((category) => {
         const heading = `<h2>${categories[category].displayName}</h2>`;
-        const tokensList = buildTokensListForCategory(tokens, path, category, tokenType);
+        const tokensList = buildTokenElementList(tokens, path, tokenType, category);
 
         // returns a 'chunk' of the tokens table page (a heading, the column headers, list of tokens and an option HR element)
         return `${heading}${tokensList}`;
@@ -280,7 +206,7 @@ const buildCategoryListsWithParents = ({
         // for each subCategory, create a list of tokens with a subheading
         const subcategoryTokenLists = subcategoryKeys.map((categoryKey) => {
             const subHeading = `<h3 class="c-tokensTable-sectionSubheading">${subcategories[categoryKey].displayName}</h3>`;
-            const tokensList = buildTokensListForCategory(tokens, path, categoryKey, tokenType);
+            const tokensList = buildTokenElementList(tokens, path, tokenType, categoryKey);
 
             return `${subHeading}${tokensList}`;
         });
@@ -305,24 +231,17 @@ const buildCategoryListsWithParents = ({
  * @returns {string} - HTML list of tokens
  */
 const buildTokenLists = (path, tokenType) => {
-    const isGlobal = path.includes('global');
-    const tokens = objectHelpers.getObjectPropertyByPath(normalisedPieDesignTokens, `theme.jet.${path}`);
-    const parentCategories = objectHelpers.getObjectPropertyByPath(pieTokenCategories, `${tokenType}.${isGlobal ? 'global' : 'alias'}.parentCategories`);
-    const regularCategories = objectHelpers.getObjectPropertyByPath(pieTokenCategories, path);
-
     const config = {
-        parentCategories,
+        ...getTokenCategories(path, tokenType),
         path,
         tokenType,
-        isGlobal,
-        tokens,
     };
 
-    if (!parentCategories && !regularCategories) {
-        return buildUncategorisedLists(config);
+    if (!config.parentCategories && !config.categories) {
+        return buildTokenElementList(config.tokens, path, tokenType);
     }
 
-    return parentCategories
+    return config.parentCategories
         ? buildCategoryListsWithParents(config)
         : buildCategorisedLists(config);
 };

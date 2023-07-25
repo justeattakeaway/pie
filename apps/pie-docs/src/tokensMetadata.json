@@ -989,95 +989,83 @@
     "global": {
       "family-primary": {
         "category": "fontFamily",
-        "displayName": "JET Sans",
-        "description": "Our primary font family"
+        "description": "JET Sans"
       },
       "family-secondary": {
         "category": "fontFamily",
-        "displayName": "Arial",
-        "description": "Used only as a fallback font"
+        "description": "Arial"
       },
       "family-code": {
         "category": "fontFamily",
-        "displayName": "PT Mono",
-        "description": "Used only for snippets of code"
+        "description": "PT Mono"
       },
       "weight-extrabold": {
         "category": "fontWeight",
-        "displayName": "Extra bold"
+        "description": "Extra bold"
       },
       "weight-bold": {
         "category": "fontWeight",
-        "displayName": "Bold"
+        "description": "Bold"
       },
       "weight-regular": {
         "category": "fontWeight",
-        "displayName": "Regular"
+        "description": "Regular"
       },
       "size-12": {
         "category": "fontSize",
-        "displayName": "Font size 12",
-        "description": "Text size: 12px <br /> Line height: 16px"
+        "description": "Text size: 12px, Line height: 16px"
       },
       "size-14": {
         "category": "fontSize",
-        "displayName": "Font size 14",
-        "description": "Text size: 14px <br /> Line height: 20px"
+        "description": "Text size: 14px, Line height: 20px"
       },
       "size-16": {
         "category": "fontSize",
-        "displayName": "Font size 16",
-        "description": "Text size: 16px <br /> Line height: 24px"
+        "description": "Text size: 16px, Line height: 24px"
       },
       "size-19": {
         "category": "fontSize",
-        "displayName": "Font size 19",
-        "description": "Text size: 19px <br /> Line height: 28px"
+        "description": "Text size: 19px, Line height: 28px"
       },
       "size-20": {
         "category": "fontSize",
-        "displayName": "Font size 20",
-        "description": "Text size: 20px <br /> Line height: 28px"
+        "description": "Text size: 20px, Line height: 28px"
       },
       "size-24": {
         "category": "fontSize",
-        "displayName": "Font size 24",
-        "description": "Text size: 24px <br /> Line height: 32px"
+        "description": "Text size: 24px, Line height: 32px"
       },
       "size-28": {
         "category": "fontSize",
-        "displayName": "Font size 28",
-        "description": "Text size: 28px <br /> Line height: 36px"
+        "description": "Text size: 28px, Line height: 36px"
       },
       "size-32": {
         "category": "fontSize",
-        "displayName": "Font size 32",
-        "description": "Text size: 32px <br /> Line height: 40px"
+        "description": "Text size: 32px, Line height: 40px"
       },
       "size-48": {
         "category": "fontSize",
-        "displayName": "Font size 48",
-        "description": "Text size: 48px <br /> Line height: 56px"
+        "description": "Text size: 48px, Line height: 56px"
       },
       "style-underline": {
         "category": "fontStyle",
-        "displayName": "Underline",
         "description": "Text decoration: underline"
       },
       "paragraph-spacing-01": {
         "category": "paragraphSpacing",
-        "displayName": "Paragraph spacing 1",
-        "description": "Space between paragraphs: 16px"
+        "description": "Paragraph spacing: 16px"
       },
       "paragraph-spacing-02": {
         "category": "paragraphSpacing",
-        "displayName": "Paragraph spacing 2",
-        "description": "Space between paragraphs: 14px"
+        "description": "Paragraph spacing: 14px"
       },
       "paragraph-spacing-03": {
         "category": "paragraphSpacing",
-        "displayName": "Paragraph spacing 3",
-        "description": "Space between paragraphs: 12px"
+        "description": "Paragraph spacing: 12px"
+      },
+      "letter-spacing-00": {
+        "category": "letterSpacing",
+        "description": "Letter spacing: default"
       }
     },
     "alias": {
