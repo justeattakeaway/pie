@@ -3,8 +3,6 @@ eleventyNavigation:
     key: Global tokens
     parent: Spacing
     order: 3
-eleventyComputed:
-    tableData: "{% include './globalSpacingTokens.json' %}"
 ---
 ## Our global spacing scale
 
@@ -14,8 +12,11 @@ We have defined a series of global tokens to define our various spacing measures
 
 {% simpleTable {
     isFullWidth: true,
-    tableData: tableData,
-    useMonospace: true
+    useMonospace: true,
+    tokens: {
+        tokenType: tokenTypes.SPACING,
+        path: 'spacing.global'
+    }
 } %}
 
 ---

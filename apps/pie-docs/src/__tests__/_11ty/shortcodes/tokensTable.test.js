@@ -5,14 +5,11 @@ describe('tokensTable.js', () => {
     it.each([
         ['color.alias.default', tokenTypes.COLOR],
         ['color.alias.dark', tokenTypes.COLOR],
-        ['color.global', tokenTypes.COLOR],
-        ['elevation.alias', tokenTypes.ELEVATION],
-        ['font.global', tokenTypes.FONT],
+        ['elevation.alias.default', tokenTypes.ELEVATION],
+        ['elevation.alias.dark', tokenTypes.ELEVATION],
         ['font.alias.wide', tokenTypes.FONT],
         ['font.alias.narrow', tokenTypes.FONT],
-        ['radius.global', tokenTypes.RADIUS],
         ['radius.alias', tokenTypes.RADIUS],
-        ['spacing.global', tokenTypes.SPACING]
     ])('should return the expected HTML', (path, tokenType) => {
         // act
         const result = tokensTable({ path, tokenType });

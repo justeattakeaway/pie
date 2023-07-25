@@ -12,7 +12,12 @@ These are the original values in our design language, represented by context-agn
 
 ---
 
-{% tokensTable {
-    path: 'font.global',
-    tokenType: tokenTypes.FONT
+
+{% simpleTable {
+    isFullWidth: true,
+    useMonospace: true,
+    tokens: {
+        path: 'font.global',
+        tokenType: tokenTypes.FONT
+    }
 } %}
