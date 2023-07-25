@@ -34,7 +34,12 @@ const defaultArgs: ModalProps = {
     leadingAction: {
         text: 'Confirm',
         variant: 'primary',
-        ariaLabel: 'Descriptive text',
+        ariaLabel: 'Descriptive confirmation text',
+    },
+    supportingAction: {
+        text: 'Cancel',
+        variant: 'ghost',
+        ariaLabel: 'Descriptive cancellation text',
     },
 };
 
@@ -80,6 +85,9 @@ const modalStoryMeta: ModalStoryMeta = {
             control: 'text',
         },
         leadingAction: {
+            control: 'object',
+        },
+        supportingAction: {
             control: 'object',
         },
     },
@@ -139,6 +147,7 @@ const BaseStoryTemplate = (props: ModalProps): TemplateResult => {
         slot,
         dir,
         leadingAction,
+        supportingAction,
     } = props;
     return html`
         <pie-button @click=${toggleModal}>Toggle Modal</pie-button>
@@ -154,6 +163,7 @@ const BaseStoryTemplate = (props: ModalProps): TemplateResult => {
             dir="${dir}"
             size="${size}"
             .leadingAction="${leadingAction}"
+            .supportingAction="${supportingAction}"
             position="${position}">
             ${slot}
         </pie-modal>`;
