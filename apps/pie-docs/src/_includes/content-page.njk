@@ -4,10 +4,10 @@
     <div data-test-id="content_header" class="c-contentPage-header">
         <div class="c-content-container">
             <div>
-                <h1 class="c-contentPage-header-heading alpha--standout">
+                <h1 class="alpha--standout">
                     {{ title }}
                 </h1>
-                <p class="c-contentPage-header-description">
+                <p class="c-content-header-description">
                     {{ description }}
                 </p>
             </div>
@@ -20,13 +20,13 @@
 
     {# temporarily adding a condition to check if the title is PIE Design System - this allows an empty home page not to display the coming soon graphic in the page body #}
     {% if content %}
-        <div class="c-contentPage-content">
+        <div class="c-content">
             <div class="c-content-container">
                 {{ content | safe }}
             </div>
         </div>
     {% else %}
-        <div class="c-contentPage-content u-noPad">
+        <div class="c-content u-noPad">
             <div class="c-content-container">
                 {# By default we will show the coming soon graphic for an empty page within a tabbed section #}
                 {% include "coming-soon.njk" %}

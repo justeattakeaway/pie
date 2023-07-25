@@ -1,6 +1,6 @@
 @use '../fozzie-config' as f;
 
-.c-homePage {
+.c-hero {
     min-height: 100%;
     display: grid;
 
@@ -17,8 +17,8 @@
     }
 }
 
-.c-homePage-header,
-.c-homePage-content {
+.c-heroBanner,
+.c-heroContent {
     padding-inline: f.$spacing-d;
 
     @include f.media('>=narrowMid') {
@@ -28,17 +28,23 @@
     @include f.media('>=mid') {
         padding-inline: f.spacing(i);
     }
+
+    .c-content .c-content-container {
+        @include f.media('<mid') {
+            padding-top: 0 !important;
+        }
+    }
 }
 
-.c-homePage-header {
+.c-heroBanner {
     background-color: f.$color-background-subtle;
 }
 
-.c-homePage-content {
+.c-heroContent {
     background-color: f.$color-background-default;
 }
 
-.c-homePage-heading {
+.c-heroBanner-heading {
     grid-row: 1 / span 2;
     display: flex;
     flex-direction: row;
@@ -46,7 +52,7 @@
     gap: f.$spacing-e;
     justify-content: space-between;
 
-    .c-homePage-title {
+    .c-heroBanner-heading-text {
         width: 100%;
         padding-top: f.spacing(g);
 
@@ -63,11 +69,11 @@
         }
     }
 
-    .c-homePage-button {
+    .o-btn {
         margin-top: f.spacing(f);
     }
 
-    .c-homePage-image {
+    .c-heroBanner-image {
         align-self: center;
         z-index: 1;
         width: 50%;
@@ -82,7 +88,7 @@
     }
 }
 
-.razor {
+.c-razor {
     grid-row: 2;
     grid-column: 1;
     width: 100%;
@@ -100,24 +106,5 @@
 
     @include f.media('>=wide') {
         clip-path: polygon(0 60%, 100% 0%, 100% 100%, 0% 100%);
-    }
-}
-
-.c-homePage-content {
-    grid-row: 3;
-    padding-inline: f.spacing(d);
-
-    @include f.media('>=narrowMid') {
-        padding-inline: f.spacing(e);
-    }
-
-    @include f.media('>=mid') {
-        padding-inline: f.spacing(i);
-    }
-}
-
-.header-content {
-    @include f.media('<mid') {
-        padding-top: 0 !important;
     }
 }
