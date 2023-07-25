@@ -1,5 +1,24 @@
 # Changelog
 
+## 0.20.0
+
+### Minor Changes
+
+- [Added] - `position` prop to modal ([#630](https://github.com/justeattakeaway/pie/pull/630)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - prop for `leadingAction` to pie-modal ([#632](https://github.com/justeattakeaway/pie/pull/632)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
+- [Changed] - Upgrade Storybook to 7.1.0 ([#644](https://github.com/justeattakeaway/pie/pull/644)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - expanded controls info and pie-button updated to include icon slots ([#634](https://github.com/justeattakeaway/pie/pull/634)) by [@ashleynolan](https://github.com/ashleynolan)
+
+### Patch Changes
+
+- Updated dependencies [[`e6a674b80`](https://github.com/justeattakeaway/pie/commit/e6a674b80955012d164625d132ab20f755a28b70), [`7d0562474`](https://github.com/justeattakeaway/pie/commit/7d05624744191a3066c0243308dd5fc09fc25f42), [`7d0562474`](https://github.com/justeattakeaway/pie/commit/7d05624744191a3066c0243308dd5fc09fc25f42), [`0fbbb882a`](https://github.com/justeattakeaway/pie/commit/0fbbb882a158a5d213b7246919a2b5238105c277), [`5ac23aa93`](https://github.com/justeattakeaway/pie/commit/5ac23aa931e3c9c00141ea50fba18d8445f3e105), [`d6d2529ad`](https://github.com/justeattakeaway/pie/commit/d6d2529ada69cce7eacc49d2411a5268cd403ecc)]:
+  - @justeattakeaway/pie-modal@0.14.0
+  - @justeattakeaway/pie-icon-button@0.10.0
+  - @justeattakeaway/pie-button@0.20.0
+
 ## 0.19.0
 
 ### Minor Changes
