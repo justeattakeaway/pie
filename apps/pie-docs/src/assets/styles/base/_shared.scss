@@ -91,7 +91,7 @@
     hr {
         margin-top: f.spacing(h);
         margin-bottom: f.spacing(h);
-    
+
         @include f.media('>=wide') {
             margin-top: f.spacing(i);
             margin-bottom: f.spacing(i);
