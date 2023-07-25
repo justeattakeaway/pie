@@ -26,6 +26,9 @@ pie-icons-vue:
 stylelint-config-pie:
 - 'packages/tools/stylelint-config-pie/**/*'
 
+generator-pie-component:
+- 'packages/tools/generator-pie-component/**/*'
+
 # Component projects
 components:
 - 'packages/components/**/*'

@@ -2,6 +2,8 @@ export const sizes = ['xsmall', 'small-productive', 'small-expressive', 'medium'
 export const types = ['submit', 'button', 'reset', 'menu'] as const;
 export const variants = ['primary', 'secondary', 'outline', 'ghost', 'inverse', 'ghost-inverse'] as const;
 
+export type Variant = typeof variants[number];
+
 export interface ButtonProps {
     /**
      * What size the button should be.
@@ -14,7 +16,7 @@ export interface ButtonProps {
     /**
      * What style variant the button should be such as primary, outline or ghost.
      */
-    variant: typeof variants[number];
+    variant: Variant;
     /**
      * When true, the button element is disabled.
      */
