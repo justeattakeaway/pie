@@ -68,8 +68,15 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
     @validPropertyValues(componentSelector, sizes, 'medium')
     public size: ModalProps['size'] = 'medium';
 
-    @property()
+    @property({ type: Object })
     public leadingAction!: {
+        text: string;
+        variant?: Variant;
+        ariaLabel?: string;
+    };
+
+    @property({ type: Object })
+    public supportingAction!: {
         text: string;
         variant?: Variant;
         ariaLabel?: string;
@@ -236,7 +243,7 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
      * @private
      */
     private renderLeadingAction (): TemplateResult | typeof nothing {
-        const { text = 'Confirm', variant = 'primary', ariaLabel } = this.leadingAction;
+        const { text, variant = 'primary', ariaLabel } = this.leadingAction;
 
         if (!text) {
             return nothing;
@@ -255,6 +262,41 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
     }
 
     /**
+     * Render supportingAction button depending on prop availability.
+     *
+     * 1. If the prop `supportingAction` is not provided, the button is not rendered.
+     * 2. If the prop `supportingAction` is provided but any of the optional properties
+     * are not provided, they fall back to their default values.
+     * 3. If `supportingAction` is provided but not `leadingAction`, log a warning and do
+     * not render `supportingAction`.
+     *
+     * @private
+     */
+    private renderSupportingAction (): TemplateResult | typeof nothing {
+        const { text, variant = 'ghost', ariaLabel } = this.supportingAction;
+
+        if (!text) {
+            return nothing;
+        }
+
+        if (!this.leadingAction) {
+            console.warn('Use `leadingAction` instead of `supportingAction`. `supportingAction` is being ignored.');
+            return nothing;
+        }
+
+        return html`
+            <pie-button
+                variant="${variant}"
+                aria-label="${ariaLabel || nothing}"
+                type="reset"
+                @click="${() => this._dialog?.close('supporting')}"
+                data-test-id="modal-supporting-action">
+                ${text}
+            </pie-button>
+        `;
+    }
+
+    /**
      * Renders the modal inner content and footer of the modal.
      * @private
      */
@@ -267,13 +309,7 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
         </article>
         <footer class="c-modal-footer">
             ${this.leadingAction ? this.renderLeadingAction() : nothing}
-            <pie-button
-                variant="ghost"
-                type="reset"
-                @click="${() => this._dialog?.close('supporting')}"
-                data-test-id="modal-supporting-action">
-                Cancel
-            </pie-button>
+            ${this.supportingAction ? this.renderSupportingAction() : nothing}
         </footer>`;
     }
 
@@ -286,9 +322,10 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
             isFooterPinned,
             isFullWidthBelowMid,
             isLoading,
-            size,
             leadingAction,
             position,
+            size,
+            supportingAction,
         } = this;
 
         const headingTag = unsafeStatic(headingLevel);
@@ -301,7 +338,7 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
             size="${size}"
             position="${position}"
             ?hasBackButton=${hasBackButton}
-            ?hasActions=${!!leadingAction}
+            ?hasActions=${!!leadingAction || !!supportingAction}
             ?isDismissible=${isDismissible}
             ?isFooterPinned=${isFooterPinned}
             ?isFullWidthBelowMid=${isFullWidthBelowMid}

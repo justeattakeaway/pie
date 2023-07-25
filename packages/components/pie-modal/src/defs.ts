@@ -85,6 +85,27 @@ export interface ModalProps extends RTLComponentProps {
         ariaLabel?: string;
     };
 
+    /**
+     * The supporting action configuration for the modal.
+     */
+    supportingAction: {
+        /**
+         * The text to display for the supporting action button.
+         */
+        text: string;
+
+        /**
+         * The variant of the supporting action button.
+         * Default: 'ghost'
+         */
+        variant?: Variant;
+
+        /**
+         * The ARIA label for the supporting action button.
+         */
+        ariaLabel?: string;
+    };
+
     /*
      * The position of the modal; this controls where it will appear on the page.
      */

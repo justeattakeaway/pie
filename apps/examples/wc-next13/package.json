@@ -1,6 +1,6 @@
 {
   "name": "wc-next13",
-  "version": "0.2.11",
+  "version": "0.2.12",
   "private": true,
   "scripts": {
     "dev": "NODE_OPTIONS=--conditions=development next dev",

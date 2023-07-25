@@ -612,6 +612,11 @@ test.describe('actions', () => {
                             variant: 'primary',
                             ariaLabel: 'Descriptive message',
                         },
+                        supportingAction: {
+                            text: 'Cancel',
+                            variant: 'ghost',
+                            ariaLabel: 'Descriptive message',
+                        },
                     },
                 });
 
@@ -633,6 +638,11 @@ test.describe('actions', () => {
                         leadingAction: {
                             text: 'Confirm',
                             variant: 'primary',
+                            ariaLabel: 'Descriptive message',
+                        },
+                        supportingAction: {
+                            text: 'Cancel',
+                            variant: 'ghost',
                             ariaLabel: 'Descriptive message',
                         },
                     },
