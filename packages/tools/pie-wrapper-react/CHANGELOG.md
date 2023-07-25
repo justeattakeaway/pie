@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-wrapper-react
 
+## 0.8.2
+
+### Patch Changes
+
+- [Added] - prop for `leadingAction` to pie-modal ([#632](https://github.com/justeattakeaway/pie/pull/632)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
 ## 0.8.1
 
 ### Patch Changes

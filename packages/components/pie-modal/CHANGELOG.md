@@ -1,5 +1,17 @@
 # @justeattakeaway/pie-modal
 
+## 0.14.0
+
+### Minor Changes
+
+- [Added] - `position` prop to modal ([#630](https://github.com/justeattakeaway/pie/pull/630)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Changed] - Sync modal header styles with figma ([#627](https://github.com/justeattakeaway/pie/pull/627)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - prop for `leadingAction` to pie-modal ([#632](https://github.com/justeattakeaway/pie/pull/632)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
+- [Changed] - Moved some tests from Visual to Component ([#613](https://github.com/justeattakeaway/pie/pull/613)) by [@JoshuaNg2332](https://github.com/JoshuaNg2332)
+
 ## 0.13.0
 
 ### Minor Changes
