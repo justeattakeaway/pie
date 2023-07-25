@@ -65,14 +65,14 @@ import { PieButton } from '@justeattakeaway/pie-button/dist/react';
 
 ## Props
 
-| Property    | Type      | Default         | Description                                                          |
-|-------------|-----------|-----------------|----------------------------------------------------------------------|
-| size        | `String`  | `medium`        | Size of the button, one of `sizes` – `xsmall`, `small-expressive`, `small-productive`, `medium`, `large` |
-| type        | `String`  | `submit`        | Type of the button, one of `types` – `submit`, `button`, `reset`, `menu` |
+| Property    | Type      | Default         | Description                                                                                                       |
+|-------------|-----------|-----------------|-------------------------------------------------------------------------------------------------------------------|
+| size        | `String`  | `medium`        | Size of the button, one of `sizes` – `xsmall`, `small-expressive`, `small-productive`, `medium`, `large`          |
+| type        | `String`  | `submit`        | Type of the button, one of `types` – `submit`, `button`, `reset`, `menu`                                          |
 | variant     | `String`  | `primary`       | Variant of the button, one of `variants` – `primary`, `secondary`, `outline`, `ghost`, `inverse`, `ghost-inverse` |
-| disabled    | `Boolean` | `false`         | If `true`, disables the button.                                      |
-| isFullWidth | `Boolean` | `false`         | If `true`, sets the button width to 100% of it's container.                            |
-| isLoading | `Boolean` | `false`         | If `true`, displays a loading indicator inside the button.
+| disabled    | `Boolean` | `false`         | If `true`, disables the button.                                                                                   |
+| isFullWidth | `Boolean` | `false`         | If `true`, sets the button width to 100% of it's container.                                                       |
+| isLoading   | `Boolean` | `false`         | If `true`, displays a loading indicator inside the button.                                                        |
 
 In your markup or JSX, you can then use these to set the properties for the `pie-button` component:
 
@@ -83,6 +83,31 @@ In your markup or JSX, you can then use these to set the properties for the `pie
 <!-- JSX -->
 <PieButton size='medium' type='button' variant='primary'>Click me!</PieButton>
 ```
+
+## Slots
+
+| Slot          | Description                                                                                                                        |
+|---------------|------------------------------------------------------------------------------------------------------------------------------------|
+| Default slot  | The default slot is used to pass text into the button component.                                                                   |
+| icon-leading  | Used to pass in a leading icon. We recommend using `pie-icons-webc` for defining this icon, but this can also accept an SVG icon.  |
+| icon-trailing | Used to pass in a trailing icon. We recommend using `pie-icons-webc` for defining this icon, but this can also accept an SVG icon. |
+
+### Using `pie-icons-webc` with `pie-button`icon slots
+
+We recommend using `pie-icons-webc` when using the `icon-leading` and `icon-trailing` slots. Here is an example of how you would do this:
+
+```html
+<!--
+  Note that pie-button and the icons that you want to use will need to be imported as components into your application.
+  See the `pie-icons-webc` README for more info on importing these icons.
+-->
+<pie-button>
+    <icon-plus-circle slot="icon-leading"></icon-plus-circle>
+    Search
+    <icon-chevron-down slot="icon-trailing"></icon-chevron-down>
+</pie-button>
+```
+
 
 ## Events
 
