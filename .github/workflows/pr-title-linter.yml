@@ -10,7 +10,8 @@ jobs:
     steps:
       - uses: morrisoncole/pr-lint-action@v1.7.0
         with:
-          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+          # TODO: This is the token for the 'pie-bot' user. Will rename the token to reflect that at a later date
+          repo-token: "${{ secrets.CHANGESETS_TOKEN }}"
           title-regex: "^[a-z]+?\\([a-z0-9-]+?\\): [A-Z]+?-\\d+? \\w.*|^Version Packages|^\\[Snyk\\].*"
           on-failed-regex-fail-action: true
           on-failed-regex-create-review: true
