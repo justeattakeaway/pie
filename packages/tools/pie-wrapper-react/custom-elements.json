@@ -676,6 +676,20 @@
                     "kind": "class",
                     "description": "",
                     "name": "PieButton",
+                    "slots": [
+                        {
+                            "description": "Leading icon",
+                            "name": "icon-leading"
+                        },
+                        {
+                            "description": "Trailing icon",
+                            "name": "icon-trailing"
+                        },
+                        {
+                            "description": "Default slot",
+                            "name": ""
+                        }
+                    ],
                     "members": [
                         {
                             "kind": "field",

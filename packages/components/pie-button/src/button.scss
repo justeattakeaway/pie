@@ -45,6 +45,9 @@
     --btn-bg-color: var(--dt-color-interactive-brand);
     --btn-text-color: var(--dt-color-content-interactive-primary);
 
+    // Sizing is set to Medium button icon size, as that is the default
+    --btn-icon-size: 24px;
+
     // Spinner sizes defaults - currently set for the medium button styles
     --spinner-size-s: 20px;
     --spinner-size-m: 24px;
@@ -67,6 +70,10 @@
     --spinner-animation-iteration-count: infinite;
 
     position: relative;
+    display: flex;
+    gap: var(--dt-spacing-b);
+    align-items: center;
+    justify-content: center;
     box-sizing: border-box;
     padding: var(--btn-padding);
     border: none;
@@ -80,6 +87,12 @@
     line-height: var(--btn-line-height);
     cursor: pointer;
     user-select: none;
+
+    // TODO: This should be moved into global CSS typography setting
+    // This should be imported by consuming apps and set on the application body
+    text-rendering: optimizelegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: antialiased;
 
     &:focus-visible {
         /*
@@ -214,6 +227,7 @@
         --btn-padding: 6px var(--dt-spacing-b);
         --btn-font-size: calc(var(--dt-font-size-14) * 1px);
         --btn-line-height: calc(var(--dt-font-size-14-line-height) * 1px);
+        --btn-icon-size: 16px;
         --spinner-size: var(--spinner-size-s);
         --spinner-border-width: var(--spinner-border-width-s);
     }
@@ -222,6 +236,7 @@
         --btn-padding: 6px var(--dt-spacing-d);
         --btn-font-size: calc(var(--dt-font-size-20) * 1px);
         --btn-line-height: calc(var(--dt-font-size-20-line-height) * 1px);
+        --btn-icon-size: 20px;
         --spinner-size: var(--spinner-size-s);
         --spinner-border-width: var(--spinner-border-width-s);
     }
@@ -230,6 +245,7 @@
         --btn-padding: 8px var(--dt-spacing-d);
         --btn-font-size: calc(var(--dt-font-size-16) * 1px);
         --btn-line-height: calc(var(--dt-font-size-16-line-height) * 1px);
+        --btn-icon-size: 20px;
         --spinner-size: var(--spinner-size-s);
         --spinner-border-width: var(--spinner-border-width-s);
     }
@@ -267,6 +283,10 @@
         opacity: 0;
     }
 
+    .o-btn-text {
+        flex-grow: 1;
+    }
+
     &[isLoading] {
         &:before {
             animation: rotate360 var(--spinner-animation-duration) var(--spinner-animation-timing-function) var(--spinner-animation-iteration-count);
@@ -277,4 +297,10 @@
             opacity: 0;
         }
     }
+}
+
+// Used to size an SVG if one is passed in (when not using the component icons)
+::slotted(svg) {
+    height: var(--btn-icon-size);
+    width: var(--btn-icon-size);
 }
