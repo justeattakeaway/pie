@@ -12,7 +12,11 @@ Our global elevation tokens are created using multiple shadows to give elevated 
 
 ---
 
-{% tokensTable {
-  path: 'elevation.global',
-  tokenType: tokenTypes.ELEVATION
+{% simpleTable {
+    isFullWidth: true,
+    useMonospace: true,
+    tokens: {
+        path: 'elevation.global',
+        tokenType: tokenTypes.ELEVATION
+    }
 } %}

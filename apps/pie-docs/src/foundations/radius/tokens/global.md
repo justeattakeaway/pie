@@ -12,8 +12,11 @@ We have set a number of global tokens which set the roundness of the corners.
 
 ---
 
-{% tokensTable {
-    path: 'radius.global',
-    tokenType: tokenTypes.RADIUS
+{% simpleTable {
+    isFullWidth: true,
+    useMonospace: true,
+    tokens: {
+        path: 'radius.global',
+        tokenType: tokenTypes.RADIUS
+    }
 } %}
-
