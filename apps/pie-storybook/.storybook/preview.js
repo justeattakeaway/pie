@@ -55,6 +55,9 @@ export default {
                     value: '#262626',
                 },
             ]
+        },
+        controls: {
+            expanded: true,
         }
     }
 };
