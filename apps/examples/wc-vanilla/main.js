@@ -2,11 +2,18 @@ import './style.css';
 import { setupCounter } from './counter';
 
 document.querySelector('#app').innerHTML = `
-    <div>
-        <h1>Hello World!</h1>
-        <pie-button id="counter" type="button"></pie-button>
-        <pie-icon-button size="medium" type="button" variant="primary"></pie-icon-button>
-</div>
+    <h2>pie-button Component Counter</h2>
+    <pie-button id="counter" type="button"></pie-button>
+
+    <h2>pie-icon-button Component – trailing and leading icons</h2>
+    <pie-button>
+        <icon-search slot="icon-leading"></icon-search>
+        Search
+        <icon-close slot="icon-trailing"></icon-close>
+    </pie-button>
+
+    <h2>pie-icon-button Component</h2>
+    <pie-icon-button size="medium" type="button" variant="primary"><icon-close></icon-close></pie-icon-button>
 `;
 
 setupCounter(document.querySelector('#counter'));

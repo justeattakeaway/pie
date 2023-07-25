@@ -16,6 +16,11 @@ export {
 
 const componentSelector = 'pie-button';
 
+/**
+ * @slot icon-leading - Leading icon
+ * @slot icon-trailing - Trailing icon
+ * @slot - Default slot
+ */
 export class PieButton extends LitElement implements ButtonProps {
     @property()
     @validPropertyValues(componentSelector, sizes, 'medium')
@@ -52,7 +57,9 @@ export class PieButton extends LitElement implements ButtonProps {
                 ?disabled=${disabled}
                 ?isFullWidth=${isFullWidth}
                 ?isLoading=${isLoading}>
+                <slot name="icon-leading"></slot>
                 <span class="o-btn-text"><slot></slot></span>
+                <slot name="icon-trailing"></slot>
             </button>`;
     }
 

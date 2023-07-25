@@ -3,4 +3,4 @@
 "pie-storybook": minor
 ---
 
-[Added] - `position` prop to modal
+[Added] SupportingAction prop to modal

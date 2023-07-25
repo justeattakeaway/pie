@@ -65,3 +65,49 @@ componentVariants.forEach((variant) => test(`Render all prop variations for Vari
 
     await percySnapshot(page, `PIE Button - Variant: ${variant}`);
 }));
+
+// TODO: Currently setting the slot to use a straight up SVG
+//       This should be updated to use pie-icons-webc, but after some investigation, we think that we'll
+//       need to convert the webc icons to use Lit, as currently the components don't work well in a Node env like Playwright
+//       Atm, importing them like `import '@justeattakeaway/pie-icons-webc/icons/IconClose.js';` results in an `HTMLElement is not defined` error
+const plusSVG = '<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 16 16" class="c-pieIcon c-pieIcon--plusCircle"><path d="M8.656 4.596H7.344v2.748H4.596v1.312h2.748v2.748h1.312V8.656h2.748V7.344H8.656V4.596Z"></path><path d="M12.795 3.205a6.781 6.781 0 1 0 0 9.625 6.79 6.79 0 0 0 0-9.625Zm-.927 8.662a5.469 5.469 0 1 1-7.734-7.735 5.469 5.469 0 0 1 7.734 7.736Z"></path></svg>';
+const chevronSVG = '<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 16 16" class="c-pieIcon c-pieIcon--chevronDown"><path d="M2.82 5.044 8 10.399 13.197 5l.963.875-5.364 5.565a1.164 1.164 0 0 1-1.636 0L1.875 5.945l.945-.901Z"></path></svg>';
+
+sizes.forEach((size) => test(`Render icon slot variations for Size: ${size}`, async ({ page, mount }) => {
+    const iconSlotVariations = [
+        {
+            'icon-leading': plusSVG,
+        },
+        {
+            'icon-trailing': chevronSVG,
+        },
+        {
+            'icon-leading': plusSVG,
+            'icon-trailing': chevronSVG,
+        },
+    ];
+
+    await Promise.all(iconSlotVariations.map(async (iconSlots) => {
+        const iconLeading = iconSlots['icon-leading'] ? iconSlots['icon-leading'].replace('<svg', '<svg slot="icon-leading"') : '';
+        const iconTrailing = iconSlots['icon-trailing'] ? iconSlots['icon-trailing'].replace('<svg', '<svg slot="icon-trailing"') : '';
+
+        await mount(
+            WebComponentTestWrapper,
+            {
+                props: {
+                    size,
+                },
+                slots: {
+                    component: `<pie-button size="${size}">
+                                    ${iconLeading || ''}
+                                    Hello, ${size} Button!
+                                    ${iconTrailing || ''}
+                                </pie-button>`,
+                },
+            },
+        );
+    }));
+
+    await percySnapshot(page, `PIE Button Leading Icon - Size: ${size}`);
+}));
+
