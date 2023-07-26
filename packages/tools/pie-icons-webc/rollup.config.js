@@ -1,56 +1,25 @@
-import del from 'rollup-plugin-delete';
-import { nodeResolve } from '@rollup/plugin-node-resolve';
 import typescript from '@rollup/plugin-typescript';
-
-const compilerOptions = {
-    target: 'es6',
-};
+import multiInput from 'rollup-plugin-multi-input';
 
 export default [
     {
-        input: ['icons/index.ts'],
+        input: 'icons/*.ts',
         output: {
             exports: 'named',
-            dir: 'dist/esm',
+            dir: 'dist/icons',
             format: 'esm',
             name: '@justeattakeaway/pie-icons-webc',
-            preserveModulesRoot: 'icons',
-            preserveModules: true,
         },
         plugins: [
-            del({ targets: ['esm/*'] }),
-            nodeResolve({
-                resolveOnly: ['@justeattakeaway/pie-icons-configs'],
-            }),
+            multiInput.default({ relative: 'icons/' }),
             typescript({
                 compilerOptions: {
-                    ...compilerOptions,
-                    outDir: './dist/esm',
+                    target: 'es6',
+                    declarationDir: './dist/icons',
+                    outDir: './dist/icons',
+                    rootDir: './icons',
                 },
             }),
         ],
     },
-    // {
-    //     input: ['icons/index.ts'],
-    //     output: {
-    //         exports: 'named',
-    //         dir: 'dist/cjs',
-    //         format: 'cjs',
-    //         name: '@justeattakeaway/pie-icons-webc',
-    //         preserveModulesRoot: 'icons',
-    //         preserveModules: true,
-    //     },
-    //     plugins: [
-    //         del({ targets: ['cjs/*'] }),
-    //         nodeResolve({
-    //             resolveOnly: ['@justeattakeaway/pie-icons-configs'],
-    //         }),
-    //         typescript({
-    //             compilerOptions: {
-    //                 ...compilerOptions,
-    //                 outDir: './dist/cjs',
-    //             },
-    //         }),
-    //     ],
-    // },
 ];
