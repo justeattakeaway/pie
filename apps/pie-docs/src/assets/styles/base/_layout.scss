@@ -65,3 +65,112 @@
         z-index: f.zIndex(low);
     }
 }
+
+// styles shared between homePage and contentPage
+.c-content {
+    flex: 1;
+    background-color: f.$color-background-default;
+    border-top: 1px solid f.$color-border-default;
+
+    & a {
+        color: f.$color-content-link-distinct;
+
+        &:visited {
+            color: f.$color-content-link-visited;
+        }
+
+        &:hover,
+        &:active,
+        &:focus {
+            text-decoration: none;
+        }
+    }
+
+    & p:has(+ .c-tokensTable) {
+        // For a tokens table directly following a description add margin.
+        // Descriptions normally have a `<hr />` as a separator
+        margin-bottom: f.spacing(f);
+    }
+
+    .c-content-container {
+        padding-top: f.spacing(f);
+        padding-bottom: f.spacing(j);
+
+        h2 {
+            @include f.font-size('heading-xl', $scale: 'narrow');
+        }
+
+        h3 {
+            @include f.font-size('heading-m', $scale: 'narrow');
+        }
+
+        @include f.media('>=wide') {
+            padding-top: f.spacing(h);
+            padding-bottom: calc(f.spacing(j) + f.spacing(d));
+
+            h2 {
+                @include f.font-size('heading-xl');
+            }
+
+            h3 {
+                @include f.font-size('heading-m');
+            }
+        }
+
+        > h1,
+        > h2,
+        > h3,
+        > h4,
+        > h5,
+        > h6,
+        > p,
+        > a,
+        > span,
+        > ul {
+            max-width: v.$typography-content-max-width;
+        }
+
+        > h2 + h3,
+        > h3 + h4,
+        > p + .c-contentPage-img,
+        > .c-contentPage-img + p {
+            margin-top: f.spacing(e);
+        }
+
+        > p + h2 {
+            margin-top: f.spacing(h);
+        }
+
+        > ul + h3,
+        > p + h3,
+        > p + h4,
+        > table + h3,
+        > ul + h4,
+        > .c-contentPage-img + h3,
+        > .c-contentPage-img + h4,
+        > .c-contentPage-notification + h3,
+        & .c-contentPage-notification {
+            margin-top: f.spacing(f);
+        }
+    }
+
+    hr {
+        margin-top: f.spacing(h);
+        margin-bottom: f.spacing(h);
+
+        @include f.media('>=wide') {
+            margin-top: f.spacing(i);
+            margin-bottom: f.spacing(i);
+        }
+    }
+}
+
+.c-content-header-description {
+    @include f.font-size('body-l');
+    margin-top: f.spacing(e);
+    max-width: 50ch;
+
+    @include f.media('>=wide') {
+        @include f.font-size('heading-s');
+    }
+}
