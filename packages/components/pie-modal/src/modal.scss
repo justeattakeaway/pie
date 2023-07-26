@@ -74,7 +74,7 @@
     --modal-max-block-size: calc(100vh - calc(var(--modal-margin-block) * 2));
     --modal-max-inline-size: var(--modal-size-m);
 
-    min-block-size: var(--modal-block-size);
+    block-size: var(--modal-block-size);
     inline-size: var(--modal-inline-size);
     max-inline-size: var(--modal-max-inline-size);
     max-block-size: var(--modal-max-block-size);
