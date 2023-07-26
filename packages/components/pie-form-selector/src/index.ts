@@ -1,20 +1,20 @@
 import { LitElement, html, unsafeCSS } from 'lit-element';
 import { property } from 'lit/decorators.js';
 import { validPropertyValues } from '@justeattakeaway/pie-webc-core';
-import styles from './button.scss?inline';
+import styles from './form-selector.scss?inline';
 import {
-    CheckboxProps, inputTypes,
+    FormSelectorProps, inputTypes,
 } from './defs';
 
 // Valid values available to consumers
 export {
-    type CheckboxProps,
+    type FormSelectorProps,
     inputTypes,
 };
 
-const componentSelector = 'pie-checkbox';
+const componentSelector = 'pie-form-selector';
 
-export class PieCheckbox extends LitElement {
+export class PieFormSelector extends LitElement {
     @property({ type: Boolean })
     public checked = false;
 
@@ -26,7 +26,7 @@ export class PieCheckbox extends LitElement {
 
     @property()
     @validPropertyValues(componentSelector, inputTypes, 'checkbox')
-    public inputType: CheckboxProps['inputType'] = 'checkbox';
+    public inputType: FormSelectorProps['inputType'] = 'checkbox';
 
     render () {
         const {
@@ -70,10 +70,10 @@ export class PieCheckbox extends LitElement {
     static styles = unsafeCSS(styles);
 }
 
-customElements.define(componentSelector, PieCheckbox);
+customElements.define(componentSelector, PieFormSelector);
 
 declare global {
     interface HTMLElementTagNameMap {
-        [componentSelector]: PieCheckbox;
+        [componentSelector]: PieFormSelector;
     }
 }

@@ -4862,19 +4862,19 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-checkbox@workspace:*, @justeattakeaway/pie-checkbox@workspace:packages/components/pie-checkbox":
+"@justeattakeaway/pie-components-config@workspace:*, @justeattakeaway/pie-components-config@workspace:configs/pie-components-config":
   version: 0.0.0-use.local
-  resolution: "@justeattakeaway/pie-checkbox@workspace:packages/components/pie-checkbox"
+  resolution: "@justeattakeaway/pie-components-config@workspace:configs/pie-components-config"
+  languageName: unknown
+  linkType: soft
+
+"@justeattakeaway/pie-form-selector@workspace:*, @justeattakeaway/pie-form-selector@workspace:packages/components/pie-form-selector":
+  version: 0.0.0-use.local
+  resolution: "@justeattakeaway/pie-form-selector@workspace:packages/components/pie-form-selector"
   dependencies:
     "@justeat/pie-design-tokens": 5.1.0
     "@justeattakeaway/pie-components-config": "workspace:*"
     "@justeattakeaway/pie-webc-core": "workspace:*"
-  languageName: unknown
-  linkType: soft
-
-"@justeattakeaway/pie-components-config@workspace:*, @justeattakeaway/pie-components-config@workspace:configs/pie-components-config":
-  version: 0.0.0-use.local
-  resolution: "@justeattakeaway/pie-components-config@workspace:configs/pie-components-config"
   languageName: unknown
   linkType: soft
 
@@ -27848,7 +27848,7 @@ __metadata:
   resolution: "pie-storybook@workspace:apps/pie-storybook"
   dependencies:
     "@justeattakeaway/pie-button": "workspace:*"
-    "@justeattakeaway/pie-checkbox": "workspace:*"
+    "@justeattakeaway/pie-form-selector": "workspace:*"
     "@justeattakeaway/pie-icon-button": "workspace:*"
     "@justeattakeaway/pie-modal": "workspace:*"
     "@storybook/addon-a11y": 7.0.7

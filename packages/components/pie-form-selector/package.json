@@ -1,5 +1,5 @@
 {
-  "name": "@justeattakeaway/pie-checkbox",
+  "name": "@justeattakeaway/pie-form-selector",
   "version": "0.18.0",
   "description": "PIE design system button built using web components",
   "type": "module",
@@ -7,7 +7,7 @@
   "module": "dist/index.js",
   "types": "dist/types/index.d.ts",
   "scripts": {
-    "build": "yarn build:wrapper pie-checkbox && run -T vite build ",
+    "build": "yarn build:wrapper pie-form-selector && run -T vite build ",
     "lint:style": "run -T stylelint ./src/**/*.{css,scss}",
     "lint:style:fix": "yarn lint:style --fix",
     "watch": "run -T vite build --watch",

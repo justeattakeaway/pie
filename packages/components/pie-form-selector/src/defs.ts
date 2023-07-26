@@ -1,6 +1,6 @@
 export const inputTypes = ['checkbox', 'radio'];
 
-export interface CheckboxProps {
+export interface FormSelectorProps {
     /**
      * (Optional) When true, the checkbox element is checked.
      * @default false

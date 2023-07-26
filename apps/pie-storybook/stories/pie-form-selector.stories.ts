@@ -1,10 +1,10 @@
 import type { Meta, StoryObj as Story } from '@storybook/web-components';
-import { CheckboxProps, inputTypes } from '@justeattakeaway/pie-checkbox';
+import { FormSelectorProps, inputTypes } from '@justeattakeaway/pie-form-selector';
 import { html, TemplateResult } from 'lit';
 
 export default {
-    title: 'Checkbox',
-    component: 'pie-checkbox',
+    title: 'Form Selector',
+    component: 'pie-form-selector',
     argTypes: {
         checked: {
             control: 'boolean',
@@ -41,13 +41,13 @@ const Template = ({
     inputType,
     hasError,
     slot,
-}: CheckboxProps): TemplateResult => html`
-        <pie-checkbox inputType="${inputType}" .checked="${checked}" isChecked="${checked}" ?hasError="${hasError}" ?disabled="${disabled}">
+}: FormSelectorProps): TemplateResult => html`
+        <pie-form-selector inputType="${inputType}" .checked="${checked}" isChecked="${checked}" ?hasError="${hasError}" ?disabled="${disabled}">
             <label>${slot}</label>
-        </pie-checkbox>
+        </pie-form-selector>
         `;
 
-const defaultArgs: CheckboxProps = {
+const defaultArgs: FormSelectorProps = {
     checked: true,
     disabled: false,
     inputType: 'checkbox',
@@ -56,7 +56,7 @@ const defaultArgs: CheckboxProps = {
 
 };
 
-export const Default: Story<CheckboxProps> = (args: CheckboxProps) => Template(args);
+export const Default: Story<FormSelectorProps> = (args: FormSelectorProps) => Template(args);
 Default.args = {
     ...defaultArgs,
 };
