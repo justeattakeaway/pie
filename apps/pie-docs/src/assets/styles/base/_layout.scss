@@ -165,7 +165,7 @@
     }
 }
 
-.c-content-header-description {
+.c-content-header-description, .c-heroBanner-header-description {
     @include f.font-size('body-l');
     margin-top: f.spacing(e);
     max-width: 50ch;

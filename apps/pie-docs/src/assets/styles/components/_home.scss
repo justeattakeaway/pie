@@ -44,7 +44,7 @@
     background-color: f.$color-background-default;
 }
 
-.c-home-heroBanner-heading {
+.c-home-heroBanner-header {
     grid-row: 1 / span 2;
     display: flex;
     flex-direction: row;
@@ -52,7 +52,7 @@
     gap: f.$spacing-e;
     justify-content: space-between;
 
-    .c-home-heroBanner-heading-text {
+    .c-home-heroBanner-header-text {
         width: 100%;
         padding-top: f.spacing(g);
 
