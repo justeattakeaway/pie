@@ -75,25 +75,25 @@ test.describe('Prop: `isFullWidthBelowMid`', () => {
 
     test.describe('when false', () => {
         (['small', 'medium'] as Array<ModalProps['size']>)
-        .forEach((size) => {
-            test(`should not be full width for a modal with size = ${size}`, async ({ page, mount }) => {
-                await mount(PieModal, {
-                    props: {
-                        heading: 'This is a modal heading',
-                        isFullWidthBelowMid: false,
-                        isOpen: true,
-                        size,
-                        leadingAction: {
-                            text: 'Confirm',
-                            variant: 'primary',
-                            ariaLabel: 'Confirmation text',
-                        },
-                    } as ModalProps,
-                });
+            .forEach((size) => {
+                test(`should not be full width for a modal with size = ${size}`, async ({ page, mount }) => {
+                    await mount(PieModal, {
+                        props: {
+                            heading: 'This is a modal heading',
+                            isFullWidthBelowMid: false,
+                            isOpen: true,
+                            size,
+                            leadingAction: {
+                                text: 'Confirm',
+                                variant: 'primary',
+                                ariaLabel: 'Confirmation text',
+                            },
+                        } as ModalProps,
+                    });
 
-                await percySnapshot(page, `Modal - isFullWidthBelowMid = false, size = ${size}`);
+                    await percySnapshot(page, `Modal - isFullWidthBelowMid = false, size = ${size}`);
+                });
             });
-        });
     });
 });
 
@@ -460,5 +460,35 @@ test.describe('Prop: `isFooterPinned`', () => {
 
             await percySnapshot(page, `Modal isFooterPinned: ${isFooterPinned}`);
         });
+    });
+});
+
+test.describe('Prop: `hasStackedActions`', () => {
+    test.describe('when true', () => {
+        (['small', 'medium', 'large'] as Array<ModalProps['size']>)
+            .forEach((size) => {
+                test(`actions should be full width (at narrow viewports) for a modal with size = ${size}`, async ({ page, mount }) => {
+                    await mount(PieModal, {
+                        props: {
+                            heading: 'This is a modal heading',
+                            hasStackedActions: true,
+                            isOpen: true,
+                            size,
+                            leadingAction: {
+                                text: 'Confirm',
+                                variant: 'primary',
+                                ariaLabel: 'Confirmation text',
+                            },
+                            supportingAction: {
+                                text: 'Cancel',
+                                variant: 'ghost',
+                                ariaLabel: 'Cancel and close modal',
+                            },
+                        } as ModalProps,
+                    });
+
+                    await percySnapshot(page, `Modal - hasStackedActions = true, size = ${size}`);
+                });
+            });
     });
 });
