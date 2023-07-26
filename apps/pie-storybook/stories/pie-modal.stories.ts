@@ -1,6 +1,6 @@
-import type { StoryObj as Story } from '@storybook/web-components';
 import { html, TemplateResult } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
+import type { StoryObj as Story } from '@storybook/web-components';
 import '@justeattakeaway/pie-button'; // Register pie-button
 import '@justeattakeaway/pie-icon-button'; // Register pie-icon-button
 import '@justeattakeaway/pie-modal'; // Register pie-modal
@@ -31,6 +31,16 @@ const defaultArgs: ModalProps = {
     position: 'center',
     slot: 'This is Lit!',
     dir: 'ltr',
+    leadingAction: {
+        text: 'Confirm',
+        variant: 'primary',
+        ariaLabel: 'Descriptive confirmation text',
+    },
+    supportingAction: {
+        text: 'Cancel',
+        variant: 'ghost',
+        ariaLabel: 'Descriptive cancellation text',
+    },
 };
 
 const modalStoryMeta: ModalStoryMeta = {
@@ -73,6 +83,12 @@ const modalStoryMeta: ModalStoryMeta = {
         },
         slot: {
             control: 'text',
+        },
+        leadingAction: {
+            control: 'object',
+        },
+        supportingAction: {
+            control: 'object',
         },
     },
     args: defaultArgs,
@@ -130,6 +146,8 @@ const BaseStoryTemplate = (props: ModalProps): TemplateResult => {
         position,
         slot,
         dir,
+        leadingAction,
+        supportingAction,
     } = props;
     return html`
         <pie-button @click=${toggleModal}>Toggle Modal</pie-button>
@@ -144,6 +162,8 @@ const BaseStoryTemplate = (props: ModalProps): TemplateResult => {
             ?isOpen="${isOpen}"
             dir="${dir}"
             size="${size}"
+            .leadingAction="${leadingAction}"
+            .supportingAction="${supportingAction}"
             position="${position}">
             ${slot}
         </pie-modal>`;

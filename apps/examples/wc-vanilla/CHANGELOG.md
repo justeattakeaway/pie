@@ -1,5 +1,18 @@
 # wc-vanilla
 
+## 0.4.0
+
+### Minor Changes
+
+- [Added] - Leading & Trailing Button Icons and Icon Button examples ([#634](https://github.com/justeattakeaway/pie/pull/634)) by [@ashleynolan](https://github.com/ashleynolan)
+
+### Patch Changes
+
+- Updated dependencies [[`7d0562474`](https://github.com/justeattakeaway/pie/commit/7d05624744191a3066c0243308dd5fc09fc25f42), [`a3a348bca`](https://github.com/justeattakeaway/pie/commit/a3a348bcac8edb08c641b96fb35a5fbda71d4707), [`d6d2529ad`](https://github.com/justeattakeaway/pie/commit/d6d2529ada69cce7eacc49d2411a5268cd403ecc)]:
+  - @justeattakeaway/pie-icon-button@0.10.0
+  - @justeattakeaway/pie-icons-webc@0.4.0
+  - @justeattakeaway/pie-button@0.20.0
+
 ## 0.3.0
 
 ### Minor Changes

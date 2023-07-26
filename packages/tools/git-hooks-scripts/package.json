@@ -1,0 +1,13 @@
+{
+  "name": "@justeattakeaway/git-hooks-scripts",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Scripts and utilities used by the Pie monorepo git hooks",
+  "scripts": {
+    "test": "run -T vitest run",
+    "test:watch": "run -T vitest"
+  },
+  "volta": {
+    "extends": "../../package.json"
+  }
+}

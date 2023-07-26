@@ -1,19 +1,5 @@
 const { isColorDark } = require('../../../../_utilities/colors');
 
-const createHighContrastName = (tokenName) => {
-    const highContrast = '(High Contrast)';
-    const hasShade = tokenName.includes('Light') || tokenName.includes('Dark');
-
-    if (hasShade) {
-        const tokenNameArray = tokenName.split(' ');
-        const shade = tokenNameArray.pop();
-
-        return `${shade} ${tokenNameArray.join(' ')} ${highContrast}`;
-    }
-
-    return `${tokenName} ${highContrast}`;
-};
-
 /**
  * Splits a color token into it's hexcode and opacity value (if one is provided)
  * @param {string} token - the token value i.e. #000, #ffffff, #000|0.85 or #000000|0.85
@@ -26,16 +12,6 @@ const splitColorToken = (token) => {
         hexcode,
         opacity,
     };
-};
-
-const buildColorName = (tokenName) => {
-    const highContrastSuffix = ' hc';
-
-    if (tokenName.includes(highContrastSuffix)) {
-        return createHighContrastName(tokenName.replace(highContrastSuffix, ''));
-    }
-
-    return tokenName;
 };
 
 /**
@@ -64,6 +40,5 @@ const buildColorExample = (token) => {
 };
 
 module.exports = {
-    buildColorName,
     buildColorExample,
 };
