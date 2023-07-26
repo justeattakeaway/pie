@@ -8,4 +8,4 @@ declare module '*.scss?inline' {
     export default content;
 }
 
-declare module '@justeattakeaway/pie-icons-webc';
+declare module '@justeattakeaway/pie-icon-button';
