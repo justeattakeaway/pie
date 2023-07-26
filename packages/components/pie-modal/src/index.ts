@@ -338,7 +338,7 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
             size="${size}"
             position="${position}"
             ?hasBackButton=${hasBackButton}
-            ?hasActions=${!!leadingAction || !!supportingAction}
+            ?hasActions=${leadingAction || supportingAction}
             ?isDismissible=${isDismissible}
             ?isFooterPinned=${isFooterPinned}
             ?isFullWidthBelowMid=${isFullWidthBelowMid}
