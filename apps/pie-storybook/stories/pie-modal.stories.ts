@@ -41,6 +41,11 @@ const defaultArgs: ModalProps = {
         variant: 'ghost',
         ariaLabel: 'Descriptive cancellation text',
     },
+    ariaLabels: {
+        closeButton: 'Close',
+        backButton: 'Back',
+        loadingState: 'Loading',
+    },
 };
 
 const modalStoryMeta: ModalStoryMeta = {
@@ -90,6 +95,9 @@ const modalStoryMeta: ModalStoryMeta = {
         supportingAction: {
             control: 'object',
         },
+        ariaLabels: {
+            control: 'object',
+        },
     },
     args: defaultArgs,
     parameters: {
@@ -134,6 +142,7 @@ const createFocusableElementsPageHTML = () : TemplateResult => html`
 
 const BaseStoryTemplate = (props: ModalProps): TemplateResult => {
     const {
+        ariaLabels,
         heading,
         headingLevel,
         isDismissible,
@@ -164,6 +173,7 @@ const BaseStoryTemplate = (props: ModalProps): TemplateResult => {
             size="${size}"
             .leadingAction="${leadingAction}"
             .supportingAction="${supportingAction}"
+            .ariaLabels="${ariaLabels}"
             position="${position}">
             ${slot}
         </pie-modal>`;

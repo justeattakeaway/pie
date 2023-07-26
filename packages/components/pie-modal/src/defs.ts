@@ -105,6 +105,12 @@ export interface ModalProps extends RTLComponentProps {
      * The position of the modal; this controls where it will appear on the page.
      */
     position: typeof positions[number];
+
+    ariaLabels?: {
+        closeButton?: string;
+        backButton?: string;
+        loadingState?: string;
+    };
 }
 
 /**

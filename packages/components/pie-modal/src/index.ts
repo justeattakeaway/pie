@@ -79,6 +79,13 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
         ariaLabel?: string;
     };
 
+    @property({ type: Object })
+    public ariaLabels!: {
+        closeButton?: string;
+        backButton?: string;
+        loadingState?: string;
+    };
+
     @validPropertyValues(componentSelector, positions, 'center')
     public position: ModalProps['position'] = 'center';
 
@@ -208,6 +215,7 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
                 @click="${() => { this.isOpen = false; }}"
                 variant="ghost-secondary"
                 class="c-modal-closeBtn"
+                aria-label="${this.ariaLabels?.closeButton || 'Close'}"
                 data-test-id="modal-close-button"><icon-close /></pie-icon-button>
         `;
     }
@@ -224,6 +232,7 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
                 @click="${() => { this._backButtonClicked = true; this.isOpen = false; }}"
                 variant="ghost-secondary"
                 class="c-modal-backBtn"
+                aria-label="${this.ariaLabels?.backButton || 'Back'}"
                 data-test-id="modal-back-button">
                 ${this.isRTL ? html`<icon-chevron-right />` : html`<icon-chevron-left />`}
             </pie-icon-button>
@@ -295,6 +304,7 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
 
     public render () {
         const {
+            ariaLabels,
             hasBackButton,
             heading,
             headingLevel = 'h2',
@@ -313,13 +323,14 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
         <dialog
             id="dialog"
             class="c-modal"
-            data-test-id="pie-modal"
             size="${size}"
             position="${position}"
             ?hasBackButton=${hasBackButton}
             ?isDismissible=${isDismissible}
             ?isFullWidthBelowMid=${isFullWidthBelowMid}
             ?isLoading=${isLoading}
+            aria-busy="${isLoading ? 'true' : 'false'}"
+            aria-label="${ariaLabels?.loadingState || 'Loading'}"
             data-test-id="pie-modal">
             <header class="c-modal-header">
                 ${hasBackButton ? this.renderBackButton() : nothing}
