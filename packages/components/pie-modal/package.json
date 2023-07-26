@@ -21,11 +21,11 @@
   "author": "JustEatTakeaway - Design System Web Team",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@justeattakeaway/pie-button": "workspace:*",
-    "@justeattakeaway/pie-components-config": "workspace:*",
-    "@justeattakeaway/pie-icon-button": "workspace:*",
-    "@justeattakeaway/pie-icons-webc": "workspace:*",
-    "@justeattakeaway/pie-webc-core": "workspace:*",
+    "@justeattakeaway/pie-button": "0.20.0",
+    "@justeattakeaway/pie-components-config": "0.2.0",
+    "@justeattakeaway/pie-icon-button": "0.10.0",
+    "@justeattakeaway/pie-icons-webc": "0.4.0",
+    "@justeattakeaway/pie-webc-core": "0.6.0",
     "@types/body-scroll-lock": "3.1.0"
   },
   "peerDependencies": {

@@ -10,7 +10,7 @@
     "lint:examples": "next lint"
   },
   "dependencies": {
-    "@justeattakeaway/pie-button": "workspace:*",
+    "@justeattakeaway/pie-button": "0.20.0",
     "@lit-labs/nextjs": "0.1.1",
     "@lit-labs/react": "1.1.1",
     "@types/node": "18.15.11",

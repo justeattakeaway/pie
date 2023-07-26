@@ -46,7 +46,7 @@
   "devDependencies": {
     "@babel/node": "7.20.7",
     "@justeattakeaway/pie-icons": "4.3.0",
-    "@justeattakeaway/pie-icons-configs": "workspace:*",
+    "@justeattakeaway/pie-icons-configs": "4.3.0",
     "@rollup/plugin-node-resolve": "15.1.0",
     "fs-extra": "9.1.0",
     "kebab-case": "1.0.2",

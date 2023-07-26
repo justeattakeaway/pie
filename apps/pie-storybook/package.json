@@ -10,9 +10,9 @@
   "author": "JustEatTakeaway - Design System Web Team",
   "license": "Apache-2.0",
   "dependencies": {
-    "@justeattakeaway/pie-button": "workspace:*",
-    "@justeattakeaway/pie-icon-button": "workspace:*",
-    "@justeattakeaway/pie-modal": "workspace:*"
+    "@justeattakeaway/pie-button": "0.20.0",
+    "@justeattakeaway/pie-icon-button": "0.10.0",
+    "@justeattakeaway/pie-modal": "0.14.0"
   },
   "devDependencies": {
     "@storybook/addon-a11y": "7.1.0",
