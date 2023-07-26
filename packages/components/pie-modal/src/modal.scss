@@ -49,7 +49,6 @@
         'header'
         'content';
     grid-template-rows: min-content minmax(var(--modal-content-min-height), 1fr);
-    position: relative;
     border-radius: var(--modal-border-radius);
     border: none;
     box-shadow: var(--modal-elevation);
@@ -273,6 +272,7 @@
         --spinner-animation-timing-function: linear;
         --spinner-animation-iteration-count: infinite;
 
+        position: relative;
         grid-area: content;
 
         font-size: var(--modal-content-font-size);
