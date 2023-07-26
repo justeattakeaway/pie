@@ -4,5 +4,5 @@
     "baseUrl": ".",
     "rootDir": ".",
   },
-  "include": ["src/**/*.ts","./declaration.d.ts", "test/**/*.ts"],
+  "include": ["src/**/*.ts","./declaration.d.ts", "test/**/*.ts", "playwright-lit-visual.config.ts", "playwright-lit.config.ts"],
 }
