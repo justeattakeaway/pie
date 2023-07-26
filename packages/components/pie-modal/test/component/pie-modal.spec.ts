@@ -661,3 +661,123 @@ test.describe('actions', () => {
         });
     });
 });
+
+test.describe('Props: `ariaLabels`', () => {
+    test.describe('when ariaLabels exist', () => {
+        test('should render component elements with the correct aria-labels', async ({ mount }) => {
+            // Arrange
+            const component = await mount(PieModal, {
+                props: {
+                    isOpen: true,
+                    isDismissible: true,
+                    isLoading: true,
+                    hasBackButton: true,
+                    ariaLabels: {
+                        closeButton: 'Close label info',
+                        backButton: 'Back label info',
+                        loadingState: 'Loading label info',
+                    },
+                },
+            });
+
+            // Act
+            // Close button
+            const closeButton = await component.locator(closeButtonSelector);
+            const ariaCloseLabel = await closeButton.getAttribute('aria-label');
+
+            // Back button
+            const backButton = await component.locator(backButtonSelector);
+            const ariaBackLabel = await backButton.getAttribute('aria-label');
+
+            // Assert
+            await expect(ariaCloseLabel).toBe('Close label info');
+            await expect(ariaBackLabel).toBe('Back label info');
+        });
+
+        test.describe('when modal `isloading` is true', () => {
+            test('should render component with the correct aria values: `aria-label` & `aria-busy`', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieModal, {
+                    props: {
+                        isOpen: true,
+                        isLoading: true,
+                        ariaLabels: {
+                            loadingState: 'Loading label info',
+                        },
+                    },
+                });
+
+                // Loading state
+                const pieModalComponent = await component.locator(componentSelector);
+                const ariaLoadingLabel = await pieModalComponent.getAttribute('aria-label');
+                const ariaLoadingBusy = await pieModalComponent.getAttribute('aria-busy');
+
+                // Assert
+                await expect(ariaLoadingLabel).toBe('Loading label info');
+                await expect(ariaLoadingBusy).toBe('true');
+            });
+        });
+    });
+
+    test.describe('when ariaLabels do not exist', () => {
+        test('should fall back to default aria-label values', async ({ mount }) => {
+            // Arrange
+            const component = await mount(PieModal, {
+                props: {
+                    isOpen: true,
+                    isDismissible: true,
+                    hasBackButton: true,
+                },
+            });
+
+            // Act
+            // Close button
+            const closeButton = await component.locator(closeButtonSelector);
+            const ariaCloseLabel = await closeButton.getAttribute('aria-label');
+
+            // Back button
+            const backButton = await component.locator(backButtonSelector);
+            const ariaBackLabel = await backButton.getAttribute('aria-label');
+
+            // Assert
+            await expect(ariaCloseLabel).toBe('Close');
+            await expect(ariaBackLabel).toBe('Back');
+        });
+    });
+
+    test.describe('when modal `isloading` is false', () => {
+        test('should render default aria-label value', async ({ mount }) => {
+            // Arrange
+            const component = await mount(PieModal, {
+                props: {
+                    isOpen: true,
+                    isLoading: true,
+                },
+            });
+
+            // Loading state
+            const pieModalComponent = await component.locator(componentSelector);
+            const ariaLoadingLabel = await pieModalComponent.getAttribute('aria-label');
+
+            // Assert
+            await expect(ariaLoadingLabel).toBe('Loading');
+        });
+
+        test('should set `aria-busy` to `false`', async ({ mount }) => {
+            // Arrange
+            const component = await mount(PieModal, {
+                props: {
+                    isOpen: true,
+                },
+            });
+
+            // Loading state
+            const pieModalComponent = await component.locator(componentSelector);
+            const ariaLoadingBusy = await pieModalComponent.getAttribute('aria-busy');
+
+            // Assert
+            await expect(ariaLoadingBusy).toBe('false');
+        });
+    });
+});
+
