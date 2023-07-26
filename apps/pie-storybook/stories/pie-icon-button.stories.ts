@@ -2,7 +2,7 @@ import { html, TemplateResult } from 'lit';
 import type { StoryObj as Story } from '@storybook/web-components';
 import { IconButtonProps, sizes, variants } from '@justeattakeaway/pie-icon-button';
 import { StoryMeta } from '../types';
-import '@justeattakeaway/pie-icons-webc/icons/IconClose'; // Register icon-close
+import '@justeattakeaway/pie-icons-webc/icons/IconClose';
 
 type IconButtonStoryMeta = StoryMeta<IconButtonProps>;
 

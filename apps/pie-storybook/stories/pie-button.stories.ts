@@ -5,8 +5,8 @@ import {
 } from '@justeattakeaway/pie-button';
 import { StoryMeta, SlottedComponentProps } from '../types';
 
-import '@justeattakeaway/pie-icons-webc/icons/IconPlusCircle'; // Register icon-plus-circle
-import '@justeattakeaway/pie-icons-webc/icons/IconChevronDown'; // Register icon-chevron-down
+import '@justeattakeaway/pie-icons-webc/icons/IconPlusCircle';
+import '@justeattakeaway/pie-icons-webc/icons/IconChevronDown';
 
 type ButtonProps = SlottedComponentProps<ButtonPropsBase>;
 type ButtonStoryMeta = StoryMeta<ButtonProps>;

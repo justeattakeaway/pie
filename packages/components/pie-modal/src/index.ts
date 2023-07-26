@@ -7,8 +7,8 @@ import {
     RtlMixin, validPropertyValues, requiredProperty,
 } from '@justeattakeaway/pie-webc-core';
 import type { DependentMap } from '@justeattakeaway/pie-webc-core';
-import { Variant } from '@justeattakeaway/pie-button/src/defs.ts';
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
+import { Variant } from '@justeattakeaway/pie-button/src/defs.ts';
 
 import styles from './modal.scss?inline';
 import {
