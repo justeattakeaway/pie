@@ -1,11 +1,10 @@
 import { test, expect } from '@sand4rt/experimental-ct-web';
-import { PieButton } from '@/index';
-import { ButtonProps } from '@/index';
+import { PieButton, ButtonProps } from '@/index';
 
 const props: ButtonProps = {
     size: 'large',
     variant: 'primary',
-}
+};
 
 test('should correctly work with native click events', async ({ mount }) => {
     const messages: string[] = [];
