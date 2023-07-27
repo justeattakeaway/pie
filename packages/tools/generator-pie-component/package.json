@@ -9,6 +9,10 @@
   "type": "module",
   "main": "generators/app/index.js",
   "scripts": {
+    "lint:scripts": "run -T eslint .",
+    "lint:scripts:fix": "run -T eslint . --fix",
+    "lint:style": "run -T stylelint ./src/**/*.{css,scss}",
+    "lint:style:fix": "yarn lint:style --fix",
     "build": "run -T vite build ",
     "watch": "run -T vite build --watch"
   },
