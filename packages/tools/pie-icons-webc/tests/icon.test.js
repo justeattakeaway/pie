@@ -23,6 +23,16 @@ describe('IconAlcoholFilled', () => {
         expect(svg.getAttribute('width')).to.contain(sizeToValueMap[regularIconSizeDefault]);
         expect(svg.getAttribute('height')).to.contain(sizeToValueMap[regularIconSizeDefault]);
     });
+
+    it('should have the default classes applied', async () => {
+        // Arrange & Act
+        const el = await fixture(html`<icon-alcohol-filled></icon-alcohol-filled>`);
+        const svg = el.shadowRoot.querySelector('svg');
+
+        // Assert
+        expect(Array.from(svg.classList)).to.contain('c-pieIcon');
+        expect(Array.from(svg.classList)).to.contain('c-pieIcon--alcoholFilled');
+    });
 });
 
 describe('IconAlcoholFilledLarge', () => {
@@ -44,5 +54,15 @@ describe('IconAlcoholFilledLarge', () => {
         // Assert
         expect(svg.getAttribute('width')).to.contain(largeIconSizeDefault);
         expect(svg.getAttribute('height')).to.contain(largeIconSizeDefault);
+    });
+
+    it('should have the default classes applied', async () => {
+        // Arrange & Act
+        const el = await fixture(html`<icon-alcohol-filled-large></icon-alcohol-filled-large>`);
+        const svg = el.shadowRoot.querySelector('svg');
+
+        // Assert
+        expect(Array.from(svg.classList)).to.contain('c-pieIcon');
+        expect(Array.from(svg.classList)).to.contain('c-pieIcon--alcoholFilledLarge');
     });
 });
