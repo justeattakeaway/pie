@@ -768,6 +768,7 @@ test.describe('Props: `aria`', () => {
             const component = await mount(PieModal, {
                 props: {
                     isOpen: true,
+                    isLoading: false,
                 },
             });
 
