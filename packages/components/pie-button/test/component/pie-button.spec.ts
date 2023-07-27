@@ -8,7 +8,7 @@ const props: ButtonProps = {
 
 test('should correctly work with native click events', async ({ mount }) => {
     const messages: string[] = [];
-    const expectedEventMessage = 'Native event dispatched';
+    const expectedEventMessage = 'Native event dispatched'; 
     const component = await mount(
         PieButton,
         {
