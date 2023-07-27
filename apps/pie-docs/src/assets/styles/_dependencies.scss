@@ -38,18 +38,21 @@
 @use 'components/comingSoon';
 @use 'components/footer';
 @use 'components/header';
+@use 'components/heroBanner';
+@use 'components/heroContentLayout';
 @use 'components/list';
 @use 'components/mediaElementList';
 @use 'components/nav';
 @use 'components/navToggle';
 @use 'components/notFound';
 @use 'components/notification';
+@use 'components/razor';
 @use 'components/simpleTable';
 @use 'components/tabs';
 @use 'components/toggle';
 @use 'components/tokensTable';
 @use 'components/skipLink';
-@use 'components/home';
+
 
 /**
  * Overrides:

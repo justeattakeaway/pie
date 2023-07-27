@@ -1,0 +1,53 @@
+@use '../fozzie-config' as f;
+@use '../utilities' as u;
+
+.c-heroBanner {
+    background-color: f.$color-background-subtle;
+}
+
+.c-heroBanner-header {
+    display: flex;
+    flex-direction: row;
+    gap: f.$spacing-e;
+    justify-content: space-between;
+}
+
+.c-heroBanner-text {
+    width: 100%;
+    padding-top: f.spacing(g);
+
+    @include f.media('>=mid') {
+        width: 50%;
+        max-width: 500px;
+        padding-top: 0;
+        align-self: center;
+    }
+
+    @include f.media('>=wide') {
+        align-self: start;
+        padding-top: f.spacing(i);
+    }
+}
+
+.c-heroBanner-btn {
+    margin-top: f.spacing(f);
+    margin-bottom: f.spacing(e);
+}
+
+.c-heroBanner-image {
+    align-self: flex-end;
+    z-index: 1;
+    width: 50%;
+
+    img {
+        object-fit: contain;
+        width: 100%;
+        height: auto;
+        min-width: 350px;
+        position: relative;
+    }
+}
+
+.c-heroBanner-content {
+    @include u.content-wrapper;
+}

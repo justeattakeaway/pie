@@ -1,4 +1,5 @@
 @use 'fozzie-config' as f;
+@use 'variables' as v;
 
 .u-font-bold {
     font-weight: f.$font-weight-bold;
@@ -12,5 +13,21 @@
 
     path {
         fill: var(--icon-fill);
+    }
+}
+
+/**
+ * content-wrapper
+ * =================================
+ * Adds spacing around a block of content and gives it a max-width
+ */
+@mixin content-wrapper() {
+    max-width: v.$wide-screen-content-max-width;
+    margin: 0;
+    padding: 0;
+
+    @include f.media('>=#{v.$wide-screen-content-max-width}') {
+        margin-left: auto;
+        margin-right: auto;
     }
 }
