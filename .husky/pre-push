@@ -3,3 +3,6 @@
 
 # Checks branch name for Jira ticket id
 packages/tools/git-hooks-scripts/check-branch-name.js $(git symbolic-ref --short HEAD)
+
+# Heavy checks should only be done on staged files
+yarn lint-staged
