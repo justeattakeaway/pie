@@ -5,6 +5,12 @@ export const headingLevels = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'] as const;
 export const sizes = ['small', 'medium', 'large'] as const;
 export const positions = ['top', 'center'] as const;
 
+export type AriaProps = {
+    close?: string;
+    back?: string;
+    loading?: string;
+};
+
 export interface ModalProps extends RTLComponentProps {
     /**
      * The text to display in the modal's heading.
@@ -106,11 +112,7 @@ export interface ModalProps extends RTLComponentProps {
      */
     position: typeof positions[number];
 
-    aria?: {
-        close?: string;
-        back?: string;
-        loading?: string;
-    };
+    aria?: AriaProps;
 }
 
 /**

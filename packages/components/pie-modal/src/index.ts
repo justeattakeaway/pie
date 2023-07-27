@@ -22,6 +22,7 @@ import {
     ON_MODAL_BACK_EVENT,
     sizes,
     positions,
+    AriaProps,
 } from './defs';
 
 // Valid values available to consumers
@@ -80,11 +81,7 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
     };
 
     @property({ type: Object })
-    public aria!: {
-        close?: string;
-        back?: string;
-        loading?: string;
-    };
+    public aria!: AriaProps;
 
     @validPropertyValues(componentSelector, positions, 'center')
     public position: ModalProps['position'] = 'center';
