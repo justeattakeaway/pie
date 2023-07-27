@@ -429,7 +429,7 @@ test.describe('`isDismissible` prop', () => {
             });
 
             // Assert
-            expect(styles.display).toBe('grid');
+            expect(styles.display).toBe('flex');
         });
 
         test('should NOT close the modal when the Escape key is pressed', async ({ mount, page }) => {

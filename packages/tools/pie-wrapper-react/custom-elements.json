@@ -304,7 +304,7 @@
                             "kind": "field",
                             "name": "aria",
                             "type": {
-                                "text": "{\n        closeButton?: string;\n        backButton?: string;\n        loading?: string;\n    }"
+                                "text": "AriaProps"
                             },
                             "privacy": "public",
                             "attribute": "aria"
@@ -650,7 +650,7 @@
                         {
                             "name": "aria",
                             "type": {
-                                "text": "{\n        closeButton?: string;\n        backButton?: string;\n        loading?: string;\n    }"
+                                "text": "AriaProps"
                             },
                             "fieldName": "aria"
                         },
