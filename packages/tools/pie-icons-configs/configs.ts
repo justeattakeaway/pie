@@ -1,3 +1,4 @@
+// TODO: DSW-1025 - Use this file instead of the JS file
 export const regularIconSizes = ['xs', 's', 'm', 'l', 'xl', 'xxl'] as const;
 export type RegularIconSize = typeof regularIconSizes[number];
 export type LargeIconSize = number | string;
