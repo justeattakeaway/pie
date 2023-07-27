@@ -717,6 +717,38 @@ test.describe('Props: `aria`', () => {
                 await expect(ariaLoadingBusy).toBe('true');
             });
         });
+
+        test.describe('when modal `isLoading` is dynamically changing from `isLoading: true` to `isLoading: false`', () => {
+            test('should dynamically add, remove, and update `arial-label` & `aria-busy` labels', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieModal, {
+                    props: {
+                        isOpen: true,
+                        isLoading: true,
+                        aria: {
+                            loading: 'Loading label info',
+                        },
+                    },
+                });
+
+                const pieModalComponent = await component.locator(componentSelector);
+                let ariaLoadingLabel = await pieModalComponent.getAttribute('aria-label');
+                let ariaLoadingBusy = await pieModalComponent.getAttribute('aria-busy');
+
+                // Assert: When `isLoading: true`
+                await expect(ariaLoadingLabel).toBe('Loading label info');
+                await expect(ariaLoadingBusy).toBe('true');
+
+                await component.update({ props: { isLoading: false } });
+
+                ariaLoadingLabel = await pieModalComponent.getAttribute('aria-label');
+                ariaLoadingBusy = await pieModalComponent.getAttribute('aria-busy');
+
+                // Assert: When `isLoading: false`
+                await expect(ariaLoadingLabel).toBeNull();
+                await expect(ariaLoadingBusy).toBe('false');
+            });
+        });
     });
 
     test.describe('when aria does not exist', () => {
