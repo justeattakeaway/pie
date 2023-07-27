@@ -662,8 +662,8 @@ test.describe('actions', () => {
     });
 });
 
-test.describe('Props: `ariaLabels`', () => {
-    test.describe('when ariaLabels exist', () => {
+test.describe('Props: `aria`', () => {
+    test.describe('when aria exist', () => {
         test('should render component elements with the correct aria-labels', async ({ mount }) => {
             // Arrange
             const component = await mount(PieModal, {
@@ -672,10 +672,10 @@ test.describe('Props: `ariaLabels`', () => {
                     isDismissible: true,
                     isLoading: true,
                     hasBackButton: true,
-                    ariaLabels: {
+                    aria: {
                         closeButton: 'Close label info',
                         backButton: 'Back label info',
-                        loadingState: 'Loading label info',
+                        loading: 'Loading label info',
                     },
                 },
             });
@@ -701,8 +701,8 @@ test.describe('Props: `ariaLabels`', () => {
                     props: {
                         isOpen: true,
                         isLoading: true,
-                        ariaLabels: {
-                            loadingState: 'Loading label info',
+                        aria: {
+                            loading: 'Loading label info',
                         },
                     },
                 });
@@ -719,8 +719,8 @@ test.describe('Props: `ariaLabels`', () => {
         });
     });
 
-    test.describe('when ariaLabels do not exist', () => {
-        test('should fall back to default aria-label values', async ({ mount }) => {
+    test.describe('when aria does not exist', () => {
+        test('should not render the aria-labels', async ({ mount }) => {
             // Arrange
             const component = await mount(PieModal, {
                 props: {
@@ -740,18 +740,18 @@ test.describe('Props: `ariaLabels`', () => {
             const ariaBackLabel = await backButton.getAttribute('aria-label');
 
             // Assert
-            await expect(ariaCloseLabel).toBe('Close');
-            await expect(ariaBackLabel).toBe('Back');
+            await expect(ariaCloseLabel).toBe(null);
+            await expect(ariaBackLabel).toBe(null);
         });
     });
 
     test.describe('when modal `isloading` is false', () => {
-        test('should render default aria-label value', async ({ mount }) => {
+        test('should not render aria-label', async ({ mount }) => {
             // Arrange
             const component = await mount(PieModal, {
                 props: {
                     isOpen: true,
-                    isLoading: true,
+                    isLoading: false,
                 },
             });
 
@@ -760,7 +760,7 @@ test.describe('Props: `ariaLabels`', () => {
             const ariaLoadingLabel = await pieModalComponent.getAttribute('aria-label');
 
             // Assert
-            await expect(ariaLoadingLabel).toBe('Loading');
+            await expect(ariaLoadingLabel).toBe(null);
         });
 
         test('should set `aria-busy` to `false`', async ({ mount }) => {

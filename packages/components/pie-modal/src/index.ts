@@ -80,10 +80,10 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
     };
 
     @property({ type: Object })
-    public ariaLabels!: {
+    public aria!: {
         closeButton?: string;
         backButton?: string;
-        loadingState?: string;
+        loading?: string;
     };
 
     @validPropertyValues(componentSelector, positions, 'center')
@@ -215,7 +215,7 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
                 @click="${() => { this.isOpen = false; }}"
                 variant="ghost-secondary"
                 class="c-modal-closeBtn"
-                aria-label="${this.ariaLabels?.closeButton || 'Close'}"
+                aria-label="${this.aria?.closeButton || nothing}"
                 data-test-id="modal-close-button"><icon-close /></pie-icon-button>
         `;
     }
@@ -232,7 +232,7 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
                 @click="${() => { this._backButtonClicked = true; this.isOpen = false; }}"
                 variant="ghost-secondary"
                 class="c-modal-backBtn"
-                aria-label="${this.ariaLabels?.backButton || 'Back'}"
+                aria-label="${this.aria?.backButton || nothing}"
                 data-test-id="modal-back-button">
                 ${this.isRTL ? html`<icon-chevron-right />` : html`<icon-chevron-left />`}
             </pie-icon-button>
@@ -304,7 +304,7 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
 
     public render () {
         const {
-            ariaLabels,
+            aria,
             hasBackButton,
             heading,
             headingLevel = 'h2',
@@ -330,7 +330,7 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
             ?isFullWidthBelowMid=${isFullWidthBelowMid}
             ?isLoading=${isLoading}
             aria-busy="${isLoading ? 'true' : 'false'}"
-            aria-label="${ariaLabels?.loadingState || 'Loading'}"
+            aria-label="${isLoading ? aria?.loading : nothing}"
             data-test-id="pie-modal">
             <header class="c-modal-header">
                 ${hasBackButton ? this.renderBackButton() : nothing}
