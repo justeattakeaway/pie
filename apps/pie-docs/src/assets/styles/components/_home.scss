@@ -3,17 +3,16 @@
 .c-home {
     min-height: 100%;
     display: grid;
+    background-color: f.$color-background-subtle;
+    grid-template-rows: minmax(0, max-content) minmax(0, 100px) minmax(0, 450px) minmax(0, max-content);
 
     // helps scale the razor with the page
-    grid-template-rows: minmax(0, 300px) minmax(0, 100px) auto;
-    background-color: f.$color-background-subtle;
-
     @include f.media('>=mid') {
-        grid-template-rows: minmax(0, 200px) minmax(0, 200px) auto;
+        grid-template-rows: minmax(0, 200px) minmax(0, 175px) minmax(0, 200px) minmax(0, max-content);
     }
 
     @include f.media('>=wide') {
-        grid-template-rows: minmax(0, 220px) minmax(0, 240px) auto;
+        grid-template-rows: minmax(0, 240px) minmax(0, 220px) minmax(0, 200px) minmax(0, max-content);
     }
 }
 
@@ -42,13 +41,13 @@
 
 .c-home-content {
     background-color: f.$color-background-default;
+    grid-row: 3 / span 4;
+    grid-column: 1;
 }
 
 .c-home-heroBanner-header {
-    grid-row: 1 / span 2;
     display: flex;
     flex-direction: row;
-    min-height: 400px;
     gap: f.$spacing-e;
     justify-content: space-between;
 
@@ -64,24 +63,25 @@
         }
 
         @include f.media('>=wide') {
-            align-self: flex-start;
-            padding-top: calc(f.spacing(e) + f.spacing(i)); // 88px
+            align-self: start;
+            padding-top: f.spacing(i);
         }
     }
 
     .o-btn {
         margin-top: f.spacing(f);
+        margin-bottom: f.spacing(e);
     }
 
     .c-home-heroBanner-image {
-        align-self: center;
+        align-self: flex-end;
         z-index: 1;
         width: 50%;
 
         img {
             object-fit: contain;
             width: 100%;
-            max-height: 100%;
+            height: auto;
             min-width: 350px;
             position: relative;
         }
@@ -89,22 +89,22 @@
 }
 
 .c-home-razor {
-    grid-row: 2;
+    grid-row-start: 2;
+    grid-row-end: 4;
     grid-column: 1;
     width: 100%;
-    height: 500px;
+    height: 100%;
     background-color: f.$color-support-brand-01;
-    align-self: flex-start;
+    align-self: stretch;
 
     // percentages so razor fits grid rows above
     clip-path: polygon(0 10%, 100% 0%, 100% 100%, 0% 100%);
 
     @include f.media('>=mid') {
-        clip-path: polygon(0 50%, 100% 0%, 100% 100%, 0% 100%);
-        height: 400px;
+        clip-path: polygon(0 40%, 100% 0%, 100% 100%, 0% 100%);
     }
 
     @include f.media('>=wide') {
-        clip-path: polygon(0 60%, 100% 0%, 100% 100%, 0% 100%);
+        clip-path: polygon(0 50%, 100% 0%, 100% 100%, 0% 100%);
     }
 }
