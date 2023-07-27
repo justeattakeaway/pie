@@ -10,7 +10,7 @@
   "main": "generators/app/index.js",
   "scripts": {
     "lint:scripts": "run -T eslint .",
-    "lint:scripts:fix": "run -T eslint . --fix",
+    "lint:scripts:fix": "yarn lint:scripts --fix",
     "lint:style": "run -T stylelint ./src/**/*.{css,scss} --allow-empty-input",
     "lint:style:fix": "yarn lint:style --fix",
     "build": "run -T vite build ",
