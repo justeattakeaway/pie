@@ -33,10 +33,20 @@ const getTokens = ({ tokenType, path }) => {
         : createTokenList(tokens, tokenType, path);
 };
 
-const buildTable = ({ rows, headings }, useMonospace, isFullWidth) => {
+const createSwatch = (token) => {
+    const [colour] = token[1].split(',');
+    const shouldShowBorder = colour === '#FFFFFF';
+    const styles = `style = "--swatch-color: ${colour}"`;
+    const className = `class="c-simpleTable--swatch ${shouldShowBorder ? 'c-simpleTable--swatch-light' : ''}"`;
+
+    return `${styles} ${className}`;
+};
+
+const buildTable = ({ rows, headings }, useMonospace, isFullWidth, tokenType) => {
     const headerClass = headings ? '' : 'c-simpleTable--headerless';
     const fontClass = useMonospace ? 'c-simpleTable--monospace' : '';
     const widthClass = isFullWidth ? 'c-simpleTable--fullWidth' : '';
+    const shouldShowSwatch = tokenType === 'color';
 
     return `<table class="c-simpleTable ${widthClass} ${headerClass} ${fontClass}">
         ${headings ? `<tr>${headings.map((heading) => `
@@ -44,7 +54,7 @@ const buildTable = ({ rows, headings }, useMonospace, isFullWidth) => {
         </tr>` : ''}
 
         ${rows.map((row) => `
-        <tr>${row.map((data) => `
+        <tr ${shouldShowSwatch && createSwatch(row)}>${row.map((data) => `
             <td>
                 ${data}
             </td>`).join('')}
@@ -53,8 +63,8 @@ const buildTable = ({ rows, headings }, useMonospace, isFullWidth) => {
     </table>`;
 };
 
-const buildCategorisedTables = (tableData, useMonospace, isFullWidth) => Object.values(tableData).map(({ category, data }) => {
-    const table = buildTable(data, useMonospace, isFullWidth);
+const buildCategorisedTables = (tableData, useMonospace, isFullWidth, tokenType) => Object.values(tableData).map(({ category, data }) => {
+    const table = buildTable(data, useMonospace, isFullWidth, tokenType);
 
     return `<h3>${category}</h3>${table}`;
 }).join('');
@@ -83,6 +93,6 @@ module.exports = ({
     const hasMultipleTables = Array.isArray(data);
 
     return hasMultipleTables
-        ? `${buildCategorisedTables(data, useMonospace, isFullWidth)}`
-        : `${buildTable(data, useMonospace, isFullWidth)}`;
+        ? `${buildCategorisedTables(data, useMonospace, isFullWidth, tokens?.tokenType)}`
+        : `${buildTable(data, useMonospace, isFullWidth, tokens?.tokenType)}`;
 };
