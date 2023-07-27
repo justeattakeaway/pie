@@ -10,9 +10,6 @@ These are the original values in our design language, represented by context-agn
 
 {% globalTokensWarning '/foundations/typography/tokens/alias/wide/' %}
 
----
-
-
 {% simpleTable {
     isFullWidth: true,
     useMonospace: true,

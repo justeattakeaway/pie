@@ -26,7 +26,6 @@
     --modal-size-s: 450px;
     --modal-size-m: 600px;
     --modal-size-l: 1080px;
-    --modal-content-min-height: var(--dt-spacing-j);
 
     // The base modal defaults
     --modal-border-radius: var(--dt-radius-rounded-d);
@@ -45,10 +44,14 @@
         }
     }
 
-    grid-template-areas:
-        'header'
-        'content';
-    grid-template-rows: min-content minmax(var(--modal-content-min-height), 1fr);
+    &[open] {
+        // We only apply this when the modal is open,
+        // otherwise it interferes with the native
+        // `display: none;` on the dialog element.
+        display: flex;
+        flex-direction: column;
+    }
+
     border-radius: var(--modal-border-radius);
     border: none;
     box-shadow: var(--modal-elevation);
@@ -75,23 +78,8 @@
 
     block-size: var(--modal-block-size);
     inline-size: var(--modal-inline-size);
-    max-inline-size: var(--modal-max-inline-size);
     max-block-size: var(--modal-max-block-size);
-
-    &[open] {
-        // We only apply this when the modal is open,
-        // otherwise it interferes with the native
-        // `display: none;` on the dialog element.
-        display: grid;
-    }
-
-    &[isfooterpinned] {
-        grid-template-areas:
-            'header'
-            'content'
-            'footer';
-        grid-template-rows: min-content minmax(var(--modal-content-min-height), 1fr) min-content;
-    }
+    max-inline-size: var(--modal-max-inline-size);
 
     &[size='small'] {
         --modal-max-inline-size: var(--modal-size-s);
@@ -149,15 +137,10 @@
         --modal-button-spacing: var(--dt-spacing-d);
         --modal-footer-padding: var(--dt-spacing-d);
 
-        grid-area: footer;
-        min-block-size: var(--dt-spacing-e);
         display: flex;
         flex-flow: row-reverse;
         flex-wrap: wrap;
         gap: var(--modal-button-spacing);
-    }
-
-    &[hasactions] .c-modal-footer {
         padding: var(--modal-footer-padding);
 
         @media (min-width: $breakpoint-wide) {
@@ -165,15 +148,7 @@
         }
     }
 
-
-    & .c-modal-scrollContainer,
-    &[isfooterpinned] .c-modal-content {
-        overflow-y: auto;
-    }
-
-
     & .c-modal-header {
-        grid-area: header;
         padding-inline: var(--dt-spacing-d);
         padding-block: 14px; // This is deliberately not a custom property
         display: grid;
@@ -273,7 +248,7 @@
         --spinner-animation-iteration-count: infinite;
 
         position: relative;
-        grid-area: content;
+        min-block-size: var(--dt-spacing-j);
 
         font-size: var(--modal-content-font-size);
         line-height: var(--modal-content-line-height);
@@ -281,6 +256,25 @@
 
         padding-inline: var(--modal-content-padding);
         padding-block: var(--modal-content-padding-block);
+
+        overflow-y: auto;
+
+        &--scrollable {
+            background:
+                // Scroll shadow cover
+                // A top-to-bottom opacity gradient from transparent to the component background colour
+                linear-gradient(to bottom, transparent, var(--dt-color-container-default) 75%) center bottom,
+                // Scroll shadow
+                linear-gradient(transparent, var(--dt-color-border-strong)) center bottom;
+            background-repeat: no-repeat;
+            background-size: 100% 48px, 100% 12px;
+
+            // The shadow cover is an opacity gradient which is attached to the bottom of the scrollable element
+            // and scrolls with it, so as you reach the bottom of the content the more opaque portion covers
+            // (and therefore hides) the shadow. This gives the effect of the shadow fading away.
+            // The shadow itself does not move as you scroll.
+            background-attachment: local, scroll;
+        }
 
         &:before {
             content: '';
@@ -304,27 +298,7 @@
         }
     }
 
-    // If the loading spinner is showing, we don't need the shadow above the modal footer
-    &:not([isloading]) .c-modal-content--scrollable {
-        background:
-            // Scroll shadow cover
-            // A top-to-bottom opacity gradient from transparent to the component background colour
-            linear-gradient(to bottom, transparent, var(--dt-color-container-default) 75%) center bottom,
-            // Scroll shadow
-            linear-gradient(transparent, var(--dt-color-border-strong)) center bottom;
-        background-repeat: no-repeat;
-        background-size: 100% 48px, 100% 12px;
-
-        // The shadow cover is an opacity gradient which is attached to the bottom of the scrollable element
-        // and scrolls with it, so as you reach the bottom of the content the more opaque portion covers
-        // (and therefore hides) the shadow. This gives the effect of the shadow fading away.
-        // The shadow itself does not move as you scroll.
-        background-attachment: local, scroll;
-    }
-
     &[isLoading] .c-modal-content {
-        overflow-y: hidden;
-
         &:before {
             animation: rotate360 var(--spinner-animation-duration) var(--spinner-animation-timing-function) var(--spinner-animation-iteration-count);
             opacity: 1;

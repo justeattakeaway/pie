@@ -1,1 +1,1 @@
-//Import common styles here
+// Import common styles here
