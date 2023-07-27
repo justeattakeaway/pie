@@ -5,4 +5,4 @@
 packages/tools/git-hooks-scripts/check-branch-name.js $(git symbolic-ref --short HEAD)
 
 # Heavy checks should only be done on staged files
-yarn lint-staged
+yarn eslint $(git diff --name-only HEAD HEAD~1 | grep -E '\.(js|jsx)$' | xargs) --max-warnings 0
