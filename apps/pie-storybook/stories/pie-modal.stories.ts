@@ -42,8 +42,8 @@ const defaultArgs: ModalProps = {
         ariaLabel: 'Descriptive cancellation text',
     },
     aria: {
-        closeButton: 'Close',
-        backButton: 'Back',
+        close: 'Close',
+        back: 'Back',
         loading: 'Loading',
     },
 };

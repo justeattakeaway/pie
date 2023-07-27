@@ -107,8 +107,8 @@ export interface ModalProps extends RTLComponentProps {
     position: typeof positions[number];
 
     aria?: {
-        closeButton?: string;
-        backButton?: string;
+        close?: string;
+        back?: string;
         loading?: string;
     };
 }

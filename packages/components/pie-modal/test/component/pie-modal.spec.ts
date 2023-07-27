@@ -673,8 +673,8 @@ test.describe('Props: `aria`', () => {
                     isLoading: true,
                     hasBackButton: true,
                     aria: {
-                        closeButton: 'Close label info',
-                        backButton: 'Back label info',
+                        close: 'Close label info',
+                        back: 'Back label info',
                         loading: 'Loading label info',
                     },
                 },

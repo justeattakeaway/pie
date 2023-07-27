@@ -81,8 +81,8 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
 
     @property({ type: Object })
     public aria!: {
-        closeButton?: string;
-        backButton?: string;
+        close?: string;
+        back?: string;
         loading?: string;
     };
 
@@ -215,7 +215,7 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
                 @click="${() => { this.isOpen = false; }}"
                 variant="ghost-secondary"
                 class="c-modal-closeBtn"
-                aria-label="${this.aria?.closeButton || nothing}"
+                aria-label="${this.aria?.close || nothing}"
                 data-test-id="modal-close-button"><icon-close /></pie-icon-button>
         `;
     }
@@ -232,7 +232,7 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
                 @click="${() => { this._backButtonClicked = true; this.isOpen = false; }}"
                 variant="ghost-secondary"
                 class="c-modal-backBtn"
-                aria-label="${this.aria?.backButton || nothing}"
+                aria-label="${this.aria?.back || nothing}"
                 data-test-id="modal-back-button">
                 ${this.isRTL ? html`<icon-chevron-right />` : html`<icon-chevron-left />`}
             </pie-icon-button>
