@@ -143,7 +143,7 @@ const toggleModal = () => {
     }
 };
 
-const createFocusableElementsPageHTML = (): TemplateResult => html`
+const createFocusableElementsPageHTML = () : TemplateResult => html`
     <pie-button id="focus-1">#focus-1</pie-button>
     <pie-button id="focus-2">#focus-2</pie-button>
     <pie-button id="focus-3">#focus-3</pie-button>
@@ -163,7 +163,7 @@ const createFocusableElementsPageHTML = (): TemplateResult => html`
         }
     </style>`;
 
-const BaseStoryTemplate = (props: ModalProps): TemplateResult => {
+const BaseStoryTemplate = (props: ModalProps) : TemplateResult => {
     const {
         aria,
         dir,
@@ -218,11 +218,11 @@ const createScrollablePageHTML = () => {
         <ul>${items}</ul>`;
 };
 
-const ScrollablePageStoryTemplate = (props: ModalProps): TemplateResult => html`
+const ScrollablePageStoryTemplate = (props: ModalProps) : TemplateResult => html`
     ${BaseStoryTemplate(props)}
     ${createScrollablePageHTML()}`;
 
-const FocusableElementsPageStoryTemplate = (props: ModalProps): TemplateResult => html`
+const FocusableElementsPageStoryTemplate = (props: ModalProps) : TemplateResult => html`
     ${BaseStoryTemplate(props)}
     ${createFocusableElementsPageHTML()}`;
 

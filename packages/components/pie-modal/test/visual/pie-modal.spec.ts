@@ -467,7 +467,7 @@ test.describe('Prop: `hasStackedActions`', () => {
     test.describe('when true', () => {
         (['small', 'medium', 'large'] as Array<ModalProps['size']>)
             .forEach((size) => {
-                test(`actions should be full width (at narrow viewports) for a modal with size = ${size}`, async ({ page, mount }) => {
+                test(`should display actions full width (at narrow viewports – with leading action on top) for a modal with size = ${size}`, async ({ page, mount }) => {
                     await mount(PieModal, {
                         props: {
                             heading: 'This is a modal heading',
