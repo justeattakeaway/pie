@@ -1,4 +1,4 @@
-import { test, expect } from '@sand4rt/experimental-ct-web';
+import { test, expect } from '@sand4rt/experimental-ct-web'; // eslint-disable-line
 import { PieButton, ButtonProps } from '@/index';
 
 const props: ButtonProps = {
@@ -14,7 +14,7 @@ test('should correctly work with native click events', async ({ mount }) => {
         {
             props,
             slots: {
-                default: 'Click me!',
+                default: 'Click me!', 
             },
             on: {
                 click: () => {
