@@ -12,7 +12,7 @@ test('should correctly work with native click events', async ({ mount }) => {
             },
             on: {
                 click: () => {
-                    messages.push(expectedEventMessage);
+                    messages.push(expectedEventMessage); 
                 },
             },
         },
