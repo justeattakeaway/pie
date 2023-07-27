@@ -1,11 +1,11 @@
 
 # pie-icons-webc
 
-Shared PIE Icon Components built using native Web Components.
+Shared PIE Icon Components built using (Lit Web Components)[https://lit.dev/docs/].
 
 This package provides the PIE iconset as importable Web Components, to ensure icons are used to PIE guidelines for sizing.
 
-The base [pie-icons](https://www.npmjs.com/package/@justeattakeaway/pie-icons) package is used to provide the SVGs that are compiled into native web components that can be imported into any application.
+The base [pie-icons](https://www.npmjs.com/package/@justeattakeaway/pie-icons) package is used to provide the SVGs that are compiled into Lit web components that can be imported into any application.
 
 ---
 
@@ -27,11 +27,17 @@ yarn add @justeattakeaway/pie-icons-webc
 
 ```js
 // Only import what you need!
-import '@justeattakeaway/pie-icons-webc/icons/IconAppRestaurant';
+import '@justeattakeaway/pie-icons-webc/icons/IconAppRestaurant'; // Import the typescript version of the icon
+// OR
+import '@justeattakeaway/pie-icons-webc/dist/icons/IconAppRestaurant.js'; // Import the ESM version of the icon
+```
 
-// Note, we don't recommend referencing named exports such as:
-// `import { IconAppRestaurant } from '@justeattakeaway/pie-icons-webc`
-// As this will require you to make a call to the icon so that it doesn't get tree-shaken by your build tool
+> **Note**
+> While it is possible to import individual components from the overall bundle, we don't recommend this because
+> it is likely that the import will be tree-shaken unless you are referencing the imported object in your code.
+```js
+import { IconAppRestaurant } from '@justeattakeaway/pie-icons-webc';
+import { IconAppRestaurant } from '@justeattakeaway/pie-icons-webc/icons';
 ```
 
 Within the context of a Lit app, that will look like:
@@ -44,7 +50,7 @@ export class MyAmazingComponent extends LitElement {
     return html`
       <h2>
         This is a heading
-        <icon-app-restaurant size="xs" />
+        <icon-app-restaurant size="xl" />
       </h2>`;
   }
 }

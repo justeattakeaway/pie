@@ -4,7 +4,6 @@ import type { StoryObj as Story } from '@storybook/web-components';
 import { PieIconButton } from '@justeattakeaway/pie-icon-button';
 import { PieModal } from '@justeattakeaway/pie-modal';
 import { PieButton } from '@justeattakeaway/pie-button';
-import { IconClose, IconChevronLeft, IconChevronRight } from '@justeattakeaway/pie-icons-webc';
 import {
     ModalProps as ModalPropsBase,
     headingLevels,
@@ -19,9 +18,6 @@ const keptReferences = [
     PieIconButton,
     PieModal,
     PieButton,
-    IconClose,
-    IconChevronLeft,
-    IconChevronRight
 ];
 
 type ModalProps = SlottedComponentProps<ModalPropsBase>;
