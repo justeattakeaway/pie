@@ -95,7 +95,7 @@ const modalStoryMeta: ModalStoryMeta = {
         supportingAction: {
             control: 'object',
         },
-        ariaLabels: {
+        aria: {
             control: 'object',
         },
     },
