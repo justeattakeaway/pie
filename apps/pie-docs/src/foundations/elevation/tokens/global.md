@@ -10,8 +10,6 @@ Our global elevation tokens are created using multiple shadows to give elevated 
 
 {% globalTokensWarning '/foundations/elevation/tokens/alias/light/' %}
 
----
-
 {% simpleTable {
     isFullWidth: true,
     useMonospace: true,

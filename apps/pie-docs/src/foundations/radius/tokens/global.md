@@ -10,8 +10,6 @@ We have set a number of global tokens which set the roundness of the corners.
 
 {% globalTokensWarning '/foundations/radius/tokens/alias/' %}
 
----
-
 {% simpleTable {
     isFullWidth: true,
     useMonospace: true,
