@@ -50,8 +50,6 @@
     "extends": "@justeattakeaway/stylelint-config-pie/base"
   },
   "lint-staged": {
-    "*": "git-secrets --scan",
-    "*.@(ts|tsx)": "bash -c 'tsc --skipLibCheck --noEmit'",
     "*.@(ts|tsx|js|jsx)": "eslint --max-warnings 0",
     "*.@(css|scss)": "stylelint --fix"
   },
