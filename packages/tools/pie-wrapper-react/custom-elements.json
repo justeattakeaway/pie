@@ -224,6 +224,16 @@
                         },
                         {
                             "kind": "field",
+                            "name": "isFooterPinned",
+                            "type": {
+                                "text": "boolean"
+                            },
+                            "privacy": "public",
+                            "default": "true",
+                            "attribute": "isFooterPinned"
+                        },
+                        {
+                            "kind": "field",
                             "name": "isFullWidthBelowMid",
                             "type": {
                                 "text": "boolean"
@@ -294,7 +304,7 @@
                             "kind": "field",
                             "name": "aria",
                             "type": {
-                                "text": "{\n        closeButton?: string;\n        backButton?: string;\n        loading?: string;\n    }"
+                                "text": "AriaProps"
                             },
                             "privacy": "public",
                             "attribute": "aria"
@@ -454,6 +464,17 @@
                             "description": "Render supportingAction button depending on prop availability.\n\n1. If the prop `supportingAction` is not provided, the button is not rendered.\n2. If the prop `supportingAction` is provided but any of the optional properties\nare not provided, they fall back to their default values.\n3. If `supportingAction` is provided but not `leadingAction`, log a warning and do\nnot render `supportingAction`."
                         },
                         {
+                            "kind": "method",
+                            "name": "renderModalContentAndFooter",
+                            "privacy": "private",
+                            "return": {
+                                "type": {
+                                    "text": "TemplateResult"
+                                }
+                            },
+                            "description": "Renders the modal inner content and footer of the modal."
+                        },
+                        {
                             "kind": "field",
                             "name": "_handleDialogLightDismiss",
                             "privacy": "private",
@@ -566,6 +587,14 @@
                             "fieldName": "hasBackButton"
                         },
                         {
+                            "name": "isFooterPinned",
+                            "type": {
+                                "text": "boolean"
+                            },
+                            "default": "true",
+                            "fieldName": "isFooterPinned"
+                        },
+                        {
                             "name": "isFullWidthBelowMid",
                             "type": {
                                 "text": "boolean"
@@ -621,7 +650,7 @@
                         {
                             "name": "aria",
                             "type": {
-                                "text": "{\n        closeButton?: string;\n        backButton?: string;\n        loading?: string;\n    }"
+                                "text": "AriaProps"
                             },
                             "fieldName": "aria"
                         },

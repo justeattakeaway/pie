@@ -394,7 +394,7 @@ test.describe('Prop: `supportingAction`', () => {
     });
 });
 
-test.describe('`position`', () => {
+test.describe('Prop: `position`', () => {
     positions.forEach((position) => {
         test(`should be positioned in the correct part of the page when position is: ${position}`, async ({ mount, page }) => {
             await mount(PieModal, {
@@ -411,6 +411,54 @@ test.describe('`position`', () => {
             });
 
             await percySnapshot(page, `Modal position: ${position}`);
+        });
+    });
+});
+
+test.describe('Prop: `isFooterPinned`', () => {
+    [true, false].forEach((isFooterPinned) => {
+        test(`when isFooterPinned is: ${isFooterPinned}`, async ({ mount, page }) => {
+            await mount(PieModal, {
+                props: {
+                    heading: 'This is a modal heading',
+                    isOpen: true,
+                    isFooterPinned,
+                    leadingAction: {
+                        text: 'Confirm',
+                        variant: 'primary',
+                        ariaLabel: 'Confirmation text',
+                    },
+                } as ModalProps,
+                slots: {
+                    default: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti fugit id exercitationem repellendus in magni
+                    quis obcaecati laboriosam est vero, perspiciatis ratione porro dolore repudiandae ea numquam! Ipsa, fugiat aut.Lorem ipsum dolor
+                    sit amet consectetur adipisicing elit. Deleniti fugit id exercitationem repellendus in magni quis obcaecati laboriosam est vero,
+                    perspiciatis ratione porro dolore repudiandae ea numquam! Ipsa, fugiat aut.Lorem ipsum dolor sit amet consectetur adipisicing elit.
+
+                    Deleniti fugit id exercitationem repellendus in magni quis obcaecati laboriosam est vero, perspiciatis ratione porro dolore
+                    repudiandae ea numquam! Ipsa, fugiat aut. Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti fugit id exercitationem repellendus
+                    in magni quis obcaecati laboriosam est vero, perspiciatis ratione porro dolore repudiandae ea numquam! Ipsa, fugiat aut.Lorem ipsum dolor sit amet
+                    consectetur adipisicing elit. Deleniti fugit id exercitationem repellendus in magni quis obcaecati laboriosam est vero, perspiciatis ratione
+                    porro dolore repudiandae ea numquam! Ipsa, fugiat aut.Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti fugit id
+                    exercitationem repellendus in magni quis obcaecati laboriosam est vero,
+                    perspiciatis ratione porro dolore repudiandae ea numquam! Ipsa, fugiat aut.
+
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti fugit id exercitationem repellendus in magni
+                    quis obcaecati laboriosam est vero, perspiciatis ratione porro dolore repudiandae ea numquam! Ipsa, fugiat aut.Lorem ipsum dolor
+                    sit amet consectetur adipisicing elit. Deleniti fugit id exercitationem repellendus in magni quis obcaecati laboriosam est vero,
+                    perspiciatis ratione porro dolore repudiandae ea numquam! Ipsa, fugiat aut.Lorem ipsum dolor sit amet consectetur adipisicing elit.
+
+                    Deleniti fugit id exercitationem repellendus in magni quis obcaecati laboriosam est vero, perspiciatis ratione porro dolore
+                    repudiandae ea numquam! Ipsa, fugiat aut. Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti fugit id exercitationem repellendus
+                    in magni quis obcaecati laboriosam est vero, perspiciatis ratione porro dolore repudiandae ea numquam! Ipsa, fugiat aut.Lorem ipsum dolor sit amet
+                    consectetur adipisicing elit. Deleniti fugit id exercitationem repellendus in magni quis obcaecati laboriosam est vero, perspiciatis ratione
+                    porro dolore repudiandae ea numquam! Ipsa, fugiat aut.Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti fugit id
+                    exercitationem repellendus in magni quis obcaecati laboriosam est vero,
+                    perspiciatis ratione porro dolore repudiandae ea numquam! Ipsa, fugiat aut.`,
+                },
+            });
+
+            await percySnapshot(page, `Modal isFooterPinned: ${isFooterPinned}`);
         });
     });
 });
