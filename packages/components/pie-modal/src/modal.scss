@@ -228,17 +228,28 @@
     }
 
     & .c-modal-scrollContainer {
-        background:
-            /* Shadow covers */
-            linear-gradient(white 30%, rgba(255,255,255,0)),
-            linear-gradient(rgba(255,255,255,0), white 70%) 0 100%,
+        --bg-scroll-start: linear-gradient(var(--dt-color-container-default) 30%, rgba(255,255,255,0));
+        --bg-scroll-end: linear-gradient(rgba(255,255,255,0), var(--dt-color-container-default) 70%) 0 100%;
+        --bg-scroll-top: radial-gradient(farthest-side at 50% 0, rgba(0,0,0,0.3), rgba(0,0,0,0));
+        --bg-scroll-bottom: radial-gradient(farthest-side at 50% 100%, rgba(0,0,0,0.3), rgba(0,0,0,0)) 0 100%;
 
-            /* Shadows */
-            radial-gradient(farthest-side at 50% 0, rgba(0,0,0,.2), rgba(0,0,0,0)),
-            radial-gradient(farthest-side at 50% 100%, rgba(0,0,0,.2), rgba(0,0,0,0)) 0 100%;
+        --bg-size-scroll-start: 100% 40px;
+        --bg-size-scroll-end: 100% 40px;
+        --bg-size-scroll-top: 100% 20px;
+        --bg-size-scroll-bottom: 100% 20px;
+
+        background:
+            // Shadow covers
+            var(--bg-scroll-start),
+            var(--bg-scroll-end),
+
+            // Shadows
+            var(--bg-scroll-top),
+            var(--bg-scroll-bottom);
+
         background-repeat: no-repeat;
         background-color: white;
-        background-size: 100% 40px, 100% 40px, 100% 14px, 100% 14px;
+        background-size: var(--bg-size-scroll-start), var(--bg-size-scroll-end), var(--bg-size-scroll-top), var(--bg-size-scroll-bottom);
 
         background-attachment: local, local, scroll, scroll;
     }
