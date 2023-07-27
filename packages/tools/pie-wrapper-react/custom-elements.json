@@ -292,6 +292,15 @@
                         },
                         {
                             "kind": "field",
+                            "name": "aria",
+                            "type": {
+                                "text": "{\n        closeButton?: string;\n        backButton?: string;\n        loading?: string;\n    }"
+                            },
+                            "privacy": "public",
+                            "attribute": "aria"
+                        },
+                        {
+                            "kind": "field",
                             "name": "position",
                             "type": {
                                 "text": "ModalProps['position']"
@@ -608,6 +617,13 @@
                                 "text": "{\n        text: string;\n        variant?: Variant;\n        ariaLabel?: string;\n    }"
                             },
                             "fieldName": "supportingAction"
+                        },
+                        {
+                            "name": "aria",
+                            "type": {
+                                "text": "{\n        closeButton?: string;\n        backButton?: string;\n        loading?: string;\n    }"
+                            },
+                            "fieldName": "aria"
                         },
                         {
                             "name": "dir",
