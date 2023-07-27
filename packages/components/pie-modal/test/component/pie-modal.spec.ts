@@ -661,3 +661,156 @@ test.describe('actions', () => {
         });
     });
 });
+
+test.describe('Props: `aria`', () => {
+    test.describe('when aria exist', () => {
+        test('should render component elements with the correct aria-labels', async ({ mount }) => {
+            // Arrange
+            const component = await mount(PieModal, {
+                props: {
+                    isOpen: true,
+                    isDismissible: true,
+                    isLoading: true,
+                    hasBackButton: true,
+                    aria: {
+                        close: 'Close label info',
+                        back: 'Back label info',
+                        loading: 'Loading label info',
+                    },
+                },
+            });
+
+            // Act
+            // Close button
+            const closeButton = await component.locator(closeButtonSelector);
+            const ariaCloseLabel = await closeButton.getAttribute('aria-label');
+
+            // Back button
+            const backButton = await component.locator(backButtonSelector);
+            const ariaBackLabel = await backButton.getAttribute('aria-label');
+
+            // Assert
+            await expect(ariaCloseLabel).toBe('Close label info');
+            await expect(ariaBackLabel).toBe('Back label info');
+        });
+
+        test.describe('when modal `isloading` is true', () => {
+            test('should render component with the correct aria values: `aria-label` & `aria-busy`', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieModal, {
+                    props: {
+                        isOpen: true,
+                        isLoading: true,
+                        aria: {
+                            loading: 'Loading label info',
+                        },
+                    },
+                });
+
+                // Loading state
+                const pieModalComponent = await component.locator(componentSelector);
+                const ariaLoadingLabel = await pieModalComponent.getAttribute('aria-label');
+                const ariaLoadingBusy = await pieModalComponent.getAttribute('aria-busy');
+
+                // Assert
+                await expect(ariaLoadingLabel).toBe('Loading label info');
+                await expect(ariaLoadingBusy).toBe('true');
+            });
+        });
+
+        test.describe('when modal `isLoading` is dynamically changing from `isLoading: true` to `isLoading: false`', () => {
+            test('should dynamically add, remove, and update `arial-label` & `aria-busy` labels', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieModal, {
+                    props: {
+                        isOpen: true,
+                        isLoading: true,
+                        aria: {
+                            loading: 'Loading label info',
+                        },
+                    },
+                });
+
+                const pieModalComponent = await component.locator(componentSelector);
+                let ariaLoadingLabel = await pieModalComponent.getAttribute('aria-label');
+                let ariaLoadingBusy = await pieModalComponent.getAttribute('aria-busy');
+
+                // Assert: When `isLoading: true`
+                await expect(ariaLoadingLabel).toBe('Loading label info');
+                await expect(ariaLoadingBusy).toBe('true');
+
+                await component.update({ props: { isLoading: false } });
+
+                ariaLoadingLabel = await pieModalComponent.getAttribute('aria-label');
+                ariaLoadingBusy = await pieModalComponent.getAttribute('aria-busy');
+
+                // Assert: When `isLoading: false`
+                await expect(ariaLoadingLabel).toBeNull();
+                await expect(ariaLoadingBusy).toBe('false');
+            });
+        });
+    });
+
+    test.describe('when aria does not exist', () => {
+        test('should not render the aria-labels', async ({ mount }) => {
+            // Arrange
+            const component = await mount(PieModal, {
+                props: {
+                    isOpen: true,
+                    isDismissible: true,
+                    hasBackButton: true,
+                },
+            });
+
+            // Act
+            // Close button
+            const closeButton = await component.locator(closeButtonSelector);
+            const ariaCloseLabel = await closeButton.getAttribute('aria-label');
+
+            // Back button
+            const backButton = await component.locator(backButtonSelector);
+            const ariaBackLabel = await backButton.getAttribute('aria-label');
+
+            // Assert
+            await expect(ariaCloseLabel).toBe(null);
+            await expect(ariaBackLabel).toBe(null);
+        });
+    });
+
+    test.describe('when modal `isloading` is false', () => {
+        test('should not render aria-label', async ({ mount }) => {
+            // Arrange
+            const component = await mount(PieModal, {
+                props: {
+                    isOpen: true,
+                    isLoading: false,
+                },
+            });
+
+            // Loading state
+            const pieModalComponent = await component.locator(componentSelector);
+            const ariaLoadingLabel = await pieModalComponent.getAttribute('aria-label');
+
+            // Assert
+            await expect(ariaLoadingLabel).toBe(null);
+        });
+
+        test('should set `aria-busy` to `false`', async ({ mount }) => {
+            // Arrange
+            const component = await mount(PieModal, {
+                props: {
+                    isOpen: true,
+                    isLoading: false,
+                },
+            });
+
+            // Loading state
+            const pieModalComponent = await component.locator(componentSelector);
+            const ariaLoadingBusy = await pieModalComponent.getAttribute('aria-busy');
+
+            // Assert
+            await expect(ariaLoadingBusy).toBe('false');
+        });
+    });
+});
+
