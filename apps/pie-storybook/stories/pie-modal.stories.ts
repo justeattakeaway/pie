@@ -217,8 +217,6 @@ FocusManagement.args = {
     returnFocusAfterCloseSelector: '#focus-3',
 };
 
-// create massive text content
-
 export const LargeTextContent: Story<ModalProps> = (args: ModalProps) => BaseStoryTemplate(args);
 LargeTextContent.args = {
     ...defaultArgs,
