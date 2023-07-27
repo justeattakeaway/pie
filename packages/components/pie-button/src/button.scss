@@ -27,6 +27,12 @@
     }
 }
 
+// Setup CSS Variables that can be accessed by other components
+:host {
+    // The base values are set to the size default, which is for the medium button size
+    --btn-inline-size: auto;
+}
+
 // Base button styles
 .o-btn {
     // Custom Property Declarations
@@ -87,6 +93,9 @@
     line-height: var(--btn-line-height);
     cursor: pointer;
     user-select: none;
+
+    // used to specify whether the button should be full width or not
+    inline-size: var(--btn-inline-size);
 
     // TODO: This should be moved into global CSS typography setting
     // This should be imported by consuming apps and set on the application body
@@ -204,7 +213,7 @@
 
     // Additional modifiers
     &[isFullWidth] {
-        inline-size: 100%;
+        --btn-inline-size: 100%;
     }
 
     &[disabled] {
@@ -303,13 +312,4 @@
 ::slotted(svg) {
     height: var(--btn-icon-size);
     width: var(--btn-icon-size);
-}
-
-// Ensure that any component context that sets hasStackedActions="true"
-// makes the button full width on narrow viewports
-:host-context([hasstackedactions]) .o-btn {
-    // TODO: Move breakpoint sizes into shared CSS component utilties
-    @media (max-width: 768px) {
-        inline-size: 100%;
-    }
 }

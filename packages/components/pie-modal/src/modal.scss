@@ -50,8 +50,13 @@
         }
     }
 
+    // When hasStackedActions is set
+    // makes any button full width on narrow viewports
     &[hasstackedactions] pie-button {
+        // TODO: Move breakpoint sizes into shared CSS component utilties
         @media (max-width: 768px) {
+            --btn-inline-size: 100%; // set the inner button to be full-width
+
             flex-basis: 100%;
         }
     }
