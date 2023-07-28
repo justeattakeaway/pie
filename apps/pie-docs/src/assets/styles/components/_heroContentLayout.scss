@@ -10,15 +10,15 @@
     grid-template-rows: minmax(min-content, 0) minmax(0, 100px) minmax(450px, max-content);
 
     @include f.media('>=mid') {
-        grid-template-rows: 
-            repeat(2, calc(v.$hero-banner-header-mid-height * 0.5)) 
+        grid-template-rows:
+            repeat(2, calc(v.$hero-banner-header-mid-height * 0.5))
             150px
             minmax(0, max-content);
     }
 
     @include f.media('>=wide') {
-        grid-template-rows: 
-            calc(v.$hero-banner-header-wide-height * 0.6) 
+        grid-template-rows:
+            calc(v.$hero-banner-header-wide-height * 0.6)
             calc(v.$hero-banner-header-wide-height * 0.4)
             150px
             minmax(0, max-content);
