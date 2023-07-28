@@ -9,6 +9,9 @@ import {
 import type { DependentMap } from '@justeattakeaway/pie-webc-core';
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 import { Variant } from '@justeattakeaway/pie-button/src/defs.ts';
+import '@justeattakeaway/pie-icons-webc/icons/IconClose';
+import '@justeattakeaway/pie-icons-webc/icons/IconChevronLeft';
+import '@justeattakeaway/pie-icons-webc/icons/IconChevronRight';
 
 import styles from './modal.scss?inline';
 import {
