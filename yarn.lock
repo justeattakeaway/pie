@@ -5590,6 +5590,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@justeattakeaway/pie-toggle-switch@workspace:packages/components/pie-toggle-switch":
+  version: 0.0.0-use.local
+  resolution: "@justeattakeaway/pie-toggle-switch@workspace:packages/components/pie-toggle-switch"
+  dependencies:
+    "@justeattakeaway/pie-components-config": "workspace:*"
+    "@justeattakeaway/pie-webc-core": "workspace:*"
+  languageName: unknown
+  linkType: soft
+
 "@justeattakeaway/pie-webc-core@0.6.0, @justeattakeaway/pie-webc-core@workspace:*, @justeattakeaway/pie-webc-core@workspace:packages/components/pie-webc-core":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-webc-core@workspace:packages/components/pie-webc-core"
