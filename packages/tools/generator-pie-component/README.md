@@ -41,6 +41,8 @@ An interactive prompt should now be displayed asking for a component name.
 
 Once you have completed all the prompts, your scaffolded component will be generated 🎉
 
+_Note: If this step fails, ensure you have installed the repository dependencies with `yarn`. Otherwise this (and any other commands) will fail._
+
 ## Local development
 
 Install the dependencies. Note that this, and the following commands below, should be run from the **root of the monorepo**:
