@@ -1,5 +1,6 @@
 import typescript from '@rollup/plugin-typescript';
 import multiInput from 'rollup-plugin-multi-input';
+import { nodeResolve } from '@rollup/plugin-node-resolve';
 
 export default [
     {
@@ -12,6 +13,12 @@ export default [
         },
         plugins: [
             multiInput.default({ relative: 'icons/' }),
+            nodeResolve({
+                resolveOnly: [
+                    '@justeattakeaway/pie-icons-configs',
+                    'lit',
+                ],
+            }),
             typescript({
                 compilerOptions: {
                     target: 'es6',
