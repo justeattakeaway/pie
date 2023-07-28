@@ -39,13 +39,16 @@
     $swatch-margin: calc($swatch-size + $swatch-gap);
 
     td:first-child {
-        display: flex;
-        align-items: center;
-        gap: $swatch-gap;
+        position: relative;
+        inset-inline-start: $swatch-margin;
 
         &:before {
             content: '';
+            position: absolute;
             display: block;
+            inset-block-start: 50%;
+            transform: translate(0, -50%);
+            inset-inline-start: -($swatch-gap);
             height: $swatch-size;
             width: $swatch-size;
             background-color: var(--swatch-color);
@@ -54,6 +57,16 @@
     }
 
     @include f.media('<narrowMid') {
+        display: flex;
+        align-items: center;
+        gap: $swatch-gap;
+
+        td:first-child {
+            &:before {
+                transform: unset;
+            }
+        }
+
         td:last-child {
             margin-inline-start: $swatch-margin;
         }
