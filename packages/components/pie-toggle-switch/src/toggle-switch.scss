@@ -1,3 +1,121 @@
-// TODO - please remove the stylelint rule above when SCSS is added to this file
-/* stylelint-disable no-empty-source */
+// TODO: the hover effects can't use darken() with CSS variables. We have the HSL values, so we can use those instead with HSL however I haven't got this working properly yet (see the Storybook example)
+// TODO: stylings ported from the vue component, not quite right yet
+// TODO: RTL doesn't work yet
+// Reference: https://vue.pie.design/?path=/story/components-atoms--toggle-switch-component
 
+@mixin toggle-switch-transition ($property) {
+    @media (prefers-reduced-motion: no-preference) {
+        transition-property: $property;
+        transition-duration: 0.15s;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.9, 1);
+        transition-delay: 0s;
+    }
+}
+
+.c-toggle-switch {
+    --toggle-switch-colour:              var(--dt-color-interactive-form);
+    --toggle-switch-colour--checked:     var(--dt-color-interactive-brand);
+    --toggle-switch-colour--disabled:    var(--dt-color-disabled-01);
+    --toggle-switch-width:               48px;
+    --toggle-switch-height:              24px;
+    --toggle-switch-control-size:        20px;
+    --toggle-switch-padding:             2px;
+    --toggle-switch-radius:              var(--dt-radius-rounded-e);
+    --toggle-switch-icon-size:           14px;
+
+    --toggle-switch-translation: calc(var(--toggle-switch-width) - var(--toggle-switch-control-size) - 2 * var(--toggle-switch-padding));
+
+    display: flex;
+    @include toggle-switch-transition(background-color);
+    width: var(--toggle-switch-width);
+    height: var(--toggle-switch-height);
+    flex-shrink: 0;
+    padding: var(--toggle-switch-padding);
+    border-radius: var(--toggle-switch-radius);
+    background-color: var(--toggle-switch-colour);
+    cursor: pointer;
+
+    &:hover {
+        background-color: hsl(var(--dt-color-interactive-form-h), var(--dt-color-interactive-form-s), var(--dt-color-interactive-form-l), var(--dt-color-hover-01));
+    }
+
+    &:focus,
+    &:focus-within {
+        background-color: --toggle-switch-colour;
+        box-shadow: 0 0 0 2px var(--dt-color-focus-inner), 0 0 0 4px var(--dt-color-focus-outer);
+    }
+
+    &:active {
+        background-color: hsl(var(--dt-color-interactive-form-h), var(--dt-color-interactive-form-s), var(--dt-color-interactive-form-l), var(--dt-color-active-01));
+    }
+
+    &:has(.c-toggle-switch-input:checked) {
+        @include toggle-switch-transition(background-color);
+        background-color: --toggle-switch-colour--checked;
+
+        &:hover {
+            background-color: hsl(var(--dt-color-interactive-brand-h), var(--dt-color-interactive-brand-s), var(--dt-color-interactive-brand-l), var(--dt-color-hover-01));
+        }
+
+        &:focus,
+        &:focus-within {
+            background-color: var(--toggle-switch-colour--checked);
+        }
+
+        &:active {
+            background-color: hsl(var(--dt-color-interactive-brand-h), var(--dt-color-interactive-brand-s), var(--dt-color-interactive-brand-l), var(--dt-color-active-01));
+        }
+    }
+
+    &:has(.c-toggle-switch-input:disabled) {
+        background-color: var(--toggle-switch-colour--disabled);
+
+        cursor: not-allowed;
+        pointer-events: none;
+    }
+}
+
+.c-toggle-switch-input {
+    appearance: none;
+    margin: 0;
+}
+
+.c-toggle-switch-control {
+    @include toggle-switch-transition(transform);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--toggle-switch-control-size);
+    height: var(--toggle-switch-control-size);
+    border-radius: var(--toggle-switch-radius);
+    background-color: var(--dt-color-interactive-light);
+
+    .c-toggle-switch-input:checked + & {
+        @include toggle-switch-transition(transform);
+        transform: translateX(var(--toggle-switch-translation));
+    }
+
+    .c-toggle-switch-input:disabled ~ & {
+        path {
+            @include toggle-switch-transition(fill);
+            fill: var(--toggle-switch-colour--disabled);
+        }
+    }
+}
+
+[dir="rtl"] {
+    .c-toggle-switch-input:checked + .c-toggle-switch-control {
+        @include toggle-switch-transition(transform);
+        transform: translateX(calc(var(--toggle-switch-translation) * -1));
+    }
+}
+
+.c-toggle-switch-icon {
+    width: var(--toggle-switch-icon-size);
+    height: var(--toggle-switch-icon-size);
+
+    path {
+        @include toggle-switch-transition(fill);
+        fill: var(--toggle-switch-colour--checked);
+    }
+}

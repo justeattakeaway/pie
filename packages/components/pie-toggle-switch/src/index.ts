@@ -1,6 +1,9 @@
-import { LitElement, html, unsafeCSS } from 'lit';
+import {
+    LitElement, html, unsafeCSS, nothing,
+} from 'lit';
+import { property } from 'lit/decorators.js';
 import styles from './toggle-switch.scss?inline';
-import { ToggleSwitchProps } from './defs';
+import { ToggleSwitchProps, EVENT_TOGGLE_SWITCH_CHANGED } from './defs';
 
 // Valid values available to consumers
 export {
@@ -9,13 +12,39 @@ export {
 
 const componentSelector = 'pie-toggle-switch';
 
+/**
+ * @event {CustomEvent} pie-toggle-switch-changed - when the toggle switch checked state is changed.
+ */
 export class PieToggleSwitch extends LitElement implements ToggleSwitchProps {
-    render () {
-        return html`<h1>Hello world!</h1>`;
+    @property({ type: Boolean, reflect: true })
+    public checked = false;
+
+    static styles = unsafeCSS(styles);
+
+    toggleOption (event: Event) {
+        const target = event?.target as HTMLInputElement;
+        this.checked = target.checked;
+        this.dispatchEvent(new CustomEvent(EVENT_TOGGLE_SWITCH_CHANGED, { detail: this.checked }));
     }
 
-    // Renders a `CSSResult` generated from SCSS by Vite
-    static styles = unsafeCSS(styles);
+    render () {
+        return html`
+            <label
+                data-test-id="toggle-switch-component"
+                class="c-toggle-switch">
+                <input
+                    role="switch"
+                    type="checkbox"
+                    class="c-toggle-switch-input"
+                    .checked="${this.checked}"
+                    @change="${this.toggleOption}">
+
+                <div class="c-toggle-switch-control">
+                    ${this.checked ? html`x` : nothing}
+                </div>
+            </label>
+        `;
+    }
 }
 
 customElements.define(componentSelector, PieToggleSwitch);

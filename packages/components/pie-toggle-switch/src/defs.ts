@@ -1,3 +1,13 @@
-// TODO - please remove the eslint disable comment below when you add props to this interface
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
-export interface ToggleSwitchProps {}
+export interface ToggleSwitchProps {
+    /**
+     * Same as the HTML checked attribute - indicates whether the switch is on or off
+     */
+    checked: boolean;
+}
+
+/**
+ * Event name for when the toggle switch checked state is changed.
+ *
+ * @constant
+ */
+export const EVENT_TOGGLE_SWITCH_CHANGED = 'pie-toggle-switch-changed';

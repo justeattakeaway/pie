@@ -1,22 +1,23 @@
 import { html, TemplateResult } from 'lit';
 import type { StoryObj as Story } from '@storybook/web-components';
-import { PieToggleSwitch, ToggleSwitchProps } from '@justeattakeaway/pie-toggle-switch';
+import '@justeattakeaway/pie-toggle-switch';
+import { ToggleSwitchProps } from '@justeattakeaway/pie-toggle-switch/src/defs';
 import { StoryMeta } from '../types';
-
-// TODO: Remove this const when other exports from PieToggleSwitch are used on Stories, 
-// otherwise tree-shaking will get rid of the web component definition
-const keptReference = PieToggleSwitch;
 
 type ToggleSwitchStoryMeta = StoryMeta<ToggleSwitchProps>;
 
 const defaultArgs: ToggleSwitchProps = {
+    checked: true,
 };
 
 const toggleSwitchStoryMeta: ToggleSwitchStoryMeta = {
     title: 'Toggle Switch',
     component: 'pie-toggle-switch',
     argTypes: {
-
+        checked: {
+            description: 'Same as the HTML checked attribute - indicates whether the switch is on or off',
+            control: 'boolean',
+        },
     },
     args: defaultArgs,
     parameters: {
@@ -25,13 +26,17 @@ const toggleSwitchStoryMeta: ToggleSwitchStoryMeta = {
             url: '',
         },
     },
-}
+};
 
 export default toggleSwitchStoryMeta;
 
-const Template = ({}: ToggleSwitchProps): TemplateResult => html`
-        <pie-toggle-switch/>
+const Template = (props: ToggleSwitchProps): TemplateResult => {
+    const { checked } = props;
+
+    return html`
+        <pie-toggle-switch ?checked=${checked}></pie-toggle-switch>
         `;
+};
 
 export const Default: Story<ToggleSwitchProps> = (args: ToggleSwitchProps) => Template(args);
 Default.args = {
