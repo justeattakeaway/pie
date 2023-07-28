@@ -1,49 +1,73 @@
 @use '../fozzie-config' as f;
+@use '../variables' as v;
 @use '../utilities' as u;
 
 .c-heroBanner {
     background-color: f.$color-background-subtle;
+    grid-column: 1 / span 2;
 }
 
 .c-heroBanner-header {
-    display: flex;
-    flex-direction: row;
-    gap: f.$spacing-e;
-    justify-content: space-between;
+    display: grid;
+    height: auto;
+
+    @include f.media('>=mid') {
+        height: v.$hero-banner-header-mid-height;
+        grid-template-columns: 50% 50%;
+    }
+
+    @include f.media('>=wide') {
+        height: v.$hero-banner-header-wide-height;
+        grid-template-columns: 40% 60%;
+        gap: f.$spacing-e;
+    }
+
+    .c-heroBanner-btn {
+        margin-top: f.spacing(f);
+        margin-bottom: f.spacing(e);
+    }
 }
 
 .c-heroBanner-text {
     width: 100%;
     padding-top: f.spacing(g);
+    align-self: start;
+    justify-self: stretch;
+    grid-column: 1 / span 2;
 
     @include f.media('>=mid') {
-        width: 50%;
+        grid-column: 1;
         max-width: 500px;
-        padding-top: 0;
-        align-self: center;
+        padding-top: calc(f.spacing(e) + f.spacing(i)); // 88px
+        align-self: start;
     }
+}
+
+.c-heroBanner-description {
+    @include f.font-size('body-l');
+    margin-top: f.spacing(d);
+    max-width: 50ch;
 
     @include f.media('>=wide') {
-        align-self: start;
-        padding-top: f.spacing(i);
+        @include f.font-size('heading-s');
     }
 }
 
-.c-heroBanner-btn {
-    margin-top: f.spacing(f);
-    margin-bottom: f.spacing(e);
-}
 
 .c-heroBanner-image {
-    align-self: flex-end;
+    grid-column: 2;
+    align-self: center;
     z-index: 1;
-    width: 50%;
+    height: v.$hero-banner-header-mid-height;
+
+    @include f.media('>=wide') {
+        height: v.$hero-banner-header-wide-height;
+    }
 
     img {
         object-fit: contain;
         width: 100%;
-        height: auto;
-        min-width: 350px;
+        height: 100%;
         position: relative;
     }
 }

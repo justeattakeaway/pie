@@ -37,3 +37,13 @@
         padding-bottom: f.spacing(i);
     }
 }
+
+.c-contentPage-header-description {
+    @include f.font-size('body-l');
+    margin-top: f.spacing(e);
+    max-width: 50ch;
+
+    @include f.media('>=wide') {
+        @include f.font-size('heading-s');
+    }
+}

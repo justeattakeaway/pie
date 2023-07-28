@@ -1,19 +1,27 @@
 @use '../fozzie-config' as f;
+@use '../variables' as v;
 @use '../utilities' as u;
 
 .c-heroContentLayout {
     min-height: 100%;
     display: grid;
     background-color: f.$color-background-subtle;
-    grid-template-rows: minmax(0, max-content) minmax(0, 100px) minmax(0, 450px) minmax(0, max-content);
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: minmax(min-content, 0) minmax(0, 100px) minmax(450px, max-content);
 
-    // helps scale the razor with the page
     @include f.media('>=mid') {
-        grid-template-rows: minmax(0, 200px) minmax(0, 175px) minmax(0, 200px) minmax(0, max-content);
+        grid-template-rows: 
+            repeat(2, calc(v.$hero-banner-header-mid-height * 0.5)) 
+            150px
+            minmax(0, max-content);
     }
 
     @include f.media('>=wide') {
-        grid-template-rows: minmax(0, 240px) minmax(0, 220px) minmax(0, 200px) minmax(0, max-content);
+        grid-template-rows: 
+            calc(v.$hero-banner-header-wide-height * 0.6) 
+            calc(v.$hero-banner-header-wide-height * 0.4)
+            150px
+            minmax(0, max-content);
     }
 }
 
@@ -29,15 +37,13 @@
     }
 
     .c-content .c-content-container {
-        @include f.media('<mid') {
-            padding-top: 0 !important;
-        }
+        padding-top: 0;
     }
 }
 
 .c-heroContentLayout-content {
     background-color: f.$color-background-default;
     grid-row: 3 / span 4;
-    grid-column: 1;
+    grid-column: 1 / span 2;
 }
 
