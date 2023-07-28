@@ -18,20 +18,15 @@
 
 ### Installation
 
-Install `yeoman` and the pie-component generator globally:
+Install `yeoman` globally:
 
 ```sh
-# Via NPM
-$ npm install --global yo @justeattakeaway/generator-pie-component
-
-# Using Yarn
-$ yarn add --global yo @justeattakeaway/generator-pie-component
+$ npm install --global yo
 ```
 
-Or if you'd rather, you can use the generator without installing it globally, by running:
-
+Build the generator package locally
 ```sh
-$ npm init yo @justeattakeaway/generator-pie-component
+$ yarn build --filter=generator-pie-component
 ```
 
 ### Running the generator
@@ -39,7 +34,7 @@ $ npm init yo @justeattakeaway/generator-pie-component
 To run the generator, use this command from the root directory within the monorepo:
 
 ```sh
-yo @justeattakeaway/pie-component
+$ yo @justeattakeaway/pie-component
 ```
 
 An interactive prompt should now be displayed asking for a component name.
