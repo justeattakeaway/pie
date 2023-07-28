@@ -5,6 +5,12 @@ export const headingLevels = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'] as const;
 export const sizes = ['small', 'medium', 'large'] as const;
 export const positions = ['top', 'center'] as const;
 
+export type AriaProps = {
+    close?: string;
+    back?: string;
+    loading?: string;
+};
+
 export interface ModalProps extends RTLComponentProps {
     /**
      * The text to display in the modal's heading.
@@ -43,6 +49,11 @@ export interface ModalProps extends RTLComponentProps {
      * When true, the modal will have a back button. This currently behaves the same as the close button.
      */
     hasBackButton: boolean;
+
+    /**
+     * When false, the modal footer will scroll with the content inside the modal body.
+     */
+    isFooterPinned: boolean;
 
     /**
      * This controls whether a *medium-sized* modal will cover the full width of the page when below the mid breakpoint.
@@ -105,6 +116,8 @@ export interface ModalProps extends RTLComponentProps {
      * The position of the modal; this controls where it will appear on the page.
      */
     position: typeof positions[number];
+
+    aria?: AriaProps;
 }
 
 /**
