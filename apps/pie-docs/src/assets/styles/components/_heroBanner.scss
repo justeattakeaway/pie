@@ -29,17 +29,14 @@
 }
 
 .c-heroBanner-text {
-    width: 100%;
     padding-top: f.spacing(g);
     align-self: start;
-    justify-self: stretch;
     grid-column: 1 / span 2;
 
     @include f.media('>=mid') {
         grid-column: 1;
         max-width: 500px;
         padding-top: calc(f.spacing(e) + f.spacing(i)); // 88px
-        align-self: start;
     }
 }
 

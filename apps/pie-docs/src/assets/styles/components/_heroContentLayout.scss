@@ -7,7 +7,7 @@
     display: grid;
     background-color: f.$color-background-subtle;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: minmax(min-content, 0) minmax(0, 100px) minmax(450px, max-content);
+    grid-template-rows: minmax(min-content, 0) 100px 450px;
 
     @include f.media('>=mid') {
         grid-template-rows:
