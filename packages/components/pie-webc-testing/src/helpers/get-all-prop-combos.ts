@@ -15,7 +15,7 @@ export const getAllPropCombinations = (obj: PropObject): WebComponentPropValues[
     // This function generates combinations of properties from a given object.
     // It does this by recursively concatenating each property value to an 'accumulatedPropertyValues' array,
     // and adding the resulting combination to a 'WebComponentPropValues' array when it reaches the end of the keys.
-    function generatePropCombinations (accumulatedPropertyValues: any[], i: number): void {
+    function generatePropCombinations (accumulatedPropertyValues: unknown[], i: number): void {
     // When 'i' equals the length of 'keys', we've reached the end of the keys.
     // This means we've formed a complete combination.
         if (i === propertyKeys.length) {
