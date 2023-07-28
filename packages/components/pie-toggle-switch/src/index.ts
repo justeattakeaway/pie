@@ -4,6 +4,7 @@ import {
 import { property } from 'lit/decorators.js';
 import styles from './toggle-switch.scss?inline';
 import { ToggleSwitchProps, EVENT_TOGGLE_SWITCH_CHANGED } from './defs';
+import '@justeattakeaway/pie-icons-webc/icons/IconCheck';
 
 // Valid values available to consumers
 export {
@@ -40,7 +41,7 @@ export class PieToggleSwitch extends LitElement implements ToggleSwitchProps {
                     @change="${this.toggleOption}">
 
                 <div class="c-toggle-switch-control">
-                    ${this.checked ? html`x` : nothing}
+                    ${this.checked ? html`<icon-check></icon-check>` : nothing}
                 </div>
             </label>
         `;

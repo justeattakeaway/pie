@@ -12,6 +12,10 @@
     }
 }
 
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
 .c-toggle-switch {
     --toggle-switch-colour:              var(--dt-color-interactive-form);
     --toggle-switch-colour--checked:     var(--dt-color-interactive-brand);
@@ -49,6 +53,7 @@
         background-color: hsl(var(--dt-color-interactive-form-h), var(--dt-color-interactive-form-s), var(--dt-color-interactive-form-l), var(--dt-color-active-01));
     }
 
+    // Has doesn't meet our browser support requirements so we should replace this
     &:has(.c-toggle-switch-input:checked) {
         @include toggle-switch-transition(background-color);
         background-color: --toggle-switch-colour--checked;
@@ -67,6 +72,7 @@
         }
     }
 
+    // Has doesn't meet our browser support requirements so we should replace this
     &:has(.c-toggle-switch-input:disabled) {
         background-color: var(--toggle-switch-colour--disabled);
 
@@ -103,6 +109,7 @@
     }
 }
 
+// This needs looking at
 [dir="rtl"] {
     .c-toggle-switch-input:checked + .c-toggle-switch-control {
         @include toggle-switch-transition(transform);

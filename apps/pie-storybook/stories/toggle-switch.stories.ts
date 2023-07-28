@@ -3,6 +3,7 @@ import type { StoryObj as Story } from '@storybook/web-components';
 import '@justeattakeaway/pie-toggle-switch';
 import { ToggleSwitchProps } from '@justeattakeaway/pie-toggle-switch/src/defs';
 import { StoryMeta } from '../types';
+import '@justeattakeaway/pie-icons-webc/icons/IconCheck'; // Register icon-check
 
 type ToggleSwitchStoryMeta = StoryMeta<ToggleSwitchProps>;
 
