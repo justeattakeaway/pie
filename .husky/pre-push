@@ -6,3 +6,4 @@ packages/tools/git-hooks-scripts/check-branch-name.js $(git symbolic-ref --short
 
 # Heavy checks should only be done on staged files
 yarn eslint $(git diff --name-only main HEAD | grep -E '\.(ts|tsx|js|jsx)$' | xargs) --max-warnings 0
+# yarn stylelint $(git diff --name-only main HEAD | grep -E '\.(css|scss)$' | xargs)

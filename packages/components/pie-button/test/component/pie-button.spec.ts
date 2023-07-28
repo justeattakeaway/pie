@@ -14,7 +14,7 @@ test('should correctly work with native click events', async ({ mount }) => {
         {
             props,
             slots: {
-                default: 'Click me!', 
+                default: 'Click me!',
             },
             on: {
                 click: () => {

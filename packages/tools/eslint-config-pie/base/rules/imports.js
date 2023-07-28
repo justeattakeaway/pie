@@ -16,4 +16,7 @@ module.exports = {
 
         'import/no-unused-modules': 'off',
     },
+    plugins: [
+        'import',
+    ],
 };
