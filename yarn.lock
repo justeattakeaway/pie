@@ -5554,6 +5554,7 @@ __metadata:
     "@web/test-runner": 0.16.1
     just-kebab-case: 4.2.0
     just-pascal-case: 3.2.0
+    lit: 2.7.5
     rollup: 3.20.2
     rollup-plugin-multi-input: 1.4.1
   languageName: unknown
@@ -28648,6 +28649,7 @@ __metadata:
   dependencies:
     "@justeattakeaway/pie-button": "workspace:*"
     "@justeattakeaway/pie-icon-button": "workspace:*"
+    "@justeattakeaway/pie-icons-webc": "workspace:*"
     "@justeattakeaway/pie-modal": "workspace:*"
     "@storybook/addon-a11y": 7.1.0
     "@storybook/addon-essentials": 7.1.0
