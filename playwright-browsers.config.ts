@@ -1,4 +1,4 @@
-import { PlaywrightTestConfig, devices } from '@playwright/test';
+import { defineConfig, devices } from '@playwright/test';
 
 const { getBaseUrl } = require('./apps/pie-docs/test/helpers/configuration-helper');
 const baseURL = getBaseUrl();
@@ -12,7 +12,7 @@ process.env.BASE_URL = baseURL;
 /**
  * See https://playwright.dev/docs/test-configuration.
  */
-const config: PlaywrightTestConfig = {
+export default defineConfig({
 
   /* Maximum time one test can run for. */
   timeout: 30 * 1000,
@@ -70,7 +70,7 @@ const config: PlaywrightTestConfig = {
       grep: /@mobile/,
       use: {
         ...devices['iPhone X'],
-        
+
       },
       testMatch: ['**/test/system/*.spec.js']
     },
@@ -79,7 +79,7 @@ const config: PlaywrightTestConfig = {
       grep: /@mobile/,
       use: {
         ...devices['Pixel 5'],
-        
+
       },
       testMatch: ['**/test/system/*.spec.js']
     },
@@ -87,6 +87,4 @@ const config: PlaywrightTestConfig = {
 
   /* Folder for test artifacts such as screenshots, videos, traces, etc. */
   // outputDir: 'test-results/',
-};
-
-export default config;
+});

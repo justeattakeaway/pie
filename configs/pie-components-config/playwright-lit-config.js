@@ -1,11 +1,11 @@
-import { devices } from '@sand4rt/experimental-ct-web';
+import { defineConfig, devices } from '@sand4rt/experimental-ct-web';
 import path from 'path';
 
 /**
  * See https://playwright.dev/docs/test-configuration
  */
-export function getPlaywrightConfig () {
-    return {
+export function definePlaywrightConfig (overrides = {}) {
+    return defineConfig({
         /* The base directory, relative to the config file, for snapshot files created with toMatchSnapshot and toHaveScreenshot. */
         snapshotDir: './__snapshots__',
         /* Maximum time one test can run for. */
@@ -50,5 +50,7 @@ export function getPlaywrightConfig () {
                 testMatch: ['**/test/accessibility/*.spec.ts'],
             },
         ],
-    };
+
+        ...overrides,
+    });
 }
