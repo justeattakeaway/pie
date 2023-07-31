@@ -13,12 +13,7 @@ export default [
         },
         plugins: [
             multiInput.default({ relative: 'icons/' }),
-            nodeResolve({
-                resolveOnly: [
-                    '@justeattakeaway/pie-icons-configs',
-                    'lit',
-                ],
-            }),
+            nodeResolve(),
             typescript({
                 compilerOptions: {
                     target: 'es6',

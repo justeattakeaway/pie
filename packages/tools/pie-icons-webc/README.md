@@ -1,7 +1,7 @@
 
 # pie-icons-webc
 
-Shared PIE Icon Components built using (Lit Web Components)[https://lit.dev/docs/].
+Shared PIE Icon Components built using [Lit Web Components](https://lit.dev/docs/).
 
 This package provides the PIE iconset as importable Web Components, to ensure icons are used to PIE guidelines for sizing.
 
