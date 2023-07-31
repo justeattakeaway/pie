@@ -18,17 +18,21 @@ const componentSelector = 'pie-toggle-switch';
  */
 export class PieToggleSwitch extends LitElement implements ToggleSwitchProps {
     @property({ type: Boolean, reflect: true })
-    public checked = false;
+    public isChecked = false;
 
     static styles = unsafeCSS(styles);
 
-    toggleOption (event: Event) {
+    onToggleChange (event: Event) {
         const target = event?.target as HTMLInputElement;
-        this.checked = target.checked;
-        this.dispatchEvent(new CustomEvent(EVENT_TOGGLE_SWITCH_CHANGED, { detail: this.checked }));
+        this.isChecked = target.checked;
+        this.dispatchEvent(new CustomEvent(EVENT_TOGGLE_SWITCH_CHANGED, { detail: this.isChecked }));
     }
 
     render () {
+        const {
+            isChecked,
+        } = this;
+
         return html`
             <label
                 data-test-id="toggle-switch-component"
@@ -37,11 +41,11 @@ export class PieToggleSwitch extends LitElement implements ToggleSwitchProps {
                     role="switch"
                     type="checkbox"
                     class="c-toggle-switch-input"
-                    .checked="${this.checked}"
-                    @change="${this.toggleOption}">
+                    .checked="${isChecked}"
+                    @change="${this.onToggleChange}">
 
                 <div class="c-toggle-switch-control">
-                    ${this.checked ? html`<icon-check></icon-check>` : nothing}
+                    ${isChecked ? html`<icon-check></icon-check>` : nothing}
                 </div>
             </label>
         `;
