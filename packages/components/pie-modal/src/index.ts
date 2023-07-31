@@ -263,6 +263,7 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
                 variant="${variant}"
                 aria-label="${ariaLabel || nothing}"
                 type="submit"
+                ?isFullWidth="${this.hasStackedActions}"
                 @click="${() => this._dialog?.close('leading')}"
                 data-test-id="modal-leading-action">
                 ${text}
@@ -298,6 +299,7 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
                 variant="${variant}"
                 aria-label="${ariaLabel || nothing}"
                 type="reset"
+                ?isFullWidth="${this.hasStackedActions}"
                 @click="${() => this._dialog?.close('supporting')}"
                 data-test-id="modal-supporting-action">
                 ${text}

@@ -27,12 +27,6 @@
     }
 }
 
-// Setup CSS Variables that can be accessed by other components
-:host {
-    // The base values are set to the size default, which is for the medium button size
-    --btn-inline-size: auto;
-}
-
 // Base button styles
 .o-btn {
     // Custom Property Declarations

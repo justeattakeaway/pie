@@ -50,16 +50,6 @@
         }
     }
 
-    // When hasStackedActions is set
-    // makes any button full width on narrow viewports
-    &[hasstackedactions] pie-button {
-        // TODO: Move breakpoint sizes into shared CSS component utilties
-        @media (max-width: 768px) {
-            --btn-inline-size: 100%; // set the inner button to be full-width
-
-            flex-basis: 100%;
-        }
-    }
 
     &[open] {
         // We only apply this when the modal is open,
@@ -162,6 +152,17 @@
 
         @media (min-width: $breakpoint-wide) {
             --modal-footer-padding: var(--dt-spacing-e);
+        }
+    }
+
+    // When hasStackedActions is set
+    // change the direction of the footer flex container so buttons are full width of modal
+    &[hasstackedactions] {
+        & .c-modal-footer {
+            // TODO: Move breakpoint sizes into shared CSS component utilities
+            @media (max-width: calc($breakpoint-wide - 1px)) {
+                flex-direction: column;
+            }
         }
     }
 

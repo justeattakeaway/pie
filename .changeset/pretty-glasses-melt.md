@@ -1,5 +1,4 @@
 ---
-"@justeattakeaway/pie-button": minor
 "@justeattakeaway/pie-modal": minor
 "pie-storybook": minor
 ---
