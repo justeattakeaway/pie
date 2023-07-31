@@ -68,7 +68,7 @@
             background: f.$color-container-inverse;
             border-radius: f.$radius-rounded-e;
             margin-right: f.spacing(b);
-            margin-top: 8px;
+            margin-top: f.spacing(b);
             flex-shrink: 0;
         }
     }

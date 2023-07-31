@@ -158,14 +158,14 @@ Abstract icons are more difficult to comprehend than literal icons. Instead of u
 
 {% usage {
     do: {
-        type: "image",
+        type: usageTypes.image,
         items: [{
             src:"../../../assets/img/foundations/iconography/how-to-choose-an-icon-do.svg",
             width: "234px"
         }]
     },
     dont: { 
-        type: "image",
+        type: usageTypes.image,
         items: [{
             src:"../../../assets/img/foundations/iconography/how-to-choose-an-icon-dont.svg",
             width: "234px"
@@ -179,14 +179,14 @@ Icons act as a visual cue to improve the legibility and scannability of your pro
 
 {% usage {
     do: {
-        type: "image",
+        type: usageTypes.image,
         items: [{
             src:"../../../assets/img/foundations/iconography/pairing-text-with-icons-do.svg",
             width: "375px"
         }]
     },
     dont: { 
-        type: "image",
+        type: usageTypes.image,
         items: [{
         src:"../../../assets/img/foundations/iconography/pairing-text-with-icons-dont.svg",
         width: "375px"

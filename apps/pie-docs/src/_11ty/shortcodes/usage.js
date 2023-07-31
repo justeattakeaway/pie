@@ -1,6 +1,7 @@
 const pieIconsSvg = require('../filters/pieIconsSvg');
 const pieDesignTokenColours = require('../filters/pieDesignTokenColours');
 const list = require('./list');
+const usageTypes = require('../../_data/usageTypes');
 
 const metadata = {
     do: {
@@ -34,8 +35,10 @@ const buildImage = ({
 };
 
 const buildUsageCard = (usageType, { type, items }) => {
-    const { iconName, iconFill, styleColour } = metadata[usageType];
-    const isImage = type === 'image';
+    const {
+        iconName, iconFill, styleColour, displayName,
+    } = metadata[usageType];
+    const isImage = type === usageTypes.image;
     const styleColourValue = pieDesignTokenColours({ tokenName: styleColour, tokenPath: ['alias', 'default'] });
     const svg = pieIconsSvg({
         name: iconName,
@@ -55,7 +58,7 @@ const buildUsageCard = (usageType, { type, items }) => {
     <div class="c-usage" style="--style-colour: ${styleColourValue};">
       <div class="c-usage-heading">
         ${svg}
-        ${metadata[usageType].displayName}
+        ${displayName}
       </div>
       <div class="${backdropClasses.join(' ')}">
         ${content}
@@ -64,12 +67,12 @@ const buildUsageCard = (usageType, { type, items }) => {
 };
 
 /**
- * A Usage HTML component – display do/dont information with images or lists
+ * A Usage HTML component – display do/dont information with images or a list of text
  * @typedef {object} UsageItem - An item containing information for either "do" or "dont".
- * @property {string} type - Type of item: "image" or "list".
+ * @property {string} type - Type of item: "image" or "text".
  * @property {Array<{ src: string, mobileSrc?: string, width?: string }>|Array<string>} items - An array of either image objects or list of text.
  *   If type is "image", it should be an array of objects containing `src`, and optional `width` and `mobileSrc` properties.
- *   If type is "list", it should be an array of strings.
+ *   If type is "text", it should be an array of strings.
  *
  * @param {object} usage - Usage configuration object.
  * @param {UsageItem} usage.do - Information for the "do" section.
@@ -79,7 +82,6 @@ const buildUsageCard = (usageType, { type, items }) => {
 // eslint-disable-next-line func-names
 module.exports = function (props) {
     return `<div class="c-usage-container">
-    ${buildUsageCard('do', props.do)}
-    ${buildUsageCard('dont', props.dont)}
+    ${Object.keys(metadata).map((usageType) => buildUsageCard(usageType, props[usageType])).join(' ')}
   </div>`;
 };
