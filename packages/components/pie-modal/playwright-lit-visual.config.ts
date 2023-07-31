@@ -1,3 +1,3 @@
-import { defineVisualConfig } from '@justeattakeaway/pie-components-config';
+import { definePlaywrightVisualConfig } from '@justeattakeaway/pie-components-config';
 
-export default defineVisualConfig();
+export default definePlaywrightVisualConfig();
