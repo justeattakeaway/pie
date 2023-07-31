@@ -2,7 +2,7 @@ const usage = require('../../../_11ty/shortcodes/usage');
 const usageTypes = require('../../../_data/usageTypes');
 
 describe('usage.js', () => {
-    xit('should return the expected HTML for the image type of usage component', () => {
+    it('should return the expected HTML for the image type of the usage component', () => {
         const props = {
             type: usageTypes.image,
             items: [{
@@ -23,7 +23,7 @@ describe('usage.js', () => {
         expect(result).toMatchSnapshot();
     });
 
-    xit('should return the expected HTML for the text type of usage component', () => {
+    it('should return the expected HTML for the text type of the usage component', () => {
         const props = {
             type: usageTypes.text,
             items: ['Hello World', 'Lorem ipsum dolor'],
