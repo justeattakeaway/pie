@@ -7207,19 +7207,32 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@playwright/test@npm:1.32.3":
-  version: 1.32.3
-  resolution: "@playwright/test@npm:1.32.3"
+"@playwright/experimental-ct-core@npm:^1.36.2":
+  version: 1.36.2
+  resolution: "@playwright/experimental-ct-core@npm:1.36.2"
+  dependencies:
+    "@playwright/test": 1.36.2
+    playwright-core: 1.36.2
+    vite: ^4.3.9
+  bin:
+    playwright: cli.js
+  checksum: c00fbe5728b8cf95ef0b606f5300486c24cea4ff87538c711577cd5fc628fcbf767933a2f4232422705612e8359294bae9bdbe46874881d7d2de353649f28ced
+  languageName: node
+  linkType: hard
+
+"@playwright/test@npm:1.36.2":
+  version: 1.36.2
+  resolution: "@playwright/test@npm:1.36.2"
   dependencies:
     "@types/node": "*"
     fsevents: 2.3.2
-    playwright-core: 1.32.3
+    playwright-core: 1.36.2
   dependenciesMeta:
     fsevents:
       optional: true
   bin:
     playwright: cli.js
-  checksum: f248e5851d04183954ec6f3a5f2c8e3b0ea0085a83e0e695068c5c2eb6acd4dddb16829a429829a4eb9fe0a4518f6a5594890cf9bf4259255c9e07a5964be625
+  checksum: 659304e0bbbafb2fa36395fbd8bd2c5db2b7791bbb55fa62409946ec7ec726cf8fff89f2b8a1a74fe831bf50a8780a37a5322a1251a6f7db2a9220a57ac408f0
   languageName: node
   linkType: hard
 
@@ -7569,14 +7582,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sand4rt/experimental-ct-web@npm:1.0.8":
-  version: 1.0.8
-  resolution: "@sand4rt/experimental-ct-web@npm:1.0.8"
+"@sand4rt/experimental-ct-web@npm:1.36.3":
+  version: 1.36.3
+  resolution: "@sand4rt/experimental-ct-web@npm:1.36.3"
+  dependencies:
+    "@playwright/experimental-ct-core": ^1.36.2
+    "@playwright/test": 1.36.2
   peerDependencies:
-    "@playwright/test": ">=1.31.0"
+    "@playwright/test": ">=1.36.2"
   bin:
     playwright: cli.js
-  checksum: ee83c5a4367b157db07ce489a7e328aab9c05674ac3db3b3463096201ff451704100c5ad78acd1b37e16e68ea7e1e230075d899e4be6807bdb5f34ac373fe821
+  checksum: 139a8227a6e6f0f8d7dd445652219907af14776c06432233e629e4106c2fdf9c6f7cc9e7b6e7591074d4f7406a4fbd76be478e1fb4b6bfd913fbeaa4d665f915
   languageName: node
   linkType: hard
 
@@ -28603,8 +28619,8 @@ __metadata:
     "@justeattakeaway/stylelint-config-pie": "workspace:*"
     "@percy/cli": 1.26.1
     "@percy/playwright": 1.0.4
-    "@playwright/test": 1.32.3
-    "@sand4rt/experimental-ct-web": 1.0.8
+    "@playwright/test": 1.36.2
+    "@sand4rt/experimental-ct-web": 1.36.3
     "@types/react": 18.0.33
     "@typescript-eslint/eslint-plugin": 5.60.1
     "@typescript-eslint/parser": 5.59.2
@@ -28780,12 +28796,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"playwright-core@npm:1.32.3":
-  version: 1.32.3
-  resolution: "playwright-core@npm:1.32.3"
+"playwright-core@npm:1.36.2":
+  version: 1.36.2
+  resolution: "playwright-core@npm:1.36.2"
   bin:
-    playwright: cli.js
-  checksum: 7ea091c41a7d1bb97b445bc541a85b123ffcf167bcc00fb7e13e9079f06c92f59fd27caf9d1c1d7e0054f2b5765d1a16d198833c2be7266cebb9dbb916cd90f4
+    playwright-core: cli.js
+  checksum: 2193ce802ef93c28b9b5e11a0b1d7b60778c686015659978d1cbf0eb9cda2cdc85ec5575b887c1346e9d161cc2805bf27638d76a2f7f857dffeae968e6ceffcd
   languageName: node
   linkType: hard
 
@@ -30880,6 +30896,17 @@ __metadata:
     picocolors: ^1.0.0
     source-map-js: ^1.0.2
   checksum: 814e2126dacfea313588eda09cc99a9b4c26ec55c059188aa7a916d20d26d483483106dc5ff9e560731b59f45c5bb91b945dfadc670aed875cc90ddbbf4e787d
+  languageName: node
+  linkType: hard
+
+"postcss@npm:^8.4.26":
+  version: 8.4.27
+  resolution: "postcss@npm:8.4.27"
+  dependencies:
+    nanoid: ^3.3.6
+    picocolors: ^1.0.0
+    source-map-js: ^1.0.2
+  checksum: 1cdd0c298849df6cd65f7e646a3ba36870a37b65f55fd59d1a165539c263e9b4872a402bf4ed1ca1bc31f58b68b2835545e33ea1a23b161a1f8aa6d5ded81e78
   languageName: node
   linkType: hard
 
@@ -33086,6 +33113,20 @@ __metadata:
   bin:
     rollup: dist/bin/rollup
   checksum: 397965706bb46a217e2815995133c11ce9a843e7b80018a91594d36d7a7708fe3a33acd1635deaa3138c42918397f38b32ca975951519fdfe3b4201875ecfd3d
+  languageName: node
+  linkType: hard
+
+"rollup@npm:^3.25.2":
+  version: 3.27.0
+  resolution: "rollup@npm:3.27.0"
+  dependencies:
+    fsevents: ~2.3.2
+  dependenciesMeta:
+    fsevents:
+      optional: true
+  bin:
+    rollup: dist/bin/rollup
+  checksum: f60c2c288d039dc14e1f6e7fd673b7fcb11928b5a781675791b37a741f63b7af110fc5d040d60d603175b6e03ff978bed83db018dd2ac542ef809fe1a5b32dae
   languageName: node
   linkType: hard
 
@@ -37639,6 +37680,46 @@ __metadata:
   bin:
     vite: bin/vite.js
   checksum: 8c45a516278d1e0425fac00c0877336790f71484a851a318346a70e0d2aef9f3b9651deb2f9f002c791ceb920eda7d6a3cda753bdefd657321c99f448b02dd25
+  languageName: node
+  linkType: hard
+
+"vite@npm:^4.3.9":
+  version: 4.4.7
+  resolution: "vite@npm:4.4.7"
+  dependencies:
+    esbuild: ^0.18.10
+    fsevents: ~2.3.2
+    postcss: ^8.4.26
+    rollup: ^3.25.2
+  peerDependencies:
+    "@types/node": ">= 14"
+    less: "*"
+    lightningcss: ^1.21.0
+    sass: "*"
+    stylus: "*"
+    sugarss: "*"
+    terser: ^5.4.0
+  dependenciesMeta:
+    fsevents:
+      optional: true
+  peerDependenciesMeta:
+    "@types/node":
+      optional: true
+    less:
+      optional: true
+    lightningcss:
+      optional: true
+    sass:
+      optional: true
+    stylus:
+      optional: true
+    sugarss:
+      optional: true
+    terser:
+      optional: true
+  bin:
+    vite: bin/vite.js
+  checksum: 787c4d891da18d0a0545bee07dec73c3201979dcf2b1ea3dc13fdd2d3b9ad76d413bcc0e68502183e309007a612c1f4116adefe0093d95fbbb9cf1c1755f7e41
   languageName: node
   linkType: hard
 
