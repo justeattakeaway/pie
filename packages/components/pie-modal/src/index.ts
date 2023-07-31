@@ -351,7 +351,7 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
             ?isFullWidthBelowMid=${isFullWidthBelowMid}
             ?isLoading=${isLoading}
             aria-busy="${isLoading ? 'true' : 'false'}"
-            aria-label="${isLoading ? (aria?.loading || nothing) : nothing}"
+            aria-label="${(isLoading && aria?.loading) || nothing}"
             data-test-id="pie-modal">
             <header class="c-modal-header">
                 ${hasBackButton ? this.renderBackButton() : nothing}
