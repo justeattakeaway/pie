@@ -35,7 +35,7 @@ const Template = (props: ToggleSwitchProps): TemplateResult => {
     const { isChecked } = props;
 
     return html`
-        <pie-toggle-switch ?checked=${isChecked}></pie-toggle-switch>
+        <pie-toggle-switch ?isChecked=${isChecked}></pie-toggle-switch>
         `;
 };
 
