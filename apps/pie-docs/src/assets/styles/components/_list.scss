@@ -54,6 +54,7 @@
 
 .c-list--bullet {
     margin: 0;
+
     .c-list-item {
         @include f.font-size('body-l');
         display: flex;

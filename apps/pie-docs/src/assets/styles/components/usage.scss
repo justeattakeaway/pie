@@ -5,54 +5,54 @@ $usage-container-gap: 20px;
 $usage-bg-minHeight: 280px;
 
 .c-usage-container {
-  display: flex;
-  flex-direction: column;
-  gap: $usage-container-gap;
-  margin-top: f.spacing(e);
-  margin-bottom: f.spacing(f);
+    display: flex;
+    flex-direction: column;
+    gap: $usage-container-gap;
+    margin-top: f.spacing(e);
+    margin-bottom: f.spacing(f);
 
-  @include f.media('>=narrowMid') {
-    flex-direction: row;
-  }
+    @include f.media('>=narrowMid') {
+        flex-direction: row;
+    }
 }
 
 .c-usage {
-  width: 100%;
+    width: 100%;
 }
 
 .c-usage-heading {
-  @include f.font-size('heading-s', $scale: 'narrow');
-  font-weight: f.$font-weight-bold;
-  color: var(--style-colour);
-  display: flex;
-  align-items: center;
-  gap: f.spacing(b);
-  margin-bottom: f.spacing(d);
+    @include f.font-size('heading-s', $scale: 'narrow');
+    font-weight: f.$font-weight-bold;
+    color: var(--style-colour);
+    display: flex;
+    align-items: center;
+    gap: f.spacing(b);
+    margin-bottom: f.spacing(d);
 }
 
 .c-usage-backdrop {
-  padding: f.spacing(e);
-  background-color: f.$color-background-subtle;
-  border-radius: 0 0 f.$radius-rounded-d f.$radius-rounded-d;
-  border-top: 4px solid var(--style-colour);
+    padding: f.spacing(e);
+    background-color: f.$color-background-subtle;
+    border-radius: 0 0 f.$radius-rounded-d f.$radius-rounded-d;
+    border-top: 4px solid var(--style-colour);
 
-  &.c-usage-backdrop--hasImage {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: f.spacing(f);
-    min-height: $usage-bg-minHeight;
-  }
+    &.c-usage-backdrop--hasImage {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: f.spacing(f);
+        min-height: $usage-bg-minHeight;
+    }
 }
 
 .c-usage-img {
-  margin: 0;
+    margin: 0;
 
-  & img {
-    width: var(--img-width);
-    display: block;
-    max-width: 100%;
-    height: auto;
-  }
+    & img {
+        width: var(--img-width);
+        display: block;
+        max-width: 100%;
+        height: auto;
+    }
 }
