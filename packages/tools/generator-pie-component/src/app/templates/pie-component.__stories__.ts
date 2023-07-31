@@ -29,6 +29,8 @@ const <%= componentNameCamelCase %>StoryMeta: <%= componentName %>StoryMeta = {
 
 export default <%= componentNameCamelCase %>StoryMeta;
 
+// TODO: remove the eslint-disable rule when props are added
+// eslint-disable-next-line no-empty-pattern
 const Template = ({}: <%= componentName %>Props): TemplateResult => html`
         <pie-<%= fileName %>/>
         `;
