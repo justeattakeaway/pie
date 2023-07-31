@@ -13,7 +13,7 @@
 
     .c-list-item {
         counter-increment: item;
-        margin-block-end:  f.spacing(b);
+        margin-block-end: f.spacing(b);
         @include f.font-size('body-l');
         display: flex;
 
@@ -25,7 +25,7 @@
             content: counter(item);
             @include f.font-size('body-s');
             font-weight: f.$font-weight-bold;
-            margin-inline-end:  f.spacing(c);
+            margin-inline-end: f.spacing(c);
             width: 25px;
             height: 25px;
             background: f.$color-container-inverse;
