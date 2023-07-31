@@ -18,7 +18,7 @@ const componentSelector = 'pie-toggle-switch';
  */
 export class PieToggleSwitch extends LitElement implements ToggleSwitchProps {
     @property({ type: Boolean, reflect: true })
-    public isChecked = false;
+    public isChecked = true;
 
     static styles = unsafeCSS(styles);
 
@@ -41,11 +41,11 @@ export class PieToggleSwitch extends LitElement implements ToggleSwitchProps {
                     role="switch"
                     type="checkbox"
                     class="c-toggle-switch-input"
-                    .checked="${isChecked}"
+                    ?checked="${isChecked}"
                     @change="${this.onToggleChange}">
 
                 <div class="c-toggle-switch-control">
-                    ${isChecked ? html`<icon-check></icon-check>` : nothing}
+                    ${isChecked ? html`<icon-check />` : nothing}
                 </div>
             </label>
         `;

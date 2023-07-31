@@ -96,16 +96,23 @@
     border-radius: var(--toggle-switch-radius);
     background-color: var(--dt-color-interactive-light);
 
+    .c-pieIcon--check {
+        width: var(--toggle-switch-icon-size);
+        height: var(--toggle-switch-icon-size);
+    }
+
     .c-toggle-switch-input:checked + & {
         @include toggle-switch-transition(transform);
         transform: translateX(var(--toggle-switch-translation));
+
+        .c-pieIcon--check {
+            @include toggle-switch-transition(color);
+            color: var(--toggle-switch-colour--checked);
+        }
     }
 
     .c-toggle-switch-input:disabled ~ & {
-        path {
-            @include toggle-switch-transition(fill);
-            fill: var(--toggle-switch-colour--disabled);
-        }
+        color: var(--toggle-switch-colour--disabled);
     }
 }
 
@@ -114,15 +121,5 @@
     .c-toggle-switch-input:checked + .c-toggle-switch-control {
         @include toggle-switch-transition(transform);
         transform: translateX(calc(var(--toggle-switch-translation) * -1));
-    }
-}
-
-.c-toggle-switch-icon {
-    width: var(--toggle-switch-icon-size);
-    height: var(--toggle-switch-icon-size);
-
-    path {
-        @include toggle-switch-transition(fill);
-        fill: var(--toggle-switch-colour--checked);
     }
 }
