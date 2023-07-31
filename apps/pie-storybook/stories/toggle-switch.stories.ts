@@ -8,14 +8,14 @@ import '@justeattakeaway/pie-icons-webc/icons/IconCheck'; // Register icon-check
 type ToggleSwitchStoryMeta = StoryMeta<ToggleSwitchProps>;
 
 const defaultArgs: ToggleSwitchProps = {
-    checked: true,
+    isChecked: true,
 };
 
 const toggleSwitchStoryMeta: ToggleSwitchStoryMeta = {
     title: 'Toggle Switch',
     component: 'pie-toggle-switch',
     argTypes: {
-        checked: {
+        isChecked: {
             description: 'Same as the HTML checked attribute - indicates whether the switch is on or off',
             control: 'boolean',
         },
@@ -32,10 +32,10 @@ const toggleSwitchStoryMeta: ToggleSwitchStoryMeta = {
 export default toggleSwitchStoryMeta;
 
 const Template = (props: ToggleSwitchProps): TemplateResult => {
-    const { checked } = props;
+    const { isChecked } = props;
 
     return html`
-        <pie-toggle-switch ?checked=${checked}></pie-toggle-switch>
+        <pie-toggle-switch ?checked=${isChecked}></pie-toggle-switch>
         `;
 };
 
