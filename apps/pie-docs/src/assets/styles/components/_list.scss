@@ -52,6 +52,28 @@
     }
 }
 
+.c-list--bullet {
+    margin: 0;
+    .c-list-item {
+        @include f.font-size('body-l');
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        margin-bottom: f.spacing(b);
+
+        &:before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: f.$color-container-inverse;
+            border-radius: f.$radius-rounded-e;
+            margin-right: f.spacing(b);
+            margin-top: 8px;
+            flex-shrink: 0;
+        }
+    }
+}
+
 .c-list--icon {
     & .c-list-item {
         display: flex;

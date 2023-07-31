@@ -156,18 +156,42 @@ In this section you’ll find some factors you need to keep in mind when using i
 
 Abstract icons are more difficult to comprehend than literal icons. Instead of using metaphorical icons, try using those which convey the most basic idea or concept you’re trying to represent.
 
-{% contentPageImage {
-    src: "../../../assets/img/foundations/iconography/choosing-an-icon.svg",
-    mobileSrc: "../../../assets/img/foundations/iconography/choosing-an-icon-mobile.svg"
+{% usage {
+    do: {
+        type: "image",
+        items: [{
+            src:"../../../assets/img/foundations/iconography/how-to-choose-an-icon-do.svg",
+            width: "234px"
+        }]
+    },
+    dont: { 
+        type: "image",
+        items: [{
+            src:"../../../assets/img/foundations/iconography/how-to-choose-an-icon-dont.svg",
+            width: "234px"
+        }]
+    }
 } %}
 
 ### Pairing text with icons
 
 Icons act as a visual cue to improve the legibility and scannability of your products. As a general rule, try to place icons near a text label or title. Don’t place icons by themselves unless they represent an universally understood action.
 
-{% contentPageImage {
-    src: "../../../assets/img/foundations/iconography/icon-with-text.svg",
-    mobileSrc: "../../../assets/img/foundations/iconography/icon-with-text-mobile.svg"
+{% usage {
+    do: {
+        type: "image",
+        items: [{
+            src:"../../../assets/img/foundations/iconography/pairing-text-with-icons-do.svg",
+            width: "375px"
+        }]
+    },
+    dont: { 
+        type: "image",
+        items: [{
+        src:"../../../assets/img/foundations/iconography/pairing-text-with-icons-dont.svg",
+        width: "375px"
+        }]
+    }
 } %}
 
 ### Pairing colour and icons
