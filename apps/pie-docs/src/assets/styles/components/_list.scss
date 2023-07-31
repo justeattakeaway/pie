@@ -47,7 +47,7 @@
     & .c-list-item {
         @include f.font-size('body-s');
         background-color: f.$color-container-strong;
-        padding-inline: 2px  f.spacing(a);
+        padding: 2px  f.spacing(a);
         border-radius: f.$radius-rounded-b;
     }
 }
