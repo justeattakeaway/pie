@@ -5550,6 +5550,7 @@ __metadata:
     "@justeattakeaway/pie-icons-configs": "workspace:*"
     "@justeattakeaway/pie-webc-core": 0.6.0
     "@open-wc/testing": 3.2.0
+    "@rollup/plugin-node-resolve": 15.1.0
     "@rollup/plugin-typescript": 11.1.2
     "@web/test-runner": 0.16.1
     just-kebab-case: 4.2.0
