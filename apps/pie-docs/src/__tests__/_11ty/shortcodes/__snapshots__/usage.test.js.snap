@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`usage.js should return the expected HTML for the image type of usage component 1`] = `
+exports[`usage.js should return the expected HTML for the image type of the usage component 1`] = `
 "<div class=\\"c-usage-container\\">
     
     <div class=\\"c-usage\\" style=\\"--style-colour: #017a39;\\">
@@ -34,7 +34,7 @@ exports[`usage.js should return the expected HTML for the image type of usage co
   </div>"
 `;
 
-exports[`usage.js should return the expected HTML for the text type of usage component 1`] = `
+exports[`usage.js should return the expected HTML for the text type of the usage component 1`] = `
 "<div class=\\"c-usage-container\\">
     
     <div class=\\"c-usage\\" style=\\"--style-colour: #017a39;\\">
