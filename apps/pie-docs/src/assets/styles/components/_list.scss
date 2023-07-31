@@ -2,7 +2,7 @@
 
 .c-list {
     list-style: none;
-    padding-left: 0;
+    padding-inline-start: 0;
 }
 
 .c-list--ordered {
@@ -13,7 +13,7 @@
 
     .c-list-item {
         counter-increment: item;
-        margin-bottom: f.$spacing-02;
+        margin-block-end:  f.spacing(b);
         @include f.font-size('body-l');
         display: flex;
 
@@ -25,7 +25,7 @@
             content: counter(item);
             @include f.font-size('body-s');
             font-weight: f.$font-weight-bold;
-            margin-right: f.$spacing-03;
+            margin-inline-end:  f.spacing(c);
             width: 25px;
             height: 25px;
             background: f.$color-container-inverse;
@@ -47,7 +47,7 @@
     & .c-list-item {
         @include f.font-size('body-s');
         background-color: f.$color-container-strong;
-        padding: 2px 4px;
+        padding-inline: 2px  f.spacing(a);
         border-radius: f.$radius-rounded-b;
     }
 }
@@ -60,7 +60,7 @@
         display: flex;
         align-items: flex-start;
         justify-content: flex-start;
-        margin-bottom: f.spacing(b);
+        margin-block-end: f.spacing(b);
 
         &:before {
             content: '';
@@ -68,8 +68,8 @@
             height: 6px;
             background: f.$color-container-inverse;
             border-radius: f.$radius-rounded-e;
-            margin-right: f.spacing(b);
-            margin-top: f.spacing(b);
+            margin-inline-end: f.spacing(b);
+            margin-block-start: f.spacing(b);
             flex-shrink: 0;
         }
     }
@@ -82,11 +82,11 @@
 
         & > svg {
             flex-shrink: 0;
-            margin-top: 2px;
+            margin-block-start: 2px;
         }
 
         & + .c-list-item {
-            margin-top: f.spacing(e);
+            margin-block-start: f.spacing(e);
         }
     }
 }

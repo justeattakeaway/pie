@@ -8,8 +8,8 @@ $usage-bg-minHeight: 280px;
     display: flex;
     flex-direction: column;
     gap: $usage-container-gap;
-    margin-top: f.spacing(e);
-    margin-bottom: f.spacing(f);
+    margin-block-start: f.spacing(e);
+    margin-block-end: f.spacing(f);
 
     @include f.media('>=narrowMid') {
         flex-direction: row;
@@ -27,7 +27,7 @@ $usage-bg-minHeight: 280px;
     display: flex;
     align-items: center;
     gap: f.spacing(b);
-    margin-bottom: f.spacing(d);
+    margin-block-end: f.spacing(d);
 }
 
 .c-usage-backdrop {
