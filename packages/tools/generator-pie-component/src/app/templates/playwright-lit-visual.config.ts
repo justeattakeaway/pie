@@ -1,3 +1,4 @@
-import { definePlaywrightVisualConfig } from '@justeattakeaway/pie-components-config';
+import { defineConfig } from '@sand4rt/experimental-ct-web';
+import { getPlaywrightVisualConfig } from '@justeattakeaway/pie-components-config';
 
-export default definePlaywrightVisualConfig();
+export default defineConfig(getPlaywrightVisualConfig());
