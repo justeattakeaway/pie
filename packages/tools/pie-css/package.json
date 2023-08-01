@@ -10,8 +10,9 @@
   "main": "css/index.css",
   "scripts": {
     "build:css": "run -T ts-node ./build-css.ts",
-    "lint:style": "run -T stylelint ./**/*.{css,scss} --allow-empty-input",
-    "lint:style:fix": "yarn lint:style --fix"
+    "lint:style": "run -T stylelint ./**/*.{css,scss}",
+    "lint:style:fix": "yarn lint:style --fix",
+    "prepublishOnly": "yarn lint:style && yarn build:css"
   },
   "keywords": [
     "PIE",
@@ -22,6 +23,7 @@
   "repository": "https://github.com/justeattakeaway/pie.git",
   "license": "Apache-2.0",
   "devDependencies": {
-    "postcss-import": "^15.1.0"
+    "@types/postcss-import": "14.0.0",
+    "postcss-import": "15.1.0"
   }
 }
