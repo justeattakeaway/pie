@@ -3,9 +3,9 @@
 exports[`usage.js should return the expected HTML for the image type of the usage component 1`] = `
 "<div class=\\"c-usage-container\\">
     
-    <div class=\\"c-usage\\" style=\\"--style-colour: #017a39;\\">
+    <article class=\\"c-usage\\" style=\\"--style-colour: #017a39;\\">
       <div class=\\"c-usage-heading\\">
-        <svg xmlns=\\"http://www.w3.org/2000/svg\\" role=\\"presentation\\" focusable=\\"false\\" fill=\\"#017a39\\" viewBox=\\"0 0 16 16\\" height=\\"24\\" width=\\"24\\" class=\\"c-pieIcon c-pieIcon--checkCircle\\"><path d=\\"M13.495 8a5.487 5.487 0 1 1-1.75-3.99l.875-.962a6.764 6.764 0 1 0 1.759 2.616l-1.032 1.12c.098.398.148.806.148 1.216Z\\"></path><path d=\\"M8.061 10.625a1.215 1.215 0 0 1-.875-.385L4.99 7.781l.98-.875 2.118 2.38 5.416-5.888.963.875-5.522 5.95a1.181 1.181 0 0 1-.875.384l-.009.018Z\\"></path></svg>
+        <svg xmlns=\\"http://www.w3.org/2000/svg\\" role=\\"presentation\\" focusable=\\"false\\" fill=\\"#017a39\\" viewBox=\\"0 0 16 16\\" height=\\"24\\" width=\\"24\\" aria-hidden=\\"true\\" class=\\"c-pieIcon c-pieIcon--checkCircle\\"><path d=\\"M13.495 8a5.487 5.487 0 1 1-1.75-3.99l.875-.962a6.764 6.764 0 1 0 1.759 2.616l-1.032 1.12c.098.398.148.806.148 1.216Z\\"></path><path d=\\"M8.061 10.625a1.215 1.215 0 0 1-.875-.385L4.99 7.781l.98-.875 2.118 2.38 5.416-5.888.963.875-5.522 5.95a1.181 1.181 0 0 1-.875.384l-.009.018Z\\"></path></svg>
         Do
       </div>
       <div class=\\"c-usage-backdrop c-usage-backdrop--hasImage\\">
@@ -16,10 +16,10 @@ exports[`usage.js should return the expected HTML for the image type of the usag
           </picture>
       </figure>
       </div>
-    </div> 
-    <div class=\\"c-usage\\" style=\\"--style-colour: #d50525;\\">
+    </article> 
+    <article class=\\"c-usage\\" style=\\"--style-colour: #d50525;\\">
       <div class=\\"c-usage-heading\\">
-        <svg xmlns=\\"http://www.w3.org/2000/svg\\" role=\\"presentation\\" focusable=\\"false\\" fill=\\"#d50525\\" viewBox=\\"0 0 16 16\\" height=\\"24\\" width=\\"24\\" class=\\"c-pieIcon c-pieIcon--closeCircle\\"><path d=\\"M10.87 6.058 8.928 8l1.942 1.943-.927.927L8 8.928 6.058 10.87l-.928-.927L7.072 8 5.13 6.058l.928-.928L8 7.072 9.943 5.13l.927.928ZM14.781 8A6.782 6.782 0 1 1 8 1.219 6.79 6.79 0 0 1 14.781 8ZM13.47 8A5.469 5.469 0 1 0 2.53 8a5.469 5.469 0 0 0 10.938 0Z\\"></path></svg>
+        <svg xmlns=\\"http://www.w3.org/2000/svg\\" role=\\"presentation\\" focusable=\\"false\\" fill=\\"#d50525\\" viewBox=\\"0 0 16 16\\" height=\\"24\\" width=\\"24\\" aria-hidden=\\"true\\" class=\\"c-pieIcon c-pieIcon--closeCircle\\"><path d=\\"M10.87 6.058 8.928 8l1.942 1.943-.927.927L8 8.928 6.058 10.87l-.928-.927L7.072 8 5.13 6.058l.928-.928L8 7.072 9.943 5.13l.927.928ZM14.781 8A6.782 6.782 0 1 1 8 1.219 6.79 6.79 0 0 1 14.781 8ZM13.47 8A5.469 5.469 0 1 0 2.53 8a5.469 5.469 0 0 0 10.938 0Z\\"></path></svg>
         Don't
       </div>
       <div class=\\"c-usage-backdrop c-usage-backdrop--hasImage\\">
@@ -30,16 +30,16 @@ exports[`usage.js should return the expected HTML for the image type of the usag
           </picture>
       </figure>
       </div>
-    </div>
+    </article>
   </div>"
 `;
 
 exports[`usage.js should return the expected HTML for the text type of the usage component 1`] = `
 "<div class=\\"c-usage-container\\">
     
-    <div class=\\"c-usage\\" style=\\"--style-colour: #017a39;\\">
+    <article class=\\"c-usage\\" style=\\"--style-colour: #017a39;\\">
       <div class=\\"c-usage-heading\\">
-        <svg xmlns=\\"http://www.w3.org/2000/svg\\" role=\\"presentation\\" focusable=\\"false\\" fill=\\"#017a39\\" viewBox=\\"0 0 16 16\\" height=\\"24\\" width=\\"24\\" class=\\"c-pieIcon c-pieIcon--checkCircle\\"><path d=\\"M13.495 8a5.487 5.487 0 1 1-1.75-3.99l.875-.962a6.764 6.764 0 1 0 1.759 2.616l-1.032 1.12c.098.398.148.806.148 1.216Z\\"></path><path d=\\"M8.061 10.625a1.215 1.215 0 0 1-.875-.385L4.99 7.781l.98-.875 2.118 2.38 5.416-5.888.963.875-5.522 5.95a1.181 1.181 0 0 1-.875.384l-.009.018Z\\"></path></svg>
+        <svg xmlns=\\"http://www.w3.org/2000/svg\\" role=\\"presentation\\" focusable=\\"false\\" fill=\\"#017a39\\" viewBox=\\"0 0 16 16\\" height=\\"24\\" width=\\"24\\" aria-hidden=\\"true\\" class=\\"c-pieIcon c-pieIcon--checkCircle\\"><path d=\\"M13.495 8a5.487 5.487 0 1 1-1.75-3.99l.875-.962a6.764 6.764 0 1 0 1.759 2.616l-1.032 1.12c.098.398.148.806.148 1.216Z\\"></path><path d=\\"M8.061 10.625a1.215 1.215 0 0 1-.875-.385L4.99 7.781l.98-.875 2.118 2.38 5.416-5.888.963.875-5.522 5.95a1.181 1.181 0 0 1-.875.384l-.009.018Z\\"></path></svg>
         Do
       </div>
       <div class=\\"c-usage-backdrop\\">
@@ -53,10 +53,10 @@ exports[`usage.js should return the expected HTML for the text type of the usage
         </li>
     </ul>
       </div>
-    </div> 
-    <div class=\\"c-usage\\" style=\\"--style-colour: #d50525;\\">
+    </article> 
+    <article class=\\"c-usage\\" style=\\"--style-colour: #d50525;\\">
       <div class=\\"c-usage-heading\\">
-        <svg xmlns=\\"http://www.w3.org/2000/svg\\" role=\\"presentation\\" focusable=\\"false\\" fill=\\"#d50525\\" viewBox=\\"0 0 16 16\\" height=\\"24\\" width=\\"24\\" class=\\"c-pieIcon c-pieIcon--closeCircle\\"><path d=\\"M10.87 6.058 8.928 8l1.942 1.943-.927.927L8 8.928 6.058 10.87l-.928-.927L7.072 8 5.13 6.058l.928-.928L8 7.072 9.943 5.13l.927.928ZM14.781 8A6.782 6.782 0 1 1 8 1.219 6.79 6.79 0 0 1 14.781 8ZM13.47 8A5.469 5.469 0 1 0 2.53 8a5.469 5.469 0 0 0 10.938 0Z\\"></path></svg>
+        <svg xmlns=\\"http://www.w3.org/2000/svg\\" role=\\"presentation\\" focusable=\\"false\\" fill=\\"#d50525\\" viewBox=\\"0 0 16 16\\" height=\\"24\\" width=\\"24\\" aria-hidden=\\"true\\" class=\\"c-pieIcon c-pieIcon--closeCircle\\"><path d=\\"M10.87 6.058 8.928 8l1.942 1.943-.927.927L8 8.928 6.058 10.87l-.928-.927L7.072 8 5.13 6.058l.928-.928L8 7.072 9.943 5.13l.927.928ZM14.781 8A6.782 6.782 0 1 1 8 1.219 6.79 6.79 0 0 1 14.781 8ZM13.47 8A5.469 5.469 0 1 0 2.53 8a5.469 5.469 0 0 0 10.938 0Z\\"></path></svg>
         Don't
       </div>
       <div class=\\"c-usage-backdrop\\">
@@ -70,6 +70,6 @@ exports[`usage.js should return the expected HTML for the text type of the usage
         </li>
     </ul>
       </div>
-    </div>
+    </article>
   </div>"
 `;
