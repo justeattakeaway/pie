@@ -46,6 +46,7 @@ const buildUsageCard = (usageType, { type, items }) => {
             height: 24,
             width: 24,
             fill: iconFill,
+            'aria-hidden': 'true',
         },
     });
     const backdropClasses = ['c-usage-backdrop', ...(isImage ? ['c-usage-backdrop--hasImage'] : [])];
@@ -55,7 +56,7 @@ const buildUsageCard = (usageType, { type, items }) => {
         : list({ type: 'bullet', items });
 
     return `
-    <div class="c-usage" style="--style-colour: ${styleColourValue};">
+    <article class="c-usage" style="--style-colour: ${styleColourValue};">
       <div class="c-usage-heading">
         ${svg}
         ${displayName}
@@ -63,7 +64,7 @@ const buildUsageCard = (usageType, { type, items }) => {
       <div class="${backdropClasses.join(' ')}">
         ${content}
       </div>
-    </div>`;
+    </article>`;
 };
 
 /**

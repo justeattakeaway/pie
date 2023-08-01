@@ -37,10 +37,8 @@ $usage-bg-minHeight: 280px;
     border-top: 4px solid var(--style-colour);
 
     &.c-usage-backdrop--hasImage {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+        display: grid;
+        place-content: center;
         gap: f.spacing(f);
         min-height: $usage-bg-minHeight;
     }
