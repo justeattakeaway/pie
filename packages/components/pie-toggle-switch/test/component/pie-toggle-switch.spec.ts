@@ -1,22 +1,23 @@
 import { test, expect } from '@sand4rt/experimental-ct-web';
 import { PieToggleSwitch } from '@/index';
 
-const props = {
-    isChecked: false,
-    isDisabled: false,
-};
+const componentSelector = '[data-test-id="toggle-switch-component"]';
 
-const componentSelector = '[data-test-id="pie-toggle-switch"]';
+test.describe('Component: `Pie toggle switch`', () => {
+    test('should be visible', async ({ mount, page }) => {
+        // Arrange
+        await mount(PieToggleSwitch, {
+            props: {
+                isChecked: false,
+                isDisabled: false,
+            },
+        });
 
-test('should be visible', async ({ mount, page }) => {
-    // Arrange
-    await mount(PieToggleSwitch, {
-        props,
+        // Act
+        const toggleSwitch = page.locator(componentSelector);
+
+        // Assert
+        await expect(toggleSwitch).toBeVisible();
     });
-
-    // Act
-    const toggleSwitch = page.locator(componentSelector);
-
-    // Assert
-    expect(toggleSwitch).not.toBeVisible();
 });
+
