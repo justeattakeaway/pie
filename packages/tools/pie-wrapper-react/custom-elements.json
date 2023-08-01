@@ -184,6 +184,15 @@
                     "members": [
                         {
                             "kind": "field",
+                            "name": "aria",
+                            "type": {
+                                "text": "AriaProps"
+                            },
+                            "privacy": "public",
+                            "attribute": "aria"
+                        },
+                        {
+                            "kind": "field",
                             "name": "heading",
                             "type": {
                                 "text": "string"
@@ -203,6 +212,26 @@
                         },
                         {
                             "kind": "field",
+                            "name": "hasBackButton",
+                            "type": {
+                                "text": "boolean"
+                            },
+                            "privacy": "public",
+                            "default": "false",
+                            "attribute": "hasBackButton"
+                        },
+                        {
+                            "kind": "field",
+                            "name": "hasStackedActions",
+                            "type": {
+                                "text": "boolean"
+                            },
+                            "privacy": "public",
+                            "default": "false",
+                            "attribute": "hasStackedActions"
+                        },
+                        {
+                            "kind": "field",
                             "name": "isDismissible",
                             "type": {
                                 "text": "boolean"
@@ -211,16 +240,6 @@
                             "default": "false",
                             "attribute": "isDismissible",
                             "reflects": true
-                        },
-                        {
-                            "kind": "field",
-                            "name": "hasBackButton",
-                            "type": {
-                                "text": "boolean"
-                            },
-                            "privacy": "public",
-                            "default": "false",
-                            "attribute": "hasBackButton"
                         },
                         {
                             "kind": "field",
@@ -244,6 +263,17 @@
                         },
                         {
                             "kind": "field",
+                            "name": "isLoading",
+                            "type": {
+                                "text": "boolean"
+                            },
+                            "privacy": "public",
+                            "default": "false",
+                            "attribute": "isLoading",
+                            "reflects": true
+                        },
+                        {
+                            "kind": "field",
                             "name": "isOpen",
                             "type": {
                                 "text": "boolean"
@@ -254,14 +284,21 @@
                         },
                         {
                             "kind": "field",
-                            "name": "isLoading",
+                            "name": "leadingAction",
                             "type": {
-                                "text": "boolean"
+                                "text": "{\n        text: string;\n        variant?: Variant;\n        ariaLabel?: string;\n    }"
                             },
                             "privacy": "public",
-                            "default": "false",
-                            "attribute": "isLoading",
-                            "reflects": true
+                            "attribute": "leadingAction"
+                        },
+                        {
+                            "kind": "field",
+                            "name": "position",
+                            "type": {
+                                "text": "ModalProps['position']"
+                            },
+                            "privacy": "public",
+                            "default": "'center'"
                         },
                         {
                             "kind": "field",
@@ -284,39 +321,12 @@
                         },
                         {
                             "kind": "field",
-                            "name": "leadingAction",
-                            "type": {
-                                "text": "{\n        text: string;\n        variant?: Variant;\n        ariaLabel?: string;\n    }"
-                            },
-                            "privacy": "public",
-                            "attribute": "leadingAction"
-                        },
-                        {
-                            "kind": "field",
                             "name": "supportingAction",
                             "type": {
                                 "text": "{\n        text: string;\n        variant?: Variant;\n        ariaLabel?: string;\n    }"
                             },
                             "privacy": "public",
                             "attribute": "supportingAction"
-                        },
-                        {
-                            "kind": "field",
-                            "name": "aria",
-                            "type": {
-                                "text": "AriaProps"
-                            },
-                            "privacy": "public",
-                            "attribute": "aria"
-                        },
-                        {
-                            "kind": "field",
-                            "name": "position",
-                            "type": {
-                                "text": "ModalProps['position']"
-                            },
-                            "privacy": "public",
-                            "default": "'center'"
                         },
                         {
                             "kind": "field",
@@ -556,6 +566,13 @@
                     ],
                     "attributes": [
                         {
+                            "name": "aria",
+                            "type": {
+                                "text": "AriaProps"
+                            },
+                            "fieldName": "aria"
+                        },
+                        {
                             "name": "heading",
                             "type": {
                                 "text": "string"
@@ -571,20 +588,28 @@
                             "fieldName": "headingLevel"
                         },
                         {
-                            "name": "isDismissible",
-                            "type": {
-                                "text": "boolean"
-                            },
-                            "default": "false",
-                            "fieldName": "isDismissible"
-                        },
-                        {
                             "name": "hasBackButton",
                             "type": {
                                 "text": "boolean"
                             },
                             "default": "false",
                             "fieldName": "hasBackButton"
+                        },
+                        {
+                            "name": "hasStackedActions",
+                            "type": {
+                                "text": "boolean"
+                            },
+                            "default": "false",
+                            "fieldName": "hasStackedActions"
+                        },
+                        {
+                            "name": "isDismissible",
+                            "type": {
+                                "text": "boolean"
+                            },
+                            "default": "false",
+                            "fieldName": "isDismissible"
                         },
                         {
                             "name": "isFooterPinned",
@@ -603,6 +628,14 @@
                             "fieldName": "isFullWidthBelowMid"
                         },
                         {
+                            "name": "isLoading",
+                            "type": {
+                                "text": "boolean"
+                            },
+                            "default": "false",
+                            "fieldName": "isLoading"
+                        },
+                        {
                             "name": "isOpen",
                             "type": {
                                 "text": "boolean"
@@ -611,12 +644,11 @@
                             "fieldName": "isOpen"
                         },
                         {
-                            "name": "isLoading",
+                            "name": "leadingAction",
                             "type": {
-                                "text": "boolean"
+                                "text": "{\n        text: string;\n        variant?: Variant;\n        ariaLabel?: string;\n    }"
                             },
-                            "default": "false",
-                            "fieldName": "isLoading"
+                            "fieldName": "leadingAction"
                         },
                         {
                             "name": "returnFocusAfterCloseSelector",
@@ -634,25 +666,11 @@
                             "fieldName": "size"
                         },
                         {
-                            "name": "leadingAction",
-                            "type": {
-                                "text": "{\n        text: string;\n        variant?: Variant;\n        ariaLabel?: string;\n    }"
-                            },
-                            "fieldName": "leadingAction"
-                        },
-                        {
                             "name": "supportingAction",
                             "type": {
                                 "text": "{\n        text: string;\n        variant?: Variant;\n        ariaLabel?: string;\n    }"
                             },
                             "fieldName": "supportingAction"
-                        },
-                        {
-                            "name": "aria",
-                            "type": {
-                                "text": "AriaProps"
-                            },
-                            "fieldName": "aria"
                         },
                         {
                             "name": "dir",
