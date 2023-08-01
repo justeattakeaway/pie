@@ -1,3 +1,4 @@
-import { definePlaywrightConfig } from '@justeattakeaway/pie-components-config';
+import { defineConfig } from '@sand4rt/experimental-ct-web';
+import { getPlaywrightConfig } from '@justeattakeaway/pie-components-config';
 
-export default definePlaywrightConfig();
+export default defineConfig(getPlaywrightConfig());

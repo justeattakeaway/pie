@@ -1,11 +1,11 @@
-import { defineConfig, devices } from '@sand4rt/experimental-ct-web';
+import { devices } from '@sand4rt/experimental-ct-web';
 import path from 'path';
 
 /**
  * See https://playwright.dev/docs/test-configuration
  */
-export function definePlaywrightVisualConfig (overrides = {}) {
-    return defineConfig({
+export function getPlaywrightVisualConfig () {
+    return {
         /* Maximum time one test can run for. */
         timeout: 10 * 1000,
         /* Run tests in files in parallel */
@@ -50,7 +50,5 @@ export function definePlaywrightVisualConfig (overrides = {}) {
                 testMatch: ['**/test/visual/*.spec.ts'],
             },
         ],
-
-        ...overrides,
-    });
+    };
 }

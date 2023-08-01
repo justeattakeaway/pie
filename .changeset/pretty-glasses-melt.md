@@ -3,4 +3,4 @@
 "pie-storybook": minor
 ---
 
-[Added] SupportingAction prop to modal
+[Added] - hasStackedActions to pie-modal action buttons
