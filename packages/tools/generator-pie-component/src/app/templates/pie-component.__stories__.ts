@@ -24,7 +24,7 @@ const <%= componentNameCamelCase %>StoryMeta: <%= componentName %>StoryMeta = {
             url: '',
         },
     },
-}
+};
 
 export default <%= componentNameCamelCase %>StoryMeta;
 
