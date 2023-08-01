@@ -117,6 +117,9 @@ export interface ModalProps extends RTLComponentProps {
      */
     position: typeof positions[number];
 
+    /**
+     * The ARIA labels used for the modal close and back buttons, as well as loading state.
+     */
     aria?: AriaProps;
 }
 

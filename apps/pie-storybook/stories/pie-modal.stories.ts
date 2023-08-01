@@ -55,51 +55,66 @@ const modalStoryMeta: ModalStoryMeta = {
     argTypes: {
         ...i18nArgTypes,
         isDismissible: {
+            description: 'Allows dismissing the modal by clicking outside of it, using the escape key or close button.',
             control: 'boolean',
         },
         hasBackButton: {
+            description: 'When true, the modal will have a back button. This currently behaves the same as the close button.',
             control: 'boolean',
         },
         isFooterPinned: {
+            description: 'When false, the modal footer will scroll with the content inside the modal body.',
             control: 'boolean',
         },
         isFullWidthBelowMid: {
+            description: 'This controls whether a *medium-sized* modal will cover the full width of the page when below the mid breakpoint.',
             control: 'boolean',
         },
         isOpen: {
+            description: 'When true, the modal will be open.',
             control: 'boolean',
         },
         isLoading: {
+            description: 'When true, displays a loading spinner in the modal.',
             control: 'boolean',
         },
         heading: {
+            description: 'The text to display in the modal\'s heading.',
             control: 'text',
         },
         headingLevel: {
+            description: 'The HTML heading tag to use for the modal\'s heading. Can be h1-h6.',
             control: 'select',
             options: headingLevels,
         },
         returnFocusAfterCloseSelector: {
+            description: 'The selector for the element that you would like focus to be returned to when the modal is closed, e.g., #skipToMain',
             control: 'text',
         },
         size: {
+            description: 'The size of the modal; this controls how wide it will appear on the page.',
             control: 'radio',
             options: sizes,
         },
         position: {
+            description: 'The position of the modal; this controls where it will appear on the page.',
             control: 'radio',
             options: positions,
         },
         slot: {
+            description: 'Content to place within the modal',
             control: 'text',
         },
         leadingAction: {
+            description: 'The leading action configuration for the modal.',
             control: 'object',
         },
         supportingAction: {
+            description: 'The supporting action configuration for the modal. Will not appear if no leading action is provided.',
             control: 'object',
         },
         aria: {
+            description: 'The ARIA labels used for the modal close and back buttons, as well as loading state.',
             control: 'object',
         },
     },
