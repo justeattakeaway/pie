@@ -3,9 +3,12 @@
   "version": "0.0.0",
   "description": "A styling library that provides both a shared collection of ready to use CSS styles to be used across JET web front-ends, and SCSS-based style helpers for our PIE Web Component library.",
   "author": "JustEatTakeaway - Design System Web Team",
-  "files": [],
+  "files": [
+    "index.css",
+    "helpers"
+  ],
   "type": "module",
-  "main": "",
+  "main": "index.css",
   "scripts": {
     "lint:scripts": "run -T eslint .",
     "lint:scripts:fix": "yarn lint:scripts --fix",
