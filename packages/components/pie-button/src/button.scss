@@ -88,6 +88,9 @@
     cursor: pointer;
     user-select: none;
 
+    // used to specify whether the button should be full width or not
+    inline-size: var(--btn-inline-size);
+
     // TODO: This should be moved into global CSS typography setting
     // This should be imported by consuming apps and set on the application body
     text-rendering: optimizelegibility;
@@ -204,7 +207,7 @@
 
     // Additional modifiers
     &[isFullWidth] {
-        inline-size: 100%;
+        --btn-inline-size: 100%;
     }
 
     &[disabled] {
