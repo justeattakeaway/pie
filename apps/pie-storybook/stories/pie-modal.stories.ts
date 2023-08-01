@@ -24,6 +24,7 @@ const defaultArgs: ModalProps = {
     headingLevel: 'h2',
     isDismissible: true,
     hasBackButton: true,
+    hasStackedActions: false,
     isFooterPinned: true,
     isFullWidthBelowMid: false,
     isOpen: true,
@@ -60,6 +61,9 @@ const modalStoryMeta: ModalStoryMeta = {
         },
         hasBackButton: {
             description: 'When true, the modal will have a back button. This currently behaves the same as the close button.',
+            control: 'boolean',
+        },
+        hasStackedActions: {
             control: 'boolean',
         },
         isFooterPinned: {
@@ -159,43 +163,45 @@ const createFocusableElementsPageHTML = () : TemplateResult => html`
         }
     </style>`;
 
-const BaseStoryTemplate = (props: ModalProps): TemplateResult => {
+const BaseStoryTemplate = (props: ModalProps) : TemplateResult => {
     const {
         aria,
+        dir,
         heading,
         headingLevel,
-        isDismissible,
         hasBackButton,
+        hasStackedActions,
+        isDismissible,
         isFooterPinned,
         isFullWidthBelowMid,
-        isOpen,
         isLoading,
+        isOpen,
+        leadingAction,
+        position,
         returnFocusAfterCloseSelector,
         size,
-        position,
         slot,
-        dir,
-        leadingAction,
         supportingAction,
     } = props;
     return html`
         <pie-button @click=${toggleModal}>Toggle Modal</pie-button>
         <pie-modal
+            .aria="${aria}"
+            dir="${dir}"
             heading="${heading}"
             headingLevel="${headingLevel}"
-            ?isDismissible="${isDismissible}"
             ?hasBackButton="${hasBackButton}"
+            ?hasStackedActions="${hasStackedActions}"
+            ?isDismissible="${isDismissible}"
             .isFooterPinned="${isFooterPinned}"
             ?isFullWidthBelowMid="${isFullWidthBelowMid}"
             ?isLoading="${isLoading}"
-            returnFocusAfterCloseSelector="${ifDefined(returnFocusAfterCloseSelector)}"
             ?isOpen="${isOpen}"
-            dir="${dir}"
-            size="${size}"
             .leadingAction="${leadingAction}"
-            .supportingAction="${supportingAction}"
-            .aria="${aria}"
-            position="${position}">
+            position="${position}"
+            returnFocusAfterCloseSelector="${ifDefined(returnFocusAfterCloseSelector)}"
+            size="${size}"
+            .supportingAction="${supportingAction}">
             ${slot}
         </pie-modal>`;
 };
