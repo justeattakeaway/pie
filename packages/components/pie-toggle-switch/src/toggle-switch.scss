@@ -40,7 +40,7 @@
     cursor: pointer;
 
     &:hover {
-        background-color: hsl(var(--dt-color-interactive-form-h), var(--dt-color-interactive-form-s), var(--dt-color-interactive-form-l), var(--dt-color-hover-01));
+        background-color: hsl(var(--dt-color-interactive-form-h), var(--dt-color-interactive-form-s), calc(var(--dt-color-interactive-form-l) - var(--dt-color-hover-01)));
     }
 
     &:focus,
@@ -50,16 +50,15 @@
     }
 
     &:active {
-        background-color: hsl(var(--dt-color-interactive-form-h), var(--dt-color-interactive-form-s), var(--dt-color-interactive-form-l), var(--dt-color-active-01));
+        background-color: hsl(var(--dt-color-interactive-form-h), var(--dt-color-interactive-form-s), calc(var(--dt-color-interactive-form-l) - var(--dt-color-active-01)));
     }
 
-    // Has doesn't meet our browser support requirements so we should replace this
-    &:has(.c-toggle-switch-input:checked) {
+    &[ischecked] {
         @include toggle-switch-transition(background-color);
-        background-color: --toggle-switch-colour--checked;
+        background-color: var(--toggle-switch-colour--checked);
 
         &:hover {
-            background-color: hsl(var(--dt-color-interactive-brand-h), var(--dt-color-interactive-brand-s), var(--dt-color-interactive-brand-l), var(--dt-color-hover-01));
+            background-color: hsl(var(--dt-color-interactive-brand-h), var(--dt-color-interactive-brand-s), calc(var(--dt-color-interactive-brand-l) - var(--dt-color-hover-01)));
         }
 
         &:focus,
@@ -68,16 +67,20 @@
         }
 
         &:active {
-            background-color: hsl(var(--dt-color-interactive-brand-h), var(--dt-color-interactive-brand-s), var(--dt-color-interactive-brand-l), var(--dt-color-active-01));
+            background-color: hsl(var(--dt-color-interactive-brand-h), var(--dt-color-interactive-brand-s), calc(var(--dt-color-interactive-brand-l) - var(--dt-color-active-01)));
         }
     }
 
-    // Has doesn't meet our browser support requirements so we should replace this
-    &:has(.c-toggle-switch-input:disabled) {
+    &[disabled] {
         background-color: var(--toggle-switch-colour--disabled);
 
         cursor: not-allowed;
         pointer-events: none;
+
+        .c-pieIcon--check {
+            @include toggle-switch-transition(color);
+            color: var(--toggle-switch-colour--disabled);
+        }
     }
 }
 
