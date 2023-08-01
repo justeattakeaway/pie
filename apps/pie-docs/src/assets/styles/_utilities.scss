@@ -25,7 +25,6 @@
     max-width: v.$wide-screen-content-max-width;
     margin: 0;
     padding: 0;
-    overflow: hidden;
 
     @include f.media('>=#{v.$wide-screen-content-max-width}') {
         margin-inline: auto;
