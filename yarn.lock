@@ -5476,6 +5476,8 @@ __metadata:
 "@justeattakeaway/pie-css@workspace:packages/tools/pie-css":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-css@workspace:packages/tools/pie-css"
+  dependencies:
+    postcss-import: ^15.1.0
   languageName: unknown
   linkType: soft
 

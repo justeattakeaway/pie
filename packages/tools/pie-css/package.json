@@ -20,5 +20,8 @@
     "SASS"
   ],
   "repository": "https://github.com/justeattakeaway/pie.git",
-  "license": "Apache-2.0"
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "postcss-import": "^15.1.0"
+  }
 }
