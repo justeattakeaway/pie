@@ -17,7 +17,6 @@ const componentSelector = 'pie-toggle-switch';
  * @event {CustomEvent} pie-toggle-switch-changed - when the toggle switch checked state is changed.
  */
 export class PieToggleSwitch extends LitElement implements ToggleSwitchProps {
-    disabled: boolean;
     @property({ type: Boolean, reflect: true })
     public isChecked = false;
 
