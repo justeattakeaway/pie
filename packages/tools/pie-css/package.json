@@ -7,9 +7,9 @@
     "index.css",
     "scss"
   ],
-  "type": "module",
-  "main": "index.css",
+  "main": "css/index.css",
   "scripts": {
+    "build:css": "run -T ts-node ./build-css.ts",
     "lint:style": "run -T stylelint ./**/*.{css,scss} --allow-empty-input",
     "lint:style:fix": "yarn lint:style --fix"
   },
