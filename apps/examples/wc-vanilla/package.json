@@ -1,6 +1,6 @@
 {
   "name": "wc-vanilla",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "private": true,
   "type": "module",
   "scripts": {
@@ -13,8 +13,8 @@
   },
   "dependencies": {
     "@justeat/pie-design-tokens": "5.3.0",
-    "@justeattakeaway/pie-button": "0.20.0",
-    "@justeattakeaway/pie-icon-button": "0.10.0",
+    "@justeattakeaway/pie-button": "0.21.0",
+    "@justeattakeaway/pie-icon-button": "0.11.0",
     "@justeattakeaway/pie-icons-webc": "0.4.0"
   },
   "installConfig": {
