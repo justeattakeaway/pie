@@ -71,7 +71,7 @@
         }
     }
 
-    &[disabled] {
+    &[isDisabled] {
         background-color: var(--toggle-switch-colour--disabled);
 
         cursor: not-allowed;

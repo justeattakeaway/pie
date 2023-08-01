@@ -6,7 +6,7 @@ export interface ToggleSwitchProps {
     /**
      * Same as the HTML checked attribute - indicates whether the switch disabled or not
      */
-    disabled: boolean;
+    isDisabled: boolean;
 }
 
 /**

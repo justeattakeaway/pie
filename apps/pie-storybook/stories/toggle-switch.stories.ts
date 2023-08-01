@@ -9,7 +9,7 @@ type ToggleSwitchStoryMeta = StoryMeta<ToggleSwitchProps>;
 
 const defaultArgs: ToggleSwitchProps = {
     isChecked: false,
-    disabled: false,
+    isDisabled: false,
 };
 
 const toggleSwitchStoryMeta: ToggleSwitchStoryMeta = {
@@ -20,7 +20,7 @@ const toggleSwitchStoryMeta: ToggleSwitchStoryMeta = {
             description: 'Same as the HTML checked attribute - indicates whether the switch is on or off',
             control: 'boolean',
         },
-        disabled: {
+        isDisabled: {
             description: 'Same as the HTML checked attribute - indicates whether the switch disabled or not',
             control: 'boolean',
         },
@@ -37,10 +37,10 @@ const toggleSwitchStoryMeta: ToggleSwitchStoryMeta = {
 export default toggleSwitchStoryMeta;
 
 const Template = (props: ToggleSwitchProps): TemplateResult => {
-    const { isChecked, disabled } = props;
+    const { isChecked, isDisabled } = props;
 
     return html`
-        <pie-toggle-switch ?isChecked=${isChecked} ?disabled=${disabled}></pie-toggle-switch>
+        <pie-toggle-switch ?isChecked=${isChecked} ?isDisabled=${isDisabled}></pie-toggle-switch>
         `;
 };
 
