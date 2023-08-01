@@ -48,6 +48,7 @@ export class PieToggleSwitch extends LitElement implements ToggleSwitchProps {
                     type="checkbox"
                     class="c-toggle-switch-input"
                     .checked="${isChecked}"
+                    .disabled="${disabled}"
                     @change="${this.onToggleChange}">
 
                 <div class="c-toggle-switch-control">
