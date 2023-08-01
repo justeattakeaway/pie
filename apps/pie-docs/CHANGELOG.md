@@ -1,5 +1,15 @@
 # Changelog
 
+## 2.5.0
+
+### Minor Changes
+
+- [Updated] - elevation and radius global token pages to use `simpleTable` over `tokensTable` ([#647](https://github.com/justeattakeaway/pie/pull/647)) by [@FayeCarter](https://github.com/FayeCarter)
+
+- [Changed] - global typography tokens to use simpleTable instead of tokenTable ([#642](https://github.com/justeattakeaway/pie/pull/642)) by [@FayeCarter](https://github.com/FayeCarter)
+
+  [Removed] - `globalSpacingTokens.json` so tokens are retrieved from the Pie tokens package instead of hard coded
+
 ## 2.4.2
 
 ### Patch Changes
