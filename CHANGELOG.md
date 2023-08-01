@@ -1,5 +1,17 @@
 # Changelog
 
+## 2.17.0
+
+### Minor Changes
+
+- [Added] - Created package skeleton for pie-toggle-switch component ([#658](https://github.com/justeattakeaway/pie/pull/658)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Updated] - GitHub Actions to only run visual tests against changed packages ([#655](https://github.com/justeattakeaway/pie/pull/655)) by [@siggerzz](https://github.com/siggerzz)
+
+- [Added] - Husky pre-push script for eslint ([#659](https://github.com/justeattakeaway/pie/pull/659)) by [@JoshuaNg2332](https://github.com/JoshuaNg2332)
+
+- [Changed] - Add js/ts linting and fix errors ([#653](https://github.com/justeattakeaway/pie/pull/653)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 2.16.0
 
 ### Minor Changes
