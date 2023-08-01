@@ -5,14 +5,12 @@
   "author": "JustEatTakeaway - Design System Web Team",
   "files": [
     "index.css",
-    "helpers"
+    "scss"
   ],
   "type": "module",
   "main": "index.css",
   "scripts": {
-    "lint:scripts": "run -T eslint .",
-    "lint:scripts:fix": "yarn lint:scripts --fix",
-    "lint:style": "run -T stylelint ./src/**/*.{css,scss} --allow-empty-input",
+    "lint:style": "run -T stylelint ./**/*.{css,scss} --allow-empty-input",
     "lint:style:fix": "yarn lint:style --fix"
   },
   "keywords": [

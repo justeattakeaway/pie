@@ -1,9 +1,12 @@
-*,
-*::before,
-*::after {
+html {
     box-sizing: border-box;
+    text-rendering: optimizelegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: antialiased;
 }
 
-body {
-    background-color: saddlebrown;
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
 }
