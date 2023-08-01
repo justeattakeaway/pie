@@ -28,7 +28,6 @@
     overflow: hidden;
 
     @include f.media('>=#{v.$wide-screen-content-max-width}') {
-        margin-left: auto;
-        margin-right: auto;
+        margin-inline: auto;
     }
 }

@@ -23,26 +23,26 @@
     }
 
     .c-heroBanner-btn {
-        margin-top: f.spacing(f);
-        margin-bottom: f.spacing(e);
+        margin-block-start: f.spacing(f);
+        margin-block-end: f.spacing(e);
     }
 }
 
 .c-heroBanner-text {
-    padding-top: f.spacing(g);
+    padding-block-start: f.spacing(g);
     align-self: start;
     grid-column: 1 / span 2;
 
     @include f.media('>=mid') {
         grid-column: 1;
         max-width: 500px;
-        padding-top: calc(f.spacing(e) + f.spacing(i)); // 88px
+        padding-block-start: calc(f.spacing(e) + f.spacing(i)); // 88px
     }
 }
 
 .c-heroBanner-description {
     @include f.font-size('body-l');
-    margin-top: f.spacing(d);
+    margin-block-start: f.spacing(d);
     max-width: 50ch;
 
     @include f.media('>=wide') {
