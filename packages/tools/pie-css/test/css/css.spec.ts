@@ -20,7 +20,7 @@ async function getCssContent (filePath: string): Promise<string> {
     }
 }
 
-// Requires the CSS to have been built before running this test
+// Requires the CSS to have been built before running these tests
 const builtCssFilePath = path.join(__dirname, '../../css/index.css');
 
 describe('index.css', () => {
@@ -29,7 +29,7 @@ describe('index.css', () => {
         const css = await getCssContent(builtCssFilePath);
 
         // text-rendering is not supported by W3C CSS validator however it is allowed to be set on HTML elements in various browsers
-        // there for we will allow for this error to be ignored
+        // therefore we will allow for this error to be ignored
         const acceptedErrors = ['Property “text-rendering” doesn\'t exist'];
 
         // Act
@@ -38,5 +38,13 @@ describe('index.css', () => {
 
         // Assert
         expect(validationErrors).toHaveLength(0);
+    });
+
+    it('should render the expected CSS content', async () => {
+        // Arrange
+        const css = await getCssContent(builtCssFilePath);
+
+        // Act & Assert
+        expect(css).toMatchSnapshot();
     });
 });
