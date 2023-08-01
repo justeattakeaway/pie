@@ -2,6 +2,6 @@
 "@justeattakeaway/generator-pie-component": minor
 "pie-storybook": minor
 ---
-[Changed] - renamed toggle siwtch story filename
+[Changed] - renamed the toggle switch story filename
 
-[Added] - testing starting templates for pie webc
+[Added] - testing starting templates for the generator-pie-component
