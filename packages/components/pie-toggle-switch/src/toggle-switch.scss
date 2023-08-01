@@ -119,10 +119,16 @@
     }
 }
 
-// This needs looking at
-[dir="rtl"] {
-    .c-toggle-switch-input:checked + .c-toggle-switch-control {
-        @include toggle-switch-transition(transform);
-        transform: translateX(calc(var(--toggle-switch-translation) * -1));
-    }
+label {
+  [dir="rtl"] & {
+    background-color: red;
+
+  }
+}
+
+:host([dir="rtl"]) {
+  .c-toggle-switch-input:checked + .c-toggle-switch-control {
+    @include toggle-switch-transition(transform);
+    transform: translateX(calc(-1 * var(--toggle-switch-translation)));
+  }
 }

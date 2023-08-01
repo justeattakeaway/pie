@@ -2,6 +2,7 @@ import {
     LitElement, html, unsafeCSS, nothing,
 } from 'lit';
 import { property } from 'lit/decorators.js';
+import { RtlMixin } from '@justeattakeaway/pie-webc-core';
 import styles from './toggle-switch.scss?inline';
 import { ToggleSwitchProps, EVENT_TOGGLE_SWITCH_CHANGED } from './defs';
 import '@justeattakeaway/pie-icons-webc/icons/IconCheck';
@@ -16,7 +17,8 @@ const componentSelector = 'pie-toggle-switch';
 /**
  * @event {CustomEvent} pie-toggle-switch-changed - when the toggle switch checked state is changed.
  */
-export class PieToggleSwitch extends LitElement implements ToggleSwitchProps {
+
+export class PieToggleSwitch extends RtlMixin(LitElement) implements ToggleSwitchProps {
     @property({ type: Boolean, reflect: true })
     public isChecked = false;
 

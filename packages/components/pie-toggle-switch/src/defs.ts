@@ -1,4 +1,6 @@
-export interface ToggleSwitchProps {
+import { RTLComponentProps } from '@justeattakeaway/pie-webc-core';
+
+export interface ToggleSwitchProps extends RTLComponentProps {
     /**
      * Same as the HTML checked attribute - indicates whether the switch is on or off
      */
