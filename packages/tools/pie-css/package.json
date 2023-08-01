@@ -12,7 +12,7 @@
     "build:css": "run -T ts-node ./build-css.ts",
     "lint:style": "run -T stylelint ./**/*.{css,scss}",
     "lint:style:fix": "yarn lint:style --fix",
-    "prepublishOnly": "yarn lint:style && yarn build:css",
+    "prepublishOnly": "yarn lint:style && yarn build:css && yarn test",
     "test": "run -T vitest run"
   },
   "keywords": [
