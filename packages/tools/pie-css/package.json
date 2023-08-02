@@ -14,7 +14,7 @@
     "lint:scripts:fix": "yarn lint:scripts --fix",
     "lint:style": "run -T stylelint ./**/*.{css,scss}",
     "lint:style:fix": "yarn lint:style --fix",
-    "prepublishOnly": "yarn lint:style && yarn build:css && yarn test",
+    "prepublishOnly": "yarn lint:style && yarn build && yarn test",
     "test": "run -T vitest run"
   },
   "keywords": [
