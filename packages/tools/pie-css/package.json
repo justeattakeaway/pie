@@ -7,11 +7,15 @@
     "index.css",
     "scss"
   ],
-  "type": "module",
-  "main": "index.css",
+  "main": "dist/index.css",
   "scripts": {
-    "lint:style": "run -T stylelint ./**/*.{css,scss} --allow-empty-input",
-    "lint:style:fix": "yarn lint:style --fix"
+    "build": "run -T ts-node ./buildCss.ts",
+    "lint:scripts": "run -T eslint .",
+    "lint:scripts:fix": "yarn lint:scripts --fix",
+    "lint:style": "run -T stylelint ./**/*.{css,scss}",
+    "lint:style:fix": "yarn lint:style --fix",
+    "prepublishOnly": "yarn lint:style && yarn lint:scripts && yarn build && yarn test",
+    "test": "run -T vitest run"
   },
   "keywords": [
     "PIE",
@@ -20,5 +24,10 @@
     "SASS"
   ],
   "repository": "https://github.com/justeattakeaway/pie.git",
-  "license": "Apache-2.0"
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@types/postcss-import": "14.0.0",
+    "postcss-import": "15.1.0",
+    "w3c-css-validator": "1.3.1"
+  }
 }
