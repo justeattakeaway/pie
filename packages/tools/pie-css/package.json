@@ -9,7 +9,7 @@
   ],
   "main": "dist/index.css",
   "scripts": {
-    "build:css": "run -T ts-node ./build-css.ts",
+    "build": "run -T ts-node ./build-css.ts",
     "lint:scripts": "run -T eslint .",
     "lint:scripts:fix": "yarn lint:scripts --fix",
     "lint:style": "run -T stylelint ./**/*.{css,scss}",
