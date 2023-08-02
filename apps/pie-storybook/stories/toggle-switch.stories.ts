@@ -24,7 +24,7 @@ const toggleSwitchStoryMeta: ToggleSwitchStoryMeta = {
             control: 'boolean',
         },
         isDisabled: {
-            description: 'Same as the HTML checked attribute - indicates whether the switch disabled or not',
+            description: 'Same as the HTML disabled attribute - indicates whether the switch is disabled or not',
             control: 'boolean',
         },
     },
