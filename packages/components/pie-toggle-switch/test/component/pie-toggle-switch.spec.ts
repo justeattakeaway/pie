@@ -42,23 +42,24 @@ test.describe('Component: `Pie toggle switch`', () => {
         await expect(pieToggleSwitchComponent).toBe(false);
     });
 
-    test.describe('when the component is clicked', () => {
-        test('should set `isChecked` to `true`', async ({ mount, page }) => {
-            // Arrange
-            const component = await mount(PieToggleSwitch, {
-                props: {
-                    isChecked: false,
-                    isDisabled: false,
-                },
+    test.describe('component interaction states', () => {
+        test.describe('when the component is clicked', () => {
+            test('should set `isChecked` to `true`', async ({ mount, page }) => {
+                // Arrange
+                const component = await mount(PieToggleSwitch, {
+                    props: {
+                        isChecked: false,
+                    },
+                });
+
+                // Act
+                await page.click(componentSelector);
+
+                const pieToggleSwitchComponent = await component.locator(componentSelector).isChecked();
+
+                // Assert
+                await expect(pieToggleSwitchComponent).toBe(true);
             });
-
-            // Act
-            await page.click(componentSelector);
-
-            const pieToggleSwitchComponent = await component.locator(componentSelector).isChecked();
-
-            // Assert
-            await expect(pieToggleSwitchComponent).toBe(true);
         });
     });
 });
