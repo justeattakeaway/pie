@@ -5601,7 +5601,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-webc-core@0.6.0, @justeattakeaway/pie-webc-core@workspace:*, @justeattakeaway/pie-webc-core@workspace:packages/components/pie-webc-core":
+"@justeattakeaway/pie-webc-core@npm:0.6.0":
+  version: 0.6.0
+  resolution: "@justeattakeaway/pie-webc-core@npm:0.6.0"
+  checksum: 9991fe1ca47e9bd6a3bade2ccb5f5fb109ca61f79cad955458a681ba7ae6e438bcf193a427ca26aa9052e525655068b18512b3f5a6291ef78676f3192487e1a0
+  languageName: node
+  linkType: hard
+
+"@justeattakeaway/pie-webc-core@workspace:*, @justeattakeaway/pie-webc-core@workspace:packages/components/pie-webc-core":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-webc-core@workspace:packages/components/pie-webc-core"
   languageName: unknown
