@@ -7,9 +7,11 @@
     "index.css",
     "scss"
   ],
-  "main": "css/index.css",
+  "main": "dist/index.css",
   "scripts": {
     "build:css": "run -T ts-node ./build-css.ts",
+    "lint:scripts": "run -T eslint .",
+    "lint:scripts:fix": "yarn lint:scripts --fix",
     "lint:style": "run -T stylelint ./**/*.{css,scss}",
     "lint:style:fix": "yarn lint:style --fix",
     "prepublishOnly": "yarn lint:style && yarn build:css && yarn test",

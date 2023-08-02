@@ -3,7 +3,7 @@ import postcss, { Result } from 'postcss';
 import atImport from 'postcss-import';
 
 const cssInputFilePath = 'css/input.css';
-const cssOutputFilePath = 'css/index.css';
+const cssOutputFilePath = 'dist/index.css';
 
 const css = fs.readFileSync(cssInputFilePath, 'utf8');
 
@@ -17,7 +17,7 @@ postcss()
         const output = result.css;
         console.info(`writing "${cssOutputFilePath}" file...`);
 
-        fs.writeFile(cssInputFilePath, output, (err) => {
+        fs.writeFile(cssOutputFilePath, output, (err) => {
             if (err) {
                 throw err;
             }

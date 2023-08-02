@@ -21,7 +21,7 @@ async function getCssContent (filePath: string): Promise<string> {
 }
 
 // Requires the CSS to have been built before running these tests
-const builtCssFilePath = path.join(__dirname, '../../css/index.css');
+const builtCssFilePath = path.join(__dirname, '../../dist/index.css');
 
 describe('index.css', () => {
     it('should not throw any unexpected W3C CSS validation errors', async () => {
