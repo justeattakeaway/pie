@@ -26,12 +26,10 @@ const buildImage = ({
     const imageAlt = `alt="${alt || ''}"`;
     const mobileImageMaxWidth = '600px';
 
-    return `<figure class="c-usage-img">
-          <picture>
+    return `<picture class="c-usage-img">
             ${mobileSrc ? `<source ${imageStyles} media="(max-width: ${mobileImageMaxWidth})" srcset="${mobileSrc}">` : ''}
             <img src="${src}" ${imageStyles} ${imageAlt}>
-          </picture>
-      </figure>`;
+          </picture>`;
 };
 
 const buildUsageCard = (usageType, { type, items }) => {
@@ -57,13 +55,15 @@ const buildUsageCard = (usageType, { type, items }) => {
 
     return `
     <article class="c-usage" style="--style-colour: ${styleColourValue};">
-      <div class="c-usage-heading">
-        ${svg}
-        ${displayName}
-      </div>
-      <div class="${backdropClasses.join(' ')}">
-        ${content}
-      </div>
+      <figure>
+        <figcaption class="c-usage-heading">
+          ${svg}
+          ${displayName}
+        </figcaption>
+        <div class="${backdropClasses.join(' ')}">
+          ${content}
+        </div>
+      </figure>
     </article>`;
 };
 
