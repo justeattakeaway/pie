@@ -2,25 +2,26 @@ import fs from 'fs';
 import postcss, { Result } from 'postcss';
 import atImport from 'postcss-import';
 
-// css to be processed
-const css = fs.readFileSync('css/input.css', 'utf8');
+const cssInputFilePath = 'css/input.css';
+const cssOutputFilePath = 'css/index.css';
+
+const css = fs.readFileSync(cssInputFilePath, 'utf8');
 
 // process css
 postcss()
     .use(atImport())
     .process(css, {
-        // `from` option is needed here
-        from: 'css/input.css',
+        from: cssInputFilePath,
     })
     .then((result: Result) => {
         const output = result.css;
-        console.info('writing index.css file...');
+        console.info(`writing "${cssOutputFilePath}" file...`);
 
-        fs.writeFile('css/index.css', output, (err) => {
+        fs.writeFile(cssInputFilePath, output, (err) => {
             if (err) {
                 throw err;
             }
 
-            console.info('index.css file written');
+            console.info(`"${cssOutputFilePath}" file written`);
         });
     });
