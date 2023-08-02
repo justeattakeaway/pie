@@ -1,37 +1,27 @@
-import del from 'rollup-plugin-delete';
+import typescript from '@rollup/plugin-typescript';
+import multiInput from 'rollup-plugin-multi-input';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 
 export default [
     {
-        input: ['icons/index.js'],
+        input: 'icons/*.ts',
         output: {
             exports: 'named',
-            dir: 'esm',
+            dir: 'dist/icons',
             format: 'esm',
             name: '@justeattakeaway/pie-icons-webc',
-            preserveModulesRoot: 'icons',
-            preserveModules: true,
         },
         plugins: [
-            del({ targets: ['esm/*'] }),
-            nodeResolve({ resolveOnly: ['@justeattakeaway/pie-icons-configs'] }),
-        ],
-    },
-    {
-        input: ['icons/index.js'],
-        output: {
-            exports: 'named',
-            dir: 'dist',
-            format: 'cjs',
-            name: '@justeattakeaway/pie-icons-webc',
-            preserveModulesRoot: 'icons',
-            preserveModules: true,
-        },
-        plugins: [
-            del({ targets: ['dist/*'] }),
-            nodeResolve({
-                resolveOnly: ['@justeattakeaway/pie-icons-configs'],
-            })
+            multiInput.default({ relative: 'icons/' }),
+            nodeResolve(),
+            typescript({
+                compilerOptions: {
+                    target: 'es6',
+                    declarationDir: './dist/icons',
+                    outDir: './dist/icons',
+                    rootDir: './icons',
+                },
+            }),
         ],
     },
 ];
