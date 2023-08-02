@@ -12,8 +12,7 @@ const readFile = util.promisify(fs.readFile);
 
 async function getCssContent (filePath: string): Promise<string> {
     try {
-        const data = await readFile(filePath, 'utf8');
-        return data;
+        return readFile(filePath, 'utf8');
     } catch (err) {
         console.error(`Error reading file from path: ${filePath}`, err);
         return '';
@@ -33,7 +32,7 @@ describe('index.css', () => {
         const acceptedErrors = ['Property “text-rendering” doesn\'t exist'];
 
         // Act
-        const result = await cssValidator.validateText(css, {});
+        const result = await cssValidator.validateText(css);
         const validationErrors = result.errors.filter((error) => !acceptedErrors.includes(error.message));
 
         // Assert
