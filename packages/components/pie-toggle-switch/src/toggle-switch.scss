@@ -1,8 +1,3 @@
-// TODO: the hover effects can't use darken() with CSS variables. We have the HSL values, so we can use those instead with HSL however I haven't got this working properly yet (see the Storybook example)
-// TODO: stylings ported from the vue component, not quite right yet
-// TODO: RTL doesn't work yet
-// Reference: https://vue.pie.design/?path=/story/components-atoms--toggle-switch-component
-
 @mixin toggle-switch-transition ($property) {
     @media (prefers-reduced-motion: no-preference) {
         transition-property: $property;
