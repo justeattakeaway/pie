@@ -3,7 +3,8 @@
   "version": "4.3.0",
   "private": true,
   "type": "module",
-  "description": "",
+  "types": "./index.d.ts",
+  "description": "Shared config and utility functions for building pie-icons as importable components",
   "exports": {
     ".": "./configs.js",
     "./configs-react": "./configs-react.js",
