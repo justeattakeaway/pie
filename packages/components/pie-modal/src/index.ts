@@ -8,21 +8,21 @@ import {
 } from '@justeattakeaway/pie-webc-core';
 import type { DependentMap } from '@justeattakeaway/pie-webc-core';
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
-import { Variant } from '@justeattakeaway/pie-button/src/defs.ts';
 import '@justeattakeaway/pie-icons-webc/dist/icons/IconClose.js';
 import '@justeattakeaway/pie-icons-webc/dist/icons/IconChevronLeft.js';
 import '@justeattakeaway/pie-icons-webc/dist/icons/IconChevronRight.js';
 
 import styles from './modal.scss?inline';
 import {
-    ModalProps,
+    type AriaProps,
+    type ActionProps,
+    type ModalProps,
     headingLevels,
+    positions,
+    sizes,
+    ON_MODAL_BACK_EVENT,
     ON_MODAL_CLOSE_EVENT,
     ON_MODAL_OPEN_EVENT,
-    ON_MODAL_BACK_EVENT,
-    positions,
-    AriaProps,
-    sizes,
 } from './defs';
 
 // Valid values available to consumers
@@ -69,11 +69,7 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
     public isOpen = false;
 
     @property({ type: Object })
-    public leadingAction!: {
-        text: string;
-        variant?: Variant;
-        ariaLabel?: string;
-    };
+    public leadingAction!: ActionProps;
 
     @validPropertyValues(componentSelector, positions, 'center')
     public position: ModalProps['position'] = 'center';
@@ -86,11 +82,7 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
     public size: ModalProps['size'] = 'medium';
 
     @property({ type: Object })
-    public supportingAction!: {
-        text: string;
-        variant?: Variant;
-        ariaLabel?: string;
-    };
+    public supportingAction!: ActionProps;
 
     @query('dialog')
     private _dialog?: HTMLDialogElement;

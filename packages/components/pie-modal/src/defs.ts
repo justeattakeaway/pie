@@ -11,7 +11,24 @@ export type AriaProps = {
     loading?: string;
 };
 
-export interface ModalProps extends RTLComponentProps {
+export type ActionProps = {
+        /**
+         * The text to display inside the button.
+         */
+        text: string;
+
+        /**
+         * The button variant.
+         */
+        variant?: Variant;
+
+        /**
+         * The ARIA label for the button.
+         */
+        ariaLabel?: string;
+};
+
+export type ModalProps = RTLComponentProps & {
     /**
      * The ARIA labels used for the modal close and back buttons, as well as loading state.
      */
@@ -73,23 +90,7 @@ export interface ModalProps extends RTLComponentProps {
     /**
      * The leading action configuration for the modal.
      */
-    leadingAction: {
-        /**
-         * The text to display for the leading action button.
-         */
-        text: string;
-
-        /**
-         * The variant of the leading action button.
-         * Default: 'primary'
-         */
-        variant?: Variant;
-
-        /**
-         * The ARIA label for the leading action button.
-         */
-        ariaLabel?: string;
-    };
+    leadingAction: ActionProps;
 
     /*
      * The position of the modal; this controls where it will appear on the page.
@@ -109,24 +110,8 @@ export interface ModalProps extends RTLComponentProps {
     /**
      * The supporting action configuration for the modal.
      */
-    supportingAction: {
-        /**
-         * The text to display for the supporting action button.
-         */
-        text: string;
-
-        /**
-         * The variant of the supporting action button.
-         * Default: 'ghost'
-         */
-        variant?: Variant;
-
-        /**
-         * The ARIA label for the supporting action button.
-         */
-        ariaLabel?: string;
-    };
-}
+    supportingAction: ActionProps;
+};
 
 /**
  * Event name for when the modal is closed.
