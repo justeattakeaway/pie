@@ -9,12 +9,12 @@
   ],
   "main": "dist/index.css",
   "scripts": {
-    "build": "run -T ts-node ./build-css.ts",
+    "build": "run -T ts-node ./buildCss.ts",
     "lint:scripts": "run -T eslint .",
     "lint:scripts:fix": "yarn lint:scripts --fix",
     "lint:style": "run -T stylelint ./**/*.{css,scss}",
     "lint:style:fix": "yarn lint:style --fix",
-    "prepublishOnly": "yarn lint:style && lint:scripts && yarn build && yarn test",
+    "prepublishOnly": "yarn lint:style && yarn lint:scripts && yarn build && yarn test",
     "test": "run -T vitest run"
   },
   "keywords": [
