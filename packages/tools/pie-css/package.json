@@ -1,0 +1,24 @@
+{
+  "name": "@justeattakeaway/pie-css",
+  "version": "0.0.0",
+  "description": "A styling library that provides both a shared collection of ready to use CSS styles to be used across JET web front-ends, and SCSS-based style helpers for our PIE Web Component library.",
+  "author": "JustEatTakeaway - Design System Web Team",
+  "files": [
+    "index.css",
+    "scss"
+  ],
+  "type": "module",
+  "main": "index.css",
+  "scripts": {
+    "lint:style": "run -T stylelint ./**/*.{css,scss} --allow-empty-input",
+    "lint:style:fix": "yarn lint:style --fix"
+  },
+  "keywords": [
+    "PIE",
+    "CSS",
+    "SCSS",
+    "SASS"
+  ],
+  "repository": "https://github.com/justeattakeaway/pie.git",
+  "license": "Apache-2.0"
+}
