@@ -1,4 +1,4 @@
-import { compileCss } from '../../../../utilities/compile-css';
+import { compileCss } from '../../../../utilities/compileCss';
 
 const scssToTest = `
 @use 'mixins';
