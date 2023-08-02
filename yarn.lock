@@ -5479,6 +5479,7 @@ __metadata:
   dependencies:
     "@types/postcss-import": 14.0.0
     postcss-import: 15.1.0
+    sass-true: ^7.0.0
     w3c-css-validator: 1.3.1
   languageName: unknown
   linkType: soft
@@ -9114,6 +9115,13 @@ __metadata:
   dependencies:
     "@types/node": "*"
   checksum: fa9edd32178878cab3ea8d6d0260639e0fe4860ddb3887b8de53d6e8036e154fc5f313c653f690975aa25025aea8beb83fb0870b931bf8d9202c3ac530a24c9d
+  languageName: node
+  linkType: hard
+
+"@types/css@npm:^0.0.33":
+  version: 0.0.33
+  resolution: "@types/css@npm:0.0.33"
+  checksum: 2dd93e3638a0f1c0cbd143188ce760efb2fedfe74cbc16b1848f202fd047ba55f2fc33de085777910228abe4e9221b7b30aaec83ff7128bce2f0a0966435dd4b
   languageName: node
   linkType: hard
 
@@ -16114,6 +16122,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"css@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "css@npm:3.0.0"
+  dependencies:
+    inherits: ^2.0.4
+    source-map: ^0.6.1
+    source-map-resolve: ^0.6.0
+  checksum: 4273ac816ddf99b99acb9c1d1a27d86d266a533cc01118369d941d8e8a78277a83cad3315e267a398c509d930fbb86504e193ea1ebc620a4a4212e06fe76e8be
+  languageName: node
+  linkType: hard
+
 "cssdb@npm:^7.1.0, cssdb@npm:^7.6.0":
   version: 7.6.0
   resolution: "cssdb@npm:7.6.0"
@@ -22886,6 +22905,18 @@ __metadata:
     jest-get-type: ^27.5.1
     pretty-format: ^27.5.1
   checksum: 8be27c1e1ee57b2bb2bef9c0b233c19621b4c43d53a3c26e2c00a4e805eb4ea11fe1694a06a9fb0e80ffdcfdc0d2b1cb0b85920b3f5c892327ecd1e7bd96b865
+  languageName: node
+  linkType: hard
+
+"jest-diff@npm:^29.3.1":
+  version: 29.6.2
+  resolution: "jest-diff@npm:29.6.2"
+  dependencies:
+    chalk: ^4.0.0
+    diff-sequences: ^29.4.3
+    jest-get-type: ^29.4.3
+    pretty-format: ^29.6.2
+  checksum: 0effd66a0c23f8c139ebf7ca99ed30b479b86fff66f19ad4869f130aaf7ae6a24ca1533f697b7e4930cbe2ddffc85387723fcca673501c653fb77a38f538e959
   languageName: node
   linkType: hard
 
@@ -30982,6 +31013,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"pretty-format@npm:^29.6.2":
+  version: 29.6.2
+  resolution: "pretty-format@npm:29.6.2"
+  dependencies:
+    "@jest/schemas": ^29.6.0
+    ansi-styles: ^5.0.0
+    react-is: ^18.0.0
+  checksum: a0f972a44f959023c0df9cdfe9eed7540264d7f7ddf74667db8a5294444d5aa153fd47d20327df10ae86964e2ceec10e46ea06b1a5c9c12e02348b78c952c9fc
+  languageName: node
+  linkType: hard
+
 "pretty-hrtime@npm:^1.0.3":
   version: 1.0.3
   resolution: "pretty-hrtime@npm:1.0.3"
@@ -33252,6 +33294,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"sass-true@npm:^7.0.0":
+  version: 7.0.0
+  resolution: "sass-true@npm:7.0.0"
+  dependencies:
+    "@types/css": ^0.0.33
+    css: ^3.0.0
+    jest-diff: ^29.3.1
+    lodash: ^4.17.21
+  peerDependencies:
+    sass: ">=1.45.0"
+  checksum: 2af304dc45628d776a572eb6a381e297d2e357d90abf2086c26af6a1f73c4eaea76760561f4067b8de82afcde60852c58d89769ef3c6122c8e620c32d35dc308
+  languageName: node
+  linkType: hard
+
 "sass@npm:1.58.1":
   version: 1.58.1
   resolution: "sass@npm:1.58.1"
@@ -34247,6 +34303,16 @@ __metadata:
     source-map-url: ^0.4.0
     urix: ^0.1.0
   checksum: c73fa44ac00783f025f6ad9e038ab1a2e007cd6a6b86f47fe717c3d0765b4a08d264f6966f3bd7cd9dbcd69e4832783d5472e43247775b2a550d6f2155d24bae
+  languageName: node
+  linkType: hard
+
+"source-map-resolve@npm:^0.6.0":
+  version: 0.6.0
+  resolution: "source-map-resolve@npm:0.6.0"
+  dependencies:
+    atob: ^2.1.2
+    decode-uri-component: ^0.2.0
+  checksum: fe503b9e5dac1c54be835282fcfec10879434e7b3ee08a9774f230299c724a8d403484d9531276d1670c87390e0e4d1d3f92b14cca6e4a2445ea3016b786ecd4
   languageName: node
   linkType: hard
 

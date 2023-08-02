@@ -1,0 +1,3 @@
+@mixin font-size($token) {
+    font-size: calc(var($token) * 1px);
+}
