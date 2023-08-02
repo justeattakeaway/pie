@@ -71,6 +71,7 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
     @property({ type: Object })
     public leadingAction!: ActionProps;
 
+    @property()
     @validPropertyValues(componentSelector, positions, 'center')
     public position: ModalProps['position'] = 'center';
 
