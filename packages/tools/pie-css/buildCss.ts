@@ -1,4 +1,4 @@
-import fs from 'fs/promises'; // Importing async methods
+import fs from 'fs/promises';
 import path from 'path';
 import postcss, { Result } from 'postcss';
 import atImport from 'postcss-import';
