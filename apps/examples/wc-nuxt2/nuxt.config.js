@@ -13,13 +13,12 @@ export default {
         ],
         link: [
             { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-            { rel: 'stylesheet', type: 'text/css', href: 'https://unpkg.com/@justeat/pie-design-tokens/dist/jet.css' },
-            { rel: 'stylesheet', type: 'text/css', href: 'https://unpkg.com/@justeat/pie-design-tokens/dist/jet-hsl-colors.css' }
         ],
     },
 
     // Global CSS: https://go.nuxtjs.dev/config-css
     css: [
+        '@justeattakeaway/pie-css',
         '~/assets/styles/fonts.css',
         '~/assets/styles/web-components.css'
     ],
