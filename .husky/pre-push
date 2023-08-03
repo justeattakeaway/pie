@@ -3,3 +3,6 @@
 
 # Checks branch name for Jira ticket id
 packages/tools/git-hooks-scripts/check-branch-name.js $(git symbolic-ref --short HEAD)
+
+# Checks the diff files for lint errors before allowing to push
+yarn eslint $(git diff --name-only main HEAD | grep -E '\.(ts|tsx|js|jsx)$' | xargs)

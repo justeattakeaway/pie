@@ -1,5 +1,24 @@
 # Changelog
 
+## 0.21.0
+
+### Minor Changes
+
+- [Added] - Created package skeleton for pie-toggle-switch component ([#658](https://github.com/justeattakeaway/pie/pull/658)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - isFooterPinned property to modal which offers more scrolling options to consumers ([#648](https://github.com/justeattakeaway/pie/pull/648)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - Modal aria labels to close, back and loading elements ([#652](https://github.com/justeattakeaway/pie/pull/652)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
+- [Added] SupportingAction prop to modal ([#643](https://github.com/justeattakeaway/pie/pull/643)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
+### Patch Changes
+
+- Updated dependencies [[`b104b9217`](https://github.com/justeattakeaway/pie/commit/b104b92172b00adba5c5cc50c71ae9de66c7091a), [`7ccec308f`](https://github.com/justeattakeaway/pie/commit/7ccec308f515d99abeb79a495f2176992bf91be5), [`716af9b90`](https://github.com/justeattakeaway/pie/commit/716af9b90f9e6a0cdaca7ef75198403d2ac5bbd3), [`2e8797c5b`](https://github.com/justeattakeaway/pie/commit/2e8797c5b045d63247575800b9f87f005cfad30f)]:
+  - @justeattakeaway/pie-modal@0.15.0
+  - @justeattakeaway/pie-icon-button@0.11.0
+  - @justeattakeaway/pie-button@0.21.0
+
 ## 0.20.0
 
 ### Minor Changes
