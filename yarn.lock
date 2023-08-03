@@ -28676,6 +28676,7 @@ __metadata:
   resolution: "pie-storybook@workspace:apps/pie-storybook"
   dependencies:
     "@justeattakeaway/pie-button": "workspace:*"
+    "@justeattakeaway/pie-css": "workspace:*"
     "@justeattakeaway/pie-icon-button": "workspace:*"
     "@justeattakeaway/pie-icons-webc": "workspace:*"
     "@justeattakeaway/pie-modal": "workspace:*"
