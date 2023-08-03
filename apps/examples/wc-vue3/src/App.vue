@@ -29,12 +29,16 @@
                 :size="value">
                 WC Button in Vue!
             </pie-button>
+            <icon-alcohol />
         </div>
     </div>
 </template>
 
 <script>
 import { variants, sizes } from '@justeattakeaway/pie-button';
+import { IconAlcohol } from '@justeattakeaway/pie-icons-vue';
+
+export { IconAlcohol };
 
 export default {
     data () {
