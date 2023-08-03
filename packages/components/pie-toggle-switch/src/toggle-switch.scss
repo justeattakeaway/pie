@@ -1,26 +1,27 @@
-@mixin toggle-switch-transition ($property) {
+@mixin toggle-switch-transition($property) {
     @media (prefers-reduced-motion: no-preference) {
         transition-property: $property;
         transition-duration: 0.15s;
         transition-timing-function: cubic-bezier(0.4, 0, 0.9, 1);
-        transition-delay: 0s;
+        transition: 0s;
     }
 }
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
     box-sizing: border-box;
 }
 
 .c-toggleSwitch {
-    --toggle-switch-colour:              var(--dt-color-interactive-form);
-    --toggle-switch-colour--checked:     var(--dt-color-interactive-brand);
-    --toggle-switch-colour--disabled:    var(--dt-color-disabled-01);
-    --toggle-switch-width:               48px;
-    --toggle-switch-height:              24px;
-    --toggle-switch-control-size:        20px;
-    --toggle-switch-padding:             2px;
-    --toggle-switch-radius:              var(--dt-radius-rounded-e);
-
+    --toggle-switch-colour: var(--dt-color-interactive-form);
+    --toggle-switch-colour--checked: var(--dt-color-interactive-brand);
+    --toggle-switch-colour--disabled: var(--dt-color-disabled-01);
+    --toggle-switch-width: 48px;
+    --toggle-switch-height: 24px;
+    --toggle-switch-control-size: 20px;
+    --toggle-switch-padding: 2px;
+    --toggle-switch-radius: var(--dt-radius-rounded-e);
     --toggle-switch-translation: calc(var(--toggle-switch-width) - var(--toggle-switch-control-size) - 2 * var(--toggle-switch-padding));
 
     display: flex;
@@ -107,7 +108,7 @@
     }
 }
 
-:host([dir="rtl"]) {
+:host([dir='rtl']) {
     .c-toggle-switch-input:checked + .c-toggle-switch-control {
         @include toggle-switch-transition(transform);
         transform: translateX(calc(-1 * var(--toggle-switch-translation)));
