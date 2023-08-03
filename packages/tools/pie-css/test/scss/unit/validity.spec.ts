@@ -14,13 +14,19 @@ describe('scss compiled output', () => {
         // Arrange
         const scssToTest = `
             @use 'mixins';
+            @use 'functions';
 
             :root {
                 --font-size: 12;
+                --bar-font-size: #{functions.calculate-font-size(--font-size)};
             }
 
             .foo {
                 @include mixins.font-size(--font-size);
+            }
+
+            .bar {
+                font-size: var(--bar-font-size);
             }
         `;
 
