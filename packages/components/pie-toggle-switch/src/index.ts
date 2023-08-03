@@ -42,18 +42,18 @@ export class PieToggleSwitch extends RtlMixin(LitElement) implements ToggleSwitc
         return html`
             <label
                 data-test-id="toggle-switch-component"
-                class="c-toggle-switch"
+                class="c-toggleSwitch"
                 ?isChecked="${isChecked}"
                 ?isDisabled=${isDisabled}>
                 <input
                     role="switch"
                     type="checkbox"
-                    class="c-toggle-switch-input"
+                    class="c-toggleSwitch-input"
                     .checked="${isChecked}"
                     .disabled="${isDisabled}"
                     @change="${this.onToggleChange}">
 
-                <div class="c-toggle-switch-control">
+                <div class="c-toggleSwitch-control">
                     ${isChecked ? html`<icon-check></icon-check>` : nothing}
                 </div>
             </label>

@@ -11,7 +11,7 @@
     box-sizing: border-box;
 }
 
-.c-toggle-switch {
+.c-toggleSwitch {
     --toggle-switch-colour:              var(--dt-color-interactive-form);
     --toggle-switch-colour--checked:     var(--dt-color-interactive-brand);
     --toggle-switch-colour--disabled:    var(--dt-color-disabled-01);
@@ -74,12 +74,12 @@
     }
 }
 
-.c-toggle-switch-input {
+.c-toggleSwitch-input {
     appearance: none;
     margin: 0;
 }
 
-.c-toggle-switch-control {
+.c-toggleSwitch-control {
     @include toggle-switch-transition(transform);
     display: flex;
     align-items: center;
@@ -94,7 +94,7 @@
         height: var(--toggle-switch-icon-size);
     }
 
-    .c-toggle-switch-input:checked + & {
+    .c-toggleSwitch-input:checked + & {
         @include toggle-switch-transition(transform);
         transform: translateX(var(--toggle-switch-translation));
 
@@ -104,7 +104,7 @@
         }
     }
 
-    .c-toggle-switch-input:disabled ~ & {
+    .c-toggleSwitch-input:disabled ~ & {
         color: var(--toggle-switch-colour--disabled);
 
         .c-pieIcon--check {
@@ -115,7 +115,7 @@
 }
 
 :host([dir="rtl"]) {
-  .c-toggle-switch-input:checked + .c-toggle-switch-control {
+  .c-toggleSwitch-input:checked + .c-toggleSwitch-control {
     @include toggle-switch-transition(transform);
     transform: translateX(calc(-1 * var(--toggle-switch-translation)));
   }
