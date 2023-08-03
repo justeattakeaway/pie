@@ -29,6 +29,9 @@ stylelint-config-pie:
 generator-pie-component:
 - 'packages/tools/generator-pie-component/**/*'
 
+pie-css:
+- 'packages/tools/pie-css/**/*'
+
 # Component projects
 components:
 - 'packages/components/**/*'
