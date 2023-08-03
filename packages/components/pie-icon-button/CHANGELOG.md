@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-icon-button
 
+## 0.13.0
+
+### Minor Changes
+
+- [Added] - axe builder to be shared as a base instance across broswer accessibility tests ([#669](https://github.com/justeattakeaway/pie/pull/669)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.12.0
 
 ### Minor Changes

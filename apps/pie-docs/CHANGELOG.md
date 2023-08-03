@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.7.0
+
+### Minor Changes
+
+- [Updated] - color global tokens to use `simpleTable` instead of `tokensTable` ([#657](https://github.com/justeattakeaway/pie/pull/657)) by [@FayeCarter](https://github.com/FayeCarter)
+
 ## 2.6.1
 
 ### Patch Changes
