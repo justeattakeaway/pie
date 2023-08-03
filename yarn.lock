@@ -5578,6 +5578,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@justeattakeaway/pie-modal@npm:0.14.0":
+  version: 0.14.0
+  resolution: "@justeattakeaway/pie-modal@npm:0.14.0"
+  peerDependencies:
+    body-scroll-lock: 4.0.0-beta.0
+  checksum: ac92c4e2724d1894db5c70167cb1146252e6a96d3f561a83b011cc4d920d9560c66246cc74bfc25283a5b7ec438d3a5d5b9bdcfd5c84fd2d4cb186c8e566703a
+  languageName: node
+  linkType: hard
+
 "@justeattakeaway/pie-modal@workspace:*, @justeattakeaway/pie-modal@workspace:packages/components/pie-modal":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-modal@workspace:packages/components/pie-modal"
@@ -38257,7 +38266,7 @@ __metadata:
     "@justeattakeaway/pie-button": 0.22.0
     "@justeattakeaway/pie-icon-button": 0.12.0
     "@justeattakeaway/pie-icons-webc": 0.5.0
-    "@justeattakeaway/pie-modal": "workspace:*"
+    "@justeattakeaway/pie-modal": 0.14.0
     vite: 4.3.9
   languageName: unknown
   linkType: soft
