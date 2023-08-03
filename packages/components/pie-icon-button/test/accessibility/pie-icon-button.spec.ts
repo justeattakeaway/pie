@@ -1,6 +1,4 @@
-import { test, expect } from '@sand4rt/experimental-ct-web';
-import AxeBuilder from '@axe-core/playwright';
-import { axeTags, axeDisabledRules } from '@justeattakeaway/pie-components-config';
+import { test, expect } from '@justeattakeaway/pie-webc-testing/src/playwright/fixtures.ts';
 import type {
     PropObject, WebComponentPropValues,
 } from '@justeattakeaway/pie-webc-testing/src/helpers/defs.ts';
@@ -19,7 +17,7 @@ const componentPropsMatrix : WebComponentPropValues[] = getAllPropCombinations(p
 const componentPropsMatrixByVariant: Record<string, WebComponentPropValues[]> = splitCombinationsByPropertyValue(componentPropsMatrix, 'variant');
 const componentVariants: string[] = Object.keys(componentPropsMatrixByVariant);
 
-componentVariants.forEach((variant) => test(`Render all prop variations for Variant: ${variant}`, async ({ page, mount }) => {
+componentVariants.forEach((variant) => test(`Render all prop variations for Variant: ${variant}`, async ({ makeAxeBuilder, mount }) => {
     await Promise.all(componentPropsMatrixByVariant[variant].map(async (combo: WebComponentPropValues) => {
         await mount(
             PieIconButton,
@@ -32,10 +30,7 @@ componentVariants.forEach((variant) => test(`Render all prop variations for Vari
         );
     }));
 
-    const results = await new AxeBuilder({ page })
-        .withTags(axeTags)
-        .disableRules(axeDisabledRules)
-        .analyze();
+    const results = await makeAxeBuilder().analyze();
 
     expect(results.violations).toEqual([]);
 }));

@@ -1,11 +1,9 @@
 
-import { test, expect } from '@sand4rt/experimental-ct-web';
-import AxeBuilder from '@axe-core/playwright';
-import { axeTags, axeDisabledRules } from '@justeattakeaway/pie-components-config';
+import { test, expect } from '@justeattakeaway/pie-webc-testing/src/playwright/fixtures.ts';
 import { Pie<%= componentName %>, <%= componentName %>Props } from '@/index';
 
 test.describe('Pie<%= componentName %> - Accessibility tests', () => {
-    test('a11y - should test the Pie<%= componentName %> component WCAG compliance', async ({ page, mount }) => {
+    test('a11y - should test the Pie<%= componentName %> component WCAG compliance', async ({ makeAxeBuilder, mount }) => {
         await mount(
             Pie<%= componentName %>,
             {
@@ -13,10 +11,7 @@ test.describe('Pie<%= componentName %> - Accessibility tests', () => {
             },
         );
 
-        const results = await new AxeBuilder({ page })
-        .withTags(axeTags)
-        .disableRules(axeDisabledRules)
-        .analyze();
+        const results = await makeAxeBuilder().analyze();
 
         expect(results.violations).toEqual([]);
     });
