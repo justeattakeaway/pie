@@ -1,13 +1,20 @@
 {
   "name": "@justeattakeaway/pie-icons-vue",
   "version": "4.3.0",
-  "main": "dist/generated/index.cjs",
   "type": "module",
   "files": [
     "dist",
     "esm",
     "icons"
   ],
+  "main": "dist/generated/index.cjs",
+  "module": "esm/generated/index.mjs",
+  "exports": {
+    ".": {
+      "import": "./esm/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
   "publishConfig": {
     "access": "public"
   },
