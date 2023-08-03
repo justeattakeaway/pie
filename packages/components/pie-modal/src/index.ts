@@ -8,21 +8,21 @@ import {
 } from '@justeattakeaway/pie-webc-core';
 import type { DependentMap } from '@justeattakeaway/pie-webc-core';
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
-import '@justeattakeaway/pie-icons-webc/icons/IconClose';
-import '@justeattakeaway/pie-icons-webc/icons/IconChevronLeft';
-import '@justeattakeaway/pie-icons-webc/icons/IconChevronRight';
-import { Variant } from '@justeattakeaway/pie-button/src/defs.ts';
+import '@justeattakeaway/pie-icons-webc/dist/icons/IconClose.js';
+import '@justeattakeaway/pie-icons-webc/dist/icons/IconChevronLeft.js';
+import '@justeattakeaway/pie-icons-webc/dist/icons/IconChevronRight.js';
 
 import styles from './modal.scss?inline';
 import {
-    ModalProps,
+    type AriaProps,
+    type ActionProps,
+    type ModalProps,
     headingLevels,
+    positions,
+    sizes,
+    ON_MODAL_BACK_EVENT,
     ON_MODAL_CLOSE_EVENT,
     ON_MODAL_OPEN_EVENT,
-    ON_MODAL_BACK_EVENT,
-    positions,
-    AriaProps,
-    sizes,
 } from './defs';
 
 // Valid values available to consumers
@@ -69,12 +69,9 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
     public isOpen = false;
 
     @property({ type: Object })
-    public leadingAction!: {
-        text: string;
-        variant?: Variant;
-        ariaLabel?: string;
-    };
+    public leadingAction!: ActionProps;
 
+    @property()
     @validPropertyValues(componentSelector, positions, 'center')
     public position: ModalProps['position'] = 'center';
 
@@ -86,11 +83,7 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
     public size: ModalProps['size'] = 'medium';
 
     @property({ type: Object })
-    public supportingAction!: {
-        text: string;
-        variant?: Variant;
-        ariaLabel?: string;
-    };
+    public supportingAction!: ActionProps;
 
     @query('dialog')
     private _dialog?: HTMLDialogElement;
@@ -219,8 +212,9 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
                 variant="ghost-secondary"
                 class="c-modal-closeBtn"
                 aria-label="${this.aria?.close || nothing}"
-                data-test-id="modal-close-button"><icon-close /></pie-icon-button>
-        `;
+                data-test-id="modal-close-button">
+                <icon-close></icon-close>
+            </pie-icon-button>`;
     }
 
     /**
@@ -237,7 +231,7 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
                 class="c-modal-backBtn"
                 aria-label="${this.aria?.back || nothing}"
                 data-test-id="modal-back-button">
-                ${this.isRTL ? html`<icon-chevron-right />` : html`<icon-chevron-left />`}
+                ${this.isRTL ? html`<icon-chevron-right></icon-chevron-right>` : html`<icon-chevron-left></icon-chevron-left>`}
             </pie-icon-button>
         `;
     }
@@ -357,7 +351,7 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
             ?isFullWidthBelowMid=${isFullWidthBelowMid}
             ?isLoading=${isLoading}
             aria-busy="${isLoading ? 'true' : 'false'}"
-            aria-label="${isLoading ? aria?.loading : nothing}"
+            aria-label="${(isLoading && aria?.loading) || nothing}"
             data-test-id="pie-modal">
             <header class="c-modal-header">
                 ${hasBackButton ? this.renderBackButton() : nothing}

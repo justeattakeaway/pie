@@ -286,7 +286,7 @@
                             "kind": "field",
                             "name": "leadingAction",
                             "type": {
-                                "text": "{\n        text: string;\n        variant?: Variant;\n        ariaLabel?: string;\n    }"
+                                "text": "ActionProps"
                             },
                             "privacy": "public",
                             "attribute": "leadingAction"
@@ -323,7 +323,7 @@
                             "kind": "field",
                             "name": "supportingAction",
                             "type": {
-                                "text": "{\n        text: string;\n        variant?: Variant;\n        ariaLabel?: string;\n    }"
+                                "text": "ActionProps"
                             },
                             "privacy": "public",
                             "attribute": "supportingAction"
@@ -646,7 +646,7 @@
                         {
                             "name": "leadingAction",
                             "type": {
-                                "text": "{\n        text: string;\n        variant?: Variant;\n        ariaLabel?: string;\n    }"
+                                "text": "ActionProps"
                             },
                             "fieldName": "leadingAction"
                         },
@@ -668,7 +668,7 @@
                         {
                             "name": "supportingAction",
                             "type": {
-                                "text": "{\n        text: string;\n        variant?: Variant;\n        ariaLabel?: string;\n    }"
+                                "text": "ActionProps"
                             },
                             "fieldName": "supportingAction"
                         },

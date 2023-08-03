@@ -3,12 +3,12 @@ import type { StoryObj as Story } from '@storybook/web-components';
 import {
     ButtonProps as ButtonPropsBase, sizes, types, variants,
 } from '@justeattakeaway/pie-button';
+import { IconChevronDown, IconPlusCircle } from '@justeattakeaway/pie-icons-webc';
 import { StoryMeta, SlottedComponentProps } from '../types';
 
-import '@justeattakeaway/pie-icons-webc/icons/IconPlusCircle'; // Register icon-plus-circle
-import '@justeattakeaway/pie-icons-webc/icons/IconChevronDown'; // Register icon-chevron-down
+const keptReferences = [IconChevronDown, IconPlusCircle];
 
-type ButtonProps = SlottedComponentProps<ButtonPropsBase>;
+type ButtonProps = SlottedComponentProps<ButtonPropsBase> & { buttonIcons : Array<string> };
 type ButtonStoryMeta = StoryMeta<ButtonProps>;
 
 const defaultArgs: ButtonProps = {
