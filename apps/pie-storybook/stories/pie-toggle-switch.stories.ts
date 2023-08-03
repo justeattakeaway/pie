@@ -4,7 +4,7 @@ import '@justeattakeaway/pie-toggle-switch';
 import { ToggleSwitchProps } from '@justeattakeaway/pie-toggle-switch/src/defs';
 import { StoryMeta } from '../types';
 import { i18nArgTypes } from '../args/commonArgsTypes';
-import '@justeattakeaway/pie-icons-webc/icons/IconCheck'; // Register icon-check
+import '@justeattakeaway/pie-icons-webc/icons/IconCheck';
 
 type ToggleSwitchStoryMeta = StoryMeta<ToggleSwitchProps>;
 
