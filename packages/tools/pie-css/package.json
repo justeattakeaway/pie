@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/pie-css",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "A styling library that provides both a shared collection of ready to use CSS styles to be used across JET web front-ends, and SCSS-based style helpers for our PIE Web Component library.",
   "author": "JustEatTakeaway - Design System Web Team",
   "files": [
