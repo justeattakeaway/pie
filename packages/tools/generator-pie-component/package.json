@@ -13,7 +13,7 @@
     "lint:scripts:fix": "yarn lint:scripts --fix",
     "lint:style": "run -T stylelint ./src/**/*.{css,scss} --allow-empty-input",
     "lint:style:fix": "yarn lint:style --fix",
-    "build": "run -T vite build ",
+    "build": "run -T vite build",
     "watch": "run -T vite build --watch"
   },
   "keywords": [
