@@ -10,11 +10,12 @@ These are the original values in our design language, represented by context-agn
 
 {% globalTokensWarning '/foundations/colour/tokens/alias/light/' %}
 
----
-
-{% tokensTable {
-    path: 'color.global',
-    tokenType: tokenTypes.COLOR
+{% simpleTable {
+    isFullWidth: true,
+    useMonospace: true,
+    tokens: {
+        path: 'color.global',
+        tokenType: tokenTypes.COLOR
+    }
 } %}
-
 
