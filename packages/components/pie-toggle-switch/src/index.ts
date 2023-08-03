@@ -5,7 +5,7 @@ import { property } from 'lit/decorators.js';
 import { RtlMixin } from '@justeattakeaway/pie-webc-core';
 import styles from './toggle-switch.scss?inline';
 import { ToggleSwitchProps, EVENT_TOGGLE_SWITCH_CHANGED } from './defs';
-import '@justeattakeaway/pie-icons-webc/dist/IconCheck.js';
+import '@justeattakeaway/pie-icons-webc/dist/icons/IconCheck.js';
 
 // Valid values available to consumers
 export {
