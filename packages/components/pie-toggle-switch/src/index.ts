@@ -54,7 +54,7 @@ export class PieToggleSwitch extends RtlMixin(LitElement) implements ToggleSwitc
                     @change="${this.onToggleChange}">
 
                 <div class="c-toggle-switch-control">
-                    ${isChecked ? html`<icon-check />` : nothing}
+                    ${isChecked ? html`<icon-check></icon-check>` : nothing}
                 </div>
             </label>
         `;

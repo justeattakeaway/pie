@@ -114,13 +114,6 @@
     }
 }
 
-label {
-  [dir="rtl"] & {
-    background-color: red;
-
-  }
-}
-
 :host([dir="rtl"]) {
   .c-toggle-switch-input:checked + .c-toggle-switch-control {
     @include toggle-switch-transition(transform);
