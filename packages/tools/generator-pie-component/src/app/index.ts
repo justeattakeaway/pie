@@ -28,7 +28,7 @@ export default class extends Generator {
 
     async writing () {
         const { fileName, componentPath, storyPath } = this.props;
-        const processDestinationPath = (filePath: string) => filePath.replace(/\b(skeleton)\b/g, fileName).replace(/__/g, '');
+        const processDestinationPath = (filePath: string) => filePath.replace(/\b(placeholder)\b/g, fileName).replace(/__/g, '');
 
         this.fs.copyTpl(
             this.templatePath('**/*'),
@@ -36,13 +36,13 @@ export default class extends Generator {
             this.props,
             undefined,
             {
-                globOptions: { dot: true, ignore: ['**/pie-skeleton.__stories__.ts'] },
+                globOptions: { dot: true, ignore: ['**/pie-placeholder.__stories__.ts'] },
                 processDestinationPath,
             },
         );
 
         this.fs.copyTpl(
-            this.templatePath('**/pie-skeleton.__stories__.ts'),
+            this.templatePath('**/pie-placeholder.__stories__.ts'),
             this.destinationPath(storyPath),
             this.props,
             undefined,
