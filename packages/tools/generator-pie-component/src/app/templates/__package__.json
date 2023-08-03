@@ -17,7 +17,7 @@
     "test:ci": "yarn test",
     "test:browsers": "npx playwright test -c ./playwright-lit.config.ts",
     "test:browsers:ci": "yarn test:browsers",
-    "test:visual": "run -T cross-env-shell PERCY_TOKEN=${PERCY_TOKEN_PIE_<%= percyComponentName %>} percy exec --allowed-hostname cloudfront.net -- npx playwright test -c ./playwright-lit-visual.config.ts",
+    "test:visual": "echo \"Error: A new Percy project needs to be created before visual tests can be run. steps: https://vue.pie.design/?path=/story/documentation-standards-testing-visual-regression--page \" && exit 1",
     "test:visual:ci": "yarn test:visual"
   },
   "author": "JustEatTakeaway.com - Design System Web Team",
