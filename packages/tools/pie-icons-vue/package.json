@@ -1,6 +1,5 @@
 {
   "name": "@justeattakeaway/pie-icons-vue",
-  "type": "module",
   "version": "4.5.0",
   "main": "dist/generated/index.cjs",
   "cdn": "dist/pie-icons-vue.min.js",
@@ -11,6 +10,7 @@
     "esm",
     "icons"
   ],
+  "type": "module",
   "exports": {
     ".": {
       "import": "./esm/generated/index.mjs",
