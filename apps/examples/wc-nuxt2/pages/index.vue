@@ -10,6 +10,7 @@
             <pie-button variant="ghost">Ghost button</pie-button>
             <pie-button disabled>Disabled button</pie-button>
             <pie-button @click="increment">Click me!</pie-button>
+            <icon-walking />
         </div>
 
         <span>Counter: {{ counter }}</span>
@@ -17,7 +18,14 @@
 </template>
 
 <script>
+import { IconWalking } from '@justeattakeaway/pie-icons-vue';
+
+console.log(IconWalking);
+
 export default {
+    components: {
+        IconWalking
+    },
     data: () => ({
         counter: 0
     }),

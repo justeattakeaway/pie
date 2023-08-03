@@ -5,14 +5,12 @@ export default [
     {
         input: ['generated/index.js'],
         output: {
-            exports: 'named',
+            exports: 'auto',
             dir: 'esm',
             format: 'esm',
             name: '@justeattakeaway/pie-icons-vue',
             preserveModulesRoot: 'icons',
-            globals: {
-                vue: 'Vue',
-            },
+            entryFileNames: '[name].mjs',
             preserveModules: true,
         },
         plugins: [
@@ -28,6 +26,7 @@ export default [
             format: 'cjs',
             name: '@justeattakeaway/pie-icons-vue',
             preserveModulesRoot: 'icons',
+            entryFileNames: '[name].cjs',
             preserveModules: true,
         },
         plugins: [

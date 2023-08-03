@@ -5490,7 +5490,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-icons-react@workspace:packages/tools/pie-icons-react":
+"@justeattakeaway/pie-icons-react@workspace:*, @justeattakeaway/pie-icons-react@workspace:packages/tools/pie-icons-react":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-icons-react@workspace:packages/tools/pie-icons-react"
   dependencies:
@@ -36346,6 +36346,7 @@ __metadata:
   resolution: "wc-nuxt2@workspace:apps/examples/wc-nuxt2"
   dependencies:
     "@justeattakeaway/pie-button": "workspace:*"
+    "@justeattakeaway/pie-icons-vue": "workspace:*"
     core-js: 3.30.0
     nuxt: 2.17.0
     vue: 2.7.14
@@ -36380,6 +36381,7 @@ __metadata:
   resolution: "wc-react18@workspace:apps/examples/wc-react18"
   dependencies:
     "@justeattakeaway/pie-button": "workspace:*"
+    "@justeattakeaway/pie-icons-react": "workspace:*"
     react: 18.2.0
     react-dom: 18.2.0
     react-scripts: 5.0.1

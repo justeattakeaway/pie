@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-icons-vue",
   "version": "4.3.0",
-  "main": "esm/generated/index.js",
+  "main": "dist/generated/index.cjs",
   "type": "module",
   "files": [
     "dist",

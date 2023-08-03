@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { PieButton } from '@justeattakeaway/pie-button/dist/react';
+import { IconAlcohol } from '@justeattakeaway/pie-icons-react';
 
 import './styles.css';
 
@@ -18,6 +19,8 @@ function App () {
             // eslint-disable-next-line no-console
                 onClick={(e) => setCounter(counter + 1) + console.log(e)}
             >Increment</PieButton>
+
+            <IconAlcohol />
         </>
     );
 }
