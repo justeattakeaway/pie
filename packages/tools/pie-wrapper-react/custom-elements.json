@@ -1217,7 +1217,7 @@
                                 "text": "boolean"
                             },
                             "privacy": "public",
-                            "default": "false",
+                            "default": "true",
                             "attribute": "isChecked",
                             "reflects": true
                         },
@@ -1293,7 +1293,7 @@
                             "type": {
                                 "text": "boolean"
                             },
-                            "default": "false",
+                            "default": "true",
                             "fieldName": "isChecked"
                         },
                         {
