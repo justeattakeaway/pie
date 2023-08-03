@@ -1,38 +1,12 @@
 {
   "color": {
     "global": {
-      "whiteBlack": {
-        "displayName": "White and black"
-      },
-      "orange": {
-        "displayName": "Orange"
-      },
-      "blue": {
-        "displayName": "Blue"
-      },
-      "red": {
-        "displayName": "Red"
-      },
-      "yellow": {
-        "displayName": "Yellow"
-      },
-      "green": {
-        "displayName": "Green"
-      },
-      "purple": {
-        "displayName": "Purple"
-      },
-      "mozzarella": {
-        "displayName": "Mozzarella"
-      },
-      "charcoal": {
-        "displayName": "Charcoal"
-      },
-      "system": {
-        "displayName": "System"
+      "default": {
+        "displayName": ""
       },
       "highContrast": {
-        "displayName": "High contrast"
+        "displayName": "High contrast",
+        "description": "These colours are only to be used in the high contrast theme, and should not be used elsewhere."
       }
     },
     "alias": {
