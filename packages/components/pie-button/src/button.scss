@@ -1,11 +1,5 @@
 @use '@justeattakeaway/pie-css/scss' as p;
 
-*,
-*:before,
-*:after {
-    box-sizing: border-box;
-}
-
 // Defines button interactive states for hover and active using HSL & calc
 // Takes a color token name as an argument
 @mixin button-interactive-states($bg-color) {
@@ -76,7 +70,6 @@
     gap: var(--dt-spacing-b);
     align-items: center;
     justify-content: center;
-    box-sizing: border-box;
     padding: var(--btn-padding);
     border: none;
     border-radius: var(--btn-border-radius);
