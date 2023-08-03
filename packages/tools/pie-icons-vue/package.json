@@ -13,8 +13,8 @@
   ],
   "exports": {
     ".": {
-      "import": "./esm/index.mjs",
-      "require": "./dist/index.cjs"
+      "import": "./esm/generated/index.mjs",
+      "require": "./dist/generated/index.cjs"
     }
   },
   "publishConfig": {
