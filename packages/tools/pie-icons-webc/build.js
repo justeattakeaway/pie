@@ -1,88 +1,105 @@
-import pieIcons from '@justeattakeaway/pie-icons';
-import { pascalCase } from 'pascal-case';
+import pascalCase from 'just-pascal-case';
+import kebabCase from 'just-kebab-case';
 import path from 'path';
-import fs from 'fs-extra';
-import kebabCase from 'kebab-case';
+import fs from 'fs';
 
-import { normalizeIconName } from '@justeattakeaway/pie-icons-configs';
+import pieIcons from '@justeattakeaway/pie-icons';
+import {
+    normalizeIconName,
+    largeIconSizeDefault,
+    regularIconSizeDefault,
+} from '@justeattakeaway/pie-icons-configs';
 
 const { icons } = pieIcons.default;
 
 const componentTemplate = (name, svg) => {
-    const [, svgClasses] = svg.match(/class="(.+?)"/);
-    // The following styles make sure that if the icon is used inside pie-icon-button, it will be sized correctly
-    const styleTag = '<style>:host-context(pie-icon-button) svg, :host-context(pie-button) svg { display:block; width: var(--btn-icon-size); height: var(--btn-icon-size); }</style>';
-    return `import { getSvgProps } from '@justeattakeaway/pie-icons-configs';
+    const svgClasses = svg.match(/class="(.+?)"/)?.[1];
 
-const template = document.createElement('template');
-template.innerHTML = '${styleTag}${svg}';
+    const isLargeIcon = name.endsWith('Large');
+    const sizeType = isLargeIcon ? 'LargeIconSize' : 'RegularIconSize';
 
-export class ${name} extends HTMLElement {
-    constructor () {
-        super();
-        const clone = template.content.cloneNode(true);
-        this.root = this.attachShadow({ mode: 'open' });
-        this.root.append(clone);
-    }
+    return `import {
+    html, LitElement, TemplateResult, css,
+} from 'lit';
+import { property, query } from 'lit/decorators.js';
+import type { DependentMap } from '@justeattakeaway/pie-webc-core';
+import { getSvgProps, ${sizeType} } from '@justeattakeaway/pie-icons-configs';
 
-    static get observedAttributes () {
-        return ['size'];
-    }
+interface IconProps {
+    size: ${sizeType};
+    class: string;
+}
 
-    get size () {
-        return this.getAttribute('size');
-    }
+const componentSelector = '${kebabCase(name)}';
 
-    set size (value) {
-        this.setAttribute('size', value);
-    }
+export class ${name} extends LitElement implements IconProps {
+    // The following styles make sure that the icon will be sized correctly
+    static styles = css\`
+        :host-context(pie-icon-button) svg,
+        :host-context(pie-button) svg {
+            display: block;
+            width: var(--btn-icon-size);
+            height: var(--btn-icon-size);
+        }
+    \`;
 
-    get class () {
-        return this.getAttribute('class');
-    }
+    @property({ type: String, reflect: true })
+    public size : ${sizeType} = ${isLargeIcon ? largeIconSizeDefault : `'${regularIconSizeDefault}'`};
 
-    set class (value) {
-        this.setAttribute('class', value);
-    }
+    @property({ type: String, reflect: true })
+    public class = '${svgClasses}';
 
-    connectedCallback () {
-        const svg = this.root.querySelector('svg');
+    @query('svg')
+    private _svg? : SVGElement;
 
-        if (svg.getAttribute('width') === null) {
+    connectedCallback () : void {
+        super.connectedCallback();
+        if (this._svg?.getAttribute('width') === null) {
             const svgSize = getSvgProps('${svgClasses}', '', null, '${name}');
-            svg.setAttribute('width', svgSize.width);
-            svg.setAttribute('height', svgSize.height);
+            this._svg?.setAttribute('width', svgSize.width);
+            this._svg?.setAttribute('height', svgSize.height);
         }
-
-        this.setAttribute('class', '${svgClasses}');
-        this.root.append(svg);
     }
 
-    attributeChangedCallback (attr, oldVal, newVal) {
-        const svg = this.root.querySelector('svg');
-        let svgSize;
+    updated (changedProperties: DependentMap<IconProps>) : void {
+        let svgSize : { width: string, height: string, class: string };
 
-        if (attr === 'size') {
-            svgSize = getSvgProps('${svgClasses}', '', newVal, '${name}');
+        if (changedProperties.has('size')) {
+            svgSize = getSvgProps('${svgClasses}', '', this.size, '${name}');
 
-            svg.setAttribute('width', svgSize.width);
-            svg.setAttribute('height', svgSize.height);
-            this.root.append(svg);
+            this._svg?.setAttribute('width', svgSize.width);
+            this._svg?.setAttribute('height', svgSize.height);
         }
+    }
+
+    render () : TemplateResult {
+        return html\`${svg}\`;
     }
 }
 
-customElements.define('${kebabCase(name).replace(/-/, '')}', ${name});
+if (customElements.get(componentSelector) === undefined) {
+    customElements.define(componentSelector, ${name});
+}
+
+declare global {
+    interface HTMLElementTagNameMap {
+        [componentSelector]: ${name};
+    }
+}
 `;
 };
 
 const ICONS_DIR = `${process.cwd()}/icons`;
-const indexPath = path.join(ICONS_DIR, '/index.js');
+const indexPath = path.join(ICONS_DIR, '/index.ts');
 
 async function checkDirExists (directoryPath) {
     try {
-        await fs.ensureDir(directoryPath);
-        console.info(`Directory "${directoryPath}" exists.`);
+        if (!fs.existsSync(directoryPath)) {
+            console.info(`Creating directory "${directoryPath}".`);
+            fs.mkdirSync(directoryPath);
+        } else {
+            console.info(`Directory "${directoryPath}" already exists.`);
+        }
     } catch (err) {
         console.error(err);
     }
@@ -92,27 +109,28 @@ async function build () {
     // check if /icons directory exists, if not create it
     await checkDirExists(ICONS_DIR);
 
-    let indexFileString = '/* eslint-disable camelcase */\n';
+    let indexFileString = '';
 
-    // loop through the icons in pie-icons, generate each component and add it to the index.js
+    // loop through the icons in pie-icons, generate each component and add it to the index.ts
     Object.keys(icons).forEach((iconKey) => {
-        const { pathPrefix } = icons[iconKey];
+        const icon = icons[iconKey];
+        const { pathPrefix } = icon;
         const capitalisedPathPrefix = (pathPrefix !== undefined ? (pathPrefix).substring(1, 2).toUpperCase() + (pathPrefix).substring(2) : '');
         const pascalCasedName = pascalCase(normalizeIconName(iconKey));
 
         const componentName = `Icon${capitalisedPathPrefix + pascalCasedName}`;
 
-        const svg = icons[iconKey].toSvg();
+        const svg = icon.toSvg();
 
         let component = componentTemplate(componentName, svg);
         component = component.replace(/xlink:href/g, 'xlinkHref'); // replace so it gets parsed by JSX correctly
 
         indexFileString += `export { ${componentName} } from './${componentName}';\n`;
 
-        fs.writeFileSync(`./icons/${componentName}.js`, component, 'utf8');
+        fs.writeFileSync(`./icons/${componentName}.ts`, component, 'utf8');
     });
 
-    fs.outputFileSync(indexPath, indexFileString, 'utf8');
+    fs.writeFileSync(indexPath, indexFileString, 'utf8');
 }
 
 build();
