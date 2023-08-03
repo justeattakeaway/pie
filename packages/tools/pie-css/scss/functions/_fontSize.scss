@@ -1,13 +1,13 @@
 // ----------------------------------------------
 // Function for calculating the font size.
-// The `calculate-font-size` function allows you to compute the font size using a CSS variable.
+// The `font-size` function allows you to compute the font size using a CSS variable.
 // The resulting value will be multiplied by 1px.
 // -
 // @param {String} $token - The CSS variable name (including the `--` prefix) to be used for the font size calculation.
 // -
 // @example
 // .my-class {
-//   font-size: calculate-font-size(--font-size-variable);
+//   font-size: font-size(--font-size-variable);
 // }
 // -
 // Outputs:
@@ -15,6 +15,6 @@
 //   font-size: calc(var(--font-size-variable) * 1px);
 // }
 // ----------------------------------------------
-@function calculate-font-size($token) {
+@function font-size($token) {
     @return calc(var(#{$token}) * 1px);
 }

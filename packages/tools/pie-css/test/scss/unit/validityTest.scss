@@ -5,7 +5,7 @@
 
 :root {
     --font-size: 12;
-    --bar-font-size: #{functions.calculate-font-size(--font-size)};
+    --bar-font-size: #{functions.font-size(--font-size)};
 }
 
 .foo {

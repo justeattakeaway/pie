@@ -6,7 +6,7 @@ import {
 
 import { compileCss, stripCSSWhitespace } from '../../../../utilities/compileCss';
 
-describe('functions.calculate-font-size', () => {
+describe('functions.font-size', () => {
     it('should render the expected CSS content', async () => {
         // Arrange
         const scssToTest = `
@@ -14,7 +14,7 @@ describe('functions.calculate-font-size', () => {
 
           :root {
             --font-size: 12;
-            --foo-font-size: #{functions.calculate-font-size(--font-size)};
+            --foo-font-size: #{functions.font-size(--font-size)};
           }
 
           .foo {
