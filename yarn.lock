@@ -38147,6 +38147,7 @@ __metadata:
     "@angular/platform-browser-dynamic": 15.2.0
     "@angular/router": 15.2.0
     "@justeattakeaway/pie-button": "workspace:*"
+    "@justeattakeaway/pie-css": "workspace:*"
     "@types/jasmine": 4.3.0
     jasmine-core: 4.5.0
     karma: 6.4.0
@@ -38169,6 +38170,7 @@ __metadata:
     "@babel/preset-env": 7.21.4
     "@babel/preset-react": 7.18.6
     "@justeattakeaway/pie-button": "workspace:*"
+    "@justeattakeaway/pie-css": "workspace:*"
     eslint: 8.37.0
     eslint-config-next: 13.2.4
     next: 10.2.3
