@@ -1,5 +1,28 @@
 # @justeattakeaway/pie-modal
 
+## 0.16.0
+
+### Minor Changes
+
+- [Added] - hasStackedActions to pie-modal action buttons ([#650](https://github.com/justeattakeaway/pie/pull/650)) by [@ashleynolan](https://github.com/ashleynolan)
+
+- [Fixed] - Prevent tree-shaking of components in storybook ([#667](https://github.com/justeattakeaway/pie/pull/667)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Removed] - Built webc icons from source control
+  [Added] - Type declaration files for components
+  [Added] - Types for pie-icons
+  [Added] - TS version of pie-icons-configs/config.js (Will be used after DSW-1025)
+  [Added] - Webc icon tests for width, height and base classes
+  [Changed] - Update pie-icons-webc build to generate a slightly different template for regular and large icons (using different types, etc.)
+  [Changed] - Update pie-icons-webc rollup config to remove commonjs build
+  [Changed] - Use `just-kebab-case` and `just-pascal-case` instead of `kebab-case` and `pascal-case` to simplify usage (and they're more recently maintained)
+
+- [Added] - New ActionProps type for modal leading/supporting actions ([#670](https://github.com/justeattakeaway/pie/pull/670)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+### Patch Changes
+
+- [Fixed] - Re-add property decorator for modal position prop ([#676](https://github.com/justeattakeaway/pie/pull/676)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
 ## 0.15.0
 
 ### Minor Changes
