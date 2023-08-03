@@ -2,175 +2,175 @@
   "color": {
     "global": {
       "white": {
-        "category": "whiteBlack",
+        "category": "default",
         "description": "#FFFFFF, rgb (255,255,255)"
       },
       "black": {
-        "category": "whiteBlack",
+        "category": "default",
         "description": "#000000, rgb (0,0,0)"
       },
       "orange-10": {
-        "category": "orange",
+        "category": "default",
         "description": "#FFEAD4, rgb (255,234,212)"
       },
       "orange-30": {
-        "category": "orange",
+        "category": "default",
         "description": "#FF8000, rgb (255,128,0)"
       },
       "orange": {
-        "category": "orange",
+        "category": "default",
         "description": "#F36805, rgb (243,104,5)"
       },
       "orange-55": {
-        "category": "orange",
+        "category": "default",
         "description": "#F75E28, rgb (247,94,40)"
       },
       "orange-90": {
-        "category": "orange",
+        "category": "default",
         "description": "#41301F, rgb (65,48,31)"
       },
       "blue-10": {
-        "category": "blue",
+        "category": "default",
         "description": "#EBF6FA, rgb (235,246,250)"
       },
       "blue-25": {
-        "category": "blue",
+        "category": "default",
         "description": "#C1DADE, rgb (193,218,222)"
       },
       "blue-30": {
-        "category": "blue",
+        "category": "default",
         "description": "#4996FD, rgb (73,150,253)"
       },
       "blue": {
-        "category": "blue",
+        "category": "default",
         "description": "#125FCA, rgb (18,95,202)"
       },
       "blue-90": {
-        "category": "blue",
+        "category": "default",
         "description": "#083343, rgb (8,51,67)"
       },
       "red-10": {
-        "category": "red",
+        "category": "default",
         "description": "#FFE9EA, rgb (255,233,234)"
       },
       "red-25": {
-        "category": "red",
+        "category": "default",
         "description": "#F2A6B0, rgb (242,166,176)"
       },
       "red-30": {
-        "category": "red",
+        "category": "default",
         "description": "#EC556C, rgb (236,85,108)"
       },
       "red": {
-        "category": "red",
+        "category": "default",
         "description": "#D50525, rgb (213,5,37)"
       },
       "red-90": {
-        "category": "red",
+        "category": "default",
         "description": "#491E24, rgb (73,30,36)"
       },
       "yellow-10": {
-        "category": "yellow",
+        "category": "default",
         "description": "#FFF9DF, rgb (255,249,223)"
       },
       "yellow": {
-        "category": "yellow",
+        "category": "default",
         "description": "#F6C243, rgb (246,194,67)"
       },
       "yellow-90": {
-        "category": "yellow",
+        "category": "default",
         "description": "#474630, rgb (71,70,48)"
       },
       "green-10": {
-        "category": "green",
+        "category": "default",
         "description": "#E5FAEF, rgb (229,250,239)"
       },
       "green-30": {
-        "category": "green",
+        "category": "default",
         "description": "#22BF65, rgb (34,191,101)"
       },
       "green": {
-        "category": "green",
+        "category": "default",
         "description": "#017A39, rgb (1,122,57)"
       },
       "green-90": {
-        "category": "green",
+        "category": "default",
         "description": "#273F33, rgb (39,63,51)"
       },
       "purple": {
-        "category": "purple",
+        "category": "default",
         "description": "#5B3D5B, rgb (91,61,91)"
       },
       "mozzarella-5": {
-        "category": "mozzarella",
+        "category": "default",
         "description": "#FCFCFC, rgb (252,252,252)"
       },
       "mozzarella-10": {
-        "category": "mozzarella",
+        "category": "default",
         "description": "#F5F3F1, rgb (245,243,241)"
       },
       "mozzarella-20": {
-        "category": "mozzarella",
+        "category": "default",
         "description": "#EFEDEA, rgb (239,237,234)"
       },
       "mozzarella-30": {
-        "category": "mozzarella",
+        "category": "default",
         "description": "#DBD9D7, rgb (219,217,215)"
       },
       "mozzarella-50": {
-        "category": "mozzarella",
+        "category": "default",
         "description": "#9E9C9A, rgb (158,156,154)"
       },
       "mozzarella-60": {
-        "category": "mozzarella",
+        "category": "default",
         "description": "#797876, rgb (121,120,118)"
       },
       "mozzarella-70": {
-        "category": "mozzarella",
+        "category": "default",
         "description": "#575655, rgb (87,86,85)"
       },
       "mozzarella-75": {
-        "category": "mozzarella",
+        "category": "default",
         "description": "#494847, rgb (73,72,71)"
       },
       "mozzarella-80": {
-        "category": "mozzarella",
+        "category": "default",
         "description": "#3B3A39, rgb (59,58,57)"
       },
       "mozzarella-90": {
-        "category": "mozzarella",
+        "category": "default",
         "description": "#262626, rgb (38,38,38)"
       },
       "mozzarella-100": {
-        "category": "mozzarella",
+        "category": "default",
         "description": "#1A1A19, rgb (26,26,25)"
       },
       "charcoal-30": {
-        "category": "charcoal",
+        "category": "default",
         "description": "#D7D9DA, rgb (215,217,218)"
       },
       "charcoal-40": {
-        "category": "charcoal",
+        "category": "default",
         "description": "#B7BDBE, rgb (183,189,190)"
       },
       "charcoal-50": {
-        "category": "charcoal",
+        "category": "default",
         "description": "#8C999B, rgb (140,153,155)"
       },
       "charcoal-60": {
-        "category": "charcoal",
+        "category": "default",
         "description": "#5D7074, rgb (93,112,116)"
       },
       "charcoal-70": {
-        "category": "charcoal",
+        "category": "default",
         "description": "#3C4C4F, rgb (60,76,79)"
       },
       "charcoal-75": {
-        "category": "charcoal",
+        "category": "default",
         "description": "#303D3F, rgb (48,61,63)"
       },
       "charcoal-80": {
-        "category": "charcoal",
+        "category": "default",
         "description": "#242E30, rgb (36,46,48)"
       },
       "orange-dark-hc": {
@@ -210,10 +210,10 @@
         "description": "#BA98BA, rgb (186,152,186)"
       },
       "system-purple": {
-        "category": "system",
+        "category": "default",
         "description": "#800080, rgb (128,0,128)"
       },
-      "system-purple-10": {
+      "default-purple-10": {
         "category": "system",
         "description": "#C58AF9, rgb (197,138,249)"
       }

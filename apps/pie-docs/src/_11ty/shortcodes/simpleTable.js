@@ -11,7 +11,7 @@ const normaliseData = (data) => {
     return { rows: Object.entries(data) };
 };
 
-const createTokenList = (tokens, tokenType, path, category, displayName) => {
+const createTokenList = (tokens, tokenType, path, category, categoryData) => {
     const tokenData = getTokenData(tokens, tokenType, path, category);
     const data = {
         rows: tokenData.map((item) => [item.tokenScssName, item.tokenDescription]),
@@ -19,7 +19,7 @@ const createTokenList = (tokens, tokenType, path, category, displayName) => {
 
     return {
         ...category ? {
-            category: displayName,
+            category: categoryData,
             data,
         } : data,
     };
@@ -29,7 +29,7 @@ const getTokens = ({ tokenType, path }) => {
     const { tokens, categories } = getTokenCategories(path, tokenType);
 
     return categories
-        ? Object.entries(categories).map(([category, { displayName }]) => createTokenList(tokens, tokenType, path, category, displayName))
+        ? Object.entries(categories).map(([category, categoryData]) => createTokenList(tokens, tokenType, path, category, categoryData))
         : createTokenList(tokens, tokenType, path);
 };
 
@@ -65,8 +65,10 @@ const buildTable = ({ rows, headings }, useMonospace, isFullWidth, tokenType) =>
 
 const buildCategorisedTables = (tableData, useMonospace, isFullWidth, tokenType) => Object.values(tableData).map(({ category, data }) => {
     const table = buildTable(data, useMonospace, isFullWidth, tokenType);
+    const displayName = category.displayName !== 'default' ? `<h3>${category.displayName}</h3>` : '';
+    const description = category.description ? `<p>${category.description}</p>` : '';
 
-    return `<h3>${category}</h3>${table}`;
+    return `${displayName}${description}${table}`;
 }).join('');
 
 /**
