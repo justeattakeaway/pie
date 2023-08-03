@@ -37,7 +37,7 @@ const createSwatch = (token) => {
     const [colour] = token[1].split(',');
     const shouldShowBorder = colour === '#FFFFFF';
     const styles = `style = "--swatch-color: ${colour}"`;
-    const className = `class="c-simpleTable--swatch ${shouldShowBorder ? 'c-simpleTable--swatch-light' : ''}"`;
+    const className = `class="c-simpleTable--swatch ${shouldShowBorder ? 'c-simpleTable--swatch-lightBordered' : ''}"`;
 
     return `${styles} ${className}`;
 };
