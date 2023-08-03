@@ -1,3 +1,5 @@
+@use '@justeattakeaway/pie-css/scss' as p;
+
 *,
 *:before,
 *:after {
@@ -37,7 +39,7 @@
 
     // The base values are set to the size default, which is for the medium button size
     --btn-padding: 10px var(--dt-spacing-e);
-    --btn-font-size: calc(var(--dt-font-size-20) * 1px);
+    --btn-font-size: #{p.fs(--dt-font-size-20)};
     --btn-line-height: calc(var(--dt-font-size-20-line-height) * 1px);
 
     // The following values set to default background and color
