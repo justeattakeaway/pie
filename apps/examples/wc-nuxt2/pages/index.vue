@@ -10,7 +10,6 @@
             <pie-button variant="ghost">Ghost button</pie-button>
             <pie-button disabled>Disabled button</pie-button>
             <pie-button @click="increment">Click me!</pie-button>
-            <icon-walking />
         </div>
 
         <span>Counter: {{ counter }}</span>

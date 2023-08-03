@@ -30,7 +30,6 @@
                 WC Button in Vue!
             </pie-button>
         </div>
-        <icon-alcohol />
     </div>
 </template>
 
