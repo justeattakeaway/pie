@@ -1,5 +1,16 @@
 # Changelog
 
+## 2.6.0
+
+### Minor Changes
+
+- [Added] - a new Do/Don't (Usage) component ([#661](https://github.com/justeattakeaway/pie/pull/661)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies [[`64d9f3fe8`](https://github.com/justeattakeaway/pie/commit/64d9f3fe89e766e74cf2c18ca565ac0b06700034)]:
+  - @justeattakeaway/pie-icons@4.4.0
+
 ## 2.5.0
 
 ### Minor Changes
