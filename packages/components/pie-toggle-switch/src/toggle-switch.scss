@@ -1,9 +1,6 @@
 @mixin toggle-switch-transition($property) {
     @media (prefers-reduced-motion: no-preference) {
-        transition-property: $property;
-        transition-duration: 0.15s;
-        transition-timing-function: cubic-bezier(0.4, 0, 0.9, 1);
-        transition: 0s;
+        transition-property: $property 0.15s cubic-bezier(0.4, 0, 0.9, 1) 0s;
     }
 }
 
