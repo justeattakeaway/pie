@@ -1,6 +1,6 @@
 @mixin toggle-switch-transition($property) {
     @media (prefers-reduced-motion: no-preference) {
-        transition-property: $property 0.15s cubic-bezier(0.4, 0, 0.9, 1) 0s;
+        transition: $property 0.15s cubic-bezier(0.4, 0, 0.9, 1) 0s;
     }
 }
 
@@ -105,8 +105,8 @@
     }
 }
 
-:host([dir='rtl']) {
-    .c-toggle-switch-input:checked + .c-toggle-switch-control {
+:host([dir="rtl"]) {
+    .c-toggleSwitch-input:checked + .c-toggleSwitch-control {
         @include toggle-switch-transition(transform);
         transform: translateX(calc(-1 * var(--toggle-switch-translation)));
     }
