@@ -3,33 +3,15 @@ import {
     it,
     expect,
 } from 'vitest';
-
+import fs from 'fs/promises';
+import path from 'path';
 import cssValidator from 'w3c-css-validator';
 import { compileCss } from '../../../utilities/compileCss';
 
-describe('scss compiled output', () => {
-    // We should integrate every SCSS mixin and function into this test.
-    // This way we only make a single request to the W3C validator API
+describe('scss compiled output', async () => {
     it('should be valid CSS', async () => {
         // Arrange
-        const scssToTest = `
-            @use 'mixins';
-            @use 'functions';
-
-            :root {
-                --font-size: 12;
-                --bar-font-size: #{functions.calculate-font-size(--font-size)};
-            }
-
-            .foo {
-                @include mixins.font-size(--font-size);
-            }
-
-            .bar {
-                font-size: var(--bar-font-size);
-            }
-        `;
-
+        const scssToTest = await fs.readFile(path.join(__dirname, 'validityTest.scss'), 'utf8');
         const css = compileCss(scssToTest);
 
         // Act
