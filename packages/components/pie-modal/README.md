@@ -15,6 +15,7 @@
 3. [Importing the component](#importing-the-component)
 4. [Props](#props)
 5. [Testing](#testing)
+5. [Legacy browser support](#legacy-browser-support)
 
 # pie-modal
 
@@ -118,3 +119,16 @@ Under scripts `test:visual` replace the environment variable with the below:
 ```bash
 PERCY_TOKEN_PIE_MODAL=abcde
 ```
+
+## Legacy browser support
+
+`pie-modal` uses the Dialog element which might not be supported by legacy browsers.
+
+To support them, `pie-modal` uses the [dialog-polyfill](https://github.com/GoogleChrome/dialog-polyfill) package. It works automatically and doesn't need any setup.
+
+The polyfill comes with a few limitations, as noted on its [documentation page](https://github.com/GoogleChrome/dialog-polyfill#limitations):
+- Dialogs should not be contained by parents that create a stacking context
+- The browser's chrome may not always be accessible via the tab key
+- Changes to the CSS top/bottom values while open aren't retained
+
+For more details, check the package documentation.
