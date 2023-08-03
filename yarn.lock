@@ -36471,6 +36471,7 @@ __metadata:
   resolution: "wc-nuxt2@workspace:apps/examples/wc-nuxt2"
   dependencies:
     "@justeattakeaway/pie-button": "workspace:*"
+    "@justeattakeaway/pie-css": "workspace:*"
     core-js: 3.30.0
     nuxt: 2.17.0
     vue: 2.7.14
