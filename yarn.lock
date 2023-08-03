@@ -5598,7 +5598,6 @@ __metadata:
   dependencies:
     "@justeattakeaway/pie-components-config": "workspace:*"
     "@justeattakeaway/pie-icons-webc": "workspace:*"
-    "@justeattakeaway/pie-webc-core": "workspace:*"
   languageName: unknown
   linkType: soft
 

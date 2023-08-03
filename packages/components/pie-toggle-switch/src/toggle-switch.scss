@@ -24,7 +24,6 @@
     --toggle-switch-translation: calc(var(--toggle-switch-width) - var(--toggle-switch-control-size) - 2 * var(--toggle-switch-padding));
 
     display: flex;
-    @include toggle-switch-transition(background-color);
     width: var(--toggle-switch-width);
     height: var(--toggle-switch-height);
     flex-shrink: 0;
@@ -32,6 +31,8 @@
     border-radius: var(--toggle-switch-radius);
     background-color: var(--toggle-switch-colour);
     cursor: pointer;
+
+    @include toggle-switch-transition(background-color);
 
     &:hover {
         background-color: hsl(var(--dt-color-interactive-form-h), var(--dt-color-interactive-form-s), calc(var(--dt-color-interactive-form-l) - var(--dt-color-hover-01)));

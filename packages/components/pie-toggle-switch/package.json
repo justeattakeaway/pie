@@ -26,9 +26,6 @@
     "@justeattakeaway/pie-components-config": "workspace:*",
     "@justeattakeaway/pie-icons-webc": "workspace:*"
   },
-  "dependencies": {
-    "@justeattakeaway/pie-webc-core": "workspace:*"
-  },
   "volta": {
     "extends": "../../../package.json"
   }

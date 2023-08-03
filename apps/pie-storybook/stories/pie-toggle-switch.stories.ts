@@ -2,9 +2,11 @@ import { html, TemplateResult } from 'lit';
 import type { StoryObj as Story } from '@storybook/web-components';
 import '@justeattakeaway/pie-toggle-switch';
 import { ToggleSwitchProps } from '@justeattakeaway/pie-toggle-switch/src/defs';
+import { IconCheck } from '@justeattakeaway/pie-icons-webc';
 import { StoryMeta } from '../types';
 import { i18nArgTypes } from '../args/commonArgsTypes';
-import '@justeattakeaway/pie-icons-webc/icons/IconCheck';
+
+const keptReferences = [IconCheck];
 
 type ToggleSwitchStoryMeta = StoryMeta<ToggleSwitchProps>;
 
