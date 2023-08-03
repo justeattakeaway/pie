@@ -33,6 +33,46 @@
     @include f.font-size(body-s);
 }
 
+.c-simpleTable--swatch {
+    $swatch-size: 16px;
+    $swatch-gap: f.$spacing-b;
+    $swatch-margin: calc($swatch-size + $swatch-gap);
+
+    td:first-child {
+        position: relative;
+        inset-inline-start: $swatch-margin;
+
+        &:before {
+            content: '';
+            position: absolute;
+            display: block;
+            inset-block-start: 50%;
+            transform: translate(0, -50%);
+            inset-inline-start: -($swatch-gap);
+            height: $swatch-size;
+            width: $swatch-size;
+            background-color: var(--swatch-color);
+            border-radius: f.$radius-rounded-a;
+        }
+    }
+
+    @include f.media('<narrowMid') {
+        display: flex;
+        align-items: center;
+        gap: $swatch-gap;
+
+        td:first-child {
+            &:before {
+                transform: unset;
+            }
+        }
+
+        td:last-child {
+            margin-inline-start: $swatch-margin;
+        }
+    }
+}
+
 .c-simpleTable--headerless {
     td:first-child {
         font-weight: f.$font-weight-bold;
@@ -61,5 +101,11 @@
                 }
             }
         }
+    }
+}
+
+.c-simpleTable--swatch-lightBordered {
+    td:first-child:before {
+        border: 1px solid f.$color-border-strong;
     }
 }

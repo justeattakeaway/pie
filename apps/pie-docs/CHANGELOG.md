@@ -1,5 +1,33 @@
 # Changelog
 
+## 2.6.1
+
+### Patch Changes
+
+- Updated dependencies [[`2070a766c`](https://github.com/justeattakeaway/pie/commit/2070a766c31600b08dc75b2c9ee56e4e7dbeb329)]:
+  - @justeattakeaway/pie-icons@4.5.0
+
+## 2.6.0
+
+### Minor Changes
+
+- [Added] - a new Do/Don't (Usage) component ([#661](https://github.com/justeattakeaway/pie/pull/661)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies [[`64d9f3fe8`](https://github.com/justeattakeaway/pie/commit/64d9f3fe89e766e74cf2c18ca565ac0b06700034)]:
+  - @justeattakeaway/pie-icons@4.4.0
+
+## 2.5.0
+
+### Minor Changes
+
+- [Updated] - elevation and radius global token pages to use `simpleTable` over `tokensTable` ([#647](https://github.com/justeattakeaway/pie/pull/647)) by [@FayeCarter](https://github.com/FayeCarter)
+
+- [Changed] - global typography tokens to use simpleTable instead of tokenTable ([#642](https://github.com/justeattakeaway/pie/pull/642)) by [@FayeCarter](https://github.com/FayeCarter)
+
+  [Removed] - `globalSpacingTokens.json` so tokens are retrieved from the Pie tokens package instead of hard coded
+
 ## 2.4.2
 
 ### Patch Changes

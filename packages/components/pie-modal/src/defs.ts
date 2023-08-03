@@ -11,7 +11,39 @@ export type AriaProps = {
     loading?: string;
 };
 
-export interface ModalProps extends RTLComponentProps {
+export type ActionProps = {
+        /**
+         * The text to display inside the button.
+         */
+        text: string;
+
+        /**
+         * The button variant.
+         */
+        variant?: Variant;
+
+        /**
+         * The ARIA label for the button.
+         */
+        ariaLabel?: string;
+};
+
+export type ModalProps = RTLComponentProps & {
+    /**
+     * The ARIA labels used for the modal close and back buttons, as well as loading state.
+     */
+    aria?: AriaProps;
+
+    /**
+     * When true, the modal will have a back button. This currently behaves the same as the close button.
+     */
+    hasBackButton: boolean;
+
+    /**
+     * When true, the modal will have a back button. This currently behaves the same as the close button.
+     */
+    hasStackedActions: boolean;
+
     /**
      * The text to display in the modal's heading.
      */
@@ -41,16 +73,6 @@ export interface ModalProps extends RTLComponentProps {
     isDismissible: boolean;
 
     /**
-     * When true, displays a loading spinner in the modal.
-     */
-    isLoading: boolean;
-
-    /**
-     * When true, the modal will have a back button. This currently behaves the same as the close button.
-     */
-    hasBackButton: boolean;
-
-    /**
      * When false, the modal footer will scroll with the content inside the modal body.
      */
     isFooterPinned: boolean;
@@ -59,6 +81,21 @@ export interface ModalProps extends RTLComponentProps {
      * This controls whether a *medium-sized* modal will cover the full width of the page when below the mid breakpoint.
      */
     isFullWidthBelowMid: boolean;
+
+    /**
+     * When true, displays a loading spinner in the modal.
+     */
+    isLoading: boolean;
+
+    /**
+     * The leading action configuration for the modal.
+     */
+    leadingAction: ActionProps;
+
+    /*
+     * The position of the modal; this controls where it will appear on the page.
+     */
+    position: typeof positions[number];
 
     /**
      * The selector for the element that you would like focus to be returned to when the modal is closed, e.g., #skipToMain
@@ -71,54 +108,10 @@ export interface ModalProps extends RTLComponentProps {
     size: typeof sizes[number];
 
     /**
-     * The leading action configuration for the modal.
-     */
-    leadingAction: {
-        /**
-         * The text to display for the leading action button.
-         */
-        text: string;
-
-        /**
-         * The variant of the leading action button.
-         * Default: 'primary'
-         */
-        variant?: Variant;
-
-        /**
-         * The ARIA label for the leading action button.
-         */
-        ariaLabel?: string;
-    };
-
-    /**
      * The supporting action configuration for the modal.
      */
-    supportingAction: {
-        /**
-         * The text to display for the supporting action button.
-         */
-        text: string;
-
-        /**
-         * The variant of the supporting action button.
-         * Default: 'ghost'
-         */
-        variant?: Variant;
-
-        /**
-         * The ARIA label for the supporting action button.
-         */
-        ariaLabel?: string;
-    };
-
-    /*
-     * The position of the modal; this controls where it will appear on the page.
-     */
-    position: typeof positions[number];
-
-    aria?: AriaProps;
-}
+    supportingAction: ActionProps;
+};
 
 /**
  * Event name for when the modal is closed.

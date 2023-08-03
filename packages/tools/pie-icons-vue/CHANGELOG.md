@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.5.0
+
+### Minor Changes
+
+- Brings icon packages back in sync ([#679](https://github.com/justeattakeaway/pie/pull/679)) by [@dandel10n](https://github.com/dandel10n)
+
 ## 4.3.0
 
 ### Minor Changes

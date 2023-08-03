@@ -1,6 +1,6 @@
 {
   "name": "pie-storybook",
-  "version": "0.20.0",
+  "version": "0.22.0",
   "description": "Storybook for PIE Design System components",
   "scripts": {
     "dev": "storybook dev -p 6006",
@@ -12,6 +12,7 @@
   "dependencies": {
     "@justeattakeaway/pie-button": "workspace:*",
     "@justeattakeaway/pie-icon-button": "workspace:*",
+    "@justeattakeaway/pie-icons-webc": "workspace:*",
     "@justeattakeaway/pie-modal": "workspace:*"
   },
   "devDependencies": {

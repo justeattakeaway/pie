@@ -1,5 +1,19 @@
 # @justeattakeaway/pie-wrapper-react
 
+## 0.9.1
+
+### Patch Changes
+
+- [Added] - New ActionProps type for modal leading/supporting actions ([#670](https://github.com/justeattakeaway/pie/pull/670)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+## 0.9.0
+
+### Minor Changes
+
+- [Added] - Created package skeleton for pie-toggle-switch component ([#658](https://github.com/justeattakeaway/pie/pull/658)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Changed] - Add js/ts linting and fix errors ([#653](https://github.com/justeattakeaway/pie/pull/653)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.8.2
 
 ### Patch Changes

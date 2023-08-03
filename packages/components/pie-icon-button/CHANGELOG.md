@@ -1,5 +1,26 @@
 # @justeattakeaway/pie-icon-button
 
+## 0.12.0
+
+### Minor Changes
+
+- [Fixed] - Prevent tree-shaking of components in storybook ([#667](https://github.com/justeattakeaway/pie/pull/667)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Removed] - Built webc icons from source control
+  [Added] - Type declaration files for components
+  [Added] - Types for pie-icons
+  [Added] - TS version of pie-icons-configs/config.js (Will be used after DSW-1025)
+  [Added] - Webc icon tests for width, height and base classes
+  [Changed] - Update pie-icons-webc build to generate a slightly different template for regular and large icons (using different types, etc.)
+  [Changed] - Update pie-icons-webc rollup config to remove commonjs build
+  [Changed] - Use `just-kebab-case` and `just-pascal-case` instead of `kebab-case` and `pascal-case` to simplify usage (and they're more recently maintained)
+
+## 0.11.0
+
+### Minor Changes
+
+- [Changed] - Add js/ts linting and fix errors ([#653](https://github.com/justeattakeaway/pie/pull/653)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.10.0
 
 ### Minor Changes

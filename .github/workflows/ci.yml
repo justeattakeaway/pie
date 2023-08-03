@@ -196,11 +196,12 @@ jobs:
           concurrency: 1
       - name: Run Changed Package Visual Tests
         uses: ./.github/actions/run-script
-        if: github.event_name == 'pull_request' && github.ref != 'refs/heads/main'
+        if: (github.event_name == 'pull_request' && github.event.pull_request.draft == false) && github.ref != 'refs/heads/main'
         with:
           script-name: "test:visual:ci --filter=...[origin/main]"
           concurrency: 1
       - uses: actions/upload-artifact@v3
+        if: always()
         with:
           name: visual-report
           path: visual-report/

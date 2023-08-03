@@ -14,7 +14,7 @@ runs:
         with:
           path: |
             ~/.cache/ms-playwright
-          key: ${{ runner.os }}-playwright-${{ steps.playwright-version.outputs.playwright_version }}
+          key: ${{ runner.os }}-playwright-${{ env.PLAYWRIGHT_VERSION }}
       - run: npx playwright install --with-deps
         shell: bash
         if: steps.playwright-cache.outputs.cache-hit != 'true'

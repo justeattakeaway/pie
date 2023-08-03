@@ -11,7 +11,7 @@ const componentSelector = 'pie-<%= fileName %>';
 
 export class Pie<%= componentName %> extends LitElement implements <%= componentName %>Props {
     render () {
-        return html`<h1>Hello world!</h1>`;
+        return html`<h1 data-test-id="pie-<%= fileName %>">Hello world!</h1>`;
     }
 
     // Renders a `CSSResult` generated from SCSS by Vite

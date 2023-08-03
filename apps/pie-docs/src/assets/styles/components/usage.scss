@@ -1,0 +1,58 @@
+@use '../fozzie-config' as f;
+@use '../variables' as v;
+
+$usage-container-gap: 20px;
+$usage-bg-minHeight: 280px;
+
+.c-usage-container {
+    display: flex;
+    flex-direction: column;
+    gap: $usage-container-gap;
+    margin-block-start: f.spacing(e);
+    margin-block-end: f.spacing(f);
+
+    @include f.media('>=narrowMid') {
+        flex-direction: row;
+    }
+}
+
+.c-usage {
+    width: 100%;
+
+    figure {
+        margin: 0;
+    }
+}
+
+.c-usage-heading {
+    @include f.font-size('heading-s', $scale: 'narrow');
+    font-weight: f.$font-weight-bold;
+    color: var(--style-colour);
+    display: flex;
+    align-items: center;
+    gap: f.spacing(b);
+    margin-block-end: f.spacing(d);
+}
+
+.c-usage-backdrop {
+    padding: f.spacing(e);
+    background-color: f.$color-background-subtle;
+    border-radius: 0 0 f.$radius-rounded-d f.$radius-rounded-d;
+    border-top: 4px solid var(--style-colour);
+
+    &.c-usage-backdrop--hasImage {
+        display: grid;
+        place-content: center;
+        gap: f.spacing(f);
+        min-height: $usage-bg-minHeight;
+    }
+}
+
+.c-usage-img {
+    & img {
+        width: var(--img-width);
+        display: block;
+        max-width: 100%;
+        height: auto;
+    }
+}
