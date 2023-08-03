@@ -20,7 +20,7 @@ const componentSelector = 'pie-toggle-switch';
 
 export class PieToggleSwitch extends RtlMixin(LitElement) implements ToggleSwitchProps {
     @property({ type: Boolean, reflect: true })
-    public isChecked = false;
+    public isChecked = true;
 
     @property({ type: Boolean, reflect: true })
     public isDisabled = false;

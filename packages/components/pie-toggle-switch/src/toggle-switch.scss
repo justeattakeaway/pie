@@ -81,18 +81,11 @@
 
 .c-toggleSwitch-control {
     @include toggle-switch-transition(transform);
-    display: flex;
-    align-items: center;
-    justify-content: center;
     width: var(--toggle-switch-control-size);
     height: var(--toggle-switch-control-size);
     border-radius: var(--toggle-switch-radius);
     background-color: var(--dt-color-interactive-light);
-
-    .c-pieIcon--check {
-        width: var(--toggle-switch-icon-size);
-        height: var(--toggle-switch-icon-size);
-    }
+    padding: var(--toggle-switch-padding);
 
     .c-toggleSwitch-input:checked + & {
         @include toggle-switch-transition(transform);
@@ -115,8 +108,8 @@
 }
 
 :host([dir="rtl"]) {
-  .c-toggleSwitch-input:checked + .c-toggleSwitch-control {
-    @include toggle-switch-transition(transform);
-    transform: translateX(calc(-1 * var(--toggle-switch-translation)));
-  }
+    .c-toggle-switch-input:checked + .c-toggle-switch-control {
+        @include toggle-switch-transition(transform);
+        transform: translateX(calc(-1 * var(--toggle-switch-translation)));
+    }
 }
