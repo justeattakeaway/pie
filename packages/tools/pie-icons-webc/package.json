@@ -44,7 +44,7 @@
   ],
   "devDependencies": {
     "@babel/node": "7.20.7",
-    "@justeattakeaway/pie-icons": "4.4.0",
+    "@justeattakeaway/pie-icons": "4.5.0",
     "@justeattakeaway/pie-icons-configs": "workspace:*",
     "@justeattakeaway/pie-webc-core": "0.6.0",
     "@rollup/plugin-node-resolve": "15.1.0",
