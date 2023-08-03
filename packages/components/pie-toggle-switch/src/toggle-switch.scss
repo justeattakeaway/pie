@@ -105,7 +105,7 @@
     }
 }
 
-:host([dir="rtl"]) {
+:host([dir='rtl']) {
     .c-toggleSwitch-input:checked + .c-toggleSwitch-control {
         @include toggle-switch-transition(transform);
         transform: translateX(calc(-1 * var(--toggle-switch-translation)));
