@@ -4,7 +4,6 @@
   "private": true,
   "dependencies": {
     "@justeattakeaway/pie-button": "workspace:*",
-    "@justeattakeaway/pie-icons-react": "workspace:*",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-scripts": "5.0.1"

@@ -29,7 +29,6 @@
                 :size="value">
                 WC Button in Vue!
             </pie-button>
-            <icon-walking />
         </div>
         <icon-alcohol />
     </div>
@@ -37,16 +36,8 @@
 
 <script>
 import { variants, sizes } from '@justeattakeaway/pie-button';
-import { IconWalking } from '@justeattakeaway/pie-icons-vue';
-
-console.log(IconWalking);
-
-// export { IconAlcohol };
 
 export default {
-    components: {
-        ...IconWalking,
-    },
     data () {
         return {
             count: 0,

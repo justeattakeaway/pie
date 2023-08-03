@@ -18,14 +18,7 @@
 </template>
 
 <script>
-import { IconWalking } from '@justeattakeaway/pie-icons-vue';
-
-console.log(IconWalking);
-
 export default {
-    components: {
-        IconWalking
-    },
     data: () => ({
         counter: 0
     }),
