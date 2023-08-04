@@ -4,5 +4,4 @@ lit-browsers-report
 lit-visual-report
 test-results
 
-generators
-src/app/templates
+packages/tools/generator-pie-component/src/app/templates
