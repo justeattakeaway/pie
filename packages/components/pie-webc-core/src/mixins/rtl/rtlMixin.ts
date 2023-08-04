@@ -16,32 +16,41 @@ export interface RTLComponentProps {
 }
 
 // This is just used by the dynamically constructed class below and does not need to be imported or referenced anywhere else
-declare class _RTLInterface {
+interface _RTLInterface {
+    /**
+     * Sets the text direction of the element. Possible values are `ltr`, `rtl`, and `auto`.
+     */
     dir: htmlDirAttribute;
+    /**
+     * Returns true if the element is in Right to Left mode. Based on the `dir` property.
+     */
     isRTL: boolean;
 }
 
+/**
+ * This mixin adds a reactive `dir` attribute to the component, allowing it to adjust rendering and styles based on text direction (LTR or RTL).
+ *
+ * Usage of this mixin is dependent on the specific needs of the component:
+ *
+ * - If your component only relies on CSS logical properties for styling, this mixin is NOT necessary for RTL support.
+ * - If your component requires different template rendering for RTL, or if its styles are dependent on a 'dir' attribute, then this mixin should be used.
+ *
+ * The mixin includes a property `dir` with the default value `ltr`, and a getter `isRTL` to check if the text direction is right-to-left.
+ * `isRTL` will return true if the `dir` property is set to `rtl`.
+ *
+ */
 export const RtlMixin =
     <T extends Constructor<LitElement>>(superClass: T) => {
         class RTLElement extends superClass implements _RTLInterface {
             @property({ type: String, reflect: true })
-                dir : htmlDirAttribute = 'ltr';
+            public dir : htmlDirAttribute = 'ltr';
 
-            /**
-             * Returns true if the element is in Right to Left mode.
-             * If a dir attribute is not explicitly set on the web component
-             * then it falls back to the nearest parent with a dir attribute set.
-             *
-             * A dir attribute being set will result in a reactive property.
-             * If the component falls back to a parent dir attribute then the value
-             * will not be reactive and is only computed once
-             */
-            get isRTL () : boolean {
+            public get isRTL () : boolean {
                 if (this.dir === 'ltr') {
                     return false;
                 }
 
-                if (this.dir === 'rtl' || window?.getComputedStyle(this)?.direction === 'rtl') {
+                if (this.dir === 'rtl') {
                     return true;
                 }
 
