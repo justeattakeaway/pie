@@ -1180,8 +1180,27 @@
         {
             "kind": "javascript-module",
             "path": "../../components/pie-toggle-switch/src/defs.js",
-            "declarations": [],
-            "exports": []
+            "declarations": [
+                {
+                    "kind": "variable",
+                    "name": "EVENT_TOGGLE_SWITCH_CHANGED",
+                    "type": {
+                        "text": "string"
+                    },
+                    "default": "'pie-toggle-switch-changed'",
+                    "description": "Event name for when the toggle switch checked state is changed."
+                }
+            ],
+            "exports": [
+                {
+                    "kind": "js",
+                    "name": "EVENT_TOGGLE_SWITCH_CHANGED",
+                    "declaration": {
+                        "name": "EVENT_TOGGLE_SWITCH_CHANGED",
+                        "module": "../../components/pie-toggle-switch/src/defs.js"
+                    }
+                }
+            ]
         },
         {
             "kind": "javascript-module",
@@ -1199,7 +1218,120 @@
                     "kind": "class",
                     "description": "",
                     "name": "PieToggleSwitch",
-                    "members": [],
+                    "members": [
+                        {
+                            "kind": "field",
+                            "name": "isChecked",
+                            "type": {
+                                "text": "boolean"
+                            },
+                            "privacy": "public",
+                            "default": "false",
+                            "attribute": "isChecked",
+                            "reflects": true
+                        },
+                        {
+                            "kind": "field",
+                            "name": "isDisabled",
+                            "type": {
+                                "text": "boolean"
+                            },
+                            "privacy": "public",
+                            "default": "false",
+                            "attribute": "isDisabled",
+                            "reflects": true
+                        },
+                        {
+                            "kind": "method",
+                            "name": "onToggleChange",
+                            "parameters": [
+                                {
+                                    "name": "event",
+                                    "type": {
+                                        "text": "Event"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "kind": "field",
+                            "name": "dir",
+                            "type": {
+                                "text": "htmlDirAttribute"
+                            },
+                            "default": "'ltr'",
+                            "attribute": "dir",
+                            "reflects": true,
+                            "inheritedFrom": {
+                                "name": "RtlMixin",
+                                "module": "../../components/pie-webc-core/src/mixins/rtl/rtlMixin.js"
+                            }
+                        },
+                        {
+                            "kind": "field",
+                            "name": "isRTL",
+                            "type": {
+                                "text": "boolean"
+                            },
+                            "description": "Returns true if the element is in Right to Left mode.\nIf a dir attribute is not explicitly set on the web component\nthen it falls back to the nearest parent with a dir attribute set.\n\nA dir attribute being set will result in a reactive property.\nIf the component falls back to a parent dir attribute then the value\nwill not be reactive and is only computed once",
+                            "readonly": true,
+                            "inheritedFrom": {
+                                "name": "RtlMixin",
+                                "module": "../../components/pie-webc-core/src/mixins/rtl/rtlMixin.js"
+                            }
+                        }
+                    ],
+                    "events": [
+                        {
+                            "name": "EVENT_TOGGLE_SWITCH_CHANGED",
+                            "type": {
+                                "text": "CustomEvent"
+                            }
+                        },
+                        {
+                            "type": {
+                                "text": "CustomEvent"
+                            },
+                            "description": "when the toggle switch checked state is changed.",
+                            "name": "pie-toggle-switch-changed"
+                        }
+                    ],
+                    "attributes": [
+                        {
+                            "name": "isChecked",
+                            "type": {
+                                "text": "boolean"
+                            },
+                            "default": "false",
+                            "fieldName": "isChecked"
+                        },
+                        {
+                            "name": "isDisabled",
+                            "type": {
+                                "text": "boolean"
+                            },
+                            "default": "false",
+                            "fieldName": "isDisabled"
+                        },
+                        {
+                            "name": "dir",
+                            "type": {
+                                "text": "htmlDirAttribute"
+                            },
+                            "default": "'ltr'",
+                            "fieldName": "dir",
+                            "inheritedFrom": {
+                                "name": "RtlMixin",
+                                "module": "../../components/pie-webc-core/src/mixins/rtl/rtlMixin.ts"
+                            }
+                        }
+                    ],
+                    "mixins": [
+                        {
+                            "name": "RtlMixin",
+                            "package": "@justeattakeaway/pie-webc-core"
+                        }
+                    ],
                     "superclass": {
                         "name": "LitElement",
                         "package": "lit"
