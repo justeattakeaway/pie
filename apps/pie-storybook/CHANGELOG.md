@@ -1,5 +1,22 @@
 # Changelog
 
+## 0.23.0
+
+### Minor Changes
+
+- [Added] - axe builder to be shared as a base instance across broswer accessibility tests ([#669](https://github.com/justeattakeaway/pie/pull/669)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Changed] - renamed the toggle switch story filename ([#669](https://github.com/justeattakeaway/pie/pull/669)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Added] - testing starting templates for the generator-pie-component
+
+### Patch Changes
+
+- Updated dependencies [[`b56832c38`](https://github.com/justeattakeaway/pie/commit/b56832c3846c5588439d1a754abb78f58a282d67)]:
+  - @justeattakeaway/pie-icon-button@0.13.0
+  - @justeattakeaway/pie-button@0.23.0
+  - @justeattakeaway/pie-modal@0.16.0
+
 ## 0.22.0
 
 ### Minor Changes
