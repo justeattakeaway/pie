@@ -298,7 +298,8 @@
                                 "text": "ModalProps['position']"
                             },
                             "privacy": "public",
-                            "default": "'center'"
+                            "default": "'center'",
+                            "attribute": "position"
                         },
                         {
                             "kind": "field",
@@ -649,6 +650,14 @@
                                 "text": "ActionProps"
                             },
                             "fieldName": "leadingAction"
+                        },
+                        {
+                            "name": "position",
+                            "type": {
+                                "text": "ModalProps['position']"
+                            },
+                            "default": "'center'",
+                            "fieldName": "position"
                         },
                         {
                             "name": "returnFocusAfterCloseSelector",
