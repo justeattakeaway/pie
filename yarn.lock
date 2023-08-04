@@ -5463,6 +5463,7 @@ __metadata:
   dependencies:
     "@justeat/pie-design-tokens": 5.1.0
     "@justeattakeaway/pie-components-config": "workspace:*"
+    "@justeattakeaway/pie-css": "workspace:*"
     "@justeattakeaway/pie-webc-core": "workspace:*"
   languageName: unknown
   linkType: soft
@@ -5473,7 +5474,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-css@workspace:packages/tools/pie-css":
+"@justeattakeaway/pie-css@workspace:*, @justeattakeaway/pie-css@workspace:packages/tools/pie-css":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-css@workspace:packages/tools/pie-css"
   dependencies:

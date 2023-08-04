@@ -39,6 +39,6 @@ export function compileCss (scss: string): string {
  * @param {string} cssStr - The input CSS string containing the styles.
  * @returns {string} The CSS string with all whitespace characters removed.
  */
-export function stripCSSWhitespace (cssStr: string) {
+export function stripCSSWhitespace (cssStr: string) : string {
     return cssStr.replace(/\s/g, '');
 }

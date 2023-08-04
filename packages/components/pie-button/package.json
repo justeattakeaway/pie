@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/pie-button",
-  "version": "0.22.0",
+  "version": "0.23.0",
   "description": "PIE design system button built using web components",
   "type": "module",
   "main": "dist/index.js",
@@ -25,6 +25,7 @@
   "devDependencies": {
     "@justeat/pie-design-tokens": "5.1.0",
     "@justeattakeaway/pie-components-config": "workspace:*",
+    "@justeattakeaway/pie-css": "workspace:*",
     "@justeattakeaway/pie-webc-core": "workspace:*"
   },
   "volta": {
