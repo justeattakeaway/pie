@@ -11,9 +11,9 @@
 }
 
 .c-toggleSwitch {
-    --toggle-switch-bgColor: var(--dt-color-interactive-form);
-    --toggle-switch-bgColor--checked: var(--dt-color-interactive-brand);
-    --toggle-switch-bgColor--disabled: var(--dt-color-disabled-01);
+    --toggle-switch-bg-color: var(--dt-color-interactive-form);
+    --toggle-switch-bg-color--checked: var(--dt-color-interactive-brand);
+    --toggle-switch-bg-color--disabled: var(--dt-color-disabled-01);
     --toggle-switch-width: 48px;
     --toggle-switch-height: 24px;
     --toggle-switch-control-size: 20px;
@@ -27,7 +27,7 @@
     flex-shrink: 0;
     padding: var(--toggle-switch-padding);
     border-radius: var(--toggle-switch-radius);
-    background-color: var(--toggle-switch-bgColor);
+    background-color: var(--toggle-switch-bg-color);
 
     cursor: pointer;
 
@@ -39,7 +39,7 @@
 
     &:focus,
     &:focus-within {
-        background-color: var(--toggle-switch-bgColor);
+        background-color: var(--toggle-switch-bg-color);
         box-shadow: 0 0 0 2px var(--dt-color-focus-inner), 0 0 0 4px var(--dt-color-focus-outer);
     }
 
@@ -49,7 +49,7 @@
 
     &[ischecked] {
         @include toggle-switch-transition(background-color);
-        background-color: var(--toggle-switch-bgColor--checked);
+        background-color: var(--toggle-switch-bg-color--checked);
 
         &:hover {
             background-color: hsl(var(--dt-color-interactive-brand-h), var(--dt-color-interactive-brand-s), calc(var(--dt-color-interactive-brand-l) - var(--dt-color-hover-01)));
@@ -57,7 +57,7 @@
 
         &:focus,
         &:focus-within {
-            background-color: var(--toggle-switch-bgColor--checked);
+            background-color: var(--toggle-switch-bg-color--checked);
         }
 
         &:active {
@@ -66,7 +66,7 @@
     }
 
     &[isDisabled] {
-        background-color: var(--toggle-switch-bgColor--disabled);
+        background-color: var(--toggle-switch-bg-color--disabled);
 
         cursor: not-allowed;
         pointer-events: none;
@@ -92,16 +92,16 @@
 
         .c-pieIcon--check {
             @include toggle-switch-transition(color);
-            color: var(--toggle-switch-bgColor--checked);
+            color: var(--toggle-switch-bg-color--checked);
         }
     }
 
     .c-toggleSwitch-input:disabled ~ & {
-        color: var(--toggle-switch-bgColor--disabled);
+        color: var(--toggle-switch-bg-color--disabled);
 
         .c-pieIcon--check {
             @include toggle-switch-transition(color);
-            color: var(--toggle-switch-bgColor--disabled);
+            color: var(--toggle-switch-bg-color--disabled);
         }
     }
 }
