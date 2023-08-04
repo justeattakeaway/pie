@@ -520,6 +520,7 @@
                             "type": {
                                 "text": "htmlDirAttribute"
                             },
+                            "privacy": "public",
                             "default": "'ltr'",
                             "attribute": "dir",
                             "reflects": true,
@@ -534,7 +535,7 @@
                             "type": {
                                 "text": "boolean"
                             },
-                            "description": "Returns true if the element is in Right to Left mode.\nIf a dir attribute is not explicitly set on the web component\nthen it falls back to the nearest parent with a dir attribute set.\n\nA dir attribute being set will result in a reactive property.\nIf the component falls back to a parent dir attribute then the value\nwill not be reactive and is only computed once",
+                            "privacy": "public",
                             "readonly": true,
                             "inheritedFrom": {
                                 "name": "RtlMixin",
@@ -1259,6 +1260,7 @@
                             "type": {
                                 "text": "htmlDirAttribute"
                             },
+                            "privacy": "public",
                             "default": "'ltr'",
                             "attribute": "dir",
                             "reflects": true,
@@ -1273,7 +1275,7 @@
                             "type": {
                                 "text": "boolean"
                             },
-                            "description": "Returns true if the element is in Right to Left mode.\nIf a dir attribute is not explicitly set on the web component\nthen it falls back to the nearest parent with a dir attribute set.\n\nA dir attribute being set will result in a reactive property.\nIf the component falls back to a parent dir attribute then the value\nwill not be reactive and is only computed once",
+                            "privacy": "public",
                             "readonly": true,
                             "inheritedFrom": {
                                 "name": "RtlMixin",
@@ -1434,7 +1436,7 @@
             "declarations": [
                 {
                     "kind": "mixin",
-                    "description": "",
+                    "description": "This mixin adds a reactive `dir` attribute to the component, allowing it to adjust rendering and styles based on text direction (LTR or RTL).\n\nUsage of this mixin is dependent on the specific needs of the component:\n\n- If your component only relies on CSS logical properties for styling, this mixin is NOT necessary for RTL support.\n- If your component requires different template rendering for RTL, or if its styles are dependent on a 'dir' attribute, then this mixin should be used.\n\nThe mixin includes a property `dir` with the default value `ltr`, and a getter `isRTL` to check if the text direction is right-to-left.\n`isRTL` will return true if the `dir` property is set to `rtl`.",
                     "name": "RtlMixin",
                     "members": [
                         {
@@ -1443,6 +1445,7 @@
                             "type": {
                                 "text": "htmlDirAttribute"
                             },
+                            "privacy": "public",
                             "default": "'ltr'",
                             "attribute": "dir",
                             "reflects": true
@@ -1453,7 +1456,7 @@
                             "type": {
                                 "text": "boolean"
                             },
-                            "description": "Returns true if the element is in Right to Left mode.\nIf a dir attribute is not explicitly set on the web component\nthen it falls back to the nearest parent with a dir attribute set.\n\nA dir attribute being set will result in a reactive property.\nIf the component falls back to a parent dir attribute then the value\nwill not be reactive and is only computed once",
+                            "privacy": "public",
                             "readonly": true
                         }
                     ],

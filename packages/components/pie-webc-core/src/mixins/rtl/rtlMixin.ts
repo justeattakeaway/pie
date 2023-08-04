@@ -46,10 +46,6 @@ export const RtlMixin =
             public dir : htmlDirAttribute = 'ltr';
 
             public get isRTL () : boolean {
-                if (this.dir === 'ltr') {
-                    return false;
-                }
-
                 if (this.dir === 'rtl') {
                     return true;
                 }
