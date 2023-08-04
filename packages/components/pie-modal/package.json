@@ -35,5 +35,8 @@
   },
   "volta": {
     "extends": "../../../package.json"
+  },
+  "dependencies": {
+    "dialog-polyfill": "0.5.6"
   }
 }

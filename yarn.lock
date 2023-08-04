@@ -5457,7 +5457,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-button@0.22.0, @justeattakeaway/pie-button@workspace:*, @justeattakeaway/pie-button@workspace:packages/components/pie-button":
+"@justeattakeaway/pie-button@0.23.0, @justeattakeaway/pie-button@workspace:*, @justeattakeaway/pie-button@workspace:packages/components/pie-button":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-button@workspace:packages/components/pie-button"
   dependencies:
@@ -5484,7 +5484,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-icon-button@0.12.0, @justeattakeaway/pie-icon-button@workspace:*, @justeattakeaway/pie-icon-button@workspace:packages/components/pie-icon-button":
+"@justeattakeaway/pie-icon-button@0.13.0, @justeattakeaway/pie-icon-button@workspace:*, @justeattakeaway/pie-icon-button@workspace:packages/components/pie-icon-button":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-icon-button@workspace:packages/components/pie-icon-button"
   dependencies:
@@ -5580,6 +5580,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@justeattakeaway/pie-modal@npm:0.14.0":
+  version: 0.14.0
+  resolution: "@justeattakeaway/pie-modal@npm:0.14.0"
+  peerDependencies:
+    body-scroll-lock: 4.0.0-beta.0
+  checksum: ac92c4e2724d1894db5c70167cb1146252e6a96d3f561a83b011cc4d920d9560c66246cc74bfc25283a5b7ec438d3a5d5b9bdcfd5c84fd2d4cb186c8e566703a
+  languageName: node
+  linkType: hard
+
 "@justeattakeaway/pie-modal@workspace:*, @justeattakeaway/pie-modal@workspace:packages/components/pie-modal":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-modal@workspace:packages/components/pie-modal"
@@ -5590,6 +5599,7 @@ __metadata:
     "@justeattakeaway/pie-icons-webc": "workspace:*"
     "@justeattakeaway/pie-webc-core": "workspace:*"
     "@types/body-scroll-lock": 3.1.0
+    dialog-polyfill: 0.5.6
   peerDependencies:
     body-scroll-lock: 4.0.0-beta.0
   languageName: unknown
@@ -16609,6 +16619,13 @@ __metadata:
   version: 0.0.1
   resolution: "di@npm:0.0.1"
   checksum: 3f09a99534d33e49264585db7f863ea8bc76c25c4d5a60df387c946018ecf1e1516b2c05a2092e5ca51fcdc08cefe609a6adc5253fa831626cb78cad4746505e
+  languageName: node
+  linkType: hard
+
+"dialog-polyfill@npm:0.5.6":
+  version: 0.5.6
+  resolution: "dialog-polyfill@npm:0.5.6"
+  checksum: dde8d4b6a62b63b710e0d0d70b615d92ff08f3cb2b521e1f99b17e8220d9d55d0fdf9fc17fbe77b0ff1be817094e14b60c4c4bacd5456fba427ede48d2d90230
   languageName: node
   linkType: hard
 
@@ -36508,9 +36525,10 @@ __metadata:
   resolution: "wc-vanilla@workspace:apps/examples/wc-vanilla"
   dependencies:
     "@justeat/pie-design-tokens": 5.3.0
-    "@justeattakeaway/pie-button": 0.22.0
-    "@justeattakeaway/pie-icon-button": 0.12.0
+    "@justeattakeaway/pie-button": 0.23.0
+    "@justeattakeaway/pie-icon-button": 0.13.0
     "@justeattakeaway/pie-icons-webc": 0.5.0
+    "@justeattakeaway/pie-modal": 0.14.0
     vite: 4.3.9
   languageName: unknown
   linkType: soft
