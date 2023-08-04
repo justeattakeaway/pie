@@ -131,4 +131,4 @@ The polyfill comes with a few limitations, as noted on its [documentation page](
 - The browser's chrome may not always be accessible via the tab key
 - Changes to the CSS top/bottom values while open aren't retained
 
-For more details, check the package documentation.
+For more details, check the package documentation mentioned above.
