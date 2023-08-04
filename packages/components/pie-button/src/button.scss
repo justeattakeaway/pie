@@ -84,6 +84,7 @@
 
     // Spinner colors - currently set for the primary button styles
     @include spinner-base-colors(--dt-color-content-interactive-primary);
+
     --spinner-left-color-opacity: 0.35;
     --spinner-left-color: hsl(var(--spinner-base-color-h), var(--spinner-base-color-s), var(--spinner-base-color-l), var(--spinner-left-color-opacity));
     --spinner-right-color: hsl(var(--spinner-base-color-h), var(--spinner-base-color-s), var(--spinner-base-color-l), 1);
@@ -243,11 +244,7 @@
         cursor: not-allowed;
 
         // For every variant (except ghost variants) set the disabled background color
-        &:not(
-            [variant='ghost'],
-            [variant='ghost-inverse'],
-            [variant='destructive-ghost']
-        ) {
+        &:not([variant='ghost'], [variant='ghost-inverse'], [variant='destructive-ghost']) {
             --btn-bg-color: var(--dt-color-disabled-01) !important;
         }
 
