@@ -15,7 +15,8 @@
     "@justeat/pie-design-tokens": "5.3.0",
     "@justeattakeaway/pie-button": "0.23.0",
     "@justeattakeaway/pie-icon-button": "0.13.0",
-    "@justeattakeaway/pie-icons-webc": "0.5.0"
+    "@justeattakeaway/pie-icons-webc": "0.5.0",
+    "@justeattakeaway/pie-modal": "0.14.0"
   },
   "installConfig": {
     "hoistingLimits": "workspaces"
