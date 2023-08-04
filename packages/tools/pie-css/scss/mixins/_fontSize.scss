@@ -1,4 +1,4 @@
-// -
+// ----------------------------------------------
 // Mixin for setting the font size.
 // The `font-size` mixin allows you to set the font size using a CSS variable.
 // The resulting value will be multiplied by 1px.
@@ -11,8 +11,11 @@
 //   @include font-size(--font-size-small);
 // }
 // -
-// Outputs: .text { font-size: calc(var(--font-size-small) * 1px); }
-// -
+// Outputs:
+// .text {
+//   font-size: calc(var(--font-size-small) * 1px);
+// }
+// ----------------------------------------------
 @mixin font-size($token) {
     font-size: calc(var($token) * 1px);
 }

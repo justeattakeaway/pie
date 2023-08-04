@@ -5463,6 +5463,7 @@ __metadata:
   dependencies:
     "@justeat/pie-design-tokens": 5.1.0
     "@justeattakeaway/pie-components-config": "workspace:*"
+    "@justeattakeaway/pie-css": "workspace:*"
     "@justeattakeaway/pie-webc-core": "workspace:*"
   languageName: unknown
   linkType: soft
@@ -5473,7 +5474,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-css@workspace:packages/tools/pie-css":
+"@justeattakeaway/pie-css@workspace:*, @justeattakeaway/pie-css@workspace:packages/tools/pie-css":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-css@workspace:packages/tools/pie-css"
   dependencies:
@@ -5594,12 +5595,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-toggle-switch@workspace:packages/components/pie-toggle-switch":
+"@justeattakeaway/pie-toggle-switch@workspace:*, @justeattakeaway/pie-toggle-switch@workspace:packages/components/pie-toggle-switch":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-toggle-switch@workspace:packages/components/pie-toggle-switch"
   dependencies:
     "@justeattakeaway/pie-components-config": "workspace:*"
-    "@justeattakeaway/pie-webc-core": "workspace:*"
+    "@justeattakeaway/pie-icons-webc": "workspace:*"
   languageName: unknown
   linkType: soft
 
@@ -27739,9 +27740,11 @@ __metadata:
   resolution: "pie-storybook@workspace:apps/pie-storybook"
   dependencies:
     "@justeattakeaway/pie-button": "workspace:*"
+    "@justeattakeaway/pie-css": "workspace:*"
     "@justeattakeaway/pie-icon-button": "workspace:*"
     "@justeattakeaway/pie-icons-webc": "workspace:*"
     "@justeattakeaway/pie-modal": "workspace:*"
+    "@justeattakeaway/pie-toggle-switch": "workspace:*"
     "@storybook/addon-a11y": 7.1.0
     "@storybook/addon-essentials": 7.1.0
     "@storybook/addon-links": 7.1.0

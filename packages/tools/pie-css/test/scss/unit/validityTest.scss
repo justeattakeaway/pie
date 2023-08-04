@@ -1,0 +1,17 @@
+// We should integrate every SCSS mixin and function into this test.
+// This way we only make a single request to the W3C validator API
+@use 'mixins';
+@use 'functions';
+
+:root {
+    --test-font-size: 12;
+    --bar-font-size: #{functions.font-size('--test-font-size')};
+}
+
+.foo {
+    @include mixins.font-size(--font-size);
+}
+
+.bar {
+    font-size: var(--bar-font-size);
+}

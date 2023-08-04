@@ -59,7 +59,8 @@ import { PieToggleSwitch } from '@justeattakeaway/pie-toggle-switch/dist/react';
 
 | Property | Type | Default | Description |
 |---|---|---|---|
-| - | - | - | - |
+| isChecked | `Boolean` | false | Indicates whether the switch is on or off |
+| isDisabled | `Boolean` | false | Indicates whether the switch is disabled or not |
 
 In your markup or JSX, you can then use these to set the properties for the `pie-toggle-switch` component:
 

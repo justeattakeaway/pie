@@ -1,4 +1,5 @@
 import { WritingDirection } from '../decorators';
+import '@justeattakeaway/pie-css';
 
 export default {
     decorators: [WritingDirection],
