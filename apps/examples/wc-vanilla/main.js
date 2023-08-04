@@ -2,6 +2,12 @@ import './style.css';
 import { setupCounter } from './counter';
 
 document.querySelector('#app').innerHTML = `
+    <h2>pie-modal</h2>
+    <pie-button id="modal-trigger" type="button">open modal</pie-button>
+    <pie-modal id="modal" heading='My Awesome Heading' headingLevel='h3' isDismissible>
+        Modal content
+    </pie-modal>
+
     <h2>pie-button Component Counter</h2>
     <pie-button id="counter" type="button"></pie-button>
 
@@ -17,3 +23,7 @@ document.querySelector('#app').innerHTML = `
 `;
 
 setupCounter(document.querySelector('#counter'));
+
+document.querySelector('#modal-trigger').addEventListener('click', () => {
+    document.querySelector('#modal').setAttribute('isOpen', true);
+});

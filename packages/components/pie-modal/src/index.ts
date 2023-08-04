@@ -12,6 +12,8 @@ import '@justeattakeaway/pie-icons-webc/dist/icons/IconClose.js';
 import '@justeattakeaway/pie-icons-webc/dist/icons/IconChevronLeft.js';
 import '@justeattakeaway/pie-icons-webc/dist/icons/IconChevronRight.js';
 
+import dialogPolyfill from 'dialog-polyfill';
+
 import styles from './modal.scss?inline';
 import {
     type AriaProps,
@@ -113,12 +115,15 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
     }
 
     firstUpdated (changedProperties: DependentMap<ModalProps>) : void {
-        this._dialog?.addEventListener('cancel', (event) => this._handleDialogCancelEvent(event));
-        this._handleModalOpenStateOnFirstRender(changedProperties);
+        if (this._dialog) {
+            dialogPolyfill.registerDialog(this._dialog);
+            this._dialog.addEventListener('cancel', (event) => this._handleDialogCancelEvent(event));
+            this._dialog.addEventListener('close', () => {
+                this.isOpen = false;
+            });
+        }
 
-        this._dialog?.addEventListener('close', () => {
-            this.isOpen = false;
-        });
+        this._handleModalOpenStateOnFirstRender(changedProperties);
     }
 
     updated (changedProperties: DependentMap<ModalProps>) : void {
