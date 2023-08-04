@@ -5517,6 +5517,7 @@ __metadata:
     react-test-renderer: 18.0.0
     rollup: 3.20.2
     rollup-plugin-delete: 2.0.0
+    rollup-plugin-typescript2: 0.34.1
     ts-jest: 29.1.0
   languageName: unknown
   linkType: soft
@@ -5539,7 +5540,6 @@ __metadata:
     prismjs: 1.29.0
     rollup: 3.20.2
     rollup-plugin-delete: 2.0.0
-    rollup-plugin-typescript2: 0.34.1
   languageName: unknown
   linkType: soft
 

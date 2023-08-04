@@ -2,8 +2,6 @@
   "name": "@justeattakeaway/pie-icons-vue",
   "version": "4.5.0",
   "main": "dist/generated/index.cjs",
-  "cdn": "dist/pie-icons-vue.min.js",
-  "unpkg": "dist/pie-icons-vue.min.js",
   "module": "esm/generated/index.mjs",
   "files": [
     "dist",

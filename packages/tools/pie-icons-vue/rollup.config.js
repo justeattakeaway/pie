@@ -5,7 +5,7 @@ export default [
     {
         input: ['generated/index.js'],
         output: {
-            exports: 'auto',
+            exports: 'named',
             dir: 'esm',
             format: 'esm',
             name: '@justeattakeaway/pie-icons-vue',
