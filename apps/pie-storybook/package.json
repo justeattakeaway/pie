@@ -14,7 +14,8 @@
     "@justeattakeaway/pie-css": "workspace:*",
     "@justeattakeaway/pie-icon-button": "workspace:*",
     "@justeattakeaway/pie-icons-webc": "workspace:*",
-    "@justeattakeaway/pie-modal": "workspace:*"
+    "@justeattakeaway/pie-modal": "workspace:*",
+    "@justeattakeaway/pie-toggle-switch": "workspace:*"
   },
   "devDependencies": {
     "@storybook/addon-a11y": "7.1.0",
