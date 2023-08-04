@@ -9,8 +9,7 @@ const keptReference = Pie<%= componentName %>;
 
 type <%= componentName %>StoryMeta = StoryMeta<<%= componentName %>Props>;
 
-const defaultArgs: <%= componentName %>Props = {
-};
+const defaultArgs: <%= componentName %>Props = {};
 
 const <%= componentNameCamelCase %>StoryMeta: <%= componentName %>StoryMeta = {
     title: '<%= displayName %>',
@@ -25,10 +24,12 @@ const <%= componentNameCamelCase %>StoryMeta: <%= componentName %>StoryMeta = {
             url: '',
         },
     },
-}
+};
 
 export default <%= componentNameCamelCase %>StoryMeta;
 
+// TODO: remove the eslint-disable rule when props are added
+// eslint-disable-next-line no-empty-pattern
 const Template = ({}: <%= componentName %>Props): TemplateResult => html`
         <pie-<%= fileName %>/>
         `;
