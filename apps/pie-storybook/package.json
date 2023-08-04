@@ -11,6 +11,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@justeattakeaway/pie-button": "workspace:*",
+    "@justeattakeaway/pie-css": "workspace:*",
     "@justeattakeaway/pie-icon-button": "workspace:*",
     "@justeattakeaway/pie-icons-webc": "workspace:*",
     "@justeattakeaway/pie-modal": "workspace:*"
