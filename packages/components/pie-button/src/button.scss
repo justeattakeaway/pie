@@ -4,16 +4,42 @@
     box-sizing: border-box;
 }
 
-// Defines button interactive states for hover and active using HSL & calc
-// Takes a color token name as an argument
-@mixin button-interactive-states($bg-color) {
+/**
+* Defines button interactive states for hover, active and loading.
+* Takes the interactive color name as an argument, and whether the color
+* should be lightened or darkened.
+*/
+@mixin button-interactive-states($bg-color, $lighten: false) {
     &:hover:not(:disabled) {
-        background-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), calc(var(#{$bg-color}-l) - var(--dt-color-hover-01)));
+        --hover-modifier: calc(-1 * var(--dt-color-hover-01));
+
+        @if $lighten {
+            --hover-modifier: var(--dt-color-hover-02);
+        }
+
+        --btn-bg-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), calc(var(#{$bg-color}-l) + var(--hover-modifier)));
     }
 
-    &:active:not(:disabled) {
-        background-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), calc(var(#{$bg-color}-l) - var(--dt-color-active-01)));
+    &:active:not(:disabled),
+    &[isLoading]:not(:disabled) {
+        --active-modifier: calc(-1 * var(--dt-color-active-01));
+
+        @if $lighten {
+            --active-modifier: var(--dt-color-active-02);
+        }
+
+        --btn-bg-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), calc(var(#{$bg-color}-l) + var(--active-modifier)));
     }
+}
+
+/**
+* Shorthand mixin for updating the HSL custom properties for the loading spinner.
+* Takes in the name of the color to be split into its HSL components.
+*/
+@mixin spinner-base-colors($color) {
+    --spinner-base-color-h: var(#{$color}-h);
+    --spinner-base-color-s: var(#{$color}-s);
+    --spinner-base-color-l: var(#{$color}-l);
 }
 
 // Spin animation for loading state
@@ -57,9 +83,7 @@
     --spinner-border-width: var(--spinner-border-width-m);
 
     // Spinner colors - currently set for the primary button styles
-    --spinner-base-color-h: var(--dt-color-content-interactive-primary-h);
-    --spinner-base-color-s: var(--dt-color-content-interactive-primary-s);
-    --spinner-base-color-l: var(--dt-color-content-interactive-primary-l);
+    @include spinner-base-colors(--dt-color-content-interactive-primary);
     --spinner-left-color-opacity: 0.35;
     --spinner-left-color: hsl(var(--spinner-base-color-h), var(--spinner-base-color-s), var(--spinner-base-color-l), var(--spinner-left-color-opacity));
     --spinner-right-color: hsl(var(--spinner-base-color-h), var(--spinner-base-color-s), var(--spinner-base-color-l), 1);
@@ -156,53 +180,56 @@
     &[variant='secondary'] {
         --btn-bg-color: var(--dt-color-interactive-secondary);
         --btn-text-color: var(--dt-color-content-interactive-secondary);
-        --spinner-base-color-h: var(--dt-color-content-interactive-secondary-h);
-        --spinner-base-color-s: var(--dt-color-content-interactive-secondary-s);
-        --spinner-base-color-l: var(--dt-color-content-interactive-secondary-l);
 
         @include button-interactive-states('--dt-color-interactive-secondary');
+        @include spinner-base-colors('--dt-color-content-interactive-secondary');
     }
 
     &[variant='outline'] {
         --btn-bg-color: var(--dt-color-container-default);
         --btn-text-color: var(--dt-color-content-interactive-secondary);
-        --spinner-base-color-h: var(--dt-color-content-interactive-secondary-h);
-        --spinner-base-color-s: var(--dt-color-content-interactive-secondary-s);
-        --spinner-base-color-l: var(--dt-color-content-interactive-secondary-l);
 
         border: 1px solid var(--dt-color-border-strong);
 
         @include button-interactive-states('--dt-color-container-default');
+        @include spinner-base-colors('--dt-color-content-interactive-secondary');
     }
 
     &[variant='ghost'] {
         --btn-bg-color: transparent;
         --btn-text-color: var(--dt-color-content-link);
-        --spinner-base-color-h: var(--dt-color-content-interactive-secondary-h);
-        --spinner-base-color-s: var(--dt-color-content-interactive-secondary-s);
-        --spinner-base-color-l: var(--dt-color-content-interactive-secondary-l);
 
         @include button-interactive-states('--dt-color-container-default');
+        @include spinner-base-colors('--dt-color-content-interactive-secondary');
     }
 
     &[variant='inverse'] {
         --btn-bg-color: var(--dt-color-interactive-inverse);
         --btn-text-color: var(--dt-color-content-interactive-secondary);
-        --spinner-base-color-h: var(--dt-color-content-interactive-secondary-h);
-        --spinner-base-color-s: var(--dt-color-content-interactive-secondary-s);
-        --spinner-base-color-l: var(--dt-color-content-interactive-secondary-l);
 
         @include button-interactive-states('--dt-color-interactive-inverse');
+        @include spinner-base-colors('--dt-color-content-interactive-secondary');
     }
 
     &[variant='ghost-inverse'] {
         --btn-bg-color: transparent;
         --btn-text-color: var(--dt-color-content-interactive-primary);
-        --spinner-base-color-h: var(--dt-color-content-interactive-primary-h);
-        --spinner-base-color-s: var(--dt-color-content-interactive-primary-s);
-        --spinner-base-color-l: var(--dt-color-content-interactive-primary-l);
 
-        @include button-interactive-states('--dt-color-container-inverse');
+        @include button-interactive-states('--dt-color-container-inverse', true);
+    }
+
+    &[variant='destructive'] {
+        --btn-bg-color: var(--dt-color-support-error);
+
+        @include button-interactive-states('--dt-color-support-error');
+    }
+
+    &[variant='destructive-ghost'] {
+        --btn-bg-color: transparent;
+        --btn-text-color: var(--dt-color-content-interactive-error);
+
+        @include button-interactive-states('--dt-color-container-default');
+        @include spinner-base-colors('--dt-color-content-interactive-secondary');
     }
 
     // Additional modifiers
@@ -215,8 +242,12 @@
 
         cursor: not-allowed;
 
-        // For every variant except ghost and ghost-inverse, set the disabled background color
-        &:not([variant='ghost'], [variant='ghost-inverse']) {
+        // For every variant (except ghost variants) set the disabled background color
+        &:not(
+            [variant='ghost'],
+            [variant='ghost-inverse'],
+            [variant='destructive-ghost']
+        ) {
             --btn-bg-color: var(--dt-color-disabled-01) !important;
         }
 

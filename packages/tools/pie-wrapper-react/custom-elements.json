@@ -133,9 +133,9 @@
                     "kind": "variable",
                     "name": "variants",
                     "type": {
-                        "text": "['primary', 'secondary', 'outline', 'ghost', 'inverse', 'ghost-inverse']"
+                        "text": "[\n    'primary', 'secondary', 'outline', 'ghost', 'inverse', 'ghost-inverse', 'destructive', 'destructive-ghost',\n]"
                     },
-                    "default": "['primary', 'secondary', 'outline', 'ghost', 'inverse', 'ghost-inverse']"
+                    "default": "[\n    'primary', 'secondary', 'outline', 'ghost', 'inverse', 'ghost-inverse', 'destructive', 'destructive-ghost',\n]"
                 }
             ],
             "exports": [
@@ -298,7 +298,8 @@
                                 "text": "ModalProps['position']"
                             },
                             "privacy": "public",
-                            "default": "'center'"
+                            "default": "'center'",
+                            "attribute": "position"
                         },
                         {
                             "kind": "field",
@@ -649,6 +650,14 @@
                                 "text": "ActionProps"
                             },
                             "fieldName": "leadingAction"
+                        },
+                        {
+                            "name": "position",
+                            "type": {
+                                "text": "ModalProps['position']"
+                            },
+                            "default": "'center'",
+                            "fieldName": "position"
                         },
                         {
                             "name": "returnFocusAfterCloseSelector",

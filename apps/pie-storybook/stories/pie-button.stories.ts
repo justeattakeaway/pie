@@ -1,5 +1,5 @@
 import { html, TemplateResult } from 'lit';
-import type { StoryObj as Story } from '@storybook/web-components';
+import { type StoryObj as Story } from '@storybook/web-components';
 import {
     ButtonProps as ButtonPropsBase, sizes, types, variants,
 } from '@justeattakeaway/pie-button';
@@ -134,10 +134,16 @@ Ghost.args = {
     variant: 'ghost',
 };
 
-Ghost.parameters = {
-    backgrounds: {
-        default: 'dark',
-    },
+export const Destructive: Story<ButtonProps> = (args: ButtonProps) => Template(args);
+Destructive.args = {
+    ...defaultArgs,
+    variant: 'destructive',
+};
+
+export const DestructiveGhost: Story<ButtonProps> = (args: ButtonProps) => Template(args);
+DestructiveGhost.args = {
+    ...defaultArgs,
+    variant: 'destructive-ghost',
 };
 
 export const Inverse: Story<ButtonProps> = (args: ButtonProps) => Template(args);
