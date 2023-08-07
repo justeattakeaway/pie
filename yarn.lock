@@ -5394,36 +5394,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@justeat/pie-design-tokens@npm:5.1.0":
-  version: 5.1.0
-  resolution: "@justeat/pie-design-tokens@npm:5.1.0"
+"@justeat/pie-design-tokens@npm:5.4.0":
+  version: 5.4.0
+  resolution: "@justeat/pie-design-tokens@npm:5.4.0"
   dependencies:
     jsonc-parser: 3.2.0
     lodash.merge: 4.6.2
     mkdirp: 1.0.4
-  checksum: e60d7b45c4314b24804507da44a43484c11f62b608a0bc299cb1eb5724f5fb7cf274dcdf0dc490dd1e11a53617aa438aee382bcd2e935daa6988060a653cb5d7
-  languageName: node
-  linkType: hard
-
-"@justeat/pie-design-tokens@npm:5.2.0":
-  version: 5.2.0
-  resolution: "@justeat/pie-design-tokens@npm:5.2.0"
-  dependencies:
-    jsonc-parser: 3.2.0
-    lodash.merge: 4.6.2
-    mkdirp: 1.0.4
-  checksum: bb18a8335b6eedcf91dcbced78786dfd0d7f41ac6974e4e193c855d0f17019d4bb032bd512d369f7dad4d6b27220d2839586fb10862bdda45b400307fa01fe48
-  languageName: node
-  linkType: hard
-
-"@justeat/pie-design-tokens@npm:5.3.0":
-  version: 5.3.0
-  resolution: "@justeat/pie-design-tokens@npm:5.3.0"
-  dependencies:
-    jsonc-parser: 3.2.0
-    lodash.merge: 4.6.2
-    mkdirp: 1.0.4
-  checksum: 12fd8b63b1f014ed0c29e72eb5fcda6aeb5c6eb7da2cf4fbae0347cb2c39011b22eae624115a816d8b686f6399a6709faa4db7a9dbdb5569b1995b35018c9f96
+  checksum: d597808e3eded841625552504994d45e8d9f319df50184ee90b00feb758945514486565d889925ae26f74cf63b448c984ee7d2e854c19851d1799a02bd2ccdcf
   languageName: node
   linkType: hard
 
@@ -5461,7 +5439,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-button@workspace:packages/components/pie-button"
   dependencies:
-    "@justeat/pie-design-tokens": 5.1.0
+    "@justeat/pie-design-tokens": 5.4.0
     "@justeattakeaway/pie-components-config": "workspace:*"
     "@justeattakeaway/pie-css": "workspace:*"
     "@justeattakeaway/pie-webc-core": "workspace:*"
@@ -5491,7 +5469,7 @@ __metadata:
     "@justeattakeaway/pie-icons-webc": "workspace:*"
     "@justeattakeaway/pie-webc-core": "workspace:*"
   peerDependencies:
-    pie-design-tokens: 5.3.0
+    pie-design-tokens: 5.4.0
   languageName: unknown
   linkType: soft
 
@@ -27703,7 +27681,7 @@ __metadata:
     "@commitlint/config-conventional": 17.4.4
     "@justeat/browserslist-config-fozzie": 1.x
     "@justeat/fozzie": 11.0.0
-    "@justeat/pie-design-tokens": 5.2.0
+    "@justeat/pie-design-tokens": 5.4.0
     "@justeattakeaway/generator-pie-component": "workspace:*"
     "@justeattakeaway/pie-webc-testing": "workspace:*"
     "@justeattakeaway/stylelint-config-pie": "workspace:*"
@@ -36524,7 +36502,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "wc-vanilla@workspace:apps/examples/wc-vanilla"
   dependencies:
-    "@justeat/pie-design-tokens": 5.3.0
+    "@justeat/pie-design-tokens": 5.4.0
     "@justeattakeaway/pie-button": 0.23.0
     "@justeattakeaway/pie-css": 0.1.0
     "@justeattakeaway/pie-icon-button": 0.13.0
