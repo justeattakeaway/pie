@@ -24,7 +24,7 @@
     "@justeattakeaway/pie-webc-core": "workspace:*"
   },
   "peerDependencies": {
-    "pie-design-tokens": "5.3.0"
+    "pie-design-tokens": "5.4.0"
   },
   "volta": {
     "extends": "../../../package.json"
