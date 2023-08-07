@@ -4,6 +4,8 @@ import { IconButtonProps, sizes, variants } from '@justeattakeaway/pie-icon-butt
 import { IconClose } from '@justeattakeaway/pie-icons-webc';
 import { StoryMeta } from '../types';
 
+// This prevents storybook from tree shaking the components
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const keptReferences = [IconClose];
 
 type IconButtonStoryMeta = StoryMeta<IconButtonProps>;

@@ -1,7 +1,6 @@
 .turbo
+.yarn
 node_modules
 lit-browsers-report
 lit-visual-report
 test-results
-
-packages/tools/generator-pie-component/src/app/templates

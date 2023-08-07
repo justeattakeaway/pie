@@ -7,37 +7,37 @@ module.exports = {
             {
                 hasBlock: false,
                 name: 'include',
-                type: 'at-rule'
+                type: 'at-rule',
             },
             'declarations',
             {
                 hasBlock: true,
                 name: 'include',
                 parameter: /focus|hover/,
-                type: 'at-rule'
+                type: 'at-rule',
             },
             {
                 hasBlock: true,
                 name: 'include',
                 parameter: 'active',
-                type: 'at-rule'
+                type: 'at-rule',
             },
             {
                 selector: '^&:focus|hover$',
-                type: 'rule'
+                type: 'rule',
             },
             {
                 selector: '^&:active$',
-                type: 'rule'
+                type: 'rule',
             },
             {
                 hasBlock: true,
                 name: 'include',
-                type: 'at-rule'
+                type: 'at-rule',
             },
             {
                 name: 'media',
-                type: 'at-rule'
+                type: 'at-rule',
             },
             'rules'
         ],
@@ -46,16 +46,16 @@ module.exports = {
             'content',
             {
                 emptyLineBefore: 'always',
-                properties: ['position']
+                properties: ['position'],
             },
             {
                 order: 'flexible',
-                properties: ['top', 'bottom', 'left', 'right', 'z-index']
+                properties: ['top', 'bottom', 'left', 'right', 'z-index'],
             },
             {
                 emptyLineBefore: 'always',
                 order: 'flexible',
-                properties: ['display', 'vertical-align']
+                properties: ['display', 'vertical-align'],
             },
             {
                 emptyLineBefore: 'always',
@@ -75,7 +75,7 @@ module.exports = {
                     'align-items',
                     'align-self',
                     'align'
-                ]
+                ],
             },
             {
                 emptyLineBefore: 'always',
@@ -91,7 +91,7 @@ module.exports = {
                     'overflow-x',
                     'overflow-y',
                     'box-sizing'
-                ]
+                ],
             },
             {
                 emptyLineBefore: 'always',
@@ -107,7 +107,7 @@ module.exports = {
                     'padding-bottom',
                     'padding-left',
                     'padding-right'
-                ]
+                ],
             },
             {
                 emptyLineBefore: 'always',
@@ -163,7 +163,7 @@ module.exports = {
                     'background-repeat',
                     'background-size',
                     'box-shadow'
-                ]
+                ],
             },
             {
                 emptyLineBefore: 'always',
@@ -192,17 +192,17 @@ module.exports = {
                     'text-underline-position',
                     'white-space',
                     'word'
-                ]
+                ],
             },
             {
                 emptyLineBefore: 'always',
                 order: 'flexible',
-                properties: ['opacity', 'visibility']
+                properties: ['opacity', 'visibility'],
             },
             {
                 emptyLineBefore: 'always',
                 order: 'flexible',
-                properties: ['cursor', 'user-select', 'pointer-events']
+                properties: ['cursor', 'user-select', 'pointer-events'],
             },
             {
                 emptyLineBefore: 'always',
@@ -225,8 +225,8 @@ module.exports = {
                     'animation-name',
                     'animation-play-state',
                     'animation-timing-function'
-                ]
+                ],
             }
-        ]
-    }
+        ],
+    },
 };

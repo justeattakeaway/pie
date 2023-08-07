@@ -4,6 +4,8 @@
   "private": true,
   "description": "Scripts and utilities used by the Pie monorepo git hooks",
   "scripts": {
+    "lint:scripts": "run -T eslint .",
+    "lint:scripts:fix": "run -T eslint . --fix",
     "test": "run -T vitest run",
     "test:watch": "run -T vitest"
   },
