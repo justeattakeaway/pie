@@ -147,9 +147,6 @@
     },
     "lint:scripts": {
       "cache": true,
-      "dependsOn": [
-        "^build"
-      ],
       "outputs": []
     },
     "lint:scripts:fix": {
