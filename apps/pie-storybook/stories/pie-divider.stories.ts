@@ -33,7 +33,7 @@ export default dividerStoryMeta;
 // TODO: remove the eslint-disable rule when props are added
 // eslint-disable-next-line no-empty-pattern
 const Template = ({ }: DividerProps): TemplateResult => html`
-        <pie-divider ></pie-divider>
+        <pie-divider></pie-divider>
         `;
 
 export const Default: Story<DividerProps> = (args: DividerProps) => Template(args);

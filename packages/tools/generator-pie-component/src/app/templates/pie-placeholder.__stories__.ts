@@ -33,7 +33,7 @@ export default <%= componentNameCamelCase %>StoryMeta;
 
 // TODO: remove the eslint-disable rule when props are added
 // eslint-disable-next-line no-empty-pattern
-const Template = ({<% if (needsRTL) { %>dir<% } %><% if (!needsRTL) { -%> }: <% } else { %> }: <%= componentName %>Props<% } %>): TemplateResult => html`
+const Template = ({ <% if (needsRTL) { %>dir<% } %> }: <%= componentName %>Props): TemplateResult => html`
   <pie-<%= fileName %><% if (needsRTL) { %> dir="${dir}"<% } %>></pie-<%= fileName %>>
 `;
 
