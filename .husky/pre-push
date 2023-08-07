@@ -5,4 +5,4 @@
 packages/tools/git-hooks-scripts/check-branch-name.js $(git symbolic-ref --short HEAD)
 
 # Checks the diff files for lint errors before allowing to push
-yarn lint:scripts
+yarn lint:scripts lint:style
