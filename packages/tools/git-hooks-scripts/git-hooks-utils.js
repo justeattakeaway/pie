@@ -49,7 +49,7 @@ function verifyCommitMessage (commitMessage, ticketId) {
         return `${commitType}(${commitScope}): ${ticketId.trim()} ${commitSubject}`.trim();
     }
 
-    const commitMessageTicketId = match[3];
+    const [, , commitMessageTicketId] = match;
 
     if (commitMessageTicketId !== ticketId) {
         return commitMessage.replace(commitMessageTicketId, ticketId);

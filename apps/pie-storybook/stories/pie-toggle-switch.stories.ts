@@ -6,6 +6,8 @@ import { IconCheck } from '@justeattakeaway/pie-icons-webc';
 import { StoryMeta } from '../types';
 import { i18nArgTypes } from '../args/commonArgsTypes';
 
+// This prevents storybook from tree shaking the components
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const keptReferences = [
     IconCheck,
     PieToggleSwitch,

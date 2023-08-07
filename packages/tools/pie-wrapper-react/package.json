@@ -10,6 +10,8 @@
   "author": "",
   "scripts": {
     "build:wrapper": "yarn cem analyze --litelement && node ./scripts/add-react-wrapper.js",
+    "lint:scripts": "run -T eslint .",
+    "lint:scripts:fix": "run -T eslint . --fix",
     "test": "run -T jest"
   },
   "jest": {
