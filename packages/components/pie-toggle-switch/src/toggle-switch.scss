@@ -1,3 +1,5 @@
+@use '@justeat/pie-design-tokens/dist/jet.scss' as dt;
+
 @mixin toggle-switch-transition($property) {
     @media (prefers-reduced-motion: no-preference) {
         transition: $property 0.15s cubic-bezier(0.4, 0, 0.9, 1) 0s;
@@ -104,6 +106,16 @@
             color: var(--toggle-switch-bg-color--disabled);
         }
     }
+}
+
+.c-toggleSwitch-description {
+    visibility: hidden;
+    position: absolute;
+    left: -9999px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
 }
 
 :host([dir='rtl']) {

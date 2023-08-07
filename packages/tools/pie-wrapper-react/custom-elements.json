@@ -1221,6 +1221,15 @@
                     "members": [
                         {
                             "kind": "field",
+                            "name": "aria",
+                            "type": {
+                                "text": "AriaProps"
+                            },
+                            "privacy": "public",
+                            "attribute": "aria"
+                        },
+                        {
+                            "kind": "field",
                             "name": "isChecked",
                             "type": {
                                 "text": "boolean"
@@ -1297,6 +1306,13 @@
                         }
                     ],
                     "attributes": [
+                        {
+                            "name": "aria",
+                            "type": {
+                                "text": "AriaProps"
+                            },
+                            "fieldName": "aria"
+                        },
                         {
                             "name": "isChecked",
                             "type": {

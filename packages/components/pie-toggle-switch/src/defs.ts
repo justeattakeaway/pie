@@ -1,6 +1,15 @@
 import { RTLComponentProps } from '@justeattakeaway/pie-webc-core';
 
+export type AriaProps = {
+    label?: string,
+    describedBy?: string
+};
+
 export interface ToggleSwitchProps extends RTLComponentProps {
+    /**
+     * The ARIA labels used for the mtoggle switch.
+     */
+    aria?: AriaProps;
     /**
      * Same as the HTML checked attribute - indicates whether the switch is on or off
      */

@@ -4,7 +4,7 @@ import {
 import { property } from 'lit/decorators.js';
 import { RtlMixin } from '@justeattakeaway/pie-webc-core';
 import styles from './toggle-switch.scss?inline';
-import { ToggleSwitchProps, EVENT_TOGGLE_SWITCH_CHANGED } from './defs';
+import { ToggleSwitchProps, EVENT_TOGGLE_SWITCH_CHANGED, AriaProps } from './defs';
 import '@justeattakeaway/pie-icons-webc/dist/icons/IconCheck.js';
 
 // Valid values available to consumers
@@ -19,6 +19,9 @@ const componentSelector = 'pie-toggle-switch';
  */
 
 export class PieToggleSwitch extends RtlMixin(LitElement) implements ToggleSwitchProps {
+    @property({ type: Object })
+    public aria!: AriaProps;
+
     @property({ type: Boolean, reflect: true })
     public isChecked = false;
 
@@ -35,28 +38,34 @@ export class PieToggleSwitch extends RtlMixin(LitElement) implements ToggleSwitc
 
     render () {
         const {
+            aria,
             isChecked,
             isDisabled,
         } = this;
+
+        const toggleSwitchId = 'toggle-switch-description';
 
         return html`
             <label
                 data-test-id="toggle-switch-component"
                 class="c-toggleSwitch"
                 ?isChecked="${isChecked}"
-                ?isDisabled=${isDisabled}>
+                ?isDisabled=${isDisabled}
+                aria-label="${aria?.label || null}">
                 <input
                     role="switch"
                     type="checkbox"
                     class="c-toggleSwitch-input"
                     .checked="${isChecked}"
                     .disabled="${isDisabled}"
-                    @change="${this.onToggleChange}">
+                    @change="${this.onToggleChange}"
+                    aria-describedby="${aria?.describedBy ? toggleSwitchId : ''}">
 
                 <div class="c-toggleSwitch-control">
                     ${isChecked ? html`<icon-check></icon-check>` : nothing}
                 </div>
             </label>
+            ${aria?.describedBy ? html`<div id=${toggleSwitchId} class="c-toggleSwitch-description">${aria?.describedBy}</div>` : ''}
         `;
     }
 }
