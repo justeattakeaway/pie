@@ -70,7 +70,7 @@
     "@percy/playwright": "1.0.4",
     "@playwright/test": "1.32.3",
     "@sand4rt/experimental-ct-web": "1.0.8",
-    "@types/node": "20.4.5",
+    "@types/node": "20.4.8",
     "@types/react": "18.0.33",
     "@typescript-eslint/eslint-plugin": "5.60.1",
     "@typescript-eslint/parser": "6.2.1",
