@@ -3,9 +3,9 @@ import { type StoryObj as Story } from '@storybook/web-components';
 import { PieDivider, DividerProps } from '@justeattakeaway/pie-divider';
 import { type StoryMeta } from '../types';
 
-// TODO: Remove this const when other exports from PieDivider are used on Stories,
-// otherwise tree-shaking will get rid of the web component definition
-const keptReference = PieDivider;
+// This prevents storybook from tree shaking the components
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const keptReferences = [PieDivider];
 
 type DividerStoryMeta = StoryMeta<DividerProps>;
 

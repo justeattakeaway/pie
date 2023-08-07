@@ -4,9 +4,9 @@ import { Pie<%= componentName %>, <%= componentName %>Props } from '@justeattake
 import { type StoryMeta } from '../types';
 <% if (needsRTL) { %>import { i18nArgTypes } from '../args/commonArgsTypes';<% } %>
 
-// TODO: Remove this const when other exports from Pie<%= componentName %> are used on Stories, 
-// otherwise tree-shaking will get rid of the web component definition
-const keptReference = Pie<%= componentName %>;
+// This prevents storybook from tree shaking the components
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const keptReferences = [Pie<%= componentName %>];
 
 type <%= componentName %>StoryMeta = StoryMeta<<%= componentName %>Props>;
 
