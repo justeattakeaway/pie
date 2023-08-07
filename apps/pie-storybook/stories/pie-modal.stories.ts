@@ -14,6 +14,7 @@ import { i18nArgTypes } from '../args/commonArgsTypes';
 import { StoryMeta, SlottedComponentProps } from '../types';
 
 // This prevents storybook from tree shaking the components
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const keptReferences = [
     PieIconButton,
     PieModal,
