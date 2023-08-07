@@ -66,7 +66,7 @@
     "@justeattakeaway/generator-pie-component": "workspace:*",
     "@justeattakeaway/pie-webc-testing": "workspace:*",
     "@justeattakeaway/stylelint-config-pie": "workspace:*",
-    "@percy/cli": "1.26.2",
+    "@percy/cli": "1.26.3",
     "@percy/playwright": "1.0.4",
     "@playwright/test": "1.32.3",
     "@sand4rt/experimental-ct-web": "1.0.8",
