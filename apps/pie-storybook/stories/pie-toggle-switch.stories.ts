@@ -1,5 +1,5 @@
 import { html, TemplateResult } from 'lit';
-import type { StoryObj as Story } from '@storybook/web-components';
+import { type StoryObj as Story } from '@storybook/web-components';
 import { PieToggleSwitch } from '@justeattakeaway/pie-toggle-switch';
 import { ToggleSwitchProps } from '@justeattakeaway/pie-toggle-switch/src/defs';
 import { IconCheck } from '@justeattakeaway/pie-icons-webc';

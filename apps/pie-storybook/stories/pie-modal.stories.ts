@@ -1,6 +1,6 @@
 import { html, TemplateResult } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import type { StoryObj as Story } from '@storybook/web-components';
+import { type StoryObj as Story } from '@storybook/web-components';
 import { PieIconButton } from '@justeattakeaway/pie-icon-button';
 import { PieModal } from '@justeattakeaway/pie-modal';
 import { PieButton } from '@justeattakeaway/pie-button';
