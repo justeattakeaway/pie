@@ -22,6 +22,10 @@
     "stylelint-order": "5.x"
   },
   "scripts": {
+    "lint:scripts": "run -T eslint .",
+    "lint:scripts:fix": "run -T eslint . --fix",
+    "lint:style": "run -T stylelint ./src/**/*.{css,scss}",
+    "lint:style:fix": "yarn lint:style --fix",
     "test": "run -T jest"
   },
   "jest": {

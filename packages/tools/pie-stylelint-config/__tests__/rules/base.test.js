@@ -15,13 +15,13 @@ describe('base Stylelint rules', () => {
             beforeEach(() => {
                 result = stylelint.lint({
                     code: validCSS,
-                    config: baseConfig
+                    config: baseConfig,
                 });
             });
 
-            it('did not error', () => result.then(data => expect(data.errored).toBeFalsy()));
+            it('did not error', () => result.then((data) => expect(data.errored).toBeFalsy()));
 
-            it('flags no warnings', () => result.then(data => (
+            it('flags no warnings', () => result.then((data) => (
                 expect(data.results[0].warnings.length).toBe(0)
             )));
         });
@@ -38,35 +38,35 @@ describe('base Stylelint rules', () => {
             beforeEach(() => {
                 result = stylelint.lint({
                     code: invalidCSS,
-                    config: baseConfig
+                    config: baseConfig,
                 });
             });
 
-            it('did error', () => result.then(data => (
+            it('did error', () => result.then((data) => (
                 expect(data.errored).toBeTruthy()
             )));
 
-            it('flags one warning', () => result.then(data => (
+            it('flags one warning', () => result.then((data) => (
                 expect(data.results[0].warnings.length).toBe(1)
             )));
 
-            it('correct warning text', () => result.then(data => (
+            it('correct warning text', () => result.then((data) => (
                 expect(data.results[0].warnings[0].text).toBe('Expected "50%" to be "0.5" (alpha-value-notation)')
             )));
 
-            it('correct rule flagged', () => result.then(data => (
+            it('correct rule flagged', () => result.then((data) => (
                 expect(data.results[0].warnings[0].rule).toBe('alpha-value-notation')
             )));
 
-            it('correct severity flagged', () => result.then(data => (
+            it('correct severity flagged', () => result.then((data) => (
                 expect(data.results[0].warnings[0].severity).toBe('error')
             )));
 
-            it('correct line number', () => result.then(data => (
+            it('correct line number', () => result.then((data) => (
                 expect(data.results[0].warnings[0].line).toBe(2)
             )));
 
-            it('correct column number', () => result.then(data => (
+            it('correct column number', () => result.then((data) => (
                 expect(data.results[0].warnings[0].column).toBe(25)
             )));
         });

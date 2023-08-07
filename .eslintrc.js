@@ -12,10 +12,13 @@ module.exports = {
         'json/sort-package-json': false,
     },
     rules: {
-        'import/no-unresolved': 'off',
-        'import/extensions': 'off',
-        'import/no-extraneous-dependencies': 'off',
         'class-methods-use-this': 'off',
+        'import/extensions': 'off',
+        'import/no-unresolved': 'off',
+        'import/no-extraneous-dependencies': 'off',
+        'no-shadow': 'off',
+        'no-use-before-define': 'off',
+        '@typescript-eslint/no-var-requires': 'off',
     },
     overrides: [
         {
