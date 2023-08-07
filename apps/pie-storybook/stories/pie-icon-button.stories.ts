@@ -1,5 +1,5 @@
 import { html, TemplateResult } from 'lit';
-import type { StoryObj as Story } from '@storybook/web-components';
+import { type StoryObj as Story } from '@storybook/web-components';
 import { IconButtonProps, sizes, variants } from '@justeattakeaway/pie-icon-button';
 import { IconClose } from '@justeattakeaway/pie-icons-webc';
 import { StoryMeta } from '../types';
