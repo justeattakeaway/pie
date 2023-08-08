@@ -4,6 +4,7 @@ import { ButtonProps, sizes, variants } from '@justeattakeaway/pie-button';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import { PieButton } from '@justeattakeaway/pie-button/dist/react';
+import '@justeattakeaway/pie-css';
 
 export default function Home () {
     const variantIndex = useRef(0);
@@ -26,8 +27,6 @@ export default function Home () {
                 <title>Create Next App</title>
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <link rel="icon" href="/favicon.ico" />
-                <link rel="stylesheet" type="text/css" href="https://unpkg.com/@justeat/pie-design-tokens/dist/jet.css" />
-                <link rel="stylesheet" type="text/css" href="https://unpkg.com/@justeat/pie-design-tokens/dist/jet-hsl-colors.css" />
             </Head>
             <main>
                 <h2>Test click event</h2>
