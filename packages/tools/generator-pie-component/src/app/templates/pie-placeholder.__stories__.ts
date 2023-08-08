@@ -4,9 +4,9 @@ import { Pie<%= componentName %>, <%= componentName %>Props } from '@justeattake
 import { type StoryMeta } from '../types';
 <% if (needsRTL) { %>import { i18nArgTypes } from '../args/commonArgsTypes';<% } %>
 
-// TODO: Remove this const when other exports from Pie<%= componentName %> are used on Stories, 
-// otherwise tree-shaking will get rid of the web component definition
-const keptReference = Pie<%= componentName %>;
+// This prevents storybook from tree shaking the components
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const keptReferences = [Pie<%= componentName %>];
 
 type <%= componentName %>StoryMeta = StoryMeta<<%= componentName %>Props>;
 
@@ -34,8 +34,8 @@ export default <%= componentNameCamelCase %>StoryMeta;
 // TODO: remove the eslint-disable rule when props are added
 // eslint-disable-next-line no-empty-pattern
 const Template = ({ <% if (needsRTL) { %>dir<% } %> }: <%= componentName %>Props): TemplateResult => html`
-        <pie-<%= fileName %> <% if (needsRTL) { %>dir="${dir}"<% } %>></pie-<%= fileName %>>
-        `;
+  <pie-<%= fileName %><% if (needsRTL) { %> dir="${dir}"<% } %>></pie-<%= fileName %>>
+`;
 
 export const Default: Story<<%= componentName %>Props> = (args: <%= componentName %>Props) => Template(args);
 Default.args = {
