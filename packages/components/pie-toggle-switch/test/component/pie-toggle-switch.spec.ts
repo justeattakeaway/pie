@@ -79,8 +79,8 @@ test.describe('Component: `Pie toggle switch`', () => {
                 });
 
                 // Act
-                const toggleSwitch = await component.locator(componentSelector);
-                const ariaLabel = await toggleSwitch.getAttribute('aria-label');
+                const toggleSwitchInput = await component.locator(toggleInputSelector);
+                const ariaLabel = await toggleSwitchInput.getAttribute('aria-label');
 
                 // Assert
                 await expect(ariaLabel).toBe(ariaLabelText);
@@ -103,8 +103,8 @@ test.describe('Component: `Pie toggle switch`', () => {
                 });
 
                 // Act
-                const toggleSwitch = await component.locator(toggleInputSelector);
-                const ariaDescription = await toggleSwitch.getAttribute('aria-describedBy');
+                const toggleSwitchInput = await component.locator(toggleInputSelector);
+                const ariaDescription = await toggleSwitchInput.getAttribute('aria-describedBy');
 
                 // Assert
                 await expect(ariaDescription).toBe(ariaDescriptionID);
