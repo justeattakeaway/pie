@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { PieButton } from '@justeattakeaway/pie-button/dist/react';
 
+import '@justeattakeaway/pie-css';
 import './styles.css';
 
 function App () {
