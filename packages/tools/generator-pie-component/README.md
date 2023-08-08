@@ -42,7 +42,7 @@ An interactive prompt should now be displayed asking for a component name.
 
 Once you have completed all the prompts, your scaffolded component will be generated 🎉
 
-_Note: If this step fails, ensure you have installed the repository dependencies with `yarn`. Otherwise this (and any other commands) will fail. you will also need to list the component as a dependency in the storybook package.json_
+_Note: If this step fails, ensure you have installed the repository dependencies with `yarn`. Otherwise this (and any other commands) will fail. You will also need to list the component as a dependency in the storybook package.json._
 
 #### Setting up Visual Regression Testing:
 
