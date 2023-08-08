@@ -60,7 +60,7 @@ export class PieToggleSwitch extends RtlMixin(LitElement) implements ToggleSwitc
                     .checked="${isChecked}"
                     .disabled="${isDisabled}"
                     @change="${this.onToggleChange}"
-                    aria-describedby="${aria?.describedBy ? toggleSwitchId : ''}">
+                    aria-describedby="${aria?.describedBy ? toggleSwitchId : nothing}">
 
                 <div class="c-toggleSwitch-control">
                     ${isChecked ? html`<icon-check></icon-check>` : nothing}

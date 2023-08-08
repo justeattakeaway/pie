@@ -7,7 +7,7 @@ export type AriaProps = {
 
 export interface ToggleSwitchProps extends RTLComponentProps {
     /**
-     * The ARIA labels used for the mtoggle switch.
+     * The ARIA labels used for the toggle switch.
      */
     aria?: AriaProps;
     /**
