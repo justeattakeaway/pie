@@ -51,8 +51,9 @@ export class PieToggleSwitch extends RtlMixin(LitElement) implements ToggleSwitc
                 class="c-toggleSwitch"
                 ?isChecked="${isChecked}"
                 ?isDisabled=${isDisabled}
-                aria-label="${aria?.label || null}">
+                aria-label="${aria?.label || nothing}">
                 <input
+                    data-test-id="toggle-switch-input"
                     role="switch"
                     type="checkbox"
                     class="c-toggleSwitch-input"
@@ -65,7 +66,7 @@ export class PieToggleSwitch extends RtlMixin(LitElement) implements ToggleSwitc
                     ${isChecked ? html`<icon-check></icon-check>` : nothing}
                 </div>
             </label>
-            ${aria?.describedBy ? html`<div id=${toggleSwitchId} class="c-toggleSwitch-description">${aria?.describedBy}</div>` : ''}
+            ${aria?.describedBy ? html`<div id="${toggleSwitchId}" data-test-id="${toggleSwitchId}" class="c-toggleSwitch-description">${aria?.describedBy}</div>` : nothing}
         `;
     }
 }
