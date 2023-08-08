@@ -10,6 +10,22 @@
     box-sizing: border-box;
 }
 
+.c-toggleSwitch-wrapper {
+    display: inline-flex;
+    font-family: var(--dt-font-body-l-family);
+}
+
+.c-toggleSwitch-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-inline-end: var(--dt-spacing-b);
+
+    &.c-toggleSwitch--trailing {
+        margin-inline-start: var(--dt-spacing-b);
+    }
+}
+
 .c-toggleSwitch {
     --toggle-switch-bg-color: var(--dt-color-interactive-form);
     --toggle-switch-bg-color--checked: var(--dt-color-interactive-brand);
@@ -28,7 +44,6 @@
     padding: var(--toggle-switch-padding);
     border-radius: var(--toggle-switch-radius);
     background-color: var(--toggle-switch-bg-color);
-
     cursor: pointer;
 
     @include toggle-switch-transition(background-color);

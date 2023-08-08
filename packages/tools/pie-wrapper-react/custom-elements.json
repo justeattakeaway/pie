@@ -1242,6 +1242,15 @@
                             "reflects": true
                         },
                         {
+                            "kind": "field",
+                            "name": "label",
+                            "type": {
+                                "text": "LabelProps"
+                            },
+                            "privacy": "public",
+                            "attribute": "label"
+                        },
+                        {
                             "kind": "method",
                             "name": "onToggleChange",
                             "parameters": [
@@ -1252,6 +1261,17 @@
                                     }
                                 }
                             ]
+                        },
+                        {
+                            "kind": "method",
+                            "name": "renderToggleSwitchLabel",
+                            "privacy": "private",
+                            "return": {
+                                "type": {
+                                    "text": "TemplateResult"
+                                }
+                            },
+                            "description": "Renders the label for a toggle switch if provided.\nYou can only pass in either a leading or trailing label, if you pass both in\nas true nothing renders."
                         },
                         {
                             "kind": "field",
@@ -1312,6 +1332,13 @@
                             },
                             "default": "false",
                             "fieldName": "isDisabled"
+                        },
+                        {
+                            "name": "label",
+                            "type": {
+                                "text": "LabelProps"
+                            },
+                            "fieldName": "label"
                         },
                         {
                             "name": "dir",

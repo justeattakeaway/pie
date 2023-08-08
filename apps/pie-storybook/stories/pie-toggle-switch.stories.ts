@@ -17,6 +17,13 @@ const defaultArgs: ToggleSwitchProps = {
     isChecked: false,
     isDisabled: false,
     dir: 'ltr',
+    label: {
+        text: 'Label',
+        position: {
+            leading: true,
+            trailing: false,
+        },
+    },
 };
 
 const toggleSwitchStoryMeta: ToggleSwitchStoryMeta = {
@@ -38,6 +45,20 @@ const toggleSwitchStoryMeta: ToggleSwitchStoryMeta = {
                 summary: false,
             },
         },
+        label: {
+            description: 'The label configuration for the toggle switch',
+            control: {
+                type: 'object',
+                defaultValue: {
+                    text: 'Label',
+                    position: {
+                        leading: true,
+                        trailing: false,
+                    },
+                },
+            },
+        },
+
     },
     args: defaultArgs,
     parameters: {
@@ -52,15 +73,17 @@ export default toggleSwitchStoryMeta;
 
 const Template = (props: ToggleSwitchProps): TemplateResult => {
     const {
+        dir,
         isChecked,
         isDisabled,
-        dir,
+        label,
     } = props;
 
     return html`
         <pie-toggle-switch
             ?isChecked=${isChecked}
             ?isDisabled=${isDisabled}
+            .label="${label}"
             dir="${dir}"></pie-toggle-switch>`;
 };
 
