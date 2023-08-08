@@ -5462,6 +5462,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@justeattakeaway/pie-divider@workspace:*, @justeattakeaway/pie-divider@workspace:packages/components/pie-divider":
+  version: 0.0.0-use.local
+  resolution: "@justeattakeaway/pie-divider@workspace:packages/components/pie-divider"
+  dependencies:
+    "@justeattakeaway/pie-components-config": "workspace:*"
+    "@justeattakeaway/pie-webc-core": "workspace:*"
+  languageName: unknown
+  linkType: soft
+
 "@justeattakeaway/pie-icon-button@0.13.0, @justeattakeaway/pie-icon-button@workspace:*, @justeattakeaway/pie-icon-button@workspace:packages/components/pie-icon-button":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-icon-button@workspace:packages/components/pie-icon-button"
@@ -27736,6 +27745,7 @@ __metadata:
   dependencies:
     "@justeattakeaway/pie-button": "workspace:*"
     "@justeattakeaway/pie-css": "workspace:*"
+    "@justeattakeaway/pie-divider": "workspace:*"
     "@justeattakeaway/pie-icon-button": "workspace:*"
     "@justeattakeaway/pie-icons-webc": "workspace:*"
     "@justeattakeaway/pie-modal": "workspace:*"
