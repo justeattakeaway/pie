@@ -50,8 +50,7 @@ export class PieToggleSwitch extends RtlMixin(LitElement) implements ToggleSwitc
                 data-test-id="toggle-switch-component"
                 class="c-toggleSwitch"
                 ?isChecked="${isChecked}"
-                ?isDisabled=${isDisabled}
-                aria-label="${aria?.label || nothing}">
+                ?isDisabled=${isDisabled}>
                 <input
                     data-test-id="toggle-switch-input"
                     role="switch"
@@ -60,6 +59,7 @@ export class PieToggleSwitch extends RtlMixin(LitElement) implements ToggleSwitc
                     .checked="${isChecked}"
                     .disabled="${isDisabled}"
                     @change="${this.onToggleChange}"
+                    aria-label="${aria?.label || nothing}"
                     aria-describedby="${aria?.describedBy ? toggleSwitchId : nothing}">
 
                 <div class="c-toggleSwitch-control">
