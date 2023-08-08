@@ -2,6 +2,18 @@
   "name": "@justeattakeaway/pie-button",
   "version": "0.23.0",
   "description": "PIE design system button built using web components",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "exports": {
+    "./": "./dist/index.js",
+    "./react": {
+      "types": "./dist/types/react.d.ts",
+      "development": "./src/react.ts",
+      "default": "./dist/react.js"
+    }
+  },
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
