@@ -6,6 +6,7 @@ import {
 import { IconChevronDown, IconPlusCircle } from '@justeattakeaway/pie-icons-webc';
 import { StoryMeta, SlottedComponentProps } from '../types';
 
+/* eslint-disable @typescript-eslint/no-unused-vars */
 const keptReferences = [IconChevronDown, IconPlusCircle];
 
 type ButtonProps = SlottedComponentProps<ButtonPropsBase> & { buttonIcons : Array<string> };
