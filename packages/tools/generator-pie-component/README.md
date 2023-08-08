@@ -25,6 +25,7 @@ $ npm install --global yo
 ```
 
 Build the generator package locally
+
 ```sh
 $ yarn build --filter=generator-pie-component
 ```
@@ -41,7 +42,21 @@ An interactive prompt should now be displayed asking for a component name.
 
 Once you have completed all the prompts, your scaffolded component will be generated 🎉
 
-_Note: If this step fails, ensure you have installed the repository dependencies with `yarn`. Otherwise this (and any other commands) will fail._
+_Note: If this step fails, ensure you have installed the repository dependencies with `yarn`. Otherwise this (and any other commands) will fail. You will also need to list the component as a dependency in the storybook package.json._
+
+#### Setting up Visual Regression Testing:
+
+- Create a Percy project for the component on the Percy website.
+- Update the test:visual command in package.json to the following:
+
+```sh
+"test:visual": "run -T cross-env-shell PERCY_TOKEN=${PERCY_TOKEN_COMPONENT_NAME} percy exec --allowed-hostname cloudfront.net -- npx playwright test -c ./playwright-lit-visual.config.ts",
+```
+- Add the token environment variable to `github/workflows/ci.yml` as follows:
+
+```sh
+  PERCY_TOKEN_COMPONENT_NAME: ${{ secrets.PERCY_TOKEN_COMPONENT_NAME }}
+```
 
 ## Local development
 
