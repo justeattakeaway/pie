@@ -36452,6 +36452,7 @@ __metadata:
   resolution: "wc-next13@workspace:apps/examples/wc-next13"
   dependencies:
     "@justeattakeaway/pie-button": "workspace:*"
+    "@justeattakeaway/pie-css": "workspace:*"
     "@lit-labs/nextjs": 0.1.1
     "@lit-labs/react": 1.1.1
     "@types/node": 18.15.11
