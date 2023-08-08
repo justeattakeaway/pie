@@ -48,6 +48,7 @@ _Note: If this step fails, ensure you have installed the repository dependencies
 
 - Create a Percy project for the component on the Percy website.
 - Update the test:visual command in package.json to the following:
+
 ```sh
 "test:visual": "run -T cross-env-shell PERCY_TOKEN=${PERCY_TOKEN_COMPONENT_NAME} percy exec --allowed-hostname cloudfront.net -- npx playwright test -c ./playwright-lit-visual.config.ts",
 ```
