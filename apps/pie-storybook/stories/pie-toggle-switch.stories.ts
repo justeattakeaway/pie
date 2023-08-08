@@ -6,6 +6,7 @@ import { IconCheck } from '@justeattakeaway/pie-icons-webc';
 import { StoryMeta } from '../types';
 import { i18nArgTypes } from '../args/commonArgsTypes';
 
+/* eslint-disable @typescript-eslint/no-unused-vars */
 const keptReferences = [
     IconCheck,
     PieToggleSwitch,
