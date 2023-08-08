@@ -1,4 +1,5 @@
 ---
+"@justeattakeaway/pie-divider": minor
 "pie-storybook": minor
 "pie-monorepo": minor
 ---
