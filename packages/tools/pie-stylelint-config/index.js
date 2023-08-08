@@ -3,5 +3,5 @@ module.exports = {
         './rules/base.js',
         './rules/strict.js',
         './rules/ordering.js'
-    ]
+    ],
 };

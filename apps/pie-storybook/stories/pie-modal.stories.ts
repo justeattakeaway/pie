@@ -1,6 +1,6 @@
 import { html, TemplateResult } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import type { StoryObj as Story } from '@storybook/web-components';
+import { type StoryObj as Story } from '@storybook/web-components';
 import { PieIconButton } from '@justeattakeaway/pie-icon-button';
 import { PieModal } from '@justeattakeaway/pie-modal';
 import { PieButton } from '@justeattakeaway/pie-button';
@@ -14,6 +14,7 @@ import { i18nArgTypes } from '../args/commonArgsTypes';
 import { StoryMeta, SlottedComponentProps } from '../types';
 
 // This prevents storybook from tree shaking the components
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const keptReferences = [
     PieIconButton,
     PieModal,

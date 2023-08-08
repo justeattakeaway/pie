@@ -41,6 +41,8 @@
     "build:icons": "babel-node --extensions .mjs ./scripts/react-icons-gen.mjs",
     "build:lib": "rollup --config ./rollup.config.mjs",
     "build": "yarn clean && yarn build:icons && yarn build:lib",
+    "lint:scripts": "run -T eslint .",
+    "lint:scripts:fix": "run -T eslint . --fix",
     "clean": "run -T rimraf -rf ./icons/",
     "prepublishOnly": "yarn build",
     "test": "run jest"

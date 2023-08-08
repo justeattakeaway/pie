@@ -1,11 +1,13 @@
 import { html, TemplateResult } from 'lit';
-import type { StoryObj as Story } from '@storybook/web-components';
+import { type StoryObj as Story } from '@storybook/web-components';
 import { PieToggleSwitch } from '@justeattakeaway/pie-toggle-switch';
 import { ToggleSwitchProps } from '@justeattakeaway/pie-toggle-switch/src/defs';
 import { IconCheck } from '@justeattakeaway/pie-icons-webc';
 import { StoryMeta } from '../types';
 import { i18nArgTypes } from '../args/commonArgsTypes';
 
+// This prevents storybook from tree shaking the components
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const keptReferences = [
     IconCheck,
     PieToggleSwitch,

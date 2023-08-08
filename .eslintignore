@@ -1,8 +1,6 @@
 .turbo
+.yarn
 node_modules
 lit-browsers-report
 lit-visual-report
 test-results
-
-generators
-src/app/templates
