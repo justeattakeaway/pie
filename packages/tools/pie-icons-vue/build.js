@@ -33,7 +33,6 @@ export default {
 const { icons } = pieIcons.default;
 
 const ICONS_DIR = `${process.cwd()}/generated`;
-const COMPONENTS_DIR = `${ICONS_DIR}/components`;
 const indexPath = path.join(ICONS_DIR, '/index.js');
 
 // Try to convert to the same as React build gen
@@ -50,9 +49,6 @@ async function build () {
     // check if /generated directory exists, if not create it
     await checkDirExists(ICONS_DIR);
 
-    // check if /generated/components directory exists, if not create it
-    await checkDirExists(COMPONENTS_DIR);
-
     let indexFileString = '/* eslint-disable camelcase */\n';
 
     // loop through the icons in pie-icons, generate each component and add it to the index.tsx
@@ -66,9 +62,9 @@ async function build () {
         let component = componentTemplate(componentName, svg);
         component = component.replace(/xlink:href/g, 'xlinkHref'); // replace so it gets parsed by JSX correctly
 
-        indexFileString += `export { default as ${componentName} } from '../icons/${componentName}';\n`;
+        indexFileString += `export { default as ${componentName} } from './${componentName}';\n`;
 
-        fs.writeFileSync(`./generated/components/${componentName}.js`, component, 'utf8');
+        fs.writeFileSync(`./generated/${componentName}.js`, component, 'utf8');
     });
 
     fs.outputFileSync(indexPath, indexFileString, 'utf8');
