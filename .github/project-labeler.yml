@@ -39,6 +39,9 @@ components:
 pie-button:
 - 'packages/components/pie-button/**/*'
 
+pie-divider:
+- 'packages/components/pie-divider/**/*'
+
 pie-modal:
 - 'packages/components/pie-modal/**/*'
 
