@@ -1,6 +1,7 @@
 import Generator from 'yeoman-generator';
 import chalk from 'chalk';
 
+import prompts from './prompts';
 import { transformName } from './utils';
 import type { Props } from './types';
 
@@ -12,14 +13,10 @@ export default class extends Generator {
     }
 
     async prompting () {
-        const answers = await this.prompt([{
-            message: "What's the name of your new component (without the 'pie-' prefix e.g. 'form-label')?",
-            name: 'name',
-            type: 'input',
-        }]);
+        const answers = await this.prompt(prompts);
         const transformedName = transformName(answers.name);
         this.props = {
-            answers,
+            ...answers,
             ...transformedName,
             componentPath: `packages/components/pie-${transformedName.fileName}/`,
             storyPath: 'apps/pie-storybook/stories/',

@@ -147,9 +147,6 @@
     },
     "lint:scripts": {
       "cache": true,
-      "dependsOn": [
-        "^build"
-      ],
       "outputs": []
     },
     "lint:scripts:fix": {
@@ -157,16 +154,10 @@
       "outputs": []
     },
     "lint:style": {
-      "cache": true,
-      "dependsOn": [
-        "^build"
-      ]
+      "cache": true
     },
     "lint:examples": {
       "cache": true,
-      "dependsOn": [
-        "^build:examples"
-      ],
       "outputs": []
     },
     "dev": {

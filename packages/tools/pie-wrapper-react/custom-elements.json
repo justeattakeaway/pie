@@ -133,9 +133,9 @@
                     "kind": "variable",
                     "name": "variants",
                     "type": {
-                        "text": "['primary', 'secondary', 'outline', 'ghost', 'inverse', 'ghost-inverse']"
+                        "text": "[\n    'primary', 'secondary', 'outline', 'ghost', 'inverse', 'ghost-inverse', 'destructive', 'destructive-ghost',\n]"
                     },
-                    "default": "['primary', 'secondary', 'outline', 'ghost', 'inverse', 'ghost-inverse']"
+                    "default": "[\n    'primary', 'secondary', 'outline', 'ghost', 'inverse', 'ghost-inverse', 'destructive', 'destructive-ghost',\n]"
                 }
             ],
             "exports": [
