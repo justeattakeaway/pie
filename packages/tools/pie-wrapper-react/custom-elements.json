@@ -177,6 +177,157 @@
         },
         {
             "kind": "javascript-module",
+            "path": "../../components/pie-link/src/index.js",
+            "declarations": [
+                {
+                    "kind": "variable",
+                    "name": "componentSelector",
+                    "type": {
+                        "text": "string"
+                    },
+                    "default": "'pie-link'"
+                },
+                {
+                    "kind": "class",
+                    "description": "",
+                    "name": "PieLink",
+                    "members": [
+                        {
+                            "kind": "field",
+                            "name": "variant",
+                            "type": {
+                                "text": "LinkProps['variant']"
+                            },
+                            "privacy": "public",
+                            "default": "'default'",
+                            "attribute": "variant"
+                        },
+                        {
+                            "kind": "field",
+                            "name": "size",
+                            "type": {
+                                "text": "LinkProps['size']"
+                            },
+                            "privacy": "public",
+                            "default": "'medium'",
+                            "attribute": "size"
+                        },
+                        {
+                            "kind": "field",
+                            "name": "isBold",
+                            "type": {
+                                "text": "boolean"
+                            },
+                            "privacy": "public",
+                            "default": "false",
+                            "attribute": "isBold"
+                        },
+                        {
+                            "kind": "field",
+                            "name": "isStandalone",
+                            "type": {
+                                "text": "boolean"
+                            },
+                            "privacy": "public",
+                            "default": "false",
+                            "attribute": "isStandalone"
+                        }
+                    ],
+                    "attributes": [
+                        {
+                            "name": "variant",
+                            "type": {
+                                "text": "LinkProps['variant']"
+                            },
+                            "default": "'default'",
+                            "fieldName": "variant"
+                        },
+                        {
+                            "name": "size",
+                            "type": {
+                                "text": "LinkProps['size']"
+                            },
+                            "default": "'medium'",
+                            "fieldName": "size"
+                        },
+                        {
+                            "name": "isBold",
+                            "type": {
+                                "text": "boolean"
+                            },
+                            "default": "false",
+                            "fieldName": "isBold"
+                        },
+                        {
+                            "name": "isStandalone",
+                            "type": {
+                                "text": "boolean"
+                            },
+                            "default": "false",
+                            "fieldName": "isStandalone"
+                        }
+                    ],
+                    "superclass": {
+                        "name": "LitElement",
+                        "package": "lit"
+                    },
+                    "tagName": "componentSelector",
+                    "customElement": true
+                }
+            ],
+            "exports": [
+                {
+                    "kind": "js",
+                    "name": "type",
+                    "declaration": {
+                        "name": "type",
+                        "module": "../../components/pie-link/src/index.js"
+                    }
+                },
+                {
+                    "kind": "js",
+                    "name": "LinkProps",
+                    "declaration": {
+                        "name": "LinkProps",
+                        "module": "../../components/pie-link/src/index.js"
+                    }
+                },
+                {
+                    "kind": "js",
+                    "name": "variants",
+                    "declaration": {
+                        "name": "variants",
+                        "module": "../../components/pie-link/src/index.js"
+                    }
+                },
+                {
+                    "kind": "js",
+                    "name": "sizes",
+                    "declaration": {
+                        "name": "sizes",
+                        "module": "../../components/pie-link/src/index.js"
+                    }
+                },
+                {
+                    "kind": "js",
+                    "name": "PieLink",
+                    "declaration": {
+                        "name": "PieLink",
+                        "module": "../../components/pie-link/src/index.js"
+                    }
+                },
+                {
+                    "kind": "custom-element-definition",
+                    "name": "componentSelector",
+                    "declaration": {
+                        "name": "PieLink",
+                        "module": "../../components/pie-link/src/index.js"
+                    }
+                }
+            ]
+        },
+        {
+            "kind": "javascript-module",
             "path": "../../components/pie-button/src/defs.js",
             "declarations": [
                 {
