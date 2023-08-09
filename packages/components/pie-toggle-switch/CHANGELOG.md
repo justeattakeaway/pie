@@ -1,5 +1,16 @@
 # @justeattakeaway/pie-toggle-switch
 
+## 0.2.0
+
+### Minor Changes
+
+- [Added] - component styles ([#672](https://github.com/justeattakeaway/pie/pull/672)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
+  [Added] - component functionality
+  [Added] - `isChecked` and `isDisabled` prop
+  [Added] - `pie-toggle-switch` story
+  [Updated] - README
+
 ## 0.1.0
 
 ### Minor Changes

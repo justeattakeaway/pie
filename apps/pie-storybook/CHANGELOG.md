@@ -1,5 +1,32 @@
 # Changelog
 
+## 0.24.0
+
+### Minor Changes
+
+- [Added] - RTL option to the pie web component generator ([#690](https://github.com/justeattakeaway/pie/pull/690)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Added] - Create a skeleton divider web component using our component generator ([#693](https://github.com/justeattakeaway/pie/pull/693)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Added] - pie-css added to storybook ([#684](https://github.com/justeattakeaway/pie/pull/684)) by [@ashleynolan](https://github.com/ashleynolan)
+
+- [Added] - destructive and destructive-ghost button variants ([#686](https://github.com/justeattakeaway/pie/pull/686)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Fixed] - hover and active colours for ghost-inverse variant
+  [Added] - mixin for reassigning button spinner HSL custom properties
+
+- [Added] - init pie link ([#707](https://github.com/justeattakeaway/pie/pull/707)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies [[`0ebe33ef7`](https://github.com/justeattakeaway/pie/commit/0ebe33ef74f1ccb77b2b45b5a46f1f90b9930ba7), [`5ff10d5b2`](https://github.com/justeattakeaway/pie/commit/5ff10d5b2b700d9719faac3f1e97667dc494937b), [`afc5a0f3d`](https://github.com/justeattakeaway/pie/commit/afc5a0f3d3daadfb8b44f3581c67005521d8fa6d), [`f4871ae0e`](https://github.com/justeattakeaway/pie/commit/f4871ae0e2791f389edb78691ddedd8fbde9892d), [`30b7d305d`](https://github.com/justeattakeaway/pie/commit/30b7d305dc9be47466e4a94056b86c3926efea4f), [`0111f226b`](https://github.com/justeattakeaway/pie/commit/0111f226bf5b18b78bf4dfa834d1ea66113b04c6), [`e6138261c`](https://github.com/justeattakeaway/pie/commit/e6138261ccf6c2acc06a743c2c04a7e6161b511f)]:
+  - @justeattakeaway/pie-icon-button@0.13.1
+  - @justeattakeaway/pie-button@0.24.0
+  - @justeattakeaway/pie-toggle-switch@0.2.0
+  - @justeattakeaway/pie-divider@0.1.0
+  - @justeattakeaway/pie-modal@0.17.0
+  - @justeattakeaway/pie-css@0.2.0
+
 ## 0.23.0
 
 ### Minor Changes

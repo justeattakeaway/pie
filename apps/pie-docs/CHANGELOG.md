@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.8.0
+
+### Minor Changes
+
+- [Changed] - use latest pie-design-tokens ([#694](https://github.com/justeattakeaway/pie/pull/694)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
 ## 2.7.0
 
 ### Minor Changes

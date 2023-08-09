@@ -1,5 +1,15 @@
 # @justeattakeaway/generator-pie-component
 
+## 0.4.0
+
+### Minor Changes
+
+- [Added] - RTL option to the pie web component generator ([#690](https://github.com/justeattakeaway/pie/pull/690)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Added] - how to set up VRT to the readme ([#698](https://github.com/justeattakeaway/pie/pull/698)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Changed] - fix output format ([#693](https://github.com/justeattakeaway/pie/pull/693)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.3.0
 
 ### Minor Changes

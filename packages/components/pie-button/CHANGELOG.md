@@ -1,5 +1,22 @@
 # Changelog
 
+## 0.24.0
+
+### Minor Changes
+
+- [Added] - destructive and destructive-ghost button variants ([#686](https://github.com/justeattakeaway/pie/pull/686)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Fixed] - hover and active colours for ghost-inverse variant
+  [Added] - mixin for reassigning button spinner HSL custom properties
+
+- [Added] - `font-size` function added & tests ([#681](https://github.com/justeattakeaway/pie/pull/681)) by [@ashleynolan](https://github.com/ashleynolan)
+
+  [Added] - adding pie-css to pie-button
+
+### Patch Changes
+
+- [Changed] - use latest pie-design-tokens ([#694](https://github.com/justeattakeaway/pie/pull/694)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
 ## 0.23.0
 
 ### Minor Changes
