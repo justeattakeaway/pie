@@ -3,23 +3,16 @@
   "version": "0.23.0",
   "description": "PIE design system button built using web components",
   "files": [
-    "dist",
-    "src"
+    "src",
+    "dist/**/*.d.ts",
+    "dist/**/*.js"
   ],
-  "exports": {
-    "./": "./dist/index.js",
-    "./react": {
-      "types": "./dist/types/react.d.ts",
-      "development": "./src/react.ts",
-      "default": "./dist/react.js"
-    }
-  },
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
-  "types": "dist/types/index.d.ts",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "build": "yarn build:wrapper pie-button && run -T vite build ",
+    "build": "yarn build:wrapper pie-button && run -T vite build",
     "lint:scripts": "run -T eslint .",
     "lint:scripts:fix": "run -T eslint . --fix",
     "lint:style": "run -T stylelint ./src/**/*.{css,scss}",

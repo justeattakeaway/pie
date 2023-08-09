@@ -1,9 +1,9 @@
 import React, { useState, useRef } from 'react';
 import Head from 'next/head';
-import { ButtonProps, sizes, variants } from '@justeattakeaway/pie-button';
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-import { PieButton } from '@justeattakeaway/pie-button/react';
+// import {
+//     ButtonProps, sizes, variants,
+// } from '@justeattakeaway/pie-button';
+import { PieButton } from '@justeattakeaway/pie-button/dist/react';
 import '@justeattakeaway/pie-css';
 
 export default function Home () {
@@ -13,13 +13,13 @@ export default function Home () {
 
     const increment = () => setCount(count + 1);
     const decrement = () => setCount(count - 1);
-    const switchVariant = () => {
-        variantIndex.current += 1;
-        const variantsKeys: readonly string[] = variants;
-        const variant: ButtonProps['variant'] = variants[variantIndex.current % variantsKeys.length];
+    // const switchVariant = () => {
+    //     variantIndex.current += 1;
+    //     const variantsKeys: readonly string[] = variants;
+    //     const variant: ButtonProps['variant'] = variants[variantIndex.current % variantsKeys.length];
 
-        setVariantName(variant);
-    };
+    //     setVariantName(variant);
+    // };
 
     return (
         <>
@@ -44,7 +44,7 @@ export default function Home () {
                 <div>
                     <h3>Click the button to switch the variant</h3>
                     <div className="flex-wrapper">
-                        <PieButton variant={variantName} onClick={switchVariant}>
+                        <PieButton>
                             Switch variant
                         </PieButton>
                         <div className='padding'>Variant: <b>{variantName}</b></div>
@@ -52,18 +52,6 @@ export default function Home () {
                 </div>
                 <div>
                     <h3>Button sizes</h3>
-                    <div>
-                        {
-                            sizes
-                                .map((key, index) => {
-                                    const size: ButtonProps['size'] = sizes[index];
-
-                                    return (
-                                        <PieButton size={size} key={key}>{key.toLowerCase()}</PieButton>
-                                    );
-                                })
-                        }
-                    </div>
                 </div>
             </main>
         </>
