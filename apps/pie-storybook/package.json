@@ -17,6 +17,7 @@
     "@justeattakeaway/pie-divider": "workspace:*",
     "@justeattakeaway/pie-icon-button": "workspace:*",
     "@justeattakeaway/pie-icons-webc": "workspace:*",
+    "@justeattakeaway/pie-link": "workspace:*",
     "@justeattakeaway/pie-modal": "workspace:*",
     "@justeattakeaway/pie-toggle-switch": "workspace:*"
   },
