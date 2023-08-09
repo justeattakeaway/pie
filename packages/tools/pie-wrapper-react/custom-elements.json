@@ -975,6 +975,72 @@
         },
         {
             "kind": "javascript-module",
+            "path": "../../components/pie-divider/src/defs.js",
+            "declarations": [],
+            "exports": []
+        },
+        {
+            "kind": "javascript-module",
+            "path": "../../components/pie-divider/src/index.js",
+            "declarations": [
+                {
+                    "kind": "variable",
+                    "name": "componentSelector",
+                    "type": {
+                        "text": "string"
+                    },
+                    "default": "'pie-divider'"
+                },
+                {
+                    "kind": "class",
+                    "description": "",
+                    "name": "PieDivider",
+                    "members": [],
+                    "superclass": {
+                        "name": "LitElement",
+                        "package": "lit"
+                    },
+                    "tagName": "componentSelector",
+                    "customElement": true
+                }
+            ],
+            "exports": [
+                {
+                    "kind": "js",
+                    "name": "type",
+                    "declaration": {
+                        "name": "type",
+                        "module": "../../components/pie-divider/src/index.js"
+                    }
+                },
+                {
+                    "kind": "js",
+                    "name": "DividerProps",
+                    "declaration": {
+                        "name": "DividerProps",
+                        "module": "../../components/pie-divider/src/index.js"
+                    }
+                },
+                {
+                    "kind": "js",
+                    "name": "PieDivider",
+                    "declaration": {
+                        "name": "PieDivider",
+                        "module": "../../components/pie-divider/src/index.js"
+                    }
+                },
+                {
+                    "kind": "custom-element-definition",
+                    "name": "componentSelector",
+                    "declaration": {
+                        "name": "PieDivider",
+                        "module": "../../components/pie-divider/src/index.js"
+                    }
+                }
+            ]
+        },
+        {
+            "kind": "javascript-module",
             "path": "../../components/pie-webc-core/src/index.js",
             "declarations": [],
             "exports": [
@@ -1183,7 +1249,7 @@
             "declarations": [
                 {
                     "kind": "variable",
-                    "name": "EVENT_TOGGLE_SWITCH_CHANGED",
+                    "name": "ON_EVENT_TOGGLE_SWITCH_CHANGED",
                     "type": {
                         "text": "string"
                     },
@@ -1194,9 +1260,9 @@
             "exports": [
                 {
                     "kind": "js",
-                    "name": "EVENT_TOGGLE_SWITCH_CHANGED",
+                    "name": "ON_EVENT_TOGGLE_SWITCH_CHANGED",
                     "declaration": {
-                        "name": "EVENT_TOGGLE_SWITCH_CHANGED",
+                        "name": "ON_EVENT_TOGGLE_SWITCH_CHANGED",
                         "module": "../../components/pie-toggle-switch/src/defs.js"
                     }
                 }
@@ -1303,7 +1369,7 @@
                     ],
                     "events": [
                         {
-                            "name": "EVENT_TOGGLE_SWITCH_CHANGED",
+                            "name": "ON_EVENT_TOGGLE_SWITCH_CHANGED",
                             "type": {
                                 "text": "CustomEvent"
                             }

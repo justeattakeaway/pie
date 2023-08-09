@@ -50,15 +50,11 @@ export class PieToggleSwitch extends RtlMixin(LitElement) implements ToggleSwitc
     private renderToggleSwitchLabel (): TemplateResult {
         const { label } = this;
 
-        if (label?.text && (label?.position.leading || label?.position.trailing)) {
-            if (label.position.leading && label.position.trailing) {
-                return html``;
-            }
-
+        if (label?.text && (label?.position === 'leading' || label?.position === 'trailing')) {
             return html`
                 <span
                     data-test-id="toggle-switch-label"
-                    class="c-toggleSwitch-label ${label.position.leading ? 'c-toggleSwitch--leading' : 'c-toggleSwitch--trailing'}">
+                    class="c-toggleSwitch-label ${label.position === 'leading' ? 'c-toggleSwitch--leading' : 'c-toggleSwitch--trailing'}">
                     ${label.text}
                 </span>`;
         }
@@ -75,7 +71,7 @@ export class PieToggleSwitch extends RtlMixin(LitElement) implements ToggleSwitc
 
         return html`
             <div class="c-toggleSwitch-wrapper">
-                ${label.position.leading ? this.renderToggleSwitchLabel() : nothing}
+                ${label.position === 'leading' ? this.renderToggleSwitchLabel() : nothing}
                 <label
                     data-test-id="toggle-switch-component"
                     class="c-toggleSwitch"
@@ -92,7 +88,7 @@ export class PieToggleSwitch extends RtlMixin(LitElement) implements ToggleSwitc
                         ${isChecked ? html`<icon-check></icon-check>` : nothing}
                     </div>
                 </label>
-                ${label.position.trailing ? this.renderToggleSwitchLabel() : nothing}
+                ${label.position === 'trailing' ? this.renderToggleSwitchLabel() : nothing}
             </div>
         `;
     }

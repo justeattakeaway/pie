@@ -21,10 +21,7 @@ const defaultArgs: ToggleSwitchProps = {
     dir: 'ltr',
     label: {
         text: 'Label',
-        position: {
-            leading: true,
-            trailing: false,
-        },
+        position: 'leading',
     },
 };
 
@@ -53,10 +50,7 @@ const toggleSwitchStoryMeta: ToggleSwitchStoryMeta = {
                 type: 'object',
                 defaultValue: {
                     text: 'Label',
-                    position: {
-                        leading: true,
-                        trailing: false,
-                    },
+                    options: ['leading', 'trailing'],
                 },
             },
         },

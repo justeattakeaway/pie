@@ -2,10 +2,7 @@ import { RTLComponentProps } from '@justeattakeaway/pie-webc-core';
 
 export type LabelProps = {
     text: string;
-    position: {
-        leading: boolean;
-        trailing: boolean;
-    };
+    position: string;
 }
 
 export type ToggleSwitchProps = RTLComponentProps & {

@@ -22,45 +22,22 @@ import { PieToggleSwitch } from '@/index';
 
 test.describe('Prop: `Label`', () => {
     test.describe('when passed in', () => {
-        const labelPositions = [
-            { leading: true, trailing: false },
-            { leading: false, trailing: true }
-        ];
+        const labelPositions = ['leading', 'trailing'];
 
         labelPositions.forEach(async (position) => {
-            test(`should render a label next to the toggle switch (position: leading=${position.leading}, trailing=${position.trailing})`, async ({ page, mount }) => {
+            test(`should render a label next to the toggle switch (position: ${position})`, async ({ page, mount }) => {
                 await mount(PieToggleSwitch, {
                     props: {
                         label: {
                             text: 'Label',
-                            position: {
-                                leading: position.leading,
-                                trailing: position.trailing,
-                            },
+                            position,
                         },
                     },
                 });
 
-                await percySnapshot(page, `ToggleSwitch - label position: leading=${position.leading}, trailing=${position.trailing}`);
+                await percySnapshot(page, `ToggleSwitch - label position: ${position}`);
             });
-        });
-    });
-
-    test.describe('when both leading and trailing is passed in as true', () => {
-        test('should not render a label', async ({ page, mount }) => {
-            await mount(PieToggleSwitch, {
-                props: {
-                    label: {
-                        text: 'Label',
-                        position: {
-                            leading: true,
-                            trailing: true,
-                        },
-                    },
-                },
-            });
-
-            await percySnapshot(page, 'ToggleSwitch - label is not rendered');
         });
     });
 });
+

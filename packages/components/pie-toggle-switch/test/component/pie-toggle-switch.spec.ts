@@ -12,10 +12,7 @@ test.describe('Component: `Pie toggle switch`', () => {
                 isDisabled: false,
                 label: {
                     text: 'Label',
-                    position: {
-                        leading: true,
-                        trailing: false,
-                    },
+                    position: 'leading',
                 },
             },
         });
@@ -35,10 +32,7 @@ test.describe('Component: `Pie toggle switch`', () => {
                 isDisabled: false,
                 label: {
                     text: 'Label',
-                    position: {
-                        leading: true,
-                        trailing: false,
-                    },
+                    position: 'leading',
                 },
             },
         });
@@ -58,10 +52,7 @@ test.describe('Component: `Pie toggle switch`', () => {
                 isDisabled: false,
                 label: {
                     text: 'Label',
-                    position: {
-                        leading: true,
-                        trailing: false,
-                    },
+                    position: 'leading',
                 },
             },
         });
@@ -82,10 +73,7 @@ test.describe('Component: `Pie toggle switch`', () => {
                         isChecked: false,
                         label: {
                             text: 'Label',
-                            position: {
-                                leading: true,
-                                trailing: false,
-                            },
+                            position: 'leading',
                         },
                     },
                 });
@@ -102,17 +90,14 @@ test.describe('Component: `Pie toggle switch`', () => {
     });
 
     test.describe('Props: `LabelProps`', () => {
-        test.describe('when a label is passed as `leading`', () => {
+        test.describe('when a position is passed as `leading`', () => {
             test('should render a leading label with class `c-toggleSwitch--leading`', async ({ mount }) => {
                 // Arrange
                 const component = await mount(PieToggleSwitch, {
                     props: {
                         label: {
                             text: 'Label',
-                            position: {
-                                leading: true,
-                                trailing: false,
-                            },
+                            position: 'leading',
                         },
                     },
                 });
@@ -131,10 +116,7 @@ test.describe('Component: `Pie toggle switch`', () => {
                     props: {
                         label: {
                             text: 'Label',
-                            position: {
-                                leading: false,
-                                trailing: true,
-                            },
+                            position: 'trailing',
                         },
                     },
                 });
@@ -143,28 +125,6 @@ test.describe('Component: `Pie toggle switch`', () => {
 
                 // Assert
                 await expect(pieToggleSwitchLabel).toHaveClass('c-toggleSwitch-label c-toggleSwitch--trailing');
-            });
-        });
-
-        test.describe('when a label is passed as `leading` & `trailing`', () => {
-            test('should not render a label', async ({ mount }) => {
-                // Arrange
-                const component = await mount(PieToggleSwitch, {
-                    props: {
-                        label: {
-                            text: 'Label',
-                            position: {
-                                leading: true,
-                                trailing: true,
-                            },
-                        },
-                    },
-                });
-
-                const pieToggleSwitchLabel = await component.locator('[data-test-id="toggle-switch-label"]');
-
-                // Assert
-                await expect(pieToggleSwitchLabel).not.toBeVisible();
             });
         });
     });
