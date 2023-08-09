@@ -38,9 +38,9 @@
     "PIE"
   ],
   "scripts": {
-    "build": "yarn clean && yarn build:icons && yarn build:dist",
-    "build:dist": "rollup -c",
-    "build:icons": "node build && babel generated -d icons && eslint icons --fix",
+    "build:icons": "node ./scripts/build && babel generated -d icons && eslint icons --fix",
+    "build:lib": "rollup -c",
+    "build": "yarn clean && yarn build:icons && yarn build:lib",
     "clean": "run -T rimraf -rf ./icons/ ./generated/ ./dist/ ./esm/",
     "lint:scripts": "run -T eslint .",
     "lint:scripts:fix": "yarn lint:scripts --fix",
