@@ -1249,6 +1249,14 @@
             "declarations": [
                 {
                     "kind": "variable",
+                    "name": "labelPositions",
+                    "type": {
+                        "text": "['leading', 'trailing']"
+                    },
+                    "default": "['leading', 'trailing']"
+                },
+                {
+                    "kind": "variable",
                     "name": "ON_EVENT_TOGGLE_SWITCH_CHANGED",
                     "type": {
                         "text": "string"
@@ -1258,6 +1266,14 @@
                 }
             ],
             "exports": [
+                {
+                    "kind": "js",
+                    "name": "labelPositions",
+                    "declaration": {
+                        "name": "labelPositions",
+                        "module": "../../components/pie-toggle-switch/src/defs.js"
+                    }
+                },
                 {
                     "kind": "js",
                     "name": "ON_EVENT_TOGGLE_SWITCH_CHANGED",

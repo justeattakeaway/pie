@@ -1,6 +1,7 @@
 import { test } from '@sand4rt/experimental-ct-web';
 import percySnapshot from '@percy/playwright';
 import { PieToggleSwitch } from '@/index';
+import { labelPositions } from '@/defs.ts';
 
 [
     [false, false],
@@ -22,8 +23,6 @@ import { PieToggleSwitch } from '@/index';
 
 test.describe('Prop: `Label`', () => {
     test.describe('when passed in', () => {
-        const labelPositions = ['leading', 'trailing'];
-
         labelPositions.forEach(async (position) => {
             test(`should render a label next to the toggle switch (position: ${position})`, async ({ page, mount }) => {
                 await mount(PieToggleSwitch, {

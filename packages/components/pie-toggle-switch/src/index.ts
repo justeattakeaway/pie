@@ -7,6 +7,7 @@ import styles from './toggle-switch.scss?inline';
 import {
     ToggleSwitchProps,
     ON_EVENT_TOGGLE_SWITCH_CHANGED,
+    labelPositions,
     type LabelProps,
 } from './defs';
 import '@justeattakeaway/pie-icons-webc/dist/icons/IconCheck.js';
@@ -50,11 +51,11 @@ export class PieToggleSwitch extends RtlMixin(LitElement) implements ToggleSwitc
     private renderToggleSwitchLabel (): TemplateResult {
         const { label } = this;
 
-        if (label?.text && (label?.position === 'leading' || label?.position === 'trailing')) {
+        if (label?.text && (labelPositions.includes(label.position))) {
             return html`
                 <span
                     data-test-id="toggle-switch-label"
-                    class="c-toggleSwitch-label ${label.position === 'leading' ? 'c-toggleSwitch--leading' : 'c-toggleSwitch--trailing'}">
+                    class="c-toggleSwitch-label c-toggleSwitch--${label.position}">
                     ${label.text}
                 </span>`;
         }

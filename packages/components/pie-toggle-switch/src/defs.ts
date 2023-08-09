@@ -1,9 +1,13 @@
 import { RTLComponentProps } from '@justeattakeaway/pie-webc-core';
 
+export const labelPositions = ['leading', 'trailing'] as const;
+
+export type LabelPosition = typeof labelPositions[number];
+
 export type LabelProps = {
     text: string;
-    position: string;
-}
+    position: LabelPosition;
+};
 
 export type ToggleSwitchProps = RTLComponentProps & {
     /**

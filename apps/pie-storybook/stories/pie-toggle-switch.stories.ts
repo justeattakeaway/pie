@@ -1,7 +1,7 @@
 import { html, TemplateResult } from 'lit';
 import { type StoryObj as Story } from '@storybook/web-components';
 import { PieToggleSwitch } from '@justeattakeaway/pie-toggle-switch';
-import { ToggleSwitchProps } from '@justeattakeaway/pie-toggle-switch/src/defs';
+import { ToggleSwitchProps, labelPositions } from '@justeattakeaway/pie-toggle-switch/src/defs';
 import { IconCheck } from '@justeattakeaway/pie-icons-webc';
 import { StoryMeta } from '../types';
 import { i18nArgTypes } from '../args/commonArgsTypes';
@@ -50,7 +50,7 @@ const toggleSwitchStoryMeta: ToggleSwitchStoryMeta = {
                 type: 'object',
                 defaultValue: {
                     text: 'Label',
-                    options: ['leading', 'trailing'],
+                    options: labelPositions,
                 },
             },
         },
