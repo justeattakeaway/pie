@@ -20,7 +20,7 @@ on:
 
 concurrency:
   group: CI-${{ github.ref }}
-  cancel-in-progress: true
+  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
 
 env:
   PERCY_TOKEN_PIE_DOCS: ${{ secrets.PERCY_TOKEN_PIE_DOCS }}
@@ -39,36 +39,7 @@ jobs:
     secrets:
       githubToken: ${{ secrets.GITHUB_TOKEN }}
 
-  build-ubuntu-node-16:
-    uses: ./.github/workflows/install-build.yml
-    with:
-      os: ubuntu-latest
-      node-version: 16
-    secrets: inherit
-
-  build-windows-node-16:
-    uses: ./.github/workflows/install-build.yml
-    with:
-      os: windows-latest
-      node-version: 16
-    secrets: inherit
-
-  build-ubuntu-node-18:
-    uses: ./.github/workflows/install-build.yml
-    with:
-      os: ubuntu-latest
-      node-version: 18
-    secrets: inherit
-
-  build-windows-node-18:
-    uses: ./.github/workflows/install-build.yml
-    with:
-      os: windows-latest
-      node-version: 18
-    secrets: inherit
-
   lint-styles:
-    needs: build-ubuntu-node-18
     runs-on: ubuntu-latest
     steps:
       # Checkout the Repo
@@ -88,7 +59,6 @@ jobs:
           concurrency: 10
 
   lint-js:
-    needs: build-ubuntu-node-18
     runs-on: ubuntu-latest
     steps:
       # Checkout the Repo
@@ -100,19 +70,44 @@ jobs:
         with:
           node-version: 18
           os: ubuntu-latest
-      # Restore Packages from Cache
-      - name: Build Packages
-        uses: ./.github/actions/run-script
-        with:
-          script-name: "build"
       # Lint JS
       - name: Lint JavaScript
         uses: ./.github/actions/run-script
         with:
           script-name: "lint:scripts"
 
+
+  build-ubuntu-node-16:
+    uses: ./.github/workflows/install-build.yml
+    with:
+      os: ubuntu-latest
+      node-version: 16
+    secrets: inherit
+
+  build-windows-node-16:
+    uses: ./.github/workflows/install-build.yml
+    with:
+      os: windows-latest
+      node-version: 16
+    secrets: inherit
+
+  build-ubuntu-node-18:
+    uses: ./.github/workflows/install-build.yml
+    needs: ['lint-js', 'lint-styles']
+    with:
+      os: ubuntu-latest
+      node-version: 18
+    secrets: inherit
+
+  build-windows-node-18:
+    uses: ./.github/workflows/install-build.yml
+    with:
+      os: windows-latest
+      node-version: 18
+    secrets: inherit
+
   unit-tests:
-    needs: lint-js
+    needs: 'build-ubuntu-node-18'
     runs-on: ubuntu-latest
     steps:
       # Checkout the Repo
