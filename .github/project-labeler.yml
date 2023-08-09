@@ -42,6 +42,9 @@ pie-button:
 pie-divider:
 - 'packages/components/pie-divider/**/*'
 
+pie-link:
+- 'packages/components/pie-link/**/*'
+
 pie-modal:
 - 'packages/components/pie-modal/**/*'
 
