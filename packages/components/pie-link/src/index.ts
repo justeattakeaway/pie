@@ -15,11 +15,11 @@ export {
 const componentSelector = 'pie-link';
 
 export class PieLink extends LitElement implements LinkProps {
-    @property()
+    @property({ type: String })
     @validPropertyValues(componentSelector, variants, 'default')
     public variant: LinkProps['variant'] = 'default';
 
-    @property()
+    @property({ type: String })
     @validPropertyValues(componentSelector, sizes, 'medium')
     public size: LinkProps['size'] = 'medium';
 

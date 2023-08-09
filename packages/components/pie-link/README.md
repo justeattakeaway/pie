@@ -57,9 +57,15 @@ import { PieLink } from '@justeattakeaway/pie-link/dist/react';
 
 ## Props
 
-| Property | Type | Default | Description |
-|---|---|---|---|
-| - | - | - | - |
+| Property     | Type        | Default       | Description                                                                 |
+| ------------ | ----------- | ------------- | --------------------------------------------------------------------------- |
+| variant      | `String`  | `default`   | Variant of the link, one of variants – default, high-visibility or inverse |
+| size         | `String`  | `medium`    | Size of the link, one of `sizes` – `medium`, `small`                 |
+| href         | `String`  | `undefined` | Native html `href` attribute                                              |
+| rel          | `String`  | `undefined` | native html `rel` attribute                                               |
+| target       | `String`  | `undefined` | native html `target` attribute                                            |
+| isBold       | `Boolean` | `false`     | If `true`, sets the link text bold                                        |
+| isStandalone | `Boolean` | `false`     | If `true`, sets the link as a block element                               |
 
 In your markup or JSX, you can then use these to set the properties for the `pie-link` component:
 

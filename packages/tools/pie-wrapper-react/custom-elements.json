@@ -5,8 +5,42 @@
         {
             "kind": "javascript-module",
             "path": "../../components/pie-link/src/defs.js",
-            "declarations": [],
-            "exports": []
+            "declarations": [
+                {
+                    "kind": "variable",
+                    "name": "variants",
+                    "type": {
+                        "text": "['default', 'high-visibility', 'inverse']"
+                    },
+                    "default": "['default', 'high-visibility', 'inverse']"
+                },
+                {
+                    "kind": "variable",
+                    "name": "sizes",
+                    "type": {
+                        "text": "['small', 'medium']"
+                    },
+                    "default": "['small', 'medium']"
+                }
+            ],
+            "exports": [
+                {
+                    "kind": "js",
+                    "name": "variants",
+                    "declaration": {
+                        "name": "variants",
+                        "module": "../../components/pie-link/src/defs.js"
+                    }
+                },
+                {
+                    "kind": "js",
+                    "name": "sizes",
+                    "declaration": {
+                        "name": "sizes",
+                        "module": "../../components/pie-link/src/defs.js"
+                    }
+                }
+            ]
         },
         {
             "kind": "javascript-module",
@@ -24,7 +58,133 @@
                     "kind": "class",
                     "description": "",
                     "name": "PieLink",
-                    "members": [],
+                    "members": [
+                        {
+                            "kind": "field",
+                            "name": "variant",
+                            "type": {
+                                "text": "LinkProps['variant']"
+                            },
+                            "privacy": "public",
+                            "default": "'default'",
+                            "attribute": "variant"
+                        },
+                        {
+                            "kind": "field",
+                            "name": "size",
+                            "type": {
+                                "text": "LinkProps['size']"
+                            },
+                            "privacy": "public",
+                            "default": "'medium'",
+                            "attribute": "size"
+                        },
+                        {
+                            "kind": "field",
+                            "name": "href",
+                            "type": {
+                                "text": "string | undefined"
+                            },
+                            "privacy": "public",
+                            "attribute": "href",
+                            "reflects": true
+                        },
+                        {
+                            "kind": "field",
+                            "name": "target",
+                            "type": {
+                                "text": "string | undefined"
+                            },
+                            "privacy": "public",
+                            "attribute": "target",
+                            "reflects": true
+                        },
+                        {
+                            "kind": "field",
+                            "name": "rel",
+                            "type": {
+                                "text": "string | undefined"
+                            },
+                            "privacy": "public",
+                            "attribute": "rel",
+                            "reflects": true
+                        },
+                        {
+                            "kind": "field",
+                            "name": "isBold",
+                            "type": {
+                                "text": "boolean"
+                            },
+                            "privacy": "public",
+                            "default": "false",
+                            "attribute": "isBold"
+                        },
+                        {
+                            "kind": "field",
+                            "name": "isStandalone",
+                            "type": {
+                                "text": "boolean"
+                            },
+                            "privacy": "public",
+                            "default": "false",
+                            "attribute": "isStandalone"
+                        }
+                    ],
+                    "attributes": [
+                        {
+                            "name": "variant",
+                            "type": {
+                                "text": "LinkProps['variant']"
+                            },
+                            "default": "'default'",
+                            "fieldName": "variant"
+                        },
+                        {
+                            "name": "size",
+                            "type": {
+                                "text": "LinkProps['size']"
+                            },
+                            "default": "'medium'",
+                            "fieldName": "size"
+                        },
+                        {
+                            "name": "href",
+                            "type": {
+                                "text": "string | undefined"
+                            },
+                            "fieldName": "href"
+                        },
+                        {
+                            "name": "target",
+                            "type": {
+                                "text": "string | undefined"
+                            },
+                            "fieldName": "target"
+                        },
+                        {
+                            "name": "rel",
+                            "type": {
+                                "text": "string | undefined"
+                            },
+                            "fieldName": "rel"
+                        },
+                        {
+                            "name": "isBold",
+                            "type": {
+                                "text": "boolean"
+                            },
+                            "default": "false",
+                            "fieldName": "isBold"
+                        },
+                        {
+                            "name": "isStandalone",
+                            "type": {
+                                "text": "boolean"
+                            },
+                            "default": "false",
+                            "fieldName": "isStandalone"
+                        }
+                    ],
                     "superclass": {
                         "name": "LitElement",
                         "package": "lit"
@@ -47,6 +207,22 @@
                     "name": "LinkProps",
                     "declaration": {
                         "name": "LinkProps",
+                        "module": "../../components/pie-link/src/index.js"
+                    }
+                },
+                {
+                    "kind": "js",
+                    "name": "variants",
+                    "declaration": {
+                        "name": "variants",
+                        "module": "../../components/pie-link/src/index.js"
+                    }
+                },
+                {
+                    "kind": "js",
+                    "name": "sizes",
+                    "declaration": {
+                        "name": "sizes",
                         "module": "../../components/pie-link/src/index.js"
                     }
                 },
@@ -171,157 +347,6 @@
                     "declaration": {
                         "name": "ON_MODAL_BACK_EVENT",
                         "module": "../../components/pie-modal/src/defs.js"
-                    }
-                }
-            ]
-        },
-        {
-            "kind": "javascript-module",
-            "path": "../../components/pie-link/src/index.js",
-            "declarations": [
-                {
-                    "kind": "variable",
-                    "name": "componentSelector",
-                    "type": {
-                        "text": "string"
-                    },
-                    "default": "'pie-link'"
-                },
-                {
-                    "kind": "class",
-                    "description": "",
-                    "name": "PieLink",
-                    "members": [
-                        {
-                            "kind": "field",
-                            "name": "variant",
-                            "type": {
-                                "text": "LinkProps['variant']"
-                            },
-                            "privacy": "public",
-                            "default": "'default'",
-                            "attribute": "variant"
-                        },
-                        {
-                            "kind": "field",
-                            "name": "size",
-                            "type": {
-                                "text": "LinkProps['size']"
-                            },
-                            "privacy": "public",
-                            "default": "'medium'",
-                            "attribute": "size"
-                        },
-                        {
-                            "kind": "field",
-                            "name": "isBold",
-                            "type": {
-                                "text": "boolean"
-                            },
-                            "privacy": "public",
-                            "default": "false",
-                            "attribute": "isBold"
-                        },
-                        {
-                            "kind": "field",
-                            "name": "isStandalone",
-                            "type": {
-                                "text": "boolean"
-                            },
-                            "privacy": "public",
-                            "default": "false",
-                            "attribute": "isStandalone"
-                        }
-                    ],
-                    "attributes": [
-                        {
-                            "name": "variant",
-                            "type": {
-                                "text": "LinkProps['variant']"
-                            },
-                            "default": "'default'",
-                            "fieldName": "variant"
-                        },
-                        {
-                            "name": "size",
-                            "type": {
-                                "text": "LinkProps['size']"
-                            },
-                            "default": "'medium'",
-                            "fieldName": "size"
-                        },
-                        {
-                            "name": "isBold",
-                            "type": {
-                                "text": "boolean"
-                            },
-                            "default": "false",
-                            "fieldName": "isBold"
-                        },
-                        {
-                            "name": "isStandalone",
-                            "type": {
-                                "text": "boolean"
-                            },
-                            "default": "false",
-                            "fieldName": "isStandalone"
-                        }
-                    ],
-                    "superclass": {
-                        "name": "LitElement",
-                        "package": "lit"
-                    },
-                    "tagName": "componentSelector",
-                    "customElement": true
-                }
-            ],
-            "exports": [
-                {
-                    "kind": "js",
-                    "name": "type",
-                    "declaration": {
-                        "name": "type",
-                        "module": "../../components/pie-link/src/index.js"
-                    }
-                },
-                {
-                    "kind": "js",
-                    "name": "LinkProps",
-                    "declaration": {
-                        "name": "LinkProps",
-                        "module": "../../components/pie-link/src/index.js"
-                    }
-                },
-                {
-                    "kind": "js",
-                    "name": "variants",
-                    "declaration": {
-                        "name": "variants",
-                        "module": "../../components/pie-link/src/index.js"
-                    }
-                },
-                {
-                    "kind": "js",
-                    "name": "sizes",
-                    "declaration": {
-                        "name": "sizes",
-                        "module": "../../components/pie-link/src/index.js"
-                    }
-                },
-                {
-                    "kind": "js",
-                    "name": "PieLink",
-                    "declaration": {
-                        "name": "PieLink",
-                        "module": "../../components/pie-link/src/index.js"
-                    }
-                },
-                {
-                    "kind": "custom-element-definition",
-                    "name": "componentSelector",
-                    "declaration": {
-                        "name": "PieLink",
-                        "module": "../../components/pie-link/src/index.js"
                     }
                 }
             ]

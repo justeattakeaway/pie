@@ -17,6 +17,7 @@ const defaultArgs: LinkProps = {
     variant: 'default',
     size: 'medium',
     href: 'https://pie.design',
+    target: '_self',
     isBold: false,
     isStandalone: false,
     slot: 'This is Lit!',
@@ -45,9 +46,6 @@ const linkStoryMeta: LinkStoryMeta = {
         href: {
             description: 'What the URL that the hyperlink should point to',
             control: 'text',
-            defaultValue: {
-                summary: 'https://pie.design',
-            },
         },
         target: {
             description: 'Set where to display the linked URL',
@@ -96,9 +94,9 @@ const Template = ({
         <pie-link
             variant="${variant}"
             size="${size}"
-            href=${ifDefined(href)}
-            target=${ifDefined(target)}
-            rel=${ifDefined(rel)}
+            href=${ifDefined(href || undefined)}
+            target=${ifDefined(target || undefined)}
+            rel=${ifDefined(rel || undefined)}
             ?isBold="${isBold}"
             ?isStandalone="${isStandalone}">
             ${slot}
