@@ -1,12 +1,12 @@
 @use '@justeattakeaway/pie-css/scss' as p;
 
 .c-link {
-  --link-font-family: var(--dt-font-interactive-m-family);
-  --link-font-size: #{p.font-size(--dt-font-size-16)};
-  --link-line-height: calc(var(--dt-font-size-16-line-height) * 1px);
-  --link-font-weight: var(--dt-font-weight-regular);
-  --link-text-color: var(--dt-color-content-link);
-  --link-text-decoration: var(--dt-font-style-underline);
+    --link-font-family: var(--dt-font-interactive-m-family);
+    --link-font-size: #{p.font-size(--dt-font-size-16)};
+    --link-line-height: calc(var(--dt-font-size-16-line-height) * 1px);
+    --link-font-weight: var(--dt-font-weight-regular);
+    --link-text-color: var(--dt-color-content-link);
+    --link-text-decoration: var(--dt-font-style-underline);
 
     font-family: var(--link-font-family);
     font-size: var(--link-font-size);
@@ -17,20 +17,20 @@
     cursor: pointer;
 
     &[variant='default'] {
-      /* Same as default styles */
+        /* Same as default styles */
     }
 
     &[variant='high-visibility'] {
-      --link-text-color: var(--dt-color-content-link-distinct);
+        --link-text-color: var(--dt-color-content-link-distinct);
     }
 
     &[variant='inverse'] {
-      --link-text-color: var(--dt-color-content-link-inverse);
+        --link-text-color: var(--dt-color-content-link-inverse);
     }
 
     &[size='small'] {
-      --link-font-size: #{p.font-size(--dt-font-size-14)};
-      --link-line-height: calc(var(--dt-font-size-14-line-height) * 1px);
+        --link-font-size: #{p.font-size(--dt-font-size-14)};
+        --link-line-height: calc(var(--dt-font-size-14-line-height) * 1px);
     }
 
     &[size='medium'] {
@@ -38,11 +38,10 @@
     }
 
     &[isBold] {
-      --link-font-weight: var(--dt-font-weight-bold);
+        --link-font-weight: var(--dt-font-weight-bold);
     }
 
     &[isStandalone] {
-      display: block;
+        display: block;
     }
-
 }
