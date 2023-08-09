@@ -4,6 +4,72 @@
     "modules": [
         {
             "kind": "javascript-module",
+            "path": "../../components/pie-link/src/defs.js",
+            "declarations": [],
+            "exports": []
+        },
+        {
+            "kind": "javascript-module",
+            "path": "../../components/pie-link/src/index.js",
+            "declarations": [
+                {
+                    "kind": "variable",
+                    "name": "componentSelector",
+                    "type": {
+                        "text": "string"
+                    },
+                    "default": "'pie-link'"
+                },
+                {
+                    "kind": "class",
+                    "description": "",
+                    "name": "PieLink",
+                    "members": [],
+                    "superclass": {
+                        "name": "LitElement",
+                        "package": "lit"
+                    },
+                    "tagName": "componentSelector",
+                    "customElement": true
+                }
+            ],
+            "exports": [
+                {
+                    "kind": "js",
+                    "name": "type",
+                    "declaration": {
+                        "name": "type",
+                        "module": "../../components/pie-link/src/index.js"
+                    }
+                },
+                {
+                    "kind": "js",
+                    "name": "LinkProps",
+                    "declaration": {
+                        "name": "LinkProps",
+                        "module": "../../components/pie-link/src/index.js"
+                    }
+                },
+                {
+                    "kind": "js",
+                    "name": "PieLink",
+                    "declaration": {
+                        "name": "PieLink",
+                        "module": "../../components/pie-link/src/index.js"
+                    }
+                },
+                {
+                    "kind": "custom-element-definition",
+                    "name": "componentSelector",
+                    "declaration": {
+                        "name": "PieLink",
+                        "module": "../../components/pie-link/src/index.js"
+                    }
+                }
+            ]
+        },
+        {
+            "kind": "javascript-module",
             "path": "../../components/pie-modal/src/defs.js",
             "declarations": [
                 {

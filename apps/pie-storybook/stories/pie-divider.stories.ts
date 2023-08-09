@@ -51,7 +51,7 @@ export default dividerStoryMeta;
 const Template = ({ variant, orientation }: DividerProps): TemplateResult => {
     if (orientation === 'vertical') {
         return html`
-            <div style="height: 320px">
+            <div style="height: 250px">
                 <pie-divider variant="${variant}" orientation="${orientation}" />
             </div>
         `;

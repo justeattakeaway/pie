@@ -1,6 +1,10 @@
 @use '@justeattakeaway/pie-css/scss' as p;
 
 .c-divider {
+    --divider-bg-color: var(--dt-color-divider-default);
+    --divider-width: 100%;
+    --divider-height: 1px;
+
     margin: 0;
     border: 0;
     width: var(--divider-width);
@@ -8,7 +12,7 @@
     background-color: var(--divider-bg-color);
 
     &[variant='default'] {
-        --divider-bg-color: var(--dt-color-divider-default);
+        /* Same as default styles */
     }
 
     &[variant='inverse'] {
@@ -16,8 +20,7 @@
     }
 
     &[orientation='horizontal'] {
-        --divider-width: 100%;
-        --divider-height: 1px;
+        /* Same as default styles */
     }
 
     &[orientation='vertical'] {
