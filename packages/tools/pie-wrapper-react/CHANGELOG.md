@@ -1,5 +1,14 @@
 # @justeattakeaway/pie-wrapper-react
 
+## 0.9.2
+
+### Patch Changes
+
+- [Added] - destructive and destructive-ghost button variants ([#686](https://github.com/justeattakeaway/pie/pull/686)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Fixed] - hover and active colours for ghost-inverse variant
+  [Added] - mixin for reassigning button spinner HSL custom properties
+
 ## 0.9.1
 
 ### Patch Changes

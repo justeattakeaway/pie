@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.6.0
+
+### Minor Changes
+
+- [Changed] - JS bundler in package from `Bili` to `Rollup` ([#683](https://github.com/justeattakeaway/pie/pull/683)) by [@LTurns](https://github.com/LTurns)
+
 ## 4.5.0
 
 ### Minor Changes

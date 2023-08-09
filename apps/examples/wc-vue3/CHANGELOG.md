@@ -1,5 +1,17 @@
 # wc-vue3
 
+## 0.3.0
+
+### Minor Changes
+
+- [Added] - style links to `index.html` ([#683](https://github.com/justeattakeaway/pie/pull/683)) by [@LTurns](https://github.com/LTurns)
+
+### Patch Changes
+
+- Updated dependencies [[`0ebe33ef7`](https://github.com/justeattakeaway/pie/commit/0ebe33ef74f1ccb77b2b45b5a46f1f90b9930ba7), [`30b7d305d`](https://github.com/justeattakeaway/pie/commit/30b7d305dc9be47466e4a94056b86c3926efea4f), [`0111f226b`](https://github.com/justeattakeaway/pie/commit/0111f226bf5b18b78bf4dfa834d1ea66113b04c6)]:
+  - @justeattakeaway/pie-button@0.24.0
+  - @justeattakeaway/pie-css@0.2.0
+
 ## 0.2.15
 
 ### Patch Changes

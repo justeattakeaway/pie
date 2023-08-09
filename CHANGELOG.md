@@ -1,5 +1,27 @@
 # Changelog
 
+## 2.19.0
+
+### Minor Changes
+
+- [Added] - RTL option to the pie web component generator ([#690](https://github.com/justeattakeaway/pie/pull/690)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Added] - Create a skeleton divider web component using our component generator ([#693](https://github.com/justeattakeaway/pie/pull/693)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Updated] - `./husky/pre-push` to use Turborepo for linting, rather than `eslint` directly. ([#695](https://github.com/justeattakeaway/pie/pull/695)) by [@siggerzz](https://github.com/siggerzz)
+
+  [Updated] - `turbo.json` so that lint commands no longer `"dependsOn": "^build"`.
+  [Updated] - Example app `.eslintrc.js` config to specify `root: true` to prevent root monorepo config being used.
+  [Updated] - `.eslintrc.js` / `.eslintignore` files across the monorepo
+
+- [Added] - init pie link ([#707](https://github.com/justeattakeaway/pie/pull/707)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- [Changed] - use latest pie-design-tokens ([#694](https://github.com/justeattakeaway/pie/pull/694)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- [Fixed] - Issue in .eslintrc.js where root `tsconfig.json` was being used for override `parserOptions` instead of the projects `tsconfig.json. ([#695](https://github.com/justeattakeaway/pie/pull/695)) by [@siggerzz](https://github.com/siggerzz)
+
 ## 2.18.0
 
 ### Minor Changes
