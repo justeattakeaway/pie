@@ -1,5 +1,15 @@
 # @justeattakeaway/pie-modal
 
+## 0.17.0
+
+### Minor Changes
+
+- - [Changed] - updated Modal component dependencies adding the `dialog-polyfill` package ([#678](https://github.com/justeattakeaway/pie/pull/678)) by [@fernandofranca](https://github.com/fernandofranca)
+
+  - [Changed] - updated Modal component to use `dialog-polyfill`
+  - [Changed] - updated Modal documentation regarding the legacy browser support for Dialog element and polyfill usage and limitations
+  - [Changed] - vanilla example app for testing Modal with `dialog-polyfill`
+
 ## 0.16.0
 
 ### Minor Changes

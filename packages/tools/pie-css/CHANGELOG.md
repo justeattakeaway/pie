@@ -1,5 +1,13 @@
 # @justeattakeaway/pie-css
 
+## 0.2.0
+
+### Minor Changes
+
+- [Added] - `font-size` function added & tests ([#681](https://github.com/justeattakeaway/pie/pull/681)) by [@ashleynolan](https://github.com/ashleynolan)
+
+  [Added] - adding pie-css to pie-button
+
 ## 0.1.0
 
 ### Minor Changes
