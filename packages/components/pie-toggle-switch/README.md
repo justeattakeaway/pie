@@ -57,8 +57,8 @@ import { PieToggleSwitch } from '@justeattakeaway/pie-toggle-switch/dist/react';
 
 ## Props
 
-| Property   | Type      | Default | Description |
-|------------|-----------|---|---|
+| Property | Type | Default | Description |
+|---|---|---|---|
 | isChecked  | `Boolean` | false | Indicates whether the switch is on or off |
 | isDisabled | `Boolean` | false | Indicates whether the switch is disabled or not |
 | label      | `Object`  | `undefined` | Provides a label for the component. You can set the label position using options: `leading` | `trailing` e.g object: `label: { text: 'Label', position: 'leading' }` |
