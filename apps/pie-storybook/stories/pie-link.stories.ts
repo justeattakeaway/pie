@@ -17,7 +17,7 @@ const defaultArgs: LinkProps = {
     variant: 'default',
     size: 'medium',
     href: 'https://pie.design',
-    target: '_self',
+    target: '_target',
     isBold: false,
     isStandalone: false,
     slot: 'This is Lit!',
@@ -94,9 +94,9 @@ const Template = ({
         <pie-link
             variant="${variant}"
             size="${size}"
-            href=${ifDefined(href || undefined)}
-            target=${ifDefined(target || undefined)}
-            rel=${ifDefined(rel || undefined)}
+            href="${ifDefined(href || undefined)}"
+            target="${ifDefined(target || undefined)}"
+            rel="${ifDefined(rel || undefined)}"
             ?isBold="${isBold}"
             ?isStandalone="${isStandalone}">
             ${slot}
