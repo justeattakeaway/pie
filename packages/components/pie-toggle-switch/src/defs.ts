@@ -29,4 +29,4 @@ export type ToggleSwitchProps = RTLComponentProps & {
  *
  * @constant
  */
-export const EVENT_TOGGLE_SWITCH_CHANGED = 'pie-toggle-switch-changed';
+export const ON_EVENT_TOGGLE_SWITCH_CHANGED = 'pie-toggle-switch-changed';

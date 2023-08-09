@@ -10,6 +10,13 @@ test.describe('Component: `Pie toggle switch`', () => {
             props: {
                 isChecked: false,
                 isDisabled: false,
+                label: {
+                    text: 'Label',
+                    position: {
+                        leading: true,
+                        trailing: false,
+                    },
+                },
             },
         });
 
@@ -22,7 +29,19 @@ test.describe('Component: `Pie toggle switch`', () => {
 
     test('should set `isChecked` to `false` by default', async ({ mount }) => {
         // Arrange
-        const component = await mount(PieToggleSwitch);
+        const component = await mount(PieToggleSwitch, {
+            props: {
+                isChecked: false,
+                isDisabled: false,
+                label: {
+                    text: 'Label',
+                    position: {
+                        leading: true,
+                        trailing: false,
+                    },
+                },
+            },
+        });
 
         // Act
         const pieToggleSwitchComponent = await component.locator(componentSelector).isChecked();
@@ -33,7 +52,19 @@ test.describe('Component: `Pie toggle switch`', () => {
 
     test('should set `isDisabled` to `false` by default', async ({ mount }) => {
         // Arrange
-        const component = await mount(PieToggleSwitch);
+        const component = await mount(PieToggleSwitch, {
+            props: {
+                isChecked: false,
+                isDisabled: false,
+                label: {
+                    text: 'Label',
+                    position: {
+                        leading: true,
+                        trailing: false,
+                    },
+                },
+            },
+        });
 
         // Act
         const pieToggleSwitchComponent = await component.locator(componentSelector).isDisabled();
@@ -49,6 +80,13 @@ test.describe('Component: `Pie toggle switch`', () => {
                 const component = await mount(PieToggleSwitch, {
                     props: {
                         isChecked: false,
+                        label: {
+                            text: 'Label',
+                            position: {
+                                leading: true,
+                                trailing: false,
+                            },
+                        },
                     },
                 });
 

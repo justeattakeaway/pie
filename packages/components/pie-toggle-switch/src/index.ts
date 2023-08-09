@@ -6,7 +6,7 @@ import { RtlMixin } from '@justeattakeaway/pie-webc-core';
 import styles from './toggle-switch.scss?inline';
 import {
     ToggleSwitchProps,
-    EVENT_TOGGLE_SWITCH_CHANGED,
+    ON_EVENT_TOGGLE_SWITCH_CHANGED,
     type LabelProps,
 } from './defs';
 import '@justeattakeaway/pie-icons-webc/dist/icons/IconCheck.js';
@@ -37,7 +37,7 @@ export class PieToggleSwitch extends RtlMixin(LitElement) implements ToggleSwitc
     onToggleChange (event: Event) {
         const target = event?.target as HTMLInputElement;
         this.isChecked = target.checked;
-        this.dispatchEvent(new CustomEvent(EVENT_TOGGLE_SWITCH_CHANGED, { detail: this.isChecked }));
+        this.dispatchEvent(new CustomEvent(ON_EVENT_TOGGLE_SWITCH_CHANGED, { detail: this.isChecked }));
     }
 
     /**
