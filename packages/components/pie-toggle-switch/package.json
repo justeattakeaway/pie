@@ -5,7 +5,12 @@
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
-  "types": "dist/types/index.d.ts",
+  "types": "dist/index.d.ts",
+  "files": [
+    "src",
+    "dist",
+    "**/*.d.ts"
+  ],
   "scripts": {
     "build": "yarn build:wrapper pie-toggle-switch && run -T vite build",
     "lint:scripts": "run -T eslint .",

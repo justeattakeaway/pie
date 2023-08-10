@@ -1,22 +1,20 @@
 import React, { useState, useRef } from 'react';
 import Head from 'next/head';
-import { ButtonProps, sizes, variants } from '@justeattakeaway/pie-button';
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-import { PieButton } from '@justeattakeaway/pie-button/dist/react';
+import {
+    PieButton, ButtonProps, sizes, variants,
+} from '@justeattakeaway/pie-button/dist/react';
 import '@justeattakeaway/pie-css';
 
 export default function Home () {
     const variantIndex = useRef(0);
     const [count, setCount] = useState(0);
-    const [variantName, setVariantName] = useState('primary');
+    const [variantName, setVariantName] = useState<ButtonProps['variant']>('primary');
 
     const increment = () => setCount(count + 1);
     const decrement = () => setCount(count - 1);
     const switchVariant = () => {
         variantIndex.current += 1;
-        const variantsKeys: readonly string[] = variants;
-        const variant: ButtonProps['variant'] = variants[variantIndex.current % variantsKeys.length];
+        const variant: ButtonProps['variant'] = variants[variantIndex.current % variants.length];
 
         setVariantName(variant);
     };
@@ -44,7 +42,7 @@ export default function Home () {
                 <div>
                     <h3>Click the button to switch the variant</h3>
                     <div className="flex-wrapper">
-                        <PieButton variant={variantName} onClick={switchVariant}>
+                        <PieButton>
                             Switch variant
                         </PieButton>
                         <div className='padding'>Variant: <b>{variantName}</b></div>

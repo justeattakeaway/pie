@@ -5,42 +5,8 @@
         {
             "kind": "javascript-module",
             "path": "../../components/pie-link/src/defs.js",
-            "declarations": [
-                {
-                    "kind": "variable",
-                    "name": "variants",
-                    "type": {
-                        "text": "['default', 'high-visibility', 'inverse']"
-                    },
-                    "default": "['default', 'high-visibility', 'inverse']"
-                },
-                {
-                    "kind": "variable",
-                    "name": "sizes",
-                    "type": {
-                        "text": "['small', 'medium']"
-                    },
-                    "default": "['small', 'medium']"
-                }
-            ],
-            "exports": [
-                {
-                    "kind": "js",
-                    "name": "variants",
-                    "declaration": {
-                        "name": "variants",
-                        "module": "../../components/pie-link/src/defs.js"
-                    }
-                },
-                {
-                    "kind": "js",
-                    "name": "sizes",
-                    "declaration": {
-                        "name": "sizes",
-                        "module": "../../components/pie-link/src/defs.js"
-                    }
-                }
-            ]
+            "declarations": [],
+            "exports": []
         },
         {
             "kind": "javascript-module",
@@ -165,6 +131,7 @@
                     "kind": "class",
                     "description": "",
                     "name": "PieLink",
+<<<<<<< HEAD
                     "members": [
                         {
                             "kind": "field",
@@ -292,6 +259,9 @@
                             "fieldName": "isStandalone"
                         }
                     ],
+=======
+                    "members": [],
+>>>>>>> d357c6ffc (combine all exports into a single entry point for react and non-react)
                     "superclass": {
                         "name": "LitElement",
                         "package": "lit"
@@ -319,6 +289,7 @@
                 },
                 {
                     "kind": "js",
+<<<<<<< HEAD
                     "name": "variants",
                     "declaration": {
                         "name": "variants",
@@ -335,6 +306,8 @@
                 },
                 {
                     "kind": "js",
+=======
+>>>>>>> d357c6ffc (combine all exports into a single entry point for react and non-react)
                     "name": "PieLink",
                     "declaration": {
                         "name": "PieLink",
@@ -1159,42 +1132,10 @@
             "exports": [
                 {
                     "kind": "js",
-                    "name": "type",
+                    "name": "*",
                     "declaration": {
-                        "name": "type",
-                        "module": "../../components/pie-button/src/index.js"
-                    }
-                },
-                {
-                    "kind": "js",
-                    "name": "ButtonProps",
-                    "declaration": {
-                        "name": "ButtonProps",
-                        "module": "../../components/pie-button/src/index.js"
-                    }
-                },
-                {
-                    "kind": "js",
-                    "name": "sizes",
-                    "declaration": {
-                        "name": "sizes",
-                        "module": "../../components/pie-button/src/index.js"
-                    }
-                },
-                {
-                    "kind": "js",
-                    "name": "types",
-                    "declaration": {
-                        "name": "types",
-                        "module": "../../components/pie-button/src/index.js"
-                    }
-                },
-                {
-                    "kind": "js",
-                    "name": "variants",
-                    "declaration": {
-                        "name": "variants",
-                        "module": "../../components/pie-button/src/index.js"
+                        "name": "*",
+                        "package": "./defs"
                     }
                 },
                 {

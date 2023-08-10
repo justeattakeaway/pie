@@ -108,6 +108,8 @@ import * as React from 'react';
 import { createComponent${component.class.events?.length > 0 ? ', EventName' : ''} } from '@lit-labs/react';
 import { ${component.class.name} as ${component.class.name}React } from './index';
 
+export * from './defs';
+
 export const ${component.class.name} = createComponent({
     displayName: '${component.class.name}',
     elementClass: ${component.class.name}React,
