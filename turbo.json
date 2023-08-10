@@ -39,47 +39,8 @@
       "cache": true,
       "dependsOn": []
     },
-    "pie-docs#build": {
-      "cache": true,
-      "dependsOn": [
-        "^build"
-      ],
-      "outputs": [
-        "dist/**"
-      ]
-    },
-    "pie-docs#build:dev": {
-      "cache": true,
-      "dependsOn": [
-        "^build"
-      ]
-    },
-    "pie-docs#dev": {
-      "cache": false,
-      "dependsOn": [
-        "pie-docs#build:dev",
-        "^build"
-      ]
-    },
     "clean": {
       "cache": true
-    },
-    "pie-storybook#serve": {
-      "dependsOn": [
-        "pie-storybook#build"
-      ]
-    },
-    "pie-storybook#dev": {
-      "cache": false,
-      "dependsOn": [
-        "^build"
-      ]
-    },
-    "pie-docs#test:generate-routes": {
-      "dependsOn": [
-        "pie-docs#build"
-      ],
-      "cache": false
     },
     "test": {
       "cache": true,
