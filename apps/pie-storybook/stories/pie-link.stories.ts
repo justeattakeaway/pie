@@ -1,9 +1,8 @@
-import { html, TemplateResult } from 'lit';
+import { html, TemplateResult, nothing } from 'lit';
 import { type StoryObj as Story } from '@storybook/web-components';
 import {
     PieLink, LinkProps as LinkBaseProps, sizes, variants,
 } from '@justeattakeaway/pie-link';
-import { ifDefined } from 'lit/directives/if-defined.js';
 import type { StoryMeta, SlottedComponentProps } from '../types';
 
 // This prevents storybook from tree shaking the components
@@ -44,7 +43,7 @@ const linkStoryMeta: LinkStoryMeta = {
             },
         },
         href: {
-            description: 'What the URL that the hyperlink should point to',
+            description: 'The URL that the hyperlink should point to',
             control: 'text',
         },
         target: {
@@ -94,9 +93,9 @@ const Template = ({
         <pie-link
             variant="${variant}"
             size="${size}"
-            href="${ifDefined(href || undefined)}"
-            target="${ifDefined(target || undefined)}"
-            rel="${ifDefined(rel || undefined)}"
+            href="${href || nothing}"
+            target="${target || nothing}"
+            rel="${rel || nothing}"
             ?isBold="${isBold}"
             ?isStandalone="${isStandalone}">
             ${slot}

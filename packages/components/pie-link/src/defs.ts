@@ -5,13 +5,13 @@ export interface LinkProps {
     /**
      * What style variant the link should be such as default, high-visibility or inverse.
      */
-    variant: typeof variants[number];
+    variant?: typeof variants[number];
     /**
      * What size the link should be.
      */
-    size: typeof sizes[number];
+    size?: typeof sizes[number];
     /**
-     * What the URL that the hyperlink should point to
+     * The URL that the hyperlink should point to
      */
     href?: string;
     /**
@@ -25,9 +25,9 @@ export interface LinkProps {
     /**
      * When true, the link text will be bold.
      */
-    isBold: boolean;
+    isBold?: boolean;
     /**
      * When true, the link will be treated as a block box
      */
-    isStandalone: boolean;
+    isStandalone?: boolean;
 }

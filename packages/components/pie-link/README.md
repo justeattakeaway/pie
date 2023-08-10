@@ -62,8 +62,8 @@ import { PieLink } from '@justeattakeaway/pie-link/dist/react';
 | variant      | `String`  | `default`   | Variant of the link, one of variants – default, high-visibility or inverse |
 | size         | `String`  | `medium`    | Size of the link, one of `sizes` – `medium`, `small`                 |
 | href         | `String`  | `undefined` | Native html `href` attribute                                              |
-| rel          | `String`  | `undefined` | native html `rel` attribute                                               |
-| target       | `String`  | `undefined` | native html `target` attribute                                            |
+| rel          | `String`  | `undefined` | Native html `rel` attribute                                               |
+| target       | `String`  | `undefined` | Native html `target` attribute                                            |
 | isBold       | `Boolean` | `false`     | If `true`, sets the link text bold                                        |
 | isStandalone | `Boolean` | `false`     | If `true`, sets the link as a block element                               |
 
