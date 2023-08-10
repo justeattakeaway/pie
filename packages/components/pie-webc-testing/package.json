@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/pie-webc-testing",
-  "version": "0.1.1",
+  "version": "0.4.0",
   "description": "PIE design system helpers and utilities for testing our web components",
   "type": "module",
   "main": "index.ts",
@@ -8,9 +8,7 @@
   "license": "Apache-2.0",
   "scripts": {
     "lint:scripts": "run -T eslint .",
-    "lint:scripts:fix": "run -T eslint . --fix",
-    "lint:style": "run -T stylelint ./src/**/*.{css,scss}",
-    "lint:style:fix": "yarn lint:style --fix"
+    "lint:scripts:fix": "run -T eslint . --fix"
   },
   "volta": {
     "extends": "../../../package.json"

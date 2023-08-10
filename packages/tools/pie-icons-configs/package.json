@@ -1,15 +1,18 @@
 {
   "name": "@justeattakeaway/pie-icons-configs",
-  "version": "4.3.0",
+  "version": "4.5.0",
   "private": true,
   "type": "module",
-  "description": "",
+  "types": "./index.d.ts",
+  "description": "Shared config and utility functions for building pie-icons as importable components",
   "exports": {
     ".": "./configs.js",
     "./configs-react": "./configs-react.js",
     "./configs-vue": "./configs-vue.js"
   },
   "scripts": {
+    "lint:scripts": "run -T eslint .",
+    "lint:scripts:fix": "run -T eslint . --fix",
     "test": "run -T vitest run",
     "test:watch": "run -T vitest"
   },

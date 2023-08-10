@@ -1,5 +1,49 @@
 # Changelog
 
+## 0.24.0
+
+### Minor Changes
+
+- [Added] - destructive and destructive-ghost button variants ([#686](https://github.com/justeattakeaway/pie/pull/686)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Fixed] - hover and active colours for ghost-inverse variant
+  [Added] - mixin for reassigning button spinner HSL custom properties
+
+- [Added] - `font-size` function added & tests ([#681](https://github.com/justeattakeaway/pie/pull/681)) by [@ashleynolan](https://github.com/ashleynolan)
+
+  [Added] - adding pie-css to pie-button
+
+### Patch Changes
+
+- [Changed] - use latest pie-design-tokens ([#694](https://github.com/justeattakeaway/pie/pull/694)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+## 0.23.0
+
+### Minor Changes
+
+- [Added] - axe builder to be shared as a base instance across broswer accessibility tests ([#669](https://github.com/justeattakeaway/pie/pull/669)) by [@raoufswe](https://github.com/raoufswe)
+
+## 0.22.0
+
+### Minor Changes
+
+- [Fixed] - Prevent tree-shaking of components in storybook ([#667](https://github.com/justeattakeaway/pie/pull/667)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Removed] - Built webc icons from source control
+  [Added] - Type declaration files for components
+  [Added] - Types for pie-icons
+  [Added] - TS version of pie-icons-configs/config.js (Will be used after DSW-1025)
+  [Added] - Webc icon tests for width, height and base classes
+  [Changed] - Update pie-icons-webc build to generate a slightly different template for regular and large icons (using different types, etc.)
+  [Changed] - Update pie-icons-webc rollup config to remove commonjs build
+  [Changed] - Use `just-kebab-case` and `just-pascal-case` instead of `kebab-case` and `pascal-case` to simplify usage (and they're more recently maintained)
+
+## 0.21.0
+
+### Minor Changes
+
+- [Changed] - Add js/ts linting and fix errors ([#653](https://github.com/justeattakeaway/pie/pull/653)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.20.0
 
 ### Minor Changes

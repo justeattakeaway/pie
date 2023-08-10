@@ -1,13 +1,15 @@
 <script>
     (function () {
+        var regularFontUrls = 'url("https://d30v2pzvrfyzpo.cloudfront.net/fonts/JETSansDigital-Regular-optimised.woff2") format("woff2"), url("https://d30v2pzvrfyzpo.cloudfront.net/fonts/JETSansDigital-Regulat-optimised.woff") format("woff")';
         var boldFontUrls = 'url("https://d30v2pzvrfyzpo.cloudfront.net/fonts/JETSansDigital-Bold-optimised.woff2") format("woff2"), url("https://d30v2pzvrfyzpo.cloudfront.net/fonts/JETSansDigital-Bold-optimised.woff") format("woff")';
         var extraboldFontUrls = 'url("https://d30v2pzvrfyzpo.cloudfront.net/fonts/JETSansDigital-ExtraBold-optimised.woff2") format("woff2"), url("https://d30v2pzvrfyzpo.cloudfront.net/fonts/JETSansDigital-ExtraBold-optimised.woff") format("woff")';
 
         if ('fonts' in document) {
+            var regular = new FontFace('JETSansDigital', regularFontUrls, { weight: '400' });
             var bold = new FontFace('JETSansDigital', boldFontUrls, { weight: '700' });
             var extrabold = new FontFace('JETSansDigital', extraboldFontUrls, { weight: '800' });
 
-            Promise.all([bold.load(), extrabold.load()])
+            Promise.all([regular.load(), bold.load(), extrabold.load()])
                 .then(function (fonts) {
                     fonts.forEach(function (font) {
                         document.fonts.add(font);
@@ -19,9 +21,3 @@
         }
     })();
 </script>
-<!--
-    Include the latest CSS Custom Properties in Storybook
-    May want to switch this out for a local package version (from pie-design-tokens pkg) in the future
- -->
-<link rel="stylesheet" type="text/css" href="https://unpkg.com/@justeat/pie-design-tokens/dist/jet.css" />
-<link rel="stylesheet" type="text/css" href="https://unpkg.com/@justeat/pie-design-tokens/dist/jet-hsl-colors.css" />

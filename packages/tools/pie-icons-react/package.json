@@ -1,9 +1,15 @@
 {
   "name": "@justeattakeaway/pie-icons-react",
-  "version": "4.3.0",
-  "main": "esm/index.js",
-  "type": "module",
+  "version": "4.5.0",
+  "main": "dist/index.js",
+  "module": "esm/index.js",
   "types": "esm/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./esm/index.js",
+      "require": "./dist/index.js"
+    }
+  },
   "files": [
     "dist",
     "esm",
@@ -32,16 +38,18 @@
     "PIE"
   ],
   "scripts": {
-    "build:icons": "babel-node ./scripts/react-icons-gen.js",
-    "build:lib": "rollup -c",
+    "build:icons": "babel-node --extensions .mjs ./scripts/react-icons-gen.mjs",
+    "build:lib": "rollup --config ./rollup.config.mjs",
     "build": "yarn clean && yarn build:icons && yarn build:lib",
+    "lint:scripts": "run -T eslint .",
+    "lint:scripts:fix": "run -T eslint . --fix",
     "clean": "run -T rimraf -rf ./icons/",
     "prepublishOnly": "yarn build",
     "test": "run jest"
   },
   "devDependencies": {
     "@babel/node": "7.20.7",
-    "@justeattakeaway/pie-icons": "4.3.0",
+    "@justeattakeaway/pie-icons": "4.5.0",
     "@justeattakeaway/pie-icons-configs": "workspace:*",
     "@rollup/plugin-node-resolve": "15.1.0",
     "@svgr/core": "6.4.0",

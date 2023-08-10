@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/pie-icon-button",
-  "version": "0.10.0",
+  "version": "0.13.1",
   "description": "PIE Design System Icon Button built using Web Components",
   "type": "module",
   "main": "dist/index.js",
@@ -24,7 +24,7 @@
     "@justeattakeaway/pie-webc-core": "workspace:*"
   },
   "peerDependencies": {
-    "pie-design-tokens": "5.3.0"
+    "@justeat/pie-design-tokens": "5.4.0"
   },
   "volta": {
     "extends": "../../../package.json"

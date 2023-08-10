@@ -29,12 +29,21 @@ stylelint-config-pie:
 generator-pie-component:
 - 'packages/tools/generator-pie-component/**/*'
 
+pie-css:
+- 'packages/tools/pie-css/**/*'
+
 # Component projects
 components:
 - 'packages/components/**/*'
 
 pie-button:
 - 'packages/components/pie-button/**/*'
+
+pie-divider:
+- 'packages/components/pie-divider/**/*'
+
+pie-link:
+- 'packages/components/pie-link/**/*'
 
 pie-modal:
 - 'packages/components/pie-modal/**/*'

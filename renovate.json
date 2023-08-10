@@ -9,7 +9,7 @@
   "major": false,
   "packageRules": [
     {
-      "commitMessagePrefix": "chore(pie-monorepo): ",
+      "commitMessagePrefix": "chore(pie-monorepo): DSW-000 ",
       "description": "Group babel devDependencies from package.json within pie-monorepo",
       "matchFiles": ["./package.json"],
       "matchDepTypes": ["devDependencies"],
@@ -20,7 +20,7 @@
       "enabled": true
     },
     {
-      "commitMessagePrefix": "chore(pie-monorepo): ",
+      "commitMessagePrefix": "chore(pie-monorepo): DSW-000 ",
       "description": "Group JET devDependencies / dependencies from package.json within pie-monorepo",
       "matchFiles": ["./package.json"],
       "matchDepTypes": ["devDependencies", "dependencies"],
@@ -31,7 +31,7 @@
       "enabled": true
     },
     {
-      "commitMessagePrefix": "chore(pie-monorepo): ",
+      "commitMessagePrefix": "chore(pie-monorepo): DSW-000 ",
       "description": "Group playwright / other testing related devDependencies from package.json within pie-monorepo",
       "matchFiles": ["./package.json"],
       "matchDepTypes": ["devDependencies"],
@@ -42,7 +42,7 @@
       "enabled": true
     },
     {
-      "commitMessagePrefix": "chore(pie-monorepo): ",
+      "commitMessagePrefix": "chore(pie-monorepo): DSW-000 ",
       "description": "Group jest devDependencies from package.json within pie-monorepo",
       "matchFiles": ["./package.json"],
       "matchDepTypes": ["devDependencies"],
@@ -53,7 +53,7 @@
       "enabled": true
     },
     {
-      "commitMessagePrefix": "chore(pie-monorepo): ",
+      "commitMessagePrefix": "chore(pie-monorepo): DSW-000 ",
       "description": "Group postcss devDependencies from package.json within pie-monorepo",
       "matchFiles": ["./package.json"],
       "matchDepTypes": ["devDependencies"],
@@ -64,7 +64,7 @@
       "enabled": true
     },
     {
-      "commitMessagePrefix": "chore(pie-monorepo): ",
+      "commitMessagePrefix": "chore(pie-monorepo): DSW-000 ",
       "description": "Group stylelint devDependencies from package.json within pie-docs",
       "matchFiles": ["./package.json"],
       "matchDepTypes": ["devDependencies"],
@@ -75,7 +75,7 @@
       "enabled": true
     },
     {
-      "commitMessagePrefix": "chore(pie-docs): ",
+      "commitMessagePrefix": "chore(pie-docs): DSW-000 ",
       "description": "Group eleventy devDependencies from package.json within pie-docs",
       "matchFiles": ["apps/pie-docs/package.json"],
       "matchDepTypes": ["devDependencies"],
@@ -86,7 +86,7 @@
       "enabled": true
     },
     {
-      "commitMessagePrefix": "chore(pie-docs): ",
+      "commitMessagePrefix": "chore(pie-docs): DSW-000 ",
       "description": "Group devdependencies / dependencies from package.json within pie-docs",
       "matchFiles": ["apps/pie-docs/package.json"],
       "matchDepTypes": ["devDependencies", "dependencies"],
@@ -97,7 +97,7 @@
       "enabled": true
     },
     {
-      "commitMessagePrefix": "chore(pie-storybook): ",
+      "commitMessagePrefix": "chore(pie-storybook): DSW-000 ",
       "description": "Group storybook devDependencies / dependencies from package.json within pie-storybook",
       "matchFiles": ["apps/pie-storybook/package.json"],
       "matchDepTypes": ["devDependencies", "dependencies"],
@@ -108,7 +108,7 @@
       "enabled": true
     },
     {
-      "commitMessagePrefix": "chore(pie-storybook): ",
+      "commitMessagePrefix": "chore(pie-storybook): DSW-000 ",
       "description": "Group react devDependencies from package.json within pie-storybook",
       "matchFiles": ["apps/pie-storybook/package.json"],
       "matchDepTypes": ["devDependencies"],
@@ -119,7 +119,7 @@
       "enabled": true
     },
     {
-      "commitMessagePrefix": "chore(wc-angular12): ",
+      "commitMessagePrefix": "chore(wc-angular12): DSW-000 ",
       "description": "Group dependencies from package.json within wc-angular12",
       "matchFiles": ["apps/examples/wc-angular12/package.json"],
       "matchDepTypes": ["devDependencies", "dependencies"],
@@ -129,7 +129,7 @@
       "enabled": true
     },
     {
-      "commitMessagePrefix": "chore(wc-next10): ",
+      "commitMessagePrefix": "chore(wc-next10): DSW-000 ",
       "description": "Group dependencies from package.json within wc-next10",
       "matchFiles": ["apps/examples/wc-next10/package.json"],
       "matchDepTypes": ["devDependencies", "dependencies"],
@@ -139,7 +139,7 @@
       "enabled": true
     },
     {
-      "commitMessagePrefix": "chore(wc-next13): ",
+      "commitMessagePrefix": "chore(wc-next13): DSW-000 ",
       "description": "Group dependencies from package.json within wc-next13",
       "matchFiles": ["apps/examples/wc-next13/package.json"],
       "matchDepTypes": ["devDependencies", "dependencies"],
@@ -149,7 +149,7 @@
       "enabled": true
     },
     {
-      "commitMessagePrefix": "chore(wc-nuxt2): ",
+      "commitMessagePrefix": "chore(wc-nuxt2): DSW-000 ",
       "description": "Group dependencies from package.json within wc-nuxt2",
       "matchFiles": ["apps/examples/wc-nuxt2/package.json"],
       "matchDepTypes": ["devDependencies", "dependencies"],
@@ -159,7 +159,7 @@
       "enabled": true
     },
     {
-      "commitMessagePrefix": "chore(wc-nuxt3): ",
+      "commitMessagePrefix": "chore(wc-nuxt3): DSW-000 ",
       "description": "Group dependencies from package.json within wc-nuxt3",
       "matchFiles": ["apps/examples/wc-nuxt3/package.json"],
       "matchDepTypes": ["devDependencies", "dependencies"],
@@ -169,7 +169,7 @@
       "enabled": true
     },
     {
-      "commitMessagePrefix": "chore(wc-react17): ",
+      "commitMessagePrefix": "chore(wc-react17): DSW-000 ",
       "description": "Group dependencies from package.json within wc-react17",
       "matchFiles": ["apps/examples/wc-react17/package.json"],
       "matchDepTypes": ["devDependencies", "dependencies"],
@@ -179,7 +179,7 @@
       "enabled": true
     },
     {
-      "commitMessagePrefix": "chore(wc-react18): ",
+      "commitMessagePrefix": "chore(wc-react18): DSW-000 ",
       "description": "Group dependencies from package.json within wc-react18",
       "matchFiles": ["apps/examples/wc-react18/package.json"],
       "matchDepTypes": ["devDependencies", "dependencies"],
@@ -189,7 +189,7 @@
       "enabled": true
     },
     {
-      "commitMessagePrefix": "chore(wc-vanilla): ",
+      "commitMessagePrefix": "chore(wc-vanilla): DSW-000 ",
       "description": "Group dependencies from package.json within wc-vanilla",
       "matchFiles": ["apps/examples/wc-vanilla/package.json"],
       "matchDepTypes": ["devDependencies", "dependencies"],
@@ -199,7 +199,7 @@
       "enabled": true
     },
     {
-      "commitMessagePrefix": "chore(wc-vue3): ",
+      "commitMessagePrefix": "chore(wc-vue3): DSW-000 ",
       "description": "Group dependencies from package.json within wc-vue3",
       "matchFiles": ["apps/examples/wc-vue3/package.json"],
       "matchDepTypes": ["devDependencies", "dependencies"],

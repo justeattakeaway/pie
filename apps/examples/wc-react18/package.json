@@ -1,9 +1,10 @@
 {
   "name": "wc-react18",
-  "version": "0.3.7",
+  "version": "0.3.11",
   "private": true,
   "dependencies": {
     "@justeattakeaway/pie-button": "workspace:*",
+    "@justeattakeaway/pie-css": "workspace:*",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-scripts": "5.0.1"

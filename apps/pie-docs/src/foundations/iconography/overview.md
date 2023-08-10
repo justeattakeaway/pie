@@ -156,18 +156,46 @@ In this section you’ll find some factors you need to keep in mind when using i
 
 Abstract icons are more difficult to comprehend than literal icons. Instead of using metaphorical icons, try using those which convey the most basic idea or concept you’re trying to represent.
 
-{% contentPageImage {
-    src: "../../../assets/img/foundations/iconography/choosing-an-icon.svg",
-    mobileSrc: "../../../assets/img/foundations/iconography/choosing-an-icon-mobile.svg"
+{% usage {
+    do: {
+        type: usageTypes.image,
+        items: [{
+            src: "../../../assets/img/foundations/iconography/how-to-choose-an-icon-do.svg",
+            width: "234px",
+            alt: "This image shows a button with the text reading find a restaurant. The icon used is a magnifying glass as this image is often used to convey search functionality and is well understood in websites and apps"
+        }]
+    },
+    dont: { 
+        type: usageTypes.image,
+        items: [{
+            src: "../../../assets/img/foundations/iconography/how-to-choose-an-icon-dont.svg",
+            width: "234px",
+            alt: "This image shows a button with the text reading find a restaurant. The icon used is an eye. This icon is less clear, as an eye is not usually used to convey search functionality. This makes the functionality of the button less clear."
+        }]
+    }
 } %}
 
 ### Pairing text with icons
 
 Icons act as a visual cue to improve the legibility and scannability of your products. As a general rule, try to place icons near a text label or title. Don’t place icons by themselves unless they represent an universally understood action.
 
-{% contentPageImage {
-    src: "../../../assets/img/foundations/iconography/icon-with-text.svg",
-    mobileSrc: "../../../assets/img/foundations/iconography/icon-with-text-mobile.svg"
+{% usage {
+    do: {
+        type: usageTypes.image,
+        items: [{
+            src: "../../../assets/img/foundations/iconography/pairing-text-with-icons-do.svg",
+            width: "375px",
+            alt: "This image shows an app menu bar with four icons. Each icon is accompanied by a label. For example there is an icon that represents a house coupled with a label that says home. This makes it clear that pressing the home icon takes you to the home page"
+        }]
+    },
+    dont: { 
+        type: usageTypes.image,
+        items: [{
+        src:"../../../assets/img/foundations/iconography/pairing-text-with-icons-dont.svg",
+        width: "375px",
+        alt: "This image shows an app menu with four icons. Only one icon has a label, which makes it clear it is a link to the home page. The other icons, such as the icon representing a wrapped gift, are not so clear without labels."
+        }]
+    }
 } %}
 
 ### Pairing colour and icons

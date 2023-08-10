@@ -1,6 +1,6 @@
 {
   "name": "wc-nuxt2",
-  "version": "0.3.7",
+  "version": "0.3.11",
   "private": true,
   "scripts": {
     "dev": "nuxt",
@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@justeattakeaway/pie-button": "workspace:*",
+    "@justeattakeaway/pie-css": "workspace:*",
     "core-js": "3.30.0",
     "nuxt": "2.17.0",
     "vue": "2.7.14",

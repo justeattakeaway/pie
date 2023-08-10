@@ -1,4 +1,5 @@
 @use '@justeat/pie-design-tokens/dist/jet.scss' as dt;
+@use 'dialog-polyfill/dist/dialog-polyfill.css';
 
 // TODO - add to CSS lib once created
 *,
@@ -33,6 +34,12 @@
     --modal-bg-color: var(--dt-color-container-default);
     --modal-elevation: var(--dt-elevation-04);
 
+    // TODO: This should be moved into global CSS typography setting
+    // This should be imported by consuming apps and set on the application body
+    text-rendering: optimizelegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: antialiased;
+
     &:focus-visible {
         outline: none;
     }
@@ -43,6 +50,7 @@
             --btn-dimension: 40px;
         }
     }
+
 
     &[open] {
         // We only apply this when the modal is open,
@@ -145,6 +153,17 @@
 
         @media (min-width: $breakpoint-wide) {
             --modal-footer-padding: var(--dt-spacing-e);
+        }
+    }
+
+    // When hasStackedActions is set
+    // change the direction of the footer flex container so buttons are full width of modal
+    &[hasstackedactions] {
+        & .c-modal-footer {
+            // TODO: Move breakpoint sizes into shared CSS component utilities
+            @media (max-width: calc($breakpoint-wide - 1px)) {
+                flex-direction: column;
+            }
         }
     }
 

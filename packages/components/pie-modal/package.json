@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/pie-modal",
-  "version": "0.14.0",
+  "version": "0.17.0",
   "description": "PIE design system modal built using web components",
   "type": "module",
   "main": "dist/index.js",
@@ -35,5 +35,8 @@
   },
   "volta": {
     "extends": "../../../package.json"
+  },
+  "dependencies": {
+    "dialog-polyfill": "0.5.6"
   }
 }

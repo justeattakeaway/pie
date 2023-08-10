@@ -4,6 +4,248 @@
     "modules": [
         {
             "kind": "javascript-module",
+            "path": "../../components/pie-link/src/defs.js",
+            "declarations": [
+                {
+                    "kind": "variable",
+                    "name": "variants",
+                    "type": {
+                        "text": "['default', 'high-visibility', 'inverse']"
+                    },
+                    "default": "['default', 'high-visibility', 'inverse']"
+                },
+                {
+                    "kind": "variable",
+                    "name": "sizes",
+                    "type": {
+                        "text": "['small', 'medium']"
+                    },
+                    "default": "['small', 'medium']"
+                }
+            ],
+            "exports": [
+                {
+                    "kind": "js",
+                    "name": "variants",
+                    "declaration": {
+                        "name": "variants",
+                        "module": "../../components/pie-link/src/defs.js"
+                    }
+                },
+                {
+                    "kind": "js",
+                    "name": "sizes",
+                    "declaration": {
+                        "name": "sizes",
+                        "module": "../../components/pie-link/src/defs.js"
+                    }
+                }
+            ]
+        },
+        {
+            "kind": "javascript-module",
+            "path": "../../components/pie-link/src/index.js",
+            "declarations": [
+                {
+                    "kind": "variable",
+                    "name": "componentSelector",
+                    "type": {
+                        "text": "string"
+                    },
+                    "default": "'pie-link'"
+                },
+                {
+                    "kind": "class",
+                    "description": "",
+                    "name": "PieLink",
+                    "members": [
+                        {
+                            "kind": "field",
+                            "name": "variant",
+                            "type": {
+                                "text": "LinkProps['variant']"
+                            },
+                            "privacy": "public",
+                            "default": "'default'",
+                            "attribute": "variant"
+                        },
+                        {
+                            "kind": "field",
+                            "name": "size",
+                            "type": {
+                                "text": "LinkProps['size']"
+                            },
+                            "privacy": "public",
+                            "default": "'medium'",
+                            "attribute": "size"
+                        },
+                        {
+                            "kind": "field",
+                            "name": "href",
+                            "type": {
+                                "text": "string | undefined"
+                            },
+                            "privacy": "public",
+                            "attribute": "href",
+                            "reflects": true
+                        },
+                        {
+                            "kind": "field",
+                            "name": "target",
+                            "type": {
+                                "text": "string | undefined"
+                            },
+                            "privacy": "public",
+                            "attribute": "target",
+                            "reflects": true
+                        },
+                        {
+                            "kind": "field",
+                            "name": "rel",
+                            "type": {
+                                "text": "string | undefined"
+                            },
+                            "privacy": "public",
+                            "attribute": "rel",
+                            "reflects": true
+                        },
+                        {
+                            "kind": "field",
+                            "name": "isBold",
+                            "type": {
+                                "text": "boolean"
+                            },
+                            "privacy": "public",
+                            "default": "false",
+                            "attribute": "isBold"
+                        },
+                        {
+                            "kind": "field",
+                            "name": "isStandalone",
+                            "type": {
+                                "text": "boolean"
+                            },
+                            "privacy": "public",
+                            "default": "false",
+                            "attribute": "isStandalone"
+                        }
+                    ],
+                    "attributes": [
+                        {
+                            "name": "variant",
+                            "type": {
+                                "text": "LinkProps['variant']"
+                            },
+                            "default": "'default'",
+                            "fieldName": "variant"
+                        },
+                        {
+                            "name": "size",
+                            "type": {
+                                "text": "LinkProps['size']"
+                            },
+                            "default": "'medium'",
+                            "fieldName": "size"
+                        },
+                        {
+                            "name": "href",
+                            "type": {
+                                "text": "string | undefined"
+                            },
+                            "fieldName": "href"
+                        },
+                        {
+                            "name": "target",
+                            "type": {
+                                "text": "string | undefined"
+                            },
+                            "fieldName": "target"
+                        },
+                        {
+                            "name": "rel",
+                            "type": {
+                                "text": "string | undefined"
+                            },
+                            "fieldName": "rel"
+                        },
+                        {
+                            "name": "isBold",
+                            "type": {
+                                "text": "boolean"
+                            },
+                            "default": "false",
+                            "fieldName": "isBold"
+                        },
+                        {
+                            "name": "isStandalone",
+                            "type": {
+                                "text": "boolean"
+                            },
+                            "default": "false",
+                            "fieldName": "isStandalone"
+                        }
+                    ],
+                    "superclass": {
+                        "name": "LitElement",
+                        "package": "lit"
+                    },
+                    "tagName": "componentSelector",
+                    "customElement": true
+                }
+            ],
+            "exports": [
+                {
+                    "kind": "js",
+                    "name": "type",
+                    "declaration": {
+                        "name": "type",
+                        "module": "../../components/pie-link/src/index.js"
+                    }
+                },
+                {
+                    "kind": "js",
+                    "name": "LinkProps",
+                    "declaration": {
+                        "name": "LinkProps",
+                        "module": "../../components/pie-link/src/index.js"
+                    }
+                },
+                {
+                    "kind": "js",
+                    "name": "variants",
+                    "declaration": {
+                        "name": "variants",
+                        "module": "../../components/pie-link/src/index.js"
+                    }
+                },
+                {
+                    "kind": "js",
+                    "name": "sizes",
+                    "declaration": {
+                        "name": "sizes",
+                        "module": "../../components/pie-link/src/index.js"
+                    }
+                },
+                {
+                    "kind": "js",
+                    "name": "PieLink",
+                    "declaration": {
+                        "name": "PieLink",
+                        "module": "../../components/pie-link/src/index.js"
+                    }
+                },
+                {
+                    "kind": "custom-element-definition",
+                    "name": "componentSelector",
+                    "declaration": {
+                        "name": "PieLink",
+                        "module": "../../components/pie-link/src/index.js"
+                    }
+                }
+            ]
+        },
+        {
+            "kind": "javascript-module",
             "path": "../../components/pie-modal/src/defs.js",
             "declarations": [
                 {
@@ -133,9 +375,9 @@
                     "kind": "variable",
                     "name": "variants",
                     "type": {
-                        "text": "['primary', 'secondary', 'outline', 'ghost', 'inverse', 'ghost-inverse']"
+                        "text": "[\n    'primary', 'secondary', 'outline', 'ghost', 'inverse', 'ghost-inverse', 'destructive', 'destructive-ghost',\n]"
                     },
-                    "default": "['primary', 'secondary', 'outline', 'ghost', 'inverse', 'ghost-inverse']"
+                    "default": "[\n    'primary', 'secondary', 'outline', 'ghost', 'inverse', 'ghost-inverse', 'destructive', 'destructive-ghost',\n]"
                 }
             ],
             "exports": [
@@ -184,6 +426,15 @@
                     "members": [
                         {
                             "kind": "field",
+                            "name": "aria",
+                            "type": {
+                                "text": "AriaProps"
+                            },
+                            "privacy": "public",
+                            "attribute": "aria"
+                        },
+                        {
+                            "kind": "field",
                             "name": "heading",
                             "type": {
                                 "text": "string"
@@ -203,6 +454,26 @@
                         },
                         {
                             "kind": "field",
+                            "name": "hasBackButton",
+                            "type": {
+                                "text": "boolean"
+                            },
+                            "privacy": "public",
+                            "default": "false",
+                            "attribute": "hasBackButton"
+                        },
+                        {
+                            "kind": "field",
+                            "name": "hasStackedActions",
+                            "type": {
+                                "text": "boolean"
+                            },
+                            "privacy": "public",
+                            "default": "false",
+                            "attribute": "hasStackedActions"
+                        },
+                        {
+                            "kind": "field",
                             "name": "isDismissible",
                             "type": {
                                 "text": "boolean"
@@ -211,16 +482,6 @@
                             "default": "false",
                             "attribute": "isDismissible",
                             "reflects": true
-                        },
-                        {
-                            "kind": "field",
-                            "name": "hasBackButton",
-                            "type": {
-                                "text": "boolean"
-                            },
-                            "privacy": "public",
-                            "default": "false",
-                            "attribute": "hasBackButton"
                         },
                         {
                             "kind": "field",
@@ -244,6 +505,17 @@
                         },
                         {
                             "kind": "field",
+                            "name": "isLoading",
+                            "type": {
+                                "text": "boolean"
+                            },
+                            "privacy": "public",
+                            "default": "false",
+                            "attribute": "isLoading",
+                            "reflects": true
+                        },
+                        {
+                            "kind": "field",
                             "name": "isOpen",
                             "type": {
                                 "text": "boolean"
@@ -254,14 +526,22 @@
                         },
                         {
                             "kind": "field",
-                            "name": "isLoading",
+                            "name": "leadingAction",
                             "type": {
-                                "text": "boolean"
+                                "text": "ActionProps"
                             },
                             "privacy": "public",
-                            "default": "false",
-                            "attribute": "isLoading",
-                            "reflects": true
+                            "attribute": "leadingAction"
+                        },
+                        {
+                            "kind": "field",
+                            "name": "position",
+                            "type": {
+                                "text": "ModalProps['position']"
+                            },
+                            "privacy": "public",
+                            "default": "'center'",
+                            "attribute": "position"
                         },
                         {
                             "kind": "field",
@@ -284,39 +564,12 @@
                         },
                         {
                             "kind": "field",
-                            "name": "leadingAction",
-                            "type": {
-                                "text": "{\n        text: string;\n        variant?: Variant;\n        ariaLabel?: string;\n    }"
-                            },
-                            "privacy": "public",
-                            "attribute": "leadingAction"
-                        },
-                        {
-                            "kind": "field",
                             "name": "supportingAction",
                             "type": {
-                                "text": "{\n        text: string;\n        variant?: Variant;\n        ariaLabel?: string;\n    }"
+                                "text": "ActionProps"
                             },
                             "privacy": "public",
                             "attribute": "supportingAction"
-                        },
-                        {
-                            "kind": "field",
-                            "name": "aria",
-                            "type": {
-                                "text": "AriaProps"
-                            },
-                            "privacy": "public",
-                            "attribute": "aria"
-                        },
-                        {
-                            "kind": "field",
-                            "name": "position",
-                            "type": {
-                                "text": "ModalProps['position']"
-                            },
-                            "privacy": "public",
-                            "default": "'center'"
                         },
                         {
                             "kind": "field",
@@ -556,6 +809,13 @@
                     ],
                     "attributes": [
                         {
+                            "name": "aria",
+                            "type": {
+                                "text": "AriaProps"
+                            },
+                            "fieldName": "aria"
+                        },
+                        {
                             "name": "heading",
                             "type": {
                                 "text": "string"
@@ -571,20 +831,28 @@
                             "fieldName": "headingLevel"
                         },
                         {
-                            "name": "isDismissible",
-                            "type": {
-                                "text": "boolean"
-                            },
-                            "default": "false",
-                            "fieldName": "isDismissible"
-                        },
-                        {
                             "name": "hasBackButton",
                             "type": {
                                 "text": "boolean"
                             },
                             "default": "false",
                             "fieldName": "hasBackButton"
+                        },
+                        {
+                            "name": "hasStackedActions",
+                            "type": {
+                                "text": "boolean"
+                            },
+                            "default": "false",
+                            "fieldName": "hasStackedActions"
+                        },
+                        {
+                            "name": "isDismissible",
+                            "type": {
+                                "text": "boolean"
+                            },
+                            "default": "false",
+                            "fieldName": "isDismissible"
                         },
                         {
                             "name": "isFooterPinned",
@@ -603,6 +871,14 @@
                             "fieldName": "isFullWidthBelowMid"
                         },
                         {
+                            "name": "isLoading",
+                            "type": {
+                                "text": "boolean"
+                            },
+                            "default": "false",
+                            "fieldName": "isLoading"
+                        },
+                        {
                             "name": "isOpen",
                             "type": {
                                 "text": "boolean"
@@ -611,12 +887,19 @@
                             "fieldName": "isOpen"
                         },
                         {
-                            "name": "isLoading",
+                            "name": "leadingAction",
                             "type": {
-                                "text": "boolean"
+                                "text": "ActionProps"
                             },
-                            "default": "false",
-                            "fieldName": "isLoading"
+                            "fieldName": "leadingAction"
+                        },
+                        {
+                            "name": "position",
+                            "type": {
+                                "text": "ModalProps['position']"
+                            },
+                            "default": "'center'",
+                            "fieldName": "position"
                         },
                         {
                             "name": "returnFocusAfterCloseSelector",
@@ -634,25 +917,11 @@
                             "fieldName": "size"
                         },
                         {
-                            "name": "leadingAction",
-                            "type": {
-                                "text": "{\n        text: string;\n        variant?: Variant;\n        ariaLabel?: string;\n    }"
-                            },
-                            "fieldName": "leadingAction"
-                        },
-                        {
                             "name": "supportingAction",
                             "type": {
-                                "text": "{\n        text: string;\n        variant?: Variant;\n        ariaLabel?: string;\n    }"
+                                "text": "ActionProps"
                             },
                             "fieldName": "supportingAction"
-                        },
-                        {
-                            "name": "aria",
-                            "type": {
-                                "text": "AriaProps"
-                            },
-                            "fieldName": "aria"
                         },
                         {
                             "name": "dir",
@@ -948,6 +1217,161 @@
         },
         {
             "kind": "javascript-module",
+            "path": "../../components/pie-divider/src/defs.js",
+            "declarations": [
+                {
+                    "kind": "variable",
+                    "name": "variants",
+                    "type": {
+                        "text": "['default', 'inverse']"
+                    },
+                    "default": "['default', 'inverse']"
+                },
+                {
+                    "kind": "variable",
+                    "name": "orientations",
+                    "type": {
+                        "text": "['horizontal', 'vertical']"
+                    },
+                    "default": "['horizontal', 'vertical']"
+                }
+            ],
+            "exports": [
+                {
+                    "kind": "js",
+                    "name": "variants",
+                    "declaration": {
+                        "name": "variants",
+                        "module": "../../components/pie-divider/src/defs.js"
+                    }
+                },
+                {
+                    "kind": "js",
+                    "name": "orientations",
+                    "declaration": {
+                        "name": "orientations",
+                        "module": "../../components/pie-divider/src/defs.js"
+                    }
+                }
+            ]
+        },
+        {
+            "kind": "javascript-module",
+            "path": "../../components/pie-divider/src/index.js",
+            "declarations": [
+                {
+                    "kind": "variable",
+                    "name": "componentSelector",
+                    "type": {
+                        "text": "string"
+                    },
+                    "default": "'pie-divider'"
+                },
+                {
+                    "kind": "class",
+                    "description": "",
+                    "name": "PieDivider",
+                    "members": [
+                        {
+                            "kind": "field",
+                            "name": "variant",
+                            "type": {
+                                "text": "DividerProps['variant']"
+                            },
+                            "privacy": "public",
+                            "default": "'default'",
+                            "attribute": "variant"
+                        },
+                        {
+                            "kind": "field",
+                            "name": "orientation",
+                            "type": {
+                                "text": "DividerProps['orientation']"
+                            },
+                            "privacy": "public",
+                            "default": "'horizontal'",
+                            "attribute": "orientation"
+                        }
+                    ],
+                    "attributes": [
+                        {
+                            "name": "variant",
+                            "type": {
+                                "text": "DividerProps['variant']"
+                            },
+                            "default": "'default'",
+                            "fieldName": "variant"
+                        },
+                        {
+                            "name": "orientation",
+                            "type": {
+                                "text": "DividerProps['orientation']"
+                            },
+                            "default": "'horizontal'",
+                            "fieldName": "orientation"
+                        }
+                    ],
+                    "superclass": {
+                        "name": "LitElement",
+                        "package": "lit"
+                    },
+                    "tagName": "componentSelector",
+                    "customElement": true
+                }
+            ],
+            "exports": [
+                {
+                    "kind": "js",
+                    "name": "type",
+                    "declaration": {
+                        "name": "type",
+                        "module": "../../components/pie-divider/src/index.js"
+                    }
+                },
+                {
+                    "kind": "js",
+                    "name": "DividerProps",
+                    "declaration": {
+                        "name": "DividerProps",
+                        "module": "../../components/pie-divider/src/index.js"
+                    }
+                },
+                {
+                    "kind": "js",
+                    "name": "variants",
+                    "declaration": {
+                        "name": "variants",
+                        "module": "../../components/pie-divider/src/index.js"
+                    }
+                },
+                {
+                    "kind": "js",
+                    "name": "orientations",
+                    "declaration": {
+                        "name": "orientations",
+                        "module": "../../components/pie-divider/src/index.js"
+                    }
+                },
+                {
+                    "kind": "js",
+                    "name": "PieDivider",
+                    "declaration": {
+                        "name": "PieDivider",
+                        "module": "../../components/pie-divider/src/index.js"
+                    }
+                },
+                {
+                    "kind": "custom-element-definition",
+                    "name": "componentSelector",
+                    "declaration": {
+                        "name": "PieDivider",
+                        "module": "../../components/pie-divider/src/index.js"
+                    }
+                }
+            ]
+        },
+        {
+            "kind": "javascript-module",
             "path": "../../components/pie-webc-core/src/index.js",
             "declarations": [],
             "exports": [
@@ -1153,8 +1577,27 @@
         {
             "kind": "javascript-module",
             "path": "../../components/pie-toggle-switch/src/defs.js",
-            "declarations": [],
-            "exports": []
+            "declarations": [
+                {
+                    "kind": "variable",
+                    "name": "EVENT_TOGGLE_SWITCH_CHANGED",
+                    "type": {
+                        "text": "string"
+                    },
+                    "default": "'pie-toggle-switch-changed'",
+                    "description": "Event name for when the toggle switch checked state is changed."
+                }
+            ],
+            "exports": [
+                {
+                    "kind": "js",
+                    "name": "EVENT_TOGGLE_SWITCH_CHANGED",
+                    "declaration": {
+                        "name": "EVENT_TOGGLE_SWITCH_CHANGED",
+                        "module": "../../components/pie-toggle-switch/src/defs.js"
+                    }
+                }
+            ]
         },
         {
             "kind": "javascript-module",
@@ -1172,7 +1615,136 @@
                     "kind": "class",
                     "description": "",
                     "name": "PieToggleSwitch",
-                    "members": [],
+                    "members": [
+                        {
+                            "kind": "field",
+                            "name": "aria",
+                            "type": {
+                                "text": "AriaProps"
+                            },
+                            "privacy": "public",
+                            "attribute": "aria"
+                        },
+                        {
+                            "kind": "field",
+                            "name": "isChecked",
+                            "type": {
+                                "text": "boolean"
+                            },
+                            "privacy": "public",
+                            "default": "false",
+                            "attribute": "isChecked",
+                            "reflects": true
+                        },
+                        {
+                            "kind": "field",
+                            "name": "isDisabled",
+                            "type": {
+                                "text": "boolean"
+                            },
+                            "privacy": "public",
+                            "default": "false",
+                            "attribute": "isDisabled",
+                            "reflects": true
+                        },
+                        {
+                            "kind": "method",
+                            "name": "onToggleChange",
+                            "parameters": [
+                                {
+                                    "name": "event",
+                                    "type": {
+                                        "text": "Event"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "kind": "field",
+                            "name": "dir",
+                            "type": {
+                                "text": "htmlDirAttribute"
+                            },
+                            "default": "'ltr'",
+                            "attribute": "dir",
+                            "reflects": true,
+                            "inheritedFrom": {
+                                "name": "RtlMixin",
+                                "module": "../../components/pie-webc-core/src/mixins/rtl/rtlMixin.js"
+                            }
+                        },
+                        {
+                            "kind": "field",
+                            "name": "isRTL",
+                            "type": {
+                                "text": "boolean"
+                            },
+                            "description": "Returns true if the element is in Right to Left mode.\nIf a dir attribute is not explicitly set on the web component\nthen it falls back to the nearest parent with a dir attribute set.\n\nA dir attribute being set will result in a reactive property.\nIf the component falls back to a parent dir attribute then the value\nwill not be reactive and is only computed once",
+                            "readonly": true,
+                            "inheritedFrom": {
+                                "name": "RtlMixin",
+                                "module": "../../components/pie-webc-core/src/mixins/rtl/rtlMixin.js"
+                            }
+                        }
+                    ],
+                    "events": [
+                        {
+                            "name": "EVENT_TOGGLE_SWITCH_CHANGED",
+                            "type": {
+                                "text": "CustomEvent"
+                            }
+                        },
+                        {
+                            "type": {
+                                "text": "CustomEvent"
+                            },
+                            "description": "when the toggle switch checked state is changed.",
+                            "name": "pie-toggle-switch-changed"
+                        }
+                    ],
+                    "attributes": [
+                        {
+                            "name": "aria",
+                            "type": {
+                                "text": "AriaProps"
+                            },
+                            "fieldName": "aria"
+                        },
+                        {
+                            "name": "isChecked",
+                            "type": {
+                                "text": "boolean"
+                            },
+                            "default": "false",
+                            "fieldName": "isChecked"
+                        },
+                        {
+                            "name": "isDisabled",
+                            "type": {
+                                "text": "boolean"
+                            },
+                            "default": "false",
+                            "fieldName": "isDisabled"
+                        },
+                        {
+                            "name": "dir",
+                            "type": {
+                                "text": "htmlDirAttribute"
+                            },
+                            "default": "'ltr'",
+                            "fieldName": "dir",
+                            "inheritedFrom": {
+                                "name": "RtlMixin",
+                                "module": "../../components/pie-webc-core/src/mixins/rtl/rtlMixin.ts"
+                            }
+                        }
+                    ],
+                    "mixins": [
+                        {
+                            "name": "RtlMixin",
+                            "package": "@justeattakeaway/pie-webc-core"
+                        }
+                    ],
                     "superclass": {
                         "name": "LitElement",
                         "package": "lit"

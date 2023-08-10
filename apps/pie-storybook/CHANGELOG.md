@@ -1,5 +1,95 @@
 # Changelog
 
+## 0.24.0
+
+### Minor Changes
+
+- [Added] - RTL option to the pie web component generator ([#690](https://github.com/justeattakeaway/pie/pull/690)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Added] - Create a skeleton divider web component using our component generator ([#693](https://github.com/justeattakeaway/pie/pull/693)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Added] - pie-css added to storybook ([#684](https://github.com/justeattakeaway/pie/pull/684)) by [@ashleynolan](https://github.com/ashleynolan)
+
+- [Added] - destructive and destructive-ghost button variants ([#686](https://github.com/justeattakeaway/pie/pull/686)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Fixed] - hover and active colours for ghost-inverse variant
+  [Added] - mixin for reassigning button spinner HSL custom properties
+
+- [Added] - init pie link ([#707](https://github.com/justeattakeaway/pie/pull/707)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies [[`0ebe33ef7`](https://github.com/justeattakeaway/pie/commit/0ebe33ef74f1ccb77b2b45b5a46f1f90b9930ba7), [`5ff10d5b2`](https://github.com/justeattakeaway/pie/commit/5ff10d5b2b700d9719faac3f1e97667dc494937b), [`afc5a0f3d`](https://github.com/justeattakeaway/pie/commit/afc5a0f3d3daadfb8b44f3581c67005521d8fa6d), [`f4871ae0e`](https://github.com/justeattakeaway/pie/commit/f4871ae0e2791f389edb78691ddedd8fbde9892d), [`30b7d305d`](https://github.com/justeattakeaway/pie/commit/30b7d305dc9be47466e4a94056b86c3926efea4f), [`0111f226b`](https://github.com/justeattakeaway/pie/commit/0111f226bf5b18b78bf4dfa834d1ea66113b04c6), [`e6138261c`](https://github.com/justeattakeaway/pie/commit/e6138261ccf6c2acc06a743c2c04a7e6161b511f)]:
+  - @justeattakeaway/pie-icon-button@0.13.1
+  - @justeattakeaway/pie-button@0.24.0
+  - @justeattakeaway/pie-toggle-switch@0.2.0
+  - @justeattakeaway/pie-divider@0.1.0
+  - @justeattakeaway/pie-modal@0.17.0
+  - @justeattakeaway/pie-css@0.2.0
+
+## 0.23.0
+
+### Minor Changes
+
+- [Added] - axe builder to be shared as a base instance across broswer accessibility tests ([#669](https://github.com/justeattakeaway/pie/pull/669)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Changed] - renamed the toggle switch story filename ([#669](https://github.com/justeattakeaway/pie/pull/669)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Added] - testing starting templates for the generator-pie-component
+
+### Patch Changes
+
+- Updated dependencies [[`b56832c38`](https://github.com/justeattakeaway/pie/commit/b56832c3846c5588439d1a754abb78f58a282d67)]:
+  - @justeattakeaway/pie-icon-button@0.13.0
+  - @justeattakeaway/pie-button@0.23.0
+  - @justeattakeaway/pie-modal@0.16.0
+
+## 0.22.0
+
+### Minor Changes
+
+- [Added] - PIE Modal control descriptions for all component props ([#656](https://github.com/justeattakeaway/pie/pull/656)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - hasStackedActions to pie-modal action buttons ([#650](https://github.com/justeattakeaway/pie/pull/650)) by [@ashleynolan](https://github.com/ashleynolan)
+
+- [Fixed] - Prevent tree-shaking of components in storybook ([#667](https://github.com/justeattakeaway/pie/pull/667)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Removed] - Built webc icons from source control
+  [Added] - Type declaration files for components
+  [Added] - Types for pie-icons
+  [Added] - TS version of pie-icons-configs/config.js (Will be used after DSW-1025)
+  [Added] - Webc icon tests for width, height and base classes
+  [Changed] - Update pie-icons-webc build to generate a slightly different template for regular and large icons (using different types, etc.)
+  [Changed] - Update pie-icons-webc rollup config to remove commonjs build
+  [Changed] - Use `just-kebab-case` and `just-pascal-case` instead of `kebab-case` and `pascal-case` to simplify usage (and they're more recently maintained)
+
+### Patch Changes
+
+- Updated dependencies [[`816e65c03`](https://github.com/justeattakeaway/pie/commit/816e65c03deb5d61935bc8b7003736e047f9c1f2), [`64d9f3fe8`](https://github.com/justeattakeaway/pie/commit/64d9f3fe89e766e74cf2c18ca565ac0b06700034), [`8eb679dd8`](https://github.com/justeattakeaway/pie/commit/8eb679dd8f129696648d073fed604303376c3a07), [`0cd6596f0`](https://github.com/justeattakeaway/pie/commit/0cd6596f03a841fd722e4f13a89ef32807444e3a)]:
+  - @justeattakeaway/pie-modal@0.16.0
+  - @justeattakeaway/pie-icon-button@0.12.0
+  - @justeattakeaway/pie-button@0.22.0
+  - @justeattakeaway/pie-icons-webc@0.5.0
+
+## 0.21.0
+
+### Minor Changes
+
+- [Added] - Created package skeleton for pie-toggle-switch component ([#658](https://github.com/justeattakeaway/pie/pull/658)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - isFooterPinned property to modal which offers more scrolling options to consumers ([#648](https://github.com/justeattakeaway/pie/pull/648)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - Modal aria labels to close, back and loading elements ([#652](https://github.com/justeattakeaway/pie/pull/652)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
+- [Added] SupportingAction prop to modal ([#643](https://github.com/justeattakeaway/pie/pull/643)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
+### Patch Changes
+
+- Updated dependencies [[`b104b9217`](https://github.com/justeattakeaway/pie/commit/b104b92172b00adba5c5cc50c71ae9de66c7091a), [`7ccec308f`](https://github.com/justeattakeaway/pie/commit/7ccec308f515d99abeb79a495f2176992bf91be5), [`716af9b90`](https://github.com/justeattakeaway/pie/commit/716af9b90f9e6a0cdaca7ef75198403d2ac5bbd3), [`2e8797c5b`](https://github.com/justeattakeaway/pie/commit/2e8797c5b045d63247575800b9f87f005cfad30f)]:
+  - @justeattakeaway/pie-modal@0.15.0
+  - @justeattakeaway/pie-icon-button@0.11.0
+  - @justeattakeaway/pie-button@0.21.0
+
 ## 0.20.0
 
 ### Minor Changes

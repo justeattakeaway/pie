@@ -1,8 +1,12 @@
 import { html, TemplateResult } from 'lit';
-import type { StoryObj as Story } from '@storybook/web-components';
+import { type StoryObj as Story } from '@storybook/web-components';
 import { IconButtonProps, sizes, variants } from '@justeattakeaway/pie-icon-button';
+import { IconClose } from '@justeattakeaway/pie-icons-webc';
 import { StoryMeta } from '../types';
-import '@justeattakeaway/pie-icons-webc/icons/IconClose';
+
+// This prevents storybook from tree shaking the components
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const keptReferences = [IconClose];
 
 type IconButtonStoryMeta = StoryMeta<IconButtonProps>;
 
