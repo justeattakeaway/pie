@@ -762,6 +762,35 @@
         {
             "kind": "javascript-module",
             "path": "../../components/pie-button/src/index.js",
+            "declarations": [],
+            "exports": [
+                {
+                    "kind": "js",
+                    "name": "*",
+                    "declaration": {
+                        "name": "*",
+                        "package": "./PieButton"
+                    }
+                },
+                {
+                    "kind": "js",
+                    "name": "*",
+                    "declaration": {
+                        "name": "*",
+                        "package": "./defs"
+                    }
+                }
+            ]
+        },
+        {
+            "kind": "javascript-module",
+            "path": "../../components/pie-divider/src/defs.js",
+            "declarations": [],
+            "exports": []
+        },
+        {
+            "kind": "javascript-module",
+            "path": "../../components/pie-divider/src/index.js",
             "declarations": [
                 {
                     "kind": "variable",
@@ -769,8 +798,91 @@
                     "type": {
                         "text": "string"
                     },
-                    "default": "'pie-button'"
+                    "default": "'pie-divider'"
                 },
+                {
+                    "kind": "class",
+                    "description": "",
+                    "name": "PieDivider",
+                    "members": [],
+                    "superclass": {
+                        "name": "LitElement",
+                        "package": "lit"
+                    },
+                    "tagName": "componentSelector",
+                    "customElement": true
+                }
+            ],
+            "exports": [
+                {
+                    "kind": "js",
+                    "name": "type",
+                    "declaration": {
+                        "name": "type",
+                        "module": "../../components/pie-divider/src/index.js"
+                    }
+                },
+                {
+                    "kind": "js",
+                    "name": "DividerProps",
+                    "declaration": {
+                        "name": "DividerProps",
+                        "module": "../../components/pie-divider/src/index.js"
+                    }
+                },
+                {
+                    "kind": "js",
+                    "name": "PieDivider",
+                    "declaration": {
+                        "name": "PieDivider",
+                        "module": "../../components/pie-divider/src/index.js"
+                    }
+                },
+                {
+                    "kind": "custom-element-definition",
+                    "name": "componentSelector",
+                    "declaration": {
+                        "name": "PieDivider",
+                        "module": "../../components/pie-divider/src/index.js"
+                    }
+                }
+            ]
+        },
+        {
+            "kind": "javascript-module",
+            "path": "../../components/pie-webc-core/src/index.js",
+            "declarations": [],
+            "exports": [
+                {
+                    "kind": "js",
+                    "name": "*",
+                    "declaration": {
+                        "name": "*",
+                        "package": "./mixins"
+                    }
+                },
+                {
+                    "kind": "js",
+                    "name": "*",
+                    "declaration": {
+                        "name": "*",
+                        "package": "./decorators"
+                    }
+                },
+                {
+                    "kind": "js",
+                    "name": "*",
+                    "declaration": {
+                        "name": "*",
+                        "package": "./type-helpers"
+                    }
+                }
+            ]
+        },
+        {
+            "kind": "javascript-module",
+            "path": "../../components/pie-button/src/PieButton.js",
+            "declarations": [
                 {
                     "kind": "class",
                     "description": "",
@@ -910,96 +1022,23 @@
                         "name": "LitElement",
                         "package": "lit"
                     },
-                    "tagName": "componentSelector",
                     "customElement": true
                 }
             ],
             "exports": [
                 {
                     "kind": "js",
-                    "name": "type",
-                    "declaration": {
-                        "name": "type",
-                        "module": "../../components/pie-button/src/index.js"
-                    }
-                },
-                {
-                    "kind": "js",
-                    "name": "ButtonProps",
-                    "declaration": {
-                        "name": "ButtonProps",
-                        "module": "../../components/pie-button/src/index.js"
-                    }
-                },
-                {
-                    "kind": "js",
-                    "name": "sizes",
-                    "declaration": {
-                        "name": "sizes",
-                        "module": "../../components/pie-button/src/index.js"
-                    }
-                },
-                {
-                    "kind": "js",
-                    "name": "types",
-                    "declaration": {
-                        "name": "types",
-                        "module": "../../components/pie-button/src/index.js"
-                    }
-                },
-                {
-                    "kind": "js",
-                    "name": "variants",
-                    "declaration": {
-                        "name": "variants",
-                        "module": "../../components/pie-button/src/index.js"
-                    }
-                },
-                {
-                    "kind": "js",
                     "name": "PieButton",
                     "declaration": {
                         "name": "PieButton",
-                        "module": "../../components/pie-button/src/index.js"
+                        "module": "../../components/pie-button/src/PieButton.js"
                     }
                 },
                 {
                     "kind": "custom-element-definition",
-                    "name": "componentSelector",
                     "declaration": {
                         "name": "PieButton",
-                        "module": "../../components/pie-button/src/index.js"
-                    }
-                }
-            ]
-        },
-        {
-            "kind": "javascript-module",
-            "path": "../../components/pie-webc-core/src/index.js",
-            "declarations": [],
-            "exports": [
-                {
-                    "kind": "js",
-                    "name": "*",
-                    "declaration": {
-                        "name": "*",
-                        "package": "./mixins"
-                    }
-                },
-                {
-                    "kind": "js",
-                    "name": "*",
-                    "declaration": {
-                        "name": "*",
-                        "package": "./decorators"
-                    }
-                },
-                {
-                    "kind": "js",
-                    "name": "*",
-                    "declaration": {
-                        "name": "*",
-                        "package": "./type-helpers"
+                        "module": "../../components/pie-button/src/PieButton.js"
                     }
                 }
             ]

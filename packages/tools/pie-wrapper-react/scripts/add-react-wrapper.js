@@ -106,11 +106,13 @@ export function addReactWrapper (customElementsObject, folderName = process.argv
             componentSrc = `
 import * as React from 'react';
 import { createComponent${component.class.events?.length > 0 ? ', EventName' : ''} } from '@lit-labs/react';
-import { ${component.class.name} as ${component.class.name}React } from './index';
+import { ${component.class.name} as Original${component.class.name} } from './${component.class.name}';
+
+export * from './defs';
 
 export const ${component.class.name} = createComponent({
     displayName: '${component.class.name}',
-    elementClass: ${component.class.name}React,
+    elementClass: Original${component.class.name},
     react: React,
     tagName: '${component.class.tagName}',
     events: ${eventsObject},

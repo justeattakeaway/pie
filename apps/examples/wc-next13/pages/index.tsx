@@ -1,9 +1,8 @@
 import React, { useState, useRef } from 'react';
 import Head from 'next/head';
 import {
-    ButtonProps, sizes, variants,
-} from '@justeattakeaway/pie-button';
-import { PieButton } from '@justeattakeaway/pie-button/dist/react';
+    PieButton, ButtonProps, sizes, variants,
+} from '@justeattakeaway/pie-button/dist/react';
 import '@justeattakeaway/pie-css';
 
 export default function Home () {
