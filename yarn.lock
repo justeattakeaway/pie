@@ -5394,14 +5394,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@justeat/pie-design-tokens@npm:5.4.0":
-  version: 5.4.0
-  resolution: "@justeat/pie-design-tokens@npm:5.4.0"
+"@justeat/pie-design-tokens@npm:5.5.0":
+  version: 5.5.0
+  resolution: "@justeat/pie-design-tokens@npm:5.5.0"
   dependencies:
     jsonc-parser: 3.2.0
     lodash.merge: 4.6.2
     mkdirp: 1.0.4
-  checksum: d597808e3eded841625552504994d45e8d9f319df50184ee90b00feb758945514486565d889925ae26f74cf63b448c984ee7d2e854c19851d1799a02bd2ccdcf
+  checksum: 6c7b1edb6a88fcfa12969dc9de4d24e585bb181536b79addfb6e880070228e32afb9dd2eee8fd1cebfb806cf62477e29d39ce041f21f6aa91266c37d6dc917ae
   languageName: node
   linkType: hard
 
@@ -5439,7 +5439,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-button@workspace:packages/components/pie-button"
   dependencies:
-    "@justeat/pie-design-tokens": 5.4.0
     "@justeattakeaway/pie-components-config": "workspace:*"
     "@justeattakeaway/pie-css": "workspace:*"
     "@justeattakeaway/pie-webc-core": "workspace:*"
@@ -5478,7 +5477,7 @@ __metadata:
     "@justeattakeaway/pie-icons-webc": "workspace:*"
     "@justeattakeaway/pie-webc-core": "workspace:*"
   peerDependencies:
-    "@justeat/pie-design-tokens": 5.4.0
+    "@justeat/pie-design-tokens": 5.5.0
   languageName: unknown
   linkType: soft
 
@@ -27690,7 +27689,7 @@ __metadata:
     "@commitlint/config-conventional": 17.4.4
     "@justeat/browserslist-config-fozzie": 1.x
     "@justeat/fozzie": 11.0.0
-    "@justeat/pie-design-tokens": 5.4.0
+    "@justeat/pie-design-tokens": 5.5.0
     "@justeattakeaway/generator-pie-component": "workspace:*"
     "@justeattakeaway/pie-webc-testing": "workspace:*"
     "@justeattakeaway/stylelint-config-pie": "workspace:*"
@@ -36521,7 +36520,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "wc-vanilla@workspace:apps/examples/wc-vanilla"
   dependencies:
-    "@justeat/pie-design-tokens": 5.4.0
+    "@justeat/pie-design-tokens": 5.5.0
     "@justeattakeaway/pie-button": 0.24.0
     "@justeattakeaway/pie-css": 0.2.0
     "@justeattakeaway/pie-icon-button": 0.13.1

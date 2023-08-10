@@ -12,7 +12,7 @@
     "vite": "4.3.9"
   },
   "dependencies": {
-    "@justeat/pie-design-tokens": "5.4.0",
+    "@justeat/pie-design-tokens": "5.5.0",
     "@justeattakeaway/pie-button": "0.24.0",
     "@justeattakeaway/pie-css": "0.2.0",
     "@justeattakeaway/pie-icon-button": "0.13.1",
