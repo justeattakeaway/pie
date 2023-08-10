@@ -108,6 +108,7 @@
     }
 }
 
+// The description is only required for screen readers so we need to visually hide the description
 .c-toggleSwitch-description {
     position: absolute;
     left: -9999px;
