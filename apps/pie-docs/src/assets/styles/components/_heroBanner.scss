@@ -1,0 +1,75 @@
+@use '../fozzie-config' as f;
+@use '../variables' as v;
+@use '../utilities' as u;
+
+.c-heroBanner {
+    background-color: f.$color-background-subtle;
+    grid-column: 1 / span 2;
+}
+
+.c-heroBanner-header {
+    display: grid;
+    height: auto;
+
+    @include f.media('>=mid') {
+        height: v.$hero-banner-header-mid-height;
+        grid-template-columns: 50% 50%;
+    }
+
+    @include f.media('>=wide') {
+        height: v.$hero-banner-header-wide-height;
+        grid-template-columns: 40% 60%;
+        gap: f.$spacing-e;
+    }
+
+    .c-heroBanner-btn {
+        margin-block-start: f.spacing(f);
+        margin-block-end: f.spacing(e);
+    }
+}
+
+.c-heroBanner-text {
+    padding-block-start: f.spacing(g);
+    align-self: start;
+    grid-column: 1 / span 2;
+
+    @include f.media('>=mid') {
+        grid-column: 1;
+        max-width: 500px;
+        padding-block-start: calc(f.spacing(e) + f.spacing(i)); // 88px
+    }
+}
+
+.c-heroBanner-description {
+    @include f.font-size('body-l');
+    margin-block-start: f.spacing(d);
+    max-width: 50ch;
+
+    @include f.media('>=wide') {
+        @include f.font-size('heading-s');
+    }
+}
+
+
+.c-heroBanner-image {
+    grid-column: 2;
+    align-self: center;
+    z-index: 1;
+    height: v.$hero-banner-header-mid-height;
+
+    @include f.media('>=wide') {
+        height: v.$hero-banner-header-wide-height;
+    }
+
+    img {
+        object-fit: contain;
+        width: 100%;
+        height: 100%;
+        scale: 90%;
+        position: relative;
+    }
+}
+
+.c-heroBanner-content {
+    @include u.content-wrapper;
+}
