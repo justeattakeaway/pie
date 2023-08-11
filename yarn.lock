@@ -5439,6 +5439,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-button@workspace:packages/components/pie-button"
   dependencies:
+    "@justeat/pie-design-tokens": 5.5.0
     "@justeattakeaway/pie-components-config": "workspace:*"
     "@justeattakeaway/pie-css": "workspace:*"
     "@justeattakeaway/pie-webc-core": "workspace:*"
