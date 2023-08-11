@@ -1580,7 +1580,15 @@
             "declarations": [
                 {
                     "kind": "variable",
-                    "name": "EVENT_TOGGLE_SWITCH_CHANGED",
+                    "name": "labelPlacements",
+                    "type": {
+                        "text": "['leading', 'trailing']"
+                    },
+                    "default": "['leading', 'trailing']"
+                },
+                {
+                    "kind": "variable",
+                    "name": "ON_EVENT_TOGGLE_SWITCH_CHANGED",
                     "type": {
                         "text": "string"
                     },
@@ -1591,9 +1599,17 @@
             "exports": [
                 {
                     "kind": "js",
-                    "name": "EVENT_TOGGLE_SWITCH_CHANGED",
+                    "name": "labelPlacements",
                     "declaration": {
-                        "name": "EVENT_TOGGLE_SWITCH_CHANGED",
+                        "name": "labelPlacements",
+                        "module": "../../components/pie-toggle-switch/src/defs.js"
+                    }
+                },
+                {
+                    "kind": "js",
+                    "name": "ON_EVENT_TOGGLE_SWITCH_CHANGED",
+                    "declaration": {
+                        "name": "ON_EVENT_TOGGLE_SWITCH_CHANGED",
                         "module": "../../components/pie-toggle-switch/src/defs.js"
                     }
                 }
@@ -1616,6 +1632,25 @@
                     "description": "",
                     "name": "PieToggleSwitch",
                     "members": [
+                        {
+                            "kind": "field",
+                            "name": "label",
+                            "type": {
+                                "text": "string | undefined"
+                            },
+                            "privacy": "public",
+                            "attribute": "label"
+                        },
+                        {
+                            "kind": "field",
+                            "name": "labelPlacement",
+                            "type": {
+                                "text": "ToggleSwitchProps['labelPlacement']"
+                            },
+                            "privacy": "public",
+                            "default": "'leading'",
+                            "attribute": "labelPlacement"
+                        },
                         {
                             "kind": "field",
                             "name": "aria",
@@ -1660,6 +1695,17 @@
                             ]
                         },
                         {
+                            "kind": "method",
+                            "name": "renderToggleSwitchLabel",
+                            "privacy": "private",
+                            "return": {
+                                "type": {
+                                    "text": "TemplateResult"
+                                }
+                            },
+                            "description": "Renders the label for a toggle switch if provided.\nif invalid value is passed, nothing gets rendered"
+                        },
+                        {
                             "kind": "field",
                             "name": "dir",
                             "type": {
@@ -1689,7 +1735,7 @@
                     ],
                     "events": [
                         {
-                            "name": "EVENT_TOGGLE_SWITCH_CHANGED",
+                            "name": "ON_EVENT_TOGGLE_SWITCH_CHANGED",
                             "type": {
                                 "text": "CustomEvent"
                             }
@@ -1703,6 +1749,21 @@
                         }
                     ],
                     "attributes": [
+                        {
+                            "name": "label",
+                            "type": {
+                                "text": "string | undefined"
+                            },
+                            "fieldName": "label"
+                        },
+                        {
+                            "name": "labelPlacement",
+                            "type": {
+                                "text": "ToggleSwitchProps['labelPlacement']"
+                            },
+                            "default": "'leading'",
+                            "fieldName": "labelPlacement"
+                        },
                         {
                             "name": "aria",
                             "type": {
@@ -1767,6 +1828,14 @@
                     "name": "ToggleSwitchProps",
                     "declaration": {
                         "name": "ToggleSwitchProps",
+                        "module": "../../components/pie-toggle-switch/src/index.js"
+                    }
+                },
+                {
+                    "kind": "js",
+                    "name": "labelPlacements",
+                    "declaration": {
+                        "name": "labelPlacements",
                         "module": "../../components/pie-toggle-switch/src/index.js"
                     }
                 },
