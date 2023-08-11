@@ -59,16 +59,17 @@ import { PieDivider } from '@justeattakeaway/pie-divider/dist/react';
 
 | Property | Type | Default | Description |
 |---|---|---|---|
-| - | - | - | - |
+| variant | `String` | `default` | Variant of the divider, one of variants – default, inverse |
+| orientation | `String` | `horizontal` | Orientation of the divider, one of – horizontal, vertical |
 
 In your markup or JSX, you can then use these to set the properties for the `pie-divider` component:
 
 ```html
 <!-- Native HTML -->
-<pie-divider></pie-divider>
+<pie-divider />
 
 <!-- JSX -->
-<PieDivider></PieDivider>
+<PieDivider />
 ```
 
 ## Testing
