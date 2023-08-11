@@ -7,18 +7,7 @@ export type AriaProps = {
     describedBy?: string
 };
 
-export type LabelProps = {
-    label: string;
-    labelPlacement: typeof labelPlacements[number];
-  } | {
-    label: string;
-    labelPlacement?: never;
-  } | {
-    label?: never;
-    labelPlacement?: never;
-  };
-
-export type ToggleSwitchProps = RTLComponentProps & LabelProps & {
+export interface ToggleSwitchProps extends RTLComponentProps {
     /**
      * The ARIA labels used for the toggle switch.
      */
@@ -31,6 +20,14 @@ export type ToggleSwitchProps = RTLComponentProps & LabelProps & {
      * Same as the HTML checked attribute - indicates whether the switch disabled or not
      */
     isDisabled?: boolean;
+    /**
+     * The label value of the component
+     */
+    label?: string;
+    /**
+     * The placement of the label such as leading or trailing
+     */
+    labelPlacement?: typeof labelPlacements[number];
 }
 
 /**

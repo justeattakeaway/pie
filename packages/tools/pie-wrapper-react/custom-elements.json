@@ -44,6 +44,113 @@
         },
         {
             "kind": "javascript-module",
+            "path": "../../components/pie-modal/src/defs.js",
+            "declarations": [
+                {
+                    "kind": "variable",
+                    "name": "headingLevels",
+                    "type": {
+                        "text": "['h1', 'h2', 'h3', 'h4', 'h5', 'h6']"
+                    },
+                    "default": "['h1', 'h2', 'h3', 'h4', 'h5', 'h6']"
+                },
+                {
+                    "kind": "variable",
+                    "name": "sizes",
+                    "type": {
+                        "text": "['small', 'medium', 'large']"
+                    },
+                    "default": "['small', 'medium', 'large']"
+                },
+                {
+                    "kind": "variable",
+                    "name": "positions",
+                    "type": {
+                        "text": "['top', 'center']"
+                    },
+                    "default": "['top', 'center']"
+                },
+                {
+                    "kind": "variable",
+                    "name": "ON_MODAL_CLOSE_EVENT",
+                    "type": {
+                        "text": "string"
+                    },
+                    "default": "'pie-modal-close'",
+                    "description": "Event name for when the modal is closed."
+                },
+                {
+                    "kind": "variable",
+                    "name": "ON_MODAL_OPEN_EVENT",
+                    "type": {
+                        "text": "string"
+                    },
+                    "default": "'pie-modal-open'",
+                    "description": "Event name for when the modal is opened."
+                },
+                {
+                    "kind": "variable",
+                    "name": "ON_MODAL_BACK_EVENT",
+                    "type": {
+                        "text": "string"
+                    },
+                    "default": "'pie-modal-back'",
+                    "description": "Event name for when the modal back button is clicked."
+                }
+            ],
+            "exports": [
+                {
+                    "kind": "js",
+                    "name": "headingLevels",
+                    "declaration": {
+                        "name": "headingLevels",
+                        "module": "../../components/pie-modal/src/defs.js"
+                    }
+                },
+                {
+                    "kind": "js",
+                    "name": "sizes",
+                    "declaration": {
+                        "name": "sizes",
+                        "module": "../../components/pie-modal/src/defs.js"
+                    }
+                },
+                {
+                    "kind": "js",
+                    "name": "positions",
+                    "declaration": {
+                        "name": "positions",
+                        "module": "../../components/pie-modal/src/defs.js"
+                    }
+                },
+                {
+                    "kind": "js",
+                    "name": "ON_MODAL_CLOSE_EVENT",
+                    "declaration": {
+                        "name": "ON_MODAL_CLOSE_EVENT",
+                        "module": "../../components/pie-modal/src/defs.js"
+                    }
+                },
+                {
+                    "kind": "js",
+                    "name": "ON_MODAL_OPEN_EVENT",
+                    "declaration": {
+                        "name": "ON_MODAL_OPEN_EVENT",
+                        "module": "../../components/pie-modal/src/defs.js"
+                    }
+                },
+                {
+                    "kind": "js",
+                    "name": "ON_MODAL_BACK_EVENT",
+                    "declaration": {
+                        "name": "ON_MODAL_BACK_EVENT",
+                        "module": "../../components/pie-modal/src/defs.js"
+                    }
+                }
+            ]
+        },
+        {
+            "kind": "javascript-module",
             "path": "../../components/pie-link/src/index.js",
             "declarations": [
                 {
@@ -240,113 +347,6 @@
                     "declaration": {
                         "name": "PieLink",
                         "module": "../../components/pie-link/src/index.js"
-                    }
-                }
-            ]
-        },
-        {
-            "kind": "javascript-module",
-            "path": "../../components/pie-modal/src/defs.js",
-            "declarations": [
-                {
-                    "kind": "variable",
-                    "name": "headingLevels",
-                    "type": {
-                        "text": "['h1', 'h2', 'h3', 'h4', 'h5', 'h6']"
-                    },
-                    "default": "['h1', 'h2', 'h3', 'h4', 'h5', 'h6']"
-                },
-                {
-                    "kind": "variable",
-                    "name": "sizes",
-                    "type": {
-                        "text": "['small', 'medium', 'large']"
-                    },
-                    "default": "['small', 'medium', 'large']"
-                },
-                {
-                    "kind": "variable",
-                    "name": "positions",
-                    "type": {
-                        "text": "['top', 'center']"
-                    },
-                    "default": "['top', 'center']"
-                },
-                {
-                    "kind": "variable",
-                    "name": "ON_MODAL_CLOSE_EVENT",
-                    "type": {
-                        "text": "string"
-                    },
-                    "default": "'pie-modal-close'",
-                    "description": "Event name for when the modal is closed."
-                },
-                {
-                    "kind": "variable",
-                    "name": "ON_MODAL_OPEN_EVENT",
-                    "type": {
-                        "text": "string"
-                    },
-                    "default": "'pie-modal-open'",
-                    "description": "Event name for when the modal is opened."
-                },
-                {
-                    "kind": "variable",
-                    "name": "ON_MODAL_BACK_EVENT",
-                    "type": {
-                        "text": "string"
-                    },
-                    "default": "'pie-modal-back'",
-                    "description": "Event name for when the modal back button is clicked."
-                }
-            ],
-            "exports": [
-                {
-                    "kind": "js",
-                    "name": "headingLevels",
-                    "declaration": {
-                        "name": "headingLevels",
-                        "module": "../../components/pie-modal/src/defs.js"
-                    }
-                },
-                {
-                    "kind": "js",
-                    "name": "sizes",
-                    "declaration": {
-                        "name": "sizes",
-                        "module": "../../components/pie-modal/src/defs.js"
-                    }
-                },
-                {
-                    "kind": "js",
-                    "name": "positions",
-                    "declaration": {
-                        "name": "positions",
-                        "module": "../../components/pie-modal/src/defs.js"
-                    }
-                },
-                {
-                    "kind": "js",
-                    "name": "ON_MODAL_CLOSE_EVENT",
-                    "declaration": {
-                        "name": "ON_MODAL_CLOSE_EVENT",
-                        "module": "../../components/pie-modal/src/defs.js"
-                    }
-                },
-                {
-                    "kind": "js",
-                    "name": "ON_MODAL_OPEN_EVENT",
-                    "declaration": {
-                        "name": "ON_MODAL_OPEN_EVENT",
-                        "module": "../../components/pie-modal/src/defs.js"
-                    }
-                },
-                {
-                    "kind": "js",
-                    "name": "ON_MODAL_BACK_EVENT",
-                    "declaration": {
-                        "name": "ON_MODAL_BACK_EVENT",
-                        "module": "../../components/pie-modal/src/defs.js"
                     }
                 }
             ]
