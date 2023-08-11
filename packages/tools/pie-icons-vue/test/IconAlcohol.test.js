@@ -9,7 +9,8 @@ import {
 // eslint-disable-next-line import/no-unresolved
 import { sizeToValueMap } from '@justeattakeaway/pie-icons-configs';
 
-import IconAlcohol from '../icons/IconAlcohol';
+// eslint-disable-next-line import/no-unresolved, import/extensions
+import IconAlcohol from '../esm/IconAlcohol';
 
 describe('IconAlcohol (Regular variant) ::', () => {
     test('should exist', () => {
