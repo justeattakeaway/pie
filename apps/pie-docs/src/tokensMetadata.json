@@ -191,7 +191,7 @@
       },
       "cupcake-10": {
         "category": "default",
-        "description": "#E7F4F6, rgb (231,244.246)"
+        "description": "#E7F4F6, rgb (231,244,246)"
       },
       "cupcake-90": {
         "category": "default",
@@ -205,9 +205,13 @@
         "category": "default",
         "description": "#622B18, rgb (98,43,24)"
       },
+      "turmeric-5": {
+        "category": "default",
+        "description": "#FFF9DE, rgb (255,249,222)"
+      },
       "turmeric-80": {
         "category": "default",
-        "description": "#FFD770, rgb (255,215,112)"
+        "description": "#745300, rgb (116,83,0)"
       },
       "orange-dark-hc": {
         "category": "highContrast",
@@ -215,11 +219,11 @@
       },
       "red-dark-hc": {
         "category": "highContrast",
-        "description": "#A4041F, rgb (239,237,234)"
+        "description": "#A4041F, rgb (164,4,31)"
       },
       "red-light-hc": {
         "category": "highContrast",
-        "description": "#FF7A80, rgb (164,4,31)"
+        "description": "#FF7A80, rgb (255,122,128)"
       },
       "yellow-dark-hc": {
         "category": "highContrast",
@@ -454,7 +458,7 @@
         "support-brand-05-subtle": {
           "category": "brand",
           "description": "Discretionary brand surfaces and effects",
-          "globalToken": "$color-yellow-10"
+          "globalToken": "$color-turmeric-5"
         },
         "support-brand-06": {
           "category": "brand",

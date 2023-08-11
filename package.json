@@ -62,7 +62,7 @@
     "@commitlint/cli": "17.5.1",
     "@commitlint/config-conventional": "17.4.4",
     "@justeat/browserslist-config-fozzie": "1.x",
-    "@justeat/pie-design-tokens": "5.4.0",
+    "@justeat/pie-design-tokens": "5.5.0",
     "@justeattakeaway/generator-pie-component": "workspace:*",
     "@justeattakeaway/pie-webc-testing": "workspace:*",
     "@justeattakeaway/stylelint-config-pie": "workspace:*",
