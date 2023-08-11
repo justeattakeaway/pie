@@ -5,7 +5,7 @@ import { property } from 'lit/decorators.js';
 import { RtlMixin, validPropertyValues } from '@justeattakeaway/pie-webc-core';
 import styles from './toggle-switch.scss?inline';
 import {
-    ToggleSwitchProps, ON_EVENT_TOGGLE_SWITCH_CHANGED, AriaProps, labelPlacements,
+    ToggleSwitchProps, ON_TOGGLE_SWITCH_CHANGED_EVENT, AriaProps, labelPlacements,
 } from './defs';
 import '@justeattakeaway/pie-icons-webc/dist/icons/IconCheck.js';
 
@@ -43,7 +43,7 @@ export class PieToggleSwitch extends RtlMixin(LitElement) implements ToggleSwitc
     onToggleChange (event: Event) {
         const target = event?.target as HTMLInputElement;
         this.isChecked = target.checked;
-        this.dispatchEvent(new CustomEvent(ON_EVENT_TOGGLE_SWITCH_CHANGED, { detail: this.isChecked }));
+        this.dispatchEvent(new CustomEvent(ON_TOGGLE_SWITCH_CHANGED_EVENT, { detail: this.isChecked }));
     }
 
     /**
