@@ -1,0 +1,49 @@
+@use '../fozzie-config' as f;
+@use '../variables' as v;
+@use '../utilities' as u;
+
+.c-heroContentLayout {
+    min-height: 100%;
+    display: grid;
+    background-color: f.$color-background-subtle;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: minmax(min-content, 0) 100px 450px;
+
+    @include f.media('>=mid') {
+        grid-template-rows:
+            repeat(2, calc(v.$hero-banner-header-mid-height * 0.5))
+            150px
+            minmax(0, max-content);
+    }
+
+    @include f.media('>=wide') {
+        grid-template-rows:
+            calc(v.$hero-banner-header-wide-height * 0.6)
+            calc(v.$hero-banner-header-wide-height * 0.4)
+            150px
+            minmax(0, max-content);
+    }
+}
+
+.c-heroContentLayout-pad {
+    padding-inline: f.$spacing-d;
+
+    @include f.media('>=narrowMid') {
+        padding-inline: f.spacing(e);
+    }
+
+    @include f.media('>=mid') {
+        padding-inline: f.spacing(i);
+    }
+
+    .c-content .c-content-container {
+        padding-top: 0;
+    }
+}
+
+.c-heroContentLayout-content {
+    background-color: f.$color-background-default;
+    grid-row: 3 / span 4;
+    grid-column: 1 / span 2;
+}
+
