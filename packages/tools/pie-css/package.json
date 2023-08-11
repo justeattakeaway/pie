@@ -14,7 +14,8 @@
     "lint:style": "run -T stylelint ./**/*.{css,scss}",
     "lint:style:fix": "yarn lint:style --fix",
     "prepublishOnly": "yarn lint:style && yarn lint:scripts && yarn build && yarn test",
-    "test": "run -T vitest run"
+    "test": "run -T vitest run",
+    "test:watch": "run -T vitest"
   },
   "keywords": [
     "PIE",

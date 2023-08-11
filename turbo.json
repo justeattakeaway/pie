@@ -7,8 +7,7 @@
         "^build"
       ],
       "outputs": [
-        "dist/**",
-        "esm/**"
+        "dist/**"
       ]
     },
     "build:examples": {
@@ -56,6 +55,13 @@
         "src/**"
       ]
     },
+    "test:watch": {
+      "cache": false,
+      "dependsOn": [
+        "build",
+        "^test"
+      ]
+    },
     "test:ci": {
       "cache": true,
       "dependsOn": [
@@ -71,6 +77,7 @@
       ]
     },
     "test:coverage": {
+      "cache": false,
       "outputs": []
     },
     "test:browsers": {
@@ -116,7 +123,12 @@
       "outputs": []
     },
     "lint:style": {
-      "cache": true
+      "cache": true,
+      "outputs": []
+    },
+    "lint:style:fix": {
+      "cache": false,
+      "outputs": []
     },
     "lint:examples": {
       "cache": true,

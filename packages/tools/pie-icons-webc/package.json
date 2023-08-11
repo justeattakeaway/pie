@@ -30,13 +30,11 @@
     "PIE"
   ],
   "scripts": {
-    "build": "yarn clean && yarn build:icons && yarn build:dist",
-    "build:dist": "rollup -c",
+    "build": "rollup -c",
     "build:icons": "node ./build.js",
     "clean": "run -T rimraf -rf ./dist/ ./icons/",
     "lint:scripts": "run -T eslint .",
     "lint:scripts:fix": "yarn lint:scripts --fix",
-    "prebuild:example": "yarn build:icons",
     "test": "wtr tests/*.test.js --node-resolve"
   },
   "browserslist": [

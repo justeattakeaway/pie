@@ -4,10 +4,16 @@
     "//"
   ],
   "pipeline": {
-    "dev": {
-      "cache": false,
+    "build": {
+      "cache": true,
       "dependsOn": [
         "^build"
+      ],
+      "outputs": [
+        "dist/**",
+        "esm/**",
+        "generated/**",
+        "icons/**"
       ]
     }
   }

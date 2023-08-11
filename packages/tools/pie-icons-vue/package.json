@@ -44,9 +44,9 @@
     "clean": "run -T rimraf -rf ./icons/ ./generated/",
     "lint:scripts": "run -T eslint .",
     "lint:scripts:fix": "yarn lint:scripts --fix",
-    "prebuild:example": "yarn build:icons",
     "prepublishOnly": "yarn lint:scripts && yarn build",
-    "test": "run -T vitest run"
+    "test": "run -T vitest run",
+    "test:watch": "run -T vitest"
   },
   "browserslist": [
     "extends @justeat/browserslist-config-fozzie"

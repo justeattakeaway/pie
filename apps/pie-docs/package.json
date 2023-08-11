@@ -11,9 +11,8 @@
   "scripts": {
     "build": "DEPLOYMENT_ENVIRONMENT='production' eleventy",
     "build:dev": "DEPLOYMENT_ENVIRONMENT='development' eleventy",
-    "clean:dist": "run -T rimraf dist",
-    "cz": "run -T cz",
-    "dev": "yarn clean:dist && npx @11ty/eleventy --serve",
+    "clean": "run -T rimraf dist",
+    "dev": "npx @11ty/eleventy --serve",
     "lint:scripts": "run -T eslint .",
     "lint:scripts:fix": "run -T eslint . --fix",
     "lint:style": "run -T stylelint ./src/**/*.{css,scss}",
