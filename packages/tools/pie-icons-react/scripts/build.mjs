@@ -19,13 +19,6 @@ async function checkDirExists (directoryPath) {
         console.error(err);
     }
 }
-// open a write stream to index.tsx
-const indexFile = fs.createWriteStream(
-    filePath,
-    (err) => {
-        console.error(err);
-    },
-);
 
 function getTemplate (buildTimeClasses) {
     return (variables, { tpl }) => {
@@ -61,6 +54,9 @@ function getTemplate (buildTimeClasses) {
 async function build () {
     // check that the /icons directory exists, if not create it
     await checkDirExists(ICONS_DIR);
+
+    // open a write stream to index.tsx
+    const indexFile = fs.createWriteStream(filePath);
 
     // loop through the icons in pie-icons, generate each component and add it to the index.tsx
     Object.keys(icons).forEach((iconKey) => {
