@@ -43,7 +43,8 @@ export class PieToggleSwitch extends RtlMixin(LitElement) implements ToggleSwitc
     onToggleChange (event: Event) {
         const target = event?.target as HTMLInputElement;
         this.isChecked = target.checked;
-        this.dispatchEvent(new CustomEvent(ON_TOGGLE_SWITCH_CHANGED_EVENT, { detail: this.isChecked }));
+        const changedEvent = new CustomEvent(ON_TOGGLE_SWITCH_CHANGED_EVENT, { detail: this.isChecked });
+        this.dispatchEvent(changedEvent);
     }
 
     /**
