@@ -7,7 +7,7 @@
         "dependsOn": []
       },
       "build:icons": {
-        "cache": true,
+        "cache": false,
         "dependsOn": [
           "clean"
         ],
