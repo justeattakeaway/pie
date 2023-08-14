@@ -1,5 +1,23 @@
 # Changelog
 
+## 0.25.0
+
+### Minor Changes
+
+- [Added] - Label Prop ([#719](https://github.com/justeattakeaway/pie/pull/719)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Added] pie divider component ([#704](https://github.com/justeattakeaway/pie/pull/704)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies [[`536ee7b1e`](https://github.com/justeattakeaway/pie/commit/536ee7b1e1bc778573f57f502a6b0c9718a9944c), [`b8278b24d`](https://github.com/justeattakeaway/pie/commit/b8278b24ddc5de0004b3f850e62590c8a43229b7), [`55ac48b6d`](https://github.com/justeattakeaway/pie/commit/55ac48b6d36f1cb63a7ccadf4c2a0453a0183d9d), [`ec616007c`](https://github.com/justeattakeaway/pie/commit/ec616007cbb0f34ae8e1a9d91fa2622d1790451f), [`0712defc5`](https://github.com/justeattakeaway/pie/commit/0712defc5ecda8510d64883210d786eca527974d), [`55ac48b6d`](https://github.com/justeattakeaway/pie/commit/55ac48b6d36f1cb63a7ccadf4c2a0453a0183d9d), [`731adcc40`](https://github.com/justeattakeaway/pie/commit/731adcc40216e148d57bfb97e9a8226684509842)]:
+  - @justeattakeaway/pie-icon-button@0.13.2
+  - @justeattakeaway/pie-toggle-switch@0.3.0
+  - @justeattakeaway/pie-divider@0.2.0
+  - @justeattakeaway/pie-button@0.24.1
+  - @justeattakeaway/pie-link@0.1.0
+  - @justeattakeaway/pie-modal@0.17.0
+
 ## 0.24.0
 
 ### Minor Changes

@@ -1,5 +1,15 @@
 # wc-vanilla
 
+## 0.4.5
+
+### Patch Changes
+
+- [Changed] - use latest pie-design-tokens ([#716](https://github.com/justeattakeaway/pie/pull/716)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- Updated dependencies [[`536ee7b1e`](https://github.com/justeattakeaway/pie/commit/536ee7b1e1bc778573f57f502a6b0c9718a9944c), [`ec616007c`](https://github.com/justeattakeaway/pie/commit/ec616007cbb0f34ae8e1a9d91fa2622d1790451f)]:
+  - @justeattakeaway/pie-icon-button@0.13.2
+  - @justeattakeaway/pie-button@0.24.1
+
 ## 0.4.4
 
 ### Patch Changes
