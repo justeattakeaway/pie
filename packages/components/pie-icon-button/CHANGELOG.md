@@ -1,5 +1,19 @@
 # @justeattakeaway/pie-icon-button
 
+## 0.13.2
+
+### Patch Changes
+
+- [Fixed] - Corrected the following peerDependency: ([#713](https://github.com/justeattakeaway/pie/pull/713)) by [@siggerzz](https://github.com/siggerzz)
+
+  ```js
+    "peerDependencies": {
+      "@justeat/pie-design-tokens": "5.4.0"
+    },
+  ```
+
+- [Changed] - use latest pie-design-tokens ([#716](https://github.com/justeattakeaway/pie/pull/716)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
 ## 0.13.1
 
 ### Patch Changes

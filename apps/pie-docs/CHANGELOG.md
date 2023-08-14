@@ -1,5 +1,18 @@
 # Changelog
 
+## 2.9.0
+
+### Minor Changes
+
+- [Changed] - design of homepage with new pie logo and razor ([#649](https://github.com/justeattakeaway/pie/pull/649)) by [@LTurns](https://github.com/LTurns)
+
+  [Added] - `home-page.njk`, `razor.scss`, `heroContentLayout.scss`, `heroBanner.scss` for homepage styles and logic and contentWrapper mixin to `utilities.scss`
+  [Removed] - homepage logic from `content-page.njk` since the home page is now separate
+
+### Patch Changes
+
+- [Changed] - use latest pie-design-tokens ([#716](https://github.com/justeattakeaway/pie/pull/716)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
 ## 2.8.0
 
 ### Minor Changes
