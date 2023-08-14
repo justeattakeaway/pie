@@ -44,6 +44,113 @@
         },
         {
             "kind": "javascript-module",
+            "path": "../../components/pie-modal/src/defs.js",
+            "declarations": [
+                {
+                    "kind": "variable",
+                    "name": "headingLevels",
+                    "type": {
+                        "text": "['h1', 'h2', 'h3', 'h4', 'h5', 'h6']"
+                    },
+                    "default": "['h1', 'h2', 'h3', 'h4', 'h5', 'h6']"
+                },
+                {
+                    "kind": "variable",
+                    "name": "sizes",
+                    "type": {
+                        "text": "['small', 'medium', 'large']"
+                    },
+                    "default": "['small', 'medium', 'large']"
+                },
+                {
+                    "kind": "variable",
+                    "name": "positions",
+                    "type": {
+                        "text": "['top', 'center']"
+                    },
+                    "default": "['top', 'center']"
+                },
+                {
+                    "kind": "variable",
+                    "name": "ON_MODAL_CLOSE_EVENT",
+                    "type": {
+                        "text": "string"
+                    },
+                    "default": "'pie-modal-close'",
+                    "description": "Event name for when the modal is closed."
+                },
+                {
+                    "kind": "variable",
+                    "name": "ON_MODAL_OPEN_EVENT",
+                    "type": {
+                        "text": "string"
+                    },
+                    "default": "'pie-modal-open'",
+                    "description": "Event name for when the modal is opened."
+                },
+                {
+                    "kind": "variable",
+                    "name": "ON_MODAL_BACK_EVENT",
+                    "type": {
+                        "text": "string"
+                    },
+                    "default": "'pie-modal-back'",
+                    "description": "Event name for when the modal back button is clicked."
+                }
+            ],
+            "exports": [
+                {
+                    "kind": "js",
+                    "name": "headingLevels",
+                    "declaration": {
+                        "name": "headingLevels",
+                        "module": "../../components/pie-modal/src/defs.js"
+                    }
+                },
+                {
+                    "kind": "js",
+                    "name": "sizes",
+                    "declaration": {
+                        "name": "sizes",
+                        "module": "../../components/pie-modal/src/defs.js"
+                    }
+                },
+                {
+                    "kind": "js",
+                    "name": "positions",
+                    "declaration": {
+                        "name": "positions",
+                        "module": "../../components/pie-modal/src/defs.js"
+                    }
+                },
+                {
+                    "kind": "js",
+                    "name": "ON_MODAL_CLOSE_EVENT",
+                    "declaration": {
+                        "name": "ON_MODAL_CLOSE_EVENT",
+                        "module": "../../components/pie-modal/src/defs.js"
+                    }
+                },
+                {
+                    "kind": "js",
+                    "name": "ON_MODAL_OPEN_EVENT",
+                    "declaration": {
+                        "name": "ON_MODAL_OPEN_EVENT",
+                        "module": "../../components/pie-modal/src/defs.js"
+                    }
+                },
+                {
+                    "kind": "js",
+                    "name": "ON_MODAL_BACK_EVENT",
+                    "declaration": {
+                        "name": "ON_MODAL_BACK_EVENT",
+                        "module": "../../components/pie-modal/src/defs.js"
+                    }
+                }
+            ]
+        },
+        {
+            "kind": "javascript-module",
             "path": "../../components/pie-link/src/index.js",
             "declarations": [
                 {
@@ -240,113 +347,6 @@
                     "declaration": {
                         "name": "PieLink",
                         "module": "../../components/pie-link/src/index.js"
-                    }
-                }
-            ]
-        },
-        {
-            "kind": "javascript-module",
-            "path": "../../components/pie-modal/src/defs.js",
-            "declarations": [
-                {
-                    "kind": "variable",
-                    "name": "headingLevels",
-                    "type": {
-                        "text": "['h1', 'h2', 'h3', 'h4', 'h5', 'h6']"
-                    },
-                    "default": "['h1', 'h2', 'h3', 'h4', 'h5', 'h6']"
-                },
-                {
-                    "kind": "variable",
-                    "name": "sizes",
-                    "type": {
-                        "text": "['small', 'medium', 'large']"
-                    },
-                    "default": "['small', 'medium', 'large']"
-                },
-                {
-                    "kind": "variable",
-                    "name": "positions",
-                    "type": {
-                        "text": "['top', 'center']"
-                    },
-                    "default": "['top', 'center']"
-                },
-                {
-                    "kind": "variable",
-                    "name": "ON_MODAL_CLOSE_EVENT",
-                    "type": {
-                        "text": "string"
-                    },
-                    "default": "'pie-modal-close'",
-                    "description": "Event name for when the modal is closed."
-                },
-                {
-                    "kind": "variable",
-                    "name": "ON_MODAL_OPEN_EVENT",
-                    "type": {
-                        "text": "string"
-                    },
-                    "default": "'pie-modal-open'",
-                    "description": "Event name for when the modal is opened."
-                },
-                {
-                    "kind": "variable",
-                    "name": "ON_MODAL_BACK_EVENT",
-                    "type": {
-                        "text": "string"
-                    },
-                    "default": "'pie-modal-back'",
-                    "description": "Event name for when the modal back button is clicked."
-                }
-            ],
-            "exports": [
-                {
-                    "kind": "js",
-                    "name": "headingLevels",
-                    "declaration": {
-                        "name": "headingLevels",
-                        "module": "../../components/pie-modal/src/defs.js"
-                    }
-                },
-                {
-                    "kind": "js",
-                    "name": "sizes",
-                    "declaration": {
-                        "name": "sizes",
-                        "module": "../../components/pie-modal/src/defs.js"
-                    }
-                },
-                {
-                    "kind": "js",
-                    "name": "positions",
-                    "declaration": {
-                        "name": "positions",
-                        "module": "../../components/pie-modal/src/defs.js"
-                    }
-                },
-                {
-                    "kind": "js",
-                    "name": "ON_MODAL_CLOSE_EVENT",
-                    "declaration": {
-                        "name": "ON_MODAL_CLOSE_EVENT",
-                        "module": "../../components/pie-modal/src/defs.js"
-                    }
-                },
-                {
-                    "kind": "js",
-                    "name": "ON_MODAL_OPEN_EVENT",
-                    "declaration": {
-                        "name": "ON_MODAL_OPEN_EVENT",
-                        "module": "../../components/pie-modal/src/defs.js"
-                    }
-                },
-                {
-                    "kind": "js",
-                    "name": "ON_MODAL_BACK_EVENT",
-                    "declaration": {
-                        "name": "ON_MODAL_BACK_EVENT",
-                        "module": "../../components/pie-modal/src/defs.js"
                     }
                 }
             ]
@@ -1580,7 +1580,15 @@
             "declarations": [
                 {
                     "kind": "variable",
-                    "name": "EVENT_TOGGLE_SWITCH_CHANGED",
+                    "name": "labelPlacements",
+                    "type": {
+                        "text": "['leading', 'trailing']"
+                    },
+                    "default": "['leading', 'trailing']"
+                },
+                {
+                    "kind": "variable",
+                    "name": "ON_TOGGLE_SWITCH_CHANGED_EVENT",
                     "type": {
                         "text": "string"
                     },
@@ -1591,9 +1599,17 @@
             "exports": [
                 {
                     "kind": "js",
-                    "name": "EVENT_TOGGLE_SWITCH_CHANGED",
+                    "name": "labelPlacements",
                     "declaration": {
-                        "name": "EVENT_TOGGLE_SWITCH_CHANGED",
+                        "name": "labelPlacements",
+                        "module": "../../components/pie-toggle-switch/src/defs.js"
+                    }
+                },
+                {
+                    "kind": "js",
+                    "name": "ON_TOGGLE_SWITCH_CHANGED_EVENT",
+                    "declaration": {
+                        "name": "ON_TOGGLE_SWITCH_CHANGED_EVENT",
                         "module": "../../components/pie-toggle-switch/src/defs.js"
                     }
                 }
@@ -1616,6 +1632,25 @@
                     "description": "",
                     "name": "PieToggleSwitch",
                     "members": [
+                        {
+                            "kind": "field",
+                            "name": "label",
+                            "type": {
+                                "text": "string | undefined"
+                            },
+                            "privacy": "public",
+                            "attribute": "label"
+                        },
+                        {
+                            "kind": "field",
+                            "name": "labelPlacement",
+                            "type": {
+                                "text": "ToggleSwitchProps['labelPlacement']"
+                            },
+                            "privacy": "public",
+                            "default": "'leading'",
+                            "attribute": "labelPlacement"
+                        },
                         {
                             "kind": "field",
                             "name": "aria",
@@ -1660,6 +1695,17 @@
                             ]
                         },
                         {
+                            "kind": "method",
+                            "name": "renderToggleSwitchLabel",
+                            "privacy": "private",
+                            "return": {
+                                "type": {
+                                    "text": "TemplateResult"
+                                }
+                            },
+                            "description": "Renders the label for a toggle switch if provided.\nif invalid value is passed, nothing gets rendered"
+                        },
+                        {
                             "kind": "field",
                             "name": "dir",
                             "type": {
@@ -1689,12 +1735,6 @@
                     ],
                     "events": [
                         {
-                            "name": "EVENT_TOGGLE_SWITCH_CHANGED",
-                            "type": {
-                                "text": "CustomEvent"
-                            }
-                        },
-                        {
                             "type": {
                                 "text": "CustomEvent"
                             },
@@ -1703,6 +1743,21 @@
                         }
                     ],
                     "attributes": [
+                        {
+                            "name": "label",
+                            "type": {
+                                "text": "string | undefined"
+                            },
+                            "fieldName": "label"
+                        },
+                        {
+                            "name": "labelPlacement",
+                            "type": {
+                                "text": "ToggleSwitchProps['labelPlacement']"
+                            },
+                            "default": "'leading'",
+                            "fieldName": "labelPlacement"
+                        },
                         {
                             "name": "aria",
                             "type": {
@@ -1767,6 +1822,14 @@
                     "name": "ToggleSwitchProps",
                     "declaration": {
                         "name": "ToggleSwitchProps",
+                        "module": "../../components/pie-toggle-switch/src/index.js"
+                    }
+                },
+                {
+                    "kind": "js",
+                    "name": "labelPlacements",
+                    "declaration": {
+                        "name": "labelPlacements",
                         "module": "../../components/pie-toggle-switch/src/index.js"
                     }
                 },

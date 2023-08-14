@@ -1,5 +1,6 @@
 import { test, expect } from '@sand4rt/experimental-ct-web';
 import { PieToggleSwitch } from '@/index';
+import { ToggleSwitchProps } from '@/defs';
 
 const componentSelector = '[data-test-id="toggle-switch-component"]';
 const toggleInputSelector = '[data-test-id="toggle-switch-input"]';
@@ -125,6 +126,42 @@ test.describe('Component: `Pie toggle switch`', () => {
 
                 // Assert
                 await expect(ariaDescriptionElement).toContainText(ariaDescriptionText);
+            });
+        });
+    });
+
+    test.describe('Props: `LabelProps`', () => {
+        test.describe('when a position is passed as `leading`', () => {
+            test('should render a leading label with class `c-toggleSwitch--leading`', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieToggleSwitch, {
+                    props: {
+                        label: 'Label',
+                        labelPlacement: 'leading',
+                    } as ToggleSwitchProps,
+                });
+
+                const pieToggleSwitchLabel = await component.locator('[data-test-id="toggle-switch-label"]');
+
+                // Assert
+                await expect(pieToggleSwitchLabel).toHaveClass('c-toggleSwitch-label c-toggleSwitch--leading');
+            });
+        });
+
+        test.describe('when a label is passed as `trailing`', () => {
+            test('should render a trailing label with class `c-toggleSwitch--trailing`', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieToggleSwitch, {
+                    props: {
+                        label: 'Label',
+                        labelPlacement: 'trailing',
+                    } as ToggleSwitchProps,
+                });
+
+                const pieToggleSwitchLabel = await component.locator('[data-test-id="toggle-switch-label"]');
+
+                // Assert
+                await expect(pieToggleSwitchLabel).toHaveClass('c-toggleSwitch-label c-toggleSwitch--trailing');
             });
         });
     });
