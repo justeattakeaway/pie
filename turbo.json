@@ -77,8 +77,7 @@
       ]
     },
     "test:coverage": {
-      "cache": false,
-      "outputs": []
+      "cache": false
     },
     "test:browsers": {
       "cache": true,
@@ -105,8 +104,7 @@
       "cache": false,
       "dependsOn": [
         "^build"
-      ],
-      "outputs": []
+      ]
     },
     "test:visual:ci": {
       "cache": false,
@@ -119,16 +117,14 @@
       "outputs": []
     },
     "lint:scripts:fix": {
-      "cache": false,
-      "outputs": []
+      "cache": false
     },
     "lint:style": {
       "cache": true,
       "outputs": []
     },
     "lint:style:fix": {
-      "cache": false,
-      "outputs": []
+      "cache": false
     },
     "lint:examples": {
       "cache": true,

@@ -18,7 +18,7 @@
       ]
     },
     "build:dev": {
-      "cache": true,
+      "cache": false,
       "dependsOn": [
         "^build",
         "clean"

@@ -4,7 +4,7 @@
     "pipeline": {
       "clean": {
         "cache": false,
-        "outputs": []
+        "dependsOn": []
       },
       "build:icons": {
         "cache": true,
