@@ -12,6 +12,21 @@
     box-sizing: border-box;
 }
 
+.c-toggleSwitch-wrapper {
+    display: inline-flex;
+    font-family: var(--dt-font-body-l-family);
+}
+
+.c-toggleSwitch-label {
+    display: grid;
+    place-content: center;
+    margin-inline-end: var(--dt-spacing-b);
+
+    &.c-toggleSwitch--trailing {
+        margin-inline-start: var(--dt-spacing-b);
+    }
+}
+
 .c-toggleSwitch {
     --toggle-switch-bg-color: var(--dt-color-interactive-form);
     --toggle-switch-bg-color--checked: var(--dt-color-interactive-brand);
@@ -49,7 +64,7 @@
         background-color: hsl(var(--dt-color-interactive-form-h), var(--dt-color-interactive-form-s), calc(var(--dt-color-interactive-form-l) - var(--dt-color-active-01)));
     }
 
-    &[ischecked] {
+    &[isChecked] {
         @include toggle-switch-transition(background-color);
         background-color: var(--toggle-switch-bg-color--checked);
 

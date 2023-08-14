@@ -1,7 +1,6 @@
-import { html, TemplateResult } from 'lit';
+import { html, TemplateResult, nothing } from 'lit';
 import { type StoryObj as Story } from '@storybook/web-components';
-import { PieToggleSwitch } from '@justeattakeaway/pie-toggle-switch';
-import { ToggleSwitchProps } from '@justeattakeaway/pie-toggle-switch/src/defs';
+import { PieToggleSwitch, ToggleSwitchProps, labelPlacements } from '@justeattakeaway/pie-toggle-switch';
 import { IconCheck } from '@justeattakeaway/pie-icons-webc';
 import { StoryMeta } from '../types';
 import { i18nArgTypes } from '../args/commonArgsTypes';
@@ -19,6 +18,8 @@ const defaultArgs: ToggleSwitchProps = {
     isChecked: false,
     isDisabled: false,
     dir: 'ltr',
+    label: 'Label',
+    labelPlacement: 'leading',
     aria: {
         label: 'toggle switch label',
         describedBy: 'toggle switch description',
@@ -44,6 +45,24 @@ const toggleSwitchStoryMeta: ToggleSwitchStoryMeta = {
                 summary: false,
             },
         },
+        label: {
+            description: 'The label text for the toggle switch',
+            control: {
+                type: 'text',
+                defaultValue: {
+                    summary: 'Label',
+                },
+            },
+        },
+        labelPlacement: {
+            description: 'Set the placement of the label.',
+            control: 'select',
+            if: { arg: 'label', truthy: true },
+            options: labelPlacements,
+            defaultValue: {
+                summary: 'leading',
+            },
+        },
         aria: {
             description: 'The ARIA labels used for the toggle-switch.',
             control: 'object',
@@ -62,18 +81,23 @@ export default toggleSwitchStoryMeta;
 
 const Template = (props: ToggleSwitchProps): TemplateResult => {
     const {
+        dir,
         aria,
         isChecked,
         isDisabled,
-        dir,
+        label,
+        labelPlacement,
     } = props;
 
     return html`
         <pie-toggle-switch
-            ?isChecked=${isChecked}
-            ?isDisabled=${isDisabled}
-            .aria=${aria}
-            dir="${dir}"></pie-toggle-switch>`;
+            label="${label || nothing}"
+            labelPlacement="${label && labelPlacement ? labelPlacement : nothing}"
+            .aria="${aria}"
+            dir="${dir}"
+            ?isChecked="${isChecked}"
+            ?isDisabled="${isDisabled}" 
+        />`;
 };
 
 export const Default: Story<ToggleSwitchProps> = (args: ToggleSwitchProps) => Template(args);

@@ -1,5 +1,7 @@
 import { RTLComponentProps } from '@justeattakeaway/pie-webc-core';
 
+export const labelPlacements = ['leading', 'trailing'] as const;
+
 export type AriaProps = {
     label?: string,
     describedBy?: string
@@ -13,11 +15,19 @@ export interface ToggleSwitchProps extends RTLComponentProps {
     /**
      * Same as the HTML checked attribute - indicates whether the switch is on or off
      */
-    isChecked: boolean;
+    isChecked?: boolean;
     /**
      * Same as the HTML checked attribute - indicates whether the switch disabled or not
      */
-    isDisabled: boolean;
+    isDisabled?: boolean;
+    /**
+     * The label value of the component
+     */
+    label?: string;
+    /**
+     * The placement of the label such as leading or trailing
+     */
+    labelPlacement?: typeof labelPlacements[number];
 }
 
 /**
@@ -25,4 +35,4 @@ export interface ToggleSwitchProps extends RTLComponentProps {
  *
  * @constant
  */
-export const EVENT_TOGGLE_SWITCH_CHANGED = 'pie-toggle-switch-changed';
+export const ON_TOGGLE_SWITCH_CHANGED_EVENT = 'pie-toggle-switch-changed';
