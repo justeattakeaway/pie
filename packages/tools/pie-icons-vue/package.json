@@ -38,8 +38,7 @@
     "PIE"
   ],
   "scripts": {
-    "build": "yarn clean && yarn build:icons && yarn build:dist",
-    "build:dist": "rollup -c",
+    "build": "rollup -c",
     "build:icons": "node build && babel generated/components -d icons && eslint icons --fix",
     "clean": "run -T rimraf -rf ./icons/ ./generated/",
     "lint:scripts": "run -T eslint .",
@@ -66,8 +65,7 @@
     "marked": "1.2.9",
     "pascal-case": "3.1.2",
     "prismjs": "1.29.0",
-    "rollup": "3.20.2",
-    "rollup-plugin-delete": "2.0.0"
+    "rollup": "3.20.2"
   },
   "volta": {
     "extends": "../../../package.json"

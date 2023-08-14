@@ -4,16 +4,33 @@
     "//"
   ],
   "pipeline": {
+    "clean": {
+      "cache": false,
+      "dependsOn": []
+    },
+    "build:icons": {
+      "cache": true,
+      "dependsOn": [
+        "clean"
+      ],
+      "outputs": [
+        "generated/**",
+        "icons/**"
+      ]
+    },
     "build": {
       "cache": true,
       "dependsOn": [
-        "^build"
+        "^build",
+        "build:icons"
+      ],
+      "inputs": [
+        "generated/**",
+        "icons/**"
       ],
       "outputs": [
         "dist/**",
-        "esm/**",
-        "generated/**",
-        "icons/**"
+        "esm/**"
       ]
     }
   }

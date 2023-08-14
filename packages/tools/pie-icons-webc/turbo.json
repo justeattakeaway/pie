@@ -9,22 +9,25 @@
       "dependsOn": []
     },
     "build:icons": {
-      "cache": false,
+      "cache": true,
       "dependsOn": [
         "clean"
       ],
       "outputs": [
-        "icons"
+        "icons/**"
       ]
     },
     "build": {
-      "cache": false,
+      "cache": true,
       "dependsOn": [
         "^build",
         "build:icons"
       ],
+      "inputs": [
+        "icons/**"
+      ],
       "outputs": [
-        "dist"
+        "dist/**"
       ]
     }
   }

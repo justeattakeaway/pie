@@ -1,5 +1,4 @@
 import typescript from 'rollup-plugin-typescript2';
-import del from 'rollup-plugin-delete';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 
 export default [
@@ -17,7 +16,6 @@ export default [
             preserveModules: true,
         },
         plugins: [
-            del({ targets: ['esm/*'] }),
             typescript(),
             nodeResolve({ resolveOnly: ['@justeattakeaway/pie-icons-configs'] }),
         ],
@@ -36,7 +34,6 @@ export default [
             preserveModules: true,
         },
         plugins: [
-            del({ targets: ['dist/*'] }),
             typescript(),
             nodeResolve({
                 resolveOnly: ['@justeattakeaway/pie-icons-configs'],
