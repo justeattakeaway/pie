@@ -1,5 +1,6 @@
 import { test, expect } from '@sand4rt/experimental-ct-web';
-import { PieToggleSwitch, ToggleSwitchProps } from '@/index';
+import { PieToggleSwitch } from '@/index';
+import { ToggleSwitchProps } from '@/defs';
 
 const componentSelector = '[data-test-id="toggle-switch-component"]';
 const toggleInputSelector = '[data-test-id="toggle-switch-input"]';

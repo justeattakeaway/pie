@@ -1,6 +1,7 @@
 import { test } from '@sand4rt/experimental-ct-web';
 import percySnapshot from '@percy/playwright';
-import { PieToggleSwitch, ToggleSwitchProps, labelPlacements } from '@/index';
+import { PieToggleSwitch } from '@/index';
+import { ToggleSwitchProps, labelPlacements } from '@/defs';
 
 [
     [false, false],

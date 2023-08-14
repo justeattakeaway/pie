@@ -26,7 +26,7 @@ export class PieToggleSwitch extends RtlMixin(LitElement) implements ToggleSwitc
     public label?: string;
 
     @property({ type: String })
-    @validPropertyValues(componentSelector, [...labelPlacements, null], 'leading')
+    @validPropertyValues(componentSelector, labelPlacements, 'leading')
     public labelPlacement: ToggleSwitchProps['labelPlacement'] = 'leading';
 
     @property({ type: Object })
