@@ -8,15 +8,6 @@
       "cache": false,
       "dependsOn": []
     },
-    "build": {
-      "cache": true,
-      "dependsOn": [
-        "^build"
-      ],
-      "outputs": [
-        "dist/**"
-      ]
-    },
     "build:dev": {
       "cache": false,
       "dependsOn": [
