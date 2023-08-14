@@ -56,7 +56,10 @@ async function build () {
     await checkDirExists(ICONS_DIR);
 
     // open a write stream to index.tsx
-    const indexFile = fs.createWriteStream(filePath);
+    const indexFileStream = fs.createWriteStream(filePath);
+    indexFileStream.on('error', (err) => {
+        throw err;
+    });
 
     // loop through the icons in pie-icons, generate each component and add it to the index.tsx
     Object.keys(icons).forEach((iconKey) => {
@@ -86,7 +89,7 @@ async function build () {
 
         fs.writeFileSync(`${ICONS_DIR}/${componentName}.tsx`, Comp);
 
-        indexFile.write(`export { default as ${componentName} } from './${componentName}';\n`);
+        indexFileStream.write(`export { default as ${componentName} } from './${componentName}';\n`);
     });
 }
 
