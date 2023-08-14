@@ -23,6 +23,10 @@
         ".output/**"
       ]
     },
+    "build:icons": {
+      "cache": false,
+      "dependsOn": []
+    },
     "generate:examples": {
       "cache": true,
       "dependsOn": [
