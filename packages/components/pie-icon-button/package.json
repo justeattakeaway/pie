@@ -14,6 +14,7 @@
     "lint:style:fix": "yarn lint:style --fix",
     "watch": "run -T vite build --watch",
     "test": "echo \"Error: no test specified\" && exit 0",
+    "test:ci": "yarn test",
     "test:visual": "run -T cross-env-shell PERCY_TOKEN=${PERCY_TOKEN_PIE_ICON_BUTTON} percy exec --allowed-hostname cloudfront.net -- npx playwright test -c ./playwright-lit-visual.config.ts",
     "test:visual:ci": "yarn test:visual"
   },

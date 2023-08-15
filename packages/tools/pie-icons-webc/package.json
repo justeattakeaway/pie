@@ -37,7 +37,8 @@
     "lint:scripts": "run -T eslint .",
     "lint:scripts:fix": "yarn lint:scripts --fix",
     "prebuild:example": "yarn build:icons",
-    "test": "wtr tests/*.test.js --node-resolve"
+    "test": "wtr tests/*.test.js --node-resolve",
+    "test:ci": "yarn test"
   },
   "browserslist": [
     "extends @justeat/browserslist-config-fozzie"
