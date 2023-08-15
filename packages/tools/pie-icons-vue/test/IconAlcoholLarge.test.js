@@ -6,7 +6,8 @@ import {
     vi,
 } from 'vitest';
 
-import IconAlcoholLarge from '../icons/IconAlcoholLarge';
+// eslint-disable-next-line import/no-unresolved, import/extensions
+import IconAlcoholLarge from '../esm/IconAlcoholLarge';
 
 describe('IconAlcoholLarge (Large variant) ::', () => {
     test('should exist', () => {
