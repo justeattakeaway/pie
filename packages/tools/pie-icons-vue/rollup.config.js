@@ -3,7 +3,7 @@ import { nodeResolve } from '@rollup/plugin-node-resolve';
 
 export default [
     {
-        input: ['generated/index.js'],
+        input: ['icons/index.js'],
         output: {
             exports: 'named',
             dir: 'esm',
@@ -19,7 +19,7 @@ export default [
         ],
     },
     {
-        input: ['generated/index.js'],
+        input: ['icons/index.js'],
         output: {
             exports: 'named',
             dir: 'dist',
