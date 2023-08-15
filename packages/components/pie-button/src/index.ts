@@ -7,12 +7,7 @@ import {
 } from './defs';
 
 // Valid values available to consumers
-export {
-    type ButtonProps,
-    sizes,
-    types,
-    variants,
-};
+export * from './defs';
 
 const componentSelector = 'pie-button';
 
