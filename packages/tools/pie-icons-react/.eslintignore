@@ -1,5 +1,5 @@
 .turbo
 dist
+esm
 node_modules
 icons
-esm

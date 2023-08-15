@@ -1,5 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
+import { describe, expect, it } from 'vitest';
+
 import IconAlcohol from '../icons/IconAlcohol';
 
 describe('Icon', () => {

@@ -1,10 +1,8 @@
 import path from 'path';
 import { pascalCase } from 'pascal-case';
 import fs from 'fs-extra';
-import { execSync } from 'child_process';
 
 import pieIcons from '@justeattakeaway/pie-icons';
-// TODO: No idea why the following line causes an ESLint unresolved error - have disabled for now
 import { normalizeIconName } from '@justeattakeaway/pie-icons-configs'; // eslint-disable-line import/no-unresolved
 
 const componentTemplate = (name, svg) => {
@@ -12,10 +10,7 @@ const componentTemplate = (name, svg) => {
     const iconSize = isLargeIcon ? 'large' : 'regular';
     const [, svgClasses] = svg.match(/class="(.+?)"/);
 
-    // NOTE: The eslint-disable-next-line is a temporary fix for the fact that the configs-vue file is not being copied to the generated folder
-    // TODO: Remove eslint-disable-next-line as soon as the compilation issue is solved
-    return `// eslint-disable-next-line import/no-unresolved, import/extensions
-import { iconSize, updateContextData } from './configs-vue';
+    return `import { iconSize, updateContextData } from '@justeattakeaway/pie-icons-configs/configs-vue';
 
 export default {
     name: '${name}',
@@ -38,7 +33,6 @@ export default {
 const { icons } = pieIcons.default;
 
 const ICONS_DIR = `${process.cwd()}/generated`;
-const COMPONENTS_DIR = `${ICONS_DIR}/components`;
 const indexPath = path.join(ICONS_DIR, '/index.js');
 
 // Try to convert to the same as React build gen
@@ -51,24 +45,9 @@ async function checkDirExists (directoryPath) {
     }
 }
 
-function copyIconsConfigFiles () {
-    const srcFilePaths = [
-        path.resolve(process.cwd(), '../pie-icons-configs/configs.js'),
-        path.resolve(process.cwd(), '../pie-icons-configs/configs-vue.js')
-    ];
-    const destFilePath = path.resolve(process.cwd(), './generated/components/');
-
-    srcFilePaths.forEach((srcFilePath) => execSync(`cp ${srcFilePath} ${destFilePath}`));
-}
-
 async function build () {
     // check if /generated directory exists, if not create it
     await checkDirExists(ICONS_DIR);
-
-    // check if /generated/components directory exists, if not create it
-    await checkDirExists(COMPONENTS_DIR);
-
-    copyIconsConfigFiles();
 
     let indexFileString = '/* eslint-disable camelcase */\n';
 
@@ -83,9 +62,9 @@ async function build () {
         let component = componentTemplate(componentName, svg);
         component = component.replace(/xlink:href/g, 'xlinkHref'); // replace so it gets parsed by JSX correctly
 
-        indexFileString += `export { default as ${componentName} } from '../icons/${componentName}';\n`;
+        indexFileString += `export { default as ${componentName} } from './${componentName}';\n`;
 
-        fs.writeFileSync(`./generated/components/${componentName}.js`, component, 'utf8');
+        fs.writeFileSync(`./generated/${componentName}.js`, component, 'utf8');
     });
 
     fs.outputFileSync(indexPath, indexFileString, 'utf8');
