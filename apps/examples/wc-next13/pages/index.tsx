@@ -42,7 +42,7 @@ export default function Home () {
                 <div>
                     <h3>Click the button to switch the variant</h3>
                     <div className="flex-wrapper">
-                        <PieButton>
+                        <PieButton variant={variantName} onClick={switchVariant}>
                             Switch variant
                         </PieButton>
                         <div className='padding'>Variant: <b>{variantName}</b></div>
