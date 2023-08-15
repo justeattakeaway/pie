@@ -12,3 +12,4 @@
 ---
 
 [Added] - missing test:ci scripts and test:watch (for packages using vitest)
+[Fixed] - update failing snapshot
