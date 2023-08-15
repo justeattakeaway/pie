@@ -1,5 +1,17 @@
 # Changelog
 
+## 2.20.0
+
+### Minor Changes
+
+- [Updated] GitHub Actions workflow to run linting before builds ([#712](https://github.com/justeattakeaway/pie/pull/712)) by [@siggerzz](https://github.com/siggerzz)
+
+### Patch Changes
+
+- [Fixed] - Issue where in-progress jobs were being cancelled on 'main'. This occasionally resulted in packages not being versioned/published correctly. ([#712](https://github.com/justeattakeaway/pie/pull/712)) by [@siggerzz](https://github.com/siggerzz)
+
+- [Changed] - use latest pie-design-tokens ([#716](https://github.com/justeattakeaway/pie/pull/716)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
 ## 2.19.0
 
 ### Minor Changes

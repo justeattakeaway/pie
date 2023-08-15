@@ -1,5 +1,15 @@
 # @justeattakeaway/pie-toggle-switch
 
+## 0.3.0
+
+### Minor Changes
+
+- [Added] - Label Prop ([#719](https://github.com/justeattakeaway/pie/pull/719)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Changed] extend ts config using relative paths ([#704](https://github.com/justeattakeaway/pie/pull/704)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Added] - aria props ([#696](https://github.com/justeattakeaway/pie/pull/696)) by [@FayeCarter](https://github.com/FayeCarter)
+
 ## 0.2.0
 
 ### Minor Changes

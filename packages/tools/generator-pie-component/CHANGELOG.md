@@ -1,5 +1,13 @@
 # @justeattakeaway/generator-pie-component
 
+## 0.5.0
+
+### Minor Changes
+
+- [Changed] - skip visual tests ([#709](https://github.com/justeattakeaway/pie/pull/709)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Changed] extend ts config using relative paths ([#704](https://github.com/justeattakeaway/pie/pull/704)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.4.0
 
 ### Minor Changes
