@@ -8,7 +8,7 @@ import {
 } from './defs';
 
 // Valid values available to consumers
-export { type IconButtonProps, sizes, variants };
+export * from './defs';
 
 const componentSelector = 'pie-icon-button';
 

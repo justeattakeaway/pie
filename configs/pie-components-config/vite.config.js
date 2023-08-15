@@ -17,7 +17,8 @@ const sharedConfig = (extendedConfig = {}) => defineConfig({
     },
     plugins: [dts({
         insertTypesEntry: true,
-        outputDir: 'dist/types',
+        outputDir: 'dist',
+        rollupTypes: true,
     })],
     ...extendedConfig,
 });
