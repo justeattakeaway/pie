@@ -6,6 +6,8 @@ import * as React from 'react';
 import { createComponent, EventName } from '@lit-labs/react';
 import { MockComponent as MockComponentReact } from './index';
 
+export * from './defs';
+
 export const MockComponent = createComponent({
     displayName: 'MockComponent',
     elementClass: MockComponentReact,
@@ -25,6 +27,8 @@ import * as React from 'react';
 import { createComponent } from '@lit-labs/react';
 import { ButtonComponent as ButtonComponentReact } from './index';
 
+export * from './defs';
+
 export const ButtonComponent = createComponent({
     displayName: 'ButtonComponent',
     elementClass: ButtonComponentReact,
@@ -40,6 +44,8 @@ exports[`React Wrapper should leave the events object empty if the component con
 import * as React from 'react';
 import { createComponent } from '@lit-labs/react';
 import { MockComponent as MockComponentReact } from './index';
+
+export * from './defs';
 
 export const MockComponent = createComponent({
     displayName: 'MockComponent',

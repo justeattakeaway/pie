@@ -24,7 +24,8 @@
   "scripts": {
     "lint:scripts": "run -T eslint .",
     "lint:scripts:fix": "run -T eslint . --fix",
-    "test": "run -T jest"
+    "test": "run -T jest",
+    "test:ci": "yarn test"
   },
   "jest": {
     "testEnvironment": "jsdom"

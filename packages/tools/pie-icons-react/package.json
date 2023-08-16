@@ -45,7 +45,8 @@
     "lint:scripts:fix": "run -T eslint . --fix",
     "clean": "run -T rimraf -rf ./icons/ ./dist/ ./esm/",
     "prepublishOnly": "yarn lint:scripts && yarn build",
-    "test": "run -T vitest run"
+    "test": "run -T vitest run",
+    "test:watch": "run -T vitest"
   },
   "devDependencies": {
     "@babel/node": "7.20.7",
