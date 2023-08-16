@@ -46,7 +46,6 @@
     "clean": "run -T rimraf -rf ./icons/ ./dist/ ./esm/",
     "prepublishOnly": "yarn lint:scripts && yarn build",
     "test": "run -T vitest run",
-    "test:ci": "yarn test",
     "test:watch": "run -T vitest"
   },
   "devDependencies": {
