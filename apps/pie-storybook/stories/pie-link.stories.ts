@@ -9,7 +9,7 @@ import type { StoryMeta, SlottedComponentProps } from '../types';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const keptReferences = [PieLink];
 
-type LinkProps = SlottedComponentProps<LinkBaseProps>;
+type LinkProps = SlottedComponentProps<LinkBaseProps> & { iconPlacement : 'leading' | 'trailing' };
 type LinkStoryMeta = StoryMeta<LinkProps>;
 
 const defaultArgs: LinkProps = {
@@ -75,6 +75,11 @@ const linkStoryMeta: LinkStoryMeta = {
                 summary: '',
             },
         },
+        iconPlacement: {
+            description: 'Show a leading or trailing icon.<br /><br />To use this with pie-link, you can pass an icon into the `icon-leading` or `icon-trailing` slot',
+            control: 'select',
+            options: ['leading', 'trailing'],
+        },
     },
     args: defaultArgs,
     parameters: {
@@ -88,7 +93,8 @@ const linkStoryMeta: LinkStoryMeta = {
 export default linkStoryMeta;
 
 const Template = ({
-    href, target, rel, size, variant, isBold, isStandalone, slot,
+    href, target, rel, size, variant, isBold, isStandalone,
+    slot, iconPlacement,
 }: LinkProps): TemplateResult => html`
         <pie-link
             variant="${variant}"
@@ -98,7 +104,9 @@ const Template = ({
             rel="${rel || nothing}"
             ?isBold="${isBold}"
             ?isStandalone="${isStandalone}">
+            ${iconPlacement === 'leading' ? html`<icon-plus-circle slot="icon-leading"></icon-plus-circle>` : ''}
             ${slot}
+            ${iconPlacement === 'trailing' ? html`<icon-chevron-down slot="icon-trailing"></icon-chevron-down>` : ''}
         </pie-link>
         `;
 

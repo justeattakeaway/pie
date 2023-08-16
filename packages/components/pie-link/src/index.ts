@@ -10,6 +10,12 @@ export * from './defs';
 
 const componentSelector = 'pie-link';
 
+/**
+ * @slot icon-leading - Leading icon
+ * @slot icon-trailing - Trailing icon
+ * @slot - Default slot
+ */
+
 export class PieLink extends LitElement implements LinkProps {
     @property({ type: String })
     @validPropertyValues(componentSelector, variants, 'default')
@@ -20,7 +26,7 @@ export class PieLink extends LitElement implements LinkProps {
     public size: LinkProps['size'] = 'medium';
 
     @property({ type: String, reflect: true })
-    public href?: string;
+    public href!: string;
 
     @property({ type: String, reflect: true })
     public target?: string;
@@ -50,7 +56,9 @@ export class PieLink extends LitElement implements LinkProps {
                 rel=${ifDefined(rel)}
                 ?isBold=${isBold}
                 ?isStandalone=${isStandalone}>
+                <slot name="icon-leading"></slot>
                 <slot></slot>
+                <slot name="icon-trailing"></slot>
             </a>`;
     }
 

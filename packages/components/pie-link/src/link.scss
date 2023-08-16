@@ -7,7 +7,11 @@
     --link-font-weight: var(--dt-font-weight-regular);
     --link-text-color: var(--dt-color-content-link);
     --link-text-decoration: var(--dt-font-style-underline);
+    --link-icon-size: 16px;
 
+    display: inline-flex;
+    gap: var(--dt-spacing-b);
+    align-items: center;
     font-family: var(--link-font-family);
     font-size: var(--link-font-size);
     line-height: var(--link-line-height);
@@ -42,6 +46,12 @@
     }
 
     &[isStandalone] {
-        display: block;
+        display: flex;
     }
+}
+
+::slotted(.c-pieIcon) {
+    display: block;
+    height: var(--link-icon-size);
+    width: var(--link-icon-size);
 }

@@ -77,6 +77,31 @@ In your markup or JSX, you can then use these to set the properties for the `pie
 <PieLink></PieLink>
 ```
 
+## Slots
+
+| Slot          | Description                                                                                                                          |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| Default slot  | The default slot is used to pass text into the link component.                                                                       |
+| icon-leading  | Used to pass in a leading icon. We recommend using `pie-icons-webc` for defining this icon, but this can also accept an SVG icon.  |
+| icon-trailing | Used to pass in a trailing icon. We recommend using `pie-icons-webc` for defining this icon, but this can also accept an SVG icon. |
+
+You should only provide either a leading or a trailing icon, but not both, in a single instance.
+
+### Using `pie-icons-webc` with `pie-link` icon slots
+
+We recommend using `pie-icons-webc` when using the `icon-leading` and `icon-trailing` slots. Here is an example of how you would do this:
+
+```html
+<!--
+  Note that pie-link and the icons that you want to use will need to be imported as components into your application.
+  See the `pie-icons-webc` README for more info on importing these icons.
+-->
+<pie-link>
+    <icon-plus-circle slot="icon-leading"></icon-plus-circle>
+    Search
+</pie-link>
+```
+
 ## Testing
 
 ### Browser tests
