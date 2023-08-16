@@ -1,5 +1,16 @@
 # Changelog
 
+## 4.7.0
+
+### Patch Changes
+
+- - [Changed] - Updated build settings and removed redundant steps ([#717](https://github.com/justeattakeaway/pie/pull/717)) by [@fernandofranca](https://github.com/fernandofranca)
+
+  - [Changed] - Updated bundling settings
+  - [Removed] - Redundant icons files
+  - [Changed] - Align scripts with pie-icons-react
+  - [Changed] - Test file and added eslint rule for files generated during build
+
 ## 4.6.0
 
 ### Minor Changes
