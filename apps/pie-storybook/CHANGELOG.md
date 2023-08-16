@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.25.1
+
+### Patch Changes
+
+- Updated dependencies [[`a1797baa6`](https://github.com/justeattakeaway/pie/commit/a1797baa65ee63b922421504381d0ad4005d9495)]:
+  - @justeattakeaway/pie-toggle-switch@0.4.0
+  - @justeattakeaway/pie-icon-button@0.14.0
+  - @justeattakeaway/pie-divider@0.3.0
+  - @justeattakeaway/pie-button@0.25.0
+  - @justeattakeaway/pie-modal@0.18.0
+  - @justeattakeaway/pie-link@0.2.0
+
 ## 0.25.0
 
 ### Minor Changes

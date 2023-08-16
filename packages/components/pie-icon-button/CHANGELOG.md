@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-icon-button
 
+## 0.14.0
+
+### Minor Changes
+
+- [Updated] - Export all of `defs.ts` file from component `index.ts` files ([#722](https://github.com/justeattakeaway/pie/pull/722)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.13.2
 
 ### Patch Changes

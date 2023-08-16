@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-modal
 
+## 0.18.0
+
+### Minor Changes
+
+- [Updated] - Export all of `defs.ts` file from component `index.ts` files ([#722](https://github.com/justeattakeaway/pie/pull/722)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.17.0
 
 ### Minor Changes
