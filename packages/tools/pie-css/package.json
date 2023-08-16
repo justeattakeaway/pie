@@ -15,6 +15,7 @@
     "lint:style:fix": "yarn lint:style --fix",
     "prepublishOnly": "yarn lint:style && yarn lint:scripts && yarn build && yarn test",
     "test": "run -T vitest run",
+    "test:ci": "yarn test",
     "test:watch": "run -T vitest"
   },
   "keywords": [

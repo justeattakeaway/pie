@@ -10,10 +10,7 @@ import {
 import '@justeattakeaway/pie-icons-webc/dist/icons/IconCheck.js';
 
 // Valid values available to consumers
-export {
-    type ToggleSwitchProps,
-    labelPlacements,
-};
+export * from './defs';
 
 const componentSelector = 'pie-toggle-switch';
 

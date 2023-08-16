@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/pie-icons-react",
-  "version": "4.5.0",
+  "version": "4.7.0",
   "main": "dist/index.js",
   "module": "esm/index.js",
   "types": "esm/index.d.ts",
@@ -44,7 +44,8 @@
     "lint:scripts": "run -T eslint .",
     "lint:scripts:fix": "run -T eslint . --fix",
     "prepublishOnly": "yarn lint:scripts && yarn build",
-    "test": "run -T vitest run"
+    "test": "run -T vitest run",
+    "test:watch": "run -T vitest"
   },
   "devDependencies": {
     "@babel/node": "7.20.7",

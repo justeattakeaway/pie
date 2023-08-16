@@ -5,11 +5,7 @@ import styles from './divider.scss?inline';
 import { DividerProps, variants, orientations } from './defs';
 
 // Valid values available to consumers
-export {
-    type DividerProps,
-    variants,
-    orientations,
-};
+export * from './defs';
 
 const componentSelector = 'pie-divider';
 

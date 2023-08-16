@@ -1,11 +1,16 @@
 {
   "name": "@justeattakeaway/pie-modal",
-  "version": "0.17.0",
+  "version": "0.18.0",
   "description": "PIE design system modal built using web components",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
-  "types": "dist/types/index.d.ts",
+  "types": "dist/index.d.ts",
+  "files": [
+    "src",
+    "dist",
+    "**/*.d.ts"
+  ],
   "scripts": {
     "build": "yarn build:wrapper pie-modal && run -T vite build",
     "lint:scripts": "run -T eslint .",

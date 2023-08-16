@@ -1,11 +1,16 @@
 {
   "name": "@justeattakeaway/pie-toggle-switch",
   "description": "PIE Design System Toggle Switch built using Web Components",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
-  "types": "dist/types/index.d.ts",
+  "types": "dist/index.d.ts",
+  "files": [
+    "src",
+    "dist",
+    "**/*.d.ts"
+  ],
   "scripts": {
     "build": "yarn build:wrapper pie-toggle-switch && run -T vite build",
     "lint:scripts": "run -T eslint .",

@@ -1,11 +1,16 @@
 {
   "name": "@justeattakeaway/pie-link",
   "description": "PIE Design System Link built using Web Components",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
-  "types": "dist/types/index.d.ts",
+  "types": "dist/index.d.ts",
+  "files": [
+    "src",
+    "dist",
+    "**/*.d.ts"
+  ],
   "scripts": {
     "build": "yarn build:wrapper pie-link && run -T vite build",
     "lint:scripts": "run -T eslint .",

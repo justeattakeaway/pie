@@ -6,11 +6,7 @@ import styles from './link.scss?inline';
 import { LinkProps, variants, sizes } from './defs';
 
 // Valid values available to consumers
-export {
-    type LinkProps,
-    variants,
-    sizes,
-};
+export * from './defs';
 
 const componentSelector = 'pie-link';
 
@@ -44,7 +40,7 @@ export class PieLink extends LitElement implements LinkProps {
         } = this;
 
         return html`
-            <a  
+            <a
                 data-test-id="pie-link"
                 class="c-link"
                 variant=${variant}

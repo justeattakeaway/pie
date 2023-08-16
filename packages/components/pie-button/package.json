@@ -1,11 +1,16 @@
 {
   "name": "@justeattakeaway/pie-button",
-  "version": "0.24.1",
+  "version": "0.25.0",
   "description": "PIE design system button built using web components",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
-  "types": "dist/types/index.d.ts",
+  "types": "dist/index.d.ts",
+  "files": [
+    "src",
+    "dist",
+    "**/*.d.ts"
+  ],
   "scripts": {
     "build": "yarn build:wrapper pie-button && run -T vite build",
     "lint:scripts": "run -T eslint .",

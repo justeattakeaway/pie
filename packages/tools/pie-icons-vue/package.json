@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/pie-icons-vue",
-  "version": "4.6.0",
+  "version": "4.7.0",
   "main": "dist/index.cjs",
   "module": "esm/index.mjs",
   "files": [
@@ -45,6 +45,7 @@
     "lint:scripts:fix": "yarn lint:scripts --fix",
     "prepublishOnly": "yarn lint:scripts && yarn build",
     "test": "run -T vitest run",
+    "test:ci": "yarn test",
     "test:watch": "run -T vitest"
   },
   "browserslist": [

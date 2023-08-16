@@ -1,11 +1,16 @@
 {
   "name": "@justeattakeaway/pie-divider",
   "description": "PIE Design System Divider built using Web Components",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
-  "types": "dist/types/index.d.ts",
+  "types": "dist/index.d.ts",
+  "files": [
+    "src",
+    "dist",
+    "**/*.d.ts"
+  ],
   "scripts": {
     "build": "yarn build:wrapper pie-divider && run -T vite build",
     "lint:scripts": "run -T eslint .",

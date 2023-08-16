@@ -28,7 +28,7 @@ import {
 } from './defs';
 
 // Valid values available to consumers
-export { type ModalProps, headingLevels, sizes };
+export * from './defs';
 
 const componentSelector = 'pie-modal';
 

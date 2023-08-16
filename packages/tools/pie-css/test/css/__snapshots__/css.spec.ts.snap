@@ -61,7 +61,8 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-color-system-purple-10: #c58af9;
     --dt-color-tomato-5: #ffd3bf;
     --dt-color-tomato-90: #622b18;
-    --dt-color-turmeric-80: #ffd770;
+    --dt-color-turmeric-5: #fff9de;
+    --dt-color-turmeric-80: #745300;
     --dt-color-white: #fff;
     --dt-color-yellow: #f6c243;
     --dt-color-yellow-10: #fff9df;
@@ -108,7 +109,7 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-color-support-brand-04: var(--dt-color-red-25);
     --dt-color-support-brand-04-subtle: var(--dt-color-berry-10);
     --dt-color-support-brand-05: var(--dt-color-yellow);
-    --dt-color-support-brand-05-subtle: var(--dt-color-yellow-10);
+    --dt-color-support-brand-05-subtle: var(--dt-color-turmeric-5);
     --dt-color-support-brand-06: var(--dt-color-purple);
     --dt-color-support-brand-06-subtle: var(--dt-color-aubergine-10);
     --dt-color-support-brand-07: var(--dt-color-orange-55);
@@ -832,9 +833,12 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-color-tomato-90-h: 15;
     --dt-color-tomato-90-s: 60.7%;
     --dt-color-tomato-90-l: 23.9%;
+    --dt-color-turmeric-5-h: 49;
+    --dt-color-turmeric-5-s: 100%;
+    --dt-color-turmeric-5-l: 93.5%;
     --dt-color-turmeric-80-h: 43;
     --dt-color-turmeric-80-s: 100%;
-    --dt-color-turmeric-80-l: 72%;
+    --dt-color-turmeric-80-l: 22.7%;
     --dt-color-white-h: 0;
     --dt-color-white-s: 0%;
     --dt-color-white-l: 100%;
@@ -958,9 +962,9 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-color-support-brand-05-h: var(--dt-color-yellow-h);
     --dt-color-support-brand-05-s: var(--dt-color-yellow-s);
     --dt-color-support-brand-05-l: var(--dt-color-yellow-l);
-    --dt-color-support-brand-05-subtle-h: var(--dt-color-yellow-10-h);
-    --dt-color-support-brand-05-subtle-s: var(--dt-color-yellow-10-s);
-    --dt-color-support-brand-05-subtle-l: var(--dt-color-yellow-10-l);
+    --dt-color-support-brand-05-subtle-h: var(--dt-color-turmeric-5-h);
+    --dt-color-support-brand-05-subtle-s: var(--dt-color-turmeric-5-s);
+    --dt-color-support-brand-05-subtle-l: var(--dt-color-turmeric-5-l);
     --dt-color-support-brand-06-h: var(--dt-color-purple-h);
     --dt-color-support-brand-06-s: var(--dt-color-purple-s);
     --dt-color-support-brand-06-l: var(--dt-color-purple-l);
