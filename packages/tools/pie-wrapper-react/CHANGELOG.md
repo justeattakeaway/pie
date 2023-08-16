@@ -1,5 +1,15 @@
 # @justeattakeaway/pie-wrapper-react
 
+## 0.10.0
+
+### Minor Changes
+
+- [Updated] - Export all of `defs.ts` file from component `index.ts` files ([#722](https://github.com/justeattakeaway/pie/pull/722)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Fixed] - Correctly set up types and export for react component outputs ([#722](https://github.com/justeattakeaway/pie/pull/722)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Fixed] - Remove custom-elements.json from Git cache (was already ignored but still tracked) ([#724](https://github.com/justeattakeaway/pie/pull/724)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.9.2
 
 ### Patch Changes

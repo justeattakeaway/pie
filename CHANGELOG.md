@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.20.1
+
+### Patch Changes
+
+- - [Changed] - Shared `@rollup/plugin-node-resolve` within the monorepo ([#717](https://github.com/justeattakeaway/pie/pull/717)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 2.20.0
 
 ### Minor Changes

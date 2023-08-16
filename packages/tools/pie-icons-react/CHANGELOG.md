@@ -1,5 +1,15 @@
 # Changelog
 
+## 4.7.0
+
+### Minor Changes
+
+- - [Changed] - Replace Jest with Vitest ([#717](https://github.com/justeattakeaway/pie/pull/717)) by [@fernandofranca](https://github.com/fernandofranca)
+
+  - [Changed] - Build script to avoid race condition while writing index file
+  - [Changed] - Align scripts with pie-icons-vue
+  - [Changed] - Added `esm` folder to `.eslintignore`
+
 ## 4.5.0
 
 ### Minor Changes
