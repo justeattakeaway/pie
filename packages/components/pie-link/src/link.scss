@@ -53,7 +53,8 @@
     gap: var(--dt-spacing-a);
 }
 
-::slotted(.c-pieIcon), ::slotted(svg) {
+::slotted(.c-pieIcon),
+::slotted(svg) {
     display: inline-flex;
     margin-block-start: var(--dt-spacing-a);
     height: var(--btn-icon-size);
