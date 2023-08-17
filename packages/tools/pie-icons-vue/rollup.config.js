@@ -13,7 +13,7 @@ export default [
             preserveModules: true,
         },
         plugins: [
-            nodeResolve({ resolveOnly: ['@justeattakeaway/pie-icons-configs'] }),
+            nodeResolve(),
         ],
     },
     {
@@ -28,9 +28,7 @@ export default [
             preserveModules: true,
         },
         plugins: [
-            nodeResolve({
-                resolveOnly: ['@justeattakeaway/pie-icons-configs'],
-            })
+            nodeResolve(),
         ],
     },
 ];
