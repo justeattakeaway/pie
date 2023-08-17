@@ -1,4 +1,5 @@
 import { nodeResolve } from '@rollup/plugin-node-resolve';
+import commonjs from '@rollup/plugin-commonjs';
 
 export default [
     {
@@ -13,7 +14,8 @@ export default [
             preserveModules: true,
         },
         plugins: [
-            nodeResolve({ resolveOnly: ['@justeattakeaway/pie-icons-configs'] }),
+            nodeResolve(),
+            commonjs(),
         ],
     },
     {
@@ -28,9 +30,8 @@ export default [
             preserveModules: true,
         },
         plugins: [
-            nodeResolve({
-                resolveOnly: ['@justeattakeaway/pie-icons-configs'],
-            })
+            nodeResolve(),
+            commonjs(),
         ],
     },
 ];
