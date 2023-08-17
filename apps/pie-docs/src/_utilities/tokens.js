@@ -1,7 +1,7 @@
+const pieTokenCategories = require('@justeat/pie-design-tokens/metadata/tokenCategories.json');
+const pieTokensMetadata = require('@justeat/pie-design-tokens/metadata/tokensMetadata.json');
 const { objectHelpers, numberHelpers, stringHelpers } = require('./helpers');
 const normalisedPieDesignTokens = require('../_data/normaliseTokens');
-const pieTokenCategories = require('../tokenCategories.json');
-const pieTokensMetadata = require('../tokensMetadata.json');
 const tokenTypes = require('../_data/tokenTypes');
 
 /**
