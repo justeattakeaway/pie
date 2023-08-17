@@ -33,6 +33,10 @@
     "@justeattakeaway/pie-css": "workspace:*",
     "@justeattakeaway/pie-webc-core": "workspace:*"
   },
+  "peerDependencies": {
+    "react": "^17.0.0",
+    "@lit-labs/react": "^2.0.1"
+  },
   "volta": {
     "extends": "../../../package.json"
   }

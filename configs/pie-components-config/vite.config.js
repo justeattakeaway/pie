@@ -12,7 +12,7 @@ const sharedConfig = (extendedConfig = {}) => defineConfig({
             formats: ['es'],
         },
         rollupOptions: {
-            external: /^lit/,
+            external: ['react', /^lit/],
         },
     },
     plugins: [dts({

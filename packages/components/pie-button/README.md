@@ -170,3 +170,9 @@ Under scripts `test:visual` replace the environment variable with the below:
 ```bash
 PERCY_TOKEN_PIE_BUTTON=abcde
 ```
+
+# Peer Dependencies
+
+Before using `@justeattakeaway/pie-button`, please make sure you have the following peer dependencies installed in your project:
+
+- `react` (for React integration only)
