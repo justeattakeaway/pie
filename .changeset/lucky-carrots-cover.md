@@ -2,5 +2,4 @@
 "@justeattakeaway/pie-link": minor
 "pie-storybook": minor
 ---
-
-[Added] - leading and trailing icons to pie link
+[Added] - an icon slot to pie link

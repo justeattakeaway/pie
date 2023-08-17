@@ -66,7 +66,7 @@ import { PieLink } from '@justeattakeaway/pie-link/dist/react';
 | target        | `String`  | `undefined` | Native html `target` attribute                                                               |
 | isBold        | `Boolean` | `false`     | If `true`, sets the link text bold                                                           |
 | isStandalone  | `Boolean` | `false`     | If `true`, sets the link as a block element                                                  |
-| iconPlacement | `String`  | `leading`   | Icon placements of the icon slot, if provided, one of `iconPlacements` - `leading`         |
+| iconPlacement | `String`  | `leading`   | Icon placements of the icon slot, if provided, one of `iconPlacements` - `leading`, `trailing`         |
 
 In your markup or JSX, you can then use these to set the properties for the `pie-link` component:
 
