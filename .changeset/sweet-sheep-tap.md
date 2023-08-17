@@ -2,4 +2,5 @@
 "@justeattakeaway/pie-icons-vue": patch
 ---
 
-[Changed] - resolve all necessary packages in rollup build
+[Changed] - update rollup config to fix build
+[Added] - commonjs plugin to help resolve `@vue/babel-helper-vue-jsx-merge-props`
