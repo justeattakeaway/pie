@@ -1,5 +1,6 @@
 export const variants = ['default', 'high-visibility', 'inverse'] as const;
 export const sizes = ['small', 'medium'] as const;
+export const iconPlacements = ['leading', 'trailing'] as const;
 
 export interface LinkProps {
     /**
@@ -30,4 +31,9 @@ export interface LinkProps {
      * When true, the link will be treated as a block box
      */
     isStandalone: boolean;
+    /**
+     * The placement of the icon slot, if provided, such as leading or trailing
+     */
+    iconPlacement?: typeof iconPlacements[number];
+
 }

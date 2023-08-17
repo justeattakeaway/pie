@@ -9,9 +9,7 @@
     --link-text-decoration: var(--dt-font-style-underline);
     --link-icon-size: 16px;
 
-    display: inline-flex;
-    gap: var(--dt-spacing-b);
-    align-items: center;
+    display: inline-block;
     font-family: var(--link-font-family);
     font-size: var(--link-font-size);
     line-height: var(--link-line-height);
@@ -46,12 +44,18 @@
     }
 
     &[isStandalone] {
-        display: flex;
+        display: block;
     }
 }
 
-::slotted(.c-pieIcon) {
-    display: block;
-    height: var(--link-icon-size);
-    width: var(--link-icon-size);
+.pie-link-content {
+    display: flex;
+    gap: var(--dt-spacing-a);
+}
+
+::slotted(.c-pieIcon), ::slotted(svg) {
+    display: inline-flex;
+    margin-block-start: var(--dt-spacing-a);
+    height: var(--btn-icon-size);
+    width: var(--btn-icon-size);
 }

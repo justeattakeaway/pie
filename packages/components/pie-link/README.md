@@ -57,15 +57,16 @@ import { PieLink } from '@justeattakeaway/pie-link/dist/react';
 
 ## Props
 
-| Property     | Type        | Default       | Description                                                                 |
-| ------------ | ----------- | ------------- | --------------------------------------------------------------------------- |
-| variant      | `String`  | `default`   | Variant of the link, one of variants – default, high-visibility or inverse |
-| size         | `String`  | `medium`    | Size of the link, one of `sizes` – `medium`, `small`                 |
-| href         | `String`  | `undefined` | Native html `href` attribute                                              |
-| rel          | `String`  | `undefined` | Native html `rel` attribute                                               |
-| target       | `String`  | `undefined` | Native html `target` attribute                                            |
-| isBold       | `Boolean` | `false`     | If `true`, sets the link text bold                                        |
-| isStandalone | `Boolean` | `false`     | If `true`, sets the link as a block element                               |
+| Property      | Type        | Default       | Description                                                                                    |
+| ------------- | ----------- | ------------- | ---------------------------------------------------------------------------------------------- |
+| variant       | `String`  | `default`   | Variant of the link, one of `variants` – `default `, `high-visibility `, `inverse` |
+| size          | `String`  | `medium`    | Size of the link, one of `sizes` – `medium`, `small`                                    |
+| href          | `String`  | `undefined` | Native html `href` attribute                                                                 |
+| rel           | `String`  | `undefined` | Native html `rel` attribute                                                                  |
+| target        | `String`  | `undefined` | Native html `target` attribute                                                               |
+| isBold        | `Boolean` | `false`     | If `true`, sets the link text bold                                                           |
+| isStandalone  | `Boolean` | `false`     | If `true`, sets the link as a block element                                                  |
+| iconPlacement | `String`  | `leading`   | Icon placements of the icon slot, if provided, one of `iconPlacements` - `leading`         |
 
 In your markup or JSX, you can then use these to set the properties for the `pie-link` component:
 
@@ -79,17 +80,14 @@ In your markup or JSX, you can then use these to set the properties for the `pie
 
 ## Slots
 
-| Slot          | Description                                                                                                                          |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| Default slot  | The default slot is used to pass text into the link component.                                                                       |
-| icon-leading  | Used to pass in a leading icon. We recommend using `pie-icons-webc` for defining this icon, but this can also accept an SVG icon.  |
-| icon-trailing | Used to pass in a trailing icon. We recommend using `pie-icons-webc` for defining this icon, but this can also accept an SVG icon. |
+| Slot         | Description                                                                                                                                                                                                               |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Default slot | The default slot is used to pass text into the link component.                                                                                                                                                            |
+| icon         | Used to pass in an icon to the link component. The icon placement can be controlled vis the `iconPlcement` prop and we recommend using `pie-icons-webc` for defining this icon, but this can also accept an SVG icon. |
 
-You should only provide either a leading or a trailing icon, but not both, in a single instance.
+### Using `pie-icons-webc` with the `pie-link` icon slot
 
-### Using `pie-icons-webc` with `pie-link` icon slots
-
-We recommend using `pie-icons-webc` when using the `icon-leading` and `icon-trailing` slots. Here is an example of how you would do this:
+We recommend using `pie-icons-webc` when using the `icon` slot. Here is an example of how you would do this:
 
 ```html
 <!--
@@ -97,7 +95,7 @@ We recommend using `pie-icons-webc` when using the `icon-leading` and `icon-trai
   See the `pie-icons-webc` README for more info on importing these icons.
 -->
 <pie-link>
-    <icon-plus-circle slot="icon-leading"></icon-plus-circle>
+    <icon-plus-circle slot="icon"></icon-plus-circle>
     Search
 </pie-link>
 ```

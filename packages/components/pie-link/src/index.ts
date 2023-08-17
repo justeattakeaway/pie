@@ -1,9 +1,13 @@
-import { LitElement, html, unsafeCSS } from 'lit';
+import {
+    LitElement, html, unsafeCSS, nothing,
+} from 'lit';
 import { property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { validPropertyValues } from '@justeattakeaway/pie-webc-core';
 import styles from './link.scss?inline';
-import { LinkProps, variants, sizes } from './defs';
+import {
+    LinkProps, variants, sizes, iconPlacements,
+} from './defs';
 
 // Valid values available to consumers
 export * from './defs';
@@ -11,8 +15,7 @@ export * from './defs';
 const componentSelector = 'pie-link';
 
 /**
- * @slot icon-leading - Leading icon
- * @slot icon-trailing - Trailing icon
+ * @slot icon - The icon slot
  * @slot - Default slot
  */
 
@@ -24,6 +27,10 @@ export class PieLink extends LitElement implements LinkProps {
     @property({ type: String })
     @validPropertyValues(componentSelector, sizes, 'medium')
     public size: LinkProps['size'] = 'medium';
+
+    @property({ type: String })
+    @validPropertyValues(componentSelector, iconPlacements, 'leading')
+    public iconPlacement: LinkProps['iconPlacement'] = 'leading';
 
     @property({ type: String, reflect: true })
     public href!: string;
@@ -42,7 +49,7 @@ export class PieLink extends LitElement implements LinkProps {
 
     render () {
         const {
-            variant, size, href, target, rel, isBold, isStandalone,
+            variant, size, iconPlacement, href, target, rel, isBold, isStandalone,
         } = this;
 
         return html`
@@ -56,9 +63,12 @@ export class PieLink extends LitElement implements LinkProps {
                 rel=${ifDefined(rel)}
                 ?isBold=${isBold}
                 ?isStandalone=${isStandalone}>
-                <slot name="icon-leading"></slot>
-                <slot></slot>
-                <slot name="icon-trailing"></slot>
+                    <div class="pie-link-content">
+                      ${iconPlacement === 'leading' ? html`<slot name="icon"></slot>` : nothing}
+                      <slot></slot>
+                      ${iconPlacement === 'trailing' ? html`<slot name="icon"></slot>` : nothing}
+                    </div>
+                </div>
             </a>`;
     }
 

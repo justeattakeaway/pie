@@ -1,7 +1,7 @@
 import { html, TemplateResult, nothing } from 'lit';
 import { type StoryObj as Story } from '@storybook/web-components';
 import {
-    PieLink, LinkProps as LinkBaseProps, sizes, variants,
+    PieLink, LinkProps as LinkBaseProps, sizes, variants, iconPlacements,
 } from '@justeattakeaway/pie-link';
 import type { StoryMeta, SlottedComponentProps } from '../types';
 
@@ -9,7 +9,7 @@ import type { StoryMeta, SlottedComponentProps } from '../types';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const keptReferences = [PieLink];
 
-type LinkProps = SlottedComponentProps<LinkBaseProps> & { iconPlacement : 'leading' | 'trailing' };
+type LinkProps = SlottedComponentProps<LinkBaseProps>;
 type LinkStoryMeta = StoryMeta<LinkProps>;
 
 const defaultArgs: LinkProps = {
@@ -41,6 +41,11 @@ const linkStoryMeta: LinkStoryMeta = {
             defaultValue: {
                 summary: 'medium',
             },
+        },
+        iconPlacement: {
+            description: 'Show a leading/trailing icon.<br /><br />To use this with pie-link, you can pass an icon into the `icon` slot',
+            control: 'select',
+            options: [undefined, ...iconPlacements],
         },
         href: {
             description: 'The URL that the hyperlink should point to',
@@ -75,11 +80,6 @@ const linkStoryMeta: LinkStoryMeta = {
                 summary: '',
             },
         },
-        iconPlacement: {
-            description: 'Show a leading or trailing icon.<br /><br />To use this with pie-link, you can pass an icon into the `icon-leading` or `icon-trailing` slot',
-            control: 'select',
-            options: ['leading', 'trailing'],
-        },
     },
     args: defaultArgs,
     parameters: {
@@ -99,14 +99,14 @@ const Template = ({
         <pie-link
             variant="${variant}"
             size="${size}"
+            iconPlacement="${iconPlacement || nothing}"
             href="${href || nothing}"
             target="${target || nothing}"
             rel="${rel || nothing}"
             ?isBold="${isBold}"
             ?isStandalone="${isStandalone}">
-            ${iconPlacement === 'leading' ? html`<icon-plus-circle slot="icon-leading"></icon-plus-circle>` : ''}
+            ${iconPlacement ? html`<icon-plus-circle slot="icon"></icon-plus-circle>` : ''}
             ${slot}
-            ${iconPlacement === 'trailing' ? html`<icon-chevron-down slot="icon-trailing"></icon-chevron-down>` : ''}
         </pie-link>
         `;
 
