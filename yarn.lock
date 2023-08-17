@@ -5221,6 +5221,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@justeat/pie-design-tokens@npm:5.5.1":
+  version: 5.5.1
+  resolution: "@justeat/pie-design-tokens@npm:5.5.1"
+  dependencies:
+    jsonc-parser: 3.2.0
+    lodash.merge: 4.6.2
+    mkdirp: 1.0.4
+  checksum: 43f0635d9b6f13888af75c8530f80b3e2445c1172fb6ed44a14dd3c6570eb774cb44e6036bcfc3805431d2b73e7fdd0af2b1e5a01f8487b3e028de30983e2bb4
+  languageName: node
+  linkType: hard
+
 "@justeattakeaway/eslint-config-pie@workspace:packages/tools/eslint-config-pie":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/eslint-config-pie@workspace:packages/tools/eslint-config-pie"
@@ -5317,7 +5328,6 @@ __metadata:
     react: 18.2.0
     react-test-renderer: 18.0.0
     rollup: 3.20.2
-    rollup-plugin-delete: 2.0.0
     rollup-plugin-typescript2: 0.34.1
   languageName: unknown
   linkType: soft
@@ -5338,7 +5348,6 @@ __metadata:
     pascal-case: 3.1.2
     prismjs: 1.29.0
     rollup: 3.20.2
-    rollup-plugin-delete: 2.0.0
   languageName: unknown
   linkType: soft
 
@@ -27015,7 +27024,7 @@ __metadata:
     "@commitlint/config-conventional": 17.4.4
     "@justeat/browserslist-config-fozzie": 1.x
     "@justeat/fozzie": 11.0.0
-    "@justeat/pie-design-tokens": 5.5.0
+    "@justeat/pie-design-tokens": 5.5.1
     "@justeattakeaway/generator-pie-component": "workspace:*"
     "@justeattakeaway/pie-webc-testing": "workspace:*"
     "@justeattakeaway/stylelint-config-pie": "workspace:*"
@@ -27055,7 +27064,7 @@ __metadata:
     stylelint-config-standard-scss: 5.0.0
     stylelint-order: 5.0.0
     ts-node: 10.9.1
-    turbo: 1.7.0
+    turbo: 1.10.12
     typescript: 5.1.3
     vite: 4.3.9
     vite-plugin-dts: 2.3.0
@@ -34002,58 +34011,58 @@ __metadata:
   languageName: node
   linkType: hard
 
-"turbo-darwin-64@npm:1.7.0":
-  version: 1.7.0
-  resolution: "turbo-darwin-64@npm:1.7.0"
+"turbo-darwin-64@npm:1.10.12":
+  version: 1.10.12
+  resolution: "turbo-darwin-64@npm:1.10.12"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
-"turbo-darwin-arm64@npm:1.7.0":
-  version: 1.7.0
-  resolution: "turbo-darwin-arm64@npm:1.7.0"
+"turbo-darwin-arm64@npm:1.10.12":
+  version: 1.10.12
+  resolution: "turbo-darwin-arm64@npm:1.10.12"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
-"turbo-linux-64@npm:1.7.0":
-  version: 1.7.0
-  resolution: "turbo-linux-64@npm:1.7.0"
+"turbo-linux-64@npm:1.10.12":
+  version: 1.10.12
+  resolution: "turbo-linux-64@npm:1.10.12"
   conditions: os=linux & cpu=x64
   languageName: node
   linkType: hard
 
-"turbo-linux-arm64@npm:1.7.0":
-  version: 1.7.0
-  resolution: "turbo-linux-arm64@npm:1.7.0"
+"turbo-linux-arm64@npm:1.10.12":
+  version: 1.10.12
+  resolution: "turbo-linux-arm64@npm:1.10.12"
   conditions: os=linux & cpu=arm64
   languageName: node
   linkType: hard
 
-"turbo-windows-64@npm:1.7.0":
-  version: 1.7.0
-  resolution: "turbo-windows-64@npm:1.7.0"
+"turbo-windows-64@npm:1.10.12":
+  version: 1.10.12
+  resolution: "turbo-windows-64@npm:1.10.12"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
 
-"turbo-windows-arm64@npm:1.7.0":
-  version: 1.7.0
-  resolution: "turbo-windows-arm64@npm:1.7.0"
+"turbo-windows-arm64@npm:1.10.12":
+  version: 1.10.12
+  resolution: "turbo-windows-arm64@npm:1.10.12"
   conditions: os=win32 & cpu=arm64
   languageName: node
   linkType: hard
 
-"turbo@npm:1.7.0":
-  version: 1.7.0
-  resolution: "turbo@npm:1.7.0"
+"turbo@npm:1.10.12":
+  version: 1.10.12
+  resolution: "turbo@npm:1.10.12"
   dependencies:
-    turbo-darwin-64: 1.7.0
-    turbo-darwin-arm64: 1.7.0
-    turbo-linux-64: 1.7.0
-    turbo-linux-arm64: 1.7.0
-    turbo-windows-64: 1.7.0
-    turbo-windows-arm64: 1.7.0
+    turbo-darwin-64: 1.10.12
+    turbo-darwin-arm64: 1.10.12
+    turbo-linux-64: 1.10.12
+    turbo-linux-arm64: 1.10.12
+    turbo-windows-64: 1.10.12
+    turbo-windows-arm64: 1.10.12
   dependenciesMeta:
     turbo-darwin-64:
       optional: true
@@ -34069,7 +34078,7 @@ __metadata:
       optional: true
   bin:
     turbo: bin/turbo
-  checksum: effefebefeb7531bb33205e368b2b3571fee9e8face3530af25126d4162527f105a5fe7777509a99288326be3b6e28953c7ceacab2c2ef74abb0604c8ec9bbe7
+  checksum: 266b70404e149b92cd64051fcdd03c56b474ed22f6bd11cf4cf1b70f55c72f9a2aaa90109b19b95e43d68e53a6be54485f0cc0135c8d5b505db09fd126a34052
   languageName: node
   linkType: hard
 

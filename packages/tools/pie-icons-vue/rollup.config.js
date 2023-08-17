@@ -1,4 +1,3 @@
-import del from 'rollup-plugin-delete';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 
 export default [
@@ -14,7 +13,6 @@ export default [
             preserveModules: true,
         },
         plugins: [
-            del({ targets: ['esm/*'] }),
             nodeResolve({ resolveOnly: ['@justeattakeaway/pie-icons-configs'] }),
         ],
     },
@@ -30,7 +28,6 @@ export default [
             preserveModules: true,
         },
         plugins: [
-            del({ targets: ['dist/*'] }),
             nodeResolve({
                 resolveOnly: ['@justeattakeaway/pie-icons-configs'],
             })
