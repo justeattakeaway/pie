@@ -29,7 +29,7 @@
     "extends @justeat/browserslist-config-fozzie"
   ],
   "devDependencies": {
-    "@11ty/eleventy": "1.0.2",
+    "@11ty/eleventy": "2.0.0",
     "@11ty/eleventy-navigation": "0.3.5",
     "eleventy-plugin-clean": "1.2.5",
     "eleventy-plugin-rev": "1.1.1",
