@@ -61,6 +61,10 @@ import { PieButton } from '@justeattakeaway/pie-button';
 // React
 // For React, you will need to import our React specific component build
 // Which wraps the web component using the @lit-labs/react package
+
+// Note: When using the React version of the component, please make sure
+// you also include React as a dependency in your project as well. See Peer Dependencies section.
+
 import { PieButton } from '@justeattakeaway/pie-button/dist/react';
 ```
 ## Peer Dependencies
