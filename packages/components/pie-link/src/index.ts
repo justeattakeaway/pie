@@ -63,7 +63,7 @@ export class PieLink extends LitElement implements LinkProps {
                 rel=${ifDefined(rel)}
                 ?isBold=${isBold}
                 ?isStandalone=${isStandalone}>
-                    <div class="pie-link-content">
+                    <div class="c-link-content">
                       ${iconPlacement === 'leading' ? html`<slot name="icon"></slot>` : nothing}
                       <slot></slot>
                       ${iconPlacement === 'trailing' ? html`<slot name="icon"></slot>` : nothing}
