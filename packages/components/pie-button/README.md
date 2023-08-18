@@ -69,9 +69,9 @@ import { PieButton } from '@justeattakeaway/pie-button/dist/react';
 ```
 ## Peer Dependencies
 
-Before using `@justeattakeaway/pie-button`, please make sure you have the following peer dependencies installed in your project:
-
-- `react` (for React integration only)
+> **Note**
+> Before using `@justeattakeaway/pie-button`, please make sure you have the following peer dependencies installed in your project:
+> - `react` (for integration with React apps only)
 
 ## Props
 
