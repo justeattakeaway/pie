@@ -83,7 +83,7 @@ In your markup or JSX, you can then use these to set the properties for the `pie
 | Slot         | Description                                                                                                                                                                                                               |
 | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Default slot | The default slot is used to pass text into the link component.                                                                                                                                                            |
-| icon         | Used to pass in an icon to the link component. The icon placement can be controlled vis the `iconPlacement` prop and we recommend using `pie-icons-webc` for defining this icon, but this can also accept an SVG icon. |
+| icon         | Used to pass in an icon to the link component. The icon placement can be controlled via the `iconPlacement` prop and we recommend using `pie-icons-webc` for defining this icon, but this can also accept an SVG icon. |
 
 ### Using `pie-icons-webc` with the `pie-link` icon slot
 
