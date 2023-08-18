@@ -5,7 +5,7 @@ eleventyNavigation:
     order: 3
 ---
 
-## Table of Contents
+## Overview
 - [Our packages](#our-packages)
 - [Pie Icons](#pie-icons)
   - [Usage - Client-side Javascript](#usage-client-side-javascript)
@@ -22,6 +22,7 @@ eleventyNavigation:
     - [Installation](#installation-2)
     - [Import into your project](#import-into-your-project)
 - [Vue](#vue)
+  - [Usage](#usage-1)
     - [Installation](#installation-3)
     - [Import into your project](#import-into-your-project-1)
 - [Web Components](#web-components)
@@ -193,6 +194,8 @@ This package generates an icon set for Vue.js applications using the base [pie-i
   type: "warning",
   message: "The package is fully compatible with Vue 2. To use these icons in Vue 3, you may need to take some extra steps when building your application. Please reach out to **#help-designsystem** for assistance."
 } %}
+
+### Usage
 
 #### Installation
 You can install the package using `npm` or `yarn`:
