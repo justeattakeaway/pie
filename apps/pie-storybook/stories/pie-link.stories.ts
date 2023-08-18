@@ -93,8 +93,15 @@ const linkStoryMeta: LinkStoryMeta = {
 export default linkStoryMeta;
 
 const Template = ({
-    href, target, rel, size, variant, isBold, isStandalone,
-    slot, iconPlacement,
+    href,
+    target,
+    rel,
+    size,
+    variant,
+    isBold,
+    isStandalone,
+    slot,
+    iconPlacement,
 }: LinkProps): TemplateResult => html`
         <pie-link
             variant="${variant}"
@@ -105,7 +112,7 @@ const Template = ({
             rel="${rel || nothing}"
             ?isBold="${isBold}"
             ?isStandalone="${isStandalone}">
-            ${iconPlacement ? html`<icon-plus-circle slot="icon"></icon-plus-circle>` : ''}
+            ${iconPlacement ? html`<icon-plus-circle slot="icon"></icon-plus-circle>` : nothing}
             ${slot}
         </pie-link>
         `;
