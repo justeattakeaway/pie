@@ -17,7 +17,6 @@ type ToggleSwitchStoryMeta = StoryMeta<ToggleSwitchProps>;
 const defaultArgs: ToggleSwitchProps = {
     isChecked: false,
     isDisabled: false,
-    dir: 'ltr',
     label: 'Label',
     labelPlacement: 'leading',
     aria: {

@@ -10,9 +10,7 @@ const keptReferences = [Pie<%= componentName %>];
 
 type <%= componentName %>StoryMeta = StoryMeta<<%= componentName %>Props>;
 
-const defaultArgs: <%= componentName %>Props = {
-    <% if (needsRTL) { %>dir: 'ltr',<% } %>
-};
+const defaultArgs: <%= componentName %>Props = {};
 
 const <%= componentNameCamelCase %>StoryMeta: <%= componentName %>StoryMeta = {
     title: '<%= displayName %>',

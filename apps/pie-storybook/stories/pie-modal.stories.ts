@@ -37,7 +37,6 @@ const defaultArgs: ModalProps = {
     size: 'medium',
     position: 'center',
     slot: 'This is Lit!',
-    dir: 'ltr',
     leadingAction: {
         text: 'Confirm',
         variant: 'primary',
