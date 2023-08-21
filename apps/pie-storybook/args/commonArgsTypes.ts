@@ -4,6 +4,7 @@
 export const i18nArgTypes = {
     dir: {
         control: 'radio',
-        options: ['ltr', 'rtl', 'auto'],
+        options: [undefined, 'ltr', 'rtl', 'auto'],
+        description: 'Sets the component `dir` value, if `undefined` the value is inherited from the `dir` attribute set in the document root',
     },
 };

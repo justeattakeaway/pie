@@ -1,4 +1,4 @@
-import { html, TemplateResult } from 'lit';
+import { html, TemplateResult<% if (needsRTL) { %>, nothing <% } %>} from 'lit';
 import { type StoryObj as Story } from '@storybook/web-components';
 import { Pie<%= componentName %>, <%= componentName %>Props } from '@justeattakeaway/pie-<%= fileName %>';
 import { type StoryMeta } from '../types';

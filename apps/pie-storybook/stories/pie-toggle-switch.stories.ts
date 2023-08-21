@@ -94,7 +94,7 @@ const Template = (props: ToggleSwitchProps): TemplateResult => {
             label="${label || nothing}"
             labelPlacement="${label && labelPlacement ? labelPlacement : nothing}"
             .aria="${aria}"
-            dir="${dir}"
+            dir="${dir || nothing}"
             ?isChecked="${isChecked}"
             ?isDisabled="${isDisabled}" 
         />`;
