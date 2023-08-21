@@ -5270,6 +5270,8 @@ __metadata:
     "@justeattakeaway/pie-components-config": "workspace:*"
     "@justeattakeaway/pie-css": "workspace:*"
     "@justeattakeaway/pie-webc-core": "workspace:*"
+  peerDependencies:
+    react: ^17.0.0
   languageName: unknown
   linkType: soft
 
