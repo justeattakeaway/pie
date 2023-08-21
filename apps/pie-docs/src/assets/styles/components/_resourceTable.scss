@@ -1,0 +1,30 @@
+@use '../fozzie-config' as f;
+@use './table';
+
+.c-resourceTable {
+    @extend .c-table;
+    @extend .c-table--fullWidth;
+
+    th {
+        @include f.font-size('heading-m');
+        font-weight: f.$font-weight-extrabold;
+    }
+}
+
+.c-resourceTable-resource {
+    display: flex;
+    gap: 8px;
+    align-content: center;
+
+    img {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+.c-resourceTable-status {
+    display: inline;
+    background: var(--bg-colour);
+    padding: 2px f.spacing(a);
+    border-radius: f.$radius-rounded-b;
+}
