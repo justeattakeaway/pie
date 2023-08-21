@@ -89,7 +89,7 @@ const buildRow = (row) => {
     const resourceComponent = `<div class="c-resourceTable-resource"><img src="${icon}"></img>${resourceText}</div>`;
     const statusComponent = `<span class="c-resourceTable-status" style="--bg-colour: ${bgColor}">${row.note ? `${status}: ${row.note}` : status}</span>`;
 
-    return `<tr >
+    return `<tr>
                 <td>
                     ${resourceComponent}
                 </td>

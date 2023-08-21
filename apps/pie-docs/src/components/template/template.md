@@ -26,7 +26,7 @@ eleventyNavigation:
     rows: [
         {
             resource: resourceTypes.COMPONENT,
-            link: "google.co.uk",
+            link: "https://google.co.uk",
             status: statusTypes.AVAILABLE
         },
         {
@@ -44,7 +44,7 @@ eleventyNavigation:
         {
             resource: resourceTypes.REACT,
             status: statusTypes.DEPRECATED,
-            note: "07/04/1990"
+            note: "YYYY-MM-DD"
         },
         {
             resource: resourceTypes.IOS,
