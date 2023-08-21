@@ -4,6 +4,7 @@ import { ToggleSwitchProps } from '@/defs';
 
 const componentSelector = '[data-test-id="toggle-switch-component"]';
 const toggleInputSelector = '[data-test-id="toggle-switch-input"]';
+const toggleSwitchLabel = '[data-test-id="toggle-switch-label"]';
 
 test.describe('Component: `Pie toggle switch`', () => {
     test('should be visible', async ({ mount, page }) => {
@@ -30,7 +31,7 @@ test.describe('Component: `Pie toggle switch`', () => {
         const pieToggleSwitchComponent = await component.locator(componentSelector).isChecked();
 
         // Assert
-        await expect(pieToggleSwitchComponent).toBe(false);
+        expect(pieToggleSwitchComponent).toBe(false);
     });
 
     test('should set `isDisabled` to `false` by default', async ({ mount }) => {
@@ -41,7 +42,36 @@ test.describe('Component: `Pie toggle switch`', () => {
         const pieToggleSwitchComponent = await component.locator(componentSelector).isDisabled();
 
         // Assert
-        await expect(pieToggleSwitchComponent).toBe(false);
+        expect(pieToggleSwitchComponent).toBe(false);
+    });
+
+    test('should set `id` to `toggle-switch` on the input element', async ({ mount }) => {
+        // Arrange
+        const component = await mount(PieToggleSwitch);
+
+        // Act
+        const pieToggleSwitchInput = component.locator(toggleInputSelector);
+
+        // Assert
+        await expect(pieToggleSwitchInput).toHaveAttribute('id', 'toggle-switch');
+    });
+
+    test.describe('when the toggle contains a label element', () => {
+        test('should set associated `for` value on the label', async ({ mount }) => {
+            // Arrange
+            const component = await mount(PieToggleSwitch, {
+                props: {
+                    label: 'Label',
+                    labelPlacement: 'leading',
+                } as ToggleSwitchProps,
+            });
+
+            // Act
+            const pieToggleSwitchLabel = await component.locator(toggleSwitchLabel);
+
+            // Assert
+            await expect(pieToggleSwitchLabel).toHaveAttribute('for', 'toggle-switch');
+        });
     });
 
     test.describe('component interaction states', () => {
@@ -56,6 +86,26 @@ test.describe('Component: `Pie toggle switch`', () => {
 
                 // Act
                 await page.click(componentSelector);
+
+                const pieToggleSwitchComponent = await component.locator(componentSelector).isChecked();
+
+                // Assert
+                await expect(pieToggleSwitchComponent).toBe(true);
+            });
+        });
+
+        test.describe('when the components label element is clicked', () => {
+            test('should set `isChecked` to `true`', async ({ mount, page }) => {
+                // Arrange
+                const component = await mount(PieToggleSwitch, {
+                    props: {
+                        label: 'Label',
+                        labelPlacement: 'leading',
+                    } as ToggleSwitchProps,
+                });
+
+                // Act
+                await page.click(toggleSwitchLabel);
 
                 const pieToggleSwitchComponent = await component.locator(componentSelector).isChecked();
 
