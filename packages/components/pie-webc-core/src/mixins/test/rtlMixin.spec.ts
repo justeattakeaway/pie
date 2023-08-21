@@ -24,7 +24,7 @@ describe('RtlMixin', () => {
     customElements.define(componentSelector, MockComponent);
 
     function getMockInstance (): MockComponent {
-        return document.body.querySelector('rtl-mixin-mock') as MockComponent;
+        return document.body.querySelector(componentSelector) as MockComponent;
     }
 
     describe('when the dir attribute is set via the component', () => {
@@ -66,6 +66,7 @@ describe('RtlMixin', () => {
 
         // Assert
         expect(component.dir).toEqual(componentDir);
+        expect(component.dir).not.toEqual(rootDir);
         expect(component.isRTL).toBeTruthy();
     });
 });

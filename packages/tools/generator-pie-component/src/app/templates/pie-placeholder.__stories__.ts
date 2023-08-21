@@ -32,7 +32,7 @@ export default <%= componentNameCamelCase %>StoryMeta;
 // TODO: remove the eslint-disable rule when props are added
 // eslint-disable-next-line no-empty-pattern
 const Template = ({ <% if (needsRTL) { %>dir<% } %> }: <%= componentName %>Props): TemplateResult => html`
-  <pie-<%= fileName %><% if (needsRTL) { %> dir="${dir}"<% } %>></pie-<%= fileName %>>
+  <pie-<%= fileName %><% if (needsRTL) { %> dir="${dir || nothing}"<% } %>></pie-<%= fileName %>>
 `;
 
 export const Default: Story<<%= componentName %>Props> = (args: <%= componentName %>Props) => Template(args);
