@@ -96,11 +96,7 @@ const buildRow = (row) => {
 };
 
 /**
- * If `tableData` contains no headings, the table will enter a headerless mode, where:
- * 1. The first column will have bold text
- * 2. Other columns will have subdued text
- * 3. Rows stack vertically at narrow viewports
- *
+ * A HTML table component
  * @param {string} heading - The heading for the resource table (Web/Apps) - can be left empty
  * @param {object[]} rows - An array of row objects. Row contains a `resource` (e.g. documnentation/vue/ios) a status (e.g. planned/beta/n/a) an optional link and an optional note
  */
