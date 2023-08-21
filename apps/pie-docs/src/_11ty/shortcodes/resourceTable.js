@@ -44,6 +44,10 @@ const statusSettings = {
         bgColor: statusColours.done,
         status: 'N/A',
     },
+    [statusTypes.TBC]: {
+        bgColor: statusColours.done,
+        status: 'TBC',
+    },
 };
 
 const resourceSettings = {

@@ -11,4 +11,5 @@ module.exports = {
     REMOVED: 'removed',
     DEPRECATED: 'deprecated',
     NOT_APPLICABLE: 'notApplicable',
+    TBC: 'tbc',
 };

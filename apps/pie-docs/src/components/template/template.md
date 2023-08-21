@@ -39,7 +39,7 @@ eleventyNavigation:
         },
         {
             resource: resourceTypes.VUE,
-            status: statusTypes.BETA
+            status: statusTypes.TBC
         },
         {
             resource: resourceTypes.REACT,
