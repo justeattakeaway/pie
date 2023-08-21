@@ -2,11 +2,11 @@
 @use './table';
 
 .c-simpleTable {
-    @extend .c-table;
+    @extend %c-table;
 }
 
 .c-simpleTable--fullWidth {
-    @extend .c-table--fullWidth;
+    @extend %c-table-full-width;
 }
 
 .c-simpleTable--monospace {

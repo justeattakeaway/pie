@@ -2,8 +2,8 @@
 @use './table';
 
 .c-resourceTable {
-    @extend .c-table;
-    @extend .c-table--fullWidth;
+    @extend %c-table;
+    @extend %c-table-full-width;
 
     th {
         @include f.font-size('heading-m');

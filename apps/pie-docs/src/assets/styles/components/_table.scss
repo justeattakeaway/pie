@@ -1,7 +1,7 @@
 @use '../fozzie-config' as f;
 @use '../variables' as v;
 
-.c-table {
+%c-table {
     background-color: f.$color-container-default;
     box-shadow: 0 0 1px 1px f.$color-border-default;
     border-collapse: collapse;
@@ -24,6 +24,6 @@
     }
 }
 
-.c-table--fullWidth {
+%c-table-full-width {
     max-inline-size: 100%;
 }
