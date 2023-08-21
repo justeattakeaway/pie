@@ -1,5 +1,5 @@
-import del from 'rollup-plugin-delete';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
+import commonjs from '@rollup/plugin-commonjs';
 
 export default [
     {
@@ -14,8 +14,8 @@ export default [
             preserveModules: true,
         },
         plugins: [
-            del({ targets: ['esm/*'] }),
-            nodeResolve({ resolveOnly: ['@justeattakeaway/pie-icons-configs'] }),
+            nodeResolve(),
+            commonjs(),
         ],
     },
     {
@@ -30,10 +30,8 @@ export default [
             preserveModules: true,
         },
         plugins: [
-            del({ targets: ['dist/*'] }),
-            nodeResolve({
-                resolveOnly: ['@justeattakeaway/pie-icons-configs'],
-            })
+            nodeResolve(),
+            commonjs(),
         ],
     },
 ];

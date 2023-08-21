@@ -6,8 +6,7 @@
     "dev": "storybook dev -p 6006",
     "build": "storybook build --output-dir dist",
     "lint:scripts": "run -T eslint .",
-    "lint:scripts:fix": "run -T eslint . --fix",
-    "serve": "serve --no-request-logging dist"
+    "lint:scripts:fix": "run -T eslint . --fix"
   },
   "author": "JustEatTakeaway - Design System Web Team",
   "license": "Apache-2.0",
@@ -32,7 +31,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "serve": "14.2.0",
-    "storybook": "7.1.0",
+    "storybook": "7.2.0",
     "storybook-addon-designs": "beta"
   },
   "volta": {

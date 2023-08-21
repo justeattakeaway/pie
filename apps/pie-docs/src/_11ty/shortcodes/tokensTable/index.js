@@ -1,5 +1,5 @@
 /* eslint-disable no-trailing-spaces */
-const pieTokenCategories = require('../../../tokenCategories.json');
+const pieTokenCategories = require('@justeat/pie-design-tokens/metadata/tokenCategories.json');
 const tokenTypes = require('../../../_data/tokenTypes');
 const { buildColorExample } = require('./tokenTypes/colour');
 const { buildElevationExample } = require('./tokenTypes/elevation');

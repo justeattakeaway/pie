@@ -7,8 +7,7 @@
         "^build"
       ],
       "outputs": [
-        "dist/**",
-        "esm/**"
+        "dist/**"
       ]
     },
     "build:examples": {
@@ -23,6 +22,10 @@
         ".nuxt/**",
         ".output/**"
       ]
+    },
+    "build:icons": {
+      "cache": false,
+      "dependsOn": []
     },
     "generate:examples": {
       "cache": true,
@@ -39,47 +42,8 @@
       "cache": true,
       "dependsOn": []
     },
-    "pie-docs#build": {
-      "cache": true,
-      "dependsOn": [
-        "^build"
-      ],
-      "outputs": [
-        "dist/**"
-      ]
-    },
-    "pie-docs#build:dev": {
-      "cache": true,
-      "dependsOn": [
-        "^build"
-      ]
-    },
-    "pie-docs#dev": {
-      "cache": false,
-      "dependsOn": [
-        "pie-docs#build:dev",
-        "^build"
-      ]
-    },
     "clean": {
       "cache": true
-    },
-    "pie-storybook#serve": {
-      "dependsOn": [
-        "pie-storybook#build"
-      ]
-    },
-    "pie-storybook#dev": {
-      "cache": false,
-      "dependsOn": [
-        "^build"
-      ]
-    },
-    "pie-docs#test:generate-routes": {
-      "dependsOn": [
-        "pie-docs#build"
-      ],
-      "cache": false
     },
     "test": {
       "cache": true,
@@ -93,6 +57,13 @@
       ],
       "inputs": [
         "src/**"
+      ]
+    },
+    "test:watch": {
+      "cache": false,
+      "dependsOn": [
+        "build",
+        "^test"
       ]
     },
     "test:ci": {
@@ -110,7 +81,7 @@
       ]
     },
     "test:coverage": {
-      "outputs": []
+      "cache": false
     },
     "test:browsers": {
       "cache": true,
@@ -137,8 +108,7 @@
       "cache": false,
       "dependsOn": [
         "^build"
-      ],
-      "outputs": []
+      ]
     },
     "test:visual:ci": {
       "cache": false,
@@ -151,11 +121,14 @@
       "outputs": []
     },
     "lint:scripts:fix": {
-      "cache": false,
-      "outputs": []
+      "cache": false
     },
     "lint:style": {
-      "cache": true
+      "cache": true,
+      "outputs": []
+    },
+    "lint:style:fix": {
+      "cache": false
     },
     "lint:examples": {
       "cache": true,
