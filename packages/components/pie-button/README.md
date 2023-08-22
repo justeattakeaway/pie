@@ -13,11 +13,12 @@
 1. [Introduction](#pie-button)
 2. [Local Development](#local-development)
 3. [Props](#props)
-4. [Events](#events)
+4. [Peer Dependencies](#peer-dependencies)
+5. [Events](#events)
    - [HTML example](#html)
    - [Vue example (using Nuxt 3)](#vue-templates-using-nuxt-3)
    - [React example (using Next 13)](#react-templates-using-next-13)
-5. [Testing](#testing)
+6. [Testing](#testing)
    - [Browser Tests](#browser-tests)
    - [Visual Tests](#visual-tests)
 
@@ -60,8 +61,17 @@ import { PieButton } from '@justeattakeaway/pie-button';
 // React
 // For React, you will need to import our React specific component build
 // Which wraps the web component using the @lit-labs/react package
+
+// Note: When using the React version of the component, please make sure
+// you also include React as a dependency in your project as well. See Peer Dependencies section.
+
 import { PieButton } from '@justeattakeaway/pie-button/dist/react';
 ```
+## Peer Dependencies
+
+> **Note**
+> Before using `@justeattakeaway/pie-button`, please make sure you have the following peer dependencies installed in your project:
+> - `react` (for integration with React apps only)
 
 ## Props
 
