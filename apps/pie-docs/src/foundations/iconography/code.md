@@ -299,8 +299,15 @@ yarn add @justeattakeaway/pie-icons-webc
 #### Import into your project
 We suggest importing the bundle for an individual component directly.
 
+{% notification {
+  type: "information",
+  message: "These components are compiled from TypeScript and have type definitions available. Therefore they will work in TypeScript projects."
+} %}
+
 ```js
-import '@justeattakeaway/pie-icons-webc/icons/IconAppRestaurant';
+
+```js
+import '@justeattakeaway/pie-icons-webc/icons/IconAppRestaurant.js';
 
 export class MyAmazingComponent extends LitElement {
   render () {
