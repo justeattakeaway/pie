@@ -13,6 +13,7 @@ import {
 import {
     WebComponentTestWrapper,
 } from '@justeattakeaway/pie-webc-testing/src/helpers/components/web-component-test-wrapper/WebComponentTestWrapper.ts';
+import { percyWidths } from '@justeattakeaway/pie-webc-testing/src/percy/breakpoints.ts';
 import { variants, orientations } from '@/defs';
 import { PieDivider } from '@/index';
 
@@ -46,5 +47,5 @@ componentVariants.forEach((variant) => test(`Render all prop variations for Vari
         );
     }));
 
-    await percySnapshot(page, `PIE Divider - Variant: ${variant}`);
+    await percySnapshot(page, `PIE Divider - Variant: ${variant}`, percyWidths);
 }));
