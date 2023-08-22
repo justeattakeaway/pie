@@ -13,7 +13,7 @@ $breakpoint-wide: 768px;
     --cb-font-weight: var(--dt-font-body-l-weight);
     --cb-padding-inline: var(--dt-spacing-d);
     --cb-padding-block: var(--dt-spacing-d);
-    --cb-offset: var(--dt-spacing-d);
+    --cb-offset: 0;
 
     background-color: var(--dt-color-background-dark);
     color: var(--dt-color-content-inverse);
@@ -25,18 +25,16 @@ $breakpoint-wide: 768px;
     padding-block-end: var(--cb-padding-block);
     max-height: 432px;
     position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    bottom: var(--cb-offset);
+    left: var(--cb-offset);
+    right: var(--cb-offset);
     border-top-left-radius: var(--dt-radius-rounded-c);
     border-top-right-radius: var(--dt-radius-rounded-c);
 
     @media (min-width: $breakpoint-wide) {
         --cb-padding-inline: var(--dt-spacing-f);
+        --cb-offset: var(--dt-spacing-d);
 
-        bottom: var(--cb-offset);
-        left: var(--cb-offset);
-        right: var(--cb-offset);
         border-bottom-left-radius: var(--dt-radius-rounded-c);
         border-bottom-right-radius: var(--dt-radius-rounded-c);
     }
