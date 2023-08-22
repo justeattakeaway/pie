@@ -43,7 +43,7 @@ We have a number of different icon packages available for use in our application
 
 `@justeattakeaway/pie-icons` is our base icon package, from which our other icon packages extend. It is a collection of SVG files. This means that you can use these icons in all the same ways you can use SVGs (e.g. img, background-image, inline, object, embed, iframe).
 
-[This package](https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons) is used to build the framework-specific icons for Web Components, React and Vue.
+[This package](https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons) also provides a JavaScript API for the iconset, and this is what is used to build the framework-specific icons for Web Components, React and Vue.
 
 
 {% notification {
@@ -78,7 +78,7 @@ You can load directly from the installed package, or from a CDN provider.
 ```
 
 #### HTML
-Simply add a `data-pie-icons` attribute with the icon name to an element. You can see all of our icons on the [library page](http://localhost:8080/foundations/iconography/library/).
+Simply add a `data-pie-icons` attribute with the icon name to an element. You can see all of our icons on the [library page](/foundations/iconography/library/).
 
 ```html
 <i data-pie-icons="menu"></i>
@@ -146,7 +146,7 @@ pieIcons.icons.x.toSvg({ class: 'foo bar', 'stroke-width': 1, color: 'red' })
 
 ## React (pie-icons-react)
 
-This package generates an icon set for React applications using the base [pie-icons](https://www.npmjs.com/package/@justeattakeaway/pie-icons) package. The SVGs in pie-icons are compiled into React components.
+This package generates an icon set for React applications using the base [pie-icons](https://www.npmjs.com/package/@justeattakeaway/pie-icons) package. The SVGs in `pie-icons` are compiled into React components.
 
 The icons are bundled in CommonJS and ES Modules, to be more easily adopted for modern React Applications.
 
@@ -188,7 +188,7 @@ export default function App() {
 
 ## Vue (pie-icons-vue)
 
-This package generates an icon set for Vue.js applications using the base [pie-icons](https://www.npmjs.com/package/@justeattakeaway/pie-icons) package. The SVGs in pie-icons are compiled into single file components that can be imported into Vue applications.
+This package generates an icon set for Vue.js applications using the base [pie-icons](https://www.npmjs.com/package/@justeattakeaway/pie-icons) package. The SVGs in `pie-icons` are compiled into single file components that can be imported into Vue applications.
 
 {% notification {
   type: "warning",
