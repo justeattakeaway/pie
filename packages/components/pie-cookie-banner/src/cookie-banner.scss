@@ -86,11 +86,6 @@ $breakpoint-wide: 768px;
         // The shadow itself does not move as you scroll.
         background-attachment: local, scroll;
     }
-
-    // TODO: this is a temporarily hard-coded style. We will use pie-link in future instead of <a> tags
-    a:visited {
-        color: currentcolor;
-    }
 }
 
 .c-cookieBanner-actions {
