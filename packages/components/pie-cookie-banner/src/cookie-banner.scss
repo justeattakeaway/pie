@@ -8,7 +8,7 @@ $breakpoint-wide: 768px;
 
 .c-cookieBanner {
     --cb-font-family: var(--dt-font-interactive-m-family);
-    --cb-font-size: #{p.font-size(--dt-font-body-l-size)};
+    --cb-font-size: #{p.font-size('--dt-font-body-l-size')};
     --cb-line-height: calc(var(--dt-font-body-l-line-height) * 1px);
     --cb-font-weight: var(--dt-font-body-l-weight);
     --cb-padding-inline: var(--dt-spacing-d);
@@ -44,7 +44,7 @@ $breakpoint-wide: 768px;
     --cb-title-font-size: var(--dt-font-heading-s-size--narrow);
     --cb-title-line-height: var(--dt-font-heading-s-line-height--narrow);
 
-    font-size: #{p.font-size(--cb-title-font-size)};
+    font-size: #{p.font-size('--cb-title-font-size')};
     font-weight: var(--dt-font-heading-s-weight);
     line-height: calc(var(--cb-title-line-height) * 1px);
 
