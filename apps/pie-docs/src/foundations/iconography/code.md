@@ -21,15 +21,17 @@ eleventyNavigation:
   - [Usage](#usage)
     - [Installation](#installation-2)
     - [Import into your project](#import-into-your-project)
+    - [Size](#size)
 - [Vue (pie-icons-vue)](#vue-pie-icons-vue)
   - [Usage](#usage-1)
     - [Installation](#installation-3)
     - [Import into your project](#import-into-your-project-1)
+    - [Size](#size-1)
 - [Web Components (pie-icons-webc)](#web-components-pie-icons-webc)
   - [Usage - In Lit Components](#usage-in-lit-components)
     - [Installation](#installation-4)
     - [Import into your project](#import-into-your-project-2)
-
+    - [Size](#size-2)
 
 ---
 
@@ -179,6 +181,23 @@ export default function App() {
 }
 ```
 
+#### Size
+
+Icons are made available in different size variants:
+- small
+- large, when its name has the `Large` suffix
+
+Small icons default size is `xs` and can use one of the following pre-determined values for `size`: `xs`, `s`, `m`, `l`, `xl`, and `xxl`. You can learn more about small icon sizes [here](/foundations/iconography/overview/#:~:text=Sizes%20for%20the%20Small%20icon%20set).
+
+Large icons `size` default and minimum value is `32`. Values larger than the minimum must be multiples of `8`, otherwise will be automatically rounded. You can learn more about large icon sizes [here](/foundations/iconography/overview/#:~:text=Sizes%20for%20the%20Large%20icon%20set).
+
+Example:
+
+```tsx
+<IconAlertTriangle size="l" />
+<IconAlertTriangleLarge size={40} />
+```
+
 {% notification {
   type: "information",
   message: "For more information, please refer to the package [README](https://github.com/justeattakeaway/pie/blob/main/packages/tools/pie-icons-react/README.md)."
@@ -234,6 +253,23 @@ Simply import the icons you need into your project:
   </style>
   ```
 
+#### Size
+
+Icons are made available in different size variants:
+- small
+- large, when its name has the `Large` suffix
+
+Small icons default size is `xs` and can use one of the following pre-determined values for `size`: `xs`, `s`, `m`, `l`, `xl`, and `xxl`. You can learn more about small icon sizes [here](/foundations/iconography/overview/#:~:text=Sizes%20for%20the%20Small%20icon%20set).
+
+Large icons `size` default and minimum value is `32`. Values larger than the minimum must be multiples of `8`, otherwise will be automatically rounded. You can learn more about large icon sizes [here](/foundations/iconography/overview/#:~:text=Sizes%20for%20the%20Large%20icon%20set).
+
+Example:
+
+```js
+<IconAlertTriangle size="l" />
+<IconAlertTriangleLarge size="40" />
+```
+
 {% notification {
   type: "information",
   message: "For more information, please refer to the [package README](https://github.com/justeattakeaway/pie/blob/main/packages/tools/pie-icons-vue/README.md)."
@@ -275,6 +311,23 @@ export class MyAmazingComponent extends LitElement {
       </h2>`;
   }
 }
+```
+
+#### Size
+
+Icons are made available in different size variants:
+- small
+- large, when its name has the `Large` suffix
+
+Small icons default size is `xs` and can use one of the following pre-determined values for `size`: `xs`, `s`, `m`, `l`, `xl`, and `xxl`. You can learn more about small icon sizes [here](/foundations/iconography/overview/#:~:text=Sizes%20for%20the%20Small%20icon%20set).
+
+Large icons `size` default and minimum value is `32`. Values larger than the minimum must be multiples of `8`, otherwise will be automatically rounded. You can learn more about large icon sizes [here](/foundations/iconography/overview/#:~:text=Sizes%20for%20the%20Large%20icon%20set).
+
+Example:
+
+```js
+<IconAlertTriangle size="l" />
+<IconAlertTriangleLarge size="40" />
 ```
 
 {% notification {
