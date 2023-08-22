@@ -48,7 +48,7 @@ We have a number of different icon packages available for use in our application
 
 {% notification {
   type: "warning",
-  message: "Whilst this package can be used for web applications, we strongly advise that you use a framework-specific implementation instead."
+  message: "Whilst the `pie-icons` package can be used for web applications, we strongly advise that you use one of our framework-specific implementations instead."
 } %}
 
 ### Usage - Client-side Javascript
