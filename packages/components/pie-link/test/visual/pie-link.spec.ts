@@ -14,7 +14,7 @@ import {
     WebComponentTestWrapper,
 } from '@justeattakeaway/pie-webc-testing/src/helpers/components/web-component-test-wrapper/WebComponentTestWrapper.ts';
 import {
-    variants, sizes, iconPlacements, LinkProps,
+    variants, sizes, iconPlacements,
 } from '@/defs';
 import { PieLink } from '@/index';
 
