@@ -39,9 +39,9 @@ We have a number of different icon packages available for use in our application
 
 ---
 
-## Pie Icons
+## Vanilla JS (pie-icons)
 
-`@justeattakeaway/pie-icons` is our base icon package. It is a collection of SVG files. This means that you can use these icons in all the same ways you can use SVGs (e.g. img, background-image, inline, object, embed, iframe).
+`@justeattakeaway/pie-icons` is our base icon package, from which our other icon packages extend. It is a collection of SVG files. This means that you can use these icons in all the same ways you can use SVGs (e.g. img, background-image, inline, object, embed, iframe).
 
 [This package](https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons) is used to build the framework-specific icons for Web Components, React and Vue.
 
@@ -110,14 +110,14 @@ yarn add @justeattakeaway/pie-icons
 Simply require the package in your application where needed:
 
 ```js
-const pieicons = require('@justeattakeaway/pie-icons');
+const pieIcons = require('@justeattakeaway/pie-icons');
 ```
 
 #### Call the APIs
 The package exposes a number of APIs for you to use:
 
 ```js
-pieicons.icons.x
+pieIcons.icons.x
 // {
 //    name: 'x',
 //    contents: '<line ... /><line ... />`,
@@ -129,10 +129,10 @@ pieicons.icons.x
 //    toSvg: [Function],
 // }
 
-pieicons.icons.x.toSvg()
+pieIcons.icons.x.toSvg()
 // <svg class="c-pieIcon c-pieIcon--x" ...><line ... /><line ... /></svg>
 
-pieicons.icons.x.toSvg({ class: 'foo bar', 'stroke-width': 1, color: 'red' })
+pieIcons.icons.x.toSvg({ class: 'foo bar', 'stroke-width': 1, color: 'red' })
 // <svg class="c-pieIcon c-pieIcon--x foo bar" stroke-width="1" color="red" ...><line ... /><line ... /></svg>
 ```
 
@@ -144,7 +144,7 @@ pieicons.icons.x.toSvg({ class: 'foo bar', 'stroke-width': 1, color: 'red' })
 
 ---
 
-## React
+## React (pie-icons-react)
 
 This package generates an icon set for React applications using the base [pie-icons](https://www.npmjs.com/package/@justeattakeaway/pie-icons) package. The SVGs in pie-icons are compiled into React components.
 
@@ -173,7 +173,7 @@ export default function App() {
   return (
     <div className="App">
       <IconCalendar />
-      <IconAlertTriangleLarge fill={PIE_ALIAS_COLOR_TOKEN} />
+      <IconAlertTriangleLarge />
     </div>
   );
 }
@@ -186,7 +186,7 @@ export default function App() {
 
 ---
 
-## Vue
+## Vue (pie-icons-vue)
 
 This package generates an icon set for Vue.js applications using the base [pie-icons](https://www.npmjs.com/package/@justeattakeaway/pie-icons) package. The SVGs in pie-icons are compiled into single file components that can be imported into Vue applications.
 
@@ -213,7 +213,7 @@ Simply import the icons you need into your project:
 ```html
   <template>
       <icon-calendar />
-      <icon-alert-triangle-large fill={PIE_ALIAS_COLOR_TOKEN} />
+      <icon-alert-triangle-large />
   </template>
 
   <script>
@@ -225,18 +225,24 @@ Simply import the icons you need into your project:
           IconAlertTriangleLarge
       }
   };
+
   </script>
+  <style>
+    svg {
+      fill: {PIE_ALIAS_COLOR_TOKEN};
+    }
+  </style>
   ```
 
 {% notification {
   type: "information",
-  message: "For more information, please refer to the package [README](https://github.com/justeattakeaway/pie/blob/main/packages/tools/pie-icons-vue/README.md)."
+  message: "For more information, please refer to the [package README](https://github.com/justeattakeaway/pie/blob/main/packages/tools/pie-icons-vue/README.md)."
 } %}
 
 ---
-## Web Components
+## Web Components (pie-icons-webc)
 
-This package generates a framework-agnostic Web Component icon set for web applications. It uses the base [pie-icons](https://www.npmjs.com/package/@justeattakeaway/pie-icons) package. The SVGs in pie-icons are compiled into [Lit](https://lit.dev/) web components.
+This package generates a framework-agnostic Web Component icon set for web applications. It uses the base [pie-icons](https://www.npmjs.com/package/@justeattakeaway/pie-icons) package. The SVGs in `pie-icons` are compiled into [Lit](https://lit.dev/) web components.
 
 {% notification {
   type: "warning",
@@ -273,5 +279,5 @@ export class MyAmazingComponent extends LitElement {
 
 {% notification {
   type: "information",
-  message: "For more information, please refer to the package [README](https://github.com/justeattakeaway/pie/blob/main/packages/tools/pie-icons-webc/README.md)."
+  message: "For more information, please refer to the [package README](https://github.com/justeattakeaway/pie/blob/main/packages/tools/pie-icons-webc/README.md)."
 } %}
