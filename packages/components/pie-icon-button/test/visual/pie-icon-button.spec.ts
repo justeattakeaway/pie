@@ -12,6 +12,7 @@ import {
 import {
     WebComponentTestWrapper,
 } from '@justeattakeaway/pie-webc-testing/src/helpers/components/web-component-test-wrapper/WebComponentTestWrapper.ts';
+import { percyWidths } from '@justeattakeaway/pie-webc-testing/src/percy/breakpoints.ts';
 import { PieIconButton } from '@/index';
 
 import { sizes, variants } from '@/defs';
@@ -66,5 +67,5 @@ componentVariants.forEach((variant) => test(`Render all prop variations for Vari
         );
     }));
 
-    await percySnapshot(page, `PIE Icon Button - Variant: ${variant}`);
+    await percySnapshot(page, `PIE Icon Button - Variant: ${variant}`, percyWidths);
 }));
