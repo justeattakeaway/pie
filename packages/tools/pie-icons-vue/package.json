@@ -55,7 +55,7 @@
     "@vue/babel-helper-vue-jsx-merge-props": "1.4.0"
   },
   "devDependencies": {
-    "@justeattakeaway/pie-icons": "4.5.0",
+    "@justeattakeaway/pie-icons": "workspace:*",
     "@justeattakeaway/pie-icons-configs": "workspace:*",
     "@rollup/plugin-commonjs": "25.0.4",
     "@vue/babel-preset-jsx": "1.4.0",
@@ -63,10 +63,10 @@
     "eslint-plugin-vue": "^9.9.0",
     "fs-extra": "9.1.0",
     "lodash.kebabcase": "4.1.1",
-    "marked": "1.2.9",
+    "marked": "7.0.4",
     "pascal-case": "3.1.2",
     "prismjs": "1.29.0",
-    "rollup": "3.20.2"
+    "rollup": "3.28.1"
   },
   "volta": {
     "extends": "../../../package.json"
