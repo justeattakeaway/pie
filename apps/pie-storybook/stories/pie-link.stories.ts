@@ -1,7 +1,7 @@
 import { html, TemplateResult, nothing } from 'lit';
 import { type StoryObj as Story } from '@storybook/web-components';
 import {
-    PieLink, LinkProps as LinkBaseProps, sizes, variants,
+    PieLink, LinkProps as LinkBaseProps, sizes, variants, iconPlacements,
 } from '@justeattakeaway/pie-link';
 import type { StoryMeta, SlottedComponentProps } from '../types';
 
@@ -41,6 +41,11 @@ const linkStoryMeta: LinkStoryMeta = {
             defaultValue: {
                 summary: 'medium',
             },
+        },
+        iconPlacement: {
+            description: 'Show a leading/trailing icon.<br /><br />To use this with pie-link, you can pass an icon into the `icon` slot',
+            control: 'select',
+            options: [undefined, ...iconPlacements],
         },
         href: {
             description: 'The URL that the hyperlink should point to',
@@ -88,16 +93,26 @@ const linkStoryMeta: LinkStoryMeta = {
 export default linkStoryMeta;
 
 const Template = ({
-    href, target, rel, size, variant, isBold, isStandalone, slot,
+    href,
+    target,
+    rel,
+    size,
+    variant,
+    isBold,
+    isStandalone,
+    slot,
+    iconPlacement,
 }: LinkProps): TemplateResult => html`
         <pie-link
             variant="${variant}"
             size="${size}"
+            iconPlacement="${iconPlacement || nothing}"
             href="${href || nothing}"
             target="${target || nothing}"
             rel="${rel || nothing}"
             ?isBold="${isBold}"
             ?isStandalone="${isStandalone}">
+            ${iconPlacement ? html`<icon-plus-circle slot="icon"></icon-plus-circle>` : nothing}
             ${slot}
         </pie-link>
         `;
