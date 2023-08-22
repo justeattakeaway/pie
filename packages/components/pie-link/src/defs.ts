@@ -1,8 +1,13 @@
 export const variants = ['default', 'high-visibility', 'inverse'] as const;
 export const sizes = ['small', 'medium'] as const;
 export const iconPlacements = ['leading', 'trailing'] as const;
+export const tags = ['a', 'button'] as const;
 
 export interface LinkProps {
+     /**
+     * What HTML element the link should be such as a or button.
+     */
+    tag: typeof tags[number];
     /**
      * What style variant the link should be such as default, high-visibility or inverse.
      */

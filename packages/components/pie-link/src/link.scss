@@ -18,6 +18,18 @@
     text-decoration: var(--link-text-decoration);
     cursor: pointer;
 
+    &[tag='a'] {
+        /* Same as default styles */
+    }
+
+    &[tag='button'] {
+        outline: none;
+        border: none;
+        user-select: none;
+        background: transparent;
+        padding: 0;
+    }
+
     &[variant='default'] {
         /* Same as default styles */
     }

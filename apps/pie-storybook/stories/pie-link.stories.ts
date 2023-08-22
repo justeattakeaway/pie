@@ -1,7 +1,8 @@
 import { html, TemplateResult, nothing } from 'lit';
 import { type StoryObj as Story } from '@storybook/web-components';
 import {
-    PieLink, LinkProps as LinkBaseProps, sizes, variants, iconPlacements,
+    PieLink, LinkProps as LinkBaseProps, sizes, variants,
+    iconPlacements, tags,
 } from '@justeattakeaway/pie-link';
 import type { StoryMeta, SlottedComponentProps } from '../types';
 
@@ -13,6 +14,7 @@ type LinkProps = SlottedComponentProps<LinkBaseProps>;
 type LinkStoryMeta = StoryMeta<LinkProps>;
 
 const defaultArgs: LinkProps = {
+    tag: 'a',
     variant: 'default',
     size: 'medium',
     href: 'https://pie.design',
@@ -26,6 +28,14 @@ const linkStoryMeta: LinkStoryMeta = {
     title: 'Link',
     component: 'pie-link',
     argTypes: {
+        tag: {
+            description: 'Set the element tag of the link.',
+            control: 'select',
+            options: tags,
+            defaultValue: {
+                summary: 'a',
+            },
+        },
         variant: {
             description: 'Set the variant of the link.',
             control: 'select',
@@ -50,14 +60,17 @@ const linkStoryMeta: LinkStoryMeta = {
         href: {
             description: 'The URL that the hyperlink should point to',
             control: 'text',
+            if: { arg: 'tag', eq: 'a' },
         },
         target: {
             description: 'Set where to display the linked URL',
             control: 'text',
+            if: { arg: 'tag', eq: 'a' },
         },
         rel: {
             description: 'Set what the relationship of the linked URL is',
             control: 'text',
+            if: { arg: 'tag', eq: 'a' },
         },
         isBold: {
             description: 'If `true`, makes the link text bold',
@@ -93,6 +106,7 @@ const linkStoryMeta: LinkStoryMeta = {
 export default linkStoryMeta;
 
 const Template = ({
+    tag,
     href,
     target,
     rel,
@@ -104,6 +118,7 @@ const Template = ({
     iconPlacement,
 }: LinkProps): TemplateResult => html`
         <pie-link
+            tag="${tag}"
             variant="${variant}"
             size="${size}"
             iconPlacement="${iconPlacement || nothing}"

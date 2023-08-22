@@ -1,12 +1,10 @@
-import {
-    LitElement, html, unsafeCSS, nothing,
-} from 'lit';
+import { LitElement, unsafeCSS, nothing } from 'lit';
+import { html, unsafeStatic } from 'lit/static-html.js';
 import { property } from 'lit/decorators.js';
-import { ifDefined } from 'lit/directives/if-defined.js';
 import { validPropertyValues } from '@justeattakeaway/pie-webc-core';
 import styles from './link.scss?inline';
 import {
-    LinkProps, variants, sizes, iconPlacements,
+    LinkProps, variants, sizes, iconPlacements, tags,
 } from './defs';
 
 // Valid values available to consumers
@@ -20,6 +18,10 @@ const componentSelector = 'pie-link';
  */
 
 export class PieLink extends LitElement implements LinkProps {
+    @property()
+    @validPropertyValues(componentSelector, tags, 'a')
+    public tag: LinkProps['tag'] = 'a';
+
     @property({ type: String })
     @validPropertyValues(componentSelector, variants, 'default')
     public variant: LinkProps['variant'] = 'default';
@@ -49,27 +51,38 @@ export class PieLink extends LitElement implements LinkProps {
 
     render () {
         const {
-            variant, size, iconPlacement, href, target, rel, isBold, isStandalone,
+            tag,
+            variant,
+            size,
+            iconPlacement,
+            isBold,
+            isStandalone,
+            href,
+            target,
+            rel,
         } = this;
 
+        const element = unsafeStatic(tag);
+        const isButton = tag === 'button';
+
         return html`
-            <a
+            <${element}  
                 data-test-id="pie-link"
                 class="c-link"
+                tag="${tag}"
                 variant=${variant}
                 size=${size}
-                href=${ifDefined(href)}
-                target=${ifDefined(target)}
-                rel=${ifDefined(rel)}
                 ?isBold=${isBold}
-                ?isStandalone=${isStandalone}>
+                ?isStandalone=${isStandalone}
+                href=${!isButton && href ? href : nothing}
+                target=${!isButton && target ? target : nothing}
+                rel=${!rel && rel ? target : nothing}>
                     <div class="c-link-content">
-                      ${iconPlacement === 'leading' ? html`<slot name="icon"></slot>` : nothing}
-                      <slot></slot>
-                      ${iconPlacement === 'trailing' ? html`<slot name="icon"></slot>` : nothing}
+                        ${iconPlacement === 'leading' ? html`<slot name="icon"></slot>` : nothing}
+                        <slot></slot>
+                        ${iconPlacement === 'trailing' ? html`<slot name="icon"></slot>` : nothing}
                     </div>
-                </div>
-            </a>`;
+            </${element}>`;
     }
 
     // Renders a `CSSResult` generated from SCSS by Vite
