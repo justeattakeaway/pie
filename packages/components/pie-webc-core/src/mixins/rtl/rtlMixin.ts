@@ -27,17 +27,17 @@ declare class _RTLInterface {
  * - Needs RTL awareness in its TypeScript logic.
  * - Its CSS requires a [dir='rtl'] attribute to be present.
  *
- * By default, the 'dir' property will be inferred from a 'dir' attribute set in the document root.
- * It can be manually set if needed, but by default, it's not required. The 'dir' property value is
- * reflected in the DOM, making it queryable. The 'isRTL' internal property returns true or false
- * depending on whether or not the 'dir' property is 'rtl' or not.
+ * By default, components will infer the 'dir' property from the document's root 'dir' attribute.
+ * If needed, it's possible to override specific components direction by setting the 'dir' property
+ * value. The 'dir' property value is reflected in the DOM, making it queryable. The 'isRTL'
+ * internal property returns true or false depending on whether or not the 'dir' property is 'rtl' or not.
  */
 
 export const RtlMixin =
     <T extends Constructor<LitElement>>(superClass: T) => {
         class RTLElement extends superClass implements _RTLInterface {
             @property({ type: String, reflect: true })
-                dir : htmlDirAttribute = document.documentElement.dir as htmlDirAttribute ?? 'ltr';
+                dir : htmlDirAttribute = document?.documentElement?.dir as htmlDirAttribute ?? 'ltr';
 
             /**
              * Returns true if the element is in Right to Left mode.
@@ -53,7 +53,7 @@ export const RtlMixin =
                     return false;
                 }
 
-                if (this.dir === 'rtl' || window?.getComputedStyle(this)?.direction === 'rtl') {
+                if (this.dir === 'rtl') {
                     return true;
                 }
 
