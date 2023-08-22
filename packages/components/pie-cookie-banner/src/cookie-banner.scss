@@ -72,11 +72,11 @@ $breakpoint-wide: 768px;
 
     @media (max-width: $breakpoint-wide) {
         background:
-        // Scroll shadow cover
-        // A top-to-bottom opacity gradient from transparent to the component background colour
-        linear-gradient(to bottom, transparent, var(--dt-color-background-dark) 75%) center bottom,
-        // Scroll shadow
-        linear-gradient(transparent, var(--cb-scroll-shadow-color)) center bottom;
+            // Scroll shadow cover
+            // A top-to-bottom opacity gradient from transparent to the component background colour
+            linear-gradient(to bottom, transparent, var(--dt-color-background-dark) 75%) center bottom,
+            // Scroll shadow
+            linear-gradient(transparent, var(--cb-scroll-shadow-color)) center bottom;
         background-repeat: no-repeat;
         background-size: 100% 48px, 100% 8px;
 
@@ -89,7 +89,7 @@ $breakpoint-wide: 768px;
 
     // TODO: this is a temporarily hard-coded style. We will use pie-link in future instead of <a> tags
     a:visited {
-        color: currentColor;
+        color: currentcolor;
     }
 }
 
