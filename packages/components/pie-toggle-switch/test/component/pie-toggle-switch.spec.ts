@@ -45,7 +45,7 @@ test.describe('Component: `Pie toggle switch`', () => {
         expect(pieToggleSwitchComponent).toBe(false);
     });
 
-    test('should set `id` to `toggle-switch` on the input element', async ({ mount }) => {
+    test('should have an `id` of `toggle-switch` on the input element', async ({ mount }) => {
         // Arrange
         const component = await mount(PieToggleSwitch);
 
