@@ -58,7 +58,7 @@
   },
   "dependencies": {
     "@babel/preset-react": "7.22.5",
-    "@justeattakeaway/pie-icons": "workspace:*",
+    "@justeattakeaway/pie-icons": "4.5.0",
     "react-test-renderer": "18.0.0"
   }
 }
