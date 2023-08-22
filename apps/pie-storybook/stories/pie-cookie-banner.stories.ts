@@ -42,21 +42,14 @@ const BaseStoryTemplate = (props: CookieBannerProps) : TemplateResult => html`
 
 /**
  * Creates a 'page' of scrollable HTML. Useful for testing scroll behaviours in a Story.
- * @param inverseColors Sets the font colors to light (use when the Story background is dark)
- * @returns
  */
-const createScrollablePageHTML = (inverseColors = false) => {
+const createScrollablePageHTML = () : TemplateResult => {
     const items = [];
     for (let i = 0; i < 200; i++) {
         items.push(html`<li>Item ${i}</li>`);
     }
 
     return html`
-        ${inverseColors ? html`<style>
-            h1, p, ul {
-                color: var(--dt-color-content-light);
-            }
-        </style>` : nothing}
         <h1>Test Page</h1>
         <p>Test copy</p>
         <ul>${items}</ul>`;
