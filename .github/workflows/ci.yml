@@ -43,9 +43,9 @@ jobs:
     name: Get change type
     runs-on: ubuntu-latest
     outputs:
-      pie-docs-change: steps.docs-check.outputs.docs-change
-      web-components-change: steps.component-check.outputs.web-components-change
-      storybook-change: steps.storybook-check.outputs.storybook-change
+      pie-docs-change: ${{ steps.docs-check.outputs.docs-change }}
+      web-components-change: ${{ steps.component-check.outputs.web-components-change }}
+      storybook-change: ${{ steps.storybook-check.outputs.storybook-change }}
     steps:
       # Checkout the Repo
       - name: Checkout
@@ -61,19 +61,19 @@ jobs:
       - name: Verify if pie-docs has changes
         id: docs-check
         run: |
-          DOCS_CHANGE=$(npx -y turbo run build --filter='pie-docs[origin/main]' --dry=json | jq '.packages | length > 0')
+          DOCS_CHANGE=$(npx -y turbo run build --filter='pie-docs[HEAD^]' --dry=json | jq '.packages | length > 0')
           echo "Change Detected: $DOCS_CHANGE"
           echo "docs-change=$DOCS_CHANGE" >> $GITHUB_OUTPUT
       - name: Verify if web components have changes
         id: component-check
         run: |
-          COMPONENT_CHANGE=$(npx -y turbo run build --filter='{./packages/components/*}[origin/main]' --dry=json | jq '.packages | length > 0')
+          COMPONENT_CHANGE=$(npx -y turbo run build --filter='{./packages/components/*}[HEAD^]' --dry=json | jq '.packages | length > 0')
           echo "Change Detected: $COMPONENT_CHANGE"
           echo "web-components-change=$COMPONENT_CHANGE" >> $GITHUB_OUTPUT
       - name: Verify if storybook has changes
         id: storybook-check
         run: |
-          STORYBOOK_CHANGE=$(npx -y turbo run build --filter='pie-storybook[origin/main]' --dry=json | jq '.packages | length > 0')
+          STORYBOOK_CHANGE=$(npx -y turbo run build --filter='pie-storybook[HEAD^]' --dry=json | jq '.packages | length > 0')
           echo "Change Detected: $STORYBOOK_CHANGE"
           echo "storybook-change=$STORYBOOK_CHANGE" >> $GITHUB_OUTPUT
 
