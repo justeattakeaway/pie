@@ -49,15 +49,7 @@ export const RtlMixin =
              * will not be reactive and is only computed once
              */
             get isRTL () : boolean {
-                if (this.dir === 'ltr') {
-                    return false;
-                }
-
-                if (this.dir === 'rtl') {
-                    return true;
-                }
-
-                return false;
+                return this.dir === 'rtl';
             }
         }
 
