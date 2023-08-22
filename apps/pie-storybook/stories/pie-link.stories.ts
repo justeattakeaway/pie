@@ -1,8 +1,8 @@
 import { html, TemplateResult, nothing } from 'lit';
 import { type StoryObj as Story } from '@storybook/web-components';
 import {
-    PieLink, LinkProps as LinkBaseProps, sizes, variants,
-    iconPlacements, tags,
+    PieLink, LinkProps as LinkBaseProps, sizes,
+    variants, iconPlacements, tags, buttonTypes,
 } from '@justeattakeaway/pie-link';
 import type { StoryMeta, SlottedComponentProps } from '../types';
 
@@ -18,7 +18,7 @@ const defaultArgs: LinkProps = {
     variant: 'default',
     size: 'medium',
     href: 'https://pie.design',
-    target: '_target',
+    target: '_blank',
     isBold: false,
     isStandalone: false,
     slot: 'This is Lit!',
@@ -72,6 +72,15 @@ const linkStoryMeta: LinkStoryMeta = {
             control: 'text',
             if: { arg: 'tag', eq: 'a' },
         },
+        type: {
+            description: 'Set the type of the button.',
+            control: 'select',
+            options: buttonTypes,
+            defaultValue: {
+                summary: 'submit',
+            },
+            if: { arg: 'tag', eq: 'button' },
+        },
         isBold: {
             description: 'If `true`, makes the link text bold',
             control: 'boolean',
@@ -98,7 +107,7 @@ const linkStoryMeta: LinkStoryMeta = {
     parameters: {
         design: {
             type: 'figma',
-            url: '',
+            url: 'https://www.figma.com/file/pPSC73rPin4csb8DiK1CRr/Core-Web-Components-%5BDESIGNERS-DO-NOT-USE%5D?type=design&node-id=364-29974&mode=design',
         },
     },
 };
@@ -112,6 +121,7 @@ const Template = ({
     rel,
     size,
     variant,
+    type,
     isBold,
     isStandalone,
     slot,
@@ -125,6 +135,7 @@ const Template = ({
             href="${href || nothing}"
             target="${target || nothing}"
             rel="${rel || nothing}"
+            type="${type || nothing}"
             ?isBold="${isBold}"
             ?isStandalone="${isStandalone}">
             ${iconPlacement ? html`<icon-plus-circle slot="icon"></icon-plus-circle>` : nothing}

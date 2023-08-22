@@ -4,7 +4,7 @@ import { property } from 'lit/decorators.js';
 import { validPropertyValues } from '@justeattakeaway/pie-webc-core';
 import styles from './link.scss?inline';
 import {
-    LinkProps, variants, sizes, iconPlacements, tags,
+    LinkProps, variants, sizes, iconPlacements, tags, buttonTypes,
 } from './defs';
 
 // Valid values available to consumers
@@ -35,7 +35,7 @@ export class PieLink extends LitElement implements LinkProps {
     public iconPlacement: LinkProps['iconPlacement'] = 'leading';
 
     @property({ type: String, reflect: true })
-    public href!: string;
+    public href?: string;
 
     @property({ type: String, reflect: true })
     public target?: string;
@@ -49,6 +49,10 @@ export class PieLink extends LitElement implements LinkProps {
     @property({ type: Boolean })
     public isStandalone = false;
 
+    @property()
+    @validPropertyValues(componentSelector, buttonTypes, 'submit')
+    public type: LinkProps['type'] = 'submit';
+
     render () {
         const {
             tag,
@@ -60,6 +64,7 @@ export class PieLink extends LitElement implements LinkProps {
             href,
             target,
             rel,
+            type,
         } = this;
 
         const element = unsafeStatic(tag);
@@ -76,12 +81,13 @@ export class PieLink extends LitElement implements LinkProps {
                 ?isStandalone=${isStandalone}
                 href=${!isButton && href ? href : nothing}
                 target=${!isButton && target ? target : nothing}
-                rel=${!rel && rel ? target : nothing}>
-                    <div class="c-link-content">
+                rel=${!isButton && rel ? rel : nothing}
+                type=${isButton && type ? type : nothing}>
+                    <span class="c-link-content">
                         ${iconPlacement === 'leading' ? html`<slot name="icon"></slot>` : nothing}
                         <slot></slot>
                         ${iconPlacement === 'trailing' ? html`<slot name="icon"></slot>` : nothing}
-                    </div>
+                    </span>
             </${element}>`;
     }
 
