@@ -20,8 +20,8 @@ $breakpoint-wide: 768px;
     font-size: var(--cb-font-size);
     line-height: var(--cb-line-height);
     font-weight: var(--cb-font-weight);
-    padding-inline: var(--cb-padding-inline);
     padding-block: var(--cb-padding-block);
+    max-height: 432px;
     position: fixed;
     bottom: 0;
     left: 0;
@@ -40,6 +40,12 @@ $breakpoint-wide: 768px;
     }
 }
 
+.c-cookieBanner-title,
+.c-cookieBanner-body,
+.c-cookieBanner-actions {
+    padding-inline: var(--cb-padding-inline);
+}
+
 .c-cookieBanner-title {
     --cb-title-font-size: var(--dt-font-heading-s-size--narrow);
     --cb-title-line-height: var(--dt-font-heading-s-line-height--narrow);
@@ -56,6 +62,23 @@ $breakpoint-wide: 768px;
 
 .c-cookieBanner-body {
     margin-block-start: var(--dt-spacing-a);
+    max-height: 200px;
+    overflow-y: scroll;
+
+    background:
+        // Scroll shadow cover
+        // A top-to-bottom opacity gradient from transparent to the component background colour
+        linear-gradient(to bottom, transparent, var(--dt-color-container-default) 75%) center bottom,
+        // Scroll shadow
+        linear-gradient(transparent, var(--dt-color-border-strong)) center bottom;
+    background-repeat: no-repeat;
+    background-size: 100% 48px, 100% 12px;
+
+    // The shadow cover is an opacity gradient which is attached to the bottom of the scrollable element
+    // and scrolls with it, so as you reach the bottom of the content the more opaque portion covers
+    // (and therefore hides) the shadow. This gives the effect of the shadow fading away.
+    // The shadow itself does not move as you scroll.
+    background-attachment: local, scroll;
 }
 
 .c-cookieBanner-actions {

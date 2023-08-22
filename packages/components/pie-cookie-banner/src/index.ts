@@ -14,7 +14,7 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
         <aside data-test-id="pie-cookie-banner" class="c-cookieBanner">
             <p class="c-cookieBanner-title">Cookies</p>
             <div class="c-cookieBanner-body">
-                <p class="c-cookieBanner-body">We use our own and third party cookies and other tech to enhance and personalise your user experience,
+                <p>We use our own and third party cookies and other tech to enhance and personalise your user experience,
                 optimize analytics, and show ads with third parties
                 <pie-link>(read our Statement)</pie-link>.
                 Necessary cookies are always set. Click <pie-link>Necessary only</pie-link>
