@@ -43,7 +43,7 @@ We have a number of different icon packages available for use in our application
 
 `@justeattakeaway/pie-icons` is our base icon package, from which our other icon packages extend. It is a collection of SVG files. This means that you can use these icons in all the same ways you can use SVGs (e.g. img, background-image, inline, object, embed, iframe).
 
-[This package](https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons) is used to build the framework-specific icons for Web Components, React and Vue.
+[This package](https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons) also provides a JavaScript API for the iconset, and this is what is used to build the framework-specific icons for Web Components, React and Vue.
 
 
 {% notification {
