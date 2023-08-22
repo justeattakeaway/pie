@@ -171,7 +171,7 @@ jobs:
   # TODO: Move this into a reusable action so it's not duplicated
   browser-tests-components:
     needs: build-ubuntu-node-18
-    if: needs.check-change-type.outputs.web-components-change == 'true'
+    if: needs.check-change-type.outputs.web-components-change == 'true' || github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
       # Checkout the Repo
@@ -222,7 +222,7 @@ jobs:
   deploy-docs:
     needs: unit-tests
     uses: ./.github/workflows/amplify-deploy.yml
-    if: needs.check-change-type.outputs.pie-docs-change == 'true'
+    if: needs.check-change-type.outputs.pie-docs-change == 'true' || github.ref == 'refs/heads/main'
     with:
       os: ubuntu-latest
       node-version: 18
@@ -235,7 +235,7 @@ jobs:
 
   deploy-storybook:
     needs: unit-tests
-    if: (needs.check-change-type.outputs.web-components-change == 'true' || needs.check-change-type.outputs.storybook-change == 'true')
+    if: (needs.check-change-type.outputs.web-components-change == 'true' || needs.check-change-type.outputs.storybook-change == 'true') || github.ref == 'refs/heads/main'
     uses: ./.github/workflows/amplify-deploy.yml
     with:
       os: ubuntu-latest
