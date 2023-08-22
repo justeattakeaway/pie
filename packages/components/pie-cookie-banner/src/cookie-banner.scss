@@ -13,16 +13,30 @@ $breakpoint-wide: 768px;
     --cb-font-weight: var(--dt-font-body-l-weight);
     --cb-padding-inline: var(--dt-spacing-d);
     --cb-padding-block: var(--dt-spacing-d);
+    --cb-offset: var(--dt-spacing-d);
 
+    background-color: var(--dt-color-content-light);
     font-family: var(--cb-font-family);
     font-size: var(--cb-font-size);
     line-height: var(--cb-line-height);
     font-weight: var(--cb-font-weight);
     padding-inline: var(--cb-padding-inline);
     padding-block: var(--cb-padding-block);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-top-left-radius: var(--dt-radius-rounded-c);
+    border-top-right-radius: var(--dt-radius-rounded-c);
 
     @media (min-width: $breakpoint-wide) {
         --cb-padding-inline: var(--dt-spacing-f);
+
+        bottom: var(--cb-offset);
+        left: var(--cb-offset);
+        right: var(--cb-offset);
+        border-bottom-left-radius: var(--dt-radius-rounded-c);
+        border-bottom-right-radius: var(--dt-radius-rounded-c);
     }
 }
 
