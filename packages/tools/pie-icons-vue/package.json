@@ -55,11 +55,13 @@
     "@vue/babel-helper-vue-jsx-merge-props": "1.4.0"
   },
   "devDependencies": {
+    "@babel/plugin-proposal-private-methods": "7.18.6",
+    "@babel/plugin-proposal-private-property-in-object": "7.21.11",
     "@justeattakeaway/pie-icons": "workspace:*",
     "@justeattakeaway/pie-icons-configs": "workspace:*",
     "@rollup/plugin-commonjs": "25.0.4",
     "@vue/babel-preset-jsx": "1.4.0",
-    "@vue/test-utils": "1.1.3",
+    "@vue/test-utils": "1.3.6",
     "eslint-plugin-vue": "^9.9.0",
     "fs-extra": "9.1.0",
     "lodash.kebabcase": "4.1.1",
