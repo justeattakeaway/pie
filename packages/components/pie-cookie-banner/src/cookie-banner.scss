@@ -82,7 +82,7 @@ $breakpoint-wide: 768px;
 }
 
 .c-cookieBanner-actions {
-    --cb-actions-flex-dir: column;
+    --cb-actions-flex-dir: column-reverse;
 
     margin-block-start: var(--dt-spacing-d);
     display: flex;
