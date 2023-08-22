@@ -32,9 +32,6 @@ const cookieBannerStoryMeta: CookieBannerStoryMeta = {
             type: 'figma',
             url: '',
         },
-        backgrounds: {
-            default: 'dark',
-        },
     },
 };
 
@@ -78,7 +75,7 @@ Default.args = {
 
 const ScrollablePageStoryTemplate = (props: CookieBannerProps) : TemplateResult => html`
     ${BaseStoryTemplate(props)}
-    ${createScrollablePageHTML(true)}`;
+    ${createScrollablePageHTML()}`;
 
 export const ScrollablePage: Story<CookieBannerProps> = (args: CookieBannerProps) => ScrollablePageStoryTemplate(args);
 ScrollablePage.args = defaultArgs;

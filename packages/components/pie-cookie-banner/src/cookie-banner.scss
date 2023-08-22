@@ -15,7 +15,8 @@ $breakpoint-wide: 768px;
     --cb-padding-block: var(--dt-spacing-d);
     --cb-offset: var(--dt-spacing-d);
 
-    background-color: var(--dt-color-content-light);
+    background-color: var(--dt-color-background-dark);
+    color: var(--dt-color-content-inverse);
     font-family: var(--cb-font-family);
     font-size: var(--cb-font-size);
     line-height: var(--cb-line-height);
@@ -61,24 +62,35 @@ $breakpoint-wide: 768px;
 }
 
 .c-cookieBanner-body {
+    // We have to use a color darker than --dt-color-background-dark.
+    // Current the only option is this global token
+    --cb-scroll-shadow-color: var(--dt-color-black);
+
     margin-block-start: var(--dt-spacing-a);
     max-height: 200px;
     overflow-y: scroll;
 
-    background:
+    @media (max-width: $breakpoint-wide) {
+        background:
         // Scroll shadow cover
         // A top-to-bottom opacity gradient from transparent to the component background colour
-        linear-gradient(to bottom, transparent, var(--dt-color-container-default) 75%) center bottom,
+        linear-gradient(to bottom, transparent, var(--dt-color-background-dark) 75%) center bottom,
         // Scroll shadow
-        linear-gradient(transparent, var(--dt-color-border-strong)) center bottom;
-    background-repeat: no-repeat;
-    background-size: 100% 48px, 100% 12px;
+        linear-gradient(transparent, var(--cb-scroll-shadow-color)) center bottom;
+        background-repeat: no-repeat;
+        background-size: 100% 48px, 100% 8px;
 
-    // The shadow cover is an opacity gradient which is attached to the bottom of the scrollable element
-    // and scrolls with it, so as you reach the bottom of the content the more opaque portion covers
-    // (and therefore hides) the shadow. This gives the effect of the shadow fading away.
-    // The shadow itself does not move as you scroll.
-    background-attachment: local, scroll;
+        // The shadow cover is an opacity gradient which is attached to the bottom of the scrollable element
+        // and scrolls with it, so as you reach the bottom of the content the more opaque portion covers
+        // (and therefore hides) the shadow. This gives the effect of the shadow fading away.
+        // The shadow itself does not move as you scroll.
+        background-attachment: local, scroll;
+    }
+
+    // TODO: this is a temporarily hard-coded style. We will use pie-link in future instead of <a> tags
+    a:visited {
+        color: currentColor;
+    }
 }
 
 .c-cookieBanner-actions {

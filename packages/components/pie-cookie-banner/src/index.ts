@@ -16,14 +16,14 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
             <div class="c-cookieBanner-body">
                 <p>We use our own and third party cookies and other tech to enhance and personalise your user experience,
                 optimize analytics, and show ads with third parties
-                <pie-link>(read our Statement)</pie-link>.
-                Necessary cookies are always set. Click <pie-link>Necessary only</pie-link>
-                to continue without accepting more. Click <pie-link>Manage preferences</pie-link>
-                to share your preferences or <pie-link>Accept all</pie-link>.</p>
+                <a href="">(read our Statement)</a>.
+                Necessary cookies are always set. Click <a href="">Necessary only</a>
+                to continue without accepting more. Click <a href="">Manage preferences</a>
+                to share your preferences or <a href="">Accept all</a>.</p>
             </div>
 
             <div class="c-cookieBanner-actions">
-                <pie-button variant="ghost" isFullWidth="true" size="small-expressive">
+                <pie-button variant="ghost-inverse" isFullWidth="true" size="small-expressive">
                     Manage preferences
                 </pie-button>
                 <pie-button variant="outline" isFullWidth="true" size="small-expressive">
