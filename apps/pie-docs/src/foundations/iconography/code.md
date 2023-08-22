@@ -148,7 +148,7 @@ pieIcons.icons.x.toSvg({ class: 'foo bar', 'stroke-width': 1, color: 'red' })
 
 This package generates an icon set for React applications using the base [pie-icons](https://www.npmjs.com/package/@justeattakeaway/pie-icons) package. The SVGs in `pie-icons` are compiled into React components.
 
-The icons are bundled in CommonJS and ES Modules, to be more easily adopted for modern React Applications.
+The icons are bundled as CommonJS and ES Modules, to be more easily adopted for modern React Applications.
 
 
 ### Usage
