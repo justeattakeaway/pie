@@ -131,7 +131,7 @@ jobs:
 
   build-ubuntu-node-18:
     uses: ./.github/workflows/install-build.yml
-    needs: ['lint-js', 'lint-styles']
+    needs: ['lint-js', 'lint-styles', 'check-change-type']
     with:
       os: ubuntu-latest
       node-version: 18
