@@ -2,4 +2,4 @@
 "@justeattakeaway/pie-toggle-switch": minor
 ---
 
-[Added] label toggling support
+[Added] - label toggling support

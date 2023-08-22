@@ -67,7 +67,7 @@ test.describe('Component: `Pie toggle switch`', () => {
             });
 
             // Act
-            const pieToggleSwitchLabel = await component.locator(toggleSwitchLabel);
+            const pieToggleSwitchLabel = component.locator(toggleSwitchLabel);
 
             // Assert
             await expect(pieToggleSwitchLabel).toHaveAttribute('for', 'toggle-switch');
@@ -90,7 +90,7 @@ test.describe('Component: `Pie toggle switch`', () => {
                 const pieToggleSwitchComponent = await component.locator(componentSelector).isChecked();
 
                 // Assert
-                await expect(pieToggleSwitchComponent).toBe(true);
+                expect(pieToggleSwitchComponent).toBe(true);
             });
         });
 
@@ -110,7 +110,7 @@ test.describe('Component: `Pie toggle switch`', () => {
                 const pieToggleSwitchComponent = await component.locator(componentSelector).isChecked();
 
                 // Assert
-                await expect(pieToggleSwitchComponent).toBe(true);
+                expect(pieToggleSwitchComponent).toBe(true);
             });
         });
     });
@@ -130,11 +130,11 @@ test.describe('Component: `Pie toggle switch`', () => {
                 });
 
                 // Act
-                const toggleSwitchInput = await component.locator(toggleInputSelector);
+                const toggleSwitchInput = component.locator(toggleInputSelector);
                 const ariaLabel = await toggleSwitchInput.getAttribute('aria-label');
 
                 // Assert
-                await expect(ariaLabel).toBe(ariaLabelText);
+                expect(ariaLabel).toBe(ariaLabelText);
             });
         });
 
@@ -154,11 +154,11 @@ test.describe('Component: `Pie toggle switch`', () => {
                 });
 
                 // Act
-                const toggleSwitchInput = await component.locator(toggleInputSelector);
+                const toggleSwitchInput = component.locator(toggleInputSelector);
                 const ariaDescription = await toggleSwitchInput.getAttribute('aria-describedBy');
 
                 // Assert
-                await expect(ariaDescription).toBe(ariaDescriptionID);
+                expect(ariaDescription).toBe(ariaDescriptionID);
             });
 
             test('should render a description element with the correct text', async ({ mount }) => {
@@ -172,7 +172,7 @@ test.describe('Component: `Pie toggle switch`', () => {
                 });
 
                 // Act
-                const ariaDescriptionElement = await component.locator(ariaDescriptionSelector);
+                const ariaDescriptionElement = component.locator(ariaDescriptionSelector);
 
                 // Assert
                 await expect(ariaDescriptionElement).toContainText(ariaDescriptionText);
@@ -191,7 +191,7 @@ test.describe('Component: `Pie toggle switch`', () => {
                     } as ToggleSwitchProps,
                 });
 
-                const pieToggleSwitchLabel = await component.locator('[data-test-id="toggle-switch-label"]');
+                const pieToggleSwitchLabel = component.locator('[data-test-id="toggle-switch-label"]');
 
                 // Assert
                 await expect(pieToggleSwitchLabel).toHaveClass('c-toggleSwitch-label c-toggleSwitch--leading');
@@ -208,7 +208,7 @@ test.describe('Component: `Pie toggle switch`', () => {
                     } as ToggleSwitchProps,
                 });
 
-                const pieToggleSwitchLabel = await component.locator('[data-test-id="toggle-switch-label"]');
+                const pieToggleSwitchLabel = component.locator('[data-test-id="toggle-switch-label"]');
 
                 // Assert
                 await expect(pieToggleSwitchLabel).toHaveClass('c-toggleSwitch-label c-toggleSwitch--trailing');
