@@ -11,11 +11,19 @@ $breakpoint-wide: 768px;
     --cb-font-size: #{p.font-size(--dt-font-body-l-size)};
     --cb-line-height: calc(var(--dt-font-body-l-line-height) * 1px);
     --cb-font-weight: var(--dt-font-body-l-weight);
+    --cb-padding-inline: var(--dt-spacing-d);
+    --cb-padding-block: var(--dt-spacing-d);
 
     font-family: var(--cb-font-family);
     font-size: var(--cb-font-size);
     line-height: var(--cb-line-height);
     font-weight: var(--cb-font-weight);
+    padding-inline: var(--cb-padding-inline);
+    padding-block: var(--cb-padding-block);
+
+    @media (min-width: $breakpoint-wide) {
+        --cb-padding-inline: var(--dt-spacing-f);
+    }
 }
 
 .c-cookieBanner-title {
@@ -29,5 +37,23 @@ $breakpoint-wide: 768px;
     @media (min-width: $breakpoint-wide) {
         --cb-title-font-size: var(--dt-font-heading-s-size--wide);
         --cb-title-line-height: var(--dt-font-heading-s-line-height--wide);
+    }
+}
+
+.c-cookieBanner-body {
+    margin-block-start: var(--dt-spacing-a);
+}
+
+.c-cookieBanner-actions {
+    --cb-actions-flex-dir: column;
+
+    margin-block-start: var(--dt-spacing-d);
+    display: flex;
+    gap: var(--dt-spacing-d);
+    flex-direction: var(--cb-actions-flex-dir);
+
+    @media (min-width: $breakpoint-wide) {
+        --cb-actions-flex-dir: row;
+        justify-content: flex-end;
     }
 }
