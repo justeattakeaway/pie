@@ -12,6 +12,7 @@ import {
 import {
     WebComponentTestWrapper,
 } from '@justeattakeaway/pie-webc-testing/src/helpers/components/web-component-test-wrapper/WebComponentTestWrapper.ts';
+import { percyWidths } from '@justeattakeaway/pie-webc-testing/src/percy/breakpoints.ts';
 import { PieButton } from '@/index';
 import { sizes, variants } from '@/defs';
 
@@ -63,7 +64,7 @@ componentVariants.forEach((variant) => test(`Render all prop variations for Vari
         );
     }));
 
-    await percySnapshot(page, `PIE Button - Variant: ${variant}`);
+    await percySnapshot(page, `PIE Button - Variant: ${variant}`, percyWidths);
 }));
 
 // TODO: Currently setting the slot to use a straight up SVG
@@ -110,5 +111,5 @@ test('Render icon slot variations', async ({ page, mount }) => {
         }));
     });
 
-    await percySnapshot(page, 'PIE Button Leading/Trailing Icon Variations');
+    await percySnapshot(page, 'PIE Button Leading/Trailing Icon Variations', percyWidths);
 });
