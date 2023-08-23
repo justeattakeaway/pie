@@ -15,7 +15,7 @@ eleventyNavigation:
     - [Invoke the package](#invoke-the-package)
   - [Usage - NodeJS](#usage-nodejs)
     - [Installation](#installation-1)
-    - [Require the package](#require-the-package)
+    - [Import the package](#import-the-package)
     - [Call the APIs](#call-the-apis)
 - [React (pie-icons-react)](#react-pie-icons-react)
   - [Usage](#usage)
@@ -110,18 +110,20 @@ npm install @justeattakeaway/pie-icons --save
 yarn add @justeattakeaway/pie-icons
 ```
 
-#### Require the package
-Simply require the package in your application where needed:
+#### Import the package
+Simply import the package in your application where needed:
 
 ```js
-const pieIcons = require('@justeattakeaway/pie-icons');
+import pieIcons from '@justeattakeaway/pie-icons';
 ```
 
 #### Call the APIs
 The package exposes a number of APIs for you to use:
 
 ```js
-pieIcons.icons.x
+const { icons } = pieIcons.default;
+
+icons.x
 // {
 //    name: 'x',
 //    contents: '<line ... /><line ... />`,
@@ -133,10 +135,10 @@ pieIcons.icons.x
 //    toSvg: [Function],
 // }
 
-pieIcons.icons.x.toSvg()
+icons.x.toSvg()
 // <svg class="c-pieIcon c-pieIcon--x" ...><line ... /><line ... /></svg>
 
-pieIcons.icons.x.toSvg({ class: 'foo bar', 'stroke-width': 1, color: 'red' })
+icons.x.toSvg({ class: 'foo bar', 'stroke-width': 1, color: 'red' })
 // <svg class="c-pieIcon c-pieIcon--x foo bar" stroke-width="1" color="red" ...><line ... /><line ... /></svg>
 ```
 
