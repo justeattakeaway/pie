@@ -3,9 +3,14 @@
 
 html {
     box-sizing: border-box;
+    /*  These rules with smooth fonts. It makes fonts look crisp and clean on devices
+        that support it. */
     text-rendering: optimizelegibility;
     -webkit-font-smoothing: antialiased;
     -moz-font-smoothing: antialiased;
+    /*  These are added to prevent text size adjustments in various browsers.
+        In some browsers, such as iOS Safari, will try to increase the font-size
+        when you rotate the screen. This can be jarring and break layouts.  */
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
 }
