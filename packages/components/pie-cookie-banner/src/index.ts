@@ -23,9 +23,9 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
             </div>
 
             <div class="c-cookieBanner-actions">
-                <pie-button variant="ghost-inverse" isFullWidth="true" size="small-expressive">
+                <pie-link variant="inverse" size="medium" isBold="true">
                     Manage preferences
-                </pie-button>
+                </pie-link>
                 <pie-button variant="outline" isFullWidth="true" size="small-expressive">
                     Necessary only
                 </pie-button>

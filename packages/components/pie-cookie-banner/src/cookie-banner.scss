@@ -99,8 +99,20 @@ $breakpoint-wide: 600px;
     gap: var(--dt-spacing-d);
     flex-direction: var(--cb-actions-flex-dir);
 
+    > pie-link {
+        width: max-content;
+        margin-inline-start: auto;
+        margin-inline-end: auto;
+    }
+
     @media (min-width: $breakpoint-wide) and (orientation: landscape) {
         --cb-actions-flex-dir: row;
         justify-content: flex-end;
+        align-items: center;
+
+        > pie-link {
+            margin-inline-start: 0;
+            margin-inline-end: 0;
+        }
     }
 }
