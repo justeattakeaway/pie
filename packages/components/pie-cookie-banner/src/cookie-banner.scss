@@ -2,6 +2,8 @@
 
 * {
     margin: 0;
+    -webkit-text-size-adjust: 100%; /* Webkit browsers like Safari */
+    text-size-adjust: 100%; /* Other browsers */
 }
 
 $breakpoint-wide: 600px;
@@ -40,7 +42,7 @@ $breakpoint-wide: 600px;
     }
 
     @media (min-width: $breakpoint-wide) and (orientation: landscape) {
-        max-height: 75%;
+        max-height: 90%;
     }
 }
 
@@ -70,7 +72,6 @@ $breakpoint-wide: 600px;
     // Current the only option is this global token
     --cb-scroll-shadow-color: var(--dt-color-black);
 
-    font-size: 16px;
     margin-block-start: var(--dt-spacing-a);
     max-height: 200px;
     overflow-y: auto;
@@ -92,10 +93,6 @@ $breakpoint-wide: 600px;
     @media (min-width: $breakpoint-wide) and (orientation: landscape) {
         max-height: 150px;
     }
-}
-
-p {
-    font-size: 16px;
 }
 
 .c-cookieBanner-actions {
