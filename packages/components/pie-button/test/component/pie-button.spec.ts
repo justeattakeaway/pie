@@ -1,7 +1,7 @@
 import { test, expect } from '@sand4rt/experimental-ct-web';
 import { PieButton, ButtonProps } from '@/index';
 
-const props: ButtonProps = {
+const props: Partial<ButtonProps> = {
     size: 'large',
     variant: 'primary',
 };

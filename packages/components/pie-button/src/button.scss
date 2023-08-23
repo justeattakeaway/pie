@@ -214,11 +214,16 @@
         @include spinner-base-colors('--dt-color-content-interactive-secondary');
     }
 
-    &[variant='ghost-inverse'] {
+    &[variant='ghost-inverse'], 
+    &[variant='outline-inverse'] {
         --btn-bg-color: transparent;
         --btn-text-color: var(--dt-color-content-interactive-primary);
 
         @include button-interactive-states('--dt-color-container-inverse', true);
+    }
+
+    &[variant='outline-inverse'] {
+        border: 1px solid var(--dt-color-border-strong);
     }
 
     &[variant='destructive'] {
@@ -258,7 +263,7 @@
 
     &[size='xsmall'] {
         --btn-padding: 6px var(--dt-spacing-b);
-        --btn-font-size: calc(var(--dt-font-size-14) * 1px);
+        --btn-font-size: #{p.font-size(--dt-font-size-14)};
         --btn-line-height: calc(var(--dt-font-size-14-line-height) * 1px);
         --btn-icon-size: 16px;
         --spinner-size: var(--spinner-size-s);
@@ -267,7 +272,7 @@
 
     &[size='small-expressive'] {
         --btn-padding: 6px var(--dt-spacing-d);
-        --btn-font-size: calc(var(--dt-font-size-20) * 1px);
+        --btn-font-size: #{p.font-size(--dt-font-size-20)};
         --btn-line-height: calc(var(--dt-font-size-20-line-height) * 1px);
         --btn-icon-size: 20px;
         --spinner-size: var(--spinner-size-s);
@@ -276,7 +281,7 @@
 
     &[size='small-productive'] {
         --btn-padding: 8px var(--dt-spacing-d);
-        --btn-font-size: calc(var(--dt-font-size-16) * 1px);
+        --btn-font-size: #{p.font-size(--dt-font-size-16)};
         --btn-line-height: calc(var(--dt-font-size-16-line-height) * 1px);
         --btn-icon-size: 20px;
         --spinner-size: var(--spinner-size-s);
@@ -289,7 +294,7 @@
 
     &[size='large'] {
         --btn-padding: 14px var(--dt-spacing-e);
-        --btn-font-size: calc(var(--dt-font-size-20) * 1px);
+        --btn-font-size: #{p.font-size(--dt-font-size-20)};
         --btn-line-height: calc(var(--dt-font-size-20-line-height) * 1px);
         --spinner-size: var(--spinner-size-m);
         --spinner-border-width: var(--spinner-border-width-m);

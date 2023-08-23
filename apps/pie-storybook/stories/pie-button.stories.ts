@@ -171,3 +171,15 @@ GhostInverse.parameters = {
         default: 'dark',
     },
 };
+
+export const OutlineInverse: Story<ButtonProps> = (args: ButtonProps) => Template(args);
+OutlineInverse.args = {
+    ...defaultArgs,
+    variant: 'outline-inverse',
+};
+
+OutlineInverse.parameters = {
+    backgrounds: {
+        default: 'dark',
+    },
+};

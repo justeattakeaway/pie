@@ -79,7 +79,7 @@ import { PieButton } from '@justeattakeaway/pie-button/dist/react';
 |-------------|-----------|-----------|-------------------------------------------------------------------------------------------------------------------|
 | size        | `String`  | `medium`  | Size of the button, one of `sizes` – `xsmall`, `small-expressive`, `small-productive`, `medium`, `large`          |
 | type        | `String`  | `submit`  | Type of the button, one of `types` – `submit`, `button`, `reset`, `menu`                                          |
-| variant     | `String`  | `primary` | Variant of the button, one of `variants` – `primary`, `secondary`, `outline`, `ghost`, `destructive`, `destructive-ghost`, `inverse`, `ghost-inverse` |
+| variant     | `String`  | `primary` | Variant of the button, one of `variants` – `primary`, `secondary`, `outline`, `ghost`, `destructive`, `destructive-ghost`, `inverse`, `ghost-inverse` or `outline-inverse` |
 | disabled    | `Boolean` | `false`   | If `true`, disables the button.                                                                                   |
 | isFullWidth | `Boolean` | `false`   | If `true`, sets the button width to 100% of its container.                                                       |
 | isLoading   | `Boolean` | `false`   | If `true`, displays a loading indicator inside the button.                                                        |
