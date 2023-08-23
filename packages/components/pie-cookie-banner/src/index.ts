@@ -23,15 +23,15 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
             </div>
 
             <div class="c-cookieBanner-actions">
-                <pie-link variant="inverse" size="medium" isBold="true">
-                    Manage preferences
-                </pie-link>
-                <pie-button variant="outline" isFullWidth="true" size="small-expressive">
-                    Necessary only
-                </pie-button>
                 <pie-button variant="primary" isFullWidth="true" size="small-expressive">
                     Accept all
                 </pie-button>
+                <pie-button variant="outline" isFullWidth="true" size="small-expressive">
+                    Necessary only
+                </pie-button>
+                <pie-link variant="inverse" size="medium" isBold="true">
+                    Manage preferences
+                </pie-link>
             </div>
         </aside>`;
     }

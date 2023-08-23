@@ -92,7 +92,7 @@ $breakpoint-wide: 600px;
 }
 
 .c-cookieBanner-actions {
-    --cb-actions-flex-dir: column-reverse;
+    --cb-actions-flex-dir: column;
 
     margin-block-start: var(--dt-spacing-d);
     display: flex;
@@ -106,8 +106,9 @@ $breakpoint-wide: 600px;
     }
 
     @media (min-width: $breakpoint-wide) and (orientation: landscape) {
-        --cb-actions-flex-dir: row;
-        justify-content: flex-end;
+        --cb-actions-flex-dir: row-reverse;
+
+        justify-content: flex-start;
         align-items: center;
 
         > pie-link {
