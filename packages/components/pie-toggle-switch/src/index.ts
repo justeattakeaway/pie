@@ -55,11 +55,12 @@ export class PieToggleSwitch extends RtlMixin(LitElement) implements ToggleSwitc
 
         if (label && labelPlacement && (labelPlacements.includes(labelPlacement))) {
             return html`
-                <span
+                <label
+                    for="toggle-switch"
                     data-test-id="toggle-switch-label"
                     class="c-toggleSwitch-label c-toggleSwitch--${labelPlacement}">
                     ${label}
-                </span>`;
+                </label>`;
         }
 
         return html``;
@@ -84,6 +85,7 @@ export class PieToggleSwitch extends RtlMixin(LitElement) implements ToggleSwitc
                     ?isChecked="${isChecked}"
                     ?isDisabled=${isDisabled}>
                     <input
+                        id="toggle-switch"
                         data-test-id="toggle-switch-input"
                         role="switch"
                         type="checkbox"
