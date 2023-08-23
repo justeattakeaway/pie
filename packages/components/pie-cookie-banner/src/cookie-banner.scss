@@ -53,7 +53,7 @@ $breakpoint-wide: 600px;
     --cb-title-font-size: var(--dt-font-heading-s-size--narrow);
     --cb-title-line-height: var(--dt-font-heading-s-line-height--narrow);
 
-    font-size: #{p.font-size('--cb-title-font-size')};
+    @include p.font-size('--cb-title-font-size');
     font-weight: var(--dt-font-heading-s-weight);
     line-height: calc(var(--cb-title-line-height) * 1px);
 

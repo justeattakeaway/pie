@@ -5448,7 +5448,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-components-config@workspace:*, @justeattakeaway/pie-components-config@workspace:configs/pie-components-config":
+"@justeattakeaway/pie-components-config@0.3.0, @justeattakeaway/pie-components-config@workspace:*, @justeattakeaway/pie-components-config@workspace:configs/pie-components-config":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-components-config@workspace:configs/pie-components-config"
   languageName: unknown
@@ -5458,10 +5458,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-cookie-banner@workspace:packages/components/pie-cookie-banner"
   dependencies:
-    "@justeattakeaway/pie-button": "workspace:*"
-    "@justeattakeaway/pie-components-config": "workspace:*"
-    "@justeattakeaway/pie-link": "workspace:*"
-    "@justeattakeaway/pie-webc-core": "workspace:*"
+    "@justeattakeaway/pie-button": 0.25.0
+    "@justeattakeaway/pie-components-config": 0.3.0
+    "@justeattakeaway/pie-link": 0.2.0
+    "@justeattakeaway/pie-webc-core": 0.7.0
   languageName: unknown
   linkType: soft
 
@@ -5572,7 +5572,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-link@workspace:*, @justeattakeaway/pie-link@workspace:packages/components/pie-link":
+"@justeattakeaway/pie-link@0.2.0, @justeattakeaway/pie-link@workspace:*, @justeattakeaway/pie-link@workspace:packages/components/pie-link":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-link@workspace:packages/components/pie-link"
   dependencies:
@@ -5606,18 +5606,18 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@justeattakeaway/pie-webc-core@0.7.0, @justeattakeaway/pie-webc-core@workspace:*, @justeattakeaway/pie-webc-core@workspace:packages/components/pie-webc-core":
+  version: 0.0.0-use.local
+  resolution: "@justeattakeaway/pie-webc-core@workspace:packages/components/pie-webc-core"
+  languageName: unknown
+  linkType: soft
+
 "@justeattakeaway/pie-webc-core@npm:0.6.0":
   version: 0.6.0
   resolution: "@justeattakeaway/pie-webc-core@npm:0.6.0"
   checksum: 9991fe1ca47e9bd6a3bade2ccb5f5fb109ca61f79cad955458a681ba7ae6e438bcf193a427ca26aa9052e525655068b18512b3f5a6291ef78676f3192487e1a0
   languageName: node
   linkType: hard
-
-"@justeattakeaway/pie-webc-core@workspace:*, @justeattakeaway/pie-webc-core@workspace:packages/components/pie-webc-core":
-  version: 0.0.0-use.local
-  resolution: "@justeattakeaway/pie-webc-core@workspace:packages/components/pie-webc-core"
-  languageName: unknown
-  linkType: soft
 
 "@justeattakeaway/pie-webc-testing@workspace:*, @justeattakeaway/pie-webc-testing@workspace:packages/components/pie-webc-testing":
   version: 0.0.0-use.local
