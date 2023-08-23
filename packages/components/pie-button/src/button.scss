@@ -214,7 +214,7 @@
         @include spinner-base-colors('--dt-color-content-interactive-secondary');
     }
 
-    &[variant='ghost-inverse'], 
+    &[variant='ghost-inverse'],
     &[variant='outline-inverse'] {
         --btn-bg-color: transparent;
         --btn-text-color: var(--dt-color-content-interactive-primary);
