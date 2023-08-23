@@ -5025,7 +5025,7 @@ __metadata:
   dependencies:
     "@babel/plugin-proposal-private-methods": 7.18.6
     "@babel/plugin-proposal-private-property-in-object": 7.21.11
-    "@justeattakeaway/pie-icons": "workspace:*"
+    "@justeattakeaway/pie-icons": 4.5.0
     "@justeattakeaway/pie-icons-configs": "workspace:*"
     "@rollup/plugin-commonjs": 25.0.4
     "@vue/babel-helper-vue-jsx-merge-props": 1.4.0
@@ -5046,7 +5046,7 @@ __metadata:
   resolution: "@justeattakeaway/pie-icons-webc@workspace:packages/tools/pie-icons-webc"
   dependencies:
     "@babel/node": 7.22.10
-    "@justeattakeaway/pie-icons": "workspace:*"
+    "@justeattakeaway/pie-icons": 4.5.0
     "@justeattakeaway/pie-icons-configs": "workspace:*"
     "@justeattakeaway/pie-webc-core": 0.6.0
     "@open-wc/testing": 3.2.0
@@ -5060,7 +5060,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-icons@4.5.0, @justeattakeaway/pie-icons@workspace:*, @justeattakeaway/pie-icons@workspace:packages/tools/pie-icons":
+"@justeattakeaway/pie-icons@4.5.0, @justeattakeaway/pie-icons@workspace:packages/tools/pie-icons":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-icons@workspace:packages/tools/pie-icons"
   dependencies:
