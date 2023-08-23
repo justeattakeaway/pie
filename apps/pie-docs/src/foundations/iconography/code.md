@@ -189,7 +189,7 @@ Icons are made available in different size variants:
 
 Small icons default size is `xs` and can use one of the following pre-determined values for `size`: `xs`, `s`, `m`, `l`, `xl`, and `xxl`. You can learn more about small icon sizes [here](/foundations/iconography/overview/#:~:text=Sizes%20for%20the%20Small%20icon%20set).
 
-Large icons `size` default and minimum value is `32`. Values larger than the minimum must be multiples of `8`, otherwise will be automatically rounded. You can learn more about large icon sizes [here](/foundations/iconography/overview/#:~:text=Sizes%20for%20the%20Large%20icon%20set).
+Large icons `size` default and minimum value is `32`. Values larger than the minimum must be multiples of `8`, otherwise they will fallback to the default value. You can learn more about large icon sizes [here](/foundations/iconography/overview/#:~:text=Sizes%20for%20the%20Large%20icon%20set).
 
 Example:
 
@@ -261,7 +261,7 @@ Icons are made available in different size variants:
 
 Small icons default size is `xs` and can use one of the following pre-determined values for `size`: `xs`, `s`, `m`, `l`, `xl`, and `xxl`. You can learn more about small icon sizes [here](/foundations/iconography/overview/#:~:text=Sizes%20for%20the%20Small%20icon%20set).
 
-Large icons `size` default and minimum value is `32`. Values larger than the minimum must be multiples of `8`, otherwise will be automatically rounded. You can learn more about large icon sizes [here](/foundations/iconography/overview/#:~:text=Sizes%20for%20the%20Large%20icon%20set).
+Large icons `size` default and minimum value is `32`. Values larger than the minimum must be multiples of `8`, otherwise they will fallback to the default value. You can learn more about large icon sizes [here](/foundations/iconography/overview/#:~:text=Sizes%20for%20the%20Large%20icon%20set).
 
 Example:
 
@@ -328,7 +328,7 @@ Icons are made available in different size variants:
 
 Small icons default size is `xs` and can use one of the following pre-determined values for `size`: `xs`, `s`, `m`, `l`, `xl`, and `xxl`. You can learn more about small icon sizes [here](/foundations/iconography/overview/#:~:text=Sizes%20for%20the%20Small%20icon%20set).
 
-Large icons `size` default and minimum value is `32`. Values larger than the minimum must be multiples of `8`, otherwise will be automatically rounded. You can learn more about large icon sizes [here](/foundations/iconography/overview/#:~:text=Sizes%20for%20the%20Large%20icon%20set).
+Large icons `size` default and minimum value is `32`. Values larger than the minimum must be multiples of `8`, otherwise they will fallback to the default value. You can learn more about large icon sizes [here](/foundations/iconography/overview/#:~:text=Sizes%20for%20the%20Large%20icon%20set).
 
 Example:
 
