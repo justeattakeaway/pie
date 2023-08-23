@@ -5454,6 +5454,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@justeattakeaway/pie-cookie-banner@workspace:packages/components/pie-cookie-banner":
+  version: 0.0.0-use.local
+  resolution: "@justeattakeaway/pie-cookie-banner@workspace:packages/components/pie-cookie-banner"
+  dependencies:
+    "@justeattakeaway/pie-components-config": "workspace:*"
+    "@justeattakeaway/pie-webc-core": "workspace:*"
+  languageName: unknown
+  linkType: soft
+
 "@justeattakeaway/pie-css@0.2.0, @justeattakeaway/pie-css@workspace:*, @justeattakeaway/pie-css@workspace:packages/tools/pie-css":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-css@workspace:packages/tools/pie-css"
@@ -32028,6 +32037,15 @@ __metadata:
   bin:
     sigstore: bin/sigstore.js
   checksum: 9886278224da4f25cc4823ff961d04addc81b71fd2310cfe019bcd8094590cafaa0d78a648cf665b1fb3ba13388ace4c970cba563572a967e8aa0c26067a402b
+  languageName: node
+  linkType: hard
+
+"simple-update-notifier@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "simple-update-notifier@npm:2.0.0"
+  dependencies:
+    semver: ^7.5.3
+  checksum: 9ba00d38ce6a29682f64a46213834e4eb01634c2f52c813a9a7b8873ca49cdbb703696f3290f3b27dc067de6d9418b0b84bef22c3eb074acf352529b2d6c27fd
   languageName: node
   linkType: hard
 
