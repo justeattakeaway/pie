@@ -6,7 +6,7 @@
   "pipeline": {
     "build": {
       "cache": true,
-      "inputs": ["./css/**"],
+      "inputs": ["./css/**", "./scss/**"],
       "dependsOn": [
         "^build"
       ]
