@@ -42,7 +42,7 @@
     "extends @justeat/browserslist-config-fozzie"
   ],
   "devDependencies": {
-    "@babel/node": "7.22.10",
+    "@babel/node": "7.20.7",
     "@justeattakeaway/pie-icons-configs": "workspace:*",
     "@justeattakeaway/pie-webc-core": "0.6.0",
     "@rollup/plugin-typescript": "11.1.2",
