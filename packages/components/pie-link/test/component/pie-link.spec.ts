@@ -7,6 +7,10 @@ const componentSelector = '[data-test-id="pie-link"]';
 const props: LinkProps = {
     href: '#',
     target: '_blank',
+    variant: 'default',
+    size: 'medium',
+    isBold: false,
+    isStandalone: false,
 };
 
 test.describe('PieLink - Component tests', () => {
