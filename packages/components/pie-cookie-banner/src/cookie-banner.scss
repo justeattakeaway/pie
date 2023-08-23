@@ -4,7 +4,7 @@
     margin: 0;
 }
 
-$breakpoint-wide: 768px;
+$breakpoint-wide: 600px;
 
 .c-cookieBanner {
     --cb-font-family: var(--dt-font-interactive-m-family);
@@ -38,6 +38,10 @@ $breakpoint-wide: 768px;
         border-bottom-left-radius: var(--dt-radius-rounded-c);
         border-bottom-right-radius: var(--dt-radius-rounded-c);
     }
+
+    @media (min-width: $breakpoint-wide) and (orientation: landscape) {
+        max-height: 75%;
+    }
 }
 
 .c-cookieBanner-title,
@@ -66,6 +70,7 @@ $breakpoint-wide: 768px;
     // Current the only option is this global token
     --cb-scroll-shadow-color: var(--dt-color-black);
 
+    font-size: 16px;
     margin-block-start: var(--dt-spacing-a);
     max-height: 200px;
     overflow-y: auto;
@@ -83,6 +88,14 @@ $breakpoint-wide: 768px;
     // (and therefore hides) the shadow. This gives the effect of the shadow fading away.
     // The shadow itself does not move as you scroll.
     background-attachment: local, scroll;
+
+    @media (min-width: $breakpoint-wide) and (orientation: landscape) {
+        max-height: 150px;
+    }
+}
+
+p {
+    font-size: 16px;
 }
 
 .c-cookieBanner-actions {
@@ -93,7 +106,7 @@ $breakpoint-wide: 768px;
     gap: var(--dt-spacing-d);
     flex-direction: var(--cb-actions-flex-dir);
 
-    @media (min-width: $breakpoint-wide) {
+    @media (min-width: $breakpoint-wide) and (orientation: landscape) {
         --cb-actions-flex-dir: row;
         justify-content: flex-end;
     }
