@@ -33,16 +33,14 @@ $breakpoint-wide: 600px;
     border-top-left-radius: var(--dt-radius-rounded-c);
     border-top-right-radius: var(--dt-radius-rounded-c);
 
-    @media (min-width: $breakpoint-wide) {
+
+    @media (min-width: $breakpoint-wide) and (orientation: landscape) {
         --cb-padding-inline: var(--dt-spacing-f);
         --cb-offset: var(--dt-spacing-d);
 
+        max-height: 90%;
         border-bottom-left-radius: var(--dt-radius-rounded-c);
         border-bottom-right-radius: var(--dt-radius-rounded-c);
-    }
-
-    @media (min-width: $breakpoint-wide) and (orientation: landscape) {
-        max-height: 90%;
     }
 }
 
@@ -61,7 +59,7 @@ $breakpoint-wide: 600px;
     font-weight: var(--dt-font-heading-s-weight);
     line-height: calc(var(--cb-title-line-height) * 1px);
 
-    @media (min-width: $breakpoint-wide) {
+    @media (min-width: $breakpoint-wide) and (orientation: landscape) {
         --cb-title-font-size: var(--dt-font-heading-s-size--wide);
         --cb-title-line-height: var(--dt-font-heading-s-line-height--wide);
     }
