@@ -21,7 +21,7 @@ const defaultArgs: LinkProps = {
     target: '_blank',
     isBold: false,
     isStandalone: false,
-    slot: 'This is Lit!',
+    slot: 'Link',
 };
 
 const linkStoryMeta: LinkStoryMeta = {
