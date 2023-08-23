@@ -12,7 +12,7 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
     render () {
         return html`
         <aside data-test-id="pie-cookie-banner" class="c-cookieBanner">
-            <p class="c-cookieBanner-title">Cookies</p>
+            <h2 class="c-cookieBanner-title">Cookies</h2>
             <div class="c-cookieBanner-body">
                 <p>We use our own and third party cookies and other tech to enhance and personalise your user experience,
                 optimize analytics, and show ads with third parties
