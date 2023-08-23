@@ -168,7 +168,7 @@ jobs:
         with:
           script-name: "test:ci"
 
-  # TODO: Move this into a reusable action so it's not duplicated
+  # TODO: DSW-1151 - Move this into a reusable action so it's not duplicated
   browser-tests-components:
     needs: build-ubuntu-node-18
     if: needs.check-change-type.outputs.web-components-change == 'true' || github.ref == 'refs/heads/main'
