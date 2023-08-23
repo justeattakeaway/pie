@@ -12,7 +12,7 @@ type htmlDirAttribute = 'ltr' | 'rtl' | 'auto';
  * Any component property interface that implements RTL should extend this interface. See the ModalProps interface for an example of this.
  */
 export interface RTLComponentProps {
-    dir: htmlDirAttribute
+    dir?: htmlDirAttribute
 }
 
 // This is just used by the dynamically constructed class below and does not need to be imported or referenced anywhere else
@@ -21,11 +21,23 @@ declare class _RTLInterface {
     isRTL: boolean;
 }
 
+/**
+ * This RTL mixin is used with Lit Web components to add programmatic Right-to-Left (RTL) support.
+ * It is only required if your component either:
+ * - Needs RTL awareness in its TypeScript logic.
+ * - Its CSS requires a [dir='rtl'] attribute to be present.
+ *
+ * By default, components will infer the 'dir' property from the document's root 'dir' attribute.
+ * If needed, it's possible to override specific components direction by setting the 'dir' property
+ * value. The 'dir' property value is reflected in the DOM, making it queryable. The 'isRTL'
+ * internal property returns true or false depending on whether or not the 'dir' property is 'rtl' or not.
+ */
+
 export const RtlMixin =
     <T extends Constructor<LitElement>>(superClass: T) => {
         class RTLElement extends superClass implements _RTLInterface {
             @property({ type: String, reflect: true })
-                dir : htmlDirAttribute = 'ltr';
+                dir : htmlDirAttribute = document?.documentElement?.dir as htmlDirAttribute ?? 'ltr';
 
             /**
              * Returns true if the element is in Right to Left mode.
@@ -37,15 +49,7 @@ export const RtlMixin =
              * will not be reactive and is only computed once
              */
             get isRTL () : boolean {
-                if (this.dir === 'ltr') {
-                    return false;
-                }
-
-                if (this.dir === 'rtl' || window?.getComputedStyle(this)?.direction === 'rtl') {
-                    return true;
-                }
-
-                return false;
+                return this.dir === 'rtl';
             }
         }
 
