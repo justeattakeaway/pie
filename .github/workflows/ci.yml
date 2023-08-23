@@ -40,6 +40,44 @@ jobs:
     secrets:
       githubToken: ${{ secrets.GITHUB_TOKEN }}
 
+  check-change-type:
+    name: Get change type
+    runs-on: ubuntu-latest
+    outputs:
+      pie-docs-change: ${{ steps.docs-check.outputs.docs-change }}
+      web-components-change: ${{ steps.component-check.outputs.web-components-change }}
+      storybook-change: ${{ steps.storybook-check.outputs.storybook-change }}
+    steps:
+      # Checkout the Repo
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      # Setup Repo
+      - name: Setup Repo
+        uses: ./.github/actions/setup-repo
+        with:
+          node-version: 18
+          os: ubuntu-latest
+      - name: Verify if pie-docs has changes
+        id: docs-check
+        run: |
+          DOCS_CHANGE=$(npx -y turbo run build --filter='pie-docs[origin/main]' --dry=json | jq '.packages | length > 0')
+          echo "Change Detected: $DOCS_CHANGE"
+          echo "docs-change=$DOCS_CHANGE" >> $GITHUB_OUTPUT
+      - name: Verify if web components have changes
+        id: component-check
+        run: |
+          COMPONENT_CHANGE=$(npx -y turbo run build --filter='{./packages/components/*}[origin/main]' --dry=json | jq '.packages | length > 0')
+          echo "Change Detected: $COMPONENT_CHANGE"
+          echo "web-components-change=$COMPONENT_CHANGE" >> $GITHUB_OUTPUT
+      - name: Verify if storybook has changes
+        id: storybook-check
+        run: |
+          STORYBOOK_CHANGE=$(npx -y turbo run build --filter='pie-storybook[origin/main]' --dry=json | jq '.packages | length > 0')
+          echo "Change Detected: $STORYBOOK_CHANGE"
+          echo "storybook-change=$STORYBOOK_CHANGE" >> $GITHUB_OUTPUT
+
   lint-styles:
     runs-on: ubuntu-latest
     steps:
@@ -94,7 +132,7 @@ jobs:
 
   build-ubuntu-node-18:
     uses: ./.github/workflows/install-build.yml
-    needs: ['lint-js', 'lint-styles']
+    needs: ['lint-js', 'lint-styles', 'check-change-type']
     with:
       os: ubuntu-latest
       node-version: 18
@@ -131,34 +169,10 @@ jobs:
         with:
           script-name: "test:ci"
 
-  deploy-docs:
-    needs: unit-tests
-    uses: ./.github/workflows/amplify-deploy.yml
-    with:
-      os: ubuntu-latest
-      node-version: 18
-      amplify-app-id: dvskdcoepjoyf
-      package-name: 'pie-docs'
-      package-dist-directory: ./apps/pie-docs/dist
-      bucket-name-preview: 'pie-docs-preview'
-      bucket-name-main: 'pie-docs'
-    secrets: inherit
-
-  deploy-storybook:
-    needs: unit-tests
-    uses: ./.github/workflows/amplify-deploy.yml
-    with:
-      os: ubuntu-latest
-      node-version: 18
-      amplify-app-id: d17ja0ul7nrdy0
-      package-name: 'pie-storybook'
-      package-dist-directory: ./apps/pie-storybook/dist
-      bucket-name-preview: 'pie-storybook-preview'
-      bucket-name-main: 'pie-storybook'
-    secrets: inherit
-
-  browser-tests:
-    needs: deploy-docs
+  # TODO: DSW-1151 - Move this into a reusable action so it's not duplicated
+  browser-tests-components:
+    needs: build-ubuntu-node-18
+    if: needs.check-change-type.outputs.web-components-change == 'true' || github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
       # Checkout the Repo
@@ -179,7 +193,7 @@ jobs:
       - name: Run All System / Component /  a11y Tests
         uses: ./.github/actions/run-script
         with:
-          script-name: "test:browsers:ci"
+          script-name: "test:browsers:ci --filter='./packages/components/*'"
       - uses: actions/upload-artifact@v3
         if: always()
         with:
@@ -191,13 +205,90 @@ jobs:
         uses: ./.github/actions/run-script
         if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
         with:
-          script-name: "test:visual:ci"
+          script-name: "test:visual:ci --filter='./packages/components/*'"
           concurrency: 1
       - name: Run Changed Package Visual Tests
         uses: ./.github/actions/run-script
         if: (github.event_name == 'pull_request' && github.event.pull_request.draft == false) && github.ref != 'refs/heads/main'
         with:
-          script-name: "test:visual:ci --filter=...[origin/main]"
+          script-name: "test:visual:ci --filter='./packages/components/*' --filter=...[origin/main]"
+          concurrency: 1
+      - uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: visual-report
+          path: visual-report/
+          retention-days: 7
+
+  deploy-docs:
+    needs: unit-tests
+    uses: ./.github/workflows/amplify-deploy.yml
+    if: needs.check-change-type.outputs.pie-docs-change == 'true' || github.ref == 'refs/heads/main'
+    with:
+      os: ubuntu-latest
+      node-version: 18
+      amplify-app-id: dvskdcoepjoyf
+      package-name: 'pie-docs'
+      package-dist-directory: ./apps/pie-docs/dist
+      bucket-name-preview: 'pie-docs-preview'
+      bucket-name-main: 'pie-docs'
+    secrets: inherit
+
+  deploy-storybook:
+    needs: unit-tests
+    if: (needs.check-change-type.outputs.web-components-change == 'true' || needs.check-change-type.outputs.storybook-change == 'true') || github.ref == 'refs/heads/main'
+    uses: ./.github/workflows/amplify-deploy.yml
+    with:
+      os: ubuntu-latest
+      node-version: 18
+      amplify-app-id: d17ja0ul7nrdy0
+      package-name: 'pie-storybook'
+      package-dist-directory: ./apps/pie-storybook/dist
+      bucket-name-preview: 'pie-storybook-preview'
+      bucket-name-main: 'pie-storybook'
+    secrets: inherit
+
+  browser-tests-docs:
+    needs: deploy-docs
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout the Repo
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      # Setup Repo
+      - name: Setup Repo
+        uses: ./.github/actions/setup-repo
+        with:
+          node-version: 18
+          os: ubuntu-latest
+      # Setup Playwright
+      - name: Setup Playwright
+        uses: ./.github/actions/setup-playwright
+      # Run System / a11y Tests
+      - name: Run All System /  a11y Tests
+        uses: ./.github/actions/run-script
+        with:
+          script-name: "test:browsers:ci --filter=pie-docs"
+      - uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: browsers-report
+          path: browsers-report/
+          retention-days: 7
+      # Run Visual Tests
+      - name: Run All Visual Tests
+        uses: ./.github/actions/run-script
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+        with:
+          script-name: "test:visual:ci --filter=pie-docs"
+          concurrency: 1
+      - name: Run Changed Package Visual Tests
+        uses: ./.github/actions/run-script
+        if: (github.event_name == 'pull_request' && github.event.pull_request.draft == false) && github.ref != 'refs/heads/main'
+        with:
+          script-name: "test:visual:ci --filter=pie-docs"
           concurrency: 1
       - uses: actions/upload-artifact@v3
         if: always()
@@ -211,6 +302,7 @@ jobs:
 
   release:
     needs: [ 'unit-tests', 'lint-js']
+    if: github.event_name != 'pull_request'
     uses: ./.github/workflows/changeset-release.yml
     with:
       os: ubuntu-latest
