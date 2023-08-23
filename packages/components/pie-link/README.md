@@ -59,7 +59,7 @@ import { PieLink } from '@justeattakeaway/pie-link/dist/react';
 
 | Property      | Type        | Default       | Description                                                                                          |
 | ------------- | ----------- | ------------- | ---------------------------------------------------------------------------------------------------- |
-| tag           | `String`  | `a`         | The renderd HTML element of the link, one of `tags` – `a`, `button`                         |
+| tag           | `String`  | `a`         | The rendered HTML element of the link, one of `tags` – `a`, `button`                         |
 | variant       | `String`  | `default`   | Variant of the link, one of `variants` – `default`, `high-visibility`, `inverse`         |
 | size          | `String`  | `medium`    | Size of the link, one of `sizes` – `medium`, `small`                                          |
 | href          | `String`  | `undefined` | Native html `href` attribute                                                                       |
