@@ -68,7 +68,7 @@ $breakpoint-wide: 768px;
 
     margin-block-start: var(--dt-spacing-a);
     max-height: 200px;
-    overflow-y: scroll;
+    overflow-y: auto;
     background:
         // Scroll shadow cover
         // A top-to-bottom opacity gradient from transparent to the component background colour
