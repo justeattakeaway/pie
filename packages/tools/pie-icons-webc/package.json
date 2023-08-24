@@ -42,6 +42,7 @@
     "extends @justeat/browserslist-config-fozzie"
   ],
   "devDependencies": {
+    "@babel/core": "7.22.5",
     "@babel/node": "7.20.7",
     "@justeattakeaway/pie-icons": "4.5.0",
     "@justeattakeaway/pie-icons-configs": "workspace:*",
@@ -51,7 +52,8 @@
     "just-pascal-case": "3.2.0",
     "lit": "2.7.5",
     "rollup": "3.20.2",
-    "rollup-plugin-multi-input": "1.4.1"
+    "rollup-plugin-multi-input": "1.4.1",
+    "typescript": "5.1.3"
   },
   "volta": {
     "extends": "../../../package.json"
