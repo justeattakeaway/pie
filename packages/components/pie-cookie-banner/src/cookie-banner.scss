@@ -1,1 +1,120 @@
 @use '@justeattakeaway/pie-css/scss' as p;
+
+* {
+    margin: 0;
+}
+
+$breakpoint-wide: 700px;
+
+.c-cookieBanner {
+    --cb-font-family: var(--dt-font-interactive-m-family);
+    --cb-font-size: #{p.font-size('--dt-font-body-l-size')};
+    --cb-line-height: calc(var(--dt-font-body-l-line-height) * 1px);
+    --cb-font-weight: var(--dt-font-body-l-weight);
+    --cb-padding-inline: var(--dt-spacing-d);
+    --cb-padding-block: var(--dt-spacing-d);
+    --cb-offset: 0;
+
+    color-scheme: only dark; // For Dark mode we will need to switch this to only light
+    background-color: var(--dt-color-background-dark);
+    color: var(--dt-color-content-inverse);
+    font-family: var(--cb-font-family);
+    font-size: var(--cb-font-size);
+    line-height: var(--cb-line-height);
+    font-weight: var(--cb-font-weight);
+    padding-block-start: var(--cb-padding-block);
+    padding-block-end: var(--cb-padding-block);
+    max-height: 432px;
+    position: fixed;
+    bottom: var(--cb-offset);
+    left: var(--cb-offset);
+    right: var(--cb-offset);
+    border-top-left-radius: var(--dt-radius-rounded-c);
+    border-top-right-radius: var(--dt-radius-rounded-c);
+
+
+    @media (min-width: $breakpoint-wide) and (orientation: landscape) {
+        --cb-padding-inline: var(--dt-spacing-f);
+        --cb-offset: var(--dt-spacing-d);
+
+        max-height: 90%;
+        border-bottom-left-radius: var(--dt-radius-rounded-c);
+        border-bottom-right-radius: var(--dt-radius-rounded-c);
+    }
+}
+
+.c-cookieBanner-title,
+.c-cookieBanner-body,
+.c-cookieBanner-actions {
+    padding-inline-start: var(--cb-padding-inline);
+    padding-inline-end: var(--cb-padding-inline);
+}
+
+.c-cookieBanner-title {
+    --cb-title-font-size: var(--dt-font-heading-s-size--narrow);
+    --cb-title-line-height: var(--dt-font-heading-s-line-height--narrow);
+
+    @include p.font-size(--cb-title-font-size);
+    font-weight: var(--dt-font-heading-s-weight);
+    line-height: calc(var(--cb-title-line-height) * 1px);
+
+    @media (min-width: $breakpoint-wide) and (orientation: landscape) {
+        --cb-title-font-size: var(--dt-font-heading-s-size--wide);
+        --cb-title-line-height: var(--dt-font-heading-s-line-height--wide);
+    }
+}
+
+.c-cookieBanner-body {
+    // We have to use a color darker than --dt-color-background-dark.
+    // Current the only option is this global token
+    --cb-scroll-shadow-color: var(--dt-color-black);
+
+    margin-block-start: var(--dt-spacing-a);
+    max-height: 200px;
+    overflow-y: auto;
+    background:
+        // Scroll shadow cover
+        // A top-to-bottom opacity gradient from transparent to the component background colour
+        linear-gradient(to bottom, transparent, var(--dt-color-background-dark) 75%) center bottom,
+        // Scroll shadow
+        linear-gradient(transparent, var(--cb-scroll-shadow-color)) center bottom;
+    background-repeat: no-repeat;
+    background-size: 100% 48px, 100% 8px;
+
+    // The shadow cover is an opacity gradient which is attached to the bottom of the scrollable element
+    // and scrolls with it, so as you reach the bottom of the content the more opaque portion covers
+    // (and therefore hides) the shadow. This gives the effect of the shadow fading away.
+    // The shadow itself does not move as you scroll.
+    background-attachment: local, scroll;
+
+    @media (min-width: $breakpoint-wide) and (orientation: landscape) {
+        max-height: 150px;
+    }
+}
+
+.c-cookieBanner-actions {
+    --cb-actions-flex-dir: column;
+
+    margin-block-start: var(--dt-spacing-d);
+    display: flex;
+    gap: var(--dt-spacing-d);
+    flex-direction: var(--cb-actions-flex-dir);
+
+    > pie-link {
+        width: max-content;
+        margin-inline-start: auto;
+        margin-inline-end: auto;
+    }
+
+    @media (min-width: $breakpoint-wide) and (orientation: landscape) {
+        --cb-actions-flex-dir: row-reverse;
+
+        justify-content: flex-start;
+        align-items: center;
+
+        > pie-link {
+            margin-inline-start: 0;
+            margin-inline-end: 0;
+        }
+    }
+}

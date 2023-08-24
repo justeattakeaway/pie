@@ -28,10 +28,12 @@
   "author": "JustEatTakeaway.com - Design System Web Team",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@justeattakeaway/pie-components-config": "workspace:*"
+    "@justeattakeaway/pie-button": "0.25.0",
+    "@justeattakeaway/pie-components-config": "0.3.0",
+    "@justeattakeaway/pie-link": "0.2.0"
   },
   "dependencies": {
-    "@justeattakeaway/pie-webc-core": "workspace:*"
+    "@justeattakeaway/pie-webc-core": "0.7.0"
   },
   "volta": {
     "extends": "../../../package.json"
