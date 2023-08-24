@@ -42,7 +42,7 @@ test.describe('PieCookieBanner - Component tests', () => {
         expect(cookieBanner).toBeVisible();
     });
 
-    test('clicking "Accept all" emits the correct event', async ({ mount, page }) => {
+    test('clicking "Accept all" emits the correct event and closes the cookie banner', async ({ mount, page }) => {
         // Arrange
         const events : Array<Event> = [];
 
@@ -54,14 +54,17 @@ test.describe('PieCookieBanner - Component tests', () => {
             },
         });
 
+        const cookieBanner = await page.locator(componentSelector);
+
         // Act
         await page.locator(acceptAllSelector).click();
 
         // Assert
         expect(events).toHaveLength(1);
+        expect(cookieBanner).not.toBeVisible();
     });
 
-    test('clicking "Necessary only" emits the correct event', async ({ mount, page }) => {
+    test('clicking "Necessary only" emits the correct event and closes the cookie banner', async ({ mount, page }) => {
         // Arrange
         const events : Array<Event> = [];
 
@@ -73,11 +76,14 @@ test.describe('PieCookieBanner - Component tests', () => {
             },
         });
 
+        const cookieBanner = await page.locator(componentSelector);
+
         // Act
         await page.locator(necessaryOnlySelector).click();
 
         // Assert
         expect(events).toHaveLength(1);
+        expect(cookieBanner).not.toBeVisible();
     });
 
     test('clicking "Manage preferences" emits the correct event, opens the modal and hides the cookie banner', async ({ mount, page }) => {
