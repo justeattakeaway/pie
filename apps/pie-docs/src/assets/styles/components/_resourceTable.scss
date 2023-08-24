@@ -9,6 +9,18 @@
         @include f.font-size('heading-m');
         font-weight: f.$font-weight-extrabold;
     }
+
+    @include f.media('<narrowMid') {
+        td {
+            &:not(:first-child) {
+                min-width: 23ch;
+            }
+
+            &:not(:last-child) {
+                max-width: 18ch;
+            }
+        }
+    }
 }
 
 .c-resourceTable-resource {
@@ -19,6 +31,16 @@
     img {
         width: 24px;
         height: 24px;
+    }
+
+    a {
+        text-decoration: none;
+
+        &:hover,
+        &:active,
+        &:focus {
+            text-decoration: underline;
+        }
     }
 }
 

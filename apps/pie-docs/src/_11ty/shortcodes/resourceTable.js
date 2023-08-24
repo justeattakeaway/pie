@@ -13,6 +13,7 @@ const statusColours = {
     planned: getStatusColour('support-info-02'),
     next: getStatusColour('support-warning-02'),
     done: getStatusColour('support-error-02'),
+    other: getStatusColour('container-strong'),
 };
 
 const statusSettings = {
@@ -41,11 +42,11 @@ const statusSettings = {
         status: 'Deprecated',
     },
     [statusTypes.NOT_APPLICABLE]: {
-        bgColor: statusColours.done,
+        bgColor: statusColours.other,
         status: 'N/A',
     },
     [statusTypes.TBC]: {
-        bgColor: statusColours.done,
+        bgColor: statusColours.other,
         status: 'TBC',
     },
 };

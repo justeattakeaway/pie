@@ -31,7 +31,8 @@ eleventyNavigation:
         },
         {
             resource: resourceTypes.DOCUMENTATION,
-            status: statusTypes.PLANNED
+            status: statusTypes.DEPRECATED,
+            note: "YYYY-MM-DD"
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
