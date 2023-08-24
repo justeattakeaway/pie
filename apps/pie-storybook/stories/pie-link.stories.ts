@@ -1,7 +1,8 @@
 import { html, TemplateResult, nothing } from 'lit';
 import { type StoryObj as Story } from '@storybook/web-components';
 import {
-    PieLink, LinkProps as LinkBaseProps, sizes, variants, iconPlacements,
+    PieLink, LinkProps as LinkBaseProps, sizes,
+    variants, iconPlacements, tags, buttonTypes,
 } from '@justeattakeaway/pie-link';
 import type { StoryMeta, SlottedComponentProps } from '../types';
 
@@ -13,19 +14,28 @@ type LinkProps = SlottedComponentProps<LinkBaseProps>;
 type LinkStoryMeta = StoryMeta<LinkProps>;
 
 const defaultArgs: LinkProps = {
+    tag: 'a',
     variant: 'default',
     size: 'medium',
     href: 'https://pie.design',
-    target: '_target',
+    target: '_blank',
     isBold: false,
     isStandalone: false,
-    slot: 'This is Lit!',
+    slot: 'Link',
 };
 
 const linkStoryMeta: LinkStoryMeta = {
     title: 'Link',
     component: 'pie-link',
     argTypes: {
+        tag: {
+            description: 'Set the element tag of the link.',
+            control: 'select',
+            options: tags,
+            defaultValue: {
+                summary: 'a',
+            },
+        },
         variant: {
             description: 'Set the variant of the link.',
             control: 'select',
@@ -50,14 +60,26 @@ const linkStoryMeta: LinkStoryMeta = {
         href: {
             description: 'The URL that the hyperlink should point to',
             control: 'text',
+            if: { arg: 'tag', eq: 'a' },
         },
         target: {
             description: 'Set where to display the linked URL',
             control: 'text',
+            if: { arg: 'tag', eq: 'a' },
         },
         rel: {
             description: 'Set what the relationship of the linked URL is',
             control: 'text',
+            if: { arg: 'tag', eq: 'a' },
+        },
+        type: {
+            description: 'Set the type of the button.',
+            control: 'select',
+            options: buttonTypes,
+            defaultValue: {
+                summary: 'submit',
+            },
+            if: { arg: 'tag', eq: 'button' },
         },
         isBold: {
             description: 'If `true`, makes the link text bold',
@@ -85,7 +107,7 @@ const linkStoryMeta: LinkStoryMeta = {
     parameters: {
         design: {
             type: 'figma',
-            url: '',
+            url: 'https://www.figma.com/file/pPSC73rPin4csb8DiK1CRr/Core-Web-Components-%5BDESIGNERS-DO-NOT-USE%5D?type=design&node-id=364-29974&mode=design',
         },
     },
 };
@@ -93,23 +115,27 @@ const linkStoryMeta: LinkStoryMeta = {
 export default linkStoryMeta;
 
 const Template = ({
+    tag,
     href,
     target,
     rel,
     size,
     variant,
+    type,
     isBold,
     isStandalone,
     slot,
     iconPlacement,
 }: LinkProps): TemplateResult => html`
         <pie-link
+            tag="${tag}"
             variant="${variant}"
             size="${size}"
             iconPlacement="${iconPlacement || nothing}"
             href="${href || nothing}"
             target="${target || nothing}"
             rel="${rel || nothing}"
+            type="${type || nothing}"
             ?isBold="${isBold}"
             ?isStandalone="${isStandalone}">
             ${iconPlacement ? html`<icon-plus-circle slot="icon"></icon-plus-circle>` : nothing}
