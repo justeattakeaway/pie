@@ -30,7 +30,9 @@
   "devDependencies": {
     "@justeattakeaway/pie-button": "0.25.0",
     "@justeattakeaway/pie-components-config": "0.3.0",
-    "@justeattakeaway/pie-link": "0.2.0"
+    "@justeattakeaway/pie-icon-button": "0.14.0",
+    "@justeattakeaway/pie-link": "0.2.0",
+    "@justeattakeaway/pie-modal": "0.18.0"
   },
   "dependencies": {
     "@justeattakeaway/pie-webc-core": "0.7.0"
