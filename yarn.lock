@@ -5454,7 +5454,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-cookie-banner@workspace:packages/components/pie-cookie-banner":
+"@justeattakeaway/pie-cookie-banner@workspace:*, @justeattakeaway/pie-cookie-banner@workspace:packages/components/pie-cookie-banner":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-cookie-banner@workspace:packages/components/pie-cookie-banner"
   dependencies:
@@ -27464,6 +27464,7 @@ __metadata:
   resolution: "pie-storybook@workspace:apps/pie-storybook"
   dependencies:
     "@justeattakeaway/pie-button": "workspace:*"
+    "@justeattakeaway/pie-cookie-banner": "workspace:*"
     "@justeattakeaway/pie-css": "workspace:*"
     "@justeattakeaway/pie-divider": "workspace:*"
     "@justeattakeaway/pie-icon-button": "workspace:*"
