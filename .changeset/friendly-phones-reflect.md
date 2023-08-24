@@ -2,7 +2,7 @@
 "pie-monorepo": patch
 ---
 
-[Fixed] - `@babel/traverse issue that was causing `wc-next10` build to fail.
+[Fixed] - `@babel/traverse` issue that was causing `wc-next10` build to fail.
 
 ### Issue Overview
 GitHub Issue - https://github.com/babel/babel/issues/15765
