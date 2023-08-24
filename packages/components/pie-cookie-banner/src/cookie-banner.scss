@@ -42,7 +42,7 @@ $breakpoint-wide: 700px;
         border-bottom-right-radius: var(--dt-radius-rounded-c);
     }
 
-    &[hidecookiebanner] {
+    &[isCookieBannerHidden] {
         display: none;
     }
 }

@@ -17,7 +17,10 @@ const componentSelector = 'pie-cookie-banner';
 
 export class PieCookieBanner extends LitElement implements CookieBannerProps {
     @state()
-    private _hideCookieBanner = false;
+    private _isCookieBannerHidden = false;
+
+    @state()
+    private _isModalOpen = false;
 
     /**
      * Note: We should aim to have a shareable event helper system to allow
@@ -40,8 +43,9 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
     };
 
     private _openManagePreferencesModal = () : void => {
-        this._hideCookieBanner = true;
+        this._isCookieBannerHidden = true;
         this._dispatchCookieBannerCustomEvent(ON_COOKIE_BANNER_MANAGE_PREFS);
+        this._isModalOpen = true;
     };
 
     render () {
@@ -53,12 +57,13 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
 
         return html`
         <pie-modal
+            .isOpen="${this._isModalOpen}"
             hasBackButton
             size="large"
             heading="Manage your preferences"
             .leadingAction="${modalActionProps}"
         ></pie-modal>
-        <aside data-test-id="pie-cookie-banner" class="c-cookieBanner" ?hideCookieBanner=${this._hideCookieBanner}>
+        <aside data-test-id="pie-cookie-banner" class="c-cookieBanner" ?isCookieBannerHidden=${this._isCookieBannerHidden}>
             <h2 class="c-cookieBanner-title">Cookies</h2>
             <div class="c-cookieBanner-body">
                 <p>We use our own and third party cookies and other tech to enhance and personalise your user experience,
