@@ -52,11 +52,11 @@
     "extends @justeat/browserslist-config-fozzie"
   ],
   "dependencies": {
+    "@justeattakeaway/pie-icons": "4.5.0",
     "@vue/babel-helper-vue-jsx-merge-props": "1.4.0"
   },
   "devDependencies": {
     "@babel/core": "7.22.5",
-    "@justeattakeaway/pie-icons": "4.5.0",
     "@justeattakeaway/pie-icons-configs": "4.5.0",
     "@rollup/plugin-commonjs": "25.0.4",
     "@vue/babel-preset-jsx": "1.4.0",
