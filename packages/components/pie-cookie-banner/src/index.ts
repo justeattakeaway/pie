@@ -1,5 +1,4 @@
 import { LitElement, html, unsafeCSS } from 'lit';
-
 import styles from './cookie-banner.scss?inline';
 import { CookieBannerProps } from './defs';
 
@@ -10,7 +9,20 @@ const componentSelector = 'pie-cookie-banner';
 
 export class PieCookieBanner extends LitElement implements CookieBannerProps {
     render () {
+        const modalActionProps = {
+            text: 'Save',
+            variant: 'primary',
+            ariaLabel: 'Save changes',
+        };
+
         return html`
+        <pie-modal
+            isOpen
+            hasBackButton
+            size="large"
+            heading="Manage your preferences"
+            .leadingAction="${modalActionProps}"
+        ></pie-modal>
         <aside data-test-id="pie-cookie-banner" class="c-cookieBanner">
             <h2 class="c-cookieBanner-title">Cookies</h2>
             <div class="c-cookieBanner-body">
