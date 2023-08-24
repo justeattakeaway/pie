@@ -33,6 +33,10 @@ const statusSettings = {
         bgColor: statusColours.next,
         status: 'Beta',
     },
+    [statusTypes.PRE_RELEASE]: {
+        bgColor: statusColours.next,
+        status: 'Pre-release',
+    },
     [statusTypes.REMOVED]: {
         bgColor: statusColours.done,
         status: 'Removed',
