@@ -89,7 +89,7 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
         const modalActionProps = {
             text: 'Save',
             variant: 'primary',
-            ariaLabel: 'Save changes',
+            ariaLabel: 'Save your cookie preferences',
         };
 
         return html`
