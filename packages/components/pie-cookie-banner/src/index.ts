@@ -123,7 +123,7 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
                 <pie-button
                     data-test-id="necessary-only"
                     @click="${() => this._dispatchCookieBannerCustomEvent(ON_COOKIE_BANNER_NECESSARY_ONLY)}"
-                    variant="outline"
+                    variant="outline-inverse"
                     isFullWidth
                     size="small-expressive">
                     Necessary only
