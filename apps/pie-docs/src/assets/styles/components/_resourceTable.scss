@@ -1,0 +1,52 @@
+@use '../fozzie-config' as f;
+@use './table';
+
+.c-resourceTable {
+    @extend %c-table;
+    @extend %c-table-full-width;
+
+    th {
+        @include f.font-size('heading-m');
+        font-weight: f.$font-weight-extrabold;
+    }
+
+    @include f.media('<narrowMid') {
+        td {
+            &:not(:first-child) {
+                min-width: 23ch;
+            }
+
+            &:not(:last-child) {
+                max-width: 18ch;
+            }
+        }
+    }
+}
+
+.c-resourceTable-resource {
+    display: flex;
+    gap: 8px;
+    align-content: center;
+
+    img {
+        width: 24px;
+        height: 24px;
+    }
+
+    a {
+        text-decoration: none;
+
+        &:hover,
+        &:active,
+        &:focus {
+            text-decoration: underline;
+        }
+    }
+}
+
+.c-resourceTable-status {
+    display: inline;
+    background: var(--bg-colour);
+    padding: 2px f.spacing(a);
+    border-radius: f.$radius-rounded-b;
+}
