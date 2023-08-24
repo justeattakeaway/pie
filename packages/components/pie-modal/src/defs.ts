@@ -133,3 +133,19 @@ export const ON_MODAL_OPEN_EVENT = 'pie-modal-open';
  * @constant
  */
 export const ON_MODAL_BACK_EVENT = 'pie-modal-back';
+
+/**
+ * Event name for when the modal leading action is clicked.
+ *
+ * @constant
+ */
+export const ON_MODAL_LEADING_ACTION_CLICK = 'pie-modal-leading-action-click';
+
+/**
+ * Event name for when the modal supporting action is clicked.
+ *
+ * @constant
+ */
+export const ON_MODAL_SUPPORTING_ACTION_CLICK = 'pie-modal-supporting-action-click';
+
+export type ModalActionType = 'leading' | 'supporting';

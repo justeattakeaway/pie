@@ -15,12 +15,46 @@ export * from './defs';
 
 const componentSelector = 'pie-cookie-banner';
 
+/**
+ * @event {CustomEvent} pie-cookie-banner-accept-all - when all cookies are accepted.
+ * @event {CustomEvent} pie-cookie-banner-necessary-only - when all only necessary cookies are accepted.
+ * @event {CustomEvent} pie-cookie-manage-prefs - when a user clicks manage preferences.
+ */
 export class PieCookieBanner extends LitElement implements CookieBannerProps {
     @state()
     private _isCookieBannerHidden = false;
 
     @state()
     private _isModalOpen = false;
+
+    connectedCallback () : void {
+        super.connectedCallback();
+        document.addEventListener('pie-modal-back', this._handleModalClose.bind(this));
+        document.addEventListener('pie-modal-leading-action-click', this._handlePreferencesSaved.bind(this));
+    }
+
+    disconnectedCallback () : void {
+        document.removeEventListener('pie-modal-back', this._handleModalClose.bind(this));
+        document.removeEventListener('pie-modal-leading-action-click', this._handlePreferencesSaved.bind(this));
+        super.disconnectedCallback();
+    }
+
+    /**
+     * Handles closing the modal and re-displaying the cookie banner
+     * and making the cookie banner visible
+     */
+    private _handleModalClose () : void {
+        this._isModalOpen = false;
+        this._isCookieBannerHidden = false;
+    }
+
+    /**
+     * Handles saving the user cookie preferences, closing the modal and re-displaying the cookie banner
+     */
+    private _handlePreferencesSaved () : void {
+        this._handleModalClose();
+        console.info('Cookie Preferences saved');
+    }
 
     /**
      * Note: We should aim to have a shareable event helper system to allow
@@ -42,6 +76,9 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
         this.dispatchEvent(event);
     };
 
+    /**
+     * Opens the manage preferences modal and emits an event letting users know
+     */
     private _openManagePreferencesModal = () : void => {
         this._isCookieBannerHidden = true;
         this._dispatchCookieBannerCustomEvent(ON_COOKIE_BANNER_MANAGE_PREFS);

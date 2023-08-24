@@ -3,21 +3,21 @@
 export interface CookieBannerProps {}
 
 /**
- * Event name for when all cookies are accepted
+ * Event name for when all cookies are accepted.
  *
  * @constant
  */
 export const ON_COOKIE_BANNER_ACCEPT_ALL = 'pie-cookie-banner-accept-all';
 
 /**
- * Event name for when all only necessary cookies are accepted
+ * Event name for when all only necessary cookies are accepted.
  *
  * @constant
  */
 export const ON_COOKIE_BANNER_NECESSARY_ONLY = 'pie-cookie-banner-necessary-only';
 
 /**
- * Event name for when a user clicks manage preferences
+ * Event name for when a user clicks manage preferences.
  *
  * @constant
  */
