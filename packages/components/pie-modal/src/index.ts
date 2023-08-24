@@ -19,6 +19,7 @@ import {
     type AriaProps,
     type ActionProps,
     type ModalProps,
+    type ModalActionType,
     headingLevels,
     positions,
     sizes,
@@ -27,7 +28,6 @@ import {
     ON_MODAL_OPEN_EVENT,
     ON_MODAL_LEADING_ACTION_CLICK,
     ON_MODAL_SUPPORTING_ACTION_CLICK,
-    ModalActionType,
 } from './defs';
 
 // Valid values available to consumers
