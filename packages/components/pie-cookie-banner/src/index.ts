@@ -1,6 +1,11 @@
 import { LitElement, html, unsafeCSS } from 'lit';
 import styles from './cookie-banner.scss?inline';
-import { CookieBannerProps } from './defs';
+import {
+    CookieBannerProps,
+    ON_COOKIE_BANNER_ACCEPT_ALL,
+    ON_COOKIE_BANNER_NECESSARY_ONLY,
+    ON_COOKIE_BANNER_MANAGE_PREFS,
+} from './defs';
 
 // Valid values available to consumers
 export * from './defs';
@@ -8,6 +13,27 @@ export * from './defs';
 const componentSelector = 'pie-cookie-banner';
 
 export class PieCookieBanner extends LitElement implements CookieBannerProps {
+    /**
+     * Note: We should aim to have a shareable event helper system to allow
+     * us to share this across components in-future.
+     *
+     * Dispatch a custom event.
+     *
+     * To be used whenever we have behavioral events we want to
+     * bubble up through the cookie banner.
+     *
+     * @param {string} eventType
+     */
+    private _dispatchCookieBannerCustomEvent = (eventType: string) : void => {
+        console.log(eventType);
+        const event = new CustomEvent(eventType, {
+            bubbles: true,
+            composed: true,
+        });
+
+        this.dispatchEvent(event);
+    };
+
     render () {
         const modalActionProps = {
             text: 'Save',
@@ -17,7 +43,6 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
 
         return html`
         <pie-modal
-            isOpen
             hasBackButton
             size="large"
             heading="Manage your preferences"
@@ -35,13 +60,24 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
             </div>
 
             <div class="c-cookieBanner-actions">
-                <pie-button variant="primary" isFullWidth="true" size="small-expressive">
+                <pie-button
+                    @click="${() => this._dispatchCookieBannerCustomEvent(ON_COOKIE_BANNER_ACCEPT_ALL)}"
+                    variant="primary"
+                    isFullWidth
+                    size="small-expressive">
                     Accept all
                 </pie-button>
-                <pie-button variant="outline" isFullWidth="true" size="small-expressive">
+                <pie-button
+                    @click="${() => this._dispatchCookieBannerCustomEvent(ON_COOKIE_BANNER_NECESSARY_ONLY)}"
+                    variant="outline"
+                    isFullWidth
+                    size="small-expressive">
                     Necessary only
                 </pie-button>
-                <pie-link variant="inverse" size="medium" isBold="true">
+                <pie-link
+                    @click="${() => this._dispatchCookieBannerCustomEvent(ON_COOKIE_BANNER_MANAGE_PREFS)}"
+                    variant="inverse"
+                    isBold="true">
                     Manage preferences
                 </pie-link>
             </div>
