@@ -20,41 +20,6 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
                 Necessary cookies are always set. Click <pie-link variant="inverse">Necessary only</pie-link>
                 to continue without accepting more. Click <pie-link variant="inverse">Manage preferences</pie-link>
                 to share your preferences or <pie-link variant="inverse">Accept all</pie-link>.</p>
-
-                <p>We use our own and third party cookies and other tech to enhance and personalise your user experience,
-                optimize analytics, and show ads with third parties
-                (read our <pie-link variant="inverse">Statement</pie-link>).
-                Necessary cookies are always set. Click <pie-link variant="inverse">Necessary only</pie-link>
-                to continue without accepting more. Click <pie-link variant="inverse">Manage preferences</pie-link>
-                to share your preferences or <pie-link variant="inverse">Accept all</pie-link>.</p>
-
-                <p>We use our own and third party cookies and other tech to enhance and personalise your user experience,
-                optimize analytics, and show ads with third parties
-                (read our <pie-link variant="inverse">Statement</pie-link>).
-                Necessary cookies are always set. Click <pie-link variant="inverse">Necessary only</pie-link>
-                to continue without accepting more. Click <pie-link variant="inverse">Manage preferences</pie-link>
-                to share your preferences or <pie-link variant="inverse">Accept all</pie-link>.</p>
-
-                <p>We use our own and third party cookies and other tech to enhance and personalise your user experience,
-                optimize analytics, and show ads with third parties
-                (read our <pie-link variant="inverse">Statement</pie-link>).
-                Necessary cookies are always set. Click <pie-link variant="inverse">Necessary only</pie-link>
-                to continue without accepting more. Click <pie-link variant="inverse">Manage preferences</pie-link>
-                to share your preferences or <pie-link variant="inverse">Accept all</pie-link>.</p>
-
-                <p>We use our own and third party cookies and other tech to enhance and personalise your user experience,
-                optimize analytics, and show ads with third parties
-                (read our <pie-link variant="inverse">Statement</pie-link>).
-                Necessary cookies are always set. Click <pie-link variant="inverse">Necessary only</pie-link>
-                to continue without accepting more. Click <pie-link variant="inverse">Manage preferences</pie-link>
-                to share your preferences or <pie-link variant="inverse">Accept all</pie-link>.</p>
-
-                <p>We use our own and third party cookies and other tech to enhance and personalise your user experience,
-                optimize analytics, and show ads with third parties
-                (read our <pie-link variant="inverse">Statement</pie-link>).
-                Necessary cookies are always set. Click <pie-link variant="inverse">Necessary only</pie-link>
-                to continue without accepting more. Click <pie-link variant="inverse">Manage preferences</pie-link>
-                to share your preferences or <pie-link variant="inverse">Accept all</pie-link>.</p>
             </div>
 
             <div class="c-cookieBanner-actions">
