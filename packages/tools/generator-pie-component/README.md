@@ -24,10 +24,10 @@ Install `yeoman` globally:
 $ npm install --global yo
 ```
 
-Build the generator package locally
+Build the generator package locally (it is recommended you force the build)
 
 ```sh
-$ yarn build --filter=generator-pie-component
+$ yarn build --filter=generator-pie-component --force
 ```
 
 ### Running the generator
