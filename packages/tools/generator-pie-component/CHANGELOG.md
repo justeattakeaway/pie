@@ -1,5 +1,11 @@
 # @justeattakeaway/generator-pie-component
 
+## 0.7.0
+
+### Minor Changes
+
+- [Changed] - Update RTL mixin to infer dir by default and document ([#745](https://github.com/justeattakeaway/pie/pull/745)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.6.0
 
 ### Minor Changes

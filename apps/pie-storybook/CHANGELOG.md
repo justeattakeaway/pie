@@ -1,5 +1,34 @@
 # Changelog
 
+## 0.26.0
+
+### Minor Changes
+
+- [Added] - allow the link component to behave like a button ([#748](https://github.com/justeattakeaway/pie/pull/748)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Changed] - fixed visual tests for the link and divider components
+
+- [Changed] - Update RTL mixin to infer dir by default and document ([#745](https://github.com/justeattakeaway/pie/pull/745)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Added] - an icon slot to pie link ([#727](https://github.com/justeattakeaway/pie/pull/727)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Added] - New pie-cookie-banner component (just generated files) ([#746](https://github.com/justeattakeaway/pie/pull/746)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - outline-inverse variant for pie-button ([#752](https://github.com/justeattakeaway/pie/pull/752)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies [[`f0e3bd8db`](https://github.com/justeattakeaway/pie/commit/f0e3bd8dbea395564d62772559114cf4ce38cd25), [`edd20637c`](https://github.com/justeattakeaway/pie/commit/edd20637c92c770bc9163f61b69bafd40016df77), [`ebd324485`](https://github.com/justeattakeaway/pie/commit/ebd3244852a76339d49f50d413197dbc683aef83), [`edd20637c`](https://github.com/justeattakeaway/pie/commit/edd20637c92c770bc9163f61b69bafd40016df77), [`f35da5768`](https://github.com/justeattakeaway/pie/commit/f35da57685303ca7045884f30d4d48b2e28856b9), [`05b353466`](https://github.com/justeattakeaway/pie/commit/05b35346604b3a099e0c6952cc5feb26e572efbe), [`30398960d`](https://github.com/justeattakeaway/pie/commit/30398960d46d84d2d705729433fe9483a2638986), [`2f3f23d91`](https://github.com/justeattakeaway/pie/commit/2f3f23d91f38c44e7fab208da7899655eaa626d4), [`8ce8ed77c`](https://github.com/justeattakeaway/pie/commit/8ce8ed77c4bc8da260a8042c7c02a1b5b08152fc)]:
+  - @justeattakeaway/pie-divider@0.4.0
+  - @justeattakeaway/pie-link@0.3.0
+  - @justeattakeaway/pie-cookie-banner@0.1.0
+  - @justeattakeaway/pie-css@0.3.0
+  - @justeattakeaway/pie-button@0.26.0
+  - @justeattakeaway/pie-toggle-switch@0.5.0
+  - @justeattakeaway/pie-icon-button@0.14.0
+  - @justeattakeaway/pie-modal@0.18.0
+  - @justeattakeaway/pie-icons-webc@0.5.0
+
 ## 0.25.1
 
 ### Patch Changes

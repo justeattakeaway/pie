@@ -1,5 +1,22 @@
 # Changelog
 
+## 2.10.0
+
+### Minor Changes
+
+- [Added] - resource component ([#742](https://github.com/justeattakeaway/pie/pull/742)) by [@FayeCarter](https://github.com/FayeCarter)
+
+- [Changed] - Pull in token metadata and categories json files from `@justeat/pie-design-tokens` package and delete files from project ([#730](https://github.com/justeattakeaway/pie/pull/730)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - Iconography code examples page ([#741](https://github.com/justeattakeaway/pie/pull/741)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - TSX support to Prism js ([#741](https://github.com/justeattakeaway/pie/pull/741)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies [[`867736484`](https://github.com/justeattakeaway/pie/commit/8677364848bcd3266c5acaf6bd4f3ee804d82852), [`d982a3679`](https://github.com/justeattakeaway/pie/commit/d982a36790063c0b434238d5aff9add52074ee63)]:
+  - @justeattakeaway/pie-icons@4.7.1
+
 ## 2.9.0
 
 ### Minor Changes

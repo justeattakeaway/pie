@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-toggle-switch
 
+## 0.5.0
+
+### Minor Changes
+
+- [Added] - label toggling support ([#744](https://github.com/justeattakeaway/pie/pull/744)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
 ## 0.4.0
 
 ### Minor Changes

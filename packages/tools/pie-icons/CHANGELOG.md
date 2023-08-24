@@ -1,5 +1,13 @@
 # Changelog
 
+## 4.7.1
+
+### Patch Changes
+
+- [Removed] - duplicate path definitions from `eggs`, `ribbon-success-large` and `stampcard-10`. ([#729](https://github.com/justeattakeaway/pie/pull/729)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- [Removed] - nodemon ([#743](https://github.com/justeattakeaway/pie/pull/743)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
 ## 4.5.0
 
 ### Minor Changes
