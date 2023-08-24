@@ -113,6 +113,7 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
 
             <div class="c-cookieBanner-actions">
                 <pie-button
+                    data-test-id="accept-all"
                     @click="${() => this._dispatchCookieBannerCustomEvent(ON_COOKIE_BANNER_ACCEPT_ALL)}"
                     variant="primary"
                     isFullWidth
@@ -120,6 +121,7 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
                     Accept all
                 </pie-button>
                 <pie-button
+                    data-test-id="necessary-only"
                     @click="${() => this._dispatchCookieBannerCustomEvent(ON_COOKIE_BANNER_NECESSARY_ONLY)}"
                     variant="outline"
                     isFullWidth
@@ -127,6 +129,7 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
                     Necessary only
                 </pie-button>
                 <pie-link
+                    data-test-id="manage-prefs"
                     @click="${() => this._openManagePreferencesModal()}"
                     variant="inverse"
                     isBold="true">
