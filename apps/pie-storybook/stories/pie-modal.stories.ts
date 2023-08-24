@@ -1,4 +1,4 @@
-import { html, TemplateResult } from 'lit';
+import { html, TemplateResult, nothing } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { type StoryObj as Story } from '@storybook/web-components';
 import { PieIconButton } from '@justeattakeaway/pie-icon-button';
@@ -37,7 +37,6 @@ const defaultArgs: ModalProps = {
     size: 'medium',
     position: 'center',
     slot: 'This is Lit!',
-    dir: 'ltr',
     leadingAction: {
         text: 'Confirm',
         variant: 'primary',
@@ -142,7 +141,7 @@ export default modalStoryMeta;
  * Helper function to toggle the modal open/closed within the actual template (separate to the Storybook controls)
  */
 const toggleModal = () => {
-    const modal = document.querySelector('pie-modal');
+    const modal = document.querySelector('pie-modal') as PieModal;
     if (modal) {
         modal.isOpen = !modal.isOpen;
     }
@@ -192,7 +191,7 @@ const BaseStoryTemplate = (props: ModalProps) : TemplateResult => {
         <pie-button @click=${toggleModal}>Toggle Modal</pie-button>
         <pie-modal
             .aria="${aria}"
-            dir="${dir}"
+            dir="${dir || nothing}"
             heading="${heading}"
             headingLevel="${headingLevel}"
             ?hasBackButton="${hasBackButton}"
