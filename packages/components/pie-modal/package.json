@@ -29,11 +29,11 @@
   "license": "Apache-2.0",
   "devDependencies": {
     "@justeat/pie-design-tokens": "5.5.1",
-    "@justeattakeaway/pie-button": "workspace:*",
-    "@justeattakeaway/pie-components-config": "workspace:*",
-    "@justeattakeaway/pie-icon-button": "workspace:*",
-    "@justeattakeaway/pie-icons-webc": "workspace:*",
-    "@justeattakeaway/pie-webc-core": "workspace:*",
+    "@justeattakeaway/pie-button": "0.25.0",
+    "@justeattakeaway/pie-components-config": "0.3.0",
+    "@justeattakeaway/pie-icon-button": "0.14.0",
+    "@justeattakeaway/pie-icons-webc": "0.5.0",
+    "@justeattakeaway/pie-webc-core": "0.7.0",
     "@types/body-scroll-lock": "3.1.0"
   },
   "peerDependencies": {
