@@ -1,0 +1,29 @@
+@use '../fozzie-config' as f;
+@use '../variables' as v;
+
+%c-table {
+    background-color: f.$color-container-default;
+    box-shadow: 0 0 1px 1px f.$color-border-default;
+    border-collapse: collapse;
+    border-radius: f.$radius-rounded-c;
+    margin-block-start: f.$spacing-f;
+    max-inline-size: v.$typography-content-max-width;
+    inline-size: 100%;
+
+    th,
+    td {
+        text-align: start;
+        vertical-align: top;
+        padding: f.$spacing-d;
+        inline-size: 50%;
+    }
+
+    th,
+    tr:not(:last-child) {
+        border-block-end: 1px solid f.$color-border-default;
+    }
+}
+
+%c-table-full-width {
+    max-inline-size: 100%;
+}
