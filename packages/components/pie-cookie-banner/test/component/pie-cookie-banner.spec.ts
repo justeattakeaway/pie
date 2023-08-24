@@ -125,7 +125,7 @@ test.describe('PieCookieBanner - Component tests', () => {
     });
 
     // TODO: Once we add preference saving logic we should update this test to ensure it behaves as expected
-    test('clicking save in "Manage preferences" closes the modal and re-displays the cookie banner', async ({ mount, page }) => {
+    test('clicking save in "Manage preferences" closes the modal and closes the cookie banner', async ({ mount, page }) => {
         // Arrange
         await mount(PieCookieBanner, {
             props: {} as CookieBannerProps,
@@ -141,6 +141,6 @@ test.describe('PieCookieBanner - Component tests', () => {
         const modal = await page.locator(modalSelector);
 
         expect(modal).not.toBeVisible();
-        expect(cookieBanner).toBeVisible();
+        expect(cookieBanner).not.toBeVisible();
     });
 });
