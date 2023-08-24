@@ -15,7 +15,7 @@ $breakpoint-wide: 700px;
     --cb-padding-block: var(--dt-spacing-d);
     --cb-offset: 0;
 
-    color-scheme: dark; // For Dark mode we will need to switch this to light
+    color-scheme: only dark; // For Dark mode we will need to switch this to only light
     background-color: var(--dt-color-background-dark);
     color: var(--dt-color-content-inverse);
     font-family: var(--cb-font-family);
