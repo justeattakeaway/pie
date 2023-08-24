@@ -1,4 +1,7 @@
-import { LitElement, html, unsafeCSS } from 'lit';
+import {
+    LitElement, html, unsafeCSS,
+} from 'lit';
+import { state } from 'lit/decorators.js';
 import styles from './cookie-banner.scss?inline';
 import {
     CookieBannerProps,
@@ -13,6 +16,9 @@ export * from './defs';
 const componentSelector = 'pie-cookie-banner';
 
 export class PieCookieBanner extends LitElement implements CookieBannerProps {
+    @state()
+    private _hideCookieBanner = false;
+
     /**
      * Note: We should aim to have a shareable event helper system to allow
      * us to share this across components in-future.
@@ -25,13 +31,17 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
      * @param {string} eventType
      */
     private _dispatchCookieBannerCustomEvent = (eventType: string) : void => {
-        console.log(eventType);
         const event = new CustomEvent(eventType, {
             bubbles: true,
             composed: true,
         });
 
         this.dispatchEvent(event);
+    };
+
+    private _openManagePreferencesModal = () : void => {
+        this._hideCookieBanner = true;
+        this._dispatchCookieBannerCustomEvent(ON_COOKIE_BANNER_MANAGE_PREFS);
     };
 
     render () {
@@ -48,7 +58,7 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
             heading="Manage your preferences"
             .leadingAction="${modalActionProps}"
         ></pie-modal>
-        <aside data-test-id="pie-cookie-banner" class="c-cookieBanner">
+        <aside data-test-id="pie-cookie-banner" class="c-cookieBanner" ?hideCookieBanner=${this._hideCookieBanner}>
             <h2 class="c-cookieBanner-title">Cookies</h2>
             <div class="c-cookieBanner-body">
                 <p>We use our own and third party cookies and other tech to enhance and personalise your user experience,
@@ -75,7 +85,7 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
                     Necessary only
                 </pie-button>
                 <pie-link
-                    @click="${() => this._dispatchCookieBannerCustomEvent(ON_COOKIE_BANNER_MANAGE_PREFS)}"
+                    @click="${() => this._openManagePreferencesModal()}"
                     variant="inverse"
                     isBold="true">
                     Manage preferences
