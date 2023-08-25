@@ -148,7 +148,9 @@
         }
     }
 
-    hr {
+    // how much of these should be universal styles for the pie-divider component?
+    pie-divider {
+        display: block;
         margin-top: f.spacing(h);
         margin-bottom: f.spacing(h);
 
