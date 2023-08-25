@@ -1,17 +1,107 @@
-import { LitElement, html, unsafeCSS } from 'lit';
-
+import {
+    LitElement, html, unsafeCSS,
+} from 'lit';
+import { state } from 'lit/decorators.js';
 import styles from './cookie-banner.scss?inline';
-import { CookieBannerProps } from './defs';
+import {
+    CookieBannerProps,
+    ON_COOKIE_BANNER_ACCEPT_ALL,
+    ON_COOKIE_BANNER_NECESSARY_ONLY,
+    ON_COOKIE_BANNER_MANAGE_PREFS,
+} from './defs';
 
 // Valid values available to consumers
 export * from './defs';
 
 const componentSelector = 'pie-cookie-banner';
 
+/**
+ * @event {CustomEvent} pie-cookie-banner-accept-all - when all cookies are accepted.
+ * @event {CustomEvent} pie-cookie-banner-necessary-only - when all only necessary cookies are accepted.
+ * @event {CustomEvent} pie-cookie-manage-prefs - when a user clicks manage preferences.
+ */
 export class PieCookieBanner extends LitElement implements CookieBannerProps {
+    @state()
+    private _isCookieBannerHidden = false;
+
+    @state()
+    private _isModalOpen = false;
+
+    connectedCallback () : void {
+        super.connectedCallback();
+        document.addEventListener('pie-modal-back', this._displayCookieBanner.bind(this));
+        document.addEventListener('pie-modal-leading-action-click', this._handlePreferencesSaved.bind(this));
+    }
+
+    disconnectedCallback () : void {
+        document.removeEventListener('pie-modal-back', this._displayCookieBanner.bind(this));
+        document.removeEventListener('pie-modal-leading-action-click', this._handlePreferencesSaved.bind(this));
+        super.disconnectedCallback();
+    }
+
+    /**
+     * Handles closing the modal and re-displaying the cookie banner
+     * and making the cookie banner visible
+     */
+    private _displayCookieBanner () : void {
+        this._isModalOpen = false;
+        this._isCookieBannerHidden = false;
+    }
+
+    /**
+     * Handles saving the user cookie preferences, closing the modal and the cookie banner
+     */
+    private _handlePreferencesSaved () : void {
+        this._isModalOpen = false;
+        this._isCookieBannerHidden = true;
+        console.info('Cookie Preferences saved');
+    }
+
+    /**
+     * Note: We should aim to have a shareable event helper system to allow
+     * us to share this across components in-future.
+     *
+     * Dispatch a custom event.
+     *
+     * To be used whenever we have behavioral events we want to
+     * bubble up through the cookie banner.
+     *
+     * @param {string} eventType
+     */
+    private _dispatchCookieBannerCustomEvent = (eventType: string) : void => {
+        const event = new CustomEvent(eventType, {
+            bubbles: true,
+            composed: true,
+        });
+
+        this.dispatchEvent(event);
+    };
+
+    /**
+     * Opens the manage preferences modal and emits an event letting users know
+     */
+    private _openManagePreferencesModal = () : void => {
+        this._isCookieBannerHidden = true;
+        this._dispatchCookieBannerCustomEvent(ON_COOKIE_BANNER_MANAGE_PREFS);
+        this._isModalOpen = true;
+    };
+
     render () {
+        const modalActionProps = {
+            text: 'Save',
+            variant: 'primary',
+            ariaLabel: 'Save your cookie preferences',
+        };
+
         return html`
-        <aside data-test-id="pie-cookie-banner" class="c-cookieBanner">
+        <pie-modal
+            .isOpen="${this._isModalOpen}"
+            hasBackButton
+            size="large"
+            heading="Manage your preferences"
+            .leadingAction="${modalActionProps}"
+        ></pie-modal>
+        <aside data-test-id="pie-cookie-banner" class="c-cookieBanner" ?isCookieBannerHidden=${this._isCookieBannerHidden}>
             <h2 class="c-cookieBanner-title">Cookies</h2>
             <div class="c-cookieBanner-body">
                 <p>We use our own and third party cookies and other tech to enhance and personalise your user experience,
@@ -23,13 +113,27 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
             </div>
 
             <div class="c-cookieBanner-actions">
-                <pie-button variant="primary" isFullWidth="true" size="small-expressive">
+                <pie-button
+                    data-test-id="accept-all"
+                    @click="${() => { this._dispatchCookieBannerCustomEvent(ON_COOKIE_BANNER_ACCEPT_ALL); this._isCookieBannerHidden = true; }}"
+                    variant="primary"
+                    isFullWidth
+                    size="small-expressive">
                     Accept all
                 </pie-button>
-                <pie-button variant="outline" isFullWidth="true" size="small-expressive">
+                <pie-button
+                    data-test-id="necessary-only"
+                    @click="${() => { this._dispatchCookieBannerCustomEvent(ON_COOKIE_BANNER_NECESSARY_ONLY); this._isCookieBannerHidden = true; }}"
+                    variant="outline-inverse"
+                    isFullWidth
+                    size="small-expressive">
                     Necessary only
                 </pie-button>
-                <pie-link variant="inverse" size="medium" isBold="true">
+                <pie-link
+                    data-test-id="manage-prefs"
+                    @click="${() => this._openManagePreferencesModal()}"
+                    variant="inverse"
+                    isBold="true">
                     Manage preferences
                 </pie-link>
             </div>

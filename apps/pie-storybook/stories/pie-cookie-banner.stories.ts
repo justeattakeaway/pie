@@ -3,6 +3,8 @@ import { type StoryObj as Story } from '@storybook/web-components';
 import { PieCookieBanner, CookieBannerProps } from '@justeattakeaway/pie-cookie-banner';
 import { PieButton } from '@justeattakeaway/pie-button';
 import { PieLink } from '@justeattakeaway/pie-link';
+import { PieModal } from '@justeattakeaway/pie-modal';
+import { PieIconButton } from '@justeattakeaway/pie-icon-button';
 
 import { type StoryMeta } from '../types';
 
@@ -11,7 +13,9 @@ import { type StoryMeta } from '../types';
 const keptReferences = [
     PieCookieBanner,
     PieButton,
-    PieLink
+    PieLink,
+    PieModal,
+    PieIconButton
 ];
 
 type CookieBannerStoryMeta = StoryMeta<CookieBannerProps>;
