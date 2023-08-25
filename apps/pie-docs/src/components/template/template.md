@@ -22,6 +22,10 @@ eleventyNavigation:
   message: "We’re currently working on updating our [Component name] documentation, please see the resources below."
 } %}
 
+### Example embed of Modal
+<br />
+{% storybookEmbed "https://webc.pie.design/iframe.html?args=&id=modal--scroll-locking&viewMode=story" %}
+
 {% resourceTable {
     rows: [
         {
