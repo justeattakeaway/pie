@@ -38,7 +38,11 @@
   },
   "dependencies": {
     "@justeat/f-cookie-banner": "4.7.0",
+    "@justeattakeaway/pie-button": "workspace:^",
+    "@justeattakeaway/pie-divider": "workspace:^",
     "@justeattakeaway/pie-icons": "4.7.1",
+    "@justeattakeaway/pie-toggle-switch": "workspace:^",
+    "@lit-labs/eleventy-plugin-lit": "^1.0.1",
     "markdown-it": "13.0.1",
     "markdown-it-anchor": "8.6.7",
     "node-html-parser": "6.1.5",

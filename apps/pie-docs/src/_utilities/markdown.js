@@ -28,4 +28,5 @@ const md = new MarkdownIt({
         slugify: (s) => slugify(s, { lower: true, remove: /[$*_+~.()'"!/\-:@?]+/g }),
     });
 
+md.renderer.rules.hr = (tokens, idx, options, env, self) => '<pie-divider></pie-divider>';
 module.exports = md;

@@ -7,12 +7,18 @@ $headerInlinePadding:   20px;
 .c-header {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     border-bottom: 1px solid f.$color-divider-default;
     padding: f.spacing(d);
-
     @include f.media('<wide') {
         padding-left: calc($headerInlinePadding + $navToggleWidth + $headerInlinePadding);
     }
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+    gap: var(--dt-spacing-d);
 }
 
 .c-header-logo {

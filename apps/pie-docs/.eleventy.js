@@ -5,12 +5,23 @@ const {
     plugins
 } = require('./src/_11ty');
 
+const litPlugin = require('@lit-labs/eleventy-plugin-lit');
+
+
 module.exports = eleventyConfig => {
     // Copy over img directory to dist directory.
     eleventyConfig.addPassthroughCopy({ 'src/assets/img': 'assets/img' });
 
     // Plugins
     plugins.addAllPlugins(eleventyConfig);
+
+    eleventyConfig.addPlugin(litPlugin, {
+        mode: 'worker',
+        componentModules: [
+            '../../node_modules/@justeattakeaway/pie-button/dist/index.js',
+            '../../node_modules/@justeattakeaway/pie-divider/dist/index.js',
+        ],
+    });
 
     // Filters
     filters.addAllFilters(eleventyConfig);
@@ -42,7 +53,8 @@ module.exports = eleventyConfig => {
     // This allows us to reference JS from node_modules in <script> tags.
     // However it can work with any kind of type and any location!
     eleventyConfig.addPassthroughCopy({
-        "../../node_modules/@justeat/f-cookie-banner/dist/static/en-GB.js": "assets/js/en-GB.js"
+        "../../node_modules/@justeat/f-cookie-banner/dist/static/en-GB.js": "assets/js/en-GB.js",
+        "../../node_modules/@justeattakeaway/pie-css/dist/index.css": "assets/styles/pie.css",
     });
 
     return {
