@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.11.0
+
+### Minor Changes
+
+- [Added] - Pre-release tag ([#755](https://github.com/justeattakeaway/pie/pull/755)) by [@FayeCarter](https://github.com/FayeCarter)
+
 ## 2.10.0
 
 ### Minor Changes

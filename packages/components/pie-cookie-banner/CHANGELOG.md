@@ -1,5 +1,13 @@
 # @justeattakeaway/pie-cookie-banner
 
+## 0.2.0
+
+### Minor Changes
+
+- [Changed] - Use button tag for manage preferences link and update test naming to start with 'should' ([#759](https://github.com/justeattakeaway/pie/pull/759)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - Add a manage preferences modal to the cookie banner and event emitters to notify consumers of user interactions ([#753](https://github.com/justeattakeaway/pie/pull/753)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.1.0
 
 ### Minor Changes
