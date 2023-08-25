@@ -22,7 +22,17 @@ const props: PropObject = {
     orientation: orientations,
 };
 
-const renderTestPieDivider = (propVals: WebComponentPropValues) => `<pie-divider variant="${propVals.variant}" orientation="${propVals.orientation}" />`;
+const renderTestPieDivider = (propVals: WebComponentPropValues) => {
+    const { variant, orientation } = propVals;
+    if (orientation === 'vertical') {
+        return `
+            <div style="height: 250px">
+                <pie-divider variant="${variant}" orientation="${orientation}" />
+            </div>
+        `;
+    }
+    return `<pie-divider variant="${variant}" orientation="${orientation}"></pie-divider>`;
+};
 
 const componentPropsMatrix : WebComponentPropValues[] = getAllPropCombinations(props);
 const componentPropsMatrixByVariant: Record<string, WebComponentPropValues[]> = splitCombinationsByPropertyValue(componentPropsMatrix, 'variant');
@@ -39,11 +49,17 @@ test.beforeEach(async ({ page, mount }) => {
 componentVariants.forEach((variant) => test(`Render all prop variations for Variant: ${variant}`, async ({ page, mount }) => {
     await Promise.all(componentPropsMatrixByVariant[variant].map(async (combo: WebComponentPropValues) => {
         const testComponent: WebComponentTestInput = createTestWebComponent(combo, renderTestPieDivider);
-        const propKeyValues = `orientation: ${testComponent.propValues.orientation}}`;
+        const propKeyValues = `orientation: ${testComponent.propValues.orientation}`;
 
         await mount(
             WebComponentTestWrapper,
-            { props: { propKeyValues, darkMode: variant === 'inverse' } },
+            {
+                props: { propKeyValues, darkMode: variant === 'inverse' },
+                slots: {
+                    component: testComponent.renderedString.trim(),
+                },
+            },
+
         );
     }));
 

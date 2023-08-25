@@ -1,12 +1,10 @@
-import {
-    LitElement, html, unsafeCSS, nothing,
-} from 'lit';
+import { LitElement, unsafeCSS, nothing } from 'lit';
+import { html, unsafeStatic } from 'lit/static-html.js';
 import { property } from 'lit/decorators.js';
-import { ifDefined } from 'lit/directives/if-defined.js';
 import { validPropertyValues } from '@justeattakeaway/pie-webc-core';
 import styles from './link.scss?inline';
 import {
-    LinkProps, variants, sizes, iconPlacements,
+    LinkProps, variants, sizes, iconPlacements, tags, buttonTypes,
 } from './defs';
 
 // Valid values available to consumers
@@ -20,6 +18,10 @@ const componentSelector = 'pie-link';
  */
 
 export class PieLink extends LitElement implements LinkProps {
+    @property()
+    @validPropertyValues(componentSelector, tags, 'a')
+    public tag: LinkProps['tag'] = 'a';
+
     @property({ type: String })
     @validPropertyValues(componentSelector, variants, 'default')
     public variant: LinkProps['variant'] = 'default';
@@ -33,7 +35,7 @@ export class PieLink extends LitElement implements LinkProps {
     public iconPlacement: LinkProps['iconPlacement'] = 'leading';
 
     @property({ type: String, reflect: true })
-    public href!: string;
+    public href?: string;
 
     @property({ type: String, reflect: true })
     public target?: string;
@@ -47,29 +49,46 @@ export class PieLink extends LitElement implements LinkProps {
     @property({ type: Boolean })
     public isStandalone = false;
 
+    @property()
+    @validPropertyValues(componentSelector, buttonTypes, 'submit')
+    public type: LinkProps['type'] = 'submit';
+
     render () {
         const {
-            variant, size, iconPlacement, href, target, rel, isBold, isStandalone,
+            tag,
+            variant,
+            size,
+            iconPlacement,
+            isBold,
+            isStandalone,
+            href,
+            target,
+            rel,
+            type,
         } = this;
 
+        const element = unsafeStatic(tag);
+        const isButton = tag === 'button';
+
         return html`
-            <a
+            <${element}  
                 data-test-id="pie-link"
                 class="c-link"
+                tag="${tag}"
                 variant=${variant}
                 size=${size}
-                href=${ifDefined(href)}
-                target=${ifDefined(target)}
-                rel=${ifDefined(rel)}
                 ?isBold=${isBold}
-                ?isStandalone=${isStandalone}>
-                    <div class="c-link-content">
-                      ${iconPlacement === 'leading' ? html`<slot name="icon"></slot>` : nothing}
-                      <slot></slot>
-                      ${iconPlacement === 'trailing' ? html`<slot name="icon"></slot>` : nothing}
-                    </div>
-                </div>
-            </a>`;
+                ?isStandalone=${isStandalone}
+                href=${!isButton && href ? href : nothing}
+                target=${!isButton && target ? target : nothing}
+                rel=${!isButton && rel ? rel : nothing}
+                type=${isButton && type ? type : nothing}>
+                    <span class="c-link-content">
+                        ${iconPlacement === 'leading' ? html`<slot name="icon"></slot>` : nothing}
+                        <slot></slot>
+                        ${iconPlacement === 'trailing' ? html`<slot name="icon"></slot>` : nothing}
+                    </span>
+            </${element}>`;
     }
 
     // Renders a `CSSResult` generated from SCSS by Vite

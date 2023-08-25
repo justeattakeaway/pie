@@ -1,5 +1,18 @@
 # @justeattakeaway/pie-divider
 
+## 0.4.0
+
+### Minor Changes
+
+- [Added] - allow the link component to behave like a button ([#748](https://github.com/justeattakeaway/pie/pull/748)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Changed] - fixed visual tests for the link and divider components
+
+### Patch Changes
+
+- Updated dependencies [[`ebd324485`](https://github.com/justeattakeaway/pie/commit/ebd3244852a76339d49f50d413197dbc683aef83)]:
+  - @justeattakeaway/pie-webc-core@0.8.0
+
 ## 0.3.0
 
 ### Minor Changes

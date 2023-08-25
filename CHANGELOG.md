@@ -1,5 +1,15 @@
 # Changelog
 
+## 2.21.0
+
+### Minor Changes
+
+- [Added] - allow the link component to behave like a button ([#748](https://github.com/justeattakeaway/pie/pull/748)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Changed] - fixed visual tests for the link and divider components
+
+- [Added] - New pie-cookie-banner component (just generated files) ([#746](https://github.com/justeattakeaway/pie/pull/746)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 2.20.1
 
 ### Patch Changes
