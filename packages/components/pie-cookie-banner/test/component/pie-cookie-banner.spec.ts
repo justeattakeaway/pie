@@ -42,7 +42,7 @@ test.describe('PieCookieBanner - Component tests', () => {
         expect(cookieBanner).toBeVisible();
     });
 
-    test('should clicking "Accept all" emits the correct event and closes the cookie banner', async ({ mount, page }) => {
+    test('should emit the correct event and close the cookie banner when "Accept all" is clicked', async ({ mount, page }) => {
         // Arrange
         const events : Array<Event> = [];
 
@@ -64,7 +64,7 @@ test.describe('PieCookieBanner - Component tests', () => {
         expect(cookieBanner).not.toBeVisible();
     });
 
-    test('should clicking "Necessary only" emits the correct event and closes the cookie banner', async ({ mount, page }) => {
+    test('should emit the correct event and close the cookie banner when "Necessary only" is clicked', async ({ mount, page }) => {
         // Arrange
         const events : Array<Event> = [];
 
@@ -86,7 +86,7 @@ test.describe('PieCookieBanner - Component tests', () => {
         expect(cookieBanner).not.toBeVisible();
     });
 
-    test('should clicking "Manage preferences" emits the correct event, opens the modal and hides the cookie banner', async ({ mount, page }) => {
+    test('should emit the correct event, open the modal and hide the cookie banner when "Manage preferences" is clicked', async ({ mount, page }) => {
         // Arrange
         const events : Array<Event> = [];
 
@@ -111,7 +111,7 @@ test.describe('PieCookieBanner - Component tests', () => {
         expect(events).toHaveLength(1);
     });
 
-    test('should clicking the back button in "Manage preferences" closes the modal and re-displays the cookie banner', async ({ mount, page }) => {
+    test('should close the modal and re-display the cookie banner when the back button in "Manage preferences" is clicked', async ({ mount, page }) => {
         // Arrange
         await mount(PieCookieBanner, {
             props: {} as CookieBannerProps,
@@ -131,7 +131,7 @@ test.describe('PieCookieBanner - Component tests', () => {
     });
 
     // TODO: Once we add preference saving logic we should update this test to ensure it behaves as expected
-    test('should clicking save in "Manage preferences" closes the modal and closes the cookie banner', async ({ mount, page }) => {
+    test('should close the modal and cookie banner when the save button in "Manage preferences"is clicked', async ({ mount, page }) => {
         // Arrange
         await mount(PieCookieBanner, {
             props: {} as CookieBannerProps,
