@@ -54,7 +54,7 @@ test.describe('PieCookieBanner - Component tests', () => {
             },
         });
 
-        const cookieBanner = await page.locator(componentSelector);
+        const cookieBanner = page.locator(componentSelector);
 
         // Act
         await page.click(acceptAllSelector);
@@ -76,7 +76,7 @@ test.describe('PieCookieBanner - Component tests', () => {
             },
         });
 
-        const cookieBanner = await page.locator(componentSelector);
+        const cookieBanner = page.locator(componentSelector);
 
         // Act
         await page.click(necessaryOnlySelector);
@@ -98,13 +98,13 @@ test.describe('PieCookieBanner - Component tests', () => {
             },
         });
 
-        const cookieBanner = await page.locator(componentSelector);
+        const cookieBanner = page.locator(componentSelector);
 
         // Act
         await page.click(managePreferencesSelector);
 
         // Assert
-        const modal = await page.locator(modalSelector);
+        const modal = page.locator(modalSelector);
 
         expect(modal).toBeVisible();
         expect(cookieBanner).not.toBeVisible();
@@ -117,14 +117,14 @@ test.describe('PieCookieBanner - Component tests', () => {
             props: {} as CookieBannerProps,
         });
 
-        const cookieBanner = await page.locator(componentSelector);
+        const cookieBanner = page.locator(componentSelector);
 
         // Act
         await page.click(managePreferencesSelector);
         await page.click(modalBackButtonSelector);
 
         // Assert
-        const modal = await page.locator(modalSelector);
+        const modal = page.locator(modalSelector);
 
         expect(modal).not.toBeVisible();
         expect(cookieBanner).toBeVisible();
@@ -137,14 +137,14 @@ test.describe('PieCookieBanner - Component tests', () => {
             props: {} as CookieBannerProps,
         });
 
-        const cookieBanner = await page.locator(componentSelector);
+        const cookieBanner = page.locator(componentSelector);
 
         // Act
         await page.click(managePreferencesSelector);
         await page.click(modalSaveButtonSelector);
 
         // Assert
-        const modal = await page.locator(modalSelector);
+        const modal = page.locator(modalSelector);
 
         expect(modal).not.toBeVisible();
         expect(cookieBanner).not.toBeVisible();
