@@ -1,5 +1,13 @@
 # Changelog
 
+## 4.7.1
+
+### Patch Changes
+
+- [Changed] - update rollup config to fix build ([#734](https://github.com/justeattakeaway/pie/pull/734)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Added] - commonjs plugin to help resolve `@vue/babel-helper-vue-jsx-merge-props`
+
 ## 4.7.0
 
 ### Patch Changes

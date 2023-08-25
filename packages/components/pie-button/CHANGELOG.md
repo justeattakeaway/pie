@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.26.0
+
+### Minor Changes
+
+- [Added] vite config setting to exclude react from wrapper. ([#732](https://github.com/justeattakeaway/pie/pull/732)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
+- [Added] - outline-inverse variant for pie-button ([#752](https://github.com/justeattakeaway/pie/pull/752)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.25.0
 
 ### Minor Changes

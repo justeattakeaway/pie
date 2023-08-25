@@ -13,19 +13,24 @@ import {
 import {
     WebComponentTestWrapper,
 } from '@justeattakeaway/pie-webc-testing/src/helpers/components/web-component-test-wrapper/WebComponentTestWrapper.ts';
-import { variants, sizes, iconPlacements } from '@/defs';
+import {
+    variants, sizes, iconPlacements, tags,
+} from '@/defs';
 import { PieLink } from '@/index';
 
 const props: PropObject = {
+    tag: tags,
     variant: variants,
     size: sizes,
     href: 'pie.design',
-    target: '_blank',
     isBold: [true, false],
     isStandalone: [true, false],
+    iconPlacement: [undefined, ...iconPlacements],
 };
 
-const renderTestPieLink = (propVals: WebComponentPropValues) => `<pie-link variant="${propVals.variant}" size="${propVals.size}" href="${propVals.href}" target="${propVals.target}" ${propVals.isBold ? 'isBold' : ''} ${propVals.isStandalone ? 'isStandalone' : ''} />`;
+const icon = '<svg slot="icon" xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 16 16" class="c-pieIcon c-pieIcon--plusCircle"><path d="M8.656 4.596H7.344v2.748H4.596v1.312h2.748v2.748h1.312V8.656h2.748V7.344H8.656V4.596Z"></path><path d="M12.795 3.205a6.781 6.781 0 1 0 0 9.625 6.79 6.79 0 0 0 0-9.625Zm-.927 8.662a5.469 5.469 0 1 1-7.734-7.735 5.469 5.469 0 0 1 7.734 7.736Z"></path></svg>';
+
+const renderTestPieLink = (propVals: WebComponentPropValues) => `<pie-link tag="${propVals.tag}" variant="${propVals.variant}" size="${propVals.size}" iconPlacement="${propVals.iconPlacement}" href="${propVals.href}" ${propVals.isBold ? 'isBold' : ''} ${propVals.isStandalone ? 'isStandalone' : ''}>${propVals.iconPlacement ? icon : ''} Link</pie-link>`;
 
 const componentPropsMatrix : WebComponentPropValues[] = getAllPropCombinations(props);
 const componentPropsMatrixByVariant: Record<string, WebComponentPropValues[]> = splitCombinationsByPropertyValue(componentPropsMatrix, 'variant');
@@ -42,37 +47,18 @@ test.beforeEach(async ({ page, mount }) => {
 componentVariants.forEach((variant) => test(`Render all prop variations for Variant: ${variant}`, async ({ page, mount }) => {
     await Promise.all(componentPropsMatrixByVariant[variant].map(async (combo: WebComponentPropValues) => {
         const testComponent: WebComponentTestInput = createTestWebComponent(combo, renderTestPieLink);
-        const propKeyValues = `size: ${testComponent.propValues.size}, isBold: ${testComponent.propValues.isBold}, isStandalone: ${testComponent.propValues.isStandalone}, href: ${testComponent.propValues.href}, target: ${testComponent.propValues.target}, target: ${testComponent.propValues.target}`;
+        const propKeyValues = `tag: ${testComponent.propValues.tag}, size: ${testComponent.propValues.size}, iconPlacement: ${testComponent.propValues.iconPlacement}, isBold: ${testComponent.propValues.isBold}, isStandalone: ${testComponent.propValues.isStandalone}, href: ${testComponent.propValues.href}`;
 
         await mount(
             WebComponentTestWrapper,
-            { props: { propKeyValues, darkMode: variant === 'inverse' } },
+            {
+                props: { propKeyValues, darkMode: variant === 'inverse' },
+                slots: {
+                    component: testComponent.renderedString.trim(),
+                },
+            },
         );
     }));
 
     await percySnapshot(page, `PIE Link - Variant: ${variant}`);
 }));
-
-const icon = '<svg slot="icon" xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 16 16" class="c-pieIcon c-pieIcon--plusCircle"><path d="M8.656 4.596H7.344v2.748H4.596v1.312h2.748v2.748h1.312V8.656h2.748V7.344H8.656V4.596Z"></path><path d="M12.795 3.205a6.781 6.781 0 1 0 0 9.625 6.79 6.79 0 0 0 0-9.625Zm-.927 8.662a5.469 5.469 0 1 1-7.734-7.735 5.469 5.469 0 0 1 7.734 7.736Z"></path></svg>';
-
-test('Render icon slot variations', async ({ page, mount }) => {
-    iconPlacements.forEach(async (iconPlacement) => {
-        const href = 'pie.design';
-        const propKeyValues = `href: ${href} , iconPlacement: ${iconPlacement}`;
-
-        await mount(
-            WebComponentTestWrapper,
-            {
-                props: { propKeyValues },
-                slots: {
-                    component: `<pie-link href="${href}" iconPlacement="${iconPlacement}" >
-                                    ${icon}
-                                    Hello, Pie Link!
-                                </pie-link>`,
-                },
-            },
-        );
-    });
-
-    await percySnapshot(page, 'PIE Link Leading/Trailing Icon Variations');
-});
