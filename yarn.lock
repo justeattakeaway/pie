@@ -5084,7 +5084,9 @@ __metadata:
   dependencies:
     "@justeattakeaway/pie-button": 0.26.0
     "@justeattakeaway/pie-components-config": 0.4.0
+    "@justeattakeaway/pie-icon-button": 0.14.0
     "@justeattakeaway/pie-link": 0.3.0
+    "@justeattakeaway/pie-modal": 0.18.0
     "@justeattakeaway/pie-webc-core": 0.8.0
   languageName: unknown
   linkType: soft
