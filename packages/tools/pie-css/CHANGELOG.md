@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-css
 
+## 0.3.0
+
+### Minor Changes
+
+- [Added] - disable text size adjustments in pie css ([#750](https://github.com/justeattakeaway/pie/pull/750)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.2.0
 
 ### Minor Changes

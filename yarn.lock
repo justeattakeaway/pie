@@ -5015,7 +5015,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-button@0.25.0, @justeattakeaway/pie-button@workspace:*, @justeattakeaway/pie-button@workspace:packages/components/pie-button":
+"@justeattakeaway/pie-button@0.26.0, @justeattakeaway/pie-button@workspace:*, @justeattakeaway/pie-button@workspace:packages/components/pie-button":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-button@workspace:packages/components/pie-button"
   dependencies:
@@ -5026,7 +5026,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-components-config@0.3.0, @justeattakeaway/pie-components-config@workspace:*, @justeattakeaway/pie-components-config@workspace:configs/pie-components-config":
+"@justeattakeaway/pie-components-config@0.4.0, @justeattakeaway/pie-components-config@workspace:*, @justeattakeaway/pie-components-config@workspace:configs/pie-components-config":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-components-config@workspace:configs/pie-components-config"
   languageName: unknown
@@ -5036,14 +5036,14 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-cookie-banner@workspace:packages/components/pie-cookie-banner"
   dependencies:
-    "@justeattakeaway/pie-button": 0.25.0
-    "@justeattakeaway/pie-components-config": 0.3.0
-    "@justeattakeaway/pie-link": 0.2.0
-    "@justeattakeaway/pie-webc-core": 0.7.0
+    "@justeattakeaway/pie-button": 0.26.0
+    "@justeattakeaway/pie-components-config": 0.4.0
+    "@justeattakeaway/pie-link": 0.3.0
+    "@justeattakeaway/pie-webc-core": 0.8.0
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-css@0.2.0, @justeattakeaway/pie-css@workspace:*, @justeattakeaway/pie-css@workspace:packages/tools/pie-css":
+"@justeattakeaway/pie-css@0.3.0, @justeattakeaway/pie-css@workspace:*, @justeattakeaway/pie-css@workspace:packages/tools/pie-css":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-css@workspace:packages/tools/pie-css"
   dependencies:
@@ -5085,7 +5085,7 @@ __metadata:
   dependencies:
     "@babel/node": 7.20.7
     "@babel/preset-react": 7.18.6
-    "@justeattakeaway/pie-icons": 4.5.0
+    "@justeattakeaway/pie-icons": 4.7.1
     "@justeattakeaway/pie-icons-configs": "workspace:*"
     "@svgr/core": 6.4.0
     pascal-case: 3.1.2
@@ -5100,7 +5100,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-icons-vue@workspace:packages/tools/pie-icons-vue"
   dependencies:
-    "@justeattakeaway/pie-icons": 4.5.0
+    "@justeattakeaway/pie-icons": 4.7.1
     "@justeattakeaway/pie-icons-configs": "workspace:*"
     "@rollup/plugin-commonjs": 25.0.4
     "@vue/babel-helper-vue-jsx-merge-props": 1.4.0
@@ -5121,9 +5121,9 @@ __metadata:
   resolution: "@justeattakeaway/pie-icons-webc@workspace:packages/tools/pie-icons-webc"
   dependencies:
     "@babel/node": 7.20.7
-    "@justeattakeaway/pie-icons": 4.5.0
+    "@justeattakeaway/pie-icons": 4.7.1
     "@justeattakeaway/pie-icons-configs": "workspace:*"
-    "@justeattakeaway/pie-webc-core": 0.6.0
+    "@justeattakeaway/pie-webc-core": 0.8.0
     "@open-wc/testing": 3.2.0
     "@rollup/plugin-typescript": 11.1.2
     "@web/test-runner": 0.16.1
@@ -5135,7 +5135,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-icons@4.5.0, @justeattakeaway/pie-icons@workspace:packages/tools/pie-icons":
+"@justeattakeaway/pie-icons@4.7.1, @justeattakeaway/pie-icons@workspace:packages/tools/pie-icons":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-icons@workspace:packages/tools/pie-icons"
   dependencies:
@@ -5150,7 +5150,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-link@0.2.0, @justeattakeaway/pie-link@workspace:*, @justeattakeaway/pie-link@workspace:packages/components/pie-link":
+"@justeattakeaway/pie-link@0.3.0, @justeattakeaway/pie-link@workspace:*, @justeattakeaway/pie-link@workspace:packages/components/pie-link":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-link@workspace:packages/components/pie-link"
   dependencies:
@@ -5184,18 +5184,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-webc-core@0.7.0, @justeattakeaway/pie-webc-core@workspace:*, @justeattakeaway/pie-webc-core@workspace:packages/components/pie-webc-core":
+"@justeattakeaway/pie-webc-core@0.8.0, @justeattakeaway/pie-webc-core@workspace:*, @justeattakeaway/pie-webc-core@workspace:packages/components/pie-webc-core":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-webc-core@workspace:packages/components/pie-webc-core"
   languageName: unknown
   linkType: soft
-
-"@justeattakeaway/pie-webc-core@npm:0.6.0":
-  version: 0.6.0
-  resolution: "@justeattakeaway/pie-webc-core@npm:0.6.0"
-  checksum: 9991fe1ca47e9bd6a3bade2ccb5f5fb109ca61f79cad955458a681ba7ae6e438bcf193a427ca26aa9052e525655068b18512b3f5a6291ef78676f3192487e1a0
-  languageName: node
-  linkType: hard
 
 "@justeattakeaway/pie-webc-testing@workspace:*, @justeattakeaway/pie-webc-testing@workspace:packages/components/pie-webc-testing":
   version: 0.0.0-use.local
@@ -27286,7 +27279,7 @@ __metadata:
     "@11ty/eleventy": 1.0.2
     "@11ty/eleventy-navigation": 0.3.5
     "@justeat/f-cookie-banner": 4.7.0
-    "@justeattakeaway/pie-icons": 4.5.0
+    "@justeattakeaway/pie-icons": 4.7.1
     eleventy-plugin-clean: 1.2.5
     eleventy-plugin-rev: 1.1.1
     eleventy-sass: 2.2.1
@@ -36084,8 +36077,8 @@ __metadata:
   resolution: "wc-vanilla@workspace:apps/examples/wc-vanilla"
   dependencies:
     "@justeat/pie-design-tokens": 5.5.0
-    "@justeattakeaway/pie-button": 0.25.0
-    "@justeattakeaway/pie-css": 0.2.0
+    "@justeattakeaway/pie-button": 0.26.0
+    "@justeattakeaway/pie-css": 0.3.0
     "@justeattakeaway/pie-icon-button": 0.14.0
     "@justeattakeaway/pie-icons-webc": 0.5.0
     "@justeattakeaway/pie-modal": 0.18.0

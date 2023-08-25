@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.5.0
+
+### Minor Changes
+
+- [Added] - Added Percy breakpoints for screenshot widths ([#747](https://github.com/justeattakeaway/pie/pull/747)) by [@JoshuaNg2332](https://github.com/JoshuaNg2332)
+
 ## 0.4.0
 
 ### Minor Changes

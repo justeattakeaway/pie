@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-components-config
 
+## 0.4.0
+
+### Minor Changes
+
+- [Added] vite config setting to exclude react from wrapper. ([#732](https://github.com/justeattakeaway/pie/pull/732)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
 ## 0.3.0
 
 ### Minor Changes

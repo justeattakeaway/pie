@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-divider",
   "description": "PIE Design System Divider built using Web Components",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
