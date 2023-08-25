@@ -20,6 +20,7 @@ module.exports = eleventyConfig => {
         componentModules: [
             '../../node_modules/@justeattakeaway/pie-button/dist/index.js',
             '../../node_modules/@justeattakeaway/pie-divider/dist/index.js',
+            '../../node_modules/@justeattakeaway/pie-link/dist/index.js',
         ],
     });
 

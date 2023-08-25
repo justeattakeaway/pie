@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 const MarkdownIt = require('markdown-it');
 const markdownItAttrs = require('markdown-it-attrs');
 const slugify = require('slugify');
@@ -28,5 +29,23 @@ const md = new MarkdownIt({
         slugify: (s) => slugify(s, { lower: true, remove: /[$*_+~.()'"!/\-:@?]+/g }),
     });
 
+// render <pie-divider> tags instead of <hr> tags
 md.renderer.rules.hr = (tokens, idx, options, env, self) => '<pie-divider></pie-divider>';
+
+md.renderer.rules.link_open = (tokens, idx, options, env, self) => {
+    const token = tokens[idx];
+    const hrefIndex = token.attrIndex('href');
+    const href = token.attrs[hrefIndex][1];
+    const titleIndex = token.attrIndex('title');
+    const title = titleIndex > -1 ? token.attrs[titleIndex][1] : null;
+    const targetIndex = token.attrIndex('target');
+    const target = targetIndex > -1 ? token.attrs[targetIndex][1] : null;
+    const relIndex = token.attrIndex('rel');
+    const rel = relIndex > -1 ? token.attrs[relIndex][1] : null;
+    const link = `<pie-link href="${href}" title="${title}" target="${target}" rel="${rel}">`;
+    return link;
+};
+
+md.renderer.rules.link_close = (tokens, idx, options, env, self) => '</pie-link>';
+
 module.exports = md;
