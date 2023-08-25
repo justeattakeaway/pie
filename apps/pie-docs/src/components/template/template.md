@@ -36,7 +36,7 @@ eleventyNavigation:
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
-            status: statusTypes.ALPHA
+            status: statusTypes.PRE_RELEASE
         },
         {
             resource: resourceTypes.VUE,
