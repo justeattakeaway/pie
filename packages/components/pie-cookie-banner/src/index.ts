@@ -97,6 +97,7 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
         <pie-modal
             .isOpen="${this._isModalOpen}"
             hasBackButton
+            hasStackedActions
             size="large"
             heading="Manage your preferences"
             .leadingAction="${modalActionProps}"
@@ -132,6 +133,7 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
                 <pie-link
                     data-test-id="manage-prefs"
                     @click="${() => this._openManagePreferencesModal()}"
+                    tag="button"
                     variant="inverse"
                     isBold="true">
                     Manage preferences
