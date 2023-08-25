@@ -8,6 +8,7 @@ module.exports = {
     PLANNED: 'planned',
     ALPHA: 'alpha',
     BETA: 'beta',
+    PRE_RELEASE: 'preRelease',
     REMOVED: 'removed',
     DEPRECATED: 'deprecated',
     NOT_APPLICABLE: 'notApplicable',

@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/pie-icons-vue",
-  "version": "4.7.0",
+  "version": "4.7.1",
   "main": "dist/index.cjs",
   "module": "esm/index.mjs",
   "files": [
@@ -52,7 +52,7 @@
     "extends @justeat/browserslist-config-fozzie"
   ],
   "dependencies": {
-    "@justeattakeaway/pie-icons": "4.5.0",
+    "@justeattakeaway/pie-icons": "4.7.1",
     "@vue/babel-helper-vue-jsx-merge-props": "1.4.0"
   },
   "devDependencies": {
