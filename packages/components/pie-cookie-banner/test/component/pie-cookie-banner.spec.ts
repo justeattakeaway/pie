@@ -42,7 +42,7 @@ test.describe('PieCookieBanner - Component tests', () => {
         expect(cookieBanner).toBeVisible();
     });
 
-    test('clicking "Accept all" emits the correct event and closes the cookie banner', async ({ mount, page }) => {
+    test('should clicking "Accept all" emits the correct event and closes the cookie banner', async ({ mount, page }) => {
         // Arrange
         const events : Array<Event> = [];
 
@@ -57,14 +57,14 @@ test.describe('PieCookieBanner - Component tests', () => {
         const cookieBanner = await page.locator(componentSelector);
 
         // Act
-        await page.locator(acceptAllSelector).click();
+        await page.click(acceptAllSelector);
 
         // Assert
         expect(events).toHaveLength(1);
         expect(cookieBanner).not.toBeVisible();
     });
 
-    test('clicking "Necessary only" emits the correct event and closes the cookie banner', async ({ mount, page }) => {
+    test('should clicking "Necessary only" emits the correct event and closes the cookie banner', async ({ mount, page }) => {
         // Arrange
         const events : Array<Event> = [];
 
@@ -79,14 +79,14 @@ test.describe('PieCookieBanner - Component tests', () => {
         const cookieBanner = await page.locator(componentSelector);
 
         // Act
-        await page.locator(necessaryOnlySelector).click();
+        await page.click(necessaryOnlySelector);
 
         // Assert
         expect(events).toHaveLength(1);
         expect(cookieBanner).not.toBeVisible();
     });
 
-    test('clicking "Manage preferences" emits the correct event, opens the modal and hides the cookie banner', async ({ mount, page }) => {
+    test('should clicking "Manage preferences" emits the correct event, opens the modal and hides the cookie banner', async ({ mount, page }) => {
         // Arrange
         const events : Array<Event> = [];
 
@@ -101,7 +101,7 @@ test.describe('PieCookieBanner - Component tests', () => {
         const cookieBanner = await page.locator(componentSelector);
 
         // Act
-        await page.locator(managePreferencesSelector).click();
+        await page.click(managePreferencesSelector);
 
         // Assert
         const modal = await page.locator(modalSelector);
@@ -111,7 +111,7 @@ test.describe('PieCookieBanner - Component tests', () => {
         expect(events).toHaveLength(1);
     });
 
-    test('clicking the back button in "Manage preferences" closes the modal and re-displays the cookie banner', async ({ mount, page }) => {
+    test('should clicking the back button in "Manage preferences" closes the modal and re-displays the cookie banner', async ({ mount, page }) => {
         // Arrange
         await mount(PieCookieBanner, {
             props: {} as CookieBannerProps,
@@ -120,8 +120,8 @@ test.describe('PieCookieBanner - Component tests', () => {
         const cookieBanner = await page.locator(componentSelector);
 
         // Act
-        await page.locator(managePreferencesSelector).click();
-        await page.locator(modalBackButtonSelector).click();
+        await page.click(managePreferencesSelector);
+        await page.click(modalBackButtonSelector);
 
         // Assert
         const modal = await page.locator(modalSelector);
@@ -131,7 +131,7 @@ test.describe('PieCookieBanner - Component tests', () => {
     });
 
     // TODO: Once we add preference saving logic we should update this test to ensure it behaves as expected
-    test('clicking save in "Manage preferences" closes the modal and closes the cookie banner', async ({ mount, page }) => {
+    test('should clicking save in "Manage preferences" closes the modal and closes the cookie banner', async ({ mount, page }) => {
         // Arrange
         await mount(PieCookieBanner, {
             props: {} as CookieBannerProps,
@@ -140,8 +140,8 @@ test.describe('PieCookieBanner - Component tests', () => {
         const cookieBanner = await page.locator(componentSelector);
 
         // Act
-        await page.locator(managePreferencesSelector).click();
-        await page.locator(modalSaveButtonSelector).click();
+        await page.click(managePreferencesSelector);
+        await page.click(modalSaveButtonSelector);
 
         // Assert
         const modal = await page.locator(modalSelector);
