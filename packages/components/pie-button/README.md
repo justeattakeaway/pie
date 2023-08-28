@@ -102,7 +102,7 @@ In your markup or JSX, you can then use these to set the properties for the `pie
 | Default slot  | The default slot is used to pass text into the button component.                                                                   |
 | icon         | Used to pass in an icon to the button component. The icon placement can be controlled via the `iconPlacement` prop and we recommend using `pie-icons-webc` for defining this icon, but this can also accept an SVG icon. |
 
-### Using `pie-icons-webc` with `pie-button` the icon slot
+### Using `pie-icons-webc` with `pie-button` icon slot
 
 We recommend using `pie-icons-webc` when using the `icon` slot. Here is an example of how you would do this:
 
