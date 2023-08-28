@@ -83,6 +83,7 @@ import { PieButton } from '@justeattakeaway/pie-button/dist/react';
 | disabled    | `Boolean` | `false`   | If `true`, disables the button.                                                                                   |
 | isFullWidth | `Boolean` | `false`   | If `true`, sets the button width to 100% of its container.                                                       |
 | isLoading   | `Boolean` | `false`   | If `true`, displays a loading indicator inside the button.                                                        |
+| iconPlacement | `String`  | `leading`   | Icon placements of the icon slot, if provided, one of `iconPlacements` - `leading`, `trailing` |
 
 In your markup or JSX, you can then use these to set the properties for the `pie-button` component:
 
@@ -99,22 +100,20 @@ In your markup or JSX, you can then use these to set the properties for the `pie
 | Slot          | Description                                                                                                                        |
 |---------------|------------------------------------------------------------------------------------------------------------------------------------|
 | Default slot  | The default slot is used to pass text into the button component.                                                                   |
-| icon-leading  | Used to pass in a leading icon. We recommend using `pie-icons-webc` for defining this icon, but this can also accept an SVG icon.  |
-| icon-trailing | Used to pass in a trailing icon. We recommend using `pie-icons-webc` for defining this icon, but this can also accept an SVG icon. |
+| icon         | Used to pass in an icon to the button component. The icon placement can be controlled via the `iconPlacement` prop and we recommend using `pie-icons-webc` for defining this icon, but this can also accept an SVG icon. |
 
-### Using `pie-icons-webc` with `pie-button`icon slots
+### Using `pie-icons-webc` with `pie-button` the icon slot
 
-We recommend using `pie-icons-webc` when using the `icon-leading` and `icon-trailing` slots. Here is an example of how you would do this:
+We recommend using `pie-icons-webc` when using the `icon` slot. Here is an example of how you would do this:
 
 ```html
 <!--
-  Note that pie-button and the icons that you want to use will need to be imported as components into your application.
+  Note that pie-button and the icon that you want to use will need to be imported as components into your application.
   See the `pie-icons-webc` README for more info on importing these icons.
 -->
 <pie-button>
-    <icon-plus-circle slot="icon-leading"></icon-plus-circle>
+    <icon-plus-circle slot="icon"></icon-plus-circle>
     Search
-    <icon-chevron-down slot="icon-trailing"></icon-chevron-down>
 </pie-button>
 ```
 
