@@ -303,13 +303,13 @@
     &[isLoading] {
         &:before {
             content: '';
-    
+
             // Centre the spinner over the top of the button text
             position: absolute;
             left: 50%;
             top: 50%;
             translate: -50% -50%;
-    
+
             height: var(--spinner-size);
             width: var(--spinner-size);
             display: block;
