@@ -212,7 +212,7 @@ jobs:
         uses: ./.github/actions/run-script
         if: (github.event_name == 'pull_request' && github.event.pull_request.draft == false) && github.ref != 'refs/heads/main'
         with:
-          script-name: "test:visual:ci --filter='./packages/components/*' --filter=...[origin/main]"
+          script-name: "test:visual:ci --filter='{./packages/components/*}[origin/main]'"
           concurrency: 1
       - uses: actions/upload-artifact@v3
         if: always()
