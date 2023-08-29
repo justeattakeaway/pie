@@ -5396,14 +5396,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@justeat/pie-design-tokens@npm:5.6.2":
-  version: 5.6.2
-  resolution: "@justeat/pie-design-tokens@npm:5.6.2"
+"@justeat/pie-design-tokens@npm:5.7.0":
+  version: 5.7.0
+  resolution: "@justeat/pie-design-tokens@npm:5.7.0"
   dependencies:
     jsonc-parser: 3.2.0
     lodash.merge: 4.6.2
     mkdirp: 1.0.4
-  checksum: 30624ad70c8e51792e377722a72393e949a5444ab730e58c93777163e314553c40bd1e120b80d1edba6405607dfa7ce3f821447c280ea2a118383d9c7072bcd1
+  checksum: 860da946c0e50f247face85bb610c46e09d64f157466da04c14e2c2425f0958492fd98a3da75153d00fcc3dc2a4d2fdd688568613fd5c8a5f83c0647b08a8574
   languageName: node
   linkType: hard
 
@@ -27413,7 +27413,7 @@ __metadata:
     "@commitlint/config-conventional": 17.4.4
     "@justeat/browserslist-config-fozzie": 1.x
     "@justeat/fozzie": 11.0.0
-    "@justeat/pie-design-tokens": 5.6.2
+    "@justeat/pie-design-tokens": 5.7.0
     "@justeattakeaway/generator-pie-component": "workspace:*"
     "@justeattakeaway/pie-webc-testing": "workspace:*"
     "@justeattakeaway/stylelint-config-pie": "workspace:*"
@@ -36163,7 +36163,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "wc-vanilla@workspace:apps/examples/wc-vanilla"
   dependencies:
-    "@justeat/pie-design-tokens": 5.5.0
+    "@justeat/pie-design-tokens": 5.7.0
     "@justeattakeaway/pie-button": 0.26.0
     "@justeattakeaway/pie-css": 0.3.0
     "@justeattakeaway/pie-icon-button": 0.14.0
