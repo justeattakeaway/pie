@@ -22,7 +22,7 @@
     "watch": "turbo run watch --filter=!pie-monorepo",
     "build": "cross-env-shell turbo run build --filter=!'./apps/examples/*' --filter=!pie-monorepo --token=${TURBO_TOKEN}",
     "build:dev": "cross-env-shell turbo run build:dev --filter=!'./apps/examples/*' --filter=!pie-monorepo --token=${TURBO_TOKEN}",
-    "build:examples": "cross-env-shell turbo run build:examples --token=${TURBO_TOKEN}",
+    "build:examples": "cross-env-shell turbo run build:examples --token=${TURBO_TOKEN} --force",
     "build:icons": "cross-env-shell turbo run build:icons",
     "changeset": "changeset",
     "changeset:publish": "changeset publish",
