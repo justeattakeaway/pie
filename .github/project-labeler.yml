@@ -51,6 +51,15 @@ pie-modal:
 pie-icon-button:
 - 'packages/components/pie-icon-button/**/*'
 
+pie-toggle-switch:
+- 'packages/components/pie-toggle-switch/**/*'
+
+pie-cookie-banner:
+- './packages/components/pie-cookie-banner/**/*'
+
+pie-card-container:
+- './packages/components/pie-card-container/**/*'
+
 pie-webc-core:
 - 'packages/components/pie-webc-core/**/*'
 

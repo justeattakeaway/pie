@@ -12,6 +12,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@justeattakeaway/pie-button": "workspace:*",
+    "@justeattakeaway/pie-card-container": "workspace:*",
     "@justeattakeaway/pie-cookie-banner": "workspace:*",
     "@justeattakeaway/pie-css": "workspace:*",
     "@justeattakeaway/pie-divider": "workspace:*",
