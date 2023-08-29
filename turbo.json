@@ -25,7 +25,9 @@
     },
     "build:icons": {
       "cache": false,
-      "dependsOn": [],
+      "dependsOn": [
+        "^build"
+      ],
       "outputs": [
         "icons/**",
         "dist/**",
@@ -166,6 +168,7 @@
     "pie-icons-webc#build:icons": {
       "cache": true,
       "dependsOn": [
+        "^build:icons",
         "pie-icons#build",
         "clean"
       ],
