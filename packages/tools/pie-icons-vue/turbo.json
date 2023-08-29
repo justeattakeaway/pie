@@ -8,16 +8,6 @@
       "cache": false,
       "dependsOn": []
     },
-    "build:icons": {
-      "cache": true,
-      "dependsOn": [
-        "clean"
-      ],
-      "outputs": [
-        "generated/**",
-        "icons/**"
-      ]
-    },
     "build": {
       "cache": true,
       "dependsOn": [
