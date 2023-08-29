@@ -25,7 +25,12 @@
     },
     "build:icons": {
       "cache": false,
-      "dependsOn": []
+      "dependsOn": [],
+      "outputs": [
+        "icons/**",
+        "dist/**",
+        "esm/**"
+      ]
     },
     "generate:examples": {
       "cache": true,
