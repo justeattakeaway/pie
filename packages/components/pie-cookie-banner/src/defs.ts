@@ -21,7 +21,14 @@ export const ON_COOKIE_BANNER_NECESSARY_ONLY = 'pie-cookie-banner-necessary-only
  *
  * @constant
  */
-export const ON_COOKIE_BANNER_MANAGE_PREFS = 'pie-cookie-manage-prefs';
+export const ON_COOKIE_BANNER_MANAGE_PREFS = 'pie-cookie-banner-manage-prefs';
+
+/**
+ * Event name for when a user clicks save preferences.
+ *
+ * @constant
+ */
+export const ON_COOKIE_BANNER_SAVE_PREFS = 'pie-cookie-banner-save-prefs';
 
 export interface Preference {
     id: string;
