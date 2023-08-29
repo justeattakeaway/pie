@@ -15,7 +15,7 @@
     "@babel/preset-react": "7.18.6",
     "@justeattakeaway/pie-button": "workspace:*",
     "@justeattakeaway/pie-css": "workspace:*",
-    "eslint": "8.47.0",
+    "eslint": "8.37.0",
     "eslint-config-next": "13.2.4",
     "next": "10.2.3",
     "next-transpile-modules": "4.1.0",
