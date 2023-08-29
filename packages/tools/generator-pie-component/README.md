@@ -16,6 +16,12 @@
 
 ## Usage
 
+1. [Installation](#installation)
+2. [Generate the component](#generating-a-new-component)
+3. [Add the component to storybook](#setting-up-storybook)
+4. [Set up Percy visual regression testing](#setting-up-visual-regression-testing)
+5. [Set up the project label for Github](#setting-up-the-project-label-for-github)
+
 ### Installation
 
 Install `yeoman` globally:
@@ -30,7 +36,7 @@ Build the generator package locally (it is recommended you force the build)
 $ yarn build --filter=generator-pie-component --force
 ```
 
-### Running the generator
+### Generating a new component
 
 To run the generator, use this command from the root directory within the monorepo:
 
@@ -42,9 +48,18 @@ An interactive prompt should now be displayed asking for a component name.
 
 Once you have completed all the prompts, your scaffolded component will be generated 🎉
 
-_Note: If this step fails, ensure you have installed the repository dependencies with `yarn`. Otherwise this (and any other commands) will fail. You will also need to list the component as a dependency in the storybook package.json._
+_Note: If this step fails, ensure you have installed the repository dependencies with `yarn`. Otherwise this (and any other commands) will fail._
 
-#### Setting up Visual Regression Testing:
+### Setting up Storybook:
+
+- Add the component to the storybook package.json dependencies using the `workspace` syntax:
+
+```json
+"@justeattakeaway/pie-{{COMPONENT_NAME}}": "workspace:*",
+
+```
+
+### Setting up Visual Regression Testing:
 
 - Create a Percy project for the component on the Percy website.
 - Update the test:visual command in package.json to the following:
@@ -57,6 +72,11 @@ _Note: If this step fails, ensure you have installed the repository dependencies
 ```sh
   PERCY_TOKEN_COMPONENT_NAME: ${{ secrets.PERCY_TOKEN_COMPONENT_NAME }}
 ```
+
+### Setting up the project label for Github:
+
+- Create a label for the component in the GitHub UI
+- Add the new label to `project-labeler.yml` under the `Component projects` section
 
 ## Local development
 

@@ -5396,14 +5396,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@justeat/pie-design-tokens@npm:5.5.1":
-  version: 5.5.1
-  resolution: "@justeat/pie-design-tokens@npm:5.5.1"
+"@justeat/pie-design-tokens@npm:5.6.2":
+  version: 5.6.2
+  resolution: "@justeat/pie-design-tokens@npm:5.6.2"
   dependencies:
     jsonc-parser: 3.2.0
     lodash.merge: 4.6.2
     mkdirp: 1.0.4
-  checksum: 43f0635d9b6f13888af75c8530f80b3e2445c1172fb6ed44a14dd3c6570eb774cb44e6036bcfc3805431d2b73e7fdd0af2b1e5a01f8487b3e028de30983e2bb4
+  checksum: 30624ad70c8e51792e377722a72393e949a5444ab730e58c93777163e314553c40bd1e120b80d1edba6405607dfa7ce3f821447c280ea2a118383d9c7072bcd1
   languageName: node
   linkType: hard
 
@@ -5444,6 +5444,15 @@ __metadata:
     "@justeat/pie-design-tokens": 5.5.0
     "@justeattakeaway/pie-components-config": "workspace:*"
     "@justeattakeaway/pie-css": "workspace:*"
+    "@justeattakeaway/pie-webc-core": "workspace:*"
+  languageName: unknown
+  linkType: soft
+
+"@justeattakeaway/pie-card-container@workspace:*, @justeattakeaway/pie-card-container@workspace:packages/components/pie-card-container":
+  version: 0.0.0-use.local
+  resolution: "@justeattakeaway/pie-card-container@workspace:packages/components/pie-card-container"
+  dependencies:
+    "@justeattakeaway/pie-components-config": "workspace:*"
     "@justeattakeaway/pie-webc-core": "workspace:*"
   languageName: unknown
   linkType: soft
@@ -27404,7 +27413,7 @@ __metadata:
     "@commitlint/config-conventional": 17.4.4
     "@justeat/browserslist-config-fozzie": 1.x
     "@justeat/fozzie": 11.0.0
-    "@justeat/pie-design-tokens": 5.5.1
+    "@justeat/pie-design-tokens": 5.6.2
     "@justeattakeaway/generator-pie-component": "workspace:*"
     "@justeattakeaway/pie-webc-testing": "workspace:*"
     "@justeattakeaway/stylelint-config-pie": "workspace:*"
@@ -27459,6 +27468,7 @@ __metadata:
   resolution: "pie-storybook@workspace:apps/pie-storybook"
   dependencies:
     "@justeattakeaway/pie-button": "workspace:*"
+    "@justeattakeaway/pie-card-container": "workspace:*"
     "@justeattakeaway/pie-cookie-banner": "workspace:*"
     "@justeattakeaway/pie-css": "workspace:*"
     "@justeattakeaway/pie-divider": "workspace:*"
