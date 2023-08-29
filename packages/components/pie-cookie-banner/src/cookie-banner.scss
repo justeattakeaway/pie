@@ -24,6 +24,8 @@ $breakpoint-wide: 700px;
     font-weight: var(--cb-font-weight);
     padding-block-start: var(--cb-padding-block);
     padding-block-end: var(--cb-padding-block);
+    padding-inline-start: var(--cb-padding-inline);
+    padding-inline-end: var(--cb-padding-inline);
     max-height: 432px;
     position: fixed;
     bottom: var(--cb-offset);
@@ -45,13 +47,6 @@ $breakpoint-wide: 700px;
     &[isCookieBannerHidden] {
         display: none;
     }
-}
-
-.c-cookieBanner-title,
-.c-cookieBanner-body,
-.c-cookieBanner-actions {
-    padding-inline-start: var(--cb-padding-inline);
-    padding-inline-end: var(--cb-padding-inline);
 }
 
 .c-cookieBanner-title {
@@ -103,12 +98,7 @@ $breakpoint-wide: 700px;
     display: flex;
     gap: var(--dt-spacing-d);
     flex-direction: var(--cb-actions-flex-dir);
-
-    > pie-link {
-        width: max-content;
-        margin-inline-start: auto;
-        margin-inline-end: auto;
-    }
+    text-align: center;
 
     @media (min-width: $breakpoint-wide) and (orientation: landscape) {
         --cb-actions-flex-dir: row-reverse;
@@ -116,9 +106,27 @@ $breakpoint-wide: 700px;
         justify-content: flex-start;
         align-items: center;
 
-        > pie-link {
-            margin-inline-start: 0;
-            margin-inline-end: 0;
-        }
+    }
+}
+
+.c-cookieBanner-preferences {
+    p {
+        @include p.font-size(--dt-font-body-s-size);
+        line-height: calc(var(--dt-font-body-s-line-height) * 1px);
+    }
+}
+
+.c-cookieBanner-preference {
+    display: flex;
+    gap: var(--dt-spacing-d);
+    justify-content: space-between;
+    margin-block: var(--dt-spacing-e);
+
+    p {
+        margin-block-start: var(--dt-spacing-b);
+    }
+
+    &:last-child {
+        margin-block-end: 0;
     }
 }

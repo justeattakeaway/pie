@@ -15,7 +15,7 @@ export * from './defs';
 const componentSelector = 'pie-toggle-switch';
 
 /**
- * @event {CustomEvent} pie-toggle-switch-changed - when the toggle switch checked state is changed.
+ * @event {CustomEvent} change - when the toggle switch checked state is changed.
  */
 
 export class PieToggleSwitch extends RtlMixin(LitElement) implements ToggleSwitchProps {
@@ -40,7 +40,11 @@ export class PieToggleSwitch extends RtlMixin(LitElement) implements ToggleSwitc
     onToggleChange (event: Event) {
         const target = event?.target as HTMLInputElement;
         this.isChecked = target.checked;
-        const changedEvent = new CustomEvent(ON_TOGGLE_SWITCH_CHANGED_EVENT, { detail: this.isChecked });
+        const changedEvent = new CustomEvent('change', {
+            bubbles: true,
+            cancelable: true,
+            composed: true,
+        });
         this.dispatchEvent(changedEvent);
     }
 
