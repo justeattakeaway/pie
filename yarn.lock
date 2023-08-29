@@ -5448,6 +5448,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@justeattakeaway/pie-card-container@workspace:*, @justeattakeaway/pie-card-container@workspace:packages/components/pie-card-container":
+  version: 0.0.0-use.local
+  resolution: "@justeattakeaway/pie-card-container@workspace:packages/components/pie-card-container"
+  dependencies:
+    "@justeattakeaway/pie-components-config": "workspace:*"
+    "@justeattakeaway/pie-webc-core": "workspace:*"
+  languageName: unknown
+  linkType: soft
+
 "@justeattakeaway/pie-components-config@0.4.0, @justeattakeaway/pie-components-config@workspace:*, @justeattakeaway/pie-components-config@workspace:configs/pie-components-config":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-components-config@workspace:configs/pie-components-config"
@@ -27459,6 +27468,7 @@ __metadata:
   resolution: "pie-storybook@workspace:apps/pie-storybook"
   dependencies:
     "@justeattakeaway/pie-button": "workspace:*"
+    "@justeattakeaway/pie-card-container": "workspace:*"
     "@justeattakeaway/pie-cookie-banner": "workspace:*"
     "@justeattakeaway/pie-css": "workspace:*"
     "@justeattakeaway/pie-divider": "workspace:*"
