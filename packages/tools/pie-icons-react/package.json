@@ -50,7 +50,7 @@
   "devDependencies": {
     "@babel/node": "7.20.7",
     "@justeattakeaway/pie-icons": "4.7.1",
-    "@justeattakeaway/pie-icons-configs": "4.5.0",
+    "@justeattakeaway/pie-icons-configs": "workspace:*",
     "@svgr/core": "6.4.0",
     "pascal-case": "3.1.2",
     "react": "18.2.0",
@@ -60,7 +60,6 @@
   },
   "dependencies": {
     "@babel/preset-react": "7.18.6",
-    "@justeattakeaway/pie-icons": "4.7.1",
     "react-test-renderer": "18.0.0"
   }
 }

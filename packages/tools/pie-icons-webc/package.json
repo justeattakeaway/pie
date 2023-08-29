@@ -43,7 +43,8 @@
   ],
   "devDependencies": {
     "@babel/node": "7.20.7",
-    "@justeattakeaway/pie-icons-configs": "4.5.0",
+    "@justeattakeaway/pie-icons": "4.7.1",
+    "@justeattakeaway/pie-icons-configs": "workspace:*",
     "@justeattakeaway/pie-webc-core": "0.8.0",
     "@rollup/plugin-typescript": "11.1.2",
     "just-kebab-case": "4.2.0",
@@ -57,7 +58,6 @@
     "extends": "../../../package.json"
   },
   "dependencies": {
-    "@justeattakeaway/pie-icons": "4.7.1",
     "@open-wc/testing": "3.2.0",
     "@web/test-runner": "0.16.1"
   }
