@@ -1,5 +1,15 @@
 # Changelog
 
+## 2.22.0
+
+### Minor Changes
+
+- [Added] - missing project labels for cookie-banner, toggle-switch and a new one for card-container ([#766](https://github.com/justeattakeaway/pie/pull/766)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Changed] - Upgraded `@justeat/pie-design-tokens` to `5.7.0` ([#770](https://github.com/justeattakeaway/pie/pull/770)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Changed] - Improve browser-test job filter to only run visual tests on components changes and not in pie-docs. ([#768](https://github.com/justeattakeaway/pie/pull/768)) by [@maledr5](https://github.com/maledr5)
+
 ## 2.21.0
 
 ### Minor Changes
