@@ -4,13 +4,18 @@ import { PieLink, LinkProps } from '@/index';
 
 const componentSelector = '[data-test-id="pie-link"]';
 
-const props: LinkProps = {
-    href: '#',
-    target: '_blank',
+const props: Partial<LinkProps> = {
+    // common props
     variant: 'default',
     size: 'medium',
     isBold: false,
     isStandalone: false,
+    // valid anchor props
+    href: '#',
+    target: '_blank',
+    rel: 'nofollow',
+    // valid button props
+    type: 'submit',
 };
 
 test.describe('PieLink - Component tests', () => {
@@ -26,7 +31,47 @@ test.describe('PieLink - Component tests', () => {
 
         // Assert
         await expect(link).toBeVisible();
+    });
+
+    test('should render as anchor when tag="a"', async ({ mount, page }) => {
+        // Arrange
+        await mount(PieLink, {
+            props: {
+                ...props,
+                tag: 'a',
+            },
+            slots: { default: 'Anchor Link!' },
+        });
+
+        // Act
+        const link = page.locator(`a${componentSelector}`);
+
+        // Assert
+        await expect(link).toBeVisible();
         await expect(link).toHaveAttribute('href', '#');
         await expect(link).toHaveAttribute('target', '_blank');
+        await expect(link).toHaveAttribute('rel', 'nofollow');
+        await expect(link).not.toHaveAttribute('type', 'submit');
+    });
+
+    test('should render as button when tag="button"', async ({ mount, page }) => {
+        // Arrange
+        await mount(PieLink, {
+            props: {
+                ...props,
+                tag: 'button',
+            },
+            slots: { default: 'Button Link!' },
+        });
+
+        // Act
+        const buttonLink = page.locator(`button${componentSelector}`);
+
+        // Assert
+        await expect(buttonLink).toBeVisible();
+        await expect(buttonLink).toHaveAttribute('type', 'submit');
+        await expect(buttonLink).not.toHaveAttribute('href', '#');
+        await expect(buttonLink).not.toHaveAttribute('target', '_blank');
+        await expect(buttonLink).not.toHaveAttribute('rel', 'nofollow');
     });
 });

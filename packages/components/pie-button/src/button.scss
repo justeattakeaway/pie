@@ -214,11 +214,16 @@
         @include spinner-base-colors('--dt-color-content-interactive-secondary');
     }
 
-    &[variant='ghost-inverse'] {
+    &[variant='ghost-inverse'],
+    &[variant='outline-inverse'] {
         --btn-bg-color: transparent;
         --btn-text-color: var(--dt-color-content-interactive-primary);
 
         @include button-interactive-states('--dt-color-container-inverse', true);
+    }
+
+    &[variant='outline-inverse'] {
+        border: 1px solid var(--dt-color-border-strong);
     }
 
     &[variant='destructive'] {
@@ -258,7 +263,7 @@
 
     &[size='xsmall'] {
         --btn-padding: 6px var(--dt-spacing-b);
-        --btn-font-size: calc(var(--dt-font-size-14) * 1px);
+        --btn-font-size: #{p.font-size(--dt-font-size-14)};
         --btn-line-height: calc(var(--dt-font-size-14-line-height) * 1px);
         --btn-icon-size: 16px;
         --spinner-size: var(--spinner-size-s);
@@ -267,7 +272,7 @@
 
     &[size='small-expressive'] {
         --btn-padding: 6px var(--dt-spacing-d);
-        --btn-font-size: calc(var(--dt-font-size-20) * 1px);
+        --btn-font-size: #{p.font-size(--dt-font-size-20)};
         --btn-line-height: calc(var(--dt-font-size-20-line-height) * 1px);
         --btn-icon-size: 20px;
         --spinner-size: var(--spinner-size-s);
@@ -276,7 +281,7 @@
 
     &[size='small-productive'] {
         --btn-padding: 8px var(--dt-spacing-d);
-        --btn-font-size: calc(var(--dt-font-size-16) * 1px);
+        --btn-font-size: #{p.font-size(--dt-font-size-16)};
         --btn-line-height: calc(var(--dt-font-size-16-line-height) * 1px);
         --btn-icon-size: 20px;
         --spinner-size: var(--spinner-size-s);
@@ -289,45 +294,36 @@
 
     &[size='large'] {
         --btn-padding: 14px var(--dt-spacing-e);
-        --btn-font-size: calc(var(--dt-font-size-20) * 1px);
+        --btn-font-size: #{p.font-size(--dt-font-size-20)};
         --btn-line-height: calc(var(--dt-font-size-20-line-height) * 1px);
         --spinner-size: var(--spinner-size-m);
         --spinner-border-width: var(--spinner-border-width-m);
     }
 
-    &:before {
-        content: '';
-
-        // Centre the spinner over the top of the button text
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        translate: -50% -50%;
-
-        height: var(--spinner-size);
-        width: var(--spinner-size);
-        display: block;
-        background-color: transparent;
-        border-radius: 50%;
-        border-color: var(--spinner-left-color) var(--spinner-right-color) var(--spinner-right-color) var(--spinner-left-color);
-        border-width: var(--spinner-border-width);
-        border-style: solid;
-        will-change: transform;
-        opacity: 0;
-    }
-
-    .o-btn-text {
-        flex-grow: 1;
-    }
-
     &[isLoading] {
         &:before {
+            content: '';
+
+            // Centre the spinner over the top of the button text
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            translate: -50% -50%;
+
+            height: var(--spinner-size);
+            width: var(--spinner-size);
+            display: block;
+            background-color: transparent;
+            border-radius: 50%;
+            border-color: var(--spinner-left-color) var(--spinner-right-color) var(--spinner-right-color) var(--spinner-left-color);
+            border-width: var(--spinner-border-width);
+            border-style: solid;
+            will-change: transform;
             animation: rotate360 var(--spinner-animation-duration) var(--spinner-animation-timing-function) var(--spinner-animation-iteration-count);
-            opacity: 1;
         }
 
-        & .o-btn-text {
-            opacity: 0;
+        & > * {
+            visibility: hidden;
         }
     }
 }

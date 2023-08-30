@@ -1,16 +1,17 @@
-import { html, TemplateResult } from 'lit';
+import { html, TemplateResult, nothing } from 'lit';
 import { type StoryObj as Story } from '@storybook/web-components';
 import {
-    ButtonProps as ButtonPropsBase, sizes, types, variants,
+    ButtonProps as ButtonPropsBase, sizes, types,
+    variants, iconPlacements,
 } from '@justeattakeaway/pie-button';
-import { IconChevronDown, IconPlusCircle } from '@justeattakeaway/pie-icons-webc';
+import { IconPlusCircle } from '@justeattakeaway/pie-icons-webc';
 import { StoryMeta, SlottedComponentProps } from '../types';
 
 // This prevents storybook from tree shaking the components
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const keptReferences = [IconChevronDown, IconPlusCircle];
+const keptReferences = [IconPlusCircle];
 
-type ButtonProps = SlottedComponentProps<ButtonPropsBase> & { buttonIcons : Array<string> };
+type ButtonProps = SlottedComponentProps<ButtonPropsBase>;
 type ButtonStoryMeta = StoryMeta<ButtonProps>;
 
 const defaultArgs: ButtonProps = {
@@ -20,8 +21,7 @@ const defaultArgs: ButtonProps = {
     disabled: false,
     isFullWidth: false,
     isLoading: false,
-    slot: 'This is Lit!',
-    buttonIcons: [],
+    slot: 'Label',
 };
 
 const buttonStoryMeta: ButtonStoryMeta = {
@@ -52,6 +52,11 @@ const buttonStoryMeta: ButtonStoryMeta = {
                 summary: 'primary',
             },
         },
+        iconPlacement: {
+            description: 'Show a leading/trailing icon.<br /><br />To use this with pie-button, you can pass an icon into the `icon` slot',
+            control: 'select',
+            options: [undefined, ...iconPlacements],
+        },
         disabled: {
             description: 'If `true`, disables the button.',
             control: 'boolean',
@@ -80,11 +85,6 @@ const buttonStoryMeta: ButtonStoryMeta = {
                 summary: '',
             },
         },
-        buttonIcons: {
-            description: 'Show a leading and/or trailing icon.<br /><br />To use this with pie-button, you can pass an icon into the `icon-leading` or `icon-trailing` slot',
-            control: 'check',
-            options: ['Leading', 'Trailing'],
-        },
     },
     args: defaultArgs,
     parameters: {
@@ -98,18 +98,25 @@ const buttonStoryMeta: ButtonStoryMeta = {
 export default buttonStoryMeta;
 
 const Template = ({
-    size, variant, type, disabled, isFullWidth, isLoading, slot, buttonIcons,
+    size,
+    variant,
+    type,
+    disabled,
+    isFullWidth,
+    isLoading,
+    slot,
+    iconPlacement,
 }: ButtonProps): TemplateResult => html`
         <pie-button
             size="${size}"
             variant="${variant}"
             type="${type}"
+            iconPlacement="${iconPlacement || nothing}"
             ?disabled="${disabled}"
             ?isLoading="${isLoading}"
             ?isFullWidth="${isFullWidth}">
-            ${buttonIcons.includes('Leading') ? html`<icon-plus-circle slot="icon-leading"></icon-plus-circle>` : ''}
+            ${iconPlacement ? html`<icon-plus-circle slot="icon"></icon-plus-circle>` : nothing}
             ${slot}
-            ${buttonIcons.includes('Trailing') ? html`<icon-chevron-down slot="icon-trailing"></icon-chevron-down>` : ''}
         </pie-button>
         `;
 
@@ -167,6 +174,18 @@ GhostInverse.args = {
 };
 
 GhostInverse.parameters = {
+    backgrounds: {
+        default: 'dark',
+    },
+};
+
+export const OutlineInverse: Story<ButtonProps> = (args: ButtonProps) => Template(args);
+OutlineInverse.args = {
+    ...defaultArgs,
+    variant: 'outline-inverse',
+};
+
+OutlineInverse.parameters = {
     backgrounds: {
         default: 'dark',
     },
