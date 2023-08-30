@@ -6,7 +6,8 @@
   "types": "dist/icons/index.d.ts",
   "module": "dist/icons/index.js",
   "files": [
-    "dist"
+    "dist",
+    "icons"
   ],
   "publishConfig": {
     "access": "public"

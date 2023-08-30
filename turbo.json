@@ -24,14 +24,9 @@
       ]
     },
     "build:icons": {
-      "cache": false,
+      "cache": true,
       "dependsOn": [
         "^build"
-      ],
-      "outputs": [
-        "icons/**",
-        "dist/**",
-        "esm/**"
       ]
     },
     "generate:examples": {
@@ -146,6 +141,7 @@
       "dependsOn": []
     },
     "pie-icons-vue#build:icons": {
+      "cache": true,
       "dependsOn": [
         "pie-icons#build",
         "clean"
@@ -168,7 +164,6 @@
     "pie-icons-webc#build:icons": {
       "cache": true,
       "dependsOn": [
-        "^build:icons",
         "pie-icons#build",
         "clean"
       ],
