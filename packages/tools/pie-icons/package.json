@@ -15,7 +15,7 @@
   "scripts": {
     "build": "node ./bin/build.js",
     "prepare": "yarn build && yarn test:coverage",
-    "clean": "run -T rimraf -rf ./dist/*",
+    "clean": "run -T rimraf -rf ./dist/",
     "prepublishOnly": "yarn run build",
     "lint:scripts": "run -T eslint .",
     "lint:scripts:fix": "run -T eslint . --fix",
