@@ -28,10 +28,12 @@ export const ON_COOKIE_BANNER_MANAGE_PREFS = 'pie-cookie-banner-manage-prefs';
  *
  * @constant
  */
-export const ON_COOKIE_BANNER_SAVE_PREFS = 'pie-cookie-banner-save-prefs';
+export const ON_COOKIE_BANNER_PREFS_SAVED = 'pie-cookie-banner-prefs-saved';
+
+export type PreferenceIds = 'all' | 'necessary' | 'functional' | 'analytical' | 'personalized';
 
 export interface Preference {
-    id: string;
+    id: PreferenceIds;
     title: string;
     description?: string;
     isDisabled?: boolean,
@@ -39,11 +41,9 @@ export interface Preference {
     hasDivider?: boolean
 }
 
-export const TURN_ALL_PREFERENCES_ID = 'all';
-
 export const PREFERENCES: Preference[] = [
     {
-        id: TURN_ALL_PREFERENCES_ID,
+        id: 'all',
         title: 'Turn on all',
         hasDivider: true,
     },
@@ -68,4 +68,5 @@ export const PREFERENCES: Preference[] = [
         id: 'personalized',
         title: 'Personalized (targeting and advertising)',
         description: 'These marketing cookies are used to tailor the delivery of information to you based upon your interest and to measure the effectiveness of such advertisements, both on our website and our advertising partners\' websites.',
-    }];
+    }
+];
