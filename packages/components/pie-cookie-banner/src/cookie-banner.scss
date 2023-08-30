@@ -109,8 +109,8 @@ $breakpoint-wide: 700px;
 }
 
 .c-cookieBanner-preferences-description {
-        @include p.font-size(--dt-font-body-s-size);
-        line-height: calc(var(--dt-font-body-s-line-height) * 1px);
+    @include p.font-size(--dt-font-body-s-size);
+    line-height: calc(var(--dt-font-body-s-line-height) * 1px);
 }
 
 .c-cookieBanner-preferences-item {
