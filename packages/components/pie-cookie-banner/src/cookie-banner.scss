@@ -108,14 +108,12 @@ $breakpoint-wide: 700px;
     }
 }
 
-.c-cookieBanner-preferences {
-    p {
+.c-cookieBanner-preferences-description {
         @include p.font-size(--dt-font-body-s-size);
         line-height: calc(var(--dt-font-body-s-line-height) * 1px);
-    }
 }
 
-.c-cookieBanner-preference {
+.c-cookieBanner-preferences-item {
     display: flex;
     gap: var(--dt-spacing-d);
     justify-content: space-between;

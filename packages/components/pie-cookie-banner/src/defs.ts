@@ -36,14 +36,17 @@ export interface Preference {
     description?: string;
     isDisabled?: boolean,
     isChecked?: boolean,
+    hasDivider?: boolean
 }
 
-export const TURN_ALL_PREFERENCES: Preference = {
-    id: 'all',
-    title: 'Turn on all',
-};
+export const TURN_ALL_PREFERENCES_ID = 'all';
 
 export const PREFERENCES: Preference[] = [
+    {
+        id: TURN_ALL_PREFERENCES_ID,
+        title: 'Turn on all',
+        hasDivider: true,
+    },
     {
         id: 'necessary',
         title: 'Necessary',

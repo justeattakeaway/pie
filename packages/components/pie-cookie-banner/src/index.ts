@@ -1,6 +1,5 @@
 import {
-    LitElement, html, unsafeCSS,
-    TemplateResult, nothing,
+    LitElement, html, unsafeCSS, TemplateResult, nothing,
 } from 'lit';
 import { state, queryAll } from 'lit/decorators.js';
 import { repeat } from 'lit/directives/repeat.js';
@@ -13,7 +12,7 @@ import {
     ON_COOKIE_BANNER_MANAGE_PREFS,
     ON_COOKIE_BANNER_SAVE_PREFS,
     PREFERENCES,
-    TURN_ALL_PREFERENCES,
+    TURN_ALL_PREFERENCES_ID,
     type Preference,
 } from './defs';
 
@@ -38,18 +37,6 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
     @queryAll('pie-toggle-switch')
         _preferencesNodes!: NodeListOf<PieToggleSwitch>;
 
-    connectedCallback () : void {
-        super.connectedCallback();
-        document.addEventListener('pie-modal-back', this._displayCookieBanner.bind(this));
-        document.addEventListener('pie-modal-leading-action-click', this._handlePreferencesSaved.bind(this));
-    }
-
-    disconnectedCallback () : void {
-        document.removeEventListener('pie-modal-back', this._displayCookieBanner.bind(this));
-        document.removeEventListener('pie-modal-leading-action-click', this._handlePreferencesSaved.bind(this));
-        super.disconnectedCallback();
-    }
-
     /**
      * Handles closing the modal and re-displaying the cookie banner
      * and making the cookie banner visible
@@ -60,13 +47,13 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
     }
 
     /**
-     * Handles saving the user cookie preferences, closing the modal and the cookie banner
+     * Handles saving the user cookie preferences,
+     * closing the modal and the cookie banner
      */
     private _handlePreferencesSaved () : void {
         const state: {[x: string]: boolean} = {};
-
         [...this._preferencesNodes]
-        .filter(({ id }) => id !== TURN_ALL_PREFERENCES.id)
+        .filter(({ id }) => id !== TURN_ALL_PREFERENCES_ID)
         .forEach(({ id, isChecked }) => {
             state[id] = isChecked;
         });
@@ -108,41 +95,43 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
     };
 
     /**
-     * Handles the toggle switch logic.
-     * if the node is TURN_ALL_PREFERENCES is toggled, all preferences will be checked
-     * if any other node was toggled and TURN_ALL_PREFERENCES is one, it's toggled to be off
+     * Handles the logic of the toggle switch nodes (preferences).
+     * Clicking the “all” toggle switch should turn on all preferences.
+     * When the “all” toggle is checked, and one of the other preferences is clicked,
+     * then the “all” toggle should be unchecked.
      */
     private _onPreferencesChange = (e: CustomEvent) : void => {
         const { id } = e?.currentTarget as HTMLInputElement;
-        if (id === TURN_ALL_PREFERENCES.id) {
+        if (id === TURN_ALL_PREFERENCES_ID) {
             const isChecked = e.detail;
-            Array.from(this._preferencesNodes).forEach((node) => {
+            this._preferencesNodes.forEach((node) => {
                 node.isChecked = node.isDisabled ? node.isChecked : isChecked;
             });
         } else {
-            [...this._preferencesNodes].find(({ id }) => id === TURN_ALL_PREFERENCES.id).isChecked = false;
+            [...this._preferencesNodes].find(({ id }) => id === TURN_ALL_PREFERENCES_ID).isChecked = false;
         }
     };
 
     /**
-     * Renders the preference item.
+     * Renders the content of the preference item.
      * @private
      */
     private renderPreference ({
-        id, title, description, isChecked, isDisabled,
+        id, title, description, isChecked, isDisabled, hasDivider,
     }: Preference): TemplateResult {
         return html`
-        <div class="c-cookieBanner-preference">
-            <div>
-                <h2 class="c-cookieBanner-title">${title}</h2>
-                ${description ? html`<p>${description}</p>` : nothing}
-            </div>
-            <pie-toggle-switch 
-                id="${id}"
-                ?isChecked="${isChecked}" 
-                ?isDisabled="${isDisabled}"
-                @pie-toggle-switch-changed="${this._onPreferencesChange}"/>
-        </div>`;
+            <div class="c-cookieBanner-preferences-item">
+                <div>
+                    <h2 class="c-cookieBanner-title">${title}</h2>
+                     ${description ? html`<p class="c-cookieBanner-preferences-description">${description}</p>` : nothing}
+                 </div>
+                <pie-toggle-switch 
+                    id="${id}"
+                    ?isChecked="${isChecked}" 
+                    ?isDisabled="${isDisabled}"
+                    @pie-toggle-switch-changed="${this._onPreferencesChange}"/>
+                </div>
+            ${hasDivider ? html`<pie-divider></pie-divider>` : nothing}`;
     }
 
     /**
@@ -151,19 +140,15 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
      */
     private renderModalContent (): TemplateResult {
         return html`
-        <div class="c-cookieBanner-preferences">
-            <p>You can find all the information in the 
+            <p class="c-cookieBanner-preferences-description">You can find all the information in the 
                 <pie-link href="#" size="small" target="_blank">Cookie Statement</pie-link> and 
                 <pie-link href="#" size="small" target="_blank">Cookie technology list</pie-link>.
             </p>
-            ${this.renderPreference(TURN_ALL_PREFERENCES)}
-            <pie-divider></pie-divider>
             ${repeat(
             PREFERENCES,
             ({ id }) => id,
             (preference) => this.renderPreference(preference),
-        )}
-        </div>`;
+        )}`;
     }
 
     render () {
@@ -180,7 +165,9 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
             hasStackedActions
             size="large"
             heading="Manage your preferences"
-            .leadingAction="${modalActionProps}">
+            .leadingAction="${modalActionProps}"
+            @pie-modal-leading-action-click="${this._handlePreferencesSaved}"
+            @pie-modal-back="${this._displayCookieBanner}">
                 ${this.renderModalContent()}
             </pie-modal>
         <aside data-test-id="pie-cookie-banner" class="c-cookieBanner" ?isCookieBannerHidden=${this._isCookieBannerHidden}>
@@ -213,7 +200,7 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
                 </pie-button>
                 <pie-link
                     data-test-id="manage-prefs"
-                    @click="${() => this._openManagePreferencesModal()}"
+                    @click="${this._openManagePreferencesModal}"
                     tag="button"
                     variant="inverse"
                     isBold="true">
