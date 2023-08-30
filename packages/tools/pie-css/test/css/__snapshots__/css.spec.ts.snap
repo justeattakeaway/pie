@@ -1,7 +1,7 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`index.css > should render the expected CSS content 1`] = `
-":root, ::backdrop {
+":root {
     /* Global tokens - Color */
     --dt-color-aubergine-10: #e7d6e7;
     --dt-color-aubergine-80: #452844;
@@ -662,7 +662,7 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-elevation-dark-inverse-04: var(--dt-elevation-box-shadow-04);
     --dt-elevation-dark-inverse-05: var(--dt-elevation-box-shadow-05);
 }
-:root, ::backdrop {
+:root {
     --dt-color-aubergine-10-h: 300;
     --dt-color-aubergine-10-s: 26.2%;
     --dt-color-aubergine-10-l: 87.3%;

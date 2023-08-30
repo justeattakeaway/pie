@@ -300,39 +300,30 @@
         --spinner-border-width: var(--spinner-border-width-m);
     }
 
-    &:before {
-        content: '';
-
-        // Centre the spinner over the top of the button text
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        translate: -50% -50%;
-
-        height: var(--spinner-size);
-        width: var(--spinner-size);
-        display: block;
-        background-color: transparent;
-        border-radius: 50%;
-        border-color: var(--spinner-left-color) var(--spinner-right-color) var(--spinner-right-color) var(--spinner-left-color);
-        border-width: var(--spinner-border-width);
-        border-style: solid;
-        will-change: transform;
-        opacity: 0;
-    }
-
-    .o-btn-text {
-        flex-grow: 1;
-    }
-
     &[isLoading] {
         &:before {
+            content: '';
+
+            // Centre the spinner over the top of the button text
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            translate: -50% -50%;
+
+            height: var(--spinner-size);
+            width: var(--spinner-size);
+            display: block;
+            background-color: transparent;
+            border-radius: 50%;
+            border-color: var(--spinner-left-color) var(--spinner-right-color) var(--spinner-right-color) var(--spinner-left-color);
+            border-width: var(--spinner-border-width);
+            border-style: solid;
+            will-change: transform;
             animation: rotate360 var(--spinner-animation-duration) var(--spinner-animation-timing-function) var(--spinner-animation-iteration-count);
-            opacity: 1;
         }
 
-        & .o-btn-text {
-            opacity: 0;
+        & > * {
+            visibility: hidden;
         }
     }
 }
