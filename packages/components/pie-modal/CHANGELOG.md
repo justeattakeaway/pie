@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-modal
 
+## 0.19.0
+
+### Minor Changes
+
+- [Added] - leading and supporting action click events to notify consumers ([#753](https://github.com/justeattakeaway/pie/pull/753)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.18.0
 
 ### Minor Changes
