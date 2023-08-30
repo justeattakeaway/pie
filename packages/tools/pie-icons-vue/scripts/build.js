@@ -2,8 +2,8 @@ import path from 'path';
 import { pascalCase } from 'pascal-case';
 import fs from 'fs-extra';
 
-import pieIcons from '@justeattakeaway/pie-icons'; // eslint-disable-line import/no-unresolved
-import { normalizeIconName } from '@justeattakeaway/pie-icons-configs'; // eslint-disable-line import/no-unresolved
+import pieIcons from '@justeattakeaway/pie-icons';
+import { normalizeIconName } from '@justeattakeaway/pie-icons-configs';
 
 const componentTemplate = (name, svg) => {
     const isLargeIcon = name.endsWith('Large');
