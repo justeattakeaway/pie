@@ -16,5 +16,5 @@
     "noEmit": true,
     "target": "ES6"
   },
-  "include": ["icons"]
+  "include": ["icons/**/*.tsx"]
 }

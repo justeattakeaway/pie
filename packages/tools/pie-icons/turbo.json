@@ -4,24 +4,15 @@
     "//"
   ],
   "pipeline": {
-    "build:icons": {
-      "cache": true,
-      "dependsOn": [
-        "@justeattakeaway/pie-icons#build",
-        "clean"
-      ],
-      "outputs": [
-        "icons/**"
-      ]
-    },
     "build": {
       "cache": true,
       "dependsOn": [
         "^build",
-        "build:icons"
+        "clean"
       ],
       "inputs": [
-        "icons/**"
+        "bin/**",
+        "src/**"
       ],
       "outputs": [
         "dist/**"
