@@ -5,8 +5,19 @@
   ],
   "pipeline": {
     "clean": {
-      "cache": false,
+      "cache": true,
       "dependsOn": []
+    },
+    "build:icons": {
+      "cache": true,
+      "dependsOn": [
+        "@justeattakeaway/pie-icons#build",
+        "clean"
+      ],
+      "outputs": [
+        "generated/**",
+        "icons/**"
+      ]
     },
     "build": {
       "cache": true,

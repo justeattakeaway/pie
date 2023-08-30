@@ -23,12 +23,6 @@
         ".output/**"
       ]
     },
-    "build:icons": {
-      "cache": false,
-      "dependsOn": [
-        "^build"
-      ]
-    },
     "generate:examples": {
       "cache": true,
       "dependsOn": [
@@ -139,37 +133,6 @@
     "dev": {
       "cache": false,
       "dependsOn": []
-    },
-    "pie-icons-vue#build:icons": {
-      "cache": true,
-      "dependsOn": [
-        "pie-icons#build",
-        "clean"
-      ],
-      "outputs": [
-        "generated/**",
-        "icons/**"
-      ]
-    },
-    "pie-icons-react#build:icons": {
-      "cache": true,
-      "dependsOn": [
-        "pie-icons#build",
-        "clean"
-      ],
-      "outputs": [
-        "icons/**"
-      ]
-    },
-    "pie-icons-webc#build:icons": {
-      "cache": true,
-      "dependsOn": [
-        "pie-icons#build",
-        "clean"
-      ],
-      "outputs": [
-        "icons/**"
-      ]
     }
   }
 }
