@@ -39,7 +39,8 @@
       "dependsOn": []
     },
     "clean": {
-      "cache": true
+      "cache": false,
+      "dependsOn": []
     },
     "test": {
       "cache": true,

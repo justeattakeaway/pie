@@ -4,10 +4,6 @@
     "//"
   ],
   "pipeline": {
-    "clean": {
-      "cache": true,
-      "dependsOn": []
-    },
     "build:icons": {
       "cache": true,
       "dependsOn": [
