@@ -41,7 +41,7 @@ export interface Preference {
     hasDivider?: boolean
 }
 
-export const PREFERENCES: Preference[] = [
+export const preferences: Preference[] = [
     {
         id: 'all',
         title: 'Turn on all',

@@ -11,8 +11,8 @@ import {
     ON_COOKIE_BANNER_NECESSARY_ONLY,
     ON_COOKIE_BANNER_MANAGE_PREFS,
     ON_COOKIE_BANNER_PREFS_SAVED,
-    PREFERENCES,
-    Preference,
+    preferences,
+    type Preference,
     type PreferenceIds,
 } from './defs';
 
@@ -51,7 +51,7 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
      * closing the modal and the cookie banner
      */
     private _handlePreferencesSaved () : void {
-        let state: { [x in PreferenceIds]: boolean } | Record<string, never> = {};
+        let state: Partial<{ [x in PreferenceIds]: boolean }> = {};
 
         [...this._preferencesNodes]
         .filter(({ id }) => id !== 'all')
@@ -76,7 +76,7 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
      *
      * @param {string} eventType
      */
-    private _dispatchCookieBannerCustomEvent = (eventType: string, detail?: CustomEventInit<unknown>) : void => {
+    private _dispatchCookieBannerCustomEvent = (eventType: string, detail?: CustomEventInit['detail']) : void => {
         const event = new CustomEvent(eventType, {
             bubbles: true,
             composed: true,
@@ -103,13 +103,15 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
      */
     private _handlePreferencesToggled = (e: CustomEvent) : void => {
         const { id } = e?.currentTarget as HTMLInputElement;
-        if (id === 'all') {
+        const turnAllNode = [...this._preferencesNodes].find((node) => node.id === 'all') as PieToggleSwitch;
+
+        if (id === turnAllNode.id) {
             const isChecked = e.detail;
             this._preferencesNodes.forEach((node) => {
                 node.isChecked = node.isDisabled ? node.isChecked : isChecked;
             });
         } else {
-            [...this._preferencesNodes].find(({ id }) => id === 'all').isChecked = false;
+            turnAllNode.isChecked ||= false;
         }
     };
 
@@ -146,7 +148,7 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
                 <pie-link href="#" size="small" target="_blank">Cookie technology list</pie-link>.
             </p>
             ${repeat(
-            PREFERENCES,
+            preferences,
             ({ id }) => id,
             (preference) => this.renderPreference(preference),
         )}`;
