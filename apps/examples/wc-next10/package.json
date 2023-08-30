@@ -10,6 +10,7 @@
     "lint:examples": "eslint ."
   },
   "dependencies": {
+    "@babel/core": "7.22.11",
     "@babel/plugin-transform-runtime": "7.21.4",
     "@babel/preset-env": "7.21.4",
     "@babel/preset-react": "7.18.6",
