@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.27.0
+
+### Minor Changes
+
+- [Changed] - allow one icon to be set ([#764](https://github.com/justeattakeaway/pie/pull/764)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Fixed] - icon should sit next to the text when isFullWidth is true
+
+  [Fixed] - icon should not be visible when isLoading is true
+
 ## 0.26.0
 
 ### Minor Changes

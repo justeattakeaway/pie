@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.8.0
+
+### Minor Changes
+
+- [Changed] - updated cash and cash filled icons ([#765](https://github.com/justeattakeaway/pie/pull/765)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 4.7.1
 
 ### Patch Changes
