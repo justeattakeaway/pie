@@ -1,9 +1,11 @@
-import { LitElement, html, unsafeCSS } from 'lit';
+import {
+    LitElement, html, unsafeCSS, nothing,
+} from 'lit';
 import { property } from 'lit/decorators.js';
 import { validPropertyValues } from '@justeattakeaway/pie-webc-core';
 import styles from './button.scss?inline';
 import {
-    ButtonProps, sizes, types, variants,
+    ButtonProps, sizes, types, variants, iconPlacements,
 } from './defs';
 
 // Valid values available to consumers
@@ -12,8 +14,7 @@ export * from './defs';
 const componentSelector = 'pie-button';
 
 /**
- * @slot icon-leading - Leading icon
- * @slot icon-trailing - Trailing icon
+ * @slot icon - The icon slot
  * @slot - Default slot
  */
 export class PieButton extends LitElement implements ButtonProps {
@@ -29,6 +30,10 @@ export class PieButton extends LitElement implements ButtonProps {
     @validPropertyValues(componentSelector, variants, 'primary')
     public variant: ButtonProps['variant'] = 'primary';
 
+    @property({ type: String })
+    @validPropertyValues(componentSelector, iconPlacements, 'leading')
+    public iconPlacement: ButtonProps['iconPlacement'] = 'leading';
+
     @property({ type: Boolean })
     public disabled = false;
 
@@ -40,7 +45,13 @@ export class PieButton extends LitElement implements ButtonProps {
 
     render () {
         const {
-            type, disabled, isFullWidth, variant, size, isLoading,
+            type,
+            disabled,
+            isFullWidth,
+            variant,
+            size,
+            isLoading,
+            iconPlacement,
         } = this;
 
         return html`
@@ -52,9 +63,9 @@ export class PieButton extends LitElement implements ButtonProps {
                 ?disabled=${disabled}
                 ?isFullWidth=${isFullWidth}
                 ?isLoading=${isLoading}>
-                <slot name="icon-leading"></slot>
-                <span class="o-btn-text"><slot></slot></span>
-                <slot name="icon-trailing"></slot>
+                    ${iconPlacement === 'leading' ? html`<slot name="icon"></slot>` : nothing}
+                    <slot></slot>
+                    ${iconPlacement === 'trailing' ? html`<slot name="icon"></slot>` : nothing}
             </button>`;
     }
 
