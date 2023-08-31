@@ -107,7 +107,7 @@ $breakpoint-wide: 700px;
     > pie-link {
         text-align: center;
         align-self: center;
-    } 
+    }
 
     @media (min-width: $breakpoint-wide) and (orientation: landscape) {
         --cb-actions-flex-dir: row-reverse;
