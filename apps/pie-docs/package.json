@@ -2,7 +2,7 @@
   "name": "pie-docs",
   "private": true,
   "description": "Documentation website for the PIE design system",
-  "version": "2.10.0",
+  "version": "2.11.0",
   "main": "index.js",
   "keywords": [],
   "author": "JustEatTakeaway - Design System Team",
@@ -29,16 +29,16 @@
     "extends @justeat/browserslist-config-fozzie"
   ],
   "devDependencies": {
-    "@11ty/eleventy": "1.0.2",
+    "@11ty/eleventy": "2.0.1",
     "@11ty/eleventy-navigation": "0.3.5",
     "eleventy-plugin-clean": "1.2.5",
     "eleventy-plugin-rev": "1.1.1",
-    "eleventy-sass": "2.2.1",
+    "eleventy-sass": "2.2.3",
     "markdown-it-attrs": "4.1.6"
   },
   "dependencies": {
     "@justeat/f-cookie-banner": "4.7.0",
-    "@justeattakeaway/pie-icons": "4.7.1",
+    "@justeattakeaway/pie-icons": "4.8.0",
     "markdown-it": "13.0.1",
     "markdown-it-anchor": "8.6.7",
     "node-html-parser": "6.1.5",
