@@ -24,8 +24,6 @@ $breakpoint-wide: 700px;
     font-weight: var(--cb-font-weight);
     padding-block-start: var(--cb-padding-block);
     padding-block-end: var(--cb-padding-block);
-    padding-inline-start: var(--cb-padding-inline);
-    padding-inline-end: var(--cb-padding-inline);
     max-height: 432px;
     position: fixed;
     bottom: var(--cb-offset);
@@ -46,6 +44,13 @@ $breakpoint-wide: 700px;
 
     &[isCookieBannerHidden] {
         display: none;
+    }
+
+    .c-cookieBanner-title,
+    .c-cookieBanner-body,
+    .c-cookieBanner-actions {
+        padding-inline-start: var(--cb-padding-inline);
+        padding-inline-end: var(--cb-padding-inline);
     }
 }
 

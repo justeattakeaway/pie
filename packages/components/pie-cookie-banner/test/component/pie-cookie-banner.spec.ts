@@ -137,7 +137,7 @@ test.describe('PieCookieBanner - Component tests', () => {
         expect(cookieBanner).toBeVisible();
     });
 
-    test('should close the modal and cookie banner and emit the save event  when the save button in "Manage preferences"is clicked', async ({ mount, page }) => {
+    test('should close the modal and cookie banner and emit the save event  when the save button in "Manage preferences" is clicked', async ({ mount, page }) => {
         // Arrange
         let cookieBannerPrefsSavedEvent : Partial<Event> = {};
         await mount(PieCookieBanner, {
@@ -176,9 +176,11 @@ test.describe('PieCookieBanner - Component tests', () => {
         await page.click(managePreferencesSelector);
 
         // Assert
-        const preference = await page.locator(getPreferenceItemSelector('necessary')).isChecked();
-        expect(preference).toBe(true);
-        expect(preference).toBe(true);
+        const isChecked = await page.locator(getPreferenceItemSelector('necessary')).isChecked();
+        const isDisabled = await page.locator(getPreferenceItemSelector('necessary')).isDisabled();
+
+        expect(isChecked).toBe(true);
+        expect(isDisabled).toBe(true);
     });
 
     test('should turn on all preferences if the `all` preference is set to true', async ({ mount, page }) => {
@@ -204,7 +206,7 @@ test.describe('PieCookieBanner - Component tests', () => {
         });
     });
 
-    test('should turn off all preferences if the `all` preference is set to false except of the necessary preference', async ({ mount, page }) => {
+    test('should turn off all preferences if the `all` preference is set to false except for the necessary preference', async ({ mount, page }) => {
         // Arrange
         await mount(PieCookieBanner, { props: {} as CookieBannerProps });
 

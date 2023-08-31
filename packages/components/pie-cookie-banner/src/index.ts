@@ -62,7 +62,6 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
         this._dispatchCookieBannerCustomEvent(ON_COOKIE_BANNER_PREFS_SAVED, state);
         this._isModalOpen = false;
         this._isCookieBannerHidden = true;
-        console.info('Cookie Preferences saved', state);
     }
 
     /**
@@ -125,7 +124,7 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
         return html`
             <div class="c-cookieBanner-preferences-item">
                 <div>
-                    <h2 class="c-cookieBanner-title">${title}</h2>
+                    <h3 class="c-cookieBanner-title">${title}</h3>
                      ${description ? html`<p class="c-cookieBanner-preferences-description">${description}</p>` : nothing}
                  </div>
                 <pie-toggle-switch 
