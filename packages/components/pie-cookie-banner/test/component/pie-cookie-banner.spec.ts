@@ -4,7 +4,12 @@ import { PieButton } from '@justeattakeaway/pie-button';
 import { PieLink } from '@justeattakeaway/pie-link';
 import { PieModal } from '@justeattakeaway/pie-modal';
 import { PieIconButton } from '@justeattakeaway/pie-icon-button';
-import { ON_COOKIE_BANNER_ACCEPT_ALL, ON_COOKIE_BANNER_NECESSARY_ONLY, ON_COOKIE_BANNER_MANAGE_PREFS } from '@/defs';
+import { PieToggleSwitch } from '@justeattakeaway/pie-toggle-switch';
+import {
+    ON_COOKIE_BANNER_ACCEPT_ALL, ON_COOKIE_BANNER_NECESSARY_ONLY,
+    ON_COOKIE_BANNER_MANAGE_PREFS, ON_COOKIE_BANNER_PREFS_SAVED,
+    preferences, PreferenceIds,
+} from '@/defs';
 import {
     PieCookieBanner, CookieBannerProps,
 } from '@/index';
@@ -16,6 +21,7 @@ const managePreferencesSelector = '[data-test-id="manage-prefs"]';
 const modalSelector = '[data-test-id="pie-modal"]';
 const modalBackButtonSelector = '[data-test-id="modal-back-button"]';
 const modalSaveButtonSelector = '[data-test-id="modal-leading-action"]';
+const getPreferenceItemSelector = (id: PreferenceIds) => `#${id} [data-test-id="toggle-switch-component"]`;
 
 // Mount any components that are used inside pie-cookie-banner so that
 // they have been registered with the browser before the tests run.
@@ -26,6 +32,7 @@ test.beforeEach(async ({ mount }) => {
     await (await mount(PieLink)).unmount();
     await (await mount(PieModal)).unmount();
     await (await mount(PieIconButton)).unmount();
+    await (await mount(PieToggleSwitch)).unmount();
 });
 
 test.describe('PieCookieBanner - Component tests', () => {
@@ -130,11 +137,15 @@ test.describe('PieCookieBanner - Component tests', () => {
         expect(cookieBanner).toBeVisible();
     });
 
-    // TODO: Once we add preference saving logic we should update this test to ensure it behaves as expected
-    test('should close the modal and cookie banner when the save button in "Manage preferences"is clicked', async ({ mount, page }) => {
+    test('should close the modal and cookie banner and emit the save event  when the save button in "Manage preferences"is clicked', async ({ mount, page }) => {
         // Arrange
+        const events : Array<Event> = [];
         await mount(PieCookieBanner, {
             props: {} as CookieBannerProps,
+
+            on: {
+                [ON_COOKIE_BANNER_PREFS_SAVED]: (event: Event) => events.push(event),
+            },
         });
 
         const cookieBanner = page.locator(componentSelector);
@@ -148,5 +159,67 @@ test.describe('PieCookieBanner - Component tests', () => {
 
         expect(modal).not.toBeVisible();
         expect(cookieBanner).not.toBeVisible();
+        expect(events).toHaveLength(1);
+    });
+
+    test('should always set the `necessary` preference to on and disabled states', async ({ mount, page }) => {
+        // Arrange
+        await mount(PieCookieBanner, {
+            props: {} as CookieBannerProps,
+        });
+
+        // Act
+        await page.click(managePreferencesSelector);
+
+        // Assert
+        const preference = await page.locator(getPreferenceItemSelector('necessary')).isChecked();
+        expect(preference).toBe(true);
+        expect(preference).toBe(true);
+    });
+
+    test('should turn on all preferences if the `all` preference is set to true', async ({ mount, page }) => {
+        // Arrange
+        await mount(PieCookieBanner, {
+            props: {} as CookieBannerProps,
+        });
+
+        // Act
+        await page.click(managePreferencesSelector);
+
+        // Assert
+        await page.click(getPreferenceItemSelector('all'));
+
+        const elements = preferences.map(async ({ id }) => ({
+            isChecked: await page.locator(getPreferenceItemSelector(id)).isChecked(),
+        }));
+
+        const results = await Promise.all(elements);
+
+        results.forEach((result) => {
+            expect(result.isChecked).toBe(true);
+        });
+    });
+
+    test('should turn off all preferences if the `all` preference is set to false except of the necessary preference', async ({ mount, page }) => {
+        // Arrange
+        await mount(PieCookieBanner, { props: {} as CookieBannerProps });
+
+        // Act
+        await page.click(managePreferencesSelector);
+
+        // Assert
+        await page.click(getPreferenceItemSelector('all')); // turn on
+        await page.click(getPreferenceItemSelector('all')); // turn off
+
+        const elements = preferences.map(async ({ id }) => ({
+            id,
+            isChecked: await page.locator(getPreferenceItemSelector(id)).isChecked(),
+        }));
+
+        const results = await Promise.all(elements);
+
+        results.forEach(({ id, isChecked }) => {
+            expect(isChecked).toBe(id === 'necessary');
+        });
     });
 });
