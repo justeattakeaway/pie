@@ -3707,10 +3707,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@custom-elements-manifest/analyzer@npm:0.5.7":
-  version: 0.5.7
-  resolution: "@custom-elements-manifest/analyzer@npm:0.5.7"
+"@custom-elements-manifest/analyzer@npm:0.8.4":
+  version: 0.8.4
+  resolution: "@custom-elements-manifest/analyzer@npm:0.8.4"
   dependencies:
+    "@custom-elements-manifest/find-dependencies": ^0.0.5
+    "@github/catalyst": ^1.6.0
     "@web/config-loader": 0.1.3
     chokidar: 3.5.2
     command-line-args: 5.1.2
@@ -3720,9 +3722,18 @@ __metadata:
     globby: 11.0.4
     typescript: ~4.3.2
   bin:
-    cem: index.js
-    custom-elements-manifest: index.js
-  checksum: d4d0d994798acf75b2b8cd034a615f2631f47926d15322abd779f322c3d1011b4de8bbf510dd466ac60f07235e8e80003f13e3d1eab36a0d33c3394e75954d52
+    cem: cem.js
+    custom-elements-manifest: cem.js
+  checksum: f9b378368640c2288d175b0f8a2573d6287f7563e2265d8bbb4adcc6c733ef2da37f6ce45086f71d47e3abd6bfe6366abcec1e0c4a7b40fe56b822cb2938be3a
+  languageName: node
+  linkType: hard
+
+"@custom-elements-manifest/find-dependencies@npm:^0.0.5":
+  version: 0.0.5
+  resolution: "@custom-elements-manifest/find-dependencies@npm:0.0.5"
+  dependencies:
+    es-module-lexer: ^0.9.3
+  checksum: b73fd7c38a62ecb24613b9ecbd8c00b43c2ad172575afd845217f3cb5ce861e7bc152cbf51a6b3e0469560fa95782f985e8c220947560c3660890f1b744fb380
   languageName: node
   linkType: hard
 
@@ -4486,6 +4497,13 @@ __metadata:
   version: 1.1.3
   resolution: "@gar/promisify@npm:1.1.3"
   checksum: 4059f790e2d07bf3c3ff3e0fec0daa8144fe35c1f6e0111c9921bd32106adaa97a4ab096ad7dab1e28ee6a9060083c4d1a4ada42a7f5f3f7a96b8812e2b757c1
+  languageName: node
+  linkType: hard
+
+"@github/catalyst@npm:^1.6.0":
+  version: 1.6.0
+  resolution: "@github/catalyst@npm:1.6.0"
+  checksum: 067e2bd278a443a290ad489d4ea268a70bbe4c6cf62033da7032cb72028d6c2da31bd33ee9610062696f40ef3f23e3caf4bb4fde0d9a7415f0cbf20a8a68ef7a
   languageName: node
   linkType: hard
 
@@ -5284,7 +5302,7 @@ __metadata:
   dependencies:
     "@babel/core": 7.22.11
     "@babel/preset-react": 7.18.6
-    "@custom-elements-manifest/analyzer": 0.5.7
+    "@custom-elements-manifest/analyzer": 0.8.4
     "@lit-labs/react": 1.1.1
     "@types/react": 18.0.33
     cem-plugin-module-file-extensions: 0.0.5
