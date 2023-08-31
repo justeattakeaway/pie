@@ -139,12 +139,13 @@ test.describe('PieCookieBanner - Component tests', () => {
 
     test('should close the modal and cookie banner and emit the save event  when the save button in "Manage preferences"is clicked', async ({ mount, page }) => {
         // Arrange
-        const events : Array<Event> = [];
+        let cookieBannerPrefsSavedEvent : Partial<Event> = {};
         await mount(PieCookieBanner, {
             props: {} as CookieBannerProps,
-
             on: {
-                [ON_COOKIE_BANNER_PREFS_SAVED]: (event: Event) => events.push(event),
+                [ON_COOKIE_BANNER_PREFS_SAVED]: (event: Event) => {
+                    cookieBannerPrefsSavedEvent = event;
+                },
             },
         });
 
@@ -159,7 +160,10 @@ test.describe('PieCookieBanner - Component tests', () => {
 
         expect(modal).not.toBeVisible();
         expect(cookieBanner).not.toBeVisible();
-        expect(events).toHaveLength(1);
+
+        const [expectedCookieBannerPrefsSavedEvent] = preferences.filter(({ id }) => id !== 'all')
+        .map(({ id, isChecked }) => ({ [id]: !!isChecked }));
+        expect(cookieBannerPrefsSavedEvent).toMatchObject(expectedCookieBannerPrefsSavedEvent);
     });
 
     test('should always set the `necessary` preference to on and disabled states', async ({ mount, page }) => {
