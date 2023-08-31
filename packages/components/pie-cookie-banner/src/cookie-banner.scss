@@ -103,7 +103,11 @@ $breakpoint-wide: 700px;
     display: flex;
     gap: var(--dt-spacing-d);
     flex-direction: var(--cb-actions-flex-dir);
-    text-align: center;
+
+    > pie-link {
+        text-align: center;
+        align-self: center;
+    } 
 
     @media (min-width: $breakpoint-wide) and (orientation: landscape) {
         --cb-actions-flex-dir: row-reverse;

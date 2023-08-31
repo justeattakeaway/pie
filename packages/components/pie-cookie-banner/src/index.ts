@@ -47,8 +47,13 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
     }
 
     /**
-     * Handles saving the user cookie preferences,
-     * closing the modal and the cookie banner
+     * Handles saving the user cookie preferences, closing the modal and the cookie banner
+     * Creates a state object for the save event, indicating the isChecked status
+     * of each preference except for the `all` preference.
+     * @example {
+     *  functional: false,
+     *  necessary: true
+     * }
      */
     private _handlePreferencesSaved () : void {
         let state: Partial<{ [x in PreferenceIds]: boolean }> = {};
