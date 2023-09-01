@@ -27762,7 +27762,7 @@ __metadata:
     lit: 2.7.5
     npm-run-all: 4.1.5
     pinst: 3.0.0
-    postcss: 8.4.25
+    postcss: 8.4.29
     postcss-cli: 10.1.0
     rimraf: 3.0.2
     sass: 1.60.0
@@ -29588,14 +29588,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:8.4.25":
-  version: 8.4.25
-  resolution: "postcss@npm:8.4.25"
+"postcss@npm:8.4.29":
+  version: 8.4.29
+  resolution: "postcss@npm:8.4.29"
   dependencies:
     nanoid: ^3.3.6
     picocolors: ^1.0.0
     source-map-js: ^1.0.2
-  checksum: 9ed3ab8af43ad5210c28f56f916fd9b8c9f94fbeaebbf645dcf579bc28bdd8056c2a7ecc934668d399b81fedb6128f0c4b299f931e50454964bc911c25a3a0a2
+  checksum: dd6daa25e781db9ae5b651d9b7bfde0ec6e60e86a37da69a18eb4773d5ddd51e28fc4ff054fbdc04636a31462e6bf09a1e50986f69ac52b10d46b7457cd36d12
   languageName: node
   linkType: hard
 
