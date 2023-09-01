@@ -122,7 +122,7 @@ $breakpoint-wide: 700px;
     line-height: calc(var(--dt-font-body-s-line-height) * 1px);
 }
 
-.c-cookieBanner-preferences-item {
+.c-cookieBanner-preference {
     display: flex;
     gap: var(--dt-spacing-d);
     justify-content: space-between;

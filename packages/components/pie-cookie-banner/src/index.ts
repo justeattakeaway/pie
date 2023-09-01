@@ -105,7 +105,7 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
      * When the “all” toggle is checked, and one of the other preferences is clicked,
      * then the “all” toggle should be unchecked.
      */
-    private _handlePreferencesToggled = (e: CustomEvent) : void => {
+    private _handleToggleStates = (e: CustomEvent) : void => {
         const { id } = e?.currentTarget as HTMLInputElement;
         const turnAllNode = [...this._preferencesNodes].find((node) => node.id === 'all') as PieToggleSwitch;
 
@@ -127,7 +127,7 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
         id, title, description, isChecked, isDisabled, hasDivider,
     }: Preference): TemplateResult {
         return html`
-            <div class="c-cookieBanner-preferences-item">
+            <div class="c-cookieBanner-preference">
                 <div>
                     <h3 class="c-cookieBanner-title">${title}</h3>
                      ${description ? html`<p class="c-cookieBanner-preferences-description">${description}</p>` : nothing}
@@ -136,7 +136,7 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
                     id="${id}"
                     ?isChecked="${isChecked}" 
                     ?isDisabled="${isDisabled}"
-                    @pie-toggle-switch-changed="${this._handlePreferencesToggled}"/>
+                    @pie-toggle-switch-changed="${this._handleToggleStates}"/>
                 </div>
             ${hasDivider ? html`<pie-divider></pie-divider>` : nothing}`;
     }
