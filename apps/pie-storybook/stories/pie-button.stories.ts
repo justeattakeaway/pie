@@ -137,10 +137,22 @@ Outline.args = {
     variant: 'outline',
 };
 
+Outline.parameters = {
+    backgrounds: {
+        default: 'background-subtle',
+    },
+};
+
 export const Ghost: Story<ButtonProps> = (args: ButtonProps) => Template(args);
 Ghost.args = {
     ...defaultArgs,
     variant: 'ghost',
+};
+
+Ghost.parameters = {
+    backgrounds: {
+        default: 'background-subtle',
+    },
 };
 
 export const Destructive: Story<ButtonProps> = (args: ButtonProps) => Template(args);
@@ -155,6 +167,12 @@ DestructiveGhost.args = {
     variant: 'destructive-ghost',
 };
 
+DestructiveGhost.parameters = {
+    backgrounds: {
+        default: 'background-subtle',
+    },
+};
+
 export const Inverse: Story<ButtonProps> = (args: ButtonProps) => Template(args);
 Inverse.args = {
     ...defaultArgs,
@@ -163,7 +181,7 @@ Inverse.args = {
 
 Inverse.parameters = {
     backgrounds: {
-        default: 'dark',
+        default: 'dark (container-dark)',
     },
 };
 
@@ -175,7 +193,7 @@ GhostInverse.args = {
 
 GhostInverse.parameters = {
     backgrounds: {
-        default: 'dark',
+        default: 'dark (container-dark)',
     },
 };
 
@@ -187,6 +205,6 @@ OutlineInverse.args = {
 
 OutlineInverse.parameters = {
     backgrounds: {
-        default: 'dark',
+        default: 'dark (container-dark)',
     },
 };
