@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.23.0
+
+### Minor Changes
+
+- [Updated] - `main` visual tests to only update baseline images for packages that have changed since the last commit. ([#774](https://github.com/justeattakeaway/pie/pull/774)) by [@siggerzz](https://github.com/siggerzz)
+
 ## 2.22.0
 
 ### Minor Changes
