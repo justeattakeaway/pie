@@ -203,18 +203,16 @@ test.describe('PieCookieBanner - Component tests', () => {
 
         // Act
         await page.click(managePreferencesSelector);
-
-        // turn on all preferences
         // eslint-disable-next-line no-restricted-syntax
-        for (const preference of preferences) {
+        for (const preference of preferences) { // turn on all preferences
             if (preference.id !== 'all' && !preference.isDisabled) {
                 // eslint-disable-next-line no-await-in-loop
                 await page.click(getPreferenceItemSelector(preference.id));
             }
         }
+        const isToggleAllChecked = await page.locator(getPreferenceItemSelector('all')).isChecked();
 
         // Assert
-        const isToggleAllChecked = await page.locator(getPreferenceItemSelector('all')).isChecked();
         expect(isToggleAllChecked).toBe(true);
     });
 
