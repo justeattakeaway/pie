@@ -109,10 +109,9 @@ test.describe('PieCookieBanner - Component tests', () => {
 
         // Act
         await page.click(managePreferencesSelector);
-
-        // Assert
         const modal = page.locator(modalSelector);
 
+        // Assert
         expect(modal).toBeVisible();
         expect(cookieBanner).not.toBeVisible();
         expect(events).toHaveLength(1);
@@ -129,10 +128,9 @@ test.describe('PieCookieBanner - Component tests', () => {
         // Act
         await page.click(managePreferencesSelector);
         await page.click(modalBackButtonSelector);
-
-        // Assert
         const modal = page.locator(modalSelector);
 
+        // Assert
         expect(modal).not.toBeVisible();
         expect(cookieBanner).toBeVisible();
     });
@@ -154,15 +152,13 @@ test.describe('PieCookieBanner - Component tests', () => {
         // Act
         await page.click(managePreferencesSelector);
         await page.click(modalSaveButtonSelector);
-
-        // Assert
         const modal = page.locator(modalSelector);
-
-        expect(modal).not.toBeVisible();
-        expect(cookieBanner).not.toBeVisible();
-
         const [expectedCookieBannerPrefsSavedEvent] = preferences.filter(({ id }) => id !== 'all')
         .map(({ id, isChecked }) => ({ [id]: !!isChecked }));
+
+        // Assert
+        expect(modal).not.toBeVisible();
+        expect(cookieBanner).not.toBeVisible();
         expect(cookieBannerPrefsSavedEvent).toMatchObject(expectedCookieBannerPrefsSavedEvent);
     });
 
@@ -174,11 +170,10 @@ test.describe('PieCookieBanner - Component tests', () => {
 
         // Act
         await page.click(managePreferencesSelector);
-
-        // Assert
         const isChecked = await page.locator(getPreferenceItemSelector('necessary')).isChecked();
         const isDisabled = await page.locator(getPreferenceItemSelector('necessary')).isDisabled();
 
+        // Assert
         expect(isChecked).toBe(true);
         expect(isDisabled).toBe(true);
     });
@@ -191,16 +186,13 @@ test.describe('PieCookieBanner - Component tests', () => {
 
         // Act
         await page.click(managePreferencesSelector);
-
-        // Assert
         await page.click(getPreferenceItemSelector('all'));
-
         const elements = preferences.map(async ({ id }) => ({
             isChecked: await page.locator(getPreferenceItemSelector(id)).isChecked(),
         }));
-
         const results = await Promise.all(elements);
 
+        // Assert
         results.forEach((result) => {
             expect(result.isChecked).toBe(true);
         });
@@ -212,18 +204,15 @@ test.describe('PieCookieBanner - Component tests', () => {
 
         // Act
         await page.click(managePreferencesSelector);
-
-        // Assert
         await page.click(getPreferenceItemSelector('all')); // turn on
         await page.click(getPreferenceItemSelector('all')); // turn off
-
         const elements = preferences.map(async ({ id }) => ({
             id,
             isChecked: await page.locator(getPreferenceItemSelector(id)).isChecked(),
         }));
-
         const results = await Promise.all(elements);
 
+        // Assert
         results.forEach(({ id, isChecked }) => {
             expect(isChecked).toBe(id === 'necessary');
         });

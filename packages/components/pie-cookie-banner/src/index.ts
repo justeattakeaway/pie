@@ -79,6 +79,7 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
      * bubble up through the cookie banner.
      *
      * @param {string} eventType
+     * @param {any} detail
      */
     private _dispatchCookieBannerCustomEvent = (eventType: string, detail?: CustomEventInit['detail']) : void => {
         const event = new CustomEvent(eventType, {
@@ -107,15 +108,15 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
      */
     private _handleToggleStates = (e: CustomEvent) : void => {
         const { id } = e?.currentTarget as HTMLInputElement;
-        const turnAllNode = [...this._preferencesNodes].find((node) => node.id === 'all') as PieToggleSwitch;
+        const toggleAllNode = [...this._preferencesNodes].find((node) => node.id === 'all') as PieToggleSwitch;
 
-        if (id === turnAllNode.id) {
+        if (id === toggleAllNode.id) {
             const isChecked = e.detail;
             this._preferencesNodes.forEach((node) => {
                 node.isChecked = node.isDisabled ? node.isChecked : isChecked;
             });
         } else {
-            turnAllNode.isChecked ||= false;
+            toggleAllNode.isChecked = false;
         }
     };
 
@@ -129,8 +130,8 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
         return html`
             <div class="c-cookieBanner-preference">
                 <div>
-                    <h3 class="c-cookieBanner-title">${title}</h3>
-                     ${description ? html`<p class="c-cookieBanner-preferences-description">${description}</p>` : nothing}
+                    <h3 class="c-cookieBanner-subheading">${title}</h3>
+                     ${description ? html`<p class="c-cookieBanner-description">${description}</p>` : nothing}
                  </div>
                 <pie-toggle-switch 
                     id="${id}"
@@ -147,7 +148,7 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
      */
     private renderModalContent (): TemplateResult {
         return html`
-            <p class="c-cookieBanner-preferences-description">You can find all the information in the 
+            <p class="c-cookieBanner-description">You can find all the information in the 
                 <pie-link href="#" size="small" target="_blank">Cookie Statement</pie-link> and 
                 <pie-link href="#" size="small" target="_blank">Cookie technology list</pie-link>.
             </p>
@@ -170,7 +171,7 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
             .isOpen="${this._isModalOpen}"
             hasBackButton
             hasStackedActions
-            size="large"
+            size="medium"
             heading="Manage your preferences"
             .leadingAction="${modalActionProps}"
             @pie-modal-leading-action-click="${this._handlePreferencesSaved}"
