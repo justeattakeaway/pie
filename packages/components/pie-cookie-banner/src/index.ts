@@ -105,10 +105,12 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
      * Clicking the “all” toggle switch should turn on all preferences.
      * When the “all” toggle is checked, and one of the other preferences is clicked,
      * then the “all” toggle should be unchecked.
+     * if all toggle switches are checked, the `all` toggle switch should
+     * be turned on automatically
      */
     private _handleToggleStates = (e: CustomEvent) : void => {
         const { id } = e?.currentTarget as HTMLInputElement;
-        const toggleAllNode = [...this._preferencesNodes].find((node) => node.id === 'all') as PieToggleSwitch;
+        const toggleAllNode = [...this._preferencesNodes].find(({ id }) => id === 'all') as PieToggleSwitch;
 
         if (id === toggleAllNode.id) {
             const isChecked = e.detail;
@@ -116,7 +118,9 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
                 node.isChecked = node.isDisabled ? node.isChecked : isChecked;
             });
         } else {
-            toggleAllNode.isChecked = false;
+            toggleAllNode.isChecked = [...this._preferencesNodes]
+            .filter(({ id }) => id !== 'all')
+            .every(({ isChecked }) => isChecked);
         }
     };
 

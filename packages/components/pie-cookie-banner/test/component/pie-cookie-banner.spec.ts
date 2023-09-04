@@ -34,7 +34,6 @@ test.beforeEach(async ({ mount }) => {
     await (await mount(PieIconButton)).unmount();
     await (await mount(PieToggleSwitch)).unmount();
 });
-
 test.describe('PieCookieBanner - Component tests', () => {
     test('should render successfully', async ({ mount, page }) => {
         // Arrange
@@ -198,6 +197,27 @@ test.describe('PieCookieBanner - Component tests', () => {
         });
     });
 
+    test('should turn on the all preference if it`s off and all other preferences are set to true manually.', async ({ mount, page }) => {
+        // Arrange
+        await mount(PieCookieBanner, { props: {} as CookieBannerProps });
+
+        // Act
+        await page.click(managePreferencesSelector);
+
+        const elements = preferences
+        .filter(({ id }) => id !== 'all')
+        .filter(({ isDisabled }) => !isDisabled)
+        .map(async ({ id }) => {
+            await page.click(getPreferenceItemSelector(id));
+        });
+
+        await Promise.all(elements);
+
+        // Assert
+        const isToggleAllChecked = await page.locator(getPreferenceItemSelector('all')).isChecked();
+        expect(isToggleAllChecked).toBe(true);
+    });
+
     test('should turn off all preferences if the `all` preference is set to false except for the necessary preference', async ({ mount, page }) => {
         // Arrange
         await mount(PieCookieBanner, { props: {} as CookieBannerProps });
@@ -218,7 +238,7 @@ test.describe('PieCookieBanner - Component tests', () => {
         });
     });
 
-    test('should toggle the `all` preference when it`s true and one of the preferences is set to false', async ({ mount, page }) => {
+    test('should turn off the all preference if it`s on, and at least one of the other preferences is set to false.', async ({ mount, page }) => {
         // Arrange
         await mount(PieCookieBanner, { props: {} as CookieBannerProps });
 
