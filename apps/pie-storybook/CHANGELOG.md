@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.28.0
+
+### Minor Changes
+
+- [Changed] - update storybook to v7.4.0 ([#779](https://github.com/justeattakeaway/pie/pull/779)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Added] - missing peer dependencies
+
 ## 0.27.0
 
 ### Minor Changes
