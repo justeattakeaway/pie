@@ -161,7 +161,7 @@ test.describe('PieCookieBanner - Component tests', () => {
         expect(cookieBannerPrefsSavedEvent).toMatchObject(expectedCookieBannerPrefsSavedEvent);
     });
 
-    test('should always set the `necessary` preference to on and disabled states', async ({ mount, page }) => {
+    test('should always toggle the `necessary` preference and set it to disabled', async ({ mount, page }) => {
         // Arrange
         await mount(PieCookieBanner, {
             props: {} as CookieBannerProps,
@@ -177,7 +177,7 @@ test.describe('PieCookieBanner - Component tests', () => {
         expect(isDisabled).toBe(true);
     });
 
-    test('should turn on all preferences if the `all` preference is set to true', async ({ mount, page }) => {
+    test('should toggle all preferences if the `all` preference node is set to true', async ({ mount, page }) => {
         // Arrange
         await mount(PieCookieBanner, {
             props: {} as CookieBannerProps,
@@ -197,7 +197,7 @@ test.describe('PieCookieBanner - Component tests', () => {
         });
     });
 
-    test('should turn on the all preference if it`s off and all other preferences are set to true manually.', async ({ mount, page }) => {
+    test('should toggle the `all` preference node if the other preferences are set to true manually', async ({ mount, page }) => {
         // Arrange
         await mount(PieCookieBanner, { props: {} as CookieBannerProps });
 
@@ -238,7 +238,7 @@ test.describe('PieCookieBanner - Component tests', () => {
         });
     });
 
-    test('should turn off the all preference if it`s on, and at least one of the other preferences is set to false.', async ({ mount, page }) => {
+    test('should turn off the `all` preference node if at least one of the other preferences is set to false.', async ({ mount, page }) => {
         // Arrange
         await mount(PieCookieBanner, { props: {} as CookieBannerProps });
 
