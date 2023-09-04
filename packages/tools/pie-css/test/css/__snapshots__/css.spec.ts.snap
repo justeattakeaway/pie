@@ -1,7 +1,7 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`index.css > should render the expected CSS content 1`] = `
-":root, ::backdrop {
+":root {
     /* Global tokens - Color */
     --dt-color-aubergine-10: #e7d6e7;
     --dt-color-aubergine-80: #452844;
@@ -78,6 +78,7 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-color-container-strong: var(--dt-color-mozzarella-20);
     --dt-color-container-dark: var(--dt-color-mozzarella-90);
     --dt-color-container-inverse: var(--dt-color-mozzarella-90);
+    --dt-color-container-inverse-alternative: var(--dt-color-mozzarella-90);
     --dt-color-border-default: var(--dt-color-mozzarella-20);
     --dt-color-border-subtle: var(--dt-color-mozzarella-10);
     --dt-color-border-strong: var(--dt-color-mozzarella-30);
@@ -161,6 +162,7 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-color-highcontrast-container-strong: var(--dt-color-white);
     --dt-color-highcontrast-container-dark: var(--dt-color-black);
     --dt-color-highcontrast-container-inverse: var(--dt-color-black);
+    --dt-color-highcontrast-container-inverse-alternative: var(--dt-color-black);
     --dt-color-highcontrast-border-default: var(--dt-color-black);
     --dt-color-highcontrast-border-subtle: var(--dt-color-black);
     --dt-color-highcontrast-border-strong: var(--dt-color-black);
@@ -244,6 +246,7 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-color-dark-container-strong: var(--dt-color-mozzarella-70);
     --dt-color-dark-container-dark: var(--dt-color-mozzarella-90);
     --dt-color-dark-container-inverse: var(--dt-color-white);
+    --dt-color-dark-container-inverse-alternative: var(--dt-color-mozzarella-70);
     --dt-color-dark-border-default: var(--dt-color-mozzarella-70);
     --dt-color-dark-border-subtle: var(--dt-color-mozzarella-75);
     --dt-color-dark-border-strong: var(--dt-color-mozzarella-60);
@@ -327,6 +330,7 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-color-highcontrast-dark-container-strong: var(--dt-color-black);
     --dt-color-highcontrast-dark-container-dark: var(--dt-color-black);
     --dt-color-highcontrast-dark-container-inverse: var(--dt-color-white);
+    --dt-color-highcontrast-dark-container-inverse-alternative: var(--dt-color-black);
     --dt-color-highcontrast-dark-border-default: var(--dt-color-white);
     --dt-color-highcontrast-dark-border-subtle: var(--dt-color-white);
     --dt-color-highcontrast-dark-border-strong: var(--dt-color-white);
@@ -658,7 +662,7 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-elevation-dark-inverse-04: var(--dt-elevation-box-shadow-04);
     --dt-elevation-dark-inverse-05: var(--dt-elevation-box-shadow-05);
 }
-:root, ::backdrop {
+:root {
     --dt-color-aubergine-10-h: 300;
     --dt-color-aubergine-10-s: 26.2%;
     --dt-color-aubergine-10-l: 87.3%;
@@ -878,6 +882,9 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-color-container-inverse-h: var(--dt-color-mozzarella-90-h);
     --dt-color-container-inverse-s: var(--dt-color-mozzarella-90-s);
     --dt-color-container-inverse-l: var(--dt-color-mozzarella-90-l);
+    --dt-color-container-inverse-alternative-h: var(--dt-color-mozzarella-90-h);
+    --dt-color-container-inverse-alternative-s: var(--dt-color-mozzarella-90-s);
+    --dt-color-container-inverse-alternative-l: var(--dt-color-mozzarella-90-l);
     --dt-color-border-default-h: var(--dt-color-mozzarella-20-h);
     --dt-color-border-default-s: var(--dt-color-mozzarella-20-s);
     --dt-color-border-default-l: var(--dt-color-mozzarella-20-l);

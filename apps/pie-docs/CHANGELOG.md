@@ -1,5 +1,22 @@
 # Changelog
 
+## 3.0.0
+
+### Major Changes
+
+- [Changed] - Upgraded site to use `@11ty/eleventy` `v2.0.1` from `v1.0.2`. Also upgraded `eleventy-sass` to `v2.2.3` from `v2.2.1` ([#773](https://github.com/justeattakeaway/pie/pull/773)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+## 2.11.0
+
+### Minor Changes
+
+- [Added] - Pre-release tag ([#755](https://github.com/justeattakeaway/pie/pull/755)) by [@FayeCarter](https://github.com/FayeCarter)
+
+### Patch Changes
+
+- Updated dependencies [[`f17a88a38`](https://github.com/justeattakeaway/pie/commit/f17a88a38a613d5cd72ece37ab63d0b9309c80cb)]:
+  - @justeattakeaway/pie-icons@4.8.0
+
 ## 2.10.0
 
 ### Minor Changes

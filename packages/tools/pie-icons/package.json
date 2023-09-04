@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/pie-icons",
-  "version": "4.7.1",
+  "version": "4.8.0",
   "description": "Common icons for use for PIE Project",
   "main": "dist/pie-icons.js",
   "types": "./index.d.ts",
@@ -15,7 +15,7 @@
   "scripts": {
     "build": "node ./bin/build.js",
     "prepare": "yarn build && yarn test:coverage",
-    "clean": "run -T rimraf -rf ./dist/*",
+    "clean": "run -T rimraf -rf ./dist/",
     "prepublishOnly": "yarn run build",
     "lint:scripts": "run -T eslint .",
     "lint:scripts:fix": "run -T eslint . --fix",

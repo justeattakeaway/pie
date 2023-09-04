@@ -1,5 +1,34 @@
 # Changelog
 
+## 0.28.0
+
+### Minor Changes
+
+- [Changed] - update storybook to v7.4.0 ([#779](https://github.com/justeattakeaway/pie/pull/779)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Added] - missing peer dependencies
+
+## 0.27.0
+
+### Minor Changes
+
+- [Changed] - allow one icon to be set ([#764](https://github.com/justeattakeaway/pie/pull/764)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Fixed] - icon should sit next to the text when isFullWidth is true
+
+  [Fixed] - icon should not be visible when isLoading is true
+
+- [Added] - pie-card-container stories ([#766](https://github.com/justeattakeaway/pie/pull/766)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies [[`e3c9de2fd`](https://github.com/justeattakeaway/pie/commit/e3c9de2fd747d7c7e07209b0e9fc72ead9d896ef), [`d1dcef180`](https://github.com/justeattakeaway/pie/commit/d1dcef180429adaa9879483bd1c584534bef0134), [`2204e0a38`](https://github.com/justeattakeaway/pie/commit/2204e0a38b1117b52fda7a74dd0996660aaf0fd7), [`feb0c405b`](https://github.com/justeattakeaway/pie/commit/feb0c405ba078bc79312612d209971cefe2ae221), [`e3c9de2fd`](https://github.com/justeattakeaway/pie/commit/e3c9de2fd747d7c7e07209b0e9fc72ead9d896ef)]:
+  - @justeattakeaway/pie-modal@0.19.0
+  - @justeattakeaway/pie-button@0.27.0
+  - @justeattakeaway/pie-cookie-banner@0.2.0
+  - @justeattakeaway/pie-card-container@0.1.0
+  - @justeattakeaway/pie-icons-webc@0.5.0
+
 ## 0.26.0
 
 ### Minor Changes

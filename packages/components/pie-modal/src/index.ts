@@ -19,12 +19,15 @@ import {
     type AriaProps,
     type ActionProps,
     type ModalProps,
+    type ModalActionType,
     headingLevels,
     positions,
     sizes,
     ON_MODAL_BACK_EVENT,
     ON_MODAL_CLOSE_EVENT,
     ON_MODAL_OPEN_EVENT,
+    ON_MODAL_LEADING_ACTION_CLICK,
+    ON_MODAL_SUPPORTING_ACTION_CLICK,
 } from './defs';
 
 // Valid values available to consumers
@@ -36,6 +39,8 @@ const componentSelector = 'pie-modal';
  * @event {CustomEvent} pie-modal-open - when the modal is opened.
  * @event {CustomEvent} pie-modal-close - when the modal is closed.
  * @event {CustomEvent} pie-modal-back - when the modal back button is clicked.
+ * @event {CustomEvent} pie-modal-leading-action-click - when the modal leading action is clicked.
+ * @event {CustomEvent} pie-modal-supporting-action-click - when the modal supporting action is clicked.
  */
 export class PieModal extends RtlMixin(LitElement) implements ModalProps {
     @property({ type: Object })
@@ -192,6 +197,16 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
         }
     }
 
+    private _handleActionClick (actionType: ModalActionType) : void {
+        if (actionType === 'leading') {
+            this._dialog?.close('leading');
+            this._dispatchModalCustomEvent(ON_MODAL_LEADING_ACTION_CLICK);
+        } else if (actionType === 'supporting') {
+            this._dialog?.close('supporting');
+            this._dispatchModalCustomEvent(ON_MODAL_SUPPORTING_ACTION_CLICK);
+        }
+    }
+
     /**
      * Return focus to the specified element, providing the selector is valid
      * and the chosen element can be found.
@@ -263,7 +278,7 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
                 aria-label="${ariaLabel || nothing}"
                 type="submit"
                 ?isFullWidth="${this.hasStackedActions}"
-                @click="${() => this._dialog?.close('leading')}"
+                @click="${() => this._handleActionClick('leading')}"
                 data-test-id="modal-leading-action">
                 ${text}
             </pie-button>
@@ -299,7 +314,7 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
                 aria-label="${ariaLabel || nothing}"
                 type="reset"
                 ?isFullWidth="${this.hasStackedActions}"
-                @click="${() => this._dialog?.close('supporting')}"
+                @click="${() => this._handleActionClick('supporting')}"
                 data-test-id="modal-supporting-action">
                 ${text}
             </pie-button>

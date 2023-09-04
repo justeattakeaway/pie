@@ -4,6 +4,7 @@ export const variants = [
     'primary', 'secondary', 'outline', 'outline-inverse', 'ghost',
     'inverse', 'ghost-inverse', 'destructive', 'destructive-ghost',
 ] as const;
+export const iconPlacements = ['leading', 'trailing'] as const;
 
 export type Variant = typeof variants[number];
 
@@ -20,6 +21,10 @@ export interface ButtonProps {
      * What style variant the button should be such as primary, outline or ghost.
      */
     variant: Variant;
+    /**
+     * The placement of the icon slot, if provided, such as leading or trailing
+     */
+    iconPlacement?: typeof iconPlacements[number];
     /**
      * When true, the button element is disabled.
      */

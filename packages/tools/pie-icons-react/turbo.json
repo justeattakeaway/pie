@@ -4,13 +4,10 @@
     "//"
   ],
   "pipeline": {
-    "clean": {
-      "cache": false,
-      "dependsOn": []
-    },
     "build:icons": {
       "cache": true,
       "dependsOn": [
+        "@justeattakeaway/pie-icons#build",
         "clean"
       ],
       "outputs": [

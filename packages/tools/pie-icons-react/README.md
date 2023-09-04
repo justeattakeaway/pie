@@ -44,6 +44,7 @@ Icons accept any standard attribute, except for `width` and `height` since those
 ##### `size`
 
 Icons are made available in different size variants:
+
 - small
 - large, when its name has the `Large` suffix
 
@@ -59,6 +60,7 @@ Example:
 ```
 
 ### Styles
+
 The React icons package doesn't provide CSS styles. CSS classes `c-pieIcon c-pieIcon--{iconName}` are available for consuming applications to add the styles they require.
 
 ### Tree shaking
@@ -77,13 +79,13 @@ Before starting please read our [contributing guide](https://pie.design/engineer
 
 ### Adding new icons
 
-Icons should be added as SVGs to the main pie-icons package and published, before simply incrementing the dependency of `pie-icons` in the `pie-icons-react` package, to generate the new set of Vue components.
+Icons should be added as SVGs to the main pie-icons package and published, before simply incrementing the dependency of `pie-icons` in the `pie-icons-react` package, to generate the new set of React components.
 
 The PIE iconset is managed by our PIE design system team and new icon requests should go through them to ensure that they are designed inline with our standards and guildelines. Please reach out to PIE design system team using #help-designsystem slack channel.
 
 ### Building the Module
 
-Run `yarn build --filter=pie-icons-react` from the project level or `yarn turbo run build --filter=pie-icons-vue` from the root level to compile the module.
+Run `yarn build` from the project level or `yarn turbo run build --filter=pie-icons-react` from the root level to compile the module.
 
 ## Icon list
 
