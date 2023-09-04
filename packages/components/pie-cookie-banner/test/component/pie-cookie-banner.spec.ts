@@ -217,4 +217,18 @@ test.describe('PieCookieBanner - Component tests', () => {
             expect(isChecked).toBe(id === 'necessary');
         });
     });
+
+    test('should toggle the `all` preference when it`s true and one of the preferences is set to false', async ({ mount, page }) => {
+        // Arrange
+        await mount(PieCookieBanner, { props: {} as CookieBannerProps });
+
+        // Act
+        await page.click(managePreferencesSelector);
+        await page.click(getPreferenceItemSelector('all')); // turn on all nodes
+        await page.click(getPreferenceItemSelector('functional')); // turn off one of the preferences
+        const isToggleAllChecked = await page.locator(getPreferenceItemSelector('all')).isChecked();
+
+        // Assert
+        expect(isToggleAllChecked).toBe(false);
+    });
 });
