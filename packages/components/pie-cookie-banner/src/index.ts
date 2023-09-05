@@ -175,7 +175,7 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
             .isOpen="${this._isModalOpen}"
             hasBackButton
             hasStackedActions
-            size="medium"
+            isFullWidthBelowMid
             heading="Manage your preferences"
             .leadingAction="${modalActionProps}"
             @pie-modal-leading-action-click="${this._handlePreferencesSaved}"
