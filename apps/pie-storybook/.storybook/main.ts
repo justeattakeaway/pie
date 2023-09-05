@@ -3,7 +3,7 @@ import type { StorybookConfig } from '@storybook/web-components-vite';
 const config: StorybookConfig = {
     stories: [
         "../stories/**/*.mdx",
-        "../stories/**/*.stories.@(js|ts)"
+        "../stories/**/*.stories.@(js|ts)",
     ],
     addons: [
         "@storybook/addon-a11y",
@@ -13,11 +13,11 @@ const config: StorybookConfig = {
     ],
     framework: {
         name: "@storybook/web-components-vite",
-        options: {}
+        options: {},
     },
     docs: {
-        autodocs: false
-    }
+        autodocs: false,
+    },
 }
 
 export default config;

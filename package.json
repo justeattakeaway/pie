@@ -1,7 +1,7 @@
 {
   "name": "pie-monorepo",
   "description": "JustEatTakeaway",
-  "version": "2.22.0",
+  "version": "2.23.0",
   "keywords": [],
   "author": "JustEatTakeaway - Design System Web Team",
   "license": "Apache-2.0",
@@ -54,7 +54,7 @@
   },
   "devDependencies": {
     "@axe-core/playwright": "4.7.3",
-    "@babel/cli": "7.21.5",
+    "@babel/cli": "7.22.10",
     "@babel/core": "7.22.11",
     "@babel/eslint-parser": "7.21.8",
     "@babel/node": "7.20.7",
@@ -130,5 +130,8 @@
   "volta": {
     "node": "18.15.0",
     "yarn": "3.5.0"
+  },
+  "resolutions": {
+    "@babel/traverse": "7.22.5"
   }
 }
