@@ -8,29 +8,33 @@
 
 /**
 * Defines button interactive states for hover, active and loading.
-* Takes the interactive color name as an argument, and whether the color
-* should be lightened or darkened.
+* $bg-color: design token name to be used for the states
+* $mode: 'default': apply the default lighten/darken to the color via hsl
+*        'transparent': uses hsla syntax to make the color semi-opaque (used for ghost and outline button variants)
 */
-@mixin button-interactive-states($bg-color, $lighten: false) {
+@mixin button-interactive-states($bg-color, $mode: 'default') {
     &:hover:not(:disabled) {
         --hover-modifier: calc(-1 * var(--dt-color-hover-01));
 
-        @if $lighten {
-            --hover-modifier: var(--dt-color-hover-02);
+        // for mode=transparent, use the hsla syntax to make the button background opaque by a set percentage
+        @if $mode == 'transparent' {
+            --hover-modifier: var(--dt-color-hover-01);
+            --btn-bg-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), var(#{$bg-color}-l), var(--hover-modifier));
+        } @else {
+            --btn-bg-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), calc(var(#{$bg-color}-l) + var(--hover-modifier)));
         }
-
-        --btn-bg-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), calc(var(#{$bg-color}-l) + var(--hover-modifier)));
     }
 
     &:active:not(:disabled),
     &[isLoading]:not(:disabled) {
         --active-modifier: calc(-1 * var(--dt-color-active-01));
 
-        @if $lighten {
-            --active-modifier: var(--dt-color-active-02);
+        @if $mode == 'transparent' {
+            --active-modifier: var(--dt-color-active-01);
+            --btn-bg-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), var(#{$bg-color}-l), var(--active-modifier));
+        } @else {
+            --btn-bg-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), calc(var(#{$bg-color}-l) + var(--active-modifier)));
         }
-
-        --btn-bg-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), calc(var(#{$bg-color}-l) + var(--active-modifier)));
     }
 }
 
@@ -189,12 +193,14 @@
     }
 
     &[variant='outline'] {
-        --btn-bg-color: var(--dt-color-container-default);
+        --btn-bg-color: transparent;
         --btn-text-color: var(--dt-color-content-interactive-secondary);
 
         border: 1px solid var(--dt-color-border-strong);
 
-        @include button-interactive-states('--dt-color-container-default');
+        // use black as the background color for hover and inverse,
+        // as this variant uses a shade of transparent black showing through the container background
+        @include button-interactive-states('--dt-color-black', 'transparent');
         @include spinner-base-colors('--dt-color-content-interactive-secondary');
     }
 
@@ -202,7 +208,9 @@
         --btn-bg-color: transparent;
         --btn-text-color: var(--dt-color-content-link);
 
-        @include button-interactive-states('--dt-color-container-default');
+        // use black as the background color for hover and inverse,
+        // as this variant uses a shade of transparent black showing through the container background
+        @include button-interactive-states('--dt-color-black', 'transparent');
         @include spinner-base-colors('--dt-color-content-interactive-secondary');
     }
 
@@ -219,7 +227,9 @@
         --btn-bg-color: transparent;
         --btn-text-color: var(--dt-color-content-interactive-primary);
 
-        @include button-interactive-states('--dt-color-container-inverse', true);
+        // use white as the background color for hover and inverse,
+        // as these variants use a shade of transparent white showing through the container background
+        @include button-interactive-states('--dt-color-container-default', 'transparent');
     }
 
     &[variant='outline-inverse'] {
@@ -236,7 +246,9 @@
         --btn-bg-color: transparent;
         --btn-text-color: var(--dt-color-content-interactive-error);
 
-        @include button-interactive-states('--dt-color-container-default');
+        // use black as the background color for hover and inverse,
+        // as this variant uses a shade of transparent black showing through the container background
+        @include button-interactive-states('--dt-color-black', 'transparent');
         @include spinner-base-colors('--dt-color-content-interactive-secondary');
     }
 

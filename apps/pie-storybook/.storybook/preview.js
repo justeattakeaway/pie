@@ -1,5 +1,6 @@
 import { WritingDirection } from '../decorators';
 import '@justeattakeaway/pie-css';
+import CUSTOM_VIEWPORTS from './viewports';
 
 export default {
     decorators: [WritingDirection],
@@ -48,17 +49,36 @@ export default {
             default: 'light',
             values: [
                 {
-                    name: 'light',
+                    name: 'light (container-default)',
                     value: '#ffffff',
                 },
                 {
-                    name: 'dark',
+                    name: 'dark (container-dark)',
                     value: '#262626',
+                },
+                {
+                    name: 'background-subtle',
+                    value: '#f5f3f1',
+                },
+                {
+                    name: 'brand orange',
+                    value: '#f36805',
+                },
+                {
+                    name: 'saddlebrown',
+                    value: 'saddlebrown',
+                },
+                {
+                    name: 'aquamarine',
+                    value: 'aquamarine',
                 },
             ]
         },
         controls: {
             expanded: true,
-        }
+        },
+        viewport: {
+            viewports: CUSTOM_VIEWPORTS
+        },
     }
 };
