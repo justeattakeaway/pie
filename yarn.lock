@@ -5018,15 +5018,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@justeat/f-cookie-banner@npm:4.11.1":
-  version: 4.11.1
-  resolution: "@justeat/f-cookie-banner@npm:4.11.1"
+"@justeat/f-cookie-banner@npm:4.7.0":
+  version: 4.7.0
+  resolution: "@justeat/f-cookie-banner@npm:4.7.0"
   dependencies:
     "@justeat/f-services": 1.x
   peerDependencies:
     "@justeat/browserslist-config-fozzie": ">=1.1.1"
     js-cookie: 2.2.1
-  checksum: fcbb81d7eed1e6a81efa16242dc4eab11dcb6cc3154071c742d9410a16ab208ff41e82f4042ff4f44de7009b96f219a6c9c5bf678c33676f722f0ade1db021de
+  checksum: 072fe042d0d201431c77cbe5107c1660943b7152c869942b8a93f6e3a9d958947ed349485a22ce58b90f64384b472847c3c4500326a70bbe63cc22b2006133eb
   languageName: node
   linkType: hard
 
@@ -27532,7 +27532,7 @@ __metadata:
     "@11ty/eleventy": 2.0.1
     "@11ty/eleventy-navigation": 0.3.5
     "@justeat/browserslist-config-fozzie": 2.0.0
-    "@justeat/f-cookie-banner": 4.11.1
+    "@justeat/f-cookie-banner": 4.7.0
     "@justeattakeaway/pie-icons": 4.8.0
     "@types/markdown-it": 13.0.0
     eleventy-plugin-clean: 1.2.5
