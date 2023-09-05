@@ -1,6 +1,6 @@
 {
   "name": "pie-storybook",
-  "version": "0.27.0",
+  "version": "0.28.0",
   "description": "Storybook for PIE Design System components",
   "scripts": {
     "dev": "storybook dev -p 6006",
@@ -11,7 +11,7 @@
   "author": "JustEatTakeaway - Design System Web Team",
   "license": "Apache-2.0",
   "dependencies": {
-    "@justeat/pie-design-tokens": "5.6.2",
+    "@justeat/pie-design-tokens": "5.7.0",
     "@justeattakeaway/pie-button": "workspace:*",
     "@justeattakeaway/pie-card-container": "workspace:*",
     "@justeattakeaway/pie-cookie-banner": "workspace:*",
@@ -21,29 +21,28 @@
     "@justeattakeaway/pie-icons-webc": "workspace:*",
     "@justeattakeaway/pie-link": "workspace:*",
     "@justeattakeaway/pie-modal": "workspace:*",
-    "@justeattakeaway/pie-toggle-switch": "workspace:*"
+    "@justeattakeaway/pie-toggle-switch": "workspace:*",
+    "body-scroll-lock": "4.0.0-beta.0",
+    "lit": "2.7.5"
   },
   "devDependencies": {
-    "@storybook/addon-a11y": "7.3.2",
+    "@storybook/addon-a11y": "7.4.0",
     "@storybook/addon-designs": "7.0.5",
-    "@storybook/addon-docs": "7.3.2",
-    "@storybook/addon-essentials": "7.3.2",
-    "@storybook/addon-links": "7.3.2",
-    "@storybook/addons": "7.3.2",
-    "@storybook/api": "7.3.2",
-    "@storybook/blocks": "7.3.2",
-    "@storybook/components": "7.3.2",
-    "@storybook/manager-api": "7.3.2",
-    "@storybook/preview-api": "7.3.2",
-    "@storybook/theming": "7.3.2",
-    "@storybook/web-components": "7.3.2",
-    "@storybook/web-components-vite": "7.3.2",
-    "body-scroll-lock": "4.0.0-beta.0",
-    "lit": "2.7.5",
+    "@storybook/addon-docs": "7.4.0",
+    "@storybook/addon-essentials": "7.4.0",
+    "@storybook/addon-links": "7.4.0",
+    "@storybook/addons": "7.4.0",
+    "@storybook/blocks": "7.4.0",
+    "@storybook/components": "7.4.0",
+    "@storybook/manager-api": "7.4.0",
+    "@storybook/preview-api": "7.4.0",
+    "@storybook/theming": "7.4.0",
+    "@storybook/web-components": "7.4.0",
+    "@storybook/web-components-vite": "7.4.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "serve": "14.2.0",
-    "storybook": "7.3.2"
+    "storybook": "7.4.0"
   },
   "volta": {
     "extends": "../../package.json"

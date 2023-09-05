@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.0.0
+
+### Major Changes
+
+- [Changed] - Upgraded site to use `@11ty/eleventy` `v2.0.1` from `v1.0.2`. Also upgraded `eleventy-sass` to `v2.2.3` from `v2.2.1` ([#773](https://github.com/justeattakeaway/pie/pull/773)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 2.11.0
 
 ### Minor Changes
