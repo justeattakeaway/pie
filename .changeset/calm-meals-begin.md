@@ -16,3 +16,4 @@
 ---
 
 [Changed] - add missing peer dependencies
+[Changed] - update packages, including `@babel/core` and `@justeat/pie-design-tokens`

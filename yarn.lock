@@ -5063,17 +5063,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@justeat/pie-design-tokens@npm:5.6.2":
-  version: 5.6.2
-  resolution: "@justeat/pie-design-tokens@npm:5.6.2"
-  dependencies:
-    jsonc-parser: 3.2.0
-    lodash.merge: 4.6.2
-    mkdirp: 1.0.4
-  checksum: 30624ad70c8e51792e377722a72393e949a5444ab730e58c93777163e314553c40bd1e120b80d1edba6405607dfa7ce3f821447c280ea2a118383d9c7072bcd1
-  languageName: node
-  linkType: hard
-
 "@justeat/pie-design-tokens@npm:5.7.0":
   version: 5.7.0
   resolution: "@justeat/pie-design-tokens@npm:5.7.0"
@@ -5119,7 +5108,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-button@workspace:packages/components/pie-button"
   dependencies:
-    "@justeat/pie-design-tokens": 5.6.2
+    "@justeat/pie-design-tokens": 5.7.0
     "@justeattakeaway/pie-components-config": "workspace:*"
     "@justeattakeaway/pie-css": "workspace:*"
     "@justeattakeaway/pie-webc-core": "workspace:*"
@@ -5285,7 +5274,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-modal@workspace:packages/components/pie-modal"
   dependencies:
-    "@justeat/pie-design-tokens": 5.6.2
+    "@justeat/pie-design-tokens": 5.7.0
     "@justeattakeaway/pie-button": "workspace:*"
     "@justeattakeaway/pie-components-config": "workspace:*"
     "@justeattakeaway/pie-icon-button": "workspace:*"
