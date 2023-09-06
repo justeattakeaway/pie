@@ -42,7 +42,7 @@ module.exports = eleventyConfig => {
     // This allows us to reference JS from node_modules in <script> tags.
     // However it can work with any kind of type and any location!
     eleventyConfig.addPassthroughCopy({
-        "./node_modules/@justeat/f-cookie-banner/dist/static/en-GB.js": "assets/js/en-GB.js"
+        "./node_modules/@justeat/f-cookie-banner/dist/static/en-GB.js": "assets/js/f-cookie-banner.js"
     });
 
     return {
