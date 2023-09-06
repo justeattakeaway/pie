@@ -21,4 +21,4 @@ runs:
           CONCURRENCY_FLAG="--concurrency=${{ inputs.concurrency }}"
         fi
 
-        yarn ${{ inputs.script-name }} $CONCURRENCY_FLAG
+        yarn ${{ inputs.script-name }} $CONCURRENCY_FLAG --color
