@@ -1,5 +1,24 @@
 # Changelog
 
+## 0.29.0
+
+### Minor Changes
+
+- [Added] - Base markup, styles and interactive states for the card in it's Link implementation ([#780](https://github.com/justeattakeaway/pie/pull/780)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] add modal content and toggles ([#772](https://github.com/justeattakeaway/pie/pull/772)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Added] - added some more custom bgs and device viewports ([#778](https://github.com/justeattakeaway/pie/pull/778)) by [@ashleynolan](https://github.com/ashleynolan)
+
+### Patch Changes
+
+- Updated dependencies [[`bac21db4a`](https://github.com/justeattakeaway/pie/commit/bac21db4a31581d24f5ad2e396f757f1424907f1), [`f49f9166f`](https://github.com/justeattakeaway/pie/commit/f49f9166f384570a0fde4acb29f09eae5b966d75), [`ac9213ef8`](https://github.com/justeattakeaway/pie/commit/ac9213ef88353ed377662131c924c5082b9e6740)]:
+  - @justeattakeaway/pie-card-container@0.2.0
+  - @justeattakeaway/pie-button@0.28.0
+  - @justeattakeaway/pie-cookie-banner@0.3.0
+  - @justeattakeaway/pie-toggle-switch@0.6.0
+  - @justeattakeaway/pie-modal@0.19.0
+
 ## 0.28.0
 
 ### Minor Changes

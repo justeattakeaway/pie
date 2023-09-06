@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.28.0
+
+### Minor Changes
+
+- [Fixed] - transparency mode added to hsl mixin for ghost and outline buttons ([#778](https://github.com/justeattakeaway/pie/pull/778)) by [@ashleynolan](https://github.com/ashleynolan)
+
 ## 0.27.0
 
 ### Minor Changes

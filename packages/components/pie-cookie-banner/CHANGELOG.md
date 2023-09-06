@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-cookie-banner
 
+## 0.3.0
+
+### Minor Changes
+
+- [Added] add modal content and toggles ([#772](https://github.com/justeattakeaway/pie/pull/772)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.2.0
 
 ### Minor Changes

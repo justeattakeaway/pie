@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-toggle-switch
 
+## 0.6.0
+
+### Minor Changes
+
+- [Added] add modal content and toggles ([#772](https://github.com/justeattakeaway/pie/pull/772)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.5.0
 
 ### Minor Changes

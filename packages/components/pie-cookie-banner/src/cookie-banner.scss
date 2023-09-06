@@ -105,9 +105,8 @@ $breakpoint-wide: 700px;
     flex-direction: var(--cb-actions-flex-dir);
 
     > pie-link {
-        width: max-content;
-        margin-inline-start: auto;
-        margin-inline-end: auto;
+        text-align: center;
+        align-self: center;
     }
 
     @media (min-width: $breakpoint-wide) and (orientation: landscape) {
@@ -115,10 +114,39 @@ $breakpoint-wide: 700px;
 
         justify-content: flex-start;
         align-items: center;
+    }
+}
 
-        > pie-link {
-            margin-inline-start: 0;
-            margin-inline-end: 0;
-        }
+.c-cookieBanner-subheading {
+    --cb-subheading-font-size: var(--dt-font-heading-s-size--narrow);
+    --cb-subheading-line-height: var(--dt-font-heading-s-line-height--narrow);
+
+    @include p.font-size(--cb-subheading-font-size);
+    font-weight: var(--dt-font-heading-s-weight);
+    line-height: calc(var(--cb-subheading-line-height) * 1px);
+
+    @media (min-width: $breakpoint-wide) and (orientation: landscape) {
+        --cb-subheading-font-size: var(--dt-font-heading-s-size--wide);
+        --cb-subheading-line-height: var(--dt-font-heading-s-line-height--wide);
+    }
+}
+
+.c-cookieBanner-description {
+    @include p.font-size(--dt-font-body-s-size);
+    line-height: calc(var(--dt-font-body-s-line-height) * 1px);
+}
+
+.c-cookieBanner-preference {
+    display: flex;
+    gap: var(--dt-spacing-d);
+    justify-content: space-between;
+    margin-block: var(--dt-spacing-e);
+
+    p {
+        margin-block-start: var(--dt-spacing-b);
+    }
+
+    &:last-child {
+        margin-block-end: 0;
     }
 }
