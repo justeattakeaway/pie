@@ -1,5 +1,27 @@
 # Changelog
 
+## 2.24.0
+
+### Minor Changes
+
+- [Added] add modal content and toggles ([#772](https://github.com/justeattakeaway/pie/pull/772)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- [Fixed] - `@babel/traverse` issue that was causing `wc-next10` build to fail. ([#754](https://github.com/justeattakeaway/pie/pull/754)) by [@siggerzz](https://github.com/siggerzz)
+
+  ### Issue Overview
+
+  GitHub Issue - https://github.com/babel/babel/issues/15765
+
+  We had a number of packages that depend on the following dependency `"@babel/traverse": "7.22.8"`.
+
+  In this version, there is a bug that causes following error when trying to build `wc-next10`:
+
+  ```js
+  You gave us a visitor for the node type ClassAccessorProperty but it's not a valid type.
+  ```
+
 ## 2.23.0
 
 ### Minor Changes
