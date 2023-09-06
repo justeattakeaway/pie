@@ -43,7 +43,7 @@ const cookieBannerStoryMeta: CookieBannerStoryMeta = {
 
 export default cookieBannerStoryMeta;
 
-const BaseStoryTemplate = (props: CookieBannerProps) : TemplateResult => html`
+const BaseStoryTemplate = () : TemplateResult => html`
         <pie-cookie-banner></pie-cookie-banner>`;
 
 /**
@@ -72,9 +72,9 @@ Default.args = {
     ...defaultArgs,
 };
 
-const ScrollablePageStoryTemplate = (props: CookieBannerProps) : TemplateResult => html`
-    ${BaseStoryTemplate(props)}
+const ScrollablePageStoryTemplate = () : TemplateResult => html`
+    ${BaseStoryTemplate()}
     ${createScrollablePageHTML()}`;
 
-export const ScrollablePage: Story<CookieBannerProps> = (args: CookieBannerProps) => ScrollablePageStoryTemplate(args);
+export const ScrollablePage: Story<CookieBannerProps> = () => ScrollablePageStoryTemplate();
 ScrollablePage.args = defaultArgs;

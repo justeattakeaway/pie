@@ -37,8 +37,11 @@
     "markdown-it-attrs": "4.1.6"
   },
   "dependencies": {
+    "@justeat/browserslist-config-fozzie": "2.0.0",
     "@justeat/f-cookie-banner": "4.7.0",
     "@justeattakeaway/pie-icons": "4.8.0",
+    "@types/markdown-it": "13.0.0",
+    "js-cookie": "2.2.1",
     "markdown-it": "13.0.1",
     "markdown-it-anchor": "8.6.7",
     "node-html-parser": "6.1.5",

@@ -67,6 +67,7 @@
     "@justeat/browserslist-config-fozzie": "1.x",
     "@justeat/pie-design-tokens": "5.7.0",
     "@justeattakeaway/generator-pie-component": "workspace:*",
+    "@justeattakeaway/pie-icons": "workspace:*",
     "@justeattakeaway/pie-webc-testing": "workspace:*",
     "@justeattakeaway/stylelint-config-pie": "workspace:*",
     "@percy/cli": "1.26.3",
@@ -76,8 +77,8 @@
     "@sand4rt/experimental-ct-web": "1.0.8",
     "@types/node": "20.4.8",
     "@types/react": "18.0.33",
-    "@typescript-eslint/eslint-plugin": "5.60.1",
-    "@typescript-eslint/parser": "6.2.1",
+    "@typescript-eslint/eslint-plugin": "5.62.0",
+    "@typescript-eslint/parser": "5.62.0",
     "allure-commandline": "2.21.0",
     "autoprefixer": "10.4.15",
     "babel-loader": "8.3.0",
@@ -110,7 +111,8 @@
     "vite-plugin-dts": "2.3.0",
     "vitest": "0.29.8",
     "vue": "2.7.14",
-    "vue-template-compiler": "2.7.14"
+    "vue-template-compiler": "2.7.14",
+    "webpack": "5.77.0"
   },
   "dependencies": {
     "@justeat/fozzie": "11.0.0",
