@@ -142,6 +142,7 @@
         left: initial;
         right: 2px;
     }
+
     .c-toggleSwitch-input:checked + .c-toggleSwitch-control {
         @include toggle-switch-transition(transform);
         transform: translateX(calc(-1 * var(--toggle-switch-translation)));
