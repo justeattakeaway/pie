@@ -1,10 +1,10 @@
 import { html, TemplateResult, nothing } from 'lit';
-import { type StoryObj as Story } from '@storybook/web-components';
 import {
     ButtonProps as ButtonPropsBase, sizes, types,
-    variants, iconPlacements,
+    variants, iconPlacements, Variant,
 } from '@justeattakeaway/pie-button';
 import { IconPlusCircle } from '@justeattakeaway/pie-icons-webc';
+import { StoryOptions } from '../interfaces/story-options';
 import { StoryMeta, SlottedComponentProps } from '../types';
 
 // This prevents storybook from tree shaking the components
@@ -120,91 +120,59 @@ const Template = ({
         </pie-button>
         `;
 
-export const Primary: Story<ButtonProps> = (args: ButtonProps) => Template(args);
-Primary.args = {
-    ...defaultArgs,
-};
+interface ButtonStoryOptions extends StoryOptions {
+    variant?: Variant;
+}
 
-export const Secondary: Story<ButtonProps> = (args: ButtonProps) => Template(args);
-Secondary.args = {
-    ...defaultArgs,
+const createStory = <T>(opts?: ButtonStoryOptions) => ({
+    render: (args: T) => Template(args),
+    args: {
+        ...defaultArgs,
+        ...(opts && opts.variant ? { variant: opts.variant } : {}),
+    },
+    parameters: {
+        backgrounds: {
+            ...(opts && opts.bgColor ? { default: opts.bgColor } : {}),
+        },
+    },
+});
+
+export const Primary = createStory<ButtonProps>();
+
+export const Secondary = createStory<ButtonProps>({
     variant: 'secondary',
-};
+});
 
-export const Outline: Story<ButtonProps> = (args: ButtonProps) => Template(args);
-Outline.args = {
-    ...defaultArgs,
+export const Outline = createStory<ButtonProps>({
     variant: 'outline',
-};
+    bgColor: 'background-subtle',
+});
 
-Outline.parameters = {
-    backgrounds: {
-        default: 'background-subtle',
-    },
-};
-
-export const Ghost: Story<ButtonProps> = (args: ButtonProps) => Template(args);
-Ghost.args = {
-    ...defaultArgs,
+export const Ghost = createStory<ButtonProps>({
     variant: 'ghost',
-};
+    bgColor: 'background-subtle',
+});
 
-Ghost.parameters = {
-    backgrounds: {
-        default: 'background-subtle',
-    },
-};
-
-export const Destructive: Story<ButtonProps> = (args: ButtonProps) => Template(args);
-Destructive.args = {
-    ...defaultArgs,
+export const Destructive = createStory<ButtonProps>({
     variant: 'destructive',
-};
+});
 
-export const DestructiveGhost: Story<ButtonProps> = (args: ButtonProps) => Template(args);
-DestructiveGhost.args = {
-    ...defaultArgs,
+export const DestructiveGhost = createStory<ButtonProps>({
     variant: 'destructive-ghost',
-};
+    bgColor: 'background-subtle',
+});
 
-DestructiveGhost.parameters = {
-    backgrounds: {
-        default: 'background-subtle',
-    },
-};
-
-export const Inverse: Story<ButtonProps> = (args: ButtonProps) => Template(args);
-Inverse.args = {
-    ...defaultArgs,
+export const Inverse = createStory<ButtonProps>({
     variant: 'inverse',
-};
+    bgColor: 'dark (container-dark)',
+});
 
-Inverse.parameters = {
-    backgrounds: {
-        default: 'dark (container-dark)',
-    },
-};
-
-export const GhostInverse: Story<ButtonProps> = (args: ButtonProps) => Template(args);
-GhostInverse.args = {
-    ...defaultArgs,
+export const GhostInverse = createStory<ButtonProps>({
     variant: 'ghost-inverse',
-};
+    bgColor: 'dark (container-dark)',
+});
 
-GhostInverse.parameters = {
-    backgrounds: {
-        default: 'dark (container-dark)',
-    },
-};
-
-export const OutlineInverse: Story<ButtonProps> = (args: ButtonProps) => Template(args);
-OutlineInverse.args = {
-    ...defaultArgs,
+export const OutlineInverse = createStory<ButtonProps>({
     variant: 'outline-inverse',
-};
-
-OutlineInverse.parameters = {
-    backgrounds: {
-        default: 'dark (container-dark)',
-    },
-};
+    bgColor: 'dark (container-dark)',
+});
