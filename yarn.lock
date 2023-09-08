@@ -5134,6 +5134,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-cookie-banner@workspace:packages/components/pie-cookie-banner"
   dependencies:
+    "@justeat/pie-design-tokens": 5.7.0
     "@justeattakeaway/pie-button": 0.28.0
     "@justeattakeaway/pie-components-config": 0.4.0
     "@justeattakeaway/pie-icon-button": 0.14.0
