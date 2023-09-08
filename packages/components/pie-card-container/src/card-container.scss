@@ -1,5 +1,11 @@
 @use '@justeattakeaway/pie-css/scss' as p;
 
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
 @mixin card-interactive-states($bg-color) {
     &:hover:not([disabled]) {
         --hover-modifier: calc(-1 * var(--dt-color-hover-01));
@@ -16,75 +22,69 @@
 .c-card-container {
     --card-bg-color: var(--dt-color-container-default);
     --card-radius: var(--dt-radius-rounded-c);
-    --card-shadow: var(--dt-elevation-01);
+    --card-border-color: transparent;
 
-    display: block;
+    position: relative;
     color: currentcolor;
     background-color: var(--card-bg-color);
+    border: 1px solid var(--card-border-color);
     border-radius: var(--card-radius);
-    text-decoration: none;
-    position: relative;
 
-    @include card-interactive-states('--dt-color-container-default');
+    &[variant='default'] {
+        box-shadow: var(--dt-elevation-01);
+
+        @include card-interactive-states('--dt-color-container-default');
+    }
+
+    &[variant='outline'] {
+        border-color: var(--dt-color-border-strong);
+
+        @include card-interactive-states('--dt-color-container-default');
+    }
+
+    &[variant='inverse'] {
+        --card-bg-color: var(--dt-color-container-dark);
+        
+        box-shadow: var(--dt-elevation-inverse-01);
+
+        @include card-interactive-states('--dt-color-container-dark');
+    }
+
+    &[variant='outline-inverse'] {
+        --card-bg-color: var(--dt-color-container-dark);
+
+        border-color: var(--dt-color-border-inverse);
+
+        @include card-interactive-states('--dt-color-container-dark');
+    }
 
     &[disabled] {
         --card-bg-color: var(--dt-color-disabled-01);
-        pointer-events: none;
-    }
 
-    // We should not apply the default elevation styling if the card is focused
-    // but we want to make sure that it is still applied when the card is clicked
-    &:not(:focus-within),
-    &:active:focus-within {
-        box-shadow: var(--card-shadow);
+        pointer-events: none;
+
+        &[variant='inverse'],
+        &[variant='outline-inverse'] {
+            --card-bg-color: var(--dt-color-disabled-01-inverse);
+        }
     }
 
     // We want to stretch the <a> tag over the entire card to make the entire component interactive
     > a {
-        cursor: pointer;
         display: block;
         position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
+        inset: -1px; // ensures the border of the parent is visible
         z-index: 1;
+        border: 1px solid var(--card-border-color);
+        border-radius: var(--card-radius);
     }
 
     > a:focus {
         outline: none;
     }
 
-    > a:focus-visible {
-        /*
-        TODO: This focus styling should be extracted out into a shared mixin to share among other components
-        Applying both shadows in a single declaration gives anti-aliasing artefacts.
-        box-shadow: 0 0 0 2px dt.$color-focus-inner, 0 0 0 4px dt.$color-focus-outer;
-
-        To prevent this, they should be separated so they don't bleed into each other,
-        i.e., one shadow on the element and another on a pseudo element like :after
-        */
-        box-shadow: 0 0 0 2px var(--dt-color-focus-inner);
-        outline: none;
-
-        &:after {
-            content: '';
-            display: block;
-
-            /*
-            The pseudo element has to be larger than the element itself, but not just by
-            2px (the thickness of the inner shadow), it has to be 1px larger than that to
-            account for the border thickness.
-            */
-            position: absolute;
-            top: -3px;
-            left: -3px;
-            right: -3px;
-            bottom: -3px;
-            border-radius: var(--card-radius);
-
-            box-shadow: 0 0 0 2px var(--dt-color-focus-outer);
-        }
+    &:focus-within {
+        box-shadow: 0 0 0 2px var(--dt-color-focus-inner), 0 0 0 4px var(--dt-color-focus-outer);
     }
 }
 

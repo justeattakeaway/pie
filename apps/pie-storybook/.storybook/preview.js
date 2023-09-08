@@ -61,6 +61,10 @@ export default {
                     value: '#f5f3f1',
                 },
                 {
+                    name: 'background-dark',
+                    value: '#1A1A19',
+                },
+                {
                     name: 'brand orange',
                     value: '#f36805',
                 },

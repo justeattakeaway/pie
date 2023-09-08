@@ -57,15 +57,14 @@ import { PieCardContainer } from '@justeattakeaway/pie-card-container/dist/react
 
 ## Props
 
-| Property | Type | Default | Description |
-|---|---|---|---|
-| variant | `string` | `default` | What style variant the card should be such as default or inverse. |
-| disabled | `boolean` | `false` | When true, the card container is disabled. |
-| href | `string` | `undefined` | The URL that the card should point to (this will not take effect unless the card is a link). |
-| target | `string` | `undefined` | Where to display the linked URL such as _self, _blank, _parent or _top (this will not take effect unless the card is a link). |
-| rel | `string` | `undefined` | What the relationship of the linked URL is (this will not take effect unless the card is a link). |
-| aria | `object` | `undefined` | The ARIA labels used for various parts of the card. |
-
+| Property | Type        | Default       | Description                                                                                                                   |
+| -------- | ----------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| variant  | `string`  | `default`   | Variant of the card container, one of `variants` – `default`, `outline`, `inverse`, or `outline-inverse`         |
+| disabled | `boolean` | `false`     | When true, the card container is disabled.                                                                                    |
+| href     | `string`  | `undefined` | The URL that the card should point to (this will not take effect unless the card is a link).                                  |
+| target   | `string`  | `undefined` | Where to display the linked URL such as _self, _blank, _parent or _top (this will not take effect unless the card is a link). |
+| rel      | `string`  | `undefined` | What the relationship of the linked URL is (this will not take effect unless the card is a link).                             |
+| aria     | `object`  | `undefined` | The ARIA labels used for various parts of the card.                                                                           |
 
 In your markup or JSX, you can then use these to set the properties for the `pie-card-container` component:
 
