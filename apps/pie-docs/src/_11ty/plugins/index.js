@@ -24,7 +24,8 @@ const addAllPlugins = (eleventyConfig) => {
         rev: true,
         sass: {
             loadPaths: [
-                '../../node_modules/'
+                '../../node_modules/',
+                'node_modules/',
             ],
             sourceMap: true,
         },

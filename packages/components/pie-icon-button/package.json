@@ -30,7 +30,7 @@
     "@justeattakeaway/pie-webc-core": "workspace:*"
   },
   "peerDependencies": {
-    "@justeat/pie-design-tokens": "5.5.0"
+    "@justeat/pie-design-tokens": "^5.5.0"
   },
   "volta": {
     "extends": "../../../package.json"
