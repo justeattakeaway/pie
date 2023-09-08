@@ -13,6 +13,7 @@
         } @else {
             --hover-modifier: var(--dt-color-hover-01);
         }
+
         --card-bg-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), var(#{$bg-color}-l), var(--hover-modifier));
     }
 
@@ -22,6 +23,7 @@
         } @else {
             --active-modifier: var(--dt-color-active-01);
         }
+
         --card-bg-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), var(#{$bg-color}-l), var(--active-modifier));
     }
 }
