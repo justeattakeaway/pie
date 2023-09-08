@@ -44,7 +44,7 @@
 
     &[variant='inverse'] {
         --card-bg-color: var(--dt-color-container-dark);
-        
+
         box-shadow: var(--dt-elevation-inverse-01);
 
         @include card-interactive-states('--dt-color-container-dark');
