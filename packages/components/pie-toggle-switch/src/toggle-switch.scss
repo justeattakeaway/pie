@@ -38,6 +38,7 @@
     --toggle-switch-radius: var(--dt-radius-rounded-e);
     --toggle-switch-translation: calc(var(--toggle-switch-width) - var(--toggle-switch-control-size) - 2 * var(--toggle-switch-padding));
 
+    position: relative;
     display: flex;
     width: var(--toggle-switch-width);
     height: var(--toggle-switch-height);
@@ -96,6 +97,8 @@
 }
 
 .c-toggleSwitch-control {
+    position: absolute;
+    left: 2px;
     @include toggle-switch-transition(transform);
     width: var(--toggle-switch-control-size);
     height: var(--toggle-switch-control-size);
@@ -134,6 +137,12 @@
 }
 
 :host([dir='rtl']) {
+    .c-toggleSwitch-control {
+        position: absolute;
+        left: initial;
+        right: 2px;
+    }
+
     .c-toggleSwitch-input:checked + .c-toggleSwitch-control {
         @include toggle-switch-transition(transform);
         transform: translateX(calc(-1 * var(--toggle-switch-translation)));
