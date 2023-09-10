@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-toggle-switch",
   "description": "PIE Design System Toggle Switch built using Web Components",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",

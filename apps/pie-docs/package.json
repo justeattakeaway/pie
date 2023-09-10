@@ -2,7 +2,7 @@
   "name": "pie-docs",
   "private": true,
   "description": "Documentation website for the PIE design system",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "main": "index.js",
   "keywords": [],
   "author": "JustEatTakeaway - Design System Team",
