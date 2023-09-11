@@ -1,5 +1,7 @@
-import { WritingDirection } from '../decorators';
 import '@justeattakeaway/pie-css';
+
+import { WritingDirection } from '../decorators';
+import { type StoryBackgrounds } from '../utilities';
 import CUSTOM_VIEWPORTS from './viewports';
 
 export default {
@@ -46,7 +48,7 @@ export default {
             },
         },
         backgrounds: {
-            default: 'light',
+            default: 'light (container-default)',
             values: [
                 {
                     name: 'light (container-default)',
@@ -73,7 +75,7 @@ export default {
                     value: 'aquamarine',
                 },
             ]
-        },
+        } as StoryBackgrounds,
         controls: {
             expanded: true,
         },

@@ -1,10 +1,10 @@
-import { html, TemplateResult, nothing } from 'lit';
+import { html, nothing } from 'lit';
 import {
-    ButtonProps as ButtonPropsBase, sizes, types,
-    variants, iconPlacements, Variant,
+    ButtonProps as ButtonPropsBase, iconPlacements, sizes, types, variants,
 } from '@justeattakeaway/pie-button';
 import { IconPlusCircle } from '@justeattakeaway/pie-icons-webc';
-import { StoryOptions } from '../interfaces/story-options';
+import { createStory } from '../utilities';
+import { TemplateFunction } from '../types/StoryOptions';
 import { StoryMeta, SlottedComponentProps } from '../types';
 
 // This prevents storybook from tree shaking the components
@@ -97,7 +97,7 @@ const buttonStoryMeta: ButtonStoryMeta = {
 
 export default buttonStoryMeta;
 
-const Template = ({
+const Template : TemplateFunction<ButtonProps> = ({
     size,
     variant,
     type,
@@ -106,7 +106,7 @@ const Template = ({
     isLoading,
     slot,
     iconPlacement,
-}: ButtonProps): TemplateResult => html`
+}) => html`
         <pie-button
             size="${size}"
             variant="${variant}"
@@ -117,62 +117,16 @@ const Template = ({
             ?isFullWidth="${isFullWidth}">
             ${iconPlacement ? html`<icon-plus-circle slot="icon"></icon-plus-circle>` : nothing}
             ${slot}
-        </pie-button>
-        `;
+        </pie-button>`;
 
-interface ButtonStoryOptions extends StoryOptions {
-    variant?: Variant;
-}
+const createButtonStory = createStory<ButtonProps>(Template, defaultArgs);
 
-const createStory = <T>(opts?: ButtonStoryOptions) => ({
-    render: (args: T) => Template(args),
-    args: {
-        ...defaultArgs,
-        ...(opts && opts.variant ? { variant: opts.variant } : {}),
-    },
-    parameters: {
-        backgrounds: {
-            ...(opts && opts.bgColor ? { default: opts.bgColor } : {}),
-        },
-    },
-});
-
-export const Primary = createStory<ButtonProps>();
-
-export const Secondary = createStory<ButtonProps>({
-    variant: 'secondary',
-});
-
-export const Outline = createStory<ButtonProps>({
-    variant: 'outline',
-    bgColor: 'background-subtle',
-});
-
-export const Ghost = createStory<ButtonProps>({
-    variant: 'ghost',
-    bgColor: 'background-subtle',
-});
-
-export const Destructive = createStory<ButtonProps>({
-    variant: 'destructive',
-});
-
-export const DestructiveGhost = createStory<ButtonProps>({
-    variant: 'destructive-ghost',
-    bgColor: 'background-subtle',
-});
-
-export const Inverse = createStory<ButtonProps>({
-    variant: 'inverse',
-    bgColor: 'dark (container-dark)',
-});
-
-export const GhostInverse = createStory<ButtonProps>({
-    variant: 'ghost-inverse',
-    bgColor: 'dark (container-dark)',
-});
-
-export const OutlineInverse = createStory<ButtonProps>({
-    variant: 'outline-inverse',
-    bgColor: 'dark (container-dark)',
-});
+export const Primary = createButtonStory();
+export const Secondary = createButtonStory({ variant: 'secondary' });
+export const Outline = createButtonStory({ variant: 'outline' }, { bgColor: 'background-subtle' });
+export const Ghost = createButtonStory({ variant: 'ghost' }, { bgColor: 'background-subtle' });
+export const Destructive = createButtonStory({ variant: 'destructive' });
+export const DestructiveGhost = createButtonStory({ variant: 'destructive-ghost' }, { bgColor: 'background-subtle' });
+export const Inverse = createButtonStory({ variant: 'inverse' }, { bgColor: 'dark (container-dark)' });
+export const GhostInverse = createButtonStory({ variant: 'ghost-inverse' }, { bgColor: 'dark (container-dark)' });
+export const OutlineInverse = createButtonStory({ variant: 'outline-inverse' }, { bgColor: 'dark (container-dark)' });
