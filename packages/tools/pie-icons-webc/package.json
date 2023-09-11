@@ -46,7 +46,7 @@
     "extends @justeat/browserslist-config-fozzie"
   ],
   "devDependencies": {
-    "@babel/core": "7.22.11",
+    "@babel/core": "7.22.17",
     "@babel/node": "7.20.7",
     "@justeattakeaway/pie-icons": "4.8.0",
     "@justeattakeaway/pie-icons-configs": "workspace:*",
