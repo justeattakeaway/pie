@@ -61,7 +61,7 @@ test.describe('PieCardContainer - Visual tests`', () => {
         await Promise.all(componentPropsMatrixByVariant[variant].map(async (combo: WebComponentPropValues) => {
             const testComponent: WebComponentTestInput = createTestWebComponent(combo, renderTestPieCardContainer);
             const propKeyValues = `disabled: ${testComponent.propValues.disabled}`;
-            const darkMode = ['inverse', 'outline-inverse'].includes(variant);
+            const darkMode = variant.includes('inverse');
 
             await mount(
                 WebComponentTestWrapper,

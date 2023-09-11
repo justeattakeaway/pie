@@ -99,7 +99,8 @@ const Template = ({
     aria,
     variant,
 }: CardContainerProps): TemplateResult => {
-    const darkMode = ['inverse', 'outline-inverse'].includes(variant);
+    const darkMode = variant.includes('inverse');
+
     return html`
     <div style="--card-color: var(--dt-color-content-${darkMode ? 'light' : 'default'})">
         <pie-card-container
