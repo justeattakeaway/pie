@@ -59,7 +59,7 @@ import { PieCardContainer } from '@justeattakeaway/pie-card-container/dist/react
 
 | Property | Type | Default | Description |
 |---|---|---|---|
-| variant | `string` | `default` | What style variant the card should be such as default or inverse. |
+| variant | `string` | `default` | What style variant the card should be such as default, outline, inverse or outline-inverse |
 | disabled | `boolean` | `false` | When true, the card container is disabled. |
 | href | `string` | `undefined` | The URL that the card should point to (this will not take effect unless the card is a link). |
 | target | `string` | `undefined` | Where to display the linked URL such as _self, _blank, _parent or _top (this will not take effect unless the card is a link). |
