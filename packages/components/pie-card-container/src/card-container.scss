@@ -9,22 +9,22 @@
 @mixin card-interactive-states($bg-color, $mode: 'default') {
     &:hover:not([disabled]) {
         @if $mode == 'inverse' {
-            --hover-modifier: var(--dt-color-hover-02);
-        } @else {
             --hover-modifier: var(--dt-color-hover-01);
+        } @else {
+            --hover-modifier: calc(-1 * var(--dt-color-hover-01));
         }
 
-        --card-bg-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), var(#{$bg-color}-l), var(--hover-modifier));
+        --card-bg-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), calc(var(#{$bg-color}-l) + var(--hover-modifier)));  
     }
 
     &:active:not([disabled]) {
         @if $mode == 'inverse' {
-            --active-modifier: var(--dt-color-active-02);
-        } @else {
             --active-modifier: var(--dt-color-active-01);
+        } @else {
+            --active-modifier: calc(-1 * var(--dt-color-active-01));
         }
-
-        --card-bg-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), var(#{$bg-color}-l), var(--active-modifier));
+        
+        --card-bg-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), calc(var(#{$bg-color}-l) + var(--active-modifier)));
     }
 }
 
@@ -42,13 +42,13 @@
     &[variant='default'] {
         box-shadow: var(--dt-elevation-01);
 
-        @include card-interactive-states('--dt-color-black');
+        @include card-interactive-states('--dt-color-container-default');
     }
 
     &[variant='outline'] {
         border-color: var(--dt-color-border-strong);
 
-        @include card-interactive-states('--dt-color-black');
+        @include card-interactive-states('--dt-color-container-default');
     }
 
     &[variant='inverse'] {
@@ -56,7 +56,7 @@
 
         box-shadow: var(--dt-elevation-inverse-01);
 
-        @include card-interactive-states('--dt-color-container-default', 'inverse');
+        @include card-interactive-states('--dt-color-container-dark', 'inverse');
     }
 
     &[variant='outline-inverse'] {
@@ -64,7 +64,7 @@
 
         border-color: var(--dt-color-border-inverse);
 
-        @include card-interactive-states('--dt-color-container-default', 'inverse');
+        @include card-interactive-states('--dt-color-container-dark', 'inverse');
     }
 
     &[disabled] {
