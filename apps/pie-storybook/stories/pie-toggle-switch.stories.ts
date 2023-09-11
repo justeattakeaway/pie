@@ -1,5 +1,4 @@
-import { html, TemplateResult, nothing } from 'lit';
-import { type StoryObj as Story } from '@storybook/web-components';
+import { html, nothing } from 'lit';
 import { PieToggleSwitch, ToggleSwitchProps, labelPlacements } from '@justeattakeaway/pie-toggle-switch';
 import { IconCheck } from '@justeattakeaway/pie-icons-webc';
 import { StoryMeta } from '../types';

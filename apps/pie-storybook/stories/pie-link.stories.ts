@@ -1,5 +1,4 @@
-import { html, TemplateResult, nothing } from 'lit';
-import { type StoryObj as Story } from '@storybook/web-components';
+import { html, nothing } from 'lit';
 import {
     PieLink, LinkProps as LinkBaseProps, sizes,
     variants, iconPlacements, tags, buttonTypes,
