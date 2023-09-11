@@ -24,7 +24,7 @@ const defaultArgs: CardContainerProps = {
         linkLabel: 'Click to go to restaurant',
     },
     // This is just an arbitrary example of some markup a user may pass into the card
-    slot: `<div style="font-size: calc(var(--dt-font-body-l-size) * 1px); font-family: var(--dt-font-interactive-m-family); padding: var(--dt-spacing-b);">
+    slot: `<div style="color: var(--card-color); font-size: calc(var(--dt-font-body-l-size) * 1px); font-family: var(--dt-font-interactive-m-family); padding: var(--dt-spacing-b);">
         <h2> Card title </h2>
         <p> Card content </p>
         <p> Lorem ipsum dolor sit amet
@@ -99,7 +99,11 @@ const Template: TemplateFunction<CardContainerProps> = ({
     slot,
     aria,
     variant,
-}) => html`
+}: CardContainerProps) => {
+    const darkMode = variant.includes('inverse');
+
+    return html`
+    <div style="--card-color: var(--dt-color-content-${darkMode ? 'light' : 'default'})">
         <pie-card-container
             variant="${variant}"
             href="${href || nothing}"
@@ -109,8 +113,13 @@ const Template: TemplateFunction<CardContainerProps> = ({
             .aria="${aria}">
             ${unsafeStatic(slot)}
         </pie-card-container>
+    </div>
     `;
+};
 
 const createCardContainerStory = createStory<CardContainerProps>(Template, defaultArgs);
 
 export const Default = createCardContainerStory();
+export const Outline = createCardContainerStory({ variant: 'outline' });
+export const Inverse = createCardContainerStory({ variant: 'inverse' }, { bgColor: 'dark (container-dark)' });
+export const OutlineInverse = createCardContainerStory({ variant: 'outline-inverse' }, { bgColor: 'dark (container-dark)' });
