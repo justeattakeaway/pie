@@ -85,7 +85,6 @@
 
     &[isDisabled] {
         background-color: var(--toggle-switch-bg-color--disabled);
-
         cursor: not-allowed;
         pointer-events: none;
     }
@@ -94,6 +93,10 @@
 .c-toggleSwitch-input {
     appearance: none;
     margin: 0;
+
+    &:disabled {
+       background-color: transparent;
+    }
 }
 
 .c-toggleSwitch-control {
