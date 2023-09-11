@@ -23,7 +23,7 @@ const defaultArgs: CardContainerProps = {
         linkLabel: 'Click to go to restaurant',
     },
     // This is just an arbitrary example of some markup a user may pass into the card
-    slot: `<div style="font-size: calc(var(--dt-font-body-l-size) * 1px); font-family: var(--dt-font-interactive-m-family); padding: var(--dt-spacing-b);">
+    slot: `<div style="color: var(--card-color); font-size: calc(var(--dt-font-body-l-size) * 1px); font-family: var(--dt-font-interactive-m-family); padding: var(--dt-spacing-b);">
         <h2> Card title </h2>
         <p> Card content </p>
         <p> Lorem ipsum dolor sit amet
@@ -98,7 +98,11 @@ const Template = ({
     slot,
     aria,
     variant,
-}: CardContainerProps): TemplateResult => html`
+}: CardContainerProps): TemplateResult => {
+    const darkMode = variant.includes('inverse');
+
+    return html`
+    <div style="--card-color: var(--dt-color-content-${darkMode ? 'light' : 'default'})">
         <pie-card-container
             variant="${variant}"
             href="${href || nothing}"
@@ -108,9 +112,41 @@ const Template = ({
             .aria="${aria}">
             ${unsafeStatic(slot)}
         </pie-card-container>
+    </div>
     `;
+};
 
 export const Default: Story<CardContainerProps> = (args: CardContainerProps) => Template(args);
 Default.args = {
     ...defaultArgs,
+};
+
+export const Outline: Story<CardContainerProps> = (args: CardContainerProps) => Template(args);
+Outline.args = {
+    ...defaultArgs,
+    variant: 'outline',
+};
+
+export const Inverse: Story<CardContainerProps> = (args: CardContainerProps) => Template(args);
+Inverse.args = {
+    ...defaultArgs,
+    variant: 'inverse',
+};
+
+Inverse.parameters = {
+    backgrounds: {
+        default: 'background-dark',
+    },
+};
+
+export const OutlineInverse: Story<CardContainerProps> = (args: CardContainerProps) => Template(args);
+OutlineInverse.args = {
+    ...defaultArgs,
+    variant: 'outline-inverse',
+};
+
+OutlineInverse.parameters = {
+    backgrounds: {
+        default: 'background-dark',
+    },
 };

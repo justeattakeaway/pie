@@ -1,6 +1,4 @@
-export const variants = [
-    'default'
-] as const;
+export const variants = ['default', 'outline', 'inverse', 'outline-inverse'] as const;
 
 export type Variant = typeof variants[number];
 
