@@ -4,8 +4,7 @@ import {
     variants, iconPlacements, tags, buttonTypes,
 } from '@justeattakeaway/pie-link';
 import type { StoryMeta, SlottedComponentProps } from '../types';
-import { TemplateFunction } from '../types/StoryOptions';
-import { createStory } from '../utilities';
+import { createStory, type TemplateFunction } from '../utilities';
 
 // This prevents storybook from tree shaking the components
 // eslint-disable-next-line @typescript-eslint/no-unused-vars

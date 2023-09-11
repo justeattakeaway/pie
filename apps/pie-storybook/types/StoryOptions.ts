@@ -1,5 +1,3 @@
-import { TemplateResult } from 'lit';
-
 type BackgroundColor = 'light (container-default)' |
     'dark (container-dark)' |
     'background-subtle' |
@@ -20,5 +18,3 @@ export type StoryBackgrounds = {
 export interface StoryOptions {
     bgColor?: BackgroundColor;
 }
-
-export type TemplateFunction<T> = (props: T) => TemplateResult;

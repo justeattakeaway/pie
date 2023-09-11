@@ -3,8 +3,7 @@ import {
     PieDivider, DividerProps, variants, orientations,
 } from '@justeattakeaway/pie-divider';
 import { type StoryMeta } from '../types';
-import { TemplateFunction } from '../types/StoryOptions';
-import { createStory } from '../utilities';
+import { createStory, type TemplateFunction } from '../utilities';
 
 // This prevents storybook from tree shaking the components
 // eslint-disable-next-line @typescript-eslint/no-unused-vars

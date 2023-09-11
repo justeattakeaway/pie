@@ -2,8 +2,7 @@ import { html } from 'lit';
 import { IconButtonProps, sizes, variants } from '@justeattakeaway/pie-icon-button';
 import { IconClose } from '@justeattakeaway/pie-icons-webc';
 import { StoryMeta } from '../types';
-import { TemplateFunction } from '../types/StoryOptions';
-import { createStory } from '../utilities';
+import { createStory, type TemplateFunction } from '../utilities';
 
 // This prevents storybook from tree shaking the components
 // eslint-disable-next-line @typescript-eslint/no-unused-vars

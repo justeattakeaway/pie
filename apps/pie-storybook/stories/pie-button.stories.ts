@@ -3,8 +3,7 @@ import {
     ButtonProps as ButtonPropsBase, iconPlacements, sizes, types, variants,
 } from '@justeattakeaway/pie-button';
 import { IconPlusCircle } from '@justeattakeaway/pie-icons-webc';
-import { createStory } from '../utilities';
-import { TemplateFunction } from '../types/StoryOptions';
+import { createStory, type TemplateFunction } from '../utilities';
 import { StoryMeta, SlottedComponentProps } from '../types';
 
 // This prevents storybook from tree shaking the components
