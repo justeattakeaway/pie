@@ -14,7 +14,7 @@
             --hover-modifier: calc(-1 * var(--dt-color-hover-01));
         }
 
-        --card-bg-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), calc(var(#{$bg-color}-l) + var(--hover-modifier)));  
+        --card-bg-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), calc(var(#{$bg-color}-l) + var(--hover-modifier)));
     }
 
     &:active:not([disabled]) {
@@ -23,7 +23,7 @@
         } @else {
             --active-modifier: calc(-1 * var(--dt-color-active-01));
         }
-        
+
         --card-bg-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), calc(var(#{$bg-color}-l) + var(--active-modifier)));
     }
 }
