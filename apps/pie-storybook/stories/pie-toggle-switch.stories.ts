@@ -4,6 +4,8 @@ import { PieToggleSwitch, ToggleSwitchProps, labelPlacements } from '@justeattak
 import { IconCheck } from '@justeattakeaway/pie-icons-webc';
 import { StoryMeta } from '../types';
 import { i18nArgTypes } from '../args/commonArgsTypes';
+import { TemplateFunction } from '../types/StoryOptions';
+import { createStory } from '../utilities';
 
 // This prevents storybook from tree shaking the components
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -78,7 +80,7 @@ const toggleSwitchStoryMeta: ToggleSwitchStoryMeta = {
 
 export default toggleSwitchStoryMeta;
 
-const Template = (props: ToggleSwitchProps): TemplateResult => {
+const Template : TemplateFunction<ToggleSwitchProps> = (props) => {
     const {
         dir,
         aria,
@@ -95,11 +97,10 @@ const Template = (props: ToggleSwitchProps): TemplateResult => {
             .aria="${aria}"
             dir="${dir || nothing}"
             ?isChecked="${isChecked}"
-            ?isDisabled="${isDisabled}" 
+            ?isDisabled="${isDisabled}"
         />`;
 };
 
-export const Default: Story<ToggleSwitchProps> = (args: ToggleSwitchProps) => Template(args);
-Default.args = {
-    ...defaultArgs,
-};
+const createToggleSwitchStory = createStory(Template, defaultArgs);
+
+export const Default = createToggleSwitchStory();

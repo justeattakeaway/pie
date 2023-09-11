@@ -1,10 +1,11 @@
-import { TemplateResult, nothing } from 'lit';
+import { nothing } from 'lit';
 import { html, unsafeStatic } from 'lit/static-html.js';
-import { type StoryObj as Story } from '@storybook/web-components';
 import {
     PieCardContainer, CardContainerProps as CardContainerPropsBase, variants,
 } from '@justeattakeaway/pie-card-container';
 import type { StoryMeta, SlottedComponentProps } from '../types';
+import { TemplateFunction } from '../types/StoryOptions';
+import { createStory } from '../utilities';
 
 // This prevents storybook from tree shaking the components
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -90,7 +91,7 @@ const cardContainerStoryMeta: CardContainerStoryMeta = {
 
 export default cardContainerStoryMeta;
 
-const Template = ({
+const Template: TemplateFunction<CardContainerProps> = ({
     href,
     target,
     rel,
@@ -98,7 +99,7 @@ const Template = ({
     slot,
     aria,
     variant,
-}: CardContainerProps): TemplateResult => html`
+}) => html`
         <pie-card-container
             variant="${variant}"
             href="${href || nothing}"
@@ -110,7 +111,6 @@ const Template = ({
         </pie-card-container>
     `;
 
-export const Default: Story<CardContainerProps> = (args: CardContainerProps) => Template(args);
-Default.args = {
-    ...defaultArgs,
-};
+const createCardContainerStory = createStory<CardContainerProps>(Template, defaultArgs);
+
+export const Default = createCardContainerStory();
