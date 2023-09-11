@@ -44,7 +44,7 @@ test.beforeEach(async ({ page, mount }) => {
     });
 });
 
-componentVariants.forEach((variant) => test(`Render all prop variations for Variant: ${variant}`, async ({ page, mount }) => {
+componentVariants.forEach((variant) => test(`should render all prop variations for Variant: ${variant}`, async ({ page, mount }) => {
     await Promise.all(componentPropsMatrixByVariant[variant].map(async (combo: WebComponentPropValues) => {
         const testComponent: WebComponentTestInput = createTestWebComponent(combo, renderTestPieLink);
         const propKeyValues = `tag: ${testComponent.propValues.tag}, size: ${testComponent.propValues.size}, iconPlacement: ${testComponent.propValues.iconPlacement}, isBold: ${testComponent.propValues.isBold}, isStandalone: ${testComponent.propValues.isStandalone}, href: ${testComponent.propValues.href}`;
