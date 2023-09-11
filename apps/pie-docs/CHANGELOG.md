@@ -1,5 +1,13 @@
 # Changelog
 
+## 3.0.1
+
+### Patch Changes
+
+- [Changed] - add missing peer dependencies ([#784](https://github.com/justeattakeaway/pie/pull/784)) by [@siggerzz](https://github.com/siggerzz)
+
+  [Changed] - update packages, including `@babel/core` and `@justeat/pie-design-tokens`
+
 ## 3.0.0
 
 ### Major Changes

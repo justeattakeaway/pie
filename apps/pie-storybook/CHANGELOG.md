@@ -1,5 +1,27 @@
 # Changelog
 
+## 0.30.0
+
+### Minor Changes
+
+- [Changed] - Updated creation of stories to be more succinct ([#788](https://github.com/justeattakeaway/pie/pull/788)) by [@ashleynolan](https://github.com/ashleynolan)
+
+### Patch Changes
+
+- [Changed] - add missing peer dependencies ([#784](https://github.com/justeattakeaway/pie/pull/784)) by [@siggerzz](https://github.com/siggerzz)
+
+  [Changed] - update packages, including `@babel/core` and `@justeat/pie-design-tokens`
+
+- Updated dependencies [[`1f48fa5fe`](https://github.com/justeattakeaway/pie/commit/1f48fa5fe2108ad244ca3399a4a406fc3dc77854), [`59e0c97d6`](https://github.com/justeattakeaway/pie/commit/59e0c97d63b61649794c6c86d9daf1241d249351)]:
+  - @justeattakeaway/pie-card-container@0.2.1
+  - @justeattakeaway/pie-cookie-banner@0.3.1
+  - @justeattakeaway/pie-toggle-switch@0.7.0
+  - @justeattakeaway/pie-icon-button@0.14.1
+  - @justeattakeaway/pie-button@0.28.1
+  - @justeattakeaway/pie-modal@0.19.1
+  - @justeattakeaway/pie-icons-webc@0.5.1
+  - @justeattakeaway/pie-css@0.3.1
+
 ## 0.29.0
 
 ### Minor Changes

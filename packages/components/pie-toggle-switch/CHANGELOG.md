@@ -1,5 +1,17 @@
 # @justeattakeaway/pie-toggle-switch
 
+## 0.7.0
+
+### Minor Changes
+
+- [Fixed] Safari bug with toggle placement ([#787](https://github.com/justeattakeaway/pie/pull/787)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
+### Patch Changes
+
+- [Changed] - add missing peer dependencies ([#784](https://github.com/justeattakeaway/pie/pull/784)) by [@siggerzz](https://github.com/siggerzz)
+
+  [Changed] - update packages, including `@babel/core` and `@justeat/pie-design-tokens`
+
 ## 0.6.0
 
 ### Minor Changes

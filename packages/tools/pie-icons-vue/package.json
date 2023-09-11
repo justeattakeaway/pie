@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/pie-icons-vue",
-  "version": "4.7.1",
+  "version": "4.8.1",
   "main": "dist/index.cjs",
   "module": "esm/index.mjs",
   "files": [

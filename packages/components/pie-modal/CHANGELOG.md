@@ -1,5 +1,13 @@
 # @justeattakeaway/pie-modal
 
+## 0.19.1
+
+### Patch Changes
+
+- [Changed] - add missing peer dependencies ([#784](https://github.com/justeattakeaway/pie/pull/784)) by [@siggerzz](https://github.com/siggerzz)
+
+  [Changed] - update packages, including `@babel/core` and `@justeat/pie-design-tokens`
+
 ## 0.19.0
 
 ### Minor Changes
