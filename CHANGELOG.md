@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.25.0
+
+### Minor Changes
+
+- [Added] - support outline, inverse and outline-inverse variants ([#789](https://github.com/justeattakeaway/pie/pull/789)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 2.24.1
 
 ### Patch Changes
