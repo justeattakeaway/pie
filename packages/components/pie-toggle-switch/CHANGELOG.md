@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-toggle-switch
 
+## 0.8.0
+
+### Minor Changes
+
+- [Fixed] Safari ios checkbox disabled visual issue ([#794](https://github.com/justeattakeaway/pie/pull/794)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
 ## 0.7.0
 
 ### Minor Changes
