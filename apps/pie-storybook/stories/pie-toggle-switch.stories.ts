@@ -1,9 +1,9 @@
-import { html, TemplateResult, nothing } from 'lit';
-import { type StoryObj as Story } from '@storybook/web-components';
+import { html, nothing } from 'lit';
 import { PieToggleSwitch, ToggleSwitchProps, labelPlacements } from '@justeattakeaway/pie-toggle-switch';
 import { IconCheck } from '@justeattakeaway/pie-icons-webc';
 import { StoryMeta } from '../types';
 import { i18nArgTypes } from '../args/commonArgsTypes';
+import { createStory, type TemplateFunction } from '../utilities';
 
 // This prevents storybook from tree shaking the components
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -78,7 +78,7 @@ const toggleSwitchStoryMeta: ToggleSwitchStoryMeta = {
 
 export default toggleSwitchStoryMeta;
 
-const Template = (props: ToggleSwitchProps): TemplateResult => {
+const Template : TemplateFunction<ToggleSwitchProps> = (props) => {
     const {
         dir,
         aria,
@@ -95,11 +95,10 @@ const Template = (props: ToggleSwitchProps): TemplateResult => {
             .aria="${aria}"
             dir="${dir || nothing}"
             ?isChecked="${isChecked}"
-            ?isDisabled="${isDisabled}" 
+            ?isDisabled="${isDisabled}"
         />`;
 };
 
-export const Default: Story<ToggleSwitchProps> = (args: ToggleSwitchProps) => Template(args);
-Default.args = {
-    ...defaultArgs,
-};
+const createToggleSwitchStory = createStory(Template, defaultArgs);
+
+export const Default = createToggleSwitchStory();
