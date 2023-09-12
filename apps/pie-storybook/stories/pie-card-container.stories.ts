@@ -98,7 +98,7 @@ const Template: TemplateFunction<CardContainerProps> = ({
     slot,
     aria,
     variant,
-}: CardContainerProps) => {
+}) => {
     const darkMode = variant.includes('inverse');
 
     return html`
