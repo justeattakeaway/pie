@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-card-container
 
+## 0.3.0
+
+### Minor Changes
+
+- [Added] - support outline, inverse and outline-inverse variants ([#789](https://github.com/justeattakeaway/pie/pull/789)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.2.1
 
 ### Patch Changes
