@@ -8,9 +8,9 @@ import {
 } from '@justeattakeaway/pie-webc-core';
 import type { DependentMap } from '@justeattakeaway/pie-webc-core';
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
-import '@justeattakeaway/pie-icons-webc/dist/icons/IconClose.js';
-import '@justeattakeaway/pie-icons-webc/dist/icons/IconChevronLeft.js';
-import '@justeattakeaway/pie-icons-webc/dist/icons/IconChevronRight.js';
+import '@justeattakeaway/pie-icons-webc/icons/IconClose';
+import '@justeattakeaway/pie-icons-webc/icons/IconChevronLeft';
+import '@justeattakeaway/pie-icons-webc/icons/IconChevronRight';
 
 import dialogPolyfill from 'dialog-polyfill';
 

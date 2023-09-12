@@ -6,9 +6,18 @@
   "types": "dist/icons/index.d.ts",
   "module": "dist/icons/index.js",
   "files": [
-    "dist",
-    "icons"
+    "dist"
   ],
+  "exports": {
+    ".": {
+      "import": "./dist/icons/index.js",
+      "types": "./dist/icons/index.d.ts"
+    },
+    "./icons/*": {
+      "import": "./dist/icons/*.js",
+      "types": "./dist/icons/*.d.ts"
+    }
+  },
   "publishConfig": {
     "access": "public"
   },
@@ -34,7 +43,7 @@
     "PIE"
   ],
   "scripts": {
-    "build": "rollup -c",
+    "build": "vite build && tsc",
     "build:icons": "node ./build.js",
     "clean": "run -T rimraf -rf ./dist/ ./icons/",
     "lint:scripts": "run -T eslint .",
@@ -65,5 +74,8 @@
   "dependencies": {
     "@open-wc/testing": "3.2.0",
     "@web/test-runner": "0.16.1"
+  },
+  "peerDependencies": {
+    "lit": "2.7.5"
   }
 }

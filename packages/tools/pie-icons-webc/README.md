@@ -23,25 +23,56 @@ yarn add @justeattakeaway/pie-icons-webc
 ```
 
 
-### Applications
+### Usage
 
+#### Vanilla Javascript
+
+1. Import a specific icon from it's entry point (recommended)
 ```js
-// Only import what you need!
-import '@justeattakeaway/pie-icons-webc/icons/IconAppRestaurant'; // Import the typescript version of the icon
-// OR
-import '@justeattakeaway/pie-icons-webc/dist/icons/IconAppRestaurant.js'; // Import the ESM version of the icon
+// Importing a specific icon directly from its entry point (recommended for tree-shaking benefits)
+import { IconCalendarFilledLarge } from '@justeattakeaway/pie-icons-webc/icons/IconCalendarFilledLarge';
+
+function renderIcon() {
+    // Using the imported icon
+    const iconElement = new IconCalendarFilledLarge();
+    document.body.appendChild(iconElement);
+}
 ```
 
-> **Note**
-> While it is possible to import individual components from the overall bundle, we don't recommend this because
-> it is likely that the import will be tree-shaken unless you are referencing the imported object in your code.
+2. Import a specific icon from it's entry point without a reference (recommended)
 ```js
+// Importing a specific icon without keeping a reference from its entry point
+import '@justeattakeaway/pie-icons-webc/icons/IconCalendarFilledLarge';
+
+// Rest of code does not directly reference IconCalendarFilledLarge however the web component has been registered in the browser
+
+// In some HTML:
+// <div>
+//   <icon-calendar-filled-large></icon-calendar-filled-large>
+// <div>
+```
+
+3. Importing all icons at once (not recommended)
+```js
+// Importing all icons from the library (not recommended)
+import * as icons from '@justeattakeaway/pie-icons-webc';
+
+function renderIcon() {
+    // Using a specific icon
+    const iconElement = new icons.IconCalendarFilledLarge();
+    document.body.appendChild(iconElement);
+}
+```
+4. Importing individual icons from the main package entry point (not recommended)
+
+```js
+// Not recommended -  Webpack v4+ or Rollup should treeshake but be careful
 import { IconAppRestaurant } from '@justeattakeaway/pie-icons-webc';
+// Not recommended
 import { IconAppRestaurant } from '@justeattakeaway/pie-icons-webc/icons';
 ```
 
-Within the context of a Lit app, that will look like:
-
+#### Lit Components
 ```js
 import '@justeattakeaway/pie-icons-webc/icons/IconAppRestaurant';
 
@@ -56,12 +87,16 @@ export class MyAmazingComponent extends LitElement {
 }
 ```
 
+#### TODO: Add React usage
+
 If you require icons for a React application, you can either use these icons, or use our native React component package – [pie-icons-react](https://www.npmjs.com/package/@justeattakeaway/pie-icons-react).
+
+#### TODO: Add Vue usage
 
 If you require icons for a Vue app, you can either use these icons, or use our native Vue component package – [pie-icons-vue](https://www.npmjs.com/package/@justeattakeaway/pie-icons-vue).
 
 
-#### Props
+### Props
 
 Icons accept any standard attribute, except for `width` and `height` since those are set implicitly by using the `size` prop.
 
