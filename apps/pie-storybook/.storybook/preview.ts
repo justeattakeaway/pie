@@ -1,7 +1,7 @@
 import '@justeattakeaway/pie-css';
 
 import { WritingDirection } from '../decorators';
-import { type StoryBackgrounds } from '../utilities';
+import { type StoryBackgrounds } from '../types/StoryOptions';
 import CUSTOM_VIEWPORTS from './viewports';
 
 export default {
