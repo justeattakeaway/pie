@@ -92,6 +92,22 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
     };
 
     /**
+     * Hides the cookie banner and emits an event letting users know
+     */
+    private _onNecessaryOnly = () : void => {
+        this._dispatchCookieBannerCustomEvent(ON_COOKIE_BANNER_NECESSARY_ONLY);
+        this._isCookieBannerHidden = true;
+    };
+
+    /**
+     * Hides the cookie banner and emits an event letting users know
+     */
+    private _onAcceptAll = () : void => {
+        this._dispatchCookieBannerCustomEvent(ON_COOKIE_BANNER_ACCEPT_ALL);
+        this._isCookieBannerHidden = true;
+    };
+
+    /**
      * Opens the manage preferences modal and emits an event letting users know
      */
     private _openManagePreferencesModal = () : void => {
@@ -188,15 +204,15 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
                 <p>We use our own and third party cookies and other tech to enhance and personalise your user experience,
                 optimize analytics, and show ads with third parties
                 (read our <pie-link variant="inverse">Statement</pie-link>).
-                Necessary cookies are always set. Click <pie-link variant="inverse">Necessary only</pie-link>
-                to continue without accepting more. Click <pie-link variant="inverse">Manage preferences</pie-link>
-                to share your preferences or <pie-link variant="inverse">Accept all</pie-link>.</p>
+                Necessary cookies are always set. Click <pie-link tag="button" variant="inverse" @click="${this._onNecessaryOnly}">Necessary only</pie-link>
+                to continue without accepting more. Click <pie-link tag="button" variant="inverse" @click="${this._openManagePreferencesModal}">Manage preferences</pie-link>
+                to share your preferences or <pie-link tag="button" variant="inverse" @click="${this._onAcceptAll}">Accept all</pie-link>.</p>
             </div>
 
             <div class="c-cookieBanner-actions">
                 <pie-button
                     data-test-id="accept-all"
-                    @click="${() => { this._dispatchCookieBannerCustomEvent(ON_COOKIE_BANNER_ACCEPT_ALL); this._isCookieBannerHidden = true; }}"
+                    @click="${this._onAcceptAll}"
                     variant="primary"
                     isFullWidth
                     size="small-expressive">
@@ -204,7 +220,7 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
                 </pie-button>
                 <pie-button
                     data-test-id="necessary-only"
-                    @click="${() => { this._dispatchCookieBannerCustomEvent(ON_COOKIE_BANNER_NECESSARY_ONLY); this._isCookieBannerHidden = true; }}"
+                    @click="${this._onNecessaryOnly}"
                     variant="outline-inverse"
                     isFullWidth
                     size="small-expressive">
