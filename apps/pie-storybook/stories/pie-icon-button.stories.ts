@@ -1,8 +1,8 @@
-import { html, TemplateResult } from 'lit';
-import { type StoryObj as Story } from '@storybook/web-components';
+import { html } from 'lit';
 import { IconButtonProps, sizes, variants } from '@justeattakeaway/pie-icon-button';
 import { IconClose } from '@justeattakeaway/pie-icons-webc';
 import { StoryMeta } from '../types';
+import { createStory, type TemplateFunction } from '../utilities';
 
 // This prevents storybook from tree shaking the components
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -43,11 +43,11 @@ const iconButtonStoryMeta: IconButtonStoryMeta = {
 
 export default iconButtonStoryMeta;
 
-const Template = ({
+const Template : TemplateFunction<IconButtonProps> = ({
     size,
     variant,
     disabled,
-}: IconButtonProps): TemplateResult => html`
+}) => html`
         <pie-icon-button
             size="${size}"
             variant="${variant}"
@@ -56,31 +56,10 @@ const Template = ({
         </pie-icon-button>
         `;
 
-export const Primary: Story<IconButtonProps> = (args: IconButtonProps) => Template(args);
-Primary.args = {
-    ...defaultArgs,
-};
+const createIconButtonStory = createStory<IconButtonProps>(Template, defaultArgs);
 
-export const Secondary: Story<IconButtonProps> = (args: IconButtonProps) => Template(args);
-Secondary.args = {
-    ...defaultArgs,
-    variant: 'secondary',
-};
-
-export const Outline: Story<IconButtonProps> = (args: IconButtonProps) => Template(args);
-Outline.args = {
-    ...defaultArgs,
-    variant: 'outline',
-};
-
-export const Ghost: Story<IconButtonProps> = (args: IconButtonProps) => Template(args);
-Ghost.args = {
-    ...defaultArgs,
-    variant: 'ghost',
-};
-
-export const GhostSecondary: Story<IconButtonProps> = (args: IconButtonProps) => Template(args);
-GhostSecondary.args = {
-    ...defaultArgs,
-    variant: 'ghost-secondary',
-};
+export const Primary = createIconButtonStory();
+export const Secondary = createIconButtonStory({ variant: 'secondary' });
+export const Outline = createIconButtonStory({ variant: 'outline' }, { bgColor: 'background-subtle' });
+export const Ghost = createIconButtonStory({ variant: 'ghost' }, { bgColor: 'background-subtle' });
+export const GhostSecondary = createIconButtonStory({ variant: 'ghost-secondary' }, { bgColor: 'background-subtle' });

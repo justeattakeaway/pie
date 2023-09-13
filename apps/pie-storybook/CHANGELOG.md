@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.31.1
+
+### Patch Changes
+
+- Updated dependencies [[`6a026ab2f`](https://github.com/justeattakeaway/pie/commit/6a026ab2fd01cf21d70c95e7db6988ae3d341b78)]:
+  - @justeattakeaway/pie-toggle-switch@0.8.0
+  - @justeattakeaway/pie-cookie-banner@0.3.1
+
 ## 0.31.0
 
 ### Minor Changes

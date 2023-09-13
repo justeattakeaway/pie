@@ -57,7 +57,7 @@ test.beforeEach(async ({ page, mount }) => {
 });
 
 test.describe('PieCardContainer - Visual tests`', () => {
-    componentVariants.forEach((variant) => test(`Render all prop variations for Variant: ${variant}`, async ({ page, mount }) => {
+    componentVariants.forEach((variant) => test(`should render all prop variations for Variant: ${variant}`, async ({ page, mount }) => {
         await Promise.all(componentPropsMatrixByVariant[variant].map(async (combo: WebComponentPropValues) => {
             const testComponent: WebComponentTestInput = createTestWebComponent(combo, renderTestPieCardContainer);
             const propKeyValues = `disabled: ${testComponent.propValues.disabled}`;

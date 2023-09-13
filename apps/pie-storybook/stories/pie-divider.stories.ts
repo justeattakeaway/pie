@@ -1,9 +1,9 @@
-import { html, TemplateResult } from 'lit';
-import { type StoryObj as Story } from '@storybook/web-components';
+import { html } from 'lit';
 import {
     PieDivider, DividerProps, variants, orientations,
 } from '@justeattakeaway/pie-divider';
 import { type StoryMeta } from '../types';
+import { createStory, type TemplateFunction } from '../utilities';
 
 // This prevents storybook from tree shaking the components
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -48,30 +48,18 @@ const dividerStoryMeta: DividerStoryMeta = {
 
 export default dividerStoryMeta;
 
-const Template = ({ variant, orientation }: DividerProps): TemplateResult => {
+const Template : TemplateFunction<DividerProps> = ({ variant, orientation }) => {
     if (orientation === 'vertical') {
         return html`
             <div style="height: 250px">
-                <pie-divider variant="${variant}" orientation="${orientation}" />
+                <pie-divider variant="${variant}" orientation="${orientation}"></pie-divider>
             </div>
         `;
     }
     return html`<pie-divider variant="${variant}" orientation="${orientation}" />`;
 };
 
-export const Default: Story<DividerProps> = (args: DividerProps) => Template(args);
-Default.args = {
-    ...defaultArgs,
-};
+const createDividerStory = createStory<DividerProps>(Template, defaultArgs);
 
-export const Inverse: Story<DividerProps> = (args: DividerProps) => Template(args);
-Inverse.args = {
-    ...defaultArgs,
-    variant: 'inverse',
-};
-
-Inverse.parameters = {
-    backgrounds: {
-        default: 'dark',
-    },
-};
+export const Default = createDividerStory();
+export const Inverse = createDividerStory({ variant: 'inverse' }, { bgColor: 'dark (container-dark)' });

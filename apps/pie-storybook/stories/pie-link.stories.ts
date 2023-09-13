@@ -1,10 +1,10 @@
-import { html, TemplateResult, nothing } from 'lit';
-import { type StoryObj as Story } from '@storybook/web-components';
+import { html, nothing } from 'lit';
 import {
     PieLink, LinkProps as LinkBaseProps, sizes,
     variants, iconPlacements, tags, buttonTypes,
 } from '@justeattakeaway/pie-link';
 import type { StoryMeta, SlottedComponentProps } from '../types';
+import { createStory, type TemplateFunction } from '../utilities';
 
 // This prevents storybook from tree shaking the components
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -114,7 +114,7 @@ const linkStoryMeta: LinkStoryMeta = {
 
 export default linkStoryMeta;
 
-const Template = ({
+const Template : TemplateFunction<LinkProps> = ({
     tag,
     href,
     target,
@@ -126,7 +126,7 @@ const Template = ({
     isStandalone,
     slot,
     iconPlacement,
-}: LinkProps): TemplateResult => html`
+}) => html`
         <pie-link
             tag="${tag}"
             variant="${variant}"
@@ -140,28 +140,10 @@ const Template = ({
             ?isStandalone="${isStandalone}">
             ${iconPlacement ? html`<icon-plus-circle slot="icon"></icon-plus-circle>` : nothing}
             ${slot}
-        </pie-link>
-        `;
+        </pie-link>`;
 
-export const Default: Story<LinkProps> = (args: LinkProps) => Template(args);
-Default.args = {
-    ...defaultArgs,
-};
+const createLinkStory = createStory<LinkProps>(Template, defaultArgs);
 
-export const HighVisibility: Story<LinkProps> = (args: LinkProps) => Template(args);
-HighVisibility.args = {
-    ...defaultArgs,
-    variant: 'high-visibility',
-};
-
-export const Inverse: Story<LinkProps> = (args: LinkProps) => Template(args);
-Inverse.args = {
-    ...defaultArgs,
-    variant: 'inverse',
-};
-
-Inverse.parameters = {
-    backgrounds: {
-        default: 'dark',
-    },
-};
+export const Default = createLinkStory();
+export const HighVisibility = createLinkStory({ variant:  'high-visibility' });
+export const Inverse = createLinkStory({ variant: 'inverse' }, { bgColor: 'dark (container-dark)' });
