@@ -92,7 +92,7 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
     };
 
     /**
-     * Hides the cookie banner and emits an event letting users know
+     * Hides the cookie banner and emits the necessary only event
      */
     private _onNecessaryOnly = () : void => {
         this._dispatchCookieBannerCustomEvent(ON_COOKIE_BANNER_NECESSARY_ONLY);
@@ -100,7 +100,7 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
     };
 
     /**
-     * Hides the cookie banner and emits an event letting users know
+     * Hides the cookie banner and emits the accept all event
      */
     private _onAcceptAll = () : void => {
         this._dispatchCookieBannerCustomEvent(ON_COOKIE_BANNER_ACCEPT_ALL);
