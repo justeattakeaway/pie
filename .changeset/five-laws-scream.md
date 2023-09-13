@@ -43,7 +43,7 @@
 - management
 - prepare-bag
 
-### Payment methods (`/payment` folder)
+### Payment methods (`/payment` folder, one-size only)
 - abn-amro
 - affirm
 - ali-pay
@@ -91,7 +91,10 @@ Note that some updates may be very small.
 - stampcard-10
 - stampcard-10-filled
 
-### Payment
+### Social (`/social` folder)
+- google-static
+
+### Payment (`/payment` folder, one-size only)
 - apple-pay
 - bitcoin
 - eps
@@ -106,6 +109,3 @@ Note that some updates may be very small.
 - sofort
 - twint
 - vvv
-
-### Social (`/social` folder)
-- google-static
