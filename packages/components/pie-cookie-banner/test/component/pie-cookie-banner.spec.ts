@@ -15,12 +15,12 @@ import {
 } from '@/index';
 
 const componentSelector = '[data-test-id="pie-cookie-banner"]';
-const acceptAllSelector = '[data-test-id="accept-all"]';
-const necessaryOnlySelector = '[data-test-id="necessary-only"]';
-const managePreferencesSelector = '[data-test-id="manage-prefs"]';
-const inlineAcceptAllSelector = '[data-test-id="accept-all-inline"]';
-const inlineNecessaryOnlySelector = '[data-test-id="necessary-only-inline"]';
-const inlineManagePreferencesSelector = '[data-test-id="manage-prefs-inline"]';
+const acceptAllSelector = '[data-test-id="actions-accept-all"]';
+const necessaryOnlySelector = '[data-test-id="actions-necessary-only"]';
+const managePreferencesSelector = '[data-test-id="actions-manage-prefs"]';
+const bodyAcceptAllSelector = '[data-test-id="body-accept-all"]';
+const bodyNecessaryOnlySelector = '[data-test-id="body-necessary-only"]';
+const bodyManagePreferencesSelector = '[data-test-id="body-manage-prefs"]';
 const modalSelector = '[data-test-id="pie-modal"]';
 const modalBackButtonSelector = '[data-test-id="modal-back-button"]';
 const modalSaveButtonSelector = '[data-test-id="modal-leading-action"]';
@@ -52,7 +52,7 @@ test.describe('PieCookieBanner - Component tests', () => {
         expect(cookieBanner).toBeVisible();
     });
 
-    [acceptAllSelector, inlineAcceptAllSelector].forEach((elementSelector) => {
+    [acceptAllSelector, bodyAcceptAllSelector].forEach((elementSelector) => {
         test(`should emit the correct event and close the cookie banner when "Accept all" is clicked via element ${elementSelector}`, async ({ mount, page }) => {
             // Arrange
             const events : Array<Event> = [];
@@ -76,7 +76,7 @@ test.describe('PieCookieBanner - Component tests', () => {
         });
     });
 
-    [necessaryOnlySelector, inlineNecessaryOnlySelector].forEach((elementSelector) => {
+    [necessaryOnlySelector, bodyNecessaryOnlySelector].forEach((elementSelector) => {
         test(`should emit the correct event and close the cookie banner when "Necessary only" is clicked via element = ${elementSelector}`, async ({ mount, page }) => {
         // Arrange
             const events : Array<Event> = [];
@@ -100,7 +100,7 @@ test.describe('PieCookieBanner - Component tests', () => {
         });
     });
 
-    [managePreferencesSelector, inlineManagePreferencesSelector].forEach((elementSelector) => {
+    [managePreferencesSelector, bodyManagePreferencesSelector].forEach((elementSelector) => {
         test(`should emit the correct event, open the modal and hide the cookie banner when "Manage preferences" is clicked via element ${elementSelector}`, async ({ mount, page }) => {
         // Arrange
             const events : Array<Event> = [];

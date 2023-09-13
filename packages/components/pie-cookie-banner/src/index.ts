@@ -204,14 +204,14 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
                 <p>We use our own and third party cookies and other tech to enhance and personalise your user experience,
                 optimize analytics, and show ads with third parties
                 (read our <pie-link variant="inverse">Statement</pie-link>).
-                Necessary cookies are always set. Click <pie-link data-test-id="necessary-only-inline" tag="button" variant="inverse" @click="${this._onNecessaryOnly}">Necessary only</pie-link>
-                to continue without accepting more. Click <pie-link data-test-id="manage-prefs-inline" tag="button" variant="inverse" @click="${this._openManagePreferencesModal}">Manage preferences</pie-link>
-                to share your preferences or <pie-link data-test-id="accept-all-inline" tag="button" variant="inverse" @click="${this._onAcceptAll}">Accept all</pie-link>.</p>
+                Necessary cookies are always set. Click <pie-link data-test-id="body-necessary-only" tag="button" variant="inverse" @click="${this._onNecessaryOnly}">Necessary only</pie-link>
+                to continue without accepting more. Click <pie-link data-test-id="body-manage-prefs" tag="button" variant="inverse" @click="${this._openManagePreferencesModal}">Manage preferences</pie-link>
+                to share your preferences or <pie-link data-test-id="body-accept-all" tag="button" variant="inverse" @click="${this._onAcceptAll}">Accept all</pie-link>.</p>
             </div>
 
             <div class="c-cookieBanner-actions">
                 <pie-button
-                    data-test-id="accept-all"
+                    data-test-id="actions-accept-all"
                     @click="${this._onAcceptAll}"
                     variant="primary"
                     isFullWidth
@@ -219,7 +219,7 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
                     Accept all
                 </pie-button>
                 <pie-button
-                    data-test-id="necessary-only"
+                    data-test-id="actions-necessary-only"
                     @click="${this._onNecessaryOnly}"
                     variant="outline-inverse"
                     isFullWidth
@@ -227,7 +227,7 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
                     Necessary only
                 </pie-button>
                 <pie-link
-                    data-test-id="manage-prefs"
+                    data-test-id="actions-manage-prefs"
                     @click="${this._openManagePreferencesModal}"
                     tag="button"
                     variant="inverse"
