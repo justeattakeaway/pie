@@ -83,9 +83,6 @@
 
 Note that some updates may be very small.
 
-### Dietary
-- eggs
-
 ### Functionality
 - check-circle
 - check-circle-filled
@@ -101,8 +98,6 @@ Note that some updates may be very small.
 - google-pay
 - giropay
 - i-deal
-- klarna
-- mister-cash
 - mobile-pay
 - paypal
 - payu
