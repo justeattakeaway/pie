@@ -204,9 +204,9 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
                 <p>We use our own and third party cookies and other tech to enhance and personalise your user experience,
                 optimize analytics, and show ads with third parties
                 (read our <pie-link variant="inverse">Statement</pie-link>).
-                Necessary cookies are always set. Click <pie-link tag="button" variant="inverse" @click="${this._onNecessaryOnly}">Necessary only</pie-link>
-                to continue without accepting more. Click <pie-link tag="button" variant="inverse" @click="${this._openManagePreferencesModal}">Manage preferences</pie-link>
-                to share your preferences or <pie-link tag="button" variant="inverse" @click="${this._onAcceptAll}">Accept all</pie-link>.</p>
+                Necessary cookies are always set. Click <pie-link data-test-id="necessary-only-inline" tag="button" variant="inverse" @click="${this._onNecessaryOnly}">Necessary only</pie-link>
+                to continue without accepting more. Click <pie-link data-test-id="manage-prefs-inline" tag="button" variant="inverse" @click="${this._openManagePreferencesModal}">Manage preferences</pie-link>
+                to share your preferences or <pie-link data-test-id="accept-all-inline" tag="button" variant="inverse" @click="${this._onAcceptAll}">Accept all</pie-link>.</p>
             </div>
 
             <div class="c-cookieBanner-actions">

@@ -18,6 +18,9 @@ const componentSelector = '[data-test-id="pie-cookie-banner"]';
 const acceptAllSelector = '[data-test-id="accept-all"]';
 const necessaryOnlySelector = '[data-test-id="necessary-only"]';
 const managePreferencesSelector = '[data-test-id="manage-prefs"]';
+const inlineAcceptAllSelector = '[data-test-id="accept-all-inline"]';
+const inlineNecessaryOnlySelector = '[data-test-id="necessary-only-inline"]';
+const inlineManagePreferencesSelector = '[data-test-id="manage-prefs-inline"]';
 const modalSelector = '[data-test-id="pie-modal"]';
 const modalBackButtonSelector = '[data-test-id="modal-back-button"]';
 const modalSaveButtonSelector = '[data-test-id="modal-leading-action"]';
@@ -34,6 +37,7 @@ test.beforeEach(async ({ mount }) => {
     await (await mount(PieIconButton)).unmount();
     await (await mount(PieToggleSwitch)).unmount();
 });
+
 test.describe('PieCookieBanner - Component tests', () => {
     test('should render successfully', async ({ mount, page }) => {
         // Arrange
@@ -48,72 +52,78 @@ test.describe('PieCookieBanner - Component tests', () => {
         expect(cookieBanner).toBeVisible();
     });
 
-    test('should emit the correct event and close the cookie banner when "Accept all" is clicked', async ({ mount, page }) => {
-        // Arrange
-        const events : Array<Event> = [];
+    [acceptAllSelector, inlineAcceptAllSelector].forEach((elementSelector) => {
+        test(`should emit the correct event and close the cookie banner when "Accept all" is clicked via element ${elementSelector}`, async ({ mount, page }) => {
+            // Arrange
+            const events : Array<Event> = [];
 
-        await mount(PieCookieBanner, {
-            props: {} as CookieBannerProps,
+            await mount(PieCookieBanner, {
+                props: {} as CookieBannerProps,
 
-            on: {
-                [ON_COOKIE_BANNER_ACCEPT_ALL]: (event: Event) => events.push(event),
-            },
+                on: {
+                    [ON_COOKIE_BANNER_ACCEPT_ALL]: (event: Event) => events.push(event),
+                },
+            });
+
+            const cookieBanner = page.locator(componentSelector);
+
+            // Act
+            await page.click(elementSelector);
+
+            // Assert
+            expect(events).toHaveLength(1);
+            expect(cookieBanner).not.toBeVisible();
         });
-
-        const cookieBanner = page.locator(componentSelector);
-
-        // Act
-        await page.click(acceptAllSelector);
-
-        // Assert
-        expect(events).toHaveLength(1);
-        expect(cookieBanner).not.toBeVisible();
     });
 
-    test('should emit the correct event and close the cookie banner when "Necessary only" is clicked', async ({ mount, page }) => {
+    [necessaryOnlySelector, inlineNecessaryOnlySelector].forEach((elementSelector) => {
+        test(`should emit the correct event and close the cookie banner when "Necessary only" is clicked via element = ${elementSelector}`, async ({ mount, page }) => {
         // Arrange
-        const events : Array<Event> = [];
+            const events : Array<Event> = [];
 
-        await mount(PieCookieBanner, {
-            props: {} as CookieBannerProps,
+            await mount(PieCookieBanner, {
+                props: {} as CookieBannerProps,
 
-            on: {
-                [ON_COOKIE_BANNER_NECESSARY_ONLY]: (event: Event) => events.push(event),
-            },
+                on: {
+                    [ON_COOKIE_BANNER_NECESSARY_ONLY]: (event: Event) => events.push(event),
+                },
+            });
+
+            const cookieBanner = page.locator(componentSelector);
+
+            // Act
+            await page.click(elementSelector);
+
+            // Assert
+            expect(events).toHaveLength(1);
+            expect(cookieBanner).not.toBeVisible();
         });
-
-        const cookieBanner = page.locator(componentSelector);
-
-        // Act
-        await page.click(necessaryOnlySelector);
-
-        // Assert
-        expect(events).toHaveLength(1);
-        expect(cookieBanner).not.toBeVisible();
     });
 
-    test('should emit the correct event, open the modal and hide the cookie banner when "Manage preferences" is clicked', async ({ mount, page }) => {
+    [managePreferencesSelector, inlineManagePreferencesSelector].forEach((elementSelector) => {
+        test(`should emit the correct event, open the modal and hide the cookie banner when "Manage preferences" is clicked via element ${elementSelector}`, async ({ mount, page }) => {
         // Arrange
-        const events : Array<Event> = [];
+            const events : Array<Event> = [];
 
-        await mount(PieCookieBanner, {
-            props: {} as CookieBannerProps,
+            await mount(PieCookieBanner, {
+                props: {} as CookieBannerProps,
 
-            on: {
-                [ON_COOKIE_BANNER_MANAGE_PREFS]: (event: Event) => events.push(event),
-            },
+                on: {
+                    [ON_COOKIE_BANNER_MANAGE_PREFS]: (event: Event) => events.push(event),
+                },
+            });
+
+            const cookieBanner = page.locator(componentSelector);
+
+            // Act
+            await page.click(elementSelector);
+            const modal = page.locator(modalSelector);
+
+            // Assert
+            expect(modal).toBeVisible();
+            expect(cookieBanner).not.toBeVisible();
+            expect(events).toHaveLength(1);
         });
-
-        const cookieBanner = page.locator(componentSelector);
-
-        // Act
-        await page.click(managePreferencesSelector);
-        const modal = page.locator(modalSelector);
-
-        // Assert
-        expect(modal).toBeVisible();
-        expect(cookieBanner).not.toBeVisible();
-        expect(events).toHaveLength(1);
     });
 
     test('should close the modal and re-display the cookie banner when the back button in "Manage preferences" is clicked', async ({ mount, page }) => {
