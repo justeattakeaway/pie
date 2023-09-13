@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-cookie-banner
 
+## 0.4.0
+
+### Minor Changes
+
+- [Added] - hook up text links to button actions ([#799](https://github.com/justeattakeaway/pie/pull/799)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.3.1
 
 ### Patch Changes
