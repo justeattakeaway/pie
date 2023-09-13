@@ -1,5 +1,5 @@
 ---
-"@justeattakeaway/pie-icons": major
+"@justeattakeaway/pie-icons": minor
 ---
 
 [Added] - new icons (large and small variants)
@@ -49,7 +49,7 @@
 - ali-pay
 - amazon
 - amex
-- bancontact
+- bancontact (new name for mister-cash, which will be removed later)
 - bit-pay
 - bitcoin-cash
 - citadele
@@ -58,15 +58,12 @@
 - elo
 - etherium
 - forbrugsforeningen
-- giro-pay
 - ing
 - interac
 - jcb
 - litecoin
 - maestro
 - mastercard
-- pay-pal
-- pay-u
 - payoneer
 - paysafe
 - qiwi
@@ -102,9 +99,13 @@ Note that some updates may be very small.
 - bitcoin
 - eps
 - google-pay
+- giropay
 - i-deal
 - klarna
+- mister-cash
 - mobile-pay
+- paypal
+- payu
 - post-finance
 - sodexo
 - sofort
@@ -113,11 +114,3 @@ Note that some updates may be very small.
 
 ### Social (`/social` folder)
 - google-static
-
-[Removed] - icons after rename
-
-### Payment (`/payment` folder)
-- mister-cash (now bancontact)
-- giropay (now giro-pay)
-- paypal (now pay-pal)
-- payu (now pay-u)
