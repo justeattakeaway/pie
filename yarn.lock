@@ -5198,7 +5198,7 @@ __metadata:
     "@justeattakeaway/pie-icon-button": 0.14.1
     "@justeattakeaway/pie-link": 0.3.0
     "@justeattakeaway/pie-modal": 0.19.1
-    "@justeattakeaway/pie-toggle-switch": 0.7.0
+    "@justeattakeaway/pie-toggle-switch": 0.8.0
     "@justeattakeaway/pie-webc-core": 0.8.0
   languageName: unknown
   linkType: soft
@@ -5345,7 +5345,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-toggle-switch@0.7.0, @justeattakeaway/pie-toggle-switch@workspace:*, @justeattakeaway/pie-toggle-switch@workspace:packages/components/pie-toggle-switch":
+"@justeattakeaway/pie-toggle-switch@0.8.0, @justeattakeaway/pie-toggle-switch@workspace:*, @justeattakeaway/pie-toggle-switch@workspace:packages/components/pie-toggle-switch":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-toggle-switch@workspace:packages/components/pie-toggle-switch"
   dependencies:
