@@ -4,12 +4,15 @@
 <body>
 <trans-unit id="s381abd94d77446ee">
   <source>Accept all</source>
+  <target>Akzeptiere alle</target>
 </trans-unit>
 <trans-unit id="s3d9c956602aa20e6">
   <source>Necessary only</source>
+  <target>Nur notwendig</target>
 </trans-unit>
 <trans-unit id="sa2bab77e017a1c10">
   <source>Manage preferences</source>
+  <target>Einstellungen verwalten</target>
 </trans-unit>
 </body>
 </file>
