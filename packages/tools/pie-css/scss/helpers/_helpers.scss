@@ -1,6 +1,6 @@
 // Allows a grab handle to appear.
 // Currently used in the card container component.
-%has-grabCursor {
+%has-grab-cursor {
     cursor: grab;
 
     &:active {
