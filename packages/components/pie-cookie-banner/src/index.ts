@@ -4,6 +4,7 @@ import {
 import { state, queryAll } from 'lit/decorators.js';
 import { repeat } from 'lit/directives/repeat.js';
 import { PieToggleSwitch } from '@justeattakeaway/pie-toggle-switch';
+import { msg } from '@lit/localize';
 import styles from './cookie-banner.scss?inline';
 import {
     CookieBannerProps,
@@ -216,7 +217,7 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
                     variant="primary"
                     isFullWidth
                     size="small-expressive">
-                    Accept all
+                    ${msg('Accept all')}
                 </pie-button>
                 <pie-button
                     data-test-id="actions-necessary-only"
@@ -224,7 +225,7 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
                     variant="outline-inverse"
                     isFullWidth
                     size="small-expressive">
-                    Necessary only
+                    ${msg('Necessary only')}
                 </pie-button>
                 <pie-link
                     data-test-id="actions-manage-prefs"
@@ -232,7 +233,7 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
                     tag="button"
                     variant="inverse"
                     isBold="true">
-                    Manage preferences
+                    ${msg('Manage preferences')}
                 </pie-link>
             </div>
         </aside>`;
