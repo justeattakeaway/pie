@@ -97,10 +97,10 @@
     }
 
     &.isDraggable {
-      a,
-      button {
-          @extend %has-grabCursor;
-      }
+        a,
+        button {
+            @extend %has-grabCursor;
+        }
     }
 }
 
