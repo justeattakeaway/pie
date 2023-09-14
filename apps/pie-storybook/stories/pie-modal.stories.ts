@@ -1,6 +1,5 @@
 import { html, TemplateResult, nothing } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { type StoryObj as Story } from '@storybook/web-components';
 import { PieIconButton } from '@justeattakeaway/pie-icon-button';
 import { PieModal } from '@justeattakeaway/pie-modal';
 import { PieButton } from '@justeattakeaway/pie-button';
@@ -10,8 +9,10 @@ import {
     sizes,
     positions,
 } from '@justeattakeaway/pie-modal/src/defs';
+
 import { i18nArgTypes } from '../args/commonArgsTypes';
 import { StoryMeta, SlottedComponentProps } from '../types';
+import { createStory } from '../utilities';
 
 // This prevents storybook from tree shaking the components
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -230,21 +231,14 @@ const FocusableElementsPageStoryTemplate = (props: ModalProps) : TemplateResult 
     ${BaseStoryTemplate(props)}
     ${createFocusableElementsPageHTML()}`;
 
-export const Default: Story<ModalProps> = (args: ModalProps) => BaseStoryTemplate(args);
-Default.args = defaultArgs;
+const createBaseModalStory = createStory<ModalProps>(BaseStoryTemplate, defaultArgs);
 
-export const ScrollLocking: Story<ModalProps> = (args: ModalProps) => ScrollablePageStoryTemplate(args);
-ScrollLocking.args = defaultArgs;
-
-export const FocusManagement: Story<ModalProps> = (args: ModalProps) => FocusableElementsPageStoryTemplate(args);
-FocusManagement.args = {
-    ...defaultArgs,
+export const Default = createBaseModalStory();
+export const ScrollLocking = createStory<ModalProps>(ScrollablePageStoryTemplate, defaultArgs)();
+export const FocusManagement = createStory<ModalProps>(FocusableElementsPageStoryTemplate, defaultArgs)({
     returnFocusAfterCloseSelector: '#focus-3',
-};
-
-export const LargeTextContent: Story<ModalProps> = (args: ModalProps) => BaseStoryTemplate(args);
-LargeTextContent.args = {
-    ...defaultArgs,
+});
+export const LargeTextContent = createBaseModalStory({
     isFooterPinned: false,
     slot: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit quas inventore quasi ullam, sed ab odio dicta, tempore, ex adipisci atque asperiores suscipit quisquam alias aliquam minus amet ad a?
     Iure consequuntur nihil officia odio, ut dolores reprehenderit tenetur, repellat eveniet dolore, dignissimos aspernatur quo laboriosam eum repellendus ratione libero. Aspernatur in, inventore ratione molestias exercitationem repudiandae omnis nisi illo?
@@ -266,5 +260,4 @@ LargeTextContent.args = {
     Iure quisquam at facilis, veritatis sequi unde quam ipsa! Ex nobis provident non numquam quia maiores, placeat qui incidunt quam est vitae reiciendis esse ipsa expedita temporibus? Perferendis, delectus magni.
     Ullam accusamus porro cumque, assumenda eligendi quos optio qui architecto perspiciatis quaerat error iusto, quae, aspernatur libero nemo. Possimus deserunt laudantium velit, aut mollitia molestiae id atque voluptatibus eum earum.
     Placeat, ad! Quidem error aliquam atque aut, voluptates voluptatibus cumque quia? Laboriosam ab mollitia laborum maxime numquam similique eveniet quaerat? Et, nemo natus officia cum hic adipisci doloremque! Quia, delectus.`,
-};
-
+});
