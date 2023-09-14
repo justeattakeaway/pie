@@ -14,9 +14,10 @@ import {
 } from '@justeattakeaway/pie-webc-testing/src/helpers/components/web-component-test-wrapper/WebComponentTestWrapper.ts';
 import { percyWidths } from '@justeattakeaway/pie-webc-testing/src/percy/breakpoints.ts';
 import { PieCardContainer } from '@/index';
-import { variants } from '@/defs';
+import { interactionTypes, variants } from '@/defs';
 
 const props: PropObject = {
+    interactionType: interactionTypes,
     variant: variants,
     disabled: [true, false],
 };
@@ -35,7 +36,7 @@ const slotContent = `<div style="color: var(--card-color); font-size: calc(var(-
 </div>`;
 
 // Renders a <pie-card-container> HTML string with the given prop values
-const renderTestPieCardContainer = (propVals: WebComponentPropValues) => `<pie-card-container variant="${propVals.variant}" ${propVals.disabled ? 'disabled' : ''} >${slotContent}</pie-card-container>`;
+const renderTestPieCardContainer = (propVals: WebComponentPropValues) => `<pie-card-container interactionType="${propVals.interactionType}" variant="${propVals.variant}" ${propVals.disabled ? 'disabled' : ''} >${slotContent}</pie-card-container>`;
 
 const componentPropsMatrix : WebComponentPropValues[] = getAllPropCombinations(props);
 const componentPropsMatrixByVariant: Record<string, WebComponentPropValues[]> = splitCombinationsByPropertyValue(componentPropsMatrix, 'variant');
@@ -60,7 +61,7 @@ test.describe('PieCardContainer - Visual tests`', () => {
     componentVariants.forEach((variant) => test(`should render all prop variations for Variant: ${variant}`, async ({ page, mount }) => {
         await Promise.all(componentPropsMatrixByVariant[variant].map(async (combo: WebComponentPropValues) => {
             const testComponent: WebComponentTestInput = createTestWebComponent(combo, renderTestPieCardContainer);
-            const propKeyValues = `disabled: ${testComponent.propValues.disabled}`;
+            const propKeyValues = `interactionType: ${testComponent.propValues.interactionType}, disabled: ${testComponent.propValues.disabled}`;
             const darkMode = variant.includes('inverse');
 
             await mount(

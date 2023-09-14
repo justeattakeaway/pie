@@ -1,9 +1,10 @@
 export const variants = ['default', 'outline', 'inverse', 'outline-inverse'] as const;
+export const interactionTypes = ['anchor', 'button', 'none'] as const;
 
 export type Variant = typeof variants[number];
 
 export type AriaProps = {
-    linkLabel?: string;
+    label?: string;
 };
 
 export interface CardContainerProps {
@@ -36,4 +37,8 @@ export interface CardContainerProps {
      * What style variant the card should be such as default or inverse.
      */
     variant: Variant;
+     /**
+     * What the interaction intent of the card should be such as anchor, button or regular div (default).
+     */
+     interactionType?: typeof interactionTypes[number];
 }
