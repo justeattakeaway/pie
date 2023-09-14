@@ -8,7 +8,7 @@ import { PieIconButton } from '@justeattakeaway/pie-icon-button';
 
 import { PieCookieBanner, CookieBannerProps } from '@/index';
 
-const managePrefsSelector = '[data-test-id="manage-prefs"]';
+const managePrefsSelector = '[data-test-id="actions-manage-prefs"]';
 
 // Mount any components that are used inside pie-cookie-banner so that
 // they have been registered with the browser before the tests run.
