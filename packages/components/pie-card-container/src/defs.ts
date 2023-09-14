@@ -36,4 +36,9 @@ export interface CardContainerProps {
      * What style variant the card should be such as default or inverse.
      */
     variant: Variant;
+
+    /**
+     * Allows the consumer to set draggable css styles (grab/grabbing cursor styles).
+     */
+    isDraggable: boolean;
 }

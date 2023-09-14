@@ -31,6 +31,9 @@ export class PieCardContainer extends LitElement implements CardContainerProps {
     @property({ type: Object })
     public aria!: AriaProps;
 
+    @property({ type: Boolean })
+    public isDraggable = false;
+
     render () {
         const {
             href,
@@ -38,12 +41,13 @@ export class PieCardContainer extends LitElement implements CardContainerProps {
             rel,
             disabled,
             variant,
+            isDraggable,
         } = this;
 
         return html`
                 <div
                     variant=${variant}
-                    class="c-card-container"
+                    class="c-card-container ${isDraggable ? 'isDraggable' : ''}"
                     data-test-id="pie-card-container"
                     ?disabled=${disabled}>
                     <a

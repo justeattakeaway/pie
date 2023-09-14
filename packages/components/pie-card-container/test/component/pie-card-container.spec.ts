@@ -129,4 +129,47 @@ test.describe('PieCardContainer - Component tests', () => {
         // Assert
         await expect(component).toHaveAttribute('variant', variant);
     });
+
+    test.describe('Prop: `isDraggable`', () => {
+        test.describe('when set to true', () => {
+            test('should set class `isDraggable`', async ({ mount, page }) => {
+                // Arrange
+                await mount(PieCardContainer, {
+                    props: {
+                        isDraggable: true,
+                    } as CardContainerProps,
+                    slots: {
+                        default: slotContent,
+                    },
+                });
+
+                const component = page.locator(componentSelector);
+                const componentClass = await component.getAttribute('class');
+
+                // Assert
+                expect(componentClass).toContain('isDraggable');
+            });
+        });
+
+        test.describe('when set to false', () => {
+            test('should not set class `isDraggable`', async ({ mount, page }) => {
+                // Arrange
+                await mount(PieCardContainer, {
+                    props: {
+                        isDraggable: false,
+                    } as CardContainerProps,
+                    slots: {
+                        default: slotContent,
+                    },
+                });
+
+                // Act
+                const component = page.locator(componentSelector);
+                const componentClass = await component.getAttribute('class');
+
+                // Assert
+                expect(componentClass).not.toContain('isDraggable');
+            });
+        });
+    });
 });
