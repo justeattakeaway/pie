@@ -34,14 +34,17 @@ Buttons serve a wide range of purposes in user interfaces, such as submitting fo
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
+            link: "https://webc.pie.design/?path=/story/button--primary",
             status: statusTypes.PRE_RELEASE
         },
         {
             resource: resourceTypes.VUE,
+            link: "https://vue.pie.design/?path=/story/components-atoms-f-button--button-component",
             status: statusTypes.AVAILABLE
         },
         {
             resource: resourceTypes.REACT,
+            link: "https://snacks.takeaway.com/portal/components/button/",
             status: statusTypes.AVAILABLE
         },
         {
