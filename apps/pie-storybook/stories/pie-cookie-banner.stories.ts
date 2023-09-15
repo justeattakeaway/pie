@@ -23,14 +23,21 @@ const keptReferences = [
 type CookieBannerStoryMeta = StoryMeta<CookieBannerProps>;
 
 const defaultArgs: CookieBannerProps = {
-
+    locale: 'en',
 };
 
 const cookieBannerStoryMeta: CookieBannerStoryMeta = {
     title: 'Cookie Banner',
     component: 'pie-cookie-banner',
     argTypes: {
-
+        locale: {
+            description: 'Set the locale.',
+            control: 'select',
+            options: ['en', 'fr-FR', 'de-DE'],
+            defaultValue: {
+                summary: 'en',
+            },
+        },
     },
     args: defaultArgs,
     parameters: {
@@ -63,8 +70,8 @@ const createScrollablePageHTML = () : TemplateResult => {
 
 // TODO: remove the eslint-disable rule when props are added
 // eslint-disable-next-line no-empty-pattern
-const Template = ({}: CookieBannerProps): TemplateResult => html`
-    <pie-cookie-banner></pie-cookie-banner>
+const Template = ({ locale }: CookieBannerProps): TemplateResult => html`
+    <pie-cookie-banner locale="${locale}"></pie-cookie-banner>
 `;
 
 const ScrollablePageStoryTemplate = () : TemplateResult => html`
@@ -73,3 +80,4 @@ const ScrollablePageStoryTemplate = () : TemplateResult => html`
 
 export const Default = createStory<CookieBannerProps>(Template, defaultArgs)();
 export const ScrollablePage = createStory<CookieBannerProps>(ScrollablePageStoryTemplate, defaultArgs)();
+

@@ -1,10 +1,16 @@
 import {
     LitElement, html, unsafeCSS, TemplateResult, nothing,
 } from 'lit';
-import { state, queryAll } from 'lit/decorators.js';
+import { state, queryAll, property } from 'lit/decorators.js';
 import { repeat } from 'lit/directives/repeat.js';
 import { PieToggleSwitch } from '@justeattakeaway/pie-toggle-switch';
-import { msg } from '@lit/localize';
+import { configureLocalization, msg } from '@lit/localize';
+import { LocaleModule } from '@lit/localize/internal/types.d';
+import { sourceLocale, targetLocales } from './generated/locale-codes';
+
+import { templates as templatesFr } from './generated/locales/fr-FR';
+import { templates as templatesDe } from './generated/locales/de-DE';
+
 import styles from './cookie-banner.scss?inline';
 import {
     CookieBannerProps,
@@ -17,10 +23,21 @@ import {
     type PreferenceIds,
 } from './defs';
 
+const availableLocales = {
+    'fr-FR': { templates: templatesFr },
+    'de-DE': { templates: templatesDe },
+};
+
 // Valid values available to consumers
 export * from './defs';
 
 const componentSelector = 'pie-cookie-banner';
+
+const { setLocale } = configureLocalization({
+    sourceLocale,
+    targetLocales,
+    loadLocale: async (locale) => availableLocales[locale],
+});
 
 /**
  * @event {CustomEvent} pie-cookie-banner-accept-all - when all cookies are accepted.
@@ -29,6 +46,20 @@ const componentSelector = 'pie-cookie-banner';
  * @event {CustomEvent} pie-cookie-banner-prefs-saved - when a user clicks save preferences.
  */
 export class PieCookieBanner extends LitElement implements CookieBannerProps {
+    @property({ type: String })
+    public locale = 'en';
+
+    @property({ type: Object })
+    public localeData!: LocaleModule;
+
+    updated (changedProperties: Map<string, any>) {
+        if (changedProperties.has('locale')) {
+            console.info('locale changed >>>>', this.locale);
+            setLocale(this.locale);
+            this.requestUpdate();
+        }
+    }
+
     @state()
     private _isCookieBannerHidden = false;
 
@@ -181,6 +212,8 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
     }
 
     render () {
+        console.info('>>>> 👉 PieCookieBanner 👉 render()');
+
         const modalActionProps = {
             text: 'Save',
             variant: 'primary',
