@@ -24,11 +24,12 @@ Buttons serve a wide range of purposes in user interfaces, such as submitting fo
     rows: [
         {
             resource: resourceTypes.COMPONENT,
-            link: "https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=727-0&mode=design&t=LwO9Q5dHytpI0z4A-0",
+            link: "https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=727-0&mode=design&t=CQEMbUPtF2XxT6Nu-0",
             status: statusTypes.AVAILABLE
         },
         {
             resource: resourceTypes.DOCUMENTATION,
+            link: "https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=727-0&mode=design&t=P7rOGYbNedINS79O-0",
             status: statusTypes.AVAILABLE
         },
         {
