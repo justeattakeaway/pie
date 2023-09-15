@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-icons-webc
 
+## 0.6.0
+
+### Minor Changes
+
+- [Changed] - use latest pie-icons ([#797](https://github.com/justeattakeaway/pie/pull/797)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
 ## 0.5.1
 
 ### Patch Changes

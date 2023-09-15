@@ -1,5 +1,16 @@
 # Changelog
 
+## 3.1.0
+
+### Minor Changes
+
+- [Added] - Button overview to component documentation ([#804](https://github.com/justeattakeaway/pie/pull/804)) by [@LTurns](https://github.com/LTurns)
+
+### Patch Changes
+
+- Updated dependencies [[`ba8e8fccc`](https://github.com/justeattakeaway/pie/commit/ba8e8fccc5ad4d5f943df753badccbc08559c25f)]:
+  - @justeattakeaway/pie-icons@4.9.0
+
 ## 3.0.1
 
 ### Patch Changes

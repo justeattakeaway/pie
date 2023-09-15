@@ -1,5 +1,13 @@
 # @justeattakeaway/generator-pie-component
 
+## 0.8.0
+
+### Minor Changes
+
+- [Added] - use createStory in component generator ([#802](https://github.com/justeattakeaway/pie/pull/802)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Fixed] - whitespace in generated story file
+
 ## 0.7.0
 
 ### Minor Changes
