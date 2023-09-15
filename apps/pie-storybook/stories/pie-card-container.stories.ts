@@ -1,7 +1,8 @@
 import { nothing } from 'lit';
 import { html, unsafeStatic } from 'lit/static-html.js';
 import {
-    PieCardContainer, CardContainerProps as CardContainerPropsBase, variants,
+    PieCardContainer, CardContainerProps as CardContainerPropsBase,
+    variants, interactionTypes,
 } from '@justeattakeaway/pie-card-container';
 import type { StoryMeta, SlottedComponentProps } from '../types';
 import { createStory, type TemplateFunction } from '../utilities';
@@ -14,13 +15,14 @@ type CardContainerProps = SlottedComponentProps<CardContainerPropsBase>;
 type CardContainerStoryMeta = StoryMeta<CardContainerProps>;
 
 const defaultArgs: CardContainerProps = {
+    interactionType: 'none',
     variant: 'default',
-    href: '',
+    href: '#',
     disabled: false,
     rel: '',
     target: '',
     aria: {
-        linkLabel: 'Click to go to restaurant',
+        label: 'Click to go to restaurant',
     },
     // This is just an arbitrary example of some markup a user may pass into the card
     slot: `<div style="color: var(--card-color); font-size: calc(var(--dt-font-body-l-size) * 1px); font-family: var(--dt-font-interactive-m-family); padding: var(--dt-spacing-b);">
@@ -40,6 +42,14 @@ const cardContainerStoryMeta: CardContainerStoryMeta = {
     title: 'Card Container',
     component: 'pie-card-container',
     argTypes: {
+        interactionType: {
+            description: 'Set the interaction type of the card container.',
+            control: 'select',
+            options: interactionTypes,
+            defaultValue: {
+                summary: 'none',
+            },
+        },
         variant: {
             description: 'Set the variant of the card.',
             control: 'select',
@@ -58,17 +68,17 @@ const cardContainerStoryMeta: CardContainerStoryMeta = {
         href: {
             description: 'The URL that the card should point to (this will not take effect unless the card is a link).',
             control: 'text',
-            defaultValue: {
-                summary: '',
-            },
+            if: { arg: 'interactionType', eq: 'anchor' },
         },
         target: {
             description: 'Where to display the linked URL such as _self, _blank, _parent or _top (this will not take effect unless the card is a link).',
             control: 'text',
+            if: { arg: 'interactionType', eq: 'anchor' },
         },
         rel: {
             description: 'What the relationship of the linked URL is (this will not take effect unless the card is a link).',
             control: 'text',
+            if: { arg: 'interactionType', eq: 'anchor' },
         },
         slot: {
             description: 'Content to place within the card container',
@@ -91,6 +101,7 @@ const cardContainerStoryMeta: CardContainerStoryMeta = {
 export default cardContainerStoryMeta;
 
 const Template: TemplateFunction<CardContainerProps> = ({
+    interactionType,
     href,
     target,
     rel,
@@ -104,6 +115,7 @@ const Template: TemplateFunction<CardContainerProps> = ({
     return html`
     <div style="--card-color: var(--dt-color-content-${darkMode ? 'light' : 'default'})">
         <pie-card-container
+            interactionType="${interactionType}"
             variant="${variant}"
             href="${href || nothing}"
             target="${target || nothing}"
