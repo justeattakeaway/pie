@@ -52,7 +52,7 @@ export class PieCardContainer extends LitElement implements CardContainerProps {
                 class="c-card-container"
                 data-test-id="pie-card-container"
                 interactionType=${this.interactionType}
-                isDraggable="${this.isDraggable}"
+                ?isDraggable="${this.isDraggable}"
                 variant=${this.variant}
                 ?disabled=${this.disabled}
                 href=${this.href || nothing}
@@ -82,7 +82,7 @@ export class PieCardContainer extends LitElement implements CardContainerProps {
                     class="c-card-container"
                     data-test-id="pie-card-container"
                     interactionType=${interactionType}
-                    isDraggable="${isDraggable}"
+                    ?isDraggable="${isDraggable}"
                     variant=${variant}
                     ?disabled=${disabled}
                     role=${isButton ? 'button' : nothing}

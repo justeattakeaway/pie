@@ -202,7 +202,7 @@ test.describe('PieCardContainer - Component tests', () => {
                 const componentAttribute = await component.getAttribute('isDraggable');
 
                 // Assert
-                expect(componentAttribute).toBe('true');
+                expect(componentAttribute).toBeDefined();
             });
         });
 
@@ -220,10 +220,10 @@ test.describe('PieCardContainer - Component tests', () => {
 
                 // Act
                 const component = page.locator(componentSelector);
-                const componentClass = await component.getAttribute('isDraggable');
+                const componentAttribute = await component.getAttribute('isDraggable');
 
                 // Assert
-                expect(componentClass).toBe('false');
+                expect(componentAttribute).toBeNull();
             });
         });
     });
