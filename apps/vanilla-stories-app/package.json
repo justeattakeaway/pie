@@ -1,0 +1,19 @@
+{
+  "name": "vanilla-stories-app",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@justeattakeaway/pie-button": "workspace:*",
+    "@justeattakeaway/pie-css": "workspace:*",
+    "lit-html": "2.8.0",
+    "pie-storybook": "workspace:*",
+    "typescript": "5.0.2",
+    "vite": "4.4.5"
+  }
+}
