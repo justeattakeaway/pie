@@ -38,6 +38,9 @@ export class PieCardContainer extends LitElement implements CardContainerProps {
     @property({ type: Object })
     public aria!: AriaProps;
 
+    @property({ type: Boolean })
+    public isDraggable = false;
+
     /**
      * Renders the card as an anchor element.
      *
@@ -45,10 +48,11 @@ export class PieCardContainer extends LitElement implements CardContainerProps {
      */
     private renderAnchor (): TemplateResult {
         return html`
-            <a  
+            <a
                 class="c-card-container"
                 data-test-id="pie-card-container"
                 interactionType=${this.interactionType}
+                ?isDraggable="${this.isDraggable}"
                 variant=${this.variant}
                 ?disabled=${this.disabled}
                 href=${this.href || nothing}
@@ -67,6 +71,7 @@ export class PieCardContainer extends LitElement implements CardContainerProps {
             disabled,
             interactionType,
             aria,
+            isDraggable,
         } = this;
         const isButton = interactionType === 'button';
 
@@ -77,6 +82,7 @@ export class PieCardContainer extends LitElement implements CardContainerProps {
                     class="c-card-container"
                     data-test-id="pie-card-container"
                     interactionType=${interactionType}
+                    ?isDraggable="${isDraggable}"
                     variant=${variant}
                     ?disabled=${disabled}
                     role=${isButton ? 'button' : nothing}
