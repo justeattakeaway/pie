@@ -1,7 +1,6 @@
 import {
-    LitElement, unsafeCSS, nothing, TemplateResult,
+    html, LitElement, unsafeCSS, nothing, TemplateResult,
 } from 'lit';
-import { html } from 'lit/static-html.js';
 import { property } from 'lit/decorators.js';
 import { validPropertyValues } from '@justeattakeaway/pie-webc-core';
 import styles from './card-container.scss?inline';

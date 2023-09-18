@@ -3,6 +3,7 @@ export const sizes = ['small', 'medium'] as const;
 export const iconPlacements = ['leading', 'trailing'] as const;
 export const tags = ['a', 'button'] as const;
 export const buttonTypes = ['submit', 'button', 'reset', 'menu'] as const;
+export const underlineTypes = ['default', 'reversed'] as const;
 
 export interface LinkProps {
      /**
@@ -17,6 +18,10 @@ export interface LinkProps {
      * What size the link should be.
      */
     size: typeof sizes[number];
+    /**
+     * What underline behavior the link should have such as default or reversed
+     */
+    underline: typeof underlineTypes[number];
     /**
      * The URL that the hyperlink should point to
      */
@@ -37,6 +42,10 @@ export interface LinkProps {
      * When true, the link will be treated as a block box
      */
     isStandalone: boolean;
+    /**
+     * When true, the link will apply the styles for the visited state',
+     */
+    hasVisited: boolean;
     /**
      * The placement of the icon slot, if provided, such as leading or trailing
      */
