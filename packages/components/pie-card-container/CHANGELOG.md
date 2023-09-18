@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-card-container
 
+## 0.4.0
+
+### Minor Changes
+
+- [Added] Button and Link behaviour to the card container ([#791](https://github.com/justeattakeaway/pie/pull/791)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.3.0
 
 ### Minor Changes
