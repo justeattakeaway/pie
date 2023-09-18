@@ -34,7 +34,7 @@ To install the PIE CSS library, run the following on your command line:
 # npm
 npm i @justeattakeaway/pie-css
 
-# npm
+# yarn
 yarn add @justeattakeaway/pie-css
 ```
 
@@ -64,7 +64,7 @@ function App () {
 export default App;
 ```
 
-Similarly, in Vue 3, you will likely be include it as part of your `/src/main.ts` file:
+Similarly, in Vue 3, you will likely include it as part of your `/src/main.ts` file:
 
 
 ```js
@@ -121,6 +121,6 @@ Of course, you could include the styles straight inside your HTML document – m
 
 PIE CSS also has an optional set of SCSS helpers that are used by the PIE Web Components.
 
-These are for carrying out common tasks in our styles, such as setting font-sizes in consistent ways and sharing styles across components via SCSS mixins and functions.
+These are for carrying out common tasks in our styles, such as setting font sizes in consistent ways and sharing styles across components via SCSS mixins and functions.
 
 We will be writing more in-depth docs on these SCSS helpers shortly, but for now, feel free to browse the [SCSS code in the PIE mono-repo](https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-css/scss).
