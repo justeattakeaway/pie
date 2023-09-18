@@ -1,9 +1,10 @@
 export const variants = ['default', 'outline', 'inverse', 'outline-inverse'] as const;
+export const interactionTypes = ['anchor', 'button', 'none'] as const;
 
 export type Variant = typeof variants[number];
 
 export type AriaProps = {
-    linkLabel?: string;
+    label?: string;
 };
 
 export interface CardContainerProps {
@@ -41,4 +42,9 @@ export interface CardContainerProps {
      * Allows the consumer to set draggable css styles (grab/grabbing cursor styles).
      */
     isDraggable: boolean;
+
+     /**
+     * What the interaction intent of the card should be such as anchor, button or regular div (default).
+     */
+     interactionType?: typeof interactionTypes[number];
 }

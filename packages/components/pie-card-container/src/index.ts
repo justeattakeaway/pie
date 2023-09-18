@@ -1,10 +1,13 @@
 import {
-    html, LitElement, unsafeCSS, nothing,
+    LitElement, unsafeCSS, nothing, TemplateResult,
 } from 'lit';
+import { html } from 'lit/static-html.js';
 import { property } from 'lit/decorators.js';
 import { validPropertyValues } from '@justeattakeaway/pie-webc-core';
 import styles from './card-container.scss?inline';
-import { CardContainerProps, type AriaProps, variants } from './defs';
+import {
+    CardContainerProps, type AriaProps, variants, interactionTypes,
+} from './defs';
 
 // Valid values available to consumers
 export * from './defs';
@@ -12,6 +15,10 @@ export * from './defs';
 const componentSelector = 'pie-card-container';
 
 export class PieCardContainer extends LitElement implements CardContainerProps {
+    @property()
+    @validPropertyValues(componentSelector, interactionTypes, 'none')
+    public interactionType: CardContainerProps['interactionType'] = 'none';
+
     @property()
     @validPropertyValues(componentSelector, variants, 'default')
     public variant: CardContainerProps['variant'] = 'default';
@@ -34,31 +41,54 @@ export class PieCardContainer extends LitElement implements CardContainerProps {
     @property({ type: Boolean })
     public isDraggable = false;
 
+    /**
+     * Renders the card as an anchor element.
+     *
+     * @private
+     */
+    private renderAnchor (): TemplateResult {
+        return html`
+            <a
+                class="c-card-container"
+                data-test-id="pie-card-container"
+                interactionType=${this.interactionType}
+                isDraggable="${this.isDraggable}"
+                variant=${this.variant}
+                ?disabled=${this.disabled}
+                href=${this.href || nothing}
+                target=${this.target || nothing}
+                rel=${this.rel || nothing}
+                aria-label=${this.aria?.label || nothing}
+                aria-disabled=${this.disabled ? 'true' : 'false'}>
+                    <slot></slot>
+                </div>
+            </a>`;
+    }
+
     render () {
         const {
-            href,
-            target,
-            rel,
-            disabled,
             variant,
+            disabled,
+            interactionType,
+            aria,
             isDraggable,
         } = this;
+        const isButton = interactionType === 'button';
+
+        if (interactionType === 'anchor') return this.renderAnchor();
 
         return html`
                 <div
-                    variant=${variant}
-                    class="c-card-container ${isDraggable ? 'isDraggable' : ''}"
+                    class="c-card-container"
                     data-test-id="pie-card-container"
-                    ?disabled=${disabled}>
-                    <a
-                        data-test-id="pie-card-container-link"
-                        href=${href || ''}
-                        target=${target || nothing}
-                        rel=${rel || nothing}
-                        aria-label="${this.aria?.linkLabel || nothing}"
-                        aria-disabled=${disabled ? 'true' : 'false'}
-                        ></a>
-                    <div class="c-card-container-slot">
+                    interactionType=${interactionType}
+                    isDraggable="${isDraggable}"
+                    variant=${variant}
+                    ?disabled=${disabled}
+                    role=${isButton ? 'button' : nothing}
+                    tabindex=${isButton ? '0' : nothing}
+                    aria-label=${aria?.label || nothing}
+                    aria-disabled=${disabled ? 'true' : 'false'}>
                         <slot></slot>
                     </div>
                 </div>`;

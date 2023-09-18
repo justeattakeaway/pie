@@ -561,8 +561,20 @@
             "displayName": "Dietary",
             "icons": [
                 {
+                    "name": "celery",
+                    "displayName": "Celery"
+                },
+                {
+                    "name": "crustaceans",
+                    "displayName": "Crustaceans"
+                },
+                {
                     "name": "eggs",
                     "displayName": "Eggs"
+                },
+                {
+                    "name": "fish",
+                    "displayName": "Fish"
                 },
                 {
                     "name": "gluten",
@@ -571,6 +583,10 @@
                 {
                     "name": "kosher",
                     "displayName": "Kosher"
+                },
+                {
+                    "name": "lupin",
+                    "displayName": "Lupin"
                 },
                 {
                     "name": "milk",
@@ -593,8 +609,20 @@
                     "displayName": "Peanuts"
                 },
                 {
+                    "name": "sesame-seeds",
+                    "displayName": "Sesame Seeds"
+                },
+                {
+                    "name": "soybeans",
+                    "displayName": "Soybeans"
+                },
+                {
                     "name": "spicy",
                     "displayName": "Spicy"
+                },
+                {
+                    "name": "sulphites",
+                    "displayName": "Sulphites"
                 },
                 {
                     "name": "vegan",
@@ -933,6 +961,14 @@
                     "displayName": "Close Circle Filled"
                 },
                 {
+                    "name": "image-flip-horizontal",
+                    "displayName": "Image Flip Horizontal"
+                },
+                {
+                    "name": "image-flip-vertical",
+                    "displayName": "Image Flip Vertical"
+                },
+                {
                     "name": "minus",
                     "displayName": "Minus"
                 },
@@ -1201,12 +1237,32 @@
             "displayName": "Miscellaneous",
             "icons": [
                 {
+                    "name": "bakery",
+                    "displayName": "Bakery"
+                },
+                {
                     "name": "ballot-box",
                     "displayName": "Ballot Box"
                 },
                 {
+                    "name": "beauty",
+                    "displayName": "Beauty"
+                },
+                {
+                    "name": "books",
+                    "displayName": "Books"
+                },
+                {
                     "name": "bulb-lightning",
                     "displayName": "Bulb Lightning"
+                },
+                {
+                    "name": "cleaning",
+                    "displayName": "Cleaning"
+                },
+                {
+                    "name": "clothing",
+                    "displayName": "Clothing"
                 },
                 {
                     "name": "convenience",
@@ -1217,8 +1273,24 @@
                     "displayName": "Directions"
                 },
                 {
+                    "name": "diy",
+                    "displayName": "DIY"
+                },
+                {
+                    "name": "electronic-accessories",
+                    "displayName": "Electronic Accessories"
+                },
+                {
                     "name": "flowers",
                     "displayName": "Flowers"
+                },
+                {
+                    "name": "fresh-food",
+                    "displayName": "Fresh Food"
+                },
+                {
+                    "name": "gifts",
+                    "displayName": "Gifts"
                 },
                 {
                     "name": "grocery",
@@ -1249,20 +1321,40 @@
                     "displayName": "Pet Supplies"
                 },
                 {
+                    "name": "pet-supplies-alt",
+                    "displayName": "Pet Supplies Alt"
+                },
+                {
                     "name": "pharmacy",
                     "displayName": "Pharmacy"
+                },
+                {
+                    "name": "pharmacy-alt",
+                    "displayName": "Pharmacy Alt"
                 },
                 {
                     "name": "recycle",
                     "displayName": "Recycle"
                 },
                 {
+                    "name": "shops",
+                    "displayName": "Shops"
+                },
+                {
                     "name": "sponsored-filled",
                     "displayName": "Sponsored Filled"
                 },
                 {
+                    "name": "stationery",
+                    "displayName": "Stationery"
+                },
+                {
                     "name": "toilet",
                     "displayName": "Toilet"
+                },
+                {
+                    "name": "toys-games",
+                    "displayName": "Toys Games"
                 },
                 {
                     "name": "tutorial",
@@ -1357,6 +1449,10 @@
             "displayName": "Pay",
             "icons": [
                 {
+                    "name": "account-credit",
+                    "displayName": "Account Credit"
+                },
+                {
                     "name": "barcode",
                     "displayName": "Barcode"
                 },
@@ -1401,6 +1497,10 @@
                     "displayName": "Credit Card Home Filled"
                 },
                 {
+                    "name": "instant-bank",
+                    "displayName": "Instant Bank"
+                },
+                {
                     "name": "pin-at-home",
                     "displayName": "Pin Home"
                 },
@@ -1419,6 +1519,10 @@
                 {
                     "name": "takeaway-pay-filled",
                     "displayName": "Takeaway Pay Filled"
+                },
+                {
+                    "name": "unpaid",
+                    "displayName": "Unpaid"
                 },
                 {
                     "name": "wallet",
@@ -1567,6 +1671,10 @@
             "displayName": "Restaurant",
             "icons": [
                 {
+                    "name": "collect",
+                    "displayName": "Collect"
+                },
+                {
                     "name": "cutlery",
                     "displayName": "Cutlery"
                 },
@@ -1595,6 +1703,10 @@
                     "displayName": "Food Ready"
                 },
                 {
+                    "name": "management",
+                    "displayName": "Management"
+                },
+                {
                     "name": "order",
                     "displayName": "Order"
                 },
@@ -1609,6 +1721,10 @@
                 {
                     "name": "prepare",
                     "displayName": "Prepare"
+                },
+                {
+                    "name": "prepare-bag",
+                    "displayName": "Prepare Bag"
                 },
                 {
                     "name": "prepare-pause",

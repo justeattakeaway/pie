@@ -3,8 +3,8 @@ import { test, expect } from '@sand4rt/experimental-ct-web';
 import { PieCardContainer, CardContainerProps } from '@/index';
 
 const componentSelector = '[data-test-id="pie-card-container"]';
-const linkSelector = '[data-test-id="pie-card-container-link"]';
 const slotSelector = '[data-test-id="slot-content"]';
+
 const slotContent = `<div data-test-id="slot-content">
     Slot content
     </div>`;
@@ -42,14 +42,16 @@ test.describe('PieCardContainer - Component tests', () => {
         await expect(renderedSlotContent).toBeVisible();
     });
 
-    test('should render an anchor tag with the provided href, target and rel attributes', async ({ mount, page }) => {
+    test('should render the card as an anchor tag with the provided href, target and rel attributes if interactionType = anchor', async ({ mount, page }) => {
         // Arrange
+        const interactionType = 'anchor';
         const href = 'foo.com';
         const rel = 'noopener noreferrer';
         const target = '_blank';
 
         await mount(PieCardContainer, {
             props: {
+                interactionType,
                 href,
                 rel,
                 target,
@@ -60,12 +62,65 @@ test.describe('PieCardContainer - Component tests', () => {
         });
 
         // Act
-        const componentLink = page.locator(linkSelector);
+        const component = page.locator(componentSelector);
 
         // Assert
-        await expect(componentLink).toHaveAttribute('href', href);
-        await expect(componentLink).toHaveAttribute('rel', rel);
-        await expect(componentLink).toHaveAttribute('target', target);
+        await expect(component).toHaveAttribute('href', href);
+        await expect(component).toHaveAttribute('rel', rel);
+        await expect(component).toHaveAttribute('target', target);
+        await expect(component).not.toHaveAttribute('role', 'button');
+        await expect(component).not.toHaveAttribute('tabindex', '0');
+    });
+
+    test('should render the card as a div that behaves like a button if interactionType = "button"', async ({ mount, page }) => {
+        // Arrange
+        const interactionType = 'button';
+
+        await mount(PieCardContainer, {
+            props: {
+                interactionType,
+            } as CardContainerProps,
+            slots: {
+                default: slotContent,
+            },
+        });
+
+        // Act
+        const component = page.locator(componentSelector);
+
+        // Assert
+        await expect(component).toHaveAttribute('role', 'button');
+        await expect(component).toHaveAttribute('tabindex', '0');
+    });
+
+    test('should render the card without button or anchor attributes when interactionType = "none"', async ({ mount, page }) => {
+        // Arrange
+        const interactionType = 'none';
+        const href = 'foo.com';
+        const rel = 'noopener noreferrer';
+        const target = '_blank';
+
+        await mount(PieCardContainer, {
+            props: {
+                interactionType,
+                href,
+                rel,
+                target,
+            } as CardContainerProps,
+            slots: {
+                default: slotContent,
+            },
+        });
+
+        // Act
+        const component = page.locator(componentSelector);
+
+        // Assert
+        await expect(component).not.toHaveAttribute('role', 'button');
+        await expect(component).not.toHaveAttribute('tabindex', '0');
+        await expect(component).not.toHaveAttribute('href', href);
+        await expect(component).not.toHaveAttribute('rel', rel);
+        await expect(component).not.toHaveAttribute('target', target);
     });
 
     [true, false].forEach((disabled) => {
@@ -81,21 +136,21 @@ test.describe('PieCardContainer - Component tests', () => {
             });
 
             // Act
-            const componentLink = page.locator(linkSelector);
+            const component = page.locator(componentSelector);
 
             // Assert
-            await expect(componentLink).toHaveAttribute('aria-disabled', disabled.toString());
+            await expect(component).toHaveAttribute('aria-disabled', disabled.toString());
         });
     });
 
-    test('should add an aria-label attribute that matches the value of the aria.linkLabel prop', async ({ mount, page }) => {
+    test('should add an aria-label attribute that matches the value of the aria.label prop', async ({ mount, page }) => {
         // Arrange
-        const linkLabel = 'foo';
+        const label = 'foo';
 
         await mount(PieCardContainer, {
             props: {
                 aria: {
-                    linkLabel,
+                    label,
                 },
             } as CardContainerProps,
             slots: {
@@ -104,10 +159,10 @@ test.describe('PieCardContainer - Component tests', () => {
         });
 
         // Act
-        const componentLink = page.locator(linkSelector);
+        const component = page.locator(componentSelector);
 
         // Assert
-        await expect(componentLink).toHaveAttribute('aria-label', linkLabel);
+        await expect(component).toHaveAttribute('aria-label', label);
     });
 
     test('should add a variant attribute that matches the variant prop provided', async ({ mount, page }) => {
@@ -132,7 +187,7 @@ test.describe('PieCardContainer - Component tests', () => {
 
     test.describe('Prop: `isDraggable`', () => {
         test.describe('when set to true', () => {
-            test('should set class `isDraggable`', async ({ mount, page }) => {
+            test('should set an attribute of `isDraggable`', async ({ mount, page }) => {
                 // Arrange
                 await mount(PieCardContainer, {
                     props: {
@@ -144,15 +199,15 @@ test.describe('PieCardContainer - Component tests', () => {
                 });
 
                 const component = page.locator(componentSelector);
-                const componentClass = await component.getAttribute('class');
+                const componentAttribute = await component.getAttribute('isDraggable');
 
                 // Assert
-                expect(componentClass).toContain('isDraggable');
+                expect(componentAttribute).toBe('true');
             });
         });
 
         test.describe('when set to false', () => {
-            test('should not set class `isDraggable`', async ({ mount, page }) => {
+            test('should not set an attribute of `isDraggable`', async ({ mount, page }) => {
                 // Arrange
                 await mount(PieCardContainer, {
                     props: {
@@ -165,10 +220,10 @@ test.describe('PieCardContainer - Component tests', () => {
 
                 // Act
                 const component = page.locator(componentSelector);
-                const componentClass = await component.getAttribute('class');
+                const componentClass = await component.getAttribute('isDraggable');
 
                 // Assert
-                expect(componentClass).not.toContain('isDraggable');
+                expect(componentClass).toBe('false');
             });
         });
     });

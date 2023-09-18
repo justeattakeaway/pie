@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/pie-icons-vue",
-  "version": "4.8.1",
+  "version": "4.9.0",
   "main": "dist/index.cjs",
   "module": "esm/index.mjs",
   "files": [
@@ -56,7 +56,7 @@
   },
   "devDependencies": {
     "@babel/core": "7.22.17",
-    "@justeattakeaway/pie-icons": "4.8.0",
+    "@justeattakeaway/pie-icons": "4.9.0",
     "@justeattakeaway/pie-icons-configs": "workspace:*",
     "@rollup/plugin-commonjs": "25.0.4",
     "@vue/babel-preset-jsx": "1.4.0",

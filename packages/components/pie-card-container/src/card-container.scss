@@ -7,7 +7,7 @@
 }
 
 @mixin card-interactive-states($bg-color, $mode: 'default') {
-    &:hover:not([disabled]) {
+    &:hover:not([disabled], [interactiontype='none']) {
         @if $mode == 'inverse' {
             --hover-modifier: var(--dt-color-hover-01);
         } @else {
@@ -17,7 +17,7 @@
         --card-bg-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), calc(var(#{$bg-color}-l) + var(--hover-modifier)));
     }
 
-    &:active:not([disabled]) {
+    &:active:not([disabled], [interactiontype='none']) {
         @if $mode == 'inverse' {
             --active-modifier: var(--dt-color-active-01);
         } @else {
@@ -33,6 +33,7 @@
     --card-radius: var(--dt-radius-rounded-c);
     --card-border-color: transparent;
 
+    display: block;
     position: relative;
     color: currentcolor;
     background-color: var(--card-bg-color);
@@ -78,34 +79,18 @@
         }
     }
 
-    // We want to stretch the <a> tag over the entire card to make the entire component interactive
-    > a {
-        display: block;
-        position: absolute;
-        inset: -1px; // ensures the border of the parent is visible
-        z-index: 1;
-        border: 1px solid var(--card-border-color);
-        border-radius: var(--card-radius);
-    }
-
-    > a:focus {
+    &:not([interactiontype='none']) {
+        cursor: pointer;
+        user-select: none;
         outline: none;
+        text-decoration: none;
     }
 
-    &:focus-within {
+    &:focus-visible {
         box-shadow: 0 0 0 2px var(--dt-color-focus-inner), 0 0 0 4px var(--dt-color-focus-outer);
     }
 
-    &.isDraggable {
-        a,
-        button {
-            @extend %has-grab-cursor;
-        }
+    &[isdraggable]:not([interactiontype='none']) {
+        @extend %has-grab-cursor;
     }
-}
-
-.c-card-container-slot {
-    // Ensures that any slot containers are also rounded
-    border-radius: inherit;
-    overflow: hidden;
 }

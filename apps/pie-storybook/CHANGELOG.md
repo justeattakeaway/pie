@@ -1,5 +1,27 @@
 # Changelog
 
+## 0.32.0
+
+### Minor Changes
+
+- [Added] Button and Link behaviour to the card container ([#791](https://github.com/justeattakeaway/pie/pull/791)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies [[`ba8e8fccc`](https://github.com/justeattakeaway/pie/commit/ba8e8fccc5ad4d5f943df753badccbc08559c25f), [`411abc41a`](https://github.com/justeattakeaway/pie/commit/411abc41a19135a80ea3d8f86614a74efa8a964f)]:
+  - @justeattakeaway/pie-icons-webc@0.6.0
+  - @justeattakeaway/pie-card-container@0.4.0
+  - @justeattakeaway/pie-icon-button@0.14.1
+  - @justeattakeaway/pie-modal@0.19.1
+  - @justeattakeaway/pie-toggle-switch@0.8.0
+
+## 0.31.2
+
+### Patch Changes
+
+- Updated dependencies [[`d5c93f9bb`](https://github.com/justeattakeaway/pie/commit/d5c93f9bb2d451ef555a804de10f225b0ff5f4a4)]:
+  - @justeattakeaway/pie-cookie-banner@0.4.0
+
 ## 0.31.1
 
 ### Patch Changes
