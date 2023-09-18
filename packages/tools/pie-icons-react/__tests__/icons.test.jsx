@@ -18,15 +18,14 @@ describe('Icon', () => {
 
         it('renders correctly with className prop', () => {
             // Arrange & Act
-            const tree = renderer
-            .create(<IconAlcohol className="additional-styling" />)
-            .toJSON();
+            const tree = renderer.create(<Icon className="additional-styling" />).toJSON();
 
             // Assert
             expect(tree).toMatchSnapshot();
         });
     });
 });
+
 describe('Regular Icon', () => {
     it.each([
         ['xs', sizeToValueMap.xs],
@@ -79,24 +78,6 @@ describe('Regular Icon', () => {
 });
 
 describe('Large Icon', () => {
-    it('renders correctly without className prop', () => {
-        // Arrange & Act
-        const tree = renderer.create(<IconAlcoholLarge />).toJSON();
-
-        // Assert
-        expect(tree).toMatchSnapshot();
-    });
-
-    it('renders correctly with className prop', () => {
-        // Arrange & Act
-        const tree = renderer
-        .create(<IconAlcoholLarge className="additional-styling" />)
-        .toJSON();
-
-        // Assert
-        expect(tree).toMatchSnapshot();
-    });
-
     it.each([
         32,
         40,
@@ -123,15 +104,14 @@ describe('Large Icon', () => {
     });
 
     it('should ignore custom height and width', () => {
+        // Arrange
         const props = {
             height: '40px',
             width: '100px',
         };
 
         // Act
-        const tree = renderer
-            .create(<IconAlcoholLarge {...props} />)
-            .toJSON();
+        const tree = renderer.create(<IconAlcoholLarge {...props} />).toJSON();
 
         // Assert
         expect(tree).toHaveProperty('props.width', largeIconSizeDefault);
