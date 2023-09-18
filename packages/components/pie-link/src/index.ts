@@ -63,7 +63,7 @@ export class PieLink extends LitElement implements LinkProps {
     public type: LinkProps['type'] = 'submit';
 
     /**
-     * Renders the link as an anchor element.
+     * Renders the link content.
      *
      * @private
      */
