@@ -30,7 +30,7 @@ export default defineConfig({
             fileName: () => 'dist/icons/[name].js',
         },
         rollupOptions: {
-            external: ['react', /^lit/],
+            external: [/^lit/],
             output: {
                 exports: 'named',
                 dir: 'dist/icons',
