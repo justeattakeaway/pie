@@ -1,5 +1,5 @@
 import {
-    LitElement, nothing, TemplateResult, unsafeCSS,
+    LitElement, nothing, TemplateResult, unsafeCSS, isServer,
 } from 'lit';
 import { html, unsafeStatic } from 'lit/static-html.js';
 import { property, query } from 'lit/decorators.js';
@@ -7,12 +7,11 @@ import {
     requiredProperty, RtlMixin, validPropertyValues,
 } from '@justeattakeaway/pie-webc-core';
 import type { DependentMap } from '@justeattakeaway/pie-webc-core';
-import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 import '@justeattakeaway/pie-icons-webc/IconClose';
 import '@justeattakeaway/pie-icons-webc/IconChevronLeft';
 import '@justeattakeaway/pie-icons-webc/IconChevronRight';
 
-import dialogPolyfill from 'dialog-polyfill';
+import getPolyfill from './dialogPolyfillWrapper';
 
 import styles from './modal.scss?inline';
 import {
@@ -102,25 +101,32 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
 
     constructor () {
         super();
-        this.addEventListener('click', (event) => this._handleDialogLightDismiss(event));
+        if (!isServer) {
+            this.addEventListener('click', (event) => this._handleDialogLightDismiss(event));
+        }
     }
 
     connectedCallback () : void {
         super.connectedCallback();
-        document.addEventListener(ON_MODAL_OPEN_EVENT, this._handleModalOpened.bind(this));
-        document.addEventListener(ON_MODAL_CLOSE_EVENT, this._handleModalClosed.bind(this));
-        document.addEventListener(ON_MODAL_BACK_EVENT, this._handleModalClosed.bind(this));
+        if (!isServer) {
+            document.addEventListener(ON_MODAL_OPEN_EVENT, this._handleModalOpened.bind(this));
+            document.addEventListener(ON_MODAL_CLOSE_EVENT, this._handleModalClosed.bind(this));
+            document.addEventListener(ON_MODAL_BACK_EVENT, this._handleModalClosed.bind(this));
+        }
     }
 
     disconnectedCallback () : void {
-        document.removeEventListener(ON_MODAL_OPEN_EVENT, this._handleModalOpened.bind(this));
-        document.removeEventListener(ON_MODAL_CLOSE_EVENT, this._handleModalClosed.bind(this));
-        document.removeEventListener(ON_MODAL_BACK_EVENT, this._handleModalClosed.bind(this));
+        if (!isServer) {
+            document.removeEventListener(ON_MODAL_OPEN_EVENT, this._handleModalOpened.bind(this));
+            document.removeEventListener(ON_MODAL_CLOSE_EVENT, this._handleModalClosed.bind(this));
+            document.removeEventListener(ON_MODAL_BACK_EVENT, this._handleModalClosed.bind(this));
+        }
         super.disconnectedCallback();
     }
 
-    firstUpdated (changedProperties: DependentMap<ModalProps>) : void {
+    async firstUpdated (changedProperties: DependentMap<ModalProps>) : Promise<void> {
         if (this._dialog) {
+            const dialogPolyfill = await getPolyfill();
             dialogPolyfill.registerDialog(this._dialog);
             this._dialog.addEventListener('cancel', (event) => this._handleDialogCancelEvent(event));
             this._dialog.addEventListener('close', () => {
@@ -139,7 +145,6 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
      * Opens the dialog element and disables page scrolling
      */
     private _handleModalOpened () : void {
-        disableBodyScroll(this);
         if (this._dialog?.hasAttribute('open') || !this._dialog?.isConnected) {
             return;
         }
@@ -151,7 +156,6 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
      * Closes the dialog element and re-enables page scrolling
      */
     private _handleModalClosed () : void {
-        enableBodyScroll(this);
         this._dialog?.close();
         this._returnFocus();
     }

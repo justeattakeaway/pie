@@ -1,5 +1,5 @@
 /* eslint-disable max-classes-per-file */
-import { LitElement } from 'lit';
+import { LitElement, isServer } from 'lit';
 import { property } from 'lit/decorators/property.js';
 
 // According to TS, "A mixin class must have a constructor with a single rest parameter of type 'any[]'."
@@ -36,8 +36,20 @@ declare class _RTLInterface {
 export const RtlMixin =
     <T extends Constructor<LitElement>>(superClass: T) => {
         class RTLElement extends superClass implements _RTLInterface {
+            // Initialized with a default value. Updated later if on the client-side.
             @property({ type: String, reflect: true })
-                dir : htmlDirAttribute = document?.documentElement?.dir as htmlDirAttribute ?? 'ltr';
+                dir: htmlDirAttribute = 'ltr'; // Default to 'ltr' for SSR
+
+            // According to TS, "A mixin class must have a constructor with a single rest parameter of type 'any[]'."
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            constructor (...args: any[]) {
+                super(...args);
+
+                // If we're not on the server, we set the dir using document.
+                if (!isServer) {
+                    this.dir = document.documentElement.dir as htmlDirAttribute ?? 'ltr';
+                }
+            }
 
             /**
              * Returns true if the element is in Right to Left mode.
@@ -48,7 +60,7 @@ export const RtlMixin =
              * If the component falls back to a parent dir attribute then the value
              * will not be reactive and is only computed once
              */
-            get isRTL () : boolean {
+            get isRTL (): boolean {
                 return this.dir === 'rtl';
             }
         }
