@@ -27,10 +27,10 @@ yarn add @justeattakeaway/pie-icons-webc
 
 #### Vanilla Javascript
 
-1. Import a specific icon from it's entry point (recommended)
+1. Import a specific icon from its entry point (recommended)
 ```js
 // Importing a specific icon directly from its entry point (recommended for tree-shaking benefits)
-import { IconCalendarFilledLarge } from '@justeattakeaway/pie-icons-webc/icons/IconCalendarFilledLarge';
+import { IconCalendarFilledLarge } from '@justeattakeaway/pie-icons-webc/IconCalendarFilledLarge';
 
 function renderIcon() {
     // Using the imported icon
@@ -39,10 +39,10 @@ function renderIcon() {
 }
 ```
 
-2. Import a specific icon from it's entry point without a reference (recommended)
+2. Import a specific icon from its entry point without a reference (recommended)
 ```js
 // Importing a specific icon without keeping a reference from its entry point
-import '@justeattakeaway/pie-icons-webc/icons/IconCalendarFilledLarge';
+import '@justeattakeaway/pie-icons-webc/IconCalendarFilledLarge';
 
 // Rest of code does not directly reference IconCalendarFilledLarge however the web component has been registered in the browser
 
@@ -74,7 +74,7 @@ import { IconAppRestaurant } from '@justeattakeaway/pie-icons-webc/icons';
 
 #### Lit Components
 ```js
-import '@justeattakeaway/pie-icons-webc/icons/IconAppRestaurant';
+import '@justeattakeaway/pie-icons-webc/IconAppRestaurant';
 
 export class MyAmazingComponent extends LitElement {
   render () {
@@ -122,7 +122,7 @@ Example:
 
 By using ES imports like `import { IconCalendar } from '@justeattakeaway/pie-icons-webc'` with Webpack v4+ or Rollup, unused exports in this module will be automatically eliminated.
 
-If you can't use a tree-shaking compatible build tool, then you can use the per-file icons from the [`/icons`](https://unpkg.com/@justeattakeaway/pie-icons-vue/icons/) directory, e.g. `import IconCalendar from '@justeattakeaway/pie-icons-webc/icons/IconCalendar'`.
+If you can't use a tree-shaking compatible build tool, then you can use the per-file icons from the [`/icons`](https://unpkg.com/@justeattakeaway/pie-icons-vue/) directory, e.g. `import IconCalendar from '@justeattakeaway/pie-icons-webc/IconCalendar'`.
 
 
 ### Browser Support

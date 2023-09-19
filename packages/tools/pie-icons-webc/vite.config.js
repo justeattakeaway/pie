@@ -27,13 +27,13 @@ export default defineConfig({
             },
             name: (name) => `@justeattakeaway/pie-icons-webc/${name}`,
             formats: ['es'],
-            fileName: () => 'dist/icons/[name].js',
+            fileName: () => 'dist/[name].js',
         },
         rollupOptions: {
             external: [/^lit/],
             output: {
                 exports: 'named',
-                dir: 'dist/icons',
+                dir: 'dist',
                 format: 'esm',
                 entryFileNames: '[name].js',
                 chunkFileNames: '[name].[hash].js',

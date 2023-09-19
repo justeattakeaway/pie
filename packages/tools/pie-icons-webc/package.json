@@ -2,27 +2,26 @@
   "name": "@justeattakeaway/pie-icons-webc",
   "version": "0.6.0",
   "type": "module",
-  "main": "dist/icons/index.js",
-  "types": "dist/icons/index.d.ts",
-  "module": "dist/icons/index.js",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
   "files": [
     "dist"
   ],
   "exports": {
     ".": {
-      "import": "./dist/icons/index.js",
-      "types": "./dist/icons/index.d.ts"
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
     },
-    "./icons/*": {
-      "import": "./dist/icons/*.js",
-      "types": "./dist/icons/*.d.ts"
+    "./*": {
+      "import": "./dist/*.js",
+      "types": "./dist/*.d.ts"
     }
   },
   "publishConfig": {
     "access": "public"
   },
   "sideEffects": [
-    "dist/icons/*.js"
+    "dist/*.js"
   ],
   "homepage": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons-webc",
   "contributors": [

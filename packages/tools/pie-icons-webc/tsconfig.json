@@ -3,7 +3,7 @@
     "compilerOptions": {
       "baseUrl": ".",
       "rootDir": "./icons",
-      "outDir": "./dist/icons",
+      "outDir": "./dist",
       "noEmit": false,
       "emitDeclarationOnly": true
     },
