@@ -1,7 +1,7 @@
 import { html, fixture, expect } from '@open-wc/testing';
 import { sizeToValueMap, largeIconSizeDefault, regularIconSizeDefault } from '@justeattakeaway/pie-icons-configs';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { IconAlcoholFilled, IconAlcoholFilledLarge } from '../dist/icons';
+import { IconAlcoholFilled, IconAlcoholFilledLarge } from '../dist';
 
 describe('IconAlcoholFilled', () => {
     it('should use the default width and height when not provided', async () => {
