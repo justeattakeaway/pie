@@ -2,8 +2,8 @@ import '@justeattakeaway/pie-css';
 import '@justeattakeaway/pie-button';
 import '@justeattakeaway/pie-modal';
 import '@justeattakeaway/pie-icon-button';
-import '@justeattakeaway/pie-icons-webc/dist/icons/IconClose';
-import '@justeattakeaway/pie-icons-webc/dist/icons/IconSearch';
+import '@justeattakeaway/pie-icons-webc/icons/IconClose';
+import '@justeattakeaway/pie-icons-webc/icons/IconSearch';
 import './style.css';
 import { setupCounter } from './counter';
 
