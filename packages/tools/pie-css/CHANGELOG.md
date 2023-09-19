@@ -1,5 +1,15 @@
 # @justeattakeaway/pie-css
 
+## 0.4.0
+
+### Minor Changes
+
+- [Added] - pie-css helper class and modified card container to accept draggable prop ([#801](https://github.com/justeattakeaway/pie/pull/801)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
+### Patch Changes
+
+- [Added] - README written for pie-css ([#805](https://github.com/justeattakeaway/pie/pull/805)) by [@ashleynolan](https://github.com/ashleynolan)
+
 ## 0.3.1
 
 ### Patch Changes

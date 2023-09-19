@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-icons-webc
 
+## 0.7.0
+
+### Minor Changes
+
+- [Changed] - switch from Rollup to Vite and remove Lit from configs.js bundle output. Also remote vite-dts-plugin and use tsc to generate icon type declaration files ([#815](https://github.com/justeattakeaway/pie/pull/815)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.6.0
 
 ### Minor Changes
