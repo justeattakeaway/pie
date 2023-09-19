@@ -71,6 +71,7 @@ import { PieLink } from '@justeattakeaway/pie-link/dist/react';
 | isStandalone  | `Boolean` | `false`     | If `true`, sets the link as a block element                                                        |
 | hasVisited    | `Boolean` | `false`     | If `true`, the link will apply the styles for the visited state                                    |
 | iconPlacement | `String`  | `leading`   | Icon placements of the icon slot, if provided, one of `iconPlacements` - `leading`, `trailing` |
+| aria | `object` | `undefined` | The ARIA labels used for the link. |
 
 In your markup or JSX, you can then use these to set the properties for the `pie-link` component:
 

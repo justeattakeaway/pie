@@ -6,7 +6,7 @@ import { validPropertyValues } from '@justeattakeaway/pie-webc-core';
 import styles from './link.scss?inline';
 import {
     LinkProps, variants, sizes, iconPlacements,
-    tags, buttonTypes, underlineTypes,
+    tags, buttonTypes, underlineTypes, type AriaProps,
 } from './defs';
 
 // Valid values available to consumers
@@ -62,6 +62,9 @@ export class PieLink extends LitElement implements LinkProps {
     @validPropertyValues(componentSelector, buttonTypes, 'submit')
     public type: LinkProps['type'] = 'submit';
 
+    @property({ type: Object })
+    public aria!: AriaProps;
+
     /**
      * Renders the link content.
      *
@@ -94,7 +97,8 @@ export class PieLink extends LitElement implements LinkProps {
                 ?isBold=${this.isBold}
                 ?isStandalone=${this.isStandalone}
                 ?hasVisited=${this.hasVisited}
-                type=${this.type || nothing}>
+                type=${this.type || nothing}
+                aria-label=${this.aria?.label || nothing}>
                     ${this.renderContent()}
             </button>`;
     }
@@ -118,7 +122,8 @@ export class PieLink extends LitElement implements LinkProps {
                 ?hasVisited=${this.hasVisited}
                 href=${this.href || nothing}
                 target=${this.target || nothing}
-                rel=${this.rel || nothing}>
+                rel=${this.rel || nothing}
+                aria-label=${this.aria?.label || nothing}>
                     ${this.renderContent()}
             </a>`;
     }

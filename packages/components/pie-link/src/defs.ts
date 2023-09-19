@@ -5,8 +5,16 @@ export const tags = ['a', 'button'] as const;
 export const buttonTypes = ['submit', 'button', 'reset', 'menu'] as const;
 export const underlineTypes = ['default', 'reversed'] as const;
 
+export type AriaProps = {
+    label?: string;
+};
+
 export interface LinkProps {
-     /**
+    /**
+     * The ARIA labels used for the link.
+     */
+    aria?: AriaProps;
+    /**
      * What HTML element the link should be such as a or button.
      */
     tag: typeof tags[number];
