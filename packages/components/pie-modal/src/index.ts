@@ -139,12 +139,17 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
      * Opens the dialog element and disables page scrolling
      */
     private _handleModalOpened () : void {
-        disableBodyScroll(this);
+        const dialogScrollContainer = this._dialog?.querySelector('.c-modal-scrollContainer');
+
         if (this._dialog?.hasAttribute('open') || !this._dialog?.isConnected) {
             return;
         }
         // The ::backdrop pseudoelement is only shown if the modal is opened via JS
         this._dialog?.showModal();
+
+        if (dialogScrollContainer) {
+            disableBodyScroll(dialogScrollContainer);
+        }
     }
 
     /**
