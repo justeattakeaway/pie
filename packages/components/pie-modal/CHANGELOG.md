@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-modal
 
+## 0.20.0
+
+### Minor Changes
+
+- [Changed] - use newer webc icon import paths ([#815](https://github.com/justeattakeaway/pie/pull/815)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.19.1
 
 ### Patch Changes

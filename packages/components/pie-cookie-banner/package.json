@@ -33,8 +33,8 @@
     "@justeattakeaway/pie-components-config": "0.4.0",
     "@justeattakeaway/pie-icon-button": "0.14.1",
     "@justeattakeaway/pie-link": "0.3.0",
-    "@justeattakeaway/pie-modal": "0.19.1",
-    "@justeattakeaway/pie-toggle-switch": "0.8.0"
+    "@justeattakeaway/pie-modal": "0.20.0",
+    "@justeattakeaway/pie-toggle-switch": "0.9.0"
   },
   "dependencies": {
     "@justeattakeaway/pie-webc-core": "0.8.0"

@@ -7,7 +7,7 @@ import styles from './toggle-switch.scss?inline';
 import {
     ToggleSwitchProps, ON_TOGGLE_SWITCH_CHANGED_EVENT, AriaProps, labelPlacements,
 } from './defs';
-import '@justeattakeaway/pie-icons-webc/dist/icons/IconCheck.js';
+import '@justeattakeaway/pie-icons-webc/IconCheck';
 
 // Valid values available to consumers
 export * from './defs';
