@@ -1,10 +1,12 @@
-import { LitElement, unsafeCSS, nothing } from 'lit';
-import { html, unsafeStatic } from 'lit/static-html.js';
+import {
+    html, LitElement, unsafeCSS, nothing, TemplateResult,
+} from 'lit';
 import { property } from 'lit/decorators.js';
 import { validPropertyValues } from '@justeattakeaway/pie-webc-core';
 import styles from './link.scss?inline';
 import {
-    LinkProps, variants, sizes, iconPlacements, tags, buttonTypes,
+    LinkProps, variants, sizes, iconPlacements,
+    tags, buttonTypes, underlineTypes,
 } from './defs';
 
 // Valid values available to consumers
@@ -31,6 +33,10 @@ export class PieLink extends LitElement implements LinkProps {
     public size: LinkProps['size'] = 'medium';
 
     @property({ type: String })
+    @validPropertyValues(componentSelector, underlineTypes, 'default')
+    public underline: LinkProps['underline'] = 'default';
+
+    @property({ type: String })
     @validPropertyValues(componentSelector, iconPlacements, 'leading')
     public iconPlacement: LinkProps['iconPlacement'] = 'leading';
 
@@ -49,46 +55,78 @@ export class PieLink extends LitElement implements LinkProps {
     @property({ type: Boolean })
     public isStandalone = false;
 
+    @property({ type: Boolean })
+    public hasVisited = false;
+
     @property()
     @validPropertyValues(componentSelector, buttonTypes, 'submit')
     public type: LinkProps['type'] = 'submit';
 
-    render () {
-        const {
-            tag,
-            variant,
-            size,
-            iconPlacement,
-            isBold,
-            isStandalone,
-            href,
-            target,
-            rel,
-            type,
-        } = this;
-
-        const element = unsafeStatic(tag);
-        const isButton = tag === 'button';
-
+    /**
+     * Renders the link content.
+     *
+     * @private
+     */
+    private renderContent (): TemplateResult {
+        const { iconPlacement } = this;
         return html`
-            <${element}  
+                <span class="c-link-content">
+                    ${iconPlacement === 'leading' ? html`<slot name="icon"></slot>` : nothing}
+                    <slot></slot>
+                    ${iconPlacement === 'trailing' ? html`<slot name="icon"></slot>` : nothing}
+                </span>`;
+    }
+
+    /**
+     * Renders the link as a button element.
+     *
+     * @private
+     */
+    private renderButton (): TemplateResult {
+        return html`
+            <button
                 data-test-id="pie-link"
                 class="c-link"
-                tag="${tag}"
-                variant=${variant}
-                size=${size}
-                ?isBold=${isBold}
-                ?isStandalone=${isStandalone}
-                href=${!isButton && href ? href : nothing}
-                target=${!isButton && target ? target : nothing}
-                rel=${!isButton && rel ? rel : nothing}
-                type=${isButton && type ? type : nothing}>
-                    <span class="c-link-content">
-                        ${iconPlacement === 'leading' ? html`<slot name="icon"></slot>` : nothing}
-                        <slot></slot>
-                        ${iconPlacement === 'trailing' ? html`<slot name="icon"></slot>` : nothing}
-                    </span>
-            </${element}>`;
+                tag=${this.tag}
+                variant=${this.variant}
+                size=${this.size}
+                underline=${this.underline}
+                ?isBold=${this.isBold}
+                ?isStandalone=${this.isStandalone}
+                ?hasVisited=${this.hasVisited}
+                type=${this.type || nothing}>
+                    ${this.renderContent()}
+            </button>`;
+    }
+
+    /**
+     * Renders the link as an anchor element.
+     *
+     * @private
+     */
+    private renderAnchor (): TemplateResult {
+        return html`
+            <a
+                data-test-id="pie-link"
+                class="c-link"
+                tag=${this.tag}
+                variant=${this.variant}
+                size=${this.size}
+                underline=${this.underline}
+                ?isBold=${this.isBold}
+                ?isStandalone=${this.isStandalone}
+                ?hasVisited=${this.hasVisited}
+                href=${this.href || nothing}
+                target=${this.target || nothing}
+                rel=${this.rel || nothing}>
+                    ${this.renderContent()}
+            </a>`;
+    }
+
+    render () {
+        const isButton = this.tag === 'button';
+
+        return isButton ? this.renderButton() : this.renderAnchor();
     }
 
     // Renders a `CSSResult` generated from SCSS by Vite
