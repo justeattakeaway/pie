@@ -1,10 +1,5 @@
 @use '@justeattakeaway/pie-css/scss' as p;
 
-*,
-*:before,
-*:after {
-    box-sizing: border-box;
-}
 
 .pie-form-label {
     --form-label-font-size: #{p.font-size(--dt-font-size-14)};
