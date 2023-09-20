@@ -22,9 +22,11 @@
     "test": "run -T jest",
     "test:ci": "yarn test",
     "test:coverage": "jest --coverage",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "postinstall": "pie-update-notify"
   },
   "dependencies": {
+    "@justeattakeaway/pie-utils": "0.0.0",
     "cheerio": "1.0.0-rc.12",
     "classnames": "2.3.2",
     "html-minifier-terser": "7.2.0",

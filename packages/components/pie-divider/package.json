@@ -23,7 +23,8 @@
     "test:browsers": "npx playwright test -c ./playwright-lit.config.ts",
     "test:browsers:ci": "yarn test:browsers",
     "test:visual": "run -T cross-env-shell PERCY_TOKEN=${PERCY_TOKEN_PIE_DIVIDER} percy exec --allowed-hostname cloudfront.net -- npx playwright test -c ./playwright-lit-visual.config.ts",
-    "test:visual:ci": "yarn test:visual"
+    "test:visual:ci": "yarn test:visual",
+    "postinstall": "pie-update-notify"
   },
   "author": "JustEatTakeaway.com - Design System Web Team",
   "license": "Apache-2.0",
@@ -31,6 +32,7 @@
     "@justeattakeaway/pie-components-config": "workspace:*"
   },
   "dependencies": {
+    "@justeattakeaway/pie-utils": "0.0.0",
     "@justeattakeaway/pie-webc-core": "workspace:*"
   },
   "volta": {

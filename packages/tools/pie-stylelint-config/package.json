@@ -16,16 +16,20 @@
     "./strict": "./rules/strict.js",
     "./ordering": "./rules/ordering.js"
   },
+  "scripts": {
+    "lint:scripts": "run -T eslint .",
+    "lint:scripts:fix": "run -T eslint . --fix",
+    "test": "run -T jest",
+    "test:ci": "yarn test",
+    "postinstall": "pie-update-notify"
+  },
   "peerDependencies": {
     "stylelint": "14.x",
     "stylelint-config-standard-scss": "5.x",
     "stylelint-order": "5.x"
   },
-  "scripts": {
-    "lint:scripts": "run -T eslint .",
-    "lint:scripts:fix": "run -T eslint . --fix",
-    "test": "run -T jest",
-    "test:ci": "yarn test"
+  "dependencies": {
+    "@justeattakeaway/pie-utils": "0.0.0"
   },
   "jest": {
     "testEnvironment": "jsdom"

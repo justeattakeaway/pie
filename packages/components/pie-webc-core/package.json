@@ -11,7 +11,11 @@
     "lint:scripts:fix": "run -T eslint . --fix",
     "test": "run -T vitest run",
     "test:ci": "yarn test",
-    "test:watch": "run -T vitest"
+    "test:watch": "run -T vitest",
+    "postinstall": "pie-update-notify"
+  },
+  "dependencies": {
+    "@justeattakeaway/pie-utils": "0.0.0"
   },
   "volta": {
     "extends": "../../../package.json"

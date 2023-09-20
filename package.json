@@ -36,7 +36,7 @@
     "lint:scripts:fix": "turbo run lint:scripts:fix --filter=!pie-monorepo",
     "lint:style": "cross-env-shell turbo run lint:style --continue --filter=!pie-monorepo --token=${TURBO_TOKEN}",
     "lint:style:fix": "turbo run lint:style:fix --filter=!pie-monorepo",
-    "postinstall": "husky install",
+    "_postinstall": "husky install",
     "prepack": "pinst --disable",
     "postpack": "pinst --enable",
     "test": "cross-env-shell turbo run test --filter=!pie-monorepo --token=${TURBO_TOKEN}",

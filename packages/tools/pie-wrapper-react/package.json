@@ -12,7 +12,8 @@
     "build:wrapper": "yarn cem analyze --litelement && node ./scripts/add-react-wrapper.js",
     "lint:scripts": "run -T eslint .",
     "lint:scripts:fix": "run -T eslint . --fix",
-    "test": "run -T jest"
+    "test": "run -T jest",
+    "postinstall": "pie-update-notify"
   },
   "jest": {
     "testPathIgnorePatterns": [
@@ -27,6 +28,9 @@
     "@types/react": "18.0.33",
     "cem-plugin-module-file-extensions": "0.0.5",
     "fs-extra": "9.1.0"
+  },
+  "dependencies": {
+    "@justeattakeaway/pie-utils": "0.0.0"
   },
   "volta": {
     "extends": "../../../package.json"

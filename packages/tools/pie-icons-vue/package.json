@@ -46,12 +46,14 @@
     "prepublishOnly": "yarn lint:scripts && yarn build",
     "test": "run -T vitest run",
     "test:ci": "yarn test",
-    "test:watch": "run -T vitest"
+    "test:watch": "run -T vitest",
+    "postinstall": "pie-update-notify"
   },
   "browserslist": [
     "extends @justeat/browserslist-config-fozzie"
   ],
   "dependencies": {
+    "@justeattakeaway/pie-utils": "0.0.0",
     "@vue/babel-helper-vue-jsx-merge-props": "1.4.0"
   },
   "devDependencies": {

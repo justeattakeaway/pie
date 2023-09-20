@@ -1,0 +1,19 @@
+{
+  "name": "@justeattakeaway/pie-utils",
+  "version": "0.0.0",
+  "type": "module",
+  "description": "Scripts and utilities used by the PIE Design System packages",
+  "bin": {
+    "pie-update-notify": "update-notifier.js"
+  },
+  "scripts": {
+    "lint:scripts": "run -T eslint .",
+    "lint:scripts:fix": "run -T eslint . --fix"
+  },
+  "volta": {
+    "extends": "../../package.json"
+  },
+  "dependencies": {
+    "update-notifier": "6.0.2"
+  }
+}
