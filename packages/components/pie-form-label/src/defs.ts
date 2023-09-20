@@ -1,3 +1,14 @@
-// TODO - please remove the eslint disable comment below when you add props to this interface
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
-export interface FormLabelProps {}
+export interface FormLabelProps {
+    /**
+    * The native for HTML attribute.
+    */
+    for?: string;
+    /**
+    * Optional text to be placed next to the main label.
+    */
+    optional?: string;
+    /**
+    * What the trailing text of the label should be.
+    */
+    trailing?: string;
+}
