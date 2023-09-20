@@ -8,7 +8,7 @@ export interface FormLabelProps {
     */
     optional?: string;
     /**
-    * What the trailing text of the label should be.
+    * What the trailing text of the label component should be.
     */
     trailing?: string;
 }

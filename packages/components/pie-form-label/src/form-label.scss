@@ -1,12 +1,10 @@
 @use '@justeattakeaway/pie-css/scss' as p;
 
-
 .pie-form-label {
     --form-label-font-size: #{p.font-size(--dt-font-size-14)};
     --form-label-line-height: calc(var(--dt-font-size-14-line-height) * 1px);
     --form-label-font-weight: var(--dt-font-weight-bold);
     --form-label-color: var(--dt-color-content-default);
-    --form-label-offset: var(--dt-spacing-a);
 
     display: flex;
     justify-content: space-between;
@@ -16,7 +14,7 @@
     font-size: var(--form-label-font-size);
     line-height: var(--form-label-line-height);
     font-weight: var(--form-label-font-weight);
-    margin-block-end: var(--form-label-offset);
+    margin-block-end: var(--dt-spacing-a);
 }
 
 .pie-form-label-optional,
