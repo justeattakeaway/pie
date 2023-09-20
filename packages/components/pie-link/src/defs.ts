@@ -47,7 +47,7 @@ export interface LinkProps {
      */
     isBold: boolean;
     /**
-     * When true, the link will be treated as a block box
+     * When true, the link will be treated as a block element
      */
     isStandalone: boolean;
     /**

@@ -99,7 +99,7 @@ const linkStoryMeta: LinkStoryMeta = {
             },
         },
         isStandalone: {
-            description: 'If `true`, the link will be treated as a block box.',
+            description: 'If `true`, the link will be treated as a block element.',
             control: 'boolean',
             defaultValue: {
                 summary: false,
