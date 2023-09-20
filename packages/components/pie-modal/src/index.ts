@@ -1,5 +1,5 @@
 import {
-    LitElement, nothing, TemplateResult, unsafeCSS, isServer,
+    LitElement, nothing, TemplateResult, unsafeCSS,
 } from 'lit';
 import { html, unsafeStatic } from 'lit/static-html.js';
 import { property, query } from 'lit/decorators.js';
@@ -97,15 +97,9 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
     // Renders a `CSSResult` generated from SCSS by Vite
     static styles = unsafeCSS(styles);
 
-    constructor () {
-        super();
-        if (!isServer) {
-            this.addEventListener('click', (event) => this._handleDialogLightDismiss(event));
-        }
-    }
-
     connectedCallback () : void {
         super.connectedCallback();
+        this.addEventListener('click', (event) => this._handleDialogLightDismiss(event));
         document.addEventListener(ON_MODAL_OPEN_EVENT, this._handleModalOpened.bind(this));
         document.addEventListener(ON_MODAL_CLOSE_EVENT, this._handleModalClosed.bind(this));
         document.addEventListener(ON_MODAL_BACK_EVENT, this._handleModalClosed.bind(this));
