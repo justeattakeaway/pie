@@ -65,12 +65,13 @@ _Note: If this step fails, ensure you have installed the repository dependencies
 - Update the test:visual command in package.json to the following:
 
 ```sh
-"test:visual": "run -T cross-env-shell PERCY_TOKEN=${PERCY_TOKEN_COMPONENT_NAME} percy exec --allowed-hostname cloudfront.net -- npx playwright test -c ./playwright-lit-visual.config.ts",
+"test:visual": "run -T cross-env-shell PERCY_TOKEN=${PERCY_TOKEN_PIE_COMPONENT_NAME} percy exec --allowed-hostname cloudfront.net -- npx playwright test -c ./playwright-lit-visual.config.ts",
 ```
+
 - Add the token environment variable to `github/workflows/ci.yml` as follows:
 
 ```sh
-  PERCY_TOKEN_COMPONENT_NAME: ${{ secrets.PERCY_TOKEN_COMPONENT_NAME }}
+  PERCY_TOKEN_PIE_COMPONENT_NAME: ${{ secrets.PERCY_TOKEN_PIE_COMPONENT_NAME }}
 ```
 
 ### Setting up the project label for Github:

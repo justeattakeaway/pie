@@ -24,6 +24,7 @@ const defaultArgs: CardContainerProps = {
     aria: {
         label: 'Click to go to restaurant',
     },
+    isDraggable: false,
     // This is just an arbitrary example of some markup a user may pass into the card
     slot: `<div style="color: var(--card-color); font-size: calc(var(--dt-font-body-l-size) * 1px); font-family: var(--dt-font-interactive-m-family); padding: var(--dt-spacing-b);">
         <h2> Card title </h2>
@@ -88,6 +89,12 @@ const cardContainerStoryMeta: CardContainerStoryMeta = {
             description: 'The ARIA labels used for various parts of the card.',
             control: 'object',
         },
+        isDraggable: {
+            control: 'boolean',
+            defaultValue: {
+                summary: false,
+            },
+        },
     },
     args: defaultArgs,
     parameters: {
@@ -109,6 +116,7 @@ const Template: TemplateFunction<CardContainerProps> = ({
     slot,
     aria,
     variant,
+    isDraggable,
 }) => {
     const darkMode = variant.includes('inverse');
 
@@ -121,7 +129,8 @@ const Template: TemplateFunction<CardContainerProps> = ({
             target="${target || nothing}"
             rel="${rel || nothing}"
             ?disabled="${disabled}"
-            .aria="${aria}">
+            .aria="${aria}"
+            ?isDraggable="${isDraggable}">
             ${unsafeStatic(slot)}
         </pie-card-container>
     </div>
