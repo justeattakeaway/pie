@@ -10,6 +10,7 @@ import type { DependentMap } from '@justeattakeaway/pie-webc-core';
 import '@justeattakeaway/pie-icons-webc/IconClose';
 import '@justeattakeaway/pie-icons-webc/IconChevronLeft';
 import '@justeattakeaway/pie-icons-webc/IconChevronRight';
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 
 import styles from './modal.scss?inline';
 import {
@@ -133,6 +134,7 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
      * Opens the dialog element and disables page scrolling
      */
     private _handleModalOpened () : void {
+        disableBodyScroll(this);
         if (this._dialog?.hasAttribute('open') || !this._dialog?.isConnected) {
             return;
         }
@@ -144,6 +146,7 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
      * Closes the dialog element and re-enables page scrolling
      */
     private _handleModalClosed () : void {
+        enableBodyScroll(this);
         this._dialog?.close();
         this._returnFocus();
     }
