@@ -11,8 +11,6 @@ import '@justeattakeaway/pie-icons-webc/IconClose';
 import '@justeattakeaway/pie-icons-webc/IconChevronLeft';
 import '@justeattakeaway/pie-icons-webc/IconChevronRight';
 
-import getPolyfill from './dialogPolyfillWrapper';
-
 import styles from './modal.scss?inline';
 import {
     type AriaProps,
@@ -108,25 +106,21 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
 
     connectedCallback () : void {
         super.connectedCallback();
-        if (!isServer) {
-            document.addEventListener(ON_MODAL_OPEN_EVENT, this._handleModalOpened.bind(this));
-            document.addEventListener(ON_MODAL_CLOSE_EVENT, this._handleModalClosed.bind(this));
-            document.addEventListener(ON_MODAL_BACK_EVENT, this._handleModalClosed.bind(this));
-        }
+        document.addEventListener(ON_MODAL_OPEN_EVENT, this._handleModalOpened.bind(this));
+        document.addEventListener(ON_MODAL_CLOSE_EVENT, this._handleModalClosed.bind(this));
+        document.addEventListener(ON_MODAL_BACK_EVENT, this._handleModalClosed.bind(this));
     }
 
     disconnectedCallback () : void {
-        if (!isServer) {
-            document.removeEventListener(ON_MODAL_OPEN_EVENT, this._handleModalOpened.bind(this));
-            document.removeEventListener(ON_MODAL_CLOSE_EVENT, this._handleModalClosed.bind(this));
-            document.removeEventListener(ON_MODAL_BACK_EVENT, this._handleModalClosed.bind(this));
-        }
+        document.removeEventListener(ON_MODAL_OPEN_EVENT, this._handleModalOpened.bind(this));
+        document.removeEventListener(ON_MODAL_CLOSE_EVENT, this._handleModalClosed.bind(this));
+        document.removeEventListener(ON_MODAL_BACK_EVENT, this._handleModalClosed.bind(this));
         super.disconnectedCallback();
     }
 
     async firstUpdated (changedProperties: DependentMap<ModalProps>) : Promise<void> {
         if (this._dialog) {
-            const dialogPolyfill = await getPolyfill();
+            const dialogPolyfill = await import('dialog-polyfill').then((module) => module.default);
             dialogPolyfill.registerDialog(this._dialog);
             this._dialog.addEventListener('cancel', (event) => this._handleDialogCancelEvent(event));
             this._dialog.addEventListener('close', () => {
