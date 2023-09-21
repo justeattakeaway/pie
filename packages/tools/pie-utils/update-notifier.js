@@ -3,7 +3,7 @@ import updateNotifier from 'update-notifier';
 import path from 'path';
 import { promises as fs } from 'fs';
 
-async function notifyUpdate() {
+async function notifyUpdate () {
     // Resolve the path to the package.json of the calling module
     const pkgPath = path.join(process.cwd(), 'package.json');
 
@@ -15,10 +15,10 @@ async function notifyUpdate() {
     const notifier = updateNotifier({
         pkg,
         updateCheckInterval: 0,
-        shouldNotifyInNpmScript: true, // one day in milliseconds
+        shouldNotifyInNpmScript: true,
     });
 
     notifier.notify();
 }
 
-notifyUpdate();
+await notifyUpdate();
