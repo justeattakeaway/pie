@@ -1,6 +1,7 @@
 
 import { test, expect } from '@sand4rt/experimental-ct-web';
 import { PieCardContainer, CardContainerProps } from '@/index';
+import { interactionTypes } from '@/defs';
 
 const componentSelector = '[data-test-id="pie-card-container"]';
 const slotSelector = '[data-test-id="slot-content"]';
@@ -143,26 +144,27 @@ test.describe('PieCardContainer - Component tests', () => {
         });
     });
 
-    test('should add an aria-label attribute that matches the value of the aria.label prop', async ({ mount, page }) => {
-        // Arrange
-        const label = 'foo';
+    interactionTypes.forEach((interactionType) => {
+        test(`should add an aria-label attribute that matches the value of the aria.label prop when interactionType is ${interactionType}`, async ({ mount, page }) => {
+            // Arrange
+            const label = 'foo';
 
-        await mount(PieCardContainer, {
-            props: {
-                aria: {
-                    label,
+            await mount(PieCardContainer, {
+                props: {
+                    interactionType,
+                    aria: { label },
+                } as CardContainerProps,
+                slots: {
+                    default: slotContent,
                 },
-            } as CardContainerProps,
-            slots: {
-                default: slotContent,
-            },
+            });
+
+            // Act
+            const component = page.locator(componentSelector);
+
+            // Assert
+            await expect(component).toHaveAttribute('aria-label', label);
         });
-
-        // Act
-        const component = page.locator(componentSelector);
-
-        // Assert
-        await expect(component).toHaveAttribute('aria-label', label);
     });
 
     test('should add a variant attribute that matches the variant prop provided', async ({ mount, page }) => {

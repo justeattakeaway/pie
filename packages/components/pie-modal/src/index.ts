@@ -136,7 +136,12 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
      * Opens the dialog element and disables page scrolling
      */
     private _handleModalOpened () : void {
-        disableBodyScroll(this);
+        const modalScrollContainer = this._dialog?.querySelector('.c-modal-scrollContainer');
+
+        if (modalScrollContainer) {
+            disableBodyScroll(modalScrollContainer);
+        }
+
         if (this._dialog?.hasAttribute('open') || !this._dialog?.isConnected) {
             return;
         }
@@ -148,7 +153,12 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
      * Closes the dialog element and re-enables page scrolling
      */
     private _handleModalClosed () : void {
-        enableBodyScroll(this);
+        const modalScrollContainer = this._dialog?.querySelector('.c-modal-scrollContainer');
+
+        if (modalScrollContainer) {
+            enableBodyScroll(modalScrollContainer);
+        }
+
         this._dialog?.close();
         this._returnFocus();
     }
@@ -324,7 +334,7 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
      */
     private renderModalContentAndFooter (): TemplateResult {
         return html`
-        <article class="c-modal-content c-modal-content--scrollable">
+        <article class="c-modal-scrollContainer c-modal-content c-modal-content--scrollable">
             <div class="c-modal-contentInner">
                 <slot></slot>
             </div>

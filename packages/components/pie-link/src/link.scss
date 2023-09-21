@@ -1,5 +1,17 @@
 @use '@justeattakeaway/pie-css/scss' as p;
 
+
+@mixin link-interactive-states($mode: 'default') {
+    &:hover,
+    &:active {
+        @if $mode == 'reversed' {
+            --link-text-decoration: var(--dt-font-style-underline);
+        } @else {
+            --link-text-decoration: none;
+        }
+    }
+}
+
 .c-link {
     --link-font-family: var(--dt-font-interactive-m-family);
     --link-font-size: #{p.font-size(--dt-font-size-16)};
@@ -51,12 +63,36 @@
         /* Same as default styles */
     }
 
+    &[underline='default'] {
+        /* Same as default styles */
+
+        @include link-interactive-states('default');
+    }
+
+    &[underline='reversed'] {
+        --link-text-decoration: none;
+
+        @include link-interactive-states('reversed');
+    }
+
     &[isBold] {
         --link-font-weight: var(--dt-font-weight-bold);
     }
 
     &[isStandalone] {
         display: block;
+    }
+
+    &[hasVisited]:visited {
+        color: var(--dt-color-content-link-visited);
+
+        &[variant='inverse'] {
+            color: var(--dt-color-content-link-visited-inverse);
+        }
+    }
+
+    &:focus-visible {
+        box-shadow: 0 0 0 2px var(--dt-color-focus-outer);
     }
 }
 
