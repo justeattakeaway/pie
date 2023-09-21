@@ -59,16 +59,19 @@ import { PieLink } from '@justeattakeaway/pie-link/dist/react';
 
 | Property      | Type        | Default       | Description                                                                                          |
 | ------------- | ----------- | ------------- | ---------------------------------------------------------------------------------------------------- |
-| tag           | `String`  | `a`         | The rendered HTML element of the link, one of `tags` – `a`, `button`                         |
+| tag           | `String`  | `a`         | The rendered HTML element of the link, one of `tags` – `a`, `button`                        |
 | variant       | `String`  | `default`   | Variant of the link, one of `variants` – `default`, `high-visibility`, `inverse`         |
 | size          | `String`  | `medium`    | Size of the link, one of `sizes` – `medium`, `small`                                          |
+| underline          | `String`  | `default`    | The underline behavior of the link, one of `underlineTypes` – `default`, `reversed`                                          |
 | href          | `String`  | `undefined` | Native html `href` attribute                                                                       |
 | rel           | `String`  | `undefined` | Native html `rel` attribute                                                                        |
 | target        | `String`  | `undefined` | Native html `target` attribute                                                                     |
 | type          | `String`  | `submit`    | Native html `type` attribute if the tag is set to `button`                                       |
 | isBold        | `Boolean` | `false`     | If `true`, sets the link text bold                                                                 |
 | isStandalone  | `Boolean` | `false`     | If `true`, sets the link as a block element                                                        |
+| hasVisited    | `Boolean` | `false`     | If `true`, the link will apply the styles for the visited state                                    |
 | iconPlacement | `String`  | `leading`   | Icon placements of the icon slot, if provided, one of `iconPlacements` - `leading`, `trailing` |
+| aria | `object` | `undefined` | The ARIA labels used for the link. |
 
 In your markup or JSX, you can then use these to set the properties for the `pie-link` component:
 
