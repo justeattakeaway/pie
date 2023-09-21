@@ -4,23 +4,12 @@ import { exec } from 'node:child_process';
 import { resolve } from 'import-meta-resolve';
 import { globSync } from 'glob';
 
-const modulePath = resolve('pie-storybook', import.meta.url);
-const resolvedPath = path.parse(modulePath).dir.replace(/file:\/\//, '');
-const files = globSync(`${resolvedPath}/*.stories.ts`);
-
-const template = `import '@justeattakeaway/pie-css';
-import * as Stories from 'pie-storybook/FILE_NAME';
-
-import { renderStories } from './render-stories';
-
-renderStories(Stories);
-`;
-
-function runBashCommand (cmd) {
+function runCommand (cmd) {
     console.info(cmd);
     return new Promise((resolve, reject) => {
         exec(cmd, (err, stdout, stderr) => {
             if (err) {
+                console.error(err);
                 reject(err);
             }
             console.info(stdout || stderr);
@@ -29,11 +18,12 @@ function runBashCommand (cmd) {
     });
 }
 
-async function processQueue (iterable, action) {
+async function runInSeries (aFunction, arrItems) {
     // eslint-disable-next-line no-restricted-syntax
-    for (const x of iterable) {
+    for (const item of arrItems) {
         // eslint-disable-next-line no-await-in-loop
-        await action(x);
+        await aFunction(item);
+        // TODO: Provide proper error handling strategy
     }
 }
 
@@ -47,7 +37,18 @@ function buildPage (filePath) {
     // build page with vite into a specific folder
     const destFolderName = fileName.replace(/\.stories/, '');
     const cmd = `yarn vite build --outDir dist/${destFolderName}`;
-    return runBashCommand(cmd);
+    return runCommand(cmd);
 }
 
-await processQueue(files, buildPage);
+const template = `import '@justeattakeaway/pie-css';
+import * as Stories from 'pie-storybook/FILE_NAME';
+
+import { renderStories } from './render-stories';
+
+renderStories(Stories);
+`;
+
+const storiesModulePath = resolve('pie-storybook', import.meta.url);
+const storiesResolvedPath = path.parse(storiesModulePath).dir.replace(/file:\/\//, '');
+const storiesFiles = globSync(`${storiesResolvedPath}/*.stories.ts`);
+await runInSeries(buildPage, storiesFiles);
