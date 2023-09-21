@@ -1,6 +1,7 @@
 
 import { test, expect } from '@sand4rt/experimental-ct-web';
 import { PieLink, LinkProps } from '@/index';
+import { tags } from '@/defs';
 
 const componentSelector = '[data-test-id="pie-link"]';
 
@@ -73,5 +74,28 @@ test.describe('PieLink - Component tests', () => {
         await expect(buttonLink).not.toHaveAttribute('href', '#');
         await expect(buttonLink).not.toHaveAttribute('target', '_blank');
         await expect(buttonLink).not.toHaveAttribute('rel', 'nofollow');
+    });
+
+    tags.forEach((tag) => {
+        test(`should add an aria-label attribute that matches the value of the aria.label prop when tag is ${tag}`, async ({ mount, page }) => {
+            // Arrange
+            const label = 'foo';
+
+            await mount(PieLink, {
+                props: {
+                    ...props,
+                    tag,
+                    aria: { label },
+                },
+                slots: { default: 'Anchor Link!' },
+
+            });
+
+            // Act
+            const component = page.locator(componentSelector);
+
+            // Assert
+            await expect(component).toHaveAttribute('aria-label', label);
+        });
     });
 });

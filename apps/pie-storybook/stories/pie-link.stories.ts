@@ -1,7 +1,7 @@
 import { html, nothing } from 'lit';
 import {
-    PieLink, LinkProps as LinkBaseProps, sizes,
-    variants, iconPlacements, tags, buttonTypes,
+    PieLink, LinkProps as LinkBaseProps, sizes, variants,
+    iconPlacements, tags, buttonTypes, underlineTypes,
 } from '@justeattakeaway/pie-link';
 import type { StoryMeta, SlottedComponentProps } from '../types';
 import { createStory, type TemplateFunction } from '../utilities';
@@ -17,10 +17,12 @@ const defaultArgs: LinkProps = {
     tag: 'a',
     variant: 'default',
     size: 'medium',
+    underline: 'default',
     href: 'https://pie.design',
     target: '_blank',
     isBold: false,
     isStandalone: false,
+    hasVisited: false,
     slot: 'Link',
 };
 
@@ -52,23 +54,31 @@ const linkStoryMeta: LinkStoryMeta = {
                 summary: 'medium',
             },
         },
+        underline: {
+            description: 'Set the underline behavior of the link.',
+            control: 'select',
+            options: underlineTypes,
+            defaultValue: {
+                summary: 'default',
+            },
+        },
         iconPlacement: {
-            description: 'Show a leading/trailing icon.<br /><br />To use this with pie-link, you can pass an icon into the `icon` slot',
+            description: 'Show a leading/trailing icon.<br /><br />To use this with pie-link, you can pass an icon into the `icon` slot.',
             control: 'select',
             options: [undefined, ...iconPlacements],
         },
         href: {
-            description: 'The URL that the hyperlink should point to',
+            description: 'The URL that the hyperlink should point to.',
             control: 'text',
             if: { arg: 'tag', eq: 'a' },
         },
         target: {
-            description: 'Set where to display the linked URL',
+            description: 'Set where to display the linked URL.',
             control: 'text',
             if: { arg: 'tag', eq: 'a' },
         },
         rel: {
-            description: 'Set what the relationship of the linked URL is',
+            description: 'Set what the relationship of the linked URL is.',
             control: 'text',
             if: { arg: 'tag', eq: 'a' },
         },
@@ -82,18 +92,26 @@ const linkStoryMeta: LinkStoryMeta = {
             if: { arg: 'tag', eq: 'button' },
         },
         isBold: {
-            description: 'If `true`, makes the link text bold',
+            description: 'If `true`, makes the link text bold.',
             control: 'boolean',
             defaultValue: {
                 summary: false,
             },
         },
         isStandalone: {
-            description: 'If `true`, the link will be treated as a block box',
+            description: 'If `true`, the link will be treated as a block element.',
             control: 'boolean',
             defaultValue: {
                 summary: false,
             },
+        },
+        hasVisited: {
+            description:  'If `true`, the link will apply the styles for the visited state.',
+            control: 'boolean',
+            defaultValue: {
+                summary: false,
+            },
+            if: { arg: 'tag', eq: 'a' },
         },
         slot: {
             description: 'The default slot is used to pass the button text into the component.',
@@ -121,9 +139,11 @@ const Template : TemplateFunction<LinkProps> = ({
     rel,
     size,
     variant,
+    underline,
     type,
     isBold,
     isStandalone,
+    hasVisited,
     slot,
     iconPlacement,
 }) => html`
@@ -131,13 +151,15 @@ const Template : TemplateFunction<LinkProps> = ({
             tag="${tag}"
             variant="${variant}"
             size="${size}"
+            underline="${underline}"
             iconPlacement="${iconPlacement || nothing}"
             href="${href || nothing}"
             target="${target || nothing}"
             rel="${rel || nothing}"
             type="${type || nothing}"
             ?isBold="${isBold}"
-            ?isStandalone="${isStandalone}">
+            ?isStandalone="${isStandalone}"
+            ?hasVisited="${hasVisited}">
             ${iconPlacement ? html`<icon-plus-circle slot="icon"></icon-plus-circle>` : nothing}
             ${slot}
         </pie-link>`;
