@@ -12,6 +12,5 @@ module.exports = {
     IOS_JUSTUI: 'iosJustUI',
     IOS_PIE: 'iosPIE',
     ANDROID_XML: 'androidXML',
-    ANDROID_JETPACK: 'androidJetpack'
-
+    ANDROID_JETPACK: 'androidJetpack',
 };
