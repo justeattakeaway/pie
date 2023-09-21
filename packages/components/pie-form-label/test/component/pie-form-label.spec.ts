@@ -8,7 +8,16 @@ test.describe('PieFormLabel - Component tests', () => {
     test('should render successfully', async ({ mount, page }) => {
         // Arrange
         await mount(PieFormLabel, {
-            props: {} as FormLabelProps,
+            // TODO: remove @ts-ignore when https://github.com/sand4rt/playwright-ct-web/issues/27 is fixed
+            // @ts-ignore
+            props: {
+                for: 'form-label',
+                optional: 'Optional',
+                trailing: 'X out X',
+            } as FormLabelProps,
+            slots: {
+                default: 'Label',
+            },
         });
 
         // Act
