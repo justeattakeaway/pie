@@ -5,7 +5,7 @@ import {
     WebComponentTestWrapper,
 } from '@justeattakeaway/pie-webc-testing/src/helpers/components/web-component-test-wrapper/WebComponentTestWrapper.ts';
 import type {
-    PropObject, WebComponentPropValues, WebComponentTestInput,
+    WebComponentPropValues, WebComponentTestInput,
 } from '@justeattakeaway/pie-webc-testing/src/helpers/defs.ts';
 import {
     createTestWebComponent,
