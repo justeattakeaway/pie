@@ -10,7 +10,6 @@ import {
     positions,
 } from '@justeattakeaway/pie-modal/src/defs';
 
-import { i18nArgTypes } from '../args/commonArgsTypes';
 import { StoryMeta, SlottedComponentProps } from '../types';
 import { createStory } from '../utilities';
 
@@ -59,7 +58,6 @@ const modalStoryMeta: ModalStoryMeta = {
     title: 'Modal',
     component: 'pie-modal',
     argTypes: {
-        ...i18nArgTypes,
         isDismissible: {
             description: 'Allows dismissing the modal by clicking outside of it, using the escape key or close button.',
             control: 'boolean',

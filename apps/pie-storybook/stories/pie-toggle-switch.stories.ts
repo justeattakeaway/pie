@@ -2,7 +2,6 @@ import { html, nothing } from 'lit';
 import { PieToggleSwitch, ToggleSwitchProps, labelPlacements } from '@justeattakeaway/pie-toggle-switch';
 import { IconCheck } from '@justeattakeaway/pie-icons-webc';
 import { StoryMeta } from '../types';
-import { i18nArgTypes } from '../args/commonArgsTypes';
 import { createStory, type TemplateFunction } from '../utilities';
 
 // This prevents storybook from tree shaking the components
@@ -29,7 +28,6 @@ const toggleSwitchStoryMeta: ToggleSwitchStoryMeta = {
     title: 'Toggle Switch',
     component: 'pie-toggle-switch',
     argTypes: {
-        ...i18nArgTypes,
         isChecked: {
             description: 'Same as the HTML checked attribute - indicates whether the switch is on or off',
             control: 'boolean',
