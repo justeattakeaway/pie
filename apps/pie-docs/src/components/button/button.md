@@ -35,7 +35,7 @@ Buttons serve a wide range of purposes in user interfaces, such as submitting fo
         {
             resource: resourceTypes.WEB_COMPONENTS,
             link: "https://webc.pie.design/?path=/story/button--primary",
-            status: statusTypes.PRE_RELEASE
+            status: statusTypes.ALPHA
         },
         {
             resource: resourceTypes.VUE,
@@ -48,11 +48,19 @@ Buttons serve a wide range of purposes in user interfaces, such as submitting fo
             status: statusTypes.AVAILABLE
         },
         {
-            resource: resourceTypes.IOS,
+            resource: resourceTypes.IOS_JUSTUI,
             status: statusTypes.AVAILABLE
         },
         {
-            resource: resourceTypes.ANDROID,
+            resource: resourceTypes.IOS_PIE,
+            status: statusTypes.AVAILABLE
+        },
+        {
+            resource: resourceTypes.ANDROID_XML,
+            status: statusTypes.AVAILABLE
+        },
+        {
+            resource: resourceTypes.ANDROID_JETPACK,
             status: statusTypes.AVAILABLE
         }
     ]
