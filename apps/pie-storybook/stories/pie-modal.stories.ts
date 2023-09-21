@@ -34,6 +34,7 @@ const defaultArgs: ModalProps = {
     isFooterPinned: true,
     isFullWidthBelowMid: false,
     isOpen: true,
+    dir: 'ltr',
     isLoading: false,
     size: 'medium',
     position: 'center',
