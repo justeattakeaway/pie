@@ -80,7 +80,6 @@ export default toggleSwitchStoryMeta;
 
 const Template : TemplateFunction<ToggleSwitchProps> = (props) => {
     const {
-        dir,
         aria,
         isChecked,
         isDisabled,
@@ -93,7 +92,6 @@ const Template : TemplateFunction<ToggleSwitchProps> = (props) => {
             label="${label || nothing}"
             labelPlacement="${label && labelPlacement ? labelPlacement : nothing}"
             .aria="${aria}"
-            dir="${dir || nothing}"
             ?isChecked="${isChecked}"
             ?isDisabled="${isDisabled}"
         />`;

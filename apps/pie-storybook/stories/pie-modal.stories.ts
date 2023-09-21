@@ -1,4 +1,4 @@
-import { html, TemplateResult, nothing } from 'lit';
+import { html, TemplateResult } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { PieIconButton } from '@justeattakeaway/pie-icon-button';
 import { PieModal } from '@justeattakeaway/pie-modal';
@@ -34,7 +34,6 @@ const defaultArgs: ModalProps = {
     isFooterPinned: true,
     isFullWidthBelowMid: false,
     isOpen: true,
-    dir: 'ltr',
     isLoading: false,
     size: 'medium',
     position: 'center',
@@ -172,7 +171,6 @@ const createFocusableElementsPageHTML = () : TemplateResult => html`
 const BaseStoryTemplate = (props: ModalProps) : TemplateResult => {
     const {
         aria,
-        dir,
         heading,
         headingLevel,
         hasBackButton,
@@ -193,7 +191,6 @@ const BaseStoryTemplate = (props: ModalProps) : TemplateResult => {
         <pie-button @click=${toggleModal}>Toggle Modal</pie-button>
         <pie-modal
             .aria="${aria}"
-            dir="${dir || nothing}"
             heading="${heading}"
             headingLevel="${headingLevel}"
             ?hasBackButton="${hasBackButton}"
