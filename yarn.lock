@@ -5352,7 +5352,7 @@ __metadata:
     "@types/body-scroll-lock": 3.1.0
     dialog-polyfill: 0.5.6
   peerDependencies:
-    body-scroll-lock: 4.0.0-beta.0
+    body-scroll-lock: 3.1.5
   languageName: unknown
   linkType: soft
 
@@ -13619,6 +13619,13 @@ __metadata:
     type-is: ~1.6.18
     unpipe: 1.0.0
   checksum: 14d37ec638ab5c93f6099ecaed7f28f890d222c650c69306872e00b9efa081ff6c596cd9afb9930656aae4d6c4e1c17537bea12bb73c87a217cb3cfea8896737
+  languageName: node
+  linkType: hard
+
+"body-scroll-lock@npm:3.1.5":
+  version: 3.1.5
+  resolution: "body-scroll-lock@npm:3.1.5"
+  checksum: 52c25b81d6e7a87cfbdd7870363c3e20a439dbc76535b735916e2df907abbce95c0da0d2c7a2cfe88f49775d53bbc4bd09445ffda2d61b999efa3f0b1dedfc5e
   languageName: node
   linkType: hard
 
@@ -27640,7 +27647,7 @@ __metadata:
     allure-commandline: 2.21.0
     autoprefixer: 10.4.15
     babel-loader: 8.3.0
-    body-scroll-lock: 4.0.0-beta.0
+    body-scroll-lock: 3.1.5
     commitizen: 4.3.0
     cross-env: 7.0.3
     cssnano: 5.1.15
