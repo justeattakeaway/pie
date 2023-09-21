@@ -8,7 +8,7 @@ test.describe('PieFormLabel - Component tests', () => {
     test('should render successfully', async ({ mount, page }) => {
         // Arrange
         await mount(PieFormLabel, {
-            // Note: the ts issue in props should be fixed with this https://github.com/sand4rt/playwright-ct-web/issues/27
+            // Note: the props ts issue should be fixed with https://github.com/sand4rt/playwright-ct-web/issues/27
             props: {
                 for: 'form-label',
                 optional: 'Optional',
