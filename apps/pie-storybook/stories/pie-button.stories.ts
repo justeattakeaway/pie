@@ -2,7 +2,7 @@ import { html, nothing } from 'lit';
 import {
     ButtonProps as ButtonPropsBase, iconPlacements, sizes, types, variants,
 } from '@justeattakeaway/pie-button';
-import { IconPlusCircle } from '@justeattakeaway/pie-icons-webc';
+import { IconPlusCircle } from '@justeattakeaway/pie-icons-webc/IconPlusCircle';
 import { createStory, type TemplateFunction } from '../utilities';
 import { StoryMeta, SlottedComponentProps } from '../types';
 
