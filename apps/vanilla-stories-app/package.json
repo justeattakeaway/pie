@@ -5,17 +5,21 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview"
+    "build": "vite build",
+    "build-all": "node src/build-all.js",
+    "postbuild-all": "yarn reset-main",
+    "reset-main": "git checkout -- ./src/main.ts",
+    "preview": "vite preview",
+    "visualize-bundle-size": "vite-bundle-visualizer"
   },
   "devDependencies": {
-    "@justeattakeaway/pie-button": "workspace:*",
-    "@justeattakeaway/pie-card-container": "workspace:*",
     "@justeattakeaway/pie-css": "workspace:*",
-    "@justeattakeaway/pie-icon-button": "workspace:*",
+    "glob": "10.3.5",
+    "import-meta-resolve": "3.0.0",
     "lit-html": "2.8.0",
     "pie-storybook": "workspace:*",
     "typescript": "5.0.2",
-    "vite": "4.4.5"
+    "vite": "4.4.5",
+    "vite-bundle-visualizer": "0.10.0"
   }
 }
