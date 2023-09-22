@@ -1,5 +1,13 @@
 # Changelog
 
+## 3.3.0
+
+### Minor Changes
+
+- [Added] - Accordion overview page ([#822](https://github.com/justeattakeaway/pie/pull/822)) by [@LTurns](https://github.com/LTurns)
+
+  [Added] - `Android Jetpack` and `IOS PIE` to resource table
+
 ## 3.2.0
 
 ### Minor Changes

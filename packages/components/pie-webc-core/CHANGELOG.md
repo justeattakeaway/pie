@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.9.0
+
+### Minor Changes
+
+- [Changed] - Rewrite RTL mixin to remove the dir property. The LitElement base class is a subclass of HTMLElement, so a Lit component inherits all of the standard HTMLElement properties and methods. This means that the dir property is already available on the component and we don't need to add it again. [Reference](https://lit.dev/docs/components/defining/#a-lit-component-is-an-html-element). During SSR, if no dir is provided, it will be inferred from the document.documentElement once it's instantiated on the client. ([#818](https://github.com/justeattakeaway/pie/pull/818)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Changed] - Removed the DependantMap type and replaced all references with Lit's own PropertyValues helper. This provides exactly the same strongly typed map for a component's properties which makes our own type a little redundant. [Reference](https://lit.dev/docs/components/lifecycle/#typescript-types-for-changedproperties) ([#818](https://github.com/justeattakeaway/pie/pull/818)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.8.0
 
 ### Minor Changes

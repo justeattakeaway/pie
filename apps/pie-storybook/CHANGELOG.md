@@ -1,5 +1,27 @@
 # Changelog
 
+## 0.34.0
+
+### Minor Changes
+
+- [Changed] - Deleted the dir props and i18nargtypes helper as `dir` is no longer a Lit component property. It is simply a regular HTML attribute ([#818](https://github.com/justeattakeaway/pie/pull/818)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - Build the Pie Form Label web component ([#820](https://github.com/justeattakeaway/pie/pull/820)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies [[`9d689eb08`](https://github.com/justeattakeaway/pie/commit/9d689eb0818c4d686d93b5cdd9d708115a066c1e), [`9d689eb08`](https://github.com/justeattakeaway/pie/commit/9d689eb0818c4d686d93b5cdd9d708115a066c1e), [`9d689eb08`](https://github.com/justeattakeaway/pie/commit/9d689eb0818c4d686d93b5cdd9d708115a066c1e), [`9d689eb08`](https://github.com/justeattakeaway/pie/commit/9d689eb0818c4d686d93b5cdd9d708115a066c1e), [`2c5e79ee3`](https://github.com/justeattakeaway/pie/commit/2c5e79ee36c6c5f958d7c05d797a6528704fcecc)]:
+  - @justeattakeaway/pie-modal@0.22.0
+  - @justeattakeaway/pie-toggle-switch@0.10.0
+  - @justeattakeaway/pie-icons-webc@0.8.0
+  - @justeattakeaway/pie-form-label@0.1.0
+  - @justeattakeaway/pie-link@0.5.0
+  - @justeattakeaway/pie-cookie-banner@0.4.1
+  - @justeattakeaway/pie-button@0.28.1
+  - @justeattakeaway/pie-card-container@0.6.1
+  - @justeattakeaway/pie-divider@0.4.1
+  - @justeattakeaway/pie-icon-button@0.14.1
+
 ## 0.33.0
 
 ### Minor Changes

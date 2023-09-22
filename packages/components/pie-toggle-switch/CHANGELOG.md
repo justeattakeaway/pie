@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-toggle-switch
 
+## 0.10.0
+
+### Minor Changes
+
+- [Changed] - use `isRTL` attribute provided by the `RTLMixin` rather than `dir` for rtl scss styles ([#818](https://github.com/justeattakeaway/pie/pull/818)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.9.0
 
 ### Minor Changes

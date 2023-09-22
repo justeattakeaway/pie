@@ -1,5 +1,11 @@
 # @justeattakeaway/generator-pie-component
 
+## 0.9.0
+
+### Minor Changes
+
+- [Changed] - Deleted references to now deleted RTL component props ([#828](https://github.com/justeattakeaway/pie/pull/828)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.8.0
 
 ### Minor Changes
