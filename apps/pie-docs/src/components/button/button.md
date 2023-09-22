@@ -20,6 +20,11 @@ Buttons serve a wide range of purposes in user interfaces, such as submitting fo
 
 ## Resources
 
+{% notification {
+  type: "warning",
+  message: "We’re currently working on updating our [Component name] documentation, please see the resources below."
+} %}
+
 {% resourceTable {
     rows: [
         {
