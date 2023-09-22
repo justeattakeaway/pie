@@ -3,8 +3,8 @@
   "version": "0.3.8",
   "private": true,
   "dependencies": {
-    "@justeattakeaway/pie-button": "workspace:*",
-    "@justeattakeaway/pie-css": "workspace:*",
+    "@justeattakeaway/pie-button": "0.28.1",
+    "@justeattakeaway/pie-css": "0.4.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-scripts": "5.0.1"

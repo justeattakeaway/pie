@@ -26,8 +26,8 @@
   "author": "JustEatTakeaway - Design System Web Team",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@justeattakeaway/pie-icons-webc": "workspace:*",
-    "@justeattakeaway/pie-webc-core": "workspace:*"
+    "@justeattakeaway/pie-icons-webc": "0.7.0",
+    "@justeattakeaway/pie-webc-core": "0.8.0"
   },
   "peerDependencies": {
     "@justeat/pie-design-tokens": "^5.5.0"

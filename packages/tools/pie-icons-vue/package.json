@@ -57,7 +57,7 @@
   "devDependencies": {
     "@babel/core": "7.22.17",
     "@justeattakeaway/pie-icons": "4.9.0",
-    "@justeattakeaway/pie-icons-configs": "workspace:*",
+    "@justeattakeaway/pie-icons-configs": "4.5.0",
     "@rollup/plugin-commonjs": "25.0.4",
     "@vue/babel-preset-jsx": "1.4.0",
     "@vue/test-utils": "1.1.3",
