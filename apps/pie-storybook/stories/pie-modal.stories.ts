@@ -1,4 +1,5 @@
-import { html, TemplateResult } from 'lit';
+import { TemplateResult } from 'lit';
+import { html } from 'lit/static-html.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { PieIconButton } from '@justeattakeaway/pie-icon-button';
 import { PieModal } from '@justeattakeaway/pie-modal';
@@ -11,7 +12,7 @@ import {
 } from '@justeattakeaway/pie-modal/src/defs';
 
 import { StoryMeta, SlottedComponentProps } from '../types';
-import { createStory } from '../utilities';
+import { createStory, staticSlot } from '../utilities';
 
 // This prevents storybook from tree shaking the components
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -36,7 +37,7 @@ const defaultArgs: ModalProps = {
     isLoading: false,
     size: 'medium',
     position: 'center',
-    slot: 'This is Lit!',
+    slot: '<p>This is Lit!</p>',
     leadingAction: {
         text: 'Confirm',
         variant: 'primary',
@@ -203,8 +204,8 @@ const BaseStoryTemplate = (props: ModalProps) : TemplateResult => {
             returnFocusAfterCloseSelector="${ifDefined(returnFocusAfterCloseSelector)}"
             size="${size}"
             .supportingAction="${supportingAction}">
-            ${slot}
-        </pie-modal>`;
+                ${staticSlot(slot)}
+            </pie-modal>`;
 };
 
 const createScrollablePageHTML = () => {
@@ -236,7 +237,7 @@ export const FocusManagement = createStory<ModalProps>(FocusableElementsPageStor
 });
 export const LargeTextContent = createBaseModalStory({
     isFooterPinned: false,
-    slot: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit quas inventore quasi ullam, sed ab odio dicta, tempore, ex adipisci atque asperiores suscipit quisquam alias aliquam minus amet ad a?
+    slot: `<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit quas inventore quasi ullam, sed ab odio dicta, tempore, ex adipisci atque asperiores suscipit quisquam alias aliquam minus amet ad a?
     Iure consequuntur nihil officia odio, ut dolores reprehenderit tenetur, repellat eveniet dolore, dignissimos aspernatur quo laboriosam eum repellendus ratione libero. Aspernatur in, inventore ratione molestias exercitationem repudiandae omnis nisi illo?
     Laborum, aspernatur labore! Nulla corporis laudantium, odio iure cum maiores veritatis. Facere ullam sequi voluptate ipsa neque? Atque necessitatibus aspernatur quibusdam sit pariatur quo sunt, voluptatem doloribus dolore consequatur temporibus?
     Aspernatur ducimus blanditiis quasi fugit similique. Ullam ea sapiente minima, minus distinctio consequuntur libero nisi tempore in sed corporis officia voluptatem est illum cumque at incidunt fuga magni. Iste, possimus?
@@ -255,5 +256,5 @@ export const LargeTextContent = createBaseModalStory({
     Voluptatum dignissimos dolores quos maxime incidunt, excepturi in quis earum fuga inventore molestiae, perferendis mollitia eos minima possimus sed ab, reiciendis culpa. Rem aliquid at quaerat dolorem id eos ducimus?
     Iure quisquam at facilis, veritatis sequi unde quam ipsa! Ex nobis provident non numquam quia maiores, placeat qui incidunt quam est vitae reiciendis esse ipsa expedita temporibus? Perferendis, delectus magni.
     Ullam accusamus porro cumque, assumenda eligendi quos optio qui architecto perspiciatis quaerat error iusto, quae, aspernatur libero nemo. Possimus deserunt laudantium velit, aut mollitia molestiae id atque voluptatibus eum earum.
-    Placeat, ad! Quidem error aliquam atque aut, voluptates voluptatibus cumque quia? Laboriosam ab mollitia laborum maxime numquam similique eveniet quaerat? Et, nemo natus officia cum hic adipisci doloremque! Quia, delectus.`,
+    Placeat, ad! Quidem error aliquam atque aut, voluptates voluptatibus cumque quia? Laboriosam ab mollitia laborum maxime numquam similique eveniet quaerat? Et, nemo natus officia cum hic adipisci doloremque! Quia, delectus.</p>`,
 });

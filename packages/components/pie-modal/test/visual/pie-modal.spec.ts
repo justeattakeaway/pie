@@ -430,7 +430,7 @@ test.describe('Prop: `isFooterPinned`', () => {
                     },
                 } as ModalProps,
                 slots: {
-                    default: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti fugit id exercitationem repellendus in magni
+                    default: `<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti fugit id exercitationem repellendus in magni
                     quis obcaecati laboriosam est vero, perspiciatis ratione porro dolore repudiandae ea numquam! Ipsa, fugiat aut.Lorem ipsum dolor
                     sit amet consectetur adipisicing elit. Deleniti fugit id exercitationem repellendus in magni quis obcaecati laboriosam est vero,
                     perspiciatis ratione porro dolore repudiandae ea numquam! Ipsa, fugiat aut.Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -454,7 +454,7 @@ test.describe('Prop: `isFooterPinned`', () => {
                     consectetur adipisicing elit. Deleniti fugit id exercitationem repellendus in magni quis obcaecati laboriosam est vero, perspiciatis ratione
                     porro dolore repudiandae ea numquam! Ipsa, fugiat aut.Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti fugit id
                     exercitationem repellendus in magni quis obcaecati laboriosam est vero,
-                    perspiciatis ratione porro dolore repudiandae ea numquam! Ipsa, fugiat aut.`,
+                    perspiciatis ratione porro dolore repudiandae ea numquam! Ipsa, fugiat aut.</p>`,
                 },
             });
 
