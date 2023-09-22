@@ -9,7 +9,7 @@ module.exports = {
     WEB_COMPONENTS: 'webComponents',
     VUE: 'vue',
     REACT: 'react',
-    IOS_JUSTUI: 'iosJustUI',
+    IOS_JUST_UI: 'iosJustUI',
     IOS_PIE: 'iosPIE',
     ANDROID_XML: 'androidXML',
     ANDROID_JETPACK: 'androidJetpack',

@@ -48,7 +48,7 @@ Buttons serve a wide range of purposes in user interfaces, such as submitting fo
             status: statusTypes.AVAILABLE
         },
         {
-            resource: resourceTypes.IOS_JUSTUI,
+            resource: resourceTypes.IOS_JUST_UI,
             status: statusTypes.AVAILABLE
         },
         {

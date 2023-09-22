@@ -48,7 +48,7 @@ Accordions are useful for presenting categorised information like FAQs, product 
             status: statusTypes.AVAILABLE
         },
         {
-            resource: resourceTypes.IOS_JUSTUI,
+            resource: resourceTypes.IOS_JUST_UI,
             status: statusTypes.AVAILABLE
         },
         {

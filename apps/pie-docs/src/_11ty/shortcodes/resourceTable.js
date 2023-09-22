@@ -76,7 +76,7 @@ const resourceSettings = {
         icon: '/assets/img/components/icons/react.svg',
         resource: 'React [Snacks]',
     },
-    [resourceTypes.IOS_JUSTUI]: {
+    [resourceTypes.IOS_JUST_UI]: {
         icon: '/assets/img/components/icons/apple.svg',
         resource: 'iOS JustUI [UI Kit]',
     },
