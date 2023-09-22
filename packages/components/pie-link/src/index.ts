@@ -5,8 +5,14 @@ import { property } from 'lit/decorators.js';
 import { validPropertyValues } from '@justeattakeaway/pie-webc-core';
 import styles from './link.scss?inline';
 import {
-    LinkProps, variants, sizes, iconPlacements,
-    tags, buttonTypes, underlineTypes, type AriaProps,
+    LinkProps,
+    variants,
+    sizes,
+    iconPlacements,
+    tags,
+    buttonTypes,
+    underlineTypes,
+    type AriaProps,
 } from './defs';
 
 // Valid values available to consumers
