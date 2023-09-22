@@ -5,7 +5,7 @@ import { property } from 'lit/decorators.js';
 import { validPropertyValues } from '@justeattakeaway/pie-webc-core';
 import styles from './card-container.scss?inline';
 import {
-    CardContainerProps, type AriaProps, variants, interactionTypes,
+    CardContainerProps, type AriaProps, type PaddingValues, variants, interactionTypes,
 } from './defs';
 
 // Valid values available to consumers
@@ -40,12 +40,20 @@ export class PieCardContainer extends LitElement implements CardContainerProps {
     @property({ type: Boolean })
     public isDraggable = false;
 
+    @property({ type: String, reflect: true })
+    public padding!: PaddingValues;
+
+    @property({ type: String, reflect: true })
+    public paddingX!: PaddingValues;
+
     /**
      * Renders the card as an anchor element.
      *
      * @private
      */
     private renderAnchor (): TemplateResult {
+        const paddingCSS = this.generatePaddingCSS();
+
         return html`
             <a
                 class="c-card-container"
@@ -58,10 +66,40 @@ export class PieCardContainer extends LitElement implements CardContainerProps {
                 target=${this.target || nothing}
                 rel=${this.rel || nothing}
                 aria-label=${this.aria?.label || nothing}
-                aria-disabled=${this.disabled ? 'true' : 'false'}>
+                aria-disabled=${this.disabled ? 'true' : 'false'}
+                style=${paddingCSS ? `padding: ${paddingCSS}` : nothing}>
                     <slot></slot>
                 </div>
             </a>`;
+    }
+
+    /**
+     * Generates padding for the component based on `padding` or `paddingX` values passed
+     * by the consumer.
+     *
+     * @private
+     */
+    private generatePaddingCSS (): string {
+        const { padding, paddingX } = this;
+        let paddingCSS = '';
+
+        if (!padding) {
+            return '';
+        }
+
+        if (padding) {
+            paddingCSS += `var(--dt-spacing-${padding})`;
+        }
+
+        if (paddingX) {
+            if (padding) {
+                paddingCSS += ` var(--dt-spacing-${paddingX})`;
+            } else {
+                paddingCSS += `var(--dt-spacing-${paddingX})`;
+            }
+        }
+
+        return paddingCSS;
     }
 
     render () {
@@ -72,6 +110,9 @@ export class PieCardContainer extends LitElement implements CardContainerProps {
             aria,
             isDraggable,
         } = this;
+
+        const paddingCSS = this.generatePaddingCSS();
+
         const isButton = interactionType === 'button';
 
         if (interactionType === 'anchor') return this.renderAnchor();
@@ -87,7 +128,8 @@ export class PieCardContainer extends LitElement implements CardContainerProps {
                     role=${isButton ? 'button' : nothing}
                     tabindex=${isButton ? '0' : nothing}
                     aria-label=${aria?.label || nothing}
-                    aria-disabled=${disabled ? 'true' : 'false'}>
+                    aria-disabled=${disabled ? 'true' : 'false'}
+                    style=${paddingCSS ? `padding: ${paddingCSS}` : nothing}>
                         <slot></slot>
                     </div>
                 </div>`;

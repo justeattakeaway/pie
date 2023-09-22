@@ -1,7 +1,9 @@
 export const variants = ['default', 'outline', 'inverse', 'outline-inverse'] as const;
 export const interactionTypes = ['anchor', 'button', 'none'] as const;
+export const padding = ['a', 'b', 'c', 'd', 'e', 'f', 'g'] as const;
 
 export type Variant = typeof variants[number];
+export type PaddingValues = typeof padding[number];
 
 export type AriaProps = {
     label?: string;
@@ -47,4 +49,14 @@ export interface CardContainerProps {
      * What the interaction intent of the card should be such as anchor, button or regular div (default).
      */
      interactionType?: typeof interactionTypes[number];
+
+    /**
+     * An array of padding values from a to g.
+     */
+    padding: PaddingValues | PaddingValues[];
+
+    /**
+     * An array of padding values from a to g.
+     */
+    paddingX: PaddingValues | PaddingValues[];
 }

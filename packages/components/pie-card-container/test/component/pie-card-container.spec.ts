@@ -229,4 +229,66 @@ test.describe('PieCardContainer - Component tests', () => {
             });
         });
     });
+
+    test.describe('Prop: `padding` & `PaddingX`', () => {
+        test.describe('when `padding` is set', () => {
+            test('should set an attribute of style with the correct padding value', async ({ mount, page }) => {
+                // Arrange
+                await mount(PieCardContainer, {
+                    props: {
+                        padding: 'a',
+                    } as CardContainerProps,
+                    slots: {
+                        default: slotContent,
+                    },
+                });
+
+                const component = page.locator(componentSelector);
+                const componentAttribute = await component.getAttribute('style');
+
+                // Assert
+                expect(componentAttribute).toBe('padding: var(--dt-spacing-a)');
+            });
+        });
+
+        test.describe('when `paddingX` is set', () => {
+            test.describe('and `padding` is not set', () => {
+                test('should not set an attribute of style containing padding settings on the component', async ({ mount, page }) => {
+                    // Arrange
+                    await mount(PieCardContainer, {
+                        props: {
+                            paddingX: 'b',
+                        } as CardContainerProps,
+                        slots: {
+                            default: slotContent,
+                        },
+                    });
+
+                    const component = page.locator(componentSelector);
+                    const componentAttribute = await component.getAttribute('style');
+
+                    // Assert
+                    expect(componentAttribute).toBe('padding: var(--dt-spacing-a) var(--dt-spacing-b)');
+                });
+            });
+            test('should set an attribute of style with both `padding` & `paddingX` values', async ({ mount, page }) => {
+                // Arrange
+                await mount(PieCardContainer, {
+                    props: {
+                        padding: 'a',
+                        paddingX: 'b',
+                    } as CardContainerProps,
+                    slots: {
+                        default: slotContent,
+                    },
+                });
+
+                const component = page.locator(componentSelector);
+                const componentAttribute = await component.getAttribute('style');
+
+                // Assert
+                expect(componentAttribute).toBe(null);
+            });
+        });
+    });
 });

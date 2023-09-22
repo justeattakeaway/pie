@@ -2,7 +2,7 @@ import { nothing } from 'lit';
 import { html, unsafeStatic } from 'lit/static-html.js';
 import {
     PieCardContainer, CardContainerProps as CardContainerPropsBase,
-    variants, interactionTypes,
+    variants, interactionTypes, padding,
 } from '@justeattakeaway/pie-card-container';
 import type { StoryMeta, SlottedComponentProps } from '../types';
 import { createStory, type TemplateFunction } from '../utilities';
@@ -24,6 +24,7 @@ const defaultArgs: CardContainerProps = {
     aria: {
         label: 'Click to go to restaurant',
     },
+    padding: '',
     isDraggable: false,
     // This is just an arbitrary example of some markup a user may pass into the card
     slot: `<div style="color: var(--card-color); font-size: calc(var(--dt-font-body-l-size) * 1px); font-family: var(--dt-font-interactive-m-family); padding: var(--dt-spacing-b);">
@@ -57,6 +58,26 @@ const cardContainerStoryMeta: CardContainerStoryMeta = {
             options: variants,
             defaultValue: {
                 summary: 'default',
+            },
+        },
+        padding: {
+            description: 'Set the padding of the card.',
+            control: {
+                type: 'text',
+            },
+            options: padding,
+            defaultValue: {
+                summary: 'none',
+            },
+        },
+        paddingX: {
+            description: 'Set the padding of the card.',
+            control: {
+                type: 'text',
+            },
+            options: padding,
+            defaultValue: {
+                summary: 'none',
             },
         },
         disabled: {
@@ -116,6 +137,8 @@ const Template: TemplateFunction<CardContainerProps> = ({
     slot,
     aria,
     variant,
+    padding,
+    paddingX,
     isDraggable,
 }) => {
     const darkMode = variant.includes('inverse');
@@ -130,6 +153,8 @@ const Template: TemplateFunction<CardContainerProps> = ({
             rel="${rel || nothing}"
             ?disabled="${disabled}"
             .aria="${aria}"
+            padding="${padding}"
+            paddingX="${paddingX}"
             ?isDraggable="${isDraggable}">
             ${unsafeStatic(slot)}
         </pie-card-container>
