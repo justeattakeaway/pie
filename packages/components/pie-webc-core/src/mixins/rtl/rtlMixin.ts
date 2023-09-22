@@ -57,7 +57,7 @@ declare class _RTLInterface {
  *
  * The corresponding SCSS to leverage the `isRTL` attribute:
  * ```scss
- * [isRTL] .foo {
+ * .foo[isRTL] {
  *   background-color: red;
  *   text-align: right;
  * }

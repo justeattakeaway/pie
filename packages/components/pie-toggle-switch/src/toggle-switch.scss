@@ -139,7 +139,7 @@
     overflow: hidden;
 }
 
-[isRTL] {
+.c-toggleSwitch-wrapper[isRTL] {
     .c-toggleSwitch-control {
         position: absolute;
         left: initial;
