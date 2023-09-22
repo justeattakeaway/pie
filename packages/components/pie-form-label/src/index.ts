@@ -29,13 +29,13 @@ export class PieFormLabel extends LitElement implements FormLabelProps {
         return html`
             <label
                 data-test-id="pie-form-label"
-                class="pie-form-label"
+                class="c-formLabel"
                 for=${this.for}>
                     <div>
                         <slot></slot>
-                        ${optional ? html`<span class="pie-form-label-optional">${optional}</span>` : nothing}
+                        ${optional ? html`<span class="c-formLabel-optional">${optional}</span>` : nothing}
                     </div>
-                    ${trailing ? html`<span class="pie-form-label-trailing">${trailing}</span>` : nothing}
+                    ${trailing ? html`<span class="c-formLabel-trailing">${trailing}</span>` : nothing}
             </label>`;
     }
 
