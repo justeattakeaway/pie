@@ -10,20 +10,31 @@ import type {
 import {
     createTestWebComponent,
 } from '@justeattakeaway/pie-webc-testing/src/helpers/rendering.ts';
+import { PieFormLabel } from '@/index';
 import { FormLabelProps } from '@/defs';
 
-const renderTestPieDivider = (propVals: WebComponentPropValues) => `<pie-form-label optional="${propVals.optional}" trailing="${propVals.trailing}"></pie-form-label>`;
+const renderTestPieDivider = (propVals: WebComponentPropValues) => `<pie-form-label optional="${propVals.optional}" trailing="${propVals.trailing}">Label</pie-form-label>`;
 
 const props: FormLabelProps = {
     optional: 'Optional',
     trailing: 'X out of X',
 };
 
+test.beforeEach(async ({ page, mount }) => {
+    await mount(PieFormLabel, {});
+    await page.evaluate(() => {
+        const element : Element | null = document.querySelector('pie-form-label');
+        element?.remove();
+    });
+});
+
 test.describe('Pie Form Label - Visual tests`', () => {
     test('should display the Pie Form Label component successfully', async ({ page, mount }) => {
         const testComponent: WebComponentTestInput = createTestWebComponent(props, renderTestPieDivider);
+        const propKeyValues = `optional: ${testComponent.propValues.optional}, trailing: ${testComponent.propValues.trailing}`;
 
         await mount(WebComponentTestWrapper, {
+            props: { propKeyValues },
             slots: {
                 component: testComponent.renderedString.trim(),
             },
