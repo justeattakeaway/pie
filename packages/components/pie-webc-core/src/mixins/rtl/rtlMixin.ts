@@ -30,15 +30,37 @@ declare class _RTLInterface {
  * @example
  * ```typescript
  * import { LitElement, html } from 'lit';
- * import { RtlMixin } from '@justeattakeaway/pie-webc-core';
+ * import { RtlMixin } from './RtlMixin'; // Adjust the import path as needed
  *
  * class MyElement extends RtlMixin(LitElement) {
  *   render() {
- *     return html`Text direction is ${this.isRTL ? 'right-to-left' : 'left-to-right'}`;
+ *     return html`<p>Text direction is ${this.isRTL ? 'right-to-left' : 'left-to-right'}</p>`;
  *   }
  * }
  *
  * customElements.define('my-element', MyElement);
+ * ```
+ *
+ * @example
+ * ```typescript
+ * import { LitElement, html } from 'lit';
+ * import { RtlMixin } from './RtlMixin'; // Adjust the import path as needed
+ *
+ * class MyStyledElement extends RtlMixin(LitElement) {
+ *   render() {
+ *     return html`<div class="foo" ?isRTL=${this.isRTL}>Content</div>`;
+ *   }
+ * }
+ *
+ * customElements.define('my-styled-element', MyStyledElement);
+ * ```
+ *
+ * The corresponding SCSS to leverage the `isRTL` attribute:
+ * ```scss
+ * [isRTL] .foo {
+ *   background-color: red;
+ *   text-align: right;
+ * }
  * ```
  */
 export const RtlMixin =
