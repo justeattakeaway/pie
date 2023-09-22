@@ -20,6 +20,11 @@ Buttons serve a wide range of purposes in user interfaces, such as submitting fo
 
 ## Resources
 
+{% notification {
+  type: "warning",
+  message: "We’re currently working on updating our Button documentation, please see the resources below."
+} %}
+
 {% resourceTable {
     rows: [
         {
@@ -35,7 +40,7 @@ Buttons serve a wide range of purposes in user interfaces, such as submitting fo
         {
             resource: resourceTypes.WEB_COMPONENTS,
             link: "https://webc.pie.design/?path=/story/button--primary",
-            status: statusTypes.PRE_RELEASE
+            status: statusTypes.ALPHA
         },
         {
             resource: resourceTypes.VUE,
@@ -48,11 +53,19 @@ Buttons serve a wide range of purposes in user interfaces, such as submitting fo
             status: statusTypes.AVAILABLE
         },
         {
-            resource: resourceTypes.IOS,
+            resource: resourceTypes.IOS_JUST_UI,
             status: statusTypes.AVAILABLE
         },
         {
-            resource: resourceTypes.ANDROID,
+            resource: resourceTypes.IOS_PIE,
+            status: statusTypes.AVAILABLE
+        },
+        {
+            resource: resourceTypes.ANDROID_XML,
+            status: statusTypes.AVAILABLE
+        },
+        {
+            resource: resourceTypes.ANDROID_JETPACK,
             status: statusTypes.AVAILABLE
         }
     ]
