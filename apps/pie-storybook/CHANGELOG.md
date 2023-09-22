@@ -1,5 +1,21 @@
 # Changelog
 
+## 0.33.0
+
+### Minor Changes
+
+- [Added] - link state styles ([#812](https://github.com/justeattakeaway/pie/pull/812)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Added] aria labels to the pie link ([#813](https://github.com/justeattakeaway/pie/pull/813)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies [[`33ea01276`](https://github.com/justeattakeaway/pie/commit/33ea012760e17d69918f5ae8f030ad4f6e000dbf), [`d84f1b8e3`](https://github.com/justeattakeaway/pie/commit/d84f1b8e31f24c2f4bc9a7bbe8acc736653b3084), [`b1f789a77`](https://github.com/justeattakeaway/pie/commit/b1f789a7778013463bcf711c832bd451d65adcab)]:
+  - @justeattakeaway/pie-card-container@0.6.0
+  - @justeattakeaway/pie-link@0.4.0
+  - @justeattakeaway/pie-modal@0.21.0
+  - @justeattakeaway/pie-cookie-banner@0.4.0
+
 ## 0.32.1
 
 ### Patch Changes
