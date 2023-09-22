@@ -1,4 +1,4 @@
-import { html, TemplateResult, nothing } from 'lit';
+import { html, TemplateResult } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { PieIconButton } from '@justeattakeaway/pie-icon-button';
 import { PieModal } from '@justeattakeaway/pie-modal';
@@ -10,7 +10,6 @@ import {
     positions,
 } from '@justeattakeaway/pie-modal/src/defs';
 
-import { i18nArgTypes } from '../args/commonArgsTypes';
 import { StoryMeta, SlottedComponentProps } from '../types';
 import { createStory } from '../utilities';
 
@@ -59,7 +58,6 @@ const modalStoryMeta: ModalStoryMeta = {
     title: 'Modal',
     component: 'pie-modal',
     argTypes: {
-        ...i18nArgTypes,
         isDismissible: {
             description: 'Allows dismissing the modal by clicking outside of it, using the escape key or close button.',
             control: 'boolean',
@@ -171,7 +169,6 @@ const createFocusableElementsPageHTML = () : TemplateResult => html`
 const BaseStoryTemplate = (props: ModalProps) : TemplateResult => {
     const {
         aria,
-        dir,
         heading,
         headingLevel,
         hasBackButton,
@@ -192,7 +189,6 @@ const BaseStoryTemplate = (props: ModalProps) : TemplateResult => {
         <pie-button @click=${toggleModal}>Toggle Modal</pie-button>
         <pie-modal
             .aria="${aria}"
-            dir="${dir || nothing}"
             heading="${heading}"
             headingLevel="${headingLevel}"
             ?hasBackButton="${hasBackButton}"

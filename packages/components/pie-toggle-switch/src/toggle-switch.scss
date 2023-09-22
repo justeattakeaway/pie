@@ -139,7 +139,7 @@
     overflow: hidden;
 }
 
-:host([dir='rtl']) {
+.c-toggleSwitch-wrapper[isRTL] {
     .c-toggleSwitch-control {
         position: absolute;
         left: initial;

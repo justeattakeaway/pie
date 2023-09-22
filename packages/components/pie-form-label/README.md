@@ -59,16 +59,18 @@ import { PieFormLabel } from '@justeattakeaway/pie-form-label/dist/react';
 
 | Property | Type | Default | Description |
 |---|---|---|---|
-| - | - | - | - |
+| for | `String` | `undefined` | Native html `for` attribute |
+| optional | `String` | `undefined` | Sets an optional text to be placed next to the main label |
+| trailing | `String` | `undefined` | Sets a trailing text at the end of the label component  |
 
 In your markup or JSX, you can then use these to set the properties for the `pie-form-label` component:
 
 ```html
 <!-- Native HTML -->
-<pie-form-label></pie-form-label>
+<pie-form-label>Label</pie-form-label>
 
 <!-- JSX -->
-<PieFormLabel></PieFormLabel>
+<PieFormLabel>Label</PieFormLabel>
 ```
 
 ## Testing

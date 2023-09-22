@@ -1,5 +1,13 @@
 # Changelog
 
+## 3.2.0
+
+### Minor Changes
+
+- [Changed] - Resource table values to align to the right in mobile view ([#817](https://github.com/justeattakeaway/pie/pull/817)) by [@LTurns](https://github.com/LTurns)
+
+  [Changed] - Min-width to only be set when view is larger than mobile
+
 ## 3.1.0
 
 ### Minor Changes
