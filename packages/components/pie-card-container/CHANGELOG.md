@@ -1,5 +1,13 @@
 # @justeattakeaway/pie-card-container
 
+## 0.6.0
+
+### Minor Changes
+
+- [Added] - link state styles ([#812](https://github.com/justeattakeaway/pie/pull/812)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Added] aria labels to the pie link ([#813](https://github.com/justeattakeaway/pie/pull/813)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.5.0
 
 ### Minor Changes

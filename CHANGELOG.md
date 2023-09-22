@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.26.0
+
+### Minor Changes
+
+- [Fixed] Safari ios scroll issue ([#819](https://github.com/justeattakeaway/pie/pull/819)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
 ## 2.25.0
 
 ### Minor Changes

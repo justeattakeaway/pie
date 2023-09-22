@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-modal
 
+## 0.21.0
+
+### Minor Changes
+
+- [Fixed] Safari ios scroll issue ([#819](https://github.com/justeattakeaway/pie/pull/819)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
 ## 0.20.0
 
 ### Minor Changes
