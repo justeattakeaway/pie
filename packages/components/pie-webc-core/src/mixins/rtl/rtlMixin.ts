@@ -85,12 +85,6 @@ export const RtlMixin =
                     return this.dir === 'rtl';
                 }
 
-                // This check is necessary as document is undefined during SSR
-                if (isServer) {
-                    // Inference from the document's root element is not available during SSR.
-                    return false;
-                }
-
                 // If running on client-side and `dir` is not present, infer from the document's root element.
                 if (!isServer && !this.dir) {
                     return document.documentElement.getAttribute('dir') === 'rtl';
