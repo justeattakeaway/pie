@@ -1,4 +1,3 @@
-import { RTLComponentProps } from '@justeattakeaway/pie-webc-core';
 import { Variant } from '@justeattakeaway/pie-button/src/defs.ts';
 
 export const headingLevels = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'] as const;
@@ -28,7 +27,7 @@ export type ActionProps = {
         ariaLabel?: string;
 };
 
-export type ModalProps = RTLComponentProps & {
+export type ModalProps = {
     /**
      * The ARIA labels used for the modal close and back buttons, as well as loading state.
      */
