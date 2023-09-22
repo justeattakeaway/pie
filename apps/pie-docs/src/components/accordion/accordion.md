@@ -40,7 +40,6 @@ Accordions are useful for presenting categorised information like FAQs, product 
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
-            link: "https://webc.pie.design/?path=/story/button--primary",
             status: statusTypes.PLANNED
         },
         {
