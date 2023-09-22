@@ -23,7 +23,7 @@ Accordions are useful for presenting categorised information like FAQs, product 
 
 {% notification {
   type: "warning",
-  message: "We’re currently working on updating our [Component name] documentation, please see the resources below."
+  message: "We’re currently working on updating our Accordion documentation, please see the resources below."
 } %}
 
 {% resourceTable {
