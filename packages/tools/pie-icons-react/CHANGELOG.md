@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.9.1
+
+### Patch Changes
+
+- [Changed] - use latest pie-icons ([#823](https://github.com/justeattakeaway/pie/pull/823)) by [@dandel10n](https://github.com/dandel10n)
+
 ## 4.9.0
 
 ### Minor Changes

@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.34.1
+
+### Patch Changes
+
+- Updated dependencies [[`d3976e861`](https://github.com/justeattakeaway/pie/commit/d3976e861547e22c66221798f355c42ed91145e6)]:
+  - @justeattakeaway/pie-icons-webc@0.8.1
+  - @justeattakeaway/pie-icon-button@0.14.1
+  - @justeattakeaway/pie-modal@0.22.0
+  - @justeattakeaway/pie-toggle-switch@0.10.0
+
 ## 0.34.0
 
 ### Minor Changes
