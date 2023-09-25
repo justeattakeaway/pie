@@ -1,5 +1,15 @@
 # @justeattakeaway/pie-modal
 
+## 0.22.0
+
+### Minor Changes
+
+- [Changed] - Move any browser-based references to lifecycle hooks that are not run on the server. This is to fix SSR issues seen in NextJS integrations where calling things like `document.addEventListener` in places such as the constructor (which is called during SSR and CSR) causes errors to occur. ([#818](https://github.com/justeattakeaway/pie/pull/818)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Changed] - Defer importing the `dialog-polyfill` package to when the component is running in the browser. The package is not universal code, meaning it contains browser references and this code is run by simply importing the package. This breaks SSR in applications such as NextJS. Using a dynamic import (whilst not ideal) solves this issue by preventing the client-only code run running on the server. ([#818](https://github.com/justeattakeaway/pie/pull/818)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Changed] - Removed the DependantMap type and replaced all references with Lit's own PropertyValues helper. This provides exactly the same strongly typed map for a component's properties which makes our own type a little redundant. [Reference](https://lit.dev/docs/components/lifecycle/#typescript-types-for-changedproperties) ([#818](https://github.com/justeattakeaway/pie/pull/818)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.21.0
 
 ### Minor Changes
