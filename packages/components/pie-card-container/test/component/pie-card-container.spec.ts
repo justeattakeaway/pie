@@ -268,7 +268,7 @@ test.describe('PieCardContainer - Component tests', () => {
                     const componentAttribute = await component.getAttribute('style');
 
                     // Assert
-                    expect(componentAttribute).toBe('padding: var(--dt-spacing-a) var(--dt-spacing-b)');
+                    expect(componentAttribute).toBe(null);
                 });
             });
             test('should set an attribute of style with both `padding` & `paddingX` values', async ({ mount, page }) => {
@@ -287,7 +287,7 @@ test.describe('PieCardContainer - Component tests', () => {
                 const componentAttribute = await component.getAttribute('style');
 
                 // Assert
-                expect(componentAttribute).toBe(null);
+                expect(componentAttribute).toBe('padding: var(--dt-spacing-a) var(--dt-spacing-b)');
             });
         });
     });
