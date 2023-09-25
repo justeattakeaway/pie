@@ -5,7 +5,7 @@ import { property } from 'lit/decorators.js';
 import { validPropertyValues } from '@justeattakeaway/pie-webc-core';
 import styles from './card-container.scss?inline';
 import {
-    CardContainerProps, type AriaProps, type PaddingValues, variants, interactionTypes,
+    CardContainerProps, type AriaProps, type PaddingValue, variants, interactionTypes,
 } from './defs';
 
 // Valid values available to consumers
@@ -41,10 +41,10 @@ export class PieCardContainer extends LitElement implements CardContainerProps {
     public isDraggable = false;
 
     @property({ type: String, reflect: true })
-    public padding!: PaddingValues;
+    public padding?: PaddingValue;
 
     @property({ type: String, reflect: true })
-    public paddingX!: PaddingValues;
+    public paddingX?: PaddingValue;
 
     /**
      * Renders the card as an anchor element.
@@ -99,7 +99,7 @@ export class PieCardContainer extends LitElement implements CardContainerProps {
             }
         }
 
-        return paddingCSS;
+        return `padding: ${paddingCSS}`;
     }
 
     render () {
@@ -129,7 +129,7 @@ export class PieCardContainer extends LitElement implements CardContainerProps {
                     tabindex=${isButton ? '0' : nothing}
                     aria-label=${aria?.label || nothing}
                     aria-disabled=${disabled ? 'true' : 'false'}
-                    style=${paddingCSS ? `padding: ${paddingCSS}` : nothing}>
+                    style=${paddingCSS || nothing}>
                         <slot></slot>
                     </div>
                 </div>`;

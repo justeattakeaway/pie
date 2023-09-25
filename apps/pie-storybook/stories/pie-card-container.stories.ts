@@ -67,11 +67,11 @@ const cardContainerStoryMeta: CardContainerStoryMeta = {
             },
             options: padding,
             defaultValue: {
-                summary: 'none',
+                summary: '',
             },
         },
         paddingX: {
-            description: 'Set the padding of the card.',
+            description: 'Set the left / right padding of the card.',
             control: {
                 type: 'text',
             },
