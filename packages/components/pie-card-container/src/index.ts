@@ -67,7 +67,7 @@ export class PieCardContainer extends LitElement implements CardContainerProps {
                 rel=${this.rel || nothing}
                 aria-label=${this.aria?.label || nothing}
                 aria-disabled=${this.disabled ? 'true' : 'false'}
-                style=${paddingCSS ? `padding: ${paddingCSS}` : nothing}>
+                style=${paddingCSS || nothing}>
                     <slot></slot>
                 </div>
             </a>`;
