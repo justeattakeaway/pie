@@ -49,19 +49,25 @@ $nav-item-left-margin: calc($nav-category-gap + $nav-category-icon-width);
     }
 }
 
+.c-nav-subCategory,
 .c-nav-category {
     display: flex;
     align-items: center;
     gap: $nav-category-gap;
-    padding: 10px f.spacing(d);
-    font-weight: f.$font-weight-bold;
 }
 
 // Hide the default summary icon
+.c-nav-subCategory::-webkit-details-marker,
+.c-nav-subCategory::marker,
 .c-nav-category::-webkit-details-marker,
 .c-nav-category::marker {
     display: none;
     content: '';
+}
+
+.c-nav-category {
+    padding: 10px f.spacing(d);
+    font-weight: f.$font-weight-bold;
 }
 
 .c-nav-item {
@@ -83,7 +89,18 @@ $nav-item-left-margin: calc($nav-category-gap + $nav-category-icon-width);
     }
 }
 
+.c-nav-subCategory {
+    padding-block: 10px;
+    padding-inline: calc(f.spacing(d) + $nav-item-left-margin) f.spacing(d);
+    margin-block: 0 2px;
+
+    + .c-nav-list {
+        margin-inline-start: f.spacing(d);
+    }
+}
+
 .c-nav-item,
+.c-nav-subCategory,
 .c-nav-category {
     cursor: pointer;
 
@@ -96,10 +113,10 @@ $nav-item-left-margin: calc($nav-category-gap + $nav-category-icon-width);
 
 // SideNav accordion toggle
 .c-nav-toggle {
-    margin-left: auto;
+    margin-inline-start: auto;
     display: none;
 
-    .c-nav details[open] & {
+    .c-nav details[open] > summary & {
         display: block;
     }
 }
@@ -107,7 +124,7 @@ $nav-item-left-margin: calc($nav-category-gap + $nav-category-icon-width);
 .c-nav-toggle--open {
     display: block;
 
-    .c-nav details[open] & {
+    .c-nav details[open] > summary & {
         display: none;
     }
 }
