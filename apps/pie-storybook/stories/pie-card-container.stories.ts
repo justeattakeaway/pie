@@ -24,7 +24,7 @@ const defaultArgs: CardContainerProps = {
     aria: {
         label: 'Click to go to restaurant',
     },
-    padding: [],
+    padding: '',
     isDraggable: false,
     // This is just an arbitrary example of some markup a user may pass into the card
     slot: `<div style="color: var(--card-color); font-size: calc(var(--dt-font-body-l-size) * 1px); font-family: var(--dt-font-interactive-m-family); padding: var(--dt-spacing-b);">
