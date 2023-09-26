@@ -73,7 +73,7 @@ export class PieLink extends LitElement implements LinkProps {
 
     /**
      * Renders the link content.
-     * Icons should render only if the link is a block element
+     * Icons should only render if the link is a block element
      * @private
      */
     private renderContent (): TemplateResult {

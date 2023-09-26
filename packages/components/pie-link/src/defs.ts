@@ -27,7 +27,7 @@ export interface LinkProps {
      */
     size: typeof sizes[number];
     /**
-     * What underline behavior the link should have such as default or reversed.
+     * Defines what underline behavior the link should have, such as default or reversed.
      * The `reversed` type can only be used if the link is a block element (isStandalone = true)
      */
     underline: typeof underlineTypes[number];
