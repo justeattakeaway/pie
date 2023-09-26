@@ -1,5 +1,19 @@
 # Changelog
 
+## 2.27.0
+
+### Minor Changes
+
+- [Added] - Allow HTML in slot on Storybook for modal and card ([#825](https://github.com/justeattakeaway/pie/pull/825)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Added] - `DOMPurify` to ensure the passed content is sanitized
+
+### Patch Changes
+
+- [Updated] - pie-design-tokens version bump to 5.8.1 ([#837](https://github.com/justeattakeaway/pie/pull/837)) by [@dandel10n](https://github.com/dandel10n)
+
+- [Updated] - pie-design-tokens version bump to 5.8.0 ([#832](https://github.com/justeattakeaway/pie/pull/832)) by [@dandel10n](https://github.com/dandel10n)
+
 ## 2.26.0
 
 ### Minor Changes
