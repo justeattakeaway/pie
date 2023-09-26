@@ -81,7 +81,7 @@
     }
 
     &:focus-visible {
-        @include p.focus();
+        @include p.focus;
     }
 
     &[isdraggable]:not([interactiontype='none']) {

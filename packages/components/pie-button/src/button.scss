@@ -288,7 +288,7 @@
     }
 
     &:focus-visible {
-        @include p.focus();
+        @include p.focus;
     }
 }
 

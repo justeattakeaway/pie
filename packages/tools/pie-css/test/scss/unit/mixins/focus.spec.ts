@@ -14,7 +14,7 @@ describe('mixins.focus', () => {
 
           .foo {
             &:focus-visible {
-              @include mixins.focus();
+              @include mixins.focus;
             }
           }
         `;

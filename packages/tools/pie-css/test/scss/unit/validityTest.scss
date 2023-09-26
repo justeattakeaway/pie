@@ -13,7 +13,7 @@
     @include mixins.font-size(--font-size);
 
     :focus-visible {
-        @include mixins.focus();
+        @include mixins.focus;
     }
 
     &[isdraggable]:not([interactiontype='none']) {
