@@ -5132,14 +5132,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@justeat/pie-design-tokens@npm:5.8.0":
-  version: 5.8.0
-  resolution: "@justeat/pie-design-tokens@npm:5.8.0"
+"@justeat/pie-design-tokens@npm:5.8.1":
+  version: 5.8.1
+  resolution: "@justeat/pie-design-tokens@npm:5.8.1"
   dependencies:
     jsonc-parser: 3.2.0
     lodash.merge: 4.6.2
     mkdirp: 1.0.4
-  checksum: 512a224441373ef32ed08cae88f9794d6ecba9a72f46ec14648ea9527ffa71f344622893e2d9fcaffbfa4f40150e510a3cb9de5a43dab730fdcb321fc1bc4513
+  checksum: f8525eb6c42ff9c0af93c5cd5341e79b978aed68ddc8b772fa352c2848d256d6a65b331e9aff95df5ff6ac794d94cb6a91cb4539bb74d629c00e182f7657c13f
   languageName: node
   linkType: hard
 
@@ -27664,7 +27664,7 @@ __metadata:
     "@commitlint/config-conventional": 17.4.4
     "@justeat/browserslist-config-fozzie": 1.x
     "@justeat/fozzie": 11.0.0
-    "@justeat/pie-design-tokens": 5.8.0
+    "@justeat/pie-design-tokens": 5.8.1
     "@justeattakeaway/generator-pie-component": "workspace:*"
     "@justeattakeaway/pie-icons": "workspace:*"
     "@justeattakeaway/pie-webc-testing": "workspace:*"
