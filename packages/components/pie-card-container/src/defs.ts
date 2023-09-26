@@ -54,9 +54,4 @@ export interface CardContainerProps {
      * An array of padding values from a to g.
      */
     padding?: PaddingValue | PaddingValue[];
-
-    /**
-     * An array of padding values from a to g.
-     */
-    paddingX?: PaddingValue | PaddingValue[];
 }

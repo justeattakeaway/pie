@@ -24,7 +24,7 @@ const defaultArgs: CardContainerProps = {
     aria: {
         label: 'Click to go to restaurant',
     },
-    padding: '',
+    padding: [],
     isDraggable: false,
     // This is just an arbitrary example of some markup a user may pass into the card
     slot: `<div style="color: var(--card-color); font-size: calc(var(--dt-font-body-l-size) * 1px); font-family: var(--dt-font-interactive-m-family); padding: var(--dt-spacing-b);">
@@ -66,19 +66,6 @@ const cardContainerStoryMeta: CardContainerStoryMeta = {
                 type: 'text',
             },
             options: padding,
-            defaultValue: {
-                summary: '',
-            },
-        },
-        paddingX: {
-            description: 'Set the left / right padding of the card.',
-            control: {
-                type: 'text',
-            },
-            options: padding,
-            defaultValue: {
-                summary: 'none',
-            },
         },
         disabled: {
             description: 'If `true`, disables the card.',
@@ -138,7 +125,6 @@ const Template: TemplateFunction<CardContainerProps> = ({
     aria,
     variant,
     padding,
-    paddingX,
     isDraggable,
 }) => {
     const darkMode = variant.includes('inverse');
@@ -154,7 +140,6 @@ const Template: TemplateFunction<CardContainerProps> = ({
             ?disabled="${disabled}"
             .aria="${aria}"
             padding="${padding}"
-            paddingX="${paddingX}"
             ?isDraggable="${isDraggable}">
             ${unsafeStatic(slot)}
         </pie-card-container>

@@ -43,9 +43,6 @@ export class PieCardContainer extends LitElement implements CardContainerProps {
     @property({ type: String, reflect: true })
     public padding?: PaddingValue;
 
-    @property({ type: String, reflect: true })
-    public paddingX?: PaddingValue;
-
     /**
      * Renders the card as an anchor element.
      *
@@ -74,28 +71,32 @@ export class PieCardContainer extends LitElement implements CardContainerProps {
     }
 
     /**
-     * Generates padding for the component based on `padding` or `paddingX` values passed
+     * Generates padding for the component based on `padding` values passed
      * by the consumer.
+     *
+     * Example: 'a' or 'a, b'
      *
      * @private
      */
     private generatePaddingCSS (): string {
-        const { padding, paddingX } = this;
+        const { padding } = this;
         let paddingCSS = '';
 
+        // Check if padding is empty (null, undefined, or an empty string)
         if (!padding) {
             return '';
         }
 
-        if (padding) {
-            paddingCSS += `var(--dt-spacing-${padding})`;
-        }
+        const paddingArray = padding
+            .split(',')
+            .map((item) => item.trim())
+            .filter((value) => value !== '');
 
-        if (paddingX) {
-            if (padding) {
-                paddingCSS += ` var(--dt-spacing-${paddingX})`;
-            } else {
-                paddingCSS += `var(--dt-spacing-${paddingX})`;
+        if (paddingArray.length > 0) {
+            paddingCSS += `var(--dt-spacing-${paddingArray[0]})`;
+
+            if (paddingArray.length > 1) {
+                paddingCSS += ` var(--dt-spacing-${paddingArray[1]})`;
             }
         }
 
