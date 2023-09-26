@@ -2,7 +2,6 @@
 eleventyNavigation:
     key: 'Button'
     parent: Components
-    order: 1
 ---
 
 ## Overview
@@ -12,7 +11,7 @@ Buttons serve a wide range of purposes in user interfaces, such as submitting fo
 
 
 {% contentPageImage {
-    src:"../../assets/img/components/button/button-overview.svg",
+    src:"../../assets/img/components/button/overview.svg",
     alt: "A large primary button."
 } %}
 
