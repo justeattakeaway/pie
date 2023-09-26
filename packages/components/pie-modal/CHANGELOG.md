@@ -1,5 +1,13 @@
 # @justeattakeaway/pie-modal
 
+## 0.23.0
+
+### Minor Changes
+
+- [Added] - Allow HTML in slot on Storybook for modal and card ([#825](https://github.com/justeattakeaway/pie/pull/825)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Added] - `DOMPurify` to ensure the passed content is sanitized
+
 ## 0.22.0
 
 ### Minor Changes
