@@ -83,6 +83,7 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-color-border-subtle: var(--dt-color-mozzarella-10);
     --dt-color-border-strong: var(--dt-color-mozzarella-30);
     --dt-color-border-inverse: var(--dt-color-mozzarella-70);
+    --dt-color-border-selected: var(--dt-color-mozzarella-50);
     --dt-color-divider-default: rgb(0,0,0,0.08);
     --dt-color-divider-inverse: rgb(255,255,255,0.20);
     --dt-color-interactive-brand: var(--dt-color-orange);
@@ -91,7 +92,7 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-color-interactive-inverse: var(--dt-color-white);
     --dt-color-interactive-light: var(--dt-color-white);
     --dt-color-interactive-form: var(--dt-color-mozzarella-60);
-    --dt-color-overlay: rgb(0,0,0,0.5);
+    --dt-color-overlay: rgb(0,0,0,0.55);
     --dt-color-support-error: var(--dt-color-red);
     --dt-color-support-warning: var(--dt-color-yellow);
     --dt-color-support-positive: var(--dt-color-green);
@@ -167,6 +168,7 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-color-highcontrast-border-subtle: var(--dt-color-black);
     --dt-color-highcontrast-border-strong: var(--dt-color-black);
     --dt-color-highcontrast-border-inverse: var(--dt-color-white);
+    --dt-color-highcontrast-border-selected: var(--dt-color-black);
     --dt-color-highcontrast-divider-default: var(--dt-color-black);
     --dt-color-highcontrast-divider-inverse: var(--dt-color-white);
     --dt-color-highcontrast-interactive-brand: var(--dt-color-orange-dark-hc);
@@ -175,7 +177,7 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-color-highcontrast-interactive-inverse: var(--dt-color-white);
     --dt-color-highcontrast-interactive-light: var(--dt-color-white);
     --dt-color-highcontrast-interactive-form: var(--dt-color-black);
-    --dt-color-highcontrast-overlay: rgb(0,0,0,0.5);
+    --dt-color-highcontrast-overlay: rgb(0,0,0,0.55);
     --dt-color-highcontrast-support-error: var(--dt-color-red-dark-hc);
     --dt-color-highcontrast-support-warning: var(--dt-color-yellow-dark-hc);
     --dt-color-highcontrast-support-positive: var(--dt-color-green-dark-hc);
@@ -251,6 +253,7 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-color-dark-border-subtle: var(--dt-color-mozzarella-75);
     --dt-color-dark-border-strong: var(--dt-color-mozzarella-60);
     --dt-color-dark-border-inverse: var(--dt-color-mozzarella-20);
+    --dt-color-dark-border-selected: var(--dt-color-mozzarella-30);
     --dt-color-dark-divider-default: rgb(255,255,255,0.20);
     --dt-color-dark-divider-inverse: rgb(0,0,0,0.08);
     --dt-color-dark-interactive-brand: var(--dt-color-orange);
@@ -259,7 +262,7 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-color-dark-interactive-inverse: var(--dt-color-mozzarella-90);
     --dt-color-dark-interactive-light: var(--dt-color-white);
     --dt-color-dark-interactive-form: var(--dt-color-mozzarella-50);
-    --dt-color-dark-overlay: rgb(0,0,0,0.5);
+    --dt-color-dark-overlay: rgb(0,0,0,0.55);
     --dt-color-dark-support-error: var(--dt-color-red);
     --dt-color-dark-support-warning: var(--dt-color-yellow);
     --dt-color-dark-support-positive: var(--dt-color-green-30);
@@ -335,6 +338,7 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-color-highcontrast-dark-border-subtle: var(--dt-color-white);
     --dt-color-highcontrast-dark-border-strong: var(--dt-color-white);
     --dt-color-highcontrast-dark-border-inverse: var(--dt-color-black);
+    --dt-color-highcontrast-dark-border-selected: var(--dt-color-white);
     --dt-color-highcontrast-dark-divider-default: var(--dt-color-white);
     --dt-color-highcontrast-dark-divider-inverse: var(--dt-color-black);
     --dt-color-highcontrast-dark-interactive-brand: var(--dt-color-orange-30);
@@ -343,7 +347,7 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-color-highcontrast-dark-interactive-inverse: var(--dt-color-black);
     --dt-color-highcontrast-dark-interactive-light: var(--dt-color-white);
     --dt-color-highcontrast-dark-interactive-form: var(--dt-color-white);
-    --dt-color-highcontrast-dark-overlay: rgb(0,0,0,0.5);
+    --dt-color-highcontrast-dark-overlay: rgb(0,0,0,0.55);
     --dt-color-highcontrast-dark-support-error: var(--dt-color-red-light-hc);
     --dt-color-highcontrast-dark-support-warning: var(--dt-color-yellow);
     --dt-color-highcontrast-dark-support-positive: var(--dt-color-green-light-hc);
@@ -640,27 +644,33 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-elevation-box-shadow-08: 0px 2px 6px 0px rgba(0, 0, 0, 0.12),0px 8px 12px -2px rgba(0, 0, 0, 0.24),0px 4px 6px 0px rgba(0, 0, 0, 0.16);
     --dt-elevation-box-shadow-09: 0px 8px 8px 0px rgba(0, 0, 0, 0.16),0px 3px 20px -3px rgba(0, 0, 0, 0.4),0px 4px 8px -2px rgba(0, 0, 0, 0.24);
     --dt-elevation-box-shadow-10: 0px -4px 6px 0px rgba(0, 0, 0, 0.08),0px -2px 12px -2px rgba(0, 0, 0, 0.32),0px -3px 6px 0px rgba(0, 0, 0, 0.24);
+    --dt-elevation-box-shadow-11: 0px 0px 1px 0px rgba(0, 0, 0, 0.12),0px 1px 5px 0px rgba(0, 0, 0, 0.04),0px 0px 4px 0px rgba(0, 0, 0, 0.1);
+    --dt-elevation-box-shadow-12: 0px 0px 1px 0px rgba(0, 0, 0, 0.24),0px 1px 5px 0px rgba(0, 0, 0, 0.08),0px 0px 4px 0px rgba(0, 0, 0, 0.16);
     /* Alias tokens - Elevation */
     --dt-elevation-01: var(--dt-elevation-box-shadow-01);
     --dt-elevation-02: var(--dt-elevation-box-shadow-02);
     --dt-elevation-03: var(--dt-elevation-box-shadow-03);
     --dt-elevation-04: var(--dt-elevation-box-shadow-04);
     --dt-elevation-05: var(--dt-elevation-box-shadow-05);
+    --dt-elevation-card: var(--dt-elevation-box-shadow-11);
     --dt-elevation-inverse-01: var(--dt-elevation-box-shadow-06);
     --dt-elevation-inverse-02: var(--dt-elevation-box-shadow-07);
     --dt-elevation-inverse-03: var(--dt-elevation-box-shadow-08);
     --dt-elevation-inverse-04: var(--dt-elevation-box-shadow-09);
     --dt-elevation-inverse-05: var(--dt-elevation-box-shadow-10);
+    --dt-elevation-inverse-card: var(--dt-elevation-box-shadow-12);
     --dt-elevation-dark-01: var(--dt-elevation-box-shadow-06);
     --dt-elevation-dark-02: var(--dt-elevation-box-shadow-07);
     --dt-elevation-dark-03: var(--dt-elevation-box-shadow-08);
     --dt-elevation-dark-04: var(--dt-elevation-box-shadow-09);
     --dt-elevation-dark-05: var(--dt-elevation-box-shadow-10);
+    --dt-elevation-dark-card: var(--dt-elevation-box-shadow-12);
     --dt-elevation-dark-inverse-01: var(--dt-elevation-box-shadow-01);
     --dt-elevation-dark-inverse-02: var(--dt-elevation-box-shadow-02);
     --dt-elevation-dark-inverse-03: var(--dt-elevation-box-shadow-03);
     --dt-elevation-dark-inverse-04: var(--dt-elevation-box-shadow-04);
     --dt-elevation-dark-inverse-05: var(--dt-elevation-box-shadow-05);
+    --dt-elevation-dark-inverse-card: var(--dt-elevation-box-shadow-11);
 }
 :root {
     --dt-color-aubergine-10-h: 300;
@@ -897,6 +907,9 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-color-border-inverse-h: var(--dt-color-mozzarella-70-h);
     --dt-color-border-inverse-s: var(--dt-color-mozzarella-70-s);
     --dt-color-border-inverse-l: var(--dt-color-mozzarella-70-l);
+    --dt-color-border-selected-h: var(--dt-color-mozzarella-50-h);
+    --dt-color-border-selected-s: var(--dt-color-mozzarella-50-s);
+    --dt-color-border-selected-l: var(--dt-color-mozzarella-50-l);
     --dt-color-interactive-brand-h: var(--dt-color-orange-h);
     --dt-color-interactive-brand-s: var(--dt-color-orange-s);
     --dt-color-interactive-brand-l: var(--dt-color-orange-l);

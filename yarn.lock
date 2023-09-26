@@ -5132,6 +5132,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@justeat/pie-design-tokens@npm:5.8.1":
+  version: 5.8.1
+  resolution: "@justeat/pie-design-tokens@npm:5.8.1"
+  dependencies:
+    jsonc-parser: 3.2.0
+    lodash.merge: 4.6.2
+    mkdirp: 1.0.4
+  checksum: f8525eb6c42ff9c0af93c5cd5341e79b978aed68ddc8b772fa352c2848d256d6a65b331e9aff95df5ff6ac794d94cb6a91cb4539bb74d629c00e182f7657c13f
+  languageName: node
+  linkType: hard
+
 "@justeattakeaway/eslint-config-pie@workspace:packages/tools/eslint-config-pie":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/eslint-config-pie@workspace:packages/tools/eslint-config-pie"
@@ -9686,6 +9697,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/dompurify@npm:3.0.2":
+  version: 3.0.2
+  resolution: "@types/dompurify@npm:3.0.2"
+  dependencies:
+    "@types/trusted-types": "*"
+  checksum: dc017e16a46bcc77086af7d4dc5d2bf4102f16bf1a11b2937e90380da50e77716a2a608ff52990b1293250fefc2ad7593a1378fe07e3a7e21f200d702f0a7878
+  languageName: node
+  linkType: hard
+
 "@types/ejs@npm:*, @types/ejs@npm:^3.1.1":
   version: 3.1.2
   resolution: "@types/ejs@npm:3.1.2"
@@ -10368,6 +10388,13 @@ __metadata:
   dependencies:
     "@types/node": "*"
   checksum: 9578470db0b527c26e246a1220ae9bffc6bf47f20f89c54aac467c083ab1f7e16c00d9a7b4bb6cb4e2dfae465027270827e5908a6236063f6214625e50585d78
+  languageName: node
+  linkType: hard
+
+"@types/trusted-types@npm:*":
+  version: 2.0.4
+  resolution: "@types/trusted-types@npm:2.0.4"
+  checksum: 5256c4576cd1c90d33ddd9cc9cbd4f202b39c98cbe8b7f74963298f9eb2159c285ea5c25a6181b4c594d8d75641765bff85d72c2d251ad076e6529ce0eeedd1c
   languageName: node
   linkType: hard
 
@@ -17072,6 +17099,13 @@ __metadata:
   dependencies:
     domelementtype: ^2.3.0
   checksum: 0f58f4a6af63e6f3a4320aa446d28b5790a009018707bce2859dcb1d21144c7876482b5188395a188dfa974238c019e0a1e610d2fc269a12b2c192ea2b0b131c
+  languageName: node
+  linkType: hard
+
+"dompurify@npm:3.0.5":
+  version: 3.0.5
+  resolution: "dompurify@npm:3.0.5"
+  checksum: 2d9421570c833ce26ce7022955241749b646d41e8bf453f42ede9f22d0e98af482cedb7dfbf8129419eb48b351c1d677a08fc9f1cd91836ce7f6c1807a0676b2
   languageName: node
   linkType: hard
 
@@ -27630,7 +27664,7 @@ __metadata:
     "@commitlint/config-conventional": 17.4.4
     "@justeat/browserslist-config-fozzie": 1.x
     "@justeat/fozzie": 11.0.0
-    "@justeat/pie-design-tokens": 5.7.0
+    "@justeat/pie-design-tokens": 5.8.1
     "@justeattakeaway/generator-pie-component": "workspace:*"
     "@justeattakeaway/pie-icons": "workspace:*"
     "@justeattakeaway/pie-webc-testing": "workspace:*"
@@ -27711,7 +27745,9 @@ __metadata:
     "@storybook/theming": 7.4.0
     "@storybook/web-components": 7.4.0
     "@storybook/web-components-vite": 7.4.0
+    "@types/dompurify": 3.0.2
     body-scroll-lock: 4.0.0-beta.0
+    dompurify: 3.0.5
     lit: 2.7.5
     react: 18.2.0
     react-dom: 18.2.0
