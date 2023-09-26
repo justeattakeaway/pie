@@ -22,6 +22,7 @@ describe('mixins.focus', () => {
         const expectedCss = stripCSSWhitespace(`
           .foo:focus-visible {
             box-shadow: 0 0 0 2px var(--dt-color-focus-inner), 0 0 0 4px var(--dt-color-focus-outer);
+            outline: none;
           }
         `);
 

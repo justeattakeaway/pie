@@ -1,5 +1,11 @@
 @use '@justeattakeaway/pie-css/scss' as p;
 
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
 @mixin card-interactive-states($bg-color, $mode: 'default') {
     &:hover:not([disabled], [interactiontype='none']) {
         @if $mode == 'inverse' {

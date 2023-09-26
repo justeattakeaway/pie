@@ -1,5 +1,11 @@
 @use '@justeattakeaway/pie-css/scss' as p;
 
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
 /**
 * Defines button interactive states for hover, active and loading.
 * $bg-color: design token name to be used for the states
