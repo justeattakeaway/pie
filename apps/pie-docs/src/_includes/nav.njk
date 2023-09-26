@@ -28,14 +28,14 @@
     </summary>
 {% endmacro %}
 
-{% macro listItem(title, url, pageUrl) %}
+{% macro listItem(title, url, pageUrl, isActive) %}
     <li>
         <a
             href="{{ url | url}}"
             {% if url == pageUrl %}
                 aria-current="page"
             {% endif %}
-            class="c-nav-item{% if url == pageUrl %} is-active{% endif %}">
+            class="c-nav-item{% if isActive or url == pageUrl %} is-active{% endif %}">
             {{ title }}
         </a>
     </li>
@@ -57,8 +57,7 @@
                                     {% for subpage in category.children %}
                                         {% if subpage.url %}
                                             {% if subpage.children.length and subpage.subPageDropdown %}
-                                                {% set subCategory = ([] if subpage.url === false else subpage.url.split("/")[2]) %}
-                                                <details {% if page.url and page.url.includes(subCategory) %} open{% endif %}>
+                                                <details {% if page.url and page.url.includes(subpage.key) %} open{% endif %}>
                                                     {{ summary(subpage.title) }}
                                                     <ul class="c-nav-list">
                                                     {% for child in subpage.children %}
@@ -75,7 +74,7 @@
                                                     {% set currentPageArea = [splitPageUrl[1], splitPageUrl[2]] | join('/') %}
                                                     {# Set the nav item to active if the url contains it's category #}
                                                     {# this means something like /foundations/colour/overview/ and /foundations/colour/tokens/global/ will activate 'colour' #}
-                                                    {{ listItem(subpage.title, subpage.url, page.url) }}
+                                                    {{ listItem(subpage.title, subpage.url, page.url, subPageArea == currentPageArea) }}
                                             {% endif %}
                                         {% endif %}
                                     {% endfor %}

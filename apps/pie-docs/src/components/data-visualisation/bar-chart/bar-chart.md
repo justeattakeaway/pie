@@ -1,7 +1,7 @@
 ---
 eleventyNavigation:
     key: 'Bar Chart'
-    parent: 'Data Visulisation'
+    parent: data-visualisation
 ---
 
 ## Overview
