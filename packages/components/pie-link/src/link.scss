@@ -31,6 +31,9 @@
     text-decoration: var(--link-text-decoration);
     cursor: pointer;
 
+    @include link-interactive-states('default');
+
+
     &[tag='a'] {
         /* Same as default styles */
     }
@@ -67,11 +70,9 @@
 
     &[underline='default'] {
         /* Same as default styles */
-
-        @include link-interactive-states('default');
     }
 
-    &[underline='reversed'] {
+    &[underline='reversed'][isStandalone] {
         --link-text-decoration: none;
 
         @include link-interactive-states('reversed');
