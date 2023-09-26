@@ -1,11 +1,5 @@
 @use '@justeattakeaway/pie-css/scss' as p;
 
-*,
-*:before,
-*:after {
-    box-sizing: border-box;
-}
-
 @mixin card-interactive-states($bg-color, $mode: 'default') {
     &:hover:not([disabled], [interactiontype='none']) {
         @if $mode == 'inverse' {
@@ -87,7 +81,7 @@
     }
 
     &:focus-visible {
-        box-shadow: 0 0 0 2px var(--dt-color-focus-inner), 0 0 0 4px var(--dt-color-focus-outer);
+        @include p.focus();
     }
 
     &[isdraggable]:not([interactiontype='none']) {

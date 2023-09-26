@@ -1,11 +1,5 @@
 @use '@justeattakeaway/pie-css/scss' as p;
 
-*,
-*:before,
-*:after {
-    box-sizing: border-box;
-}
-
 /**
 * Defines button interactive states for hover, active and loading.
 * $bg-color: design token name to be used for the states
@@ -121,52 +115,6 @@
 
     // used to specify whether the button should be full width or not
     inline-size: var(--btn-inline-size);
-
-    // TODO: This should be moved into global CSS typography setting
-    // This should be imported by consuming apps and set on the application body
-    text-rendering: optimizelegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-font-smoothing: antialiased;
-
-    &:focus-visible {
-        /*
-        TODO: This focus styling should be extracted out into a shared mixin to share among other components
-        Applying both shadows in a single declaration gives anti-aliasing artefacts.
-        box-shadow: 0 0 0 2px dt.$color-focus-inner, 0 0 0 4px dt.$color-focus-outer;
-
-        To prevent this, they should be separated so they don't bleed into each other,
-        i.e., one shadow on the element and another on a pseudo element like :after
-        */
-        box-shadow: 0 0 0 2px var(--dt-color-focus-inner);
-        outline: none;
-
-        /*
-        Setting the position to relative prevents the pseudo-element from
-        anchoring instead to the nearest ancestor with a specified position.
-
-        You can override this if you need another value.
-        */
-        position: relative;
-
-        &:after {
-            content: '';
-            display: block;
-
-            /*
-            The pseudo element has to be larger than the element itself, but not just by
-            2px (the thickness of the inner shadow), it has to be 1px larger than that to
-            account for the border thickness.
-            */
-            position: absolute;
-            top: -3px;
-            left: -3px;
-            right: -3px;
-            bottom: -3px;
-            border-radius: var(--btn-border-radius);
-
-            box-shadow: 0 0 0 2px var(--dt-color-focus-outer);
-        }
-    }
 
     // Variant
     &[variant='primary'] {
@@ -337,6 +285,10 @@
         & > * {
             visibility: hidden;
         }
+    }
+
+    &:focus-visible {
+        @include p.focus();
     }
 }
 
