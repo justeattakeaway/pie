@@ -95,7 +95,7 @@ $nav-item-left-margin: calc($nav-category-gap + $nav-category-icon-width);
     margin-block: 0 2px;
 
     + .c-nav-list {
-        margin-left: f.spacing(d);
+        margin-inline-start: f.spacing(d);
     }
 }
 
@@ -113,7 +113,7 @@ $nav-item-left-margin: calc($nav-category-gap + $nav-category-icon-width);
 
 // SideNav accordion toggle
 .c-nav-toggle {
-    margin-left: auto;
+    margin-inline-start: auto;
     display: none;
 
     .c-nav details[open] > summary & {
