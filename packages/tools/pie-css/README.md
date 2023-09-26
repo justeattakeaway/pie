@@ -132,8 +132,8 @@ We will be writing more in-depth docs on these SCSS helpers shortly, but for now
 
 We strive to ensure all styles are appropriately tested. How we test the styles differs for CSS and SCSS. Below, we outline both approaches.
 
-[!WARNING]
-Any pull requests that fail to test newly added or altered styling will likely be rejected. Please do ensure that tests have been added before raising a pull request.
+> [!WARNING]
+> Any pull requests that fail to test newly added or altered styling will likely be rejected. Please do ensure that tests have been added before raising a pull request.
 
 ### CSS
 
