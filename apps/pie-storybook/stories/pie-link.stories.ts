@@ -55,7 +55,7 @@ const linkStoryMeta: LinkStoryMeta = {
             },
         },
         underline: {
-            description: 'Set the underline behavior of the link.',
+            description: 'Set the underline behavior of the link.<br /><br /> the `reverse` type can only be used if `isStandalone` is `true`',
             control: 'select',
             options: underlineTypes,
             defaultValue: {
@@ -63,7 +63,7 @@ const linkStoryMeta: LinkStoryMeta = {
             },
         },
         iconPlacement: {
-            description: 'Show a leading/trailing icon.<br /><br />To use this with pie-link, you can pass an icon into the `icon` slot.',
+            description: 'Show a leading or trailing icon.<br /><br />To use this with pie-link, you can pass an icon into the `icon` slot.<br /><br /> Can only be used if `isStandalone` is `true`',
             control: 'select',
             options: [undefined, ...iconPlacements],
         },

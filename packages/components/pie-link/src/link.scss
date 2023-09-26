@@ -20,6 +20,7 @@
     --link-text-color: var(--dt-color-content-link);
     --link-text-decoration: var(--dt-font-style-underline);
     --link-icon-size: 16px;
+    --link-icon-offset-top: var(--dt-spacing-a);
 
     display: inline-block;
     font-family: var(--link-font-family);
@@ -57,6 +58,7 @@
     &[size='small'] {
         --link-font-size: #{p.font-size(--dt-font-size-14)};
         --link-line-height: calc(var(--dt-font-size-14-line-height) * 1px);
+        --link-icon-offset-top: 2px;
     }
 
     &[size='medium'] {
@@ -92,19 +94,22 @@
     }
 
     &:focus-visible {
-        box-shadow: 0 0 0 2px var(--dt-color-focus-outer);
+        outline: none;
+        border-radius: 2px;
+        box-shadow: 0 0 0 2px var(--dt-color-focus-inner), 0 0 0 4px var(--dt-color-focus-outer);
     }
 }
 
 .c-link-content {
     display: flex;
     gap: var(--dt-spacing-a);
+    text-align: justify;
 }
 
 ::slotted(.c-pieIcon),
 ::slotted(svg) {
     display: inline-flex;
-    margin-block-start: var(--dt-spacing-a);
+    margin-block-start: var(--link-icon-offset-top);
     height: var(--link-icon-size);
     width: var(--link-icon-size);
 }

@@ -27,7 +27,8 @@ export interface LinkProps {
      */
     size: typeof sizes[number];
     /**
-     * What underline behavior the link should have such as default or reversed
+     * What underline behavior the link should have such as default or reversed.
+     * The `reversed` type can only be used if the link is a block element (isStandalone = true)
      */
     underline: typeof underlineTypes[number];
     /**
@@ -55,7 +56,8 @@ export interface LinkProps {
      */
     hasVisited: boolean;
     /**
-     * The placement of the icon slot, if provided, such as leading or trailing
+     * The placement of the icon slot, if provided, such as leading or trailing.
+     * Will only apply if the link is a block element (isStandalone = true)
      */
     iconPlacement?: typeof iconPlacements[number];
     /**
