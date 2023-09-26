@@ -1,4 +1,6 @@
 import { TemplateResult } from 'lit';
+import DOMPurify from 'dompurify';
+import { unsafeStatic } from 'lit/static-html.js';
 import { StoryOptions } from '../types/StoryOptions';
 
 export type TemplateFunction<T> = (props: T) => TemplateResult;
@@ -44,3 +46,10 @@ export const createStory = <T>(templateFunc: TemplateFunction<T>, defaultArgs: T
         },
     },
 });
+
+/**
+ * Sanitizes and creates a static slot element.
+ * @param {string} slot - The slot content to sanitize and render.
+ * @returns {StaticValue} - A static slot element.
+ */
+export const staticSlot = (slot: string) => unsafeStatic(DOMPurify.sanitize(slot));
