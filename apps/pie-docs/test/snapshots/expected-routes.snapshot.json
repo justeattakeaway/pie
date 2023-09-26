@@ -10,7 +10,6 @@
     "components/button",
     "components/data-table",
     "components/data-visualisation/bar-chart",
-    "components/data-visualisation/data-visulisation",
     "components/data-visualisation/line-chart",
     "components/date-picker",
     "components/divider",
