@@ -143,8 +143,8 @@ For our raw CSS styles, we test two things:
 
 2. Ensure that our CSS output is what we expect via snapshot testing. We use some tools such as PostCSS to generate the output, so we want to ensure that we catch any regressions before our consumers do!
 
-[!NOTE]
-Our CSS tests can be found under `/test/css`.
+> [!NOTE]
+> Our CSS tests can be found under `/test/css`.
 
 ### SCSS
 
@@ -154,5 +154,5 @@ Our SCSS styles are tested in a number of ways:
 
 2. Ensure that all of the compiled CSS passes W3C CSS validation. This is done by compiling the SCSS to CSS and then making a request to the W3C validation service. Because we do not want to spam network requests, we add all the SCSS to `./test/scss/validityTest.scss` and use that file to compile during the test.
 
-[!NOTE]
-Our SCSS tests can be found under `/test/scss`.
+> [!NOTE]
+> Our SCSS tests can be found under `/test/scss`.
