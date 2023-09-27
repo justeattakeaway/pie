@@ -74,7 +74,9 @@ export class PieCardContainer extends LitElement implements CardContainerProps {
      * Generates padding for the component based on `padding` values passed
      * by the consumer.
      *
+     *
      * Example: 'a' or 'a, b'
+     * Single values i.e `'a'` applies to all sides and `'a, b'` applies to: top, right, bottom, left
      *
      * @private
      */

@@ -230,7 +230,7 @@ test.describe('PieCardContainer - Component tests', () => {
         });
     });
 
-    test.describe('Prop: `padding` & `PaddingX`', () => {
+    test.describe('Prop: `padding`', () => {
         test.describe('when `padding` is set as a single string value', () => {
             test('should set an attribute of style with the correct padding value', async ({ mount, page }) => {
                 // Arrange

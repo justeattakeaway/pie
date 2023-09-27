@@ -20,7 +20,6 @@ const props: PropObject = {
     interactionType: interactionTypes,
     variant: variants,
     padding,
-    paddingX: padding,
     disabled: [true, false],
 };
 
