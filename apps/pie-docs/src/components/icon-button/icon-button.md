@@ -1,6 +1,6 @@
 ---
 eleventyNavigation:
-    key: 'Icon Button'
+    key: 'Link'
     parent: Components
 ---
 
