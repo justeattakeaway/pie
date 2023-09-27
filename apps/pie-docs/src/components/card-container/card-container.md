@@ -22,7 +22,7 @@ Cards are designed to present concise and focused information organised in a vis
 
 {% notification {
   type: "warning",
-  message: "We’re currently working on updating our Button documentation, please see the resources below."
+  message: "We’re currently working on updating our Card Container documentation, please see the resources below."
 } %}
 
 {% resourceTable {
