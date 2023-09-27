@@ -55,7 +55,7 @@
     "@vue/babel-helper-vue-jsx-merge-props": "1.4.0"
   },
   "devDependencies": {
-    "@babel/core": "7.22.17",
+    "@babel/core": "7.23.0",
     "@justeattakeaway/pie-icons": "4.9.1",
     "@justeattakeaway/pie-icons-configs": "workspace:*",
     "@rollup/plugin-commonjs": "25.0.4",
