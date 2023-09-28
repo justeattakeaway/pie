@@ -310,6 +310,25 @@ test.describe('PieCardContainer - Component tests', () => {
                 // Assert
                 expect(componentAttribute).toBe('padding: var(--dt-spacing-a) var(--dt-spacing-b)');
             });
+
+            test('should not allow more than 2 padding values', async ({ mount, page }) => {
+                // Arrange
+                const paddingValue = { padding: 'a, b, c' };
+                await mount(PieCardContainer, {
+                    props: {
+                        padding: paddingValue.padding,
+                    } as CardContainerProps,
+                    slots: {
+                        default: slotContent,
+                    },
+                });
+
+                const component = page.locator(componentSelector);
+                const componentAttribute = await component.getAttribute('style');
+
+                // Assert
+                expect(componentAttribute).toBe(null);
+            });
         });
     });
 });

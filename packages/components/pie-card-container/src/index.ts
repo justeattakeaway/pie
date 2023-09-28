@@ -94,7 +94,7 @@ export class PieCardContainer extends LitElement implements CardContainerProps {
             .map((item) => item.trim())
             .filter((value) => /^[a-g]$/.test(value));
 
-        if (paddingArray.length > 0) {
+        if (paddingArray.length > 0 && paddingArray.length <= 2) {
             paddingCSS += `var(--dt-spacing-${paddingArray[0]})`;
 
             if (paddingArray.length > 1) {
