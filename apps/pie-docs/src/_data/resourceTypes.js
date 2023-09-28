@@ -9,6 +9,8 @@ module.exports = {
     WEB_COMPONENTS: 'webComponents',
     VUE: 'vue',
     REACT: 'react',
-    IOS: 'ios',
-    ANDROID: 'android',
+    IOS_JUST_UI: 'iosJustUI',
+    IOS_PIE: 'iosPIE',
+    ANDROID_XML: 'androidXML',
+    ANDROID_JETPACK: 'androidJetpack',
 };

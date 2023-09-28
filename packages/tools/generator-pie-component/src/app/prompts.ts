@@ -4,7 +4,7 @@ export default [{
     type: 'input',
 },
 {
-    message: 'Does your web component need to recognise \'dir\' attributes to render different markup or styes to support RTL?',
+    message: 'Does your web component need to be aware of text direction to render different markup or styes to support right-to-left languages?',
     name: 'needsRTL',
     type: 'confirm',
     default: false,

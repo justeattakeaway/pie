@@ -1,5 +1,12 @@
 # @justeattakeaway/pie-divider
 
+## 0.4.1
+
+### Patch Changes
+
+- Updated dependencies [[`9d689eb08`](https://github.com/justeattakeaway/pie/commit/9d689eb0818c4d686d93b5cdd9d708115a066c1e), [`9d689eb08`](https://github.com/justeattakeaway/pie/commit/9d689eb0818c4d686d93b5cdd9d708115a066c1e)]:
+  - @justeattakeaway/pie-webc-core@0.9.0
+
 ## 0.4.0
 
 ### Minor Changes

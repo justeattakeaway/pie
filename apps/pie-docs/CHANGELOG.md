@@ -1,5 +1,20 @@
 # Changelog
 
+## 3.3.1
+
+### Patch Changes
+
+- Updated dependencies [[`d3976e861`](https://github.com/justeattakeaway/pie/commit/d3976e861547e22c66221798f355c42ed91145e6)]:
+  - @justeattakeaway/pie-icons@4.9.1
+
+## 3.3.0
+
+### Minor Changes
+
+- [Added] - Accordion overview page ([#822](https://github.com/justeattakeaway/pie/pull/822)) by [@LTurns](https://github.com/LTurns)
+
+  [Added] - `Android Jetpack` and `IOS PIE` to resource table
+
 ## 3.2.0
 
 ### Minor Changes

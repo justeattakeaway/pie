@@ -1,18 +1,15 @@
 import {
-    LitElement, nothing, TemplateResult, unsafeCSS,
+    LitElement, nothing, TemplateResult, unsafeCSS, PropertyValues,
 } from 'lit';
 import { html, unsafeStatic } from 'lit/static-html.js';
 import { property, query } from 'lit/decorators.js';
 import {
     requiredProperty, RtlMixin, validPropertyValues,
 } from '@justeattakeaway/pie-webc-core';
-import type { DependentMap } from '@justeattakeaway/pie-webc-core';
-import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 import '@justeattakeaway/pie-icons-webc/IconClose';
 import '@justeattakeaway/pie-icons-webc/IconChevronLeft';
 import '@justeattakeaway/pie-icons-webc/IconChevronRight';
-
-import dialogPolyfill from 'dialog-polyfill';
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 
 import styles from './modal.scss?inline';
 import {
@@ -100,13 +97,9 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
     // Renders a `CSSResult` generated from SCSS by Vite
     static styles = unsafeCSS(styles);
 
-    constructor () {
-        super();
-        this.addEventListener('click', (event) => this._handleDialogLightDismiss(event));
-    }
-
     connectedCallback () : void {
         super.connectedCallback();
+        this.addEventListener('click', (event) => this._handleDialogLightDismiss(event));
         document.addEventListener(ON_MODAL_OPEN_EVENT, this._handleModalOpened.bind(this));
         document.addEventListener(ON_MODAL_CLOSE_EVENT, this._handleModalClosed.bind(this));
         document.addEventListener(ON_MODAL_BACK_EVENT, this._handleModalClosed.bind(this));
@@ -119,8 +112,11 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
         super.disconnectedCallback();
     }
 
-    firstUpdated (changedProperties: DependentMap<ModalProps>) : void {
+    async firstUpdated (changedProperties: PropertyValues<this>) : Promise<void> {
+        super.firstUpdated(changedProperties);
+
         if (this._dialog) {
+            const dialogPolyfill = await import('dialog-polyfill').then((module) => module.default);
             dialogPolyfill.registerDialog(this._dialog);
             this._dialog.addEventListener('cancel', (event) => this._handleDialogCancelEvent(event));
             this._dialog.addEventListener('close', () => {
@@ -131,7 +127,8 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
         this._handleModalOpenStateOnFirstRender(changedProperties);
     }
 
-    updated (changedProperties: DependentMap<ModalProps>) : void {
+    updated (changedProperties: PropertyValues<this>) : void {
+        super.updated(changedProperties);
         this._handleModalOpenStateChanged(changedProperties);
     }
 
@@ -179,7 +176,7 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
     };
 
     // Handles the value of the isOpen property on first render of the component
-    private _handleModalOpenStateOnFirstRender (changedProperties: DependentMap<ModalProps>) : void {
+    private _handleModalOpenStateOnFirstRender (changedProperties: PropertyValues<this>) : void {
         // This ensures if the modal is open on first render, the scroll lock and backdrop are applied
         const previousValue = changedProperties.get('isOpen');
 
@@ -189,7 +186,7 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
     }
 
     // Handles changes to the modal isOpen property by dispatching any appropriate events
-    private _handleModalOpenStateChanged (changedProperties: DependentMap<ModalProps>) : void {
+    private _handleModalOpenStateChanged (changedProperties: PropertyValues<this>) : void {
         const wasPreviouslyOpen = changedProperties.get('isOpen');
 
         if (wasPreviouslyOpen !== undefined) {

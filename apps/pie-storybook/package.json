@@ -1,6 +1,6 @@
 {
   "name": "pie-storybook",
-  "version": "0.33.0",
+  "version": "0.35.0",
   "description": "Storybook for PIE Design System components",
   "scripts": {
     "dev": "storybook dev -p 6006",
@@ -24,6 +24,7 @@
     "@justeattakeaway/pie-modal": "0.20.0",
     "@justeattakeaway/pie-toggle-switch": "0.9.0",
     "body-scroll-lock": "4.0.0-beta.0",
+    "dompurify": "3.0.5",
     "lit": "2.7.5"
   },
   "devDependencies": {
@@ -40,6 +41,7 @@
     "@storybook/theming": "7.4.0",
     "@storybook/web-components": "7.4.0",
     "@storybook/web-components-vite": "7.4.0",
+    "@types/dompurify": "3.0.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "serve": "14.2.0",

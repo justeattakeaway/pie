@@ -19,10 +19,9 @@ const componentTemplate = (name, svg) => {
     const sizeType = isLargeIcon ? 'LargeIconSize' : 'RegularIconSize';
 
     return `import {
-    html, LitElement, TemplateResult, css,
+    html, LitElement, TemplateResult, css, PropertyValues
 } from 'lit';
 import { property, query } from 'lit/decorators.js';
-import type { DependentMap } from '@justeattakeaway/pie-webc-core';
 import { getSvgProps, ${sizeType} } from '@justeattakeaway/pie-icons-configs';
 
 interface IconProps {
@@ -61,7 +60,7 @@ export class ${name} extends LitElement implements IconProps {
         }
     }
 
-    updated (changedProperties: DependentMap<IconProps>) : void {
+    updated (changedProperties: PropertyValues<this>) : void {
         let svgSize : { width: string, height: string, class: string };
 
         if (changedProperties.has('size')) {

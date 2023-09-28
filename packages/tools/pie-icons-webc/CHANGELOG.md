@@ -1,5 +1,17 @@
 # @justeattakeaway/pie-icons-webc
 
+## 0.8.1
+
+### Patch Changes
+
+- [Changed] - use latest pie-icons ([#823](https://github.com/justeattakeaway/pie/pull/823)) by [@dandel10n](https://github.com/dandel10n)
+
+## 0.8.0
+
+### Minor Changes
+
+- [Changed] - Removed the DependantMap type and replaced all references with Lit's own PropertyValues helper. This provides exactly the same strongly typed map for a component's properties which makes our own type a little redundant. [Reference](https://lit.dev/docs/components/lifecycle/#typescript-types-for-changedproperties) ([#818](https://github.com/justeattakeaway/pie/pull/818)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.7.0
 
 ### Minor Changes

@@ -79,12 +79,13 @@ export class PieToggleSwitch extends RtlMixin(LitElement) implements ToggleSwitc
             aria,
             isChecked,
             isDisabled,
+            isRTL,
         } = this;
 
         const toggleSwitchId = 'toggle-switch-description';
 
         return html`
-            <div class="c-toggleSwitch-wrapper">
+            <div class="c-toggleSwitch-wrapper" ?isRTL=${isRTL}>
                 ${labelPlacement === 'leading' ? this.renderToggleSwitchLabel() : nothing}
                 <label
                     data-test-id="toggle-switch-component"
