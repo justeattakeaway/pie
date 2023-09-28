@@ -2,7 +2,6 @@
 eleventyNavigation:
     key: 'Button'
     parent: Components
-    order: 1
 ---
 
 ## Overview
