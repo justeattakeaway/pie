@@ -62,7 +62,7 @@ import { PieLink } from '@justeattakeaway/pie-link/dist/react';
 | tag           | `String`  | `a`         | The rendered HTML element of the link, one of `tags` – `a`, `button`                        |
 | variant       | `String`  | `default`   | Variant of the link, one of `variants` – `default`, `high-visibility`, `inverse`         |
 | size          | `String`  | `medium`    | Size of the link, one of `sizes` – `medium`, `small`                                          |
-| underline          | `String`  | `default`    | The underline behavior of the link, one of `underlineTypes` – `default`, `reversed`. The `reverse` type can only be used if `isStandalone` is `true`                                          |
+| underline          | `String`  | `default`    | The underline behavior of the link, one of `underlineTypes` – `default`, `reversed`. The `reverse` type can only be used if `isStandalone` is set to `true`                                          |
 | href          | `String`  | `undefined` | Native html `href` attribute                                                                       |
 | rel           | `String`  | `undefined` | Native html `rel` attribute                                                                        |
 | target        | `String`  | `undefined` | Native html `target` attribute                                                                     |

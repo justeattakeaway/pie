@@ -3,7 +3,7 @@
 "pie-storybook": minor
 ---
 
-[Fixed] - The `reverse` value of the `underline` prop can only be used if `isStandalone` is `true`
+[Fixed] - The `reverse` value of the `underline` prop can only be used if `isStandalone` is set to `true`
 
 [Fixed] - When the `isStandalone` prop is `false`, icon's cannot be shown.
 
