@@ -14,11 +14,14 @@
 
 1. [Introduction](#pie-css)
 2. [Installation](#installation)
-   1. JS or Framework import (via bundler)
-   2. NuxtJS
-   3. Sass /SCSS
-   4. Native HTML
+    1. JS or Framework import (via bundler)
+    2. NuxtJS
+    3. Sass /SCSS
+    4. Native HTML
 3. [Using the PIE CSS – SCSS helpers](#helpers)
+4. [Testing](#testing)
+    - [CSS](#css)
+    - [SCSS](#scss )
 
 ## Introduction
 
@@ -124,3 +127,32 @@ PIE CSS also has an optional set of SCSS helpers that are used by the PIE Web Co
 These are for carrying out common tasks in our styles, such as setting font sizes in consistent ways and sharing styles across components via SCSS mixins and functions.
 
 We will be writing more in-depth docs on these SCSS helpers shortly, but for now, feel free to browse the [SCSS code in the PIE mono-repo](https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-css/scss).
+
+## Testing
+
+We strive to ensure all styles are appropriately tested. How we test the styles differs for CSS and SCSS. Below, we outline both approaches.
+
+> [!WARNING]
+> Any pull requests that fail to test newly added or altered styling will likely be rejected. Please do ensure that tests have been added before raising a pull request.
+
+### CSS
+
+For our raw CSS styles, we test two things:
+
+1. Ensure that all our our CSS passes W3C CSS validation. This is done by reading the built CSS file and making a network request to the W3C validation service.
+
+2. Ensure that our CSS output is what we expect via snapshot testing. We use some tools such as PostCSS to generate the output, so we want to ensure that we catch any regressions before our consumers do!
+
+> [!NOTE]
+> Our CSS tests can be found under `/test/css`.
+
+### SCSS
+
+Our SCSS styles are tested in a number of ways:
+
+1. Unit tests to ensure that our SCSS mixins and functions output the expected CSS. These unit tests are written using `vitest`. What we do is write out a string of SCSS that calls the SCSS code we want to test and then run it through a compiler function to generate CSS. We then compare the output CSS to what we expect. This is done for all SCSS. To make things easier, we strip whitespace from the compiled CSS we test.
+
+2. Ensure that all of the compiled CSS passes W3C CSS validation. This is done by compiling the SCSS to CSS and then making a request to the W3C validation service. Because we do not want to spam network requests, we add all the SCSS to `./test/scss/validityTest.scss` and use that file to compile during the test.
+
+> [!NOTE]
+> Our SCSS tests can be found under `/test/scss`.
