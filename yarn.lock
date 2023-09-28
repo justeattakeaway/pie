@@ -5189,6 +5189,12 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@justeattakeaway/browserslist-config-pie@workspace:packages/tools/browserslist-config-pie":
+  version: 0.0.0-use.local
+  resolution: "@justeattakeaway/browserslist-config-pie@workspace:packages/tools/browserslist-config-pie"
+  languageName: unknown
+  linkType: soft
+
 "@justeattakeaway/eslint-config-pie@workspace:packages/tools/eslint-config-pie":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/eslint-config-pie@workspace:packages/tools/eslint-config-pie"
