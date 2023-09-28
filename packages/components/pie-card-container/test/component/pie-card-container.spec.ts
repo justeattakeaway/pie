@@ -249,6 +249,46 @@ test.describe('PieCardContainer - Component tests', () => {
                 // Assert
                 expect(componentAttribute).toBe('padding: var(--dt-spacing-a)');
             });
+
+            test('should not allow values outside "a-g"', async ({ mount, page }) => {
+                const invalidPaddingValue = { padding: 'z' };
+
+                // Arrange
+                await mount(PieCardContainer, {
+                    props: {
+                        padding: invalidPaddingValue.padding,
+                    } as CardContainerProps,
+                    slots: {
+                        default: slotContent,
+                    },
+                });
+
+                const component = page.locator(componentSelector);
+                const componentAttribute = await component.getAttribute('style');
+
+                // Assert
+                expect(componentAttribute).toBe(null);
+            });
+
+            test('should not allow more than one single value i.e "ab"', async ({ mount, page }) => {
+                const invalidPaddingValue = { padding: 'ab' };
+
+                // Arrange
+                await mount(PieCardContainer, {
+                    props: {
+                        padding: invalidPaddingValue.padding,
+                    } as CardContainerProps,
+                    slots: {
+                        default: slotContent,
+                    },
+                });
+
+                const component = page.locator(componentSelector);
+                const componentAttribute = await component.getAttribute('style');
+
+                // Assert
+                expect(componentAttribute).toBe(null);
+            });
         });
 
         test.describe('when `padding` is set as a comma separated string value', () => {
