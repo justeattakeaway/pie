@@ -80,7 +80,7 @@ export class PieCardContainer extends LitElement implements CardContainerProps {
      *
      * @private
      */
-    private generatePaddingCSS(): string {
+    private generatePaddingCSS (): string {
         const { padding } = this;
         let paddingCSS = '';
 
@@ -108,7 +108,6 @@ export class PieCardContainer extends LitElement implements CardContainerProps {
 
         return `padding: ${paddingCSS}`;
     }
-
 
     render () {
         const {
