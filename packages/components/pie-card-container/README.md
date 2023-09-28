@@ -58,7 +58,7 @@ import { PieCardContainer } from '@justeattakeaway/pie-card-container/dist/react
 ## Props
 
 | Property        | Type      | Default     | Description                                                                                                                                                                                                                                     |
-|-----------------|-----------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|---|---|---|------------------------------------------------------------------------------------------------------------------------------|
 | interactionType | `String`  | `none`      | The interaction intent of the card container, one of `interaction` – `anchor`, `button` or `none`
 | variant         | `string`  | `default`   | What style variant the card should be such as default, outline, inverse or outline-inverse                                                                                                                                                      |
 | disabled        | `boolean` | `false`     | When true, the card container is disabled.                                                                                                                                                                                                      |
@@ -67,7 +67,7 @@ import { PieCardContainer } from '@justeattakeaway/pie-card-container/dist/react
 | rel             | `string`  | `undefined` | What the relationship of the linked URL is (this will not take effect unless the card is a link).                                                                                                                                               |
 | aria            | `object`  | `undefined` | The ARIA labels used for various parts of the card.                                                                                                                                                                                             |
 | isDraggable     | `boolean` | `false`     | Sets a grab/grabbing cursor when set to true.                                                                                                                                                                                                   |
-| padding         | `String`  | `none`      | Sets a given padding of either a single value or two values in string format separated by commas. setting a single value adds padding to all sides of the component and 2 values is for top, bottom, left, right padding. e.g `'a'` or `'a, b'` |
+| padding         | `String`  | `none`      | Sets the padding of the card container. Can be either a single value or two values separated by commas. Setting a single value adds padding to all sides of the card, whereas setting two values will set the "topBottom, leftRight" padding. e.g `'a'` or `'a, b'` |
 
 
 In your markup or JSX, you can then use these to set the properties for the `pie-card-container` component:

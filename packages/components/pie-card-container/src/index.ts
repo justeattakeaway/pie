@@ -76,7 +76,7 @@ export class PieCardContainer extends LitElement implements CardContainerProps {
      *
      *
      * Example: 'a' or 'a, b'
-     * Single values i.e `'a'` applies to all sides and `'a, b'` applies to: top, right, bottom, left
+     * Single values i.e `'a'` applies to all sides and `'a, b'` applies to: top & bottom, left & right
      *
      * @private
      */
