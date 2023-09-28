@@ -1,5 +1,13 @@
 # Changelog
 
+## 3.4.0
+
+### Minor Changes
+
+- [Added] - component overview pages (D-I) ([#835](https://github.com/justeattakeaway/pie/pull/835)) by [@FayeCarter](https://github.com/FayeCarter)
+
+  [Updated] - nav component to have sub pages
+
 ## 3.3.1
 
 ### Patch Changes

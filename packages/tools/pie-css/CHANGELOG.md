@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-css
 
+## 0.5.0
+
+### Minor Changes
+
+- [Added] - focus() mixin to apply focus inner and outer box shadows to components ([#836](https://github.com/justeattakeaway/pie/pull/836)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.4.0
 
 ### Minor Changes

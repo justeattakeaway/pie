@@ -1,5 +1,13 @@
 # @justeattakeaway/pie-card-container
 
+## 0.7.0
+
+### Minor Changes
+
+- [Changed] - `dependency` references in package.json to use version number instead of `workspace:*` syntax. This should fix resolution errors in repos that consume packages outside of the PIE monorepo ([#824](https://github.com/justeattakeaway/pie/pull/824)) by [@siggerzz](https://github.com/siggerzz)
+
+- [Changed] - Use pie-css to handle focus styling ([#836](https://github.com/justeattakeaway/pie/pull/836)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.6.1
 
 ### Patch Changes
