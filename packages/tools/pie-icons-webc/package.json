@@ -57,7 +57,7 @@
     "@babel/core": "7.23.0",
     "@babel/node": "7.20.7",
     "@justeattakeaway/pie-icons": "4.9.1",
-    "@justeattakeaway/pie-icons-configs": "workspace:*",
+    "@justeattakeaway/pie-icons-configs": "4.5.0",
     "@justeattakeaway/pie-webc-core": "0.9.0",
     "@rollup/plugin-typescript": "11.1.3",
     "just-kebab-case": "4.2.0",

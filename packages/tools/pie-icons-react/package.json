@@ -51,7 +51,7 @@
     "@babel/core": "7.23.0",
     "@babel/node": "7.20.7",
     "@justeattakeaway/pie-icons": "4.9.1",
-    "@justeattakeaway/pie-icons-configs": "workspace:*",
+    "@justeattakeaway/pie-icons-configs": "4.5.0",
     "@svgr/core": "6.4.0",
     "pascal-case": "3.1.2",
     "react": "18.2.0",
