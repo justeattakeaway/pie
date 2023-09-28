@@ -1,0 +1,18 @@
+// ----------------------------------------------
+// Mixin for adding focus styles.
+// The `focus` mixin allows you to apply a box-shadow with inner and outer focus styles to an element.
+// -
+// @example
+// &:focus-visible {
+//   @include focus;
+// }
+// -
+// Outputs:
+// &:focus-visible {
+//   box-shadow: 0 0 0 2px var(--dt-color-focus-inner), 0 0 0 4px var(--dt-color-focus-outer);
+// }
+// ----------------------------------------------
+@mixin focus() {
+    box-shadow: 0 0 0 2px var(--dt-color-focus-inner), 0 0 0 4px var(--dt-color-focus-outer);
+    outline: none;
+}

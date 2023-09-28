@@ -2,6 +2,7 @@
 // This way we only make a single request to the W3C validator API
 @use 'mixins';
 @use 'functions';
+@use 'helpers';
 
 :root {
     --test-font-size: 12;
@@ -10,6 +11,14 @@
 
 .foo {
     @include mixins.font-size(--font-size);
+
+    :focus-visible {
+        @include mixins.focus;
+    }
+
+    &[isdraggable]:not([interactiontype='none']) {
+        @extend %has-grab-cursor;
+    }
 }
 
 .bar {
