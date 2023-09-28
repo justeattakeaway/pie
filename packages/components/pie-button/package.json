@@ -28,10 +28,10 @@
   "author": "JustEatTakeaway - Design System Web Team",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@justeat/pie-design-tokens": "5.7.0",
+    "@justeat/pie-design-tokens": "5.8.2",
     "@justeattakeaway/pie-components-config": "0.4.0",
     "@justeattakeaway/pie-css": "0.4.0",
-    "@justeattakeaway/pie-webc-core": "0.8.0"
+    "@justeattakeaway/pie-webc-core": "0.9.0"
   },
   "volta": {
     "extends": "../../../package.json"
