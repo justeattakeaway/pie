@@ -26,11 +26,11 @@
   "author": "JustEatTakeaway - Design System Web Team",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@justeattakeaway/pie-icons-webc": "workspace:*",
-    "@justeattakeaway/pie-webc-core": "workspace:*"
+    "@justeattakeaway/pie-icons-webc": "0.8.1",
+    "@justeattakeaway/pie-webc-core": "0.9.0"
   },
   "peerDependencies": {
-    "@justeat/pie-design-tokens": "^5.5.0"
+    "@justeat/pie-design-tokens": "^5.8.2"
   },
   "volta": {
     "extends": "../../../package.json"
