@@ -73,16 +73,16 @@ export class PieLink extends LitElement implements LinkProps {
 
     /**
      * Renders the link content.
-     *
+     * Icons are only shown in block elements
      * @private
      */
     private renderContent (): TemplateResult {
-        const { iconPlacement } = this;
+        const { iconPlacement, isStandalone } = this;
         return html`
                 <span class="c-link-content">
-                    ${iconPlacement === 'leading' ? html`<slot name="icon"></slot>` : nothing}
+                    ${isStandalone && iconPlacement === 'leading' ? html`<slot name="icon"></slot>` : nothing}
                     <slot></slot>
-                    ${iconPlacement === 'trailing' ? html`<slot name="icon"></slot>` : nothing}
+                    ${isStandalone && iconPlacement === 'trailing' ? html`<slot name="icon"></slot>` : nothing}
                 </span>`;
     }
 
