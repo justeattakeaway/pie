@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-icon-button
 
+## 0.15.0
+
+### Minor Changes
+
+- [Changed] - Use pie-css to handle focus styling ([#836](https://github.com/justeattakeaway/pie/pull/836)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.14.1
 
 ### Patch Changes

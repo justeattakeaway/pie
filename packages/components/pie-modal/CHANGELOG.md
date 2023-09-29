@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-modal
 
+## 0.24.0
+
+### Minor Changes
+
+- [Changed] - Use pie-css to handle focus styling ([#836](https://github.com/justeattakeaway/pie/pull/836)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.23.0
 
 ### Minor Changes
