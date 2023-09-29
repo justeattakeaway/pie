@@ -1,7 +1,7 @@
 ---
 eleventyNavigation:
     key: 'Numeric Stepper'
-    parent: Components
+    parent: numeric-stepper
 ---
 
 ## Overview
@@ -10,7 +10,7 @@ The purpose of numeric steppers is to facilitate accurate and efficient input of
 Numeric steppers are commonly used in forms, data entry fields, or settings panels where precise numeric input is required. They provide an intuitive and accessible means for users to input or adjust values without the need for manual typing.
 
 {% contentPageImage {
-    src:"../../assets/img/components/numeric-stepper/overview.svg",
+    src:"../../../assets/img/components/numeric-stepper/numeric-stepper/overview.svg",
     alt: "A numeric stepper with a text counter between the controls."
 } %}
 

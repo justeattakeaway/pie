@@ -20,7 +20,7 @@ Links are often used to connect various pages, sections, or external resources, 
 
 {% notification {
   type: "warning",
-  message: "We’re currently working on updating our Icon Button documentation, please see the resources below."
+  message: "We’re currently working on updating our Link documentation, please see the resources below."
 } %}
 
 {% resourceTable {

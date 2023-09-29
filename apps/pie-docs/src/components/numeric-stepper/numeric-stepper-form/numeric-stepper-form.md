@@ -1,7 +1,7 @@
 ---
 eleventyNavigation:
-    key: 'Notification'
-    parent: Components
+    key: 'Numeric Stepper - Form'
+    parent: numeric-stepper
 ---
 
 ## Overview
@@ -10,7 +10,7 @@ The purpose of numeric steppers as form fields is to offer users flexibility in 
 Numeric steppers [form] resemble the structure of classic form fields, but allow for precise value entry through the integrated text input while also offering the convenience of incremental adjustments using the provided buttons.
 
 {% contentPageImage {
-    src:"../../assets/img/components/numeric-stepper-form/overview.svg",
+    src:"../../../assets/img/components/numeric-stepper/numeric-stepper-form/overview.svg",
     alt: "A numeric stepper with the controls within an input form."
 } %}
 

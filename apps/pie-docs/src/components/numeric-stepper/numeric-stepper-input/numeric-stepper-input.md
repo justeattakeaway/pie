@@ -1,7 +1,7 @@
 ---
 eleventyNavigation:
     key: 'Numeric Stepper - Input'
-    parent: Components
+    parent: numeric-stepper
 ---
 
 ## Overview
@@ -10,7 +10,7 @@ The purpose of numeric steppers with an input field is to provide users with fle
 Numeric steppers [input] include a text input field, allowing for precise value entry through the text input while also offering the convenience of incremental adjustments using the provided buttons.
 
 {% contentPageImage {
-    src:"../../assets/img/components/numeric-stepper-input/overview.svg",
+    src:"../../../assets/img/components/numeric-stepper/numeric-stepper-input/overview.svg",
     alt: "A numeric stepper with an input between the controls."
 } %}
 

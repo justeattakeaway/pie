@@ -20,7 +20,7 @@ Progress steppers are commonly used in multi-step forms, onboarding processes, c
 
 {% notification {
   type: "warning",
-  message: "We’re currently working on updating our Progress Bar documentation, please see the resources below."
+  message: "We’re currently working on updating our Progress Stepper documentation, please see the resources below."
 } %}
 
 {% resourceTable {

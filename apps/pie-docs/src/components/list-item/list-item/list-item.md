@@ -20,7 +20,7 @@ List items can be styled with various visual elements such as icons, illustratio
 
 {% notification {
   type: "warning",
-  message: "We’re currently working on updating our Line Chart documentation, please see the resources below."
+  message: "We’re currently working on updating our List Item documentation, please see the resources below."
 } %}
 
 {% resourceTable {
