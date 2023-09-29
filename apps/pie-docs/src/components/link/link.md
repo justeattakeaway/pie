@@ -11,7 +11,7 @@ Links are often used to connect various pages, sections, or external resources, 
 
 {% contentPageImage {
     src:"../../assets/img/components/link/overview.svg",
-    alt: "Two icon buttons that are horizontally stacked together."
+    alt: "A group of links that are displayed together in a row."
 } %}
 
 ---
