@@ -29,11 +29,11 @@
   "license": "Apache-2.0",
   "devDependencies": {
     "@justeat/pie-design-tokens": "5.8.2",
-    "@justeattakeaway/pie-button": "0.28.1",
+    "@justeattakeaway/pie-button": "0.29.0",
     "@justeattakeaway/pie-components-config": "0.4.0",
-    "@justeattakeaway/pie-icon-button": "0.14.1",
-    "@justeattakeaway/pie-link": "0.5.0",
-    "@justeattakeaway/pie-modal": "0.23.0",
+    "@justeattakeaway/pie-icon-button": "0.15.0",
+    "@justeattakeaway/pie-link": "0.6.0",
+    "@justeattakeaway/pie-modal": "0.24.0",
     "@justeattakeaway/pie-toggle-switch": "0.10.0"
   },
   "dependencies": {

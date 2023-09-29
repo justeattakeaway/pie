@@ -1,5 +1,33 @@
 # Changelog
 
+## 0.36.0
+
+### Minor Changes
+
+- [Fixed] - The `reverse` value of the `underline` prop can only be used if `isStandalone` is set to `true` ([#834](https://github.com/justeattakeaway/pie/pull/834)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Fixed] - When the `isStandalone` prop is `false`, icon's cannot be shown.
+
+  [Fixed] - When the link is small, the icon doesn't seem to be vertically centered with the text.
+
+  [Fixed] - The spacing between the text and icon should be fixed / hugging the length of the text.
+
+  [Fixed] - focus styles for the link component
+
+- [Changed] - `dependency` references in package.json to use version number instead of `workspace:*` syntax. This should fix resolution errors in repos that consume packages outside of the PIE monorepo ([#824](https://github.com/justeattakeaway/pie/pull/824)) by [@siggerzz](https://github.com/siggerzz)
+
+### Patch Changes
+
+- Updated dependencies [[`5ac954d18`](https://github.com/justeattakeaway/pie/commit/5ac954d1879c39db6f43e8ef558e69f2f6653e26), [`65bad481b`](https://github.com/justeattakeaway/pie/commit/65bad481ba1eaa73fbdf176a19a0b611ad63c96e), [`6fecdd7b9`](https://github.com/justeattakeaway/pie/commit/6fecdd7b9965a6f6e98c29b79a725d2ade7191dd), [`65bad481b`](https://github.com/justeattakeaway/pie/commit/65bad481ba1eaa73fbdf176a19a0b611ad63c96e)]:
+  - @justeattakeaway/pie-link@0.6.0
+  - @justeattakeaway/pie-css@0.5.0
+  - @justeattakeaway/pie-card-container@0.7.0
+  - @justeattakeaway/pie-form-label@0.2.0
+  - @justeattakeaway/pie-divider@0.5.0
+  - @justeattakeaway/pie-icon-button@0.15.0
+  - @justeattakeaway/pie-button@0.29.0
+  - @justeattakeaway/pie-modal@0.24.0
+
 ## 0.35.0
 
 ### Minor Changes
