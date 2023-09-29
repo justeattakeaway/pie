@@ -1,7 +1,7 @@
 
 import { test, expect } from '@sand4rt/experimental-ct-web';
 import { PieCardContainer, CardContainerProps } from '@/index';
-import { interactionTypes } from '@/defs';
+import { interactionTypes, padding } from '@/defs';
 
 const componentSelector = '[data-test-id="pie-card-container"]';
 const slotSelector = '[data-test-id="slot-content"]';
@@ -248,6 +248,26 @@ test.describe('PieCardContainer - Component tests', () => {
 
                 // Assert
                 expect(componentAttribute).toBe('padding: var(--dt-spacing-a)');
+            });
+
+            padding.forEach((padding) => {
+                test(`should allow valid "padding" values: ${padding}`, async ({ mount, page }) => {
+                    // Arrange
+                    await mount(PieCardContainer, {
+                        props: {
+                            padding,
+                        } as CardContainerProps,
+                        slots: {
+                            default: slotContent,
+                        },
+                    });
+
+                    const component = page.locator(componentSelector);
+                    const componentAttribute = await component.getAttribute('style');
+
+                    // Assert
+                    expect(componentAttribute).toBe(`padding: var(--dt-spacing-${padding})`);
+                });
             });
 
             test('should not allow values outside "a-g"', async ({ mount, page }) => {
