@@ -1,6 +1,6 @@
 {
   "name": "wc-next13",
-  "version": "0.2.23",
+  "version": "0.3.0",
   "private": true,
   "scripts": {
     "dev": "NODE_OPTIONS=--conditions=development next dev",
@@ -10,8 +10,8 @@
     "lint:examples": "next lint"
   },
   "dependencies": {
-    "@justeattakeaway/pie-button": "0.28.1",
-    "@justeattakeaway/pie-css": "0.4.0",
+    "@justeattakeaway/pie-button": "0.29.0",
+    "@justeattakeaway/pie-css": "0.5.0",
     "@lit-labs/nextjs": "0.1.1",
     "@lit-labs/react": "1.1.1",
     "@types/node": "18.15.11",
