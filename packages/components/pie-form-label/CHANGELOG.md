@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-form-label
 
+## 0.2.0
+
+### Minor Changes
+
+- [Changed] - `dependency` references in package.json to use version number instead of `workspace:*` syntax. This should fix resolution errors in repos that consume packages outside of the PIE monorepo ([#824](https://github.com/justeattakeaway/pie/pull/824)) by [@siggerzz](https://github.com/siggerzz)
+
 ## 0.1.0
 
 ### Minor Changes
