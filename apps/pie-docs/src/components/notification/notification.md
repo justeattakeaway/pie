@@ -46,7 +46,7 @@ Notifications often include options for users to interact with the displayed inf
         },
         {
             resource: resourceTypes.REACT,
-            link: "https://snacks.takeaway.com/portal/components/modal/",
+            link: "https://snacks.takeaway.com/portal/components/notification/",
             status: statusTypes.AVAILABLE
         },
         {

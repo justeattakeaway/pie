@@ -11,7 +11,7 @@ Popovers are displayed as a small box that contains text or interactive elements
 
 {% contentPageImage {
     src:"../../assets/img/components/popover/overview.svg",
-    alt: "Pagination placed at the bottom of a container."
+    alt: "A popover that contains a list of items."
 } %}
 
 ---
