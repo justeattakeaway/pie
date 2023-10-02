@@ -10,20 +10,18 @@
 *:before,
 *:after {
     box-sizing: border-box;
+    cursor: inherit;
 }
 
 .c-toggleSwitch-wrapper {
     display: inline-flex;
+    align-items: center;
+    gap: var(--dt-spacing-b);
     font-family: var(--dt-font-body-l-family);
-}
+    cursor: pointer;
 
-.c-toggleSwitch-label {
-    display: grid;
-    place-content: center;
-    margin-inline-end: var(--dt-spacing-b);
-
-    &.c-toggleSwitch--trailing {
-        margin-inline-start: var(--dt-spacing-b);
+    &[isDisabled] {
+        cursor: not-allowed; 
     }
 }
 
@@ -47,8 +45,6 @@
     border-radius: var(--toggle-switch-radius);
     background-color: var(--toggle-switch-bg-color);
 
-    cursor: pointer;
-
     @include toggle-switch-transition(background-color);
 
     &:hover {
@@ -65,7 +61,7 @@
         background-color: hsl(var(--dt-color-interactive-form-h), var(--dt-color-interactive-form-s), calc(var(--dt-color-interactive-form-l) - var(--dt-color-active-01)));
     }
 
-    &[isChecked] {
+    [isChecked] & {
         @include toggle-switch-transition(background-color);
         background-color: var(--toggle-switch-bg-color--checked);
 
@@ -83,9 +79,8 @@
         }
     }
 
-    &[isDisabled] {
+    [isDisabled] &  {
         background-color: var(--toggle-switch-bg-color--disabled);
-        cursor: not-allowed;
         pointer-events: none;
     }
 }
