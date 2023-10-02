@@ -1,11 +1,11 @@
 import { nothing } from 'lit';
-import { html, unsafeStatic } from 'lit/static-html.js';
+import { html } from 'lit/static-html.js';
 import {
     PieCardContainer, CardContainerProps as CardContainerPropsBase,
     variants, interactionTypes, padding,
 } from '@justeattakeaway/pie-card-container';
 import type { StoryMeta, SlottedComponentProps } from '../types';
-import { createStory, type TemplateFunction } from '../utilities';
+import { createStory, type TemplateFunction, staticSlot } from '../utilities';
 
 // This prevents storybook from tree shaking the components
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -141,8 +141,8 @@ const Template: TemplateFunction<CardContainerProps> = ({
             .aria="${aria}"
             padding="${padding || nothing}"
             ?isDraggable="${isDraggable}">
-            ${unsafeStatic(slot)}
-        </pie-card-container>
+                ${staticSlot(slot)}
+            </pie-card-container>
     </div>
     `;
 };

@@ -76,13 +76,21 @@ const resourceSettings = {
         icon: '/assets/img/components/icons/react.svg',
         resource: 'React [Snacks]',
     },
-    [resourceTypes.IOS]: {
+    [resourceTypes.IOS_JUST_UI]: {
         icon: '/assets/img/components/icons/apple.svg',
-        resource: 'iOS',
+        resource: 'iOS JustUI [UI Kit]',
     },
-    [resourceTypes.ANDROID]: {
+    [resourceTypes.IOS_PIE]: {
+        icon: '/assets/img/components/icons/swift-ui.svg',
+        resource: 'iOS PIE [SwiftUI]',
+    },
+    [resourceTypes.ANDROID_XML]: {
         icon: '/assets/img/components/icons/android.svg',
-        resource: 'Android',
+        resource: 'Android [XML views]',
+    },
+    [resourceTypes.ANDROID_JETPACK]: {
+        icon: '/assets/img/components/icons/jetpack-compose.svg',
+        resource: 'Android [Jetpack compose]',
     },
 };
 

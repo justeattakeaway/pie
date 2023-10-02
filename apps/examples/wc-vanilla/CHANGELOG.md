@@ -1,5 +1,50 @@
 # wc-vanilla
 
+## 0.4.18
+
+### Patch Changes
+
+- [Changed] - Align body-scroll-lock versions to meet peer requirements ([#841](https://github.com/justeattakeaway/pie/pull/841)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+## 0.4.17
+
+### Patch Changes
+
+- Updated dependencies [[`65bad481b`](https://github.com/justeattakeaway/pie/commit/65bad481ba1eaa73fbdf176a19a0b611ad63c96e), [`65bad481b`](https://github.com/justeattakeaway/pie/commit/65bad481ba1eaa73fbdf176a19a0b611ad63c96e)]:
+  - @justeattakeaway/pie-css@0.5.0
+  - @justeattakeaway/pie-icon-button@0.15.0
+  - @justeattakeaway/pie-button@0.29.0
+  - @justeattakeaway/pie-modal@0.24.0
+
+## 0.4.16
+
+### Patch Changes
+
+- Updated dependencies [[`4419750f1`](https://github.com/justeattakeaway/pie/commit/4419750f182f3dd6fb49c5e54532bec3a21d8126)]:
+  - @justeattakeaway/pie-modal@0.23.0
+
+## 0.4.15
+
+### Patch Changes
+
+- Updated dependencies [[`d3976e861`](https://github.com/justeattakeaway/pie/commit/d3976e861547e22c66221798f355c42ed91145e6)]:
+  - @justeattakeaway/pie-icons-webc@0.8.1
+
+## 0.4.14
+
+### Patch Changes
+
+- Updated dependencies [[`9d689eb08`](https://github.com/justeattakeaway/pie/commit/9d689eb0818c4d686d93b5cdd9d708115a066c1e), [`9d689eb08`](https://github.com/justeattakeaway/pie/commit/9d689eb0818c4d686d93b5cdd9d708115a066c1e), [`9d689eb08`](https://github.com/justeattakeaway/pie/commit/9d689eb0818c4d686d93b5cdd9d708115a066c1e)]:
+  - @justeattakeaway/pie-modal@0.22.0
+  - @justeattakeaway/pie-icons-webc@0.8.0
+
+## 0.4.13
+
+### Patch Changes
+
+- Updated dependencies [[`d84f1b8e3`](https://github.com/justeattakeaway/pie/commit/d84f1b8e31f24c2f4bc9a7bbe8acc736653b3084)]:
+  - @justeattakeaway/pie-modal@0.21.0
+
 ## 0.4.12
 
 ### Patch Changes

@@ -1,5 +1,3 @@
-import { RTLComponentProps } from '@justeattakeaway/pie-webc-core';
-
 export const labelPlacements = ['leading', 'trailing'] as const;
 
 export type AriaProps = {
@@ -7,7 +5,7 @@ export type AriaProps = {
     describedBy?: string
 };
 
-export interface ToggleSwitchProps extends RTLComponentProps {
+export interface ToggleSwitchProps {
     /**
      * The ARIA labels used for the toggle switch.
      */

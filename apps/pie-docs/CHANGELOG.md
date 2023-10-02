@@ -1,5 +1,36 @@
 # Changelog
 
+## 3.4.0
+
+### Minor Changes
+
+- [Added] - component overview pages (D-I) ([#835](https://github.com/justeattakeaway/pie/pull/835)) by [@FayeCarter](https://github.com/FayeCarter)
+
+  [Updated] - nav component to have sub pages
+
+## 3.3.1
+
+### Patch Changes
+
+- Updated dependencies [[`d3976e861`](https://github.com/justeattakeaway/pie/commit/d3976e861547e22c66221798f355c42ed91145e6)]:
+  - @justeattakeaway/pie-icons@4.9.1
+
+## 3.3.0
+
+### Minor Changes
+
+- [Added] - Accordion overview page ([#822](https://github.com/justeattakeaway/pie/pull/822)) by [@LTurns](https://github.com/LTurns)
+
+  [Added] - `Android Jetpack` and `IOS PIE` to resource table
+
+## 3.2.0
+
+### Minor Changes
+
+- [Changed] - Resource table values to align to the right in mobile view ([#817](https://github.com/justeattakeaway/pie/pull/817)) by [@LTurns](https://github.com/LTurns)
+
+  [Changed] - Min-width to only be set when view is larger than mobile
+
 ## 3.1.0
 
 ### Minor Changes

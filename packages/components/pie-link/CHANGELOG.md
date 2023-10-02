@@ -1,5 +1,40 @@
 # @justeattakeaway/pie-link
 
+## 0.6.0
+
+### Minor Changes
+
+- [Fixed] - The `reverse` value of the `underline` prop can only be used if `isStandalone` is set to `true` ([#834](https://github.com/justeattakeaway/pie/pull/834)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Fixed] - When the `isStandalone` prop is `false`, icon's cannot be shown.
+
+  [Fixed] - When the link is small, the icon doesn't seem to be vertically centered with the text.
+
+  [Fixed] - The spacing between the text and icon should be fixed / hugging the length of the text.
+
+  [Fixed] - focus styles for the link component
+
+- [Changed] - `dependency` references in package.json to use version number instead of `workspace:*` syntax. This should fix resolution errors in repos that consume packages outside of the PIE monorepo ([#824](https://github.com/justeattakeaway/pie/pull/824)) by [@siggerzz](https://github.com/siggerzz)
+
+## 0.5.0
+
+### Minor Changes
+
+- [Added] - Build the Pie Form Label web component ([#820](https://github.com/justeattakeaway/pie/pull/820)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies [[`9d689eb08`](https://github.com/justeattakeaway/pie/commit/9d689eb0818c4d686d93b5cdd9d708115a066c1e), [`9d689eb08`](https://github.com/justeattakeaway/pie/commit/9d689eb0818c4d686d93b5cdd9d708115a066c1e)]:
+  - @justeattakeaway/pie-webc-core@0.9.0
+
+## 0.4.0
+
+### Minor Changes
+
+- [Added] - link state styles ([#812](https://github.com/justeattakeaway/pie/pull/812)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Added] aria labels to the pie link ([#813](https://github.com/justeattakeaway/pie/pull/813)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.3.0
 
 ### Minor Changes

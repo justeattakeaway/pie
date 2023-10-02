@@ -1,7 +1,7 @@
+@use '@justeattakeaway/pie-css/scss' as p;
 @use '@justeat/pie-design-tokens/dist/jet.scss' as dt;
 @use 'dialog-polyfill/dist/dialog-polyfill.css';
 
-// TODO - add to CSS lib once created
 *,
 *:before,
 *:after {
@@ -33,12 +33,6 @@
     --modal-font: var(--dt-font-interactive-m-family);
     --modal-bg-color: var(--dt-color-container-default);
     --modal-elevation: var(--dt-elevation-04);
-
-    // TODO: This should be moved into global CSS typography setting
-    // This should be imported by consuming apps and set on the application body
-    text-rendering: optimizelegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-font-smoothing: antialiased;
 
     &:focus-visible {
         outline: none;

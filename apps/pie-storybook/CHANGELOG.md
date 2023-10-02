@@ -1,5 +1,101 @@
 # Changelog
 
+## 0.36.1
+
+### Patch Changes
+
+- [Changed] - Align body-scroll-lock versions to meet peer requirements ([#841](https://github.com/justeattakeaway/pie/pull/841)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+## 0.36.0
+
+### Minor Changes
+
+- [Fixed] - The `reverse` value of the `underline` prop can only be used if `isStandalone` is set to `true` ([#834](https://github.com/justeattakeaway/pie/pull/834)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Fixed] - When the `isStandalone` prop is `false`, icon's cannot be shown.
+
+  [Fixed] - When the link is small, the icon doesn't seem to be vertically centered with the text.
+
+  [Fixed] - The spacing between the text and icon should be fixed / hugging the length of the text.
+
+  [Fixed] - focus styles for the link component
+
+- [Changed] - `dependency` references in package.json to use version number instead of `workspace:*` syntax. This should fix resolution errors in repos that consume packages outside of the PIE monorepo ([#824](https://github.com/justeattakeaway/pie/pull/824)) by [@siggerzz](https://github.com/siggerzz)
+
+### Patch Changes
+
+- Updated dependencies [[`5ac954d18`](https://github.com/justeattakeaway/pie/commit/5ac954d1879c39db6f43e8ef558e69f2f6653e26), [`65bad481b`](https://github.com/justeattakeaway/pie/commit/65bad481ba1eaa73fbdf176a19a0b611ad63c96e), [`6fecdd7b9`](https://github.com/justeattakeaway/pie/commit/6fecdd7b9965a6f6e98c29b79a725d2ade7191dd), [`65bad481b`](https://github.com/justeattakeaway/pie/commit/65bad481ba1eaa73fbdf176a19a0b611ad63c96e)]:
+  - @justeattakeaway/pie-link@0.6.0
+  - @justeattakeaway/pie-css@0.5.0
+  - @justeattakeaway/pie-card-container@0.7.0
+  - @justeattakeaway/pie-form-label@0.2.0
+  - @justeattakeaway/pie-divider@0.5.0
+  - @justeattakeaway/pie-icon-button@0.15.0
+  - @justeattakeaway/pie-button@0.29.0
+  - @justeattakeaway/pie-modal@0.24.0
+
+## 0.35.0
+
+### Minor Changes
+
+- [Added] - Allow HTML in slot on Storybook for modal and card ([#825](https://github.com/justeattakeaway/pie/pull/825)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Added] - `DOMPurify` to ensure the passed content is sanitized
+
+### Patch Changes
+
+- Updated dependencies [[`4419750f1`](https://github.com/justeattakeaway/pie/commit/4419750f182f3dd6fb49c5e54532bec3a21d8126)]:
+  - @justeattakeaway/pie-modal@0.23.0
+  - @justeattakeaway/pie-cookie-banner@0.4.1
+
+## 0.34.1
+
+### Patch Changes
+
+- Updated dependencies [[`d3976e861`](https://github.com/justeattakeaway/pie/commit/d3976e861547e22c66221798f355c42ed91145e6)]:
+  - @justeattakeaway/pie-icons-webc@0.8.1
+  - @justeattakeaway/pie-icon-button@0.14.1
+  - @justeattakeaway/pie-modal@0.22.0
+  - @justeattakeaway/pie-toggle-switch@0.10.0
+
+## 0.34.0
+
+### Minor Changes
+
+- [Changed] - Deleted the dir props and i18nargtypes helper as `dir` is no longer a Lit component property. It is simply a regular HTML attribute ([#818](https://github.com/justeattakeaway/pie/pull/818)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - Build the Pie Form Label web component ([#820](https://github.com/justeattakeaway/pie/pull/820)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies [[`9d689eb08`](https://github.com/justeattakeaway/pie/commit/9d689eb0818c4d686d93b5cdd9d708115a066c1e), [`9d689eb08`](https://github.com/justeattakeaway/pie/commit/9d689eb0818c4d686d93b5cdd9d708115a066c1e), [`9d689eb08`](https://github.com/justeattakeaway/pie/commit/9d689eb0818c4d686d93b5cdd9d708115a066c1e), [`9d689eb08`](https://github.com/justeattakeaway/pie/commit/9d689eb0818c4d686d93b5cdd9d708115a066c1e), [`2c5e79ee3`](https://github.com/justeattakeaway/pie/commit/2c5e79ee36c6c5f958d7c05d797a6528704fcecc)]:
+  - @justeattakeaway/pie-modal@0.22.0
+  - @justeattakeaway/pie-toggle-switch@0.10.0
+  - @justeattakeaway/pie-icons-webc@0.8.0
+  - @justeattakeaway/pie-form-label@0.1.0
+  - @justeattakeaway/pie-link@0.5.0
+  - @justeattakeaway/pie-cookie-banner@0.4.1
+  - @justeattakeaway/pie-button@0.28.1
+  - @justeattakeaway/pie-card-container@0.6.1
+  - @justeattakeaway/pie-divider@0.4.1
+  - @justeattakeaway/pie-icon-button@0.14.1
+
+## 0.33.0
+
+### Minor Changes
+
+- [Added] - link state styles ([#812](https://github.com/justeattakeaway/pie/pull/812)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Added] aria labels to the pie link ([#813](https://github.com/justeattakeaway/pie/pull/813)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies [[`33ea01276`](https://github.com/justeattakeaway/pie/commit/33ea012760e17d69918f5ae8f030ad4f6e000dbf), [`d84f1b8e3`](https://github.com/justeattakeaway/pie/commit/d84f1b8e31f24c2f4bc9a7bbe8acc736653b3084), [`b1f789a77`](https://github.com/justeattakeaway/pie/commit/b1f789a7778013463bcf711c832bd451d65adcab)]:
+  - @justeattakeaway/pie-card-container@0.6.0
+  - @justeattakeaway/pie-link@0.4.0
+  - @justeattakeaway/pie-modal@0.21.0
+  - @justeattakeaway/pie-cookie-banner@0.4.0
+
 ## 0.32.1
 
 ### Patch Changes

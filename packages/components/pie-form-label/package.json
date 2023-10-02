@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-form-label",
   "description": "PIE Design System Form Label built using Web Components",
-  "version": "0.0.0",
+  "version": "0.2.0",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -28,10 +28,10 @@
   "author": "JustEatTakeaway.com - Design System Web Team",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@justeattakeaway/pie-components-config": "workspace:*"
+    "@justeattakeaway/pie-components-config": "0.4.0"
   },
   "dependencies": {
-    "@justeattakeaway/pie-webc-core": "workspace:*"
+    "@justeattakeaway/pie-webc-core": "0.9.0"
   },
   "volta": {
     "extends": "../../../package.json"

@@ -87,7 +87,7 @@
     }
 
     &:focus-visible {
-        box-shadow: 0 0 0 2px var(--dt-color-focus-inner), 0 0 0 4px var(--dt-color-focus-outer);
+        @include p.focus;
     }
 
     &[isdraggable]:not([interactiontype='none']) {

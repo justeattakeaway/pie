@@ -1,0 +1,16 @@
+{
+  "name": "@justeattakeaway/browserslist-config-pie",
+  "version": "0.1.0",
+  "description": "Shared browserslist config for applications using the PIE Design System",
+  "main": "index.js",
+  "license": "Apache-2.0",
+  "author": "JustEatTakeaway - Design System Web Team",
+  "keywords": [
+    "PIE",
+    "browserslist",
+    "config"
+  ],
+  "volta": {
+    "extends": "../../../package.json"
+  }
+}
