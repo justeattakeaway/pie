@@ -1,7 +1,7 @@
 
 import { test, expect } from '@sand4rt/experimental-ct-web';
 import { PieCardContainer, CardContainerProps } from '@/index';
-import { interactionTypes } from '@/defs';
+import { interactionTypes, padding } from '@/defs';
 
 const componentSelector = '[data-test-id="pie-card-container"]';
 const slotSelector = '[data-test-id="slot-content"]';
@@ -226,6 +226,128 @@ test.describe('PieCardContainer - Component tests', () => {
 
                 // Assert
                 expect(componentAttribute).toBeNull();
+            });
+        });
+    });
+
+    test.describe('Prop: `padding`', () => {
+        test.describe('when `padding` is set as a single string value', () => {
+            test('should set an attribute of style with the correct padding value', async ({ mount, page }) => {
+                // Arrange
+                await mount(PieCardContainer, {
+                    props: {
+                        padding: 'a',
+                    } as CardContainerProps,
+                    slots: {
+                        default: slotContent,
+                    },
+                });
+
+                const component = page.locator(componentSelector);
+                const componentAttribute = await component.getAttribute('style');
+
+                // Assert
+                expect(componentAttribute).toBe('padding: var(--dt-spacing-a)');
+            });
+
+            padding.forEach((paddingValue) => {
+                test(`should allow valid "padding" values: ${paddingValue}`, async ({ mount, page }) => {
+                    // Arrange
+                    await mount(PieCardContainer, {
+                        props: {
+                            padding: paddingValue,
+                        } as CardContainerProps,
+                        slots: {
+                            default: slotContent,
+                        },
+                    });
+
+                    const component = page.locator(componentSelector);
+                    const componentAttribute = await component.getAttribute('style');
+
+                    // Assert
+                    expect(componentAttribute).toBe(`padding: var(--dt-spacing-${paddingValue})`);
+                });
+            });
+
+            test('should not allow values outside "a-g"', async ({ mount, page }) => {
+                const invalidPaddingValue = { padding: 'z' };
+
+                // Arrange
+                await mount(PieCardContainer, {
+                    props: {
+                        padding: invalidPaddingValue.padding,
+                    } as CardContainerProps,
+                    slots: {
+                        default: slotContent,
+                    },
+                });
+
+                const component = page.locator(componentSelector);
+                const componentAttribute = await component.getAttribute('style');
+
+                // Assert
+                expect(componentAttribute).toBe(null);
+            });
+
+            test('should not allow more than one single value i.e "ab"', async ({ mount, page }) => {
+                const invalidPaddingValue = { padding: 'ab' };
+
+                // Arrange
+                await mount(PieCardContainer, {
+                    props: {
+                        padding: invalidPaddingValue.padding,
+                    } as CardContainerProps,
+                    slots: {
+                        default: slotContent,
+                    },
+                });
+
+                const component = page.locator(componentSelector);
+                const componentAttribute = await component.getAttribute('style');
+
+                // Assert
+                expect(componentAttribute).toBe(null);
+            });
+        });
+
+        test.describe('when `padding` is set as a comma separated string value', () => {
+            test('should set an attribute of style with the correct padding value', async ({ mount, page }) => {
+                // Arrange
+                const paddingValue = { padding: 'a, b' };
+                await mount(PieCardContainer, {
+                    props: {
+                        padding: paddingValue.padding,
+                    } as CardContainerProps,
+                    slots: {
+                        default: slotContent,
+                    },
+                });
+
+                const component = page.locator(componentSelector);
+                const componentAttribute = await component.getAttribute('style');
+
+                // Assert
+                expect(componentAttribute).toBe('padding: var(--dt-spacing-a) var(--dt-spacing-b)');
+            });
+
+            test('should not allow more than 2 padding values', async ({ mount, page }) => {
+                // Arrange
+                const paddingValue = { padding: 'a, b, c' };
+                await mount(PieCardContainer, {
+                    props: {
+                        padding: paddingValue.padding,
+                    } as CardContainerProps,
+                    slots: {
+                        default: slotContent,
+                    },
+                });
+
+                const component = page.locator(componentSelector);
+                const componentAttribute = await component.getAttribute('style');
+
+                // Assert
+                expect(componentAttribute).toBe(null);
             });
         });
     });
