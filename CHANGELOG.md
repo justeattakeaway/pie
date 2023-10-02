@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.27.1
+
+### Patch Changes
+
+- [Changed] - Align body-scroll-lock versions to meet peer requirements ([#841](https://github.com/justeattakeaway/pie/pull/841)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
 ## 2.27.0
 
 ### Minor Changes
