@@ -30,7 +30,7 @@
   "devDependencies": {
     "@justeat/pie-design-tokens": "5.8.2",
     "@justeattakeaway/pie-components-config": "0.4.0",
-    "@justeattakeaway/pie-css": "0.5.0",
+    "@justeattakeaway/pie-css": "0.1.0",
     "@justeattakeaway/pie-webc-core": "0.9.0"
   },
   "volta": {
