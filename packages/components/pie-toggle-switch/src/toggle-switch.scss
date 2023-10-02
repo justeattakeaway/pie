@@ -47,11 +47,6 @@
 
     @include toggle-switch-transition(background-color);
 
-    [isDisabled] & {
-        background-color: var(--toggle-switch-bg-color--disabled);
-        pointer-events: none;
-    }
-
     &:hover {
         background-color: hsl(var(--dt-color-interactive-form-h), var(--dt-color-interactive-form-s), calc(var(--dt-color-interactive-form-l) - var(--dt-color-hover-01)));
     }
@@ -66,7 +61,7 @@
         background-color: hsl(var(--dt-color-interactive-form-h), var(--dt-color-interactive-form-s), calc(var(--dt-color-interactive-form-l) - var(--dt-color-active-01)));
     }
 
-    [isChecked] & {
+    &[isChecked] {
         @include toggle-switch-transition(background-color);
         background-color: var(--toggle-switch-bg-color--checked);
 
@@ -82,6 +77,11 @@
         &:active {
             background-color: hsl(var(--dt-color-interactive-brand-h), var(--dt-color-interactive-brand-s), calc(var(--dt-color-interactive-brand-l) - var(--dt-color-active-01)));
         }
+    }
+
+    [isDisabled] & {
+        background-color: var(--toggle-switch-bg-color--disabled);
+        pointer-events: none;
     }
 }
 
