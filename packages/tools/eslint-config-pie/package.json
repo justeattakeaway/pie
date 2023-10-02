@@ -16,7 +16,7 @@
     "tests-only": "run -T jest"
   },
   "license": "Apache-2.0",
-  "author": "JustEatTakeaway - Design System Web Team",
+  "author": "Just Eat Takeaway.com - Design System Team",
   "keywords": [
     "PIE",
     "eslint",

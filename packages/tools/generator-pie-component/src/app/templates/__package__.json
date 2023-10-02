@@ -25,7 +25,7 @@
     "test:visual": "echo \"Error: A new Percy project needs to be created before visual tests can be run. steps: https://vue.pie.design/?path=/story/documentation-standards-testing-visual-regression--page \" && exit 1",
     "test:visual:ci": "yarn test:visual"
   },
-  "author": "JustEatTakeaway.com - Design System Web Team",
+  "author": "Just Eat Takeaway.com - Design System Team",
   "license": "Apache-2.0",
   "devDependencies": {
     "@justeattakeaway/pie-components-config": "workspace:*"

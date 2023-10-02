@@ -9,7 +9,7 @@
     "stylelint-config",
     "standard"
   ],
-  "author": "",
+  "author": "Just Eat Takeaway.com - Design System Team",
   "exports": {
     ".": "./index.js",
     "./base": "./rules/base.js",
