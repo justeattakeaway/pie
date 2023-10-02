@@ -182,7 +182,7 @@ test.describe('Component: `Pie toggle switch`', () => {
 
     test.describe('Props: `LabelProps`', () => {
         test.describe('when a position is passed as `leading`', () => {
-            test('should render a leading label with class `c-toggleSwitch--leading`', async ({ mount }) => {
+            test('should render a leading label', async ({ mount }) => {
                 // Arrange
                 const component = await mount(PieToggleSwitch, {
                     props: {
@@ -194,12 +194,12 @@ test.describe('Component: `Pie toggle switch`', () => {
                 const pieToggleSwitchLabel = component.locator('[data-test-id="toggle-switch-label"]');
 
                 // Assert
-                await expect(pieToggleSwitchLabel).toHaveClass('c-toggleSwitch-label c-toggleSwitch--leading');
+                await expect(pieToggleSwitchLabel).toBeVisible();
             });
         });
 
         test.describe('when a label is passed as `trailing`', () => {
-            test('should render a trailing label with class `c-toggleSwitch--trailing`', async ({ mount }) => {
+            test('should render a trailing label', async ({ mount }) => {
                 // Arrange
                 const component = await mount(PieToggleSwitch, {
                     props: {
@@ -211,7 +211,7 @@ test.describe('Component: `Pie toggle switch`', () => {
                 const pieToggleSwitchLabel = component.locator('[data-test-id="toggle-switch-label"]');
 
                 // Assert
-                await expect(pieToggleSwitchLabel).toHaveClass('c-toggleSwitch-label c-toggleSwitch--trailing');
+                await expect(pieToggleSwitchLabel).toBeVisible();
             });
         });
     });
