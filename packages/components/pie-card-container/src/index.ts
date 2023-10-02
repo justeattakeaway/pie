@@ -40,6 +40,11 @@ export class PieCardContainer extends LitElement implements CardContainerProps {
     @property({ type: Boolean })
     public isDraggable = false;
 
+    /**
+     * Todo: We need to validate the user input at the moment
+     * the `validPropertyValues` won't work for this property so it
+     * is being looked at here: DSW-1306
+     */
     @property({ type: String })
     public padding?: PaddingValue;
 
