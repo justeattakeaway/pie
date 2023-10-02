@@ -139,7 +139,7 @@ const Template: TemplateFunction<CardContainerProps> = ({
             rel="${rel || nothing}"
             ?disabled="${disabled}"
             .aria="${aria}"
-            padding="${padding}"
+            padding="${padding || nothing}"
             ?isDraggable="${isDraggable}">
             ${unsafeStatic(slot)}
         </pie-card-container>

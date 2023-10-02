@@ -51,7 +51,9 @@ export interface CardContainerProps {
      interactionType?: typeof interactionTypes[number];
 
     /**
-     * An array of padding values from a to g.
+     * Sets the padding of the card container. Can be either a single value or two values
+     * separated by commas. Setting a single value adds padding to all sides of the card,
+     * whereas setting two values will set the "topBottom, leftRight" padding. e.g `'a'` or `'a, b'`
      */
     padding?: PaddingValue | PaddingValue[];
 }

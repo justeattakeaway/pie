@@ -40,7 +40,7 @@ export class PieCardContainer extends LitElement implements CardContainerProps {
     @property({ type: Boolean })
     public isDraggable = false;
 
-    @property({ type: String, reflect: true })
+    @property({ type: String })
     public padding?: PaddingValue;
 
     /**
