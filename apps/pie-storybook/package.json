@@ -12,10 +12,10 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@justeat/pie-design-tokens": "5.8.2",
-    "@justeattakeaway/pie-button": "0.29.0",
+    "@justeattakeaway/pie-button": "0.3.0",
     "@justeattakeaway/pie-card-container": "0.7.0",
-    "@justeattakeaway/pie-cookie-banner": "0.4.1",
-    "@justeattakeaway/pie-css": "0.5.0",
+    "@justeattakeaway/pie-cookie-banner": "0.1.0",
+    "@justeattakeaway/pie-css": "0.1.0",
     "@justeattakeaway/pie-divider": "0.5.0",
     "@justeattakeaway/pie-form-label": "0.2.0",
     "@justeattakeaway/pie-icon-button": "0.15.0",
