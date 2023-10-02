@@ -250,12 +250,12 @@ test.describe('PieCardContainer - Component tests', () => {
                 expect(componentAttribute).toBe('padding: var(--dt-spacing-a)');
             });
 
-            padding.forEach((padding) => {
-                test(`should allow valid "padding" values: ${padding}`, async ({ mount, page }) => {
+            padding.forEach((paddingValue) => {
+                test(`should allow valid "padding" values: ${paddingValue}`, async ({ mount, page }) => {
                     // Arrange
                     await mount(PieCardContainer, {
                         props: {
-                            padding,
+                            padding: paddingValue,
                         } as CardContainerProps,
                         slots: {
                             default: slotContent,
@@ -266,7 +266,7 @@ test.describe('PieCardContainer - Component tests', () => {
                     const componentAttribute = await component.getAttribute('style');
 
                     // Assert
-                    expect(componentAttribute).toBe(`padding: var(--dt-spacing-${padding})`);
+                    expect(componentAttribute).toBe(`padding: var(--dt-spacing-${paddingValue})`);
                 });
             });
 
