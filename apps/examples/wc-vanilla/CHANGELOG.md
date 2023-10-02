@@ -1,5 +1,11 @@
 # wc-vanilla
 
+## 0.4.18
+
+### Patch Changes
+
+- [Changed] - Align body-scroll-lock versions to meet peer requirements ([#841](https://github.com/justeattakeaway/pie/pull/841)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
 ## 0.4.17
 
 ### Patch Changes
