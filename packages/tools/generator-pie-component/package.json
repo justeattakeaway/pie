@@ -2,7 +2,7 @@
   "name": "@justeattakeaway/generator-pie-component",
   "version": "0.9.0",
   "description": "A generator for PIE Web Components",
-  "author": "JustEatTakeaway - Design System Web Team",
+  "author": "Just Eat Takeaway.com - Design System Team",
   "files": [
     "generators"
   ],

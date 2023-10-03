@@ -7,7 +7,7 @@
   "keywords": [
     "PIE"
   ],
-  "author": "",
+  "author": "Just Eat Takeaway.com - Design System Team",
   "scripts": {
     "build:wrapper": "yarn cem analyze --litelement && node ./scripts/add-react-wrapper.js",
     "lint:scripts": "run -T eslint .",

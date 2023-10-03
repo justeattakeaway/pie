@@ -25,7 +25,7 @@
     "test:visual": "run -T cross-env-shell PERCY_TOKEN=${PERCY_TOKEN_PIE_TOGGLE_SWITCH} percy exec --allowed-hostname cloudfront.net -- npx playwright test -c ./playwright-lit-visual.config.ts",
     "test:visual:ci": "yarn test:visual"
   },
-  "author": "JustEatTakeaway.com - Design System Web Team",
+  "author": "Just Eat Takeaway.com - Design System Team",
   "license": "Apache-2.0",
   "devDependencies": {
     "@justeattakeaway/pie-components-config": "0.4.0",

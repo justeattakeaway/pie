@@ -8,7 +8,7 @@
     "lint:scripts": "run -T eslint .",
     "lint:scripts:fix": "run -T eslint . --fix"
   },
-  "author": "JustEatTakeaway - Design System Web Team",
+  "author": "Just Eat Takeaway.com - Design System Team",
   "license": "Apache-2.0",
   "dependencies": {
     "@justeat/pie-design-tokens": "5.8.2",
