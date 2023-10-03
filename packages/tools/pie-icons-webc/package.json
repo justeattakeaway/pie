@@ -51,7 +51,7 @@
     "test:ci": "yarn test"
   },
   "browserslist": [
-    "extends @justeat/browserslist-config-fozzie"
+    "extends @justeattakeaway/browserslist-config-pie"
   ],
   "devDependencies": {
     "@babel/core": "7.23.0",

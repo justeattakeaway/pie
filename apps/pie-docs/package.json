@@ -26,7 +26,7 @@
     "test:visual:ci": "yarn test:visual"
   },
   "browserslist": [
-    "extends @justeat/browserslist-config-fozzie"
+    "extends @justeattakeaway/browserslist-config-pie"
   ],
   "devDependencies": {
     "@11ty/eleventy": "2.0.1",
@@ -37,8 +37,8 @@
     "markdown-it-attrs": "4.1.6"
   },
   "dependencies": {
-    "@justeat/browserslist-config-fozzie": "2.0.0",
     "@justeat/f-cookie-banner": "4.7.0",
+    "@justeattakeaway/browserslist-config-pie": "0.1.0",
     "@justeattakeaway/pie-icons": "4.9.1",
     "@types/markdown-it": "13.0.0",
     "js-cookie": "2.2.1",

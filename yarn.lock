@@ -5004,20 +5004,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@justeat/browserslist-config-fozzie@npm:1.x":
-  version: 1.2.0
-  resolution: "@justeat/browserslist-config-fozzie@npm:1.2.0"
-  checksum: 406cff4f25a5460c8eb8d006fff467d77545c4fad46c5138d1ca224dccbb6497219dbd90c903e7497572d179d65aef608346d479b1c103e9b9cb7cf3f793a3cc
-  languageName: node
-  linkType: hard
-
-"@justeat/browserslist-config-fozzie@npm:2.0.0":
-  version: 2.0.0
-  resolution: "@justeat/browserslist-config-fozzie@npm:2.0.0"
-  checksum: 76b14bc543cfebb7d0765dac236ab5385521da861e19299c793bdc3917ef4f60e6d00ec80dd7af7411fb6ca61fdca460905c0e0ec6c779047942c86e8991443f
-  languageName: node
-  linkType: hard
-
 "@justeat/f-cookie-banner@npm:4.7.0":
   version: 4.7.0
   resolution: "@justeat/f-cookie-banner@npm:4.7.0"
@@ -5074,7 +5060,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@justeattakeaway/browserslist-config-pie@workspace:packages/tools/browserslist-config-pie":
+"@justeattakeaway/browserslist-config-pie@0.1.0, @justeattakeaway/browserslist-config-pie@workspace:packages/tools/browserslist-config-pie":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/browserslist-config-pie@workspace:packages/tools/browserslist-config-pie"
   languageName: unknown
@@ -5339,7 +5325,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/stylelint-config-pie@0.4.0, @justeattakeaway/stylelint-config-pie@workspace:packages/tools/pie-stylelint-config":
+"@justeattakeaway/stylelint-config-pie@0.4.1, @justeattakeaway/stylelint-config-pie@workspace:packages/tools/pie-stylelint-config":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/stylelint-config-pie@workspace:packages/tools/pie-stylelint-config"
   peerDependencies:
@@ -27707,8 +27693,8 @@ __metadata:
   dependencies:
     "@11ty/eleventy": 2.0.1
     "@11ty/eleventy-navigation": 0.3.5
-    "@justeat/browserslist-config-fozzie": 2.0.0
     "@justeat/f-cookie-banner": 4.7.0
+    "@justeattakeaway/browserslist-config-pie": 0.1.0
     "@justeattakeaway/pie-icons": 4.9.1
     "@types/markdown-it": 13.0.0
     eleventy-plugin-clean: 1.2.5
@@ -27738,13 +27724,13 @@ __metadata:
     "@changesets/cli": 2.26.2
     "@commitlint/cli": 17.5.1
     "@commitlint/config-conventional": 17.4.4
-    "@justeat/browserslist-config-fozzie": 1.x
     "@justeat/fozzie": 11.0.0
     "@justeat/pie-design-tokens": 5.8.2
+    "@justeattakeaway/browserslist-config-pie": 0.1.0
     "@justeattakeaway/generator-pie-component": 0.9.0
     "@justeattakeaway/pie-icons": 4.9.1
     "@justeattakeaway/pie-webc-testing": 0.5.0
-    "@justeattakeaway/stylelint-config-pie": 0.4.0
+    "@justeattakeaway/stylelint-config-pie": 0.4.1
     "@percy/cli": 1.26.3
     "@percy/playwright": 1.0.4
     "@playwright/test": 1.32.3

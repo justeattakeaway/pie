@@ -127,7 +127,7 @@ If you can't use a tree-shaking compatible build tool, then you can use the per-
 
 ### Browser Support
 
-The component extends [@justeat/browserslist-config-fozzie](https://github.com/justeat/browserslist-config-fozzie) package for the list of browsers to support.
+The component extends [@justeattakeaway/browserslist-config-pie](https://github.com/justeattakeaway/pie/tree/main/packages/tools/browserslist-config-pie) package for the list of browsers to support.
 
 
 ## Contributing
