@@ -1,19 +1,19 @@
 ---
 eleventyNavigation:
-    key: 'Accordion'
+    key: 'Chip'
     parent: Components
 ---
 
 ## Overview
 
-Accordions are vertical stacks of headers that categorise content. Clicking or interacting with a header expands or collapses its associated content, enabling users to selectively view information while keeping the interface clean.
+The purpose of chips is to provide a visual representation of a specific entity or attribute, such as a selected option or a labelled category. Chips can also be interactive, allowing users to remove or modify the selected choices.
 
-Accordions are useful for presenting categorised information like FAQs, product features, or menus, and managing large content volumes while ensuring a streamlined user experience.
+Chips are commonly used in various contexts, including filtering options, search results or any situation where concise and visually distinct information needs to be displayed.
 
 
 {% contentPageImage {
-    src:"../../assets/img/components/accordion/overview.svg",
-    alt: "Three accordions that are vertically stacked together."
+    src:"../../assets/img/components/chip/overview.svg",
+    alt: "A group of chips that are horizontally stacked together."
 } %}
 
 ---
@@ -22,19 +22,19 @@ Accordions are useful for presenting categorised information like FAQs, product 
 
 {% notification {
   type: "warning",
-  message: "We’re currently working on updating our Accordion documentation, please see the resources below."
+  message: "We’re currently working on updating our Chip documentation, please see the resources below."
 } %}
 
 {% resourceTable {
     rows: [
         {
             resource: resourceTypes.COMPONENT,
-            link: "https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=876-1410&mode=design",
+            link: "https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=733-1358&mode=design",
             status: statusTypes.AVAILABLE
         },
         {
             resource: resourceTypes.DOCUMENTATION,
-            link: "https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=876-1410&mode=design",
+            link: "https://www.figma.com/file/j1YKygEyhqZ6zKVxcHapn5/%5BCore%5D-Component-Documentation-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=733-1358&mode=design",
             status: statusTypes.AVAILABLE
         },
         {
@@ -47,7 +47,7 @@ Accordions are useful for presenting categorised information like FAQs, product 
         },
         {
             resource: resourceTypes.REACT,
-            link: "https://snacks.takeaway.com/portal/components/toggler/",
+            link: "https://snacks.takeaway.com/portal/components/chip/",
             status: statusTypes.AVAILABLE
         },
         {
@@ -60,7 +60,7 @@ Accordions are useful for presenting categorised information like FAQs, product 
         },
         {
             resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.PLANNED
+            status: statusTypes.AVAILABLE
         },
         {
             resource: resourceTypes.ANDROID_JETPACK,
