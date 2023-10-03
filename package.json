@@ -1,9 +1,9 @@
 {
   "name": "pie-monorepo",
-  "description": "JustEatTakeaway",
+  "description": "The home of Just Eat Takeaway.com's PIE Design System",
   "version": "2.27.1",
   "keywords": [],
-  "author": "JustEatTakeaway - Design System Web Team",
+  "author": "Just Eat Takeaway.com - Design System Team",
   "license": "Apache-2.0",
   "packageManager": "yarn@3.5.0",
   "private": true,
