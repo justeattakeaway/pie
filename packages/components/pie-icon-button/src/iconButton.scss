@@ -1,3 +1,5 @@
+@use '@justeattakeaway/pie-css/scss' as p;
+
 @mixin button-interactive-states($bg-color) {
     &:hover:not(:disabled) {
         background-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), calc(var(#{$bg-color}-l) - var(--dt-color-hover-01)));
@@ -47,8 +49,7 @@
     justify-content: center;
 
     &:focus-visible {
-        // TODO - Need to update to use the latest focus styling
-        outline: 2px solid var(--btn-focus);
+        @include p.focus;
     }
 
     svg {

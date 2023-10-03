@@ -1,0 +1,29 @@
+// ----------------------------------------------
+// Extendable Class for adding grab cursor styles.
+// The `%has-grab-cursor` extendable class allows you to apply grab cursor styles to an element.
+// It is intended to signify draggability to the user.
+// It will show a `grab` cursor when the element is hovered,
+// and a `grabbing` cursor when the element is active (being clicked).
+// -
+// @example
+// .foo {
+//   &[isdraggable]:not([interactiontype='none']) {
+//       @extend %has-grab-cursor;
+//   }
+// }
+// -
+// Outputs:
+// .foo[isdraggable]:not([interactiontype='none']) {
+//    cursor: grab;
+//    &:active {
+//        cursor: grabbing;
+//    }
+// }
+// ----------------------------------------------
+%has-grab-cursor {
+    cursor: grab;
+
+    &:active {
+        cursor: grabbing;
+    }
+}
