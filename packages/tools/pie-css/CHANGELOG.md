@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-css
 
+## 0.5.1
+
+### Patch Changes
+
+- [Changed] - Align author field for all packages ([#852](https://github.com/justeattakeaway/pie/pull/852)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
 ## 0.5.0
 
 ### Minor Changes

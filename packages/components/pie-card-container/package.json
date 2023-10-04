@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-card-container",
   "description": "PIE Design System Card Container built using Web Components",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -31,7 +31,7 @@
     "@justeattakeaway/pie-components-config": "0.4.0"
   },
   "dependencies": {
-    "@justeattakeaway/pie-webc-core": "0.9.0"
+    "@justeattakeaway/pie-webc-core": "0.9.1"
   },
   "volta": {
     "extends": "../../../package.json"

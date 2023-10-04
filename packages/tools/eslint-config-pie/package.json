@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/eslint-config-pie",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Shareable ESLint config for use with any front-end web projects across JET.",
   "exports": {
     ".": "./base/index.js",
