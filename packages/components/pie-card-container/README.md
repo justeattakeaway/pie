@@ -54,7 +54,7 @@ import { PieCardContainer } from '@justeattakeaway/pie-card-container/dist/react
 ## Peer Dependencies
 
 > [!IMPORTANT]
-> When using `pie-card-container`, you will also need to include a couple of dependencies to ensure the component renders as expected. See [the PIE Wiki for more information and how to include these in your application](https://github.com/justeattakeaway/pie/wiki/Getting-started-with-PIE-Web-Components#expected-dependencies).
+> When using `pie-card-container`, you will also need to include a couple of dependencies to ensure the component renders as expected. See [the PIE Wiki](https://github.com/justeattakeaway/pie/wiki/Getting-started-with-PIE-Web-Components#expected-dependencies) for more information and how to include these in your application.
 
 
 ## Local development
