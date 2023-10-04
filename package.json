@@ -115,7 +115,7 @@
     "webpack": "5.77.0"
   },
   "dependencies": {
-    "@justeat/fozzie": "11.0.0",
+    "@justeat/fozzie": "11.0.1",
     "lit": "2.7.5"
   },
   "config": {
