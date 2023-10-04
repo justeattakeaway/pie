@@ -23,8 +23,8 @@ export class PieButton extends LitElement implements ButtonProps {
     public size: ButtonProps['size'] = 'medium';
 
     @property()
-    @validPropertyValues(componentSelector, types, 'submit')
-    public type: ButtonProps['type'] = 'submit';
+    @validPropertyValues(componentSelector, types, 'button')
+    public type: ButtonProps['type'] = 'button';
 
     @property()
     @validPropertyValues(componentSelector, variants, 'primary')
@@ -51,9 +51,16 @@ export class PieButton extends LitElement implements ButtonProps {
     private observer?: MutationObserver;
 
     updated (changedProperties: PropertyValues<this>) {
+        super.updated(changedProperties);
         if (changedProperties.has('type') || changedProperties.has('formId')) {
-            if (this.type === 'submit' && this.formId) {
-                const existingForm = document.getElementById(this.formId as string);
+            if (this.type === 'submit') {
+                let existingForm : HTMLFormElement | null;
+                if (this.formId) {
+                    existingForm = document.getElementById(this.formId as string) as HTMLFormElement;
+                } else {
+                    existingForm = this.closest('form');
+                }
+
                 if (existingForm) {
                     this._formElement = existingForm as HTMLFormElement;
                     console.info('Form found.');
@@ -79,7 +86,14 @@ export class PieButton extends LitElement implements ButtonProps {
         this.observer = new MutationObserver((mutationsList) => {
             mutationsList.forEach((mutation) => {
                 if (mutation.type === 'childList') {
-                    const form = document.getElementById(this.formId as string);
+                    let form : HTMLFormElement | null;
+                    if (this.formId) {
+                        form = document.getElementById(this.formId as string) as HTMLFormElement;
+                    } else {
+                        form = this.closest('form');
+                    }
+
+                    console.log('form is', form);
                     if (form) {
                         this._formElement = form as HTMLFormElement;
                         console.info('formElement', this._formElement);
