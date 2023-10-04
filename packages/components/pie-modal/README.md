@@ -11,17 +11,53 @@
 # Table of Contents
 
 1. [Introduction](#pie-modal)
-2. [Local Development](#local-development)
+2. [Installation](#installation)
 3. [Importing the component](#importing-the-component)
-4. [Props](#props)
-5. [Testing](#testing)
-5. [Legacy browser support](#legacy-browser-support)
+4. [Peer Dependencies](#peer-dependencies)
+5. [Local Development](#local-development)
+6. [Props](#props)
+7. [Testing](#testing)
+8. [Legacy browser support](#legacy-browser-support)
 
-# pie-modal
+
+## pie-modal
 
 `pie-modal` is a Web Component built using the Lit library. It offers a simple and accessible modal component for web applications, which uses the native HTML `dialog` element under the hood.
 
 This component can be easily integrated into various frontend frameworks and customized through a set of properties.
+
+
+## Installation
+
+To install `pie-modal` in your application, run the following on your command line:
+
+```bash
+# npm
+$ npm i @justeattakeaway/pie-modal
+
+# yarn
+$ yarn add @justeattakeaway/pie-modal
+```
+
+For full information on using PIE components as part of an application, check out the [Getting Started Guide](https://github.com/justeattakeaway/pie/wiki/Getting-started-with-PIE-Web-Components).
+
+
+### Importing the component
+
+```js
+// default
+import { PieModal } from '@justeattakeaway/pie-modal';
+
+// react
+import { PieModal } from '@justeattakeaway/pie-modal/dist/react';
+```
+
+
+## Peer Dependencies
+
+> [!IMPORTANT]
+> When using `pie-modal`, you will also need to include a couple of dependencies to ensure the component renders as expected. See [the PIE Wiki for more information and how to include these in your application](https://github.com/justeattakeaway/pie/wiki/Getting-started-with-PIE-Web-Components#expected-dependencies).
+
 
 ## Local development
 
@@ -46,15 +82,6 @@ yarn watch --filter=pie-modal
 yarn dev --filter=pie-storybook
 ```
 
-### Importing the component
-
-```js
-// default
-import { PieModal } from '@justeattakeaway/pie-modal';
-
-// react
-import { PieModal } from '@justeattakeaway/pie-modal/dist/react';
-```
 
 ## Props
 

@@ -24,7 +24,8 @@ You can either use the pie-icons package using native JS, or hook into the compi
 
 #### 1. Install
 
-> **Note:** If you intend to use `pie-icons` with a CDN, you can skip this installation step.
+> [!NOTE]
+> If you intend to use `pie-icons` with a CDN, you can skip this installation step.
 
 Install with [npm](https://docs.npmjs.com/getting-started/what-is-npm) or Yarn.
 
@@ -44,7 +45,8 @@ Include `pie-icons.js` or `pie-icons.min.js` with a `<script>` tag:
 <script src="path/to/dist/pie-icons.js"></script>
 ```
 
-> **Note:** `pie-icons.js` and `pie-icons.min.js` are located in the `dist` directory of the npm package.
+> [!NOTE]
+> `pie-icons.js` and `pie-icons.min.js` are located in the `dist` directory of the npm package.
 
 Or load the script from a CDN provider:
 
@@ -150,7 +152,8 @@ pieicons.icons.x.toString()
 // '<line ... /><line ... />'
 ```
 
-> **Note:** `x` in the above example can be replaced with any valid icon name.  Icons with multi-word names (e.g. `arrow-right`) **cannot** be accessed using dot notation (e.g. `pieicons.icons.x`). Instead, use bracket notation (e.g. `pieicons.icons['arrow-right']`).
+> [!NOTE]
+> `x` in the above example can be replaced with any valid icon name.  Icons with multi-word names (e.g. `arrow-right`) **cannot** be accessed using dot notation (e.g. `pieicons.icons.x`). Instead, use bracket notation (e.g. `pieicons.icons['arrow-right']`).
 
 [View Source](https://github.com/justeat/pie-icons/blob/master/src/icons.js)
 
@@ -167,7 +170,8 @@ Returns an SVG string.
 | `attrs` (optional)    | Object |  Key-value pairs in the `attrs` object will be mapped to HTML attributes on the `<svg>` tag (e.g. `{ foo: 'bar' }` maps to `foo="bar"`). All default attributes on the `<svg>` tag can be overridden with the `attrs` object. |
 | `platform` (optional) | String |  Defaults to 'default'. Can be changed to allow for specific attrs to be included/excluded. Current valid options are `"reactNative"` |
 
-> **Hint:** You might find these SVG attributes helpful for manipulating icons:
+> [!NOTE]
+> You might find these SVG attributes helpful for manipulating icons:
 > * [`color`](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/color)
 > * [`width`](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/width)
 > * [`height`](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/height)
@@ -204,7 +208,8 @@ Replaces all elements that have a `data-pie-icons` attribute with SVG markup cor
 
 #### Usage
 
-> **Note:** `pieicons.replace()` only works in a browser environment.
+> [!NOTE]
+> `pieicons.replace()` only works in a browser environment.
 
 Simple usage:
 ```html

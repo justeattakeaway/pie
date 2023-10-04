@@ -11,16 +11,52 @@
 # Table of Contents
 
 1. [Introduction](#pie-cookie-banner)
-2. [Local Development](#local-development)
+2. [Installation](#installation)
 3. [Importing the component](#importing-the-component)
-4. [Props](#props)
-5. [Testing](#testing)
+4. [Peer Dependencies](#peer-dependencies)
+5. [Local Development](#local-development)
+6. [Props](#props)
+7. [Testing](#testing)
 
-# pie-cookie-banner
+
+## pie-cookie-banner
 
 `pie-cookie-banner` is a Web Component built using the Lit library.
 
 This component can be easily integrated into various frontend frameworks and customized through a set of properties.
+
+
+## Installation
+
+To install `pie-cookie-banner` in your application, run the following on your command line:
+
+```bash
+# npm
+$ npm i @justeattakeaway/pie-cookie-banner
+
+# yarn
+$ yarn add @justeattakeaway/pie-cookie-banner
+```
+
+For full information on using PIE components as part of an application, check out the [Getting Started Guide](https://github.com/justeattakeaway/pie/wiki/Getting-started-with-PIE-Web-Components).
+
+
+### Importing the component
+
+```js
+// default
+import { PieCookieBanner } from '@justeattakeaway/pie-cookie-banner';
+
+// react
+import { PieCookieBanner } from '@justeattakeaway/pie-cookie-banner/dist/react';
+```
+
+
+## Peer Dependencies
+
+> [!IMPORTANT]
+> When using `pie-cookie-banner`, you will also need to include a couple of dependencies to ensure the component renders as expected. See [the PIE Wiki for more information and how to include these in your application](https://github.com/justeattakeaway/pie/wiki/Getting-started-with-PIE-Web-Components#expected-dependencies).
+
 
 ## Local development
 
@@ -45,15 +81,6 @@ yarn watch --filter=pie-cookie-banner
 yarn dev --filter=pie-storybook
 ```
 
-### Importing the component
-
-```js
-// default
-import { PieCookieBanner } from '@justeattakeaway/pie-cookie-banner';
-
-// react
-import { PieCookieBanner } from '@justeattakeaway/pie-cookie-banner/dist/react';
-```
 
 ## Props
 

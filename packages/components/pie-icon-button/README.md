@@ -11,13 +11,16 @@
 # Table of Contents
 
 1. [Introduction](#pie-icon-button)
-2. [Local Development](#local-development)
-3. [Props](#props)
-4. [Events](#events)
+2. [Installation](#installation)
+3. [Importing the component](#importing-the-component)
+4. [Peer Dependencies](#peer-dependencies)
+5. [Local Development](#local-development)
+6. [Props](#props)
+7. [Events](#events)
    - [HTML example](#html)
    - [Vue example (using Nuxt 3)](#vue-templates-using-nuxt-3)
    - [React example (using Next 13)](#react-templates-using-next-13)
-5. [Testing](#testing)
+8. [Testing](#testing)
    - [Browser Tests](#browser-tests)
    - [Visual Tests](#visual-tests)
 
@@ -27,6 +30,41 @@
 `pie-icon-button` is a Web Component built using the Lit library. It offers a simple and accessible icon button component for web applications.
 
 This component can be easily integrated into various frontend frameworks and customized through a set of properties.
+
+
+## Installation
+
+To install `pie-icon-button` in your application, run the following on your command line:
+
+```bash
+# npm
+$ npm i @justeattakeaway/pie-icon-button
+
+# yarn
+$ yarn add @justeattakeaway/pie-icon-button
+```
+
+For full information on using PIE components as part of an application, check out the [Getting Started Guide](https://github.com/justeattakeaway/pie/wiki/Getting-started-with-PIE-Web-Components).
+
+
+### Importing the component
+
+```js
+// Default – for Native JS Applications, Vue, Angular, Svelte etc.
+import { PieIconButton } from '@justeattakeaway/pie-icon-button';
+
+// React
+// For React, you will need to import our React specific component build
+// Which wraps the web component using the @lit-labs/react package
+import { PieIconButton } from '@justeattakeaway/pie-icon-button/dist/react';
+```
+
+
+## Peer Dependencies
+
+> [!IMPORTANT]
+> When using `pie-icon-button`, you will also need to include a couple of dependencies to ensure the component renders as expected. See [the PIE Wiki for more information and how to include these in your application](https://github.com/justeattakeaway/pie/wiki/Getting-started-with-PIE-Web-Components#expected-dependencies).
+
 
 ## Local development
 
@@ -53,18 +91,6 @@ yarn dev --filter=pie-storybook
 ```
 
 
-### Importing the component
-
-```js
-// Default – for Native JS Applications, Vue, Angular, Svelte etc.
-import { PieIconButton } from '@justeattakeaway/pie-icon-button';
-
-// React
-// For React, you will need to import our React specific component build
-// Which wraps the web component using the @lit-labs/react package
-import { PieIconButton } from '@justeattakeaway/pie-icon-button/dist/react';
-```
-
 ## Importing Icons
 
 We recommend using the `pie-icon-button` component alongside the `pie-icons-webc` package. This package contains all of the PIE iconset as importable web components and are built to work alongside our other PIE components.
@@ -86,7 +112,7 @@ Then, in your markup, you would implement the component like this:
 <pie-icon-button><icon-close /></pie-icon-button>
 ```
 
-> **Warning**
+> [!WARNING]
 > Usually, icons imported from `pie-icons-webc` can be resized by specifying the `size` prop (such as `<icon-close size="xl" />`).
 > These size props will have no effect when used alongside the `pie-icon-button` component, as the icon is resized with respect to the size of the `pie-icon-button`.
 
