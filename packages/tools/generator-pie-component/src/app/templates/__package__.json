@@ -35,5 +35,8 @@
   },
   "volta": {
     "extends": "../../../package.json"
-  }
+  },
+  "sideEffects": [
+    "dist/*.js"
+  ]
 }
