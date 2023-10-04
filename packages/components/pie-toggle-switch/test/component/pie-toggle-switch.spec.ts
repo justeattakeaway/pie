@@ -1,10 +1,10 @@
 import { test, expect } from '@sand4rt/experimental-ct-web';
 import { PieToggleSwitch } from '@/index';
-import { ToggleSwitchProps } from '@/defs';
+import { ToggleSwitchProps, type LabelPlacement, labelPlacements } from '@/defs';
 
 const componentSelector = '[data-test-id="toggle-switch-component"]';
 const toggleInputSelector = '[data-test-id="toggle-switch-input"]';
-const toggleSwitchLabel = '[data-test-id="toggle-switch-label"]';
+const toggleSwitchLabelSelector = (placement: LabelPlacement = 'leading') => `[data-test-id="toggle-switch-label-${placement}"]`;
 
 test.describe('Component: `Pie toggle switch`', () => {
     test('should be visible', async ({ mount, page }) => {
@@ -67,7 +67,7 @@ test.describe('Component: `Pie toggle switch`', () => {
             });
 
             // Act
-            const pieToggleSwitchLabel = component.locator(toggleSwitchLabel);
+            const pieToggleSwitchLabel = component.locator(toggleSwitchLabelSelector());
 
             // Assert
             await expect(pieToggleSwitchLabel).toHaveAttribute('for', 'toggle-switch');
@@ -105,7 +105,7 @@ test.describe('Component: `Pie toggle switch`', () => {
                 });
 
                 // Act
-                await page.click(toggleSwitchLabel);
+                await page.click(toggleSwitchLabelSelector());
 
                 const pieToggleSwitchComponent = await component.locator(componentSelector).isChecked();
 
@@ -181,37 +181,23 @@ test.describe('Component: `Pie toggle switch`', () => {
     });
 
     test.describe('Props: `LabelProps`', () => {
-        test.describe('when a position is passed as `leading`', () => {
-            test('should render a leading label', async ({ mount }) => {
+        labelPlacements.forEach((labelPlacement) => {
+            test(`should render a ${labelPlacement} label`, async ({ mount }) => {
                 // Arrange
                 const component = await mount(PieToggleSwitch, {
                     props: {
                         label: 'Label',
-                        labelPlacement: 'leading',
+                        labelPlacement,
                     } as ToggleSwitchProps,
                 });
 
-                const pieToggleSwitchLabel = component.locator('[data-test-id="toggle-switch-label"]');
+                const selector = toggleSwitchLabelSelector(labelPlacement);
+                const pieToggleSwitchLabel = component.locator(selector);
+                const testId = await pieToggleSwitchLabel.getAttribute('data-test-id');
 
                 // Assert
                 await expect(pieToggleSwitchLabel).toBeVisible();
-            });
-        });
-
-        test.describe('when a label is passed as `trailing`', () => {
-            test('should render a trailing label', async ({ mount }) => {
-                // Arrange
-                const component = await mount(PieToggleSwitch, {
-                    props: {
-                        label: 'Label',
-                        labelPlacement: 'trailing',
-                    } as ToggleSwitchProps,
-                });
-
-                const pieToggleSwitchLabel = component.locator('[data-test-id="toggle-switch-label"]');
-
-                // Assert
-                await expect(pieToggleSwitchLabel).toBeVisible();
+                expect(testId).toContain(labelPlacement);
             });
         });
     });

@@ -58,13 +58,13 @@ export class PieToggleSwitch extends RtlMixin(LitElement) implements ToggleSwitc
      * @private
      */
     private renderToggleSwitchLabel (): TemplateResult {
-        const { label } = this;
+        const { label, labelPlacement } = this;
 
         if (label) {
             return html`
                 <label
                     for="toggle-switch"
-                    data-test-id="toggle-switch-label">
+                    data-test-id="toggle-switch-label-${labelPlacement}">
                     ${label}
                 </label>`;
         }
