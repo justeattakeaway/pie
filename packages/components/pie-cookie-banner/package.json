@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-cookie-banner",
   "description": "PIE Design System Cookie Banner built using Web Components",
-  "version": "0.4.1",
+  "version": "0.5.0",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -25,21 +25,24 @@
     "test:visual": "run -T cross-env-shell PERCY_TOKEN=${PERCY_TOKEN_PIE_COOKIE_BANNER} percy exec --allowed-hostname cloudfront.net -- npx playwright test -c ./playwright-lit-visual.config.ts",
     "test:visual:ci": "yarn test:visual"
   },
-  "author": "JustEatTakeaway.com - Design System Web Team",
+  "author": "Just Eat Takeaway.com - Design System Team",
   "license": "Apache-2.0",
   "devDependencies": {
     "@justeat/pie-design-tokens": "5.8.2",
-    "@justeattakeaway/pie-button": "0.29.0",
+    "@justeattakeaway/pie-button": "0.30.0",
     "@justeattakeaway/pie-components-config": "0.4.0",
-    "@justeattakeaway/pie-icon-button": "0.15.0",
-    "@justeattakeaway/pie-link": "0.6.0",
-    "@justeattakeaway/pie-modal": "0.24.0",
-    "@justeattakeaway/pie-toggle-switch": "0.10.0"
+    "@justeattakeaway/pie-icon-button": "0.16.0",
+    "@justeattakeaway/pie-link": "0.7.0",
+    "@justeattakeaway/pie-modal": "0.25.0",
+    "@justeattakeaway/pie-toggle-switch": "0.11.0"
   },
   "dependencies": {
-    "@justeattakeaway/pie-webc-core": "0.9.0"
+    "@justeattakeaway/pie-webc-core": "0.9.1"
   },
   "volta": {
     "extends": "../../../package.json"
-  }
+  },
+  "sideEffects": [
+    "dist/*.js"
+  ]
 }

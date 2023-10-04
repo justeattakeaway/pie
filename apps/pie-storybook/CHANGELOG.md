@@ -1,5 +1,27 @@
 # Changelog
 
+## 0.37.0
+
+### Minor Changes
+
+- [Added] - Card container padding props ([#829](https://github.com/justeattakeaway/pie/pull/829)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
+### Patch Changes
+
+- [Changed] - Align author field for all packages ([#852](https://github.com/justeattakeaway/pie/pull/852)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- Updated dependencies [[`01215cc48`](https://github.com/justeattakeaway/pie/commit/01215cc481c268c58cacb31ebebf0523d6143fc9), [`94ad25007`](https://github.com/justeattakeaway/pie/commit/94ad250076deb77061db9fbafe44539c5df17245), [`8c03d23f3`](https://github.com/justeattakeaway/pie/commit/8c03d23f3790744be56ed4a5b87da885108a26ab)]:
+  - @justeattakeaway/pie-card-container@0.8.0
+  - @justeattakeaway/pie-cookie-banner@0.5.0
+  - @justeattakeaway/pie-toggle-switch@0.11.0
+  - @justeattakeaway/pie-icon-button@0.16.0
+  - @justeattakeaway/pie-form-label@0.3.0
+  - @justeattakeaway/pie-divider@0.6.0
+  - @justeattakeaway/pie-button@0.30.0
+  - @justeattakeaway/pie-modal@0.25.0
+  - @justeattakeaway/pie-link@0.7.0
+  - @justeattakeaway/pie-css@0.5.1
+
 ## 0.36.1
 
 ### Patch Changes

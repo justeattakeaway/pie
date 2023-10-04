@@ -1,10 +1,10 @@
 {
   "name": "@justeattakeaway/pie-webc-testing",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "PIE design system helpers and utilities for testing our web components",
   "type": "module",
   "main": "index.ts",
-  "author": "JustEatTakeaway - Design System Web Team",
+  "author": "Just Eat Takeaway.com - Design System Team",
   "license": "Apache-2.0",
   "scripts": {
     "lint:scripts": "run -T eslint .",

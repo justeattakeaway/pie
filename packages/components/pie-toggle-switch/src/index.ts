@@ -60,12 +60,11 @@ export class PieToggleSwitch extends RtlMixin(LitElement) implements ToggleSwitc
     private renderToggleSwitchLabel (): TemplateResult {
         const { label, labelPlacement } = this;
 
-        if (label && labelPlacement && (labelPlacements.includes(labelPlacement))) {
+        if (label) {
             return html`
                 <label
                     for="toggle-switch"
-                    data-test-id="toggle-switch-label"
-                    class="c-toggleSwitch-label c-toggleSwitch--${labelPlacement}">
+                    data-test-id="toggle-switch-label-${labelPlacement}">
                     ${label}
                 </label>`;
         }
@@ -85,13 +84,15 @@ export class PieToggleSwitch extends RtlMixin(LitElement) implements ToggleSwitc
         const toggleSwitchId = 'toggle-switch-description';
 
         return html`
-            <div class="c-toggleSwitch-wrapper" ?isRTL=${isRTL}>
+            <div 
+                class="c-toggleSwitch-wrapper" 
+                ?isRTL=${isRTL} 
+                ?isDisabled=${isDisabled}>
                 ${labelPlacement === 'leading' ? this.renderToggleSwitchLabel() : nothing}
                 <label
                     data-test-id="toggle-switch-component"
                     class="c-toggleSwitch"
-                    ?isChecked="${isChecked}"
-                    ?isDisabled=${isDisabled}>
+                    ?isChecked=${isChecked}>
                     <input
                         id="toggle-switch"
                         data-test-id="toggle-switch-input"

@@ -1,10 +1,10 @@
 {
   "name": "@justeattakeaway/pie-webc-core",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "description": "PIE design system base classes, mixins and utilities for web components",
   "type": "module",
   "main": "index.ts",
-  "author": "JustEatTakeaway - Design System Web Team",
+  "author": "Just Eat Takeaway.com - Design System Team",
   "license": "Apache-2.0",
   "scripts": {
     "lint:scripts": "run -T eslint .",
