@@ -1,5 +1,5 @@
 import {
-    LitElement, html, unsafeCSS, nothing,
+    LitElement, html, unsafeCSS, nothing, PropertyValues,
 } from 'lit';
 import { property } from 'lit/decorators.js';
 import { validPropertyValues } from '@justeattakeaway/pie-webc-core';
@@ -43,6 +43,63 @@ export class PieButton extends LitElement implements ButtonProps {
     @property({ type: Boolean })
     public isFullWidth = false;
 
+    @property({ type: String, reflect: true })
+    public formId?: string;
+
+    private _formElement?: HTMLFormElement;
+
+    private observer?: MutationObserver;
+
+    updated (changedProperties: PropertyValues<this>) {
+        if (changedProperties.has('type') || changedProperties.has('formId')) {
+            if (this.type === 'submit' && this.formId) {
+                const existingForm = document.getElementById(this.formId as string);
+                if (existingForm) {
+                    this._formElement = existingForm as HTMLFormElement;
+                    console.info('Form found.');
+                } else {
+                    this._disconnectObserver(); // disconnect any previously initiated observer
+                    this._initObserver();
+                }
+            }
+        }
+    }
+
+    _disconnectObserver () {
+        if (this.observer) {
+            this.observer.disconnect();
+            console.log('Disconnected a previous observer.');
+            this.observer = undefined;
+        }
+    }
+
+    _initObserver () {
+        console.log('Observer starting...');
+
+        this.observer = new MutationObserver((mutationsList) => {
+            mutationsList.forEach((mutation) => {
+                if (mutation.type === 'childList') {
+                    const form = document.getElementById(this.formId as string);
+                    if (form) {
+                        this._formElement = form as HTMLFormElement;
+                        console.info('formElement', this._formElement);
+                        console.info('Observer stopped');
+                        this._disconnectObserver();
+                    }
+                }
+            });
+        });
+
+        this.observer.observe(document.body, { childList: true, subtree: true });
+    }
+
+    private handleClick () {
+        if (this.type === 'submit' && this._formElement) {
+            this._formElement.dispatchEvent(new Event('submit', { bubbles: true }));
+            console.info('submitting form');
+        }
+    }
+
     render () {
         const {
             type,
@@ -56,6 +113,7 @@ export class PieButton extends LitElement implements ButtonProps {
 
         return html`
             <button
+                @click=${this.handleClick}
                 class="o-btn"
                 type=${type}
                 variant=${variant}

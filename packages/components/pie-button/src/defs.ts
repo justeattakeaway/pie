@@ -9,6 +9,7 @@ export const iconPlacements = ['leading', 'trailing'] as const;
 export type Variant = typeof variants[number];
 
 export interface ButtonProps {
+    formId?: string;
     /**
      * What size the button should be.
      */
