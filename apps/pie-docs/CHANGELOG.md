@@ -1,5 +1,18 @@
 # Changelog
 
+## 3.5.0
+
+### Minor Changes
+
+- [Added] - Assistive Text, Avatar, Badge, Bottom Sheet, Breadcrumb, Card Container, Carousel Indicator, Checkbox and Chip Overview pages. ([#838](https://github.com/justeattakeaway/pie/pull/838)) by [@LTurns](https://github.com/LTurns)
+
+### Patch Changes
+
+- [Changed] - Align author field for all packages ([#852](https://github.com/justeattakeaway/pie/pull/852)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- Updated dependencies [[`8c03d23f3`](https://github.com/justeattakeaway/pie/commit/8c03d23f3790744be56ed4a5b87da885108a26ab)]:
+  - @justeattakeaway/pie-icons@4.9.2
+
 ## 3.4.0
 
 ### Minor Changes

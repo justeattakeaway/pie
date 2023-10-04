@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.9.2
+
+### Patch Changes
+
+- [Changed] - Align author field for all packages ([#852](https://github.com/justeattakeaway/pie/pull/852)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
 ## 4.9.1
 
 ### Patch Changes

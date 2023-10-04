@@ -1,5 +1,7 @@
 export const labelPlacements = ['leading', 'trailing'] as const;
 
+export type LabelPlacement = typeof labelPlacements[number];
+
 export type AriaProps = {
     label?: string,
     describedBy?: string
@@ -25,7 +27,7 @@ export interface ToggleSwitchProps {
     /**
      * The placement of the label such as leading or trailing
      */
-    labelPlacement?: typeof labelPlacements[number];
+    labelPlacement?: LabelPlacement;
 }
 
 /**
