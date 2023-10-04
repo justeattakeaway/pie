@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/stylelint-config-pie",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "Shareable Stylelint config for use with any front-end web projects across JET.",
   "license": "Apache-2.0",
   "keywords": [
