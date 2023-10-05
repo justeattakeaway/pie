@@ -43,9 +43,6 @@ export class PieButton extends FormAssociatedComponentMixin(LitElement) implemen
     @property({ type: Boolean })
     public isFullWidth = false;
 
-    @property({ type: String, reflect: true })
-    public formId?: string;
-
     connectedCallback () {
         super.connectedCallback();
         console.log('form: ', this.form);

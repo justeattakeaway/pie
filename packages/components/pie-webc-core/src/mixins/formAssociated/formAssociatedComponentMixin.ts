@@ -1,7 +1,6 @@
 /* eslint-disable max-classes-per-file */
 import { LitElement } from 'lit';
 import 'element-internals-polyfill';
-import { ElementInternals } from 'element-internals-polyfill/dist/element-internals';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type Constructor<T = LitElement> = new (...args: any[]) => T;
