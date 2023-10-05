@@ -54,7 +54,7 @@ export class PieButton extends FormAssociatedComponentMixin(LitElement) implemen
 
     private handleClick () {
         if (this.type === 'submit' && this.form) {
-            this.form.dispatchEvent(new Event('submit', { bubbles: true }));
+            this.form.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
             console.info('submitting form');
         }
     }
