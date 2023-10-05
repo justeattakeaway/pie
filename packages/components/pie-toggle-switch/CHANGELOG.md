@@ -1,5 +1,13 @@
 # @justeattakeaway/pie-toggle-switch
 
+## 0.12.0
+
+### Minor Changes
+
+- [Fixed] - The label should have the same cursor as the control itself ([#849](https://github.com/justeattakeaway/pie/pull/849)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Fixed]- The cursor should be disabled, following the same pattern as the Button
+
 ## 0.11.0
 
 ### Minor Changes
