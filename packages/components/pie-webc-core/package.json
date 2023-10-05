@@ -3,10 +3,27 @@
   "version": "0.9.1",
   "description": "PIE design system base classes, mixins and utilities for web components",
   "type": "module",
-  "main": "index.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js"
+    },
+    "./mixins/rtl/rtlMixin": {
+      "import": "./dist/mixins/rtl/rtlMixin.js"
+    },
+    "./decorators/required-property": {
+      "import": "./dist/decorators/required-property.js"
+    },
+    "./decorators/valid-property-values": {
+      "import": "./dist/decorators/valid-property-values.js"
+    }
+  },
   "author": "Just Eat Takeaway.com - Design System Team",
   "license": "Apache-2.0",
   "scripts": {
+    "build": "vite build && tsc",
     "lint:scripts": "run -T eslint .",
     "lint:scripts:fix": "run -T eslint . --fix",
     "test": "run -T vitest run",
