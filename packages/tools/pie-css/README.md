@@ -19,8 +19,8 @@
     3. Sass /SCSS
     4. Native HTML
 3. [Using the PIE CSS – SCSS helpers](#helpers)
-3. [Z-index](#z-index)
-4. [Testing](#testing)
+4. [Z-index](#z-index)
+5. [Testing](#testing)
     - [CSS](#css)
     - [SCSS](#scss )
 
