@@ -1,5 +1,5 @@
 {
   "title": "Select Input",
   "navKey": "Select Input",
-  "description": "A segmented control is a navigation or input element that presents a set of mutually exclusive options in a segmented layout."
+  "description": "A select input presents users with a list of options, allowing them to choose a single item from the list."
 }

@@ -1,17 +1,17 @@
 ---
 eleventyNavigation:
-    key: 'Star Rating'
+    key: 'Rating'
     parent: Components
 ---
 
 ## Overview
-The purpose of the star rating component is to gather user feedback and/or provide a visual representation of the collective ratings. It helps users make informed decisions, provides social proof and assists in evaluating the quality or popularity of a product or service.
+The purpose of the rating component is to gather user feedback and/or provide a visual representation of the collective ratings. It helps users make informed decisions, provides social proof and assists in evaluating the quality or popularity of a product or service.
 
-Star ratings are commonly used in review systems, product ratings or feedback forms where users are asked to provide their subjective assessment.
+Ratings are commonly used in review systems, product ratings or feedback forms where users are asked to provide their subjective assessment.
 
 {% contentPageImage {
-    src:"../../assets/img/components/star-rating/overview.svg",
-    alt: "Star rating with five stars, a score and additional text."
+    src:"../../assets/img/components/rating/overview.svg",
+    alt: "rating with five stars, a score and additional text."
 } %}
 
 ---

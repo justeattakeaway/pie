@@ -12,7 +12,7 @@ Accordions are useful for presenting categorised information like FAQs, product 
 
 
 {% contentPageImage {
-    src:"../../assets/img/components/accordion/accordion-overview.svg",
+    src:"../../assets/img/components/accordion/overview.svg",
     alt: "Three accordions that are vertically stacked together."
 } %}
 

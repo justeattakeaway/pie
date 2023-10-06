@@ -5,7 +5,7 @@ eleventyNavigation:
 ---
 
 ## Overview
-The purpose of a show more / less components is to provide users with control over the amount of content they want to view. They help manage long or detailed information by initially displaying a condensed version and giving users the option to expand for more details if desired.
+The purpose of a show more components is to provide users with control over the amount of content they want to view. They help manage long or detailed information by initially displaying a condensed version and giving users the option to expand for more details if desired.
 
 When users click on the component, it expands the hidden content, revealing more information, additional sections, or longer text. This allows users to access the complete content that may have been truncated or hidden for brevity or space constraints.
 
