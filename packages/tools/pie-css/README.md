@@ -131,7 +131,7 @@ We will be writing more in-depth docs on these SCSS helpers shortly, but for now
 
 ## z-index
 
-Some PIE Web Components use a z-index value to control how they stack on a webpage. These values are defined in the `pie-css` package as css variables and are utilized internally. In most cases, a webpage should follow the DOM's natural stacking order and the default z-index order assigned for each component. However, if you're creating custom components, refer to the following table to make sure they don't conflict with other parts of the UI.
+Some PIE Web Components use a z-index value to control how they stack on a webpage. These values are defined in the `pie-css` package as css variables and are utilized internally. In most cases, a webpage should follow the DOM's natural stacking order and the default z-index order assigned for each component. However, if you're creating custom components, refer to the following table to make sure they don't conflict with other components.
 
 | Token              | Z-Index Value  |
 | -------------------------- | ---------------|
