@@ -49,7 +49,7 @@
     "test:watch": "run -T vitest"
   },
   "browserslist": [
-    "extends @justeat/browserslist-config-fozzie"
+    "extends @justeattakeaway/browserslist-config-pie"
   ],
   "dependencies": {
     "@vue/babel-helper-vue-jsx-merge-props": "1.4.0"
