@@ -1108,22 +1108,18 @@ html {
 *:after {
     box-sizing: inherit;
 }
-/* The z-index priority order of different components */
-/* The values start at a high and specific number to avoid any conflicts */
+/* The z-index priority order of different components.
+The values start at a high and specific number to avoid any conflicts */
 :root {
     --dt-z-index-dropdown: 1000;
     --dt-z-index-fab: 1000;
-
     --dt-z-index-tooltip: 2000;
-
     --dt-z-index-popover: 3000;
-
     --dt-z-index-bottom-sheet: 4000;
     --dt-z-index-side-sheet: 4000;
     --dt-z-index-modal: 4000;
-
     --dt-z-index-cookie-banner: 5000;
-
     --dt-z-index-toast: 6000;
-}"
+}
+"
 `;
