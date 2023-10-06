@@ -2,5 +2,6 @@
 "@justeattakeaway/pie-cookie-banner": minor
 "@justeattakeaway/pie-css": minor
 ---
+[Added] - z-index tokens to the pie-css package
 
-[Added] z-index tokens to pie-css package for different components
+[Fixed] - Ensure the cookie banner has a correct stacking order
