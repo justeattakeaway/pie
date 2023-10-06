@@ -1,13 +1,13 @@
 {
   "name": "@justeattakeaway/pie-wrapper-react",
-  "version": "0.10.1",
+  "version": "0.10.2",
   "description": "Common react wrapper for use for PIE custom elements",
   "license": "Apache-2.0",
   "type": "module",
   "keywords": [
     "PIE"
   ],
-  "author": "",
+  "author": "Just Eat Takeaway.com - Design System Team",
   "scripts": {
     "build:wrapper": "yarn cem analyze --litelement && node ./scripts/add-react-wrapper.js",
     "lint:scripts": "run -T eslint .",

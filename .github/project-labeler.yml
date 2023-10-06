@@ -23,8 +23,14 @@ pie-icons-react:
 pie-icons-vue:
 - 'packages/tools/pie-icons-vue/**/*'
 
+browserslist-config-pie:
+- 'packages/tools/browserslist-config-pie/**/*'
+
+eslint-config-pie:
+- 'packages/tools/eslint-config-pie/**/*'
+
 stylelint-config-pie:
-- 'packages/tools/stylelint-config-pie/**/*'
+- 'packages/tools/pie-stylelint-config/**/*'
 
 generator-pie-component:
 - 'packages/tools/generator-pie-component/**/*'
@@ -39,11 +45,20 @@ components:
 pie-button:
 - 'packages/components/pie-button/**/*'
 
+pie-card-container:
+- './packages/components/pie-card-container/**/*'
+
+pie-cookie-banner:
+- './packages/components/pie-cookie-banner/**/*'
+
 pie-divider:
 - 'packages/components/pie-divider/**/*'
 
 pie-form-label:
 - 'packages/components/pie-form-label/**/*'
+
+pie-icon-button:
+- 'packages/components/pie-icon-button/**/*'
 
 pie-link:
 - 'packages/components/pie-link/**/*'
@@ -51,17 +66,8 @@ pie-link:
 pie-modal:
 - 'packages/components/pie-modal/**/*'
 
-pie-icon-button:
-- 'packages/components/pie-icon-button/**/*'
-
 pie-toggle-switch:
 - 'packages/components/pie-toggle-switch/**/*'
-
-pie-cookie-banner:
-- './packages/components/pie-cookie-banner/**/*'
-
-pie-card-container:
-- './packages/components/pie-card-container/**/*'
 
 pie-webc-core:
 - 'packages/components/pie-webc-core/**/*'

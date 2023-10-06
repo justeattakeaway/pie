@@ -2,10 +2,10 @@
   "name": "pie-docs",
   "private": true,
   "description": "Documentation website for the PIE design system",
-  "version": "3.4.0",
+  "version": "3.5.0",
   "main": "index.js",
   "keywords": [],
-  "author": "JustEatTakeaway - Design System Team",
+  "author": "Just Eat Takeaway.com - Design System Team",
   "license": "Apache-2.0",
   "packageManager": "yarn@3.2.1",
   "scripts": {
@@ -39,7 +39,7 @@
   "dependencies": {
     "@justeat/browserslist-config-fozzie": "2.0.0",
     "@justeat/f-cookie-banner": "4.7.0",
-    "@justeattakeaway/pie-icons": "4.9.1",
+    "@justeattakeaway/pie-icons": "4.9.2",
     "@types/markdown-it": "13.0.0",
     "js-cookie": "2.2.1",
     "markdown-it": "13.0.1",

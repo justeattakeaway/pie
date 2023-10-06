@@ -5,7 +5,7 @@ import { property } from 'lit/decorators.js';
 import { validPropertyValues } from '@justeattakeaway/pie-webc-core';
 import styles from './card-container.scss?inline';
 import {
-    CardContainerProps, type AriaProps, variants, interactionTypes,
+    CardContainerProps, type AriaProps, type PaddingValue, variants, interactionTypes,
 } from './defs';
 
 // Valid values available to consumers
@@ -41,11 +41,21 @@ export class PieCardContainer extends LitElement implements CardContainerProps {
     public isDraggable = false;
 
     /**
+     * Todo: We need to validate the user input at the moment
+     * the `validPropertyValues` won't work for this property so it
+     * is being looked at here: DSW-1306
+     */
+    @property({ type: String })
+    public padding?: PaddingValue;
+
+    /**
      * Renders the card as an anchor element.
      *
      * @private
      */
     private renderAnchor (): TemplateResult {
+        const paddingCSS = this.generatePaddingCSS();
+
         return html`
             <a
                 class="c-card-container"
@@ -58,10 +68,50 @@ export class PieCardContainer extends LitElement implements CardContainerProps {
                 target=${this.target || nothing}
                 rel=${this.rel || nothing}
                 aria-label=${this.aria?.label || nothing}
-                aria-disabled=${this.disabled ? 'true' : 'false'}>
+                aria-disabled=${this.disabled ? 'true' : 'false'}
+                style=${paddingCSS || nothing}>
                     <slot></slot>
                 </div>
             </a>`;
+    }
+
+    /**
+     * Generates padding for the component based on `padding` values passed
+     * by the consumer.
+     *
+     *
+     * Example: 'a' or 'a, b'
+     * Single values i.e `'a'` applies to all sides and `'a, b'` applies to: top & bottom, left & right
+     *
+     * @private
+     */
+    private generatePaddingCSS (): string {
+        const { padding } = this;
+        let paddingCSS = '';
+
+        // Check if padding is empty (null, undefined, or an empty string)
+        if (!padding) {
+            return '';
+        }
+
+        const paddingArray = padding
+            .split(',')
+            .map((item) => item.trim())
+            .filter((value) => /^[a-g]$/.test(value));
+
+        if (paddingArray.length > 0 && paddingArray.length <= 2) {
+            paddingCSS += `var(--dt-spacing-${paddingArray[0]})`;
+
+            if (paddingArray.length > 1) {
+                paddingCSS += ` var(--dt-spacing-${paddingArray[1]})`;
+            }
+        }
+
+        if (!paddingCSS) {
+            return '';
+        }
+
+        return `padding: ${paddingCSS}`;
     }
 
     render () {
@@ -72,6 +122,9 @@ export class PieCardContainer extends LitElement implements CardContainerProps {
             aria,
             isDraggable,
         } = this;
+
+        const paddingCSS = this.generatePaddingCSS();
+
         const isButton = interactionType === 'button';
 
         if (interactionType === 'anchor') return this.renderAnchor();
@@ -87,7 +140,8 @@ export class PieCardContainer extends LitElement implements CardContainerProps {
                     role=${isButton ? 'button' : nothing}
                     tabindex=${isButton ? '0' : nothing}
                     aria-label=${aria?.label || nothing}
-                    aria-disabled=${disabled ? 'true' : 'false'}>
+                    aria-disabled=${disabled ? 'true' : 'false'}
+                    style=${paddingCSS || nothing}>
                         <slot></slot>
                     </div>
                 </div>`;

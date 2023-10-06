@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/eslint-config-pie",
-  "version": "0.2.0",
+  "version": "0.2.2",
   "description": "Shareable ESLint config for use with any front-end web projects across JET.",
   "exports": {
     ".": "./base/index.js",
@@ -16,7 +16,7 @@
     "tests-only": "run -T jest"
   },
   "license": "Apache-2.0",
-  "author": "JustEatTakeaway - Design System Web Team",
+  "author": "Just Eat Takeaway.com - Design System Team",
   "keywords": [
     "PIE",
     "eslint",

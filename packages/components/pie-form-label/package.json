@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-form-label",
   "description": "PIE Design System Form Label built using Web Components",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -25,15 +25,18 @@
     "test:visual": "run -T cross-env-shell PERCY_TOKEN=${PERCY_TOKEN_PIE_FORM_LABEL} percy exec --allowed-hostname cloudfront.net -- npx playwright test -c ./playwright-lit-visual.config.ts",
     "test:visual:ci": "yarn test:visual"
   },
-  "author": "JustEatTakeaway.com - Design System Web Team",
+  "author": "Just Eat Takeaway.com - Design System Team",
   "license": "Apache-2.0",
   "devDependencies": {
     "@justeattakeaway/pie-components-config": "0.4.0"
   },
   "dependencies": {
-    "@justeattakeaway/pie-webc-core": "0.9.0"
+    "@justeattakeaway/pie-webc-core": "0.9.1"
   },
   "volta": {
     "extends": "../../../package.json"
-  }
+  },
+  "sideEffects": [
+    "dist/*.js"
+  ]
 }

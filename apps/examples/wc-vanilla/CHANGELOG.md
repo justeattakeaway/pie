@@ -1,5 +1,21 @@
 # wc-vanilla
 
+## 0.4.19
+
+### Patch Changes
+
+- Updated dependencies [[`01215cc48`](https://github.com/justeattakeaway/pie/commit/01215cc481c268c58cacb31ebebf0523d6143fc9), [`8c03d23f3`](https://github.com/justeattakeaway/pie/commit/8c03d23f3790744be56ed4a5b87da885108a26ab)]:
+  - @justeattakeaway/pie-icon-button@0.16.0
+  - @justeattakeaway/pie-button@0.30.0
+  - @justeattakeaway/pie-modal@0.25.0
+  - @justeattakeaway/pie-css@0.5.1
+
+## 0.4.18
+
+### Patch Changes
+
+- [Changed] - Align body-scroll-lock versions to meet peer requirements ([#841](https://github.com/justeattakeaway/pie/pull/841)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
 ## 0.4.17
 
 ### Patch Changes
