@@ -5,7 +5,7 @@ eleventyNavigation:
 ---
 
 ## Overview
-The purpose of numeric steppers as form fields is to offer users flexibility in inputting numeric values, maintaining a consistent form field appearance in form interfaces. This allows users to easily adjust and enter numerical data with ease.
+The purpose of numeric steppers as form fields is to offer users flexibility in inputting numeric values, while maintaining a consistent form field appearance in form interfaces. This allows users to easily enter and adjust numerical data.
 
 Numeric steppers [form] allow a user to enter precise values, either by inputting text or by using the increment or decrement buttons.
 
