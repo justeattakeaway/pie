@@ -31,6 +31,7 @@ $breakpoint-wide: 700px;
     right: var(--cb-offset);
     border-top-left-radius: var(--dt-radius-rounded-c);
     border-top-right-radius: var(--dt-radius-rounded-c);
+    z-index: var(--dt-z-index-cookie-banner);
 
 
     @media (min-width: $breakpoint-wide) and (orientation: landscape) {
