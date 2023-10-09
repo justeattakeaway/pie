@@ -25,7 +25,7 @@
     "yeoman-generator": "5.9.0"
   },
   "devDependencies": {
-    "@types/yeoman-generator": "5.2.11",
+    "@types/yeoman-generator": "5.2.12",
     "rollup-plugin-copy": "3.4.0",
     "rollup-plugin-delete": "2.0.0"
   },

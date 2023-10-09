@@ -5096,7 +5096,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/generator-pie-component@workspace:packages/tools/generator-pie-component"
   dependencies:
-    "@types/yeoman-generator": 5.2.11
+    "@types/yeoman-generator": 5.2.12
     chalk: 5.3.0
     rollup-plugin-copy: 3.4.0
     rollup-plugin-delete: 2.0.0
@@ -10391,7 +10391,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/yeoman-generator@npm:*":
+"@types/yeoman-generator@npm:*, @types/yeoman-generator@npm:5.2.12":
   version: 5.2.12
   resolution: "@types/yeoman-generator@npm:5.2.12"
   dependencies:
@@ -10402,20 +10402,6 @@ __metadata:
     "@types/yeoman-environment": "*"
     rxjs: ^6.4.0
   checksum: 95b2ca1dfeea0eaa5ca20a8d50c5e02a989f034cb962879053aac4befb6367e5f0d208579fe716d8f412a23ed6f7d8c65ea8ab9a7ea8575d79783ca68415a6f3
-  languageName: node
-  linkType: hard
-
-"@types/yeoman-generator@npm:5.2.11":
-  version: 5.2.11
-  resolution: "@types/yeoman-generator@npm:5.2.11"
-  dependencies:
-    "@types/debug": "*"
-    "@types/ejs": "*"
-    "@types/inquirer": ^8
-    "@types/mem-fs-editor": "*"
-    "@types/yeoman-environment": "*"
-    rxjs: ^6.4.0
-  checksum: b7cfaf73480ad964d10e3254ad2935d1d6cc9235c9c34c41d58c225616a89077d66ff5f16c01cab3e632b3db994baaff2bcc847d3a95e08ed379ae6d93e51877
   languageName: node
   linkType: hard
 
