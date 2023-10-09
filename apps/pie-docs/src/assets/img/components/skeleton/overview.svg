@@ -1,0 +1,25 @@
+<svg width="1034" height="402" viewBox="0 0 1034 402" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="0.5" y="0.5" width="1033" height="401" rx="16.5" fill="#F2A6B0" stroke="#DBD9D7"/>
+<mask id="mask0_740_160396" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="1" y="1" width="1032" height="400">
+<rect x="1" y="1" width="1032" height="400" rx="16" fill="#5B3D5B"/>
+</mask>
+<g mask="url(#mask0_740_160396)">
+<g filter="url(#filter0_f_740_160396)">
+<path d="M156 -20C156 -28.8365 163.163 -36 172 -36H878V424C878 437.255 867.255 448 854 448H156V-20Z" fill="#AD5762"/>
+</g>
+<path d="M172 -35H874V480C874 491.046 865.046 500 854 500H180C168.954 500 160 491.046 160 480V-23C160 -29.6274 165.373 -35 172 -35Z" fill="white" stroke="#E18C97" stroke-width="8"/>
+<rect x="220" y="57" width="594" height="246" rx="18" fill="#F5F3F1"/>
+<rect x="244" y="81" width="66" height="66" rx="12" fill="white"/>
+<rect x="220" y="321" width="246" height="36" rx="3" fill="#F5F3F1"/>
+<path d="M243.041 390.091L235.198 385.973C235.138 385.94 235.07 385.922 235.002 385.922C234.933 385.922 234.865 385.94 234.805 385.973L226.962 390.091L228.439 381.362C228.486 381.247 228.486 381.117 228.439 381.002L222.008 374.816L230.769 373.537C230.834 373.527 230.895 373.503 230.95 373.466C231.004 373.429 231.048 373.381 231.08 373.323L235.002 365.383L238.923 373.323C238.955 373.381 239 373.429 239.054 373.466C239.108 373.503 239.17 373.527 239.234 373.537L247.995 374.816L241.646 381.002C241.603 381.051 241.571 381.108 241.551 381.17C241.531 381.232 241.525 381.298 241.531 381.362L243.041 390.091Z" fill="#F5F3F1"/>
+<rect x="256" y="363" width="384" height="30" rx="3" fill="#F5F3F1"/>
+<rect x="220" y="399" width="530" height="30" rx="3" fill="#F5F3F1"/>
+</g>
+<defs>
+<filter id="filter0_f_740_160396" x="56" y="-136" width="922" height="684" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="50" result="effect1_foregroundBlur_740_160396"/>
+</filter>
+</defs>
+</svg>
