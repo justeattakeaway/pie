@@ -11,16 +11,51 @@
 # Table of Contents
 
 1. [Introduction](#pie-form-label)
-2. [Local Development](#local-development)
+2. [Installation](#installation)
 3. [Importing the component](#importing-the-component)
-4. [Props](#props)
-5. [Testing](#testing)
+4. [Local Development](#local-development)
+5. [Peer Dependencies](#peer-dependencies)
+6. [Props](#props)
+7. [Testing](#testing)
 
-# pie-form-label
+## pie-form-label
 
 `pie-form-label` is a Web Component built using the Lit library.
 
 This component can be easily integrated into various frontend frameworks and customized through a set of properties.
+
+
+## Installation
+
+To install `pie-form-label` in your application, run the following on your command line:
+
+```bash
+# npm
+$ npm i @justeattakeaway/pie-form-label
+
+# yarn
+$ yarn add @justeattakeaway/pie-form-label
+```
+
+For full information on using PIE components as part of an application, check out the [Getting Started Guide](https://github.com/justeattakeaway/pie/wiki/Getting-started-with-PIE-Web-Components).
+
+
+### Importing the component
+
+```js
+// default
+import { PieFormLabel } from '@justeattakeaway/pie-form-label';
+
+// react
+import { PieFormLabel } from '@justeattakeaway/pie-form-label/dist/react';
+```
+
+
+## Peer Dependencies
+
+> [!IMPORTANT]
+> When using `pie-form-label`, you will also need to include a couple of dependencies to ensure the component renders as expected. See [the PIE Wiki](https://github.com/justeattakeaway/pie/wiki/Getting-started-with-PIE-Web-Components#expected-dependencies) for more information and how to include these in your application.
+
 
 ## Local development
 
@@ -45,15 +80,6 @@ yarn watch --filter=pie-form-label
 yarn dev --filter=pie-storybook
 ```
 
-### Importing the component
-
-```js
-// default
-import { PieFormLabel } from '@justeattakeaway/pie-form-label';
-
-// react
-import { PieFormLabel } from '@justeattakeaway/pie-form-label/dist/react';
-```
 
 ## Props
 

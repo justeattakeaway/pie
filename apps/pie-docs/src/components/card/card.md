@@ -1,6 +1,6 @@
 ---
 eleventyNavigation:
-    key: 'Card Container'
+    key: 'Card'
     parent: Components
 ---
 
@@ -12,7 +12,7 @@ Cards are designed to present concise and focused information organised in a vis
 
 
 {% contentPageImage {
-    src:"../../assets/img/components/card-container/overview.svg",
+    src:"../../assets/img/components/card/overview.svg",
     alt: "A card container with text and an icon inside of it."
 } %}
 
@@ -22,7 +22,7 @@ Cards are designed to present concise and focused information organised in a vis
 
 {% notification {
   type: "warning",
-  message: "We’re currently working on updating our Card Container documentation, please see the resources below."
+  message: "We’re currently working on updating our Card documentation, please see the resources below."
 } %}
 
 {% resourceTable {
