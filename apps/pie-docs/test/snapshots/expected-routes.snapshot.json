@@ -27,6 +27,7 @@
     "components/fab",
     "components/form-label",
     "components/icon-button",
+    "components/switch",
     "components/tabs",
     "components/tag",
     "components/text-input",
