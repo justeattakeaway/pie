@@ -19,7 +19,8 @@
     3. Sass /SCSS
     4. Native HTML
 3. [Using the PIE CSS – SCSS helpers](#helpers)
-4. [Testing](#testing)
+4. [Z-index](#z-index)
+5. [Testing](#testing)
     - [CSS](#css)
     - [SCSS](#scss )
 
@@ -127,6 +128,22 @@ PIE CSS also has an optional set of SCSS helpers that are used by the PIE Web Co
 These are for carrying out common tasks in our styles, such as setting font sizes in consistent ways and sharing styles across components via SCSS mixins and functions.
 
 We will be writing more in-depth docs on these SCSS helpers shortly, but for now, feel free to browse the [SCSS code in the PIE mono-repo](https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-css/scss).
+
+## z-index
+
+Some PIE Web Components use a z-index value to control how they stack on a webpage. These values are defined in the `pie-css` package as css variables and are utilized internally. In most cases, a webpage should follow the DOM's natural stacking order and the default z-index order assigned for each component. However, if you're creating custom components, refer to the following table to make sure they don't conflict with other components.
+
+| Token              | Z-Index Value  |
+| -------------------------- | ---------------|
+| --dt-z-index-dropdown      | 1000           |
+| --dt-z-index-fab           | 1000           |
+| --dt-z-index-tooltip       | 2000           |
+| --dt-z-index-popover       | 3000           |
+| --dt-z-index-bottom-sheet  | 4000           |
+| --dt-z-index-side-sheet    | 4000           |
+| --dt-z-index-modal         | 4000           |
+| --dt-z-index-cookie-banner | 5000           |
+| --dt-z-index-toast         | 6000           |
 
 ## Testing
 
