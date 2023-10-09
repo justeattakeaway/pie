@@ -11,7 +11,7 @@ Icon buttons feature simple and recognizable icons that represent a specific act
 
 {% contentPageImage {
     src:"../../assets/img/components/icon-button/overview.svg",
-    alt: "Two icon buttons that are horizontally stacked together."
+    alt: "Two icon buttons that are displayed together in a row."
 } %}
 
 ---
