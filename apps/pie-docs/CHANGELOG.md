@@ -1,5 +1,15 @@
 # Changelog
 
+## 3.6.0
+
+### Minor Changes
+
+- [Changed] - Replace `@justeat/browserslist-config-fozzie` with `@justeattakeaway/browserslist-config-pie` ([#855](https://github.com/justeattakeaway/pie/pull/855)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- [Added] - Overview pages for Components L - P ([#840](https://github.com/justeattakeaway/pie/pull/840)) by [@LTurns](https://github.com/LTurns)
+
+- [Removed] - eleventy-plugin-clean dependency ([#855](https://github.com/justeattakeaway/pie/pull/855)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
 ## 3.5.0
 
 ### Minor Changes
