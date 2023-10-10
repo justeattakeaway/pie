@@ -1,9 +1,14 @@
 export const variants = ['default', 'outline', 'inverse', 'outline-inverse'] as const;
 export const interactionTypes = ['anchor', 'button', 'none'] as const;
-export const padding = ['a', 'b', 'c', 'd', 'e', 'f', 'g'] as const;
-
-export type Variant = typeof variants[number];
-export type PaddingValue = typeof padding[number];
+export const paddingValues = [
+    'a', 'a,a', 'a,b', 'a,c', 'a,d', 'a,e', 'a,f', 'a,g',
+    'b', 'b,a', 'b,b', 'b,c', 'b,d', 'b,e', 'b,f', 'b,g',
+    'c', 'c,a', 'c,b', 'c,c', 'c,d', 'c,e', 'c,f', 'c,g',
+    'd', 'd,a', 'd,b', 'd,c', 'd,d', 'd,e', 'd,f', 'd,g',
+    'e', 'e,a', 'e,b', 'e,c', 'e,d', 'e,e', 'e,f', 'e,g',
+    'f', 'f,a', 'f,b', 'f,c', 'f,d', 'f,e', 'f,f', 'f,g',
+    'g', 'g,a', 'g,b', 'g,c', 'g,d', 'g,e', 'g,f', 'g,g'
+] as const;
 
 export type AriaProps = {
     label?: string;
@@ -38,7 +43,7 @@ export interface CardContainerProps {
     /**
      * What style variant the card should be such as default or inverse.
      */
-    variant: Variant;
+    variant: typeof variants[number];
 
     /**
      * Allows the consumer to set draggable css styles (grab/grabbing cursor styles).
@@ -52,8 +57,8 @@ export interface CardContainerProps {
 
     /**
      * Sets the padding of the card container. Can be either a single value or two values
-     * separated by commas. Setting a single value adds padding to all sides of the card,
-     * whereas setting two values will set the "topBottom, leftRight" padding. e.g `'a'` or `'a, b'`
+     * separated by a comma. Setting a single value adds padding to all sides of the card,
+     * whereas setting two values will set the "paddingX, paddingY" padding. e.g `'a'` or `'a, b'`
      */
-    padding?: PaddingValue | PaddingValue[];
+    padding?: typeof paddingValues[number];
 }
