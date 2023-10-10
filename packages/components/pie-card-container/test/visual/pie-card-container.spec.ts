@@ -14,12 +14,12 @@ import {
 } from '@justeattakeaway/pie-webc-testing/src/helpers/components/web-component-test-wrapper/WebComponentTestWrapper.ts';
 import { percyWidths } from '@justeattakeaway/pie-webc-testing/src/percy/breakpoints.ts';
 import { PieCardContainer } from '@/index';
-import { interactionTypes, variants, padding } from '@/defs';
+import { interactionTypes, variants, paddingValues } from '@/defs';
 
 const props: PropObject = {
     interactionType: interactionTypes,
     variant: variants,
-    padding,
+    padding: paddingValues,
     disabled: [true, false],
 };
 
