@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.28.0
+
+### Minor Changes
+
+- [Changed] - Replace `@justeat/browserslist-config-fozzie` with `@justeattakeaway/browserslist-config-pie` ([#855](https://github.com/justeattakeaway/pie/pull/855)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
 ## 2.27.2
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
   "name": "wc-react18",
-  "version": "0.4.1",
+  "version": "0.5.0",
   "private": true,
   "dependencies": {
     "@justeattakeaway/pie-button": "0.30.0",
@@ -14,7 +14,7 @@
     "build:examples": "react-scripts build"
   },
   "browserslist": [
-    "extends @justeat/browserslist-config-fozzie"
+    "extends @justeattakeaway/browserslist-config-pie"
   ],
   "volta": {
     "extends": "../../../package.json"

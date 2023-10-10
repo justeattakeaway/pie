@@ -1,5 +1,15 @@
 # @justeattakeaway/pie-icons-webc
 
+## 0.9.0
+
+### Minor Changes
+
+- [Changed] - Replace `@justeat/browserslist-config-fozzie` with `@justeattakeaway/browserslist-config-pie` ([#855](https://github.com/justeattakeaway/pie/pull/855)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+### Patch Changes
+
+- [Added] - icons directory to eslintignore file ([#855](https://github.com/justeattakeaway/pie/pull/855)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
 ## 0.8.1
 
 ### Patch Changes
