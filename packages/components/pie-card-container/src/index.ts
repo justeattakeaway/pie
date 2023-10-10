@@ -5,7 +5,10 @@ import { property } from 'lit/decorators.js';
 import { validPropertyValues } from '@justeattakeaway/pie-webc-core';
 import styles from './card-container.scss?inline';
 import {
-    CardContainerProps, type AriaProps, type PaddingValue, variants, interactionTypes,
+    CardContainerProps,
+    variants,
+    interactionTypes,
+    paddingValues,
 } from './defs';
 
 // Valid values available to consumers
@@ -35,18 +38,14 @@ export class PieCardContainer extends LitElement implements CardContainerProps {
     public disabled = false;
 
     @property({ type: Object })
-    public aria!: AriaProps;
+    public aria: CardContainerProps['aria'];
 
     @property({ type: Boolean })
     public isDraggable = false;
 
-    /**
-     * Todo: We need to validate the user input at the moment
-     * the `validPropertyValues` won't work for this property so it
-     * is being looked at here: DSW-1306
-     */
     @property({ type: String })
-    public padding?: PaddingValue;
+    @validPropertyValues(componentSelector, paddingValues, undefined)
+    public padding?: CardContainerProps['padding'];
 
     /**
      * Renders the card as an anchor element.

@@ -2,7 +2,7 @@ import { nothing } from 'lit';
 import { html } from 'lit/static-html.js';
 import {
     PieCardContainer, CardContainerProps as CardContainerPropsBase,
-    variants, interactionTypes, padding,
+    variants, interactionTypes,
 } from '@justeattakeaway/pie-card-container';
 import type { StoryMeta, SlottedComponentProps } from '../types';
 import { createStory, type TemplateFunction, staticSlot } from '../utilities';
@@ -24,7 +24,6 @@ const defaultArgs: CardContainerProps = {
     aria: {
         label: 'Click to go to restaurant',
     },
-    padding: '',
     isDraggable: false,
     // This is just an arbitrary example of some markup a user may pass into the card
     slot: `<div style="color: var(--card-color); font-size: calc(var(--dt-font-body-l-size) * 1px); font-family: var(--dt-font-interactive-m-family); padding: var(--dt-spacing-b);">
@@ -61,11 +60,11 @@ const cardContainerStoryMeta: CardContainerStoryMeta = {
             },
         },
         padding: {
-            description: 'Set the padding of the card.',
+            description: `Set the padding of the card. <br /> Can be either a single value or two values separated by a comma. 
+            <br />Setting a single value adds padding to all sides, whereas setting two values will set "paddingX, paddingY" such as 'a' or 'a,b'`,
             control: {
                 type: 'text',
             },
-            options: padding,
         },
         disabled: {
             description: 'If `true`, disables the card.',
@@ -99,6 +98,7 @@ const cardContainerStoryMeta: CardContainerStoryMeta = {
         },
         isDraggable: {
             control: 'boolean',
+            description: 'If `true`, the card cursor will be draggable.',
             defaultValue: {
                 summary: false,
             },

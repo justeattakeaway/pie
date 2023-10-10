@@ -26,6 +26,9 @@ describe('validPropertyValues', () => {
         @validPropertyValues('mock-component', ['red', 'green', 'blue'], 'red')
             color = 'red';
 
+        @validPropertyValues('mock-component', ['a', 'b'], undefined)
+            padding?: string;
+
         private _requestUpdateArgs = {};
 
         requestUpdate (propertyKey: string, oldValue: unknown) {
@@ -37,54 +40,110 @@ describe('validPropertyValues', () => {
         }
     }
 
-    it('should allow value to be updated with a valid value', () => {
+    describe('With single value', () => {
+        it('should allow value to be updated with a valid value', () => {
         // Arrange
-        const mockComponent = new MockComponent();
+            const mockComponent = new MockComponent();
 
-        // Act
-        mockComponent.color = 'green';
+            // Act
+            mockComponent.color = 'green';
 
-        // Assert
-        expect(mockComponent.color).toBe('green');
-        expect(consoleErrorSpy).not.toHaveBeenCalled();
+            // Assert
+            expect(mockComponent.color).toBe('green');
+            expect(consoleErrorSpy).not.toHaveBeenCalled();
+        });
+
+        it('should fallback to the default value if an invalid value is assigned', () => {
+        // Arrange
+            const mockComponent = new MockComponent();
+
+            // Act
+            mockComponent.color = 'yellow';
+
+            // Assert
+            expect(mockComponent.color).toBe('red');
+            expect(consoleErrorSpy).toHaveBeenCalled();
+        });
+
+        it('should log an error message if an invalid value is assigned', () => {
+        // Arrange
+            const mockComponent = new MockComponent();
+
+            // Act
+            mockComponent.color = 'yellow';
+
+            // Assert
+            expect(consoleErrorSpy).toHaveBeenCalledWith(
+                '<mock-component> Invalid value "yellow" provided for property "color".',
+                'Must be one of: red | green | blue.',
+                'Falling back to default value: "red"',
+            );
+        });
+
+        it('should call requestUpdate when the property is set', () => {
+        // Arrange
+            const mockComponent = new MockComponent();
+
+            // Act
+            mockComponent.color = 'yellow';
+
+            // Assert
+            expect(mockComponent.color).toBe('red');
+            expect(mockComponent.requestUpdateCalledWith()).toStrictEqual({ propertyKey: 'color', oldValue: 'red' });
+        });
     });
 
-    it('should fallback to the default value if an invalid value is assigned', () => {
+    describe('With comma separated values', () => {
+        it('should allow value to be updated with a valid value', () => {
         // Arrange
-        const mockComponent = new MockComponent();
+            const mockComponent = new MockComponent();
 
-        // Act
-        mockComponent.color = 'yellow';
+            // Act
+            mockComponent.padding = 'a,b';
 
-        // Assert
-        expect(mockComponent.color).toBe('red');
-        expect(consoleErrorSpy).toHaveBeenCalled();
-    });
+            // Assert
+            expect(mockComponent.padding).toBe('a,b');
+            expect(consoleErrorSpy).not.toHaveBeenCalled();
+        });
 
-    it('should log an error message if an invalid value is assigned', () => {
+        it('should fallback to the default value if an invalid value is assigned', () => {
         // Arrange
-        const mockComponent = new MockComponent();
+            const mockComponent = new MockComponent();
 
-        // Act
-        mockComponent.color = 'yellow';
+            // Act
+            mockComponent.padding = 'c,d';
 
-        // Assert
-        expect(consoleErrorSpy).toHaveBeenCalledWith(
-            '<mock-component> Invalid value "yellow" provided for property "color".',
-            'Must be one of: red | green | blue.',
-            'Falling back to default value: "red"',
-        );
-    });
+            // Assert
+            expect(mockComponent.padding).toBe(undefined);
+            expect(consoleErrorSpy).toHaveBeenCalled();
+        });
 
-    it('should call requestUpdate when the property is set', () => {
+        it('should log an error message if an invalid value is assigned', () => {
         // Arrange
-        const mockComponent = new MockComponent();
+            const mockComponent = new MockComponent();
 
-        // Act
-        mockComponent.color = 'yellow';
+            // Act
+            mockComponent.padding = 'c,d';
 
-        // Assert
-        expect(mockComponent.color).toBe('red');
-        expect(mockComponent.requestUpdateCalledWith()).toStrictEqual({ propertyKey: 'color', oldValue: 'red' });
+            // Assert
+            expect(consoleErrorSpy).toHaveBeenCalledWith(
+                '<mock-component> Invalid value "c,d" provided for property "padding".',
+                'Must be a combination of values separated with a comma: a | b.',
+                'Falling back to default value: "undefined"',
+            );
+        });
+
+        it('should call requestUpdate when the property is set', () => {
+        // Arrange
+            const mockComponent = new MockComponent();
+
+            // Act
+            mockComponent.padding = 'c,d';
+
+            // Assert
+            expect(mockComponent.padding).toBe(undefined);
+            expect(mockComponent.requestUpdateCalledWith()).toStrictEqual({ propertyKey: 'padding', oldValue: undefined });
+        });
     });
 });
+
