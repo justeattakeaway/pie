@@ -4,7 +4,7 @@ eleventyNavigation:
     parent: designers-getting-started
     order: 2
 ---
-## Use our Foundation libraries
+## Use our Foundation libraries 
 
 Make sure you always use the styles defined in our Foundation libraries. This will help ensure you’re aligned with the PIE design system and enhance consistency across our products and files.
 
