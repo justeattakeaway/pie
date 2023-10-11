@@ -49,7 +49,7 @@ test('should correctly submit an HTML form when type is `submit`', async ({ moun
         <form id="testForm" action="/foo" method="POST">
             <input type="text" id="username" name="username" required>
             <input type="password" id="password" name="password" required>
-            <pie-button type="submit">Submit</pie-button>
+            <pie-button id="submitButton" type="submit">Submit</pie-button>
         </form>
     `;
         document.body.innerHTML = formHTML;
@@ -75,7 +75,7 @@ test('should correctly submit an HTML form when type is `submit`', async ({ moun
     await page.fill('#password', 'testPassword');
 
     // Act
-    await page.click('pie-button[type="submit"]');
+    await page.click('#submitButton');
 
     // Assert
     // Check if the hidden span was appended, indicating the form was submitted
@@ -92,7 +92,7 @@ test('should trigger native HTML form validation for required fields and submit 
         <form id="testForm" action="/foo" method="POST">
             <input type="text" id="username" name="username" required>
             <input type="password" id="password" name="password" required>
-            <pie-button type="submit">Submit</pie-button>
+            <pie-button id="submitButton" type="submit">Submit</pie-button>
         </form>
     `;
         document.body.innerHTML = formHTML;
@@ -114,7 +114,7 @@ test('should trigger native HTML form validation for required fields and submit 
 
     // Act & Assert
     // Attempt to click the submit button without filling out required fields
-    await page.click('pie-button[type="submit"]');
+    await page.click('#submitButton');
 
     // Check if the form was not submitted (indicated by the absence of the span)
     let formSubmittedFlagExists = Boolean(await page.$('#formSubmittedFlag'));
@@ -132,3 +132,35 @@ test('should trigger native HTML form validation for required fields and submit 
     expect(formSubmittedFlagExists).toBe(true);
 });
 
+test('should reset the form on clicking the reset button', async ({ page }) => {
+    // Arrange
+    // Inject the test form into the page with a reset button
+    await page.evaluate(() => {
+        const formHTML = `
+        <form id="testForm">
+            <input type="text" data-testid="username" id="username" name="username" required>
+            <input type="password" data-testid="password" id="password" name="password" required>
+            <pie-button type="reset" id="resetButton">Reset</pie-button>
+            <pie-button type="submit">Submit</pie-button>
+        </form>
+    `;
+        document.body.innerHTML = formHTML;
+    });
+
+    // Fill out the form
+    const testUsername = 'testUser';
+    const testPassword = 'testPassword';
+    await page.fill('#username', testUsername);
+    await page.fill('#password', testPassword);
+
+    // Act
+    await page.click('#resetButton');
+
+    // Assert
+    // Check if the form fields have been reset
+    const usernameValue = await page.getByTestId('username').inputValue();
+    const passwordValue = await page.getByTestId('password').inputValue();
+
+    expect(usernameValue).toBe('');
+    expect(passwordValue).toBe('');
+});

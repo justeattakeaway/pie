@@ -57,16 +57,42 @@ export class PieButton extends LitElement implements ButtonProps {
     @property({ type: Boolean })
     public isFullWidth = false;
 
-    connectedCallback () {
-        super.connectedCallback();
-        console.log('form: ', this.form);
-        console.log('internals: ', this._internals);
+    /**
+     * This method creates an invisible button of the same type as pie-button. It is then clicked, and immediately removed from the DOM.
+     * This is done so that we trigger native form actions, such as submit and reset in the browser. The performance impact of adding and removing a single button to the DOM
+     * should be neglible, however this should be monitored.
+     * This is the only viable way of guaranteeing native button behaviour when using a web component in place of an actual HTML button.
+     *
+     * TODO: if we need to repeat this logic elsewhere, then we should consider moving this code to a shared class or mixin.
+     */
+    private _simulateNativeButtonClick (btnType: 'submit' | 'reset') {
+        if (!this.form) return;
+
+        const btn = document.createElement('button');
+        btn.type = btnType;
+
+        // Visually hidden styles - can't be display: none as some browsers won't fire the button event
+        btn.style.position = 'absolute';
+        btn.style.width = '1px';
+        btn.style.height = '1px';
+        btn.style.padding = '0';
+        btn.style.margin = '-1px';
+        btn.style.overflow = 'hidden';
+        btn.style.border = '0';
+        btn.style.whiteSpace = 'nowrap';
+
+        this.form.append(btn);
+        btn.click();
+        btn.remove();
     }
 
-    private handleClick () {
+    private _handleClick () {
         if (this.type === 'submit' && this.form && this.form.reportValidity()) {
-            this.form.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
-            console.info('submitting form');
+            this._simulateNativeButtonClick('submit');
+        }
+
+        if (this.type === 'reset' && this.form) {
+            this._simulateNativeButtonClick('reset');
         }
     }
 
@@ -83,7 +109,7 @@ export class PieButton extends LitElement implements ButtonProps {
 
         return html`
             <button
-                @click=${this.handleClick}
+                @click=${this._handleClick}
                 class="o-btn"
                 type=${type}
                 variant=${variant}
