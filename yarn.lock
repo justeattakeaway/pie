@@ -5184,7 +5184,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-icon-button@workspace:packages/components/pie-icon-button"
   dependencies:
-    "@justeattakeaway/pie-icons-webc": 0.8.1
+    "@justeattakeaway/pie-icons-webc": 0.9.0
     "@justeattakeaway/pie-webc-core": 0.9.1
   peerDependencies:
     "@justeat/pie-design-tokens": ^5.8.2
@@ -5240,7 +5240,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-icons-webc@0.8.1, @justeattakeaway/pie-icons-webc@workspace:packages/tools/pie-icons-webc":
+"@justeattakeaway/pie-icons-webc@0.9.0, @justeattakeaway/pie-icons-webc@workspace:packages/tools/pie-icons-webc":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-icons-webc@workspace:packages/tools/pie-icons-webc"
   dependencies:
@@ -5295,7 +5295,7 @@ __metadata:
     "@justeattakeaway/pie-button": 0.30.0
     "@justeattakeaway/pie-components-config": 0.4.0
     "@justeattakeaway/pie-icon-button": 0.16.0
-    "@justeattakeaway/pie-icons-webc": 0.8.1
+    "@justeattakeaway/pie-icons-webc": 0.9.0
     "@justeattakeaway/pie-webc-core": 0.9.1
     "@types/body-scroll-lock": 3.1.0
     dialog-polyfill: 0.5.6
@@ -5309,7 +5309,7 @@ __metadata:
   resolution: "@justeattakeaway/pie-toggle-switch@workspace:packages/components/pie-toggle-switch"
   dependencies:
     "@justeattakeaway/pie-components-config": 0.4.0
-    "@justeattakeaway/pie-icons-webc": 0.8.1
+    "@justeattakeaway/pie-icons-webc": 0.9.0
   languageName: unknown
   linkType: soft
 
@@ -27576,7 +27576,7 @@ __metadata:
     "@justeattakeaway/pie-divider": 0.6.0
     "@justeattakeaway/pie-form-label": 0.3.0
     "@justeattakeaway/pie-icon-button": 0.16.0
-    "@justeattakeaway/pie-icons-webc": 0.8.1
+    "@justeattakeaway/pie-icons-webc": 0.9.0
     "@justeattakeaway/pie-link": 0.7.0
     "@justeattakeaway/pie-modal": 0.25.0
     "@justeattakeaway/pie-toggle-switch": 0.12.0
@@ -36375,7 +36375,7 @@ __metadata:
     "@justeattakeaway/pie-button": 0.30.0
     "@justeattakeaway/pie-css": 0.5.1
     "@justeattakeaway/pie-icon-button": 0.16.0
-    "@justeattakeaway/pie-icons-webc": 0.8.1
+    "@justeattakeaway/pie-icons-webc": 0.9.0
     "@justeattakeaway/pie-modal": 0.25.0
     body-scroll-lock: 3.1.5
     vite: 4.3.9
