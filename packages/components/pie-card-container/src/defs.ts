@@ -1,14 +1,10 @@
 export const variants = ['default', 'outline', 'inverse', 'outline-inverse'] as const;
 export const interactionTypes = ['anchor', 'button', 'none'] as const;
-export const paddingValues = [
-    'a', 'a,a', 'a,b', 'a,c', 'a,d', 'a,e', 'a,f', 'a,g',
-    'b', 'b,a', 'b,b', 'b,c', 'b,d', 'b,e', 'b,f', 'b,g',
-    'c', 'c,a', 'c,b', 'c,c', 'c,d', 'c,e', 'c,f', 'c,g',
-    'd', 'd,a', 'd,b', 'd,c', 'd,d', 'd,e', 'd,f', 'd,g',
-    'e', 'e,a', 'e,b', 'e,c', 'e,d', 'e,e', 'e,f', 'e,g',
-    'f', 'f,a', 'f,b', 'f,c', 'f,d', 'f,e', 'f,f', 'f,g',
-    'g', 'g,a', 'g,b', 'g,c', 'g,d', 'g,e', 'g,f', 'g,g'
-] as const;
+
+const spacingTokens = ['a', 'b', 'c', 'd', 'e', 'f', 'g'] as const;
+export const paddingValues = spacingTokens.flatMap((first) => [first, ...spacingTokens.map((second) => `${first},${second}`)]);
+
+type PaddingValue = typeof spacingTokens[number];
 
 export type AriaProps = {
     label?: string;
@@ -60,5 +56,5 @@ export interface CardContainerProps {
      * separated by a comma. Setting a single value adds padding to all sides of the card,
      * whereas setting two values will set the "paddingX, paddingY" padding. e.g `'a'` or `'a, b'`
      */
-    padding?: typeof paddingValues[number];
+    padding?: PaddingValue | `${PaddingValue},${PaddingValue}`;
 }
