@@ -10,7 +10,7 @@ eleventyComputed:
 
 ## Introduction
 
-A design system can only achieve its maximum potential when there's input from everyone involved in using it, whatever your team or pillar. We encourage you to contribute, no matter your position or knowledge of the system.
+A design system can only achieve its maximum potential when there's input from everyone involved in using it, whatever your team or pillar. We encourage you to contribute, no matter your position or knowledge of the system..
 
 {% contentPageImage {
 src: "../../assets/img/designers/contributing/teamwork.svg",
