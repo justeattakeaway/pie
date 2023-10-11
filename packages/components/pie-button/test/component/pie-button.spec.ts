@@ -279,4 +279,30 @@ test.describe('Form Actions', () => {
             expect(inputValue).toBe('changedValue'); // Input value should remain as 'changedValue' and not be reset to 'initialValue'
         });
     });
+
+    test.describe('Association', () => {
+        test('should correctly associate with its containing form and not with other forms', async ({ page }) => {
+            // Arrange
+            // Inject two forms into the page
+            await page.evaluate(() => {
+                const formsHTML = `
+                <form id="correctForm">
+                    <pie-button id="testButton" type="submit">Submit</pie-button>
+                </form>
+                <form id="wrongForm"></form>
+            `;
+                document.body.innerHTML = formsHTML;
+            });
+
+            // Act
+            const associatedFormId = await page.evaluate(() => {
+                const button = document.querySelector('#testButton') as HTMLButtonElement;
+                return button.form ? button.form.id : null;
+            });
+
+            // Assert
+            expect(associatedFormId).toBe('correctForm');
+            expect(associatedFormId).not.toBe('wrongForm');
+        });
+    });
 });

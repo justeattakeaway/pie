@@ -23,7 +23,7 @@ export class PieButton extends LitElement implements ButtonProps {
 
     private readonly _internals: ElementInternals;
 
-    get form () {
+    public get form () {
         return this._internals.form;
     }
 
@@ -87,12 +87,12 @@ export class PieButton extends LitElement implements ButtonProps {
     }
 
     private _handleClick () {
-        if (!this.isLoading) {
-            if (this.type === 'submit' && this.form && this.form.reportValidity()) {
+        if (!this.isLoading && this.form) {
+            if (this.type === 'submit' && this.form.reportValidity()) {
                 this._simulateNativeButtonClick('submit');
             }
 
-            if (this.type === 'reset' && this.form) {
+            if (this.type === 'reset') {
                 this._simulateNativeButtonClick('reset');
             }
         }
