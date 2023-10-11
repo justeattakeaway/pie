@@ -2,11 +2,12 @@ import {
     LitElement, html, unsafeCSS, nothing,
 } from 'lit';
 import { property } from 'lit/decorators.js';
-import { validPropertyValues, FormAssociatedComponentMixin } from '@justeattakeaway/pie-webc-core';
+import { validPropertyValues } from '@justeattakeaway/pie-webc-core';
 import {
     ButtonProps, sizes, types, variants, iconPlacements,
 } from './defs';
 import styles from './button.scss?inline';
+import 'element-internals-polyfill';
 
 // Valid values available to consumers
 export * from './defs';
@@ -17,7 +18,20 @@ const componentSelector = 'pie-button';
  * @slot icon - The icon slot
  * @slot - Default slot
  */
-export class PieButton extends FormAssociatedComponentMixin(LitElement) implements ButtonProps {
+export class PieButton extends LitElement implements ButtonProps {
+    static formAssociated = true;
+
+    private readonly _internals: ElementInternals;
+
+    get form () {
+        return this._internals.form;
+    }
+
+    constructor () {
+        super();
+        this._internals = this.attachInternals();
+    }
+
     @property()
     @validPropertyValues(componentSelector, sizes, 'medium')
     public size: ButtonProps['size'] = 'medium';
