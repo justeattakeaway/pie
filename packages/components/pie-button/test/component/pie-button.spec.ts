@@ -163,6 +163,40 @@ test.describe('Form Actions', () => {
             const formSubmittedFlagExists = Boolean(await page.$('#formSubmittedFlag'));
             expect(formSubmittedFlagExists).toBe(false); // Form should not submit
         });
+
+        test('should not submit the form when button has isLoading set and type is `submit`', async ({ page }) => {
+            // Arrange
+            await page.evaluate(() => {
+                const formHTML = `
+                <form id="testForm" action="/foo" method="POST">
+                    <input type="text" id="username" name="username">
+                    <input type="password" id="password" name="password">
+                    <pie-button id="submitButton" type="submit" isLoading>Submit</pie-button>
+                </form>
+            `;
+                document.body.innerHTML = formHTML;
+            });
+
+            // Set up the form submission listener
+            await page.evaluate(() => {
+                const form = document.querySelector('#testForm') as HTMLFormElement;
+
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+
+                    const span = document.createElement('span');
+                    span.id = 'formSubmittedFlag';
+                    document.body.appendChild(span);
+                });
+            });
+
+            // Act
+            await page.click('#submitButton');
+
+            // Assert
+            const formSubmittedFlagExists = Boolean(await page.$('#formSubmittedFlag'));
+            expect(formSubmittedFlagExists).toBe(false); // Form should not submit
+        });
     });
 
     test.describe('Reset', () => {
@@ -206,6 +240,29 @@ test.describe('Form Actions', () => {
                 <form id="testForm">
                     <input type="text" id="username" name="username" value="initialValue">
                     <pie-button id="resetButton" type="reset" disabled>Reset</pie-button>
+                </form>
+            `;
+                document.body.innerHTML = formHTML;
+            });
+
+            // Change the form input value
+            await page.fill('#username', 'changedValue');
+
+            // Act
+            await page.click('#resetButton');
+
+            // Assert
+            const inputValue = await page.inputValue('#username');
+            expect(inputValue).toBe('changedValue'); // Input value should remain as 'changedValue' and not be reset to 'initialValue'
+        });
+
+        test('should not reset the form when button has isLoading set and type is `reset`', async ({ page }) => {
+            // Arrange
+            await page.evaluate(() => {
+                const formHTML = `
+                <form id="testForm">
+                    <input type="text" id="username" name="username" value="initialValue">
+                    <pie-button id="resetButton" type="reset" isLoading>Reset</pie-button>
                 </form>
             `;
                 document.body.innerHTML = formHTML;

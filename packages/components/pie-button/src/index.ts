@@ -87,12 +87,14 @@ export class PieButton extends LitElement implements ButtonProps {
     }
 
     private _handleClick () {
-        if (this.type === 'submit' && this.form && this.form.reportValidity()) {
-            this._simulateNativeButtonClick('submit');
-        }
+        if (!this.isLoading) {
+            if (this.type === 'submit' && this.form && this.form.reportValidity()) {
+                this._simulateNativeButtonClick('submit');
+            }
 
-        if (this.type === 'reset' && this.form) {
-            this._simulateNativeButtonClick('reset');
+            if (this.type === 'reset' && this.form) {
+                this._simulateNativeButtonClick('reset');
+            }
         }
     }
 
