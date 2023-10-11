@@ -1,6 +1,6 @@
 ---
 eleventyNavigation:
-    key: Best practices
+    key: Best practices 
     parent: designers-getting-started
     order: 2
 ---
