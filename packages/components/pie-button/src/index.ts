@@ -64,7 +64,7 @@ export class PieButton extends LitElement implements ButtonProps {
     }
 
     private handleClick () {
-        if (this.type === 'submit' && this.form) {
+        if (this.type === 'submit' && this.form && this.form.reportValidity()) {
             this.form.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
             console.info('submitting form');
         }
