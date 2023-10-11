@@ -6,7 +6,7 @@ eleventyNavigation:
 
 ## Overview
 
-The purpose of avatars is to provide a visual representation of the user or entity, which helps personalise the user experience and creates a sense of identity and recognition. 
+The purpose of avatars is to provide a visual representation of the user or entity, which helps personalise the user experience and creates a sense of identity and recognition.
 
 Avatars can vary in design and appearance, ranging from simple user icons to initials. They can also be static icons or dynamic and interactive elements that respond to user actions or display additional information upon interaction.
 
@@ -47,7 +47,7 @@ Avatars can vary in design and appearance, ranging from simple user icons to ini
         },
         {
             resource: resourceTypes.REACT,
-            status: statusTypes.AVAILABLE
+            status: statusTypes.NOT_APPLICABLE
         },
         {
             resource: resourceTypes.IOS_JUST_UI,
