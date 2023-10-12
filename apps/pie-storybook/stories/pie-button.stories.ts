@@ -96,7 +96,7 @@ const buttonStoryMeta: ButtonStoryMeta = {
 
 export default buttonStoryMeta;
 
-const Template : TemplateFunction<ButtonProps> = ({
+const Template: TemplateFunction<ButtonProps> = ({
     size,
     variant,
     type,

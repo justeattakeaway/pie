@@ -63,7 +63,11 @@ function renderIcon() {
     document.body.appendChild(iconElement);
 }
 ```
-4. Importing individual icons from the main package entry point (not recommended)
+
+
+> [!WARNING]
+> While it is also possible to import individual components from the overall bundle, we don't recommend this because
+> it is likely that the import will be tree-shaken unless you are referencing the imported object in your code.
 
 ```js
 // Not recommended -  Webpack v4+ or Rollup should treeshake but be careful
