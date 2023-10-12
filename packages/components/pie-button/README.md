@@ -166,7 +166,7 @@ The `pie-button` provides a set of attributes to customize its behavior within f
 - `type`: Determines the button's function. Set to `submit` for form submissions or `reset` to clear form fields.
 - `formaction`: Designates an alternative URL for form data submission when this specific button is clicked.
 - `formenctype`: Specifies the form data encoding type during submission via this button.
-- `formmethod``: Sets the HTTP method (e.g., GET or POST) for form data when initiated by this button.
+- `formmethod`: Sets the HTTP method (e.g., GET or POST) for form data when initiated by this button.
 - `formnovalidate`: If present, ensures the form is submitted without validation checks.
 - `formtarget`: Dictates where to display the response after form submission.
 
