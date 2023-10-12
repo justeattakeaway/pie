@@ -1,4 +1,5 @@
 import { test, expect } from '@sand4rt/experimental-ct-web';
+import { type Page, Request } from '@playwright/test';
 import { PieButton, ButtonProps } from '@/index';
 
 const props: Partial<ButtonProps> = {
@@ -196,6 +197,74 @@ test.describe('Form Actions', () => {
             // Assert
             const formSubmittedFlagExists = Boolean(await page.$('#formSubmittedFlag'));
             expect(formSubmittedFlagExists).toBe(false); // Form should not submit
+        });
+
+        test('should include pie-button\'s name and value in the form submission data when it triggers submission', async ({ page }) => {
+            // Arrange
+            // Inject the test form into the page with pie-button having name and value attributes
+            await page.evaluate(() => {
+                const formHTML = `
+                <form id="testForm" action="/submit-endpoint" method="POST">
+                    <input type="text" name="username">
+                    <pie-button id="testButton" type="submit" name="submitButton" value="submitValue">Submit</pie-button>
+                </form>
+            `;
+                document.body.innerHTML = formHTML;
+            });
+
+            // Intercept form submissions
+            const [request] = await Promise.all([
+                page.waitForRequest('/submit-endpoint'),
+                page.fill('input[name="username"]', 'testUser'),
+                page.click('#testButton'),
+            ]);
+
+            const formData = request.postData();
+
+            // Assert
+            expect(formData).toContain('submitButton=submitValue');
+        });
+
+        test('should respect all form-related attributes on the pie-button', async ({ page }) => {
+            // Arrange
+            // Inject the test form into the page with pie-button having multiple form attributes
+            await page.evaluate(() => {
+                const formHTML = `
+                    <form id="testForm" action="/default-endpoint" method="GET">
+                        <input type="text" name="username" required>
+                        <pie-button id="testButton"
+                                    type="submit"
+                                    name="submitButton"
+                                    value="submitValue"
+                                    formaction="/custom-endpoint"
+                                    formenctype="multipart/form-data"
+                                    formmethod="POST"
+                                    formnovalidate="formnovalidate"
+                                    formtarget="_self">Submit</pie-button>
+                    </form>
+                `;
+                document.body.innerHTML = formHTML;
+            });
+
+            // Intercept form submissions
+            const [request] = await Promise.all([
+                page.waitForRequest('/custom-endpoint'),
+                page.fill('input[name="username"]', 'testUser'),
+                page.click('#testButton'),
+            ]);
+
+            const postData = request.postData();
+            const method = request.method();
+            const headers = request.headers();
+
+            // Assert
+            expect(postData).toBeTruthy();
+            const submitButtonDisposition = 'Content-Disposition: form-data; name="submitButton"';
+            const submitButtonValuePosition = (postData as string).indexOf(submitButtonDisposition) + submitButtonDisposition.length;
+            expect((postData as string).includes(submitButtonDisposition)).toBeTruthy();
+            expect((postData as string).substring(submitButtonValuePosition)).toContain('submitValue');
+            expect(headers['content-type']).toMatch(/^multipart\/form-data;/);
+            expect(method).toBe('POST');
         });
     });
 

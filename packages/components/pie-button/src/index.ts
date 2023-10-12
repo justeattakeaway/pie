@@ -57,6 +57,27 @@ export class PieButton extends LitElement implements ButtonProps {
     @property({ type: Boolean })
     public isFullWidth = false;
 
+    @property({ type: String })
+    public name?: string;
+
+    @property({ type: String })
+    public value?: string;
+
+    @property({ attribute: 'formaction' })
+    public formAction: ButtonProps['formAction'];
+
+    @property({ attribute: 'formenctype' })
+    public formEncType: ButtonProps['formEnctype'];
+
+    @property({ attribute: 'formmethod' })
+    public formMethod: ButtonProps['formMethod'];
+
+    @property({ attribute: 'formnovalidate', type: Boolean })
+    public formNoValidate: ButtonProps['formNoValidate'];
+
+    @property({ attribute: 'formtarget' })
+    public formTarget: ButtonProps['formTarget'];
+
     /**
      * This method creates an invisible button of the same type as pie-button. It is then clicked, and immediately removed from the DOM.
      * This is done so that we trigger native form actions, such as submit and reset in the browser. The performance impact of adding and removing a single button to the DOM
@@ -71,7 +92,7 @@ export class PieButton extends LitElement implements ButtonProps {
         const btn = document.createElement('button');
         btn.type = btnType;
 
-        // Visually hidden styles - can't be display: none as some browsers won't fire the button event
+        // Visually hidden styles
         btn.style.position = 'absolute';
         btn.style.width = '1px';
         btn.style.height = '1px';
@@ -81,6 +102,30 @@ export class PieButton extends LitElement implements ButtonProps {
         btn.style.border = '0';
         btn.style.whiteSpace = 'nowrap';
 
+        if (btnType === 'submit') {
+            if (this.name) {
+                btn.name = this.name;
+            }
+            if (this.value) {
+                btn.value = this.value;
+            }
+            if (this.formAction) {
+                btn.setAttribute('formaction', this.formAction);
+            }
+            if (this.formEncType) {
+                btn.setAttribute('formenctype', this.formEncType);
+            }
+            if (this.formMethod) {
+                btn.setAttribute('formmethod', this.formMethod);
+            }
+            if (this.formNoValidate) {
+                btn.setAttribute('formnovalidate', 'formnovalidate');
+            }
+            if (this.formTarget) {
+                btn.setAttribute('formtarget', this.formTarget);
+            }
+        }
+
         this.form.append(btn);
         btn.click();
         btn.remove();
@@ -88,8 +133,12 @@ export class PieButton extends LitElement implements ButtonProps {
 
     private _handleClick () {
         if (!this.isLoading && this.form) {
-            if (this.type === 'submit' && this.form.reportValidity()) {
-                this._simulateNativeButtonClick('submit');
+            if (this.type === 'submit') {
+                if (!this.formNoValidate && this.form.reportValidity()) {
+                    this._simulateNativeButtonClick('submit');
+                } else {
+                    this._simulateNativeButtonClick('submit');
+                }
             }
 
             if (this.type === 'reset') {
