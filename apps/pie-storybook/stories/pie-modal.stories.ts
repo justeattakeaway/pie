@@ -37,7 +37,7 @@ const defaultArgs: ModalProps = {
     isLoading: false,
     size: 'medium',
     position: 'center',
-    slot: '<p>This is Lit!</p>',
+    slot: '<p>Body copy</p>',
     leadingAction: {
         text: 'Confirm',
         variant: 'primary',
