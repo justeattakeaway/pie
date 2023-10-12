@@ -294,7 +294,7 @@ export const Inverse = createButtonStory({ variant: 'inverse' }, { bgColor: 'dar
 export const GhostInverse = createButtonStory({ variant: 'ghost-inverse' }, { bgColor: 'dark (container-dark)' });
 export const OutlineInverse = createButtonStory({ variant: 'outline-inverse' }, { bgColor: 'dark (container-dark)' });
 // For this story we simply want to test form integration with a reset and submit button. Therefore we are restricting what controls are shown.
-export const FormIntegration = createButtonStoryWithForm(undefined, {
+export const FormIntegration = createButtonStoryWithForm({ type: 'submit' }, {
     controls: {
         exclude: ['type', 'slot', 'variant', 'isFullWidth', 'iconPlacement'],
     },
