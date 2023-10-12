@@ -135,6 +135,7 @@ export class PieButton extends LitElement implements ButtonProps {
     private _handleClick () {
         if (!this.isLoading && this.form) {
             if (this.type === 'submit') {
+                // If the formnovalidate attribute is not set then we want to trigger native form validation before attempting to submit
                 if (!this.formNoValidate && this.form.reportValidity()) {
                     this._simulateNativeButtonClick('submit');
                 } else {

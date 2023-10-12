@@ -239,7 +239,7 @@ test.describe('Form Actions', () => {
                                     formaction="/custom-endpoint"
                                     formenctype="multipart/form-data"
                                     formmethod="POST"
-                                    formnovalidate="formnovalidate"
+                                    formnovalidate
                                     formtarget="_self">Submit</pie-button>
                     </form>
                 `;
