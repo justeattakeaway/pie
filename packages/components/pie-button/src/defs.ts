@@ -9,7 +9,7 @@ export const iconPlacements = ['leading', 'trailing'] as const;
 export type Variant = typeof variants[number];
 
 export const formEncodingtypes = ['application/x-www-form-urlencoded', 'multipart/form-data', 'text/plain'] as const;
-export const formMethodtypes = ['post', 'get', 'dialog'] as const;
+export const formMethodTypes = ['post', 'get', 'dialog'] as const;
 export const formTargetTypes = ['_self', '_blank', '_parent', '_top'] as const;
 
 export interface ButtonProps {
@@ -58,32 +58,32 @@ export interface ButtonProps {
      * The URL that processes the information submitted by the button. Overrides the action attribute of the button's form owner. Does nothing if there is no form owner.
      * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#attributes)
      */
-    formAction?: string;
+    formaction?: string;
 
     /**
      * If the button is a submit button (it's inside/associated with a <form> and doesn't have type="button"), specifies how to encode the form data that is submitted.
      * If this attribute is specified, it overrides the enctype attribute of the button's form owner.
      * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#attributes)
      */
-    formEnctype?: typeof formEncodingtypes[number]
+    formenctype?: typeof formEncodingtypes[number]
 
     /**
      * If the button is a submit button (it's inside/associated with a <form> and doesn't have type="button"), this attribute specifies the HTTP method used to submit the form.
      * If specified, this attribute overrides the method attribute of the button's form owner.
      * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#attributes)
      */
-    formMethod?: typeof formMethodtypes[number]
+    formmethod?: typeof formMethodTypes[number]
 
     /**
      * If the button is a submit button, this Boolean attribute specifies that the form is not to be validated when it is submitted.
      * If this attribute is specified, it overrides the novalidate attribute of the button's form owner.
      * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#attributes)
      */
-    formNoValidate?: boolean;
+    formnovalidate?: boolean;
 
     /**
      * If the button is a submit button, this attribute is an author-defined name or standardized, underscore-prefixed keyword indicating where to display the response from submitting the form.
      * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#attributes)
      */
-    formTarget?: typeof formTargetTypes[number]
+    formtarget?: typeof formTargetTypes[number]
 }

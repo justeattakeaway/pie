@@ -64,20 +64,20 @@ export class PieButton extends LitElement implements ButtonProps {
     @property({ type: String })
     public value?: string;
 
-    @property({ attribute: 'formaction' })
-    public formAction: ButtonProps['formAction'];
+    @property()
+    public formaction: ButtonProps['formaction'];
 
-    @property({ attribute: 'formenctype' })
-    public formEncType: ButtonProps['formEnctype'];
+    @property()
+    public formenctype: ButtonProps['formenctype'];
 
-    @property({ attribute: 'formmethod' })
-    public formMethod: ButtonProps['formMethod'];
+    @property()
+    public formmethod: ButtonProps['formmethod'];
 
-    @property({ attribute: 'formnovalidate', type: Boolean })
-    public formNoValidate: ButtonProps['formNoValidate'];
+    @property({ type: Boolean })
+    public formnovalidate: ButtonProps['formnovalidate'];
 
-    @property({ attribute: 'formtarget' })
-    public formTarget: ButtonProps['formTarget'];
+    @property()
+    public formtarget: ButtonProps['formtarget'];
 
     /**
      * This method creates an invisible button of the same type as pie-button. It is then clicked, and immediately removed from the DOM.
@@ -110,20 +110,20 @@ export class PieButton extends LitElement implements ButtonProps {
             if (this.value) {
                 btn.value = this.value;
             }
-            if (this.formAction) {
-                btn.setAttribute('formaction', this.formAction);
+            if (this.formaction) {
+                btn.setAttribute('formaction', this.formaction);
             }
-            if (this.formEncType) {
-                btn.setAttribute('formenctype', this.formEncType);
+            if (this.formenctype) {
+                btn.setAttribute('formenctype', this.formenctype);
             }
-            if (this.formMethod) {
-                btn.setAttribute('formmethod', this.formMethod);
+            if (this.formmethod) {
+                btn.setAttribute('formmethod', this.formmethod);
             }
-            if (this.formNoValidate) {
+            if (this.formnovalidate) {
                 btn.setAttribute('formnovalidate', 'formnovalidate');
             }
-            if (this.formTarget) {
-                btn.setAttribute('formtarget', this.formTarget);
+            if (this.formtarget) {
+                btn.setAttribute('formtarget', this.formtarget);
             }
         }
 
@@ -136,7 +136,7 @@ export class PieButton extends LitElement implements ButtonProps {
         if (!this.isLoading && this.form) {
             if (this.type === 'submit') {
                 // only submit the form if either formnovalidate is set, or the form passes validation checks (triggers native form validation)
-                if (this.formNoValidate || (!this.formNoValidate && this.form.reportValidity())) {
+                if (this.formnovalidate || (!this.formnovalidate && this.form.reportValidity())) {
                     this._simulateNativeButtonClick('submit');
                 }
             }
