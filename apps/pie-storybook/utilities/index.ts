@@ -44,6 +44,7 @@ export const createStory = <T>(templateFunc: TemplateFunction<T>, defaultArgs: T
         backgrounds: {
             ...(storyOpts?.bgColor ? { default: storyOpts.bgColor } : {}),
         },
+        controls: { ...(storyOpts?.controls ? storyOpts.controls : {}) },
     },
 });
 
