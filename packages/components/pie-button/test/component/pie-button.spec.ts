@@ -40,7 +40,7 @@ test('should correctly work with native click events', async ({ mount }) => {
 
 test.describe('Form Actions', () => {
     test.describe('Submit', () => {
-        test('should correctly submit an HTML form when type is `submit`', async ({ mount, page }) => {
+        test('should correctly submit an HTML form when type is `submit`', async ({ page }) => {
             // Arrange
             // Inject the test form into the page
             await page.evaluate(() => {
