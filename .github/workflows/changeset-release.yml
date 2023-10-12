@@ -172,7 +172,7 @@ jobs:
         REST_COMPONENT_BLOCKS=$(echo $REST_PACKAGES | jq -c '
             if length > 0 then
               [{"type": "divider"}] +
-              [{"type": "header", "text": {"type": "plain_text", "text": ":rocket: Package Update Summary"}}] +
+              [{"type": "header", "text": {"type": "plain_text", "text": ":parcel: Package Update Summary"}}] +
                 map(
                     {"type": "section", "text": {"type": "mrkdwn", "text": "- *\(.name | sub("@justeattakeaway/pie-"; "") | (.[0:1] | ascii_upcase) + .[1:])* was updated to `\(.version)` | <https://github.com/justeattakeaway/pie/releases/tag/\(.name)@\(.version)|Changelog> | <https://www.npmjs.com/package/\(.name)|npm>" }}
                 )
