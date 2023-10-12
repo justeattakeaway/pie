@@ -60,11 +60,11 @@ const cardContainerStoryMeta: CardContainerStoryMeta = {
             },
         },
         padding: {
-            description: 'Set the padding of the card.',
+            description: `Set the padding of the card. <br/> Can be either a single value or two values separated by a comma (paddingX, paddingY) e.g 'a' or 'a,b'.
+            <br /> valid values are: \`${paddingValues.filter((i) => !i.includes(',')).join(', ')}\``,
             control: {
-                type: 'select',
+                type: 'text',
             },
-            options: paddingValues,
         },
         disabled: {
             description: 'If `true`, disables the card.',
