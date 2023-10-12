@@ -19,6 +19,7 @@ const componentSelector = 'pie-button';
  * @slot - Default slot
  */
 export class PieButton extends LitElement implements ButtonProps {
+    // TODO - we may want to consider making the element internals code reusable for other form controls.
     static formAssociated = true;
 
     private readonly _internals: ElementInternals;

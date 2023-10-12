@@ -326,7 +326,7 @@ test.describe('Form Actions', () => {
             expect(inputValue).toBe('changedValue'); // Input value should remain as 'changedValue' and not be reset to 'initialValue'
         });
 
-        test('should not reset the form when button has isLoading set and type is `reset`', async ({ page }) => {
+        test('should not reset the form when button has `isLoading` set and type is `reset`', async ({ page }) => {
             // Arrange
             await page.evaluate(() => {
                 const formHTML = `
@@ -372,7 +372,6 @@ test.describe('Form Actions', () => {
 
             // Assert
             expect(associatedFormId).toBe('correctForm');
-            expect(associatedFormId).not.toBe('wrongForm');
         });
     });
 });
