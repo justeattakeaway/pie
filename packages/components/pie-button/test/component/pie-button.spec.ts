@@ -246,6 +246,7 @@ test.describe('Form Actions', () => {
                 document.body.innerHTML = formHTML;
             });
 
+            // Act
             // Intercept form submissions
             const [request] = await Promise.all([
                 page.waitForRequest('/custom-endpoint'),
