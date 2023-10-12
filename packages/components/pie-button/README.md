@@ -11,23 +11,64 @@
 # Table of Contents
 
 1. [Introduction](#pie-button)
-2. [Local Development](#local-development)
-3. [Props](#props)
+2. [Installation](#installation)
+3. [Importing the component](#importing-the-component)
 4. [Peer Dependencies](#peer-dependencies)
-5. [Events](#events)
+5. [Local Development](#local-development)
+6. [Props](#props)
+7. [Events](#events)
    - [HTML example](#html)
    - [Vue example (using Nuxt 3)](#vue-templates-using-nuxt-3)
    - [React example (using Next 13)](#react-templates-using-next-13)
-6. [Testing](#testing)
+8. [Testing](#testing)
    - [Browser Tests](#browser-tests)
    - [Visual Tests](#visual-tests)
 
 
-## `pie-button`
+## pie-button
 
 `pie-button` is a Web Component built using the Lit library. It offers a simple and accessible button component for web applications.
 
 This component can be easily integrated into various frontend frameworks and customized through a set of properties.
+
+
+## Installation
+
+To install `pie-button` in your application, run the following on your command line:
+
+```bash
+# npm
+$ npm i @justeattakeaway/pie-button
+
+# yarn
+$ yarn add @justeattakeaway/pie-button
+```
+
+For full information on using PIE components as part of an application, check out the [Getting Started Guide](https://github.com/justeattakeaway/pie/wiki/Getting-started-with-PIE-Web-Components).
+
+
+### Importing the component
+
+```js
+// Default – for Native JS Applications, Vue, Angular, Svelte etc.
+import { PieButton } from '@justeattakeaway/pie-button';
+
+// React
+// For React, you will need to import our React specific component build
+// Which wraps the web component using the @lit-labs/react package
+
+// Note: When using the React version of the component, please make sure
+// you also include React as a dependency in your project as well. See Peer Dependencies section.
+
+import { PieButton } from '@justeattakeaway/pie-button/dist/react';
+```
+
+
+## Peer Dependencies
+
+> [!IMPORTANT]
+> When using `pie-button`, you will also need to include a couple of dependencies to ensure the component renders as expected. See [the PIE Wiki for more information and how to include these in your application](https://github.com/justeattakeaway/pie/wiki/Getting-started-with-PIE-Web-Components#expected-dependencies).
+
 
 ## Local development
 
@@ -52,26 +93,6 @@ yarn watch --filter=pie-button
 yarn dev --filter=pie-storybook
 ```
 
-### Importing the component
-
-```js
-// Default – for Native JS Applications, Vue, Angular, Svelte etc.
-import { PieButton } from '@justeattakeaway/pie-button';
-
-// React
-// For React, you will need to import our React specific component build
-// Which wraps the web component using the @lit-labs/react package
-
-// Note: When using the React version of the component, please make sure
-// you also include React as a dependency in your project as well. See Peer Dependencies section.
-
-import { PieButton } from '@justeattakeaway/pie-button/dist/react';
-```
-## Peer Dependencies
-
-> **Note**
-> Before using `@justeattakeaway/pie-button`, please make sure you have the following peer dependencies installed in your project:
-> - `react` (for integration with React apps only)
 
 ## Props
 
@@ -94,6 +115,7 @@ In your markup or JSX, you can then use these to set the properties for the `pie
 <!-- JSX -->
 <PieButton size='medium' type='button' variant='primary'>Click me!</PieButton>
 ```
+
 
 ## Slots
 
