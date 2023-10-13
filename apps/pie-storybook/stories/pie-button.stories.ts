@@ -15,7 +15,7 @@ type ButtonStoryMeta = StoryMeta<ButtonProps>;
 
 const defaultArgs: ButtonProps = {
     size: 'medium',
-    type: 'button',
+    type: 'submit',
     variant: 'primary',
     disabled: false,
     isFullWidth: false,
@@ -40,7 +40,7 @@ const buttonStoryMeta: ButtonStoryMeta = {
             control: 'select',
             options: types,
             defaultValue: {
-                summary: 'button',
+                summary: 'submit',
             },
         },
         variant: {

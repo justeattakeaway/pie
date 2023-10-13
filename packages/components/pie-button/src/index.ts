@@ -38,8 +38,8 @@ export class PieButton extends LitElement implements ButtonProps {
     public size: ButtonProps['size'] = 'medium';
 
     @property()
-    @validPropertyValues(componentSelector, types, 'button')
-    public type: ButtonProps['type'] = 'button';
+    @validPropertyValues(componentSelector, types, 'submit')
+    public type: ButtonProps['type'] = 'submit';
 
     @property()
     @validPropertyValues(componentSelector, variants, 'primary')
