@@ -100,7 +100,7 @@ yarn dev --filter=pie-storybook
 | Property       | Type      | Default    | Description                                                                                                          |
 |----------------|-----------|------------|----------------------------------------------------------------------------------------------------------------------|
 | size           | `String`  | `medium`   | Size of the button, one of `sizes` – `xsmall`, `small-expressive`, `small-productive`, `medium`, `large`             |
-| type           | `String`  | `submit`   | Type of the button, one of `types` – `submit`, `button`, `reset`. [Read further on MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#attr-type)|
+| type           | `String`  | `button`   | Type of the button, one of `types` – `submit`, `button`, `reset`. [Read further on MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#attr-type)|
 | variant        | `String`  | `primary`  | Variant of the button, one of `variants` – `primary`, `secondary`, `outline`, `ghost`, `destructive`, `destructive-ghost`, `inverse`, `ghost-inverse`, `outline-inverse` |
 | disabled       | `Boolean` | `false`    | If `true`, disables the button.                                                                                      |
 | isFullWidth    | `Boolean` | `false`    | If `true`, sets the button width to 100% of its container.                                                          |
