@@ -1,5 +1,26 @@
 # Changelog
 
+## 0.38.0
+
+### Minor Changes
+
+- [Fixed] - License removed from packages ([#869](https://github.com/justeattakeaway/pie/pull/869)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
+### Patch Changes
+
+- Updated dependencies [[`1b426e688`](https://github.com/justeattakeaway/pie/commit/1b426e6883b5baada6a29b12ee7e7e68cfe0de14), [`e50b0fe60`](https://github.com/justeattakeaway/pie/commit/e50b0fe60d1be37ac48923316bef8e5c181c7d9e), [`86af06ddf`](https://github.com/justeattakeaway/pie/commit/86af06ddf49f659bfefd7a8eb7ea4197eeaa84b5)]:
+  - @justeattakeaway/pie-cookie-banner@0.6.0
+  - @justeattakeaway/pie-css@0.6.0
+  - @justeattakeaway/pie-card-container@0.9.0
+  - @justeattakeaway/pie-toggle-switch@0.13.0
+  - @justeattakeaway/pie-icon-button@0.17.0
+  - @justeattakeaway/pie-form-label@0.4.0
+  - @justeattakeaway/pie-divider@0.7.0
+  - @justeattakeaway/pie-button@0.31.0
+  - @justeattakeaway/pie-modal@0.26.0
+  - @justeattakeaway/pie-icons-webc@0.10.0
+  - @justeattakeaway/pie-link@0.8.0
+
 ## 0.37.2
 
 ### Patch Changes

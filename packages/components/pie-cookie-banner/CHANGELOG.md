@@ -1,5 +1,20 @@
 # @justeattakeaway/pie-cookie-banner
 
+## 0.6.0
+
+### Minor Changes
+
+- [Added] - z-index tokens to the pie-css package ([#862](https://github.com/justeattakeaway/pie/pull/862)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Fixed] - Ensure the cookie banner has a correct stacking order
+
+- [Fixed] - License removed from packages ([#869](https://github.com/justeattakeaway/pie/pull/869)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
+### Patch Changes
+
+- Updated dependencies [[`e50b0fe60`](https://github.com/justeattakeaway/pie/commit/e50b0fe60d1be37ac48923316bef8e5c181c7d9e)]:
+  - @justeattakeaway/pie-webc-core@0.10.0
+
 ## 0.5.0
 
 ### Minor Changes

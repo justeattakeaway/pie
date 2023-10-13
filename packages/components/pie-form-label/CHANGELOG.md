@@ -1,5 +1,16 @@
 # @justeattakeaway/pie-form-label
 
+## 0.4.0
+
+### Minor Changes
+
+- [Fixed] - License removed from packages ([#869](https://github.com/justeattakeaway/pie/pull/869)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
+### Patch Changes
+
+- Updated dependencies [[`e50b0fe60`](https://github.com/justeattakeaway/pie/commit/e50b0fe60d1be37ac48923316bef8e5c181c7d9e)]:
+  - @justeattakeaway/pie-webc-core@0.10.0
+
 ## 0.3.0
 
 ### Minor Changes
