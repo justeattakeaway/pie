@@ -61,6 +61,7 @@ jobs:
       if: steps.check_files.outputs.files_exists == 'true' && contains(github.ref_name, 'main')
       run: npx changeset pre exit
     - name: Create latest release PR
+      id: changesets-main
       if: contains(github.ref_name, 'main')
       uses: changesets/action@v1
       with:
@@ -70,6 +71,7 @@ jobs:
     # If .changeset/pre.json does not exist and we did not recently exit
     # prerelease mode, enter prerelease mode with tag beta
     - name: Enter beta prerelease mode
+      id: changesets-beta
       if: steps.check_files.outputs.files_exists == 'false' && contains(github.ref_name, 'beta')
       # If .changeset/pre.json does not exist and we did not recently exit
       # prerelease mode, enter prerelease mode with tag beta
@@ -82,6 +84,7 @@ jobs:
         publish: yarn changeset:publish
         commit: "release: release packages with 'beta' tag"
     - name: Enter feature prerelease mode
+      id: changesets-feature
       if: steps.check_files.outputs.files_exists == 'false' && contains(github.ref_name, 'feature')
       # If .changeset/pre.json does not exist and we did not recently exit
       # prerelease mode, enter prerelease mode with tag next
@@ -93,3 +96,105 @@ jobs:
         version: yarn changeset:version
         publish: yarn changeset:publish
         commit: "release: release packages with 'next' tag"
+
+
+    # This script performs the following logic:
+    # 1. Defines a list of packages with their versions.
+    # 2. Separates the 'pie-docs' and 'pie-storybook' packages, which have a higher priority, into a distinct list called `PRIORITIZED_PACKAGES`.
+    # 3. Filters out and creates a separate list (`REST_PACKAGES`) excluding:
+    #    - The aforementioned 'pie-docs' and 'pie-storybook' packages.
+    #    - Any package whose name starts with "wc-" (Example apps).
+    #    - The 'pie-monorepo' package.
+    # 4. Combines the prioritized and the rest of the packages into one list (`COMBINED_PACKAGES`).
+    # 5. For each package in `COMBINED_PACKAGES`, creates a Slack message block:
+    #    - For 'pie-docs', a specific message is generated pointing to 'pie.design'.
+    #    - For 'pie-storybook', a distinct message is generated pointing to 'webc.pie.design'.
+    #    - For all other packages, a generic message is generated, including links to the GitHub release and npm.
+    - name: Generate Slack payload blocks
+      if: steps.changesets-main.published == true
+      id: generate_payload
+      run: |
+        PACKAGES='${{ steps.changesets-main.publishedPackages}}'
+        PRIORITIZED_PACKAGES=$(echo $PACKAGES | jq -c '[.[] | select(.name == "pie-docs" or .name == "pie-storybook")]')
+        REST_PACKAGES=$(echo $PACKAGES | jq -c '[.[] | select((.name != "pie-docs" and .name != "pie-storybook") and (.name | startswith("wc-") | not) and .name != "pie-monorepo")]')
+    
+        PRIORITIZED_BLOCKS=$(echo $PRIORITIZED_PACKAGES | jq -c '
+            if length > 0 then
+                [{"type": "divider"}] +
+                [{"type": "header", "text": {"type": "plain_text", "text": ":rocket: Deployment Summary"}}] +
+                (if (.[] | select(.name == "pie-docs")) then 
+                    [{
+                        "type": "section",
+                        "block_id": "sectionBlockWithButton",
+                        "text": {
+                            "type": "mrkdwn",
+                            "text": "*PIE Docs*"
+                        },
+                        "accessory": {
+                            "type": "button",
+                            "text": {
+                                "type": "plain_text",
+                                "text": "Visit :book:",
+                                "emoji": true
+                            },
+                            "url": "https://pie.design"
+                        }
+                    }]
+                else
+                    []
+                end) +
+                (if (.[] | select(.name == "pie-storybook")) then 
+                    [{
+                        "type": "section",
+                        "text": {
+                            "type": "mrkdwn",
+                            "text": "*PIE Storybook*"
+                        },
+                        "accessory": {
+                            "type": "button",
+                            "text": {
+                                "type": "plain_text",
+                                "text": "Visit :pie_team_logo:",
+                                "emoji": true
+                            },
+                            "url": "https://webc.pie.design"
+                        }
+                    }]
+                else
+                    []
+                end)
+            else
+                []
+            end
+        ')
+    
+    
+        REST_COMPONENT_BLOCKS=$(echo $REST_PACKAGES | jq -c '
+            if length > 0 then
+              [{"type": "divider"}] +
+              [{"type": "header", "text": {"type": "plain_text", "text": ":parcel: Package Update Summary"}}] +
+                map(
+                    {"type": "section", "text": {"type": "mrkdwn", "text": "- *\(.name | sub("@justeattakeaway/pie-"; "") | (.[0:1] | ascii_upcase) + .[1:])* was updated to `\(.version)` | <https://github.com/justeattakeaway/pie/releases/tag/\(.name)@\(.version)|Changelog> | <https://www.npmjs.com/package/\(.name)|npm>" }}
+                )
+            else
+                []
+            end
+        ')
+    
+        BLOCKS=$(echo "[${PRIORITIZED_BLOCKS},${REST_COMPONENT_BLOCKS}]" | jq -c 'add')
+    
+        echo "BLOCKS=$BLOCKS" >> $GITHUB_ENV
+
+    - name: Send a Slack notification on publish
+      if: steps.changesets-main.published == true
+      uses: slackapi/slack-github-action@v1.24.0
+      with:
+        channel-id: ${{ secrets.RELEASE_SLACK_CHANNEL_ID }}
+        payload: |
+          {
+            "blocks": ${{ env.BLOCKS }},
+            "unfurl_links": false,
+            "unfurl_media": false
+          }
+      env:
+        SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
