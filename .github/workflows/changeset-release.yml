@@ -104,7 +104,7 @@ jobs:
     # 3. Filters out and creates a separate list (`REST_PACKAGES`) excluding:
     #    - The aforementioned 'pie-docs' and 'pie-storybook' packages.
     #    - Any package whose name starts with "wc-" (Example apps).
-    #    - The 'pie-monorepo' package. ()
+    #    - The 'pie-monorepo' package.
     # 4. Combines the prioritized and the rest of the packages into one list (`COMBINED_PACKAGES`).
     # 5. For each package in `COMBINED_PACKAGES`, creates a Slack message block:
     #    - For 'pie-docs', a specific message is generated pointing to 'pie.design'.
