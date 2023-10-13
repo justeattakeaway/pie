@@ -1,7 +1,7 @@
 
 import { test, expect } from '@sand4rt/experimental-ct-web';
 import { PieCardContainer, CardContainerProps } from '@/index';
-import { interactionTypes, padding } from '@/defs';
+import { interactionTypes, paddingValues } from '@/defs';
 
 const componentSelector = '[data-test-id="pie-card-container"]';
 const slotSelector = '[data-test-id="slot-content"]';
@@ -250,7 +250,7 @@ test.describe('PieCardContainer - Component tests', () => {
                 expect(componentAttribute).toBe('padding: var(--dt-spacing-a)');
             });
 
-            padding.forEach((paddingValue) => {
+            paddingValues.forEach((paddingValue) => {
                 test(`should allow valid "padding" values: ${paddingValue}`, async ({ mount, page }) => {
                     // Arrange
                     await mount(PieCardContainer, {
@@ -264,9 +264,14 @@ test.describe('PieCardContainer - Component tests', () => {
 
                     const component = page.locator(componentSelector);
                     const componentAttribute = await component.getAttribute('style');
+                    const values = paddingValue.split(',');
 
                     // Assert
-                    expect(componentAttribute).toBe(`padding: var(--dt-spacing-${paddingValue})`);
+                    if (values.length > 1) {
+                        expect(componentAttribute).toBe(`padding: var(--dt-spacing-${values[0]}) var(--dt-spacing-${values[1]})`);
+                    } else {
+                        expect(componentAttribute).toBe(`padding: var(--dt-spacing-${values[0]})`);
+                    }
                 });
             });
 
@@ -314,7 +319,7 @@ test.describe('PieCardContainer - Component tests', () => {
         test.describe('when `padding` is set as a comma separated string value', () => {
             test('should set an attribute of style with the correct padding value', async ({ mount, page }) => {
                 // Arrange
-                const paddingValue = { padding: 'a, b' };
+                const paddingValue = { padding: 'a,b' };
                 await mount(PieCardContainer, {
                     props: {
                         padding: paddingValue.padding,

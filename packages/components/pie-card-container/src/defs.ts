@@ -1,9 +1,10 @@
 export const variants = ['default', 'outline', 'inverse', 'outline-inverse'] as const;
 export const interactionTypes = ['anchor', 'button', 'none'] as const;
-export const padding = ['a', 'b', 'c', 'd', 'e', 'f', 'g'] as const;
 
-export type Variant = typeof variants[number];
-export type PaddingValue = typeof padding[number];
+const spacingTokens = ['a', 'b', 'c', 'd', 'e', 'f', 'g'] as const;
+export const paddingValues = spacingTokens.flatMap((first) => [first, ...spacingTokens.map((second) => `${first},${second}`)]);
+
+type PaddingValue = typeof spacingTokens[number];
 
 export type AriaProps = {
     label?: string;
@@ -38,7 +39,7 @@ export interface CardContainerProps {
     /**
      * What style variant the card should be such as default or inverse.
      */
-    variant: Variant;
+    variant: typeof variants[number];
 
     /**
      * Allows the consumer to set draggable css styles (grab/grabbing cursor styles).
@@ -52,8 +53,8 @@ export interface CardContainerProps {
 
     /**
      * Sets the padding of the card container. Can be either a single value or two values
-     * separated by commas. Setting a single value adds padding to all sides of the card,
-     * whereas setting two values will set the "topBottom, leftRight" padding. e.g `'a'` or `'a, b'`
+     * separated by a comma. Setting a single value adds padding to all sides of the card,
+     * whereas setting two values will set the "paddingX, paddingY" padding. e.g `'a'` or `'a, b'`
      */
-    padding?: PaddingValue | PaddingValue[];
+    padding?: PaddingValue | `${PaddingValue},${PaddingValue}`;
 }
