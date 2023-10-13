@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.29.0
+
+### Minor Changes
+
+- [Changed] - Updated component README structure ([#857](https://github.com/justeattakeaway/pie/pull/857)) by [@ashleynolan](https://github.com/ashleynolan)
+
+- [Fixed] - License removed from packages ([#869](https://github.com/justeattakeaway/pie/pull/869)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
 ## 2.28.0
 
 ### Minor Changes

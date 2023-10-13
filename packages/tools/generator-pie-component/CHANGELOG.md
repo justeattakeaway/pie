@@ -1,5 +1,13 @@
 # @justeattakeaway/generator-pie-component
 
+## 0.11.0
+
+### Minor Changes
+
+- [Fixed] - License removed from packages ([#869](https://github.com/justeattakeaway/pie/pull/869)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
+- [Changed] - Updated README structure with installation and peerdeps ([#857](https://github.com/justeattakeaway/pie/pull/857)) by [@ashleynolan](https://github.com/ashleynolan)
+
 ## 0.10.0
 
 ### Minor Changes

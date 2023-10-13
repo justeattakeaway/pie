@@ -1,5 +1,17 @@
 # @justeattakeaway/pie-modal
 
+## 0.26.0
+
+### Minor Changes
+
+- [Fixed] - License removed from packages ([#869](https://github.com/justeattakeaway/pie/pull/869)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
+### Patch Changes
+
+- [Changed] - Update header styles to fix spacing inconsistencies ([#878](https://github.com/justeattakeaway/pie/pull/878)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Changed] - Update article padding for narrow viewports
+
 ## 0.25.0
 
 ### Minor Changes
