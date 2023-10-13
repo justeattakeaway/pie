@@ -16,13 +16,6 @@ import { percyWidths } from '@justeattakeaway/pie-webc-testing/src/percy/breakpo
 import { PieCardContainer } from '@/index';
 import { interactionTypes, variants, paddingValues } from '@/defs';
 
-const props: PropObject = {
-    interactionType: interactionTypes,
-    variant: variants,
-    padding: paddingValues,
-    disabled: [true, false],
-};
-
 // This is just an arbitrary example of some markup a user may pass into the card
 const slotContent = `<div style="color: var(--card-color); font-size: calc(var(--dt-font-body-l-size) * 1px); font-family: var(--dt-font-interactive-m-family); padding: var(--dt-spacing-b);">
     <h2> Card title </h2>
@@ -37,11 +30,7 @@ const slotContent = `<div style="color: var(--card-color); font-size: calc(var(-
 </div>`;
 
 // Renders a <pie-card-container> HTML string with the given prop values
-const renderTestPieCardContainer = (propVals: WebComponentPropValues) => `<pie-card-container interactionType="${propVals.interactionType}" variant="${propVals.variant}" ${propVals.disabled ? 'disabled' : ''} >${slotContent}</pie-card-container>`;
-
-const componentPropsMatrix : WebComponentPropValues[] = getAllPropCombinations(props);
-const componentPropsMatrixByVariant: Record<string, WebComponentPropValues[]> = splitCombinationsByPropertyValue(componentPropsMatrix, 'variant');
-const componentVariants: string[] = Object.keys(componentPropsMatrixByVariant);
+const renderTestPieCardContainer = (propVals: WebComponentPropValues) => `<pie-card-container interactionType="${propVals.interactionType}" padding="${propVals.padding}"  variant="${propVals.variant}" ${propVals.disabled ? 'disabled' : ''} >${slotContent}</pie-card-container>`;
 
 // This ensures the component is registered in the DOM for each test
 // This is not required if your tests mount the web component directly in the tests
@@ -59,6 +48,15 @@ test.beforeEach(async ({ page, mount }) => {
 });
 
 test.describe('PieCardContainer - Visual tests`', () => {
+    const props: PropObject = {
+        interactionType: interactionTypes,
+        variant: variants,
+        disabled: [true, false],
+    };
+    const componentPropsMatrix : WebComponentPropValues[] = getAllPropCombinations(props);
+    const componentPropsMatrixByVariant: Record<string, WebComponentPropValues[]> = splitCombinationsByPropertyValue(componentPropsMatrix, 'variant');
+    const componentVariants: string[] = Object.keys(componentPropsMatrixByVariant);
+
     componentVariants.forEach((variant) => test(`should render all prop variations for Variant: ${variant}`, async ({ page, mount }) => {
         await Promise.all(componentPropsMatrixByVariant[variant].map(async (combo: WebComponentPropValues) => {
             const testComponent: WebComponentTestInput = createTestWebComponent(combo, renderTestPieCardContainer);
@@ -79,5 +77,31 @@ test.describe('PieCardContainer - Visual tests`', () => {
         }));
 
         await percySnapshot(page, `PIE Card Container - Variant: ${variant}`, percyWidths);
+    }));
+});
+
+test.describe('PieCardContainer - `padding` prop', async () => {
+    const batchSize = Math.ceil(paddingValues.length / 7);
+    const batches: string[][] = [];
+
+    for (let i = 0; i < paddingValues.length; i += batchSize) {
+        batches.push(paddingValues.slice(i, i + batchSize));
+    }
+
+    batches.forEach((batch, index) => test(`should render the padding prop value of batch number: ${index}`, async ({ page, mount }) => {
+        await Promise.all(batch.map(async (padding) => {
+            const testComponent: WebComponentTestInput = createTestWebComponent({ padding }, renderTestPieCardContainer);
+            const propKeyValues = `padding: ${testComponent.propValues.padding}`;
+
+            await mount(
+                WebComponentTestWrapper,
+                {
+                    props: { propKeyValues },
+                    slots: { component: testComponent.renderedString.trim() },
+                },
+            );
+        }));
+
+        await percySnapshot(page, `PIE Card Container - Padding values | batch number: ${index}`, percyWidths);
     }));
 });
