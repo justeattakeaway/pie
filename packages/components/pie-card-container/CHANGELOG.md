@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-card-container
 
+## 0.10.0
+
+### Minor Changes
+
+- [Added] - validate the padding prop ([#875](https://github.com/justeattakeaway/pie/pull/875)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.9.0
 
 ### Minor Changes
