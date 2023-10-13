@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.40.0
+
+### Minor Changes
+
+- [Added] - validate the padding prop ([#875](https://github.com/justeattakeaway/pie/pull/875)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies [[`5aa06b721`](https://github.com/justeattakeaway/pie/commit/5aa06b7216db8e3a476b10e26de4e5121df18cf7)]:
+  - @justeattakeaway/pie-card-container@0.10.0
+
 ## 0.39.0
 
 ### Minor Changes
