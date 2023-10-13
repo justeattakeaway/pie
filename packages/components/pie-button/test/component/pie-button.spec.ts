@@ -1,5 +1,4 @@
 import { test, expect } from '@sand4rt/experimental-ct-web';
-import { type Page, Request } from '@playwright/test';
 import { PieButton, ButtonProps } from '@/index';
 
 const props: Partial<ButtonProps> = {
