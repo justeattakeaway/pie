@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.30.0
+
+### Minor Changes
+
+- [Added] - Github action settings to ensure the required CI jobs are passing ([#874](https://github.com/justeattakeaway/pie/pull/874)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 2.29.0
 
 ### Minor Changes

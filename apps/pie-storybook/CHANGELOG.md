@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.39.0
+
+### Minor Changes
+
+- [Added] - Form integration test to pie-button ([#877](https://github.com/justeattakeaway/pie/pull/877)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies [[`c9131d14b`](https://github.com/justeattakeaway/pie/commit/c9131d14b1c82f2640ad3de62632af115ea1333c)]:
+  - @justeattakeaway/pie-button@0.32.0
+
 ## 0.38.0
 
 ### Minor Changes

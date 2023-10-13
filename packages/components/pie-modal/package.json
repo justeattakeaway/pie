@@ -29,7 +29,7 @@
   "license": "Apache-2.0",
   "devDependencies": {
     "@justeat/pie-design-tokens": "5.8.2",
-    "@justeattakeaway/pie-button": "0.31.0",
+    "@justeattakeaway/pie-button": "0.32.0",
     "@justeattakeaway/pie-components-config": "0.4.0",
     "@justeattakeaway/pie-icon-button": "0.17.0",
     "@justeattakeaway/pie-icons-webc": "0.10.0",
