@@ -5118,6 +5118,7 @@ __metadata:
     "@justeattakeaway/pie-components-config": 0.4.0
     "@justeattakeaway/pie-css": 0.5.1
     "@justeattakeaway/pie-webc-core": 0.9.1
+    element-internals-polyfill: 1.3.8
   languageName: unknown
   linkType: soft
 
@@ -17176,6 +17177,13 @@ __metadata:
   version: 1.4.543
   resolution: "electron-to-chromium@npm:1.4.543"
   checksum: 2691478369bb543c22a0e661625beda6c2b3fbbdf0a3af91a12eeda0fdd18447e025d7d9b09f55f87d66e5983a8401a52ba1b26a9e43678f638dc9141ec3e427
+  languageName: node
+  linkType: hard
+
+"element-internals-polyfill@npm:1.3.8":
+  version: 1.3.8
+  resolution: "element-internals-polyfill@npm:1.3.8"
+  checksum: 920cf4c839d7dac0e72ff61a1a14c07161acc901274820fc94bd131fb2bde32520e123e69e95379dc849eadcfb4ae05d33c829614bed2ef518aafb557e98f2ff
   languageName: node
   linkType: hard
 
