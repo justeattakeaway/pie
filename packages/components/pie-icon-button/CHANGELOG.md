@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-icon-button
 
+## 0.17.0
+
+### Minor Changes
+
+- [Fixed] - License removed from packages ([#869](https://github.com/justeattakeaway/pie/pull/869)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
 ## 0.16.0
 
 ### Minor Changes
