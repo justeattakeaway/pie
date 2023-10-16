@@ -310,3 +310,29 @@ jobs:
       os: ubuntu-latest
       node-version: 18
     secrets: inherit
+
+  check-all-jobs:
+    if: always()
+
+    needs:
+    - lint-styles
+    - lint-js
+    - build-ubuntu-node-16
+    - build-windows-node-16
+    - build-ubuntu-node-18
+    - build-windows-node-18
+    - unit-tests
+    - browser-tests-components
+    - deploy-docs
+    - deploy-storybook
+    - browser-tests-docs
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Verify if the required jobs succeeded
+      uses: re-actors/alls-green@release/v1
+      with:
+        # "allowed-skips" lists jobs that are optional but should not fail
+        allowed-skips: browser-tests-components, deploy-docs, deploy-storybook, browser-tests-docs
+        jobs: ${{ toJSON(needs) }}

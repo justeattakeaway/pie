@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-icons-webc
 
+## 0.10.0
+
+### Minor Changes
+
+- [Fixed] - License removed from packages ([#869](https://github.com/justeattakeaway/pie/pull/869)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
 ## 0.9.0
 
 ### Minor Changes

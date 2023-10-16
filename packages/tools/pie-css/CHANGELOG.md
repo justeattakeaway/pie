@@ -1,5 +1,15 @@
 # @justeattakeaway/pie-css
 
+## 0.6.0
+
+### Minor Changes
+
+- [Added] - z-index tokens to the pie-css package ([#862](https://github.com/justeattakeaway/pie/pull/862)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Fixed] - Ensure the cookie banner has a correct stacking order
+
+- [Fixed] - License removed from packages ([#869](https://github.com/justeattakeaway/pie/pull/869)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
 ## 0.5.1
 
 ### Patch Changes

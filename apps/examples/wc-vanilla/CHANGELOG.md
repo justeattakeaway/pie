@@ -1,5 +1,23 @@
 # wc-vanilla
 
+## 0.4.22
+
+### Patch Changes
+
+- Updated dependencies [[`c9131d14b`](https://github.com/justeattakeaway/pie/commit/c9131d14b1c82f2640ad3de62632af115ea1333c)]:
+  - @justeattakeaway/pie-button@0.32.0
+
+## 0.4.21
+
+### Patch Changes
+
+- Updated dependencies [[`1b426e688`](https://github.com/justeattakeaway/pie/commit/1b426e6883b5baada6a29b12ee7e7e68cfe0de14), [`e50b0fe60`](https://github.com/justeattakeaway/pie/commit/e50b0fe60d1be37ac48923316bef8e5c181c7d9e), [`86af06ddf`](https://github.com/justeattakeaway/pie/commit/86af06ddf49f659bfefd7a8eb7ea4197eeaa84b5)]:
+  - @justeattakeaway/pie-css@0.6.0
+  - @justeattakeaway/pie-icon-button@0.17.0
+  - @justeattakeaway/pie-button@0.31.0
+  - @justeattakeaway/pie-modal@0.26.0
+  - @justeattakeaway/pie-icons-webc@0.10.0
+
 ## 0.4.20
 
 ### Patch Changes
