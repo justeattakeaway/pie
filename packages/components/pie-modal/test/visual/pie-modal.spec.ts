@@ -396,9 +396,9 @@ test.describe('Prop: `supportingAction`', () => {
 
 test.describe('Prop: `position`', () => {
     positions.forEach((position) => {
-        describe(`should be positioned in the correct part of the page when position is ${position},`, () => {
+        test.describe(`should be positioned in the correct part of the page when position is ${position},`, () => {
             sizes.forEach((size) => {
-                describe(`size is ${size},`, () => {
+                test.describe(`size is ${size},`, () => {
                     [true, false].forEach((isFullWidthBelowMid) => {
                         test(`and isFullWidthBelowMid is ${isFullWidthBelowMid}`, async ({ mount, page }) => {
                             await mount(PieModal, {
