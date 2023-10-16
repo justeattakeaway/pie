@@ -625,7 +625,30 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/core@npm:7.23.0, @babel/core@npm:^7.1.0, @babel/core@npm:^7.11.1, @babel/core@npm:^7.11.6, @babel/core@npm:^7.12.3, @babel/core@npm:^7.13.16, @babel/core@npm:^7.16.0, @babel/core@npm:^7.19.6, @babel/core@npm:^7.22.10, @babel/core@npm:^7.22.5, @babel/core@npm:^7.22.9, @babel/core@npm:^7.7.2, @babel/core@npm:^7.8.0":
+"@babel/core@npm:7.23.2":
+  version: 7.23.2
+  resolution: "@babel/core@npm:7.23.2"
+  dependencies:
+    "@ampproject/remapping": ^2.2.0
+    "@babel/code-frame": ^7.22.13
+    "@babel/generator": ^7.23.0
+    "@babel/helper-compilation-targets": ^7.22.15
+    "@babel/helper-module-transforms": ^7.23.0
+    "@babel/helpers": ^7.23.2
+    "@babel/parser": ^7.23.0
+    "@babel/template": ^7.22.15
+    "@babel/traverse": ^7.23.2
+    "@babel/types": ^7.23.0
+    convert-source-map: ^2.0.0
+    debug: ^4.1.0
+    gensync: ^1.0.0-beta.2
+    json5: ^2.2.3
+    semver: ^6.3.1
+  checksum: 003897718ded16f3b75632d63cd49486bf67ff206cc7ebd1a10d49e2456f8d45740910d5ec7e42e3faf0deec7a2e96b1a02e766d19a67a8309053f0d4e57c0fe
+  languageName: node
+  linkType: hard
+
+"@babel/core@npm:^7.1.0, @babel/core@npm:^7.11.1, @babel/core@npm:^7.11.6, @babel/core@npm:^7.12.3, @babel/core@npm:^7.13.16, @babel/core@npm:^7.16.0, @babel/core@npm:^7.19.6, @babel/core@npm:^7.22.10, @babel/core@npm:^7.22.5, @babel/core@npm:^7.22.9, @babel/core@npm:^7.7.2, @babel/core@npm:^7.8.0":
   version: 7.23.0
   resolution: "@babel/core@npm:7.23.0"
   dependencies:
@@ -979,6 +1002,17 @@ __metadata:
     "@babel/traverse": ^7.23.0
     "@babel/types": ^7.23.0
   checksum: acfc345102045c24ea2a4d60e00dcf8220e215af3add4520e2167700661338e6a80bd56baf44bb764af05ec6621101c9afc315dc107e18c61fa6da8acbdbb893
+  languageName: node
+  linkType: hard
+
+"@babel/helpers@npm:^7.23.2":
+  version: 7.23.2
+  resolution: "@babel/helpers@npm:7.23.2"
+  dependencies:
+    "@babel/template": ^7.22.15
+    "@babel/traverse": ^7.23.2
+    "@babel/types": ^7.23.0
+  checksum: aaf4828df75ec460eaa70e5c9f66e6dadc28dae3728ddb7f6c13187dbf38030e142194b83d81aa8a31bbc35a5529a5d7d3f3cf59d5d0b595f5dd7f9d8f1ced8e
   languageName: node
   linkType: hard
 
@@ -5195,7 +5229,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-icons-react@workspace:packages/tools/pie-icons-react"
   dependencies:
-    "@babel/core": 7.23.0
+    "@babel/core": 7.23.2
     "@babel/node": 7.20.7
     "@babel/preset-react": 7.18.6
     "@justeattakeaway/pie-icons": 4.9.2
@@ -5214,7 +5248,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-icons-vue@workspace:packages/tools/pie-icons-vue"
   dependencies:
-    "@babel/core": 7.23.0
+    "@babel/core": 7.23.2
     "@justeattakeaway/pie-icons": 4.9.2
     "@justeattakeaway/pie-icons-configs": 4.5.0
     "@rollup/plugin-commonjs": 25.0.7
@@ -5238,7 +5272,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-icons-webc@workspace:packages/tools/pie-icons-webc"
   dependencies:
-    "@babel/core": 7.23.0
+    "@babel/core": 7.23.2
     "@babel/node": 7.20.7
     "@justeattakeaway/pie-icons": 4.9.2
     "@justeattakeaway/pie-icons-configs": 4.5.0
@@ -5323,7 +5357,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-wrapper-react@workspace:packages/tools/pie-wrapper-react"
   dependencies:
-    "@babel/core": 7.23.0
+    "@babel/core": 7.23.2
     "@babel/preset-react": 7.18.6
     "@custom-elements-manifest/analyzer": 0.8.4
     "@lit-labs/react": 1.1.1
@@ -27521,7 +27555,7 @@ __metadata:
   dependencies:
     "@axe-core/playwright": 4.7.3
     "@babel/cli": 7.22.15
-    "@babel/core": 7.23.0
+    "@babel/core": 7.23.2
     "@babel/eslint-parser": 7.21.8
     "@babel/node": 7.20.7
     "@babel/preset-env": 7.21.4
