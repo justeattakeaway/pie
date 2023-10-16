@@ -84,6 +84,7 @@
 
     &[isStandalone] {
         display: block;
+        width: fit-content;
     }
 
     &[hasVisited]:visited {
