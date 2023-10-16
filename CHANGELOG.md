@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.31.0
+
+### Minor Changes
+
+- [Fixed] - Hide `underline` and `iconPlacement` props when `isStandalone` is set to false in storybook ([#885](https://github.com/justeattakeaway/pie/pull/885)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Fixed] - The touch target area is much larger than the text when `isStandalone` is set to true
+
 ## 2.30.0
 
 ### Minor Changes
