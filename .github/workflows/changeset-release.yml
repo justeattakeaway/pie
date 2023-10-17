@@ -117,56 +117,56 @@ jobs:
         PRIORITIZED_PACKAGES=$(echo $PACKAGES | jq -c '[.[] | select(.name == "pie-docs" or .name == "pie-storybook")]')
         REST_PACKAGES=$(echo $PACKAGES | jq -c '[.[] | select((.name != "pie-docs" and .name != "pie-storybook") and (.name | startswith("wc-") | not) and .name != "pie-monorepo")]')
     
-        PRIORITIZED_BLOCKS=$(echo $PRIORITIZED_PACKAGES | jq -c '
+        PRIORITIZED_BLOCKS=$(echo $PACKAGES | jq -c '
+            map(select(.name == "pie-docs" or .name == "pie-storybook")) |
+          
             if length > 0 then
-                [{"type": "divider"}] +
-                [{"type": "header", "text": {"type": "plain_text", "text": ":rocket: Deployment Summary"}}] +
-                (if (.[] | select(.name == "pie-docs")) then 
-                    [{
-                        "type": "section",
-                        "block_id": "sectionBlockWithButton",
-                        "text": {
-                            "type": "mrkdwn",
-                            "text": "*PIE Docs*"
-                        },
-                        "accessory": {
-                            "type": "button",
-                            "text": {
-                                "type": "plain_text",
-                                "text": "Visit :book:",
-                                "emoji": true
-                            },
-                            "url": "https://pie.design"
-                        }
-                    }]
+              [{"type": "divider"}, {"type": "header", "text": {"type": "plain_text", "text": ":rocket: Deployment Summary"}}] +
+              (map(
+                if .name == "pie-docs" then
+                  {
+                    "type": "section",
+                    "block_id": "sectionBlockWithButton",
+                    "text": {
+                      "type": "mrkdwn",
+                      "text": "*PIE Docs*"
+                    },
+                    "accessory": {
+                      "type": "button",
+                      "text": {
+                        "type": "plain_text",
+                        "text": "Visit :book:",
+                        "emoji": true
+                      },
+                      "url": "https://pie.design"
+                    }
+                  }
+                elif .name == "pie-storybook" then
+                  {
+                    "type": "section",
+                    "text": {
+                      "type": "mrkdwn",
+                      "text": "*PIE Storybook*"
+                    },
+                    "accessory": {
+                      "type": "button",
+                      "text": {
+                        "type": "plain_text",
+                        "text": "Visit :pie_team_logo:",
+                        "emoji": true
+                      },
+                      "url": "https://webc.pie.design"
+                    }
+                  }
                 else
-                    []
-                end) +
-                (if (.[] | select(.name == "pie-storybook")) then 
-                    [{
-                        "type": "section",
-                        "text": {
-                            "type": "mrkdwn",
-                            "text": "*PIE Storybook*"
-                        },
-                        "accessory": {
-                            "type": "button",
-                            "text": {
-                                "type": "plain_text",
-                                "text": "Visit :pie_team_logo:",
-                                "emoji": true
-                            },
-                            "url": "https://webc.pie.design"
-                        }
-                    }]
-                else
-                    []
-                end)
+                  empty
+                end
+              ))
             else
-                []
+              .
             end
-        ')
-
+          ')
+      
         echo PRIORITIZED_BLOCKS: $PRIORITIZED_BLOCKS
     
     
