@@ -184,7 +184,6 @@ jobs:
         echo "BLOCKS=$BLOCKS" >> $GITHUB_ENV
 
     - name: Send a Slack notification on publish
-      if: steps.changesets-main.published == true
       uses: slackapi/slack-github-action@v1.24.0
       with:
         channel-id: ${{ secrets.RELEASE_SLACK_CHANNEL_ID }}
