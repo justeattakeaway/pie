@@ -216,7 +216,7 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
 
     private _handleIsPinnedFooterStateChanged () {
         if (this.isFooterPinned) {
-            const endOfContent = this.shadowRoot?.querySelector('#end-of-content');
+            const endOfContent = this._dialog?.querySelector('#end-of-content');
             if (!endOfContent?.parentElement) return;
             const hasScrollableContent = endOfContent.parentElement.scrollHeight > endOfContent.parentElement.clientHeight;
             if (!hasScrollableContent) return;
