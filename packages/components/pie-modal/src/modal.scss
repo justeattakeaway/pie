@@ -121,10 +121,13 @@
 
     &[position='top'] {
         margin-block-start: var(--dt-spacing-j);
+        max-block-size: calc(100% - var(--dt-spacing-j) * 2);
 
-        &[isfullwidthbelowmid] {
+        &[size='large'],
+        &[isfullwidthbelowmid][size='medium'] {
             @media (max-width: calc($breakpoint-wide - 1px)) {
                 margin-block-start: var(--dt-spacing-none);
+                max-block-size: 100%;
             }
         }
     }

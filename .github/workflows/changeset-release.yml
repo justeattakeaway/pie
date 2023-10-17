@@ -111,7 +111,7 @@ jobs:
     #    - For 'pie-storybook', a distinct message is generated pointing to 'webc.pie.design'.
     #    - For all other packages, a generic message is generated, including links to the GitHub release and npm.
     - name: Generate Slack payload blocks
-      if: steps.changesets-main.outputs.published == true
+      if: steps.changesets-main.outputs.published == 'true'
       id: generate_payload
       run: |
         PACKAGES='${{ steps.changesets-main.outputs.publishedPackages}}'
