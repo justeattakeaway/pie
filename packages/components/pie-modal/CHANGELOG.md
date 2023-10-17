@@ -1,5 +1,13 @@
 # @justeattakeaway/pie-modal
 
+## 0.27.0
+
+### Minor Changes
+
+- [Fixed] - Incorrect modal positioning when using position="top" in certain states ([#883](https://github.com/justeattakeaway/pie/pull/883)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Added] - Visual regression tests to cover the previous broken states
+
 ## 0.26.0
 
 ### Minor Changes

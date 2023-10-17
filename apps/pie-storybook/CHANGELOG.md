@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.41.1
+
+### Patch Changes
+
+- Updated dependencies [[`200e9f581`](https://github.com/justeattakeaway/pie/commit/200e9f58136ea42564ea591b6216e8013311b408)]:
+  - @justeattakeaway/pie-modal@0.27.0
+
 ## 0.41.0
 
 ### Minor Changes
