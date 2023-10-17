@@ -2,7 +2,7 @@ import {
     LitElement, nothing, TemplateResult, unsafeCSS, PropertyValues,
 } from 'lit';
 import { html, unsafeStatic } from 'lit/static-html.js';
-import { property, query } from 'lit/decorators.js';
+import { property, query, state } from 'lit/decorators.js';
 import {
     requiredProperty, RtlMixin, validPropertyValues,
 } from '@justeattakeaway/pie-webc-core';
@@ -92,6 +92,11 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
     @query('dialog')
     private _dialog?: HTMLDialogElement;
 
+    @state()
+    private hasScrolledToEnd = true;
+
+    private hasScrolledToEndObserver: IntersectionObserver | null = null;
+
     private _backButtonClicked = false;
 
     // Renders a `CSSResult` generated from SCSS by Vite
@@ -110,6 +115,7 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
         document.removeEventListener(ON_MODAL_CLOSE_EVENT, this._handleModalClosed.bind(this));
         document.removeEventListener(ON_MODAL_BACK_EVENT, this._handleModalClosed.bind(this));
         super.disconnectedCallback();
+        this.hasScrolledToEndObserver?.disconnect();
     }
 
     async firstUpdated (changedProperties: PropertyValues<this>) : Promise<void> {
@@ -130,6 +136,15 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
     updated (changedProperties: PropertyValues<this>) : void {
         super.updated(changedProperties);
         this._handleModalOpenStateChanged(changedProperties);
+        if (this.isFooterPinned) {
+            this.hasScrolledToEndObserver ??= new IntersectionObserver((entries) => {
+                this.hasScrolledToEnd = entries[0].isIntersecting;
+            });
+            const endOfContent = this.shadowRoot?.querySelector('#end-of-content') as HTMLElement;
+            this.hasScrolledToEndObserver?.observe(endOfContent);
+        } else {
+            this.hasScrolledToEndObserver?.disconnect();
+        }
     }
 
     /**
@@ -334,10 +349,11 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
      */
     private renderModalContentAndFooter (): TemplateResult {
         return html`
-        <article class="c-modal-scrollContainer c-modal-content c-modal-content--scrollable">
+        <article class="c-modal-content ${this.hasScrolledToEnd ? 'c-modal-content--scrolled' : ''}">
             <div class="c-modal-contentInner">
                 <slot></slot>
             </div>
+            <span id="end-of-content" aria-hidden />
         </article>
         <footer class="c-modal-footer">
             ${this.leadingAction ? this.renderLeadingAction() : nothing}
@@ -387,16 +403,7 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
                 </${headingTag}>
                 ${isDismissible ? this.renderCloseButton() : nothing}
             </header>
-            ${
-            // We need to wrap the remaining content in a shared scrollable container if the footer is not pinned
-            isFooterPinned
-                ? this.renderModalContentAndFooter()
-                : html`
-                        <div class="c-modal-scrollContainer">
-                            ${this.renderModalContentAndFooter()}
-                        </div>
-                        `
-            }
+            ${this.renderModalContentAndFooter()}
         </dialog>`;
     }
 
