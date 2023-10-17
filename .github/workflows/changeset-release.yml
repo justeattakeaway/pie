@@ -113,7 +113,7 @@ jobs:
     - name: Generate Slack payload blocks
       id: generate_payload
       run: |
-        PACKAGES='[{"name":"pie-docs","version":"0.41.1"},{"name":"@justeattakeaway/pie-modal","version":"0.27.0"},{"name":"wc-vanilla","version":"0.4.23"}]'
+        PACKAGES='[{"name": "pie-storybook", "version": "0.41.1"}, {"name": "@justeattakeaway/pie-modal", "version": "0.27.0"}, {"name" :"wc-vanilla", "version": "0.4.23"}]'
         PRIORITIZED_PACKAGES=$(echo $PACKAGES | jq -c '[.[] | select(.name == "pie-docs" or .name == "pie-storybook")]')
         REST_PACKAGES=$(echo $PACKAGES | jq -c '[.[] | select((.name != "pie-docs" and .name != "pie-storybook") and (.name | startswith("wc-") | not) and .name != "pie-monorepo")]')
     
@@ -166,9 +166,6 @@ jobs:
               .
             end
           ')
-      
-        echo PRIORITIZED_BLOCKS: $PRIORITIZED_BLOCKS
-    
     
         REST_COMPONENT_BLOCKS=$(echo $REST_PACKAGES | jq -c '
             if length > 0 then
@@ -186,22 +183,16 @@ jobs:
     
         echo "BLOCKS=$BLOCKS" >> $GITHUB_ENV
 
-
-    - name: Echo result
-      id: echo-result
-      run: |  
-        echo '{ "blocks": ${{env.BLOCKS}} }'
-
-    # - name: Send a Slack notification on publish
-    #   if: steps.changesets-main.published == true
-    #   uses: slackapi/slack-github-action@v1.24.0
-    #   with:
-    #     channel-id: ${{ secrets.RELEASE_SLACK_CHANNEL_ID }}
-    #     payload: |
-    #       {
-    #         "blocks": ${{ env.BLOCKS }},
-    #         "unfurl_links": false,
-    #         "unfurl_media": false
-    #       }
-    #   env:
-    #     SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+    - name: Send a Slack notification on publish
+      if: steps.changesets-main.published == true
+      uses: slackapi/slack-github-action@v1.24.0
+      with:
+        channel-id: ${{ secrets.RELEASE_SLACK_CHANNEL_ID }}
+        payload: |
+          {
+            "blocks": ${{ env.BLOCKS }},
+            "unfurl_links": false,
+            "unfurl_media": false
+          }
+      env:
+        SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
