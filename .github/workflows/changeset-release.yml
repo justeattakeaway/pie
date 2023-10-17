@@ -166,6 +166,8 @@ jobs:
                 []
             end
         ')
+
+        echo PRIORITIZED_BLOCKS: $PRIORITIZED_BLOCKS
     
     
         REST_COMPONENT_BLOCKS=$(echo $REST_PACKAGES | jq -c '
