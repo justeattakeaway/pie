@@ -5173,7 +5173,7 @@ __metadata:
     "@justeattakeaway/pie-components-config": 0.4.0
     "@justeattakeaway/pie-icon-button": 0.17.0
     "@justeattakeaway/pie-link": 0.9.0
-    "@justeattakeaway/pie-modal": 0.26.0
+    "@justeattakeaway/pie-modal": 0.27.0
     "@justeattakeaway/pie-toggle-switch": 0.13.0
     "@justeattakeaway/pie-webc-core": 0.10.0
   languageName: unknown
@@ -5315,7 +5315,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-modal@0.26.0, @justeattakeaway/pie-modal@workspace:packages/components/pie-modal":
+"@justeattakeaway/pie-modal@0.27.0, @justeattakeaway/pie-modal@workspace:packages/components/pie-modal":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-modal@workspace:packages/components/pie-modal"
   dependencies:
@@ -9875,13 +9875,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/markdown-it@npm:13.0.0":
-  version: 13.0.0
-  resolution: "@types/markdown-it@npm:13.0.0"
+"@types/markdown-it@npm:13.0.2":
+  version: 13.0.2
+  resolution: "@types/markdown-it@npm:13.0.2"
   dependencies:
     "@types/linkify-it": "*"
     "@types/mdurl": "*"
-  checksum: 7bcf45d0a1c2bc2c28f91460af571b9e8a195d4983cda809af04bf1d400f98902c71849b7cb8c036e35a3be7fa2483117d4faeab24a7de059e04be3e9f641aff
+  checksum: fe1f6a12ee8ad2246359376431a30d22c9b603e63e93e3e27d6920840934b9764034679a4d0b01ec54b0693c8d5c42012ec34715cba4f5b0736b8a4b66db4c74
   languageName: node
   linkType: hard
 
@@ -24587,22 +24587,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"markdown-it@npm:13.0.1":
-  version: 13.0.1
-  resolution: "markdown-it@npm:13.0.1"
-  dependencies:
-    argparse: ^2.0.1
-    entities: ~3.0.1
-    linkify-it: ^4.0.1
-    mdurl: ^1.0.1
-    uc.micro: ^1.0.5
-  bin:
-    markdown-it: bin/markdown-it.js
-  checksum: faf5891d389dc433bcf21d3fbff2009beb044b42b117c92f4848899780ca1a2282a209e3ff4672db4afed726a7248304ec473e6e242a7d6498af7113d31974e7
-  languageName: node
-  linkType: hard
-
-"markdown-it@npm:^13.0.1":
+"markdown-it@npm:13.0.2, markdown-it@npm:^13.0.1":
   version: 13.0.2
   resolution: "markdown-it@npm:13.0.2"
   dependencies:
@@ -26024,17 +26009,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"node-html-parser@npm:6.1.5":
-  version: 6.1.5
-  resolution: "node-html-parser@npm:6.1.5"
-  dependencies:
-    css-select: ^5.1.0
-    he: 1.2.0
-  checksum: b54257b31954be17d473c86a2fede53d5e238708f3d88577c98881c28ab66013fd37044903f6f3cd662b56d882681fb511bca75a80a80b62f7111b32b39eebae
-  languageName: node
-  linkType: hard
-
-"node-html-parser@npm:^6.1.5":
+"node-html-parser@npm:6.1.10, node-html-parser@npm:^6.1.5":
   version: 6.1.10
   resolution: "node-html-parser@npm:6.1.10"
   dependencies:
@@ -27537,14 +27512,14 @@ __metadata:
     "@justeat/f-cookie-banner": 4.7.0
     "@justeattakeaway/browserslist-config-pie": 0.2.0
     "@justeattakeaway/pie-icons": 4.9.2
-    "@types/markdown-it": 13.0.0
+    "@types/markdown-it": 13.0.2
     eleventy-plugin-rev: 1.1.1
     eleventy-sass: 2.2.3
     js-cookie: 2.2.1
-    markdown-it: 13.0.1
+    markdown-it: 13.0.2
     markdown-it-anchor: 8.6.7
     markdown-it-attrs: 4.1.6
-    node-html-parser: 6.1.5
+    node-html-parser: 6.1.10
     slugify: 1.6.6
   languageName: unknown
   linkType: soft
@@ -27632,7 +27607,7 @@ __metadata:
     "@justeattakeaway/pie-icon-button": 0.17.0
     "@justeattakeaway/pie-icons-webc": 0.10.0
     "@justeattakeaway/pie-link": 0.9.0
-    "@justeattakeaway/pie-modal": 0.26.0
+    "@justeattakeaway/pie-modal": 0.27.0
     "@justeattakeaway/pie-toggle-switch": 0.13.0
     "@storybook/addon-a11y": 7.4.0
     "@storybook/addon-designs": 7.0.5
@@ -36430,7 +36405,7 @@ __metadata:
     "@justeattakeaway/pie-css": 0.6.0
     "@justeattakeaway/pie-icon-button": 0.17.0
     "@justeattakeaway/pie-icons-webc": 0.10.0
-    "@justeattakeaway/pie-modal": 0.26.0
+    "@justeattakeaway/pie-modal": 0.27.0
     body-scroll-lock: 3.1.5
     vite: 4.3.9
   languageName: unknown
