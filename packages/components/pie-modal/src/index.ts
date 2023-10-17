@@ -108,6 +108,9 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
         document.addEventListener(ON_MODAL_OPEN_EVENT, this._handleModalOpened.bind(this));
         document.addEventListener(ON_MODAL_CLOSE_EVENT, this._handleModalClosed.bind(this));
         document.addEventListener(ON_MODAL_BACK_EVENT, this._handleModalClosed.bind(this));
+        this.hasScrolledToEndObserver = new IntersectionObserver(([entry]) => {
+            this.hasScrolledToEnd = entry.isIntersecting;
+        });
     }
 
     disconnectedCallback () : void {
@@ -136,15 +139,7 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
     updated (changedProperties: PropertyValues<this>) : void {
         super.updated(changedProperties);
         this._handleModalOpenStateChanged(changedProperties);
-        if (this.isFooterPinned) {
-            this.hasScrolledToEndObserver ??= new IntersectionObserver((entries) => {
-                this.hasScrolledToEnd = entries[0].isIntersecting;
-            });
-            const endOfContent = this.shadowRoot?.querySelector('#end-of-content') as HTMLElement;
-            this.hasScrolledToEndObserver?.observe(endOfContent);
-        } else {
-            this.hasScrolledToEndObserver?.disconnect();
-        }
+        this._handleIsPinnedFooterStateChanged();
     }
 
     /**
@@ -216,6 +211,18 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
             } else {
                 this._dispatchModalCustomEvent(ON_MODAL_OPEN_EVENT);
             }
+        }
+    }
+
+    private _handleIsPinnedFooterStateChanged () {
+        if (this.isFooterPinned) {
+            const endOfContent = this.shadowRoot?.querySelector('#end-of-content');
+            if (!endOfContent?.parentElement) return;
+            const hasScrollableContent = endOfContent.parentElement.scrollHeight > endOfContent.parentElement.clientHeight;
+            if (!hasScrollableContent) return;
+            this.hasScrolledToEndObserver?.observe(endOfContent);
+        } else {
+            this.hasScrolledToEndObserver?.disconnect();
         }
     }
 
@@ -349,7 +356,7 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
      */
     private renderModalContentAndFooter (): TemplateResult {
         return html`
-        <article class="c-modal-content ${this.hasScrolledToEnd ? 'c-modal-content--scrolled' : ''}">
+        <article class="c-modal-content c-modal-scrollContainer ${this.hasScrolledToEnd ? 'c-modal-content--scrolled' : ''}">
             <div class="c-modal-contentInner">
                 <slot></slot>
             </div>

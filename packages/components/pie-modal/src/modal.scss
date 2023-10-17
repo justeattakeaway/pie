@@ -266,6 +266,8 @@
 
         position: relative;
 
+        flex-grow: 1;
+
         font-size: var(--modal-content-font-size);
         line-height: var(--modal-content-line-height);
         font-weight: var(--modal-content-font-weight);
@@ -297,7 +299,6 @@
 
     &[isfooterpinned] {
         .c-modal-content {
-            flex-grow: 1;
             overflow-y: auto;
         }
 
