@@ -113,7 +113,7 @@ jobs:
     - name: Generate Slack payload blocks
       id: generate_payload
       run: |
-        PACKAGES='[{"name":"@justeattakeaway/pie-modal","version":"0.27.0"},{"name":"wc-vanilla","version":"0.4.23"}]'
+        PACKAGES='[{"name":"pie-docs","version":"0.41.1"},{"name":"@justeattakeaway/pie-modal","version":"0.27.0"},{"name":"wc-vanilla","version":"0.4.23"}]'
         PRIORITIZED_PACKAGES=$(echo $PACKAGES | jq -c '[.[] | select(.name == "pie-docs" or .name == "pie-storybook")]')
         REST_PACKAGES=$(echo $PACKAGES | jq -c '[.[] | select((.name != "pie-docs" and .name != "pie-storybook") and (.name | startswith("wc-") | not) and .name != "pie-monorepo")]')
     
