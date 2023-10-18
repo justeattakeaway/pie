@@ -34,7 +34,7 @@ PIE (Principles for Interfaces and Experiences) is Just Eat Takeaway's global de
 
 The PIE monorepo has several distinct sections, including:
   - pie-docs: This holds the content for our documentation site [pie.design](https://pie.design/).
-  - pie-storybook: A playground for testing Web Component changes. See [webc.pie.design]https://webc.pie.design.
+  - pie-storybook: A playground for testing Web Component changes. See [webc.pie.design](https://webc.pie.design).
   - components: This contains all the Web Components in the design system.
 
 ## Contributing
