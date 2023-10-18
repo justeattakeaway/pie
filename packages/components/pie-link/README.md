@@ -14,10 +14,7 @@
 2. [Installation](#installation)
 3. [Importing the component](#importing-the-component)
 4. [Peer Dependencies](#peer-dependencies)
-5. [Local Development](#local-development)
-6. [Props](#props)
-7. [Testing](#testing)
-
+5. [Props](#props)
 
 ## pie-link
 
@@ -56,31 +53,6 @@ import { PieLink } from '@justeattakeaway/pie-link/dist/react';
 
 > [!IMPORTANT]
 > When using `pie-link`, you will also need to include a couple of dependencies to ensure the component renders as expected. See [the PIE Wiki](https://github.com/justeattakeaway/pie/wiki/Getting-started-with-PIE-Web-Components#expected-dependencies) for more information and how to include these in your application.
-
-
-## Local development
-
-Install the dependencies. Note that this, and the following commands below, should be run from the **root of the monorepo**:
-
-```bash
-yarn
-```
-
-To build the `pie-link` package, run the following command:
-
-```bash
-yarn build --filter=pie-link
-```
-
-If you'd like to develop using the component storybook, then you should build the component in `watch` mode, and run storybook in a separate terminal tab:
-
-```bash
-yarn watch --filter=pie-link
-
-# in a separate terminal tab, run
-yarn dev --filter=pie-storybook
-```
-
 
 ## Props
 
@@ -130,38 +102,4 @@ We recommend using `pie-icons-webc` when using the `icon` slot. Here is an examp
     <icon-plus-circle slot="icon"></icon-plus-circle>
     Search
 </pie-link>
-```
-
-## Testing
-
-### Browser tests
-
-To run the browser tests, run the following command from the root of the monorepo:
-
-```bash
-yarn test:browsers --filter=pie-link
-```
-
-### Visual tests
-
-To run the visual regression tests, run the following command from the root of the monorepo:
-
-```bash
-yarn test:visual --filter=pie-link
-```
-
-Note: To run these locally, you will need to ensure that any environment variables required are set up on your machine to mirror those on CI (such as Percy tokens). How you achieve this will differ between operating systems.
-
-#### Setup via bash
-
-```bash
-export PERCY_TOKEN_PIE_LINK=abcde
-```
-
-#### Setup via package.json
-
-Under scripts `test:visual` replace the environment variable with the below:
-
-```bash
-PERCY_TOKEN_PIE_LINK=abcde
 ```
