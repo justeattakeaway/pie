@@ -232,29 +232,27 @@
     }
 
     &[isfooterpinned] .c-modal-content,
-    & .c-modal-scrollContainer {
+    & > .c-modal-scrollContainer {
         overflow-y: auto;
     }
 
-    & .c-modal-scrollContainer {
+    & > .c-modal-scrollContainer {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
         // These are the shadows used to indicate scrolling above and below content
-        --bg-scroll-start: linear-gradient(var(--dt-color-container-default) 30%, rgba(255, 255, 255, 0));
         --bg-scroll-end: linear-gradient(rgba(255, 255, 255, 0), var(--dt-color-container-default) 70%) 0 100%;
-        --bg-scroll-top: radial-gradient(farthest-side at 50% 0, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0));
-        --bg-scroll-bottom: radial-gradient(farthest-side at 50% 100%, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0)) 0 100%;
+        --bg-scroll-bottom: radial-gradient(farthest-corner at 50% 100%, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0)) 0 100%;
 
         // Sizes of the scroll shadows
-        --bg-size-scroll-start: 100% 40px;
         --bg-size-scroll-end: 100% 40px;
-        --bg-size-scroll-top: 100% 16px;
-        --bg-size-scroll-bottom: 100% 16px;
+        --bg-size-scroll-bottom: 100% 8px;
 
-        background: var(--bg-scroll-start), var(--bg-scroll-end), var(--bg-scroll-top), var(--bg-scroll-bottom);
+        background: var(--bg-scroll-end), var(--bg-scroll-bottom);
         background-repeat: no-repeat;
-        background-color: var(--dt-color-container-default);
-        background-size: var(--bg-size-scroll-start), var(--bg-size-scroll-end), var(--bg-size-scroll-top), var(--bg-size-scroll-bottom);
+        background-size: var(--bg-size-scroll-end), var(--bg-size-scroll-bottom);
 
-        background-attachment: local, local, scroll, scroll;
+        background-attachment: local, scroll;
     }
 
     & .c-modal-content {
@@ -287,7 +285,6 @@
         --spinner-animation-iteration-count: infinite;
 
         position: relative;
-        min-block-size: var(--dt-spacing-j);
 
         font-size: var(--modal-content-font-size);
         line-height: var(--modal-content-line-height);
@@ -295,6 +292,7 @@
 
         padding-inline: var(--modal-content-padding-inline);
         padding-block: var(--modal-content-padding-block);
+        flex-grow: 1;
 
         &--scrollable {
             background:
