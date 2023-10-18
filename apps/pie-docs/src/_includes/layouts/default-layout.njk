@@ -6,7 +6,7 @@ icon_fill: interactive-brand
 <html lang="{{ metadata.language }}" prefix="og: https://ogp.me/ns#">
     {% include "head.njk" %}
     <body {{bodyDataAttribute}}>
-        <a href="#main-content" class="c-skipLink"><span>Skip to main content</span></a>
+        <a data-js="skipToMain" href="#main-content" class="c-skipLink"><span>Skip to main content</span></a>
         <div class="page">
             {% include "header.njk" %}
             {% include "nav.njk" %}
@@ -17,6 +17,7 @@ icon_fill: interactive-brand
             {% include "footer.njk" %}
         </div>
 
+        {% include "scroll-to-top.njk" %}
         {% include "scripts.njk" %}
     </body>
 </html>

@@ -1,0 +1,16 @@
+@use '../fozzie-config' as f;
+
+.c-scrollTop {
+    position: fixed;
+    inset-block-end: f.spacing(d);
+    inset-inline-end: f.spacing(d);
+    z-index: f.zIndex('high');
+
+    display: none; // Hidden by default, will be set to flex by scroll-to-top.js
+    flex-direction: row;
+    gap: f.spacing();
+    justify-content: space-between;
+    align-items: center;
+
+    box-shadow: f.$elevation-03;
+}
