@@ -19,6 +19,7 @@
    - [HTML example](#html)
    - [Vue example (using Nuxt 3)](#vue-templates-using-nuxt-3)
    - [React example (using Next 13)](#react-templates-using-next-13)
+7. [Contributing](#contributing)
 
 
 ## `pie-icon-button`
@@ -133,3 +134,7 @@ For example, to add a click handler in various templates:
 <PieIconButton onClick={handleClick}><icon-close /></PieIconButton>
 
 ```
+
+## Contributing
+
+Check out our [contributing guide](https://github.com/justeattakeaway/pie/wiki/Contributing-Guide) for more information on [local development](https://github.com/justeattakeaway/pie/wiki/Contributing-Guide#local-development) and how to run specific [component tests](https://github.com/justeattakeaway/pie/wiki/Contributing-Guide#testing).

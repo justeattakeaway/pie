@@ -16,6 +16,7 @@
 4. [Peer Dependencies](#peer-dependencies)
 5. [Props](#props)
 6. [Legacy browser support](#legacy-browser-support)
+7. [Contributing](#contributing)
 
 
 ## pie-modal
@@ -99,3 +100,8 @@ The polyfill comes with a few limitations, as noted on its [documentation page](
 - Changes to the CSS top/bottom values while open aren't retained
 
 For more details, check the package documentation mentioned above.
+
+
+## Contributing
+
+Check out our [contributing guide](https://github.com/justeattakeaway/pie/wiki/Contributing-Guide) for more information on [local development](https://github.com/justeattakeaway/pie/wiki/Contributing-Guide#local-development) and how to run specific [component tests](https://github.com/justeattakeaway/pie/wiki/Contributing-Guide#testing).

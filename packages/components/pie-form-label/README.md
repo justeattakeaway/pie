@@ -16,7 +16,7 @@
 4. [Local Development](#local-development)
 5. [Peer Dependencies](#peer-dependencies)
 6. [Props](#props)
-7. [Testing](#testing)
+7. [Contributing](#contributing)
 
 ## pie-form-label
 
@@ -73,3 +73,7 @@ In your markup or JSX, you can then use these to set the properties for the `pie
 <!-- JSX -->
 <PieFormLabel>Label</PieFormLabel>
 ```
+
+## Contributing
+
+Check out our [contributing guide](https://github.com/justeattakeaway/pie/wiki/Contributing-Guide) for more information on [local development](https://github.com/justeattakeaway/pie/wiki/Contributing-Guide#local-development) and how to run specific [component tests](https://github.com/justeattakeaway/pie/wiki/Contributing-Guide#testing).

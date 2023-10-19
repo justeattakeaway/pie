@@ -15,6 +15,7 @@
 3. [Importing the component](#importing-the-component)
 4. [Peer Dependencies](#peer-dependencies)
 5. [Props](#props)
+6. [Contributing](#contributing)
 
 ## pie-link
 
@@ -103,3 +104,7 @@ We recommend using `pie-icons-webc` when using the `icon` slot. Here is an examp
     Search
 </pie-link>
 ```
+
+## Contributing
+
+Check out our [contributing guide](https://github.com/justeattakeaway/pie/wiki/Contributing-Guide) for more information on [local development](https://github.com/justeattakeaway/pie/wiki/Contributing-Guide#local-development) and how to run specific [component tests](https://github.com/justeattakeaway/pie/wiki/Contributing-Guide#testing).

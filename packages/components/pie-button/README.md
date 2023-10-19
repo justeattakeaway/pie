@@ -20,6 +20,7 @@
    - [Vue example (using Nuxt 3)](#vue-templates-using-nuxt-3)
    - [React example (using Next 13)](#react-templates-using-next-13)
 7. [Forms usage](#forms-usage)
+8. [Contributing](#contributing)
 
 
 ## pie-button
@@ -190,3 +191,7 @@ In this example:
 - The form will submit using the POST method.
 - No validation will be performed during submission, thanks to formnovalidate.
 - The form's submission response will be opened in a new browser tab/window because of the formtarget="_blank" attribute.
+
+## Contributing
+
+Check out our [contributing guide](https://github.com/justeattakeaway/pie/wiki/Contributing-Guide) for more information on [local development](https://github.com/justeattakeaway/pie/wiki/Contributing-Guide#local-development) and how to run specific [component tests](https://github.com/justeattakeaway/pie/wiki/Contributing-Guide#testing).

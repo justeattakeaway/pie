@@ -15,6 +15,7 @@
 3. [Importing the component](#importing-the-component)
 4. [Peer Dependencies](#peer-dependencies)
 5. [Props](#props)
+6. [Contributing](#contributing)
 
 ## pie-card-container
 
@@ -78,3 +79,7 @@ In your markup or JSX, you can then use these to set the properties for the `pie
 <!-- JSX -->
 <PieCardContainer disabled href="/foo/bar" rel="noopener" target="_blank"></PieCardContainer>
 ```
+
+## Contributing
+
+Check out our [contributing guide](https://github.com/justeattakeaway/pie/wiki/Contributing-Guide) for more information on [local development](https://github.com/justeattakeaway/pie/wiki/Contributing-Guide#local-development) and how to run specific [component tests](https://github.com/justeattakeaway/pie/wiki/Contributing-Guide#testing).
