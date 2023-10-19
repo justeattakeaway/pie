@@ -2,7 +2,7 @@ import {
     LitElement, html, unsafeCSS, nothing,
 } from 'lit';
 import { property } from 'lit/decorators.js';
-import { validPropertyValues } from '@justeattakeaway/pie-webc-core';
+import { validPropertyValues, defineCustomElement } from '@justeattakeaway/pie-webc-core';
 import {
     ButtonProps, sizes, types, variants, iconPlacements,
 } from './defs';
@@ -182,7 +182,8 @@ export class PieButton extends LitElement implements ButtonProps {
     static styles = unsafeCSS(styles);
 }
 
-customElements.define(componentSelector, PieButton);
+// customElements.define(componentSelector, PieButton);
+defineCustomElement(componentSelector, PieButton);
 
 declare global {
     interface HTMLElementTagNameMap {
