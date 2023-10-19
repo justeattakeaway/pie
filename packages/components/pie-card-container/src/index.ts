@@ -2,7 +2,7 @@ import {
     html, LitElement, unsafeCSS, nothing, TemplateResult,
 } from 'lit';
 import { property } from 'lit/decorators.js';
-import { validPropertyValues } from '@justeattakeaway/pie-webc-core';
+import { validPropertyValues, defineCustomElement } from '@justeattakeaway/pie-webc-core';
 import styles from './card-container.scss?inline';
 import {
     variants,
@@ -153,7 +153,7 @@ export class PieCardContainer extends LitElement implements CardContainerProps {
     static styles = unsafeCSS(styles);
 }
 
-customElements.define(componentSelector, PieCardContainer);
+defineCustomElement(componentSelector, PieCardContainer);
 
 declare global {
     interface HTMLElementTagNameMap {

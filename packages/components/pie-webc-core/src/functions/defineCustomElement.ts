@@ -1,10 +1,9 @@
 import { LitElement } from 'lit';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 type ClassThatExtendsLitElement = new (...args: unknown[]) => LitElement;
 
 /**
- * Defines a custom web component, ensuring that the component is only defined once in the Custom Element Registry.
+ * Defines a web component, ensuring that the component is only defined once in the Custom Element Registry.
  *
  * If the component has already been defined with the same name, a warning is logged to the console.
  *
@@ -13,8 +12,11 @@ type ClassThatExtendsLitElement = new (...args: unknown[]) => LitElement;
  *
  * @example
  *
+ * ```javascript
  * import { css, html, LitElement } from 'lit';
  *
+ * // IMPORTANT: Add the following JSDoc comment above your class setting the `@tagname` to the selector you want to use. - This is mandatory.
+ * // "@tagname my-component"
  * class MyComponent extends LitElement {
  *   static styles = css`
  *     :host {
@@ -32,6 +34,9 @@ type ClassThatExtendsLitElement = new (...args: unknown[]) => LitElement;
  * }
  *
  * defineCustomElement('my-component', MyComponent);
+ * ```
+ *
+ * NOTE: The inclusion of the `@tagname` JSDoc comment above your class is essential for correct functionality. Ensure it matches the tag you're registering.
  *
  * @returns {void}
  */

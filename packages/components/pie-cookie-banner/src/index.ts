@@ -1,6 +1,7 @@
 import {
     LitElement, html, unsafeCSS, TemplateResult, nothing,
 } from 'lit';
+import { defineCustomElement } from '@justeattakeaway/pie-webc-core';
 import { state, queryAll } from 'lit/decorators.js';
 import { repeat } from 'lit/directives/repeat.js';
 import { PieToggleSwitch } from '@justeattakeaway/pie-toggle-switch';
@@ -243,7 +244,7 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
     static styles = unsafeCSS(styles);
 }
 
-customElements.define(componentSelector, PieCookieBanner);
+defineCustomElement(componentSelector, PieCookieBanner);
 
 declare global {
     interface HTMLElementTagNameMap {

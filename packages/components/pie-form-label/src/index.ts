@@ -1,6 +1,7 @@
 import {
     LitElement, html, nothing, unsafeCSS,
 } from 'lit';
+import { defineCustomElement } from '@justeattakeaway/pie-webc-core';
 import { property } from 'lit/decorators.js';
 import styles from './form-label.scss?inline';
 import { FormLabelProps } from './defs';
@@ -46,7 +47,7 @@ export class PieFormLabel extends LitElement implements FormLabelProps {
     static styles = unsafeCSS(styles);
 }
 
-customElements.define(componentSelector, PieFormLabel);
+defineCustomElement(componentSelector, PieFormLabel);
 
 declare global {
     interface HTMLElementTagNameMap {

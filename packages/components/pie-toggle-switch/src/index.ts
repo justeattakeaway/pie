@@ -2,7 +2,7 @@ import {
     LitElement, html, unsafeCSS, nothing, TemplateResult,
 } from 'lit';
 import { property } from 'lit/decorators.js';
-import { RtlMixin, validPropertyValues } from '@justeattakeaway/pie-webc-core';
+import { RtlMixin, validPropertyValues, defineCustomElement } from '@justeattakeaway/pie-webc-core';
 import styles from './toggle-switch.scss?inline';
 import {
     ToggleSwitchProps, ON_TOGGLE_SWITCH_CHANGED_EVENT, AriaProps, labelPlacements,
@@ -116,7 +116,7 @@ export class PieToggleSwitch extends RtlMixin(LitElement) implements ToggleSwitc
     }
 }
 
-customElements.define(componentSelector, PieToggleSwitch);
+defineCustomElement(componentSelector, PieToggleSwitch);
 
 declare global {
     interface HTMLElementTagNameMap {
