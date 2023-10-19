@@ -15,6 +15,7 @@ export * from './defs';
 const componentSelector = 'pie-button';
 
 /**
+ * @tagname pie-button
  * @slot icon - The icon slot
  * @slot - Default slot
  */
@@ -182,7 +183,6 @@ export class PieButton extends LitElement implements ButtonProps {
     static styles = unsafeCSS(styles);
 }
 
-// customElements.define(componentSelector, PieButton);
 defineCustomElement(componentSelector, PieButton);
 
 declare global {
