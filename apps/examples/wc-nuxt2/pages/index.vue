@@ -2,7 +2,6 @@
     <div>
         <div class="button-container">
             <pie-button size="xsmall">Xsmall button</pie-button>
-            <pie-button size="small">Small button</pie-button>
             <pie-button size="medium">Medium button</pie-button>
             <pie-button size="large">Large button</pie-button>
             <pie-button variant="secondary">Secondary button</pie-button>

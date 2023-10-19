@@ -7,12 +7,7 @@ import { defineCustomElement } from '../defineCustomElement';
 
 it('should call console.warn when a component is defined twice', () => {
     // Arrange
-    class MockComponentA extends LitElement {
-        // eslint-disable-next-line no-useless-constructor
-        constructor () {
-            super();
-        }
-    }
+    class MockComponentA extends LitElement {}
 
     const warnSpy = vi.spyOn(console, 'warn');
     const errorSpy = vi.spyOn(console, 'error');
@@ -32,12 +27,7 @@ it('should call console.warn when a component is defined twice', () => {
 
 it('should define the component without warnings when called once', () => {
     // Arrange
-    class MockComponentB extends LitElement {
-        // eslint-disable-next-line no-useless-constructor
-        constructor () {
-            super();
-        }
-    }
+    class MockComponentB extends LitElement {}
 
     const warnSpy = vi.spyOn(console, 'warn');
     const errorSpy = vi.spyOn(console, 'error');
@@ -53,19 +43,9 @@ it('should define the component without warnings when called once', () => {
 
 it('should warn when defining the same component name with a different class', () => {
     // Arrange
-    class MockComponentC extends LitElement {
-        // eslint-disable-next-line no-useless-constructor
-        constructor () {
-            super();
-        }
-    }
+    class MockComponentC extends LitElement {}
 
-    class MockComponentD extends LitElement {
-        // eslint-disable-next-line no-useless-constructor
-        constructor () {
-            super();
-        }
-    }
+    class MockComponentD extends LitElement {}
 
     const warnSpy = vi.spyOn(console, 'warn');
     const errorSpy = vi.spyOn(console, 'error');
