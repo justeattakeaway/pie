@@ -1,14 +1,12 @@
 import { LitElement } from 'lit';
 
-type ClassThatExtendsLitElement = new (...args: unknown[]) => LitElement;
-
 /**
  * Defines a web component, ensuring that the component is only defined once in the Custom Element Registry.
  *
  * If the component has already been defined with the same name, a warning is logged to the console.
  *
  * @param {string} elementSelector - The selector of the custom element. Must be a valid custom element selector, containing a dash. I.e. 'my-component'
- * @param {ClassThatExtendsLitElement} elementClass - The class that defines the custom element, extending LitElement.
+ * @param {typeof LitElement} elementClass - The class that defines the custom element, extending LitElement.
  *
  * @example
  *
@@ -40,7 +38,7 @@ type ClassThatExtendsLitElement = new (...args: unknown[]) => LitElement;
  *
  * @returns {void}
  */
-export function defineCustomElement (elementSelector: string, elementClass: ClassThatExtendsLitElement): void {
+export function defineCustomElement (elementSelector: string, elementClass: typeof LitElement): void {
     if (!customElements.get(elementSelector)) {
         customElements.define(elementSelector, elementClass);
     } else {

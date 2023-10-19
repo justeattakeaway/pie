@@ -62,3 +62,20 @@ it('should warn when defining the same component name with a different class', (
     expect(errorSpy).not.toHaveBeenCalled();
     expect(customElements.get('mock-component-c')).toBe(MockComponentC);
 });
+
+it('Should correctly accept component classes that use multiple levels of inheritance', () => {
+    // Arrange
+    class MockComponentE extends LitElement {}
+    class MockComponentF extends MockComponentE {}
+
+    const warnSpy = vi.spyOn(console, 'warn');
+    const errorSpy = vi.spyOn(console, 'error');
+
+    // Act
+    defineCustomElement('mock-component-f', MockComponentF);
+
+    // Assert
+    expect(warnSpy).not.toHaveBeenCalled();
+    expect(errorSpy).not.toHaveBeenCalled();
+    expect(customElements.get('mock-component-f')).toBe(MockComponentF);
+});
