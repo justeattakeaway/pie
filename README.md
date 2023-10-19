@@ -53,4 +53,4 @@ Please see [Changelog](./CHANGELOG.md).
 
 Please head to our [FAQs](https://pie.design/support/faq/) for answers to frequently asked questions.
 
-If you are inneed of any support, please create a workflow request in our slack channel `#help-designsystem` and someone from the team will get back to you as soon as possible.
+If you are in need of any support, please create a workflow request in our slack channel `#help-designsystem` and someone from the team will get back to you as soon as possible.
