@@ -4,6 +4,12 @@
     position: fixed;
     inset-block-end: f.spacing(d);
     inset-inline-end: f.spacing(d);
+
+    @include f.media('>=wide') {
+        inset-block-end: f.spacing(f);
+        inset-inline-end: f.spacing(e);
+    }
+
     z-index: f.zIndex('high');
 
     display: none; // Hidden by default, will be set to flex by scroll-to-top.js

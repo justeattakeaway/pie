@@ -1,11 +1,20 @@
-const scrollToTopButton = document.querySelector('[data-js="scroll-to-top"]');
+let scrollToTopButton;
 
 const initialiseScrollToTop = () => {
+    scrollToTopButton = document.querySelector('[data-js="scroll-to-top"]');
+    const siteHeader = document.querySelector('[data-js="site-header"]');
+
     if (!scrollToTopButton) return;
 
-    calculateVisibility();
+    const scrollObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            calculateButtonVisibility(entry.isIntersecting);
+        });
+    });
 
-    window.addEventListener('scroll', calculateVisibility);
+    if (siteHeader) {
+        scrollObserver.observe(siteHeader);
+    }
 
     // Scroll button functionality
     scrollToTopButton.addEventListener('click', (event) => {
@@ -24,12 +33,12 @@ const initialiseScrollToTop = () => {
     });
 };
 
-// Show or hide the button based on the page's current scrollY position
-const calculateVisibility = () => {
-    if (window.scrollY > 0) {
-        scrollToTopButton.style.display = 'flex';
-    } else {
+// Show or hide the button based on whether the observed element is visible
+const calculateButtonVisibility = (isObservedElementVisible) => {
+    if (isObservedElementVisible) {
         scrollToTopButton.style.display = 'none';
+    } else {
+        scrollToTopButton.style.display = 'flex';
     }
 };
 
