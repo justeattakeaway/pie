@@ -21,6 +21,7 @@ export * from './defs';
 const componentSelector = 'pie-link';
 
 /**
+ * @tagname pie-link
  * @slot icon - The icon slot
  * @slot - Default slot
  */

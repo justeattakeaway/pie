@@ -33,6 +33,7 @@ export * from './defs';
 const componentSelector = 'pie-modal';
 
 /**
+ * @tagname pie-modal
  * @event {CustomEvent} pie-modal-open - when the modal is opened.
  * @event {CustomEvent} pie-modal-close - when the modal is closed.
  * @event {CustomEvent} pie-modal-back - when the modal back button is clicked.

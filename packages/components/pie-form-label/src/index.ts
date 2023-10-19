@@ -10,6 +10,9 @@ export * from './defs';
 
 const componentSelector = 'pie-form-label';
 
+/**
+ * @tagname pie-form-label
+ */
 export class PieFormLabel extends LitElement implements FormLabelProps {
     @property({ type: String, reflect: true })
     public for?: string;

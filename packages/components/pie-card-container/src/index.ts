@@ -16,6 +16,9 @@ export * from './defs';
 
 const componentSelector = 'pie-card-container';
 
+/**
+ * @tagname pie-card-container
+ */
 export class PieCardContainer extends LitElement implements CardContainerProps {
     @property()
     @validPropertyValues(componentSelector, interactionTypes, 'none')

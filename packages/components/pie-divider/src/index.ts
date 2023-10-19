@@ -9,6 +9,9 @@ export * from './defs';
 
 const componentSelector = 'pie-divider';
 
+/**
+ * @tagname pie-divider
+ */
 export class PieDivider extends LitElement implements DividerProps {
     @property({ type: String })
     @validPropertyValues(componentSelector, variants, 'default')

@@ -12,6 +12,9 @@ export * from './defs';
 
 const componentSelector = 'pie-icon-button';
 
+/**
+ * @tagname pie-icon-button
+ */
 export class PieIconButton extends LitElement implements IconButtonProps {
     @property()
     @validPropertyValues(componentSelector, sizes, 'medium')

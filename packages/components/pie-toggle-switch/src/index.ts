@@ -15,6 +15,7 @@ export * from './defs';
 const componentSelector = 'pie-toggle-switch';
 
 /**
+ * @tagname pie-toggle-switch
  * @event {CustomEvent} pie-toggle-switch-changed - when the toggle switch checked state is changed.
  */
 
@@ -84,9 +85,9 @@ export class PieToggleSwitch extends RtlMixin(LitElement) implements ToggleSwitc
         const toggleSwitchId = 'toggle-switch-description';
 
         return html`
-            <div 
-                class="c-toggleSwitch-wrapper" 
-                ?isRTL=${isRTL} 
+            <div
+                class="c-toggleSwitch-wrapper"
+                ?isRTL=${isRTL}
                 ?isDisabled=${isDisabled}>
                 ${labelPlacement === 'leading' ? this.renderToggleSwitchLabel() : nothing}
                 <label
