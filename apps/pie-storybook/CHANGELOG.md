@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.41.2
+
+### Patch Changes
+
+- [Updated] - The `dompurify` dependency from `3.0.5` to `3.0.6` ([#901](https://github.com/justeattakeaway/pie/pull/901)) by [@siggerzz](https://github.com/siggerzz)
+
 ## 0.41.1
 
 ### Patch Changes
