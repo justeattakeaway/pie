@@ -15,7 +15,7 @@ type CardContainerProps = SlottedComponentProps<CardContainerPropsBase>;
 type CardContainerStoryMeta = StoryMeta<CardContainerProps>;
 
 const defaultArgs: CardContainerProps = {
-    interactionType: 'none',
+    interactionType: 'button',
     variant: 'default',
     href: '#',
     disabled: false,
@@ -26,10 +26,10 @@ const defaultArgs: CardContainerProps = {
     },
     isDraggable: false,
     // This is just an arbitrary example of some markup a user may pass into the card
-    slot: `<div style="color: var(--card-color); font-size: calc(var(--dt-font-body-l-size) * 1px); font-family: var(--dt-font-interactive-m-family); padding: var(--dt-spacing-b);">
-        <h2> Card title </h2>
+    slot: `<div style="font-size: calc(var(--dt-font-body-l-size) * 1px); font-family: var(--dt-font-interactive-m-family); padding: var(--dt-spacing-b);">
+        <h2 style="margin-top: 0"> Card title </h2>
         <p> Card content </p>
-        <p> Lorem ipsum dolor sit amet
+        <p style="margin-bottom: 0"> Lorem ipsum dolor sit amet
         consectetur adipisicing elit.
         Fugiat dolore dolorem maxime,
         quod, in minima esse fugit
@@ -48,7 +48,7 @@ const cardContainerStoryMeta: CardContainerStoryMeta = {
             control: 'select',
             options: interactionTypes,
             defaultValue: {
-                summary: 'none',
+                summary: 'button',
             },
         },
         variant: {

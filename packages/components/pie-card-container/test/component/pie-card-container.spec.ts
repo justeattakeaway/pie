@@ -94,36 +94,6 @@ test.describe('PieCardContainer - Component tests', () => {
         await expect(component).toHaveAttribute('tabindex', '0');
     });
 
-    test('should render the card without button or anchor attributes when interactionType = "none"', async ({ mount, page }) => {
-        // Arrange
-        const interactionType = 'none';
-        const href = 'foo.com';
-        const rel = 'noopener noreferrer';
-        const target = '_blank';
-
-        await mount(PieCardContainer, {
-            props: {
-                interactionType,
-                href,
-                rel,
-                target,
-            } as CardContainerProps,
-            slots: {
-                default: slotContent,
-            },
-        });
-
-        // Act
-        const component = page.locator(componentSelector);
-
-        // Assert
-        await expect(component).not.toHaveAttribute('role', 'button');
-        await expect(component).not.toHaveAttribute('tabindex', '0');
-        await expect(component).not.toHaveAttribute('href', href);
-        await expect(component).not.toHaveAttribute('rel', rel);
-        await expect(component).not.toHaveAttribute('target', target);
-    });
-
     [true, false].forEach((disabled) => {
         test(`should add an aria-disabled attribute that matches the value of the disabled prop (${disabled})`, async ({ mount, page }) => {
             // Arrange

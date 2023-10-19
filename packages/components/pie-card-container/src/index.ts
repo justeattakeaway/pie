@@ -22,7 +22,7 @@ const componentSelector = 'pie-card-container';
 export class PieCardContainer extends LitElement implements CardContainerProps {
     @property()
     @validPropertyValues(componentSelector, interactionTypes, 'none')
-    public interactionType: CardContainerProps['interactionType'] = 'none';
+    public interactionType: CardContainerProps['interactionType'] = 'button';
 
     @property()
     @validPropertyValues(componentSelector, variants, 'default')

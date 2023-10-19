@@ -39,9 +39,13 @@
     background-color: var(--card-bg-color);
     border: 1px solid var(--card-border-color);
     border-radius: var(--card-radius);
+    cursor: pointer;
+    user-select: none;
+    outline: none;
+    text-decoration: none;
 
     &[variant='default'] {
-        box-shadow: var(--dt-elevation-01);
+        box-shadow: var(--dt-elevation-card);
 
         @include card-interactive-states('--dt-color-container-default');
     }
@@ -54,6 +58,7 @@
 
     &[variant='inverse'] {
         --card-bg-color: var(--dt-color-container-dark);
+        color: var(--card-color);
 
         box-shadow: var(--dt-elevation-inverse-01);
 
@@ -62,6 +67,7 @@
 
     &[variant='outline-inverse'] {
         --card-bg-color: var(--dt-color-container-dark);
+        color: var(--card-color);
 
         border-color: var(--dt-color-border-inverse);
 
@@ -70,20 +76,20 @@
 
     &[disabled] {
         --card-bg-color: var(--dt-color-disabled-01);
+        cursor: not-allowed;
 
-        pointer-events: none;
+        ::slotted(*) {
+            color: var(--dt-color-content-disabled);
+        }
+
+        img {
+            opacity: 0.5;
+        }
 
         &[variant='inverse'],
         &[variant='outline-inverse'] {
             --card-bg-color: var(--dt-color-disabled-01-inverse);
         }
-    }
-
-    &:not([interactiontype='none']) {
-        cursor: pointer;
-        user-select: none;
-        outline: none;
-        text-decoration: none;
     }
 
     &:focus-visible {

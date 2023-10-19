@@ -1,5 +1,5 @@
 export const variants = ['default', 'outline', 'inverse', 'outline-inverse'] as const;
-export const interactionTypes = ['anchor', 'button', 'none'] as const;
+export const interactionTypes = ['anchor', 'button'] as const;
 
 const spacingTokens = ['a', 'b', 'c', 'd', 'e', 'f', 'g'] as const;
 export const paddingValues = spacingTokens.flatMap((first) => [first, ...spacingTokens.map((second) => `${first},${second}`)]);
