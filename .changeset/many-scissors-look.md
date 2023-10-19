@@ -10,4 +10,4 @@
 "@justeattakeaway/pie-link": minor
 ---
 
-[Added] - @tagname jsdoc comment to top of component class
+[Added] - @tagname jsdoc comment to top of component class and use new defineCustomElement function to define the components
