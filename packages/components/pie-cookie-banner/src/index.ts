@@ -1,6 +1,7 @@
 import {
     LitElement, html, unsafeCSS, TemplateResult, nothing,
 } from 'lit';
+import { defineCustomElement } from '@justeattakeaway/pie-webc-core';
 import { state, queryAll } from 'lit/decorators.js';
 import { repeat } from 'lit/directives/repeat.js';
 import { PieToggleSwitch } from '@justeattakeaway/pie-toggle-switch';
@@ -22,6 +23,7 @@ export * from './defs';
 const componentSelector = 'pie-cookie-banner';
 
 /**
+ * @tagname pie-cookie-banner
  * @event {CustomEvent} pie-cookie-banner-accept-all - when all cookies are accepted.
  * @event {CustomEvent} pie-cookie-banner-necessary-only - when all only necessary cookies are accepted.
  * @event {CustomEvent} pie-cookie-banner-manage-prefs - when a user clicks manage preferences.
@@ -153,9 +155,9 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
                     <h3 class="c-cookieBanner-subheading">${title}</h3>
                      ${description ? html`<p class="c-cookieBanner-description">${description}</p>` : nothing}
                  </div>
-                <pie-toggle-switch 
+                <pie-toggle-switch
                     id="${id}"
-                    ?isChecked="${isChecked}" 
+                    ?isChecked="${isChecked}"
                     ?isDisabled="${isDisabled}"
                     @pie-toggle-switch-changed="${this._handleToggleStates}"/>
                 </div>
@@ -168,8 +170,8 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
      */
     private renderModalContent (): TemplateResult {
         return html`
-            <p class="c-cookieBanner-description">You can find all the information in the 
-                <pie-link href="#" size="small" target="_blank">Cookie Statement</pie-link> and 
+            <p class="c-cookieBanner-description">You can find all the information in the
+                <pie-link href="#" size="small" target="_blank">Cookie Statement</pie-link> and
                 <pie-link href="#" size="small" target="_blank">Cookie technology list</pie-link>.
             </p>
             ${repeat(
@@ -242,7 +244,7 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
     static styles = unsafeCSS(styles);
 }
 
-customElements.define(componentSelector, PieCookieBanner);
+defineCustomElement(componentSelector, PieCookieBanner);
 
 declare global {
     interface HTMLElementTagNameMap {

@@ -21,6 +21,7 @@ const componentTemplate = (name, svg) => {
     return `import {
     html, LitElement, TemplateResult, css, PropertyValues
 } from 'lit';
+import { defineCustomElement } from '@justeattakeaway/pie-webc-core';
 import { property, query } from 'lit/decorators.js';
 import { getSvgProps, ${sizeType} } from '@justeattakeaway/pie-icons-configs';
 
@@ -31,6 +32,9 @@ interface IconProps {
 
 const componentSelector = '${kebabCase(name)}';
 
+/**
+ * @tagname ${kebabCase(name)}
+ */
 export class ${name} extends LitElement implements IconProps {
     // The following styles make sure that the icon will be sized correctly
     static styles = css\`
@@ -76,9 +80,7 @@ export class ${name} extends LitElement implements IconProps {
     }
 }
 
-if (customElements.get(componentSelector) === undefined) {
-    customElements.define(componentSelector, ${name});
-}
+defineCustomElement(componentSelector, ${name});
 
 declare global {
     interface HTMLElementTagNameMap {

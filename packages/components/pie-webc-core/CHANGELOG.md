@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.11.0
+
+### Minor Changes
+
+- [Added] - defineCustomElement helper function to protect against duplicate component registration errors ([#905](https://github.com/justeattakeaway/pie/pull/905)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.10.0
 
 ### Minor Changes

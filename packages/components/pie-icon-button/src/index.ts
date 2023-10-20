@@ -1,6 +1,6 @@
 import { LitElement, html, unsafeCSS } from 'lit';
 import { property } from 'lit/decorators.js';
-import { validPropertyValues } from '@justeattakeaway/pie-webc-core';
+import { validPropertyValues, defineCustomElement } from '@justeattakeaway/pie-webc-core';
 
 import styles from './iconButton.scss?inline';
 import {
@@ -12,6 +12,9 @@ export * from './defs';
 
 const componentSelector = 'pie-icon-button';
 
+/**
+ * @tagname pie-icon-button
+ */
 export class PieIconButton extends LitElement implements IconButtonProps {
     @property()
     @validPropertyValues(componentSelector, sizes, 'medium')
@@ -44,7 +47,7 @@ export class PieIconButton extends LitElement implements IconButtonProps {
     static styles = unsafeCSS(styles);
 }
 
-customElements.define(componentSelector, PieIconButton);
+defineCustomElement(componentSelector, PieIconButton);
 
 declare global {
     interface HTMLElementTagNameMap {
