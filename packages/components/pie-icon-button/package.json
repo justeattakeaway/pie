@@ -26,7 +26,7 @@
   "author": "Just Eat Takeaway.com - Design System Team",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@justeattakeaway/pie-icons-webc": "0.11.0",
+    "@justeattakeaway/pie-icons-webc": "0.11.1",
     "@justeattakeaway/pie-webc-core": "0.11.0"
   },
   "peerDependencies": {
