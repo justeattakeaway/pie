@@ -58,7 +58,7 @@ import { PieCardContainer } from '@justeattakeaway/pie-card-container/dist/react
 ## Props
 
 | Property        | Type      | Default     | Description                                                                                                                                                                                                                                                         |
-|---|---|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|---|---|-------------|------------------------------------------------------------------------------------------------------------------------------|
 | interactionType | `String`  | `none`      | The interaction intent of the card container, one of `interaction` – `anchor`, `button` or `none`
 | variant         | `string`  | `default`   | What style variant the card should be such as default, outline, inverse or outline-inverse                                                                                                                                                                          |
 | disabled        | `boolean` | `false`     | When true, the card container is disabled.                                                                                                                                                                                                                          |
