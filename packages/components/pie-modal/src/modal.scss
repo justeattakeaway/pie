@@ -310,10 +310,6 @@
             // (and therefore hides) the shadow. This gives the effect of the shadow fading away.
             // The shadow itself does not move as you scroll.
             background-attachment: local, scroll;
-
-            @supports not (aspect-ratio: 1 / 1) {
-                background: none;
-            }
         }
 
         &:before {
