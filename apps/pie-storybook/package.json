@@ -1,6 +1,6 @@
 {
   "name": "pie-storybook",
-  "version": "0.41.4",
+  "version": "0.41.5",
   "description": "Storybook for PIE Design System components",
   "scripts": {
     "dev": "storybook dev -p 6006",
@@ -12,7 +12,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@justeat/pie-design-tokens": "5.8.2",
-    "@justeattakeaway/pie-button": "0.33.0",
+    "@justeattakeaway/pie-button": "0.34.0",
     "@justeattakeaway/pie-card-container": "0.11.0",
     "@justeattakeaway/pie-cookie-banner": "0.7.0",
     "@justeattakeaway/pie-css": "0.6.0",

@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.34.0
+
+### Minor Changes
+
+- [Fixed] - Set explicit height and fix xsmall and small bg colors ([#909](https://github.com/justeattakeaway/pie/pull/909)) by [@ashleynolan](https://github.com/ashleynolan)
+
 ## 0.33.0
 
 ### Minor Changes
