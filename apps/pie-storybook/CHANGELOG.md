@@ -1,5 +1,21 @@
 # Changelog
 
+## 0.41.3
+
+### Patch Changes
+
+- Updated dependencies [[`4cab049d1`](https://github.com/justeattakeaway/pie/commit/4cab049d1e78196bcd4411efba8d82d86f7a4f06), [`4cab049d1`](https://github.com/justeattakeaway/pie/commit/4cab049d1e78196bcd4411efba8d82d86f7a4f06)]:
+  - @justeattakeaway/pie-icons-webc@0.11.0
+  - @justeattakeaway/pie-card-container@0.11.0
+  - @justeattakeaway/pie-cookie-banner@0.7.0
+  - @justeattakeaway/pie-toggle-switch@0.14.0
+  - @justeattakeaway/pie-icon-button@0.18.0
+  - @justeattakeaway/pie-form-label@0.5.0
+  - @justeattakeaway/pie-divider@0.8.0
+  - @justeattakeaway/pie-button@0.33.0
+  - @justeattakeaway/pie-modal@0.28.0
+  - @justeattakeaway/pie-link@0.10.0
+
 ## 0.41.2
 
 ### Patch Changes

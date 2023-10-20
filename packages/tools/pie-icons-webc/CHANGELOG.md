@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-icons-webc
 
+## 0.11.0
+
+### Minor Changes
+
+- [Added] - jsdoc @tagname comment to generated icon typescript classes and new defineCustomElement function to define the components ([#905](https://github.com/justeattakeaway/pie/pull/905)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.10.0
 
 ### Minor Changes
