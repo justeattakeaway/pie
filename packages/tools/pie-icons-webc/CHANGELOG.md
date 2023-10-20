@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-icons-webc
 
+## 0.11.1
+
+### Patch Changes
+
+- [Changed] - Moved test packages from dependencies to dev dependencies to prevent consumers from needing to install them ([#911](https://github.com/justeattakeaway/pie/pull/911)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.11.0
 
 ### Minor Changes
