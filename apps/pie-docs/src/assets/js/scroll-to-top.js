@@ -28,7 +28,7 @@ const initialiseScrollToTop = () => {
 
         if (event.detail === 0) {
             // When the button is triggered via the keyboard but not mouse clicks
-            document.querySelector('[data-js="skipToMain"]')?.focus();
+            document.querySelector('[data-js="skip-to-main"]')?.focus();
         }
     });
 };

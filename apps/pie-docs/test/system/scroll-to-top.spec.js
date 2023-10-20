@@ -42,7 +42,7 @@ test.describe('PIE - Back to top button - @desktop', () => {
         await expect(pageScrollY).toBe(0);
     });
 
-    test('should focus on skipToMain when triggered by a keyboard event', async ({ page }) => {
+    test('should focus on skip-to-main when triggered by a keyboard event', async ({ page }) => {
         // Arrange
         // Scroll a bit to reveal the button
         await page.evaluate('window.scroll(0, 100)');
@@ -54,10 +54,10 @@ test.describe('PIE - Back to top button - @desktop', () => {
 
         // Assert
         const focusedElement = await page.locator(':focus');
-        await expect(focusedElement).toHaveAttribute('data-test-id', 'skipToMain');
+        await expect(focusedElement).toHaveAttribute('data-test-id', 'skip-to-main');
     });
 
-    test('should not focus on skipToMain when triggered by a mouse event', async ({ page }) => {
+    test('should not focus on skip-to-main when triggered by a mouse event', async ({ page }) => {
         // Arrange
         // Scroll a bit to reveal the button
         await page.evaluate('window.scroll(0, 100)');
