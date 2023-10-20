@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-toggle-switch",
   "description": "PIE Design System Toggle Switch built using Web Components",
-  "version": "0.13.0",
+  "version": "0.14.0",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -29,7 +29,7 @@
   "license": "Apache-2.0",
   "devDependencies": {
     "@justeattakeaway/pie-components-config": "0.4.0",
-    "@justeattakeaway/pie-icons-webc": "0.10.0"
+    "@justeattakeaway/pie-icons-webc": "0.11.0"
   },
   "volta": {
     "extends": "../../../package.json"
