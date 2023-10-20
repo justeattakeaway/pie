@@ -5,7 +5,7 @@
     {{ { name: 'close', attrs: { fill: toggleIconFill, height: '24', width: '24', class: 'u-iconFilled' } } | pieIconsSvg | safe }}
 </label>
 
-<header class="c-header" data-test-id="site_header">
+<header class="c-header" data-js="site-header" data-test-id="site_header">
     <a class="c-header-logo" href="{{ '/' | url }}" aria-label="Go to the PIE home page">
         {% include "pie-logo.njk" %}
     </a>
