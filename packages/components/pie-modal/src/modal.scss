@@ -349,7 +349,6 @@
         }
     }
 
-    
     // removes the scroll shadow effect if "background-attachment" isn't supported.
     // @supports (background-attachment: local) isn't used as Safari 14 recognizes the property but it has no effect
     @supports not (aspect-ratio: 1 / 1) {
