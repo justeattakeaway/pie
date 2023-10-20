@@ -4,6 +4,7 @@ import {
 import { defineCustomElement } from '@justeattakeaway/pie-webc-core';
 import { state, queryAll } from 'lit/decorators.js';
 import { repeat } from 'lit/directives/repeat.js';
+import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 import { PieToggleSwitch } from '@justeattakeaway/pie-toggle-switch';
 import styles from './cookie-banner.scss?inline';
 import {
@@ -181,7 +182,53 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
         )}`;
     }
 
+    private interpolate (str) {
+        const tagReplacers = {
+            linkStatement: (tagContent) => html`<pie-link variant="inverse">${tagContent}</pie-link>`,
+            linkNecessaryOnly: (tagContent) => html`<pie-link data-test-id="body-necessary-only" tag="button" variant="inverse" @click="${this._onNecessaryOnly}">${tagContent}</pie-link>`,
+            linkManagePrefs: (tagContent) => html`<pie-link data-test-id="body-manage-prefs" tag="button" variant="inverse" @click="${this._openManagePreferencesModal}">${tagContent}</pie-link>`,
+            linkAcceptAll: (tagContent) => html`<pie-link data-test-id="body-accept-all" tag="button" variant="inverse" @click="${this._onAcceptAll}">${tagContent}</pie-link>`,
+        };
+
+        const customTags = Object.keys(tagReplacers);
+
+        function builSplitRegex (tags) {
+            const regexStrParts = tags.map((tag) => `(<${tag}.*>.*<\/${tag}>)`);
+            const regexStr = regexStrParts.join('|');
+            const regex = new RegExp(regexStr, 'igm');
+
+            return regex;
+        }
+
+        const customTagsRegex = builSplitRegex(customTags);
+
+        return str
+            .split(customTagsRegex)
+            .filter((item) => Boolean(item))
+            .map((item) => {
+                const isTag = item.match(customTagsRegex);
+
+                if (!isTag) return item;
+
+                const [, customTag, tagContent] = item.match(/<(.*)>(.*)<\/.*>/);
+
+                return [customTag, tagContent];
+            })
+            .map((item) => {
+                const isArray = Array.isArray(item);
+
+                if (!isArray) return item;
+
+                const [customTag, tagContent] = item;
+
+                return tagReplacers[customTag](tagContent);
+            });
+    }
+
     render () {
+        // NOTE: for simplicity sake this text was hardcoded. It should be passed dynamically as a prop!
+        const bodyCopy = 'We use our own and third party cookies and other tech to enhance and personalise your user experience,optimize analytics, and show ads with third parties (read our <linkStatement>Statement</linkStatement>). Necessary cookies are always set. Click <linkNecessaryOnly>Necessary only</linkNecessaryOnly> to continue without accepting more. Click <linkManagePrefs>Manage preferences</linkManagePrefs> to share your preferences or <linkAcceptAll>Accept all</linkAcceptAll>.';
+
         const modalActionProps = {
             text: 'Save',
             variant: 'primary',
@@ -203,12 +250,9 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
         <aside data-test-id="pie-cookie-banner" class="c-cookieBanner" ?isCookieBannerHidden=${this._isCookieBannerHidden}>
             <h2 class="c-cookieBanner-title">Cookies</h2>
             <div class="c-cookieBanner-body">
-                <p>We use our own and third party cookies and other tech to enhance and personalise your user experience,
-                optimize analytics, and show ads with third parties
-                (read our <pie-link variant="inverse">Statement</pie-link>).
-                Necessary cookies are always set. Click <pie-link data-test-id="body-necessary-only" tag="button" variant="inverse" @click="${this._onNecessaryOnly}">Necessary only</pie-link>
-                to continue without accepting more. Click <pie-link data-test-id="body-manage-prefs" tag="button" variant="inverse" @click="${this._openManagePreferencesModal}">Manage preferences</pie-link>
-                to share your preferences or <pie-link data-test-id="body-accept-all" tag="button" variant="inverse" @click="${this._onAcceptAll}">Accept all</pie-link>.</p>
+                <p>
+                    ${this.interpolate(bodyCopy)}
+                </p>
             </div>
 
             <div class="c-cookieBanner-actions">
