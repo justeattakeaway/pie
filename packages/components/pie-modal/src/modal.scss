@@ -351,7 +351,8 @@
     }
 
     // removes the scroll shadow effect if "background-attachment" isn't supported.
-    // @supports (background-attachment: local) isn't used as Safari 14 recognizes the property but it has no effect
+    // @supports (background-attachment: local) isn't used as Safari 14 recognizes the property but it has no effect.
+    // thus, "aspect-ratio" is used instead as it's only supported in Safari>=15
     @supports not (aspect-ratio: 1 / 1) {
         .c-modal-scrollContainer {
             background: none;
