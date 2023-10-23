@@ -8,6 +8,7 @@
 
     display: flex;
     justify-content: space-between;
+    align-items: flex-end;
     gap: var(--dt-spacing-d);
     color: var(--form-label-color);
     font-size: var(--form-label-font-size);
