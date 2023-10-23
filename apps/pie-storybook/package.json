@@ -41,7 +41,7 @@
     "@storybook/theming": "7.4.0",
     "@storybook/web-components": "7.4.0",
     "@storybook/web-components-vite": "7.4.0",
-    "@types/dompurify": "3.0.2",
+    "@types/dompurify": "3.0.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "serve": "14.2.0",
