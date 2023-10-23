@@ -5137,7 +5137,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-button@0.33.0, @justeattakeaway/pie-button@workspace:packages/components/pie-button":
+"@justeattakeaway/pie-button@0.34.0, @justeattakeaway/pie-button@workspace:packages/components/pie-button":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-button@workspace:packages/components/pie-button"
   dependencies:
@@ -5169,7 +5169,7 @@ __metadata:
   resolution: "@justeattakeaway/pie-cookie-banner@workspace:packages/components/pie-cookie-banner"
   dependencies:
     "@justeat/pie-design-tokens": 5.8.2
-    "@justeattakeaway/pie-button": 0.33.0
+    "@justeattakeaway/pie-button": 0.34.0
     "@justeattakeaway/pie-components-config": 0.4.0
     "@justeattakeaway/pie-icon-button": 0.18.0
     "@justeattakeaway/pie-link": 0.10.0
@@ -5212,7 +5212,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-icon-button@workspace:packages/components/pie-icon-button"
   dependencies:
-    "@justeattakeaway/pie-icons-webc": 0.11.0
+    "@justeattakeaway/pie-icons-webc": 0.11.1
     "@justeattakeaway/pie-webc-core": 0.11.0
   peerDependencies:
     "@justeat/pie-design-tokens": ^5.8.2
@@ -5268,7 +5268,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-icons-webc@0.11.0, @justeattakeaway/pie-icons-webc@workspace:packages/tools/pie-icons-webc":
+"@justeattakeaway/pie-icons-webc@0.11.1, @justeattakeaway/pie-icons-webc@workspace:packages/tools/pie-icons-webc":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-icons-webc@workspace:packages/tools/pie-icons-webc"
   dependencies:
@@ -5320,10 +5320,10 @@ __metadata:
   resolution: "@justeattakeaway/pie-modal@workspace:packages/components/pie-modal"
   dependencies:
     "@justeat/pie-design-tokens": 5.8.2
-    "@justeattakeaway/pie-button": 0.33.0
+    "@justeattakeaway/pie-button": 0.34.0
     "@justeattakeaway/pie-components-config": 0.4.0
     "@justeattakeaway/pie-icon-button": 0.18.0
-    "@justeattakeaway/pie-icons-webc": 0.11.0
+    "@justeattakeaway/pie-icons-webc": 0.11.1
     "@justeattakeaway/pie-webc-core": 0.11.0
     "@types/body-scroll-lock": 3.1.0
     dialog-polyfill: 0.5.6
@@ -5337,7 +5337,7 @@ __metadata:
   resolution: "@justeattakeaway/pie-toggle-switch@workspace:packages/components/pie-toggle-switch"
   dependencies:
     "@justeattakeaway/pie-components-config": 0.4.0
-    "@justeattakeaway/pie-icons-webc": 0.11.0
+    "@justeattakeaway/pie-icons-webc": 0.11.1
   languageName: unknown
   linkType: soft
 
@@ -9597,12 +9597,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/dompurify@npm:3.0.2":
-  version: 3.0.2
-  resolution: "@types/dompurify@npm:3.0.2"
+"@types/dompurify@npm:3.0.4":
+  version: 3.0.4
+  resolution: "@types/dompurify@npm:3.0.4"
   dependencies:
     "@types/trusted-types": "*"
-  checksum: dc017e16a46bcc77086af7d4dc5d2bf4102f16bf1a11b2937e90380da50e77716a2a608ff52990b1293250fefc2ad7593a1378fe07e3a7e21f200d702f0a7878
+  checksum: 8d5d28742ebbe70903bd909a04689bcb79d839f4950e9babed211d021d48c34963d54e49655c42146c9288b7241d30333ff6cfc3d95f0ba467dd385ef51044fb
   languageName: node
   linkType: hard
 
@@ -27598,14 +27598,14 @@ __metadata:
   resolution: "pie-storybook@workspace:apps/pie-storybook"
   dependencies:
     "@justeat/pie-design-tokens": 5.8.2
-    "@justeattakeaway/pie-button": 0.33.0
+    "@justeattakeaway/pie-button": 0.34.0
     "@justeattakeaway/pie-card-container": 0.11.0
     "@justeattakeaway/pie-cookie-banner": 0.7.0
     "@justeattakeaway/pie-css": 0.6.0
     "@justeattakeaway/pie-divider": 0.8.0
     "@justeattakeaway/pie-form-label": 0.5.0
     "@justeattakeaway/pie-icon-button": 0.18.0
-    "@justeattakeaway/pie-icons-webc": 0.11.0
+    "@justeattakeaway/pie-icons-webc": 0.11.1
     "@justeattakeaway/pie-link": 0.10.0
     "@justeattakeaway/pie-modal": 0.28.0
     "@justeattakeaway/pie-toggle-switch": 0.14.0
@@ -27622,7 +27622,7 @@ __metadata:
     "@storybook/theming": 7.4.0
     "@storybook/web-components": 7.4.0
     "@storybook/web-components-vite": 7.4.0
-    "@types/dompurify": 3.0.2
+    "@types/dompurify": 3.0.4
     body-scroll-lock: 3.1.5
     dompurify: 3.0.6
     lit: 2.7.5
@@ -36292,7 +36292,7 @@ __metadata:
     "@angular/platform-browser": 15.2.0
     "@angular/platform-browser-dynamic": 15.2.0
     "@angular/router": 15.2.0
-    "@justeattakeaway/pie-button": 0.33.0
+    "@justeattakeaway/pie-button": 0.34.0
     "@justeattakeaway/pie-css": 0.6.0
     "@types/jasmine": 4.3.0
     jasmine-core: 4.5.0
@@ -36316,7 +36316,7 @@ __metadata:
     "@babel/plugin-transform-runtime": 7.21.4
     "@babel/preset-env": 7.21.4
     "@babel/preset-react": 7.18.6
-    "@justeattakeaway/pie-button": 0.33.0
+    "@justeattakeaway/pie-button": 0.34.0
     "@justeattakeaway/pie-css": 0.6.0
     eslint: 8.37.0
     eslint-config-next: 13.2.4
@@ -36331,7 +36331,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "wc-next13@workspace:apps/examples/wc-next13"
   dependencies:
-    "@justeattakeaway/pie-button": 0.33.0
+    "@justeattakeaway/pie-button": 0.34.0
     "@justeattakeaway/pie-css": 0.6.0
     "@lit-labs/nextjs": 0.1.1
     "@lit-labs/react": 1.1.1
@@ -36350,7 +36350,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "wc-nuxt2@workspace:apps/examples/wc-nuxt2"
   dependencies:
-    "@justeattakeaway/pie-button": 0.33.0
+    "@justeattakeaway/pie-button": 0.34.0
     "@justeattakeaway/pie-css": 0.6.0
     core-js: 3.30.0
     nuxt: 2.17.0
@@ -36364,7 +36364,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "wc-nuxt3@workspace:apps/examples/wc-nuxt3"
   dependencies:
-    "@justeattakeaway/pie-button": 0.33.0
+    "@justeattakeaway/pie-button": 0.34.0
     "@justeattakeaway/pie-css": 0.6.0
     "@types/node": 18
     nuxt: 3.4.3
@@ -36376,7 +36376,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "wc-react17@workspace:apps/examples/wc-react17"
   dependencies:
-    "@justeattakeaway/pie-button": 0.33.0
+    "@justeattakeaway/pie-button": 0.34.0
     "@justeattakeaway/pie-css": 0.6.0
     react: 17.0.2
     react-dom: 17.0.2
@@ -36388,7 +36388,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "wc-react18@workspace:apps/examples/wc-react18"
   dependencies:
-    "@justeattakeaway/pie-button": 0.33.0
+    "@justeattakeaway/pie-button": 0.34.0
     "@justeattakeaway/pie-css": 0.6.0
     react: 18.2.0
     react-dom: 18.2.0
@@ -36401,10 +36401,10 @@ __metadata:
   resolution: "wc-vanilla@workspace:apps/examples/wc-vanilla"
   dependencies:
     "@justeat/pie-design-tokens": 5.8.2
-    "@justeattakeaway/pie-button": 0.33.0
+    "@justeattakeaway/pie-button": 0.34.0
     "@justeattakeaway/pie-css": 0.6.0
     "@justeattakeaway/pie-icon-button": 0.18.0
-    "@justeattakeaway/pie-icons-webc": 0.11.0
+    "@justeattakeaway/pie-icons-webc": 0.11.1
     "@justeattakeaway/pie-modal": 0.28.0
     body-scroll-lock: 3.1.5
     vite: 4.3.9
@@ -36415,7 +36415,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "wc-vue3@workspace:apps/examples/wc-vue3"
   dependencies:
-    "@justeattakeaway/pie-button": 0.33.0
+    "@justeattakeaway/pie-button": 0.34.0
     "@justeattakeaway/pie-css": 0.6.0
     "@types/node": 18.15.11
     "@vitejs/plugin-vue": 4.0.0
