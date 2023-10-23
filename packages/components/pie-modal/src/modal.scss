@@ -40,7 +40,7 @@
 
     // We need to override the icon sizes at different screen sizes regardless of size prop passed in
     pie-icon-button {
-        @media (max-width: $breakpoint-wide) {
+        @media (max-width: calc($breakpoint-wide - 1px)) {
             --btn-dimension: 40px;
         }
     }
@@ -172,8 +172,8 @@
     }
 
     & .c-modal-heading {
-        --modal-header-font-size: calc(var(--dt-font-heading-m-size--wide) * 1px);
-        --modal-header-font-line-height: calc(var(--dt-font-heading-m-line-height--wide) * 1px);
+        --modal-header-font-size: calc(var(--dt-font-heading-m-size--narrow) * 1px);
+        --modal-header-font-line-height: calc(var(--dt-font-heading-m-line-height--narrow) * 1px);
         --modal-header-font-weight: var(--dt-font-heading-m-weight);
 
         font-size: var(--modal-header-font-size);
@@ -186,6 +186,8 @@
         margin-block: 14px; // This is deliberately not a custom property
 
         @media (min-width: $breakpoint-wide) {
+            --modal-header-font-size: calc(var(--dt-font-heading-m-size--wide) * 1px);
+            --modal-header-font-line-height: calc(var(--dt-font-heading-m-line-height--wide) * 1px);
             margin-inline: var(--dt-spacing-e);
             margin-block: 20px; // This is deliberately not a custom property
         }
