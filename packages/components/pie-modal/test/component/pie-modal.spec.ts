@@ -634,7 +634,7 @@ test.describe('`hasPrimaryActionsOnly` prop', () => {
                 {
                     props: {
                         isOpen: true,
-                        hasPrimaryActionsOnly: undefined,
+                        hasPrimaryActionsOnly,
                         leadingAction: {
                             text: 'Leading',
                             variant: 'secondary',
