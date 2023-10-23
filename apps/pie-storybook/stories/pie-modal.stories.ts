@@ -31,6 +31,7 @@ const defaultArgs: ModalProps = {
     isDismissible: true,
     hasBackButton: true,
     hasStackedActions: false,
+    hasPrimaryActionsOnly: false,
     isFooterPinned: true,
     isFullWidthBelowMid: false,
     isOpen: true,
@@ -65,6 +66,10 @@ const modalStoryMeta: ModalStoryMeta = {
         },
         hasBackButton: {
             description: 'When true, the modal will have a back button. This currently behaves the same as the close button.',
+            control: 'boolean',
+        },
+        hasPrimaryActionsOnly: {
+            description: 'When true, the leading and supporting actions (if present) will be set to the "primary" variant.',
             control: 'boolean',
         },
         hasStackedActions: {
@@ -173,6 +178,7 @@ const BaseStoryTemplate = (props: ModalProps) : TemplateResult => {
         heading,
         headingLevel,
         hasBackButton,
+        hasPrimaryActionsOnly,
         hasStackedActions,
         isDismissible,
         isFooterPinned,
@@ -193,6 +199,7 @@ const BaseStoryTemplate = (props: ModalProps) : TemplateResult => {
             heading="${heading}"
             headingLevel="${headingLevel}"
             ?hasBackButton="${hasBackButton}"
+            ?hasPrimaryActionsOnly="${hasPrimaryActionsOnly}"
             ?hasStackedActions="${hasStackedActions}"
             ?isDismissible="${isDismissible}"
             .isFooterPinned="${isFooterPinned}"

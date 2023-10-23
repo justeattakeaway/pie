@@ -39,6 +39,11 @@ export type ModalProps = {
     hasBackButton: boolean;
 
     /**
+     * When true, the leading and supporting actions (if present) will be set to the "primary" variant.
+     */
+    hasPrimaryActionsOnly: boolean;
+
+    /**
      * When true, the modal will have a back button. This currently behaves the same as the close button.
      */
     hasStackedActions: boolean;

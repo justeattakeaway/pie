@@ -90,6 +90,9 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
     @property({ type: Object })
     public supportingAction!: ActionProps;
 
+    @property({ type: Boolean })
+    public hasPrimaryActionsOnly = false;
+
     @query('dialog')
     private _dialog?: HTMLDialogElement;
 
@@ -274,10 +277,15 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
      * @private
      */
     private renderLeadingAction () : TemplateResult | typeof nothing {
-        const { text, variant = 'primary', ariaLabel } = this.leadingAction;
+        const { text, ariaLabel } = this.leadingAction;
+        let { variant = 'primary' } = this.leadingAction;
 
         if (!text) {
             return nothing;
+        }
+
+        if (this.hasPrimaryActionsOnly) {
+            variant = 'primary';
         }
 
         return html`
@@ -305,7 +313,8 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
      * @private
      */
     private renderSupportingAction (): TemplateResult | typeof nothing {
-        const { text, variant = 'ghost', ariaLabel } = this.supportingAction;
+        const { ariaLabel, text } = this.supportingAction;
+        let { variant = 'ghost' } = this.supportingAction;
 
         if (!text) {
             return nothing;
@@ -314,6 +323,10 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
         if (!this.leadingAction) {
             console.warn('Use `leadingAction` instead of `supportingAction`. `supportingAction` is being ignored.');
             return nothing;
+        }
+
+        if (this.hasPrimaryActionsOnly) {
+            variant = 'primary';
         }
 
         return html`

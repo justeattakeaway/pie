@@ -596,6 +596,68 @@ test.describe('`hasBackButton` prop', () => {
     });
 });
 
+test.describe('`hasPrimaryActionsOnly` prop', () => {
+    test('should set leading and support action variants to primary when true', async ({ mount }) => {
+        // Arrange & Act
+        const component = await mount(
+            PieModal,
+            {
+                props: {
+                    isOpen: true,
+                    hasPrimaryActionsOnly: true,
+                    leadingAction: {
+                        text: 'Leading',
+                        variant: 'secondary',
+                    },
+                    supportingAction: {
+                        text: 'Supporting',
+                        variant: 'ghost',
+                    },
+                },
+            },
+        );
+
+        // Act
+        const leadingAction = await component.locator('[data-test-id="modal-leading-action"]');
+        const supportingAction = await component.locator('[data-test-id="modal-supporting-action"]');
+
+        // Assert
+        expect(await leadingAction.getAttribute('variant')).toBe('primary');
+        expect(await supportingAction.getAttribute('variant')).toBe('primary');
+    });
+
+    [false, undefined].forEach((hasPrimaryActionsOnly) => {
+        test(`should not override leading and support action variants when ${hasPrimaryActionsOnly}`, async ({ mount }) => {
+            // Arrange & Act
+            const component = await mount(
+                PieModal,
+                {
+                    props: {
+                        isOpen: true,
+                        hasPrimaryActionsOnly: undefined,
+                        leadingAction: {
+                            text: 'Leading',
+                            variant: 'secondary',
+                        },
+                        supportingAction: {
+                            text: 'Supporting',
+                            variant: 'ghost',
+                        },
+                    },
+                },
+            );
+
+            // Act
+            const leadingAction = await component.locator('[data-test-id="modal-leading-action"]');
+            const supportingAction = await component.locator('[data-test-id="modal-supporting-action"]');
+
+            // Assert
+            expect(await leadingAction.getAttribute('variant')).toBe('secondary');
+            expect(await supportingAction.getAttribute('variant')).toBe('ghost');
+        });
+    });
+});
+
 test.describe('actions', () => {
     ['leading', 'supporting'].forEach((actionName) => {
         test.describe(`${actionName} action, when clicked`, () => {
@@ -813,4 +875,3 @@ test.describe('Props: `aria`', () => {
         });
     });
 });
-
