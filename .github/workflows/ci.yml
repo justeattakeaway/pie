@@ -32,6 +32,7 @@ env:
   PERCY_TOKEN_PIE_ICON_BUTTON: ${{ secrets.PERCY_TOKEN_PIE_ICON_BUTTON }}
   PERCY_TOKEN_PIE_LINK: ${{ secrets.PERCY_TOKEN_PIE_LINK }}
   PERCY_TOKEN_PIE_MODAL: ${{ secrets.PERCY_TOKEN_PIE_MODAL }}
+  PERCY_TOKEN_PIE_NOTIFICATION: ${{ secrets.PERCY_TOKEN_PIE_NOTIFICATION }}
   PERCY_TOKEN_PIE_TOGGLE_SWITCH: ${{ secrets.PERCY_TOKEN_PIE_TOGGLE_SWITCH }}
   TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
 
@@ -117,7 +118,6 @@ jobs:
         with:
           script-name: "lint:scripts"
 
-
   build-ubuntu-node-16:
     uses: ./.github/workflows/install-build.yml
     with:
@@ -134,7 +134,7 @@ jobs:
 
   build-ubuntu-node-18:
     uses: ./.github/workflows/install-build.yml
-    needs: ['lint-js', 'lint-styles', 'check-change-type']
+    needs: ["lint-js", "lint-styles", "check-change-type"]
     with:
       os: ubuntu-latest
       node-version: 18
@@ -148,7 +148,7 @@ jobs:
     secrets: inherit
 
   unit-tests:
-    needs: 'build-ubuntu-node-18'
+    needs: "build-ubuntu-node-18"
     runs-on: ubuntu-latest
     steps:
       # Checkout the Repo
@@ -230,10 +230,10 @@ jobs:
       os: ubuntu-latest
       node-version: 18
       amplify-app-id: dvskdcoepjoyf
-      package-name: 'pie-docs'
+      package-name: "pie-docs"
       package-dist-directory: ./apps/pie-docs/dist
-      bucket-name-preview: 'pie-docs-preview'
-      bucket-name-main: 'pie-docs'
+      bucket-name-preview: "pie-docs-preview"
+      bucket-name-main: "pie-docs"
     secrets: inherit
 
   deploy-storybook:
@@ -244,10 +244,10 @@ jobs:
       os: ubuntu-latest
       node-version: 18
       amplify-app-id: d17ja0ul7nrdy0
-      package-name: 'pie-storybook'
+      package-name: "pie-storybook"
       package-dist-directory: ./apps/pie-storybook/dist
-      bucket-name-preview: 'pie-storybook-preview'
-      bucket-name-main: 'pie-storybook'
+      bucket-name-preview: "pie-storybook-preview"
+      bucket-name-main: "pie-storybook"
     secrets: inherit
 
   browser-tests-docs:
@@ -303,7 +303,7 @@ jobs:
       PR_NUMBER: ${{ github.event.number }}
 
   release:
-    needs: [ 'unit-tests', 'lint-js']
+    needs: ["unit-tests", "lint-js"]
     if: github.event_name != 'pull_request'
     uses: ./.github/workflows/changeset-release.yml
     with:
@@ -315,24 +315,24 @@ jobs:
     if: always()
 
     needs:
-    - lint-styles
-    - lint-js
-    - build-ubuntu-node-16
-    - build-windows-node-16
-    - build-ubuntu-node-18
-    - build-windows-node-18
-    - unit-tests
-    - browser-tests-components
-    - deploy-docs
-    - deploy-storybook
-    - browser-tests-docs
+      - lint-styles
+      - lint-js
+      - build-ubuntu-node-16
+      - build-windows-node-16
+      - build-ubuntu-node-18
+      - build-windows-node-18
+      - unit-tests
+      - browser-tests-components
+      - deploy-docs
+      - deploy-storybook
+      - browser-tests-docs
 
     runs-on: ubuntu-latest
 
     steps:
-    - name: Verify if the required jobs succeeded
-      uses: re-actors/alls-green@release/v1
-      with:
-        # "allowed-skips" lists jobs that are optional but should not fail
-        allowed-skips: browser-tests-components, deploy-docs, deploy-storybook, browser-tests-docs
-        jobs: ${{ toJSON(needs) }}
+      - name: Verify if the required jobs succeeded
+        uses: re-actors/alls-green@release/v1
+        with:
+          # "allowed-skips" lists jobs that are optional but should not fail
+          allowed-skips: browser-tests-components, deploy-docs, deploy-storybook, browser-tests-docs
+          jobs: ${{ toJSON(needs) }}
