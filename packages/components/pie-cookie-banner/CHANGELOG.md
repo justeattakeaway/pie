@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-cookie-banner
 
+## 0.8.0
+
+### Minor Changes
+
+- [Added] - `hasPrimaryActionsOnly` prop to cookie-banner ([#927](https://github.com/justeattakeaway/pie/pull/927)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
 ## 0.7.0
 
 ### Minor Changes
