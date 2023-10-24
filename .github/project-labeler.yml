@@ -67,7 +67,7 @@ pie-modal:
 - 'packages/components/pie-modal/**/*'
 
 pie-notification:
-- "packages/components/pie-notification/**/*"
+- 'packages/components/pie-notification/**/*'
 
 pie-toggle-switch:
 - 'packages/components/pie-toggle-switch/**/*'
