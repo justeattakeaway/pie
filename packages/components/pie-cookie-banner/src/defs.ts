@@ -1,6 +1,9 @@
-// TODO - please remove the eslint disable comment below when you add props to this interface
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
-export interface CookieBannerProps {}
+export interface CookieBannerProps {
+    /**
+     * When true, sets the "Necessary only" button variant to "primary".
+     */
+    hasPrimaryActionsOnly: boolean;
+}
 
 /**
  * Event name for when all cookies are accepted.
@@ -36,9 +39,9 @@ export interface Preference {
     id: PreferenceIds;
     title: string;
     description?: string;
-    isDisabled?: boolean,
-    isChecked?: boolean,
-    hasDivider?: boolean
+    isDisabled?: boolean;
+    isChecked?: boolean;
+    hasDivider?: boolean;
 }
 
 export const preferences: Preference[] = [

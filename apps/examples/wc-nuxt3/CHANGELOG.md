@@ -1,5 +1,13 @@
 # wc-nuxt3
 
+## 0.4.6
+
+### Patch Changes
+
+- [Fixed] - Stop Nuxt re-compiling monorepo packages ([#919](https://github.com/justeattakeaway/pie/pull/919)) by [@ashleynolan](https://github.com/ashleynolan)
+
+  Linked to this issue, [which has more details](https://github.com/nuxt/nuxt/issues/18823).
+
 ## 0.4.5
 
 ### Patch Changes

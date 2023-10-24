@@ -1,5 +1,17 @@
 # @justeattakeaway/pie-modal
 
+## 0.29.0
+
+### Minor Changes
+
+- [Changed] - The shadow effect for unpinned footer to span the whole container ([#903](https://github.com/justeattakeaway/pie/pull/903)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Removed] - Heading shadow
+
+  [Fixed] - Footer should sit at the bottom of a fullscreen modal, regardless of the content height
+
+- [Changed] - Use different font sizes for the modal heading at narrow and wide breakpoints ([#912](https://github.com/justeattakeaway/pie/pull/912)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
 ## 0.28.0
 
 ### Minor Changes

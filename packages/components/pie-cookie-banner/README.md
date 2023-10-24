@@ -60,7 +60,7 @@ import { PieCookieBanner } from '@justeattakeaway/pie-cookie-banner/dist/react';
 
 | Property | Type | Default | Description |
 |---|---|---|---|
-| - | - | - | - |
+| hasPrimaryActionsOnly | `Boolean` | `false` | When true, sets the "Necessary only" button variant to "primary". |
 
 In your markup or JSX, you can then use these to set the properties for the `pie-cookie-banner` component:
 

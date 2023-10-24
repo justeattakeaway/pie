@@ -2,7 +2,7 @@ import {
     LitElement, html, unsafeCSS, TemplateResult, nothing,
 } from 'lit';
 import { defineCustomElement } from '@justeattakeaway/pie-webc-core';
-import { state, queryAll } from 'lit/decorators.js';
+import { property, state, queryAll } from 'lit/decorators.js';
 import { repeat } from 'lit/directives/repeat.js';
 import { PieToggleSwitch } from '@justeattakeaway/pie-toggle-switch';
 import styles from './cookie-banner.scss?inline';
@@ -35,6 +35,9 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
 
     @state()
     private _isModalOpen = false;
+
+    @property({ type: Boolean })
+    public hasPrimaryActionsOnly = false;
 
     @queryAll('pie-toggle-switch')
         _preferencesNodes!: NodeListOf<PieToggleSwitch>;
@@ -223,7 +226,7 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
                 <pie-button
                     data-test-id="actions-necessary-only"
                     @click="${this._onNecessaryOnly}"
-                    variant="outline-inverse"
+                    variant="${this.hasPrimaryActionsOnly ? 'primary' : 'outline-inverse'}"
                     isFullWidth
                     size="small-expressive">
                     Necessary only
