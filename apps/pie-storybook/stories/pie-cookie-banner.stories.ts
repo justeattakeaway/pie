@@ -47,8 +47,10 @@ const cookieBannerStoryMeta: CookieBannerStoryMeta = {
 
 export default cookieBannerStoryMeta;
 
-const necessaryOnlyAction = action('Necessary only');
-const acceptAllAction = action('Accept all');
+const necessaryOnlyAction = action('necessary-only');
+const acceptAllAction = action('accept-all');
+const managePrefsAction = action('manage-prefs');
+const prefsSavedAction = action('prefs-saved');
 
 const BaseStoryTemplate = (props: CookieBannerProps) : TemplateResult => {
     const { hasPrimaryActionsOnly } = props;
@@ -56,7 +58,9 @@ const BaseStoryTemplate = (props: CookieBannerProps) : TemplateResult => {
         <pie-cookie-banner
             ?hasPrimaryActionsOnly="${hasPrimaryActionsOnly}"
             @pie-cookie-banner-necessary-only="${necessaryOnlyAction}"
-            @pie-cookie-banner-accept-all="${acceptAllAction}"></pie-cookie-banner>`;
+            @pie-cookie-banner-accept-all="${acceptAllAction}"
+            @pie-cookie-banner-manage-prefs="${managePrefsAction}"
+            @pie-cookie-banner-prefs-saved="${prefsSavedAction}"></pie-cookie-banner>`;
 };
 
 /**
