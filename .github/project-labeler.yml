@@ -2,78 +2,78 @@
 
 # App projects
 apps:
-  - "apps/**/*"
+- 'apps/**/*'
 
 pie-docs:
-  - "apps/pie-docs/**/*"
+- 'apps/pie-docs/**/*'
 
 pie-storybook:
-  - "apps/pie-storybook/**/*"
+- 'apps/pie-storybook/**/*'
 
 # Tools projects
 tools:
-  - "packages/tools/**/*"
+- 'packages/tools/**/*'
 
 pie-icons:
-  - "packages/tools/pie-icons/**/*"
+- 'packages/tools/pie-icons/**/*'
 
 pie-icons-react:
-  - "packages/tools/pie-icons-react/**/*"
+- 'packages/tools/pie-icons-react/**/*'
 
 pie-icons-vue:
-  - "packages/tools/pie-icons-vue/**/*"
+- 'packages/tools/pie-icons-vue/**/*'
 
 browserslist-config-pie:
-  - "packages/tools/browserslist-config-pie/**/*"
+- 'packages/tools/browserslist-config-pie/**/*'
 
 eslint-config-pie:
-  - "packages/tools/eslint-config-pie/**/*"
+- 'packages/tools/eslint-config-pie/**/*'
 
 stylelint-config-pie:
-  - "packages/tools/pie-stylelint-config/**/*"
+- 'packages/tools/pie-stylelint-config/**/*'
 
 generator-pie-component:
-  - "packages/tools/generator-pie-component/**/*"
+- 'packages/tools/generator-pie-component/**/*'
 
 pie-css:
-  - "packages/tools/pie-css/**/*"
+- 'packages/tools/pie-css/**/*'
 
 # Component projects
 components:
-  - "packages/components/**/*"
+- 'packages/components/**/*'
 
 pie-button:
-  - "packages/components/pie-button/**/*"
+- 'packages/components/pie-button/**/*'
 
 pie-card-container:
-  - "./packages/components/pie-card-container/**/*"
+- './packages/components/pie-card-container/**/*'
 
 pie-cookie-banner:
-  - "./packages/components/pie-cookie-banner/**/*"
+- './packages/components/pie-cookie-banner/**/*'
 
 pie-divider:
-  - "packages/components/pie-divider/**/*"
+- 'packages/components/pie-divider/**/*'
 
 pie-form-label:
-  - "packages/components/pie-form-label/**/*"
+- 'packages/components/pie-form-label/**/*'
 
 pie-icon-button:
-  - "packages/components/pie-icon-button/**/*"
+- 'packages/components/pie-icon-button/**/*'
 
 pie-link:
-  - "packages/components/pie-link/**/*"
+- 'packages/components/pie-link/**/*'
 
 pie-modal:
-  - "packages/components/pie-modal/**/*"
+- 'packages/components/pie-modal/**/*'
 
 pie-notification:
-  - "packages/components/pie-notification/**/*"
+- "packages/components/pie-notification/**/*"
 
 pie-toggle-switch:
-  - "packages/components/pie-toggle-switch/**/*"
+- 'packages/components/pie-toggle-switch/**/*'
 
 pie-webc-core:
-  - "packages/components/pie-webc-core/**/*"
+- 'packages/components/pie-webc-core/**/*'
 
 pie-webc-testing:
-  - "packages/components/pie-webc-testing/**/*"
+- 'packages/components/pie-webc-testing/**/*'
