@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-form-label
 
+## 0.7.0
+
+### Minor Changes
+
+- [Removed] - pie-monorepo specific content from Web Component READMES ([#904](https://github.com/justeattakeaway/pie/pull/904)) by [@LTurns](https://github.com/LTurns)
+
 ## 0.6.0
 
 ### Minor Changes

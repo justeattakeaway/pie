@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.32.0
+
+### Minor Changes
+
+- [Changed] - README to refer to separate contributing guide ([#904](https://github.com/justeattakeaway/pie/pull/904)) by [@LTurns](https://github.com/LTurns)
+
 ## 2.31.1
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-toggle-switch
 
+## 0.15.0
+
+### Minor Changes
+
+- [Removed] - pie-monorepo specific content from Web Component READMES ([#904](https://github.com/justeattakeaway/pie/pull/904)) by [@LTurns](https://github.com/LTurns)
+
 ## 0.14.0
 
 ### Minor Changes

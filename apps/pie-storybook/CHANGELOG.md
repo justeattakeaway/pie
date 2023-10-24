@@ -1,5 +1,24 @@
 # Changelog
 
+## 0.41.7
+
+### Patch Changes
+
+- [Changed] - `hasPrimaryActionsOnly` prop description to be less tied to the copy ([#929](https://github.com/justeattakeaway/pie/pull/929)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Removed] - explicit dependencies on the storybook actions and docs addons because these come through the essentials package
+
+- Updated dependencies [[`a6cdd74d0`](https://github.com/justeattakeaway/pie/commit/a6cdd74d0626f2dd8f232a9f6871eb107b39c44b), [`76a6ce68f`](https://github.com/justeattakeaway/pie/commit/76a6ce68f782c42cf86db0ca08a194d9987bf70b)]:
+  - @justeattakeaway/pie-cookie-banner@0.9.0
+  - @justeattakeaway/pie-card-container@0.12.0
+  - @justeattakeaway/pie-toggle-switch@0.15.0
+  - @justeattakeaway/pie-icon-button@0.19.0
+  - @justeattakeaway/pie-form-label@0.7.0
+  - @justeattakeaway/pie-divider@0.9.0
+  - @justeattakeaway/pie-button@0.35.0
+  - @justeattakeaway/pie-modal@0.30.0
+  - @justeattakeaway/pie-link@0.11.0
+
 ## 0.41.6
 
 ### Patch Changes

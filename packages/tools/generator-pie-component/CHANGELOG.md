@@ -1,5 +1,11 @@
 # @justeattakeaway/generator-pie-component
 
+## 0.13.0
+
+### Minor Changes
+
+- [Removed] - pie-monorepo specific content from Web Component READMES ([#904](https://github.com/justeattakeaway/pie/pull/904)) by [@LTurns](https://github.com/LTurns)
+
 ## 0.12.0
 
 ### Minor Changes

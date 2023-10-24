@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.35.0
+
+### Minor Changes
+
+- [Removed] - pie-monorepo specific content from Web Component READMES ([#904](https://github.com/justeattakeaway/pie/pull/904)) by [@LTurns](https://github.com/LTurns)
+
 ## 0.34.0
 
 ### Minor Changes
