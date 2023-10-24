@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.41.6
+
+### Patch Changes
+
+- [Added] - `hasPrimaryActionsOnly` prop to cookie-banner ([#927](https://github.com/justeattakeaway/pie/pull/927)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- Updated dependencies [[`04457fd15`](https://github.com/justeattakeaway/pie/commit/04457fd15c2d5084b19d4658b3e1492d3e66db4a), [`267124747`](https://github.com/justeattakeaway/pie/commit/2671247474cb0e7b8f9c1380bc66a50244b747ad), [`b5861caa2`](https://github.com/justeattakeaway/pie/commit/b5861caa2c4d8bd7426236561eda8ac17545aa90), [`ea1f69863`](https://github.com/justeattakeaway/pie/commit/ea1f698636ae421c62ff95a74728462dc93648ba)]:
+  - @justeattakeaway/pie-cookie-banner@0.8.0
+  - @justeattakeaway/pie-modal@0.29.0
+  - @justeattakeaway/pie-form-label@0.6.0
+
 ## 0.41.5
 
 ### Patch Changes

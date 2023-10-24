@@ -1,5 +1,13 @@
 # @justeattakeaway/pie-form-label
 
+## 0.6.0
+
+### Minor Changes
+
+- [Fixed] - If the optional wraps onto a second line and there is no label to the left, there should be no additional padding. ([#924](https://github.com/justeattakeaway/pie/pull/924)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Fixed] - When in RTL, the optional tag should be positioned to the left of the label.
+
 ## 0.5.0
 
 ### Minor Changes
