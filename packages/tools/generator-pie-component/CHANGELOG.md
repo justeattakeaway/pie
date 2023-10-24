@@ -1,5 +1,11 @@
 # @justeattakeaway/generator-pie-component
 
+## 0.12.0
+
+### Minor Changes
+
+- [Changed] - Update component index.ts template to include @tagname js doc comment above class and new defineCustomElement function to define the component ([#905](https://github.com/justeattakeaway/pie/pull/905)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.11.0
 
 ### Minor Changes

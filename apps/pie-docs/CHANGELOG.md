@@ -1,5 +1,21 @@
 # Changelog
 
+## 3.9.0
+
+### Minor Changes
+
+- [Added] - "Back to top" button to scroll to the top of the page ([#906](https://github.com/justeattakeaway/pie/pull/906)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+## 3.8.0
+
+### Minor Changes
+
+- [Updated] - Dependencies: ([#900](https://github.com/justeattakeaway/pie/pull/900)) by [@siggerzz](https://github.com/siggerzz)
+
+  @types/markdown-it 13.0.0 > 13.0.2
+  markdown-it 13.0.1 > 13.0.2
+  node-html-parser 16.1.5 > 16.1.10
+
 ## 3.7.0
 
 ### Minor Changes

@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/pie-icons-webc",
-  "version": "0.10.0",
+  "version": "0.11.1",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -58,8 +58,10 @@
     "@babel/node": "7.20.7",
     "@justeattakeaway/pie-icons": "4.9.2",
     "@justeattakeaway/pie-icons-configs": "4.5.0",
-    "@justeattakeaway/pie-webc-core": "0.10.0",
+    "@justeattakeaway/pie-webc-core": "0.11.0",
+    "@open-wc/testing": "3.2.0",
     "@rollup/plugin-typescript": "11.1.5",
+    "@web/test-runner": "0.16.1",
     "just-kebab-case": "4.2.0",
     "just-pascal-case": "3.2.0",
     "lit": "2.7.5",
@@ -69,10 +71,6 @@
   },
   "volta": {
     "extends": "../../../package.json"
-  },
-  "dependencies": {
-    "@open-wc/testing": "3.2.0",
-    "@web/test-runner": "0.16.1"
   },
   "peerDependencies": {
     "lit": "2.7.5"

@@ -1,6 +1,6 @@
 {
   "name": "wc-vanilla",
-  "version": "0.4.22",
+  "version": "0.4.27",
   "private": true,
   "type": "module",
   "scripts": {
@@ -13,11 +13,11 @@
   },
   "dependencies": {
     "@justeat/pie-design-tokens": "5.8.2",
-    "@justeattakeaway/pie-button": "0.32.0",
+    "@justeattakeaway/pie-button": "0.34.0",
     "@justeattakeaway/pie-css": "0.6.0",
-    "@justeattakeaway/pie-icon-button": "0.17.0",
-    "@justeattakeaway/pie-icons-webc": "0.10.0",
-    "@justeattakeaway/pie-modal": "0.26.0",
+    "@justeattakeaway/pie-icon-button": "0.18.0",
+    "@justeattakeaway/pie-icons-webc": "0.11.1",
+    "@justeattakeaway/pie-modal": "0.29.0",
     "body-scroll-lock": "3.1.5"
   },
   "installConfig": {

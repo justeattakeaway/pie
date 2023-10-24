@@ -1,5 +1,24 @@
 # @justeattakeaway/pie-form-label
 
+## 0.6.0
+
+### Minor Changes
+
+- [Fixed] - If the optional wraps onto a second line and there is no label to the left, there should be no additional padding. ([#924](https://github.com/justeattakeaway/pie/pull/924)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Fixed] - When in RTL, the optional tag should be positioned to the left of the label.
+
+## 0.5.0
+
+### Minor Changes
+
+- [Added] - @tagname jsdoc comment to top of component class and use new defineCustomElement function to define the components ([#905](https://github.com/justeattakeaway/pie/pull/905)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies [[`4cab049d1`](https://github.com/justeattakeaway/pie/commit/4cab049d1e78196bcd4411efba8d82d86f7a4f06)]:
+  - @justeattakeaway/pie-webc-core@0.11.0
+
 ## 0.4.0
 
 ### Minor Changes

@@ -2,7 +2,7 @@ import {
     html, LitElement, unsafeCSS, nothing, TemplateResult,
 } from 'lit';
 import { property } from 'lit/decorators.js';
-import { validPropertyValues } from '@justeattakeaway/pie-webc-core';
+import { validPropertyValues, defineCustomElement } from '@justeattakeaway/pie-webc-core';
 import styles from './link.scss?inline';
 import {
     LinkProps,
@@ -21,6 +21,7 @@ export * from './defs';
 const componentSelector = 'pie-link';
 
 /**
+ * @tagname pie-link
  * @slot icon - The icon slot
  * @slot - Default slot
  */
@@ -144,7 +145,7 @@ export class PieLink extends LitElement implements LinkProps {
     static styles = unsafeCSS(styles);
 }
 
-customElements.define(componentSelector, PieLink);
+defineCustomElement(componentSelector, PieLink);
 
 declare global {
     interface HTMLElementTagNameMap {

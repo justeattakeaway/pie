@@ -1,5 +1,22 @@
 # @justeattakeaway/pie-cookie-banner
 
+## 0.8.0
+
+### Minor Changes
+
+- [Added] - `hasPrimaryActionsOnly` prop to cookie-banner ([#927](https://github.com/justeattakeaway/pie/pull/927)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+## 0.7.0
+
+### Minor Changes
+
+- [Added] - @tagname jsdoc comment to top of component class and use new defineCustomElement function to define the components ([#905](https://github.com/justeattakeaway/pie/pull/905)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies [[`4cab049d1`](https://github.com/justeattakeaway/pie/commit/4cab049d1e78196bcd4411efba8d82d86f7a4f06)]:
+  - @justeattakeaway/pie-webc-core@0.11.0
+
 ## 0.6.0
 
 ### Minor Changes
