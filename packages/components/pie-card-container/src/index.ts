@@ -6,7 +6,7 @@ import { validPropertyValues, defineCustomElement } from '@justeattakeaway/pie-w
 import styles from './card-container.scss?inline';
 import {
     variants,
-    interactionTypes,
+    tags,
     CardContainerProps,
     paddingValues,
 } from './defs';
@@ -21,8 +21,8 @@ const componentSelector = 'pie-card-container';
  */
 export class PieCardContainer extends LitElement implements CardContainerProps {
     @property()
-    @validPropertyValues(componentSelector, interactionTypes, 'button')
-    public interactionType: CardContainerProps['interactionType'] = 'button';
+    @validPropertyValues(componentSelector, tags, 'button')
+    public tag: CardContainerProps['tag'] = 'button';
 
     @property()
     @validPropertyValues(componentSelector, variants, 'default')
@@ -62,7 +62,7 @@ export class PieCardContainer extends LitElement implements CardContainerProps {
             <a
                 class="c-card-container"
                 data-test-id="pie-card-container"
-                interactionType=${this.interactionType}
+                tag=${this.tag}
                 ?isDraggable="${this.isDraggable}"
                 variant=${this.variant}
                 ?disabled=${this.disabled}
@@ -120,27 +120,25 @@ export class PieCardContainer extends LitElement implements CardContainerProps {
         const {
             variant,
             disabled,
-            interactionType,
+            tag,
             aria,
             isDraggable,
         } = this;
 
         const paddingCSS = this.generatePaddingCSS();
 
-        const isButton = interactionType === 'button';
-
-        if (interactionType === 'anchor') return this.renderAnchor();
+        if (tag === 'a') return this.renderAnchor();
 
         return html`
                 <div
                     class="c-card-container"
                     data-test-id="pie-card-container"
-                    interactionType=${interactionType}
+                    tag=${tag}
                     ?isDraggable="${isDraggable}"
                     variant=${variant}
                     ?disabled=${disabled}
-                    role=${isButton ? 'button' : nothing}
-                    tabindex=${isButton ? '0' : nothing}
+                    role="button"
+                    tabindex="0"
                     aria-label=${aria?.label || nothing}
                     aria-disabled=${disabled ? 'true' : 'false'}
                     style=${paddingCSS || nothing}>

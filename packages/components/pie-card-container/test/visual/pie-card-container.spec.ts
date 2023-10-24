@@ -14,10 +14,10 @@ import {
 } from '@justeattakeaway/pie-webc-testing/src/helpers/components/web-component-test-wrapper/WebComponentTestWrapper.ts';
 import { percyWidths } from '@justeattakeaway/pie-webc-testing/src/percy/breakpoints.ts';
 import { PieCardContainer } from '@/index';
-import { interactionTypes, variants, paddingValues } from '@/defs';
+import { tags, variants, paddingValues } from '@/defs';
 
 // This is just an arbitrary example of some markup a user may pass into the card
-const slotContent = `<div style="color: var(--card-color); font-size: calc(var(--dt-font-body-l-size) * 1px); font-family: var(--dt-font-interactive-m-family); padding: var(--dt-spacing-b);">
+const slotContent = `<div style="font-size: calc(var(--dt-font-body-l-size) * 1px); font-family: var(--dt-font-interactive-m-family); padding: var(--dt-spacing-b);">
     <h2> Card title </h2>
     <p> Card content </p>
     <p> Lorem ipsum dolor sit amet
@@ -30,7 +30,7 @@ const slotContent = `<div style="color: var(--card-color); font-size: calc(var(-
 </div>`;
 
 // Renders a <pie-card-container> HTML string with the given prop values
-const renderTestPieCardContainer = (propVals: WebComponentPropValues) => `<pie-card-container interactionType="${propVals.interactionType}" padding="${propVals.padding}"  variant="${propVals.variant}" ${propVals.disabled ? 'disabled' : ''} >${slotContent}</pie-card-container>`;
+const renderTestPieCardContainer = (propVals: WebComponentPropValues) => `<pie-card-container tag="${propVals.tag}" padding="${propVals.padding}"  variant="${propVals.variant}" ${propVals.disabled ? 'disabled' : ''} >${slotContent}</pie-card-container>`;
 
 // This ensures the component is registered in the DOM for each test
 // This is not required if your tests mount the web component directly in the tests
@@ -49,7 +49,7 @@ test.beforeEach(async ({ page, mount }) => {
 
 test.describe('PieCardContainer - Visual tests`', () => {
     const props: PropObject = {
-        interactionType: interactionTypes,
+        tag: tags,
         variant: variants,
         disabled: [true, false],
     };
@@ -60,7 +60,7 @@ test.describe('PieCardContainer - Visual tests`', () => {
     componentVariants.forEach((variant) => test(`should render all prop variations for Variant: ${variant}`, async ({ page, mount }) => {
         await Promise.all(componentPropsMatrixByVariant[variant].map(async (combo: WebComponentPropValues) => {
             const testComponent: WebComponentTestInput = createTestWebComponent(combo, renderTestPieCardContainer);
-            const propKeyValues = `interactionType: ${testComponent.propValues.interactionType}, disabled: ${testComponent.propValues.disabled}`;
+            const propKeyValues = `tag: ${testComponent.propValues.tag}, disabled: ${testComponent.propValues.disabled}`;
             const darkMode = variant.includes('inverse');
 
             await mount(
@@ -68,9 +68,7 @@ test.describe('PieCardContainer - Visual tests`', () => {
                 {
                     props: { propKeyValues, darkMode },
                     slots: {
-                        component: `<div style="--card-color: var(--dt-color-content-${darkMode ? 'light' : 'default'})">
-                        ${testComponent.renderedString.trim()}
-                        </div>`,
+                        component: testComponent.renderedString.trim(),
                     },
                 },
             );
