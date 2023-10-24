@@ -5,6 +5,7 @@ import { PieLink } from '@justeattakeaway/pie-link';
 import { PieModal } from '@justeattakeaway/pie-modal';
 import { PieIconButton } from '@justeattakeaway/pie-icon-button';
 import { PieToggleSwitch } from '@justeattakeaway/pie-toggle-switch';
+import { action } from '@storybook/addon-actions';
 
 import { type StoryMeta } from '../types';
 import { createStory } from '../utilities';
@@ -46,11 +47,16 @@ const cookieBannerStoryMeta: CookieBannerStoryMeta = {
 
 export default cookieBannerStoryMeta;
 
+const necessaryOnlyAction = action('Necessary only');
+const acceptAllAction = action('Accept all');
+
 const BaseStoryTemplate = (props: CookieBannerProps) : TemplateResult => {
     const { hasPrimaryActionsOnly } = props;
     return html`
         <pie-cookie-banner
-            ?hasPrimaryActionsOnly="${hasPrimaryActionsOnly}"></pie-cookie-banner>`;
+            ?hasPrimaryActionsOnly="${hasPrimaryActionsOnly}"
+            @pie-cookie-banner-necessary-only="${necessaryOnlyAction}"
+            @pie-cookie-banner-accept-all="${acceptAllAction}"></pie-cookie-banner>`;
 };
 
 /**
