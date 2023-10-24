@@ -23,14 +23,17 @@ const keptReferences = [
 type CookieBannerStoryMeta = StoryMeta<CookieBannerProps>;
 
 const defaultArgs: CookieBannerProps = {
-
+    hasPrimaryActionsOnly: false,
 };
 
 const cookieBannerStoryMeta: CookieBannerStoryMeta = {
     title: 'Cookie Banner',
     component: 'pie-cookie-banner',
     argTypes: {
-
+        hasPrimaryActionsOnly: {
+            description: 'When true, sets the "Necessary only" button variant to "primary".',
+            control: 'boolean',
+        },
     },
     args: defaultArgs,
     parameters: {
@@ -43,8 +46,12 @@ const cookieBannerStoryMeta: CookieBannerStoryMeta = {
 
 export default cookieBannerStoryMeta;
 
-const BaseStoryTemplate = () : TemplateResult => html`
-        <pie-cookie-banner></pie-cookie-banner>`;
+const BaseStoryTemplate = (props: CookieBannerProps) : TemplateResult => {
+    const { hasPrimaryActionsOnly } = props;
+    return html`
+        <pie-cookie-banner
+            ?hasPrimaryActionsOnly="${hasPrimaryActionsOnly}"></pie-cookie-banner>`;
+};
 
 /**
  * Creates a 'page' of scrollable HTML. Useful for testing scroll behaviours in a Story.
@@ -61,15 +68,9 @@ const createScrollablePageHTML = () : TemplateResult => {
         <ul>${items}</ul>`;
 };
 
-// TODO: remove the eslint-disable rule when props are added
-// eslint-disable-next-line no-empty-pattern
-const Template = ({}: CookieBannerProps): TemplateResult => html`
-    <pie-cookie-banner></pie-cookie-banner>
-`;
-
-const ScrollablePageStoryTemplate = () : TemplateResult => html`
-    ${BaseStoryTemplate()}
+const ScrollablePageStoryTemplate = (props: CookieBannerProps) : TemplateResult => html`
+    ${BaseStoryTemplate(props)}
     ${createScrollablePageHTML()}`;
 
-export const Default = createStory<CookieBannerProps>(Template, defaultArgs)();
+export const Default = createStory<CookieBannerProps>(BaseStoryTemplate, defaultArgs)();
 export const ScrollablePage = createStory<CookieBannerProps>(ScrollablePageStoryTemplate, defaultArgs)();

@@ -259,4 +259,46 @@ test.describe('PieCookieBanner - Component tests', () => {
         // Assert
         expect(isToggleAllChecked).toBe(false);
     });
+
+    test.describe('`hasPrimaryActionsOnly` prop', () => {
+        test('should set both buttons to primary when true', async ({ mount }) => {
+            // Arrange & Act
+            const component = await mount(
+                PieCookieBanner,
+                {
+                    props: {
+                        hasPrimaryActionsOnly: true,
+                    },
+                },
+            );
+
+            // Act
+            const acceptAllButton = await component.locator('[data-test-id="actions-accept-all"]');
+            const necessaryOnlyButton = await component.locator('[data-test-id="actions-necessary-only"]');
+
+            // Assert
+            expect(await acceptAllButton.getAttribute('variant')).toBe('primary');
+            expect(await necessaryOnlyButton.getAttribute('variant')).toBe('primary');
+        });
+
+        [false, undefined].forEach((hasPrimaryActionsOnly) => {
+            test(`should not change button variants when ${hasPrimaryActionsOnly}`, async ({ mount }) => {
+                // Arrange & Act
+                const component = await mount(
+                    PieCookieBanner,
+                    {
+                        props: { hasPrimaryActionsOnly },
+                    },
+                );
+
+                // Act
+                const acceptAllButton = await component.locator('[data-test-id="actions-accept-all"]');
+                const necessaryOnlyButton = await component.locator('[data-test-id="actions-necessary-only"]');
+
+                // Assert
+                expect(await acceptAllButton.getAttribute('variant')).toBe('primary');
+                expect(await necessaryOnlyButton.getAttribute('variant')).toBe('outline-inverse');
+            });
+        });
+    });
 });
