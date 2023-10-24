@@ -5325,7 +5325,7 @@ __metadata:
     "@justeattakeaway/pie-icon-button": 0.18.0
     "@justeattakeaway/pie-icons-webc": 0.11.1
     "@justeattakeaway/pie-webc-core": 0.11.0
-    "@types/body-scroll-lock": 3.1.0
+    "@types/body-scroll-lock": 3.1.1
     dialog-polyfill: 0.5.6
   peerDependencies:
     body-scroll-lock: 3.1.5
@@ -9429,10 +9429,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/body-scroll-lock@npm:3.1.0":
-  version: 3.1.0
-  resolution: "@types/body-scroll-lock@npm:3.1.0"
-  checksum: 9b0d88053cd65abfc7b0f4946da844f4c822f58d47413457e03220a62bc3de897f7682339e6a04eba07658020910bbfc5dcd0a12ef8f0282780d1ce6e4d71570
+"@types/body-scroll-lock@npm:3.1.1":
+  version: 3.1.1
+  resolution: "@types/body-scroll-lock@npm:3.1.1"
+  checksum: 99719104357f178e0cca88d11108a2b1aa3c55c8579398fb4ee7d475f2845086b51d10b7e89ec27b72ea4accc1e6314565883c8d1aac752323c7aa9a07244192
   languageName: node
   linkType: hard
 
