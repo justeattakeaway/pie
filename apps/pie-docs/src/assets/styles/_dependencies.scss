@@ -50,6 +50,7 @@
 @use 'components/notification';
 @use 'components/razor';
 @use 'components/resourceTable';
+@use 'components/scrollToTop';
 @use 'components/simpleTable';
 @use 'components/table';
 @use 'components/tabs';
@@ -65,4 +66,3 @@
  * of 3rd party components such as cookie banners
  */
 @use './overrides';
-

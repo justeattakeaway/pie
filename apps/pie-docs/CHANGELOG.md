@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.9.0
+
+### Minor Changes
+
+- [Added] - "Back to top" button to scroll to the top of the page ([#906](https://github.com/justeattakeaway/pie/pull/906)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
 ## 3.8.0
 
 ### Minor Changes

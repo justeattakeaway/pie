@@ -12,15 +12,15 @@
 
 # Table of Contents
 
-1. [Introduction](#pie-css)
-2. [Installation](#installation)
+1. [Introduction](#introduction)
+2. [Using pie-css for building web applications](#using-pie-css-for-building-web-applications)
     1. JS or Framework import (via bundler)
     2. NuxtJS
     3. Sass /SCSS
     4. Native HTML
-3. [Using the PIE CSS – SCSS helpers](#helpers)
-4. [Z-index](#z-index)
-5. [Testing](#testing)
+3. [Using pie-css for building web components](#using-pie-css-for-building-web-components)
+    - [Z-index](#z-index)
+4. [Testing](#testing)
     - [CSS](#css)
     - [SCSS](#scss )
 
@@ -30,7 +30,8 @@ PIE CSS is A styling library that provides both a shared collection of ready to 
 
 ---
 
-## Installing PIE CSS shared CSS styles
+## Using pie-css for building web applications
+`pie-css` provides a base stylesheet that sets up some basic styles used by our components. It is essential that this stylesheet is included in any application that uses PIE Web Components. The stylesheet provides some basic styles for things like typography and provides the design tokens that are used by our components.
 
 To install the PIE CSS library, run the following on your command line:
 
@@ -121,15 +122,17 @@ Of course, you could include the styles straight inside your HTML document – m
 
 
 
-## Using the PIE CSS – SCSS helpers
+## Using pie-css for building web components
+> [!NOTE]
+> The following section is only relevant if you are building web components as a part of our component library within the PIE monorepo.
 
-PIE CSS also has an optional set of SCSS helpers that are used by the PIE Web Components.
+PIE CSS provides an optional set of SCSS helpers that are used by the PIE Web Components.
 
 These are for carrying out common tasks in our styles, such as setting font sizes in consistent ways and sharing styles across components via SCSS mixins and functions.
 
 We will be writing more in-depth docs on these SCSS helpers shortly, but for now, feel free to browse the [SCSS code in the PIE mono-repo](https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-css/scss).
 
-## z-index
+### z-index
 
 Some PIE Web Components use a z-index value to control how they stack on a webpage. These values are defined in the `pie-css` package as css variables and are utilized internally. In most cases, a webpage should follow the DOM's natural stacking order and the default z-index order assigned for each component. However, if you're creating custom components, refer to the following table to make sure they don't conflict with other components.
 

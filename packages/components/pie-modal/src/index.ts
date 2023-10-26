@@ -4,7 +4,7 @@ import {
 import { html, unsafeStatic } from 'lit/static-html.js';
 import { property, query } from 'lit/decorators.js';
 import {
-    requiredProperty, RtlMixin, validPropertyValues,
+    requiredProperty, RtlMixin, validPropertyValues, defineCustomElement,
 } from '@justeattakeaway/pie-webc-core';
 import '@justeattakeaway/pie-icons-webc/IconClose';
 import '@justeattakeaway/pie-icons-webc/IconChevronLeft';
@@ -33,6 +33,7 @@ export * from './defs';
 const componentSelector = 'pie-modal';
 
 /**
+ * @tagname pie-modal
  * @event {CustomEvent} pie-modal-open - when the modal is opened.
  * @event {CustomEvent} pie-modal-close - when the modal is closed.
  * @event {CustomEvent} pie-modal-back - when the modal back button is clicked.
@@ -452,7 +453,7 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
     };
 }
 
-customElements.define(componentSelector, PieModal);
+defineCustomElement(componentSelector, PieModal);
 
 declare global {
     interface HTMLElementTagNameMap {

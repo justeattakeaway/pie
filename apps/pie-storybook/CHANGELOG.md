@@ -1,5 +1,65 @@
 # Changelog
 
+## 0.41.7
+
+### Patch Changes
+
+- [Changed] - `hasPrimaryActionsOnly` prop description to be less tied to the copy ([#929](https://github.com/justeattakeaway/pie/pull/929)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Removed] - explicit dependencies on the storybook actions and docs addons because these come through the essentials package
+
+- Updated dependencies [[`a6cdd74d0`](https://github.com/justeattakeaway/pie/commit/a6cdd74d0626f2dd8f232a9f6871eb107b39c44b), [`76a6ce68f`](https://github.com/justeattakeaway/pie/commit/76a6ce68f782c42cf86db0ca08a194d9987bf70b)]:
+  - @justeattakeaway/pie-cookie-banner@0.9.0
+  - @justeattakeaway/pie-card-container@0.12.0
+  - @justeattakeaway/pie-toggle-switch@0.15.0
+  - @justeattakeaway/pie-icon-button@0.19.0
+  - @justeattakeaway/pie-form-label@0.7.0
+  - @justeattakeaway/pie-divider@0.9.0
+  - @justeattakeaway/pie-button@0.35.0
+  - @justeattakeaway/pie-modal@0.30.0
+  - @justeattakeaway/pie-link@0.11.0
+
+## 0.41.6
+
+### Patch Changes
+
+- [Added] - `hasPrimaryActionsOnly` prop to cookie-banner ([#927](https://github.com/justeattakeaway/pie/pull/927)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- Updated dependencies [[`04457fd15`](https://github.com/justeattakeaway/pie/commit/04457fd15c2d5084b19d4658b3e1492d3e66db4a), [`267124747`](https://github.com/justeattakeaway/pie/commit/2671247474cb0e7b8f9c1380bc66a50244b747ad), [`b5861caa2`](https://github.com/justeattakeaway/pie/commit/b5861caa2c4d8bd7426236561eda8ac17545aa90), [`ea1f69863`](https://github.com/justeattakeaway/pie/commit/ea1f698636ae421c62ff95a74728462dc93648ba)]:
+  - @justeattakeaway/pie-cookie-banner@0.8.0
+  - @justeattakeaway/pie-modal@0.29.0
+  - @justeattakeaway/pie-form-label@0.6.0
+
+## 0.41.5
+
+### Patch Changes
+
+- Updated dependencies [[`5fcffa270`](https://github.com/justeattakeaway/pie/commit/5fcffa27063c1d38564415ccfa7820b2c06d5224)]:
+  - @justeattakeaway/pie-button@0.34.0
+
+## 0.41.4
+
+### Patch Changes
+
+- Updated dependencies [[`f669248e1`](https://github.com/justeattakeaway/pie/commit/f669248e13761ebd68184af7f09fa42d2e84fcda)]:
+  - @justeattakeaway/pie-icons-webc@0.11.1
+
+## 0.41.3
+
+### Patch Changes
+
+- Updated dependencies [[`4cab049d1`](https://github.com/justeattakeaway/pie/commit/4cab049d1e78196bcd4411efba8d82d86f7a4f06), [`4cab049d1`](https://github.com/justeattakeaway/pie/commit/4cab049d1e78196bcd4411efba8d82d86f7a4f06)]:
+  - @justeattakeaway/pie-icons-webc@0.11.0
+  - @justeattakeaway/pie-card-container@0.11.0
+  - @justeattakeaway/pie-cookie-banner@0.7.0
+  - @justeattakeaway/pie-toggle-switch@0.14.0
+  - @justeattakeaway/pie-icon-button@0.18.0
+  - @justeattakeaway/pie-form-label@0.5.0
+  - @justeattakeaway/pie-divider@0.8.0
+  - @justeattakeaway/pie-button@0.33.0
+  - @justeattakeaway/pie-modal@0.28.0
+  - @justeattakeaway/pie-link@0.10.0
+
 ## 0.41.2
 
 ### Patch Changes
