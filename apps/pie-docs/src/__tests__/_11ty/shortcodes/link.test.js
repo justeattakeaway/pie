@@ -5,7 +5,7 @@ describe('link.js', () => {
 
     it('should return the expected HTML for the link', () => {
         // act
-        const result = createLink(link)
+        const result = createLink(link);
 
         // assert
         expect(result).toMatchSnapshot();
@@ -17,7 +17,7 @@ describe('link.js', () => {
     ])('should throw an error if link is invalid', (link) => {
         // arrange
         const invalidURL = link;
-        const invalidURLError = new Error(`Link is not valid. Please ensure URL is a *string* containing http or https.`);
+        const invalidURLError = new Error('Link is not valid. Please ensure URL is a *string* containing http or https.');
 
         // assert
         expect(() => {
