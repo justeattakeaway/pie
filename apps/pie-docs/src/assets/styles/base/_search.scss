@@ -19,7 +19,7 @@
     margin-left: f.$spacing-e;
 }
 
-.DocSearch-NewStartScreenTitle {
+.DocSearch-NewStartScreenHeader {
     display: flex;
 }
 
@@ -28,7 +28,7 @@
     align-items: 'center';
     cursor: 'pointer';
     width: '100%';
-    padding-inline-start: f.$spacing-e;;
+    padding-inline-start: f.$spacing-e;
     margin-block-end: f.$spacing-a;
     font-size: 14px;
     font-weight: f.$font-weight-regular;
@@ -36,12 +36,16 @@
     color: f.$color-content-default;
 }
 
-.title {
+.DocSearch-Title {
     padding-inline-start: 10px;
     font-size: 14px;
     font-weight: f.$font-weight-bold;
     line-height: 20px;
     margin-block-end: f.$spacing-a;
+}
+
+.DocSearch-Hit-icon {
+    color: f.$color-interactive-brand;
 }
 
 .DocSearch-Modal {
@@ -55,7 +59,7 @@
     }
 }
 
-.DocSearch[aria-expanded="true"] {
+.DocSearch[aria-expanded='true'] {
     .DocSearch-Hit-icon {
         color: f.$color-interactive-brand !important;
     }
@@ -75,7 +79,6 @@
         .DocSearch-Hit-icon {
             color: f.$color-interactive-brand;
         }
-
     }
 }
 
@@ -95,32 +98,29 @@
     border-bottom: 1px solid f.$color-border-strong;
 }
 
-.DocSearch-Hit-action-button[title^="Save"] {
+.DocSearch-Hit-action-button[title^='Save'] {
     color: f.$color-interactive-brand;
 }
 
-.DocSearch-Hit-action-button[title^="Remove"] {
-    color: #242E30;
-}
-
-.DocSearch-Hit-icon {
-    color: f.$color-interactive-brand;
+.DocSearch-Hit-action-button[title^='Remove'] {
+    color: #242e30;
 }
 
 .DocSearch-Hit-title {
     font-size: 16px;
     font-weight: 700;
     line-height: 24px;
-    color: #242E30;
+    color: #242e30;
     flex-wrap: wrap;
 }
 
 .DocSearch-Hit-path {
     font-size: 14px;
-    color: #242E30;
+    color: #242e30;
 }
 
-.DocSearch-Commands, .DocSearch-Button-Keys {
+.DocSearch-Commands,
+.DocSearch-Button-Keys {
     visibility: hidden;
 }
 

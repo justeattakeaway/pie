@@ -68,9 +68,9 @@
       '<div class="DocSearch-NewStartScreen">' +
       startScreenOptions.map(({ category, items }) => {
           return `<div key="${category.name}" class="DocSearch-NewStartScreenCategory">
-          <div class="DocSearch-NewStartScreenTitle">
-            <img src="${category.icon}" alt="" class="Docsearch-Icon">
-            <div class="title">${category.name}</div>
+          <div class="DocSearch-NewStartScreenHeader">
+            <img src="${category.icon}" alt="" class="DocSearch-Icon">
+            <div class="DocSearch-Title">${category.name}</div>
           </div>
           ` +
           
