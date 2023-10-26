@@ -1,5 +1,33 @@
 # Changelog
 
+## 2.31.1
+
+### Patch Changes
+
+- [Fixed] - Issue with Slack notification functionality where $PRIORITIZED_BLOCKS had no value assigned, causing invalid JSON when $BLOCKS array was assigned a value ([#898](https://github.com/justeattakeaway/pie/pull/898)) by [@siggerzz](https://github.com/siggerzz)
+
+## 2.31.0
+
+### Minor Changes
+
+- [Fixed] - Hide `underline` and `iconPlacement` props when `isStandalone` is set to false in storybook ([#885](https://github.com/justeattakeaway/pie/pull/885)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Fixed] - The touch target area is much larger than the text when `isStandalone` is set to true
+
+## 2.30.0
+
+### Minor Changes
+
+- [Added] - Github action settings to ensure the required CI jobs are passing ([#874](https://github.com/justeattakeaway/pie/pull/874)) by [@fernandofranca](https://github.com/fernandofranca)
+
+## 2.29.0
+
+### Minor Changes
+
+- [Changed] - Updated component README structure ([#857](https://github.com/justeattakeaway/pie/pull/857)) by [@ashleynolan](https://github.com/ashleynolan)
+
+- [Fixed] - License removed from packages ([#869](https://github.com/justeattakeaway/pie/pull/869)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
 ## 2.28.0
 
 ### Minor Changes

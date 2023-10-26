@@ -61,11 +61,13 @@ const linkStoryMeta: LinkStoryMeta = {
             defaultValue: {
                 summary: 'default',
             },
+            if: { arg: 'isStandalone', eq: true },
         },
         iconPlacement: {
             description: 'Show a leading or trailing icon.<br /><br />To use this with pie-link, you can pass an icon into the `icon` slot.<br /><br />Can only be used if `isStandalone` is set to `true`',
             control: 'select',
             options: [undefined, ...iconPlacements],
+            if: { arg: 'isStandalone', eq: true },
         },
         href: {
             description: 'The URL that the hyperlink should point to.',

@@ -1,0 +1,126 @@
+@use '../fozzie-config' as f;
+
+.DocSearch-NewStartScreen {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: f.$spacing-d;
+    padding-block-end: f.$spacing-d;
+
+    @include f.media('>=narrow') {
+        grid-template-columns: repeat(2, 1fr);
+        padding-block-end: f.$spacing-g;
+        gap: 48px;
+    }
+}
+
+.DocSearch-NewStartScreenCategory {
+    display: flex;
+    flex-direction: column;
+    margin-left: f.$spacing-e;
+}
+
+.DocSearch-NewStartScreenTitle {
+    display: flex;
+}
+
+.DocSearch-NewStartScreenItem {
+    display: flex;
+    align-items: 'center';
+    cursor: 'pointer';
+    width: '100%';
+    padding-inline-start: f.$spacing-e;;
+    margin-block-end: f.$spacing-a;
+    font-size: 14px;
+    font-weight: f.$font-weight-regular;
+    line-height: 20px;
+    color: f.$color-content-default;
+}
+
+.title {
+    padding-inline-start: 10px;
+    font-size: 14px;
+    font-weight: f.$font-weight-bold;
+    line-height: 20px;
+    margin-block-end: f.$spacing-a;
+}
+
+.DocSearch-Modal {
+    background-color: #fff;
+    min-height: auto;
+
+    &:hover {
+        .DocSearch-Hit-icon {
+            color: f.$color-interactive-brand;
+        }
+    }
+}
+
+.DocSearch[aria-expanded="true"] {
+    .DocSearch-Hit-icon {
+        color: f.$color-interactive-brand !important;
+    }
+}
+
+.DocSearch-Footer {
+    position: absolute;
+}
+
+.DocSearch-Hit {
+    border-radius: 12px;
+    box-shadow: none;
+
+    &:hover {
+        background-color: f.$color-container-subtle;
+
+        .DocSearch-Hit-icon {
+            color: f.$color-interactive-brand;
+        }
+
+    }
+}
+
+.DocSearch-SearchBar {
+    border-bottom: 1px solid f.$color-border-strong;
+}
+
+.DocSearch-Hit-source {
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    padding-block-end: 6px;
+    background-color: white;
+}
+
+.DocSearch-Hits:last-child {
+    border-bottom: 1px solid f.$color-border-strong;
+}
+
+.DocSearch-Hit-action-button[title^="Save"] {
+    color: f.$color-interactive-brand;
+}
+
+.DocSearch-Hit-action-button[title^="Remove"] {
+    color: #242E30;
+}
+
+.DocSearch-Hit-icon {
+    color: f.$color-interactive-brand;
+}
+
+.DocSearch-Hit-title {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    color: #242E30;
+    flex-wrap: wrap;
+}
+
+.DocSearch-Hit-path {
+    font-size: 14px;
+    color: #242E30;
+}
+
+.DocSearch-Commands, .DocSearch-Button-Keys {
+    visibility: hidden;
+}
+

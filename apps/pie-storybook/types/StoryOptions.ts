@@ -15,6 +15,11 @@ export type StoryBackgrounds = {
     values: Array<BackgroundValue>,
 };
 
+type StorybookControls = {
+    exclude?: string[],
+    include?: string[]
+}
 export interface StoryOptions {
     bgColor?: BackgroundColor;
+    controls?: StorybookControls
 }

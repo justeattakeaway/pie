@@ -1,5 +1,30 @@
 # Changelog
 
+## 3.8.0
+
+### Minor Changes
+
+- [Updated] - Dependencies: ([#900](https://github.com/justeattakeaway/pie/pull/900)) by [@siggerzz](https://github.com/siggerzz)
+
+  @types/markdown-it 13.0.0 > 13.0.2
+  markdown-it 13.0.1 > 13.0.2
+  node-html-parser 16.1.5 > 16.1.10
+
+## 3.7.0
+
+### Minor Changes
+
+- [Updated] - Snacks avatar status ([#873](https://github.com/justeattakeaway/pie/pull/873)) by [@FayeCarter](https://github.com/FayeCarter)
+
+- [Added] components R to S ([#844](https://github.com/justeattakeaway/pie/pull/844)) by [@FayeCarter](https://github.com/FayeCarter)
+
+- [Added] - Component overview pages T to U ([#861](https://github.com/justeattakeaway/pie/pull/861)) by [@FayeCarter](https://github.com/FayeCarter)
+
+### Patch Changes
+
+- Updated dependencies [[`e50b0fe60`](https://github.com/justeattakeaway/pie/commit/e50b0fe60d1be37ac48923316bef8e5c181c7d9e)]:
+  - @justeattakeaway/browserslist-config-pie@0.2.0
+
 ## 3.6.0
 
 ### Minor Changes

@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.32.0
+
+### Minor Changes
+
+- [Added] - Native form submit and reset handling logic to pie-button ([#877](https://github.com/justeattakeaway/pie/pull/877)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+## 0.31.0
+
+### Minor Changes
+
+- [Fixed] - License removed from packages ([#869](https://github.com/justeattakeaway/pie/pull/869)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
 ## 0.30.0
 
 ### Minor Changes

@@ -2,7 +2,7 @@ import { nothing } from 'lit';
 import { html } from 'lit/static-html.js';
 import {
     PieCardContainer, CardContainerProps as CardContainerPropsBase,
-    variants, interactionTypes, padding,
+    variants, interactionTypes, paddingValues,
 } from '@justeattakeaway/pie-card-container';
 import type { StoryMeta, SlottedComponentProps } from '../types';
 import { createStory, type TemplateFunction, staticSlot } from '../utilities';
@@ -24,7 +24,6 @@ const defaultArgs: CardContainerProps = {
     aria: {
         label: 'Click to go to restaurant',
     },
-    padding: '',
     isDraggable: false,
     // This is just an arbitrary example of some markup a user may pass into the card
     slot: `<div style="color: var(--card-color); font-size: calc(var(--dt-font-body-l-size) * 1px); font-family: var(--dt-font-interactive-m-family); padding: var(--dt-spacing-b);">
@@ -61,11 +60,11 @@ const cardContainerStoryMeta: CardContainerStoryMeta = {
             },
         },
         padding: {
-            description: 'Set the padding of the card.',
+            description: `Set the padding of the card. <br/> Can be either a single value or two values separated by a comma (paddingX, paddingY) e.g 'a' or 'a,b'.
+            <br /> valid values are: \`${paddingValues.filter((i) => !i.includes(',')).join(', ')}\``,
             control: {
                 type: 'text',
             },
-            options: padding,
         },
         disabled: {
             description: 'If `true`, disables the card.',

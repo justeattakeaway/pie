@@ -121,10 +121,13 @@
 
     &[position='top'] {
         margin-block-start: var(--dt-spacing-j);
+        max-block-size: calc(100% - var(--dt-spacing-j) * 2);
 
-        &[isfullwidthbelowmid] {
+        &[size='large'],
+        &[isfullwidthbelowmid][size='medium'] {
             @media (max-width: calc($breakpoint-wide - 1px)) {
                 margin-block-start: var(--dt-spacing-none);
+                max-block-size: 100%;
             }
         }
     }
@@ -162,39 +165,10 @@
     }
 
     & .c-modal-header {
-        padding-inline: var(--dt-spacing-d);
-        padding-block: 14px; // This is deliberately not a custom property
         display: grid;
-        grid-template-areas:
-            'back heading close'
-            '. heading .';
+        grid-template-areas: 'back heading close';
         grid-template-columns: minmax(0, max-content) minmax(0, 1fr) minmax(0, max-content);
-        align-items: center;
-
-        @media (min-width: $breakpoint-wide) {
-            padding-inline: var(--dt-spacing-e);
-            padding-block: 20px; // This is deliberately not a custom property
-        }
-    }
-
-    &[hasbackbutton] .c-modal-header {
-        padding-block: var(--dt-spacing-b);
-        padding-inline-start: var(--dt-spacing-b);
-
-        @media (min-width: $breakpoint-wide) {
-            padding-block: var(--dt-spacing-c);
-            padding-inline-start: var(--dt-spacing-c);
-        }
-    }
-
-    &[isdismissible] .c-modal-header {
-        padding-block: var(--dt-spacing-b);
-        padding-inline-end: var(--dt-spacing-b);
-
-        @media (min-width: $breakpoint-wide) {
-            padding-block: var(--dt-spacing-c);
-            padding-inline-end: var(--dt-spacing-c);
-        }
+        align-items: start;
     }
 
     & .c-modal-heading {
@@ -207,32 +181,54 @@
         font-weight: var(--modal-header-font-weight);
         margin: 0;
         grid-area: heading;
+
+        margin-inline: var(--dt-spacing-d);
+        margin-block: 14px; // This is deliberately not a custom property
+
+        @media (min-width: $breakpoint-wide) {
+            margin-inline: var(--dt-spacing-e);
+            margin-block: 20px; // This is deliberately not a custom property
+        }
     }
 
     // Ensure correct padding when there is a back button in front of the heading
     &[hasbackbutton] .c-modal-heading {
-        padding-inline-start: var(--dt-spacing-b);
+        margin-inline-start: var(--dt-spacing-b);
 
         @media (min-width: $breakpoint-wide) {
-            padding-inline-start: var(--dt-spacing-c);
+            margin-inline-start: var(--dt-spacing-c);
         }
     }
 
     // Ensure correct padding when there is a close button behind the heading
     &[isdismissible] .c-modal-heading {
-        padding-inline-end: var(--dt-spacing-d);
+        margin-inline-end: var(--dt-spacing-d);
 
         @media (min-width: $breakpoint-wide) {
-            padding-inline-end: var(--dt-spacing-e);
+            margin-inline-end: var(--dt-spacing-e);
         }
     }
 
     & .c-modal-backBtn {
         grid-area: back;
+        margin-block: var(--dt-spacing-b);
+        margin-inline: var(--dt-spacing-b) var(--dt-spacing-none);
+
+        @media (min-width: $breakpoint-wide) {
+            margin-block: var(--dt-spacing-c);
+            margin-inline: var(--dt-spacing-c) var(--dt-spacing-none);
+        }
     }
 
     & .c-modal-closeBtn {
         grid-area: close;
+        margin-block: var(--dt-spacing-b);
+        margin-inline: var(--dt-spacing-none) var(--dt-spacing-b);
+
+        @media (min-width: $breakpoint-wide) {
+            margin-block: var(--dt-spacing-c);
+            margin-inline: var(--dt-spacing-none) var(--dt-spacing-c);
+        }
     }
 
     &[isfooterpinned] .c-modal-content,
@@ -266,8 +262,12 @@
         --modal-content-font-size: calc(var(--dt-font-size-16) * 1px);
         --modal-content-font-weight: var(--dt-font-weight-regular);
         --modal-content-line-height: calc(var(--dt-font-size-16-line-height) * 1px);
-        --modal-content-padding: var(--dt-spacing-e);
         --modal-content-padding-block: var(--dt-spacing-a);
+        --modal-content-padding-inline: var(--dt-spacing-d);
+
+        @media (min-width: $breakpoint-wide) {
+            --modal-content-padding-inline: var(--dt-spacing-e);
+        }
 
         // Spinner sizes defaults
         --spinner-size: 48px;
@@ -293,7 +293,7 @@
         line-height: var(--modal-content-line-height);
         font-weight: var(--modal-content-font-weight);
 
-        padding-inline: var(--modal-content-padding);
+        padding-inline: var(--modal-content-padding-inline);
         padding-block: var(--modal-content-padding-block);
 
         &--scrollable {

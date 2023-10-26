@@ -1,5 +1,74 @@
 # Changelog
 
+## 0.41.2
+
+### Patch Changes
+
+- [Updated] - The `dompurify` dependency from `3.0.5` to `3.0.6` ([#901](https://github.com/justeattakeaway/pie/pull/901)) by [@siggerzz](https://github.com/siggerzz)
+
+## 0.41.1
+
+### Patch Changes
+
+- Updated dependencies [[`200e9f581`](https://github.com/justeattakeaway/pie/commit/200e9f58136ea42564ea591b6216e8013311b408)]:
+  - @justeattakeaway/pie-modal@0.27.0
+
+## 0.41.0
+
+### Minor Changes
+
+- [Fixed] - Hide `underline` and `iconPlacement` props when `isStandalone` is set to false in storybook ([#885](https://github.com/justeattakeaway/pie/pull/885)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Fixed] - The touch target area is much larger than the text when `isStandalone` is set to true
+
+### Patch Changes
+
+- Updated dependencies [[`d3fe6fcce`](https://github.com/justeattakeaway/pie/commit/d3fe6fcce2373275eb82a43d38013d06c056a756)]:
+  - @justeattakeaway/pie-link@0.9.0
+
+## 0.40.0
+
+### Minor Changes
+
+- [Added] - validate the padding prop ([#875](https://github.com/justeattakeaway/pie/pull/875)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies [[`5aa06b721`](https://github.com/justeattakeaway/pie/commit/5aa06b7216db8e3a476b10e26de4e5121df18cf7)]:
+  - @justeattakeaway/pie-card-container@0.10.0
+
+## 0.39.0
+
+### Minor Changes
+
+- [Added] - Form integration test to pie-button ([#877](https://github.com/justeattakeaway/pie/pull/877)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies [[`c9131d14b`](https://github.com/justeattakeaway/pie/commit/c9131d14b1c82f2640ad3de62632af115ea1333c)]:
+  - @justeattakeaway/pie-button@0.32.0
+
+## 0.38.0
+
+### Minor Changes
+
+- [Fixed] - License removed from packages ([#869](https://github.com/justeattakeaway/pie/pull/869)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
+### Patch Changes
+
+- Updated dependencies [[`1b426e688`](https://github.com/justeattakeaway/pie/commit/1b426e6883b5baada6a29b12ee7e7e68cfe0de14), [`e50b0fe60`](https://github.com/justeattakeaway/pie/commit/e50b0fe60d1be37ac48923316bef8e5c181c7d9e), [`86af06ddf`](https://github.com/justeattakeaway/pie/commit/86af06ddf49f659bfefd7a8eb7ea4197eeaa84b5)]:
+  - @justeattakeaway/pie-cookie-banner@0.6.0
+  - @justeattakeaway/pie-css@0.6.0
+  - @justeattakeaway/pie-card-container@0.9.0
+  - @justeattakeaway/pie-toggle-switch@0.13.0
+  - @justeattakeaway/pie-icon-button@0.17.0
+  - @justeattakeaway/pie-form-label@0.4.0
+  - @justeattakeaway/pie-divider@0.7.0
+  - @justeattakeaway/pie-button@0.31.0
+  - @justeattakeaway/pie-modal@0.26.0
+  - @justeattakeaway/pie-icons-webc@0.10.0
+  - @justeattakeaway/pie-link@0.8.0
+
 ## 0.37.2
 
 ### Patch Changes
