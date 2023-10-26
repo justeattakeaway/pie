@@ -32,7 +32,7 @@ const cookieBannerStoryMeta: CookieBannerStoryMeta = {
     component: 'pie-cookie-banner',
     argTypes: {
         hasPrimaryActionsOnly: {
-            description: 'When true, sets the "Necessary only" button variant to "primary".',
+            description: 'When true, sets the variant to "primary" for the button which accepts necessary cookies only.',
             control: 'boolean',
         },
     },

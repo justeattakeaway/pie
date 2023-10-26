@@ -10,7 +10,7 @@ module.exports = {
     },
     parserPreset: {
         parserOpts: {
-            headerPattern: /^(\w*)\((\w.*)\): ((DSW|dsw)-\d{1,7}) (\w.*)$/,
+            headerPattern: /^(\w*)\((\w.*)\): (DSW-\d{1,7}) (\w.*)$/,
             headerCorrespondence: ['type', 'scope', 'ticket', 'subject'],
             issuePrefixes: [czConfig.ticketNumberPrefix],
             referenceActions: null, // this stops commitlint erroring when using these words ['close', 'closes', 'closed', 'fix', 'fixes', 'fixed', 'resolve', 'resolves', 'resolved']
