@@ -1,5 +1,17 @@
 # @justeattakeaway/pie-cookie-banner
 
+## 0.9.0
+
+### Minor Changes
+
+- [Removed] - pie-monorepo specific content from Web Component READMES ([#904](https://github.com/justeattakeaway/pie/pull/904)) by [@LTurns](https://github.com/LTurns)
+
+### Patch Changes
+
+- [Changed] - `hasPrimaryActionsOnly` prop description to be less tied to the copy ([#929](https://github.com/justeattakeaway/pie/pull/929)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Removed] - explicit dependencies on the storybook actions and docs addons because these come through the essentials package
+
 ## 0.8.0
 
 ### Minor Changes

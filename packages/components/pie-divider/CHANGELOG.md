@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-divider
 
+## 0.9.0
+
+### Minor Changes
+
+- [Removed] - pie-monorepo specific content from Web Component READMES ([#904](https://github.com/justeattakeaway/pie/pull/904)) by [@LTurns](https://github.com/LTurns)
+
 ## 0.8.0
 
 ### Minor Changes
