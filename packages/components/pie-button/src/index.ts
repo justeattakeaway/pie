@@ -1,5 +1,5 @@
 import {
-    LitElement, html, unsafeCSS, nothing,
+    LitElement, html, unsafeCSS, nothing, PropertyValues,
 } from 'lit';
 import { property } from 'lit/decorators.js';
 import { validPropertyValues, defineCustomElement } from '@justeattakeaway/pie-webc-core';
@@ -37,13 +37,30 @@ export class PieButton extends LitElement implements ButtonProps {
     connectedCallback () {
         super.connectedCallback();
 
-        this.form?.addEventListener('keydown', this._handleFormKeyDown);
+        if (this.type === 'submit') {
+            this.form?.addEventListener('keydown', this._handleFormKeyDown);
+        }
     }
 
     disconnectedCallback () {
         super.disconnectedCallback();
 
-        this.form?.removeEventListener('keydown', this._handleFormKeyDown);
+        if (this.type === 'submit') {
+            this.form?.removeEventListener('keydown', this._handleFormKeyDown);
+        }
+    }
+
+    updated (changedProperties: PropertyValues<this>): void {
+        super.updated(changedProperties);
+
+        if (changedProperties.has('type')) {
+            // If the new type is "submit", add the keydown event listener
+            if (this.type === 'submit') {
+                this.form?.addEventListener('keydown', this._handleFormKeyDown);
+            } else {
+                this.form?.removeEventListener('keydown', this._handleFormKeyDown);
+            }
+        }
     }
 
     @property()
@@ -170,13 +187,12 @@ export class PieButton extends LitElement implements ButtonProps {
         if (event.target instanceof HTMLElement) {
             const targetTagName = event.target.tagName.toLowerCase();
 
-            // If the target is a button or the pie-button custom element, return early
+            // We want to ignore the enter key if the user is on a button or pie-button
             if (targetTagName === 'button' || targetTagName === 'pie-button') {
                 return;
             }
         }
 
-        // Prevent the default behavior
         event.preventDefault();
         this._handleClick();
     };
