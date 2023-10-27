@@ -5,6 +5,7 @@ import { PieLink } from '@justeattakeaway/pie-link';
 import { PieModal } from '@justeattakeaway/pie-modal';
 import { PieIconButton } from '@justeattakeaway/pie-icon-button';
 import { PieSwitch } from '@justeattakeaway/pie-switch';
+import { readFile } from 'fs/promises';
 import {
     ON_COOKIE_BANNER_ACCEPT_ALL, ON_COOKIE_BANNER_NECESSARY_ONLY,
     ON_COOKIE_BANNER_MANAGE_PREFS, ON_COOKIE_BANNER_PREFS_SAVED,
@@ -14,7 +15,10 @@ import {
     PieCookieBanner, CookieBannerProps,
 } from '@/index';
 
+const spanishLocale = JSON.parse(await readFile(new URL('../../locales/es-es.json', import.meta.url)));
+
 const componentSelector = '[data-test-id="pie-cookie-banner"]';
+const componentDescriptionSelector = '[data-test-id="banner-description"]';
 const acceptAllSelector = '[data-test-id="actions-accept-all"]';
 const necessaryOnlySelector = '[data-test-id="actions-necessary-only"]';
 const managePreferencesSelector = '[data-test-id="actions-manage-prefs"]';
@@ -22,6 +26,7 @@ const bodyAcceptAllSelector = '[data-test-id="body-accept-all"]';
 const bodyNecessaryOnlySelector = '[data-test-id="body-necessary-only"]';
 const bodyManagePreferencesSelector = '[data-test-id="body-manage-prefs"]';
 const modalSelector = '[data-test-id="pie-modal"]';
+const modalDescriptionSelector = '[data-test-id="modal-description"]';
 const modalBackButtonSelector = '[data-test-id="modal-back-button"]';
 const modalSaveButtonSelector = '[data-test-id="modal-leading-action"]';
 const getPreferenceItemSelector = (id: PreferenceIds) => `#${id} [data-test-id="switch-component"]`;
@@ -258,6 +263,46 @@ test.describe('PieCookieBanner - Component tests', () => {
 
         // Assert
         expect(isToggleAllChecked).toBe(false);
+    });
+
+    test.describe('`locale` prop', () => {
+        test('should render text in the default (English) language when the locale is not set', async ({ mount, page }) => {
+            // Arrange
+            await mount(PieCookieBanner, {});
+
+            // Act
+            const acceptAllButton = page.locator(acceptAllSelector);
+            const necessaryOnlyButton = page.locator(necessaryOnlySelector);
+            const managePreferencesButton = page.locator(managePreferencesSelector);
+            const componentDescription = page.locator(componentDescriptionSelector);
+            const modalDescription = page.locator(modalDescriptionSelector);
+
+            // Assert
+            expect(await acceptAllButton.textContent()).toContain('Accept all');
+            expect(await necessaryOnlyButton.textContent()).toContain('Necessary only');
+            expect(await managePreferencesButton.textContent()).toContain('Manage preferences');
+            expect(await componentDescription.textContent()).toContain('We use our own and third party cookies and other tech to enhance and personalise your user experience, optimize analytics, and show ads with third parties (read our Statement). Necessary cookies are always set. Click Necessary only to continue without accepting more. Click Manage preferences to share your preferences or Accept all.');
+            expect(await modalDescription.textContent()).toContain('You can find all the information in the Cookie Statement and Cookie technology list.');
+        });
+
+        test('should render the expected text when the locale prop is set', async ({ mount, page }) => {
+            // Arrange
+            await mount(PieCookieBanner, { props: { locale: spanishLocale } as CookieBannerProps });
+
+            // Act
+            const acceptAllButton = page.locator(acceptAllSelector);
+            const necessaryOnlyButton = page.locator(necessaryOnlySelector);
+            const managePreferencesButton = page.locator(managePreferencesSelector);
+            const componentDescription = page.locator(componentDescriptionSelector);
+            const modalDescription = page.locator(modalDescriptionSelector);
+
+            // Assert
+            expect(await acceptAllButton.textContent()).toContain(spanishLocale.banner.cta.acceptAll);
+            expect(await necessaryOnlyButton.textContent()).toContain(spanishLocale.banner.cta.necessaryOnly);
+            expect(await managePreferencesButton.textContent()).toContain(spanishLocale.banner.cta.managePreferences);
+            expect(await componentDescription.textContent()).toContain('Usamos nuestras propias cookies y de terceros, así como otra tecnología para mejorar y personalizar tu experiencia de usuario, optimizar el análisis y mostrar anuncios con terceros (lee nuestra Declaración). Siempre se establecen las cookies necesarias. Haz clic en Sólo necesarias para seguir sin aceptar más. Haz clic en Gestionar preferencias para compartir tus preferencias o Aceptarlas todas.');
+            expect(await modalDescription.textContent()).toContain('Puedes encontrar toda la información en la Declaración sobre cookies y la Lista de tecnología de cookies.');
+        });
     });
 
     test.describe('`hasPrimaryActionsOnly` prop', () => {
