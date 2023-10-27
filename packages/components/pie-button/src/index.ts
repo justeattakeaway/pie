@@ -34,6 +34,20 @@ export class PieButton extends LitElement implements ButtonProps {
         this._internals = this.attachInternals();
     }
 
+    connectedCallback () {
+        super.connectedCallback();
+
+        // Add event listener to the form
+        this.form?.addEventListener('keydown', this._handleFormKeyDown);
+    }
+
+    disconnectedCallback () {
+        super.disconnectedCallback();
+
+        // Cleanup - remove the event listener
+        this.form?.removeEventListener('keydown', this._handleFormKeyDown);
+    }
+
     @property()
     @validPropertyValues(componentSelector, sizes, 'medium')
     public size: ButtonProps['size'] = 'medium';
@@ -147,6 +161,15 @@ export class PieButton extends LitElement implements ButtonProps {
             }
         }
     }
+
+    // This allows a user to press enter anywhere inside the form and trigger a form submission
+    private _handleFormKeyDown = (event: KeyboardEvent) => {
+        if (event.key === 'Enter' && this.type === 'submit' && !this.disabled) {
+            // Prevent the default behavior
+            event.preventDefault();
+            this._handleClick();
+        }
+    };
 
     render () {
         const {
