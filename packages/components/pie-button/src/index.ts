@@ -162,11 +162,23 @@ export class PieButton extends LitElement implements ButtonProps {
 
     // This allows a user to press enter anywhere inside the form and trigger a form submission
     private _handleFormKeyDown = (event: KeyboardEvent) => {
-        if (event.key === 'Enter' && this.type === 'submit' && !this.disabled) {
-            // Prevent the default behavior
-            event.preventDefault();
-            this._handleClick();
+        if (event.key !== 'Enter' || this.type !== 'submit' || this.disabled) {
+            return;
         }
+
+        // Check if the event target is an instance of HTMLElement
+        if (event.target instanceof HTMLElement) {
+            const targetTagName = event.target.tagName.toLowerCase();
+
+            // If the target is a button or the pie-button custom element, return early
+            if (targetTagName === 'button' || targetTagName === 'pie-button') {
+                return;
+            }
+        }
+
+        // Prevent the default behavior
+        event.preventDefault();
+        this._handleClick();
     };
 
     render () {
