@@ -37,14 +37,12 @@ export class PieButton extends LitElement implements ButtonProps {
     connectedCallback () {
         super.connectedCallback();
 
-        // Add event listener to the form
         this.form?.addEventListener('keydown', this._handleFormKeyDown);
     }
 
     disconnectedCallback () {
         super.disconnectedCallback();
 
-        // Cleanup - remove the event listener
         this.form?.removeEventListener('keydown', this._handleFormKeyDown);
     }
 
