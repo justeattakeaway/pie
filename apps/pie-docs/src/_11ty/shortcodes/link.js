@@ -1,9 +1,9 @@
 const pieIconsSvg = require('../filters/pieIconsSvg');
 
 /**
- * Creates a link component with an icon, content and background container
+ * Checks whether link is a valid URL containing https or http
  * @param {String} str
- * @returns {Boolean} to check whether string is a valid URL
+ * @returns {Boolean} to confirm validity of URL
  */
 const isHttpValid = (str) => {
     try {
