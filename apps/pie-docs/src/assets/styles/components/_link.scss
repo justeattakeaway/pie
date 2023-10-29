@@ -2,7 +2,7 @@
 
 .c-link-backdrop {
     background-color: f.$color-background-subtle;
-    border-radius: 12px;
+    border-radius: f.$radius-rounded-c;
     margin-block: f.spacing(b);
     display: flex;
     align-items: center;
