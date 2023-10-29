@@ -13,7 +13,9 @@
     }
 }
 
-.DocSearch-Hit-path, .DocSearch-NewStartScreenItem, .DocSearch-Title {
+.DocSearch-Hit-path,
+.DocSearch-NewStartScreenItem,
+.DocSearch-Title {
     @include f.font-size('body-s');
 }
 
