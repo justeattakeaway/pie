@@ -1,4 +1,4 @@
-# @justeattakeaway/pie-toggle-switch
+# @justeattakeaway/pie-switch
 
 ## 0.15.0
 

@@ -4,7 +4,7 @@ import { PieButton } from '@justeattakeaway/pie-button';
 import { PieLink } from '@justeattakeaway/pie-link';
 import { PieModal } from '@justeattakeaway/pie-modal';
 import { PieIconButton } from '@justeattakeaway/pie-icon-button';
-import { PieToggleSwitch } from '@justeattakeaway/pie-toggle-switch';
+import { PieSwitch } from '@justeattakeaway/pie-switch';
 import {
     ON_COOKIE_BANNER_ACCEPT_ALL, ON_COOKIE_BANNER_NECESSARY_ONLY,
     ON_COOKIE_BANNER_MANAGE_PREFS, ON_COOKIE_BANNER_PREFS_SAVED,
@@ -24,7 +24,7 @@ const bodyManagePreferencesSelector = '[data-test-id="body-manage-prefs"]';
 const modalSelector = '[data-test-id="pie-modal"]';
 const modalBackButtonSelector = '[data-test-id="modal-back-button"]';
 const modalSaveButtonSelector = '[data-test-id="modal-leading-action"]';
-const getPreferenceItemSelector = (id: PreferenceIds) => `#${id} [data-test-id="toggle-switch-component"]`;
+const getPreferenceItemSelector = (id: PreferenceIds) => `#${id} [data-test-id="switch-component"]`;
 
 // Mount any components that are used inside pie-cookie-banner so that
 // they have been registered with the browser before the tests run.
@@ -35,7 +35,7 @@ test.beforeEach(async ({ mount }) => {
     await (await mount(PieLink)).unmount();
     await (await mount(PieModal)).unmount();
     await (await mount(PieIconButton)).unmount();
-    await (await mount(PieToggleSwitch)).unmount();
+    await (await mount(PieSwitch)).unmount();
 });
 
 test.describe('PieCookieBanner - Component tests', () => {

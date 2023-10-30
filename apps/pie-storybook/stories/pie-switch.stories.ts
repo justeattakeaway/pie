@@ -1,5 +1,5 @@
 import { html, nothing } from 'lit';
-import { PieToggleSwitch, ToggleSwitchProps, labelPlacements } from '@justeattakeaway/pie-toggle-switch';
+import { PieSwitch, SwitchProps, labelPlacements } from '@justeattakeaway/pie-switch';
 import { IconCheck } from '@justeattakeaway/pie-icons-webc';
 import { StoryMeta } from '../types';
 import { createStory, type TemplateFunction } from '../utilities';
@@ -8,25 +8,25 @@ import { createStory, type TemplateFunction } from '../utilities';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const keptReferences = [
     IconCheck,
-    PieToggleSwitch,
+    PieSwitch,
 ];
 
-type ToggleSwitchStoryMeta = StoryMeta<ToggleSwitchProps>;
+type SwitchStoryMeta = StoryMeta<SwitchProps>;
 
-const defaultArgs: ToggleSwitchProps = {
+const defaultArgs: SwitchProps = {
     isChecked: false,
     isDisabled: false,
     label: 'Label',
     labelPlacement: 'leading',
     aria: {
-        label: 'toggle switch label',
-        describedBy: 'toggle switch description',
+        label: 'switch label',
+        describedBy: 'switch description',
     },
 };
 
-const toggleSwitchStoryMeta: ToggleSwitchStoryMeta = {
-    title: 'Toggle Switch',
-    component: 'pie-toggle-switch',
+const switchStoryMeta: SwitchStoryMeta = {
+    title: 'Switch',
+    component: 'pie-switch',
     argTypes: {
         isChecked: {
             description: 'Same as the HTML checked attribute - indicates whether the switch is on or off',
@@ -43,7 +43,7 @@ const toggleSwitchStoryMeta: ToggleSwitchStoryMeta = {
             },
         },
         label: {
-            description: 'The label text for the toggle switch',
+            description: 'The label text for the switch',
             control: {
                 type: 'text',
                 defaultValue: {
@@ -61,7 +61,7 @@ const toggleSwitchStoryMeta: ToggleSwitchStoryMeta = {
             },
         },
         aria: {
-            description: 'The ARIA labels used for the toggle-switch.',
+            description: 'The ARIA labels used for the switch.',
             control: 'object',
         },
     },
@@ -74,9 +74,9 @@ const toggleSwitchStoryMeta: ToggleSwitchStoryMeta = {
     },
 };
 
-export default toggleSwitchStoryMeta;
+export default switchStoryMeta;
 
-const Template : TemplateFunction<ToggleSwitchProps> = (props) => {
+const Template : TemplateFunction<SwitchProps> = (props) => {
     const {
         aria,
         isChecked,
@@ -86,15 +86,15 @@ const Template : TemplateFunction<ToggleSwitchProps> = (props) => {
     } = props;
 
     return html`
-        <pie-toggle-switch
+        <pie-switch
             label="${label || nothing}"
             labelPlacement="${label && labelPlacement ? labelPlacement : nothing}"
             .aria="${aria}"
             ?isChecked="${isChecked}"
-            ?isDisabled="${isDisabled}"
-        />`;
+            ?isDisabled="${isDisabled}">
+        </pie-switch>`;
 };
 
-const createToggleSwitchStory = createStory(Template, defaultArgs);
+const createSwitchStory = createStory(Template, defaultArgs);
 
-export const Default = createToggleSwitchStory();
+export const Default = createSwitchStory();
