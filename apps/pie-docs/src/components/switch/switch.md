@@ -37,7 +37,7 @@ Switches are commonly used to enable or disable settings, switch between modes o
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
-            link: "https://webc.pie.design/?path=/story/toggle-switch--default",
+            link: "https://webc.pie.design/?path=/story/switch--default",
             status: statusTypes.ALPHA
         },
         {

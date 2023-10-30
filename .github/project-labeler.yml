@@ -69,8 +69,8 @@ pie-modal:
 pie-notification:
 - 'packages/components/pie-notification/**/*'
 
-pie-toggle-switch:
-- 'packages/components/pie-toggle-switch/**/*'
+pie-switch:
+- 'packages/components/pie-switch/**/*'
 
 pie-webc-core:
 - 'packages/components/pie-webc-core/**/*'

@@ -4,7 +4,7 @@ import { PieButton } from '@justeattakeaway/pie-button';
 import { PieLink } from '@justeattakeaway/pie-link';
 import { PieModal } from '@justeattakeaway/pie-modal';
 import { PieIconButton } from '@justeattakeaway/pie-icon-button';
-import { PieToggleSwitch } from '@justeattakeaway/pie-toggle-switch';
+import { PieSwitch } from '@justeattakeaway/pie-switch';
 import { action } from '@storybook/addon-actions';
 
 import { type StoryMeta } from '../types';
@@ -18,7 +18,7 @@ const keptReferences = [
     PieLink,
     PieModal,
     PieIconButton,
-    PieToggleSwitch
+    PieSwitch
 ];
 
 type CookieBannerStoryMeta = StoryMeta<CookieBannerProps>;

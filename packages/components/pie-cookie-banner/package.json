@@ -34,7 +34,7 @@
     "@justeattakeaway/pie-icon-button": "0.19.0",
     "@justeattakeaway/pie-link": "0.11.0",
     "@justeattakeaway/pie-modal": "0.30.0",
-    "@justeattakeaway/pie-toggle-switch": "0.15.0"
+    "@justeattakeaway/pie-switch": "0.0.0"
   },
   "dependencies": {
     "@justeattakeaway/pie-webc-core": "0.11.0"

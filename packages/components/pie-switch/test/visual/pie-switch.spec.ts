@@ -1,7 +1,7 @@
 import { test } from '@sand4rt/experimental-ct-web';
 import percySnapshot from '@percy/playwright';
-import { PieToggleSwitch } from '@/index';
-import { ToggleSwitchProps, labelPlacements } from '@/defs';
+import { PieSwitch } from '@/index';
+import { SwitchProps, labelPlacements } from '@/defs';
 
 [
     [false, false],
@@ -10,29 +10,29 @@ import { ToggleSwitchProps, labelPlacements } from '@/defs';
     [true, true],
 ].forEach(([isChecked, isDisabled]) => {
     test(`should render correctly with isChecked = ${isChecked} and isDisabled = ${isDisabled}`, async ({ page, mount }) => {
-        await mount(PieToggleSwitch, {
+        await mount(PieSwitch, {
             props: {
                 isChecked,
                 isDisabled,
             },
         });
 
-        await percySnapshot(page, `ToggleSwitch - isChecked = ${isChecked} and isDisabled = ${isDisabled}`);
+        await percySnapshot(page, `Switch - isChecked = ${isChecked} and isDisabled = ${isDisabled}`);
     });
 });
 
 test.describe('Prop: `Label`', () => {
     test.describe('when passed in', () => {
         labelPlacements.forEach(async (placement) => {
-            test(`should render a label next to the toggle switch (placement: ${placement})`, async ({ page, mount }) => {
-                await mount(PieToggleSwitch, {
+            test(`should render a label next to the switch (placement: ${placement})`, async ({ page, mount }) => {
+                await mount(PieSwitch, {
                     props: {
                         label: 'Label',
                         labelPlacement: placement,
-                    } as ToggleSwitchProps,
+                    } as SwitchProps,
                 });
 
-                await percySnapshot(page, `ToggleSwitch - label placement: ${placement}`);
+                await percySnapshot(page, `Switch - label placement: ${placement}`);
             });
         });
     });
