@@ -47,7 +47,7 @@ export interface CardContainerProps {
     isDraggable: boolean;
 
     /**
-     * What HTML element the card should be such as a or button.
+     * What HTML element the card should be such as `a` or `button`.
      */
      tag?: typeof tags[number];
 
