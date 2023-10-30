@@ -328,7 +328,7 @@ jobs:
     - build-ubuntu-node-16
     - build-windows-node-16
     - build-windows-node-18
-    - build-ubuntu-node-20
+    - build-ubuntu-node-18
     - build-ubuntu-node-20
     - unit-tests
     - browser-tests-components
