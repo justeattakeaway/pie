@@ -5209,7 +5209,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-css@workspace:packages/tools/pie-css"
   dependencies:
-    "@types/postcss-import": 14.0.1
+    "@types/postcss-import": 14.0.2
     postcss: 8.4.31
     postcss-import: 15.1.0
     w3c-css-validator: 1.3.1
@@ -10127,12 +10127,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/postcss-import@npm:14.0.1":
-  version: 14.0.1
-  resolution: "@types/postcss-import@npm:14.0.1"
+"@types/postcss-import@npm:14.0.2":
+  version: 14.0.2
+  resolution: "@types/postcss-import@npm:14.0.2"
   dependencies:
     postcss: ^8.0.0
-  checksum: cf59f07575616958f0921df134bb380f676a0a67c0a44db25eb0c1b4740b26a1fcda3f2a628ebf5c6bdb36fa4971a143362ad1b892a18619355b98b3df9ec34d
+  checksum: 6124fcdfc3c7950af7d8ecfeb508694d8148bfe2a9538b04b65bb7ed4f5fdc4d59578a8e6d07121bbc196f7ae90d35ef39ebaaf85702cf742c8150eb6efdcbfb
   languageName: node
   linkType: hard
 
