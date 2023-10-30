@@ -7,7 +7,7 @@
 }
 
 @mixin card-interactive-states($bg-color, $mode: 'default') {
-    &:hover:not([disabled], [interactiontype='none']) {
+    &:hover:not([disabled]) {
         @if $mode == 'inverse' {
             --hover-modifier: var(--dt-color-hover-01);
         } @else {
@@ -17,7 +17,7 @@
         --card-bg-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), calc(var(#{$bg-color}-l) + var(--hover-modifier)));
     }
 
-    &:active:not([disabled], [interactiontype='none']) {
+    &:active:not([disabled]) {
         @if $mode == 'inverse' {
             --active-modifier: var(--dt-color-active-01);
         } @else {
@@ -30,18 +30,23 @@
 
 .c-card-container {
     --card-bg-color: var(--dt-color-container-default);
+    --card-color: var(--dt-color-content-default);
     --card-radius: var(--dt-radius-rounded-c);
     --card-border-color: transparent;
 
     display: block;
     position: relative;
-    color: currentcolor;
+    color: var(--card-color);
     background-color: var(--card-bg-color);
     border: 1px solid var(--card-border-color);
     border-radius: var(--card-radius);
+    cursor: pointer;
+    user-select: none;
+    outline: none;
+    text-decoration: none;
 
     &[variant='default'] {
-        box-shadow: var(--dt-elevation-01);
+        box-shadow: var(--dt-elevation-card);
 
         @include card-interactive-states('--dt-color-container-default');
     }
@@ -54,14 +59,16 @@
 
     &[variant='inverse'] {
         --card-bg-color: var(--dt-color-container-dark);
+        --card-color: var(--dt-color-content-inverse);
 
-        box-shadow: var(--dt-elevation-inverse-01);
+        box-shadow: var(--dt-elevation-dark-card);
 
         @include card-interactive-states('--dt-color-container-dark', 'inverse');
     }
 
     &[variant='outline-inverse'] {
         --card-bg-color: var(--dt-color-container-dark);
+        --card-color: var(--dt-color-content-inverse);
 
         border-color: var(--dt-color-border-inverse);
 
@@ -71,7 +78,15 @@
     &[disabled] {
         --card-bg-color: var(--dt-color-disabled-01);
 
-        pointer-events: none;
+        cursor: not-allowed;
+
+        ::slotted(*) {
+            color: var(--dt-color-content-disabled);
+        }
+
+        img {
+            opacity: 0.5;
+        }
 
         &[variant='inverse'],
         &[variant='outline-inverse'] {
@@ -79,18 +94,11 @@
         }
     }
 
-    &:not([interactiontype='none']) {
-        cursor: pointer;
-        user-select: none;
-        outline: none;
-        text-decoration: none;
-    }
-
     &:focus-visible {
         @include p.focus;
     }
 
-    &[isdraggable]:not([interactiontype='none']) {
+    &[isdraggable] {
         @extend %has-grab-cursor;
     }
 }

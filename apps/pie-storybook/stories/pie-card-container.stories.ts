@@ -2,7 +2,7 @@ import { nothing } from 'lit';
 import { html } from 'lit/static-html.js';
 import {
     PieCardContainer, CardContainerProps as CardContainerPropsBase,
-    variants, interactionTypes, paddingValues,
+    variants, tags, paddingValues,
 } from '@justeattakeaway/pie-card-container';
 import type { StoryMeta, SlottedComponentProps } from '../types';
 import { createStory, type TemplateFunction, staticSlot } from '../utilities';
@@ -15,7 +15,7 @@ type CardContainerProps = SlottedComponentProps<CardContainerPropsBase>;
 type CardContainerStoryMeta = StoryMeta<CardContainerProps>;
 
 const defaultArgs: CardContainerProps = {
-    interactionType: 'none',
+    tag: 'button',
     variant: 'default',
     href: '#',
     disabled: false,
@@ -26,10 +26,10 @@ const defaultArgs: CardContainerProps = {
     },
     isDraggable: false,
     // This is just an arbitrary example of some markup a user may pass into the card
-    slot: `<div style="color: var(--card-color); font-size: calc(var(--dt-font-body-l-size) * 1px); font-family: var(--dt-font-interactive-m-family); padding: var(--dt-spacing-b);">
-        <h2> Card title </h2>
+    slot: `<div style="font-size: calc(var(--dt-font-body-l-size) * 1px); font-family: var(--dt-font-interactive-m-family); padding: var(--dt-spacing-b);">
+        <h2 style="margin-top: 0"> Card title </h2>
         <p> Card content </p>
-        <p> Lorem ipsum dolor sit amet
+        <p style="margin-bottom: 0"> Lorem ipsum dolor sit amet
         consectetur adipisicing elit.
         Fugiat dolore dolorem maxime,
         quod, in minima esse fugit
@@ -43,12 +43,12 @@ const cardContainerStoryMeta: CardContainerStoryMeta = {
     title: 'Card Container',
     component: 'pie-card-container',
     argTypes: {
-        interactionType: {
-            description: 'Set the interaction type of the card container.',
+        tag: {
+            description: 'Set the HTML tag of the card container.',
             control: 'select',
-            options: interactionTypes,
+            options: tags,
             defaultValue: {
-                summary: 'none',
+                summary: 'button',
             },
         },
         variant: {
@@ -76,17 +76,17 @@ const cardContainerStoryMeta: CardContainerStoryMeta = {
         href: {
             description: 'The URL that the card should point to (this will not take effect unless the card is a link).',
             control: 'text',
-            if: { arg: 'interactionType', eq: 'anchor' },
+            if: { arg: 'tag', eq: 'a' },
         },
         target: {
             description: 'Where to display the linked URL such as _self, _blank, _parent or _top (this will not take effect unless the card is a link).',
             control: 'text',
-            if: { arg: 'interactionType', eq: 'anchor' },
+            if: { arg: 'tag', eq: 'a' },
         },
         rel: {
             description: 'What the relationship of the linked URL is (this will not take effect unless the card is a link).',
             control: 'text',
-            if: { arg: 'interactionType', eq: 'anchor' },
+            if: { arg: 'tag', eq: 'a' },
         },
         slot: {
             description: 'Content to place within the card container',
@@ -115,7 +115,7 @@ const cardContainerStoryMeta: CardContainerStoryMeta = {
 export default cardContainerStoryMeta;
 
 const Template: TemplateFunction<CardContainerProps> = ({
-    interactionType,
+    tag,
     href,
     target,
     rel,
@@ -125,13 +125,9 @@ const Template: TemplateFunction<CardContainerProps> = ({
     variant,
     padding,
     isDraggable,
-}) => {
-    const darkMode = variant.includes('inverse');
-
-    return html`
-    <div style="--card-color: var(--dt-color-content-${darkMode ? 'light' : 'default'})">
+}) => html`
         <pie-card-container
-            interactionType="${interactionType}"
+            tag="${tag}"
             variant="${variant}"
             href="${href || nothing}"
             target="${target || nothing}"
@@ -141,10 +137,7 @@ const Template: TemplateFunction<CardContainerProps> = ({
             padding="${padding || nothing}"
             ?isDraggable="${isDraggable}">
                 ${staticSlot(slot)}
-            </pie-card-container>
-    </div>
-    `;
-};
+            </pie-card-container>`;
 
 const createCardContainerStory = createStory<CardContainerProps>(Template, defaultArgs);
 
