@@ -8,7 +8,7 @@
   "packageManager": "yarn@3.5.0",
   "private": true,
   "engines": {
-    "node": "^16 || ^18"
+    "node": "^16 || ^18 || ^20"
   },
   "workspaces": {
     "packages": [
@@ -127,7 +127,7 @@
     }
   },
   "volta": {
-    "node": "18.15.0",
+    "node": "20.9.0",
     "yarn": "3.5.0"
   },
   "resolutions": {
