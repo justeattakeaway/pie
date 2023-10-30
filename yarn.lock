@@ -5172,7 +5172,7 @@ __metadata:
     "@justeattakeaway/pie-button": 0.32.0
     "@justeattakeaway/pie-components-config": 0.4.0
     "@justeattakeaway/pie-icon-button": 0.17.0
-    "@justeattakeaway/pie-link": 0.8.0
+    "@justeattakeaway/pie-link": 0.9.0
     "@justeattakeaway/pie-modal": 0.26.0
     "@justeattakeaway/pie-toggle-switch": 0.13.0
     "@justeattakeaway/pie-webc-core": 0.10.0
@@ -5306,7 +5306,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-link@0.8.0, @justeattakeaway/pie-link@workspace:packages/components/pie-link":
+"@justeattakeaway/pie-link@0.9.0, @justeattakeaway/pie-link@workspace:packages/components/pie-link":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-link@workspace:packages/components/pie-link"
   dependencies:
@@ -14378,7 +14378,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cheerio@npm:1.0.0-rc.12, cheerio@npm:^1.0.0-rc.12":
+"cheerio@npm:1.0.0-rc.12, cheerio@npm:^1.0.0-rc.10, cheerio@npm:^1.0.0-rc.12":
   version: 1.0.0-rc.12
   resolution: "cheerio@npm:1.0.0-rc.12"
   dependencies:
@@ -17260,6 +17260,15 @@ __metadata:
     eleventy-plugin-output-path: ^1.2.1
     kleur: ^4.1.5
   checksum: fecbd678a7a8426c8865a603dcdf83500e8727bddfc1ce9554e50d3dce66c0d1d9726903abad6d71182025a8ee721d7df0e41ff5f9c4fb758b4bcc5cef42c6e5
+  languageName: node
+  linkType: hard
+
+"eleventy-plugin-toc@npm:^1.1.5":
+  version: 1.1.5
+  resolution: "eleventy-plugin-toc@npm:1.1.5"
+  dependencies:
+    cheerio: ^1.0.0-rc.10
+  checksum: f8afbda221d3c129b8e1828b5f815ff42f1b53318c9c1d6f9b8375f72b8528303c14aa69d60abae8415fbde8ed38590e077f3b4c3698f81394193840fb088960
   languageName: node
   linkType: hard
 
@@ -27539,6 +27548,7 @@ __metadata:
     "@justeattakeaway/pie-icons": 4.9.2
     "@types/markdown-it": 13.0.0
     eleventy-plugin-rev: 1.1.1
+    eleventy-plugin-toc: ^1.1.5
     eleventy-sass: 2.2.3
     js-cookie: 2.2.1
     markdown-it: 13.0.1
@@ -27631,7 +27641,7 @@ __metadata:
     "@justeattakeaway/pie-form-label": 0.4.0
     "@justeattakeaway/pie-icon-button": 0.17.0
     "@justeattakeaway/pie-icons-webc": 0.10.0
-    "@justeattakeaway/pie-link": 0.8.0
+    "@justeattakeaway/pie-link": 0.9.0
     "@justeattakeaway/pie-modal": 0.26.0
     "@justeattakeaway/pie-toggle-switch": 0.13.0
     "@storybook/addon-a11y": 7.4.0

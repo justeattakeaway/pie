@@ -1,6 +1,48 @@
 @use '../fozzie-config' as f;
 @use '../variables' as v;
 
+.c-content-list {
+    max-width: 604px;
+
+    ol {
+        column-width: 180px;
+        column-gap: 32px;
+        padding: 0;
+        column-count: var(--column-count);
+        orphans: 6;
+    }
+
+    li {
+        // orphans: 6;
+        list-style: none;
+        margin-block-end: 16px;
+        position: relative;
+        display: flex;
+        display: inline-flex;
+
+        a {
+            display: inline-block;
+            width: calc(100% - 20px);
+            overflow: hidden;
+        }
+
+        a,
+        a:visited {
+            color: f.$color-content-default;
+        }
+
+        &:before {
+            content: url("/assets/img/contents.svg");
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            margin-inline-end: 4px;
+            top: 4px;
+            position: relative;
+        }
+    }
+}
+
 .c-contentPage {
     display: flex;
     flex-direction: column;
