@@ -10,14 +10,14 @@ export type AriaProps = {
     label?: string;
 };
 
-export interface CardContainerProps {
+export interface CardProps {
     /**
      * The ARIA labels used for various parts of the card.
      */
     aria?: AriaProps;
 
     /**
-     * When true, the card container is disabled.
+     * When true, the card is disabled.
      */
     disabled: boolean;
 
@@ -52,7 +52,7 @@ export interface CardContainerProps {
      tag?: typeof tags[number];
 
     /**
-     * Sets the padding of the card container. Can be either a single value or two values
+     * Sets the padding of the card. Can be either a single value or two values
      * separated by a comma. Setting a single value adds padding to all sides of the card,
      * whereas setting two values will set the "paddingX, paddingY" padding. e.g `'a'` or `'a, b'`
      */

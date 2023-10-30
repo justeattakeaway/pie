@@ -1,18 +1,18 @@
 
 import { test, expect } from '@justeattakeaway/pie-webc-testing/src/playwright/fixtures.ts';
-import { PieCardContainer, CardContainerProps } from '@/index';
+import { PieCard, CardProps } from '@/index';
 import { tags } from '@/defs';
 
-test.describe('PieCardContainer - Accessibility tests', () => {
+test.describe('PieCard - Accessibility tests', () => {
     tags.forEach((tag) => {
-        test(`a11y - should test the PieCardContainer component WCAG compliance if tag is = "${tag}"`, async ({ makeAxeBuilder, mount }) => {
+        test(`a11y - should test the PieCard component WCAG compliance if tag is = "${tag}"`, async ({ makeAxeBuilder, mount }) => {
             await mount(
-                PieCardContainer,
+                PieCard,
                 {
                     props: {
                         tag,
-                        aria: { label: 'card-container' },
-                    } as CardContainerProps,
+                        aria: { label: 'card' },
+                    } as CardProps,
                 },
             );
 
