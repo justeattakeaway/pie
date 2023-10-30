@@ -17,10 +17,10 @@ test.describe('Component: `Pie switch`', () => {
         });
 
         // Act
-        const switch = page.locator(componentSelector);
+        const pieSwitch = page.locator(componentSelector);
 
         // Assert
-        await expect(switch).toBeVisible();
+        await expect(pieSwitch).toBeVisible();
     });
 
     test('should set `isChecked` to `false` by default', async ({ mount }) => {
