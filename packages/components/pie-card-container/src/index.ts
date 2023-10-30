@@ -69,6 +69,7 @@ export class PieCardContainer extends LitElement implements CardContainerProps {
                 href=${this.href || nothing}
                 target=${this.target || nothing}
                 rel=${this.rel || nothing}
+                role="link"
                 aria-label=${this.aria?.label || nothing}
                 aria-disabled=${this.disabled ? 'true' : 'false'}
                 style=${paddingCSS || nothing}>
