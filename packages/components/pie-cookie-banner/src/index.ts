@@ -5,6 +5,9 @@ import { defineCustomElement } from '@justeattakeaway/pie-webc-core';
 import { property, state, queryAll } from 'lit/decorators.js';
 import { repeat } from 'lit/directives/repeat.js';
 import { PieSwitch } from '@justeattakeaway/pie-switch';
+import '@justeattakeaway/pie-icon-button';
+import '@justeattakeaway/pie-link';
+import '@justeattakeaway/pie-modal';
 import styles from './cookie-banner.scss?inline';
 import {
     CookieBannerProps,
