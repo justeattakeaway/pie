@@ -79,7 +79,7 @@
     &[variant='outline'] {
         --btn-bg-color: transparent;
         --btn-icon-fill: var(--dt-color-content-interactive-brand);
-        
+
         border: 1px solid var(--dt-color-border-strong);
 
         @include button-interactive-states('--dt-color-black', 'transparent');
@@ -123,8 +123,8 @@
             --btn-bg-color: var(--dt-color-disabled-01);
         }
 
-          // For outline variants, set the border to the disabled color
-          &[variant='outline'] {
+        // For outline variants, set the border to the disabled color
+        &[variant='outline'] {
             border-color: var(--dt-color-disabled-01);
         }
     }
