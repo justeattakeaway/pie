@@ -1,5 +1,5 @@
 export const variants = ['default', 'outline', 'inverse', 'outline-inverse'] as const;
-export const interactionTypes = ['anchor', 'button', 'none'] as const;
+export const tags = ['a', 'button'] as const;
 
 const spacingTokens = ['a', 'b', 'c', 'd', 'e', 'f', 'g'] as const;
 export const paddingValues = spacingTokens.flatMap((first) => [first, ...spacingTokens.map((second) => `${first},${second}`)]);
@@ -46,10 +46,10 @@ export interface CardContainerProps {
      */
     isDraggable: boolean;
 
-     /**
-     * What the interaction intent of the card should be such as anchor, button or regular div (default).
+    /**
+     * What HTML element the card should be such as `a` or `button`.
      */
-     interactionType?: typeof interactionTypes[number];
+     tag?: typeof tags[number];
 
     /**
      * Sets the padding of the card container. Can be either a single value or two values

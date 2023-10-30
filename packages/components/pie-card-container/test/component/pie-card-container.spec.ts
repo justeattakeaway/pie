@@ -1,7 +1,7 @@
 
 import { test, expect } from '@sand4rt/experimental-ct-web';
 import { PieCardContainer, CardContainerProps } from '@/index';
-import { interactionTypes, paddingValues } from '@/defs';
+import { tags, paddingValues } from '@/defs';
 
 const componentSelector = '[data-test-id="pie-card-container"]';
 const slotSelector = '[data-test-id="slot-content"]';
@@ -43,16 +43,16 @@ test.describe('PieCardContainer - Component tests', () => {
         await expect(renderedSlotContent).toBeVisible();
     });
 
-    test('should render the card as an anchor tag with the provided href, target and rel attributes if interactionType = anchor', async ({ mount, page }) => {
+    test('should render the card as an anchor tag with the provided href, target and rel attributes if tag = a', async ({ mount, page }) => {
         // Arrange
-        const interactionType = 'anchor';
+        const tag = 'a';
         const href = 'foo.com';
         const rel = 'noopener noreferrer';
         const target = '_blank';
 
         await mount(PieCardContainer, {
             props: {
-                interactionType,
+                tag,
                 href,
                 rel,
                 target,
@@ -73,13 +73,13 @@ test.describe('PieCardContainer - Component tests', () => {
         await expect(component).not.toHaveAttribute('tabindex', '0');
     });
 
-    test('should render the card as a div that behaves like a button if interactionType = "button"', async ({ mount, page }) => {
+    test('should render the card as a div that behaves like a button if tag = "button"', async ({ mount, page }) => {
         // Arrange
-        const interactionType = 'button';
+        const tag = 'button';
 
         await mount(PieCardContainer, {
             props: {
-                interactionType,
+                tag,
             } as CardContainerProps,
             slots: {
                 default: slotContent,
@@ -92,36 +92,6 @@ test.describe('PieCardContainer - Component tests', () => {
         // Assert
         await expect(component).toHaveAttribute('role', 'button');
         await expect(component).toHaveAttribute('tabindex', '0');
-    });
-
-    test('should render the card without button or anchor attributes when interactionType = "none"', async ({ mount, page }) => {
-        // Arrange
-        const interactionType = 'none';
-        const href = 'foo.com';
-        const rel = 'noopener noreferrer';
-        const target = '_blank';
-
-        await mount(PieCardContainer, {
-            props: {
-                interactionType,
-                href,
-                rel,
-                target,
-            } as CardContainerProps,
-            slots: {
-                default: slotContent,
-            },
-        });
-
-        // Act
-        const component = page.locator(componentSelector);
-
-        // Assert
-        await expect(component).not.toHaveAttribute('role', 'button');
-        await expect(component).not.toHaveAttribute('tabindex', '0');
-        await expect(component).not.toHaveAttribute('href', href);
-        await expect(component).not.toHaveAttribute('rel', rel);
-        await expect(component).not.toHaveAttribute('target', target);
     });
 
     [true, false].forEach((disabled) => {
@@ -144,14 +114,14 @@ test.describe('PieCardContainer - Component tests', () => {
         });
     });
 
-    interactionTypes.forEach((interactionType) => {
-        test(`should add an aria-label attribute that matches the value of the aria.label prop when interactionType is ${interactionType}`, async ({ mount, page }) => {
+    tags.forEach((tag) => {
+        test(`should add an aria-label attribute that matches the value of the aria.label prop when tag is ${tag}`, async ({ mount, page }) => {
             // Arrange
             const label = 'foo';
 
             await mount(PieCardContainer, {
                 props: {
-                    interactionType,
+                    tag,
                     aria: { label },
                 } as CardContainerProps,
                 slots: {
