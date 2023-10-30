@@ -1,5 +1,25 @@
 # Changelog
 
+## 0.42.0
+
+### Minor Changes
+
+- [Fixed] - `default` and `inverse` variants to use `elevation-card` and `elevation-dark-card` tokens ([#907](https://github.com/justeattakeaway/pie/pull/907)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
+  [Changed] - Refactored `interactionType` to `tag` as the component can only be interactive
+
+  [Fixed] - Disabled state to apply the disabled colour token and reduce opacity on images
+
+  [Fixed] - Disabled state should use the disabled cursor
+
+  [Fixed] - Variants should apply their color token by default
+
+### Patch Changes
+
+- Updated dependencies [[`57608572e`](https://github.com/justeattakeaway/pie/commit/57608572ec6273b29d0d4e44fb7e5edec5d5d19d), [`18ec64fb6`](https://github.com/justeattakeaway/pie/commit/18ec64fb6b97498c45ecc96516de94fb5544efdd)]:
+  - @justeattakeaway/pie-card-container@0.13.0
+  - @justeattakeaway/pie-switch@0.16.0
+
 ## 0.41.7
 
 ### Patch Changes
