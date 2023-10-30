@@ -23,7 +23,7 @@
     "@justeattakeaway/pie-link": "0.11.0",
     "@justeattakeaway/pie-modal": "0.30.0",
     "@justeattakeaway/pie-notification": "0.0.0",
-    "@justeattakeaway/pie-switch": "0.0.0",
+    "@justeattakeaway/pie-switch": "0.15.0",
     "body-scroll-lock": "3.1.5",
     "dompurify": "3.0.6",
     "lit": "2.7.5"
