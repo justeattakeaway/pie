@@ -30,11 +30,17 @@
                 WC Button in Vue!
             </pie-button>
         </div>
+        <div id="cookie-banner">
+            <pie-cookie-banner />
+        </div>
     </div>
 </template>
 
 <script>
 import { variants, sizes } from '@justeattakeaway/pie-button';
+
+// import locales from '@justeattakeaway/pie-cookie-banner/locales';
+import { PieCookieBanner } from '@justeattakeaway/pie-cookie-banner';
 
 export default {
     data () {
@@ -42,6 +48,7 @@ export default {
             count: 0,
             variants,
             sizes,
+            // locale: locales.esES,
         };
     },
     methods: {
