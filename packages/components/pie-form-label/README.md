@@ -13,10 +13,9 @@
 1. [Introduction](#pie-form-label)
 2. [Installation](#installation)
 3. [Importing the component](#importing-the-component)
-4. [Local Development](#local-development)
-5. [Peer Dependencies](#peer-dependencies)
-6. [Props](#props)
-7. [Contributing](#contributing)
+4. [Peer Dependencies](#peer-dependencies)
+5. [Props](#props)
+6. [Contributing](#contributing)
 
 ## pie-form-label
 
