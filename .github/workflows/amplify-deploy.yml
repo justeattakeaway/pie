@@ -107,12 +107,12 @@ jobs:
             --app-id ${{ inputs.amplify-app-id }} \
             --branch-name ${{ env.BRANCH_NAME }} \
             --source-url https://${{ env.BUCKET_NAME }}.s3.${{ env.AWS_REGION }}.amazonaws.com/${{ env.ZIP_NAME }}
-      # Set SUFFIX and ENV_URL as environment variables
-      - name: Set SUFFIX and ENV_URL
+      # Set SUFFIX and DOMAIN as environment variables
+      - name: Set SUFFIX and DOMAIN
         if: github.event_name == 'pull_request'
         run: |
           echo "SUFFIX=$(echo "${{ inputs.package-name }}" | sed -e 's/^pie-//')" >> $GITHUB_ENV
-          echo "DOMAIN=pr${{ github.event.number }}-${{ env.SUFFIX }}.pie.design" >> $GITHUB_ENV
+          echo "DOMAIN=pr${{ github.event.number }}-$SUFFIX.pie.design" >> $GITHUB_ENV
       - name: Create Subdomain in Route 53
         if: github.event_name == 'pull_request'
         shell: bash
@@ -124,7 +124,7 @@ jobs:
                 "ResourceRecordSet": {
                   "Name": "${{ env.DOMAIN }}",
                   "Type": "CNAME",
-                  "TTL": 300,
+                  "TTL": 60,
                   "ResourceRecords": [
                     {
                       "Value": "pr${{ github.event.number }}.${{ inputs.amplify-app-id }}.amplifyapp.com"
