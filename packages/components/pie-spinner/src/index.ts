@@ -26,6 +26,7 @@ export class PieSpinner extends LitElement implements SpinnerProps {
 
         return html`
             <div 
+                data-test-id="pie-spinner"
                 role="presentation" 
                 class="c-spinner"
                 size="${size}"
