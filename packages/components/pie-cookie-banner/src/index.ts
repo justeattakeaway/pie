@@ -23,7 +23,7 @@ import {
 } from './defs';
 
 import { localiseText, localiseRichText } from './localisation-utils';
-import defaultLocale from '../locales/en-GB.json';
+import defaultLocale from '../locales/en-gb.json';
 
 // Valid values available to consumers
 export * from './defs';
