@@ -1,5 +1,17 @@
 @use '../fozzie-config' as f;
 
+:root {
+    --docsearch-hit-active-color: #{f.$color-content-default};
+    --docsearch-searchbox-shadow: none;
+    --docsearch-text-color: #{f.$color-content-default};
+    --docsearch-hit-color: #{f.$color-content-default};
+    --docsearch-searchbox-background: none;
+    --docsearch-hit-shadow: none;
+    --docsearch-muted-color: none;
+    --docsearch-highlight-color: none;
+}
+
+
 .DocSearch-NewStartScreen {
     display: grid;
     grid-template-columns: 1fr;
@@ -44,7 +56,7 @@
 }
 
 .DocSearch-Modal {
-    background-color: #fff;
+    background-color: f.$color-container-default;
     min-height: auto;
 }
 
@@ -67,7 +79,7 @@
 
 .DocSearch-Hit-source {
     padding-block-end: f.$spacing-a;
-    background-color: #fff;
+    background-color: f.$color-container-default;
 }
 
 .DocSearch-Hits:last-child {
@@ -85,7 +97,7 @@
 }
 
 .DocSearch-Button {
-    background-color: #fff;
+    background-color: f.$color-container-default;
 
     &:hover {
         background-color: f.$color-container-strong;
