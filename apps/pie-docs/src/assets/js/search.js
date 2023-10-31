@@ -23,7 +23,7 @@ document.querySelector('.DocSearch').onclick = () => {
         {
             category: {
                 name: 'Designers',
-                icon: '/assets/img/search/designers.svg',
+                icon: '/assets/img/search/bulb-lightning.svg',
             },
             items: [
                 { name: 'Getting Started', href: '/designers/getting-started/overview/' },
@@ -45,7 +45,7 @@ document.querySelector('.DocSearch').onclick = () => {
         {
             category: {
                 name: 'Support',
-                icon: '/assets/img/search/support.svg',
+                icon: '/assets/img/search/help-circle.svg',
             },
             items: [
                 { name: 'FAQs', href: '/support/faq/' },
