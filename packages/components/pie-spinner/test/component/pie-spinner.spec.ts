@@ -8,7 +8,10 @@ test.describe('PieSpinner - Component tests', () => {
     test('should render successfully', async ({ mount, page }) => {
         // Arrange
         await mount(PieSpinner, {
-            props: {} as SpinnerProps,
+            props: {
+                size: 'm',
+                variant: 'brand',
+            } as SpinnerProps,
         });
 
         // Act
@@ -16,5 +19,27 @@ test.describe('PieSpinner - Component tests', () => {
 
         // Assert
         expect(spinner).toBeVisible();
+    });
+
+    test('should set `aria-live` to `polite` by default', async ({ mount }) => {
+        // Arrange
+        const component = await mount(PieSpinner);
+
+        // Act
+        const pieSpinnerComponent = await component.locator(componentSelector);
+
+        // Assert
+        await expect(pieSpinnerComponent).toHaveAttribute('aria-live', 'polite');
+    });
+
+    test('should set `role` to `status` by default', async ({ mount }) => {
+        // Arrange
+        const component = await mount(PieSpinner);
+
+        // Act
+        const pieSpinnerComponent = await component.locator(componentSelector);
+
+        // Assert
+        await expect(pieSpinnerComponent).toHaveAttribute('role', 'status');
     });
 });
