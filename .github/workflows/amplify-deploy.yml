@@ -107,40 +107,27 @@ jobs:
             --app-id ${{ inputs.amplify-app-id }} \
             --branch-name ${{ env.BRANCH_NAME }} \
             --source-url https://${{ env.BUCKET_NAME }}.s3.${{ env.AWS_REGION }}.amazonaws.com/${{ env.ZIP_NAME }}
-      # Set SUFFIX and DOMAIN as environment variables
-      - name: Set SUFFIX and DOMAIN
+      # Set env vars for domain name association
+      - name: Set environment variables for domain name association
         if: github.event_name == 'pull_request'
         run: |
-          echo "SUFFIX=$(echo "${{ inputs.package-name }}" | sed -e 's/^pie-//')" >> $GITHUB_ENV
-          echo "DOMAIN=pr${{ github.event.number }}-$SUFFIX.pie.design" >> $GITHUB_ENV
-      - name: Create Subdomain in Route 53
+          PACKAGE_NAME_SUFFIX=$(echo "${{ inputs.package-name }}" | sed -e 's/^pie-//')
+          echo "SUB_DOMAIN=pr${{ github.event.number }}-$PACKAGE_NAME_SUFFIX" >> $GITHUB_ENV
+      - name: Create Subdomain Association
         if: github.event_name == 'pull_request'
         shell: bash
         run: |
-          aws route53 change-resource-record-sets --hosted-zone-id ${{ secrets.HOSTED_ZONE_ID }} --change-batch '{
-            "Changes": [
-              {
-                "Action": "UPSERT",
-                "ResourceRecordSet": {
-                  "Name": "${{ env.DOMAIN }}",
-                  "Type": "CNAME",
-                  "TTL": 60,
-                  "ResourceRecords": [
-                    {
-                      "Value": "pr${{ github.event.number }}.${{ inputs.amplify-app-id }}.amplifyapp.com"
-                    }
-                  ]
-                }
-              }
-            ]
-          }'
+          aws amplify update-domain-association \
+            --app-id ${{inputs.amplify-app-id}} \
+            --domain-name pie.design \
+            --sub-domain-settings prefix=${{ env.SUB_DOMAIN }},branchName=pr${{ github.event_name}}
       # If successful
       - name: Update deployment status (success)
         if: ${{ github.event_name == 'pull_request' && success() }}
         uses: chrnorm/deployment-status@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          environment-url: https://${{ env.DOMAIN }}
+          environment-url: https://${{ env.SUB_DOMAIN }}.pie.design/
           deployment-id: ${{ steps.deploy.outputs.deployment_id }}
           state: "success"
       # If it failed
@@ -149,6 +136,6 @@ jobs:
         uses: chrnorm/deployment-status@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          environment-url: https://${{ env.DOMAIN }}
+          environment-url: https://${{ env.SUB_DOMAIN }}.pie.design/
           deployment-id: ${{ steps.deploy.outputs.deployment_id }}
           state: "failure"
