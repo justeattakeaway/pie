@@ -10,7 +10,7 @@
 
 # Table of Contents
 
-1. [Introduction](#pie-notification)
+1. [Introduction](#pie-spinner)
 2. [Installation](#installation)
 3. [Importing the component](#importing-the-component)
 4. [Peer Dependencies](#peer-dependencies)
