@@ -11,22 +11,14 @@ describe('link.js', () => {
         expect(result).toMatchSnapshot();
     });
 
-    xit.each([{
-        link: 'google.com',
-        ariaLabel: 'link to google',
-    },
-    {
-        link: 'https://www.google.com',
-        ariaLabel: 'link to google',
-    }
-    ])('should throw an error if link is invalid', (element) => {
+    it('should throw an error if link is invalid', () => {
         // arrange
-        const invalidURL = element.link;
-        const invalidURLError = new Error('Link is not valid. Please ensure URL is a *string* containing http or https.');
+        const link = [{ link: 'www.google.com', ariaLabel: 'google' }];
+        const invalidURLError = new Error('Link is not valid. Please ensure URL is a string containing http or https.');
 
         // assert
         expect(() => {
-            createLink(invalidURL, element.ariaLabel);
+            createLink(link);
         }).toThrow(invalidURLError);
     });
 });
