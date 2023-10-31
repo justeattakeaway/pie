@@ -112,21 +112,17 @@ jobs:
         if: github.event_name == 'pull_request'
         run: |
           echo "SUFFIX=$(echo "${{ inputs.package-name }}" | sed -e 's/^pie-//')" >> $GITHUB_ENV
-          echo "ENV_URL=https://pr${{ github.event.number }}-${{ env.SUFFIX }}.pie.design" >> $GITHUB_ENV
+          echo "DOMAIN=pr${{ github.event.number }}-${{ env.SUFFIX }}.pie.design" >> $GITHUB_ENV
       - name: Create Subdomain in Route 53
         if: github.event_name == 'pull_request'
         shell: bash
         run: |
-          SUFFIX=$(echo "${{ inputs.package-name }}" | sed -e 's/^pie-//')
-          
-          SUBDOMAIN="pr${{ github.event.number }}-${{ env.SUFFIX }}.pie.design"
-          
           aws route53 change-resource-record-sets --hosted-zone-id ${{ secrets.HOSTED_ZONE_ID }} --change-batch '{
             "Changes": [
               {
                 "Action": "UPSERT",
                 "ResourceRecordSet": {
-                  "Name": "${{ env.SUBDOMAIN }}",
+                  "Name": "${{ env.DOMAIN }}",
                   "Type": "CNAME",
                   "TTL": 300,
                   "ResourceRecords": [
@@ -144,7 +140,7 @@ jobs:
         uses: chrnorm/deployment-status@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          environment-url: ${{ env.ENV_URL }}
+          environment-url: https://${{ env.DOMAIN }}
           deployment-id: ${{ steps.deploy.outputs.deployment_id }}
           state: "success"
       # If it failed
@@ -153,6 +149,6 @@ jobs:
         uses: chrnorm/deployment-status@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          environment-url: ${{ env.ENV_URL }}
+          environment-url: https://${{ env.DOMAIN }}
           deployment-id: ${{ steps.deploy.outputs.deployment_id }}
           state: "failure"
