@@ -1,18 +1,13 @@
 
 import { test, expect } from '@sand4rt/experimental-ct-web';
-import { PieSpinner, SpinnerProps } from '@/index';
+import { PieSpinner } from '@/index';
 
 const componentSelector = '[data-test-id="pie-spinner"]';
 
 test.describe('PieSpinner - Component tests', () => {
     test('should render successfully', async ({ mount, page }) => {
         // Arrange
-        await mount(PieSpinner, {
-            props: {
-                size: 'm',
-                variant: 'brand',
-            } as SpinnerProps,
-        });
+        await mount(PieSpinner);
 
         // Act
         const spinner = page.locator(componentSelector);
@@ -41,5 +36,22 @@ test.describe('PieSpinner - Component tests', () => {
 
         // Assert
         expect(pieSpinnerComponent).toHaveAttribute('role', 'status');
+    });
+
+    test.describe('Props: `aria`', () => {
+        test('should render the correct label if aria.label is passed', async ({ mount }) => {
+            // Arrange
+            const ariaLabelText = 'Loading';
+
+            const component = await mount(PieSpinner, {
+                props: { aria: { label: ariaLabelText } },
+            });
+
+            // Act
+            const pieSpinnerComponent = await component.locator(componentSelector);
+
+            // Assert
+            expect(pieSpinnerComponent).toContainText(ariaLabelText);
+        });
     });
 });
