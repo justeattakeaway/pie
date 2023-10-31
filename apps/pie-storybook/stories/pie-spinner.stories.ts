@@ -40,7 +40,7 @@ const spinnerStoryMeta: SpinnerStoryMeta = {
             },
         },
         aria: {
-            description: 'The ARIA labels used for the switch.',
+            description: 'The ARIA labels used for the spinner.',
             control: 'object',
         },
     },
