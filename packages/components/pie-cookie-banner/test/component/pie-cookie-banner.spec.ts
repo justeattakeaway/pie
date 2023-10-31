@@ -15,6 +15,7 @@ import {
     PieCookieBanner, CookieBannerProps,
 } from '@/index';
 
+const englishLocale = JSON.parse(await readFile(new URL('../../locales/en-gb.json', import.meta.url)));
 const spanishLocale = JSON.parse(await readFile(new URL('../../locales/es-es.json', import.meta.url)));
 
 const componentSelector = '[data-test-id="pie-cookie-banner"]';
@@ -30,6 +31,10 @@ const modalDescriptionSelector = '[data-test-id="modal-description"]';
 const modalBackButtonSelector = '[data-test-id="modal-back-button"]';
 const modalSaveButtonSelector = '[data-test-id="modal-leading-action"]';
 const getPreferenceItemSelector = (id: PreferenceIds) => `#${id} [data-test-id="switch-component"]`;
+
+function stripTags (str) {
+    return str.replace(/<\/?[^>]+(>|$)/g, '');
+}
 
 // Mount any components that are used inside pie-cookie-banner so that
 // they have been registered with the browser before the tests run.
@@ -278,11 +283,20 @@ test.describe('PieCookieBanner - Component tests', () => {
             const modalDescription = page.locator(modalDescriptionSelector);
 
             // Assert
-            expect(await acceptAllButton.textContent()).toContain('Accept all');
-            expect(await necessaryOnlyButton.textContent()).toContain('Necessary only');
-            expect(await managePreferencesButton.textContent()).toContain('Manage preferences');
-            expect(await componentDescription.textContent()).toContain('We use our own and third party cookies and other tech to enhance and personalise your user experience, optimize analytics, and show ads with third parties (read our Statement). Necessary cookies are always set. Click Necessary only to continue without accepting more. Click Manage preferences to share your preferences or Accept all.');
-            expect(await modalDescription.textContent()).toContain('You can find all the information in the Cookie Statement and Cookie technology list.');
+            expect(String(await acceptAllButton.textContent()).trim())
+                .toBe(englishLocale.banner.cta.acceptAll);
+
+            expect(String(await necessaryOnlyButton.textContent()).trim())
+                .toBe(englishLocale.banner.cta.necessaryOnly);
+
+            expect(String(await managePreferencesButton.textContent()).trim())
+                .toBe(englishLocale.banner.cta.managePreferences);
+
+            expect(String(await componentDescription.textContent()).trim())
+                .toBe(stripTags(englishLocale.banner.description));
+
+            expect(String(await modalDescription.textContent()).trim())
+                .toBe(stripTags(englishLocale.preferencesManagement.description));
         });
 
         test('should render the expected text when the locale prop is set', async ({ mount, page }) => {
@@ -297,11 +311,20 @@ test.describe('PieCookieBanner - Component tests', () => {
             const modalDescription = page.locator(modalDescriptionSelector);
 
             // Assert
-            expect(await acceptAllButton.textContent()).toContain(spanishLocale.banner.cta.acceptAll);
-            expect(await necessaryOnlyButton.textContent()).toContain(spanishLocale.banner.cta.necessaryOnly);
-            expect(await managePreferencesButton.textContent()).toContain(spanishLocale.banner.cta.managePreferences);
-            expect(await componentDescription.textContent()).toContain('Usamos nuestras propias cookies y de terceros, así como otra tecnología para mejorar y personalizar tu experiencia de usuario, optimizar el análisis y mostrar anuncios con terceros (lee nuestra Declaración). Siempre se establecen las cookies necesarias. Haz clic en Sólo necesarias para seguir sin aceptar más. Haz clic en Gestionar preferencias para compartir tus preferencias o Aceptarlas todas.');
-            expect(await modalDescription.textContent()).toContain('Puedes encontrar toda la información en la Declaración sobre cookies y la Lista de tecnología de cookies.');
+            expect(String(await acceptAllButton.textContent()).trim())
+                .toBe(spanishLocale.banner.cta.acceptAll);
+
+            expect(String(await necessaryOnlyButton.textContent()).trim())
+                .toBe(spanishLocale.banner.cta.necessaryOnly);
+
+            expect(String(await managePreferencesButton.textContent()).trim())
+                .toBe(spanishLocale.banner.cta.managePreferences);
+
+            expect(String(await componentDescription.textContent()).trim())
+                .toBe(stripTags(spanishLocale.banner.description));
+
+            expect(String(await modalDescription.textContent()).trim())
+                .toBe(stripTags(spanishLocale.preferencesManagement.description));
         });
     });
 

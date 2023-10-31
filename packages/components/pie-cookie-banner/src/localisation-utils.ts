@@ -11,6 +11,27 @@ function logError (message:string):void {
     console.error(`[localisation-utils]: ${message}`);
 }
 
+/**
+ * Retrieves a value from a nested object based on a given path string.
+ *
+ * @param {Record<string, any>} obj - The object to traverse.
+ * @param {string} path - The path string to the desired value within the object. The path can be comma-separated or dot-separated.
+ * @returns {string} - The value found at the specified path within the object. Returns an empty string if the path is invalid or the value is not a string.
+ *
+ * @example
+ *
+ * const obj = {
+ *   a: {
+ *     b: {
+ *       c: "hello"
+ *     }
+ *   }
+ * };
+ *
+ * getObjectKeyValue(obj, "a,b,c");  // Returns "hello"
+ * getObjectKeyValue(obj, "a.b.c");  // Returns "hello"
+ * getObjectKeyValue(obj, "a,d,c");  // Returns ""
+ */
 function getObjectKeyValue (obj:object, path:string):string {
     // Implementation based on You-Dont-Need-Lodash-Underscore:
     // https://github.com/you-dont-need/You-Dont-Need-Lodash-Underscore#_get
@@ -35,6 +56,7 @@ function getObjectKeyValue (obj:object, path:string):string {
 
 /**
  * Localises a plain text string
+ * If the key is not found, it will be used as fallback
  * @param locale {CookieBannerLocale} locale data object
  * @param key {string} path to the key in the locale object
  * @returns {string} localised text
@@ -120,6 +142,7 @@ function enhanceCustomTags (richText:string, customTagEnhancers:CustomTagEnhance
 
 /**
  * Localises a rich text string by replacing custom tags with their respective enhancer functions content
+ * If the key is not found, it will be used as fallback
  * @param locale {CookieBannerLocale} locale data object
  * @param key {string} path to the key in the locale object
  * @param customTagEnhancers {CustomTagEnhancers} object containing the custom tag names and their respective enhancer functions
