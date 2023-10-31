@@ -1,10 +1,17 @@
 import {
     LitElement, html, unsafeCSS, TemplateResult, nothing,
 } from 'lit';
-import { defineCustomElement } from '@justeattakeaway/pie-webc-core';
 import { property, state, queryAll } from 'lit/decorators.js';
 import { repeat } from 'lit/directives/repeat.js';
+
+import '@justeattakeaway/pie-button';
+import '@justeattakeaway/pie-divider';
+import '@justeattakeaway/pie-icon-button';
+import '@justeattakeaway/pie-link';
+import '@justeattakeaway/pie-modal';
 import { PieSwitch } from '@justeattakeaway/pie-switch';
+import { defineCustomElement } from '@justeattakeaway/pie-webc-core';
+
 import styles from './cookie-banner.scss?inline';
 import {
     CookieBannerProps,
