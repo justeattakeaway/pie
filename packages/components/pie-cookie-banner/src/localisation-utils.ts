@@ -38,10 +38,8 @@ function getObjectKeyValue (obj:object, path:string):string {
     const travel = (regexp:RegExp) => String.prototype.split
         .call(path, regexp)
         .filter(Boolean)
-        .reduce((acc:object, key:string) => {
+        .reduce((acc:Record<string, unknown>, key:string) => {
             if (acc !== null && acc !== undefined) {
-                // TODO: Provide proper TS solution for this
-                // @ts-expect-error - Object is dynamic
                 return acc[key];
             }
             return acc;
