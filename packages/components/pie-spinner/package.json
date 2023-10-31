@@ -1,6 +1,6 @@
 {
-  "name": "@justeattakeaway/pie-notification",
-  "description": "PIE Design System Notification built using Web Components",
+  "name": "@justeattakeaway/pie-spinner",
+  "description": "PIE Design System Spinner built using Web Components",
   "version": "0.0.0",
   "type": "module",
   "main": "dist/index.js",
@@ -12,7 +12,7 @@
     "**/*.d.ts"
   ],
   "scripts": {
-    "build": "yarn build:wrapper pie-notification && run -T vite build",
+    "build": "yarn build:wrapper pie-spinner && run -T vite build",
     "lint:scripts": "run -T eslint .",
     "lint:scripts:fix": "yarn lint:scripts --fix",
     "lint:style": "run -T stylelint ./src/**/*.{css,scss}",
@@ -22,7 +22,7 @@
     "test:ci": "yarn test",
     "test:browsers": "npx playwright test -c ./playwright-lit.config.ts",
     "test:browsers:ci": "yarn test:browsers",
-    "test:visual": "run -T cross-env-shell PERCY_TOKEN=${PERCY_TOKEN_PIE_NOTIFICATION} percy exec --allowed-hostname cloudfront.net -- npx playwright test -c ./playwright-lit-visual.config.ts",
+    "test:visual": "run -T cross-env-shell PERCY_TOKEN=${PERCY_TOKEN_PIE_SPINNER} percy exec --allowed-hostname cloudfront.net -- npx playwright test -c ./playwright-lit-visual.config.ts",
     "test:visual:ci": "yarn test:visual"
   },
   "author": "Just Eat Takeaway.com - Design System Team",
