@@ -1,1 +1,80 @@
 @use '@justeattakeaway/pie-css/scss' as p;
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+/**
+* Shorthand mixin for updating the HSL custom properties for the loading spinner.
+* Takes in the name of the color to be split into its HSL components.
+*/
+@mixin spinner-base-colors($color) {
+  --spinner-base-color-h: var(#{$color}-h);
+  --spinner-base-color-s: var(#{$color}-s);
+  --spinner-base-color-l: var(#{$color}-l);
+}
+
+// Spin animation for loading state
+@keyframes rotate360 {
+  from {
+      transform: rotate(0deg);
+  }
+
+  to {
+      transform: rotate(360deg);
+  }
+}
+
+.c-spinner {
+    --spinner-size: 24px;
+    --spinner-front-color: hsl(var(--spinner-base-color-h), var(--spinner-base-color-s), var(--spinner-base-color-l), 1);
+    --spinner-back-color: hsl(var(--spinner-base-color-h), var(--spinner-base-color-s), var(--spinner-base-color-l), 0.35);
+  
+    block-size: var(--spinner-size);
+    inline-size: var(--spinner-size);
+    border-radius: var(--dt-radius-rounded-e);
+    border-width: calc(var(--spinner-size) / 8);
+    border-style: solid;
+    border-color: var(--spinner-back-color);
+    border-top-color: var(--spinner-front-color); 
+    border-left-color: var(--spinner-front-color);
+
+    will-change: transform;
+    animation: rotate360 1.15s linear infinite;
+
+    @include spinner-base-colors('--dt-color-content-brand');
+
+    &[variant='brand'] {
+      /* Same as default styles */
+    }
+
+    &[variant='secondary'] {
+      @include spinner-base-colors('--dt-color-content-interactive-secondary');
+    }
+
+    &[variant='inverse'] {
+      @include spinner-base-colors('--dt-color-content-inverse');
+    }
+
+    &[size='xs'] {
+      --spinner-size: 16px;
+    }
+
+    &[size='s'] {
+      --spinner-size: 20px;
+    }
+
+    &[size='m'] {
+      /* Same as default styles */
+    }
+
+    &[size='l'] {
+      --spinner-size: 32px;
+    }
+
+    &[size='xl'] {
+      --spinner-size: 48px;
+    }
+}
