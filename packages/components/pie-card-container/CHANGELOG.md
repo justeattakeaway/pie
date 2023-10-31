@@ -1,5 +1,19 @@
 # @justeattakeaway/pie-card-container
 
+## 0.13.0
+
+### Minor Changes
+
+- [Fixed] - `default` and `inverse` variants to use `elevation-card` and `elevation-dark-card` tokens ([#907](https://github.com/justeattakeaway/pie/pull/907)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
+  [Changed] - Refactored `interactionType` to `tag` as the component can only be interactive
+
+  [Fixed] - Disabled state to apply the disabled colour token and reduce opacity on images
+
+  [Fixed] - Disabled state should use the disabled cursor
+
+  [Fixed] - Variants should apply their color token by default
+
 ## 0.12.0
 
 ### Minor Changes
