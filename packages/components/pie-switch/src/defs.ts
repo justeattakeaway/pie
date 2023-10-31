@@ -7,9 +7,9 @@ export type AriaProps = {
     describedBy?: string
 };
 
-export interface ToggleSwitchProps {
+export interface SwitchProps {
     /**
-     * The ARIA labels used for the toggle switch.
+     * The ARIA labels used for the switch.
      */
     aria?: AriaProps;
     /**
@@ -31,8 +31,8 @@ export interface ToggleSwitchProps {
 }
 
 /**
- * Event name for when the toggle switch checked state is changed.
+ * Event name for when the switch checked state is changed.
  *
  * @constant
  */
-export const ON_TOGGLE_SWITCH_CHANGED_EVENT = 'pie-toggle-switch-changed';
+export const ON_SWITCH_CHANGED_EVENT = 'pie-switch-changed';

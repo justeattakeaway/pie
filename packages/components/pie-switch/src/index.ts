@@ -3,29 +3,29 @@ import {
 } from 'lit';
 import { property } from 'lit/decorators.js';
 import { RtlMixin, validPropertyValues, defineCustomElement } from '@justeattakeaway/pie-webc-core';
-import styles from './toggle-switch.scss?inline';
+import styles from './switch.scss?inline';
 import {
-    ToggleSwitchProps, ON_TOGGLE_SWITCH_CHANGED_EVENT, AriaProps, labelPlacements,
+    SwitchProps, ON_SWITCH_CHANGED_EVENT, AriaProps, labelPlacements,
 } from './defs';
 import '@justeattakeaway/pie-icons-webc/IconCheck';
 
 // Valid values available to consumers
 export * from './defs';
 
-const componentSelector = 'pie-toggle-switch';
+const componentSelector = 'pie-switch';
 
 /**
- * @tagname pie-toggle-switch
- * @event {CustomEvent} pie-toggle-switch-changed - when the toggle switch checked state is changed.
+ * @tagname pie-switch
+ * @event {CustomEvent} pie-switch-changed - when the switch checked state is changed.
  */
 
-export class PieToggleSwitch extends RtlMixin(LitElement) implements ToggleSwitchProps {
+export class PieSwitch extends RtlMixin(LitElement) implements SwitchProps {
     @property({ type: String })
     public label?: string;
 
     @property({ type: String })
     @validPropertyValues(componentSelector, labelPlacements, 'leading')
-    public labelPlacement: ToggleSwitchProps['labelPlacement'] = 'leading';
+    public labelPlacement: SwitchProps['labelPlacement'] = 'leading';
 
     @property({ type: Object })
     public aria!: AriaProps;
@@ -38,11 +38,11 @@ export class PieToggleSwitch extends RtlMixin(LitElement) implements ToggleSwitc
 
     static styles = unsafeCSS(styles);
 
-    onToggleChange (event: Event) {
+    onChange (event: Event) {
         const { checked } = event?.currentTarget as HTMLInputElement;
         this.isChecked = checked;
         const changedEvent = new CustomEvent(
-            ON_TOGGLE_SWITCH_CHANGED_EVENT,
+            ON_SWITCH_CHANGED_EVENT,
             {
                 bubbles: true,
                 composed: true,
@@ -53,19 +53,19 @@ export class PieToggleSwitch extends RtlMixin(LitElement) implements ToggleSwitc
     }
 
     /**
-     * Renders the label for a toggle switch if provided.
+     * Renders the label for a switch if provided.
      * if invalid value is passed, nothing gets rendered
      *
      * @private
      */
-    private renderToggleSwitchLabel (): TemplateResult {
+    private renderSwitchLabel (): TemplateResult {
         const { label, labelPlacement } = this;
 
         if (label) {
             return html`
                 <label
-                    for="toggle-switch"
-                    data-test-id="toggle-switch-label-${labelPlacement}">
+                    for="switch"
+                    data-test-id="switch-label-${labelPlacement}">
                     ${label}
                 </label>`;
         }
@@ -82,44 +82,44 @@ export class PieToggleSwitch extends RtlMixin(LitElement) implements ToggleSwitc
             isRTL,
         } = this;
 
-        const toggleSwitchId = 'toggle-switch-description';
+        const switchId = 'switch-description';
 
         return html`
             <div
-                class="c-toggleSwitch-wrapper"
+                class="c-switch-wrapper"
                 ?isRTL=${isRTL}
                 ?isDisabled=${isDisabled}>
-                ${labelPlacement === 'leading' ? this.renderToggleSwitchLabel() : nothing}
+                ${labelPlacement === 'leading' ? this.renderSwitchLabel() : nothing}
                 <label
-                    data-test-id="toggle-switch-component"
-                    class="c-toggleSwitch"
+                    data-test-id="switch-component"
+                    class="c-switch"
                     ?isChecked=${isChecked}>
                     <input
-                        id="toggle-switch"
-                        data-test-id="toggle-switch-input"
+                        id="switch"
+                        data-test-id="switch-input"
                         role="switch"
                         type="checkbox"
-                        class="c-toggleSwitch-input"
+                        class="c-switch-input"
                         .checked="${isChecked}"
                         .disabled="${isDisabled}"
-                        @change="${this.onToggleChange}"
+                        @change="${this.onChange}"
                         aria-label="${aria?.label || nothing}"
-                        aria-describedby="${aria?.describedBy ? toggleSwitchId : nothing}">
-                    <div class="c-toggleSwitch-control">
+                        aria-describedby="${aria?.describedBy ? switchId : nothing}">
+                    <div class="c-switch-control">
                         ${isChecked ? html`<icon-check></icon-check>` : nothing}
                     </div>
                 </label>
-                ${aria?.describedBy ? html`<div id="${toggleSwitchId}" data-test-id="${toggleSwitchId}" class="c-toggleSwitch-description">${aria?.describedBy}</div>` : nothing}
-                ${labelPlacement === 'trailing' ? this.renderToggleSwitchLabel() : nothing}
+                ${aria?.describedBy ? html`<div id="${switchId}" data-test-id="${switchId}" class="c-switch-description">${aria?.describedBy}</div>` : nothing}
+                ${labelPlacement === 'trailing' ? this.renderSwitchLabel() : nothing}
             </div>
         `;
     }
 }
 
-defineCustomElement(componentSelector, PieToggleSwitch);
+defineCustomElement(componentSelector, PieSwitch);
 
 declare global {
     interface HTMLElementTagNameMap {
-        [componentSelector]: PieToggleSwitch;
+        [componentSelector]: PieSwitch;
     }
 }

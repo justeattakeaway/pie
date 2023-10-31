@@ -3,30 +3,30 @@ import {
 } from 'lit';
 import { property } from 'lit/decorators.js';
 import { validPropertyValues, defineCustomElement } from '@justeattakeaway/pie-webc-core';
-import styles from './card-container.scss?inline';
+import styles from './card.scss?inline';
 import {
     variants,
     tags,
-    CardContainerProps,
+    CardProps,
     paddingValues,
 } from './defs';
 
 // Valid values available to consumers
 export * from './defs';
 
-const componentSelector = 'pie-card-container';
+const componentSelector = 'pie-card';
 
 /**
- * @tagname pie-card-container
+ * @tagname pie-card
  */
-export class PieCardContainer extends LitElement implements CardContainerProps {
+export class PieCard extends LitElement implements CardProps {
     @property()
     @validPropertyValues(componentSelector, tags, 'button')
-    public tag: CardContainerProps['tag'] = 'button';
+    public tag: CardProps['tag'] = 'button';
 
     @property()
     @validPropertyValues(componentSelector, variants, 'default')
-    public variant: CardContainerProps['variant'] = 'default';
+    public variant: CardProps['variant'] = 'default';
 
     @property({ type: String, reflect: true })
     public href?: string;
@@ -41,14 +41,14 @@ export class PieCardContainer extends LitElement implements CardContainerProps {
     public disabled = false;
 
     @property({ type: Object })
-    public aria: CardContainerProps['aria'];
+    public aria: CardProps['aria'];
 
     @property({ type: Boolean })
     public isDraggable = false;
 
     @property({ type: String })
     @validPropertyValues(componentSelector, paddingValues, undefined)
-    public padding?: CardContainerProps['padding'];
+    public padding?: CardProps['padding'];
 
     /**
      * Renders the card as an anchor element.
@@ -60,8 +60,8 @@ export class PieCardContainer extends LitElement implements CardContainerProps {
 
         return html`
             <a
-                class="c-card-container"
-                data-test-id="pie-card-container"
+                class="c-card"
+                data-test-id="pie-card"
                 tag=${this.tag}
                 ?isDraggable="${this.isDraggable}"
                 variant=${this.variant}
@@ -132,8 +132,8 @@ export class PieCardContainer extends LitElement implements CardContainerProps {
 
         return html`
                 <div
-                    class="c-card-container"
-                    data-test-id="pie-card-container"
+                    class="c-card"
+                    data-test-id="pie-card"
                     tag=${tag}
                     ?isDraggable="${isDraggable}"
                     variant=${variant}
@@ -152,10 +152,10 @@ export class PieCardContainer extends LitElement implements CardContainerProps {
     static styles = unsafeCSS(styles);
 }
 
-defineCustomElement(componentSelector, PieCardContainer);
+defineCustomElement(componentSelector, PieCard);
 
 declare global {
     interface HTMLElementTagNameMap {
-        [componentSelector]: PieCardContainer;
+        [componentSelector]: PieCard;
     }
 }

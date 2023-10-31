@@ -13,7 +13,7 @@ import {
     WebComponentTestWrapper,
 } from '@justeattakeaway/pie-webc-testing/src/helpers/components/web-component-test-wrapper/WebComponentTestWrapper.ts';
 import { percyWidths } from '@justeattakeaway/pie-webc-testing/src/percy/breakpoints.ts';
-import { PieCardContainer } from '@/index';
+import { PieCard } from '@/index';
 import { tags, variants, paddingValues } from '@/defs';
 
 // This is just an arbitrary example of some markup a user may pass into the card
@@ -29,25 +29,25 @@ const slotContent = `<div style="font-size: calc(var(--dt-font-body-l-size) * 1p
     tempora asperiores aspernatur atque quas.</p>
 </div>`;
 
-// Renders a <pie-card-container> HTML string with the given prop values
-const renderTestPieCardContainer = (propVals: WebComponentPropValues) => `<pie-card-container tag="${propVals.tag}" padding="${propVals.padding}"  variant="${propVals.variant}" ${propVals.disabled ? 'disabled' : ''} >${slotContent}</pie-card-container>`;
+// Renders a <pie-card> HTML string with the given prop values
+const renderTestPieCard = (propVals: WebComponentPropValues) => `<pie-card tag="${propVals.tag}" padding="${propVals.padding}"  variant="${propVals.variant}" ${propVals.disabled ? 'disabled' : ''} >${slotContent}</pie-card>`;
 
 // This ensures the component is registered in the DOM for each test
 // This is not required if your tests mount the web component directly in the tests
 test.beforeEach(async ({ page, mount }) => {
     await mount(
-        PieCardContainer,
+        PieCard,
         {},
     );
 
     // Removing the element so it's not present in the tests (but is still registered in the DOM)
     await page.evaluate(() => {
-        const element : Element | null = document.querySelector('pie-card-container');
+        const element : Element | null = document.querySelector('pie-card');
         element?.remove();
     });
 });
 
-test.describe('PieCardContainer - Visual tests`', () => {
+test.describe('PieCard - Visual tests`', () => {
     const props: PropObject = {
         tag: tags,
         variant: variants,
@@ -59,7 +59,7 @@ test.describe('PieCardContainer - Visual tests`', () => {
 
     componentVariants.forEach((variant) => test(`should render all prop variations for Variant: ${variant}`, async ({ page, mount }) => {
         await Promise.all(componentPropsMatrixByVariant[variant].map(async (combo: WebComponentPropValues) => {
-            const testComponent: WebComponentTestInput = createTestWebComponent(combo, renderTestPieCardContainer);
+            const testComponent: WebComponentTestInput = createTestWebComponent(combo, renderTestPieCard);
             const propKeyValues = `tag: ${testComponent.propValues.tag}, disabled: ${testComponent.propValues.disabled}`;
             const darkMode = variant.includes('inverse');
 
@@ -74,11 +74,11 @@ test.describe('PieCardContainer - Visual tests`', () => {
             );
         }));
 
-        await percySnapshot(page, `PIE Card Container - Variant: ${variant}`, percyWidths);
+        await percySnapshot(page, `PIE Card - Variant: ${variant}`, percyWidths);
     }));
 });
 
-test.describe('PieCardContainer - `padding` prop', async () => {
+test.describe('PieCard - `padding` prop', async () => {
     const batchSize = Math.ceil(paddingValues.length / 7);
     const batches: string[][] = [];
 
@@ -88,7 +88,7 @@ test.describe('PieCardContainer - `padding` prop', async () => {
 
     batches.forEach((batch, index) => test(`should render the padding prop value of batch number: ${index}`, async ({ page, mount }) => {
         await Promise.all(batch.map(async (padding) => {
-            const testComponent: WebComponentTestInput = createTestWebComponent({ padding }, renderTestPieCardContainer);
+            const testComponent: WebComponentTestInput = createTestWebComponent({ padding }, renderTestPieCard);
             const propKeyValues = `padding: ${testComponent.propValues.padding}`;
 
             await mount(
@@ -100,6 +100,6 @@ test.describe('PieCardContainer - `padding` prop', async () => {
             );
         }));
 
-        await percySnapshot(page, `PIE Card Container - Padding values | batch number: ${index}`, percyWidths);
+        await percySnapshot(page, `PIE Card - Padding values | batch number: ${index}`, percyWidths);
     }));
 });

@@ -1,20 +1,20 @@
 import { nothing } from 'lit';
 import { html } from 'lit/static-html.js';
 import {
-    PieCardContainer, CardContainerProps as CardContainerPropsBase,
+    PieCard, CardProps as CardPropsBase,
     variants, tags, paddingValues,
-} from '@justeattakeaway/pie-card-container';
+} from '@justeattakeaway/pie-card';
 import type { StoryMeta, SlottedComponentProps } from '../types';
 import { createStory, type TemplateFunction, staticSlot } from '../utilities';
 
 // This prevents storybook from tree shaking the components
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const keptReferences = [PieCardContainer];
+const keptReferences = [PieCard];
 
-type CardContainerProps = SlottedComponentProps<CardContainerPropsBase>;
-type CardContainerStoryMeta = StoryMeta<CardContainerProps>;
+type CardProps = SlottedComponentProps<CardPropsBase>;
+type CardStoryMeta = StoryMeta<CardProps>;
 
-const defaultArgs: CardContainerProps = {
+const defaultArgs: CardProps = {
     tag: 'button',
     variant: 'default',
     href: '#',
@@ -39,12 +39,12 @@ const defaultArgs: CardContainerProps = {
     </div>`,
 };
 
-const cardContainerStoryMeta: CardContainerStoryMeta = {
-    title: 'Card Container',
-    component: 'pie-card-container',
+const cardStoryMeta: CardStoryMeta = {
+    title: 'Card',
+    component: 'pie-card',
     argTypes: {
         tag: {
-            description: 'Set the HTML tag of the card container.',
+            description: 'Set the HTML tag of the card.',
             control: 'select',
             options: tags,
             defaultValue: {
@@ -89,7 +89,7 @@ const cardContainerStoryMeta: CardContainerStoryMeta = {
             if: { arg: 'tag', eq: 'a' },
         },
         slot: {
-            description: 'Content to place within the card container',
+            description: 'Content to place within the card',
             control: 'text',
         },
         aria: {
@@ -112,9 +112,9 @@ const cardContainerStoryMeta: CardContainerStoryMeta = {
     },
 };
 
-export default cardContainerStoryMeta;
+export default cardStoryMeta;
 
-const Template: TemplateFunction<CardContainerProps> = ({
+const Template: TemplateFunction<CardProps> = ({
     tag,
     href,
     target,
@@ -126,7 +126,7 @@ const Template: TemplateFunction<CardContainerProps> = ({
     padding,
     isDraggable,
 }) => html`
-        <pie-card-container
+        <pie-card
             tag="${tag}"
             variant="${variant}"
             href="${href || nothing}"
@@ -137,11 +137,11 @@ const Template: TemplateFunction<CardContainerProps> = ({
             padding="${padding || nothing}"
             ?isDraggable="${isDraggable}">
                 ${staticSlot(slot)}
-            </pie-card-container>`;
+            </pie-card>`;
 
-const createCardContainerStory = createStory<CardContainerProps>(Template, defaultArgs);
+const createCardStory = createStory<CardProps>(Template, defaultArgs);
 
-export const Default = createCardContainerStory();
-export const Outline = createCardContainerStory({ variant: 'outline' });
-export const Inverse = createCardContainerStory({ variant: 'inverse' }, { bgColor: 'dark (container-dark)' });
-export const OutlineInverse = createCardContainerStory({ variant: 'outline-inverse' }, { bgColor: 'dark (container-dark)' });
+export const Default = createCardStory();
+export const Outline = createCardStory({ variant: 'outline' });
+export const Inverse = createCardStory({ variant: 'inverse' }, { bgColor: 'dark (container-dark)' });
+export const OutlineInverse = createCardStory({ variant: 'outline-inverse' }, { bgColor: 'dark (container-dark)' });
