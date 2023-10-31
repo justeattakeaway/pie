@@ -126,7 +126,7 @@ jobs:
               {
                 "Action": "UPSERT",
                 "ResourceRecordSet": {
-                  "Name": "$SUBDOMAIN",
+                  "Name": "${{ env.SUBDOMAIN }}",
                   "Type": "CNAME",
                   "TTL": 300,
                   "ResourceRecords": [
