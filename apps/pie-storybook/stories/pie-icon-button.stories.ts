@@ -1,12 +1,13 @@
 import { html } from 'lit';
+
+/* eslint-disable import/no-duplicates */
+import '@justeattakeaway/pie-icon-button';
 import { IconButtonProps, sizes, variants } from '@justeattakeaway/pie-icon-button';
-import { IconClose } from '@justeattakeaway/pie-icons-webc';
+/* eslint-enable import/no-duplicates */
+import '@justeattakeaway/pie-icons-webc/IconClose';
+
 import { StoryMeta } from '../types';
 import { createStory, type TemplateFunction } from '../utilities';
-
-// This prevents storybook from tree shaking the components
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const keptReferences = [IconClose];
 
 type IconButtonStoryMeta = StoryMeta<IconButtonProps>;
 

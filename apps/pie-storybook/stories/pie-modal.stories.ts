@@ -1,26 +1,21 @@
 import { TemplateResult } from 'lit';
 import { html } from 'lit/static-html.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { PieIconButton } from '@justeattakeaway/pie-icon-button';
-import { PieModal } from '@justeattakeaway/pie-modal';
-import { PieButton } from '@justeattakeaway/pie-button';
+
+import '@justeattakeaway/pie-button';
+import '@justeattakeaway/pie-icon-button';
+/* eslint-disable import/no-duplicates */
+import '@justeattakeaway/pie-modal';
 import {
     ModalProps as ModalPropsBase,
     headingLevels,
     sizes,
     positions,
-} from '@justeattakeaway/pie-modal/src/defs';
+} from '@justeattakeaway/pie-modal';
+/* eslint-enable import/no-duplicates */
 
 import { StoryMeta, SlottedComponentProps } from '../types';
 import { createStory, staticSlot } from '../utilities';
-
-// This prevents storybook from tree shaking the components
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const keptReferences = [
-    PieIconButton,
-    PieModal,
-    PieButton,
-];
 
 type ModalProps = SlottedComponentProps<ModalPropsBase>;
 type ModalStoryMeta = StoryMeta<ModalProps>;

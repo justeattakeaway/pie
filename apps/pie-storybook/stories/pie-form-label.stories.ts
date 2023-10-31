@@ -1,11 +1,12 @@
 import { html, nothing } from 'lit';
-import { PieFormLabel, FormLabelProps as FormLabelPropsBase } from '@justeattakeaway/pie-form-label';
+
+/* eslint-disable import/no-duplicates */
+import '@justeattakeaway/pie-form-label';
+import { FormLabelProps as FormLabelPropsBase } from '@justeattakeaway/pie-form-label';
+/* eslint-enable import/no-duplicates */
+
 import { SlottedComponentProps, type StoryMeta } from '../types';
 import { createStory, type TemplateFunction } from '../utilities';
-
-// This prevents storybook from tree shaking the components
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const keptReferences = [PieFormLabel];
 
 type FormLabelProps = SlottedComponentProps<FormLabelPropsBase>;
 type FormLabelStoryMeta = StoryMeta<FormLabelProps>;
