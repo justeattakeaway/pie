@@ -5158,7 +5158,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-components-config@0.4.0, @justeattakeaway/pie-components-config@workspace:*, @justeattakeaway/pie-components-config@workspace:configs/pie-components-config":
+"@justeattakeaway/pie-components-config@0.4.0, @justeattakeaway/pie-components-config@workspace:configs/pie-components-config":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-components-config@workspace:configs/pie-components-config"
   languageName: unknown
@@ -5336,8 +5336,17 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-notification@workspace:packages/components/pie-notification"
   dependencies:
-    "@justeattakeaway/pie-components-config": "workspace:*"
-    "@justeattakeaway/pie-webc-core": "workspace:*"
+    "@justeattakeaway/pie-components-config": 0.4.0
+    "@justeattakeaway/pie-webc-core": 0.11.0
+  languageName: unknown
+  linkType: soft
+
+"@justeattakeaway/pie-spinner@0.0.0, @justeattakeaway/pie-spinner@workspace:packages/components/pie-spinner":
+  version: 0.0.0-use.local
+  resolution: "@justeattakeaway/pie-spinner@workspace:packages/components/pie-spinner"
+  dependencies:
+    "@justeattakeaway/pie-components-config": 0.4.0
+    "@justeattakeaway/pie-webc-core": 0.11.0
   languageName: unknown
   linkType: soft
 
@@ -5350,7 +5359,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-webc-core@0.11.0, @justeattakeaway/pie-webc-core@workspace:*, @justeattakeaway/pie-webc-core@workspace:packages/components/pie-webc-core":
+"@justeattakeaway/pie-webc-core@0.11.0, @justeattakeaway/pie-webc-core@workspace:packages/components/pie-webc-core":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-webc-core@workspace:packages/components/pie-webc-core"
   languageName: unknown
@@ -27586,6 +27595,7 @@ __metadata:
     "@justeattakeaway/pie-link": 0.11.0
     "@justeattakeaway/pie-modal": 0.30.0
     "@justeattakeaway/pie-notification": 0.0.0
+    "@justeattakeaway/pie-spinner": 0.0.0
     "@justeattakeaway/pie-switch": 0.16.0
     "@storybook/addon-a11y": 7.5.1
     "@storybook/addon-designs": 7.0.5
