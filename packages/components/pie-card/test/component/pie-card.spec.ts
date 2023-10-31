@@ -1,36 +1,36 @@
 
 import { test, expect } from '@sand4rt/experimental-ct-web';
-import { PieCardContainer, CardContainerProps } from '@/index';
+import { PieCard, CardProps } from '@/index';
 import { tags, paddingValues } from '@/defs';
 
-const componentSelector = '[data-test-id="pie-card-container"]';
+const componentSelector = '[data-test-id="pie-card"]';
 const slotSelector = '[data-test-id="slot-content"]';
 
 const slotContent = `<div data-test-id="slot-content">
     Slot content
     </div>`;
 
-test.describe('PieCardContainer - Component tests', () => {
+test.describe('PieCard - Component tests', () => {
     test('should render successfully', async ({ mount, page }) => {
         // Arrange
-        await mount(PieCardContainer, {
-            props: {} as CardContainerProps,
+        await mount(PieCard, {
+            props: {} as CardProps,
             slots: {
                 default: slotContent,
             },
         });
 
         // Act
-        const cardContainer = page.locator(componentSelector);
+        const card = page.locator(componentSelector);
 
         // Assert
-        await expect(cardContainer).toBeVisible();
+        await expect(card).toBeVisible();
     });
 
     test('should correctly render the slot content', async ({ mount, page }) => {
         // Arrange
-        await mount(PieCardContainer, {
-            props: {} as CardContainerProps,
+        await mount(PieCard, {
+            props: {} as CardProps,
             slots: {
                 default: slotContent,
             },
@@ -50,13 +50,13 @@ test.describe('PieCardContainer - Component tests', () => {
         const rel = 'noopener noreferrer';
         const target = '_blank';
 
-        await mount(PieCardContainer, {
+        await mount(PieCard, {
             props: {
                 tag,
                 href,
                 rel,
                 target,
-            } as CardContainerProps,
+            } as CardProps,
             slots: {
                 default: slotContent,
             },
@@ -77,10 +77,10 @@ test.describe('PieCardContainer - Component tests', () => {
         // Arrange
         const tag = 'button';
 
-        await mount(PieCardContainer, {
+        await mount(PieCard, {
             props: {
                 tag,
-            } as CardContainerProps,
+            } as CardProps,
             slots: {
                 default: slotContent,
             },
@@ -97,10 +97,10 @@ test.describe('PieCardContainer - Component tests', () => {
     [true, false].forEach((disabled) => {
         test(`should add an aria-disabled attribute that matches the value of the disabled prop (${disabled})`, async ({ mount, page }) => {
             // Arrange
-            await mount(PieCardContainer, {
+            await mount(PieCard, {
                 props: {
                     disabled,
-                } as CardContainerProps,
+                } as CardProps,
                 slots: {
                     default: slotContent,
                 },
@@ -119,11 +119,11 @@ test.describe('PieCardContainer - Component tests', () => {
             // Arrange
             const label = 'foo';
 
-            await mount(PieCardContainer, {
+            await mount(PieCard, {
                 props: {
                     tag,
                     aria: { label },
-                } as CardContainerProps,
+                } as CardProps,
                 slots: {
                     default: slotContent,
                 },
@@ -141,10 +141,10 @@ test.describe('PieCardContainer - Component tests', () => {
         // Arrange
         const variant = 'default';
 
-        await mount(PieCardContainer, {
+        await mount(PieCard, {
             props: {
                 variant,
-            } as CardContainerProps,
+            } as CardProps,
             slots: {
                 default: slotContent,
             },
@@ -161,10 +161,10 @@ test.describe('PieCardContainer - Component tests', () => {
         test.describe('when set to true', () => {
             test('should set an attribute of `isDraggable`', async ({ mount, page }) => {
                 // Arrange
-                await mount(PieCardContainer, {
+                await mount(PieCard, {
                     props: {
                         isDraggable: true,
-                    } as CardContainerProps,
+                    } as CardProps,
                     slots: {
                         default: slotContent,
                     },
@@ -181,10 +181,10 @@ test.describe('PieCardContainer - Component tests', () => {
         test.describe('when set to false', () => {
             test('should not set an attribute of `isDraggable`', async ({ mount, page }) => {
                 // Arrange
-                await mount(PieCardContainer, {
+                await mount(PieCard, {
                     props: {
                         isDraggable: false,
-                    } as CardContainerProps,
+                    } as CardProps,
                     slots: {
                         default: slotContent,
                     },
@@ -204,10 +204,10 @@ test.describe('PieCardContainer - Component tests', () => {
         test.describe('when `padding` is set as a single string value', () => {
             test('should set an attribute of style with the correct padding value', async ({ mount, page }) => {
                 // Arrange
-                await mount(PieCardContainer, {
+                await mount(PieCard, {
                     props: {
                         padding: 'a',
-                    } as CardContainerProps,
+                    } as CardProps,
                     slots: {
                         default: slotContent,
                     },
@@ -223,10 +223,10 @@ test.describe('PieCardContainer - Component tests', () => {
             paddingValues.forEach((paddingValue) => {
                 test(`should allow valid "padding" values: ${paddingValue}`, async ({ mount, page }) => {
                     // Arrange
-                    await mount(PieCardContainer, {
+                    await mount(PieCard, {
                         props: {
                             padding: paddingValue,
-                        } as CardContainerProps,
+                        } as CardProps,
                         slots: {
                             default: slotContent,
                         },
@@ -249,10 +249,10 @@ test.describe('PieCardContainer - Component tests', () => {
                 const invalidPaddingValue = { padding: 'z' };
 
                 // Arrange
-                await mount(PieCardContainer, {
+                await mount(PieCard, {
                     props: {
                         padding: invalidPaddingValue.padding,
-                    } as CardContainerProps,
+                    } as CardProps,
                     slots: {
                         default: slotContent,
                     },
@@ -269,10 +269,10 @@ test.describe('PieCardContainer - Component tests', () => {
                 const invalidPaddingValue = { padding: 'ab' };
 
                 // Arrange
-                await mount(PieCardContainer, {
+                await mount(PieCard, {
                     props: {
                         padding: invalidPaddingValue.padding,
-                    } as CardContainerProps,
+                    } as CardProps,
                     slots: {
                         default: slotContent,
                     },
@@ -290,10 +290,10 @@ test.describe('PieCardContainer - Component tests', () => {
             test('should set an attribute of style with the correct padding value', async ({ mount, page }) => {
                 // Arrange
                 const paddingValue = { padding: 'a,b' };
-                await mount(PieCardContainer, {
+                await mount(PieCard, {
                     props: {
                         padding: paddingValue.padding,
-                    } as CardContainerProps,
+                    } as CardProps,
                     slots: {
                         default: slotContent,
                     },
@@ -309,10 +309,10 @@ test.describe('PieCardContainer - Component tests', () => {
             test('should not allow more than 2 padding values', async ({ mount, page }) => {
                 // Arrange
                 const paddingValue = { padding: 'a, b, c' };
-                await mount(PieCardContainer, {
+                await mount(PieCard, {
                     props: {
                         padding: paddingValue.padding,
-                    } as CardContainerProps,
+                    } as CardProps,
                     slots: {
                         default: slotContent,
                     },

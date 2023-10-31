@@ -1,4 +1,10 @@
-# @justeattakeaway/pie-toggle-switch
+# @justeattakeaway/pie-switch
+
+## 0.16.0
+
+### Minor Changes
+
+- [Changed] - Rename pie-toggle-switch to pie-switch ([#939](https://github.com/justeattakeaway/pie/pull/939)) by [@xander-marjoram](https://github.com/xander-marjoram)
 
 ## 0.15.0
 

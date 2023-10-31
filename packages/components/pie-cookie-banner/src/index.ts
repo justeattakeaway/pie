@@ -4,7 +4,7 @@ import {
 import { defineCustomElement } from '@justeattakeaway/pie-webc-core';
 import { property, state, queryAll } from 'lit/decorators.js';
 import { repeat } from 'lit/directives/repeat.js';
-import { PieToggleSwitch } from '@justeattakeaway/pie-toggle-switch';
+import { PieSwitch } from '@justeattakeaway/pie-switch';
 import styles from './cookie-banner.scss?inline';
 import {
     CookieBannerProps,
@@ -39,8 +39,8 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
     @property({ type: Boolean })
     public hasPrimaryActionsOnly = false;
 
-    @queryAll('pie-toggle-switch')
-        _preferencesNodes!: NodeListOf<PieToggleSwitch>;
+    @queryAll('pie-switch')
+        _preferencesNodes!: NodeListOf<PieSwitch>;
 
     /**
      * Handles closing the modal and re-displaying the cookie banner
@@ -122,16 +122,16 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
     };
 
     /**
-     * Handles the logic of the toggle switch nodes (preferences).
-     * Clicking the “all” toggle switch should turn on all preferences.
-     * When the “all” toggle is checked, and one of the other preferences is clicked,
-     * then the “all” toggle should be unchecked.
-     * if all toggle switches are checked, the `all` toggle switch should
+     * Handles the logic of the switch nodes (preferences).
+     * Clicking the “all” switch should turn on all preferences.
+     * When the “all” switch is checked, and one of the other preferences is clicked,
+     * then the “all” switch should be unchecked.
+     * if all switches are checked, the `all` switch should
      * be turned on automatically
      */
-    private _handleToggleStates = (e: CustomEvent) : void => {
+    private _handleSwitchStates = (e: CustomEvent) : void => {
         const { id } = e?.currentTarget as HTMLInputElement;
-        const toggleAllNode = [...this._preferencesNodes].find(({ id }) => id === 'all') as PieToggleSwitch;
+        const toggleAllNode = [...this._preferencesNodes].find(({ id }) => id === 'all') as PieSwitch;
 
         if (id === toggleAllNode.id) {
             const isChecked = e.detail;
@@ -158,12 +158,13 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
                     <h3 class="c-cookieBanner-subheading">${title}</h3>
                      ${description ? html`<p class="c-cookieBanner-description">${description}</p>` : nothing}
                  </div>
-                <pie-toggle-switch
+                <pie-switch
                     id="${id}"
                     ?isChecked="${isChecked}"
                     ?isDisabled="${isDisabled}"
-                    @pie-toggle-switch-changed="${this._handleToggleStates}"/>
-                </div>
+                    @pie-switch-changed="${this._handleSwitchStates}">
+                </pie-switch>
+            </div>
             ${hasDivider ? html`<pie-divider></pie-divider>` : nothing}`;
     }
 
