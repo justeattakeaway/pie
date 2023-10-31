@@ -120,7 +120,7 @@ jobs:
           aws amplify update-domain-association \
             --app-id ${{inputs.amplify-app-id}} \
             --domain-name pie.design \
-            --sub-domain-settings prefix=${{ env.SUB_DOMAIN }},branchName=pr${{ github.event_name}}
+            --sub-domain-settings prefix=${{ env.SUB_DOMAIN }},branchName=pr${{ github.event.number}}
       # If successful
       - name: Update deployment status (success)
         if: ${{ github.event_name == 'pull_request' && success() }}
