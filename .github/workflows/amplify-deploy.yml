@@ -113,29 +113,49 @@ jobs:
         run: |
           PACKAGE_NAME_SUFFIX=$(echo "${{ inputs.package-name }}" | sed -e 's/^pie-//')
           echo "SUB_DOMAIN=pr${{ github.event.number }}-$PACKAGE_NAME_SUFFIX" >> $GITHUB_ENV
-      - name: Create Subdomain Association
+
+
+      - name: get existing domain associations
         if: github.event_name == 'pull_request'
-        shell: bash
         run: |
-          aws amplify update-domain-association \
-            --app-id ${{inputs.amplify-app-id}} \
+          DOMAIN_ASSOCIATIONS=$(aws amplify get-domain-association \
+            --app-id ${{ inputs.amplify-app-id }} \
             --domain-name pie.design \
-            --sub-domain-settings prefix=${{ env.SUB_DOMAIN }},branchName=pr${{ github.event.number}}
-      # If successful
-      - name: Update deployment status (success)
-        if: ${{ github.event_name == 'pull_request' && success() }}
-        uses: chrnorm/deployment-status@v2
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          environment-url: https://${{ env.SUB_DOMAIN }}.pie.design/
-          deployment-id: ${{ steps.deploy.outputs.deployment_id }}
-          state: "success"
-      # If it failed
-      - name: Update deployment status (failure)
-        if: ${{ github.event_name == 'pull_request' && failure() }}
-        uses: chrnorm/deployment-status@v2
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          environment-url: https://${{ env.SUB_DOMAIN }}.pie.design/
-          deployment-id: ${{ steps.deploy.outputs.deployment_id }}
-          state: "failure"
+            | jq '
+              [.domainAssociation.subDomains[].subDomainSetting | { prefix: (.prefix // ""), branchName }] |
+              . |= (map(.branchName) | index("pr${{ github.event.number }}")) as $ix |
+              if $ix == null then
+                . + [{branchName: "pr${{ github.event.number }}", prefix: "${{ env.SUB_DOMAIN }}"}]
+              else . end
+            ' -c)
+          echo $DOMAIN_ASSOCIATIONS >> $GITHUB_ENV
+
+      - name: get existing domain associations
+        if: github.event_name == 'pull_request'
+        run: echo ${{ env.DOMAIN_ASSOCIATIONS }}
+      # - name: Create Subdomain Association
+      #   if: github.event_name == 'pull_request'
+      #   shell: bash
+      #   run: |
+      #     aws amplify update-domain-association \
+      #       --app-id ${{inputs.amplify-app-id}} \
+      #       --domain-name pie.design \
+      #       --sub-domain-settings ${{ env.DOMAIN_ASSOCIATIONS }}
+      # # If successful
+      # - name: Update deployment status (success)
+      #   if: ${{ github.event_name == 'pull_request' && success() }}
+      #   uses: chrnorm/deployment-status@v2
+      #   with:
+      #     token: ${{ secrets.GITHUB_TOKEN }}
+      #     environment-url: https://${{ env.SUB_DOMAIN }}.pie.design/
+      #     deployment-id: ${{ steps.deploy.outputs.deployment_id }}
+      #     state: "success"
+      # # If it failed
+      # - name: Update deployment status (failure)
+      #   if: ${{ github.event_name == 'pull_request' && failure() }}
+      #   uses: chrnorm/deployment-status@v2
+      #   with:
+      #     token: ${{ secrets.GITHUB_TOKEN }}
+      #     environment-url: https://${{ env.SUB_DOMAIN }}.pie.design/
+      #     deployment-id: ${{ steps.deploy.outputs.deployment_id }}
+      #     state: "failure"
