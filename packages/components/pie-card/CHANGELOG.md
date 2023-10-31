@@ -1,4 +1,4 @@
-# @justeattakeaway/pie-card-container
+# @justeattakeaway/pie-card
 
 ## 0.13.0
 

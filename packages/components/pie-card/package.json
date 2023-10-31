@@ -1,7 +1,7 @@
 {
-  "name": "@justeattakeaway/pie-card-container",
-  "description": "PIE Design System Card Container built using Web Components",
+  "name": "@justeattakeaway/pie-card",
   "version": "0.13.0",
+  "description": "PIE Design System Card built using Web Components",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -12,7 +12,7 @@
     "**/*.d.ts"
   ],
   "scripts": {
-    "build": "yarn build:wrapper pie-card-container && run -T vite build",
+    "build": "yarn build:wrapper pie-card && run -T vite build",
     "lint:scripts": "run -T eslint .",
     "lint:scripts:fix": "yarn lint:scripts --fix",
     "lint:style": "run -T stylelint ./src/**/*.{css,scss}",
@@ -22,7 +22,7 @@
     "test:ci": "yarn test",
     "test:browsers": "npx playwright test -c ./playwright-lit.config.ts",
     "test:browsers:ci": "yarn test:browsers",
-    "test:visual": "run -T cross-env-shell PERCY_TOKEN=${PERCY_TOKEN_PIE_CARD_CONTAINER} percy exec --allowed-hostname cloudfront.net -- npx playwright test -c ./playwright-lit-visual.config.ts",
+    "test:visual": "run -T cross-env-shell PERCY_TOKEN=${PERCY_TOKEN_PIE_CARD} percy exec --allowed-hostname cloudfront.net -- npx playwright test -c ./playwright-lit-visual.config.ts",
     "test:visual:ci": "yarn test:visual"
   },
   "author": "Just Eat Takeaway.com - Design System Team",
