@@ -175,7 +175,7 @@ test.describe('Component: `Pie switch`', () => {
                 const ariaDescriptionElement = component.locator(ariaDescriptionSelector);
 
                 // Assert
-                expect(ariaDescriptionElement).toContainText(ariaDescriptionText);
+                await expect(ariaDescriptionElement).toContainText(ariaDescriptionText);
             });
         });
     });
