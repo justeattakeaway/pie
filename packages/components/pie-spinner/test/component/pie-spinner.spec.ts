@@ -29,7 +29,7 @@ test.describe('PieSpinner - Component tests', () => {
         const pieSpinnerComponent = await component.locator(componentSelector);
 
         // Assert
-        await expect(pieSpinnerComponent).toHaveAttribute('aria-live', 'polite');
+        expect(pieSpinnerComponent).toHaveAttribute('aria-live', 'polite');
     });
 
     test('should set `role` to `status` by default', async ({ mount }) => {
@@ -40,6 +40,6 @@ test.describe('PieSpinner - Component tests', () => {
         const pieSpinnerComponent = await component.locator(componentSelector);
 
         // Assert
-        await expect(pieSpinnerComponent).toHaveAttribute('role', 'status');
+        expect(pieSpinnerComponent).toHaveAttribute('role', 'status');
     });
 });

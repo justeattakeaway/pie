@@ -70,7 +70,7 @@ test.describe('Component: `Pie switch`', () => {
             const pieSwitchLabel = component.locator(switchLabelSelector());
 
             // Assert
-            await expect(pieSwitchLabel).toHaveAttribute('for', 'switch');
+            expect(pieSwitchLabel).toHaveAttribute('for', 'switch');
         });
     });
 
@@ -175,7 +175,7 @@ test.describe('Component: `Pie switch`', () => {
                 const ariaDescriptionElement = component.locator(ariaDescriptionSelector);
 
                 // Assert
-                await expect(ariaDescriptionElement).toContainText(ariaDescriptionText);
+                expect(ariaDescriptionElement).toContainText(ariaDescriptionText);
             });
         });
     });
