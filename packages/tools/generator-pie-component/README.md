@@ -52,10 +52,10 @@ _Note: If this step fails, ensure you have installed the repository dependencies
 
 ### Setting up Storybook:
 
-- Add the component to the storybook package.json dependencies using the `workspace` syntax:
+- Add the component to the storybook package.json dependencies:
 
 ```json
-"@justeattakeaway/pie-{{COMPONENT_NAME}}": "workspace:*",
+"@justeattakeaway/pie-{{COMPONENT_NAME}}": "0.0.0",
 
 ```
 
