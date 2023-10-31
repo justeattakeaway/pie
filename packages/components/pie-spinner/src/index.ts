@@ -1,8 +1,15 @@
-import { LitElement, html, unsafeCSS } from 'lit';
+import {
+    LitElement, html, nothing, unsafeCSS,
+} from 'lit';
 import { property } from 'lit/decorators.js';
 import { validPropertyValues, defineCustomElement } from '@justeattakeaway/pie-webc-core';
 import styles from './spinner.scss?inline';
-import { SpinnerProps, sizes, variants } from './defs';
+import {
+    SpinnerProps,
+    sizes,
+    variants,
+    type AriaProps,
+} from './defs';
 
 // Valid values available to consumers
 export * from './defs';
@@ -13,24 +20,30 @@ const componentSelector = 'pie-spinner';
  * @tagname pie-spinner
  */
 export class PieSpinner extends LitElement implements SpinnerProps {
+    @property({ type: Object })
+    public aria?: AriaProps;
+
     @property()
     @validPropertyValues(componentSelector, sizes, 'm')
-    public size: SpinnerProps['size'] = 'm';
+    public size?: SpinnerProps['size'] = 'm';
 
     @property()
     @validPropertyValues(componentSelector, variants, 'brand')
-    public variant: SpinnerProps['variant'] = 'brand';
+    public variant?: SpinnerProps['variant'] = 'brand';
 
     render () {
-        const { variant, size } = this;
+        const { variant, size, aria } = this;
 
         return html`
             <div 
                 data-test-id="pie-spinner"
-                role="presentation" 
                 class="c-spinner"
+                role="status"
+                aria-live="polite"
                 size="${size}"
-                variant="${variant}"></div>`;
+                variant="${variant}">
+                   ${aria?.label ? html`<span class="label">${aria.label}</span>` : nothing}
+                </div>`;
     }
 
     // Renders a `CSSResult` generated from SCSS by Vite

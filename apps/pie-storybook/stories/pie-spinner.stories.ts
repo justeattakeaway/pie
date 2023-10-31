@@ -11,7 +11,13 @@ const keptReferences = [PieSpinner];
 
 type SpinnerStoryMeta = StoryMeta<SpinnerProps>;
 
-const defaultArgs: SpinnerProps = {};
+const defaultArgs: SpinnerProps = {
+    variant: 'brand',
+    size: 'm',
+    aria: {
+        label: 'Loading',
+    },
+};
 
 const spinnerStoryMeta: SpinnerStoryMeta = {
     title: 'Spinner',
@@ -33,6 +39,10 @@ const spinnerStoryMeta: SpinnerStoryMeta = {
                 summary: 'brand',
             },
         },
+        aria: {
+            description: 'The ARIA labels used for the switch.',
+            control: 'object',
+        },
     },
     args: defaultArgs,
     parameters: {
@@ -48,10 +58,12 @@ export default spinnerStoryMeta;
 const Template: TemplateFunction<SpinnerProps> = ({
     size,
     variant,
+    aria,
 }) => html`
         <pie-spinner
             size="${size}"
-            variant="${variant}">
+            variant="${variant}"
+            .aria="${aria}">
         </pie-spinner>`;
 
 const createSpinnerStory = createStory<SpinnerProps>(Template, defaultArgs);
