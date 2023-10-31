@@ -55,11 +55,12 @@ componentVariants.forEach((variant) => test(`should render all prop variations f
     await Promise.all(componentPropsMatrixByVariant[variant].map(async (combo: WebComponentPropValues) => {
         const testComponent: WebComponentTestInput = createTestWebComponent(combo, renderTestPieIconButton);
         const propKeyValues = `size: ${testComponent.propValues.size}, disabled: ${testComponent.propValues.disabled}`;
+        const darkMode = variant.includes('inverse');
 
         await mount(
             WebComponentTestWrapper,
             {
-                props: { propKeyValues },
+                props: { propKeyValues, darkMode },
                 slots: {
                     component: testComponent.renderedString,
                 },

@@ -72,6 +72,9 @@ pie-notification:
 pie-switch:
 - 'packages/components/pie-switch/**/*'
 
+pie-spinner:
+- "packages/components/pie-spinner/**/*"
+
 pie-webc-core:
 - 'packages/components/pie-webc-core/**/*'
 
