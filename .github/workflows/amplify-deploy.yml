@@ -121,7 +121,6 @@ jobs:
           
           SUBDOMAIN="pr${{ github.event.number }}-${{ env.SUFFIX }}.pie.design"
           
-          # Create a DNS record in Route 53
           aws route53 change-resource-record-sets --hosted-zone-id ${{ secrets.HOSTED_ZONE_ID }} --change-batch '{
             "Changes": [
               {
