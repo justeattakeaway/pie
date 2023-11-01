@@ -5,37 +5,36 @@
 // 'transparent': uses hsla syntax to make the color semi-opaque (used for ghost and outline button variants)
 // }
 // ----------------------------------------------
-
 @mixin button-interactive-states($bg-color, $mode: 'default') {
-  &:hover:not(:disabled) {
-      @if $mode == 'alt' {
-          --hover-modifier: calc(-1 * var(--dt-color-hover-02));
-      } @else {
-          --hover-modifier: calc(-1 * var(--dt-color-hover-01));
-      }
+    &:hover:not(:disabled) {
+        @if $mode == 'alt' {
+            --hover-modifier: calc(-1 * var(--dt-color-hover-02));
+        } @else {
+            --hover-modifier: calc(-1 * var(--dt-color-hover-01));
+        }
 
-      // for mode=transparent, use the hsla syntax to make the button background opaque by a set percentage
-      @if $mode == 'transparent' {
-          --hover-modifier: var(--dt-color-hover-01);
-          --btn-bg-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), var(#{$bg-color}-l), var(--hover-modifier));
-      } @else {
-          --btn-bg-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), calc(var(#{$bg-color}-l) + var(--hover-modifier)));
-      }
-  }
+        // for mode=transparent, use the hsla syntax to make the button background opaque by a set percentage
+        @if $mode == 'transparent' {
+            --hover-modifier: var(--dt-color-hover-01);
+            --btn-bg-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), var(#{$bg-color}-l), var(--hover-modifier));
+        } @else {
+            --btn-bg-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), calc(var(#{$bg-color}-l) + var(--hover-modifier)));
+        }
+    }
 
-  &:active:not(:disabled),
-  &[isLoading]:not(:disabled) {
-      @if $mode == 'alt' {
-          --active-modifier: calc(-1 * var(--dt-color-active-02));
-      } @else {
-          --active-modifier: calc(-1 * var(--dt-color-active-01));
-      }
+    &:active:not(:disabled),
+    &[isLoading]:not(:disabled) {
+        @if $mode == 'alt' {
+            --active-modifier: calc(-1 * var(--dt-color-active-02));
+        } @else {
+            --active-modifier: calc(-1 * var(--dt-color-active-01));
+        }
 
-      @if $mode == 'transparent' {
-          --active-modifier: var(--dt-color-active-01);
-          --btn-bg-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), var(#{$bg-color}-l), var(--active-modifier));
-      } @else {
-          --btn-bg-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), calc(var(#{$bg-color}-l) + var(--active-modifier)));
-      }
-  }
+        @if $mode == 'transparent' {
+            --active-modifier: var(--dt-color-active-01);
+            --btn-bg-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), var(#{$bg-color}-l), var(--active-modifier));
+        } @else {
+            --btn-bg-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), calc(var(#{$bg-color}-l) + var(--active-modifier)));
+        }
+    }
 }
