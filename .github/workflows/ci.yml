@@ -67,7 +67,7 @@ jobs:
         if: ${{ github.event_name == 'pull_request' && success() }}
         uses: siggerzz/QR-Code-Commenter-Action@main
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.CHANGESETS_TOKEN }}
           links: "https://pie.design/"
           messages: ":phone: - Scan the QR Code to view the pie-docs preview deployment on your mobile!"
       - name: Verify if pie-docs has changes
