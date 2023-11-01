@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.34.0
+
+### Minor Changes
+
+- [Changed] - Update monorepo and storybook to use renamed component(s) ([#944](https://github.com/justeattakeaway/pie/pull/944)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
 ## 2.33.0
 
 ### Minor Changes
