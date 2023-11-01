@@ -29,17 +29,15 @@
 
 .c-spinner {
     --spinner-size: 24px;
-    --spinner-front-color: hsl(var(--spinner-base-color-h), var(--spinner-base-color-s), var(--spinner-base-color-l), 1);
-    --spinner-back-color: hsl(var(--spinner-base-color-h), var(--spinner-base-color-s), var(--spinner-base-color-l), 0.35);
+    --spinner-left-color: hsl(var(--spinner-base-color-h), var(--spinner-base-color-s), var(--spinner-base-color-l), 1);
+    --spinner-right-color: hsl(var(--spinner-base-color-h), var(--spinner-base-color-s), var(--spinner-base-color-l), 0.35);
 
     block-size: var(--spinner-size);
     inline-size: var(--spinner-size);
     border-radius: var(--dt-radius-rounded-e);
     border-width: calc(var(--spinner-size) / 8);
     border-style: solid;
-    border-color: var(--spinner-back-color);
-    border-top-color: var(--spinner-front-color);
-    border-left-color: var(--spinner-front-color);
+    border-color: var(--spinner-left-color) var(--spinner-right-color) var(--spinner-right-color) var(--spinner-left-color);
     will-change: transform;
     animation: rotate360 1.15s linear infinite;
 
