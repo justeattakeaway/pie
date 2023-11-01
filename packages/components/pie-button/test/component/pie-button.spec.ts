@@ -376,8 +376,11 @@ test.describe('Form Actions', () => {
             await page.fill('#password', 'testPassword');
 
             // Act
+            // Press Tab until we focus the reset button
+            await page.keyboard.press('Tab'); // Move focus to reset button
+            await page.keyboard.press('Tab'); // Move focus to reset button
+
             // Press Enter on the pie-button with type reset
-            await page.focus('#resetPieButton');
             await page.press('#resetPieButton', 'Enter');
 
             // Assert
