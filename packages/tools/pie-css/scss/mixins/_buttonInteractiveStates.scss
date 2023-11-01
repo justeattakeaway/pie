@@ -1,9 +1,11 @@
-/**
-* Defines button states for hover, active and loading.
-* $bg-color: design token name to be used for the states
-* $mode: 'default': apply the default lighten/darken to the color via hsl
-*        'transparent': uses hsla syntax to make the color semi-opaque (used for ghost and outline button variants)
-*/
+// ----------------------------------------------
+// Mixin to define button states for hover, active and loading.
+// $bg-color: design token name to be used for the states
+// $mode: 'default': apply the default lighten/darken to the color via hsl
+// 'transparent': uses hsla syntax to make the color semi-opaque (used for ghost and outline button variants)
+// }
+// ----------------------------------------------
+
 @mixin button-interactive-states($bg-color, $mode: 'default') {
   &:hover:not(:disabled) {
       @if $mode == 'alt' {
