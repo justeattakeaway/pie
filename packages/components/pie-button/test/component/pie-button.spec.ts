@@ -377,8 +377,8 @@ test.describe('Form Actions', () => {
 
             // Act
             // Press Tab until we focus the reset button
-            await page.keyboard.press('Tab'); // Move focus to reset button
-            await page.keyboard.press('Tab'); // Move focus to reset button
+            await page.keyboard.press('Tab');
+            await page.keyboard.press('Tab');
 
             // Press Enter on the pie-button with type reset
             await page.press('#resetPieButton', 'Enter');
