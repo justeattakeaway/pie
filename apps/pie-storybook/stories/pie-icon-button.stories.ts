@@ -64,3 +64,5 @@ export const Secondary = createIconButtonStory({ variant: 'secondary' });
 export const Outline = createIconButtonStory({ variant: 'outline' }, { bgColor: 'background-subtle' });
 export const Ghost = createIconButtonStory({ variant: 'ghost' }, { bgColor: 'background-subtle' });
 export const GhostSecondary = createIconButtonStory({ variant: 'ghost-secondary' }, { bgColor: 'background-subtle' });
+export const Inverse = createIconButtonStory({ variant: 'inverse' }, { bgColor: 'dark (container-dark)' });
+export const GhostInverse = createIconButtonStory({ variant: 'ghost-inverse' }, { bgColor: 'dark (container-dark)' });
