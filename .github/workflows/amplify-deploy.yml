@@ -107,13 +107,43 @@ jobs:
             --app-id ${{ inputs.amplify-app-id }} \
             --branch-name ${{ env.BRANCH_NAME }} \
             --source-url https://${{ env.BUCKET_NAME }}.s3.${{ env.AWS_REGION }}.amazonaws.com/${{ env.ZIP_NAME }}
+      # Set env vars for domain name association
+      - name: Set environment variables for domain name association
+        if: github.event_name == 'pull_request'
+        run: |
+          PACKAGE_NAME_SUFFIX=$(echo "${{ inputs.package-name }}" | sed -e 's/^pie-//')
+          echo "SUB_DOMAIN=pr${{ github.event.number }}-$PACKAGE_NAME_SUFFIX" >> $GITHUB_ENV
+
+
+      - name: get existing domain associations
+        if: github.event_name == 'pull_request'
+        run: |
+          DOMAIN_ASSOCIATIONS=$(aws amplify get-domain-association \
+            --app-id ${{ inputs.amplify-app-id }} \
+            --domain-name pie.design \
+            | jq '
+              [.domainAssociation.subDomains[].subDomainSetting | { prefix: (.prefix // ""), branchName }] |
+              . |= (map(.branchName) | index("pr${{ github.event.number }}")) as $ix |
+              if $ix == null then
+                . + [{branchName: "pr${{ github.event.number }}", prefix: "${{ env.SUB_DOMAIN }}"}]
+              else . end
+            ' -c)
+          echo "DOMAIN_ASSOCIATIONS=$DOMAIN_ASSOCIATIONS" >> $GITHUB_ENV
+      - name: Create Subdomain Association
+        if: github.event_name == 'pull_request'
+        shell: bash
+        run: |
+          aws amplify update-domain-association \
+            --app-id ${{inputs.amplify-app-id}} \
+            --domain-name pie.design \
+            --sub-domain-settings '${{ env.DOMAIN_ASSOCIATIONS }}'
       # If successful
       - name: Update deployment status (success)
         if: ${{ github.event_name == 'pull_request' && success() }}
         uses: chrnorm/deployment-status@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          environment-url: https://pr${{ github.event.number }}.${{ inputs.amplify-app-id }}.amplifyapp.com
+          environment-url: https://${{ env.SUB_DOMAIN }}.pie.design/
           deployment-id: ${{ steps.deploy.outputs.deployment_id }}
           state: "success"
       # If it failed
@@ -122,6 +152,6 @@ jobs:
         uses: chrnorm/deployment-status@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          environment-url: https://pr${{ github.event.number }}.${{ inputs.amplify-app-id }}.amplifyapp.com
+          environment-url: https://${{ env.SUB_DOMAIN }}.pie.design/
           deployment-id: ${{ steps.deploy.outputs.deployment_id }}
           state: "failure"
