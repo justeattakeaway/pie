@@ -1,5 +1,23 @@
 # @justeattakeaway/pie-icon-button
 
+## 0.20.0
+
+### Minor Changes
+
+- [Added] - `inverse` and `ghost-inverse` variants ([#941](https://github.com/justeattakeaway/pie/pull/941)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Fixed] - Icon sizes aren't correct
+
+  [Fixed] - The `outline` variant border is missing
+
+  [Fixed] - The inner ring of focus styles is missing
+
+  [Fixed] - The background of `outline`, `ghost` and `ghost-secondary` variants should be transparent
+
+  [Fixed] - The background of `outline`, `ghost` and `ghost-secondary` variants should be transparent
+
+  [Fixed] - TH disabled state should use the `not-allowed` cursor
+
 ## 0.19.0
 
 ### Minor Changes

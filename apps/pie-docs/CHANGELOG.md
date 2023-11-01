@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.10.0
+
+### Minor Changes
+
+- [Added] - link shortcode component ([#934](https://github.com/justeattakeaway/pie/pull/934)) by [@LTurns](https://github.com/LTurns)
+
 ## 3.9.0
 
 ### Minor Changes
