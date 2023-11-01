@@ -1,15 +1,13 @@
 import { html, nothing } from 'lit';
-import { PieSwitch, SwitchProps, labelPlacements } from '@justeattakeaway/pie-switch';
-import { IconCheck } from '@justeattakeaway/pie-icons-webc';
+
+/* eslint-disable import/no-duplicates */
+import '@justeattakeaway/pie-switch';
+import { SwitchProps, labelPlacements } from '@justeattakeaway/pie-switch';
+/* eslint-enable import/no-duplicates */
+import '@justeattakeaway/pie-icons-webc/IconCheck';
+
 import { StoryMeta } from '../types';
 import { createStory, type TemplateFunction } from '../utilities';
-
-// This prevents storybook from tree shaking the components
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const keptReferences = [
-    IconCheck,
-    PieSwitch,
-];
 
 type SwitchStoryMeta = StoryMeta<SwitchProps>;
 

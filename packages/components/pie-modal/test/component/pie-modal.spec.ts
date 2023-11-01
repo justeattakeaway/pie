@@ -1,7 +1,5 @@
 import { test, expect } from '@sand4rt/experimental-ct-web';
 import { type Page } from '@playwright/test';
-import { PieButton } from '@justeattakeaway/pie-button';
-import { PieIconButton } from '@justeattakeaway/pie-icon-button';
 import {
     WebComponentTestWrapper,
 } from '@justeattakeaway/pie-webc-testing/src/helpers/components/web-component-test-wrapper/WebComponentTestWrapper.ts';
@@ -17,15 +15,6 @@ import {
 const componentSelector = '[data-test-id="pie-modal"]';
 const backButtonSelector = '[data-test-id="modal-back-button"]';
 const closeButtonSelector = '[data-test-id="modal-close-button"]';
-
-// Mount then unmount any components that are used inside of pie-modal so that
-// they have been registered with the browser before the tests run.
-// There is likely a nicer way to do this but this will temporarily
-// unblock tests.
-test.beforeEach(async ({ mount }) => {
-    await (await mount(PieButton)).unmount();
-    await (await mount(PieIconButton)).unmount();
-});
 
 test.describe('modal', () => {
     test('should be visible when opened', async ({ mount, page }) => {
@@ -813,4 +802,3 @@ test.describe('Props: `aria`', () => {
         });
     });
 });
-

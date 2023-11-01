@@ -2,11 +2,10 @@ import { TemplateResult } from 'lit';
 import { html } from 'lit/static-html.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
-import '@justeattakeaway/pie-button';
-import '@justeattakeaway/pie-icon-button';
 /* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-modal';
 import {
+    PieModal,
     ModalProps as ModalPropsBase,
     headingLevels,
     sizes,

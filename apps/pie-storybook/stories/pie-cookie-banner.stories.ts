@@ -5,11 +5,6 @@ import { action } from '@storybook/addon-actions';
 import '@justeattakeaway/pie-cookie-banner';
 import { CookieBannerProps } from '@justeattakeaway/pie-cookie-banner';
 /* eslint-enable import/no-duplicates */
-import '@justeattakeaway/pie-button';
-import '@justeattakeaway/pie-icon-button';
-import '@justeattakeaway/pie-link';
-import '@justeattakeaway/pie-modal';
-import '@justeattakeaway/pie-switch';
 
 import { type StoryMeta } from '../types';
 import { createStory } from '../utilities';
