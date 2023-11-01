@@ -63,13 +63,14 @@ jobs:
         with:
           node-version: 18
           os: ubuntu-latest
-      - name: Comment PR with QR Code
-        if: ${{ github.event_name == 'pull_request' && success() }}
-        uses: siggerzz/QR-Code-Commenter-Action@main
+      - name: Verify if pie-docs has changes
+        uses: kentaro-m/qr-code-commenter-action@v0.1.2
         with:
-          github-token: ${{ secrets.CHANGESETS_TOKEN }}
-          links: "https://pie.design/"
-          messages: ":phone: - Scan the QR Code to view the pie-docs preview deployment on your mobile!"
+          repo-token: "${{ secrets.CHANGESETS_TOKEN }}"
+          content: https://pie.design/
+          comment: |
+            :iphone: Scan this QR code with your device to access the pie-docs preview website.
+            {qrcode}
       - name: Verify if pie-docs has changes
         id: docs-check
         run: |
