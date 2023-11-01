@@ -1,4 +1,4 @@
-@use '@justeat/pie-design-tokens/dist/jet.scss' as dt;
+@use '@justeattakeaway/pie-css/scss' as p;
 
 @mixin switch-transition($property) {
     @media (prefers-reduced-motion: no-preference) {
@@ -53,8 +53,7 @@
 
     &:focus,
     &:focus-within {
-        background-color: var(--switch-bg-color);
-        box-shadow: 0 0 0 2px var(--dt-color-focus-inner), 0 0 0 4px var(--dt-color-focus-outer);
+        @include p.focus;
     }
 
     &:active {
@@ -126,12 +125,7 @@
 
 // The description is only required for screen readers so we need to visually hide the description
 .c-switch-description {
-    position: absolute;
-    left: -9999px;
-    top: auto;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
+    @include p.visually-hidden;
 }
 
 .c-switch-wrapper[isRTL] {

@@ -1,0 +1,10 @@
+// Mixin to hide an element yet keep it available for screen readers.
+@mixin visually-hidden() {
+    position: absolute;
+    display: block;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip-path: inset(1px);
+    white-space: nowrap;
+}

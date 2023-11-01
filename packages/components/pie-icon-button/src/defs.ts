@@ -7,15 +7,20 @@ export interface IconButtonProps {
      * (Optional) What size the button should be.
      * @default "medium"
      */
-    size: typeof sizes[number];
+    size?: typeof sizes[number];
     /**
      * (Optional) What style variant the button should be such as primary, outline or ghost.
      * @default "primary"
      */
-    variant: typeof variants[number];
+    variant?: typeof variants[number];
     /**
      * (Optional) When true, the button element is disabled.
      * @default false
      */
-    disabled: boolean;
+    disabled?: boolean;
+    /**
+     * (Optional) When true, a loading spinner is rendered.
+     * @default false
+     */
+    isLoading?: boolean;
 }
