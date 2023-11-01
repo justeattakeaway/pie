@@ -1,7 +1,7 @@
 {
   "name": "pie-storybook",
   "version": "0.43.0",
-  "description": "Storybook for PIE Design System components",
+  "description": "Storybook for PIE Design System components - dummy change",
   "scripts": {
     "dev": "storybook dev -p 6006",
     "build": "storybook build --output-dir dist",
