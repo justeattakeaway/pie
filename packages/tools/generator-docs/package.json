@@ -1,0 +1,15 @@
+{
+  "name": "generator-docs",
+  "version": "1.0.0",
+  "description": "A generator for README files and documentation files",
+  "type": "module",
+  "scripts": {
+    "transform": "mdx-to-md ROOT.mdx GENERATED.md",
+    "help": "mdx-to-md --help"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mdx-to-md": "^0.3.2"
+  }
+}
