@@ -146,6 +146,13 @@ jobs:
           environment-url: https://${{ env.SUB_DOMAIN }}.pie.design/
           deployment-id: ${{ steps.deploy.outputs.deployment_id }}
           state: "success"
+      - name: Comment PR with QR Code
+        if: ${{ github.event_name == 'pull_request' && success() }}
+        uses: siggerzz/QR-Code-Commenter-Action
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          links: "https://${{ env.SUB_DOMAIN }}.pie.design/"
+          messages: ":phone: - Scan the QR Code to view the ${{ inputs.package-name}} preview deployment on your mobile!"
       # If it failed
       - name: Update deployment status (failure)
         if: ${{ github.event_name == 'pull_request' && failure() }}
