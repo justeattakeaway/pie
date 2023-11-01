@@ -183,11 +183,10 @@ export class PieButton extends LitElement implements ButtonProps {
             return;
         }
 
-        // Check if the event target is an instance of HTMLElement
         if (event.target instanceof HTMLElement) {
             const targetTagName = event.target.tagName.toLowerCase();
 
-            // We want to ignore the enter key if the user is on a button or pie-button
+            // We want to ignore the enter key if the user is on a button or another pie-button
             if (targetTagName === 'button' || targetTagName === 'pie-button') {
                 return;
             }
