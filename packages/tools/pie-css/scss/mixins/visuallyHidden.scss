@@ -5,6 +5,7 @@
     height: 1px;
     width: 1px;
     overflow: hidden;
-    clip-path: inset(1px);
+    -webkit-clip-path: inset(1px); 
+    clip-path: inset(1px); 
     white-space: nowrap;
 }

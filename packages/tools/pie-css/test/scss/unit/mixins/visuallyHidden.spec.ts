@@ -24,7 +24,7 @@ describe('mixins.visually-hidden', () => {
           height: 1px;
           width: 1px;
           overflow: hidden;
-          clip-path: inset(1px);
+          padding: 1px;
           white-space: nowrap;
         }
       `);
