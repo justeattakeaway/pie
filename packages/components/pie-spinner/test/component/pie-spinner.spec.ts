@@ -53,5 +53,18 @@ test.describe('PieSpinner - Component tests', () => {
             // Assert
             expect(pieSpinnerComponent).toContainText(ariaLabelText);
         });
+
+        test('should not render the label element if aria.label is not passed', async ({ mount }) => {
+            // Arrange
+            const ariaLabelText = 'Loading';
+
+            const component = await mount(PieSpinner);
+
+            // Act
+            const pieSpinnerComponent = await component.locator(componentSelector);
+
+            // Assert
+            expect(pieSpinnerComponent).not.toContainText(ariaLabelText);
+        });
     });
 });
