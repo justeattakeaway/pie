@@ -6,14 +6,6 @@ const props: Partial<ButtonProps> = {
     variant: 'primary',
 };
 
-// Mount then unmount any components that are used inside of tests that may not be directly mounted using playwright so that
-// they have been registered with the browser before the tests run.
-// There is likely a nicer way to do this but this will temporarily
-// unblock tests.
-test.beforeEach(async ({ mount }) => {
-    await (await mount(PieButton)).unmount();
-});
-
 test('should correctly work with native click events', async ({ mount }) => {
     const messages: string[] = [];
     const expectedEventMessage = 'Native event dispatched';
