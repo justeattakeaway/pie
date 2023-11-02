@@ -1,5 +1,18 @@
 # @justeattakeaway/pie-switch
 
+## 0.17.0
+
+### Minor Changes
+
+- [Added] - `isLoading` prop to `pie-icon-button` ([#953](https://github.com/justeattakeaway/pie/pull/953)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Added] - `visually-hidden` mixin to `pie-css` and use it in components when needed
+  [Added] - `button-interactive-states` mixin to use in `pie-icon-button` and `pie-button`
+
+### Patch Changes
+
+- [Added] - Readme events table ([#957](https://github.com/justeattakeaway/pie/pull/957)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
 ## 0.16.0
 
 ### Minor Changes

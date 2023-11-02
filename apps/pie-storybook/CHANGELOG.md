@@ -1,5 +1,25 @@
 # Changelog
 
+## 0.44.0
+
+### Minor Changes
+
+- [Added] - Spinner component ([#948](https://github.com/justeattakeaway/pie/pull/948)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Added] - `isLoading` prop to `pie-icon-button` ([#953](https://github.com/justeattakeaway/pie/pull/953)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Added] - `visually-hidden` mixin to `pie-css` and use it in components when needed
+  [Added] - `button-interactive-states` mixin to use in `pie-icon-button` and `pie-button`
+
+### Patch Changes
+
+- Updated dependencies [[`b7bcd63d1`](https://github.com/justeattakeaway/pie/commit/b7bcd63d1d035f89a8b4db8ea5977b9420d6f9d5), [`8353fbbe7`](https://github.com/justeattakeaway/pie/commit/8353fbbe74eb4b7a322bdb9c7640b0eab6fb6cc1), [`72b21e8ad`](https://github.com/justeattakeaway/pie/commit/72b21e8ad03439655653edab01acbb1a78a94ecf), [`402bccab0`](https://github.com/justeattakeaway/pie/commit/402bccab087c4810264f9080b471f298127f16af)]:
+  - @justeattakeaway/pie-spinner@0.2.0
+  - @justeattakeaway/pie-button@0.36.0
+  - @justeattakeaway/pie-icon-button@0.21.0
+  - @justeattakeaway/pie-switch@0.17.0
+  - @justeattakeaway/pie-css@0.7.0
+
 ## 0.43.0
 
 ### Minor Changes

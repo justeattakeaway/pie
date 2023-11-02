@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.11.0
+
+### Minor Changes
+
+- [Added] - Search engine to site ([#933](https://github.com/justeattakeaway/pie/pull/933)) by [@LTurns](https://github.com/LTurns)
+
 ## 3.10.0
 
 ### Minor Changes

@@ -1,5 +1,19 @@
 # @justeattakeaway/pie-icon-button
 
+## 0.21.0
+
+### Minor Changes
+
+- [Added] - `isLoading` prop to `pie-icon-button` ([#953](https://github.com/justeattakeaway/pie/pull/953)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Added] - `visually-hidden` mixin to `pie-css` and use it in components when needed
+  [Added] - `button-interactive-states` mixin to use in `pie-icon-button` and `pie-button`
+
+### Patch Changes
+
+- Updated dependencies [[`b7bcd63d1`](https://github.com/justeattakeaway/pie/commit/b7bcd63d1d035f89a8b4db8ea5977b9420d6f9d5), [`72b21e8ad`](https://github.com/justeattakeaway/pie/commit/72b21e8ad03439655653edab01acbb1a78a94ecf)]:
+  - @justeattakeaway/pie-spinner@0.2.0
+
 ## 0.20.0
 
 ### Minor Changes
