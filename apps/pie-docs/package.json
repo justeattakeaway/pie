@@ -36,8 +36,8 @@
     "markdown-it-attrs": "4.1.6"
   },
   "dependencies": {
-    "@docsearch/css": "3",
-    "@docsearch/js": "3",
+    "@docsearch/css": "3.5.2",
+    "@docsearch/js": "3.5.2",
     "@justeat/f-cookie-banner": "4.7.0",
     "@justeattakeaway/browserslist-config-pie": "0.2.0",
     "@justeattakeaway/pie-icons": "4.9.2",
