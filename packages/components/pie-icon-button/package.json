@@ -25,12 +25,10 @@
   },
   "author": "Just Eat Takeaway.com - Design System Team",
   "license": "Apache-2.0",
-  "devDependencies": {
+  "dependencies": {
     "@justeattakeaway/pie-icons-webc": "0.11.1",
+    "@justeattakeaway/pie-spinner": "0.1.0",
     "@justeattakeaway/pie-webc-core": "0.11.0"
-  },
-  "peerDependencies": {
-    "@justeat/pie-design-tokens": "^5.8.2"
   },
   "volta": {
     "extends": "../../../package.json"
