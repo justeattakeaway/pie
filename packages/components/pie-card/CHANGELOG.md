@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-card
 
+## 0.14.0
+
+### Minor Changes
+
+- [Changed] - Rename pie-card-container to pie-card ([#944](https://github.com/justeattakeaway/pie/pull/944)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
 ## 0.13.0
 
 ### Minor Changes
