@@ -15,7 +15,8 @@
 3. [Importing the component](#importing-the-component)
 4. [Peer Dependencies](#peer-dependencies)
 5. [Props](#props)
-6. [Contributing](#contributing)
+6. [Events](#Events)
+7. [Contributing](#contributing)
 
 ## pie-switch
 
@@ -73,6 +74,12 @@ In your markup or JSX, you can then use these to set the properties for the `pie
 <!-- JSX -->
 <PieSwitch></PieSwitch>
 ```
+
+## Events
+
+| Event | Payload | Description |
+| ----- |-----| ----- |
+| `pie-switch-changed` | `this.isChecked` | Custom event to indicate a switch change. The event's detail contains the value of this.isChecked.  |
 
 ## Contributing
 
