@@ -149,6 +149,7 @@ esm
 #.yarn/cache
 #.pnp.*
 .vscode
+!.vscode/extensions.json
 
 # Turborepo config
 .turbo
