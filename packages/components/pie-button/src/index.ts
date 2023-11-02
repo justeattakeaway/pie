@@ -1,5 +1,5 @@
 import {
-    LitElement, html, unsafeCSS, nothing, PropertyValues,
+    LitElement, html, unsafeCSS, nothing, PropertyValues, TemplateResult,
 } from 'lit';
 import { property } from 'lit/decorators.js';
 import { validPropertyValues, defineCustomElement } from '@justeattakeaway/pie-webc-core';
@@ -8,6 +8,7 @@ import {
 } from './defs';
 import styles from './button.scss?inline';
 import 'element-internals-polyfill';
+import '@justeattakeaway/pie-spinner';
 
 // Valid values available to consumers
 export * from './defs';
@@ -196,6 +197,23 @@ export class PieButton extends LitElement implements ButtonProps {
         this._handleClick();
     };
 
+    /**
+     * Template for the loading state
+     *
+     * @private
+     */
+    private renderSpinner (): TemplateResult {
+        const spinnerSize = this.size.includes('small') ? 's' : 'm';
+        const inverseVariants = ['primary', 'destructive', 'outline-inverse', 'ghost-inverse'];
+        const spinnerVariant = inverseVariants.includes(this.variant) ? 'inverse' : 'secondary';
+
+        return html`
+                    <pie-spinner
+                        size="${spinnerSize}"
+                        variant="${spinnerVariant}"
+                    </pie-spinner>`;
+    }
+
     render () {
         const {
             type,
@@ -217,6 +235,7 @@ export class PieButton extends LitElement implements ButtonProps {
                 ?disabled=${disabled}
                 ?isFullWidth=${isFullWidth}
                 ?isLoading=${isLoading}>
+                    ${isLoading ? this.renderSpinner() : nothing}
                     ${iconPlacement === 'leading' ? html`<slot name="icon"></slot>` : nothing}
                     <slot></slot>
                     ${iconPlacement === 'trailing' ? html`<slot name="icon"></slot>` : nothing}
