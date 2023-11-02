@@ -1,18 +1,47 @@
 @use '../fozzie-config' as f;
 @use '../variables' as v;
 
-$contentImage-bg-minHeight:         280px;
+$contentImage-height:                     200px;
+$contentImage-height--mobile:             160px;
+$contentImage-height-m:                   400px;
+$contentImage-height-m--mobile:           240px;
+$contentImage-height-l:                   600px;
+$contentImage-height-l--mobile:           400px;
 
 .c-contentImage {
     margin: 0;
     margin-top: f.spacing(e);
 }
 
+.c-contentImage--height-s {
+    height: $contentImage-height--mobile;
+
+    @include f.media('>=narrowMid') {
+        height: $contentImage-height;
+    }
+}
+
+.c-contentImage--height-m {
+    height: $contentImage-height-m--mobile;
+
+    @include f.media('>=narrowMid') {
+        height: $contentImage-height-m;
+    }
+}
+
+.c-contentImage--height-l {
+    height: $contentImage-height-l--mobile;
+
+    @include f.media('>=narrowMid') {
+        height: $contentImage-height-l;
+    }
+}
+
 .c-contentImage--hasBackdrop .c-contentImage-backdrop {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: $contentImage-bg-minHeight;
+    height: 100%;
     padding: f.spacing(h) f.spacing(d);
     background-color: f.$color-background-subtle;
     border-radius: f.$radius-rounded-d;
