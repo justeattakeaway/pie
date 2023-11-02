@@ -8,17 +8,6 @@
     box-sizing: border-box;
 }
 
-// Spin animation for loading state
-@keyframes rotate360 {
-    from {
-        transform: rotate(0deg);
-    }
-
-    to {
-        transform: rotate(360deg);
-    }
-}
-
 .c-modal {
     // Custom Property Declarations
     // These are defined here instead of :host to encapsulate them inside Shadow DOM
@@ -245,23 +234,6 @@
             --modal-content-padding-inline: var(--dt-spacing-e);
         }
 
-        // Spinner sizes defaults
-        --spinner-size: 48px;
-        --spinner-border-width: 6px;
-
-        // Spinner colors - currently set for the primary button styles
-        --spinner-base-color-h: var(--dt-color-content-interactive-secondary-h);
-        --spinner-base-color-s: var(--dt-color-content-interactive-secondary-s);
-        --spinner-base-color-l: var(--dt-color-content-interactive-secondary-l);
-        --spinner-left-color-opacity: 0.35;
-        --spinner-left-color: hsl(var(--spinner-base-color-h), var(--spinner-base-color-s), var(--spinner-base-color-l), var(--spinner-left-color-opacity));
-        --spinner-right-color: hsl(var(--spinner-base-color-h), var(--spinner-base-color-s), var(--spinner-base-color-l), 1);
-
-        // Spinner animations
-        --spinner-animation-duration: 1.15s;
-        --spinner-animation-timing-function: linear;
-        --spinner-animation-iteration-count: infinite;
-
         position: relative;
         min-block-size: var(--dt-spacing-j);
 
@@ -288,27 +260,6 @@
             // (and therefore hides) the shadow. This gives the effect of the shadow fading away.
             // The shadow itself does not move as you scroll.
             background-attachment: local, scroll;
-        }
-
-        &:before {
-            content: '';
-
-            // Centre the spinner over the top of the button text
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            translate: -50% -50%;
-
-            height: var(--spinner-size);
-            width: var(--spinner-size);
-            display: block;
-            background-color: transparent;
-            border-radius: 50%;
-            border-color: var(--spinner-left-color) var(--spinner-right-color) var(--spinner-right-color) var(--spinner-left-color);
-            border-width: var(--spinner-border-width);
-            border-style: solid;
-            will-change: transform;
-            opacity: 0;
         }
     }
 
@@ -342,13 +293,15 @@
     }
 
     &[isLoading] .c-modal-content {
-        &:before {
-            animation: rotate360 var(--spinner-animation-duration) var(--spinner-animation-timing-function) var(--spinner-animation-iteration-count);
-            opacity: 1;
+        pie-spinner {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
         }
 
         & .c-modal-contentInner {
-            opacity: 0;
+            display: none;
         }
     }
 
