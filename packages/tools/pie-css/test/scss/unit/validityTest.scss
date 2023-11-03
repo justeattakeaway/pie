@@ -16,7 +16,11 @@
         @include mixins.focus;
     }
 
-    &[isdraggable]:not([interactiontype='none']) {
+    .hidden-element {
+        @include mixins.visually-hidden;
+    }
+
+    &[isdraggable] {
         @extend %has-grab-cursor;
     }
 }

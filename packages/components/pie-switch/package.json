@@ -1,0 +1,40 @@
+{
+  "name": "@justeattakeaway/pie-switch",
+  "description": "PIE Design System Switch built using Web Components",
+  "version": "0.17.0",
+  "type": "module",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "src",
+    "dist",
+    "**/*.d.ts"
+  ],
+  "scripts": {
+    "build": "yarn build:wrapper pie-switch && run -T vite build",
+    "lint:scripts": "run -T eslint .",
+    "lint:scripts:fix": "yarn lint:scripts --fix",
+    "lint:style": "run -T stylelint ./src/**/*.{css,scss}",
+    "lint:style:fix": "yarn lint:style --fix",
+    "watch": "run -T vite build --watch",
+    "test": "echo \"Error: no test specified\" && exit 0",
+    "test:ci": "yarn test",
+    "test:browsers": "npx playwright test -c ./playwright-lit.config.ts",
+    "test:browsers:ci": "yarn test:browsers",
+    "test:visual": "run -T cross-env-shell PERCY_TOKEN=${PERCY_TOKEN_PIE_SWITCH} percy exec --allowed-hostname cloudfront.net -- npx playwright test -c ./playwright-lit-visual.config.ts",
+    "test:visual:ci": "yarn test:visual"
+  },
+  "author": "Just Eat Takeaway.com - Design System Team",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@justeattakeaway/pie-components-config": "0.4.0",
+    "@justeattakeaway/pie-icons-webc": "0.11.1"
+  },
+  "volta": {
+    "extends": "../../../package.json"
+  },
+  "sideEffects": [
+    "dist/*.js"
+  ]
+}

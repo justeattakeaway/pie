@@ -13,6 +13,8 @@
 @use 'base/layout';
 @use 'base/typography';
 
+@use 'base/search';
+
 @use '@justeat/f-cookie-banner/dist/static/en-GB.css';
 
 /**
@@ -41,6 +43,7 @@
 @use 'components/header';
 @use 'components/heroBanner';
 @use 'components/heroContentLayout';
+@use 'components/link';
 @use 'components/list';
 @use 'components/mediaElementList';
 @use 'components/nav';
@@ -49,6 +52,7 @@
 @use 'components/notification';
 @use 'components/razor';
 @use 'components/resourceTable';
+@use 'components/scrollToTop';
 @use 'components/simpleTable';
 @use 'components/table';
 @use 'components/tabs';
@@ -64,4 +68,3 @@
  * of 3rd party components such as cookie banners
  */
 @use './overrides';
-

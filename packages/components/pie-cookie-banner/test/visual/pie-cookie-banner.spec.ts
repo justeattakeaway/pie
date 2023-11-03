@@ -39,4 +39,14 @@ test.describe('PieCookieBanner - Visual tests`', () => {
 
         await percySnapshot(page, 'PieCookieBanner Manage preferences - Visual Test');
     });
+
+    [true, false].forEach((hasPrimaryActionsOnly) => {
+        test(`should display the correct button variants for hasPrimaryActionsOnly = ${hasPrimaryActionsOnly}`, async ({ mount, page }) => {
+            await mount(PieCookieBanner, {
+                props: { hasPrimaryActionsOnly } as CookieBannerProps,
+            });
+
+            await percySnapshot(page, `PieCookieBanner hasPrimaryActionsOnly = ${hasPrimaryActionsOnly}`);
+        });
+    });
 });

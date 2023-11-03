@@ -1,5 +1,17 @@
 # @justeattakeaway/pie-icons-webc
 
+## 0.11.1
+
+### Patch Changes
+
+- [Changed] - Moved test packages from dependencies to dev dependencies to prevent consumers from needing to install them ([#911](https://github.com/justeattakeaway/pie/pull/911)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+## 0.11.0
+
+### Minor Changes
+
+- [Added] - jsdoc @tagname comment to generated icon typescript classes and new defineCustomElement function to define the components ([#905](https://github.com/justeattakeaway/pie/pull/905)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.10.0
 
 ### Minor Changes

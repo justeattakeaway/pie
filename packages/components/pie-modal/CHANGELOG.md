@@ -1,5 +1,37 @@
 # @justeattakeaway/pie-modal
 
+## 0.30.0
+
+### Minor Changes
+
+- [Removed] - pie-monorepo specific content from Web Component READMES ([#904](https://github.com/justeattakeaway/pie/pull/904)) by [@LTurns](https://github.com/LTurns)
+
+## 0.29.0
+
+### Minor Changes
+
+- [Changed] - The shadow effect for unpinned footer to span the whole container ([#903](https://github.com/justeattakeaway/pie/pull/903)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Removed] - Heading shadow
+
+  [Fixed] - Footer should sit at the bottom of a fullscreen modal, regardless of the content height
+
+- [Changed] - Use different font sizes for the modal heading at narrow and wide breakpoints ([#912](https://github.com/justeattakeaway/pie/pull/912)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+## 0.28.0
+
+### Minor Changes
+
+- [Added] - @tagname jsdoc comment to top of component class and use new defineCustomElement function to define the components ([#905](https://github.com/justeattakeaway/pie/pull/905)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+## 0.27.0
+
+### Minor Changes
+
+- [Fixed] - Incorrect modal positioning when using position="top" in certain states ([#883](https://github.com/justeattakeaway/pie/pull/883)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Added] - Visual regression tests to cover the previous broken states
+
 ## 0.26.0
 
 ### Minor Changes

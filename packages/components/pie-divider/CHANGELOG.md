@@ -1,5 +1,22 @@
 # @justeattakeaway/pie-divider
 
+## 0.9.0
+
+### Minor Changes
+
+- [Removed] - pie-monorepo specific content from Web Component READMES ([#904](https://github.com/justeattakeaway/pie/pull/904)) by [@LTurns](https://github.com/LTurns)
+
+## 0.8.0
+
+### Minor Changes
+
+- [Added] - @tagname jsdoc comment to top of component class and use new defineCustomElement function to define the components ([#905](https://github.com/justeattakeaway/pie/pull/905)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies [[`4cab049d1`](https://github.com/justeattakeaway/pie/commit/4cab049d1e78196bcd4411efba8d82d86f7a4f06)]:
+  - @justeattakeaway/pie-webc-core@0.11.0
+
 ## 0.7.0
 
 ### Minor Changes
