@@ -3,6 +3,11 @@ eleventyNavigation:
     key: Code
     parent: Template
     order: 3
+shouldShowContents: true
 ---
 
-## Code
+## Overview
+## Code Snippet
+## Table
+## Resources
+## Changelog

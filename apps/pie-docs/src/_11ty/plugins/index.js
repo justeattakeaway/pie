@@ -17,6 +17,7 @@ const addAllPlugins = (eleventyConfig) => {
     eleventyConfig.addPlugin(eleventyNavigationPlugin);
     eleventyConfig.addPlugin(eleventyPluginRev);
     eleventyConfig.addPlugin(pluginTOC, {
+        tags: ['h2'],
         wrapperClass: 'c-content-list',
     });
     eleventyConfig.addPlugin(eleventySass, {
