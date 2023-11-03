@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.36.0
+
+### Minor Changes
+
+- [Added] - VSCode extension recommendations for the PIE monorepo. ([#956](https://github.com/justeattakeaway/pie/pull/956)) by [@siggerzz](https://github.com/siggerzz)
+
 ## 2.35.0
 
 ### Minor Changes
