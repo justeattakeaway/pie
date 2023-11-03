@@ -14,6 +14,7 @@
 .c-columns-item {
     display: flex;
     flex-direction: column;
+    margin-block-end: f.$spacing-e;
 
     .c-contentPage-img {
         flex-grow: 1;

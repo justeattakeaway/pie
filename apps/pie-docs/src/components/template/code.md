@@ -13,7 +13,8 @@ eleventyNavigation:
     <p>words that are here</p>
     {% contentPageImage {
       src: "../../../assets/img/foundations/elevation/overlapping-elements.svg",
-      width: "650px"
+      width: "650px",
+      height: 'l'
     } %}
   {% endcontentItem %}
   {% contentItem %}
@@ -32,11 +33,13 @@ eleventyNavigation:
 {% contentLayout %}
   {% contentPageImage {
     src: "../../../assets/img/foundations/elevation/overlapping-elements.svg",
-    width: "650px"
+    width: "650px",
+    height: 's'
   } %}
   {% contentPageImage {
     src: "../../../assets/img/foundations/radius/full-rounding.svg",
-    width: "97px"
+    width: "97px",
+    height: 's'
   } %}
 {% endcontentLayout %}
 
@@ -57,24 +60,29 @@ eleventyNavigation:
     <p>words that are here</p>
     {% contentPageImage {
       src: "../../../assets/img/foundations/radius/full-rounding.svg",
-      width: "97px"
+      width: "97px",
+      height: 'm'
     } %}
   {% endcontentItem %}
   {% contentPageImage {
     src: "../../../assets/img/foundations/elevation/overlapping-elements.svg",
-    width: "650px"
+    width: "650px",
+    height: 'm'
   } %}
   {% contentPageImage {
     src: "../../../assets/img/foundations/radius/full-rounding.svg",
-    width: "97px"
+    width: "97px",
+    height: 'm'
   } %}
   {% contentPageImage {
     src: "../../../assets/img/foundations/radius/full-rounding.svg",
-    width: "97px"
+    width: "97px",
+    height: 'm'
   } %}
   {% contentPageImage {
     src: "../../../assets/img/foundations/elevation/overlapping-elements.svg",
-    width: "650px"
+    width: "650px",
+    height: 'm'
   } %}
 {% endcontentLayout %}
 
