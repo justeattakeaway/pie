@@ -4,6 +4,7 @@ import { action } from '@storybook/addon-actions';
 /* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-cookie-banner';
 import { CookieBannerProps } from '@justeattakeaway/pie-cookie-banner';
+import pieCookieBannerLocales from '@justeattakeaway/pie-cookie-banner/locales';
 /* eslint-enable import/no-duplicates */
 
 import { type StoryMeta } from '../types';
@@ -13,6 +14,7 @@ type CookieBannerStoryMeta = StoryMeta<CookieBannerProps>;
 
 const defaultArgs: CookieBannerProps = {
     hasPrimaryActionsOnly: false,
+    locale: pieCookieBannerLocales.enGB,
 };
 
 const cookieBannerStoryMeta: CookieBannerStoryMeta = {
@@ -22,6 +24,14 @@ const cookieBannerStoryMeta: CookieBannerStoryMeta = {
         hasPrimaryActionsOnly: {
             description: 'When true, sets the variant to "primary" for the button which accepts necessary cookies only.',
             control: 'boolean',
+        },
+        locale: {
+            options: Object.keys(pieCookieBannerLocales),
+            mapping: pieCookieBannerLocales,
+            description: 'Assigns the data for localising the component strings',
+            defaultValue: {
+                summary: 'enGB',
+            },
         },
     },
     args: defaultArgs,
@@ -41,9 +51,11 @@ const managePrefsAction = action('manage-prefs');
 const prefsSavedAction = action('prefs-saved');
 
 const BaseStoryTemplate = (props: CookieBannerProps) : TemplateResult => {
-    const { hasPrimaryActionsOnly } = props;
+    const { hasPrimaryActionsOnly, locale } = props;
+
     return html`
         <pie-cookie-banner
+            .locale=${locale}
             ?hasPrimaryActionsOnly="${hasPrimaryActionsOnly}"
             @pie-cookie-banner-necessary-only="${necessaryOnlyAction}"
             @pie-cookie-banner-accept-all="${acceptAllAction}"

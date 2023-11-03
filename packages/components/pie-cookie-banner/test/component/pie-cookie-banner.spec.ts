@@ -1,5 +1,6 @@
 
 import { test, expect } from '@sand4rt/experimental-ct-web';
+import { readFile } from 'fs/promises';
 import {
     ON_COOKIE_BANNER_ACCEPT_ALL, ON_COOKIE_BANNER_NECESSARY_ONLY,
     ON_COOKIE_BANNER_MANAGE_PREFS, ON_COOKIE_BANNER_PREFS_SAVED,
@@ -9,7 +10,11 @@ import {
     PieCookieBanner, CookieBannerProps,
 } from '@/index';
 
+const englishLocale = JSON.parse(await readFile(new URL('../../locales/en-gb.json', import.meta.url)));
+const spanishLocale = JSON.parse(await readFile(new URL('../../locales/es-es.json', import.meta.url)));
+
 const componentSelector = '[data-test-id="pie-cookie-banner"]';
+const componentDescriptionSelector = '[data-test-id="banner-description"]';
 const acceptAllSelector = '[data-test-id="actions-accept-all"]';
 const necessaryOnlySelector = '[data-test-id="actions-necessary-only"]';
 const managePreferencesSelector = '[data-test-id="actions-manage-prefs"]';
@@ -17,9 +22,14 @@ const bodyAcceptAllSelector = '[data-test-id="body-accept-all"]';
 const bodyNecessaryOnlySelector = '[data-test-id="body-necessary-only"]';
 const bodyManagePreferencesSelector = '[data-test-id="body-manage-prefs"]';
 const modalSelector = '[data-test-id="pie-modal"]';
+const modalDescriptionSelector = '[data-test-id="modal-description"]';
 const modalBackButtonSelector = '[data-test-id="modal-back-button"]';
 const modalSaveButtonSelector = '[data-test-id="modal-leading-action"]';
 const getPreferenceItemSelector = (id: PreferenceIds) => `#${id} [data-test-id="switch-component"]`;
+
+function stripTags (str: string) {
+    return str.replace(/<\/?[^>]+(>|$)/g, '');
+}
 
 test.describe('PieCookieBanner - Component tests', () => {
     test('should render successfully', async ({ mount, page }) => {
@@ -241,6 +251,64 @@ test.describe('PieCookieBanner - Component tests', () => {
 
         // Assert
         expect(isToggleAllChecked).toBe(false);
+    });
+
+    test.describe('`locale` prop', () => {
+        test('should render text in the default (English) language when the locale is not set', async ({ mount, page }) => {
+            // Arrange
+            await mount(PieCookieBanner, {});
+
+            // Act
+            const acceptAllButton = page.locator(acceptAllSelector);
+            const necessaryOnlyButton = page.locator(necessaryOnlySelector);
+            const managePreferencesButton = page.locator(managePreferencesSelector);
+            const componentDescription = page.locator(componentDescriptionSelector);
+            const modalDescription = page.locator(modalDescriptionSelector);
+
+            // Assert
+            expect(String(await acceptAllButton.textContent()).trim())
+                .toBe(englishLocale.banner.cta.acceptAll);
+
+            expect(String(await necessaryOnlyButton.textContent()).trim())
+                .toBe(englishLocale.banner.cta.necessaryOnly);
+
+            expect(String(await managePreferencesButton.textContent()).trim())
+                .toBe(englishLocale.banner.cta.managePreferences);
+
+            expect(String(await componentDescription.textContent()).trim())
+                .toBe(stripTags(englishLocale.banner.description));
+
+            expect(String(await modalDescription.textContent()).trim())
+                .toBe(stripTags(englishLocale.preferencesManagement.description));
+        });
+
+        test('should render the expected text when the locale prop is set', async ({ mount, page }) => {
+            // Arrange
+            await mount(PieCookieBanner, { props: { locale: spanishLocale } as CookieBannerProps });
+
+            // Act
+            const acceptAllButton = page.locator(acceptAllSelector);
+            const necessaryOnlyButton = page.locator(necessaryOnlySelector);
+            const managePreferencesButton = page.locator(managePreferencesSelector);
+            const componentDescription = page.locator(componentDescriptionSelector);
+            const modalDescription = page.locator(modalDescriptionSelector);
+
+            // Assert
+            expect(String(await acceptAllButton.textContent()).trim())
+                .toBe(spanishLocale.banner.cta.acceptAll);
+
+            expect(String(await necessaryOnlyButton.textContent()).trim())
+                .toBe(spanishLocale.banner.cta.necessaryOnly);
+
+            expect(String(await managePreferencesButton.textContent()).trim())
+                .toBe(spanishLocale.banner.cta.managePreferences);
+
+            expect(String(await componentDescription.textContent()).trim())
+                .toBe(stripTags(spanishLocale.banner.description));
+
+            expect(String(await modalDescription.textContent()).trim())
+                .toBe(stripTags(spanishLocale.preferencesManagement.description));
+        });
     });
 
     test.describe('`hasPrimaryActionsOnly` prop', () => {
