@@ -1,0 +1,62 @@
+@use '../fozzie-config' as f;
+
+.c-content-list {
+    max-width: 604px;
+
+    ol {
+        column-width: 180px;
+        column-gap: 32px;
+        padding: 0;
+        column-count: 1;
+        column-fill: auto;
+
+        @include f.media('>=mid') {
+            max-height: 240px;
+            column-count: var(--column-count);
+        }
+    }
+
+    li {
+        orphans: 6;
+        list-style: none;
+        margin-block-end: 16px;
+        position: relative;
+        display: flex;
+
+        &[data-title]:hover:after {
+            content: attr(data-title);
+            position: absolute;
+            top: calc(100% + f.$spacing-a);
+            left: 20px;
+            padding: f.$spacing-a f.$spacing-c;
+            @include f.font-size('caption');
+            width: max-content;
+            border-radius: 100px;
+            background-color: f.$color-container-inverse;
+            color: f.$color-content-inverse;
+        }
+
+        a {
+            display: inline-block;
+            width: calc(100% - 20px);
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        a,
+        a:visited {
+            color: f.$color-content-default;
+        }
+
+        &:before {
+            content: url("/assets/img/contents.svg");
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            margin-inline-end: f.$spacing-a;
+            top: f.$spacing-a;
+            position: relative;
+        }
+    }
+}
