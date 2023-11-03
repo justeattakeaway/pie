@@ -40,8 +40,8 @@
     "extends": "../../../package.json"
   },
   "dependencies": {
-    "@justeattakeaway/pie-button": "0.35.0",
-    "@justeattakeaway/pie-icon-button": "0.20.0",
+    "@justeattakeaway/pie-button": "0.36.0",
+    "@justeattakeaway/pie-icon-button": "0.21.0",
     "@justeattakeaway/pie-icons-webc": "0.11.1",
     "dialog-polyfill": "0.5.6"
   },

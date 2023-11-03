@@ -106,7 +106,8 @@ Then, in your markup, you would implement the component like this:
 |-------------|-----------|-----------------|----------------------------------------------------------------------|
 | size        | `String`  | `medium`        | Size of the Icon Button, one of `sizes` – `xsmall`, `small`, `medium`, `large` |
 | variant     | `String`  | `primary`       | Variant of the button, one of `variants` – `primary`, `secondary`, `outline`, `ghost`, `ghost-secondary` |
-| disabled    | `Boolean` | `false`         | If `true`, disables the button.                                      |
+| disabled    | `Boolean` | `false`| If `true`, disables the button.|
+| isLoading    | `Boolean` | `false` | If `true`, displays a loading indicator inside the icon button. |
 
 In your HTML markup or JSX, you can then use these to set the properties for the `pie-icon-button` component, like so:
 

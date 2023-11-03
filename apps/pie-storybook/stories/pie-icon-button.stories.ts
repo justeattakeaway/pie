@@ -15,6 +15,7 @@ const defaultArgs: IconButtonProps = {
     size: 'medium',
     variant: 'primary',
     disabled: false,
+    isLoading: false,
 };
 
 const iconButtonStoryMeta: IconButtonStoryMeta = {
@@ -22,15 +23,34 @@ const iconButtonStoryMeta: IconButtonStoryMeta = {
     component: 'pie-icon-button',
     argTypes: {
         size: {
+            description: 'Set the size of the icon button.',
             control: 'select',
             options: sizes,
+            defaultValue: {
+                summary: 'medium',
+            },
         },
         variant: {
+            description: 'Set the variant of the icon button.',
             control: 'select',
             options: variants,
+            defaultValue: {
+                summary: 'primary',
+            },
         },
         disabled: {
+            description: 'If `true`, disables the icon button.',
             control: 'boolean',
+            defaultValue: {
+                summary: false,
+            },
+        },
+        isLoading: {
+            description: 'If `true`, displays a loading indicator inside the icon button.',
+            control: 'boolean',
+            defaultValue: {
+                summary: false,
+            },
         },
     },
     args: defaultArgs,
@@ -48,11 +68,13 @@ const Template : TemplateFunction<IconButtonProps> = ({
     size,
     variant,
     disabled,
+    isLoading,
 }) => html`
         <pie-icon-button
             size="${size}"
             variant="${variant}"
-            ?disabled="${disabled}">
+            ?disabled="${disabled}"
+            ?isLoading="${isLoading}">
             <icon-close></icon-close>
         </pie-icon-button>
         `;

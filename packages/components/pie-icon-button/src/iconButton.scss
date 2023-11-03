@@ -1,28 +1,5 @@
 @use '@justeattakeaway/pie-css/scss' as p;
 
-@mixin button-interactive-states($bg-color, $mode: 'default') {
-    &:hover:not(:disabled) {
-        --hover-modifier: calc(-1 * var(--dt-color-hover-01));
-        --btn-bg-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), calc(var(#{$bg-color}-l) + var(--hover-modifier)));
-
-        // for mode=transparent, use the hsla syntax to make the button background opaque by a set percentage
-        @if $mode == 'transparent' {
-            --hover-modifier: var(--dt-color-hover-01);
-            --btn-bg-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), var(#{$bg-color}-l), var(--hover-modifier));
-        }
-    }
-
-    &:active:not(:disabled) {
-        --active-modifier: calc(-1 * var(--dt-color-active-01));
-        --btn-bg-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), calc(var(#{$bg-color}-l) + var(--active-modifier)));
-
-        @if $mode == 'transparent' {
-            --active-modifier: var(--dt-color-active-01);
-            --btn-bg-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), var(#{$bg-color}-l), var(--active-modifier));
-        }
-    }
-}
-
 // Normally we don't expect consumers to override these, but there are situations where it may be necessary
 :host {
     // The base values are set to the size default, which is for the medium button size
@@ -66,14 +43,14 @@
     &[variant='primary'] {
         /* Same as default styles */
 
-        @include button-interactive-states('--dt-color-interactive-brand');
+        @include p.button-interactive-states('--dt-color-interactive-brand');
     }
 
     &[variant='secondary'] {
         --btn-bg-color: var(--dt-color-interactive-secondary);
         --btn-icon-fill: var(--dt-color-content-interactive-secondary);
 
-        @include button-interactive-states('--dt-color-interactive-secondary');
+        @include p.button-interactive-states('--dt-color-interactive-secondary');
     }
 
     &[variant='outline'] {
@@ -82,35 +59,35 @@
 
         border: 1px solid var(--dt-color-border-strong);
 
-        @include button-interactive-states('--dt-color-black', 'transparent');
+        @include p.button-interactive-states('--dt-color-black', 'transparent');
     }
 
     &[variant='ghost'] {
         --btn-bg-color: transparent;
         --btn-icon-fill: var(--dt-color-content-interactive-brand);
 
-        @include button-interactive-states('--dt-color-black', 'transparent');
+        @include p.button-interactive-states('--dt-color-black', 'transparent');
     }
 
     &[variant='ghost-secondary'] {
         --btn-bg-color: transparent;
         --btn-icon-fill: var(--dt-color-content-interactive-secondary);
 
-        @include button-interactive-states('--dt-color-black', 'transparent');
+        @include p.button-interactive-states('--dt-color-black', 'transparent');
     }
 
     &[variant='inverse'] {
         --btn-bg-color: var(--dt-color-interactive-inverse);
         --btn-icon-fill: var(--dt-color-content-interactive-brand);
 
-        @include button-interactive-states('--dt-color-interactive-inverse');
+        @include p.button-interactive-states('--dt-color-interactive-inverse');
     }
 
     &[variant='ghost-inverse'] {
         --btn-bg-color: transparent;
         --btn-icon-fill: var(--dt-color-content-inverse);
 
-        @include button-interactive-states('--dt-color-container-default', 'transparent');
+        @include p.button-interactive-states('--dt-color-container-default', 'transparent');
     }
 
     &[disabled] {

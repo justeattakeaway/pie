@@ -74,7 +74,9 @@ import { PieSpinner } from '@justeattakeaway/pie-spinner/dist/react';
 
 | Property | Type | Default | Description |
 |---|---|---|---|
-| - | - | - | - |
+| size | `String` | `m` | Size of the spinner, one of `sizes` – `xs`, `s`, `m`, `l`, `xl` |
+| variant | `String` | `brand` | Variant of the spinner, one of `variants` – `brand`, `secondary`, `inverse` |
+| aria  | `Object`  | `undefined`  | An object representing the aria attributes such as label;
 
 In your markup or JSX, you can then use these to set the properties for the `pie-spinner` component:
 
