@@ -7,13 +7,13 @@
 // -
 // @example
 // .foo {
-//   &[isdraggable]:not([interactiontype='none']) {
+//   &[isdraggable] {
 //       @extend %has-grab-cursor;
 //   }
 // }
 // -
 // Outputs:
-// .foo[isdraggable]:not([interactiontype='none']) {
+// .foo[isdraggable] {
 //    cursor: grab;
 //    &:active {
 //        cursor: grabbing;

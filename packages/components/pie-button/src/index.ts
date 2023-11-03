@@ -1,5 +1,5 @@
 import {
-    LitElement, html, unsafeCSS, nothing,
+    LitElement, html, unsafeCSS, nothing, PropertyValues,
 } from 'lit';
 import { property } from 'lit/decorators.js';
 import { validPropertyValues, defineCustomElement } from '@justeattakeaway/pie-webc-core';
@@ -32,6 +32,35 @@ export class PieButton extends LitElement implements ButtonProps {
     constructor () {
         super();
         this._internals = this.attachInternals();
+    }
+
+    connectedCallback () {
+        super.connectedCallback();
+
+        if (this.type === 'submit') {
+            this.form?.addEventListener('keydown', this._handleFormKeyDown);
+        }
+    }
+
+    disconnectedCallback () {
+        super.disconnectedCallback();
+
+        if (this.type === 'submit') {
+            this.form?.removeEventListener('keydown', this._handleFormKeyDown);
+        }
+    }
+
+    updated (changedProperties: PropertyValues<this>): void {
+        super.updated(changedProperties);
+
+        if (changedProperties.has('type')) {
+            // If the new type is "submit", add the keydown event listener
+            if (this.type === 'submit') {
+                this.form?.addEventListener('keydown', this._handleFormKeyDown);
+            } else {
+                this.form?.removeEventListener('keydown', this._handleFormKeyDown);
+            }
+        }
     }
 
     @property()
@@ -147,6 +176,25 @@ export class PieButton extends LitElement implements ButtonProps {
             }
         }
     }
+
+    // This allows a user to press enter anywhere inside the form and trigger a form submission
+    private _handleFormKeyDown = (event: KeyboardEvent) => {
+        if (event.key !== 'Enter' || this.type !== 'submit' || this.disabled) {
+            return;
+        }
+
+        if (event.target instanceof HTMLElement) {
+            const targetTagName = event.target.tagName.toLowerCase();
+
+            // We want to ignore the enter key if the user is on a button or another pie-button
+            if (targetTagName === 'button' || targetTagName === 'pie-button') {
+                return;
+            }
+        }
+
+        event.preventDefault();
+        this._handleClick();
+    };
 
     render () {
         const {

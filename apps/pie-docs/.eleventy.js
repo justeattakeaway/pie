@@ -45,6 +45,14 @@ module.exports = eleventyConfig => {
         "./node_modules/@justeat/f-cookie-banner/dist/static/en-GB.js": "assets/js/f-cookie-banner.js"
     });
 
+    eleventyConfig.addPassthroughCopy({
+        "./node_modules/@docsearch/css/dist/style.css": "assets/styles/docsearch.css"
+    });
+
+    eleventyConfig.addPassthroughCopy({
+        "./node_modules/@docsearch/js/dist/umd/index.js": "assets/js/docsearch.js"
+    });
+
     return {
         dir: {
         input: "src",

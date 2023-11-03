@@ -9,6 +9,7 @@
   "files": [
     "src",
     "dist",
+    "locales",
     "**/*.d.ts"
   ],
   "scripts": {
@@ -18,7 +19,7 @@
     "lint:style": "run -T stylelint ./src/**/*.{css,scss}",
     "lint:style:fix": "yarn lint:style --fix",
     "watch": "run -T vite build --watch",
-    "test": "echo \"Error: no test specified\" && exit 0",
+    "test": "run -T vitest run test/unit",
     "test:ci": "yarn test",
     "test:browsers": "npx playwright test -c ./playwright-lit.config.ts",
     "test:browsers:ci": "yarn test:browsers",
@@ -29,12 +30,12 @@
   "license": "Apache-2.0",
   "devDependencies": {
     "@justeat/pie-design-tokens": "5.8.2",
-    "@justeattakeaway/pie-button": "0.35.0",
+    "@justeattakeaway/pie-button": "0.36.0",
     "@justeattakeaway/pie-components-config": "0.4.0",
-    "@justeattakeaway/pie-icon-button": "0.19.0",
+    "@justeattakeaway/pie-icon-button": "0.21.0",
     "@justeattakeaway/pie-link": "0.11.0",
     "@justeattakeaway/pie-modal": "0.30.0",
-    "@justeattakeaway/pie-toggle-switch": "0.15.0"
+    "@justeattakeaway/pie-switch": "0.17.0"
   },
   "dependencies": {
     "@justeattakeaway/pie-webc-core": "0.11.0"

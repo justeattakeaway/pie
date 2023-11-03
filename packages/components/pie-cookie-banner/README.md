@@ -61,6 +61,7 @@ import { PieCookieBanner } from '@justeattakeaway/pie-cookie-banner/dist/react';
 | Property | Type | Default | Description |
 |---|---|---|---|
 | hasPrimaryActionsOnly | `Boolean` | `false` | When true, sets the variant to "primary" for the button which accepts necessary cookies only. |
+| locale | `Object` | {English language locale} | Assigns the localisation data for the component strings |
 
 In your markup or JSX, you can then use these to set the properties for the `pie-cookie-banner` component:
 
@@ -70,6 +71,23 @@ In your markup or JSX, you can then use these to set the properties for the `pie
 
 <!-- JSX -->
 <PieCookieBanner></PieCookieBanner>
+```
+
+### Localisation
+
+By default the component displays its content in English language. To display the content in another language, you need to import the locale data for that language and pass it in the `locale` prop. For example, to display the content in Dutch, you need to import the Dutch locale data:
+
+```js
+import locale from '@justeattakeaway/pie-cookie-banner/locales/nl-nl.json';
+
+<!-- JSX -->
+<PieCookieBanner locale={locale}></PieCookieBanner>
+```
+
+It's possible to import all locales at once, if necessary:
+
+```js
+import allLocales from '@justeattakeaway/pie-cookie-banner/locales';
 ```
 
 ## Contributing
