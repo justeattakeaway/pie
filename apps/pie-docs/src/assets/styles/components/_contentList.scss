@@ -4,10 +4,9 @@
     max-width: 604px;
 
     ol {
-        column-width: 180px;
+        column-width: 180px 1;
         column-gap: 32px;
         padding: 0;
-        column-count: 1;
         column-fill: auto;
 
         @include f.media('>=mid') {
@@ -50,7 +49,7 @@
         }
 
         &:before {
-            content: url("/assets/img/contents.svg");
+            content: url('/assets/img/contents.svg');
             display: inline-block;
             width: 16px;
             height: 16px;
