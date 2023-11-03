@@ -2,7 +2,7 @@
 eleventyNavigation:
     key: Style
     parent: Template
-    order: 3
+    order: 2
 ---
 
 ## Style
