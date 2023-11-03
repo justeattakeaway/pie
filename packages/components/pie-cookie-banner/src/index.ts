@@ -5,6 +5,9 @@ import { defineCustomElement } from '@justeattakeaway/pie-webc-core';
 import { property, state, queryAll } from 'lit/decorators.js';
 import { repeat } from 'lit/directives/repeat.js';
 import { PieSwitch } from '@justeattakeaway/pie-switch';
+import '@justeattakeaway/pie-icon-button';
+import '@justeattakeaway/pie-link';
+import '@justeattakeaway/pie-modal';
 import styles from './cookie-banner.scss?inline';
 import {
     CookieBannerProps,
@@ -15,7 +18,12 @@ import {
     preferences,
     type Preference,
     type PreferenceIds,
+    type CookieBannerLocale,
+    type CustomTagEnhancers,
 } from './defs';
+
+import { localiseText, localiseRichText } from './localisation-utils';
+import defaultLocale from '../locales/en-gb.json';
 
 // Valid values available to consumers
 export * from './defs';
@@ -39,8 +47,28 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
     @property({ type: Boolean })
     public hasPrimaryActionsOnly = false;
 
+    @property({ type: Object })
+    public locale:CookieBannerLocale = defaultLocale;
+
     @queryAll('pie-switch')
         _preferencesNodes!: NodeListOf<PieSwitch>;
+
+    private _customTagEnhancers:CustomTagEnhancers = {
+        linkStatement: (tagContent:string) => html`<pie-link variant="inverse">${tagContent}</pie-link>`,
+        linkNecessaryOnly: (tagContent:string) => html`<pie-link data-test-id="body-necessary-only" tag="button" variant="inverse" @click="${this._onNecessaryOnly}">${tagContent}</pie-link>`,
+        linkManagePreferences: (tagContent:string) => html`<pie-link data-test-id="body-manage-prefs" tag="button" variant="inverse" @click="${this._openManagePreferencesModal}">${tagContent}</pie-link>`,
+        linkAcceptAll: (tagContent:string) => html`<pie-link data-test-id="body-accept-all" tag="button" variant="inverse" @click="${this._onAcceptAll}">${tagContent}</pie-link>`,
+        linkCookieStatement: (tagContent:string) => html`<pie-link href="#" size="small" target="_blank">${tagContent}</pie-link>`,
+        linkCookieTechList: (tagContent:string) => html`<pie-link href="#" size="small" target="_blank">${tagContent}</pie-link>`,
+    };
+
+    private _localiseText (key:string):string {
+        return localiseText(this.locale, key);
+    }
+
+    private _localiseRichText (key:string):Array<string|TemplateResult> {
+        return localiseRichText(this.locale, key, this._customTagEnhancers);
+    }
 
     /**
      * Handles closing the modal and re-displaying the cookie banner
@@ -150,8 +178,13 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
      * @private
      */
     private renderPreference ({
-        id, title, description, isChecked, isDisabled, hasDivider,
+        id, isChecked, isDisabled, hasDivider, hasDescription,
     }: Preference): TemplateResult {
+        const title = this._localiseText(`preferencesManagement.${id}.title`);
+        const descriptionLocaleKey = `preferencesManagement.${id}.description`;
+        // Ensure not to display fallback text as description as its expected that some items might not have its own description
+        const description = hasDescription && this._localiseText(descriptionLocaleKey);
+
         return html`
             <div class="c-cookieBanner-preference">
                 <div>
@@ -174,9 +207,8 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
      */
     private renderModalContent (): TemplateResult {
         return html`
-            <p class="c-cookieBanner-description">You can find all the information in the
-                <pie-link href="#" size="small" target="_blank">Cookie Statement</pie-link> and
-                <pie-link href="#" size="small" target="_blank">Cookie technology list</pie-link>.
+            <p class="c-cookieBanner-description" data-test-id="modal-description">
+                ${this._localiseRichText('preferencesManagement.description')}
             </p>
             ${repeat(
             preferences,
@@ -187,9 +219,9 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
 
     render () {
         const modalActionProps = {
-            text: 'Save',
+            text: this._localiseText('preferencesManagement.cta.save.label'),
             variant: 'primary',
-            ariaLabel: 'Save your cookie preferences',
+            ariaLabel: this._localiseText('preferencesManagement.cta.save.label'), // TODO: Replace with the appropriate "ariaLabel" as soon as the spreadsheet is updated
         };
 
         return html`
@@ -198,21 +230,16 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
             hasBackButton
             hasStackedActions
             isFullWidthBelowMid
-            heading="Manage your preferences"
+            heading="${this._localiseText('preferencesManagement.title')}"
             .leadingAction="${modalActionProps}"
             @pie-modal-leading-action-click="${this._handlePreferencesSaved}"
             @pie-modal-back="${this._displayCookieBanner}">
                 ${this.renderModalContent()}
-            </pie-modal>
+        </pie-modal>
         <aside data-test-id="pie-cookie-banner" class="c-cookieBanner" ?isCookieBannerHidden=${this._isCookieBannerHidden}>
-            <h2 class="c-cookieBanner-title">Cookies</h2>
-            <div class="c-cookieBanner-body">
-                <p>We use our own and third party cookies and other tech to enhance and personalise your user experience,
-                optimize analytics, and show ads with third parties
-                (read our <pie-link variant="inverse">Statement</pie-link>).
-                Necessary cookies are always set. Click <pie-link data-test-id="body-necessary-only" tag="button" variant="inverse" @click="${this._onNecessaryOnly}">Necessary only</pie-link>
-                to continue without accepting more. Click <pie-link data-test-id="body-manage-prefs" tag="button" variant="inverse" @click="${this._openManagePreferencesModal}">Manage preferences</pie-link>
-                to share your preferences or <pie-link data-test-id="body-accept-all" tag="button" variant="inverse" @click="${this._onAcceptAll}">Accept all</pie-link>.</p>
+            <h2 class="c-cookieBanner-title">${this._localiseText('banner.title')}</h2>
+            <div class="c-cookieBanner-body" data-test-id="banner-description">
+                <p>${this._localiseRichText('banner.description')}</p>
             </div>
 
             <div class="c-cookieBanner-actions">
@@ -222,7 +249,7 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
                     variant="primary"
                     isFullWidth
                     size="small-expressive">
-                    Accept all
+                    ${this._localiseText('banner.cta.acceptAll')}
                 </pie-button>
                 <pie-button
                     data-test-id="actions-necessary-only"
@@ -230,7 +257,7 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
                     variant="${this.hasPrimaryActionsOnly ? 'primary' : 'outline-inverse'}"
                     isFullWidth
                     size="small-expressive">
-                    Necessary only
+                    ${this._localiseText('banner.cta.necessaryOnly')}
                 </pie-button>
                 <pie-link
                     data-test-id="actions-manage-prefs"
@@ -238,7 +265,7 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
                     tag="button"
                     variant="inverse"
                     isBold="true">
-                    Manage preferences
+                    ${this._localiseText('banner.cta.managePreferences')}
                 </pie-link>
             </div>
         </aside>`;
