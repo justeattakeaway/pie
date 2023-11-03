@@ -13,6 +13,8 @@
 @use 'base/layout';
 @use 'base/typography';
 
+@use 'base/search';
+
 @use '@justeat/f-cookie-banner/dist/static/en-GB.css';
 
 /**
@@ -40,6 +42,7 @@
 @use 'components/header';
 @use 'components/heroBanner';
 @use 'components/heroContentLayout';
+@use 'components/link';
 @use 'components/list';
 @use 'components/mediaElementList';
 @use 'components/nav';

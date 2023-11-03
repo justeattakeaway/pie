@@ -16,6 +16,10 @@
         @include mixins.focus;
     }
 
+    .hidden-element {
+        @include mixins.visually-hidden;
+    }
+
     &[isdraggable] {
         @extend %has-grab-cursor;
     }

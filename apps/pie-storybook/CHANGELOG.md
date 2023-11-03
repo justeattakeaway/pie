@@ -1,5 +1,74 @@
 # Changelog
 
+## 0.44.0
+
+### Minor Changes
+
+- [Added] - Spinner component ([#948](https://github.com/justeattakeaway/pie/pull/948)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Added] - `isLoading` prop to `pie-icon-button` ([#953](https://github.com/justeattakeaway/pie/pull/953)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Added] - `visually-hidden` mixin to `pie-css` and use it in components when needed
+  [Added] - `button-interactive-states` mixin to use in `pie-icon-button` and `pie-button`
+
+### Patch Changes
+
+- Updated dependencies [[`b7bcd63d1`](https://github.com/justeattakeaway/pie/commit/b7bcd63d1d035f89a8b4db8ea5977b9420d6f9d5), [`8353fbbe7`](https://github.com/justeattakeaway/pie/commit/8353fbbe74eb4b7a322bdb9c7640b0eab6fb6cc1), [`72b21e8ad`](https://github.com/justeattakeaway/pie/commit/72b21e8ad03439655653edab01acbb1a78a94ecf), [`402bccab0`](https://github.com/justeattakeaway/pie/commit/402bccab087c4810264f9080b471f298127f16af)]:
+  - @justeattakeaway/pie-spinner@0.2.0
+  - @justeattakeaway/pie-button@0.36.0
+  - @justeattakeaway/pie-icon-button@0.21.0
+  - @justeattakeaway/pie-switch@0.17.0
+  - @justeattakeaway/pie-css@0.7.0
+
+## 0.43.0
+
+### Minor Changes
+
+- [Added] - `inverse` and `ghost-inverse` variants ([#941](https://github.com/justeattakeaway/pie/pull/941)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Fixed] - Icon sizes aren't correct
+
+  [Fixed] - The `outline` variant border is missing
+
+  [Fixed] - The inner ring of focus styles is missing
+
+  [Fixed] - The background of `outline`, `ghost` and `ghost-secondary` variants should be transparent
+
+  [Fixed] - The background of `outline`, `ghost` and `ghost-secondary` variants should be transparent
+
+  [Fixed] - TH disabled state should use the `not-allowed` cursor
+
+- [Changed] - Update monorepo and storybook to use renamed component(s) ([#944](https://github.com/justeattakeaway/pie/pull/944)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+### Patch Changes
+
+- Updated dependencies [[`b32cc36ff`](https://github.com/justeattakeaway/pie/commit/b32cc36ff7e52f54f4831e6c18ac7ff7b70fa753), [`db29b8cc5`](https://github.com/justeattakeaway/pie/commit/db29b8cc5c7eda6a4d66823d3c65dec61b6a550e), [`66995e468`](https://github.com/justeattakeaway/pie/commit/66995e4687ba826d8236b96e476caecc69e3b0bc)]:
+  - @justeattakeaway/pie-icon-button@0.20.0
+  - @justeattakeaway/pie-notification@0.1.0
+  - @justeattakeaway/pie-form-label@0.8.0
+  - @justeattakeaway/pie-spinner@0.1.0
+  - @justeattakeaway/pie-card@0.14.0
+
+## 0.42.0
+
+### Minor Changes
+
+- [Fixed] - `default` and `inverse` variants to use `elevation-card` and `elevation-dark-card` tokens ([#907](https://github.com/justeattakeaway/pie/pull/907)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
+  [Changed] - Refactored `interactionType` to `tag` as the component can only be interactive
+
+  [Fixed] - Disabled state to apply the disabled colour token and reduce opacity on images
+
+  [Fixed] - Disabled state should use the disabled cursor
+
+  [Fixed] - Variants should apply their color token by default
+
+### Patch Changes
+
+- Updated dependencies [[`57608572e`](https://github.com/justeattakeaway/pie/commit/57608572ec6273b29d0d4e44fb7e5edec5d5d19d), [`18ec64fb6`](https://github.com/justeattakeaway/pie/commit/18ec64fb6b97498c45ecc96516de94fb5544efdd)]:
+  - @justeattakeaway/pie-card-container@0.13.0
+  - @justeattakeaway/pie-switch@0.16.0
+
 ## 0.41.7
 
 ### Patch Changes

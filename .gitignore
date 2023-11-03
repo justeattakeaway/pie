@@ -4,7 +4,6 @@
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
-
 # Swap the comments on the following lines if you don't wish to use zero-installs
 # Documentation here: https://yarnpkg.com/features/zero-installs
 #.yarn/cache
@@ -148,7 +147,8 @@ esm
 # Comment out for Zero installs (see https://yarnpkg.com/features/zero-installs#gatsby-focus-wrapper)
 #.yarn/cache
 #.pnp.*
-.vscode
+.vscode/*
+!.vscode/extensions.json
 
 # Turborepo config
 .turbo

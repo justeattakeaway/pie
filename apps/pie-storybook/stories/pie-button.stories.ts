@@ -266,7 +266,7 @@ const FormTemplate: TemplateFunction<ButtonProps> = (props: ButtonProps) => html
         const formLog = document.querySelector('#formLog');
         form.addEventListener('submit', (e) => {
             e.preventDefault();
-            console.log('foo')
+
             formLog.innerHTML = 'Form submitted!';
             formLog.style.display = 'block';
 

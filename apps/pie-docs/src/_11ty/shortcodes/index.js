@@ -2,6 +2,7 @@ const card = require('./card');
 const categorisedIconList = require('./categorisedIconList');
 const contentPageImage = require('./contentPageImage');
 const globalTokensWarning = require('./notifications/globalTokensWarning');
+const link = require('./link');
 const list = require('./list');
 const mediaElement = require('./mediaElementList');
 const notification = require('./notification');
@@ -21,6 +22,7 @@ const addAllShortCodes = (eleventyConfig) => {
     eleventyConfig.addShortcode('categorisedIconList', (shortcodeArgs) => deindentHTML(categorisedIconList(shortcodeArgs)));
     eleventyConfig.addShortcode('contentPageImage', (shortcodeArgs) => deindentHTML(contentPageImage(shortcodeArgs)));
     eleventyConfig.addShortcode('globalTokensWarning', (shortcodeArgs) => deindentHTML(globalTokensWarning(shortcodeArgs)));
+    eleventyConfig.addShortcode('link', (shortcodeArgs) => deindentHTML(link(shortcodeArgs)));
     eleventyConfig.addShortcode('list', (shortcodeArgs) => deindentHTML(list(shortcodeArgs)));
     eleventyConfig.addShortcode('mediaElementList', (shortcodeArgs) => deindentHTML(mediaElement(shortcodeArgs)));
     eleventyConfig.addShortcode('notification', (shortcodeArgs) => deindentHTML(notification(shortcodeArgs)));

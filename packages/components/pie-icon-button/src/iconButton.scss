@@ -1,15 +1,5 @@
 @use '@justeattakeaway/pie-css/scss' as p;
 
-@mixin button-interactive-states($bg-color) {
-    &:hover:not(:disabled) {
-        background-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), calc(var(#{$bg-color}-l) - var(--dt-color-hover-01)));
-    }
-
-    &:active:not(:disabled) {
-        background-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), calc(var(#{$bg-color}-l) - var(--dt-color-active-01)));
-    }
-}
-
 // Normally we don't expect consumers to override these, but there are situations where it may be necessary
 :host {
     // The base values are set to the size default, which is for the medium button size
@@ -22,27 +12,20 @@
 // Base button styles
 .o-iconBtn {
     --btn-border-radius: var(--dt-radius-rounded-e);
-
-    // The following values set to default background and color
-    // currently this sets the primary button styles
     --btn-bg-color: var(--dt-color-interactive-brand);
     --btn-icon-fill: var(--dt-color-content-interactive-primary);
-    --btn-focus: var(--dt-color-focus-outer);
 
-    min-block-size: var(--btn-dimension);
-    aspect-ratio: 1 / 1;
+    block-size: var(--btn-dimension);
+    inline-size: var(--btn-dimension);
 
-    @supports not (aspect-ratio: 1 / 1) {
-        min-inline-size: var(--btn-dimension);
-    }
-
-    border: none;
+    border-color: var(--btn-border-color);
     border-radius: var(--btn-border-radius);
-    outline: none;
     background-color: var(--btn-bg-color);
     color: var(--btn-icon-fill);
     cursor: pointer;
     user-select: none;
+    outline: none;
+    border: none;
 
     display: flex;
     align-items: center;
@@ -58,65 +41,68 @@
     }
 
     &[variant='primary'] {
-        @include button-interactive-states('--dt-color-interactive-brand');
+        /* Same as default styles */
+
+        @include p.button-interactive-states('--dt-color-interactive-brand');
     }
 
     &[variant='secondary'] {
         --btn-bg-color: var(--dt-color-interactive-secondary);
         --btn-icon-fill: var(--dt-color-content-interactive-secondary);
 
-        @include button-interactive-states('--dt-color-interactive-secondary');
+        @include p.button-interactive-states('--dt-color-interactive-secondary');
     }
 
     &[variant='outline'] {
-        --btn-bg-color: var(--dt-color-container-default);
+        --btn-bg-color: transparent;
         --btn-icon-fill: var(--dt-color-content-interactive-brand);
 
-        & .o-iconBtn {
-            border: 1px solid var(--dt-color-border-strong);
-        }
+        border: 1px solid var(--dt-color-border-strong);
 
-        @include button-interactive-states('--dt-color-container-default');
+        @include p.button-interactive-states('--dt-color-black', 'transparent');
     }
 
     &[variant='ghost'] {
-        --btn-bg-color: var(--dt-color-container-default);
+        --btn-bg-color: transparent;
         --btn-icon-fill: var(--dt-color-content-interactive-brand);
 
-        @include button-interactive-states('--dt-color-container-default');
+        @include p.button-interactive-states('--dt-color-black', 'transparent');
     }
 
     &[variant='ghost-secondary'] {
-        --btn-bg-color: var(--dt-color-container-default);
+        --btn-bg-color: transparent;
         --btn-icon-fill: var(--dt-color-content-interactive-secondary);
 
-        @include button-interactive-states('--dt-color-container-default');
+        @include p.button-interactive-states('--dt-color-black', 'transparent');
+    }
+
+    &[variant='inverse'] {
+        --btn-bg-color: var(--dt-color-interactive-inverse);
+        --btn-icon-fill: var(--dt-color-content-interactive-brand);
+
+        @include p.button-interactive-states('--dt-color-interactive-inverse');
+    }
+
+    &[variant='ghost-inverse'] {
+        --btn-bg-color: transparent;
+        --btn-icon-fill: var(--dt-color-content-inverse);
+
+        @include p.button-interactive-states('--dt-color-container-default', 'transparent');
     }
 
     &[disabled] {
-        --btn-bg-color: var(--dt-color-disabled-01) !important;
-        --btn-icon-fill: var(--dt-color-content-disabled) !important;
+        --btn-icon-fill: var(--dt-color-content-disabled);
 
-        & .o-iconBtn {
-            border: 1px solid var(--dt-color-disabled-01);
-            cursor: not-allowed;
+        cursor: not-allowed;
+
+        // For every variant (except ghost variants) set the disabled background color
+        &:not([variant='ghost'], [variant='ghost-secondary'], [variant='ghost-inverse']) {
+            --btn-bg-color: var(--dt-color-disabled-01);
         }
-    }
 
-    &[disabled][variant='outline'] {
-        & .o-iconBtn {
-            outline: none;
-        }
-    }
-
-    &[disabled][variant='ghost'],
-    &[disabled][variant='ghost-secondary'] {
-        --btn-bg-color: transparent;
-        --btn-icon-fill: var(--dt-color-content-default);
-
-        & .o-iconBtn {
-            outline: none;
-            border: none;
+        // For outline variants, set the border to the disabled color
+        &[variant='outline'] {
+            border-color: var(--dt-color-disabled-01);
         }
     }
 
