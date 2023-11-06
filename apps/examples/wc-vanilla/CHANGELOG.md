@@ -1,5 +1,16 @@
 # wc-vanilla
 
+## 0.4.31
+
+### Patch Changes
+
+- [Changed] - Move pie components deps from devDependencies to dependencies ([#949](https://github.com/justeattakeaway/pie/pull/949)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- Updated dependencies [[`c75405299`](https://github.com/justeattakeaway/pie/commit/c75405299b867d5a0214584b5172e4598a56ba4d), [`c75405299`](https://github.com/justeattakeaway/pie/commit/c75405299b867d5a0214584b5172e4598a56ba4d)]:
+  - @justeattakeaway/pie-modal@0.31.0
+  - @justeattakeaway/pie-icon-button@0.21.1
+  - @justeattakeaway/pie-button@0.36.1
+
 ## 0.4.30
 
 ### Patch Changes

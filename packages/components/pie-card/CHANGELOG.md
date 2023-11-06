@@ -1,5 +1,13 @@
 # @justeattakeaway/pie-card
 
+## 0.14.1
+
+### Patch Changes
+
+- [Changed] - Add missing imports for dependent components ([#949](https://github.com/justeattakeaway/pie/pull/949)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Changed] - Update component import section of READMEs
+
 ## 0.14.0
 
 ### Minor Changes

@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.37.0
+
+### Minor Changes
+
+- [Updated] - Volta / package.json `engines` to support Node 20 ([#943](https://github.com/justeattakeaway/pie/pull/943)) by [@siggerzz](https://github.com/siggerzz)
+
 ## 2.36.0
 
 ### Minor Changes

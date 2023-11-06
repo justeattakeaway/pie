@@ -1,5 +1,26 @@
 # Changelog
 
+## 0.45.0
+
+### Minor Changes
+
+- [Changed] - Update component imports in stories ([#949](https://github.com/justeattakeaway/pie/pull/949)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+### Patch Changes
+
+- Updated dependencies [[`c75405299`](https://github.com/justeattakeaway/pie/commit/c75405299b867d5a0214584b5172e4598a56ba4d), [`9f62a9309`](https://github.com/justeattakeaway/pie/commit/9f62a9309ec862e2876158debcfd6b26353fc735), [`c75405299`](https://github.com/justeattakeaway/pie/commit/c75405299b867d5a0214584b5172e4598a56ba4d), [`c75405299`](https://github.com/justeattakeaway/pie/commit/c75405299b867d5a0214584b5172e4598a56ba4d), [`c317e2bda`](https://github.com/justeattakeaway/pie/commit/c317e2bda1cf823fd32e18496b9c15cfce9a323b)]:
+  - @justeattakeaway/pie-cookie-banner@0.10.0
+  - @justeattakeaway/pie-modal@0.31.0
+  - @justeattakeaway/pie-notification@0.1.1
+  - @justeattakeaway/pie-icon-button@0.21.1
+  - @justeattakeaway/pie-form-label@0.8.1
+  - @justeattakeaway/pie-divider@0.9.1
+  - @justeattakeaway/pie-spinner@0.2.1
+  - @justeattakeaway/pie-button@0.36.1
+  - @justeattakeaway/pie-switch@0.17.1
+  - @justeattakeaway/pie-card@0.14.1
+  - @justeattakeaway/pie-link@0.11.1
+
 ## 0.44.0
 
 ### Minor Changes

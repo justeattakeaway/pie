@@ -1,5 +1,13 @@
 # Changelog
 
+## 3.12.0
+
+### Minor Changes
+
+- [Added] - component template ([#893](https://github.com/justeattakeaway/pie/pull/893)) by [@FayeCarter](https://github.com/FayeCarter)
+
+- [Added] - column layout component ([#961](https://github.com/justeattakeaway/pie/pull/961)) by [@FayeCarter](https://github.com/FayeCarter)
+
 ## 3.11.0
 
 ### Minor Changes
