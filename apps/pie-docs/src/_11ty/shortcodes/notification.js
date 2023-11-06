@@ -9,6 +9,10 @@ const getNotificationColour = (tokenName) => {
 };
 
 const notificationSettings = {
+    neutral: {
+        iconFill: 'content-default',
+        bgColour: 'container-subtle',
+    },
     error: {
         iconFill: 'support-error',
         bgColour: 'support-error-02',
@@ -46,7 +50,7 @@ module.exports = function (config) {
     const contextClass = `c-${context}-notification`;
     const iconFill = getNotificationColour(notificationSettings[config.type].iconFill);
     const svg = pieIconsSvg({
-        name: notificationSettings[config.type].iconName,
+        name: config.iconName ?? notificationSettings[config.type].iconName,
         attrs: {
             height: 24,
             width: 24,

@@ -146,6 +146,10 @@
         & .c-contentPage-notification {
             margin-top: f.spacing(f);
         }
+
+        .c-contentPage-notification + .c-contentPage-notification {
+            margin-top: f.spacing(b);
+        }
     }
 
     hr {
