@@ -6,8 +6,4 @@ eleventyNavigation:
 shouldShowContents: true
 ---
 
-## Overview
-## Code Snippet
-## Table
-## Resources
-## Changelog
+## Code
