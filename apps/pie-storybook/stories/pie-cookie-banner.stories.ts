@@ -1,26 +1,14 @@
 import { html, TemplateResult } from 'lit';
-import { PieCookieBanner, CookieBannerProps } from '@justeattakeaway/pie-cookie-banner';
-import pieCookieBannerLocales from '@justeattakeaway/pie-cookie-banner/locales';
-import { PieButton } from '@justeattakeaway/pie-button';
-import { PieLink } from '@justeattakeaway/pie-link';
-import { PieModal } from '@justeattakeaway/pie-modal';
-import { PieIconButton } from '@justeattakeaway/pie-icon-button';
-import { PieSwitch } from '@justeattakeaway/pie-switch';
 import { action } from '@storybook/addon-actions';
+
+/* eslint-disable import/no-duplicates */
+import '@justeattakeaway/pie-cookie-banner';
+import { CookieBannerProps } from '@justeattakeaway/pie-cookie-banner';
+import pieCookieBannerLocales from '@justeattakeaway/pie-cookie-banner/locales';
+/* eslint-enable import/no-duplicates */
 
 import { type StoryMeta } from '../types';
 import { createStory } from '../utilities';
-
-// This prevents storybook from tree shaking the components
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const keptReferences = [
-    PieCookieBanner,
-    PieButton,
-    PieLink,
-    PieModal,
-    PieIconButton,
-    PieSwitch
-];
 
 type CookieBannerStoryMeta = StoryMeta<CookieBannerProps>;
 

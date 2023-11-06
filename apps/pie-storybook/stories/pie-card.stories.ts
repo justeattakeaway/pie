@@ -1,15 +1,15 @@
 import { nothing } from 'lit';
 import { html } from 'lit/static-html.js';
+
+/* eslint-disable import/no-duplicates */
+import '@justeattakeaway/pie-card';
 import {
-    PieCard, CardProps as CardPropsBase,
-    variants, tags, paddingValues,
+    CardProps as CardPropsBase, variants, tags, paddingValues,
 } from '@justeattakeaway/pie-card';
+/* eslint-enable import/no-duplicates */
+
 import type { StoryMeta, SlottedComponentProps } from '../types';
 import { createStory, type TemplateFunction, staticSlot } from '../utilities';
-
-// This prevents storybook from tree shaking the components
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const keptReferences = [PieCard];
 
 type CardProps = SlottedComponentProps<CardPropsBase>;
 type CardStoryMeta = StoryMeta<CardProps>;

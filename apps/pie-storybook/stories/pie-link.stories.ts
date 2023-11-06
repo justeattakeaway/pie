@@ -1,14 +1,15 @@
 import { html, nothing } from 'lit';
+
+/* eslint-disable import/no-duplicates */
+import '@justeattakeaway/pie-link';
 import {
-    PieLink, LinkProps as LinkBaseProps, sizes, variants,
+    LinkProps as LinkBaseProps, sizes, variants,
     iconPlacements, tags, buttonTypes, underlineTypes,
 } from '@justeattakeaway/pie-link';
+/* eslint-enable import/no-duplicates */
+
 import type { StoryMeta, SlottedComponentProps } from '../types';
 import { createStory, type TemplateFunction } from '../utilities';
-
-// This prevents storybook from tree shaking the components
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const keptReferences = [PieLink];
 
 type LinkProps = SlottedComponentProps<LinkBaseProps>;
 type LinkStoryMeta = StoryMeta<LinkProps>;
