@@ -61,7 +61,7 @@ jobs:
       - name: Setup Repo
         uses: ./.github/actions/setup-repo
         with:
-          node-version: 18
+          node-version: 20
           os: ubuntu-latest
       - name: Verify if pie-docs has changes
         id: docs-check
@@ -92,7 +92,7 @@ jobs:
       - name: Setup Repo
         uses: ./.github/actions/setup-repo
         with:
-          node-version: 18
+          node-version: 20
           os: ubuntu-latest
       # Lint Styles
       - name: Lint Styles
@@ -111,7 +111,7 @@ jobs:
       - name: Setup Repo
         uses: ./.github/actions/setup-repo
         with:
-          node-version: 18
+          node-version: 20
           os: ubuntu-latest
       # Lint JS
       - name: Lint JavaScript
@@ -119,38 +119,30 @@ jobs:
         with:
           script-name: "lint:scripts"
 
-
-  build-ubuntu-node-16:
-    uses: ./.github/workflows/install-build.yml
-    with:
-      os: ubuntu-latest
-      node-version: 16
-    secrets: inherit
-
-  build-windows-node-16:
+  build-windows-node-20:
     uses: ./.github/workflows/install-build.yml
     with:
       os: windows-latest
-      node-version: 16
+      node-version: 20
     secrets: inherit
 
   build-ubuntu-node-18:
     uses: ./.github/workflows/install-build.yml
-    needs: ['lint-js', 'lint-styles', 'check-change-type']
     with:
       os: ubuntu-latest
       node-version: 18
     secrets: inherit
 
-  build-windows-node-18:
+  build-ubuntu-node-20:
     uses: ./.github/workflows/install-build.yml
+    needs: ['lint-js', 'lint-styles', 'check-change-type']
     with:
-      os: windows-latest
-      node-version: 18
+      os: ubuntu-latest
+      node-version: 20
     secrets: inherit
 
   unit-tests:
-    needs: 'build-ubuntu-node-18'
+    needs: 'build-ubuntu-node-20'
     runs-on: ubuntu-latest
     steps:
       # Checkout the Repo
@@ -160,7 +152,7 @@ jobs:
       - name: Setup Repo
         uses: ./.github/actions/setup-repo
         with:
-          node-version: 18
+          node-version: 20
           os: ubuntu-latest
       # Restore Packages from Cache
       - name: Build Packages
@@ -175,7 +167,7 @@ jobs:
 
   # TODO: DSW-1151 - Move this into a reusable action so it's not duplicated
   browser-tests-components:
-    needs: build-ubuntu-node-18
+    needs: build-ubuntu-node-20
     if: needs.check-change-type.outputs.web-components-change == 'true' || github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
@@ -188,7 +180,7 @@ jobs:
       - name: Setup Repo
         uses: ./.github/actions/setup-repo
         with:
-          node-version: 18
+          node-version: 20
           os: ubuntu-latest
       # Setup Playwright
       - name: Setup Playwright
@@ -230,7 +222,7 @@ jobs:
     if: needs.check-change-type.outputs.pie-docs-change == 'true' || github.ref == 'refs/heads/main'
     with:
       os: ubuntu-latest
-      node-version: 18
+      node-version: 20
       amplify-app-id: dvskdcoepjoyf
       package-name: 'pie-docs'
       package-dist-directory: ./apps/pie-docs/dist
@@ -244,7 +236,7 @@ jobs:
     uses: ./.github/workflows/amplify-deploy.yml
     with:
       os: ubuntu-latest
-      node-version: 18
+      node-version: 20
       amplify-app-id: d17ja0ul7nrdy0
       package-name: 'pie-storybook'
       package-dist-directory: ./apps/pie-storybook/dist
@@ -265,7 +257,7 @@ jobs:
       - name: Setup Repo
         uses: ./.github/actions/setup-repo
         with:
-          node-version: 18
+          node-version: 20
           os: ubuntu-latest
       # Setup Playwright
       - name: Setup Playwright
@@ -310,7 +302,7 @@ jobs:
     uses: ./.github/workflows/changeset-release.yml
     with:
       os: ubuntu-latest
-      node-version: 18
+      node-version: 20
     secrets: inherit
 
   check-all-jobs:
@@ -319,10 +311,9 @@ jobs:
     needs:
     - lint-styles
     - lint-js
-    - build-ubuntu-node-16
-    - build-windows-node-16
     - build-ubuntu-node-18
-    - build-windows-node-18
+    - build-windows-node-20
+    - build-ubuntu-node-20
     - unit-tests
     - browser-tests-components
     - deploy-docs

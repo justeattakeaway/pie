@@ -19,23 +19,23 @@ jobs:
     strategy:
       matrix:
         include:
-          - node-version: 18
+          - node-version: 20
             example-app: wc-angular12
           - node-version: 16
             example-app: wc-next10
-          - node-version: 18
+          - node-version: 20
             example-app: wc-next13
           - node-version: 16
             example-app: wc-nuxt2
-          - node-version: 18
+          - node-version: 20
             example-app: wc-nuxt3
-          - node-version: 18
+          - node-version: 20
             example-app: wc-react17
-          - node-version: 18
+          - node-version: 20
             example-app: wc-react18
-          - node-version: 18
+          - node-version: 20
             example-app: wc-vanilla
-          - node-version: 18
+          - node-version: 20
             example-app: wc-vue3
     name: Build ${{matrix.example-app}} - Node ${{ matrix.node-version }}
     uses: ./.github/workflows/install-build.yml
@@ -52,7 +52,7 @@ jobs:
           - node-version: 16
             example-app: wc-next10
             os: ubuntu-latest
-          - node-version: 18
+          - node-version: 20
             example-app: wc-next13
             os: ubuntu-latest
     needs: build-example-apps
@@ -80,7 +80,7 @@ jobs:
     strategy:
       matrix:
         include:
-          - node-version: 18
+          - node-version: 20
             amplify-app-id: d3krjop5uu4oza
             build-script: build:examples
             dist-folder: ./apps/examples/wc-angular12/dist/wc-angular12
@@ -92,7 +92,7 @@ jobs:
             dist-folder: ./apps/examples/wc-next10/build
             example-app: wc-next10
 
-          - node-version: 18
+          - node-version: 20
             amplify-app-id: d3g23senqajlhy
             build-script: build:examples
             dist-folder: ./apps/examples/wc-next13/build
@@ -104,31 +104,31 @@ jobs:
             dist-folder: ./apps/examples/wc-nuxt2/dist
             example-app: wc-nuxt2
           # Using the generate:examples script for static hosting. SSR requires more investigation
-          - node-version: 18
+          - node-version: 20
             amplify-app-id: d1mfepkt71qwu0
             build-script: generate:examples
             dist-folder: ./apps/examples/wc-nuxt3/dist
             example-app: wc-nuxt3
 
-          - node-version: 18
+          - node-version: 20
             amplify-app-id: d2a3kuvjs3esad
             build-script: build:examples
             dist-folder: ./apps/examples/wc-react17/build
             example-app: wc-react17
 
-          - node-version: 18
+          - node-version: 20
             amplify-app-id: d1zlc7g0rtfm9g
             build-script: build:examples
             dist-folder: ./apps/examples/wc-react18/build
             example-app: wc-react18
 
-          - node-version: 18
+          - node-version: 20
             amplify-app-id: d1vykunmq1k4jp
             build-script: build:examples
             dist-folder: ./apps/examples/wc-vanilla/dist
             example-app: wc-vanilla
 
-          - node-version: 18
+          - node-version: 20
             amplify-app-id: dtgmklfymp81v
             build-script: build:examples
             dist-folder: ./apps/examples/wc-vue3/dist
