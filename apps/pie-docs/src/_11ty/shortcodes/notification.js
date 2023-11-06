@@ -42,6 +42,7 @@ const notificationSettings = {
  * @param {string} config.title - The title of the Notification
  * @param {string} config.message - The message within the Notification. This can be raw text or markdown (which will be transformed into HTML).
  * @param {string} config.context - a contextual string to use to in-built class names. Defaults to "contentPage".
+ * @param {string} config.iconName - The name of the icon to use for the Notification".
  * @returns {string}
  */
 // eslint-disable-next-line func-names
