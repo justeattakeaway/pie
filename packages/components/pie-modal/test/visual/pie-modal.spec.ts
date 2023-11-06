@@ -1,19 +1,8 @@
 import { test } from '@sand4rt/experimental-ct-web';
 import percySnapshot from '@percy/playwright';
-import { PieIconButton } from '@justeattakeaway/pie-icon-button';
-import { PieButton } from '@justeattakeaway/pie-button';
 import { positions } from '@/defs.ts';
 import { PieModal } from '@/index';
 import { ModalProps, sizes } from '@/defs';
-
-// Mount any components that are used inside pie-modal so that
-// they have been registered with the browser before the tests run.
-// There is likely a nicer way to do this but this will temporarily
-// unblock tests.
-test.beforeEach(async ({ mount }) => {
-    await (await mount(PieButton)).unmount();
-    await (await mount(PieIconButton)).unmount();
-});
 
 sizes.forEach((size) => {
     test(`should render correctly with size = ${size}`, async ({ page, mount }) => {
@@ -154,7 +143,7 @@ test.describe('Prop: `hasBackButton`', () => {
                             variant: 'primary',
                             ariaLabel: 'Confirmation text',
                         },
-                    } as ModalProps,
+                    } as PieModal,
                 });
 
                 await percySnapshot(page, `Modal with back button displayed - hasBackButton: ${true} - dir: ${dir}`);
@@ -174,7 +163,7 @@ test.describe('Prop: `hasBackButton`', () => {
                             variant: 'primary',
                             ariaLabel: 'Confirmation text',
                         },
-                    } as ModalProps,
+                    } as PieModal,
                 });
 
                 await percySnapshot(page, `Modal without back button - hasBackButton: ${false} - dir: ${dir}`);
@@ -396,21 +385,31 @@ test.describe('Prop: `supportingAction`', () => {
 
 test.describe('Prop: `position`', () => {
     positions.forEach((position) => {
-        test(`should be positioned in the correct part of the page when position is: ${position}`, async ({ mount, page }) => {
-            await mount(PieModal, {
-                props: {
-                    heading: 'This is a modal heading',
-                    isOpen: true,
-                    position,
-                    leadingAction: {
-                        text: 'Confirm',
-                        variant: 'primary',
-                        ariaLabel: 'Confirmation text',
-                    },
-                } as ModalProps,
-            });
+        test.describe(`should be positioned in the correct part of the page when position is ${position},`, () => {
+            sizes.forEach((size) => {
+                test.describe(`size is ${size},`, () => {
+                    [true, false].forEach((isFullWidthBelowMid) => {
+                        test(`and isFullWidthBelowMid is ${isFullWidthBelowMid}`, async ({ mount, page }) => {
+                            await mount(PieModal, {
+                                props: {
+                                    heading: 'This is a modal heading',
+                                    isOpen: true,
+                                    isFullWidthBelowMid,
+                                    position,
+                                    size,
+                                    leadingAction: {
+                                        text: 'Confirm',
+                                        variant: 'primary',
+                                        ariaLabel: 'Confirmation text',
+                                    },
+                                } as ModalProps,
+                            });
 
-            await percySnapshot(page, `Modal position: ${position}`);
+                            await percySnapshot(page, `Modal position: ${position}, size: ${size}, isFullWidthBelowMid: ${isFullWidthBelowMid}`);
+                        });
+                    });
+                });
+            });
         });
     });
 });

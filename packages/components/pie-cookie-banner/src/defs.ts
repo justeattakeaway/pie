@@ -1,6 +1,58 @@
-// TODO - please remove the eslint disable comment below when you add props to this interface
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
-export interface CookieBannerProps {}
+import {
+    TemplateResult,
+} from 'lit';
+
+export interface CookieBannerLocale {
+    banner: {
+        title: string;
+        description: string;
+        cta: {
+            managePreferences: string;
+            necessaryOnly: string;
+            acceptAll: string;
+        };
+    };
+    preferencesManagement: {
+        title: string;
+        description: string;
+        all: {
+            title: string;
+        };
+        necessary: {
+            title: string;
+            description: string;
+        };
+        functional: {
+            title: string;
+            description: string;
+        };
+        analytical: {
+            title: string;
+            description: string;
+        };
+        personalized: {
+            title: string;
+            description: string;
+        };
+        cta: {
+            save: {
+                label: string;
+                ariaLabel: string;
+            }
+        };
+    };
+}
+
+export interface CookieBannerProps {
+    /**
+     * When true, sets the variant to "primary" for the button which accepts necessary cookies only.
+     */
+    hasPrimaryActionsOnly: boolean;
+    /**
+     * Assigns the data for localising the component strings
+     */
+    locale: CookieBannerLocale;
+}
 
 /**
  * Event name for when all cookies are accepted.
@@ -34,39 +86,38 @@ export type PreferenceIds = 'all' | 'necessary' | 'functional' | 'analytical' | 
 
 export interface Preference {
     id: PreferenceIds;
-    title: string;
-    description?: string;
-    isDisabled?: boolean,
-    isChecked?: boolean,
-    hasDivider?: boolean
+    isDisabled?: boolean;
+    isChecked?: boolean;
+    hasDivider?: boolean;
+    hasDescription?: boolean;
 }
 
 export const preferences: Preference[] = [
     {
         id: 'all',
-        title: 'Turn on all',
         hasDivider: true,
+        hasDescription: false,
     },
     {
         id: 'necessary',
-        title: 'Necessary',
-        description: 'These cookies are necessary to ensure that the website and its features function properly. Services you have asked for cannot be provided without these cookies.',
         isDisabled: true,
         isChecked: true,
+        hasDescription: true,
     },
     {
         id: 'functional',
-        title: 'Functional',
-        description: 'These cookies allow the website to remember the choices you make to give you better functionality and personal features.',
+        hasDescription: true,
     },
     {
         id: 'analytical',
-        title: 'Analytical',
-        description: 'These analytical cookies, including statistics, are used to understand how visitors interact with the website and we can measure and improve the performance of our website.',
+        hasDescription: true,
     },
     {
         id: 'personalized',
-        title: 'Personalized (targeting and advertising)',
-        description: 'These marketing cookies are used to tailor the delivery of information to you based upon your interest and to measure the effectiveness of such advertisements, both on our website and our advertising partners\' websites.',
+        hasDescription: true,
     }
 ];
+
+export interface CustomTagEnhancers {
+    [key: string]: (tagContent: string) => TemplateResult;
+}

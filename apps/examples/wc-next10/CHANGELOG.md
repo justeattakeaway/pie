@@ -1,5 +1,34 @@
 # wc-next10
 
+## 0.4.7
+
+### Patch Changes
+
+- Updated dependencies [[`8353fbbe7`](https://github.com/justeattakeaway/pie/commit/8353fbbe74eb4b7a322bdb9c7640b0eab6fb6cc1), [`72b21e8ad`](https://github.com/justeattakeaway/pie/commit/72b21e8ad03439655653edab01acbb1a78a94ecf)]:
+  - @justeattakeaway/pie-button@0.36.0
+  - @justeattakeaway/pie-css@0.7.0
+
+## 0.4.6
+
+### Patch Changes
+
+- Updated dependencies [[`76a6ce68f`](https://github.com/justeattakeaway/pie/commit/76a6ce68f782c42cf86db0ca08a194d9987bf70b)]:
+  - @justeattakeaway/pie-button@0.35.0
+
+## 0.4.5
+
+### Patch Changes
+
+- Updated dependencies [[`5fcffa270`](https://github.com/justeattakeaway/pie/commit/5fcffa27063c1d38564415ccfa7820b2c06d5224)]:
+  - @justeattakeaway/pie-button@0.34.0
+
+## 0.4.4
+
+### Patch Changes
+
+- Updated dependencies [[`4cab049d1`](https://github.com/justeattakeaway/pie/commit/4cab049d1e78196bcd4411efba8d82d86f7a4f06)]:
+  - @justeattakeaway/pie-button@0.33.0
+
 ## 0.4.3
 
 ### Patch Changes

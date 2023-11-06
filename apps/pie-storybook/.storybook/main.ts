@@ -6,10 +6,11 @@ const config: StorybookConfig = {
         "../stories/**/*.stories.@(js|ts)"
     ],
     addons: [
-        "@storybook/addon-links",
-        "@storybook/addon-essentials",
         "@storybook/addon-a11y",
-        "@storybook/addon-designs"
+        "@storybook/addon-actions",
+        "@storybook/addon-designs",
+        "@storybook/addon-essentials",
+        "@storybook/addon-links",
     ],
     framework: {
         name: "@storybook/web-components-vite",

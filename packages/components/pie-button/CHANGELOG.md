@@ -1,5 +1,34 @@
 # Changelog
 
+## 0.36.0
+
+### Minor Changes
+
+- [Added] - Functionality to ensure pressing enter when in a form using a pie-button will trigger a form submit ([#935](https://github.com/justeattakeaway/pie/pull/935)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - `isLoading` prop to `pie-icon-button` ([#953](https://github.com/justeattakeaway/pie/pull/953)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Added] - `visually-hidden` mixin to `pie-css` and use it in components when needed
+  [Added] - `button-interactive-states` mixin to use in `pie-icon-button` and `pie-button`
+
+## 0.35.0
+
+### Minor Changes
+
+- [Removed] - pie-monorepo specific content from Web Component READMES ([#904](https://github.com/justeattakeaway/pie/pull/904)) by [@LTurns](https://github.com/LTurns)
+
+## 0.34.0
+
+### Minor Changes
+
+- [Fixed] - Set explicit height and fix xsmall and small bg colors ([#909](https://github.com/justeattakeaway/pie/pull/909)) by [@ashleynolan](https://github.com/ashleynolan)
+
+## 0.33.0
+
+### Minor Changes
+
+- [Added] - @tagname jsdoc comment to top of component class and use new defineCustomElement function to define the components ([#905](https://github.com/justeattakeaway/pie/pull/905)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.32.0
 
 ### Minor Changes

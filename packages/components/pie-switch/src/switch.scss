@@ -1,0 +1,142 @@
+@use '@justeattakeaway/pie-css/scss' as p;
+
+@mixin switch-transition($property) {
+    @media (prefers-reduced-motion: no-preference) {
+        transition: $property 0.15s cubic-bezier(0.4, 0, 0.9, 1) 0s;
+    }
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+    cursor: inherit;
+}
+
+.c-switch-wrapper {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--dt-spacing-b);
+    font-family: var(--dt-font-body-l-family);
+    cursor: pointer;
+
+    &[isDisabled] {
+        cursor: not-allowed;
+    }
+}
+
+.c-switch {
+    --switch-bg-color: var(--dt-color-interactive-form);
+    --switch-bg-color--checked: var(--dt-color-interactive-brand);
+    --switch-bg-color--disabled: var(--dt-color-disabled-01);
+    --switch-width: 48px;
+    --switch-height: 24px;
+    --switch-control-size: 20px;
+    --switch-padding: 2px;
+    --switch-radius: var(--dt-radius-rounded-e);
+    --switch-translation: calc(var(--switch-width) - var(--switch-control-size) - 2 * var(--switch-padding));
+
+    position: relative;
+    display: flex;
+    width: var(--switch-width);
+    height: var(--switch-height);
+    flex-shrink: 0;
+    padding: var(--switch-padding);
+    border-radius: var(--switch-radius);
+    background-color: var(--switch-bg-color);
+
+    @include switch-transition(background-color);
+
+    &:hover {
+        background-color: hsl(var(--dt-color-interactive-form-h), var(--dt-color-interactive-form-s), calc(var(--dt-color-interactive-form-l) - var(--dt-color-hover-01)));
+    }
+
+    &:focus,
+    &:focus-within {
+        @include p.focus;
+    }
+
+    &:active {
+        background-color: hsl(var(--dt-color-interactive-form-h), var(--dt-color-interactive-form-s), calc(var(--dt-color-interactive-form-l) - var(--dt-color-active-01)));
+    }
+
+    &[isChecked] {
+        @include switch-transition(background-color);
+        background-color: var(--switch-bg-color--checked);
+
+        &:hover {
+            background-color: hsl(var(--dt-color-interactive-brand-h), var(--dt-color-interactive-brand-s), calc(var(--dt-color-interactive-brand-l) - var(--dt-color-hover-01)));
+        }
+
+        &:focus,
+        &:focus-within {
+            background-color: var(--switch-bg-color--checked);
+        }
+
+        &:active {
+            background-color: hsl(var(--dt-color-interactive-brand-h), var(--dt-color-interactive-brand-s), calc(var(--dt-color-interactive-brand-l) - var(--dt-color-active-01)));
+        }
+    }
+
+    [isDisabled] & {
+        background-color: var(--switch-bg-color--disabled);
+        pointer-events: none;
+    }
+}
+
+.c-switch-input {
+    appearance: none;
+    margin: 0;
+
+    &:disabled {
+        background-color: transparent;
+    }
+}
+
+.c-switch-control {
+    position: absolute;
+    left: 2px;
+    @include switch-transition(transform);
+    width: var(--switch-control-size);
+    height: var(--switch-control-size);
+    border-radius: var(--switch-radius);
+    background-color: var(--dt-color-interactive-light);
+    padding: var(--switch-padding);
+
+    .c-switch-input:checked + & {
+        @include switch-transition(transform);
+        transform: translateX(var(--switch-translation));
+
+        .c-pieIcon--check {
+            @include switch-transition(color);
+            color: var(--switch-bg-color--checked);
+        }
+    }
+
+    .c-switch-input:disabled ~ & {
+        color: var(--switch-bg-color--disabled);
+
+        .c-pieIcon--check {
+            @include switch-transition(color);
+            color: var(--switch-bg-color--disabled);
+        }
+    }
+}
+
+// The description is only required for screen readers so we need to visually hide the description
+.c-switch-description {
+    @include p.visually-hidden;
+}
+
+.c-switch-wrapper[isRTL] {
+    .c-switch-control {
+        position: absolute;
+        left: initial;
+        right: 2px;
+    }
+
+    .c-switch-input:checked + .c-switch-control {
+        @include switch-transition(transform);
+        transform: translateX(calc(-1 * var(--switch-translation)));
+    }
+}

@@ -1,0 +1,50 @@
+@use '../fozzie-config' as f;
+
+.c-columns {
+    display: grid;
+    grid-template-columns: 1fr;
+    column-gap: f.$spacing-e;
+
+    @include f.media('>=mid') {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.c-columns-item {
+    display: flex;
+    flex-direction: column;
+
+    @include f.media('>=mid') {
+        margin-block-end: 0;
+    }
+
+    h2,
+    h3,
+    h4 {
+        margin-block-start: f.$spacing-f;
+    }
+
+    .c-contentPage-img {
+        flex-grow: 1;
+    }
+}
+
+
+.c-columns-item + .c-columns-item {
+    h2,
+    h3,
+    h4 {
+        @include f.media('<=mid') {
+            margin-block-start: f.$spacing-f;
+        }
+    }
+}
+
+// Any column not on the first row
+.c-columns-item:not(:first-child) + .c-columns-item {
+    h2,
+    h3,
+    h4 {
+        margin-block-start: f.$spacing-f;
+    }
+}

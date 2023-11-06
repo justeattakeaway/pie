@@ -1,5 +1,6 @@
 import { LitElement, html, unsafeCSS } from 'lit';
-<% if (needsRTL) { %>import { RtlMixin } from '@justeattakeaway/pie-webc-core';<% } %>
+<% if (needsRTL) { %>import { RtlMixin, defineCustomElement } from '@justeattakeaway/pie-webc-core';<% } %>
+<% if (!needsRTL) { %>import { defineCustomElement } from '@justeattakeaway/pie-webc-core';<% } %>
 import styles from './<%= fileName %>.scss?inline';
 import { <%= componentName %>Props } from './defs';
 
@@ -8,6 +9,9 @@ export * from './defs';
 
 const componentSelector = 'pie-<%= fileName %>';
 
+/**
+ * @tagname pie-<%= fileName %>
+ */
 <% if (needsRTL) { %>export class Pie<%= componentName %> extends RtlMixin(LitElement) implements <%= componentName %>Props {<% }
 else { %>export class Pie<%= componentName %> extends LitElement implements <%= componentName %>Props {<% } %>
     render () {
@@ -18,7 +22,7 @@ else { %>export class Pie<%= componentName %> extends LitElement implements <%= 
     static styles = unsafeCSS(styles);
 }
 
-customElements.define(componentSelector, Pie<%= componentName %>);
+defineCustomElement(componentSelector, Pie<%= componentName %>);
 
 declare global {
     interface HTMLElementTagNameMap {

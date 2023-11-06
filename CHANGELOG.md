@@ -1,5 +1,52 @@
 # Changelog
 
+## 2.36.0
+
+### Minor Changes
+
+- [Added] - VSCode extension recommendations for the PIE monorepo. ([#956](https://github.com/justeattakeaway/pie/pull/956)) by [@siggerzz](https://github.com/siggerzz)
+
+## 2.35.0
+
+### Minor Changes
+
+- [Added] - `isLoading` prop to `pie-icon-button` ([#953](https://github.com/justeattakeaway/pie/pull/953)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Added] - `visually-hidden` mixin to `pie-css` and use it in components when needed
+  [Added] - `button-interactive-states` mixin to use in `pie-icon-button` and `pie-button`
+
+## 2.34.0
+
+### Minor Changes
+
+- [Changed] - Update monorepo and storybook to use renamed component(s) ([#944](https://github.com/justeattakeaway/pie/pull/944)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+## 2.33.0
+
+### Minor Changes
+
+- [Fixed] - `default` and `inverse` variants to use `elevation-card` and `elevation-dark-card` tokens ([#907](https://github.com/justeattakeaway/pie/pull/907)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
+  [Changed] - Refactored `interactionType` to `tag` as the component can only be interactive
+
+  [Fixed] - Disabled state to apply the disabled colour token and reduce opacity on images
+
+  [Fixed] - Disabled state should use the disabled cursor
+
+  [Fixed] - Variants should apply their color token by default
+
+## 2.32.0
+
+### Minor Changes
+
+- [Changed] - README to refer to separate contributing guide ([#904](https://github.com/justeattakeaway/pie/pull/904)) by [@LTurns](https://github.com/LTurns)
+
+## 2.31.1
+
+### Patch Changes
+
+- [Fixed] - Issue with Slack notification functionality where $PRIORITIZED_BLOCKS had no value assigned, causing invalid JSON when $BLOCKS array was assigned a value ([#898](https://github.com/justeattakeaway/pie/pull/898)) by [@siggerzz](https://github.com/siggerzz)
+
 ## 2.31.0
 
 ### Minor Changes

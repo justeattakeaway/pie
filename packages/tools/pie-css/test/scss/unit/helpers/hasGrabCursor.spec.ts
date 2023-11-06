@@ -13,17 +13,17 @@ describe('helpers - has-grab-cursor', () => {
           @use 'helpers';
 
           .foo {
-            &[isdraggable]:not([interactiontype='none']) {
+            &[isdraggable] {
               @extend %has-grab-cursor;
             }
           }
         `;
 
         const expectedCss = stripCSSWhitespace(`
-          .foo[isdraggable]:not([interactiontype=none]) {
+          .foo[isdraggable] {
             cursor: grab;
           }
-          .foo[isdraggable]:active:not([interactiontype=none]) {
+          .foo[isdraggable]:active {
             cursor: grabbing;
           }
         `);

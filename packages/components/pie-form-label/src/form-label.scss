@@ -8,6 +8,7 @@
 
     display: flex;
     justify-content: space-between;
+    align-items: flex-end;
     gap: var(--dt-spacing-d);
     color: var(--form-label-color);
     font-size: var(--form-label-font-size);
@@ -22,8 +23,8 @@
     font-weight: var(--dt-font-weight-regular);
 }
 
-.c-formLabel-optional {
-    margin-inline-start: var(--dt-spacing-b);
+.c-formLabel-leading {
+    margin-inline-end: var(--dt-spacing-b);
 }
 
 .c-formLabel-trailing {

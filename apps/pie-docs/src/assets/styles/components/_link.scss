@@ -1,0 +1,22 @@
+@use '../fozzie-config' as f;
+
+.c-link-backdrop {
+    background-color: f.$color-background-subtle;
+    border-radius: f.$radius-rounded-c;
+    margin-block: f.spacing(b);
+    display: flex;
+    align-items: center;
+    padding-block: f.spacing(d);
+
+    svg {
+        margin-inline: f.spacing(d);
+    }
+}
+
+.c-link {
+    margin-inline-start: f.spacing(a);
+}
+
+.c-link-container {
+    margin-block: f.spacing(f);
+}

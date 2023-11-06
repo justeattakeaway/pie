@@ -1,5 +1,68 @@
 # wc-vanilla
 
+## 0.4.30
+
+### Patch Changes
+
+- Updated dependencies [[`8353fbbe7`](https://github.com/justeattakeaway/pie/commit/8353fbbe74eb4b7a322bdb9c7640b0eab6fb6cc1), [`72b21e8ad`](https://github.com/justeattakeaway/pie/commit/72b21e8ad03439655653edab01acbb1a78a94ecf)]:
+  - @justeattakeaway/pie-button@0.36.0
+  - @justeattakeaway/pie-icon-button@0.21.0
+  - @justeattakeaway/pie-css@0.7.0
+
+## 0.4.29
+
+### Patch Changes
+
+- Updated dependencies [[`b32cc36ff`](https://github.com/justeattakeaway/pie/commit/b32cc36ff7e52f54f4831e6c18ac7ff7b70fa753)]:
+  - @justeattakeaway/pie-icon-button@0.20.0
+
+## 0.4.28
+
+### Patch Changes
+
+- Updated dependencies [[`76a6ce68f`](https://github.com/justeattakeaway/pie/commit/76a6ce68f782c42cf86db0ca08a194d9987bf70b)]:
+  - @justeattakeaway/pie-icon-button@0.19.0
+  - @justeattakeaway/pie-button@0.35.0
+  - @justeattakeaway/pie-modal@0.30.0
+
+## 0.4.27
+
+### Patch Changes
+
+- Updated dependencies [[`267124747`](https://github.com/justeattakeaway/pie/commit/2671247474cb0e7b8f9c1380bc66a50244b747ad), [`b5861caa2`](https://github.com/justeattakeaway/pie/commit/b5861caa2c4d8bd7426236561eda8ac17545aa90)]:
+  - @justeattakeaway/pie-modal@0.29.0
+
+## 0.4.26
+
+### Patch Changes
+
+- Updated dependencies [[`5fcffa270`](https://github.com/justeattakeaway/pie/commit/5fcffa27063c1d38564415ccfa7820b2c06d5224)]:
+  - @justeattakeaway/pie-button@0.34.0
+
+## 0.4.25
+
+### Patch Changes
+
+- Updated dependencies [[`f669248e1`](https://github.com/justeattakeaway/pie/commit/f669248e13761ebd68184af7f09fa42d2e84fcda)]:
+  - @justeattakeaway/pie-icons-webc@0.11.1
+
+## 0.4.24
+
+### Patch Changes
+
+- Updated dependencies [[`4cab049d1`](https://github.com/justeattakeaway/pie/commit/4cab049d1e78196bcd4411efba8d82d86f7a4f06), [`4cab049d1`](https://github.com/justeattakeaway/pie/commit/4cab049d1e78196bcd4411efba8d82d86f7a4f06)]:
+  - @justeattakeaway/pie-icons-webc@0.11.0
+  - @justeattakeaway/pie-icon-button@0.18.0
+  - @justeattakeaway/pie-button@0.33.0
+  - @justeattakeaway/pie-modal@0.28.0
+
+## 0.4.23
+
+### Patch Changes
+
+- Updated dependencies [[`200e9f581`](https://github.com/justeattakeaway/pie/commit/200e9f58136ea42564ea591b6216e8013311b408)]:
+  - @justeattakeaway/pie-modal@0.27.0
+
 ## 0.4.22
 
 ### Patch Changes

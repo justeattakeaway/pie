@@ -1,25 +1,10 @@
 
 import { test } from '@sand4rt/experimental-ct-web';
 import percySnapshot from '@percy/playwright';
-import { PieButton } from '@justeattakeaway/pie-button';
-import { PieLink } from '@justeattakeaway/pie-link';
-import { PieModal } from '@justeattakeaway/pie-modal';
-import { PieIconButton } from '@justeattakeaway/pie-icon-button';
 
 import { PieCookieBanner, CookieBannerProps } from '@/index';
 
 const managePrefsSelector = '[data-test-id="actions-manage-prefs"]';
-
-// Mount any components that are used inside pie-cookie-banner so that
-// they have been registered with the browser before the tests run.
-// There is likely a nicer way to do this but this will temporarily
-// unblock tests.
-test.beforeEach(async ({ mount }) => {
-    await (await mount(PieButton)).unmount();
-    await (await mount(PieLink)).unmount();
-    await (await mount(PieModal)).unmount();
-    await (await mount(PieIconButton)).unmount();
-});
 
 test.describe('PieCookieBanner - Visual tests`', () => {
     test('should display the PieCookieBanner component successfully', async ({ page, mount }) => {
@@ -38,5 +23,15 @@ test.describe('PieCookieBanner - Visual tests`', () => {
         await page.click(managePrefsSelector);
 
         await percySnapshot(page, 'PieCookieBanner Manage preferences - Visual Test');
+    });
+
+    [true, false].forEach((hasPrimaryActionsOnly) => {
+        test(`should display the correct button variants for hasPrimaryActionsOnly = ${hasPrimaryActionsOnly}`, async ({ mount, page }) => {
+            await mount(PieCookieBanner, {
+                props: { hasPrimaryActionsOnly } as CookieBannerProps,
+            });
+
+            await percySnapshot(page, `PieCookieBanner hasPrimaryActionsOnly = ${hasPrimaryActionsOnly}`);
+        });
     });
 });

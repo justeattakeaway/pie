@@ -1,14 +1,15 @@
 import { html, nothing } from 'lit';
+
+/* eslint-disable import/no-duplicates */
+import '@justeattakeaway/pie-button';
 import {
     ButtonProps as ButtonPropsBase, iconPlacements, sizes, types, variants,
 } from '@justeattakeaway/pie-button';
-import { IconPlusCircle } from '@justeattakeaway/pie-icons-webc';
+/* eslint-enable import/no-duplicates */
+import '@justeattakeaway/pie-icons-webc/IconPlusCircle';
+
 import { createStory, type TemplateFunction } from '../utilities';
 import { StoryMeta, SlottedComponentProps } from '../types';
-
-// This prevents storybook from tree shaking the components
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const keptReferences = [IconPlusCircle];
 
 type ButtonProps = SlottedComponentProps<ButtonPropsBase>;
 type ButtonStoryMeta = StoryMeta<ButtonProps>;
@@ -266,7 +267,7 @@ const FormTemplate: TemplateFunction<ButtonProps> = (props: ButtonProps) => html
         const formLog = document.querySelector('#formLog');
         form.addEventListener('submit', (e) => {
             e.preventDefault();
-            console.log('foo')
+
             formLog.innerHTML = 'Form submitted!';
             formLog.style.display = 'block';
 

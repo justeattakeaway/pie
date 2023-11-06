@@ -14,10 +14,8 @@
 2. [Installation](#installation)
 3. [Importing the component](#importing-the-component)
 4. [Peer Dependencies](#peer-dependencies)
-5. [Local Development](#local-development)
-6. [Props](#props)
-7. [Testing](#testing)
-
+5. [Props](#props)
+6. [Contributing](#contributing)
 
 ## pie-link
 
@@ -43,13 +41,27 @@ For full information on using PIE components as part of an application, check ou
 
 ### Importing the component
 
+#### JavaScript
 ```js
-// default
+// Default – for Native JS Applications, Vue, Angular, Svelte, etc.
 import { PieLink } from '@justeattakeaway/pie-link';
 
-// react
+// If you don't need to reference the imported object, you can simply
+// import the module which registers the component as a custom element.
+import '@justeattakeaway/pie-link';
+```
+
+#### React
+```js
+// React
+// For React, you will need to import our React-specific component build
+// which wraps the web component using @lit-labs/react
 import { PieLink } from '@justeattakeaway/pie-link/dist/react';
 ```
+
+> [!NOTE]
+> When using the React version of the component, please make sure to also
+> include React as a [peer dependency](#peer-dependencies) in your project.
 
 
 ## Peer Dependencies
@@ -57,39 +69,14 @@ import { PieLink } from '@justeattakeaway/pie-link/dist/react';
 > [!IMPORTANT]
 > When using `pie-link`, you will also need to include a couple of dependencies to ensure the component renders as expected. See [the PIE Wiki](https://github.com/justeattakeaway/pie/wiki/Getting-started-with-PIE-Web-Components#expected-dependencies) for more information and how to include these in your application.
 
-
-## Local development
-
-Install the dependencies. Note that this, and the following commands below, should be run from the **root of the monorepo**:
-
-```bash
-yarn
-```
-
-To build the `pie-link` package, run the following command:
-
-```bash
-yarn build --filter=pie-link
-```
-
-If you'd like to develop using the component storybook, then you should build the component in `watch` mode, and run storybook in a separate terminal tab:
-
-```bash
-yarn watch --filter=pie-link
-
-# in a separate terminal tab, run
-yarn dev --filter=pie-storybook
-```
-
-
 ## Props
 
-| Property      | Type        | Default       | Description                                                                                          |
-| ------------- | ----------- | ------------- | ---------------------------------------------------------------------------------------------------- |
+| Property      | Type      | Default     | Description                                                                                          |
+| ------------- | --------- | ----------- | ---------------------------------------------------------------------------------------------------- |
 | tag           | `String`  | `a`         | The rendered HTML element of the link, one of `tags` – `a`, `button`                        |
 | variant       | `String`  | `default`   | Variant of the link, one of `variants` – `default`, `high-visibility`, `inverse`         |
 | size          | `String`  | `medium`    | Size of the link, one of `sizes` – `medium`, `small`                                          |
-| underline          | `String`  | `default`    | The underline behavior of the link, one of `underlineTypes` – `default`, `reversed`. The `reverse` type can only be used if `isStandalone` is set to `true`                                          |
+| underline     | `String`  | `default`   | The underline behaviour of the link, one of `underlineTypes` – `default`, `reversed`. The `reverse` type can only be used if `isStandalone` is set to `true`                                          |
 | href          | `String`  | `undefined` | Native html `href` attribute                                                                       |
 | rel           | `String`  | `undefined` | Native html `rel` attribute                                                                        |
 | target        | `String`  | `undefined` | Native html `target` attribute                                                                     |
@@ -98,7 +85,7 @@ yarn dev --filter=pie-storybook
 | isStandalone  | `Boolean` | `false`     | If `true`, sets the link as a block element                                                        |
 | hasVisited    | `Boolean` | `false`     | If `true`, the link will apply the styles for the visited state                                    |
 | iconPlacement | `String`  | `leading`   | Icon placements of the icon slot, if provided, one of `iconPlacements` - `leading`, `trailing`. Can only be used if `isStandalone` is `true` |
-| aria | `object` | `undefined` | The ARIA labels used for the link. |
+| aria          | `object`  | `undefined` | The ARIA labels used for the link. |
 
 In your markup or JSX, you can then use these to set the properties for the `pie-link` component:
 
@@ -132,36 +119,6 @@ We recommend using `pie-icons-webc` when using the `icon` slot. Here is an examp
 </pie-link>
 ```
 
-## Testing
+## Contributing
 
-### Browser tests
-
-To run the browser tests, run the following command from the root of the monorepo:
-
-```bash
-yarn test:browsers --filter=pie-link
-```
-
-### Visual tests
-
-To run the visual regression tests, run the following command from the root of the monorepo:
-
-```bash
-yarn test:visual --filter=pie-link
-```
-
-Note: To run these locally, you will need to ensure that any environment variables required are set up on your machine to mirror those on CI (such as Percy tokens). How you achieve this will differ between operating systems.
-
-#### Setup via bash
-
-```bash
-export PERCY_TOKEN_PIE_LINK=abcde
-```
-
-#### Setup via package.json
-
-Under scripts `test:visual` replace the environment variable with the below:
-
-```bash
-PERCY_TOKEN_PIE_LINK=abcde
-```
+Check out our [contributing guide](https://github.com/justeattakeaway/pie/wiki/Contributing-Guide) for more information on [local development](https://github.com/justeattakeaway/pie/wiki/Contributing-Guide#local-development) and how to run specific [component tests](https://github.com/justeattakeaway/pie/wiki/Contributing-Guide#testing).

@@ -1,5 +1,23 @@
 # @justeattakeaway/generator-pie-component
 
+## 0.14.0
+
+### Minor Changes
+
+- [Fixed] - Updated the readme file to be aligned with other components ([#947](https://github.com/justeattakeaway/pie/pull/947)) by [@raoufswe](https://github.com/raoufswe)
+
+## 0.13.0
+
+### Minor Changes
+
+- [Removed] - pie-monorepo specific content from Web Component READMES ([#904](https://github.com/justeattakeaway/pie/pull/904)) by [@LTurns](https://github.com/LTurns)
+
+## 0.12.0
+
+### Minor Changes
+
+- [Changed] - Update component index.ts template to include @tagname js doc comment above class and new defineCustomElement function to define the component ([#905](https://github.com/justeattakeaway/pie/pull/905)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.11.0
 
 ### Minor Changes
