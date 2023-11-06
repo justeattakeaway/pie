@@ -38,8 +38,9 @@ function getObjectKeyValue (obj:object, path:string):string {
     const travel = (regexp:RegExp) => String.prototype.split
         .call(path, regexp)
         .filter(Boolean)
-        .reduce((acc:Record<string, unknown>, key:string) => {
-            if (acc !== null && acc !== undefined) {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        .reduce((acc:{[key: string]: any}, key:string) => {
+            if (acc !== null && acc !== undefined && typeof acc === 'object') {
                 return acc[key];
             }
             return acc;
@@ -47,7 +48,7 @@ function getObjectKeyValue (obj:object, path:string):string {
 
     const result = travel(/[,[\]]+?/) || travel(/[,[\].]+?/);
 
-    if (result === undefined || result === obj || typeof result !== 'string') return '';
+    if (typeof result !== 'string') return '';
 
     return result;
 }
