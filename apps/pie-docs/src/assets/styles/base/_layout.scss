@@ -158,7 +158,7 @@
 
         @include f.media('>=wide') {
             margin-block-start: f.spacing(i);
-            margin-block-bottom: f.spacing(i);
+            margin-block-end: f.spacing(i);
         }
     }
 }
