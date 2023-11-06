@@ -5,7 +5,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     Object.values(listItems).forEach((item) => {
         const { textContent } = item;
-        if (columns === 3 && textContent.length > 16) {
+        if (columns === 3 && textContent.length > 18) {
             item.setAttribute('data-title', textContent);
         }
     });

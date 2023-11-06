@@ -1,43 +1,50 @@
 @use '../fozzie-config' as f;
 
+$contentList-maxWidth: 604px;
+$contentList-maxHeight: 240px;
+$contentList-column-width: 180px;
+$list-icon-size: f.$spacing-c;
+$list-icon-gap: f.$spacing-a;
+$list-icon-fullWidth: calc($list-icon-size + $list-icon-gap);
+$tooltip-border-radius: 100px;
+
 .c-content-list {
-    max-width: 604px;
+    max-width: $contentList-maxWidth;
 
     ol {
-        column-width: 180px 1;
-        column-gap: 32px;
+        column-width: $contentList-column-width 1;
+        column-gap: f.$spacing-f;
         padding: 0;
         column-fill: auto;
 
         @include f.media('>=mid') {
-            max-height: 240px;
+            max-height: $contentList-maxHeight;
             column-count: var(--column-count);
         }
     }
 
     li {
-        orphans: 6;
-        list-style: none;
-        margin-block-end: 16px;
         position: relative;
         display: flex;
+        list-style: none;
+        margin-block-end: f.$spacing-c;
 
         &[data-title]:hover:after {
             content: attr(data-title);
             position: absolute;
             top: calc(100% + f.$spacing-a);
-            left: 20px;
+            left: $list-icon-fullWidth;
             padding: f.$spacing-a f.$spacing-c;
             @include f.font-size('caption');
             width: max-content;
-            border-radius: 100px;
+            border-radius: $tooltip-border-radius;
             background-color: f.$color-container-inverse;
             color: f.$color-content-inverse;
         }
 
         a {
             display: inline-block;
-            width: calc(100% - 20px);
+            width: calc(100% - $list-icon-fullWidth);
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
@@ -51,11 +58,11 @@
         &:before {
             content: url('/assets/img/contents.svg');
             display: inline-block;
-            width: 16px;
-            height: 16px;
-            margin-inline-end: f.$spacing-a;
-            top: f.$spacing-a;
             position: relative;
+            top: f.$spacing-a;
+            width: $list-icon-size;
+            height: $list-icon-size;
+            margin-inline-end: $list-gap;
         }
     }
 }

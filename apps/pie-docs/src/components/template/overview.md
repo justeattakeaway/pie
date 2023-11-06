@@ -19,20 +19,12 @@ shouldShowContents: true
 
 {% usage {
     do: {
-        type: usageTypes.image,
-        items: [{
-            src: "../../../assets/img/foundations/iconography/pairing-text-with-icons-do.svg",
-            width: "375px",
-            alt: "This image shows an app menu bar with four icons. Each icon is accompanied by a label. For example there is an icon that represents a house coupled with a label that says home. This makes it clear that pressing the home icon takes you to the home page"
-        }]
+        type: usageTypes.list,
+        items: [ "Dos" ]
     },
     dont: {
-        type: usageTypes.image,
-        items: [{
-        src:"../../../assets/img/foundations/iconography/pairing-text-with-icons-dont.svg",
-        width: "375px",
-        alt: "This image shows an app menu with four icons. Only one icon has a label, which makes it clear it is a link to the home page. The other icons, such as the icon representing a wrapped gift, are not so clear without labels."
-        }]
+        type: usageTypes.list,
+        items: [ "Don'ts" ]
     }
 } %}
 
