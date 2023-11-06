@@ -128,11 +128,11 @@
         > h3 + h4,
         > p + .c-contentPage-img,
         > .c-contentPage-img + p {
-            margin-top: f.spacing(e);
+            margin-block-start: f.spacing(e);
         }
 
         > p + h2 {
-            margin-top: f.spacing(h);
+            margin-block-start: f.spacing(h);
         }
 
         > ul + h3,
@@ -144,21 +144,21 @@
         > .c-contentPage-img + h4,
         > .c-contentPage-notification + h3,
         & .c-contentPage-notification {
-            margin-top: f.spacing(f);
+            margin-block-start: f.spacing(f);
         }
 
         .c-contentPage-notification + .c-contentPage-notification {
-            margin-top: f.spacing(b);
+            margin-block-start: f.spacing(b);
         }
     }
 
     hr {
-        margin-top: f.spacing(h);
-        margin-bottom: f.spacing(h);
+        margin-block-start: f.spacing(h);
+        margin-block-end: f.spacing(h);
 
         @include f.media('>=wide') {
-            margin-top: f.spacing(i);
-            margin-bottom: f.spacing(i);
+            margin-block-start: f.spacing(i);
+            margin-block-bottom: f.spacing(i);
         }
     }
 }
