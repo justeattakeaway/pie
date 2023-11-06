@@ -15,7 +15,7 @@ const createCaption = (config) => (config.caption
  * If a width is not provided, image will default to fill up the entire container.
  * @param {object} config - image configuration
  * @param {string} config.width - the image width in px (will go to full width on smaller screens).
- * @param {string} config.height - (s, m, l), the image height in px will default to small.
+ * @param {string} config.height - (s, m, l), the image height (will default to small).
  * @param {string} config.alt - an optional alt for the image
  * @param {string} config.src - the image src path
  * @param {string} config.mobileSrc - the image src path for an optimised mobile image if required
