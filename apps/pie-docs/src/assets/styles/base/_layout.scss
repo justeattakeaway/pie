@@ -90,6 +90,14 @@
         padding-block-start: f.spacing(f);
         padding-block-end: f.spacing(j);
 
+        @include f.media('>=wide') {
+            padding-block-start: f.spacing(h);
+            padding-block-end: calc(f.spacing(j) + f.spacing(d));
+        }
+    }
+
+    .c-layout-item,
+    .c-content-container {
         h2 {
             @include f.font-size('heading-xl', $scale: 'narrow');
         }
@@ -99,9 +107,6 @@
         }
 
         @include f.media('>=wide') {
-            padding-top: f.spacing(h);
-            padding-bottom: calc(f.spacing(j) + f.spacing(d));
-
             h2 {
                 @include f.font-size('heading-xl');
             }
