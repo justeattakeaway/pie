@@ -1,13 +1,12 @@
 import { html } from 'lit';
-import {
-    PieSpinner, SpinnerProps, sizes, variants,
-} from '@justeattakeaway/pie-spinner';
+
+/* eslint-disable import/no-duplicates */
+import '@justeattakeaway/pie-spinner';
+import { SpinnerProps, sizes, variants } from '@justeattakeaway/pie-spinner';
+/* eslint-enable import/no-duplicates */
+
 import { type StoryMeta } from '../types';
 import { TemplateFunction, createStory } from '../utilities';
-
-// This prevents storybook from tree shaking the components
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const keptReferences = [PieSpinner];
 
 type SpinnerStoryMeta = StoryMeta<SpinnerProps>;
 
