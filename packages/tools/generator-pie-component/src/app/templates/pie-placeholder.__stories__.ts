@@ -1,11 +1,12 @@
 import { html } from 'lit';
-import { Pie<%= componentName %>, <%= componentName %>Props } from '@justeattakeaway/pie-<%= fileName %>';
+
+/* eslint-disable import/no-duplicates */
+import '@justeattakeaway/pie-<%= fileName %>';
+import { <%= componentName %>Props } from '@justeattakeaway/pie-<%= fileName %>';
+/* eslint-enable import/no-duplicates */
+
 import { type StoryMeta } from '../types';
 import { createStory } from '../utilities';
-
-// This prevents storybook from tree shaking the components
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const keptReferences = [Pie<%= componentName %>];
 
 type <%= componentName %>StoryMeta = StoryMeta<<%= componentName %>Props>;
 

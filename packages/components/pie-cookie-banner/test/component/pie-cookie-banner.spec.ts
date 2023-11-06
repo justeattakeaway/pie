@@ -1,10 +1,5 @@
 
 import { test, expect } from '@sand4rt/experimental-ct-web';
-import { PieButton } from '@justeattakeaway/pie-button';
-import { PieLink } from '@justeattakeaway/pie-link';
-import { PieModal } from '@justeattakeaway/pie-modal';
-import { PieIconButton } from '@justeattakeaway/pie-icon-button';
-import { PieSwitch } from '@justeattakeaway/pie-switch';
 import { readFile } from 'fs/promises';
 import {
     ON_COOKIE_BANNER_ACCEPT_ALL, ON_COOKIE_BANNER_NECESSARY_ONLY,
@@ -32,21 +27,9 @@ const modalBackButtonSelector = '[data-test-id="modal-back-button"]';
 const modalSaveButtonSelector = '[data-test-id="modal-leading-action"]';
 const getPreferenceItemSelector = (id: PreferenceIds) => `#${id} [data-test-id="switch-component"]`;
 
-function stripTags (str) {
+function stripTags (str: string) {
     return str.replace(/<\/?[^>]+(>|$)/g, '');
 }
-
-// Mount any components that are used inside pie-cookie-banner so that
-// they have been registered with the browser before the tests run.
-// There is likely a nicer way to do this but this will temporarily
-// unblock tests.
-test.beforeEach(async ({ mount }) => {
-    await (await mount(PieButton)).unmount();
-    await (await mount(PieLink)).unmount();
-    await (await mount(PieModal)).unmount();
-    await (await mount(PieIconButton)).unmount();
-    await (await mount(PieSwitch)).unmount();
-});
 
 test.describe('PieCookieBanner - Component tests', () => {
     test('should render successfully', async ({ mount, page }) => {

@@ -1,11 +1,12 @@
 import { html } from 'lit';
-import { PieNotification, NotificationProps } from '@justeattakeaway/pie-notification';
+
+/* eslint-disable import/no-duplicates */
+import '@justeattakeaway/pie-notification';
+import { NotificationProps } from '@justeattakeaway/pie-notification';
+/* eslint-enable import/no-duplicates */
+
 import { type StoryMeta } from '../types';
 import { createStory } from '../utilities';
-
-// This prevents storybook from tree shaking the components
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const keptReferences = [PieNotification];
 
 type NotificationStoryMeta = StoryMeta<NotificationProps>;
 

@@ -41,13 +41,27 @@ For full information on using PIE components as part of an application, check ou
 
 ### Importing the component
 
+#### JavaScript
 ```js
-// default
+// Default – for Native JS Applications, Vue, Angular, Svelte, etc.
 import { PieSpinner } from '@justeattakeaway/pie-spinner';
 
-// react
+// If you don't need to reference the imported object, you can simply
+// import the module which registers the component as a custom element.
+import '@justeattakeaway/pie-spinner';
+```
+
+#### React
+```js
+// React
+// For React, you will need to import our React-specific component build
+// which wraps the web component using @lit-labs/react
 import { PieSpinner } from '@justeattakeaway/pie-spinner/dist/react';
 ```
+
+> [!NOTE]
+> When using the React version of the component, please make sure to also
+> include React as a [peer dependency](#peer-dependencies) in your project.
 
 
 ## Peer Dependencies
