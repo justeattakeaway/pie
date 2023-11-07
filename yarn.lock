@@ -5408,7 +5408,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-cookie-banner@0.10.0, @justeattakeaway/pie-cookie-banner@workspace:packages/components/pie-cookie-banner":
+"@justeattakeaway/pie-cookie-banner@0.10.1, @justeattakeaway/pie-cookie-banner@workspace:packages/components/pie-cookie-banner":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-cookie-banner@workspace:packages/components/pie-cookie-banner"
   dependencies:
@@ -5521,7 +5521,7 @@ __metadata:
     "@justeattakeaway/pie-icons": 4.9.2
     "@justeattakeaway/pie-icons-configs": 4.5.0
     "@justeattakeaway/pie-webc-core": 0.11.0
-    "@open-wc/testing": 3.2.0
+    "@open-wc/testing": 3.2.2
     "@rollup/plugin-typescript": 11.1.5
     "@web/test-runner": 0.16.1
     just-kebab-case: 4.2.0
@@ -6893,16 +6893,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@open-wc/chai-dom-equals@npm:^0.12.36":
-  version: 0.12.36
-  resolution: "@open-wc/chai-dom-equals@npm:0.12.36"
-  dependencies:
-    "@open-wc/semantic-dom-diff": ^0.13.16
-    "@types/chai": ^4.1.7
-  checksum: 67f8eb074659c51f6beefb3a548392de0f88dfcf83d4f8658c8ff6a6c096c3da354415429b67c551f39508f32901968aab506df2795f853f1d88db41f41f671c
-  languageName: node
-  linkType: hard
-
 "@open-wc/dedupe-mixin@npm:^1.4.0":
   version: 1.4.0
   resolution: "@open-wc/dedupe-mixin@npm:1.4.0"
@@ -6920,13 +6910,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@open-wc/semantic-dom-diff@npm:^0.13.16":
-  version: 0.13.21
-  resolution: "@open-wc/semantic-dom-diff@npm:0.13.21"
-  checksum: 9b04d0e17b3d5aa708434a9e1e60d11079f2d412b589a2170a33a274e93c38c4f67c3b264da1399f21864b83cb5cca32928bb5f92a19387c647e659e22cf1c0c
-  languageName: node
-  linkType: hard
-
 "@open-wc/semantic-dom-diff@npm:^0.20.0":
   version: 0.20.0
   resolution: "@open-wc/semantic-dom-diff@npm:0.20.0"
@@ -6937,7 +6920,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@open-wc/testing-helpers@npm:^2.3.0":
+"@open-wc/testing-helpers@npm:^2.3.1":
   version: 2.3.2
   resolution: "@open-wc/testing-helpers@npm:2.3.2"
   dependencies:
@@ -6948,19 +6931,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@open-wc/testing@npm:3.2.0":
-  version: 3.2.0
-  resolution: "@open-wc/testing@npm:3.2.0"
+"@open-wc/testing@npm:3.2.2":
+  version: 3.2.2
+  resolution: "@open-wc/testing@npm:3.2.2"
   dependencies:
     "@esm-bundle/chai": ^4.3.4-fix.0
-    "@open-wc/chai-dom-equals": ^0.12.36
     "@open-wc/semantic-dom-diff": ^0.20.0
-    "@open-wc/testing-helpers": ^2.3.0
-    "@types/chai": ^4.2.11
+    "@open-wc/testing-helpers": ^2.3.1
     "@types/chai-dom": ^1.11.0
     "@types/sinon-chai": ^3.2.3
     chai-a11y-axe: ^1.5.0
-  checksum: f59283eed37b7959a4b71ba220d5d0ec4f115c3321950230f0840d59a24032ec316f51117f60f70e6591a5a4aa761085ee6c2cbe735ecd7120db430c022d553e
+  checksum: 7c69e5d7cffb5e0dab79d36ed896938d0582d6cd68f1b10e9149ce5f4f613116746fec39b0bc72eacfda15b42391893f3a43b9b53cb06573189dcd723b4fd80b
   languageName: node
   linkType: hard
 
@@ -9748,7 +9729,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/chai@npm:*, @types/chai@npm:^4.1.7, @types/chai@npm:^4.2.11, @types/chai@npm:^4.2.12, @types/chai@npm:^4.3.1, @types/chai@npm:^4.3.4":
+"@types/chai@npm:*, @types/chai@npm:^4.2.12, @types/chai@npm:^4.3.1, @types/chai@npm:^4.3.4":
   version: 4.3.9
   resolution: "@types/chai@npm:4.3.9"
   checksum: 2300a2c7abd4cb590349927a759b3d0172211a69f363db06e585faf7874a47f125ef3b364cce4f6190e3668147587fc11164c791c9560cf9bce8478fb7019610
@@ -14793,7 +14774,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cheerio@npm:1.0.0-rc.12, cheerio@npm:^1.0.0-rc.12":
+"cheerio@npm:1.0.0-rc.12, cheerio@npm:^1.0.0-rc.10, cheerio@npm:^1.0.0-rc.12":
   version: 1.0.0-rc.12
   resolution: "cheerio@npm:1.0.0-rc.12"
   dependencies:
@@ -17688,6 +17669,15 @@ __metadata:
     eleventy-plugin-output-path: ^1.2.1
     kleur: ^4.1.5
   checksum: fecbd678a7a8426c8865a603dcdf83500e8727bddfc1ce9554e50d3dce66c0d1d9726903abad6d71182025a8ee721d7df0e41ff5f9c4fb758b4bcc5cef42c6e5
+  languageName: node
+  linkType: hard
+
+"eleventy-plugin-toc@npm:1.1.5":
+  version: 1.1.5
+  resolution: "eleventy-plugin-toc@npm:1.1.5"
+  dependencies:
+    cheerio: ^1.0.0-rc.10
+  checksum: f8afbda221d3c129b8e1828b5f815ff42f1b53318c9c1d6f9b8375f72b8528303c14aa69d60abae8415fbde8ed38590e077f3b4c3698f81394193840fb088960
   languageName: node
   linkType: hard
 
@@ -28046,6 +28036,7 @@ __metadata:
     "@justeattakeaway/pie-icons": 4.9.2
     "@types/markdown-it": 13.0.2
     eleventy-plugin-rev: 1.1.1
+    eleventy-plugin-toc: 1.1.5
     eleventy-sass: 2.2.3
     js-cookie: 2.2.1
     markdown-it: 13.0.2
@@ -28131,7 +28122,7 @@ __metadata:
     "@justeat/pie-design-tokens": 5.8.2
     "@justeattakeaway/pie-button": 0.36.1
     "@justeattakeaway/pie-card": 0.14.1
-    "@justeattakeaway/pie-cookie-banner": 0.10.0
+    "@justeattakeaway/pie-cookie-banner": 0.10.1
     "@justeattakeaway/pie-css": 0.7.0
     "@justeattakeaway/pie-divider": 0.9.1
     "@justeattakeaway/pie-form-label": 0.8.1

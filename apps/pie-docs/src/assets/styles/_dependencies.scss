@@ -36,8 +36,9 @@
 @use 'components/categorisedIconList';
 @use 'components/centredPage';
 @use 'components/contentImage';
-@use 'components/contentPage';
 @use 'components/contentLayout';
+@use 'components/contentList';
+@use 'components/contentPage';
 @use 'components/comingSoon';
 @use 'components/footer';
 @use 'components/header';
@@ -55,6 +56,7 @@
 @use 'components/scrollToTop';
 @use 'components/simpleTable';
 @use 'components/table';
+@use 'components/componentDetailsTable';
 @use 'components/tabs';
 @use 'components/toggle';
 @use 'components/tokensTable';
