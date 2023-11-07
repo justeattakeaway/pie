@@ -115,7 +115,7 @@
   },
   "dependencies": {
     "@justeat/fozzie": "11.0.1",
-    "lit": "2.8.0"
+    "lit": "3.0.2"
   },
   "config": {
     "commitizen": {
