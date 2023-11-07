@@ -204,7 +204,7 @@ export class PieButton extends LitElement implements ButtonProps {
      */
     private renderSpinner (): TemplateResult {
         const spinnerSize = this.size.includes('small') ? 's' : 'm';
-        const inverseVariants = ['primary', 'destructive', 'outline-inverse', 'ghost-inverse'];
+        const inverseVariants: Array<ButtonProps['variant']> = ['primary', 'destructive', 'outline-inverse', 'ghost-inverse'];
         const spinnerVariant = inverseVariants.includes(this.variant) ? 'inverse' : 'secondary';
 
         return html`
