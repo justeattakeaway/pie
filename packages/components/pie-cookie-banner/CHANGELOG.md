@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-cookie-banner
 
+## 0.10.1
+
+### Patch Changes
+
+- [Fixed] - Correct mistake in merge conflict resolution ([#968](https://github.com/justeattakeaway/pie/pull/968)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
 ## 0.10.0
 
 ### Minor Changes
