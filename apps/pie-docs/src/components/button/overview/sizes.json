@@ -1,0 +1,34 @@
+{
+  "headings": [
+    "Button size",
+    "Height",
+    "Use cases"
+  ],
+  "rows": [
+    [
+      "Large",
+      "56px",
+      "Typically used on Wide resolutions. Search input fields. Available in Full width."
+    ],
+    [
+      "Medium",
+      "48px",
+      "Primary page actions and other stand alone actions. Medium is the default size of the button and is available in full width."
+    ],
+    [
+      "Small - Expressive",
+      "40px",
+      "Larger expressive font size used for increased emphasis. Available in Full width."
+    ],
+    [
+      "Small - Productive",
+      "40px",
+      "Larger expressive font size used for increased emphasis. Available in Full width."
+    ],
+    [
+      "XSmall",
+      "32px",
+      "Larger expressive font size used for increased emphasis. Available in Full width."
+    ]
+  ]
+}
