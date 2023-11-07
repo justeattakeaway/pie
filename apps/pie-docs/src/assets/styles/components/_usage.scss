@@ -20,6 +20,9 @@ $usage-bg-minHeight: 280px;
     width: 100%;
 
     figure {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
         margin: 0;
     }
 }
@@ -39,6 +42,7 @@ $usage-bg-minHeight: 280px;
     background-color: f.$color-background-subtle;
     border-radius: 0 0 f.$radius-rounded-d f.$radius-rounded-d;
     border-top: 4px solid var(--style-colour);
+    flex-grow: 1;
 
     &.c-usage-backdrop--hasImage {
         display: grid;
