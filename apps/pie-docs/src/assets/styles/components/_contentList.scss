@@ -1,0 +1,68 @@
+@use '../fozzie-config' as f;
+
+$contentList-maxWidth: 604px;
+$contentList-maxHeight: 240px;
+$contentList-column-width: 180px;
+$list-icon-size: f.$spacing-c;
+$list-icon-gap: f.$spacing-a;
+$list-icon-fullWidth: calc($list-icon-size + $list-icon-gap);
+$tooltip-border-radius: 100px;
+
+.c-content-list {
+    max-width: $contentList-maxWidth;
+
+    ol {
+        column-width: $contentList-column-width 1;
+        column-gap: f.$spacing-f;
+        padding: 0;
+        column-fill: auto;
+
+        @include f.media('>=mid') {
+            max-height: $contentList-maxHeight;
+            column-count: var(--column-count);
+        }
+    }
+
+    li {
+        position: relative;
+        display: flex;
+        list-style: none;
+        margin-block-end: f.$spacing-c;
+
+        &[data-title]:hover:after {
+            content: attr(data-title);
+            position: absolute;
+            top: calc(100% + f.$spacing-a);
+            left: $list-icon-fullWidth;
+            padding: f.$spacing-a f.$spacing-c;
+            @include f.font-size('caption');
+            width: max-content;
+            border-radius: $tooltip-border-radius;
+            background-color: f.$color-container-inverse;
+            color: f.$color-content-inverse;
+        }
+
+        a {
+            display: inline-block;
+            width: calc(100% - $list-icon-fullWidth);
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        a,
+        a:visited {
+            color: f.$color-content-default;
+        }
+
+        &:before {
+            content: url('/assets/img/contents.svg');
+            display: inline-block;
+            position: relative;
+            top: f.$spacing-a;
+            width: $list-icon-size;
+            height: $list-icon-size;
+            margin-inline-end: $list-icon-gap;
+        }
+    }
+}
