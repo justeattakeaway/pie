@@ -2,7 +2,7 @@
 
 exports[`contentPageImage.js creates the expected markup for the given config settings 1`] = `
 "<figure class=\\"c-someContainer-img c-contentImage c-contentImage--hasBackdrop\\">
-        <div class=\\"c-contentImage-backdrop\\">
+        <div class=\\"c-contentImage-backdrop c-contentImage-default\\">
           <picture>
             <source style=\\"--img-width: 200px;\\" media=\\"(max-width: 600px)\\" srcset=\\"some/path/to/mobile/image\\">
             <img src=\\"some/path/to/image\\" style=\\"--img-width: 200px;\\" alt=\\"foo bar\\">
@@ -14,7 +14,7 @@ exports[`contentPageImage.js creates the expected markup for the given config se
 
 exports[`contentPageImage.js creates the expected markup for the given config settings 2`] = `
 "<figure class=\\"c-contentPage-img c-contentImage c-contentImage--fullWidth\\">
-        <div class=\\"c-contentImage-backdrop\\">
+        <div class=\\"c-contentImage-backdrop c-contentImage-default\\">
           <picture>
             
             <img src=\\"some/path/to/image\\"  alt=\\"\\">
