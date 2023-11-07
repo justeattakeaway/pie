@@ -203,7 +203,7 @@ export class PieButton extends LitElement implements ButtonProps {
      * @private
      */
     private renderSpinner (): TemplateResult {
-        const spinnerSize = this.size.includes('small') ? 's' : 'm';
+        const spinnerSize = this.size.includes('small') ? 's' : 'm'; // includes("small") matches for any small size value and xsmall
         const inverseVariants: Array<ButtonProps['variant']> = ['primary', 'destructive', 'outline-inverse', 'ghost-inverse'];
         const spinnerVariant = inverseVariants.includes(this.variant) ? 'inverse' : 'secondary';
 
