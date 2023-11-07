@@ -12,7 +12,7 @@
   "dependencies": {
     "@justeattakeaway/pie-button": "0.36.1",
     "@justeattakeaway/pie-css": "0.7.0",
-    "nuxt-ssr-lit": "1.5.1"
+    "nuxt-ssr-lit": "1.6.5"
   },
   "devDependencies": {
     "@types/node": "18",

@@ -27,7 +27,7 @@
     "@justeattakeaway/pie-switch": "0.17.1",
     "body-scroll-lock": "3.1.5",
     "dompurify": "3.0.6",
-    "lit": "2.7.5"
+    "lit": "3.0.2"
   },
   "devDependencies": {
     "@storybook/addon-a11y": "7.5.1",
