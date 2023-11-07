@@ -27,6 +27,7 @@ const defaultArgs: ButtonProps = {
 const buttonStoryMeta: ButtonStoryMeta = {
     title: 'Button',
     component: 'pie-button',
+    // tags: ['autodocs'],
     argTypes: {
         size: {
             description: 'Set the size of the button.',
@@ -293,7 +294,7 @@ export const Destructive = createButtonStory({ variant: 'destructive' });
 export const DestructiveGhost = createButtonStory({ variant: 'destructive-ghost' }, { bgColor: 'background-subtle' });
 export const Inverse = createButtonStory({ variant: 'inverse' }, { bgColor: 'dark (container-dark)' });
 export const GhostInverse = createButtonStory({ variant: 'ghost-inverse' }, { bgColor: 'dark (container-dark)' });
-export const OutlineInverse = createButtonStory({ variant: 'outline-inverse' }, { bgColor: 'dark (container-dark)' });
+export const OutlineInverse = createButtonStory({ variant: 'outline-inverse' }, { bgColor: 'dark (container-dark)' }, { descriptionArg: 'Inverse Outline' });
 // For this story we simply want to test form integration with a reset and submit button. Therefore we are restricting what controls are shown.
 export const FormIntegration = createButtonStoryWithForm({ type: 'submit' }, {
     controls: {

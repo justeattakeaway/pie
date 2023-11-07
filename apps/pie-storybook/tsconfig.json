@@ -8,7 +8,8 @@
       "noImplicitAny": true,
       "strictNullChecks": true,
       "sourceMap": false,
-      "skipLibCheck": true
+      "skipLibCheck": true,
+      "jsx": "react",
   },
   "exclude": [
       "node_modules",
