@@ -1,0 +1,89 @@
+{
+    "headings": ["Prop", "Options", "Default", "Description"],
+    "rows": [
+        [
+            "size",
+            "medium, large, small-expressive, small-productive, xsmall",
+            "medium",
+            "Set the size of the button."
+        ],
+        [
+            "type",
+            "button, reset, submit",
+            "submit",
+            "Set the type of the button."
+        ],
+        [
+            "variant",
+            "destructive, destructive-ghost, ghost-inverse, inverse, ghost, outline-inverse, outline, secondary, primary",
+            "primary",
+            "Set the variant of the button."
+        ],
+        [
+            "disabled",
+            "false, true",
+            "false",
+            "if <b>true</b>, disables the button."
+        ],
+        [
+            "isFullWidth",
+            "false, true",
+            "false",
+            "if <b>true</b>, sets the button width to 100% of it's container."
+        ],
+        [
+            "isLoading",
+            "false, true",
+            "false",
+            "if <b>true</b>, displays a loading indicator inside the button."
+        ],
+        [
+            "iconPlacement",
+            "leading, trailing",
+            "undefined",
+            "Show a leading/trailing icon. <br><br> To use this with pie-button, you can pass an icon into the icon slot."
+        ],
+        [
+            "name",
+            "''",
+            "''",
+            "The name of the button, submitted as a pair with the button's value as part of the form data, when that button is used to submit the form."
+        ],
+        [
+            "value",
+            "''",
+            "''",
+            "Defines the value associated with the button's name when it's submitted with the form data. This value is passed to the server in params when the form is submitted using this button."
+        ],
+        [
+            "formaction",
+            "''",
+            "''",
+            "The URL that processes the information submitted by the button. Overrides the action attribute of the button's form owner. Does nothing if there is no form owner."
+        ],
+        [
+            "formenctype",
+            "''",
+            "''",
+            "If the button is a submit button (it's inside/associated with a and doesn't have type=\"button\"), specifies how to encode the form data that is submitted"
+        ],
+        [
+            "formmethod",
+            "''",
+            "''",
+            "If the button is a submit button (it's inside/associated with a and doesn't have type=\"button\"), this attribute specifies the HTTP method used to submit the form."
+        ],
+        [
+            "formnovalidate",
+            "false, true",
+            "false",
+            "If the button is a submit button, this Boolean attribute specifies that the form is not to be validated when it is submitted."
+        ],
+        [
+            "formtarget",
+            "''",
+            "''",
+            "If the button is a submit button, this attribute is an author-defined name or standardized, underscore-prefixed keyword indicating where to display the response from submitting the form."
+        ]
+    ]
+}

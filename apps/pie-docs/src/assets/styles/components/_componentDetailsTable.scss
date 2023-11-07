@@ -1,0 +1,35 @@
+@use '../fozzie-config' as f;
+@use '../variables' as v;
+
+.c-componentDetailsTable-backdrop {
+    margin-block-start: f.$spacing-e;
+    margin-block-end: f.$spacing-f;
+    background-color: f.$color-container-subtle;
+    border-radius: f.$radius-rounded-c;
+    padding: f.$spacing-d f.$spacing-e f.$spacing-e;
+}
+
+.c-componentDetailsTable {
+    border-collapse: collapse;
+    max-inline-size: 100%;
+    inline-size: 100%;
+
+    th,
+    td {
+        text-align: start;
+        vertical-align: top;
+        padding: f.$spacing-b;
+    }
+
+    th,
+    tr:not(:last-child) {
+        border-block-end: 1px solid f.$color-divider-default;
+    }
+}
+
+.c-componentDetailsTable-token {
+    background-color: f.$color-container-default;
+    padding: 2px f.$spacing-a;
+    border-radius: f.$radius-rounded-b;
+    @include f.font-size('body-s');
+}
