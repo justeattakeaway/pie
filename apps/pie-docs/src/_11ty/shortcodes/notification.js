@@ -9,6 +9,10 @@ const getNotificationColour = (tokenName) => {
 };
 
 const notificationSettings = {
+    neutral: {
+        iconFill: 'content-default',
+        bgColour: 'container-subtle',
+    },
     error: {
         iconFill: 'support-error',
         bgColour: 'support-error-02',
@@ -38,6 +42,7 @@ const notificationSettings = {
  * @param {string} config.title - The title of the Notification
  * @param {string} config.message - The message within the Notification. This can be raw text or markdown (which will be transformed into HTML).
  * @param {string} config.context - a contextual string to use to in-built class names. Defaults to "contentPage".
+ * @param {string} config.iconName - The name of the icon to use for the Notification".
  * @returns {string}
  */
 // eslint-disable-next-line func-names
@@ -46,7 +51,7 @@ module.exports = function (config) {
     const contextClass = `c-${context}-notification`;
     const iconFill = getNotificationColour(notificationSettings[config.type].iconFill);
     const svg = pieIconsSvg({
-        name: notificationSettings[config.type].iconName,
+        name: config.iconName ?? notificationSettings[config.type].iconName,
         attrs: {
             height: 24,
             width: 24,

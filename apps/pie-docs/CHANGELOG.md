@@ -1,5 +1,13 @@
 # Changelog
 
+## 3.13.0
+
+### Minor Changes
+
+- [Added] - Extended the notification shortcut to support a neutral variant ([#967](https://github.com/justeattakeaway/pie/pull/967)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Changed] - Refactored some margin values to use css logical properties
+
 ## 3.12.0
 
 ### Minor Changes
