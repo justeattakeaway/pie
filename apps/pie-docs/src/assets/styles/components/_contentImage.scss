@@ -43,8 +43,21 @@ $contentImage-height-l--mobile:           400px;
     justify-content: center;
     height: 100%;
     padding: f.spacing(h) f.spacing(d);
-    background-color: f.$color-background-subtle;
+    background-color: f.$color-container-subtle;
     border-radius: f.$radius-rounded-d;
+
+    &.c-contentImage-default {
+        // Same as default styles
+    }
+
+    &.c-contentImage-secondary {
+        background-color: f.$color-container-default;
+        border: 1px solid f.$color-border-strong;
+    }
+
+    &.c-contentImage-inverse {
+        background-color: f.$color-container-inverse;
+    }
 }
 
 .c-contentImage {
