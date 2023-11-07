@@ -3,6 +3,9 @@ eleventyNavigation:
     key: Code
     parent: Template
     order: 4
+shouldShowContents: true
+eleventyComputed:
+    propTableData: "{% include './props.json' %}"
 ---
 
 ## Overview
@@ -80,3 +83,11 @@ import { PieButton } from '@justeattakeaway/pie-button/dist/react';
 <PieButton onClick={handleClick}>increment</PieButton>
 
 ```
+
+## Props
+
+{% simpleTable {
+  isFullWidth: true,
+  useMonospace: true,
+  tableData: propTableData
+} %}

@@ -22,6 +22,13 @@
     {% if content %}
         <div class="c-content">
             <div class="c-content-container">
+                {% if shouldShowContents %}
+                    <aside>
+                        <h2>Contents</h2>
+                        {{ content | toc | safe}}
+                        <hr />
+                    </aside>
+                {% endif %}
                 {{ content | safe }}
             </div>
         </div>
