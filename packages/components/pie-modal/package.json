@@ -30,7 +30,6 @@
   "devDependencies": {
     "@justeat/pie-design-tokens": "5.8.2",
     "@justeattakeaway/pie-components-config": "0.4.0",
-    "@justeattakeaway/pie-webc-core": "0.11.0",
     "@types/body-scroll-lock": "3.1.1"
   },
   "peerDependencies": {
@@ -40,6 +39,7 @@
     "extends": "../../../package.json"
   },
   "dependencies": {
+    "@justeattakeaway/pie-webc-core": "0.11.0",
     "@justeattakeaway/pie-button": "0.36.1",
     "@justeattakeaway/pie-icon-button": "0.21.1",
     "@justeattakeaway/pie-icons-webc": "0.11.1",
