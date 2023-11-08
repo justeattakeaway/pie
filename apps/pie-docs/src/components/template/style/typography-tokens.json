@@ -1,0 +1,22 @@
+{
+  "headings": [
+    "Element",
+    "Typography token"
+  ],
+  "rows": [
+    [
+      "Element name",
+      {
+        "type": "token",
+        "item": "$token"
+      }
+    ],
+    [
+      "Element name",
+      {
+        "type": "token",
+        "item": "$token"
+      }
+    ]
+  ]
+}
