@@ -40,6 +40,10 @@ const buildRow = (cells) => cells.map((cell) => {
  *            src: '',
  *            alt: ''
  *         }
+ *       },
+ *  *    {
+ *         "type": "code",
+ *         "item": ["primary", "secondary"]
  *       }
  *     ],
  * }`;
@@ -56,9 +60,7 @@ module.exports = ({
     ${headings ? `<tr>${headings.map((heading) => `
         <th>${heading}</th>`).join('')}
     </tr>` : ''}
-    ${rows.map((row) => {
-        return `<tr>${buildRow(row)}`;
-    }).join('')}</tr>
+    ${rows.map((row) => `<tr>${buildRow(row)}`).join('')}</tr>
     </table>
 </div>`;
 };
