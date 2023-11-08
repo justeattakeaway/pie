@@ -5385,9 +5385,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-button@workspace:packages/components/pie-button"
   dependencies:
-    "@justeat/pie-design-tokens": 5.8.2
     "@justeattakeaway/pie-components-config": 0.4.0
-    "@justeattakeaway/pie-css": 0.7.0
+    "@justeattakeaway/pie-spinner": 0.2.1
     "@justeattakeaway/pie-webc-core": 0.11.0
     element-internals-polyfill: 1.3.8
   languageName: unknown
