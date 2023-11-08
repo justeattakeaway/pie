@@ -1,10 +1,55 @@
 import { test, expect } from '@sand4rt/experimental-ct-web';
+import type { Locator } from '@playwright/test';
 import { PieButton, ButtonProps } from '@/index';
 
 const props: Partial<ButtonProps> = {
     size: 'large',
     variant: 'primary',
 };
+
+type SizeResponsiveSize = {
+    sizeName: 'xsmall' | 'small-productive' | 'small-expressive' | 'medium' | 'large';
+    responsiveSize: string;
+};
+
+/**
+ * Gets the value of the given style properties from the shadow element
+ * @param element The custom element instance
+ * @param selector The selector of the element in the shadow
+ * @param props The style properties to get the values from
+ * @returns The values of the given style properties
+ */
+async function getShadowElementStylePropValues (element:Locator, selector:string, props:Array<string>):Promise<Array<string>> {
+    const data = { selector, props };
+
+    const evaluated = await element.evaluate((el, data) => {
+        const { selector, props } = data;
+
+        if (!el || !el.shadowRoot) {
+            throw new Error('getShadowElementStylePropValues: evaluate didnt returned an element');
+        }
+
+        const shadowEl = el.shadowRoot.querySelector(selector);
+
+        if (!shadowEl) {
+            throw new Error('getShadowElementStylePropValues: no shadow element were found');
+        }
+
+        const shadowElStyle = getComputedStyle(shadowEl);
+
+        return props.map((prop) => shadowElStyle.getPropertyValue(prop).trim());
+    }, data);
+
+    return evaluated;
+}
+
+const sizes:Array<SizeResponsiveSize> = [
+    { sizeName: 'xsmall', responsiveSize: '--btn-height--small' },
+    { sizeName: 'small-expressive', responsiveSize: '--btn-height--medium' },
+    { sizeName: 'small-productive', responsiveSize: '--btn-height--medium' },
+    { sizeName: 'medium', responsiveSize: '--btn-height--large' },
+    { sizeName: 'large', responsiveSize: '--btn-height--large' },
+];
 
 test('should correctly work with native click events', async ({ mount }) => {
     const messages: string[] = [];
@@ -522,6 +567,113 @@ test.describe('Form Actions', () => {
 
             // Assert
             expect(associatedFormId).toBe('correctForm');
+        });
+    });
+});
+
+test.describe('props', () => {
+    test.describe('isResponsive', () => {
+        test.describe('when not set', () => {
+            test('the button should not have the attribute', async ({ mount }) => {
+                const component = await mount(
+                    PieButton,
+                    {
+                        props,
+                        slots: {
+                            default: 'Click me!',
+                        },
+                    },
+                );
+
+                await expect(component.locator('button'))
+                    .not.toHaveAttribute('isResponsive', '');
+            });
+        });
+        test.describe('when set to true', () => {
+            test('the button should have the attribute', async ({ mount }) => {
+                const testProps:Partial<ButtonProps> = {
+                    ...props,
+                    size: 'xsmall',
+                    isResponsive: true,
+                };
+
+                const component = await mount(
+                    PieButton,
+                    {
+                        props: testProps,
+                        slots: {
+                            default: 'Click me!',
+                        },
+                    },
+                );
+
+                await expect(component.locator('button'))
+                    .toHaveAttribute('isResponsive', '');
+            });
+
+            sizes.forEach(({ sizeName, responsiveSize }) => {
+                test(`a "${sizeName}" size button height should be equivalent to "${responsiveSize}"`, async ({ mount }) => {
+                    const testProps: Partial<ButtonProps> = {
+                        ...props,
+                        size: sizeName,
+                        isResponsive: true,
+                    };
+
+                    const component = await mount(PieButton, {
+                        props: testProps,
+                        slots: {
+                            default: 'Click me!',
+                        },
+                    });
+
+                    const [currentHeight, expectedHeight] = await getShadowElementStylePropValues(component, 'button', ['--btn-height', responsiveSize]);
+
+                    await expect(currentHeight).toBe(expectedHeight);
+                });
+            });
+        });
+    });
+
+    test.describe('responsiveSize', () => {
+        test.describe('when not set', () => {
+            test('the button should not have the attribute', async ({ mount }) => {
+                const component = await mount(
+                    PieButton,
+                    {
+                        props,
+                        slots: {
+                            default: 'Click me!',
+                        },
+                    },
+                );
+
+                await expect(component.locator('button'))
+                    .not.toHaveAttribute('responsiveSize', '');
+            });
+        });
+
+        test.describe('when set to a valid value', () => {
+            test('the button should have the attribute', async ({ mount }) => {
+                const testProps:Partial<ButtonProps> = {
+                    ...props,
+                    size: 'xsmall',
+                    isResponsive: true,
+                    responsiveSize: 'expressive',
+                };
+
+                const component = await mount(
+                    PieButton,
+                    {
+                        props: testProps,
+                        slots: {
+                            default: 'Click me!',
+                        },
+                    },
+                );
+
+                await expect(component.locator('button'))
+                    .toHaveAttribute('responsiveSize', 'expressive');
+            });
         });
     });
 });
