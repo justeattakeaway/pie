@@ -2,7 +2,7 @@ const path = require('path');
 
 const transpileModules = [
     '@justeattakeaway/pie-button',
-    '@lit-labs/react',
+    '@lit/react',
     'lit'
 ];
 

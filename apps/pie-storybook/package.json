@@ -31,7 +31,6 @@
   },
   "devDependencies": {
     "@storybook/addon-a11y": "7.5.1",
-    "@storybook/addon-designs": "7.0.5",
     "@storybook/addon-essentials": "7.5.1",
     "@storybook/addon-links": "7.5.1",
     "@storybook/addons": "7.5.1",
@@ -50,5 +49,8 @@
   },
   "volta": {
     "extends": "../../package.json"
+  },
+  "installConfig": {
+    "hoistingLimits": "workspaces"
   }
 }

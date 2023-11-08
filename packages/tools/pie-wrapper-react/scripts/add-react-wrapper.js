@@ -15,7 +15,7 @@ const loadCustomElementsFile = () => JSON.parse(fs.readFileSync(path.resolve(pro
  * @return {string} - The source code of the react wrapper
  *
  */
-export function addReactWrapper (customElementsObject, folderName = process.argv[2]) {
+export function addReactWrapper(customElementsObject, folderName = process.argv[2]) {
     const components = [];
     const customElements = Object.entries(customElementsObject);
 
@@ -61,16 +61,16 @@ export function addReactWrapper (customElementsObject, folderName = process.argv
      * @param {*} component object from within components array
      * @return {*} events array containing a component's custom events
      */
-    function getEvents (component) {
+    function getEvents(component) {
         const events = [];
         if (component?.events) {
             events.push(component.events
-                    .filter((event) => !!event.name)
-                    .map((event) => ({
-                        name: event.name,
-                        type: event.type?.text || 'Event',
-                        description: event.description,
-                    })));
+                .filter((event) => !!event.name)
+                .map((event) => ({
+                    name: event.name,
+                    type: event.type?.text || 'Event',
+                    description: event.description,
+                })));
         }
 
         return events;
@@ -78,7 +78,7 @@ export function addReactWrapper (customElementsObject, folderName = process.argv
 
     // format event names in a React friendly way - removes hyphens and capitalises
     // i.e. foo-bar-baz becomes FooBarBaz
-    function formatEventName (eventName) {
+    function formatEventName(eventName) {
         return eventName
             .split('-')
             .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
@@ -105,7 +105,7 @@ export function addReactWrapper (customElementsObject, folderName = process.argv
             // Create the main source code
             componentSrc = `
 import * as React from 'react';
-import { createComponent${component.class.events?.length > 0 ? ', EventName' : ''} } from '@lit-labs/react';
+import { createComponent${component.class.events?.length > 0 ? ', EventName' : ''} } from '@lit/react';
 import { ${component.class.name} as ${component.class.name}React } from './index';
 
 export * from './defs';
