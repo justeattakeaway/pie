@@ -12,7 +12,7 @@ const buildRow = (cells) => cells.map((cell) => {
         const { src, alt } = cell.item;
         content = `<img src=${src} alt=${alt}>`;
     } else if (cell.type === 'code') {
-        content = cell.item.map(element => `<code>${element}</code><br>`).join('')
+        content = cell.item.map((element) => `<code>${element}</code><br>`).join('');
     }
     return `<td>${content}</td>`;
 }).join('');
@@ -57,9 +57,8 @@ module.exports = ({
         <th>${heading}</th>`).join('')}
     </tr>` : ''}
     ${rows.map((row) => {
-        console.log('YOO', row);
-
-    return `<tr>${buildRow(row)}`}).join('')}</tr>
+        return `<tr>${buildRow(row)}`;
+    }).join('')}</tr>
     </table>
 </div>`;
 };
