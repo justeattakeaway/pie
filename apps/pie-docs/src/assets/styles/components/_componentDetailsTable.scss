@@ -19,6 +19,8 @@
         text-align: start;
         vertical-align: top;
         padding: f.$spacing-b;
+        // for columns with a lot of content, such as prop descriptions
+        max-width: 300px;
     }
 
     th,

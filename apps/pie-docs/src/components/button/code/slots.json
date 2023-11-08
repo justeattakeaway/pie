@@ -2,12 +2,18 @@
     "headings": ["Slot", "Description"],
     "rows": [
         [
-            "default",
+            {
+                "type": "code",
+                "item": ["default"]
+            },
             "The default slot is used to pass text into the button component."
         ],
         [
-            "icon",
-            "Used to pass in an icon to the button component. The icon placement can be controlled via the <b>iconPlacement</b> prop and we recommend using pie-icons-webc for defining this icon, but this can also accept an SVG icon."
+            {
+                "type": "code",
+                "item": ["icon"]
+            },
+            "Used to pass in an icon to the button component. The icon placement can be controlled via the <code>iconPlacement</code> prop and we recommend using pie-icons-webc for defining this icon, but this can also accept an SVG icon."
         ]
     ]
 }
