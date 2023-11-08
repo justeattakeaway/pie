@@ -2,30 +2,65 @@ import * as ButtonStories from '../pie-button.stories.tsx'
 import { Meta, Canvas } from '@storybook/blocks';
 
 <Meta of={ButtonStories} />
+
 ### Primary
+
 The primary button should be prominent, limited to one per page. It should be reserved for the most critical action.
-<Canvas of={ButtonStories.Primary} style={{backgroundColor: 'black'}}/>
+
+<Canvas of={ButtonStories.Primary} />
+
+
 ### Secondary
+
 Secondary buttons are supplementary options for non-essential actions on a web page.
+
 <Canvas of={ButtonStories.Secondary} />
+
+
 ### Outline
+
 Outline buttons are designed to provide increased emphasis compared to ghost buttons.
+
 <Canvas of={ButtonStories.Outline} />
+
+
 ### Ghost
+
 Ghost buttons are commonly employed for actions that are less crucial. They are ideal for repetitive actions, such as an edit button on a recurring card.
+
 <Canvas of={ButtonStories.Ghost} />
+
+
 ### Destructive
+
 Destructive buttons are used for high impact deletions that can result in permanent and undesired consequences. They should be limited to one per page.
+
 <Canvas of={ButtonStories.Destructive} />
+
+
 ### Destructive Ghost
+
 Destructive ghost buttons are employed for lower impact destructive actions, with no direct consequences and require confirmation. 
+
 <Canvas of={ButtonStories.DestructiveGhost} />
+
+
 ### Inverse
+
 Inverse buttons are specifically designed to be used on backgrounds with colours or images, and it's recommended to limit their usage to just one per page. They are reserved for the most critical actions, such as "Next," "Save," "Submit," etc.
-<Canvas of={ButtonStories.Inverse} class={"inverse-button"} class="hey" />
+
+<Canvas of={ButtonStories.Inverse} />
+
+
 ### Ghost Inverse
+
 Ghost Inverse buttons are intended for utilisation on backgrounds with colours or images, and are usually reserved for actions of lesser significance. They can be used independently or in conjunction with a primary button. Ghost Inverse buttons are ideal for repetitive actions, such as an edit button on a repeating card.
+
 <Canvas of={ButtonStories.GhostInverse} />
+
+
 ### Outline Inverse
+
+
 Inverse buttons are specifically designed to be used on backgrounds with colours or images, and it's recommended to limit their usage to just one per page. They are reserved for the most critical actions, such as "Next," "Save," "Submit," etc.
 <Canvas of={ButtonStories.OutlineInverse} />
