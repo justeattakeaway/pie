@@ -11,6 +11,10 @@ const buildRow = (cells) => cells.map((cell) => {
     } else if (cell.type === 'image') {
         const { src, alt } = cell.item;
         content = `<img src=${src} alt=${alt}>`;
+    } else if (cell.type === 'code') {
+        return content = cell.item.map(element => {
+            return `<code>${element}</code><br>`
+        }).join('')
     }
     return `<td>${content}</td>`;
 }).join('');

@@ -1,5 +1,6 @@
 {
   "title": "Button",
   "navKey": "Button",
-  "description": "A button is a clickable element in a user interface that triggers an action when pressed."
+  "description": "A button is a clickable element in a user interface that triggers an action when pressed.",
+  "draft": true
 }
