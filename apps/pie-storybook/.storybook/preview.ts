@@ -1,4 +1,5 @@
 import '@justeattakeaway/pie-css';
+import './global.scss';
 
 import { WritingDirection } from '../decorators';
 import { type StoryBackgrounds } from '../types/StoryOptions';

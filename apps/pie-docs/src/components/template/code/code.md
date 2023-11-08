@@ -11,6 +11,12 @@ eleventyComputed:
 
 ## Overview
 
+<p>
+  <a href="https://www.npmjs.com/@justeattakeaway/pie-button">
+    <img alt="GitHub Workflow Status" src="https://img.shields.io/npm/v/@justeattakeaway/pie-button.svg">
+  </a>
+</p>
+
 `pie-button` is a Web Component built using the Lit library. It offers a simple and accessible button component for web applications.
 
 This component can be easily integrated into various frontend frameworks and customized through a set of properties.
@@ -28,19 +34,26 @@ $ npm i @justeattakeaway/pie-button
 # yarn
 $ yarn add @justeattakeaway/pie-button
 ```
+
+{% notification {
+  type: "neutral",
+  iconName: "link",
+  message: "For more information on using PIE components as part of an application, check out the [Getting Started Guide.](https://github.com/justeattakeaway/pie/wiki/Getting-started-with-PIE-Web-Components)."
+} %}
+
 ## Playground
 
  <iframe
-  src="http://localhost:6006/?path=/docs/button--pie-button-playground&viewMode=story&shortcuts=true&singleStory=true"
+  src="http://localhost:6006/?path=/docs/button--playground&viewMode=story&shortcuts=true&singleStory=true"
   width="100%"
-  height="800px"
+  height="600px"
   style="border: none; margin-top: 24px;"
 ></iframe>
 
 ## Variants
 
  <iframe
-  src="http://localhost:6006/?path=/docs/button--documentation&viewMode=story&shortcuts=true&singleStory=true"
+  src="http://localhost:6006/?path=/docs/button--variants&viewMode=story&shortcuts=true&singleStory=true"
   width="100%"
   height="800px"
   style="border: none; background-color: #fcfcfc; margin-top: 24px;"
@@ -79,6 +92,13 @@ The `pie-button` provides a set of attributes to customize its behavior within f
 - `formnovalidate`: If present, ensures the form is submitted without validation checks.
 - `formtarget`: Dictates where to display the response after form submission.
 
+ <iframe
+  src="http://localhost:6006/?path=/docs/button--form&viewMode=story&shortcuts=true&singleStory=true"
+  width="100%"
+  height="800px"
+  style="border: none; background-color: #fcfcfc; margin-top: 24px;"
+></iframe>
+
 {% notification {
   type: "neutral",
   iconName: "link",
@@ -114,9 +134,15 @@ In this example:
 
 For HTML:
 
+```js
+// import as module into a js file e.g. main.js
+import '@justeattakeaway/pie-button'
+```
+
 ```html
-<!-- import '@justeattakeaway/pie-button' as a module in the script tag  -->
+<!-- pass js file into <script> tag -->
 <pie-button type="reset" isFullWidth="true" onclick="e => console.log(e)">Click me!</pie-button>
+<script type="module" src="/main.js"></script>
 ```
 
 For Native JS Applications, Vue, Angular, Svelte etc.: 

@@ -171,24 +171,23 @@ const Template: TemplateFunction<ButtonProps> = ({
     formnovalidate,
     formtarget,
 }) => html`
-        <pie-button
-            size="${size}"
-            variant="${variant}"
-            type="${type}"
-            iconPlacement="${iconPlacement || nothing}"
-            ?disabled="${disabled}"
-            ?isLoading="${isLoading}"
-            ?isFullWidth="${isFullWidth}"
-            name=${name || nothing}
-            value=${value || nothing}
-            formaction=${formaction || nothing}
-            formenctype=${formenctype || nothing}
-            formmethod=${formmethod || nothing}
-            formtarget=${formtarget || nothing}
-            ?formnovalidate="${formnovalidate}">
-            ${iconPlacement ? html`<icon-plus-circle slot="icon"></icon-plus-circle>` : nothing}
-            ${slot}
-        </pie-button>`;
+<pie-button
+    size="${size}"
+    variant="${variant}"
+    type="${type}"
+    iconPlacement="${iconPlacement || nothing}"
+    ?disabled="${disabled}"
+    ?isLoading="${isLoading}"
+    ?isFullWidth="${isFullWidth}"
+    name=${name || nothing}
+    value=${value || nothing}
+    formaction=${formaction || nothing}
+    formenctype=${formenctype || nothing}
+    formmethod=${formmethod || nothing}
+    formtarget=${formtarget || nothing}
+    ?formnovalidate="${formnovalidate}">
+    ${iconPlacement ? html`<icon-plus-circle slot="icon"></icon-plus-circle>` : nothing}${slot}
+</pie-button>`;
 
 const FormTemplate: TemplateFunction<ButtonProps> = (props: ButtonProps) => html`
 <p id="formLog" style="display: none; font-size: 2rem; color: var(--dt-color-support-positive);"></p>
