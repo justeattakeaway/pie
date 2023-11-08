@@ -185,8 +185,7 @@ const Template: TemplateFunction<ButtonProps> = ({
     formmethod=${formmethod || nothing}
     formtarget=${formtarget || nothing}
     ?formnovalidate="${formnovalidate}">
-    ${iconPlacement ? html`<icon-plus-circle slot="icon"></icon-plus-circle>` : nothing}
-    ${slot}
+    ${iconPlacement ? html`<icon-plus-circle slot="icon"></icon-plus-circle>` : nothing}${slot}
 </pie-button>`;
 
 const FormTemplate: TemplateFunction<ButtonProps> = (props: ButtonProps) => html`
