@@ -44,7 +44,7 @@ const buildRow = (cells) => cells.map((cell) => {
  *       {
  *         "type": "code",
  *         "item": [
-*             "primary", 
+*             "primary",
 *             "secondary"
  *          ]
  *       },
