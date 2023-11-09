@@ -9,7 +9,7 @@ import {
 /* eslint-enable import/no-duplicates */
 
 import type { StoryMeta, SlottedComponentProps } from '../types';
-import { createStory, type TemplateFunction, staticSlot } from '../utilities';
+import { createStory, type TemplateFunction, sanitizeAndRenderHTML } from '../utilities';
 
 type CardProps = SlottedComponentProps<CardPropsBase>;
 type CardStoryMeta = StoryMeta<CardProps>;
@@ -136,7 +136,7 @@ const Template: TemplateFunction<CardProps> = ({
             .aria="${aria}"
             padding="${padding || nothing}"
             ?isDraggable="${isDraggable}">
-                ${staticSlot(slot)}
+                ${sanitizeAndRenderHTML(slot)}
             </pie-card>`;
 
 const createCardStory = createStory<CardProps>(Template, defaultArgs);
