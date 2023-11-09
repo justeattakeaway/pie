@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.37.0
+
+### Minor Changes
+
+- [Changed] - reuse pie-spinner in pie-button ([#958](https://github.com/justeattakeaway/pie/pull/958)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.36.1
 
 ### Patch Changes
