@@ -47,7 +47,7 @@ const buildRow = (cells) => cells.map((cell) => {
 *             "primary",
 *             "secondary"
  *          ]
- *       }
+ *       },
  *     ],
  * }`;
  * @param {string} tableData - JSON string containing table data.
