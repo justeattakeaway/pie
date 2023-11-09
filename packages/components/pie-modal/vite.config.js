@@ -6,6 +6,7 @@ export default viteConfig({
             external: [
                 '@justeattakeaway/pie-button',
                 '@justeattakeaway/pie-icon-button',
+                '@justeattakeaway/pie-spinner',
             ],
         },
     },

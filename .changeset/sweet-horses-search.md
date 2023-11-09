@@ -2,6 +2,7 @@
 "@justeattakeaway/pie-components-config": minor
 "@justeattakeaway/pie-cookie-banner": patch
 "@justeattakeaway/pie-button": patch
+"@justeattakeaway/pie-icon-button": patch
 "@justeattakeaway/pie-modal": patch
 ---
 
