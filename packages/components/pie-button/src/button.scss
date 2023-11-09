@@ -6,6 +6,20 @@
     box-sizing: border-box;
 }
 
+$breakpoint-wide: 768px;
+
+/**
+* Mixin for adding the responsive behaviour.
+* Takes in the the particular settings for the wide breakpoint.
+*/
+@mixin responsive-wide {
+    &[isResponsive] {
+        @media (min-width: $breakpoint-wide) {
+            @content;
+        }
+    }
+}
+
 // Base button styles
 .o-btn {
     // Custom Property Declarations
@@ -13,11 +27,6 @@
     --btn-border-radius: var(--dt-radius-rounded-e);
     --btn-font-family: var(--dt-font-interactive-m-family);
     --btn-font-weight: var(--dt-font-interactive-m-weight);
-
-    // The base values are set to the size default, which is for the medium button size
-    --btn-padding: 10px var(--dt-spacing-e);
-    --btn-font-size: #{p.font-size(--dt-font-size-20)};
-    --btn-line-height: calc(var(--dt-font-size-20-line-height) * 1px);
 
     // The following values set to default background and color
     // currently this sets the primary button styles
@@ -30,11 +39,43 @@
     --btn-height--medium: 48px;
     --btn-height--large: 56px;
 
-    // Set height to medium (the default state)
-    --btn-height: var(--btn-height--medium);
-
-    // Set icon size to the medium button icon size (the default state)
-    --btn-icon-size: 24px;
+    /**
+    * Mixin for updating the button styles based on the size passed in.
+    * Takes in the name of the size to be used.
+    */
+    @mixin button-size($size) {
+        @if $size == 'xsmall' {
+            --btn-height: var(--btn-height--xsmall);
+            --btn-padding: 6px var(--dt-spacing-b);
+            --btn-font-size: #{p.font-size(--dt-font-size-14)};
+            --btn-line-height: calc(var(--dt-font-size-14-line-height) * 1px);
+            --btn-icon-size: 16px;
+        } @else if $size == 'small-expressive' {
+            --btn-height: var(--btn-height--small);
+            --btn-padding: 6px var(--dt-spacing-d);
+            --btn-font-size: #{p.font-size(--dt-font-size-20)};
+            --btn-line-height: calc(var(--dt-font-size-20-line-height) * 1px);
+            --btn-icon-size: 20px;
+        } @else if $size == 'small-productive' {
+            --btn-height: var(--btn-height--small);
+            --btn-padding: 8px var(--dt-spacing-d);
+            --btn-font-size: #{p.font-size(--dt-font-size-16)};
+            --btn-line-height: calc(var(--dt-font-size-16-line-height) * 1px);
+            --btn-icon-size: 20px;
+        } @else if $size == 'medium' {
+            --btn-height: var(--btn-height--medium);
+            --btn-padding: 10px var(--dt-spacing-e);
+            --btn-font-size: #{p.font-size(--dt-font-size-20)};
+            --btn-line-height: calc(var(--dt-font-size-20-line-height) * 1px);
+            --btn-icon-size: 24px;
+        } @else if $size == 'large' {
+            --btn-height: var(--btn-height--large);
+            --btn-padding: 14px var(--dt-spacing-e);
+            --btn-font-size: #{p.font-size(--dt-font-size-20)};
+            --btn-line-height: calc(var(--dt-font-size-20-line-height) * 1px);
+            --btn-icon-size: 24px;
+        }
+    }
 
     position: relative;
     display: flex;
@@ -160,40 +201,40 @@
     }
 
     &[size='xsmall'] {
-        --btn-height: var(--btn-height--xsmall);
-        --btn-padding: 6px var(--dt-spacing-b);
-        --btn-font-size: #{p.font-size(--dt-font-size-14)};
-        --btn-line-height: calc(var(--dt-font-size-14-line-height) * 1px);
-        --btn-icon-size: 16px;
-    }
+        @include button-size(xsmall);
+        @include responsive-wide {
+            // productive is the default size when responsive is enabled
+            @include button-size(small-productive);
 
-    &[size='small-expressive'],
-    &[size='small-productive'] {
-        --btn-height: var(--btn-height--small);
-        --btn-icon-size: 20px;
+            &[responsiveSize='expressive'] {
+                @include button-size(small-expressive);
+            }
+        }
     }
 
     &[size='small-expressive'] {
-        --btn-padding: 6px var(--dt-spacing-d);
-        --btn-font-size: #{p.font-size(--dt-font-size-20)};
-        --btn-line-height: calc(var(--dt-font-size-20-line-height) * 1px);
+        @include button-size(small-expressive);
+        @include responsive-wide {
+            @include button-size(medium);
+        }
     }
 
     &[size='small-productive'] {
-        --btn-padding: 8px var(--dt-spacing-d);
-        --btn-font-size: #{p.font-size(--dt-font-size-16)};
-        --btn-line-height: calc(var(--dt-font-size-16-line-height) * 1px);
+        @include button-size(small-productive);
+        @include responsive-wide {
+            @include button-size(medium);
+        }
     }
 
     &[size='medium'] {
-        /* Same as default styles */
+        @include button-size(medium);
+        @include responsive-wide {
+            @include button-size(large);
+        }
     }
 
     &[size='large'] {
-        --btn-height: var(--btn-height--large);
-        --btn-padding: 14px var(--dt-spacing-e);
-        --btn-font-size: #{p.font-size(--dt-font-size-20)};
-        --btn-line-height: calc(var(--dt-font-size-20-line-height) * 1px);
+        @include button-size(large);
     }
 
     &[isLoading] {
