@@ -1,5 +1,10 @@
 window.addEventListener('DOMContentLoaded', () => {
     const list = document.getElementsByClassName('c-content-list');
+
+    if (list.length === 0) {
+        return;
+    }
+
     const listItems = list[0].children[0].children;
     const columns = Math.ceil(listItems.length / 6);
 

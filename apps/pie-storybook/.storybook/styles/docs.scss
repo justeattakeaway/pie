@@ -1,0 +1,6 @@
+// for styling storybook documentation pages
+@use './fozzie-config' as f;
+
+.docs-story:has([id*=inverse]) {
+    background-color: f.$color-background-dark;
+}
