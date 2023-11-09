@@ -11,6 +11,8 @@ const buildRow = (cells) => cells.map((cell) => {
     } else if (cell.type === 'image') {
         const { src, alt } = cell.item;
         content = `<img src=${src} alt=${alt}>`;
+    } else if (cell.type === 'code') {
+        content = cell.item.map((element) => `<code>${element}</code><br>`).join('');
     }
     return `<td>${content}</td>`;
 }).join('');
@@ -38,7 +40,14 @@ const buildRow = (cells) => cells.map((cell) => {
  *            src: '',
  *            alt: ''
  *         }
- *       }
+ *       },
+ *       {
+ *         "type": "code",
+ *         "item": [
+*             "primary",
+*             "secondary"
+ *          ]
+ *       },
  *     ],
  * }`;
  * @param {string} tableData - JSON string containing table data.
