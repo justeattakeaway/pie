@@ -11,6 +11,7 @@ const config: StorybookConfig = {
         "@storybook/addon-designs",
         "@storybook/addon-essentials",
         "@storybook/addon-links",
+        "storybook-dark-mode",
     ],
     framework: {
         name: "@storybook/web-components-vite",
