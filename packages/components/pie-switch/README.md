@@ -15,7 +15,8 @@
 3. [Importing the component](#importing-the-component)
 4. [Peer Dependencies](#peer-dependencies)
 5. [Props](#props)
-6. [Contributing](#contributing)
+6. [Events](#Events)
+7. [Contributing](#contributing)
 
 ## pie-switch
 
@@ -41,13 +42,27 @@ For full information on using PIE components as part of an application, check ou
 
 ### Importing the component
 
+#### JavaScript
 ```js
-// default
+// Default – for Native JS Applications, Vue, Angular, Svelte, etc.
 import { PieSwitch } from '@justeattakeaway/pie-switch';
 
-// react
+// If you don't need to reference the imported object, you can simply
+// import the module which registers the component as a custom element.
+import '@justeattakeaway/pie-switch';
+```
+
+#### React
+```js
+// React
+// For React, you will need to import our React-specific component build
+// which wraps the web component using @lit-labs/react
 import { PieSwitch } from '@justeattakeaway/pie-switch/dist/react';
 ```
+
+> [!NOTE]
+> When using the React version of the component, please make sure to also
+> include React as a [peer dependency](#peer-dependencies) in your project.
 
 
 ## Peer Dependencies
@@ -73,6 +88,12 @@ In your markup or JSX, you can then use these to set the properties for the `pie
 <!-- JSX -->
 <PieSwitch></PieSwitch>
 ```
+
+## Events
+
+| Event | Payload | Description |
+| ----- |-----| ----- |
+| `pie-switch-changed` | `this.isChecked` | Custom event to indicate a switch change. The event's detail contains the value of this.isChecked.  |
 
 ## Contributing
 

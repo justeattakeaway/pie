@@ -3,13 +3,17 @@ import {
 } from 'lit';
 import { html, unsafeStatic } from 'lit/static-html.js';
 import { property, query } from 'lit/decorators.js';
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
+
+import '@justeattakeaway/pie-button';
+import '@justeattakeaway/pie-icon-button';
 import {
     requiredProperty, RtlMixin, validPropertyValues, defineCustomElement,
 } from '@justeattakeaway/pie-webc-core';
 import '@justeattakeaway/pie-icons-webc/IconClose';
 import '@justeattakeaway/pie-icons-webc/IconChevronLeft';
 import '@justeattakeaway/pie-icons-webc/IconChevronRight';
-import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
+import '@justeattakeaway/pie-spinner';
 
 import styles from './modal.scss?inline';
 import {
@@ -339,6 +343,7 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
             <div class="c-modal-contentInner">
                 <slot></slot>
             </div>
+            ${this.isLoading ? html`<pie-spinner size="xl" variant="secondary"></pie-spinner>` : nothing}
         </article>
         <footer class="c-modal-footer">
             ${this.leadingAction ? this.renderLeadingAction() : nothing}

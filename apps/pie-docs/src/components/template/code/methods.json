@@ -1,0 +1,13 @@
+{
+    "headings": ["name", "Parameters", "Description"],
+    "rows": [
+        [
+            {
+                "type": "code",
+                "item": ["function()"]
+            },
+            "-",
+            "Purpose of function here"
+        ]
+    ]
+}

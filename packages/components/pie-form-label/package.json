@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-form-label",
   "description": "PIE Design System Form Label built using Web Components",
-  "version": "0.8.0",
+  "version": "0.8.1",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",

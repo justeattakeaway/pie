@@ -42,13 +42,27 @@ For full information on using PIE components as part of an application, check ou
 
 ### Importing the component
 
+#### JavaScript
 ```js
-// default
+// Default – for Native JS Applications, Vue, Angular, Svelte, etc.
 import { PieCookieBanner } from '@justeattakeaway/pie-cookie-banner';
 
-// react
+// If you don't need to reference the imported object, you can simply
+// import the module which registers the component as a custom element.
+import '@justeattakeaway/pie-cookie-banner';
+```
+
+#### React
+```js
+// React
+// For React, you will need to import our React-specific component build
+// which wraps the web component using @lit-labs/react
 import { PieCookieBanner } from '@justeattakeaway/pie-cookie-banner/dist/react';
 ```
+
+> [!NOTE]
+> When using the React version of the component, please make sure to also
+> include React as a [peer dependency](#peer-dependencies) in your project.
 
 
 ## Peer Dependencies
@@ -61,6 +75,7 @@ import { PieCookieBanner } from '@justeattakeaway/pie-cookie-banner/dist/react';
 | Property | Type | Default | Description |
 |---|---|---|---|
 | hasPrimaryActionsOnly | `Boolean` | `false` | When true, sets the variant to "primary" for the button which accepts necessary cookies only. |
+| locale | `Object` | {English language locale} | Assigns the localisation data for the component strings |
 
 In your markup or JSX, you can then use these to set the properties for the `pie-cookie-banner` component:
 
@@ -70,6 +85,23 @@ In your markup or JSX, you can then use these to set the properties for the `pie
 
 <!-- JSX -->
 <PieCookieBanner></PieCookieBanner>
+```
+
+### Localisation
+
+By default the component displays its content in English language. To display the content in another language, you need to import the locale data for that language and pass it in the `locale` prop. For example, to display the content in Dutch, you need to import the Dutch locale data:
+
+```js
+import locale from '@justeattakeaway/pie-cookie-banner/locales/nl-nl.json';
+
+<!-- JSX -->
+<PieCookieBanner locale={locale}></PieCookieBanner>
+```
+
+It's possible to import all locales at once, if necessary:
+
+```js
+import allLocales from '@justeattakeaway/pie-cookie-banner/locales';
 ```
 
 ## Contributing

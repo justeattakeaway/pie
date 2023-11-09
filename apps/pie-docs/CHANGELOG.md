@@ -1,5 +1,27 @@
 # Changelog
 
+## 3.13.0
+
+### Minor Changes
+
+- [Added] - Extended the notification shortcut to support a neutral variant ([#967](https://github.com/justeattakeaway/pie/pull/967)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Changed] - Refactored some margin values to use css logical properties
+
+## 3.12.0
+
+### Minor Changes
+
+- [Added] - component template ([#893](https://github.com/justeattakeaway/pie/pull/893)) by [@FayeCarter](https://github.com/FayeCarter)
+
+- [Added] - column layout component ([#961](https://github.com/justeattakeaway/pie/pull/961)) by [@FayeCarter](https://github.com/FayeCarter)
+
+## 3.11.0
+
+### Minor Changes
+
+- [Added] - Search engine to site ([#933](https://github.com/justeattakeaway/pie/pull/933)) by [@LTurns](https://github.com/LTurns)
+
 ## 3.10.0
 
 ### Minor Changes

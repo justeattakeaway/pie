@@ -1,5 +1,5 @@
 import {
-    LitElement, html, unsafeCSS, nothing,
+    LitElement, html, unsafeCSS, nothing, PropertyValues, TemplateResult,
 } from 'lit';
 import { property } from 'lit/decorators.js';
 import { validPropertyValues, defineCustomElement } from '@justeattakeaway/pie-webc-core';
@@ -8,6 +8,7 @@ import {
 } from './defs';
 import styles from './button.scss?inline';
 import 'element-internals-polyfill';
+import '@justeattakeaway/pie-spinner';
 
 // Valid values available to consumers
 export * from './defs';
@@ -32,6 +33,35 @@ export class PieButton extends LitElement implements ButtonProps {
     constructor () {
         super();
         this._internals = this.attachInternals();
+    }
+
+    connectedCallback () {
+        super.connectedCallback();
+
+        if (this.type === 'submit') {
+            this.form?.addEventListener('keydown', this._handleFormKeyDown);
+        }
+    }
+
+    disconnectedCallback () {
+        super.disconnectedCallback();
+
+        if (this.type === 'submit') {
+            this.form?.removeEventListener('keydown', this._handleFormKeyDown);
+        }
+    }
+
+    updated (changedProperties: PropertyValues<this>): void {
+        super.updated(changedProperties);
+
+        if (changedProperties.has('type')) {
+            // If the new type is "submit", add the keydown event listener
+            if (this.type === 'submit') {
+                this.form?.addEventListener('keydown', this._handleFormKeyDown);
+            } else {
+                this.form?.removeEventListener('keydown', this._handleFormKeyDown);
+            }
+        }
     }
 
     @property()
@@ -148,6 +178,42 @@ export class PieButton extends LitElement implements ButtonProps {
         }
     }
 
+    // This allows a user to press enter anywhere inside the form and trigger a form submission
+    private _handleFormKeyDown = (event: KeyboardEvent) => {
+        if (event.key !== 'Enter' || this.type !== 'submit' || this.disabled) {
+            return;
+        }
+
+        if (event.target instanceof HTMLElement) {
+            const targetTagName = event.target.tagName.toLowerCase();
+
+            // We want to ignore the enter key if the user is on a button or another pie-button
+            if (targetTagName === 'button' || targetTagName === 'pie-button') {
+                return;
+            }
+        }
+
+        event.preventDefault();
+        this._handleClick();
+    };
+
+    /**
+     * Template for the loading state
+     *
+     * @private
+     */
+    private renderSpinner (): TemplateResult {
+        const spinnerSize = this.size.includes('small') ? 's' : 'm'; // includes("small") matches for any small size value and xsmall
+        const inverseVariants: Array<ButtonProps['variant']> = ['primary', 'destructive', 'outline-inverse', 'ghost-inverse'];
+        const spinnerVariant = inverseVariants.includes(this.variant) ? 'inverse' : 'secondary';
+
+        return html`
+                    <pie-spinner
+                        size="${spinnerSize}"
+                        variant="${spinnerVariant}"
+                    </pie-spinner>`;
+    }
+
     render () {
         const {
             type,
@@ -169,6 +235,7 @@ export class PieButton extends LitElement implements ButtonProps {
                 ?disabled=${disabled}
                 ?isFullWidth=${isFullWidth}
                 ?isLoading=${isLoading}>
+                    ${isLoading ? this.renderSpinner() : nothing}
                     ${iconPlacement === 'leading' ? html`<slot name="icon"></slot>` : nothing}
                     <slot></slot>
                     ${iconPlacement === 'trailing' ? html`<slot name="icon"></slot>` : nothing}

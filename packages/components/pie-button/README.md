@@ -47,19 +47,27 @@ For full information on using PIE components as part of an application, check ou
 
 ### Importing the component
 
+#### JavaScript
 ```js
-// Default – for Native JS Applications, Vue, Angular, Svelte etc.
+// Default – for Native JS Applications, Vue, Angular, Svelte, etc.
 import { PieButton } from '@justeattakeaway/pie-button';
 
+// If you don't need to reference the imported object, you can simply
+// import the module which registers the component as a custom element.
+import '@justeattakeaway/pie-button';
+```
+
+#### React
+```js
 // React
-// For React, you will need to import our React specific component build
-// Which wraps the web component using the @lit-labs/react package
-
-// Note: When using the React version of the component, please make sure
-// you also include React as a dependency in your project as well. See Peer Dependencies section.
-
+// For React, you will need to import our React-specific component build
+// which wraps the web component using @lit-labs/react
 import { PieButton } from '@justeattakeaway/pie-button/dist/react';
 ```
+
+> [!NOTE]
+> When using the React version of the component, please make sure to also
+> include React as a [peer dependency](#peer-dependencies) in your project.
 
 
 ## Peer Dependencies

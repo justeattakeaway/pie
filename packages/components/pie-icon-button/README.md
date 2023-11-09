@@ -46,15 +46,27 @@ For full information on using PIE components as part of an application, check ou
 
 ### Importing the component
 
+#### JavaScript
 ```js
-// Default – for Native JS Applications, Vue, Angular, Svelte etc.
+// Default – for Native JS Applications, Vue, Angular, Svelte, etc.
 import { PieIconButton } from '@justeattakeaway/pie-icon-button';
 
+// If you don't need to reference the imported object, you can simply
+// import the module which registers the component as a custom element.
+import '@justeattakeaway/pie-icon-button';
+```
+
+#### React
+```js
 // React
-// For React, you will need to import our React specific component build
-// Which wraps the web component using the @lit-labs/react package
+// For React, you will need to import our React-specific component build
+// which wraps the web component using @lit-labs/react
 import { PieIconButton } from '@justeattakeaway/pie-icon-button/dist/react';
 ```
+
+> [!NOTE]
+> When using the React version of the component, please make sure to also
+> include React as a [peer dependency](#peer-dependencies) in your project.
 
 
 ## Peer Dependencies
@@ -94,7 +106,8 @@ Then, in your markup, you would implement the component like this:
 |-------------|-----------|-----------------|----------------------------------------------------------------------|
 | size        | `String`  | `medium`        | Size of the Icon Button, one of `sizes` – `xsmall`, `small`, `medium`, `large` |
 | variant     | `String`  | `primary`       | Variant of the button, one of `variants` – `primary`, `secondary`, `outline`, `ghost`, `ghost-secondary` |
-| disabled    | `Boolean` | `false`         | If `true`, disables the button.                                      |
+| disabled    | `Boolean` | `false`| If `true`, disables the button.|
+| isLoading    | `Boolean` | `false` | If `true`, displays a loading indicator inside the icon button. |
 
 In your HTML markup or JSX, you can then use these to set the properties for the `pie-icon-button` component, like so:
 

@@ -6,67 +6,6 @@
     box-sizing: border-box;
 }
 
-/**
-* Defines button interactive states for hover, active and loading.
-* $bg-color: design token name to be used for the states
-* $mode: 'default': apply the default lighten/darken to the color via hsl
-*        'transparent': uses hsla syntax to make the color semi-opaque (used for ghost and outline button variants)
-*/
-@mixin button-interactive-states($bg-color, $mode: 'default') {
-    &:hover:not(:disabled) {
-        @if $mode == 'alt' {
-            --hover-modifier: calc(-1 * var(--dt-color-hover-02));
-        } @else {
-            --hover-modifier: calc(-1 * var(--dt-color-hover-01));
-        }
-
-        // for mode=transparent, use the hsla syntax to make the button background opaque by a set percentage
-        @if $mode == 'transparent' {
-            --hover-modifier: var(--dt-color-hover-01);
-            --btn-bg-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), var(#{$bg-color}-l), var(--hover-modifier));
-        } @else {
-            --btn-bg-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), calc(var(#{$bg-color}-l) + var(--hover-modifier)));
-        }
-    }
-
-    &:active:not(:disabled),
-    &[isLoading]:not(:disabled) {
-        @if $mode == 'alt' {
-            --active-modifier: calc(-1 * var(--dt-color-active-02));
-        } @else {
-            --active-modifier: calc(-1 * var(--dt-color-active-01));
-        }
-
-        @if $mode == 'transparent' {
-            --active-modifier: var(--dt-color-active-01);
-            --btn-bg-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), var(#{$bg-color}-l), var(--active-modifier));
-        } @else {
-            --btn-bg-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), calc(var(#{$bg-color}-l) + var(--active-modifier)));
-        }
-    }
-}
-
-/**
-* Shorthand mixin for updating the HSL custom properties for the loading spinner.
-* Takes in the name of the color to be split into its HSL components.
-*/
-@mixin spinner-base-colors($color) {
-    --spinner-base-color-h: var(#{$color}-h);
-    --spinner-base-color-s: var(#{$color}-s);
-    --spinner-base-color-l: var(#{$color}-l);
-}
-
-// Spin animation for loading state
-@keyframes rotate360 {
-    from {
-        transform: rotate(0deg);
-    }
-
-    to {
-        transform: rotate(360deg);
-    }
-}
-
 // Base button styles
 .o-btn {
     // Custom Property Declarations
@@ -97,26 +36,6 @@
     // Set icon size to the medium button icon size (the default state)
     --btn-icon-size: 24px;
 
-    // Spinner size defaults - currently set for the medium button size (the default state)
-    --spinner-size-s: 20px;
-    --spinner-size-m: 24px;
-    --spinner-border-width-s: 2.5px;
-    --spinner-border-width-m: 3px;
-    --spinner-size: var(--spinner-size-m);
-    --spinner-border-width: var(--spinner-border-width-m);
-
-    // Spinner colors - currently set for the primary button styles
-    @include spinner-base-colors(--dt-color-content-interactive-primary);
-
-    --spinner-left-color-opacity: 0.35;
-    --spinner-left-color: hsl(var(--spinner-base-color-h), var(--spinner-base-color-s), var(--spinner-base-color-l), var(--spinner-left-color-opacity));
-    --spinner-right-color: hsl(var(--spinner-base-color-h), var(--spinner-base-color-s), var(--spinner-base-color-l), 1);
-
-    // Spinner animations
-    --spinner-animation-duration: 1.15s;
-    --spinner-animation-timing-function: linear;
-    --spinner-animation-iteration-count: infinite;
-
     position: relative;
     display: flex;
     gap: var(--dt-spacing-b);
@@ -142,7 +61,7 @@
 
     // Variant
     &[variant='primary'] {
-        @include button-interactive-states('--dt-color-interactive-brand');
+        @include p.button-interactive-states('--dt-color-interactive-brand');
 
         &[size='xsmall'],
         &[size='small-productive'] {
@@ -152,7 +71,7 @@
             **/
             --btn-bg-color: var(--dt-color-interactive-primary);
 
-            @include button-interactive-states('--dt-color-interactive-primary', 'alt');
+            @include p.button-interactive-states('--dt-color-interactive-primary', 'alt');
         }
     }
 
@@ -160,8 +79,7 @@
         --btn-bg-color: var(--dt-color-interactive-secondary);
         --btn-text-color: var(--dt-color-content-interactive-secondary);
 
-        @include button-interactive-states('--dt-color-interactive-secondary');
-        @include spinner-base-colors('--dt-color-content-interactive-secondary');
+        @include p.button-interactive-states('--dt-color-interactive-secondary');
     }
 
     &[variant='outline'] {
@@ -172,8 +90,7 @@
 
         // use black as the background color for hover and inverse,
         // as this variant uses a shade of transparent black showing through the container background
-        @include button-interactive-states('--dt-color-black', 'transparent');
-        @include spinner-base-colors('--dt-color-content-interactive-secondary');
+        @include p.button-interactive-states('--dt-color-black', 'transparent');
     }
 
     &[variant='ghost'] {
@@ -182,16 +99,14 @@
 
         // use black as the background color for hover and inverse,
         // as this variant uses a shade of transparent black showing through the container background
-        @include button-interactive-states('--dt-color-black', 'transparent');
-        @include spinner-base-colors('--dt-color-content-interactive-secondary');
+        @include p.button-interactive-states('--dt-color-black', 'transparent');
     }
 
     &[variant='inverse'] {
         --btn-bg-color: var(--dt-color-interactive-inverse);
         --btn-text-color: var(--dt-color-content-interactive-secondary);
 
-        @include button-interactive-states('--dt-color-interactive-inverse');
-        @include spinner-base-colors('--dt-color-content-interactive-secondary');
+        @include p.button-interactive-states('--dt-color-interactive-inverse');
     }
 
     &[variant='ghost-inverse'],
@@ -201,7 +116,7 @@
 
         // use white as the background color for hover and inverse,
         // as these variants use a shade of transparent white showing through the container background
-        @include button-interactive-states('--dt-color-container-default', 'transparent');
+        @include p.button-interactive-states('--dt-color-container-default', 'transparent');
     }
 
     &[variant='outline-inverse'] {
@@ -211,7 +126,7 @@
     &[variant='destructive'] {
         --btn-bg-color: var(--dt-color-support-error);
 
-        @include button-interactive-states('--dt-color-support-error');
+        @include p.button-interactive-states('--dt-color-support-error');
     }
 
     &[variant='destructive-ghost'] {
@@ -220,8 +135,7 @@
 
         // use black as the background color for hover and inverse,
         // as this variant uses a shade of transparent black showing through the container background
-        @include button-interactive-states('--dt-color-black', 'transparent');
-        @include spinner-base-colors('--dt-color-content-interactive-secondary');
+        @include p.button-interactive-states('--dt-color-black', 'transparent');
     }
 
     // Additional modifiers
@@ -251,16 +165,12 @@
         --btn-font-size: #{p.font-size(--dt-font-size-14)};
         --btn-line-height: calc(var(--dt-font-size-14-line-height) * 1px);
         --btn-icon-size: 16px;
-        --spinner-size: var(--spinner-size-s);
-        --spinner-border-width: var(--spinner-border-width-s);
     }
 
     &[size='small-expressive'],
     &[size='small-productive'] {
         --btn-height: var(--btn-height--small);
         --btn-icon-size: 20px;
-        --spinner-size: var(--spinner-size-s);
-        --spinner-border-width: var(--spinner-border-width-s);
     }
 
     &[size='small-expressive'] {
@@ -284,34 +194,15 @@
         --btn-padding: 14px var(--dt-spacing-e);
         --btn-font-size: #{p.font-size(--dt-font-size-20)};
         --btn-line-height: calc(var(--dt-font-size-20-line-height) * 1px);
-        --spinner-size: var(--spinner-size-m);
-        --spinner-border-width: var(--spinner-border-width-m);
     }
 
     &[isLoading] {
-        &:before {
-            content: '';
-
-            // Centre the spinner over the top of the button text
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            translate: -50% -50%;
-
-            height: var(--spinner-size);
-            width: var(--spinner-size);
-            display: block;
-            background-color: transparent;
-            border-radius: 50%;
-            border-color: var(--spinner-left-color) var(--spinner-right-color) var(--spinner-right-color) var(--spinner-left-color);
-            border-width: var(--spinner-border-width);
-            border-style: solid;
-            will-change: transform;
-            animation: rotate360 var(--spinner-animation-duration) var(--spinner-animation-timing-function) var(--spinner-animation-iteration-count);
+        & > *:not(pie-spinner) {
+            visibility: hidden;
         }
 
-        & > * {
-            visibility: hidden;
+        pie-spinner {
+            position: absolute;
         }
     }
 

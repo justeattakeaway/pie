@@ -1,12 +1,13 @@
 import { html } from 'lit';
+
+/* eslint-disable import/no-duplicates */
+import '@justeattakeaway/pie-icon-button';
 import { IconButtonProps, sizes, variants } from '@justeattakeaway/pie-icon-button';
-import { IconClose } from '@justeattakeaway/pie-icons-webc';
+/* eslint-enable import/no-duplicates */
+import '@justeattakeaway/pie-icons-webc/IconClose';
+
 import { StoryMeta } from '../types';
 import { createStory, type TemplateFunction } from '../utilities';
-
-// This prevents storybook from tree shaking the components
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const keptReferences = [IconClose];
 
 type IconButtonStoryMeta = StoryMeta<IconButtonProps>;
 
@@ -14,6 +15,7 @@ const defaultArgs: IconButtonProps = {
     size: 'medium',
     variant: 'primary',
     disabled: false,
+    isLoading: false,
 };
 
 const iconButtonStoryMeta: IconButtonStoryMeta = {
@@ -21,15 +23,34 @@ const iconButtonStoryMeta: IconButtonStoryMeta = {
     component: 'pie-icon-button',
     argTypes: {
         size: {
+            description: 'Set the size of the icon button.',
             control: 'select',
             options: sizes,
+            defaultValue: {
+                summary: 'medium',
+            },
         },
         variant: {
+            description: 'Set the variant of the icon button.',
             control: 'select',
             options: variants,
+            defaultValue: {
+                summary: 'primary',
+            },
         },
         disabled: {
+            description: 'If `true`, disables the icon button.',
             control: 'boolean',
+            defaultValue: {
+                summary: false,
+            },
+        },
+        isLoading: {
+            description: 'If `true`, displays a loading indicator inside the icon button.',
+            control: 'boolean',
+            defaultValue: {
+                summary: false,
+            },
         },
     },
     args: defaultArgs,
@@ -47,11 +68,13 @@ const Template : TemplateFunction<IconButtonProps> = ({
     size,
     variant,
     disabled,
+    isLoading,
 }) => html`
         <pie-icon-button
             size="${size}"
             variant="${variant}"
-            ?disabled="${disabled}">
+            ?disabled="${disabled}"
+            ?isLoading="${isLoading}">
             <icon-close></icon-close>
         </pie-icon-button>
         `;

@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-cookie-banner",
   "description": "PIE Design System Cookie Banner built using Web Components",
-  "version": "0.9.0",
+  "version": "0.10.1",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -9,6 +9,7 @@
   "files": [
     "src",
     "dist",
+    "locales",
     "**/*.d.ts"
   ],
   "scripts": {
@@ -18,7 +19,7 @@
     "lint:style": "run -T stylelint ./src/**/*.{css,scss}",
     "lint:style:fix": "yarn lint:style --fix",
     "watch": "run -T vite build --watch",
-    "test": "echo \"Error: no test specified\" && exit 0",
+    "test": "run -T vitest run test/unit",
     "test:ci": "yarn test",
     "test:browsers": "npx playwright test -c ./playwright-lit.config.ts",
     "test:browsers:ci": "yarn test:browsers",
@@ -29,14 +30,15 @@
   "license": "Apache-2.0",
   "devDependencies": {
     "@justeat/pie-design-tokens": "5.8.2",
-    "@justeattakeaway/pie-button": "0.35.0",
-    "@justeattakeaway/pie-components-config": "0.4.0",
-    "@justeattakeaway/pie-icon-button": "0.20.0",
-    "@justeattakeaway/pie-link": "0.11.0",
-    "@justeattakeaway/pie-modal": "0.30.0",
-    "@justeattakeaway/pie-switch": "0.16.0"
+    "@justeattakeaway/pie-components-config": "0.4.0"
   },
   "dependencies": {
+    "@justeattakeaway/pie-button": "0.36.1",
+    "@justeattakeaway/pie-divider": "0.9.1",
+    "@justeattakeaway/pie-icon-button": "0.21.1",
+    "@justeattakeaway/pie-link": "0.11.1",
+    "@justeattakeaway/pie-modal": "0.31.0",
+    "@justeattakeaway/pie-switch": "0.17.1",
     "@justeattakeaway/pie-webc-core": "0.11.0"
   },
   "volta": {

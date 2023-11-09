@@ -1,5 +1,21 @@
 # @justeattakeaway/pie-modal
 
+## 0.31.0
+
+### Minor Changes
+
+- [Changed] - Move pie components deps from devDependencies to dependencies ([#949](https://github.com/justeattakeaway/pie/pull/949)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- [Changed] - Add missing imports for dependent components ([#949](https://github.com/justeattakeaway/pie/pull/949)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Changed] - Update component import section of READMEs
+
+### Patch Changes
+
+- Updated dependencies [[`c75405299`](https://github.com/justeattakeaway/pie/commit/c75405299b867d5a0214584b5172e4598a56ba4d)]:
+  - @justeattakeaway/pie-icon-button@0.21.1
+  - @justeattakeaway/pie-button@0.36.1
+
 ## 0.30.0
 
 ### Minor Changes

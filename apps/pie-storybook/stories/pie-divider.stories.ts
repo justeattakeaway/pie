@@ -1,13 +1,12 @@
 import { html } from 'lit';
-import {
-    PieDivider, DividerProps, variants, orientations,
-} from '@justeattakeaway/pie-divider';
+
+/* eslint-disable import/no-duplicates */
+import '@justeattakeaway/pie-divider';
+import { DividerProps, variants, orientations } from '@justeattakeaway/pie-divider';
+/* eslint-enable import/no-duplicates */
+
 import { type StoryMeta } from '../types';
 import { createStory, type TemplateFunction } from '../utilities';
-
-// This prevents storybook from tree shaking the components
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const keptReferences = [PieDivider];
 
 type DividerStoryMeta = StoryMeta<DividerProps>;
 

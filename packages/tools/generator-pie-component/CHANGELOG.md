@@ -1,5 +1,15 @@
 # @justeattakeaway/generator-pie-component
 
+## 0.15.0
+
+### Minor Changes
+
+- [Changed] - Add missing imports for dependent components ([#949](https://github.com/justeattakeaway/pie/pull/949)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Changed] - Update component import section of READMEs
+
+- [Changed] - Update component imports in stories ([#949](https://github.com/justeattakeaway/pie/pull/949)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
 ## 0.14.0
 
 ### Minor Changes

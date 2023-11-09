@@ -1,5 +1,24 @@
 # Changelog
 
+## 0.36.1
+
+### Patch Changes
+
+- [Changed] - Add missing imports for dependent components ([#949](https://github.com/justeattakeaway/pie/pull/949)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Changed] - Update component import section of READMEs
+
+## 0.36.0
+
+### Minor Changes
+
+- [Added] - Functionality to ensure pressing enter when in a form using a pie-button will trigger a form submit ([#935](https://github.com/justeattakeaway/pie/pull/935)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - `isLoading` prop to `pie-icon-button` ([#953](https://github.com/justeattakeaway/pie/pull/953)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Added] - `visually-hidden` mixin to `pie-css` and use it in components when needed
+  [Added] - `button-interactive-states` mixin to use in `pie-icon-button` and `pie-button`
+
 ## 0.35.0
 
 ### Minor Changes

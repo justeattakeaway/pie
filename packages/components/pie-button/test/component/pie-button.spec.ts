@@ -6,14 +6,6 @@ const props: Partial<ButtonProps> = {
     variant: 'primary',
 };
 
-// Mount then unmount any components that are used inside of tests that may not be directly mounted using playwright so that
-// they have been registered with the browser before the tests run.
-// There is likely a nicer way to do this but this will temporarily
-// unblock tests.
-test.beforeEach(async ({ mount }) => {
-    await (await mount(PieButton)).unmount();
-});
-
 test('should correctly work with native click events', async ({ mount }) => {
     const messages: string[] = [];
     const expectedEventMessage = 'Native event dispatched';
@@ -265,6 +257,165 @@ test.describe('Form Actions', () => {
             expect((postData as string).substring(submitButtonValuePosition)).toContain('submitValue');
             expect(headers['content-type']).toMatch(/^multipart\/form-data;/);
             expect(method).toBe('POST');
+        });
+
+        test('should submit the form when pressing Enter with pie-button type `submit`', async ({ page }) => {
+            // Arrange
+            await page.evaluate(() => {
+                const formHTML = `
+                <form id="testForm" action="/foo" method="POST">
+                    <input type="text" id="username" name="username" required>
+                    <input type="password" id="password" name="password" required>
+                    <pie-button id="submitButton" type="submit">Submit</pie-button>
+                </form>
+            `;
+                document.body.innerHTML = formHTML;
+            });
+
+            // Set up the form submission listener
+            await page.evaluate(() => {
+                const form = document.querySelector('#testForm') as HTMLFormElement;
+
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+
+                    const span = document.createElement('span');
+                    span.id = 'formSubmittedFlag';
+                    document.body.appendChild(span);
+                });
+            });
+
+            // Fill out the form
+            await page.fill('#username', 'testUser');
+            await page.fill('#password', 'testPassword');
+
+            // Act
+            // Press Enter in the password field
+            await page.focus('#password');
+            await page.press('#password', 'Enter');
+
+            // Assert
+            const formSubmittedFlagExists = Boolean(await page.$('#formSubmittedFlag'));
+            expect(formSubmittedFlagExists).toBe(true);
+        });
+
+        test('should NOT submit the form when pressing Enter with pie-button type other than `submit`', async ({ page }) => {
+            // Arrange
+            await page.evaluate(() => {
+                const formHTML = `
+                <form id="testForm" action="/foo" method="POST">
+                    <input type="text" id="username" name="username" required>
+                    <input type="password" id="password" name="password" required>
+                    <pie-button id="resetButton" type="reset">Reset</pie-button>
+                </form>
+            `;
+                document.body.innerHTML = formHTML;
+            });
+
+            // Set up the form submission listener
+            await page.evaluate(() => {
+                const form = document.querySelector('#testForm') as HTMLFormElement;
+
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+
+                    const span = document.createElement('span');
+                    span.id = 'formSubmittedFlag';
+                    document.body.appendChild(span);
+                });
+            });
+
+            // Fill out the form
+            await page.fill('#username', 'testUser');
+            await page.fill('#password', 'testPassword');
+
+            // Act
+            // Press Enter in the password field
+            await page.focus('#password');
+            await page.press('#password', 'Enter');
+
+            // Assert
+            const formSubmittedFlagExists = Boolean(await page.$('#formSubmittedFlag'));
+            expect(formSubmittedFlagExists).toBe(false);
+        });
+
+        test('should NOT submit the form when pressing Enter on a pie-button that is not type of submit', async ({ page }) => {
+            // Arrange
+            await page.evaluate(() => {
+                const formHTML = `
+                    <form id="testForm" action="/foo" method="POST">
+                        <input type="text" id="username" name="username" required>
+                        <input type="password" id="password" name="password" required>
+                        <pie-button type="submit">Submit</pie-button>
+                        <pie-button id="resetPieButton" type="reset">Reset</pie-button>
+                    </form>
+                `;
+                document.body.innerHTML = formHTML;
+
+                const form = document.querySelector('#testForm') as HTMLFormElement;
+
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+
+                    const span = document.createElement('span');
+                    span.id = 'formSubmittedFlag';
+                    document.body.appendChild(span);
+                });
+            });
+
+            // Fill out the form
+            await page.fill('#username', 'testUser');
+            await page.fill('#password', 'testPassword');
+
+            // Act
+            // Press Tab until we focus the reset button
+            await page.keyboard.press('Tab');
+            await page.keyboard.press('Tab');
+
+            // Press Enter on the pie-button with type reset
+            await page.press('#resetPieButton', 'Enter');
+
+            // Assert
+            const formSubmittedFlagExists = Boolean(await page.$('#formSubmittedFlag'));
+            expect(formSubmittedFlagExists).toBe(false);
+        });
+
+        test('should NOT submit the form when pressing Enter on a native non-submit button', async ({ page }) => {
+            // Arrange
+            await page.evaluate(() => {
+                const formHTML = `
+                    <form id="testForm" action="/foo" method="POST">
+                        <input type="text" id="username" name="username" required>
+                        <input type="password" id="password" name="password" required>
+                        <pie-button type="submit">Submit</pie-button>
+                        <button id="resetNativeButton" type="reset">Reset</button>
+                    </form>
+                `;
+                document.body.innerHTML = formHTML;
+
+                const form = document.querySelector('#testForm') as HTMLFormElement;
+
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+
+                    const span = document.createElement('span');
+                    span.id = 'formSubmittedFlag';
+                    document.body.appendChild(span);
+                });
+            });
+
+            // Fill out the form
+            await page.fill('#username', 'testUser');
+            await page.fill('#password', 'testPassword');
+
+            // Act
+            // Press Enter on the native button with type reset
+            await page.focus('#resetNativeButton');
+            await page.press('#resetNativeButton', 'Enter');
+
+            // Assert
+            const formSubmittedFlagExists = Boolean(await page.$('#formSubmittedFlag'));
+            expect(formSubmittedFlagExists).toBe(false);
         });
     });
 

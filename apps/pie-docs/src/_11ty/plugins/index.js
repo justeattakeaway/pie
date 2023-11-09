@@ -7,6 +7,8 @@ const postcss = require('postcss');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
 
+const pluginTOC = require('eleventy-plugin-toc');
+
 /**
  * Adds all 11ty plugins
  * @param {object} eleventyConfig
@@ -14,6 +16,10 @@ const cssnano = require('cssnano');
 const addAllPlugins = (eleventyConfig) => {
     eleventyConfig.addPlugin(eleventyNavigationPlugin);
     eleventyConfig.addPlugin(eleventyPluginRev);
+    eleventyConfig.addPlugin(pluginTOC, {
+        tags: ['h2'],
+        wrapperClass: 'c-content-list',
+    });
     eleventyConfig.addPlugin(eleventySass, {
         postcss: postcss([
             autoprefixer,

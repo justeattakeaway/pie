@@ -1,19 +1,8 @@
 import { test } from '@sand4rt/experimental-ct-web';
 import percySnapshot from '@percy/playwright';
-import { PieIconButton } from '@justeattakeaway/pie-icon-button';
-import { PieButton } from '@justeattakeaway/pie-button';
 import { positions } from '@/defs.ts';
 import { PieModal } from '@/index';
 import { ModalProps, sizes } from '@/defs';
-
-// Mount any components that are used inside pie-modal so that
-// they have been registered with the browser before the tests run.
-// There is likely a nicer way to do this but this will temporarily
-// unblock tests.
-test.beforeEach(async ({ mount }) => {
-    await (await mount(PieButton)).unmount();
-    await (await mount(PieIconButton)).unmount();
-});
 
 sizes.forEach((size) => {
     test(`should render correctly with size = ${size}`, async ({ page, mount }) => {

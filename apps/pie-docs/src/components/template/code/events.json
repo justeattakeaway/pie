@@ -1,0 +1,12 @@
+{
+    "headings": ["Event", "Description"],
+    "rows": [
+        [
+            {
+                "type": "code",
+                "item": ["handleClick"]
+            },
+            "default click event"
+        ]
+    ]
+}
