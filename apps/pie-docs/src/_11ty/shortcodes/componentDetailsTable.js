@@ -41,9 +41,12 @@ const buildRow = (cells) => cells.map((cell) => {
  *            alt: ''
  *         }
  *       },
- *  *    {
+ *       {
  *         "type": "code",
- *         "item": ["primary", "secondary"]
+ *         "item": [
+*             "primary",
+*             "secondary"
+ *          ]
  *       }
  *     ],
  * }`;
