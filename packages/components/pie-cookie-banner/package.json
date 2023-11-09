@@ -29,7 +29,7 @@
   "author": "Just Eat Takeaway.com - Design System Team",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@justeat/pie-design-tokens": "5.8.2",
+    "@justeat/pie-design-tokens": "5.9.0",
     "@justeattakeaway/pie-components-config": "0.4.0"
   },
   "dependencies": {
