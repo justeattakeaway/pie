@@ -1,0 +1,17 @@
+{
+    "headings": ["Prop", "Options", "Description", "Default"],
+    "rows": [
+        [
+            "size",
+            {
+                "type": "code",
+                "item": ["option 1", "option 2", "option 3"]
+            },
+            "Set the size of the button.",
+            {
+                "type": "code",
+                "item": ["option 1"]
+            }
+        ]
+    ]
+}
