@@ -5,6 +5,7 @@
 # pie-components-config
 
 The purpose of this package is to centralize components configurations (build, testing, etc...) in one place to avoid synchronization issues and unnecessary maintenance.
+## Vite
 
 To use the shared config, all you need to do is import and re-export it in your own `vite.config.js`:
 
