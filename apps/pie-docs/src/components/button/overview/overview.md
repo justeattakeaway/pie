@@ -28,7 +28,6 @@ Buttons serve a wide range of purposes in user interfaces, such as submitting fo
         type: usageTypes.text,
         items: [ 
             "Use Buttons when you need to direct the user to an action.",
-            "When pairing Buttons, use the same sized Buttons together.",
             "When pairing Buttons, use the same sized Buttons together."
 
         ]
@@ -166,7 +165,7 @@ When incorporating an icon into a Button, it is essential to ensure that the ico
     dont: { 
         type: usageTypes.image,
         items: [{
-            src: "../../../assets/img/components/button/modifier-icons-don't.svg",
+            src: "../../../assets/img/components/button/modifier-icons-dont.svg",
             width: "234px",
             alt: "A button with a eye icon and a label that says Find a restaurant."
         }]
@@ -236,14 +235,14 @@ For the Primary variation only our Small and XSmall sizes use a dark background 
 {% contentLayout %}
   {% contentItem %}
     {% contentPageImage {
-      src: "../../../assets/img/components/button/size-small.svg",
+      src: "../../../assets/img/components/button/sizes-small.svg",
       width: 71,
       alt: "A small size button."
     } %}
   {% endcontentItem %}
   {% contentItem %}
     {% contentPageImage {
-      src: "../../../assets/img/components/button/size-xsmall.svg",
+      src: "../../../assets/img/components/button/sizes-xsmall.svg",
       width: 50,
       alt: "A xsmall size button."
     } %}
@@ -277,7 +276,7 @@ A high-emphasis Button with a medium / low-emphasis Button that performs a less 
 A medium-emphasis Button with a low-emphasis Button that performs a less important action. 
 
 {% contentPageImage {
-    src:"../../../assets/img/components/button/hierarchy-multiple-button-pairing.svg",
+    src:"../../../assets/img/components/button/hierarchy-multiple-pairing.svg",
     alt: "A pyramid that shows button hierarchy as primary and destructive buttons on top, secondary and inverse buttons in the middle, and the rest of the button variations on the bottom.",
     width: 499
 } %}
@@ -286,7 +285,7 @@ A medium-emphasis Button with a low-emphasis Button that performs a less importa
     do: {
         type: usageTypes.image,
         items: [{
-            src: "../../../assets/img/components/button/hierarchy-multiple-button-pairing-large-do.svg",
+            src: "../../../assets/img/components/button/hierarchy-multiple-pairing-large-do.svg",
             width: "210px",
             alt: "A primary button paired with an outline button."
         }]
@@ -294,7 +293,7 @@ A medium-emphasis Button with a low-emphasis Button that performs a less importa
     dont: { 
         type: usageTypes.image,
         items: [{
-            src: "../../../assets/img/components/button/hierarchy-multiple-button-pairing-large-don't.svg",
+            src: "../../../assets/img/components/button/hierarchy-multiple-pairing-large-dont.svg",
             width: "210px",
             alt: "A primary button paired with another primary button."
         }]
@@ -306,7 +305,7 @@ A medium-emphasis Button with a low-emphasis Button that performs a less importa
     do: {
         type: usageTypes.image,
         items: [{
-            src: "../../../assets/img/components/button/hierarchy-multiple-button-pairing-small-do.svg",
+            src: "../../../assets/img/components/button/hierarchy-multiple-pairing-small-do.svg",
             width: "158px",
             alt: "A small - productive primary button paired with A small - productive outline button."
         }]
@@ -314,7 +313,7 @@ A medium-emphasis Button with a low-emphasis Button that performs a less importa
     dont: { 
         type: usageTypes.image,
         items: [{
-            src: "../../../assets/img/components/button/hierarchy-multiple-button-pairing-small-don't.svg",
+            src: "../../../assets/img/components/button/hierarchy-multiple-pairing-small-dont.svg",
             width: "158px",
             alt: "A small - productive primary button paired with A small - expressive outline button."
         }]

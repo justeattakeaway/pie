@@ -15,7 +15,6 @@
     "components/breadcrumb",
     "components/button/code",
     "components/button/overview",
-    "components/button/style",
     "components/card",
     "components/carousel-indicator",
     "components/checkbox",
