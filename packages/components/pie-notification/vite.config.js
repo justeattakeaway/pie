@@ -1,3 +1,11 @@
-import viteConfig from '@justeattakeaway/pie-components-config/vite.config';
+import viteConfig, { getComponentDependencies } from '@justeattakeaway/pie-components-config/vite.config';
 
-export default viteConfig;
+const { dependencies } = require('./package.json');
+
+export default viteConfig({
+    build: {
+        rollupOptions: {
+            external: getComponentDependencies(dependencies),
+        },
+    },
+});
