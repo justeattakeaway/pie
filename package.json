@@ -130,7 +130,6 @@
     "yarn": "3.5.0"
   },
   "resolutions": {
-    "@lit/reactive-element": "1.6.3",
     "@babel/traverse": "7.22.5"
   }
 }
