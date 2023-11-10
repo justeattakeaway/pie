@@ -2,4 +2,4 @@
 "pie-docs": minor
 ---
 
-[Added] PieButton docs to pie.design
+[Added] - PieButton docs to pie.design
