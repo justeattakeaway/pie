@@ -1,6 +1,6 @@
 import { TemplateResult } from 'lit';
 import DOMPurify from 'dompurify';
-import { unsafeStatic } from 'lit/static-html.js';
+import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 import { StoryOptions } from '../types/StoryOptions';
 
 export type TemplateFunction<T> = (props: T) => TemplateResult;
@@ -49,8 +49,12 @@ export const createStory = <T>(templateFunc: TemplateFunction<T>, defaultArgs: T
 });
 
 /**
- * Sanitizes and creates a static slot element.
- * @param {string} slot - The slot content to sanitize and render.
- * @returns {StaticValue} - A static slot element.
+ * Sanitizes the given HTML string and returns a Lit directive that renders the sanitized HTML content.
+ *
+ * This function uses DOMPurify to sanitize the input HTML, then returns a Lit `unsafeHTML` directive
+ * which renders the sanitized HTML into a Lit template.
+ *
+ * @param {string} slot - The HTML string content to be sanitized and rendered.
+ * @returns {import('lit/directives/unsafe-html.js').UnsafeHTMLDirective} A Lit directive that can be used in a Lit template to render the sanitized content.
  */
-export const staticSlot = (slot: string) => unsafeStatic(DOMPurify.sanitize(slot));
+export const sanitizeAndRenderHTML = (slot: string) => unsafeHTML(DOMPurify.sanitize(slot));
