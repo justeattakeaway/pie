@@ -48,11 +48,11 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
     @property({ type: Object })
     public aria!: AriaProps;
 
-    @property({ type: String })
+    @property({ type: String, noAccessor: true })
     @requiredProperty(componentSelector)
     public heading!: string;
 
-    @property()
+    @property({ noAccessor: true })
     @validPropertyValues(componentSelector, headingLevels, 'h2')
     public headingLevel: ModalProps['headingLevel'] = 'h2';
 
@@ -80,14 +80,14 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
     @property({ type: Object })
     public leadingAction!: ActionProps;
 
-    @property()
+    @property({ noAccessor: true })
     @validPropertyValues(componentSelector, positions, 'center')
     public position: ModalProps['position'] = 'center';
 
     @property()
     public returnFocusAfterCloseSelector?: string;
 
-    @property()
+    @property({ noAccessor: true })
     @validPropertyValues(componentSelector, sizes, 'medium')
     public size: ModalProps['size'] = 'medium';
 

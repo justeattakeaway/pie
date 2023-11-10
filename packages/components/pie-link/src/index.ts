@@ -27,23 +27,23 @@ const componentSelector = 'pie-link';
  */
 
 export class PieLink extends LitElement implements LinkProps {
-    @property()
+    @property({ noAccessor: true })
     @validPropertyValues(componentSelector, tags, 'a')
     public tag: LinkProps['tag'] = 'a';
 
-    @property({ type: String })
+    @property({ type: String, noAccessor: true })
     @validPropertyValues(componentSelector, variants, 'default')
     public variant: LinkProps['variant'] = 'default';
 
-    @property({ type: String })
+    @property({ type: String, noAccessor:true })
     @validPropertyValues(componentSelector, sizes, 'medium')
     public size: LinkProps['size'] = 'medium';
 
-    @property({ type: String })
+    @property({ type: String, noAccessor: true })
     @validPropertyValues(componentSelector, underlineTypes, 'default')
     public underline: LinkProps['underline'] = 'default';
 
-    @property({ type: String })
+    @property({ type: String, noAccessor: true })
     @validPropertyValues(componentSelector, iconPlacements, 'leading')
     public iconPlacement: LinkProps['iconPlacement'] = 'leading';
 
@@ -65,7 +65,7 @@ export class PieLink extends LitElement implements LinkProps {
     @property({ type: Boolean })
     public hasVisited = false;
 
-    @property()
+    @property({ noAccessor: true })
     @validPropertyValues(componentSelector, buttonTypes, 'submit')
     public type: LinkProps['type'] = 'submit';
 

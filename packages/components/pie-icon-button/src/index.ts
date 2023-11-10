@@ -18,11 +18,11 @@ const componentSelector = 'pie-icon-button';
  * @tagname pie-icon-button
  */
 export class PieIconButton extends LitElement implements IconButtonProps {
-    @property()
+    @property({ noAccessor: true })
     @validPropertyValues(componentSelector, sizes, 'medium')
     public size?: IconButtonProps['size'] = 'medium';
 
-    @property()
+    @property({ noAccessor: true })
     @validPropertyValues(componentSelector, variants, 'primary')
     public variant?: IconButtonProps['variant'] = 'primary';
 
