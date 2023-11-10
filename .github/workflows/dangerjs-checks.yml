@@ -11,13 +11,11 @@ jobs:
       # Checkout the Repo
       - name: Checkout
         uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
       # Setup Repo
       - name: Setup Repo
         uses: ./.github/actions/setup-repo
         with:
-          node-version: 18
+          node-version: 20
           os: ubuntu-latest
       # Run Danger Checks
       - name: Danger
