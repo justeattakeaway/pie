@@ -2,18 +2,14 @@ import viteConfig from '@justeattakeaway/pie-components-config/vite.config';
 
 export default viteConfig({
     build: {
-        lib: {
-            entry: {
-                index: 'src/index.ts',
-                react: 'src/react.ts',
-            },
-            formats: ['es'],
-        },
         rollupOptions: {
             external: [
-                'react',
-                /^lit/,
-                /@justeattakeaway/
+                '@justeattakeaway/pie-button',
+                '@justeattakeaway/pie-divider',
+                '@justeattakeaway/pie-icon-button',
+                '@justeattakeaway/pie-link',
+                '@justeattakeaway/pie-modal',
+                '@justeattakeaway/pie-switch',
             ],
         },
     },

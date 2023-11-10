@@ -5,6 +5,9 @@
   "main": "index.js",
   "type": "module",
   "description": "Shared configuration files for PIE components",
+  "dependencies": {
+    "deepmerge-ts": "5.1.0"
+  },
   "volta": {
     "extends": "../../package.json"
   }
