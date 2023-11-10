@@ -128,6 +128,7 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-color-content-interactive-dark: var(--dt-color-charcoal-80);
     --dt-color-content-interactive-error: var(--dt-color-red);
     --dt-color-content-light: var(--dt-color-white);
+    --dt-color-content-dark: var(--dt-color-charcoal-80);
     --dt-color-content-inverse: var(--dt-color-white);
     --dt-color-content-link: var(--dt-color-charcoal-80);
     --dt-color-content-link-distinct: var(--dt-color-blue);
@@ -213,6 +214,7 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-color-highcontrast-content-interactive-dark: var(--dt-color-black);
     --dt-color-highcontrast-content-interactive-error: var(--dt-color-red-dark-hc);
     --dt-color-highcontrast-content-light: var(--dt-color-white);
+    --dt-color-highcontrast-content-dark: var(--dt-color-black);
     --dt-color-highcontrast-content-inverse: var(--dt-color-white);
     --dt-color-highcontrast-content-link: var(--dt-color-black);
     --dt-color-highcontrast-content-link-distinct: var(--dt-color-blue);
@@ -298,6 +300,7 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-color-dark-content-interactive-dark: var(--dt-color-charcoal-80);
     --dt-color-dark-content-interactive-error: var(--dt-color-red-30);
     --dt-color-dark-content-light: var(--dt-color-white);
+    --dt-color-dark-content-dark: var(--dt-color-charcoal-80);
     --dt-color-dark-content-inverse: var(--dt-color-charcoal-80);
     --dt-color-dark-content-link: var(--dt-color-white);
     --dt-color-dark-content-link-distinct: var(--dt-color-blue-30);
@@ -383,6 +386,7 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-color-highcontrast-dark-content-interactive-dark: var(--dt-color-black);
     --dt-color-highcontrast-dark-content-interactive-error: var(--dt-color-red-light-hc);
     --dt-color-highcontrast-dark-content-light: var(--dt-color-white);
+    --dt-color-highcontrast-dark-content-dark: var(--dt-color-black);
     --dt-color-highcontrast-dark-content-inverse: var(--dt-color-black);
     --dt-color-highcontrast-dark-content-link: var(--dt-color-white);
     --dt-color-highcontrast-dark-content-link-distinct: var(--dt-color-blue-light-hc);
@@ -1033,6 +1037,9 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-color-content-light-h: var(--dt-color-white-h);
     --dt-color-content-light-s: var(--dt-color-white-s);
     --dt-color-content-light-l: var(--dt-color-white-l);
+    --dt-color-content-dark-h: var(--dt-color-charcoal-80-h);
+    --dt-color-content-dark-s: var(--dt-color-charcoal-80-s);
+    --dt-color-content-dark-l: var(--dt-color-charcoal-80-l);
     --dt-color-content-inverse-h: var(--dt-color-white-h);
     --dt-color-content-inverse-s: var(--dt-color-white-s);
     --dt-color-content-inverse-l: var(--dt-color-white-l);

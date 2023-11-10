@@ -92,6 +92,23 @@ test.describe('Component: `Pie switch`', () => {
                 // Assert
                 expect(pieSwitchComponent).toBe(true);
             });
+
+            test('should set `isChecked` to `false`', async ({ mount, page }) => {
+                // Arrange
+                const component = await mount(PieSwitch, {
+                    props: {
+                        isChecked: true,
+                    },
+                });
+
+                // Act
+                await page.click(componentSelector);
+
+                const pieSwitchComponent = await component.locator(componentSelector).isChecked();
+
+                // Assert
+                expect(pieSwitchComponent).toBe(false);
+            });
         });
 
         test.describe('when the components label element is clicked', () => {
@@ -111,6 +128,25 @@ test.describe('Component: `Pie switch`', () => {
 
                 // Assert
                 expect(pieSwitchComponent).toBe(true);
+            });
+
+            test('should set `isChecked` to `false`', async ({ mount, page }) => {
+                // Arrange
+                const component = await mount(PieSwitch, {
+                    props: {
+                        label: 'Label',
+                        labelPlacement: 'leading',
+                        isChecked: true,
+                    } as SwitchProps,
+                });
+
+                // Act
+                await page.click(switchLabelSelector());
+
+                const pieSwitchComponent = await component.locator(componentSelector).isChecked();
+
+                // Assert
+                expect(pieSwitchComponent).toBe(false);
             });
         });
     });
