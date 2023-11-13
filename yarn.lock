@@ -5493,6 +5493,8 @@ __metadata:
 "@justeattakeaway/pie-components-config@0.4.0, @justeattakeaway/pie-components-config@workspace:configs/pie-components-config":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-components-config@workspace:configs/pie-components-config"
+  dependencies:
+    deepmerge-ts: 5.1.0
   languageName: unknown
   linkType: soft
 
@@ -5658,7 +5660,7 @@ __metadata:
     "@justeattakeaway/pie-icons-webc": 0.11.1
     "@justeattakeaway/pie-spinner": 0.2.1
     "@justeattakeaway/pie-webc-core": 0.11.0
-    "@types/body-scroll-lock": 3.1.1
+    "@types/body-scroll-lock": 3.1.2
     dialog-polyfill: 0.5.6
   peerDependencies:
     body-scroll-lock: 3.1.5
@@ -9935,10 +9937,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/body-scroll-lock@npm:3.1.1":
-  version: 3.1.1
-  resolution: "@types/body-scroll-lock@npm:3.1.1"
-  checksum: 99719104357f178e0cca88d11108a2b1aa3c55c8579398fb4ee7d475f2845086b51d10b7e89ec27b72ea4accc1e6314565883c8d1aac752323c7aa9a07244192
+"@types/body-scroll-lock@npm:3.1.2":
+  version: 3.1.2
+  resolution: "@types/body-scroll-lock@npm:3.1.2"
+  checksum: b114b5bd2152ac4414b3e881ed372d53de36342eb8b5365e3b607e6c1d40fb0b554628bd05d9d840d18550541e4b9f6128c86099b4a8f511d48a31a5d7c34f47
   languageName: node
   linkType: hard
 
@@ -17355,6 +17357,13 @@ __metadata:
   version: 0.1.4
   resolution: "deep-is@npm:0.1.4"
   checksum: edb65dd0d7d1b9c40b2f50219aef30e116cedd6fc79290e740972c132c09106d2e80aa0bc8826673dd5a00222d4179c84b36a790eef63a4c4bca75a37ef90804
+  languageName: node
+  linkType: hard
+
+"deepmerge-ts@npm:5.1.0":
+  version: 5.1.0
+  resolution: "deepmerge-ts@npm:5.1.0"
+  checksum: 6b57db93c2985e4a35f24b2451db31715050d143988b7d6346f4049c9aec21a6c289514b88d3ee3d6e0697e72ef5d96ff0bbb7cb75422d56fee55ee85c7168e7
   languageName: node
   linkType: hard
 

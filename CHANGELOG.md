@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.39.0
+
+### Minor Changes
+
+- [Added] - DangerJS added to the repo for PR checks ([#952](https://github.com/justeattakeaway/pie/pull/952)) by [@ashleynolan](https://github.com/ashleynolan)
+
 ## 2.38.0
 
 ### Minor Changes

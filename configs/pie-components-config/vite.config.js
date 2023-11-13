@@ -1,9 +1,11 @@
 import { defineConfig } from 'vite';
 import dts from 'vite-plugin-dts';
 
+import { deepmerge } from 'deepmerge-ts';
+
 // https://vitejs.dev/config/
-const sharedConfig = (extendedConfig = {}) => defineConfig({
-    build: {
+const sharedConfig = ({ build = {}, plugins = [], ...rest }) => defineConfig({
+    build: deepmerge({
         lib: {
             entry: {
                 index: 'src/index.ts',
@@ -14,13 +16,15 @@ const sharedConfig = (extendedConfig = {}) => defineConfig({
         rollupOptions: {
             external: ['react', /^lit/],
         },
-    },
-    plugins: [dts({
+    }, build),
+
+    plugins: deepmerge([dts({
         insertTypesEntry: true,
         outputDir: 'dist',
         rollupTypes: true,
-    })],
-    ...extendedConfig,
+    })], plugins),
+
+    ...rest,
 });
 
 export default sharedConfig;
