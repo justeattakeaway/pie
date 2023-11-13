@@ -71,7 +71,7 @@
             **/
             --btn-bg-color: var(--dt-color-interactive-primary);
 
-            @include p.button-interactive-states('--dt-color-interactive-primary', 'alt');
+            @include p.button-interactive-states('--dt-color-interactive-primary', 'inverse');
         }
     }
 
