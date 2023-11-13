@@ -1,5 +1,34 @@
 # Changelog
 
+## 0.47.0
+
+### Minor Changes
+
+- [Changed] - Use unsafeHTML instead of unsafeStatic for rendering slotted content from controls ([#985](https://github.com/justeattakeaway/pie/pull/985)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+### Patch Changes
+
+- Updated dependencies [[`98efe93b2`](https://github.com/justeattakeaway/pie/commit/98efe93b2af205024e79cde4689514f09fdcf06e), [`bad610889`](https://github.com/justeattakeaway/pie/commit/bad610889be57c2115b8e3abe8504679df44b275)]:
+  - @justeattakeaway/pie-cookie-banner@0.11.0
+  - @justeattakeaway/pie-button@0.37.1
+  - @justeattakeaway/pie-icon-button@0.21.2
+  - @justeattakeaway/pie-modal@0.32.1
+
+## 0.46.0
+
+### Minor Changes
+
+- [Added] - Documentation page for button variants with code snippets ([#982](https://github.com/justeattakeaway/pie/pull/982)) by [@LTurns](https://github.com/LTurns)
+
+### Patch Changes
+
+- [Changed] - Use latest pie-design-tokens ([#979](https://github.com/justeattakeaway/pie/pull/979)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- Updated dependencies [[`8bf261090`](https://github.com/justeattakeaway/pie/commit/8bf2610903a3ac05c51e9c1d2444d09f64feeeba), [`65f4525cd`](https://github.com/justeattakeaway/pie/commit/65f4525cd5eec7d301312c636e662e97099b4835), [`fbe8a5822`](https://github.com/justeattakeaway/pie/commit/fbe8a58222f62cfda191014f83169d8e44007034)]:
+  - @justeattakeaway/pie-button@0.37.0
+  - @justeattakeaway/pie-cookie-banner@0.10.2
+  - @justeattakeaway/pie-modal@0.32.0
+
 ## 0.45.1
 
 ### Patch Changes

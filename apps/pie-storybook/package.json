@@ -1,6 +1,6 @@
 {
   "name": "pie-storybook",
-  "version": "0.45.1",
+  "version": "0.47.0",
   "description": "Storybook for PIE Design System components",
   "scripts": {
     "dev": "storybook dev -p 6006",
@@ -12,16 +12,16 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@justeat/pie-design-tokens": "5.9.0",
-    "@justeattakeaway/pie-button": "0.36.1",
+    "@justeattakeaway/pie-button": "0.37.1",
     "@justeattakeaway/pie-card": "0.14.1",
-    "@justeattakeaway/pie-cookie-banner": "0.10.1",
+    "@justeattakeaway/pie-cookie-banner": "0.11.0",
     "@justeattakeaway/pie-css": "0.7.0",
     "@justeattakeaway/pie-divider": "0.9.1",
     "@justeattakeaway/pie-form-label": "0.8.1",
-    "@justeattakeaway/pie-icon-button": "0.21.1",
+    "@justeattakeaway/pie-icon-button": "0.21.2",
     "@justeattakeaway/pie-icons-webc": "0.11.1",
     "@justeattakeaway/pie-link": "0.11.1",
-    "@justeattakeaway/pie-modal": "0.31.0",
+    "@justeattakeaway/pie-modal": "0.32.1",
     "@justeattakeaway/pie-notification": "0.1.1",
     "@justeattakeaway/pie-spinner": "0.2.1",
     "@justeattakeaway/pie-switch": "0.17.1",
