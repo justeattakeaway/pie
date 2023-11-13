@@ -35,7 +35,7 @@ export class PieLink extends LitElement implements LinkProps {
     @validPropertyValues(componentSelector, variants, 'default')
     public variant: LinkProps['variant'] = 'default';
 
-    @property({ type: String, noAccessor:true })
+    @property({ type: String, noAccessor: true })
     @validPropertyValues(componentSelector, sizes, 'medium')
     public size: LinkProps['size'] = 'medium';
 
