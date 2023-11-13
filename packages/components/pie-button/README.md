@@ -95,7 +95,7 @@ import { PieButton } from '@justeattakeaway/pie-button/dist/react';
 | formmethod     | `String`  | `undefined`| Sets the HTTP method for form data. [Read further on MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#attr-formmethod) |
 | formnovalidate | `Boolean` | `undefined`    | Ensures the form is submitted without native HTML validation. [Read further on MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#attr-formnovalidate) |
 | formtarget     | `String`  | `undefined`| Dictates where to display the response after form submission. [Read further on MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#attr-formtarget) |
-| responsiveSize | `String`  | `undefined`| Sets a specific size for xsmall button when rendered as responsive. It can be `productive` or `expressive`. When no prop is attributed it defaults to `productive` settings |
+| responsiveSize | `String`  | `productive`| Sets a specific size for xsmall button when rendered as responsive. It can be `productive` or `expressive`.         |
 
 
 In your markup or JSX, you can then use these to set the properties for the `pie-button` component:

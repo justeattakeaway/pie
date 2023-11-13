@@ -586,7 +586,7 @@ test.describe('props', () => {
                 );
 
                 await expect(component.locator('button'))
-                    .not.toHaveAttribute('isResponsive', '');
+                    .not.toHaveAttribute('isResponsive', ''); // TODO: Remove the empty argument once we upgrade Playwright to 1.39 or above
             });
         });
         test.describe('when set to true', () => {
@@ -608,7 +608,7 @@ test.describe('props', () => {
                 );
 
                 await expect(component.locator('button'))
-                    .toHaveAttribute('isResponsive', '');
+                    .toHaveAttribute('isResponsive', ''); // TODO: Remove the empty argument once we upgrade Playwright to 1.39 or above
             });
 
             sizes.forEach(({ sizeName, responsiveSize }) => {
@@ -648,7 +648,7 @@ test.describe('props', () => {
                 );
 
                 await expect(component.locator('button'))
-                    .not.toHaveAttribute('responsiveSize', '');
+                    .not.toHaveAttribute('responsiveSize', ''); // TODO: Remove the empty argument once we upgrade Playwright to 1.39 or above
             });
         });
 
