@@ -8,7 +8,7 @@ const props: Partial<ButtonProps> = {
 };
 
 type SizeResponsiveSize = {
-    sizeName: 'xsmall' | 'small-productive' | 'small-expressive' | 'medium' | 'large';
+    sizeName: ButtonProps['size'];
     responsiveSize: string;
 };
 
