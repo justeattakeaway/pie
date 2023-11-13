@@ -32,7 +32,7 @@ async function getShadowElementStylePropValues (element:Locator, selector:string
         const shadowEl = el.shadowRoot.querySelector(selector);
 
         if (!shadowEl) {
-            throw new Error('getShadowElementStylePropValues: no shadow element were found');
+            throw new Error('getShadowElementStylePropValues: no shadow element was found');
         }
 
         const shadowElStyle = getComputedStyle(shadowEl);
