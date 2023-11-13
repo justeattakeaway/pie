@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.47.0
+
+### Minor Changes
+
+- [Changed] - Use unsafeHTML instead of unsafeStatic for rendering slotted content from controls ([#985](https://github.com/justeattakeaway/pie/pull/985)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+### Patch Changes
+
+- Updated dependencies [[`98efe93b2`](https://github.com/justeattakeaway/pie/commit/98efe93b2af205024e79cde4689514f09fdcf06e), [`bad610889`](https://github.com/justeattakeaway/pie/commit/bad610889be57c2115b8e3abe8504679df44b275)]:
+  - @justeattakeaway/pie-cookie-banner@0.11.0
+  - @justeattakeaway/pie-button@0.37.1
+  - @justeattakeaway/pie-icon-button@0.21.2
+  - @justeattakeaway/pie-modal@0.32.1
+
 ## 0.46.0
 
 ### Minor Changes
