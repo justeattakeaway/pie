@@ -32,7 +32,10 @@ export const getComponentDependencies = (dependencies = {}) => {
 
     const jetComponentDeps = jetDeps.filter((name) => !nonComponentJetDeps.includes(name));
 
-    console.debug(`Excluding the following PIE component dependencies from the bundle:\n- ${jetComponentDeps.join('\n- ')}`);
+    if (jetComponentDeps.length > 0) {
+        // eslint-disable-next-line no-console
+        console.debug(`Excluding the following PIE component dependencies from the bundle:\n- ${jetComponentDeps.join('\n- ')}`);
+    }
 
     return jetComponentDeps;
 };
