@@ -1,5 +1,22 @@
 # @justeattakeaway/pie-cookie-banner
 
+## 0.11.0
+
+### Minor Changes
+
+- [Added] Remaining translations to cookie banner ([#981](https://github.com/justeattakeaway/pie/pull/981)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
+### Patch Changes
+
+- [Changed] - Allow more specific overrides in vite config ([#980](https://github.com/justeattakeaway/pie/pull/980)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Changed] - Component dependencies are the only JET packages that should be marked as external
+
+- Updated dependencies [[`bad610889`](https://github.com/justeattakeaway/pie/commit/bad610889be57c2115b8e3abe8504679df44b275)]:
+  - @justeattakeaway/pie-button@0.37.1
+  - @justeattakeaway/pie-icon-button@0.21.2
+  - @justeattakeaway/pie-modal@0.32.1
+
 ## 0.10.2
 
 ### Patch Changes
