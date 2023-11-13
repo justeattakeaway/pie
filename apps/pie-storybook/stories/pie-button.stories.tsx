@@ -80,7 +80,7 @@ const buttonStoryMeta: ButtonStoryMeta = {
             },
         },
         isResponsive: {
-            description: 'If `true`, enables responsive behaviour.',
+            description: 'If `true`, uses the next larger size on wide viewports',
             control: 'boolean',
             defaultValue: {
                 summary: false,
