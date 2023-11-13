@@ -5609,7 +5609,7 @@ __metadata:
     "@justeattakeaway/pie-icons-webc": 0.11.1
     "@justeattakeaway/pie-spinner": 0.2.1
     "@justeattakeaway/pie-webc-core": 0.11.0
-    "@types/body-scroll-lock": 3.1.1
+    "@types/body-scroll-lock": 3.1.2
     dialog-polyfill: 0.5.6
   peerDependencies:
     body-scroll-lock: 3.1.5
@@ -9908,10 +9908,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/body-scroll-lock@npm:3.1.1":
-  version: 3.1.1
-  resolution: "@types/body-scroll-lock@npm:3.1.1"
-  checksum: 99719104357f178e0cca88d11108a2b1aa3c55c8579398fb4ee7d475f2845086b51d10b7e89ec27b72ea4accc1e6314565883c8d1aac752323c7aa9a07244192
+"@types/body-scroll-lock@npm:3.1.2":
+  version: 3.1.2
+  resolution: "@types/body-scroll-lock@npm:3.1.2"
+  checksum: b114b5bd2152ac4414b3e881ed372d53de36342eb8b5365e3b607e6c1d40fb0b554628bd05d9d840d18550541e4b9f6128c86099b4a8f511d48a31a5d7c34f47
   languageName: node
   linkType: hard
 
