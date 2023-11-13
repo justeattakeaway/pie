@@ -1,5 +1,6 @@
 ---
 draft: true
+permalink: false
 eleventyNavigation:
     key: Style
     parent: Button
@@ -124,7 +125,7 @@ eleventyComputed:
 
 ## Structure
 
-Structure outlines the internal spacing of the component. 
+Structure outlines the internal spacing of the component.
 The side padding of the label should always be maintained regardless of the length of the label.
 
 ### Large & medium
