@@ -19,7 +19,7 @@ const componentTemplate = (name, svg) => {
     const sizeType = isLargeIcon ? 'LargeIconSize' : 'RegularIconSize';
 
     return `import {
-    html, LitElement, TemplateResult, css, PropertyValues,
+    html, LitElement, TemplateResult, css, PropertyValues
 } from 'lit';
 import { defineCustomElement } from '@justeattakeaway/pie-webc-core';
 import { property, query } from 'lit/decorators.js';
