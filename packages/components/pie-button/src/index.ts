@@ -64,19 +64,19 @@ export class PieButton extends LitElement implements ButtonProps {
         }
     }
 
-    @property({ noAccessor: true })
+    @property()
     @validPropertyValues(componentSelector, sizes, 'medium')
     public size: ButtonProps['size'] = 'medium';
 
-    @property({ noAccessor: true })
+    @property()
     @validPropertyValues(componentSelector, types, 'submit')
     public type: ButtonProps['type'] = 'submit';
 
-    @property({ noAccessor: true })
+    @property()
     @validPropertyValues(componentSelector, variants, 'primary')
     public variant: ButtonProps['variant'] = 'primary';
 
-    @property({ type: String, noAccessor: true })
+    @property({ type: String })
     @validPropertyValues(componentSelector, iconPlacements, 'leading')
     public iconPlacement: ButtonProps['iconPlacement'] = 'leading';
 

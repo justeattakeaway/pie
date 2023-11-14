@@ -13,11 +13,11 @@ const componentSelector = 'pie-divider';
  * @tagname pie-divider
  */
 export class PieDivider extends LitElement implements DividerProps {
-    @property({ type: String, noAccessor: true })
+    @property({ type: String })
     @validPropertyValues(componentSelector, variants, 'default')
     public variant: DividerProps['variant'] = 'default';
 
-    @property({ type: String, noAccessor: true })
+    @property({ type: String })
     @validPropertyValues(componentSelector, orientations, 'horizontal')
     public orientation : DividerProps['orientation'] = 'horizontal';
 

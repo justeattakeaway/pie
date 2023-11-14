@@ -23,7 +23,7 @@ export class PieSwitch extends RtlMixin(LitElement) implements SwitchProps {
     @property({ type: String })
     public label?: string;
 
-    @property({ type: String, noAccessor: true })
+    @property({ type: String })
     @validPropertyValues(componentSelector, labelPlacements, 'leading')
     public labelPlacement: SwitchProps['labelPlacement'] = 'leading';
 

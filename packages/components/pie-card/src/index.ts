@@ -20,11 +20,11 @@ const componentSelector = 'pie-card';
  * @tagname pie-card
  */
 export class PieCard extends LitElement implements CardProps {
-    @property({ noAccessor: true })
+    @property()
     @validPropertyValues(componentSelector, tags, 'button')
     public tag: CardProps['tag'] = 'button';
 
-    @property({ noAccessor: true })
+    @property()
     @validPropertyValues(componentSelector, variants, 'default')
     public variant: CardProps['variant'] = 'default';
 
@@ -46,7 +46,7 @@ export class PieCard extends LitElement implements CardProps {
     @property({ type: Boolean })
     public isDraggable = false;
 
-    @property({ type: String, noAccessor: true })
+    @property({ type: String })
     @validPropertyValues(componentSelector, paddingValues, undefined)
     public padding?: CardProps['padding'];
 

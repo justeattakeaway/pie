@@ -23,11 +23,11 @@ export class PieSpinner extends LitElement implements SpinnerProps {
     @property({ type: Object })
     public aria?: AriaProps;
 
-    @property({ noAccessor: true })
+    @property()
     @validPropertyValues(componentSelector, sizes, 'm')
     public size?: SpinnerProps['size'] = 'm';
 
-    @property({ noAccessor: true })
+    @property()
     @validPropertyValues(componentSelector, variants, 'brand')
     public variant?: SpinnerProps['variant'] = 'brand';
 
