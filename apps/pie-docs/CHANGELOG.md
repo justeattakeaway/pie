@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.15.0
+
+### Minor Changes
+
+- [Added] - PieButton docs to pie.design ([#976](https://github.com/justeattakeaway/pie/pull/976)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 3.14.0
 
 ### Minor Changes
