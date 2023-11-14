@@ -16,19 +16,3 @@ export default viteConfig;
 ```
 
 You can also override any values by passing in an object which will be merged deeply with the default values.
-
-For example, the following external package declaration will be added to the base list rather than replacing it.
-
-```js
-import viteConfig from '@justeattakeaway/pie-components-config/vite.config';
-
-export default viteConfig({
-  build: {
-    rollupOptions: {
-      external: [
-        '@justeattakeaway/pie-button',
-      ],
-    },
-  },
-});
-```

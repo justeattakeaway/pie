@@ -1,0 +1,20 @@
+{
+  "headings": [
+    "Button size",
+    "Icon size"
+  ],
+  "rows": [
+    [
+      "Large & Medium",
+      "24px"
+    ],
+    [
+      "Small (Expressive & Productive)",
+      "20px"
+    ],
+    [
+      "XSmall",
+      "16px"
+    ]
+  ]
+}

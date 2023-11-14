@@ -44,7 +44,7 @@ $ yarn add @justeattakeaway/{component}
 
 <!-- storybook playground link e.g. for Pie Button: https://webc.pie.design/?path=/story/button--primary -->
  <iframe
-  src=""
+  src="https://webc.pie.design/?path=/story/button--primary&viewMode=story&shortcuts=false&singleStory=true"
   style="border: none; margin-top: 24px;"
 ></iframe>
 
@@ -52,7 +52,7 @@ $ yarn add @justeattakeaway/{component}
 
 <!-- storybook docs link e.g. for Pie Button: https://webc.pie.design/?path=/docs/button--variants -->
  <iframe
-  src=""
+  src="https://webc.pie.design/?path=/docs/button--variants&viewMode=story&shortcuts=false&singleStory=true"
   style="border: none; background-color: #fcfcfc; margin-top: 24px;"
 ></iframe>
 

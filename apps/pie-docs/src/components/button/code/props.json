@@ -1,0 +1,149 @@
+{
+    "headings": ["Prop", "Options", "Description", "Default"],
+    "rows": [
+        [
+            "size",
+            {
+                "type": "code",
+                "item": ["medium", "large", "small-expressive", "small-productive", "xsmall"]
+            },
+            "Set the size of the button.",
+            {
+                "type": "code",
+                "item": ["medium"]
+            }
+        ],
+        [
+            "type",
+            {
+                "type": "code",
+                "item": ["buttom", "reset", "submit"]
+            },
+            "Set the type of the button.",
+            {
+                "type": "code",
+                "item": ["submit"]
+            }
+        ],
+        [
+            "variant",
+            {
+                "type": "code",
+                "item": ["destructive", "destructive-ghost", "ghost-inverse", "inverse", "ghost", "outline-inverse", "outline", "secondary", "primary"]
+            },
+            "Set the variant of the button.",
+            {
+                "type": "code",
+                "item": ["primary"]
+            }
+        ],
+        [
+            "disabled",
+            {
+                "type": "code",
+                "item": ["true", "false"]
+            },
+            "if <b>true</b>, disables the button.",
+            {
+                "type": "code",
+                "item": ["false"]
+            }
+        ],
+        [
+            "isFullWidth",
+            {
+                "type": "code",
+                "item": ["false", "true"]
+            },
+            "if <b>true</b>, sets the button width to 100% of it's container.",
+            {
+                "type": "code",
+                "item": ["false"]
+            }
+        ],
+        [
+            "isLoading",
+            {
+                "type": "code",
+                "item": ["false", "true"]
+            },
+            "if <b>true</b>, displays a loading indicator inside the button.",
+            {
+                "type": "code",
+                "item": ["false"]
+            }
+        ],
+        [
+            "iconPlacement",
+            {
+                "type": "code",
+                "item": ["leading", "trailing"]
+            },
+            "Show a leading/trailing icon. To use this with pie-button, you can pass an icon into the icon slot.",
+            {
+                "type": "code",
+                "item": ["undefined"]
+            }
+        ],
+        [
+            "name",
+            {
+                "type": "code",
+                "item": ["empty string"]
+            },
+            "The name of the button, submitted as a pair with the button's value as part of the form data, when that button is used to submit the form."
+        ],
+        [
+            "value",
+            {
+                "type": "code",
+                "item": ["empty string"]
+            },
+            "Defines the value associated with the button's name when it's submitted with the form data. This value is passed to the server in params when the form is submitted using this button."
+        ],
+        [
+            "formaction",
+            {
+                "type": "code",
+                "item": ["empty string"]
+            },
+            "The URL that processes the information submitted by the button. Overrides the action attribute of the button's form owner. Does nothing if there is no form owner."
+        ],
+        [
+            "formenctype",
+            {
+                "type": "code",
+                "item": ["empty string"]
+            },
+            "If the button is a submit button (it's inside/associated with a and doesn't have type=\"button\"), specifies how to encode the form data that is submitted"
+        ],
+        [
+            "formmethod",
+            {
+                "type": "code",
+                "item": ["empty string"]
+            },
+            "If the button is a submit button (it's inside/associated with a and doesn't have type=\"button\"), this attribute specifies the HTTP method used to submit the form."
+        ],
+        [
+            "formnovalidate",
+            {
+                "type": "code",
+                "item": ["false", "true"]
+            },
+            "If the button is a submit button, this Boolean attribute specifies that the form is not to be validated when it is submitted.",
+            {
+                "type": "code",
+                "item": ["false"]
+            }
+        ],
+        [
+            "formtarget",
+            {
+                "type": "code",
+                "item": ["empty string"]
+            },
+            "If the button is a submit button, this attribute is an author-defined name or standardized, underscore-prefixed keyword indicating where to display the response from submitting the form."
+        ]
+    ]
+}
