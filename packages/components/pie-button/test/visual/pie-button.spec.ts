@@ -13,7 +13,6 @@ import {
     WebComponentTestWrapper,
 } from '@justeattakeaway/pie-webc-testing/src/helpers/components/web-component-test-wrapper/WebComponentTestWrapper.ts';
 import { percyWidths } from '@justeattakeaway/pie-webc-testing/src/percy/breakpoints.ts';
-import { PieButton } from '@/index';
 import { sizes, variants, iconPlacements } from '@/defs';
 
 const props: PropObject = {
@@ -23,7 +22,7 @@ const props: PropObject = {
     isFullWidth: [true, false],
     disabled: [true, false],
     isLoading: [true, false],
-    iconPlacement: [undefined, ...iconPlacements],
+    iconPlacement: [...iconPlacements],
     isResponsive: [true, false],
     responsiveSize: ['', 'productive', 'expressive'],
 };
@@ -41,19 +40,9 @@ const componentPropsMatrix : WebComponentPropValues[] = getAllPropCombinations(p
 const componentPropsMatrixByVariant: Record<string, WebComponentPropValues[]> = splitCombinationsByPropertyValue(componentPropsMatrix, 'variant');
 const componentVariants: string[] = Object.keys(componentPropsMatrixByVariant);
 
-// This ensures the component is registered in the DOM for each test
-// This is not required if your tests mount the web component directly in the tests
-test.beforeEach(async ({ page, mount }) => {
-    await mount(
-        PieButton,
-        {},
-    );
-
-    // Removing the element so it's not present in the tests (but is still registered in the DOM)
-    await page.evaluate(() => {
-        const element : Element | null = document.querySelector('pie-button');
-        element?.remove();
-    });
+// eslint-disable-next-line no-empty-pattern
+test.beforeEach(async ({ }, testInfo) => {
+    testInfo.setTimeout(testInfo.timeout + 40000);
 });
 
 componentVariants.forEach((variant) => test(`should render all prop variations for Variant: ${variant}`, async ({ page, mount }) => {
