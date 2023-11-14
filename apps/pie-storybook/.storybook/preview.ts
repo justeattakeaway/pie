@@ -87,5 +87,6 @@ export default {
         viewport: {
             viewports: CUSTOM_VIEWPORTS
         },
+        layout: 'centered'
     }
 };

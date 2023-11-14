@@ -7,6 +7,9 @@
     background-color: f.$color-container-subtle;
     border-radius: f.$radius-rounded-c;
     padding: f.$spacing-d f.$spacing-e f.$spacing-e;
+
+    // ensures larger tables are responsive
+    overflow-x: auto;
 }
 
 .c-componentDetailsTable {
@@ -19,6 +22,8 @@
         text-align: start;
         vertical-align: top;
         padding: f.$spacing-b;
+        width: 0;
+        min-width: fit-content;
     }
 
     th,

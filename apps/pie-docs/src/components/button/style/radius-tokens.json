@@ -1,0 +1,15 @@
+{
+  "headings": [
+    "Element",
+    "Radius token"
+  ],
+  "rows": [
+    [
+      "Container",
+      {
+        "type": "token",
+        "item": "$rounded-e"
+      }
+    ]
+  ]
+}
