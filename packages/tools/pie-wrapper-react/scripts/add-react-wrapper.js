@@ -132,7 +132,7 @@ export const ${component.class.name} = createComponent({
             if (componentSrc.length > 0 && reactFile !== undefined) {
                 reactFile.write(componentSrc);
 
-                console.info('react wrapper has been added!');
+                console.info('React wrapper has been added!');
             }
         });
     } else {
