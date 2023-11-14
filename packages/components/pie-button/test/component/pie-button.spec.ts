@@ -652,13 +652,39 @@ test.describe('props', () => {
             });
         });
 
-        test.describe('when set to a valid value', () => {
-            test('the button should have the attribute', async ({ mount }) => {
+        test.describe('when "isResponsive" is true', () => {
+            test.describe('when "responsiveSize" is "expressive"', () => {
+                test('the button should have the expected attribute', async ({ mount }) => {
+                    const testProps:Partial<ButtonProps> = {
+                        ...props,
+                        size: 'xsmall',
+                        isResponsive: true,
+                        responsiveSize: 'expressive',
+                    };
+
+                    const component = await mount(
+                        PieButton,
+                        {
+                            props: testProps,
+                            slots: {
+                                default: 'Click me!',
+                            },
+                        },
+                    );
+
+                    await expect(component.locator('button'))
+                        .toHaveAttribute('responsiveSize', 'expressive');
+                });
+            });
+        });
+
+        test.describe('when "responsiveSize" is "productive"', () => {
+            test('the button should have the expected attribute', async ({ mount }) => {
                 const testProps:Partial<ButtonProps> = {
                     ...props,
                     size: 'xsmall',
                     isResponsive: true,
-                    responsiveSize: 'expressive',
+                    responsiveSize: 'productive',
                 };
 
                 const component = await mount(
@@ -672,7 +698,7 @@ test.describe('props', () => {
                 );
 
                 await expect(component.locator('button'))
-                    .toHaveAttribute('responsiveSize', 'expressive');
+                    .toHaveAttribute('responsiveSize', 'productive');
             });
         });
     });
