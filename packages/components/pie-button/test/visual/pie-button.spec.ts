@@ -22,7 +22,7 @@ const props: PropObject = {
     isFullWidth: [true, false],
     disabled: [true, false],
     isLoading: [true, false],
-    iconPlacement: [...iconPlacements],
+    iconPlacement: [undefined, ...iconPlacements],
 };
 
 // TODO: Currently setting the slot to use a straight up SVG
