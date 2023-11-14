@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.38.0
+
+### Minor Changes
+
+- [Changed] - inverse button hover & active states added ([#992](https://github.com/justeattakeaway/pie/pull/992)) by [@ashleynolan](https://github.com/ashleynolan)
+
 ## 0.37.1
 
 ### Patch Changes

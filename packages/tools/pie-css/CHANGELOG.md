@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-css
 
+## 0.8.0
+
+### Minor Changes
+
+- [Changed] - inverse button hover & active states added ([#992](https://github.com/justeattakeaway/pie/pull/992)) by [@ashleynolan](https://github.com/ashleynolan)
+
 ## 0.7.0
 
 ### Minor Changes
