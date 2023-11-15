@@ -17,8 +17,7 @@
     "@justeattakeaway/pie-css": "0.8.0",
     "@justeattakeaway/pie-icon-button": "0.21.2",
     "@justeattakeaway/pie-icons-webc": "0.11.1",
-    "@justeattakeaway/pie-modal": "0.32.2",
-    "body-scroll-lock": "3.1.5"
+    "@justeattakeaway/pie-modal": "0.32.2"
   },
   "installConfig": {
     "hoistingLimits": "workspaces"
