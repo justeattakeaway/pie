@@ -48,7 +48,7 @@
     "test:watch": "run -T vitest"
   },
   "devDependencies": {
-    "@babel/core": "7.23.2",
+    "@babel/core": "7.23.3",
     "@babel/node": "7.20.7",
     "@svgr/core": "6.4.0",
     "pascal-case": "3.1.2",

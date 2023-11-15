@@ -86,6 +86,7 @@ import { PieButton } from '@justeattakeaway/pie-button/dist/react';
 | disabled       | `Boolean` | `false`    | If `true`, disables the button.                                                                                      |
 | isFullWidth    | `Boolean` | `false`    | If `true`, sets the button width to 100% of its container.                                                          |
 | isLoading      | `Boolean` | `false`    | If `true`, displays a loading indicator inside the button.                                                           |
+| isResponsive   | `Boolean` | `false`    | If `true`, uses the next larger size on wide viewports.                                                              |
 | iconPlacement  | `String`  | `leading`  | Icon placements of the icon slot, if provided, one of `iconPlacements` - `leading`, `trailing`                       |
 | name           | `String`  | `undefined`| The name of the button, to be submitted with form data. [Read further on MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#attr-name) |
 | value          | `String`  | `undefined`| The value of the button, to be submitted with form data. [Read further on MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#attr-value) |
@@ -94,6 +95,7 @@ import { PieButton } from '@justeattakeaway/pie-button/dist/react';
 | formmethod     | `String`  | `undefined`| Sets the HTTP method for form data. [Read further on MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#attr-formmethod) |
 | formnovalidate | `Boolean` | `undefined`    | Ensures the form is submitted without native HTML validation. [Read further on MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#attr-formnovalidate) |
 | formtarget     | `String`  | `undefined`| Dictates where to display the response after form submission. [Read further on MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#attr-formtarget) |
+| responsiveSize | `String`  | `productive`| Sets a specific size for xsmall button when rendered as responsive. It can be `productive` or `expressive`.         |
 
 
 In your markup or JSX, you can then use these to set the properties for the `pie-button` component:
