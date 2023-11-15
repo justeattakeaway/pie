@@ -5680,9 +5680,8 @@ __metadata:
     "@justeattakeaway/pie-spinner": 0.2.1
     "@justeattakeaway/pie-webc-core": 0.11.0
     "@types/body-scroll-lock": 3.1.2
-    dialog-polyfill: 0.5.6
-  peerDependencies:
     body-scroll-lock: 3.1.5
+    dialog-polyfill: 0.5.6
   languageName: unknown
   linkType: soft
 
@@ -28874,7 +28873,6 @@ __metadata:
     "@typescript-eslint/parser": 5.62.0
     autoprefixer: 10.4.16
     babel-loader: 8.3.0
-    body-scroll-lock: 3.1.5
     commitizen: 4.3.0
     cross-env: 7.0.3
     cssnano: 5.1.15
@@ -28941,7 +28939,6 @@ __metadata:
     "@storybook/web-components": 7.5.1
     "@storybook/web-components-vite": 7.5.1
     "@types/dompurify": 3.0.4
-    body-scroll-lock: 3.1.5
     dompurify: 3.0.6
     lit: 2.7.5
     react: 18.2.0
@@ -37904,7 +37901,6 @@ __metadata:
     "@justeattakeaway/pie-icon-button": 0.21.2
     "@justeattakeaway/pie-icons-webc": 0.11.1
     "@justeattakeaway/pie-modal": 0.32.2
-    body-scroll-lock: 3.1.5
     vite: 4.3.9
   languageName: unknown
   linkType: soft
