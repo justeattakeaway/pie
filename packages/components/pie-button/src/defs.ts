@@ -1,4 +1,5 @@
 export const sizes = ['xsmall', 'small-productive', 'small-expressive', 'medium', 'large'] as const;
+export const responsiveSizes = ['productive', 'expressive'] as const;
 export const types = ['submit', 'button', 'reset'] as const;
 export const variants = [
     'primary', 'secondary', 'outline', 'outline-inverse', 'ghost',
@@ -41,6 +42,11 @@ export interface ButtonProps {
      * When true, displays a loading indicator inside the button.
      */
     isLoading: boolean;
+
+    /**
+     * When true, enables the responsive size feature.
+     */
+    isResponsive: boolean;
 
     /**
      * The name of the button, submitted as a pair with the button's value as part of the form data, when that button is used to submit the form.
@@ -86,4 +92,9 @@ export interface ButtonProps {
      * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#attributes)
      */
     formtarget?: typeof formTargetTypes[number]
+
+    /**
+     * What size should be attributed to the button when isResponsive is true and the screen is wide.
+     */
+    responsiveSize?: typeof responsiveSizes[number];
 }
