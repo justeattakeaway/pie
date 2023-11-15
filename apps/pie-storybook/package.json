@@ -25,7 +25,6 @@
     "@justeattakeaway/pie-notification": "0.1.1",
     "@justeattakeaway/pie-spinner": "0.2.1",
     "@justeattakeaway/pie-switch": "0.17.2",
-    "body-scroll-lock": "3.1.5",
     "dompurify": "3.0.6",
     "lit": "2.7.5"
   },
