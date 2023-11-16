@@ -7,4 +7,4 @@
 - `typescript` - `5.1.3` > `5.2.2`
 
 [Removed] - Unused `@lit-labs/*` resolutions.
-[Fixed] - Bug where `dev` tasks weren't building their depencies where applicable.
+[Fixed] - Bug where `dev` tasks weren't building their dependencies where applicable.
