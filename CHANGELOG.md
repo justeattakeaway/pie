@@ -1,5 +1,17 @@
 # Changelog
 
+## 2.40.0-next.0
+
+### Minor Changes
+
+- [Changed] - Updated the following dependencies: ([#999](https://github.com/justeattakeaway/pie/pull/999)) by [@siggerzz](https://github.com/siggerzz)
+
+  - `lit` - `2.8.0` > `3.0.2`
+  - `typescript` - `5.1.3` > `5.2.2`
+
+  [Removed] - Unused `@lit-labs/*` resolutions.
+  [Fixed] - Bug where `dev` tasks weren't building their dependencies where applicable.
+
 ## 2.39.0
 
 ### Minor Changes

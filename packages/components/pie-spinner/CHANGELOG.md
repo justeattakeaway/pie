@@ -1,5 +1,12 @@
 # @justeattakeaway/pie-spinner
 
+## 0.2.2-next.0
+
+### Patch Changes
+
+- Updated dependencies [[`382d04c5e`](https://github.com/justeattakeaway/pie/commit/382d04c5e04b4b08b5ae832ebcf98503ff3ba23c)]:
+  - @justeattakeaway/pie-webc-core@0.12.0-next.0
+
 ## 0.2.1
 
 ### Patch Changes
