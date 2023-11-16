@@ -14,6 +14,30 @@
             }
         ],
         [
+            "isResponsive",
+            {
+                "type": "code",
+                "item": ["true", "false"]
+            },
+            "If <b>true</b>, uses the next larger size on wide viewports.",
+            {
+                "type": "code",
+                "item": ["false"]
+            }
+        ],
+        [
+            "responsiveSize",
+            {
+                "type": "code",
+                "item": ["productive", "expressive"]
+            },
+            "Sets a specific size for xsmall button when rendered as responsive.",
+            {
+                "type": "code",
+                "item": ["productive"]
+            }
+        ],
+        [
             "type",
             {
                 "type": "code",
