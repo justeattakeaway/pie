@@ -25,5 +25,11 @@
   },
   "installConfig": {
     "hoistingLimits": "workspaces"
+  },
+  "devDependencies": {
+    "@babel/plugin-transform-logical-assignment-operators": "7.22.11",
+    "@babel/plugin-transform-nullish-coalescing-operator": "7.22.11",
+    "@babel/plugin-transform-optional-chaining": "7.23.0",
+    "babel-loader": "8"
   }
 }
