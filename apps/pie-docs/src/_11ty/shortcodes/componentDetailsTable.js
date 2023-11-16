@@ -5,6 +5,10 @@
  * @returns {string} - The HTML representation of a table row.
  */
 const buildRow = (cells) => cells.map((cell) => {
+    if (cell === null) {
+        return '<td></td>';
+    }
+
     let content = cell;
     if (cell.type === 'token') {
         content = `<span class="c-componentDetailsTable-token">${cell.item}</span>`;

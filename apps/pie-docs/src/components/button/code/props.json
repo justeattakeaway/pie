@@ -41,7 +41,7 @@
             "type",
             {
                 "type": "code",
-                "item": ["buttom", "reset", "submit"]
+                "item": ["button", "reset", "submit"]
             },
             "Set the type of the button.",
             {
