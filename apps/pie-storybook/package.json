@@ -26,11 +26,10 @@
     "@justeattakeaway/pie-spinner": "0.2.1",
     "@justeattakeaway/pie-switch": "0.17.2",
     "dompurify": "3.0.6",
-    "lit": "2.7.5"
+    "lit": "3.0.2"
   },
   "devDependencies": {
     "@storybook/addon-a11y": "7.5.1",
-    "@storybook/addon-designs": "7.0.5",
     "@storybook/addon-essentials": "7.5.1",
     "@storybook/addon-links": "7.5.1",
     "@storybook/addons": "7.5.1",
@@ -50,5 +49,8 @@
   },
   "volta": {
     "extends": "../../package.json"
+  },
+  "installConfig": {
+    "hoistingLimits": "workspaces"
   }
 }

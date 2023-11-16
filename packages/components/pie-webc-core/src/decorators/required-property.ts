@@ -11,15 +11,11 @@ export const requiredProperty = <T>(componentName: string) => function validateR
             return this[privatePropertyKey];
         },
         set (value: T): void {
-            const oldValue = this[privatePropertyKey];
-
             if (value === undefined || value === null || (typeof value === 'string' && value.trim() === '')) {
                 console.error(`<${componentName}> Missing required attribute "${propertyKey}"`);
             }
             this[privatePropertyKey] = value;
-
-            this.requestUpdate(propertyKey, oldValue);
         },
+        configurable: true,
     });
 };
-
