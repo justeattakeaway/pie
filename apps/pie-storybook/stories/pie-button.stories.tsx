@@ -156,6 +156,7 @@ const buttonStoryMeta: ButtonStoryMeta = {
             defaultValue: {
                 summary: 'productive',
             },
+            if: { arg: 'isResponsive', eq: true },
         },
     },
     args: defaultArgs,
