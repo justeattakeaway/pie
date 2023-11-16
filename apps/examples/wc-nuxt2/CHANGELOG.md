@@ -1,5 +1,16 @@
 # wc-nuxt2
 
+## 0.5.0-next.0
+
+### Minor Changes
+
+- [Changed] - Webpack config & babel plugins to support Lit 3 as per the upgrade guide - https://lit.dev/docs/releases/upgrade/#using-lit-3-with-webpack-4 ([#999](https://github.com/justeattakeaway/pie/pull/999)) by [@siggerzz](https://github.com/siggerzz)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-button@0.38.1-next.0
+
 ## 0.4.11
 
 ### Patch Changes

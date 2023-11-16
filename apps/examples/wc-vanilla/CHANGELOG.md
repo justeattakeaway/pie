@@ -1,5 +1,14 @@
 # wc-vanilla
 
+## 0.4.35-next.0
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-button@0.38.1-next.0
+  - @justeattakeaway/pie-icon-button@0.21.3-next.0
+  - @justeattakeaway/pie-modal@0.32.3-next.0
+
 ## 0.4.34
 
 ### Patch Changes

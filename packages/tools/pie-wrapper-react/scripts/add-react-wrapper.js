@@ -65,12 +65,12 @@ export function addReactWrapper (customElementsObject, folderName = process.argv
         const events = [];
         if (component?.events) {
             events.push(component.events
-                    .filter((event) => !!event.name)
-                    .map((event) => ({
-                        name: event.name,
-                        type: event.type?.text || 'Event',
-                        description: event.description,
-                    })));
+                .filter((event) => !!event.name)
+                .map((event) => ({
+                    name: event.name,
+                    type: event.type?.text || 'Event',
+                    description: event.description,
+                })));
         }
 
         return events;
@@ -105,7 +105,7 @@ export function addReactWrapper (customElementsObject, folderName = process.argv
             // Create the main source code
             componentSrc = `
 import * as React from 'react';
-import { createComponent${component.class.events?.length > 0 ? ', EventName' : ''} } from '@lit-labs/react';
+import { createComponent${component.class.events?.length > 0 ? ', EventName' : ''} } from '@lit/react';
 import { ${component.class.name} as ${component.class.name}React } from './index';
 
 export * from './defs';
