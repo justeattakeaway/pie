@@ -1,5 +1,5 @@
 ---
-"@justeattakeaway/pie-webc-core"
+"@justeattakeaway/pie-webc-core": minor
 ---
 
 [Changed] - `@validPropertyValues` and `@requiredProperty` decorators to support Lit 3.
