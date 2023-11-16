@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.12.0-next.0
+
+### Minor Changes
+
+- [Changed] - `@validPropertyValues` and `@requiredProperty` decorators to support Lit 3. ([#999](https://github.com/justeattakeaway/pie/pull/999)) by [@siggerzz](https://github.com/siggerzz)
+
 ## 0.11.0
 
 ### Minor Changes

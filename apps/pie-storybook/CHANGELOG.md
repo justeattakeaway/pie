@@ -1,5 +1,25 @@
 # Changelog
 
+## 0.48.0-next.0
+
+### Minor Changes
+
+- [Changed] - `hoistingLimits` config to prevent issues with conflicting dependency versions ([#999](https://github.com/justeattakeaway/pie/pull/999)) by [@siggerzz](https://github.com/siggerzz)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-button@0.38.1-next.0
+  - @justeattakeaway/pie-card@0.14.2-next.0
+  - @justeattakeaway/pie-cookie-banner@0.11.2-next.0
+  - @justeattakeaway/pie-divider@0.9.2-next.0
+  - @justeattakeaway/pie-form-label@0.8.2-next.0
+  - @justeattakeaway/pie-icon-button@0.21.3-next.0
+  - @justeattakeaway/pie-link@0.11.2-next.0
+  - @justeattakeaway/pie-modal@0.32.3-next.0
+  - @justeattakeaway/pie-notification@0.1.2-next.0
+  - @justeattakeaway/pie-spinner@0.2.2-next.0
+
 ## 0.47.1
 
 ### Patch Changes
