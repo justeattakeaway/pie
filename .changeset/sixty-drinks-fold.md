@@ -2,4 +2,4 @@
 "@justeattakeaway/pie-webc-core"
 ---
 
-[Changed] - `@validPropertyValues` to support Lit 3.
+[Changed] - `@validPropertyValues` and `@requiredProperty` decorators to support Lit 3.
