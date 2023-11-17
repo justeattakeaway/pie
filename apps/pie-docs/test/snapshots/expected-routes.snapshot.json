@@ -32,6 +32,7 @@
     "components/list-item/list-item",
     "components/list-item/list-item-interactive",
     "components/map-pin",
+    "components/modal/code",
     "components/modal/overview",
     "components/notification",
     "components/numeric-stepper/numeric-stepper",
