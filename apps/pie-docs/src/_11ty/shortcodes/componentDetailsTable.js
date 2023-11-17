@@ -55,15 +55,25 @@ const buildRow = (cells) => cells.map((cell) => {
  */
 module.exports = ({
     tableData,
+    priority,
 }) => {
     const { headings, rows } = JSON.parse(tableData);
+    const hasWidePadding = headings?.length <= 3;
 
     return `<div class="c-componentDetailsTable-backdrop">
-    <table class="c-componentDetailsTable">
-    ${headings ? `<tr>${headings.map((heading) => `
-        <th>${heading}</th>`).join('')}
+    <table class="c-componentDetailsTable ${hasWidePadding ? 'c-componentDetailsTable-hasWidePadding' : ''}">
+    ${headings ? `<tr>${headings.map((heading, index) => {
+        const isPriorityColumn = priority && priority === index;
+        return (
+            `<th class="${isPriorityColumn ? 'c-componentDetailsTable-heading--priority' : ''}">${heading}</th>`
+        );
+    }).join('')}
     </tr>` : ''}
-    ${rows.map((row) => `<tr>${buildRow(row)}`).join('')}</tr>
+    ${rows.map((row) => {
+        const shouldHideTopBorder = row[0] === '';
+
+        return `<tr class="${shouldHideTopBorder ? 'c-componentDetailsTable-row--hideTopBorder' : ''}">${buildRow(row)}</tr>`;
+    }).join('')}
     </table>
 </div>`;
 };

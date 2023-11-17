@@ -1,0 +1,39 @@
+{
+  "headings": [
+    "Size",
+    "Breakpoint",
+    "Width and height"
+  ],
+  "rows": [
+    [
+      "Large",
+      ">=768px",
+      "Width: 75%<br>Height: Max 100% height minus 80px top and bottom"
+    ],
+    [
+      "",
+      "<768px",
+      "Width: 75%<br>Height: Max 100% height minus 80px top and bottom<br><br>Max-width: 1080px"
+    ],
+    [
+      "Medium",
+      ">=768px",
+      "Width: 75%<br>Height: Max 100% height minus 80px top and bottom"
+    ],
+    [
+      "",
+      "<768px",
+      "Width: 75%<br>Height: Max 100% minus 40px top and bottom<br>or<br>Width: 100%<br>Height: 100%<br><br>Max-width: 600px"
+    ],
+    [
+      "Small",
+      ">=768px",
+      "Width: 450px<br>Height = Max 100% minus 80px top and bottom"
+    ],
+    [
+      "",
+      "<768px",
+      "Width: 75%<br>Height: Max 100% minus 40px top and bottom<br><br>Max-width: 450px"
+    ]
+  ]
+}

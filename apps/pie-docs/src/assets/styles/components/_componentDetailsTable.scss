@@ -22,14 +22,30 @@
         text-align: start;
         vertical-align: top;
         padding: f.$spacing-b;
-        width: 0;
         min-width: fit-content;
     }
 
-    th,
-    tr:not(:last-child) {
-        border-block-end: 1px solid f.$color-divider-default;
+    th:not(.c-componentDetailsTable-heading--priority),
+    td {
+        width: 0;
     }
+
+    tr:not(:first-child):not(.c-componentDetailsTable-row--hideTopBorder) {
+        border-block-start: 1px solid f.$color-divider-default;
+    }
+}
+
+.c-componentDetailsTable-hasWidePadding {
+    th:not(:first-child),
+    td:not(:first-child) {
+        @include f.media('>=mid') {
+            padding-inline-start: f.$spacing-i;
+        }
+    }
+}
+
+.c-componentDetailsTable-heading--priority {
+    width: 100%;
 }
 
 .c-componentDetailsTable-token {
