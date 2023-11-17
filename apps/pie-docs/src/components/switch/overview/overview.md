@@ -203,7 +203,7 @@ Outlines the atomic level interactive elements for the component.
 
 ### LTR examples
 
-Here are some examples of switches in left to right context:
+Here are some examples of switches in left-to-right context:
 
 {% contentLayout %}
   {% contentItem %}
