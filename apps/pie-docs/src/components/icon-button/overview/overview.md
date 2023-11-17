@@ -27,13 +27,13 @@ Icon buttons feature simple and recognizable icons that represent a specific act
     do: {
         type: usageTypes.text,
         items: [
-           "Use it when an icon button on it’s own can clearly indicate the action."
+           "Use it when an icon button on its own can clearly indicate the action."
         ]
     },
     dont: { 
         type: usageTypes.text,
         items: [
-            "Don’t use if an icon on it’s own doesn’t clearly indicate the action, in the case use a standard [Button](/components/button/overview)."
+            "Don’t use if an icon on its own doesn’t clearly indicate the action, in the case use a standard [Button](/components/button/overview)."
         ]
     }
 } %}
@@ -314,7 +314,7 @@ Outlines the atomic level interactive elements for the component.
     rows: [
         {
             resource: resourceTypes.COMPONENT,
-            link: "https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=981-5350&mode=design",
+            link: "https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=742-317&mode=design&t=TQwLuC8jGD8UIgAs-0",
             status: statusTypes.AVAILABLE
         },
         {
