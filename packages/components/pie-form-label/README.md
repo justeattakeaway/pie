@@ -55,7 +55,7 @@ import '@justeattakeaway/pie-form-label';
 ```js
 // React
 // For React, you will need to import our React-specific component build
-// which wraps the web component using @lit-labs/react
+// which wraps the web component using @lit/react
 import { PieFormLabel } from '@justeattakeaway/pie-form-label/dist/react';
 ```
 

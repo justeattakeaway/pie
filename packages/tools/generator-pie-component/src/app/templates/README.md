@@ -55,7 +55,7 @@ import '@justeattakeaway/pie-<%= fileName %>';
 ```js
 // React
 // For React, you will need to import our React-specific component build
-// which wraps the web component using @lit-labs/react
+// which wraps the web component using @lit/react
 import { Pie<%= componentName %> } from '@justeattakeaway/pie-<%= fileName %>/dist/react';
 ```
 

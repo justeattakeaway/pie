@@ -18,7 +18,7 @@ Once this is installed, head to your `next.config.js` and transpile modules need
 ```
 const transpileModules = [
     '@justeattakeaway/pie-button',
-    '@lit-labs/react',
+    '@lit/react',
     'lit'
 ];
 

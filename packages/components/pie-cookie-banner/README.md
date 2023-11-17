@@ -56,7 +56,7 @@ import '@justeattakeaway/pie-cookie-banner';
 ```js
 // React
 // For React, you will need to import our React-specific component build
-// which wraps the web component using @lit-labs/react
+// which wraps the web component using @lit/react
 import { PieCookieBanner } from '@justeattakeaway/pie-cookie-banner/dist/react';
 ```
 
