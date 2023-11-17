@@ -37901,7 +37901,6 @@ __metadata:
     "@justeattakeaway/pie-icon-button": 0.21.2
     "@justeattakeaway/pie-icons-webc": 0.11.1
     "@justeattakeaway/pie-modal": 0.32.2
-    body-scroll-lock: 3.1.5
     vite: 4.3.9
   languageName: unknown
   linkType: soft
