@@ -3,7 +3,7 @@ import { html, nothing } from 'lit';
 /* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-button';
 import {
-    ButtonProps as ButtonPropsBase, iconPlacements, sizes, types, variants,
+    ButtonProps as ButtonPropsBase, iconPlacements, sizes, types, variants, responsiveSizes,
 } from '@justeattakeaway/pie-button';
 /* eslint-enable import/no-duplicates */
 import '@justeattakeaway/pie-icons-webc/IconPlusCircle';
@@ -21,6 +21,7 @@ const defaultArgs: ButtonProps = {
     disabled: false,
     isFullWidth: false,
     isLoading: false,
+    isResponsive: false,
     slot: 'Label',
 };
 
@@ -73,6 +74,13 @@ const buttonStoryMeta: ButtonStoryMeta = {
         },
         isLoading: {
             description: 'If `true`, displays a loading indicator inside the button.',
+            control: 'boolean',
+            defaultValue: {
+                summary: false,
+            },
+        },
+        isResponsive: {
+            description: 'If `true`, uses the next larger size on wide viewports',
             control: 'boolean',
             defaultValue: {
                 summary: false,
@@ -141,6 +149,15 @@ const buttonStoryMeta: ButtonStoryMeta = {
             },
             if: { arg: 'type', eq: 'submit' },
         },
+        responsiveSize: {
+            description: 'Set the size of the button when set as responsive for wider viewports.',
+            control: 'select',
+            options: ['', ...responsiveSizes],
+            defaultValue: {
+                summary: 'productive',
+            },
+            if: { arg: 'isResponsive', eq: true },
+        },
     },
     args: defaultArgs,
     parameters: {
@@ -160,6 +177,7 @@ const Template: TemplateFunction<ButtonProps> = ({
     disabled,
     isFullWidth,
     isLoading,
+    isResponsive,
     slot,
     iconPlacement,
     name,
@@ -169,6 +187,7 @@ const Template: TemplateFunction<ButtonProps> = ({
     formmethod,
     formnovalidate,
     formtarget,
+    responsiveSize,
 }) => html`
 <pie-button
     size="${size}"
@@ -178,8 +197,10 @@ const Template: TemplateFunction<ButtonProps> = ({
     ?disabled="${disabled}"
     ?isLoading="${isLoading}"
     ?isFullWidth="${isFullWidth}"
+    ?isResponsive="${isResponsive}"
     name=${name || nothing}
     value=${value || nothing}
+    responsiveSize="${responsiveSize || nothing}"
     formaction=${formaction || nothing}
     formenctype=${formenctype || nothing}
     formmethod=${formmethod || nothing}
