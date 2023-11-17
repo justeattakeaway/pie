@@ -27,6 +27,7 @@
     "components/dropdown",
     "components/fab",
     "components/form-label",
+    "components/icon-button/code",
     "components/icon-button/overview",
     "components/link",
     "components/list-item/list-item",
