@@ -156,7 +156,7 @@ Outlines the atomic level interactive elements for the component.
     {% contentPageImage {
       src: "../../../assets/img/components/switch/interactive-states-default.svg",
       width: 114,
-      alt: "@@@@@@@@@@@@"
+      alt: "Default state of a switch."
     } %}
   {% endcontentItem %}
   {% contentItem %}
@@ -164,7 +164,7 @@ Outlines the atomic level interactive elements for the component.
     {% contentPageImage {
       src: "../../../assets/img/components/switch/interactive-states-hover.svg",
       width: 114,
-      alt: "@@@@@@@@@@@@"
+      alt: "A switch that is hovered."
     } %}
   {% endcontentItem %}
   {% contentItem %}
@@ -172,7 +172,7 @@ Outlines the atomic level interactive elements for the component.
     {% contentPageImage {
       src: "../../../assets/img/components/switch/interactive-states-active.svg",
       width: 114,
-      alt: "@@@@@@@@@@@@"
+      alt: "A switch that is active."
     } %}
   {% endcontentItem %}
   {% contentItem %}
@@ -180,7 +180,7 @@ Outlines the atomic level interactive elements for the component.
     {% contentPageImage {
       src: "../../../assets/img/components/switch/interactive-states-focus.svg",
       width: 116,
-      alt: "@@@@@@@@@@@@"
+      alt: "A switch that is focused."
     } %}
   {% endcontentItem %}
   {% contentItem %}
@@ -188,7 +188,7 @@ Outlines the atomic level interactive elements for the component.
     {% contentPageImage {
       src: "../../../assets/img/components/switch/interactive-states-disabled.svg",
       width: 108,
-      alt: "@@@@@@@@@@@@"
+      alt: "A switch that is disabled."
     } %}
   {% endcontentItem %}
 {% endcontentLayout %}
@@ -209,7 +209,7 @@ Here are some examples of switches in left to right context:
     {% contentPageImage {
       src: "../../../assets/img/components/switch/example-ltr-menu-item.svg",
       width: 428,
-      alt: "@@@@@@@@@@@@"
+      alt: "A left to right example of switch with default state."
     } %}
   {% endcontentItem %}
   {% contentItem %}
@@ -217,7 +217,7 @@ Here are some examples of switches in left to right context:
     {% contentPageImage {
       src: "../../../assets/img/components/switch/example-ltr-item-availability.svg",
       width: 153,
-      alt: "@@@@@@@@@@@@"
+      alt: "A left to right example of switch with hover state."
     } %}
   {% endcontentItem %}
 {% endcontentLayout %}
@@ -232,7 +232,7 @@ Here are some examples of switches in right to left context:
     {% contentPageImage {
       src: "../../../assets/img/components/switch/example-rtl-menu-item.svg",
       width: 428,
-      alt: "@@@@@@@@@@@@"
+      alt: "A right to left example of switch with default state."
     } %}
   {% endcontentItem %}
   {% contentItem %}
@@ -240,7 +240,7 @@ Here are some examples of switches in right to left context:
     {% contentPageImage {
       src: "../../../assets/img/components/switch/example-rtl-item-availability.svg",
       width: 153,
-      alt: "@@@@@@@@@@@@"
+      alt: "A right to left example of switch with hover state."
     } %}
   {% endcontentItem %}
 {% endcontentLayout %}
