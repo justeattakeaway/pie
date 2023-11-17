@@ -238,7 +238,7 @@ Here is an example of a Card in a right-to-left context:
         {
             resource: resourceTypes.WEB_COMPONENTS,
             link: "https://webc.pie.design/?path=/story/card--default",
-            status: statusTypes.AVAILABLE
+            status: statusTypes.ALPHA
         },
         {
             resource: resourceTypes.VUE,
