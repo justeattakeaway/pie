@@ -1,0 +1,17 @@
+version: '3'
+services:
+  main:
+    build:
+      context: .
+      dockerfile: Dockerfile.main
+    ports:
+      - "6006:6006"
+
+  feature:
+    build:
+      context: .
+      dockerfile: Dockerfile.feature
+      args:
+        BRANCH_NAME: ${BRANCH_NAME:-feature}
+    ports:
+      - "6007:6007"

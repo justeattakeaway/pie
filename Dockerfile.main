@@ -1,0 +1,17 @@
+# Dockerfile for the main branch
+FROM node:20
+
+# Set the working directory
+WORKDIR /app
+
+# Shallow clone the main branch
+RUN git clone --single-branch --branch main --depth 1 https://github.com/justeattakeaway/pie/ .
+
+# Install dependencies
+RUN yarn install --frozen-lockfile
+
+# Expose the port for the Storybook server
+EXPOSE 6006
+
+# Command to run the Storybook server
+CMD ["yarn", "dev", "--filter=pie-docs", "--", "--port=6006"]
