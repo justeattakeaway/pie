@@ -249,11 +249,6 @@ Here are some examples of switches in right to left context:
 
 ## Resources
 
-{% notification {
-  type: "warning",
-  message: "We’re currently working on updating our Switch documentation, please see the resources below."
-} %}
-
 {% resourceTable {
     rows: [
         {
