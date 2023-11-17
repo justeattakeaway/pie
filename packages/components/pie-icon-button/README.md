@@ -76,7 +76,7 @@ import { PieIconButton } from '@justeattakeaway/pie-icon-button/dist/react';
 
 ## Importing Icons
 
-We recommend using the `pie-icon-button` component alongside the `pie-icons-webc` package. This package contains all of the PIE iconset as importable web components and are built to work alongside our other PIE components.
+We recommend using the `pie-icon-button` component alongside the `pie-icons-webc` package. This package contains all of the PIE icons as importable web components and are built to work alongside our other PIE components.
 
 `pie-icon-button` provides a slot into which you can pass your chosen icon, and it will automatically size it to the correct dimensions depending on the `size` of the `pie-icon-button` component.
 
@@ -92,11 +92,11 @@ import '@justeattakeaway/pie-icons-webc/icons/IconClose';
 Then, in your markup, you would implement the component like this:
 
 ```html
-<pie-icon-button><icon-close /></pie-icon-button>
+<pie-icon-button><icon-close></icon-close></pie-icon-button>
 ```
 
 > [!WARNING]
-> Usually, icons imported from `pie-icons-webc` can be resized by specifying the `size` prop (such as `<icon-close size="xl" />`).
+> Usually, icons imported from `pie-icons-webc` can be resized by specifying the `size` prop (such as `<icon-close size="xl"></icon-close>`).
 > These size props will have no effect when used alongside the `pie-icon-button` component, as the icon is resized with respect to the size of the `pie-icon-button`.
 
 
@@ -130,7 +130,7 @@ For example, to add a click handler in various templates:
 
 ```html
 <!-- Other attributes omitted for clarity -->
-<pie-icon-button onclick="e => console.log(e)"><icon-close /></pie-icon-button>
+<pie-icon-button onclick="e => console.log(e)"><icon-close></icon-close></pie-icon-button>
 ```
 
 ### Vue templates (using Nuxt 3)

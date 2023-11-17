@@ -60,7 +60,7 @@ $ yarn add @justeattakeaway/pie-icon-button
 
 ## Importing Icons
 
-We recommend using the `pie-icon-button` component alongside the `pie-icons-webc` package. This package contains all of the PIE iconset as importable web components and are built to work alongside our other PIE components.
+We recommend using the `pie-icon-button` component alongside the `pie-icons-webc` package. This package contains all of the PIE icons as importable web components and are built to work alongside our other PIE components.
 
 `pie-icon-button` provides a slot into which you can pass your chosen icon, and it will automatically size it to the correct dimensions depending on the `size` of the `pie-icon-button` component.
 
@@ -76,12 +76,12 @@ import '@justeattakeaway/pie-icons-webc/icons/IconClose';
 Then, in your markup, you would implement the component like this:
 
 ```html
-<pie-icon-button><icon-close /></pie-icon-button>
+<pie-icon-button><icon-close></icon-close></pie-icon-button>
 ```
 
 {% notification {
   type: "warning",
-  message: "Icons imported from `pie-icons-webc` can be resized by specifying the size prop, such as `<icon-close size=\"xl\" />`. The size prop will have no effect when used alongside the `pie-icon-button` component, as the icon is resized with respect to the component size."
+  message: "Icons imported from `pie-icons-webc` can be resized by specifying the size prop, such as `<icon-close size=\"xl\"></icon-close>`. The size prop will have no effect when used alongside the `pie-icon-button` component, as the icon is resized with respect to the component size."
 } %}
 
 ## Props
@@ -100,12 +100,12 @@ For HTML:
 
 ```js
 // import as module into a js file e.g. main.js
-import '@justeattakeaway/pie-icon-button'
+import '@justeattakeaway/pie-icon-button';
 ```
 
 ```html
 <!-- pass js file into <script> tag -->
-<pie-icon-button onclick="e => console.log(e)"><icon-close /></pie-icon-button>
+<pie-icon-button onclick="e => console.log(e)"><icon-close></icon-close></pie-icon-button>
 <script type="module" src="/main.js"></script>
 ```
 

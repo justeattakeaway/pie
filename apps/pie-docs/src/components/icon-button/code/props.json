@@ -69,8 +69,8 @@
             {
                 "type": "code",
                 "item": [
-                    "false",
-                    "true"
+                    "true",
+                    "false"
                 ]
             },
             "if <b>true</b>, displays a loading indicator inside the icon button.",
