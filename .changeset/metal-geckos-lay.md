@@ -2,4 +2,4 @@
 "pie-docs": minor
 ---
 
-[Updated] - Modal overview page
+[Changed] - Modal overview page
