@@ -30,7 +30,7 @@
         width: 0;
     }
 
-    tr:not(:first-child):not(.c-componentDetailsTable-row--hideTopBorder) {
+    tr:not(:first-child, .c-componentDetailsTable-row--hideTopBorder) {
         border-block-start: 1px solid f.$color-divider-default;
     }
 }
