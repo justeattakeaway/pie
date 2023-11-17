@@ -4,7 +4,7 @@ import { message, danger } from 'danger';
 const validChangesetCategories = ['Added', 'Changed', 'Removed', 'Fixed'];
 
 // Check for correct Changeset formatting
-danger.git.created_files.filter((filepath) => filepath.includes('.changeset/') && !filepath.includes('.changeset/pre.json'))
+danger.git.created_files.filter((filepath) => filepath.includes('.changeset/'))
     .forEach((filepath) => {
         // get the git diff for the changeset file
         const changesetDiff = danger.git.diffForFile(filepath);
