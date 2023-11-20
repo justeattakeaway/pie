@@ -1,0 +1,85 @@
+{
+    "headings": [
+        "Prop",
+        "Options",
+        "Description",
+        "Default"
+    ],
+    "rows": [
+        [
+            "size",
+            {
+                "type": "code",
+                "item": [
+                    "xsmall",
+                    "small",
+                    "medium",
+                    "large"
+                ]
+            },
+            "Set the size of the icon button.",
+            {
+                "type": "code",
+                "item": [
+                    "medium"
+                ]
+            }
+        ],
+        [
+            "variant",
+            {
+                "type": "code",
+                "item": [
+                    "primary",
+                    "secondary",
+                    "outline",
+                    "ghost",
+                    "ghost-secondary",
+                    "inverse",
+                    "ghost-inverse"
+                ]
+            },
+            "Set the variant of the icon button.",
+            {
+                "type": "code",
+                "item": [
+                    "primary"
+                ]
+            }
+        ],
+        [
+            "disabled",
+            {
+                "type": "code",
+                "item": [
+                    "true",
+                    "false"
+                ]
+            },
+            "if <b>true</b>, disables the icon button.",
+            {
+                "type": "code",
+                "item": [
+                    "false"
+                ]
+            }
+        ],
+        [
+            "isLoading",
+            {
+                "type": "code",
+                "item": [
+                    "true",
+                    "false"
+                ]
+            },
+            "if <b>true</b>, displays a loading indicator inside the icon button.",
+            {
+                "type": "code",
+                "item": [
+                    "false"
+                ]
+            }
+        ]
+    ]
+}
