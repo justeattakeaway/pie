@@ -1,8 +1,8 @@
 ---
 eleventyNavigation:
     key: data-visualisation
-    title: 'Data Visulisation'
+    title: 'Data Visualisation'
     parent: Components
     subPageDropdown: true
-title: 'Data Visulisation'
+title: 'Data Visualisation'
 ---
