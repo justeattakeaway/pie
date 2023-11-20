@@ -95,6 +95,8 @@ ___
 
 ## Content
 
+The card container comes with a slot, so you can add any content you like to the card. For the internal spacing of the card container, make sure to use PIE spacing tokens. You can find more information about these tokens in the spacing documentation.
+
 {% contentLayout %}
   {% contentItem %}
     {% contentPageImage {
