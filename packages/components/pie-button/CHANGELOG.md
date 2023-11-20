@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.39.0
+
+### Minor Changes
+
+- [Added] - `isResponsive` and `responsiveSize` prop ([#986](https://github.com/justeattakeaway/pie/pull/986)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 0.38.0
 
 ### Minor Changes
