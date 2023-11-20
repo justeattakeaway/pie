@@ -30,24 +30,34 @@
             "isResponsive",
             {
                 "type": "code",
-                "item": ["true", "false"]
+                "item": [
+                    "true",
+                    "false"
+                ]
             },
             "If <b>true</b>, uses the next larger size on wide viewports.",
             {
                 "type": "code",
-                "item": ["false"]
+                "item": [
+                    "false"
+                ]
             }
         ],
         [
             "responsiveSize",
             {
                 "type": "code",
-                "item": ["productive", "expressive"]
+                "item": [
+                    "productive",
+                    "expressive"
+                ]
             },
             "Sets a specific size for xsmall button when rendered as responsive.",
             {
                 "type": "code",
-                "item": ["productive"]
+                "item": [
+                    "productive"
+                ]
             }
         ],
         [
@@ -114,8 +124,8 @@
             {
                 "type": "code",
                 "item": [
-                    "false",
-                    "true"
+                    "true",
+                    "false"
                 ]
             },
             "if <b>true</b>, sets the button width to 100% of it's container.",
@@ -131,8 +141,8 @@
             {
                 "type": "code",
                 "item": [
-                    "false",
-                    "true"
+                    "true",
+                    "false"
                 ]
             },
             "if <b>true</b>, displays a loading indicator inside the button.",
@@ -215,8 +225,8 @@
             {
                 "type": "code",
                 "item": [
-                    "false",
-                    "true"
+                    "true",
+                    "false"
                 ]
             },
             "If the button is a submit button, this Boolean attribute specifies that the form is not to be validated when it is submitted.",
