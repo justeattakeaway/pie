@@ -20,6 +20,8 @@
     "components/checkbox",
     "components/chip",
     "components/data-table",
+    "components/data-visualisation/bar-chart",
+    "components/data-visualisation/line-chart",
     "components/date-picker",
     "components/divider",
     "components/dropdown",
