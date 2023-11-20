@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.39.1
+
+### Patch Changes
+
+- [Changed] - Move body-scroll-lock from modal's peerDependencies to dependencies ([#998](https://github.com/justeattakeaway/pie/pull/998)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- [Fixed] - danger check allow pre-json changes through ([#1003](https://github.com/justeattakeaway/pie/pull/1003)) by [@ashleynolan](https://github.com/ashleynolan)
+
 ## 2.39.0
 
 ### Minor Changes
