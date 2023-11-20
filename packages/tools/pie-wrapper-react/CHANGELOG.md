@@ -4,7 +4,7 @@
 
 ### Minor Changes
 
-- [Changed] - `@lit/react` dependency to `@lit/react` and updated any references. ([#999](https://github.com/justeattakeaway/pie/pull/999)) by [@siggerzz](https://github.com/siggerzz)
+- [Changed] - `@lit-labs/react` dependency to `@lit/react` and updated any references. ([#999](https://github.com/justeattakeaway/pie/pull/999)) by [@siggerzz](https://github.com/siggerzz)
 
 ## 0.10.2
 
