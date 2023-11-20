@@ -5421,13 +5421,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@justeat/fozzie@npm:11.0.1":
-  version: 11.0.1
-  resolution: "@justeat/fozzie@npm:11.0.1"
+"@justeat/fozzie@npm:11.0.2":
+  version: 11.0.2
+  resolution: "@justeat/fozzie@npm:11.0.2"
   dependencies:
     "@justeat/pie-design-tokens": 5.0.0
-    include-media: "github:eduardoboucas/include-media#2.0-release"
-  checksum: 44dc4d82e4656a92fdff9ae1973e2b5f37135e2ff0e74a7d1b9f985088489b039c8d30dc1e066e907c5afe9dc9f94945a92f5a086a9ccb20baed370676273744
+    include-media: 2.0.0
+  checksum: e829a0957f5a1b984898addd5e348050b5723a1cd26f2dfd2b2e9731b8c30721e13adfb53db132df005906b7abdd7938b344e8388e6c0570f0dc37ef93ed2a44
   languageName: node
   linkType: hard
 
@@ -22188,9 +22188,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"include-media@github:eduardoboucas/include-media#2.0-release":
+"include-media@npm:2.0.0":
   version: 2.0.0
-  resolution: "include-media@https://github.com/eduardoboucas/include-media.git#commit=a3c0288e5b22cc746cc2d320d0a374b2ed9d0aeb"
+  resolution: "include-media@npm:2.0.0"
   checksum: 4f28ff0addab4d07a809d3e61a6751d7c8e022af66866cf29684b1401c725bd73d2dd224aaa08f32a3cdd9c948766a8aa0d05866ed9acb2d6d0141f33d3af37c
   languageName: node
   linkType: hard
@@ -28855,7 +28855,7 @@ __metadata:
     "@changesets/cli": 2.26.2
     "@commitlint/cli": 17.5.1
     "@commitlint/config-conventional": 17.4.4
-    "@justeat/fozzie": 11.0.1
+    "@justeat/fozzie": 11.0.2
     "@justeat/pie-design-tokens": 5.9.0
     "@justeattakeaway/browserslist-config-pie": 0.2.0
     "@justeattakeaway/generator-pie-component": 0.15.0
