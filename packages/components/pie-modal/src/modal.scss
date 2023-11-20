@@ -62,7 +62,7 @@
 
     // The initial values for these variables apply to the medium-sized modal
     // Other sizes will update the variables as needed
-    --modal-block-size: fit-content;
+    --modal-block-size: 100%;
     --modal-inline-size: 75%;
     --modal-max-block-size: calc(100vh - calc(var(--modal-margin-block) * 2));
     --modal-max-inline-size: var(--modal-size-m);
@@ -86,7 +86,6 @@
             @media (max-width: calc($breakpoint-wide - 1px)) {
                 --modal-margin-block: var(--modal-margin-none);
                 --modal-border-radius: var(--dt-radius-rounded-none);
-                --modal-block-size: 100%;
                 --modal-inline-size: 100%;
 
                 // In this case, the modal must exceed the previous maximum width
@@ -103,7 +102,6 @@
         @media (max-width: calc($breakpoint-wide - 1px)) {
             --modal-margin-block: var(--modal-margin-none);
             --modal-border-radius: var(--dt-radius-rounded-none);
-            --modal-block-size: 100%;
             --modal-inline-size: 100%;
         }
     }
