@@ -113,10 +113,10 @@ In your HTML markup or JSX, you can then use these to set the properties for the
 
 ```html
 <!-- Native HTML -->
-<pie-icon-button size='small' type='button' variant='secondary'><icon-close /></pie-icon-button>
+<pie-icon-button size='small' type='button' variant='secondary'><icon-close></icon-close></pie-icon-button>
 
 <!-- JSX -->
-<PieIconButton size='small' type='button' variant='secondary'><icon-close /></PieIconButton>
+<PieIconButton size='small' type='button' variant='secondary'><icon-close></icon-close></PieIconButton>
 ```
 
 ## Events
@@ -137,14 +137,14 @@ For example, to add a click handler in various templates:
 
 ```html
 <!-- Other attributes omitted for clarity -->
-<pie-icon-button @click="handleClick"><icon-close /></pie-icon-button>
+<pie-icon-button @click="handleClick"><icon-close></icon-close></pie-icon-button>
 ```
 
 ### React templates (using Next 13)
 
 ```html
 <!-- Other attributes omitted for clarity -->
-<PieIconButton onClick={handleClick}><icon-close /></PieIconButton>
+<PieIconButton onClick={handleClick}><icon-close></icon-close></PieIconButton>
 
 ```
 

@@ -115,7 +115,7 @@ For Native JS Applications, Vue, Angular, Svelte etc.:
 // Vue templates (using Nuxt 3)
 import { PieIconButton } from '@justeattakeaway/pie-icon-button';
 
-<pie-icon-button @click="handleClick"><icon-close /></pie-icon-button>
+<pie-icon-button @click="handleClick"><icon-close></icon-close></pie-icon-button>
 ```
 
 For React Applications: 
@@ -124,7 +124,7 @@ For React Applications:
 // React templates (using Next 13)
 import { PieIconButton } from '@justeattakeaway/pie-icon-button/dist/react';
 
-<PieIconButton onClick={handleClick}><icon-close /></PieIconButton>
+<PieIconButton onClick={handleClick}><icon-close></icon-close></PieIconButton>
 
 ```
 
