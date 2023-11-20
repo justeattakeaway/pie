@@ -57,15 +57,6 @@ Switches are commonly used to enable or disable settings, switch between modes o
 
 ---
 
-## Content
-
-### Labels
-
-- Keep labels short so forms are easy to read and scan.
-- Use sentence case.
-
----
-
 ## Modifiers
 
 ### Labels
@@ -148,6 +139,15 @@ The switch has two states available, unselected and selected.
 
 ---
 
+## Content
+
+### Labels
+
+- Keep labels short so forms are easy to read and scan.
+- Use sentence case.
+
+---
+
 ## Interactive states
 
 Outlines the atomic level interactive elements for the component.
@@ -207,7 +207,6 @@ Here are some examples of switches in left-to-right context:
 
 {% contentLayout %}
   {% contentItem %}
-    <h4>Default</h4>
     {% contentPageImage {
       src: "../../../assets/img/components/switch/example-ltr-menu-item.svg",
       width: 428,
@@ -215,7 +214,6 @@ Here are some examples of switches in left-to-right context:
     } %}
   {% endcontentItem %}
   {% contentItem %}
-    <h4>Hover</h4>
     {% contentPageImage {
       src: "../../../assets/img/components/switch/example-ltr-item-availability.svg",
       width: 153,
@@ -230,7 +228,6 @@ Here are some examples of switches in right to left context:
 
 {% contentLayout %}
   {% contentItem %}
-    <h4>Default</h4>
     {% contentPageImage {
       src: "../../../assets/img/components/switch/example-rtl-menu-item.svg",
       width: 428,
@@ -238,7 +235,6 @@ Here are some examples of switches in right to left context:
     } %}
   {% endcontentItem %}
   {% contentItem %}
-    <h4>Hover</h4>
     {% contentPageImage {
       src: "../../../assets/img/components/switch/example-rtl-item-availability.svg",
       width: 153,
