@@ -95,7 +95,7 @@ For React Applications.
 // React templates (using Next 13)
 import { PieSwitch } from '@justeattakeaway/pie-switch/dist/react';
 
-<pie-switch isChecked label="Label" labelPlacement="trailing" onSwitchChangedEvent={handleChange}></pie-switch>
+<PieSwitch isChecked label="Label" labelPlacement="trailing" onPieSwitchChanged={handleChange}></PieSwitch>
 ```
 
 {% notification {
