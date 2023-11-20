@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.15.1
+
+### Patch Changes
+
+- [Fixed] - Added missing Button changes ([#996](https://github.com/justeattakeaway/pie/pull/996)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 3.15.0
 
 ### Minor Changes
