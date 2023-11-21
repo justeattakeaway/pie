@@ -5,42 +5,39 @@
             "tag",
             {
                 "type": "code",
-                "item": ["a", "button"]
+                "item": ["\"a\"", "\"button\""]
             },
             "Which HTML tag to use for the card.",
             {
                 "type": "code",
-                "item": ["button"]
+                "item": ["\"button\""]
             }
         ],
         [
             "variant",
             {
                 "type": "code",
-                "item": ["default", "outline", "inverse", "outline-inverse"]
+                "item": ["\"default\"", "\"outline\"", "\"inverse\"", "\"outline-inverse\""]
             },
             "Which variant of the card to use.",
             {
                 "type": "code",
-                "item": ["default"]
+                "item": ["\"default\""]
             }
         ],
         [
             "href",
+            null,
+            "The <code>href</code> attribute to apply when the card has <code>tag=\"button\"</code>.",
             {
                 "type": "code",
-                "item": ["a", "button"]
-            },
-            "The href attribute to apply when the card has `tag=\"button\"`.",
-            {
-                "type": "code",
-                "item": ["empty string"]
+                "item": ["undefined"]
             }
         ],
         [
             "target",
             null,
-            "The target attribute to apply when the card has `tag=\"button\"`.",
+            "The <code>target</code> attribute to apply when the card has <code>tag=\"button\"</code>`.",
             {
                 "type": "code",
                 "item": ["undefined"]
@@ -49,7 +46,7 @@
         [
             "rel",
             null,
-            "The rel attribute to apply when the card has `tag=\"button\"`.",
+            "The <code>rel</code> attribute to apply when the card has <code>tag=\"button\"</code>.",
             {
                 "type": "code",
                 "item": ["undefined"]
@@ -61,7 +58,7 @@
                 "type": "code",
                 "item": ["true", "false"]
             },
-            "Whether the card should be disabled. This applies disabled styles and turns off interactivity.",
+            "Whether or not the card should be disabled. This applies disabled styles and turns off interactivity.",
             {
                 "type": "code",
                 "item": ["false"]
@@ -69,7 +66,10 @@
         ],
         [
             "aria",
-            null,
+            {
+                "type": "code",
+                "item": ["{ label?: string }"]
+            },
             "Aria properties for the card to help with making it accessible.",
             {
                 "type": "code",
