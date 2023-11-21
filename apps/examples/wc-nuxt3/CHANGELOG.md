@@ -1,5 +1,16 @@
 # wc-nuxt3
 
+## 0.5.0-next.0
+
+### Minor Changes
+
+- [Changed] - `nuxt-ssr-lit` dependency from `1.5.1` > `1.6.5` ([#1020](https://github.com/justeattakeaway/pie/pull/1020)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-button@0.39.1-next.0
+
 ## 0.4.13
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-wrapper-react
 
+## 0.11.0-next.0
+
+### Minor Changes
+
+- [Changed] - `@lit-labs/react` dependency to `@lit/react` and updated any references. ([#1020](https://github.com/justeattakeaway/pie/pull/1020)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.10.2
 
 ### Patch Changes
