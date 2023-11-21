@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.40.0-next.1
+
+### Patch Changes
+
+- [Fixed] - danger check allow pre-json changes through ([#1003](https://github.com/justeattakeaway/pie/pull/1003)) by [@ashleynolan](https://github.com/ashleynolan)
+
 ## 2.40.0-next.0
 
 ### Minor Changes
