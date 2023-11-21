@@ -60,23 +60,6 @@ jobs:
       - name: Checkout default branch
         uses: actions/checkout@v3
 
-      # issue_comment requires us to checkout the branch
-      # https://github.com/actions/checkout/issues/331#issuecomment-1120113003
-      - name: Checkout pull request branch
-        run: gh pr checkout ${{ github.event.issue.number }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.CHANGESETS_TOKEN }}
-
-      # Because changeset entries are consumed and removed on the
-      # 'changeset-release/main' branch, we need to reset the files
-      # so the following 'changeset version --snapshot' command will
-      # regenerate the package version bumps with the snapshot releases
-      - name: Reset changeset entries on changeset-release/main branch
-        run: |
-          if [[ $(git branch --show-current) == 'changeset-release/main' ]]; then
-            git checkout origin/main -- .changeset
-          fi
-
       - name: Setup Repo
         uses: ./.github/actions/setup-repo
         with:
@@ -90,6 +73,20 @@ jobs:
           cat << EOF > "$HOME/.npmrc"
             //registry.npmjs.org/:_authToken=$NPM_TOKEN
           EOF
+
+      - name: Get Markdown Changeset Files Difference
+        id: diff_changeset_files
+        run: |
+            git fetch origin ${{ github.base_ref }}
+            git diff --name-only origin/${{ github.base_ref }}...HEAD .changeset/*.md > changeset_diff.txt
+        
+      - name: Delete Unrelated Markdown Files in Changeset
+        run: |
+            for file in $(ls .changeset/*.md); do
+              if ! grep -q "$(basename $file)" changeset_diff.txt; then
+                rm "$file"
+              fi
+            done
 
       - name: Create and publish snapshot release
         uses: actions/github-script@v6
