@@ -1,3 +1,4 @@
+import React from 'react';
 import '@justeattakeaway/pie-css';
 import '../styles/styles.css';
 

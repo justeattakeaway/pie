@@ -55,7 +55,7 @@ import '@justeattakeaway/pie-card';
 ```js
 // React
 // For React, you will need to import our React-specific component build
-// which wraps the web component using @lit-labs/react
+// which wraps the web component using ​@lit/react
 import { PieCard } from '@justeattakeaway/pie-card/dist/react';
 ```
 

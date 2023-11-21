@@ -60,7 +60,7 @@ import '@justeattakeaway/pie-icon-button';
 ```js
 // React
 // For React, you will need to import our React-specific component build
-// which wraps the web component using @lit-labs/react
+// which wraps the web component using ​@lit/react
 import { PieIconButton } from '@justeattakeaway/pie-icon-button/dist/react';
 ```
 

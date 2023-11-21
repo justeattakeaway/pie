@@ -8,8 +8,8 @@ With this package, the below code (example of `pie-button`) is automatically gen
 
 ```js
 import * as React from 'react';
-import { createComponent } from '@lit-labs/react';
-import type { EventName } from '@lit-labs/react';
+import { createComponent } from '@lit/react';
+import type { EventName } from '@lit/react';
 
 export const PButton = createComponent({
         displayName: 'PieButton',
