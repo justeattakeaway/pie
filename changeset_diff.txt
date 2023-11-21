@@ -1,0 +1,3 @@
+.changeset/config.json
+.changeset/foo-bar-test1.md
+.changeset/foo-bar-test2.md
