@@ -1,0 +1,12 @@
+{
+    "headings": ["Slot", "Description"],
+    "rows": [
+        [
+            {
+                "type": "code",
+                "item": ["default"]
+            },
+            "The default slot is used to pass content into the card component."
+        ]
+    ]
+}

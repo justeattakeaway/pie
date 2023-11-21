@@ -1,0 +1,104 @@
+{
+    "headings": ["Prop", "Options", "Description", "Default"],
+    "rows": [
+        [
+            "tag",
+            {
+                "type": "code",
+                "item": ["\"a\"", "\"button\""]
+            },
+            "Which HTML tag to use for the card.",
+            {
+                "type": "code",
+                "item": ["\"button\""]
+            }
+        ],
+        [
+            "variant",
+            {
+                "type": "code",
+                "item": ["\"default\"", "\"outline\"", "\"inverse\"", "\"outline-inverse\""]
+            },
+            "Which variant of the card to use.",
+            {
+                "type": "code",
+                "item": ["\"default\""]
+            }
+        ],
+        [
+            "href",
+            null,
+            "The <code>href</code> attribute to apply when the card has <code>tag=\"button\"</code>.",
+            {
+                "type": "code",
+                "item": ["undefined"]
+            }
+        ],
+        [
+            "target",
+            null,
+            "The <code>target</code> attribute to apply when the card has <code>tag=\"button\"</code>`.",
+            {
+                "type": "code",
+                "item": ["undefined"]
+            }
+        ],
+        [
+            "rel",
+            null,
+            "The <code>rel</code> attribute to apply when the card has <code>tag=\"button\"</code>.",
+            {
+                "type": "code",
+                "item": ["undefined"]
+            }
+        ],
+        [
+            "disabled",
+            {
+                "type": "code",
+                "item": ["true", "false"]
+            },
+            "Whether or not the card should be disabled. This applies disabled styles and turns off interactivity.",
+            {
+                "type": "code",
+                "item": ["false"]
+            }
+        ],
+        [
+            "aria",
+            {
+                "type": "code",
+                "item": ["{ label?: string }"]
+            },
+            "Aria properties for the card to help with making it accessible.",
+            {
+                "type": "code",
+                "item": ["undefined"]
+            }
+        ],
+        [
+            "isDraggable",
+            {
+                "type": "code",
+                "item": ["true", "false"]
+            },
+            "Whether the card is draggable or not. Styling and pointer changes only. Implementation is left to the consuming application.",
+            {
+                "type": "code",
+                "item": ["false"]
+            }
+        ],
+        [
+            "padding",
+            {
+                "type": "code",
+                "item": ["a-g"]
+            },
+            "Which spacing token to use for the card's padding. Pass two (comma-separated) values for vertical and horizontal padding, or one value to pad all sides evenly.",
+            {
+                "type": "code",
+                "item": ["undefined"]
+            }
+        ]
+    ]
+}
