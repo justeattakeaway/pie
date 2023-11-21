@@ -91,6 +91,11 @@
 
                 // In this case, the modal must exceed the previous maximum width
                 --modal-max-inline-size: 100%;
+
+                // this ensures the content container spans the full height
+                > .c-modal-scrollContainer {
+                    block-size: 100%;
+                }
             }
         }
     }
@@ -266,7 +271,7 @@
     & > .c-modal-scrollContainer {
         display: flex;
         flex-direction: column;
-        height: 100%;
+        block-size: auto;
         overflow-y: auto;
 
         // These are the shadows used to indicate scrolling above and below content

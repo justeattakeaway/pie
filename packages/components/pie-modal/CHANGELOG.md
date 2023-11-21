@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-modal
 
+## 0.33.0
+
+### Minor Changes
+
+- [Fixed] - modal should be full height in safari ([#1017](https://github.com/justeattakeaway/pie/pull/1017)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.32.3
 
 ### Patch Changes

@@ -1,5 +1,12 @@
 # wc-vanilla
 
+## 0.4.36
+
+### Patch Changes
+
+- Updated dependencies [[`22336ec6f`](https://github.com/justeattakeaway/pie/commit/22336ec6fe042a64a6631a2350d0c95aeac20014)]:
+  - @justeattakeaway/pie-modal@0.33.0
+
 ## 0.4.35
 
 ### Patch Changes
