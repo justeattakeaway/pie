@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.12.0-next.0
+
+### Minor Changes
+
+- [Changed] - `hoistingLimits` config to prevent issues with conflicting dependency versions ([#1025](https://github.com/justeattakeaway/pie/pull/1025)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 4.9.1
 
 ### Patch Changes
