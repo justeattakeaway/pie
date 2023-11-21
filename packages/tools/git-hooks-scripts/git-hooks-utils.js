@@ -22,6 +22,7 @@ function getTicketIdFromBranchName (branchName) {
  * @returns A boolean value that represents if the branch name is valid or not
  */
 function validateBranchName (branchName) {
+    if (branchName.startsWith('beta-') || branchName.startsWith('feature-')) return true;
     return !!getTicketIdFromBranchName(branchName);
 }
 
