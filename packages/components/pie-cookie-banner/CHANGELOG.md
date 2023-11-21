@@ -1,5 +1,49 @@
 # @justeattakeaway/pie-cookie-banner
 
+## 0.11.2
+
+### Patch Changes
+
+- Updated dependencies [[`49f7365a9`](https://github.com/justeattakeaway/pie/commit/49f7365a9252eed71d7e2a36f3a48b0452a483f7), [`29fb689d2`](https://github.com/justeattakeaway/pie/commit/29fb689d2ad3c4be035553cdd61c15edb3f603fc)]:
+  - @justeattakeaway/pie-button@0.39.0
+  - @justeattakeaway/pie-modal@0.32.3
+
+## 0.11.1
+
+### Patch Changes
+
+- Updated dependencies [[`d65cb79aa`](https://github.com/justeattakeaway/pie/commit/d65cb79aaf308309b39d5b25a65962e35a2ed3f5), [`212f4db03`](https://github.com/justeattakeaway/pie/commit/212f4db030c68b7d32c622c54fe3e037dbfae679)]:
+  - @justeattakeaway/pie-switch@0.17.2
+  - @justeattakeaway/pie-button@0.38.0
+  - @justeattakeaway/pie-modal@0.32.2
+
+## 0.11.0
+
+### Minor Changes
+
+- [Added] Remaining translations to cookie banner ([#981](https://github.com/justeattakeaway/pie/pull/981)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
+### Patch Changes
+
+- [Changed] - Allow more specific overrides in vite config ([#980](https://github.com/justeattakeaway/pie/pull/980)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Changed] - Component dependencies are the only JET packages that should be marked as external
+
+- Updated dependencies [[`bad610889`](https://github.com/justeattakeaway/pie/commit/bad610889be57c2115b8e3abe8504679df44b275)]:
+  - @justeattakeaway/pie-button@0.37.1
+  - @justeattakeaway/pie-icon-button@0.21.2
+  - @justeattakeaway/pie-modal@0.32.1
+
+## 0.10.2
+
+### Patch Changes
+
+- [Changed] - Use latest pie-design-tokens ([#979](https://github.com/justeattakeaway/pie/pull/979)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- Updated dependencies [[`8bf261090`](https://github.com/justeattakeaway/pie/commit/8bf2610903a3ac05c51e9c1d2444d09f64feeeba), [`65f4525cd`](https://github.com/justeattakeaway/pie/commit/65f4525cd5eec7d301312c636e662e97099b4835), [`fbe8a5822`](https://github.com/justeattakeaway/pie/commit/fbe8a58222f62cfda191014f83169d8e44007034)]:
+  - @justeattakeaway/pie-button@0.37.0
+  - @justeattakeaway/pie-modal@0.32.0
+
 ## 0.10.1
 
 ### Patch Changes

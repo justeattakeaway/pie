@@ -1,5 +1,31 @@
 # Changelog
 
+## 2.39.1
+
+### Patch Changes
+
+- [Changed] - Move body-scroll-lock from modal's peerDependencies to dependencies ([#998](https://github.com/justeattakeaway/pie/pull/998)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- [Fixed] - danger check allow pre-json changes through ([#1003](https://github.com/justeattakeaway/pie/pull/1003)) by [@ashleynolan](https://github.com/ashleynolan)
+
+## 2.39.0
+
+### Minor Changes
+
+- [Added] - DangerJS added to the repo for PR checks ([#952](https://github.com/justeattakeaway/pie/pull/952)) by [@ashleynolan](https://github.com/ashleynolan)
+
+## 2.38.0
+
+### Minor Changes
+
+- [Changed] - reuse pie-spinner in pie-button ([#958](https://github.com/justeattakeaway/pie/pull/958)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Changed] - reuse pie-spinner in pie-modal ([#960](https://github.com/justeattakeaway/pie/pull/960)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- [Changed] - Use latest pie-design-tokens ([#979](https://github.com/justeattakeaway/pie/pull/979)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
 ## 2.37.0
 
 ### Minor Changes

@@ -1,5 +1,31 @@
 # Changelog
 
+## 0.39.0
+
+### Minor Changes
+
+- [Added] - `isResponsive` and `responsiveSize` prop ([#986](https://github.com/justeattakeaway/pie/pull/986)) by [@fernandofranca](https://github.com/fernandofranca)
+
+## 0.38.0
+
+### Minor Changes
+
+- [Changed] - inverse button hover & active states added ([#992](https://github.com/justeattakeaway/pie/pull/992)) by [@ashleynolan](https://github.com/ashleynolan)
+
+## 0.37.1
+
+### Patch Changes
+
+- [Changed] - Allow more specific overrides in vite config ([#980](https://github.com/justeattakeaway/pie/pull/980)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Changed] - Component dependencies are the only JET packages that should be marked as external
+
+## 0.37.0
+
+### Minor Changes
+
+- [Changed] - reuse pie-spinner in pie-button ([#958](https://github.com/justeattakeaway/pie/pull/958)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.36.1
 
 ### Patch Changes

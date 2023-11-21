@@ -14,7 +14,7 @@ import {
 /* eslint-enable import/no-duplicates */
 
 import { StoryMeta, SlottedComponentProps } from '../types';
-import { createStory, staticSlot } from '../utilities';
+import { createStory, sanitizeAndRenderHTML } from '../utilities';
 
 type ModalProps = SlottedComponentProps<ModalPropsBase>;
 type ModalStoryMeta = StoryMeta<ModalProps>;
@@ -198,7 +198,7 @@ const BaseStoryTemplate = (props: ModalProps) : TemplateResult => {
             returnFocusAfterCloseSelector="${ifDefined(returnFocusAfterCloseSelector)}"
             size="${size}"
             .supportingAction="${supportingAction}">
-                ${staticSlot(slot)}
+                ${sanitizeAndRenderHTML(slot)}
             </pie-modal>`;
 };
 

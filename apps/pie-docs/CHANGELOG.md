@@ -1,5 +1,39 @@
 # Changelog
 
+## 3.15.1
+
+### Patch Changes
+
+- [Fixed] - Added missing Button changes ([#996](https://github.com/justeattakeaway/pie/pull/996)) by [@fernandofranca](https://github.com/fernandofranca)
+
+## 3.15.0
+
+### Minor Changes
+
+- [Added] - PieButton docs to pie.design ([#976](https://github.com/justeattakeaway/pie/pull/976)) by [@raoufswe](https://github.com/raoufswe)
+
+## 3.14.0
+
+### Minor Changes
+
+- [Added] - template for coding page ([#984](https://github.com/justeattakeaway/pie/pull/984)) by [@LTurns](https://github.com/LTurns)
+
+- [Changed] - Usage cards should have equal height ([#972](https://github.com/justeattakeaway/pie/pull/972)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Added] - Motion content placeholders ([#974](https://github.com/justeattakeaway/pie/pull/974)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
+- [Added] - varaint prop to contentImage ([#970](https://github.com/justeattakeaway/pie/pull/970)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Added] - contents component ([#962](https://github.com/justeattakeaway/pie/pull/962)) by [@FayeCarter](https://github.com/FayeCarter)
+
+- [Fixed] - contents undefined bug ([#977](https://github.com/justeattakeaway/pie/pull/977)) by [@FayeCarter](https://github.com/FayeCarter)
+
+- [Added] Component style template ([#975](https://github.com/justeattakeaway/pie/pull/975)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- [Added] - Explicit dependency on `@justeat/pie-design-tokens` ([#979](https://github.com/justeattakeaway/pie/pull/979)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
 ## 3.13.0
 
 ### Minor Changes

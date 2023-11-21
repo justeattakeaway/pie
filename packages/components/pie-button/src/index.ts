@@ -1,13 +1,15 @@
 import {
-    LitElement, html, unsafeCSS, nothing, PropertyValues,
+    LitElement, html, unsafeCSS, nothing, PropertyValues, TemplateResult,
 } from 'lit';
 import { property } from 'lit/decorators.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { validPropertyValues, defineCustomElement } from '@justeattakeaway/pie-webc-core';
 import {
     ButtonProps, sizes, types, variants, iconPlacements,
 } from './defs';
 import styles from './button.scss?inline';
 import 'element-internals-polyfill';
+import '@justeattakeaway/pie-spinner';
 
 // Valid values available to consumers
 export * from './defs';
@@ -88,6 +90,9 @@ export class PieButton extends LitElement implements ButtonProps {
     @property({ type: Boolean })
     public isFullWidth = false;
 
+    @property({ type: Boolean })
+    public isResponsive = false;
+
     @property({ type: String })
     public name?: string;
 
@@ -108,6 +113,9 @@ export class PieButton extends LitElement implements ButtonProps {
 
     @property()
     public formtarget: ButtonProps['formtarget'];
+
+    @property({ type: String })
+    public responsiveSize?: ButtonProps['responsiveSize'];
 
     /**
      * This method creates an invisible button of the same type as pie-button. It is then clicked, and immediately removed from the DOM.
@@ -196,6 +204,23 @@ export class PieButton extends LitElement implements ButtonProps {
         this._handleClick();
     };
 
+    /**
+     * Template for the loading state
+     *
+     * @private
+     */
+    private renderSpinner (): TemplateResult {
+        const spinnerSize = this.size.includes('small') ? 's' : 'm'; // includes("small") matches for any small size value and xsmall
+        const inverseVariants: Array<ButtonProps['variant']> = ['primary', 'destructive', 'outline-inverse', 'ghost-inverse'];
+        const spinnerVariant = inverseVariants.includes(this.variant) ? 'inverse' : 'secondary';
+
+        return html`
+                    <pie-spinner
+                        size="${spinnerSize}"
+                        variant="${spinnerVariant}"
+                    </pie-spinner>`;
+    }
+
     render () {
         const {
             type,
@@ -204,7 +229,9 @@ export class PieButton extends LitElement implements ButtonProps {
             variant,
             size,
             isLoading,
+            isResponsive,
             iconPlacement,
+            responsiveSize,
         } = this;
 
         return html`
@@ -214,9 +241,12 @@ export class PieButton extends LitElement implements ButtonProps {
                 type=${type}
                 variant=${variant}
                 size=${size}
+                responsiveSize=${ifDefined(responsiveSize)}
                 ?disabled=${disabled}
                 ?isFullWidth=${isFullWidth}
+                ?isResponsive=${isResponsive}
                 ?isLoading=${isLoading}>
+                    ${isLoading ? this.renderSpinner() : nothing}
                     ${iconPlacement === 'leading' ? html`<slot name="icon"></slot>` : nothing}
                     <slot></slot>
                     ${iconPlacement === 'trailing' ? html`<slot name="icon"></slot>` : nothing}

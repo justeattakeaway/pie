@@ -1,0 +1,25 @@
+{
+  "headings": [
+    "Element",
+    "Property",
+    "Colour token"
+  ],
+  "rows": [
+    [
+      "Element name",
+      "property name",
+      {
+        "type": "token",
+        "item": "$token"
+      }
+    ],
+    [
+      "Element name",
+      "property name",
+      {
+        "type": "token",
+        "item": "$token"
+      }
+    ]
+  ]
+}

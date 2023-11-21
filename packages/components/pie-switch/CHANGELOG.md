@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-switch
 
+## 0.17.2
+
+### Patch Changes
+
+- [Changed] - Move pie-icons-webc to dependencies ([#988](https://github.com/justeattakeaway/pie/pull/988)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
 ## 0.17.1
 
 ### Patch Changes

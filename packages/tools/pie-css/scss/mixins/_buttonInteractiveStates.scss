@@ -1,14 +1,19 @@
 // ----------------------------------------------
 // Mixin to define button states for hover, active and loading.
+// ---
 // $bg-color: design token name to be used for the states
 // $mode: 'default': apply the default lighten/darken to the color via hsl
-// 'transparent': uses hsla syntax to make the color semi-opaque (used for ghost and outline button variants)
+//        'alt': applies a larger percentage change to the color (darken)
+//        'inverse': inverts the modifier, so that it lightens the color rather than darken it
+//        'transparent': uses hsla syntax to make the color semi-opaque (used for ghost and outline button variants)
 // }
 // ----------------------------------------------
 @mixin button-interactive-states($bg-color, $mode: 'default') {
     &:hover:not(:disabled) {
         @if $mode == 'alt' {
             --hover-modifier: calc(-1 * var(--dt-color-hover-02));
+        } @else if $mode == 'inverse' {
+            --hover-modifier: var(--dt-color-hover-02);
         } @else {
             --hover-modifier: calc(-1 * var(--dt-color-hover-01));
         }
@@ -26,6 +31,8 @@
     &[isLoading]:not(:disabled) {
         @if $mode == 'alt' {
             --active-modifier: calc(-1 * var(--dt-color-active-02));
+        } @else if $mode == 'inverse' {
+            --active-modifier: var(--dt-color-active-02);
         } @else {
             --active-modifier: calc(-1 * var(--dt-color-active-01));
         }

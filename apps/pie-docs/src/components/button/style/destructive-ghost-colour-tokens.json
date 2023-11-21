@@ -1,0 +1,89 @@
+{
+  "headings": [
+    "Element",
+    "Property",
+    "Colour token"
+  ],
+  "rows": [
+    [
+      "Container",
+      "Background colour",
+      {
+        "type": "token",
+        "item": "$color-transparent"
+      }
+    ],
+    [
+      "Icon",
+      "Icon color",
+      {
+        "type": "token",
+        "item": "$color-content-interactive-error"
+      }
+    ],
+    [
+      "Label",
+      "Text color",
+      {
+        "type": "token",
+        "item": "$color-content-interactive-error"
+      }
+    ],
+    [
+      "Container: Hover",
+      "Container overlay",
+      {
+        "type": "token",
+        "item": "$color-hover-01"
+      }
+    ],
+    [
+      "Container: Active",
+      "Container overlay",
+      {
+        "type": "token",
+        "item": "$color-active-01"
+      }
+    ],
+    [
+      "Container: Focus",
+      "Border inner",
+      {
+        "type": "token",
+        "item": "$color-focus-inner"
+      }
+    ],
+    [
+      "",
+      "Border outer",
+      {
+        "type": "token",
+        "item": "$color-focus-outer"
+      }
+    ],
+    [
+      "Container: Disabled",
+      "Tex colour",
+      {
+        "type": "token",
+        "item": "$color-disabled-01"
+      }
+    ],
+    [
+      "Label: Disabled",
+      "Text colour",
+      {
+        "type": "token",
+        "item": "$color-content-disabled"
+      }
+    ],
+    [
+      "Icon: Disabled",
+      "Icon colour",
+      {
+        "type": "token",
+        "item": "$color-content-disabled"
+      }
+    ]
+  ]
+}

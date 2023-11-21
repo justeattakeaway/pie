@@ -1,17 +1,20 @@
 <nav aria-label="Secondary navigational tabs" class="c-tabs">
     <ul class="c-content-container">
         {%- for entry in collections.all | eleventyNavigation(navKey) %}
-        <li
-            class="c-tabs-item">
-                {% set linkAriaLabelTitle = entry.title | lower %}
-                {% if togglePage %}
-                    {# remove slug from url to compare page and entry urls #}
-                    {% set shortenedEntryUrl = entry.url | removeUrlSlug %}
-                    {% set shortenedPageUrl = page.url | removeUrlSlug %}
-                    <a href="{{ entry.url | url }}" aria-label="Go to the {{ linkAriaLabelTitle }} page" class="c-tabs-link {% if shortenedEntryUrl == shortenedPageUrl %}is-active{% endif %}">{{ entry.title }}</a></li>
-                {% else %}
-                    <a href="{{ entry.url | url }}" aria-label="Go to the {{ linkAriaLabelTitle }} page" class="c-tabs-link {% if entry.url == page.url %}is-active{% endif %}">{{ entry.title }}</a></li>
-                {% endif %}
+            {% if entry.url !== false %}
+                <li
+                    class="c-tabs-item">
+                        {% set linkAriaLabelTitle = entry.title | lower %}
+                        {% if togglePage %}
+                            {# remove slug from url to compare page and entry urls #}
+                            {% set shortenedEntryUrl = entry.url | removeUrlSlug %}
+                            {% set shortenedPageUrl = page.url | removeUrlSlug %}
+                            <a href="{{ entry.url | url }}" aria-label="Go to the {{ linkAriaLabelTitle }} page" class="c-tabs-link {% if shortenedEntryUrl == shortenedPageUrl %}is-active{% endif %}">{{ entry.title }}</a>
+                        {% else %}
+                            <a href="{{ entry.url | url }}" aria-label="Go to the {{ linkAriaLabelTitle }} page" class="c-tabs-link {% if entry.url == page.url %}is-active{% endif %}">{{ entry.title }}</a>
+                        {% endif %}
+                </li>
+            {% endif %}
         {%- endfor %}
     </ul>
 </nav>
