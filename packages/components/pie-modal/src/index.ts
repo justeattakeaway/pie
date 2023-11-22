@@ -343,7 +343,7 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
             <div class="c-modal-contentInner">
                 <slot></slot>
             </div>
-            ${this.isLoading ? html`<pie-spinner size="xl" variant="secondary"></pie-spinner>` : nothing}
+            ${this.isLoading ? html`<pie-spinner size="xlarge" variant="secondary"></pie-spinner>` : nothing}
         </article>
         <footer class="c-modal-footer">
             ${this.leadingAction ? this.renderLeadingAction() : nothing}
