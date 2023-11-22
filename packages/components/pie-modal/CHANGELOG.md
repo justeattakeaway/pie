@@ -1,5 +1,20 @@
 # @justeattakeaway/pie-modal
 
+## 0.33.0
+
+### Minor Changes
+
+- [Fixed] - modal should be full height in safari ([#1017](https://github.com/justeattakeaway/pie/pull/1017)) by [@raoufswe](https://github.com/raoufswe)
+
+## 0.32.3
+
+### Patch Changes
+
+- [Changed] - Move body-scroll-lock from modal's peerDependencies to dependencies ([#998](https://github.com/justeattakeaway/pie/pull/998)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- Updated dependencies [[`49f7365a9`](https://github.com/justeattakeaway/pie/commit/49f7365a9252eed71d7e2a36f3a48b0452a483f7)]:
+  - @justeattakeaway/pie-button@0.39.0
+
 ## 0.32.2
 
 ### Patch Changes

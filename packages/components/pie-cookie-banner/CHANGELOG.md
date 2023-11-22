@@ -1,5 +1,22 @@
 # @justeattakeaway/pie-cookie-banner
 
+## 0.11.3
+
+### Patch Changes
+
+- [Fixed] - Changed personalised to UK rather the US spelling ([#1015](https://github.com/justeattakeaway/pie/pull/1015)) by [@ashleynolan](https://github.com/ashleynolan)
+
+- Updated dependencies [[`22336ec6f`](https://github.com/justeattakeaway/pie/commit/22336ec6fe042a64a6631a2350d0c95aeac20014)]:
+  - @justeattakeaway/pie-modal@0.33.0
+
+## 0.11.2
+
+### Patch Changes
+
+- Updated dependencies [[`49f7365a9`](https://github.com/justeattakeaway/pie/commit/49f7365a9252eed71d7e2a36f3a48b0452a483f7), [`29fb689d2`](https://github.com/justeattakeaway/pie/commit/29fb689d2ad3c4be035553cdd61c15edb3f603fc)]:
+  - @justeattakeaway/pie-button@0.39.0
+  - @justeattakeaway/pie-modal@0.32.3
+
 ## 0.11.1
 
 ### Patch Changes

@@ -1,5 +1,22 @@
 # wc-vanilla
 
+## 0.4.36
+
+### Patch Changes
+
+- Updated dependencies [[`22336ec6f`](https://github.com/justeattakeaway/pie/commit/22336ec6fe042a64a6631a2350d0c95aeac20014)]:
+  - @justeattakeaway/pie-modal@0.33.0
+
+## 0.4.35
+
+### Patch Changes
+
+- [Changed] - Move body-scroll-lock from modal's peerDependencies to dependencies ([#998](https://github.com/justeattakeaway/pie/pull/998)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- Updated dependencies [[`49f7365a9`](https://github.com/justeattakeaway/pie/commit/49f7365a9252eed71d7e2a36f3a48b0452a483f7), [`29fb689d2`](https://github.com/justeattakeaway/pie/commit/29fb689d2ad3c4be035553cdd61c15edb3f603fc)]:
+  - @justeattakeaway/pie-button@0.39.0
+  - @justeattakeaway/pie-modal@0.32.3
+
 ## 0.4.34
 
 ### Patch Changes
