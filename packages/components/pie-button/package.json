@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/pie-button",
-  "version": "0.39.0",
+  "version": "0.39.1-next.0",
   "description": "PIE design system button built using web components",
   "type": "module",
   "main": "dist/index.js",
@@ -37,8 +37,8 @@
     "dist/*.js"
   ],
   "dependencies": {
-    "@justeattakeaway/pie-spinner": "0.2.1",
-    "@justeattakeaway/pie-webc-core": "0.11.0",
+    "@justeattakeaway/pie-spinner": "0.2.2-next.0",
+    "@justeattakeaway/pie-webc-core": "0.12.0-next.0",
     "element-internals-polyfill": "1.3.8"
   }
 }

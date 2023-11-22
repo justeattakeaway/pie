@@ -22,7 +22,7 @@ const sharedConfig = ({ build = {}, plugins = [], ...rest }) => defineConfig({
         },
         rollupOptions: {
             external: (id) => {
-                if (id === 'react' || /^lit/.test(id)) {
+                if (['react', '@lit/react'].includes(id) || /^lit/.test(id)) {
                     return true;
                 }
 
