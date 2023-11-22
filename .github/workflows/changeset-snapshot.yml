@@ -77,8 +77,8 @@ jobs:
       - name: Get Markdown Changeset Files Difference
         id: diff_changeset_files
         run: |
-            git fetch origin ${{ github.base_ref }}
-            git diff --name-only origin/${{ github.base_ref }}...HEAD .changeset/*.md > changeset_diff.txt
+            git fetch origin ${{ github.head_ref }}
+            git diff --name-only origin/${{ github.head_ref }}...HEAD .changeset/*.md > changeset_diff.txt
         
       - name: Delete Unrelated Markdown Files in Changeset
         run: |
