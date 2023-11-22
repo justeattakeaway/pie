@@ -1,15 +1,5 @@
 # Changelog
 
-## 2.41.0
-
-### Minor Changes
-
-- [Fixed] - icons in pie link stories aren't shown if the story url is directly visited ([#1032](https://github.com/justeattakeaway/pie/pull/1032)) by [@raoufswe](https://github.com/raoufswe)
-
-- [Changed] - spinner sizes should be fully spelt out such as large not l ([#1029](https://github.com/justeattakeaway/pie/pull/1029)) by [@raoufswe](https://github.com/raoufswe)
-
-- [Fixed] - add webc-core as a dep in the switch component ([#1032](https://github.com/justeattakeaway/pie/pull/1032)) by [@raoufswe](https://github.com/raoufswe)
-
 ## 2.40.0
 
 ### Minor Changes
