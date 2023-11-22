@@ -1,11 +1,5 @@
 # @justeattakeaway/pie-switch
 
-## 0.18.0
-
-### Minor Changes
-
-- [Fixed] - add webc-core as a dep in the switch component ([#1032](https://github.com/justeattakeaway/pie/pull/1032)) by [@raoufswe](https://github.com/raoufswe)
-
 ## 0.17.2
 
 ### Patch Changes
