@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-spinner
 
+## 0.3.0
+
+### Minor Changes
+
+- [Changed] - spinner sizes should be fully spelt out such as large not l ([#1029](https://github.com/justeattakeaway/pie/pull/1029)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.2.2
 
 ### Patch Changes

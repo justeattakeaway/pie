@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.40.0
+
+### Minor Changes
+
+- [Changed] - spinner sizes should be fully spelt out such as large not l ([#1029](https://github.com/justeattakeaway/pie/pull/1029)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies [[`755d86402`](https://github.com/justeattakeaway/pie/commit/755d8640251f379ef3e55e122601dc6503af3098)]:
+  - @justeattakeaway/pie-spinner@0.3.0
+
 ## 0.39.1
 
 ### Patch Changes
