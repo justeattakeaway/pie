@@ -56,9 +56,9 @@
   "devDependencies": {
     "@babel/core": "7.23.3",
     "@babel/node": "7.20.7",
-    "@justeattakeaway/pie-icons": "4.9.2",
-    "@justeattakeaway/pie-icons-configs": "4.5.0",
-    "@justeattakeaway/pie-webc-core": "0.12.0-next.0",
+    "@justeattakeaway/pie-icons": "4.9.3",
+    "@justeattakeaway/pie-icons-configs": "4.5.1",
+    "@justeattakeaway/pie-webc-core": "0.12.0",
     "@open-wc/testing": "4.0.0",
     "@rollup/plugin-typescript": "11.1.5",
     "@web/test-runner": "0.16.1",
