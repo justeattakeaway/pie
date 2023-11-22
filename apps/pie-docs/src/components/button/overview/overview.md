@@ -26,13 +26,13 @@ Buttons serve a wide range of purposes in user interfaces, such as submitting fo
 {% usage {
     do: {
         type: usageTypes.text,
-        items: [ 
+        items: [
             "Use Buttons when you need to direct the user to an action.",
             "When pairing Buttons, use the same sized Buttons together."
 
         ]
     },
-    dont: { 
+    dont: {
         type: usageTypes.text,
         items: [
             "Do not use buttons as navigational elements. Instead, use links when the desired action is to take the user to a new page."
@@ -145,7 +145,7 @@ Ghost Inverse buttons are intended for utilisation on backgrounds with colours o
     variant: "inverse"
 } %}
 
---- 
+---
 
 ## Modifiers
 
@@ -162,7 +162,7 @@ When incorporating an icon into a Button, it is essential to ensure that the ico
             alt: "A button with a search icon and a label that says Find a restaurant."
         }]
     },
-    dont: { 
+    dont: {
         type: usageTypes.image,
         items: [{
             src: "../../../assets/img/components/button/modifier-icons-dont.svg",
@@ -218,7 +218,7 @@ Left and right padding is automated depending on the fluid width of the containe
     width: 320
 } %}
 
---- 
+---
 
 ## Sizes
 
@@ -272,8 +272,8 @@ Buttons should follow a hierarchy of importance with regards to the action that 
 When pairing Buttons, they should always have a relationship to one another; with the highest hierarchy Button is always positioned on the right / top depending on if the button pair is stacked with a 16px spacing between. Always ensure the same sized Buttons are paired together.
 
 Button pairing options are:
-A high-emphasis Button with a medium / low-emphasis Button that performs a less important action. 
-A medium-emphasis Button with a low-emphasis Button that performs a less important action. 
+A high-emphasis Button with a medium / low-emphasis Button that performs a less important action.
+A medium-emphasis Button with a low-emphasis Button that performs a less important action.
 
 {% contentPageImage {
     src:"../../../assets/img/components/button/hierarchy-multiple-pairing.svg",
@@ -290,7 +290,7 @@ A medium-emphasis Button with a low-emphasis Button that performs a less importa
             alt: "A primary button paired with an outline button."
         }]
     },
-    dont: { 
+    dont: {
         type: usageTypes.image,
         items: [{
             src: "../../../assets/img/components/button/hierarchy-multiple-pairing-large-dont.svg",
@@ -310,7 +310,7 @@ A medium-emphasis Button with a low-emphasis Button that performs a less importa
             alt: "A small - productive primary button paired with A small - productive outline button."
         }]
     },
-    dont: { 
+    dont: {
         type: usageTypes.image,
         items: [{
             src: "../../../assets/img/components/button/hierarchy-multiple-pairing-small-dont.svg",
@@ -328,7 +328,7 @@ A medium-emphasis Button with a low-emphasis Button that performs a less importa
 
 The alignment of Buttons depends on where they appear and whether or not they’re container within another component.
 
-As a general rule, on full-page designs the primary Button is on the left side of the page, as it’s best to have the Button where the user’s attention has been focused all along. Whereas in Modals, the primary Button traditionally sits right aligned. Buttons within components such as Bottom Sheets, Notifications, and Toasts are also right aligned. 
+As a general rule, on full-page designs the primary Button is on the left side of the page, as it’s best to have the Button where the user’s attention has been focused all along. Whereas in Modals, the primary Button traditionally sits right aligned. Buttons within components such as Bottom Sheets, Notifications, and Toasts are also right aligned.
 
 In some cases Buttons may span the entire width of the screen or container, examples include Bottom Sheets, Forms, Modals, and Cards
 
@@ -337,7 +337,7 @@ In some cases Buttons may span the entire width of the screen or container, exam
   message: "When using full width Buttons, change the horizontal resizing of the Label to ‘Fill container’."
 } %}
 
---- 
+---
 
 ## Interactive states
 
@@ -394,7 +394,7 @@ Outlines the atomic level interactive elements for the component.
   {% endcontentItem %}
 {% endcontentLayout %}
 
---- 
+---
 
 ## Examples
 
@@ -503,4 +503,3 @@ Here are some examples of Buttons in right to left context:
         }
     ]
 } %}
-
