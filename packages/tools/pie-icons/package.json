@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-icons",
   "version": "4.9.3",
-  "description": "Common icons for use for PIE Project",
+  "description": "Common icons for use for PIE Project - dummy",
   "main": "dist/pie-icons.js",
   "types": "./index.d.ts",
   "license": "Apache-2.0",

@@ -18,6 +18,7 @@ const defaultArgs: CardProps = {
     tag: 'button',
     variant: 'default',
     href: '#',
+    padding: 'a',
     disabled: false,
     rel: '',
     target: '',
@@ -26,7 +27,7 @@ const defaultArgs: CardProps = {
     },
     isDraggable: false,
     // This is just an arbitrary example of some markup a user may pass into the card
-    slot: `<div style="font-size: calc(var(--dt-font-body-l-size) * 1px); font-family: var(--dt-font-interactive-m-family); padding: var(--dt-spacing-b);">
+    slot: `<div style="font-size: calc(var(--dt-font-body-l-size) * 1px); font-family: var(--dt-font-interactive-m-family);">
         <h2 style="margin-top: 0"> Card title </h2>
         <p> Card content </p>
         <p style="margin-bottom: 0"> Lorem ipsum dolor sit amet
