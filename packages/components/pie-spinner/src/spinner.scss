@@ -55,23 +55,23 @@
         @include spinner-base-colors('--dt-color-content-inverse');
     }
 
-    &[size='xs'] {
+    &[size='xsmall'] {
         --spinner-size: 16px;
     }
 
-    &[size='s'] {
+    &[size='small'] {
         --spinner-size: 20px;
     }
 
-    &[size='m'] {
+    &[size='medium'] {
         /* Same as default styles */
     }
 
-    &[size='l'] {
+    &[size='large'] {
         --spinner-size: 32px;
     }
 
-    &[size='xl'] {
+    &[size='xlarge'] {
         --spinner-size: 48px;
     }
 }
