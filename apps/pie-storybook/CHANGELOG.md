@@ -1,5 +1,45 @@
 # Changelog
 
+## 0.48.0
+
+### Minor Changes
+
+- [Changed] - `hoistingLimits` config to prevent issues with conflicting dependency versions ([#1027](https://github.com/justeattakeaway/pie/pull/1027)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-button@0.39.1
+  - @justeattakeaway/pie-card@0.14.2
+  - @justeattakeaway/pie-cookie-banner@0.11.4
+  - @justeattakeaway/pie-divider@0.9.2
+  - @justeattakeaway/pie-form-label@0.8.2
+  - @justeattakeaway/pie-icon-button@0.21.3
+  - @justeattakeaway/pie-link@0.11.2
+  - @justeattakeaway/pie-modal@0.33.1
+  - @justeattakeaway/pie-notification@0.1.2
+  - @justeattakeaway/pie-spinner@0.2.2
+
+## 0.48.0-next.0
+
+### Minor Changes
+
+- [Changed] - `hoistingLimits` config to prevent issues with conflicting dependency versions ([#1025](https://github.com/justeattakeaway/pie/pull/1025)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-button@0.39.1-next.0
+  - @justeattakeaway/pie-card@0.14.2-next.0
+  - @justeattakeaway/pie-cookie-banner@0.11.4-next.0
+  - @justeattakeaway/pie-divider@0.9.2-next.0
+  - @justeattakeaway/pie-form-label@0.8.2-next.0
+  - @justeattakeaway/pie-icon-button@0.21.3-next.0
+  - @justeattakeaway/pie-link@0.11.2-next.0
+  - @justeattakeaway/pie-modal@0.33.1-next.0
+  - @justeattakeaway/pie-notification@0.1.2-next.0
+  - @justeattakeaway/pie-spinner@0.2.2-next.0
+
 ## 0.47.3
 
 ### Patch Changes

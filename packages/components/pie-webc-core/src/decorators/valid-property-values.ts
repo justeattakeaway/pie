@@ -5,7 +5,7 @@
  * @param defaultValue - The value to fall back on
  * @returns  - The decorator function
  */
-export const validPropertyValues = <T>(componentName: string, validValues: readonly T[], defaultValue: T) => function validatePropertyValues (target: object, propertyKey: string): void {
+export const validPropertyValues = <T>(componentName: string, validValues: readonly T[], defaultValue: T) => function validatePropertyValues (target: object, propertyKey: string) : void {
     const privatePropertyKey = `#${propertyKey}`;
 
     Object.defineProperty(target, propertyKey, {
@@ -13,8 +13,6 @@ export const validPropertyValues = <T>(componentName: string, validValues: reado
             return this[privatePropertyKey];
         },
         set (value: T): void {
-            const oldValue = this[privatePropertyKey];
-
             if (!validValues.includes(value)) {
                 console.error(
                         `<${componentName}> Invalid value "${value}" provided for property "${propertyKey}".`,
@@ -25,8 +23,7 @@ export const validPropertyValues = <T>(componentName: string, validValues: reado
             } else {
                 this[privatePropertyKey] = value;
             }
-
-            this.requestUpdate(propertyKey, oldValue);
         },
+        configurable: true,
     });
 };
