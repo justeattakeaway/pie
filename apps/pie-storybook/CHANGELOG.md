@@ -1,5 +1,25 @@
 # Changelog
 
+## 0.49.0
+
+### Minor Changes
+
+- [Fixed] - icons in pie link stories aren't shown if the story url is directly visited ([#1032](https://github.com/justeattakeaway/pie/pull/1032)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Changed] - spinner sizes should be fully spelt out such as large not l ([#1029](https://github.com/justeattakeaway/pie/pull/1029)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Fixed] - add webc-core as a dep in the switch component ([#1032](https://github.com/justeattakeaway/pie/pull/1032)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies [[`755d86402`](https://github.com/justeattakeaway/pie/commit/755d8640251f379ef3e55e122601dc6503af3098), [`cc8303b0d`](https://github.com/justeattakeaway/pie/commit/cc8303b0de804d6b5ba9b360512954de53030a00)]:
+  - @justeattakeaway/pie-icon-button@0.22.0
+  - @justeattakeaway/pie-spinner@0.3.0
+  - @justeattakeaway/pie-button@0.40.0
+  - @justeattakeaway/pie-modal@0.34.0
+  - @justeattakeaway/pie-switch@0.18.0
+  - @justeattakeaway/pie-cookie-banner@0.11.5
+
 ## 0.48.0
 
 ### Minor Changes
