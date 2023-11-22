@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-spinner",
   "description": "PIE Design System Spinner built using Web Components",
-  "version": "0.3.0",
+  "version": "0.2.2",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
