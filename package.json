@@ -1,7 +1,7 @@
 {
   "name": "pie-monorepo",
   "description": "The home of Just Eat Takeaway.com's PIE Design System",
-  "version": "2.40.0-next.0",
+  "version": "2.40.0",
   "keywords": [],
   "author": "Just Eat Takeaway.com - Design System Team",
   "license": "Apache-2.0",
@@ -67,7 +67,7 @@
     "@justeat/pie-design-tokens": "5.9.0",
     "@justeattakeaway/browserslist-config-pie": "0.2.0",
     "@justeattakeaway/generator-pie-component": "0.15.0",
-    "@justeattakeaway/pie-icons": "4.9.2",
+    "@justeattakeaway/pie-icons": "4.9.3",
     "@justeattakeaway/pie-webc-testing": "0.6.0",
     "@justeattakeaway/stylelint-config-pie": "0.5.0",
     "@percy/cli": "1.26.3",
