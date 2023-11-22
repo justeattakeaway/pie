@@ -1,5 +1,13 @@
 # Changelog
 
+## 3.17.0
+
+### Minor Changes
+
+- [Added] - Switch component page overview content ([#1000](https://github.com/justeattakeaway/pie/pull/1000)) by [@fernandofranca](https://github.com/fernandofranca)
+
+- [Added] - Switch component code page ([#1000](https://github.com/justeattakeaway/pie/pull/1000)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 3.16.0
 
 ### Minor Changes
