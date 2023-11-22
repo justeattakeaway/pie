@@ -1,4 +1,4 @@
-export const sizes = ['xs', 's', 'm', 'l', 'xl'] as const;
+export const sizes = ['xsmall', 'small', 'medium', 'large', 'xlarge'] as const;
 export const variants = ['brand', 'secondary', 'inverse'] as const;
 
 export type AriaProps = {

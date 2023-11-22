@@ -27,7 +27,7 @@ const spinnerStoryMeta: SpinnerStoryMeta = {
             control: 'select',
             options: sizes,
             defaultValue: {
-                summary: 'm',
+                summary: 'medium',
             },
         },
         variant: {

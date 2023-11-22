@@ -74,7 +74,7 @@ import { PieSpinner } from '@justeattakeaway/pie-spinner/dist/react';
 
 | Property | Type | Default | Description |
 |---|---|---|---|
-| size | `String` | `m` | Size of the spinner, one of `sizes` – `xs`, `s`, `m`, `l`, `xl` |
+| size | `String` | `medium` | Size of the spinner, one of `sizes` – `xsmall`, `small`, `medium`, `large`, `xlarge` |
 | variant | `String` | `brand` | Variant of the spinner, one of `variants` – `brand`, `secondary`, `inverse` |
 | aria  | `Object`  | `undefined`  | An object representing the aria attributes such as label;
 
