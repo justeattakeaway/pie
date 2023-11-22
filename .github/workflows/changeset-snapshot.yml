@@ -56,6 +56,11 @@ jobs:
             } catch (err) {
               core.setFailed(`Request failed with error ${err}`)
             }
+       # issue_comment event doesn't provide access to head_ref env var.
+       # This action provides us with the env vars we need to do a git diff.
+       # https://github.com/actions/checkout/issues/331#issuecomment-1242708547  
+      - uses: xt0rted/pull-request-comment-branch@v2
+        id: comment-branch
 
       - name: Checkout default branch
         uses: actions/checkout@v3
@@ -77,8 +82,8 @@ jobs:
       - name: Get Markdown Changeset Files Difference
         id: diff_changeset_files
         run: |
-            git fetch origin ${{ github.head_ref }}
-            git diff --name-only origin/${{ github.head_ref }}...HEAD .changeset/*.md > changeset_diff.txt
+            git fetch origin ${{ steps.comment-branch.outputs.head_ref }}
+            git diff --name-only origin/${{ steps.comment-branch.outputs.head_ref }}...HEAD .changeset/*.md > changeset_diff.txt
         
       - name: Delete Unrelated Markdown Files in Changeset
         run: |
