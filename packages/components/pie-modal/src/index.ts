@@ -109,15 +109,15 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
     connectedCallback () : void {
         super.connectedCallback();
         this.addEventListener('click', (event) => this._handleDialogLightDismiss(event));
-        document.addEventListener(ON_MODAL_OPEN_EVENT, (event) => this._handleModalOpened(<CustomEvent<any>>event));
-        document.addEventListener(ON_MODAL_CLOSE_EVENT, (event) => this._handleModalClosed(<CustomEvent<any>>event));
-        document.addEventListener(ON_MODAL_BACK_EVENT, (event) => this._handleModalClosed(<CustomEvent<any>>event));
+        document.addEventListener(ON_MODAL_OPEN_EVENT, (event) => this._handleModalOpened(<CustomEvent>event));
+        document.addEventListener(ON_MODAL_CLOSE_EVENT, (event) => this._handleModalClosed(<CustomEvent>event));
+        document.addEventListener(ON_MODAL_BACK_EVENT, (event) => this._handleModalClosed(<CustomEvent>event));
     }
 
     disconnectedCallback () : void {
-        document.removeEventListener(ON_MODAL_OPEN_EVENT, (event) => this._handleModalOpened(<CustomEvent<any>>event));
-        document.removeEventListener(ON_MODAL_CLOSE_EVENT, (event) => this._handleModalClosed(<CustomEvent<any>>event));
-        document.removeEventListener(ON_MODAL_BACK_EVENT, (event) => this._handleModalClosed(<CustomEvent<any>>event));
+        document.removeEventListener(ON_MODAL_OPEN_EVENT, (event) => this._handleModalOpened(<CustomEvent>event));
+        document.removeEventListener(ON_MODAL_CLOSE_EVENT, (event) => this._handleModalClosed(<CustomEvent>event));
+        document.removeEventListener(ON_MODAL_BACK_EVENT, (event) => this._handleModalClosed(<CustomEvent>event));
         super.disconnectedCallback();
     }
 
