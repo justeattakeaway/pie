@@ -1,0 +1,56 @@
+{
+    "headings": ["Prop", "Options", "Description", "Default"],
+    "rows": [
+        [
+            "isChecked",
+            {
+                "type": "code",
+                "item": ["true", "false"]
+            },
+            "Same as the HTML checked attribute - indicates whether the switch is on or off.",
+            {
+                "type": "code",
+                "item": ["false"]
+            }
+        ],
+        [
+            "isDisabled",
+            {
+                "type": "code",
+                "item": ["true", "false"]
+            },
+            "Same as the HTML disabled attribute - indicates whether the switch is disabled or not.",
+            {
+                "type": "code",
+                "item": ["false"]
+            }
+        ],
+        [
+            "label",
+            "",
+            "The label text for the switch.",
+            ""
+        ],
+        [
+            "labelPlacement",
+            {
+                "type": "code",
+                "item": ["leading", "trailing"]
+            },
+            "Set the placement of the label.",
+            {
+                "type": "code",
+                "item": ["leading"]
+            }
+        ],
+        [
+            "aria",
+            "",
+            "The ARIA labels used for the switch.",
+            {
+                "type": "code",
+                "item": ["{<br>  \"label\": \"switch label\",<br>  \"describedBy\": \"switch description\"<br>}"]
+            }
+        ]
+    ]
+}
