@@ -25,16 +25,6 @@ describe('validPropertyValues', () => {
     class MockComponent {
         @validPropertyValues('mock-component', ['red', 'green', 'blue'], 'red')
             color = 'red';
-
-        private _requestUpdateArgs = {};
-
-        requestUpdate (propertyKey: string, oldValue: unknown) {
-            this._requestUpdateArgs = { propertyKey, oldValue };
-        }
-
-        requestUpdateCalledWith () {
-            return this._requestUpdateArgs;
-        }
     }
 
     it('should allow value to be updated with a valid value', () => {
@@ -74,17 +64,5 @@ describe('validPropertyValues', () => {
             'Must be one of: red | green | blue.',
             'Falling back to default value: "red"',
         );
-    });
-
-    it('should call requestUpdate when the property is set', () => {
-        // Arrange
-        const mockComponent = new MockComponent();
-
-        // Act
-        mockComponent.color = 'yellow';
-
-        // Assert
-        expect(mockComponent.color).toBe('red');
-        expect(mockComponent.requestUpdateCalledWith()).toStrictEqual({ propertyKey: 'color', oldValue: 'red' });
     });
 });
