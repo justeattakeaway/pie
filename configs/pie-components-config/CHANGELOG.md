@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-components-config
 
+## 0.6.1
+
+### Patch Changes
+
+- [Changed] - Improve variable name and exclude webc-core from the bundle by default ([#1037](https://github.com/justeattakeaway/pie/pull/1037)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
 ## 0.6.0
 
 ### Minor Changes
