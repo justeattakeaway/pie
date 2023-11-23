@@ -1,7 +1,7 @@
 {
   "name": "pie-monorepo",
   "description": "The home of Just Eat Takeaway.com's PIE Design System",
-  "version": "2.41.0",
+  "version": "2.42.0",
   "keywords": [],
   "author": "Just Eat Takeaway.com - Design System Team",
   "license": "Apache-2.0",
@@ -114,8 +114,7 @@
     "webpack": "5.77.0"
   },
   "dependencies": {
-    "@justeat/fozzie": "11.0.2",
-    "lit": "3.1.0"
+    "@justeat/fozzie": "11.0.2"
   },
   "config": {
     "commitizen": {

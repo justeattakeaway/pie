@@ -1,5 +1,12 @@
 # wc-next13
 
+## 0.3.15
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-button@0.40.1
+
 ## 0.3.14
 
 ### Patch Changes
