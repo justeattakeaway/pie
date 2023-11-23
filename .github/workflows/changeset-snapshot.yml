@@ -125,6 +125,7 @@ jobs:
             const newTags = Array
               .from(stdout.matchAll(/New tag:\s+([^\s\n]+)/g))
               .map(([_, tag]) => tag)
+              .filter((tag) => !/^wc-\w+$|pie-(docs|storybook)$/.test(tag))
 
             if (newTags.length) {
               const multiple = newTags.length > 1
@@ -148,8 +149,16 @@ jobs:
               })
             }
 
-      - name: Add final reaction
+      - name: Add success reaction
+        if: success()
         uses: peter-evans/create-or-update-comment@v2
         with:
           comment-id: ${{ github.event.comment.id }}
           reactions: rocket
+
+      - name: Add failure reaction
+        if: failure()
+        uses: peter-evans/create-or-update-comment@v2
+        with:
+          comment-id: ${{ github.event.comment.id }}
+          reactions: confused
