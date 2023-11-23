@@ -1,5 +1,12 @@
 # wc-angular12
 
+## 0.4.15
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-button@0.40.1
+
 ## 0.4.14
 
 ### Patch Changes
