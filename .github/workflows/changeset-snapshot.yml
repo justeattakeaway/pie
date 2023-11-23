@@ -86,6 +86,11 @@ jobs:
             //registry.npmjs.org/:_authToken=$NPM_TOKEN
           EOF
 
+      - name: Build Packages
+        uses: ./.github/actions/run-script
+        with:
+          script-name: "build"
+
       - name: Get Markdown Changeset Files Difference
         id: diff_changeset_files
         run: |
