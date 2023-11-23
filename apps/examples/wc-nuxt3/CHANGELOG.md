@@ -1,5 +1,34 @@
 # wc-nuxt3
 
+## 0.5.1
+
+### Patch Changes
+
+- Updated dependencies [[`10cf54269`](https://github.com/justeattakeaway/pie/commit/10cf542691f18bc4a93e84e2045985e14efc6330)]:
+  - @justeattakeaway/pie-button@0.40.0
+
+## 0.5.0
+
+### Minor Changes
+
+- [Changed] - `nuxt-ssr-lit` dependency from `1.5.1` to `1.6.5` ([#1027](https://github.com/justeattakeaway/pie/pull/1027)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-button@0.39.1
+
+## 0.5.0-next.0
+
+### Minor Changes
+
+- [Changed] - `nuxt-ssr-lit` dependency from `1.5.1` > `1.6.5` ([#1025](https://github.com/justeattakeaway/pie/pull/1025)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-button@0.39.1-next.0
+
 ## 0.4.13
 
 ### Patch Changes

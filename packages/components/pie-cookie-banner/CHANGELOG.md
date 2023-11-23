@@ -1,5 +1,48 @@
 # @justeattakeaway/pie-cookie-banner
 
+## 0.11.5
+
+### Patch Changes
+
+- Updated dependencies [[`10cf54269`](https://github.com/justeattakeaway/pie/commit/10cf542691f18bc4a93e84e2045985e14efc6330), [`10cf54269`](https://github.com/justeattakeaway/pie/commit/10cf542691f18bc4a93e84e2045985e14efc6330)]:
+  - @justeattakeaway/pie-icon-button@0.22.0
+  - @justeattakeaway/pie-button@0.40.0
+  - @justeattakeaway/pie-modal@0.34.0
+  - @justeattakeaway/pie-switch@0.18.0
+
+## 0.11.4
+
+### Patch Changes
+
+- Updated dependencies [[`afb4b53b9`](https://github.com/justeattakeaway/pie/commit/afb4b53b94c016116155f81054778df3b856b8f4)]:
+  - @justeattakeaway/pie-webc-core@0.12.0
+  - @justeattakeaway/pie-button@0.39.1
+  - @justeattakeaway/pie-divider@0.9.2
+  - @justeattakeaway/pie-icon-button@0.21.3
+  - @justeattakeaway/pie-link@0.11.2
+  - @justeattakeaway/pie-modal@0.33.1
+
+## 0.11.4-next.0
+
+### Patch Changes
+
+- Updated dependencies [[`fdd981eb7`](https://github.com/justeattakeaway/pie/commit/fdd981eb739db0ff1eda27f56f3a4eca97f34652)]:
+  - @justeattakeaway/pie-webc-core@0.12.0-next.0
+  - @justeattakeaway/pie-button@0.39.1-next.0
+  - @justeattakeaway/pie-divider@0.9.2-next.0
+  - @justeattakeaway/pie-icon-button@0.21.3-next.0
+  - @justeattakeaway/pie-link@0.11.2-next.0
+  - @justeattakeaway/pie-modal@0.33.1-next.0
+
+## 0.11.3
+
+### Patch Changes
+
+- [Fixed] - Changed personalised to UK rather the US spelling ([#1015](https://github.com/justeattakeaway/pie/pull/1015)) by [@ashleynolan](https://github.com/ashleynolan)
+
+- Updated dependencies [[`22336ec6f`](https://github.com/justeattakeaway/pie/commit/22336ec6fe042a64a6631a2350d0c95aeac20014)]:
+  - @justeattakeaway/pie-modal@0.33.0
+
 ## 0.11.2
 
 ### Patch Changes

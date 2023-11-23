@@ -1,5 +1,39 @@
 # Changelog
 
+## 2.41.0
+
+### Minor Changes
+
+- [Fixed] - icons in pie link stories aren't shown if the story url is directly visited ([#1036](https://github.com/justeattakeaway/pie/pull/1036)) by [@siggerzz](https://github.com/siggerzz)
+
+- [Changed] - spinner sizes should be fully spelt out such as large not l ([#1036](https://github.com/justeattakeaway/pie/pull/1036)) by [@siggerzz](https://github.com/siggerzz)
+
+- [Fixed] - add webc-core as a dep in the switch component ([#1036](https://github.com/justeattakeaway/pie/pull/1036)) by [@siggerzz](https://github.com/siggerzz)
+
+## 2.40.0
+
+### Minor Changes
+
+- [Changed] - Updated the following dependencies: ([#1027](https://github.com/justeattakeaway/pie/pull/1027)) by [@raoufswe](https://github.com/raoufswe)
+
+  - `lit` - `2.8.0` > `3.0.2`
+  - `typescript` - `5.1.3` > `5.2.2`
+
+  [Removed] - Unused `@lit-labs/*` resolutions.
+  [Fixed] - Bug where `dev` tasks weren't building their dependencies where applicable.
+
+## 2.40.0-next.0
+
+### Minor Changes
+
+- [Changed] - Updated the following dependencies: ([#1025](https://github.com/justeattakeaway/pie/pull/1025)) by [@raoufswe](https://github.com/raoufswe)
+
+  - `lit` - `2.8.0` > `3.0.2`
+  - `typescript` - `5.1.3` > `5.2.2`
+
+  [Removed] - Unused `@lit-labs/*` resolutions.
+  [Fixed] - Bug where `dev` tasks weren't building their dependencies where applicable.
+
 ## 2.39.1
 
 ### Patch Changes

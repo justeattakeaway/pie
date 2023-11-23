@@ -24,8 +24,8 @@ export class PieSpinner extends LitElement implements SpinnerProps {
     public aria?: AriaProps;
 
     @property()
-    @validPropertyValues(componentSelector, sizes, 'm')
-    public size?: SpinnerProps['size'] = 'm';
+    @validPropertyValues(componentSelector, sizes, 'medium')
+    public size?: SpinnerProps['size'] = 'medium';
 
     @property()
     @validPropertyValues(componentSelector, variants, 'brand')

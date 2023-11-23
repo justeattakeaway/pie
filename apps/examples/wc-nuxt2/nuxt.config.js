@@ -1,3 +1,5 @@
+import path from 'path';
+
 export default {
     // Global page headers: https://go.nuxtjs.dev/config-head
     head: {
@@ -41,5 +43,20 @@ export default {
 
     // Build Configuration: https://go.nuxtjs.dev/config-build
     build: {
+        // Required for Lit 3 support with Webpack 4 - https://lit.dev/docs/releases/upgrade/#using-lit-3-with-webpack-4
+        extend (config) {
+            config.module.rules.push({
+                test: /\.js$/,
+                include: ['@lit', 'lit-element', 'lit-html'].map((p) => path.resolve(__dirname, `../../../node_modules/${p}`)),
+                loader: 'babel-loader',
+                options: {
+                    plugins: [
+                        '@babel/plugin-transform-optional-chaining',
+                        '@babel/plugin-transform-nullish-coalescing-operator',
+                        '@babel/plugin-transform-logical-assignment-operators'
+                    ],
+                },
+            });
+        },
     },
 };

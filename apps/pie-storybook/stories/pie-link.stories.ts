@@ -7,6 +7,7 @@ import {
     iconPlacements, tags, buttonTypes, underlineTypes,
 } from '@justeattakeaway/pie-link';
 /* eslint-enable import/no-duplicates */
+import '@justeattakeaway/pie-icons-webc/IconPlusCircle';
 
 import type { StoryMeta, SlottedComponentProps } from '../types';
 import { createStory, type TemplateFunction } from '../utilities';
@@ -154,7 +155,7 @@ const Template : TemplateFunction<LinkProps> = ({
             tag="${tag}"
             variant="${variant}"
             size="${size}"
-            underline="${underline}"
+            underline="${underline || nothing}"
             iconPlacement="${iconPlacement || nothing}"
             href="${href || nothing}"
             target="${target || nothing}"

@@ -1,5 +1,25 @@
 # Changelog
 
+## 3.17.0
+
+### Minor Changes
+
+- [Added] - Switch component page overview content ([#1000](https://github.com/justeattakeaway/pie/pull/1000)) by [@fernandofranca](https://github.com/fernandofranca)
+
+- [Added] - Switch component code page ([#1000](https://github.com/justeattakeaway/pie/pull/1000)) by [@fernandofranca](https://github.com/fernandofranca)
+
+## 3.16.0
+
+### Minor Changes
+
+- [Added] - Card documentation ([#997](https://github.com/justeattakeaway/pie/pull/997)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Changed] - Move card overview docs from `/components/card/` to `/components/card/overview/`
+
+### Patch Changes
+
+- [Fixed] - Issue where `dev` script wasn't running on port 8080, causing the browser tests to fail. ([#1018](https://github.com/justeattakeaway/pie/pull/1018)) by [@siggerzz](https://github.com/siggerzz)
+
 ## 3.15.1
 
 ### Patch Changes
