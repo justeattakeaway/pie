@@ -17,8 +17,6 @@
     "components/button/overview",
     "components/card/code",
     "components/card/overview",
-    "components/button/style",
-    "components/card",
     "components/carousel-indicator",
     "components/checkbox",
     "components/chip",
