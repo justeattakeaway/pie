@@ -1,5 +1,31 @@
 # Changelog
 
+## 0.50.0
+
+### Minor Changes
+
+- [Changed] - Move lit dependency from storybook to webc-core ([#1037](https://github.com/justeattakeaway/pie/pull/1037)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- [Changed] - the icon size of the xsmall icon-button should be 20px ([#1042](https://github.com/justeattakeaway/pie/pull/1042)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Changed] - rely on the padding prop to apply padding for the card stories
+
+### Patch Changes
+
+- Updated dependencies [[`9a3a1db82`](https://github.com/justeattakeaway/pie/commit/9a3a1db82ffd69e9583721b703cd85ac1d34e1f3), [`905e78762`](https://github.com/justeattakeaway/pie/commit/905e78762512739c7b103f4ac5e876062ae2ab7f)]:
+  - @justeattakeaway/pie-icons-webc@0.12.0
+  - @justeattakeaway/pie-icon-button@0.23.0
+  - @justeattakeaway/pie-modal@0.34.1
+  - @justeattakeaway/pie-switch@0.18.1
+  - @justeattakeaway/pie-button@0.40.1
+  - @justeattakeaway/pie-card@0.14.3
+  - @justeattakeaway/pie-cookie-banner@0.11.6
+  - @justeattakeaway/pie-divider@0.9.3
+  - @justeattakeaway/pie-form-label@0.8.3
+  - @justeattakeaway/pie-link@0.11.3
+  - @justeattakeaway/pie-notification@0.1.3
+  - @justeattakeaway/pie-spinner@0.3.1
+
 ## 0.49.0
 
 ### Minor Changes
