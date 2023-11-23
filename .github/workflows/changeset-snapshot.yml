@@ -109,6 +109,8 @@ jobs:
 
       - name: Create and publish snapshot release
         uses: actions/github-script@v6
+        env:
+          GITHUB_TOKEN: ${{ secrets.CHANGESETS_TOKEN }}
         with:
           github-token: ${{ secrets.CHANGESETS_TOKEN }}
           script: |
