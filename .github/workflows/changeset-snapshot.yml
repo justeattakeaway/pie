@@ -109,9 +109,8 @@ jobs:
 
       - name: Create and publish snapshot release
         uses: actions/github-script@v6
-        env:
-          GITHUB_TOKEN: ${{ secrets.CHANGESETS_TOKEN }}
         with:
+          github-token: ${{ secrets.CHANGESETS_TOKEN }}
           script: |
             const execa = require('execa')
 
@@ -125,7 +124,7 @@ jobs:
             const newTags = Array
               .from(stdout.matchAll(/New tag:\s+([^\s\n]+)/g))
               .map(([_, tag]) => tag)
-              .filter((tag) => !/^wc-\w+$|pie-(docs|storybook)$/.test(tag))
+              .filter((tag) => !/^wc-.+$|pie-(docs|storybook)/.test(tag))
 
             if (newTags.length) {
               const multiple = newTags.length > 1
