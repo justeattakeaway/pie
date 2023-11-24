@@ -39,7 +39,7 @@ export class PieIconButton extends LitElement implements IconButtonProps {
      */
     private renderSpinner (): TemplateResult {
         const { variant, size } = this;
-        const spinnerSize = size === 'xsmall' ? 's' : 'm';
+        const spinnerSize = size === 'xsmall' ? 'small' : 'medium';
         let spinnerVariant = 'brand';
         if (variant?.includes('secondary')) spinnerVariant = 'secondary';
         if (variant === 'primary' || variant === 'ghost-inverse') spinnerVariant = 'inverse';

@@ -25,16 +25,6 @@ describe('requiredProperty', () => {
     class MockComponent {
         @requiredProperty('mock-component')
             color?: string | null;
-
-        private _requestUpdateArgs = {};
-
-        requestUpdate (propertyKey: string, oldValue: unknown) {
-            this._requestUpdateArgs = { propertyKey, oldValue };
-        }
-
-        requestUpdateCalledWith () {
-            return this._requestUpdateArgs;
-        }
     }
 
     it('should log an error if the property is undefined', () => {
@@ -79,16 +69,5 @@ describe('requiredProperty', () => {
 
         // Assert
         expect(consoleErrorSpy).not.toHaveBeenCalled();
-    });
-
-    it('should call requestUpdate when the property is set', () => {
-        // Arrange
-        const mockComponent = new MockComponent();
-
-        // Act
-        mockComponent.color = 'blue';
-
-        // Assert
-        expect(mockComponent.requestUpdateCalledWith()).toStrictEqual({ propertyKey: 'color', oldValue: undefined });
     });
 });

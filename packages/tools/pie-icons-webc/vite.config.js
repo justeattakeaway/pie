@@ -30,7 +30,6 @@ export default defineConfig({
             fileName: () => 'dist/[name].js',
         },
         rollupOptions: {
-            external: [/^lit/],
             output: {
                 exports: 'named',
                 dir: 'dist',
@@ -41,4 +40,3 @@ export default defineConfig({
         },
     },
 });
-

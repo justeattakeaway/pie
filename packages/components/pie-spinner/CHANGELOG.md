@@ -1,5 +1,32 @@
 # @justeattakeaway/pie-spinner
 
+## 0.3.1
+
+### Patch Changes
+
+- Updated dependencies [[`9a3a1db82`](https://github.com/justeattakeaway/pie/commit/9a3a1db82ffd69e9583721b703cd85ac1d34e1f3), [`9a3a1db82`](https://github.com/justeattakeaway/pie/commit/9a3a1db82ffd69e9583721b703cd85ac1d34e1f3)]:
+  - @justeattakeaway/pie-webc-core@0.13.0
+
+## 0.3.0
+
+### Minor Changes
+
+- [Changed] - spinner sizes should be fully spelt out such as large not l ([#1036](https://github.com/justeattakeaway/pie/pull/1036)) by [@siggerzz](https://github.com/siggerzz)
+
+## 0.2.2
+
+### Patch Changes
+
+- Updated dependencies [[`afb4b53b9`](https://github.com/justeattakeaway/pie/commit/afb4b53b94c016116155f81054778df3b856b8f4)]:
+  - @justeattakeaway/pie-webc-core@0.12.0
+
+## 0.2.2-next.0
+
+### Patch Changes
+
+- Updated dependencies [[`fdd981eb7`](https://github.com/justeattakeaway/pie/commit/fdd981eb739db0ff1eda27f56f3a4eca97f34652)]:
+  - @justeattakeaway/pie-webc-core@0.12.0-next.0
+
 ## 0.2.1
 
 ### Patch Changes

@@ -1,5 +1,47 @@
 # @justeattakeaway/pie-icon-button
 
+## 0.23.0
+
+### Minor Changes
+
+- [Changed] - the icon size of the xsmall icon-button should be 20px ([#1042](https://github.com/justeattakeaway/pie/pull/1042)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Changed] - rely on the padding prop to apply padding for the card stories
+
+### Patch Changes
+
+- Updated dependencies [[`9a3a1db82`](https://github.com/justeattakeaway/pie/commit/9a3a1db82ffd69e9583721b703cd85ac1d34e1f3), [`9a3a1db82`](https://github.com/justeattakeaway/pie/commit/9a3a1db82ffd69e9583721b703cd85ac1d34e1f3), [`9a3a1db82`](https://github.com/justeattakeaway/pie/commit/9a3a1db82ffd69e9583721b703cd85ac1d34e1f3)]:
+  - @justeattakeaway/pie-icons-webc@0.12.0
+  - @justeattakeaway/pie-webc-core@0.13.0
+  - @justeattakeaway/pie-spinner@0.3.1
+
+## 0.22.0
+
+### Minor Changes
+
+- [Changed] - spinner sizes should be fully spelt out such as large not l ([#1036](https://github.com/justeattakeaway/pie/pull/1036)) by [@siggerzz](https://github.com/siggerzz)
+
+### Patch Changes
+
+- Updated dependencies [[`10cf54269`](https://github.com/justeattakeaway/pie/commit/10cf542691f18bc4a93e84e2045985e14efc6330)]:
+  - @justeattakeaway/pie-spinner@0.3.0
+
+## 0.21.3
+
+### Patch Changes
+
+- Updated dependencies [[`afb4b53b9`](https://github.com/justeattakeaway/pie/commit/afb4b53b94c016116155f81054778df3b856b8f4)]:
+  - @justeattakeaway/pie-webc-core@0.12.0
+  - @justeattakeaway/pie-spinner@0.2.2
+
+## 0.21.3-next.0
+
+### Patch Changes
+
+- Updated dependencies [[`fdd981eb7`](https://github.com/justeattakeaway/pie/commit/fdd981eb739db0ff1eda27f56f3a4eca97f34652)]:
+  - @justeattakeaway/pie-webc-core@0.12.0-next.0
+  - @justeattakeaway/pie-spinner@0.2.2-next.0
+
 ## 0.21.2
 
 ### Patch Changes
