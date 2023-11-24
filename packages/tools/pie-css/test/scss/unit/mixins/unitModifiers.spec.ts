@@ -7,7 +7,7 @@ import {
 import { compileCss, stripCSSWhitespace } from '../../../../utilities/compileCss';
 
 describe('mixins.font-size', () => {
-    it('should render the expected CSS content', async () => {
+    it('should render the expected CSS content', () => {
         // Arrange
         const scssToTest = `
           @use 'mixins';
@@ -40,7 +40,7 @@ describe('mixins.font-size', () => {
 });
 
 describe('mixins.line-height', () => {
-    it('should render the expected CSS content', async () => {
+    it('should render the expected CSS content', () => {
         // Arrange
         const scssToTest = `
           @use 'mixins';

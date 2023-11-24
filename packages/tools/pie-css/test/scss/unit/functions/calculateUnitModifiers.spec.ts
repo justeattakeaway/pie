@@ -7,7 +7,7 @@ import {
 import { compileCss, stripCSSWhitespace } from '../../../../utilities/compileCss';
 
 describe('functions.to-px', () => {
-    it('should render the expected CSS content', async () => {
+    it('should render the expected CSS content', () => {
         // Arrange
         const scssToTest = `
           @use 'functions';
@@ -42,7 +42,7 @@ describe('functions.to-px', () => {
 });
 
 describe('functions.font-size', () => {
-    it('should render the expected CSS content', async () => {
+    it('should render the expected CSS content', () => {
         // Arrange
         const scssToTest = `
           @use 'functions';
@@ -77,7 +77,7 @@ describe('functions.font-size', () => {
 });
 
 describe('functions.line-height', () => {
-    it('should render the expected CSS content', async () => {
+    it('should render the expected CSS content', () => {
         // Arrange
         const scssToTest = `
           @use 'functions';
