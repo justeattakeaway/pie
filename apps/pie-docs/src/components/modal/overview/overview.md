@@ -57,7 +57,7 @@ Modals are commonly used for tasks such as displaying notifications, presenting 
         "**Close (optional)**: The close Icon button will close the modal without submitting any data.",
         "**Main content**: Open slot for any content required.",
         "**CTAs (optional)**: Single or dual call to action Buttons to outline the user’s next options.",
-        "**Overlay**: Screen overlay that obscures the on-page content (1.Elements/1. Backgrounds/3. Page/Overlay)."
+        "**Overlay**: Screen overlay that obscures the on-page content."
     ]
 } %}
 
@@ -176,8 +176,7 @@ Modals with short messages should use the small Modal to avoid long single lines
 
 #### Full screen
 
-The Wide large and optionally medium size, has the corresponding responsive option of fullscreen at narrow.
-
+Large modals will expand to fill the entire page width at narrow viewports.
 {% contentPageImage {
     src: "../../../assets/img/components/modal/overview/narrow-size-full-screen.png",
     alt: "A full screen modal on a mobile screen.",
@@ -186,7 +185,7 @@ The Wide large and optionally medium size, has the corresponding responsive opti
 
 #### 75% width
 
-The Wide small and optionally medium size, has the corresponding responsive option of 75% width at narrow.
+Medium and small modals will expand to 75% page width at narrow viewports.
 
 {% contentPageImage {
     src: "../../../assets/img/components/modal/overview/narrow-size-75-percent.png",
@@ -288,7 +287,7 @@ If the actions are required to be sticky, they are pinned to the bottom of the M
 
 #### Footer pinned = false
 
-If the actions aren’t required to be sticky and placed at the bottom of the content, and the passive footer is pinned to the bottom of the Modal container whilst the user scrolls to indicate there is more content below.
+If the actions aren’t required to be sticky and are placed at the bottom of the content, the passive footer is pinned to the bottom of the Modal container whilst the user scrolls to indicate the presence of additional content below.
 
 {% contentPageImage {
   src: "../../../assets/img/components/modal/overview/overflow-body-content-footer-not-pinned.png",
