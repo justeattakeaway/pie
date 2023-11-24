@@ -1,0 +1,44 @@
+// ----------------------------------------------
+// Mixin for setting the font size.
+// The `font-size` mixin allows you to set the font size using a CSS variable.
+// The resulting value will be multiplied by 1px.
+// -
+// @param {String} $token - The CSS variable name to be used for the font size.
+//                          It should include the `--` prefix used in custom properties.
+// -
+// @example
+// .text {
+//   @include font-size(--font-size-small);
+// }
+// -
+// Outputs:
+// .text {
+//   font-size: calc(var(--font-size-small) * 1px);
+// }
+// ----------------------------------------------
+@mixin font-size($token) {
+    font-size: calc(var($token) * 1px);
+}
+
+
+// ----------------------------------------------
+// Mixin for setting the line height.
+// The `line-height` mixin allows you to set the line height using a CSS variable.
+// The resulting value will be multiplied by 1px.
+// -
+// @param {String} $token - The CSS variable name to be used for the line height.
+//                          It should include the `--` prefix used in custom properties.
+// -
+// @example
+// .text {
+//   @include line-height(--dt-font-caption-line-height);
+// }
+// -
+// Outputs:
+// .text {
+//   line-height: calc(var(--dt-font-caption-line-height) * 1px);
+// }
+// ----------------------------------------------
+@mixin line-height($token) {
+    line-height: calc(var($token) * 1px);
+}

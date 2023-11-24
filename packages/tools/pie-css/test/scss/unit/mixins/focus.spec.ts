@@ -7,7 +7,7 @@ import {
 import { compileCss, stripCSSWhitespace } from '../../../../utilities/compileCss';
 
 describe('mixins.focus', () => {
-    it('should render the expected CSS content', async () => {
+    it('should render the expected CSS content', () => {
         // Arrange
         const scssToTest = `
           @use 'mixins';
