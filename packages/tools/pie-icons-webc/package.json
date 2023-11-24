@@ -15,6 +15,14 @@
     "./*": {
       "import": "./dist/*.js",
       "types": "./dist/*.d.ts"
+    },
+    "./react": {
+      "import": "./dist/react/index.js",
+      "types": "./dist/react/index.d.ts"
+    },
+    "./react/*": {
+      "import": "./dist/react/*.js",
+      "types": "./dist/react/*.d.ts"
     }
   },
   "publishConfig": {
