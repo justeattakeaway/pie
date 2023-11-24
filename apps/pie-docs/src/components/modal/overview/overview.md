@@ -108,7 +108,7 @@ A maximum of two Buttons are allowed within the Modal’s footer, with the prima
 
 {% contentPageImage {
     src: "../../../assets/img/components/modal/overview/modifier-footer-double.png",
-    alt: "A modal with a close icon button in the header.",
+    alt: "A modal with dual buttons",
     width: 600
 } %}
 
@@ -117,7 +117,7 @@ A maximum of two Buttons are allowed within the Modal’s footer, with the prima
 A single Button variant is available when only one action is required.
 {% contentPageImage {
     src: "../../../assets/img/components/modal/overview/modifier-footer-single.png",
-    alt: "A modal with a pair of primary and ghost buttons in its footer.",
+    alt: "A modal with a single primary button in its footer.",
     width: 600
 } %}
 
@@ -127,7 +127,7 @@ You can use the Passive modifier for the footer in instances where the user does
 
 {% contentPageImage {
     src: "../../../assets/img/components/modal/overview/modifier-footer-passive.png",
-    alt: "A modal with a single primary button in its footer.",
+    alt: "A modal with a pair of primary and ghost buttons in its footer.",
     width: 600
 } %}
 
@@ -250,7 +250,7 @@ The Modal is positioned at the center of the screen by default.
 
 #### Top
 
-The Modal is positioned at the center of the screen by default.
+The Modal is positioned at the top of the screen by default.
 
 {% contentPageImage {
   src: "../../../assets/img/components/modal/overview/layout-position-top.png",
