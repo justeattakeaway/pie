@@ -1,5 +1,91 @@
 # Changelog
 
+## 0.50.0
+
+### Minor Changes
+
+- [Changed] - Move lit dependency from storybook to webc-core ([#1037](https://github.com/justeattakeaway/pie/pull/1037)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- [Changed] - the icon size of the xsmall icon-button should be 20px ([#1042](https://github.com/justeattakeaway/pie/pull/1042)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Changed] - rely on the padding prop to apply padding for the card stories
+
+### Patch Changes
+
+- Updated dependencies [[`9a3a1db82`](https://github.com/justeattakeaway/pie/commit/9a3a1db82ffd69e9583721b703cd85ac1d34e1f3), [`905e78762`](https://github.com/justeattakeaway/pie/commit/905e78762512739c7b103f4ac5e876062ae2ab7f)]:
+  - @justeattakeaway/pie-icons-webc@0.12.0
+  - @justeattakeaway/pie-icon-button@0.23.0
+  - @justeattakeaway/pie-modal@0.34.1
+  - @justeattakeaway/pie-switch@0.18.1
+  - @justeattakeaway/pie-button@0.40.1
+  - @justeattakeaway/pie-card@0.14.3
+  - @justeattakeaway/pie-cookie-banner@0.11.6
+  - @justeattakeaway/pie-divider@0.9.3
+  - @justeattakeaway/pie-form-label@0.8.3
+  - @justeattakeaway/pie-link@0.11.3
+  - @justeattakeaway/pie-notification@0.1.3
+  - @justeattakeaway/pie-spinner@0.3.1
+
+## 0.49.0
+
+### Minor Changes
+
+- [Fixed] - icons in pie link stories aren't shown if the story url is directly visited ([#1036](https://github.com/justeattakeaway/pie/pull/1036)) by [@siggerzz](https://github.com/siggerzz)
+
+- [Changed] - spinner sizes should be fully spelt out such as large not l ([#1036](https://github.com/justeattakeaway/pie/pull/1036)) by [@siggerzz](https://github.com/siggerzz)
+
+- [Fixed] - add webc-core as a dep in the switch component ([#1036](https://github.com/justeattakeaway/pie/pull/1036)) by [@siggerzz](https://github.com/siggerzz)
+
+### Patch Changes
+
+- Updated dependencies [[`10cf54269`](https://github.com/justeattakeaway/pie/commit/10cf542691f18bc4a93e84e2045985e14efc6330), [`10cf54269`](https://github.com/justeattakeaway/pie/commit/10cf542691f18bc4a93e84e2045985e14efc6330)]:
+  - @justeattakeaway/pie-icon-button@0.22.0
+  - @justeattakeaway/pie-spinner@0.3.0
+  - @justeattakeaway/pie-button@0.40.0
+  - @justeattakeaway/pie-modal@0.34.0
+  - @justeattakeaway/pie-switch@0.18.0
+  - @justeattakeaway/pie-cookie-banner@0.11.5
+
+## 0.48.0
+
+### Minor Changes
+
+- [Changed] - `hoistingLimits` config to prevent issues with conflicting dependency versions ([#1027](https://github.com/justeattakeaway/pie/pull/1027)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-button@0.39.1
+  - @justeattakeaway/pie-card@0.14.2
+  - @justeattakeaway/pie-cookie-banner@0.11.4
+  - @justeattakeaway/pie-divider@0.9.2
+  - @justeattakeaway/pie-form-label@0.8.2
+  - @justeattakeaway/pie-icon-button@0.21.3
+  - @justeattakeaway/pie-link@0.11.2
+  - @justeattakeaway/pie-modal@0.33.1
+  - @justeattakeaway/pie-notification@0.1.2
+  - @justeattakeaway/pie-spinner@0.2.2
+
+## 0.48.0-next.0
+
+### Minor Changes
+
+- [Changed] - `hoistingLimits` config to prevent issues with conflicting dependency versions ([#1025](https://github.com/justeattakeaway/pie/pull/1025)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-button@0.39.1-next.0
+  - @justeattakeaway/pie-card@0.14.2-next.0
+  - @justeattakeaway/pie-cookie-banner@0.11.4-next.0
+  - @justeattakeaway/pie-divider@0.9.2-next.0
+  - @justeattakeaway/pie-form-label@0.8.2-next.0
+  - @justeattakeaway/pie-icon-button@0.21.3-next.0
+  - @justeattakeaway/pie-link@0.11.2-next.0
+  - @justeattakeaway/pie-modal@0.33.1-next.0
+  - @justeattakeaway/pie-notification@0.1.2-next.0
+  - @justeattakeaway/pie-spinner@0.2.2-next.0
+
 ## 0.47.3
 
 ### Patch Changes

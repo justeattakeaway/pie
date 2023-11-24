@@ -1,5 +1,25 @@
 # Changelog
 
+## 0.13.0
+
+### Minor Changes
+
+- [Added] - Build webc-core using vite ([#1037](https://github.com/justeattakeaway/pie/pull/1037)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- [Changed] - Move lit dependency from storybook to webc-core ([#1037](https://github.com/justeattakeaway/pie/pull/1037)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+## 0.12.0
+
+### Minor Changes
+
+- [Changed] - `@validPropertyValues` and `@requiredProperty` decorators to support Lit 3. ([#1027](https://github.com/justeattakeaway/pie/pull/1027)) by [@raoufswe](https://github.com/raoufswe)
+
+## 0.12.0-next.0
+
+### Minor Changes
+
+- [Changed] - `@validPropertyValues` and `@requiredProperty` decorators to support Lit 3. ([#1025](https://github.com/justeattakeaway/pie/pull/1025)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.11.0
 
 ### Minor Changes

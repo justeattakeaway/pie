@@ -3,10 +3,9 @@ import dts from 'vite-plugin-dts';
 
 import { deepmerge } from 'deepmerge-ts';
 
-const nonComponentJetDeps = [
+const bundledJetDeps = [
     '@justeattakeaway/pie-components-config',
     '@justeattakeaway/pie-css',
-    '@justeattakeaway/pie-webc-core',
     '@justeattakeaway/pie-webc-testing',
 ];
 
@@ -22,11 +21,11 @@ const sharedConfig = ({ build = {}, plugins = [], ...rest }) => defineConfig({
         },
         rollupOptions: {
             external: (id) => {
-                if (id === 'react' || /^lit/.test(id)) {
+                if (['react', '@lit/react'].includes(id) || /^lit/.test(id)) {
                     return true;
                 }
 
-                if (id.startsWith('@justeattakeaway/pie-') && !nonComponentJetDeps.includes(id)) {
+                if (id.startsWith('@justeattakeaway/pie-') && !bundledJetDeps.includes(id)) {
                     console.info(`Excluding ${id} from the bundle`);
                     return true;
                 }

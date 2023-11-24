@@ -1,5 +1,45 @@
 # wc-next10
 
+## 0.5.2
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-button@0.40.1
+
+## 0.5.1
+
+### Patch Changes
+
+- Updated dependencies [[`10cf54269`](https://github.com/justeattakeaway/pie/commit/10cf542691f18bc4a93e84e2045985e14efc6330)]:
+  - @justeattakeaway/pie-button@0.40.0
+
+## 0.5.0
+
+### Minor Changes
+
+- [Changed] - Webpack config and babel plugins to support Lit 3 as per the upgrade guide - https://lit.dev/docs/releases/upgrade/#using-lit-3-with-webpack-4 ([#1027](https://github.com/justeattakeaway/pie/pull/1027)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Changed] - `@lit-labs/react` dependency to `@lit/react` and updated any references. ([#1027](https://github.com/justeattakeaway/pie/pull/1027)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-button@0.39.1
+
+## 0.5.0-next.0
+
+### Minor Changes
+
+- [Changed] - Webpack config and babel plugins to support Lit 3 as per the upgrade guide - https://lit.dev/docs/releases/upgrade/#using-lit-3-with-webpack-4 ([#1025](https://github.com/justeattakeaway/pie/pull/1025)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Changed] - `@lit-labs/react` dependency to `@lit/react` and updated any references. ([#1025](https://github.com/justeattakeaway/pie/pull/1025)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-button@0.39.1-next.0
+
 ## 0.4.12
 
 ### Patch Changes
