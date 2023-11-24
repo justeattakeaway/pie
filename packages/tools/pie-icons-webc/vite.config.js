@@ -12,6 +12,7 @@ function getIconEntries (dir = path.resolve(__dirname, 'icons')) {
 
     fs.readdirSync(dir).forEach((file) => {
         const fullPath = path.resolve(dir, file);
+        // Check if the path points to a directory or a file
         if (fs.statSync(fullPath).isDirectory()) {
             // Merge objects for subdirectories
             entries = { ...entries, ...getIconEntries(fullPath) };
