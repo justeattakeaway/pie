@@ -92,6 +92,7 @@ declare global {
 
 const ICONS_DIR = `${process.cwd()}/icons`;
 const indexPath = path.join(ICONS_DIR, '/index.ts');
+const reactIndexPath = path.join(ICONS_DIR, '/react/index.ts');
 
 async function checkDirExists (directoryPath) {
     try {
@@ -109,6 +110,7 @@ async function checkDirExists (directoryPath) {
 async function build () {
     // check if /icons directory exists, if not create it
     await checkDirExists(ICONS_DIR);
+    await checkDirExists(`${ICONS_DIR}/react`);
 
     let indexFileString = '';
 
@@ -129,9 +131,29 @@ async function build () {
         indexFileString += `export { ${componentName} } from './${componentName}';\n`;
 
         fs.writeFileSync(`./icons/${componentName}.ts`, component, 'utf8');
+
+        console.log('***** Created component: ', componentName, '*******');
+        // create a {ComponentName}ReactExport.ts file for each component
+        const reactExportTemplate = `import * as React from 'react';
+import { createComponent } from '@lit/react';
+import { ${componentName} as ${componentName}React } from '../${componentName}';
+
+export const ${componentName} = createComponent({
+    displayName: '${componentName}',
+    elementClass: ${componentName}React,
+    react: React,
+    tagName: '${kebabCase(componentName)}',
+    events: {},
+});
+`;
+        console.log('***** Created React component: ', componentName, '*******');
+
+        // write the react export file
+        fs.writeFileSync(`./icons/react/${componentName}.ts`, reactExportTemplate, 'utf8');
     });
 
     fs.writeFileSync(indexPath, indexFileString, 'utf8');
+    fs.writeFileSync(reactIndexPath, indexFileString, 'utf8');
 }
 
 build();

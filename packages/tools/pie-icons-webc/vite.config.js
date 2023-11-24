@@ -30,6 +30,13 @@ export default defineConfig({
             fileName: () => 'dist/[name].js',
         },
         rollupOptions: {
+            external: (id) => {
+                if (['react', '@lit/react'].includes(id) || /^lit/.test(id)) {
+                    return true;
+                }
+
+                return false;
+            },
             output: {
                 exports: 'named',
                 dir: 'dist',
