@@ -33,7 +33,7 @@ Modals are commonly used for tasks such as displaying notifications, presenting 
     dont: {
         type: usageTypes.text,
         items: [
-            "Modal’s interrupt a user’s flow by design, so while effective when used correctly; Modal’s should be used sparingly to limit disruption to the user."
+            "Modals interrupt a user’s flow by design, so while effective when used correctly, they should be used sparingly to limit disruption to the user."
         ]
     }
 } %}
@@ -54,7 +54,7 @@ Modals are commonly used for tasks such as displaying notifications, presenting 
     items: [
         "**Back (optional)**: The chevron Icon button allows the user to return back a stage in a multi-step modal.",
         "**Title**: Gives the users an overview of the content.",
-        "**Close**: The close Icon button will close the modal without submitting any data.",
+        "**Close (optional)**: The close Icon button will close the modal without submitting any data.",
         "**Main content**: Open slot for any content required.",
         "**CTAs (optional)**: Single or dual call to action Buttons to outline the user’s next options.",
         "**Overlay**: Screen overlay that obscures the on-page content (1.Elements/1. Backgrounds/3. Page/Overlay)."
@@ -90,7 +90,7 @@ If a multi-step Modal is required, from steps two onwards a back Icon Button is 
 
 #### Close
 
-Use this Header modifier when if the modal can't be dismissed.
+Use this Header modifier when the modal can be dismissed.
 
 {% contentPageImage {
     src: "../../../assets/img/components/modal/overview/modifier-header-close.png",
@@ -104,7 +104,7 @@ You can replace the footer Buttons with any Button or Button pair defined within
 
 #### Double
 
-A maximum of two Buttons are allowed within the Modal’s footer, with the primary Button right aligned and the lower emphasis Button on the left.
+A maximum of two Buttons are allowed within the Modal’s footer, with the primary Button right-aligned and the lower-emphasis Button on the left.
 
 {% contentPageImage {
     src: "../../../assets/img/components/modal/overview/modifier-footer-double.png",
@@ -114,8 +114,7 @@ A maximum of two Buttons are allowed within the Modal’s footer, with the prima
 
 #### Single
 
-You can use the Passive modifier for the footer in instances where the user doesn't need to take an action. This will remove the buttons at the bottom of the Modal.
-
+A single Button variant is available when only one action is required.
 {% contentPageImage {
     src: "../../../assets/img/components/modal/overview/modifier-footer-single.png",
     alt: "A modal with a pair of primary and ghost buttons in its footer.",
@@ -124,7 +123,7 @@ You can use the Passive modifier for the footer in instances where the user does
 
 #### Passive
 
-A single Button variant is available when only one action is required.
+You can use the Passive modifier for the footer in instances where the user doesn't need to take an action. This will remove the buttons at the bottom of the Modal.
 
 {% contentPageImage {
     src: "../../../assets/img/components/modal/overview/modifier-footer-passive.png",
@@ -203,12 +202,12 @@ As well as the standard Modal footer modifiers, at a narrow size you have the op
 
 {% contentLayout %}
   {% contentPageImage {
-      src: "../../../assets/img/components/modal/overview/narrow-modifier-footer-dual-action.png",
+      src: "../../../assets/img/components/modal/overview/narrow-modifier-footer-single-action.png",
       alt: "A modal with a single primary button in its footer on a mobile screen.",
       width: 336
   } %}
   {% contentPageImage {
-    src: "../../../assets/img/components/modal/overview/narrow-modifier-footer-single-action.png",
+    src: "../../../assets/img/components/modal/overview/narrow-modifier-footer-dual-action.png",
     alt: "A modal with a single primary button in its footer on a mobile screen.",
     width: 288
   } %}
@@ -255,7 +254,7 @@ The Modal is positioned at the center of the screen by default.
 
 {% contentPageImage {
   src: "../../../assets/img/components/modal/overview/layout-position-top.png",
-  alt: "A modal that is positioned in the middle of the screen.",
+  alt: "A modal that is positioned at the top of the screen.",
   shouldShowPadding: true
 } %}
 
@@ -279,7 +278,7 @@ When the Modal’s content is longer than the available Modal height, then the b
 
 #### Footer pinned = true
 
-If the actions are required to be sticky, they are pinned to the bottom of the Modal container whilst the user scrolls to indicate there is more content below until.
+If the actions are required to be sticky, they are pinned to the bottom of the Modal container whilst the user scrolls to indicate there is more content below.
 
 {% contentPageImage {
   src: "../../../assets/img/components/modal/overview/overflow-body-content-footer-pinned.png",
@@ -293,7 +292,7 @@ If the actions aren’t required to be sticky and placed at the bottom of the co
 
 {% contentPageImage {
   src: "../../../assets/img/components/modal/overview/overflow-body-content-footer-not-pinned.png",
-  alt: "A modal with no pinned footer.",
+  alt: "A modal with an unpinned footer.",
   width: 400
 } %}
 
@@ -309,7 +308,7 @@ If the Modal can be dismissed by the user, they should be able to dismiss it by 
 
 {% contentPageImage {
   src: "../../../assets/img/components/modal/overview/interaction-close-dismissible.png",
-  alt: "A modal with a dissmissible close button.",
+  alt: "A dismissible modal with a close button.",
   shouldShowPadding: true
 } %}
 
@@ -319,7 +318,7 @@ If the Modal is not dismissible, the user has to complete the flow in order to c
 
 {% contentPageImage {
   src: "../../../assets/img/components/modal/overview/interaction-close-non-dismissible.png",
-  alt: "A modal with a dissmissible close button.",
+  alt: "A non-dismissible modal without a close button.",
   shouldShowPadding: true
 } %}
 
@@ -331,45 +330,45 @@ Outlines the atomic level interactive elements for the component.
 
 ### LTR examples
 
-Here are some examples of Buttons in left to right context:
+Here are some examples of modals in a left-to-right context:
 
 {% contentPageImage {
     src: "../../../assets/img/components/modal/overview/example-ltr-stampcards.png",
-    alt: "A left to right example of a modal with form fileds in the modal body.",
+    alt: "A left-to-right example of a modal with form fields in the modal body.",
     shouldShowPadding: true
 } %}
 
 {% contentPageImage {
     src: "../../../assets/img/components/modal/overview/example-ltr-my-account.png",
-    alt: "A left to right example of list items and buttons in the modal body.",
+    alt: "A left-to-right example of list items and buttons in the modal body.",
     shouldShowPadding: true
 } %}
 
 {% contentPageImage {
     src: "../../../assets/img/components/modal/overview/example-ltr-personal-information.png",
-    alt: "A left to right example of tabs and cards in the modal body.",
+    alt: "A left-to-right example of tabs and cards in the modal body.",
     shouldShowPadding: true
 } %}
 
 ### RTL examples
 
-Here are some examples of Buttons in right to left context:
+Here are some examples of Buttons in right-to-left context:
 
 {% contentPageImage {
     src: "../../../assets/img/components/modal/overview/example-rtl-stampcards.png",
-    alt: "A right to left example of a modal with form fileds in the modal body.",
+    alt: "A right-to-left example of a modal with form fields in the modal body.",
     shouldShowPadding: true
 } %}
 
 {% contentPageImage {
     src: "../../../assets/img/components/modal/overview/example-rtl-my-account.png",
-    alt: "A right to left example of a modal with form fileds in the modal body.",
+    alt: "A right-to-left example of list items and buttons in the modal body.",
     shouldShowPadding: true
 } %}
 
 {% contentPageImage {
     src: "../../../assets/img/components/modal/overview/example-rtl-personal-information.png",
-    alt: "A right to left example of a modal with form fileds in the modal body.",
+    alt: "A right-to-left example of tabs and cards in the modal body.",
     shouldShowPadding: true
 } %}
 
