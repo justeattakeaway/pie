@@ -94,7 +94,11 @@ const ICONS_DIR = `${process.cwd()}/icons`;
 const indexPath = path.join(ICONS_DIR, '/index.ts');
 const reactIndexPath = path.join(ICONS_DIR, '/react/index.ts');
 
-async function checkDirExists (directoryPath) {
+/**
+ * Checks that a directory exists at a specified path, if not it creates it.
+ * @param {string} directoryPath
+ */
+function ensureDirExists (directoryPath) {
     try {
         if (!fs.existsSync(directoryPath)) {
             console.info(`Creating directory "${directoryPath}".`);
@@ -107,10 +111,12 @@ async function checkDirExists (directoryPath) {
     }
 }
 
-async function build () {
+function build () {
     // check if /icons directory exists, if not create it
-    await checkDirExists(ICONS_DIR);
-    await checkDirExists(`${ICONS_DIR}/react`);
+    ensureDirExists(ICONS_DIR);
+
+    // check if /icons/react directory exists, if not create it
+    ensureDirExists(`${ICONS_DIR}/react`);
 
     let indexFileString = '';
 
@@ -132,7 +138,6 @@ async function build () {
 
         fs.writeFileSync(`./icons/${componentName}.ts`, component, 'utf8');
 
-        console.log('***** Created component: ', componentName, '*******');
         // create a {ComponentName}ReactExport.ts file for each component
         const reactExportTemplate = `import * as React from 'react';
 import { createComponent } from '@lit/react';
@@ -146,9 +151,7 @@ export const ${componentName} = createComponent({
     events: {},
 });
 `;
-        console.log('***** Created React component: ', componentName, '*******');
 
-        // write the react export file
         fs.writeFileSync(`./icons/react/${componentName}.ts`, reactExportTemplate, 'utf8');
     });
 
