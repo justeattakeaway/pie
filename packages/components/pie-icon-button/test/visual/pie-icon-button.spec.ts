@@ -20,6 +20,7 @@ import { sizes, variants } from '@/defs';
 const props: PropObject = {
     size: sizes,
     variant: variants,
+    isLoading: [true, false],
     disabled: [true, false],
 };
 
