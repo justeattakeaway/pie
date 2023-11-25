@@ -1,5 +1,16 @@
 # @justeattakeaway/pie-modal
 
+## 0.35.0
+
+### Minor Changes
+
+- [Fixed] - Multiple modals from opening when more than one exist ([#1038](https://github.com/justeattakeaway/pie/pull/1038)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
+### Patch Changes
+
+- Updated dependencies [[`0d7ebcd20`](https://github.com/justeattakeaway/pie/commit/0d7ebcd2084ccd716d9d09772a1a78abe069c11e)]:
+  - @justeattakeaway/pie-icon-button@0.24.0
+
 ## 0.34.1
 
 ### Patch Changes
