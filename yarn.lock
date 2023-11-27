@@ -5475,7 +5475,7 @@ __metadata:
     "@justeattakeaway/pie-components-config": 0.6.1
     "@justeattakeaway/pie-spinner": 0.3.1
     "@justeattakeaway/pie-webc-core": 0.13.0
-    element-internals-polyfill: 1.3.8
+    element-internals-polyfill: 1.3.9
   languageName: unknown
   linkType: soft
 
@@ -18292,10 +18292,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"element-internals-polyfill@npm:1.3.8":
-  version: 1.3.8
-  resolution: "element-internals-polyfill@npm:1.3.8"
-  checksum: 920cf4c839d7dac0e72ff61a1a14c07161acc901274820fc94bd131fb2bde32520e123e69e95379dc849eadcfb4ae05d33c829614bed2ef518aafb557e98f2ff
+"element-internals-polyfill@npm:1.3.9":
+  version: 1.3.9
+  resolution: "element-internals-polyfill@npm:1.3.9"
+  checksum: e37b4e1bd1fa3070e59b6a89152ff596745e3151018979b25cb02d3d113a43b8cdf80aed7940a8f2d041b46d7d4c592d941f8ebbc614b972dc15999a3697361b
   languageName: node
   linkType: hard
 
