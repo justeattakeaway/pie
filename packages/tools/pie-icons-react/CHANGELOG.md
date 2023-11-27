@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.13.0
+
+### Minor Changes
+
+- [Fixed] - list pie-icons-configs as a dev dependency ([#1053](https://github.com/justeattakeaway/pie/pull/1053)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 4.12.0
 
 ### Minor Changes
