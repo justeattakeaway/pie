@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-css
 
+## 0.9.0
+
+### Minor Changes
+
+- [Added] - SCSS mixins and functions for line-height ([#1048](https://github.com/justeattakeaway/pie/pull/1048)) by [@ashleynolan](https://github.com/ashleynolan)
+
 ## 0.8.0
 
 ### Minor Changes
