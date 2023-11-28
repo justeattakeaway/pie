@@ -5523,6 +5523,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@justeattakeaway/pie-css@npm:0.8.0":
+  version: 0.8.0
+  resolution: "@justeattakeaway/pie-css@npm:0.8.0"
+  checksum: d4621a65fe466aa658564e16a926ffc8bee21b8e8bfbb3b0c1aa496bba1a3d275a5cc206378627b47d9d64fad64a295e3b8e2a8bb1b77af9eb0e3bf89ae2fcaa
+  languageName: node
+  linkType: hard
+
 "@justeattakeaway/pie-divider@0.9.3, @justeattakeaway/pie-divider@workspace:packages/components/pie-divider":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-divider@workspace:packages/components/pie-divider"
@@ -28937,8 +28944,10 @@ __metadata:
     "@docsearch/css": 3.5.2
     "@docsearch/js": 3.5.2
     "@justeat/f-cookie-banner": 4.7.0
+    "@justeat/fozzie": 11.0.2
     "@justeat/pie-design-tokens": 5.9.0
     "@justeattakeaway/browserslist-config-pie": 0.2.0
+    "@justeattakeaway/pie-css": 0.8.0
     "@justeattakeaway/pie-icons": 4.9.2
     "@types/markdown-it": 13.0.2
     eleventy-plugin-rev: 1.1.1
@@ -28968,7 +28977,6 @@ __metadata:
     "@changesets/cli": 2.26.2
     "@commitlint/cli": 17.5.1
     "@commitlint/config-conventional": 17.4.4
-    "@justeat/fozzie": 11.0.2
     "@justeat/pie-design-tokens": 5.9.0
     "@justeattakeaway/browserslist-config-pie": 0.2.0
     "@justeattakeaway/generator-pie-component": 0.15.0
