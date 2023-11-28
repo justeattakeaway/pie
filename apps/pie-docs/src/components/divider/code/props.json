@@ -1,0 +1,29 @@
+{
+  "headings": ["Prop", "Options", "Description", "Default"],
+  "rows": [
+      [
+          "variant",
+          {
+              "type": "code",
+              "item": ["\"default\"", "\"inverse\""]
+          },
+          "Which variant of the divider to use.",
+          {
+              "type": "code",
+              "item": ["\"default\""]
+          }
+      ],
+      [
+        "orientation",
+        {
+            "type": "code",
+            "item": ["\"horizontal\"", "\"vertical\""]
+        },
+        "Which orientation of the divider to use.",
+        {
+            "type": "code",
+            "item": ["\"horizontal\""]
+        }
+    ]
+  ]
+}

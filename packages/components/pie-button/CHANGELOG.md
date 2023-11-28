@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.40.2
+
+### Patch Changes
+
+- [Changed] - bump dependency `element-internals-polyfill@1.3.9` ([#1063](https://github.com/justeattakeaway/pie/pull/1063)) by [@renovate](https://github.com/apps/renovate)
+
+## 0.40.1
+
+### Patch Changes
+
+- Updated dependencies [[`9a3a1db82`](https://github.com/justeattakeaway/pie/commit/9a3a1db82ffd69e9583721b703cd85ac1d34e1f3), [`9a3a1db82`](https://github.com/justeattakeaway/pie/commit/9a3a1db82ffd69e9583721b703cd85ac1d34e1f3)]:
+  - @justeattakeaway/pie-webc-core@0.13.0
+  - @justeattakeaway/pie-spinner@0.3.1
+
 ## 0.40.0
 
 ### Minor Changes

@@ -1,5 +1,33 @@
 # Changelog
 
+## 2.43.0
+
+### Minor Changes
+
+- [Fixed] - list pie-icons-configs as a dev dependency ([#1053](https://github.com/justeattakeaway/pie/pull/1053)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- [Fixed] - Issue where build wasn't being executed before snapshot creation. ([#1045](https://github.com/justeattakeaway/pie/pull/1045)) by [@siggerzz](https://github.com/siggerzz)
+
+- [Changed] - Update changeset snapshot regex and set github token ([#1050](https://github.com/justeattakeaway/pie/pull/1050)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- [Changed] - Use both variants of github token ([#1052](https://github.com/justeattakeaway/pie/pull/1052)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- [Changed] - Ignore apps during snapshot comment ([#1049](https://github.com/justeattakeaway/pie/pull/1049)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- [Added] - Turbo token to build in snapshot workflow ([#1047](https://github.com/justeattakeaway/pie/pull/1047)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+## 2.42.0
+
+### Minor Changes
+
+- [Removed] - lit dependency in favour of pie-webc-core ([#1037](https://github.com/justeattakeaway/pie/pull/1037)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- [Changed] - the icon size of the xsmall icon-button should be 20px ([#1042](https://github.com/justeattakeaway/pie/pull/1042)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Changed] - rely on the padding prop to apply padding for the card stories
+
 ## 2.41.0
 
 ### Minor Changes

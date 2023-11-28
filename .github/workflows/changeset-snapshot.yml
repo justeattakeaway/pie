@@ -58,7 +58,7 @@ jobs:
             }
        # issue_comment event doesn't provide access to head_ref env var.
        # This action provides us with the env vars we need to do a git diff.
-       # https://github.com/actions/checkout/issues/331#issuecomment-1242708547  
+       # https://github.com/actions/checkout/issues/331#issuecomment-1242708547
       - uses: xt0rted/pull-request-comment-branch@v2
         id: comment-branch
 
@@ -86,12 +86,19 @@ jobs:
             //registry.npmjs.org/:_authToken=$NPM_TOKEN
           EOF
 
+      - name: Build Packages
+        uses: ./.github/actions/run-script
+        env:
+          TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+        with:
+          script-name: "build"
+
       - name: Get Markdown Changeset Files Difference
         id: diff_changeset_files
         run: |
-            git fetch origin ${{ steps.comment-branch.outputs.head_ref }}
-            git diff --name-only origin/${{ steps.comment-branch.outputs.head_ref }}...HEAD .changeset/*.md > changeset_diff.txt
-        
+            git fetch origin ${{ steps.comment-branch.outputs.base_ref }}
+            git diff --name-only origin/${{ steps.comment-branch.outputs.base_ref }}...HEAD .changeset/*.md > changeset_diff.txt
+
       - name: Delete Unrelated Markdown Files in Changeset
         run: |
             for file in $(ls .changeset/*.md); do
@@ -105,6 +112,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.CHANGESETS_TOKEN }}
         with:
+          github-token: ${{ secrets.CHANGESETS_TOKEN }}
           script: |
             const execa = require('execa')
 
@@ -118,6 +126,7 @@ jobs:
             const newTags = Array
               .from(stdout.matchAll(/New tag:\s+([^\s\n]+)/g))
               .map(([_, tag]) => tag)
+              .filter((tag) => !/^wc-.+$|pie-(docs|storybook)/.test(tag))
 
             if (newTags.length) {
               const multiple = newTags.length > 1
@@ -141,8 +150,16 @@ jobs:
               })
             }
 
-      - name: Add final reaction
+      - name: Add success reaction
+        if: success()
         uses: peter-evans/create-or-update-comment@v2
         with:
           comment-id: ${{ github.event.comment.id }}
           reactions: rocket
+
+      - name: Add failure reaction
+        if: failure()
+        uses: peter-evans/create-or-update-comment@v2
+        with:
+          comment-id: ${{ github.event.comment.id }}
+          reactions: confused

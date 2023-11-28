@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/pie-card",
-  "version": "0.14.2",
+  "version": "0.14.3",
   "description": "PIE Design System Card built using Web Components",
   "type": "module",
   "main": "dist/index.js",
@@ -28,10 +28,10 @@
   "author": "Just Eat Takeaway.com - Design System Team",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@justeattakeaway/pie-components-config": "0.6.0"
+    "@justeattakeaway/pie-components-config": "0.6.1"
   },
   "dependencies": {
-    "@justeattakeaway/pie-webc-core": "0.12.0"
+    "@justeattakeaway/pie-webc-core": "0.13.0"
   },
   "volta": {
     "extends": "../../../package.json"

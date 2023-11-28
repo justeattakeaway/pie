@@ -49,60 +49,61 @@ The basic strategy is to load in the `JETSansDigital-Regular` webfont as soon as
 
 **1. Add the following code into the** `<head>` **of your application.**
 
-   ```html
-   <link rel="preload" href="https://d30v2pzvrfyzpo.cloudfront.net/fonts/JETSansDigital-Regular-optimised.woff2" as="font" type="font/woff2" crossorigin>
-   <style>
-   @font-face {
-       font-family: JETSansDigital;
-       src: url('https://d30v2pzvrfyzpo.cloudfront.net/fonts/JETSansDigital-Regular-optimised.woff2') format("woff2"),
-       url('https://d30v2pzvrfyzpo.cloudfront.net/fonts/JETSansDigital-Regular-optimised.woff') format("woff");
-       font-weight: 400;
-       font-display: swap;
-   }
-   body {
-       font-feature-settings: "tnum"; /* Enable tabular numbers */
-   }
-   </style>
-   ```
+  ```html
+  <link rel="preload" href="https://d30v2pzvrfyzpo.cloudfront.net/fonts/JETSansDigital-Regular-optimised.woff2" as="font" type="font/woff2" crossorigin>
+  <style>
+  @font-face {
+      font-family: JETSansDigital;
+      src: url('https://d30v2pzvrfyzpo.cloudfront.net/fonts/JETSansDigital-Regular-optimised.woff2') format("woff2"),
+      url('https://d30v2pzvrfyzpo.cloudfront.net/fonts/JETSansDigital-Regular-optimised.woff') format("woff");
+      font-weight: 400;
+      font-display: swap;
+  }
+  body {
+      font-feature-settings: "tnum"; /* Enable tabular numbers */
+  }
+  </style>
+  ```
 
-   The first `link` tag will load in the `JETSansDigital-Regular` font file. The `rel=preload` attribute tells the browser to download and cache it as soon as possible.
+  The first `link` tag will load in the `JETSansDigital-Regular` font file. The `rel=preload` attribute tells the browser to download and cache it as soon as possible.
 
-   The `@font-face` declaration is then to apply the `JETSansDigital` font as soon as it's available (and as it's inline in the `head` of the page, it won't wait for the rest of the CSS to be parsed until it renders the font).
+  The `@font-face` declaration is then to apply the `JETSansDigital` font as soon as it's available (and as it's inline in the `head` of the page, it won't wait for the rest of the CSS to be parsed until it renders the font).
 
 **2. Add the following JS as an inline** `<script>` **block at the end of your HTML (just before your main JS bundle for example).**
 
-   ```js
-   (function () {
+  ```js
+  (function () {
     var boldFontUrls = 'url("https://d30v2pzvrfyzpo.cloudfront.net/fonts/JETSansDigital-Bold-optimised.woff2") format("woff2"), url("https://d30v2pzvrfyzpo.cloudfront.net/fonts/   JETSansDigital-Bold-optimised.woff") format("woff")';
     var extraboldFontUrls = 'url("https://d30v2pzvrfyzpo.cloudfront.net/fonts/JETSansDigital-ExtraBold-optimised.woff2") format("woff2"), url("https://d30v2pzvrfyzpo.cloudfront.net/fonts/   JETSansDigital-ExtraBold-optimised.woff") format("woff")';
 
-       if('fonts' in document ) {
-        var bold = new FontFace('JETSansDigital', boldFontUrls, {    weight: '700' });
-        var extrabold = new FontFace('JETSansDigital',    extraboldFontUrls, { weight: '800' });
+    if ('fonts' in document) {
+      var bold = new FontFace('JETSansDigital', boldFontUrls, { weight: '700' });
+      var extrabold = new FontFace('JETSansDigital', extraboldFontUrls, { weight: '800' });
 
-           Promise.all([bold.load(), extrabold.load()])
-               .then(function (fonts) {
-                   fonts.forEach(function (font) {
-                       document.fonts.add(font);
-                   });
-               })
-               .then(function () {
-                document.documentElement.classList.add   ('webfonts-loaded');
-               });
-       }
+      Promise.all([bold.load(), extrabold.load()])
+        .then(function (fonts) {
+          fonts.forEach(function (font) {
+            document.fonts.add(font);
+          }
+        );
+      })
+      .then(function () {
+        document.documentElement.classList.add('webfonts-loaded');
+      });
+    }
 
-    // This next block is for IE11 and old Edge support, which don't    support the new Font loading API
-       if(!('fonts' in document) && 'head' in document) {
-        // Awkwardly dump the second stage @font-face blocks in the    head
-           var style = document.createElement('style');
-           // Note: Edge supports WOFF2
-        style.innerHTML = '@font-face { font-family: JETSansDigital;    font-weight: 700; src: ' + boldFontUrls + '; }';
-        style.innerHTML += ' @font-face { font-family: JETSansDigital; font-weight: 800; src: ' + extraboldFontUrls    + '; }';
-           document.head.appendChild(style);
-           document.documentElement.classList.add('webfonts-loaded');
-       }
-   })();
-   ```
+    // This next block is for IE11 and old Edge support, which don't support the new Font loading API
+    if(!('fonts' in document) && 'head' in document) {
+      // Awkwardly dump the second stage @font-face blocks in the head
+      var style = document.createElement('style');
+      // Note: Edge supports WOFF2
+      style.innerHTML = '@font-face { font-family: JETSansDigital; font-weight: 700; src: ' + boldFontUrls + '; }';
+      style.innerHTML += ' @font-face { font-family: JETSansDigital; font-weight: 800; src: ' + extraboldFontUrls    + '; }';
+      document.head.appendChild(style);
+      document.documentElement.classList.add('webfonts-loaded');
+    }
+  })();
+  ```
 
   This lazily loads in the `JETSansDigital-Bold` and `JETSansDigital-ExtraBold` fonts to take over from the faux bold rendering of the regular font.
 
@@ -183,15 +184,15 @@ Let's break it down step-by-step:
 
   Keeps the specified layout features as part of the sub-setted font. For more details on each of these layout features, check out the following resources:
 
-    - [`ccmp`](https://docs.microsoft.com/en-us/typography/opentype/spec/features_ae#ccmp) – This feature permits composition/decompostion of glyphs.
-    - [`locl`](https://www.preusstype.com/techdata/otf_locl.php) – Allow localised variants of specific letters/glyphs.
-    - [`mark`](https://docs.microsoft.com/en-us/typography/opentype/spec/features_ko#tag-mark) – Positions mark glyphs with respect to base glyphs.
-    - [`mkmk`](https://docs.microsoft.com/en-us/typography/opentype/spec/features_ko#tag-mkmk) – Positions mark glyphs with respect to other marks.
-    - [`kern`](https://www.preusstype.com/techdata/otf_kern.php) – Adjusts the amount of space between glyphs, generally to provide optically consistent spacing between glyphs.
-    - [`dnom`](https://www.preusstype.com/techdata/otf_dnom.php) – Short for denominators, this replaces selected figures which follow a slash with denominator figures.
-    - [`numr`](https://www.preusstype.com/techdata/otf_numr.php) – Short for numerators, this replaces selected figures which precede a slash with numerator figures, and replaces the typographic slash with the fraction slash.
-    - [`frac`](https://www.preusstype.com/techdata/otf_frac.php) – Short for fractions, this replaces figures separated by a slash with 'common' (diagonal) fractions.
-    - [`tnum`](https://www.fonts.com/content/learning/fontology/level-3/numbers/proportional-vs-tabular-figures) – Short for tabular figures, this deals with number spacing.
+  - [`ccmp`](https://docs.microsoft.com/en-us/typography/opentype/spec/features_ae#ccmp) – This feature permits composition/decompostion of glyphs.
+  - [`locl`](https://www.preusstype.com/techdata/otf_locl.php) – Allow localised variants of specific letters/glyphs.
+  - [`mark`](https://docs.microsoft.com/en-us/typography/opentype/spec/features_ko#tag-mark) – Positions mark glyphs with respect to base glyphs.
+  - [`mkmk`](https://docs.microsoft.com/en-us/typography/opentype/spec/features_ko#tag-mkmk) – Positions mark glyphs with respect to other marks.
+  - [`kern`](https://www.preusstype.com/techdata/otf_kern.php) – Adjusts the amount of space between glyphs, generally to provide optically consistent spacing between glyphs.
+  - [`dnom`](https://www.preusstype.com/techdata/otf_dnom.php) – Short for denominators, this replaces selected figures which follow a slash with denominator figures.
+  - [`numr`](https://www.preusstype.com/techdata/otf_numr.php) – Short for numerators, this replaces selected figures which precede a slash with numerator figures, and replaces the typographic slash with the fraction slash.
+  - [`frac`](https://www.preusstype.com/techdata/otf_frac.php) – Short for fractions, this replaces figures separated by a slash with 'common' (diagonal) fractions.
+  - [`tnum`](https://www.fonts.com/content/learning/fontology/level-3/numbers/proportional-vs-tabular-figures) – Short for tabular figures, this deals with number spacing.
 
 
 - `--unicodes=U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD`

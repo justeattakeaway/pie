@@ -1,5 +1,34 @@
 # @justeattakeaway/pie-modal
 
+## 0.35.1
+
+### Patch Changes
+
+- Updated dependencies [[`15c218bfd`](https://github.com/justeattakeaway/pie/commit/15c218bfd1df4a11de2a9e29d914c1642fb7b7e3)]:
+  - @justeattakeaway/pie-button@0.40.2
+
+## 0.35.0
+
+### Minor Changes
+
+- [Fixed] - Multiple modals from opening when more than one exist ([#1038](https://github.com/justeattakeaway/pie/pull/1038)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
+### Patch Changes
+
+- Updated dependencies [[`0d7ebcd20`](https://github.com/justeattakeaway/pie/commit/0d7ebcd2084ccd716d9d09772a1a78abe069c11e)]:
+  - @justeattakeaway/pie-icon-button@0.24.0
+
+## 0.34.1
+
+### Patch Changes
+
+- Updated dependencies [[`9a3a1db82`](https://github.com/justeattakeaway/pie/commit/9a3a1db82ffd69e9583721b703cd85ac1d34e1f3), [`9a3a1db82`](https://github.com/justeattakeaway/pie/commit/9a3a1db82ffd69e9583721b703cd85ac1d34e1f3), [`9a3a1db82`](https://github.com/justeattakeaway/pie/commit/9a3a1db82ffd69e9583721b703cd85ac1d34e1f3), [`905e78762`](https://github.com/justeattakeaway/pie/commit/905e78762512739c7b103f4ac5e876062ae2ab7f)]:
+  - @justeattakeaway/pie-icons-webc@0.12.0
+  - @justeattakeaway/pie-webc-core@0.13.0
+  - @justeattakeaway/pie-icon-button@0.23.0
+  - @justeattakeaway/pie-button@0.40.1
+  - @justeattakeaway/pie-spinner@0.3.1
+
 ## 0.34.0
 
 ### Minor Changes
