@@ -31,3 +31,7 @@ runs:
       AWS_ACCESS_KEY_ID: ${{ inputs.aws-access-key-id }}
       AWS_SECRET_ACCESS_KEY: ${{ inputs.aws-secret-access-key }}
       AWS_REGION: ${{ inputs.aws-region }}
+  - uses: strumwolf/delete-deployment-environment@v2
+    with:
+      token: ${{ secrets.CHANGESETS_TOKEN }}
+      environment: ${{ inputs.package-name}}-pr-${{ github.event.number }}
