@@ -56,7 +56,9 @@
     "clean": "run -T rimraf -rf ./dist/ ./icons/",
     "lint:scripts": "run -T eslint .",
     "lint:scripts:fix": "yarn lint:scripts --fix",
-    "test": "wtr tests/*.test.js --node-resolve && npx playwright test -c ./playwright-react.config.ts",
+    "test": "wtr tests/*.test.js --node-resolve",
+    "test:browsers": "npx playwright test -c ./playwright-react.config.ts",
+    "test:browsers:ci": "yarn test:browsers",
     "test:ci": "yarn test"
   },
   "browserslist": [
