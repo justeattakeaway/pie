@@ -1,5 +1,18 @@
 # Changelog
 
+## 3.18.0
+
+### Minor Changes
+
+- [Changed] - prismjs css styles updated in line with design ([#1054](https://github.com/justeattakeaway/pie/pull/1054)) by [@ashleynolan](https://github.com/ashleynolan)
+
+  [Added] - pie-css added to pie-docs, so mixins, functions and css vars can be used
+  [Fixed] - Small fix to code block on docs typography page
+
+- [Added] - Divider docs ([#1059](https://github.com/justeattakeaway/pie/pull/1059)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Added] - the overview and code pages for the icon button component ([#993](https://github.com/justeattakeaway/pie/pull/993)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 3.17.0
 
 ### Minor Changes
