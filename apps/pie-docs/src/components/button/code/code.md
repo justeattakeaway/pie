@@ -75,8 +75,6 @@ $ yarn add @justeattakeaway/pie-button
 
 This component does not use any custom event handlers. In order to add event listening to this component, you can treat it like a native HTML element in your application.
 
-For example, to add a click handler in various templates:
-
 ## Forms Usage
 
 The `pie-button` web component is designed to integrate with standard HTML forms just like a native HTML button. When positioned inside a form, the component will automatically associate itself, enabling it to directly interact with the form context.
@@ -154,7 +152,7 @@ import { PieButton } from '@justeattakeaway/pie-button';
 <pie-button @click="handleClick" size="large" type="button" variant="secondary">Click me!</pie-button>
 ```
 
-For React Applications. When using the React version of the component, please make sure you also include React as a dependency in your project as well. See Peer Dependencies section.
+For React Applications:
 
 ```js
 // React templates (using Next 13)

@@ -88,7 +88,7 @@ import '@justeattakeaway/pie-card';
 </html>
 ```
 
-For React Applications. When using the React version of the component, please make sure you also include React as a dependency in your project as well. See Peer Dependencies section.
+For React Applications:
 
 ```jsx
 import { PieCard } from '@justeattakeaway/pie-card/dist/react';
