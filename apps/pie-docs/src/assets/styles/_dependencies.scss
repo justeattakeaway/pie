@@ -6,6 +6,7 @@
  * Fozzie imports bring in styles from the core Fozzie framework
  */
 
+@use '@justeattakeaway/pie-css/dist/index.css'; // import design token CSS Variables
 @use 'fozzie-imports';
 
 @use 'utilities';

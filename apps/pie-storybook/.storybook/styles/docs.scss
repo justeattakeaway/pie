@@ -1,6 +1,6 @@
 // for styling storybook documentation pages
-@use './fozzie-config' as f;
+@use '@justeattakeaway/pie-css/scss' as p;
 
-.docs-story:has([id*=inverse]) {
-    background-color: f.$color-background-dark;
+.docs-story:has([id*='inverse']) {
+    background-color: var(--dt-color-background-dark);
 }
