@@ -2,38 +2,50 @@
   "headings": [
     "Size",
     "Breakpoint",
-    "Width and height"
+    "Width",
+    "Max height",
+    "Max width"
   ],
   "rows": [
     [
       "Large",
       ">=768px",
-      "Width: 75%<br>Height: Max 100% height minus 80px top and bottom"
+      "75%",
+      "100% height minus 80px top and bottom",
+      "1080px"
     ],
     [
       "",
       "<768px",
-      "Width: 75%<br>Height: Max 100% height minus 80px top and bottom<br><br>Max-width: 1080px"
+      "75%",
+      "100% height minus 80px top and bottom"
     ],
     [
       "Medium",
       ">=768px",
-      "Width: 75%<br>Height: Max 100% height minus 80px top and bottom"
+      "75%",
+      "100% minus 80px top and bottom",
+      "600px"
     ],
     [
       "",
       "<768px",
-      "Width: 75%<br>Height: Max 100% minus 40px top and bottom<br>or<br>Width: 100%<br>Height: 100%<br><br>Max-width: 600px"
+      "75% or 100% " ,
+      "100% minus 40px top and bottom or 100%",
+      ""
     ],
     [
       "Small",
       ">=768px",
-      "Width: 450px<br>Height = Max 100% minus 80px top and bottom"
+      "100%",
+      "100% minus 80px top and bottom",
+      "450px"
     ],
     [
       "",
       "<768px",
-      "Width: 75%<br>Height: Max 100% minus 40px top and bottom<br><br>Max-width: 450px"
+      "75%",
+      "100% minus 40px top and bottom"
     ]
   ]
 }

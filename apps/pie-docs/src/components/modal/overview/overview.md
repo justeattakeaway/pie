@@ -140,8 +140,7 @@ There are three responsive Modal sizes: large, medium and small. Choose a size t
 Modals with short messages should use the small Modal to avoid long single lines; for complex or larger content, medium or large Modal will be more suitable.
 
 {% componentDetailsTable {
-  tableData: sizes,
-  priority: 2
+  tableData: sizes
 } %}
 
 ### Large
