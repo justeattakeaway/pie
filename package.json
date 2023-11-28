@@ -113,9 +113,6 @@
     "vue-template-compiler": "2.7.14",
     "webpack": "5.77.0"
   },
-  "dependencies": {
-    "@justeat/fozzie": "11.0.2"
-  },
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-customizable"
@@ -129,6 +126,7 @@
     "yarn": "3.5.0"
   },
   "resolutions": {
-    "@babel/traverse": "7.22.5"
+    "@babel/traverse": "7.22.5",
+    "lit": "3.1.0"
   }
 }
