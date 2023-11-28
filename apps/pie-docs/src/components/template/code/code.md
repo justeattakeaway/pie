@@ -95,7 +95,7 @@ For Native JS Applications, Vue, Angular, Svelte etc.:
 
 ```
 
-For React Applications. When using the React version of the component, please make sure you also include React as a dependency in your project as well. See Peer Dependencies section.
+For React Applications:
 
 ```js
 

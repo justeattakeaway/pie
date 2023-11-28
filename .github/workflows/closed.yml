@@ -11,6 +11,45 @@ env:
   STORYBOOK_AMPLIFY_ID: d17ja0ul7nrdy0
 
 jobs:
+
+  check-change-type:
+    name: Get change type
+    runs-on: ubuntu-latest
+    outputs:
+      pie-docs-change: ${{ steps.docs-check.outputs.docs-change }}
+      web-components-change: ${{ steps.component-check.outputs.web-components-change }}
+      storybook-change: ${{ steps.storybook-check.outputs.storybook-change }}
+    steps:
+      # Checkout the Repo
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      # Setup Repo
+      - name: Setup Repo
+        uses: ./.github/actions/setup-repo
+        with:
+          node-version: 20
+          os: ubuntu-latest
+      - name: Verify if pie-docs has changes
+        id: docs-check
+        run: |
+          DOCS_CHANGE=$(npx -y turbo run build --filter='pie-docs[origin/main...HEAD]' --dry=json | jq '.packages | length > 0')
+          echo "Change Detected: $DOCS_CHANGE"
+          echo "docs-change=$DOCS_CHANGE" >> $GITHUB_OUTPUT
+      - name: Verify if web components have changes
+        id: component-check
+        run: |
+          COMPONENT_CHANGE=$(npx -y turbo run build --filter='{./packages/components/*}[origin/main...HEAD]' --dry=json | jq '.packages | length > 0')
+          echo "Change Detected: $COMPONENT_CHANGE"
+          echo "web-components-change=$COMPONENT_CHANGE" >> $GITHUB_OUTPUT
+      - name: Verify if storybook has changes
+        id: storybook-check
+        run: |
+          STORYBOOK_CHANGE=$(npx -y turbo run build --filter='pie-storybook[origin/main...HEAD]' --dry=json | jq '.packages | length > 0')
+          echo "Change Detected: $STORYBOOK_CHANGE"
+          echo "storybook-change=$STORYBOOK_CHANGE" >> $GITHUB_OUTPUT
+
   install:
     runs-on: ubuntu-latest
     permissions: write-all
@@ -21,8 +60,9 @@ jobs:
         uses: actions/checkout@v3
 
   preview-teardown-docs:
-    needs: install
+    needs: [install, check-change-type]
     runs-on: ubuntu-latest
+    if: needs.check-change-type.outputs.pie-docs-change == 'true' 
     steps:
       # Checkout the repo
       - name: Checkout
@@ -38,8 +78,9 @@ jobs:
           branch-name: 'pr${{ github.event.number }}'
 
   preview-teardown-storybook:
-    needs: install
+    needs: [install, check-change-type]
     runs-on: ubuntu-latest
+    if: needs.check-change-type.outputs.web-components-change == 'true' || needs.check-change-type.outputs.storybook-change == 'true'
     steps:
       # Checkout the repo
       - name: Checkout
