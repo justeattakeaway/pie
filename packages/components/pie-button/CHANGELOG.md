@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.40.2
+
+### Patch Changes
+
+- [Changed] - bump dependency `element-internals-polyfill@1.3.9` ([#1063](https://github.com/justeattakeaway/pie/pull/1063)) by [@renovate](https://github.com/apps/renovate)
+
 ## 0.40.1
 
 ### Patch Changes

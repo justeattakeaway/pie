@@ -47,16 +47,11 @@ const dividerStoryMeta: DividerStoryMeta = {
 
 export default dividerStoryMeta;
 
-const Template : TemplateFunction<DividerProps> = ({ variant, orientation }) => {
-    if (orientation === 'vertical') {
-        return html`
-            <div style="height: 250px">
+const Template : TemplateFunction<DividerProps> = ({ variant, orientation }) => html`
+            <div style="${orientation === 'horizontal' ? 'width' : 'height'}: 400px">
                 <pie-divider variant="${variant}" orientation="${orientation}"></pie-divider>
             </div>
         `;
-    }
-    return html`<pie-divider variant="${variant}" orientation="${orientation}" />`;
-};
 
 const createDividerStory = createStory<DividerProps>(Template, defaultArgs);
 
