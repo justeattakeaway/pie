@@ -9,7 +9,7 @@ shouldShowContents: true
 ## Overview
 The purpose of dividers is to create a clear visual distinction between elements or sections, improving the overall layout and user experience. It helps users understand the structure and hierarchy of the content, making it easier to navigate and understand the interface.
 
-Dividers are commonly used to visually separate different sections, such as between paragraphs of text, in lists or between distinct components or modules. They provide visual clarity, improve readability and contribute to a more organised and aesthetically pleasing user interface.
+Dividers are commonly used to visually separate different sections, such as between paragraphs of text, in lists, or between distinct components or modules. They provide visual clarity, improve readability, and contribute to a more organised and aesthetically pleasing user interface.
 
 {% contentPageImage {
     src:"../../../assets/img/components/divider/overview.svg",
@@ -24,8 +24,8 @@ Dividers are commonly used to visually separate different sections, such as betw
     do: {
         type: usageTypes.text,
         items: [
-            "Use divider to separate related elements into groups or break up dense content.",
-            "Use divider when items can’t be separated with open space."
+            "Use a divider to separate related elements into groups or break up dense content.",
+            "Use a divider when items can’t be separated with open space."
         ]
     },
     dont: {
