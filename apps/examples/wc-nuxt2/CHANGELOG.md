@@ -1,5 +1,12 @@
 # wc-nuxt2
 
+## 0.5.4
+
+### Patch Changes
+
+- Updated dependencies [[`15c218bfd`](https://github.com/justeattakeaway/pie/commit/15c218bfd1df4a11de2a9e29d914c1642fb7b7e3)]:
+  - @justeattakeaway/pie-button@0.40.2
+
 ## 0.5.3
 
 ### Patch Changes
