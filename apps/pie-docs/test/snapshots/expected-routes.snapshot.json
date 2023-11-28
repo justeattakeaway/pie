@@ -31,7 +31,7 @@
     "components/form-label",
     "components/icon-button/code",
     "components/icon-button/overview",
-    "components/link",
+    "components/link/overview",
     "components/list-item/list-item",
     "components/list-item/list-item-interactive",
     "components/map-pin",
