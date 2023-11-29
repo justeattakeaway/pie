@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.44.0
+
+### Minor Changes
+
+- [Fixed] - storybook controls don't updated when changed ([#1066](https://github.com/justeattakeaway/pie/pull/1066)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Added] - the overview and code pages for the icon button component ([#993](https://github.com/justeattakeaway/pie/pull/993)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 2.43.0
 
 ### Minor Changes
