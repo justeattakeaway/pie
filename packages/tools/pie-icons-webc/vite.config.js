@@ -53,6 +53,7 @@ export default defineConfig({
                 entryFileNames: '[name].js',
                 chunkFileNames: '[name].[hash].js',
             },
+            external: (id) => id === '@justeattakeaway/pie-webc-core' ||/^lit/.test(id),
         },
     },
 });
