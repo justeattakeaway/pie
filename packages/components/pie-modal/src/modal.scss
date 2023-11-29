@@ -84,6 +84,12 @@
         /* Same as default styles */
     }
 
+    &[size='large'] {
+        --modal-inline-size: 75%;
+        --modal-max-inline-size: var(--modal-size-l);
+        --modal-margin-block: var(--modal-margin-large);
+    }
+
     // Fullscreen styles
     &[size='large'],
     &[size='medium'][isfullwidthbelowmid] {
