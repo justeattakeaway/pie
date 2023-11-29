@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.41.0
+
+### Minor Changes
+
+- [Changed] - Disabled button to use the secondary variant of the spinner for all with the exception of ghost inverse ([#1057](https://github.com/justeattakeaway/pie/pull/1057)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.40.2
 
 ### Patch Changes
