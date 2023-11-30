@@ -3,17 +3,27 @@ import path from 'path';
 import fs from 'fs';
 
 /**
- * Get all Icon TS files from the icons folder
+ * Recursively get all Icon TS files from the icons folder and its subfolders
+ * @param {string} dir - Directory to search for files
  * @returns {Object} - An object containing all TS icon entries
  */
-function getIconEntries () {
-    const iconDir = path.resolve(__dirname, 'icons');
-    const iconFiles = fs.readdirSync(iconDir)
-        .filter((file) => file.endsWith('.ts') && file !== 'index.ts');
+function getIconEntries (dir = path.resolve(__dirname, 'icons')) {
+    let entries = {};
 
-    const entries = iconFiles.map((file) => [file.replace('.ts', ''), path.resolve(iconDir, file)]);
+    fs.readdirSync(dir).forEach((file) => {
+        const fullPath = path.resolve(dir, file);
+        // Check if the path points to a directory or a file
+        if (fs.statSync(fullPath).isDirectory()) {
+            // Merge objects for subdirectories
+            entries = { ...entries, ...getIconEntries(fullPath) };
+        } else if (file.endsWith('.ts')) {
+            // Replace '.ts' with empty string and create relative path
+            const name = path.relative(path.resolve(__dirname, 'icons'), fullPath).replace('.ts', '').replace(/\\/g, '/');
+            entries[name] = fullPath;
+        }
+    });
 
-    return Object.fromEntries(entries);
+    return entries;
 }
 
 const iconEntries = getIconEntries();
@@ -22,14 +32,20 @@ export default defineConfig({
     build: {
         lib: {
             entry: {
-                index: path.resolve(__dirname, 'icons/index.ts'),
                 ...iconEntries,
             },
             name: (name) => `@justeattakeaway/pie-icons-webc/${name}`,
             formats: ['es'],
-            fileName: () => 'dist/[name].js',
+            fileName: (name) => `dist/${name}.js`,
         },
         rollupOptions: {
+            external: (id) => {
+                if (['react', '@lit/react'].includes(id) || /^lit/.test(id)) {
+                    return true;
+                }
+
+                return false;
+            },
             output: {
                 exports: 'named',
                 dir: 'dist',

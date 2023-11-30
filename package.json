@@ -72,6 +72,7 @@
     "@justeattakeaway/stylelint-config-pie": "0.5.0",
     "@percy/cli": "1.26.3",
     "@percy/playwright": "1.0.4",
+    "@playwright/experimental-ct-react": "1.32.3",
     "@playwright/test": "1.32.3",
     "@rollup/plugin-node-resolve": "15.1.0",
     "@sand4rt/experimental-ct-web": "1.0.8",
