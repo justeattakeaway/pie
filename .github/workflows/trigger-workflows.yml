@@ -15,7 +15,6 @@ env:
   TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
 
 jobs:
-
   check-change-type:
     name: Get change type
     runs-on: ubuntu-latest

@@ -119,20 +119,6 @@ jobs:
         with:
           script-name: "lint:scripts"
 
-  build-windows-node-20:
-    uses: ./.github/workflows/install-build.yml
-    with:
-      os: windows-latest
-      node-version: 20
-    secrets: inherit
-
-  build-ubuntu-node-18:
-    uses: ./.github/workflows/install-build.yml
-    with:
-      os: ubuntu-latest
-      node-version: 18
-    secrets: inherit
-
   build-ubuntu-node-20:
     uses: ./.github/workflows/install-build.yml
     needs: ['lint-js', 'lint-styles', 'check-change-type']
@@ -311,8 +297,6 @@ jobs:
     needs:
     - lint-styles
     - lint-js
-    - build-ubuntu-node-18
-    - build-windows-node-20
     - build-ubuntu-node-20
     - unit-tests
     - browser-tests-components
