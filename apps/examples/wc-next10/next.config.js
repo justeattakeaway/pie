@@ -2,6 +2,7 @@ const path = require('path');
 
 const transpileModules = [
     '@justeattakeaway/pie-button',
+    '@justeattakeaway/pie-cookie-banner',
     '@lit/react',
     'lit'
 ];
@@ -29,6 +30,16 @@ const nextConfig = {
                 },
             ],
         });
+
+
+        // "pie-icons-webc" bundling relies heavily on subpath exports to ship a  multi entry package.
+        //  next@10 and webpack 4 doesn't recognize this feature, resulting in Module not found errors
+        // the following creates an alias to redirect imports to the correct path mimicking the native Subpath exports
+        // supported in newer versions of nextjs
+        config.resolve.alias = {
+            ...config.resolve.alias,
+            '@justeattakeaway/pie-icons-webc': path.resolve(__dirname, '../../../node_modules/@justeattakeaway/pie-icons-webc/dist'),
+          };
 
         return config;
     },
