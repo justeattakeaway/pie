@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.45.0
+
+### Minor Changes
+
+- [Changed] - Updated to latest Playwright packages ([#1072](https://github.com/justeattakeaway/pie/pull/1072)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 2.44.0
 
 ### Minor Changes
