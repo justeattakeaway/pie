@@ -7,7 +7,7 @@ import styles from './switch.scss?inline';
 import {
     SwitchProps, ON_SWITCH_CHANGED_EVENT, AriaProps, labelPlacements,
 } from './defs';
-import '@justeattakeaway/pie-icons-webc/IconCheck';
+import '@justeattakeaway/pie-icons-webc/dist/IconCheck';
 
 // Valid values available to consumers
 export * from './defs';

@@ -290,7 +290,7 @@ We suggest importing the bundle for an individual component directly.
 ```js
 
 ```js
-import '@justeattakeaway/pie-icons-webc/icons/IconAppRestaurant.js';
+import '@justeattakeaway/pie-icons-webc/IconAppRestaurant.js';
 
 export class MyAmazingComponent extends LitElement {
   render () {
