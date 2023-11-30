@@ -1,0 +1,149 @@
+name: CI - PIE Docs
+
+on:
+  workflow_call:
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: CI-Docs-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
+
+env:
+  PERCY_TOKEN_PIE_DOCS: ${{ secrets.PERCY_TOKEN_PIE_DOCS }}
+  TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+
+jobs:
+  lint-styles:
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout the Repo
+      - name: Checkout
+        uses: actions/checkout@v3
+      # Setup Repo
+      - name: Setup Repo
+        uses: ./.github/actions/setup-repo
+        with:
+          node-version: 20
+          os: ubuntu-latest
+      # Lint Styles
+      - name: Lint Styles
+        uses: ./.github/actions/run-script
+        with:
+          script-name: "lint:style --filter=pie-docs"
+
+  lint-js:
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout the Repo
+      - name: Checkout
+        uses: actions/checkout@v3
+      # Setup Repo
+      - name: Setup Repo
+        uses: ./.github/actions/setup-repo
+        with:
+          node-version: 20
+          os: ubuntu-latest
+      # Lint JS
+      - name: Lint JavaScript
+        uses: ./.github/actions/run-script
+        with:
+          script-name: "lint:scripts --filter=pie-docs"
+
+  build-ubuntu-node-20:
+    uses: ./.github/workflows/install-build.yml
+    needs: ['lint-js', 'lint-styles']
+    with:
+      os: ubuntu-latest
+      node-version: 20
+    secrets: inherit
+
+  unit-tests:
+    needs: 'build-ubuntu-node-20'
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout the Repo
+      - name: Checkout
+        uses: actions/checkout@v3
+      # Setup Repo
+      - name: Setup Repo
+        uses: ./.github/actions/setup-repo
+        with:
+          node-version: 20
+          os: ubuntu-latest
+      # Restore Packages from Cache
+      - name: Build Packages
+        uses: ./.github/actions/run-script
+        with:
+          script-name: "build --filter=pie-docs"
+      # Run Unit Tests
+      - name: Unit Tests
+        uses: ./.github/actions/run-script
+        with:
+          script-name: "test:ci --filter=pie-docs"
+
+  deploy-docs:
+    needs: unit-tests
+    uses: ./.github/workflows/amplify-deploy.yml
+    with:
+      os: ubuntu-latest
+      node-version: 20
+      amplify-app-id: dvskdcoepjoyf
+      package-name: 'pie-docs'
+      package-dist-directory: ./apps/pie-docs/dist
+      bucket-name-preview: 'pie-docs-preview'
+      bucket-name-main: 'pie-docs'
+    secrets: inherit
+
+  browser-tests-docs:
+    needs: deploy-docs
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout the Repo
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      # Setup Repo
+      - name: Setup Repo
+        uses: ./.github/actions/setup-repo
+        with:
+          node-version: 20
+          os: ubuntu-latest
+      # Setup Playwright
+      - name: Setup Playwright
+        uses: ./.github/actions/setup-playwright
+      # Run System / a11y Tests
+      - name: Run All System /  a11y Tests
+        uses: ./.github/actions/run-script
+        with:
+          script-name: "test:browsers:ci --filter=pie-docs"
+      - uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: browsers-report
+          path: browsers-report/
+          retention-days: 7
+      # Run Visual Tests
+      - name: Run All Visual Tests
+        uses: ./.github/actions/run-script
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+        with:
+          script-name: "test:visual:ci --filter=pie-docs[HEAD^1]"
+          concurrency: 1
+      - name: Run Changed Package Visual Tests
+        uses: ./.github/actions/run-script
+        if: (github.event_name == 'pull_request' && github.event.pull_request.draft == false) && github.ref != 'refs/heads/main'
+        with:
+          script-name: "test:visual:ci --filter=pie-docs"
+          concurrency: 1
+      - uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: visual-report
+          path: visual-report/
+          retention-days: 7
+    env:
+      DOCS_AMPLIFY_ID: dvskdcoepjoyf
+      PR_NUMBER: ${{ github.event.number }}
