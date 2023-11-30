@@ -10,13 +10,13 @@ shouldShowContents: true,
 
 
 ## Overview
-The purpose of modals is to focus the user's attention on a specific task, message, or interaction, and to prevent interaction with other elements on the page while the modal is active.
+The purpose of modals is to focus the user's attention on a specific task, message, or interaction, and to prevent interaction with other elements on the page while the Modal is active.
 
 Modals are commonly used for tasks such as displaying notifications, presenting detailed information, requesting user input, or confirming critical actions.
 
 {% contentPageImage {
     src: "../../../assets/img/components/modal/overview/overview.svg",
-    alt: "A modal containing a heading, body copy and a button placed on the bottom right corner."
+    alt: "A Modal containing a heading, body copy and a button placed on the bottom right corner."
 } %}
 
 ---
@@ -27,13 +27,13 @@ Modals are commonly used for tasks such as displaying notifications, presenting 
     do: {
         type: usageTypes.text,
         items: [
-            "Use to inform users about a task can can contain information, require decisions or involve multiple tasks."
+            "Use to inform users about a task can contain information, require decisions or involve multiple tasks."
         ]
     },
     dont: {
         type: usageTypes.text,
         items: [
-            "Modal’s interrupt a user’s flow by design, so while effective when used correctly; Modal’s should be used sparingly to limit disruption to the user."
+            "Modals interrupt a user’s flow by design, so while effective when used correctly, they should be used sparingly to limit disruption to the user."
         ]
     }
 } %}
@@ -45,7 +45,7 @@ Modals are commonly used for tasks such as displaying notifications, presenting 
 
 {% contentPageImage {
     src: "../../../assets/img/components/modal/overview/anatomy.png",
-    alt: "Anatomy of a modal.",
+    alt: "Anatomy of a Modal.",
     shouldShowPadding: true
 } %}
 
@@ -54,10 +54,10 @@ Modals are commonly used for tasks such as displaying notifications, presenting 
     items: [
         "**Back (optional)**: The chevron Icon button allows the user to return back a stage in a multi-step modal.",
         "**Title**: Gives the users an overview of the content.",
-        "**Close**: The close Icon button will close the modal without submitting any data.",
+        "**Close (optional)**: The close Icon button will close the Modal without submitting any data.",
         "**Main content**: Open slot for any content required.",
-        "**CTAs (optional)**: Single or dual call to action Buttons to outline the user’s next options.",
-        "**Overlay**: Screen overlay that obscures the on-page content (1.Elements/1. Backgrounds/3. Page/Overlay)."
+        "**CTAs (optional)**: Single or dual call to action buttons to outline the user’s next options.",
+        "**Overlay**: Screen overlay that obscures the on-page content."
     ]
 } %}
 
@@ -84,17 +84,17 @@ If a multi-step Modal is required, from steps two onwards a back Icon Button is 
 
 {% contentPageImage {
     src: "../../../assets/img/components/modal/overview/modifier-header-back.png",
-    alt: "A modal with a back icon button in the header.",
+    alt: "A Modal with a back icon button in the header.",
     width: 600
 } %}
 
 #### Close
 
-Use this Header modifier when if the modal can't be dismissed.
+Use this Header modifier when the Modal can be dismissed.
 
 {% contentPageImage {
     src: "../../../assets/img/components/modal/overview/modifier-header-close.png",
-    alt: "A modal with a close icon button in the header.",
+    alt: "A Modal with a close icon button in the header.",
     width: 600
 } %}
 
@@ -104,31 +104,30 @@ You can replace the footer Buttons with any Button or Button pair defined within
 
 #### Double
 
-A maximum of two Buttons are allowed within the Modal’s footer, with the primary Button right aligned and the lower emphasis Button on the left.
+A maximum of two Buttons are allowed within the Modal’s footer, with the primary Button right-aligned and the lower-emphasis Button on the left.
 
 {% contentPageImage {
     src: "../../../assets/img/components/modal/overview/modifier-footer-double.png",
-    alt: "A modal with a close icon button in the header.",
+    alt: "A Modal with dual buttons",
     width: 600
 } %}
 
 #### Single
 
-You can use the Passive modifier for the footer in instances where the user doesn't need to take an action. This will remove the buttons at the bottom of the Modal.
-
+A single Button variant is available when only one action is required.
 {% contentPageImage {
     src: "../../../assets/img/components/modal/overview/modifier-footer-single.png",
-    alt: "A modal with a pair of primary and ghost buttons in its footer.",
+    alt: "A Modal with a single primary button in its footer.",
     width: 600
 } %}
 
 #### Passive
 
-A single Button variant is available when only one action is required.
+You can use the Passive modifier for the footer in instances where the user doesn't need to take an action. This will remove the buttons at the bottom of the Modal.
 
 {% contentPageImage {
     src: "../../../assets/img/components/modal/overview/modifier-footer-passive.png",
-    alt: "A modal with a single primary button in its footer.",
+    alt: "A Modal with a pair of primary and ghost buttons in its footer.",
     width: 600
 } %}
 
@@ -141,8 +140,7 @@ There are three responsive Modal sizes: large, medium and small. Choose a size t
 Modals with short messages should use the small Modal to avoid long single lines; for complex or larger content, medium or large Modal will be more suitable.
 
 {% componentDetailsTable {
-  tableData: sizes,
-  priority: 2
+  tableData: sizes
 } %}
 
 ### Large
@@ -177,21 +175,20 @@ Modals with short messages should use the small Modal to avoid long single lines
 
 #### Full screen
 
-The Wide large and optionally medium size, has the corresponding responsive option of fullscreen at narrow.
-
+Large modals will expand to fill the entire page width at narrow viewports.
 {% contentPageImage {
     src: "../../../assets/img/components/modal/overview/narrow-size-full-screen.png",
-    alt: "A full screen modal on a mobile screen.",
+    alt: "A fullscreen Modal on a mobile screen.",
     width: 302
 } %}
 
 #### 75% width
 
-The Wide small and optionally medium size, has the corresponding responsive option of 75% width at narrow.
+Medium and small modals will expand to 75% page width at narrow viewports.
 
 {% contentPageImage {
     src: "../../../assets/img/components/modal/overview/narrow-size-75-percent.png",
-    alt: "A modal with 75% width on a mobile screen.",
+    alt: "A Modal with 75% width on a mobile screen.",
     width: 336
 } %}
 
@@ -199,17 +196,17 @@ The Wide small and optionally medium size, has the corresponding responsive opti
 
 #### Footer
 
-As well as the standard Modal footer modifiers, at a narrow size you have the option to have full width Buttons that are stacked.
+As well as the standard Modal footer modifiers, at a narrow size you have the option to have full-width buttons that are stacked.
 
 {% contentLayout %}
   {% contentPageImage {
-      src: "../../../assets/img/components/modal/overview/narrow-modifier-footer-dual-action.png",
-      alt: "A modal with a single primary button in its footer on a mobile screen.",
+      src: "../../../assets/img/components/modal/overview/narrow-modifier-footer-single-action.png",
+      alt: "A Modal with a single primary button in its footer on a mobile screen.",
       width: 336
   } %}
   {% contentPageImage {
-    src: "../../../assets/img/components/modal/overview/narrow-modifier-footer-single-action.png",
-    alt: "A modal with a single primary button in its footer on a mobile screen.",
+    src: "../../../assets/img/components/modal/overview/narrow-modifier-footer-dual-action.png",
+    alt: "A Modal with a single primary button in its footer on a mobile screen.",
     width: 288
   } %}
 {% endcontentLayout %}
@@ -245,17 +242,17 @@ The Modal is positioned at the center of the screen by default.
 
 {% contentPageImage {
   src: "../../../assets/img/components/modal/overview/layout-position-center.png",
-  alt: "A modal that is positioned in the middle of the screen.",
+  alt: "A Modal that is positioned in the middle of the screen.",
   shouldShowPadding: true
 } %}
 
 #### Top
 
-The Modal is positioned at the center of the screen by default.
+The Modal is positioned at the top of the screen by default.
 
 {% contentPageImage {
   src: "../../../assets/img/components/modal/overview/layout-position-top.png",
-  alt: "A modal that is positioned in the middle of the screen.",
+  alt: "A Modal that is positioned at the top of the screen.",
   shouldShowPadding: true
 } %}
 
@@ -269,7 +266,7 @@ When the title exceeds the available width, it wraps onto a new line.
 
 {% contentPageImage {
   src: "../../../assets/img/components/modal/overview/overflow-title.png",
-  alt: "A modal with a long title.",
+  alt: "A Modal with a long title.",
   width: 600
 } %}
 
@@ -279,21 +276,21 @@ When the Modal’s content is longer than the available Modal height, then the b
 
 #### Footer pinned = true
 
-If the actions are required to be sticky, they are pinned to the bottom of the Modal container whilst the user scrolls to indicate there is more content below until.
+If the actions are required to be sticky, they are pinned to the bottom of the Modal container whilst the user scrolls to indicate there is more content below.
 
 {% contentPageImage {
   src: "../../../assets/img/components/modal/overview/overflow-body-content-footer-pinned.png",
-  alt: "A modal with a pinned footer.",
+  alt: "A Modal with a pinned footer.",
   width: 400
 } %}
 
 #### Footer pinned = false
 
-If the actions aren’t required to be sticky and placed at the bottom of the content, and the passive footer is pinned to the bottom of the Modal container whilst the user scrolls to indicate there is more content below.
+If the actions aren’t required to be sticky and are placed at the bottom of the content, the passive footer is pinned to the bottom of the Modal container whilst the user scrolls to indicate the presence of additional content below.
 
 {% contentPageImage {
   src: "../../../assets/img/components/modal/overview/overflow-body-content-footer-not-pinned.png",
-  alt: "A modal with no pinned footer.",
+  alt: "A Modal with an unpinned footer.",
   width: 400
 } %}
 
@@ -309,7 +306,7 @@ If the Modal can be dismissed by the user, they should be able to dismiss it by 
 
 {% contentPageImage {
   src: "../../../assets/img/components/modal/overview/interaction-close-dismissible.png",
-  alt: "A modal with a dissmissible close button.",
+  alt: "A dismissible Modal with a close button.",
   shouldShowPadding: true
 } %}
 
@@ -319,7 +316,7 @@ If the Modal is not dismissible, the user has to complete the flow in order to c
 
 {% contentPageImage {
   src: "../../../assets/img/components/modal/overview/interaction-close-non-dismissible.png",
-  alt: "A modal with a dissmissible close button.",
+  alt: "A non-dismissible Modal without a close button.",
   shouldShowPadding: true
 } %}
 
@@ -331,45 +328,45 @@ Outlines the atomic level interactive elements for the component.
 
 ### LTR examples
 
-Here are some examples of Buttons in left to right context:
+Here are some examples of modals in a left-to-right context:
 
 {% contentPageImage {
     src: "../../../assets/img/components/modal/overview/example-ltr-stampcards.png",
-    alt: "A left to right example of a modal with form fileds in the modal body.",
+    alt: "A left-to-right example of a Modal with form fields in the Modal body.",
     shouldShowPadding: true
 } %}
 
 {% contentPageImage {
     src: "../../../assets/img/components/modal/overview/example-ltr-my-account.png",
-    alt: "A left to right example of list items and buttons in the modal body.",
+    alt: "A left-to-right example of list items and buttons in the Modal body.",
     shouldShowPadding: true
 } %}
 
 {% contentPageImage {
     src: "../../../assets/img/components/modal/overview/example-ltr-personal-information.png",
-    alt: "A left to right example of tabs and cards in the modal body.",
+    alt: "A left-to-right example of tabs and cards in the Modal body.",
     shouldShowPadding: true
 } %}
 
 ### RTL examples
 
-Here are some examples of Buttons in right to left context:
+Here are some examples of Buttons in right-to-left context:
 
 {% contentPageImage {
     src: "../../../assets/img/components/modal/overview/example-rtl-stampcards.png",
-    alt: "A right to left example of a modal with form fileds in the modal body.",
+    alt: "A right-to-left example of a Modal with form fields in the Modal body.",
     shouldShowPadding: true
 } %}
 
 {% contentPageImage {
     src: "../../../assets/img/components/modal/overview/example-rtl-my-account.png",
-    alt: "A right to left example of a modal with form fileds in the modal body.",
+    alt: "A right-to-left example of list items and buttons in the Modal body.",
     shouldShowPadding: true
 } %}
 
 {% contentPageImage {
     src: "../../../assets/img/components/modal/overview/example-rtl-personal-information.png",
-    alt: "A right to left example of a modal with form fileds in the modal body.",
+    alt: "A right-to-left example of tabs and cards in the Modal body.",
     shouldShowPadding: true
 } %}
 

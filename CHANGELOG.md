@@ -1,5 +1,31 @@
 # Changelog
 
+## 2.44.0
+
+### Minor Changes
+
+- [Fixed] - storybook controls don't updated when changed ([#1066](https://github.com/justeattakeaway/pie/pull/1066)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Added] - the overview and code pages for the icon button component ([#993](https://github.com/justeattakeaway/pie/pull/993)) by [@raoufswe](https://github.com/raoufswe)
+
+## 2.43.0
+
+### Minor Changes
+
+- [Fixed] - list pie-icons-configs as a dev dependency ([#1053](https://github.com/justeattakeaway/pie/pull/1053)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- [Fixed] - Issue where build wasn't being executed before snapshot creation. ([#1045](https://github.com/justeattakeaway/pie/pull/1045)) by [@siggerzz](https://github.com/siggerzz)
+
+- [Changed] - Update changeset snapshot regex and set github token ([#1050](https://github.com/justeattakeaway/pie/pull/1050)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- [Changed] - Use both variants of github token ([#1052](https://github.com/justeattakeaway/pie/pull/1052)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- [Changed] - Ignore apps during snapshot comment ([#1049](https://github.com/justeattakeaway/pie/pull/1049)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- [Added] - Turbo token to build in snapshot workflow ([#1047](https://github.com/justeattakeaway/pie/pull/1047)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
 ## 2.42.0
 
 ### Minor Changes

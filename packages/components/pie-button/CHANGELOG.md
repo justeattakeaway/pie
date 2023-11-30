@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.41.0
+
+### Minor Changes
+
+- [Changed] - Disabled button to use the secondary variant of the spinner for all with the exception of ghost inverse ([#1057](https://github.com/justeattakeaway/pie/pull/1057)) by [@raoufswe](https://github.com/raoufswe)
+
+## 0.40.2
+
+### Patch Changes
+
+- [Changed] - bump dependency `element-internals-polyfill@1.3.9` ([#1063](https://github.com/justeattakeaway/pie/pull/1063)) by [@renovate](https://github.com/apps/renovate)
+
 ## 0.40.1
 
 ### Patch Changes

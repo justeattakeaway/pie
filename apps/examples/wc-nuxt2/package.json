@@ -1,6 +1,6 @@
 {
   "name": "wc-nuxt2",
-  "version": "0.5.2",
+  "version": "0.5.5",
   "private": true,
   "scripts": {
     "dev": "nuxt",
@@ -9,8 +9,8 @@
     "generate:examples": "nuxt generate"
   },
   "dependencies": {
-    "@justeattakeaway/pie-button": "0.40.1",
-    "@justeattakeaway/pie-css": "0.8.0",
+    "@justeattakeaway/pie-button": "0.41.0",
+    "@justeattakeaway/pie-css": "0.9.0",
     "core-js": "3.30.0",
     "nuxt": "2.17.0",
     "vue": "2.7.15",
