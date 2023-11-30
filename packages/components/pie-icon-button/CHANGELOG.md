@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-icon-button
 
+## 0.24.0
+
+### Minor Changes
+
+- [Fixed] - The spinner of the disabled primary variant should use the spinner brand variant. ([#1055](https://github.com/justeattakeaway/pie/pull/1055)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.23.0
 
 ### Minor Changes
