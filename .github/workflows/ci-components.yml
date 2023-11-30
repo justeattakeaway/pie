@@ -25,7 +25,7 @@ env:
   TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
 
 jobs:
-  lint-styles:
+  lint:
     runs-on: ubuntu-latest
     steps:
       # Checkout the Repo
@@ -43,28 +43,16 @@ jobs:
         with:
           script-name: "lint:style --filter='./packages/{components,tools}/*'"
           concurrency: 10
-
-  lint-js:
-    runs-on: ubuntu-latest
-    steps:
-      # Checkout the Repo
-      - name: Checkout
-        uses: actions/checkout@v3
-      # Setup Repo
-      - name: Setup Repo
-        uses: ./.github/actions/setup-repo
-        with:
-          node-version: 20
-          os: ubuntu-latest
       # Lint JS
       - name: Lint JavaScript
         uses: ./.github/actions/run-script
         with:
           script-name: "lint:scripts --filter='./packages/{components,tools}/*'"
+          concurrency: 10
 
   build-ubuntu-node-20:
     uses: ./.github/workflows/install-build.yml
-    needs: ['lint-js', 'lint-styles']
+    needs: lint
     with:
       os: ubuntu-latest
       node-version: 20
