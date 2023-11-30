@@ -1,4 +1,4 @@
-name: Determine Workflows to Trigger
+name: Trigger Appropriate Workflows
 
 on:
   pull_request:

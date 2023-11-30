@@ -1,4 +1,4 @@
-name: Build Example Apps
+name: Build Example Apps & Supported OS/Node Versions
 
 on:
   workflow_call:
@@ -11,6 +11,21 @@ env:
   TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
 
 jobs:
+
+  build-windows-node-20:
+    uses: ./.github/workflows/install-build.yml
+    with:
+      os: windows-latest
+      node-version: 20
+    secrets: inherit
+
+  build-ubuntu-node-18:
+    uses: ./.github/workflows/install-build.yml
+    with:
+      os: ubuntu-latest
+      node-version: 18
+    secrets: inherit
+
   build-example-apps:
     strategy:
       matrix:
