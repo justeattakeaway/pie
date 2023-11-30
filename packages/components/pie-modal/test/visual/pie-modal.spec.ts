@@ -1,4 +1,5 @@
 import { test } from '@sand4rt/experimental-ct-web';
+import { percyWidths } from '@justeattakeaway/pie-webc-testing/src/percy/breakpoints.ts';
 import percySnapshot from '@percy/playwright';
 import { positions } from '@/defs.ts';
 import { PieModal } from '@/index';
@@ -416,53 +417,74 @@ test.describe('Prop: `position`', () => {
 
 test.describe('Prop: `isFooterPinned`', () => {
     [true, false].forEach((isFooterPinned) => {
-        sizes.forEach((size) => {
-            [true, false].forEach((isFullWidthBelowMid) => {
-                test(`when isFooterPinned is: ${isFooterPinned}, isFullWidthBelowMid: ${isFullWidthBelowMid} and size: ${size}`, async ({ mount, page }) => {
-                    await mount(PieModal, {
-                        props: {
-                            heading: 'This is a modal heading',
-                            isFooterPinned,
-                            isFullWidthBelowMid,
-                            isOpen: true,
-                            leadingAction: {
-                                text: 'Confirm',
-                                variant: 'primary',
-                                ariaLabel: 'Confirmation text',
-                            },
-                            size,
-                        } as ModalProps,
-                        slots: {
-                            default: `<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti fugit id exercitationem repellendus in magni
-                            quis obcaecati laboriosam est vero, perspiciatis ratione porro dolore repudiandae ea numquam! Ipsa, fugiat aut.Lorem ipsum dolor
-                            sit amet consectetur adipisicing elit. Deleniti fugit id exercitationem repellendus in magni quis obcaecati laboriosam est vero,
-                            perspiciatis ratione porro dolore repudiandae ea numquam! Ipsa, fugiat aut.Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        test(`when isFooterPinned is: ${isFooterPinned}`, async ({ mount, page }) => {
+            await mount(PieModal, {
+                props: {
+                    heading: 'This is a modal heading',
+                    isFooterPinned,
+                    isOpen: true,
+                    leadingAction: {
+                        text: 'Confirm',
+                        variant: 'primary',
+                        ariaLabel: 'Confirmation text',
+                    },
+                } as ModalProps,
+                slots: {
+                    default: `<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti fugit id exercitationem repellendus in magni
+                    quis obcaecati laboriosam est vero, perspiciatis ratione porro dolore repudiandae ea numquam! Ipsa, fugiat aut.Lorem ipsum dolor
+                    sit amet consectetur adipisicing elit. Deleniti fugit id exercitationem repellendus in magni quis obcaecati laboriosam est vero,
+                    perspiciatis ratione porro dolore repudiandae ea numquam! Ipsa, fugiat aut.Lorem ipsum dolor sit amet consectetur adipisicing elit.
 
-                            Deleniti fugit id exercitationem repellendus in magni quis obcaecati laboriosam est vero, perspiciatis ratione porro dolore
-                            repudiandae ea numquam! Ipsa, fugiat aut. Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti fugit id exercitationem repellendus
-                            in magni quis obcaecati laboriosam est vero, perspiciatis ratione porro dolore repudiandae ea numquam! Ipsa, fugiat aut.Lorem ipsum dolor sit amet
-                            consectetur adipisicing elit. Deleniti fugit id exercitationem repellendus in magni quis obcaecati laboriosam est vero, perspiciatis ratione
-                            porro dolore repudiandae ea numquam! Ipsa, fugiat aut.Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti fugit id
-                            exercitationem repellendus in magni quis obcaecati laboriosam est vero,
-                            perspiciatis ratione porro dolore repudiandae ea numquam! Ipsa, fugiat aut.
+                    Deleniti fugit id exercitationem repellendus in magni quis obcaecati laboriosam est vero, perspiciatis ratione porro dolore
+                    repudiandae ea numquam! Ipsa, fugiat aut. Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti fugit id exercitationem repellendus
+                    in magni quis obcaecati laboriosam est vero, perspiciatis ratione porro dolore repudiandae ea numquam! Ipsa, fugiat aut.Lorem ipsum dolor sit amet
+                    consectetur adipisicing elit. Deleniti fugit id exercitationem repellendus in magni quis obcaecati laboriosam est vero, perspiciatis ratione
+                    porro dolore repudiandae ea numquam! Ipsa, fugiat aut.Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti fugit id
+                    exercitationem repellendus in magni quis obcaecati laboriosam est vero,
+                    perspiciatis ratione porro dolore repudiandae ea numquam! Ipsa, fugiat aut.
 
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti fugit id exercitationem repellendus in magni
-                            quis obcaecati laboriosam est vero, perspiciatis ratione porro dolore repudiandae ea numquam! Ipsa, fugiat aut.Lorem ipsum dolor
-                            sit amet consectetur adipisicing elit. Deleniti fugit id exercitationem repellendus in magni quis obcaecati laboriosam est vero,
-                            perspiciatis ratione porro dolore repudiandae ea numquam! Ipsa, fugiat aut.Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti fugit id exercitationem repellendus in magni
+                    quis obcaecati laboriosam est vero, perspiciatis ratione porro dolore repudiandae ea numquam! Ipsa, fugiat aut.Lorem ipsum dolor
+                    sit amet consectetur adipisicing elit. Deleniti fugit id exercitationem repellendus in magni quis obcaecati laboriosam est vero,
+                    perspiciatis ratione porro dolore repudiandae ea numquam! Ipsa, fugiat aut.Lorem ipsum dolor sit amet consectetur adipisicing elit.
 
-                            Deleniti fugit id exercitationem repellendus in magni quis obcaecati laboriosam est vero, perspiciatis ratione porro dolore
-                            repudiandae ea numquam! Ipsa, fugiat aut. Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti fugit id exercitationem repellendus
-                            in magni quis obcaecati laboriosam est vero, perspiciatis ratione porro dolore repudiandae ea numquam! Ipsa, fugiat aut.Lorem ipsum dolor sit amet
-                            consectetur adipisicing elit. Deleniti fugit id exercitationem repellendus in magni quis obcaecati laboriosam est vero, perspiciatis ratione
-                            porro dolore repudiandae ea numquam! Ipsa, fugiat aut.Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti fugit id
-                            exercitationem repellendus in magni quis obcaecati laboriosam est vero,
-                            perspiciatis ratione porro dolore repudiandae ea numquam! Ipsa, fugiat aut.</p>`,
+                    Deleniti fugit id exercitationem repellendus in magni quis obcaecati laboriosam est vero, perspiciatis ratione porro dolore
+                    repudiandae ea numquam! Ipsa, fugiat aut. Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti fugit id exercitationem repellendus
+                    in magni quis obcaecati laboriosam est vero, perspiciatis ratione porro dolore repudiandae ea numquam! Ipsa, fugiat aut.Lorem ipsum dolor sit amet
+                    consectetur adipisicing elit. Deleniti fugit id exercitationem repellendus in magni quis obcaecati laboriosam est vero, perspiciatis ratione
+                    porro dolore repudiandae ea numquam! Ipsa, fugiat aut.Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti fugit id
+                    exercitationem repellendus in magni quis obcaecati laboriosam est vero,
+                    perspiciatis ratione porro dolore repudiandae ea numquam! Ipsa, fugiat aut.</p>`,
+                },
+            });
+
+            await percySnapshot(page, `Modal isFooterPinned: ${isFooterPinned}`);
+        });
+
+        (['medium', 'large'] as Array<ModalProps['size']>).forEach((size) => {
+            test(`when modal is fullscreen with size: ${size} and isFooterPinned: ${isFooterPinned}`, async ({ mount, page }) => {
+                await mount(PieModal, {
+                    props: {
+                        heading: 'This is a modal heading',
+                        isFooterPinned,
+                        isOpen: true,
+                        leadingAction: {
+                            text: 'Confirm',
+                            variant: 'primary',
+                            ariaLabel: 'Confirmation text',
                         },
-                    });
-
-                    await percySnapshot(page, `Modal isFooterPinned: ${isFooterPinned}, isFullWidthBelowMid: ${isFullWidthBelowMid}, size: ${size}`);
+                        size,
+                        isFullWidthBelowMid: size === 'medium',
+                    } as ModalProps,
+                    slots: {
+                        default: `<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti fugit id exercitationem repellendus in magni
+                        quis obcaecati laboriosam est vero, perspiciatis ratione porro dolore repudiandae ea numquam! Ipsa, fugiat aut.Lorem ipsum dolor
+                        sit amet consectetur adipisicing elit. Deleniti fugit id exercitationem repellendus in magni quis obcaecati laboriosam est vero,
+                        perspiciatis ratione porro dolore repudiandae ea numquam! Ipsa, fugiat aut.</p>`,
+                    },
                 });
+
+                await percySnapshot(page, `Modal isFooterPinned: ${isFooterPinned}, fullscreen with size: ${size}`, percyWidths);
             });
         });
     });
