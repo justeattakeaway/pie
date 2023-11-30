@@ -1,0 +1,61 @@
+name: Determine Workflows to Trigger
+
+on:
+  pull_request:
+    types: [assigned, opened, synchronize, reopened, "ready_for_review"]
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: Workflow-Trigger-Check-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
+
+env:
+  TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+
+jobs:
+
+  check-change-type:
+    name: Get change type
+    runs-on: ubuntu-latest
+    outputs:
+      pie-docs-change: ${{ steps.docs-check.outputs.docs-change }}
+      web-components-change: ${{ steps.component-check.outputs.web-components-change }}
+      storybook-change: ${{ steps.storybook-check.outputs.storybook-change }}
+    steps:
+      # Checkout the Repo
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      # Setup Repo
+      - name: Setup Repo
+        uses: ./.github/actions/setup-repo
+        with:
+          node-version: 20
+          os: ubuntu-latest
+      - name: Verify if pie-docs has changes
+        id: docs-check
+        run: |
+          DOCS_CHANGE=$(npx -y turbo run build --filter='pie-docs[origin/main]' --dry=json | jq '.packages | length > 0')
+          echo "Change Detected: $DOCS_CHANGE"
+          echo "docs-change=$DOCS_CHANGE" >> $GITHUB_OUTPUT
+      - name: Verify if web components have changes
+        id: component-check
+        run: |
+          COMPONENT_CHANGE=$(npx -y turbo run build --filter='{./packages/components/*}[origin/main]' --dry=json | jq '.packages | length > 0')
+          echo "Change Detected: $COMPONENT_CHANGE"
+          echo "web-components-change=$COMPONENT_CHANGE" >> $GITHUB_OUTPUT
+      - name: Verify if storybook has changes
+        id: storybook-check
+        run: |
+          STORYBOOK_CHANGE=$(npx -y turbo run build --filter='pie-storybook[origin/main]' --dry=json | jq '.packages | length > 0')
+          echo "Change Detected: $STORYBOOK_CHANGE"
+          echo "storybook-change=$STORYBOOK_CHANGE" >> $GITHUB_OUTPUT
+
+  trigger-apps-workflow:
+    needs: check-change-type
+    if: needs.check-change-type.outputs.component-check == 'true' || github.ref == 'refs/heads/main'
+    uses: ./.github/workflows/example-apps-ci.yml
+    secrets: inherit

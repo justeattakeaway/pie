@@ -1,11 +1,7 @@
 name: Build Example Apps
 
 on:
-  pull_request:
-    types: [assigned, opened, synchronize, reopened, "ready_for_review"]
-  push:
-    branches:
-      - main
+  workflow_call:
 
 concurrency:
   group: CI-Example-Apps-${{ github.ref }}
