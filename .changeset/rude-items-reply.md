@@ -3,4 +3,4 @@
 "pie-monorepo": minor
 ---
 
-[Changed] - mark lit and pie-webc-core as external deps
+[Changed] - mark pie-webc-core as an external dependency
