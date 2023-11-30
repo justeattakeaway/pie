@@ -10,9 +10,9 @@ import '@justeattakeaway/pie-icon-button';
 import {
     requiredProperty, RtlMixin, validPropertyValues, defineCustomElement,
 } from '@justeattakeaway/pie-webc-core';
-import '@justeattakeaway/pie-icons-webc/dist/IconClose';
-import '@justeattakeaway/pie-icons-webc/dist/IconChevronLeft';
-import '@justeattakeaway/pie-icons-webc/dist/IconChevronRight';
+import '@justeattakeaway/pie-icons-webc/IconClose';
+import '@justeattakeaway/pie-icons-webc/IconChevronLeft';
+import '@justeattakeaway/pie-icons-webc/IconChevronRight';
 import '@justeattakeaway/pie-spinner';
 
 import styles from './modal.scss?inline';
