@@ -91,9 +91,35 @@ export class MyAmazingComponent extends LitElement {
 }
 ```
 
-#### TODO: Add React usage
+#### React
 
-If you require icons for a React application, you can either use these icons, or use our native React component package – [pie-icons-react](https://www.npmjs.com/package/@justeattakeaway/pie-icons-react).
+To import from the package root:
+
+```tsx
+import { IconAlertTriangleLarge, IconCalendar } from "@justeattakeaway/pie-icons-webc/react";
+
+export default function App() {
+  return (
+    <div className="App">
+      <IconCalendar />
+      <IconAlertTriangleLarge fill={PIE_ALIAS_COLOR_TOKEN} />
+    </div>
+  );
+}
+```
+To import a single icon:
+
+```tsx
+import { IconCalendar } from "@justeattakeaway/pie-icons-webc/react/IconCalendar";
+
+export default function App() {
+  return (
+    <div className="App">
+      <IconCalendar />
+    </div>
+  );
+}
+```
 
 #### TODO: Add Vue usage
 
