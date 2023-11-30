@@ -1,3 +1,5 @@
+const md = require('../../_utilities/markdown');
+
 /**
  * Build a row of a table based on cell data.
  *
@@ -10,6 +12,7 @@ const buildRow = (cells) => cells.map((cell) => {
     }
 
     let content = cell;
+
     if (cell.type === 'token') {
         content = `<span class="c-componentDetailsTable-token">${cell.item}</span>`;
     } else if (cell.type === 'image') {
@@ -17,6 +20,8 @@ const buildRow = (cells) => cells.map((cell) => {
         content = `<img src=${src} alt=${alt}>`;
     } else if (cell.type === 'code') {
         content = cell.item.map((element) => `<code>${element}</code><br>`).join('');
+    } else if (typeof cell === 'string') {
+        content = md.renderInline(cell);
     }
     return `<td>${content}</td>`;
 }).join('');
@@ -69,14 +74,14 @@ module.exports = ({
     ${headings ? `<tr>${headings.map((heading, index) => {
         const isPriorityColumn = priority && priority === index;
         return (
-            `<th class="${isPriorityColumn ? 'c-componentDetailsTable-heading--priority' : ''}">${heading}</th>`
+            `<th ${isPriorityColumn ? 'class="c-componentDetailsTable-heading--priority"' : ''}>${heading}</th>`
         );
     }).join('')}
     </tr>` : ''}
     ${rows.map((row) => {
         const shouldHideTopBorder = row[0] === '';
 
-        return `<tr class="${shouldHideTopBorder ? 'c-componentDetailsTable-row--hideTopBorder' : ''}">${buildRow(row)}</tr>`;
+        return `<tr ${shouldHideTopBorder ? 'class="c-componentDetailsTable-row--hideTopBorder"' : ''}">${buildRow(row)}</tr>`;
     }).join('')}
     </table>
 </div>`;

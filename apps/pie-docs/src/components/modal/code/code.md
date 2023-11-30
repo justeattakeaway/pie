@@ -49,6 +49,12 @@ $ yarn add @justeattakeaway/pie-modal
   style="border: none; margin-top: 32px;"
 ></iframe>
 
+## Props
+
+{% componentDetailsTable {
+  tableData: props
+} %}
+
 ## Legacy browser support
 
 `pie-modal` uses the Dialog element which might not be supported by legacy browsers.

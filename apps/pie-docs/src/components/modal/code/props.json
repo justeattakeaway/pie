@@ -2,148 +2,189 @@
     "headings": ["Prop", "Options", "Description", "Default"],
     "rows": [
         [
+            "aria",
+            {
+                "type": "code",
+                "item": []
+            },
+            "An object representing the aria labels for the `close` & `back` buttons within the modal as well as the `isLoading` state labels (`aria-label` & `aria-busy`)."
+        ],
+        [
+            "hasBackButton",
+            {
+                "type": "code",
+                "item": ["false", "true"]
+            },
+            "If true, the modal includes a back button which closes the modal when clicked.",
+            {
+                "type": "code",
+                "item": ["false"]
+            }
+        ],
+        [
+            "hasStackedActions",
+            {
+                "type": "code",
+                "item": [
+                  "false",
+                  "true"
+                ]
+            },
+            "If true, the action buttons will be stacked (full width) at narrow breakpoints.",
+            {
+                "type": "code",
+                "item": ["false"]
+            }
+        ],
+        [
+            "heading",
+            {
+                "type": "code",
+                "item": []
+            },
+            "The heading text of the modal."
+        ],
+        [
+            "headingLevel",
+            {
+                "type": "code",
+                "item": ["h1", "h2", "h3", "h4", "h5", "h6"]
+            },
+            "The HTML tag to use for the modal's heading",
+            {
+                "type": "code",
+                "item": ["h2"]
+            }
+        ],
+        [
+            "isDismissible",
+            {
+                "type": "code",
+                "item": ["false", "true"]
+            },
+            "If true, the modal includes a close button and can be dismissed by clicking on the backdrop or pressing the `Esc` key.",
+            {
+                "type": "code",
+                "item": ["false"]
+            }
+        ],
+        [
+            "isFooterPinned",
+            {
+                "type": "code",
+                "item": [
+                  "false",
+                  "true"
+                ]
+              },
+              "When false, the modal footer will scroll with the content inside the modal body.",
+              {
+                "type": "code",
+                "item": [
+                  "true"
+                ]
+              }
+        ],
+        [
+            "isFullWidthBelowMid",
+            {
+              "type": "code",
+              "item": [
+                "false",
+                "true"
+              ]
+            },
+            "If true and the page is narrower than the mid breakpoint, a **medium-sized** modal will take up the full width of the screen.",
+            {
+              "type": "code",
+              "item": [
+                "false"
+              ]
+            }
+        ],
+        [
+            "isLoading",
+            {
+              "type": "code",
+              "item": [
+                "false",
+                "true"
+              ]
+            },
+            "When true, displays a loading spinner in the modal",
+            {
+              "type": "code",
+              "item": [
+                "false"
+              ]
+            }
+        ],
+        [
+            "isOpen",
+            {
+              "type": "code",
+              "item": [
+                "false",
+                "true"
+              ]
+            },
+            "Controls if the modal element is open or closed",
+            {
+              "type": "code",
+              "item": [
+                "false"
+              ]
+            }
+        ],
+        [
+            "leadingAction",
+            {
+                "type": "code",
+                "item": []
+            },
+            "An object representing the leading action of the modal."
+        ],
+        [
+            "position",
+            {
+                "type": "code",
+                "item": ["top", "center"]
+            },
+            "The position of the modal; this controls where it will appear on the page.",
+            {
+              "type": "code",
+              "item": [
+                "center"
+              ]
+            }
+        ],
+        [
+            "returnFocusAfterCloseSelector",
+            {
+                "type": "code",
+                "item": []
+            },
+            "If provided, focus will be sent to the first element that matches this selector when the modal is closed. If not provided, the `dialog` element will return focus to the element that opened the modal."
+        ],
+        [
             "size",
             {
                 "type": "code",
-                "item": ["medium", "large", "small-expressive", "small-productive", "xsmall"]
+                "item": ["small", "medium", "large"]
             },
-            "Set the size of the button.",
+            "Determines the maximum width of the modal. Large modals will expand to fill the entire page width at narrow viewports.",
             {
                 "type": "code",
                 "item": ["medium"]
             }
         ],
         [
-            "type",
+            "supportingAction",
             {
                 "type": "code",
-                "item": ["buttom", "reset", "submit"]
+                "item": []
             },
-            "Set the type of the button.",
-            {
-                "type": "code",
-                "item": ["submit"]
-            }
-        ],
-        [
-            "variant",
-            {
-                "type": "code",
-                "item": ["destructive", "destructive-ghost", "ghost-inverse", "inverse", "ghost", "outline-inverse", "outline", "secondary", "primary"]
-            },
-            "Set the variant of the button.",
-            {
-                "type": "code",
-                "item": ["primary"]
-            }
-        ],
-        [
-            "disabled",
-            {
-                "type": "code",
-                "item": ["true", "false"]
-            },
-            "if <b>true</b>, disables the button.",
-            {
-                "type": "code",
-                "item": ["false"]
-            }
-        ],
-        [
-            "isFullWidth",
-            {
-                "type": "code",
-                "item": ["false", "true"]
-            },
-            "if <b>true</b>, sets the button width to 100% of it's container.",
-            {
-                "type": "code",
-                "item": ["false"]
-            }
-        ],
-        [
-            "isLoading",
-            {
-                "type": "code",
-                "item": ["false", "true"]
-            },
-            "if <b>true</b>, displays a loading indicator inside the button.",
-            {
-                "type": "code",
-                "item": ["false"]
-            }
-        ],
-        [
-            "iconPlacement",
-            {
-                "type": "code",
-                "item": ["leading", "trailing"]
-            },
-            "Show a leading/trailing icon. To use this with pie-button, you can pass an icon into the icon slot.",
-            {
-                "type": "code",
-                "item": ["undefined"]
-            }
-        ],
-        [
-            "name",
-            {
-                "type": "code",
-                "item": ["empty string"]
-            },
-            "The name of the button, submitted as a pair with the button's value as part of the form data, when that button is used to submit the form."
-        ],
-        [
-            "value",
-            {
-                "type": "code",
-                "item": ["empty string"]
-            },
-            "Defines the value associated with the button's name when it's submitted with the form data. This value is passed to the server in params when the form is submitted using this button."
-        ],
-        [
-            "formaction",
-            {
-                "type": "code",
-                "item": ["empty string"]
-            },
-            "The URL that processes the information submitted by the button. Overrides the action attribute of the button's form owner. Does nothing if there is no form owner."
-        ],
-        [
-            "formenctype",
-            {
-                "type": "code",
-                "item": ["empty string"]
-            },
-            "If the button is a submit button (it's inside/associated with a and doesn't have type=\"button\"), specifies how to encode the form data that is submitted"
-        ],
-        [
-            "formmethod",
-            {
-                "type": "code",
-                "item": ["empty string"]
-            },
-            "If the button is a submit button (it's inside/associated with a and doesn't have type=\"button\"), this attribute specifies the HTTP method used to submit the form."
-        ],
-        [
-            "formnovalidate",
-            {
-                "type": "code",
-                "item": ["false", "true"]
-            },
-            "If the button is a submit button, this Boolean attribute specifies that the form is not to be validated when it is submitted.",
-            {
-                "type": "code",
-                "item": ["false"]
-            }
-        ],
-        [
-            "formtarget",
-            {
-                "type": "code",
-                "item": ["empty string"]
-            },
-            "If the button is a submit button, this attribute is an author-defined name or standardized, underscore-prefixed keyword indicating where to display the response from submitting the form."
+            "An object representing the supporting action of the modal."
         ]
     ]
 }
