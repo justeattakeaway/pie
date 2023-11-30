@@ -48,18 +48,18 @@ jobs:
 
   trigger-apps-workflow:
     needs: check-change-type
-    if: needs.check-change-type.outputs.component-check == 'true' || github.ref == 'refs/heads/main'
+    if: needs.check-change-type.outputs.web-components-change == 'true' || github.ref == 'refs/heads/main'
     uses: ./.github/workflows/ci-example-apps.yml
     secrets: inherit
 
   trigger-docs-workflow:
     needs: check-change-type
-    if: needs.check-change-type.outputs.docs-check == 'true' || github.ref == 'refs/heads/main'
+    if: needs.check-change-type.outputs.pie-docs-change == 'true' || github.ref == 'refs/heads/main'
     uses: ./.github/workflows/ci-docs.yml
     secrets: inherit
 
   trigger-components-workflow:
     needs: check-change-type
-    if: needs.check-change-type.outputs.components-check == 'true' || github.ref == 'refs/heads/main'
+    if: needs.check-change-type.outputs.web-components-change == 'true' || github.ref == 'refs/heads/main'
     uses: ./.github/workflows/ci-components.yml
     secrets: inherit
