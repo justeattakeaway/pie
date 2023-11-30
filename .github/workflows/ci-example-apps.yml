@@ -1,4 +1,4 @@
-name: Build Example Apps & Supported OS/Node Versions
+name: CI - Example Apps & Supported OS/Node Versions
 
 on:
   workflow_call:

@@ -21,7 +21,6 @@ jobs:
     outputs:
       pie-docs-change: ${{ steps.docs-check.outputs.docs-change }}
       web-components-change: ${{ steps.component-check.outputs.web-components-change }}
-      storybook-change: ${{ steps.storybook-check.outputs.storybook-change }}
     steps:
       # Checkout the Repo
       - name: Checkout
@@ -43,15 +42,9 @@ jobs:
       - name: Verify if web components have changes
         id: component-check
         run: |
-          COMPONENT_CHANGE=$(npx -y turbo run build --filter='{./packages/components/*}[origin/main]' --dry=json | jq '.packages | length > 0')
+          COMPONENT_CHANGE=$(npx -y turbo run build --filter='{./packages/{components,tools}/*}[origin/main]' --filter='pie-storybook[origin/main]' --dry=json | jq '.packages | length > 0')
           echo "Change Detected: $COMPONENT_CHANGE"
           echo "web-components-change=$COMPONENT_CHANGE" >> $GITHUB_OUTPUT
-      - name: Verify if storybook has changes
-        id: storybook-check
-        run: |
-          STORYBOOK_CHANGE=$(npx -y turbo run build --filter='pie-storybook[origin/main]' --dry=json | jq '.packages | length > 0')
-          echo "Change Detected: $STORYBOOK_CHANGE"
-          echo "storybook-change=$STORYBOOK_CHANGE" >> $GITHUB_OUTPUT
 
   trigger-apps-workflow:
     needs: check-change-type
@@ -63,4 +56,10 @@ jobs:
     needs: check-change-type
     if: needs.check-change-type.outputs.docs-check == 'true' || github.ref == 'refs/heads/main'
     uses: ./.github/workflows/ci-docs.yml
+    secrets: inherit
+
+  trigger-components-workflow:
+    needs: check-change-type
+    if: needs.check-change-type.outputs.components-check == 'true' || github.ref == 'refs/heads/main'
+    uses: ./.github/workflows/ci-components.yml
     secrets: inherit
