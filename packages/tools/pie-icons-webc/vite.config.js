@@ -52,7 +52,7 @@ export default defineConfig({
                 format: 'esm',
                 entryFileNames: '[name].js',
                 chunkFileNames: '[name].[hash].js',
-            }
+            },
         },
     },
 });
