@@ -23,10 +23,10 @@
       "types": "./dist/react/index.d.ts",
       "require": "./dist/react/index.js"
     },
-    "./dist/react/IconAlcohol": {
-      "import": "./dist/react/IconAlcohol.js",
-      "types": "./dist/react/IconAlcohol.d.ts",
-      "require": "./dist/react/IconAlcohol.js"
+    "./dist/react/*": {
+      "import": "./dist/react/*.js",
+      "types": "./dist/react/*.d.ts",
+      "require": "./dist/react/*.js"
     }
   },
   "publishConfig": {
