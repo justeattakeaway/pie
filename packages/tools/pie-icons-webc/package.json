@@ -18,6 +18,16 @@
       "types": "./dist/*.d.ts",
       "require": "./dist/*.js"
     },
+    "./react": {
+      "import": "./dist/react/index.js",
+      "types": "./dist/react/index.d.ts",
+      "require": "./dist/react/index.js"
+    },
+    "./react/*": {
+      "import": "./dist/react/*.js",
+      "types": "./dist/react/*.d.ts",
+      "require": "./dist/react/*.js"
+    },
     "./dist/react": {
       "import": "./dist/react/index.js",
       "types": "./dist/react/index.d.ts",
