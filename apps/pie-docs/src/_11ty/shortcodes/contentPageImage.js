@@ -38,6 +38,9 @@ module.exports = function (config) {
         ...(isImageFullContainerWidth
             ? ['c-contentImage--fullWidth']
             : ['c-contentImage--hasBackdrop']),
+        ...(config.shouldShowPadding
+            ? ['c-contentImage--paddedBackdrop']
+            : ''),
         ...(config.height
             ? [`c-contentImage--height-${config.height}`]
             : '')
