@@ -1,5 +1,31 @@
 # Changelog
 
+## 0.52.1
+
+### Patch Changes
+
+- [Changed] - updated the modal story padding to match design example ([#1058](https://github.com/justeattakeaway/pie/pull/1058)) by [@raoufswe](https://github.com/raoufswe)
+
+- Updated dependencies [[`f9382cb6d`](https://github.com/justeattakeaway/pie/commit/f9382cb6d6503ed045d2d44c6624020a3a631d0d)]:
+  - @justeattakeaway/pie-icons-webc@0.13.0
+  - @justeattakeaway/pie-icon-button@0.24.1
+  - @justeattakeaway/pie-modal@0.35.3
+  - @justeattakeaway/pie-switch@0.18.2
+  - @justeattakeaway/pie-cookie-banner@0.11.10
+
+## 0.52.0
+
+### Minor Changes
+
+- [Changed] - Removed fozzie scss in favour of pie-css mixins ([#1054](https://github.com/justeattakeaway/pie/pull/1054)) by [@ashleynolan](https://github.com/ashleynolan)
+
+### Patch Changes
+
+- Updated dependencies [[`232990b65`](https://github.com/justeattakeaway/pie/commit/232990b650adb96af8a9dea8d66acc31c47bd5d8)]:
+  - @justeattakeaway/pie-button@0.41.0
+  - @justeattakeaway/pie-cookie-banner@0.11.9
+  - @justeattakeaway/pie-modal@0.35.2
+
 ## 0.51.1
 
 ### Patch Changes
