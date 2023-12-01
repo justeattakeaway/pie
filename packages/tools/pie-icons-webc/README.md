@@ -73,7 +73,7 @@ function renderIcon() {
 // Not recommended -  Webpack v4+ or Rollup should treeshake but be careful
 import { IconAppRestaurant } from '@justeattakeaway/pie-icons-webc';
 // Not recommended
-import { IconAppRestaurant } from '@justeattakeaway/pie-icons-webc/icons';
+import { IconAppRestaurant } from '@justeattakeaway/pie-icons-webc';
 ```
 
 #### Lit Components

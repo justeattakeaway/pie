@@ -40,7 +40,7 @@ export default defineConfig({
         },
         rollupOptions: {
             external: (id) => {
-                if (['react', '@lit/react'].includes(id) || /^lit/.test(id)) {
+                if (['react', '@lit/react', '@justeattakeaway/pie-webc-core'].includes(id) || /^lit/.test(id)) {
                     return true;
                 }
 
