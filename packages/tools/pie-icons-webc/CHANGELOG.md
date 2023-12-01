@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-icons-webc
 
+## 0.13.0
+
+### Minor Changes
+
+- [Added] - React entry point to the library that allows consumers to import individual or all icons either from /react/icon path or entire /react folder ([#1072](https://github.com/justeattakeaway/pie/pull/1072)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.12.0
 
 ### Minor Changes
