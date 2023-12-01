@@ -82,7 +82,7 @@ Uses a blue colour to increase the visibility of the link.
 
 ### Inverse
 
-It should be used in areas where a inversed background is used, or when contrast between the default or high visibility links isn’t sufficient to pass accessibility rules.
+It should be used in areas where an inversed background is used, or when contrast between the default or high visibility links isn’t sufficient to pass accessibility rules.
 
 {% contentPageImage {
     src:"../../../assets/img/components/link/variation-inverse.svg",
@@ -202,8 +202,8 @@ You can use icons to reinforce the action that will take place when the user int
 
 ## Content
 
-- Be mindful of which words in a paragraph you use for your links. Make sure the words you convert into links are directly related to the contents that the link will lead you to.
-- Use sentence-style capitalization (only the first world in a phrase and any proper nouns capitalized). 
+- Be mindful of which words in a paragraph you use for your links. Make sure the words you convert into links are directly related to the content that the link will lead you to.
+- Use sentence-style capitalization (only the first word in a phrase and any proper nouns capitalized). 
 
 ---
 
