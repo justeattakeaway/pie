@@ -101,7 +101,7 @@ import '@justeattakeaway/pie-link'
 
 ```html
 <!-- pass js file into <script> tag -->
-<pie-lin href="https://www.pie.design">pie.design</pie-lin>
+<pie-link href="https://www.pie.design">pie.design</pie-link>
 <script type="module" src="/main.js"></script>
 ```
 
