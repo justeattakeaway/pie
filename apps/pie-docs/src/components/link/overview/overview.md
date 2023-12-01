@@ -203,6 +203,7 @@ You can use icons to reinforce the action that will take place when the user int
 ## Content
 
 - Be mindful of which words in a paragraph you use for your links. Make sure the words you convert into links are directly related to the content that the link will lead you to.
+
 - Use sentence-style capitalization (only the first word in a phrase and any proper nouns capitalized). 
 
 ---
@@ -215,7 +216,7 @@ You can use icons to reinforce the action that will take place when the user int
 } %}
 
 
-## Dos and Don’ts
+### Dos and Don’ts
 
 {% usage {
     do: {
