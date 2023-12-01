@@ -10,19 +10,23 @@
   "exports": {
     ".": {
       "import": "./dist/index.js",
-      "types": "./dist/index.d.ts"
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.js"
     },
     "./*": {
       "import": "./dist/*.js",
-      "types": "./dist/*.d.ts"
+      "types": "./dist/*.d.ts",
+      "require": "./dist/*.js"
     },
-    "./react": {
+    "./dist/react": {
       "import": "./dist/react/index.js",
-      "types": "./dist/react/index.d.ts"
+      "types": "./dist/react/index.d.ts",
+      "require": "./dist/react/index.js"
     },
-    "./react/*": {
-      "import": "./dist/react/*.js",
-      "types": "./dist/react/*.d.ts"
+    "./dist/react/IconAlcohol": {
+      "import": "./dist/react/IconAlcohol.js",
+      "types": "./dist/react/IconAlcohol.d.ts",
+      "require": "./dist/react/IconAlcohol.js"
     }
   },
   "publishConfig": {

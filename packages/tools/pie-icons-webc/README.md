@@ -96,7 +96,8 @@ export class MyAmazingComponent extends LitElement {
 To import from the package root:
 
 ```tsx
-import { IconAlertTriangleLarge, IconCalendar } from "@justeattakeaway/pie-icons-webc/react";
+// Please note we include /dist/ in the path only for React exports. This is due to how we have setup React exports to work with frameworks such as NextJS
+import { IconAlertTriangleLarge, IconCalendar } from "@justeattakeaway/pie-icons-webc/dist/react";
 
 export default function App() {
   return (
@@ -110,7 +111,8 @@ export default function App() {
 To import a single icon:
 
 ```tsx
-import { IconCalendar } from "@justeattakeaway/pie-icons-webc/react/IconCalendar";
+// Please note we include /dist/ in the path only for React exports. This is due to how we have setup React exports to work with frameworks such as NextJS
+import { IconCalendar } from "@justeattakeaway/pie-icons-webc/dist/react/IconCalendar";
 
 export default function App() {
   return (
