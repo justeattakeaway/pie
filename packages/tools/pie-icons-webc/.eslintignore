@@ -2,3 +2,7 @@
 node_modules
 dist
 icons
+__snapshots__
+playwright
+test-results
+react-browsers-report

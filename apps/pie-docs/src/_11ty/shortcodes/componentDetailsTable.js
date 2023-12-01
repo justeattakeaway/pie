@@ -82,6 +82,7 @@ module.exports = ({
         const shouldHideTopBorder = row[0] === '';
 
         return `<tr ${shouldHideTopBorder ? 'class="c-componentDetailsTable-row--hideTopBorder"' : ''}">${buildRow(row)}</tr>`;
+        return `<tr class="${shouldHideTopBorder ? 'c-componentDetailsTable-row--hideTopBorder' : ''}">${buildRow(row)}</tr>`;
     }).join('')}
     </table>
 </div>`;
