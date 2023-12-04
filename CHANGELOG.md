@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.46.0
+
+### Minor Changes
+
+- [Changed] - mark pie-webc-core as an external dependency ([#1070](https://github.com/justeattakeaway/pie/pull/1070)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 2.45.0
 
 ### Minor Changes

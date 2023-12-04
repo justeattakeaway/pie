@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-icons-webc
 
+## 0.14.0
+
+### Minor Changes
+
+- [Changed] - mark pie-webc-core as an external dependency ([#1070](https://github.com/justeattakeaway/pie/pull/1070)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.13.0
 
 ### Minor Changes
