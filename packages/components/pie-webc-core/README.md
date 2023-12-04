@@ -47,7 +47,7 @@ export class MyComponent extends RtlMixin(LitElement) implements MyComponentProp
 
 ## Dependencies
 
-This package provides `lit` as a dependency which means that package that depends on `@justeattakeaway/pie-webc-core` will automatically install `lit` into the `node_modules` folder of its consuming application.
+This package provides `lit` as a dependency which means the package that depends on `@justeattakeaway/pie-webc-core` will automatically install `lit` into the `node_modules` folder of its consuming application.
 
 Other dependencies may be added in future to make it easier for people to install and use our components.
 
