@@ -18,7 +18,8 @@ const buildRow = (cells) => cells.map((cell) => {
     } else if (cell.type === 'code') {
         content = cell.item.map((element) => `<code>${element}</code><br>`).join('');
     }
-    return `<td>${content}</td>`;
+
+    return `<td ${content.length > 30 ? "class='c-componentDetailsTable-cellHasMinWidth'" : ''}>${content}</td>`;
 }).join('');
 
 /**
