@@ -82,34 +82,31 @@
 
     &[size='medium'] {
         /* Same as default styles */
-        &[isfullwidthbelowmid] {
-            @media (max-width: calc($breakpoint-wide - 1px)) {
-                --modal-margin-block: var(--modal-margin-none);
-                --modal-border-radius: var(--dt-radius-rounded-none);
-                --modal-block-size: 100%;
-                --modal-inline-size: 100%;
-
-                // In this case, the modal must exceed the previous maximum width
-                --modal-max-inline-size: 100%;
-
-                // this ensures the content container spans the full height
-                > .c-modal-scrollContainer {
-                    block-size: 100%;
-                }
-            }
-        }
     }
 
     &[size='large'] {
         --modal-inline-size: 75%;
         --modal-max-inline-size: var(--modal-size-l);
         --modal-margin-block: var(--modal-margin-large);
+    }
 
+    // Fullscreen styles
+    &[size='large'],
+    &[size='medium'][isfullwidthbelowmid] {
         @media (max-width: calc($breakpoint-wide - 1px)) {
             --modal-margin-block: var(--modal-margin-none);
             --modal-border-radius: var(--dt-radius-rounded-none);
             --modal-block-size: 100%;
             --modal-inline-size: 100%;
+
+            // In order to be fullscreen, the modal may need to exceed
+            // the previous maximum width for a medium modal
+            --modal-max-inline-size: 100%;
+
+            // this ensures the content container spans the full height
+            > .c-modal-scrollContainer {
+                block-size: 100%;
+            }
         }
     }
 
@@ -271,7 +268,6 @@
     & > .c-modal-scrollContainer {
         display: flex;
         flex-direction: column;
-        block-size: auto;
         overflow-y: auto;
 
         // These are the shadows used to indicate scrolling above and below content

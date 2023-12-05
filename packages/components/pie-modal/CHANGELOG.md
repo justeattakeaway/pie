@@ -1,5 +1,15 @@
 # @justeattakeaway/pie-modal
 
+## 0.35.4
+
+### Patch Changes
+
+- [Fixed] - Unpinned footer positioning for large fullscreen modal ([#1071](https://github.com/justeattakeaway/pie/pull/1071)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- Updated dependencies [[`e0516f18d`](https://github.com/justeattakeaway/pie/commit/e0516f18d6637c12a3efb5d692d3ca54e86f1a29)]:
+  - @justeattakeaway/pie-icons-webc@0.14.0
+  - @justeattakeaway/pie-icon-button@0.24.2
+
 ## 0.35.3
 
 ### Patch Changes
