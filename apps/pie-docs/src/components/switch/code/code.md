@@ -57,45 +57,71 @@ $ yarn add @justeattakeaway/pie-switch
 
 ## Events
 
-This component emits the `pie-switch-changed` event when switched. In order to add event listening to this component, you can treat it like a native HTML element in your application.
+This component emits the `change` event when toggled. This allows you to treat it like a native checkbox (`<input type="checkbox" />`) element when listening for events.
 
-For example, to add a click handler in various templates:
+For examples of how to add an event listener, see the [Examples](#examples) section below.
 
 ## Examples
 
-For HTML:
+### HTML and native JS
 
+#### main.js
+
+Register the component in JavaScript:
 ```js
-// import as module into a js file e.g. main.js
-import '@justeattakeaway/pie-switch'
+import '@justeattakeaway/pie-switch';
 ```
 
+#### index.html
+Then, having imported `main.js` into your HTML file, you can use the component:
 ```html
-<!-- pass js file into <script> tag -->
 <pie-switch id="switch" isChecked label="Label" labelPlacement="trailing"></pie-switch>
+
 <script>
-document.querySelector('#switch').addEventListener('pie-switch-changed', () => {
-    // Code to execute when switch is toggled
+document.querySelector('#switch').addEventListener('change', (event) => {
+    console.log(event.target.checked);
 });
 </script>
 ```
 
-For Native JS Applications, Vue, Angular, Svelte etc.:
+or, instead of using a script tag, you can use an event attribute (note the `on` prefix):
 
-```js
-// Vue templates (using Nuxt 3)
-import { PieSwitch } from '@justeattakeaway/pie-switch';
-
-<pie-switch isChecked label="Label" labelPlacement="trailing" @pie-switch-changed="handleChange"></pie-switch>
+```html
+<pie-switch
+  label="Label"
+  onchange="(event) => {
+    console.log(event.target.checked);
+  }">
+</pie-switch>
 ```
 
-For React Applications.
+{% notification {
+  type: "information",
+  iconName: "info-circle",
+  message: "To access the checkbox state in TypeScript you may need to cast the target: `(event.target as HTMLInputElement).checked`"
+} %}
 
-```js
-// React templates (using Next 13)
+### Vue, Angular, Svelte, etc.
+
+The general approach is similar here: import the component (to register it in the browser as a custom element) then use it in an HTML template.
+
+Note that as the component has already been registered in the browser, you don't need to declare the web component like you would when importing a component written in your chosen framework; i.e. you can treat it like a native HTML element.
+
+```html
+<script>
+  import '@justeattakeaway/pie-switch';
+</script>
+
+<template>
+  <pie-switch isChecked label="Label" labelPlacement="trailing" @change="handleChange"></pie-switch>
+</template>
+```
+
+### React
+```jsx
 import { PieSwitch } from '@justeattakeaway/pie-switch/dist/react';
 
-<PieSwitch isChecked label="Label" labelPlacement="trailing" onPieSwitchChanged={handleChange}></PieSwitch>
+<PieSwitch isChecked label="Label" labelPlacement="trailing" onChange={handleChange}></PieSwitch>
 ```
 
 {% notification {

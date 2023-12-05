@@ -81,19 +81,25 @@ import { PieSwitch } from '@justeattakeaway/pie-switch/dist/react';
 
 In your markup or JSX, you can then use these to set the properties for the `pie-switch` component:
 
+### HTML
 ```html
-<!-- Native HTML -->
-<pie-switch></pie-switch>
+<pie-switch isChecked isDisabled aria='{ "label": "Helpful label" }'></pie-switch>
+```
 
-<!-- JSX -->
-<PieSwitch></PieSwitch>
+### JSX
+```js
+const aria = {
+  label: 'Helpful label',
+};
+
+<PieSwitch isChecked isDisabled aria={aria}></PieSwitch>
 ```
 
 ## Events
 
 | Event | Payload | Description |
-| ----- |-----| ----- |
-| `pie-switch-changed` | `this.isChecked` | Custom event to indicate a switch change. The event's detail contains the value of this.isChecked.  |
+| --- | --- | --- |
+| `change` | `event.target.checked` | Custom event to indicate a switch change. This event aims to mimic the native `change` event so that consumers can use the component as natively as possible. |
 
 ## Contributing
 

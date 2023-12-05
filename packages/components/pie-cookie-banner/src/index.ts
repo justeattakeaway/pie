@@ -202,7 +202,7 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
                     id="${id}"
                     ?isChecked="${isChecked}"
                     ?isDisabled="${isDisabled}"
-                    @pie-switch-changed="${this._handleSwitchStates}">
+                    @change="${this._handleSwitchStates}">
                 </pie-switch>
             </div>
             ${hasDivider ? html`<pie-divider></pie-divider>` : nothing}`;
