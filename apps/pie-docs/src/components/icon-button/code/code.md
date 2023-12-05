@@ -70,7 +70,7 @@ To import an icon using `pie-icons-webc`, you should import the icon that you wo
 
 ```js
 import { PieIconButton } from '@justeattakeaway/pie-icon-button';
-import '@justeattakeaway/pie-icons-webc/icons/IconClose';
+import '@justeattakeaway/pie-icons-webc/IconClose';
 ```
 
 Then, in your markup, you would implement the component like this:
