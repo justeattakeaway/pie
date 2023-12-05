@@ -1,1 +1,48 @@
 @use '@justeattakeaway/pie-css/scss' as p;
+@use '@justeat/pie-design-tokens/dist/jet.scss' as dt;
+
+.c-notification {
+  --notification-border-radius: var(--dt-radius-rounded-c);  
+  --notification-background-color: var(--dt-color-container-subtle);
+
+  padding: var(--dt-spacing-d);
+  border-radius: var(--notification-border-radius);
+  background-color: var(--notification-background-color);
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--dt-spacing-d);
+
+  
+  h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+  }
+
+  &[variant='neutral-alternative'] {
+    --notification-background-color: var(--dt-color-container-default);
+  }
+
+  &[variant='info'] {
+    --notification-background-color: var(--dt-color-support-info-02);
+  }
+
+  &[variant='positive'] {
+    --notification-background-color: var(--dt-color-support-positive-02);
+  }
+
+  &[variant='warning'] {
+    --notification-background-color: var(--dt-color-support-warning-02);
+  }
+
+  &[variant='error'] {
+    --notification-background-color: var(--dt-color-support-error-02);
+  }
+
+  &-header {
+    background: pink;
+  }
+
+  &-footer {
+    background: blue;
+  }
+}
