@@ -20,6 +20,8 @@ eleventyComputed:
 
 This component can be easily integrated into various frontend frameworks and customized through a set of properties.
 
+---
+
 ## Installation
 
 To install `pie-modal` in your application, run the following on your command line:
@@ -40,6 +42,8 @@ $ yarn add @justeattakeaway/pie-modal
   message: "For more information on using PIE components as part of an application, check out the [Getting Started Guide.](https://github.com/justeattakeaway/pie/wiki/Getting-started-with-PIE-Web-Components)."
 } %}
 
+---
+
 ## Playground
 
  <iframe
@@ -49,11 +53,15 @@ $ yarn add @justeattakeaway/pie-modal
   style="border: none; margin-top: 32px;"
 ></iframe>
 
+---
+
 ## Props
 
 {% componentDetailsTable {
   tableData: props
 } %}
+
+---
 
 ## Legacy browser support
 
@@ -67,6 +75,8 @@ Dialogs should not be contained by parents that create a stacking context
  - The browser's chrome may not always be accessible via the tab key
  - Changes to the CSS top/bottom values while open aren't retained
  - For more details, check the package documentation mentioned above.
+
+---
 
 ## Examples
 
@@ -87,9 +97,9 @@ For Native JS Applications, Vue, Angular, Svelte etc.:
 
 ```js
 // Vue templates (using Nuxt 3)
-import { PieModal } from '@justeattakeaway/pie-modal';
+import '@justeattakeaway/pie-modal';
 
-<PieModal heading="My Awesome Heading" headingLevel="h3">Click me!</PieModal>
+<pie-modal heading="My Awesome Heading" headingLevel="h3">Click me!</pie-modal>
 ```
 
 For React Applications. When using the React version of the component, please make sure you also include React as a dependency in your project as well. See Peer Dependencies section.

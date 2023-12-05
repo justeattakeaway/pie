@@ -13,7 +13,7 @@
             "hasBackButton",
             {
                 "type": "code",
-                "item": ["false", "true"]
+                "item": ["true", "false"]
             },
             "If true, the modal includes a back button which closes the modal when clicked.",
             {
@@ -60,7 +60,7 @@
             "isDismissible",
             {
                 "type": "code",
-                "item": ["false", "true"]
+                "item": ["true", "false"]
             },
             "If true, the modal includes a close button and can be dismissed by clicking on the backdrop or pressing the `Esc` key.",
             {
@@ -172,7 +172,7 @@
                 "type": "code",
                 "item": ["small", "medium", "large"]
             },
-            "Determines the maximum width of the modal. Large modals will expand to fill the entire page width at narrow viewports.",
+            "Determines the maximum width of the modal. Large modals will expand to fill the entire page at narrow viewports.",
             {
                 "type": "code",
                 "item": ["medium"]
