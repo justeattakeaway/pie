@@ -1,5 +1,17 @@
 # @justeattakeaway/pie-icons-webc
 
+## 0.15.0
+
+### Minor Changes
+
+- [Changed] - add two new fallback export entry points for react apps that include /dist in the path. This allows for better integration with frameworks such as NextJS ([#1077](https://github.com/justeattakeaway/pie/pull/1077)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+## 0.14.0
+
+### Minor Changes
+
+- [Changed] - mark pie-webc-core as an external dependency ([#1070](https://github.com/justeattakeaway/pie/pull/1070)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.13.0
 
 ### Minor Changes

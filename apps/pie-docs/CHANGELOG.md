@@ -1,5 +1,13 @@
 # Changelog
 
+## 3.19.0
+
+### Minor Changes
+
+- [Changed] - Modal overview page ([#1005](https://github.com/justeattakeaway/pie/pull/1005)) by [@FayeCarter](https://github.com/FayeCarter)
+
+- [Added] - link docs ([#1060](https://github.com/justeattakeaway/pie/pull/1060)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 3.18.0
 
 ### Minor Changes

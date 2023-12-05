@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-switch",
   "description": "PIE Design System Switch built using Web Components",
-  "version": "0.18.2",
+  "version": "0.18.4",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -31,7 +31,7 @@
     "@justeattakeaway/pie-components-config": "0.6.1"
   },
   "dependencies": {
-    "@justeattakeaway/pie-icons-webc": "0.13.0",
+    "@justeattakeaway/pie-icons-webc": "0.15.0",
     "@justeattakeaway/pie-webc-core": "0.13.0"
   },
   "volta": {
