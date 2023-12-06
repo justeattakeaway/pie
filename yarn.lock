@@ -5954,7 +5954,7 @@ __metadata:
     "@babel/preset-react": 7.18.6
     "@custom-elements-manifest/analyzer": 0.9.0
     "@lit/react": 1.0.2
-    "@types/react": 18.2.38
+    "@types/react": 18.2.42
     cem-plugin-module-file-extensions: 0.0.5
     fs-extra: 9.1.0
   languageName: unknown
@@ -10883,7 +10883,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*, @types/react@npm:18.2.38, @types/react@npm:>=16":
+"@types/react@npm:*, @types/react@npm:>=16":
   version: 18.2.38
   resolution: "@types/react@npm:18.2.38"
   dependencies:
@@ -10891,6 +10891,17 @@ __metadata:
     "@types/scheduler": "*"
     csstype: ^3.0.2
   checksum: 71f8c167173d32252be8b2d3c1c76b3570b94d2fbbd139da86d146be453626f5777e12c2781559119637520dbef9f91cffe968f67b5901618f29226d49fad326
+  languageName: node
+  linkType: hard
+
+"@types/react@npm:18.2.42":
+  version: 18.2.42
+  resolution: "@types/react@npm:18.2.42"
+  dependencies:
+    "@types/prop-types": "*"
+    "@types/scheduler": "*"
+    csstype: ^3.0.2
+  checksum: d2019afdf48303a3a598a97cc9dd2284e3c04b369e791f6ba3c33232b7f8645daff97b093a19f8b3ce75ac8a261b47552cb4513226ab16d843eb9443b0f91844
   languageName: node
   linkType: hard
 
@@ -29084,7 +29095,7 @@ __metadata:
     "@rollup/plugin-node-resolve": 15.1.0
     "@sand4rt/experimental-ct-web": 1.0.8
     "@types/node": 20.4.8
-    "@types/react": 18.2.38
+    "@types/react": 18.2.42
     "@typescript-eslint/eslint-plugin": 5.62.0
     "@typescript-eslint/parser": 5.62.0
     autoprefixer: 10.4.16
