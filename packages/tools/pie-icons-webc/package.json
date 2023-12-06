@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/pie-icons-webc",
-  "version": "0.14.0",
+  "version": "0.15.0",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -76,7 +76,7 @@
     "@justeattakeaway/pie-webc-core": "0.13.0"
   },
   "devDependencies": {
-    "@babel/core": "7.23.3",
+    "@babel/core": "7.23.5",
     "@babel/node": "7.20.7",
     "@justeattakeaway/pie-icons": "4.9.3",
     "@justeattakeaway/pie-icons-configs": "4.5.1",
