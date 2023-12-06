@@ -169,7 +169,7 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
         const toggleAllNode = [...this._preferencesNodes].find(({ id }) => id === 'all') as PieSwitch;
 
         if (id === toggleAllNode.id) {
-            const isChecked = e.detail;
+            const isChecked = (e.target as HTMLInputElement).checked;
             this._preferencesNodes.forEach((node) => {
                 node.isChecked = node.isDisabled ? node.isChecked : isChecked;
             });
