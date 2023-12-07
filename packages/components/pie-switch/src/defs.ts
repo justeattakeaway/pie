@@ -35,4 +35,4 @@ export interface SwitchProps {
  *
  * @constant
  */
-export const ON_SWITCH_CHANGED_EVENT = 'pie-switch-changed';
+export const ON_SWITCH_CHANGED_EVENT = 'change';
