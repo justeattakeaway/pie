@@ -55,7 +55,7 @@
   "devDependencies": {
     "@axe-core/playwright": "4.7.3",
     "@babel/cli": "7.22.15",
-    "@babel/core": "7.23.3",
+    "@babel/core": "7.23.5",
     "@babel/eslint-parser": "7.21.8",
     "@babel/node": "7.20.7",
     "@babel/preset-env": "7.21.4",
@@ -77,7 +77,7 @@
     "@rollup/plugin-node-resolve": "15.1.0",
     "@sand4rt/experimental-ct-web": "1.0.8",
     "@types/node": "20.4.8",
-    "@types/react": "18.2.38",
+    "@types/react": "18.2.42",
     "@typescript-eslint/eslint-plugin": "5.62.0",
     "@typescript-eslint/parser": "5.62.0",
     "autoprefixer": "10.4.16",
