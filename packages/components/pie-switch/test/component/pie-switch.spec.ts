@@ -1,6 +1,11 @@
 import { test, expect } from '@sand4rt/experimental-ct-web';
 import { PieSwitch } from '@/index';
-import { SwitchProps, type LabelPlacement, labelPlacements } from '@/defs';
+import {
+    SwitchProps,
+    type LabelPlacement,
+    labelPlacements,
+    ON_SWITCH_CHANGED_EVENT,
+} from '@/defs';
 
 const componentSelector = '[data-test-id="switch-component"]';
 const inputSelector = '[data-test-id="switch-input"]';
@@ -109,6 +114,24 @@ test.describe('Component: `Pie switch`', () => {
                 // Assert
                 expect(pieSwitchComponent).toBe(false);
             });
+
+            test('should emit an event with the correct name', async ({ mount, page }) => {
+                // Arrange
+                let eventHeard = false;
+                await mount(PieSwitch, {
+                    on: {
+                        [ON_SWITCH_CHANGED_EVENT]: () => {
+                            eventHeard = true;
+                        },
+                    },
+                });
+
+                // Act
+                await page.click(componentSelector);
+
+                // Assert
+                await expect(eventHeard).toBe(true);
+            });
         });
 
         test.describe('when the components label element is clicked', () => {
@@ -147,6 +170,24 @@ test.describe('Component: `Pie switch`', () => {
 
                 // Assert
                 expect(pieSwitchComponent).toBe(false);
+            });
+
+            test('should emit an event with the correct name', async ({ mount, page }) => {
+                // Arrange
+                let eventHeard = false;
+                await mount(PieSwitch, {
+                    on: {
+                        [ON_SWITCH_CHANGED_EVENT]: () => {
+                            eventHeard = true;
+                        },
+                    },
+                });
+
+                // Act
+                await page.click(componentSelector);
+
+                // Assert
+                await expect(eventHeard).toBe(true);
             });
         });
     });
