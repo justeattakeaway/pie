@@ -1,5 +1,13 @@
 # @justeattakeaway/pie-switch
 
+## 0.19.0
+
+### Minor Changes
+
+- [Changed] - Rename `pie-switch-changed` event to `change`. ([#1084](https://github.com/justeattakeaway/pie/pull/1084)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Changed] - Add native `event.target.checked` behaviour for `pie-switch` `change` event.
+
 ## 0.18.4
 
 ### Patch Changes
