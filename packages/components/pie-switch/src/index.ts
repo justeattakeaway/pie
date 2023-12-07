@@ -16,7 +16,7 @@ const componentSelector = 'pie-switch';
 
 /**
  * @tagname pie-switch
- * @event {CustomEvent} pie-switch-changed - when the switch checked state is changed.
+ * @event {CustomEvent} change - when the switch checked state is changed.
  */
 
 export class PieSwitch extends RtlMixin(LitElement) implements SwitchProps {
@@ -33,11 +33,24 @@ export class PieSwitch extends RtlMixin(LitElement) implements SwitchProps {
     @property({ type: Boolean, reflect: true })
     public isChecked = false;
 
+    /**
+     * This getter wraps the `isChecked` property to mimic native behaviour for the `change` event.
+     * You can access this with `event.target.checked` when listening to the `change` event.
+     * @returns The value of the property `isChecked`.
+     */
+    public get checked () {
+        return this.isChecked;
+    }
+
     @property({ type: Boolean, reflect: true })
     public isDisabled = false;
 
     static styles = unsafeCSS(styles);
 
+    /**
+     * The onChange function updates the checkbox state and emits an event for consumers.
+     * @param {Event} event - This should be the change event that was listened for on an input element with `type="checkbox"`.
+     */
     onChange (event: Event) {
         const { checked } = event?.currentTarget as HTMLInputElement;
         this.isChecked = checked;
@@ -46,7 +59,6 @@ export class PieSwitch extends RtlMixin(LitElement) implements SwitchProps {
             {
                 bubbles: true,
                 composed: true,
-                detail: this.isChecked,
             },
         );
         this.dispatchEvent(changedEvent);

@@ -1,4 +1,5 @@
 import { html, nothing } from 'lit';
+import { action } from '@storybook/addon-actions';
 
 /* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-switch';
@@ -74,6 +75,10 @@ const switchStoryMeta: SwitchStoryMeta = {
 
 export default switchStoryMeta;
 
+const changeAction = (event: Event) => action('change')({
+    checked: (event.target as HTMLInputElement).checked,
+});
+
 const Template : TemplateFunction<SwitchProps> = (props) => {
     const {
         aria,
@@ -89,7 +94,8 @@ const Template : TemplateFunction<SwitchProps> = (props) => {
             labelPlacement="${label && labelPlacement ? labelPlacement : nothing}"
             .aria="${aria}"
             ?isChecked="${isChecked}"
-            ?isDisabled="${isDisabled}">
+            ?isDisabled="${isDisabled}"
+            @change="${changeAction}">
         </pie-switch>`;
 };
 
