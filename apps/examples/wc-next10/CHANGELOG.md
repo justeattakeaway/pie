@@ -1,5 +1,12 @@
 # wc-next10
 
+## 0.5.8
+
+### Patch Changes
+
+- Updated dependencies [[`6af87a9e1`](https://github.com/justeattakeaway/pie/commit/6af87a9e1da042c3a581133b32b81cfe4abcb3ce)]:
+  - @justeattakeaway/pie-cookie-banner@0.11.13
+
 ## 0.5.7
 
 ### Patch Changes

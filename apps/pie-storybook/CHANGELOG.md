@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.52.4
+
+### Patch Changes
+
+- [Added] - Storybook action for `pie-switch` `change` event. ([#1084](https://github.com/justeattakeaway/pie/pull/1084)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Changed] - Update `/components/switch/code` documentation page.
+
+- Updated dependencies [[`6af87a9e1`](https://github.com/justeattakeaway/pie/commit/6af87a9e1da042c3a581133b32b81cfe4abcb3ce)]:
+  - @justeattakeaway/pie-switch@0.19.0
+  - @justeattakeaway/pie-cookie-banner@0.11.13
+
 ## 0.52.3
 
 ### Patch Changes
