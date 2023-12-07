@@ -7,6 +7,7 @@ import styles from './switch.scss?inline';
 import {
     SwitchProps, ON_SWITCH_CHANGED_EVENT, AriaProps, labelPlacements,
 } from './defs';
+import 'element-internals-polyfill';
 import '@justeattakeaway/pie-icons-webc/IconCheck';
 
 // Valid values available to consumers
@@ -20,6 +21,16 @@ const componentSelector = 'pie-switch';
  */
 
 export class PieSwitch extends RtlMixin(LitElement) implements SwitchProps {
+    // TODO - we may want to consider making the element internals code reusable for other form controls.
+    static formAssociated = true;
+
+    private readonly _internals: ElementInternals;
+
+    constructor () {
+        super();
+        this._internals = this.attachInternals();
+    }
+
     @property({ type: String })
     public label?: string;
 
@@ -32,6 +43,12 @@ export class PieSwitch extends RtlMixin(LitElement) implements SwitchProps {
 
     @property({ type: Boolean, reflect: true })
     public isChecked = false;
+
+    @property({ type: String })
+    public value = 'on';
+
+    @property({ type: String })
+    public name?: string;
 
     /**
      * This getter wraps the `isChecked` property to mimic native behaviour for the `change` event.
@@ -61,7 +78,18 @@ export class PieSwitch extends RtlMixin(LitElement) implements SwitchProps {
                 composed: true,
             },
         );
+
         this.dispatchEvent(changedEvent);
+
+        // name attribute required for this to work
+        // combine checked and isChecked
+        if (this._internals.form) {
+            if (this.checked) {
+                this._internals.setFormValue(this.value);
+            } else {
+                this._internals.setFormValue(null);
+            }
+        }
     }
 
     /**

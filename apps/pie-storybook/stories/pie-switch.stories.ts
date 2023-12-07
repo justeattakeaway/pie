@@ -90,6 +90,9 @@ const Template : TemplateFunction<SwitchProps> = (props) => {
 
     return html`
         <pie-switch
+            id="pie-switch"
+            name="pie-switch"
+            value="someValue"
             label="${label || nothing}"
             labelPlacement="${label && labelPlacement ? labelPlacement : nothing}"
             .aria="${aria}"
@@ -99,6 +102,59 @@ const Template : TemplateFunction<SwitchProps> = (props) => {
         </pie-switch>`;
 };
 
+const FormTemplate: TemplateFunction<SwitchProps> = (props: SwitchProps) => html`
+    <p id="formLog" style="display: none; font-size: 2rem; color: var(--dt-color-support-positive);"></p>
+    <h2>Fake form</h2>
+    <form id="testForm">
+        <p>Required fields are followed by <strong><span aria-label="required">*</span></strong>.</p>
+        <section>
+            <h2>Contact information</h2>
+            <p>
+                <label for="name">
+                    <span>Name: </span>
+                    <strong><span aria-label="required">*</span></strong>
+                </label>
+                <input type="text" id="name" name="username" required />
+            </p>
+        </section>
+
+        <section>
+            ${Template({
+    ...props,
+})}
+        </section>
+        <button type="submit">Submit</button>
+    </form>
+    <script>
+        // Display a success message to the user when they submit the form
+        const form = document.querySelector('#testForm');
+        const formLog = document.querySelector('#formLog');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            formLog.innerHTML = 'Form submitted!';
+            formLog.style.display = 'block';
+
+            // log out all form input values
+            const formData = new FormData(form);
+            for (const [key, value] of formData.entries()) {
+                console.log('Form data key value pair:');
+                console.log(key, value);
+            }
+
+            // Reset the success message after roughly 8 seconds
+            setTimeout(() => {
+                formLog.innerHTML = '';
+                formLog.style.display = 'none';
+            }, 8000);
+        });
+
+    </script>
+`;
+
 const createSwitchStory = createStory(Template, defaultArgs);
 
+const createSwitchStoryWithForm = createStory<SwitchProps>(FormTemplate, defaultArgs);
+
 export const Default = createSwitchStory();
+export const FormIntegration = createSwitchStoryWithForm({ label: 'Click me' });
