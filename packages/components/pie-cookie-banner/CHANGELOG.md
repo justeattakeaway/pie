@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-cookie-banner
 
+## 0.12.0
+
+### Minor Changes
+
+- [Changed] - URLs for the cookie statement and tech list ([#1086](https://github.com/justeattakeaway/pie/pull/1086)) by [@ashleynolan](https://github.com/ashleynolan)
+
 ## 0.11.13
 
 ### Patch Changes
