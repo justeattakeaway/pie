@@ -140,6 +140,9 @@ The `pie-switch` component can be integrated into HTML forms similarly to native
 </form>
 ```
 
+#### Form Validation
+Unlike a native form input, `pie-switch` does not support a `required` attribute. This is due to constraints in how Web Components integrate with forms in the browser. We would suggest that consumers handle this validation themselves in their applications if required.
+
 
 ## Peer Dependencies
 

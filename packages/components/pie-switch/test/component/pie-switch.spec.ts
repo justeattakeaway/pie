@@ -278,4 +278,61 @@ test.describe('Component: `Pie switch`', () => {
             });
         });
     });
+
+    test.describe('Form integrations', () => {
+        test('should be included in the submitted form data', async ({ page }) => {
+            // Arrange
+            const switchName = 'switch';
+            const switchValue = 'someValue';
+
+            await page.evaluate(() => {
+                const formHTML = `
+                <form id="testForm" action="/default-endpoint" method="POST">
+                    <pie-switch id="pieSwitch" name="switch" value="someValue" label="Click me"></pie-switch>
+                    <button id="submitButton" type="submit">Submit</button>
+                </form>
+                `;
+                document.body.innerHTML = formHTML;
+            });
+
+            // Set up the form submission listener
+            await page.evaluate(() => {
+                const form = document.querySelector('#testForm') as HTMLFormElement;
+
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault(); // Prevent the actual submission
+
+                    // Serialize form data
+                    const formData = new FormData(form);
+                    const formDataObj = {};
+
+                    // This is JS - we don't need TS inside these calls
+                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                    // @ts-ignore
+                    formData.forEach((value, key) => { formDataObj[key] = value; });
+
+                    // Append serialized form data as JSON to a hidden element
+                    const dataHolder = document.createElement('div');
+                    dataHolder.id = 'formDataJson';
+                    dataHolder.textContent = JSON.stringify(formDataObj);
+                    dataHolder.style.display = 'none';
+                    document.body.appendChild(dataHolder);
+                });
+            });
+
+            // Fill out the form
+            await page.click('#pieSwitch');
+
+            // Act
+            await page.click('#submitButton');
+
+            // Assert
+            const formDataJson = await page.$eval('#formDataJson', (el) => el.textContent);
+            const formDataObj = JSON.parse(formDataJson || '{}');
+
+            // Check if the switch value is in the form data
+            expect(switchName in formDataObj).toBe(true);
+            expect(formDataObj[switchName]).toBe(switchValue);
+        });
+    });
 });
