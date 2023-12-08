@@ -1,7 +1,7 @@
 import {
     LitElement, html, unsafeCSS, nothing, TemplateResult, PropertyValues,
 } from 'lit';
-import { property } from 'lit/decorators.js';
+import { property, query } from 'lit/decorators.js';
 import { RtlMixin, validPropertyValues, defineCustomElement } from '@justeattakeaway/pie-webc-core';
 import styles from './switch.scss?inline';
 import {
@@ -26,6 +26,9 @@ export class PieSwitch extends RtlMixin(LitElement) implements SwitchProps {
 
     private readonly _internals: ElementInternals;
 
+    @query('input[type="checkbox"]')
+    private input?: HTMLInputElement;
+
     constructor () {
         super();
         this._internals = this.attachInternals();
@@ -33,11 +36,8 @@ export class PieSwitch extends RtlMixin(LitElement) implements SwitchProps {
 
     protected firstUpdated (_changedProperties: PropertyValues<this>): void {
         super.firstUpdated(_changedProperties);
-        if (this.checked) {
-            this._internals.setFormValue(this.value);
-        } else {
-            this._internals.setFormValue(null);
-        }
+
+        this.handleFormAssociation();
     }
 
     @property({ type: String })
@@ -53,6 +53,9 @@ export class PieSwitch extends RtlMixin(LitElement) implements SwitchProps {
     @property({ type: Boolean, reflect: true })
     public checked = false;
 
+    @property({ type: Boolean, reflect: true })
+    public required = false;
+
     @property({ type: String })
     public value = 'on';
 
@@ -63,6 +66,20 @@ export class PieSwitch extends RtlMixin(LitElement) implements SwitchProps {
     public isDisabled = false;
 
     static styles = unsafeCSS(styles);
+
+    private handleFormAssociation () : void {
+        // TODO: Dynamic disabling, update association
+        const isFormAssociated = !!this._internals.form && !!this.name && !!this.value && !this.isDisabled;
+        if (isFormAssociated) {
+            if (this.checked) {
+                this._internals.setFormValue(this.value);
+                this._internals.setValidity({});
+            } else {
+                this._internals.setFormValue(null);
+                this._internals.setValidity(this.validity, this.validationMessage, this.input);
+            }
+        }
+    }
 
     /**
      * The onChange function updates the checkbox state and emits an event for consumers.
@@ -80,17 +97,25 @@ export class PieSwitch extends RtlMixin(LitElement) implements SwitchProps {
         );
 
         this.dispatchEvent(changedEvent);
+        this.handleFormAssociation();
+    }
 
-        // If we do not have a form, name and value, we cannot set the form value.
-        const isFormAssociated = this._internals.form && this.name && this.value;
+    public checkValidity (): boolean {
+        return (this.input as HTMLInputElement).checkValidity();
+    }
 
-        if (isFormAssociated) {
-            if (this.checked) {
-                this._internals.setFormValue(this.value);
-            } else {
-                this._internals.setFormValue(null);
-            }
-        }
+    public reportValidity (): boolean {
+        console.log('reporting validity');
+        return this._internals.reportValidity();
+        // return (this.input as HTMLInputElement).reportValidity();
+    }
+
+    public get validity (): ValidityState {
+        return (this.input as HTMLInputElement).validity;
+    }
+
+    public get validationMessage (): string {
+        return (this.input as HTMLInputElement).validationMessage;
     }
 
     /**
@@ -119,6 +144,7 @@ export class PieSwitch extends RtlMixin(LitElement) implements SwitchProps {
             labelPlacement,
             aria,
             checked,
+            required,
             isDisabled,
             isRTL,
         } = this;
@@ -141,6 +167,7 @@ export class PieSwitch extends RtlMixin(LitElement) implements SwitchProps {
                         role="switch"
                         type="checkbox"
                         class="c-switch-input"
+                        .required=${required}
                         .checked="${checked}"
                         .disabled="${isDisabled}"
                         @change="${this.onChange}"

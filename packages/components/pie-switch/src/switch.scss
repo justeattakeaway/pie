@@ -85,8 +85,17 @@
 }
 
 .c-switch-input {
-    appearance: none;
-    margin: 0;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    bottom: 0;
 
     &:disabled {
         background-color: transparent;

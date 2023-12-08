@@ -118,6 +118,7 @@ const Template : TemplateFunction<SwitchProps> = (props) => {
             label="${label || nothing}"
             labelPlacement="${label && labelPlacement ? labelPlacement : nothing}"
             .aria="${aria}"
+            required
             ?checked="${checked}"
             ?isDisabled="${isDisabled}"
             @change="${changeAction}">
@@ -142,8 +143,12 @@ const FormTemplate: TemplateFunction<SwitchProps> = (props: SwitchProps) => html
         const form = document.querySelector('#testForm');
         const formLog = document.querySelector('#formLog');
 
+        const el = document.querySelector('pie-switch');
+
         form.addEventListener('submit', (e) => {
             e.preventDefault();
+
+            el.checkValidity();
 
             formLog.innerHTML = 'Form submitted!';
             formLog.style.display = 'block';

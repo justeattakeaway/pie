@@ -17,7 +17,11 @@ export interface SwitchProps {
      */
     checked?: boolean;
     /**
-     * Same as the HTML checked attribute - indicates whether the switch disabled or not
+     * Same as the HTML required attribute - indicates whether the switch must be turned or not
+     */
+    required: boolean;
+    /**
+     * Same as the HTML disabled attribute - indicates whether the switch disabled or not
      */
     isDisabled?: boolean;
     /**
