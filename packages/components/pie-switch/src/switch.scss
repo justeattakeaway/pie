@@ -60,7 +60,7 @@
         background-color: hsl(var(--dt-color-interactive-form-h), var(--dt-color-interactive-form-s), calc(var(--dt-color-interactive-form-l) - var(--dt-color-active-01)));
     }
 
-    &[isChecked] {
+    &[checked] {
         @include switch-transition(background-color);
         background-color: var(--switch-bg-color--checked);
 

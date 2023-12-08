@@ -75,7 +75,7 @@ import '@justeattakeaway/pie-switch';
 #### index.html
 Then, having imported `main.js` into your HTML file, you can use the component:
 ```html
-<pie-switch id="switch" isChecked label="Label" labelPlacement="trailing"></pie-switch>
+<pie-switch id="switch" checked label="Label" labelPlacement="trailing"></pie-switch>
 
 <script>
 document.querySelector('#switch').addEventListener('change', (event) => {
@@ -113,7 +113,7 @@ Note that as the component has already been registered in the browser, you don't
 </script>
 
 <template>
-  <pie-switch isChecked label="Label" labelPlacement="trailing" @change="handleChange"></pie-switch>
+  <pie-switch checked label="Label" labelPlacement="trailing" @change="handleChange"></pie-switch>
 </template>
 ```
 
@@ -121,7 +121,7 @@ Note that as the component has already been registered in the browser, you don't
 ```jsx
 import { PieSwitch } from '@justeattakeaway/pie-switch/dist/react';
 
-<PieSwitch isChecked label="Label" labelPlacement="trailing" onChange={handleChange}></PieSwitch>
+<PieSwitch checked label="Label" labelPlacement="trailing" onChange={handleChange}></PieSwitch>
 ```
 
 {% notification {
@@ -129,6 +129,16 @@ import { PieSwitch } from '@justeattakeaway/pie-switch/dist/react';
   iconName: "link",
   message: "For more examples, see [here](https://github.com/justeattakeaway/pie-aperture/tree/main)."
 } %}
+
+### Form integration
+The `pie-switch` component can be integrated into HTML forms similarly to native HTML input elements. The component will associate itself with any form it is placed inside. As long as you provide a `name` attribute, the component will be included in the form's submission payload. A `value` attribute can also be provided, but if not then it will have a default value of `on`.
+
+```html
+<form action="/default-endpoint" method="POST">
+  <pie-switch name="switch" value="someValue" label="Click me"></pie-switch>
+  <button type="submit">Submit</button>
+</form>
+```
 
 
 ## Peer Dependencies

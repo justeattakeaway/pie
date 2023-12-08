@@ -16,7 +16,7 @@ test.describe('Component: `Pie switch`', () => {
         // Arrange
         await mount(PieSwitch, {
             props: {
-                isChecked: false,
+                checked: false,
                 isDisabled: false,
             },
         });
@@ -85,7 +85,7 @@ test.describe('Component: `Pie switch`', () => {
                 // Arrange
                 const component = await mount(PieSwitch, {
                     props: {
-                        isChecked: false,
+                        checked: false,
                     },
                 });
 
@@ -102,7 +102,7 @@ test.describe('Component: `Pie switch`', () => {
                 // Arrange
                 const component = await mount(PieSwitch, {
                     props: {
-                        isChecked: true,
+                        checked: true,
                     },
                 });
 
@@ -159,7 +159,7 @@ test.describe('Component: `Pie switch`', () => {
                     props: {
                         label: 'Label',
                         labelPlacement: 'leading',
-                        isChecked: true,
+                        checked: true,
                     } as SwitchProps,
                 });
 

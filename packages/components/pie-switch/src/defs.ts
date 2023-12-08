@@ -15,7 +15,7 @@ export interface SwitchProps {
     /**
      * Same as the HTML checked attribute - indicates whether the switch is on or off
      */
-    isChecked?: boolean;
+    checked?: boolean;
     /**
      * Same as the HTML checked attribute - indicates whether the switch disabled or not
      */
@@ -28,6 +28,14 @@ export interface SwitchProps {
      * The placement of the label such as leading or trailing
      */
     labelPlacement?: LabelPlacement;
+    /**
+     * Same as the HTML name attribute - indicates the name of the switch (for use with forms)
+     */
+    name?: string;
+    /**
+     * Same as the HTML value attribute - indicates the value of the switch (for use with forms). Defaults to 'on'.
+     */
+    value: string;
 }
 
 /**

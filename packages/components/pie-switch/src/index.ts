@@ -1,5 +1,5 @@
 import {
-    LitElement, html, unsafeCSS, nothing, TemplateResult,
+    LitElement, html, unsafeCSS, nothing, TemplateResult, PropertyValues,
 } from 'lit';
 import { property } from 'lit/decorators.js';
 import { RtlMixin, validPropertyValues, defineCustomElement } from '@justeattakeaway/pie-webc-core';
@@ -31,6 +31,15 @@ export class PieSwitch extends RtlMixin(LitElement) implements SwitchProps {
         this._internals = this.attachInternals();
     }
 
+    protected firstUpdated (_changedProperties: PropertyValues<this>): void {
+        super.firstUpdated(_changedProperties);
+        if (this.checked) {
+            this._internals.setFormValue(this.value);
+        } else {
+            this._internals.setFormValue(null);
+        }
+    }
+
     @property({ type: String })
     public label?: string;
 
@@ -42,22 +51,13 @@ export class PieSwitch extends RtlMixin(LitElement) implements SwitchProps {
     public aria!: AriaProps;
 
     @property({ type: Boolean, reflect: true })
-    public isChecked = false;
+    public checked = false;
 
     @property({ type: String })
     public value = 'on';
 
     @property({ type: String })
     public name?: string;
-
-    /**
-     * This getter wraps the `isChecked` property to mimic native behaviour for the `change` event.
-     * You can access this with `event.target.checked` when listening to the `change` event.
-     * @returns The value of the property `isChecked`.
-     */
-    public get checked () {
-        return this.isChecked;
-    }
 
     @property({ type: Boolean, reflect: true })
     public isDisabled = false;
@@ -70,7 +70,7 @@ export class PieSwitch extends RtlMixin(LitElement) implements SwitchProps {
      */
     onChange (event: Event) {
         const { checked } = event?.currentTarget as HTMLInputElement;
-        this.isChecked = checked;
+        this.checked = checked;
         const changedEvent = new CustomEvent(
             ON_SWITCH_CHANGED_EVENT,
             {
@@ -81,9 +81,10 @@ export class PieSwitch extends RtlMixin(LitElement) implements SwitchProps {
 
         this.dispatchEvent(changedEvent);
 
-        // name attribute required for this to work
-        // combine checked and isChecked
-        if (this._internals.form) {
+        // If we do not have a form, name and value, we cannot set the form value.
+        const isFormAssociated = this._internals.form && this.name && this.value;
+
+        if (isFormAssociated) {
             if (this.checked) {
                 this._internals.setFormValue(this.value);
             } else {
@@ -117,7 +118,7 @@ export class PieSwitch extends RtlMixin(LitElement) implements SwitchProps {
         const {
             labelPlacement,
             aria,
-            isChecked,
+            checked,
             isDisabled,
             isRTL,
         } = this;
@@ -133,20 +134,20 @@ export class PieSwitch extends RtlMixin(LitElement) implements SwitchProps {
                 <label
                     data-test-id="switch-component"
                     class="c-switch"
-                    ?isChecked=${isChecked}>
+                    ?checked=${checked}>
                     <input
                         id="switch"
                         data-test-id="switch-input"
                         role="switch"
                         type="checkbox"
                         class="c-switch-input"
-                        .checked="${isChecked}"
+                        .checked="${checked}"
                         .disabled="${isDisabled}"
                         @change="${this.onChange}"
                         aria-label="${aria?.label || nothing}"
                         aria-describedby="${aria?.describedBy ? switchId : nothing}">
                     <div class="c-switch-control">
-                        ${isChecked ? html`<icon-check></icon-check>` : nothing}
+                        ${checked ? html`<icon-check></icon-check>` : nothing}
                     </div>
                 </label>
                 ${aria?.describedBy ? html`<div id="${switchId}" data-test-id="${switchId}" class="c-switch-description">${aria?.describedBy}</div>` : nothing}

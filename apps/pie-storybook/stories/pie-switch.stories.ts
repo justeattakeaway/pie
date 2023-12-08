@@ -13,7 +13,7 @@ import { createStory, type TemplateFunction } from '../utilities';
 type SwitchStoryMeta = StoryMeta<SwitchProps>;
 
 const defaultArgs: SwitchProps = {
-    isChecked: false,
+    checked: false,
     isDisabled: false,
     label: 'Label',
     labelPlacement: 'leading',
@@ -21,13 +21,15 @@ const defaultArgs: SwitchProps = {
         label: 'switch label',
         describedBy: 'switch description',
     },
+    name: 'switch',
+    value: 'switchValue',
 };
 
 const switchStoryMeta: SwitchStoryMeta = {
     title: 'Switch',
     component: 'pie-switch',
     argTypes: {
-        isChecked: {
+        checked: {
             description: 'Same as the HTML checked attribute - indicates whether the switch is on or off',
             control: 'boolean',
             defaultValue: {
@@ -63,6 +65,24 @@ const switchStoryMeta: SwitchStoryMeta = {
             description: 'The ARIA labels used for the switch.',
             control: 'object',
         },
+        name: {
+            description: 'Same as the HTML name attribute - indicates the name of the switch (for use with forms)',
+            control: {
+                type: 'text',
+                defaultValue: {
+                    summary: 'switch',
+                },
+            },
+        },
+        value: {
+            description: 'Same as the HTML value attribute - indicates the value of the switch (for use with forms). Defaults to "on".',
+            control: {
+                type: 'text',
+                defaultValue: {
+                    summary: 'on',
+                },
+            },
+        },
     },
     args: defaultArgs,
     parameters: {
@@ -82,21 +102,23 @@ const changeAction = (event: Event) => action('change')({
 const Template : TemplateFunction<SwitchProps> = (props) => {
     const {
         aria,
-        isChecked,
+        checked,
         isDisabled,
         label,
         labelPlacement,
+        name,
+        value,
     } = props;
 
     return html`
         <pie-switch
             id="pie-switch"
-            name="pie-switch"
-            value="someValue"
+            name="${name || nothing}"
+            value="${value || nothing}"
             label="${label || nothing}"
             labelPlacement="${label && labelPlacement ? labelPlacement : nothing}"
             .aria="${aria}"
-            ?isChecked="${isChecked}"
+            ?checked="${checked}"
             ?isDisabled="${isDisabled}"
             @change="${changeAction}">
         </pie-switch>`;
@@ -106,29 +128,20 @@ const FormTemplate: TemplateFunction<SwitchProps> = (props: SwitchProps) => html
     <p id="formLog" style="display: none; font-size: 2rem; color: var(--dt-color-support-positive);"></p>
     <h2>Fake form</h2>
     <form id="testForm">
-        <p>Required fields are followed by <strong><span aria-label="required">*</span></strong>.</p>
-        <section>
-            <h2>Contact information</h2>
-            <p>
-                <label for="name">
-                    <span>Name: </span>
-                    <strong><span aria-label="required">*</span></strong>
-                </label>
-                <input type="text" id="name" name="username" required />
-            </p>
-        </section>
+    <p>Required fields are followed by <strong><span aria-label="required">*</span></strong>.</p>
 
-        <section>
-            ${Template({
+    <section>
+    ${Template({
     ...props,
 })}
-        </section>
-        <button type="submit">Submit</button>
+    </section>
+    <button type="submit">Submit</button>
     </form>
     <script>
         // Display a success message to the user when they submit the form
         const form = document.querySelector('#testForm');
         const formLog = document.querySelector('#formLog');
+
         form.addEventListener('submit', (e) => {
             e.preventDefault();
 
@@ -137,9 +150,11 @@ const FormTemplate: TemplateFunction<SwitchProps> = (props: SwitchProps) => html
 
             // log out all form input values
             const formData = new FormData(form);
-            for (const [key, value] of formData.entries()) {
-                console.log('Form data key value pair:');
-                console.log(key, value);
+            console.log('All form elements:', form.elements);
+            console.log('All form element data keys and values submitted:');
+
+            for (const entry of formData.entries()) {
+                console.table(entry);
             }
 
             // Reset the success message after roughly 8 seconds
@@ -148,7 +163,6 @@ const FormTemplate: TemplateFunction<SwitchProps> = (props: SwitchProps) => html
                 formLog.style.display = 'none';
             }, 8000);
         });
-
     </script>
 `;
 
