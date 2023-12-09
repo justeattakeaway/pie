@@ -25,12 +25,6 @@
     // currently this sets the primary button styles
     --btn-bg-color: var(--dt-color-interactive-brand);
     --btn-text-color: var(--dt-color-content-interactive-primary);
-
-    // Heights for the different button sizes
-    --btn-height--xsmall: 32px;
-    --btn-height--small: 40px;
-    --btn-height--medium: 48px;
-    --btn-height--large: 56px;
     --icon-display-override: block;
 
     /**
@@ -39,31 +33,26 @@
     */
     @mixin button-size($size) {
         @if $size == 'xsmall' {
-            --btn-height: var(--btn-height--xsmall);
             --btn-padding: 6px var(--dt-spacing-b);
             --btn-font-size: #{p.font-size(--dt-font-size-14)};
             --btn-line-height: calc(var(--dt-font-size-14-line-height) * 1px);
             --icon-size-override: 16px;
         } @else if $size == 'small-expressive' {
-            --btn-height: var(--btn-height--small);
             --btn-padding: 6px var(--dt-spacing-d);
             --btn-font-size: #{p.font-size(--dt-font-size-20)};
             --btn-line-height: calc(var(--dt-font-size-20-line-height) * 1px);
             --icon-size-override: 20px;
         } @else if $size == 'small-productive' {
-            --btn-height: var(--btn-height--small);
             --btn-padding: 8px var(--dt-spacing-d);
             --btn-font-size: #{p.font-size(--dt-font-size-16)};
             --btn-line-height: calc(var(--dt-font-size-16-line-height) * 1px);
             --icon-size-override: 20px;
         } @else if $size == 'medium' {
-            --btn-height: var(--btn-height--medium);
             --btn-padding: 10px var(--dt-spacing-e);
             --btn-font-size: #{p.font-size(--dt-font-size-20)};
             --btn-line-height: calc(var(--dt-font-size-20-line-height) * 1px);
             --icon-size-override: 24px;
         } @else if $size == 'large' {
-            --btn-height: var(--btn-height--large);
             --btn-padding: 14px var(--dt-spacing-e);
             --btn-font-size: #{p.font-size(--dt-font-size-20)};
             --btn-line-height: calc(var(--dt-font-size-20-line-height) * 1px);
@@ -76,7 +65,7 @@
     gap: var(--dt-spacing-b);
     align-items: center;
     justify-content: center;
-    height: var(--btn-height);
+    box-sizing: border-box;
     padding: var(--btn-padding);
     border: none;
     border-radius: var(--btn-border-radius);
@@ -275,6 +264,14 @@
     &:focus-visible {
         @include p.focus;
     }
+}
+
+// The inner span for the button text is needed to handle the text-overflow
+// Without this, single word overflow wouldn't be possible in combination
+// with display: flex.
+.o-btn-text {
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 // Used to size an SVG if one is passed in (when not using the component icons)
