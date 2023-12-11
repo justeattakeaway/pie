@@ -28,7 +28,7 @@ jobs:
             const repo = context.repo.repo;
 
             // List environments
-            const environments = await github.rest.repos.listEnvironments({
+            const environments = await github.rest.repos.getAllEnvironments({
               owner: owner,
               repo: repo,
             });
