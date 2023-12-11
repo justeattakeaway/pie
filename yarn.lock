@@ -5717,7 +5717,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-cookie-banner@0.11.13, @justeattakeaway/pie-cookie-banner@workspace:packages/components/pie-cookie-banner":
+"@justeattakeaway/pie-cookie-banner@0.12.0, @justeattakeaway/pie-cookie-banner@workspace:packages/components/pie-cookie-banner":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-cookie-banner@workspace:packages/components/pie-cookie-banner"
   dependencies:
@@ -17366,9 +17366,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"danger@npm:11.3.0":
-  version: 11.3.0
-  resolution: "danger@npm:11.3.0"
+"danger@npm:11.3.1":
+  version: 11.3.1
+  resolution: "danger@npm:11.3.1"
   dependencies:
     "@gitbeaker/core": ^35.8.1
     "@gitbeaker/node": ^35.8.1
@@ -17418,7 +17418,7 @@ __metadata:
     danger-process: distribution/commands/danger-process.js
     danger-reset-status: distribution/commands/danger-reset-status.js
     danger-runner: distribution/commands/danger-runner.js
-  checksum: d691edee1f677e48b173ba163314c385968d5967824467d6ee2a5ab3076a543981b85a3bd281c23dbd953d67f11fb1d0d9c07f8af1d29fc2438c3d3e12d9799e
+  checksum: a8d99e6b864bdd3b6bdd8ebd66c9cb06fa9e61eac6295798ce4f6cb4c6d9e33484b38699dff6cd980ff5ead3e18967a4761f347ddcd16cdfe851f2d8e0601425
   languageName: node
   linkType: hard
 
@@ -29104,7 +29104,7 @@ __metadata:
     cross-env: 7.0.3
     cssnano: 5.1.15
     cz-customizable: 7.0.0
-    danger: 11.3.0
+    danger: 11.3.1
     dree: 3.4.5
     eslint: 8.37.0
     eslint-plugin-import: 2.27.5
@@ -29141,7 +29141,7 @@ __metadata:
     "@justeat/pie-design-tokens": 5.9.0
     "@justeattakeaway/pie-button": 0.41.0
     "@justeattakeaway/pie-card": 0.14.3
-    "@justeattakeaway/pie-cookie-banner": 0.11.13
+    "@justeattakeaway/pie-cookie-banner": 0.12.0
     "@justeattakeaway/pie-css": 0.9.0
     "@justeattakeaway/pie-divider": 0.9.3
     "@justeattakeaway/pie-form-label": 0.8.3
@@ -38091,7 +38091,7 @@ __metadata:
     "@babel/preset-env": 7.21.4
     "@babel/preset-react": 7.18.6
     "@justeattakeaway/pie-button": 0.41.0
-    "@justeattakeaway/pie-cookie-banner": 0.11.13
+    "@justeattakeaway/pie-cookie-banner": 0.12.0
     "@justeattakeaway/pie-css": 0.9.0
     "@lit/react": 1.0.2
     babel-loader: 8
