@@ -6,91 +6,60 @@ on:
 
 concurrency: preview-teardown-${{ github.ref }}
 
-env:
-  DOCS_AMPLIFY_ID: dvskdcoepjoyf
-  STORYBOOK_AMPLIFY_ID: d17ja0ul7nrdy0
-
 jobs:
-
-  check-change-type:
-    name: Get change type
+  list-environments:
     runs-on: ubuntu-latest
     outputs:
-      pie-docs-change: ${{ steps.docs-check.outputs.docs-change }}
-      web-components-change: ${{ steps.component-check.outputs.web-components-change }}
-      storybook-change: ${{ steps.storybook-check.outputs.storybook-change }}
+      hasDocsEnv: ${{ steps.list-environments.outputs.hasDocsEnv }}
+      hasStorybookEnv: ${{ steps.list-environments.outputs.hasStorybookEnv }}
     steps:
-      # Checkout the Repo
       - name: Checkout
         uses: actions/checkout@v3
+
+      - name: List repo environments
+        id: list-environments
+        uses: actions/github-script@v6
+        env:
+          GITHUB_TOKEN: ${{ secrets.CHANGESETS_TOKEN }}
         with:
-          fetch-depth: 0
-      # Setup Repo
-      - name: Setup Repo
-        uses: ./.github/actions/setup-repo
-        with:
-          node-version: 20
-          os: ubuntu-latest
-      - name: Verify if pie-docs has changes
-        id: docs-check
-        run: |
-          DOCS_CHANGE=$(npx -y turbo run build --filter='pie-docs[origin/main...HEAD]' --dry=json | jq '.packages | length > 0')
-          echo "Change Detected: $DOCS_CHANGE"
-          echo "docs-change=$DOCS_CHANGE" >> $GITHUB_OUTPUT
-      - name: Verify if web components have changes
-        id: component-check
-        run: |
-          COMPONENT_CHANGE=$(npx -y turbo run build --filter='{./packages/components/*}[origin/main...HEAD]' --dry=json | jq '.packages | length > 0')
-          echo "Change Detected: $COMPONENT_CHANGE"
-          echo "web-components-change=$COMPONENT_CHANGE" >> $GITHUB_OUTPUT
-      - name: Verify if storybook has changes
-        id: storybook-check
-        run: |
-          STORYBOOK_CHANGE=$(npx -y turbo run build --filter='pie-storybook[origin/main...HEAD]' --dry=json | jq '.packages | length > 0')
-          echo "Change Detected: $STORYBOOK_CHANGE"
-          echo "storybook-change=$STORYBOOK_CHANGE" >> $GITHUB_OUTPUT
+          script: |
+            const pull_number = context.issue.number;
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
 
-  install:
-    runs-on: ubuntu-latest
-    permissions: write-all
+            // List environments
+            const environments = await github.rest.repos.listEnvironments({
+              owner: owner,
+              repo: repo,
+            });
 
-    steps:
-      # Checkout the repo
-      - name: Checkout
-        uses: actions/checkout@v3
+            const envList = environments.data.environments.map(env => env.name);
 
-  preview-teardown-docs:
-    needs: [install, check-change-type]
-    runs-on: ubuntu-latest
-    if: needs.check-change-type.outputs.pie-docs-change == 'true' 
-    steps:
-      # Checkout the repo
-      - name: Checkout
-        uses: actions/checkout@v3
-      # Tear down docs preview
-      - name: Amplify Teardown (Docs)
+            // Check for existence of specific environments
+            const hasDocsEnv = envList.includes(`pie-docs-pr-${pull_number}`);
+            const hasStorybookEnv = envList.includes(`pie-storybook-pr-${pull_number}`);
+
+            core.setOutput('hasDocsEnv', hasDocsEnv);
+            core.setOutput('hasStorybookEnv', hasStorybookEnv);
+
+      - name: Delete associated docs environments
+        if: steps.list-environments.outputs.hasDocsEnv == true
         uses: ./.github/actions/amplify-teardown
         with:
-          amplify-app-id: ${{ env.DOCS_AMPLIFY_ID }}
+          amplify-app-id: dvskdcoepjoyf
           aws-region: 'eu-west-1'
           aws-access-key-id: ${{ secrets.AWS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          environment-name: pie-docs-pr${{ github.event.number }}
           branch-name: 'pr${{ github.event.number }}'
 
-  preview-teardown-storybook:
-    needs: [install, check-change-type]
-    runs-on: ubuntu-latest
-    if: needs.check-change-type.outputs.web-components-change == 'true' || needs.check-change-type.outputs.storybook-change == 'true'
-    steps:
-      # Checkout the repo
-      - name: Checkout
-        uses: actions/checkout@v3
-      # Tear down storybook preview
-      - name: Amplify Teardown (Storybook)
+      - name: Delete associated storybook environment
+        if: steps.list-environments.outputs.hasStorybookEnv == true
         uses: ./.github/actions/amplify-teardown
         with:
-          amplify-app-id: ${{ env.STORYBOOK_AMPLIFY_ID }}
+          amplify-app-id: d17ja0ul7nrdy0
           aws-region: 'eu-west-1'
           aws-access-key-id: ${{ secrets.AWS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          environment-name: pie-storybook-pr${{ github.event.number }}
           branch-name: 'pr${{ github.event.number }}'
