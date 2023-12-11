@@ -25,6 +25,10 @@
         min-width: fit-content;
     }
 
+    .c-componentDetailsTable-cellHasMinWidth {
+        min-width: 301px;
+    }
+
     th:not(.c-componentDetailsTable-heading--priority),
     td {
         width: 0;
