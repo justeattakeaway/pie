@@ -6,6 +6,10 @@
       "managePreferences": "Administrer præferencer",
       "necessaryOnly": "Kun nødvendige",
       "acceptAll": "Accepter alle"
+    },
+    "links": {
+      "cookieStatement": "cookie-erklaering",
+      "cookieTechnologies": "teknologier"
     }
   },
   "preferencesManagement": {
