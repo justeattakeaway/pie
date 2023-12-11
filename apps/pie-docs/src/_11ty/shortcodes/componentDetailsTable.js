@@ -23,7 +23,8 @@ const buildRow = (cells) => cells.map((cell) => {
     } else if (typeof cell === 'string') {
         content = md.renderInline(cell);
     }
-    return `<td>${content}</td>`;
+
+    return `<td ${content.length > 30 ? "class='c-componentDetailsTable-cellHasMinWidth'" : ''}>${content}</td>`;
 }).join('');
 
 /**
