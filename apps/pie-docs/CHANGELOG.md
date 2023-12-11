@@ -1,5 +1,13 @@
 # Changelog
 
+## 3.19.1
+
+### Patch Changes
+
+- [Added] - Storybook action for `pie-switch` `change` event. ([#1084](https://github.com/justeattakeaway/pie/pull/1084)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Changed] - Update `/components/switch/code` documentation page.
+
 ## 3.19.0
 
 ### Minor Changes
