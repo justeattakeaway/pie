@@ -12,6 +12,7 @@ const buildRow = (cells) => cells.map((cell) => {
     }
 
     let content = cell;
+    let hasMinWidth = cell.item?.length > 30;
 
     if (cell.type === 'token') {
         content = `<span class="c-componentDetailsTable-token">${cell.item}</span>`;
@@ -21,10 +22,11 @@ const buildRow = (cells) => cells.map((cell) => {
     } else if (cell.type === 'code') {
         content = cell.item.map((element) => `<code>${element}</code><br>`).join('');
     } else if (typeof cell === 'string') {
+        hasMinWidth = cell.length > 30;
         content = md.renderInline(cell);
     }
 
-    return `<td ${content.length > 30 ? "class='c-componentDetailsTable-cellHasMinWidth'" : ''}>${content}</td>`;
+    return `<td ${hasMinWidth ? "class='c-componentDetailsTable-cellHasMinWidth'" : ''}>${content}</td>`;
 }).join('');
 
 /**
@@ -72,7 +74,7 @@ module.exports = ({
     return `<div class="c-componentDetailsTable-backdrop">
     <table class="c-componentDetailsTable ${hasWidePadding ? 'c-componentDetailsTable-hasWidePadding' : ''}">
     ${headings
-        ? `<tr>${headings.map((heading, index) => `<th>${heading}</th>`).join('')}</tr>`
+        ? `<tr>${headings.map((heading) => `<th>${heading}</th>`).join('')}</tr>`
         : ''
     }
     ${rows.map((row) => {
