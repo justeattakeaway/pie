@@ -43,7 +43,7 @@ jobs:
             core.setOutput('hasStorybookEnv', hasStorybookEnv);
 
       - name: Delete associated docs environments
-        if: steps.list-environments.outputs.hasDocsEnv == true
+        if: steps.list-environments.outputs.hasDocsEnv == 'true'
         uses: ./.github/actions/amplify-teardown
         with:
           amplify-app-id: dvskdcoepjoyf
@@ -54,7 +54,7 @@ jobs:
           branch-name: 'pr${{ github.event.number }}'
 
       - name: Delete associated storybook environment
-        if: steps.list-environments.outputs.hasStorybookEnv == true
+        if: steps.list-environments.outputs.hasStorybookEnv == 'true'
         uses: ./.github/actions/amplify-teardown
         with:
           amplify-app-id: d17ja0ul7nrdy0
