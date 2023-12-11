@@ -1,3 +1,5 @@
+const md = require('../../_utilities/markdown');
+
 /**
  * Build a row of a table based on cell data.
  *
@@ -10,6 +12,8 @@ const buildRow = (cells) => cells.map((cell) => {
     }
 
     let content = cell;
+    let hasMinWidth = cell.item?.length > 30;
+
     if (cell.type === 'token') {
         content = `<span class="c-componentDetailsTable-token">${cell.item}</span>`;
     } else if (cell.type === 'image') {
@@ -17,9 +21,12 @@ const buildRow = (cells) => cells.map((cell) => {
         content = `<img src=${src} alt=${alt}>`;
     } else if (cell.type === 'code') {
         content = cell.item.map((element) => `<code>${element}</code><br>`).join('');
+    } else if (typeof cell === 'string') {
+        hasMinWidth = cell.length > 30;
+        content = md.renderInline(cell);
     }
 
-    return `<td ${content.length > 30 ? "class='c-componentDetailsTable-cellHasMinWidth'" : ''}>${content}</td>`;
+    return `<td ${hasMinWidth ? "class='c-componentDetailsTable-cellHasMinWidth'" : ''}>${content}</td>`;
 }).join('');
 
 /**
@@ -60,20 +67,16 @@ const buildRow = (cells) => cells.map((cell) => {
  */
 module.exports = ({
     tableData,
-    priority,
 }) => {
     const { headings, rows } = JSON.parse(tableData);
     const hasWidePadding = headings?.length <= 3;
 
     return `<div class="c-componentDetailsTable-backdrop">
     <table class="c-componentDetailsTable ${hasWidePadding ? 'c-componentDetailsTable-hasWidePadding' : ''}">
-    ${headings ? `<tr>${headings.map((heading, index) => {
-        const isPriorityColumn = priority && priority === index;
-        return (
-            `<th class="${isPriorityColumn ? 'c-componentDetailsTable-heading--priority' : ''}">${heading}</th>`
-        );
-    }).join('')}
-    </tr>` : ''}
+    ${headings
+        ? `<tr>${headings.map((heading) => `<th>${heading}</th>`).join('')}</tr>`
+        : ''
+    }
     ${rows.map((row) => {
         const shouldHideTopBorder = row[0] === '';
 

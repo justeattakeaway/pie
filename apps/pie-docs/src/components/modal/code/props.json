@@ -1,0 +1,190 @@
+{
+    "headings": ["Prop", "Options", "Description", "Default"],
+    "rows": [
+        [
+            "aria",
+            {
+                "type": "code",
+                "item": []
+            },
+            "An object representing the aria labels for the `close` & `back` buttons within the modal as well as the `isLoading` state labels (`aria-label` & `aria-busy`)."
+        ],
+        [
+            "hasBackButton",
+            {
+                "type": "code",
+                "item": ["true", "false"]
+            },
+            "If true, the modal includes a back button which closes the modal when clicked.",
+            {
+                "type": "code",
+                "item": ["false"]
+            }
+        ],
+        [
+            "hasStackedActions",
+            {
+                "type": "code",
+                "item": [
+                  "false",
+                  "true"
+                ]
+            },
+            "If true, the action buttons will be stacked (full width) at narrow breakpoints.",
+            {
+                "type": "code",
+                "item": ["false"]
+            }
+        ],
+        [
+            "heading",
+            {
+                "type": "code",
+                "item": []
+            },
+            "The heading text of the modal."
+        ],
+        [
+            "headingLevel",
+            {
+                "type": "code",
+                "item": ["h1", "h2", "h3", "h4", "h5", "h6"]
+            },
+            "The HTML tag to use for the modal's heading",
+            {
+                "type": "code",
+                "item": ["h2"]
+            }
+        ],
+        [
+            "isDismissible",
+            {
+                "type": "code",
+                "item": ["true", "false"]
+            },
+            "If true, the modal includes a close button and can be dismissed by clicking on the backdrop or pressing the `Esc` key.",
+            {
+                "type": "code",
+                "item": ["false"]
+            }
+        ],
+        [
+            "isFooterPinned",
+            {
+                "type": "code",
+                "item": [
+                  "false",
+                  "true"
+                ]
+              },
+              "When false, the modal footer will scroll with the content inside the modal body.",
+              {
+                "type": "code",
+                "item": [
+                  "true"
+                ]
+              }
+        ],
+        [
+            "isFullWidthBelowMid",
+            {
+              "type": "code",
+              "item": [
+                "false",
+                "true"
+              ]
+            },
+            "If true and the page is narrower than the mid breakpoint, a **medium-sized** modal will take up the full width of the screen.",
+            {
+              "type": "code",
+              "item": [
+                "false"
+              ]
+            }
+        ],
+        [
+            "isLoading",
+            {
+              "type": "code",
+              "item": [
+                "false",
+                "true"
+              ]
+            },
+            "When true, displays a loading spinner in the modal",
+            {
+              "type": "code",
+              "item": [
+                "false"
+              ]
+            }
+        ],
+        [
+            "isOpen",
+            {
+              "type": "code",
+              "item": [
+                "false",
+                "true"
+              ]
+            },
+            "Controls if the modal element is open or closed",
+            {
+              "type": "code",
+              "item": [
+                "false"
+              ]
+            }
+        ],
+        [
+            "leadingAction",
+            {
+                "type": "code",
+                "item": []
+            },
+            "An object representing the leading action of the modal."
+        ],
+        [
+            "position",
+            {
+                "type": "code",
+                "item": ["top", "center"]
+            },
+            "The position of the modal; this controls where it will appear on the page.",
+            {
+              "type": "code",
+              "item": [
+                "center"
+              ]
+            }
+        ],
+        [
+            "returnFocusAfterCloseSelector",
+            {
+                "type": "code",
+                "item": []
+            },
+            "If provided, focus will be sent to the first element that matches this selector when the modal is closed. If not provided, the `dialog` element will return focus to the element that opened the modal."
+        ],
+        [
+            "size",
+            {
+                "type": "code",
+                "item": ["small", "medium", "large"]
+            },
+            "Determines the maximum width of the modal. Large modals will expand to fill the entire page at narrow viewports.",
+            {
+                "type": "code",
+                "item": ["medium"]
+            }
+        ],
+        [
+            "supportingAction",
+            {
+                "type": "code",
+                "item": []
+            },
+            "An object representing the supporting action of the modal."
+        ]
+    ]
+}
