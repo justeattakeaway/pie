@@ -23,6 +23,7 @@ const defaultArgs: SwitchProps = {
     },
     name: 'switch',
     value: 'switchValue',
+    required: false,
 };
 
 const switchStoryMeta: SwitchStoryMeta = {
@@ -83,6 +84,13 @@ const switchStoryMeta: SwitchStoryMeta = {
                 },
             },
         },
+        required: {
+            description: 'Same as the HTML required attribute - for use in forms',
+            control: 'boolean',
+            defaultValue: {
+                summary: false,
+            },
+        },
     },
     args: defaultArgs,
     parameters: {
@@ -108,6 +116,7 @@ const Template : TemplateFunction<SwitchProps> = (props) => {
         labelPlacement,
         name,
         value,
+        required,
     } = props;
 
     return html`
@@ -118,7 +127,7 @@ const Template : TemplateFunction<SwitchProps> = (props) => {
             label="${label || nothing}"
             labelPlacement="${label && labelPlacement ? labelPlacement : nothing}"
             .aria="${aria}"
-            required
+            ?required="${required}"
             ?checked="${checked}"
             ?isDisabled="${isDisabled}"
             @change="${changeAction}">
@@ -144,6 +153,16 @@ const FormTemplate: TemplateFunction<SwitchProps> = (props: SwitchProps) => html
         const formLog = document.querySelector('#formLog');
 
         const el = document.querySelector('pie-switch');
+        const s = document.querySelector('pie-switch');
+        setTimeout(() => {
+        console.log(s);
+        // console.log('checking the report v value');
+        // s.setCustomValidity('wang it in, son');
+        // console.log(c.reportValidity());
+        // console.log('calling check validity');
+        }, 0);
+
+
 
         form.addEventListener('submit', (e) => {
             e.preventDefault();
