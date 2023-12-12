@@ -51,7 +51,7 @@ jobs:
           aws-region: 'eu-west-1'
           aws-access-key-id: ${{ secrets.AWS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          environment-name: pie-docs-pr${{ github.event.number }}
+          environment-name: pie-docs-pr-${{ github.event.number }}
           branch-name: 'pr${{ github.event.number }}'
 
       - name: Delete associated storybook environment
@@ -63,5 +63,5 @@ jobs:
           aws-region: 'eu-west-1'
           aws-access-key-id: ${{ secrets.AWS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          environment-name: pie-storybook-pr${{ github.event.number }}
+          environment-name: pie-storybook-pr-${{ github.event.number }}
           branch-name: 'pr${{ github.event.number }}'
