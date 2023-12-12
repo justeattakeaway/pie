@@ -31,15 +31,11 @@ runs:
     uses: actions/github-script@v6
     with:
       script: |
-        const owner = context.repo.owner;
-        const repo = context.repo.repo;
-        const envName = ${{ inputs.environment-name }};
-
         try {
           await github.rest.repos.deleteAnEnvironment({
-            owner: owner,
-            repo: repo,
-            environment_name: envName,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            environment_name: ${{ inputs.environment-name }},
           });
           console.log(`Environment ${envName} deleted successfully.`);
         } catch (err) {
