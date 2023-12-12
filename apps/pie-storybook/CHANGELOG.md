@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.53.0
+
+### Minor Changes
+
+- [Added] - pie-tag stories ([#1098](https://github.com/justeattakeaway/pie/pull/1098)) by [@dandel10n](https://github.com/dandel10n)
+
+### Patch Changes
+
+- Updated dependencies [[`1b2618519`](https://github.com/justeattakeaway/pie/commit/1b2618519ab8d1ff9ab477ad6e6f05a605b61410)]:
+  - @justeattakeaway/pie-tag@0.1.0
+
 ## 0.52.5
 
 ### Patch Changes
