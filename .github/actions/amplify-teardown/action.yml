@@ -28,25 +28,11 @@ runs:
   using: composite
   steps:
   - name: Delete associated GitHub environment
-    uses: actions/github-script@v6
+    uses: strumwolf/delete-deployment-environment@v2.2.3
     with:
-      script: |
-        const owner = context.repo.owner;
-        const repo = context.repo.repo;
-        const envName = ${{ inputs.environment-name }};
-
-        try {
-          await github.rest.repos.deleteAnEnvironment({
-            owner: owner,
-            repo: repo,
-            environment_name: envName,
-          });
-          console.log(`Environment ${envName} deleted successfully.`);
-        } catch (err) {
-          console.log(`Failed to delete environment ${envName} with error: ${err}`);
-        }
-    env:
-      GITHUB_TOKEN: ${{ inputs.github-token }}
+      token: ${{ inputs.github-token }}
+      environment: ${{ inputs.environment-name }}
+      ref: ${{ github.ref_name }}
 
   - name: Delete Amplify branch
     shell: bash
