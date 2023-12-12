@@ -75,6 +75,9 @@ pie-switch:
 pie-spinner:
 - "packages/components/pie-spinner/**/*"
 
+pie-tag:
+- "packages/components/pie-tag/**/*"
+
 pie-webc-core:
 - 'packages/components/pie-webc-core/**/*'
 
