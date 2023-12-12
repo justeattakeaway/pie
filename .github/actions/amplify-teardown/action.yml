@@ -32,7 +32,6 @@ runs:
     with:
       token: ${{ inputs.github-token }}
       environment: ${{ inputs.environment-name }}
-      ref: ${{ github.ref_name }}
 
   - name: Delete Amplify branch
     shell: bash
