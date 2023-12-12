@@ -38,24 +38,48 @@ jobs:
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 pull_number: context.issue.number,
-              })
+              });
 
               // Pull request from fork
               if (context.payload.repository.full_name !== pullRequest.data.head.repo.full_name) {
-                const errorMessage = '`/snapit` is not supported on pull requests from forked repositories.'
+                const errorMessage = '`/snapit` is not supported on pull requests from forked repositories.';
 
                 await github.rest.issues.createComment({
                   issue_number: context.issue.number,
                   owner: context.repo.owner,
                   repo: context.repo.repo,
                   body: errorMessage,
-                })
+                });
 
-                core.setFailed(errorMessage)
+                core.setFailed(errorMessage);
               }
             } catch (err) {
-              core.setFailed(`Request failed with error ${err}`)
+              core.setFailed(`Request failed with error ${err}`);
             }
+
+      - name: Add link to build
+        uses: actions/github-script@v6
+        id: build-link
+        env:
+          GITHUB_TOKEN: ${{ secrets.CHANGESETS_TOKEN }}
+        with:
+          script: |
+            try {
+              const buildLink = `${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}`;
+
+              const body = `Starting a new snapshot build. You can view the logs [here](${buildLink}).`;
+
+              await github.rest.issues.createComment({
+                  issue_number: context.issue.number,
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  body,
+                });
+
+            } catch (err) {
+              core.setFailed(`Request failed with error ${err}`);
+            }
+
        # issue_comment event doesn't provide access to head_ref env var.
        # This action provides us with the env vars we need to do a git diff.
        # https://github.com/actions/checkout/issues/331#issuecomment-1242708547
@@ -114,24 +138,26 @@ jobs:
         with:
           github-token: ${{ secrets.CHANGESETS_TOKEN }}
           script: |
-            const execa = require('execa')
+            const execa = require('execa');
 
-            await execa.command('yarn changeset:version --snapshot snapshot-release', { stdio: 'inherit' })
+            await execa.command('yarn changeset:version --snapshot snapshot-release', { stdio: 'inherit' });
 
-            const releaseProcess = execa.command('yarn changeset:publish --no-git-tags --snapshot --tag snapshot-release')
-            releaseProcess.stdout.pipe(process.stdout)
+            const releaseProcess = execa.command('yarn changeset:publish --no-git-tags --snapshot --tag snapshot-release');
+            releaseProcess.stdout.pipe(process.stdout);
 
-            const {stdout} = await releaseProcess
+            const { stdout } = await releaseProcess;
 
             const newTags = Array
               .from(stdout.matchAll(/New tag:\s+([^\s\n]+)/g))
               .map(([_, tag]) => tag)
-              .filter((tag) => !/^wc-.+$|pie-(docs|storybook)/.test(tag))
+              .filter((tag) => !/^wc-.+$|pie-(monorepo|docs|storybook)/.test(tag));
 
-            if (newTags.length) {
-              const multiple = newTags.length > 1
+            let body;
 
-              const body = (
+            if (newTags.length > 0) {
+              const multiple = newTags.length > 1;
+
+              body = (
                 `🫰✨ **Thanks @${context.actor}! ` +
                 `Your snapshot${multiple ? 's have' : ' has'} been published to npm.**\n\n` +
                 `Test the snapshot${multiple ? 's' : ''} by updating your \`package.json\` ` +
@@ -142,24 +168,13 @@ jobs:
                   '```'
                 )).join('\n')
               )
-              await github.rest.issues.createComment({
-                issue_number: context.issue.number,
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                body,
-              })
+            } else {
+              body = `No changed packages found! Please make sure you have added a changeset entry for the packages you would like to snapshot.`
             }
 
-      - name: Add success reaction
-        if: success()
-        uses: peter-evans/create-or-update-comment@v2
-        with:
-          comment-id: ${{ github.event.comment.id }}
-          reactions: rocket
-
-      - name: Add failure reaction
-        if: failure()
-        uses: peter-evans/create-or-update-comment@v2
-        with:
-          comment-id: ${{ github.event.comment.id }}
-          reactions: confused
+            await github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body,
+            });
