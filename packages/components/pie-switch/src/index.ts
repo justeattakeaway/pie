@@ -84,10 +84,11 @@ export class PieSwitch extends RtlMixin(LitElement) implements SwitchProps {
         const isFormAssociated = !!this._internals.form && !!this.name && !!this.value;
         if (isFormAssociated) {
             // If checked and disabled, should the value still be submitted?
-            if (this.checked) {
-                this._internals.setFormValue(this.value);
+            if (this.isDisabled) {
+                this._internals.setFormValue(null);
                 this._internals.setValidity({});
-            } else if (this.isDisabled) {
+            } else if (this.checked) {
+                this._internals.setFormValue(this.value);
                 this._internals.setValidity({});
             } else {
                 this._internals.setFormValue(null);
