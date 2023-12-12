@@ -19,7 +19,7 @@
 
 ## pie-tag
 
-`pie-tag` is a Web Component built using the Lit library.
+`pie-tag` is a Web Component built using the Lit library. A tag is a small visual element used to represent and categorize information within a user interface. 
 
 This component can be easily integrated into various frontend frameworks and customized through a set of properties.
 
@@ -74,16 +74,40 @@ import { PieTag } from '@justeattakeaway/pie-tag/dist/react';
 
 | Property | Type | Default | Description |
 |---|---|---|---|
-| - | - | - | - |
+| size | `String` | `large` | Size of the tag. Can be either `large` or `small` |
+| variant | `String` | `neutral` | Variant of the tag, one of `variants` - `neutral-alternative`, `neutral`, `outline`, `ghost`, `blue`, `green`, `yellow`, `red`, `brand` |
+| isStrong | `Boolean` | `false` | If `true`, displays strong tag styles for `green`, `yellow`, `red`, `blue` and `neutral` variants'|
+
+Since the component is not interactive it doesn't have a disabled property. To give the Tag a disabled look please use `--tag-opacity` css variable. Recommended opacity level for disabled tag is 0.5.
 
 In your markup or JSX, you can then use these to set the properties for the `pie-tag` component:
 
 ```html
 <!-- Native HTML -->
-<pie-tag></pie-tag>
+<pie-tag>Label</pie-tag>
 
 <!-- JSX -->
-<PieTag></PieTag>
+<PieTag>Label</PieTag>
+```
+## Slots
+
+| Slot | Description |
+| Default slot | Used to pass text into the tag component. |
+| icon | Used to pass in an icon to the tag component. We recommend using `pie-icons-webc` for defining this icon, but this can also accept an SVG icon. |
+
+### Using `pie-icons-webc` with `pie-tag` icon slot
+
+We recommend using `pie-icons-webc` when using the `icon` slot. Here is an example of how you would do this:
+
+```html
+<!--
+  Note that pie-tag and the icon that you want to use will need to be imported as components into your application.
+  See the `pie-icons-webc` README for more info on importing these icons.
+-->
+<pie-tag>
+    <icon-vegan slot="icon"></icon-vegan>
+    Vegan
+</pie-tag>
 ```
 
 ## Contributing

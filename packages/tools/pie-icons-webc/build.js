@@ -43,6 +43,12 @@ export class ${name} extends LitElement implements IconProps {
             width: var(--icon-size-override);
             height: var(--icon-size-override);
         }
+
+        :host-context(pie-tag) svg {
+            display: block;
+            width: var(--tag-icon-size);
+            height: var(--tag-icon-size);
+        }
     \`;
 
     @property({ type: String, reflect: true })
