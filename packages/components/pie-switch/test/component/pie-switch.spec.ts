@@ -28,7 +28,7 @@ test.describe('Component: `Pie switch`', () => {
         await expect(pieSwitch).toBeVisible();
     });
 
-    test('should set `isChecked` to `false` by default', async ({ mount }) => {
+    test('should set `checked` to `false` by default', async ({ mount }) => {
         // Arrange
         const component = await mount(PieSwitch);
 
@@ -81,7 +81,7 @@ test.describe('Component: `Pie switch`', () => {
 
     test.describe('component interaction states', () => {
         test.describe('when the component is clicked', () => {
-            test('should set `isChecked` to `true`', async ({ mount, page }) => {
+            test('should set `checked` to `true`', async ({ mount, page }) => {
                 // Arrange
                 const component = await mount(PieSwitch, {
                     props: {
@@ -98,7 +98,7 @@ test.describe('Component: `Pie switch`', () => {
                 expect(pieSwitchComponent).toBe(true);
             });
 
-            test('should set `isChecked` to `false`', async ({ mount, page }) => {
+            test('should set `checked` to `false`', async ({ mount, page }) => {
                 // Arrange
                 const component = await mount(PieSwitch, {
                     props: {
@@ -135,7 +135,7 @@ test.describe('Component: `Pie switch`', () => {
         });
 
         test.describe('when the components label element is clicked', () => {
-            test('should set `isChecked` to `true`', async ({ mount, page }) => {
+            test('should set `checked` to `true`', async ({ mount, page }) => {
                 // Arrange
                 const component = await mount(PieSwitch, {
                     props: {
@@ -153,7 +153,7 @@ test.describe('Component: `Pie switch`', () => {
                 expect(pieSwitchComponent).toBe(true);
             });
 
-            test('should set `isChecked` to `false`', async ({ mount, page }) => {
+            test('should set `checked` to `false`', async ({ mount, page }) => {
                 // Arrange
                 const component = await mount(PieSwitch, {
                     props: {
