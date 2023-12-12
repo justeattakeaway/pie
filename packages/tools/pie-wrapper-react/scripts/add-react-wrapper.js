@@ -102,21 +102,26 @@ export function addReactWrapper (customElementsObject) {
                 eventsObject = `{\n${eventNames}    }`;
             }
 
+            const componentPropsExportName = `${component.class.name.replace(/^Pie/, '')}Props`;
+
             // Create the main source code
             componentSrc = `
 import * as React from 'react';
 import { createComponent${component.class.events?.length > 0 ? ', EventName' : ''} } from '@lit/react';
 import { ${component.class.name} as ${component.class.name}React } from './index';
+import { ${componentPropsExportName} } from './defs';
 
 export * from './defs';
 
-export const ${component.class.name} = createComponent({
+const ${component.class.name}Internal = createComponent({
     displayName: '${component.class.name}',
     elementClass: ${component.class.name}React,
     react: React,
     tagName: '${component.class.tagName}',
     events: ${eventsObject},
 });
+
+export const ${component.class.name} = ${component.class.name}Internal as React.ForwardRefExoticComponent<React.PropsWithoutRef<${componentPropsExportName}> & React.RefAttributes<${component.class.name}React>>;
 `;
             let reactFile;
 
