@@ -2,6 +2,9 @@ name: enivronment-teardown
 description: Teardown preview after merge
 
 inputs:
+  github-token:
+    description: 'The GitHub token for the account that hosts your app'
+    required: true
   amplify-app-id:
     description: 'The ID for your app which you can get from the end of its ARN'
     required: true
@@ -26,8 +29,6 @@ runs:
   steps:
   - name: Delete associated GitHub environment
     uses: actions/github-script@v6
-    env:
-      GITHUB_TOKEN: ${{ secrets.CHANGESETS_TOKEN }}
     with:
       script: |
         const owner = context.repo.owner;
@@ -44,6 +45,8 @@ runs:
         } catch (err) {
           console.log(`Failed to delete environment ${envName} with error: ${err}`);
         }
+    env:
+      GITHUB_TOKEN: ${{ inputs.github-token }}
 
   - name: Delete Amplify branch
     shell: bash
