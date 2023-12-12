@@ -81,7 +81,6 @@ export class PieSwitch extends RtlMixin(LitElement) implements SwitchProps {
      * Ensures that the form value and validation state are in sync with the component.
      */
     private handleFormAssociation () : void {
-        // TODO: Dynamic disabling, update association
         const isFormAssociated = !!this._internals.form && !!this.name && !!this.value;
         if (isFormAssociated) {
             // If checked and disabled, should the value still be submitted?
