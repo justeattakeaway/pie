@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.47.0
+
+### Minor Changes
+
+- [Added] - pie-tag project label ([#1098](https://github.com/justeattakeaway/pie/pull/1098)) by [@dandel10n](https://github.com/dandel10n)
+
 ## 2.46.0
 
 ### Minor Changes

@@ -1,5 +1,15 @@
 # Changelog
 
+## 3.20.0
+
+### Minor Changes
+
+- [Added] - Modal overview page ([#1006](https://github.com/justeattakeaway/pie/pull/1006)) by [@FayeCarter](https://github.com/FayeCarter)
+
+- [Added] - min width to component details table ([#1083](https://github.com/justeattakeaway/pie/pull/1083)) by [@FayeCarter](https://github.com/FayeCarter)
+
+  [Added] - correct images
+
 ## 3.19.1
 
 ### Patch Changes
