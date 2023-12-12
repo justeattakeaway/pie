@@ -1,5 +1,23 @@
 # Changelog
 
+## 3.20.0
+
+### Minor Changes
+
+- [Added] - Modal overview page ([#1006](https://github.com/justeattakeaway/pie/pull/1006)) by [@FayeCarter](https://github.com/FayeCarter)
+
+- [Added] - min width to component details table ([#1083](https://github.com/justeattakeaway/pie/pull/1083)) by [@FayeCarter](https://github.com/FayeCarter)
+
+  [Added] - correct images
+
+## 3.19.1
+
+### Patch Changes
+
+- [Added] - Storybook action for `pie-switch` `change` event. ([#1084](https://github.com/justeattakeaway/pie/pull/1084)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Changed] - Update `/components/switch/code` documentation page.
+
 ## 3.19.0
 
 ### Minor Changes

@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-switch",
   "description": "PIE Design System Switch built using Web Components",
-  "version": "0.18.4",
+  "version": "0.19.0",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",

@@ -1,5 +1,22 @@
 # @justeattakeaway/pie-cookie-banner
 
+## 0.12.0
+
+### Minor Changes
+
+- [Changed] - URLs for the cookie statement and tech list ([#1086](https://github.com/justeattakeaway/pie/pull/1086)) by [@ashleynolan](https://github.com/ashleynolan)
+
+## 0.11.13
+
+### Patch Changes
+
+- [Changed] - Rename `pie-switch-changed` event to `change`. ([#1084](https://github.com/justeattakeaway/pie/pull/1084)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Changed] - Add native `event.target.checked` behaviour for `pie-switch` `change` event.
+
+- Updated dependencies [[`6af87a9e1`](https://github.com/justeattakeaway/pie/commit/6af87a9e1da042c3a581133b32b81cfe4abcb3ce)]:
+  - @justeattakeaway/pie-switch@0.19.0
+
 ## 0.11.12
 
 ### Patch Changes

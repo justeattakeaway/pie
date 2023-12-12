@@ -6,6 +6,10 @@
       "managePreferences": "Управление на предпочитанията",
       "necessaryOnly": "Само необходимите",
       "acceptAll": "Приемане на всички"
+    },
+    "links": {
+      "cookieStatement": "bg/cookiestatement",
+      "cookieTechnologies": "bg/technologies"
     }
   },
   "preferencesManagement": {
