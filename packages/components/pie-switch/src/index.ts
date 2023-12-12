@@ -82,10 +82,13 @@ export class PieSwitch extends RtlMixin(LitElement) implements SwitchProps {
      */
     private handleFormAssociation () : void {
         // TODO: Dynamic disabling, update association
-        const isFormAssociated = !!this._internals.form && !!this.name && !!this.value && !this.isDisabled;
+        const isFormAssociated = !!this._internals.form && !!this.name && !!this.value;
         if (isFormAssociated) {
+            // If checked and disabled, should the value still be submitted?
             if (this.checked) {
                 this._internals.setFormValue(this.value);
+                this._internals.setValidity({});
+            } else if (this.isDisabled) {
                 this._internals.setValidity({});
             } else {
                 this._internals.setFormValue(null);
