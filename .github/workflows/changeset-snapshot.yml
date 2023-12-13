@@ -72,12 +72,11 @@ jobs:
               const body = `Starting a new snapshot build. You can view the logs [here](${buildLink}).`;
 
               await github.rest.issues.createComment({
-                  issue_number: context.issue.number,
-                  owner: context.repo.owner,
-                  repo: context.repo.repo,
-                  body,
-                });
-
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body,
+              });
             } catch (err) {
               core.setFailed(`Request failed with error ${err}`);
             }
@@ -169,9 +168,9 @@ jobs:
                   `yarn add ${tag}\n` +
                   '```'
                 )).join('\n')
-              )
+              );
             } else {
-              body = `No changed packages found! Please make sure you have added a changeset entry for the packages you would like to snapshot.`
+              body = `No changed packages found! Please make sure you have added a changeset entry for the packages you would like to snapshot.`;
             }
 
             await github.rest.issues.createComment({
