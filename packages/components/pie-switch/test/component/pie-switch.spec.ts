@@ -334,5 +334,51 @@ test.describe('Component: `Pie switch`', () => {
             expect(switchName in formDataObj).toBe(true);
             expect(formDataObj[switchName]).toBe(switchValue);
         });
+
+        test('form should be invalid and not submit if the switch is required but not set', async ({ page }) => {
+            // Arrange
+            await page.evaluate(() => {
+                const formHTML = `
+                <form id="testForm" action="/default-endpoint" method="POST">
+                    <pie-switch id="pieSwitch" name="switch" value="someValue" label="Click me" required></pie-switch>
+                    <button id="submitButton" type="submit">Submit</button>
+                </form>
+                `;
+                document.body.innerHTML = formHTML;
+            });
+
+            // Set up the form submission listener
+            await page.evaluate(() => {
+                const form = document.querySelector('#testForm') as HTMLFormElement;
+
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault(); // Prevent the actual submission
+
+                    // Serialize form data
+                    const formData = new FormData(form);
+                    const formDataObj = {};
+
+                    // This is JS - we don't need TS inside these calls
+                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                    // @ts-ignore
+                    formData.forEach((value, key) => { formDataObj[key] = value; });
+
+                    // Append serialized form data as JSON to a hidden element
+                    const dataHolder = document.createElement('div');
+                    dataHolder.id = 'formDataJson';
+                    dataHolder.textContent = JSON.stringify(formDataObj);
+                    dataHolder.style.display = 'none';
+                    document.body.appendChild(dataHolder);
+                });
+            });
+
+            // Act
+            // Do not click the switch to leave it unset
+            await page.click('#submitButton');
+
+            // Assert
+            const formDataJsonElement = await page.$('#formDataJson');
+            expect(formDataJsonElement).toBeNull();
+        });
     });
 });

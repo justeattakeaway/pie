@@ -23,7 +23,7 @@ const defaultArgs: SwitchProps = {
     },
     name: 'switch',
     value: 'switchValue',
-    required: false,
+    required: true,
 };
 
 const switchStoryMeta: SwitchStoryMeta = {
@@ -88,7 +88,7 @@ const switchStoryMeta: SwitchStoryMeta = {
             description: 'Same as the HTML required attribute - for use in forms',
             control: 'boolean',
             defaultValue: {
-                summary: false,
+                summary: true,
             },
         },
     },
