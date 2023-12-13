@@ -152,22 +152,8 @@ const FormTemplate: TemplateFunction<SwitchProps> = (props: SwitchProps) => html
         const form = document.querySelector('#testForm');
         const formLog = document.querySelector('#formLog');
 
-        const el = document.querySelector('pie-switch');
-        const s = document.querySelector('pie-switch');
-        setTimeout(() => {
-        console.log(s);
-        // console.log('checking the report v value');
-        // s.setCustomValidity('wang it in, son');
-        // console.log(c.reportValidity());
-        // console.log('calling check validity');
-        }, 0);
-
-
-
         form.addEventListener('submit', (e) => {
             e.preventDefault();
-
-            el.checkValidity();
 
             formLog.innerHTML = 'Form submitted!';
             formLog.style.display = 'block';
