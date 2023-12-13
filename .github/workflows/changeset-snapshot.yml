@@ -67,7 +67,7 @@ jobs:
           github-token: ${{ secrets.CHANGESETS_TOKEN }}
           script: |
             try {
-              const buildLink = `https://github.com/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}`;
+              const buildLink = `${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}`;
 
               const body = `Starting a new snapshot build. You can view the logs [here](${buildLink}).`;
 
@@ -184,5 +184,6 @@ jobs:
         if: failure()
         uses: peter-evans/create-or-update-comment@v2
         with:
+          issue-number: ${{ github.event.issue.number }}
           token: ${{ secrets.CHANGESETS_TOKEN }}
-          body: The build failed, please see the [logs](`https://github.com/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}`).
+          body: The build failed, please see the [logs](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}).
