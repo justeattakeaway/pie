@@ -380,5 +380,105 @@ test.describe('Component: `Pie switch`', () => {
             const formDataJsonElement = await page.$('#formDataJson');
             expect(formDataJsonElement).toBeNull();
         });
+
+        test('should not be included in the submitted form data if disabled and checked', async ({ page }) => {
+            // Arrange
+            await page.evaluate(() => {
+                const formHTML = `
+                <form id="testForm" action="/default-endpoint" method="POST">
+                    <pie-switch id="pieSwitch" name="switch" value="someValue" label="Click me" checked disabled></pie-switch>
+                    <button id="submitButton" type="submit">Submit</button>
+                </form>
+                `;
+                document.body.innerHTML = formHTML;
+            });
+
+            // Set up the form submission listener
+            await page.evaluate(() => {
+                const form = document.querySelector('#testForm') as HTMLFormElement;
+
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault(); // Prevent the actual submission
+
+                    // Serialize form data
+                    const formData = new FormData(form);
+                    const formDataObj = {};
+
+                    // This is JS - we don't need TS inside these calls
+                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                    // @ts-ignore
+                    formData.forEach((value, key) => { formDataObj[key] = value; });
+
+                    // Append serialized form data as JSON to a hidden element
+                    const dataHolder = document.createElement('div');
+                    dataHolder.id = 'formDataJson';
+                    dataHolder.textContent = JSON.stringify(formDataObj);
+                    dataHolder.style.display = 'none';
+                    document.body.appendChild(dataHolder);
+                });
+            });
+
+            // Fill out the form
+            await page.click('#pieSwitch');
+
+            // Act
+            await page.click('#submitButton');
+
+            // Assert
+            const formDataJson = await page.$eval('#formDataJson', (el) => el.textContent);
+            const formDataObj = JSON.parse(formDataJson || '{}');
+
+            expect(formDataObj.switch).toBeUndefined();
+        });
+
+        test('should not be included in the submitted form data if disabled and not checked', async ({ page }) => {
+            // Arrange
+            await page.evaluate(() => {
+                const formHTML = `
+                <form id="testForm" action="/default-endpoint" method="POST">
+                    <pie-switch id="pieSwitch" name="switch" value="someValue" label="Click me" disabled></pie-switch>
+                    <button id="submitButton" type="submit">Submit</button>
+                </form>
+                `;
+                document.body.innerHTML = formHTML;
+            });
+
+            // Set up the form submission listener
+            await page.evaluate(() => {
+                const form = document.querySelector('#testForm') as HTMLFormElement;
+
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault(); // Prevent the actual submission
+
+                    // Serialize form data
+                    const formData = new FormData(form);
+                    const formDataObj = {};
+
+                    // This is JS - we don't need TS inside these calls
+                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                    // @ts-ignore
+                    formData.forEach((value, key) => { formDataObj[key] = value; });
+
+                    // Append serialized form data as JSON to a hidden element
+                    const dataHolder = document.createElement('div');
+                    dataHolder.id = 'formDataJson';
+                    dataHolder.textContent = JSON.stringify(formDataObj);
+                    dataHolder.style.display = 'none';
+                    document.body.appendChild(dataHolder);
+                });
+            });
+
+            // Fill out the form
+            await page.click('#pieSwitch');
+
+            // Act
+            await page.click('#submitButton');
+
+            // Assert
+            const formDataJson = await page.$eval('#formDataJson', (el) => el.textContent);
+            const formDataObj = JSON.parse(formDataJson || '{}');
+
+            expect(formDataObj.switch).toBeUndefined();
+        });
     });
 });
