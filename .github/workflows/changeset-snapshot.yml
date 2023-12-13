@@ -180,3 +180,10 @@ jobs:
               repo: context.repo.repo,
               body,
             });
+
+      - name: Add failure comment
+        if: failure()
+        uses: peter-evans/create-or-update-comment@v2
+        with:
+          token: ${{ secrets.CHANGESETS_TOKEN }}
+          body: The build failed, please see the [logs](`https://github.com/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}`).
