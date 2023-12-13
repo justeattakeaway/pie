@@ -141,8 +141,16 @@ The `pie-switch` component can be integrated into HTML forms similarly to native
 ```
 
 #### Form Validation
-Unlike a native form input, `pie-switch` does not support a `required` attribute. This is due to constraints in how Web Components integrate with forms in the browser. We would suggest that consumers handle this validation themselves in their applications if required.
+To make `pie-switch` a required form field, simply add the `required` attribute to the component markup. This will prevent the form from being submitted if the switch is not toggled and will trigger native HTML form validation.
 
+Currently this defaults to browser styling, but this may be updated in the future.
+
+```html
+<form action="/default-endpoint" method="POST">
+  <pie-switch name="switch" value="someValue" label="Click me" required></pie-switch>
+  <button type="submit">Submit</button>
+</form>
+```
 
 ## Peer Dependencies
 
