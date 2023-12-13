@@ -25,6 +25,10 @@
         min-width: fit-content;
     }
 
+    .c-componentDetailsTable-cellHasMinWidth {
+        min-width: 301px;
+    }
+
     th:not(.c-componentDetailsTable-heading--priority),
     td {
         width: 0;
@@ -42,10 +46,6 @@
             padding-inline-start: f.$spacing-i;
         }
     }
-}
-
-.c-componentDetailsTable-heading--priority {
-    width: 100%;
 }
 
 .c-componentDetailsTable-token {
