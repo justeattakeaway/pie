@@ -65,7 +65,7 @@ jobs:
         with:
           script: |
             try {
-              const buildLink = `${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}`;
+              const buildLink = `https://github.com/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}`;
 
               const body = `Starting a new snapshot build. You can view the logs [here](${buildLink}).`;
 
