@@ -23,6 +23,7 @@ jobs:
       - name: Add initial reaction
         uses: peter-evans/create-or-update-comment@v2
         with:
+          token: ${{ secrets.CHANGESETS_TOKEN }}
           comment-id: ${{ github.event.comment.id }}
           reactions: eyes
 
@@ -63,6 +64,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.CHANGESETS_TOKEN }}
         with:
+          github-token: ${{ secrets.CHANGESETS_TOKEN }}
           script: |
             try {
               const buildLink = `https://github.com/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}`;
