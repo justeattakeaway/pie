@@ -152,6 +152,15 @@ Currently this defaults to browser styling, but this may be updated in the futur
 </form>
 ```
 
+To set a custom validation message, please call the `setCustomValidity` method exposed by the component. This will allow you to set a custom message that will be displayed when the form is submitted without the switch being toggled.
+
+This behaviour is consistent with native HTML input elements. We may revisit this to provide a prop to set the custom validation message in the future.
+
+```js
+const switch = document.querySelector('pie-switch');
+switch.setCustomValidity('Please toggle the switch');
+```
+
 ## Peer Dependencies
 
 When using `pie-switch`, you will also need to include a couple of dependencies to ensure the component renders as expected.
