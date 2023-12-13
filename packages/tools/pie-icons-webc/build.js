@@ -38,8 +38,7 @@ const componentSelector = '${kebabCase(name)}';
 export class ${name} extends LitElement implements IconProps {
     // The following styles make sure that the icon will be sized correctly
     static styles = css\`
-        :host(pie-icon-button svg),
-        :host(pie-button svg) {
+        :host(.has-element) svg {
             display: block;
             width: var(--btn-icon-size);
             height: var(--btn-icon-size);
@@ -61,6 +60,11 @@ export class ${name} extends LitElement implements IconProps {
             const svgSize = getSvgProps('${svgClasses}', '', null, '${name}');
             this._svg?.setAttribute('width', svgSize.width);
             this._svg?.setAttribute('height', svgSize.height);
+        }
+
+        const hasEl = this.closest('pie-icon-button, pie-button');
+        if (hasEl) {
+            this.classList.add('has-element');
         }
     }
 
