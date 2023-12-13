@@ -38,8 +38,8 @@ const componentSelector = '${kebabCase(name)}';
 export class ${name} extends LitElement implements IconProps {
     // The following styles make sure that the icon will be sized correctly
     static styles = css\`
-        :host-context(pie-icon-button) svg,
-        :host-context(pie-button) svg {
+        :host(pie-icon-button svg),
+        :host(pie-button svg) {
             display: block;
             width: var(--btn-icon-size);
             height: var(--btn-icon-size);
