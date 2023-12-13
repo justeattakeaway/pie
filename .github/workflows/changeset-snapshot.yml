@@ -67,7 +67,7 @@ jobs:
           github-token: ${{ secrets.CHANGESETS_TOKEN }}
           script: |
             try {
-              const buildLink = `${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}`;
+              const buildLink = '${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}';
 
               const body = `Starting a new snapshot build. You can view the logs [here](${buildLink}).`;
 
