@@ -1,7 +1,6 @@
 {
   "name": "@justeattakeaway/pie-components-config",
-  "version": "0.6.1",
-  "private": true,
+  "version": "0.7.0",
   "main": "index.js",
   "type": "module",
   "description": "Shared configuration files for PIE components",

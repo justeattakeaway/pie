@@ -28,7 +28,7 @@
   "author": "Just Eat Takeaway.com - Design System Team",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@justeattakeaway/pie-components-config": "0.6.1"
+    "@justeattakeaway/pie-components-config": "0.7.0"
   },
   "volta": {
     "extends": "../../../package.json"
