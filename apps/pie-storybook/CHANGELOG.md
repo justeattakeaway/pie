@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.54.0
+
+### Minor Changes
+
+- [Added] - New form integration story for pie-switch ([#1103](https://github.com/justeattakeaway/pie/pull/1103)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies [[`cbbce8eef`](https://github.com/justeattakeaway/pie/commit/cbbce8eef2fcc2123bed4538c2ab865f2521660c), [`cbbce8eef`](https://github.com/justeattakeaway/pie/commit/cbbce8eef2fcc2123bed4538c2ab865f2521660c)]:
+  - @justeattakeaway/pie-cookie-banner@0.13.0
+  - @justeattakeaway/pie-switch@0.20.0
+
 ## 0.53.0
 
 ### Minor Changes
