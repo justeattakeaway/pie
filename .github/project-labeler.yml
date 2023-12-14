@@ -30,7 +30,7 @@ eslint-config-pie:
 - 'packages/tools/eslint-config-pie/**/*'
 
 stylelint-config-pie:
-- 'packages/tools/pie-stylelint-config/**/*'
+- 'packages/tools/stylelint-config-pie/**/*'
 
 generator-pie-component:
 - 'packages/tools/generator-pie-component/**/*'
