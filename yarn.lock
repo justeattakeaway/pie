@@ -5755,6 +5755,7 @@ __metadata:
     "@justeattakeaway/pie-components-config": 0.7.0
     "@justeattakeaway/pie-icons-webc": 0.15.0
     "@justeattakeaway/pie-webc-core": 0.13.0
+    element-internals-polyfill: 1.3.9
   languageName: unknown
   linkType: soft
 

@@ -2,7 +2,7 @@
     "headings": ["Prop", "Options", "Description", "Default"],
     "rows": [
         [
-            "isChecked",
+            "checked",
             {
                 "type": "code",
                 "item": ["true", "false"]
@@ -51,6 +51,18 @@
                 "type": "code",
                 "item": ["{<br>  \"label\": \"switch label\",<br>  \"describedBy\": \"switch description\"<br>}"]
             }
+        ],
+        [
+          "name",
+          "",
+          "Indicates the name of the switch (for use with forms).",
+          ""
+        ],
+        [
+          "value",
+          "",
+          "Indicates the value of the switch (for use with forms).",
+          "on"
         ]
     ]
 }
