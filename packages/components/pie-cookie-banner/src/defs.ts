@@ -87,7 +87,7 @@ export type PreferenceIds = 'all' | 'necessary' | 'functional' | 'analytical' | 
 export interface Preference {
     id: PreferenceIds;
     isDisabled?: boolean;
-    isChecked?: boolean;
+    checked?: boolean;
     hasDivider?: boolean;
     hasDescription?: boolean;
 }
@@ -101,7 +101,7 @@ export const preferences: Preference[] = [
     {
         id: 'necessary',
         isDisabled: true,
-        isChecked: true,
+        checked: true,
         hasDescription: true,
     },
     {
