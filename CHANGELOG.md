@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.47.1
+
+### Patch Changes
+
+- [Fixed] - stylelint-config-pie folder name ([#1112](https://github.com/justeattakeaway/pie/pull/1112)) by [@ashleynolan](https://github.com/ashleynolan)
+
 ## 2.47.0
 
 ### Minor Changes
