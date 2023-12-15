@@ -8,16 +8,16 @@ import { SwitchProps, labelPlacements } from '@/defs';
     [false, true],
     [true, false],
     [true, true],
-].forEach(([checked, isDisabled]) => {
-    test(`should render correctly with checked = ${checked} and isDisabled = ${isDisabled}`, async ({ page, mount }) => {
+].forEach(([checked, disabled]) => {
+    test(`should render correctly with checked = ${checked} and disabled = ${disabled}`, async ({ page, mount }) => {
         await mount(PieSwitch, {
             props: {
                 checked,
-                isDisabled,
+                disabled,
             },
         });
 
-        await percySnapshot(page, `Switch - checked = ${checked} and isDisabled = ${isDisabled}`);
+        await percySnapshot(page, `Switch - checked = ${checked} and disabled = ${disabled}`);
     });
 });
 
