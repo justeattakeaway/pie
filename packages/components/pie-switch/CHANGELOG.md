@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-switch
 
+## 0.20.0
+
+### Minor Changes
+
+- [Added] - Form submission and validation logic ([#1103](https://github.com/justeattakeaway/pie/pull/1103)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.19.0
 
 ### Minor Changes
