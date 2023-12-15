@@ -20,7 +20,7 @@
     font-family: var(--dt-font-body-l-family);
     cursor: pointer;
 
-    &[isDisabled] {
+    &[disabled] {
         cursor: not-allowed;
     }
 }
@@ -78,7 +78,7 @@
         }
     }
 
-    [isDisabled] & {
+    [disabled] & {
         background-color: var(--switch-bg-color--disabled);
         pointer-events: none;
     }
