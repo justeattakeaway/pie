@@ -9,7 +9,6 @@ import {
 } from './defs';
 import 'element-internals-polyfill';
 import '@justeattakeaway/pie-icons-webc/IconCheck';
-import '@justeattakeaway/pie-form-label';
 
 // Valid values available to consumers
 export * from './defs';
@@ -205,9 +204,6 @@ export class PieSwitch extends RtlMixin(LitElement) implements SwitchProps {
                 class="c-switch-wrapper"
                 ?isRTL=${isRTL}
                 ?isDisabled=${isDisabled}>
-                <pie-form-label for="pie-switch">
-                    label slot content
-                </pie-form-label>
                 <label
                     data-test-id="switch-component"
                     class="c-switch"

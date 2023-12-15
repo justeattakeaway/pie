@@ -37,14 +37,24 @@ export class PieFormLabel extends RtlMixin(LitElement) implements FormLabelProps
 
     private handleClick () {
         const target = document.querySelector(`#${this.for}`);
-        if (target) {
-            console.log('focusing input');
+        if (!target) {
+            return;
+        }
+
+        console.log('focusing input');
+        if ('focus' in target) {
             (target as PIEInputElement).focus();
-            if ('checked' in target && target.checked !== undefined) {
-                console.log('toggling input');
-                (target as PIEInputElement).checked = !(target as HTMLInputElement).checked;
-                (target as PIEInputElement).onChange(new Event('change'), ((target as PIEInputElement).checked as boolean));
-                console.log('target checked state: ', (target as HTMLInputElement).checked);
+        }
+
+        // Check if target is a checkbox-like element (has 'checked' property)
+        if ('checked' in target) {
+            const inputTarget = target as PIEInputElement & { checked?: boolean };
+            console.log('toggling input');
+
+            if (inputTarget.checked !== undefined) {
+                inputTarget.checked = !inputTarget.checked;
+                inputTarget.onChange?.(new Event('change'), inputTarget.checked);
+                console.log('target checked state: ', inputTarget.checked);
             }
         }
     }
