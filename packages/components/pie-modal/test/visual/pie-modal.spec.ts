@@ -136,7 +136,7 @@ test.describe('Prop: `isDismissible`', () => {
                     },
                 } as ModalProps,
             });
-            
+
             // Follow up to remove in Jan
             await page.waitForTimeout(5000);
 
