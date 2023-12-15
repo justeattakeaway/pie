@@ -2,4 +2,4 @@
 "@justeattakeaway/pie-icons-webc": minor
 ---
 
-[Fixed] - Atempt to resolve icons size issue
+[Fixed] - Attempt to resolve icon size issue
