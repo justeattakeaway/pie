@@ -123,7 +123,7 @@ test.describe('Prop: `isDismissible`', () => {
     });
 
     test.describe('when false', () => {
-        test.only('should not display a close button', async ({ mount, page }) => {
+        test('should not display a close button', async ({ mount, page }) => {
             await mount(PieModal, {
                 props: {
                     heading: 'This is a modal heading',
