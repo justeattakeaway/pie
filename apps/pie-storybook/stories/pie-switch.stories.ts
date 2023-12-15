@@ -14,7 +14,7 @@ type SwitchStoryMeta = StoryMeta<SwitchProps>;
 
 const defaultArgs: SwitchProps = {
     checked: false,
-    isDisabled: false,
+    disabled: false,
     label: 'Label',
     labelPlacement: 'leading',
     aria: {
@@ -37,7 +37,7 @@ const switchStoryMeta: SwitchStoryMeta = {
                 summary: false,
             },
         },
-        isDisabled: {
+        disabled: {
             description: 'Same as the HTML disabled attribute - indicates whether the switch is disabled or not',
             control: 'boolean',
             defaultValue: {
@@ -111,7 +111,7 @@ const Template : TemplateFunction<SwitchProps> = (props) => {
     const {
         aria,
         checked,
-        isDisabled,
+        disabled,
         label,
         labelPlacement,
         name,
@@ -129,7 +129,7 @@ const Template : TemplateFunction<SwitchProps> = (props) => {
             .aria="${aria}"
             ?required="${required}"
             ?checked="${checked}"
-            ?isDisabled="${isDisabled}"
+            ?disabled="${disabled}"
             @change="${changeAction}">
         </pie-switch>`;
 };
