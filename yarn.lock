@@ -5599,7 +5599,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-icon-button@workspace:packages/components/pie-icon-button"
   dependencies:
-    "@justeattakeaway/pie-icons-webc": 0.15.0
+    "@justeattakeaway/pie-icons-webc": 0.0.0-snapshot-release-20231214113353
     "@justeattakeaway/pie-spinner": 0.3.1
     "@justeattakeaway/pie-webc-core": 0.13.0
   languageName: unknown
@@ -5675,6 +5675,15 @@ __metadata:
     typescript: 5.1.3
   languageName: unknown
   linkType: soft
+
+"@justeattakeaway/pie-icons-webc@npm:0.0.0-snapshot-release-20231214113353":
+  version: 0.0.0-snapshot-release-20231214113353
+  resolution: "@justeattakeaway/pie-icons-webc@npm:0.0.0-snapshot-release-20231214113353"
+  dependencies:
+    "@justeattakeaway/pie-webc-core": 0.13.0
+  checksum: 07ffaeacca270c016e1745d59da9394a7312ed92262f053791faae3154964651d644b3102c19b8f950e8e0d4a48387f81e872a3229610784f3a3fddb428dfae4
+  languageName: node
+  linkType: hard
 
 "@justeattakeaway/pie-icons@4.9.3, @justeattakeaway/pie-icons@workspace:packages/tools/pie-icons":
   version: 0.0.0-use.local

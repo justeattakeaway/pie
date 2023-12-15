@@ -38,8 +38,8 @@ const componentSelector = '${kebabCase(name)}';
 export class ${name} extends LitElement implements IconProps {
     // The following styles make sure that the icon will be sized correctly
     static styles = css\`
-        :host(.has-svg-element) svg {
-            display: block;
+        :host svg {
+            display: var(--btn-icon-display);
             width: var(--btn-icon-size);
             height: var(--btn-icon-size);
         }
