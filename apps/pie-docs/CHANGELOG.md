@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.21.1
+
+### Patch Changes
+
+- [Changed] - Rename `isDisabled` pie-switch prop to `disabled` to align with native attribute ([#1115](https://github.com/justeattakeaway/pie/pull/1115)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
 ## 3.21.0
 
 ### Minor Changes

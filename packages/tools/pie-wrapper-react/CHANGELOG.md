@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-wrapper-react
 
+## 0.11.1
+
+### Patch Changes
+
+- [Fixed] - Trailing whitespace linting error ([#1115](https://github.com/justeattakeaway/pie/pull/1115)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
 ## 0.11.0
 
 ### Minor Changes
