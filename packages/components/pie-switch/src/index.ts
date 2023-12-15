@@ -9,6 +9,7 @@ import {
 } from './defs';
 import 'element-internals-polyfill';
 import '@justeattakeaway/pie-icons-webc/IconCheck';
+import '@justeattakeaway/pie-form-label';
 
 // Valid values available to consumers
 export * from './defs';
@@ -49,6 +50,8 @@ export class PieSwitch extends RtlMixin(LitElement) implements SwitchProps {
         super.updated(_changedProperties);
         this.handleFormAssociation();
     }
+
+    static shadowRootOptions = { ...LitElement.shadowRootOptions, delegatesFocus: true };
 
     @property({ type: String })
     public label?: string;
@@ -99,9 +102,14 @@ export class PieSwitch extends RtlMixin(LitElement) implements SwitchProps {
     /**
      * The onChange function updates the checkbox state and emits an event for consumers.
      * @param {Event} event - This should be the change event that was listened for on an input element with `type="checkbox"`.
+     * @param {boolean | null} checkedOverride - This is an optional parameter that allows consumers to override the checked state of the switch if they want to manually trigger a change event
      */
-    onChange (event: Event) {
-        const { checked } = event?.currentTarget as HTMLInputElement;
+    onChange (event: Event, checkedOverride: boolean | null = null) {
+        console.log('onChange being called inside pie-switch! event: ', event);
+        const checked = checkedOverride !== null
+            ? checkedOverride
+            : (event?.currentTarget as HTMLInputElement)?.checked;
+
         this.checked = checked;
         const changedEvent = new CustomEvent(
             ON_SWITCH_CHANGED_EVENT,
@@ -197,7 +205,6 @@ export class PieSwitch extends RtlMixin(LitElement) implements SwitchProps {
                 class="c-switch-wrapper"
                 ?isRTL=${isRTL}
                 ?isDisabled=${isDisabled}>
-                ${labelPlacement === 'leading' ? this.renderSwitchLabel() : nothing}
                 <label
                     data-test-id="switch-component"
                     class="c-switch"

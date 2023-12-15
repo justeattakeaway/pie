@@ -6,6 +6,11 @@ import { property } from 'lit/decorators.js';
 import styles from './form-label.scss?inline';
 import { FormLabelProps } from './defs';
 
+type PIEInputElement = Partial<HTMLInputElement> & {
+    focus: () => void,
+    onChange: (event: Event, checkedOverride: boolean | null) => void
+};
+
 // Valid values available to consumers
 export * from './defs';
 
@@ -30,6 +35,20 @@ export class PieFormLabel extends RtlMixin(LitElement) implements FormLabelProps
         return optional ? html`<span class="c-formLabel-optional">${optional}</span>` : nothing;
     }
 
+    private handleClick () {
+        const target = document.querySelector(`#${this.for}`);
+        if (target) {
+            console.log('focusing input');
+            (target as PIEInputElement).focus();
+            if ('checked' in target && target.checked !== undefined) {
+                console.log('toggling input');
+                (target as PIEInputElement).checked = !(target as HTMLInputElement).checked;
+                (target as PIEInputElement).onChange(new Event('change'), ((target as PIEInputElement).checked as boolean));
+                console.log('target checked state: ', (target as HTMLInputElement).checked);
+            }
+        }
+    }
+
     render () {
         const {
             trailing,
@@ -38,6 +57,7 @@ export class PieFormLabel extends RtlMixin(LitElement) implements FormLabelProps
 
         return html`
             <label
+                @click=${this.handleClick}
                 data-test-id="pie-form-label"
                 class="c-formLabel"
                 for=${this.for}>

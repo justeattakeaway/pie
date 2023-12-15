@@ -1,6 +1,6 @@
 import { html, nothing } from 'lit';
 import { action } from '@storybook/addon-actions';
-
+import '@justeattakeaway/pie-form-label';
 /* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-switch';
 import { SwitchProps, labelPlacements } from '@justeattakeaway/pie-switch';
@@ -120,6 +120,9 @@ const Template : TemplateFunction<SwitchProps> = (props) => {
     } = props;
 
     return html`
+        <pie-form-label for="pie-switch">
+            label slot content
+        </pie-form-label>
         <pie-switch
             id="pie-switch"
             name="${name || nothing}"
