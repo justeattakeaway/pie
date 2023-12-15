@@ -119,10 +119,11 @@ const Template : TemplateFunction<SwitchProps> = (props) => {
         required,
     } = props;
 
+    // can put the label adjacent to the switch OR put directly in the switch component(check the switch index.ts file to see example)
+    // <pie-form-label for="pie-switch">
+    //     label slot content
+    // </pie-form-label>
     return html`
-        <pie-form-label for="pie-switch">
-            label slot content
-        </pie-form-label>
         <pie-switch
             id="pie-switch"
             name="${name || nothing}"

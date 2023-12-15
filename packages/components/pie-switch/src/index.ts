@@ -205,6 +205,9 @@ export class PieSwitch extends RtlMixin(LitElement) implements SwitchProps {
                 class="c-switch-wrapper"
                 ?isRTL=${isRTL}
                 ?isDisabled=${isDisabled}>
+                <pie-form-label for="pie-switch">
+                    label slot content
+                </pie-form-label>
                 <label
                     data-test-id="switch-component"
                     class="c-switch"
