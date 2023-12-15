@@ -160,7 +160,7 @@ $breakpoint-wide: 768px;
         @include p.button-interactive-states('--dt-color-container-default', 'transparent');
     }
 
-    &[variant='outline-inverse'] {
+    &[variant='outline-inverse']:not([disabled]) {
         border: 1px solid var(--dt-color-border-strong);
     }
 
