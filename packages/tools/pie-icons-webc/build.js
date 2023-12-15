@@ -61,17 +61,6 @@ export class ${name} extends LitElement implements IconProps {
             this._svg?.setAttribute('width', svgSize.width);
             this._svg?.setAttribute('height', svgSize.height);
         }
-
-        const hasSvgElement = this.closest('pie-icon-button, pie-button');
-
-        if (hasSvgElement) {
-            this.classList.add('has-svg-element');
-        }
-    }
-
-    disconnectedCallback() {
-        super.disconnectedCallback();
-        this.classList.remove('has-svg-element');
     }
 
     updated (changedProperties: PropertyValues<this>) : void {
