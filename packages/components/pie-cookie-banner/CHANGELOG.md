@@ -1,5 +1,16 @@
 # @justeattakeaway/pie-cookie-banner
 
+## 0.13.1
+
+### Patch Changes
+
+- [Changed] - Rename `isDisabled` pie-switch prop to `disabled` to align with native attribute ([#1115](https://github.com/justeattakeaway/pie/pull/1115)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- Updated dependencies [[`fb13fd337`](https://github.com/justeattakeaway/pie/commit/fb13fd337127f9f9220c3ff273caa34fd2845aee), [`99a9bf153`](https://github.com/justeattakeaway/pie/commit/99a9bf153ad142a0584bb915cec22b16279bc923)]:
+  - @justeattakeaway/pie-switch@0.21.0
+  - @justeattakeaway/pie-button@0.41.1
+  - @justeattakeaway/pie-modal@0.35.6
+
 ## 0.13.0
 
 ### Minor Changes

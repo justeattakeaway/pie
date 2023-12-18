@@ -186,4 +186,4 @@ jobs:
         with:
           issue-number: ${{ github.event.issue.number }}
           token: ${{ secrets.CHANGESETS_TOKEN }}
-          body: The build failed, please see the [logs](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}).
+          body: The build failed, please see the [logs](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}) or take a look at the [Workflow Tooling wiki page](https://github.com/justeattakeaway/pie/wiki/Workflow-Tooling#snapshot-releases) to make sure your PR meets the requirements.
