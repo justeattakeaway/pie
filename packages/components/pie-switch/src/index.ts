@@ -73,7 +73,7 @@ export class PieSwitch extends RtlMixin(LitElement) implements SwitchProps {
     public name?: string;
 
     @property({ type: Boolean, reflect: true })
-    public isDisabled = false;
+    public disabled = false;
 
     static styles = unsafeCSS(styles);
 
@@ -83,7 +83,7 @@ export class PieSwitch extends RtlMixin(LitElement) implements SwitchProps {
     private handleFormAssociation () : void {
         const isFormAssociated = !!this._internals.form && !!this.name && !!this.value;
         if (isFormAssociated) {
-            if (this.isDisabled) {
+            if (this.disabled) {
                 this._internals.setFormValue(null);
                 this._internals.setValidity({});
             } else if (this.checked) {
@@ -186,7 +186,7 @@ export class PieSwitch extends RtlMixin(LitElement) implements SwitchProps {
             aria,
             checked,
             required,
-            isDisabled,
+            disabled,
             isRTL,
         } = this;
 
@@ -196,7 +196,7 @@ export class PieSwitch extends RtlMixin(LitElement) implements SwitchProps {
             <div
                 class="c-switch-wrapper"
                 ?isRTL=${isRTL}
-                ?isDisabled=${isDisabled}>
+                ?disabled=${disabled}>
                 ${labelPlacement === 'leading' ? this.renderSwitchLabel() : nothing}
                 <label
                     data-test-id="switch-component"
@@ -210,7 +210,7 @@ export class PieSwitch extends RtlMixin(LitElement) implements SwitchProps {
                         class="c-switch-input"
                         .required=${required}
                         .checked="${checked}"
-                        .disabled="${isDisabled}"
+                        .disabled="${disabled}"
                         @change="${this.onChange}"
                         aria-label="${aria?.label || nothing}"
                         aria-describedby="${aria?.describedBy ? switchId : nothing}">

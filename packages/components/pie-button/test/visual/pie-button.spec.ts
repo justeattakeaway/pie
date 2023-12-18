@@ -60,5 +60,8 @@ componentVariants.forEach((variant) => test(`should render all prop variations f
         );
     }));
 
+    // Follow up to remove in Jan
+    await page.waitForTimeout(5000);
+
     await percySnapshot(page, `PIE Button - Variant: ${variant}`, percyWidths);
 }));

@@ -17,7 +17,7 @@ test.describe('Component: `Pie switch`', () => {
         await mount(PieSwitch, {
             props: {
                 checked: false,
-                isDisabled: false,
+                disabled: false,
             },
         });
 
@@ -39,7 +39,7 @@ test.describe('Component: `Pie switch`', () => {
         expect(pieSwitchComponent).toBe(false);
     });
 
-    test('should set `isDisabled` to `false` by default', async ({ mount }) => {
+    test('should set `disabled` to `false` by default', async ({ mount }) => {
         // Arrange
         const component = await mount(PieSwitch);
 

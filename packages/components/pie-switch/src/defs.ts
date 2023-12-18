@@ -21,9 +21,9 @@ export interface SwitchProps {
      */
     required: boolean;
     /**
-     * Same as the HTML disabled attribute - indicates whether the switch disabled or not
+     * Same as the HTML disabled attribute - indicates whether the switch is disabled or not
      */
-    isDisabled?: boolean;
+    disabled?: boolean;
     /**
      * The label value of the component
      */

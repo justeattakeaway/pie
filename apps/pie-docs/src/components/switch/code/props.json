@@ -14,12 +14,24 @@
             }
         ],
         [
-            "isDisabled",
+            "disabled",
             {
                 "type": "code",
                 "item": ["true", "false"]
             },
             "Same as the HTML disabled attribute - indicates whether the switch is disabled or not.",
+            {
+                "type": "code",
+                "item": ["false"]
+            }
+        ],
+        [
+            "required",
+            {
+                "type": "code",
+                "item": ["true", "false"]
+            },
+            "Same as the HTML required attribute - indicates whether the switch must be turned or not.",
             {
                 "type": "code",
                 "item": ["false"]

@@ -208,7 +208,7 @@ test.describe('PieCookieBanner - Component tests', () => {
         await page.click(managePreferencesSelector);
         // eslint-disable-next-line no-restricted-syntax
         for (const preference of preferences) { // turn on all preferences
-            if (preference.id !== 'all' && !preference.isDisabled) {
+            if (preference.id !== 'all' && !preference.disabled) {
                 // eslint-disable-next-line no-await-in-loop
                 await page.click(getPreferenceItemSelector(preference.id));
             }
