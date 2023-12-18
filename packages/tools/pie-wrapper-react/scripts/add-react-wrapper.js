@@ -105,23 +105,24 @@ export function addReactWrapper (customElementsObject, folderName = process.argv
             const componentPropsExportName = `${component.class.name.replace(/^Pie/, '')}Props`;
 
             // Create the main source code
-            componentSrc = `
-import * as React from 'react';
+            componentSrc = `import * as React from 'react';
 import { createComponent${component.class.events?.length > 0 ? ', EventName' : ''} } from '@lit/react';
-import { ${component.class.name} as ${component.class.name}React } from './index';
+import { ${component.class.name} as ${component.class.name}Lit } from './index';
 import { ${componentPropsExportName} } from './defs';
 
 export * from './defs';
 
-const ${component.class.name}Internal = createComponent({
+const ${component.class.name}React = createComponent({
     displayName: '${component.class.name}',
-    elementClass: ${component.class.name}React,
+    elementClass: ${component.class.name}Lit,
     react: React,
     tagName: '${component.class.tagName}',
     events: ${eventsObject},
 });
 
-export const ${component.class.name} = ${component.class.name}Internal as React.ForwardRefExoticComponent<React.PropsWithoutRef<${componentPropsExportName}> & React.RefAttributes<${component.class.name}React>>;
+type ReactBaseType = Pick<React.ButtonHTMLAttributes<HTMLButtonElement>, 'children' | 'onClick'>
+
+export const ${component.class.name} = ${component.class.name}React as React.ForwardRefExoticComponent<React.PropsWithoutRef<${componentPropsExportName}> & React.RefAttributes<${component.class.name}Lit> & ReactBaseType>;
 `;
             let reactFile;
 
