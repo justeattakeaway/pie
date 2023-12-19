@@ -29,7 +29,7 @@ module.exports = async ({ github, context }, execa) => {
     The following command will update any of the packages that you have installed (ignoring any that you don't):
 
     \`\`\`sh
-    ${newTags.map(tag => `yarn up ${tag}`).join(' & ')} & yarn install
+    ${newTags.map(tag => `yarn up ${tag} --mode=update-lockfile`).join(' & ')} & yarn install
     \`\`\``;
         } else {
             body += `
