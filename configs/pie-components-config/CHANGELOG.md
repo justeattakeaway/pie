@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-components-config
 
+## 0.7.0
+
+### Minor Changes
+
+- [Removed] - `private` property in package.json so components can be generated outside of PIE ([#1110](https://github.com/justeattakeaway/pie/pull/1110)) by [@siggerzz](https://github.com/siggerzz)
+
 ## 0.6.1
 
 ### Patch Changes

@@ -88,7 +88,7 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
 
     /**
      * Handles saving the user cookie preferences, closing the modal and the cookie banner
-     * Creates a state object for the save event, indicating the isChecked status
+     * Creates a state object for the save event, indicating the checked status
      * of each preference except for the `all` preference.
      * @example {
      *  functional: false,
@@ -100,8 +100,8 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
 
         [...this._preferencesNodes]
         .filter(({ id }) => id !== 'all')
-        .forEach(({ id, isChecked }) => {
-            state = { ...state, [id]: isChecked };
+        .forEach(({ id, checked }) => {
+            state = { ...state, [id]: checked };
         });
 
         this._dispatchCookieBannerCustomEvent(ON_COOKIE_BANNER_PREFS_SAVED, state);
@@ -169,14 +169,14 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
         const toggleAllNode = [...this._preferencesNodes].find(({ id }) => id === 'all') as PieSwitch;
 
         if (id === toggleAllNode.id) {
-            const isChecked = (e.target as HTMLInputElement).checked;
+            const { checked } = e.target as HTMLInputElement;
             this._preferencesNodes.forEach((node) => {
-                node.isChecked = node.isDisabled ? node.isChecked : isChecked;
+                node.checked = node.disabled ? node.checked : checked;
             });
         } else {
-            toggleAllNode.isChecked = [...this._preferencesNodes]
+            toggleAllNode.checked = [...this._preferencesNodes]
             .filter(({ id }) => id !== 'all')
-            .every(({ isChecked }) => isChecked);
+            .every(({ checked }) => checked);
         }
     };
 
@@ -185,7 +185,7 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
      * @private
      */
     private renderPreference ({
-        id, isChecked, isDisabled, hasDivider, hasDescription,
+        id, checked, disabled, hasDivider, hasDescription,
     }: Preference): TemplateResult {
         const title = this._localiseText(`preferencesManagement.${id}.title`);
         const descriptionLocaleKey = `preferencesManagement.${id}.description`;
@@ -200,8 +200,8 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
                  </div>
                 <pie-switch
                     id="${id}"
-                    ?isChecked="${isChecked}"
-                    ?isDisabled="${isDisabled}"
+                    ?checked="${checked}"
+                    ?disabled="${disabled}"
                     @change="${this._handleSwitchStates}">
                 </pie-switch>
             </div>

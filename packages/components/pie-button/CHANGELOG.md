@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.41.1
+
+### Patch Changes
+
+- [Fixed] - Removed border when outline-inverse is in disabled state ([#1088](https://github.com/justeattakeaway/pie/pull/1088)) by [@ashleynolan](https://github.com/ashleynolan)
+
 ## 0.41.0
 
 ### Minor Changes

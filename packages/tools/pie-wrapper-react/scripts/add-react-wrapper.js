@@ -94,7 +94,7 @@ export function addReactWrapper (customElementsObject, folderName = process.argv
             let eventNames = '';
             if (component.class.events && component.class.events.length > 0) {
                 eventNames = events?.flat().reduce((pre, event) => `${pre
-                    }        ${`on${formatEventName(event.name)}`}: '${event.name}' as EventName<${event.type}>, ${event.description ? `// ${event.description}` : ''}\n`, '');
+                    }        ${`on${formatEventName(event.name)}`}: '${event.name}' as EventName<${event.type}>,${event.description ? ` // ${event.description}` : ''}\n`, '');
             }
 
             let eventsObject = '{}';

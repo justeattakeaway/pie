@@ -2,7 +2,7 @@
     "headings": ["Prop", "Options", "Description", "Default"],
     "rows": [
         [
-            "isChecked",
+            "checked",
             {
                 "type": "code",
                 "item": ["true", "false"]
@@ -14,12 +14,24 @@
             }
         ],
         [
-            "isDisabled",
+            "disabled",
             {
                 "type": "code",
                 "item": ["true", "false"]
             },
             "Same as the HTML disabled attribute - indicates whether the switch is disabled or not.",
+            {
+                "type": "code",
+                "item": ["false"]
+            }
+        ],
+        [
+            "required",
+            {
+                "type": "code",
+                "item": ["true", "false"]
+            },
+            "Same as the HTML required attribute - indicates whether the switch must be turned or not.",
             {
                 "type": "code",
                 "item": ["false"]
@@ -51,6 +63,18 @@
                 "type": "code",
                 "item": ["{<br>  \"label\": \"switch label\",<br>  \"describedBy\": \"switch description\"<br>}"]
             }
+        ],
+        [
+          "name",
+          "",
+          "Indicates the name of the switch (for use with forms).",
+          ""
+        ],
+        [
+          "value",
+          "",
+          "Indicates the value of the switch (for use with forms).",
+          "on"
         ]
     ]
 }

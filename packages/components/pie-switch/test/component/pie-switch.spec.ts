@@ -16,8 +16,8 @@ test.describe('Component: `Pie switch`', () => {
         // Arrange
         await mount(PieSwitch, {
             props: {
-                isChecked: false,
-                isDisabled: false,
+                checked: false,
+                disabled: false,
             },
         });
 
@@ -28,7 +28,7 @@ test.describe('Component: `Pie switch`', () => {
         await expect(pieSwitch).toBeVisible();
     });
 
-    test('should set `isChecked` to `false` by default', async ({ mount }) => {
+    test('should set `checked` to `false` by default', async ({ mount }) => {
         // Arrange
         const component = await mount(PieSwitch);
 
@@ -39,7 +39,7 @@ test.describe('Component: `Pie switch`', () => {
         expect(pieSwitchComponent).toBe(false);
     });
 
-    test('should set `isDisabled` to `false` by default', async ({ mount }) => {
+    test('should set `disabled` to `false` by default', async ({ mount }) => {
         // Arrange
         const component = await mount(PieSwitch);
 
@@ -81,11 +81,11 @@ test.describe('Component: `Pie switch`', () => {
 
     test.describe('component interaction states', () => {
         test.describe('when the component is clicked', () => {
-            test('should set `isChecked` to `true`', async ({ mount, page }) => {
+            test('should set `checked` to `true`', async ({ mount, page }) => {
                 // Arrange
                 const component = await mount(PieSwitch, {
                     props: {
-                        isChecked: false,
+                        checked: false,
                     },
                 });
 
@@ -98,11 +98,11 @@ test.describe('Component: `Pie switch`', () => {
                 expect(pieSwitchComponent).toBe(true);
             });
 
-            test('should set `isChecked` to `false`', async ({ mount, page }) => {
+            test('should set `checked` to `false`', async ({ mount, page }) => {
                 // Arrange
                 const component = await mount(PieSwitch, {
                     props: {
-                        isChecked: true,
+                        checked: true,
                     },
                 });
 
@@ -135,7 +135,7 @@ test.describe('Component: `Pie switch`', () => {
         });
 
         test.describe('when the components label element is clicked', () => {
-            test('should set `isChecked` to `true`', async ({ mount, page }) => {
+            test('should set `checked` to `true`', async ({ mount, page }) => {
                 // Arrange
                 const component = await mount(PieSwitch, {
                     props: {
@@ -153,13 +153,13 @@ test.describe('Component: `Pie switch`', () => {
                 expect(pieSwitchComponent).toBe(true);
             });
 
-            test('should set `isChecked` to `false`', async ({ mount, page }) => {
+            test('should set `checked` to `false`', async ({ mount, page }) => {
                 // Arrange
                 const component = await mount(PieSwitch, {
                     props: {
                         label: 'Label',
                         labelPlacement: 'leading',
-                        isChecked: true,
+                        checked: true,
                     } as SwitchProps,
                 });
 
@@ -276,6 +276,209 @@ test.describe('Component: `Pie switch`', () => {
                 await expect(pieSwitchLabel).toBeVisible();
                 expect(testId).toContain(labelPlacement);
             });
+        });
+    });
+
+    test.describe('Form integrations', () => {
+        test('should be included in the submitted form data', async ({ page }) => {
+            // Arrange
+            const switchName = 'switch';
+            const switchValue = 'someValue';
+
+            await page.evaluate(() => {
+                const formHTML = `
+                <form id="testForm" action="/default-endpoint" method="POST">
+                    <pie-switch id="pieSwitch" name="switch" value="someValue" label="Click me"></pie-switch>
+                    <button id="submitButton" type="submit">Submit</button>
+                </form>
+                `;
+                document.body.innerHTML = formHTML;
+            });
+
+            // Set up the form submission listener
+            await page.evaluate(() => {
+                const form = document.querySelector('#testForm') as HTMLFormElement;
+
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault(); // Prevent the actual submission
+
+                    // Serialize form data
+                    const formData = new FormData(form);
+                    const formDataObj = {};
+
+                    // This is JS - we don't need TS inside these calls
+                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                    // @ts-ignore
+                    formData.forEach((value, key) => { formDataObj[key] = value; });
+
+                    // Append serialized form data as JSON to a hidden element
+                    const dataHolder = document.createElement('div');
+                    dataHolder.id = 'formDataJson';
+                    dataHolder.textContent = JSON.stringify(formDataObj);
+                    dataHolder.style.display = 'none';
+                    document.body.appendChild(dataHolder);
+                });
+            });
+
+            // Fill out the form
+            await page.click('#pieSwitch');
+
+            // Act
+            await page.click('#submitButton');
+
+            // Assert
+            const formDataJson = await page.$eval('#formDataJson', (el) => el.textContent);
+            const formDataObj = JSON.parse(formDataJson || '{}');
+
+            // Check if the switch value is in the form data
+            expect(switchName in formDataObj).toBe(true);
+            expect(formDataObj[switchName]).toBe(switchValue);
+        });
+
+        test('form should be invalid and not submit if the switch is required but not set', async ({ page }) => {
+            // Arrange
+            await page.evaluate(() => {
+                const formHTML = `
+                <form id="testForm" action="/default-endpoint" method="POST">
+                    <pie-switch id="pieSwitch" name="switch" value="someValue" label="Click me" required></pie-switch>
+                    <button id="submitButton" type="submit">Submit</button>
+                </form>
+                `;
+                document.body.innerHTML = formHTML;
+            });
+
+            // Set up the form submission listener
+            await page.evaluate(() => {
+                const form = document.querySelector('#testForm') as HTMLFormElement;
+
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault(); // Prevent the actual submission
+
+                    // Serialize form data
+                    const formData = new FormData(form);
+                    const formDataObj = {};
+
+                    // This is JS - we don't need TS inside these calls
+                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                    // @ts-ignore
+                    formData.forEach((value, key) => { formDataObj[key] = value; });
+
+                    // Append serialized form data as JSON to a hidden element
+                    const dataHolder = document.createElement('div');
+                    dataHolder.id = 'formDataJson';
+                    dataHolder.textContent = JSON.stringify(formDataObj);
+                    dataHolder.style.display = 'none';
+                    document.body.appendChild(dataHolder);
+                });
+            });
+
+            // Act
+            // Do not click the switch to leave it unset
+            await page.click('#submitButton');
+
+            // Assert
+            const formDataJsonElement = await page.$('#formDataJson');
+            expect(formDataJsonElement).toBeNull();
+        });
+
+        test('should not be included in the submitted form data if disabled and checked', async ({ page }) => {
+            // Arrange
+            await page.evaluate(() => {
+                const formHTML = `
+                <form id="testForm" action="/default-endpoint" method="POST">
+                    <pie-switch id="pieSwitch" name="switch" value="someValue" label="Click me" checked disabled></pie-switch>
+                    <button id="submitButton" type="submit">Submit</button>
+                </form>
+                `;
+                document.body.innerHTML = formHTML;
+            });
+
+            // Set up the form submission listener
+            await page.evaluate(() => {
+                const form = document.querySelector('#testForm') as HTMLFormElement;
+
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault(); // Prevent the actual submission
+
+                    // Serialize form data
+                    const formData = new FormData(form);
+                    const formDataObj = {};
+
+                    // This is JS - we don't need TS inside these calls
+                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                    // @ts-ignore
+                    formData.forEach((value, key) => { formDataObj[key] = value; });
+
+                    // Append serialized form data as JSON to a hidden element
+                    const dataHolder = document.createElement('div');
+                    dataHolder.id = 'formDataJson';
+                    dataHolder.textContent = JSON.stringify(formDataObj);
+                    dataHolder.style.display = 'none';
+                    document.body.appendChild(dataHolder);
+                });
+            });
+
+            // Fill out the form
+            await page.click('#pieSwitch');
+
+            // Act
+            await page.click('#submitButton');
+
+            // Assert
+            const formDataJson = await page.$eval('#formDataJson', (el) => el.textContent);
+            const formDataObj = JSON.parse(formDataJson || '{}');
+
+            expect(formDataObj.switch).toBeUndefined();
+        });
+
+        test('should not be included in the submitted form data if disabled and not checked', async ({ page }) => {
+            // Arrange
+            await page.evaluate(() => {
+                const formHTML = `
+                <form id="testForm" action="/default-endpoint" method="POST">
+                    <pie-switch id="pieSwitch" name="switch" value="someValue" label="Click me" disabled></pie-switch>
+                    <button id="submitButton" type="submit">Submit</button>
+                </form>
+                `;
+                document.body.innerHTML = formHTML;
+            });
+
+            // Set up the form submission listener
+            await page.evaluate(() => {
+                const form = document.querySelector('#testForm') as HTMLFormElement;
+
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault(); // Prevent the actual submission
+
+                    // Serialize form data
+                    const formData = new FormData(form);
+                    const formDataObj = {};
+
+                    // This is JS - we don't need TS inside these calls
+                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                    // @ts-ignore
+                    formData.forEach((value, key) => { formDataObj[key] = value; });
+
+                    // Append serialized form data as JSON to a hidden element
+                    const dataHolder = document.createElement('div');
+                    dataHolder.id = 'formDataJson';
+                    dataHolder.textContent = JSON.stringify(formDataObj);
+                    dataHolder.style.display = 'none';
+                    document.body.appendChild(dataHolder);
+                });
+            });
+
+            // Fill out the form
+            await page.click('#pieSwitch');
+
+            // Act
+            await page.click('#submitButton');
+
+            // Assert
+            const formDataJson = await page.$eval('#formDataJson', (el) => el.textContent);
+            const formDataObj = JSON.parse(formDataJson || '{}');
+
+            expect(formDataObj.switch).toBeUndefined();
         });
     });
 });

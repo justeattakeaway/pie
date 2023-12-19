@@ -1,5 +1,17 @@
 # @justeattakeaway/pie-switch
 
+## 0.21.0
+
+### Minor Changes
+
+- [Changed] - Rename `isDisabled` pie-switch prop to `disabled` to align with native attribute ([#1115](https://github.com/justeattakeaway/pie/pull/1115)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+## 0.20.0
+
+### Minor Changes
+
+- [Added] - Form submission and validation logic ([#1103](https://github.com/justeattakeaway/pie/pull/1103)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.19.0
 
 ### Minor Changes

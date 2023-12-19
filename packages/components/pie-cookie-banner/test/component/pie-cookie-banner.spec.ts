@@ -156,7 +156,7 @@ test.describe('PieCookieBanner - Component tests', () => {
         await page.click(modalSaveButtonSelector);
         const modal = page.locator(modalSelector);
         const [expectedCookieBannerPrefsSavedEvent] = preferences.filter(({ id }) => id !== 'all')
-        .map(({ id, isChecked }) => ({ [id]: !!isChecked }));
+        .map(({ id, checked }) => ({ [id]: !!checked }));
 
         // Assert
         expect(modal).not.toBeVisible();
@@ -208,7 +208,7 @@ test.describe('PieCookieBanner - Component tests', () => {
         await page.click(managePreferencesSelector);
         // eslint-disable-next-line no-restricted-syntax
         for (const preference of preferences) { // turn on all preferences
-            if (preference.id !== 'all' && !preference.isDisabled) {
+            if (preference.id !== 'all' && !preference.disabled) {
                 // eslint-disable-next-line no-await-in-loop
                 await page.click(getPreferenceItemSelector(preference.id));
             }

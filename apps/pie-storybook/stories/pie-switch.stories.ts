@@ -13,28 +13,31 @@ import { createStory, type TemplateFunction } from '../utilities';
 type SwitchStoryMeta = StoryMeta<SwitchProps>;
 
 const defaultArgs: SwitchProps = {
-    isChecked: false,
-    isDisabled: false,
+    checked: false,
+    disabled: false,
     label: 'Label',
     labelPlacement: 'leading',
     aria: {
         label: 'switch label',
         describedBy: 'switch description',
     },
+    name: 'switch',
+    value: 'switchValue',
+    required: true,
 };
 
 const switchStoryMeta: SwitchStoryMeta = {
     title: 'Switch',
     component: 'pie-switch',
     argTypes: {
-        isChecked: {
+        checked: {
             description: 'Same as the HTML checked attribute - indicates whether the switch is on or off',
             control: 'boolean',
             defaultValue: {
                 summary: false,
             },
         },
-        isDisabled: {
+        disabled: {
             description: 'Same as the HTML disabled attribute - indicates whether the switch is disabled or not',
             control: 'boolean',
             defaultValue: {
@@ -63,6 +66,31 @@ const switchStoryMeta: SwitchStoryMeta = {
             description: 'The ARIA labels used for the switch.',
             control: 'object',
         },
+        name: {
+            description: 'Same as the HTML name attribute - indicates the name of the switch (for use with forms)',
+            control: {
+                type: 'text',
+                defaultValue: {
+                    summary: 'switch',
+                },
+            },
+        },
+        value: {
+            description: 'Same as the HTML value attribute - indicates the value of the switch (for use with forms). Defaults to "on".',
+            control: {
+                type: 'text',
+                defaultValue: {
+                    summary: 'on',
+                },
+            },
+        },
+        required: {
+            description: 'Same as the HTML required attribute - for use in forms',
+            control: 'boolean',
+            defaultValue: {
+                summary: true,
+            },
+        },
     },
     args: defaultArgs,
     parameters: {
@@ -82,23 +110,75 @@ const changeAction = (event: Event) => action('change')({
 const Template : TemplateFunction<SwitchProps> = (props) => {
     const {
         aria,
-        isChecked,
-        isDisabled,
+        checked,
+        disabled,
         label,
         labelPlacement,
+        name,
+        value,
+        required,
     } = props;
 
     return html`
         <pie-switch
+            id="pie-switch"
+            name="${name || nothing}"
+            value="${value || nothing}"
             label="${label || nothing}"
             labelPlacement="${label && labelPlacement ? labelPlacement : nothing}"
             .aria="${aria}"
-            ?isChecked="${isChecked}"
-            ?isDisabled="${isDisabled}"
+            ?required="${required}"
+            ?checked="${checked}"
+            ?disabled="${disabled}"
             @change="${changeAction}">
         </pie-switch>`;
 };
 
+const FormTemplate: TemplateFunction<SwitchProps> = (props: SwitchProps) => html`
+    <p id="formLog" style="display: none; font-size: 2rem; color: var(--dt-color-support-positive);"></p>
+    <h2>Fake form</h2>
+    <form id="testForm">
+    <p>Required fields are followed by <strong><span aria-label="required">*</span></strong>.</p>
+
+    <section>
+    ${Template({
+    ...props,
+})}
+    </section>
+    <button type="submit">Submit</button>
+    </form>
+    <script>
+        // Display a success message to the user when they submit the form
+        const form = document.querySelector('#testForm');
+        const formLog = document.querySelector('#formLog');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            formLog.innerHTML = 'Form submitted!';
+            formLog.style.display = 'block';
+
+            // log out all form input values
+            const formData = new FormData(form);
+            console.log('All form elements:', form.elements);
+            console.log('All form element data keys and values submitted:');
+
+            for (const entry of formData.entries()) {
+                console.table(entry);
+            }
+
+            // Reset the success message after roughly 8 seconds
+            setTimeout(() => {
+                formLog.innerHTML = '';
+                formLog.style.display = 'none';
+            }, 8000);
+        });
+    </script>
+`;
+
 const createSwitchStory = createStory(Template, defaultArgs);
 
+const createSwitchStoryWithForm = createStory<SwitchProps>(FormTemplate, defaultArgs);
+
 export const Default = createSwitchStory();
+export const FormIntegration = createSwitchStoryWithForm({ label: 'Click me' });
