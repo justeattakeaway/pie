@@ -3,10 +3,10 @@
 // Normally we don't expect consumers to override these, but there are situations where it may be necessary
 :host {
     // The base values are set to the size default, which is for the medium button size
-    --btn-dimension: 48px;
+    --btn-dimension-default: 48px;
 
     // Sizing is set to Medium button icon size, as that is the default
-    --btn-icon-size: 24px;
+    --btn-icon-size-default: 24px;
 }
 
 // Base button styles
@@ -16,8 +16,8 @@
     --btn-icon-fill: var(--dt-color-content-interactive-primary);
     --btn-icon-display: block;
 
-    block-size: var(--btn-dimension);
-    inline-size: var(--btn-dimension);
+    block-size: var(--btn-dimension, var(--btn-dimension-default));
+    inline-size: var(--btn-dimension, var(--btn-dimension-default));
 
     border-color: var(--btn-border-color);
     border-radius: var(--btn-border-radius);
@@ -37,8 +37,8 @@
     }
 
     svg {
-        height: var(--btn-icon-size);
-        width: var(--btn-icon-size);
+        height: var(--btn-icon-size, var(--btn-icon-size-default));
+        width: var(--btn-icon-size, var(--btn-icon-size-default));
     }
 
     &[variant='primary'] {
