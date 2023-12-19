@@ -2,4 +2,4 @@
 "@justeattakeaway/pie-icons-webc": minor
 ---
 
-[Fixed] - Attempt to resolve icon size issue
+[Fixed] - Remove `:host-context` usage for icon sizing
