@@ -18,24 +18,24 @@ module.exports = async ({ github, context }, execa) => {
 
         body = `@${context.actor} Your snapshot${multiple ? 's have' : ' has'} been published to npm!
 
-    Test the snapshot${multiple ? 's' : ''} by updating your \`package.json\` with the newly-published version${multiple ? 's' : ''}:
-    ${newTags.map(tag => `- \`${tag}\``).join('\n')}`;
+Test the snapshot${multiple ? 's' : ''} by updating your \`package.json\` with the newly-published version${multiple ? 's' : ''}:`;
 
         if (multiple) {
             body += `
-    > [!NOTE]
-    > If you have more than one of these packages installed, we suggest using the new snapshots for all of them to help avoid version conflicts.
+> [!NOTE]
+> If you have more than one of these packages installed, we suggest using the new snapshots for all of them to help avoid version conflicts.
 
-    The following command will update any of the packages that you have installed (ignoring any that you don't):
-
-    \`\`\`sh
-    ${newTags.map(tag => `yarn up ${tag} --mode=update-lockfile`).join(' & ')} & yarn install
-    \`\`\``;
+${newTags.map(tag => `\`\`\`sh
+yarn up ${tag} --mode=update-lockfile
+\`\`\``).join('\n')}
+Then finally:
+\`\`\`sh
+yarn install
+\`\`\``;
         } else {
-            body += `
-    \`\`\`sh
-    yarn up ${newTags[0]}
-    \`\`\``;
+            body += `\`\`\`sh
+yarn up ${newTags[0]}
+\`\`\``;
         }
     } else {
         body = `No changed packages found! Please make sure you have added a changeset entry for the packages you would like to snapshot.`;
