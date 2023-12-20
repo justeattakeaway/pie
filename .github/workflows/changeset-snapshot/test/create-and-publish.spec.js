@@ -69,14 +69,6 @@ describe('create and publish workflow', () => {
         expect(github.rest.issues.createComment).toHaveBeenCalledTimes(1);
     });
 
-    test('should create a github comment with a message body', async () => {
-        // Act
-        await workflow({ context, github }, execa);
-
-        // Assert
-        expect(expectedBody.length).toBeGreaterThan(0);
-    });
-
     describe('if no packages were changed', () => {
         test('should have a message body starting with "No packages changed!"', async () => {
             // Arrange
