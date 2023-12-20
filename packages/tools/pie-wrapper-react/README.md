@@ -9,20 +9,27 @@ With this package, the below code (example of `pie-button`) is automatically gen
 ```js
 import * as React from 'react';
 import { createComponent } from '@lit/react';
-import type { EventName } from '@lit/react';
+import { PieButton as PieButtonLit } from './index';
+import { ButtonProps } from './defs';
 
-export const PButton = createComponent({
+const PieButtonReact = createComponent({
         displayName: 'PieButton',
-        elementClass: PieButton,
+        elementClass: PieButtonLit,
         react: React,
         tagName: 'pie-button',
         events: {}
     });
+
+// Provides missing contextual types for a React button component
+type ReactBaseType = Pick<React.ButtonHTMLAttributes<HTMLButtonElement>, 'children' | 'onClick'>
+
+// Workaround for `createComponent` setting all props set as optional with the additional contextual types declared above
+export const PieButton = PieButtonReact as React.ForwardRefExoticComponent<React.PropsWithoutRef<ButtonProps> & React.RefAttributes<PieButtonLit> & ReactBaseType>;
 ```
 
-This package references a `custom-elements.json` file, which is generated via a `yarn cem analyze` command from the npm package `@custom-elements-manifest/analyzer`. This package searches through the repo for any custom elements and condenses it's information, such as events and attributes, into a large json object - making it easier to use for wrappers. Therefore, any changes made to a web component will automatically be reflected in the `custom-elements.json` file during the build process.
+This package references a `custom-elements.json` file, which is generated via a `yarn cem analyze` command from the npm package `@custom-elements-manifest/analyzer`. This package searches through the repo for any custom elements and condenses its information, such as events and attributes, into a large JSON object - making it easier to use for wrappers. Therefore, any changes made to a web component will automatically be reflected in the `custom-elements.json` file during the build process.
 
-If you notice changes in this file, please commit this as part of your PR. These are necessary for the react-wrapper to be generated with the most up to date version of the component so should be committed along with your other file changes.
+If you notice changes in this file, please commit this as part of your PR. These are necessary for the react-wrapper to be generated with the most up-to-date version of the component so should be committed along with your other file changes.
 
 To use the React wrapper in an application, import `Pie{Component}` from the package of the component, with the additional import of `dist/react`. For example:
 
