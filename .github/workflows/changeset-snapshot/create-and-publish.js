@@ -18,11 +18,10 @@ module.exports = async ({ github, context }, execa) => {
 
         body = `@${context.actor} Your snapshot${multiple ? 's have' : ' has'} been published to npm!
 
-Test the snapshot${multiple ? 's' : ''} by updating your \`package.json\` with the newly-published version${multiple ? 's' : ''}:`;
+Test the snapshot${multiple ? 's' : ''} by updating your \`package.json\` with the newly-published version${multiple ? 's' : ''}:\n`;
 
         if (multiple) {
-            body += `
-> [!NOTE]
+            body += `> [!NOTE]
 > If you have more than one of these packages installed, we suggest using the new snapshots for all of them to help avoid version conflicts.
 
 ${newTags.map(tag => `\`\`\`sh
