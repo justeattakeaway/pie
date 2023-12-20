@@ -12,4 +12,4 @@
 "@justeattakeaway/pie-link": patch
 ---
 
-[Changed] React Wrapper script
+[Changed] - Use the updated React Wrapper script
