@@ -42,7 +42,7 @@
     "test": "yarn test:workflows && cross-env-shell turbo run test --filter=!pie-monorepo --token=${TURBO_TOKEN}",
     "test:workflows": "cross-env-shell vitest run .github/workflows",
     "test:watch": "cross-env-shell turbo run test:watch --filter=!pie-monorepo",
-    "test:ci": "cross-env-shell turbo run test:ci --filter=!'./apps/examples/*' --filter=!pie-monorepo --token=${TURBO_TOKEN}",
+    "test:ci": "yarn test:workflows && cross-env-shell turbo run test:ci --filter=!'./apps/examples/*' --filter=!pie-monorepo --token=${TURBO_TOKEN}",
     "test:coverage": "turbo run test:coverage --filter=!pie-monorepo",
     "test:generate-routes": "turbo run test:generate-routes --filter=!pie-monorepo --token=${TURBO_TOKEN}",
     "test:browsers": "cross-env-shell turbo run test:browsers --filter=!pie-monorepo --token=${TURBO_TOKEN}",
