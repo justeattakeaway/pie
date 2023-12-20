@@ -28,6 +28,17 @@ test.describe('Component: `Pie switch`', () => {
         await expect(pieSwitch).toBeVisible();
     });
 
+    test('should have a "visible" input to help with accessibility', async ({ mount, page }) => {
+        // Arrange
+        await mount(PieSwitch);
+
+        // Act
+        const input = page.locator(inputSelector);
+
+        // Assert
+        await expect(input).toBeVisible();
+    });
+
     test('should set `checked` to `false` by default', async ({ mount }) => {
         // Arrange
         const component = await mount(PieSwitch);
