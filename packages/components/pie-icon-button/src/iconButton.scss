@@ -6,7 +6,7 @@
     --btn-dimension-default: 48px;
 
     // Sizing is set to Medium button icon size, as that is the default
-    --btn-icon-size-default: 24px;
+    --icon-size-override: 24px;
 }
 
 // Base button styles
@@ -14,7 +14,7 @@
     --btn-border-radius: var(--dt-radius-rounded-e);
     --btn-bg-color: var(--dt-color-interactive-brand);
     --btn-icon-fill: var(--dt-color-content-interactive-primary);
-    --btn-icon-display: block;
+    --icon-display-override: block;
 
     block-size: var(--btn-dimension, var(--btn-dimension-default));
     inline-size: var(--btn-dimension, var(--btn-dimension-default));
@@ -37,8 +37,8 @@
     }
 
     svg {
-        height: var(--btn-icon-size, var(--btn-icon-size-default));
-        width: var(--btn-icon-size, var(--btn-icon-size-default));
+        height: var(--icon-size-override);
+        width: var(--icon-size-override);
     }
 
     &[variant='primary'] {
@@ -109,7 +109,7 @@
 
     &[size='xsmall'] {
         --btn-dimension: 32px;
-        --btn-icon-size: 20px;
+        --icon-size-override: 20px;
     }
 
     &[size='small'] {
@@ -122,7 +122,7 @@
 
     &[size='large'] {
         --btn-dimension: 56px;
-        --btn-icon-size: 28px;
+        --icon-size-override: 28px;
     }
 }
 
