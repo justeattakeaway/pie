@@ -12,7 +12,6 @@
     // These are defined here instead of :host to encapsulate them inside Shadow DOM
     --tag-font-family: var(--dt-font-body-s-family);
     --tag-font-weight: var(--dt-font-body-s-weight);
-    --tag-icon-size: 16px;
 
     // The following values set to default background and color
     // currently this sets the neutral large tag styles
@@ -25,6 +24,10 @@
     // Heights for the different tag sizes
     --tag-height-large: 24px;
     --tag-height-small: 16px;
+
+    // Pie Webc Icon var that is used to ensure the correctly sized icon passed in a slot
+    --icon-display-override: block;
+    --icon-size-override: 16px;
 
     display: inline-flex;
     vertical-align: middle;
@@ -144,6 +147,6 @@
 // Used to size an SVG if one is passed in (when not using the component icons)
 ::slotted(svg) {
     display: block;
-    height: var(--tag-icon-size);
-    width: var(--tag-icon-size);
+    height: var(--icon-size-override);
+    width: var(--icon-size-override);
 }

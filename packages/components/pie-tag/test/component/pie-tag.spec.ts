@@ -44,7 +44,7 @@ test.describe('PieTag - Component tests', () => {
         const tag = page.locator(componentSelector);
 
         // Assert
-        expect(tag).toBeVisible();
+        await expect(tag).toBeVisible();
     });
 
     test.describe('icon slot', () => {
@@ -64,22 +64,40 @@ test.describe('PieTag - Component tests', () => {
                     const tagIcon = page.locator(tagIconSelector);
 
                     // Assert
-                    expect(tagIcon).toBeVisible();
+                    await expect(tagIcon).toBeVisible();
+                });
+            });
+
+            test.describe('if the size is small', () => {
+                test('should NOT render the icon', async ({ mount, page }) => {
+                    // Arrange
+                    await mount(PieTag, {
+                        props: {
+                            ...props,
+                            size: 'small',
+                        },
+                        slots: {
+                            default: 'Label',
+                            icon,
+                        },
+                    });
+
+                    // Act
+                    const tagIcon = page.locator(tagIconSelector);
+
+                    // Assert
+                    await expect(tagIcon).toBeHidden();
                 });
             });
         });
 
-        test.describe('if the size is small', () => {
+        test.describe('when NOT passed', () => {
             test('should NOT render the icon', async ({ mount, page }) => {
                 // Arrange
                 await mount(PieTag, {
-                    props: {
-                        ...props,
-                        size: 'small',
-                    },
+                    props,
                     slots: {
                         default: 'Label',
-                        icon,
                     },
                 });
 
@@ -87,7 +105,7 @@ test.describe('PieTag - Component tests', () => {
                 const tagIcon = page.locator(tagIconSelector);
 
                 // Assert
-                await expect(tagIcon).not.toBeVisible();
+                await expect(tagIcon).toBeHidden();
             });
         });
     });
@@ -107,7 +125,7 @@ test.describe('PieTag - Component tests', () => {
 
             const [currentBgStyle, expectedBgStyle] = await getShadowElementStylePropValues(component, componentSelector, ['--tag-bg-color', bgStyle]);
 
-            await expect(currentBgStyle).toBe(expectedBgStyle);
+            expect(currentBgStyle).toBe(expectedBgStyle);
         });
     });
 });
