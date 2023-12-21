@@ -39,9 +39,9 @@ export class ${name} extends LitElement implements IconProps {
     // The following styles make sure that the icon will be sized correctly
     static styles = css\`
         :host svg {
-            display: var(--btn-icon-display, inline);
-            width: var(--btn-icon-size, 24px);
-            height: var(--btn-icon-size, 24px);
+            display: var(--icon-display-override);
+            width: var(--icon-size-override);
+            height: var(--icon-size-override);
         }
     \`;
 
