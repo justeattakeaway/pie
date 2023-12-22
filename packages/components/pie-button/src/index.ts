@@ -223,7 +223,7 @@ export class PieButton extends LitElement implements ButtonProps {
         return html`
                     <pie-spinner
                         size="${spinnerSize}"
-                        variant="${spinnerVariant}"
+                        variant="${spinnerVariant}">
                     </pie-spinner>`;
     }
 
