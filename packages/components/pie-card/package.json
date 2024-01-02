@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/pie-card",
-  "version": "0.14.3",
+  "version": "0.15.0",
   "description": "PIE Design System Card built using Web Components",
   "type": "module",
   "main": "dist/index.js",
