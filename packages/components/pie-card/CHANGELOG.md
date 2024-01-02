@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-card
 
+## 0.15.0
+
+### Minor Changes
+
+- [Changed] - README to link directly to documentation site ([#1126](https://github.com/justeattakeaway/pie/pull/1126)) by [@LTurns](https://github.com/LTurns)
+
 ## 0.14.3
 
 ### Patch Changes
