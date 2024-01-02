@@ -4,6 +4,8 @@ on:
   issue_comment:
     types:
       - created
+  pull_request:
+    types: [assigned, opened, synchronize, reopened, "ready_for_review"]
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
@@ -11,8 +13,9 @@ jobs:
   snapshot:
     name: Snapshot Release
     if: |
-      github.event.issue.pull_request &&
-      (startsWith(github.event.comment.body, '/snapit'))
+      github.event_name == 'pull_request' ||
+      (github.event.issue.pull_request &&
+      (startsWith(github.event.comment.body, '/snapit')))
     runs-on: ubuntu-latest
     steps:
       - name: Enforce permission requirement
