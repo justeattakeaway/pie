@@ -21,7 +21,7 @@ sizes.forEach((size) => {
         });
 
         // Follow up to remove in Jan
-        await page.waitForTimeout(5000);
+        await page.waitForTimeout(2500);
 
         await percySnapshot(page, `Modal - size = ${size}`);
     });
@@ -45,7 +45,7 @@ test.describe('Prop: `isFullWidthBelowMid`', () => {
             });
 
             // Follow up to remove in Jan
-            await page.waitForTimeout(5000);
+            await page.waitForTimeout(2500);
 
             await percySnapshot(page, 'Modal - isFullWidthBelowMid = true, size = medium');
         });
@@ -66,7 +66,7 @@ test.describe('Prop: `isFullWidthBelowMid`', () => {
             });
 
             // Follow up to remove in Jan
-            await page.waitForTimeout(5000);
+            await page.waitForTimeout(2500);
 
             await percySnapshot(page, 'Modal - isFullWidthBelowMid = true, size = small');
         });
@@ -91,7 +91,7 @@ test.describe('Prop: `isFullWidthBelowMid`', () => {
                     });
 
                     // Follow up to remove in Jan
-                    await page.waitForTimeout(5000);
+                    await page.waitForTimeout(2500);
 
                     await percySnapshot(page, `Modal - isFullWidthBelowMid = false, size = ${size}`);
                 });
@@ -116,7 +116,7 @@ test.describe('Prop: `isDismissible`', () => {
             });
 
             // Follow up to remove in Jan
-            await page.waitForTimeout(5000);
+            await page.waitForTimeout(2500);
 
             await percySnapshot(page, 'Modal with close button displayed - isDismissible: `true`');
         });
@@ -138,7 +138,7 @@ test.describe('Prop: `isDismissible`', () => {
             });
 
             // Follow up to remove in Jan
-            await page.waitForTimeout(5000);
+            await page.waitForTimeout(2500);
 
             await percySnapshot(page, 'Modal without close button - isDismissible: `false`');
         });
@@ -166,7 +166,7 @@ test.describe('Prop: `hasBackButton`', () => {
                 });
 
                 // Follow up to remove in Jan
-                await page.waitForTimeout(5000);
+                await page.waitForTimeout(2500);
 
                 await percySnapshot(page, `Modal with back button displayed - hasBackButton: ${true} - dir: ${dir}`);
             });
@@ -189,7 +189,7 @@ test.describe('Prop: `hasBackButton`', () => {
                 });
 
                 // Follow up to remove in Jan
-                await page.waitForTimeout(5000);
+                await page.waitForTimeout(2500);
 
                 await percySnapshot(page, `Modal without back button - hasBackButton: ${false} - dir: ${dir}`);
             });
@@ -215,7 +215,7 @@ test.describe('Prop: `heading`', () => {
         });
 
         // Follow up to remove in Jan
-        await page.waitForTimeout(5000);
+        await page.waitForTimeout(2500);
 
         await percySnapshot(page, 'Modal - Long heading');
     });
@@ -239,7 +239,7 @@ test.describe('Prop: `isLoading`', () => {
         });
 
         // Follow up to remove in Jan
-        await page.waitForTimeout(5000);
+        await page.waitForTimeout(2500);
 
         await percySnapshot(page, `Modal displays loading spinner - isLoading: ${true}`);
     });
@@ -261,7 +261,7 @@ test.describe('Prop: `leadingAction`', () => {
             });
 
             // Follow up to remove in Jan
-            await page.waitForTimeout(5000);
+            await page.waitForTimeout(2500);
 
             await percySnapshot(page, 'Modal displays leadingAction');
         });
@@ -280,7 +280,7 @@ test.describe('Prop: `leadingAction`', () => {
             });
 
             // Follow up to remove in Jan
-            await page.waitForTimeout(5000);
+            await page.waitForTimeout(2500);
 
             await percySnapshot(page, 'Modal falls back to default property `primary`');
         });
@@ -299,7 +299,7 @@ test.describe('Prop: `leadingAction`', () => {
             });
 
             // Follow up to remove in Jan
-            await page.waitForTimeout(5000);
+            await page.waitForTimeout(2500);
 
             await percySnapshot(page, 'Modal will not render `leadingAction` button when `text` is empty');
         });
@@ -315,7 +315,7 @@ test.describe('Prop: `leadingAction`', () => {
             });
 
             // Follow up to remove in Jan
-            await page.waitForTimeout(5000);
+            await page.waitForTimeout(2500);
 
             await percySnapshot(page, 'Modal does not display leadingAction');
         });
@@ -343,7 +343,7 @@ test.describe('Prop: `supportingAction`', () => {
             });
 
             // Follow up to remove in Jan
-            await page.waitForTimeout(5000);
+            await page.waitForTimeout(2500);
 
             await percySnapshot(page, 'Modal displays supportingAction alongside leadingAction');
         });
@@ -367,7 +367,7 @@ test.describe('Prop: `supportingAction`', () => {
                 });
 
                 // Follow up to remove in Jan
-                await page.waitForTimeout(5000);
+                await page.waitForTimeout(2500);
 
                 await percySnapshot(page, 'Modal falls back to default variant property `ghost`');
             });
@@ -391,7 +391,7 @@ test.describe('Prop: `supportingAction`', () => {
                 });
 
                 // Follow up to remove in Jan
-                await page.waitForTimeout(5000);
+                await page.waitForTimeout(2500);
 
                 await percySnapshot(page, 'Modal will not render `supportingAction` button when `text` is empty');
             });
@@ -412,7 +412,7 @@ test.describe('Prop: `supportingAction`', () => {
                 });
 
                 // Follow up to remove in Jan
-                await page.waitForTimeout(5000);
+                await page.waitForTimeout(2500);
 
                 await percySnapshot(page, 'Modal will not render `supportingAction` when it is not supplied');
             });
@@ -434,7 +434,7 @@ test.describe('Prop: `supportingAction`', () => {
             });
 
             // Follow up to remove in Jan
-            await page.waitForTimeout(5000);
+            await page.waitForTimeout(2500);
 
             await percySnapshot(page, 'Modal will not render `supportingAction` when `leadingAction` is not supplied');
         });
@@ -464,7 +464,7 @@ test.describe('Prop: `position`', () => {
                             });
 
                             // Follow up to remove in Jan
-                            await page.waitForTimeout(5000);
+                            await page.waitForTimeout(2500);
 
                             await percySnapshot(page, `Modal position: ${position}, size: ${size}, isFullWidthBelowMid: ${isFullWidthBelowMid}`);
                         });
@@ -519,7 +519,7 @@ test.describe('Prop: `isFooterPinned`', () => {
             });
 
             // Follow up to remove in Jan
-            await page.waitForTimeout(5000);
+            await page.waitForTimeout(2500);
 
             await percySnapshot(page, `Modal isFooterPinned: ${isFooterPinned}`);
         });
@@ -548,7 +548,7 @@ test.describe('Prop: `isFooterPinned`', () => {
                 });
 
                 // Follow up to remove in Jan
-                await page.waitForTimeout(5000);
+                await page.waitForTimeout(2500);
 
                 await percySnapshot(page, `Modal isFooterPinned: ${isFooterPinned}, fullscreen with size: ${size}`, percyWidths);
             });
@@ -581,7 +581,7 @@ test.describe('Prop: `hasStackedActions`', () => {
                     });
 
                     // Follow up to remove in Jan
-                    await page.waitForTimeout(5000);
+                    await page.waitForTimeout(2500);
 
                     await percySnapshot(page, `Modal - hasStackedActions = true, size = ${size}`);
                 });
