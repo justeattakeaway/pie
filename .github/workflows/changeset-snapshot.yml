@@ -24,10 +24,10 @@ jobs:
           permission: write
 
       - name: Add initial reaction
+        if: ${{ github.event_name != 'pull_request' }}
         uses: peter-evans/create-or-update-comment@v2
         with:
           token: ${{ secrets.CHANGESETS_TOKEN }}
-          issue-number: ${{ github.event.number }}
           comment-id: ${{ github.event.comment.id }}
           reactions: eyes
 
