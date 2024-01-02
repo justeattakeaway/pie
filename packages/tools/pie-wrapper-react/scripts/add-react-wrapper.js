@@ -10,6 +10,46 @@ export function loadCustomElementsFile (customElementsDirectory = process.argv[2
 }
 
 /**
+ * Reads the given component path and extracts the ReactBaseType as a string
+ *
+ * @param {string} componentRelativePath - the relative path to the component
+ * @returns {string} - the Type definition for React as String
+ */
+function getReactBaseType (componentRelativePath) {
+    // Read file
+    const componentFolder = path.parse(componentRelativePath).dir;
+    const componentReactDefs = path.resolve(componentFolder, './defs-react.ts');
+
+    let fileContent;
+    try {
+        fileContent = fs.readFileSync(componentReactDefs, 'utf-8');
+    } catch {
+        return null;
+    }
+
+    return extractReactBaseType(fileContent);
+}
+
+/**
+ * Extracts the ReactBaseType definition as a string, given a string representing the file content
+ *
+ * @param {string} fileContent - the whole content of the file as string
+ * @returns {string} - the Type definition for React as String
+ */
+function extractReactBaseType (fileContent) {
+    // Matches from the line start so it can ignore if it is commented out
+    const matches = fileContent.match(/^export type ReactBaseType.*$/gm);
+    const hasMatch = matches && matches[0];
+
+    if (!hasMatch) return null;
+
+    // Strip the "export" keyword as it is not necessary
+    const reactBaseType = matches[0].replace(/^export /, '');
+
+    return reactBaseType;
+}
+
+/**
  * This function generates a react wrapper to enable custom lit components to be used in react apps.
  *
  * @param {JSON} - A JSON file of custom components and their attributes, generated from the @custom-elements-manifest/analyzer package
@@ -33,7 +73,13 @@ export function addReactWrapper (customElementsObject) {
                 k.declarations.forEach((decl) => {
                     if (decl.customElement === true) {
                         const componentSelector = k.declarations.find((i) => i.kind === 'variable' && i.name === 'componentSelector');
-                        components.push({ class: { ...decl, tagName: componentSelector?.default.replace(/'/g, '') ?? decl.tagName }, path: k.path.replace('index.js', 'react.ts') });
+                        const componentData = {
+                            class: { ...decl, tagName: componentSelector?.default.replace(/'/g, '') ?? decl.tagName },
+                            path: k.path.replace('index.js', 'react.ts'),
+                            reactBaseType: getReactBaseType(k.path),
+                        };
+
+                        components.push(componentData);
                     }
                 });
             });
@@ -120,9 +166,9 @@ const ${component.class.name}React = createComponent({
     events: ${eventsObject},
 });
 
-type ReactBaseType = Pick<React.ButtonHTMLAttributes<HTMLButtonElement>, 'children' | 'onClick'>
+${component.reactBaseType ? component.reactBaseType : ''}
 
-export const ${component.class.name} = ${component.class.name}React as React.ForwardRefExoticComponent<React.PropsWithoutRef<${componentPropsExportName}> & React.RefAttributes<${component.class.name}Lit> & ReactBaseType>;
+export const ${component.class.name} = ${component.class.name}React as React.ForwardRefExoticComponent<React.PropsWithoutRef<${componentPropsExportName}> & React.RefAttributes<${component.class.name}Lit>${component.reactBaseType ? ' & ReactBaseType' : ''}>;
 `;
             let reactFile;
 
