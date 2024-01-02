@@ -10,13 +10,27 @@
 
 ## pie-switch
 
-`pie-switch` is a Web Component built using the Lit library.
+`pie-switch` is a Web Component built using the Lit library. It allows users to switch between two states or options with a single action.
 
-This component can be easily integrated into various frontend frameworks and customized through a set of properties.
+## Installation
 
-> [!IMPORTANT]
->For full information on using this component, please refer to our [documentation page](https://pie.design/components/switch/code/).
+To install `pie-switch` in your application, run the following on your command line:
 
+```bash
+# npm
+$ npm i @justeattakeaway/pie-switch
+
+# yarn
+$ yarn add @justeattakeaway/pie-switch
+```
+
+## Documentation
+
+Visit  [Modal | PIE Design System](https://pie.design/components/modal/overview) to view more information on this component.
+
+## Questions
+
+Please head to [FAQs | PIE Design System](https://pie.design/support/contact-us/) to see our FAQs and get in touch.
 
 ## Contributing
 

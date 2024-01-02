@@ -1,5 +1,18 @@
 # @justeattakeaway/pie-icon-button
 
+## 0.25.0
+
+### Minor Changes
+
+- [Changed] - README to link directly to documentation site ([#1126](https://github.com/justeattakeaway/pie/pull/1126)) by [@LTurns](https://github.com/LTurns)
+
+### Patch Changes
+
+- [Changed] - `--btn-icon-display`, `--btn-icon-size` and `--btn-icon-size-default` to `--icon-display-override` and `--icon-size-override` variables ([#1127](https://github.com/justeattakeaway/pie/pull/1127)) by [@dandel10n](https://github.com/dandel10n)
+
+- Updated dependencies [[`270b4679f`](https://github.com/justeattakeaway/pie/commit/270b4679f2ec553fad25baf16b775b6740e1150c), [`e27452b22`](https://github.com/justeattakeaway/pie/commit/e27452b228e2a09ded5a2bd88a6d3c567a94f03e)]:
+  - @justeattakeaway/pie-icons-webc@0.16.0
+
 ## 0.24.3
 
 ### Patch Changes

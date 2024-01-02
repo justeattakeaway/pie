@@ -1,5 +1,24 @@
 # Changelog
 
+## 0.55.0
+
+### Minor Changes
+
+- [Added] - Initial generated storybook boilerplate for pie-input ([#1135](https://github.com/justeattakeaway/pie/pull/1135)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies [[`e27452b22`](https://github.com/justeattakeaway/pie/commit/e27452b228e2a09ded5a2bd88a6d3c567a94f03e), [`270b4679f`](https://github.com/justeattakeaway/pie/commit/270b4679f2ec553fad25baf16b775b6740e1150c), [`e27452b22`](https://github.com/justeattakeaway/pie/commit/e27452b228e2a09ded5a2bd88a6d3c567a94f03e), [`e27452b22`](https://github.com/justeattakeaway/pie/commit/e27452b228e2a09ded5a2bd88a6d3c567a94f03e), [`99160e0c3`](https://github.com/justeattakeaway/pie/commit/99160e0c3fa6d4ef566fefdbea7850e469e502b9), [`5541a6b1d`](https://github.com/justeattakeaway/pie/commit/5541a6b1d6f7fb9dff75e16c28087bd853564426)]:
+  - @justeattakeaway/pie-icon-button@0.25.0
+  - @justeattakeaway/pie-icons-webc@0.16.0
+  - @justeattakeaway/pie-button@0.42.0
+  - @justeattakeaway/pie-divider@0.10.0
+  - @justeattakeaway/pie-switch@0.22.0
+  - @justeattakeaway/pie-modal@0.36.0
+  - @justeattakeaway/pie-card@0.15.0
+  - @justeattakeaway/pie-link@0.12.0
+  - @justeattakeaway/pie-cookie-banner@0.13.2
+
 ## 0.54.1
 
 ### Patch Changes

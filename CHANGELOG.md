@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.48.0
+
+### Minor Changes
+
+- [Added] - New pie-input component with boilerplate code ([#1135](https://github.com/justeattakeaway/pie/pull/1135)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 2.47.1
 
 ### Patch Changes

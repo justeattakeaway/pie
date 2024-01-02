@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/pie-modal",
-  "version": "0.35.6",
+  "version": "0.36.0",
   "description": "PIE design system modal built using web components",
   "type": "module",
   "main": "dist/index.js",
@@ -36,9 +36,9 @@
     "extends": "../../../package.json"
   },
   "dependencies": {
-    "@justeattakeaway/pie-button": "0.41.1",
-    "@justeattakeaway/pie-icon-button": "0.24.3",
-    "@justeattakeaway/pie-icons-webc": "0.15.0",
+    "@justeattakeaway/pie-button": "0.42.0",
+    "@justeattakeaway/pie-icon-button": "0.25.0",
+    "@justeattakeaway/pie-icons-webc": "0.16.0",
     "@justeattakeaway/pie-spinner": "0.3.1",
     "@justeattakeaway/pie-webc-core": "0.13.0",
     "body-scroll-lock": "3.1.5",

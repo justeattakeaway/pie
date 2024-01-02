@@ -1,5 +1,15 @@
 # @justeattakeaway/pie-icons-webc
 
+## 0.16.0
+
+### Minor Changes
+
+- [Fixed] - Remove `:host-context` usage for icon sizing ([#1107](https://github.com/justeattakeaway/pie/pull/1107)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
+### Patch Changes
+
+- [Changed] - `--btn-icon-size` and `--btn-icon-display` to `--icon-display-override` and `--icon-size-override` variable for display, width and height icon styles for `:host svg` ([#1127](https://github.com/justeattakeaway/pie/pull/1127)) by [@dandel10n](https://github.com/dandel10n)
+
 ## 0.15.0
 
 ### Minor Changes

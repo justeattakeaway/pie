@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/pie-icon-button",
-  "version": "0.24.3",
+  "version": "0.25.0",
   "description": "PIE Design System Icon Button built using Web Components",
   "type": "module",
   "main": "dist/index.js",
@@ -26,7 +26,7 @@
   "author": "Just Eat Takeaway.com - Design System Team",
   "license": "Apache-2.0",
   "dependencies": {
-    "@justeattakeaway/pie-icons-webc": "0.15.0",
+    "@justeattakeaway/pie-icons-webc": "0.16.0",
     "@justeattakeaway/pie-spinner": "0.3.1",
     "@justeattakeaway/pie-webc-core": "0.13.0"
   },
