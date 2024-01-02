@@ -4,8 +4,6 @@ on:
   issue_comment:
     types:
       - created
-  pull_request:
-    types: [assigned, opened, synchronize, reopened, "ready_for_review"]
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
@@ -13,9 +11,8 @@ jobs:
   snapshot:
     name: Snapshot Release
     if: |
-      github.event_name == 'pull_request' ||
-      (github.event.issue.pull_request &&
-      (startsWith(github.event.comment.body, '/snapit')))
+      github.event.issue.pull_request &&
+      (startsWith(github.event.comment.body, '/snapit'))
     runs-on: ubuntu-latest
     steps:
       - name: Enforce permission requirement
@@ -24,7 +21,6 @@ jobs:
           permission: write
 
       - name: Add initial reaction
-        if: ${{ github.event_name != 'pull_request' }}
         uses: peter-evans/create-or-update-comment@v2
         with:
           token: ${{ secrets.CHANGESETS_TOKEN }}
@@ -97,7 +93,7 @@ jobs:
       # issue_comment requires us to checkout the branch
       # https://github.com/actions/checkout/issues/331#issuecomment-1120113003
       - name: Checkout pull request branch
-        run: gh pr checkout ${{ github.event.issue.number || github.event.number }}
+        run: gh pr checkout ${{ github.event.issue.number }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -151,6 +147,6 @@ jobs:
         if: failure()
         uses: peter-evans/create-or-update-comment@v2
         with:
-          issue-number: ${{ github.event.number || github.event.issue.number }}
+          issue-number: ${{ github.event.issue.number }}
           token: ${{ secrets.CHANGESETS_TOKEN }}
           body: The build failed, please see the [logs](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}) or take a look at the [Workflow Tooling wiki page](https://github.com/justeattakeaway/pie/wiki/Workflow-Tooling#snapshot-releases) to make sure your PR meets the requirements.
