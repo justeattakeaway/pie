@@ -5681,7 +5681,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@justeattakeaway/pie-input@workspace:packages/components/pie-input":
+"@justeattakeaway/pie-input@0.1.0, @justeattakeaway/pie-input@workspace:packages/components/pie-input":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-input@workspace:packages/components/pie-input"
   dependencies:
@@ -28975,6 +28975,7 @@ __metadata:
     "@justeattakeaway/pie-form-label": 0.8.3
     "@justeattakeaway/pie-icon-button": 0.25.0
     "@justeattakeaway/pie-icons-webc": 0.16.0
+    "@justeattakeaway/pie-input": 0.1.0
     "@justeattakeaway/pie-link": 0.12.0
     "@justeattakeaway/pie-modal": 0.36.0
     "@justeattakeaway/pie-notification": 0.1.3
