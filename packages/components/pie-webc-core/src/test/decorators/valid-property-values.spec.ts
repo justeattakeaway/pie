@@ -7,7 +7,7 @@ import {
     vi,
 } from 'vitest';
 
-import { validPropertyValues } from '../valid-property-values';
+import { validPropertyValues } from '../../decorators/valid-property-values';
 
 describe('validPropertyValues', () => {
     let consoleErrorSpy: unknown;
