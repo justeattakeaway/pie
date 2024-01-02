@@ -39,8 +39,6 @@ const inputStoryMeta: InputStoryMeta = {
 
 export default inputStoryMeta;
 
-// TODO: remove the eslint-disable rule when props are added
-// eslint-disable-next-line no-empty-pattern
 const Template = ({ type }: InputProps) => html`
     <pie-input type=${ifDefined(type)}></pie-input>
 `;
