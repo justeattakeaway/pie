@@ -49,7 +49,7 @@ test('should render all size variations', async ({ page, mount }) => {
     }));
 
     // Follow up to remove in Jan
-    await page.waitForTimeout(5000);
+    await page.waitForTimeout(2500);
 
     await percySnapshot(page, 'PIE Button - sizes/isResponsive/responsiveSize', percyWidths);
 });
