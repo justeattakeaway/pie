@@ -1,6 +1,6 @@
 
 import { test, expect } from '@sand4rt/experimental-ct-web';
-import { PieInput, InputProps, types } from '@/index';
+import { PieInput, InputProps } from '@/index';
 
 const componentSelector = '[data-test-id="pie-input"]';
 
