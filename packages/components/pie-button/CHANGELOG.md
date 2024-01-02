@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.42.0
+
+### Minor Changes
+
+- [Changed] - README to link directly to documentation site ([#1126](https://github.com/justeattakeaway/pie/pull/1126)) by [@LTurns](https://github.com/LTurns)
+
+### Patch Changes
+
+- [Changed] - `--btn-icon-display` and `--btn-icon-size` to `--icon-display-override` and `--icon-size-override` variables ([#1127](https://github.com/justeattakeaway/pie/pull/1127)) by [@dandel10n](https://github.com/dandel10n)
+
+- [Fixed] - Add missing closing bracket for tag ([#1109](https://github.com/justeattakeaway/pie/pull/1109)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
 ## 0.41.1
 
 ### Patch Changes
