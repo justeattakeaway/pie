@@ -16,6 +16,8 @@ const componentSelector = 'pie-input';
  * @tagname pie-input
  */
 export class PieInput extends RtlMixin(LitElement) implements InputProps {
+    static shadowRootOptions = { ...LitElement.shadowRootOptions, delegatesFocus: true };
+
     @property({ type: String, reflect: true })
     @validPropertyValues(componentSelector, types, 'text')
     public type: InputProps['type'] = 'text';

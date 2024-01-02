@@ -19,30 +19,32 @@ test.describe('PieInput - Component tests', () => {
     });
 
     test.describe('Props', () => {
-        test('should default to text type if no type prop provided', async ({ mount }) => {
-            // Arrange
-            const component = await mount(PieInput, {});
+        test.describe('type', () => {
+            test('should default to text type if no type prop provided', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieInput, {});
 
-            // Act
-            const input = component.locator('input');
+                // Act
+                const input = component.locator('input');
 
-            // Assert
-            expect(input).toHaveAttribute('type', 'text');
-        });
-
-        test('should apply the type prop to the HTML input rendered', async ({ mount }) => {
-            // Arrange
-            const component = await mount(PieInput, {
-                props: {
-                    type: 'number',
-                } as InputProps,
+                // Assert
+                expect(input).toHaveAttribute('type', 'text');
             });
 
-            // Act
-            const input = component.locator('input');
+            test('should apply the type prop to the HTML input rendered', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieInput, {
+                    props: {
+                        type: 'number',
+                    } as InputProps,
+                });
 
-            // Assert
-            expect(input).toHaveAttribute('type', 'number');
+                // Act
+                const input = component.locator('input');
+
+                // Assert
+                expect(input).toHaveAttribute('type', 'number');
+            });
         });
     });
 });
