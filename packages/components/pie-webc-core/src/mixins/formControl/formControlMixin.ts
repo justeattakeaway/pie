@@ -49,9 +49,8 @@ export const FormControlMixin =
                 return this._internals.form;
             }
 
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            constructor (...args: any[]) {
-                super(...args);
+            constructor () {
+                super();
                 this._internals = this.attachInternals();
             }
         }
