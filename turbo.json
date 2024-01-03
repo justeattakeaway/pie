@@ -4,6 +4,7 @@
     "build": {
       "cache": true,
       "dependsOn": [
+        "create:manifest",
         "^build"
       ],
       "outputs": [
@@ -22,6 +23,10 @@
         ".nuxt/**",
         ".output/**"
       ]
+    },
+    "create:manifest": {
+      "cache": false,
+      "outputs": ["./custom-elements.json"]
     },
     "generate:examples": {
       "cache": true,

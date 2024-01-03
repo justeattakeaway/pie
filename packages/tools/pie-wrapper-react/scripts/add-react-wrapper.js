@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import { createWriteStream } from 'fs';
 import path from 'path';
 import fs from 'fs-extra';
@@ -5,7 +7,7 @@ import fs from 'fs-extra';
 let componentSrc;
 
 // fetches custom-elements.json file
-const loadCustomElementsFile = () => JSON.parse(fs.readFileSync(path.resolve(process.cwd(), './custom-elements.json')));
+const loadCustomElementsFile = () => JSON.parse(fs.readFileSync(path.resolve(process.cwd(), 'custom-elements.json')));
 
 /**
  * This function generates a react wrapper to enable custom lit components to be used in react apps.
@@ -15,9 +17,10 @@ const loadCustomElementsFile = () => JSON.parse(fs.readFileSync(path.resolve(pro
  * @return {string} - The source code of the react wrapper
  *
  */
-export function addReactWrapper (customElementsObject, folderName = process.argv[2]) {
+export function addReactWrapper (customElementsObject) {
     const components = [];
     const customElements = Object.entries(customElementsObject);
+    const folderName = `${process.cwd()}/src`;
 
     let sortedModules;
 
@@ -28,14 +31,12 @@ export function addReactWrapper (customElementsObject, folderName = process.argv
             sortedModules = value.sort((a, b) => a.path.length - b.path.length);
 
             value.forEach((k) => {
-                if (k.path.includes(folderName)) {
-                    k.declarations.forEach((decl) => {
-                        if (decl.customElement === true) {
-                            const componentSelector = k.declarations.find((i) => i.kind === 'variable' && i.name === 'componentSelector');
-                            components.push({ class: { ...decl, tagName: componentSelector?.default.replace(/'/g, '') ?? decl.tagName }, path: k.path.replace('index.js', 'react.ts') });
-                        }
-                    });
-                }
+                k.declarations.forEach((decl) => {
+                    if (decl.customElement === true) {
+                        const componentSelector = k.declarations.find((i) => i.kind === 'variable' && i.name === 'componentSelector');
+                        components.push({ class: { ...decl, tagName: componentSelector?.default.replace(/'/g, '') ?? decl.tagName }, path: `${folderName}/react.ts` });
+                    }
+                });
             });
         }
 
@@ -120,14 +121,6 @@ export const ${component.class.name} = createComponent({
 `;
             let reactFile;
 
-            if (component.path !== 'pie-wrapper-react') {
-                reactFile = createWriteStream(
-                    component.path,
-                    (err) => {
-                        throw (err);
-                    },
-                );
-            }
 
             if (componentSrc.length > 0 && reactFile !== undefined) {
                 reactFile.write(componentSrc);
