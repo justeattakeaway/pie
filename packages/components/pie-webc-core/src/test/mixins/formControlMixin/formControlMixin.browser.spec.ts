@@ -60,7 +60,7 @@ test.describe('FormControlMixin', () => {
             expect(formResultContent).toContain('testForm');
         });
 
-        test('should not have an associated form when it is a sibling of the form', async ({ page, mount }) => {
+        test('should not have an associated form when it is a sibling of the form', async ({ page }) => {
             // Arrange
             // Inject the form and the component as siblings into the page
             await page.evaluate(() => {
