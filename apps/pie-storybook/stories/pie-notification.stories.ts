@@ -1,5 +1,5 @@
 import { html, TemplateResult } from 'lit';
-import { PieNotification, NotificationProps, variants } from '@justeattakeaway/pie-notification';
+import { PieNotification, NotificationProps, variants, headingLevels } from '@justeattakeaway/pie-notification';
 import { type StoryMeta } from '../types';
 import { createStory } from '../utilities';
 
@@ -14,16 +14,8 @@ const defaultArgs: NotificationProps = {
     variant: 'neutral',
     compact: false,
     slot: 'Supporting text',
-    leadingAction: {
-        text: 'Confirm',
-        variant: 'primary',
-        ariaLabel: 'Descriptive confirmation text',
-    },
-    supportingAction: {
-        text: 'Cancel',
-        variant: 'ghost',
-        ariaLabel: 'Descriptive cancellation text',
-    },
+    heading: 'Title',
+    headingLevel: 'h3',
 };
 
 const notificationStoryMeta: NotificationStoryMeta = {
@@ -46,17 +38,18 @@ const notificationStoryMeta: NotificationStoryMeta = {
             description: 'Component\'s thickness.',
             control: 'boolean',
         },
+        heading: {
+            description: 'The text to display in the notification\'s heading.',
+            control: 'text',
+        },
+        headingLevel: {
+            description: 'The HTML heading tag to use for the notification\'s heading. Can from h2 to h6.',
+            control: 'select',
+            options: headingLevels,
+        },
         slot: {
             description: 'Content to place within the notification.',
             control: 'text',
-        },
-        leadingAction: {
-            description: 'The leading action configuration for the notification.',
-            control: 'object',
-        },
-        supportingAction: {
-            description: 'The supporting action configuration for the notification. Will not appear if no leading action is provided.',
-            control: 'object',
         },
     },
     args: defaultArgs,
@@ -77,9 +70,9 @@ const Template = (props: NotificationProps) : TemplateResult => {
         isOpen,
         compact,
         variant,
+        heading,
+        headingLevel,
         slot,
-        leadingAction,
-        supportingAction,
     } = props;
 
     return html`
@@ -87,8 +80,9 @@ const Template = (props: NotificationProps) : TemplateResult => {
             isOpen="${isOpen}"
             variant="${variant}"
             compact="${compact}"
-            .leadingAction="${leadingAction}"
-            .supportingAction="${supportingAction}">
+            heading="${heading}"
+            headingLevel="${headingLevel}"
+            >
             ${slot}
         </pie-notification>
     `;
