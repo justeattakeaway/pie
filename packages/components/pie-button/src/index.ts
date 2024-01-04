@@ -3,7 +3,7 @@ import {
 } from 'lit';
 import { property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { validPropertyValues, defineCustomElement } from '@justeattakeaway/pie-webc-core';
+import { validPropertyValues, defineCustomElement, FormControlMixin } from '@justeattakeaway/pie-webc-core';
 import {
     ButtonProps, sizes, types, variants, iconPlacements,
 } from './defs';
@@ -21,21 +21,7 @@ const componentSelector = 'pie-button';
  * @slot icon - The icon slot
  * @slot - Default slot
  */
-export class PieButton extends LitElement implements ButtonProps {
-    // TODO - we may want to consider making the element internals code reusable for other form controls.
-    static formAssociated = true;
-
-    private readonly _internals: ElementInternals;
-
-    public get form () {
-        return this._internals.form;
-    }
-
-    constructor () {
-        super();
-        this._internals = this.attachInternals();
-    }
-
+export class PieButton extends FormControlMixin(LitElement) implements ButtonProps {
     connectedCallback () {
         super.connectedCallback();
 
