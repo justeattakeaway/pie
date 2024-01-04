@@ -29,16 +29,13 @@ test.describe('FormControlMixin', () => {
         test.describe('when inside of a form', () => {
             test('should return the associated form', async ({ page }) => {
                 // Arrange
-                await page.evaluate(() => {
-                    const formHTML = `
+                await page.setContent(`
                     <form id="testForm" action="/foo" method="POST">
                         <input type="text" id="username" name="username" required>
                         <input type="password" id="password" name="password" required>
                         <form-control-mixin-mock></form-control-mixin-mock>
                     </form>
-                    `;
-                    document.body.innerHTML = formHTML;
-                });
+                `);
 
                 const formId = await page.evaluate(() => {
                     const component = document.querySelector('form-control-mixin-mock');
@@ -55,16 +52,13 @@ test.describe('FormControlMixin', () => {
         test.describe('when not inside of an existing form', () => {
             test('should not have an associated form', async ({ page }) => {
                 // Arrange
-                await page.evaluate(() => {
-                    const formHTML = `
+                await page.setContent(`
                     <form id="siblingForm" action="/foo" method="POST">
                         <input type="text" id="username" name="username" required>
                         <input type="password" id="password" name="password" required>
                     </form>
                     <form-control-mixin-mock></form-control-mixin-mock>
-                    `;
-                    document.body.innerHTML = formHTML;
-                });
+                `);
 
                 const isFormAssociated = await page.evaluate(() => {
                     const component = document.querySelector('form-control-mixin-mock');
