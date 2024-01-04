@@ -9,7 +9,7 @@ test.describe('FormControlMixin', () => {
     });
 
     test.describe('form property', () => {
-        test('should return null when not inside of a form', async ({ mount }) => {
+        test('should not have an associated form when not inside of a form', async ({ mount }) => {
             // Arrange
             const component = await mount(
                 MockComponent,
