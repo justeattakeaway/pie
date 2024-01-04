@@ -13,7 +13,7 @@
     "**/*.d.ts"
   ],
   "scripts": {
-    "build": "npx build-react-wrapper pie-spinner && run -T vite build",
+    "build": "npx build-react-wrapper && run -T vite build",
     "create:manifest": "yarn run cem analyze --litelement",
     "lint:scripts": "run -T eslint .",
     "lint:scripts:fix": "yarn lint:scripts --fix",

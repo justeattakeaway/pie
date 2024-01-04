@@ -1,14 +1,14 @@
-import fs from 'fs-extra';
-import path from 'path';
-import { addReactWrapper } from '../scripts/add-react-wrapper';
-
-const loadJSON = (file) => JSON.parse(fs.readFileSync(path.resolve(__dirname, file)));
-
-const mockExample = loadJSON('./mocks/mock-custom-elements.json');
+import { addReactWrapper, loadCustomElementsFile } from '../scripts/add-react-wrapper';
 
 describe('React Wrapper', () => {
+    let mockExample;
+
+    beforeAll(() => {
+        mockExample = loadCustomElementsFile('__tests__/mocks');
+    });
+
     it('should be added from mock custom elements JSON', () => {
-        const wrapper = addReactWrapper(mockExample, 'pie-wrapper-react');
+        const wrapper = addReactWrapper(mockExample);
 
         expect(wrapper).toMatchSnapshot();
     });
@@ -18,7 +18,7 @@ describe('React Wrapper', () => {
             m.declarations[0].customElement = false;
         });
 
-        const wrapper = addReactWrapper(mockExample, 'pie-wrapper-react');
+        const wrapper = addReactWrapper(mockExample);
 
         expect(wrapper).toMatchSnapshot();
         expect(wrapper.length).toBe(0);
@@ -30,7 +30,7 @@ describe('React Wrapper', () => {
             delete m.declarations[0].events;
         });
 
-        const wrapper = addReactWrapper(mockExample, 'pie-wrapper-react');
+        const wrapper = addReactWrapper(mockExample);
 
         const result = 'events: {}';
 

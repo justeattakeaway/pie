@@ -4,8 +4,9 @@
   "description": "Common react wrapper for use for PIE custom elements",
   "license": "Apache-2.0",
   "type": "module",
+  "files": ["./scripts/add-react-wrapper.js"],
   "bin": {
-    "build-react-wrapper": "./scripts/add-react-wrapper.js"
+    "build-react-wrapper": "./index.js"
   },
   "keywords": [
     "PIE"

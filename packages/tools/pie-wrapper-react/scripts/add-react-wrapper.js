@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 import { createWriteStream } from 'fs';
 import path from 'path';
 import fs from 'fs-extra';
@@ -7,7 +5,9 @@ import fs from 'fs-extra';
 let componentSrc;
 
 // fetches custom-elements.json file
-const loadCustomElementsFile = () => JSON.parse(fs.readFileSync(path.resolve(process.cwd(), './custom-elements.json')));
+export function loadCustomElementsFile (customElementsDirectory = process.argv[2] || process.cwd()) {
+    return JSON.parse(fs.readFileSync(path.resolve(customElementsDirectory, 'custom-elements.json')));
+}
 
 /**
  * This function generates a react wrapper to enable custom lit components to be used in react apps.
@@ -34,7 +34,7 @@ export function addReactWrapper (customElementsObject) {
                 k.declarations.forEach((decl) => {
                     if (decl.customElement === true) {
                         const componentSelector = k.declarations.find((i) => i.kind === 'variable' && i.name === 'componentSelector');
-                        components.push({ class: { ...decl, tagName: componentSelector?.default.replace(/'/g, '') ?? decl.tagName }, path: `${folderName}/react.ts` });
+                        components.push({ class: { ...decl, tagName: componentSelector?.default.replace(/'/g, '') ?? decl.tagName }, path: k.path.replace('index.js', 'react.ts') });
                     }
                 });
             });
@@ -132,7 +132,6 @@ export const ${component.class.name} = createComponent({
 
             if (componentSrc.length > 0 && reactFile !== undefined) {
                 reactFile.write(componentSrc);
-
                 console.info('React wrapper has been added!');
             }
         });
@@ -142,5 +141,3 @@ export const ${component.class.name} = createComponent({
 
     return componentSrc;
 }
-
-addReactWrapper(loadCustomElementsFile());
