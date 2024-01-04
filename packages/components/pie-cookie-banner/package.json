@@ -7,6 +7,7 @@
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
+    "custom-elements.json",
     "src",
     "dist",
     "locales",
@@ -14,7 +15,7 @@
   ],
   "scripts": {
     "build": "npx build-react-wrapper pie-cookie-banner && run -T vite build",
-    "create:manifest": "yarn run -T cem analyze --litelement",
+    "create:manifest": "yarn cem analyze --litelement",
     "lint:scripts": "run -T eslint .",
     "lint:scripts:fix": "yarn lint:scripts --fix",
     "lint:style": "run -T stylelint ./src/**/*.{css,scss}",
@@ -30,8 +31,10 @@
   "author": "Just Eat Takeaway.com - Design System Team",
   "license": "Apache-2.0",
   "devDependencies": {
+    "@custom-elements-manifest/analyzer": "0.9.0",
     "@justeat/pie-design-tokens": "5.9.0",
-    "@justeattakeaway/pie-components-config": "0.7.0"
+    "@justeattakeaway/pie-components-config": "0.7.0",
+    "cem-plugin-module-file-extensions": "0.0.5"
   },
   "dependencies": {
     "@justeattakeaway/pie-button": "0.42.1",
@@ -45,6 +48,7 @@
   "volta": {
     "extends": "../../../package.json"
   },
+  "customElements": "custom-elements.json",
   "sideEffects": [
     "dist/*.js"
   ]

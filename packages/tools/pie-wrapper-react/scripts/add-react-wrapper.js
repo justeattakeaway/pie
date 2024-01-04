@@ -17,7 +17,7 @@ const loadCustomElementsFile = () => JSON.parse(fs.readFileSync(path.resolve(pro
  * @return {string} - The source code of the react wrapper
  *
  */
-export function addReactWrapper(customElementsObject) {
+export function addReactWrapper (customElementsObject) {
     const components = [];
     const customElements = Object.entries(customElementsObject);
     const folderName = `${process.cwd()}/src`;
@@ -62,7 +62,7 @@ export function addReactWrapper(customElementsObject) {
      * @param {*} component object from within components array
      * @return {*} events array containing a component's custom events
      */
-    function getEvents(component) {
+    function getEvents (component) {
         const events = [];
         if (component?.events) {
             events.push(component.events
@@ -79,7 +79,7 @@ export function addReactWrapper(customElementsObject) {
 
     // format event names in a React friendly way - removes hyphens and capitalises
     // i.e. foo-bar-baz becomes FooBarBaz
-    function formatEventName(eventName) {
+    function formatEventName (eventName) {
         return eventName
             .split('-')
             .map((word) => word.charAt(0).toUpperCase() + word.slice(1))

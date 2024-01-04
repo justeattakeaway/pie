@@ -4,7 +4,7 @@
     "modules": [
         {
             "kind": "javascript-module",
-            "path": "src/defs.ts",
+            "path": "src/defs.js",
             "declarations": [
                 {
                     "kind": "variable",
@@ -33,7 +33,7 @@
                     "name": "variants",
                     "declaration": {
                         "name": "variants",
-                        "module": "src/defs.ts"
+                        "module": "src/defs.js"
                     }
                 },
                 {
@@ -41,7 +41,7 @@
                     "name": "tags",
                     "declaration": {
                         "name": "tags",
-                        "module": "src/defs.ts"
+                        "module": "src/defs.js"
                     }
                 },
                 {
@@ -49,14 +49,14 @@
                     "name": "paddingValues",
                     "declaration": {
                         "name": "paddingValues",
-                        "module": "src/defs.ts"
+                        "module": "src/defs.js"
                     }
                 }
             ]
         },
         {
             "kind": "javascript-module",
-            "path": "src/index.ts",
+            "path": "src/index.js",
             "declarations": [
                 {
                     "kind": "class",
@@ -265,34 +265,10 @@
                     "name": "PieCard",
                     "declaration": {
                         "name": "PieCard",
-                        "module": "src/index.ts"
+                        "module": "src/index.js"
                     }
                 }
             ]
-        },
-        {
-            "kind": "javascript-module",
-            "path": "playwright/index.ts",
-            "declarations": [],
-            "exports": []
-        },
-        {
-            "kind": "javascript-module",
-            "path": "test/visual/pie-card.spec.ts",
-            "declarations": [],
-            "exports": []
-        },
-        {
-            "kind": "javascript-module",
-            "path": "test/component/pie-card.spec.ts",
-            "declarations": [],
-            "exports": []
-        },
-        {
-            "kind": "javascript-module",
-            "path": "test/accessibility/pie-card.spec.ts",
-            "declarations": [],
-            "exports": []
         }
     ]
 }

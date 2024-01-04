@@ -4,7 +4,7 @@
     "modules": [
         {
             "kind": "javascript-module",
-            "path": "src/defs.ts",
+            "path": "src/defs.js",
             "declarations": [
                 {
                     "kind": "variable",
@@ -29,7 +29,7 @@
                     "name": "variants",
                     "declaration": {
                         "name": "variants",
-                        "module": "src/defs.ts"
+                        "module": "src/defs.js"
                     }
                 },
                 {
@@ -37,14 +37,14 @@
                     "name": "orientations",
                     "declaration": {
                         "name": "orientations",
-                        "module": "src/defs.ts"
+                        "module": "src/defs.js"
                     }
                 }
             ]
         },
         {
             "kind": "javascript-module",
-            "path": "src/index.ts",
+            "path": "src/index.js",
             "declarations": [
                 {
                     "kind": "class",
@@ -112,34 +112,10 @@
                     "name": "PieDivider",
                     "declaration": {
                         "name": "PieDivider",
-                        "module": "src/index.ts"
+                        "module": "src/index.js"
                     }
                 }
             ]
-        },
-        {
-            "kind": "javascript-module",
-            "path": "playwright/index.ts",
-            "declarations": [],
-            "exports": []
-        },
-        {
-            "kind": "javascript-module",
-            "path": "test/visual/pie-divider.spec.ts",
-            "declarations": [],
-            "exports": []
-        },
-        {
-            "kind": "javascript-module",
-            "path": "test/component/pie-divider.spec.ts",
-            "declarations": [],
-            "exports": []
-        },
-        {
-            "kind": "javascript-module",
-            "path": "test/accessibility/pie-divider.spec.ts",
-            "declarations": [],
-            "exports": []
         }
     ]
 }

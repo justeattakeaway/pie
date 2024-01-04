@@ -4,13 +4,13 @@
     "modules": [
         {
             "kind": "javascript-module",
-            "path": "src/defs.ts",
+            "path": "src/defs.js",
             "declarations": [],
             "exports": []
         },
         {
             "kind": "javascript-module",
-            "path": "src/index.ts",
+            "path": "src/index.js",
             "declarations": [
                 {
                     "kind": "class",
@@ -107,34 +107,10 @@
                     "name": "PieFormLabel",
                     "declaration": {
                         "name": "PieFormLabel",
-                        "module": "src/index.ts"
+                        "module": "src/index.js"
                     }
                 }
             ]
-        },
-        {
-            "kind": "javascript-module",
-            "path": "playwright/index.ts",
-            "declarations": [],
-            "exports": []
-        },
-        {
-            "kind": "javascript-module",
-            "path": "test/visual/pie-form-label.spec.ts",
-            "declarations": [],
-            "exports": []
-        },
-        {
-            "kind": "javascript-module",
-            "path": "test/component/pie-form-label.spec.ts",
-            "declarations": [],
-            "exports": []
-        },
-        {
-            "kind": "javascript-module",
-            "path": "test/accessibility/pie-form-label.spec.ts",
-            "declarations": [],
-            "exports": []
         }
     ]
 }
