@@ -5,10 +5,9 @@ import type { GenericConstructor } from '../types/GenericConstructor';
 /**
  * Interface for FormControl behavior.
  */
-declare class _FormControlInterface {
-    public static formAssociated: boolean;
-    readonly _internals: ElementInternals;
-    public get form(): HTMLFormElement | null;
+export interface FormControlInterface {
+    _internals: ElementInternals;
+    get form(): HTMLFormElement | null;
 }
 
 /**
@@ -40,12 +39,12 @@ export const FormControlMixin =
        * @extends {LitElement}
        * @implements {_FormControlInterface}
        */
-        class FormControlElement extends superClass implements _FormControlInterface {
-            public static formAssociated = true;
+        class FormControlElement extends superClass implements FormControlInterface {
+            static formAssociated = true;
 
-            readonly _internals: ElementInternals;
+            _internals: ElementInternals;
 
-            public get form () {
+            get form () {
                 return this._internals.form;
             }
 
@@ -56,5 +55,5 @@ export const FormControlMixin =
             }
         }
 
-        return FormControlElement as GenericConstructor<_FormControlInterface> & T;
+        return FormControlElement as GenericConstructor<FormControlInterface> & T;
     };
