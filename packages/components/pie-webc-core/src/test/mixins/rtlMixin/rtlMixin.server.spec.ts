@@ -9,7 +9,7 @@ import {
     vi,
 } from 'vitest';
 
-import { RtlMixin } from '../index';
+import { RtlMixin } from '../../../index';
 
 const scenarios = [
     { dir: 'ltr', isRTL: false },

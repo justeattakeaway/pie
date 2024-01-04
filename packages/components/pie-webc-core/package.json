@@ -12,10 +12,15 @@
     "lint:scripts:fix": "run -T eslint . --fix",
     "test": "run -T vitest run",
     "test:ci": "yarn test",
+    "test:browsers": "npx playwright test -c ./playwright-lit.config.ts",
+    "test:browsers:ci": "yarn test:browsers",
     "test:watch": "run -T vitest"
   },
   "dependencies": {
     "lit": "3.1.0"
+  },
+  "devDependencies": {
+    "@justeattakeaway/pie-components-config": "0.7.0"
   },
   "volta": {
     "extends": "../../../package.json"

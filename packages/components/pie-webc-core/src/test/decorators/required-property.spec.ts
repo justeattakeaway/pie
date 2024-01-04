@@ -7,7 +7,7 @@ import {
     vi,
 } from 'vitest';
 
-import { requiredProperty } from '../required-property';
+import { requiredProperty } from '../../decorators/required-property';
 
 describe('requiredProperty', () => {
     let consoleErrorSpy: unknown;
