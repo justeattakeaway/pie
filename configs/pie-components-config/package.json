@@ -4,8 +4,14 @@
   "main": "index.js",
   "type": "module",
   "description": "Shared configuration files for PIE components",
+  "files": [
+    "custom-elements-manifest.config.js"
+  ],
   "dependencies": {
     "deepmerge-ts": "5.1.0"
+  },
+  "peerDependencies": {
+    "cem-plugin-module-file-extensions": "0.0.5"
   },
   "volta": {
     "extends": "../../package.json"

@@ -5524,6 +5524,8 @@ __metadata:
   resolution: "@justeattakeaway/pie-components-config@workspace:configs/pie-components-config"
   dependencies:
     deepmerge-ts: 5.1.0
+  peerDependencies:
+    cem-plugin-module-file-extensions: 0.0.5
   languageName: unknown
   linkType: soft
 
