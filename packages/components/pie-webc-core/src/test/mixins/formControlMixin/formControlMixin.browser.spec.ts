@@ -5,7 +5,8 @@ test.describe('FormControlMixin', () => {
     // IMPORTANT: Mounting and Unmounting the component before each test ensures that any tests that do not explicitly
     // mount the component will still have it available in Playwright's cache (loaded and registered in the test browser)
     test.beforeEach(async ({ mount }) => {
-        await (await mount(MockComponent)).unmount();
+        const component = await mount(MockComponent);
+        await component.unmount();
     });
 
     test.describe('form property', () => {
