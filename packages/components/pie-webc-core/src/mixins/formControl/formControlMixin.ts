@@ -1,4 +1,3 @@
-/* eslint-disable max-classes-per-file */
 import { LitElement } from 'lit';
 import type { GenericConstructor } from '../types/GenericConstructor';
 
