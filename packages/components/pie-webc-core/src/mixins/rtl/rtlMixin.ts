@@ -1,13 +1,6 @@
 /* eslint-disable max-classes-per-file */
 import { LitElement, isServer } from 'lit';
-
-/**
- * A type representing a constructor of any class.
- * @typedef {new (...args: any[]) => T} Constructor
- * @template T
- */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-type Constructor<T> = new (...args: any[]) => T;
+import type { GenericConstructor } from '../types/GenericConstructor';
 
 /**
  * An interface representing the structure of RTL related class.
@@ -24,8 +17,8 @@ declare class _RTLInterface {
  * allowing you to easily determine the text direction within your component.
  *
  * @function
- * @param {Constructor<LitElement>} superClass - The LitElement class to extend with RTL functionality.
- * @returns {Constructor<_RTLInterface> & T} - A new class extending both LitElement and _RTLInterface.
+ * @param {GenericConstructor<LitElement>} superClass - The LitElement class to extend with RTL functionality.
+ * @returns {GenericConstructor<_RTLInterface> & T} - A new class extending both LitElement and _RTLInterface.
  *
  * @example
  * ```typescript
@@ -64,7 +57,7 @@ declare class _RTLInterface {
  * ```
  */
 export const RtlMixin =
-    <T extends Constructor<LitElement>>(superClass: T) => {
+    <T extends GenericConstructor<LitElement>>(superClass: T) => {
         /**
        * Class representing a LitElement with RTL handling.
        * @extends {LitElement}
@@ -94,5 +87,5 @@ export const RtlMixin =
             }
         }
 
-        return RTLElement as Constructor<_RTLInterface> & T;
+        return RTLElement as GenericConstructor<_RTLInterface> & T;
     };

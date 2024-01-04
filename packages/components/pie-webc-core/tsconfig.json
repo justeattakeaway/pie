@@ -1,30 +1,8 @@
 {
+  "extends": "../../../configs/pie-components-config/tsconfig.json",
   "compilerOptions": {
-      "target": "ES6",
-      "module": "ES2022",
-      "lib": ["es2020", "DOM", "DOM.Iterable"],
-      "declaration": true,
-      "declarationMap": true,
-      "sourceMap": true,
-      "inlineSources": true,
-      "outDir": "./compiled",
-      "baseUrl": ".",
-      "paths": {
-        "@/*": ["./src/*"]
-      },
-      "rootDir": ".",
-      "strict": true,
-      "noUnusedLocals": true,
-      "noUnusedParameters": true,
-      "noImplicitReturns": true,
-      "noFallthroughCasesInSwitch": true,
-      "noImplicitAny": true,
-      "noImplicitThis": true,
-      "moduleResolution": "node",
-      "allowSyntheticDefaultImports": true,
-      "experimentalDecorators": true,
-      "forceConsistentCasingInFileNames": true
+    "baseUrl": ".",
+    "rootDir": ".",
   },
-  "include": ["src/**/*.ts","./declaration.d.ts", "test/**/*.ts", "index.ts"],
-  "exclude": []
+  "include": ["src/**/*.ts", "./declaration.d.ts", "test/**/*.ts", "index.ts", "playwright-lit.config.ts"],
 }
