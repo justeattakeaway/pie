@@ -19,7 +19,7 @@ export interface SwitchProps {
     /**
      * Same as the HTML required attribute - indicates whether the switch must be turned or not
      */
-    required: boolean;
+    required?: boolean;
     /**
      * Same as the HTML disabled attribute - indicates whether the switch is disabled or not
      */
@@ -39,7 +39,7 @@ export interface SwitchProps {
     /**
      * Same as the HTML value attribute - indicates the value of the switch (for use with forms). Defaults to 'on'.
      */
-    value: string;
+    value?: string;
 }
 
 /**

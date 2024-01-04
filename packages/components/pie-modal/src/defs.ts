@@ -36,12 +36,12 @@ export type ModalProps = {
     /**
      * When true, the modal will have a back button. This currently behaves the same as the close button.
      */
-    hasBackButton: boolean;
+    hasBackButton?: boolean;
 
     /**
      * When true, the modal will have a back button. This currently behaves the same as the close button.
      */
-    hasStackedActions: boolean;
+    hasStackedActions?: boolean;
 
     /**
      * The text to display in the modal's heading.
@@ -51,12 +51,12 @@ export type ModalProps = {
     /**
      * The HTML heading tag to use for the modal's heading. Can be h1-h6.
      */
-    headingLevel: typeof headingLevels[number];
+    headingLevel?: typeof headingLevels[number];
 
     /**
      * When true, the modal will be open.
      */
-    isOpen: boolean;
+    isOpen?: boolean;
 
     /**
      * When set to `true`:
@@ -69,32 +69,32 @@ export type ModalProps = {
      *  2. The user can NOT dismiss the modal via the ESCAPE key or clicking the backdrop.
      *
      */
-    isDismissible: boolean;
+    isDismissible?: boolean;
 
     /**
      * When false, the modal footer will scroll with the content inside the modal body.
      */
-    isFooterPinned: boolean;
+    isFooterPinned?: boolean;
 
     /**
      * This controls whether a *medium-sized* modal will cover the full width of the page when below the mid breakpoint.
      */
-    isFullWidthBelowMid: boolean;
+    isFullWidthBelowMid?: boolean;
 
     /**
      * When true, displays a loading spinner in the modal.
      */
-    isLoading: boolean;
+    isLoading?: boolean;
 
     /**
      * The leading action configuration for the modal.
      */
-    leadingAction: ActionProps;
+    leadingAction?: ActionProps;
 
     /*
      * The position of the modal; this controls where it will appear on the page.
      */
-    position: typeof positions[number];
+    position?: typeof positions[number];
 
     /**
      * The selector for the element that you would like focus to be returned to when the modal is closed, e.g., #skipToMain
@@ -104,12 +104,12 @@ export type ModalProps = {
     /**
      * The size of the modal; this controls how wide it will appear on the page.
      */
-    size: typeof sizes[number];
+    size?: typeof sizes[number];
 
     /**
      * The supporting action configuration for the modal.
      */
-    supportingAction: ActionProps;
+    supportingAction?: ActionProps;
 };
 
 /**
