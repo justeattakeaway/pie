@@ -11,12 +11,7 @@ test.describe('FormControlMixin', () => {
     test.describe('form property', () => {
         test('should not have an associated form when not inside of a form', async ({ mount }) => {
             // Arrange
-            const component = await mount(
-                MockComponent,
-                {
-                    props: {},
-                },
-            );
+            const component = await mount(MockComponent);
 
             // Assert
             expect(component).not.toBeNull();
@@ -24,7 +19,6 @@ test.describe('FormControlMixin', () => {
 
         test('should return the associated form when inside a form', async ({ page }) => {
             // Arrange
-            // Inject the test form into the page
             await page.evaluate(() => {
                 const formHTML = `
                 <form id="testForm" action="/foo" method="POST">
@@ -36,33 +30,19 @@ test.describe('FormControlMixin', () => {
                 document.body.innerHTML = formHTML;
             });
 
-            // Get the form and component from the page and add a queryable element
-            await page.evaluate(() => {
+            const formId = await page.evaluate(() => {
                 const component = document.querySelector('form-control-mixin-mock');
-                // Assuming your component has a 'form' property that references its associated form
                 const form = component?.form;
-                if (form) {
-                    // Create or append to a debug element for testing output
-                    let debugEl = document.querySelector('#debug');
-                    if (!debugEl) {
-                        debugEl = document.createElement('div');
-                        debugEl.id = 'debug';
-                        document.body.appendChild(debugEl);
-                    }
-                    // Add proof of form association, using form's id or another unique property
-                    debugEl.innerHTML += `<div id="formResult">Form ID: ${form.id}</div>`;
-                }
+
+                return form?.id;
             });
 
-            const formResultContent = await page.locator('#formResult').textContent();
-
             // Assert
-            expect(formResultContent).toContain('testForm');
+            expect(formId).toContain('testForm');
         });
 
         test('should not have an associated form when it is a sibling of the form', async ({ page }) => {
             // Arrange
-            // Inject the form and the component as siblings into the page
             await page.evaluate(() => {
                 const formHTML = `
                 <form id="siblingForm" action="/foo" method="POST">
@@ -74,26 +54,15 @@ test.describe('FormControlMixin', () => {
                 document.body.innerHTML = formHTML;
             });
 
-            // Get the component from the page and add a queryable element
-            await page.evaluate(() => {
+            const isFormAssociated = await page.evaluate(() => {
                 const component = document.querySelector('form-control-mixin-mock');
-                // Assuming your component has a 'form' property that references its associated form
                 const form = component?.form;
-                // Create or append to a debug element for testing output
-                let debugEl = document.querySelector('#debug');
-                if (!debugEl) {
-                    debugEl = document.createElement('div');
-                    debugEl.id = 'debug';
-                    document.body.appendChild(debugEl);
-                }
-                // Add proof of form association, or lack thereof
-                debugEl.innerHTML += `<div id="formResult">Form Exists: ${!!form}</div>`;
+
+                return !!form;
             });
 
-            const formResultContent = await page.locator('#formResult').textContent();
-
             // Assert
-            expect(formResultContent).toContain('Form Exists: false'); // Replace with your assertion library's syntax
+            expect(isFormAssociated).toBe(false);
         });
     });
 });
