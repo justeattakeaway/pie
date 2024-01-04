@@ -12,7 +12,7 @@
       ]
     },
     "create:manifest": {
-      "cache": false,
+      "cache": true,
       "outputs": [
         "custom-elements.json"
       ]
