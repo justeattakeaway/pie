@@ -1,0 +1,300 @@
+{
+  "schemaVersion": "1.0.0",
+  "readme": "",
+  "modules": [
+    {
+      "kind": "javascript-module",
+      "path": "playwright/index.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "dist/index.js",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "u",
+          "type": {
+            "text": "array"
+          },
+          "default": "[\"xsmall\", \"small\", \"medium\", \"large\", \"xlarge\"]"
+        },
+        {
+          "kind": "variable",
+          "name": "x",
+          "type": {
+            "text": "array"
+          },
+          "default": "[\"brand\", \"secondary\", \"inverse\"]"
+        },
+        {
+          "kind": "class",
+          "description": "",
+          "name": "o",
+          "members": [
+            {
+              "kind": "field",
+              "name": "size",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"medium\""
+            },
+            {
+              "kind": "field",
+              "name": "variant",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"brand\""
+            }
+          ],
+          "superclass": {
+            "name": "m",
+            "package": "lit"
+          }
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "PieSpinner",
+          "declaration": {
+            "name": "o",
+            "module": "dist/index.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "sizes",
+          "declaration": {
+            "name": "u",
+            "module": "dist/index.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "variants",
+          "declaration": {
+            "name": "x",
+            "module": "dist/index.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "dist/react.js",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "a"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "PieSpinner",
+          "declaration": {
+            "name": "a",
+            "module": "dist/react.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "sizes",
+          "declaration": {
+            "name": "f",
+            "module": "dist/react.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "variants",
+          "declaration": {
+            "name": "P",
+            "module": "dist/react.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/defs.ts",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "sizes",
+          "type": {
+            "text": "['xsmall', 'small', 'medium', 'large', 'xlarge']"
+          },
+          "default": "['xsmall', 'small', 'medium', 'large', 'xlarge']"
+        },
+        {
+          "kind": "variable",
+          "name": "variants",
+          "type": {
+            "text": "['brand', 'secondary', 'inverse']"
+          },
+          "default": "['brand', 'secondary', 'inverse']"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "sizes",
+          "declaration": {
+            "name": "sizes",
+            "module": "src/defs.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "variants",
+          "declaration": {
+            "name": "variants",
+            "module": "src/defs.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/index.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "PieSpinner",
+          "members": [
+            {
+              "kind": "field",
+              "name": "aria",
+              "type": {
+                "text": "AriaProps | undefined"
+              },
+              "privacy": "public",
+              "attribute": "aria"
+            },
+            {
+              "kind": "field",
+              "name": "size",
+              "type": {
+                "text": "SpinnerProps['size'] | undefined"
+              },
+              "privacy": "public",
+              "default": "'medium'",
+              "attribute": "size"
+            },
+            {
+              "kind": "field",
+              "name": "variant",
+              "type": {
+                "text": "SpinnerProps['variant'] | undefined"
+              },
+              "privacy": "public",
+              "default": "'brand'",
+              "attribute": "variant"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "aria",
+              "type": {
+                "text": "AriaProps | undefined"
+              },
+              "fieldName": "aria"
+            },
+            {
+              "name": "size",
+              "type": {
+                "text": "SpinnerProps['size'] | undefined"
+              },
+              "default": "'medium'",
+              "fieldName": "size"
+            },
+            {
+              "name": "variant",
+              "type": {
+                "text": "SpinnerProps['variant'] | undefined"
+              },
+              "default": "'brand'",
+              "fieldName": "variant"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "pie-spinner",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./defs"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "PieSpinner",
+          "declaration": {
+            "name": "PieSpinner",
+            "module": "src/index.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/react.ts",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "PieSpinner"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./defs"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "PieSpinner",
+          "declaration": {
+            "name": "PieSpinner",
+            "module": "src/react.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "test/accessibility/pie-spinner.spec.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "test/visual/pie-spinner.spec.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "test/component/pie-spinner.spec.ts",
+      "declarations": [],
+      "exports": []
+    }
+  ]
+}

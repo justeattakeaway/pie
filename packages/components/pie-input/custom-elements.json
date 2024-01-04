@@ -1,0 +1,127 @@
+{
+  "schemaVersion": "1.0.0",
+  "readme": "",
+  "modules": [
+    {
+      "kind": "javascript-module",
+      "path": "playwright/index.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/defs.ts",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "types",
+          "type": {
+            "text": "['text', 'number', 'password', 'search', 'url', 'email', 'tel']"
+          },
+          "default": "['text', 'number', 'password', 'search', 'url', 'email', 'tel']"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "types",
+          "declaration": {
+            "name": "types",
+            "module": "src/defs.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/index.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "PieInput",
+          "members": [
+            {
+              "kind": "field",
+              "name": "shadowRootOptions",
+              "type": {
+                "text": "object"
+              },
+              "static": true,
+              "default": "{ ...LitElement.shadowRootOptions, delegatesFocus: true }"
+            },
+            {
+              "kind": "field",
+              "name": "type",
+              "type": {
+                "text": "InputProps['type']"
+              },
+              "privacy": "public",
+              "default": "'text'",
+              "attribute": "type",
+              "reflects": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "type",
+              "type": {
+                "text": "InputProps['type']"
+              },
+              "default": "'text'",
+              "fieldName": "type"
+            }
+          ],
+          "mixins": [
+            {
+              "name": "RtlMixin",
+              "package": "@justeattakeaway/pie-webc-core"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "pie-input",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./defs"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "PieInput",
+          "declaration": {
+            "name": "PieInput",
+            "module": "src/index.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "test/component/pie-input.spec.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "test/visual/pie-input.spec.ts",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "test/accessibility/pie-input.spec.ts",
+      "declarations": [],
+      "exports": []
+    }
+  ]
+}

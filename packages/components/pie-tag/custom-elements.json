@@ -1,0 +1,72 @@
+{
+    "schemaVersion": "1.0.0",
+    "readme": "",
+    "modules": [
+        {
+            "kind": "javascript-module",
+            "path": "src/defs.ts",
+            "declarations": [],
+            "exports": []
+        },
+        {
+            "kind": "javascript-module",
+            "path": "src/index.ts",
+            "declarations": [
+                {
+                    "kind": "class",
+                    "description": "",
+                    "name": "PieTag",
+                    "members": [],
+                    "superclass": {
+                        "name": "LitElement",
+                        "package": "lit"
+                    },
+                    "tagName": "pie-tag",
+                    "customElement": true
+                }
+            ],
+            "exports": [
+                {
+                    "kind": "js",
+                    "name": "*",
+                    "declaration": {
+                        "name": "*",
+                        "package": "./defs"
+                    }
+                },
+                {
+                    "kind": "js",
+                    "name": "PieTag",
+                    "declaration": {
+                        "name": "PieTag",
+                        "module": "src/index.ts"
+                    }
+                }
+            ]
+        },
+        {
+            "kind": "javascript-module",
+            "path": "playwright/index.ts",
+            "declarations": [],
+            "exports": []
+        },
+        {
+            "kind": "javascript-module",
+            "path": "test/visual/pie-tag.spec.ts",
+            "declarations": [],
+            "exports": []
+        },
+        {
+            "kind": "javascript-module",
+            "path": "test/component/pie-tag.spec.ts",
+            "declarations": [],
+            "exports": []
+        },
+        {
+            "kind": "javascript-module",
+            "path": "test/accessibility/pie-tag.spec.ts",
+            "declarations": [],
+            "exports": []
+        }
+    ]
+}

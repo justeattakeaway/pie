@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import { createWriteStream } from 'fs';
 import path from 'path';
 import fs from 'fs-extra';
@@ -15,9 +17,10 @@ const loadCustomElementsFile = () => JSON.parse(fs.readFileSync(path.resolve(pro
  * @return {string} - The source code of the react wrapper
  *
  */
-export function addReactWrapper (customElementsObject, folderName = process.argv[2]) {
+export function addReactWrapper(customElementsObject) {
     const components = [];
     const customElements = Object.entries(customElementsObject);
+    const folderName = `${process.cwd()}/src`;
 
     let sortedModules;
 
@@ -28,14 +31,12 @@ export function addReactWrapper (customElementsObject, folderName = process.argv
             sortedModules = value.sort((a, b) => a.path.length - b.path.length);
 
             value.forEach((k) => {
-                if (k.path.includes(folderName)) {
-                    k.declarations.forEach((decl) => {
-                        if (decl.customElement === true) {
-                            const componentSelector = k.declarations.find((i) => i.kind === 'variable' && i.name === 'componentSelector');
-                            components.push({ class: { ...decl, tagName: componentSelector?.default.replace(/'/g, '') ?? decl.tagName }, path: k.path.replace('index.js', 'react.ts') });
-                        }
-                    });
-                }
+                k.declarations.forEach((decl) => {
+                    if (decl.customElement === true) {
+                        const componentSelector = k.declarations.find((i) => i.kind === 'variable' && i.name === 'componentSelector');
+                        components.push({ class: { ...decl, tagName: componentSelector?.default.replace(/'/g, '') ?? decl.tagName }, path: `${folderName}/react.ts` });
+                    }
+                });
             });
         }
 
@@ -61,7 +62,7 @@ export function addReactWrapper (customElementsObject, folderName = process.argv
      * @param {*} component object from within components array
      * @return {*} events array containing a component's custom events
      */
-    function getEvents (component) {
+    function getEvents(component) {
         const events = [];
         if (component?.events) {
             events.push(component.events
@@ -78,7 +79,7 @@ export function addReactWrapper (customElementsObject, folderName = process.argv
 
     // format event names in a React friendly way - removes hyphens and capitalises
     // i.e. foo-bar-baz becomes FooBarBaz
-    function formatEventName (eventName) {
+    function formatEventName(eventName) {
         return eventName
             .split('-')
             .map((word) => word.charAt(0).toUpperCase() + word.slice(1))

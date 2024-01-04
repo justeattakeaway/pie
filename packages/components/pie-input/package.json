@@ -12,7 +12,8 @@
     "**/*.d.ts"
   ],
   "scripts": {
-    "build": "yarn build:wrapper pie-input && run -T vite build",
+    "build": "run -T vite build && npx build-react-wrapper pie-input",
+    "create:manifest": "yarn run -T cem analyze --litelement",
     "lint:scripts": "run -T eslint .",
     "lint:scripts:fix": "yarn lint:scripts --fix",
     "lint:style": "run -T stylelint ./src/**/*.{css,scss}",
