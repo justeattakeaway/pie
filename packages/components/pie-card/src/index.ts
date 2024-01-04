@@ -62,9 +62,9 @@ export class PieCard extends LitElement implements CardProps {
             <a
                 class="c-card"
                 data-test-id="pie-card"
-                tag=${this.tag}
+                tag=${this.tag || 'a'}
                 ?isDraggable="${this.isDraggable}"
-                variant=${this.variant}
+                variant=${this.variant || 'default'}
                 ?disabled=${this.disabled}
                 href=${this.href || nothing}
                 target=${this.target || nothing}
@@ -134,9 +134,9 @@ export class PieCard extends LitElement implements CardProps {
                 <div
                     class="c-card"
                     data-test-id="pie-card"
-                    tag=${tag}
+                    tag=${tag || 'button'}
                     ?isDraggable="${isDraggable}"
-                    variant=${variant}
+                    variant=${variant || 'default'}
                     ?disabled=${disabled}
                     role="button"
                     tabindex="0"
