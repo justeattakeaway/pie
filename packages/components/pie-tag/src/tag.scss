@@ -1,22 +1,17 @@
 @use '@justeattakeaway/pie-css/scss' as p;
 
-*,
-*:before,
-*:after {
-    box-sizing: border-box;
-}
-
 // Base tag styles
 .c-tag {
-    // Custom Property Declarations
-    // These are defined here instead of :host to encapsulate them inside Shadow DOM
-    --tag-font-family: var(--dt-font-body-s-family);
-    --tag-font-weight: var(--dt-font-body-s-weight);
-
-    // The following values set to default background and color
-    // currently this sets the neutral large tag styles
+    // The following values set to a default tag (neutral large)
     --tag-bg-color: var(--dt-color-container-inverse);
     --tag-color: var(--dt-color-content-inverse);
+    --tag-padding: 2px var(--dt-spacing-b);
+    --tag-height: 24px;
+    --tag-border-radius: var(--dt-radius-rounded-b);
+    --tag-font-family: var(--dt-font-body-s-family);
+    --tag-font-weight: var(--dt-font-body-s-weight);
+    --tag-font-size: #{p.font-size(--dt-font-body-s-size)};
+    --tag-line-height: #{p.line-height(--dt-font-body-s-line-height)};
 
     // transparent to variable to function properly in component tests
     --tag-transparent-bg-color: transparent;
