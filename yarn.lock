@@ -5820,7 +5820,7 @@ __metadata:
     "@types/react": 18.2.45
     fs-extra: 9.1.0
   bin:
-    build-react-wrapper: ./scripts/add-react-wrapper.js
+    build-react-wrapper: ./index.js
   languageName: unknown
   linkType: soft
 
