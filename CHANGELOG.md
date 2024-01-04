@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.49.0
+
+### Minor Changes
+
+- [Added] - Render an input inside of pie-input with a type property that defaults to text ([#1138](https://github.com/justeattakeaway/pie/pull/1138)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 2.48.0
 
 ### Minor Changes
