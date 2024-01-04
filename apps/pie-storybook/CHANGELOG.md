@@ -1,5 +1,29 @@
 # Changelog
 
+## 0.56.0
+
+### Minor Changes
+
+- [Added] - Render an input inside of pie-input with a type property that defaults to text ([#1138](https://github.com/justeattakeaway/pie/pull/1138)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies [[`68df521fd`](https://github.com/justeattakeaway/pie/commit/68df521fdd765bfdba5428f9973be79bf8fb4b20), [`03cd71ffa`](https://github.com/justeattakeaway/pie/commit/03cd71ffa072f6cfe3f1114e20ec2990a728daba)]:
+  - @justeattakeaway/pie-input@0.2.0
+  - @justeattakeaway/pie-button@0.42.1
+  - @justeattakeaway/pie-card@0.15.1
+  - @justeattakeaway/pie-cookie-banner@0.13.3
+  - @justeattakeaway/pie-divider@0.10.1
+  - @justeattakeaway/pie-form-label@0.8.4
+  - @justeattakeaway/pie-icon-button@0.25.1
+  - @justeattakeaway/pie-link@0.12.1
+  - @justeattakeaway/pie-modal@0.36.1
+  - @justeattakeaway/pie-notification@0.1.4
+  - @justeattakeaway/pie-spinner@0.3.2
+  - @justeattakeaway/pie-switch@0.22.1
+  - @justeattakeaway/pie-tag@0.1.1
+  - @justeattakeaway/pie-icons-webc@0.16.1
+
 ## 0.55.0
 
 ### Minor Changes
