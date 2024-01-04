@@ -9,15 +9,22 @@ test.describe('FormControlMixin', () => {
     });
 
     test.describe('form property', () => {
-        test('should not have an associated form when not inside of a form', async ({ mount }) => {
+        test('should not have an associated form when no form exists', async ({ page, mount }) => {
             // Arrange
-            const component = await mount(MockComponent);
+            await mount(MockComponent);
+
+            const isFormAssociated = await page.evaluate(() => {
+                const component = document.querySelector('form-control-mixin-mock');
+                const form = component?.form;
+
+                return !!form;
+            });
 
             // Assert
-            expect(component).not.toBeNull();
+            expect(isFormAssociated).toBe(false);
         });
 
-        test('should return the associated form when inside a form', async ({ page }) => {
+        test('should return the associated form when inside of a form', async ({ page }) => {
             // Arrange
             await page.evaluate(() => {
                 const formHTML = `
@@ -41,7 +48,7 @@ test.describe('FormControlMixin', () => {
             expect(formId).toContain('testForm');
         });
 
-        test('should not have an associated form when it is a sibling of the form', async ({ page }) => {
+        test('should not have an associated form when it is not inside of a form', async ({ page }) => {
             // Arrange
             await page.evaluate(() => {
                 const formHTML = `
