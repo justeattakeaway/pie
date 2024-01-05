@@ -36,7 +36,7 @@ export const FormControlMixin =
         /**
        * Class representing a LitElement that behaves like a native HTML form control element.
        * @extends {LitElement}
-       * @implements {_FormControlInterface}
+       * @implements {FormControlInterface}
        */
         class FormControlElement extends superClass implements FormControlInterface {
             static formAssociated = true;
