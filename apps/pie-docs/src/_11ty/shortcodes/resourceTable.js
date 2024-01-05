@@ -1,7 +1,7 @@
 const resourceTypes = require('../../_data/resourceTypes');
 const statusTypes = require('../../_data/statusTypes');
 const pieDesignTokenColours = require('../filters/pieDesignTokenColours');
-
+const componentStatuses = require('../../components/component-status/web.json')
 const getStatusColour = (tokenName) => {
     const tokenPath = ['alias', 'default'];
 
@@ -95,22 +95,26 @@ const resourceSettings = {
 };
 
 const buildRow = (row) => {
-    const { icon, resource } = resourceSettings[row.resource];
-    const { bgColor, status } = statusSettings[row.status];
+    row.map((r) => {
+        const { icon, resource } = 'resource' in r ? resourceSettings[r.resource] : ''
+        const { bgColor, status } = 'status' in r ? statusSettings[r.status] : ''
 
-    const resourceText = row.link ? `<a href="${row.link}">${resource}</a>` : `<span>${resource}</span>`;
-    const resourceComponent = `<div class="c-resourceTable-resource"><img src="${icon}"></img>${resourceText}</div>`;
-    const statusComponent = `<span class="c-resourceTable-status" style="--bg-colour: ${bgColor}">${row.note ? `${status}: ${row.note}` : status}</span>`;
-
-    return `<tr>
-                <td>
-                    ${resourceComponent}
-                </td>
-                <td>
-                    ${statusComponent}
-                </td>
-            </tr>`;
-};
+        console.log(icon, resource, bgColor, status)
+    
+        const resourceText = r.link ? `<a href="${r.link}">${resource}</a>` : `<span>${resource}</span>`;
+        const resourceComponent = `<div class="c-resourceTable-resource"><img src="${icon}"></img>${resourceText}</div>`;
+        const statusComponent = `<span class="c-resourceTable-status" style="--bg-colour: ${bgColor}">${r.note ? `${status}: ${r.note}` : status}</span>`;
+    
+        return `<tr>
+                    <td>
+                        ${resourceComponent}
+                    </td>
+                    <td>
+                        ${statusComponent}
+                    </td>
+                </tr>`;
+    })
+}
 
 /**
  * A HTML table component
@@ -119,10 +123,10 @@ const buildRow = (row) => {
  */
 module.exports = ({
     heading,
-    rows,
+    componentName,
 }) => `<table class="c-resourceTable">
             ${heading ? `<tr>
                 <th colspan="2">${heading}</th>
             </tr>` : ''}
-            ${rows.map((row) => `${buildRow(row)}`).join('')}
+            ${componentStatuses.rows.map((row) => row.componentName === componentName ? `${buildRow(row)}` : '').join('')}
         </table>`;

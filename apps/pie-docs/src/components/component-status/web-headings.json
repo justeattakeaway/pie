@@ -1,0 +1,21 @@
+{
+    "headings": [
+        "Component",
+        { 
+            "title": "Figma",
+            "image": "/assets/img/components/icons/figma.svg"
+        },
+        { 
+            "title": "Web Components",
+            "image": "/assets/img/components/icons/web-component.svg"
+        },
+        { 
+            "title": "Vue [Fozzie]",
+            "image": "/assets/img/components/icons/vue.svg"
+        },
+        { 
+            "title": "React [Snacks]",
+            "image": "/assets/img/components/icons/react.svg"
+        }
+    ]
+}

@@ -1,0 +1,45 @@
+@use '../fozzie-config' as f;
+
+.c-termsAndDescriptions {
+    overflow: scroll;
+    white-space: wrap;
+}
+
+.c-columns {
+    --columns: 2;
+    --margin: 0;
+    --gap: f.$spacing-e;
+
+    display: grid;
+
+    column-gap: var(--gap);
+    margin-bottom: var(--margin);
+    grid-template-columns: 1fr 1fr;
+
+    @include f.media('>mid') {
+        grid-template-columns: repeat(var(--columns), 1fr);
+    }
+}
+
+.c-columns-terms {
+    display: flex;
+    flex-direction: column;
+    grid-column: 1;
+    min-width: 178px;
+
+    @include f.media('>=mid') {
+        margin-block-end: 0;
+    }
+}
+
+.c-columns-descriptions {
+    display: flex;
+    flex-direction: column;
+    grid-column: 2 / 6;
+
+    @include f.media('>=mid') {
+        margin-block-end: 0;
+    }
+}
+
+

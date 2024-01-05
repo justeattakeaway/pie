@@ -37,6 +37,7 @@
 @use 'components/categorisedIconList';
 @use 'components/centredPage';
 @use 'components/contentImage';
+@use 'components/contentText';
 @use 'components/contentLayout';
 @use 'components/contentList';
 @use 'components/contentPage';
@@ -58,6 +59,7 @@
 @use 'components/simpleTable';
 @use 'components/table';
 @use 'components/componentDetailsTable';
+@use 'components/termsAndDescriptions';
 @use 'components/tabs';
 @use 'components/toggle';
 @use 'components/tokensTable';
