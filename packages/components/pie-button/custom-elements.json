@@ -1,0 +1,509 @@
+{
+    "schemaVersion": "1.0.0",
+    "readme": "",
+    "modules": [
+        {
+            "kind": "javascript-module",
+            "path": "src/defs.js",
+            "declarations": [
+                {
+                    "kind": "variable",
+                    "name": "sizes",
+                    "type": {
+                        "text": "['xsmall', 'small-productive', 'small-expressive', 'medium', 'large']"
+                    },
+                    "default": "['xsmall', 'small-productive', 'small-expressive', 'medium', 'large']"
+                },
+                {
+                    "kind": "variable",
+                    "name": "responsiveSizes",
+                    "type": {
+                        "text": "['productive', 'expressive']"
+                    },
+                    "default": "['productive', 'expressive']"
+                },
+                {
+                    "kind": "variable",
+                    "name": "types",
+                    "type": {
+                        "text": "['submit', 'button', 'reset']"
+                    },
+                    "default": "['submit', 'button', 'reset']"
+                },
+                {
+                    "kind": "variable",
+                    "name": "variants",
+                    "type": {
+                        "text": "[\n    'primary', 'secondary', 'outline', 'outline-inverse', 'ghost',\n    'inverse', 'ghost-inverse', 'destructive', 'destructive-ghost',\n]"
+                    },
+                    "default": "[\n    'primary', 'secondary', 'outline', 'outline-inverse', 'ghost',\n    'inverse', 'ghost-inverse', 'destructive', 'destructive-ghost',\n]"
+                },
+                {
+                    "kind": "variable",
+                    "name": "iconPlacements",
+                    "type": {
+                        "text": "['leading', 'trailing']"
+                    },
+                    "default": "['leading', 'trailing']"
+                },
+                {
+                    "kind": "variable",
+                    "name": "formEncodingtypes",
+                    "type": {
+                        "text": "['application/x-www-form-urlencoded', 'multipart/form-data', 'text/plain']"
+                    },
+                    "default": "['application/x-www-form-urlencoded', 'multipart/form-data', 'text/plain']"
+                },
+                {
+                    "kind": "variable",
+                    "name": "formMethodTypes",
+                    "type": {
+                        "text": "['post', 'get', 'dialog']"
+                    },
+                    "default": "['post', 'get', 'dialog']"
+                },
+                {
+                    "kind": "variable",
+                    "name": "formTargetTypes",
+                    "type": {
+                        "text": "['_self', '_blank', '_parent', '_top']"
+                    },
+                    "default": "['_self', '_blank', '_parent', '_top']"
+                }
+            ],
+            "exports": [
+                {
+                    "kind": "js",
+                    "name": "sizes",
+                    "declaration": {
+                        "name": "sizes",
+                        "module": "src/defs.js"
+                    }
+                },
+                {
+                    "kind": "js",
+                    "name": "responsiveSizes",
+                    "declaration": {
+                        "name": "responsiveSizes",
+                        "module": "src/defs.js"
+                    }
+                },
+                {
+                    "kind": "js",
+                    "name": "types",
+                    "declaration": {
+                        "name": "types",
+                        "module": "src/defs.js"
+                    }
+                },
+                {
+                    "kind": "js",
+                    "name": "variants",
+                    "declaration": {
+                        "name": "variants",
+                        "module": "src/defs.js"
+                    }
+                },
+                {
+                    "kind": "js",
+                    "name": "iconPlacements",
+                    "declaration": {
+                        "name": "iconPlacements",
+                        "module": "src/defs.js"
+                    }
+                },
+                {
+                    "kind": "js",
+                    "name": "formEncodingtypes",
+                    "declaration": {
+                        "name": "formEncodingtypes",
+                        "module": "src/defs.js"
+                    }
+                },
+                {
+                    "kind": "js",
+                    "name": "formMethodTypes",
+                    "declaration": {
+                        "name": "formMethodTypes",
+                        "module": "src/defs.js"
+                    }
+                },
+                {
+                    "kind": "js",
+                    "name": "formTargetTypes",
+                    "declaration": {
+                        "name": "formTargetTypes",
+                        "module": "src/defs.js"
+                    }
+                }
+            ]
+        },
+        {
+            "kind": "javascript-module",
+            "path": "src/index.js",
+            "declarations": [
+                {
+                    "kind": "class",
+                    "description": "",
+                    "name": "PieButton",
+                    "slots": [
+                        {
+                            "description": "The icon slot",
+                            "name": "icon"
+                        },
+                        {
+                            "description": "Default slot",
+                            "name": ""
+                        }
+                    ],
+                    "members": [
+                        {
+                            "kind": "field",
+                            "name": "size",
+                            "type": {
+                                "text": "ButtonProps['size']"
+                            },
+                            "privacy": "public",
+                            "default": "'medium'",
+                            "attribute": "size"
+                        },
+                        {
+                            "kind": "field",
+                            "name": "type",
+                            "type": {
+                                "text": "ButtonProps['type']"
+                            },
+                            "privacy": "public",
+                            "default": "'submit'",
+                            "attribute": "type"
+                        },
+                        {
+                            "kind": "field",
+                            "name": "variant",
+                            "type": {
+                                "text": "ButtonProps['variant']"
+                            },
+                            "privacy": "public",
+                            "default": "'primary'",
+                            "attribute": "variant"
+                        },
+                        {
+                            "kind": "field",
+                            "name": "iconPlacement",
+                            "type": {
+                                "text": "ButtonProps['iconPlacement']"
+                            },
+                            "privacy": "public",
+                            "default": "'leading'",
+                            "attribute": "iconPlacement"
+                        },
+                        {
+                            "kind": "field",
+                            "name": "disabled",
+                            "type": {
+                                "text": "boolean"
+                            },
+                            "privacy": "public",
+                            "default": "false",
+                            "attribute": "disabled"
+                        },
+                        {
+                            "kind": "field",
+                            "name": "isLoading",
+                            "type": {
+                                "text": "boolean"
+                            },
+                            "privacy": "public",
+                            "default": "false",
+                            "attribute": "isLoading",
+                            "reflects": true
+                        },
+                        {
+                            "kind": "field",
+                            "name": "isFullWidth",
+                            "type": {
+                                "text": "boolean"
+                            },
+                            "privacy": "public",
+                            "default": "false",
+                            "attribute": "isFullWidth"
+                        },
+                        {
+                            "kind": "field",
+                            "name": "isResponsive",
+                            "type": {
+                                "text": "boolean"
+                            },
+                            "privacy": "public",
+                            "default": "false",
+                            "attribute": "isResponsive"
+                        },
+                        {
+                            "kind": "field",
+                            "name": "name",
+                            "type": {
+                                "text": "string | undefined"
+                            },
+                            "privacy": "public",
+                            "attribute": "name"
+                        },
+                        {
+                            "kind": "field",
+                            "name": "value",
+                            "type": {
+                                "text": "string | undefined"
+                            },
+                            "privacy": "public",
+                            "attribute": "value"
+                        },
+                        {
+                            "kind": "field",
+                            "name": "formaction",
+                            "type": {
+                                "text": "ButtonProps['formaction']"
+                            },
+                            "privacy": "public",
+                            "attribute": "formaction"
+                        },
+                        {
+                            "kind": "field",
+                            "name": "formenctype",
+                            "type": {
+                                "text": "ButtonProps['formenctype']"
+                            },
+                            "privacy": "public",
+                            "attribute": "formenctype"
+                        },
+                        {
+                            "kind": "field",
+                            "name": "formmethod",
+                            "type": {
+                                "text": "ButtonProps['formmethod']"
+                            },
+                            "privacy": "public",
+                            "attribute": "formmethod"
+                        },
+                        {
+                            "kind": "field",
+                            "name": "formnovalidate",
+                            "type": {
+                                "text": "ButtonProps['formnovalidate']"
+                            },
+                            "privacy": "public",
+                            "attribute": "formnovalidate"
+                        },
+                        {
+                            "kind": "field",
+                            "name": "formtarget",
+                            "type": {
+                                "text": "ButtonProps['formtarget']"
+                            },
+                            "privacy": "public",
+                            "attribute": "formtarget"
+                        },
+                        {
+                            "kind": "field",
+                            "name": "responsiveSize",
+                            "type": {
+                                "text": "ButtonProps['responsiveSize'] | undefined"
+                            },
+                            "privacy": "public",
+                            "attribute": "responsiveSize"
+                        },
+                        {
+                            "kind": "method",
+                            "name": "_simulateNativeButtonClick",
+                            "privacy": "private",
+                            "parameters": [
+                                {
+                                    "name": "btnType",
+                                    "type": {
+                                        "text": "'submit' | 'reset'"
+                                    }
+                                }
+                            ],
+                            "description": "This method creates an invisible button of the same type as pie-button. It is then clicked, and immediately removed from the DOM.\nThis is done so that we trigger native form actions, such as submit and reset in the browser. The performance impact of adding and removing a single button to the DOM\nshould be neglible, however this should be monitored.\nThis is the only viable way of guaranteeing native button behaviour when using a web component in place of an actual HTML button.\n\nTODO: if we need to repeat this logic elsewhere, then we should consider moving this code to a shared class or mixin."
+                        },
+                        {
+                            "kind": "method",
+                            "name": "_handleClick",
+                            "privacy": "private"
+                        },
+                        {
+                            "kind": "field",
+                            "name": "_handleFormKeyDown",
+                            "privacy": "private"
+                        },
+                        {
+                            "kind": "method",
+                            "name": "renderSpinner",
+                            "privacy": "private",
+                            "return": {
+                                "type": {
+                                    "text": "TemplateResult"
+                                }
+                            },
+                            "description": "Template for the loading state"
+                        },
+                        {
+                            "kind": "method",
+                            "name": "focus"
+                        }
+                    ],
+                    "attributes": [
+                        {
+                            "name": "size",
+                            "type": {
+                                "text": "ButtonProps['size']"
+                            },
+                            "default": "'medium'",
+                            "fieldName": "size"
+                        },
+                        {
+                            "name": "type",
+                            "type": {
+                                "text": "ButtonProps['type']"
+                            },
+                            "default": "'submit'",
+                            "fieldName": "type"
+                        },
+                        {
+                            "name": "variant",
+                            "type": {
+                                "text": "ButtonProps['variant']"
+                            },
+                            "default": "'primary'",
+                            "fieldName": "variant"
+                        },
+                        {
+                            "name": "iconPlacement",
+                            "type": {
+                                "text": "ButtonProps['iconPlacement']"
+                            },
+                            "default": "'leading'",
+                            "fieldName": "iconPlacement"
+                        },
+                        {
+                            "name": "disabled",
+                            "type": {
+                                "text": "boolean"
+                            },
+                            "default": "false",
+                            "fieldName": "disabled"
+                        },
+                        {
+                            "name": "isLoading",
+                            "type": {
+                                "text": "boolean"
+                            },
+                            "default": "false",
+                            "fieldName": "isLoading"
+                        },
+                        {
+                            "name": "isFullWidth",
+                            "type": {
+                                "text": "boolean"
+                            },
+                            "default": "false",
+                            "fieldName": "isFullWidth"
+                        },
+                        {
+                            "name": "isResponsive",
+                            "type": {
+                                "text": "boolean"
+                            },
+                            "default": "false",
+                            "fieldName": "isResponsive"
+                        },
+                        {
+                            "name": "name",
+                            "type": {
+                                "text": "string | undefined"
+                            },
+                            "fieldName": "name"
+                        },
+                        {
+                            "name": "value",
+                            "type": {
+                                "text": "string | undefined"
+                            },
+                            "fieldName": "value"
+                        },
+                        {
+                            "name": "formaction",
+                            "type": {
+                                "text": "ButtonProps['formaction']"
+                            },
+                            "fieldName": "formaction"
+                        },
+                        {
+                            "name": "formenctype",
+                            "type": {
+                                "text": "ButtonProps['formenctype']"
+                            },
+                            "fieldName": "formenctype"
+                        },
+                        {
+                            "name": "formmethod",
+                            "type": {
+                                "text": "ButtonProps['formmethod']"
+                            },
+                            "fieldName": "formmethod"
+                        },
+                        {
+                            "name": "formnovalidate",
+                            "type": {
+                                "text": "ButtonProps['formnovalidate']"
+                            },
+                            "fieldName": "formnovalidate"
+                        },
+                        {
+                            "name": "formtarget",
+                            "type": {
+                                "text": "ButtonProps['formtarget']"
+                            },
+                            "fieldName": "formtarget"
+                        },
+                        {
+                            "name": "responsiveSize",
+                            "type": {
+                                "text": "ButtonProps['responsiveSize'] | undefined"
+                            },
+                            "fieldName": "responsiveSize"
+                        }
+                    ],
+                    "mixins": [
+                        {
+                            "name": "FormControlMixin",
+                            "package": "@justeattakeaway/pie-webc-core"
+                        }
+                    ],
+                    "superclass": {
+                        "name": "LitElement",
+                        "package": "lit"
+                    },
+                    "tagName": "pie-button",
+                    "customElement": true
+                }
+            ],
+            "exports": [
+                {
+                    "kind": "js",
+                    "name": "*",
+                    "declaration": {
+                        "name": "*",
+                        "package": "./defs"
+                    }
+                },
+                {
+                    "kind": "js",
+                    "name": "PieButton",
+                    "declaration": {
+                        "name": "PieButton",
+                        "module": "src/index.js"
+                    }
+                }
+            ]
+        }
+    ]
+}
