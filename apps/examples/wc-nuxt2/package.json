@@ -1,6 +1,7 @@
 {
   "name": "wc-nuxt2",
   "version": "0.5.8",
+  "author": "Just Eat Takeaway.com - Design System Team",
   "private": true,
   "scripts": {
     "dev": "nuxt",
