@@ -54,7 +54,7 @@ Unfortunately, you may notice that the component is not rendering correctly, nor
 
 A caveat to this is that if you have a test file that already mounts the component somewhere then the `/playwright/.cache` folder is likely keeping a cached version of the asset loaded in the test browser. If you delete the cache, and run the test which does not explicitly mount the component, you will see the component no longer renders successfully.
 
-A recommendation is that to avoid any rendering issues, simply add the mount and unmount before each component test. This is ensure that the component is always loaded in the browser before the test runs and will not affect the test result.
+A recommendation is that to avoid any rendering issues, simply add the mount and unmount before each component test. This ensures that the component is always loaded in the browser before the test runs and will not affect the test result.
 
 ### Visual tests
 Our visual tests currently use the same Playwright packages as our browser tests, as well as Percy for snapshot testing. We write tests the same way as our browser tests, but then call a snapshot at the end as part of the assertion like so:
