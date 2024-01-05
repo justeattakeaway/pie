@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/pie-modal",
-  "version": "0.36.2",
+  "version": "0.37.0",
   "description": "PIE design system modal built using web components",
   "type": "module",
   "main": "dist/index.js",
@@ -33,8 +33,8 @@
   "devDependencies": {
     "@custom-elements-manifest/analyzer": "0.9.0",
     "@justeat/pie-design-tokens": "5.9.0",
-    "@justeattakeaway/pie-components-config": "0.7.0",
-    "@justeattakeaway/pie-wrapper-react": "0.11.1",
+    "@justeattakeaway/pie-components-config": "0.8.0",
+    "@justeattakeaway/pie-wrapper-react": "0.12.0",
     "@types/body-scroll-lock": "3.1.2",
     "cem-plugin-module-file-extensions": "0.0.5"
   },
@@ -42,11 +42,11 @@
     "extends": "../../../package.json"
   },
   "dependencies": {
-    "@justeattakeaway/pie-button": "0.43.0",
-    "@justeattakeaway/pie-icon-button": "0.25.2",
-    "@justeattakeaway/pie-icons-webc": "0.16.2",
-    "@justeattakeaway/pie-spinner": "0.3.3",
-    "@justeattakeaway/pie-webc-core": "0.15.0",
+    "@justeattakeaway/pie-button": "0.44.0",
+    "@justeattakeaway/pie-icon-button": "0.26.0",
+    "@justeattakeaway/pie-icons-webc": "0.17.0",
+    "@justeattakeaway/pie-spinner": "0.4.0",
+    "@justeattakeaway/pie-webc-core": "0.16.0",
     "body-scroll-lock": "3.1.5",
     "dialog-polyfill": "0.5.6"
   },

@@ -1,5 +1,13 @@
 # @justeattakeaway/generator-pie-component
 
+## 0.16.0
+
+### Minor Changes
+
+- [Changed] - Refactor the generator to follow new manifest creation / build functionality. ([#1144](https://github.com/justeattakeaway/pie/pull/1144)) by [@siggerzz](https://github.com/siggerzz)
+
+- [Changed] - Added `@justeattakeaway/pie-wrapper-react` as a devDependency as `build` now relies on the publish `add-react-wrapper` executable ([#1144](https://github.com/justeattakeaway/pie/pull/1144)) by [@siggerzz](https://github.com/siggerzz)
+
 ## 0.15.0
 
 ### Minor Changes
