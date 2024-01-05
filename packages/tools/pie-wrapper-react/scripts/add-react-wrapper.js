@@ -20,7 +20,6 @@ export function loadCustomElementsFile (customElementsDirectory = process.argv[2
 export function addReactWrapper (customElementsObject) {
     const components = [];
     const customElements = Object.entries(customElementsObject);
-    const folderName = `${process.cwd()}/src`;
 
     let sortedModules;
 
