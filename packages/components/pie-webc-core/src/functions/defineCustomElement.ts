@@ -1,4 +1,4 @@
-import { LitElement } from 'lit';
+import type { LitElement } from 'lit';
 
 /**
  * Defines a web component, ensuring that the component is only defined once in the Custom Element Registry.
