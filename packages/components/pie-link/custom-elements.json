@@ -1,421 +1,421 @@
 {
-    "schemaVersion": "1.0.0",
-    "readme": "",
-    "modules": [
+  "schemaVersion": "1.0.0",
+  "readme": "",
+  "modules": [
+    {
+      "kind": "javascript-module",
+      "path": "src/defs.js",
+      "declarations": [
         {
-            "kind": "javascript-module",
-            "path": "src/defs.js",
-            "declarations": [
-                {
-                    "kind": "variable",
-                    "name": "variants",
-                    "type": {
-                        "text": "['default', 'high-visibility', 'inverse']"
-                    },
-                    "default": "['default', 'high-visibility', 'inverse']"
-                },
-                {
-                    "kind": "variable",
-                    "name": "sizes",
-                    "type": {
-                        "text": "['small', 'medium']"
-                    },
-                    "default": "['small', 'medium']"
-                },
-                {
-                    "kind": "variable",
-                    "name": "iconPlacements",
-                    "type": {
-                        "text": "['leading', 'trailing']"
-                    },
-                    "default": "['leading', 'trailing']"
-                },
-                {
-                    "kind": "variable",
-                    "name": "tags",
-                    "type": {
-                        "text": "['a', 'button']"
-                    },
-                    "default": "['a', 'button']"
-                },
-                {
-                    "kind": "variable",
-                    "name": "buttonTypes",
-                    "type": {
-                        "text": "['submit', 'button', 'reset', 'menu']"
-                    },
-                    "default": "['submit', 'button', 'reset', 'menu']"
-                },
-                {
-                    "kind": "variable",
-                    "name": "underlineTypes",
-                    "type": {
-                        "text": "['default', 'reversed']"
-                    },
-                    "default": "['default', 'reversed']"
-                }
-            ],
-            "exports": [
-                {
-                    "kind": "js",
-                    "name": "variants",
-                    "declaration": {
-                        "name": "variants",
-                        "module": "src/defs.js"
-                    }
-                },
-                {
-                    "kind": "js",
-                    "name": "sizes",
-                    "declaration": {
-                        "name": "sizes",
-                        "module": "src/defs.js"
-                    }
-                },
-                {
-                    "kind": "js",
-                    "name": "iconPlacements",
-                    "declaration": {
-                        "name": "iconPlacements",
-                        "module": "src/defs.js"
-                    }
-                },
-                {
-                    "kind": "js",
-                    "name": "tags",
-                    "declaration": {
-                        "name": "tags",
-                        "module": "src/defs.js"
-                    }
-                },
-                {
-                    "kind": "js",
-                    "name": "buttonTypes",
-                    "declaration": {
-                        "name": "buttonTypes",
-                        "module": "src/defs.js"
-                    }
-                },
-                {
-                    "kind": "js",
-                    "name": "underlineTypes",
-                    "declaration": {
-                        "name": "underlineTypes",
-                        "module": "src/defs.js"
-                    }
-                }
-            ]
+          "kind": "variable",
+          "name": "variants",
+          "type": {
+            "text": "['default', 'high-visibility', 'inverse']"
+          },
+          "default": "['default', 'high-visibility', 'inverse']"
         },
         {
-            "kind": "javascript-module",
-            "path": "src/index.js",
-            "declarations": [
-                {
-                    "kind": "class",
-                    "description": "",
-                    "name": "PieLink",
-                    "slots": [
-                        {
-                            "description": "The icon slot",
-                            "name": "icon"
-                        },
-                        {
-                            "description": "Default slot",
-                            "name": ""
-                        }
-                    ],
-                    "members": [
-                        {
-                            "kind": "field",
-                            "name": "tag",
-                            "type": {
-                                "text": "LinkProps['tag']"
-                            },
-                            "privacy": "public",
-                            "default": "'a'",
-                            "attribute": "tag"
-                        },
-                        {
-                            "kind": "field",
-                            "name": "variant",
-                            "type": {
-                                "text": "LinkProps['variant']"
-                            },
-                            "privacy": "public",
-                            "default": "'default'",
-                            "attribute": "variant"
-                        },
-                        {
-                            "kind": "field",
-                            "name": "size",
-                            "type": {
-                                "text": "LinkProps['size']"
-                            },
-                            "privacy": "public",
-                            "default": "'medium'",
-                            "attribute": "size"
-                        },
-                        {
-                            "kind": "field",
-                            "name": "underline",
-                            "type": {
-                                "text": "LinkProps['underline']"
-                            },
-                            "privacy": "public",
-                            "default": "'default'",
-                            "attribute": "underline"
-                        },
-                        {
-                            "kind": "field",
-                            "name": "iconPlacement",
-                            "type": {
-                                "text": "LinkProps['iconPlacement']"
-                            },
-                            "privacy": "public",
-                            "default": "'leading'",
-                            "attribute": "iconPlacement"
-                        },
-                        {
-                            "kind": "field",
-                            "name": "href",
-                            "type": {
-                                "text": "string | undefined"
-                            },
-                            "privacy": "public",
-                            "attribute": "href",
-                            "reflects": true
-                        },
-                        {
-                            "kind": "field",
-                            "name": "target",
-                            "type": {
-                                "text": "string | undefined"
-                            },
-                            "privacy": "public",
-                            "attribute": "target",
-                            "reflects": true
-                        },
-                        {
-                            "kind": "field",
-                            "name": "rel",
-                            "type": {
-                                "text": "string | undefined"
-                            },
-                            "privacy": "public",
-                            "attribute": "rel",
-                            "reflects": true
-                        },
-                        {
-                            "kind": "field",
-                            "name": "isBold",
-                            "type": {
-                                "text": "boolean"
-                            },
-                            "privacy": "public",
-                            "default": "false",
-                            "attribute": "isBold"
-                        },
-                        {
-                            "kind": "field",
-                            "name": "isStandalone",
-                            "type": {
-                                "text": "boolean"
-                            },
-                            "privacy": "public",
-                            "default": "false",
-                            "attribute": "isStandalone"
-                        },
-                        {
-                            "kind": "field",
-                            "name": "hasVisited",
-                            "type": {
-                                "text": "boolean"
-                            },
-                            "privacy": "public",
-                            "default": "false",
-                            "attribute": "hasVisited"
-                        },
-                        {
-                            "kind": "field",
-                            "name": "type",
-                            "type": {
-                                "text": "LinkProps['type']"
-                            },
-                            "privacy": "public",
-                            "default": "'submit'",
-                            "attribute": "type"
-                        },
-                        {
-                            "kind": "field",
-                            "name": "aria",
-                            "type": {
-                                "text": "AriaProps"
-                            },
-                            "privacy": "public",
-                            "attribute": "aria"
-                        },
-                        {
-                            "kind": "method",
-                            "name": "renderContent",
-                            "privacy": "private",
-                            "return": {
-                                "type": {
-                                    "text": "TemplateResult"
-                                }
-                            },
-                            "description": "Renders the link content.\nIcons are only shown in block elements"
-                        },
-                        {
-                            "kind": "method",
-                            "name": "renderButton",
-                            "privacy": "private",
-                            "return": {
-                                "type": {
-                                    "text": "TemplateResult"
-                                }
-                            },
-                            "description": "Renders the link as a button element."
-                        },
-                        {
-                            "kind": "method",
-                            "name": "renderAnchor",
-                            "privacy": "private",
-                            "return": {
-                                "type": {
-                                    "text": "TemplateResult"
-                                }
-                            },
-                            "description": "Renders the link as an anchor element."
-                        }
-                    ],
-                    "attributes": [
-                        {
-                            "name": "tag",
-                            "type": {
-                                "text": "LinkProps['tag']"
-                            },
-                            "default": "'a'",
-                            "fieldName": "tag"
-                        },
-                        {
-                            "name": "variant",
-                            "type": {
-                                "text": "LinkProps['variant']"
-                            },
-                            "default": "'default'",
-                            "fieldName": "variant"
-                        },
-                        {
-                            "name": "size",
-                            "type": {
-                                "text": "LinkProps['size']"
-                            },
-                            "default": "'medium'",
-                            "fieldName": "size"
-                        },
-                        {
-                            "name": "underline",
-                            "type": {
-                                "text": "LinkProps['underline']"
-                            },
-                            "default": "'default'",
-                            "fieldName": "underline"
-                        },
-                        {
-                            "name": "iconPlacement",
-                            "type": {
-                                "text": "LinkProps['iconPlacement']"
-                            },
-                            "default": "'leading'",
-                            "fieldName": "iconPlacement"
-                        },
-                        {
-                            "name": "href",
-                            "type": {
-                                "text": "string | undefined"
-                            },
-                            "fieldName": "href"
-                        },
-                        {
-                            "name": "target",
-                            "type": {
-                                "text": "string | undefined"
-                            },
-                            "fieldName": "target"
-                        },
-                        {
-                            "name": "rel",
-                            "type": {
-                                "text": "string | undefined"
-                            },
-                            "fieldName": "rel"
-                        },
-                        {
-                            "name": "isBold",
-                            "type": {
-                                "text": "boolean"
-                            },
-                            "default": "false",
-                            "fieldName": "isBold"
-                        },
-                        {
-                            "name": "isStandalone",
-                            "type": {
-                                "text": "boolean"
-                            },
-                            "default": "false",
-                            "fieldName": "isStandalone"
-                        },
-                        {
-                            "name": "hasVisited",
-                            "type": {
-                                "text": "boolean"
-                            },
-                            "default": "false",
-                            "fieldName": "hasVisited"
-                        },
-                        {
-                            "name": "type",
-                            "type": {
-                                "text": "LinkProps['type']"
-                            },
-                            "default": "'submit'",
-                            "fieldName": "type"
-                        },
-                        {
-                            "name": "aria",
-                            "type": {
-                                "text": "AriaProps"
-                            },
-                            "fieldName": "aria"
-                        }
-                    ],
-                    "superclass": {
-                        "name": "LitElement",
-                        "package": "lit"
-                    },
-                    "tagName": "pie-link",
-                    "customElement": true
-                }
-            ],
-            "exports": [
-                {
-                    "kind": "js",
-                    "name": "*",
-                    "declaration": {
-                        "name": "*",
-                        "package": "./defs"
-                    }
-                },
-                {
-                    "kind": "js",
-                    "name": "PieLink",
-                    "declaration": {
-                        "name": "PieLink",
-                        "module": "src/index.js"
-                    }
-                }
-            ]
+          "kind": "variable",
+          "name": "sizes",
+          "type": {
+            "text": "['small', 'medium']"
+          },
+          "default": "['small', 'medium']"
+        },
+        {
+          "kind": "variable",
+          "name": "iconPlacements",
+          "type": {
+            "text": "['leading', 'trailing']"
+          },
+          "default": "['leading', 'trailing']"
+        },
+        {
+          "kind": "variable",
+          "name": "tags",
+          "type": {
+            "text": "['a', 'button']"
+          },
+          "default": "['a', 'button']"
+        },
+        {
+          "kind": "variable",
+          "name": "buttonTypes",
+          "type": {
+            "text": "['submit', 'button', 'reset', 'menu']"
+          },
+          "default": "['submit', 'button', 'reset', 'menu']"
+        },
+        {
+          "kind": "variable",
+          "name": "underlineTypes",
+          "type": {
+            "text": "['default', 'reversed']"
+          },
+          "default": "['default', 'reversed']"
         }
-    ]
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "variants",
+          "declaration": {
+            "name": "variants",
+            "module": "src/defs.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "sizes",
+          "declaration": {
+            "name": "sizes",
+            "module": "src/defs.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "iconPlacements",
+          "declaration": {
+            "name": "iconPlacements",
+            "module": "src/defs.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "tags",
+          "declaration": {
+            "name": "tags",
+            "module": "src/defs.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "buttonTypes",
+          "declaration": {
+            "name": "buttonTypes",
+            "module": "src/defs.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "underlineTypes",
+          "declaration": {
+            "name": "underlineTypes",
+            "module": "src/defs.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/index.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "PieLink",
+          "slots": [
+            {
+              "description": "The icon slot",
+              "name": "icon"
+            },
+            {
+              "description": "Default slot",
+              "name": ""
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "tag",
+              "type": {
+                "text": "LinkProps['tag']"
+              },
+              "privacy": "public",
+              "default": "'a'",
+              "attribute": "tag"
+            },
+            {
+              "kind": "field",
+              "name": "variant",
+              "type": {
+                "text": "LinkProps['variant']"
+              },
+              "privacy": "public",
+              "default": "'default'",
+              "attribute": "variant"
+            },
+            {
+              "kind": "field",
+              "name": "size",
+              "type": {
+                "text": "LinkProps['size']"
+              },
+              "privacy": "public",
+              "default": "'medium'",
+              "attribute": "size"
+            },
+            {
+              "kind": "field",
+              "name": "underline",
+              "type": {
+                "text": "LinkProps['underline']"
+              },
+              "privacy": "public",
+              "default": "'default'",
+              "attribute": "underline"
+            },
+            {
+              "kind": "field",
+              "name": "iconPlacement",
+              "type": {
+                "text": "LinkProps['iconPlacement']"
+              },
+              "privacy": "public",
+              "default": "'leading'",
+              "attribute": "iconPlacement"
+            },
+            {
+              "kind": "field",
+              "name": "href",
+              "type": {
+                "text": "string | undefined"
+              },
+              "privacy": "public",
+              "attribute": "href",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "target",
+              "type": {
+                "text": "string | undefined"
+              },
+              "privacy": "public",
+              "attribute": "target",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "rel",
+              "type": {
+                "text": "string | undefined"
+              },
+              "privacy": "public",
+              "attribute": "rel",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "isBold",
+              "type": {
+                "text": "boolean"
+              },
+              "privacy": "public",
+              "default": "false",
+              "attribute": "isBold"
+            },
+            {
+              "kind": "field",
+              "name": "isStandalone",
+              "type": {
+                "text": "boolean"
+              },
+              "privacy": "public",
+              "default": "false",
+              "attribute": "isStandalone"
+            },
+            {
+              "kind": "field",
+              "name": "hasVisited",
+              "type": {
+                "text": "boolean"
+              },
+              "privacy": "public",
+              "default": "false",
+              "attribute": "hasVisited"
+            },
+            {
+              "kind": "field",
+              "name": "type",
+              "type": {
+                "text": "LinkProps['type']"
+              },
+              "privacy": "public",
+              "default": "'submit'",
+              "attribute": "type"
+            },
+            {
+              "kind": "field",
+              "name": "aria",
+              "type": {
+                "text": "AriaProps"
+              },
+              "privacy": "public",
+              "attribute": "aria"
+            },
+            {
+              "kind": "method",
+              "name": "renderContent",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "TemplateResult"
+                }
+              },
+              "description": "Renders the link content.\nIcons are only shown in block elements"
+            },
+            {
+              "kind": "method",
+              "name": "renderButton",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "TemplateResult"
+                }
+              },
+              "description": "Renders the link as a button element."
+            },
+            {
+              "kind": "method",
+              "name": "renderAnchor",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "TemplateResult"
+                }
+              },
+              "description": "Renders the link as an anchor element."
+            }
+          ],
+          "attributes": [
+            {
+              "name": "tag",
+              "type": {
+                "text": "LinkProps['tag']"
+              },
+              "default": "'a'",
+              "fieldName": "tag"
+            },
+            {
+              "name": "variant",
+              "type": {
+                "text": "LinkProps['variant']"
+              },
+              "default": "'default'",
+              "fieldName": "variant"
+            },
+            {
+              "name": "size",
+              "type": {
+                "text": "LinkProps['size']"
+              },
+              "default": "'medium'",
+              "fieldName": "size"
+            },
+            {
+              "name": "underline",
+              "type": {
+                "text": "LinkProps['underline']"
+              },
+              "default": "'default'",
+              "fieldName": "underline"
+            },
+            {
+              "name": "iconPlacement",
+              "type": {
+                "text": "LinkProps['iconPlacement']"
+              },
+              "default": "'leading'",
+              "fieldName": "iconPlacement"
+            },
+            {
+              "name": "href",
+              "type": {
+                "text": "string | undefined"
+              },
+              "fieldName": "href"
+            },
+            {
+              "name": "target",
+              "type": {
+                "text": "string | undefined"
+              },
+              "fieldName": "target"
+            },
+            {
+              "name": "rel",
+              "type": {
+                "text": "string | undefined"
+              },
+              "fieldName": "rel"
+            },
+            {
+              "name": "isBold",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "isBold"
+            },
+            {
+              "name": "isStandalone",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "isStandalone"
+            },
+            {
+              "name": "hasVisited",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "hasVisited"
+            },
+            {
+              "name": "type",
+              "type": {
+                "text": "LinkProps['type']"
+              },
+              "default": "'submit'",
+              "fieldName": "type"
+            },
+            {
+              "name": "aria",
+              "type": {
+                "text": "AriaProps"
+              },
+              "fieldName": "aria"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "pie-link",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./defs"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "PieLink",
+          "declaration": {
+            "name": "PieLink",
+            "module": "src/index.js"
+          }
+        }
+      ]
+    }
+  ]
 }
