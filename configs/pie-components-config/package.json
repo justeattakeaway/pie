@@ -12,7 +12,8 @@
     "deepmerge-ts": "5.1.0"
   },
   "peerDependencies": {
-    "cem-plugin-module-file-extensions": "0.0.5"
+    "cem-plugin-module-file-extensions": "0.0.5",
+    "custom-element-react-wrappers": "1.1.1"
   },
   "volta": {
     "extends": "../../package.json"
