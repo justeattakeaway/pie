@@ -57,7 +57,7 @@ A caveat to this is that if you have a test file that already mounts the compone
 A recommendation is that to avoid any rendering issues, simply add the mount and unmount before each component test. This ensures that the component is always loaded in the browser before the test runs and will not affect the test result.
 
 ### Visual tests
-Our visual tests currently use the same Playwright packages as our browser tests, as well as Percy for snapshot testing. We write tests the same way as our browser tests, but then call a snapshot at the end as part of the assertion like so:
+Our visual tests currently use the same Playwright packages as our browser tests, and uses Percy for snapshot testing. We write tests the same way as our browser tests, but then call a snapshot at the end as part of the assertion like so:
 
 ```ts
 await percySnapshot(page, `PIE Button - Variant: ${variant}`, percyWidths);
