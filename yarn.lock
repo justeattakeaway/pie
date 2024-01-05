@@ -5521,16 +5521,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-components-config@npm:0.7.0":
-  version: 0.7.0
-  resolution: "@justeattakeaway/pie-components-config@npm:0.7.0"
-  dependencies:
-    deepmerge-ts: 5.1.0
-  checksum: c9fbef1bb542c024f3d631093b8e2e4398b033afa0adef28b03549cb3d3101701bed65fb26af5c6dbe196dadc1f08da89752313999ed22881ea13bb5fbeef6b1
-  languageName: node
-  linkType: hard
-
-"@justeattakeaway/pie-components-config@workspace:configs/pie-components-config":
+"@justeattakeaway/pie-components-config@0.7.0, @justeattakeaway/pie-components-config@workspace:configs/pie-components-config":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-components-config@workspace:configs/pie-components-config"
   dependencies:
