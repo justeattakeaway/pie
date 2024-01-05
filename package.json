@@ -70,7 +70,7 @@
     "@justeattakeaway/browserslist-config-pie": "0.2.0",
     "@justeattakeaway/generator-pie-component": "0.15.0",
     "@justeattakeaway/pie-icons": "4.9.3",
-    "@justeattakeaway/pie-webc-testing": "0.6.0",
+    "@justeattakeaway/pie-webc-testing": "0.7.0",
     "@justeattakeaway/stylelint-config-pie": "0.5.0",
     "@percy/cli": "1.26.3",
     "@percy/playwright": "1.0.4",
