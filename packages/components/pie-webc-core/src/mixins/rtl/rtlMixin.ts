@@ -6,7 +6,7 @@ import type { GenericConstructor } from '../types/GenericConstructor';
  * An interface representing the structure of RTL related class.
  * @interface
  */
-declare class _RTLInterface {
+export interface RTLInterface {
     /** A boolean indicating whether the text direction is right-to-left. */
     isRTL: boolean;
 }
@@ -18,7 +18,7 @@ declare class _RTLInterface {
  *
  * @function
  * @param {GenericConstructor<LitElement>} superClass - The LitElement class to extend with RTL functionality.
- * @returns {GenericConstructor<_RTLInterface> & T} - A new class extending both LitElement and _RTLInterface.
+ * @returns {GenericConstructor<RTLInterface> & T} - A new class extending both LitElement and RTLInterface.
  *
  * @example
  * ```typescript
@@ -61,9 +61,9 @@ export const RtlMixin =
         /**
        * Class representing a LitElement with RTL handling.
        * @extends {LitElement}
-       * @implements {_RTLInterface}
+       * @implements {RTLInterface}
        */
-        class RTLElement extends superClass implements _RTLInterface {
+        class RTLElement extends superClass implements RTLInterface {
             /**
              * A getter to determine whether the text direction is right-to-left (RTL).
              * If the `dir` property is present on the component, it will be used to determine the text direction.
@@ -87,5 +87,5 @@ export const RtlMixin =
             }
         }
 
-        return RTLElement as GenericConstructor<_RTLInterface> & T;
+        return RTLElement as GenericConstructor<RTLInterface> & T;
     };
