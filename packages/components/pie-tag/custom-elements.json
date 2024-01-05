@@ -1,149 +1,149 @@
 {
-  "schemaVersion": "1.0.0",
-  "readme": "",
-  "modules": [
-    {
-      "kind": "javascript-module",
-      "path": "src/defs.js",
-      "declarations": [
+    "schemaVersion": "1.0.0",
+    "readme": "",
+    "modules": [
         {
-          "kind": "variable",
-          "name": "variants",
-          "type": {
-            "text": "['neutral-alternative', 'neutral', 'outline', 'ghost', 'blue', 'green', 'yellow', 'red', 'brand']"
-          },
-          "default": "['neutral-alternative', 'neutral', 'outline', 'ghost', 'blue', 'green', 'yellow', 'red', 'brand']"
+            "kind": "javascript-module",
+            "path": "src/defs.js",
+            "declarations": [
+                {
+                    "kind": "variable",
+                    "name": "variants",
+                    "type": {
+                        "text": "['neutral-alternative', 'neutral', 'outline', 'ghost', 'blue', 'green', 'yellow', 'red', 'brand']"
+                    },
+                    "default": "['neutral-alternative', 'neutral', 'outline', 'ghost', 'blue', 'green', 'yellow', 'red', 'brand']"
+                },
+                {
+                    "kind": "variable",
+                    "name": "sizes",
+                    "type": {
+                        "text": "['small', 'large']"
+                    },
+                    "default": "['small', 'large']"
+                }
+            ],
+            "exports": [
+                {
+                    "kind": "js",
+                    "name": "variants",
+                    "declaration": {
+                        "name": "variants",
+                        "module": "src/defs.js"
+                    }
+                },
+                {
+                    "kind": "js",
+                    "name": "sizes",
+                    "declaration": {
+                        "name": "sizes",
+                        "module": "src/defs.js"
+                    }
+                }
+            ]
         },
         {
-          "kind": "variable",
-          "name": "sizes",
-          "type": {
-            "text": "['small', 'large']"
-          },
-          "default": "['small', 'large']"
+            "kind": "javascript-module",
+            "path": "src/index.js",
+            "declarations": [
+                {
+                    "kind": "class",
+                    "description": "",
+                    "name": "PieTag",
+                    "slots": [
+                        {
+                            "description": "The icon slot",
+                            "name": "icon"
+                        },
+                        {
+                            "description": "Default slot",
+                            "name": ""
+                        }
+                    ],
+                    "members": [
+                        {
+                            "kind": "field",
+                            "name": "variant",
+                            "type": {
+                                "text": "TagProps['variant']"
+                            },
+                            "privacy": "public",
+                            "default": "'neutral'",
+                            "attribute": "variant"
+                        },
+                        {
+                            "kind": "field",
+                            "name": "size",
+                            "type": {
+                                "text": "TagProps['size']"
+                            },
+                            "privacy": "public",
+                            "default": "'large'",
+                            "attribute": "size"
+                        },
+                        {
+                            "kind": "field",
+                            "name": "isStrong",
+                            "type": {
+                                "text": "boolean"
+                            },
+                            "privacy": "public",
+                            "default": "false",
+                            "attribute": "isStrong"
+                        }
+                    ],
+                    "attributes": [
+                        {
+                            "name": "variant",
+                            "type": {
+                                "text": "TagProps['variant']"
+                            },
+                            "default": "'neutral'",
+                            "fieldName": "variant"
+                        },
+                        {
+                            "name": "size",
+                            "type": {
+                                "text": "TagProps['size']"
+                            },
+                            "default": "'large'",
+                            "fieldName": "size"
+                        },
+                        {
+                            "name": "isStrong",
+                            "type": {
+                                "text": "boolean"
+                            },
+                            "default": "false",
+                            "fieldName": "isStrong"
+                        }
+                    ],
+                    "superclass": {
+                        "name": "LitElement",
+                        "package": "lit"
+                    },
+                    "tagName": "pie-tag",
+                    "customElement": true
+                }
+            ],
+            "exports": [
+                {
+                    "kind": "js",
+                    "name": "*",
+                    "declaration": {
+                        "name": "*",
+                        "package": "./defs"
+                    }
+                },
+                {
+                    "kind": "js",
+                    "name": "PieTag",
+                    "declaration": {
+                        "name": "PieTag",
+                        "module": "src/index.js"
+                    }
+                }
+            ]
         }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "variants",
-          "declaration": {
-            "name": "variants",
-            "module": "src/defs.js"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "sizes",
-          "declaration": {
-            "name": "sizes",
-            "module": "src/defs.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/index.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "PieTag",
-          "slots": [
-            {
-              "description": "The icon slot",
-              "name": "icon"
-            },
-            {
-              "description": "Default slot",
-              "name": ""
-            }
-          ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "variant",
-              "type": {
-                "text": "TagProps['variant']"
-              },
-              "privacy": "public",
-              "default": "'neutral'",
-              "attribute": "variant"
-            },
-            {
-              "kind": "field",
-              "name": "size",
-              "type": {
-                "text": "TagProps['size']"
-              },
-              "privacy": "public",
-              "default": "'large'",
-              "attribute": "size"
-            },
-            {
-              "kind": "field",
-              "name": "isStrong",
-              "type": {
-                "text": "boolean"
-              },
-              "privacy": "public",
-              "default": "false",
-              "attribute": "isStrong"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "variant",
-              "type": {
-                "text": "TagProps['variant']"
-              },
-              "default": "'neutral'",
-              "fieldName": "variant"
-            },
-            {
-              "name": "size",
-              "type": {
-                "text": "TagProps['size']"
-              },
-              "default": "'large'",
-              "fieldName": "size"
-            },
-            {
-              "name": "isStrong",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "fieldName": "isStrong"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "pie-tag",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "*",
-          "declaration": {
-            "name": "*",
-            "package": "./defs"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "PieTag",
-          "declaration": {
-            "name": "PieTag",
-            "module": "src/index.js"
-          }
-        }
-      ]
-    }
-  ]
+    ]
 }

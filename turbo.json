@@ -5,10 +5,19 @@
       "cache": true,
       "dependsOn": [
         "^build",
-        "create:manifest"
+        "build:react-wrapper"
       ],
       "outputs": [
         "dist/**"
+      ]
+    },
+    "build:react-wrapper": {
+      "cache": true,
+      "dependsOn": [
+        "create:manifest"
+      ],
+      "outputs": [
+        "src/custom-elements.json"
       ]
     },
     "create:manifest": {

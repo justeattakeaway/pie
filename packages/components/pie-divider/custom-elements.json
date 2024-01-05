@@ -1,121 +1,121 @@
 {
-  "schemaVersion": "1.0.0",
-  "readme": "",
-  "modules": [
-    {
-      "kind": "javascript-module",
-      "path": "src/defs.js",
-      "declarations": [
+    "schemaVersion": "1.0.0",
+    "readme": "",
+    "modules": [
         {
-          "kind": "variable",
-          "name": "variants",
-          "type": {
-            "text": "['default', 'inverse']"
-          },
-          "default": "['default', 'inverse']"
+            "kind": "javascript-module",
+            "path": "src/defs.js",
+            "declarations": [
+                {
+                    "kind": "variable",
+                    "name": "variants",
+                    "type": {
+                        "text": "['default', 'inverse']"
+                    },
+                    "default": "['default', 'inverse']"
+                },
+                {
+                    "kind": "variable",
+                    "name": "orientations",
+                    "type": {
+                        "text": "['horizontal', 'vertical']"
+                    },
+                    "default": "['horizontal', 'vertical']"
+                }
+            ],
+            "exports": [
+                {
+                    "kind": "js",
+                    "name": "variants",
+                    "declaration": {
+                        "name": "variants",
+                        "module": "src/defs.js"
+                    }
+                },
+                {
+                    "kind": "js",
+                    "name": "orientations",
+                    "declaration": {
+                        "name": "orientations",
+                        "module": "src/defs.js"
+                    }
+                }
+            ]
         },
         {
-          "kind": "variable",
-          "name": "orientations",
-          "type": {
-            "text": "['horizontal', 'vertical']"
-          },
-          "default": "['horizontal', 'vertical']"
+            "kind": "javascript-module",
+            "path": "src/index.js",
+            "declarations": [
+                {
+                    "kind": "class",
+                    "description": "",
+                    "name": "PieDivider",
+                    "members": [
+                        {
+                            "kind": "field",
+                            "name": "variant",
+                            "type": {
+                                "text": "DividerProps['variant']"
+                            },
+                            "privacy": "public",
+                            "default": "'default'",
+                            "attribute": "variant"
+                        },
+                        {
+                            "kind": "field",
+                            "name": "orientation",
+                            "type": {
+                                "text": "DividerProps['orientation']"
+                            },
+                            "privacy": "public",
+                            "default": "'horizontal'",
+                            "attribute": "orientation"
+                        }
+                    ],
+                    "attributes": [
+                        {
+                            "name": "variant",
+                            "type": {
+                                "text": "DividerProps['variant']"
+                            },
+                            "default": "'default'",
+                            "fieldName": "variant"
+                        },
+                        {
+                            "name": "orientation",
+                            "type": {
+                                "text": "DividerProps['orientation']"
+                            },
+                            "default": "'horizontal'",
+                            "fieldName": "orientation"
+                        }
+                    ],
+                    "superclass": {
+                        "name": "LitElement",
+                        "package": "lit"
+                    },
+                    "tagName": "pie-divider",
+                    "customElement": true
+                }
+            ],
+            "exports": [
+                {
+                    "kind": "js",
+                    "name": "*",
+                    "declaration": {
+                        "name": "*",
+                        "package": "./defs"
+                    }
+                },
+                {
+                    "kind": "js",
+                    "name": "PieDivider",
+                    "declaration": {
+                        "name": "PieDivider",
+                        "module": "src/index.js"
+                    }
+                }
+            ]
         }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "variants",
-          "declaration": {
-            "name": "variants",
-            "module": "src/defs.js"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "orientations",
-          "declaration": {
-            "name": "orientations",
-            "module": "src/defs.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/index.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "PieDivider",
-          "members": [
-            {
-              "kind": "field",
-              "name": "variant",
-              "type": {
-                "text": "DividerProps['variant']"
-              },
-              "privacy": "public",
-              "default": "'default'",
-              "attribute": "variant"
-            },
-            {
-              "kind": "field",
-              "name": "orientation",
-              "type": {
-                "text": "DividerProps['orientation']"
-              },
-              "privacy": "public",
-              "default": "'horizontal'",
-              "attribute": "orientation"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "variant",
-              "type": {
-                "text": "DividerProps['variant']"
-              },
-              "default": "'default'",
-              "fieldName": "variant"
-            },
-            {
-              "name": "orientation",
-              "type": {
-                "text": "DividerProps['orientation']"
-              },
-              "default": "'horizontal'",
-              "fieldName": "orientation"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "pie-divider",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "*",
-          "declaration": {
-            "name": "*",
-            "package": "./defs"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "PieDivider",
-          "declaration": {
-            "name": "PieDivider",
-            "module": "src/index.js"
-          }
-        }
-      ]
-    }
-  ]
+    ]
 }
