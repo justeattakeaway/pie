@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.7.0
+
+### Minor Changes
+
+- [Added] - getShadowElementStylePropValues helper function ([#1123](https://github.com/justeattakeaway/pie/pull/1123)) by [@dandel10n](https://github.com/dandel10n)
+
 ## 0.6.0
 
 ### Minor Changes
