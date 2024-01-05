@@ -17,7 +17,7 @@
         "create:manifest"
       ],
       "outputs": [
-        "src/custom-elements.json"
+        "src/react.ts"
       ]
     },
     "create:manifest": {
