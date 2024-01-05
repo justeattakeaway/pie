@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.15.0
+
+### Minor Changes
+
+- [Changed] - Updated LitElement imports where it is only used as a type to include the 'type' keyword (fixes a TS error in some consumers) ([#1143](https://github.com/justeattakeaway/pie/pull/1143)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.14.0
 
 ### Minor Changes

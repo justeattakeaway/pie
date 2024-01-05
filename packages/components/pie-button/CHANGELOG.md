@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.43.0
+
+### Minor Changes
+
+- [Changed] - Use new FormControlMixin in `pie-button` and remove old form association code ([#1143](https://github.com/justeattakeaway/pie/pull/1143)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Removed] - getShadowElementStylePropValues function from button component test to pie-webc-testing helpers ([#1123](https://github.com/justeattakeaway/pie/pull/1123)) by [@dandel10n](https://github.com/dandel10n)
+
+### Patch Changes
+
+- Updated dependencies [[`687bdd904`](https://github.com/justeattakeaway/pie/commit/687bdd90475fef58a492c980a7f7d9261ee94eb9)]:
+  - @justeattakeaway/pie-webc-core@0.15.0
+  - @justeattakeaway/pie-spinner@0.3.3
+
 ## 0.42.1
 
 ### Patch Changes
