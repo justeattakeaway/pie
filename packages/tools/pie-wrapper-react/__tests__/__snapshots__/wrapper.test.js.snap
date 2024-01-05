@@ -3,7 +3,7 @@
 exports[`React Wrapper should be added from mock custom elements JSON 1`] = `
 "
 import * as React from 'react';
-import { createComponent, EventName } from '​@lit/react';
+import { createComponent, EventName } from '@lit/react';
 import { MockComponent as MockComponentReact } from './index';
 
 export * from './defs';
@@ -14,8 +14,8 @@ export const MockComponent = createComponent({
     react: React,
     tagName: 'mock-component',
     events: {
-        onCustomEvent: 'custom-event' as EventName<CustomEvent>, 
-        onAnotherCustomEvent: 'another-custom-event' as EventName<CustomEvent>, 
+        onCustomEvent: 'custom-event' as EventName<CustomEvent>,
+        onAnotherCustomEvent: 'another-custom-event' as EventName<CustomEvent>,
     },
 });
 "
@@ -24,7 +24,7 @@ export const MockComponent = createComponent({
 exports[`React Wrapper should be named the same as the component itself 1`] = `
 "
 import * as React from 'react';
-import { createComponent } from '​@lit/react';
+import { createComponent } from '@lit/react';
 import { ButtonComponent as ButtonComponentReact } from './index';
 
 export * from './defs';
@@ -42,7 +42,7 @@ export const ButtonComponent = createComponent({
 exports[`React Wrapper should leave the events object empty if the component contains no custom events 1`] = `
 "
 import * as React from 'react';
-import { createComponent } from '​@lit/react';
+import { createComponent } from '@lit/react';
 import { MockComponent as MockComponentReact } from './index';
 
 export * from './defs';

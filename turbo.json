@@ -4,10 +4,26 @@
     "build": {
       "cache": true,
       "dependsOn": [
-        "^build"
+        "^build",
+        "build:react-wrapper"
       ],
       "outputs": [
         "dist/**"
+      ]
+    },
+    "build:react-wrapper": {
+      "cache": true,
+      "dependsOn": [
+        "create:manifest"
+      ],
+      "outputs": [
+        "src/react.ts"
+      ]
+    },
+    "create:manifest": {
+      "cache": true,
+      "outputs": [
+        "custom-elements.json"
       ]
     },
     "build:examples": {

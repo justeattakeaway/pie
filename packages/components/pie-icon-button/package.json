@@ -7,12 +7,15 @@
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
+    "custom-elements.json",
     "src",
     "dist",
     "**/*.d.ts"
   ],
   "scripts": {
-    "build": "yarn build:wrapper pie-icon-button && run -T vite build",
+    "build": "run -T vite build",
+    "build:react-wrapper": "npx build-react-wrapper",
+    "create:manifest": "yarn cem analyze --litelement",
     "lint:scripts": "run -T eslint .",
     "lint:scripts:fix": "run -T eslint . --fix",
     "lint:style": "run -T stylelint ./src/**/*.{css,scss}",
@@ -25,6 +28,12 @@
   },
   "author": "Just Eat Takeaway.com - Design System Team",
   "license": "Apache-2.0",
+  "devDependencies": {
+    "@custom-elements-manifest/analyzer": "0.9.0",
+    "@justeattakeaway/pie-components-config": "0.7.0",
+    "@justeattakeaway/pie-wrapper-react": "0.11.1",
+    "cem-plugin-module-file-extensions": "0.0.5"
+  },
   "dependencies": {
     "@justeattakeaway/pie-icons-webc": "0.16.2",
     "@justeattakeaway/pie-spinner": "0.3.3",
@@ -33,6 +42,7 @@
   "volta": {
     "extends": "../../../package.json"
   },
+  "customElements": "custom-elements.json",
   "sideEffects": [
     "dist/*.js"
   ]
