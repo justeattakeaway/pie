@@ -96,7 +96,7 @@ jobs:
         # We return true to prevent the step from failing if the branch already exists
         run: |
           aws amplify create-branch \
-            --app-id ${{ inputs.amplify-app-id }} \
+            --app-id ${{ env.AMPLIFY_ID }} \
             --branch-name ${{ env.BRANCH_NAME }} \
             || true
       # Deploy Amplify from S3
@@ -104,7 +104,7 @@ jobs:
         shell: bash
         run: |
           aws amplify start-deployment \
-            --app-id ${{ inputs.amplify-app-id }} \
+            --app-id ${{ env.AMPLIFY_ID }} \
             --branch-name ${{ env.BRANCH_NAME }} \
             --source-url https://${{ env.BUCKET_NAME }}.s3.${{ env.AWS_REGION }}.amazonaws.com/${{ env.ZIP_NAME }}
       # Set env vars for domain name association
@@ -114,11 +114,11 @@ jobs:
           PACKAGE_NAME_SUFFIX=$(echo "${{ inputs.package-name }}" | sed -e 's/^pie-//')
           echo "SUB_DOMAIN=pr${{ github.event.number }}-$PACKAGE_NAME_SUFFIX" >> $GITHUB_ENV
 
-      - name: get existing domain associations
+      - name: Get existing domain associations
         if: github.event_name == 'pull_request'
         run: |
           DOMAIN_ASSOCIATIONS=$(aws amplify get-domain-association \
-            --app-id ${{ inputs.amplify-app-id }} \
+            --app-id ${{ env.AMPLIFY_ID }} \
             --domain-name pie.design \
             | jq '
               [.domainAssociation.subDomains[].subDomainSetting | { prefix: (.prefix // ""), branchName }] |
@@ -133,7 +133,7 @@ jobs:
         shell: bash
         run: |
           aws amplify update-domain-association \
-            --app-id ${{inputs.amplify-app-id}} \
+            --app-id ${{ env.AMPLIFY_ID }} \
             --domain-name pie.design \
             --sub-domain-settings '${{ env.DOMAIN_ASSOCIATIONS }}'
 
@@ -142,10 +142,9 @@ jobs:
         if: github.event_name == 'pull_request'
         run: |
           LATEST_JOB_ID=$(aws amplify list-jobs \
-            --app-id ${{ inputs.ampify-app-id }} \
+            --app-id ${{ env.AMPLIFY_ID }} \
             --branch-name ${{ env.BRANCH_NAME }} \
-            --region ${{ env.AWS_REGION }} \
-            --query jobSummaries[0].jobId)
+            --region ${{ env.AWS_REGION }} --query jobSummaries[0].jobId)
           MAX_ATTEMPTS=12
           SLEEP_SECONDS=10
 
@@ -154,7 +153,7 @@ jobs:
 
           while [ $attempt_counter -lt $MAX_ATTEMPTS ]; do
             status=$(aws amplify get-job \
-              --app-id ${{ inputs.amplify-app-id }} \
+              --app-id ${{ env.AMPLIFY_ID }} \
               --branch-name ${{ env.BRANCH_NAME }} \
               --job-id $LATEST_JOB_ID \
               --query job.summary.status)
@@ -181,7 +180,7 @@ jobs:
 
       # If successful
       - name: Update deployment status (success)
-        if: ${{ github.event_name == 'pull_request' && success() && env.LAST_DEPLOYMENT_STATUS == 'SUCCEED' }}
+        if: ${{ github.event_name == 'pull_request' && success() }}
         uses: chrnorm/deployment-status@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -191,7 +190,7 @@ jobs:
 
       # If it failed
       - name: Update deployment status (failure)
-        if: ${{ github.event_name == 'pull_request' && (failure() || env.LAST_DEPLOYMENT_STATUS != 'SUCCEED') }}
+        if: ${{ github.event_name == 'pull_request' && failure() }}
         uses: chrnorm/deployment-status@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
