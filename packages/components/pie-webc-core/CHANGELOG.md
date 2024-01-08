@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.16.0
+
+### Minor Changes
+
+- [Removed] - unused LitElementMixin type as we do not need it anywhere ([#1145](https://github.com/justeattakeaway/pie/pull/1145)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Changed] - Added `@justeattakeaway/pie-wrapper-react` as a devDependency as `build` now relies on the publish `add-react-wrapper` executable ([#1144](https://github.com/justeattakeaway/pie/pull/1144)) by [@siggerzz](https://github.com/siggerzz)
+
+- [Changed] - Use proper interface keyword for RTLmixin interface. Was using a class before which is incorrect. ([#1145](https://github.com/justeattakeaway/pie/pull/1145)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.15.0
 
 ### Minor Changes

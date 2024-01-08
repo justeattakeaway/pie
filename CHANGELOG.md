@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.50.0
+
+### Minor Changes
+
+- [Added] - Some brief documentation around testing our web components using Playwright ([#1148](https://github.com/justeattakeaway/pie/pull/1148)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 2.49.0
 
 ### Minor Changes
