@@ -144,7 +144,8 @@ jobs:
           LATEST_JOB_ID=$(aws amplify list-jobs \
             --app-id ${{ env.AMPLIFY_ID }} \
             --branch-name ${{ env.BRANCH_NAME }} \
-            --region ${{ env.AWS_REGION }} --query jobSummaries[0].jobId.to_number(@))
+            --region ${{ env.AWS_REGION }} --query jobSummaries[0].jobId \
+            --output text
           MAX_ATTEMPTS=12
           SLEEP_SECONDS=10
 
