@@ -137,15 +137,47 @@ jobs:
             --domain-name pie.design \
             --sub-domain-settings '${{ env.DOMAIN_ASSOCIATIONS }}'
 
-      - name: Get deployment status
+
+      - name: Wait for Amplify deployment
         if: github.event_name == 'pull_request'
         run: |
-          LAST_DEPLOYMENT_STATUS=$(aws amplify list-jobs \
-            --app-id ${{ inputs.amplify-app-id }} \
+          LATEST_JOB_ID=$(aws amplify list-jobs \
+            --app-id ${{ inputs.ampify-app-id }} \
             --branch-name ${{ env.BRANCH_NAME }} \
             --region ${{ env.AWS_REGION }} \
-            --query jobSummaries[0].status)
-          echo "LAST_DEPLOYMENT_STATUS=$LAST_DEPLOYMENT_STATUS" >> $GITHUB_ENV
+            --query jobSummaries[0].jobId)
+          MAX_ATTEMPTS=12
+          SLEEP_SECONDS=10
+
+          attempt_counter=0
+          status=""
+
+          while [ $attempt_counter -lt $MAX_ATTEMPTS ]; do
+            status=$(aws amplify get-job \
+              --app-id ${{ inputs.amplify-app-id }} \
+              --branch-name ${{ env.BRANCH_NAME }} \
+              --job-id $LATEST_JOB_ID \
+              --query job.summary.status)
+            echo "Attempt $((attempt_counter+1)) of $MAX_ATTEMPTS: Status - $status"
+
+            if [ "$status" == "SUCCEED" ]; then
+              echo "Amplify deployment succeeded."
+              break
+            fi
+
+            if [ "$status" == "FAILED" ]; then
+              echo "Amplify deployment failed."
+              exit 1
+            fi
+
+            attempt_counter=$((attempt_counter+1))
+            sleep $SLEEP_SECONDS
+          done
+
+          if [ "$status" != "SUCCEED" ]; then
+            echo "Amplify deployment did not succeed within the expected time."
+            exit 1
+          fi
 
       # If successful
       - name: Update deployment status (success)
