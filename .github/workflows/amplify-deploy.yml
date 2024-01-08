@@ -100,7 +100,7 @@ jobs:
             --branch-name ${{ env.BRANCH_NAME }} \
             || true
       # Deploy Amplify from S3
-      - name: Deploy Amplify from S3
+      - name: Start Amplify Deployment from S3
         shell: bash
         run: |
           aws amplify start-deployment \
@@ -113,7 +113,6 @@ jobs:
         run: |
           PACKAGE_NAME_SUFFIX=$(echo "${{ inputs.package-name }}" | sed -e 's/^pie-//')
           echo "SUB_DOMAIN=pr${{ github.event.number }}-$PACKAGE_NAME_SUFFIX" >> $GITHUB_ENV
-
 
       - name: get existing domain associations
         if: github.event_name == 'pull_request'
@@ -137,18 +136,30 @@ jobs:
             --app-id ${{inputs.amplify-app-id}} \
             --domain-name pie.design \
             --sub-domain-settings '${{ env.DOMAIN_ASSOCIATIONS }}'
+
+      - name: Get deployment status
+        if: github.event_name == 'pull_request'
+        run: |
+          LAST_DEPLOYMENT_STATUS=$(aws amplify list-jobs \
+            --app-id ${{ inputs.amplify-app-id }} \
+            --branch-name ${{ env.BRANCH_NAME }} \
+            --region ${{ env.AWS_REGION }} \
+            --query jobSummaries[0].status)
+          echo "LAST_DEPLOYMENT_STATUS=$LAST_DEPLOYMENT_STATUS" >> $GITHUB_ENV
+
       # If successful
       - name: Update deployment status (success)
-        if: ${{ github.event_name == 'pull_request' && success() }}
+        if: ${{ github.event_name == 'pull_request' && success() && env.LAST_DEPLOYMENT_STATUS == 'SUCCEED' }}
         uses: chrnorm/deployment-status@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           environment-url: https://${{ env.SUB_DOMAIN }}.pie.design/
           deployment-id: ${{ steps.deploy.outputs.deployment_id }}
           state: "success"
+
       # If it failed
       - name: Update deployment status (failure)
-        if: ${{ github.event_name == 'pull_request' && failure() }}
+        if: ${{ github.event_name == 'pull_request' && (failure() || env.LAST_DEPLOYMENT_STATUS != 'SUCCEED') }}
         uses: chrnorm/deployment-status@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
