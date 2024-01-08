@@ -104,15 +104,22 @@ With this package, the below code (example of `pie-button`) is automatically gen
 ```js
 import * as React from 'react';
 import { createComponent } from '@lit/react';
-import type { EventName } from '@lit/react';
+import { PieButton as PieButtonLit } from './index';
+import { ButtonProps } from './defs';
 
-export const PButton = createComponent({
+const PieButtonReact = createComponent({
         displayName: 'PieButton',
-        elementClass: PieButton,
+        elementClass: PieButtonLit,
         react: React,
         tagName: 'pie-button',
         events: {}
     });
+
+// Provides missing contextual types for a React button component
+type ReactBaseType = React.ButtonHTMLAttributes<HTMLButtonElement>;
+
+// Workaround for `createComponent` setting all props set as optional with the additional contextual types declared above
+export const PieButton = PieButtonReact as React.ForwardRefExoticComponent<React.PropsWithoutRef<ButtonProps> & React.RefAttributes<PieButtonLit> & ReactBaseType>;
 ```
 
 To use the React wrapper in an application, import `Pie{Component}` from the package of the component, with the additional import of `dist/react`. For example:
