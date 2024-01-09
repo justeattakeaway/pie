@@ -67,6 +67,22 @@ Array [
     "nodeType": "BlockStatement",
     "ruleId": "no-empty",
     "severity": 2,
+    "suggestions": Array [
+      Object {
+        "data": Object {
+          "type": "block",
+        },
+        "desc": "Add comment inside empty block statement.",
+        "fix": Object {
+          "range": Array [
+            106,
+            115,
+          ],
+          "text": " /* empty */ ",
+        },
+        "messageId": "suggestComment",
+      },
+    ],
   },
   Object {
     "column": 2,
@@ -155,6 +171,22 @@ Array [
     "nodeType": "BlockStatement",
     "ruleId": "no-empty",
     "severity": 2,
+    "suggestions": Array [
+      Object {
+        "data": Object {
+          "type": "block",
+        },
+        "desc": "Add comment inside empty block statement.",
+        "fix": Object {
+          "range": Array [
+            106,
+            115,
+          ],
+          "text": " /* empty */ ",
+        },
+        "messageId": "suggestComment",
+      },
+    ],
   },
   Object {
     "column": 2,
