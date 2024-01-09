@@ -45,7 +45,6 @@ const Template = ({ type }: InputProps) => html`
 `;
 
 const FormTemplate: TemplateFunction<InputProps> = (props: InputProps) => html`
-<p id="formLog" style="display: none; font-size: 2rem; color: var(--dt-color-support-positive);"></p>
 <h2>Fake form</h2>
 <form id="testForm">
         <p>Required fields are followed by <strong><span aria-label="required">*</span></strong>.</p>
@@ -64,6 +63,7 @@ const FormTemplate: TemplateFunction<InputProps> = (props: InputProps) => html`
             <pie-button type="submit" variant="primary">Submit</pie-button>
         </section>
     </form>
+    <p id="formLog" style="display: none; font-size: 2rem; color: var(--dt-color-support-positive);"></p>
     <script>
         // Display a success message to the user when they submit the form
         const form = document.querySelector('#testForm');
