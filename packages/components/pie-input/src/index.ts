@@ -2,7 +2,9 @@ import { LitElement, html, unsafeCSS } from 'lit';
 import { property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
-import { validPropertyValues, RtlMixin, defineCustomElement } from '@justeattakeaway/pie-webc-core';
+import {
+    validPropertyValues, RtlMixin, defineCustomElement, FormControlMixin,
+} from '@justeattakeaway/pie-webc-core';
 
 import styles from './input.scss?inline';
 import { types, InputProps } from './defs';
@@ -15,7 +17,7 @@ const componentSelector = 'pie-input';
 /**
  * @tagname pie-input
  */
-export class PieInput extends RtlMixin(LitElement) implements InputProps {
+export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements InputProps {
     static shadowRootOptions = { ...LitElement.shadowRootOptions, delegatesFocus: true };
 
     @property({ type: String, reflect: true })
