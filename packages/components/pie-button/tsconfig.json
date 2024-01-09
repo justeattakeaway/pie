@@ -1,5 +1,5 @@
 {
-  "extends": "../../../configs/pie-components-config/tsconfig.json",
+  "extends": "@justeattakeaway/pie-components-config/tsconfig.json",
   "compilerOptions": {
     "baseUrl": ".",
     "rootDir": ".",
