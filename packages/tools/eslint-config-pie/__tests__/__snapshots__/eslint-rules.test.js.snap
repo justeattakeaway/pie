@@ -1,8 +1,8 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`ESLint base should find the expected errors 1`] = `
-Array [
-  Object {
+exports[`ESLint > base > should find the expected errors 1`] = `
+[
+  {
     "column": 7,
     "endColumn": 13,
     "endLine": 1,
@@ -13,7 +13,7 @@ Array [
     "ruleId": "no-unused-vars",
     "severity": 2,
   },
-  Object {
+  {
     "column": 7,
     "endColumn": 14,
     "endLine": 2,
@@ -24,7 +24,7 @@ Array [
     "ruleId": "no-unused-vars",
     "severity": 2,
   },
-  Object {
+  {
     "column": 5,
     "endColumn": 9,
     "endLine": 3,
@@ -35,7 +35,7 @@ Array [
     "ruleId": "class-methods-use-this",
     "severity": 2,
   },
-  Object {
+  {
     "column": 5,
     "endColumn": 9,
     "endLine": 6,
@@ -46,7 +46,7 @@ Array [
     "ruleId": "class-methods-use-this",
     "severity": 2,
   },
-  Object {
+  {
     "column": 9,
     "endColumn": 10,
     "endLine": 8,
@@ -57,7 +57,7 @@ Array [
     "ruleId": "for-direction",
     "severity": 2,
   },
-  Object {
+  {
     "column": 38,
     "endColumn": 10,
     "endLine": 8,
@@ -67,14 +67,14 @@ Array [
     "nodeType": "BlockStatement",
     "ruleId": "no-empty",
     "severity": 2,
-    "suggestions": Array [
-      Object {
-        "data": Object {
+    "suggestions": [
+      {
+        "data": {
           "type": "block",
         },
         "desc": "Add comment inside empty block statement.",
-        "fix": Object {
-          "range": Array [
+        "fix": {
+          "range": [
             106,
             115,
           ],
@@ -84,10 +84,10 @@ Array [
       },
     ],
   },
-  Object {
+  {
     "column": 2,
-    "fix": Object {
-      "range": Array [
+    "fix": {
+      "range": [
         124,
         124,
       ],
@@ -104,9 +104,9 @@ Array [
 ]
 `;
 
-exports[`ESLint strict inherits base should find the expected errors 1`] = `
-Array [
-  Object {
+exports[`ESLint > strict > inherits base > should find the expected errors 1`] = `
+[
+  {
     "column": 7,
     "endColumn": 13,
     "endLine": 1,
@@ -117,7 +117,7 @@ Array [
     "ruleId": "no-unused-vars",
     "severity": 2,
   },
-  Object {
+  {
     "column": 7,
     "endColumn": 14,
     "endLine": 2,
@@ -128,7 +128,7 @@ Array [
     "ruleId": "no-unused-vars",
     "severity": 2,
   },
-  Object {
+  {
     "column": 5,
     "endColumn": 9,
     "endLine": 3,
@@ -139,7 +139,7 @@ Array [
     "ruleId": "class-methods-use-this",
     "severity": 2,
   },
-  Object {
+  {
     "column": 5,
     "endColumn": 9,
     "endLine": 6,
@@ -150,7 +150,7 @@ Array [
     "ruleId": "class-methods-use-this",
     "severity": 2,
   },
-  Object {
+  {
     "column": 9,
     "endColumn": 10,
     "endLine": 8,
@@ -161,7 +161,7 @@ Array [
     "ruleId": "for-direction",
     "severity": 2,
   },
-  Object {
+  {
     "column": 38,
     "endColumn": 10,
     "endLine": 8,
@@ -171,14 +171,14 @@ Array [
     "nodeType": "BlockStatement",
     "ruleId": "no-empty",
     "severity": 2,
-    "suggestions": Array [
-      Object {
-        "data": Object {
+    "suggestions": [
+      {
+        "data": {
           "type": "block",
         },
         "desc": "Add comment inside empty block statement.",
-        "fix": Object {
-          "range": Array [
+        "fix": {
+          "range": [
             106,
             115,
           ],
@@ -188,10 +188,10 @@ Array [
       },
     ],
   },
-  Object {
+  {
     "column": 2,
-    "fix": Object {
-      "range": Array [
+    "fix": {
+      "range": [
         124,
         124,
       ],

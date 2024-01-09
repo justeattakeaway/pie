@@ -13,7 +13,7 @@
     "check-rules": "eslint-find-rules --unused",
     "pretest": "yarn lint:scripts && yarn check-rules",
     "test": "yarn tests-only",
-    "tests-only": "run -T jest"
+    "tests-only": "run -T vitest run"
   },
   "license": "Apache-2.0",
   "author": "Just Eat Takeaway.com - Design System Team",
