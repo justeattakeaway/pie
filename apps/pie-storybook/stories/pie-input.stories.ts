@@ -1,9 +1,11 @@
 import { html } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
+import { action } from '@storybook/addon-actions';
+import { useArgs as UseArgs } from '@storybook/preview-api';
 
 /* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-input';
-import { types, InputProps } from '@justeattakeaway/pie-input';
+import { types, InputProps, PIE_INPUT_EVENT } from '@justeattakeaway/pie-input';
 /* eslint-enable import/no-duplicates */
 
 import { type StoryMeta } from '../types';
@@ -14,6 +16,7 @@ type InputStoryMeta = StoryMeta<InputProps>;
 
 const defaultArgs: InputProps = {
     type: 'text',
+    value: '',
 };
 
 const inputStoryMeta: InputStoryMeta = {
@@ -28,6 +31,13 @@ const inputStoryMeta: InputStoryMeta = {
                 summary: 'text',
             },
         },
+        value: {
+            description: 'The value of the input.',
+            control: 'text',
+            defaultValue: {
+                summary: 'value',
+            },
+        },
     },
     args: defaultArgs,
     parameters: {
@@ -38,11 +48,24 @@ const inputStoryMeta: InputStoryMeta = {
     },
 };
 
-export default inputStoryMeta;
+const Template = ({ type, value }: InputProps) => {
+    const [, updateArgs] = UseArgs();
 
-const Template = ({ type }: InputProps) => html`
-    <pie-input type=${ifDefined(type)}></pie-input>
-`;
+    function onPieInput (event: CustomEvent) {
+        updateArgs({ value: event.detail.value });
+
+        action(PIE_INPUT_EVENT)({
+            ...event.detail,
+        });
+    }
+
+    return html`
+    <pie-input
+        type="${ifDefined(type)}"
+        .value="${value}"
+        @pie-input="${onPieInput}"></pie-input>
+    `;
+};
 
 const FormTemplate: TemplateFunction<InputProps> = (props: InputProps) => html`
 <h2>Fake form</h2>
@@ -88,3 +111,5 @@ const createInputStoryWithForm = createStory<InputProps>(FormTemplate, defaultAr
 
 export const Default = createStory<InputProps>(Template, defaultArgs)();
 export const FormIntegration = createInputStoryWithForm();
+
+export default inputStoryMeta;

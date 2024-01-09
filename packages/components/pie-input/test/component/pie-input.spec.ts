@@ -46,5 +46,70 @@ test.describe('PieInput - Component tests', () => {
                 expect(input).toHaveAttribute('type', 'number');
             });
         });
+
+        test.describe('value', () => {
+            test('should default to an empty string if no value prop provided', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieInput, {});
+
+                // Act
+                const input = component.locator('input');
+
+                // Assert
+                expect((await input.inputValue())).toBe('');
+            });
+
+            test('should apply the value prop to the HTML input rendered', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieInput, {
+                    props: {
+                        value: 'test',
+                    } as InputProps,
+                });
+
+                // Act
+                const input = component.locator('input');
+
+                // Assert
+                expect((await input.inputValue())).toBe('test');
+            });
+        });
+    });
+
+    test.describe('Events', () => {
+        test.describe('pie-input', () => {
+            type PieInputEvent = CustomEvent<{ data: string, value: string }>;
+
+            test('should emit a custom event with the input event data and input value', async ({ mount, page }) => {
+                // Arrange
+
+                const messages: PieInputEvent[] = [];
+                const expectedMessages = [
+                    { data: 't', value: 't' },
+                    { data: 'e', value: 'te' },
+                    { data: 's', value: 'tes' },
+                    { data: 't', value: 'test' },
+                    { data: null, value: 'tes' }
+                ];
+
+                const component = await mount(PieInput, {
+                    props: {} as InputProps,
+                    on: {
+                        'pie-input': (data: PieInputEvent) => {
+                            messages.push(data);
+                        },
+                    },
+                });
+
+                const input = component.locator('input');
+
+                // Act
+                await input.type('test');
+                await page.keyboard.press('Backspace');
+
+                // Assert
+                expect(messages).toEqual(expectedMessages);
+            });
+        });
     });
 });

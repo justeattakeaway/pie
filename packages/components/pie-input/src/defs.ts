@@ -5,4 +5,16 @@ export interface InputProps {
      * The type of HTML input to render.
      */
     type?: typeof types[number];
+
+    /**
+     * The value of the input.
+     */
+    value: string;
 }
+
+/**
+ * Event name for when when the input value is changed
+ * @constant
+ */
+
+export const PIE_INPUT_EVENT = 'pie-input';
