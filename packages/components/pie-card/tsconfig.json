@@ -3,6 +3,9 @@
   "compilerOptions": {
     "baseUrl": ".",
     "rootDir": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
   },
   "include": ["src/**/*.ts","./declaration.d.ts", "test/**/*.ts", "playwright-lit-visual.config.ts", "playwright-lit.config.ts"],
 }

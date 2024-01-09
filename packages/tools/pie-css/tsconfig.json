@@ -6,6 +6,9 @@
       "esModuleInterop": true,
       "moduleResolution": "node",
       "noImplicitAny": true,
+      "paths": {
+        "@/*": ["./src/*"]
+      },
       "strictNullChecks": true,
       "sourceMap": false,
       "skipLibCheck": true
