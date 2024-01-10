@@ -120,6 +120,7 @@ jobs:
           DOMAIN_ASSOCIATIONS=$(aws amplify get-domain-association \
             --app-id ${{ env.AMPLIFY_ID }} \
             --domain-name pie.design \
+            --region ${{ env.AWS_REGION }}
             | jq '
               [.domainAssociation.subDomains[].subDomainSetting | { prefix: (.prefix // ""), branchName }] |
               . |= (map(.branchName) | index("pr${{ github.event.number }}")) as $ix |
