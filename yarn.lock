@@ -28925,6 +28925,8 @@ __metadata:
     markdown-it-anchor: 8.6.7
     markdown-it-attrs: 4.1.6
     node-html-parser: 6.1.11
+    react: ^18.2.0
+    react-dom: ^18.2.0
     slugify: 1.6.6
   languageName: unknown
   linkType: soft
@@ -31743,7 +31745,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-dom@npm:18.2.0":
+"react-dom@npm:18.2.0, react-dom@npm:^18.2.0":
   version: 18.2.0
   resolution: "react-dom@npm:18.2.0"
   dependencies:
@@ -31969,7 +31971,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react@npm:18.2.0":
+"react@npm:18.2.0, react@npm:^18.2.0":
   version: 18.2.0
   resolution: "react@npm:18.2.0"
   dependencies:

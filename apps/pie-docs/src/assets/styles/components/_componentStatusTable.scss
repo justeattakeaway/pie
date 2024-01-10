@@ -1,7 +1,7 @@
 @use '../fozzie-config' as f;
 @use '../variables' as v;
 
-.c-componentDetailsTable-backdrop {
+.c-componentStatusTable-backdrop {
     margin-block-start: f.$spacing-e;
     margin-block-end: f.$spacing-f;
     background-color: f.$color-container-subtle;
@@ -16,7 +16,7 @@
     }
 }
 
-.c-componentDetailsTable {
+.c-componentStatusTable {
     border-collapse: collapse;
     max-inline-size: 100%;
     inline-size: 100%;
@@ -34,11 +34,11 @@
         background-color: f.$color-container-subtle;
     }
 
-    .c-componentDetailsTable-cellHasMinWidth {
-        min-width: 301px;
+    .c-componentStatusTable-cellHasMinWidth {
+        min-width: 200px;
     }
 
-    th:not(.c-componentDetailsTable-heading--priority),
+    th:not(.c-componentStatusTable-heading--priority),
     td {
         width: 0;
     }
@@ -46,20 +46,17 @@
     tr:not(:first-child, .c-componentDetailsTable-row--hideTopBorder) {
         border-block-start: 1px solid f.$color-divider-default;
     }
+
+    .c-componentStatusTable-link {
+        color: f.$color-content-link;
+    }
 }
 
-.c-componentDetailsTable-hasWidePadding {
+.c-componentSatusTable-hasWidePadding {
     th:not(:first-child),
     td:not(:first-child) {
         @include f.media('>=mid') {
             padding-inline-start: f.$spacing-i;
         }
     }
-}
-
-.c-componentDetailsTable-token {
-    background-color: f.$color-container-default;
-    padding: 2px f.$spacing-a;
-    border-radius: f.$radius-rounded-b;
-    @include f.font-size('body-s');
 }

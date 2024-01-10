@@ -1,61 +1,5 @@
 const md = require('../../_utilities/markdown');
 
-const statusTypes = require('../../_data/statusTypes');
-const pieDesignTokenColours = require('../filters/pieDesignTokenColours');
-
-const getStatusColour = (tokenName) => {
-    const tokenPath = ['alias', 'default'];
-
-    return pieDesignTokenColours({ tokenName, tokenPath });
-};
-
-const statusColours = {
-    active: getStatusColour('support-positive-02'),
-    planned: getStatusColour('support-info-02'),
-    next: getStatusColour('support-warning-02'),
-    done: getStatusColour('support-error-02'),
-    other: getStatusColour('container-strong'),
-};
-
-const statusSettings = {
-    [statusTypes.AVAILABLE]: {
-        bgColor: statusColours.active,
-        status: 'Available',
-    },
-    [statusTypes.PLANNED]: {
-        bgColor: statusColours.planned,
-        status: 'Planned',
-    },
-    [statusTypes.ALPHA]: {
-        bgColor: statusColours.next,
-        status: 'Alpha',
-    },
-    [statusTypes.BETA]: {
-        bgColor: statusColours.next,
-        status: 'Beta',
-    },
-    [statusTypes.PRE_RELEASE]: {
-        bgColor: statusColours.next,
-        status: 'Pre-release',
-    },
-    [statusTypes.REMOVED]: {
-        bgColor: statusColours.done,
-        status: 'Removed',
-    },
-    [statusTypes.DEPRECATED]: {
-        bgColor: statusColours.done,
-        status: 'Deprecated',
-    },
-    [statusTypes.NOT_APPLICABLE]: {
-        bgColor: statusColours.other,
-        status: 'N/A',
-    },
-    [statusTypes.TBC]: {
-        bgColor: statusColours.other,
-        status: 'TBC',
-    },
-};
-
 /**
  * Build a row of a table based on cell data.
  *
@@ -80,17 +24,7 @@ const buildRow = (cells) => cells.map((cell) => {
     } else if (typeof cell === 'string') {
         hasMinWidth = cell.length > 30;
         content = md.renderInline(cell);
-    } else if ('status' in cell) {
-        console.log(cell.status)
-        const { bgColor, status } = statusSettings[cell.status];
-        content = `<span class="c-resourceTable-status" style="--bg-colour: ${bgColor}">${status}</span>`;
-    } 
-    
-    // else if (cell.toUpperCase() in statusTypes) {
-    //     console.log(cell.status)
-    //     const { bgColor, status } = statusSettings[cell.status];
-    //     content = `<span class="c-resourceTable-status" style="--bg-colour: ${bgColor}">${status}</span>`;
-    // }
+    }
 
     return `<td ${hasMinWidth ? "class='c-componentDetailsTable-cellHasMinWidth'" : ''}>${content}</td>`;
 }).join('');
@@ -140,12 +74,7 @@ module.exports = ({
     return `<div class="c-componentDetailsTable-backdrop">
     <table class="c-componentDetailsTable ${hasWidePadding ? 'c-componentDetailsTable-hasWidePadding' : ''}">
     ${headings
-        ? `<tr>${headings.map((heading) => `<th>
-        ${typeof heading == 'object' && 'image' in heading ? 
-            `<div class="c-resourceTable-resource"><img src="${heading.image}"></img>${heading.title}</div>`
-            : heading
-        }
-            </th>`).join('')}</tr>`
+        ? `<tr>${headings.map((heading) => `<th>${heading}</th>`).join('')}</tr>`
         : ''
     }
     ${rows.map((row) => {

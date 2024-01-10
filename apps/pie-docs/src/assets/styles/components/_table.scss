@@ -22,7 +22,12 @@
     tr:not(:last-child) {
         border-block-end: 1px solid f.$color-border-default;
     }
+
+    th:first-child, td:first-child {
+        position: sticky;
+    }
 }
+
 
 %c-table-full-width {
     max-inline-size: 100%;
