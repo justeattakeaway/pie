@@ -51,11 +51,13 @@ const inputStoryMeta: InputStoryMeta = {
 const Template = ({ type, value }: InputProps) => {
     const [, updateArgs] = UseArgs();
 
-    function onInput (event: CustomEvent) {
-        updateArgs({ value: event.detail.value });
+    function onInput (event: InputEvent) {
+        const inputElement = event.target as HTMLInputElement;
+        updateArgs({ value: inputElement?.value });
 
         action('input')({
-            ...event.detail,
+            data: event.data,
+            value: inputElement.value,
         });
     }
 
