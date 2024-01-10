@@ -13,7 +13,7 @@ import {
     WebComponentTestWrapper,
 } from '@justeattakeaway/pie-webc-testing/src/helpers/components/web-component-test-wrapper/WebComponentTestWrapper.ts';
 import { percyWidths } from '@justeattakeaway/pie-webc-testing/src/percy/breakpoints.ts';
-import { sizes } from '@/defs';
+import { sizes } from '../../src/defs.ts';
 
 const props: PropObject = {
     variant: ['primary'],

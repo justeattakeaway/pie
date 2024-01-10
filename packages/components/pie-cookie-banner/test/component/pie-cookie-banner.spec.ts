@@ -5,10 +5,10 @@ import {
     ON_COOKIE_BANNER_ACCEPT_ALL, ON_COOKIE_BANNER_NECESSARY_ONLY,
     ON_COOKIE_BANNER_MANAGE_PREFS, ON_COOKIE_BANNER_PREFS_SAVED,
     preferences, PreferenceIds,
-} from '@/defs';
+} from '../../src/defs.ts';
 import {
     PieCookieBanner, CookieBannerProps,
-} from '@/index';
+} from '../../src/index.ts';
 
 const englishLocale = JSON.parse(await readFile(new URL('../../locales/en-gb.json', import.meta.url)));
 const spanishLocale = JSON.parse(await readFile(new URL('../../locales/es-es.json', import.meta.url)));

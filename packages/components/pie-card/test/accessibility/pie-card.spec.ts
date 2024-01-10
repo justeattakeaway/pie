@@ -1,7 +1,7 @@
 
 import { test, expect } from '@justeattakeaway/pie-webc-testing/src/playwright/fixtures.ts';
-import { PieCard, CardProps } from '@/index';
-import { tags } from '@/defs';
+import { PieCard, CardProps } from '../../src/index.ts';
+import { tags } from '../../src/defs.ts';
 
 test.describe('PieCard - Accessibility tests', () => {
     tags.forEach((tag) => {
