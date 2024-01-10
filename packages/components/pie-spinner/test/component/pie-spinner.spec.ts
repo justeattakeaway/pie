@@ -1,6 +1,6 @@
 
 import { test, expect } from '@sand4rt/experimental-ct-web';
-import { PieSpinner } from '../../src/index';
+import { PieSpinner } from '../../src/index.ts';
 
 const componentSelector = '[data-test-id="pie-spinner"]';
 

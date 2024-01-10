@@ -1,6 +1,6 @@
 
 import { test, expect, MountOptions } from '@sand4rt/experimental-ct-web';
-import { PieFormLabel, FormLabelProps } from '../../src/index';
+import { PieFormLabel, FormLabelProps } from '../../src/index.ts';
 
 const componentSelector = '[data-test-id="pie-form-label"]';
 

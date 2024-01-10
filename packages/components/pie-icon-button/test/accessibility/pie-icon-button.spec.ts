@@ -5,8 +5,8 @@ import type {
 import {
     getAllPropCombinations, splitCombinationsByPropertyValue,
 } from '@justeattakeaway/pie-webc-testing/src/helpers/get-all-prop-combos.ts';
-import { PieIconButton } from '../../src/index';
-import { variants } from '../../src/defs';
+import { PieIconButton } from '../../src/index.ts';
+import { variants } from '../../src/defs.ts';
 
 const props: PropObject = {
     variant: variants,

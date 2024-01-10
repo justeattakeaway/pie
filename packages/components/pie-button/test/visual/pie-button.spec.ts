@@ -13,8 +13,8 @@ import {
     WebComponentTestWrapper,
 } from '@justeattakeaway/pie-webc-testing/src/helpers/components/web-component-test-wrapper/WebComponentTestWrapper.ts';
 import { percyWidths } from '@justeattakeaway/pie-webc-testing/src/percy/breakpoints.ts';
-import { PieButton } from '../../src/index';
-import { sizes, variants, iconPlacements } from '../../src/defs';
+import { PieButton } from '../../src/index.ts';
+import { sizes, variants, iconPlacements } from '../../src/defs.ts';
 
 const props: PropObject = {
     variant: variants,

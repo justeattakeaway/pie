@@ -1,6 +1,6 @@
 
 import { test, expect } from '@sand4rt/experimental-ct-web';
-import { PieNotification, NotificationProps } from '../../src/index';
+import { PieNotification, NotificationProps } from '../../src/index.ts';
 
 const componentSelector = '[data-test-id="pie-notification"]';
 

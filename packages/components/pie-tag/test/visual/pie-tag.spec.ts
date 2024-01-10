@@ -14,7 +14,7 @@ import {
     WebComponentTestWrapper,
 } from '@justeattakeaway/pie-webc-testing/src/helpers/components/web-component-test-wrapper/WebComponentTestWrapper.ts';
 import { percyWidths } from '@justeattakeaway/pie-webc-testing/src/percy/breakpoints.ts';
-import { sizes, variants } from '../../src/defs';
+import { sizes, variants } from '../../src/defs.ts';
 
 // TODO: Currently setting the slot to use a straight up SVG
 //       This should be updated to use pie-icons-webc, but after some investigation, we think that we'll
