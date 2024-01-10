@@ -1,9 +1,11 @@
-import { test } from '@sand4rt/experimental-ct-web';
+import { test, expect } from '@sand4rt/experimental-ct-web';
 import { percyWidths } from '@justeattakeaway/pie-webc-testing/src/percy/breakpoints.ts';
 import percySnapshot from '@percy/playwright';
 import { positions } from '@/defs.ts';
 import { PieModal } from '@/index';
 import { ModalProps, sizes } from '@/defs';
+
+const componentSelector = '[data-test-id="pie-modal"]';
 
 sizes.forEach((size) => {
     test(`should render correctly with size = ${size}`, async ({ page, mount }) => {
@@ -20,8 +22,8 @@ sizes.forEach((size) => {
             } as ModalProps,
         });
 
-        // Follow up to remove in Jan
-        await page.waitForTimeout(2500);
+        const modal = page.locator(componentSelector);
+        await expect.soft(modal).toBeVisible();
 
         await percySnapshot(page, `Modal - size = ${size}`);
     });
@@ -44,8 +46,8 @@ test.describe('Prop: `isFullWidthBelowMid`', () => {
                 } as ModalProps,
             });
 
-            // Follow up to remove in Jan
-            await page.waitForTimeout(2500);
+            const modal = page.locator(componentSelector);
+            await expect.soft(modal).toBeVisible();
 
             await percySnapshot(page, 'Modal - isFullWidthBelowMid = true, size = medium');
         });
@@ -65,8 +67,8 @@ test.describe('Prop: `isFullWidthBelowMid`', () => {
                 } as ModalProps,
             });
 
-            // Follow up to remove in Jan
-            await page.waitForTimeout(2500);
+            const modal = page.locator(componentSelector);
+            await expect.soft(modal).toBeVisible();
 
             await percySnapshot(page, 'Modal - isFullWidthBelowMid = true, size = small');
         });
@@ -90,8 +92,8 @@ test.describe('Prop: `isFullWidthBelowMid`', () => {
                         } as ModalProps,
                     });
 
-                    // Follow up to remove in Jan
-                    await page.waitForTimeout(2500);
+                    const modal = page.locator(componentSelector);
+                    await expect.soft(modal).toBeVisible();
 
                     await percySnapshot(page, `Modal - isFullWidthBelowMid = false, size = ${size}`);
                 });
@@ -115,8 +117,8 @@ test.describe('Prop: `isDismissible`', () => {
                 } as ModalProps,
             });
 
-            // Follow up to remove in Jan
-            await page.waitForTimeout(2500);
+            const modal = page.locator(componentSelector);
+            await expect.soft(modal).toBeVisible();
 
             await percySnapshot(page, 'Modal with close button displayed - isDismissible: `true`');
         });
@@ -137,8 +139,8 @@ test.describe('Prop: `isDismissible`', () => {
                 } as ModalProps,
             });
 
-            // Follow up to remove in Jan
-            await page.waitForTimeout(2500);
+            const modal = page.locator(componentSelector);
+            await expect.soft(modal).toBeVisible();
 
             await percySnapshot(page, 'Modal without close button - isDismissible: `false`');
         });
@@ -165,8 +167,8 @@ test.describe('Prop: `hasBackButton`', () => {
                     } as PieModal,
                 });
 
-                // Follow up to remove in Jan
-                await page.waitForTimeout(2500);
+                const modal = page.locator(componentSelector);
+                await expect.soft(modal).toBeVisible();
 
                 await percySnapshot(page, `Modal with back button displayed - hasBackButton: ${true} - dir: ${dir}`);
             });
@@ -188,8 +190,8 @@ test.describe('Prop: `hasBackButton`', () => {
                     } as PieModal,
                 });
 
-                // Follow up to remove in Jan
-                await page.waitForTimeout(2500);
+                const modal = page.locator(componentSelector);
+                await expect.soft(modal).toBeVisible();
 
                 await percySnapshot(page, `Modal without back button - hasBackButton: ${false} - dir: ${dir}`);
             });
@@ -214,8 +216,8 @@ test.describe('Prop: `heading`', () => {
             } as ModalProps,
         });
 
-        // Follow up to remove in Jan
-        await page.waitForTimeout(2500);
+        const modal = page.locator(componentSelector);
+        await expect.soft(modal).toBeVisible();
 
         await percySnapshot(page, 'Modal - Long heading');
     });
@@ -238,8 +240,8 @@ test.describe('Prop: `isLoading`', () => {
             } as ModalProps,
         });
 
-        // Follow up to remove in Jan
-        await page.waitForTimeout(2500);
+        const modal = page.locator(componentSelector);
+        await expect.soft(modal).toBeVisible();
 
         await percySnapshot(page, `Modal displays loading spinner - isLoading: ${true}`);
     });
@@ -260,8 +262,8 @@ test.describe('Prop: `leadingAction`', () => {
                 } as ModalProps,
             });
 
-            // Follow up to remove in Jan
-            await page.waitForTimeout(2500);
+            const modal = page.locator(componentSelector);
+            await expect.soft(modal).toBeVisible();
 
             await percySnapshot(page, 'Modal displays leadingAction');
         });
@@ -279,8 +281,8 @@ test.describe('Prop: `leadingAction`', () => {
                 } as ModalProps,
             });
 
-            // Follow up to remove in Jan
-            await page.waitForTimeout(2500);
+            const modal = page.locator(componentSelector);
+            await expect.soft(modal).toBeVisible();
 
             await percySnapshot(page, 'Modal falls back to default property `primary`');
         });
@@ -298,8 +300,8 @@ test.describe('Prop: `leadingAction`', () => {
                 } as ModalProps,
             });
 
-            // Follow up to remove in Jan
-            await page.waitForTimeout(2500);
+            const modal = page.locator(componentSelector);
+            await expect.soft(modal).toBeVisible();
 
             await percySnapshot(page, 'Modal will not render `leadingAction` button when `text` is empty');
         });
@@ -314,8 +316,8 @@ test.describe('Prop: `leadingAction`', () => {
                 } as ModalProps,
             });
 
-            // Follow up to remove in Jan
-            await page.waitForTimeout(2500);
+            const modal = page.locator(componentSelector);
+            await expect.soft(modal).toBeVisible();
 
             await percySnapshot(page, 'Modal does not display leadingAction');
         });
@@ -342,8 +344,8 @@ test.describe('Prop: `supportingAction`', () => {
                 } as ModalProps,
             });
 
-            // Follow up to remove in Jan
-            await page.waitForTimeout(2500);
+            const modal = page.locator(componentSelector);
+            await expect.soft(modal).toBeVisible();
 
             await percySnapshot(page, 'Modal displays supportingAction alongside leadingAction');
         });
@@ -366,8 +368,8 @@ test.describe('Prop: `supportingAction`', () => {
                     } as ModalProps,
                 });
 
-                // Follow up to remove in Jan
-                await page.waitForTimeout(2500);
+                const modal = page.locator(componentSelector);
+                await expect.soft(modal).toBeVisible();
 
                 await percySnapshot(page, 'Modal falls back to default variant property `ghost`');
             });
@@ -390,8 +392,8 @@ test.describe('Prop: `supportingAction`', () => {
                     } as ModalProps,
                 });
 
-                // Follow up to remove in Jan
-                await page.waitForTimeout(2500);
+                const modal = page.locator(componentSelector);
+                await expect.soft(modal).toBeVisible();
 
                 await percySnapshot(page, 'Modal will not render `supportingAction` button when `text` is empty');
             });
@@ -411,8 +413,8 @@ test.describe('Prop: `supportingAction`', () => {
                     } as ModalProps,
                 });
 
-                // Follow up to remove in Jan
-                await page.waitForTimeout(2500);
+                const modal = page.locator(componentSelector);
+                await expect.soft(modal).toBeVisible();
 
                 await percySnapshot(page, 'Modal will not render `supportingAction` when it is not supplied');
             });
@@ -433,8 +435,8 @@ test.describe('Prop: `supportingAction`', () => {
                 } as ModalProps,
             });
 
-            // Follow up to remove in Jan
-            await page.waitForTimeout(2500);
+            const modal = page.locator(componentSelector);
+            await expect.soft(modal).toBeVisible();
 
             await percySnapshot(page, 'Modal will not render `supportingAction` when `leadingAction` is not supplied');
         });
@@ -463,8 +465,8 @@ test.describe('Prop: `position`', () => {
                                 } as ModalProps,
                             });
 
-                            // Follow up to remove in Jan
-                            await page.waitForTimeout(2500);
+                            const modal = page.locator(componentSelector);
+                            await expect.soft(modal).toBeVisible();
 
                             await percySnapshot(page, `Modal position: ${position}, size: ${size}, isFullWidthBelowMid: ${isFullWidthBelowMid}`);
                         });
@@ -518,8 +520,8 @@ test.describe('Prop: `isFooterPinned`', () => {
                 },
             });
 
-            // Follow up to remove in Jan
-            await page.waitForTimeout(2500);
+            const modal = page.locator(componentSelector);
+            await expect.soft(modal).toBeVisible();
 
             await percySnapshot(page, `Modal isFooterPinned: ${isFooterPinned}`);
         });
@@ -547,8 +549,8 @@ test.describe('Prop: `isFooterPinned`', () => {
                     },
                 });
 
-                // Follow up to remove in Jan
-                await page.waitForTimeout(2500);
+                const modal = page.locator(componentSelector);
+                await expect.soft(modal).toBeVisible();
 
                 await percySnapshot(page, `Modal isFooterPinned: ${isFooterPinned}, fullscreen with size: ${size}`, percyWidths);
             });
@@ -580,8 +582,8 @@ test.describe('Prop: `hasStackedActions`', () => {
                         } as ModalProps,
                     });
 
-                    // Follow up to remove in Jan
-                    await page.waitForTimeout(2500);
+                    const modal = page.locator(componentSelector);
+                    await expect.soft(modal).toBeVisible();
 
                     await percySnapshot(page, `Modal - hasStackedActions = true, size = ${size}`);
                 });
