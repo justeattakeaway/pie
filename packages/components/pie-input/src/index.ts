@@ -1,4 +1,6 @@
-import { LitElement, html, unsafeCSS } from 'lit';
+import {
+    LitElement, html, unsafeCSS, PropertyValues,
+} from 'lit';
 import { property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { live } from 'lit/directives/live.js';
@@ -29,20 +31,30 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
     @property({ type: String })
     public value = '';
 
+    @property({ type: String })
+    public name = '';
+
+    protected firstUpdated (_changedProperties: PropertyValues<this>): void {
+        super.firstUpdated(_changedProperties);
+        this._internals.setFormValue(this.value);
+    }
+
     /**
      * Handles data processing in response to the input event. The native input event is left to bubble up.
      * @param event - The input event.
      */
     private handleInput = (event: InputEvent) => {
         this.value = (event.target as HTMLInputElement).value;
+        this._internals.setFormValue(this.value);
     };
 
     render () {
-        const { type, value } = this;
+        const { type, value, name } = this;
 
         return html`<input
             type=${ifDefined(type)}
             .value=${live(value)}
+            name=${ifDefined(name)}
             @input=${this.handleInput}
             data-test-id="pie-input">`;
     }

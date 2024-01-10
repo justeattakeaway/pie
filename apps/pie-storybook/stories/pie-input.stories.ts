@@ -17,6 +17,7 @@ type InputStoryMeta = StoryMeta<InputProps>;
 const defaultArgs: InputProps = {
     type: 'text',
     value: '',
+    name: 'testName',
 };
 
 const inputStoryMeta: InputStoryMeta = {
@@ -32,10 +33,17 @@ const inputStoryMeta: InputStoryMeta = {
             },
         },
         value: {
-            description: 'The value of the input.',
+            description: 'The value of the input (used in HTML forms as a key/value pair in HTML forms with the name).',
             control: 'text',
             defaultValue: {
-                summary: 'value',
+                summary: '',
+            },
+        },
+        name: {
+            description: 'The name of the input (used in HTML forms as a key/value pair with the value). This is required in order to work properly with forms.',
+            control: 'text',
+            defaultValue: {
+                summary: '',
             },
         },
     },
@@ -48,7 +56,7 @@ const inputStoryMeta: InputStoryMeta = {
     },
 };
 
-const Template = ({ type, value }: InputProps) => {
+const Template = ({ type, value, name }: InputProps) => {
     const [, updateArgs] = UseArgs();
 
     function onInput (event: InputEvent) {
@@ -65,6 +73,7 @@ const Template = ({ type, value }: InputProps) => {
     <pie-input
         type="${ifDefined(type)}"
         .value="${value}"
+        name="${ifDefined(name)}"
         @input="${onInput}"></pie-input>
     `;
 };
@@ -98,6 +107,12 @@ const FormTemplate: TemplateFunction<InputProps> = (props: InputProps) => html`
 
             formLog.innerHTML = 'Form submitted!';
             formLog.style.display = 'block';
+
+            const formData = new FormData(form);
+
+            for (const entry of formData.entries()) {
+                console.table(entry);
+            }
 
             // Reset the success message after roughly 8 seconds
             setTimeout(() => {

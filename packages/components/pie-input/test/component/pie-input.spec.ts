@@ -74,6 +74,34 @@ test.describe('PieInput - Component tests', () => {
                 expect((await input.inputValue())).toBe('test');
             });
         });
+
+        test.describe('name', () => {
+            test('should default to an empty string if no name prop provided', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieInput, {});
+
+                // Act
+                const input = component.locator('input');
+
+                // Assert
+                expect((await input.getAttribute('name'))).toBe('');
+            });
+
+            test('should apply the name prop to the HTML input rendered', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieInput, {
+                    props: {
+                        name: 'test',
+                    } as InputProps,
+                });
+
+                // Act
+                const input = component.locator('input');
+
+                // Assert
+                expect((await input.getAttribute('name'))).toBe('test');
+            });
+        });
     });
 
     test.describe('Events', () => {

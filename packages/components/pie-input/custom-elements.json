@@ -13,15 +13,6 @@
                         "text": "['text', 'number', 'password', 'search', 'url', 'email', 'tel']"
                     },
                     "default": "['text', 'number', 'password', 'search', 'url', 'email', 'tel']"
-                },
-                {
-                    "kind": "variable",
-                    "name": "PIE_INPUT_EVENT",
-                    "type": {
-                        "text": "string"
-                    },
-                    "default": "'pie-input'",
-                    "description": "Event name for when when the input value is changed"
                 }
             ],
             "exports": [
@@ -30,14 +21,6 @@
                     "name": "types",
                     "declaration": {
                         "name": "types",
-                        "module": "src/defs.js"
-                    }
-                },
-                {
-                    "kind": "js",
-                    "name": "PIE_INPUT_EVENT",
-                    "declaration": {
-                        "name": "PIE_INPUT_EVENT",
                         "module": "src/defs.js"
                     }
                 }
@@ -84,9 +67,19 @@
                         },
                         {
                             "kind": "field",
+                            "name": "name",
+                            "type": {
+                                "text": "string"
+                            },
+                            "privacy": "public",
+                            "default": "''",
+                            "attribute": "name"
+                        },
+                        {
+                            "kind": "field",
                             "name": "handleInput",
                             "privacy": "private",
-                            "description": "Handles the input event and dispatches a custom event with the input event data and input value.",
+                            "description": "Handles data processing in response to the input event. The native input event is left to bubble up.",
                             "parameters": [
                                 {
                                     "description": "The input event.",
@@ -120,6 +113,14 @@
                             },
                             "default": "''",
                             "fieldName": "value"
+                        },
+                        {
+                            "name": "name",
+                            "type": {
+                                "text": "string"
+                            },
+                            "default": "''",
+                            "fieldName": "name"
                         }
                     ],
                     "mixins": [
