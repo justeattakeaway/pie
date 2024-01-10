@@ -13,8 +13,8 @@ import {
     WebComponentTestWrapper,
 } from '@justeattakeaway/pie-webc-testing/src/helpers/components/web-component-test-wrapper/WebComponentTestWrapper.ts';
 import { percyWidths } from '@justeattakeaway/pie-webc-testing/src/percy/breakpoints.ts';
-import { PieSpinner } from '@/index';
-import { sizes, variants } from '@/defs';
+import { PieSpinner } from '../../src/index.ts';
+import { sizes, variants } from '../../src/defs.ts';
 
 // Renders a <pie-spinner> HTML string with the given prop values
 const renderTestPieSpinner = (propVals: WebComponentPropValues) => `<pie-spinner variant="${propVals.variant}" size="${propVals.size}"></pie-spinner>`;

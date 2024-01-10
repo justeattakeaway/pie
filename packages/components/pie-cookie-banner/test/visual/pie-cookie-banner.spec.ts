@@ -2,7 +2,7 @@
 import { test } from '@sand4rt/experimental-ct-web';
 import percySnapshot from '@percy/playwright';
 
-import { PieCookieBanner, CookieBannerProps } from '@/index';
+import { PieCookieBanner, CookieBannerProps } from '../../src/index.ts';
 
 const managePrefsSelector = '[data-test-id="actions-manage-prefs"]';
 
