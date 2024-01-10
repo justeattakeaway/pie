@@ -6,14 +6,10 @@
     margin-block-end: f.$spacing-f;
     background-color: f.$color-container-subtle;
     border-radius: f.$radius-rounded-c;
-    padding: 0;
+    padding: f.$spacing-d f.$spacing-e f.$spacing-e;
 
     // ensures larger tables are responsive
     overflow-x: auto;
-
-    @include f.media('>=narrowMid') {
-        padding: f.$spacing-d f.$spacing-e f.$spacing-e;
-    }
 }
 
 .c-componentDetailsTable {
@@ -26,12 +22,7 @@
         text-align: start;
         vertical-align: top;
         padding: f.$spacing-b;
-    }
-
-    tr>th:first-child,tr>td:first-child {
-        position: sticky;
-        left: 0;
-        background-color: f.$color-container-subtle;
+        min-width: fit-content;
     }
 
     .c-componentDetailsTable-cellHasMinWidth {

@@ -28,7 +28,8 @@
         padding: f.$spacing-b;
     }
 
-    tr>th:first-child,tr>td:first-child {
+    tr > th:first-child,
+    tr > td:first-child {
         position: sticky;
         left: 0;
         background-color: f.$color-container-subtle;
