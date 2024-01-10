@@ -3,25 +3,25 @@ const statusSettings = require('../../_data/statusSettings');
 const { rows } = require('../../componentStatusData');
 
 const buildRow = (row) => {
-        if ('componentName' in row) {
-            return ''
-        }
+    if ('componentName' in row) {
+        return '';
+    }
 
-        const { icon, resource } = resourceSettings[row.resource];
-        const { bgColor, status } = statusSettings[row.status];
-    
-        const resourceText = row.link ? `<a href="${row.link}">${resource}</a>` : `<span>${resource}</span>`;
-        const resourceComponent = `<div class="c-resourceTable-resource"><img src="${icon}"></img>${resourceText}</div>`;
-        const statusComponent = `<span class="c-resourceTable-status" style="--bg-colour: ${bgColor}">${row.note ? `${status}: ${row.note}` : status}</span>`;
-    
-        return `<tr>
+    const { icon, resource } = resourceSettings[row.resource];
+    const { bgColor, status } = statusSettings[row.status];
+
+    const resourceText = row.link ? `<a href="${row.link}">${resource}</a>` : `<span>${resource}</span>`;
+    const resourceComponent = `<div class="c-resourceTable-resource"><img src="${icon}"></img>${resourceText}</div>`;
+    const statusComponent = `<span class="c-resourceTable-status" style="--bg-colour: ${bgColor}">${row.note ? `${status}: ${row.note}` : status}</span>`;
+
+    return `<tr>
                     <td>
                         ${resourceComponent}
                     </td>
                     <td>
                         ${statusComponent}
                     </td>
-                </tr>`
+                </tr>`;
 };
 
 /**
@@ -32,5 +32,5 @@ const buildRow = (row) => {
 module.exports = ({
     componentName,
 }) => `<table class="c-resourceTable">
-        ${rows.map((row) => `${row[0].componentName.includes(componentName) ?  row.map((r) => buildRow(r)).join('') : ''}`).join('')}
+        ${rows.map((row) => `${row[0].componentName.includes(componentName) ? row.map((r) => buildRow(r)).join('') : ''}`).join('')}
     </table>`;

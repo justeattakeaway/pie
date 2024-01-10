@@ -1,4 +1,3 @@
-const md = require('../../_utilities/markdown');
 const statusSettings = require('../../_data/statusSettings');
 const { rows, appHeadings, webHeadings } = require('../../componentStatusData');
 
@@ -11,28 +10,28 @@ const { rows, appHeadings, webHeadings } = require('../../componentStatusData');
  */
 const buildRow = (cells, headings) => cells.map((cell) => {
     let content;
-    let hasMinWidth = cell.status?.length > 10;
+    const hasMinWidth = cell.status?.length > 10;
 
-        headings.map((heading) => {
+    headings.map((heading) => {
         if (cell === null) {
             return '<td></td>';
         } else
-    
+
         if ('componentName' in cell) {
-            content = `<a class="c-componentStatusTable-link" href="/components/${cell.componentName.toLowerCase().replace(' ', '-')}">${cell.componentName}</a>`
+            content = `<a class="c-componentStatusTable-link" href="/components/${cell.componentName.toLowerCase().replace(' ', '-')}">${cell.componentName}</a>`;
         } else
-        
+
         if (heading.title === cell.resource) {
             const { bgColor, status } = statusSettings[cell.status];
-            content = `<span class="c-resourceTable-status" style="--bg-colour: ${bgColor}; margin-left: 30px;">${status}</span>`;    
+            content = `<span class="c-resourceTable-status" style="--bg-colour: ${bgColor}; margin-left: 30px;">${status}</span>`;
         }
 
         return content;
-    })
+    });
 
-    return content !== undefined ? 
-    `<td ${hasMinWidth ? "class='c-componentStatusTable-cellHasMinWidth'" : ''}>${content}</td>`
-    : '';
+    return content !== undefined
+        ? `<td ${hasMinWidth ? "class='c-componentStatusTable-cellHasMinWidth'" : ''}>${content}</td>`
+        : '';
 }).join('');
 
 /**
@@ -41,22 +40,20 @@ const buildRow = (cells, headings) => cells.map((cell) => {
  * @returns {string} - The HTML representation of the table component.
  */
 module.exports = ({
-    dataType
+    dataType,
 }) => {
-    headings = dataType === 'app' ? appHeadings : webHeadings;
+    const headings = dataType === 'app' ? appHeadings : webHeadings;
 
-    const hasWidePadding = headings <= 3
+    const hasWidePadding = headings <= 3;
 
     return `<div class="c-componentStatusTable-backdrop">
     <table class="c-componentStatusTable ${hasWidePadding ? 'c-componentStatusTable-hasWidePadding' : ''}">
-    ${ `<tr>${headings.map((heading) => `<th> ${'icon' in heading ? `
-            <div class="c-resourceTable-resource"><img src="${heading.icon}"></img>${heading.title}</div>` : heading.title }
+    ${`<tr>${headings.map((heading) => `<th> ${'icon' in heading ? `
+            <div class="c-resourceTable-resource"><img src="${heading.icon}"></img>${heading.title}</div>` : heading.title}
             </th>`).join('')}</tr>`
     }
 
-    ${rows.map((row) => {
-            return `<tr>${buildRow(row, headings)}</tr>`;
-    }).join('')
+    ${rows.map((row) => `<tr>${buildRow(row, headings)}</tr>`).join('')
     }
     </table>
 </div>`;

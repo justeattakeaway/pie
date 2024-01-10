@@ -15,7 +15,6 @@ const statusColours = {
     other: getStatusColour('container-strong'),
 };
 
-
 module.exports = {
     [statusTypes.AVAILABLE]: {
         bgColor: statusColours.active,

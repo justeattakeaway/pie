@@ -15,7 +15,6 @@ const tokensTable = require('./tokensTable');
 const componentDetailsTable = require('./componentDetailsTable');
 const componentStatusTable = require('./componentStatusTable');
 const usage = require('./usage');
-const showMore = require('./showMore');
 
 const { deindentHTML } = require('./shortcode-utilities');
 
@@ -42,7 +41,6 @@ const addAllShortCodes = (eleventyConfig) => {
     eleventyConfig.addShortcode('usage', (shortcodeArgs) => deindentHTML(usage(shortcodeArgs)));
     eleventyConfig.addShortcode('statusDescriptions', (shortcodeArgs) => deindentHTML(statusDescriptions(shortcodeArgs)));
     eleventyConfig.addShortcode('termsAndDescriptions', (shortcodeArgs) => deindentHTML(termsAndDescriptions(shortcodeArgs)));
-    eleventyConfig.addShortcode('showMore', (shortcodeArgs) => deindentHTML(showMore(shortcodeArgs)));
 };
 
 module.exports = {
