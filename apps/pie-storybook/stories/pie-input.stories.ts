@@ -5,7 +5,7 @@ import { useArgs as UseArgs } from '@storybook/preview-api';
 
 /* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-input';
-import { types, InputProps, PIE_INPUT_EVENT } from '@justeattakeaway/pie-input';
+import { types, InputProps } from '@justeattakeaway/pie-input';
 /* eslint-enable import/no-duplicates */
 
 import { type StoryMeta } from '../types';
@@ -54,7 +54,7 @@ const Template = ({ type, value }: InputProps) => {
     function onInput (event: CustomEvent) {
         updateArgs({ value: event.detail.value });
 
-        action(PIE_INPUT_EVENT)({
+        action('input')({
             ...event.detail,
         });
     }
