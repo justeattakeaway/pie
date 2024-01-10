@@ -13,6 +13,15 @@
                         "text": "['text', 'number', 'password', 'search', 'url', 'email', 'tel']"
                     },
                     "default": "['text', 'number', 'password', 'search', 'url', 'email', 'tel']"
+                },
+                {
+                    "kind": "variable",
+                    "name": "PIE_INPUT_EVENT",
+                    "type": {
+                        "text": "string"
+                    },
+                    "default": "'pie-input'",
+                    "description": "Event name for when when the input value is changed"
                 }
             ],
             "exports": [
@@ -21,6 +30,14 @@
                     "name": "types",
                     "declaration": {
                         "name": "types",
+                        "module": "src/defs.js"
+                    }
+                },
+                {
+                    "kind": "js",
+                    "name": "PIE_INPUT_EVENT",
+                    "declaration": {
+                        "name": "PIE_INPUT_EVENT",
                         "module": "src/defs.js"
                     }
                 }

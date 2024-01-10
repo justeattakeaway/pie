@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.57.0
+
+### Minor Changes
+
+- [Added] - A form integration story for pie input to start testing form data and submission ([#1154](https://github.com/justeattakeaway/pie/pull/1154)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies [[`847c71160`](https://github.com/justeattakeaway/pie/commit/847c71160c38d8618a8dfd59891a4209f52bb015)]:
+  - @justeattakeaway/pie-input@0.4.0
+
 ## 0.56.2
 
 ### Patch Changes
