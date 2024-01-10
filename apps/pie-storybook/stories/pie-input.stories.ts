@@ -51,7 +51,7 @@ const inputStoryMeta: InputStoryMeta = {
 const Template = ({ type, value }: InputProps) => {
     const [, updateArgs] = UseArgs();
 
-    function onPieInput (event: CustomEvent) {
+    function onInput (event: CustomEvent) {
         updateArgs({ value: event.detail.value });
 
         action(PIE_INPUT_EVENT)({
@@ -63,7 +63,7 @@ const Template = ({ type, value }: InputProps) => {
     <pie-input
         type="${ifDefined(type)}"
         .value="${value}"
-        @pie-input="${onPieInput}"></pie-input>
+        @input="${onInput}"></pie-input>
     `;
 };
 
