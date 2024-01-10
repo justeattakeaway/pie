@@ -82,7 +82,6 @@ test.describe('PieInput - Component tests', () => {
 
             test('should emit a custom event with the input event data and input value', async ({ mount, page }) => {
                 // Arrange
-
                 const messages: PieInputEvent[] = [];
                 const expectedMessages = [
                     { data: 't', value: 't' },
