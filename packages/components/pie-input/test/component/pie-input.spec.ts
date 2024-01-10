@@ -77,24 +77,16 @@ test.describe('PieInput - Component tests', () => {
     });
 
     test.describe('Events', () => {
-        test.describe('pie-input', () => {
-            type PieInputEvent = CustomEvent<{ data: string, value: string }>;
-
-            test('should emit a custom event with the input event data and input value', async ({ mount, page }) => {
+        test.describe('input', () => {
+            test('should emit an event each time the component receives input', async ({ mount, page }) => {
                 // Arrange
-                const messages: PieInputEvent[] = [];
-                const expectedMessages = [
-                    { data: 't', value: 't' },
-                    { data: 'e', value: 'te' },
-                    { data: 's', value: 'tes' },
-                    { data: 't', value: 'test' },
-                    { data: null, value: 'tes' }
-                ];
+                const messages: InputEvent[] = [];
+                const expectedMessagesLength = 5;
 
                 const component = await mount(PieInput, {
                     props: {} as InputProps,
                     on: {
-                        'pie-input': (data: PieInputEvent) => {
+                        input: (data: InputEvent) => {
                             messages.push(data);
                         },
                     },
@@ -107,7 +99,75 @@ test.describe('PieInput - Component tests', () => {
                 await page.keyboard.press('Backspace');
 
                 // Assert
-                expect(messages).toEqual(expectedMessages);
+                expect(messages.length).toEqual(expectedMessagesLength);
+            });
+
+            test('should provide the event target value for event listeners', async ({ page }) => {
+                // Arrange
+                const expectedMessage = 'tes';
+
+                await page.setContent(`
+                    <pie-input type="text"></pie-input>
+                    <div id="output"></div>
+                `);
+
+                await page.evaluate(() => {
+                    const output = (document.getElementById('output') as HTMLDivElement);
+                    const input = document.querySelector('pie-input');
+
+                    input?.addEventListener('input', (event: Event) => {
+                        const currentValue = (event.target as HTMLInputElement).value;
+                        output.innerText = currentValue;
+                    });
+                });
+
+                const input = page.locator('pie-input');
+
+                // Act
+                await input.type('test');
+                await page.keyboard.press('Backspace');
+
+                const output = await page.locator('#output');
+
+                // Assert
+                expect(await output.innerText()).toEqual(expectedMessage);
+            });
+
+            test('should correctly handle input including backspaces, tracking data property', async ({ page }) => {
+                // Arrange
+                const expectedMessage = 'tes';
+
+                await page.setContent(`
+                    <pie-input type="text"></pie-input>
+                    <div id="output"></div>
+                `);
+
+                await page.evaluate(() => {
+                    const output = document.getElementById('output') as HTMLDivElement;
+                    const input = document.querySelector('pie-input');
+
+                    input?.addEventListener('input', (event) => {
+                        const { data } = event as InputEvent;
+                        const currentValue = (event.target as HTMLInputElement).value;
+
+                        // If data is null, it's a deletion, so update the output to match the input's value
+                        if (data === null) {
+                            output.innerText = currentValue;
+                        } else {
+                            // For additions, append the data character
+                            output.innerText += data;
+                        }
+                    });
+                });
+
+                const input = page.locator('pie-input');
+
+                // Act
+                await input.type('test');
+                await page.keyboard.press('Backspace');
+
+                // Assert
+                expect(await page.locator('#output').innerText()).toEqual(expectedMessage);
             });
         });
     });

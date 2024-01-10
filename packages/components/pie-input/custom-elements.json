@@ -98,10 +98,10 @@
                     "events": [
                         {
                             "type": {
-                                "text": "CustomEvent"
+                                "text": "InputEvent"
                             },
                             "description": "when the input value is changed.",
-                            "name": "pie-input"
+                            "name": "input"
                         }
                     ],
                     "attributes": [

@@ -11,10 +11,3 @@ export interface InputProps {
      */
     value: string;
 }
-
-/**
- * Event name for when when the input value is changed
- * @constant
- */
-
-export const PIE_INPUT_EVENT = 'pie-input';

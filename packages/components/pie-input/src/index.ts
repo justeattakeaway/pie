@@ -8,7 +8,7 @@ import {
 } from '@justeattakeaway/pie-webc-core';
 
 import styles from './input.scss?inline';
-import { types, InputProps, PIE_INPUT_EVENT } from './defs';
+import { types, InputProps } from './defs';
 
 // Valid values available to consumers
 export * from './defs';
@@ -17,7 +17,7 @@ const componentSelector = 'pie-input';
 
 /**
  * @tagname pie-input
- * @event {CustomEvent} pie-input - when the input value is changed.
+ * @event {InputEvent} input - when the input value is changed.
  */
 export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements InputProps {
     static shadowRootOptions = { ...LitElement.shadowRootOptions, delegatesFocus: true };
@@ -30,23 +30,11 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
     public value = '';
 
     /**
-     * Handles the input event and dispatches a custom event with the input event data and input value.
+     * Handles data processing in response to the input event. The native input event is left to bubble up.
      * @param event - The input event.
      */
     private handleInput = (event: InputEvent) => {
         this.value = (event.target as HTMLInputElement).value;
-
-        this.dispatchEvent(new CustomEvent(
-            PIE_INPUT_EVENT,
-            {
-                detail: {
-                    data: event.data,
-                    value: this.value,
-                },
-                bubbles: true,
-                composed: true,
-            },
-        ));
     };
 
     render () {
