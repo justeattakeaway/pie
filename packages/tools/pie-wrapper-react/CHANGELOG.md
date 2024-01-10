@@ -1,5 +1,16 @@
 # @justeattakeaway/pie-wrapper-react
 
+## 0.12.0
+
+### Minor Changes
+
+- [Changed] - Refactored `add-react-wrapper.js` to be executable via npx. ([#1144](https://github.com/justeattakeaway/pie/pull/1144)) by [@siggerzz](https://github.com/siggerzz)
+
+  [Changed] - `fs-extra` to a dependency so that script execution doesn't fail outside the monorepo.
+  [Changed] - Refactored `add-react-wrapper.js` to create unique `custom-elements.json` for each component in the directory where `npx build-react-wrapper` is executed.
+
+- [Changed] - Added `@justeattakeaway/pie-wrapper-react` as a devDependency as `build` now relies on the publish `add-react-wrapper` executable ([#1144](https://github.com/justeattakeaway/pie/pull/1144)) by [@siggerzz](https://github.com/siggerzz)
+
 ## 0.11.1
 
 ### Patch Changes

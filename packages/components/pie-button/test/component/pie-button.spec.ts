@@ -1,6 +1,6 @@
+import { getShadowElementStylePropValues } from '@justeattakeaway/pie-webc-testing/src/helpers/get-shadow-element-style-prop-values.ts';
 import { test, expect } from '@sand4rt/experimental-ct-web';
-import type { Locator } from '@playwright/test';
-import { PieButton, ButtonProps } from '@/index';
+import { PieButton, ButtonProps } from '../../src/index.ts';
 
 const props: Partial<ButtonProps> = {
     size: 'large',
@@ -11,37 +11,6 @@ type SizeResponsiveSize = {
     sizeName: ButtonProps['size'];
     responsiveSize: string;
 };
-
-/**
- * Gets the value of the given style properties from the shadow element
- * @param element The custom element instance
- * @param selector The selector of the element in the shadow
- * @param props The style properties to get the values from
- * @returns The values of the given style properties
- */
-async function getShadowElementStylePropValues (element:Locator, selector:string, props:Array<string>):Promise<Array<string>> {
-    const data = { selector, props };
-
-    const evaluated = await element.evaluate((el, data) => {
-        const { selector, props } = data;
-
-        if (!el || !el.shadowRoot) {
-            throw new Error('getShadowElementStylePropValues: evaluate didn\'t return an element');
-        }
-
-        const shadowEl = el.shadowRoot.querySelector(selector);
-
-        if (!shadowEl) {
-            throw new Error('getShadowElementStylePropValues: no shadow element was found');
-        }
-
-        const shadowElStyle = getComputedStyle(shadowEl);
-
-        return props.map((prop) => shadowElStyle.getPropertyValue(prop).trim());
-    }, data);
-
-    return evaluated;
-}
 
 const sizes:Array<SizeResponsiveSize> = [
     { sizeName: 'xsmall', responsiveSize: '--btn-height--small' },

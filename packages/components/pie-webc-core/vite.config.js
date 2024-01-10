@@ -14,5 +14,6 @@ export default defineConfig({
     },
     test: {
         environment: 'jsdom',
+        exclude: ['**/*.browser.spec.ts'],
     },
 });

@@ -1,0 +1,46 @@
+{
+    "schemaVersion": "1.0.0",
+    "readme": "",
+    "modules": [
+        {
+            "kind": "javascript-module",
+            "path": "pie-wrapper-react",
+            "declarations": [
+                {
+                    "kind": "class",
+                    "description": "",
+                    "name": "MockComponent",
+                    "members": [
+                        {
+                            "kind": "method",
+                            "name": "render"
+                        }
+                    ],
+                    "superclass": {
+                        "name": "LitElement",
+                        "package": "lit"
+                    },
+                    "tagName": "mock-component",
+                    "customElement": true
+                }
+            ]
+        }
+    ]
+}
+}                         "name": "another-custom-event",
+                            "type": {
+                                "text": "CustomEvent"
+                            }
+                        }
+                    ],
+                    "superclass": {
+                        "name": "LitElement",
+                        "package": "lit"
+                    },
+                    "tagName": "mock-component",
+                    "customElement": false
+                }
+            ]
+        }
+    ]
+}

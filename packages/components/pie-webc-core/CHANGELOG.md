@@ -1,5 +1,29 @@
 # Changelog
 
+## 0.16.0
+
+### Minor Changes
+
+- [Removed] - unused LitElementMixin type as we do not need it anywhere ([#1145](https://github.com/justeattakeaway/pie/pull/1145)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Changed] - Added `@justeattakeaway/pie-wrapper-react` as a devDependency as `build` now relies on the publish `add-react-wrapper` executable ([#1144](https://github.com/justeattakeaway/pie/pull/1144)) by [@siggerzz](https://github.com/siggerzz)
+
+- [Changed] - Use proper interface keyword for RTLmixin interface. Was using a class before which is incorrect. ([#1145](https://github.com/justeattakeaway/pie/pull/1145)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+## 0.15.0
+
+### Minor Changes
+
+- [Changed] - Updated LitElement imports where it is only used as a type to include the 'type' keyword (fixes a TS error in some consumers) ([#1143](https://github.com/justeattakeaway/pie/pull/1143)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+## 0.14.0
+
+### Minor Changes
+
+- [Added] - Form Control Mixin for adding native form association behaviour to web components ([#1142](https://github.com/justeattakeaway/pie/pull/1142)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Changed] - Re organised test structure and added playwright testing ([#1142](https://github.com/justeattakeaway/pie/pull/1142)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.13.0
 
 ### Minor Changes

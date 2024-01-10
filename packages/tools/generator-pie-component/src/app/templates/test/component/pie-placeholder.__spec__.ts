@@ -1,6 +1,6 @@
 
 import { test, expect } from '@sand4rt/experimental-ct-web';
-import { Pie<%= componentName %>, <%= componentName %>Props } from '@/index';
+import { Pie<%= componentName %>, <%= componentName %>Props } from '../../src/index.ts';
 
 const componentSelector = '[data-test-id="pie-<%= fileName %>"]';
 

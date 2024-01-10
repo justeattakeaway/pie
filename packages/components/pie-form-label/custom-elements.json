@@ -1,0 +1,116 @@
+{
+    "schemaVersion": "1.0.0",
+    "readme": "",
+    "modules": [
+        {
+            "kind": "javascript-module",
+            "path": "src/defs.js",
+            "declarations": [],
+            "exports": []
+        },
+        {
+            "kind": "javascript-module",
+            "path": "src/index.js",
+            "declarations": [
+                {
+                    "kind": "class",
+                    "description": "",
+                    "name": "PieFormLabel",
+                    "members": [
+                        {
+                            "kind": "field",
+                            "name": "for",
+                            "type": {
+                                "text": "string | undefined"
+                            },
+                            "privacy": "public",
+                            "attribute": "for",
+                            "reflects": true
+                        },
+                        {
+                            "kind": "field",
+                            "name": "optional",
+                            "type": {
+                                "text": "string | undefined"
+                            },
+                            "privacy": "public",
+                            "attribute": "optional"
+                        },
+                        {
+                            "kind": "field",
+                            "name": "trailing",
+                            "type": {
+                                "text": "string | undefined"
+                            },
+                            "privacy": "public",
+                            "attribute": "trailing"
+                        },
+                        {
+                            "kind": "method",
+                            "name": "_renderOptionalLabel",
+                            "privacy": "private",
+                            "return": {
+                                "type": {
+                                    "text": "TemplateResult | typeof nothing"
+                                }
+                            }
+                        }
+                    ],
+                    "attributes": [
+                        {
+                            "name": "for",
+                            "type": {
+                                "text": "string | undefined"
+                            },
+                            "fieldName": "for"
+                        },
+                        {
+                            "name": "optional",
+                            "type": {
+                                "text": "string | undefined"
+                            },
+                            "fieldName": "optional"
+                        },
+                        {
+                            "name": "trailing",
+                            "type": {
+                                "text": "string | undefined"
+                            },
+                            "fieldName": "trailing"
+                        }
+                    ],
+                    "mixins": [
+                        {
+                            "name": "RtlMixin",
+                            "package": "@justeattakeaway/pie-webc-core"
+                        }
+                    ],
+                    "superclass": {
+                        "name": "LitElement",
+                        "package": "lit"
+                    },
+                    "tagName": "pie-form-label",
+                    "customElement": true
+                }
+            ],
+            "exports": [
+                {
+                    "kind": "js",
+                    "name": "*",
+                    "declaration": {
+                        "name": "*",
+                        "package": "./defs"
+                    }
+                },
+                {
+                    "kind": "js",
+                    "name": "PieFormLabel",
+                    "declaration": {
+                        "name": "PieFormLabel",
+                        "module": "src/index.js"
+                    }
+                }
+            ]
+        }
+    ]
+}
