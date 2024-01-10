@@ -133,7 +133,7 @@ test.describe('PieInput - Component tests', () => {
                 expect(await output.innerText()).toEqual(expectedMessage);
             });
 
-            test('should correctly handle input including backspaces, tracking data property', async ({ page }) => {
+            test('should correctly handle input including backspaces in the event.data property', async ({ page }) => {
                 // Arrange
                 const expectedMessage = 'tes';
 
