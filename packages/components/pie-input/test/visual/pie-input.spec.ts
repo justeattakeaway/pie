@@ -1,7 +1,7 @@
 
 import { test } from '@sand4rt/experimental-ct-web';
 import percySnapshot from '@percy/playwright';
-import { PieInput, InputProps } from '@/index';
+import { PieInput, InputProps } from '../../src/index';
 
 test.describe('PieInput - Visual tests`', () => {
     test('should display the PieInput component successfully', async ({ page, mount }) => {

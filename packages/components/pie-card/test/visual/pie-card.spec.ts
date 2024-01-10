@@ -13,8 +13,8 @@ import {
     WebComponentTestWrapper,
 } from '@justeattakeaway/pie-webc-testing/src/helpers/components/web-component-test-wrapper/WebComponentTestWrapper.ts';
 import { percyWidths } from '@justeattakeaway/pie-webc-testing/src/percy/breakpoints.ts';
-import { PieCard } from '@/index';
-import { tags, variants, paddingValues } from '@/defs';
+import { PieCard } from '../../src/index';
+import { tags, variants, paddingValues } from '../../src/defs';
 
 // This is just an arbitrary example of some markup a user may pass into the card
 const slotContent = `<div style="font-size: calc(var(--dt-font-body-l-size) * 1px); font-family: var(--dt-font-interactive-m-family); padding: var(--dt-spacing-b);">

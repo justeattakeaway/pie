@@ -1,5 +1,5 @@
 import { test, expect } from '@sand4rt/experimental-ct-web';
-import { PieIconButton } from '@/index';
+import { PieIconButton } from '../../src/index';
 
 test('should correctly work with native click events', async ({ mount }) => {
     const messages: string[] = [];

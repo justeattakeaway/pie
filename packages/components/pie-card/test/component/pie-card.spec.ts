@@ -1,7 +1,7 @@
 
 import { test, expect } from '@sand4rt/experimental-ct-web';
-import { PieCard, CardProps } from '@/index';
-import { tags, paddingValues } from '@/defs';
+import { PieCard, CardProps } from '../../src/index';
+import { tags, paddingValues } from '../../src/defs';
 
 const componentSelector = '[data-test-id="pie-card"]';
 const slotSelector = '[data-test-id="slot-content"]';

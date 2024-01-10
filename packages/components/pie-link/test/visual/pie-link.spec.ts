@@ -15,8 +15,8 @@ import {
 } from '@justeattakeaway/pie-webc-testing/src/helpers/components/web-component-test-wrapper/WebComponentTestWrapper.ts';
 import {
     variants, sizes, iconPlacements, tags, underlineTypes,
-} from '@/defs';
-import { PieLink } from '@/index';
+} from '../../src/defs';
+import { PieLink } from '../../src/index';
 
 const props: PropObject = {
     tag: tags,

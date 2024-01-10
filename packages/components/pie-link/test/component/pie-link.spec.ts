@@ -1,7 +1,7 @@
 
 import { test, expect } from '@sand4rt/experimental-ct-web';
-import { PieLink, LinkProps } from '@/index';
-import { tags } from '@/defs';
+import { PieLink, LinkProps } from '../../src/index';
+import { tags } from '../../src/defs';
 
 const componentSelector = '[data-test-id="pie-link"]';
 

@@ -1,6 +1,6 @@
 import { getShadowElementStylePropValues } from '@justeattakeaway/pie-webc-testing/src/helpers/get-shadow-element-style-prop-values.ts';
 import { test, expect } from '@sand4rt/experimental-ct-web';
-import { PieButton, ButtonProps } from '@/index';
+import { PieButton, ButtonProps } from '../../src/index';
 
 const props: Partial<ButtonProps> = {
     size: 'large',

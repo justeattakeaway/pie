@@ -14,8 +14,8 @@ import {
     WebComponentTestWrapper,
 } from '@justeattakeaway/pie-webc-testing/src/helpers/components/web-component-test-wrapper/WebComponentTestWrapper.ts';
 import { percyWidths } from '@justeattakeaway/pie-webc-testing/src/percy/breakpoints.ts';
-import { variants, orientations } from '@/defs';
-import { PieDivider } from '@/index';
+import { variants, orientations } from '../../src/defs';
+import { PieDivider } from '../../src/index';
 
 const props: PropObject = {
     variant: variants,

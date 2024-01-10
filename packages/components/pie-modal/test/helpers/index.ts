@@ -1,4 +1,4 @@
-import { ModalProps } from '@/defs';
+import { ModalProps } from '../../src/defs';
 
 // Renders a <pie-modal> HTML string with the given prop values
 export const renderTestPieModal = ({

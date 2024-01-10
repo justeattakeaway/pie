@@ -1,6 +1,6 @@
 
 import { test, expect } from '@sand4rt/experimental-ct-web';
-import { PieDivider, DividerProps } from '@/index';
+import { PieDivider, DividerProps } from '../../src/index';
 
 const componentSelector = '[data-test-id="pie-divider"]';
 

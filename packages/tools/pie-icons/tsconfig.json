@@ -2,9 +2,6 @@
     "extends": "@justeattakeaway/pie-components-config/tsconfig.json",
     "compilerOptions": {
       "baseUrl": ".",
-      "paths": {
-        "@/*": ["./src/*"]
-      },
       "rootDir": ".",
     },
     "include": ["src/**/*.ts","./index.d.ts", "test/**/*.ts"],

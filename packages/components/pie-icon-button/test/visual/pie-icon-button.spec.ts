@@ -13,9 +13,9 @@ import {
     WebComponentTestWrapper,
 } from '@justeattakeaway/pie-webc-testing/src/helpers/components/web-component-test-wrapper/WebComponentTestWrapper.ts';
 import { percyWidths } from '@justeattakeaway/pie-webc-testing/src/percy/breakpoints.ts';
-import { PieIconButton } from '@/index';
+import { PieIconButton } from '../../src/index';
 
-import { sizes, variants } from '@/defs';
+import { sizes, variants } from '../../src/defs';
 
 const props: PropObject = {
     size: sizes,

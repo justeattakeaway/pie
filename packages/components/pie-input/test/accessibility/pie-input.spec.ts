@@ -1,6 +1,6 @@
 
 import { test, expect } from '@justeattakeaway/pie-webc-testing/src/playwright/fixtures.ts';
-import { PieInput, InputProps } from '@/index';
+import { PieInput, InputProps } from '../../src/index';
 
 test.describe('PieInput - Accessibility tests', () => {
     test('a11y - should test the PieInput component WCAG compliance', async ({ makeAxeBuilder, mount }) => {

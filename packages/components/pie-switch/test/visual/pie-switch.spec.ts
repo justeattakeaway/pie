@@ -1,7 +1,7 @@
 import { test } from '@sand4rt/experimental-ct-web';
 import percySnapshot from '@percy/playwright';
-import { PieSwitch } from '@/index';
-import { SwitchProps, labelPlacements } from '@/defs';
+import { PieSwitch } from '../../src/index';
+import { SwitchProps, labelPlacements } from '../../src/defs';
 
 [
     [false, false],

@@ -1,8 +1,8 @@
 import { test, expect } from '@justeattakeaway/pie-webc-testing/src/playwright/fixtures.ts';
 import { getAllPropCombinations, splitCombinationsByPropertyValue } from '@justeattakeaway/pie-webc-testing/src/helpers/get-all-prop-combos.ts';
 import { PropObject, WebComponentPropValues } from '@justeattakeaway/pie-webc-testing/src/helpers/defs.ts';
-import { PieButton } from '@/index';
-import { sizes, variants } from '@/defs';
+import { PieButton } from '../../src/index';
+import { sizes, variants } from '../../src/defs';
 
 const props: PropObject = {
     variant: variants,

@@ -1,6 +1,6 @@
 import { getShadowElementStylePropValues } from '@justeattakeaway/pie-webc-testing/src/helpers/get-shadow-element-style-prop-values.ts';
 import { test, expect } from '@sand4rt/experimental-ct-web';
-import { PieTag, TagProps } from '@/index';
+import { PieTag, TagProps } from '../../src/index';
 
 const componentSelector = '[data-test-id="pie-tag"]';
 const tagIconSelector = '[data-test-id="tag-icon"]';
