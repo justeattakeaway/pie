@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-input
 
+## 0.4.0
+
+### Minor Changes
+
+- [Added] - Use the FormControlMixin to add form association logic to the input component ([#1154](https://github.com/justeattakeaway/pie/pull/1154)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.3.0
 
 ### Minor Changes
