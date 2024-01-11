@@ -116,6 +116,8 @@ const PieButtonReact = createComponent({
     });
 
 // Provides missing contextual types for a React button component
+// Use the React IntrinsicElements interface as reference for mapping standard HTML elements to existing React Interfaces
+// https://github.com/DefinitelyTyped/DefinitelyTyped/blob/0bb210867d16170c4a08d9ce5d132817651a0f80/types/react/index.d.ts#L2829
 type ReactBaseType = React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 // Workaround for `createComponent` setting all props set as optional with the additional contextual types declared above
