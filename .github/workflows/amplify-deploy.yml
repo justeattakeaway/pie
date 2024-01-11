@@ -96,15 +96,15 @@ jobs:
         # We return true to prevent the step from failing if the branch already exists
         run: |
           aws amplify create-branch \
-            --app-id ${{ inputs.amplify-app-id }} \
+            --app-id ${{ env.AMPLIFY_ID }} \
             --branch-name ${{ env.BRANCH_NAME }} \
             || true
       # Deploy Amplify from S3
-      - name: Deploy Amplify from S3
+      - name: Start Amplify Deployment from S3
         shell: bash
         run: |
           aws amplify start-deployment \
-            --app-id ${{ inputs.amplify-app-id }} \
+            --app-id ${{ env.AMPLIFY_ID }} \
             --branch-name ${{ env.BRANCH_NAME }} \
             --source-url https://${{ env.BUCKET_NAME }}.s3.${{ env.AWS_REGION }}.amazonaws.com/${{ env.ZIP_NAME }}
       # Set env vars for domain name association
@@ -114,13 +114,13 @@ jobs:
           PACKAGE_NAME_SUFFIX=$(echo "${{ inputs.package-name }}" | sed -e 's/^pie-//')
           echo "SUB_DOMAIN=pr${{ github.event.number }}-$PACKAGE_NAME_SUFFIX" >> $GITHUB_ENV
 
-
-      - name: get existing domain associations
+      - name: Get existing domain associations
         if: github.event_name == 'pull_request'
         run: |
           DOMAIN_ASSOCIATIONS=$(aws amplify get-domain-association \
-            --app-id ${{ inputs.amplify-app-id }} \
+            --app-id ${{ env.AMPLIFY_ID }} \
             --domain-name pie.design \
+            --region ${{ env.AWS_REGION }} \
             | jq '
               [.domainAssociation.subDomains[].subDomainSetting | { prefix: (.prefix // ""), branchName }] |
               . |= (map(.branchName) | index("pr${{ github.event.number }}")) as $ix |
@@ -134,9 +134,53 @@ jobs:
         shell: bash
         run: |
           aws amplify update-domain-association \
-            --app-id ${{inputs.amplify-app-id}} \
+            --app-id ${{ env.AMPLIFY_ID }} \
             --domain-name pie.design \
             --sub-domain-settings '${{ env.DOMAIN_ASSOCIATIONS }}'
+
+
+      - name: Wait for Amplify deployment
+        if: github.event_name == 'pull_request'
+        run: |
+          LATEST_JOB_ID=$(aws amplify list-jobs \
+            --app-id ${{ env.AMPLIFY_ID }} \
+            --branch-name ${{ env.BRANCH_NAME }} \
+            --region ${{ env.AWS_REGION }} --query jobSummaries[0].jobId \
+            --output text)
+          MAX_ATTEMPTS=12
+          SLEEP_SECONDS=10
+
+          attempt_counter=0
+          status=""
+
+          while [ $attempt_counter -lt $MAX_ATTEMPTS ]; do
+            status=$(aws amplify get-job \
+              --app-id ${{ env.AMPLIFY_ID }} \
+              --branch-name ${{ env.BRANCH_NAME }} \
+              --job-id $LATEST_JOB_ID \
+              --query job.summary.status \
+              --output text)
+            echo "Attempt $(( attempt_counter+1 )) of $MAX_ATTEMPTS: Status - $status"
+
+            if [ "$status" == "SUCCEED" ]; then
+              echo "Amplify deployment succeeded."
+              break
+            fi
+
+            if [ "$status" == "FAILED" ]; then
+              echo "Amplify deployment failed."
+              exit 1
+            fi
+
+            let "attempt_counter+=1"
+            sleep $SLEEP_SECONDS
+          done
+
+          if [ "$status" != "SUCCEED" ]; then
+            echo "Amplify deployment did not succeed within the expected time."
+            exit 1
+          fi
+
       # If successful
       - name: Update deployment status (success)
         if: ${{ github.event_name == 'pull_request' && success() }}
@@ -146,6 +190,7 @@ jobs:
           environment-url: https://${{ env.SUB_DOMAIN }}.pie.design/
           deployment-id: ${{ steps.deploy.outputs.deployment_id }}
           state: "success"
+
       # If it failed
       - name: Update deployment status (failure)
         if: ${{ github.event_name == 'pull_request' && failure() }}
