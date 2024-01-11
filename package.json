@@ -103,7 +103,7 @@
     "pinst": "3.0.0",
     "postcss": "8.4.32",
     "postcss-cli": "10.1.0",
-    "rimraf": "3.0.2",
+    "rimraf": "5.0.5",
     "sass": "1.60.0",
     "stylelint": "14.16.1",
     "stylelint-config-standard-scss": "5.0.0",
