@@ -231,7 +231,7 @@ export class PieButton extends FormControlMixin(LitElement) implements ButtonPro
                 @click=${this._handleClick}
                 class="o-btn"
                 type=${type || 'submit'}
-                variant=${variant || 'variant'}
+                variant=${variant || 'primary'}
                 size=${size || 'medium'}
                 responsiveSize=${ifDefined(responsiveSize)}
                 ?disabled=${disabled}
