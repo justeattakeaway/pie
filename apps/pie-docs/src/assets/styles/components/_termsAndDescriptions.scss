@@ -7,10 +7,10 @@
 
 .c-termsAndDescriptions {
     @extend %c-table;
-    
+
     background-color: f.$color-background-default;
     box-shadow: none;
-    border-spacing: f.$spacing-c;;
+    border-spacing: f.$spacing-c;
     border-collapse: separate;
     max-inline-size: 100%;
 
