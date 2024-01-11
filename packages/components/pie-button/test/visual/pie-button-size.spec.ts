@@ -13,7 +13,7 @@ import {
     WebComponentTestWrapper,
 } from '@justeattakeaway/pie-webc-testing/src/helpers/components/web-component-test-wrapper/WebComponentTestWrapper.ts';
 import { percyWidths } from '@justeattakeaway/pie-webc-testing/src/percy/breakpoints.ts';
-import { sizes } from '@/defs';
+import { sizes } from '../../src/defs.ts';
 
 const props: PropObject = {
     variant: ['primary'],
@@ -49,7 +49,7 @@ test('should render all size variations', async ({ page, mount }) => {
     }));
 
     // Follow up to remove in Jan
-    await page.waitForTimeout(5000);
+    await page.waitForTimeout(2500);
 
     await percySnapshot(page, 'PIE Button - sizes/isResponsive/responsiveSize', percyWidths);
 });

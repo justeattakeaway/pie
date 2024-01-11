@@ -8,11 +8,6 @@
     "sourceMap": true,
     "inlineSources": true,
     "outDir": "./compiled",
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["./src/*"]
-    },
-    "rootDir": ".",
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,

@@ -38,7 +38,7 @@ $breakpoint-wide: 768px;
     --btn-height--small: 40px;
     --btn-height--medium: 48px;
     --btn-height--large: 56px;
-    --btn-icon-display: block;
+    --icon-display-override: block;
 
     /**
     * Mixin for updating the button styles based on the size passed in.
@@ -50,31 +50,31 @@ $breakpoint-wide: 768px;
             --btn-padding: 6px var(--dt-spacing-b);
             --btn-font-size: #{p.font-size(--dt-font-size-14)};
             --btn-line-height: calc(var(--dt-font-size-14-line-height) * 1px);
-            --btn-icon-size: 16px;
+            --icon-size-override: 16px;
         } @else if $size == 'small-expressive' {
             --btn-height: var(--btn-height--small);
             --btn-padding: 6px var(--dt-spacing-d);
             --btn-font-size: #{p.font-size(--dt-font-size-20)};
             --btn-line-height: calc(var(--dt-font-size-20-line-height) * 1px);
-            --btn-icon-size: 20px;
+            --icon-size-override: 20px;
         } @else if $size == 'small-productive' {
             --btn-height: var(--btn-height--small);
             --btn-padding: 8px var(--dt-spacing-d);
             --btn-font-size: #{p.font-size(--dt-font-size-16)};
             --btn-line-height: calc(var(--dt-font-size-16-line-height) * 1px);
-            --btn-icon-size: 20px;
+            --icon-size-override: 20px;
         } @else if $size == 'medium' {
             --btn-height: var(--btn-height--medium);
             --btn-padding: 10px var(--dt-spacing-e);
             --btn-font-size: #{p.font-size(--dt-font-size-20)};
             --btn-line-height: calc(var(--dt-font-size-20-line-height) * 1px);
-            --btn-icon-size: 24px;
+            --icon-size-override: 24px;
         } @else if $size == 'large' {
             --btn-height: var(--btn-height--large);
             --btn-padding: 14px var(--dt-spacing-e);
             --btn-font-size: #{p.font-size(--dt-font-size-20)};
             --btn-line-height: calc(var(--dt-font-size-20-line-height) * 1px);
-            --btn-icon-size: 24px;
+            --icon-size-override: 24px;
         }
     }
 
@@ -255,6 +255,6 @@ $breakpoint-wide: 768px;
 
 // Used to size an SVG if one is passed in (when not using the component icons)
 ::slotted(svg) {
-    height: var(--btn-icon-size);
-    width: var(--btn-icon-size);
+    height: var(--icon-size-override);
+    width: var(--icon-size-override);
 }

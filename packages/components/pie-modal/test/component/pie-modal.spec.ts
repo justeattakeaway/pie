@@ -5,12 +5,12 @@ import {
 } from '@justeattakeaway/pie-webc-testing/src/helpers/components/web-component-test-wrapper/WebComponentTestWrapper.ts';
 import { createScrollablePageHTML, renderTestPieModal } from '../helpers/index.ts';
 
-import { PieModal } from '@/index';
+import { PieModal } from '../../src/index.ts';
 import {
     ON_MODAL_BACK_EVENT,
     ON_MODAL_CLOSE_EVENT,
     headingLevels,
-} from '@/defs';
+} from '../../src/defs.ts';
 
 const componentSelector = '[data-test-id="pie-modal"]';
 const backButtonSelector = '[data-test-id="modal-back-button"]';

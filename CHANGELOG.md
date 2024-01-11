@@ -1,5 +1,23 @@
 # Changelog
 
+## 2.50.0
+
+### Minor Changes
+
+- [Added] - Some brief documentation around testing our web components using Playwright ([#1148](https://github.com/justeattakeaway/pie/pull/1148)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+## 2.49.0
+
+### Minor Changes
+
+- [Added] - Render an input inside of pie-input with a type property that defaults to text ([#1138](https://github.com/justeattakeaway/pie/pull/1138)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+## 2.48.0
+
+### Minor Changes
+
+- [Added] - New pie-input component with boilerplate code ([#1135](https://github.com/justeattakeaway/pie/pull/1135)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 2.47.1
 
 ### Patch Changes

@@ -60,6 +60,9 @@ pie-form-label:
 pie-icon-button:
 - 'packages/components/pie-icon-button/**/*'
 
+pie-input:
+- "packages/components/pie-input/**/*"
+
 pie-link:
 - 'packages/components/pie-link/**/*'
 

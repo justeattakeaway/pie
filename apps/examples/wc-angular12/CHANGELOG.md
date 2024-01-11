@@ -1,5 +1,33 @@
 # wc-angular12
 
+## 0.4.23
+
+### Patch Changes
+
+- Updated dependencies [[`4c65a8176`](https://github.com/justeattakeaway/pie/commit/4c65a8176273f3883dc2be2d0c8a33aef56f8993), [`4c65a8176`](https://github.com/justeattakeaway/pie/commit/4c65a8176273f3883dc2be2d0c8a33aef56f8993)]:
+  - @justeattakeaway/pie-button@0.44.0
+
+## 0.4.22
+
+### Patch Changes
+
+- Updated dependencies [[`687bdd904`](https://github.com/justeattakeaway/pie/commit/687bdd90475fef58a492c980a7f7d9261ee94eb9), [`0bd834d59`](https://github.com/justeattakeaway/pie/commit/0bd834d5952a1c3833793d0b228162dc83cedcea)]:
+  - @justeattakeaway/pie-button@0.43.0
+
+## 0.4.21
+
+### Patch Changes
+
+- Updated dependencies [[`03cd71ffa`](https://github.com/justeattakeaway/pie/commit/03cd71ffa072f6cfe3f1114e20ec2990a728daba)]:
+  - @justeattakeaway/pie-button@0.42.1
+
+## 0.4.20
+
+### Patch Changes
+
+- Updated dependencies [[`e27452b22`](https://github.com/justeattakeaway/pie/commit/e27452b228e2a09ded5a2bd88a6d3c567a94f03e), [`99160e0c3`](https://github.com/justeattakeaway/pie/commit/99160e0c3fa6d4ef566fefdbea7850e469e502b9), [`5541a6b1d`](https://github.com/justeattakeaway/pie/commit/5541a6b1d6f7fb9dff75e16c28087bd853564426)]:
+  - @justeattakeaway/pie-button@0.42.0
+
 ## 0.4.19
 
 ### Patch Changes

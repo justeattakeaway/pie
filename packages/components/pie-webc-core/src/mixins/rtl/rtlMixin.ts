@@ -1,19 +1,12 @@
 /* eslint-disable max-classes-per-file */
 import { LitElement, isServer } from 'lit';
-
-/**
- * A type representing a constructor of any class.
- * @typedef {new (...args: any[]) => T} Constructor
- * @template T
- */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-type Constructor<T> = new (...args: any[]) => T;
+import type { GenericConstructor } from '../types/GenericConstructor';
 
 /**
  * An interface representing the structure of RTL related class.
  * @interface
  */
-declare class _RTLInterface {
+export interface RTLInterface {
     /** A boolean indicating whether the text direction is right-to-left. */
     isRTL: boolean;
 }
@@ -24,8 +17,8 @@ declare class _RTLInterface {
  * allowing you to easily determine the text direction within your component.
  *
  * @function
- * @param {Constructor<LitElement>} superClass - The LitElement class to extend with RTL functionality.
- * @returns {Constructor<_RTLInterface> & T} - A new class extending both LitElement and _RTLInterface.
+ * @param {GenericConstructor<LitElement>} superClass - The LitElement class to extend with RTL functionality.
+ * @returns {GenericConstructor<RTLInterface> & T} - A new class extending both LitElement and RTLInterface.
  *
  * @example
  * ```typescript
@@ -64,13 +57,13 @@ declare class _RTLInterface {
  * ```
  */
 export const RtlMixin =
-    <T extends Constructor<LitElement>>(superClass: T) => {
+    <T extends GenericConstructor<LitElement>>(superClass: T) => {
         /**
        * Class representing a LitElement with RTL handling.
        * @extends {LitElement}
-       * @implements {_RTLInterface}
+       * @implements {RTLInterface}
        */
-        class RTLElement extends superClass implements _RTLInterface {
+        class RTLElement extends superClass implements RTLInterface {
             /**
              * A getter to determine whether the text direction is right-to-left (RTL).
              * If the `dir` property is present on the component, it will be used to determine the text direction.
@@ -94,5 +87,5 @@ export const RtlMixin =
             }
         }
 
-        return RTLElement as Constructor<_RTLInterface> & T;
+        return RTLElement as GenericConstructor<RTLInterface> & T;
     };

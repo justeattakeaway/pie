@@ -2,7 +2,9 @@ import {
     LitElement, html, unsafeCSS, nothing, TemplateResult, PropertyValues,
 } from 'lit';
 import { property, query } from 'lit/decorators.js';
-import { RtlMixin, validPropertyValues, defineCustomElement } from '@justeattakeaway/pie-webc-core';
+import {
+    RtlMixin, validPropertyValues, defineCustomElement, FormControlMixin,
+} from '@justeattakeaway/pie-webc-core';
 import styles from './switch.scss?inline';
 import {
     SwitchProps, ON_SWITCH_CHANGED_EVENT, AriaProps, labelPlacements,
@@ -19,20 +21,9 @@ const componentSelector = 'pie-switch';
  * @tagname pie-switch
  * @event {CustomEvent} change - when the switch checked state is changed.
  */
-
-export class PieSwitch extends RtlMixin(LitElement) implements SwitchProps {
-    // TODO - we may want to consider making the element internals code reusable for other form controls.
-    static formAssociated = true;
-
-    private readonly _internals: ElementInternals;
-
+export class PieSwitch extends FormControlMixin(RtlMixin(LitElement)) implements SwitchProps {
     @query('input[type="checkbox"]')
     private input?: HTMLInputElement;
-
-    constructor () {
-        super();
-        this._internals = this.attachInternals();
-    }
 
     protected firstUpdated (_changedProperties: PropertyValues<this>): void {
         super.firstUpdated(_changedProperties);

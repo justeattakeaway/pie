@@ -1,5 +1,58 @@
 # Changelog
 
+## 0.44.0
+
+### Minor Changes
+
+- [Changed] - Added `@justeattakeaway/pie-wrapper-react` as a devDependency as `build` now relies on the publish `add-react-wrapper` executable ([#1144](https://github.com/justeattakeaway/pie/pull/1144)) by [@siggerzz](https://github.com/siggerzz)
+
+- [Added] - Add new `create:manifest` script to create `custom-elements.json` in the components root directory. ([#1144](https://github.com/justeattakeaway/pie/pull/1144)) by [@siggerzz](https://github.com/siggerzz)
+
+  [Added] - `custom-elements-manifest.config.mjs`.
+  [Changed] - `package.json` to correctly export the produced `custom-elements.json`.
+
+### Patch Changes
+
+- Updated dependencies [[`320ee9d4b`](https://github.com/justeattakeaway/pie/commit/320ee9d4b53df60d2e69256c5a64c7abfbfbae16), [`4c65a8176`](https://github.com/justeattakeaway/pie/commit/4c65a8176273f3883dc2be2d0c8a33aef56f8993), [`4c65a8176`](https://github.com/justeattakeaway/pie/commit/4c65a8176273f3883dc2be2d0c8a33aef56f8993), [`320ee9d4b`](https://github.com/justeattakeaway/pie/commit/320ee9d4b53df60d2e69256c5a64c7abfbfbae16)]:
+  - @justeattakeaway/pie-webc-core@0.16.0
+  - @justeattakeaway/pie-spinner@0.4.0
+
+## 0.43.0
+
+### Minor Changes
+
+- [Changed] - Use new FormControlMixin in `pie-button` and remove old form association code ([#1143](https://github.com/justeattakeaway/pie/pull/1143)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Removed] - getShadowElementStylePropValues function from button component test to pie-webc-testing helpers ([#1123](https://github.com/justeattakeaway/pie/pull/1123)) by [@dandel10n](https://github.com/dandel10n)
+
+### Patch Changes
+
+- Updated dependencies [[`687bdd904`](https://github.com/justeattakeaway/pie/commit/687bdd90475fef58a492c980a7f7d9261ee94eb9)]:
+  - @justeattakeaway/pie-webc-core@0.15.0
+  - @justeattakeaway/pie-spinner@0.3.3
+
+## 0.42.1
+
+### Patch Changes
+
+- [Fixed] - Button mount re-added to visual tests to fix visual regressions ([#1140](https://github.com/justeattakeaway/pie/pull/1140)) by [@ashleynolan](https://github.com/ashleynolan)
+
+- Updated dependencies [[`c4b78bf9a`](https://github.com/justeattakeaway/pie/commit/c4b78bf9a42e165c8feed20197fbe7d5875a9dd4), [`c4b78bf9a`](https://github.com/justeattakeaway/pie/commit/c4b78bf9a42e165c8feed20197fbe7d5875a9dd4)]:
+  - @justeattakeaway/pie-webc-core@0.14.0
+  - @justeattakeaway/pie-spinner@0.3.2
+
+## 0.42.0
+
+### Minor Changes
+
+- [Changed] - README to link directly to documentation site ([#1126](https://github.com/justeattakeaway/pie/pull/1126)) by [@LTurns](https://github.com/LTurns)
+
+### Patch Changes
+
+- [Changed] - `--btn-icon-display` and `--btn-icon-size` to `--icon-display-override` and `--icon-size-override` variables ([#1127](https://github.com/justeattakeaway/pie/pull/1127)) by [@dandel10n](https://github.com/dandel10n)
+
+- [Fixed] - Add missing closing bracket for tag ([#1109](https://github.com/justeattakeaway/pie/pull/1109)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
 ## 0.41.1
 
 ### Patch Changes
