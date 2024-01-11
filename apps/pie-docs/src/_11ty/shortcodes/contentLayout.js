@@ -14,7 +14,7 @@ const contentItem = (content) => `<div class="c-columns-item">
  * Creates a container that displays contents in two columns.
  * @param {object} content - content to be displayed in columns
  */
-const contentLayout = (content) => `<div class="c-columns" style="--columns">
+const contentLayout = (content) => `<div class="c-columns">
     ${headingAnchor(markdownFilter(deindentHTML(content)))}
     </div>`;
 

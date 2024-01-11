@@ -2,9 +2,6 @@
 eleventyNavigation:
     key: 'Component status'
     parent: Components
-eleventyComputed:
-    data: "{% include './component-statuses.json' %}"
-    descriptions: "{% include './status-descriptions.json' %}"
 ---
 
 ## Web
@@ -13,11 +10,17 @@ eleventyComputed:
   dataType: 'web'
 } %}
 
+{% set tagName = 'web-table' %}
+{% include "show-more.njk" %}
+
 ## Apps
 
 {% componentStatusTable {
   dataType: 'app'
 } %}
+
+{% set tagName = 'app-table' %}
+{% include "show-more.njk" %}
 
 ## Status descriptions
 

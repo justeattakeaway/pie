@@ -1,43 +1,28 @@
 @use '../fozzie-config' as f;
+@use './table';
+
+.c-termsAndDescriptions-backdrop {
+    overflow-x: auto;
+}
 
 .c-termsAndDescriptions {
-    overflow: scroll;
-    white-space: wrap;
-}
+    @extend %c-table;
+    
+    background-color: f.$color-background-default;
+    box-shadow: none;
+    border-spacing: f.$spacing-c;;
+    border-collapse: separate;
+    max-inline-size: 100%;
 
-.c-columns {
-    --columns: 2;
-    --margin: 0;
-    --gap: f.$spacing-e;
-
-    display: grid;
-
-    column-gap: var(--gap);
-    margin-bottom: var(--margin);
-    grid-template-columns: 1fr 1fr;
-
-    @include f.media('>mid') {
-        grid-template-columns: repeat(var(--columns), 1fr);
+    td {
+        padding: f.$spacing-c;
+        border-color: f.$color-container-default;
+        background-color: f.$color-container-subtle;
+        border-radius: f.$radius-rounded-c;
     }
-}
 
-.c-columns-terms {
-    display: flex;
-    flex-direction: column;
-    grid-column: 1;
-    min-width: 178px;
-
-    @include f.media('>=mid') {
-        margin-block-end: 0;
-    }
-}
-
-.c-columns-descriptions {
-    display: flex;
-    flex-direction: column;
-    grid-column: 2 / 6;
-
-    @include f.media('>=mid') {
-        margin-block-end: 0;
+    td:first-child {
+        text-align: end;
+        width: 10%;
     }
 }
