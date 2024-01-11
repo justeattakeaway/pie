@@ -1,5 +1,11 @@
 # @justeattakeaway/generator-pie-component
 
+## 0.17.0
+
+### Minor Changes
+
+- [Changed] - Generator template to correctly extend the shared tsconfig.json ([#1159](https://github.com/justeattakeaway/pie/pull/1159)) by [@siggerzz](https://github.com/siggerzz)
+
 ## 0.16.0
 
 ### Minor Changes

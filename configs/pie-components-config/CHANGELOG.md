@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-components-config
 
+## 0.9.0
+
+### Minor Changes
+
+- [Changed] - Ensure shared `tsconfig.json` / `vite.config.js` get exported as part of the package ([#1159](https://github.com/justeattakeaway/pie/pull/1159)) by [@siggerzz](https://github.com/siggerzz)
+
 ## 0.8.0
 
 ### Minor Changes

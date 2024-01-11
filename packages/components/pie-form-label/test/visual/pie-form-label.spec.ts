@@ -10,8 +10,8 @@ import type {
 import {
     createTestWebComponent,
 } from '@justeattakeaway/pie-webc-testing/src/helpers/rendering.ts';
-import { PieFormLabel } from '@/index';
-import { FormLabelProps } from '@/defs';
+import { PieFormLabel } from '../../src/index.ts';
+import { FormLabelProps } from '../../src/defs.ts';
 
 const renderTestPieDivider = (propVals: WebComponentPropValues) => `<pie-form-label optional="${propVals.optional}" trailing="${propVals.trailing}">Label</pie-form-label>`;
 

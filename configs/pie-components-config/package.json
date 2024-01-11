@@ -1,12 +1,14 @@
 {
   "name": "@justeattakeaway/pie-components-config",
-  "version": "0.8.0",
+  "version": "0.9.0",
   "main": "index.js",
   "type": "module",
   "author": "Just Eat Takeaway.com - Design System Team",
   "description": "Shared configuration files for PIE components",
   "files": [
-    "custom-elements-manifest.config.js"
+    "custom-elements-manifest.config.js",
+    "vite.config.js",
+    "tsconfig.json"
   ],
   "dependencies": {
     "deepmerge-ts": "5.1.0"
