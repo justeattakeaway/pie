@@ -263,7 +263,7 @@ test.describe('PieInput - Component tests', () => {
     });
 
     test.describe('Form integration', () => {
-        test('should appear within the form data object when the form is submitted', async ({ page }) => {
+        test('should correctly set the value of username in the FormData object when submitted', async ({ page }) => {
             // Arrange
             await page.setContent(`
                 <form id="testForm" action="/foo" method="POST">
