@@ -17,6 +17,7 @@ type InputStoryMeta = StoryMeta<InputProps>;
 const defaultArgs: InputProps = {
     type: 'text',
     value: '',
+    name: 'testName',
 };
 
 const inputStoryMeta: InputStoryMeta = {
@@ -32,10 +33,17 @@ const inputStoryMeta: InputStoryMeta = {
             },
         },
         value: {
-            description: 'The value of the input.',
+            description: 'The value of the input (used as a key/value pair in HTML forms with `name`).',
             control: 'text',
             defaultValue: {
-                summary: 'value',
+                summary: '',
+            },
+        },
+        name: {
+            description: 'The name of the input (used as a key/value pair with `value`). This is required in order to work properly with forms.',
+            control: 'text',
+            defaultValue: {
+                summary: '',
             },
         },
     },
@@ -48,7 +56,7 @@ const inputStoryMeta: InputStoryMeta = {
     },
 };
 
-const Template = ({ type, value }: InputProps) => {
+const Template = ({ type, value, name }: InputProps) => {
     const [, updateArgs] = UseArgs();
 
     function onInput (event: InputEvent) {
@@ -65,49 +73,47 @@ const Template = ({ type, value }: InputProps) => {
     <pie-input
         type="${ifDefined(type)}"
         .value="${value}"
+        name="${ifDefined(name)}"
         @input="${onInput}"></pie-input>
     `;
 };
 
-const FormTemplate: TemplateFunction<InputProps> = (props: InputProps) => html`
-<h2>Fake form</h2>
-<form id="testForm">
-        <p>Required fields are followed by <strong><span aria-label="required">*</span></strong>.</p>
-        <section>
-            <h2>Contact information</h2>
-            <p>
-                <label for="name">
-                    <span>Name: </span>
-                    <strong><span aria-label="required">*</span></strong>
-                </label>
-                ${Template({ ...props, type: 'text' })}
-            </p>
-        </section>
-        <section style="display: flex; gap: var(--dt-spacing-a); justify-content: flex-end; flex-wrap: wrap; margin-top: var(--dt-spacing-b);">
-            <pie-button type="reset" variant="secondary">Reset</pie-button>
-            <pie-button type="submit" variant="primary">Submit</pie-button>
-        </section>
-    </form>
-    <p id="formLog" style="display: none; font-size: 2rem; color: var(--dt-color-support-positive);"></p>
-    <script>
-        // Display a success message to the user when they submit the form
-        const form = document.querySelector('#testForm');
-        const formLog = document.querySelector('#formLog');
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
+const FormTemplate: TemplateFunction<InputProps> = (props: InputProps) => {
+    function onSubmit (event: SubmitEvent) {
+        event.preventDefault();
 
-            formLog.innerHTML = 'Form submitted!';
-            formLog.style.display = 'block';
+        const form = event.target as HTMLFormElement;
+        const formData = new FormData(form);
 
-            // Reset the success message after roughly 8 seconds
-            setTimeout(() => {
-                formLog.innerHTML = '';
-                formLog.style.display = 'none';
-            }, 8000);
+        const data: { [key: string]: string } = {};
+        formData.forEach((value, key) => {
+            data[key] = value.toString();
         });
 
-    </script>
-`;
+        action('submit')({
+            ...data,
+        });
+    }
+
+    return html`
+        <h2>Fake form</h2>
+        <form id="testForm" @submit="${onSubmit}">
+                <section>
+                    <h2>Contact information</h2>
+                    <p>
+                        <label for="name">
+                            <span>Name: </span>
+                        </label>
+                        ${Template({ ...props, type: 'text' })}
+                    </p>
+                </section>
+                <section style="display: flex; gap: var(--dt-spacing-a); justify-content: flex-end; flex-wrap: wrap; margin-top: var(--dt-spacing-b);">
+                    <pie-button type="reset" variant="secondary">Reset</pie-button>
+                    <pie-button type="submit" variant="primary">Submit</pie-button>
+                </section>
+            </form>
+    `;
+};
 
 const createInputStoryWithForm = createStory<InputProps>(FormTemplate, defaultArgs);
 
