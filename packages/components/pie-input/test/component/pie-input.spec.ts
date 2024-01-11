@@ -284,5 +284,33 @@ test.describe('PieInput - Component tests', () => {
             // Assert
             expect(formDataObj.username).toBe('test');
         });
+
+        test('should submit the updated value if the value prop is changed programmatically', async ({ page }) => {
+            // Arrange
+            await page.setContent(`
+                <form id="testForm" action="/foo" method="POST">
+                    <pie-input type="text" name="username"></pie-input>
+                    <button type="submit">Submit</button>
+                </form>
+                <div id="formDataJson""></div>
+            `);
+
+            await setupFormDataExtraction(page, '#testForm', '#formDataJson');
+
+            // Act
+            await page.locator('pie-input').type('test');
+
+            await page.evaluate(() => {
+                const input = document.querySelector('pie-input') as PieInput;
+                input.value = 'test2';
+            });
+
+            await page.click('button[type="submit"]');
+
+            const formDataObj = await getFormDataObject(page, '#formDataJson');
+
+            // Assert
+            expect(formDataObj.username).toBe('test2');
+        });
     });
 });

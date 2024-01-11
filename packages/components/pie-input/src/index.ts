@@ -39,6 +39,14 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
         this._internals.setFormValue(this.value);
     }
 
+    protected updated (_changedProperties: PropertyValues<this>): void {
+        super.updated(_changedProperties);
+
+        if (_changedProperties.has('value')) {
+            this._internals.setFormValue(this.value);
+        }
+    }
+
     /**
      * Handles data processing in response to the input event. The native input event is left to bubble up.
      * @param event - The input event.
