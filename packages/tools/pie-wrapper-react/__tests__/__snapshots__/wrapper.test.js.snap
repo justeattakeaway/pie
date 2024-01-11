@@ -21,7 +21,12 @@ const MockComponentReact = createComponent({
 
 
 
-export const MockComponent = MockComponentReact as React.ForwardRefExoticComponent<React.PropsWithoutRef<MockComponentProps> & React.RefAttributes<MockComponentLit>>;
+type MockComponentEvents = {
+    onCustomEvent?: (event: CustomEvent<any>) => void;
+    onAnotherCustomEvent?: (event: CustomEvent<any>) => void;
+};
+
+export const MockComponent = MockComponentReact as React.ForwardRefExoticComponent<React.PropsWithoutRef<MockComponentProps> & React.RefAttributes<MockComponentLit> & MockComponentEvents>;
 "
 `;
 
@@ -40,6 +45,8 @@ const ButtonComponentReact = createComponent({
     tagName: 'mock-component',
     events: {},
 });
+
+
 
 
 
@@ -62,6 +69,8 @@ const MockComponentReact = createComponent({
     tagName: 'mock-component',
     events: {},
 });
+
+
 
 
 
