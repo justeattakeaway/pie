@@ -3,7 +3,7 @@ import {
 } from 'lit';
 import { property, query } from 'lit/decorators.js';
 import {
-    RtlMixin, validPropertyValues, defineCustomElement, FormControlMixin,
+    RtlMixin, validPropertyValues, defineCustomElement, FormControlMixin, wrapNativeEvent,
 } from '@justeattakeaway/pie-webc-core';
 import styles from './switch.scss?inline';
 import {
@@ -94,13 +94,7 @@ export class PieSwitch extends FormControlMixin(RtlMixin(LitElement)) implements
     onChange (event: Event) {
         const { checked } = event?.currentTarget as HTMLInputElement;
         this.checked = checked;
-        const changedEvent = new CustomEvent(
-            ON_SWITCH_CHANGED_EVENT,
-            {
-                bubbles: true,
-                composed: true,
-            },
-        );
+        const changedEvent = wrapNativeEvent(event);
 
         this.dispatchEvent(changedEvent);
         this.handleFormAssociation();

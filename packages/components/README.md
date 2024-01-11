@@ -2,6 +2,16 @@
 
 This readme contains some general information that is relevant for all components. For specific information about a component, please refer to the readme in the component's directory.
 
+## Events
+Some components dispatch events that consuming applications can listen for. In some cases, we simply allow native events, such as `input` to bubble up from the component. However, in some cases we need to dispatch custom events. This could be due to the fact that the component does not have a native counter part, and so the event is unique to the component. Or it could be that the native event, such as `change`
+has `composed` set to false. This prevents such events from bubbling outside of the shadow DOM. [Reference](https://javascript.info/shadow-dom-events#event-composed).
+
+In the case of native events that do not bubble, we will dispatch a custom event that is the same name as the native event and attach a reference to the original event.
+
+In the case of unique component events, we will dispatch a custom event with a unique name that begins with `pie-`.
+
+In both cases, these can be listened to the same way as any other event.
+
 ## Testing
 
 ### Browser tests

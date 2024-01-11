@@ -6,7 +6,7 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import { live } from 'lit/directives/live.js';
 
 import {
-    validPropertyValues, RtlMixin, defineCustomElement, FormControlMixin,
+    validPropertyValues, RtlMixin, defineCustomElement, FormControlMixin, wrapNativeEvent,
 } from '@justeattakeaway/pie-webc-core';
 
 import styles from './input.scss?inline';
@@ -20,6 +20,7 @@ const componentSelector = 'pie-input';
 /**
  * @tagname pie-input
  * @event {InputEvent} input - when the input value is changed.
+ * @event {CustomEvent} change - when the input value is changed.
  */
 export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements InputProps {
     static shadowRootOptions = { ...LitElement.shadowRootOptions, delegatesFocus: true };
@@ -56,6 +57,20 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
         this._internals.setFormValue(this.value);
     };
 
+    /**
+     * Captures the native change event and wraps it in a custom event.
+     * @param event - The change event.
+     */
+    private handleChange = (event: Event) => {
+        // We have to create our own change event because the native one
+        // does not penetrate the shadow boundary.
+
+        // This is because some events set `composed` to `false`.
+        // Reference: https://javascript.info/shadow-dom-events#event-composed
+        const customChangeEvent = wrapNativeEvent(event);
+        this.dispatchEvent(customChangeEvent);
+    };
+
     render () {
         const { type, value, name } = this;
 
@@ -64,6 +79,7 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
             .value=${live(value)}
             name=${ifDefined(name)}
             @input=${this.handleInput}
+            @change=${this.handleChange}
             data-test-id="pie-input">`;
     }
 
