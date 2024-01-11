@@ -33,14 +33,14 @@ const inputStoryMeta: InputStoryMeta = {
             },
         },
         value: {
-            description: 'The value of the input (used in HTML forms as a key/value pair in HTML forms with the name).',
+            description: 'The value of the input (used as a key/value pair in HTML forms with `name`).',
             control: 'text',
             defaultValue: {
                 summary: '',
             },
         },
         name: {
-            description: 'The name of the input (used in HTML forms as a key/value pair with the value). This is required in order to work properly with forms.',
+            description: 'The name of the input (used as a key/value pair with `value`). This is required in order to work properly with forms.',
             control: 'text',
             defaultValue: {
                 summary: '',
