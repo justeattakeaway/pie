@@ -69,12 +69,19 @@ const Template = ({ type, value, name }: InputProps) => {
         });
     }
 
+    function onChange (event: CustomEvent) {
+        action('change')({
+            detail: event.detail,
+        });
+    }
+
     return html`
     <pie-input
         type="${ifDefined(type)}"
         .value="${value}"
         name="${ifDefined(name)}"
-        @input="${onInput}"></pie-input>
+        @input="${onInput}"
+        @change="${onChange}"></pie-input>
     `;
 };
 
@@ -98,20 +105,20 @@ const FormTemplate: TemplateFunction<InputProps> = (props: InputProps) => {
     return html`
         <h2>Fake form</h2>
         <form id="testForm" @submit="${onSubmit}">
-                <section>
-                    <h2>Contact information</h2>
-                    <p>
-                        <label for="name">
-                            <span>Name: </span>
-                        </label>
-                        ${Template({ ...props, type: 'text' })}
-                    </p>
-                </section>
-                <section style="display: flex; gap: var(--dt-spacing-a); justify-content: flex-end; flex-wrap: wrap; margin-top: var(--dt-spacing-b);">
-                    <pie-button type="reset" variant="secondary">Reset</pie-button>
-                    <pie-button type="submit" variant="primary">Submit</pie-button>
-                </section>
-            </form>
+            <section>
+                <h2>Contact information</h2>
+                <p>
+                    <label for="name">
+                        <span>Name: </span>
+                    </label>
+                    ${Template({ ...props, type: 'text' })}
+                </p>
+            </section>
+            <section style="display: flex; gap: var(--dt-spacing-a); justify-content: flex-end; flex-wrap: wrap; margin-top: var(--dt-spacing-b);">
+                <pie-button type="reset" variant="secondary">Reset</pie-button>
+                <pie-button type="submit" variant="primary">Submit</pie-button>
+            </section>
+        </form>
     `;
 };
 

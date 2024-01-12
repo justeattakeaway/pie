@@ -54,24 +54,6 @@
                     "members": [
                         {
                             "kind": "field",
-                            "name": "formAssociated",
-                            "type": {
-                                "text": "boolean"
-                            },
-                            "static": true,
-                            "default": "true"
-                        },
-                        {
-                            "kind": "field",
-                            "name": "_internals",
-                            "type": {
-                                "text": "ElementInternals"
-                            },
-                            "privacy": "private",
-                            "readonly": true
-                        },
-                        {
-                            "kind": "field",
                             "name": "input",
                             "type": {
                                 "text": "HTMLInputElement | undefined"
@@ -335,6 +317,10 @@
                         }
                     ],
                     "mixins": [
+                        {
+                            "name": "FormControlMixin",
+                            "package": "@justeattakeaway/pie-webc-core"
+                        },
                         {
                             "name": "RtlMixin",
                             "package": "@justeattakeaway/pie-webc-core"

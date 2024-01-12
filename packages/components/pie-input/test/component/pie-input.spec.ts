@@ -260,6 +260,55 @@ test.describe('PieInput - Component tests', () => {
                 expect(await page.locator('#output').innerText()).toEqual(expectedMessage);
             });
         });
+
+        test.describe('change', () => {
+            test('should dispatch a change event when the input value changes', async ({ mount, page }) => {
+                // Arrange
+                const messages: CustomEvent[] = [];
+
+                await mount(PieInput, {
+                    props: {} as InputProps,
+                    on: {
+                        change: (data: CustomEvent) => {
+                            messages.push(data);
+                        },
+                    },
+                });
+
+                const input = page.locator('pie-input');
+
+                // Act
+                await input.type('test');
+                await page.keyboard.press('Tab');
+
+                // Assert
+                expect(messages.length).toEqual(1);
+            });
+
+            test('should dispatch a custom event that contains the original native event', async ({ mount, page }) => {
+                // Arrange
+                const messages: CustomEvent[] = [];
+                const expectedMessages = [{ sourceEvent: { isTrusted: true } }];
+
+                await mount(PieInput, {
+                    props: {} as InputProps,
+                    on: {
+                        change: (data: CustomEvent) => {
+                            messages.push(data);
+                        },
+                    },
+                });
+
+                const input = page.locator('pie-input');
+
+                // Act
+                await input.type('test');
+                await page.keyboard.press('Tab'); // Change events on inputs are triggered when they lose focus after the value was changed
+
+                // Assert
+                expect(messages).toStrictEqual(expectedMessages);
+            });
+        });
     });
 
     test.describe('Form integration', () => {
