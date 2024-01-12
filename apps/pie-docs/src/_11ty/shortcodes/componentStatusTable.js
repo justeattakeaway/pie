@@ -46,7 +46,7 @@ module.exports = ({
     const hasWidePadding = headings <= 3;
 
     return `<div class="c-componentStatusTable-backdrop">
-    <table class="c-componentStatusTable ${hasWidePadding ? 'c-componentStatusTable-hasWidePadding' : ''}" data-js="${dataType}-table">
+    <table class="c-componentStatusTable ${hasWidePadding ? 'c-componentStatusTable-hasWidePadding' : ''}" data-js="${dataType}-table" data-test-id="${dataType}-table">
     ${`<tr>${headings.map((heading) => `<th> ${'icon' in heading ? `
             <div class="c-resourceTable-resource"><img src="${heading.icon}"></img>${heading.title}</div>` : heading.title}
             </th>`).join('')}</tr>`

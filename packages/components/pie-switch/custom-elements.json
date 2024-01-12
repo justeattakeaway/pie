@@ -1,371 +1,357 @@
 {
-    "schemaVersion": "1.0.0",
-    "readme": "",
-    "modules": [
+  "schemaVersion": "1.0.0",
+  "readme": "",
+  "modules": [
+    {
+      "kind": "javascript-module",
+      "path": "src/defs.js",
+      "declarations": [
         {
-            "kind": "javascript-module",
-            "path": "src/defs.js",
-            "declarations": [
-                {
-                    "kind": "variable",
-                    "name": "labelPlacements",
-                    "type": {
-                        "text": "['leading', 'trailing']"
-                    },
-                    "default": "['leading', 'trailing']"
-                },
-                {
-                    "kind": "variable",
-                    "name": "ON_SWITCH_CHANGED_EVENT",
-                    "type": {
-                        "text": "string"
-                    },
-                    "default": "'change'",
-                    "description": "Event name for when the switch checked state is changed."
-                }
-            ],
-            "exports": [
-                {
-                    "kind": "js",
-                    "name": "labelPlacements",
-                    "declaration": {
-                        "name": "labelPlacements",
-                        "module": "src/defs.js"
-                    }
-                },
-                {
-                    "kind": "js",
-                    "name": "ON_SWITCH_CHANGED_EVENT",
-                    "declaration": {
-                        "name": "ON_SWITCH_CHANGED_EVENT",
-                        "module": "src/defs.js"
-                    }
-                }
-            ]
+          "kind": "variable",
+          "name": "labelPlacements",
+          "type": {
+            "text": "['leading', 'trailing']"
+          },
+          "default": "['leading', 'trailing']"
         },
         {
-            "kind": "javascript-module",
-            "path": "src/index.js",
-            "declarations": [
-                {
-                    "kind": "class",
-                    "description": "",
-                    "name": "PieSwitch",
-                    "members": [
-                        {
-                            "kind": "field",
-                            "name": "formAssociated",
-                            "type": {
-                                "text": "boolean"
-                            },
-                            "static": true,
-                            "default": "true"
-                        },
-                        {
-                            "kind": "field",
-                            "name": "_internals",
-                            "type": {
-                                "text": "ElementInternals"
-                            },
-                            "privacy": "private",
-                            "readonly": true
-                        },
-                        {
-                            "kind": "field",
-                            "name": "input",
-                            "type": {
-                                "text": "HTMLInputElement | undefined"
-                            },
-                            "privacy": "private"
-                        },
-                        {
-                            "kind": "field",
-                            "name": "label",
-                            "type": {
-                                "text": "string | undefined"
-                            },
-                            "privacy": "public",
-                            "attribute": "label"
-                        },
-                        {
-                            "kind": "field",
-                            "name": "labelPlacement",
-                            "type": {
-                                "text": "SwitchProps['labelPlacement']"
-                            },
-                            "privacy": "public",
-                            "default": "'leading'",
-                            "attribute": "labelPlacement"
-                        },
-                        {
-                            "kind": "field",
-                            "name": "aria",
-                            "type": {
-                                "text": "AriaProps"
-                            },
-                            "privacy": "public",
-                            "attribute": "aria"
-                        },
-                        {
-                            "kind": "field",
-                            "name": "checked",
-                            "type": {
-                                "text": "boolean"
-                            },
-                            "privacy": "public",
-                            "default": "false",
-                            "attribute": "checked",
-                            "reflects": true
-                        },
-                        {
-                            "kind": "field",
-                            "name": "required",
-                            "type": {
-                                "text": "boolean"
-                            },
-                            "privacy": "public",
-                            "default": "false",
-                            "attribute": "required",
-                            "reflects": true
-                        },
-                        {
-                            "kind": "field",
-                            "name": "value",
-                            "type": {
-                                "text": "string"
-                            },
-                            "privacy": "public",
-                            "default": "'on'",
-                            "attribute": "value"
-                        },
-                        {
-                            "kind": "field",
-                            "name": "name",
-                            "type": {
-                                "text": "string | undefined"
-                            },
-                            "privacy": "public",
-                            "attribute": "name"
-                        },
-                        {
-                            "kind": "field",
-                            "name": "disabled",
-                            "type": {
-                                "text": "boolean"
-                            },
-                            "privacy": "public",
-                            "default": "false",
-                            "attribute": "disabled",
-                            "reflects": true
-                        },
-                        {
-                            "kind": "method",
-                            "name": "handleFormAssociation",
-                            "privacy": "private",
-                            "return": {
-                                "type": {
-                                    "text": "void"
-                                }
-                            },
-                            "description": "Ensures that the form value and validation state are in sync with the component."
-                        },
-                        {
-                            "kind": "method",
-                            "name": "onChange",
-                            "parameters": [
-                                {
-                                    "name": "event",
-                                    "type": {
-                                        "text": "Event"
-                                    },
-                                    "description": "This should be the change event that was listened for on an input element with `type=\"checkbox\"`."
-                                }
-                            ],
-                            "description": "The onChange function updates the checkbox state and emits an event for consumers."
-                        },
-                        {
-                            "kind": "method",
-                            "name": "checkValidity",
-                            "privacy": "public",
-                            "return": {
-                                "type": {
-                                    "text": ""
-                                }
-                            },
-                            "description": "Returns a boolean value which indicates validity of the value of the component. If the value is invalid, this method also fires the invalid event on the component.\nhttps://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/checkValidity"
-                        },
-                        {
-                            "kind": "method",
-                            "name": "reportValidity",
-                            "privacy": "public",
-                            "return": {
-                                "type": {
-                                    "text": ""
-                                }
-                            },
-                            "description": "If the value is invalid, this method also fires the invalid event on the element, and (if the event isn't canceled) reports the problem to the user.\nhttps://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/reportValidity"
-                        },
-                        {
-                            "kind": "method",
-                            "name": "setCustomValidity",
-                            "privacy": "public",
-                            "return": {
-                                "type": {
-                                    "text": "void"
-                                }
-                            },
-                            "parameters": [
-                                {
-                                    "name": "message",
-                                    "type": {
-                                        "text": "string"
-                                    }
-                                }
-                            ],
-                            "description": "Allows a consumer to set a custom validation message on the switch. An empty string counts as valid.\nhttps://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/setCustomValidity"
-                        },
-                        {
-                            "kind": "field",
-                            "name": "validity",
-                            "type": {
-                                "text": "ValidityState"
-                            },
-                            "privacy": "public",
-                            "description": "(Read-only) returns a ValidityState with the validity states that this element is in.\nhttps://developer.mozilla.org/en-US/docs/Web/API/HTMLObjectElement/validity",
-                            "readonly": true
-                        },
-                        {
-                            "kind": "field",
-                            "name": "validationMessage",
-                            "type": {
-                                "text": "string"
-                            },
-                            "privacy": "public",
-                            "description": "(Read-only) Returns a string representing a localized message that describes the validation constraints that the control does not satisfy (if any).\nThis string is empty if the component is valid.\nhttps://developer.mozilla.org/en-US/docs/Web/API/HTMLObjectElement/validationMessage",
-                            "readonly": true
-                        },
-                        {
-                            "kind": "method",
-                            "name": "renderSwitchLabel",
-                            "privacy": "private",
-                            "return": {
-                                "type": {
-                                    "text": "TemplateResult"
-                                }
-                            },
-                            "description": "Renders the label for a switch if provided.\nif invalid value is passed, nothing gets rendered"
-                        }
-                    ],
-                    "events": [
-                        {
-                            "name": "invalid",
-                            "type": {
-                                "text": "Event"
-                            }
-                        },
-                        {
-                            "type": {
-                                "text": "CustomEvent"
-                            },
-                            "description": "when the switch checked state is changed.",
-                            "name": "change"
-                        }
-                    ],
-                    "attributes": [
-                        {
-                            "name": "label",
-                            "type": {
-                                "text": "string | undefined"
-                            },
-                            "fieldName": "label"
-                        },
-                        {
-                            "name": "labelPlacement",
-                            "type": {
-                                "text": "SwitchProps['labelPlacement']"
-                            },
-                            "default": "'leading'",
-                            "fieldName": "labelPlacement"
-                        },
-                        {
-                            "name": "aria",
-                            "type": {
-                                "text": "AriaProps"
-                            },
-                            "fieldName": "aria"
-                        },
-                        {
-                            "name": "checked",
-                            "type": {
-                                "text": "boolean"
-                            },
-                            "default": "false",
-                            "fieldName": "checked"
-                        },
-                        {
-                            "name": "required",
-                            "type": {
-                                "text": "boolean"
-                            },
-                            "default": "false",
-                            "fieldName": "required"
-                        },
-                        {
-                            "name": "value",
-                            "type": {
-                                "text": "string"
-                            },
-                            "default": "'on'",
-                            "fieldName": "value"
-                        },
-                        {
-                            "name": "name",
-                            "type": {
-                                "text": "string | undefined"
-                            },
-                            "fieldName": "name"
-                        },
-                        {
-                            "name": "disabled",
-                            "type": {
-                                "text": "boolean"
-                            },
-                            "default": "false",
-                            "fieldName": "disabled"
-                        }
-                    ],
-                    "mixins": [
-                        {
-                            "name": "RtlMixin",
-                            "package": "@justeattakeaway/pie-webc-core"
-                        }
-                    ],
-                    "superclass": {
-                        "name": "LitElement",
-                        "package": "lit"
-                    },
-                    "tagName": "pie-switch",
-                    "customElement": true
-                }
-            ],
-            "exports": [
-                {
-                    "kind": "js",
-                    "name": "*",
-                    "declaration": {
-                        "name": "*",
-                        "package": "./defs"
-                    }
-                },
-                {
-                    "kind": "js",
-                    "name": "PieSwitch",
-                    "declaration": {
-                        "name": "PieSwitch",
-                        "module": "src/index.js"
-                    }
-                }
-            ]
+          "kind": "variable",
+          "name": "ON_SWITCH_CHANGED_EVENT",
+          "type": {
+            "text": "string"
+          },
+          "default": "'change'",
+          "description": "Event name for when the switch checked state is changed."
         }
-    ]
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "labelPlacements",
+          "declaration": {
+            "name": "labelPlacements",
+            "module": "src/defs.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "ON_SWITCH_CHANGED_EVENT",
+          "declaration": {
+            "name": "ON_SWITCH_CHANGED_EVENT",
+            "module": "src/defs.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/index.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "PieSwitch",
+          "members": [
+            {
+              "kind": "field",
+              "name": "input",
+              "type": {
+                "text": "HTMLInputElement | undefined"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "label",
+              "type": {
+                "text": "string | undefined"
+              },
+              "privacy": "public",
+              "attribute": "label"
+            },
+            {
+              "kind": "field",
+              "name": "labelPlacement",
+              "type": {
+                "text": "SwitchProps['labelPlacement']"
+              },
+              "privacy": "public",
+              "default": "'leading'",
+              "attribute": "labelPlacement"
+            },
+            {
+              "kind": "field",
+              "name": "aria",
+              "type": {
+                "text": "AriaProps"
+              },
+              "privacy": "public",
+              "attribute": "aria"
+            },
+            {
+              "kind": "field",
+              "name": "checked",
+              "type": {
+                "text": "boolean"
+              },
+              "privacy": "public",
+              "default": "false",
+              "attribute": "checked",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "required",
+              "type": {
+                "text": "boolean"
+              },
+              "privacy": "public",
+              "default": "false",
+              "attribute": "required",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "value",
+              "type": {
+                "text": "string"
+              },
+              "privacy": "public",
+              "default": "'on'",
+              "attribute": "value"
+            },
+            {
+              "kind": "field",
+              "name": "name",
+              "type": {
+                "text": "string | undefined"
+              },
+              "privacy": "public",
+              "attribute": "name"
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "privacy": "public",
+              "default": "false",
+              "attribute": "disabled",
+              "reflects": true
+            },
+            {
+              "kind": "method",
+              "name": "handleFormAssociation",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "description": "Ensures that the form value and validation state are in sync with the component."
+            },
+            {
+              "kind": "method",
+              "name": "onChange",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "Event"
+                  },
+                  "description": "This should be the change event that was listened for on an input element with `type=\"checkbox\"`."
+                }
+              ],
+              "description": "The onChange function updates the checkbox state and emits an event for consumers."
+            },
+            {
+              "kind": "method",
+              "name": "checkValidity",
+              "privacy": "public",
+              "return": {
+                "type": {
+                  "text": ""
+                }
+              },
+              "description": "Returns a boolean value which indicates validity of the value of the component. If the value is invalid, this method also fires the invalid event on the component.\nhttps://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/checkValidity"
+            },
+            {
+              "kind": "method",
+              "name": "reportValidity",
+              "privacy": "public",
+              "return": {
+                "type": {
+                  "text": ""
+                }
+              },
+              "description": "If the value is invalid, this method also fires the invalid event on the element, and (if the event isn't canceled) reports the problem to the user.\nhttps://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/reportValidity"
+            },
+            {
+              "kind": "method",
+              "name": "setCustomValidity",
+              "privacy": "public",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "message",
+                  "type": {
+                    "text": "string"
+                  }
+                }
+              ],
+              "description": "Allows a consumer to set a custom validation message on the switch. An empty string counts as valid.\nhttps://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/setCustomValidity"
+            },
+            {
+              "kind": "field",
+              "name": "validity",
+              "type": {
+                "text": "ValidityState"
+              },
+              "privacy": "public",
+              "description": "(Read-only) returns a ValidityState with the validity states that this element is in.\nhttps://developer.mozilla.org/en-US/docs/Web/API/HTMLObjectElement/validity",
+              "readonly": true
+            },
+            {
+              "kind": "field",
+              "name": "validationMessage",
+              "type": {
+                "text": "string"
+              },
+              "privacy": "public",
+              "description": "(Read-only) Returns a string representing a localized message that describes the validation constraints that the control does not satisfy (if any).\nThis string is empty if the component is valid.\nhttps://developer.mozilla.org/en-US/docs/Web/API/HTMLObjectElement/validationMessage",
+              "readonly": true
+            },
+            {
+              "kind": "method",
+              "name": "renderSwitchLabel",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "TemplateResult"
+                }
+              },
+              "description": "Renders the label for a switch if provided.\nif invalid value is passed, nothing gets rendered"
+            }
+          ],
+          "events": [
+            {
+              "name": "invalid",
+              "type": {
+                "text": "Event"
+              }
+            },
+            {
+              "type": {
+                "text": "CustomEvent"
+              },
+              "description": "when the switch checked state is changed.",
+              "name": "change"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "label",
+              "type": {
+                "text": "string | undefined"
+              },
+              "fieldName": "label"
+            },
+            {
+              "name": "labelPlacement",
+              "type": {
+                "text": "SwitchProps['labelPlacement']"
+              },
+              "default": "'leading'",
+              "fieldName": "labelPlacement"
+            },
+            {
+              "name": "aria",
+              "type": {
+                "text": "AriaProps"
+              },
+              "fieldName": "aria"
+            },
+            {
+              "name": "checked",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "checked"
+            },
+            {
+              "name": "required",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "required"
+            },
+            {
+              "name": "value",
+              "type": {
+                "text": "string"
+              },
+              "default": "'on'",
+              "fieldName": "value"
+            },
+            {
+              "name": "name",
+              "type": {
+                "text": "string | undefined"
+              },
+              "fieldName": "name"
+            },
+            {
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "disabled"
+            }
+          ],
+          "mixins": [
+            {
+              "name": "FormControlMixin",
+              "package": "@justeattakeaway/pie-webc-core"
+            },
+            {
+              "name": "RtlMixin",
+              "package": "@justeattakeaway/pie-webc-core"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "pie-switch",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./defs"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "PieSwitch",
+          "declaration": {
+            "name": "PieSwitch",
+            "module": "src/index.js"
+          }
+        }
+      ]
+    }
+  ]
 }

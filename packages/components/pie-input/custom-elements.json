@@ -1,103 +1,107 @@
 {
-    "schemaVersion": "1.0.0",
-    "readme": "",
-    "modules": [
+  "schemaVersion": "1.0.0",
+  "readme": "",
+  "modules": [
+    {
+      "kind": "javascript-module",
+      "path": "src/defs.js",
+      "declarations": [
         {
-            "kind": "javascript-module",
-            "path": "src/defs.js",
-            "declarations": [
-                {
-                    "kind": "variable",
-                    "name": "types",
-                    "type": {
-                        "text": "['text', 'number', 'password', 'search', 'url', 'email', 'tel']"
-                    },
-                    "default": "['text', 'number', 'password', 'search', 'url', 'email', 'tel']"
-                }
-            ],
-            "exports": [
-                {
-                    "kind": "js",
-                    "name": "types",
-                    "declaration": {
-                        "name": "types",
-                        "module": "src/defs.js"
-                    }
-                }
-            ]
+          "kind": "variable",
+          "name": "types",
+          "type": {
+            "text": "['text', 'number', 'password', 'search', 'url', 'email', 'tel']"
+          },
+          "default": "['text', 'number', 'password', 'search', 'url', 'email', 'tel']"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "types",
+          "declaration": {
+            "name": "types",
+            "module": "src/defs.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/index.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "PieInput",
+          "members": [
+            {
+              "kind": "field",
+              "name": "shadowRootOptions",
+              "type": {
+                "text": "object"
+              },
+              "static": true,
+              "default": "{ ...LitElement.shadowRootOptions, delegatesFocus: true }"
+            },
+            {
+              "kind": "field",
+              "name": "type",
+              "type": {
+                "text": "InputProps['type']"
+              },
+              "privacy": "public",
+              "default": "'text'",
+              "attribute": "type",
+              "reflects": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "type",
+              "type": {
+                "text": "InputProps['type']"
+              },
+              "default": "'text'",
+              "fieldName": "type"
+            }
+          ],
+          "mixins": [
+            {
+              "name": "FormControlMixin",
+              "package": "@justeattakeaway/pie-webc-core"
+            },
+            {
+              "name": "RtlMixin",
+              "package": "@justeattakeaway/pie-webc-core"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "pie-input",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "package": "./defs"
+          }
         },
         {
-            "kind": "javascript-module",
-            "path": "src/index.js",
-            "declarations": [
-                {
-                    "kind": "class",
-                    "description": "",
-                    "name": "PieInput",
-                    "members": [
-                        {
-                            "kind": "field",
-                            "name": "shadowRootOptions",
-                            "type": {
-                                "text": "object"
-                            },
-                            "static": true,
-                            "default": "{ ...LitElement.shadowRootOptions, delegatesFocus: true }"
-                        },
-                        {
-                            "kind": "field",
-                            "name": "type",
-                            "type": {
-                                "text": "InputProps['type']"
-                            },
-                            "privacy": "public",
-                            "default": "'text'",
-                            "attribute": "type",
-                            "reflects": true
-                        }
-                    ],
-                    "attributes": [
-                        {
-                            "name": "type",
-                            "type": {
-                                "text": "InputProps['type']"
-                            },
-                            "default": "'text'",
-                            "fieldName": "type"
-                        }
-                    ],
-                    "mixins": [
-                        {
-                            "name": "RtlMixin",
-                            "package": "@justeattakeaway/pie-webc-core"
-                        }
-                    ],
-                    "superclass": {
-                        "name": "LitElement",
-                        "package": "lit"
-                    },
-                    "tagName": "pie-input",
-                    "customElement": true
-                }
-            ],
-            "exports": [
-                {
-                    "kind": "js",
-                    "name": "*",
-                    "declaration": {
-                        "name": "*",
-                        "package": "./defs"
-                    }
-                },
-                {
-                    "kind": "js",
-                    "name": "PieInput",
-                    "declaration": {
-                        "name": "PieInput",
-                        "module": "src/index.js"
-                    }
-                }
-            ]
+          "kind": "js",
+          "name": "PieInput",
+          "declaration": {
+            "name": "PieInput",
+            "module": "src/index.js"
+          }
         }
-    ]
+      ]
+    }
+  ]
 }
