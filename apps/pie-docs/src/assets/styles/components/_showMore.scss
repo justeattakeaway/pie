@@ -1,0 +1,22 @@
+@use '../fozzie-config' as f;
+
+.c-showMore-backdrop {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.c-showMore {
+    cursor: pointer;
+    color: f.$color-content-link-distinct;
+    outline: none;
+    border: none;
+    user-select: none;
+    background: transparent;
+    padding: 0;
+
+    svg {
+        vertical-align: middle;
+        display: inline-block;
+    }
+}
