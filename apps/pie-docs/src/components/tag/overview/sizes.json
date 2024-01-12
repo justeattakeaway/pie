@@ -1,0 +1,34 @@
+{
+  "headings": [
+    "",
+    "Size",
+    "Height",
+    "Notes"
+  ],
+  "rows": [
+    [
+      {
+        "type": "image",
+        "item": {
+          "src": "../../../assets/img/components/tag/size-height-large.svg",
+          "alt": "Large size tag with 24px height."
+        }
+      },
+      "Large",
+      "24px",
+      "-"
+    ],
+    [
+      {
+        "type": "image",
+        "item": {
+          "src": "../../../assets/img/components/tag/size-height-small.svg",
+          "alt": "Small size tag with 16px height."
+        }
+      },
+      "Small",
+      "16px",
+      "Icons are not available for the small size."
+    ]
+  ]
+}
