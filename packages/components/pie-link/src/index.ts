@@ -2,7 +2,6 @@ import {
     html, LitElement, unsafeCSS, nothing, TemplateResult,
 } from 'lit';
 import { property } from 'lit/decorators.js';
-import { ifDefined } from 'lit/directives/if-defined.js';
 import { validPropertyValues, defineCustomElement } from '@justeattakeaway/pie-webc-core';
 import styles from './link.scss?inline';
 import {
@@ -128,7 +127,7 @@ export class PieLink extends LitElement implements LinkProps {
                 ?isBold=${this.isBold}
                 ?isStandalone=${this.isStandalone}
                 ?hasVisited=${this.hasVisited}
-                href=${ifDefined(this.href)}
+                href=${this.href || ''}
                 target=${this.target || nothing}
                 rel=${this.rel || nothing}
                 aria-label=${this.aria?.label || nothing}>
