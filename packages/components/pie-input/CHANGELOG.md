@@ -1,5 +1,22 @@
 # @justeattakeaway/pie-input
 
+## 0.6.0
+
+### Minor Changes
+
+- [Added] - name property to `pie-input` component ([#1170](https://github.com/justeattakeaway/pie/pull/1170)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - `updated` lifecycle method to ensure we update the form value when the value prop is changed externally ([#1170](https://github.com/justeattakeaway/pie/pull/1170)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - React base TypeScript types ([#1164](https://github.com/justeattakeaway/pie/pull/1164)) by [@fernandofranca](https://github.com/fernandofranca)
+
+  [Changed] - set optional props as optional
+
+### Patch Changes
+
+- Updated dependencies [[`918593afd`](https://github.com/justeattakeaway/pie/commit/918593afd939e8c911542235a5d861680ceba2d0)]:
+  - @justeattakeaway/pie-webc-core@0.17.0
+
 ## 0.5.0
 
 ### Minor Changes
