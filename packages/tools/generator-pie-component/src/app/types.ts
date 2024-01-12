@@ -16,18 +16,20 @@ export type Props = {
 } & TransformedName;
 
 export type Dependencies = {
-  [key: string]: string;
+  [K in DependencyType]?: {
+      [packageName: string]: string;
+  };
 };
 
 export type DependencyType = 'dependencies' | 'devDependencies' | 'peerDependencies';
 
-export type PackageJson = {
+export type PackageJsonBase = {
   name?: string;
   version?: string;
-  dependencies?: Dependencies
-  devDependencies?: Dependencies
-  peerDependencies?: Dependencies
+  scripts?: { [scriptName: string]: string };
 };
+
+export type PackageJson = PackageJsonBase & Dependencies;
 
 export type NpmRegistryResponse = {
   version: string;

@@ -2,20 +2,21 @@ import Generator from 'yeoman-generator';
 import chalk from 'chalk';
 import prompts from './prompts';
 import { transformName, isPackageJson } from './utils';
-import type { DependencyType, NpmRegistryResponse, PackageJson, Props } from './types';
+import type { DependencyType, PackageJson, Props } from './types';
 
 export default class extends Generator {
-    async getLatestVersion (packageName: string): Promise<string | null> {
+    async getLatestVersion (packageName: string): Promise<string> {
         try {
             const response = await fetch(`https://registry.npmjs.org/${packageName}/latest`);
             if (!response.ok) {
                 throw new Error(`Error fetching version: ${response.statusText}`);
             }
-            const data : NpmRegistryResponse = await response.json();
-            return data.version;
+            const data : PackageJson = await response.json() as PackageJson;
+
+            return data.version || 'Version not found';
         } catch (error) {
             console.error(`Error fetching version for ${packageName}: ${error}`);
-            return null;
+            return 'Version not found';
         }
     }
 
@@ -65,33 +66,26 @@ export default class extends Generator {
         if (packageJsonContent && isPackageJson(packageJsonContent)) {
             const packageJson: PackageJson = packageJsonContent;
 
-            // Initialize dependencies, devDependencies, and peerDependencies if they don't exist
-            packageJson.dependencies = packageJson.dependencies || {};
-            packageJson.devDependencies = packageJson.devDependencies || {};
-            packageJson.peerDependencies = packageJson.peerDependencies || {};
-
             const dependencies: { name: string; type: DependencyType }[] = [
                 { name: '@justeattakeaway/pie-components-config', type: 'devDependencies' },
                 { name: '@justeattakeaway/pie-webc-core', type: 'dependencies' }
             ] as const;
 
             try {
-                const latestVersions = await Promise.all(dependencies.map((dep) => this.getLatestVersion(dep.name)));
+                dependencies.forEach(async (dep) => {
+                    const latestVersion = await this.getLatestVersion(dep.name);
 
-                latestVersions.forEach((version, index) => {
-                    const dep = dependencies[index];
-                    if (!version) {
-                        throw new Error(`Failed to fetch the latest version of ${dep.name}`);
-                    }
+                    console.log(`${dep.name} version: ${latestVersion}`);
 
-                    // Ensure the dependency object exists
-                    if (!packageJson[dep.type]) {
-                        packageJson[dep.type] = {};
-                    }
 
-                    packageJson[dep.type][dep.name] = version;
+                    console.log('packageJson dep type', packageJson[dep.type]);
+                    packageJson[dep.type] = {
+                        ...(packageJson[dep.type] || {}),
+                        [dep.name]: latestVersion,
+                    };
                 });
 
+                console.log('package.jsonnnnnnnn', packageJson);
                 this.fs.writeJSON(packageJsonPath, packageJson);
             } catch (error) {
                 throw new Error(`An error occurred while fetching dependencies: ${error}`);

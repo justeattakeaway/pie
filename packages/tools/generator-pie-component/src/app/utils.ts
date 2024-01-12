@@ -45,5 +45,5 @@ export function transformName (name: string): TransformedName {
 
 export function isPackageJson (object: any): object is PackageJson {
     // Implement checks to confirm object has the structure of PackageJson
-    return 'devDependencies' in object; // basic example, expand as needed
+    return 'peerDependencies' in object || 'devDependencies' in object || 'dependencies' in object;
 }
