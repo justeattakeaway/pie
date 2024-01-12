@@ -8,4 +8,10 @@ export default [{
     name: 'needsRTL',
     type: 'confirm',
     default: false,
+},
+{
+    message: 'Which directory should your components Storybook story be added to?',
+    name: 'storybookStoryDirectory',
+    type: 'input',
+    default: 'apps/pie-storybook/stories',
 }];

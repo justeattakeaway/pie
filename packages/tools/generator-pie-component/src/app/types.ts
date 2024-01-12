@@ -14,3 +14,21 @@ export type Props = {
   componentPath: string;
   storyPath: string;
 } & TransformedName;
+
+export type Dependencies = {
+  [key: string]: string;
+};
+
+export type DependencyType = 'dependencies' | 'devDependencies' | 'peerDependencies';
+
+export type PackageJson = {
+  name?: string;
+  version?: string;
+  dependencies?: Dependencies
+  devDependencies?: Dependencies
+  peerDependencies?: Dependencies
+};
+
+export type NpmRegistryResponse = {
+  version: string;
+};

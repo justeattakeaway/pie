@@ -1,5 +1,5 @@
 import { startCase, snakeCase, camelCase } from 'lodash';
-import { TransformedName } from './types';
+import { TransformedName, PackageJson } from './types';
 
 function trim (str: string) {
     return str.replace(/\s/g, '');
@@ -41,4 +41,9 @@ export function transformName (name: string): TransformedName {
         displayName: getDisplayName(normalisedName), // e.g. Icon Button
         percyComponentName: getPercyComponentName(normalisedName), // e.g. ICON_BUTTON
     };
+}
+
+export function isPackageJson (object: any): object is PackageJson {
+    // Implement checks to confirm object has the structure of PackageJson
+    return 'devDependencies' in object; // basic example, expand as needed
 }
