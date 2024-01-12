@@ -7,7 +7,7 @@ import {
 } from '@justeattakeaway/pie-webc-core';
 import styles from './switch.scss?inline';
 import {
-    SwitchProps, ON_SWITCH_CHANGED_EVENT, AriaProps, labelPlacements,
+    SwitchProps, AriaProps, labelPlacements,
 } from './defs';
 import 'element-internals-polyfill';
 import '@justeattakeaway/pie-icons-webc/IconCheck';

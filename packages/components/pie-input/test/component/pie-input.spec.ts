@@ -303,7 +303,7 @@ test.describe('PieInput - Component tests', () => {
 
                 // Act
                 await input.type('test');
-                await page.keyboard.press('Tab');
+                await page.keyboard.press('Tab'); // Change events on inputs are triggered when they lose focus after the value was changed
 
                 // Assert
                 expect(messages).toStrictEqual(expectedMessages);
