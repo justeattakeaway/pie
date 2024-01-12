@@ -16,18 +16,15 @@
                             "name": "render"
                         }
                     ],
-                    "superclass": {
-                        "name": "LitElement",
-                        "package": "lit"
-                    },
-                    "tagName": "mock-component",
-                    "customElement": true
-                }
-            ]
-        }
-    ]
-}
-}                         "name": "another-custom-event",
+                    "events": [
+                        {
+                            "name": "custom-event",
+                            "type": {
+                                "text": "CustomEvent"
+                            }
+                        },
+                        {
+                            "name": "another-custom-event",
                             "type": {
                                 "text": "CustomEvent"
                             }

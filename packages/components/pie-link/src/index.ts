@@ -97,14 +97,14 @@ export class PieLink extends LitElement implements LinkProps {
             <button
                 data-test-id="pie-link"
                 class="c-link"
-                tag=${this.tag}
-                variant=${this.variant}
-                size=${this.size}
-                underline=${this.underline}
+                tag=${this.tag || 'button'}
+                variant=${this.variant || 'default'}
+                size=${this.size || 'medium'}
+                underline=${this.underline || 'default'}
                 ?isBold=${this.isBold}
                 ?isStandalone=${this.isStandalone}
                 ?hasVisited=${this.hasVisited}
-                type=${this.type || nothing}
+                type=${this.type || 'submit'}
                 aria-label=${this.aria?.label || nothing}>
                     ${this.renderContent()}
             </button>`;
@@ -120,14 +120,14 @@ export class PieLink extends LitElement implements LinkProps {
             <a
                 data-test-id="pie-link"
                 class="c-link"
-                tag=${this.tag}
-                variant=${this.variant}
-                size=${this.size}
-                underline=${this.underline}
+                tag=${this.tag || 'a'}
+                variant=${this.variant || 'default'}
+                size=${this.size || 'medium'}
+                underline=${this.underline || 'default'}
                 ?isBold=${this.isBold}
                 ?isStandalone=${this.isStandalone}
                 ?hasVisited=${this.hasVisited}
-                href=${this.href || nothing}
+                href=${this.href || ''}
                 target=${this.target || nothing}
                 rel=${this.rel || nothing}
                 aria-label=${this.aria?.label || nothing}>

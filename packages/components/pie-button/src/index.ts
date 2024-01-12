@@ -197,7 +197,7 @@ export class PieButton extends FormControlMixin(LitElement) implements ButtonPro
      */
     private renderSpinner (): TemplateResult {
         const { size, variant, disabled } = this;
-        const spinnerSize = size.includes('small') ? 'small' : 'medium'; // includes("small") matches for any small size value and xsmall
+        const spinnerSize = size && size.includes('small') ? 'small' : 'medium'; // includes("small") matches for any small size value and xsmall
         let spinnerVariant;
         if (disabled) {
             spinnerVariant = variant === 'ghost-inverse' ? 'inverse' : 'secondary';
@@ -230,9 +230,9 @@ export class PieButton extends FormControlMixin(LitElement) implements ButtonPro
             <button
                 @click=${this._handleClick}
                 class="o-btn"
-                type=${type}
-                variant=${variant}
-                size=${size}
+                type=${type || 'submit'}
+                variant=${variant || 'primary'}
+                size=${size || 'medium'}
                 responsiveSize=${ifDefined(responsiveSize)}
                 ?disabled=${disabled}
                 ?isFullWidth=${isFullWidth}
