@@ -5,15 +5,15 @@ export interface TagProps {
     /**
      * What style variant the tag should be such as neutral/ghost etc.
      */
-    variant: typeof variants[number];
+    variant?: typeof variants[number];
 
     /**
      * When true, the 'green', "yellow", "red", "blue" and "neutral" variants change their styles and become bolder
      */
-    isStrong: boolean;
+    isStrong?: boolean;
 
     /**
      * What size the tag should be.
      */
-    size: typeof sizes[number];
+    size?: typeof sizes[number];
 }

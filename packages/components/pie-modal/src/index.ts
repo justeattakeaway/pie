@@ -387,8 +387,8 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
         <dialog
             id="dialog"
             class="c-modal"
-            size="${size}"
-            position="${position}"
+            size="${size || 'medium'}"
+            position="${position || 'center'}"
             ?hasActions=${leadingAction || supportingAction}
             ?hasBackButton=${hasBackButton}
             ?hasStackedActions=${hasStackedActions}

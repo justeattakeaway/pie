@@ -19,7 +19,7 @@ export interface CardProps {
     /**
      * When true, the card is disabled.
      */
-    disabled: boolean;
+    disabled?: boolean;
 
     /**
      * The URL that the card should point to (this will not take effect unless the card is a link).
@@ -39,12 +39,12 @@ export interface CardProps {
     /**
      * What style variant the card should be such as default or inverse.
      */
-    variant: typeof variants[number];
+    variant?: typeof variants[number];
 
     /**
      * Allows the consumer to set draggable css styles (grab/grabbing cursor styles).
      */
-    isDraggable: boolean;
+    isDraggable?: boolean;
 
     /**
      * What HTML element the card should be such as `a` or `button`.

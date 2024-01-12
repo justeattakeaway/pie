@@ -17,15 +17,15 @@ export interface ButtonProps {
     /**
      * What size the button should be.
      */
-    size: typeof sizes[number];
+    size?: typeof sizes[number];
     /**
      * What type attribute should be applied to the button. For example submit, button.
      */
-    type: typeof types[number];
+    type?: typeof types[number];
     /**
      * What style variant the button should be such as primary, outline or ghost.
      */
-    variant: Variant;
+    variant?: Variant;
     /**
      * The placement of the icon slot, if provided, such as leading or trailing
      */
@@ -33,20 +33,20 @@ export interface ButtonProps {
     /**
      * When true, the button element is disabled.
      */
-    disabled: boolean;
+    disabled?: boolean;
     /**
      * When true, the button element will occupy the full width of its container.
      */
-    isFullWidth: boolean;
+    isFullWidth?: boolean;
     /**
      * When true, displays a loading indicator inside the button.
      */
-    isLoading: boolean;
+    isLoading?: boolean;
 
     /**
      * When true, enables the responsive size feature.
      */
-    isResponsive: boolean;
+    isResponsive?: boolean;
 
     /**
      * The name of the button, submitted as a pair with the button's value as part of the form data, when that button is used to submit the form.

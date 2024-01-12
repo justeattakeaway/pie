@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.58.0
+
+### Minor Changes
+
+- [Added] - value prop to pie-input stories ([#1165](https://github.com/justeattakeaway/pie/pull/1165)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies [[`4bd3f9cd8`](https://github.com/justeattakeaway/pie/commit/4bd3f9cd8511ea7acd5de7196e7de4919a85bf17)]:
+  - @justeattakeaway/pie-input@0.5.0
+
 ## 0.57.0
 
 ### Minor Changes

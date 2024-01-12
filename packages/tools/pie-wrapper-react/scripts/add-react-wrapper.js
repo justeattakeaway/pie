@@ -10,6 +10,88 @@ export function loadCustomElementsFile (customElementsDirectory = process.argv[2
 }
 
 /**
+ * Reads the given component path and extracts the ReactBaseType as a string
+ *
+ * @param {string} componentRelativePath - the relative path to the component
+ * @returns {string} - the Type definition for React as String
+ */
+function getReactBaseType (componentRelativePath) {
+    // Read file
+    const componentFolder = path.parse(componentRelativePath).dir;
+    const componentReactDefs = path.resolve(componentFolder, './defs-react.ts');
+
+    let fileContent;
+    try {
+        fileContent = fs.readFileSync(componentReactDefs, 'utf-8');
+    } catch {
+        return null;
+    }
+
+    return extractReactBaseType(fileContent);
+}
+
+/**
+ * Extracts the ReactBaseType definition as a string, given a string representing the file content
+ *
+ * @param {string} fileContent - the whole content of the file as string
+ * @returns {string} - the Type definition for React as String
+ */
+function extractReactBaseType (fileContent) {
+    // Matches from the line start so it can ignore if it is commented out
+    const matches = fileContent.match(/^export type ReactBaseType.*$/gm);
+    const hasMatch = matches && matches[0];
+
+    if (!hasMatch) return null;
+
+    // Strip the "export" keyword as it is not necessary
+    const reactBaseType = matches[0].replace(/^export /, '');
+
+    return reactBaseType;
+}
+
+/**
+ * Generates a TypeScript type definition for an array of events
+ * @param events - The `events` parameter is an array of event objects. Each event object has a `name`
+ * property representing the name of the event and a `type` property representing the type of the
+ * event.
+ * @param componentsClassName - The `componentsClassName` parameter is a string that represents the
+ * name of the class or component that the events belong to.
+ * @returns An array with two elements. The first element is a string that represents the type
+ * definition for the events, and the second element is a string that represents the name of the events
+ * type.
+ */
+function getEventsTypeDefinition (events, componentsClassName) {
+    if (!events) return null;
+
+    const eventsItems = events.flat()
+        .map((event) => {
+            const formattedEventName = `on${formatEventName(event.name)}`;
+
+            return [formattedEventName, event.type];
+        })
+        .map(([eventName, eventType]) => `    ${eventName}?: (event: ${eventType}<any>) => void;`);
+
+    const eventsTypeName = `${componentsClassName}Events`;
+
+    const eventTypes = [
+        `type ${eventsTypeName} = {`,
+        ...eventsItems.map((eventItem) => eventItem),
+        '};',
+    ].join('\n');
+
+    return [eventTypes, eventsTypeName];
+}
+
+// format event names in a React friendly way - removes hyphens and capitalises
+// i.e. foo-bar-baz becomes FooBarBaz
+function formatEventName (eventName) {
+    return eventName
+        .split('-')
+        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+        .join('');
+}
+
+/**
  * This function generates a react wrapper to enable custom lit components to be used in react apps.
  *
  * @param {JSON} - A JSON file of custom components and their attributes, generated from the @custom-elements-manifest/analyzer package
@@ -33,7 +115,13 @@ export function addReactWrapper (customElementsObject) {
                 k.declarations.forEach((decl) => {
                     if (decl.customElement === true) {
                         const componentSelector = k.declarations.find((i) => i.kind === 'variable' && i.name === 'componentSelector');
-                        components.push({ class: { ...decl, tagName: componentSelector?.default.replace(/'/g, '') ?? decl.tagName }, path: k.path.replace('index.js', 'react.ts') });
+                        const componentData = {
+                            class: { ...decl, tagName: componentSelector?.default.replace(/'/g, '') ?? decl.tagName },
+                            path: k.path.replace('index.js', 'react.ts'),
+                            reactBaseType: getReactBaseType(k.path),
+                        };
+
+                        components.push(componentData);
                     }
                 });
             });
@@ -76,15 +164,6 @@ export function addReactWrapper (customElementsObject) {
         return events;
     }
 
-    // format event names in a React friendly way - removes hyphens and capitalises
-    // i.e. foo-bar-baz becomes FooBarBaz
-    function formatEventName (eventName) {
-        return eventName
-            .split('-')
-            .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-            .join('');
-    }
-
     // create wrapper src code and add to react.ts file
     if (components.length > 0) {
         components.forEach((component) => {
@@ -102,21 +181,32 @@ export function addReactWrapper (customElementsObject) {
                 eventsObject = `{\n${eventNames}    }`;
             }
 
+            // This is a workaround for the missing events in the component TS api
+            const [eventsTypeDefinition, eventsTypeName] = eventNames && getEventsTypeDefinition(events, component.class.name);
+
+            const componentPropsExportName = `${component.class.name.replace(/^Pie/, '')}Props`;
+
             // Create the main source code
-            componentSrc = `
-import * as React from 'react';
+            componentSrc = `import * as React from 'react';
 import { createComponent${component.class.events?.length > 0 ? ', EventName' : ''} } from '@lit/react';
-import { ${component.class.name} as ${component.class.name}React } from './index';
+import { ${component.class.name} as ${component.class.name}Lit } from './index';
+import { ${componentPropsExportName} } from './defs';
 
 export * from './defs';
 
-export const ${component.class.name} = createComponent({
+const ${component.class.name}React = createComponent({
     displayName: '${component.class.name}',
-    elementClass: ${component.class.name}React,
+    elementClass: ${component.class.name}Lit,
     react: React,
     tagName: '${component.class.tagName}',
     events: ${eventsObject},
 });
+
+${component.reactBaseType ? component.reactBaseType : ''}
+
+${eventsTypeDefinition || ''}
+
+export const ${component.class.name} = ${component.class.name}React as React.ForwardRefExoticComponent<React.PropsWithoutRef<${componentPropsExportName}> & React.RefAttributes<${component.class.name}Lit>${eventsTypeDefinition ? ` & ${eventsTypeName}` : ''}${component.reactBaseType ? ' & ReactBaseType' : ''}>;
 `;
             let reactFile;
 
