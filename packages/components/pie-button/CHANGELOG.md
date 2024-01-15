@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.45.0
+
+### Minor Changes
+
+- [Added] - React base TypeScript types ([#1164](https://github.com/justeattakeaway/pie/pull/1164)) by [@fernandofranca](https://github.com/fernandofranca)
+
+  [Changed] - set optional props as optional
+
+### Patch Changes
+
+- Updated dependencies [[`918593afd`](https://github.com/justeattakeaway/pie/commit/918593afd939e8c911542235a5d861680ceba2d0), [`24be8ac1a`](https://github.com/justeattakeaway/pie/commit/24be8ac1a5b5113b94c1971b9a59713fbaf86be5)]:
+  - @justeattakeaway/pie-webc-core@0.17.0
+  - @justeattakeaway/pie-spinner@0.5.0
+
 ## 0.44.0
 
 ### Minor Changes
