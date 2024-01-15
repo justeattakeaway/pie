@@ -59,7 +59,7 @@
     "components/switch/code",
     "components/switch/overview",
     "components/tabs",
-    "components/tag",
+    "components/tag/overview",
     "components/text-input",
     "components/textarea",
     "components/thumbnail",
