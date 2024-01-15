@@ -1,5 +1,29 @@
 # Changelog
 
+## 0.59.0
+
+### Minor Changes
+
+- [Added] - name property to `pie-input` component ([#1170](https://github.com/justeattakeaway/pie/pull/1170)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies [[`bcc1a60a4`](https://github.com/justeattakeaway/pie/commit/bcc1a60a4d15eeb944ebdbcb387574ae11227372), [`918593afd`](https://github.com/justeattakeaway/pie/commit/918593afd939e8c911542235a5d861680ceba2d0), [`bcc1a60a4`](https://github.com/justeattakeaway/pie/commit/bcc1a60a4d15eeb944ebdbcb387574ae11227372), [`24be8ac1a`](https://github.com/justeattakeaway/pie/commit/24be8ac1a5b5113b94c1971b9a59713fbaf86be5)]:
+  - @justeattakeaway/pie-input@0.6.0
+  - @justeattakeaway/pie-switch@0.24.0
+  - @justeattakeaway/pie-cookie-banner@0.15.0
+  - @justeattakeaway/pie-notification@0.3.0
+  - @justeattakeaway/pie-icon-button@0.27.0
+  - @justeattakeaway/pie-form-label@0.10.0
+  - @justeattakeaway/pie-divider@0.12.0
+  - @justeattakeaway/pie-spinner@0.5.0
+  - @justeattakeaway/pie-button@0.45.0
+  - @justeattakeaway/pie-modal@0.38.0
+  - @justeattakeaway/pie-card@0.17.0
+  - @justeattakeaway/pie-link@0.14.0
+  - @justeattakeaway/pie-tag@0.4.0
+  - @justeattakeaway/pie-icons-webc@0.17.1
+
 ## 0.58.0
 
 ### Minor Changes
