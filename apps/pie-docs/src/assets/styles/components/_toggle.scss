@@ -8,7 +8,7 @@ $toggle-item-height: 44px;
 $toggle-item-fw: f.$font-weight-regular;
 $toggle-item-fw--checked: f.$font-weight-bold;
 $toggle-item-padding-y: 10px;
-$toggle-item-padding-x: f.spacing(e);
+$toggle-item-padding-x: var(--dt-spacing-e);
 $toggle-item-bg: f.$color-container-strong;
 
 // This is really annoying, but it's the only way to get darkness to work with Custom Props

@@ -29,11 +29,11 @@
     padding-inline: f.$spacing-d;
 
     @include f.media('>=narrowMid') {
-        padding-inline: f.spacing(e);
+        padding-inline: var(--dt-spacing-e);
     }
 
     @include f.media('>=mid') {
-        padding-inline: f.spacing(i);
+        padding-inline: var(--dt-spacing-i);
     }
 
     .c-content .c-content-container {

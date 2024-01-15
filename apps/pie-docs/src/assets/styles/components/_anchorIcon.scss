@@ -1,8 +1,8 @@
 @use 'sass:color';
 @use '../fozzie-config' as f;
 
-$anchor-size: f.spacing(e);
-$anchor-margin: f.spacing(b);
+$anchor-size: var(--dt-spacing-e);
+$anchor-margin: var(--dt-spacing-b);
 $anchor-width: calc($anchor-size + $anchor-margin);
 
 .c-anchorIcon {
@@ -10,7 +10,7 @@ $anchor-width: calc($anchor-size + $anchor-margin);
     position: absolute;
     inline-size: $anchor-size;
     block-size: $anchor-size;
-    padding: f.spacing(a);
+    padding: var(--dt-spacing-a);
     border-radius: f.$radius-rounded-a;
     margin-inline-start: $anchor-margin;
 
@@ -41,7 +41,7 @@ h4:has(.c-anchorIcon) {
     }
 
     @include f.media('>=mid') {
-        margin-inline-start: -$anchor-width;
+        margin-inline-start: calc($anchor-width * -1);
 
         // adds area to the left of the heading on desktop views so anchor can be selected when heading is hovered
         &:before {

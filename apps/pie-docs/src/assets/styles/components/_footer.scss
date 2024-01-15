@@ -1,23 +1,23 @@
 @use '../fozzie-config' as f;
 
 .c-footer {
-    padding: f.spacing(g) f.spacing(d);
+    padding: var(--dt-spacing-g) var(--dt-spacing-d);
     background-color: f.$color-container-subtle;
     @include f.font-size('body-s');
 
     @include f.media('>=narrowMid') {
-        padding-left: f.spacing(e);
-        padding-right: f.spacing(e);
+        padding-left: var(--dt-spacing-e);
+        padding-right: var(--dt-spacing-e);
     }
 
     @include f.media('>=mid') {
-        padding: f.spacing(g) f.spacing(i);
+        padding: var(--dt-spacing-g) var(--dt-spacing-i);
     }
 
     .c-footer-logo {
         display: flex;
         align-items: center;
-        padding-bottom: f.spacing(b);
+        padding-bottom: var(--dt-spacing-b);
 
         @include f.media('>=narrowMid') {
             padding-bottom: 0;
@@ -31,8 +31,8 @@
         .c-footer-logo-divider {
             display: inline-block;
             border-left: 1px solid f.$color-border-strong;
-            height: f.spacing(f);
-            margin: 0 f.spacing(d);
+            height: var(--dt-spacing-f);
+            margin: 0 var(--dt-spacing-d);
         }
 
         svg {
@@ -49,12 +49,12 @@
 .c-footer-main {
     display: flex;
     flex-direction: column;
-    gap: f.spacing(e);
-    padding: f.spacing(g) 0;
+    gap: var(--dt-spacing-e);
+    padding: var(--dt-spacing-g) 0;
 
     @include f.media('>=narrowMid') {
         flex-direction: row;
-        padding: f.spacing(i) 0;
+        padding: var(--dt-spacing-i) 0;
     }
 
     section {
@@ -64,7 +64,7 @@
     ul {
         display: flex;
         flex-direction: column;
-        gap: f.spacing(a);
+        gap: var(--dt-spacing-a);
         list-style-type: none;
         margin: 0;
         padding: 0;
@@ -73,7 +73,7 @@
     h3 {
         @include f.font-size('body-s');
         text-transform: capitalize;
-        margin-bottom: f.spacing(a);
+        margin-bottom: var(--dt-spacing-a);
     }
 }
 
@@ -82,17 +82,17 @@
     flex-flow: row wrap;
     align-items: center;
     justify-content: space-between;
-    gap: f.spacing(a);
-    padding-top: f.spacing(b);
+    gap: var(--dt-spacing-a);
+    padding-top: var(--dt-spacing-b);
     border-top: 1px solid f.$color-divider-default;
 
     .c-footer-info-separator {
         display: inline-block;
-        width: f.spacing(a);
-        height: f.spacing(a);
+        width: var(--dt-spacing-a);
+        height: var(--dt-spacing-a);
         border-radius: f.$radius-rounded-e;
         background-color: f.$color-border-strong;
-        margin: 0 f.spacing(b);
+        margin: 0 var(--dt-spacing-b);
         vertical-align: middle;
     }
 }

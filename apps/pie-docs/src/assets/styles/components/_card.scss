@@ -129,7 +129,7 @@ $iconBackgroundColours: (
 .c-card-labelContainer {
     border-radius: f.$radius-rounded-c;
     display: flex;
-    gap: f.spacing();
+    gap: var(--dt-spacing-b);
     justify-content: space-between;
     align-items: center;
     padding-top: f.$spacing-e;

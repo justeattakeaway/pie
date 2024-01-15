@@ -55,6 +55,6 @@
 .c-resourceTable-status {
     display: inline;
     background: var(--bg-colour);
-    padding: 2px f.spacing(a);
+    padding: 2px var(--dt-spacing-a);
     border-radius: f.$radius-rounded-b;
 }
