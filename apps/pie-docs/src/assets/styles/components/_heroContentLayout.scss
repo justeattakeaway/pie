@@ -26,7 +26,7 @@
 }
 
 .c-heroContentLayout-pad {
-    padding-inline: f.$spacing-d;
+    padding-inline: var(--dt-spacing-d);
 
     @include f.media('>=narrowMid') {
         padding-inline: var(--dt-spacing-e);

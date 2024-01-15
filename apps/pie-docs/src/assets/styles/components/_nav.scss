@@ -2,7 +2,7 @@
 
 $nav-category-gap: var(--dt-spacing-b);
 $nav-category-icon-width: var(--dt-spacing-e); // this needs to be kept in sync with the width given to the icon found in nav.njk
-$nav-item-left-margin: calc($nav-category-gap + $nav-category-icon-width);
+$nav-item-inline-start-margin: calc($nav-category-gap + $nav-category-icon-width);
 
 .c-nav {
     @include f.font-size('body-s');
@@ -34,7 +34,9 @@ $nav-item-left-margin: calc($nav-category-gap + $nav-category-icon-width);
     }
 
     .c-nav-list {
-        margin: var(--dt-spacing-a) 0 var(--dt-spacing-b) 0;
+        margin-block-start: var(--dt-spacing-a);
+        margin-block-end: var(--dt-spacing-b);
+        margin-inline: 0;
     }
 }
 
@@ -66,14 +68,19 @@ $nav-item-left-margin: calc($nav-category-gap + $nav-category-icon-width);
 }
 
 .c-nav-category {
-    padding: 10px var(--dt-spacing-d);
+    padding-block: 10px;
+    padding-inline:var(--dt-spacing-d);
     font-weight: f.$font-weight-bold;
 }
 
 .c-nav-item {
     display: block;
-    padding: 10px var(--dt-spacing-d);
-    margin: 0 var(--dt-spacing-d) 2px $nav-item-left-margin;
+    padding-block: 10px;
+    padding-inline: var(--dt-spacing-d);
+    margin-block-start: 0;
+    margin-block-end: 2px;
+    margin-inline-start: $nav-item-inline-start-margin;
+    margin-inline-end: var(--dt-spacing-d);
     text-decoration: none;
     color: f.$color-content-default;
 
@@ -91,7 +98,7 @@ $nav-item-left-margin: calc($nav-category-gap + $nav-category-icon-width);
 
 .c-nav-subCategory {
     padding-block: 10px;
-    padding-inline: calc(var(--dt-spacing-d) + $nav-item-left-margin) var(--dt-spacing-d);
+    padding-inline: calc(var(--dt-spacing-d) + $nav-item-inline-start-margin) var(--dt-spacing-d);
     margin-block: 0 2px;
 
     + .c-nav-list {

@@ -19,7 +19,7 @@
     @include f.media('>=wide') {
         height: v.$hero-banner-header-wide-height;
         grid-template-columns: 40% 60%;
-        gap: f.$spacing-e;
+        gap: var(--dt-spacing-e);
     }
 
     .c-heroBanner-btn {

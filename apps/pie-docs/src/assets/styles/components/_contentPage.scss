@@ -7,17 +7,17 @@
     min-height: 100%;
 
     > * {
-        padding-left: var(--dt-spacing-d);
-        padding-right: var(--dt-spacing-d);
+        padding-inline-start: var(--dt-spacing-d);
+        padding-inline-end: var(--dt-spacing-d);
 
         @include f.media('>=narrowMid') {
-            padding-left: var(--dt-spacing-e);
-            padding-right: var(--dt-spacing-e);
+            padding-inline-start: var(--dt-spacing-e);
+            padding-inline-end: var(--dt-spacing-e);
         }
 
         @include f.media('>mid') {
-            padding-left: var(--dt-spacing-i);
-            padding-right: var(--dt-spacing-i);
+            padding-inline-start: var(--dt-spacing-i);
+            padding-inline-end: var(--dt-spacing-i);
         }
     }
 
@@ -40,7 +40,7 @@
 
 .c-contentPage-header-description {
     @include f.font-size('body-l');
-    margin-top: var(--dt-spacing-e);
+    margin-block-start: var(--dt-spacing-e);
     max-width: 50ch;
 
     @include f.media('>=wide') {

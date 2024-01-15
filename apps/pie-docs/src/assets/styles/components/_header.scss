@@ -11,7 +11,7 @@ $headerInlinePadding:   20px;
     padding: var(--dt-spacing-d);
 
     @include f.media('<wide') {
-        padding-left: calc($headerInlinePadding + $navToggleWidth + $headerInlinePadding);
+        padding-inline-start: calc($headerInlinePadding + $navToggleWidth + $headerInlinePadding);
     }
 }
 

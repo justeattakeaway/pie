@@ -16,7 +16,7 @@
 
 .c-simpleTable--swatch {
     $swatch-size: 16px;
-    $swatch-gap: f.$spacing-b;
+    $swatch-gap: var(--dt-spacing-b);
     $swatch-margin: calc($swatch-size + $swatch-gap);
 
     td:first-child {

@@ -1,17 +1,19 @@
 @use '../fozzie-config' as f;
 
 .c-footer {
-    padding: var(--dt-spacing-g) var(--dt-spacing-d);
+    padding-block: var(--dt-spacing-g);
+    padding-inline: var(--dt-spacing-d);
     background-color: f.$color-container-subtle;
     @include f.font-size('body-s');
 
     @include f.media('>=narrowMid') {
-        padding-left: var(--dt-spacing-e);
-        padding-right: var(--dt-spacing-e);
+        padding-inline-start: var(--dt-spacing-e);
+        padding-inline-end: var(--dt-spacing-e);
     }
 
     @include f.media('>=mid') {
-        padding: var(--dt-spacing-g) var(--dt-spacing-i);
+        padding-block: var(--dt-spacing-g);
+        padding-inline: var(--dt-spacing-i);
     }
 
     .c-footer-logo {
@@ -32,7 +34,8 @@
             display: inline-block;
             border-left: 1px solid f.$color-border-strong;
             height: var(--dt-spacing-f);
-            margin: 0 var(--dt-spacing-d);
+            margin-block: 0;
+            margin-inline: var(--dt-spacing-d);
         }
 
         svg {
@@ -50,11 +53,13 @@
     display: flex;
     flex-direction: column;
     gap: var(--dt-spacing-e);
-    padding: var(--dt-spacing-g) 0;
+    padding-block: var(--dt-spacing-g);
+    padding-inline: 0;
 
     @include f.media('>=narrowMid') {
         flex-direction: row;
-        padding: var(--dt-spacing-i) 0;
+        padding-block: var(--dt-spacing-i);
+        padding-inline: 0;
     }
 
     section {
@@ -73,7 +78,7 @@
     h3 {
         @include f.font-size('body-s');
         text-transform: capitalize;
-        margin-bottom: var(--dt-spacing-a);
+        margin-block-end: var(--dt-spacing-a);
     }
 }
 
@@ -92,7 +97,8 @@
         height: var(--dt-spacing-a);
         border-radius: f.$radius-rounded-e;
         background-color: f.$color-border-strong;
-        margin: 0 var(--dt-spacing-b);
+        margin-block: 0;
+        margin-inline: var(--dt-spacing-b);
         vertical-align: middle;
     }
 }

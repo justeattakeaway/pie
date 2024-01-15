@@ -11,11 +11,13 @@ $tokensTable-item-vertical-padding: var(--dt-spacing-e);
 .c-tokensTable-list {
     list-style: none;
     padding: 0;
-    margin: var(--dt-spacing-f) 0 0;
+    margin-block-start: var(--dt-spacing-f);
+    margin-block-end: 0;
+    margin-inline: 0;
     width: 100%;
 
     @include f.media('>=wide') {
-        margin-top: 0;
+        margin-block-start: 0;
     }
 }
 
@@ -109,7 +111,8 @@ $tokensTable-item-vertical-padding: var(--dt-spacing-e);
     width: var(--example-spacing);
     height: var(--example-spacing);
     border-radius: 2px;
-    margin: 0 auto;
+    margin-block: 0;
+    margin-inline: auto;
     left: 0;
     right: 0;
     position: absolute;
@@ -127,7 +130,8 @@ $tokensTable-item-vertical-padding: var(--dt-spacing-e);
     width: var(--dt-spacing-i);
     height: var(--dt-spacing-i);
     border-radius: f.$radius-03;
-    margin: 0 auto;
+    margin-block: 0;
+    margin-inline: auto;
     left: 0;
     right: 0;
     position: absolute;
@@ -146,13 +150,13 @@ $tokensTable-item-vertical-padding: var(--dt-spacing-e);
 .c-tokensTable-example--radius {
     width: 80px;
     height: 80px;
-    margin-top: var(--dt-spacing-d);
+    margin-block-start: var(--dt-spacing-d);
     background-color: f.$color-background-dark;
     border-radius: var(--example-radius);
     opacity: 0.1;
 
     @include f.media('>=wide') {
-        margin-top: 0;
+        margin-block-start: 0;
     }
 }
 
@@ -162,7 +166,9 @@ $tokensTable-item-vertical-padding: var(--dt-spacing-e);
     align-items: center;
     justify-content: center;
     min-height: 184px;
-    padding: var(--dt-spacing-i) 0 var(--dt-spacing-g);
+    padding-block-start: var(--dt-spacing-i);
+    padding-block-end: var(--dt-spacing-g);
+    padding-inline: 0;
     background-color: f.$color-background-subtle;
     color: f.$color-content-default;
     font-family: var(--example-font-family);
@@ -173,8 +179,8 @@ $tokensTable-item-vertical-padding: var(--dt-spacing-e);
     letter-spacing: var(--example-font-letter-spacing);
 
     &.c-tokenTable-example-paragraph--font > p {
-        margin-top: 0;
-        margin-bottom: var(--example-font-paragraph-spacing);
+        margin-block-start: 0;
+        margin-block-end: var(--example-font-paragraph-spacing);
     }
 
     @include f.media('>=wide') {
@@ -188,7 +194,7 @@ $tokensTable-item-vertical-padding: var(--dt-spacing-e);
 .c-tokensTable-displayName {
     color: f.$color-content-default;
     font-weight: f.$font-weight-bold;
-    margin-bottom: var(--dt-spacing-b);
+    margin-block-end: var(--dt-spacing-b);
 }
 
 .c-tokensTable-tokenDescription {
@@ -209,7 +215,7 @@ $tokensTable-item-vertical-padding: var(--dt-spacing-e);
     overflow: hidden;
 
     & + & {
-        margin-top: var(--dt-spacing-e);
+        margin-block-start: var(--dt-spacing-e);
     }
 
     @include f.media('>=wide') {
@@ -217,7 +223,7 @@ $tokensTable-item-vertical-padding: var(--dt-spacing-e);
         grid-template-rows: 1fr;
 
         & + & {
-            margin-top: 0;
+            margin-block-start: 0;
         }
     }
 }
@@ -229,7 +235,8 @@ $tokensTable-item-vertical-padding: var(--dt-spacing-e);
     border-radius: f.$radius-03;
 
     @include f.media('>=wide') {
-        padding: $tokensTable-item-vertical-padding 0;
+        padding-block: $tokensTable-item-vertical-padding;
+        padding-inline: 0;
         border-radius: 0;
         border-width: 0 0 $tokensTable-border-width 0;
 
@@ -253,8 +260,8 @@ $tokensTable-item-vertical-padding: var(--dt-spacing-e);
     }
 
     .c-tokensTable-token--list {
-        margin-right: var(--dt-spacing-a);
-        margin-bottom: var(--dt-spacing-a);
+        margin-inline-end: var(--dt-spacing-a);
+        margin-block-end: var(--dt-spacing-a);
     }
 
     @include f.media('>=wide') {
@@ -262,8 +269,8 @@ $tokensTable-item-vertical-padding: var(--dt-spacing-e);
         background-color: f.$color-background-default;
 
         .c-tokensTable-token--list {
-            margin-right: var(--dt-spacing-b);
-            margin-bottom: var(--dt-spacing-b);
+            margin-inline-end: var(--dt-spacing-b);
+            margin-block-end: var(--dt-spacing-b);
         }
     }
 }
@@ -275,7 +282,8 @@ $tokensTable-item-vertical-padding: var(--dt-spacing-e);
     height: min-content;
     border: 1px solid f.$color-border-subtle;
     border-radius: f.$radius-03;
-    padding: calc(var(--dt-spacing-a) / 2) var(--dt-spacing-a);
+    padding-block: calc(var(--dt-spacing-a) / 2);
+    padding-inline: var(--dt-spacing-a);
     @include f.font-size('body-s');
 }
 

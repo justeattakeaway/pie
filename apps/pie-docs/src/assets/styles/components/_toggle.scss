@@ -38,7 +38,8 @@ $toggle-item-elevation--checked: f.$elevation-02;
 }
 
 .c-toggle-label {
-    padding: $toggle-item-padding-y $toggle-item-padding-x;
+    padding-block: $toggle-item-padding-y;
+    padding-inline: $toggle-item-padding-x;
     @include f.font-size('body-l');
     position: relative; // context for :before
 
