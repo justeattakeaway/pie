@@ -1,14 +1,14 @@
-@use '../fozzie-config' as f;
+@use '@justeattakeaway/pie-css/scss' as p;
 
-.c-showMore-backdrop {
+.c-showMore {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.c-showMore {
+.c-showMore-btn {
     cursor: pointer;
-    color: f.$color-content-link-distinct;
+    color: var(--dt-color-content-link-distinct);
     outline: none;
     border: none;
     user-select: none;

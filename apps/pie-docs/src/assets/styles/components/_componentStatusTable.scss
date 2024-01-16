@@ -1,18 +1,20 @@
-@use '../fozzie-config' as f;
+// @use '../fozzie-config' as f;
+@use '@justeattakeaway/pie-css/scss' as p;
 @use '../variables' as v;
+$breakpoint-wide: 768px;
 
 .c-componentStatusTable-backdrop {
-    margin-block-start: f.$spacing-e;
-    margin-block-end: f.$spacing-f;
-    background-color: f.$color-container-subtle;
-    border-radius: f.$radius-rounded-c;
+    margin-block-start: var(--dt-spacing-e);
+    margin-block-end: var(--dt-spacing-f);
+    background-color: var(--dt-color-container-subtle);
+    border-radius: var(--dt-radius-rounded-c);
     padding: 0;
 
     // ensures larger tables are responsive
     overflow-x: auto;
 
-    @include f.media('>=narrowMid') {
-        padding: f.$spacing-d f.$spacing-e f.$spacing-e;
+    @media (min-width: $breakpoint-wide) {
+        padding: var(--dt-spacing-d) var(--dt-spacing-e) var(--dt-spacing-e);
     }
 }
 
@@ -25,39 +27,25 @@
     td {
         text-align: start;
         vertical-align: top;
-        padding: f.$spacing-b;
+        padding: var(--dt-spacing-b);
+    }
+
+    td:first-child {
+        inline-size: 20%;
     }
 
     tr > th:first-child,
     tr > td:first-child {
         position: sticky;
         left: 0;
-        background-color: f.$color-container-subtle;
-    }
-
-    .c-componentStatusTable-cellHasMinWidth {
-        min-width: 200px;
-    }
-
-    th:not(.c-componentStatusTable-heading--priority),
-    td {
-        width: 0;
+        background-color: var(--dt-color-container-subtle);
     }
 
     tr:not(:first-child, .c-componentDetailsTable-row--hideTopBorder) {
-        border-block-start: 1px solid f.$color-divider-default;
+        border-block-start: 1px solid var(--dt-color-divider-default);
     }
 
     .c-componentStatusTable-link {
-        color: f.$color-content-link;
-    }
-}
-
-.c-componentSatusTable-hasWidePadding {
-    th:not(:first-child),
-    td:not(:first-child) {
-        @include f.media('>=mid') {
-            padding-inline-start: f.$spacing-i;
-        }
+        color: var(--dt-color-content-link);
     }
 }

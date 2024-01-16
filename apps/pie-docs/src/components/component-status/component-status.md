@@ -2,6 +2,7 @@
 eleventyNavigation:
     key: 'Component status'
     parent: Components
+    order: 1
 ---
 
 ## Web
@@ -16,10 +17,10 @@ eleventyNavigation:
 ## Apps
 
 {% componentStatusTable {
-  dataType: 'app'
+  dataType: 'apps'
 } %}
 
-{% set tagName = 'app-table' %}
+{% set tagName = 'apps-table' %}
 {% include "show-more.njk" %}
 
 ## Status descriptions
