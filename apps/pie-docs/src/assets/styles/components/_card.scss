@@ -4,7 +4,7 @@
 $card-min-width: 270px;
 $card-image-height: 180px;
 $card-gap: var(--dt-spacing-e);
-$card-container-max-width: calc(($card-min-width * 3) + ($card-gap * 2));
+$card-container-max-width: calc(($card-min-width * 3) + 48px); // 48px is card-gap * 2
 $card-border: 1px solid f.$color-border-default;
 
 .c-card-wrapper {
