@@ -69,7 +69,7 @@ function getEventsTypeDefinition (events, componentsClassName) {
 
             return [formattedEventName, event.type];
         })
-        .map(([eventName, eventType]) => `    ${eventName}?: (event: ${eventType}<any>) => void;`);
+        .map(([eventName, eventType]) => `    ${eventName}?: (event: ${eventType}) => void;`);
 
     const eventsTypeName = `${componentsClassName}Events`;
 
@@ -200,13 +200,18 @@ const ${component.class.name}React = createComponent({
     react: React,
     tagName: '${component.class.tagName}',
     events: ${eventsObject},
-});
+});${// weird indentation here so we don't end up with extra whitespace in the generated file
+    component.reactBaseType ? `
 
-${component.reactBaseType ? component.reactBaseType : ''}
+${component.reactBaseType}` : ''
+}${
+    eventsTypeDefinition ? `
 
-${eventsTypeDefinition || ''}
+${eventsTypeDefinition}` : ''
+}
 
-export const ${component.class.name} = ${component.class.name}React as React.ForwardRefExoticComponent<React.PropsWithoutRef<${componentPropsExportName}> & React.RefAttributes<${component.class.name}Lit>${eventsTypeDefinition ? ` & ${eventsTypeName}` : ''}${component.reactBaseType ? ' & ReactBaseType' : ''}>;
+export const ${component.class.name} = ${component.class.name}React as React.ForwardRefExoticComponent<React.PropsWithoutRef<${componentPropsExportName}>
+    & React.RefAttributes<${component.class.name}Lit>${eventsTypeDefinition ? ` & ${eventsTypeName}` : ''}${component.reactBaseType ? ' & ReactBaseType' : ''}>;
 `;
             let reactFile;
 
