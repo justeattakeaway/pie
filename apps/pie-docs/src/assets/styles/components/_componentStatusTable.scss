@@ -1,6 +1,7 @@
 // @use '../fozzie-config' as f;
 @use '@justeattakeaway/pie-css/scss' as p;
 @use '../variables' as v;
+
 $breakpoint-wide: 768px;
 
 .c-componentStatusTable-backdrop {
@@ -13,7 +14,7 @@ $breakpoint-wide: 768px;
     // ensures larger tables are responsive
     overflow-x: auto;
 
-    @media (min-width:$breakpoint-wide) {
+    @media (min-width: $breakpoint-wide) {
         padding: var(--dt-spacing-d) var(--dt-spacing-e) var(--dt-spacing-e);
     }
 }
