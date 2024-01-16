@@ -1,4 +1,4 @@
-let shown = true;
+let shown = false;
 let showMoreButtons;
 
 const initialiseShowMore = () => {
@@ -7,6 +7,7 @@ const initialiseShowMore = () => {
 
     if (!showMoreButtons) return;
 
+    // ensures status tables initially only show 6 columns each
     if (componentStatusTables) {
         componentStatusTables.forEach((el) => {
             el.querySelectorAll('tbody tr').forEach((tr, index) => {
@@ -25,6 +26,7 @@ const initialiseShowMore = () => {
 };
 
 const tableReveal = (elm) => {
+    // elm.id refers to app-table or web-table to differentiate
     const componentStatusTable = document.querySelector(`[data-js="${elm.id}"]`);
     const trs = componentStatusTable.querySelectorAll('tbody tr');
 
