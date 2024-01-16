@@ -154,9 +154,6 @@ esm
 .turbo
 !.turbo/config.json
 
-build/**
-dist/
-
 .plugin-clean
 
 # Playwright
@@ -170,4 +167,8 @@ react-browsers-report
 # TypeScript
 compiled/
 
+# build artifacts
+build/**
+dist/
+custom-elements.json
 **/src/react.ts
