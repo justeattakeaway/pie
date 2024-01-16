@@ -29,7 +29,7 @@
             display: block;
             inset-block-start: 50%;
             transform: translate(0, -50%);
-            inset-inline-start: -($swatch-gap);
+            inset-inline-start: calc($swatch-gap * -1);
             height: $swatch-size;
             width: $swatch-size;
             background-color: var(--swatch-color);
