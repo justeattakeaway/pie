@@ -1,29 +1,27 @@
 let shown = false;
 let showMoreButtons;
 
-const initialiseShowMore = () => {
+window.addEventListener('DOMContentLoaded', () => {
     showMoreButtons = document.querySelectorAll('[data-js="show-more"]');
     const componentStatusTables = document.querySelectorAll('[class="c-componentStatusTable "]');
 
-    if (!showMoreButtons) return;
-
     // ensures status tables initially only show 6 columns each
-    if (componentStatusTables) {
-        componentStatusTables.forEach((el) => {
-            el.querySelectorAll('tbody tr').forEach((tr, index) => {
-                const rows = index >= 6 ? tr.style.display = 'none' : '';
+    componentStatusTables.forEach((el) => {
+        return el.querySelectorAll('tbody tr').forEach((tr, index) => {
+            const rows = index >= 6 ? tr.style.display = 'none' : '';
 
-                return rows;
-            });
+            return rows;
         });
-    }
+    });
+
+    if (!showMoreButtons) return;
 
     showMoreButtons.forEach((button) => {
         button.addEventListener('click', (event) => {
             tableReveal(event.target);
         });
     });
-};
+});
 
 const tableReveal = (elm) => {
     // elm.id refers to app-table or web-table to differentiate
@@ -56,5 +54,3 @@ const tableReveal = (elm) => {
 
     return table;
 };
-
-window.addEventListener('DOMContentLoaded', initialiseShowMore);
