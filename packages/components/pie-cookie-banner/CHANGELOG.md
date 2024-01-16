@@ -1,5 +1,24 @@
 # @justeattakeaway/pie-cookie-banner
 
+## 0.15.0
+
+### Minor Changes
+
+- [Added] - React base TypeScript types ([#1164](https://github.com/justeattakeaway/pie/pull/1164)) by [@fernandofranca](https://github.com/fernandofranca)
+
+  [Changed] - set optional props as optional
+
+### Patch Changes
+
+- Updated dependencies [[`918593afd`](https://github.com/justeattakeaway/pie/commit/918593afd939e8c911542235a5d861680ceba2d0), [`918593afd`](https://github.com/justeattakeaway/pie/commit/918593afd939e8c911542235a5d861680ceba2d0), [`24be8ac1a`](https://github.com/justeattakeaway/pie/commit/24be8ac1a5b5113b94c1971b9a59713fbaf86be5)]:
+  - @justeattakeaway/pie-switch@0.24.0
+  - @justeattakeaway/pie-webc-core@0.17.0
+  - @justeattakeaway/pie-icon-button@0.27.0
+  - @justeattakeaway/pie-divider@0.12.0
+  - @justeattakeaway/pie-button@0.45.0
+  - @justeattakeaway/pie-modal@0.38.0
+  - @justeattakeaway/pie-link@0.14.0
+
 ## 0.14.0
 
 ### Minor Changes
