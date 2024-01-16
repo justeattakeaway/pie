@@ -324,8 +324,8 @@ test.describe('PieCookieBanner - Component tests', () => {
             );
 
             // Act
-            const acceptAllButton = await component.locator('[data-test-id="actions-accept-all"]');
-            const necessaryOnlyButton = await component.locator('[data-test-id="actions-necessary-only"]');
+            const acceptAllButton = component.locator('[data-test-id="actions-accept-all"]');
+            const necessaryOnlyButton = component.locator('[data-test-id="actions-necessary-only"]');
 
             // Assert
             expect(await acceptAllButton.getAttribute('variant')).toBe('primary');
@@ -343,12 +343,142 @@ test.describe('PieCookieBanner - Component tests', () => {
                 );
 
                 // Act
-                const acceptAllButton = await component.locator('[data-test-id="actions-accept-all"]');
-                const necessaryOnlyButton = await component.locator('[data-test-id="actions-necessary-only"]');
+                const acceptAllButton = component.locator('[data-test-id="actions-accept-all"]');
+                const necessaryOnlyButton = component.locator('[data-test-id="actions-necessary-only"]');
 
                 // Assert
                 expect(await acceptAllButton.getAttribute('variant')).toBe('primary');
                 expect(await necessaryOnlyButton.getAttribute('variant')).toBe('outline-inverse');
+            });
+        });
+    });
+
+    test.describe('`cookieStatementLink` prop', () => {
+        test.describe('when not populated', () => {
+            test('should set a default cookie statement link of empty string within the banner description', async ({ mount }) => {
+                // Arrange & Act
+                const component = await mount(
+                    PieCookieBanner,
+                    {
+                        props: {},
+                    },
+                );
+
+                // Act
+                const cookieStatementLink = component.locator('[data-test-id="banner-description"] [data-test-id="cookie-statement-link"]');
+
+                // Assert
+                expect(await cookieStatementLink.getAttribute('href')).toBe('');
+            });
+
+            test('should set a default cookie statement link of empty string within the modal description', async ({ mount }) => {
+                // Arrange & Act
+                const component = await mount(
+                    PieCookieBanner,
+                    {
+                        props: {},
+                    },
+                );
+
+                // Act
+                const cookieStatementLink = component.locator('[data-test-id="modal-description"] [data-test-id="cookie-statement-link"]');
+
+                // Assert
+                expect(await cookieStatementLink.getAttribute('href')).toBe('');
+            });
+        });
+
+        test.describe('when populated', () => {
+            test('should set a cookie statement link correctly within the banner description', async ({ mount }) => {
+                // Arrange & Act
+                const component = await mount(
+                    PieCookieBanner,
+                    {
+                        props: {
+                            cookieStatementLink: 'en/FancyCookieStatementUrl',
+                        },
+                    },
+                );
+
+                // Act
+                const cookieStatementLink = component.locator('[data-test-id="banner-description"] [data-test-id="cookie-statement-link"]');
+
+                // Assert
+                expect(await cookieStatementLink.getAttribute('href')).toBe('en/FancyCookieStatementUrl');
+            });
+
+            test('should set a cookie statement link correctly within the modal description', async ({ mount }) => {
+                // Arrange & Act
+                const component = await mount(
+                    PieCookieBanner,
+                    {
+                        props: {
+                            cookieStatementLink: 'en/FancyCookieStatementUrl',
+                        },
+                    },
+                );
+
+                // Act
+                const cookieStatementLink = component.locator('[data-test-id="modal-description"] [data-test-id="cookie-statement-link"]');
+
+                // Assert
+                expect(await cookieStatementLink.getAttribute('href')).toBe('en/FancyCookieStatementUrl');
+            });
+        });
+    });
+
+    test.describe('`cookieTechnologiesLink` prop', () => {
+        test.describe('when not populated', () => {
+            test('should set a default cookie technology link of empty string within the description container', async ({ mount }) => {
+                // Arrange & Act
+                const component = await mount(
+                    PieCookieBanner,
+                    {
+                        props: {},
+                    },
+                );
+
+                // Act
+                const cookieTechnologyLink = component.locator('[data-test-id="banner-description"] [data-test-id="cookie-statement-link"]');
+
+                // Assert
+                expect(await cookieTechnologyLink.getAttribute('href')).toBe('');
+            });
+
+            test('should set a default cookie technology link of empty string within the modal container', async ({ mount }) => {
+                // Arrange & Act
+                const component = await mount(
+                    PieCookieBanner,
+                    {
+                        props: {},
+                    },
+                );
+
+                // Act
+                const cookieTechnologyLink = component.locator('[data-test-id="modal-description"] [data-test-id="cookie-statement-link"]');
+
+                // Assert
+                expect(await cookieTechnologyLink.getAttribute('href')).toBe('');
+            });
+        });
+
+        test.describe('when populated', () => {
+            test('should set a cookie technology link correctly within the modal description', async ({ mount }) => {
+                // Arrange & Act
+                const component = await mount(
+                    PieCookieBanner,
+                    {
+                        props: {
+                            cookieTechnologiesLink: 'en/FancyCookieTechnologyUrl',
+                        },
+                    },
+                );
+
+                // Act
+                const cookieTechnologyLink = component.locator('[data-test-id="modal-description"] [data-test-id="cookie-technology-link"]');
+
+                // Assert
+                expect(await cookieTechnologyLink.getAttribute('href')).toBe('en/FancyCookieTechnologyUrl');
             });
         });
     });

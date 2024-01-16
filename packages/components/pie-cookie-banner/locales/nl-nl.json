@@ -6,10 +6,6 @@
       "managePreferences": "Beheer voorkeuren",
       "necessaryOnly": "Alleen noodzakelijk",
       "acceptAll": "Alles accepteren"
-    },
-    "links": {
-      "cookieStatement": "nl/cookieverklaring",
-      "cookieTechnologies": "nl/technologies"
     }
   },
   "preferencesManagement": {
