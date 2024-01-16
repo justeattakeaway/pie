@@ -1,30 +1,28 @@
-let shown = true;
+let shown = false;
 let showMoreButtons;
 
-const initialiseShowMore = () => {
+window.addEventListener('DOMContentLoaded', () => {
     showMoreButtons = document.querySelectorAll('[data-js="show-more"]');
     const componentStatusTables = document.querySelectorAll('[class="c-componentStatusTable "]');
 
+    // ensures status tables initially only show 6 columns each
+    componentStatusTables.forEach((el) => el.querySelectorAll('tbody tr').forEach((tr, index) => {
+        const rows = index >= 6 ? tr.style.display = 'none' : '';
+
+        return rows;
+    }));
+
     if (!showMoreButtons) return;
-
-    if (componentStatusTables) {
-        componentStatusTables.forEach((el) => {
-            el.querySelectorAll('tbody tr').forEach((tr, index) => {
-                const rows = index >= 6 ? tr.style.display = 'none' : '';
-
-                return rows;
-            });
-        });
-    }
 
     showMoreButtons.forEach((button) => {
         button.addEventListener('click', (event) => {
             tableReveal(event.target);
         });
     });
-};
+});
 
 const tableReveal = (elm) => {
+    // elm.id refers to app-table or web-table to differentiate
     const componentStatusTable = document.querySelector(`[data-js="${elm.id}"]`);
     const trs = componentStatusTable.querySelectorAll('tbody tr');
 
@@ -54,5 +52,3 @@ const tableReveal = (elm) => {
 
     return table;
 };
-
-window.addEventListener('DOMContentLoaded', initialiseShowMore);
