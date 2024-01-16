@@ -1,5 +1,11 @@
 # @justeattakeaway/generator-pie-component
 
+## 0.18.0
+
+### Minor Changes
+
+- [Added] - template file for React base type ([#1164](https://github.com/justeattakeaway/pie/pull/1164)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 0.17.0
 
 ### Minor Changes

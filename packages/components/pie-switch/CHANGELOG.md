@@ -1,5 +1,22 @@
 # @justeattakeaway/pie-switch
 
+## 0.24.0
+
+### Minor Changes
+
+- [Changed] - Use new event wrapper function to standardise the change event structure ([#1173](https://github.com/justeattakeaway/pie/pull/1173)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - React base TypeScript types ([#1164](https://github.com/justeattakeaway/pie/pull/1164)) by [@fernandofranca](https://github.com/fernandofranca)
+
+  [Changed] - set optional props as optional
+
+### Patch Changes
+
+- Updated dependencies [[`24be8ac1a`](https://github.com/justeattakeaway/pie/commit/24be8ac1a5b5113b94c1971b9a59713fbaf86be5), [`918593afd`](https://github.com/justeattakeaway/pie/commit/918593afd939e8c911542235a5d861680ceba2d0), [`24be8ac1a`](https://github.com/justeattakeaway/pie/commit/24be8ac1a5b5113b94c1971b9a59713fbaf86be5)]:
+  - @justeattakeaway/pie-wrapper-react@0.13.0
+  - @justeattakeaway/pie-webc-core@0.17.0
+  - @justeattakeaway/pie-icons-webc@0.17.1
+
 ## 0.23.0
 
 ### Minor Changes
