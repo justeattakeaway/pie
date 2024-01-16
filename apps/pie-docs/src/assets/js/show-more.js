@@ -6,13 +6,11 @@ window.addEventListener('DOMContentLoaded', () => {
     const componentStatusTables = document.querySelectorAll('[class="c-componentStatusTable "]');
 
     // ensures status tables initially only show 6 columns each
-    componentStatusTables.forEach((el) => {
-        return el.querySelectorAll('tbody tr').forEach((tr, index) => {
-            const rows = index >= 6 ? tr.style.display = 'none' : '';
+    componentStatusTables.forEach((el) => el.querySelectorAll('tbody tr').forEach((tr, index) => {
+        const rows = index >= 6 ? tr.style.display = 'none' : '';
 
-            return rows;
-        });
-    });
+        return rows;
+    }));
 
     if (!showMoreButtons) return;
 
