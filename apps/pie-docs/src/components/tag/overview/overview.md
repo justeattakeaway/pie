@@ -52,7 +52,8 @@ Tags can be embedded in other components such as cards, data tables (among other
     type: listTypes.ordered,
     items: [
         "**Icon (Optional):** Visually supports the label.",
-        "**Label:** Provides informative information to the user."
+        "**Label:** Provides information about the content or purpose of the tag.",
+        "**Container**: Background container that organises the information."
     ]
 } %}
 
@@ -60,87 +61,244 @@ Tags can be embedded in other components such as cards, data tables (among other
 
 ## Variations
 
-Tags have two levels of emphasis, strong and subtle. Not all colour available within the subtle emphasis are available within the strong emphasis.
+### Type
 
-### Strong
+Tag can use colour for visual categorisation.
 
-Used when a high contrast tag is required.
+{% contentLayout %}
+  {% contentItem %}
+    <h3>Neutral</h3>
+    {% contentPageImage {
+      src: "../../../assets/img/components/tag/variation-type-neutral.svg",
+      width: "106px",
+      alt: "A pair of strong and subtle neutral tags."
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    <h3>Blue</h3>
+    {% contentPageImage {
+      src: "../../../assets/img/components/tag/variation-type-blue.svg",
+      width: "106px",
+      alt: "A pair of strong and subtle tags in blue color."
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    <h3>Green</h3>
+    {% contentPageImage {
+      src: "../../../assets/img/components/tag/variation-type-green.svg",
+      width: "106px",
+      alt: "A pair of strong and subtle tags in green color."
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    <h3>Yellow</h3>
+    {% contentPageImage {
+      src: "../../../assets/img/components/tag/variation-type-yellow.svg",
+      width: "106px",
+      alt: "A pair of strong and subtle tags in yellow color."
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    <h3>Red</h3>
+    {% contentPageImage {
+      src: "../../../assets/img/components/tag/variation-type-red.svg",
+      width: "106px",
+      alt: "A pair of strong and subtle tags in red color."
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    <h3>Brand</h3>
+    {% contentPageImage {
+      src: "../../../assets/img/components/tag/variation-type-brand.svg",
+      width: "49px",
+      alt: "A subtle tag in brand color."
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    <h3>Neutral - alternative</h3>
+    {% contentPageImage {
+      src: "../../../assets/img/components/tag/variation-type-neutral-alternative.svg",
+      width: "49px",
+      alt: "A subtle alternative for neutral tag."
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    <h3>Outline</h3>
+    {% contentPageImage {
+      src: "../../../assets/img/components/tag/variation-type-outline.svg",
+      width: "49px",
+      alt: "An outline tag."
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    <h3>Ghost</h3>
+    {% contentPageImage {
+      src: "../../../assets/img/components/tag/variation-type-ghost.svg",
+      width: "49px",
+      alt: "A ghost tag."
+    } %}
+  {% endcontentItem %}
+{% endcontentLayout %}
 
-{% contentPageImage {
-    src:"../../../assets/img/components/tag/variation-strong.svg",
-    alt: "Strong tags with bold and strong background color.",
-    width: 286
-} %}
-
-### Subtle
-
-Used when a low contrast tag is required.
-
-{% contentPageImage {
-    src:"../../../assets/img/components/tag/variation-subtle.svg",
-    alt: "Subtle tag with less contrast colors.",
-    width: 362
-} %}
-
---- 
+___
 
 ## Modifiers
+
+### Emphasis
+
+Tags are available in two types of emphasis. 
+Not all colour available within the subtle emphasis are available within the strong emphasis, for example, Brand, Neutral - alternative, Outline and Ghost have only Subtle variations.
+
+{% contentLayout %}
+  {% contentItem %}
+    <h3>Strong</h3>
+    {% contentPageImage {
+      src: "../../../assets/img/components/tag/modifier-emphasis-strong.svg",
+      width: "49px",
+      alt: "A variation of tag which uses strong colors."
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    <h3>Subtle</h3>
+    {% contentPageImage {
+      src: "../../../assets/img/components/tag/modifier-emphasis-subtle.svg",
+      width: "49px",
+      alt: "A variation of tag which uses subtle colors."
+    } %}
+  {% endcontentItem %}
+{% endcontentLayout %}
 
 ### Icon
 
 Icons can be used to visually support the Tag’s label. Only available at the large size.
 
-{% contentPageImage {
-    src:"../../../assets/img/components/tag/modifier-icon.svg",
-    alt: "A tag with an icon.",
-    width: 61
-} %}
-
-### Disabled
-
-{% contentPageImage {
-    src:"../../../assets/img/components/tag/modifier-disabled.svg",
-    alt: "A disabled tag.",
-    width: 61
-} %}
-
----
-
-## Sizes
-
-Outlines the Tag sizes that are available, and where they should be used across our products.
-
-### Height
-
-Two size options are available to suit the scale required.
-
-{% componentDetailsTable {
-  tableData: sizes
-} %}
-
-### Width
-
-Container width is dynamic to the content’s width and retains 4px left and right padding.
-
-{% contentPageImage {
-    src:"../../../assets/img/components/tag/size-width.svg",
-    alt: "A tag tag with flexible width that hugs the content inside.",
-    width: 92
-} %}
+{% contentLayout %}
+  {% contentItem %}
+    <h3>With icon</h3>
+    {% contentPageImage {
+      src: "../../../assets/img/components/tag/modifier-icon.svg",
+      width: "69px",
+      alt: "A tag with an icon."
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    <h3>Without icon</h3>
+    {% contentPageImage {
+      src: "../../../assets/img/components/tag/modifier-no-icon.svg",
+      width: "49px",
+      alt: "A tag without an icon."
+    } %}
+  {% endcontentItem %}
+{% endcontentLayout %}
 
 --- 
 
-## Meaning and purpose
+## Sizes
 
-Tags can be used to indicate status or used to convey specific meanings within JET which are displayed below.
+{% contentLayout %}
+  {% contentItem %}
+    <h3>Small</h3>
+    <p>16px height. Icon isn’t available at the small size option.</p>
+    {% contentPageImage {
+      src: "../../../assets/img/components/tag/size-small.svg",
+      width: "37px",
+      alt: "Small size tag with 16px height."
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    <h3>Large</h3>
+    <p>24px height.</p>
+    {% contentPageImage {
+      src: "../../../assets/img/components/tag/size-large.svg",
+      width: "126px",
+      alt: "Large size tag with 24px height."
+    } %}
+  {% endcontentItem %}
+{% endcontentLayout %}
 
-{% contentPageImage {
-    src:"../../../assets/img/components/tag/meaning-and-purpose.svg",
-    alt: "Meaning of colors in a tag and purpose of the tags.",
-    width: 318
+---
+
+## States
+
+Tag is available in 2 states. The disabled state has an opacity of 50%.
+
+{% contentLayout %}
+  {% contentItem %}
+    <h3>Default</h3>
+    {% contentPageImage {
+      src: "../../../assets/img/components/tag/state-default.svg",
+      width: "126px",
+      alt: "Default state of a tag."
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+    <h3>Disabled</h3>
+    {% contentPageImage {
+      src: "../../../assets/img/components/tag/state-disabled.svg",
+      width: "126px",
+      alt: "Disabled state of a tag."
+    } %}
+  {% endcontentItem %}
+{% endcontentLayout %}
+
+--- 
+
+## Content
+
+### Label guidance
+
+Tag doesn’t have a maximum width or overflow. The container width is dynamic to the content’s width. 
+
+{% usage {
+    do: {
+        type: usageTypes.text,
+        items: [
+            "Use label with concise and scannable text.",
+            "Use no more than 3 words in both Large and Small tag labels.",
+            "Use sentence case in the label."
+        ]
+    },
+    dont: {
+        type: usageTypes.text,
+        items: [
+            "Don't overcrowd the label with unnecessary information or excessive details.",
+            "Don't use more than 3 words in the label."
+        ]
+    }
+} %}
+
+{% usage {
+    do: {
+        type: usageTypes.image,
+        items: [{
+            src: "../../../assets/img/components/tag/content-label-guidance-do.svg",
+            width: "88px",
+            alt: "A tag with a one word in the label."
+        }]
+    },
+    dont: {
+        type: usageTypes.image,
+        items: [{
+            src: "../../../assets/img/components/tag/content-label-guidance-don_t.svg",
+            width: "175px",
+            alt: "A tag with a sentence in the label."
+        }]
+    }
 } %}
 
 ___
+
+## Visual representation 
+
+Tags and colours can be used to indicate status or used to convey specific meanings within JET which are displayed below.
+
+{% contentPageImage {
+    src:"../../../assets/img/components/tag/visual-representation.svg",
+    alt: "Specific meaning of colors and the purpose of tags.",
+    width: "352px"
+} %}
+
+---
 
 ## Examples
 
@@ -150,22 +308,33 @@ Outlines the atomic level interactive elements for the component.
 
 Here are some examples of tags in left-to-right context:
 
+{% contentLayout %}
+  {% contentItem %}
+    {% contentPageImage {
+      src: "../../../assets/img/components/tag/ltr-example-offer.svg",
+      width: "226px",
+      alt: "A left-to-right example of an offer with a subtle green tag."
+    } %}
+  {% endcontentItem %}
+  {% contentItem %}
+  {% contentPageImage {
+      src: "../../../assets/img/components/tag/ltr-example-opening-hours.svg",
+      width: "402px",
+      alt: "A left-to-right example of opening hours of a restaurant with a subtle brand tag."
+    } %}
+  {% endcontentItem %}
+{% endcontentLayout %}
+
 {% contentPageImage {
     src:"../../../assets/img/components/tag/example-ltr-restaurant-listing.svg",
     alt: "A left-to-right example of a tag used on a restaurant listing card.",
-    width: 827
+    width: "827px"
 } %}
 
 {% contentPageImage {
-    src:"../../../assets/img/components/tag/example-ltr-menu-item.svg",
-    alt: "A left-to-right example of disabled tags on a menu item card.",
-    width: 912
-} %}
-
-{% contentPageImage {
-    src:"../../../assets/img/components/tag/example-ltr-disabled-menu-item.svg",
-    alt: "A left-to-right example of disabled tag on a disabled menu item card.",
-    width: 912
+    src:"../../../assets/img/components/tag/ltr-example-disabled-menu-card.svg",
+    alt: "A left-to-right example of disabled offer tag in a menu item card.",
+    width: "827px"
 } %}
 
 ### RTL examples
@@ -173,15 +342,15 @@ Here are some examples of tags in left-to-right context:
 Here are some examples of tags in right-to-left context:
 
 {% contentPageImage {
-    src:"../../../assets/img/components/tag/example-rtl-restaurant-listing.svg",
-    alt: "A right-to-left example of a tag used on a restaurant listing card.",
-    width: 827
+    src: "../../../assets/img/components/tag/rtl-example-restaurant-listing.svg",
+    alt: "A right-to-left example of neutral and brand tags used on a restaurant listing card.",
+    width: "827px"
 } %}
 
 {% contentPageImage {
-    src:"../../../assets/img/components/tag/example-rtl-disabled-menu-item.svg",
-    alt: "A right-to-left example of disabled tag on a disabled menu item card.",
-    width: 912
+    src: "../../../assets/img/components/tag/rtl-example-price-breakdown.svg",
+    alt: "A right-to-left example of an offer tag on used in price breakdown.",
+    width: "359px"
 } %}
 
 ___
