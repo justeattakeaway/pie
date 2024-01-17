@@ -13,27 +13,9 @@ const changelogFunctions = {
   getDependencyReleaseLine: async (changesets, dependenciesUpdated) => {
     if (dependenciesUpdated.length === 0) return '';
 
-    const changesetLink = `- Updated dependencies [${(
-      await Promise.all(
-        changesets.map(async (cs) => {
-          if (cs.commit) {
-            let {links} = await getInfo({
-              repo,
-              commit: cs.commit,
-            });
-            return links.commit;
-          }
-        })
-      )
-    )
-      .filter((_) => _)
-      .join(', ')}]:`;
-
-    const updatedDependenciesList = dependenciesUpdated.map(
-      (dependency) => `  - ${dependency.name}@${dependency.newVersion}`
-    );
-
-    return [changesetLink, ...updatedDependenciesList].join('\n');
+    return dependenciesUpdated.map(dep => {
+      return `[Changed] - Updated dependency \`${dep.name}\` to \`v${dep.newVersion}\`.\n`
+    });
   },
   getReleaseLine: async (changeset, type, options) => {
     let prFromSummary;
