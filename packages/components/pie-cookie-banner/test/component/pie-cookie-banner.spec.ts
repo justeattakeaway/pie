@@ -396,7 +396,7 @@ test.describe('PieCookieBanner - Component tests', () => {
                     PieCookieBanner,
                     {
                         props: {
-                            cookieStatementLink: cookieStatementUrl
+                            cookieStatementLink: cookieStatementUrl,
                         },
                     },
                 );
