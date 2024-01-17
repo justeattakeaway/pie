@@ -41,7 +41,6 @@ env:
 
 jobs:
   dependency-changeset:
-    if: github.actor == 'renovate-bot' || github.actor == 'renovate[bot]'
     uses: the-guild-org/shared-config/.github/workflows/changesets-dependencies.yaml@main
     secrets:
       githubToken: ${{ secrets.GITHUB_TOKEN }}
