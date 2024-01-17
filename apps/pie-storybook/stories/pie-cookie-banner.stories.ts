@@ -15,6 +15,8 @@ type CookieBannerStoryMeta = StoryMeta<CookieBannerProps>;
 const defaultArgs: CookieBannerProps = {
     hasPrimaryActionsOnly: false,
     locale: pieCookieBannerLocales.enGB,
+    cookieTechnologiesLink: 'en/technologies',
+    cookieStatementLink: 'en/cookiestatement',
 };
 
 const cookieBannerStoryMeta: CookieBannerStoryMeta = {
@@ -51,11 +53,18 @@ const managePrefsAction = action('manage-prefs');
 const prefsSavedAction = action('prefs-saved');
 
 const BaseStoryTemplate = (props: CookieBannerProps) : TemplateResult => {
-    const { hasPrimaryActionsOnly, locale } = props;
+    const {
+        hasPrimaryActionsOnly,
+        locale,
+        cookieStatementLink,
+        cookieTechnologiesLink,
+    } = props;
 
     return html`
         <pie-cookie-banner
             .locale=${locale}
+            .cookieStatementLink=${cookieStatementLink}
+            .cookieTechnologiesLink=${cookieTechnologiesLink}
             ?hasPrimaryActionsOnly="${hasPrimaryActionsOnly}"
             @pie-cookie-banner-necessary-only="${necessaryOnlyAction}"
             @pie-cookie-banner-accept-all="${acceptAllAction}"

@@ -6,10 +6,6 @@
       "managePreferences": "Zarządzaj ustawieniami",
       "necessaryOnly": "Tylko niezbędne",
       "acceptAll": "Zaakceptuj wszystkie"
-    },
-    "links": {
-      "cookieStatement": "pl/polityka-cookies",
-      "cookieTechnologies": "pl/technologies"
     }
   },
   "preferencesManagement": {
