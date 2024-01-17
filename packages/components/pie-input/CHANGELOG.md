@@ -1,5 +1,14 @@
 # @justeattakeaway/pie-input
 
+## 0.6.1
+
+### Patch Changes
+
+- [Removed] - custom-elements.json not needed in source control ([#1181](https://github.com/justeattakeaway/pie/pull/1181)) by [@ashleynolan](https://github.com/ashleynolan)
+
+- Updated dependencies [[`2763c522a`](https://github.com/justeattakeaway/pie/commit/2763c522a9d8df376c0353c3ba8db5dbf9410c08)]:
+  - @justeattakeaway/pie-webc-core@0.17.1
+
 ## 0.6.0
 
 ### Minor Changes
