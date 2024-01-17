@@ -5,8 +5,7 @@ window.addEventListener('DOMContentLoaded', () => {
     showMoreButtons = document.querySelectorAll('[data-js="show-more"]');
     const componentStatusTables = document.querySelectorAll('[class="c-componentStatusTable "]');
 
-    if (!showMoreButtons) return;
-    if (!componentStatusTables) return;
+    if (!showMoreButtons.length || !componentStatusTables.length ) return;
 
     // ensures status tables initially only show 6 columns each
     componentStatusTables.forEach((el) => el.querySelectorAll('tbody tr').forEach((tr, index) => {
