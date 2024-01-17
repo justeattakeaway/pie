@@ -391,11 +391,12 @@ test.describe('PieCookieBanner - Component tests', () => {
         test.describe('when populated', () => {
             test('should set a cookie statement link correctly within the banner description', async ({ mount }) => {
                 // Arrange & Act
+                const cookieStatementUrl = 'en/FancyCookieStatementUrl';
                 const component = await mount(
                     PieCookieBanner,
                     {
                         props: {
-                            cookieStatementLink: 'en/FancyCookieStatementUrl',
+                            cookieStatementLink: cookieStatementUrl
                         },
                     },
                 );
@@ -404,16 +405,17 @@ test.describe('PieCookieBanner - Component tests', () => {
                 const cookieStatementLink = component.locator('[data-test-id="banner-description"] [data-test-id="cookie-statement-link"]');
 
                 // Assert
-                expect(await cookieStatementLink.getAttribute('href')).toBe('en/FancyCookieStatementUrl');
+                expect(await cookieStatementLink.getAttribute('href')).toBe(cookieStatementUrl);
             });
 
             test('should set a cookie statement link correctly within the modal description', async ({ mount }) => {
                 // Arrange & Act
+                const cookieStatementUrl = 'en/FancyCookieStatementUrl';
                 const component = await mount(
                     PieCookieBanner,
                     {
                         props: {
-                            cookieStatementLink: 'en/FancyCookieStatementUrl',
+                            cookieStatementLink: cookieStatementUrl,
                         },
                     },
                 );
@@ -422,7 +424,7 @@ test.describe('PieCookieBanner - Component tests', () => {
                 const cookieStatementLink = component.locator('[data-test-id="modal-description"] [data-test-id="cookie-statement-link"]');
 
                 // Assert
-                expect(await cookieStatementLink.getAttribute('href')).toBe('en/FancyCookieStatementUrl');
+                expect(await cookieStatementLink.getAttribute('href')).toBe(cookieStatementUrl);
             });
         });
     });
@@ -465,11 +467,12 @@ test.describe('PieCookieBanner - Component tests', () => {
         test.describe('when populated', () => {
             test('should set a cookie technology link correctly within the modal description', async ({ mount }) => {
                 // Arrange & Act
+                const cookieTechnologyUrl = 'en/FancyCookieTechnologyUrl';
                 const component = await mount(
                     PieCookieBanner,
                     {
                         props: {
-                            cookieTechnologiesLink: 'en/FancyCookieTechnologyUrl',
+                            cookieTechnologiesLink: cookieTechnologyUrl,
                         },
                     },
                 );
@@ -478,7 +481,7 @@ test.describe('PieCookieBanner - Component tests', () => {
                 const cookieTechnologyLink = component.locator('[data-test-id="modal-description"] [data-test-id="cookie-technology-link"]');
 
                 // Assert
-                expect(await cookieTechnologyLink.getAttribute('href')).toBe('en/FancyCookieTechnologyUrl');
+                expect(await cookieTechnologyLink.getAttribute('href')).toBe(cookieTechnologyUrl);
             });
         });
     });
