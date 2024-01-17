@@ -1,8 +1,8 @@
 @use '../fozzie-config' as f;
 @use '../variables' as v;
 
-$tabs-link-padding:                f.spacing(d);
-$max-scroll-height:                f.spacing(d);
+$tabs-link-padding:                var(--dt-spacing-d);
+$max-scroll-height:                var(--dt-spacing-d);
 
 .c-tabs {
     z-index: f.zIndex(mid);
@@ -53,15 +53,15 @@ $max-scroll-height:                f.spacing(d);
 
 // adds a max scroll height to elements with an id so they don't scroll behind the tab container
 [id] {
-    scroll-margin-top: $max-scroll-height;
+    scroll-margin-block-start: $max-scroll-height;
 }
 
 .c-tabs + .c-contentPage-content {
     [id] {
-        scroll-margin-top: calc(var(--header-height) + $max-scroll-height);
+        scroll-margin-block-start: calc(var(--header-height) + $max-scroll-height);
 
         @include f.media('>=wide') {
-            scroll-margin-top: $max-scroll-height;
+            scroll-margin-block-start: $max-scroll-height;
         }
     }
 }
