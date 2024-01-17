@@ -1,7 +1,7 @@
 @use '../fozzie-config' as f;
 
 $icon-width:                        24px; // must be kept in sync with the size given in notifications.js shortcode
-$notification-padding:              f.spacing(d);
+$notification-padding:              var(--dt-spacing-d);
 $combinedIconAndPaddingWidth:       calc($icon-width + $notification-padding);
 $notification-bg-colour:            var(--bg-colour);
 
@@ -13,7 +13,7 @@ $notification-bg-colour:            var(--bg-colour);
     flex-wrap: wrap;
 
     & > svg {
-        margin-top: 2px;
+        margin-block-start: 2px;
     }
 }
 
@@ -22,8 +22,8 @@ $notification-bg-colour:            var(--bg-colour);
     font-weight: f.$font-weight-extrabold;
 
     ~ .c-notification-message {
-        margin-left: $combinedIconAndPaddingWidth;
-        margin-top: f.spacing(a);
+        margin-inline-start: $combinedIconAndPaddingWidth;
+        margin-block-start: var(--dt-spacing-a);
         flex: 1;
     }
 }
@@ -31,7 +31,7 @@ $notification-bg-colour:            var(--bg-colour);
 // The first text child (title or message if there's no title)
 // on the component should sit in line with the icon
 .c-notification > :nth-child(2) {
-    margin-top: 0;
+    margin-block-start: 0;
     width: calc(100% - $combinedIconAndPaddingWidth);
-    margin-left: $notification-padding;
+    margin-inline-start: $notification-padding;
 }

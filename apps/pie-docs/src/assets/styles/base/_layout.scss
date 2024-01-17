@@ -83,16 +83,16 @@
     & p:has(+ .c-tokensTable) {
         // For a tokens table directly following a description add margin.
         // Descriptions normally have a `<hr />` as a separator
-        margin-block-end: f.spacing(f);
+        margin-block-end: var(--dt-spacing-f);
     }
 
     .c-content-container {
-        padding-block-start: f.spacing(f);
-        padding-block-end: f.spacing(j);
+        padding-block-start: var(--dt-spacing-f);
+        padding-block-end: var(--dt-spacing-j);
 
         @include f.media('>=wide') {
-            padding-block-start: f.spacing(h);
-            padding-block-end: calc(f.spacing(j) + f.spacing(d));
+            padding-block-start: var(--dt-spacing-h);
+            padding-block-end: calc(var(--dt-spacing-j) + var(--dt-spacing-d));
         }
     }
 
@@ -133,11 +133,11 @@
         > h3 + h4,
         > p + .c-contentPage-img,
         > .c-contentPage-img + p {
-            margin-block-start: f.spacing(e);
+            margin-block-start: var(--dt-spacing-e);
         }
 
         > p + h2 {
-            margin-block-start: f.spacing(h);
+            margin-block-start: var(--dt-spacing-h);
         }
 
         > ul + h3,
@@ -150,21 +150,21 @@
         > .c-contentPage-img + h4,
         > .c-contentPage-notification + h3,
         & .c-contentPage-notification {
-            margin-block-start: f.spacing(f);
+            margin-block-start: var(--dt-spacing-f);
         }
 
         .c-contentPage-notification + .c-contentPage-notification {
-            margin-block-start: f.spacing(b);
+            margin-block-start: var(--dt-spacing-b);
         }
     }
 
     hr {
-        margin-block-start: f.spacing(h);
-        margin-block-end: f.spacing(h);
+        margin-block-start: var(--dt-spacing-h);
+        margin-block-end: var(--dt-spacing-h);
 
         @include f.media('>=wide') {
-            margin-block-start: f.spacing(i);
-            margin-block-end: f.spacing(i);
+            margin-block-start: var(--dt-spacing-i);
+            margin-block-end: var(--dt-spacing-i);
         }
     }
 }

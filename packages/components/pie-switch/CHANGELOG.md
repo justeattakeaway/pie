@@ -1,5 +1,18 @@
 # @justeattakeaway/pie-switch
 
+## 0.24.1
+
+### Patch Changes
+
+- [Changed] - Updated dependency `element-internals-polyfill@1.3.10` from `1.3.9` ([#1130](https://github.com/justeattakeaway/pie/pull/1130)) by [@renovate](https://github.com/apps/renovate)
+
+- [Removed] - custom-elements.json not needed in source control ([#1181](https://github.com/justeattakeaway/pie/pull/1181)) by [@ashleynolan](https://github.com/ashleynolan)
+
+- Updated dependencies [[`2763c522a`](https://github.com/justeattakeaway/pie/commit/2763c522a9d8df376c0353c3ba8db5dbf9410c08), [`21f183bdf`](https://github.com/justeattakeaway/pie/commit/21f183bdf7a593222d12247529c76b67f69d97dd)]:
+  - @justeattakeaway/pie-webc-core@0.17.1
+  - @justeattakeaway/pie-wrapper-react@0.14.0
+  - @justeattakeaway/pie-icons-webc@0.17.2
+
 ## 0.24.0
 
 ### Minor Changes

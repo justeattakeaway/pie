@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-wrapper-react
 
+## 0.14.0
+
+### Minor Changes
+
+- [Fixed] - eslint issues from generated react.ts ([#1183](https://github.com/justeattakeaway/pie/pull/1183)) by [@ashleynolan](https://github.com/ashleynolan)
+
 ## 0.13.0
 
 ### Minor Changes
