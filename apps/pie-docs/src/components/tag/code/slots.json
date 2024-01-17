@@ -1,0 +1,19 @@
+{
+    "headings": ["Slot", "Description"],
+    "rows": [
+        [
+            {
+                "type": "code",
+                "item": ["default"]
+            },
+            "The default slot is used to pass text into the tag component."
+        ],
+        [
+            {
+                "type": "code",
+                "item": ["icon"]
+            },
+            "Used to pass in an icon to the tag component."
+        ]
+    ]
+}
