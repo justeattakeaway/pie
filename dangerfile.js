@@ -12,10 +12,12 @@ danger.git.created_files.filter((filepath) => filepath.includes('.changeset/') &
             const diffString = result.diff;
             const changesetCategoryRegex = /(?<=\[).+?(?=\])/g;
             const changesetCategories = diffString.match(changesetCategoryRegex);
-            const numberOfCategories = changesetCategories.length;
+            const numberOfCategories = changesetCategories ? changesetCategories.length : 0;
 
             // Check if at least one of the valid changeset categories is present
-            if (!validChangesetCategories.some((cat) => changesetCategories.includes(cat))) {
+            if (numberOfCategories === 0) {
+                fail(`:memo: Your changeset doesn't include a category. Please add one of: \`${validChangesetCategories.join(', ')}\`. Filepath: \`${filepath}`);
+            } else if (!validChangesetCategories.some((cat) => changesetCategories.includes(cat))) {
                 fail(`:memo: Your changeset includes an invalid category. Please use one of: \`${validChangesetCategories.join(', ')}\`. Filepath: \`${filepath}`);
             }
 
