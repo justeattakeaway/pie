@@ -2,19 +2,19 @@
 
 .c-scrollTop {
     position: fixed;
-    inset-block-end: f.spacing(d);
-    inset-inline-end: f.spacing(d);
+    inset-block-end: var(--dt-spacing-d);
+    inset-inline-end: var(--dt-spacing-d);
 
     @include f.media('>=wide') {
-        inset-block-end: f.spacing(f);
-        inset-inline-end: f.spacing(e);
+        inset-block-end: var(--dt-spacing-f);
+        inset-inline-end: var(--dt-spacing-e);
     }
 
     z-index: f.zIndex('high');
 
     display: none; // Hidden by default, will be set to flex by scroll-to-top.js
     flex-direction: row;
-    gap: f.spacing();
+    gap: var(--dt-spacing-b);
     justify-content: space-between;
     align-items: center;
 

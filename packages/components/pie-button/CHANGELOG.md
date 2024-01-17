@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.45.1
+
+### Patch Changes
+
+- [Changed] - Updated dependency `element-internals-polyfill@1.3.10` from `1.3.9` ([#1130](https://github.com/justeattakeaway/pie/pull/1130)) by [@renovate](https://github.com/apps/renovate)
+
+- [Removed] - custom-elements.json not needed in source control ([#1181](https://github.com/justeattakeaway/pie/pull/1181)) by [@ashleynolan](https://github.com/ashleynolan)
+
+- Updated dependencies [[`2763c522a`](https://github.com/justeattakeaway/pie/commit/2763c522a9d8df376c0353c3ba8db5dbf9410c08), [`515438272`](https://github.com/justeattakeaway/pie/commit/5154382729aee39ce38fe98a8b65791ba2f79187)]:
+  - @justeattakeaway/pie-webc-core@0.17.1
+  - @justeattakeaway/pie-spinner@0.5.1
+
 ## 0.45.0
 
 ### Minor Changes

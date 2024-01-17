@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.51.1
+
+### Patch Changes
+
+- [Fixed] - Danger reporting when no categories added to changeset ([#1185](https://github.com/justeattakeaway/pie/pull/1185)) by [@ashleynolan](https://github.com/ashleynolan)
+
 ## 2.51.0
 
 ### Minor Changes

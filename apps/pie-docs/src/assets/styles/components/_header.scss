@@ -8,10 +8,10 @@ $headerInlinePadding:   20px;
     display: flex;
     align-items: center;
     border-bottom: 1px solid f.$color-divider-default;
-    padding: f.spacing(d);
+    padding: var(--dt-spacing-d);
 
     @include f.media('<wide') {
-        padding-left: calc($headerInlinePadding + $navToggleWidth + $headerInlinePadding);
+        padding-inline-start: calc($headerInlinePadding + $navToggleWidth + $headerInlinePadding);
     }
 }
 

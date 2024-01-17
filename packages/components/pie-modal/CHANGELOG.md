@@ -1,5 +1,18 @@
 # @justeattakeaway/pie-modal
 
+## 0.38.1
+
+### Patch Changes
+
+- [Removed] - custom-elements.json not needed in source control ([#1181](https://github.com/justeattakeaway/pie/pull/1181)) by [@ashleynolan](https://github.com/ashleynolan)
+
+- Updated dependencies [[`378bcea7d`](https://github.com/justeattakeaway/pie/commit/378bcea7d009d864d2c7983183cdcb4000eb3e23), [`2763c522a`](https://github.com/justeattakeaway/pie/commit/2763c522a9d8df376c0353c3ba8db5dbf9410c08), [`515438272`](https://github.com/justeattakeaway/pie/commit/5154382729aee39ce38fe98a8b65791ba2f79187)]:
+  - @justeattakeaway/pie-button@0.45.1
+  - @justeattakeaway/pie-webc-core@0.17.1
+  - @justeattakeaway/pie-icon-button@0.27.1
+  - @justeattakeaway/pie-spinner@0.5.1
+  - @justeattakeaway/pie-icons-webc@0.17.2
+
 ## 0.38.0
 
 ### Minor Changes

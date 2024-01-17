@@ -2,12 +2,13 @@
 @use '../variables' as v;
 
 .c-mediaElementList {
-    margin-top: f.$spacing-e;
+    margin-block-start: var(--dt-spacing-e);
     display: flex;
     flex-direction: column;
 
     hr {
-        margin: f.$spacing-f 0;
+        margin-block: var(--dt-spacing-f);
+        margin-inline: 0;
     }
 
     .c-mediaElement {
@@ -19,15 +20,15 @@
         }
 
         picture {
-            margin-right: f.$spacing-e;
+            margin-inline-end: var(--dt-spacing-e);
 
             img {
                 display: block;
             }
 
             @include f.media('<narrowMid') {
-                margin-right: 0;
-                margin-bottom: f.$spacing-e;
+                margin-inline-end: 0;
+                margin-block-end: var(--dt-spacing-e);
 
                 img {
                     width: 100%;

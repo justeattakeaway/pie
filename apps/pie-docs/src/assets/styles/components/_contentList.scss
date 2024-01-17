@@ -3,8 +3,8 @@
 $contentList-maxWidth: 604px;
 $contentList-maxHeight: 224px;
 $contentList-column-width: 180px;
-$list-icon-size: f.$spacing-c;
-$list-icon-gap: f.$spacing-a;
+$list-icon-size: var(--dt-spacing-c);
+$list-icon-gap: var(--dt-spacing-a);
 $list-icon-fullWidth: calc($list-icon-size + $list-icon-gap);
 $tooltip-border-radius: 100px;
 
@@ -13,7 +13,7 @@ $tooltip-border-radius: 100px;
 
     ol {
         column-width: $contentList-column-width 1;
-        column-gap: f.$spacing-f;
+        column-gap: var(--dt-spacing-f);
         padding: 0;
         column-fill: auto;
 
@@ -27,14 +27,15 @@ $tooltip-border-radius: 100px;
         position: relative;
         display: flex;
         list-style: none;
-        margin-block-end: f.$spacing-c;
+        margin-block-end: var(--dt-spacing-c);
 
         &[data-title]:hover:after {
             content: attr(data-title);
             position: absolute;
-            top: calc(100% + f.$spacing-a);
+            top: calc(100% + var(--dt-spacing-a));
             left: $list-icon-fullWidth;
-            padding: f.$spacing-a f.$spacing-c;
+            padding-block: var(--dt-spacing-a);
+            padding-inline: var(--dt-spacing-c);
             @include f.font-size('caption');
             width: max-content;
             border-radius: $tooltip-border-radius;
@@ -59,7 +60,7 @@ $tooltip-border-radius: 100px;
             content: url('/assets/img/contents.svg');
             display: inline-block;
             position: relative;
-            top: f.$spacing-a;
+            top: var(--dt-spacing-a);
             width: $list-icon-size;
             height: $list-icon-size;
             margin-inline-end: $list-icon-gap;

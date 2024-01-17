@@ -3,7 +3,7 @@
 .c-columns {
     display: grid;
     grid-template-columns: 1fr;
-    column-gap: f.$spacing-e;
+    column-gap: var(--dt-spacing-e);
 
     @include f.media('>=mid') {
         grid-template-columns: 1fr 1fr;
@@ -21,7 +21,7 @@
     h2,
     h3,
     h4 {
-        margin-block-start: f.$spacing-f;
+        margin-block-start: var(--dt-spacing-f);
     }
 
     .c-contentPage-img {
@@ -35,7 +35,7 @@
     h3,
     h4 {
         @include f.media('<=mid') {
-            margin-block-start: f.$spacing-f;
+            margin-block-start: var(--dt-spacing-f);
         }
     }
 }
@@ -45,6 +45,6 @@
     h2,
     h3,
     h4 {
-        margin-block-start: f.$spacing-f;
+        margin-block-start: var(--dt-spacing-f);
     }
 }

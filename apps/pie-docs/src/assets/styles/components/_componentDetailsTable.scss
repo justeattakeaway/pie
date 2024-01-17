@@ -2,11 +2,13 @@
 @use '../variables' as v;
 
 .c-componentDetailsTable-backdrop {
-    margin-block-start: f.$spacing-e;
-    margin-block-end: f.$spacing-f;
+    margin-block-start: var(--dt-spacing-e);
+    margin-block-end: var(--dt-spacing-f);
     background-color: f.$color-container-subtle;
     border-radius: f.$radius-rounded-c;
-    padding: f.$spacing-d f.$spacing-e f.$spacing-e;
+    padding-block-start: var(--dt-spacing-d);
+    padding-block-end: var(--dt-spacing-e);
+    padding-inline: var(--dt-spacing-e);
 
     // ensures larger tables are responsive
     overflow-x: auto;
@@ -21,7 +23,7 @@
     td {
         text-align: start;
         vertical-align: top;
-        padding: f.$spacing-b;
+        padding: var(--dt-spacing-b);
         min-width: fit-content;
     }
 
@@ -43,14 +45,15 @@
     th:not(:first-child),
     td:not(:first-child) {
         @include f.media('>=mid') {
-            padding-inline-start: f.$spacing-i;
+            padding-inline-start: var(--dt-spacing-i);
         }
     }
 }
 
 .c-componentDetailsTable-token {
     background-color: f.$color-container-default;
-    padding: 2px f.$spacing-a;
+    padding-block: 2px;
+    padding-inline: var(--dt-spacing-a);
     border-radius: f.$radius-rounded-b;
     @include f.font-size('body-s');
 }

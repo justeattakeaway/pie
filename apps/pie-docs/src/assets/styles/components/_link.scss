@@ -3,20 +3,20 @@
 .c-link-backdrop {
     background-color: f.$color-background-subtle;
     border-radius: f.$radius-rounded-c;
-    margin-block: f.spacing(b);
+    margin-block: var(--dt-spacing-b);
     display: flex;
     align-items: center;
-    padding-block: f.spacing(d);
+    padding-block: var(--dt-spacing-d);
 
     svg {
-        margin-inline: f.spacing(d);
+        margin-inline: var(--dt-spacing-d);
     }
 }
 
 .c-link {
-    margin-inline-start: f.spacing(a);
+    margin-inline-start: var(--dt-spacing-a);
 }
 
 .c-link-container {
-    margin-block: f.spacing(f);
+    margin-block: var(--dt-spacing-f);
 }

@@ -13,7 +13,7 @@
 
     .c-list-item {
         counter-increment: item;
-        margin-block-end: f.spacing(b);
+        margin-block-end: var(--dt-spacing-b);
         @include f.font-size('body-l');
         display: flex;
 
@@ -25,7 +25,7 @@
             content: counter(item);
             @include f.font-size('body-s');
             font-weight: f.$font-weight-bold;
-            margin-inline-end: f.spacing(c);
+            margin-inline-end: var(--dt-spacing-c);
             width: 25px;
             height: 25px;
             background: f.$color-container-inverse;
@@ -41,14 +41,14 @@
 
 .c-list--pill {
     display: flex;
-    gap: f.spacing();
+    gap: var(--dt-spacing-b);
     flex-wrap: wrap;
 
     & .c-list-item {
         @include f.font-size('body-s');
         background-color: f.$color-container-strong;
         padding-block: 2px;
-        padding-inline: f.spacing(a);
+        padding-inline: var(--dt-spacing-a);
         border-radius: f.$radius-rounded-b;
     }
 }
@@ -61,7 +61,7 @@
         display: flex;
         align-items: flex-start;
         justify-content: flex-start;
-        margin-block-end: f.spacing(b);
+        margin-block-end: var(--dt-spacing-b);
 
         &:before {
             content: '';
@@ -69,8 +69,8 @@
             height: 6px;
             background: f.$color-container-inverse;
             border-radius: f.$radius-rounded-e;
-            margin-inline-end: f.spacing(b);
-            margin-block-start: f.spacing(b);
+            margin-inline-end: var(--dt-spacing-b);
+            margin-block-start: var(--dt-spacing-b);
             flex-shrink: 0;
         }
     }
@@ -79,7 +79,7 @@
 .c-list--icon {
     & .c-list-item {
         display: flex;
-        gap: f.spacing();
+        gap: var(--dt-spacing-b);
 
         & > svg {
             flex-shrink: 0;
@@ -87,7 +87,7 @@
         }
 
         & + .c-list-item {
-            margin-block-start: f.spacing(e);
+            margin-block-start: var(--dt-spacing-e);
         }
     }
 }

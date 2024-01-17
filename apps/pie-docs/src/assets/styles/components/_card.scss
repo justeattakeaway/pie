@@ -3,8 +3,8 @@
 
 $card-min-width: 270px;
 $card-image-height: 180px;
-$card-gap: f.$spacing-e;
-$card-container-max-width: calc(($card-min-width * 3) + ($card-gap * 2));
+$card-gap: var(--dt-spacing-e);
+$card-container-max-width: calc(($card-min-width * 3) + 48px); // 48px is card-gap * 2
 $card-border: 1px solid f.$color-border-default;
 
 .c-card-wrapper {
@@ -12,11 +12,11 @@ $card-border: 1px solid f.$color-border-default;
 }
 
 p + .c-card-wrapper {
-    margin-top: f.$spacing-f;
+    margin-block-start: var(--dt-spacing-f);
 }
 
 h2 + .c-card-wrapper {
-    margin-top: f.$spacing-e;
+    margin-block-start: var(--dt-spacing-e);
 }
 
 .c-card-list {
@@ -48,7 +48,7 @@ h2 + .c-card-wrapper {
     border: $card-border;
     border-radius: f.$radius-rounded-c;
     background-color: f.$color-container-default;
-    padding: f.$spacing-e;
+    padding: var(--dt-spacing-e);
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -81,8 +81,8 @@ h2 + .c-card-wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: f.$spacing-b;
-    border-radius: f.$spacing-b;
+    padding: var(--dt-spacing-b);
+    border-radius: var(--dt-spacing-b);
 
     path {
         fill: f.$color-content-interactive-light;
@@ -103,7 +103,7 @@ $iconBackgroundColours: (
 
 .c-card-heading {
     @include f.font-size('heading-s');
-    margin-top: f.$spacing-e;
+    margin-block-start: var(--dt-spacing-e);
 
     @include f.media('>=mid') {
         @include f.font-size('heading-m');
@@ -111,7 +111,7 @@ $iconBackgroundColours: (
 }
 
 .c-card-content {
-    margin-top: f.$spacing-d;
+    margin-block-start: var(--dt-spacing-d);
 }
 
 .c-card-image {
@@ -129,27 +129,28 @@ $iconBackgroundColours: (
 .c-card-labelContainer {
     border-radius: f.$radius-rounded-c;
     display: flex;
-    gap: f.spacing();
+    gap: var(--dt-spacing-b);
     justify-content: space-between;
     align-items: center;
-    padding-top: f.$spacing-e;
+    padding-top: var(--dt-spacing-e);
     padding-bottom: 0;
 
     .c-card--hasImage & {
         border-top: $card-border;
-        padding: f.$spacing-e f.$spacing-d;
+        padding-block: var(--dt-spacing-e);
+        padding-inline: var(--dt-spacing-d);
         border-radius: 0 0 f.$radius-rounded-c f.$radius-rounded-c;
     }
 }
 
 .c-card-labelContainer--internalLink {
     justify-content: start;
-    gap: f.$spacing-a;
+    gap: var(--dt-spacing-a);
 }
 
 .c-card-label {
     font-weight: f.$font-weight-bold;
-    margin-top: 0;
+    margin-block-start: 0;
 }
 
 .c-card-label > span {

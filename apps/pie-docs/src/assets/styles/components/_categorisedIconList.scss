@@ -17,14 +17,14 @@ $icon-preview-size: 64px;
 }
 
 .c-categorisedIconList-heading {
-    margin-block: f.spacing(f);
+    margin-block: var(--dt-spacing-f);
 }
 
 .c-categorisedIconList-iconList {
     padding-inline-start: 0;
     display: flex;
     flex-flow: row wrap;
-    gap: f.spacing(e);
+    gap: var(--dt-spacing-e);
 }
 
 .c-categorisedIconList-iconCard {
@@ -35,7 +35,7 @@ $icon-preview-size: 64px;
     inline-size: 152px;
     border-radius: f.$radius-rounded-b;
     background-color: f.$color-container-subtle;
-    padding: f.spacing(d);
+    padding: var(--dt-spacing-d);
 
     p {
         margin-block-start: 0;
@@ -56,12 +56,12 @@ $icon-preview-size: 64px;
     flex-flow: row;
     justify-content: space-evenly;
     align-items: center;
-    gap: f.spacing(d);
+    gap: var(--dt-spacing-d);
 }
 
 .c-categorisedIconList-iconCard-separator {
     block-size: 1px;
     inline-size: 100%;
     background-color: f.$color-divider-default;
-    margin-block: f.spacing(d);
+    margin-block: var(--dt-spacing-d);
 }

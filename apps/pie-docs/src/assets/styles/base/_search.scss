@@ -15,12 +15,12 @@
 .DocSearch-NewStartScreen {
     display: grid;
     grid-template-columns: 1fr;
-    gap: f.$spacing-d;
-    padding-block-end: f.$spacing-d;
+    gap: var(--dt-spacing-d);
+    padding-block-end: var(--dt-spacing-d);
 
     @include f.media('>=narrow') {
         grid-template-columns: repeat(2, 1fr);
-        padding-block-end: f.$spacing-g;
+        padding-block-end: var(--dt-spacing-g);
         gap: 48px; // gap between grid columns
     }
 }
@@ -34,7 +34,7 @@
 .DocSearch-NewStartScreenCategory {
     display: flex;
     flex-direction: column;
-    margin-inline-start: f.$spacing-e;
+    margin-inline-start: var(--dt-spacing-e);
 }
 
 .DocSearch-NewStartScreenHeader {
@@ -44,15 +44,15 @@
 .DocSearch-NewStartScreenItem {
     display: flex;
     cursor: pointer;
-    padding-inline-start: f.$spacing-e;
-    margin-block-end: f.$spacing-a;
+    padding-inline-start: var(--dt-spacing-e);
+    margin-block-end: var(--dt-spacing-a);
     color: f.$color-content-default;
 }
 
 .DocSearch-Title {
     padding-inline-start: 10px; // gap between icon and title
     font-weight: f.$font-weight-bold;
-    margin-block-end: f.$spacing-a;
+    margin-block-end: var(--dt-spacing-a);
 }
 
 .DocSearch-Modal {
@@ -78,7 +78,7 @@
 }
 
 .DocSearch-Hit-source {
-    padding-block-end: f.$spacing-a;
+    padding-block-end: var(--dt-spacing-a);
     background-color: f.$color-container-default;
 }
 

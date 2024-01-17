@@ -1,5 +1,25 @@
 # Changelog
 
+## 0.59.1
+
+### Patch Changes
+
+- Updated dependencies [[`378bcea7d`](https://github.com/justeattakeaway/pie/commit/378bcea7d009d864d2c7983183cdcb4000eb3e23), [`378bcea7d`](https://github.com/justeattakeaway/pie/commit/378bcea7d009d864d2c7983183cdcb4000eb3e23), [`515438272`](https://github.com/justeattakeaway/pie/commit/5154382729aee39ce38fe98a8b65791ba2f79187)]:
+  - @justeattakeaway/pie-button@0.45.1
+  - @justeattakeaway/pie-switch@0.24.1
+  - @justeattakeaway/pie-cookie-banner@0.15.1
+  - @justeattakeaway/pie-notification@0.3.1
+  - @justeattakeaway/pie-icon-button@0.27.1
+  - @justeattakeaway/pie-form-label@0.10.1
+  - @justeattakeaway/pie-divider@0.12.1
+  - @justeattakeaway/pie-spinner@0.5.1
+  - @justeattakeaway/pie-input@0.6.1
+  - @justeattakeaway/pie-modal@0.38.1
+  - @justeattakeaway/pie-card@0.17.1
+  - @justeattakeaway/pie-link@0.14.1
+  - @justeattakeaway/pie-tag@0.4.1
+  - @justeattakeaway/pie-icons-webc@0.17.2
+
 ## 0.59.0
 
 ### Minor Changes
