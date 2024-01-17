@@ -1,5 +1,24 @@
 # @justeattakeaway/pie-wrapper-react
 
+## 0.14.0
+
+### Minor Changes
+
+- [Fixed] - eslint issues from generated react.ts ([#1183](https://github.com/justeattakeaway/pie/pull/1183)) by [@ashleynolan](https://github.com/ashleynolan)
+
+## 0.13.0
+
+### Minor Changes
+
+- [Changed] - React Wrapper script adding the workaround for the bug that sets all props as optional in React and TS ([#1164](https://github.com/justeattakeaway/pie/pull/1164)) by [@fernandofranca](https://github.com/fernandofranca)
+
+  [Changed] - Added workaround for missing callback props in React and TS
+  [Changed] - Updated documentation README file regarding the addition of ReactBaseType
+  [Changed] - unit tests snapshots to reflect the changes
+  [Added] - `test:ci` npm script
+
+- [Changed] - Updated the React Wrapper to read and include the React base type declaration ([#1164](https://github.com/justeattakeaway/pie/pull/1164)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 0.12.0
 
 ### Minor Changes

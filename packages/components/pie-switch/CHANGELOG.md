@@ -1,5 +1,35 @@
 # @justeattakeaway/pie-switch
 
+## 0.24.1
+
+### Patch Changes
+
+- [Changed] - Updated dependency `element-internals-polyfill@1.3.10` from `1.3.9` ([#1130](https://github.com/justeattakeaway/pie/pull/1130)) by [@renovate](https://github.com/apps/renovate)
+
+- [Removed] - custom-elements.json not needed in source control ([#1181](https://github.com/justeattakeaway/pie/pull/1181)) by [@ashleynolan](https://github.com/ashleynolan)
+
+- Updated dependencies [[`2763c522a`](https://github.com/justeattakeaway/pie/commit/2763c522a9d8df376c0353c3ba8db5dbf9410c08), [`21f183bdf`](https://github.com/justeattakeaway/pie/commit/21f183bdf7a593222d12247529c76b67f69d97dd)]:
+  - @justeattakeaway/pie-webc-core@0.17.1
+  - @justeattakeaway/pie-wrapper-react@0.14.0
+  - @justeattakeaway/pie-icons-webc@0.17.2
+
+## 0.24.0
+
+### Minor Changes
+
+- [Changed] - Use new event wrapper function to standardise the change event structure ([#1173](https://github.com/justeattakeaway/pie/pull/1173)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - React base TypeScript types ([#1164](https://github.com/justeattakeaway/pie/pull/1164)) by [@fernandofranca](https://github.com/fernandofranca)
+
+  [Changed] - set optional props as optional
+
+### Patch Changes
+
+- Updated dependencies [[`24be8ac1a`](https://github.com/justeattakeaway/pie/commit/24be8ac1a5b5113b94c1971b9a59713fbaf86be5), [`918593afd`](https://github.com/justeattakeaway/pie/commit/918593afd939e8c911542235a5d861680ceba2d0), [`24be8ac1a`](https://github.com/justeattakeaway/pie/commit/24be8ac1a5b5113b94c1971b9a59713fbaf86be5)]:
+  - @justeattakeaway/pie-wrapper-react@0.13.0
+  - @justeattakeaway/pie-webc-core@0.17.0
+  - @justeattakeaway/pie-icons-webc@0.17.1
+
 ## 0.23.0
 
 ### Minor Changes

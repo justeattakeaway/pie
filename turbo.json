@@ -16,6 +16,10 @@
       "dependsOn": [
         "create:manifest"
       ],
+      "inputs": [
+        "src/**",
+        "custom-elements.json"
+      ],
       "outputs": [
         "src/react.ts"
       ]
@@ -131,6 +135,10 @@
     },
     "lint:scripts": {
       "cache": true,
+      "inputs": [
+        "src/**",
+        "src/react.ts"
+      ],
       "outputs": []
     },
     "lint:scripts:fix": {
@@ -149,7 +157,9 @@
     },
     "dev": {
       "cache": false,
-      "dependsOn": ["^build"]
+      "dependsOn": [
+        "^build"
+      ]
     }
   }
 }

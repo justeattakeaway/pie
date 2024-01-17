@@ -1,5 +1,31 @@
 # @justeattakeaway/pie-icon-button
 
+## 0.27.1
+
+### Patch Changes
+
+- [Removed] - custom-elements.json not needed in source control ([#1181](https://github.com/justeattakeaway/pie/pull/1181)) by [@ashleynolan](https://github.com/ashleynolan)
+
+- Updated dependencies [[`2763c522a`](https://github.com/justeattakeaway/pie/commit/2763c522a9d8df376c0353c3ba8db5dbf9410c08), [`515438272`](https://github.com/justeattakeaway/pie/commit/5154382729aee39ce38fe98a8b65791ba2f79187)]:
+  - @justeattakeaway/pie-webc-core@0.17.1
+  - @justeattakeaway/pie-spinner@0.5.1
+  - @justeattakeaway/pie-icons-webc@0.17.2
+
+## 0.27.0
+
+### Minor Changes
+
+- [Added] - React base TypeScript types ([#1164](https://github.com/justeattakeaway/pie/pull/1164)) by [@fernandofranca](https://github.com/fernandofranca)
+
+  [Changed] - set optional props as optional
+
+### Patch Changes
+
+- Updated dependencies [[`918593afd`](https://github.com/justeattakeaway/pie/commit/918593afd939e8c911542235a5d861680ceba2d0), [`24be8ac1a`](https://github.com/justeattakeaway/pie/commit/24be8ac1a5b5113b94c1971b9a59713fbaf86be5)]:
+  - @justeattakeaway/pie-webc-core@0.17.0
+  - @justeattakeaway/pie-spinner@0.5.0
+  - @justeattakeaway/pie-icons-webc@0.17.1
+
 ## 0.26.0
 
 ### Minor Changes

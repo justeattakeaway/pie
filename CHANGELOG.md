@@ -1,5 +1,17 @@
 # Changelog
 
+## 2.51.1
+
+### Patch Changes
+
+- [Fixed] - Danger reporting when no categories added to changeset ([#1185](https://github.com/justeattakeaway/pie/pull/1185)) by [@ashleynolan](https://github.com/ashleynolan)
+
+## 2.51.0
+
+### Minor Changes
+
+- [Added] - Readme section for how we use events in our web components ([#1173](https://github.com/justeattakeaway/pie/pull/1173)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 2.50.0
 
 ### Minor Changes

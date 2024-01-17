@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.17.1
+
+### Patch Changes
+
+- [Changed] - Updated Lit to 3.1.1 ([#1178](https://github.com/justeattakeaway/pie/pull/1178)) by [@renovate](https://github.com/apps/renovate)
+
+## 0.17.0
+
+### Minor Changes
+
+- [Added] - new wrapNativeEvent function to standardise how we structure custom versions of native browser events such as 'change' ([#1173](https://github.com/justeattakeaway/pie/pull/1173)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.16.0
 
 ### Minor Changes
