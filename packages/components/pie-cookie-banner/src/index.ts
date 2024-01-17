@@ -57,16 +57,22 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
     @property({ type: Object })
     public locale:CookieBannerLocale = defaultLocale;
 
+    @property({ type: String })
+    public cookieStatementLink = '';
+
+    @property({ type: String })
+    public cookieTechnologiesLink = '';
+
     @queryAll('pie-switch')
         _preferencesNodes!: NodeListOf<PieSwitch>;
 
     private _customTagEnhancers: CustomTagEnhancers = {
-        linkStatement: (tagContent: string) => html`<pie-link href="${this._localiseText('banner.links.cookieStatement')}" variant="inverse" target="_blank">${tagContent}</pie-link>`,
+        linkStatement: (tagContent: string) => html`<pie-link href="${this.cookieStatementLink}" variant="inverse" target="_blank" data-test-id="cookie-statement-link">${tagContent}</pie-link>`,
         linkNecessaryOnly: (tagContent: string) => html`<pie-link data-test-id="body-necessary-only" tag="button" variant="inverse" @click="${this._onNecessaryOnly}">${tagContent}</pie-link>`,
         linkManagePreferences: (tagContent: string) => html`<pie-link data-test-id="body-manage-prefs" tag="button" variant="inverse" @click="${this._openManagePreferencesModal}">${tagContent}</pie-link>`,
         linkAcceptAll: (tagContent: string) => html`<pie-link data-test-id="body-accept-all" tag="button" variant="inverse" @click="${this._onAcceptAll}">${tagContent}</pie-link>`,
-        linkCookieStatement: (tagContent: string) => html`<pie-link href="${this._localiseText('banner.links.cookieStatement')}" size="small" target="_blank">${tagContent}</pie-link>`,
-        linkCookieTechList: (tagContent: string) => html`<pie-link href="${this._localiseText('banner.links.cookieTechnologies')}" size="small" target="_blank">${tagContent}</pie-link>`,
+        linkCookieStatement: (tagContent: string) => html`<pie-link href="${this.cookieStatementLink}" size="small" target="_blank" data-test-id="cookie-statement-link">${tagContent}</pie-link>`,
+        linkCookieTechList: (tagContent: string) => html`<pie-link href="${this.cookieTechnologiesLink}" size="small" target="_blank" data-test-id="cookie-technology-link">${tagContent}</pie-link>`,
     };
 
     private _localiseText (key:string):string {
