@@ -7,7 +7,7 @@
     height: 100%;
     padding-block: var(--dt-spacing-h);
     padding-inline: var(--dt-spacing-d);
-    background-color: f.$color-background-default;
+    background-color: var(--dt-color-background-default);
 
     @include f.media('>=wide') {
         padding-inline-start: var(--dt-spacing-i);

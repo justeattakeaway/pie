@@ -63,14 +63,14 @@
 // styles shared between homePage and contentPage
 .c-content {
     flex: 1;
-    background-color: f.$color-background-default;
-    border-top: 1px solid f.$color-border-default;
+    background-color: var(--dt-color-background-default);
+    border-top: 1px solid var(--dt-color-border-default);
 
     & a {
-        color: f.$color-content-link-distinct;
+        color: var(--dt-color-content-link-distinct);
 
         &:visited {
-            color: f.$color-content-link-visited;
+            color: var(--dt-color-content-link-visited);
         }
 
         &:hover,

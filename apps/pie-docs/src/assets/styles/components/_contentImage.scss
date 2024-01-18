@@ -51,18 +51,18 @@ $contentImage-height-l--mobile:           400px;
     }
 
     &.c-contentImage-secondary {
-        background-color: f.$color-container-default;
-        border: 1px solid f.$color-border-strong;
+        background-color: var(--dt-color-container-default);
+        border: 1px solid var(--dt-color-border-strong);
     }
 
     &.c-contentImage-inverse {
-        background-color: f.$color-container-inverse;
+        background-color: var(--dt-color-container-inverse);
     }
 }
 
 .c-contentImage--hasBackdrop .c-contentImage-backdrop,
 .c-contentImage--paddedBackdrop {
-    background-color: f.$color-container-subtle;
+    background-color: var(--dt-color-container-subtle);
 }
 
 .c-contentImage--paddedBackdrop {

@@ -4,7 +4,7 @@
 .c-componentDetailsTable-backdrop {
     margin-block-start: var(--dt-spacing-e);
     margin-block-end: var(--dt-spacing-f);
-    background-color: f.$color-container-subtle;
+    background-color: var(--dt-color-container-subtle);
     border-radius: f.$radius-rounded-c;
     padding-block-start: var(--dt-spacing-d);
     padding-block-end: var(--dt-spacing-e);
@@ -37,7 +37,7 @@
     }
 
     tr:not(:first-child, .c-componentDetailsTable-row--hideTopBorder) {
-        border-block-start: 1px solid f.$color-divider-default;
+        border-block-start: 1px solid var(--dt-color-divider-default);
     }
 }
 
@@ -51,7 +51,7 @@
 }
 
 .c-componentDetailsTable-token {
-    background-color: f.$color-container-default;
+    background-color: var(--dt-color-container-default);
     padding-block: 2px;
     padding-inline: var(--dt-spacing-a);
     border-radius: f.$radius-rounded-b;
