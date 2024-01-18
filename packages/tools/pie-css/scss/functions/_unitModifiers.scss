@@ -27,7 +27,8 @@
 // This currently calls the `to-px` function, but is built on top of it should we want to
 // support other units (such as ems/rems) in the future.
 // -
-// @param {String} $token - The CSS variable name (including the `--` prefix) to be used for the font size calculation.
+// @param {String} $token - The CSS variable name (including the `--` prefix) to be used for the font size
+// calculation.
 // -
 // @example
 // .my-class {
@@ -51,7 +52,8 @@
 // This currently calls the `to-px` function, but is built on top of it should we want to
 // switch to using different units (such as unitless line heights) in the future.
 // -
-// @param {String} $token - The CSS variable name (including the `--` prefix) to be used for the font size calculation.
+// @param {String} $token - The CSS variable name (including the `--` prefix) to be used for the font size
+// calculation.
 // -
 // @example
 // .my-class {
