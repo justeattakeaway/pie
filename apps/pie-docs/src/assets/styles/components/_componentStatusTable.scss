@@ -69,7 +69,7 @@ $breakpoint-wide: 768px;
         background-color: var(--dt-color-container-subtle);
     }
 
-    tr:not(:first-child, .c-componentDetailsTable-row--hideTopBorder) {
+    tr:not(:first-child) {
         border-block-start: 1px solid var(--dt-color-divider-default);
     }
 
