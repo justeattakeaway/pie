@@ -52,6 +52,16 @@ export interface CookieBannerProps {
      * Assigns the data for localising the component strings
      */
     locale: CookieBannerLocale;
+
+    /**
+     * Allows consumers to pass in a specific cookie statement link.
+     */
+    cookieStatementLink: string;
+
+    /**
+     * Allows consumers to pass in a specific cookie technology link.
+     */
+    cookieTechnologiesLink: string;
 }
 
 /**
