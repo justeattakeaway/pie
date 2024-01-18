@@ -66,13 +66,13 @@ export class PieCard extends LitElement implements CardProps {
                 ?isDraggable="${this.isDraggable}"
                 variant=${this.variant || 'default'}
                 ?disabled=${this.disabled}
-                href=${this.href || nothing}
+                href=${this.href || ''}
                 target=${this.target || nothing}
                 rel=${this.rel || nothing}
                 role="link"
                 aria-label=${this.aria?.label || nothing}
                 aria-disabled=${this.disabled ? 'true' : 'false'}
-                style=${paddingCSS || nothing}>
+                style=${paddingCSS || ''}>
                     <slot></slot>
                 </div>
             </a>`;
@@ -142,7 +142,7 @@ export class PieCard extends LitElement implements CardProps {
                     tabindex="0"
                     aria-label=${aria?.label || nothing}
                     aria-disabled=${disabled ? 'true' : 'false'}
-                    style=${paddingCSS || nothing}>
+                    style=${paddingCSS || ''}>
                         <slot></slot>
                     </div>
                 </div>`;
