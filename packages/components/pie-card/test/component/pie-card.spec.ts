@@ -322,7 +322,7 @@ test.describe('PieCard - Component tests', () => {
                 const componentAttribute = await component.getAttribute('style');
 
                 // Assert
-                expect(componentAttribute).toBe(null);
+                expect(componentAttribute).toBe('');
             });
         });
     });
