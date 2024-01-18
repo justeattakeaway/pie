@@ -2,6 +2,7 @@
 eleventyNavigation:
     key: 'Text Input'
     parent: Components
+    order: 45
 ---
 
 ## Overview

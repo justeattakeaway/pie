@@ -2,6 +2,7 @@
 eleventyNavigation:
     key: 'Pagination'
     parent: Components
+    order: 28
 ---
 
 ## Overview

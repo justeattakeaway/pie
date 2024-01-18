@@ -1,10 +1,8 @@
-// @use '../fozzie-config' as f;
 @use '@justeattakeaway/pie-css/scss' as p;
-@use '../variables' as v;
 
 $breakpoint-wide: 768px;
 
-.c-componentStatusTable-backdrop {
+.c-componentStatus {
     margin-block-start: var(--dt-spacing-e);
     margin-block-end: var(--dt-spacing-f);
     background-color: var(--dt-color-container-subtle);
@@ -19,7 +17,36 @@ $breakpoint-wide: 768px;
     }
 }
 
-.c-componentStatusTable {
+.c-componentStatus-resource {
+    display: flex;
+    gap: 8px;
+    align-content: center;
+
+    img {
+        width: 24px;
+        height: 24px;
+    }
+
+    a {
+        text-decoration: none;
+
+        &:hover,
+        &:active,
+        &:focus {
+            text-decoration: underline;
+        }
+    }
+}
+
+.c-componentStatus-status {
+    display: inline;
+    background: var(--bg-colour);
+    padding-block: 2px;
+    padding-inline: var(--dt-spacing-a);
+    border-radius: var(--dt-radius-rounded-b);
+}
+
+.c-componentStatus-table {
     border-collapse: collapse;
     max-inline-size: 100%;
     inline-size: 100%;
@@ -46,7 +73,7 @@ $breakpoint-wide: 768px;
         border-block-start: 1px solid var(--dt-color-divider-default);
     }
 
-    .c-componentStatusTable-link {
+    .c-componentStatus-link {
         color: var(--dt-color-content-link);
     }
 }

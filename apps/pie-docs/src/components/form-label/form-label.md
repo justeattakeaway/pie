@@ -2,6 +2,7 @@
 eleventyNavigation:
     key: 'Form Label'
     parent: Components
+    order: 20
 ---
 
 ## Overview

@@ -2,6 +2,7 @@
 eleventyNavigation:
     key: 'Radio'
     parent: Components
+    order: 32
 ---
 
 ## Overview

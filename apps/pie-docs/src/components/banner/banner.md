@@ -2,6 +2,7 @@
 eleventyNavigation:
     key: 'Banner'
     parent: Components
+    order: 6
 ---
 
 ## Overview

@@ -2,6 +2,7 @@
 eleventyNavigation:
     key: 'Toast'
     parent: Components
+    order: 48
 ---
 
 ## Overview

@@ -2,6 +2,7 @@
 eleventyNavigation:
     key: 'Assistive Text'
     parent: Components
+    order: 3
 ---
 
 ## Overview

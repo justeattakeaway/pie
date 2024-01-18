@@ -2,6 +2,7 @@
 eleventyNavigation:
     key: 'Avatar'
     parent: Components
+    order: 4
 ---
 
 ## Overview

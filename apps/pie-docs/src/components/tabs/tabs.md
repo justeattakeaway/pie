@@ -2,6 +2,7 @@
 eleventyNavigation:
     key: 'Tabs'
     parent: Components
+    order: 42
 ---
 
 ## Overview

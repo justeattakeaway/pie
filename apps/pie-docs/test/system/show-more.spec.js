@@ -19,7 +19,7 @@ test.describe('PIE - Show more - @desktop', () => {
         await expect(rowCount.last()).not.toBeVisible();
 
         // Act
-        showMoreButton.first().dblclick();
+        showMoreButton.first().click();
 
         // Assert
         await expect(rowCount.last()).toBeVisible();

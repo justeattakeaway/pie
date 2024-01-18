@@ -9,28 +9,21 @@ const { rows, appHeadings, webHeadings } = require('../../componentStatusData');
  */
 const buildRow = (cells, headings) => cells.map((cell) => {
     let content;
-    const hasMinWidth = cell.status?.length > 10;
 
     headings.map((heading) => {
-        if (cell === null) {
-            return '<td></td>';
-        } else
-
         if ('componentName' in cell) {
-            content = `<a class="c-componentStatusTable-link" href="/components/${cell.componentName.toLowerCase().replace(' ', '-')}">${cell.componentName}</a>`;
+            content = `<a class="c-componentStatus-link" href="/components/${cell.componentName.toLowerCase().replace(' ', '-')}">${cell.componentName}</a>`;
         } else
 
         if (heading.title === cell.resource) {
             const { bgColor, status } = statusSettings[cell.status];
-            content = `<span class="c-resourceTable-status" style="--bg-colour: ${bgColor}; margin-left: 30px;">${status}</span>`;
+            content = `<span class="c-componentStatus-status" style="--bg-colour: ${bgColor}; margin-left: 30px;">${status}</span>`;
         }
 
         return content;
     });
 
-    return content !== undefined
-        ? `<td ${hasMinWidth ? "class='c-componentStatusTable-cellHasMinWidth'" : ''}>${content}</td>`
-        : '';
+    return content !== undefined ? `<td>${content}</td>` : '';
 }).join('');
 
 /**
@@ -45,10 +38,10 @@ module.exports = ({
 
     const hasWidePadding = headings <= 3;
 
-    return `<div class="c-componentStatusTable-backdrop">
-    <table class="c-componentStatusTable ${hasWidePadding ? 'c-componentStatusTable-hasWidePadding' : ''}" data-js="${dataType}-table" data-test-id="${dataType}-table">
+    return `<div class="c-componentStatus">
+    <table class="c-componentStatus-table" data-js="${dataType}-table" data-test-id="${dataType}-table">
     ${`<tr>${headings.map((heading) => `<th> ${'icon' in heading ? `
-            <div class="c-resourceTable-resource"><img src="${heading.icon}"></img>${heading.title}</div>` : heading.title}
+            <div class="c-componentStatus-resource"><img src="${heading.icon}"></img>${heading.title}</div>` : heading.title}
             </th>`).join('')}</tr>`
     }
 

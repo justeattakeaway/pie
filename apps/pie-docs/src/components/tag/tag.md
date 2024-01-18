@@ -2,6 +2,7 @@
 eleventyNavigation:
     key: 'Tag'
     parent: Components
+    order: 43
 ---
 
 ## Overview

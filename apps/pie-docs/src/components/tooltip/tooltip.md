@@ -2,6 +2,7 @@
 eleventyNavigation:
     key: 'Tooltip'
     parent: Components
+    order: 49
 ---
 
 ## Overview

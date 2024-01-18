@@ -28,35 +28,35 @@ eleventyNavigation:
 {% termsAndDescriptions {
     rows: [
         {
-            status: statusTypes.AVAILABLE,
+            term: statusTypes.AVAILABLE,
             description: 'Ready to be used.'
         },
         {
-            status: statusTypes.PLANNED,
+            term: statusTypes.PLANNED,
             description: 'Will be created in the future.'
         },
         {
-            status: statusTypes.ALPHA,
+            term: statusTypes.ALPHA,
             description: 'Preliminary use-age, expect changes.'
         },
         {
-            status: statusTypes.BETA,
+            term: statusTypes.BETA,
             description: 'Testing a new major change of a stable component.'
         },
         {
-            status: statusTypes.REMOVED,
+            term: statusTypes.REMOVED,
             description: 'No longer supported by PIE.'
         },
         {
-            status: statusTypes.DEPRECATED,
+            term: statusTypes.DEPRECATED,
             description: 'In the future will no longer be supported by PIE.'
         },
         {
-            status: statusTypes.NOT_APPLICABLE,
+            term: statusTypes.NOT_APPLICABLE,
             description: 'Not applicable.'
         },
         {
-            status: statusTypes.TBC,
+            term: statusTypes.TBC,
             description: 'To be confirmed.'
         }
     ]

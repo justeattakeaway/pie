@@ -2,6 +2,7 @@
 eleventyNavigation:
     key: 'Spinner'
     parent: Components
+    order: 40
 ---
 
 ## Overview

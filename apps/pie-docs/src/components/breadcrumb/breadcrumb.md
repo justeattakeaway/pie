@@ -2,6 +2,7 @@
 eleventyNavigation:
     key: 'Breadcrumb'
     parent: Components
+    order: 8
 ---
 
 ## Overview

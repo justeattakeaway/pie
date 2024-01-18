@@ -2,6 +2,7 @@
 eleventyNavigation:
     key: 'Uploader'
     parent: Components
+    order: 50
 ---
 
 ## Overview

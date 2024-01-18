@@ -2,6 +2,7 @@
 eleventyNavigation:
     key: 'Progress Bar'
     parent: Components
+    order: 30
 ---
 
 ## Overview

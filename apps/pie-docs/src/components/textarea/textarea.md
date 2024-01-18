@@ -2,6 +2,7 @@
 eleventyNavigation:
     key: 'Textarea'
     parent: Components
+    order: 46
 ---
 
 ## Overview

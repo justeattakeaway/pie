@@ -2,6 +2,7 @@
 eleventyNavigation:
     key: 'Carousel Indicator'
     parent: Components
+    order: 11
 ---
 
 ## Overview

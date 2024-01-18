@@ -2,6 +2,7 @@
 eleventyNavigation:
     key: 'Thumbnail'
     parent: Components
+    order: 47
 ---
 
 ## Overview

@@ -2,6 +2,7 @@
 eleventyNavigation:
     key: 'Skeleton'
     parent: Components
+    order: 38
 ---
 
 ## Overview

@@ -2,6 +2,7 @@
 eleventyNavigation:
     key: 'Popover'
     parent: Components
+    order: 29
 ---
 
 ## Overview

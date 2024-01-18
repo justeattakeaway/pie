@@ -4,7 +4,7 @@ const { rows } = require('../../componentStatusData');
 
 const buildRow = (row) => {
     if ('componentName' in row) {
-        return '';
+        return;
     }
 
     const { icon, resource } = resourceSettings[row.resource];
@@ -15,13 +15,13 @@ const buildRow = (row) => {
     const statusComponent = `<span class="c-resourceTable-status" style="--bg-colour: ${bgColor}">${row.note ? `${status}: ${row.note}` : status}</span>`;
 
     return `<tr>
-                    <td>
-                        ${resourceComponent}
-                    </td>
-                    <td>
-                        ${statusComponent}
-                    </td>
-                </tr>`;
+                <td>
+                    ${resourceComponent}
+                </td>
+                <td>
+                    ${statusComponent}
+                </td>
+            </tr>`;
 };
 
 /**

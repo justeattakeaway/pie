@@ -2,6 +2,7 @@
 eleventyNavigation:
     key: 'Chip'
     parent: Components
+    order: 13
 ---
 
 ## Overview

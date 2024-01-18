@@ -2,6 +2,7 @@
 eleventyNavigation:
     key: 'Segmented Controls'
     parent: Components
+    order: 34
 ---
 
 ## Overview

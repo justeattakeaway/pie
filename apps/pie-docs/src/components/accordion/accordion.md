@@ -2,6 +2,7 @@
 eleventyNavigation:
     key: 'Accordion'
     parent: Components
+    order: 2
 ---
 
 ## Overview

@@ -1,4 +1,4 @@
-@use '../fozzie-config' as f;
+@use '@justeattakeaway/pie-css/scss' as p;
 @use './table';
 
 .c-termsAndDescriptions-backdrop {
@@ -8,17 +8,17 @@
 .c-termsAndDescriptions {
     @extend %c-table;
 
-    background-color: f.$color-background-default;
+    background-color: var(--dt-color-background-default);
     box-shadow: none;
-    border-spacing: f.$spacing-c;
+    border-spacing: var(--dt-spacing-c);
     border-collapse: separate;
     max-inline-size: 100%;
 
     td {
-        padding: f.$spacing-c;
-        border-color: f.$color-container-default;
-        background-color: f.$color-container-subtle;
-        border-radius: f.$radius-rounded-c;
+        padding: var(--dt-spacing-c);
+        border-color: var(--dt-color-container-default);
+        background-color: var(--dt-color-container-subtle);
+        border-radius: var(--dt-radius-rounded-c);
     }
 
     td:first-child {

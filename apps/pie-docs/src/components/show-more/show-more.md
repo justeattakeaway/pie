@@ -2,6 +2,7 @@
 eleventyNavigation:
     key: 'Show More'
     parent: Components
+    order: 36
 ---
 
 ## Overview

@@ -2,6 +2,7 @@
 eleventyNavigation:
     key: 'Checkbox'
     parent: Components
+    order: 12
 ---
 
 ## Overview
