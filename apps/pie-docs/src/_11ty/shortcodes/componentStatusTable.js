@@ -17,7 +17,7 @@ const buildRow = (cells, headings) => cells.map((cell) => {
 
         if (heading.title === cell.resource) {
             const { bgColor, status } = statusSettings[cell.status];
-            content = `<span class="c-componentStatus-status" style="--bg-colour: ${bgColor}; margin-left: 30px;">${status}</span>`;
+            content = `<span class="c-componentStatus-status" style="--bg-colour: ${bgColor}; margin-inline-start: 30px;">${status}</span>`;
         }
 
         return content;
