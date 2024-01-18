@@ -262,7 +262,7 @@ test.describe('PieCard - Component tests', () => {
                 const componentAttribute = await component.getAttribute('style');
 
                 // Assert
-                expect(componentAttribute).toBe(null);
+                expect(componentAttribute).toBe('');
             });
 
             test('should not allow more than one single value i.e "ab"', async ({ mount, page }) => {
@@ -282,7 +282,7 @@ test.describe('PieCard - Component tests', () => {
                 const componentAttribute = await component.getAttribute('style');
 
                 // Assert
-                expect(componentAttribute).toBe(null);
+                expect(componentAttribute).toBe('');
             });
         });
 
@@ -322,7 +322,7 @@ test.describe('PieCard - Component tests', () => {
                 const componentAttribute = await component.getAttribute('style');
 
                 // Assert
-                expect(componentAttribute).toBe(null);
+                expect(componentAttribute).toBe('');
             });
         });
     });

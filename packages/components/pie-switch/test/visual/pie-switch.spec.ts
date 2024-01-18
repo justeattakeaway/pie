@@ -1,5 +1,6 @@
 import { test } from '@sand4rt/experimental-ct-web';
 import percySnapshot from '@percy/playwright';
+import { percyWidths } from '@justeattakeaway/pie-webc-testing/src/percy/breakpoints.ts';
 import { PieSwitch } from '../../src/index.ts';
 import { SwitchProps, labelPlacements } from '../../src/defs.ts';
 
@@ -17,7 +18,7 @@ import { SwitchProps, labelPlacements } from '../../src/defs.ts';
             },
         });
 
-        await percySnapshot(page, `Switch - checked = ${checked} and disabled = ${disabled}`);
+        await percySnapshot(page, `Switch - checked = ${checked} and disabled = ${disabled}`, percyWidths);
     });
 });
 
@@ -32,7 +33,7 @@ test.describe('Prop: `Label`', () => {
                     } as SwitchProps,
                 });
 
-                await percySnapshot(page, `Switch - label placement: ${placement}`);
+                await percySnapshot(page, `Switch - label placement: ${placement}`, percyWidths);
             });
         });
     });

@@ -35,13 +35,13 @@ export class PieSpinner extends LitElement implements SpinnerProps {
         const { variant, size, aria } = this;
 
         return html`
-            <div 
+            <div
                 data-test-id="pie-spinner"
                 class="c-spinner"
                 role="status"
                 aria-live="polite"
-                size="${size}"
-                variant="${variant}">
+                size="${size || 'medium'}"
+                variant="${variant || 'brand'}">
                    ${aria?.label ? html`<span class="c-spinner-label">${aria.label}</span>` : nothing}
                 </div>`;
     }

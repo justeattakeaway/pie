@@ -60,8 +60,8 @@ export class PieIconButton extends LitElement implements IconButtonProps {
         return html`
             <button
                 class="o-iconBtn"
-                size="${size}"
-                variant="${variant}"
+                size="${size || 'medium'}"
+                variant="${variant || 'primary'}"
                 ?disabled="${disabled}"
                 ?isLoading="${isLoading}">
                 ${isLoading ? this.renderSpinner() : html`<slot></slot>`}

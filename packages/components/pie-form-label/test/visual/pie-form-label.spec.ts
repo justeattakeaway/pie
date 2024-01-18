@@ -1,6 +1,7 @@
 
 import { test } from '@sand4rt/experimental-ct-web';
 import percySnapshot from '@percy/playwright';
+import { percyWidths } from '@justeattakeaway/pie-webc-testing/src/percy/breakpoints.ts';
 import {
     WebComponentTestWrapper,
 } from '@justeattakeaway/pie-webc-testing/src/helpers/components/web-component-test-wrapper/WebComponentTestWrapper.ts';
@@ -40,6 +41,6 @@ test.describe('Pie Form Label - Visual tests`', () => {
             },
         });
 
-        await percySnapshot(page, 'Pie Form Label - Visual Test');
+        await percySnapshot(page, 'Pie Form Label - Visual Test', percyWidths);
     });
 });
