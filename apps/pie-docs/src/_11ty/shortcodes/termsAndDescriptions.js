@@ -21,7 +21,7 @@ const buildDescription = (row) => {
  * @param {object[]} rows - An array of row objects. Row contains a `term` (e.g. the status 'available') followed by a description of the term.
  */
 module.exports = ({
-    rows
+    rows,
 }) => `<div class="c-termsAndDescriptions-backdrop"><table class="c-termsAndDescriptions">
 ${rows.map((row) => `${buildDescription(row)}`).join('')}
 </table></div>`;

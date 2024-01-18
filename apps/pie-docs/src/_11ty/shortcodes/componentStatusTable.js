@@ -36,8 +36,6 @@ module.exports = ({
 }) => {
     const headings = dataType === 'app' ? appHeadings : webHeadings;
 
-    const hasWidePadding = headings <= 3;
-
     return `<div class="c-componentStatus">
     <table class="c-componentStatus-table" data-js="${dataType}-table" data-test-id="${dataType}-table">
     ${`<tr>${headings.map((heading) => `<th> ${'icon' in heading ? `

@@ -4,7 +4,7 @@ const { rows } = require('../../componentStatusData');
 
 const buildRow = (row) => {
     if ('componentName' in row) {
-        return;
+        return '';
     }
 
     const { icon, resource } = resourceSettings[row.resource];
