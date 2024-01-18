@@ -1,6 +1,7 @@
 import {
     html, LitElement, unsafeCSS, nothing, TemplateResult,
 } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { property } from 'lit/decorators.js';
 import { validPropertyValues, defineCustomElement } from '@justeattakeaway/pie-webc-core';
 import styles from './card.scss?inline';
@@ -72,7 +73,7 @@ export class PieCard extends LitElement implements CardProps {
                 role="link"
                 aria-label=${this.aria?.label || nothing}
                 aria-disabled=${this.disabled ? 'true' : 'false'}
-                style=${paddingCSS || ''}>
+                style=${ifDefined(paddingCSS)}>
                     <slot></slot>
                 </div>
             </a>`;
