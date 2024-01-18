@@ -6,7 +6,7 @@ on:
 
 jobs:
   danger-checks:
-    if: github.actor != 'renovate-bot' || github.actor != 'renovate[bot]'
+    if: github.actor != 'renovate-bot' && github.actor != 'renovate[bot]'
     runs-on: ubuntu-latest
     steps:
       # Checkout the Repo
