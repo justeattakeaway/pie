@@ -2016,29 +2016,6 @@ const rows = [
         }
     ],
     [
-        { componentName: 'Template' },
-        {
-            resource: resourceTypes.COMPONENT,
-            status: statusTypes.PLANNED,
-        },
-        {
-            resource: resourceTypes.DOCUMENTATION,
-            status: statusTypes.PLANNED,
-        },
-        {
-            resource: resourceTypes.WEB_COMPONENTS,
-            status: statusTypes.PLANNED,
-        },
-        {
-            resource: resourceTypes.VUE,
-            status: statusTypes.PLANNED,
-        },
-        {
-            resource: resourceTypes.REACT,
-            status: statusTypes.PLANNED,
-        }
-    ],
-    [
         { componentName: 'Text Input' },
         {
             resource: resourceTypes.COMPONENT,
@@ -2250,7 +2227,7 @@ const rows = [
         }
     ],
     [
-        { componentName: 'Uploaded' },
+        { componentName: 'Uploader' },
         {
             resource: resourceTypes.COMPONENT,
             link: 'https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=876-1368&mode=design',

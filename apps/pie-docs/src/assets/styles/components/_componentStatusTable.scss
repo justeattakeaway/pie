@@ -1,6 +1,6 @@
 @use '@justeattakeaway/pie-css/scss' as p;
 
-$breakpoint-wide: 768px;
+$breakpoint-wide: 992px;
 
 .c-componentStatus {
     margin-block-start: var(--dt-spacing-e);
@@ -56,6 +56,7 @@ $breakpoint-wide: 768px;
         text-align: start;
         vertical-align: top;
         padding: var(--dt-spacing-b);
+        min-width: 150px;
     }
 
     td:first-child {
