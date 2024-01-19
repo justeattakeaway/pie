@@ -134,15 +134,6 @@ import { PieIconButton } from '@justeattakeaway/pie-icon-button/dist/react';
   message: "For more examples, see [here](https://github.com/justeattakeaway/pie-aperture/tree/main)."
 } %}
 
-## Peer Dependencies
-
-When using `pie-icon-button`, you will also need to include a couple of dependencies to ensure the component renders as expected.
-
-{% notification {
-  type: "neutral",
-  iconName: "link",
-  message: "See the [PIE Wiki](https://github.com/justeattakeaway/pie-aperture/tree/main) for more information on peer dependencies."
-} %}
 
 ## Changelog
 
