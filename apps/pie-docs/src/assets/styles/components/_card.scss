@@ -99,7 +99,7 @@ $iconBackgroundColours: (
 }
 
 .c-card-heading {
-    @include p.font-size(--dt-font-heading-xxl-size--wide);
+    @include p.font-size(--dt-font-heading-s-size--wide);
     margin-block-start: var(--dt-spacing-e);
 
     @include f.media('>=mid') {

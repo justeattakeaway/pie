@@ -2,7 +2,7 @@
 @use '@justeattakeaway/pie-css/scss' as p;
 
 .alpha--standout {
-    @include p.font-size(--dt-font-heading-xl-size--narrow);
+    @include p.font-size(--dt-font-heading-xxl-size--narrow);
     font-weight: var(--dt-font-weight-extrabold);
 
     @include f.media('>=wide') {
