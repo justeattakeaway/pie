@@ -52,14 +52,8 @@ function getReplacementNodes (node) {
  */
 function ruleFunction (primaryOption, secondaryOption, context) {
     return function lint (root, result) {
-        // Validate options
-        const validOptions = validateOptions(
-            result,
-            ruleName,
-            {
-                // TODO: Provide options schema
-            },
-        );
+        const validOptions = validateOptions(result, ruleName, { actual: primaryOption });
+
         if (!validOptions) return;
 
         const isAutoFixing = Boolean(context.fix);

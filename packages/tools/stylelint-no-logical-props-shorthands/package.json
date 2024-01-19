@@ -9,9 +9,6 @@
     "stylelint-plugin"
   ],
   "author": "Just Eat Takeaway.com - Design System Team",
-  "exports": {
-    ".": "./index.js"
-  },
   "scripts": {
     "lint:scripts": "run -T eslint .",
     "lint:scripts:fix": "run -T eslint . --fix",
