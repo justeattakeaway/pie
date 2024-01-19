@@ -10,7 +10,6 @@ $toggle-item-fw--checked: f.$font-weight-bold;
 $toggle-item-padding-y: 10px;
 $toggle-item-padding-x: var(--dt-spacing-e);
 $toggle-item-bg: var(--dt-color-container-strong);
-
 $toggle-item-bg--hover: hsl(var(--dt-color-container-strong-h), var(--dt-color-container-strong-s), calc(var(--dt-color-container-strong-l) + calc(-1 * var(--dt-color-hover-01))));
 $toggle-item-bg--active: hsl(var(--dt-color-container-strong-h), var(--dt-color-container-strong-s), calc(var(--dt-color-container-strong-l) + calc(-1 * var(--dt-color-active-01))));
 $toggle-item-bg--checked: var(--dt-color-interactive-light);
