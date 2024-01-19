@@ -1,5 +1,6 @@
 @use '../fozzie-config' as f;
 @use '../variables' as v;
+@use '@justeattakeaway/pie-css/scss' as p;
 
 $contentImage-height:                     200px;
 $contentImage-height--mobile:             160px;
@@ -91,6 +92,6 @@ $contentImage-height-l--mobile:           400px;
 
 .c-contentImage-caption {
     margin-block-start: var(--dt-spacing-d);
-    @include f.font-size('body-s');
+    @include p.font-size(--dt-font-heading-s-size--wide);
     max-width: v.$typography-content-max-width;
 }

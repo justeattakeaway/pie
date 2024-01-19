@@ -1,13 +1,14 @@
 @use '../fozzie-config' as f;
 @use './table';
+@use '@justeattakeaway/pie-css/scss' as p;
 
 .c-resourceTable {
     @extend %c-table;
     @extend %c-table-full-width;
 
     th {
-        @include f.font-size('heading-m');
-        font-weight: f.$font-weight-extrabold;
+        @include p.font-size(--dt-font-heading-m-size--wide);
+        font-weight: var(--dt-font-weight-extrabold);
     }
 
     @include f.media('>narrowMid') {

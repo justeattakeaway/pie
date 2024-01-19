@@ -1,5 +1,6 @@
 @use 'sass:color';
 @use '../fozzie-config' as f;
+@use '@justeattakeaway/pie-css/scss' as p;
 
 $anchor-size: var(--dt-spacing-e);
 $anchor-margin: var(--dt-spacing-b);
@@ -52,20 +53,25 @@ h4:has(.c-anchorIcon) {
     }
 }
 
-$headingSizes: (
-    'h2' f.$font-heading-xl-line-height--wide f.$font-heading-xl-line-height--narrow,
-    'h3' f.$font-heading-m-line-height--wide f.$font-heading-m-line-height--narrow,
-    'h4' f.$font-heading-s-line-height--wide f.$font-heading-s-line-height--narrow
-);
+// $headingSizes: (
+//     'h2' #{p.font-size(--dt-font-heading-xl-line-height--wide)} #{p.font-size(--dt-font-heading-xl-line-height--narrow)}
+//     'h3' #{p.font-size(--dt-font-heading-m-line-height--wide)} #{p.font-size(--dt-font-heading-m-line-height--narrow)}
+//     'h4' #{p.font-size(--dt-font-heading-s-line-height--wide)} #{p.font-size(--dt-font-heading-s-line-height--narrow)}
+// );
 
-@each $headingSize, $wideToken, $narrowToken in $headingSizes {
-    #{$headingSize}:has(.c-anchorIcon) {
-        .c-anchorIcon {
-            bottom: calc((($narrowToken * 1px) - $anchor-size) / 2);
+// @each $headingSize, $wideToken, $narrowToken in $headingSizes {
+//     #{$headingSize}:has(.c-anchorIcon) {
+//         .c-anchorIcon {
 
-            @include f.media('>=wide') {
-                bottom: calc((($wideToken * 1px) - $anchor-size) / 2);
-            }
-        }
-    }
-}
+
+//             // Uncomment the following line for debugging
+//             @debug "$headingSize: $narrowToken, $wideToken";
+
+//             bottom: calc(($narrowToken - $anchor-size) / 2);
+
+//             @include f.media('>=wide') {
+//                 bottom: calc(($wideToken - $anchor-size) / 2);
+//             }
+//         }
+//     }
+// }

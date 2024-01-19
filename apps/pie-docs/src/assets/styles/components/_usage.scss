@@ -1,5 +1,6 @@
 @use '../fozzie-config' as f;
 @use '../variables' as v;
+@use '@justeattakeaway/pie-css/scss' as p;
 
 $usage-container-gap: 20px;
 $usage-bg-minHeight: 280px;
@@ -28,8 +29,8 @@ $usage-bg-minHeight: 280px;
 }
 
 .c-usage-heading {
-    @include f.font-size('heading-s', $scale: 'narrow');
-    font-weight: f.$font-weight-bold;
+    @include p.font-size(--dt-font-heading-s-size--narrow);
+    font-weight: var(--dt-font-weight-bold);
     color: var(--style-colour);
     display: flex;
     align-items: center;

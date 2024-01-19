@@ -1,5 +1,6 @@
 @use '../fozzie-config' as f;
 @use './table';
+@use '@justeattakeaway/pie-css/scss' as p;
 
 .c-simpleTable {
     @extend %c-table;
@@ -11,7 +12,7 @@
 
 .c-simpleTable--monospace {
     font-family: PTMono, Consolas, monospace;
-    @include f.font-size(body-s);
+    @include p.font-size(--dt-font-heading-s-size--wide);
 }
 
 .c-simpleTable--swatch {
@@ -56,7 +57,7 @@
 
 .c-simpleTable--headerless {
     td:first-child {
-        font-weight: f.$font-weight-bold;
+        font-weight: var(--dt-font-weight-bold);
 
         & ~ td {
             color: var(--dt-color-content-subdued);

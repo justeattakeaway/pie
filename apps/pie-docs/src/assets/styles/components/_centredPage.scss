@@ -1,4 +1,5 @@
 @use '../fozzie-config' as f;
+@use '@justeattakeaway/pie-css/scss' as p;
 
 .c-centredPage {
     display: flex;
@@ -18,10 +19,10 @@
 
     .c-centredPage-heading {
         margin-block-end: 0;
-        font-size: f.$font-heading-xxl-size--narrow * 1px;
+        font-size: #{p.font-size(--dt-font-heading-xxl-size--narrow)};
 
         @include f.media('>=wide') {
-            font-size: f.$font-heading-xxl-size--wide * 1px;
+            font-size: #{p.font-size(--dt-font-heading-xxl-size--wide)};
         }
     }
 
@@ -35,6 +36,6 @@
     }
 
     .c-centredPage-text--bold {
-        font-weight: f.$font-weight-bold;
+        font-weight: var(--dt-font-weight-bold);
     }
 }

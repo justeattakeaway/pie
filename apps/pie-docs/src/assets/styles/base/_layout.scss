@@ -1,6 +1,7 @@
 @use '../fozzie-config' as f;
 @use '../variables' as v;
 @use '../utilities' as u;
+@use '@justeattakeaway/pie-css/scss' as p;
 
 .page {
     min-height: 100%;
@@ -99,20 +100,21 @@
     .c-layout-item,
     .c-content-container {
         h2 {
-            @include f.font-size('heading-xl', $scale: 'narrow');
+            @include p.font-size(--dt-font-heading-xl-size--narrow);
+
         }
 
         h3 {
-            @include f.font-size('heading-m', $scale: 'narrow');
+            @include p.font-size(--dt-font-heading-m-size--narrow);
         }
 
         @include f.media('>=wide') {
             h2 {
-                @include f.font-size('heading-xl');
+                @include p.font-size('--dt-font-heading-xl-size--wide');
             }
 
             h3 {
-                @include f.font-size('heading-m');
+                @include p.font-size('--dt-font-heading-m-size--wide');
             }
         }
 

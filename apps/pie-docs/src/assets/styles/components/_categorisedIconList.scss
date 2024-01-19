@@ -1,4 +1,5 @@
 @use '../fozzie-config' as f;
+@use '@justeattakeaway/pie-css/scss' as p;
 
 $icon-size: 16px;
 $icon-size-large: 32px;
@@ -40,7 +41,7 @@ $icon-preview-size: 64px;
 
     p {
         margin-block-start: 0;
-        @include f.font-size('body-s');
+        @include p.font-size(--dt-font-heading-s-size--wide);
     }
 
     .c-categorisedIconList-icon svg {

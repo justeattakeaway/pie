@@ -1,4 +1,5 @@
 @use '../fozzie-config' as f;
+@use '@justeattakeaway/pie-css/scss' as p;
 
 :root {
     --docsearch-hit-active-color: var(--dt-color-content-default);
@@ -28,7 +29,7 @@
 .DocSearch-Hit-path,
 .DocSearch-NewStartScreenItem,
 .DocSearch-Title {
-    @include f.font-size('body-s');
+    @include p.font-size(--dt-font-body-s-size);
 }
 
 .DocSearch-NewStartScreenCategory {
@@ -51,7 +52,7 @@
 
 .DocSearch-Title {
     padding-inline-start: 10px; // gap between icon and title
-    font-weight: f.$font-weight-bold;
+    font-weight: var(--dt-font-weight-bold);
     margin-block-end: var(--dt-spacing-a);
 }
 
@@ -87,8 +88,8 @@
 }
 
 .DocSearch-Hit-title {
-    @include f.font-size('body-l');
-    font-weight: f.$font-weight-bold;
+    @include p.font-size(--dt-font-body-l-size);
+    font-weight: var(--dt-font-weight-bold);
 }
 
 .DocSearch-Commands,
