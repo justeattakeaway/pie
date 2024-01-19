@@ -11,7 +11,7 @@ $anchor-width: calc($anchor-size + $anchor-margin);
     inline-size: $anchor-size;
     block-size: $anchor-size;
     padding: var(--dt-spacing-a);
-    border-radius: f.$radius-rounded-a;
+    border-radius: var(--dt-radius-rounded-a);
     margin-inline-start: $anchor-margin;
 
     &:hover {
