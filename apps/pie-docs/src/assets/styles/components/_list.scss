@@ -28,9 +28,9 @@
             margin-inline-end: var(--dt-spacing-c);
             width: 25px;
             height: 25px;
-            background: f.$color-container-inverse;
+            background: var(--dt-color-container-inverse);
             border-radius: 100%;
-            color: f.$color-white;
+            color: var(--dt-color-white);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -46,7 +46,7 @@
 
     & .c-list-item {
         @include f.font-size('body-s');
-        background-color: f.$color-container-strong;
+        background-color: var(--dt-color-container-strong);
         padding-block: 2px;
         padding-inline: var(--dt-spacing-a);
         border-radius: f.$radius-rounded-b;
@@ -67,7 +67,7 @@
             content: '';
             width: 6px;
             height: 6px;
-            background: f.$color-container-inverse;
+            background: var(--dt-color-container-inverse);
             border-radius: f.$radius-rounded-e;
             margin-inline-end: var(--dt-spacing-b);
             margin-block-start: var(--dt-spacing-b);

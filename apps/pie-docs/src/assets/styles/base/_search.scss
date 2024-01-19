@@ -1,10 +1,10 @@
 @use '../fozzie-config' as f;
 
 :root {
-    --docsearch-hit-active-color: #{f.$color-content-default};
+    --docsearch-hit-active-color: var(--dt-color-content-default);
     --docsearch-searchbox-shadow: none;
-    --docsearch-text-color: #{f.$color-content-default};
-    --docsearch-hit-color: #{f.$color-content-default};
+    --docsearch-text-color: var(--dt-color-content-default);
+    --docsearch-hit-color: var(--dt-color-content-default);
     --docsearch-searchbox-background: none;
     --docsearch-hit-shadow: none;
     --docsearch-muted-color: none;
@@ -46,7 +46,7 @@
     cursor: pointer;
     padding-inline-start: var(--dt-spacing-e);
     margin-block-end: var(--dt-spacing-a);
-    color: f.$color-content-default;
+    color: var(--dt-color-content-default);
 }
 
 .DocSearch-Title {
@@ -56,7 +56,7 @@
 }
 
 .DocSearch-Modal {
-    background-color: f.$color-container-default;
+    background-color: var(--dt-color-container-default);
     min-height: auto;
 }
 
@@ -69,21 +69,21 @@
     box-shadow: none;
 
     &:hover {
-        background-color: f.$color-container-subtle;
+        background-color: var(--dt-color-container-subtle);
     }
 }
 
 .DocSearch-SearchBar {
-    border-bottom: 1px solid f.$color-border-strong;
+    border-bottom: 1px solid var(--dt-color-border-strong);
 }
 
 .DocSearch-Hit-source {
     padding-block-end: var(--dt-spacing-a);
-    background-color: f.$color-container-default;
+    background-color: var(--dt-color-container-default);
 }
 
 .DocSearch-Hits:last-child {
-    border-bottom: 1px solid f.$color-border-strong;
+    border-bottom: 1px solid var(--dt-color-border-strong);
 }
 
 .DocSearch-Hit-title {
@@ -97,9 +97,9 @@
 }
 
 .DocSearch-Button {
-    background-color: f.$color-container-default;
+    background-color: var(--dt-color-container-default);
 
     &:hover {
-        background-color: f.$color-container-strong;
+        background-color: var(--dt-color-container-strong);
     }
 }

@@ -5,7 +5,7 @@ $card-min-width: 270px;
 $card-image-height: 180px;
 $card-gap: var(--dt-spacing-e);
 $card-container-max-width: calc(($card-min-width * 3) + 48px); // 48px is card-gap * 2
-$card-border: 1px solid f.$color-border-default;
+$card-border: 1px solid var(--dt-color-border-default);
 
 .c-card-wrapper {
     container-type: inline-size;
@@ -47,7 +47,7 @@ h2 + .c-card-wrapper {
     position: relative;
     border: $card-border;
     border-radius: f.$radius-rounded-c;
-    background-color: f.$color-container-default;
+    background-color: var(--dt-color-container-default);
     padding: var(--dt-spacing-e);
     height: 100%;
     display: flex;
@@ -55,11 +55,7 @@ h2 + .c-card-wrapper {
     justify-content: space-between;
 
     &:hover {
-        // This is really annoying, but it's the only way to get darkness to work with Custom Props
-        // TODO: We should likely make a utility function for this in the future
-        // For ref, I tried using string interpolation with -#{f.$color-hover-01}, but it doesn't work as
-        // CSS then complains about it then not being a number ¯\_(ツ)_/¯
-        background-color: color.adjust(f.$color-container-default, $lightness: calc(f.$color-hover-01 * -1));
+        background-color: hsl(var(--dt-color-container-default-h), var(--dt-color-container-default-s), calc(var(--dt-color-container-default-l) + calc(-1 * var(--dt-color-hover-01))));
     }
 
     // makes the entire card clickable
@@ -85,19 +81,19 @@ h2 + .c-card-wrapper {
     border-radius: var(--dt-spacing-b);
 
     path {
-        fill: f.$color-content-interactive-light;
+        fill: var(--dt-color-content-interactive-light);
     }
 }
 
 $iconBackgroundColours: (
-    'support-brand-03' f.$color-support-brand-03,
-    'support-brand-04' f.$color-support-brand-04,
-    'support-brand-05' f.$color-support-brand-05,
+    'support-brand-03' var(--dt-color-support-brand-03),
+    'support-brand-04' var(--dt-color-support-brand-04),
+    'support-brand-05' var(--dt-color-support-brand-05),
 );
 
 @each $color, $token in $iconBackgroundColours {
     .c-card-icon--#{$color} {
-        background-color: #{$token};
+        background-color: $token;
     }
 }
 
@@ -159,7 +155,7 @@ $iconBackgroundColours: (
 }
 
 .c-card-labelContainer .c-card-label {
-    color: f.$color-content-default;
+    color: var(--dt-color-content-default);
     text-decoration: underline;
 
     &:hover,
@@ -169,6 +165,6 @@ $iconBackgroundColours: (
     }
 
     &:visited {
-        color: f.$color-content-default;
+        color: var(--dt-color-content-default);
     }
 }

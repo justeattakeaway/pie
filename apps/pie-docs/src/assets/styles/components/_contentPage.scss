@@ -24,7 +24,7 @@
     & p,
     & .c-contentPage-img,
     & ul {
-        color: f.$color-content-subdued;
+        color: var(--dt-color-content-subdued);
     }
 }
 

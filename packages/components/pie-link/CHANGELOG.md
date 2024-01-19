@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-link
 
+## 0.15.0
+
+### Minor Changes
+
+- [Changed] - Visual tests to only take screenshots in 375px ([#1188](https://github.com/justeattakeaway/pie/pull/1188)) by [@JoshuaNg2332](https://github.com/JoshuaNg2332)
+
 ## 0.14.1
 
 ### Patch Changes

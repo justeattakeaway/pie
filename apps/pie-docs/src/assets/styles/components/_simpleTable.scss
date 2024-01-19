@@ -59,7 +59,7 @@
         font-weight: f.$font-weight-bold;
 
         & ~ td {
-            color: f.$color-content-subdued;
+            color: var(--dt-color-content-subdued);
         }
     }
 
@@ -87,6 +87,6 @@
 
 .c-simpleTable--swatch-lightBordered {
     td:first-child:before {
-        border: 1px solid f.$color-border-strong;
+        border: 1px solid var(--dt-color-border-strong);
     }
 }

@@ -3,7 +3,7 @@
 .c-footer {
     padding-block: var(--dt-spacing-g);
     padding-inline: var(--dt-spacing-d);
-    background-color: f.$color-container-subtle;
+    background-color: var(--dt-color-container-subtle);
     @include f.font-size('body-s');
 
     @include f.media('>=narrowMid') {
@@ -32,7 +32,7 @@
 
         .c-footer-logo-divider {
             display: inline-block;
-            border-left: 1px solid f.$color-border-strong;
+            border-left: 1px solid var(--dt-color-border-strong);
             height: var(--dt-spacing-f);
             margin-block: 0;
             margin-inline: var(--dt-spacing-d);
@@ -45,7 +45,7 @@
 
     a:not(.cookie-banner-anchor a) {
         text-decoration: none;
-        color: f.$color-content-default;
+        color: var(--dt-color-content-default);
     }
 }
 
@@ -89,14 +89,14 @@
     justify-content: space-between;
     gap: var(--dt-spacing-a);
     padding-top: var(--dt-spacing-b);
-    border-top: 1px solid f.$color-divider-default;
+    border-top: 1px solid var(--dt-color-divider-default);
 
     .c-footer-info-separator {
         display: inline-block;
         width: var(--dt-spacing-a);
         height: var(--dt-spacing-a);
         border-radius: f.$radius-rounded-e;
-        background-color: f.$color-border-strong;
+        background-color: var(--dt-color-border-strong);
         margin-block: 0;
         margin-inline: var(--dt-spacing-b);
         vertical-align: middle;

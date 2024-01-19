@@ -1,8 +1,8 @@
 @use '../fozzie-config' as f;
 
 .c-skipLink {
-    background-color: f.$color-container-subtle;
-    color: f.$color-content-link-distinct;
+    background-color: var(--dt-color-container-subtle);
+    color: var(--dt-color-content-link-distinct);
     padding-block: var(--dt-spacing-b);
     text-align: center;
     outline: none;
@@ -15,6 +15,6 @@
     }
 
     &:focus span {
-        outline: 2px solid f.$color-focus-outer;
+        outline: 2px solid var(--dt-color-focus-outer);
     }
 }

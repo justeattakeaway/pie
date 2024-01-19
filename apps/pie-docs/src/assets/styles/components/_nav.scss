@@ -6,11 +6,11 @@ $nav-item-inline-start-margin: calc($nav-category-gap + $nav-category-icon-width
 
 .c-nav {
     @include f.font-size('body-s');
-    background: f.$color-container-default;
+    background: var(--dt-color-container-default);
     padding-top: var(--dt-spacing-d);
 
     @include f.media('>=wide') {
-        border-right: 1px solid f.$color-border-default;
+        border-right: 1px solid var(--dt-color-border-default);
     }
 
     @include f.media('<wide') {
@@ -82,10 +82,10 @@ $nav-item-inline-start-margin: calc($nav-category-gap + $nav-category-icon-width
     margin-inline-start: $nav-item-inline-start-margin;
     margin-inline-end: var(--dt-spacing-d);
     text-decoration: none;
-    color: f.$color-content-default;
+    color: var(--dt-color-content-default);
 
     &.is-active {
-        background-color: f.$color-container-subtle;
+        background-color: var(--dt-color-container-subtle);
         font-weight: f.$font-weight-bold;
     }
 
@@ -113,7 +113,7 @@ $nav-item-inline-start-margin: calc($nav-category-gap + $nav-category-icon-width
 
     &:hover,
     &:focus {
-        background-color: f.$color-container-subtle;
+        background-color: var(--dt-color-container-subtle);
         text-decoration: underline;
     }
 }

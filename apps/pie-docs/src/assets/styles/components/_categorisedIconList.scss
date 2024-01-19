@@ -34,7 +34,7 @@ $icon-preview-size: 64px;
     text-align: center;
     inline-size: 152px;
     border-radius: f.$radius-rounded-b;
-    background-color: f.$color-container-subtle;
+    background-color: var(--dt-color-container-subtle);
     padding: var(--dt-spacing-d);
 
     p {
@@ -62,6 +62,6 @@ $icon-preview-size: 64px;
 .c-categorisedIconList-iconCard-separator {
     block-size: 1px;
     inline-size: 100%;
-    background-color: f.$color-divider-default;
+    background-color: var(--dt-color-divider-default);
     margin-block: var(--dt-spacing-d);
 }
