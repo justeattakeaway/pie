@@ -1,4 +1,5 @@
 const stylelint = require('stylelint');
+const extractCSSShorthandValues = require('./extract-css-shorthand-values');
 
 const { report, ruleMessages, validateOptions } = stylelint.utils;
 
@@ -15,18 +16,17 @@ const disallowedShorthands = [
 ];
 
 function getReplacementNodes (node) {
-    // Split shorthand values
-    const values = node.value.split(' ');
+    const [value1, value2] = extractCSSShorthandValues(node.prop, node.value);
 
     // Create distinct declarations for start and end
     const nodeStart = node.clone({
         prop: `${node.prop}-start`,
-        value: values[0],
+        value: value1,
     });
 
     const nodeEnd = node.clone({
         prop: `${node.prop}-end`,
-        value: values[1] || values[0],
+        value: value2 || value1,
         raws: {
             ...node.raws,
             before: '', // prevent line break duplication
