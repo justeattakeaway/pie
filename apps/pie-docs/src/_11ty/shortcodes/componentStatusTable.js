@@ -34,7 +34,7 @@ const buildRow = (cells, headings) => cells.map((cell) => {
 module.exports = ({
     dataType,
 }) => {
-    const headings = dataType === 'app' ? appHeadings : webHeadings;
+    const headings = dataType === 'apps' ? appHeadings : webHeadings;
 
     return `<div class="c-componentStatus">
     <table class="c-componentStatus-table" data-js="${dataType}-table" data-test-id="${dataType}-table">
