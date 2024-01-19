@@ -331,26 +331,5 @@ ___
 
 
 {% resourceTable {
-    rows: [
-        {
-            resource: resourceTypes.COMPONENT,
-            status: statusTypes.PLANNED
-        },
-        {
-            resource: resourceTypes.DOCUMENTATION,
-            status: statusTypes.PLANNED
-        },
-        {
-            resource: resourceTypes.WEB_COMPONENTS,
-            status: statusTypes.PLANNED
-        },
-        {
-            resource: resourceTypes.VUE,
-            status: statusTypes.PLANNED
-        },
-        {
-            resource: resourceTypes.REACT,
-            status: statusTypes.PLANNED
-        }
-    ]
+     componentName: 'Template'
 } %}

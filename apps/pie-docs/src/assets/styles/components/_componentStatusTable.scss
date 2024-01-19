@@ -1,0 +1,80 @@
+@use '@justeattakeaway/pie-css/scss' as p;
+
+$breakpoint-wide: 992px;
+
+.c-componentStatus {
+    margin-block-start: var(--dt-spacing-e);
+    margin-block-end: var(--dt-spacing-f);
+    background-color: var(--dt-color-container-subtle);
+    border-radius: var(--dt-radius-rounded-c);
+    padding: 0;
+
+    // ensures larger tables are responsive
+    overflow-x: auto;
+
+    @media (min-width: $breakpoint-wide) {
+        padding: var(--dt-spacing-d) var(--dt-spacing-e) var(--dt-spacing-e);
+    }
+}
+
+.c-componentStatus-resource {
+    display: flex;
+    gap: 8px;
+    align-content: center;
+
+    img {
+        width: 24px;
+        height: 24px;
+    }
+
+    a {
+        text-decoration: none;
+
+        &:hover,
+        &:active,
+        &:focus {
+            text-decoration: underline;
+        }
+    }
+}
+
+.c-componentStatus-status {
+    display: inline;
+    background: var(--bg-colour);
+    padding-block: 2px;
+    padding-inline: var(--dt-spacing-a);
+    border-radius: var(--dt-radius-rounded-b);
+}
+
+.c-componentStatus-table {
+    border-collapse: collapse;
+    max-inline-size: 100%;
+    inline-size: 100%;
+
+    th,
+    td {
+        text-align: start;
+        vertical-align: top;
+        padding: var(--dt-spacing-b);
+        min-width: 150px;
+    }
+
+    td:first-child {
+        inline-size: 20%;
+    }
+
+    tr > th:first-child,
+    tr > td:first-child {
+        position: sticky;
+        left: 0;
+        background-color: var(--dt-color-container-subtle);
+    }
+
+    tr:not(:first-child) {
+        border-block-start: 1px solid var(--dt-color-divider-default);
+    }
+
+    .c-componentStatus-link {
+        color: var(--dt-color-content-link);
+    }
+}
