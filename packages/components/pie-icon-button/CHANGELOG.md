@@ -1,5 +1,14 @@
 # @justeattakeaway/pie-icon-button
 
+## 0.27.2
+
+### Patch Changes
+
+- [Fixed] - Components props consistency issues ([#1141](https://github.com/justeattakeaway/pie/pull/1141)) by [@fernandofranca](https://github.com/fernandofranca)
+
+- Updated dependencies [[`365681462`](https://github.com/justeattakeaway/pie/commit/3656814623c74dbe49a25c894292d4621697ec7c)]:
+  - @justeattakeaway/pie-spinner@0.5.2
+
 ## 0.27.1
 
 ### Patch Changes

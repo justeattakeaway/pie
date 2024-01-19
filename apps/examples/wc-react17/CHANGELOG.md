@@ -1,5 +1,13 @@
 # wc-react17
 
+## 0.4.26
+
+### Patch Changes
+
+- Updated dependencies [[`254295b17`](https://github.com/justeattakeaway/pie/commit/254295b1745f2a3c8b05c15a5a6795385b0003be)]:
+  - @justeattakeaway/pie-css@0.9.1
+  - @justeattakeaway/pie-button@0.45.2
+
 ## 0.4.25
 
 ### Patch Changes

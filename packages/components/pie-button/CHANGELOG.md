@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.45.2
+
+### Patch Changes
+
+- Updated dependencies [[`365681462`](https://github.com/justeattakeaway/pie/commit/3656814623c74dbe49a25c894292d4621697ec7c)]:
+  - @justeattakeaway/pie-spinner@0.5.2
+
 ## 0.45.1
 
 ### Patch Changes
