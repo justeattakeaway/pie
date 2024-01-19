@@ -2,9 +2,6 @@ name: enivronment-teardown
 description: Teardown preview after merge
 
 inputs:
-  github-token:
-    description: 'The GitHub token for the account that hosts your app'
-    required: true
   amplify-app-id:
     description: 'The ID for your app which you can get from the end of its ARN'
     required: true
@@ -23,14 +20,28 @@ inputs:
   branch-name:
     description: 'Amplify "branch" name'
     required: true
+  gh-app-id:
+    description: 'The ID of your GitHub app (used to generate a JWT for environment deletion)'
+    required: true
+  gh-app-private-key:
+    description: 'The SSH private key for your GitHub app (used to generate a JWT for environment deletion)'
+    required: true
 
 runs:
   using: composite
   steps:
+  - name: 🎟 Get GitHub App token
+    uses: navikt/github-app-token-generator@v1.2.0        
+    id: get-token
+    with:
+      app-id: ${{ inputs.gh-app-id }}
+      private-key: ${{ inputs.gh-app-private-key }}
+
   - name: Delete associated GitHub environment
     uses: strumwolf/delete-deployment-environment@v2.2.3
     with:
-      token: ${{ inputs.github-token }}
+      # Use a JWT created with your GitHub App's private key
+      token: ${{ steps.get-token.outputs.token }}
       environment: ${{ inputs.environment-name }}
 
   - name: Delete Amplify branch
