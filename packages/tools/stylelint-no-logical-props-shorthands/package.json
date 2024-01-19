@@ -1,0 +1,31 @@
+{
+  "name": "@justeattakeaway/stylelint-no-logical-props-shorthands",
+  "version": "0.0.1",
+  "description": "Stylelint plugin for disallowing logical props shorthands.",
+  "license": "Apache-2.0",
+  "keywords": [
+    "PIE",
+    "stylelint",
+    "stylelint-plugin"
+  ],
+  "author": "Just Eat Takeaway.com - Design System Team",
+  "exports": {
+    ".": "./index.js"
+  },
+  "scripts": {
+    "lint:scripts": "run -T eslint .",
+    "lint:scripts:fix": "run -T eslint . --fix",
+    "test": "run -T jest",
+    "test:ci": "yarn test"
+  },
+  "dependencies": {
+    "query-ast": "1.0.5",
+    "scss-parser": "1.0.6"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
+  "volta": {
+    "extends": "../../../package.json"
+  }
+}
