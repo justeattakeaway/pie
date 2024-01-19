@@ -15,8 +15,9 @@
   "scripts": {
     "lint:scripts": "run -T eslint .",
     "lint:scripts:fix": "run -T eslint . --fix",
-    "test": "run -T jest",
-    "test:ci": "yarn test"
+    "test": "run -T vitest run",
+    "test:ci": "yarn test",
+    "test:watch": "run -T vitest"
   },
   "dependencies": {
     "query-ast": "1.0.5",
