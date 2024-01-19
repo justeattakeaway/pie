@@ -39,8 +39,8 @@ $tooltip-border-radius: 100px;
             @include f.font-size('caption');
             width: max-content;
             border-radius: $tooltip-border-radius;
-            background-color: f.$color-container-inverse;
-            color: f.$color-content-inverse;
+            background-color: var(--dt-color-container-inverse);
+            color: var(--dt-color-content-inverse);
         }
 
         a {
@@ -53,7 +53,7 @@ $tooltip-border-radius: 100px;
 
         a,
         a:visited {
-            color: f.$color-content-default;
+            color: var(--dt-color-content-default);
         }
 
         &:before {

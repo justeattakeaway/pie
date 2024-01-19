@@ -7,7 +7,7 @@ $headerInlinePadding:   20px;
 .c-header {
     display: flex;
     align-items: center;
-    border-bottom: 1px solid f.$color-divider-default;
+    border-bottom: 1px solid var(--dt-color-divider-default);
     padding: var(--dt-spacing-d);
 
     @include f.media('<wide') {

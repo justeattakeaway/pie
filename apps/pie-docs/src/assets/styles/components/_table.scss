@@ -2,8 +2,8 @@
 @use '../variables' as v;
 
 %c-table {
-    background-color: f.$color-container-default;
-    box-shadow: 0 0 1px 1px f.$color-border-default;
+    background-color: var(--dt-color-container-default);
+    box-shadow: 0 0 1px 1px var(--dt-color-border-default);
     border-collapse: collapse;
     border-radius: f.$radius-rounded-c;
     margin-block-start: var(--dt-spacing-f);
@@ -20,7 +20,7 @@
 
     th,
     tr:not(:last-child) {
-        border-block-end: 1px solid f.$color-border-default;
+        border-block-end: 1px solid var(--dt-color-border-default);
     }
 }
 
