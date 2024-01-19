@@ -1,5 +1,20 @@
 # Changelog
 
+## 3.22.0
+
+### Minor Changes
+
+- [Added] - show more button for component status page ([#1176](https://github.com/justeattakeaway/pie/pull/1176)) by [@LTurns](https://github.com/LTurns)
+
+- [Changed] - Update all spacing styles to use pie-css ([#1180](https://github.com/justeattakeaway/pie/pull/1180)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Changed] - Update all spacing properties to use logical properties
+
+### Patch Changes
+
+- Updated dependencies [[`254295b17`](https://github.com/justeattakeaway/pie/commit/254295b1745f2a3c8b05c15a5a6795385b0003be)]:
+  - @justeattakeaway/pie-css@0.9.1
+
 ## 3.21.1
 
 ### Patch Changes

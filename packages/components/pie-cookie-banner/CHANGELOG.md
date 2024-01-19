@@ -1,5 +1,20 @@
 # @justeattakeaway/pie-cookie-banner
 
+## 0.16.0
+
+### Minor Changes
+
+- [Added] - Adds two props to allow urls to be passed to cookie statement and technology list ([#1184](https://github.com/justeattakeaway/pie/pull/1184)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
+### Patch Changes
+
+- Updated dependencies [[`365681462`](https://github.com/justeattakeaway/pie/commit/3656814623c74dbe49a25c894292d4621697ec7c), [`bc6aaae52`](https://github.com/justeattakeaway/pie/commit/bc6aaae5211328192879737134fac5c0bc3c22c2)]:
+  - @justeattakeaway/pie-icon-button@0.27.2
+  - @justeattakeaway/pie-switch@0.25.0
+  - @justeattakeaway/pie-link@0.15.0
+  - @justeattakeaway/pie-modal@0.38.2
+  - @justeattakeaway/pie-button@0.45.2
+
 ## 0.15.1
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-css
 
+## 0.9.1
+
+### Patch Changes
+
+- [Fixed] - Overly long lines ([#1192](https://github.com/justeattakeaway/pie/pull/1192)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 0.9.0
 
 ### Minor Changes
