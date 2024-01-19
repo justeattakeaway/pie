@@ -1,6 +1,13 @@
 const { parse, stringify } = require('scss-parser');
 const createQueryWrapper = require('query-ast');
 
+/**
+ * The function `extractCSSShorthandValues` takes a CSS shorthand property name and value as input,
+ * parses the value into individual values, and returns an array of the extracted values.
+ * @param propName - a string that represents the name of the CSS property
+ * @param propValue - the string value of a CSS shorthand property that you want to extract individual values from
+ * @returns an array of extracted values from a CSS shorthand property.
+ */
 function extractCSSShorthandValues (propName, propValue) {
     const declarationStr = `${propName}: ${propValue};`;
     const ast = parse(declarationStr);
