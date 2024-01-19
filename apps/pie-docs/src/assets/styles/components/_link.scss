@@ -1,7 +1,7 @@
 @use '../fozzie-config' as f;
 
 .c-link-backdrop {
-    background-color: f.$color-background-subtle;
+    background-color: var(--dt-color-background-subtle);
     border-radius: f.$radius-rounded-c;
     margin-block: var(--dt-spacing-b);
     display: flex;

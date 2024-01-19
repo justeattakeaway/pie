@@ -15,12 +15,12 @@ $anchor-width: calc($anchor-size + $anchor-margin);
     margin-inline-start: $anchor-margin;
 
     &:hover {
-        background-color: color.adjust(f.$color-container-default, $lightness: calc(f.$color-hover-01 * -1));
+        background-color: hsl(var(--dt-color-container-default-h), var(--dt-color-container-default-s), calc(var(--dt-color-container-default-l) + calc(-1 * var(--dt-color-hover-01))));
     }
 
     &:focus,
     &:active {
-        background-color: color.adjust(f.$color-container-default, $lightness: calc(f.$color-active-01 * -1));
+        background-color: hsl(var(--dt-color-container-default-h), var(--dt-color-container-default-s), calc(var(--dt-color-container-default-l) + calc(-1 * var(--dt-color-active-01))));
     }
 
     @include f.media('>=mid') {

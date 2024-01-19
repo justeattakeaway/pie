@@ -45,7 +45,7 @@ html:has(.c-navToggle-input:checked) body {
 }
 
 .c-navToggle-input:focus ~ .c-navToggle {
-    outline: 2px solid f.$color-focus-outer;
+    outline: 2px solid var(--dt-color-focus-outer);
     outline-offset: 4px;
 }
 
@@ -58,7 +58,7 @@ html:has(.c-navToggle-input:checked) body {
         left: 0;
         right: 0;
         bottom: 0;
-        background: f.$color-overlay;
+        background: var(--dt-color-overlay);
         z-index: f.zIndex('high');
     }
 }

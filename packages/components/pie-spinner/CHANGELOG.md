@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-spinner
 
+## 0.5.2
+
+### Patch Changes
+
+- [Fixed] - Components props consistency issues ([#1141](https://github.com/justeattakeaway/pie/pull/1141)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 0.5.1
 
 ### Patch Changes

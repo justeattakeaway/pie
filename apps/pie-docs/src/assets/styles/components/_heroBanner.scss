@@ -3,7 +3,7 @@
 @use '../utilities' as u;
 
 .c-heroBanner {
-    background-color: f.$color-background-subtle;
+    background-color: var(--dt-color-background-subtle);
     grid-column: 1 / span 2;
 }
 

@@ -19,9 +19,8 @@ jobs:
       - name: List repo environments
         id: list-environments
         uses: actions/github-script@v6
-        env:
-          GITHUB_TOKEN: ${{ secrets.CHANGESETS_TOKEN }}
         with:
+          github-token: ${{ secrets.CHANGESETS_TOKEN }}
           script: |
             const pull_number = context.issue.number;
             const owner = context.repo.owner;
@@ -46,7 +45,8 @@ jobs:
         if: steps.list-environments.outputs.hasDocsEnv == 'true'
         uses: ./.github/actions/amplify-teardown
         with:
-          github-token: ${{ secrets.CHANGESETS_TOKEN }}
+          gh-app-id: ${{ secrets.GH_APP_ID }}
+          gh-app-private-key: ${{ secrets.GH_APP_PRIVATE_KEY }}
           amplify-app-id: dvskdcoepjoyf
           aws-region: 'eu-west-1'
           aws-access-key-id: ${{ secrets.AWS_KEY_ID }}
@@ -58,7 +58,8 @@ jobs:
         if: steps.list-environments.outputs.hasStorybookEnv == 'true'
         uses: ./.github/actions/amplify-teardown
         with:
-          github-token: ${{ secrets.CHANGESETS_TOKEN }}
+          gh-app-id: ${{ secrets.GH_APP_ID }}
+          gh-app-private-key: ${{ secrets.GH_APP_PRIVATE_KEY }}
           amplify-app-id: d17ja0ul7nrdy0
           aws-region: 'eu-west-1'
           aws-access-key-id: ${{ secrets.AWS_KEY_ID }}

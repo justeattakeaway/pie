@@ -2,10 +2,10 @@
 
 // This is a temporary solution to override the closed cookie banner styles
 .cookie-banner-anchor > div > a {
-    background-color: f.$color-background-subtle;
+    background-color: var(--dt-color-background-subtle);
     padding-block-start: var(--dt-spacing-d);
     padding-block-end: 0;
     padding-inline: var(--dt-spacing-b);
-    color: f.$color-content-link;
+    color: var(--dt-color-content-link);
     font-weight: f.$font-weight-bold;
 }

@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-link",
   "description": "PIE Design System Link built using Web Components",
-  "version": "0.14.1",
+  "version": "0.15.0",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
