@@ -10,7 +10,7 @@ import { SwitchProps, labelPlacements } from '../../src/defs.ts';
 //     `<div ?isRTL=true, ?checked=${checked}><pie-switch ></pie-switch></div>`;
 // };
 
-const renderRTLPieSwitch = '<div ?isRTL=true><pie-switch ></pie-switch></div>';
+// const renderRTLPieSwitch = '<div ?isRTL=true><pie-switch ></pie-switch></div>';
 
 [
     [false, false],
@@ -47,17 +47,21 @@ test.describe('Prop: `Label`', () => {
     });
 });
 
-[
-    [false],
-    [true],
-].forEach(([checked]) => {
-    test.only(`should render RTL correctly with checked = ${checked}`, async ({ page, mount }) => {
-        await mount(renderRTLPieSwitch, {
-            props: {
-                checked,
-            },
-        });
+test.describe('RTL', () => {
+    test.describe('when passed in', () => {
+        [false, true].forEach(async (checked) => {
+            test.only(`should render component correctly (checked: ${checked})`, async ({ page, mount }) => {
+                await page.setContent('<div dir="rtl" id="app"></div>');
 
-        await percySnapshot(page, `Switch - RTL - checked = ${checked}`, percyWidths);
+                await mount(PieSwitch, {
+                    props: {
+                        label: 'Label',
+                        checked,
+                    } as SwitchProps,
+                });
+
+                await percySnapshot(page, `Switch - checked: ${checked} (dir: rtl)`, percyWidths);
+            });
+        });
     });
 });
