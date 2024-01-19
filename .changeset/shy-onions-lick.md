@@ -2,4 +2,4 @@
 "pie-docs": minor
 ---
 
-[Changed] - Replaced fozzie colour tokesn with pie-css tokens
+[Changed] - Replaced fozzie colour tokens with pie-css tokens

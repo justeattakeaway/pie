@@ -11,10 +11,6 @@ $toggle-item-padding-y: 10px;
 $toggle-item-padding-x: var(--dt-spacing-e);
 $toggle-item-bg: var(--dt-color-container-strong);
 
-// This is really annoying, but it's the only way to get darkness to work with Custom Props
-// TODO: We should likely make a utility function for this in the future
-// For ref, I tried using string interpolation with -#{f.$color-hover-01}, but it doesn't work as
-// CSS then complains about it then not being a number ¯\_(ツ)_/¯
 $toggle-item-bg--hover: hsl(var(--dt-color-container-strong-h), var(--dt-color-container-strong-s), calc(var(--dt-color-container-strong-l) + calc(-1 * var(--dt-color-hover-01))));
 $toggle-item-bg--active: hsl(var(--dt-color-container-strong-h), var(--dt-color-container-strong-s), calc(var(--dt-color-container-strong-l) + calc(-1 * var(--dt-color-active-01))));
 $toggle-item-bg--checked: var(--dt-color-interactive-light);
