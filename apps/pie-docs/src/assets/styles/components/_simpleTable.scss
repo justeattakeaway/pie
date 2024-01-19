@@ -12,7 +12,7 @@
 
 .c-simpleTable--monospace {
     font-family: PTMono, Consolas, monospace;
-    @include p.font-size(--dt-font-heading-s-size--wide);
+    @include p.font-size(--dt-font-body-s-size--wide);
 }
 
 .c-simpleTable--swatch {

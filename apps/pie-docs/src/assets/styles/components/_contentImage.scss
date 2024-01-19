@@ -92,6 +92,6 @@ $contentImage-height-l--mobile:           400px;
 
 .c-contentImage-caption {
     margin-block-start: var(--dt-spacing-d);
-    @include p.font-size(--dt-font-heading-s-size--wide);
+    @include p.font-size(--dt-font-body-s-size--wide);
     max-width: v.$typography-content-max-width;
 }

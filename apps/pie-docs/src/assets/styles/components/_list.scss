@@ -15,7 +15,7 @@
     .c-list-item {
         counter-increment: item;
         margin-block-end: var(--dt-spacing-b);
-        @include p.font-size(--dt-font-heading-l-size--wide);
+        @include p.font-size(--dt-font-body-l-size--wide);
         display: flex;
 
         @include f.media('>=wide') {
@@ -24,7 +24,7 @@
 
         &:before {
             content: counter(item);
-            @include p.font-size(--dt-font-heading-s-size--wide);
+            @include p.font-size(--dt-font-body-s-size--wide);
             font-weight: var(--dt-font-weight-bold);
             margin-inline-end: var(--dt-spacing-c);
             width: 25px;
@@ -46,7 +46,7 @@
     flex-wrap: wrap;
 
     & .c-list-item {
-        @include p.font-size(--dt-font-heading-s-size--wide);
+        @include p.font-size(--dt-font-body-s-size--wide);
         background-color: var(--dt-color-container-strong);
         padding-block-start: 2px;
         padding-block-end: 2px;
@@ -60,7 +60,7 @@
     margin: 0;
 
     .c-list-item {
-        @include p.font-size(--dt-font-heading-l-size--wide);
+        @include p.font-size(--dt-font-body-l-size--wide);
         display: flex;
         align-items: flex-start;
         justify-content: flex-start;

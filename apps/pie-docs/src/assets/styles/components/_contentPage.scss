@@ -40,7 +40,7 @@
 }
 
 .c-contentPage-header-description {
-    @include p.font-size(--dt-font-heading-l-size--wide);
+    @include p.font-size(--dt-font-body-l-size--wide);
     margin-block-start: var(--dt-spacing-e);
     max-width: 50ch;
 

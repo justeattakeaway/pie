@@ -59,6 +59,5 @@
     padding-inline-start: var(--dt-spacing-a);
     padding-inline-end: var(--dt-spacing-a);
     border-radius: var(--dt-radius-rounded-b);
-    @include f.font-size('body-s');
-    @include p.font-size(--dt-font-heading-s-size--wide);
+    @include p.font-size(--dt-font-body-s-size--wide);
 }

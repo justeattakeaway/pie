@@ -205,12 +205,12 @@ $tokensTable-item-vertical-padding: var(--dt-spacing-e);
 }
 
 .c-tokensTable-tokenDescription {
-    @include p.font-size(--dt-font-heading-s-size--wide);
+    @include p.font-size(--dt-font-body-s-size--wide);
 }
 
 .c-tokensTable-heading {
     font-weight: var(--dt-font-weight-bold);
-    @include p.font-size(--dt-font-heading-s-size--wide);
+    @include p.font-size(--dt-font-body-s-size--wide);
     color: var(--dt-color-content-subdued);
 }
 
@@ -295,7 +295,7 @@ $tokensTable-item-vertical-padding: var(--dt-spacing-e);
     padding-block-end: calc(var(--dt-spacing-a) / 2);
     padding-inline-start: var(--dt-spacing-a);
     padding-inline-end: var(--dt-spacing-a);
-    @include p.font-size(--dt-font-heading-s-size--wide);
+    @include p.font-size(--dt-font-body-s-size--wide);
 }
 
 .c-tokensTable-token--light {

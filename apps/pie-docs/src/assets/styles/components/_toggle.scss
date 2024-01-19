@@ -35,7 +35,7 @@ $toggle-item-elevation--checked: f.$elevation-02;
     padding-block-end: $toggle-item-padding-y;
     padding-inline-start: $toggle-item-padding-x;
     padding-inline-end: $toggle-item-padding-x;
-    @include p.font-size(--dt-font-heading-l-size--wide);
+    @include p.font-size(--dt-font-body-l-size--wide);
     position: relative; // context for :before
 
     align-items: center;
