@@ -5,8 +5,10 @@
     align-items: center;
     flex-direction: column;
     height: 100%;
-    padding-block: var(--dt-spacing-h);
-    padding-inline: var(--dt-spacing-d);
+    padding-block-start: var(--dt-spacing-h);
+    padding-block-end: var(--dt-spacing-h);
+    padding-inline-start: var(--dt-spacing-d);
+    padding-inline-end: var(--dt-spacing-d);
     background-color: var(--dt-color-background-default);
 
     @include f.media('>=wide') {

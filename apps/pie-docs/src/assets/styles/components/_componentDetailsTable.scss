@@ -8,7 +8,8 @@
     border-radius: var(--dt-radius-rounded-c);
     padding-block-start: var(--dt-spacing-d);
     padding-block-end: var(--dt-spacing-e);
-    padding-inline: var(--dt-spacing-e);
+    padding-inline-start: var(--dt-spacing-e);
+    padding-inline-end: var(--dt-spacing-e);
 
     // ensures larger tables are responsive
     overflow-x: auto;

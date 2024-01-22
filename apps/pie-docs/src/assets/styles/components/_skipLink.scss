@@ -3,7 +3,8 @@
 .c-skipLink {
     background-color: var(--dt-color-container-subtle);
     color: var(--dt-color-content-link-distinct);
-    padding-block: var(--dt-spacing-b);
+    padding-block-start: var(--dt-spacing-b);
+    padding-block-end: var(--dt-spacing-b);
     text-align: center;
     outline: none;
     position: absolute;

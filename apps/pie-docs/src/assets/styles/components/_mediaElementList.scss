@@ -7,8 +7,10 @@
     flex-direction: column;
 
     hr {
-        margin-block: var(--dt-spacing-f);
-        margin-inline: 0;
+        margin-block-start: var(--dt-spacing-f);
+        margin-block-end: var(--dt-spacing-f);
+        margin-inline-start: 0;
+        margin-inline-end: 0;
     }
 
     .c-mediaElement {
