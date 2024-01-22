@@ -55,17 +55,17 @@ test.describe('Prop: `Label`', () => {
     });
 });
 
-const props: SwitchProps = {
-    checked: true,
-};
+const renderTestPieSwitch = (propVals: WebComponentPropValues) => `<div dir="rtl"><pie-switch checked="${propVals.checked}"></pie-switch></div>`;
 
-const renderTestPieSwitch = (propVals: WebComponentPropValues) => `<pie-switch checked="${propVals.checked}"></pie-switch>`;
-
-test.describe('Pie Switch RTL - Visual tests`', () => {
+test.describe('Pie Switch RTL - Visual tests', () => {
     [false, true].forEach(async (checked) => {
         test(`should render component correctly (checked: ${checked})`, async ({ page, mount }) => {
-            const testComponent: WebComponentTestInput = createTestWebComponent(props, renderTestPieSwitch);
-            const propKeyValues = `checked: ${testComponent.propValues.checked}`;
+            const testComponent: WebComponentTestInput = createTestWebComponent(
+                { checked },
+                renderTestPieSwitch,
+            );
+
+            const propKeyValues = `checked: ${checked}`;
 
             await mount(WebComponentTestWrapper, {
                 props: { propKeyValues },
@@ -74,7 +74,8 @@ test.describe('Pie Switch RTL - Visual tests`', () => {
                 },
             });
 
-            await percySnapshot(page, 'Pie Switch - RTL Visual Test', percyWidths);
+            await percySnapshot(page, `Pie Switch - RTL Visual Test ${checked}`, percyWidths);
         });
     });
 });
+
