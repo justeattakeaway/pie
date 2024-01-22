@@ -8,7 +8,7 @@ $notification-bg-colour:            var(--bg-colour);
 .c-notification {
     background-color: $notification-bg-colour;
     padding: $notification-padding;
-    border-radius: f.$radius-rounded-c;
+    border-radius: var(--dt-radius-rounded-c);
     display: flex;
     flex-wrap: wrap;
 

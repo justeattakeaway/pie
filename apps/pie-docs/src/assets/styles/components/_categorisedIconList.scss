@@ -33,7 +33,7 @@ $icon-preview-size: 64px;
     align-items: center;
     text-align: center;
     inline-size: 152px;
-    border-radius: f.$radius-rounded-b;
+    border-radius: var(--dt-radius-rounded-b);
     background-color: var(--dt-color-container-subtle);
     padding: var(--dt-spacing-d);
 
