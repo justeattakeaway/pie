@@ -73,8 +73,8 @@
     "extends @justeattakeaway/browserslist-config-pie"
   ],
   "dependencies": {
-    "@justeattakeaway/pie-webc-core": "0.17.1",
-    "@justeattakeaway/pie-icons-configs": "4.5.1"
+    "@justeattakeaway/pie-icons-configs": "4.5.1",
+    "@justeattakeaway/pie-webc-core": "0.17.1"
   },
   "devDependencies": {
     "@babel/core": "7.23.7",

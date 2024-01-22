@@ -5,10 +5,11 @@
     margin-block-start: var(--dt-spacing-e);
     margin-block-end: var(--dt-spacing-f);
     background-color: var(--dt-color-container-subtle);
-    border-radius: f.$radius-rounded-c;
+    border-radius: var(--dt-radius-rounded-c);
     padding-block-start: var(--dt-spacing-d);
     padding-block-end: var(--dt-spacing-e);
-    padding-inline: var(--dt-spacing-e);
+    padding-inline-start: var(--dt-spacing-e);
+    padding-inline-end: var(--dt-spacing-e);
 
     // ensures larger tables are responsive
     overflow-x: auto;
@@ -52,8 +53,10 @@
 
 .c-componentDetailsTable-token {
     background-color: var(--dt-color-container-default);
-    padding-block: 2px;
-    padding-inline: var(--dt-spacing-a);
-    border-radius: f.$radius-rounded-b;
+    padding-block-start: 2px;
+    padding-block-end: 2px;
+    padding-inline-start: var(--dt-spacing-a);
+    padding-inline-end: var(--dt-spacing-a);
+    border-radius: var(--dt-radius-rounded-b);
     @include f.font-size('body-s');
 }

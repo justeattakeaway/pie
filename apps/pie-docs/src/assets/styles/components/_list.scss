@@ -47,9 +47,11 @@
     & .c-list-item {
         @include f.font-size('body-s');
         background-color: var(--dt-color-container-strong);
-        padding-block: 2px;
-        padding-inline: var(--dt-spacing-a);
-        border-radius: f.$radius-rounded-b;
+        padding-block-start: 2px;
+        padding-block-end: 2px;
+        padding-inline-start: var(--dt-spacing-a);
+        padding-inline-end: var(--dt-spacing-a);
+        border-radius: var(--dt-radius-rounded-b);
     }
 }
 
@@ -68,7 +70,7 @@
             width: 6px;
             height: 6px;
             background: var(--dt-color-container-inverse);
-            border-radius: f.$radius-rounded-e;
+            border-radius: var(--dt-radius-rounded-e);
             margin-inline-end: var(--dt-spacing-b);
             margin-block-start: var(--dt-spacing-b);
             flex-shrink: 0;

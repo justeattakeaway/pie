@@ -13,7 +13,8 @@ $tokensTable-item-vertical-padding: var(--dt-spacing-e);
     padding: 0;
     margin-block-start: var(--dt-spacing-f);
     margin-block-end: 0;
-    margin-inline: 0;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
     width: 100%;
 
     @include f.media('>=wide') {
@@ -47,7 +48,7 @@ $tokensTable-item-vertical-padding: var(--dt-spacing-e);
         justify-self: start;
         align-self: start;
         min-width: 152px;
-        border-radius: f.$radius-03;
+        border-radius: var(--dt-radius-rounded-b);
     }
 }
 
@@ -71,7 +72,7 @@ $tokensTable-item-vertical-padding: var(--dt-spacing-e);
     min-height: $tokensTable-item-min-height;
 
     @include f.media('>=wide') {
-        border-radius: f.$radius-03;
+        border-radius: var(--dt-radius-rounded-b);
         min-height: 80px;
     }
 }
@@ -111,8 +112,10 @@ $tokensTable-item-vertical-padding: var(--dt-spacing-e);
     width: var(--example-spacing);
     height: var(--example-spacing);
     border-radius: 2px;
-    margin-block: 0;
-    margin-inline: auto;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: auto;
+    margin-inline-end: auto;
     left: 0;
     right: 0;
     position: absolute;
@@ -129,9 +132,11 @@ $tokensTable-item-vertical-padding: var(--dt-spacing-e);
     background-color: var(--example-elevation);
     width: var(--dt-spacing-i);
     height: var(--dt-spacing-i);
-    border-radius: f.$radius-03;
-    margin-block: 0;
-    margin-inline: auto;
+    border-radius: var(--dt-radius-rounded-b);
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: auto;
+    margin-inline-end: auto;
     left: 0;
     right: 0;
     position: absolute;
@@ -168,7 +173,8 @@ $tokensTable-item-vertical-padding: var(--dt-spacing-e);
     min-height: 184px;
     padding-block-start: var(--dt-spacing-i);
     padding-block-end: var(--dt-spacing-g);
-    padding-inline: 0;
+    padding-inline-start: 0;
+    padding-inline-end: 0;
     background-color: var(--dt-color-background-subtle);
     color: var(--dt-color-content-default);
     font-family: var(--example-font-family);
@@ -232,11 +238,13 @@ $tokensTable-item-vertical-padding: var(--dt-spacing-e);
     position: relative;
     padding: 0;
     border: $tokensTable-border-width solid var(--dt-color-border-default);
-    border-radius: f.$radius-03;
+    border-radius: var(--dt-radius-rounded-b);
 
     @include f.media('>=wide') {
-        padding-block: $tokensTable-item-vertical-padding;
-        padding-inline: 0;
+        padding-block-start: $tokensTable-item-vertical-padding;
+        padding-block-end: $tokensTable-item-vertical-padding;
+        padding-inline-start: 0;
+        padding-inline-end: 0;
         border-radius: 0;
         border-width: 0 0 $tokensTable-border-width 0;
 
@@ -281,9 +289,11 @@ $tokensTable-item-vertical-padding: var(--dt-spacing-e);
     color: var(--dt-color-dark-content-default);
     height: min-content;
     border: 1px solid var(--dt-color-border-subtle);
-    border-radius: f.$radius-03;
-    padding-block: calc(var(--dt-spacing-a) / 2);
-    padding-inline: var(--dt-spacing-a);
+    border-radius: var(--dt-radius-rounded-b);
+    padding-block-start: calc(var(--dt-spacing-a) / 2);
+    padding-block-end: calc(var(--dt-spacing-a) / 2);
+    padding-inline-start: var(--dt-spacing-a);
+    padding-inline-end: var(--dt-spacing-a);
     @include f.font-size('body-s');
 }
 

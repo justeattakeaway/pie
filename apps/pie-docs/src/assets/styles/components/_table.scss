@@ -5,7 +5,7 @@
     background-color: var(--dt-color-container-default);
     box-shadow: 0 0 1px 1px var(--dt-color-border-default);
     border-collapse: collapse;
-    border-radius: f.$radius-rounded-c;
+    border-radius: var(--dt-radius-rounded-c);
     margin-block-start: var(--dt-spacing-f);
     max-inline-size: v.$typography-content-max-width;
     inline-size: 100%;

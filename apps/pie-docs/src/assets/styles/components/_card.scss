@@ -46,7 +46,7 @@ h2 + .c-card-wrapper {
 .c-card {
     position: relative;
     border: $card-border;
-    border-radius: f.$radius-rounded-c;
+    border-radius: var(--dt-radius-rounded-c);
     background-color: var(--dt-color-container-default);
     padding: var(--dt-spacing-e);
     height: 100%;
@@ -111,7 +111,7 @@ $iconBackgroundColours: (
 }
 
 .c-card-image {
-    border-radius: f.$radius-rounded-c f.$radius-rounded-c 0 0;
+    border-radius: var(--dt-radius-rounded-c) var(--dt-radius-rounded-c) 0 0;
     height: $card-image-height;
     display: block;
     width: 100%;
@@ -123,7 +123,7 @@ $iconBackgroundColours: (
 }
 
 .c-card-labelContainer {
-    border-radius: f.$radius-rounded-c;
+    border-radius: var(--dt-radius-rounded-c);
     display: flex;
     gap: var(--dt-spacing-b);
     justify-content: space-between;
@@ -133,9 +133,11 @@ $iconBackgroundColours: (
 
     .c-card--hasImage & {
         border-top: $card-border;
-        padding-block: var(--dt-spacing-e);
-        padding-inline: var(--dt-spacing-d);
-        border-radius: 0 0 f.$radius-rounded-c f.$radius-rounded-c;
+        padding-block-start: var(--dt-spacing-e);
+        padding-block-end: var(--dt-spacing-e);
+        padding-inline-start: var(--dt-spacing-d);
+        padding-inline-end: var(--dt-spacing-d);
+        border-radius: 0 0 var(--dt-radius-rounded-c) var(--dt-radius-rounded-c);
     }
 }
 

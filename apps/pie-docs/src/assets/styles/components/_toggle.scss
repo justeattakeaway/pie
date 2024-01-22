@@ -2,7 +2,7 @@
 @use '../fozzie-config' as f;
 
 $toggle-bg: var(--dt-color-container-strong);
-$toggle-radius: f.$radius-rounded-e;
+$toggle-radius: var(--dt-radius-rounded-e);
 $toggle-padding: 2px;
 $toggle-item-height: 44px;
 $toggle-item-fw: f.$font-weight-regular;
@@ -30,8 +30,10 @@ $toggle-item-elevation--checked: f.$elevation-02;
 }
 
 .c-toggle-label {
-    padding-block: $toggle-item-padding-y;
-    padding-inline: $toggle-item-padding-x;
+    padding-block-start: $toggle-item-padding-y;
+    padding-block-end: $toggle-item-padding-y;
+    padding-inline-start: $toggle-item-padding-x;
+    padding-inline-end: $toggle-item-padding-x;
     @include f.font-size('body-l');
     position: relative; // context for :before
 

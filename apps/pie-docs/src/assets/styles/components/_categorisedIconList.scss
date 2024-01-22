@@ -17,7 +17,8 @@ $icon-preview-size: 64px;
 }
 
 .c-categorisedIconList-heading {
-    margin-block: var(--dt-spacing-f);
+    margin-block-start: var(--dt-spacing-f);
+    margin-block-end: var(--dt-spacing-f);
 }
 
 .c-categorisedIconList-iconList {
@@ -33,7 +34,7 @@ $icon-preview-size: 64px;
     align-items: center;
     text-align: center;
     inline-size: 152px;
-    border-radius: f.$radius-rounded-b;
+    border-radius: var(--dt-radius-rounded-b);
     background-color: var(--dt-color-container-subtle);
     padding: var(--dt-spacing-d);
 
@@ -63,5 +64,6 @@ $icon-preview-size: 64px;
     block-size: 1px;
     inline-size: 100%;
     background-color: var(--dt-color-divider-default);
-    margin-block: var(--dt-spacing-d);
+    margin-block-start: var(--dt-spacing-d);
+    margin-block-end: var(--dt-spacing-d);
 }

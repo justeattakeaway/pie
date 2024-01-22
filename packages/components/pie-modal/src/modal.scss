@@ -173,14 +173,18 @@
         margin: 0;
         grid-area: heading;
 
-        margin-inline: var(--dt-spacing-d);
-        margin-block: 14px; // This is deliberately not a custom property
+        margin-inline-start: var(--dt-spacing-d);
+        margin-inline-end: var(--dt-spacing-d);
+        margin-block-start: 14px;
+        margin-block-end: 14px; // This is deliberately not a custom property
 
         @media (min-width: $breakpoint-wide) {
             --modal-header-font-size: calc(var(--dt-font-heading-m-size--wide) * 1px);
             --modal-header-font-line-height: calc(var(--dt-font-heading-m-line-height--wide) * 1px);
-            margin-inline: var(--dt-spacing-e);
-            margin-block: 20px; // This is deliberately not a custom property
+            margin-inline-start: var(--dt-spacing-e);
+            margin-inline-end: var(--dt-spacing-e);
+            margin-block-start: 20px;
+            margin-block-end: 20px; // This is deliberately not a custom property
         }
     }
 
@@ -204,23 +208,31 @@
 
     & .c-modal-backBtn {
         grid-area: back;
-        margin-block: var(--dt-spacing-b);
-        margin-inline: var(--dt-spacing-b) var(--dt-spacing-none);
+        margin-block-start: var(--dt-spacing-b);
+        margin-block-end: var(--dt-spacing-b);
+        margin-inline-start: var(--dt-spacing-b);
+        margin-inline-end: var(--dt-spacing-none);
 
         @media (min-width: $breakpoint-wide) {
-            margin-block: var(--dt-spacing-c);
-            margin-inline: var(--dt-spacing-c) var(--dt-spacing-none);
+            margin-block-start: var(--dt-spacing-c);
+            margin-block-end: var(--dt-spacing-c);
+            margin-inline-start: var(--dt-spacing-c);
+            margin-inline-end: var(--dt-spacing-none);
         }
     }
 
     & .c-modal-closeBtn {
         grid-area: close;
-        margin-block: var(--dt-spacing-b);
-        margin-inline: var(--dt-spacing-none) var(--dt-spacing-b);
+        margin-block-start: var(--dt-spacing-b);
+        margin-block-end: var(--dt-spacing-b);
+        margin-inline-start: var(--dt-spacing-none);
+        margin-inline-end: var(--dt-spacing-b);
 
         @media (min-width: $breakpoint-wide) {
-            margin-block: var(--dt-spacing-c);
-            margin-inline: var(--dt-spacing-none) var(--dt-spacing-c);
+            margin-block-start: var(--dt-spacing-c);
+            margin-block-end: var(--dt-spacing-c);
+            margin-inline-start: var(--dt-spacing-none);
+            margin-inline-end: var(--dt-spacing-c);
         }
     }
 
@@ -243,8 +255,10 @@
         line-height: var(--modal-content-line-height);
         font-weight: var(--modal-content-font-weight);
 
-        padding-inline: var(--modal-content-padding-inline);
-        padding-block: var(--modal-content-padding-block);
+        padding-inline-start: var(--modal-content-padding-inline);
+        padding-inline-end: var(--modal-content-padding-inline);
+        padding-block-start: var(--modal-content-padding-block);
+        padding-block-end: var(--modal-content-padding-block);
         flex-grow: 1;
 
         &--scrollable {
