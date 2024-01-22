@@ -1,9 +1,9 @@
 
-import { test, expect } from '@justeattakeaway/pie-webc-testing/src/playwright/fixtures.ts';
+import { litTest, expect } from '@justeattakeaway/pie-webc-testing/src/playwright/fixtures.ts';
 import { PieLink, LinkProps } from '../../src/index.ts';
 
-test.describe('PieLink - Accessibility tests', () => {
-    test('a11y - should test the PieLink component WCAG compliance', async ({ makeAxeBuilder, mount }) => {
+litTest.describe('PieLink - Accessibility tests', () => {
+    litTest('a11y - should test the PieLink component WCAG compliance', async ({ makeAxeBuilder, mount }) => {
         await mount(
             PieLink,
             {

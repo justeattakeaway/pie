@@ -1,4 +1,4 @@
-import { test } from '../playwright/fixtures';
+import { test } from '@justeattakeaway/pie-webc-testing/src/playwright/playwright-fixtures';
 import { disableCookieBanner, percySnapshot } from '../playwright/playwright-helper';
 
 test.describe('PIE - Home Page Tests', async () => {

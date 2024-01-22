@@ -1,20 +1,25 @@
+import { test as baseTest, expect as baseExpect } from '@sand4rt/experimental-ct-web';
 import type { Page } from '@playwright/test';
+import AxeBuilder from '@axe-core/playwright';
 
-const base = require('@playwright/test');
-const AxeBuilder = require('@axe-core/playwright').default;
+interface ExtendedTestContext {
+  page: Page;
+  makeAxeBuilder: () => AxeBuilder;
+}
 
 // Extend base test by providing "makeAxeBuilder"
-//
 // This new "test" can be used in multiple test files, and each of them will get
 // a consistently configured AxeBuilder instance.
-exports.test = base.test.extend({
-    makeAxeBuilder: [async ({ page }: { page: Page }, use: any) => {
-        const makeAxeBuilder = () => new AxeBuilder({ page })
-          .withTags(['wcag21a', 'wcag21aa', 'wcag143', 'cat.color', 'cat.aria'])
-          .disableRules(['color-contrast-enhanced']);
+export const litTest = baseTest.extend<ExtendedTestContext>({
+  makeAxeBuilder: [async ({ page }: { page: Page }, use: (builder: () => AxeBuilder) => Promise<void>) => {
+    const makeAxeBuilder = () => new AxeBuilder({ page })
+      .withTags(['wcag21a', 'wcag21aa', 'wcag143', 'cat.color', 'cat.aria'])
+      .disableRules(['color-contrast-enhanced']);
 
-        await use(makeAxeBuilder);
-    }, { timeout: 60000 }],
+    await use(makeAxeBuilder);
+  }, {
+    timeout: 60000,
+  }],
 });
 
-exports.expect = base.expect;
+export const expect = baseExpect;

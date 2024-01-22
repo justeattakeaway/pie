@@ -1,9 +1,9 @@
 
-import { test, expect } from '@justeattakeaway/pie-webc-testing/src/playwright/fixtures.ts';
+import { litTest, expect } from '@justeattakeaway/pie-webc-testing/src/playwright/fixtures.ts';
 import { PieDivider, DividerProps } from '../../src/index.ts';
 
-test.describe('PieDivider - Accessibility tests', () => {
-    test('a11y - should test the PieDivider component WCAG compliance', async ({ makeAxeBuilder, mount }) => {
+litTest.describe('PieDivider - Accessibility tests', () => {
+    litTest('a11y - should test the PieDivider component WCAG compliance', async ({ makeAxeBuilder, mount }) => {
         await mount(
             PieDivider,
             {

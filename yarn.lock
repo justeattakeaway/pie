@@ -5803,6 +5803,9 @@ __metadata:
 "@justeattakeaway/pie-webc-testing@0.8.0, @justeattakeaway/pie-webc-testing@workspace:packages/components/pie-webc-testing":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-webc-testing@workspace:packages/components/pie-webc-testing"
+  peerDependencies:
+    "@axe-core/playwright": ^4.0.0
+    "@playwright/test": ^1.32.3
   languageName: unknown
   linkType: soft
 

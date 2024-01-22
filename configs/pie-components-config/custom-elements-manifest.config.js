@@ -1,6 +1,6 @@
 import { moduleFileExtensionsPlugin } from 'cem-plugin-module-file-extensions';
 
-const sharedCustomElementsManifestConfig = {
+export const sharedCustomElementsManifestConfig = {
     globs: [
         './src/**/!(*.css).ts',
     ],
@@ -14,4 +14,4 @@ const sharedCustomElementsManifestConfig = {
     plugins: [moduleFileExtensionsPlugin()],
 };
 
-export default sharedCustomElementsManifestConfig
+export default sharedCustomElementsManifestConfig;

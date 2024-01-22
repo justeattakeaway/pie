@@ -1,6 +1,6 @@
-import expectedRoutesJson from '../snapshots/expected-routes.snapshot.json';
+import { test, expect } from '@justeattakeaway/pie-webc-testing/src/playwright/playwright-fixtures';
 
-const { test, expect } = require('../playwright/fixtures');
+import expectedRoutesJson from '../snapshots/expected-routes.snapshot.json';
 const { disableCookieBanner } = require('../playwright/playwright-helper');
 
 test.beforeEach(async ({ page, context, baseURL }) => {

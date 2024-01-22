@@ -1,9 +1,9 @@
 
-import { test, expect } from '@justeattakeaway/pie-webc-testing/src/playwright/fixtures.ts';
+import { litTest, expect } from '@justeattakeaway/pie-webc-testing/src/playwright/fixtures.ts';
 import { Pie<%= componentName %>, <%= componentName %>Props } from '../../src/index.ts';
 
-test.describe('Pie<%= componentName %> - Accessibility tests', () => {
-    test('a11y - should test the Pie<%= componentName %> component WCAG compliance', async ({ makeAxeBuilder, mount }) => {
+litTest.describe('Pie<%= componentName %> - Accessibility tests', () => {
+    litTest('a11y - should test the Pie<%= componentName %> component WCAG compliance', async ({ makeAxeBuilder, mount }) => {
         await mount(
             Pie<%= componentName %>,
             {
