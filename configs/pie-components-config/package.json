@@ -19,6 +19,6 @@
     "cem-plugin-module-file-extensions": "0.0.5"
   },
   "volta": {
-    "extends": "../../../package.json"
+    "extends": "../../package.json"
   }
 }

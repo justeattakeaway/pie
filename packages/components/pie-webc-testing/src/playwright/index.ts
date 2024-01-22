@@ -1,2 +1,3 @@
-export * from './lit-fixtures';
-export { litTest } from './lit-fixtures';
+export { litTest } from './fixtures';
+export * from './playwright-fixtures';
+

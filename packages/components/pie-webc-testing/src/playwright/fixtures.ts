@@ -11,15 +11,15 @@ interface ExtendedTestContext {
 // This new "test" can be used in multiple test files, and each of them will get
 // a consistently configured AxeBuilder instance.
 export const litTest = baseTest.extend<ExtendedTestContext>({
-  makeAxeBuilder: [async ({ page }: { page: Page }, use: (builder: () => AxeBuilder) => Promise<void>) => {
-    const makeAxeBuilder = () => new AxeBuilder({ page })
-      .withTags(['wcag21a', 'wcag21aa', 'wcag143', 'cat.color', 'cat.aria'])
-      .disableRules(['color-contrast-enhanced']);
+    makeAxeBuilder: [async ({ page }: { page: Page }, use: (builder: () => AxeBuilder) => Promise<void>) => {
+        const makeAxeBuilder = () => new AxeBuilder({ page })
+          .withTags(['wcag21a', 'wcag21aa', 'wcag143', 'cat.color', 'cat.aria'])
+          .disableRules(['color-contrast-enhanced']);
 
-    await use(makeAxeBuilder);
-  }, {
-    timeout: 60000,
-  }],
+        await use(makeAxeBuilder);
+    }, {
+        timeout: 60000,
+     }],
 });
 
 export const expect = baseExpect;
