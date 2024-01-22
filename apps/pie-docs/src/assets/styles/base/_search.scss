@@ -30,6 +30,7 @@
 .DocSearch-NewStartScreenItem,
 .DocSearch-Title {
     @include p.font-size(--dt-font-body-s-size);
+    @include p.line-height(--dt-font-body-s-line-height);
 }
 
 .DocSearch-NewStartScreenCategory {
@@ -89,6 +90,7 @@
 
 .DocSearch-Hit-title {
     @include p.font-size(--dt-font-body-l-size);
+    @include p.line-height(--dt-font-body-l-line-height);
     font-weight: var(--dt-font-weight-bold);
 }
 

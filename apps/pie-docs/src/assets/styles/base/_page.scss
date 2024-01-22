@@ -34,6 +34,7 @@ html {
 
         &:before {
             @include p.font-size(--dt-font-body-s-size);
+            @include p.line-height(--dt-font-body-s-line-height);
             visibility: visible;
             content: 'XX/XX/XXXX';
         }

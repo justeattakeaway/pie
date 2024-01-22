@@ -8,6 +8,7 @@
 
     th {
         @include p.font-size(--dt-font-heading-m-size--wide);
+        @include p.line-height(--dt-font-heading-m-line-height--wide);
         font-weight: var(--dt-font-weight-extrabold);
     }
 

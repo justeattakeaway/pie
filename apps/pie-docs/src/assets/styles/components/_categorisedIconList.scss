@@ -41,7 +41,8 @@ $icon-preview-size: 64px;
 
     p {
         margin-block-start: 0;
-        @include p.font-size(--dt-font-body-s-size--wide);
+        @include p.font-size(--dt-font-body-s-size);
+        @include p.line-height(--dt-font-body-s-line-height);
     }
 
     .c-categorisedIconList-icon svg {

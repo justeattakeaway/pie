@@ -59,5 +59,7 @@
     padding-inline-start: var(--dt-spacing-a);
     padding-inline-end: var(--dt-spacing-a);
     border-radius: var(--dt-radius-rounded-b);
-    @include p.font-size(--dt-font-body-s-size--wide);
+    @include p.font-size(--dt-font-body-s-size);
+    @include p.line-height(--dt-font-body-s-line-height);
 }
+

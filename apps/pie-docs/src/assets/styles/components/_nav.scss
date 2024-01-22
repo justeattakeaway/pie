@@ -6,7 +6,8 @@ $nav-category-icon-width: var(--dt-spacing-e); // this needs to be kept in sync 
 $nav-item-inline-start-margin: calc($nav-category-gap + $nav-category-icon-width);
 
 .c-nav {
-    @include p.font-size(--dt-font-body-s-size--wide);
+    @include p.font-size(--dt-font-body-s-size);
+    @include p.line-height(--dt-font-body-s-line-height);
     background: var(--dt-color-container-default);
     padding-top: var(--dt-spacing-d);
 

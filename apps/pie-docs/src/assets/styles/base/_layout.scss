@@ -101,19 +101,23 @@
     .c-content-container {
         h2 {
             @include p.font-size(--dt-font-heading-xl-size--narrow);
+            @include p.line-height(--dt-font-heading-xl-line-height--narrow);
         }
 
         h3 {
             @include p.font-size(--dt-font-heading-m-size--narrow);
+            @include p.line-height(--dt-font-heading-m-line-height--narrow);
         }
 
         @include f.media('>=wide') {
             h2 {
-                @include p.font-size('--dt-font-heading-xl-size--wide');
+                @include p.font-size(--dt-font-heading-xl-size--wide);
+                @include p.line-height(--dt-font-heading-xl-line-height--wide);
             }
 
             h3 {
-                @include p.font-size('--dt-font-heading-m-size--wide');
+                @include p.font-size(--dt-font-heading-m-size--wide);
+                @include p.line-height(--dt-font-body-s-line-height);
             }
         }
 

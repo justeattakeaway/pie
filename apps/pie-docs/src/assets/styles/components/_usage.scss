@@ -30,6 +30,7 @@ $usage-bg-minHeight: 280px;
 
 .c-usage-heading {
     @include p.font-size(--dt-font-heading-s-size--narrow);
+    @include p.line-height(--dt-font-heading-s-line-height--narrow);
     font-weight: var(--dt-font-weight-bold);
     color: var(--style-colour);
     display: flex;
