@@ -1,10 +1,18 @@
 import { test } from '@sand4rt/experimental-ct-web';
 import percySnapshot from '@percy/playwright';
-import type { WebComponentPropValues } from '@justeattakeaway/pie-webc-testing/src/helpers/defs.ts';
+import type {
+    WebComponentPropValues,
+    WebComponentTestInput
+} from '@justeattakeaway/pie-webc-testing/src/helpers/defs.ts';
 import { percyWidths } from '@justeattakeaway/pie-webc-testing/src/percy/breakpoints.ts';
 import { PieSwitch } from '../../src/index.ts';
 import { SwitchProps, labelPlacements } from '../../src/defs.ts';
-
+import {
+    WebComponentTestWrapper,
+} from '@justeattakeaway/pie-webc-testing/src/helpers/components/web-component-test-wrapper/WebComponentTestWrapper.ts';
+import {
+    createTestWebComponent,
+} from '@justeattakeaway/pie-webc-testing/src/helpers/rendering.ts';
 // const renderRTLPieSwitch = (propVals: WebComponentPropValues) => {
 //     const { checked } = propVals;
 //     `<div ?isRTL=true, ?checked=${checked}><pie-switch ></pie-switch></div>`;
@@ -47,21 +55,26 @@ test.describe('Prop: `Label`', () => {
     });
 });
 
-test.describe('RTL', () => {
-    test.describe('when passed in', () => {
-        [false, true].forEach(async (checked) => {
-            test.only(`should render component correctly (checked: ${checked})`, async ({ page, mount }) => {
-                await page.setContent('<div dir="rtl" id="app"></div>');
+const props: SwitchProps = {
+    checked: true,
+};
 
-                await mount(PieSwitch, {
-                    props: {
-                        label: 'Label',
-                        checked,
-                    } as SwitchProps,
-                });
+const renderTestPieSwitch = (propVals: WebComponentPropValues) => `<pie-switch checked="${propVals.checked}"></pie-switch>`;
 
-                await percySnapshot(page, `Switch - checked: ${checked} (dir: rtl)`, percyWidths);
+test.describe('Pie Switch RTL - Visual tests`', () => {
+    [false, true].forEach(async (checked) => {
+        test(`should render component correctly (checked: ${checked})`, async ({ page, mount }) => {
+            const testComponent: WebComponentTestInput = createTestWebComponent(props, renderTestPieSwitch);
+            const propKeyValues = `checked: ${testComponent.propValues.checked}`;
+
+            await mount(WebComponentTestWrapper, {
+                props: { propKeyValues },
+                slots: {
+                    component: testComponent.renderedString.trim(),
+                },
             });
+
+            await percySnapshot(page, 'Pie Switch - RTL Visual Test', percyWidths);
         });
     });
 });
