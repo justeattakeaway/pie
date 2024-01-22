@@ -3,7 +3,8 @@
 .c-link-backdrop {
     background-color: var(--dt-color-background-subtle);
     border-radius: var(--dt-radius-rounded-c);
-    margin-block: var(--dt-spacing-b);
+    margin-block-start: var(--dt-spacing-b);
+    margin-block-end: var(--dt-spacing-b);
     display: flex;
     align-items: center;
     padding-block-start: var(--dt-spacing-d);

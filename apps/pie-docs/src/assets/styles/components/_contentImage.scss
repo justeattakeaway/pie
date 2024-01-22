@@ -42,8 +42,10 @@ $contentImage-height-l--mobile:           400px;
     align-items: center;
     justify-content: center;
     height: 100%;
-    padding-block: var(--dt-spacing-h);
-    padding-inline: var(--dt-spacing-d);
+    padding-block-start: var(--dt-spacing-h);
+    padding-block-end: var(--dt-spacing-h);
+    padding-inline-start: var(--dt-spacing-d);
+    padding-inline-end: var(--dt-spacing-d);
     border-radius: var(--dt-radius-rounded-d);
 
     &.c-contentImage-default {
