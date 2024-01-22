@@ -1,5 +1,16 @@
 # Changelog
 
+## 3.23.0
+
+### Minor Changes
+
+- [Changed] - Replaced fozzie colour tokens with pie-css tokens ([#1190](https://github.com/justeattakeaway/pie/pull/1190)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Added] - Component Status Page with new shortcodes `componentStatusTable.js` and `TermsAndDescriptions.js` ([#1168](https://github.com/justeattakeaway/pie/pull/1168)) by [@LTurns](https://github.com/LTurns)
+
+  [Added] - Data file `componentStatusData.js` for all component status updates
+  [Removed] - Resource table data from each component page
+
 ## 3.22.0
 
 ### Minor Changes
