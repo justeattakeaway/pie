@@ -2,7 +2,7 @@
 
 .c-link-backdrop {
     background-color: var(--dt-color-background-subtle);
-    border-radius: f.$radius-rounded-c;
+    border-radius: var(--dt-radius-rounded-c);
     margin-block: var(--dt-spacing-b);
     display: flex;
     align-items: center;

@@ -40,7 +40,7 @@ $usage-bg-minHeight: 280px;
 .c-usage-backdrop {
     padding: var(--dt-spacing-e);
     background-color: var(--dt-color-background-subtle);
-    border-radius: 0 0 f.$radius-rounded-d f.$radius-rounded-d;
+    border-radius: 0 0 var(--dt-radius-rounded-d) var(--dt-radius-rounded-d);
     border-top: 4px solid var(--style-colour);
     flex-grow: 1;
 

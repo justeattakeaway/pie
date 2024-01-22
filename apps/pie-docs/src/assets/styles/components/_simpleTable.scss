@@ -33,7 +33,7 @@
             height: $swatch-size;
             width: $swatch-size;
             background-color: var(--swatch-color);
-            border-radius: f.$radius-rounded-a;
+            border-radius: var(--dt-radius-rounded-a);
         }
     }
 
