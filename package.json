@@ -84,7 +84,7 @@
     "@types/react": "18.2.47",
     "@typescript-eslint/eslint-plugin": "5.62.0",
     "@typescript-eslint/parser": "5.62.0",
-    "autoprefixer": "10.4.16",
+    "autoprefixer": "10.4.17",
     "babel-loader": "8.3.0",
     "commitizen": "4.3.0",
     "cross-env": "7.0.3",
