@@ -36,6 +36,8 @@
 @use 'components/card';
 @use 'components/categorisedIconList';
 @use 'components/centredPage';
+@use 'components/componentDetailsTable';
+@use 'components/componentStatusTable';
 @use 'components/contentImage';
 @use 'components/contentLayout';
 @use 'components/contentList';
@@ -58,8 +60,8 @@
 @use 'components/showMore';
 @use 'components/simpleTable';
 @use 'components/table';
-@use 'components/componentDetailsTable';
 @use 'components/tabs';
+@use 'components/termsAndDescriptions';
 @use 'components/toggle';
 @use 'components/tokensTable';
 @use 'components/usage';

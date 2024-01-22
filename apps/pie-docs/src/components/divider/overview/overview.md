@@ -135,45 +135,5 @@ Outlines the atomic level interactive elements for the component.
 } %}
 
 {% resourceTable {
-    rows: [
-        {
-            resource: resourceTypes.COMPONENT,
-            link: "https://www.figma.com/file/R2rBfzJP0hG0MZorq6FLZ1/%5BCore%5D-Components-%E2%9A%AA%EF%B8%8F-%5BPIE-2.0%5D?type=design&node-id=876-1227&mode=design",
-            status: statusTypes.AVAILABLE
-        },
-        {
-            resource: resourceTypes.DOCUMENTATION,
-            status: statusTypes.PLANNED
-        },
-        {
-            resource: resourceTypes.WEB_COMPONENTS,
-            link: "https://webc.pie.design/?path=/story/divider--default",
-            status: statusTypes.PRE_RELEASE
-        },
-        {
-            resource: resourceTypes.VUE,
-            status: statusTypes.NOT_APPLICABLE
-        },
-        {
-            resource: resourceTypes.REACT,
-            link: "https://snacks.takeaway.com/portal/components/divider/",
-            status: statusTypes.AVAILABLE
-        },
-        {
-            resource: resourceTypes.IOS_JUST_UI,
-            status: statusTypes.AVAILABLE
-        },
-        {
-            resource: resourceTypes.IOS_PIE,
-            status: statusTypes.PLANNED
-        },
-        {
-            resource: resourceTypes.ANDROID_XML,
-            status: statusTypes.ALPHA
-        },
-        {
-            resource: resourceTypes.ANDROID_JETPACK,
-            status: statusTypes.ALPHA
-        }
-    ]
+    componentName: 'Divider'
 } %}

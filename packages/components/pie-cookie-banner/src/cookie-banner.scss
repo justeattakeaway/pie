@@ -141,7 +141,8 @@ $breakpoint-wide: 700px;
     display: flex;
     gap: var(--dt-spacing-d);
     justify-content: space-between;
-    margin-block: var(--dt-spacing-e);
+    margin-block-start: var(--dt-spacing-e);
+    margin-block-end: var(--dt-spacing-e);
 
     p {
         margin-block-start: var(--dt-spacing-b);

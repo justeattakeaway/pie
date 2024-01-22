@@ -65,7 +65,7 @@
 }
 
 .DocSearch-Hit {
-    border-radius: f.$radius-rounded-c;
+    border-radius: var(--dt-radius-rounded-c);
     box-shadow: none;
 
     &:hover {

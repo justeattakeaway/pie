@@ -26,14 +26,17 @@
 }
 
 .c-heroContentLayout-pad {
-    padding-inline: var(--dt-spacing-d);
+    padding-inline-start: var(--dt-spacing-d);
+    padding-inline-end: var(--dt-spacing-d);
 
     @include f.media('>=narrowMid') {
-        padding-inline: var(--dt-spacing-e);
+        padding-inline-start: var(--dt-spacing-e);
+        padding-inline-end: var(--dt-spacing-e);
     }
 
     @include f.media('>=mid') {
-        padding-inline: var(--dt-spacing-i);
+        padding-inline-start: var(--dt-spacing-i);
+        padding-inline-end: var(--dt-spacing-i);
     }
 
     .c-content .c-content-container {

@@ -21,6 +21,9 @@
     "stylelint-config-standard-scss": "5.x",
     "stylelint-order": "5.x"
   },
+  "dependencies": {
+    "@justeattakeaway/stylelint-no-logical-props-shorthands": "0.0.1"
+  },
   "scripts": {
     "lint:scripts": "run -T eslint .",
     "lint:scripts:fix": "run -T eslint . --fix",

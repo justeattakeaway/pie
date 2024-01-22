@@ -20,6 +20,7 @@
     "components/carousel-indicator",
     "components/checkbox",
     "components/chip",
+    "components/component-status",
     "components/data-table",
     "components/data-visualisation/bar-chart",
     "components/data-visualisation/line-chart",

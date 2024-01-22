@@ -3,7 +3,7 @@ let showMoreButtons;
 
 window.addEventListener('DOMContentLoaded', () => {
     showMoreButtons = document.querySelectorAll('[data-js="show-more"]');
-    const componentStatusTables = document.querySelectorAll('[class="c-componentStatusTable "]');
+    const componentStatusTables = document.querySelectorAll('[class="c-componentStatus-table"]');
 
     if (!showMoreButtons.length || !componentStatusTables.length) return;
 
