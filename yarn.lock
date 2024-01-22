@@ -5823,10 +5823,21 @@ __metadata:
 "@justeattakeaway/stylelint-config-pie@0.5.0, @justeattakeaway/stylelint-config-pie@workspace:packages/tools/stylelint-config-pie":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/stylelint-config-pie@workspace:packages/tools/stylelint-config-pie"
+  dependencies:
+    "@justeattakeaway/stylelint-no-logical-props-shorthands": 0.0.1
   peerDependencies:
     stylelint: 14.x
     stylelint-config-standard-scss: 5.x
     stylelint-order: 5.x
+  languageName: unknown
+  linkType: soft
+
+"@justeattakeaway/stylelint-no-logical-props-shorthands@0.0.1, @justeattakeaway/stylelint-no-logical-props-shorthands@workspace:packages/tools/stylelint-no-logical-props-shorthands":
+  version: 0.0.0-use.local
+  resolution: "@justeattakeaway/stylelint-no-logical-props-shorthands@workspace:packages/tools/stylelint-no-logical-props-shorthands"
+  dependencies:
+    query-ast: 1.0.5
+    scss-parser: 1.0.6
   languageName: unknown
   linkType: soft
 
@@ -22564,7 +22575,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"invariant@npm:^2.2.4":
+"invariant@npm:2.2.4, invariant@npm:^2.2.4":
   version: 2.2.4
   resolution: "invariant@npm:2.2.4"
   dependencies:
@@ -31578,6 +31589,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"query-ast@npm:1.0.5":
+  version: 1.0.5
+  resolution: "query-ast@npm:1.0.5"
+  dependencies:
+    invariant: 2.2.4
+    lodash: ^4.17.21
+  checksum: 4b7ae79bc907d0614c8d306d77fc82a19d40f5900bace286943839b875d84a52aa4993a73fdb8f4e989461b88474c47a60a48c7a42964b53253d5abe1452e9ad
+  languageName: node
+  linkType: hard
+
 "query-string@npm:^4.1.0":
   version: 4.3.4
   resolution: "query-string@npm:4.3.4"
@@ -33383,6 +33404,16 @@ __metadata:
     ajv-formats: ^2.1.1
     ajv-keywords: ^5.1.0
   checksum: 26a0463d47683258106e6652e9aeb0823bf0b85843039e068b57da1892f7ae6b6b1094d48e9ed5ba5cbe9f7166469d880858b9d91abe8bd249421eb813850cde
+  languageName: node
+  linkType: hard
+
+"scss-parser@npm:1.0.6":
+  version: 1.0.6
+  resolution: "scss-parser@npm:1.0.6"
+  dependencies:
+    invariant: 2.2.4
+    lodash: 4.17.21
+  checksum: f1424d73e9c6aec006df16da7222a590efc3ee9b2abb622caffb5e19ed029baf66cf0d2d7aaad1e3d84e5d7f75cf7a3f761570341f26b318b499b08a7e5cd91c
   languageName: node
   linkType: hard
 

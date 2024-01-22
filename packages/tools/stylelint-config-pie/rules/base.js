@@ -1,6 +1,10 @@
 module.exports = {
     extends: 'stylelint-config-standard-scss',
+    plugins: [
+        '@justeattakeaway/stylelint-no-logical-props-shorthands',
+    ],
     rules: {
+        '@justeattakeaway/stylelint-no-logical-props-shorthands': true,
         'alpha-value-notation': 'number',
         'at-rule-empty-line-before': [
             'always',

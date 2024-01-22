@@ -81,8 +81,10 @@ code:not(code[class*='language-']) {
 
 div.code-toolbar {
     overflow: hidden; // stops the background of child elements bleeding over the parent border
-    margin-block: var(--dt-spacing-e);
-    margin-inline: 0;
+    margin-block-start: var(--dt-spacing-e);
+    margin-block-end: var(--dt-spacing-e);
+    margin-inline-start: 0;
+    margin-inline-end: 0;
     border-radius: var(--dt-radius-rounded-c);
     border: 1px solid var(--dt-color-border-strong);
 }
@@ -97,8 +99,10 @@ div.code-toolbar > .toolbar {
 
 div.code-toolbar > .toolbar > .toolbar-item > button {
     background: var(--dt-color-interactive-light);
-    padding-block: var(--dt-spacing-a);
-    padding-inline: 10px;
+    padding-block-start: var(--dt-spacing-a);
+    padding-block-end: var(--dt-spacing-a);
+    padding-inline-start: 10px;
+    padding-inline-end: 10px;
     border-radius: 4px 0 0;
     border-width: 1px 0 0 1px;
     border-style: solid none none solid;
@@ -123,10 +127,14 @@ code:not(code[class*='language-']) {
     display: inline-block;
     background-color: var(--dt-color-container-strong);
     border: 1px solid var(--dt-color-border-strong);
-    margin-block: 0;
-    margin-inline: 2px;
-    padding-block: 2px;
-    padding-inline: var(--dt-spacing-a);
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: 2px;
+    margin-inline-end: 2px;
+    padding-block-start: 2px;
+    padding-block-end: 2px;
+    padding-inline-start: var(--dt-spacing-a);
+    padding-inline-end: var(--dt-spacing-a);
     border-radius: 2px;
 
     color: var(--dt-color-content-default);

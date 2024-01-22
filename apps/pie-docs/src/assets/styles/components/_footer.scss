@@ -1,8 +1,10 @@
 @use '../fozzie-config' as f;
 
 .c-footer {
-    padding-block: var(--dt-spacing-g);
-    padding-inline: var(--dt-spacing-d);
+    padding-block-start: var(--dt-spacing-g);
+    padding-block-end: var(--dt-spacing-g);
+    padding-inline-start: var(--dt-spacing-d);
+    padding-inline-end: var(--dt-spacing-d);
     background-color: var(--dt-color-container-subtle);
     @include f.font-size('body-s');
 
@@ -12,8 +14,10 @@
     }
 
     @include f.media('>=mid') {
-        padding-block: var(--dt-spacing-g);
-        padding-inline: var(--dt-spacing-i);
+        padding-block-start: var(--dt-spacing-g);
+        padding-block-end: var(--dt-spacing-g);
+        padding-inline-start: var(--dt-spacing-i);
+        padding-inline-end: var(--dt-spacing-i);
     }
 
     .c-footer-logo {
@@ -34,8 +38,10 @@
             display: inline-block;
             border-left: 1px solid var(--dt-color-border-strong);
             height: var(--dt-spacing-f);
-            margin-block: 0;
-            margin-inline: var(--dt-spacing-d);
+            margin-block-start: 0;
+            margin-block-end: 0;
+            margin-inline-start: var(--dt-spacing-d);
+            margin-inline-end: var(--dt-spacing-d);
         }
 
         svg {
@@ -53,13 +59,17 @@
     display: flex;
     flex-direction: column;
     gap: var(--dt-spacing-e);
-    padding-block: var(--dt-spacing-g);
-    padding-inline: 0;
+    padding-block-start: var(--dt-spacing-g);
+    padding-block-end: var(--dt-spacing-g);
+    padding-inline-start: 0;
+    padding-inline-end: 0;
 
     @include f.media('>=narrowMid') {
         flex-direction: row;
-        padding-block: var(--dt-spacing-i);
-        padding-inline: 0;
+        padding-block-start: var(--dt-spacing-i);
+        padding-block-end: var(--dt-spacing-i);
+        padding-inline-start: 0;
+        padding-inline-end: 0;
     }
 
     section {
@@ -97,8 +107,10 @@
         height: var(--dt-spacing-a);
         border-radius: var(--dt-radius-rounded-e);
         background-color: var(--dt-color-border-strong);
-        margin-block: 0;
-        margin-inline: var(--dt-spacing-b);
+        margin-block-start: 0;
+        margin-block-end: 0;
+        margin-inline-start: var(--dt-spacing-b);
+        margin-inline-end: var(--dt-spacing-b);
         vertical-align: middle;
     }
 }
