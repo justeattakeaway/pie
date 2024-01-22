@@ -10,7 +10,7 @@
     "include": [
       "**/*.ts",
       "**/*.tsx"
-    ],
+, "packages/components/pie-webc-testing/src/playwright/index.ts"    ],
     "exclude": [
       "node_modules"
     ]

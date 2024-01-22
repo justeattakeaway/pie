@@ -22,6 +22,6 @@
       "experimentalDecorators": true,
       "forceConsistentCasingInFileNames": true
   },
-  "include": ["src/**/*.ts","./declaration.d.ts", "test/**/*.ts", "index.ts"],
+  "include": ["src/**/*.ts","./declaration.d.ts", "test/**/*.ts", "index.ts", "src/playwright/index.ts"],
   "exclude": []
 }
