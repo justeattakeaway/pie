@@ -19,7 +19,7 @@ export const litTest = baseTest.extend<ExtendedTestContext>({
         await use(makeAxeBuilder);
     }, {
         timeout: 60000,
-     }],
+    }],
 });
 
 export const expect = baseExpect;
