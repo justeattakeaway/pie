@@ -44,7 +44,7 @@ $contentImage-height-l--mobile:           400px;
     height: 100%;
     padding-block: var(--dt-spacing-h);
     padding-inline: var(--dt-spacing-d);
-    border-radius: f.$radius-rounded-d;
+    border-radius: var(--dt-radius-rounded-d);
 
     &.c-contentImage-default {
         // Same as default styles
@@ -67,7 +67,7 @@ $contentImage-height-l--mobile:           400px;
 
 .c-contentImage--paddedBackdrop {
     padding: var(--dt-spacing-f);
-    border-radius: f.$radius-rounded-d;
+    border-radius: var(--dt-radius-rounded-d);
 }
 
 .c-contentImage {
@@ -77,7 +77,7 @@ $contentImage-height-l--mobile:           400px;
     }
 
     &.c-contentImage--fullWidth img {
-        border-radius: f.$radius-rounded-d;
+        border-radius: var(--dt-radius-rounded-d);
     }
 
     &.c-contentImage--hasBackdrop img {

@@ -2,7 +2,7 @@
 @use '../fozzie-config' as f;
 
 $toggle-bg: var(--dt-color-container-strong);
-$toggle-radius: f.$radius-rounded-e;
+$toggle-radius: var(--dt-radius-rounded-e);
 $toggle-padding: 2px;
 $toggle-item-height: 44px;
 $toggle-item-fw: f.$font-weight-regular;

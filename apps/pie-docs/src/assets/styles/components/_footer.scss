@@ -95,7 +95,7 @@
         display: inline-block;
         width: var(--dt-spacing-a);
         height: var(--dt-spacing-a);
-        border-radius: f.$radius-rounded-e;
+        border-radius: var(--dt-radius-rounded-e);
         background-color: var(--dt-color-border-strong);
         margin-block: 0;
         margin-inline: var(--dt-spacing-b);
