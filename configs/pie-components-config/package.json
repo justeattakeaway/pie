@@ -6,8 +6,6 @@
   "author": "Just Eat Takeaway.com - Design System Team",
   "description": "Shared configuration files for PIE components",
   "files": [
-    "custom-elements-manifest.config.js",
-    "vite.config.js",
     "tsconfig.json"
   ],
   "dependencies": {

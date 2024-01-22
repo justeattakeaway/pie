@@ -5488,12 +5488,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/git-hooks-scripts@workspace:packages/tools/git-hooks-scripts":
-  version: 0.0.0-use.local
-  resolution: "@justeattakeaway/git-hooks-scripts@workspace:packages/tools/git-hooks-scripts"
-  languageName: unknown
-  linkType: soft
-
 "@justeattakeaway/pie-button@0.45.2, @justeattakeaway/pie-button@workspace:packages/components/pie-button":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-button@workspace:packages/components/pie-button"
@@ -5581,6 +5575,12 @@ __metadata:
     "@justeattakeaway/pie-webc-core": 0.17.1
     "@justeattakeaway/pie-wrapper-react": 0.14.0
     cem-plugin-module-file-extensions: 0.0.5
+  languageName: unknown
+  linkType: soft
+
+"@justeattakeaway/pie-git-hooks-scripts@workspace:packages/tools/pie-git-hooks-scripts":
+  version: 0.0.0-use.local
+  resolution: "@justeattakeaway/pie-git-hooks-scripts@workspace:packages/tools/pie-git-hooks-scripts"
   languageName: unknown
   linkType: soft
 
