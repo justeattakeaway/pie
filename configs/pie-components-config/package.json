@@ -6,7 +6,11 @@
   "author": "Just Eat Takeaway.com - Design System Team",
   "description": "Shared configuration files for PIE components",
   "files": [
-    "tsconfig.json"
+    "custom-elements-manifest.config.js",
+    "vite.config.js",
+    "tsconfig.json",
+    "playwright-lit-config.js",
+    "playwright-lit-visual-config.js"
   ],
   "dependencies": {
     "deepmerge-ts": "5.1.0"
@@ -15,6 +19,6 @@
     "cem-plugin-module-file-extensions": "0.0.5"
   },
   "volta": {
-    "extends": "../../package.json"
+    "extends": "../../../package.json"
   }
 }

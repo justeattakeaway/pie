@@ -43,3 +43,5 @@ export const sharedConfig = ({ build = {}, plugins = [], ...rest }) => defineCon
 
     ...rest,
 });
+
+export default sharedConfig;
