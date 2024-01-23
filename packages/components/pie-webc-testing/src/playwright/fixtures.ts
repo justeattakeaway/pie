@@ -8,7 +8,7 @@ interface ExtendedTestContext {
 }
 
 // Extend base test by providing "makeAxeBuilder"
-// This new "test" can be used in multiple test files, and each of them will get
+// This new "litTest" can be used in multiple test files, and each of them will get
 // a consistently configured AxeBuilder instance.
 export const litTest = baseTest.extend<ExtendedTestContext>({
     makeAxeBuilder: [async ({ page }: { page: Page }, use: (builder: () => AxeBuilder) => Promise<void>) => {
