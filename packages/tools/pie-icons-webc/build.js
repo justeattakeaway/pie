@@ -6,77 +6,40 @@ import fs from 'fs';
 import pieIcons from '@justeattakeaway/pie-icons';
 import {
     normalizeIconName,
-    largeIconSizeDefault,
-    regularIconSizeDefault,
+    // largeIconSizeDefault,
+    // regularIconSizeDefault,
 } from '@justeattakeaway/pie-icons-configs';
 
 const { icons } = pieIcons.default;
 
 const componentTemplate = (name, svg) => {
-    const svgClasses = svg.match(/class="(.+?)"/)?.[1];
+    // const svgClasses = svg.match(/class="(.+?)"/)?.[1];
 
     const isLargeIcon = name.endsWith('Large');
-    const sizeType = isLargeIcon ? 'LargeIconSize' : 'RegularIconSize';
+    // const sizeType = isLargeIcon ? 'LargeIconSize' : 'RegularIconSize';
 
-    return `import {
-    html, LitElement, TemplateResult, css, PropertyValues,
-} from 'lit';
+    return `import {LitElement, html, css} from 'lit';
 import { defineCustomElement } from '@justeattakeaway/pie-webc-core';
-import { property, query } from 'lit/decorators.js';
-import { getSvgProps, ${sizeType} } from '@justeattakeaway/pie-icons-configs';
-
-interface IconProps {
-    size: ${sizeType};
-    class: string;
-}
 
 const componentSelector = '${kebabCase(name)}';
 
 /**
  * @tagname ${kebabCase(name)}
  */
-export class ${name} extends LitElement implements IconProps {
-    // The following styles make sure that the icon will be sized correctly
-    static styles = css\`
-        :host svg {
-            display: var(--icon-display-override);
-            width: var(--icon-size-override);
-            height: var(--icon-size-override);
-        }
+export class ${name} extends LitElement {
+    static override styles = css\`
+    :host {
+        display: block;
+        border: solid 1px gray;
+        padding: 16px;
+        max-width: 800px;
+    }
     \`;
 
-    @property({ type: String, reflect: true })
-    public size : ${sizeType} = ${isLargeIcon ? largeIconSizeDefault : `'${regularIconSizeDefault}'`};
-
-    @property({ type: String, reflect: true })
-    public class = '${svgClasses}';
-
-    @query('svg')
-    private _svg? : SVGElement;
-
-    connectedCallback () : void {
-        super.connectedCallback();
-        if (this._svg?.getAttribute('width') === null) {
-            const svgSize = getSvgProps('${svgClasses}', '', null, '${name}');
-            this._svg?.setAttribute('width', svgSize.width);
-            this._svg?.setAttribute('height', svgSize.height);
-        }
-    }
-
-    updated (changedProperties: PropertyValues<this>) : void {
-        super.updated();
-        let svgSize : { width: string, height: string, class: string };
-
-        if (changedProperties.has('size')) {
-            svgSize = getSvgProps('${svgClasses}', '', this.size, '${name}');
-
-            this._svg?.setAttribute('width', svgSize.width);
-            this._svg?.setAttribute('height', svgSize.height);
-        }
-    }
-
-    render () : TemplateResult {
-        return html\`${svg}\`;
+    override render() {
+    return html\`
+        <p>I'm in icon innit</p>
+    \`;
     }
 }
 
