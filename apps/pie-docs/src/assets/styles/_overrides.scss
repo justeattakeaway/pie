@@ -5,7 +5,8 @@
     background-color: var(--dt-color-background-subtle);
     padding-block-start: var(--dt-spacing-d);
     padding-block-end: 0;
-    padding-inline: var(--dt-spacing-b);
+    padding-inline-start: var(--dt-spacing-b);
+    padding-inline-end: var(--dt-spacing-b);
     color: var(--dt-color-content-link);
     font-weight: f.$font-weight-bold;
 }

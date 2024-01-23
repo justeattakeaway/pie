@@ -3,13 +3,16 @@
 .c-link-backdrop {
     background-color: var(--dt-color-background-subtle);
     border-radius: var(--dt-radius-rounded-c);
-    margin-block: var(--dt-spacing-b);
+    margin-block-start: var(--dt-spacing-b);
+    margin-block-end: var(--dt-spacing-b);
     display: flex;
     align-items: center;
-    padding-block: var(--dt-spacing-d);
+    padding-block-start: var(--dt-spacing-d);
+    padding-block-end: var(--dt-spacing-d);
 
     svg {
-        margin-inline: var(--dt-spacing-d);
+        margin-inline-start: var(--dt-spacing-d);
+        margin-inline-end: var(--dt-spacing-d);
     }
 }
 
@@ -18,5 +21,6 @@
 }
 
 .c-link-container {
-    margin-block: var(--dt-spacing-f);
+    margin-block-start: var(--dt-spacing-f);
+    margin-block-end: var(--dt-spacing-f);
 }

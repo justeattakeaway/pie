@@ -47,8 +47,10 @@
     & .c-list-item {
         @include f.font-size('body-s');
         background-color: var(--dt-color-container-strong);
-        padding-block: 2px;
-        padding-inline: var(--dt-spacing-a);
+        padding-block-start: 2px;
+        padding-block-end: 2px;
+        padding-inline-start: var(--dt-spacing-a);
+        padding-inline-end: var(--dt-spacing-a);
         border-radius: var(--dt-radius-rounded-b);
     }
 }

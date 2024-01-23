@@ -133,8 +133,10 @@ $iconBackgroundColours: (
 
     .c-card--hasImage & {
         border-top: $card-border;
-        padding-block: var(--dt-spacing-e);
-        padding-inline: var(--dt-spacing-d);
+        padding-block-start: var(--dt-spacing-e);
+        padding-block-end: var(--dt-spacing-e);
+        padding-inline-start: var(--dt-spacing-d);
+        padding-inline-end: var(--dt-spacing-d);
         border-radius: 0 0 var(--dt-radius-rounded-c) var(--dt-radius-rounded-c);
     }
 }
