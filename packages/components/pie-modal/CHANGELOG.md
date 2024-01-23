@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-modal
 
+## 0.38.3
+
+### Patch Changes
+
+- [Changed] - Updated CSS logical props values from shorthand to regular form ([#1203](https://github.com/justeattakeaway/pie/pull/1203)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 0.38.2
 
 ### Patch Changes

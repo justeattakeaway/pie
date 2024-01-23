@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-switch
 
+## 0.26.0
+
+### Minor Changes
+
+- [Added] - Visual test for RTL ([#1207](https://github.com/justeattakeaway/pie/pull/1207)) by [@JoshuaNg2332](https://github.com/JoshuaNg2332)
+
 ## 0.25.0
 
 ### Minor Changes
