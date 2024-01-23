@@ -1,6 +1,7 @@
 {
   "name": "@justeattakeaway/pie-icons-configs",
   "version": "4.5.1",
+  "private": true,
   "type": "module",
   "types": "./index.d.ts",
   "description": "Shared config and utility functions for building pie-icons as importable components",

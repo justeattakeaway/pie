@@ -73,13 +73,13 @@
     "extends @justeattakeaway/browserslist-config-pie"
   ],
   "dependencies": {
-    "@justeattakeaway/pie-icons-configs": "4.5.1",
     "@justeattakeaway/pie-webc-core": "0.17.1"
   },
   "devDependencies": {
     "@babel/core": "7.23.7",
     "@babel/node": "7.20.7",
     "@justeattakeaway/pie-icons": "4.9.3",
+    "@justeattakeaway/pie-icons-configs": "4.5.1",
     "@open-wc/testing": "4.0.0",
     "@rollup/plugin-typescript": "11.1.6",
     "@web/test-runner": "0.16.1",

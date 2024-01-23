@@ -64,6 +64,7 @@ export class ${name} extends LitElement implements IconProps {
     }
 
     updated (changedProperties: PropertyValues<this>) : void {
+        super.updated();
         let svgSize : { width: string, height: string, class: string };
 
         if (changedProperties.has('size')) {
