@@ -40,7 +40,7 @@ $tooltip-border-radius: 100px;
             padding-inline-start: var(--dt-spacing-c);
             padding-inline-end: var(--dt-spacing-c);
             @include p.font-size(--dt-font-caption-size);
-            @include p.line-height(--dt-font-caption-line-height);           width: max-content;
+            @include p.line-height(--dt-font-caption-line-height);          width: max-content;
             border-radius: $tooltip-border-radius;
             background-color: var(--dt-color-container-inverse);
             color: var(--dt-color-content-inverse);
