@@ -32,5 +32,5 @@ const buildRow = (row) => {
 module.exports = ({
     componentName,
 }) => `<table class="c-resourceTable">
-        ${rows.map((row) => `${row[0].componentName.includes(componentName) ? row.map((r) => buildRow(r)).join('') : ''}`).join('')}
+        ${rows.map((row) => `${row[0].componentName === componentName ? row.map((r) => buildRow(r)).join('') : ''}`).join('')}
     </table>`;
