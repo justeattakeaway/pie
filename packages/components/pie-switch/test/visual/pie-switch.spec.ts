@@ -38,3 +38,22 @@ test.describe('Prop: `Label`', () => {
         });
     });
 });
+
+test.describe('when in RTL settings', () => {
+    [true, false].forEach(async (checkedState) => {
+        test(`should render in rtl correctly when (checked: ${checkedState})`, async ({ page, mount }) => {
+            await page.evaluate(() => {
+                document.documentElement.setAttribute('dir', 'rtl');
+            });
+
+            await mount(PieSwitch, {
+                props: {
+                    label: 'Label',
+                    checked: checkedState,
+                } as SwitchProps,
+            });
+
+            await percySnapshot(page, `Switch - in RTL - (checked: ${checkedState})`, percyWidths);
+        });
+    });
+});
