@@ -48,7 +48,7 @@ const inputStoryMeta: InputStoryMeta = {
             },
         },
         pattern: {
-            description: 'HTML input pattern attribute.',
+            description: 'Specifies a regular expression the form control\'s value should match.',
             control: 'text',
             defaultValue: {
                 summary: '',
