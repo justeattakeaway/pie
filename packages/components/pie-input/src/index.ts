@@ -10,7 +10,7 @@ import {
 } from '@justeattakeaway/pie-webc-core';
 
 import styles from './input.scss?inline';
-import { types, InputProps } from './defs';
+import { types, InputProps, InputDefaultPropertyValues } from './defs';
 
 // Valid values available to consumers
 export * from './defs';
@@ -27,24 +27,27 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
 
     @property({ type: String, reflect: true })
     @validPropertyValues(componentSelector, types, 'text')
-    public type: InputProps['type'] = 'text';
+    public type?: InputProps['type'] = 'text';
 
     @property({ type: String })
-    public value = '';
+    public value? = InputDefaultPropertyValues.value;
 
     @property({ type: String })
-    public name = '';
+    public name? = InputDefaultPropertyValues.name;
+
+    @property({ type: String })
+    public pattern? = InputDefaultPropertyValues.pattern;
 
     protected firstUpdated (_changedProperties: PropertyValues<this>): void {
         super.firstUpdated(_changedProperties);
-        this._internals.setFormValue(this.value);
+        this._internals.setFormValue(this.value as string);
     }
 
     protected updated (_changedProperties: PropertyValues<this>): void {
         super.updated(_changedProperties);
 
         if (_changedProperties.has('value')) {
-            this._internals.setFormValue(this.value);
+            this._internals.setFormValue(this.value as string);
         }
     }
 
@@ -71,13 +74,29 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
         this.dispatchEvent(customChangeEvent);
     };
 
+    // TODO - move into pie-webc-core for other components to use
+    /**
+     * Returns the string value if it is not empty, otherwise returns undefined.
+     * @param value - The string value to check.
+     */
+    private nonEmptyString (value: string | undefined) : string | undefined {
+        if (value !== undefined && value !== '') {
+            return value;
+        }
+
+        return undefined;
+    }
+
     render () {
-        const { type, value, name } = this;
+        const {
+            type, value, name, pattern,
+        } = this;
 
         return html`<input
             type=${ifDefined(type)}
-            .value=${live(value)}
-            name=${ifDefined(name)}
+            .value=${live(value || InputDefaultPropertyValues.value)}
+            name=${ifDefined(this.nonEmptyString(name))}
+            pattern=${ifDefined(this.nonEmptyString(pattern))}
             @input=${this.handleInput}
             @change=${this.handleChange}
             data-test-id="pie-input">`;

@@ -138,7 +138,7 @@ test.describe('PieInput - Component tests', () => {
         });
 
         test.describe('name', () => {
-            test('should default to an empty string if no name prop provided', async ({ mount }) => {
+            test('should not render a name attribute on the input element if no name provided', async ({ mount }) => {
                 // Arrange
                 const component = await mount(PieInput, {});
 
@@ -146,7 +146,7 @@ test.describe('PieInput - Component tests', () => {
                 const input = component.locator('input');
 
                 // Assert
-                expect((await input.getAttribute('name'))).toBe('');
+                expect((await input.getAttribute('name'))).toBe(null);
             });
 
             test('should apply the name prop to the HTML input rendered', async ({ mount }) => {
@@ -162,6 +162,34 @@ test.describe('PieInput - Component tests', () => {
 
                 // Assert
                 expect((await input.getAttribute('name'))).toBe('test');
+            });
+        });
+
+        test.describe('pattern', () => {
+            test('should not render a pattern attribute on the input element if no pattern provided', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieInput, {});
+
+                // Act
+                const input = component.locator('input');
+
+                // Assert
+                expect((await input.getAttribute('pattern'))).toBe(null);
+            });
+
+            test('should apply the pattern prop to the HTML input rendered', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieInput, {
+                    props: {
+                        pattern: '[a-z]{4,8}',
+                    } as InputProps,
+                });
+
+                // Act
+                const input = component.locator('input');
+
+                // Assert
+                expect((await input.getAttribute('pattern'))).toBe('[a-z]{4,8}');
             });
         });
     });

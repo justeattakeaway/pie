@@ -9,10 +9,23 @@ export interface InputProps {
     /**
      * The value of the input (used as a key/value pair in HTML forms with `name`).
      */
-    value: string;
+    value?: string;
 
     /**
      * The name of the input (used as a key/value pair with `value`). This is required in order to work properly with forms.
      */
-    name: string;
+    name?: string;
+
+    /**
+     * Specifies a regular expression the form control's value should match
+     */
+    pattern?: string;
 }
+
+// Define the default values for optional properties that have default fallback values in the component.
+export const InputDefaultPropertyValues: Required<InputProps> = {
+    type: 'text',
+    value: '',
+    name: '',
+    pattern: '',
+};

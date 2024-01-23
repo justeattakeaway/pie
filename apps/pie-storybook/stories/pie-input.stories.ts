@@ -18,6 +18,7 @@ const defaultArgs: InputProps = {
     type: 'text',
     value: '',
     name: 'testName',
+    pattern: '',
 };
 
 const inputStoryMeta: InputStoryMeta = {
@@ -46,6 +47,13 @@ const inputStoryMeta: InputStoryMeta = {
                 summary: '',
             },
         },
+        pattern: {
+            description: 'HTML input pattern attribute.',
+            control: 'text',
+            defaultValue: {
+                summary: '',
+            },
+        },
     },
     args: defaultArgs,
     parameters: {
@@ -56,7 +64,9 @@ const inputStoryMeta: InputStoryMeta = {
     },
 };
 
-const Template = ({ type, value, name }: InputProps) => {
+const Template = ({
+    type, value, name, pattern,
+}: InputProps) => {
     const [, updateArgs] = UseArgs();
 
     function onInput (event: InputEvent) {
@@ -80,6 +90,7 @@ const Template = ({ type, value, name }: InputProps) => {
         type="${ifDefined(type)}"
         .value="${value}"
         name="${ifDefined(name)}"
+        pattern="${ifDefined(pattern)}"
         @input="${onInput}"
         @change="${onChange}"></pie-input>
     `;
