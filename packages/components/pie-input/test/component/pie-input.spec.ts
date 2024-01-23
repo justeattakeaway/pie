@@ -177,7 +177,7 @@ test.describe('PieInput - Component tests', () => {
                 expect((await input.getAttribute('pattern'))).toBe(null);
             });
 
-            test('should apply the pattern prop to the HTML input rendered', async ({ mount }) => {
+            test('should be invalid state `patternMismatch` if pattern is not met', async ({ mount, page }) => {
                 // Arrange
                 const component = await mount(PieInput, {
                     props: {
@@ -186,10 +186,29 @@ test.describe('PieInput - Component tests', () => {
                 });
 
                 // Act
-                const input = component.locator('input');
+                await component.type('hello world');
+
+                const isInvalid = await page.evaluate(() => document.querySelector('pie-input')?.validity.patternMismatch);
 
                 // Assert
-                expect((await input.getAttribute('pattern'))).toBe('[a-z]{4,8}');
+                expect(isInvalid).toBe(true);
+            });
+
+            test('should be valid state if pattern is met', async ({ mount, page }) => {
+                // Arrange
+                const component = await mount(PieInput, {
+                    props: {
+                        pattern: '[a-z]{4,8}',
+                    } as InputProps,
+                });
+
+                // Act
+                await component.type('test');
+
+                const isValid = await page.evaluate(() => document.querySelector('pie-input')?.validity.valid);
+
+                // Assert
+                expect(isValid).toBe(true);
             });
         });
 
@@ -205,21 +224,6 @@ test.describe('PieInput - Component tests', () => {
                 expect((await input.getAttribute('minlength'))).toBe(null);
             });
 
-            test('should apply the minlength prop to the HTML input rendered', async ({ mount }) => {
-                // Arrange
-                const component = await mount(PieInput, {
-                    props: {
-                        minlength: 3,
-                    } as InputProps,
-                });
-
-                // Act
-                const input = component.locator('input');
-
-                // Assert
-                expect((await input.getAttribute('minlength'))).toBe('3');
-            });
-
             test('should be invalid state `tooShort` if the min length is not entered', async ({ mount, page }) => {
                 // Arrange
                 const component = await mount(PieInput, {
@@ -231,10 +235,10 @@ test.describe('PieInput - Component tests', () => {
                 // Act
                 await component.type('te');
 
-                const IsInvalid = await page.evaluate(() => document.querySelector('pie-input')?.validity.tooShort);
+                const isInvalid = await page.evaluate(() => document.querySelector('pie-input')?.validity.tooShort);
 
                 // Assert
-                expect(IsInvalid).toBe(true);
+                expect(isInvalid).toBe(true);
             });
 
             test('should be valid state if the min length is met', async ({ mount, page }) => {
