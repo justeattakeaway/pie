@@ -1,7 +1,7 @@
 import {
     LitElement, html, unsafeCSS, PropertyValues,
 } from 'lit';
-import { property } from 'lit/decorators.js';
+import { property, query } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { live } from 'lit/directives/live.js';
 
@@ -43,6 +43,17 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
 
     @property({ type: Number })
     public maxlength?: InputProps['maxlength'];
+
+    @query('input')
+    private input?: HTMLInputElement;
+
+    /**
+     * (Read-only) returns a ValidityState with the validity states that this element is in.
+     * https://developer.mozilla.org/en-US/docs/Web/API/HTMLObjectElement/validity
+     */
+    public get validity (): ValidityState {
+        return (this.input as HTMLInputElement).validity;
+    }
 
     protected firstUpdated (_changedProperties: PropertyValues<this>): void {
         super.firstUpdated(_changedProperties);

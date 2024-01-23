@@ -192,6 +192,133 @@ test.describe('PieInput - Component tests', () => {
                 expect((await input.getAttribute('pattern'))).toBe('[a-z]{4,8}');
             });
         });
+
+        test.describe('minlength', () => {
+            test('should not render a minlength attribute on the input element if no minlength provided', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieInput, {});
+
+                // Act
+                const input = component.locator('input');
+
+                // Assert
+                expect((await input.getAttribute('minlength'))).toBe(null);
+            });
+
+            test('should apply the minlength prop to the HTML input rendered', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieInput, {
+                    props: {
+                        minlength: 3,
+                    } as InputProps,
+                });
+
+                // Act
+                const input = component.locator('input');
+
+                // Assert
+                expect((await input.getAttribute('minlength'))).toBe('3');
+            });
+
+            test('should be invalid state `tooShort` if the min length is not entered', async ({ mount, page }) => {
+                // Arrange
+                const component = await mount(PieInput, {
+                    props: {
+                        minlength: 3,
+                    } as InputProps,
+                });
+
+                // Act
+                await component.type('te');
+
+                const IsInvalid = await page.evaluate(() => document.querySelector('pie-input')?.validity.tooShort);
+
+                // Assert
+                expect(IsInvalid).toBe(true);
+            });
+
+            test('should be valid state if the min length is met', async ({ mount, page }) => {
+                // Arrange
+                const component = await mount(PieInput, {
+                    props: {
+                        minlength: 3,
+                    } as InputProps,
+                });
+
+                // Act
+                await component.type('tes');
+
+                const isValid = await page.evaluate(() => document.querySelector('pie-input')?.validity.valid);
+
+                // Assert
+                expect(isValid).toBe(true);
+            });
+        });
+
+        test.describe('maxlength', () => {
+            test('should not render a maxlength attribute on the input element if no maxlength provided', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieInput, {});
+
+                // Act
+                const input = component.locator('input');
+
+                // Assert
+                expect((await input.getAttribute('maxlength'))).toBe(null);
+            });
+
+            test('should not be able to input a value greater than the maxlength provided', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieInput, {
+                    props: {
+                        maxlength: 3,
+                    } as InputProps,
+                });
+
+                // Act
+                await component.type('test');
+
+                // Assert
+                expect((await component.locator('input').inputValue())).toBe('tes');
+            });
+
+            test('should be invalid state `tooLong` if the maxlength is exceeded programmatically', async ({ mount, page }) => {
+                // Arrange
+                await mount(PieInput, {
+                    props: {
+                        maxlength: 2,
+                        value: 'test',
+                    } as InputProps,
+                });
+
+                // Act
+                await page.focus('pie-input');
+                await page.keyboard.press('ArrowRight'); // Move cursor to end of input so we don't delete the whole value
+                await page.keyboard.press('Backspace'); // Delete the last character to trigger an input event - this should trigger the validity state update
+
+                const isInvalid = await page.evaluate(() => document.querySelector('pie-input')?.validity.tooLong);
+
+                // Assert
+                expect(isInvalid).toBe(true);
+            });
+
+            test('should be valid state if the max length is not exceeded', async ({ mount, page }) => {
+                // Arrange
+                const component = await mount(PieInput, {
+                    props: {
+                        maxlength: 3,
+                    } as InputProps,
+                });
+
+                // Act
+                await component.type('tes');
+
+                const isValid = await page.evaluate(() => document.querySelector('pie-input')?.validity.valid);
+
+                // Assert
+                expect(isValid).toBe(true);
+            });
+        });
     });
 
     test.describe('Events', () => {
