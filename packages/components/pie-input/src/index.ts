@@ -38,6 +38,12 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
     @property({ type: String })
     public pattern? = InputDefaultPropertyValues.pattern;
 
+    @property({ type: Number })
+    public minlength?: InputProps['minlength'];
+
+    @property({ type: Number })
+    public maxlength?: InputProps['maxlength'];
+
     protected firstUpdated (_changedProperties: PropertyValues<this>): void {
         super.firstUpdated(_changedProperties);
         this._internals.setFormValue(this.value as string);
@@ -89,7 +95,7 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
 
     render () {
         const {
-            type, value, name, pattern,
+            type, value, name, pattern, minlength, maxlength,
         } = this;
 
         return html`<input
@@ -97,6 +103,8 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
             .value=${live(value || InputDefaultPropertyValues.value)}
             name=${ifDefined(this.nonEmptyString(name))}
             pattern=${ifDefined(this.nonEmptyString(pattern))}
+            minlength=${ifDefined(minlength)}
+            maxlength=${ifDefined(maxlength)}
             @input=${this.handleInput}
             @change=${this.handleChange}
             data-test-id="pie-input">`;

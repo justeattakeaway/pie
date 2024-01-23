@@ -53,6 +53,23 @@ const inputStoryMeta: InputStoryMeta = {
             defaultValue: {
                 summary: '',
             },
+            if: { arg: 'type', neq: 'number' },
+        },
+        minlength: {
+            description: 'Minimum length (number of characters) of value. Only applies to types: `text`, `search`, `url`, `tel`, `email`, and `password`.',
+            control: 'number',
+            defaultValue: {
+                summary: '',
+            },
+            if: { arg: 'type', neq: 'number' },
+        },
+        maxlength: {
+            description: 'Maximum length (number of characters) of value. Only applies to types: `text`, `search`, `url`, `tel`, `email`, and `password`.',
+            control: 'number',
+            defaultValue: {
+                summary: '',
+            },
+            if: { arg: 'type', neq: 'number' },
         },
     },
     args: defaultArgs,
@@ -65,7 +82,7 @@ const inputStoryMeta: InputStoryMeta = {
 };
 
 const Template = ({
-    type, value, name, pattern,
+    type, value, name, pattern, minlength, maxlength,
 }: InputProps) => {
     const [, updateArgs] = UseArgs();
 
@@ -91,6 +108,8 @@ const Template = ({
         .value="${value}"
         name="${ifDefined(name)}"
         pattern="${ifDefined(pattern)}"
+        minlength="${ifDefined(minlength)}"
+        maxlength="${ifDefined(maxlength)}"
         @input="${onInput}"
         @change="${onChange}"></pie-input>
     `;
