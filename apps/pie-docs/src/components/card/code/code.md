@@ -3,6 +3,7 @@ eleventyNavigation:
     key: Code
     parent: Card
     order: 2
+shouldShowContents: true
 eleventyComputed:
     props: "{% include './props.json' %}"
     slots: "{% include './slots.json' %}"
