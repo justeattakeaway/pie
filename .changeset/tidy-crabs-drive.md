@@ -4,4 +4,4 @@
 "@justeattakeaway/pie-components-config": minor
 ---
 
-[Updated] - Exported files for use in consuming repos
+[Changed] - Exported files for use in consuming repos
