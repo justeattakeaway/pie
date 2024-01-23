@@ -1,5 +1,3 @@
-@use 'fozzie-config' as f;
-
 // This is a temporary solution to override the closed cookie banner styles
 .cookie-banner-anchor > div > a {
     background-color: var(--dt-color-background-subtle);
