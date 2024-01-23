@@ -10,7 +10,7 @@ const bundledJetDeps = [
 ];
 
 // https://vitejs.dev/config/
-export const sharedConfig = ({ build = {}, plugins = [], ...rest }) => defineConfig({
+const sharedConfig = ({ build = {}, plugins = [], ...rest }) => defineConfig({
     build: deepmerge({
         lib: {
             entry: {
