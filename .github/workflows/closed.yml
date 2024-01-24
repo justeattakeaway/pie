@@ -6,50 +6,63 @@ on:
 
 concurrency: preview-teardown-${{ github.ref }}
 
-env:
-  DOCS_AMPLIFY_ID: dvskdcoepjoyf
-  STORYBOOK_AMPLIFY_ID: d17ja0ul7nrdy0
-
 jobs:
-  install:
+  list-environments:
     runs-on: ubuntu-latest
-    permissions: write-all
-
+    outputs:
+      hasDocsEnv: ${{ steps.list-environments.outputs.hasDocsEnv }}
+      hasStorybookEnv: ${{ steps.list-environments.outputs.hasStorybookEnv }}
     steps:
-      # Checkout the repo
       - name: Checkout
         uses: actions/checkout@v3
 
-  preview-teardown-docs:
-    needs: install
-    runs-on: ubuntu-latest
-    steps:
-      # Checkout the repo
-      - name: Checkout
-        uses: actions/checkout@v3
-      # Tear down docs preview
-      - name: Amplify Teardown (Docs)
+      - name: List repo environments
+        id: list-environments
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.CHANGESETS_TOKEN }}
+          script: |
+            const pull_number = context.issue.number;
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+
+            // List environments
+            const environments = await github.rest.repos.getAllEnvironments({
+              owner: owner,
+              repo: repo,
+            });
+
+            const envList = environments.data.environments.map(env => env.name);
+
+            // Check for existence of specific environments
+            const hasDocsEnv = envList.includes(`pie-docs-pr-${pull_number}`);
+            const hasStorybookEnv = envList.includes(`pie-storybook-pr-${pull_number}`);
+
+            core.setOutput('hasDocsEnv', hasDocsEnv);
+            core.setOutput('hasStorybookEnv', hasStorybookEnv);
+
+      - name: Delete associated docs environments
+        if: steps.list-environments.outputs.hasDocsEnv == 'true'
         uses: ./.github/actions/amplify-teardown
         with:
-          amplify-app-id: ${{ env.DOCS_AMPLIFY_ID }}
+          gh-app-id: ${{ secrets.GH_APP_ID }}
+          gh-app-private-key: ${{ secrets.GH_APP_PRIVATE_KEY }}
+          amplify-app-id: dvskdcoepjoyf
           aws-region: 'eu-west-1'
           aws-access-key-id: ${{ secrets.AWS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          environment-name: pie-docs-pr-${{ github.event.number }}
           branch-name: 'pr${{ github.event.number }}'
 
-  preview-teardown-storybook:
-    needs: install
-    runs-on: ubuntu-latest
-    steps:
-      # Checkout the repo
-      - name: Checkout
-        uses: actions/checkout@v3
-      # Tear down storybook preview
-      - name: Amplify Teardown (Storybook)
+      - name: Delete associated storybook environment
+        if: steps.list-environments.outputs.hasStorybookEnv == 'true'
         uses: ./.github/actions/amplify-teardown
         with:
-          amplify-app-id: ${{ env.STORYBOOK_AMPLIFY_ID }}
+          gh-app-id: ${{ secrets.GH_APP_ID }}
+          gh-app-private-key: ${{ secrets.GH_APP_PRIVATE_KEY }}
+          amplify-app-id: d17ja0ul7nrdy0
           aws-region: 'eu-west-1'
           aws-access-key-id: ${{ secrets.AWS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          environment-name: pie-storybook-pr-${{ github.event.number }}
           branch-name: 'pr${{ github.event.number }}'

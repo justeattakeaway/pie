@@ -1,5 +1,264 @@
 # @justeattakeaway/pie-modal
 
+## 0.38.2
+
+### Patch Changes
+
+- Updated dependencies [[`365681462`](https://github.com/justeattakeaway/pie/commit/3656814623c74dbe49a25c894292d4621697ec7c)]:
+  - @justeattakeaway/pie-icon-button@0.27.2
+  - @justeattakeaway/pie-spinner@0.5.2
+  - @justeattakeaway/pie-button@0.45.2
+
+## 0.38.1
+
+### Patch Changes
+
+- [Removed] - custom-elements.json not needed in source control ([#1181](https://github.com/justeattakeaway/pie/pull/1181)) by [@ashleynolan](https://github.com/ashleynolan)
+
+- Updated dependencies [[`378bcea7d`](https://github.com/justeattakeaway/pie/commit/378bcea7d009d864d2c7983183cdcb4000eb3e23), [`2763c522a`](https://github.com/justeattakeaway/pie/commit/2763c522a9d8df376c0353c3ba8db5dbf9410c08), [`515438272`](https://github.com/justeattakeaway/pie/commit/5154382729aee39ce38fe98a8b65791ba2f79187)]:
+  - @justeattakeaway/pie-button@0.45.1
+  - @justeattakeaway/pie-webc-core@0.17.1
+  - @justeattakeaway/pie-icon-button@0.27.1
+  - @justeattakeaway/pie-spinner@0.5.1
+  - @justeattakeaway/pie-icons-webc@0.17.2
+
+## 0.38.0
+
+### Minor Changes
+
+- [Added] - React base TypeScript types ([#1164](https://github.com/justeattakeaway/pie/pull/1164)) by [@fernandofranca](https://github.com/fernandofranca)
+
+  [Changed] - set optional props as optional
+
+### Patch Changes
+
+- Updated dependencies [[`918593afd`](https://github.com/justeattakeaway/pie/commit/918593afd939e8c911542235a5d861680ceba2d0), [`24be8ac1a`](https://github.com/justeattakeaway/pie/commit/24be8ac1a5b5113b94c1971b9a59713fbaf86be5)]:
+  - @justeattakeaway/pie-webc-core@0.17.0
+  - @justeattakeaway/pie-icon-button@0.27.0
+  - @justeattakeaway/pie-spinner@0.5.0
+  - @justeattakeaway/pie-button@0.45.0
+  - @justeattakeaway/pie-icons-webc@0.17.1
+
+## 0.37.0
+
+### Minor Changes
+
+- [Changed] - Added `@justeattakeaway/pie-wrapper-react` as a devDependency as `build` now relies on the publish `add-react-wrapper` executable ([#1144](https://github.com/justeattakeaway/pie/pull/1144)) by [@siggerzz](https://github.com/siggerzz)
+
+- [Added] - Add new `create:manifest` script to create `custom-elements.json` in the components root directory. ([#1144](https://github.com/justeattakeaway/pie/pull/1144)) by [@siggerzz](https://github.com/siggerzz)
+
+  [Added] - `custom-elements-manifest.config.mjs`.
+  [Changed] - `package.json` to correctly export the produced `custom-elements.json`.
+
+### Patch Changes
+
+- Updated dependencies [[`320ee9d4b`](https://github.com/justeattakeaway/pie/commit/320ee9d4b53df60d2e69256c5a64c7abfbfbae16), [`4c65a8176`](https://github.com/justeattakeaway/pie/commit/4c65a8176273f3883dc2be2d0c8a33aef56f8993), [`4c65a8176`](https://github.com/justeattakeaway/pie/commit/4c65a8176273f3883dc2be2d0c8a33aef56f8993), [`320ee9d4b`](https://github.com/justeattakeaway/pie/commit/320ee9d4b53df60d2e69256c5a64c7abfbfbae16)]:
+  - @justeattakeaway/pie-webc-core@0.16.0
+  - @justeattakeaway/pie-icon-button@0.26.0
+  - @justeattakeaway/pie-spinner@0.4.0
+  - @justeattakeaway/pie-button@0.44.0
+  - @justeattakeaway/pie-icons-webc@0.17.0
+
+## 0.36.2
+
+### Patch Changes
+
+- Updated dependencies [[`687bdd904`](https://github.com/justeattakeaway/pie/commit/687bdd90475fef58a492c980a7f7d9261ee94eb9), [`687bdd904`](https://github.com/justeattakeaway/pie/commit/687bdd90475fef58a492c980a7f7d9261ee94eb9), [`0bd834d59`](https://github.com/justeattakeaway/pie/commit/0bd834d5952a1c3833793d0b228162dc83cedcea)]:
+  - @justeattakeaway/pie-webc-core@0.15.0
+  - @justeattakeaway/pie-button@0.43.0
+  - @justeattakeaway/pie-icon-button@0.25.2
+  - @justeattakeaway/pie-spinner@0.3.3
+  - @justeattakeaway/pie-icons-webc@0.16.2
+
+## 0.36.1
+
+### Patch Changes
+
+- Updated dependencies [[`c4b78bf9a`](https://github.com/justeattakeaway/pie/commit/c4b78bf9a42e165c8feed20197fbe7d5875a9dd4), [`c4b78bf9a`](https://github.com/justeattakeaway/pie/commit/c4b78bf9a42e165c8feed20197fbe7d5875a9dd4), [`03cd71ffa`](https://github.com/justeattakeaway/pie/commit/03cd71ffa072f6cfe3f1114e20ec2990a728daba)]:
+  - @justeattakeaway/pie-webc-core@0.14.0
+  - @justeattakeaway/pie-button@0.42.1
+  - @justeattakeaway/pie-icon-button@0.25.1
+  - @justeattakeaway/pie-spinner@0.3.2
+  - @justeattakeaway/pie-icons-webc@0.16.1
+
+## 0.36.0
+
+### Minor Changes
+
+- [Changed] - README to link directly to documentation site ([#1126](https://github.com/justeattakeaway/pie/pull/1126)) by [@LTurns](https://github.com/LTurns)
+
+### Patch Changes
+
+- Updated dependencies [[`e27452b22`](https://github.com/justeattakeaway/pie/commit/e27452b228e2a09ded5a2bd88a6d3c567a94f03e), [`270b4679f`](https://github.com/justeattakeaway/pie/commit/270b4679f2ec553fad25baf16b775b6740e1150c), [`e27452b22`](https://github.com/justeattakeaway/pie/commit/e27452b228e2a09ded5a2bd88a6d3c567a94f03e), [`e27452b22`](https://github.com/justeattakeaway/pie/commit/e27452b228e2a09ded5a2bd88a6d3c567a94f03e), [`99160e0c3`](https://github.com/justeattakeaway/pie/commit/99160e0c3fa6d4ef566fefdbea7850e469e502b9), [`5541a6b1d`](https://github.com/justeattakeaway/pie/commit/5541a6b1d6f7fb9dff75e16c28087bd853564426)]:
+  - @justeattakeaway/pie-icon-button@0.25.0
+  - @justeattakeaway/pie-icons-webc@0.16.0
+  - @justeattakeaway/pie-button@0.42.0
+
+## 0.35.6
+
+### Patch Changes
+
+- Updated dependencies [[`99a9bf153`](https://github.com/justeattakeaway/pie/commit/99a9bf153ad142a0584bb915cec22b16279bc923)]:
+  - @justeattakeaway/pie-button@0.41.1
+
+## 0.35.5
+
+### Patch Changes
+
+- Updated dependencies [[`39158323c`](https://github.com/justeattakeaway/pie/commit/39158323c83ae7fe087b67781df6575b9c570c8c)]:
+  - @justeattakeaway/pie-icons-webc@0.15.0
+  - @justeattakeaway/pie-icon-button@0.24.3
+
+## 0.35.4
+
+### Patch Changes
+
+- [Fixed] - Unpinned footer positioning for large fullscreen modal ([#1071](https://github.com/justeattakeaway/pie/pull/1071)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- Updated dependencies [[`e0516f18d`](https://github.com/justeattakeaway/pie/commit/e0516f18d6637c12a3efb5d692d3ca54e86f1a29)]:
+  - @justeattakeaway/pie-icons-webc@0.14.0
+  - @justeattakeaway/pie-icon-button@0.24.2
+
+## 0.35.3
+
+### Patch Changes
+
+- Updated dependencies [[`f9382cb6d`](https://github.com/justeattakeaway/pie/commit/f9382cb6d6503ed045d2d44c6624020a3a631d0d)]:
+  - @justeattakeaway/pie-icons-webc@0.13.0
+  - @justeattakeaway/pie-icon-button@0.24.1
+
+## 0.35.2
+
+### Patch Changes
+
+- Updated dependencies [[`232990b65`](https://github.com/justeattakeaway/pie/commit/232990b650adb96af8a9dea8d66acc31c47bd5d8)]:
+  - @justeattakeaway/pie-button@0.41.0
+
+## 0.35.1
+
+### Patch Changes
+
+- Updated dependencies [[`15c218bfd`](https://github.com/justeattakeaway/pie/commit/15c218bfd1df4a11de2a9e29d914c1642fb7b7e3)]:
+  - @justeattakeaway/pie-button@0.40.2
+
+## 0.35.0
+
+### Minor Changes
+
+- [Fixed] - Multiple modals from opening when more than one exist ([#1038](https://github.com/justeattakeaway/pie/pull/1038)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
+### Patch Changes
+
+- Updated dependencies [[`0d7ebcd20`](https://github.com/justeattakeaway/pie/commit/0d7ebcd2084ccd716d9d09772a1a78abe069c11e)]:
+  - @justeattakeaway/pie-icon-button@0.24.0
+
+## 0.34.1
+
+### Patch Changes
+
+- Updated dependencies [[`9a3a1db82`](https://github.com/justeattakeaway/pie/commit/9a3a1db82ffd69e9583721b703cd85ac1d34e1f3), [`9a3a1db82`](https://github.com/justeattakeaway/pie/commit/9a3a1db82ffd69e9583721b703cd85ac1d34e1f3), [`9a3a1db82`](https://github.com/justeattakeaway/pie/commit/9a3a1db82ffd69e9583721b703cd85ac1d34e1f3), [`905e78762`](https://github.com/justeattakeaway/pie/commit/905e78762512739c7b103f4ac5e876062ae2ab7f)]:
+  - @justeattakeaway/pie-icons-webc@0.12.0
+  - @justeattakeaway/pie-webc-core@0.13.0
+  - @justeattakeaway/pie-icon-button@0.23.0
+  - @justeattakeaway/pie-button@0.40.1
+  - @justeattakeaway/pie-spinner@0.3.1
+
+## 0.34.0
+
+### Minor Changes
+
+- [Changed] - spinner sizes should be fully spelt out such as large not l ([#1036](https://github.com/justeattakeaway/pie/pull/1036)) by [@siggerzz](https://github.com/siggerzz)
+
+### Patch Changes
+
+- Updated dependencies [[`10cf54269`](https://github.com/justeattakeaway/pie/commit/10cf542691f18bc4a93e84e2045985e14efc6330)]:
+  - @justeattakeaway/pie-icon-button@0.22.0
+  - @justeattakeaway/pie-spinner@0.3.0
+  - @justeattakeaway/pie-button@0.40.0
+
+## 0.33.1
+
+### Patch Changes
+
+- Updated dependencies [[`afb4b53b9`](https://github.com/justeattakeaway/pie/commit/afb4b53b94c016116155f81054778df3b856b8f4)]:
+  - @justeattakeaway/pie-webc-core@0.12.0
+  - @justeattakeaway/pie-button@0.39.1
+  - @justeattakeaway/pie-icon-button@0.21.3
+  - @justeattakeaway/pie-spinner@0.2.2
+
+## 0.33.1-next.0
+
+### Patch Changes
+
+- Updated dependencies [[`fdd981eb7`](https://github.com/justeattakeaway/pie/commit/fdd981eb739db0ff1eda27f56f3a4eca97f34652)]:
+  - @justeattakeaway/pie-webc-core@0.12.0-next.0
+  - @justeattakeaway/pie-button@0.39.1-next.0
+  - @justeattakeaway/pie-icon-button@0.21.3-next.0
+  - @justeattakeaway/pie-spinner@0.2.2-next.0
+
+## 0.33.0
+
+### Minor Changes
+
+- [Fixed] - modal should be full height in safari ([#1017](https://github.com/justeattakeaway/pie/pull/1017)) by [@raoufswe](https://github.com/raoufswe)
+
+## 0.32.3
+
+### Patch Changes
+
+- [Changed] - Move body-scroll-lock from modal's peerDependencies to dependencies ([#998](https://github.com/justeattakeaway/pie/pull/998)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- Updated dependencies [[`49f7365a9`](https://github.com/justeattakeaway/pie/commit/49f7365a9252eed71d7e2a36f3a48b0452a483f7)]:
+  - @justeattakeaway/pie-button@0.39.0
+
+## 0.32.2
+
+### Patch Changes
+
+- Updated dependencies [[`212f4db03`](https://github.com/justeattakeaway/pie/commit/212f4db030c68b7d32c622c54fe3e037dbfae679)]:
+  - @justeattakeaway/pie-button@0.38.0
+
+## 0.32.1
+
+### Patch Changes
+
+- [Changed] - Allow more specific overrides in vite config ([#980](https://github.com/justeattakeaway/pie/pull/980)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Changed] - Component dependencies are the only JET packages that should be marked as external
+
+- Updated dependencies [[`bad610889`](https://github.com/justeattakeaway/pie/commit/bad610889be57c2115b8e3abe8504679df44b275)]:
+  - @justeattakeaway/pie-button@0.37.1
+  - @justeattakeaway/pie-icon-button@0.21.2
+
+## 0.32.0
+
+### Minor Changes
+
+- [Changed] - reuse pie-spinner in pie-modal ([#960](https://github.com/justeattakeaway/pie/pull/960)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- [Changed] - Use latest pie-design-tokens ([#979](https://github.com/justeattakeaway/pie/pull/979)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- Updated dependencies [[`8bf261090`](https://github.com/justeattakeaway/pie/commit/8bf2610903a3ac05c51e9c1d2444d09f64feeeba)]:
+  - @justeattakeaway/pie-button@0.37.0
+
+## 0.31.0
+
+### Minor Changes
+
+- [Changed] - Move pie components deps from devDependencies to dependencies ([#949](https://github.com/justeattakeaway/pie/pull/949)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- [Changed] - Add missing imports for dependent components ([#949](https://github.com/justeattakeaway/pie/pull/949)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Changed] - Update component import section of READMEs
+
+### Patch Changes
+
+- Updated dependencies [[`c75405299`](https://github.com/justeattakeaway/pie/commit/c75405299b867d5a0214584b5172e4598a56ba4d)]:
+  - @justeattakeaway/pie-icon-button@0.21.1
+  - @justeattakeaway/pie-button@0.36.1
+
 ## 0.30.0
 
 ### Minor Changes

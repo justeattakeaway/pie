@@ -6,12 +6,15 @@
  * Fozzie imports bring in styles from the core Fozzie framework
  */
 
+@use '@justeattakeaway/pie-css/dist/index.css'; // import design token CSS Variables
 @use 'fozzie-imports';
 
 @use 'utilities';
 
 @use 'base/layout';
 @use 'base/typography';
+
+@use 'base/search';
 
 @use '@justeat/f-cookie-banner/dist/static/en-GB.css';
 
@@ -33,13 +36,18 @@
 @use 'components/card';
 @use 'components/categorisedIconList';
 @use 'components/centredPage';
-@use 'components/contentPage';
+@use 'components/componentDetailsTable';
+@use 'components/componentStatusTable';
 @use 'components/contentImage';
+@use 'components/contentLayout';
+@use 'components/contentList';
+@use 'components/contentPage';
 @use 'components/comingSoon';
 @use 'components/footer';
 @use 'components/header';
 @use 'components/heroBanner';
 @use 'components/heroContentLayout';
+@use 'components/link';
 @use 'components/list';
 @use 'components/mediaElementList';
 @use 'components/nav';
@@ -49,9 +57,11 @@
 @use 'components/razor';
 @use 'components/resourceTable';
 @use 'components/scrollToTop';
+@use 'components/showMore';
 @use 'components/simpleTable';
 @use 'components/table';
 @use 'components/tabs';
+@use 'components/termsAndDescriptions';
 @use 'components/toggle';
 @use 'components/tokensTable';
 @use 'components/usage';

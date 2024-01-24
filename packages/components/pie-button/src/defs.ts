@@ -1,4 +1,5 @@
 export const sizes = ['xsmall', 'small-productive', 'small-expressive', 'medium', 'large'] as const;
+export const responsiveSizes = ['productive', 'expressive'] as const;
 export const types = ['submit', 'button', 'reset'] as const;
 export const variants = [
     'primary', 'secondary', 'outline', 'outline-inverse', 'ghost',
@@ -16,15 +17,15 @@ export interface ButtonProps {
     /**
      * What size the button should be.
      */
-    size: typeof sizes[number];
+    size?: typeof sizes[number];
     /**
      * What type attribute should be applied to the button. For example submit, button.
      */
-    type: typeof types[number];
+    type?: typeof types[number];
     /**
      * What style variant the button should be such as primary, outline or ghost.
      */
-    variant: Variant;
+    variant?: Variant;
     /**
      * The placement of the icon slot, if provided, such as leading or trailing
      */
@@ -32,15 +33,20 @@ export interface ButtonProps {
     /**
      * When true, the button element is disabled.
      */
-    disabled: boolean;
+    disabled?: boolean;
     /**
      * When true, the button element will occupy the full width of its container.
      */
-    isFullWidth: boolean;
+    isFullWidth?: boolean;
     /**
      * When true, displays a loading indicator inside the button.
      */
-    isLoading: boolean;
+    isLoading?: boolean;
+
+    /**
+     * When true, enables the responsive size feature.
+     */
+    isResponsive?: boolean;
 
     /**
      * The name of the button, submitted as a pair with the button's value as part of the form data, when that button is used to submit the form.
@@ -86,4 +92,9 @@ export interface ButtonProps {
      * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#attributes)
      */
     formtarget?: typeof formTargetTypes[number]
+
+    /**
+     * What size should be attributed to the button when isResponsive is true and the screen is wide.
+     */
+    responsiveSize?: typeof responsiveSizes[number];
 }

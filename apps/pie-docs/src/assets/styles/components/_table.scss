@@ -2,11 +2,11 @@
 @use '../variables' as v;
 
 %c-table {
-    background-color: f.$color-container-default;
-    box-shadow: 0 0 1px 1px f.$color-border-default;
+    background-color: var(--dt-color-container-default);
+    box-shadow: 0 0 1px 1px var(--dt-color-border-default);
     border-collapse: collapse;
-    border-radius: f.$radius-rounded-c;
-    margin-block-start: f.$spacing-f;
+    border-radius: var(--dt-radius-rounded-c);
+    margin-block-start: var(--dt-spacing-f);
     max-inline-size: v.$typography-content-max-width;
     inline-size: 100%;
 
@@ -14,13 +14,13 @@
     td {
         text-align: start;
         vertical-align: top;
-        padding: f.$spacing-d;
+        padding: var(--dt-spacing-d);
         inline-size: 50%;
     }
 
     th,
     tr:not(:last-child) {
-        border-block-end: 1px solid f.$color-border-default;
+        border-block-end: 1px solid var(--dt-color-border-default);
     }
 }
 

@@ -63,14 +63,14 @@
 // styles shared between homePage and contentPage
 .c-content {
     flex: 1;
-    background-color: f.$color-background-default;
-    border-top: 1px solid f.$color-border-default;
+    background-color: var(--dt-color-background-default);
+    border-top: 1px solid var(--dt-color-border-default);
 
     & a {
-        color: f.$color-content-link-distinct;
+        color: var(--dt-color-content-link-distinct);
 
         &:visited {
-            color: f.$color-content-link-visited;
+            color: var(--dt-color-content-link-visited);
         }
 
         &:hover,
@@ -83,13 +83,21 @@
     & p:has(+ .c-tokensTable) {
         // For a tokens table directly following a description add margin.
         // Descriptions normally have a `<hr />` as a separator
-        margin-block-end: f.spacing(f);
+        margin-block-end: var(--dt-spacing-f);
     }
 
     .c-content-container {
-        padding-block-start: f.spacing(f);
-        padding-block-end: f.spacing(j);
+        padding-block-start: var(--dt-spacing-f);
+        padding-block-end: var(--dt-spacing-j);
 
+        @include f.media('>=wide') {
+            padding-block-start: var(--dt-spacing-h);
+            padding-block-end: calc(var(--dt-spacing-j) + var(--dt-spacing-d));
+        }
+    }
+
+    .c-layout-item,
+    .c-content-container {
         h2 {
             @include f.font-size('heading-xl', $scale: 'narrow');
         }
@@ -99,9 +107,6 @@
         }
 
         @include f.media('>=wide') {
-            padding-top: f.spacing(h);
-            padding-bottom: calc(f.spacing(j) + f.spacing(d));
-
             h2 {
                 @include f.font-size('heading-xl');
             }
@@ -128,15 +133,16 @@
         > h3 + h4,
         > p + .c-contentPage-img,
         > .c-contentPage-img + p {
-            margin-top: f.spacing(e);
+            margin-block-start: var(--dt-spacing-e);
         }
 
         > p + h2 {
-            margin-top: f.spacing(h);
+            margin-block-start: var(--dt-spacing-h);
         }
 
         > ul + h3,
         > p + h3,
+        > div + h3,
         > p + h4,
         > table + h3,
         > ul + h4,
@@ -144,17 +150,21 @@
         > .c-contentPage-img + h4,
         > .c-contentPage-notification + h3,
         & .c-contentPage-notification {
-            margin-top: f.spacing(f);
+            margin-block-start: var(--dt-spacing-f);
+        }
+
+        .c-contentPage-notification + .c-contentPage-notification {
+            margin-block-start: var(--dt-spacing-b);
         }
     }
 
     hr {
-        margin-top: f.spacing(h);
-        margin-bottom: f.spacing(h);
+        margin-block-start: var(--dt-spacing-h);
+        margin-block-end: var(--dt-spacing-h);
 
         @include f.media('>=wide') {
-            margin-top: f.spacing(i);
-            margin-bottom: f.spacing(i);
+            margin-block-start: var(--dt-spacing-i);
+            margin-block-end: var(--dt-spacing-i);
         }
     }
 }

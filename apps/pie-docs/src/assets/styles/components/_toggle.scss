@@ -1,30 +1,22 @@
 @use 'sass:color';
 @use '../fozzie-config' as f;
 
-$toggle-bg: f.$color-container-strong;
-$toggle-radius: f.$radius-rounded-e;
+$toggle-bg: var(--dt-color-container-strong);
+$toggle-radius: var(--dt-radius-rounded-e);
 $toggle-padding: 2px;
 $toggle-item-height: 44px;
 $toggle-item-fw: f.$font-weight-regular;
 $toggle-item-fw--checked: f.$font-weight-bold;
 $toggle-item-padding-y: 10px;
-$toggle-item-padding-x: f.spacing(e);
-$toggle-item-bg: f.$color-container-strong;
-
-// This is really annoying, but it's the only way to get darkness to work with Custom Props
-// TODO: We should likely make a utility function for this in the future
-// For ref, I tried using string interpolation with -#{f.$color-hover-01}, but it doesn't work as
-// CSS then complains about it then not being a number ¯\_(ツ)_/¯
-$toggle-item-bg--hover: color.adjust(f.$color-container-strong, $lightness: calc(f.$color-hover-01 * -1));
-$toggle-item-bg--active: color.adjust(f.$color-container-strong, $lightness: calc(f.$color-active-01 * -1));
-$toggle-item-bg--checked: f.$color-interactive-light;
-$toggle-item-bg--checked-hover: color.adjust(f.$color-interactive-light, $lightness: calc(f.$color-hover-01 * -1));
-$toggle-item-bg--checked-focus: f.$color-interactive-light;
-$toggle-item-bg--checked-active: color.adjust(f.$color-interactive-light, $lightness: calc(f.$color-active-01 * -1));
-$toggle-item-color: f.$color-content-interactive-dark;
-$toggle-item-color--hover: f.$color-content-interactive-dark;
-$toggle-item-color--active: f.$color-content-interactive-dark;
-$toggle-item-color--checked: f.$color-content-interactive-dark;
+$toggle-item-padding-x: var(--dt-spacing-e);
+$toggle-item-bg: var(--dt-color-container-strong);
+$toggle-item-bg--hover: hsl(var(--dt-color-container-strong-h), var(--dt-color-container-strong-s), calc(var(--dt-color-container-strong-l) + calc(-1 * var(--dt-color-hover-01))));
+$toggle-item-bg--active: hsl(var(--dt-color-container-strong-h), var(--dt-color-container-strong-s), calc(var(--dt-color-container-strong-l) + calc(-1 * var(--dt-color-active-01))));
+$toggle-item-bg--checked: var(--dt-color-interactive-light);
+$toggle-item-color: var(--dt-color-content-interactive-dark);
+$toggle-item-color--hover: var(--dt-color-content-interactive-dark);
+$toggle-item-color--active: var(--dt-color-content-interactive-dark);
+$toggle-item-color--checked: var(--dt-color-content-interactive-dark);
 $toggle-item-elevation: none;
 $toggle-item-elevation--checked: f.$elevation-02;
 
@@ -38,7 +30,10 @@ $toggle-item-elevation--checked: f.$elevation-02;
 }
 
 .c-toggle-label {
-    padding: $toggle-item-padding-y $toggle-item-padding-x;
+    padding-block-start: $toggle-item-padding-y;
+    padding-block-end: $toggle-item-padding-y;
+    padding-inline-start: $toggle-item-padding-x;
+    padding-inline-end: $toggle-item-padding-x;
     @include f.font-size('body-l');
     position: relative; // context for :before
 
@@ -93,7 +88,7 @@ $toggle-item-elevation--checked: f.$elevation-02;
     white-space: nowrap;
 
     &:focus-visible ~ .c-toggle-label {
-        box-shadow: inset 0 0 0 2px f.$color-focus-outer;
+        box-shadow: inset 0 0 0 2px var(--dt-color-focus-outer);
         outline: 2px solid transparent;
     }
 }

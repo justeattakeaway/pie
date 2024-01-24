@@ -13,7 +13,7 @@
 
     .c-list-item {
         counter-increment: item;
-        margin-block-end: f.spacing(b);
+        margin-block-end: var(--dt-spacing-b);
         @include f.font-size('body-l');
         display: flex;
 
@@ -25,12 +25,12 @@
             content: counter(item);
             @include f.font-size('body-s');
             font-weight: f.$font-weight-bold;
-            margin-inline-end: f.spacing(c);
+            margin-inline-end: var(--dt-spacing-c);
             width: 25px;
             height: 25px;
-            background: f.$color-container-inverse;
+            background: var(--dt-color-container-inverse);
             border-radius: 100%;
-            color: f.$color-white;
+            color: var(--dt-color-white);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -41,15 +41,17 @@
 
 .c-list--pill {
     display: flex;
-    gap: f.spacing();
+    gap: var(--dt-spacing-b);
     flex-wrap: wrap;
 
     & .c-list-item {
         @include f.font-size('body-s');
-        background-color: f.$color-container-strong;
-        padding-block: 2px;
-        padding-inline: f.spacing(a);
-        border-radius: f.$radius-rounded-b;
+        background-color: var(--dt-color-container-strong);
+        padding-block-start: 2px;
+        padding-block-end: 2px;
+        padding-inline-start: var(--dt-spacing-a);
+        padding-inline-end: var(--dt-spacing-a);
+        border-radius: var(--dt-radius-rounded-b);
     }
 }
 
@@ -61,16 +63,16 @@
         display: flex;
         align-items: flex-start;
         justify-content: flex-start;
-        margin-block-end: f.spacing(b);
+        margin-block-end: var(--dt-spacing-b);
 
         &:before {
             content: '';
             width: 6px;
             height: 6px;
-            background: f.$color-container-inverse;
-            border-radius: f.$radius-rounded-e;
-            margin-inline-end: f.spacing(b);
-            margin-block-start: f.spacing(b);
+            background: var(--dt-color-container-inverse);
+            border-radius: var(--dt-radius-rounded-e);
+            margin-inline-end: var(--dt-spacing-b);
+            margin-block-start: var(--dt-spacing-b);
             flex-shrink: 0;
         }
     }
@@ -79,7 +81,7 @@
 .c-list--icon {
     & .c-list-item {
         display: flex;
-        gap: f.spacing();
+        gap: var(--dt-spacing-b);
 
         & > svg {
             flex-shrink: 0;
@@ -87,7 +89,7 @@
         }
 
         & + .c-list-item {
-            margin-block-start: f.spacing(e);
+            margin-block-start: var(--dt-spacing-e);
         }
     }
 }

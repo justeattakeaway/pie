@@ -1,5 +1,189 @@
 # Changelog
 
+## 0.45.2
+
+### Patch Changes
+
+- Updated dependencies [[`365681462`](https://github.com/justeattakeaway/pie/commit/3656814623c74dbe49a25c894292d4621697ec7c)]:
+  - @justeattakeaway/pie-spinner@0.5.2
+
+## 0.45.1
+
+### Patch Changes
+
+- [Changed] - Updated dependency `element-internals-polyfill@1.3.10` from `1.3.9` ([#1130](https://github.com/justeattakeaway/pie/pull/1130)) by [@renovate](https://github.com/apps/renovate)
+
+- [Removed] - custom-elements.json not needed in source control ([#1181](https://github.com/justeattakeaway/pie/pull/1181)) by [@ashleynolan](https://github.com/ashleynolan)
+
+- Updated dependencies [[`2763c522a`](https://github.com/justeattakeaway/pie/commit/2763c522a9d8df376c0353c3ba8db5dbf9410c08), [`515438272`](https://github.com/justeattakeaway/pie/commit/5154382729aee39ce38fe98a8b65791ba2f79187)]:
+  - @justeattakeaway/pie-webc-core@0.17.1
+  - @justeattakeaway/pie-spinner@0.5.1
+
+## 0.45.0
+
+### Minor Changes
+
+- [Added] - React base TypeScript types ([#1164](https://github.com/justeattakeaway/pie/pull/1164)) by [@fernandofranca](https://github.com/fernandofranca)
+
+  [Changed] - set optional props as optional
+
+### Patch Changes
+
+- Updated dependencies [[`918593afd`](https://github.com/justeattakeaway/pie/commit/918593afd939e8c911542235a5d861680ceba2d0), [`24be8ac1a`](https://github.com/justeattakeaway/pie/commit/24be8ac1a5b5113b94c1971b9a59713fbaf86be5)]:
+  - @justeattakeaway/pie-webc-core@0.17.0
+  - @justeattakeaway/pie-spinner@0.5.0
+
+## 0.44.0
+
+### Minor Changes
+
+- [Changed] - Added `@justeattakeaway/pie-wrapper-react` as a devDependency as `build` now relies on the publish `add-react-wrapper` executable ([#1144](https://github.com/justeattakeaway/pie/pull/1144)) by [@siggerzz](https://github.com/siggerzz)
+
+- [Added] - Add new `create:manifest` script to create `custom-elements.json` in the components root directory. ([#1144](https://github.com/justeattakeaway/pie/pull/1144)) by [@siggerzz](https://github.com/siggerzz)
+
+  [Added] - `custom-elements-manifest.config.mjs`.
+  [Changed] - `package.json` to correctly export the produced `custom-elements.json`.
+
+### Patch Changes
+
+- Updated dependencies [[`320ee9d4b`](https://github.com/justeattakeaway/pie/commit/320ee9d4b53df60d2e69256c5a64c7abfbfbae16), [`4c65a8176`](https://github.com/justeattakeaway/pie/commit/4c65a8176273f3883dc2be2d0c8a33aef56f8993), [`4c65a8176`](https://github.com/justeattakeaway/pie/commit/4c65a8176273f3883dc2be2d0c8a33aef56f8993), [`320ee9d4b`](https://github.com/justeattakeaway/pie/commit/320ee9d4b53df60d2e69256c5a64c7abfbfbae16)]:
+  - @justeattakeaway/pie-webc-core@0.16.0
+  - @justeattakeaway/pie-spinner@0.4.0
+
+## 0.43.0
+
+### Minor Changes
+
+- [Changed] - Use new FormControlMixin in `pie-button` and remove old form association code ([#1143](https://github.com/justeattakeaway/pie/pull/1143)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Removed] - getShadowElementStylePropValues function from button component test to pie-webc-testing helpers ([#1123](https://github.com/justeattakeaway/pie/pull/1123)) by [@dandel10n](https://github.com/dandel10n)
+
+### Patch Changes
+
+- Updated dependencies [[`687bdd904`](https://github.com/justeattakeaway/pie/commit/687bdd90475fef58a492c980a7f7d9261ee94eb9)]:
+  - @justeattakeaway/pie-webc-core@0.15.0
+  - @justeattakeaway/pie-spinner@0.3.3
+
+## 0.42.1
+
+### Patch Changes
+
+- [Fixed] - Button mount re-added to visual tests to fix visual regressions ([#1140](https://github.com/justeattakeaway/pie/pull/1140)) by [@ashleynolan](https://github.com/ashleynolan)
+
+- Updated dependencies [[`c4b78bf9a`](https://github.com/justeattakeaway/pie/commit/c4b78bf9a42e165c8feed20197fbe7d5875a9dd4), [`c4b78bf9a`](https://github.com/justeattakeaway/pie/commit/c4b78bf9a42e165c8feed20197fbe7d5875a9dd4)]:
+  - @justeattakeaway/pie-webc-core@0.14.0
+  - @justeattakeaway/pie-spinner@0.3.2
+
+## 0.42.0
+
+### Minor Changes
+
+- [Changed] - README to link directly to documentation site ([#1126](https://github.com/justeattakeaway/pie/pull/1126)) by [@LTurns](https://github.com/LTurns)
+
+### Patch Changes
+
+- [Changed] - `--btn-icon-display` and `--btn-icon-size` to `--icon-display-override` and `--icon-size-override` variables ([#1127](https://github.com/justeattakeaway/pie/pull/1127)) by [@dandel10n](https://github.com/dandel10n)
+
+- [Fixed] - Add missing closing bracket for tag ([#1109](https://github.com/justeattakeaway/pie/pull/1109)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+## 0.41.1
+
+### Patch Changes
+
+- [Fixed] - Removed border when outline-inverse is in disabled state ([#1088](https://github.com/justeattakeaway/pie/pull/1088)) by [@ashleynolan](https://github.com/ashleynolan)
+
+## 0.41.0
+
+### Minor Changes
+
+- [Changed] - Disabled button to use the secondary variant of the spinner for all with the exception of ghost inverse ([#1057](https://github.com/justeattakeaway/pie/pull/1057)) by [@raoufswe](https://github.com/raoufswe)
+
+## 0.40.2
+
+### Patch Changes
+
+- [Changed] - bump dependency `element-internals-polyfill@1.3.9` ([#1063](https://github.com/justeattakeaway/pie/pull/1063)) by [@renovate](https://github.com/apps/renovate)
+
+## 0.40.1
+
+### Patch Changes
+
+- Updated dependencies [[`9a3a1db82`](https://github.com/justeattakeaway/pie/commit/9a3a1db82ffd69e9583721b703cd85ac1d34e1f3), [`9a3a1db82`](https://github.com/justeattakeaway/pie/commit/9a3a1db82ffd69e9583721b703cd85ac1d34e1f3)]:
+  - @justeattakeaway/pie-webc-core@0.13.0
+  - @justeattakeaway/pie-spinner@0.3.1
+
+## 0.40.0
+
+### Minor Changes
+
+- [Changed] - spinner sizes should be fully spelt out such as large not l ([#1036](https://github.com/justeattakeaway/pie/pull/1036)) by [@siggerzz](https://github.com/siggerzz)
+
+### Patch Changes
+
+- Updated dependencies [[`10cf54269`](https://github.com/justeattakeaway/pie/commit/10cf542691f18bc4a93e84e2045985e14efc6330)]:
+  - @justeattakeaway/pie-spinner@0.3.0
+
+## 0.39.1
+
+### Patch Changes
+
+- Updated dependencies [[`afb4b53b9`](https://github.com/justeattakeaway/pie/commit/afb4b53b94c016116155f81054778df3b856b8f4)]:
+  - @justeattakeaway/pie-webc-core@0.12.0
+  - @justeattakeaway/pie-spinner@0.2.2
+
+## 0.39.1-next.0
+
+### Patch Changes
+
+- Updated dependencies [[`fdd981eb7`](https://github.com/justeattakeaway/pie/commit/fdd981eb739db0ff1eda27f56f3a4eca97f34652)]:
+  - @justeattakeaway/pie-webc-core@0.12.0-next.0
+  - @justeattakeaway/pie-spinner@0.2.2-next.0
+
+## 0.39.0
+
+### Minor Changes
+
+- [Added] - `isResponsive` and `responsiveSize` prop ([#986](https://github.com/justeattakeaway/pie/pull/986)) by [@fernandofranca](https://github.com/fernandofranca)
+
+## 0.38.0
+
+### Minor Changes
+
+- [Changed] - inverse button hover & active states added ([#992](https://github.com/justeattakeaway/pie/pull/992)) by [@ashleynolan](https://github.com/ashleynolan)
+
+## 0.37.1
+
+### Patch Changes
+
+- [Changed] - Allow more specific overrides in vite config ([#980](https://github.com/justeattakeaway/pie/pull/980)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Changed] - Component dependencies are the only JET packages that should be marked as external
+
+## 0.37.0
+
+### Minor Changes
+
+- [Changed] - reuse pie-spinner in pie-button ([#958](https://github.com/justeattakeaway/pie/pull/958)) by [@raoufswe](https://github.com/raoufswe)
+
+## 0.36.1
+
+### Patch Changes
+
+- [Changed] - Add missing imports for dependent components ([#949](https://github.com/justeattakeaway/pie/pull/949)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Changed] - Update component import section of READMEs
+
+## 0.36.0
+
+### Minor Changes
+
+- [Added] - Functionality to ensure pressing enter when in a form using a pie-button will trigger a form submit ([#935](https://github.com/justeattakeaway/pie/pull/935)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - `isLoading` prop to `pie-icon-button` ([#953](https://github.com/justeattakeaway/pie/pull/953)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Added] - `visually-hidden` mixin to `pie-css` and use it in components when needed
+  [Added] - `button-interactive-states` mixin to use in `pie-icon-button` and `pie-button`
+
 ## 0.35.0
 
 ### Minor Changes

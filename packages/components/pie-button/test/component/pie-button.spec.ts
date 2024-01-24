@@ -1,18 +1,24 @@
+import { getShadowElementStylePropValues } from '@justeattakeaway/pie-webc-testing/src/helpers/get-shadow-element-style-prop-values.ts';
 import { test, expect } from '@sand4rt/experimental-ct-web';
-import { PieButton, ButtonProps } from '@/index';
+import { PieButton, ButtonProps } from '../../src/index.ts';
 
 const props: Partial<ButtonProps> = {
     size: 'large',
     variant: 'primary',
 };
 
-// Mount then unmount any components that are used inside of tests that may not be directly mounted using playwright so that
-// they have been registered with the browser before the tests run.
-// There is likely a nicer way to do this but this will temporarily
-// unblock tests.
-test.beforeEach(async ({ mount }) => {
-    await (await mount(PieButton)).unmount();
-});
+type SizeResponsiveSize = {
+    sizeName: ButtonProps['size'];
+    responsiveSize: string;
+};
+
+const sizes:Array<SizeResponsiveSize> = [
+    { sizeName: 'xsmall', responsiveSize: '--btn-height--small' },
+    { sizeName: 'small-expressive', responsiveSize: '--btn-height--medium' },
+    { sizeName: 'small-productive', responsiveSize: '--btn-height--medium' },
+    { sizeName: 'medium', responsiveSize: '--btn-height--large' },
+    { sizeName: 'large', responsiveSize: '--btn-height--large' },
+];
 
 test('should correctly work with native click events', async ({ mount }) => {
     const messages: string[] = [];
@@ -266,6 +272,165 @@ test.describe('Form Actions', () => {
             expect(headers['content-type']).toMatch(/^multipart\/form-data;/);
             expect(method).toBe('POST');
         });
+
+        test('should submit the form when pressing Enter with pie-button type `submit`', async ({ page }) => {
+            // Arrange
+            await page.evaluate(() => {
+                const formHTML = `
+                <form id="testForm" action="/foo" method="POST">
+                    <input type="text" id="username" name="username" required>
+                    <input type="password" id="password" name="password" required>
+                    <pie-button id="submitButton" type="submit">Submit</pie-button>
+                </form>
+            `;
+                document.body.innerHTML = formHTML;
+            });
+
+            // Set up the form submission listener
+            await page.evaluate(() => {
+                const form = document.querySelector('#testForm') as HTMLFormElement;
+
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+
+                    const span = document.createElement('span');
+                    span.id = 'formSubmittedFlag';
+                    document.body.appendChild(span);
+                });
+            });
+
+            // Fill out the form
+            await page.fill('#username', 'testUser');
+            await page.fill('#password', 'testPassword');
+
+            // Act
+            // Press Enter in the password field
+            await page.focus('#password');
+            await page.press('#password', 'Enter');
+
+            // Assert
+            const formSubmittedFlagExists = Boolean(await page.$('#formSubmittedFlag'));
+            expect(formSubmittedFlagExists).toBe(true);
+        });
+
+        test('should NOT submit the form when pressing Enter with pie-button type other than `submit`', async ({ page }) => {
+            // Arrange
+            await page.evaluate(() => {
+                const formHTML = `
+                <form id="testForm" action="/foo" method="POST">
+                    <input type="text" id="username" name="username" required>
+                    <input type="password" id="password" name="password" required>
+                    <pie-button id="resetButton" type="reset">Reset</pie-button>
+                </form>
+            `;
+                document.body.innerHTML = formHTML;
+            });
+
+            // Set up the form submission listener
+            await page.evaluate(() => {
+                const form = document.querySelector('#testForm') as HTMLFormElement;
+
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+
+                    const span = document.createElement('span');
+                    span.id = 'formSubmittedFlag';
+                    document.body.appendChild(span);
+                });
+            });
+
+            // Fill out the form
+            await page.fill('#username', 'testUser');
+            await page.fill('#password', 'testPassword');
+
+            // Act
+            // Press Enter in the password field
+            await page.focus('#password');
+            await page.press('#password', 'Enter');
+
+            // Assert
+            const formSubmittedFlagExists = Boolean(await page.$('#formSubmittedFlag'));
+            expect(formSubmittedFlagExists).toBe(false);
+        });
+
+        test('should NOT submit the form when pressing Enter on a pie-button that is not type of submit', async ({ page }) => {
+            // Arrange
+            await page.evaluate(() => {
+                const formHTML = `
+                    <form id="testForm" action="/foo" method="POST">
+                        <input type="text" id="username" name="username" required>
+                        <input type="password" id="password" name="password" required>
+                        <pie-button type="submit">Submit</pie-button>
+                        <pie-button id="resetPieButton" type="reset">Reset</pie-button>
+                    </form>
+                `;
+                document.body.innerHTML = formHTML;
+
+                const form = document.querySelector('#testForm') as HTMLFormElement;
+
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+
+                    const span = document.createElement('span');
+                    span.id = 'formSubmittedFlag';
+                    document.body.appendChild(span);
+                });
+            });
+
+            // Fill out the form
+            await page.fill('#username', 'testUser');
+            await page.fill('#password', 'testPassword');
+
+            // Act
+            // Press Tab until we focus the reset button
+            await page.keyboard.press('Tab');
+            await page.keyboard.press('Tab');
+
+            // Press Enter on the pie-button with type reset
+            await page.press('#resetPieButton', 'Enter');
+
+            // Assert
+            const formSubmittedFlagExists = Boolean(await page.$('#formSubmittedFlag'));
+            expect(formSubmittedFlagExists).toBe(false);
+        });
+
+        test('should NOT submit the form when pressing Enter on a native non-submit button', async ({ page }) => {
+            // Arrange
+            await page.evaluate(() => {
+                const formHTML = `
+                    <form id="testForm" action="/foo" method="POST">
+                        <input type="text" id="username" name="username" required>
+                        <input type="password" id="password" name="password" required>
+                        <pie-button type="submit">Submit</pie-button>
+                        <button id="resetNativeButton" type="reset">Reset</button>
+                    </form>
+                `;
+                document.body.innerHTML = formHTML;
+
+                const form = document.querySelector('#testForm') as HTMLFormElement;
+
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+
+                    const span = document.createElement('span');
+                    span.id = 'formSubmittedFlag';
+                    document.body.appendChild(span);
+                });
+            });
+
+            // Fill out the form
+            await page.fill('#username', 'testUser');
+            await page.fill('#password', 'testPassword');
+
+            // Act
+            // Press Enter on the native button with type reset
+            await page.focus('#resetNativeButton');
+            await page.press('#resetNativeButton', 'Enter');
+
+            // Assert
+            const formSubmittedFlagExists = Boolean(await page.$('#formSubmittedFlag'));
+            expect(formSubmittedFlagExists).toBe(false);
+        });
     });
 
     test.describe('Reset', () => {
@@ -371,6 +536,139 @@ test.describe('Form Actions', () => {
 
             // Assert
             expect(associatedFormId).toBe('correctForm');
+        });
+    });
+});
+
+test.describe('props', () => {
+    test.describe('isResponsive', () => {
+        test.describe('when not set', () => {
+            test('the button should not have the attribute', async ({ mount }) => {
+                const component = await mount(
+                    PieButton,
+                    {
+                        props,
+                        slots: {
+                            default: 'Click me!',
+                        },
+                    },
+                );
+
+                await expect(component.locator('button'))
+                    .not.toHaveAttribute('isResponsive', ''); // TODO: Remove the empty argument once we upgrade Playwright to 1.39 or above
+            });
+        });
+        test.describe('when set to true', () => {
+            test('the button should have the attribute', async ({ mount }) => {
+                const testProps:Partial<ButtonProps> = {
+                    ...props,
+                    size: 'xsmall',
+                    isResponsive: true,
+                };
+
+                const component = await mount(
+                    PieButton,
+                    {
+                        props: testProps,
+                        slots: {
+                            default: 'Click me!',
+                        },
+                    },
+                );
+
+                await expect(component.locator('button'))
+                    .toHaveAttribute('isResponsive', ''); // TODO: Remove the empty argument once we upgrade Playwright to 1.39 or above
+            });
+
+            sizes.forEach(({ sizeName, responsiveSize }) => {
+                test(`a "${sizeName}" size button height should be equivalent to "${responsiveSize}"`, async ({ mount }) => {
+                    const testProps: Partial<ButtonProps> = {
+                        ...props,
+                        size: sizeName,
+                        isResponsive: true,
+                    };
+
+                    const component = await mount(PieButton, {
+                        props: testProps,
+                        slots: {
+                            default: 'Click me!',
+                        },
+                    });
+
+                    const [currentHeight, expectedHeight] = await getShadowElementStylePropValues(component, 'button', ['--btn-height', responsiveSize]);
+
+                    await expect(currentHeight).toBe(expectedHeight);
+                });
+            });
+        });
+    });
+
+    test.describe('responsiveSize', () => {
+        test.describe('when not set', () => {
+            test('the button should not have the attribute', async ({ mount }) => {
+                const component = await mount(
+                    PieButton,
+                    {
+                        props,
+                        slots: {
+                            default: 'Click me!',
+                        },
+                    },
+                );
+
+                await expect(component.locator('button'))
+                    .not.toHaveAttribute('responsiveSize', ''); // TODO: Remove the empty argument once we upgrade Playwright to 1.39 or above
+            });
+        });
+
+        test.describe('when "isResponsive" is true', () => {
+            test.describe('when "responsiveSize" is "expressive"', () => {
+                test('the button should have the expected attribute', async ({ mount }) => {
+                    const testProps:Partial<ButtonProps> = {
+                        ...props,
+                        size: 'xsmall',
+                        isResponsive: true,
+                        responsiveSize: 'expressive',
+                    };
+
+                    const component = await mount(
+                        PieButton,
+                        {
+                            props: testProps,
+                            slots: {
+                                default: 'Click me!',
+                            },
+                        },
+                    );
+
+                    await expect(component.locator('button'))
+                        .toHaveAttribute('responsiveSize', 'expressive');
+                });
+            });
+        });
+
+        test.describe('when "responsiveSize" is "productive"', () => {
+            test('the button should have the expected attribute', async ({ mount }) => {
+                const testProps:Partial<ButtonProps> = {
+                    ...props,
+                    size: 'xsmall',
+                    isResponsive: true,
+                    responsiveSize: 'productive',
+                };
+
+                const component = await mount(
+                    PieButton,
+                    {
+                        props: testProps,
+                        slots: {
+                            default: 'Click me!',
+                        },
+                    },
+                );
+
+                await expect(component.locator('button'))
+                    .toHaveAttribute('responsiveSize', 'productive');
+            });
         });
     });
 });

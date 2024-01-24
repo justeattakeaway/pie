@@ -3,13 +3,17 @@ import {
 } from 'lit';
 import { html, unsafeStatic } from 'lit/static-html.js';
 import { property, query } from 'lit/decorators.js';
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
+
+import '@justeattakeaway/pie-button';
+import '@justeattakeaway/pie-icon-button';
 import {
     requiredProperty, RtlMixin, validPropertyValues, defineCustomElement,
 } from '@justeattakeaway/pie-webc-core';
 import '@justeattakeaway/pie-icons-webc/IconClose';
 import '@justeattakeaway/pie-icons-webc/IconChevronLeft';
 import '@justeattakeaway/pie-icons-webc/IconChevronRight';
-import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
+import '@justeattakeaway/pie-spinner';
 
 import styles from './modal.scss?inline';
 import {
@@ -31,6 +35,10 @@ import {
 export * from './defs';
 
 const componentSelector = 'pie-modal';
+
+export interface ModalEventDetail {
+    targetModal: PieModal;
+}
 
 /**
  * @tagname pie-modal
@@ -101,15 +109,15 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
     connectedCallback () : void {
         super.connectedCallback();
         this.addEventListener('click', (event) => this._handleDialogLightDismiss(event));
-        document.addEventListener(ON_MODAL_OPEN_EVENT, this._handleModalOpened.bind(this));
-        document.addEventListener(ON_MODAL_CLOSE_EVENT, this._handleModalClosed.bind(this));
-        document.addEventListener(ON_MODAL_BACK_EVENT, this._handleModalClosed.bind(this));
+        document.addEventListener(ON_MODAL_OPEN_EVENT, (event) => this._handleModalOpened(<CustomEvent>event));
+        document.addEventListener(ON_MODAL_CLOSE_EVENT, (event) => this._handleModalClosed(<CustomEvent>event));
+        document.addEventListener(ON_MODAL_BACK_EVENT, (event) => this._handleModalClosed(<CustomEvent>event));
     }
 
     disconnectedCallback () : void {
-        document.removeEventListener(ON_MODAL_OPEN_EVENT, this._handleModalOpened.bind(this));
-        document.removeEventListener(ON_MODAL_CLOSE_EVENT, this._handleModalClosed.bind(this));
-        document.removeEventListener(ON_MODAL_BACK_EVENT, this._handleModalClosed.bind(this));
+        document.removeEventListener(ON_MODAL_OPEN_EVENT, (event) => this._handleModalOpened(<CustomEvent>event));
+        document.removeEventListener(ON_MODAL_CLOSE_EVENT, (event) => this._handleModalClosed(<CustomEvent>event));
+        document.removeEventListener(ON_MODAL_BACK_EVENT, (event) => this._handleModalClosed(<CustomEvent>event));
         super.disconnectedCallback();
     }
 
@@ -136,32 +144,41 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
     /**
      * Opens the dialog element and disables page scrolling
      */
-    private _handleModalOpened () : void {
-        const modalScrollContainer = this._dialog?.querySelector('.c-modal-scrollContainer');
+    private _handleModalOpened (event: CustomEvent): void {
+        const { targetModal } = event.detail;
 
-        if (modalScrollContainer) {
-            disableBodyScroll(modalScrollContainer);
-        }
+        if (targetModal === this) {
+            const modalScrollContainer = this._dialog?.querySelector('.c-modal-scrollContainer');
 
-        if (this._dialog?.hasAttribute('open') || !this._dialog?.isConnected) {
-            return;
+            if (modalScrollContainer) {
+                disableBodyScroll(modalScrollContainer);
+            }
+
+            if (this._dialog?.hasAttribute('open') || !this._dialog?.isConnected) {
+                return;
+            }
+
+            // The ::backdrop pseudoelement is only shown if the modal is opened via JS
+            this._dialog?.showModal();
         }
-        // The ::backdrop pseudoelement is only shown if the modal is opened via JS
-        this._dialog?.showModal();
     }
 
     /**
      * Closes the dialog element and re-enables page scrolling
      */
-    private _handleModalClosed () : void {
-        const modalScrollContainer = this._dialog?.querySelector('.c-modal-scrollContainer');
+    private _handleModalClosed (event: CustomEvent): void {
+        const { targetModal } = event.detail;
 
-        if (modalScrollContainer) {
-            enableBodyScroll(modalScrollContainer);
+        if (targetModal === this) {
+            const modalScrollContainer = this._dialog?.querySelector('.c-modal-scrollContainer');
+
+            if (modalScrollContainer) {
+                enableBodyScroll(modalScrollContainer);
+            }
+
+            this._dialog?.close();
+            this._returnFocus();
         }
-
-        this._dialog?.close();
-        this._returnFocus();
     }
 
     /**
@@ -339,6 +356,7 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
             <div class="c-modal-contentInner">
                 <slot></slot>
             </div>
+            ${this.isLoading ? html`<pie-spinner size="xlarge" variant="secondary"></pie-spinner>` : nothing}
         </article>
         <footer class="c-modal-footer">
             ${this.leadingAction ? this.renderLeadingAction() : nothing}
@@ -369,8 +387,8 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
         <dialog
             id="dialog"
             class="c-modal"
-            size="${size}"
-            position="${position}"
+            size="${size || 'medium'}"
+            position="${position || 'center'}"
             ?hasActions=${leadingAction || supportingAction}
             ?hasBackButton=${hasBackButton}
             ?hasStackedActions=${hasStackedActions}
@@ -443,14 +461,15 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
      *
      * @param {string} eventType
      */
-    private _dispatchModalCustomEvent = (eventType: string) : void => {
-        const event = new CustomEvent(eventType, {
+    private _dispatchModalCustomEvent (eventType: string): void {
+        const event = new CustomEvent<ModalEventDetail>(eventType, {
             bubbles: true,
             composed: true,
+            detail: { targetModal: this },
         });
 
         this.dispatchEvent(event);
-    };
+    }
 }
 
 defineCustomElement(componentSelector, PieModal);

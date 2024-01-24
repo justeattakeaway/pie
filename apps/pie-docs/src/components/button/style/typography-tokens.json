@@ -1,0 +1,43 @@
+{
+  "headings": [
+    "Element",
+    "Typography token"
+  ],
+  "rows": [
+    [
+      "Label for Large",
+      {
+        "type": "token",
+        "item": "$font-interactive-l"
+      }
+    ],
+    [
+      "Label for Medium",
+      {
+        "type": "token",
+        "item": "$font-interactive-l"
+      }
+    ],
+    [
+      "Label for Small - Expressive",
+      {
+        "type": "token",
+        "item": "$font-interactive-l"
+      }
+    ],
+    [
+      "Label for Small - Productive",
+      {
+        "type": "token",
+        "item": "$font-interactive-s"
+      }
+    ],
+    [
+      "Label for XSmall",
+      {
+        "type": "token",
+        "item": "$font-interactive-xs"
+      }
+    ]
+  ]
+}

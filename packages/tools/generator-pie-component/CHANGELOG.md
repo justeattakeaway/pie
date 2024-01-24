@@ -1,5 +1,41 @@
 # @justeattakeaway/generator-pie-component
 
+## 0.18.0
+
+### Minor Changes
+
+- [Added] - template file for React base type ([#1164](https://github.com/justeattakeaway/pie/pull/1164)) by [@fernandofranca](https://github.com/fernandofranca)
+
+## 0.17.0
+
+### Minor Changes
+
+- [Changed] - Generator template to correctly extend the shared tsconfig.json ([#1159](https://github.com/justeattakeaway/pie/pull/1159)) by [@siggerzz](https://github.com/siggerzz)
+
+## 0.16.0
+
+### Minor Changes
+
+- [Changed] - Refactor the generator to follow new manifest creation / build functionality. ([#1144](https://github.com/justeattakeaway/pie/pull/1144)) by [@siggerzz](https://github.com/siggerzz)
+
+- [Changed] - Added `@justeattakeaway/pie-wrapper-react` as a devDependency as `build` now relies on the publish `add-react-wrapper` executable ([#1144](https://github.com/justeattakeaway/pie/pull/1144)) by [@siggerzz](https://github.com/siggerzz)
+
+## 0.15.0
+
+### Minor Changes
+
+- [Changed] - Add missing imports for dependent components ([#949](https://github.com/justeattakeaway/pie/pull/949)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Changed] - Update component import section of READMEs
+
+- [Changed] - Update component imports in stories ([#949](https://github.com/justeattakeaway/pie/pull/949)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+## 0.14.0
+
+### Minor Changes
+
+- [Fixed] - Updated the readme file to be aligned with other components ([#947](https://github.com/justeattakeaway/pie/pull/947)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.13.0
 
 ### Minor Changes

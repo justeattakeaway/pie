@@ -1,0 +1,62 @@
+@use '../fozzie-config' as f;
+@use '../variables' as v;
+
+.c-componentDetailsTable-backdrop {
+    margin-block-start: var(--dt-spacing-e);
+    margin-block-end: var(--dt-spacing-f);
+    background-color: var(--dt-color-container-subtle);
+    border-radius: var(--dt-radius-rounded-c);
+    padding-block-start: var(--dt-spacing-d);
+    padding-block-end: var(--dt-spacing-e);
+    padding-inline-start: var(--dt-spacing-e);
+    padding-inline-end: var(--dt-spacing-e);
+
+    // ensures larger tables are responsive
+    overflow-x: auto;
+}
+
+.c-componentDetailsTable {
+    border-collapse: collapse;
+    max-inline-size: 100%;
+    inline-size: 100%;
+
+    th,
+    td {
+        text-align: start;
+        vertical-align: top;
+        padding: var(--dt-spacing-b);
+        min-width: fit-content;
+    }
+
+    .c-componentDetailsTable-cellHasMinWidth {
+        min-width: 301px;
+    }
+
+    th:not(.c-componentDetailsTable-heading--priority),
+    td {
+        width: 0;
+    }
+
+    tr:not(:first-child, .c-componentDetailsTable-row--hideTopBorder) {
+        border-block-start: 1px solid var(--dt-color-divider-default);
+    }
+}
+
+.c-componentDetailsTable-hasWidePadding {
+    th:not(:first-child),
+    td:not(:first-child) {
+        @include f.media('>=mid') {
+            padding-inline-start: var(--dt-spacing-i);
+        }
+    }
+}
+
+.c-componentDetailsTable-token {
+    background-color: var(--dt-color-container-default);
+    padding-block-start: 2px;
+    padding-block-end: 2px;
+    padding-inline-start: var(--dt-spacing-a);
+    padding-inline-end: var(--dt-spacing-a);
+    border-radius: var(--dt-radius-rounded-b);
+    @include f.font-size('body-s');
+}

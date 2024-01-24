@@ -73,7 +73,7 @@ function renderIcon() {
 // Not recommended -  Webpack v4+ or Rollup should treeshake but be careful
 import { IconAppRestaurant } from '@justeattakeaway/pie-icons-webc';
 // Not recommended
-import { IconAppRestaurant } from '@justeattakeaway/pie-icons-webc/icons';
+import { IconAppRestaurant } from '@justeattakeaway/pie-icons-webc';
 ```
 
 #### Lit Components
@@ -91,9 +91,43 @@ export class MyAmazingComponent extends LitElement {
 }
 ```
 
-#### TODO: Add React usage
+#### React
 
-If you require icons for a React application, you can either use these icons, or use our native React component package – [pie-icons-react](https://www.npmjs.com/package/@justeattakeaway/pie-icons-react).
+To import from the package root:
+
+```tsx
+// Please note we include /dist/ in the path only for React exports. This is due to how we have setup React exports to work with frameworks such as NextJS.
+import { IconAlertTriangleLarge, IconCalendar } from "@justeattakeaway/pie-icons-webc/dist/react";
+
+// If your app can support the exports set in the package.json, you can also import like so (exclude 'dist'):
+import { IconAlertTriangleLarge, IconCalendar } from "@justeattakeaway/pie-icons-webc/react";
+
+export default function App() {
+  return (
+    <div className="App">
+      <IconCalendar />
+      <IconAlertTriangleLarge fill={PIE_ALIAS_COLOR_TOKEN} />
+    </div>
+  );
+}
+```
+To import a single icon:
+
+```tsx
+// Please note we include /dist/ in the path only for React exports. This is due to how we have setup React exports to work with frameworks such as NextJS
+import { IconCalendar } from "@justeattakeaway/pie-icons-webc/dist/react/IconCalendar";
+
+// If your app can support the exports set in the package.json, you can also import like so (exclude 'dist'):
+import { IconCalendar } from "@justeattakeaway/pie-icons-webc/react/IconCalendar";
+
+export default function App() {
+  return (
+    <div className="App">
+      <IconCalendar />
+    </div>
+  );
+}
+```
 
 #### TODO: Add Vue usage
 

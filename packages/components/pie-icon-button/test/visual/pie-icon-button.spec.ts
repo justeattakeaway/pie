@@ -13,13 +13,14 @@ import {
     WebComponentTestWrapper,
 } from '@justeattakeaway/pie-webc-testing/src/helpers/components/web-component-test-wrapper/WebComponentTestWrapper.ts';
 import { percyWidths } from '@justeattakeaway/pie-webc-testing/src/percy/breakpoints.ts';
-import { PieIconButton } from '@/index';
+import { PieIconButton } from '../../src/index.ts';
 
-import { sizes, variants } from '@/defs';
+import { sizes, variants } from '../../src/defs.ts';
 
 const props: PropObject = {
     size: sizes,
     variant: variants,
+    isLoading: [true, false],
     disabled: [true, false],
 };
 
@@ -30,7 +31,7 @@ const props: PropObject = {
 const closeSVG = '<svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 16 16" class="c-pieIcon c-pieIcon--close"><path d="M11.868 3.205 8 7.072 4.133 3.205l-.928.927L7.073 8l-3.868 3.867.928.928L8 8.927l3.868 3.868.927-.928L8.928 8l3.867-3.868-.927-.927Z"></path></svg>';
 
 // Renders a <pie-icon-button> HTML string with the given prop values
-const renderTestPieIconButton = (propVals: WebComponentPropValues) => `<pie-icon-button size="${propVals.size}" variant="${propVals.variant}" ${propVals.disabled ? 'disabled' : ''}>${closeSVG}</pie-icon-button>`;
+const renderTestPieIconButton = (propVals: WebComponentPropValues) => `<pie-icon-button size="${propVals.size}" variant="${propVals.variant}" ${propVals.disabled ? 'disabled' : ''} ${propVals.isLoading ? 'isLoading' : ''}>${closeSVG}</pie-icon-button>`;
 
 const componentPropsMatrix : WebComponentPropValues[] = getAllPropCombinations(props);
 const componentPropsMatrixByVariant: Record<string, WebComponentPropValues[]> = splitCombinationsByPropertyValue(componentPropsMatrix, 'variant');
@@ -54,12 +55,13 @@ test.beforeEach(async ({ page, mount }) => {
 componentVariants.forEach((variant) => test(`should render all prop variations for Variant: ${variant}`, async ({ page, mount }) => {
     await Promise.all(componentPropsMatrixByVariant[variant].map(async (combo: WebComponentPropValues) => {
         const testComponent: WebComponentTestInput = createTestWebComponent(combo, renderTestPieIconButton);
-        const propKeyValues = `size: ${testComponent.propValues.size}, disabled: ${testComponent.propValues.disabled}`;
+        const propKeyValues = `size: ${testComponent.propValues.size}, disabled: ${testComponent.propValues.disabled}, isLoading: ${testComponent.propValues.isLoading}`;
+        const darkMode = variant.includes('inverse');
 
         await mount(
             WebComponentTestWrapper,
             {
-                props: { propKeyValues },
+                props: { propKeyValues, darkMode },
                 slots: {
                     component: testComponent.renderedString,
                 },

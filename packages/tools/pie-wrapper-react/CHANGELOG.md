@@ -1,5 +1,53 @@
 # @justeattakeaway/pie-wrapper-react
 
+## 0.14.0
+
+### Minor Changes
+
+- [Fixed] - eslint issues from generated react.ts ([#1183](https://github.com/justeattakeaway/pie/pull/1183)) by [@ashleynolan](https://github.com/ashleynolan)
+
+## 0.13.0
+
+### Minor Changes
+
+- [Changed] - React Wrapper script adding the workaround for the bug that sets all props as optional in React and TS ([#1164](https://github.com/justeattakeaway/pie/pull/1164)) by [@fernandofranca](https://github.com/fernandofranca)
+
+  [Changed] - Added workaround for missing callback props in React and TS
+  [Changed] - Updated documentation README file regarding the addition of ReactBaseType
+  [Changed] - unit tests snapshots to reflect the changes
+  [Added] - `test:ci` npm script
+
+- [Changed] - Updated the React Wrapper to read and include the React base type declaration ([#1164](https://github.com/justeattakeaway/pie/pull/1164)) by [@fernandofranca](https://github.com/fernandofranca)
+
+## 0.12.0
+
+### Minor Changes
+
+- [Changed] - Refactored `add-react-wrapper.js` to be executable via npx. ([#1144](https://github.com/justeattakeaway/pie/pull/1144)) by [@siggerzz](https://github.com/siggerzz)
+
+  [Changed] - `fs-extra` to a dependency so that script execution doesn't fail outside the monorepo.
+  [Changed] - Refactored `add-react-wrapper.js` to create unique `custom-elements.json` for each component in the directory where `npx build-react-wrapper` is executed.
+
+- [Changed] - Added `@justeattakeaway/pie-wrapper-react` as a devDependency as `build` now relies on the publish `add-react-wrapper` executable ([#1144](https://github.com/justeattakeaway/pie/pull/1144)) by [@siggerzz](https://github.com/siggerzz)
+
+## 0.11.1
+
+### Patch Changes
+
+- [Fixed] - Trailing whitespace linting error ([#1115](https://github.com/justeattakeaway/pie/pull/1115)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+## 0.11.0
+
+### Minor Changes
+
+- [Changed] - `@lit-labs/react` dependency to `@lit/react` and updated any references. ([#1027](https://github.com/justeattakeaway/pie/pull/1027)) by [@raoufswe](https://github.com/raoufswe)
+
+## 0.11.0-next.0
+
+### Minor Changes
+
+- [Changed] - `@lit-labs/react` dependency to `@lit/react` and updated any references. ([#1025](https://github.com/justeattakeaway/pie/pull/1025)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.10.2
 
 ### Patch Changes

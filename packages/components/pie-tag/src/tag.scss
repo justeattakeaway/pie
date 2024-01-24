@@ -1,0 +1,147 @@
+@use '@justeattakeaway/pie-css/scss' as p;
+
+// Base tag styles
+.c-tag {
+    // The following values set to a default tag (neutral large)
+    --tag-bg-color: var(--dt-color-container-inverse);
+    --tag-color: var(--dt-color-content-inverse);
+    --tag-padding: 2px var(--dt-spacing-b);
+    --tag-height: 24px;
+    --tag-border-radius: var(--dt-radius-rounded-b);
+    --tag-font-family: var(--dt-font-body-s-family);
+    --tag-font-weight: var(--dt-font-body-s-weight);
+    --tag-font-size: #{p.font-size(--dt-font-body-s-size)};
+    --tag-line-height: #{p.line-height(--dt-font-body-s-line-height)};
+
+    // transparent to variable to function properly in component tests
+    --tag-transparent-bg-color: transparent;
+
+    // Heights for the different tag sizes
+    --tag-height-large: 24px;
+    --tag-height-small: 16px;
+
+    // Pie Webc Icon var that is used to ensure the correctly sized icon passed in a slot
+    --icon-display-override: block;
+    --icon-size-override: 16px;
+
+    display: inline-flex;
+    vertical-align: middle;
+    align-items: center;
+    justify-content: center;
+    gap: var(--dt-spacing-a);
+    height: var(--tag-height);
+    padding: var(--tag-padding);
+    border: none;
+    border-radius: var(--tag-border-radius);
+    background-color: var(--tag-bg-color);
+    color: var(--tag-color);
+    font-family: var(--tag-font-family);
+    font-weight: var(--tag-font-weight);
+    font-size: var(--tag-font-size);
+    line-height: var(--tag-line-height);
+    opacity: var(--tag-opacity, 1); // we don't specify --tag-opacity variable here to let consumers override a default value that we set
+
+    // Size
+    &[size='small'] {
+        --tag-height: var(--tag-height-small);
+        --tag-padding: 0 var(--dt-spacing-a);
+        --tag-border-radius: var(--dt-radius-rounded-a);
+        --tag-font-size: #{p.font-size(--dt-font-caption-size)};
+        --tag-line-height: #{p.line-height(--dt-font-caption-line-height)};
+    }
+
+    &[size='large'] {
+        --tag-height: var(--tag-height-large);
+        --tag-padding: 2px var(--dt-spacing-b);
+        --tag-border-radius: var(--dt-radius-rounded-b);
+        --tag-font-size: #{p.font-size(--dt-font-body-s-size)};
+        --tag-line-height: #{p.line-height(--dt-font-body-s-line-height)};
+    }
+
+    // Variant
+    &[variant='neutral'] {
+        --tag-bg-color: var(--dt-color-container-strong);
+        --tag-color: var(--dt-color-content-default);
+
+        &[isStrong] {
+            --tag-bg-color: var(--dt-color-container-inverse);
+            --tag-color: var(--dt-color-content-inverse);
+        }
+    }
+
+    &[variant='blue'] {
+        --tag-bg-color: var(--dt-color-support-info-02);
+        --tag-color: var(--dt-color-content-default);
+
+        &[isStrong] {
+            --tag-bg-color: var(--dt-color-support-info);
+            --tag-color: var(--dt-color-content-light);
+        }
+    }
+
+    &[variant='green'] {
+        --tag-bg-color: var(--dt-color-support-positive-02);
+        --tag-color: var(--dt-color-content-default);
+
+        &[isStrong] {
+            --tag-bg-color: var(--dt-color-support-positive);
+            --tag-color: var(--dt-color-content-light);
+        }
+    }
+
+    &[variant='yellow'] {
+        --tag-bg-color: var(--dt-color-support-warning-02);
+        --tag-color: var(--dt-color-content-dark);
+
+        &[isStrong] {
+            --tag-bg-color: var(--dt-color-support-warning);
+            --tag-color: var(--dt-color-content-dark);
+        }
+    }
+
+    &[variant='red'] {
+        --tag-bg-color: var(--dt-color-support-error-02);
+        --tag-color: var(--dt-color-content-default);
+
+        &[isStrong] {
+            --tag-bg-color: var(--dt-color-support-error);
+            --tag-color: var(--dt-color-content-light);
+        }
+    }
+
+    &[variant='brand'] {
+        --tag-bg-color: var(--dt-color-support-brand-02);
+        --tag-color: var(--dt-color-content-default);
+    }
+
+    &[variant='neutral-alternative'] {
+        --tag-bg-color: var(--dt-color-container-default);
+        --tag-color: var(--dt-color-content-default);
+    }
+
+    &[variant='outline'] {
+        --tag-bg-color: var(--tag-transparent-bg-color);
+        --tag-color: var(--dt-color-content-default);
+        border: 1px solid var(--dt-color-border-strong);
+
+        &[size='small'] {
+            --tag-padding: 0 3px; // small tag padding minus 1px of the border
+        }
+
+        &[size='large'] {
+            --tag-padding: 1px 7px; // large tag padding minus 1px of the border
+        }
+    }
+
+    &[variant='ghost'] {
+        --tag-bg-color: var(--tag-transparent-bg-color);
+        --tag-color: var(--dt-color-content-default);
+    }
+}
+
+// Used to size an SVG if one is passed in (when not using the component icons)
+::slotted(svg) {
+    display: block;
+    height: var(--icon-size-override);
+    width: var(--icon-size-override);
+}

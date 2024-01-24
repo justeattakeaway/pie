@@ -4,10 +4,30 @@
     "build": {
       "cache": true,
       "dependsOn": [
-        "^build"
+        "^build",
+        "build:react-wrapper"
       ],
       "outputs": [
         "dist/**"
+      ]
+    },
+    "build:react-wrapper": {
+      "cache": true,
+      "dependsOn": [
+        "create:manifest"
+      ],
+      "inputs": [
+        "src/**",
+        "custom-elements.json"
+      ],
+      "outputs": [
+        "src/react.ts"
+      ]
+    },
+    "create:manifest": {
+      "cache": true,
+      "outputs": [
+        "custom-elements.json"
       ]
     },
     "build:examples": {
@@ -115,6 +135,10 @@
     },
     "lint:scripts": {
       "cache": true,
+      "inputs": [
+        "src/**",
+        "src/react.ts"
+      ],
       "outputs": []
     },
     "lint:scripts:fix": {
@@ -133,7 +157,9 @@
     },
     "dev": {
       "cache": false,
-      "dependsOn": []
+      "dependsOn": [
+        "^build"
+      ]
     }
   }
 }

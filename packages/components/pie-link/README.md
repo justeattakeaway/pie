@@ -8,15 +8,6 @@
   </a>
 </p>
 
-# Table of Contents
-
-1. [Introduction](#pie-link)
-2. [Installation](#installation)
-3. [Importing the component](#importing-the-component)
-4. [Peer Dependencies](#peer-dependencies)
-5. [Props](#props)
-6. [Contributing](#contributing)
-
 ## pie-link
 
 `pie-link` is a Web Component built using the Lit library.
@@ -36,74 +27,13 @@ $ npm i @justeattakeaway/pie-link
 $ yarn add @justeattakeaway/pie-link
 ```
 
-For full information on using PIE components as part of an application, check out the [Getting Started Guide](https://github.com/justeattakeaway/pie/wiki/Getting-started-with-PIE-Web-Components).
+## Documentation
 
+Visit  [Link | PIE Design System](https://pie.design/components/link/overview) to view more information on this component.
 
-### Importing the component
+## Questions
 
-```js
-// default
-import { PieLink } from '@justeattakeaway/pie-link';
-
-// react
-import { PieLink } from '@justeattakeaway/pie-link/dist/react';
-```
-
-
-## Peer Dependencies
-
-> [!IMPORTANT]
-> When using `pie-link`, you will also need to include a couple of dependencies to ensure the component renders as expected. See [the PIE Wiki](https://github.com/justeattakeaway/pie/wiki/Getting-started-with-PIE-Web-Components#expected-dependencies) for more information and how to include these in your application.
-
-## Props
-
-| Property      | Type        | Default       | Description                                                                                          |
-| ------------- | ----------- | ------------- | ---------------------------------------------------------------------------------------------------- |
-| tag           | `String`  | `a`         | The rendered HTML element of the link, one of `tags` – `a`, `button`                        |
-| variant       | `String`  | `default`   | Variant of the link, one of `variants` – `default`, `high-visibility`, `inverse`         |
-| size          | `String`  | `medium`    | Size of the link, one of `sizes` – `medium`, `small`                                          |
-| underline          | `String`  | `default`    | The underline behavior of the link, one of `underlineTypes` – `default`, `reversed`. The `reverse` type can only be used if `isStandalone` is set to `true`                                          |
-| href          | `String`  | `undefined` | Native html `href` attribute                                                                       |
-| rel           | `String`  | `undefined` | Native html `rel` attribute                                                                        |
-| target        | `String`  | `undefined` | Native html `target` attribute                                                                     |
-| type          | `String`  | `submit`    | Native html `type` attribute if the tag is set to `button`                                       |
-| isBold        | `Boolean` | `false`     | If `true`, sets the link text bold                                                                 |
-| isStandalone  | `Boolean` | `false`     | If `true`, sets the link as a block element                                                        |
-| hasVisited    | `Boolean` | `false`     | If `true`, the link will apply the styles for the visited state                                    |
-| iconPlacement | `String`  | `leading`   | Icon placements of the icon slot, if provided, one of `iconPlacements` - `leading`, `trailing`. Can only be used if `isStandalone` is `true` |
-| aria | `object` | `undefined` | The ARIA labels used for the link. |
-
-In your markup or JSX, you can then use these to set the properties for the `pie-link` component:
-
-```html
-<!-- Native HTML -->
-<pie-link></pie-link>
-
-<!-- JSX -->
-<PieLink></PieLink>
-```
-
-## Slots
-
-| Slot         | Description                                                                                                                                                                                                                |
-| ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Default slot | The default slot is used to pass text into the link component.                                                                                                                                                             |
-| icon         | Used to pass in an icon to the link component. The icon placement can be controlled via the `iconPlacement` prop and we recommend using `pie-icons-webc` for defining this icon, but this can also accept an SVG icon. |
-
-### Using `pie-icons-webc` with the `pie-link` icon slot
-
-We recommend using `pie-icons-webc` when using the `icon` slot. Here is an example of how you would do this:
-
-```html
-<!--
-  Note that pie-link and the icons that you want to use will need to be imported as components into your application.
-  See the `pie-icons-webc` README for more info on importing these icons.
--->
-<pie-link>
-    <icon-plus-circle slot="icon"></icon-plus-circle>
-    Search
-</pie-link>
-```
+Please head to [FAQs | PIE Design System](https://pie.design/support/contact-us/) to see our FAQs and get in touch.
 
 ## Contributing
 

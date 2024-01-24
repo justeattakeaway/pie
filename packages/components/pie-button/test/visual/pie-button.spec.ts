@@ -13,8 +13,8 @@ import {
     WebComponentTestWrapper,
 } from '@justeattakeaway/pie-webc-testing/src/helpers/components/web-component-test-wrapper/WebComponentTestWrapper.ts';
 import { percyWidths } from '@justeattakeaway/pie-webc-testing/src/percy/breakpoints.ts';
-import { PieButton } from '@/index';
-import { sizes, variants, iconPlacements } from '@/defs';
+import { PieButton } from '../../src/index.ts';
+import { sizes, variants, iconPlacements } from '../../src/defs.ts';
 
 const props: PropObject = {
     variant: variants,
@@ -41,7 +41,7 @@ const componentVariants: string[] = Object.keys(componentPropsMatrixByVariant);
 
 // This ensures the component is registered in the DOM for each test
 // This is not required if your tests mount the web component directly in the tests
-test.beforeEach(async ({ page, mount }) => {
+test.beforeEach(async ({ page, mount }, testInfo) => {
     await mount(
         PieButton,
         {},
@@ -52,6 +52,9 @@ test.beforeEach(async ({ page, mount }) => {
         const element : Element | null = document.querySelector('pie-button');
         element?.remove();
     });
+
+    // extend timeout for button tests to run
+    testInfo.setTimeout(testInfo.timeout + 40000);
 });
 
 componentVariants.forEach((variant) => test(`should render all prop variations for Variant: ${variant}`, async ({ page, mount }) => {
@@ -70,6 +73,9 @@ componentVariants.forEach((variant) => test(`should render all prop variations f
             },
         );
     }));
+
+    // Follow up to remove in Jan
+    await page.waitForTimeout(2500);
 
     await percySnapshot(page, `PIE Button - Variant: ${variant}`, percyWidths);
 }));

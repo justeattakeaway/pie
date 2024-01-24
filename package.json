@@ -1,14 +1,14 @@
 {
   "name": "pie-monorepo",
   "description": "The home of Just Eat Takeaway.com's PIE Design System",
-  "version": "2.32.0",
+  "version": "2.51.1",
   "keywords": [],
   "author": "Just Eat Takeaway.com - Design System Team",
   "license": "Apache-2.0",
   "packageManager": "yarn@3.5.0",
   "private": true,
   "engines": {
-    "node": "^16 || ^18"
+    "node": "^16 || ^18 || ^20"
   },
   "workspaces": {
     "packages": [
@@ -23,6 +23,8 @@
     "build": "cross-env-shell turbo run build --filter=!'./apps/examples/*' --filter=!pie-monorepo --token=${TURBO_TOKEN}",
     "build:dev": "cross-env-shell turbo run build:dev --filter=!'./apps/examples/*' --filter=!pie-monorepo --token=${TURBO_TOKEN}",
     "build:examples": "cross-env-shell turbo run build:examples --token=${TURBO_TOKEN}",
+    "build:react-wrapper": "cross-env-shell turbo run build:react-wrapper --token=${TURBO_TOKEN}",
+    "create:manifest": "cross-env-shell turbo run create:manifest --token=${TURBO_TOKEN}",
     "changeset": "changeset",
     "changeset:publish": "changeset publish",
     "changeset:version": "changeset version",
@@ -39,9 +41,10 @@
     "postinstall": "husky install",
     "prepack": "pinst --disable",
     "postpack": "pinst --enable",
-    "test": "cross-env-shell turbo run test --filter=!pie-monorepo --token=${TURBO_TOKEN}",
+    "test": "yarn test:workflows && cross-env-shell turbo run test --filter=!pie-monorepo --token=${TURBO_TOKEN}",
+    "test:workflows": "cross-env-shell vitest run .github/workflows",
     "test:watch": "cross-env-shell turbo run test:watch --filter=!pie-monorepo",
-    "test:ci": "cross-env-shell turbo run test:ci --filter=!'./apps/examples/*' --filter=!pie-monorepo --token=${TURBO_TOKEN}",
+    "test:ci": "yarn test:workflows && cross-env-shell turbo run test:ci --filter=!'./apps/examples/*' --filter=!pie-monorepo --token=${TURBO_TOKEN}",
     "test:coverage": "turbo run test:coverage --filter=!pie-monorepo",
     "test:generate-routes": "turbo run test:generate-routes --filter=!pie-monorepo --token=${TURBO_TOKEN}",
     "test:browsers": "cross-env-shell turbo run test:browsers --filter=!pie-monorepo --token=${TURBO_TOKEN}",
@@ -55,7 +58,7 @@
   "devDependencies": {
     "@axe-core/playwright": "4.7.3",
     "@babel/cli": "7.22.15",
-    "@babel/core": "7.23.2",
+    "@babel/core": "7.23.7",
     "@babel/eslint-parser": "7.21.8",
     "@babel/node": "7.20.7",
     "@babel/preset-env": "7.21.4",
@@ -64,29 +67,30 @@
     "@changesets/cli": "2.26.2",
     "@commitlint/cli": "17.5.1",
     "@commitlint/config-conventional": "17.4.4",
-    "@justeat/pie-design-tokens": "5.8.2",
+    "@justeat/pie-design-tokens": "5.9.0",
     "@justeattakeaway/browserslist-config-pie": "0.2.0",
-    "@justeattakeaway/generator-pie-component": "0.13.0",
-    "@justeattakeaway/pie-icons": "4.9.2",
-    "@justeattakeaway/pie-webc-testing": "0.6.0",
+    "@justeattakeaway/generator-pie-component": "0.18.0",
+    "@justeattakeaway/pie-icons": "4.9.3",
+    "@justeattakeaway/pie-webc-testing": "0.8.0",
+    "@justeattakeaway/pie-wrapper-react": "0.14.0",
     "@justeattakeaway/stylelint-config-pie": "0.5.0",
     "@percy/cli": "1.26.3",
     "@percy/playwright": "1.0.4",
+    "@playwright/experimental-ct-react": "1.32.3",
     "@playwright/test": "1.32.3",
     "@rollup/plugin-node-resolve": "15.1.0",
     "@sand4rt/experimental-ct-web": "1.0.8",
     "@types/node": "20.4.8",
-    "@types/react": "18.0.33",
+    "@types/react": "18.2.48",
     "@typescript-eslint/eslint-plugin": "5.62.0",
     "@typescript-eslint/parser": "5.62.0",
-    "allure-commandline": "2.21.0",
-    "autoprefixer": "10.4.15",
+    "autoprefixer": "10.4.17",
     "babel-loader": "8.3.0",
-    "body-scroll-lock": "3.1.5",
     "commitizen": "4.3.0",
     "cross-env": "7.0.3",
     "cssnano": "5.1.15",
     "cz-customizable": "7.0.0",
+    "danger": "11.3.0",
     "dree": "3.4.5",
     "eslint": "8.37.0",
     "eslint-plugin-import": "2.27.5",
@@ -97,26 +101,22 @@
     "jest-expect-message": "1.1.3",
     "npm-run-all": "4.1.5",
     "pinst": "3.0.0",
-    "postcss": "8.4.29",
+    "postcss": "8.4.32",
     "postcss-cli": "10.1.0",
-    "rimraf": "3.0.2",
+    "rimraf": "5.0.5",
     "sass": "1.60.0",
     "stylelint": "14.16.1",
     "stylelint-config-standard-scss": "5.0.0",
     "stylelint-order": "5.0.0",
     "ts-node": "10.9.1",
-    "turbo": "1.10.12",
+    "turbo": "1.10.16",
     "typescript": "5.1.3",
-    "vite": "4.3.9",
+    "vite": "4.5.2",
     "vite-plugin-dts": "2.3.0",
     "vitest": "0.29.8",
     "vue": "2.7.14",
     "vue-template-compiler": "2.7.14",
     "webpack": "5.77.0"
-  },
-  "dependencies": {
-    "@justeat/fozzie": "11.0.1",
-    "lit": "2.7.5"
   },
   "config": {
     "commitizen": {
@@ -127,10 +127,11 @@
     }
   },
   "volta": {
-    "node": "18.15.0",
+    "node": "20.9.0",
     "yarn": "3.5.0"
   },
   "resolutions": {
-    "@babel/traverse": "7.22.5"
+    "@babel/traverse": "7.22.5",
+    "lit": "3.1.1"
   }
 }

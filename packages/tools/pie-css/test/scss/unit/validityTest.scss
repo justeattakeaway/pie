@@ -6,21 +6,29 @@
 
 :root {
     --test-font-size: 12;
+    --test-line-height: 16;
     --bar-font-size: #{functions.font-size('--test-font-size')};
+    --bar-line-height: #{functions.line-height('--test-line-height')};
 }
 
 .foo {
     @include mixins.font-size(--font-size);
+    @include mixins.line-height(--line-height);
 
     :focus-visible {
         @include mixins.focus;
     }
 
-    &[isdraggable]:not([interactiontype='none']) {
+    .hidden-element {
+        @include mixins.visually-hidden;
+    }
+
+    &[isdraggable] {
         @extend %has-grab-cursor;
     }
 }
 
 .bar {
     font-size: var(--bar-font-size);
+    line-height: var(--bar-line-height);
 }

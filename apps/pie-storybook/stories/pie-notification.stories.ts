@@ -1,12 +1,14 @@
-import { html, TemplateResult } from 'lit';
-import { PieNotification, NotificationProps, variants, headingLevels } from '@justeattakeaway/pie-notification';
-import { type StoryMeta } from '../types';
-import { createStory } from '../utilities';
+import { html } from 'lit';
 
-// This prevents storybook from tree shaking the components
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const keptReferences = [PieNotification];
+/* eslint-disable import/no-duplicates */
+import '@justeattakeaway/pie-notification';
+import { NotificationProps as NotificationBaseProps, variants, headingLevels } from '@justeattakeaway/pie-notification';
+/* eslint-enable import/no-duplicates */
 
+import { type StoryMeta, SlottedComponentProps } from '../types';
+import { createStory, type TemplateFunction } from '../utilities';
+
+type NotificationProps = SlottedComponentProps<NotificationBaseProps>;
 type NotificationStoryMeta = StoryMeta<NotificationProps>;
 
 const defaultArgs: NotificationProps = {
@@ -63,29 +65,22 @@ const notificationStoryMeta: NotificationStoryMeta = {
 
 export default notificationStoryMeta;
 
-// TODO: remove the eslint-disable rule when props are added
-// eslint-disable-next-line no-empty-pattern
-const Template = (props: NotificationProps) : TemplateResult => {
-    const {
-        isOpen,
-        compact,
-        variant,
-        heading,
-        headingLevel,
-        slot,
-    } = props;
-
-    return html`
-        <pie-notification
-            isOpen="${isOpen}"
-            variant="${variant}"
-            compact="${compact}"
-            heading="${heading}"
-            headingLevel="${headingLevel}"
-            >
-            ${slot}
-        </pie-notification>
-    `;
-};
+const Template : TemplateFunction<NotificationProps> = ({
+    isOpen,
+    compact,
+    variant,
+    heading,
+    headingLevel,
+    slot,
+}) => html`
+    <pie-notification
+        isOpen="${isOpen}"
+        variant="${variant}"
+        compact="${compact}"
+        heading="${heading}"
+        headingLevel="${headingLevel}"
+        >
+        ${slot}
+    </pie-notification>`;
 
 export const Default = createStory<NotificationProps>(Template, defaultArgs)();

@@ -1,16 +1,16 @@
 @use '../fozzie-config' as f;
 
-$nav-category-gap: f.spacing(b);
-$nav-category-icon-width: f.spacing(e); // this needs to be kept in sync with the width given to the icon found in nav.njk
-$nav-item-left-margin: calc($nav-category-gap + $nav-category-icon-width);
+$nav-category-gap: var(--dt-spacing-b);
+$nav-category-icon-width: var(--dt-spacing-e); // this needs to be kept in sync with the width given to the icon found in nav.njk
+$nav-item-inline-start-margin: calc($nav-category-gap + $nav-category-icon-width);
 
 .c-nav {
     @include f.font-size('body-s');
-    background: f.$color-container-default;
-    padding-top: f.spacing(d);
+    background: var(--dt-color-container-default);
+    padding-top: var(--dt-spacing-d);
 
     @include f.media('>=wide') {
-        border-right: 1px solid f.$color-border-default;
+        border-right: 1px solid var(--dt-color-border-default);
     }
 
     @include f.media('<wide') {
@@ -34,7 +34,10 @@ $nav-item-left-margin: calc($nav-category-gap + $nav-category-icon-width);
     }
 
     .c-nav-list {
-        margin: f.spacing(a) 0 f.spacing(b) 0;
+        margin-block-start: var(--dt-spacing-a);
+        margin-block-end: var(--dt-spacing-b);
+        margin-inline-start: 0;
+        margin-inline-end: 0;
     }
 }
 
@@ -66,36 +69,48 @@ $nav-item-left-margin: calc($nav-category-gap + $nav-category-icon-width);
 }
 
 .c-nav-category {
-    padding: 10px f.spacing(d);
+    padding-block-start: 10px;
+    padding-block-end: 10px;
+    padding-inline-start: var(--dt-spacing-d);
+    padding-inline-end: var(--dt-spacing-d);
     font-weight: f.$font-weight-bold;
 }
 
 .c-nav-item {
     display: block;
-    padding: 10px f.spacing(d);
-    margin: 0 f.spacing(d) 2px $nav-item-left-margin;
+    padding-block-start: 10px;
+    padding-block-end: 10px;
+    padding-inline-start: var(--dt-spacing-d);
+    padding-inline-end: var(--dt-spacing-d);
+    margin-block-start: 0;
+    margin-block-end: 2px;
+    margin-inline-start: $nav-item-inline-start-margin;
+    margin-inline-end: var(--dt-spacing-d);
     text-decoration: none;
-    color: f.$color-content-default;
+    color: var(--dt-color-content-default);
 
     &.is-active {
-        background-color: f.$color-container-subtle;
+        background-color: var(--dt-color-container-subtle);
         font-weight: f.$font-weight-bold;
     }
 
     &.is-active,
     &:hover,
     &:focus {
-        border-radius: f.$radius-rounded-b;
+        border-radius: var(--dt-radius-rounded-b);
     }
 }
 
 .c-nav-subCategory {
-    padding-block: 10px;
-    padding-inline: calc(f.spacing(d) + $nav-item-left-margin) f.spacing(d);
-    margin-block: 0 2px;
+    padding-block-start: 10px;
+    padding-block-end: 10px;
+    padding-inline-start: calc(var(--dt-spacing-d) + $nav-item-inline-start-margin);
+    padding-inline-end: var(--dt-spacing-d);
+    margin-block-start: 0;
+    margin-block-end: 2px;
 
     + .c-nav-list {
-        margin-inline-start: f.spacing(d);
+        margin-inline-start: var(--dt-spacing-d);
     }
 }
 
@@ -106,7 +121,7 @@ $nav-item-left-margin: calc($nav-category-gap + $nav-category-icon-width);
 
     &:hover,
     &:focus {
-        background-color: f.$color-container-subtle;
+        background-color: var(--dt-color-container-subtle);
         text-decoration: underline;
     }
 }

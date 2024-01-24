@@ -16,7 +16,7 @@ exports.getNavigationRoutes = () => {
 */
 const readChildren = (childDirectories, result = []) => {
     // folders in the dist we want to ignore
-    const ignores = ['assets'];
+    const ignores = ['assets', 'node_modules'];
 
     // Files we want to specifically include
     const includes = ['404.html'];

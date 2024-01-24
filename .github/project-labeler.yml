@@ -30,7 +30,7 @@ eslint-config-pie:
 - 'packages/tools/eslint-config-pie/**/*'
 
 stylelint-config-pie:
-- 'packages/tools/pie-stylelint-config/**/*'
+- 'packages/tools/stylelint-config-pie/**/*'
 
 generator-pie-component:
 - 'packages/tools/generator-pie-component/**/*'
@@ -45,8 +45,8 @@ components:
 pie-button:
 - 'packages/components/pie-button/**/*'
 
-pie-card-container:
-- './packages/components/pie-card-container/**/*'
+pie-card:
+- './packages/components/pie-card/**/*'
 
 pie-cookie-banner:
 - './packages/components/pie-cookie-banner/**/*'
@@ -60,6 +60,9 @@ pie-form-label:
 pie-icon-button:
 - 'packages/components/pie-icon-button/**/*'
 
+pie-input:
+- "packages/components/pie-input/**/*"
+
 pie-link:
 - 'packages/components/pie-link/**/*'
 
@@ -69,8 +72,14 @@ pie-modal:
 pie-notification:
 - 'packages/components/pie-notification/**/*'
 
-pie-toggle-switch:
-- 'packages/components/pie-toggle-switch/**/*'
+pie-switch:
+- 'packages/components/pie-switch/**/*'
+
+pie-spinner:
+- "packages/components/pie-spinner/**/*"
+
+pie-tag:
+- "packages/components/pie-tag/**/*"
 
 pie-webc-core:
 - 'packages/components/pie-webc-core/**/*'

@@ -1,5 +1,538 @@
 # Changelog
 
+## 0.59.2
+
+### Patch Changes
+
+- Updated dependencies [[`365681462`](https://github.com/justeattakeaway/pie/commit/3656814623c74dbe49a25c894292d4621697ec7c), [`254295b17`](https://github.com/justeattakeaway/pie/commit/254295b1745f2a3c8b05c15a5a6795385b0003be), [`bc6aaae52`](https://github.com/justeattakeaway/pie/commit/bc6aaae5211328192879737134fac5c0bc3c22c2), [`e320cb1e1`](https://github.com/justeattakeaway/pie/commit/e320cb1e12cc10e07863090ea2d22be7017dd365)]:
+  - @justeattakeaway/pie-card@0.17.2
+  - @justeattakeaway/pie-form-label@0.11.0
+  - @justeattakeaway/pie-icon-button@0.27.2
+  - @justeattakeaway/pie-spinner@0.5.2
+  - @justeattakeaway/pie-css@0.9.1
+  - @justeattakeaway/pie-switch@0.25.0
+  - @justeattakeaway/pie-input@0.7.0
+  - @justeattakeaway/pie-link@0.15.0
+  - @justeattakeaway/pie-cookie-banner@0.16.0
+  - @justeattakeaway/pie-modal@0.38.2
+  - @justeattakeaway/pie-button@0.45.2
+
+## 0.59.1
+
+### Patch Changes
+
+- Updated dependencies [[`378bcea7d`](https://github.com/justeattakeaway/pie/commit/378bcea7d009d864d2c7983183cdcb4000eb3e23), [`378bcea7d`](https://github.com/justeattakeaway/pie/commit/378bcea7d009d864d2c7983183cdcb4000eb3e23), [`515438272`](https://github.com/justeattakeaway/pie/commit/5154382729aee39ce38fe98a8b65791ba2f79187)]:
+  - @justeattakeaway/pie-button@0.45.1
+  - @justeattakeaway/pie-switch@0.24.1
+  - @justeattakeaway/pie-cookie-banner@0.15.1
+  - @justeattakeaway/pie-notification@0.3.1
+  - @justeattakeaway/pie-icon-button@0.27.1
+  - @justeattakeaway/pie-form-label@0.10.1
+  - @justeattakeaway/pie-divider@0.12.1
+  - @justeattakeaway/pie-spinner@0.5.1
+  - @justeattakeaway/pie-input@0.6.1
+  - @justeattakeaway/pie-modal@0.38.1
+  - @justeattakeaway/pie-card@0.17.1
+  - @justeattakeaway/pie-link@0.14.1
+  - @justeattakeaway/pie-tag@0.4.1
+  - @justeattakeaway/pie-icons-webc@0.17.2
+
+## 0.59.0
+
+### Minor Changes
+
+- [Added] - name property to `pie-input` component ([#1170](https://github.com/justeattakeaway/pie/pull/1170)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies [[`bcc1a60a4`](https://github.com/justeattakeaway/pie/commit/bcc1a60a4d15eeb944ebdbcb387574ae11227372), [`918593afd`](https://github.com/justeattakeaway/pie/commit/918593afd939e8c911542235a5d861680ceba2d0), [`bcc1a60a4`](https://github.com/justeattakeaway/pie/commit/bcc1a60a4d15eeb944ebdbcb387574ae11227372), [`24be8ac1a`](https://github.com/justeattakeaway/pie/commit/24be8ac1a5b5113b94c1971b9a59713fbaf86be5)]:
+  - @justeattakeaway/pie-input@0.6.0
+  - @justeattakeaway/pie-switch@0.24.0
+  - @justeattakeaway/pie-cookie-banner@0.15.0
+  - @justeattakeaway/pie-notification@0.3.0
+  - @justeattakeaway/pie-icon-button@0.27.0
+  - @justeattakeaway/pie-form-label@0.10.0
+  - @justeattakeaway/pie-divider@0.12.0
+  - @justeattakeaway/pie-spinner@0.5.0
+  - @justeattakeaway/pie-button@0.45.0
+  - @justeattakeaway/pie-modal@0.38.0
+  - @justeattakeaway/pie-card@0.17.0
+  - @justeattakeaway/pie-link@0.14.0
+  - @justeattakeaway/pie-tag@0.4.0
+  - @justeattakeaway/pie-icons-webc@0.17.1
+
+## 0.58.0
+
+### Minor Changes
+
+- [Added] - value prop to pie-input stories ([#1165](https://github.com/justeattakeaway/pie/pull/1165)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies [[`4bd3f9cd8`](https://github.com/justeattakeaway/pie/commit/4bd3f9cd8511ea7acd5de7196e7de4919a85bf17)]:
+  - @justeattakeaway/pie-input@0.5.0
+
+## 0.57.0
+
+### Minor Changes
+
+- [Added] - A form integration story for pie input to start testing form data and submission ([#1154](https://github.com/justeattakeaway/pie/pull/1154)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies [[`847c71160`](https://github.com/justeattakeaway/pie/commit/847c71160c38d8618a8dfd59891a4209f52bb015)]:
+  - @justeattakeaway/pie-input@0.4.0
+
+## 0.56.2
+
+### Patch Changes
+
+- Updated dependencies [[`320ee9d4b`](https://github.com/justeattakeaway/pie/commit/320ee9d4b53df60d2e69256c5a64c7abfbfbae16), [`4c65a8176`](https://github.com/justeattakeaway/pie/commit/4c65a8176273f3883dc2be2d0c8a33aef56f8993), [`4c65a8176`](https://github.com/justeattakeaway/pie/commit/4c65a8176273f3883dc2be2d0c8a33aef56f8993)]:
+  - @justeattakeaway/pie-switch@0.23.0
+  - @justeattakeaway/pie-cookie-banner@0.14.0
+  - @justeattakeaway/pie-notification@0.2.0
+  - @justeattakeaway/pie-icon-button@0.26.0
+  - @justeattakeaway/pie-form-label@0.9.0
+  - @justeattakeaway/pie-divider@0.11.0
+  - @justeattakeaway/pie-spinner@0.4.0
+  - @justeattakeaway/pie-button@0.44.0
+  - @justeattakeaway/pie-input@0.3.0
+  - @justeattakeaway/pie-modal@0.37.0
+  - @justeattakeaway/pie-icons-webc@0.17.0
+  - @justeattakeaway/pie-card@0.16.0
+  - @justeattakeaway/pie-link@0.13.0
+  - @justeattakeaway/pie-tag@0.3.0
+
+## 0.56.1
+
+### Patch Changes
+
+- Updated dependencies [[`687bdd904`](https://github.com/justeattakeaway/pie/commit/687bdd90475fef58a492c980a7f7d9261ee94eb9), [`0bd834d59`](https://github.com/justeattakeaway/pie/commit/0bd834d5952a1c3833793d0b228162dc83cedcea), [`0bd834d59`](https://github.com/justeattakeaway/pie/commit/0bd834d5952a1c3833793d0b228162dc83cedcea)]:
+  - @justeattakeaway/pie-button@0.43.0
+  - @justeattakeaway/pie-tag@0.2.0
+  - @justeattakeaway/pie-card@0.15.2
+  - @justeattakeaway/pie-cookie-banner@0.13.4
+  - @justeattakeaway/pie-divider@0.10.2
+  - @justeattakeaway/pie-form-label@0.8.5
+  - @justeattakeaway/pie-icon-button@0.25.2
+  - @justeattakeaway/pie-input@0.2.1
+  - @justeattakeaway/pie-link@0.12.2
+  - @justeattakeaway/pie-modal@0.36.2
+  - @justeattakeaway/pie-notification@0.1.5
+  - @justeattakeaway/pie-spinner@0.3.3
+  - @justeattakeaway/pie-switch@0.22.2
+  - @justeattakeaway/pie-icons-webc@0.16.2
+
+## 0.56.0
+
+### Minor Changes
+
+- [Added] - Render an input inside of pie-input with a type property that defaults to text ([#1138](https://github.com/justeattakeaway/pie/pull/1138)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies [[`68df521fd`](https://github.com/justeattakeaway/pie/commit/68df521fdd765bfdba5428f9973be79bf8fb4b20), [`03cd71ffa`](https://github.com/justeattakeaway/pie/commit/03cd71ffa072f6cfe3f1114e20ec2990a728daba)]:
+  - @justeattakeaway/pie-input@0.2.0
+  - @justeattakeaway/pie-button@0.42.1
+  - @justeattakeaway/pie-card@0.15.1
+  - @justeattakeaway/pie-cookie-banner@0.13.3
+  - @justeattakeaway/pie-divider@0.10.1
+  - @justeattakeaway/pie-form-label@0.8.4
+  - @justeattakeaway/pie-icon-button@0.25.1
+  - @justeattakeaway/pie-link@0.12.1
+  - @justeattakeaway/pie-modal@0.36.1
+  - @justeattakeaway/pie-notification@0.1.4
+  - @justeattakeaway/pie-spinner@0.3.2
+  - @justeattakeaway/pie-switch@0.22.1
+  - @justeattakeaway/pie-tag@0.1.1
+  - @justeattakeaway/pie-icons-webc@0.16.1
+
+## 0.55.0
+
+### Minor Changes
+
+- [Added] - Initial generated storybook boilerplate for pie-input ([#1135](https://github.com/justeattakeaway/pie/pull/1135)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies [[`e27452b22`](https://github.com/justeattakeaway/pie/commit/e27452b228e2a09ded5a2bd88a6d3c567a94f03e), [`270b4679f`](https://github.com/justeattakeaway/pie/commit/270b4679f2ec553fad25baf16b775b6740e1150c), [`e27452b22`](https://github.com/justeattakeaway/pie/commit/e27452b228e2a09ded5a2bd88a6d3c567a94f03e), [`e27452b22`](https://github.com/justeattakeaway/pie/commit/e27452b228e2a09ded5a2bd88a6d3c567a94f03e), [`99160e0c3`](https://github.com/justeattakeaway/pie/commit/99160e0c3fa6d4ef566fefdbea7850e469e502b9), [`5541a6b1d`](https://github.com/justeattakeaway/pie/commit/5541a6b1d6f7fb9dff75e16c28087bd853564426)]:
+  - @justeattakeaway/pie-icon-button@0.25.0
+  - @justeattakeaway/pie-icons-webc@0.16.0
+  - @justeattakeaway/pie-button@0.42.0
+  - @justeattakeaway/pie-divider@0.10.0
+  - @justeattakeaway/pie-switch@0.22.0
+  - @justeattakeaway/pie-modal@0.36.0
+  - @justeattakeaway/pie-card@0.15.0
+  - @justeattakeaway/pie-link@0.12.0
+  - @justeattakeaway/pie-cookie-banner@0.13.2
+
+## 0.54.1
+
+### Patch Changes
+
+- [Changed] - Rename `isDisabled` pie-switch prop to `disabled` to align with native attribute ([#1115](https://github.com/justeattakeaway/pie/pull/1115)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- Updated dependencies [[`fb13fd337`](https://github.com/justeattakeaway/pie/commit/fb13fd337127f9f9220c3ff273caa34fd2845aee), [`99a9bf153`](https://github.com/justeattakeaway/pie/commit/99a9bf153ad142a0584bb915cec22b16279bc923)]:
+  - @justeattakeaway/pie-switch@0.21.0
+  - @justeattakeaway/pie-cookie-banner@0.13.1
+  - @justeattakeaway/pie-button@0.41.1
+  - @justeattakeaway/pie-modal@0.35.6
+
+## 0.54.0
+
+### Minor Changes
+
+- [Added] - New form integration story for pie-switch ([#1103](https://github.com/justeattakeaway/pie/pull/1103)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies [[`cbbce8eef`](https://github.com/justeattakeaway/pie/commit/cbbce8eef2fcc2123bed4538c2ab865f2521660c), [`cbbce8eef`](https://github.com/justeattakeaway/pie/commit/cbbce8eef2fcc2123bed4538c2ab865f2521660c)]:
+  - @justeattakeaway/pie-cookie-banner@0.13.0
+  - @justeattakeaway/pie-switch@0.20.0
+
+## 0.53.0
+
+### Minor Changes
+
+- [Added] - pie-tag stories ([#1098](https://github.com/justeattakeaway/pie/pull/1098)) by [@dandel10n](https://github.com/dandel10n)
+
+### Patch Changes
+
+- Updated dependencies [[`1b2618519`](https://github.com/justeattakeaway/pie/commit/1b2618519ab8d1ff9ab477ad6e6f05a605b61410)]:
+  - @justeattakeaway/pie-tag@0.1.0
+
+## 0.52.5
+
+### Patch Changes
+
+- Updated dependencies [[`f511e18dd`](https://github.com/justeattakeaway/pie/commit/f511e18dd08bc2fee50354bc4c4e4082a60a17f6)]:
+  - @justeattakeaway/pie-cookie-banner@0.12.0
+
+## 0.52.4
+
+### Patch Changes
+
+- [Added] - Storybook action for `pie-switch` `change` event. ([#1084](https://github.com/justeattakeaway/pie/pull/1084)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Changed] - Update `/components/switch/code` documentation page.
+
+- Updated dependencies [[`6af87a9e1`](https://github.com/justeattakeaway/pie/commit/6af87a9e1da042c3a581133b32b81cfe4abcb3ce)]:
+  - @justeattakeaway/pie-switch@0.19.0
+  - @justeattakeaway/pie-cookie-banner@0.11.13
+
+## 0.52.3
+
+### Patch Changes
+
+- Updated dependencies [[`39158323c`](https://github.com/justeattakeaway/pie/commit/39158323c83ae7fe087b67781df6575b9c570c8c)]:
+  - @justeattakeaway/pie-icons-webc@0.15.0
+  - @justeattakeaway/pie-icon-button@0.24.3
+  - @justeattakeaway/pie-modal@0.35.5
+  - @justeattakeaway/pie-switch@0.18.4
+  - @justeattakeaway/pie-cookie-banner@0.11.12
+
+## 0.52.2
+
+### Patch Changes
+
+- Updated dependencies [[`eeab3c0d6`](https://github.com/justeattakeaway/pie/commit/eeab3c0d6db1204f8c42620f9bd3167252609f5c), [`e0516f18d`](https://github.com/justeattakeaway/pie/commit/e0516f18d6637c12a3efb5d692d3ca54e86f1a29)]:
+  - @justeattakeaway/pie-modal@0.35.4
+  - @justeattakeaway/pie-icons-webc@0.14.0
+  - @justeattakeaway/pie-cookie-banner@0.11.11
+  - @justeattakeaway/pie-icon-button@0.24.2
+  - @justeattakeaway/pie-switch@0.18.3
+
+## 0.52.1
+
+### Patch Changes
+
+- [Changed] - updated the modal story padding to match design example ([#1058](https://github.com/justeattakeaway/pie/pull/1058)) by [@raoufswe](https://github.com/raoufswe)
+
+- Updated dependencies [[`f9382cb6d`](https://github.com/justeattakeaway/pie/commit/f9382cb6d6503ed045d2d44c6624020a3a631d0d)]:
+  - @justeattakeaway/pie-icons-webc@0.13.0
+  - @justeattakeaway/pie-icon-button@0.24.1
+  - @justeattakeaway/pie-modal@0.35.3
+  - @justeattakeaway/pie-switch@0.18.2
+  - @justeattakeaway/pie-cookie-banner@0.11.10
+
+## 0.52.0
+
+### Minor Changes
+
+- [Changed] - Removed fozzie scss in favour of pie-css mixins ([#1054](https://github.com/justeattakeaway/pie/pull/1054)) by [@ashleynolan](https://github.com/ashleynolan)
+
+### Patch Changes
+
+- Updated dependencies [[`232990b65`](https://github.com/justeattakeaway/pie/commit/232990b650adb96af8a9dea8d66acc31c47bd5d8)]:
+  - @justeattakeaway/pie-button@0.41.0
+  - @justeattakeaway/pie-cookie-banner@0.11.9
+  - @justeattakeaway/pie-modal@0.35.2
+
+## 0.51.1
+
+### Patch Changes
+
+- Updated dependencies [[`15c218bfd`](https://github.com/justeattakeaway/pie/commit/15c218bfd1df4a11de2a9e29d914c1642fb7b7e3)]:
+  - @justeattakeaway/pie-button@0.40.2
+  - @justeattakeaway/pie-cookie-banner@0.11.8
+  - @justeattakeaway/pie-modal@0.35.1
+
+## 0.51.0
+
+### Minor Changes
+
+- [Fixed] - divider stories aren't visible ([#1051](https://github.com/justeattakeaway/pie/pull/1051)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies [[`0d7ebcd20`](https://github.com/justeattakeaway/pie/commit/0d7ebcd2084ccd716d9d09772a1a78abe069c11e), [`2c9f04e1e`](https://github.com/justeattakeaway/pie/commit/2c9f04e1e36cfa4c41716ef9eb4f54905b46072c), [`ee8720cfd`](https://github.com/justeattakeaway/pie/commit/ee8720cfd477fcee139c8fcdf2cbe177a7efdd24)]:
+  - @justeattakeaway/pie-icon-button@0.24.0
+  - @justeattakeaway/pie-css@0.9.0
+  - @justeattakeaway/pie-modal@0.35.0
+  - @justeattakeaway/pie-cookie-banner@0.11.7
+
+## 0.50.0
+
+### Minor Changes
+
+- [Changed] - Move lit dependency from storybook to webc-core ([#1037](https://github.com/justeattakeaway/pie/pull/1037)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- [Changed] - the icon size of the xsmall icon-button should be 20px ([#1042](https://github.com/justeattakeaway/pie/pull/1042)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Changed] - rely on the padding prop to apply padding for the card stories
+
+### Patch Changes
+
+- Updated dependencies [[`9a3a1db82`](https://github.com/justeattakeaway/pie/commit/9a3a1db82ffd69e9583721b703cd85ac1d34e1f3), [`905e78762`](https://github.com/justeattakeaway/pie/commit/905e78762512739c7b103f4ac5e876062ae2ab7f)]:
+  - @justeattakeaway/pie-icons-webc@0.12.0
+  - @justeattakeaway/pie-icon-button@0.23.0
+  - @justeattakeaway/pie-modal@0.34.1
+  - @justeattakeaway/pie-switch@0.18.1
+  - @justeattakeaway/pie-button@0.40.1
+  - @justeattakeaway/pie-card@0.14.3
+  - @justeattakeaway/pie-cookie-banner@0.11.6
+  - @justeattakeaway/pie-divider@0.9.3
+  - @justeattakeaway/pie-form-label@0.8.3
+  - @justeattakeaway/pie-link@0.11.3
+  - @justeattakeaway/pie-notification@0.1.3
+  - @justeattakeaway/pie-spinner@0.3.1
+
+## 0.49.0
+
+### Minor Changes
+
+- [Fixed] - icons in pie link stories aren't shown if the story url is directly visited ([#1036](https://github.com/justeattakeaway/pie/pull/1036)) by [@siggerzz](https://github.com/siggerzz)
+
+- [Changed] - spinner sizes should be fully spelt out such as large not l ([#1036](https://github.com/justeattakeaway/pie/pull/1036)) by [@siggerzz](https://github.com/siggerzz)
+
+- [Fixed] - add webc-core as a dep in the switch component ([#1036](https://github.com/justeattakeaway/pie/pull/1036)) by [@siggerzz](https://github.com/siggerzz)
+
+### Patch Changes
+
+- Updated dependencies [[`10cf54269`](https://github.com/justeattakeaway/pie/commit/10cf542691f18bc4a93e84e2045985e14efc6330), [`10cf54269`](https://github.com/justeattakeaway/pie/commit/10cf542691f18bc4a93e84e2045985e14efc6330)]:
+  - @justeattakeaway/pie-icon-button@0.22.0
+  - @justeattakeaway/pie-spinner@0.3.0
+  - @justeattakeaway/pie-button@0.40.0
+  - @justeattakeaway/pie-modal@0.34.0
+  - @justeattakeaway/pie-switch@0.18.0
+  - @justeattakeaway/pie-cookie-banner@0.11.5
+
+## 0.48.0
+
+### Minor Changes
+
+- [Changed] - `hoistingLimits` config to prevent issues with conflicting dependency versions ([#1027](https://github.com/justeattakeaway/pie/pull/1027)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-button@0.39.1
+  - @justeattakeaway/pie-card@0.14.2
+  - @justeattakeaway/pie-cookie-banner@0.11.4
+  - @justeattakeaway/pie-divider@0.9.2
+  - @justeattakeaway/pie-form-label@0.8.2
+  - @justeattakeaway/pie-icon-button@0.21.3
+  - @justeattakeaway/pie-link@0.11.2
+  - @justeattakeaway/pie-modal@0.33.1
+  - @justeattakeaway/pie-notification@0.1.2
+  - @justeattakeaway/pie-spinner@0.2.2
+
+## 0.48.0-next.0
+
+### Minor Changes
+
+- [Changed] - `hoistingLimits` config to prevent issues with conflicting dependency versions ([#1025](https://github.com/justeattakeaway/pie/pull/1025)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-button@0.39.1-next.0
+  - @justeattakeaway/pie-card@0.14.2-next.0
+  - @justeattakeaway/pie-cookie-banner@0.11.4-next.0
+  - @justeattakeaway/pie-divider@0.9.2-next.0
+  - @justeattakeaway/pie-form-label@0.8.2-next.0
+  - @justeattakeaway/pie-icon-button@0.21.3-next.0
+  - @justeattakeaway/pie-link@0.11.2-next.0
+  - @justeattakeaway/pie-modal@0.33.1-next.0
+  - @justeattakeaway/pie-notification@0.1.2-next.0
+  - @justeattakeaway/pie-spinner@0.2.2-next.0
+
+## 0.47.3
+
+### Patch Changes
+
+- Updated dependencies [[`22336ec6f`](https://github.com/justeattakeaway/pie/commit/22336ec6fe042a64a6631a2350d0c95aeac20014), [`ef3b65dea`](https://github.com/justeattakeaway/pie/commit/ef3b65dea7d9f6e39b0dfbc5788144c2e58c086b)]:
+  - @justeattakeaway/pie-modal@0.33.0
+  - @justeattakeaway/pie-cookie-banner@0.11.3
+
+## 0.47.2
+
+### Patch Changes
+
+- [Changed] - Move body-scroll-lock from modal's peerDependencies to dependencies ([#998](https://github.com/justeattakeaway/pie/pull/998)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- Updated dependencies [[`49f7365a9`](https://github.com/justeattakeaway/pie/commit/49f7365a9252eed71d7e2a36f3a48b0452a483f7), [`29fb689d2`](https://github.com/justeattakeaway/pie/commit/29fb689d2ad3c4be035553cdd61c15edb3f603fc)]:
+  - @justeattakeaway/pie-button@0.39.0
+  - @justeattakeaway/pie-modal@0.32.3
+  - @justeattakeaway/pie-cookie-banner@0.11.2
+
+## 0.47.1
+
+### Patch Changes
+
+- Updated dependencies [[`d65cb79aa`](https://github.com/justeattakeaway/pie/commit/d65cb79aaf308309b39d5b25a65962e35a2ed3f5), [`212f4db03`](https://github.com/justeattakeaway/pie/commit/212f4db030c68b7d32c622c54fe3e037dbfae679)]:
+  - @justeattakeaway/pie-switch@0.17.2
+  - @justeattakeaway/pie-button@0.38.0
+  - @justeattakeaway/pie-css@0.8.0
+  - @justeattakeaway/pie-cookie-banner@0.11.1
+  - @justeattakeaway/pie-modal@0.32.2
+
+## 0.47.0
+
+### Minor Changes
+
+- [Changed] - Use unsafeHTML instead of unsafeStatic for rendering slotted content from controls ([#985](https://github.com/justeattakeaway/pie/pull/985)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+### Patch Changes
+
+- Updated dependencies [[`98efe93b2`](https://github.com/justeattakeaway/pie/commit/98efe93b2af205024e79cde4689514f09fdcf06e), [`bad610889`](https://github.com/justeattakeaway/pie/commit/bad610889be57c2115b8e3abe8504679df44b275)]:
+  - @justeattakeaway/pie-cookie-banner@0.11.0
+  - @justeattakeaway/pie-button@0.37.1
+  - @justeattakeaway/pie-icon-button@0.21.2
+  - @justeattakeaway/pie-modal@0.32.1
+
+## 0.46.0
+
+### Minor Changes
+
+- [Added] - Documentation page for button variants with code snippets ([#982](https://github.com/justeattakeaway/pie/pull/982)) by [@LTurns](https://github.com/LTurns)
+
+### Patch Changes
+
+- [Changed] - Use latest pie-design-tokens ([#979](https://github.com/justeattakeaway/pie/pull/979)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- Updated dependencies [[`8bf261090`](https://github.com/justeattakeaway/pie/commit/8bf2610903a3ac05c51e9c1d2444d09f64feeeba), [`65f4525cd`](https://github.com/justeattakeaway/pie/commit/65f4525cd5eec7d301312c636e662e97099b4835), [`fbe8a5822`](https://github.com/justeattakeaway/pie/commit/fbe8a58222f62cfda191014f83169d8e44007034)]:
+  - @justeattakeaway/pie-button@0.37.0
+  - @justeattakeaway/pie-cookie-banner@0.10.2
+  - @justeattakeaway/pie-modal@0.32.0
+
+## 0.45.1
+
+### Patch Changes
+
+- Updated dependencies [[`182cf287e`](https://github.com/justeattakeaway/pie/commit/182cf287e8c4b2a2579676171cc7ab5fda3ad2cf)]:
+  - @justeattakeaway/pie-cookie-banner@0.10.1
+
+## 0.45.0
+
+### Minor Changes
+
+- [Changed] - Update component imports in stories ([#949](https://github.com/justeattakeaway/pie/pull/949)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+### Patch Changes
+
+- Updated dependencies [[`c75405299`](https://github.com/justeattakeaway/pie/commit/c75405299b867d5a0214584b5172e4598a56ba4d), [`9f62a9309`](https://github.com/justeattakeaway/pie/commit/9f62a9309ec862e2876158debcfd6b26353fc735), [`c75405299`](https://github.com/justeattakeaway/pie/commit/c75405299b867d5a0214584b5172e4598a56ba4d), [`c75405299`](https://github.com/justeattakeaway/pie/commit/c75405299b867d5a0214584b5172e4598a56ba4d), [`c317e2bda`](https://github.com/justeattakeaway/pie/commit/c317e2bda1cf823fd32e18496b9c15cfce9a323b)]:
+  - @justeattakeaway/pie-cookie-banner@0.10.0
+  - @justeattakeaway/pie-modal@0.31.0
+  - @justeattakeaway/pie-notification@0.1.1
+  - @justeattakeaway/pie-icon-button@0.21.1
+  - @justeattakeaway/pie-form-label@0.8.1
+  - @justeattakeaway/pie-divider@0.9.1
+  - @justeattakeaway/pie-spinner@0.2.1
+  - @justeattakeaway/pie-button@0.36.1
+  - @justeattakeaway/pie-switch@0.17.1
+  - @justeattakeaway/pie-card@0.14.1
+  - @justeattakeaway/pie-link@0.11.1
+
+## 0.44.0
+
+### Minor Changes
+
+- [Added] - Spinner component ([#948](https://github.com/justeattakeaway/pie/pull/948)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Added] - `isLoading` prop to `pie-icon-button` ([#953](https://github.com/justeattakeaway/pie/pull/953)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Added] - `visually-hidden` mixin to `pie-css` and use it in components when needed
+  [Added] - `button-interactive-states` mixin to use in `pie-icon-button` and `pie-button`
+
+### Patch Changes
+
+- Updated dependencies [[`b7bcd63d1`](https://github.com/justeattakeaway/pie/commit/b7bcd63d1d035f89a8b4db8ea5977b9420d6f9d5), [`8353fbbe7`](https://github.com/justeattakeaway/pie/commit/8353fbbe74eb4b7a322bdb9c7640b0eab6fb6cc1), [`72b21e8ad`](https://github.com/justeattakeaway/pie/commit/72b21e8ad03439655653edab01acbb1a78a94ecf), [`402bccab0`](https://github.com/justeattakeaway/pie/commit/402bccab087c4810264f9080b471f298127f16af)]:
+  - @justeattakeaway/pie-spinner@0.2.0
+  - @justeattakeaway/pie-button@0.36.0
+  - @justeattakeaway/pie-icon-button@0.21.0
+  - @justeattakeaway/pie-switch@0.17.0
+  - @justeattakeaway/pie-css@0.7.0
+
+## 0.43.0
+
+### Minor Changes
+
+- [Added] - `inverse` and `ghost-inverse` variants ([#941](https://github.com/justeattakeaway/pie/pull/941)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Fixed] - Icon sizes aren't correct
+
+  [Fixed] - The `outline` variant border is missing
+
+  [Fixed] - The inner ring of focus styles is missing
+
+  [Fixed] - The background of `outline`, `ghost` and `ghost-secondary` variants should be transparent
+
+  [Fixed] - The background of `outline`, `ghost` and `ghost-secondary` variants should be transparent
+
+  [Fixed] - TH disabled state should use the `not-allowed` cursor
+
+- [Changed] - Update monorepo and storybook to use renamed component(s) ([#944](https://github.com/justeattakeaway/pie/pull/944)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+### Patch Changes
+
+- Updated dependencies [[`b32cc36ff`](https://github.com/justeattakeaway/pie/commit/b32cc36ff7e52f54f4831e6c18ac7ff7b70fa753), [`db29b8cc5`](https://github.com/justeattakeaway/pie/commit/db29b8cc5c7eda6a4d66823d3c65dec61b6a550e), [`66995e468`](https://github.com/justeattakeaway/pie/commit/66995e4687ba826d8236b96e476caecc69e3b0bc)]:
+  - @justeattakeaway/pie-icon-button@0.20.0
+  - @justeattakeaway/pie-notification@0.1.0
+  - @justeattakeaway/pie-form-label@0.8.0
+  - @justeattakeaway/pie-spinner@0.1.0
+  - @justeattakeaway/pie-card@0.14.0
+
+## 0.42.0
+
+### Minor Changes
+
+- [Fixed] - `default` and `inverse` variants to use `elevation-card` and `elevation-dark-card` tokens ([#907](https://github.com/justeattakeaway/pie/pull/907)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
+  [Changed] - Refactored `interactionType` to `tag` as the component can only be interactive
+
+  [Fixed] - Disabled state to apply the disabled colour token and reduce opacity on images
+
+  [Fixed] - Disabled state should use the disabled cursor
+
+  [Fixed] - Variants should apply their color token by default
+
+### Patch Changes
+
+- Updated dependencies [[`57608572e`](https://github.com/justeattakeaway/pie/commit/57608572ec6273b29d0d4e44fb7e5edec5d5d19d), [`18ec64fb6`](https://github.com/justeattakeaway/pie/commit/18ec64fb6b97498c45ecc96516de94fb5544efdd)]:
+  - @justeattakeaway/pie-card-container@0.13.0
+  - @justeattakeaway/pie-switch@0.16.0
+
 ## 0.41.7
 
 ### Patch Changes

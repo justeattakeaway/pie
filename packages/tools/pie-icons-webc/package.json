@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/pie-icons-webc",
-  "version": "0.11.1",
+  "version": "0.17.2",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -15,13 +15,30 @@
     "./*": {
       "import": "./dist/*.js",
       "types": "./dist/*.d.ts"
+    },
+    "./react": {
+      "import": "./dist/react/index.js",
+      "types": "./dist/react/index.d.ts"
+    },
+    "./react/*": {
+      "import": "./dist/react/*.js",
+      "types": "./dist/react/*.d.ts"
+    },
+    "./dist/react": {
+      "import": "./dist/react/index.js",
+      "types": "./dist/react/index.d.ts"
+    },
+    "./dist/react/*": {
+      "import": "./dist/react/*.js",
+      "types": "./dist/react/*.d.ts"
     }
   },
   "publishConfig": {
     "access": "public"
   },
   "sideEffects": [
-    "dist/*.js"
+    "dist/*.js",
+    "dist/react/*.js"
   ],
   "homepage": "https://github.com/justeattakeaway/pie/tree/main/packages/tools/pie-icons-webc",
   "contributors": [
@@ -48,31 +65,33 @@
     "lint:scripts": "run -T eslint .",
     "lint:scripts:fix": "yarn lint:scripts --fix",
     "test": "wtr tests/*.test.js --node-resolve",
+    "test:browsers": "npx playwright test -c ./playwright-react.config.ts",
+    "test:browsers:ci": "yarn test:browsers",
     "test:ci": "yarn test"
   },
   "browserslist": [
     "extends @justeattakeaway/browserslist-config-pie"
   ],
+  "dependencies": {
+    "@justeattakeaway/pie-webc-core": "0.17.1"
+  },
   "devDependencies": {
-    "@babel/core": "7.23.2",
+    "@babel/core": "7.23.7",
     "@babel/node": "7.20.7",
-    "@justeattakeaway/pie-icons": "4.9.2",
-    "@justeattakeaway/pie-icons-configs": "4.5.0",
-    "@justeattakeaway/pie-webc-core": "0.11.0",
-    "@open-wc/testing": "3.2.0",
-    "@rollup/plugin-typescript": "11.1.5",
+    "@justeattakeaway/pie-icons": "4.9.3",
+    "@justeattakeaway/pie-icons-configs": "4.5.1",
+    "@open-wc/testing": "4.0.0",
+    "@rollup/plugin-typescript": "11.1.6",
     "@web/test-runner": "0.16.1",
     "just-kebab-case": "4.2.0",
     "just-pascal-case": "3.2.0",
-    "lit": "2.7.5",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
     "rollup": "3.20.2",
     "rollup-plugin-multi-input": "1.4.1",
     "typescript": "5.1.3"
   },
   "volta": {
     "extends": "../../../package.json"
-  },
-  "peerDependencies": {
-    "lit": "2.7.5"
   }
 }

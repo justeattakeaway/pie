@@ -6,64 +6,17 @@
     box-sizing: border-box;
 }
 
-/**
-* Defines button interactive states for hover, active and loading.
-* $bg-color: design token name to be used for the states
-* $mode: 'default': apply the default lighten/darken to the color via hsl
-*        'transparent': uses hsla syntax to make the color semi-opaque (used for ghost and outline button variants)
-*/
-@mixin button-interactive-states($bg-color, $mode: 'default') {
-    &:hover:not(:disabled) {
-        @if $mode == 'alt' {
-            --hover-modifier: calc(-1 * var(--dt-color-hover-02));
-        } @else {
-            --hover-modifier: calc(-1 * var(--dt-color-hover-01));
-        }
-
-        // for mode=transparent, use the hsla syntax to make the button background opaque by a set percentage
-        @if $mode == 'transparent' {
-            --hover-modifier: var(--dt-color-hover-01);
-            --btn-bg-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), var(#{$bg-color}-l), var(--hover-modifier));
-        } @else {
-            --btn-bg-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), calc(var(#{$bg-color}-l) + var(--hover-modifier)));
-        }
-    }
-
-    &:active:not(:disabled),
-    &[isLoading]:not(:disabled) {
-        @if $mode == 'alt' {
-            --active-modifier: calc(-1 * var(--dt-color-active-02));
-        } @else {
-            --active-modifier: calc(-1 * var(--dt-color-active-01));
-        }
-
-        @if $mode == 'transparent' {
-            --active-modifier: var(--dt-color-active-01);
-            --btn-bg-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), var(#{$bg-color}-l), var(--active-modifier));
-        } @else {
-            --btn-bg-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), calc(var(#{$bg-color}-l) + var(--active-modifier)));
-        }
-    }
-}
+$breakpoint-wide: 768px;
 
 /**
-* Shorthand mixin for updating the HSL custom properties for the loading spinner.
-* Takes in the name of the color to be split into its HSL components.
+* Mixin for adding the responsive behaviour.
+* Takes in the the particular settings for the wide breakpoint.
 */
-@mixin spinner-base-colors($color) {
-    --spinner-base-color-h: var(#{$color}-h);
-    --spinner-base-color-s: var(#{$color}-s);
-    --spinner-base-color-l: var(#{$color}-l);
-}
-
-// Spin animation for loading state
-@keyframes rotate360 {
-    from {
-        transform: rotate(0deg);
-    }
-
-    to {
-        transform: rotate(360deg);
+@mixin responsive-wide {
+    &[isResponsive] {
+        @media (min-width: $breakpoint-wide) {
+            @content;
+        }
     }
 }
 
@@ -75,11 +28,6 @@
     --btn-font-family: var(--dt-font-interactive-m-family);
     --btn-font-weight: var(--dt-font-interactive-m-weight);
 
-    // The base values are set to the size default, which is for the medium button size
-    --btn-padding: 10px var(--dt-spacing-e);
-    --btn-font-size: #{p.font-size(--dt-font-size-20)};
-    --btn-line-height: calc(var(--dt-font-size-20-line-height) * 1px);
-
     // The following values set to default background and color
     // currently this sets the primary button styles
     --btn-bg-color: var(--dt-color-interactive-brand);
@@ -90,32 +38,45 @@
     --btn-height--small: 40px;
     --btn-height--medium: 48px;
     --btn-height--large: 56px;
+    --icon-display-override: block;
 
-    // Set height to medium (the default state)
-    --btn-height: var(--btn-height--medium);
-
-    // Set icon size to the medium button icon size (the default state)
-    --btn-icon-size: 24px;
-
-    // Spinner size defaults - currently set for the medium button size (the default state)
-    --spinner-size-s: 20px;
-    --spinner-size-m: 24px;
-    --spinner-border-width-s: 2.5px;
-    --spinner-border-width-m: 3px;
-    --spinner-size: var(--spinner-size-m);
-    --spinner-border-width: var(--spinner-border-width-m);
-
-    // Spinner colors - currently set for the primary button styles
-    @include spinner-base-colors(--dt-color-content-interactive-primary);
-
-    --spinner-left-color-opacity: 0.35;
-    --spinner-left-color: hsl(var(--spinner-base-color-h), var(--spinner-base-color-s), var(--spinner-base-color-l), var(--spinner-left-color-opacity));
-    --spinner-right-color: hsl(var(--spinner-base-color-h), var(--spinner-base-color-s), var(--spinner-base-color-l), 1);
-
-    // Spinner animations
-    --spinner-animation-duration: 1.15s;
-    --spinner-animation-timing-function: linear;
-    --spinner-animation-iteration-count: infinite;
+    /**
+    * Mixin for updating the button styles based on the size passed in.
+    * Takes in the name of the size to be used.
+    */
+    @mixin button-size($size) {
+        @if $size == 'xsmall' {
+            --btn-height: var(--btn-height--xsmall);
+            --btn-padding: 6px var(--dt-spacing-b);
+            --btn-font-size: #{p.font-size(--dt-font-size-14)};
+            --btn-line-height: calc(var(--dt-font-size-14-line-height) * 1px);
+            --icon-size-override: 16px;
+        } @else if $size == 'small-expressive' {
+            --btn-height: var(--btn-height--small);
+            --btn-padding: 6px var(--dt-spacing-d);
+            --btn-font-size: #{p.font-size(--dt-font-size-20)};
+            --btn-line-height: calc(var(--dt-font-size-20-line-height) * 1px);
+            --icon-size-override: 20px;
+        } @else if $size == 'small-productive' {
+            --btn-height: var(--btn-height--small);
+            --btn-padding: 8px var(--dt-spacing-d);
+            --btn-font-size: #{p.font-size(--dt-font-size-16)};
+            --btn-line-height: calc(var(--dt-font-size-16-line-height) * 1px);
+            --icon-size-override: 20px;
+        } @else if $size == 'medium' {
+            --btn-height: var(--btn-height--medium);
+            --btn-padding: 10px var(--dt-spacing-e);
+            --btn-font-size: #{p.font-size(--dt-font-size-20)};
+            --btn-line-height: calc(var(--dt-font-size-20-line-height) * 1px);
+            --icon-size-override: 24px;
+        } @else if $size == 'large' {
+            --btn-height: var(--btn-height--large);
+            --btn-padding: 14px var(--dt-spacing-e);
+            --btn-font-size: #{p.font-size(--dt-font-size-20)};
+            --btn-line-height: calc(var(--dt-font-size-20-line-height) * 1px);
+            --icon-size-override: 24px;
+        }
+    }
 
     position: relative;
     display: flex;
@@ -142,7 +103,7 @@
 
     // Variant
     &[variant='primary'] {
-        @include button-interactive-states('--dt-color-interactive-brand');
+        @include p.button-interactive-states('--dt-color-interactive-brand');
 
         &[size='xsmall'],
         &[size='small-productive'] {
@@ -152,7 +113,7 @@
             **/
             --btn-bg-color: var(--dt-color-interactive-primary);
 
-            @include button-interactive-states('--dt-color-interactive-primary', 'alt');
+            @include p.button-interactive-states('--dt-color-interactive-primary', 'inverse');
         }
     }
 
@@ -160,8 +121,7 @@
         --btn-bg-color: var(--dt-color-interactive-secondary);
         --btn-text-color: var(--dt-color-content-interactive-secondary);
 
-        @include button-interactive-states('--dt-color-interactive-secondary');
-        @include spinner-base-colors('--dt-color-content-interactive-secondary');
+        @include p.button-interactive-states('--dt-color-interactive-secondary');
     }
 
     &[variant='outline'] {
@@ -172,8 +132,7 @@
 
         // use black as the background color for hover and inverse,
         // as this variant uses a shade of transparent black showing through the container background
-        @include button-interactive-states('--dt-color-black', 'transparent');
-        @include spinner-base-colors('--dt-color-content-interactive-secondary');
+        @include p.button-interactive-states('--dt-color-black', 'transparent');
     }
 
     &[variant='ghost'] {
@@ -182,16 +141,14 @@
 
         // use black as the background color for hover and inverse,
         // as this variant uses a shade of transparent black showing through the container background
-        @include button-interactive-states('--dt-color-black', 'transparent');
-        @include spinner-base-colors('--dt-color-content-interactive-secondary');
+        @include p.button-interactive-states('--dt-color-black', 'transparent');
     }
 
     &[variant='inverse'] {
         --btn-bg-color: var(--dt-color-interactive-inverse);
         --btn-text-color: var(--dt-color-content-interactive-secondary);
 
-        @include button-interactive-states('--dt-color-interactive-inverse');
-        @include spinner-base-colors('--dt-color-content-interactive-secondary');
+        @include p.button-interactive-states('--dt-color-interactive-inverse');
     }
 
     &[variant='ghost-inverse'],
@@ -201,17 +158,17 @@
 
         // use white as the background color for hover and inverse,
         // as these variants use a shade of transparent white showing through the container background
-        @include button-interactive-states('--dt-color-container-default', 'transparent');
+        @include p.button-interactive-states('--dt-color-container-default', 'transparent');
     }
 
-    &[variant='outline-inverse'] {
+    &[variant='outline-inverse']:not([disabled]) {
         border: 1px solid var(--dt-color-border-strong);
     }
 
     &[variant='destructive'] {
         --btn-bg-color: var(--dt-color-support-error);
 
-        @include button-interactive-states('--dt-color-support-error');
+        @include p.button-interactive-states('--dt-color-support-error');
     }
 
     &[variant='destructive-ghost'] {
@@ -220,8 +177,7 @@
 
         // use black as the background color for hover and inverse,
         // as this variant uses a shade of transparent black showing through the container background
-        @include button-interactive-states('--dt-color-black', 'transparent');
-        @include spinner-base-colors('--dt-color-content-interactive-secondary');
+        @include p.button-interactive-states('--dt-color-black', 'transparent');
     }
 
     // Additional modifiers
@@ -246,72 +202,49 @@
     }
 
     &[size='xsmall'] {
-        --btn-height: var(--btn-height--xsmall);
-        --btn-padding: 6px var(--dt-spacing-b);
-        --btn-font-size: #{p.font-size(--dt-font-size-14)};
-        --btn-line-height: calc(var(--dt-font-size-14-line-height) * 1px);
-        --btn-icon-size: 16px;
-        --spinner-size: var(--spinner-size-s);
-        --spinner-border-width: var(--spinner-border-width-s);
-    }
+        @include button-size(xsmall);
+        @include responsive-wide {
+            // productive is the default size when responsive is enabled
+            @include button-size(small-productive);
 
-    &[size='small-expressive'],
-    &[size='small-productive'] {
-        --btn-height: var(--btn-height--small);
-        --btn-icon-size: 20px;
-        --spinner-size: var(--spinner-size-s);
-        --spinner-border-width: var(--spinner-border-width-s);
+            &[responsiveSize='expressive'] {
+                @include button-size(small-expressive);
+            }
+        }
     }
 
     &[size='small-expressive'] {
-        --btn-padding: 6px var(--dt-spacing-d);
-        --btn-font-size: #{p.font-size(--dt-font-size-20)};
-        --btn-line-height: calc(var(--dt-font-size-20-line-height) * 1px);
+        @include button-size(small-expressive);
+        @include responsive-wide {
+            @include button-size(medium);
+        }
     }
 
     &[size='small-productive'] {
-        --btn-padding: 8px var(--dt-spacing-d);
-        --btn-font-size: #{p.font-size(--dt-font-size-16)};
-        --btn-line-height: calc(var(--dt-font-size-16-line-height) * 1px);
+        @include button-size(small-productive);
+        @include responsive-wide {
+            @include button-size(medium);
+        }
     }
 
     &[size='medium'] {
-        /* Same as default styles */
+        @include button-size(medium);
+        @include responsive-wide {
+            @include button-size(large);
+        }
     }
 
     &[size='large'] {
-        --btn-height: var(--btn-height--large);
-        --btn-padding: 14px var(--dt-spacing-e);
-        --btn-font-size: #{p.font-size(--dt-font-size-20)};
-        --btn-line-height: calc(var(--dt-font-size-20-line-height) * 1px);
-        --spinner-size: var(--spinner-size-m);
-        --spinner-border-width: var(--spinner-border-width-m);
+        @include button-size(large);
     }
 
     &[isLoading] {
-        &:before {
-            content: '';
-
-            // Centre the spinner over the top of the button text
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            translate: -50% -50%;
-
-            height: var(--spinner-size);
-            width: var(--spinner-size);
-            display: block;
-            background-color: transparent;
-            border-radius: 50%;
-            border-color: var(--spinner-left-color) var(--spinner-right-color) var(--spinner-right-color) var(--spinner-left-color);
-            border-width: var(--spinner-border-width);
-            border-style: solid;
-            will-change: transform;
-            animation: rotate360 var(--spinner-animation-duration) var(--spinner-animation-timing-function) var(--spinner-animation-iteration-count);
+        & > *:not(pie-spinner) {
+            visibility: hidden;
         }
 
-        & > * {
-            visibility: hidden;
+        pie-spinner {
+            position: absolute;
         }
     }
 
@@ -322,6 +255,6 @@
 
 // Used to size an SVG if one is passed in (when not using the component icons)
 ::slotted(svg) {
-    height: var(--btn-icon-size);
-    width: var(--btn-icon-size);
+    height: var(--icon-size-override);
+    width: var(--icon-size-override);
 }

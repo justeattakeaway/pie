@@ -1,195 +1,142 @@
-@use '../fozzie-config' as f;
+@use '@justeattakeaway/pie-css/scss' as p;
 
 /* stylelint-disable */
 /* PrismJS 1.29.0
-https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript+bash&plugins=toolbar+copy-to-clipboard */
-code[class*="language-"],
-pre[class*="language-"] {
-  color: #000;
-  background: 0 0;
-  text-shadow: 0 1px #fff;
-  font-family: PTMono, Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
-  font-size: 1em;
-  text-align: left;
-  white-space: pre;
-  word-spacing: normal;
-  word-break: normal;
-  word-wrap: normal;
-  line-height: 1.5;
-  -moz-tab-size: 4;
-  -o-tab-size: 4;
-  tab-size: 4;
-  -webkit-hyphens: none;
-  -moz-hyphens: none;
-  -ms-hyphens: none;
-  hyphens: none;
+Note – This minified code is pasted directly from prism.css – do not amend directly in case we need to update later!
+Overrides for our specific code blocks are below this code block
+
+https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript+bash+scss+typescript&plugins=toolbar+copy-to-clipboard */
+code[class*=language-],pre[class*=language-]{color:#000;background:0 0;text-shadow:0 1px #fff;font-family:Consolas,Monaco,'Andale Mono','Ubuntu Mono',monospace;font-size:1em;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}code[class*=language-] ::-moz-selection,code[class*=language-]::-moz-selection,pre[class*=language-] ::-moz-selection,pre[class*=language-]::-moz-selection{text-shadow:none;background:#b3d4fc}code[class*=language-] ::selection,code[class*=language-]::selection,pre[class*=language-] ::selection,pre[class*=language-]::selection{text-shadow:none;background:#b3d4fc}@media print{code[class*=language-],pre[class*=language-]{text-shadow:none}}pre[class*=language-]{padding:1em;margin-block:.5em;margin-inline: 0;overflow:auto}:not(pre)>code[class*=language-],pre[class*=language-]{background:#f5f2f0}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#708090}.token.punctuation{color:#999}.token.namespace{opacity:.7}.token.boolean,.token.constant,.token.deleted,.token.number,.token.property,.token.symbol,.token.tag{color:#905}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:#690}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url{color:#9a6e3a;background:hsla(0,0%,100%,.5)}.token.atrule,.token.attr-value,.token.keyword{color:#07a}.token.class-name,.token.function{color:#dd4a68}.token.important,.token.regex,.token.variable{color:#e90}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}
+div.code-toolbar{position:relative}div.code-toolbar>.toolbar{position:absolute;z-index:10;top:.3em;right:.2em;transition:opacity .3s ease-in-out;opacity:0}div.code-toolbar:hover>.toolbar{opacity:1}div.code-toolbar:focus-within>.toolbar{opacity:1}div.code-toolbar>.toolbar>.toolbar-item{display:inline-block}div.code-toolbar>.toolbar>.toolbar-item>a{cursor:pointer}div.code-toolbar>.toolbar>.toolbar-item>button{background:0 0;border:0;color:inherit;font:inherit;line-height:normal;overflow:visible;padding:0;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none}div.code-toolbar>.toolbar>.toolbar-item>a,div.code-toolbar>.toolbar>.toolbar-item>button,div.code-toolbar>.toolbar>.toolbar-item>span{color:#bbb;font-size:.8em;padding:0 .5em;background:#f5f2f0;background:rgba(224,224,224,.2);box-shadow:0 2px 0 0 rgba(0,0,0,.2);border-radius:.5em}div.code-toolbar>.toolbar>.toolbar-item>a:focus,div.code-toolbar>.toolbar>.toolbar-item>a:hover,div.code-toolbar>.toolbar>.toolbar-item>button:focus,div.code-toolbar>.toolbar>.toolbar-item>button:hover,div.code-toolbar>.toolbar>.toolbar-item>span:focus,div.code-toolbar>.toolbar>.toolbar-item>span:hover{color:inherit;text-decoration:none}
+/* stylelint-enable */
+
+
+/**
+ * PrismJS Overrides:
+ * =================================
+ */
+code[class*='language-'],
+pre[class*='language-'],
+code:not(code[class*='language-']) {
+    font-family: var(--dt-font-family-code), Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
 }
-code[class*="language-"] ::-moz-selection,
-code[class*="language-"]::-moz-selection,
-pre[class*="language-"] ::-moz-selection,
-pre[class*="language-"]::-moz-selection {
-  text-shadow: none;
-  background: #b3d4fc;
+
+pre[class*='language-'] {
+    padding: var(--dt-spacing-d);
+    margin: 0;
 }
-code[class*="language-"] ::selection,
-code[class*="language-"]::selection,
-pre[class*="language-"] ::selection,
-pre[class*="language-"]::selection {
-  text-shadow: none;
-  background: #b3d4fc;
-}
-@media print {
-  code[class*="language-"],
-  pre[class*="language-"] {
-    text-shadow: none;
-  }
-}
-pre[class*="language-"] {
-  padding: 20px;
-  margin: 0;
-  overflow: auto;
-}
-:not(pre) > code[class*="language-"],
-pre[class*="language-"] {
-  background: #f5f2f0;
-}
-:not(pre) > code[class*="language-"] {
-  padding: 0.1em;
-  border-radius: 0.3em;
-  white-space: normal;
-}
+
 .token.cdata,
 .token.comment,
 .token.doctype,
 .token.prolog {
-  color: #546066;
+    color: var(--dt-color-content-interactive-subdued);
 }
+
 .token.punctuation {
-  color: #546066;
+    color: var(--dt-color-content-interactive-subdued);
 }
-.token.namespace {
-  opacity: 0.7;
-}
-.token.boolean,
-.token.constant,
-.token.deleted,
-.token.number,
-.token.property,
-.token.symbol,
-.token.tag {
-  color: #905;
-}
+
 .token.attr-name,
 .token.builtin,
 .token.char,
 .token.inserted,
 .token.selector,
 .token.string {
-  color: #198000;
+    color: var(--dt-color-support-positive);
 }
+
 .language-css .token.string,
 .style .token.string,
 .token.entity,
 .token.operator,
 .token.url {
-  color: #926025;
+    color: #926025; // this colour (brown) is not in our CSS design tokens
+    background: none; // remove prism background colour
 }
+
 .token.atrule,
 .token.attr-value,
 .token.keyword {
-  color: #0076a8;
+    color: #0076a8; // this colour (blue) is not in our CSS design tokens
 }
+
 .token.class-name,
 .token.function {
-  color: #d02f2f;
+    color: #d02f2f; // this colour (red) is not in our CSS design tokens
 }
+
 .token.important,
 .token.regex,
 .token.variable {
-  color: #c100c5;
-}
-.token.bold,
-.token.important {
-  font-weight: 700;
-}
-.token.italic {
-  font-style: italic;
-}
-.token.entity {
-  cursor: help;
-}
-div.code-toolbar {
-  position: relative;
-  margin: f.spacing(e) 0px;
-  border-radius: 4px;
-  box-shadow: rgb(0 0 0 / 10%) 0px 1px 3px 0px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-}
-div.code-toolbar > .toolbar {
-  position: absolute;
-  z-index: 10;
-  right: 0;
-  bottom: 0;
-}
-div.code-toolbar > .toolbar > .toolbar-item {
-  display: inline-block;
-}
-div.code-toolbar > .toolbar > .toolbar-item > a {
-  cursor: pointer;
-}
-div.code-toolbar > .toolbar > .toolbar-item > button {
-  margin: 0px 0px 0px -1px;
-  border-width: 1px 0px 0px 1px;
-  border-style: solid none none solid;
-  border-right-color: initial;
-  border-bottom-color: initial;
-  border-image: initial;
-  padding: 4px 10px;
-  cursor: pointer;
-  display: flex;
-  -webkit-box-align: center;
-  align-items: center;
-  color: rgb(51, 51, 51);
-  background: rgb(255, 255, 255);
-  font-size: 12px;
-  line-height: 16px;
-  font-family: JETSansDigital, Arial, sans-serif;
-  font-weight: 700;
-  border-top-color: rgba(0, 0, 0, 0.1);
-  border-left-color: rgba(0, 0, 0, 0.1);
-  border-radius: 4px 0px 0px;
-}
-div.code-toolbar > .toolbar > .toolbar-item > a,
-div.code-toolbar > .toolbar > .toolbar-item > span {
-  color: #bbb;
-  font-size: 0.8em;
-  padding: 0 0.5em;
-  background: #f5f2f0;
-  background: rgba(224, 224, 224, 0.2);
-  box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.2);
-  border-radius: 0.5em;
-}
-div.code-toolbar > .toolbar > .toolbar-item > a:focus,
-div.code-toolbar > .toolbar > .toolbar-item > a:hover,
-div.code-toolbar > .toolbar > .toolbar-item > button:focus,
-div.code-toolbar > .toolbar > .toolbar-item > button:hover,
-div.code-toolbar > .toolbar > .toolbar-item > span:focus,
-div.code-toolbar > .toolbar > .toolbar-item > span:hover {
-  color: inherit;
-  text-decoration: none;
+    color: #c100c5; // this colour (purple) is not in our CSS design tokens
 }
 
-code:not(code[class*="language-"]) {
-  display: inline-block;
-  background-color: rgba(0, 0, 0, 0.06);
-  border: 1px solid #ccc;
-  line-height: 1;
-  margin: 0px 2px;
-  padding: 3px 5px;
-  border-radius: 3px;
-  font-family: PTMono;
-  font-size: 13px;
-  color: rgba(51, 51, 51, 0.9);
-  word-break: break-all;
+div.code-toolbar,
+div.code-toolbar > .toolbar > .toolbar-item > button,
+code:not(code[class*='language-']) {
+    @include p.font-size(--dt-font-caption-strong-size);
+    @include p.line-height(--dt-font-caption-strong-line-height);
 }
-/* stylelint-enable */
+
+div.code-toolbar {
+    overflow: hidden; // stops the background of child elements bleeding over the parent border
+    margin-block-start: var(--dt-spacing-e);
+    margin-block-end: var(--dt-spacing-e);
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+    border-radius: var(--dt-radius-rounded-c);
+    border: 1px solid var(--dt-color-border-strong);
+}
+
+// stylelint-disable-next-line no-descending-specificity
+div.code-toolbar > .toolbar {
+    right: 0;
+    bottom: 0;
+    top: auto; // overrides prism default top value
+    opacity: 1;
+}
+
+div.code-toolbar > .toolbar > .toolbar-item > button {
+    background: var(--dt-color-interactive-light);
+    padding-block-start: var(--dt-spacing-a);
+    padding-block-end: var(--dt-spacing-a);
+    padding-inline-start: 10px;
+    padding-inline-end: 10px;
+    border-radius: 4px 0 0;
+    border-width: 1px 0 0 1px;
+    border-style: solid none none solid;
+    border-image: initial;
+    border-color: rgba(0, 0, 0, 0.1) initial initial rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    box-shadow: none;
+
+    font-weight: var(--dt-font-caption-strong-weight);
+    color: var(--dt-color-content-default);
+
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+
+    &:hover {
+        background: var(--dt-color-interactive-light-hover);
+    }
+}
+
+code:not(code[class*='language-']) {
+    display: inline-block;
+    background-color: var(--dt-color-container-strong);
+    border: 1px solid var(--dt-color-border-strong);
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: 2px;
+    margin-inline-end: 2px;
+    padding-block-start: 2px;
+    padding-block-end: 2px;
+    padding-inline-start: var(--dt-spacing-a);
+    padding-inline-end: var(--dt-spacing-a);
+    border-radius: 2px;
+
+    color: var(--dt-color-content-default);
+    word-break: break-all;
+}

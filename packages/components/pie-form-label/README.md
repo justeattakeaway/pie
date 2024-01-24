@@ -13,10 +13,9 @@
 1. [Introduction](#pie-form-label)
 2. [Installation](#installation)
 3. [Importing the component](#importing-the-component)
-4. [Local Development](#local-development)
-5. [Peer Dependencies](#peer-dependencies)
-6. [Props](#props)
-7. [Contributing](#contributing)
+4. [Peer Dependencies](#peer-dependencies)
+5. [Props](#props)
+6. [Contributing](#contributing)
 
 ## pie-form-label
 
@@ -42,13 +41,27 @@ For full information on using PIE components as part of an application, check ou
 
 ### Importing the component
 
+#### JavaScript
 ```js
-// default
+// Default – for Native JS Applications, Vue, Angular, Svelte, etc.
 import { PieFormLabel } from '@justeattakeaway/pie-form-label';
 
-// react
+// If you don't need to reference the imported object, you can simply
+// import the module which registers the component as a custom element.
+import '@justeattakeaway/pie-form-label';
+```
+
+#### React
+```js
+// React
+// For React, you will need to import our React-specific component build
+// which wraps the web component using ​@lit/react
 import { PieFormLabel } from '@justeattakeaway/pie-form-label/dist/react';
 ```
+
+> [!NOTE]
+> When using the React version of the component, please make sure to also
+> include React as a [peer dependency](#peer-dependencies) in your project.
 
 
 ## Peer Dependencies

@@ -16,7 +16,7 @@
 
 .c-simpleTable--swatch {
     $swatch-size: 16px;
-    $swatch-gap: f.$spacing-b;
+    $swatch-gap: var(--dt-spacing-b);
     $swatch-margin: calc($swatch-size + $swatch-gap);
 
     td:first-child {
@@ -29,11 +29,11 @@
             display: block;
             inset-block-start: 50%;
             transform: translate(0, -50%);
-            inset-inline-start: -($swatch-gap);
+            inset-inline-start: calc($swatch-gap * -1);
             height: $swatch-size;
             width: $swatch-size;
             background-color: var(--swatch-color);
-            border-radius: f.$radius-rounded-a;
+            border-radius: var(--dt-radius-rounded-a);
         }
     }
 
@@ -59,7 +59,7 @@
         font-weight: f.$font-weight-bold;
 
         & ~ td {
-            color: f.$color-content-subdued;
+            color: var(--dt-color-content-subdued);
         }
     }
 
@@ -87,6 +87,6 @@
 
 .c-simpleTable--swatch-lightBordered {
     td:first-child:before {
-        border: 1px solid f.$color-border-strong;
+        border: 1px solid var(--dt-color-border-strong);
     }
 }

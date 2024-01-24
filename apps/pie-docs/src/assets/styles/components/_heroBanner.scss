@@ -3,7 +3,7 @@
 @use '../utilities' as u;
 
 .c-heroBanner {
-    background-color: f.$color-background-subtle;
+    background-color: var(--dt-color-background-subtle);
     grid-column: 1 / span 2;
 }
 
@@ -19,30 +19,30 @@
     @include f.media('>=wide') {
         height: v.$hero-banner-header-wide-height;
         grid-template-columns: 40% 60%;
-        gap: f.$spacing-e;
+        gap: var(--dt-spacing-e);
     }
 
     .c-heroBanner-btn {
-        margin-block-start: f.spacing(f);
-        margin-block-end: f.spacing(e);
+        margin-block-start: var(--dt-spacing-f);
+        margin-block-end: var(--dt-spacing-e);
     }
 }
 
 .c-heroBanner-text {
-    padding-block-start: f.spacing(g);
+    padding-block-start: var(--dt-spacing-g);
     align-self: start;
     grid-column: 1 / span 2;
 
     @include f.media('>=mid') {
         grid-column: 1;
         max-width: 500px;
-        padding-block-start: calc(f.spacing(e) + f.spacing(i)); // 88px
+        padding-block-start: calc(var(--dt-spacing-e) + var(--dt-spacing-i)); // 88px
     }
 }
 
 .c-heroBanner-description {
     @include f.font-size('body-l');
-    margin-block-start: f.spacing(d);
+    margin-block-start: var(--dt-spacing-d);
     max-width: 50ch;
 
     @include f.media('>=wide') {

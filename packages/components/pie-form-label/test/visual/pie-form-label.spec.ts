@@ -1,6 +1,7 @@
 
 import { test } from '@sand4rt/experimental-ct-web';
 import percySnapshot from '@percy/playwright';
+import { percyWidths } from '@justeattakeaway/pie-webc-testing/src/percy/breakpoints.ts';
 import {
     WebComponentTestWrapper,
 } from '@justeattakeaway/pie-webc-testing/src/helpers/components/web-component-test-wrapper/WebComponentTestWrapper.ts';
@@ -10,8 +11,8 @@ import type {
 import {
     createTestWebComponent,
 } from '@justeattakeaway/pie-webc-testing/src/helpers/rendering.ts';
-import { PieFormLabel } from '@/index';
-import { FormLabelProps } from '@/defs';
+import { PieFormLabel } from '../../src/index.ts';
+import { FormLabelProps } from '../../src/defs.ts';
 
 const renderTestPieDivider = (propVals: WebComponentPropValues) => `<pie-form-label optional="${propVals.optional}" trailing="${propVals.trailing}">Label</pie-form-label>`;
 
@@ -40,6 +41,6 @@ test.describe('Pie Form Label - Visual tests`', () => {
             },
         });
 
-        await percySnapshot(page, 'Pie Form Label - Visual Test');
+        await percySnapshot(page, 'Pie Form Label - Visual Test', percyWidths);
     });
 });

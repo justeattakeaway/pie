@@ -1,0 +1,152 @@
+name: Changeset Snapshot
+
+on:
+  issue_comment:
+    types:
+      - created
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
+jobs:
+  snapshot:
+    name: Snapshot Release
+    if: |
+      github.event.issue.pull_request &&
+      (startsWith(github.event.comment.body, '/snapit'))
+    runs-on: ubuntu-latest
+    steps:
+      - name: Enforce permission requirement
+        uses: prince-chrismc/check-actor-permissions-action@v1
+        with:
+          permission: write
+
+      - name: Add initial reaction
+        uses: peter-evans/create-or-update-comment@v2
+        with:
+          token: ${{ secrets.CHANGESETS_TOKEN }}
+          comment-id: ${{ github.event.comment.id }}
+          reactions: eyes
+
+      - name: Validate pull request
+        uses: actions/github-script@v6
+        id: pr_data
+        env:
+          GITHUB_TOKEN: ${{ secrets.CHANGESETS_TOKEN }}
+        with:
+          script: |
+            try {
+              const pullRequest = await github.rest.pulls.get({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                pull_number: context.issue.number,
+              });
+
+              // Pull request from fork
+              if (context.payload.repository.full_name !== pullRequest.data.head.repo.full_name) {
+                const errorMessage = '`/snapit` is not supported on pull requests from forked repositories.';
+
+                await github.rest.issues.createComment({
+                  issue_number: context.issue.number,
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  body: errorMessage,
+                });
+
+                core.setFailed(errorMessage);
+              }
+            } catch (err) {
+              core.setFailed(`Request failed with error ${err}`);
+            }
+
+      - name: Add link to build
+        uses: actions/github-script@v6
+        id: build-link
+        env:
+          GITHUB_TOKEN: ${{ secrets.CHANGESETS_TOKEN }}
+        with:
+          github-token: ${{ secrets.CHANGESETS_TOKEN }}
+          script: |
+            try {
+              const buildLink = '${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}';
+
+              const body = `Starting a new snapshot build. You can view the logs [here](${buildLink}).`;
+
+              await github.rest.issues.createComment({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body,
+              });
+            } catch (err) {
+              core.setFailed(`Request failed with error ${err}`);
+            }
+
+       # issue_comment event doesn't provide access to head_ref env var.
+       # This action provides us with the env vars we need to do a git diff.
+       # https://github.com/actions/checkout/issues/331#issuecomment-1242708547
+      - uses: xt0rted/pull-request-comment-branch@v2
+        id: comment-branch
+
+      - name: Checkout default branch
+        uses: actions/checkout@v3
+
+      # issue_comment requires us to checkout the branch
+      # https://github.com/actions/checkout/issues/331#issuecomment-1120113003
+      - name: Checkout pull request branch
+        run: gh pr checkout ${{ github.event.issue.number }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Repo
+        uses: ./.github/actions/setup-repo
+        with:
+          node-version: 20
+          os: ubuntu-latest
+
+      - name: Create an .npmrc
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          cat << EOF > "$HOME/.npmrc"
+            //registry.npmjs.org/:_authToken=$NPM_TOKEN
+          EOF
+
+      - name: Build Packages
+        uses: ./.github/actions/run-script
+        env:
+          TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+        with:
+          script-name: "build"
+
+      - name: Get Markdown Changeset Files Difference
+        id: diff_changeset_files
+        run: |
+            git fetch origin ${{ steps.comment-branch.outputs.base_ref }}
+            git diff --name-only origin/${{ steps.comment-branch.outputs.base_ref }}...HEAD .changeset/*.md > changeset_diff.txt
+
+      - name: Delete Unrelated Markdown Files in Changeset
+        run: |
+            for file in $(ls .changeset/*.md); do
+              if ! grep -q "$(basename $file)" changeset_diff.txt; then
+                rm "$file"
+              fi
+            done
+
+      - name: Create and publish snapshot release
+        uses: actions/github-script@v6
+        env:
+          GITHUB_TOKEN: ${{ secrets.CHANGESETS_TOKEN }}
+        with:
+          github-token: ${{ secrets.CHANGESETS_TOKEN }}
+          script: |
+            const execa = require('execa');
+            const script = require('./.github/workflows/changeset-snapshot/create-and-publish.js')
+            await script({ github, context }, execa);
+
+      - name: Add failure comment
+        if: failure()
+        uses: peter-evans/create-or-update-comment@v2
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          token: ${{ secrets.CHANGESETS_TOKEN }}
+          body: The build failed, please see the [logs](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}) or take a look at the [Workflow Tooling wiki page](https://github.com/justeattakeaway/pie/wiki/Workflow-Tooling#snapshot-releases) to make sure your PR meets the requirements.

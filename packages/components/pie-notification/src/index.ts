@@ -5,6 +5,10 @@ import { property } from 'lit/decorators.js';
 import { type NotificationProps, variants, headingLevels } from './defs';
 import styles from './notification.scss?inline';
 
+import '@justeattakeaway/pie-icons-webc/IconClose';
+import '@justeattakeaway/pie-icons-webc/IconInfoCircle';
+import '@justeattakeaway/pie-icons-webc/IconAlertCircle';
+
 // Valid values available to consumers
 export * from './defs';
 
@@ -67,7 +71,7 @@ export class PieNotification extends LitElement implements NotificationProps {
                         <icon-close></icon-close>
                         <icon-alert-circle></icon-alert-circle>
                         <icon-info-circle></icon-info-circle>
-                        <icon-placeholder></icon-placeholder>
+                        
                         ${heading ? renderNotificationHeading(heading, headingTag) : nothing}
                         
                     </header>

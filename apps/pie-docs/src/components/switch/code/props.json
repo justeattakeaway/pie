@@ -1,0 +1,80 @@
+{
+    "headings": ["Prop", "Options", "Description", "Default"],
+    "rows": [
+        [
+            "checked",
+            {
+                "type": "code",
+                "item": ["true", "false"]
+            },
+            "Same as the HTML checked attribute - indicates whether the switch is on or off.",
+            {
+                "type": "code",
+                "item": ["false"]
+            }
+        ],
+        [
+            "disabled",
+            {
+                "type": "code",
+                "item": ["true", "false"]
+            },
+            "Same as the HTML disabled attribute - indicates whether the switch is disabled or not.",
+            {
+                "type": "code",
+                "item": ["false"]
+            }
+        ],
+        [
+            "required",
+            {
+                "type": "code",
+                "item": ["true", "false"]
+            },
+            "Same as the HTML required attribute - indicates whether the switch must be turned or not.",
+            {
+                "type": "code",
+                "item": ["false"]
+            }
+        ],
+        [
+            "label",
+            "",
+            "The label text for the switch.",
+            ""
+        ],
+        [
+            "labelPlacement",
+            {
+                "type": "code",
+                "item": ["leading", "trailing"]
+            },
+            "Set the placement of the label.",
+            {
+                "type": "code",
+                "item": ["leading"]
+            }
+        ],
+        [
+            "aria",
+            "",
+            "The ARIA labels used for the switch.",
+            {
+                "type": "code",
+                "item": ["{<br>  \"label\": \"switch label\",<br>  \"describedBy\": \"switch description\"<br>}"]
+            }
+        ],
+        [
+          "name",
+          "",
+          "Indicates the name of the switch (for use with forms).",
+          ""
+        ],
+        [
+          "value",
+          "",
+          "Indicates the value of the switch (for use with forms).",
+          "on"
+        ]
+    ]
+}

@@ -1,13 +1,15 @@
 import {
-    LitElement, html, unsafeCSS, nothing,
+    LitElement, html, unsafeCSS, nothing, PropertyValues, TemplateResult,
 } from 'lit';
 import { property } from 'lit/decorators.js';
-import { validPropertyValues, defineCustomElement } from '@justeattakeaway/pie-webc-core';
+import { ifDefined } from 'lit/directives/if-defined.js';
+import { validPropertyValues, defineCustomElement, FormControlMixin } from '@justeattakeaway/pie-webc-core';
 import {
     ButtonProps, sizes, types, variants, iconPlacements,
 } from './defs';
 import styles from './button.scss?inline';
 import 'element-internals-polyfill';
+import '@justeattakeaway/pie-spinner';
 
 // Valid values available to consumers
 export * from './defs';
@@ -19,19 +21,34 @@ const componentSelector = 'pie-button';
  * @slot icon - The icon slot
  * @slot - Default slot
  */
-export class PieButton extends LitElement implements ButtonProps {
-    // TODO - we may want to consider making the element internals code reusable for other form controls.
-    static formAssociated = true;
+export class PieButton extends FormControlMixin(LitElement) implements ButtonProps {
+    connectedCallback () {
+        super.connectedCallback();
 
-    private readonly _internals: ElementInternals;
-
-    public get form () {
-        return this._internals.form;
+        if (this.type === 'submit') {
+            this.form?.addEventListener('keydown', this._handleFormKeyDown);
+        }
     }
 
-    constructor () {
-        super();
-        this._internals = this.attachInternals();
+    disconnectedCallback () {
+        super.disconnectedCallback();
+
+        if (this.type === 'submit') {
+            this.form?.removeEventListener('keydown', this._handleFormKeyDown);
+        }
+    }
+
+    updated (changedProperties: PropertyValues<this>): void {
+        super.updated(changedProperties);
+
+        if (changedProperties.has('type')) {
+            // If the new type is "submit", add the keydown event listener
+            if (this.type === 'submit') {
+                this.form?.addEventListener('keydown', this._handleFormKeyDown);
+            } else {
+                this.form?.removeEventListener('keydown', this._handleFormKeyDown);
+            }
+        }
     }
 
     @property()
@@ -59,6 +76,9 @@ export class PieButton extends LitElement implements ButtonProps {
     @property({ type: Boolean })
     public isFullWidth = false;
 
+    @property({ type: Boolean })
+    public isResponsive = false;
+
     @property({ type: String })
     public name?: string;
 
@@ -79,6 +99,9 @@ export class PieButton extends LitElement implements ButtonProps {
 
     @property()
     public formtarget: ButtonProps['formtarget'];
+
+    @property({ type: String })
+    public responsiveSize?: ButtonProps['responsiveSize'];
 
     /**
      * This method creates an invisible button of the same type as pie-button. It is then clicked, and immediately removed from the DOM.
@@ -148,6 +171,48 @@ export class PieButton extends LitElement implements ButtonProps {
         }
     }
 
+    // This allows a user to press enter anywhere inside the form and trigger a form submission
+    private _handleFormKeyDown = (event: KeyboardEvent) => {
+        if (event.key !== 'Enter' || this.type !== 'submit' || this.disabled) {
+            return;
+        }
+
+        if (event.target instanceof HTMLElement) {
+            const targetTagName = event.target.tagName.toLowerCase();
+
+            // We want to ignore the enter key if the user is on a button or another pie-button
+            if (targetTagName === 'button' || targetTagName === 'pie-button') {
+                return;
+            }
+        }
+
+        event.preventDefault();
+        this._handleClick();
+    };
+
+    /**
+     * Template for the loading state
+     *
+     * @private
+     */
+    private renderSpinner (): TemplateResult {
+        const { size, variant, disabled } = this;
+        const spinnerSize = size && size.includes('small') ? 'small' : 'medium'; // includes("small") matches for any small size value and xsmall
+        let spinnerVariant;
+        if (disabled) {
+            spinnerVariant = variant === 'ghost-inverse' ? 'inverse' : 'secondary';
+        } else {
+            const inverseVariants: ButtonProps['variant'][] = ['primary', 'destructive', 'outline-inverse', 'ghost-inverse'];
+            spinnerVariant = inverseVariants.includes(this.variant) ? 'inverse' : 'secondary';
+        }
+
+        return html`
+                    <pie-spinner
+                        size="${spinnerSize}"
+                        variant="${spinnerVariant}">
+                    </pie-spinner>`;
+    }
+
     render () {
         const {
             type,
@@ -156,19 +221,24 @@ export class PieButton extends LitElement implements ButtonProps {
             variant,
             size,
             isLoading,
+            isResponsive,
             iconPlacement,
+            responsiveSize,
         } = this;
 
         return html`
             <button
                 @click=${this._handleClick}
                 class="o-btn"
-                type=${type}
-                variant=${variant}
-                size=${size}
+                type=${type || 'submit'}
+                variant=${variant || 'primary'}
+                size=${size || 'medium'}
+                responsiveSize=${ifDefined(responsiveSize)}
                 ?disabled=${disabled}
                 ?isFullWidth=${isFullWidth}
+                ?isResponsive=${isResponsive}
                 ?isLoading=${isLoading}>
+                    ${isLoading ? this.renderSpinner() : nothing}
                     ${iconPlacement === 'leading' ? html`<slot name="icon"></slot>` : nothing}
                     <slot></slot>
                     ${iconPlacement === 'trailing' ? html`<slot name="icon"></slot>` : nothing}

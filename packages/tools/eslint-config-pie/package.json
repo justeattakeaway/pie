@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/eslint-config-pie",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Shareable ESLint config for use with any front-end web projects across JET.",
   "exports": {
     ".": "./base/index.js",
@@ -13,7 +13,8 @@
     "check-rules": "eslint-find-rules --unused",
     "pretest": "yarn lint:scripts && yarn check-rules",
     "test": "yarn tests-only",
-    "tests-only": "run -T jest"
+    "test:ci": "yarn test",
+    "tests-only": "run -T vitest run"
   },
   "license": "Apache-2.0",
   "author": "Just Eat Takeaway.com - Design System Team",

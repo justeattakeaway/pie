@@ -1,5 +1,83 @@
 # @justeattakeaway/pie-icons-webc
 
+## 0.17.2
+
+### Patch Changes
+
+- Updated dependencies [[`2763c522a`](https://github.com/justeattakeaway/pie/commit/2763c522a9d8df376c0353c3ba8db5dbf9410c08)]:
+  - @justeattakeaway/pie-webc-core@0.17.1
+
+## 0.17.1
+
+### Patch Changes
+
+- Updated dependencies [[`918593afd`](https://github.com/justeattakeaway/pie/commit/918593afd939e8c911542235a5d861680ceba2d0)]:
+  - @justeattakeaway/pie-webc-core@0.17.0
+
+## 0.17.0
+
+### Minor Changes
+
+- [Changed] - Added `@justeattakeaway/pie-wrapper-react` as a devDependency as `build` now relies on the publish `add-react-wrapper` executable ([#1144](https://github.com/justeattakeaway/pie/pull/1144)) by [@siggerzz](https://github.com/siggerzz)
+
+### Patch Changes
+
+- Updated dependencies [[`320ee9d4b`](https://github.com/justeattakeaway/pie/commit/320ee9d4b53df60d2e69256c5a64c7abfbfbae16), [`4c65a8176`](https://github.com/justeattakeaway/pie/commit/4c65a8176273f3883dc2be2d0c8a33aef56f8993), [`320ee9d4b`](https://github.com/justeattakeaway/pie/commit/320ee9d4b53df60d2e69256c5a64c7abfbfbae16)]:
+  - @justeattakeaway/pie-webc-core@0.16.0
+
+## 0.16.2
+
+### Patch Changes
+
+- Updated dependencies [[`687bdd904`](https://github.com/justeattakeaway/pie/commit/687bdd90475fef58a492c980a7f7d9261ee94eb9)]:
+  - @justeattakeaway/pie-webc-core@0.15.0
+
+## 0.16.1
+
+### Patch Changes
+
+- Updated dependencies [[`c4b78bf9a`](https://github.com/justeattakeaway/pie/commit/c4b78bf9a42e165c8feed20197fbe7d5875a9dd4), [`c4b78bf9a`](https://github.com/justeattakeaway/pie/commit/c4b78bf9a42e165c8feed20197fbe7d5875a9dd4)]:
+  - @justeattakeaway/pie-webc-core@0.14.0
+
+## 0.16.0
+
+### Minor Changes
+
+- [Fixed] - Remove `:host-context` usage for icon sizing ([#1107](https://github.com/justeattakeaway/pie/pull/1107)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
+### Patch Changes
+
+- [Changed] - `--btn-icon-size` and `--btn-icon-display` to `--icon-display-override` and `--icon-size-override` variable for display, width and height icon styles for `:host svg` ([#1127](https://github.com/justeattakeaway/pie/pull/1127)) by [@dandel10n](https://github.com/dandel10n)
+
+## 0.15.0
+
+### Minor Changes
+
+- [Changed] - add two new fallback export entry points for react apps that include /dist in the path. This allows for better integration with frameworks such as NextJS ([#1077](https://github.com/justeattakeaway/pie/pull/1077)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+## 0.14.0
+
+### Minor Changes
+
+- [Changed] - mark pie-webc-core as an external dependency ([#1070](https://github.com/justeattakeaway/pie/pull/1070)) by [@raoufswe](https://github.com/raoufswe)
+
+## 0.13.0
+
+### Minor Changes
+
+- [Added] - React entry point to the library that allows consumers to import individual or all icons either from /react/icon path or entire /react folder ([#1072](https://github.com/justeattakeaway/pie/pull/1072)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+## 0.12.0
+
+### Minor Changes
+
+- [Removed] - lit dependency in favour of pie-webc-core ([#1037](https://github.com/justeattakeaway/pie/pull/1037)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+### Patch Changes
+
+- Updated dependencies [[`9a3a1db82`](https://github.com/justeattakeaway/pie/commit/9a3a1db82ffd69e9583721b703cd85ac1d34e1f3), [`9a3a1db82`](https://github.com/justeattakeaway/pie/commit/9a3a1db82ffd69e9583721b703cd85ac1d34e1f3)]:
+  - @justeattakeaway/pie-webc-core@0.13.0
+
 ## 0.11.1
 
 ### Patch Changes

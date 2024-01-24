@@ -1,59 +1,73 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`React Wrapper should be added from mock custom elements JSON 1`] = `
-"
-import * as React from 'react';
-import { createComponent, EventName } from '@lit-labs/react';
-import { MockComponent as MockComponentReact } from './index';
+"import * as React from 'react';
+import { createComponent, EventName } from '@lit/react';
+import { MockComponent as MockComponentLit } from './index';
+import { MockComponentProps } from './defs';
 
 export * from './defs';
 
-export const MockComponent = createComponent({
+const MockComponentReact = createComponent({
     displayName: 'MockComponent',
-    elementClass: MockComponentReact,
+    elementClass: MockComponentLit,
     react: React,
     tagName: 'mock-component',
     events: {
-        onCustomEvent: 'custom-event' as EventName<CustomEvent>, 
-        onAnotherCustomEvent: 'another-custom-event' as EventName<CustomEvent>, 
+        onCustomEvent: 'custom-event' as EventName<CustomEvent>,
+        onAnotherCustomEvent: 'another-custom-event' as EventName<CustomEvent>,
     },
 });
+
+type MockComponentEvents = {
+    onCustomEvent?: (event: CustomEvent) => void;
+    onAnotherCustomEvent?: (event: CustomEvent) => void;
+};
+
+export const MockComponent = MockComponentReact as React.ForwardRefExoticComponent<React.PropsWithoutRef<MockComponentProps>
+    & React.RefAttributes<MockComponentLit> & MockComponentEvents>;
 "
 `;
 
 exports[`React Wrapper should be named the same as the component itself 1`] = `
-"
-import * as React from 'react';
-import { createComponent } from '@lit-labs/react';
-import { ButtonComponent as ButtonComponentReact } from './index';
+"import * as React from 'react';
+import { createComponent } from '@lit/react';
+import { ButtonComponent as ButtonComponentLit } from './index';
+import { ButtonComponentProps } from './defs';
 
 export * from './defs';
 
-export const ButtonComponent = createComponent({
+const ButtonComponentReact = createComponent({
     displayName: 'ButtonComponent',
-    elementClass: ButtonComponentReact,
+    elementClass: ButtonComponentLit,
     react: React,
     tagName: 'mock-component',
     events: {},
 });
+
+export const ButtonComponent = ButtonComponentReact as React.ForwardRefExoticComponent<React.PropsWithoutRef<ButtonComponentProps>
+    & React.RefAttributes<ButtonComponentLit>>;
 "
 `;
 
 exports[`React Wrapper should leave the events object empty if the component contains no custom events 1`] = `
-"
-import * as React from 'react';
-import { createComponent } from '@lit-labs/react';
-import { MockComponent as MockComponentReact } from './index';
+"import * as React from 'react';
+import { createComponent } from '@lit/react';
+import { MockComponent as MockComponentLit } from './index';
+import { MockComponentProps } from './defs';
 
 export * from './defs';
 
-export const MockComponent = createComponent({
+const MockComponentReact = createComponent({
     displayName: 'MockComponent',
-    elementClass: MockComponentReact,
+    elementClass: MockComponentLit,
     react: React,
     tagName: 'mock-component',
     events: {},
 });
+
+export const MockComponent = MockComponentReact as React.ForwardRefExoticComponent<React.PropsWithoutRef<MockComponentProps>
+    & React.RefAttributes<MockComponentLit>>;
 "
 `;
 

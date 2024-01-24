@@ -1,5 +1,196 @@
 # Changelog
 
+## 2.51.1
+
+### Patch Changes
+
+- [Fixed] - Danger reporting when no categories added to changeset ([#1185](https://github.com/justeattakeaway/pie/pull/1185)) by [@ashleynolan](https://github.com/ashleynolan)
+
+## 2.51.0
+
+### Minor Changes
+
+- [Added] - Readme section for how we use events in our web components ([#1173](https://github.com/justeattakeaway/pie/pull/1173)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+## 2.50.0
+
+### Minor Changes
+
+- [Added] - Some brief documentation around testing our web components using Playwright ([#1148](https://github.com/justeattakeaway/pie/pull/1148)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+## 2.49.0
+
+### Minor Changes
+
+- [Added] - Render an input inside of pie-input with a type property that defaults to text ([#1138](https://github.com/justeattakeaway/pie/pull/1138)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+## 2.48.0
+
+### Minor Changes
+
+- [Added] - New pie-input component with boilerplate code ([#1135](https://github.com/justeattakeaway/pie/pull/1135)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+## 2.47.1
+
+### Patch Changes
+
+- [Fixed] - stylelint-config-pie folder name ([#1112](https://github.com/justeattakeaway/pie/pull/1112)) by [@ashleynolan](https://github.com/ashleynolan)
+
+## 2.47.0
+
+### Minor Changes
+
+- [Added] - pie-tag project label ([#1098](https://github.com/justeattakeaway/pie/pull/1098)) by [@dandel10n](https://github.com/dandel10n)
+
+## 2.46.0
+
+### Minor Changes
+
+- [Changed] - mark pie-webc-core as an external dependency ([#1070](https://github.com/justeattakeaway/pie/pull/1070)) by [@raoufswe](https://github.com/raoufswe)
+
+## 2.45.0
+
+### Minor Changes
+
+- [Changed] - Updated to latest Playwright packages ([#1072](https://github.com/justeattakeaway/pie/pull/1072)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+## 2.44.0
+
+### Minor Changes
+
+- [Fixed] - storybook controls don't updated when changed ([#1066](https://github.com/justeattakeaway/pie/pull/1066)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Added] - the overview and code pages for the icon button component ([#993](https://github.com/justeattakeaway/pie/pull/993)) by [@raoufswe](https://github.com/raoufswe)
+
+## 2.43.0
+
+### Minor Changes
+
+- [Fixed] - list pie-icons-configs as a dev dependency ([#1053](https://github.com/justeattakeaway/pie/pull/1053)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- [Fixed] - Issue where build wasn't being executed before snapshot creation. ([#1045](https://github.com/justeattakeaway/pie/pull/1045)) by [@siggerzz](https://github.com/siggerzz)
+
+- [Changed] - Update changeset snapshot regex and set github token ([#1050](https://github.com/justeattakeaway/pie/pull/1050)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- [Changed] - Use both variants of github token ([#1052](https://github.com/justeattakeaway/pie/pull/1052)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- [Changed] - Ignore apps during snapshot comment ([#1049](https://github.com/justeattakeaway/pie/pull/1049)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- [Added] - Turbo token to build in snapshot workflow ([#1047](https://github.com/justeattakeaway/pie/pull/1047)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+## 2.42.0
+
+### Minor Changes
+
+- [Removed] - lit dependency in favour of pie-webc-core ([#1037](https://github.com/justeattakeaway/pie/pull/1037)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- [Changed] - the icon size of the xsmall icon-button should be 20px ([#1042](https://github.com/justeattakeaway/pie/pull/1042)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Changed] - rely on the padding prop to apply padding for the card stories
+
+## 2.41.0
+
+### Minor Changes
+
+- [Fixed] - icons in pie link stories aren't shown if the story url is directly visited ([#1036](https://github.com/justeattakeaway/pie/pull/1036)) by [@siggerzz](https://github.com/siggerzz)
+
+- [Changed] - spinner sizes should be fully spelt out such as large not l ([#1036](https://github.com/justeattakeaway/pie/pull/1036)) by [@siggerzz](https://github.com/siggerzz)
+
+- [Fixed] - add webc-core as a dep in the switch component ([#1036](https://github.com/justeattakeaway/pie/pull/1036)) by [@siggerzz](https://github.com/siggerzz)
+
+## 2.40.0
+
+### Minor Changes
+
+- [Changed] - Updated the following dependencies: ([#1027](https://github.com/justeattakeaway/pie/pull/1027)) by [@raoufswe](https://github.com/raoufswe)
+
+  - `lit` - `2.8.0` > `3.0.2`
+  - `typescript` - `5.1.3` > `5.2.2`
+
+  [Removed] - Unused `@lit-labs/*` resolutions.
+  [Fixed] - Bug where `dev` tasks weren't building their dependencies where applicable.
+
+## 2.40.0-next.0
+
+### Minor Changes
+
+- [Changed] - Updated the following dependencies: ([#1025](https://github.com/justeattakeaway/pie/pull/1025)) by [@raoufswe](https://github.com/raoufswe)
+
+  - `lit` - `2.8.0` > `3.0.2`
+  - `typescript` - `5.1.3` > `5.2.2`
+
+  [Removed] - Unused `@lit-labs/*` resolutions.
+  [Fixed] - Bug where `dev` tasks weren't building their dependencies where applicable.
+
+## 2.39.1
+
+### Patch Changes
+
+- [Changed] - Move body-scroll-lock from modal's peerDependencies to dependencies ([#998](https://github.com/justeattakeaway/pie/pull/998)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- [Fixed] - danger check allow pre-json changes through ([#1003](https://github.com/justeattakeaway/pie/pull/1003)) by [@ashleynolan](https://github.com/ashleynolan)
+
+## 2.39.0
+
+### Minor Changes
+
+- [Added] - DangerJS added to the repo for PR checks ([#952](https://github.com/justeattakeaway/pie/pull/952)) by [@ashleynolan](https://github.com/ashleynolan)
+
+## 2.38.0
+
+### Minor Changes
+
+- [Changed] - reuse pie-spinner in pie-button ([#958](https://github.com/justeattakeaway/pie/pull/958)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Changed] - reuse pie-spinner in pie-modal ([#960](https://github.com/justeattakeaway/pie/pull/960)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- [Changed] - Use latest pie-design-tokens ([#979](https://github.com/justeattakeaway/pie/pull/979)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+## 2.37.0
+
+### Minor Changes
+
+- [Updated] - Volta / package.json `engines` to support Node 20 ([#943](https://github.com/justeattakeaway/pie/pull/943)) by [@siggerzz](https://github.com/siggerzz)
+
+## 2.36.0
+
+### Minor Changes
+
+- [Added] - VSCode extension recommendations for the PIE monorepo. ([#956](https://github.com/justeattakeaway/pie/pull/956)) by [@siggerzz](https://github.com/siggerzz)
+
+## 2.35.0
+
+### Minor Changes
+
+- [Added] - `isLoading` prop to `pie-icon-button` ([#953](https://github.com/justeattakeaway/pie/pull/953)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Added] - `visually-hidden` mixin to `pie-css` and use it in components when needed
+  [Added] - `button-interactive-states` mixin to use in `pie-icon-button` and `pie-button`
+
+## 2.34.0
+
+### Minor Changes
+
+- [Changed] - Update monorepo and storybook to use renamed component(s) ([#944](https://github.com/justeattakeaway/pie/pull/944)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+## 2.33.0
+
+### Minor Changes
+
+- [Fixed] - `default` and `inverse` variants to use `elevation-card` and `elevation-dark-card` tokens ([#907](https://github.com/justeattakeaway/pie/pull/907)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
+  [Changed] - Refactored `interactionType` to `tag` as the component can only be interactive
+
+  [Fixed] - Disabled state to apply the disabled colour token and reduce opacity on images
+
+  [Fixed] - Disabled state should use the disabled cursor
+
+  [Fixed] - Variants should apply their color token by default
+
 ## 2.32.0
 
 ### Minor Changes

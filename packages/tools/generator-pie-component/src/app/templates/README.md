@@ -15,7 +15,7 @@
 3. [Importing the component](#importing-the-component)
 4. [Peer Dependencies](#peer-dependencies)
 5. [Props](#props)
-6. [Testing](#testing)
+6. [Contributing](#contributing)
 
 ## pie-<%= fileName %>
 
@@ -41,13 +41,27 @@ For full information on using PIE components as part of an application, check ou
 
 ### Importing the component
 
+#### JavaScript
 ```js
-// default
+// Default – for Native JS Applications, Vue, Angular, Svelte, etc.
 import { Pie<%= componentName %> } from '@justeattakeaway/pie-<%= fileName %>';
 
-// react
+// If you don't need to reference the imported object, you can simply
+// import the module which registers the component as a custom element.
+import '@justeattakeaway/pie-<%= fileName %>';
+```
+
+#### React
+```js
+// React
+// For React, you will need to import our React-specific component build
+// which wraps the web component using ​@lit/react
 import { Pie<%= componentName %> } from '@justeattakeaway/pie-<%= fileName %>/dist/react';
 ```
+
+> [!NOTE]
+> When using the React version of the component, please make sure to also
+> include React as a [peer dependency](#peer-dependencies) in your project.
 
 
 ## Peer Dependencies
@@ -71,3 +85,7 @@ In your markup or JSX, you can then use these to set the properties for the `pie
 <!-- JSX -->
 <Pie<%= componentName %>></Pie<%= componentName %>>
 ```
+
+## Contributing
+
+Check out our [contributing guide](https://github.com/justeattakeaway/pie/wiki/Contributing-Guide) for more information on [local development](https://github.com/justeattakeaway/pie/wiki/Contributing-Guide#local-development) and how to run specific [component tests](https://github.com/justeattakeaway/pie/wiki/Contributing-Guide#testing).

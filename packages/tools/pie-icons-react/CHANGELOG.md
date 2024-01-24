@@ -1,5 +1,29 @@
 # Changelog
 
+## 4.13.0
+
+### Minor Changes
+
+- [Fixed] - list pie-icons-configs as a dev dependency ([#1053](https://github.com/justeattakeaway/pie/pull/1053)) by [@raoufswe](https://github.com/raoufswe)
+
+## 4.12.0
+
+### Minor Changes
+
+- [Changed] - `hoistingLimits` config to prevent issues with conflicting dependency versions ([#1027](https://github.com/justeattakeaway/pie/pull/1027)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @justeattakeaway/pie-icons@4.9.3
+  - @justeattakeaway/pie-icons-configs@4.5.1
+
+## 4.12.0-next.0
+
+### Minor Changes
+
+- [Changed] - `hoistingLimits` config to prevent issues with conflicting dependency versions ([#1025](https://github.com/justeattakeaway/pie/pull/1025)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 4.9.1
 
 ### Patch Changes

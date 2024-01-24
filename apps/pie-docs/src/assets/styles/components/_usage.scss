@@ -8,8 +8,8 @@ $usage-bg-minHeight: 280px;
     display: flex;
     flex-direction: column;
     gap: $usage-container-gap;
-    margin-block-start: f.spacing(e);
-    margin-block-end: f.spacing(f);
+    margin-block-start: var(--dt-spacing-e);
+    margin-block-end: var(--dt-spacing-f);
 
     @include f.media('>=narrowMid') {
         flex-direction: row;
@@ -20,6 +20,9 @@ $usage-bg-minHeight: 280px;
     width: 100%;
 
     figure {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
         margin: 0;
     }
 }
@@ -30,20 +33,21 @@ $usage-bg-minHeight: 280px;
     color: var(--style-colour);
     display: flex;
     align-items: center;
-    gap: f.spacing(b);
-    margin-block-end: f.spacing(d);
+    gap: var(--dt-spacing-b);
+    margin-block-end: var(--dt-spacing-d);
 }
 
 .c-usage-backdrop {
-    padding: f.spacing(e);
-    background-color: f.$color-background-subtle;
-    border-radius: 0 0 f.$radius-rounded-d f.$radius-rounded-d;
+    padding: var(--dt-spacing-e);
+    background-color: var(--dt-color-background-subtle);
+    border-radius: 0 0 var(--dt-radius-rounded-d) var(--dt-radius-rounded-d);
     border-top: 4px solid var(--style-colour);
+    flex-grow: 1;
 
     &.c-usage-backdrop--hasImage {
         display: grid;
         place-content: center;
-        gap: f.spacing(f);
+        gap: var(--dt-spacing-f);
         min-height: $usage-bg-minHeight;
     }
 }

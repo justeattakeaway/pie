@@ -1,18 +1,21 @@
 {
   "name": "@justeattakeaway/pie-button",
-  "version": "0.35.0",
+  "version": "0.45.2",
   "description": "PIE design system button built using web components",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
+    "custom-elements.json",
     "src",
     "dist",
     "**/*.d.ts"
   ],
   "scripts": {
-    "build": "yarn build:wrapper pie-button && run -T vite build",
+    "build": "run -T vite build",
+    "build:react-wrapper": "npx build-react-wrapper",
+    "create:manifest": "yarn cem analyze --litelement",
     "lint:scripts": "run -T eslint .",
     "lint:scripts:fix": "run -T eslint . --fix",
     "lint:style": "run -T stylelint ./src/**/*.{css,scss}",
@@ -28,18 +31,21 @@
   "author": "Just Eat Takeaway.com - Design System Team",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@justeat/pie-design-tokens": "5.8.2",
-    "@justeattakeaway/pie-components-config": "0.4.0",
-    "@justeattakeaway/pie-css": "0.6.0",
-    "@justeattakeaway/pie-webc-core": "0.11.0"
+    "@custom-elements-manifest/analyzer": "0.9.0",
+    "@justeattakeaway/pie-components-config": "0.9.0",
+    "@justeattakeaway/pie-wrapper-react": "0.14.0",
+    "cem-plugin-module-file-extensions": "0.0.5"
   },
   "volta": {
     "extends": "../../../package.json"
   },
+  "customElements": "custom-elements.json",
   "sideEffects": [
     "dist/*.js"
   ],
   "dependencies": {
-    "element-internals-polyfill": "1.3.8"
+    "@justeattakeaway/pie-spinner": "0.5.2",
+    "@justeattakeaway/pie-webc-core": "0.17.1",
+    "element-internals-polyfill": "1.3.10"
   }
 }

@@ -19,7 +19,7 @@ const componentTemplate = (name, svg) => {
     const sizeType = isLargeIcon ? 'LargeIconSize' : 'RegularIconSize';
 
     return `import {
-    html, LitElement, TemplateResult, css, PropertyValues
+    html, LitElement, TemplateResult, css, PropertyValues,
 } from 'lit';
 import { defineCustomElement } from '@justeattakeaway/pie-webc-core';
 import { property, query } from 'lit/decorators.js';
@@ -38,11 +38,10 @@ const componentSelector = '${kebabCase(name)}';
 export class ${name} extends LitElement implements IconProps {
     // The following styles make sure that the icon will be sized correctly
     static styles = css\`
-        :host-context(pie-icon-button) svg,
-        :host-context(pie-button) svg {
-            display: block;
-            width: var(--btn-icon-size);
-            height: var(--btn-icon-size);
+        :host svg {
+            display: var(--icon-display-override);
+            width: var(--icon-size-override);
+            height: var(--icon-size-override);
         }
     \`;
 
@@ -92,8 +91,13 @@ declare global {
 
 const ICONS_DIR = `${process.cwd()}/icons`;
 const indexPath = path.join(ICONS_DIR, '/index.ts');
+const reactIndexPath = path.join(ICONS_DIR, '/react/index.ts');
 
-async function checkDirExists (directoryPath) {
+/**
+ * Checks that a directory exists at a specified path, if not it creates it.
+ * @param {string} directoryPath
+ */
+function ensureDirExists (directoryPath) {
     try {
         if (!fs.existsSync(directoryPath)) {
             console.info(`Creating directory "${directoryPath}".`);
@@ -106,9 +110,12 @@ async function checkDirExists (directoryPath) {
     }
 }
 
-async function build () {
+function build () {
     // check if /icons directory exists, if not create it
-    await checkDirExists(ICONS_DIR);
+    ensureDirExists(ICONS_DIR);
+
+    // check if /icons/react directory exists, if not create it
+    ensureDirExists(`${ICONS_DIR}/react`);
 
     let indexFileString = '';
 
@@ -129,9 +136,26 @@ async function build () {
         indexFileString += `export { ${componentName} } from './${componentName}';\n`;
 
         fs.writeFileSync(`./icons/${componentName}.ts`, component, 'utf8');
+
+        // create a {ComponentName}ReactExport.ts file for each component
+        const reactExportTemplate = `import * as React from 'react';
+import { createComponent } from '@lit/react';
+import { ${componentName} as ${componentName}React } from '../${componentName}';
+
+export const ${componentName} = createComponent({
+    displayName: '${componentName}',
+    elementClass: ${componentName}React,
+    react: React,
+    tagName: '${kebabCase(componentName)}',
+    events: {},
+});
+`;
+
+        fs.writeFileSync(`./icons/react/${componentName}.ts`, reactExportTemplate, 'utf8');
     });
 
     fs.writeFileSync(indexPath, indexFileString, 'utf8');
+    fs.writeFileSync(reactIndexPath, indexFileString, 'utf8');
 }
 
 build();

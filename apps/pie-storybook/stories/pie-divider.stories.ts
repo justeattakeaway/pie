@@ -1,13 +1,12 @@
 import { html } from 'lit';
-import {
-    PieDivider, DividerProps, variants, orientations,
-} from '@justeattakeaway/pie-divider';
+
+/* eslint-disable import/no-duplicates */
+import '@justeattakeaway/pie-divider';
+import { DividerProps, variants, orientations } from '@justeattakeaway/pie-divider';
+/* eslint-enable import/no-duplicates */
+
 import { type StoryMeta } from '../types';
 import { createStory, type TemplateFunction } from '../utilities';
-
-// This prevents storybook from tree shaking the components
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const keptReferences = [PieDivider];
 
 type DividerStoryMeta = StoryMeta<DividerProps>;
 
@@ -48,16 +47,11 @@ const dividerStoryMeta: DividerStoryMeta = {
 
 export default dividerStoryMeta;
 
-const Template : TemplateFunction<DividerProps> = ({ variant, orientation }) => {
-    if (orientation === 'vertical') {
-        return html`
-            <div style="height: 250px">
+const Template : TemplateFunction<DividerProps> = ({ variant, orientation }) => html`
+            <div style="${orientation === 'horizontal' ? 'width' : 'height'}: 400px">
                 <pie-divider variant="${variant}" orientation="${orientation}"></pie-divider>
             </div>
         `;
-    }
-    return html`<pie-divider variant="${variant}" orientation="${orientation}" />`;
-};
 
 const createDividerStory = createStory<DividerProps>(Template, defaultArgs);
 

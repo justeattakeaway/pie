@@ -1,0 +1,26 @@
+@use '../fozzie-config' as f;
+
+.c-link-backdrop {
+    background-color: var(--dt-color-background-subtle);
+    border-radius: var(--dt-radius-rounded-c);
+    margin-block-start: var(--dt-spacing-b);
+    margin-block-end: var(--dt-spacing-b);
+    display: flex;
+    align-items: center;
+    padding-block-start: var(--dt-spacing-d);
+    padding-block-end: var(--dt-spacing-d);
+
+    svg {
+        margin-inline-start: var(--dt-spacing-d);
+        margin-inline-end: var(--dt-spacing-d);
+    }
+}
+
+.c-link {
+    margin-inline-start: var(--dt-spacing-a);
+}
+
+.c-link-container {
+    margin-block-start: var(--dt-spacing-f);
+    margin-block-end: var(--dt-spacing-f);
+}

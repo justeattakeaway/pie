@@ -7,40 +7,40 @@
     min-height: 100%;
 
     > * {
-        padding-left: f.spacing(d);
-        padding-right: f.spacing(d);
+        padding-inline-start: var(--dt-spacing-d);
+        padding-inline-end: var(--dt-spacing-d);
 
         @include f.media('>=narrowMid') {
-            padding-left: f.spacing(e);
-            padding-right: f.spacing(e);
+            padding-inline-start: var(--dt-spacing-e);
+            padding-inline-end: var(--dt-spacing-e);
         }
 
         @include f.media('>mid') {
-            padding-left: f.spacing(i);
-            padding-right: f.spacing(i);
+            padding-inline-start: var(--dt-spacing-i);
+            padding-inline-end: var(--dt-spacing-i);
         }
     }
 
     & p,
     & .c-contentPage-img,
     & ul {
-        color: f.$color-content-subdued;
+        color: var(--dt-color-content-subdued);
     }
 }
 
 .c-contentPage-header {
-    padding-top: f.spacing(f);
-    padding-bottom: f.spacing(f);
+    padding-top: var(--dt-spacing-f);
+    padding-bottom: var(--dt-spacing-f);
 
     @include f.media('>=wide') {
-        padding-top: f.spacing(i);
-        padding-bottom: f.spacing(i);
+        padding-top: var(--dt-spacing-i);
+        padding-bottom: var(--dt-spacing-i);
     }
 }
 
 .c-contentPage-header-description {
     @include f.font-size('body-l');
-    margin-top: f.spacing(e);
+    margin-block-start: var(--dt-spacing-e);
     max-width: 50ch;
 
     @include f.media('>=wide') {

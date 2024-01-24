@@ -5,7 +5,91 @@ import fs from 'fs-extra';
 let componentSrc;
 
 // fetches custom-elements.json file
-const loadCustomElementsFile = () => JSON.parse(fs.readFileSync(path.resolve(process.cwd(), './custom-elements.json')));
+export function loadCustomElementsFile (customElementsDirectory = process.argv[2] || process.cwd()) {
+    return JSON.parse(fs.readFileSync(path.resolve(customElementsDirectory, 'custom-elements.json')));
+}
+
+/**
+ * Reads the given component path and extracts the ReactBaseType as a string
+ *
+ * @param {string} componentRelativePath - the relative path to the component
+ * @returns {string} - the Type definition for React as String
+ */
+function getReactBaseType (componentRelativePath) {
+    // Read file
+    const componentFolder = path.parse(componentRelativePath).dir;
+    const componentReactDefs = path.resolve(componentFolder, './defs-react.ts');
+
+    let fileContent;
+    try {
+        fileContent = fs.readFileSync(componentReactDefs, 'utf-8');
+    } catch {
+        return null;
+    }
+
+    return extractReactBaseType(fileContent);
+}
+
+/**
+ * Extracts the ReactBaseType definition as a string, given a string representing the file content
+ *
+ * @param {string} fileContent - the whole content of the file as string
+ * @returns {string} - the Type definition for React as String
+ */
+function extractReactBaseType (fileContent) {
+    // Matches from the line start so it can ignore if it is commented out
+    const matches = fileContent.match(/^export type ReactBaseType.*$/gm);
+    const hasMatch = matches && matches[0];
+
+    if (!hasMatch) return null;
+
+    // Strip the "export" keyword as it is not necessary
+    const reactBaseType = matches[0].replace(/^export /, '');
+
+    return reactBaseType;
+}
+
+/**
+ * Generates a TypeScript type definition for an array of events
+ * @param events - The `events` parameter is an array of event objects. Each event object has a `name`
+ * property representing the name of the event and a `type` property representing the type of the
+ * event.
+ * @param componentsClassName - The `componentsClassName` parameter is a string that represents the
+ * name of the class or component that the events belong to.
+ * @returns An array with two elements. The first element is a string that represents the type
+ * definition for the events, and the second element is a string that represents the name of the events
+ * type.
+ */
+function getEventsTypeDefinition (events, componentsClassName) {
+    if (!events) return null;
+
+    const eventsItems = events.flat()
+        .map((event) => {
+            const formattedEventName = `on${formatEventName(event.name)}`;
+
+            return [formattedEventName, event.type];
+        })
+        .map(([eventName, eventType]) => `    ${eventName}?: (event: ${eventType}) => void;`);
+
+    const eventsTypeName = `${componentsClassName}Events`;
+
+    const eventTypes = [
+        `type ${eventsTypeName} = {`,
+        ...eventsItems.map((eventItem) => eventItem),
+        '};',
+    ].join('\n');
+
+    return [eventTypes, eventsTypeName];
+}
+
+// format event names in a React friendly way - removes hyphens and capitalises
+// i.e. foo-bar-baz becomes FooBarBaz
+function formatEventName (eventName) {
+    return eventName
+        .split('-')
+        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+        .join('');
+}
 
 /**
  * This function generates a react wrapper to enable custom lit components to be used in react apps.
@@ -15,7 +99,7 @@ const loadCustomElementsFile = () => JSON.parse(fs.readFileSync(path.resolve(pro
  * @return {string} - The source code of the react wrapper
  *
  */
-export function addReactWrapper (customElementsObject, folderName = process.argv[2]) {
+export function addReactWrapper (customElementsObject) {
     const components = [];
     const customElements = Object.entries(customElementsObject);
 
@@ -28,14 +112,18 @@ export function addReactWrapper (customElementsObject, folderName = process.argv
             sortedModules = value.sort((a, b) => a.path.length - b.path.length);
 
             value.forEach((k) => {
-                if (k.path.includes(folderName)) {
-                    k.declarations.forEach((decl) => {
-                        if (decl.customElement === true) {
-                            const componentSelector = k.declarations.find((i) => i.kind === 'variable' && i.name === 'componentSelector');
-                            components.push({ class: { ...decl, tagName: componentSelector?.default.replace(/'/g, '') ?? decl.tagName }, path: k.path.replace('index.js', 'react.ts') });
-                        }
-                    });
-                }
+                k.declarations.forEach((decl) => {
+                    if (decl.customElement === true) {
+                        const componentSelector = k.declarations.find((i) => i.kind === 'variable' && i.name === 'componentSelector');
+                        const componentData = {
+                            class: { ...decl, tagName: componentSelector?.default.replace(/'/g, '') ?? decl.tagName },
+                            path: k.path.replace('index.js', 'react.ts'),
+                            reactBaseType: getReactBaseType(k.path),
+                        };
+
+                        components.push(componentData);
+                    }
+                });
             });
         }
 
@@ -65,24 +153,15 @@ export function addReactWrapper (customElementsObject, folderName = process.argv
         const events = [];
         if (component?.events) {
             events.push(component.events
-                    .filter((event) => !!event.name)
-                    .map((event) => ({
-                        name: event.name,
-                        type: event.type?.text || 'Event',
-                        description: event.description,
-                    })));
+                .filter((event) => !!event.name)
+                .map((event) => ({
+                    name: event.name,
+                    type: event.type?.text || 'Event',
+                    description: event.description,
+                })));
         }
 
         return events;
-    }
-
-    // format event names in a React friendly way - removes hyphens and capitalises
-    // i.e. foo-bar-baz becomes FooBarBaz
-    function formatEventName (eventName) {
-        return eventName
-            .split('-')
-            .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-            .join('');
     }
 
     // create wrapper src code and add to react.ts file
@@ -94,7 +173,7 @@ export function addReactWrapper (customElementsObject, folderName = process.argv
             let eventNames = '';
             if (component.class.events && component.class.events.length > 0) {
                 eventNames = events?.flat().reduce((pre, event) => `${pre
-                    }        ${`on${formatEventName(event.name)}`}: '${event.name}' as EventName<${event.type}>, ${event.description ? `// ${event.description}` : ''}\n`, '');
+                    }        ${`on${formatEventName(event.name)}`}: '${event.name}' as EventName<${event.type}>,${event.description ? ` // ${event.description}` : ''}\n`, '');
             }
 
             let eventsObject = '{}';
@@ -102,21 +181,37 @@ export function addReactWrapper (customElementsObject, folderName = process.argv
                 eventsObject = `{\n${eventNames}    }`;
             }
 
+            // This is a workaround for the missing events in the component TS api
+            const [eventsTypeDefinition, eventsTypeName] = eventNames && getEventsTypeDefinition(events, component.class.name);
+
+            const componentPropsExportName = `${component.class.name.replace(/^Pie/, '')}Props`;
+
             // Create the main source code
-            componentSrc = `
-import * as React from 'react';
-import { createComponent${component.class.events?.length > 0 ? ', EventName' : ''} } from '@lit-labs/react';
-import { ${component.class.name} as ${component.class.name}React } from './index';
+            componentSrc = `import * as React from 'react';
+import { createComponent${component.class.events?.length > 0 ? ', EventName' : ''} } from '@lit/react';
+import { ${component.class.name} as ${component.class.name}Lit } from './index';
+import { ${componentPropsExportName} } from './defs';
 
 export * from './defs';
 
-export const ${component.class.name} = createComponent({
+const ${component.class.name}React = createComponent({
     displayName: '${component.class.name}',
-    elementClass: ${component.class.name}React,
+    elementClass: ${component.class.name}Lit,
     react: React,
     tagName: '${component.class.tagName}',
     events: ${eventsObject},
-});
+});${// weird indentation here so we don't end up with extra whitespace in the generated file
+    component.reactBaseType ? `
+
+${component.reactBaseType}` : ''
+}${
+    eventsTypeDefinition ? `
+
+${eventsTypeDefinition}` : ''
+}
+
+export const ${component.class.name} = ${component.class.name}React as React.ForwardRefExoticComponent<React.PropsWithoutRef<${componentPropsExportName}>
+    & React.RefAttributes<${component.class.name}Lit>${eventsTypeDefinition ? ` & ${eventsTypeName}` : ''}${component.reactBaseType ? ' & ReactBaseType' : ''}>;
 `;
             let reactFile;
 
@@ -131,8 +226,7 @@ export const ${component.class.name} = createComponent({
 
             if (componentSrc.length > 0 && reactFile !== undefined) {
                 reactFile.write(componentSrc);
-
-                console.info('react wrapper has been added!');
+                console.info('React wrapper has been added!');
             }
         });
     } else {
@@ -141,5 +235,3 @@ export const ${component.class.name} = createComponent({
 
     return componentSrc;
 }
-
-addReactWrapper(loadCustomElementsFile());

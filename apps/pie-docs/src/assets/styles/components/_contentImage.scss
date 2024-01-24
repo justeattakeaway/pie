@@ -1,21 +1,75 @@
 @use '../fozzie-config' as f;
 @use '../variables' as v;
 
-$contentImage-bg-minHeight:         280px;
+$contentImage-height:                     200px;
+$contentImage-height--mobile:             160px;
+$contentImage-height-m:                   400px;
+$contentImage-height-m--mobile:           240px;
+$contentImage-height-l:                   600px;
+$contentImage-height-l--mobile:           400px;
 
 .c-contentImage {
     margin: 0;
-    margin-top: f.spacing(e);
+    margin-block-start: var(--dt-spacing-e);
+}
+
+.c-contentImage--height-s {
+    height: $contentImage-height--mobile;
+
+    @include f.media('>=narrowMid') {
+        height: $contentImage-height;
+    }
+}
+
+.c-contentImage--height-m {
+    height: $contentImage-height-m--mobile;
+
+    @include f.media('>=narrowMid') {
+        height: $contentImage-height-m;
+    }
+}
+
+.c-contentImage--height-l {
+    height: $contentImage-height-l--mobile;
+
+    @include f.media('>=narrowMid') {
+        height: $contentImage-height-l;
+    }
 }
 
 .c-contentImage--hasBackdrop .c-contentImage-backdrop {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: $contentImage-bg-minHeight;
-    padding: f.spacing(h) f.spacing(d);
-    background-color: f.$color-background-subtle;
-    border-radius: f.$radius-rounded-d;
+    height: 100%;
+    padding-block-start: var(--dt-spacing-h);
+    padding-block-end: var(--dt-spacing-h);
+    padding-inline-start: var(--dt-spacing-d);
+    padding-inline-end: var(--dt-spacing-d);
+    border-radius: var(--dt-radius-rounded-d);
+
+    &.c-contentImage-default {
+        // Same as default styles
+    }
+
+    &.c-contentImage-secondary {
+        background-color: var(--dt-color-container-default);
+        border: 1px solid var(--dt-color-border-strong);
+    }
+
+    &.c-contentImage-inverse {
+        background-color: var(--dt-color-container-inverse);
+    }
+}
+
+.c-contentImage--hasBackdrop .c-contentImage-backdrop,
+.c-contentImage--paddedBackdrop {
+    background-color: var(--dt-color-container-subtle);
+}
+
+.c-contentImage--paddedBackdrop {
+    padding: var(--dt-spacing-f);
+    border-radius: var(--dt-radius-rounded-d);
 }
 
 .c-contentImage {
@@ -25,7 +79,7 @@ $contentImage-bg-minHeight:         280px;
     }
 
     &.c-contentImage--fullWidth img {
-        border-radius: f.$radius-rounded-d;
+        border-radius: var(--dt-radius-rounded-d);
     }
 
     &.c-contentImage--hasBackdrop img {
@@ -36,7 +90,7 @@ $contentImage-bg-minHeight:         280px;
 }
 
 .c-contentImage-caption {
-    margin-top: f.spacing(d);
+    margin-block-start: var(--dt-spacing-d);
     @include f.font-size('body-s');
     max-width: v.$typography-content-max-width;
 }

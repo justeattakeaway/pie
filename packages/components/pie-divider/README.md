@@ -8,16 +8,6 @@
   </a>
 </p>
 
-# Table of Contents
-
-1. [Introduction](#pie-divider)
-2. [Installation](#installation)
-3. [Importing the component](#importing-the-component)
-4. [Peer Dependencies](#peer-dependencies)
-5. [Props](#props)
-6. [Contributing](#contributing)
-
-
 ## pie-divider
 
 `pie-divider` is a Web Component built using the Lit library.
@@ -37,41 +27,13 @@ $ npm i @justeattakeaway/pie-divider
 $ yarn add @justeattakeaway/pie-divider
 ```
 
-For full information on using PIE components as part of an application, check out the [Getting Started Guide](https://github.com/justeattakeaway/pie/wiki/Getting-started-with-PIE-Web-Components).
+## Documentation
 
+Visit  [Divider | PIE Design System](https://pie.design/components/divider/overview) to view more information on this component.
 
-### Importing the component
+## Questions
 
-```js
-// default
-import { PieDivider } from '@justeattakeaway/pie-divider';
-
-// react
-import { PieDivider } from '@justeattakeaway/pie-divider/dist/react';
-```
-
-
-## Peer Dependencies
-
-> [!IMPORTANT]
-> When using `pie-divider`, you will also need to include a couple of dependencies to ensure the component renders as expected. See [the PIE Wiki](https://github.com/justeattakeaway/pie/wiki/Getting-started-with-PIE-Web-Components#expected-dependencies) for more information and how to include these in your application.
-
-## Props
-
-| Property | Type | Default | Description |
-|---|---|---|---|
-| variant | `String` | `default` | Variant of the divider, one of variants – default, inverse |
-| orientation | `String` | `horizontal` | Orientation of the divider, one of – horizontal, vertical |
-
-In your markup or JSX, you can then use these to set the properties for the `pie-divider` component:
-
-```html
-<!-- Native HTML -->
-<pie-divider />
-
-<!-- JSX -->
-<PieDivider />
-```
+Please head to [FAQs | PIE Design System](https://pie.design/support/contact-us/) to see our FAQs and get in touch.
 
 ## Contributing
 

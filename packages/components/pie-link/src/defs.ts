@@ -17,20 +17,20 @@ export interface LinkProps {
     /**
      * What HTML element the link should be such as a or button.
      */
-    tag: typeof tags[number];
+    tag?: typeof tags[number];
     /**
      * What style variant the link should be such as default, high-visibility or inverse.
      */
-    variant: typeof variants[number];
+    variant?: typeof variants[number];
     /**
      * What size the link should be.
      */
-    size: typeof sizes[number];
+    size?: typeof sizes[number];
     /**
      * Defines what underline behavior the link should have, such as default or reversed.
      * The `reversed` type can only be used if the link is a block element (isStandalone = true)
      */
-    underline: typeof underlineTypes[number];
+    underline?: typeof underlineTypes[number];
     /**
      * The URL that the hyperlink should point to
      */
@@ -46,15 +46,15 @@ export interface LinkProps {
     /**
      * When true, the link text will be bold.
      */
-    isBold: boolean;
+    isBold?: boolean;
     /**
      * When true, the link will be treated as a block element
      */
-    isStandalone: boolean;
+    isStandalone?: boolean;
     /**
      * When true, the link will apply the styles for the visited state',
      */
-    hasVisited: boolean;
+    hasVisited?: boolean;
     /**
      * The placement of the icon slot, if provided, such as leading or trailing.
      * Will only apply if the link is a block element (isStandalone = true)

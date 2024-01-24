@@ -1,0 +1,188 @@
+{
+    "headings": ["Prop", "Options", "Description", "Default"],
+    "rows": [
+        [
+            "size",
+            {
+                "type": "code",
+                "item": ["\"xsmall\"", "\"small-productive\"", "\"small-expressive\"", "\"medium\"", "\"large\""]
+            },
+            "Sets the size of the button.",
+            {
+                "type": "code",
+                "item": ["\"medium\""]
+            }
+        ],
+        [
+            "isResponsive",
+            {
+                "type": "code",
+                "item": ["true", "false"]
+            },
+            "If <code>true</code>, uses the next larger size on wide viewports.",
+            {
+                "type": "code",
+                "item": ["false"]
+            }
+        ],
+        [
+            "responsiveSize",
+            {
+                "type": "code",
+                "item": ["\"productive\"", "\"expressive\""]
+            },
+            "Sets which \"small\" size an <code>xsmall</code> button should grow to when <code>isResponsive</code> is <code>true</code>.",
+            {
+                "type": "code",
+                "item": ["\"productive\""]
+            }
+        ],
+        [
+            "type",
+            {
+                "type": "code",
+                "item": ["\"button\"", "\"reset\"", "\"submit\""]
+            },
+            "Sets the type of the button.",
+            {
+                "type": "code",
+                "item": ["\"submit\""]
+            }
+        ],
+        [
+            "variant",
+            {
+                "type": "code",
+                "item": ["\"primary\"", "\"secondary\"", "\"outline\"", "\"outline-inverse\"", "\"ghost\"", "\"inverse\"", "\"ghost-inverse\"", "\"destructive\"", "\"destructive-ghost\""]
+            },
+            "Sets the variant of the button.",
+            {
+                "type": "code",
+                "item": ["\"primary\""]
+            }
+        ],
+        [
+            "disabled",
+            {
+                "type": "code",
+                "item": ["true", "false"]
+            },
+            "if <code>true</code>, disables the button.",
+            {
+                "type": "code",
+                "item": ["false"]
+            }
+        ],
+        [
+            "isFullWidth",
+            {
+                "type": "code",
+                "item": ["true", "false"]
+            },
+            "if <code>true</code>, sets the button's width to 100% of its container.",
+            {
+                "type": "code",
+                "item": ["false"]
+            }
+        ],
+        [
+            "isLoading",
+            {
+                "type": "code",
+                "item": ["true", "false"]
+            },
+            "if <code>true</code>, displays a loading indicator inside the button.",
+            {
+                "type": "code",
+                "item": ["false"]
+            }
+        ],
+        [
+            "iconPlacement",
+            {
+                "type": "code",
+                "item": ["\"leading\"", "\"trailing\""]
+            },
+            "Show a leading/trailing icon. Leading comes before the text and trailing comes after, taking writing direction into account. To use this with pie-button, you can pass an icon into the icon slot.",
+            {
+                "type": "code",
+                "item": ["undefined"]
+            }
+        ],
+        [
+            "name",
+            null,
+            "The name of the button, submitted as a pair with the button's value as part of the form data, when that button is used to submit the form.",
+            {
+                "type": "code",
+                "item": ["undefined"]
+            }
+        ],
+        [
+            "value",
+            null,
+            "Defines the value associated with the button's name when it's submitted with the form data. This value is passed to the server in params when the form is submitted using this button.",
+            {
+                "type": "code",
+                "item": ["undefined"]
+            }
+        ],
+        [
+            "formaction",
+            null,
+            "The URL that processes the information submitted by the button. Overrides the action attribute of the button's form owner. Does nothing if there is no form owner.",
+            {
+                "type": "code",
+                "item": ["undefined"]
+            }
+        ],
+        [
+            "formenctype",
+            {
+                "type": "code",
+                "item": ["application/x-www-form-urlencoded", "multipart/form-data", "text/plain"]
+            },
+            "If the button is a submit button (i.e., it's inside a form or is associated with one and doesn't have <code>type=\"button\"</code>), specifies how to encode the form data that is submitted",
+            {
+                "type": "code",
+                "item": ["undefined"]
+            }
+        ],
+        [
+            "formmethod",
+            {
+                "type": "code",
+                "item": ["\"post\"", "\"get\"", "\"dialog\""]
+            },
+            "If the button is a submit button (i.e., it's inside a form or is associated with one and doesn't have <code>type=\"button\"</code>), this attribute specifies the HTTP method used to submit the form.",
+            {
+                "type": "code",
+                "item": ["undefined"]
+            }
+        ],
+        [
+            "formnovalidate",
+            {
+                "type": "code",
+                "item": ["true", "false"]
+            },
+            "If the button is a submit button, this Boolean attribute specifies that the form is not to be validated when it is submitted.",
+            {
+                "type": "code",
+                "item": ["undefined"]
+            }
+        ],
+        [
+            "formtarget",
+            {
+                "type": "code",
+                "item": ["\"_self\"", "\"_blank\"", "\"_parent\"", "\"_top\""]
+            },
+            "If the button is a submit button, this attribute is an author-defined name or standardized, underscore-prefixed keyword indicating where to display the response from submitting the form.",
+            {
+                "type": "code",
+                "item": ["undefined"]
+            }
+        ]
+    ]
+}

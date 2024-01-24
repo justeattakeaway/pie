@@ -1,6 +1,7 @@
 
 import { test } from '@sand4rt/experimental-ct-web';
 import percySnapshot from '@percy/playwright';
+import { percyWidths } from '@justeattakeaway/pie-webc-testing/src/percy/breakpoints.ts';
 import type {
     PropObject, WebComponentPropValues, WebComponentTestInput,
 } from '@justeattakeaway/pie-webc-testing/src/helpers/defs.ts';
@@ -15,8 +16,8 @@ import {
 } from '@justeattakeaway/pie-webc-testing/src/helpers/components/web-component-test-wrapper/WebComponentTestWrapper.ts';
 import {
     variants, sizes, iconPlacements, tags, underlineTypes,
-} from '@/defs';
-import { PieLink } from '@/index';
+} from '../../src/defs.ts';
+import { PieLink } from '../../src/index.ts';
 
 const props: PropObject = {
     tag: tags,
@@ -62,5 +63,5 @@ componentVariants.forEach((variant) => test(`should render all prop variations f
         );
     }));
 
-    await percySnapshot(page, `PIE Link - Variant: ${variant}`);
+    await percySnapshot(page, `PIE Link - Variant: ${variant}`, percyWidths);
 }));

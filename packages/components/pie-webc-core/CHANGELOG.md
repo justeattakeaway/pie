@@ -1,5 +1,61 @@
 # Changelog
 
+## 0.17.1
+
+### Patch Changes
+
+- [Changed] - Updated Lit to 3.1.1 ([#1178](https://github.com/justeattakeaway/pie/pull/1178)) by [@renovate](https://github.com/apps/renovate)
+
+## 0.17.0
+
+### Minor Changes
+
+- [Added] - new wrapNativeEvent function to standardise how we structure custom versions of native browser events such as 'change' ([#1173](https://github.com/justeattakeaway/pie/pull/1173)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+## 0.16.0
+
+### Minor Changes
+
+- [Removed] - unused LitElementMixin type as we do not need it anywhere ([#1145](https://github.com/justeattakeaway/pie/pull/1145)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Changed] - Added `@justeattakeaway/pie-wrapper-react` as a devDependency as `build` now relies on the publish `add-react-wrapper` executable ([#1144](https://github.com/justeattakeaway/pie/pull/1144)) by [@siggerzz](https://github.com/siggerzz)
+
+- [Changed] - Use proper interface keyword for RTLmixin interface. Was using a class before which is incorrect. ([#1145](https://github.com/justeattakeaway/pie/pull/1145)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+## 0.15.0
+
+### Minor Changes
+
+- [Changed] - Updated LitElement imports where it is only used as a type to include the 'type' keyword (fixes a TS error in some consumers) ([#1143](https://github.com/justeattakeaway/pie/pull/1143)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+## 0.14.0
+
+### Minor Changes
+
+- [Added] - Form Control Mixin for adding native form association behaviour to web components ([#1142](https://github.com/justeattakeaway/pie/pull/1142)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Changed] - Re organised test structure and added playwright testing ([#1142](https://github.com/justeattakeaway/pie/pull/1142)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+## 0.13.0
+
+### Minor Changes
+
+- [Added] - Build webc-core using vite ([#1037](https://github.com/justeattakeaway/pie/pull/1037)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- [Changed] - Move lit dependency from storybook to webc-core ([#1037](https://github.com/justeattakeaway/pie/pull/1037)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+## 0.12.0
+
+### Minor Changes
+
+- [Changed] - `@validPropertyValues` and `@requiredProperty` decorators to support Lit 3. ([#1027](https://github.com/justeattakeaway/pie/pull/1027)) by [@raoufswe](https://github.com/raoufswe)
+
+## 0.12.0-next.0
+
+### Minor Changes
+
+- [Changed] - `@validPropertyValues` and `@requiredProperty` decorators to support Lit 3. ([#1025](https://github.com/justeattakeaway/pie/pull/1025)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.11.0
 
 ### Minor Changes

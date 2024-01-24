@@ -1,5 +1,43 @@
 # @justeattakeaway/pie-components-config
 
+## 0.9.0
+
+### Minor Changes
+
+- [Changed] - Ensure shared `tsconfig.json` / `vite.config.js` get exported as part of the package ([#1159](https://github.com/justeattakeaway/pie/pull/1159)) by [@siggerzz](https://github.com/siggerzz)
+
+## 0.8.0
+
+### Minor Changes
+
+- [Changed] - Added `@justeattakeaway/pie-wrapper-react` as a devDependency as `build` now relies on the publish `add-react-wrapper` executable ([#1144](https://github.com/justeattakeaway/pie/pull/1144)) by [@siggerzz](https://github.com/siggerzz)
+
+## 0.7.0
+
+### Minor Changes
+
+- [Removed] - `private` property in package.json so components can be generated outside of PIE ([#1110](https://github.com/justeattakeaway/pie/pull/1110)) by [@siggerzz](https://github.com/siggerzz)
+
+## 0.6.1
+
+### Patch Changes
+
+- [Changed] - Improve variable name and exclude webc-core from the bundle by default ([#1037](https://github.com/justeattakeaway/pie/pull/1037)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+## 0.6.0
+
+### Minor Changes
+
+- [Changed] - Automatically read component dependencies from package.json ([#988](https://github.com/justeattakeaway/pie/pull/988)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+## 0.5.0
+
+### Minor Changes
+
+- [Changed] - Allow more specific overrides in vite config ([#980](https://github.com/justeattakeaway/pie/pull/980)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Changed] - Component dependencies are the only JET packages that should be marked as external
+
 ## 0.4.0
 
 ### Minor Changes

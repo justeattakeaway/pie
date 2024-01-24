@@ -1,9 +1,17 @@
 import { defineConfig } from 'vite';
 import dts from 'vite-plugin-dts';
 
+import { deepmerge } from 'deepmerge-ts';
+
+const bundledJetDeps = [
+    '@justeattakeaway/pie-components-config',
+    '@justeattakeaway/pie-css',
+    '@justeattakeaway/pie-webc-testing',
+];
+
 // https://vitejs.dev/config/
-const sharedConfig = (extendedConfig = {}) => defineConfig({
-    build: {
+const sharedConfig = ({ build = {}, plugins = [], ...rest }) => defineConfig({
+    build: deepmerge({
         lib: {
             entry: {
                 index: 'src/index.ts',
@@ -12,15 +20,28 @@ const sharedConfig = (extendedConfig = {}) => defineConfig({
             formats: ['es'],
         },
         rollupOptions: {
-            external: ['react', /^lit/],
+            external: (id) => {
+                if (['react', '@lit/react'].includes(id) || /^lit/.test(id)) {
+                    return true;
+                }
+
+                if (id.startsWith('@justeattakeaway/pie-') && !bundledJetDeps.includes(id)) {
+                    console.info(`Excluding ${id} from the bundle`);
+                    return true;
+                }
+
+                return false;
+            },
         },
-    },
-    plugins: [dts({
+    }, build),
+
+    plugins: deepmerge([dts({
         insertTypesEntry: true,
         outputDir: 'dist',
         rollupTypes: true,
-    })],
-    ...extendedConfig,
+    })], plugins),
+
+    ...rest,
 });
 
 export default sharedConfig;

@@ -1,0 +1,70 @@
+// ----------------------------------------------
+// Function for turning a unitless value into a px value
+// The `to-px` function allows you to compute the size using a CSS variable.
+// The resulting value will be multiplied by 1px.
+// -
+// @param {String} $token - The CSS variable name (including the `--` prefix) to be used for the to-px calculation.
+// -
+// @example
+// .my-class {
+//   font-size: to-px(--design-token-variable);
+// }
+// -
+// Outputs:
+// .my-class {
+//   font-size: calc(var(--design-token-variable) * 1px);
+// }
+// ----------------------------------------------
+
+@function to-px($token) {
+    @return calc(var(#{$token}) * 1px);
+}
+
+// ----------------------------------------------
+// Function for calculating the font size.
+// The `font-size` function allows you to compute the font size using a CSS variable.
+// The resulting value will be multiplied by 1px.
+// This currently calls the `to-px` function, but is built on top of it should we want to
+// support other units (such as ems/rems) in the future.
+// -
+// @param {String} $token - The CSS variable name (including the `--` prefix) to be used for the font size
+// calculation.
+// -
+// @example
+// .my-class {
+//   font-size: font-size(--font-size-variable);
+// }
+// -
+// Outputs:
+// .my-class {
+//   font-size: calc(var(--font-size-variable) * 1px);
+// }
+// ----------------------------------------------
+@function font-size($token) {
+    @return to-px($token);
+}
+
+
+// ----------------------------------------------
+// Function for calculating the line-height.
+// The `line-height` function allows you to compute the line height using a CSS variable.
+// The resulting value will be multiplied by 1px.
+// This currently calls the `to-px` function, but is built on top of it should we want to
+// switch to using different units (such as unitless line heights) in the future.
+// -
+// @param {String} $token - The CSS variable name (including the `--` prefix) to be used for the font size
+// calculation.
+// -
+// @example
+// .my-class {
+//   font-size: font-size(--font-size-variable);
+// }
+// -
+// Outputs:
+// .my-class {
+//   font-size: calc(var(--font-size-variable) * 1px);
+// }
+// ----------------------------------------------
+@function line-height($token) {
+    @return to-px($token);
+}

@@ -1,0 +1,105 @@
+@use '../fozzie-config' as f;
+
+:root {
+    --docsearch-hit-active-color: var(--dt-color-content-default);
+    --docsearch-searchbox-shadow: none;
+    --docsearch-text-color: var(--dt-color-content-default);
+    --docsearch-hit-color: var(--dt-color-content-default);
+    --docsearch-searchbox-background: none;
+    --docsearch-hit-shadow: none;
+    --docsearch-muted-color: none;
+    --docsearch-highlight-color: none;
+}
+
+
+.DocSearch-NewStartScreen {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--dt-spacing-d);
+    padding-block-end: var(--dt-spacing-d);
+
+    @include f.media('>=narrow') {
+        grid-template-columns: repeat(2, 1fr);
+        padding-block-end: var(--dt-spacing-g);
+        gap: 48px; // gap between grid columns
+    }
+}
+
+.DocSearch-Hit-path,
+.DocSearch-NewStartScreenItem,
+.DocSearch-Title {
+    @include f.font-size('body-s');
+}
+
+.DocSearch-NewStartScreenCategory {
+    display: flex;
+    flex-direction: column;
+    margin-inline-start: var(--dt-spacing-e);
+}
+
+.DocSearch-NewStartScreenHeader {
+    display: flex;
+}
+
+.DocSearch-NewStartScreenItem {
+    display: flex;
+    cursor: pointer;
+    padding-inline-start: var(--dt-spacing-e);
+    margin-block-end: var(--dt-spacing-a);
+    color: var(--dt-color-content-default);
+}
+
+.DocSearch-Title {
+    padding-inline-start: 10px; // gap between icon and title
+    font-weight: f.$font-weight-bold;
+    margin-block-end: var(--dt-spacing-a);
+}
+
+.DocSearch-Modal {
+    background-color: var(--dt-color-container-default);
+    min-height: auto;
+}
+
+.DocSearch-Footer {
+    position: absolute;
+}
+
+.DocSearch-Hit {
+    border-radius: var(--dt-radius-rounded-c);
+    box-shadow: none;
+
+    &:hover {
+        background-color: var(--dt-color-container-subtle);
+    }
+}
+
+.DocSearch-SearchBar {
+    border-bottom: 1px solid var(--dt-color-border-strong);
+}
+
+.DocSearch-Hit-source {
+    padding-block-end: var(--dt-spacing-a);
+    background-color: var(--dt-color-container-default);
+}
+
+.DocSearch-Hits:last-child {
+    border-bottom: 1px solid var(--dt-color-border-strong);
+}
+
+.DocSearch-Hit-title {
+    @include f.font-size('body-l');
+    font-weight: f.$font-weight-bold;
+}
+
+.DocSearch-Commands,
+.DocSearch-Button-Keys {
+    display: none;
+}
+
+.DocSearch-Button {
+    background-color: var(--dt-color-container-default);
+
+    &:hover {
+        background-color: var(--dt-color-container-strong);
+    }
+}

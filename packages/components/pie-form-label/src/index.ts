@@ -1,6 +1,7 @@
 import {
     LitElement, TemplateResult, html, nothing, unsafeCSS,
 } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { RtlMixin, defineCustomElement } from '@justeattakeaway/pie-webc-core';
 import { property } from 'lit/decorators.js';
 import styles from './form-label.scss?inline';
@@ -40,7 +41,7 @@ export class PieFormLabel extends RtlMixin(LitElement) implements FormLabelProps
             <label
                 data-test-id="pie-form-label"
                 class="c-formLabel"
-                for=${this.for}>
+                for=${ifDefined(this.for)}>
                     <div>
                         ${isRTL ? this._renderOptionalLabel() : nothing}
                         <span class="c-formLabel-leading"><slot></slot></span>

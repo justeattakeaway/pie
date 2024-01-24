@@ -3,20 +3,20 @@
 
 $card-min-width: 270px;
 $card-image-height: 180px;
-$card-gap: f.$spacing-e;
-$card-container-max-width: calc(($card-min-width * 3) + ($card-gap * 2));
-$card-border: 1px solid f.$color-border-default;
+$card-gap: var(--dt-spacing-e);
+$card-container-max-width: calc(($card-min-width * 3) + 48px); // 48px is card-gap * 2
+$card-border: 1px solid var(--dt-color-border-default);
 
 .c-card-wrapper {
     container-type: inline-size;
 }
 
 p + .c-card-wrapper {
-    margin-top: f.$spacing-f;
+    margin-block-start: var(--dt-spacing-f);
 }
 
 h2 + .c-card-wrapper {
-    margin-top: f.$spacing-e;
+    margin-block-start: var(--dt-spacing-e);
 }
 
 .c-card-list {
@@ -46,20 +46,16 @@ h2 + .c-card-wrapper {
 .c-card {
     position: relative;
     border: $card-border;
-    border-radius: f.$radius-rounded-c;
-    background-color: f.$color-container-default;
-    padding: f.$spacing-e;
+    border-radius: var(--dt-radius-rounded-c);
+    background-color: var(--dt-color-container-default);
+    padding: var(--dt-spacing-e);
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 
     &:hover {
-        // This is really annoying, but it's the only way to get darkness to work with Custom Props
-        // TODO: We should likely make a utility function for this in the future
-        // For ref, I tried using string interpolation with -#{f.$color-hover-01}, but it doesn't work as
-        // CSS then complains about it then not being a number ¯\_(ツ)_/¯
-        background-color: color.adjust(f.$color-container-default, $lightness: calc(f.$color-hover-01 * -1));
+        background-color: hsl(var(--dt-color-container-default-h), var(--dt-color-container-default-s), calc(var(--dt-color-container-default-l) + calc(-1 * var(--dt-color-hover-01))));
     }
 
     // makes the entire card clickable
@@ -81,29 +77,29 @@ h2 + .c-card-wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: f.$spacing-b;
-    border-radius: f.$spacing-b;
+    padding: var(--dt-spacing-b);
+    border-radius: var(--dt-spacing-b);
 
     path {
-        fill: f.$color-content-interactive-light;
+        fill: var(--dt-color-content-interactive-light);
     }
 }
 
 $iconBackgroundColours: (
-    'support-brand-03' f.$color-support-brand-03,
-    'support-brand-04' f.$color-support-brand-04,
-    'support-brand-05' f.$color-support-brand-05,
+    'support-brand-03' var(--dt-color-support-brand-03),
+    'support-brand-04' var(--dt-color-support-brand-04),
+    'support-brand-05' var(--dt-color-support-brand-05),
 );
 
 @each $color, $token in $iconBackgroundColours {
     .c-card-icon--#{$color} {
-        background-color: #{$token};
+        background-color: $token;
     }
 }
 
 .c-card-heading {
     @include f.font-size('heading-s');
-    margin-top: f.$spacing-e;
+    margin-block-start: var(--dt-spacing-e);
 
     @include f.media('>=mid') {
         @include f.font-size('heading-m');
@@ -111,11 +107,11 @@ $iconBackgroundColours: (
 }
 
 .c-card-content {
-    margin-top: f.$spacing-d;
+    margin-block-start: var(--dt-spacing-d);
 }
 
 .c-card-image {
-    border-radius: f.$radius-rounded-c f.$radius-rounded-c 0 0;
+    border-radius: var(--dt-radius-rounded-c) var(--dt-radius-rounded-c) 0 0;
     height: $card-image-height;
     display: block;
     width: 100%;
@@ -127,29 +123,32 @@ $iconBackgroundColours: (
 }
 
 .c-card-labelContainer {
-    border-radius: f.$radius-rounded-c;
+    border-radius: var(--dt-radius-rounded-c);
     display: flex;
-    gap: f.spacing();
+    gap: var(--dt-spacing-b);
     justify-content: space-between;
     align-items: center;
-    padding-top: f.$spacing-e;
+    padding-top: var(--dt-spacing-e);
     padding-bottom: 0;
 
     .c-card--hasImage & {
         border-top: $card-border;
-        padding: f.$spacing-e f.$spacing-d;
-        border-radius: 0 0 f.$radius-rounded-c f.$radius-rounded-c;
+        padding-block-start: var(--dt-spacing-e);
+        padding-block-end: var(--dt-spacing-e);
+        padding-inline-start: var(--dt-spacing-d);
+        padding-inline-end: var(--dt-spacing-d);
+        border-radius: 0 0 var(--dt-radius-rounded-c) var(--dt-radius-rounded-c);
     }
 }
 
 .c-card-labelContainer--internalLink {
     justify-content: start;
-    gap: f.$spacing-a;
+    gap: var(--dt-spacing-a);
 }
 
 .c-card-label {
     font-weight: f.$font-weight-bold;
-    margin-top: 0;
+    margin-block-start: 0;
 }
 
 .c-card-label > span {
@@ -158,7 +157,7 @@ $iconBackgroundColours: (
 }
 
 .c-card-labelContainer .c-card-label {
-    color: f.$color-content-default;
+    color: var(--dt-color-content-default);
     text-decoration: underline;
 
     &:hover,
@@ -168,6 +167,6 @@ $iconBackgroundColours: (
     }
 
     &:visited {
-        color: f.$color-content-default;
+        color: var(--dt-color-content-default);
     }
 }

@@ -1,0 +1,13 @@
+{
+    "recommendations": [
+        "dbaeumer.vscode-eslint",
+        "eamodio.gitlens",
+        "eseom.nunjucks-template",
+        "github.vscode-github-actions",
+        "github.vscode-pull-request-github",
+        "jamiemaguire.pie-design-system-vscode-prototype",
+        "ms-playwright.playwright",
+        "unem.lit-plugin",
+        "yoavbls.pretty-ts-errors"
+    ]
+  }

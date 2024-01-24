@@ -1,8 +1,8 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`ESLint base should find the expected errors 1`] = `
-Array [
-  Object {
+exports[`ESLint > base > should find the expected errors 1`] = `
+[
+  {
     "column": 7,
     "endColumn": 13,
     "endLine": 1,
@@ -13,7 +13,18 @@ Array [
     "ruleId": "no-unused-vars",
     "severity": 2,
   },
-  Object {
+  {
+    "column": 7,
+    "endColumn": 13,
+    "endLine": 1,
+    "line": 1,
+    "message": "'aConst' is assigned a value but never used.",
+    "messageId": "unusedVar",
+    "nodeType": "Identifier",
+    "ruleId": "@typescript-eslint/no-unused-vars",
+    "severity": 1,
+  },
+  {
     "column": 7,
     "endColumn": 14,
     "endLine": 2,
@@ -24,7 +35,18 @@ Array [
     "ruleId": "no-unused-vars",
     "severity": 2,
   },
-  Object {
+  {
+    "column": 7,
+    "endColumn": 14,
+    "endLine": 2,
+    "line": 2,
+    "message": "'MyClass' is defined but never used.",
+    "messageId": "unusedVar",
+    "nodeType": "Identifier",
+    "ruleId": "@typescript-eslint/no-unused-vars",
+    "severity": 1,
+  },
+  {
     "column": 5,
     "endColumn": 9,
     "endLine": 3,
@@ -35,7 +57,18 @@ Array [
     "ruleId": "class-methods-use-this",
     "severity": 2,
   },
-  Object {
+  {
+    "column": 12,
+    "endColumn": 6,
+    "endLine": 4,
+    "line": 3,
+    "message": "Unexpected empty method 'foo'.",
+    "messageId": "unexpected",
+    "nodeType": "FunctionExpression",
+    "ruleId": "@typescript-eslint/no-empty-function",
+    "severity": 2,
+  },
+  {
     "column": 5,
     "endColumn": 9,
     "endLine": 6,
@@ -46,7 +79,7 @@ Array [
     "ruleId": "class-methods-use-this",
     "severity": 2,
   },
-  Object {
+  {
     "column": 9,
     "endColumn": 10,
     "endLine": 8,
@@ -57,7 +90,7 @@ Array [
     "ruleId": "for-direction",
     "severity": 2,
   },
-  Object {
+  {
     "column": 38,
     "endColumn": 10,
     "endLine": 8,
@@ -67,11 +100,27 @@ Array [
     "nodeType": "BlockStatement",
     "ruleId": "no-empty",
     "severity": 2,
+    "suggestions": [
+      {
+        "data": {
+          "type": "block",
+        },
+        "desc": "Add comment inside empty block statement.",
+        "fix": {
+          "range": [
+            106,
+            115,
+          ],
+          "text": " /* empty */ ",
+        },
+        "messageId": "suggestComment",
+      },
+    ],
   },
-  Object {
+  {
     "column": 2,
-    "fix": Object {
-      "range": Array [
+    "fix": {
+      "range": [
         124,
         124,
       ],
@@ -88,9 +137,9 @@ Array [
 ]
 `;
 
-exports[`ESLint strict inherits base should find the expected errors 1`] = `
-Array [
-  Object {
+exports[`ESLint > strict > inherits base > should find the expected errors 1`] = `
+[
+  {
     "column": 7,
     "endColumn": 13,
     "endLine": 1,
@@ -101,7 +150,18 @@ Array [
     "ruleId": "no-unused-vars",
     "severity": 2,
   },
-  Object {
+  {
+    "column": 7,
+    "endColumn": 13,
+    "endLine": 1,
+    "line": 1,
+    "message": "'aConst' is assigned a value but never used.",
+    "messageId": "unusedVar",
+    "nodeType": "Identifier",
+    "ruleId": "@typescript-eslint/no-unused-vars",
+    "severity": 1,
+  },
+  {
     "column": 7,
     "endColumn": 14,
     "endLine": 2,
@@ -112,7 +172,18 @@ Array [
     "ruleId": "no-unused-vars",
     "severity": 2,
   },
-  Object {
+  {
+    "column": 7,
+    "endColumn": 14,
+    "endLine": 2,
+    "line": 2,
+    "message": "'MyClass' is defined but never used.",
+    "messageId": "unusedVar",
+    "nodeType": "Identifier",
+    "ruleId": "@typescript-eslint/no-unused-vars",
+    "severity": 1,
+  },
+  {
     "column": 5,
     "endColumn": 9,
     "endLine": 3,
@@ -123,7 +194,18 @@ Array [
     "ruleId": "class-methods-use-this",
     "severity": 2,
   },
-  Object {
+  {
+    "column": 12,
+    "endColumn": 6,
+    "endLine": 4,
+    "line": 3,
+    "message": "Unexpected empty method 'foo'.",
+    "messageId": "unexpected",
+    "nodeType": "FunctionExpression",
+    "ruleId": "@typescript-eslint/no-empty-function",
+    "severity": 2,
+  },
+  {
     "column": 5,
     "endColumn": 9,
     "endLine": 6,
@@ -134,7 +216,7 @@ Array [
     "ruleId": "class-methods-use-this",
     "severity": 2,
   },
-  Object {
+  {
     "column": 9,
     "endColumn": 10,
     "endLine": 8,
@@ -145,7 +227,7 @@ Array [
     "ruleId": "for-direction",
     "severity": 2,
   },
-  Object {
+  {
     "column": 38,
     "endColumn": 10,
     "endLine": 8,
@@ -155,11 +237,27 @@ Array [
     "nodeType": "BlockStatement",
     "ruleId": "no-empty",
     "severity": 2,
+    "suggestions": [
+      {
+        "data": {
+          "type": "block",
+        },
+        "desc": "Add comment inside empty block statement.",
+        "fix": {
+          "range": [
+            106,
+            115,
+          ],
+          "text": " /* empty */ ",
+        },
+        "messageId": "suggestComment",
+      },
+    ],
   },
-  Object {
+  {
     "column": 2,
-    "fix": Object {
-      "range": Array [
+    "fix": {
+      "range": [
         124,
         124,
       ],

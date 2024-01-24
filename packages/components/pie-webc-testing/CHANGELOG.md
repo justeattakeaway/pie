@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.8.0
+
+### Minor Changes
+
+- [Changed] - Added `@justeattakeaway/pie-wrapper-react` as a devDependency as `build` now relies on the publish `add-react-wrapper` executable ([#1144](https://github.com/justeattakeaway/pie/pull/1144)) by [@siggerzz](https://github.com/siggerzz)
+
+## 0.7.0
+
+### Minor Changes
+
+- [Added] - getShadowElementStylePropValues helper function ([#1123](https://github.com/justeattakeaway/pie/pull/1123)) by [@dandel10n](https://github.com/dandel10n)
+
 ## 0.6.0
 
 ### Minor Changes

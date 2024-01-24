@@ -1,5 +1,164 @@
 # Changelog
 
+## 3.23.0
+
+### Minor Changes
+
+- [Changed] - Replaced fozzie colour tokens with pie-css tokens ([#1190](https://github.com/justeattakeaway/pie/pull/1190)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Added] - Component Status Page with new shortcodes `componentStatusTable.js` and `TermsAndDescriptions.js` ([#1168](https://github.com/justeattakeaway/pie/pull/1168)) by [@LTurns](https://github.com/LTurns)
+
+  [Added] - Data file `componentStatusData.js` for all component status updates
+  [Removed] - Resource table data from each component page
+
+## 3.22.0
+
+### Minor Changes
+
+- [Added] - show more button for component status page ([#1176](https://github.com/justeattakeaway/pie/pull/1176)) by [@LTurns](https://github.com/LTurns)
+
+- [Changed] - Update all spacing styles to use pie-css ([#1180](https://github.com/justeattakeaway/pie/pull/1180)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Changed] - Update all spacing properties to use logical properties
+
+### Patch Changes
+
+- Updated dependencies [[`254295b17`](https://github.com/justeattakeaway/pie/commit/254295b1745f2a3c8b05c15a5a6795385b0003be)]:
+  - @justeattakeaway/pie-css@0.9.1
+
+## 3.21.1
+
+### Patch Changes
+
+- [Changed] - Rename `isDisabled` pie-switch prop to `disabled` to align with native attribute ([#1115](https://github.com/justeattakeaway/pie/pull/1115)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+## 3.21.0
+
+### Minor Changes
+
+- [Added] - Form example usage for pie-switch component to code page ([#1103](https://github.com/justeattakeaway/pie/pull/1103)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+## 3.20.0
+
+### Minor Changes
+
+- [Added] - Modal overview page ([#1006](https://github.com/justeattakeaway/pie/pull/1006)) by [@FayeCarter](https://github.com/FayeCarter)
+
+- [Added] - min width to component details table ([#1083](https://github.com/justeattakeaway/pie/pull/1083)) by [@FayeCarter](https://github.com/FayeCarter)
+
+  [Added] - correct images
+
+## 3.19.1
+
+### Patch Changes
+
+- [Added] - Storybook action for `pie-switch` `change` event. ([#1084](https://github.com/justeattakeaway/pie/pull/1084)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Changed] - Update `/components/switch/code` documentation page.
+
+## 3.19.0
+
+### Minor Changes
+
+- [Changed] - Modal overview page ([#1005](https://github.com/justeattakeaway/pie/pull/1005)) by [@FayeCarter](https://github.com/FayeCarter)
+
+- [Added] - link docs ([#1060](https://github.com/justeattakeaway/pie/pull/1060)) by [@raoufswe](https://github.com/raoufswe)
+
+## 3.18.0
+
+### Minor Changes
+
+- [Changed] - prismjs css styles updated in line with design ([#1054](https://github.com/justeattakeaway/pie/pull/1054)) by [@ashleynolan](https://github.com/ashleynolan)
+
+  [Added] - pie-css added to pie-docs, so mixins, functions and css vars can be used
+  [Fixed] - Small fix to code block on docs typography page
+
+- [Added] - Divider docs ([#1059](https://github.com/justeattakeaway/pie/pull/1059)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Added] - the overview and code pages for the icon button component ([#993](https://github.com/justeattakeaway/pie/pull/993)) by [@raoufswe](https://github.com/raoufswe)
+
+## 3.17.0
+
+### Minor Changes
+
+- [Added] - Switch component page overview content ([#1000](https://github.com/justeattakeaway/pie/pull/1000)) by [@fernandofranca](https://github.com/fernandofranca)
+
+- [Added] - Switch component code page ([#1000](https://github.com/justeattakeaway/pie/pull/1000)) by [@fernandofranca](https://github.com/fernandofranca)
+
+## 3.16.0
+
+### Minor Changes
+
+- [Added] - Card documentation ([#997](https://github.com/justeattakeaway/pie/pull/997)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Changed] - Move card overview docs from `/components/card/` to `/components/card/overview/`
+
+### Patch Changes
+
+- [Fixed] - Issue where `dev` script wasn't running on port 8080, causing the browser tests to fail. ([#1018](https://github.com/justeattakeaway/pie/pull/1018)) by [@siggerzz](https://github.com/siggerzz)
+
+## 3.15.1
+
+### Patch Changes
+
+- [Fixed] - Added missing Button changes ([#996](https://github.com/justeattakeaway/pie/pull/996)) by [@fernandofranca](https://github.com/fernandofranca)
+
+## 3.15.0
+
+### Minor Changes
+
+- [Added] - PieButton docs to pie.design ([#976](https://github.com/justeattakeaway/pie/pull/976)) by [@raoufswe](https://github.com/raoufswe)
+
+## 3.14.0
+
+### Minor Changes
+
+- [Added] - template for coding page ([#984](https://github.com/justeattakeaway/pie/pull/984)) by [@LTurns](https://github.com/LTurns)
+
+- [Changed] - Usage cards should have equal height ([#972](https://github.com/justeattakeaway/pie/pull/972)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Added] - Motion content placeholders ([#974](https://github.com/justeattakeaway/pie/pull/974)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
+- [Added] - varaint prop to contentImage ([#970](https://github.com/justeattakeaway/pie/pull/970)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Added] - contents component ([#962](https://github.com/justeattakeaway/pie/pull/962)) by [@FayeCarter](https://github.com/FayeCarter)
+
+- [Fixed] - contents undefined bug ([#977](https://github.com/justeattakeaway/pie/pull/977)) by [@FayeCarter](https://github.com/FayeCarter)
+
+- [Added] Component style template ([#975](https://github.com/justeattakeaway/pie/pull/975)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- [Added] - Explicit dependency on `@justeat/pie-design-tokens` ([#979](https://github.com/justeattakeaway/pie/pull/979)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+## 3.13.0
+
+### Minor Changes
+
+- [Added] - Extended the notification shortcut to support a neutral variant ([#967](https://github.com/justeattakeaway/pie/pull/967)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Changed] - Refactored some margin values to use css logical properties
+
+## 3.12.0
+
+### Minor Changes
+
+- [Added] - component template ([#893](https://github.com/justeattakeaway/pie/pull/893)) by [@FayeCarter](https://github.com/FayeCarter)
+
+- [Added] - column layout component ([#961](https://github.com/justeattakeaway/pie/pull/961)) by [@FayeCarter](https://github.com/FayeCarter)
+
+## 3.11.0
+
+### Minor Changes
+
+- [Added] - Search engine to site ([#933](https://github.com/justeattakeaway/pie/pull/933)) by [@LTurns](https://github.com/LTurns)
+
+## 3.10.0
+
+### Minor Changes
+
+- [Added] - link shortcode component ([#934](https://github.com/justeattakeaway/pie/pull/934)) by [@LTurns](https://github.com/LTurns)
+
 ## 3.9.0
 
 ### Minor Changes

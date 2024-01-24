@@ -1,20 +1,20 @@
 
 import { test, expect } from '@sand4rt/experimental-ct-web';
-import { PieButton } from '@justeattakeaway/pie-button';
-import { PieLink } from '@justeattakeaway/pie-link';
-import { PieModal } from '@justeattakeaway/pie-modal';
-import { PieIconButton } from '@justeattakeaway/pie-icon-button';
-import { PieToggleSwitch } from '@justeattakeaway/pie-toggle-switch';
+import { readFile } from 'fs/promises';
 import {
     ON_COOKIE_BANNER_ACCEPT_ALL, ON_COOKIE_BANNER_NECESSARY_ONLY,
     ON_COOKIE_BANNER_MANAGE_PREFS, ON_COOKIE_BANNER_PREFS_SAVED,
     preferences, PreferenceIds,
-} from '@/defs';
+} from '../../src/defs.ts';
 import {
     PieCookieBanner, CookieBannerProps,
-} from '@/index';
+} from '../../src/index.ts';
+
+const englishLocale = JSON.parse(await readFile(new URL('../../locales/en-gb.json', import.meta.url)));
+const spanishLocale = JSON.parse(await readFile(new URL('../../locales/es-es.json', import.meta.url)));
 
 const componentSelector = '[data-test-id="pie-cookie-banner"]';
+const componentDescriptionSelector = '[data-test-id="banner-description"]';
 const acceptAllSelector = '[data-test-id="actions-accept-all"]';
 const necessaryOnlySelector = '[data-test-id="actions-necessary-only"]';
 const managePreferencesSelector = '[data-test-id="actions-manage-prefs"]';
@@ -22,21 +22,14 @@ const bodyAcceptAllSelector = '[data-test-id="body-accept-all"]';
 const bodyNecessaryOnlySelector = '[data-test-id="body-necessary-only"]';
 const bodyManagePreferencesSelector = '[data-test-id="body-manage-prefs"]';
 const modalSelector = '[data-test-id="pie-modal"]';
+const modalDescriptionSelector = '[data-test-id="modal-description"]';
 const modalBackButtonSelector = '[data-test-id="modal-back-button"]';
 const modalSaveButtonSelector = '[data-test-id="modal-leading-action"]';
-const getPreferenceItemSelector = (id: PreferenceIds) => `#${id} [data-test-id="toggle-switch-component"]`;
+const getPreferenceItemSelector = (id: PreferenceIds) => `#${id} [data-test-id="switch-component"]`;
 
-// Mount any components that are used inside pie-cookie-banner so that
-// they have been registered with the browser before the tests run.
-// There is likely a nicer way to do this but this will temporarily
-// unblock tests.
-test.beforeEach(async ({ mount }) => {
-    await (await mount(PieButton)).unmount();
-    await (await mount(PieLink)).unmount();
-    await (await mount(PieModal)).unmount();
-    await (await mount(PieIconButton)).unmount();
-    await (await mount(PieToggleSwitch)).unmount();
-});
+function stripTags (str: string) {
+    return str.replace(/<\/?[^>]+(>|$)/g, '');
+}
 
 test.describe('PieCookieBanner - Component tests', () => {
     test('should render successfully', async ({ mount, page }) => {
@@ -163,7 +156,7 @@ test.describe('PieCookieBanner - Component tests', () => {
         await page.click(modalSaveButtonSelector);
         const modal = page.locator(modalSelector);
         const [expectedCookieBannerPrefsSavedEvent] = preferences.filter(({ id }) => id !== 'all')
-        .map(({ id, isChecked }) => ({ [id]: !!isChecked }));
+        .map(({ id, checked }) => ({ [id]: !!checked }));
 
         // Assert
         expect(modal).not.toBeVisible();
@@ -215,7 +208,7 @@ test.describe('PieCookieBanner - Component tests', () => {
         await page.click(managePreferencesSelector);
         // eslint-disable-next-line no-restricted-syntax
         for (const preference of preferences) { // turn on all preferences
-            if (preference.id !== 'all' && !preference.isDisabled) {
+            if (preference.id !== 'all' && !preference.disabled) {
                 // eslint-disable-next-line no-await-in-loop
                 await page.click(getPreferenceItemSelector(preference.id));
             }
@@ -260,6 +253,64 @@ test.describe('PieCookieBanner - Component tests', () => {
         expect(isToggleAllChecked).toBe(false);
     });
 
+    test.describe('`locale` prop', () => {
+        test('should render text in the default (English) language when the locale is not set', async ({ mount, page }) => {
+            // Arrange
+            await mount(PieCookieBanner, {});
+
+            // Act
+            const acceptAllButton = page.locator(acceptAllSelector);
+            const necessaryOnlyButton = page.locator(necessaryOnlySelector);
+            const managePreferencesButton = page.locator(managePreferencesSelector);
+            const componentDescription = page.locator(componentDescriptionSelector);
+            const modalDescription = page.locator(modalDescriptionSelector);
+
+            // Assert
+            expect(String(await acceptAllButton.textContent()).trim())
+                .toBe(englishLocale.banner.cta.acceptAll);
+
+            expect(String(await necessaryOnlyButton.textContent()).trim())
+                .toBe(englishLocale.banner.cta.necessaryOnly);
+
+            expect(String(await managePreferencesButton.textContent()).trim())
+                .toBe(englishLocale.banner.cta.managePreferences);
+
+            expect(String(await componentDescription.textContent()).trim())
+                .toBe(stripTags(englishLocale.banner.description));
+
+            expect(String(await modalDescription.textContent()).trim())
+                .toBe(stripTags(englishLocale.preferencesManagement.description));
+        });
+
+        test('should render the expected text when the locale prop is set', async ({ mount, page }) => {
+            // Arrange
+            await mount(PieCookieBanner, { props: { locale: spanishLocale } as CookieBannerProps });
+
+            // Act
+            const acceptAllButton = page.locator(acceptAllSelector);
+            const necessaryOnlyButton = page.locator(necessaryOnlySelector);
+            const managePreferencesButton = page.locator(managePreferencesSelector);
+            const componentDescription = page.locator(componentDescriptionSelector);
+            const modalDescription = page.locator(modalDescriptionSelector);
+
+            // Assert
+            expect(String(await acceptAllButton.textContent()).trim())
+                .toBe(spanishLocale.banner.cta.acceptAll);
+
+            expect(String(await necessaryOnlyButton.textContent()).trim())
+                .toBe(spanishLocale.banner.cta.necessaryOnly);
+
+            expect(String(await managePreferencesButton.textContent()).trim())
+                .toBe(spanishLocale.banner.cta.managePreferences);
+
+            expect(String(await componentDescription.textContent()).trim())
+                .toBe(stripTags(spanishLocale.banner.description));
+
+            expect(String(await modalDescription.textContent()).trim())
+                .toBe(stripTags(spanishLocale.preferencesManagement.description));
+        });
+    });
+
     test.describe('`hasPrimaryActionsOnly` prop', () => {
         test('should set both buttons to primary when true', async ({ mount }) => {
             // Arrange & Act
@@ -273,8 +324,8 @@ test.describe('PieCookieBanner - Component tests', () => {
             );
 
             // Act
-            const acceptAllButton = await component.locator('[data-test-id="actions-accept-all"]');
-            const necessaryOnlyButton = await component.locator('[data-test-id="actions-necessary-only"]');
+            const acceptAllButton = component.locator('[data-test-id="actions-accept-all"]');
+            const necessaryOnlyButton = component.locator('[data-test-id="actions-necessary-only"]');
 
             // Assert
             expect(await acceptAllButton.getAttribute('variant')).toBe('primary');
@@ -292,12 +343,145 @@ test.describe('PieCookieBanner - Component tests', () => {
                 );
 
                 // Act
-                const acceptAllButton = await component.locator('[data-test-id="actions-accept-all"]');
-                const necessaryOnlyButton = await component.locator('[data-test-id="actions-necessary-only"]');
+                const acceptAllButton = component.locator('[data-test-id="actions-accept-all"]');
+                const necessaryOnlyButton = component.locator('[data-test-id="actions-necessary-only"]');
 
                 // Assert
                 expect(await acceptAllButton.getAttribute('variant')).toBe('primary');
                 expect(await necessaryOnlyButton.getAttribute('variant')).toBe('outline-inverse');
+            });
+        });
+    });
+
+    test.describe('`cookieStatementLink` prop', () => {
+        test.describe('when not populated', () => {
+            test('should set a default cookie statement link of empty string within the banner description', async ({ mount }) => {
+                // Arrange & Act
+                const component = await mount(
+                    PieCookieBanner,
+                    {
+                        props: {},
+                    },
+                );
+
+                // Act
+                const cookieStatementLink = component.locator('[data-test-id="banner-description"] [data-test-id="cookie-statement-link"]');
+
+                // Assert
+                expect(await cookieStatementLink.getAttribute('href')).toBe('');
+            });
+
+            test('should set a default cookie statement link of empty string within the modal description', async ({ mount }) => {
+                // Arrange & Act
+                const component = await mount(
+                    PieCookieBanner,
+                    {
+                        props: {},
+                    },
+                );
+
+                // Act
+                const cookieStatementLink = component.locator('[data-test-id="modal-description"] [data-test-id="cookie-statement-link"]');
+
+                // Assert
+                expect(await cookieStatementLink.getAttribute('href')).toBe('');
+            });
+        });
+
+        test.describe('when populated', () => {
+            test('should set a cookie statement link correctly within the banner description', async ({ mount }) => {
+                // Arrange & Act
+                const cookieStatementUrl = 'en/FancyCookieStatementUrl';
+                const component = await mount(
+                    PieCookieBanner,
+                    {
+                        props: {
+                            cookieStatementLink: cookieStatementUrl,
+                        },
+                    },
+                );
+
+                // Act
+                const cookieStatementLink = component.locator('[data-test-id="banner-description"] [data-test-id="cookie-statement-link"]');
+
+                // Assert
+                expect(await cookieStatementLink.getAttribute('href')).toBe(cookieStatementUrl);
+            });
+
+            test('should set a cookie statement link correctly within the modal description', async ({ mount }) => {
+                // Arrange & Act
+                const cookieStatementUrl = 'en/FancyCookieStatementUrl';
+                const component = await mount(
+                    PieCookieBanner,
+                    {
+                        props: {
+                            cookieStatementLink: cookieStatementUrl,
+                        },
+                    },
+                );
+
+                // Act
+                const cookieStatementLink = component.locator('[data-test-id="modal-description"] [data-test-id="cookie-statement-link"]');
+
+                // Assert
+                expect(await cookieStatementLink.getAttribute('href')).toBe(cookieStatementUrl);
+            });
+        });
+    });
+
+    test.describe('`cookieTechnologiesLink` prop', () => {
+        test.describe('when not populated', () => {
+            test('should set a default cookie technology link of empty string within the description container', async ({ mount }) => {
+                // Arrange & Act
+                const component = await mount(
+                    PieCookieBanner,
+                    {
+                        props: {},
+                    },
+                );
+
+                // Act
+                const cookieTechnologyLink = component.locator('[data-test-id="banner-description"] [data-test-id="cookie-statement-link"]');
+
+                // Assert
+                expect(await cookieTechnologyLink.getAttribute('href')).toBe('');
+            });
+
+            test('should set a default cookie technology link of empty string within the modal container', async ({ mount }) => {
+                // Arrange & Act
+                const component = await mount(
+                    PieCookieBanner,
+                    {
+                        props: {},
+                    },
+                );
+
+                // Act
+                const cookieTechnologyLink = component.locator('[data-test-id="modal-description"] [data-test-id="cookie-statement-link"]');
+
+                // Assert
+                expect(await cookieTechnologyLink.getAttribute('href')).toBe('');
+            });
+        });
+
+        test.describe('when populated', () => {
+            test('should set a cookie technology link correctly within the modal description', async ({ mount }) => {
+                // Arrange & Act
+                const cookieTechnologyUrl = 'en/FancyCookieTechnologyUrl';
+                const component = await mount(
+                    PieCookieBanner,
+                    {
+                        props: {
+                            cookieTechnologiesLink: cookieTechnologyUrl,
+                        },
+                    },
+                );
+
+                // Act
+                const cookieTechnologyLink = component.locator('[data-test-id="modal-description"] [data-test-id="cookie-technology-link"]');
+
+                // Assert
+                expect(await cookieTechnologyLink.getAttribute('href')).toBe(cookieTechnologyUrl);
             });
         });
     });
