@@ -1,5 +1,5 @@
 import { test as baseTest, expect as baseExpect } from '@sand4rt/experimental-ct-web';
-import { Page } from 'playwright-core';
+import type { Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 
 interface ExtendedTestContext {
