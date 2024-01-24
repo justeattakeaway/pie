@@ -1,7 +1,7 @@
 import {
     LitElement, html, unsafeCSS, PropertyValues,
 } from 'lit';
-import { property } from 'lit/decorators.js';
+import { property, query } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { live } from 'lit/directives/live.js';
 
@@ -10,7 +10,7 @@ import {
 } from '@justeattakeaway/pie-webc-core';
 
 import styles from './input.scss?inline';
-import { types, InputProps } from './defs';
+import { types, InputProps, InputDefaultPropertyValues } from './defs';
 
 // Valid values available to consumers
 export * from './defs';
@@ -27,24 +27,44 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
 
     @property({ type: String, reflect: true })
     @validPropertyValues(componentSelector, types, 'text')
-    public type: InputProps['type'] = 'text';
+    public type? = InputDefaultPropertyValues.type;
 
     @property({ type: String })
-    public value = '';
+    public value? = InputDefaultPropertyValues.value;
 
     @property({ type: String })
-    public name = '';
+    public name?: InputProps['name'];
+
+    @property({ type: String })
+    public pattern?: InputProps['pattern'];
+
+    @property({ type: Number })
+    public minlength?: InputProps['minlength'];
+
+    @property({ type: Number })
+    public maxlength?: InputProps['maxlength'];
+
+    @query('input')
+    private input?: HTMLInputElement;
+
+    /**
+     * (Read-only) returns a ValidityState with the validity states that this element is in.
+     * https://developer.mozilla.org/en-US/docs/Web/API/HTMLObjectElement/validity
+     */
+    public get validity (): ValidityState {
+        return (this.input as HTMLInputElement).validity;
+    }
 
     protected firstUpdated (_changedProperties: PropertyValues<this>): void {
         super.firstUpdated(_changedProperties);
-        this._internals.setFormValue(this.value);
+        this._internals.setFormValue(this.value as string);
     }
 
     protected updated (_changedProperties: PropertyValues<this>): void {
         super.updated(_changedProperties);
 
         if (_changedProperties.has('value')) {
-            this._internals.setFormValue(this.value);
+            this._internals.setFormValue(this.value as string);
         }
     }
 
@@ -72,12 +92,17 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
     };
 
     render () {
-        const { type, value, name } = this;
+        const {
+            type, value, name, pattern, minlength, maxlength,
+        } = this;
 
         return html`<input
             type=${ifDefined(type)}
             .value=${live(value)}
             name=${ifDefined(name)}
+            pattern=${ifDefined(pattern)}
+            minlength=${ifDefined(minlength)}
+            maxlength=${ifDefined(maxlength)}
             @input=${this.handleInput}
             @change=${this.handleChange}
             data-test-id="pie-input">`;
