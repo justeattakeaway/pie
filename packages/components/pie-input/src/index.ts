@@ -51,7 +51,7 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
     public placeholder?: InputProps['placeholder'];
 
     @property({ type: Boolean })
-    public autoFocus? = InputDefaultPropertyValues.autoFocus;
+    public autoFocus?: InputProps['autoFocus'];
 
     @property({ type: String })
     public inputmode?: InputProps['inputmode'];
