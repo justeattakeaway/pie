@@ -1,4 +1,4 @@
-import { test } from '../playwright/fixtures';
+import { test } from '@playwright/test';
 import { disableCookieBanner, percySnapshot } from '../playwright/playwright-helper';
 
 test.describe('PIE - Home Page Tests', async () => {
