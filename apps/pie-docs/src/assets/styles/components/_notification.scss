@@ -1,4 +1,5 @@
 @use '../fozzie-config' as f;
+@use '@justeattakeaway/pie-css/scss' as p;
 
 $icon-width:                        24px; // must be kept in sync with the size given in notifications.js shortcode
 $notification-padding:              var(--dt-spacing-d);
@@ -18,8 +19,9 @@ $notification-bg-colour:            var(--bg-colour);
 }
 
 .c-notification-title {
-    @include f.font-size('heading-s');
-    font-weight: f.$font-weight-extrabold;
+    @include p.font-size(--dt-font-heading-s-size--wide);
+    @include p.line-height(--dt-font-heading-s-line-height--wide);
+    font-weight: var(--dt-font-weight-extrabold);
 
     ~ .c-notification-message {
         margin-inline-start: $combinedIconAndPaddingWidth;

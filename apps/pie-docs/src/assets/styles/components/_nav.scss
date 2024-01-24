@@ -1,11 +1,13 @@
 @use '../fozzie-config' as f;
+@use '@justeattakeaway/pie-css/scss' as p;
 
 $nav-category-gap: var(--dt-spacing-b);
 $nav-category-icon-width: var(--dt-spacing-e); // this needs to be kept in sync with the width given to the icon found in nav.njk
 $nav-item-inline-start-margin: calc($nav-category-gap + $nav-category-icon-width);
 
 .c-nav {
-    @include f.font-size('body-s');
+    @include p.font-size(--dt-font-body-s-size);
+    @include p.line-height(--dt-font-body-s-line-height);
     background: var(--dt-color-container-default);
     padding-top: var(--dt-spacing-d);
 
@@ -73,7 +75,7 @@ $nav-item-inline-start-margin: calc($nav-category-gap + $nav-category-icon-width
     padding-block-end: 10px;
     padding-inline-start: var(--dt-spacing-d);
     padding-inline-end: var(--dt-spacing-d);
-    font-weight: f.$font-weight-bold;
+    font-weight: var(--dt-font-weight-bold);
 }
 
 .c-nav-item {
@@ -91,7 +93,7 @@ $nav-item-inline-start-margin: calc($nav-category-gap + $nav-category-icon-width
 
     &.is-active {
         background-color: var(--dt-color-container-subtle);
-        font-weight: f.$font-weight-bold;
+        font-weight: var(--dt-font-weight-bold);
     }
 
     &.is-active,

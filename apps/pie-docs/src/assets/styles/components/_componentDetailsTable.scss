@@ -1,5 +1,6 @@
 @use '../fozzie-config' as f;
 @use '../variables' as v;
+@use '@justeattakeaway/pie-css/scss' as p;
 
 .c-componentDetailsTable-backdrop {
     margin-block-start: var(--dt-spacing-e);
@@ -58,5 +59,6 @@
     padding-inline-start: var(--dt-spacing-a);
     padding-inline-end: var(--dt-spacing-a);
     border-radius: var(--dt-radius-rounded-b);
-    @include f.font-size('body-s');
+    @include p.font-size(--dt-font-body-s-size);
+    @include p.line-height(--dt-font-body-s-line-height);
 }

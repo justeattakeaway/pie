@@ -1,5 +1,6 @@
 @use '../fozzie-config' as f;
 @use '../variables' as v;
+@use '@justeattakeaway/pie-css/scss' as p;
 
 $tokensTable-column-padding: var(--dt-spacing-d);
 $tokensTable-border-width: 1px;
@@ -199,17 +200,19 @@ $tokensTable-item-vertical-padding: var(--dt-spacing-e);
 
 .c-tokensTable-displayName {
     color: var(--dt-color-content-default);
-    font-weight: f.$font-weight-bold;
+    font-weight: var(--dt-font-weight-bold);
     margin-block-end: var(--dt-spacing-b);
 }
 
 .c-tokensTable-tokenDescription {
-    @include f.font-size('body-s');
+    @include p.font-size(--dt-font-body-s-size);
+    @include p.line-height(--dt-font-body-s-line-height);
 }
 
 .c-tokensTable-heading {
-    font-weight: f.$font-weight-bold;
-    @include f.font-size('body-s');
+    font-weight: var(--dt-font-weight-bold);
+    @include p.font-size(--dt-font-body-s-size);
+    @include p.line-height(--dt-font-body-s-line-height);
     color: var(--dt-color-content-subdued);
 }
 
@@ -294,7 +297,8 @@ $tokensTable-item-vertical-padding: var(--dt-spacing-e);
     padding-block-end: calc(var(--dt-spacing-a) / 2);
     padding-inline-start: var(--dt-spacing-a);
     padding-inline-end: var(--dt-spacing-a);
-    @include f.font-size('body-s');
+    @include p.font-size(--dt-font-body-s-size);
+    @include p.line-height(--dt-font-body-s-line-height);
 }
 
 .c-tokensTable-token--light {

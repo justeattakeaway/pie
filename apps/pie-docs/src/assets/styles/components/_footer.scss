@@ -1,4 +1,5 @@
 @use '../fozzie-config' as f;
+@use '@justeattakeaway/pie-css/scss' as p;
 
 .c-footer {
     padding-block-start: var(--dt-spacing-g);
@@ -6,7 +7,8 @@
     padding-inline-start: var(--dt-spacing-d);
     padding-inline-end: var(--dt-spacing-d);
     background-color: var(--dt-color-container-subtle);
-    @include f.font-size('body-s');
+    @include p.font-size(--dt-font-body-s-size);
+    @include p.line-height(--dt-font-body-s-line-height);
 
     @include f.media('>=narrowMid') {
         padding-inline-start: var(--dt-spacing-e);
@@ -86,7 +88,8 @@
     }
 
     h3 {
-        @include f.font-size('body-s');
+        @include p.font-size(--dt-font-body-s-size);
+        @include p.line-height(--dt-font-body-s-line-height);
         text-transform: capitalize;
         margin-block-end: var(--dt-spacing-a);
     }
