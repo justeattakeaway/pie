@@ -1,3 +1,6 @@
+const vitestPlugin = require("eslint-plugin-vitest");
+const vitestGlobals = require("eslint-plugin-vitest-globals");
+
 module.exports = {
     extends: [
         require.resolve('@justeattakeaway/eslint-config-pie/strict'),
@@ -5,7 +8,8 @@ module.exports = {
     ],
     plugins: [
         'json-format',
-        '@typescript-eslint'
+        '@typescript-eslint',
+        vitestPlugin,
     ],
     root: true,
     settings: {
@@ -19,6 +23,8 @@ module.exports = {
         'no-shadow': 'off',
         'no-use-before-define': 'off',
         '@typescript-eslint/no-var-requires': 'off',
+        ...vitestPlugin.configs["recommended"].rules,
+        ...vitestGlobals.configs["recommended"].rules,
     },
     overrides: [
         {
