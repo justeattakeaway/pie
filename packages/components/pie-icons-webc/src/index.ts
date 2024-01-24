@@ -7,8 +7,13 @@ import {
 } from 'lit';
 import { property, query } from 'lit/decorators.js';
 
-import { defineCustomElement } from '@justeattakeaway/pie-webc-core';
-import { getSvgProps, type RegularIconSize } from '@justeattakeaway/pie-icons-configs';
+import { defineCustomElement, validPropertyValues } from '@justeattakeaway/pie-webc-core';
+import {
+    getSvgProps,
+    type RegularIconSize,
+    regularIconSizes,
+    regularIconSizeDefault,
+} from '@justeattakeaway/pie-icons-configs';
 
 import styles from './icon.scss?inline';
 import { IconCloseProps } from './defs';
@@ -26,6 +31,7 @@ export class IconClose extends LitElement implements IconCloseProps {
     static styles = unsafeCSS(styles);
 
     @property({ type: String, reflect: true })
+    @validPropertyValues(componentSelector, regularIconSizes, regularIconSizeDefault)
     public size : RegularIconSize = 'xs';
 
     @property({ type: String, reflect: true })
