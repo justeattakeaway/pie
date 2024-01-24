@@ -22,7 +22,7 @@ $nav-item-inline-start-margin: calc($nav-category-gap + $nav-category-icon-width
         height: calc(100dvh - var(--header-height));
         width: 80%;
         max-width: var(--sidenav-width-narrow);
-        z-index: f.zIndex(high);
+        z-index: var(--dt-z-index-side-sheet);
     }
 
     ul {

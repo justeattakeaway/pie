@@ -10,7 +10,7 @@
         inset-inline-end: var(--dt-spacing-e);
     }
 
-    z-index: f.zIndex('high');
+    z-index: var(--dt-z-index-fab);
 
     display: none; // Hidden by default, will be set to flex by scroll-to-top.js
     flex-direction: row;

@@ -57,7 +57,7 @@
 .c-main,
 .c-footer {
     @include f.media('<wide') {
-        z-index: f.zIndex(low);
+        z-index: 1;
     }
 }
 
