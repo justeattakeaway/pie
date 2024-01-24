@@ -41,7 +41,7 @@ type SubsetRequiredProperties<T, K extends keyof T> = Required<Pick<T, K>>;
 /**
  * The default values for the `InputProps` that are required (i.e. they have a fallback value in the component).
  */
-type DefaultInputPropValues = SubsetRequiredProperties<InputProps, 'type' | 'value' | 'name' | 'pattern'>;
+type DefaultInputPropValues = SubsetRequiredProperties<InputProps, 'type' | 'value'>;
 
 /**
  * Default values for optional properties that have default fallback values in the component.
@@ -49,6 +49,4 @@ type DefaultInputPropValues = SubsetRequiredProperties<InputProps, 'type' | 'val
 export const InputDefaultPropertyValues: DefaultInputPropValues = {
     type: 'text',
     value: '',
-    name: '',
-    pattern: '',
 };

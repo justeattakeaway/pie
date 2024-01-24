@@ -1,5 +1,5 @@
 import {
-    LitElement, html, unsafeCSS, PropertyValues,
+    LitElement, html, unsafeCSS, PropertyValues, nothing,
 } from 'lit';
 import { property, query } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
@@ -33,10 +33,10 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
     public value? = InputDefaultPropertyValues.value;
 
     @property({ type: String })
-    public name? = InputDefaultPropertyValues.name;
+    public name?: InputProps['name'];
 
     @property({ type: String })
-    public pattern? = InputDefaultPropertyValues.pattern;
+    public pattern?: InputProps['pattern'];
 
     @property({ type: Number })
     public minlength?: InputProps['minlength'];
@@ -91,19 +91,6 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
         this.dispatchEvent(customChangeEvent);
     };
 
-    // TODO - move into pie-webc-core for other components to use
-    /**
-     * Returns the string value if it is not empty, otherwise returns undefined.
-     * @param value - The string value to check.
-     */
-    private nonEmptyString (value: string | undefined) : string | undefined {
-        if (value !== undefined && value !== '') {
-            return value;
-        }
-
-        return undefined;
-    }
-
     render () {
         const {
             type, value, name, pattern, minlength, maxlength,
@@ -112,8 +99,8 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
         return html`<input
             type=${ifDefined(type)}
             .value=${live(value || InputDefaultPropertyValues.value)}
-            name=${ifDefined(this.nonEmptyString(name))}
-            pattern=${ifDefined(this.nonEmptyString(pattern))}
+            name=${ifDefined(name)}
+            pattern=${ifDefined(pattern)}
             minlength=${ifDefined(minlength)}
             maxlength=${ifDefined(maxlength)}
             @input=${this.handleInput}
