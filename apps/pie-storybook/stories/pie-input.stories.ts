@@ -56,7 +56,7 @@ const inputStoryMeta: InputStoryMeta = {
             if: { arg: 'type', neq: 'number' },
         },
         minlength: {
-            description: 'Minimum length (number of characters) of value. Only applies to types: `text`, `search`, `url`, `tel`, `email`, and `password`.',
+            description: 'Minimum length (number of characters) of value. Only applies to types: `text`, `url`, `tel`, `email`, and `password`.',
             control: 'number',
             defaultValue: {
                 summary: '',
@@ -64,7 +64,7 @@ const inputStoryMeta: InputStoryMeta = {
             if: { arg: 'type', neq: 'number' },
         },
         maxlength: {
-            description: 'Maximum length (number of characters) of value. Only applies to types: `text`, `search`, `url`, `tel`, `email`, and `password`.',
+            description: 'Maximum length (number of characters) of value. Only applies to types: `text`, `url`, `tel`, `email`, and `password`.',
             control: 'number',
             defaultValue: {
                 summary: '',
@@ -78,6 +78,14 @@ const inputStoryMeta: InputStoryMeta = {
                 summary: 'off',
             },
         },
+        placeholder: {
+            description: 'The placeholder text to display when the input is empty. Only applies to types: `text`, `url`, `tel`, `email`, and `password`.',
+            control: 'text',
+            defaultValue: {
+                summary: '',
+            },
+            if: { arg: 'type', neq: 'number' },
+        },
     },
     args: defaultArgs,
     parameters: {
@@ -89,7 +97,7 @@ const inputStoryMeta: InputStoryMeta = {
 };
 
 const Template = ({
-    type, value, name, pattern, minlength, maxlength, autocomplete,
+    type, value, name, pattern, minlength, maxlength, autocomplete, placeholder,
 }: InputProps) => {
     const [, updateArgs] = UseArgs();
 
@@ -118,6 +126,7 @@ const Template = ({
         minlength="${ifDefined(minlength)}"
         maxlength="${ifDefined(maxlength)}"
         autocomplete="${ifDefined(autocomplete)}"
+        placeholder="${ifDefined(placeholder)}"
         @input="${onInput}"
         @change="${onChange}"></pie-input>
     `;

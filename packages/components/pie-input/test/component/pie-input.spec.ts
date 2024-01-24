@@ -351,6 +351,34 @@ test.describe('PieInput - Component tests', () => {
                 expect((await input.getAttribute('autocomplete'))).toBe('on');
             });
         });
+
+        test.describe('placeholder', () => {
+            test('should not render a placeholder attribute on the input element if no placeholder provided', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieInput, {});
+
+                // Act
+                const input = component.locator('input');
+
+                // Assert
+                expect((await input.getAttribute('placeholder'))).toBe(null);
+            });
+
+            test('should apply the placeholder prop to the HTML input rendered', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieInput, {
+                    props: {
+                        placeholder: 'Test Placeholder',
+                    } as InputProps,
+                });
+
+                // Act
+                const input = component.locator('input');
+
+                // Assert
+                expect((await input.getAttribute('placeholder'))).toBe('Test Placeholder');
+            });
+        });
     });
 
     test.describe('Events', () => {

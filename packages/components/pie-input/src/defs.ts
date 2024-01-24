@@ -1,4 +1,4 @@
-export const types = ['text', 'number', 'password', 'search', 'url', 'email', 'tel'] as const;
+export const types = ['text', 'number', 'password', 'url', 'email', 'tel'] as const;
 
 export interface InputProps {
     /**
@@ -22,12 +22,12 @@ export interface InputProps {
     pattern?: string;
 
     /**
-     * Minimum length (number of characters) of value. Only applies to types: `text`, `search`, `url`, `tel`, `email`, and `password`.
+     * Minimum length (number of characters) of value. Only applies to types: `text`, `url`, `tel`, `email`, and `password`.
      */
     minlength?: number;
 
     /**
-     * Maximum length (number of characters) of value. Only applies to types: `text`, `search`, `url`, `tel`, `email`, and `password`.
+     * Maximum length (number of characters) of value. Only applies to types: `text`, `url`, `tel`, `email`, and `password`.
      */
     maxlength?: number;
 
@@ -36,6 +36,11 @@ export interface InputProps {
      * See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete) for more information and values.
      */
     autocomplete?: string;
+
+    /**
+     * The placeholder text to display when the input is empty. Only applies to types: `text`, `url`, `tel`, `email`, and `password`.
+     */
+    placeholder?: string;
 }
 
 // TODO - There is a ticket to add default prop values to our existing components. This might be replaced by the code added in that ticket.
