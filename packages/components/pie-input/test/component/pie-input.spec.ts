@@ -405,6 +405,34 @@ test.describe('PieInput - Component tests', () => {
                 await expect(inputLocator).not.toBeFocused();
             });
         });
+
+        test.describe('inputmode', () => {
+            test('should not render an inputmode attribute on the input element if no inputmode provided', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieInput, {});
+
+                // Act
+                const input = component.locator('input');
+
+                // Assert
+                expect((await input.getAttribute('inputmode'))).toBe(null);
+            });
+
+            test('should apply the inputmode prop to the HTML input rendered', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieInput, {
+                    props: {
+                        inputmode: 'numeric',
+                    } as InputProps,
+                });
+
+                // Act
+                const input = component.locator('input');
+
+                // Assert
+                expect((await input.getAttribute('inputmode'))).toBe('numeric');
+            });
+        });
     });
 
     test.describe('Events', () => {

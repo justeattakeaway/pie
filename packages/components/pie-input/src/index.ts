@@ -53,6 +53,9 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
     @property({ type: Boolean })
     public autoFocus? = InputDefaultPropertyValues.autoFocus;
 
+    @property({ type: String })
+    public inputmode?: InputProps['inputmode'];
+
     @query('input')
     private input?: HTMLInputElement;
 
@@ -102,7 +105,7 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
 
     render () {
         const {
-            type, value, name, pattern, minlength, maxlength, autocomplete, placeholder, autoFocus,
+            type, value, name, pattern, minlength, maxlength, autocomplete, placeholder, autoFocus, inputmode,
         } = this;
 
         return html`<input
@@ -114,6 +117,7 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
             maxlength=${ifDefined(maxlength)}
             autocomplete=${ifDefined(autocomplete)}
             .autofocus=${autoFocus}
+            inputmode=${ifDefined(inputmode)}
             placeholder=${ifDefined(placeholder)}
             @input=${this.handleInput}
             @change=${this.handleChange}

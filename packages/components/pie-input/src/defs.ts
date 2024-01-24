@@ -1,4 +1,5 @@
 export const types = ['text', 'number', 'password', 'url', 'email', 'tel'] as const;
+export const inputModes = ['none', 'text', 'tel', 'url', 'email', 'numeric', 'decimal', 'search'] as const;
 
 export interface InputProps {
     /**
@@ -48,6 +49,12 @@ export interface InputProps {
      * See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/autofocus) for more information.
      */
     autoFocus?: boolean;
+
+    /**
+     * Provides a hint to browsers as to the type of virtual keyboard configuration to use when editing this element.
+     * See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#inputmode) for more information.
+     */
+    inputmode?: typeof inputModes[number];
 }
 
 // TODO - There is a ticket to add default prop values to our existing components. This might be replaced by the code added in that ticket.

@@ -5,7 +5,7 @@ import { useArgs as UseArgs } from '@storybook/preview-api';
 
 /* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-input';
-import { types, InputProps } from '@justeattakeaway/pie-input';
+import { types, inputModes, InputProps } from '@justeattakeaway/pie-input';
 /* eslint-enable import/no-duplicates */
 
 import { type StoryMeta } from '../types';
@@ -94,6 +94,14 @@ const inputStoryMeta: InputStoryMeta = {
                 summary: false,
             },
         },
+        inputmode: {
+            description: 'Provides a hint to browsers as to the type of virtual keyboard configuration to use when editing this element. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#inputmode) for more information.',
+            control: 'select',
+            options: inputModes,
+            defaultValue: {
+                summary: '',
+            },
+        },
     },
     args: defaultArgs,
     parameters: {
@@ -105,7 +113,7 @@ const inputStoryMeta: InputStoryMeta = {
 };
 
 const Template = ({
-    type, value, name, pattern, minlength, maxlength, autocomplete, placeholder, autoFocus,
+    type, value, name, pattern, minlength, maxlength, autocomplete, placeholder, autoFocus, inputmode,
 }: InputProps) => {
     const [, updateArgs] = UseArgs();
 
@@ -135,6 +143,7 @@ const Template = ({
         maxlength="${ifDefined(maxlength)}"
         autocomplete="${ifDefined(autocomplete)}"
         placeholder="${ifDefined(placeholder)}"
+        inputmode="${ifDefined(inputmode)}"
         ?autoFocus="${autoFocus}"
         @input="${onInput}"
         @change="${onChange}"></pie-input>
