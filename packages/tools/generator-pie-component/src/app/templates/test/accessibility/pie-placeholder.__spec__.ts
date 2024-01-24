@@ -7,7 +7,7 @@ test.describe('Pie<%= componentName %> - Accessibility tests', () => {
         await mount(
             Pie<%= componentName %>,
             {
-                props: {} as <%= componentName %> Props,
+                props: {} as <%= componentName %>Props,
             },
         );
 
