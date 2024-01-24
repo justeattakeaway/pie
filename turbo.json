@@ -71,9 +71,6 @@
       "outputs": [
         "**/__snapshots__/**",
         "**/snapshots/**"
-      ],
-      "inputs": [
-        "src/**"
       ]
     },
     "test:watch": {
@@ -92,9 +89,6 @@
       "outputs": [
         "**/__snapshots__/**",
         "**/snapshots/**"
-      ],
-      "inputs": [
-        "src/**"
       ]
     },
     "test:coverage": {
@@ -105,20 +99,12 @@
       "dependsOn": [
         "^build"
       ],
-      "inputs": [
-        "src/**",
-        "test/**"
-      ],
       "outputs": []
     },
     "test:browsers:ci": {
       "cache": true,
       "dependsOn": [
         "^build"
-      ],
-      "inputs": [
-        "src/**",
-        "test/**"
       ]
     },
     "test:visual": {
