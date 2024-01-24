@@ -18,6 +18,7 @@ const defaultArgs: InputProps = {
     type: 'text',
     value: '',
     name: 'testName',
+    autocomplete: 'off',
 };
 
 const inputStoryMeta: InputStoryMeta = {
@@ -70,6 +71,13 @@ const inputStoryMeta: InputStoryMeta = {
             },
             if: { arg: 'type', neq: 'number' },
         },
+        autocomplete: {
+            description: 'Allows the user to enable or disable autocomplete functionality on the input field. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete) for more information and values.',
+            control: 'text',
+            defaultValue: {
+                summary: 'off',
+            },
+        },
     },
     args: defaultArgs,
     parameters: {
@@ -81,7 +89,7 @@ const inputStoryMeta: InputStoryMeta = {
 };
 
 const Template = ({
-    type, value, name, pattern, minlength, maxlength,
+    type, value, name, pattern, minlength, maxlength, autocomplete,
 }: InputProps) => {
     const [, updateArgs] = UseArgs();
 
@@ -109,6 +117,7 @@ const Template = ({
         pattern="${ifDefined(pattern)}"
         minlength="${ifDefined(minlength)}"
         maxlength="${ifDefined(maxlength)}"
+        autocomplete="${ifDefined(autocomplete)}"
         @input="${onInput}"
         @change="${onChange}"></pie-input>
     `;

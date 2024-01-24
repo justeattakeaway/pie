@@ -323,6 +323,34 @@ test.describe('PieInput - Component tests', () => {
                 expect(isValid).toBe(true);
             });
         });
+
+        test.describe('autocomplete', () => {
+            test('should not render an autocomplete attribute on the input element if no autocomplete provided', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieInput, {});
+
+                // Act
+                const input = component.locator('input');
+
+                // Assert
+                expect((await input.getAttribute('autocomplete'))).toBe(null);
+            });
+
+            test('should apply the autocomplete prop to the HTML input rendered', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieInput, {
+                    props: {
+                        autocomplete: 'on',
+                    } as InputProps,
+                });
+
+                // Act
+                const input = component.locator('input');
+
+                // Assert
+                expect((await input.getAttribute('autocomplete'))).toBe('on');
+            });
+        });
     });
 
     test.describe('Events', () => {
