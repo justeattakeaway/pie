@@ -1,5 +1,17 @@
 # Changelog
 
+## 3.24.0
+
+### Minor Changes
+
+- [Removed] - peer dependency link in code pages ([#1195](https://github.com/justeattakeaway/pie/pull/1195)) by [@LTurns](https://github.com/LTurns)
+
+- [Changed] - Replaced fozzie radius tokens with pie-css tokens ([#1196](https://github.com/justeattakeaway/pie/pull/1196)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- [Changed] - Updated CSS logical props values from shorthand to regular form ([#1203](https://github.com/justeattakeaway/pie/pull/1203)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 3.23.0
 
 ### Minor Changes
