@@ -1,9 +1,9 @@
 
-import { litTest, expect } from '@justeattakeaway/pie-webc-testing/src/playwright/fixtures.ts';
+import { test, expect } from '@justeattakeaway/pie-webc-testing/src/playwright/webc-fixtures.ts';
 import { PieFormLabel, FormLabelProps } from '../../src/index.ts';
 
-litTest.describe('PieFormLabel - Accessibility tests', () => {
-    litTest('a11y - should test the PieFormLabel component WCAG compliance', async ({ makeAxeBuilder, mount }) => {
+test.describe('PieFormLabel - Accessibility tests', () => {
+    test('a11y - should test the PieFormLabel component WCAG compliance', async ({ makeAxeBuilder, mount }) => {
         await mount(
             PieFormLabel,
             {

@@ -1,9 +1,9 @@
 
-import { litTest, expect } from '@justeattakeaway/pie-webc-testing/src/playwright/fixtures.ts';
+import { test, expect } from '@justeattakeaway/pie-webc-testing/src/playwright/webc-fixtures.ts';
 import { PieCookieBanner, CookieBannerProps } from '../../src/index.ts';
 
-litTest.describe('PieCookieBanner - Accessibility tests', () => {
-    litTest('a11y - should test the PieCookieBanner component WCAG compliance', async ({ makeAxeBuilder, mount }) => {
+test.describe('PieCookieBanner - Accessibility tests', () => {
+    test('a11y - should test the PieCookieBanner component WCAG compliance', async ({ makeAxeBuilder, mount }) => {
         await mount(
             PieCookieBanner,
             {

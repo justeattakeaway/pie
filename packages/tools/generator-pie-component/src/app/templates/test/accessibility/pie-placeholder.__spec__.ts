@@ -1,13 +1,13 @@
 
-import { litTest, expect } from '@justeattakeaway/pie-webc-testing/src/playwright/fixtures.ts';
-import { Pie<%= componentName %>, <%= componentName %>Props } from '../../src/index.ts';
+import { test, expect } from '@justeattakeaway/pie-webc-testing/src/playwright/webc-fixtures.ts';
+import { Pie<%= componentName %>, <%= componentName %> Props } from '../../src/index.ts';
 
-litTest.describe('Pie<%= componentName %> - Accessibility tests', () => {
-    litTest('a11y - should test the Pie<%= componentName %> component WCAG compliance', async ({ makeAxeBuilder, mount }) => {
+test.describe('Pie<%= componentName %> - Accessibility tests', () => {
+    test('a11y - should test the Pie<%= componentName %> component WCAG compliance', async ({ makeAxeBuilder, mount }) => {
         await mount(
-            Pie<%= componentName %>,
+            Pie <%= componentName %>,
             {
-                props: {} as <%= componentName %>Props,
+                props: {} as <%= componentName %> Props,
             },
         );
 

@@ -1,4 +1,4 @@
-import { litTest, expect } from '@justeattakeaway/pie-webc-testing/src/playwright/fixtures.ts';
+import { test, expect } from '@justeattakeaway/pie-webc-testing/src/playwright/webc-fixtures.ts';
 import type {
     PropObject, WebComponentPropValues,
 } from '@justeattakeaway/pie-webc-testing/src/helpers/defs.ts';
@@ -17,7 +17,7 @@ const componentPropsMatrix: WebComponentPropValues[] = getAllPropCombinations(pr
 const componentPropsMatrixByVariant: Record<string, WebComponentPropValues[]> = splitCombinationsByPropertyValue(componentPropsMatrix, 'variant');
 const componentVariants: string[] = Object.keys(componentPropsMatrixByVariant);
 
-componentVariants.forEach((variant) => litTest(`should render all prop variations for Variant: ${variant}`, async ({ makeAxeBuilder, mount }) => {
+componentVariants.forEach((variant) => test(`should render all prop variations for Variant: ${variant}`, async ({ makeAxeBuilder, mount }) => {
     await Promise.all(componentPropsMatrixByVariant[variant].map(async (combo: WebComponentPropValues) => {
         await mount(
             PieIconButton,

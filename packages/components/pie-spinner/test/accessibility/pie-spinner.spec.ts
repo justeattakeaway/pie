@@ -1,9 +1,9 @@
 
-import { litTest, expect } from '@justeattakeaway/pie-webc-testing/src/playwright/fixtures.ts';
+import { test, expect } from '@justeattakeaway/pie-webc-testing/src/playwright/webc-fixtures.ts';
 import { PieSpinner, SpinnerProps } from '../../src/index.ts';
 
-litTest.describe('PieSpinner - Accessibility tests', () => {
-    litTest('a11y - should test the PieSpinner component WCAG compliance', async ({ makeAxeBuilder, mount }) => {
+test.describe('PieSpinner - Accessibility tests', () => {
+    test('a11y - should test the PieSpinner component WCAG compliance', async ({ makeAxeBuilder, mount }) => {
         await mount(
             PieSpinner,
             {
