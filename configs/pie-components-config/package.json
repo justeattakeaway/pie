@@ -8,7 +8,9 @@
   "files": [
     "custom-elements-manifest.config.js",
     "vite.config.js",
-    "tsconfig.json"
+    "tsconfig.json",
+    "playwright-lit-config.js",
+    "playwright-lit-visual-config.js"
   ],
   "dependencies": {
     "deepmerge-ts": "5.1.0"

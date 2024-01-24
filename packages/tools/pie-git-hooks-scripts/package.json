@@ -1,8 +1,8 @@
 {
-  "name": "@justeattakeaway/git-hooks-scripts",
+  "name": "@justeattakeaway/pie-git-hooks-scripts",
   "version": "0.1.0",
-  "private": true,
   "description": "Scripts and utilities used by the Pie monorepo git hooks",
+  "main": "index.js",
   "scripts": {
     "lint:scripts": "run -T eslint .",
     "lint:scripts:fix": "run -T eslint . --fix",
