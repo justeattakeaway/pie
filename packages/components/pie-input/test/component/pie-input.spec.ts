@@ -323,6 +323,150 @@ test.describe('PieInput - Component tests', () => {
                 expect(isValid).toBe(true);
             });
         });
+
+        test.describe('autocomplete', () => {
+            test('should not render an autocomplete attribute on the input element if no autocomplete provided', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieInput, {});
+
+                // Act
+                const input = component.locator('input');
+
+                // Assert
+                expect((await input.getAttribute('autocomplete'))).toBe(null);
+            });
+
+            test('should apply the autocomplete prop to the HTML input rendered', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieInput, {
+                    props: {
+                        autocomplete: 'on',
+                    } as InputProps,
+                });
+
+                // Act
+                const input = component.locator('input');
+
+                // Assert
+                expect((await input.getAttribute('autocomplete'))).toBe('on');
+            });
+        });
+
+        test.describe('placeholder', () => {
+            test('should not render a placeholder attribute on the input element if no placeholder provided', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieInput, {});
+
+                // Act
+                const input = component.locator('input');
+
+                // Assert
+                expect((await input.getAttribute('placeholder'))).toBe(null);
+            });
+
+            test('should apply the placeholder prop to the HTML input rendered', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieInput, {
+                    props: {
+                        placeholder: 'Test Placeholder',
+                    } as InputProps,
+                });
+
+                // Act
+                const input = component.locator('input');
+
+                // Assert
+                expect((await input.getAttribute('placeholder'))).toBe('Test Placeholder');
+            });
+        });
+
+        test.describe('autoFocus', () => {
+            test('should focus the component when autoFocus is `true`', async ({ page }) => {
+                // Arrange
+                // Setting the content this way rather than a mount call triggers the autofocus behaviour immediately
+                await page.setContent('<pie-input data-testid="testInput" type="text" autofocus></pie-input>');
+
+                // Act
+                const inputLocator = await page.getByTestId('testInput');
+
+                // Assert
+                await expect(inputLocator).toBeFocused();
+            });
+
+            test('should not focus the component when autoFocus is not provided', async ({ page }) => {
+                // Arrange
+                // Setting the content this way rather than a mount call triggers the autofocus behaviour immediately
+                await page.setContent('<pie-input data-testid="testInput" type="text"></pie-input>');
+
+                // Act
+                const inputLocator = await page.getByTestId('testInput');
+
+                // Assert
+                await expect(inputLocator).not.toBeFocused();
+            });
+        });
+
+        test.describe('inputmode', () => {
+            test('should not render an inputmode attribute on the input element if no inputmode provided', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieInput, {});
+
+                // Act
+                const input = component.locator('input');
+
+                // Assert
+                expect((await input.getAttribute('inputmode'))).toBe(null);
+            });
+
+            test('should apply the inputmode prop to the HTML input rendered', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieInput, {
+                    props: {
+                        inputmode: 'numeric',
+                    } as InputProps,
+                });
+
+                // Act
+                const input = component.locator('input');
+
+                // Assert
+                expect((await input.getAttribute('inputmode'))).toBe('numeric');
+            });
+        });
+
+        test.describe('readonly', () => {
+            test('should be able to edit the component value when readonly is `false`', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieInput, {
+                    props: {
+                        readonly: false,
+                        value: 'test',
+                    } as InputProps,
+                });
+
+                // Act
+                await component.type('another test');
+
+                // Assert
+                expect((await component.locator('input').inputValue())).toBe('another test');
+            });
+
+            test('should not be able to edit the component value when readonly is `true`', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieInput, {
+                    props: {
+                        readonly: true,
+                        value: 'test',
+                    } as InputProps,
+                });
+
+                // Act
+                await component.type('another test');
+
+                // Assert
+                expect((await component.locator('input').inputValue())).toBe('test');
+            });
+        });
     });
 
     test.describe('Events', () => {
