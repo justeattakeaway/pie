@@ -55,6 +55,12 @@ export interface InputProps {
      * See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#inputmode) for more information.
      */
     inputmode?: typeof inputModes[number];
+
+    /**
+     * When true, the user cannot edit the control. Not the same as disabled.
+     * See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/readonly) for more information.
+     */
+    readonly?: boolean;
 }
 
 // TODO - There is a ticket to add default prop values to our existing components. This might be replaced by the code added in that ticket.

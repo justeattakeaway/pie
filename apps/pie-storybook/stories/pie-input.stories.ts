@@ -102,6 +102,13 @@ const inputStoryMeta: InputStoryMeta = {
                 summary: '',
             },
         },
+        readonly: {
+            description: 'When true, the user cannot edit the control. Not the same as disabled. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/readonly) for more information.',
+            control: 'boolean',
+            defaultValue: {
+                summary: false,
+            },
+        },
     },
     args: defaultArgs,
     parameters: {
@@ -113,7 +120,7 @@ const inputStoryMeta: InputStoryMeta = {
 };
 
 const Template = ({
-    type, value, name, pattern, minlength, maxlength, autocomplete, placeholder, autoFocus, inputmode,
+    type, value, name, pattern, minlength, maxlength, autocomplete, placeholder, autoFocus, inputmode, readonly,
 }: InputProps) => {
     const [, updateArgs] = UseArgs();
 
@@ -145,6 +152,7 @@ const Template = ({
         placeholder="${ifDefined(placeholder)}"
         inputmode="${ifDefined(inputmode)}"
         ?autoFocus="${autoFocus}"
+        ?readonly="${readonly}"
         @input="${onInput}"
         @change="${onChange}"></pie-input>
     `;

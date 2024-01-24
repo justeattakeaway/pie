@@ -433,6 +433,40 @@ test.describe('PieInput - Component tests', () => {
                 expect((await input.getAttribute('inputmode'))).toBe('numeric');
             });
         });
+
+        test.describe('readonly', () => {
+            test('should be able to edit the component value when readonly is `false`', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieInput, {
+                    props: {
+                        readonly: false,
+                        value: 'test',
+                    } as InputProps,
+                });
+
+                // Act
+                await component.type('another test');
+
+                // Assert
+                expect((await component.locator('input').inputValue())).toBe('another test');
+            });
+
+            test('should not be able to edit the component value when readonly is `true`', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieInput, {
+                    props: {
+                        readonly: true,
+                        value: 'test',
+                    } as InputProps,
+                });
+
+                // Act
+                await component.type('another test');
+
+                // Assert
+                expect((await component.locator('input').inputValue())).toBe('test');
+            });
+        });
     });
 
     test.describe('Events', () => {
