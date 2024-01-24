@@ -27,7 +27,7 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
 
     @property({ type: String, reflect: true })
     @validPropertyValues(componentSelector, types, 'text')
-    public type?: InputProps['type'] = 'text';
+    public type? = InputDefaultPropertyValues.type;
 
     @property({ type: String })
     public value? = InputDefaultPropertyValues.value;
