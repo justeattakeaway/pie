@@ -18,7 +18,6 @@ const defaultArgs: InputProps = {
     type: 'text',
     value: '',
     name: 'testName',
-    pattern: '',
 };
 
 const inputStoryMeta: InputStoryMeta = {
@@ -44,7 +43,7 @@ const inputStoryMeta: InputStoryMeta = {
             description: 'The name of the input (used as a key/value pair with `value`). This is required in order to work properly with forms.',
             control: 'text',
             defaultValue: {
-                summary: '',
+                summary: 'testName',
             },
         },
         pattern: {
