@@ -1,5 +1,15 @@
 # @justeattakeaway/pie-cookie-banner
 
+## 0.16.1
+
+### Patch Changes
+
+- [Changed] - Updated CSS logical props values from shorthand to regular form ([#1203](https://github.com/justeattakeaway/pie/pull/1203)) by [@fernandofranca](https://github.com/fernandofranca)
+
+- Updated dependencies [[`2c70ae48d`](https://github.com/justeattakeaway/pie/commit/2c70ae48d97d9bfce3f704a1912c4343dfebe004), [`782c49d84`](https://github.com/justeattakeaway/pie/commit/782c49d847adde2bcc387ad7c040ebb1ad5fc625)]:
+  - @justeattakeaway/pie-modal@0.38.3
+  - @justeattakeaway/pie-switch@0.26.0
+
 ## 0.16.0
 
 ### Minor Changes

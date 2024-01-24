@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.6.0
+
+### Minor Changes
+
+- [Changed] - Added stylelint-no-logical-props-shorthands plugin to the base config ([#1203](https://github.com/justeattakeaway/pie/pull/1203)) by [@fernandofranca](https://github.com/fernandofranca)
+
+### Patch Changes
+
+- Updated dependencies [[`2c70ae48d`](https://github.com/justeattakeaway/pie/commit/2c70ae48d97d9bfce3f704a1912c4343dfebe004)]:
+  - @justeattakeaway/stylelint-no-logical-props-shorthands@0.1.0
+
 ## 0.5.0
 
 ### Minor Changes
