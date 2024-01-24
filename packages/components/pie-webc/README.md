@@ -12,7 +12,7 @@
 
 1. [Introduction](#pie-webc)
 2. [Installation](#installation)
-6. [Contributing](#contributing)
+3. [Contributing](#contributing)
 
 ## pie-webc
 

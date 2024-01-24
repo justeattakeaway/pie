@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/pie-webc",
-  "description": "PIE Design System Webc built using Web Components",
+  "description": "Component bundle containing all PIE web components",
   "private": true,
   "version": "0.0.0",
   "type": "module",
