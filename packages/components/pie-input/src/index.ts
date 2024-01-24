@@ -98,7 +98,7 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
 
         return html`<input
             type=${ifDefined(type)}
-            .value=${live(value || InputDefaultPropertyValues.value)}
+            .value=${live(value)}
             name=${ifDefined(name)}
             pattern=${ifDefined(pattern)}
             minlength=${ifDefined(minlength)}
