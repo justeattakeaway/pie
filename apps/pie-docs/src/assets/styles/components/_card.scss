@@ -1,5 +1,6 @@
 @use 'sass:color';
 @use '../fozzie-config' as f;
+@use '@justeattakeaway/pie-css/scss' as p;
 
 $card-min-width: 270px;
 $card-image-height: 180px;
@@ -98,11 +99,13 @@ $iconBackgroundColours: (
 }
 
 .c-card-heading {
-    @include f.font-size('heading-s');
+    @include p.font-size(--dt-font-heading-s-size--wide);
+    @include p.line-height(--dt-font-heading-s-line-height--wide);
     margin-block-start: var(--dt-spacing-e);
 
     @include f.media('>=mid') {
-        @include f.font-size('heading-m');
+        @include p.font-size(--dt-font-heading-m-size--wide);
+        @include p.line-height(--dt-font-heading-m-line-height--wide);
     }
 }
 
@@ -147,7 +150,7 @@ $iconBackgroundColours: (
 }
 
 .c-card-label {
-    font-weight: f.$font-weight-bold;
+    font-weight: var(--dt-font-weight-bold);
     margin-block-start: 0;
 }
 

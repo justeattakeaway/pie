@@ -43,8 +43,32 @@ const inputStoryMeta: InputStoryMeta = {
             description: 'The name of the input (used as a key/value pair with `value`). This is required in order to work properly with forms.',
             control: 'text',
             defaultValue: {
+                summary: 'testName',
+            },
+        },
+        pattern: {
+            description: 'Specifies a regular expression the form control\'s value should match.',
+            control: 'text',
+            defaultValue: {
                 summary: '',
             },
+            if: { arg: 'type', neq: 'number' },
+        },
+        minlength: {
+            description: 'Minimum length (number of characters) of value. Only applies to types: `text`, `search`, `url`, `tel`, `email`, and `password`.',
+            control: 'number',
+            defaultValue: {
+                summary: '',
+            },
+            if: { arg: 'type', neq: 'number' },
+        },
+        maxlength: {
+            description: 'Maximum length (number of characters) of value. Only applies to types: `text`, `search`, `url`, `tel`, `email`, and `password`.',
+            control: 'number',
+            defaultValue: {
+                summary: '',
+            },
+            if: { arg: 'type', neq: 'number' },
         },
     },
     args: defaultArgs,
@@ -56,7 +80,9 @@ const inputStoryMeta: InputStoryMeta = {
     },
 };
 
-const Template = ({ type, value, name }: InputProps) => {
+const Template = ({
+    type, value, name, pattern, minlength, maxlength,
+}: InputProps) => {
     const [, updateArgs] = UseArgs();
 
     function onInput (event: InputEvent) {
@@ -80,6 +106,9 @@ const Template = ({ type, value, name }: InputProps) => {
         type="${ifDefined(type)}"
         .value="${value}"
         name="${ifDefined(name)}"
+        pattern="${ifDefined(pattern)}"
+        minlength="${ifDefined(minlength)}"
+        maxlength="${ifDefined(maxlength)}"
         @input="${onInput}"
         @change="${onChange}"></pie-input>
     `;

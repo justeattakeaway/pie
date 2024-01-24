@@ -1,5 +1,5 @@
 
-import { test, expect } from '@justeattakeaway/pie-webc-testing/src/playwright/fixtures.ts';
+import { test, expect } from '@justeattakeaway/pie-webc-testing/src/playwright/webc-fixtures.ts';
 import { PieInput, InputProps } from '../../src/index.ts';
 
 test.describe('PieInput - Accessibility tests', () => {

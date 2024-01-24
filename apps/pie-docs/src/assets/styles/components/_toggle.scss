@@ -1,12 +1,13 @@
 @use 'sass:color';
 @use '../fozzie-config' as f;
+@use '@justeattakeaway/pie-css/scss' as p;
 
 $toggle-bg: var(--dt-color-container-strong);
 $toggle-radius: var(--dt-radius-rounded-e);
 $toggle-padding: 2px;
 $toggle-item-height: 44px;
-$toggle-item-fw: f.$font-weight-regular;
-$toggle-item-fw--checked: f.$font-weight-bold;
+$toggle-item-fw: var(--dt-font-weight-regular);
+$toggle-item-fw--checked: var(--dt-font-weight-bold);
 $toggle-item-padding-y: 10px;
 $toggle-item-padding-x: var(--dt-spacing-e);
 $toggle-item-bg: var(--dt-color-container-strong);
@@ -34,7 +35,8 @@ $toggle-item-elevation--checked: f.$elevation-02;
     padding-block-end: $toggle-item-padding-y;
     padding-inline-start: $toggle-item-padding-x;
     padding-inline-end: $toggle-item-padding-x;
-    @include f.font-size('body-l');
+    @include p.font-size(--dt-font-body-l-size);
+    @include p.line-height(--dt-font-body-l-line-height);
     position: relative; // context for :before
 
     align-items: center;
