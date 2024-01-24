@@ -1,6 +1,7 @@
 @use '../fozzie-config' as f;
 @use '../variables' as v;
 @use '../utilities' as u;
+@use '@justeattakeaway/pie-css/scss' as p;
 
 .c-heroBanner {
     background-color: var(--dt-color-background-subtle);
@@ -41,12 +42,14 @@
 }
 
 .c-heroBanner-description {
-    @include f.font-size('body-l');
+    @include p.font-size(--dt-font-body-l-size);
+    @include p.line-height(--dt-font-body-l-line-height);
     margin-block-start: var(--dt-spacing-d);
     max-width: 50ch;
 
     @include f.media('>=wide') {
-        @include f.font-size('heading-s');
+        @include p.font-size(--dt-font-heading-s-size--wide);
+        @include p.line-height(--dt-font-heading-s-line-height--wide);
     }
 }
 
