@@ -5,7 +5,7 @@ import { Pie<%= componentName %>, <%= componentName %>Props } from '../../src/in
 test.describe('Pie<%= componentName %> - Accessibility tests', () => {
     test('a11y - should test the Pie<%= componentName %> component WCAG compliance', async ({ makeAxeBuilder, mount }) => {
         await mount(
-            Pie <%= componentName %>,
+            Pie<%= componentName %>,
             {
                 props: {} as <%= componentName %> Props,
             },
