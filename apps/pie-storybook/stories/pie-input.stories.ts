@@ -19,6 +19,7 @@ const defaultArgs: InputProps = {
     value: '',
     name: 'testName',
     autocomplete: 'off',
+    autoFocus: false,
 };
 
 const inputStoryMeta: InputStoryMeta = {
@@ -86,6 +87,13 @@ const inputStoryMeta: InputStoryMeta = {
             },
             if: { arg: 'type', neq: 'number' },
         },
+        autoFocus: {
+            description: 'If true, the input will be focused on the first render. No more than one element in the document or dialog may have the autofocus attribute. If applied to multiple elements the first one will receive focus. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/autofocus) for more information.',
+            control: 'boolean',
+            defaultValue: {
+                summary: false,
+            },
+        },
     },
     args: defaultArgs,
     parameters: {
@@ -97,7 +105,7 @@ const inputStoryMeta: InputStoryMeta = {
 };
 
 const Template = ({
-    type, value, name, pattern, minlength, maxlength, autocomplete, placeholder,
+    type, value, name, pattern, minlength, maxlength, autocomplete, placeholder, autoFocus,
 }: InputProps) => {
     const [, updateArgs] = UseArgs();
 
@@ -127,6 +135,7 @@ const Template = ({
         maxlength="${ifDefined(maxlength)}"
         autocomplete="${ifDefined(autocomplete)}"
         placeholder="${ifDefined(placeholder)}"
+        ?autoFocus="${autoFocus}"
         @input="${onInput}"
         @change="${onChange}"></pie-input>
     `;

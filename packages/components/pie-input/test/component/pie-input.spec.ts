@@ -379,6 +379,32 @@ test.describe('PieInput - Component tests', () => {
                 expect((await input.getAttribute('placeholder'))).toBe('Test Placeholder');
             });
         });
+
+        test.describe('autoFocus', () => {
+            test('should focus the component when autoFocus is `true`', async ({ page }) => {
+                // Arrange
+                // Setting the content this way rather than a mount call triggers the autofocus behaviour immediately
+                await page.setContent('<pie-input data-testid="testInput" type="text" autofocus></pie-input>');
+
+                // Act
+                const inputLocator = await page.getByTestId('testInput');
+
+                // Assert
+                await expect(inputLocator).toBeFocused();
+            });
+
+            test('should not focus the component when autoFocus is not provided', async ({ page }) => {
+                // Arrange
+                // Setting the content this way rather than a mount call triggers the autofocus behaviour immediately
+                await page.setContent('<pie-input data-testid="testInput" type="text"></pie-input>');
+
+                // Act
+                const inputLocator = await page.getByTestId('testInput');
+
+                // Assert
+                await expect(inputLocator).not.toBeFocused();
+            });
+        });
     });
 
     test.describe('Events', () => {
