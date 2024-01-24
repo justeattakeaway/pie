@@ -1,5 +1,11 @@
 # @justeattakeaway/generator-pie-component
 
+## 0.19.0
+
+### Minor Changes
+
+- [Changed] - Use new webc-fixtures import in a11y tests ([#1206](https://github.com/justeattakeaway/pie/pull/1206)) by [@siggerzz](https://github.com/siggerzz)
+
 ## 0.18.0
 
 ### Minor Changes

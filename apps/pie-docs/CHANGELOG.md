@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.25.0
+
+### Minor Changes
+
+- [Changed] - Replaced fozzie typography tokens with pie-css tokens ([#1197](https://github.com/justeattakeaway/pie/pull/1197)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 3.24.0
 
 ### Minor Changes
