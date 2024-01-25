@@ -664,5 +664,22 @@ test.describe('PieInput - Component tests', () => {
             // Assert
             expect(formDataObj.username).toBe('test2');
         });
+
+        test('should correctly reset the input value when the form is reset', async ({ page }) => {
+            // Arrange
+            await page.setContent(`
+                <form id="testForm" action="/foo" method="POST">
+                    <pie-input type="text" name="username"></pie-input>
+                    <button type="reset">Submit</button>
+                </form>
+            `);
+
+            // Act & Assert
+            await page.locator('pie-input').type('test');
+            expect(await page.evaluate(() => document.querySelector('pie-input')?.value)).toBe('test');
+
+            await page.click('button[type="reset"]');
+            expect(await page.evaluate(() => document.querySelector('pie-input')?.value)).toBe('');
+        });
     });
 });

@@ -70,6 +70,14 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
         return (this.input as HTMLInputElement).validity;
     }
 
+    /**
+     * Called when the form that owns this component is reset.
+     * Resets the value to the default value.
+     */
+    public formResetCallback (): void {
+        this.value = InputDefaultPropertyValues.value;
+    }
+
     protected firstUpdated (_changedProperties: PropertyValues<this>): void {
         super.firstUpdated(_changedProperties);
         this._internals.setFormValue(this.value as string);
