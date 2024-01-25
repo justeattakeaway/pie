@@ -1,4 +1,3 @@
-import { vitest, test, expect } from 'vitest';
 import replace from '../replace';
 
 vitest.mock('../../dist/icons.json', () => ({
@@ -10,7 +9,7 @@ vitest.mock('../../dist/icons.json', () => ({
         icon2: {
             contents: '<circle cx="12" cy="12" r="11" />',
         },
-    }
+    },
 }));
 
 test('replaces [data-pie-icons] elements with SVG markup', () => {

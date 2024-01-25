@@ -1,10 +1,11 @@
-import { defineConfig } from 'vite'
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { defineConfig } from 'vite';
 
 // https://vitejs.dev/config/
 export default defineConfig({
- test:{
-  globals:true,
-  environment: 'jsdom',
-  include: ['./src/__tests__/*.test.js']
- },
-})
+    test: {
+        globals: true,
+        environment: 'jsdom',
+        include: ['./src/__tests__/*.test.js'],
+    },
+});

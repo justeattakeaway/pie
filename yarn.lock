@@ -5468,11 +5468,13 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/eslint-config-pie@workspace:packages/tools/eslint-config-pie"
   dependencies:
+    "@justeattakeaway/pie-components-config": "workspace:^"
     eslint-config-airbnb-base: 15.0.0
     eslint-find-rules: 4.1.0
   peerDependencies:
     eslint: 7.x || 8.x
     eslint-plugin-import: ^2.26.0
+    eslint-plugin-vitest: ^0.3.20
   languageName: unknown
   linkType: soft
 
@@ -5514,6 +5516,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+<<<<<<< HEAD
 "@justeattakeaway/pie-chip@0.0.0, @justeattakeaway/pie-chip@workspace:packages/components/pie-chip":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-chip@workspace:packages/components/pie-chip"
@@ -5526,6 +5529,9 @@ __metadata:
   linkType: soft
 
 "@justeattakeaway/pie-components-config@0.10.0, @justeattakeaway/pie-components-config@workspace:*, @justeattakeaway/pie-components-config@workspace:configs/pie-components-config":
+=======
+"@justeattakeaway/pie-components-config@0.10.0, @justeattakeaway/pie-components-config@workspace:^, @justeattakeaway/pie-components-config@workspace:configs/pie-components-config":
+>>>>>>> a22a373a5 (test(pie-monorepo): DSW-1645 fix tests + linting)
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-components-config@workspace:configs/pie-components-config"
   dependencies:

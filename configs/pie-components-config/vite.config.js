@@ -34,10 +34,13 @@ const sharedConfig = ({ build = {}, plugins = [], ...rest }) => defineConfig({
             },
         },
     }, build),
+    environment: 'jsdom',
     test: {
         dir: '.',
+        globals: true,
         include: [
-            './src/__tests__/**/*.test.js',
+            './src/__tests__/**/*.test.{js,ts}',
+            './test/unit/**/*.test.{js,ts}',
         ],
     },
     plugins: deepmerge([dts({
@@ -50,17 +53,3 @@ const sharedConfig = ({ build = {}, plugins = [], ...rest }) => defineConfig({
 });
 
 export default sharedConfig;
-
-
-// import { defineConfig } from 'vitest/config';
-
-// export default defineConfig({
-// 	test: {
-// 		dir: '.',
-// 		globals: true,
-// 		include: [
-// 			'./src/__tests__/**/*.test.js',
-// 		],
-// 	},
-// 	environment: 'jsdom',
-// });

@@ -1,4 +1,3 @@
-import { vi, test, expect } from 'vitest';
 import icons from '../icons';
 
 vi.mock('../../dist/icons.json', () => ({

@@ -1,4 +1,3 @@
-import { describe, test, expect } from 'vitest';
 import Icon, { normaliseClassname } from '../icon';
 
 const icon1 = new Icon(

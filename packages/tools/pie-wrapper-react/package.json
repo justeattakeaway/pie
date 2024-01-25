@@ -17,7 +17,7 @@
   "scripts": {
     "lint:scripts": "run -T eslint .",
     "lint:scripts:fix": "run -T eslint . --fix",
-    "test": "run -T vitest",
+    "test": "run -T vitest run",
     "test:ci": "yarn test"
   },
   "devDependencies": {

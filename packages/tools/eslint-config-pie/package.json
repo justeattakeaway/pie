@@ -28,11 +28,13 @@
     "eslint-config-airbnb-base": "15.0.0"
   },
   "devDependencies": {
+    "@justeattakeaway/pie-components-config": "workspace:^",
     "eslint-find-rules": "4.1.0"
   },
   "peerDependencies": {
     "eslint": "7.x || 8.x",
-    "eslint-plugin-import": "^2.26.0"
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-vitest": "^0.3.20"
   },
   "volta": {
     "extends": "../../../package.json"

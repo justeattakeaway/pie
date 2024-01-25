@@ -21,7 +21,7 @@ describe('localiseText', () => {
 
     describe('given suficient parameters', () => {
         describe('when the key exists', () => {
-            it('it will return the value', () => {
+            it('will return the value', () => {
                 const locale = {
                     keyA: {
                         keyA1: 'valueA1',
@@ -34,7 +34,7 @@ describe('localiseText', () => {
         });
 
         describe('when the key does not exist', () => {
-            it('it will return the key', () => {
+            it('will return the key', () => {
                 const locale = {
                     keyA: {
                         keyA1: 'valueA1',
