@@ -5847,6 +5847,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@justeattakeaway/pie-webc@workspace:packages/components/pie-webc":
+  version: 0.0.0-use.local
+  resolution: "@justeattakeaway/pie-webc@workspace:packages/components/pie-webc"
+  dependencies:
+    "@justeattakeaway/pie-components-config": 0.9.0
+    "@justeattakeaway/pie-webc-core": 0.17.1
+  languageName: unknown
+  linkType: soft
+
 "@justeattakeaway/pie-wrapper-react@0.14.0, @justeattakeaway/pie-wrapper-react@workspace:packages/tools/pie-wrapper-react":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-wrapper-react@workspace:packages/tools/pie-wrapper-react"
