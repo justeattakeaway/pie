@@ -467,6 +467,25 @@ test.describe('PieInput - Component tests', () => {
                 expect((await component.locator('input').inputValue())).toBe('test');
             });
         });
+
+        test.describe('defaultValue', () => {
+            test('should correctly reset the input value to the default value if one is provided when the form is reset', async ({ page }) => {
+                // Arrange
+                await page.setContent(`
+                    <form id="testForm" action="/foo" method="POST">
+                        <pie-input type="text" name="username" defaultValue="foo"></pie-input>
+                        <button type="reset">Submit</button>
+                    </form>
+                `);
+
+                // Act & Assert
+                await page.locator('pie-input').type('test');
+                expect(await page.evaluate(() => document.querySelector('pie-input')?.value)).toBe('test');
+
+                await page.click('button[type="reset"]');
+                expect(await page.evaluate(() => document.querySelector('pie-input')?.value)).toBe('foo');
+            });
+        });
     });
 
     test.describe('Events', () => {
