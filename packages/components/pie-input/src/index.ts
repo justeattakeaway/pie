@@ -59,6 +59,12 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
     @property({ type: Boolean })
     public readonly?: InputProps['readonly'];
 
+    @property({ type: String })
+    public assistiveTextState? = InputDefaultPropertyValues.assistiveTextState;
+
+    @property({ type: String })
+    public assistiveText?: InputProps['assistiveText'];
+
     @query('input')
     private input?: HTMLInputElement;
 
@@ -106,26 +112,47 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
         this.dispatchEvent(customChangeEvent);
     };
 
+    renderAssistiveText () {
+        const { assistiveText, assistiveTextState } = this;
+
+        if (!assistiveText) {
+            return html``;
+        }
+
+        // We would swap this out for <pie-assistive-text></pie-assistive-text> when it is available.
+        return html`<p class="assistive-text" state="${ifDefined(assistiveTextState)}" data-type="${ifDefined(assistiveTextState)}">
+            ${assistiveText}
+        </p>`;
+    }
+
     render () {
         const {
             type, value, name, pattern, minlength, maxlength, autocomplete, placeholder, autoFocus, inputmode, readonly,
         } = this;
 
-        return html`<input
-            type=${ifDefined(type)}
-            .value=${live(value)}
-            name=${ifDefined(name)}
-            pattern=${ifDefined(pattern)}
-            minlength=${ifDefined(minlength)}
-            maxlength=${ifDefined(maxlength)}
-            autocomplete=${ifDefined(autocomplete)}
-            ?autofocus=${autoFocus}
-            inputmode=${ifDefined(inputmode)}
-            placeholder=${ifDefined(placeholder)}
-            ?readonly=${readonly}
-            @input=${this.handleInput}
-            @change=${this.handleChange}
-            data-test-id="pie-input">`;
+        return html`
+            <div>
+                <slot name="leading"></slot>
+                <input
+                type=${ifDefined(type)}
+                .value=${live(value)}
+                name=${ifDefined(name)}
+                pattern=${ifDefined(pattern)}
+                minlength=${ifDefined(minlength)}
+                maxlength=${ifDefined(maxlength)}
+                autocomplete=${ifDefined(autocomplete)}
+                ?autofocus=${autoFocus}
+                inputmode=${ifDefined(inputmode)}
+                placeholder=${ifDefined(placeholder)}
+                ?readonly=${readonly}
+                @input=${this.handleInput}
+                @change=${this.handleChange}
+                data-test-id="pie-input">
+                <slot name="trailing"></slot>
+            </div>
+
+            ${this.renderAssistiveText()}
+            `;
     }
 
     // Renders a `CSSResult` generated from SCSS by Vite

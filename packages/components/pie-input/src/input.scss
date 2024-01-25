@@ -1,1 +1,37 @@
 @use '@justeattakeaway/pie-css/scss' as p;
+
+
+// Placeholder styles for the POC
+div {
+    border: 1px solid black;
+    padding: 4px 8px;
+}
+
+div:focus-within {
+    outline: 1px solid purple;
+}
+
+input {
+    border: none;
+}
+
+input:focus,
+input:focus-visible {
+    outline: none;
+}
+
+// We wouldn't need any assistive text styles once the component is ready
+.assistive-text {
+    font-size: 12px;
+    margin-top: 4px;
+    font-weight: bold;
+}
+
+.assistive-text[state='error'] {
+    color: red;
+}
+
+.assistive-text[state='success'] {
+    color: green;
+}
+

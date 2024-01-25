@@ -5,7 +5,9 @@ import { useArgs as UseArgs } from '@storybook/preview-api';
 
 /* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-input';
-import { types, inputModes, InputProps } from '@justeattakeaway/pie-input';
+import {
+    types, inputModes, InputProps, assistiveTextStates,
+} from '@justeattakeaway/pie-input';
 /* eslint-enable import/no-duplicates */
 
 import { type StoryMeta } from '../types';
@@ -20,6 +22,7 @@ const defaultArgs: InputProps = {
     name: 'testName',
     autocomplete: 'off',
     autoFocus: false,
+    assistiveTextState: 'informative',
 };
 
 const inputStoryMeta: InputStoryMeta = {
@@ -109,6 +112,21 @@ const inputStoryMeta: InputStoryMeta = {
                 summary: false,
             },
         },
+        assistiveText: {
+            description: 'The assistive text to display.',
+            control: 'text',
+            defaultValue: {
+                summary: '',
+            },
+        },
+        assistiveTextState: {
+            description: 'The state of the assistive text.',
+            control: 'select',
+            options: assistiveTextStates,
+            defaultValue: {
+                summary: 'informative',
+            },
+        },
     },
     args: defaultArgs,
     parameters: {
@@ -120,7 +138,7 @@ const inputStoryMeta: InputStoryMeta = {
 };
 
 const Template = ({
-    type, value, name, pattern, minlength, maxlength, autocomplete, placeholder, autoFocus, inputmode, readonly,
+    type, value, name, pattern, minlength, maxlength, autocomplete, placeholder, autoFocus, inputmode, readonly, assistiveText, assistiveTextState,
 }: InputProps) => {
     const [, updateArgs] = UseArgs();
 
@@ -153,8 +171,13 @@ const Template = ({
         inputmode="${ifDefined(inputmode)}"
         ?autoFocus="${autoFocus}"
         ?readonly="${readonly}"
+        assistiveText="${ifDefined(assistiveText)}"
+        assistiveTextState="${ifDefined(assistiveTextState)}"
         @input="${onInput}"
-        @change="${onChange}"></pie-input>
+        @change="${onChange}">
+        <span slot="leading">$</span>
+        <span slot="trailing">👋</span>
+    </pie-input>
     `;
 };
 

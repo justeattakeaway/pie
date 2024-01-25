@@ -1,5 +1,6 @@
 export const types = ['text', 'number', 'password', 'url', 'email', 'tel'] as const;
 export const inputModes = ['none', 'text', 'tel', 'url', 'email', 'numeric', 'decimal', 'search'] as const;
+export const assistiveTextStates = ['informative', 'error', 'success'] as const;
 
 export interface InputProps {
     /**
@@ -61,6 +62,9 @@ export interface InputProps {
      * See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/readonly) for more information.
      */
     readonly?: boolean;
+
+    assistiveTextState?: typeof assistiveTextStates[number];
+    assistiveText?: string;
 }
 
 // TODO - There is a ticket to add default prop values to our existing components. This might be replaced by the code added in that ticket.
@@ -72,7 +76,7 @@ type SubsetRequiredProperties<T, K extends keyof T> = Required<Pick<T, K>>;
 /**
  * The default values for the `InputProps` that are required (i.e. they have a fallback value in the component).
  */
-type DefaultInputPropValues = SubsetRequiredProperties<InputProps, 'type' | 'value'>;
+type DefaultInputPropValues = SubsetRequiredProperties<InputProps, 'type' | 'value' | 'assistiveTextState'>;
 
 /**
  * Default values for optional properties that have default fallback values in the component.
@@ -80,4 +84,5 @@ type DefaultInputPropValues = SubsetRequiredProperties<InputProps, 'type' | 'val
 export const InputDefaultPropertyValues: DefaultInputPropValues = {
     type: 'text',
     value: '',
+    assistiveTextState: 'informative',
 };
