@@ -5468,7 +5468,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/eslint-config-pie@workspace:packages/tools/eslint-config-pie"
   dependencies:
-    "@justeattakeaway/pie-components-config": "workspace:^"
     eslint-config-airbnb-base: 15.0.0
     eslint-find-rules: 4.1.0
   peerDependencies:
@@ -5516,7 +5515,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-<<<<<<< HEAD
 "@justeattakeaway/pie-chip@0.0.0, @justeattakeaway/pie-chip@workspace:packages/components/pie-chip":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-chip@workspace:packages/components/pie-chip"
@@ -5529,9 +5527,6 @@ __metadata:
   linkType: soft
 
 "@justeattakeaway/pie-components-config@0.10.0, @justeattakeaway/pie-components-config@workspace:*, @justeattakeaway/pie-components-config@workspace:configs/pie-components-config":
-=======
-"@justeattakeaway/pie-components-config@0.10.0, @justeattakeaway/pie-components-config@workspace:^, @justeattakeaway/pie-components-config@workspace:configs/pie-components-config":
->>>>>>> a22a373a5 (test(pie-monorepo): DSW-1645 fix tests + linting)
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-components-config@workspace:configs/pie-components-config"
   dependencies:
@@ -11255,7 +11250,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/utils@npm:^6.20.0":
+"@typescript-eslint/utils@npm:^6.15.0":
   version: 6.20.0
   resolution: "@typescript-eslint/utils@npm:6.20.0"
   dependencies:
@@ -19559,18 +19554,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-vitest-globals@npm:^1.4.0":
+"eslint-plugin-vitest-globals@npm:1.4.0":
   version: 1.4.0
   resolution: "eslint-plugin-vitest-globals@npm:1.4.0"
   checksum: 8b65cab4db9b96ec6809a32789b2709345efd812d0afd58cc845dbc15f0dad5a65a88e3eb90fad1ed2354d90358c56d8765f3560d7568de388c37590a9d298a2
   languageName: node
   linkType: hard
 
-"eslint-plugin-vitest@npm:^0.3.20":
-  version: 0.3.21
-  resolution: "eslint-plugin-vitest@npm:0.3.21"
+"eslint-plugin-vitest@npm:0.3.20":
+  version: 0.3.20
+  resolution: "eslint-plugin-vitest@npm:0.3.20"
   dependencies:
-    "@typescript-eslint/utils": ^6.20.0
+    "@typescript-eslint/utils": ^6.15.0
   peerDependencies:
     eslint: ">=8.0.0"
     vitest: "*"
@@ -19579,7 +19574,7 @@ __metadata:
       optional: true
     vitest:
       optional: true
-  checksum: ac1147609ec7db6acc637948ca806dfdd84a5f728f4875bfbe86bf14e14e760aad0357f158a271351ba76d1338c951ab8120f786e12e60f28656c07533690da9
+  checksum: c1df634cc9b034cec3c015152733883592054f8b416f3b220806342461cab088cf1b217be404668b9c89bfedf543728833c73901877d7529c368adcd71a61367
   languageName: node
   linkType: hard
 
@@ -24506,6 +24501,40 @@ __metadata:
   languageName: node
   linkType: hard
 
+"jsdom@npm:24.0.0":
+  version: 24.0.0
+  resolution: "jsdom@npm:24.0.0"
+  dependencies:
+    cssstyle: ^4.0.1
+    data-urls: ^5.0.0
+    decimal.js: ^10.4.3
+    form-data: ^4.0.0
+    html-encoding-sniffer: ^4.0.0
+    http-proxy-agent: ^7.0.0
+    https-proxy-agent: ^7.0.2
+    is-potential-custom-element-name: ^1.0.1
+    nwsapi: ^2.2.7
+    parse5: ^7.1.2
+    rrweb-cssom: ^0.6.0
+    saxes: ^6.0.0
+    symbol-tree: ^3.2.4
+    tough-cookie: ^4.1.3
+    w3c-xmlserializer: ^5.0.0
+    webidl-conversions: ^7.0.0
+    whatwg-encoding: ^3.1.1
+    whatwg-mimetype: ^4.0.0
+    whatwg-url: ^14.0.0
+    ws: ^8.16.0
+    xml-name-validator: ^5.0.0
+  peerDependencies:
+    canvas: ^2.11.2
+  peerDependenciesMeta:
+    canvas:
+      optional: true
+  checksum: 180cf672c1f5e4375fd831b6990c453b4c22b540619abe7a0a3ed0d18eca1171dea9f25739bc06dfea26d1c0d71c7ac26e62fc9a2d9b1657003fc8fd1bf6f9f4
+  languageName: node
+  linkType: hard
+
 "jsdom@npm:^16.6.0":
   version: 16.7.0
   resolution: "jsdom@npm:16.7.0"
@@ -24543,40 +24572,6 @@ __metadata:
     canvas:
       optional: true
   checksum: 454b83371857000763ed31130a049acd1b113e3b927e6dcd75c67ddc30cdd242d7ebcac5c2294b7a1a6428155cb1398709c573b3c6d809218692ea68edd93370
-  languageName: node
-  linkType: hard
-
-"jsdom@npm:^24.0.0":
-  version: 24.0.0
-  resolution: "jsdom@npm:24.0.0"
-  dependencies:
-    cssstyle: ^4.0.1
-    data-urls: ^5.0.0
-    decimal.js: ^10.4.3
-    form-data: ^4.0.0
-    html-encoding-sniffer: ^4.0.0
-    http-proxy-agent: ^7.0.0
-    https-proxy-agent: ^7.0.2
-    is-potential-custom-element-name: ^1.0.1
-    nwsapi: ^2.2.7
-    parse5: ^7.1.2
-    rrweb-cssom: ^0.6.0
-    saxes: ^6.0.0
-    symbol-tree: ^3.2.4
-    tough-cookie: ^4.1.3
-    w3c-xmlserializer: ^5.0.0
-    webidl-conversions: ^7.0.0
-    whatwg-encoding: ^3.1.1
-    whatwg-mimetype: ^4.0.0
-    whatwg-url: ^14.0.0
-    ws: ^8.16.0
-    xml-name-validator: ^5.0.0
-  peerDependencies:
-    canvas: ^2.11.2
-  peerDependenciesMeta:
-    canvas:
-      optional: true
-  checksum: 180cf672c1f5e4375fd831b6990c453b4c22b540619abe7a0a3ed0d18eca1171dea9f25739bc06dfea26d1c0d71c7ac26e62fc9a2d9b1657003fc8fd1bf6f9f4
   languageName: node
   linkType: hard
 
@@ -29308,11 +29303,11 @@ __metadata:
     eslint: 8.37.0
     eslint-plugin-import: 2.27.5
     eslint-plugin-json-format: 2.0.1
-    eslint-plugin-vitest: ^0.3.20
-    eslint-plugin-vitest-globals: ^1.4.0
+    eslint-plugin-vitest: 0.3.20
+    eslint-plugin-vitest-globals: 1.4.0
     glob: 10.3.3
     husky: 8.0.3
-    jsdom: ^24.0.0
+    jsdom: 24.0.0
     npm-run-all: 4.1.5
     pinst: 3.0.0
     postcss: 8.4.32
