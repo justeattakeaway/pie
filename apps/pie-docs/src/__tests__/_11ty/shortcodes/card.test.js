@@ -34,7 +34,7 @@ const itemWithContent = {
 
 describe('card.js', () => {
     // This is a temp fix until we look into resolving the icon / changeset issue properly.
-    xit.each([
+    it.each([
         [[item]],
         [[itemWithImage]],
         [[itemWithLink]],

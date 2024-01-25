@@ -4,7 +4,7 @@ const listTypes = require('../../../_data/listTypes');
 describe('list.js', () => {
     const items = ['a', 'b', 'c', 'd'];
 
-    xit.each([
+    it.each([
         'ordered',
         'pill'
     ])('should return the expected HTML', (type) => {
@@ -15,7 +15,7 @@ describe('list.js', () => {
         expect(result).toMatchSnapshot();
     });
 
-    xit('should return the expected HTML for an icon list', () => {
+    it('should return the expected HTML for an icon list', () => {
         // act
         const result = list({
             type: 'icon', iconName: 'close-circle-filled', iconFill: 'support-positive', items,

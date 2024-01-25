@@ -5,7 +5,7 @@ const sass = require('sass');
  * @param {string} hexcode - the hexcode to convert such as #fff or #ffffff
  * @returns {object} an object containing red, green and blue values
  */
-const convertHexcodeToRBG = (hexcode) => {
+const convertHexcodeToRGB = (hexcode) => {
     let strippedHex = hexcode.replace('#', '');
 
     if (strippedHex.length === 3) {
@@ -30,7 +30,7 @@ const convertRGBToSassColour = (rgb) => new sass.SassColor(rgb);
  * @returns {boolean} true for dark, false for light
  */
 const isColorDark = (hexCode) => {
-    const rgb = convertHexcodeToRBG(hexCode);
+    const rgb = convertHexcodeToRGB(hexCode);
     const color = convertRGBToSassColour(rgb);
     const lightnessThreshold = 40;
 
@@ -38,6 +38,6 @@ const isColorDark = (hexCode) => {
 };
 
 module.exports = {
-    convertHexcodeToRBG,
+    convertHexcodeToRGB,
     isColorDark,
 };

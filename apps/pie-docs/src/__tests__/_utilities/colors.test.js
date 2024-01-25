@@ -17,16 +17,16 @@ describe('colors.js', () => {
         });
     });
 
-    describe('convertHexcodeToRBG', () => {
+    describe('convertHexcodeToRGB', () => {
         it.each([
-            '#f6c243',
-            '#000',
-            '#fff',
-            '#000000',
-            '#ffffff'
+            ['#f6c243'],
+            ['#000'],
+            ['#fff'],
+            ['#000000'],
+            ['#ffffff']
         ])('converts hexcode %p to the expected RGB object', (hexcode) => {
             // act
-            const result = systemUnderTest.convertHexcodeToRBG(hexcode);
+            const result = systemUnderTest.convertHexcodeToRGB(hexcode);
 
             // assert
             expect(result).toMatchSnapshot();

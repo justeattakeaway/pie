@@ -1,32 +1,32 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`usage.js should return the expected HTML for the image type of the usage component 1`] = `
-"<div class=\\"c-usage-container\\">
+exports[`usage.js > should return the expected HTML for the image type of the usage component 1`] = `
+"<div class="c-usage-container">
     
-    <article class=\\"c-usage\\" style=\\"--style-colour: #017a39;\\">
+    <article class="c-usage" style="--style-colour: #017a39;">
       <figure>
-        <figcaption class=\\"c-usage-heading\\">
-          <svg xmlns=\\"http://www.w3.org/2000/svg\\" role=\\"presentation\\" focusable=\\"false\\" fill=\\"#017a39\\" viewBox=\\"0 0 16 16\\" height=\\"24\\" width=\\"24\\" aria-hidden=\\"true\\" class=\\"c-pieIcon c-pieIcon--checkCircle\\"><path fill-rule=\\"evenodd\\" d=\\"M1.478 8C1.478 4.4 4.4 1.478 8 1.478S14.522 4.4 14.522 8 11.6 14.522 8 14.522A6.524 6.524 0 0 1 1.478 8Zm1.305 0A5.222 5.222 0 0 0 8 13.217 5.221 5.221 0 0 0 13.217 8 5.222 5.222 0 0 0 8 2.783 5.222 5.222 0 0 0 2.783 8Zm2.887-.27L7 9.191l.009-.008 3.339-3.626.956.886-3.565 3.87a1.006 1.006 0 0 1-1.47.009L4.705 8.609l.966-.879Z\\" clip-rule=\\"evenodd\\"></path></svg>
+        <figcaption class="c-usage-heading">
+          <svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="#017a39" viewBox="0 0 16 16" height="24" width="24" aria-hidden="true" class="c-pieIcon c-pieIcon--checkCircle"><path fill-rule="evenodd" d="M1.478 8C1.478 4.4 4.4 1.478 8 1.478S14.522 4.4 14.522 8 11.6 14.522 8 14.522A6.524 6.524 0 0 1 1.478 8Zm1.305 0A5.222 5.222 0 0 0 8 13.217 5.221 5.221 0 0 0 13.217 8 5.222 5.222 0 0 0 8 2.783 5.222 5.222 0 0 0 2.783 8Zm2.887-.27L7 9.191l.009-.008 3.339-3.626.956.886-3.565 3.87a1.006 1.006 0 0 1-1.47.009L4.705 8.609l.966-.879Z" clip-rule="evenodd"></path></svg>
           Do
         </figcaption>
-        <div class=\\"c-usage-backdrop c-usage-backdrop--hasImage\\">
-          <picture class=\\"c-usage-img\\">
-            <source style=\\"--img-width: 200px;\\" media=\\"(max-width: 600px)\\" srcset=\\"some/path/to/mobile/image\\">
-            <img src=\\"some/path/to/image\\" style=\\"--img-width: 200px;\\" alt=\\"foo bar\\">
+        <div class="c-usage-backdrop c-usage-backdrop--hasImage">
+          <picture class="c-usage-img">
+            <source style="--img-width: 200px;" media="(max-width: 600px)" srcset="some/path/to/mobile/image">
+            <img src="some/path/to/image" style="--img-width: 200px;" alt="foo bar">
           </picture>
         </div>
       </figure>
     </article> 
-    <article class=\\"c-usage\\" style=\\"--style-colour: #d50525;\\">
+    <article class="c-usage" style="--style-colour: #d50525;">
       <figure>
-        <figcaption class=\\"c-usage-heading\\">
-          <svg xmlns=\\"http://www.w3.org/2000/svg\\" role=\\"presentation\\" focusable=\\"false\\" fill=\\"#d50525\\" viewBox=\\"0 0 16 16\\" height=\\"24\\" width=\\"24\\" aria-hidden=\\"true\\" class=\\"c-pieIcon c-pieIcon--closeCircle\\"><path d=\\"M10.87 6.058 8.928 8l1.942 1.943-.927.927L8 8.928 6.058 10.87l-.928-.927L7.072 8 5.13 6.058l.928-.928L8 7.072 9.943 5.13l.927.928ZM14.781 8A6.782 6.782 0 1 1 8 1.219 6.79 6.79 0 0 1 14.781 8ZM13.47 8A5.469 5.469 0 1 0 2.53 8a5.469 5.469 0 0 0 10.938 0Z\\"></path></svg>
+        <figcaption class="c-usage-heading">
+          <svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="#d50525" viewBox="0 0 16 16" height="24" width="24" aria-hidden="true" class="c-pieIcon c-pieIcon--closeCircle"><path d="M10.87 6.058 8.928 8l1.942 1.943-.927.927L8 8.928 6.058 10.87l-.928-.927L7.072 8 5.13 6.058l.928-.928L8 7.072 9.943 5.13l.927.928ZM14.781 8A6.782 6.782 0 1 1 8 1.219 6.79 6.79 0 0 1 14.781 8ZM13.47 8A5.469 5.469 0 1 0 2.53 8a5.469 5.469 0 0 0 10.938 0Z"></path></svg>
           Don't
         </figcaption>
-        <div class=\\"c-usage-backdrop c-usage-backdrop--hasImage\\">
-          <picture class=\\"c-usage-img\\">
-            <source style=\\"--img-width: 200px;\\" media=\\"(max-width: 600px)\\" srcset=\\"some/path/to/mobile/image\\">
-            <img src=\\"some/path/to/image\\" style=\\"--img-width: 200px;\\" alt=\\"foo bar\\">
+        <div class="c-usage-backdrop c-usage-backdrop--hasImage">
+          <picture class="c-usage-img">
+            <source style="--img-width: 200px;" media="(max-width: 600px)" srcset="some/path/to/mobile/image">
+            <img src="some/path/to/image" style="--img-width: 200px;" alt="foo bar">
           </picture>
         </div>
       </figure>
@@ -34,21 +34,21 @@ exports[`usage.js should return the expected HTML for the image type of the usag
   </div>"
 `;
 
-exports[`usage.js should return the expected HTML for the text type of the usage component 1`] = `
-"<div class=\\"c-usage-container\\">
+exports[`usage.js > should return the expected HTML for the text type of the usage component 1`] = `
+"<div class="c-usage-container">
     
-    <article class=\\"c-usage\\" style=\\"--style-colour: #017a39;\\">
+    <article class="c-usage" style="--style-colour: #017a39;">
       <figure>
-        <figcaption class=\\"c-usage-heading\\">
-          <svg xmlns=\\"http://www.w3.org/2000/svg\\" role=\\"presentation\\" focusable=\\"false\\" fill=\\"#017a39\\" viewBox=\\"0 0 16 16\\" height=\\"24\\" width=\\"24\\" aria-hidden=\\"true\\" class=\\"c-pieIcon c-pieIcon--checkCircle\\"><path fill-rule=\\"evenodd\\" d=\\"M1.478 8C1.478 4.4 4.4 1.478 8 1.478S14.522 4.4 14.522 8 11.6 14.522 8 14.522A6.524 6.524 0 0 1 1.478 8Zm1.305 0A5.222 5.222 0 0 0 8 13.217 5.221 5.221 0 0 0 13.217 8 5.222 5.222 0 0 0 8 2.783 5.222 5.222 0 0 0 2.783 8Zm2.887-.27L7 9.191l.009-.008 3.339-3.626.956.886-3.565 3.87a1.006 1.006 0 0 1-1.47.009L4.705 8.609l.966-.879Z\\" clip-rule=\\"evenodd\\"></path></svg>
+        <figcaption class="c-usage-heading">
+          <svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="#017a39" viewBox="0 0 16 16" height="24" width="24" aria-hidden="true" class="c-pieIcon c-pieIcon--checkCircle"><path fill-rule="evenodd" d="M1.478 8C1.478 4.4 4.4 1.478 8 1.478S14.522 4.4 14.522 8 11.6 14.522 8 14.522A6.524 6.524 0 0 1 1.478 8Zm1.305 0A5.222 5.222 0 0 0 8 13.217 5.221 5.221 0 0 0 13.217 8 5.222 5.222 0 0 0 8 2.783 5.222 5.222 0 0 0 2.783 8Zm2.887-.27L7 9.191l.009-.008 3.339-3.626.956.886-3.565 3.87a1.006 1.006 0 0 1-1.47.009L4.705 8.609l.966-.879Z" clip-rule="evenodd"></path></svg>
           Do
         </figcaption>
-        <div class=\\"c-usage-backdrop\\">
-          <ul class=\\"c-list c-list--bullet\\"  >
-        <li class=\\"c-list-item\\">
+        <div class="c-usage-backdrop">
+          <ul class="c-list c-list--bullet"  >
+        <li class="c-list-item">
         
         <span>Hello World</span>
-        </li><li class=\\"c-list-item\\">
+        </li><li class="c-list-item">
         
         <span>Lorem ipsum dolor</span>
         </li>
@@ -56,18 +56,18 @@ exports[`usage.js should return the expected HTML for the text type of the usage
         </div>
       </figure>
     </article> 
-    <article class=\\"c-usage\\" style=\\"--style-colour: #d50525;\\">
+    <article class="c-usage" style="--style-colour: #d50525;">
       <figure>
-        <figcaption class=\\"c-usage-heading\\">
-          <svg xmlns=\\"http://www.w3.org/2000/svg\\" role=\\"presentation\\" focusable=\\"false\\" fill=\\"#d50525\\" viewBox=\\"0 0 16 16\\" height=\\"24\\" width=\\"24\\" aria-hidden=\\"true\\" class=\\"c-pieIcon c-pieIcon--closeCircle\\"><path d=\\"M10.87 6.058 8.928 8l1.942 1.943-.927.927L8 8.928 6.058 10.87l-.928-.927L7.072 8 5.13 6.058l.928-.928L8 7.072 9.943 5.13l.927.928ZM14.781 8A6.782 6.782 0 1 1 8 1.219 6.79 6.79 0 0 1 14.781 8ZM13.47 8A5.469 5.469 0 1 0 2.53 8a5.469 5.469 0 0 0 10.938 0Z\\"></path></svg>
+        <figcaption class="c-usage-heading">
+          <svg xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="#d50525" viewBox="0 0 16 16" height="24" width="24" aria-hidden="true" class="c-pieIcon c-pieIcon--closeCircle"><path d="M10.87 6.058 8.928 8l1.942 1.943-.927.927L8 8.928 6.058 10.87l-.928-.927L7.072 8 5.13 6.058l.928-.928L8 7.072 9.943 5.13l.927.928ZM14.781 8A6.782 6.782 0 1 1 8 1.219 6.79 6.79 0 0 1 14.781 8ZM13.47 8A5.469 5.469 0 1 0 2.53 8a5.469 5.469 0 0 0 10.938 0Z"></path></svg>
           Don't
         </figcaption>
-        <div class=\\"c-usage-backdrop\\">
-          <ul class=\\"c-list c-list--bullet\\"  >
-        <li class=\\"c-list-item\\">
+        <div class="c-usage-backdrop">
+          <ul class="c-list c-list--bullet"  >
+        <li class="c-list-item">
         
         <span>Hello World</span>
-        </li><li class=\\"c-list-item\\">
+        </li><li class="c-list-item">
         
         <span>Lorem ipsum dolor</span>
         </li>

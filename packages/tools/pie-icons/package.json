@@ -21,7 +21,7 @@
     "lint:scripts:fix": "run -T eslint . --fix",
     "test": "run -T vitest run",
     "test:ci": "yarn test",
-    "test:coverage": "jest --coverage",
+    "test:coverage": "run -T vitest run --coverage",
     "precommit": "lint-staged"
   },
   "dependencies": {

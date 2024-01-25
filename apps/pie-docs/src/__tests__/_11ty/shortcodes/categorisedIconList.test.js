@@ -2,7 +2,7 @@ const categorisedIconList = require('../../../_11ty/shortcodes/categorisedIconLi
 
 describe('categorisedIconList.js', () => {
     // This is a temp fix until we look into resolving the icon / changeset issue properly.
-    xit('should return the expected HTML', () => {
+    it('should return the expected HTML', () => {
         // act
         const result = categorisedIconList();
 
