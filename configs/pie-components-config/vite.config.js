@@ -39,8 +39,8 @@ const sharedConfig = ({ build = {}, plugins = [], ...rest }) => defineConfig({
         environment: 'jsdom',
         globals: true,
         include: [
-            './src/__tests__/**/*.test.{js,ts}',
-            './test/unit/**/*.test.{js,ts}',
+            './src/__tests__/**/*.{spec,test}.{js,ts}',
+            './test/unit/**/*.{spec,test}.{js,ts}',
         ],
     },
     plugins: deepmerge([dts({

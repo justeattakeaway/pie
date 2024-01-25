@@ -10,6 +10,7 @@ export function getPlaywrightConfig () {
         snapshotDir: './__snapshots__',
         /* Maximum time one test can run for. */
         timeout: 10 * 1000,
+        testIgnore: '*-react.spec.js',
         /* Run tests in files in parallel */
         fullyParallel: true,
         /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -40,14 +41,14 @@ export function getPlaywrightConfig () {
                 use: {
                     ...devices['Desktop Chrome'],
                 },
-                testMatch: ['**/test/component/*.spec.ts'],
+                testMatch: ['**/test/component/*.spec.{js,ts}'],
             },
             {
                 name: 'a11y:chrome',
                 use: {
                     ...devices['Desktop Chrome'],
                 },
-                testMatch: ['**/test/accessibility/*.spec.ts'],
+                testMatch: ['**/test/accessibility/*.spec.{js,ts}'],
             },
         ],
     };

@@ -1,8 +1,8 @@
 
 import { test, expect } from '@sand4rt/experimental-ct-web';
 import { sizeToValueMap, largeIconSizeDefault, regularIconSizeDefault } from '@justeattakeaway/pie-icons-configs';
-import { IconAlcoholFilled } from '../icons/IconAlcoholFilled.ts';
-import { IconAlcoholFilledLarge } from '../icons/IconAlcoholFilledLarge.ts';
+import { IconAlcoholFilled } from '../../icons/IconAlcoholFilled.ts';
+import { IconAlcoholFilledLarge } from '../../icons/IconAlcoholFilledLarge.ts';
 
 const iconAlcoholFilledSelector = 'icon-alcohol-filled';
 const iconAlcoholFilledLargeSelector = 'icon-alcohol-filled-large';
