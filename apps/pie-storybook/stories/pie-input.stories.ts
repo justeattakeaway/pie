@@ -175,8 +175,8 @@ const Template = ({
         assistiveTextState="${ifDefined(assistiveTextState)}"
         @input="${onInput}"
         @change="${onChange}">
-        <span slot="leading">$</span>
-        <span slot="trailing">👋</span>
+        <span slot="prefix">$</span>
+        <span slot="suffix">👋</span>
     </pie-input>
     `;
 };

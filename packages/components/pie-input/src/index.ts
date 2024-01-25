@@ -21,6 +21,8 @@ const componentSelector = 'pie-input';
  * @tagname pie-input
  * @event {InputEvent} input - when the input value is changed.
  * @event {CustomEvent} change - when the input value is changed.
+ * @slot prefix - An icon or text to prefix the input with.
+ * @slot suffix - An icon or text to suffix the input with.
  */
 export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements InputProps {
     static shadowRootOptions = { ...LitElement.shadowRootOptions, delegatesFocus: true };
@@ -132,7 +134,7 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
 
         return html`
             <div>
-                <slot name="leading"></slot>
+                <slot name="prefix"></slot>
                 <input
                 type=${ifDefined(type)}
                 .value=${live(ifDefined(value))}
@@ -148,7 +150,7 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
                 @input=${this.handleInput}
                 @change=${this.handleChange}
                 data-test-id="pie-input">
-                <slot name="trailing"></slot>
+                <slot name="suffix"></slot>
             </div>
 
             ${this.renderAssistiveText()}
