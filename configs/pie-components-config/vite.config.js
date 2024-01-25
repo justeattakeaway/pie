@@ -5,6 +5,7 @@ import { deepmerge } from 'deepmerge-ts';
 
 const bundledJetDeps = [
     '@justeattakeaway/pie-components-config',
+    '@justeattakeaway/pie-icons-configs',
     '@justeattakeaway/pie-css',
     '@justeattakeaway/pie-webc-testing',
 ];
