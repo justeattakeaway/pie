@@ -135,7 +135,7 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
                 <slot name="leading"></slot>
                 <input
                 type=${ifDefined(type)}
-                .value=${live(value)}
+                .value=${live(ifDefined(value))}
                 name=${ifDefined(name)}
                 pattern=${ifDefined(pattern)}
                 minlength=${ifDefined(minlength)}
