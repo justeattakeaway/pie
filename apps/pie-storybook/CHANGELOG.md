@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.60.0
+
+### Minor Changes
+
+- [Added] - pattern, minlength and maxlength attributes to pie-input component ([#1209](https://github.com/justeattakeaway/pie/pull/1209)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - inputmode, readonly, placeholder, autocomplete and autoFocus properties to pie-input component ([#1213](https://github.com/justeattakeaway/pie/pull/1213)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies [[`7aab10f23`](https://github.com/justeattakeaway/pie/commit/7aab10f23f436f95f1c9cc17857edbeaaa200317), [`b5e35eb58`](https://github.com/justeattakeaway/pie/commit/b5e35eb58e8c6517530cc27c870ee69bc3f424b0)]:
+  - @justeattakeaway/pie-input@0.8.0
+
 ## 0.59.3
 
 ### Patch Changes
