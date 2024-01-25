@@ -109,6 +109,13 @@ const inputStoryMeta: InputStoryMeta = {
                 summary: false,
             },
         },
+        defaultValue: {
+            description: 'An optional default value to use when the input is reset.',
+            control: 'text',
+            defaultValue: {
+                summary: '',
+            },
+        },
     },
     args: defaultArgs,
     parameters: {
@@ -120,7 +127,7 @@ const inputStoryMeta: InputStoryMeta = {
 };
 
 const Template = ({
-    type, value, name, pattern, minlength, maxlength, autocomplete, placeholder, autoFocus, inputmode, readonly,
+    type, value, name, pattern, minlength, maxlength, autocomplete, placeholder, autoFocus, inputmode, readonly, defaultValue,
 }: InputProps) => {
     const [, updateArgs] = UseArgs();
 
@@ -151,6 +158,7 @@ const Template = ({
         autocomplete="${ifDefined(autocomplete)}"
         placeholder="${ifDefined(placeholder)}"
         inputmode="${ifDefined(inputmode)}"
+        defaultValue="${ifDefined(defaultValue)}"
         ?autoFocus="${autoFocus}"
         ?readonly="${readonly}"
         @input="${onInput}"

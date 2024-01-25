@@ -59,6 +59,9 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
     @property({ type: Boolean })
     public readonly?: InputProps['readonly'];
 
+    @property({ type: String })
+    public defaultValue?: InputProps['defaultValue'];
+
     @query('input')
     private input?: HTMLInputElement;
 
@@ -68,6 +71,14 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
      */
     public get validity (): ValidityState {
         return (this.input as HTMLInputElement).validity;
+    }
+
+    /**
+     * Called when the form that owns this component is reset.
+     * Resets the value to the default value.
+     */
+    public formResetCallback (): void {
+        this.value = this.defaultValue ?? InputDefaultPropertyValues.value;
     }
 
     protected firstUpdated (_changedProperties: PropertyValues<this>): void {
