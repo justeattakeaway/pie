@@ -72,14 +72,14 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
 
     protected firstUpdated (_changedProperties: PropertyValues<this>): void {
         super.firstUpdated(_changedProperties);
-        this._internals.setFormValue(this.value as string);
+        this._internals.setFormValue(this.value);
     }
 
     protected updated (_changedProperties: PropertyValues<this>): void {
         super.updated(_changedProperties);
 
         if (_changedProperties.has('value')) {
-            this._internals.setFormValue(this.value as string);
+            this._internals.setFormValue(this.value);
         }
     }
 
