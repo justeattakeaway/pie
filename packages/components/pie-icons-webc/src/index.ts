@@ -10,7 +10,7 @@ import { property, query } from 'lit/decorators.js';
 import { defineCustomElement, validPropertyValues } from '@justeattakeaway/pie-webc-core';
 import {
     getSvgProps,
-    type RegularIconSize,
+    RegularIconSize,
     regularIconSizes,
     regularIconSizeDefault,
 } from '@justeattakeaway/pie-icons-configs';
