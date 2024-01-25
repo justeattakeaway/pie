@@ -1,12 +1,3 @@
-import {
-    beforeEach,
-    afterEach,
-    describe,
-    it,
-    expect,
-    vi,
-} from 'vitest';
-
 import { validPropertyValues } from '../../decorators/valid-property-values';
 
 describe('validPropertyValues', () => {

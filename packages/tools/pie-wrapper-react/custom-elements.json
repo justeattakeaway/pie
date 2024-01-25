@@ -35,9 +35,9 @@
                         "package": "lit"
                     },
                     "tagName": "mock-component",
-                    "customElement": false
+                    "customElement": true
                 }
             ]
         }
     ]
-}
+}}

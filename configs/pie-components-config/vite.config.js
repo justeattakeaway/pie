@@ -34,9 +34,9 @@ const sharedConfig = ({ build = {}, plugins = [], ...rest }) => defineConfig({
             },
         },
     }, build),
-    environment: 'jsdom',
     test: {
         dir: '.',
+        environment: 'jsdom',
         globals: true,
         include: [
             './src/__tests__/**/*.test.{js,ts}',

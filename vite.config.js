@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/no-unresolved
 import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
@@ -6,8 +5,5 @@ export default defineConfig({
         dir: '.',
         environment: 'jsdom',
         globals: true,
-        include: [
-            './__tests__/**/*.test.js',
-        ],
     },
 });

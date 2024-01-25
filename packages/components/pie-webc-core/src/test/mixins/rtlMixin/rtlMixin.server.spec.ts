@@ -2,13 +2,6 @@ import {
     LitElement, html, nothing,
 } from 'lit';
 
-import {
-    describe,
-    it,
-    expect,
-    vi,
-} from 'vitest';
-
 import { RtlMixin } from '../../../index';
 
 const scenarios = [

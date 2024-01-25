@@ -1,6 +1,3 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { describe, it, expect } from 'vitest';
-
 import { ESLint } from 'eslint';
 
 const ESLINT_SEVERITY = {

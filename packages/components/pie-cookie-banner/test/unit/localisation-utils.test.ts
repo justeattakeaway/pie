@@ -1,9 +1,3 @@
-import {
-    describe,
-    it,
-    expect,
-} from 'vitest';
-
 import { localiseText, localiseRichText } from '../../src/localisation-utils';
 
 describe('localiseText', () => {

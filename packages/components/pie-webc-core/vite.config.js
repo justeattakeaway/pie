@@ -13,7 +13,14 @@ export default defineConfig({
         },
     },
     test: {
+        dir: '.',
+        globals: true,
+        include: [
+            './src/test/**/*.spec.{js,ts}',
+        ],
+        exclude: [
+            './src/test/**/*.browser.spec.{js,ts}',
+        ],
         environment: 'jsdom',
-        exclude: ['**/*.browser.spec.ts'],
     },
 });

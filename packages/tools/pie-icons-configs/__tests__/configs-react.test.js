@@ -1,5 +1,3 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { describe, it, expect } from 'vitest';
 import { getReactSvgProps } from '../configs-react';
 
 describe('getReactSvgProps', () => {

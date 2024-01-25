@@ -97,7 +97,6 @@
     "eslint-plugin-import": "2.27.5",
     "eslint-plugin-json-format": "2.0.1",
     "eslint-plugin-vitest": "0.3.20",
-    "eslint-plugin-vitest-globals": "1.4.0",
     "glob": "10.3.3",
     "husky": "8.0.3",
     "jsdom": "24.0.0",

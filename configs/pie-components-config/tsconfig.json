@@ -21,6 +21,8 @@
     "forceConsistentCasingInFileNames": true,
     "allowImportingTsExtensions": true,
     "noEmit": true,
+    "skipLibCheck": true,
+    "types": ["vitest/globals"]
   },
   "exclude": []
 }

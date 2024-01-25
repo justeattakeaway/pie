@@ -1,9 +1,3 @@
-import {
-    describe,
-    it,
-    expect,
-} from 'vitest';
-
 import { compileCss, stripCSSWhitespace } from '../../../../utilities/compileCss';
 
 describe('mixins.visually-hidden', () => {

@@ -1,12 +1,3 @@
-import {
-    beforeEach,
-    afterEach,
-    describe,
-    it,
-    expect,
-    vi,
-} from 'vitest';
-
 import { requiredProperty } from '../../decorators/required-property';
 
 describe('requiredProperty', () => {

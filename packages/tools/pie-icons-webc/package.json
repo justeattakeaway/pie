@@ -64,8 +64,9 @@
     "clean": "run -T rimraf -rf ./dist/ ./icons/",
     "lint:scripts": "run -T eslint .",
     "lint:scripts:fix": "yarn lint:scripts --fix",
-    "test": "wtr tests/*.test.js --node-resolve",
-    "test:browsers": "npx playwright test -c ./playwright-react.config.ts",
+    "test:browsers": "yarn test:react && yarn test:webc",
+    "test:react": "npx playwright test -c ./playwright-react.config.ts",
+    "test:webc": "npx playwright test -c ./playwright-lit.config.ts",
     "test:browsers:ci": "yarn test:browsers",
     "test:ci": "yarn test"
   },
@@ -78,9 +79,9 @@
   "devDependencies": {
     "@babel/core": "7.23.9",
     "@babel/node": "7.20.7",
+    "@justeattakeaway/pie-components-config": "0.10.0",
     "@justeattakeaway/pie-icons": "4.9.3",
     "@justeattakeaway/pie-icons-configs": "4.5.1",
-    "@open-wc/testing": "4.0.0",
     "@rollup/plugin-typescript": "11.1.6",
     "@web/test-runner": "0.16.1",
     "just-kebab-case": "4.2.0",
