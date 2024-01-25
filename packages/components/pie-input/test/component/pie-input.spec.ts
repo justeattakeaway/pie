@@ -121,21 +121,6 @@ test.describe('PieInput - Component tests', () => {
                 expect((await input.inputValue())).toBe('');
             });
 
-            test('should default to an empty string if undefined value prop provided', async ({ mount }) => {
-                // Arrange
-                const component = await mount(PieInput, {
-                    props: {
-                        value: undefined,
-                    } as InputProps,
-                });
-
-                // Act
-                const input = component.locator('input');
-
-                // Assert
-                expect((await input.inputValue())).toBe('');
-            });
-
             test('should apply the value prop to the HTML input rendered', async ({ mount }) => {
                 // Arrange
                 const component = await mount(PieInput, {

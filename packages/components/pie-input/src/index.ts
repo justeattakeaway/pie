@@ -30,7 +30,7 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
     public type? = InputDefaultPropertyValues.type;
 
     @property({ type: String })
-    public value? = InputDefaultPropertyValues.value;
+    public value = InputDefaultPropertyValues.value;
 
     @property({ type: String })
     public name?: InputProps['name'];
@@ -113,7 +113,7 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
 
         return html`<input
             type=${ifDefined(type)}
-            .value=${live(ifDefined(value))}
+            .value=${live(value)}
             name=${ifDefined(name)}
             pattern=${ifDefined(pattern)}
             minlength=${ifDefined(minlength)}
