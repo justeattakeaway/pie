@@ -1,14 +1,23 @@
 {
   "name": "@justeattakeaway/pie-webc-testing",
-  "version": "0.8.0",
+  "version": "0.9.0",
   "description": "PIE design system helpers and utilities for testing our web components",
   "type": "module",
   "main": "index.ts",
+  "files": [
+    "src/playwright",
+    "src/percy",
+    "src/helpers"
+  ],
   "author": "Just Eat Takeaway.com - Design System Team",
   "license": "Apache-2.0",
   "scripts": {
     "lint:scripts": "run -T eslint .",
     "lint:scripts:fix": "run -T eslint . --fix"
+  },
+  "peerDependencies": {
+    "@axe-core/playwright": "^4.0.0",
+    "@playwright/test": "^1.32.3"
   },
   "volta": {
     "extends": "../../../package.json"

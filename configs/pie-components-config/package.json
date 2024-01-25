@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/pie-components-config",
-  "version": "0.9.0",
+  "version": "0.10.0",
   "main": "index.js",
   "type": "module",
   "author": "Just Eat Takeaway.com - Design System Team",
@@ -8,7 +8,9 @@
   "files": [
     "custom-elements-manifest.config.js",
     "vite.config.js",
-    "tsconfig.json"
+    "tsconfig.json",
+    "playwright-lit-config.js",
+    "playwright-lit-visual-config.js"
   ],
   "dependencies": {
     "deepmerge-ts": "5.1.0"

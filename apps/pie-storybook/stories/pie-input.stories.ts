@@ -5,7 +5,7 @@ import { useArgs as UseArgs } from '@storybook/preview-api';
 
 /* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-input';
-import { types, InputProps } from '@justeattakeaway/pie-input';
+import { types, inputModes, InputProps } from '@justeattakeaway/pie-input';
 /* eslint-enable import/no-duplicates */
 
 import { type StoryMeta } from '../types';
@@ -18,6 +18,8 @@ const defaultArgs: InputProps = {
     type: 'text',
     value: '',
     name: 'testName',
+    autocomplete: 'off',
+    autoFocus: false,
 };
 
 const inputStoryMeta: InputStoryMeta = {
@@ -43,7 +45,68 @@ const inputStoryMeta: InputStoryMeta = {
             description: 'The name of the input (used as a key/value pair with `value`). This is required in order to work properly with forms.',
             control: 'text',
             defaultValue: {
+                summary: 'testName',
+            },
+        },
+        pattern: {
+            description: 'Specifies a regular expression the form control\'s value should match.',
+            control: 'text',
+            defaultValue: {
                 summary: '',
+            },
+            if: { arg: 'type', neq: 'number' },
+        },
+        minlength: {
+            description: 'Minimum length (number of characters) of value. Only applies to types: `text`, `url`, `tel`, `email`, and `password`.',
+            control: 'number',
+            defaultValue: {
+                summary: '',
+            },
+            if: { arg: 'type', neq: 'number' },
+        },
+        maxlength: {
+            description: 'Maximum length (number of characters) of value. Only applies to types: `text`, `url`, `tel`, `email`, and `password`.',
+            control: 'number',
+            defaultValue: {
+                summary: '',
+            },
+            if: { arg: 'type', neq: 'number' },
+        },
+        autocomplete: {
+            description: 'Allows the user to enable or disable autocomplete functionality on the input field. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete) for more information and values.',
+            control: 'text',
+            defaultValue: {
+                summary: 'off',
+            },
+        },
+        placeholder: {
+            description: 'The placeholder text to display when the input is empty. Only applies to types: `text`, `url`, `tel`, `email`, and `password`.',
+            control: 'text',
+            defaultValue: {
+                summary: '',
+            },
+            if: { arg: 'type', neq: 'number' },
+        },
+        autoFocus: {
+            description: 'If true, the input will be focused on the first render. No more than one element in the document or dialog may have the autofocus attribute. If applied to multiple elements the first one will receive focus. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/autofocus) for more information.',
+            control: 'boolean',
+            defaultValue: {
+                summary: false,
+            },
+        },
+        inputmode: {
+            description: 'Provides a hint to browsers as to the type of virtual keyboard configuration to use when editing this element. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#inputmode) for more information.',
+            control: 'select',
+            options: inputModes,
+            defaultValue: {
+                summary: '',
+            },
+        },
+        readonly: {
+            description: 'When true, the user cannot edit the control. Not the same as disabled. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/readonly) for more information.',
+            control: 'boolean',
+            defaultValue: {
+                summary: false,
             },
         },
     },
@@ -56,7 +119,9 @@ const inputStoryMeta: InputStoryMeta = {
     },
 };
 
-const Template = ({ type, value, name }: InputProps) => {
+const Template = ({
+    type, value, name, pattern, minlength, maxlength, autocomplete, placeholder, autoFocus, inputmode, readonly,
+}: InputProps) => {
     const [, updateArgs] = UseArgs();
 
     function onInput (event: InputEvent) {
@@ -80,6 +145,14 @@ const Template = ({ type, value, name }: InputProps) => {
         type="${ifDefined(type)}"
         .value="${value}"
         name="${ifDefined(name)}"
+        pattern="${ifDefined(pattern)}"
+        minlength="${ifDefined(minlength)}"
+        maxlength="${ifDefined(maxlength)}"
+        autocomplete="${ifDefined(autocomplete)}"
+        placeholder="${ifDefined(placeholder)}"
+        inputmode="${ifDefined(inputmode)}"
+        ?autoFocus="${autoFocus}"
+        ?readonly="${readonly}"
         @input="${onInput}"
         @change="${onChange}"></pie-input>
     `;
