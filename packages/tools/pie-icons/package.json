@@ -19,7 +19,7 @@
     "prepublishOnly": "yarn run build",
     "lint:scripts": "run -T eslint .",
     "lint:scripts:fix": "run -T eslint . --fix",
-    "test": "run -T vitest run",
+    "test": "run -T vitest run --config ../../../vite.config.js",
     "test:ci": "yarn test",
     "test:coverage": "run -T vitest run --coverage",
     "precommit": "lint-staged"

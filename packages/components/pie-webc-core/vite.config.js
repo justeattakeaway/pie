@@ -12,15 +12,4 @@ export default defineConfig({
             external: (id) => /^lit/.test(id),
         },
     },
-    test: {
-        dir: '.',
-        globals: true,
-        include: [
-            './src/test/**/*.spec.{js,ts}',
-        ],
-        exclude: [
-            './src/test/**/*.browser.spec.{js,ts}',
-        ],
-        environment: 'jsdom',
-    },
 });

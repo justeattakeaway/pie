@@ -67,8 +67,7 @@
     "test:browsers": "yarn test:react && yarn test:webc",
     "test:react": "npx playwright test -c ./playwright-react.config.ts",
     "test:webc": "npx playwright test -c ./playwright-lit.config.ts",
-    "test:browsers:ci": "yarn test:browsers",
-    "test:ci": "yarn test"
+    "test:browsers:ci": "yarn test:browsers"
   },
   "browserslist": [
     "extends @justeattakeaway/browserslist-config-pie"

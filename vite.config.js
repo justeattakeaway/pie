@@ -5,5 +5,9 @@ export default defineConfig({
         dir: '.',
         environment: 'jsdom',
         globals: true,
+        exclude: [
+            '**/test/{accessibility,component,system,visual}/*.spec.{js,ts}',
+            '**/test/mixins/**/*.browser.spec.{js,ts}'
+        ],
     },
 });
