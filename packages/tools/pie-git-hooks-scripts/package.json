@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/pie-git-hooks-scripts",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Scripts and utilities used by the Pie monorepo git hooks",
   "main": "index.js",
   "scripts": {
