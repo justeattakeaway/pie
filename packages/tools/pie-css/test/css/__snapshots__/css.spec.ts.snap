@@ -1118,6 +1118,7 @@ html {
 /* The z-index priority order of different components.
 The values start at a high and specific number to avoid any conflicts */
 :root {
+    --dt-z-index-base: 1;
     --dt-z-index-dropdown: 1000;
     --dt-z-index-fab: 1000;
     --dt-z-index-tooltip: 2000;

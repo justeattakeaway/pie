@@ -57,7 +57,7 @@
 .c-heroBanner-image {
     grid-column: 2;
     align-self: center;
-    z-index: 1;
+    z-index: var(--dt-z-index-base);
     height: v.$hero-banner-header-mid-height;
 
     @include f.media('>=wide') {

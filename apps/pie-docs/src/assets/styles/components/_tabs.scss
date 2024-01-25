@@ -6,7 +6,7 @@ $max-scroll-height:                var(--dt-spacing-d);
 
 .c-tabs {
     position: relative;
-    z-index: 1;
+    z-index: var(--dt-z-index-base);
     font-weight: var(--dt-font-weight-bold);
 
     ul {
