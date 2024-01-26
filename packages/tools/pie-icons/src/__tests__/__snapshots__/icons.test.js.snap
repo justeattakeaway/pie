@@ -9,7 +9,7 @@ exports[`exports correct object 1`] = `
       "role": "presentation",
       "xmlns": "http://www.w3.org/2000/svg",
     },
-    "contents": "<line x1="23" y1="1" x2="1" y2="23" /><line x1="1" y1="1" x2="23" y2="23" />",
+    "contents": "<line x1=\\"23\\" y1=\\"1\\" x2=\\"1\\" y2=\\"23\\" /><line x1=\\"1\\" y1=\\"1\\" x2=\\"23\\" y2=\\"23\\" />",
     "name": "icon1",
   },
   "icon2": Icon {
@@ -19,7 +19,7 @@ exports[`exports correct object 1`] = `
       "role": "presentation",
       "xmlns": "http://www.w3.org/2000/svg",
     },
-    "contents": "<circle cx="12" cy="12" r="11" />",
+    "contents": "<circle cx=\\"12\\" cy=\\"12\\" r=\\"11\\" />",
     "name": "icon2",
   },
 }
