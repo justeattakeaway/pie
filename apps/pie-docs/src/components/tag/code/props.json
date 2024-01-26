@@ -1,0 +1,41 @@
+{
+    "headings": ["Prop", "Options", "Description", "Default"],
+    "rows": [
+        [
+            "size",
+            {
+                "type": "code",
+                "item": ["\"small\"", "\"large\""]
+            },
+            "Sets the size of the tag.",
+            {
+                "type": "code",
+                "item": ["\"large\""]
+            }
+        ],
+        [
+            "variant",
+            {
+                "type": "code",
+                "item": ["\"neutral-alternative\"", "\"neutral\"", "\"outline\"", "\"ghost\"", "\"blue\"", "\"green\"", "\"yellow\"", "\"red\"", "\"brand\""]
+            },
+            "Sets the variant of the button.",
+            {
+                "type": "code",
+                "item": ["\"neutral\""]
+            }
+        ],
+        [
+            "isStrong",
+            {
+                "type": "code",
+                "item": ["true", "false"]
+            },
+            "If `true`, displays strong tag styles for `green`, `yellow`, `red`, `blue` and `neutral` variants.",
+            {
+                "type": "code",
+                "item": ["false"]
+            }
+        ]
+    ]
+}
