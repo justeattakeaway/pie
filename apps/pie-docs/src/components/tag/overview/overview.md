@@ -2,7 +2,7 @@
 eleventyNavigation:
     key: Overview
     parent: Tag
-    order: 43
+    order: 1
 eleventyComputed:
     sizes: "{% include './sizes.json' %}"
 shouldShowContents: true
@@ -151,7 +151,7 @@ Not all colours available within the subtle emphasis are available within the st
 
 {% contentLayout %}
   {% contentItem %}
-    <h3>Strong</h3>
+    <h4>Strong</h4>
     {% contentPageImage {
       src: "../../../assets/img/components/tag/modifier-emphasis-strong.svg",
       width: "49px",
@@ -159,7 +159,7 @@ Not all colours available within the subtle emphasis are available within the st
     } %}
   {% endcontentItem %}
   {% contentItem %}
-    <h3>Subtle</h3>
+    <h4>Subtle</h4>
     {% contentPageImage {
       src: "../../../assets/img/components/tag/modifier-emphasis-subtle.svg",
       width: "49px",
@@ -174,7 +174,7 @@ Icons can be used to visually support the Tag’s label. Only available at the l
 
 {% contentLayout %}
   {% contentItem %}
-    <h3>With icon</h3>
+    <h4>With icon</h4>
     {% contentPageImage {
       src: "../../../assets/img/components/tag/modifier-icon.svg",
       width: "69px",
@@ -182,7 +182,7 @@ Icons can be used to visually support the Tag’s label. Only available at the l
     } %}
   {% endcontentItem %}
   {% contentItem %}
-    <h3>Without icon</h3>
+    <h4>Without icon</h4>
     {% contentPageImage {
       src: "../../../assets/img/components/tag/modifier-no-icon.svg",
       width: "49px",
