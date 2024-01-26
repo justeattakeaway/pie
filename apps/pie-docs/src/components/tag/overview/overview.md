@@ -3,8 +3,6 @@ eleventyNavigation:
     key: Overview
     parent: Tag
     order: 1
-eleventyComputed:
-    sizes: "{% include './sizes.json' %}"
 shouldShowContents: true
 ---
 
