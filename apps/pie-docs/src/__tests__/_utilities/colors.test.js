@@ -17,7 +17,7 @@ describe('colors.js', () => {
         });
     });
 
-    describe('convertHexcodeToRGB', () => {
+    describe('convertHexcodeToRBG', () => {
         it.each([
             ['#f6c243'],
             ['#000'],
@@ -26,7 +26,7 @@ describe('colors.js', () => {
             ['#ffffff']
         ])('converts hexcode %p to the expected RGB object', (hexcode) => {
             // act
-            const result = systemUnderTest.convertHexcodeToRGB(hexcode);
+            const result = systemUnderTest.convertHexcodeToRBG(hexcode);
 
             // assert
             expect(result).toMatchSnapshot();

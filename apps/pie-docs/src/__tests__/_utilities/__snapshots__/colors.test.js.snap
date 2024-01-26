@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`colors.js > convertHexcodeToRGB > converts hexcode %p to the expected RGB object #000 1`] = `
+exports[`colors.js > convertHexcodeToRBG > converts hexcode %p to the expected RGB object #000 1`] = `
 {
   "blue": 0,
   "green": 0,
@@ -8,7 +8,7 @@ exports[`colors.js > convertHexcodeToRGB > converts hexcode %p to the expected R
 }
 `;
 
-exports[`colors.js > convertHexcodeToRGB > converts hexcode %p to the expected RGB object #000000 1`] = `
+exports[`colors.js > convertHexcodeToRBG > converts hexcode %p to the expected RGB object #000000 1`] = `
 {
   "blue": 0,
   "green": 0,
@@ -16,7 +16,7 @@ exports[`colors.js > convertHexcodeToRGB > converts hexcode %p to the expected R
 }
 `;
 
-exports[`colors.js > convertHexcodeToRGB > converts hexcode %p to the expected RGB object #f6c243 1`] = `
+exports[`colors.js > convertHexcodeToRBG > converts hexcode %p to the expected RGB object #f6c243 1`] = `
 {
   "blue": 67,
   "green": 194,
@@ -24,7 +24,7 @@ exports[`colors.js > convertHexcodeToRGB > converts hexcode %p to the expected R
 }
 `;
 
-exports[`colors.js > convertHexcodeToRGB > converts hexcode %p to the expected RGB object #fff 1`] = `
+exports[`colors.js > convertHexcodeToRBG > converts hexcode %p to the expected RGB object #fff 1`] = `
 {
   "blue": 255,
   "green": 255,
@@ -32,7 +32,7 @@ exports[`colors.js > convertHexcodeToRGB > converts hexcode %p to the expected R
 }
 `;
 
-exports[`colors.js > convertHexcodeToRGB > converts hexcode %p to the expected RGB object #ffffff 1`] = `
+exports[`colors.js > convertHexcodeToRBG > converts hexcode %p to the expected RGB object #ffffff 1`] = `
 {
   "blue": 255,
   "green": 255,

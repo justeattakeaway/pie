@@ -5,7 +5,7 @@ module.exports = {
     ],
     plugins: [
         'json-format',
-        '@typescript-eslint',
+        '@typescript-eslint'
     ],
     root: true,
     settings: {
