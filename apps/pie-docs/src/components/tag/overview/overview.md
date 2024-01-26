@@ -15,7 +15,7 @@ Tags can be embedded in other components such as cards, data tables (among other
 
 {% contentPageImage {
     src:"../../../assets/img/components/tag/overview.svg",
-    alt: "A group of tags that are horizontally stacked together."
+    alt: "A group of tags."
 } %}
 
 ---
@@ -147,7 +147,7 @@ ___
 ### Emphasis
 
 Tags are available in two types of emphasis. 
-Not all colour available within the subtle emphasis are available within the strong emphasis, for example, Brand, Neutral - alternative, Outline and Ghost have only Subtle variations.
+Not all colours available within the subtle emphasis are available within the strong emphasis, for example, brand, neutral - alternative, outline and ghost have only subtle variations.
 
 {% contentLayout %}
   {% contentItem %}
@@ -198,7 +198,7 @@ Icons can be used to visually support the Tag’s label. Only available at the l
 {% contentLayout %}
   {% contentItem %}
     <h3>Small</h3>
-    <p>16px height. Icon isn’t available at the small size option.</p>
+    <p>16px height. Small tags don't support icons.</p>
     {% contentPageImage {
       src: "../../../assets/img/components/tag/size-small.svg",
       width: "37px",
@@ -253,9 +253,9 @@ Tag doesn’t have a maximum width or overflow. The container width is dynamic t
     do: {
         type: usageTypes.text,
         items: [
-            "Use label with concise and scannable text.",
-            "Use no more than 3 words in both Large and Small tag labels.",
-            "Use sentence case in the label."
+            "Use concise and scannable text.",
+            "Use 3 words or fewer.",
+            "Use sentence case."
         ]
     },
     dont: {
@@ -273,7 +273,7 @@ Tag doesn’t have a maximum width or overflow. The container width is dynamic t
         items: [{
             src: "../../../assets/img/components/tag/content-label-guidance-do.svg",
             width: "88px",
-            alt: "A tag with a one word in the label."
+            alt: "A tag with a one-word label."
         }]
     },
     dont: {
@@ -349,7 +349,7 @@ Here are some examples of tags in right-to-left context:
 
 {% contentPageImage {
     src: "../../../assets/img/components/tag/rtl-example-price-breakdown.svg",
-    alt: "A right-to-left example of an offer tag on used in price breakdown.",
+    alt: "A right-to-left example of an offer tag used in a price breakdown.",
     width: "359px"
 } %}
 
