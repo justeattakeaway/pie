@@ -1,5 +1,18 @@
 # Changelog
 
+## 3.26.0
+
+### Minor Changes
+
+- [Changed] - Replaced zIndex fozzie tokens with pie-css tokens ([#1212](https://github.com/justeattakeaway/pie/pull/1212)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Changed] - component status updates ([#1219](https://github.com/justeattakeaway/pie/pull/1219)) by [@ashleynolan](https://github.com/ashleynolan)
+
+### Patch Changes
+
+- Updated dependencies [[`5e250539f`](https://github.com/justeattakeaway/pie/commit/5e250539fe9045f0f8293236874d56eb5ecb6e7e)]:
+  - @justeattakeaway/pie-css@0.10.0
+
 ## 3.25.0
 
 ### Minor Changes

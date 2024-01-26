@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.61.0
+
+### Minor Changes
+
+- [Added] - defaultValue prop to fallback to if the input is reset ([#1218](https://github.com/justeattakeaway/pie/pull/1218)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies [[`5e250539f`](https://github.com/justeattakeaway/pie/commit/5e250539fe9045f0f8293236874d56eb5ecb6e7e), [`38698ed45`](https://github.com/justeattakeaway/pie/commit/38698ed45a82f42803a6eb857bff4a268eb5c48e), [`38698ed45`](https://github.com/justeattakeaway/pie/commit/38698ed45a82f42803a6eb857bff4a268eb5c48e), [`b82f82797`](https://github.com/justeattakeaway/pie/commit/b82f8279745d952c8c73531d812ea6099356b627)]:
+  - @justeattakeaway/pie-css@0.10.0
+  - @justeattakeaway/pie-input@0.9.0
+
 ## 0.60.0
 
 ### Minor Changes
