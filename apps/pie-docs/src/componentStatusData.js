@@ -360,7 +360,7 @@ const rows = [
         {
             resource: resourceTypes.WEB_COMPONENTS,
             link: 'https://webc.pie.design/?path=/story/button--primary',
-            status: statusTypes.ALPHA,
+            status: statusTypes.BETA,
         },
         {
             resource: resourceTypes.VUE,
@@ -404,7 +404,7 @@ const rows = [
         {
             resource: resourceTypes.WEB_COMPONENTS,
             link: 'https://webc.pie.design/?path=/story/card--default',
-            status: statusTypes.ALPHA,
+            status: statusTypes.BETA,
         },
         {
             resource: resourceTypes.VUE,
@@ -720,7 +720,7 @@ const rows = [
         {
             resource: resourceTypes.WEB_COMPONENTS,
             link: 'https://webc.pie.design/?path=/story/divider--default',
-            status: statusTypes.PRE_RELEASE,
+            status: statusTypes.BETA,
         },
         {
             resource: resourceTypes.VUE,
@@ -887,7 +887,7 @@ const rows = [
         {
             resource: resourceTypes.WEB_COMPONENTS,
             link: 'https://webc.pie.design/?path=/story/icon-button--primary',
-            status: statusTypes.ALPHA,
+            status: statusTypes.BETA,
         },
         {
             resource: resourceTypes.VUE,
@@ -931,7 +931,7 @@ const rows = [
         {
             resource: resourceTypes.WEB_COMPONENTS,
             link: 'https://webc.pie.design/?path=/story/link--default',
-            status: statusTypes.ALPHA,
+            status: statusTypes.BETA,
         },
         {
             resource: resourceTypes.VUE,
@@ -1857,7 +1857,8 @@ const rows = [
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
-            status: statusTypes.PLANNED,
+            link: 'https://webc.pie.design/?path=/story/spinner--brand',
+            status: statusTypes.BETA,
         },
         {
             resource: resourceTypes.VUE,
