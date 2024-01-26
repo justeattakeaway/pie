@@ -1,4 +1,11 @@
 import { mount } from '@vue/test-utils';
+import {
+    describe,
+    expect,
+    test,
+    vi,
+} from 'vitest';
+
 // eslint-disable-next-line import/no-unresolved, import/extensions
 import IconAlcoholLarge from '../esm/IconAlcoholLarge';
 

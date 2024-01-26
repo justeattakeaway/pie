@@ -1,3 +1,10 @@
+import {
+    describe,
+    it,
+    expect,
+    beforeEach,
+} from 'vitest';
+
 const stylelint = require('stylelint');
 
 const config = {

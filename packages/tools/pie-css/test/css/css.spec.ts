@@ -1,6 +1,11 @@
 import fs from 'fs/promises';
 import path from 'path';
 import cssValidator from 'w3c-css-validator';
+import {
+    describe,
+    it,
+    expect,
+} from 'vitest';
 
 // Requires the CSS to have been built before running these tests
 const builtCssFilePath = path.join(__dirname, '../../dist/index.css');

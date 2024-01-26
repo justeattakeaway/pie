@@ -1,4 +1,7 @@
 import {
+    describe, it, expect,
+} from 'vitest';
+import {
     getTicketIdFromBranchName, validateBranchName, verifyCommitMessage,
 } from '../git-hooks-utils';
 

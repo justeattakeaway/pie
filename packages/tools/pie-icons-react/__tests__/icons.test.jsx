@@ -1,5 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
+import { describe, expect, it } from 'vitest';
 import { sizeToValueMap, largeIconSizeDefault } from '@justeattakeaway/pie-icons-configs';
 
 import IconAlcohol from '../icons/IconAlcohol';

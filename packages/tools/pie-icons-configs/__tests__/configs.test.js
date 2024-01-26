@@ -1,4 +1,11 @@
 import {
+    afterEach,
+    describe,
+    it,
+    expect,
+    vi,
+} from 'vitest';
+import {
     sizeToValueMap,
     validateGetLargeIconSize,
     regularIconSizeDefault,

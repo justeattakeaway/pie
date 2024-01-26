@@ -1,5 +1,8 @@
 /* eslint-disable max-classes-per-file */
 import { LitElement } from 'lit';
+import {
+    vi, expect, it,
+} from 'vitest';
 import { defineCustomElement } from '../../functions/defineCustomElement';
 
 it('should call console.warn when a component is defined twice', () => {
