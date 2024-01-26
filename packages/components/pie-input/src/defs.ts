@@ -10,7 +10,7 @@ export interface InputProps {
     /**
      * The value of the input (used as a key/value pair in HTML forms with `name`).
      */
-    value?: string;
+    value: string;
 
     /**
      * The name of the input (used as a key/value pair with `value`). This is required in order to work properly with forms.
