@@ -42,7 +42,7 @@ test.describe('Prop: `Label`', () => {
 
 test.describe('when in RTL settings', () => {
     [true, false].forEach(async (checkedState) => {
-        test.only(`should render in rtl correctly when (checked: ${checkedState})`, async ({ page, mount }) => {
+        test(`should render in rtl correctly when (checked: ${checkedState})`, async ({ page, mount }) => {
             await setRTL(page);
 
             await mount(PieSwitch, {
