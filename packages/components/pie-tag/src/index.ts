@@ -36,7 +36,7 @@ export class PieTag extends LitElement implements TagProps {
             variant,
             size,
             isStrong,
-            isDimmed
+            isDimmed,
         } = this;
         return html`
             <div
