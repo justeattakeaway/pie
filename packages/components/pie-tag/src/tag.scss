@@ -75,7 +75,7 @@
 
         &[isStrong] {
             --tag-bg-color: var(--dt-color-support-info);
-            --tag-color: var(--dt-color-content-light);
+            --tag-color: var(--dt-color-content-inverse);
         }
     }
 
@@ -85,13 +85,13 @@
 
         &[isStrong] {
             --tag-bg-color: var(--dt-color-support-positive);
-            --tag-color: var(--dt-color-content-light);
+            --tag-color: var(--dt-color-content-inverse);
         }
     }
 
     &[variant='yellow'] {
         --tag-bg-color: var(--dt-color-support-warning-02);
-        --tag-color: var(--dt-color-content-dark);
+        --tag-color: var(--dt-color-content-default);
 
         &[isStrong] {
             --tag-bg-color: var(--dt-color-support-warning);
@@ -105,7 +105,7 @@
 
         &[isStrong] {
             --tag-bg-color: var(--dt-color-support-error);
-            --tag-color: var(--dt-color-content-light);
+            --tag-color: var(--dt-color-content-inverse);
         }
     }
 
