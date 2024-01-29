@@ -18,6 +18,7 @@ const defaultArgs: TagProps = {
     variant: 'neutral',
     size: 'large',
     isStrong: false,
+    isDimmed: false,
     showIcon: false,
     slot: 'Label',
 };
@@ -49,6 +50,13 @@ const tagStoryMeta: TagStoryMeta = {
                 summary: false,
             },
         },
+        isDimmed: {
+            description: 'If `true`, sets the tag opacity to 50%',
+            control: 'boolean',
+            defaultValue: {
+                summary: false,
+            },
+        },
         showIcon: {
             description: 'Enable to see the example of Tag with icon. Available only for large tag size.',
             control: 'boolean',
@@ -73,13 +81,15 @@ const Template : TemplateFunction<TagProps> = ({
     variant,
     size,
     isStrong,
+    isDimmed,
     showIcon,
     slot,
 }) => html`
     <pie-tag
         variant="${variant}"
         size="${size}"
-        ?isStrong="${isStrong}">
+        ?isStrong="${isStrong}"
+        ?isDimmed="${isDimmed}">
         ${showIcon ? html`<icon-heart-filled slot="icon"></icon-heart-filled>` : nothing}
         ${slot}
     </pie-tag>
@@ -87,7 +97,6 @@ const Template : TemplateFunction<TagProps> = ({
 
 const createTagStory = createStory<TagProps>(Template, defaultArgs);
 
-export const Default = createTagStory();
 export const Neutral = createTagStory({ variant: 'neutral' });
 export const Blue = createTagStory({ variant: 'blue' });
 export const Green = createTagStory({ variant: 'green' });

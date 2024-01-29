@@ -39,7 +39,6 @@
     font-weight: var(--tag-font-weight);
     font-size: var(--tag-font-size);
     line-height: var(--tag-line-height);
-    opacity: var(--tag-opacity, 1); // we don't specify --tag-opacity variable here to let consumers override a default value that we set
 
     // Size
     &[size='small'] {
@@ -136,6 +135,10 @@
     &[variant='ghost'] {
         --tag-bg-color: var(--tag-transparent-bg-color);
         --tag-color: var(--dt-color-content-default);
+    }
+
+    &[isDimmed] {
+        opacity: 50%;
     }
 }
 

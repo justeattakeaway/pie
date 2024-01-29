@@ -9,6 +9,7 @@ const props: Partial<TagProps> = {
     size: 'large',
     variant: 'neutral',
     isStrong: false,
+    isDimmed: false
 };
 
 type VariantToBgStyle = {
