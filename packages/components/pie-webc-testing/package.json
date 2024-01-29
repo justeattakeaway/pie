@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/pie-webc-testing",
-  "version": "0.9.0",
+  "version": "0.10.0",
   "description": "PIE design system helpers and utilities for testing our web components",
   "type": "module",
   "main": "index.ts",

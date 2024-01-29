@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.61.1
+
+### Patch Changes
+
+- Updated dependencies [[`68828edd7`](https://github.com/justeattakeaway/pie/commit/68828edd730a001acf599a0b6717f43e56d58a18), [`04891f5a0`](https://github.com/justeattakeaway/pie/commit/04891f5a0bd9d880b731db3bf15d87600e2b59d2)]:
+  - @justeattakeaway/pie-tag@0.5.0
+
 ## 0.61.0
 
 ### Minor Changes
