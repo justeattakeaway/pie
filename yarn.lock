@@ -27525,17 +27525,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"node-html-parser@npm:6.1.11":
-  version: 6.1.11
-  resolution: "node-html-parser@npm:6.1.11"
-  dependencies:
-    css-select: ^5.1.0
-    he: 1.2.0
-  checksum: 65900e8b664eec99710ca711c7fd1120977cbe8c7798495962ccb6deeda35a32ab49798870743d74b437afc0f1073a678da9e95abe12a5f24467e9560b6a54d3
-  languageName: node
-  linkType: hard
-
-"node-html-parser@npm:^6.1.5":
+"node-html-parser@npm:6.1.12, node-html-parser@npm:^6.1.5":
   version: 6.1.12
   resolution: "node-html-parser@npm:6.1.12"
   dependencies:
@@ -29132,7 +29122,7 @@ __metadata:
     markdown-it: 13.0.2
     markdown-it-anchor: 8.6.7
     markdown-it-attrs: 4.1.6
-    node-html-parser: 6.1.11
+    node-html-parser: 6.1.12
     slugify: 1.6.6
   languageName: unknown
   linkType: soft
