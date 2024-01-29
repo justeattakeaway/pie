@@ -2,4 +2,6 @@
 "@justeattakeaway/pie-tag": minor
 ---
 
-[Changed] - update content tokens to match design specs
+[Changed] - The icon colour of blue-strong, green-strong, and red strong variants should be "content-inverse"
+[Changed] - The icon and label colour of the yellow-subtle variant should be "content-default"
+
