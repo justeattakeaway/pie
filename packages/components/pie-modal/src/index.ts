@@ -151,6 +151,10 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
             const modalScrollContainer = this._dialog?.querySelector('.c-modal-scrollContainer');
 
             if (modalScrollContainer) {
+                // Hack to prevent Safari rendering the modal outside the viewport
+                // when the body scroll lock is active
+                if ('scrollTo' in window) window.scrollTo(0, 0);
+
                 disableBodyScroll(modalScrollContainer);
             }
 
