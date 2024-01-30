@@ -38,12 +38,9 @@ const componentPropsMatrix : WebComponentPropValues[] = getAllPropCombinations(p
 const componentPropsMatrixByVariant: Record<string, WebComponentPropValues[]> = splitCombinationsByPropertyValue(componentPropsMatrix, 'variant');
 const componentVariants: string[] = Object.keys(componentPropsMatrixByVariant);
 
-test.beforeEach(async ({ page, mount }) => {
-    await mount(PieDivider, {});
-    await page.evaluate(() => {
-        const element : Element | null = document.querySelector('pie-divider');
-        element?.remove();
-    });
+test.beforeEach(async ({ mount }) => {
+    const component = await mount(PieDivider);
+    await component.unmount();
 });
 
 componentVariants.forEach((variant) => test(`should render all prop variations for Variant: ${variant}`, async ({ page, mount }) => {
