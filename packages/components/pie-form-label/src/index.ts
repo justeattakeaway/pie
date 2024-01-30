@@ -15,6 +15,7 @@ const componentSelector = 'pie-form-label';
 type PIEInputElement = Partial<HTMLInputElement> & {
     checked?: boolean,
     focus: () => void,
+    onChange: (event: Event, checkedOverride: boolean | null) => void
 };
 
 /**
@@ -48,7 +49,7 @@ export class PieFormLabel extends RtlMixin(LitElement) implements FormLabelProps
 
             if ('checked' in target) {
                 if (target.checked !== undefined) {
-                    target.checked = !target.checked;
+                    target.onChange?.(new Event('change'), true);
                 }
             }
         }
