@@ -62,6 +62,8 @@ export interface CookieBannerProps {
      * Allows consumers to pass in a specific cookie technology link.
      */
     cookieTechnologiesLink: string;
+
+    defaultPreferences: Record<PreferenceIds, boolean> | object
 }
 
 /**
