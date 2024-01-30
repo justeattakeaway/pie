@@ -2,4 +2,4 @@
 "@justeattakeaway/pie-cookie-banner": minor
 ---
 
-[Added] default preferences prop
+[Added] - default preferences prop
