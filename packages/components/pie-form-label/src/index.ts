@@ -12,6 +12,11 @@ export * from './defs';
 
 const componentSelector = 'pie-form-label';
 
+type PIEInputElement = Partial<HTMLInputElement> & {
+    checked?: boolean,
+    focus: () => void,
+};
+
 /**
  * @tagname pie-form-label
  */
@@ -31,6 +36,24 @@ export class PieFormLabel extends RtlMixin(LitElement) implements FormLabelProps
         return optional ? html`<span class="c-formLabel-optional">${optional}</span>` : nothing;
     }
 
+    private handleClick () {
+        if (this.for) {
+            const target = document.querySelector(`#${this.for}`) as PIEInputElement;
+            if (!target) {
+                return;
+            }
+            if ('focus' in target) {
+                target.focus();
+            }
+
+            if ('checked' in target) {
+                if (target.checked !== undefined) {
+                    target.checked = !target.checked;
+                }
+            }
+        }
+    }
+
     render () {
         const {
             trailing,
@@ -39,6 +62,7 @@ export class PieFormLabel extends RtlMixin(LitElement) implements FormLabelProps
 
         return html`
             <label
+                @click=${this.handleClick}
                 data-test-id="pie-form-label"
                 class="c-formLabel"
                 for=${ifDefined(this.for)}>

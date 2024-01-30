@@ -91,8 +91,11 @@ export class PieSwitch extends FormControlMixin(RtlMixin(LitElement)) implements
      * The onChange function updates the checkbox state and emits an event for consumers.
      * @param {Event} event - This should be the change event that was listened for on an input element with `type="checkbox"`.
      */
-    onChange (event: Event) {
-        const { checked } = event?.currentTarget as HTMLInputElement;
+    onChange (event: Event, checkedOverride?: boolean) {
+        const checked = (checkedOverride !== null && checkedOverride !== undefined)
+            ? checkedOverride
+            : (event?.currentTarget as HTMLInputElement)?.checked;
+
         this.checked = checked;
         const changedEvent = wrapNativeEvent(event);
 
