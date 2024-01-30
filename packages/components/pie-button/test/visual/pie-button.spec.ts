@@ -41,17 +41,9 @@ const componentVariants: string[] = Object.keys(componentPropsMatrixByVariant);
 
 // This ensures the component is registered in the DOM for each test
 // This is not required if your tests mount the web component directly in the tests
-test.beforeEach(async ({ page, mount }, testInfo) => {
-    await mount(
-        PieButton,
-        {},
-    );
-
-    // Removing the element so it's not present in the tests (but is still registered in the DOM)
-    await page.evaluate(() => {
-        const element : Element | null = document.querySelector('pie-button');
-        element?.remove();
-    });
+test.beforeEach(async ({ mount }, testInfo) => {
+    const component = await mount(PieButton);
+    await component.unmount();
 
     // extend timeout for button tests to run
     testInfo.setTimeout(testInfo.timeout + 40000);
