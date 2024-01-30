@@ -1,5 +1,17 @@
 # @justeattakeaway/pie-tag
 
+## 0.5.0
+
+### Minor Changes
+
+- [Changed] - The icon colour of blue-strong, green-strong, and red strong variants should be "content-inverse" ([#1226](https://github.com/justeattakeaway/pie/pull/1226)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Changed] - The icon and label colour of the yellow-subtle variant should be "content-default"
+
+### Patch Changes
+
+- [Fixed] - Percy test mounting issue ([#1224](https://github.com/justeattakeaway/pie/pull/1224)) by [@ashleynolan](https://github.com/ashleynolan)
+
 ## 0.4.1
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.10.0
+
+### Minor Changes
+
+- [Added] - RTL exported function ([#1221](https://github.com/justeattakeaway/pie/pull/1221)) by [@JoshuaNg2332](https://github.com/JoshuaNg2332)
+
 ## 0.9.0
 
 ### Minor Changes

@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.27.0
+
+### Minor Changes
+
+- [Added] - Tag component docs ([#1174](https://github.com/justeattakeaway/pie/pull/1174)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 3.26.0
 
 ### Minor Changes
