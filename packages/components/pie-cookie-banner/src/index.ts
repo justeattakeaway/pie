@@ -31,7 +31,6 @@ import {
 
 import { localiseText, localiseRichText } from './localisation-utils';
 import defaultLocale from '../locales/en-gb.json';
-import {CardProps} from "@justeattakeaway/pie-card/src";
 
 // Valid values available to consumers
 export * from './defs';
