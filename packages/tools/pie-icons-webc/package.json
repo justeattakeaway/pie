@@ -78,7 +78,7 @@
   "devDependencies": {
     "@babel/core": "7.23.9",
     "@babel/node": "7.20.7",
-    "@justeattakeaway/pie-components-config": "0.10.0",
+    "@justeattakeaway/pie-components-config": "0.11.0",
     "@justeattakeaway/pie-icons": "4.9.3",
     "@justeattakeaway/pie-icons-configs": "4.5.1",
     "@rollup/plugin-typescript": "11.1.6",
