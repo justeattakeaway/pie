@@ -1,3 +1,3 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`throws an error when run in node environment 1`] = `[Error: \`pie-icons.replace()\` only works in a browser environment.]`;
+exports[`throws an error when run in node environment 1`] = `"\`pie-icons.replace()\` only works in a browser environment."`;

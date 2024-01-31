@@ -42,6 +42,7 @@ const sharedConfig = ({ build = {}, plugins = [], ...rest }) => defineConfig({
             './src/__tests__/**/*.{spec,test}.{js,ts}',
             './test/unit/**/*.{spec,test}.{js,ts}',
         ],
+        exclude: ['**/node_modules/**'],
     },
     plugins: deepmerge([dts({
         insertTypesEntry: true,
