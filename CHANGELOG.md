@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.52.0
+
+### Minor Changes
+
+- [Changed] - Standardise component mount/unmount approach across component tests ([#1232](https://github.com/justeattakeaway/pie/pull/1232)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 2.51.1
 
 ### Patch Changes
