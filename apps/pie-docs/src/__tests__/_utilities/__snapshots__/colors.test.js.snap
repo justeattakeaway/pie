@@ -1,39 +1,39 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`colors.js convertHexcodeToRBG converts hexcode "#000" to the expected RGB object 1`] = `
-Object {
+exports[`colors.js > convertHexcodeToRBG > converts hexcode %p to the expected RGB object #000 1`] = `
+{
   "blue": 0,
   "green": 0,
   "red": 0,
 }
 `;
 
-exports[`colors.js convertHexcodeToRBG converts hexcode "#000000" to the expected RGB object 1`] = `
-Object {
+exports[`colors.js > convertHexcodeToRBG > converts hexcode %p to the expected RGB object #000000 1`] = `
+{
   "blue": 0,
   "green": 0,
   "red": 0,
 }
 `;
 
-exports[`colors.js convertHexcodeToRBG converts hexcode "#f6c243" to the expected RGB object 1`] = `
-Object {
+exports[`colors.js > convertHexcodeToRBG > converts hexcode %p to the expected RGB object #f6c243 1`] = `
+{
   "blue": 67,
   "green": 194,
   "red": 246,
 }
 `;
 
-exports[`colors.js convertHexcodeToRBG converts hexcode "#fff" to the expected RGB object 1`] = `
-Object {
+exports[`colors.js > convertHexcodeToRBG > converts hexcode %p to the expected RGB object #fff 1`] = `
+{
   "blue": 255,
   "green": 255,
   "red": 255,
 }
 `;
 
-exports[`colors.js convertHexcodeToRBG converts hexcode "#ffffff" to the expected RGB object 1`] = `
-Object {
+exports[`colors.js > convertHexcodeToRBG > converts hexcode %p to the expected RGB object #ffffff 1`] = `
+{
   "blue": 255,
   "green": 255,
   "red": 255,

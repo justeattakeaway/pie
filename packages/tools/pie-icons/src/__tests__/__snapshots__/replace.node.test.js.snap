@@ -1,3 +1,3 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`throws an error when run in node environment 1`] = `"\`pie-icons.replace()\` only works in a browser environment."`;

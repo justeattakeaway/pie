@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/experimental-ct-react';
-import { IconAlcohol } from '../icons/react/IconAlcohol.ts';
+import { IconAlcohol } from '../../icons/react/IconAlcohol.ts';
 
 test.use({ viewport: { width: 500, height: 500 } });
 
