@@ -3,7 +3,7 @@ import {
 } from 'lit';
 
 import { property } from 'lit/decorators.js';
-import { RtlMixin, validPropertyValues, defineCustomElement } from '@justeattakeaway/pie-webc-core';
+import { validPropertyValues, defineCustomElement } from '@justeattakeaway/pie-webc-core';
 import '@justeattakeaway/pie-icons-webc/IconAlertCircle';
 import '@justeattakeaway/pie-icons-webc/IconCheckCircle';
 
@@ -18,7 +18,7 @@ const componentSelector = 'pie-assistive-text';
 /**
  * @tagname pie-assistive-text
  */
-export class PieAssistiveText extends RtlMixin(LitElement) implements AssistiveTextProps {
+export class PieAssistiveText extends LitElement implements AssistiveTextProps {
     @property()
     @validPropertyValues(componentSelector, variants, 'default')
     public variant?: AssistiveTextProps['variant'] = 'default';

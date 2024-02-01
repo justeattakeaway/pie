@@ -1,4 +1,3 @@
-
 import { test, expect } from '@sand4rt/experimental-ct-web';
 import { PieAssistiveText } from '../../src/index.ts';
 
