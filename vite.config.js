@@ -1,17 +1,6 @@
-import { defineConfig } from 'vite';
+import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
-    build: {
-        lib: {
-            entry: {
-                index: 'src/index.ts',
-            },
-            formats: ['es'],
-        },
-        rollupOptions: {
-            external: (id) => /^lit/.test(id),
-        },
-    },
     test: {
         dir: '.',
         environment: 'jsdom',

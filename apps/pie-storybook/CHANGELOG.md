@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.61.2
+
+### Patch Changes
+
+- Updated dependencies [[`30b5ef87c`](https://github.com/justeattakeaway/pie/commit/30b5ef87c81c5943e65fb3d86579fb26fcb1f7d2), [`839e19e4d`](https://github.com/justeattakeaway/pie/commit/839e19e4d926a6386aae988b6e9231c03296de5a)]:
+  - @justeattakeaway/pie-cookie-banner@0.17.0
+  - @justeattakeaway/pie-modal@0.38.4
+
 ## 0.61.1
 
 ### Patch Changes

@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`React Wrapper should be added from mock custom elements JSON 1`] = `
+exports[`React Wrapper > should be added from mock custom elements JSON 1`] = `
 "import * as React from 'react';
 import { createComponent, EventName } from '@lit/react';
 import { MockComponent as MockComponentLit } from './index';
@@ -29,7 +29,7 @@ export const MockComponent = MockComponentReact as React.ForwardRefExoticCompone
 "
 `;
 
-exports[`React Wrapper should be named the same as the component itself 1`] = `
+exports[`React Wrapper > should be named the same as the component itself 1`] = `
 "import * as React from 'react';
 import { createComponent } from '@lit/react';
 import { ButtonComponent as ButtonComponentLit } from './index';
@@ -50,7 +50,7 @@ export const ButtonComponent = ButtonComponentReact as React.ForwardRefExoticCom
 "
 `;
 
-exports[`React Wrapper should leave the events object empty if the component contains no custom events 1`] = `
+exports[`React Wrapper > should leave the events object empty if the component contains no custom events 1`] = `
 "import * as React from 'react';
 import { createComponent } from '@lit/react';
 import { MockComponent as MockComponentLit } from './index';
@@ -71,4 +71,4 @@ export const MockComponent = MockComponentReact as React.ForwardRefExoticCompone
 "
 `;
 
-exports[`React Wrapper should only be added if the component contains custom elements 1`] = `""`;
+exports[`React Wrapper > should only be added if the component contains custom elements 1`] = `""`;

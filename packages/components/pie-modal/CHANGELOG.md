@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-modal
 
+## 0.38.4
+
+### Patch Changes
+
+- [Fixed] - scroll lock issue for Safari when the modal is opened while the page is scrolled ([#1231](https://github.com/justeattakeaway/pie/pull/1231)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 0.38.3
 
 ### Patch Changes
