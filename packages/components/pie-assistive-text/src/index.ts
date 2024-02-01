@@ -1,4 +1,6 @@
-import { LitElement, html, unsafeCSS, nothing, TemplateResult } from 'lit';
+import {
+    LitElement, html, unsafeCSS, nothing, TemplateResult,
+} from 'lit';
 
 import { property } from 'lit/decorators.js';
 import { RtlMixin, validPropertyValues, defineCustomElement } from '@justeattakeaway/pie-webc-core';
