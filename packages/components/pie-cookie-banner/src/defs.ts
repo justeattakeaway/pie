@@ -115,7 +115,6 @@ export const preferences: Preference[] = [
         id: 'all',
         hasDivider: true,
         hasDescription: false,
-        checked: false,
     },
     {
         id: 'necessary',
