@@ -1,1 +1,30 @@
 @use '@justeattakeaway/pie-css/scss' as p;
+
+.c-assistiveText {
+    --assistive-text-color: var(--dt-color-content-default);
+
+    display: flex;
+    padding-block-start: var(--dt-spacing-a);
+    align-items: flex-start;
+    color: var(--assistive-text-color);
+
+    &[variant='success'] {
+        --assistive-text-color: var(--dt-color-content-positive);
+    }
+
+    &[variant='error'] {
+        --assistive-text-color: var(--dt-color-content-error);
+    }
+}
+
+
+.c-assistiveText-content {
+    gap: var(--dt-spacing-b);
+    display: flex;
+    align-items: center;
+
+    .c-pieIcon {
+        display: inline-flex;
+    }
+}
+

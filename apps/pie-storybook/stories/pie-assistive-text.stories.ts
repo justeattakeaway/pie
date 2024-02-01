@@ -2,35 +2,55 @@ import { html } from 'lit';
 
 /* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-assistive-text';
-import { AssistiveTextProps } from '@justeattakeaway/pie-assistive-text';
+import { AssistiveTextProps, variants } from '@justeattakeaway/pie-assistive-text';
 /* eslint-enable import/no-duplicates */
 
 import { type StoryMeta } from '../types';
-import { createStory } from '../utilities';
+import { createStory, type TemplateFunction } from '../utilities';
 
 type AssistiveTextStoryMeta = StoryMeta<AssistiveTextProps>;
 
-const defaultArgs: AssistiveTextProps = {};
+const defaultArgs: AssistiveTextProps = {
+    variant: 'default',
+    slot: 'Assistive Text',
+};
 
 const assistiveTextStoryMeta: AssistiveTextStoryMeta = {
     title: 'Assistive Text',
     component: 'pie-assistive-text',
-    argTypes: {},
+    argTypes: {
+        variant: {
+            description: 'Set the variant of the assistive text.',
+            control: 'select',
+            options: variants,
+            defaultValue: {
+                summary: 'default',
+            },
+        },
+    },
     args: defaultArgs,
     parameters: {
         design: {
             type: 'figma',
-            url: '',
+            url: 'https://www.figma.com/file/OOgnT2oNMdGFytj5AanYvt/%5BCore%5D-Web-Component-Documentation-%5BPIE-3%5D?node-id=2%3A65908&mode=dev',
         },
     },
 };
 
 export default assistiveTextStoryMeta;
 
-// TODO: remove the eslint-disable rule when props are added
-// eslint-disable-next-line no-empty-pattern
-const Template = ({}: AssistiveTextProps) => html`
-    <pie-assistive-text></pie-assistive-text>
+const Template : TemplateFunction<AssistiveTextProps> = ({
+    variant,
+    slot,
+}) => html`
+    <pie-assistive-text
+        variant="${variant}">
+        ${slot}
+    </pie-assistive-text>
 `;
 
-export const Default = createStory<AssistiveTextProps>(Template, defaultArgs)();
+const createAssistiveTextStory = createStory<AssistiveTextProps>(Template, defaultArgs);
+
+export const Default = createAssistiveTextStory({ variant: 'default' });
+export const Success = createAssistiveTextStory({ variant: 'success' });
+export const Error = createAssistiveTextStory({ variant: 'error' });

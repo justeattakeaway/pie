@@ -13,6 +13,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@justeat/pie-design-tokens": "5.9.0",
+    "@justeattakeaway/pie-assistive-text": "workspace",
     "@justeattakeaway/pie-button": "0.45.2",
     "@justeattakeaway/pie-card": "0.17.2",
     "@justeattakeaway/pie-chip": "0.0.0",

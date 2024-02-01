@@ -15,6 +15,7 @@
 3. [Importing the component](#importing-the-component)
 4. [Peer Dependencies](#peer-dependencies)
 5. [Props](#props)
+6. [Slots](#slots)
 6. [Contributing](#contributing)
 
 ## pie-assistive-text
@@ -69,21 +70,32 @@ import { PieAssistiveText } from '@justeattakeaway/pie-assistive-text/dist/react
 > [!IMPORTANT]
 > When using `pie-assistive-text`, you will also need to include a couple of dependencies to ensure the component renders as expected. See [the PIE Wiki](https://github.com/justeattakeaway/pie/wiki/Getting-started-with-PIE-Web-Components#expected-dependencies) for more information and how to include these in your application.
 
-
 ## Props
 
 | Property | Type | Default | Description |
 |---|---|---|---|
-| - | - | - | - |
+| `variant` | `string` | `default` | Sets the type of message displayed to one of three potential options: `error`, `success` or `default`. `error` and `success` include an icon and are used for validation messages. `default` provides users with extra context and guidance. |
+
+## Slots
+
+| Property | Description |
+|---|---|
+| `default` | The default, unnamed slot is used to pass in text to the component. |
 
 In your markup or JSX, you can then use these to set the properties for the `pie-assistive-text` component:
 
 ```html
 <!-- Native HTML -->
-<pie-assistive-text></pie-assistive-text>
+<pie-assistive-text
+  variant="success">
+  Your request has been submitted.
+</pie-assistive-text>
 
 <!-- JSX -->
-<PieAssistiveText></PieAssistiveText>
+<PieAssistiveText
+  variant="error">
+  Password contains too few characters.
+</PieAssistiveText>
 ```
 
 ## Contributing

@@ -1,3 +1,10 @@
-// TODO - please remove the eslint disable comment below when you add props to this interface
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
-export interface AssistiveTextProps {}
+export const variants = ['default', 'error', 'success'] as const;
+
+export type Variant = typeof variants[number];
+
+export interface AssistiveTextProps {
+     /**
+     * What variant the assistive text should be such as info, error or success.
+     */
+    variant?: Variant;
+}
