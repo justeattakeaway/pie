@@ -63,7 +63,13 @@ export interface CookieBannerProps {
      */
     cookieTechnologiesLink: string;
 
-    defaultPreferences: Record<PreferenceIds, boolean> | object
+    /**
+     * Allows consumers to pass in specific preference(s) to the component which will toggle
+     * the switch to be on by default (if set to `true`).
+     *
+     * e.g. { 'functional': true }
+     */
+    defaultPreferences: Record<PreferenceIds, boolean> | NonNullable<unknown>;
 }
 
 /**
@@ -109,6 +115,7 @@ export const preferences: Preference[] = [
         id: 'all',
         hasDivider: true,
         hasDescription: false,
+        checked: false,
     },
     {
         id: 'necessary',

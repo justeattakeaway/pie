@@ -60,13 +60,15 @@ const BaseStoryTemplate = (props: CookieBannerProps) : TemplateResult => {
         cookieTechnologiesLink,
     } = props;
 
+    const defaultPreferences = { functional: true, personalized: true, analytical: true };
+
     return html`
         <pie-cookie-banner
             .locale=${locale}
             .cookieStatementLink=${cookieStatementLink}
             .cookieTechnologiesLink=${cookieTechnologiesLink}
             ?hasPrimaryActionsOnly="${hasPrimaryActionsOnly}"
-            .defaultPreferences="${{ functional: true, personalized: true, analytical: true }}"
+            .defaultPreferences="${defaultPreferences}"
             @pie-cookie-banner-necessary-only="${necessaryOnlyAction}"
             @pie-cookie-banner-accept-all="${acceptAllAction}"
             @pie-cookie-banner-manage-prefs="${managePrefsAction}"

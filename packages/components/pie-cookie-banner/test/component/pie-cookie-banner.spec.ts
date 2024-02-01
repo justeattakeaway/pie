@@ -485,4 +485,78 @@ test.describe('PieCookieBanner - Component tests', () => {
             });
         });
     });
+
+    test.describe('`defaultPreferences` : prop', () => {
+        const propsList = [
+            { functional: true, personalized: true, analytical: true },
+        ];
+
+        propsList.forEach((props) => {
+            test.describe(`when defaultPreferences are set to three values`, () => {
+                test('should toggle the position to `on`', async ({mount, page}) => {
+                    await mount(PieCookieBanner, {props: { defaultPreferences: props } as CookieBannerProps});
+
+                    // Act
+                    await page.click(managePreferencesSelector);
+
+                    // Assert
+                    for (const propKey in props) {
+                        const output = await page.locator(getPreferenceItemSelector(propKey)).isChecked();
+                        expect(output).toBe(true);
+                    }
+                });
+
+                test('should check `all` toggle when all three props are passed in', async ({mount, page}) => {
+                    await mount(PieCookieBanner, {
+                        props: {
+                            defaultPreferences: props
+                        } as CookieBannerProps
+                    });
+
+                    // Act
+                    await page.click(managePreferencesSelector);
+                    const output = await page.locator(getPreferenceItemSelector('all')).isChecked();
+
+                    // Assert
+                    expect(output).toBe(true);
+                });
+            });
+        });
+
+        test.describe(`when defaultPreferences are partially provided`, () => {
+            const propsList = [
+                { functional: true, personalized: true },
+            ];
+
+            propsList.forEach((props) => {
+                test('should toggle the position to `on`', async ({ mount, page}) => {
+                    await mount(PieCookieBanner, {props: { defaultPreferences: props } as CookieBannerProps});
+
+                    // Act
+                    await page.click(managePreferencesSelector);
+
+                    // Assert
+                    for (const propKey in props) {
+                        const output = await page.locator(getPreferenceItemSelector(propKey)).isChecked();
+                        expect(output).toBe(true);
+                    }
+                });
+            });
+
+            test('should not set the `all` toggle to `checked`', async ({mount, page}) => {
+                await mount(PieCookieBanner, {
+                    props: {
+                        defaultPreferences: { functional: true, personalized: true }
+                    } as CookieBannerProps
+                });
+
+                // Act
+                await page.click(managePreferencesSelector);
+                const output = await page.locator(getPreferenceItemSelector('all')).isChecked();
+
+                // Assert
+                expect(output).toBe(false);
+            })
+        });
+    });
 });
