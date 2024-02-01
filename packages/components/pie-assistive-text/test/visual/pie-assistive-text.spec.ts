@@ -18,7 +18,7 @@ import {
 import { percyWidths } from '@justeattakeaway/pie-webc-testing/src/percy/breakpoints.ts';
 import { setRTL } from '@justeattakeaway/pie-webc-testing/src/helpers/set-rtl-direction.ts';
 import { PieAssistiveText } from '../../src/index.ts';
-import { variants, AssistiveTextProps } from '../../src/defs.ts';
+import { variants } from '../../src/defs.ts';
 
 const renderTestPieAssistiveText = (propVals: WebComponentPropValues) => `<pie-assistive-text variant="${propVals.variant}">Assistive Text</pie-assistive-text>`;
 
