@@ -18,6 +18,7 @@ const defaultArgs: InputProps = {
     type: 'text',
     value: '',
     name: 'testName',
+    disabled: false,
     autocomplete: 'off',
     autoFocus: false,
 };
@@ -46,6 +47,13 @@ const inputStoryMeta: InputStoryMeta = {
             control: 'text',
             defaultValue: {
                 summary: 'testName',
+            },
+        },
+        disabled: {
+            description: 'If true, disables the input field.',
+            control: 'boolean',
+            defaultValue: {
+                summary: false,
             },
         },
         pattern: {
@@ -127,7 +135,7 @@ const inputStoryMeta: InputStoryMeta = {
 };
 
 const Template = ({
-    type, value, name, pattern, minlength, maxlength, autocomplete, placeholder, autoFocus, inputmode, readonly, defaultValue,
+    type, value, name, disabled, pattern, minlength, maxlength, autocomplete, placeholder, autoFocus, inputmode, readonly, defaultValue,
 }: InputProps) => {
     const [, updateArgs] = UseArgs();
 
@@ -152,6 +160,7 @@ const Template = ({
         type="${ifDefined(type)}"
         .value="${value}"
         name="${ifDefined(name)}"
+        ?disabled="${disabled}"
         pattern="${ifDefined(pattern)}"
         minlength="${ifDefined(minlength)}"
         maxlength="${ifDefined(maxlength)}"
