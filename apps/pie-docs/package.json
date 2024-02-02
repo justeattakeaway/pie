@@ -1,7 +1,7 @@
 {
   "name": "pie-docs",
   "private": true,
-  "description": "Documentation website for the PIE design system",
+  "description": "Documentation website for the PIE design system.",
   "version": "3.27.0",
   "main": "index.js",
   "keywords": [],
