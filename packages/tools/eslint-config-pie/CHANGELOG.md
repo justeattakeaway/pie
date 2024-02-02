@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.0
+
+### Minor Changes
+
+- [Added] - New eslint rules for Vitest ([#1215](https://github.com/justeattakeaway/pie/pull/1215)) by [@siggerzz](https://github.com/siggerzz)
+
 ## 0.3.1
 
 ### Patch Changes
