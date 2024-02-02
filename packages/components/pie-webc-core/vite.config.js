@@ -13,7 +13,13 @@ export default defineConfig({
         },
     },
     test: {
+        dir: '.',
         environment: 'jsdom',
-        exclude: ['**/*.browser.spec.ts'],
+        globals: true,
+        exclude: [
+            '**/test/{accessibility,component,system,visual}/*.spec.{js,ts}',
+            '**/test/mixins/**/*.browser.spec.{js,ts}',
+            '**/node_modules/**/*'
+        ],
     },
 });

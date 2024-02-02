@@ -16,7 +16,7 @@ describe('getTicketIdFromBranchName', () => {
             });
         });
         describe('when the string doesnt have the expected format', () => {
-            it('should return null ', () => {
+            it('should return null', () => {
                 const expected = null;
 
                 expect(getTicketIdFromBranchName('random-string')).toBe(expected);

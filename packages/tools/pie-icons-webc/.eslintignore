@@ -5,4 +5,5 @@ icons
 __snapshots__
 playwright
 test-results
+lit-browsers-report
 react-browsers-report

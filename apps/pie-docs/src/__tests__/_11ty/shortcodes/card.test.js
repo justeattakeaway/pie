@@ -33,8 +33,7 @@ const itemWithContent = {
 };
 
 describe('card.js', () => {
-    // This is a temp fix until we look into resolving the icon / changeset issue properly.
-    xit.each([
+    it.each([
         [[item]],
         [[itemWithImage]],
         [[itemWithLink]],
@@ -44,10 +43,10 @@ describe('card.js', () => {
         [[item, item, item], true],
         [[item, item]]
     ])('should return the expected HTML', (items, shouldFillContainer = false) => {
-        // act
+        // Act
         const result = card({ items, shouldFillContainer });
 
-        // assert
+        // Assert
         expect(result).toMatchSnapshot();
     });
 });

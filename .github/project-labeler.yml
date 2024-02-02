@@ -51,6 +51,9 @@ pie-card:
 pie-cookie-banner:
 - './packages/components/pie-cookie-banner/**/*'
 
+pie-chip:
+- './packages/components/pie-chip/**/*'
+
 pie-divider:
 - 'packages/components/pie-divider/**/*'
 

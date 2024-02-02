@@ -55,6 +55,9 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
     public hasPrimaryActionsOnly = false;
 
     @property({ type: Object })
+    public defaultPreferences: CookieBannerProps['defaultPreferences'] = {};
+
+    @property({ type: Object })
     public locale:CookieBannerLocale = defaultLocale;
 
     @property({ type: String })
@@ -197,6 +200,10 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
         const descriptionLocaleKey = `preferencesManagement.${id}.description`;
         // Ensure not to display fallback text as description as its expected that some items might not have its own description
         const description = hasDescription && this._localiseText(descriptionLocaleKey);
+        const requiredToggleAllKeys = ['functional', 'personalized', 'analytical'];
+
+        const shouldToggleAll =
+            requiredToggleAllKeys.every((key) => this.defaultPreferences[key] === true);
 
         return html`
             <div class="c-cookieBanner-preference">
@@ -206,7 +213,7 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
                  </div>
                 <pie-switch
                     id="${id}"
-                    ?checked="${checked}"
+                    ?checked="${this.defaultPreferences[id] || shouldToggleAll || checked}"
                     ?disabled="${disabled}"
                     @change="${this._handleSwitchStates}">
                 </pie-switch>

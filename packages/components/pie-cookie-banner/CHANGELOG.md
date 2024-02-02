@@ -1,5 +1,16 @@
 # @justeattakeaway/pie-cookie-banner
 
+## 0.17.0
+
+### Minor Changes
+
+- [Added] - default preferences prop ([#1233](https://github.com/justeattakeaway/pie/pull/1233)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
+### Patch Changes
+
+- Updated dependencies [[`839e19e4d`](https://github.com/justeattakeaway/pie/commit/839e19e4d926a6386aae988b6e9231c03296de5a)]:
+  - @justeattakeaway/pie-modal@0.38.4
+
 ## 0.16.1
 
 ### Patch Changes

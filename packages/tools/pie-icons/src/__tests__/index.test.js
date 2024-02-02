@@ -1,4 +1,3 @@
-/* eslint-env jest */
 import pieIcons from '../index';
 
 test('has correct properties', () => {
