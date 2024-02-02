@@ -1,1 +1,117 @@
 @use '@justeattakeaway/pie-css/scss' as p;
+
+@mixin chip-interactive-states($bg-color, $mode: 'default') {
+  &:hover:not(:disabled) {
+      @if $mode == 'inverse' {
+          --hover-modifier: var(--dt-color-hover-02);
+      } @else {
+          --hover-modifier: calc(-1 * var(--dt-color-hover-01));
+      }
+
+      @if $mode == 'transparent' {
+          --hover-modifier: var(--dt-color-hover-01);
+          --chip-bg-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), var(#{$bg-color}-l), var(--hover-modifier));
+      } @else {
+          --chip-bg-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), calc(var(#{$bg-color}-l) + var(--hover-modifier)));
+      }
+  }
+
+  &:active:not(:disabled),
+  &[isLoading]:not(:disabled) {
+      @if $mode == 'inverse' {
+          --active-modifier: var(--dt-color-active-02);
+      } @else {
+          --active-modifier: calc(-1 * var(--dt-color-active-01));
+      }
+
+      @if $mode == 'transparent' {
+          --active-modifier: var(--dt-color-active-01);
+          --chip-bg-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), var(#{$bg-color}-l), var(--active-modifier));
+      } @else {
+          --chip-bg-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), calc(var(#{$bg-color}-l) + var(--active-modifier)));
+      }
+  }
+}
+
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+.c-chip {
+  --chip-bg-color: var(--dt-color-interactive-secondary);
+  --chip-color: var(--dt-color-content-interactive-secondary);
+  --chip-border-width: 1px;
+  --chip-border-color: transparent;
+  --chip-padding-block: calc((var(--dt-spacing-c) / 2) - var(--chip-border-width));
+  --chip-padding-inline: calc(var(--dt-spacing-c) - var(--chip-border-width));
+  --chip-min-width: calc(var(--dt-spacing-g) + var(--dt-spacing-b));
+
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-block-start: var(--chip-padding-block);
+  padding-block-end: var(--chip-padding-block);
+  padding-inline-start: var(--chip-padding-inline);
+  padding-inline-end: var(--chip-padding-inline);
+  background-color: var(--chip-bg-color);
+  color: var(--chip-color);
+  border-radius: var(--dt-radius-rounded-e);
+  border: 1px solid;
+  border-color: var(--chip-border-color);
+  cursor: pointer;
+  min-width: var(--chip-min-width);
+
+  @include p.font-size(--dt-font-interactive-xs-size);
+  @include p.line-height(--dt-font-interactive-xs-line-height);
+  font-weight: var(--dt-font-weight-bold);
+
+  @include chip-interactive-states('--dt-color-interactive-secondary');
+
+  &[variant='default'] {
+    // same as default styles
+  }
+
+  &[variant='outline'] {
+    --chip-bg-color: transparent;
+    --chip-border-color: var(--dt-color-border-strong);
+
+    @include chip-interactive-states('--dt-color-black', 'transparent');
+  }
+
+  &[variant='ghost'] {
+    --chip-bg-color: transparent;
+
+    @include chip-interactive-states('--dt-color-black', 'transparent');
+  }
+
+  &[isSelected]:not([disabled]) {
+    --chip-bg-color: var(--dt-color-interactive-primary);
+    --chip-color: var(--dt-color-content-interactive-primary);
+    --chip-border-color: transparent;
+
+    @include chip-interactive-states('--dt-color-interactive-primary', 'inverse');
+
+  }
+
+  &[isLoading] {
+    & > *:not(pie-spinner) {
+        visibility: hidden;
+    }
+
+    pie-spinner {
+      position: absolute;
+    }
+  }
+
+  &[disabled] {    
+    --chip-bg-color: var(--dt-color-disabled-01);
+    --chip-color: var(--dt-color-content-disabled);
+    --chip-border-color: transparent;
+
+    cursor: not-allowed;
+  }
+}
