@@ -13,7 +13,7 @@ export interface TagProps {
     isStrong?: boolean;
 
     /**
-     * When true, sets the tag opacity to 50%
+     * When `true`, lowers the tag opacity.
      */
     isDimmed?: boolean;
 

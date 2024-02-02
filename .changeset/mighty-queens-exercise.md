@@ -3,4 +3,4 @@
 "pie-storybook": minor
 ---
 
-[Changed] - derive tag opacity (disabled state) via an "isDimmed" prop instead of css vars
+[Changed] - Emulate disabled styles via an "isDimmed" prop instead of css vars (lowers the tag opacity)

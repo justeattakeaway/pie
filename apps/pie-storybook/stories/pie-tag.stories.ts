@@ -51,7 +51,7 @@ const tagStoryMeta: TagStoryMeta = {
             },
         },
         isDimmed: {
-            description: 'If `true`, sets the tag opacity to 50%',
+            description: 'If `true`, lowers the tag opacity.',
             control: 'boolean',
             defaultValue: {
                 summary: false,
