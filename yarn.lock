@@ -5491,7 +5491,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-assistive-text@workspace:packages/components/pie-assistive-text":
+"@justeattakeaway/pie-assistive-text@0.0.0, @justeattakeaway/pie-assistive-text@workspace:packages/components/pie-assistive-text":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-assistive-text@workspace:packages/components/pie-assistive-text"
   dependencies:
@@ -28903,6 +28903,7 @@ __metadata:
   resolution: "pie-storybook@workspace:apps/pie-storybook"
   dependencies:
     "@justeat/pie-design-tokens": 5.9.0
+    "@justeattakeaway/pie-assistive-text": 0.0.0
     "@justeattakeaway/pie-button": 0.45.2
     "@justeattakeaway/pie-card": 0.17.2
     "@justeattakeaway/pie-chip": 0.0.0
