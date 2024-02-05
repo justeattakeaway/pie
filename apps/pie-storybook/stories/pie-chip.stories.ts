@@ -1,14 +1,15 @@
-import { html } from 'lit';
+import { html, nothing } from 'lit';
 
 /* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-chip';
 import { ChipProps as ChipPropsBase, variants } from '@justeattakeaway/pie-chip';
 /* eslint-enable import/no-duplicates */
+import '@justeattakeaway/pie-icons-webc/IconHeartFilled';
 
 import type { StoryMeta, SlottedComponentProps } from '../types';
 import { createStory, type TemplateFunction, sanitizeAndRenderHTML } from '../utilities';
 
-type ChipProps = SlottedComponentProps<ChipPropsBase>;
+type ChipProps = SlottedComponentProps<ChipPropsBase> & { showIcon: boolean };
 type ChipStoryMeta = StoryMeta<ChipProps>;
 
 const defaultArgs: ChipProps = {
@@ -16,6 +17,7 @@ const defaultArgs: ChipProps = {
     disabled: false,
     isSelected: false,
     isLoading: false,
+    showIcon: false,
     slot: 'String'
 };
 
@@ -52,6 +54,13 @@ const chipStoryMeta: ChipStoryMeta = {
                 summary: false,
             },
         },
+        showIcon: {
+            description: 'Enable to see the example of Chip with icon.',
+            control: 'boolean',
+            defaultValue: {
+                summary: false,
+            },
+        },
         slot: {
             description: 'Content to place within the chip',
             control: 'text',
@@ -73,6 +82,7 @@ const Template: TemplateFunction<ChipProps> = ({
     disabled,
     isSelected,
     isLoading,
+    showIcon,
     slot
 }) => html`
            <pie-chip
@@ -80,6 +90,7 @@ const Template: TemplateFunction<ChipProps> = ({
                 ?disabled="${disabled}"
                 ?isSelected="${isSelected}"
                 ?isLoading="${isLoading}">
+                    ${showIcon ? html`<icon-heart-filled slot="icon"></icon-heart-filled>` : nothing}
                     ${sanitizeAndRenderHTML(slot)}
            </pie-chip>`;
 

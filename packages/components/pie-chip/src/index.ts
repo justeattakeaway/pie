@@ -12,6 +12,7 @@ const componentSelector = 'pie-chip';
 
 /**
  * @tagname pie-chip
+ * @slot icon - The icon slot
  * @slot - Default slot
  */
 export class PieChip extends LitElement implements ChipProps {
@@ -63,8 +64,9 @@ export class PieChip extends LitElement implements ChipProps {
                 ?disabled="${disabled}"
                 ?isSelected="${isSelected}"
                 ?isLoading="${isLoading}">
-                ${isLoading ? this.renderSpinner() : nothing}
-                <slot></slot>
+                    <slot name="icon"></slot>
+                    ${isLoading ? this.renderSpinner() : nothing}
+                    <slot></slot>               
             </div>`;
     }
 

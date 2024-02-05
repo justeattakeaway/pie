@@ -45,14 +45,19 @@
   --chip-color: var(--dt-color-content-interactive-secondary);
   --chip-border-width: 1px;
   --chip-border-color: transparent;
-  --chip-padding-block: calc((var(--dt-spacing-c) / 2) - var(--chip-border-width));
+  --chip-padding-block: calc(6px - var(--chip-border-width));
   --chip-padding-inline: calc(var(--dt-spacing-c) - var(--chip-border-width));
   --chip-min-width: calc(var(--dt-spacing-g) + var(--dt-spacing-b));
+
+  // Pie Webc Icon var that is used to ensure the correctly sized icon passed in a slot
+  --icon-display-override: block;
+  --icon-size-override: 16px;
 
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: var(--dt-spacing-b);
   padding-block-start: var(--chip-padding-block);
   padding-block-end: var(--chip-padding-block);
   padding-inline-start: var(--chip-padding-inline);
@@ -75,23 +80,20 @@
     // same as default styles
   }
 
-  &[variant='outline'] {
-    --chip-bg-color: transparent;
+  &[variant='outline']:not([disabled], [isSelected], [isLoading]) {
     --chip-border-color: var(--dt-color-border-strong);
-
-    @include chip-interactive-states('--dt-color-black', 'transparent');
   }
 
+  &[variant='outline'],
   &[variant='ghost'] {
     --chip-bg-color: transparent;
 
     @include chip-interactive-states('--dt-color-black', 'transparent');
   }
 
-  &[isSelected]:not([disabled]) {
+  &[isSelected] {
     --chip-bg-color: var(--dt-color-interactive-primary);
     --chip-color: var(--dt-color-content-interactive-primary);
-    --chip-border-color: transparent;
 
     @include chip-interactive-states('--dt-color-interactive-primary', 'inverse');
 
@@ -110,8 +112,11 @@
   &[disabled] {    
     --chip-bg-color: var(--dt-color-disabled-01);
     --chip-color: var(--dt-color-content-disabled);
-    --chip-border-color: transparent;
 
     cursor: not-allowed;
+  }
+
+  &:focus-visible {
+    @include p.focus;
   }
 }
