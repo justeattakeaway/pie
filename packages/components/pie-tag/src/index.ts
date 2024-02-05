@@ -28,11 +28,15 @@ export class PieTag extends LitElement implements TagProps {
     @property({ type: Boolean })
     public isStrong = false;
 
+    @property({ type: Boolean })
+    public isDimmed = false;
+
     render () {
         const {
             variant,
             size,
             isStrong,
+            isDimmed,
         } = this;
         return html`
             <div
@@ -40,6 +44,7 @@ export class PieTag extends LitElement implements TagProps {
                 variant=${variant || 'neutral'}
                 size=${size || 'large'}
                 ?isStrong=${isStrong}
+                ?isDimmed=${isDimmed}
                 data-test-id="pie-tag"
             >
                 ${size === 'large' ? html`<slot name="icon"></slot>` : nothing}

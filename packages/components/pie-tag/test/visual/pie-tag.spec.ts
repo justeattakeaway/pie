@@ -27,11 +27,12 @@ const props: PropObject = {
     variant: variants,
     size: sizes,
     isStrong: [true, false],
+    isDimmed: [true, false],
     iconSlot: ['', icon],
 };
 
 // Renders a <pie-tag> HTML string with the given prop values
-const renderTestPieTag = (propVals: WebComponentPropValues) => `<pie-tag variant="${propVals.variant}" size="${propVals.size}" ${propVals.isStrong ? 'isStrong' : ''}>${propVals.iconSlot} Hello world</pie-tag>`;
+const renderTestPieTag = (propVals: WebComponentPropValues) => `<pie-tag variant="${propVals.variant}" size="${propVals.size}" ${propVals.isStrong ? 'isStrong' : ''} ${propVals.isDimmed ? 'isDimmed' : ''}>${propVals.iconSlot} Hello world</pie-tag>`;
 
 const componentPropsMatrix: WebComponentPropValues[] = getAllPropCombinations(props);
 const componentPropsMatrixByVariant: Record<string, WebComponentPropValues[]> = splitCombinationsByPropertyValue(componentPropsMatrix, 'variant');
@@ -53,6 +54,7 @@ componentVariants.forEach((variant) => test(`should render all prop variations f
             size: ${testComponent.propValues.size},
             variant: ${testComponent.propValues.variant},
             isStrong: ${testComponent.propValues.isStrong},
+            isDimmed: ${testComponent.propValues.isDimmed},
             iconSlot: ${testComponent.propValues.iconSlot ? 'with icon' : 'no icon'}`;
         const darkMode = ['neutral-alternative'].includes(variant);
 
