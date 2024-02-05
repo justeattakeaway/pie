@@ -17,4 +17,10 @@ export interface ChipProps {
      * When true, displays a loading indicator inside the chip.
      */
     isLoading?: boolean;
+    /**
+     * When true, displays a close icon to dismiss the chip component.
+     * Can be only used if `isSelected` is set to true
+     */
+    isDismissible?: boolean;
+
 }

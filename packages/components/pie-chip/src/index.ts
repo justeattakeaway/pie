@@ -6,6 +6,7 @@ import { property } from 'lit/decorators.js';
 import { validPropertyValues, defineCustomElement } from '@justeattakeaway/pie-webc-core';
 import styles from './chip.scss?inline';
 import { ChipProps, variants } from './defs';
+import '@justeattakeaway/pie-icons-webc/IconCloseCircleFilled';
 
 // Valid values available to consumers
 export * from './defs';
@@ -31,6 +32,9 @@ export class PieChip extends LitElement implements ChipProps {
     @property({ type: Boolean })
     public isLoading = false;
 
+    @property({ type: Boolean })
+    public isDismissible = false;
+
     /**
      * Template for the loading state
      *
@@ -53,6 +57,7 @@ export class PieChip extends LitElement implements ChipProps {
             disabled,
             isSelected,
             isLoading,
+            isDismissible,
         } = this;
 
         return html`
@@ -64,10 +69,12 @@ export class PieChip extends LitElement implements ChipProps {
                 variant="${variant}"
                 ?disabled="${disabled}"
                 ?isSelected="${isSelected}"
-                ?isLoading="${isLoading}">
+                ?isLoading="${isLoading}"
+                ?isDismissible="${isDismissible}">
                     <slot name="icon"></slot>
                     ${isLoading ? this.renderSpinner() : nothing}
-                    <slot></slot>               
+                    <slot></slot> 
+                    ${isDismissible && isSelected ? html`<icon-close-circle-filled size='m'></icon-close-circle-filled>` : nothing}        
             </div>`;
     }
 

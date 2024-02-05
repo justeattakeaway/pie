@@ -33,7 +33,6 @@
     }
 }
 
-
 *,
 *:before,
 *:after {
@@ -47,17 +46,19 @@
     --chip-border-color: transparent;
     --chip-padding-block: calc(6px - var(--chip-border-width));
     --chip-padding-inline: calc(var(--dt-spacing-c) - var(--chip-border-width));
+    --chip-padding-dismissible: calc(var(--dt-spacing-a) - var(--chip-border-width));
     --chip-min-width: calc(var(--dt-spacing-g) + var(--dt-spacing-b));
+    --chip-gap: var(--dt-spacing-b);
+    --chip-dismissible-offset: calc(var(--chip-gap) / -2); // ensures the spacing between the text and close icon is 4px
 
     // Pie Webc Icon var that is used to ensure the correctly sized icon passed in a slot
     --icon-display-override: block;
-    --icon-size-override: 16px;
 
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: var(--dt-spacing-b);
+    gap: var(--chip-gap);
     padding-block-start: var(--chip-padding-block);
     padding-block-end: var(--chip-padding-block);
     padding-inline-start: var(--chip-padding-inline);
@@ -98,6 +99,16 @@
         @include chip-interactive-states('--dt-color-interactive-primary', 'inverse');
     }
 
+    &[isDismissible][isSelected] {
+        padding-inline-end: var(--chip-padding-dismissible);
+        padding-block-start: var(--chip-padding-dismissible);
+        padding-block-end: var(--chip-padding-dismissible);
+
+        icon-close-circle-filled {
+            margin-inline-start: var(--chip-dismissible-offset);
+        }
+    }
+
     &[isLoading] {
         & > *:not(pie-spinner) {
             visibility: hidden;
@@ -118,4 +129,10 @@
     &:focus-visible {
         @include p.focus;
     }
+}
+
+::slotted(svg) {
+    display: block;
+    height: var(--icon-size-override);
+    width: var(--icon-size-override);
 }

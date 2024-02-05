@@ -17,6 +17,7 @@ const defaultArgs: ChipProps = {
     disabled: false,
     isSelected: false,
     isLoading: false,
+    isDismissible: false,
     showIcon: false,
     slot: 'String',
 };
@@ -54,6 +55,14 @@ const chipStoryMeta: ChipStoryMeta = {
                 summary: false,
             },
         },
+        isDismissible: {
+            description: 'If `true`, displays a close icon to dismiss the chip component. <br /><br /> Can be only used if `isSelected` is set to true',
+            control: 'boolean',
+            defaultValue: {
+                summary: false,
+            },
+            if: { arg: 'isSelected', eq: true },
+        },
         showIcon: {
             description: 'Enable to see the example of Chip with icon.',
             control: 'boolean',
@@ -82,6 +91,7 @@ const Template: TemplateFunction<ChipProps> = ({
     disabled,
     isSelected,
     isLoading,
+    isDismissible,
     showIcon,
     slot,
 }) => html`
@@ -89,7 +99,8 @@ const Template: TemplateFunction<ChipProps> = ({
                 variant="${variant}"
                 ?disabled="${disabled}"
                 ?isSelected="${isSelected}"
-                ?isLoading="${isLoading}">
+                ?isLoading="${isLoading}"
+                ?isDismissible="${isDismissible}">
                     ${showIcon ? html`<icon-heart-filled slot="icon"></icon-heart-filled>` : nothing}
                     ${sanitizeAndRenderHTML(slot)}
            </pie-chip>`;
