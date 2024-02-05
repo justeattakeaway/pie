@@ -3,7 +3,7 @@ import { action } from '@storybook/addon-actions';
 
 /* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-cookie-banner';
-import {CookieBannerProps} from '@justeattakeaway/pie-cookie-banner';
+import { CookieBannerProps } from '@justeattakeaway/pie-cookie-banner';
 import pieCookieBannerLocales from '@justeattakeaway/pie-cookie-banner/locales';
 /* eslint-enable import/no-duplicates */
 
