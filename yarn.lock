@@ -5438,14 +5438,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@justeat/pie-design-tokens@npm:5.10.0":
-  version: 5.10.0
-  resolution: "@justeat/pie-design-tokens@npm:5.10.0"
+"@justeat/pie-design-tokens@npm:5.10.1":
+  version: 5.10.1
+  resolution: "@justeat/pie-design-tokens@npm:5.10.1"
   dependencies:
     jsonc-parser: 3.2.0
     lodash.merge: 4.6.2
     mkdirp: 1.0.4
-  checksum: 1ab3352ac7385751350b25acc8eaa101d28bf72e0b5b4f17da44375f1efb0710a9b6aa2fd7f17822084644f31d58a092b48c83b49d6a947081e88df3b3bf3a6c
+  checksum: 5936024f277320d9db28ff928138bea7067d8af9966a00436657b916436cc495acbc94dffc28e6c7832128869f86dcefe72da8ed70ce03fe217f1007c1f2b2f4
   languageName: node
   linkType: hard
 
@@ -5849,7 +5849,7 @@ __metadata:
   dependencies:
     "@babel/core": 7.23.9
     "@babel/preset-react": 7.18.6
-    "@lit/react": 1.0.2
+    "@lit/react": 1.0.3
     "@types/react": 18.2.48
     fs-extra: 9.1.0
   bin:
@@ -5960,6 +5960,15 @@ __metadata:
   peerDependencies:
     "@types/react": 17 || 18
   checksum: 6a5c2be97d53e75b714fd6831629366e7d9d296a8756132289a49e4e4474f26b5a4bb3ef44d5d4f89a0cacfc75b305845bbbf45b0bdc356ce4a6eda0c488b7e8
+  languageName: node
+  linkType: hard
+
+"@lit/react@npm:1.0.3":
+  version: 1.0.3
+  resolution: "@lit/react@npm:1.0.3"
+  peerDependencies:
+    "@types/react": 17 || 18
+  checksum: 19b543b2f39bc60ccd273cfeddb8a37b38192bd9decf9d4d2c9c28e5666540fb54423ac76e519f670481f3069439661019a26be35cfafffc9aa5a7c3403e9fa5
   languageName: node
   linkType: hard
 
@@ -28801,7 +28810,7 @@ __metadata:
     "@docsearch/js": 3.5.2
     "@justeat/f-cookie-banner": 4.7.0
     "@justeat/fozzie": 11.0.2
-    "@justeat/pie-design-tokens": 5.10.0
+    "@justeat/pie-design-tokens": 5.10.1
     "@justeattakeaway/browserslist-config-pie": 0.2.0
     "@justeattakeaway/pie-css": 0.10.0
     "@justeattakeaway/pie-icons": 4.9.2
