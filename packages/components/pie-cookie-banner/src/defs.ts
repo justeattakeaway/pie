@@ -69,7 +69,9 @@ export interface CookieBannerProps {
      *
      * e.g. { 'functional': true }
      */
-    defaultPreferences: Record<PreferenceIds, boolean> | NonNullable<unknown>;
+    defaultPreferences?: Partial<Record<PreferenceIds, boolean>> & {
+        [key: string]: boolean;
+    };
 }
 
 /**
