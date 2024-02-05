@@ -1,4 +1,4 @@
-export const variants = ['default', 'outline','ghost' ] as const;
+export const variants = ['default', 'outline', 'ghost'] as const;
 
 export interface ChipProps {
     /**

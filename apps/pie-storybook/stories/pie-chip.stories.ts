@@ -18,7 +18,7 @@ const defaultArgs: ChipProps = {
     isSelected: false,
     isLoading: false,
     showIcon: false,
-    slot: 'String'
+    slot: 'String',
 };
 
 const chipStoryMeta: ChipStoryMeta = {
@@ -46,7 +46,7 @@ const chipStoryMeta: ChipStoryMeta = {
             defaultValue: {
                 summary: false,
             },
-        }, 
+        },
         isLoading: {
             description: 'If `true`, displays a loading indicator inside the chip.',
             control: 'boolean',
@@ -83,7 +83,7 @@ const Template: TemplateFunction<ChipProps> = ({
     isSelected,
     isLoading,
     showIcon,
-    slot
+    slot,
 }) => html`
            <pie-chip
                 variant="${variant}"

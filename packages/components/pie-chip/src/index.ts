@@ -1,4 +1,6 @@
-import { LitElement, html, unsafeCSS, TemplateResult, nothing} from 'lit';
+import {
+    LitElement, html, unsafeCSS, TemplateResult, nothing,
+} from 'lit';
 import { property } from 'lit/decorators.js';
 
 import { validPropertyValues, defineCustomElement } from '@justeattakeaway/pie-webc-core';
@@ -29,16 +31,15 @@ export class PieChip extends LitElement implements ChipProps {
     @property({ type: Boolean })
     public isLoading = false;
 
-
     /**
      * Template for the loading state
      *
      * @private
      */
     private renderSpinner (): TemplateResult {
-        const {  isSelected } = this;
-        const spinnerVariant = isSelected ? "inverse" : "secondary"
-        
+        const { isSelected } = this;
+        const spinnerVariant = isSelected ? 'inverse' : 'secondary';
+
         return html`
                     <pie-spinner
                         size="small"
@@ -47,12 +48,12 @@ export class PieChip extends LitElement implements ChipProps {
     }
 
     render () {
-         const {
+        const {
             variant,
             disabled,
             isSelected,
-            isLoading
-         } = this; 
+            isLoading,
+        } = this;
 
         return html`
             <div
