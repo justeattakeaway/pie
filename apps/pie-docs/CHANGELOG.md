@@ -1,5 +1,13 @@
 # Changelog
 
+## 3.28.0
+
+### Minor Changes
+
+- [Changed] - Update DS tokens in pie-docs to latest ([#1241](https://github.com/justeattakeaway/pie/pull/1241)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Changed] - Updated @justeat/pie-design-tokens to latest version, which includes the new `color-border-selected-brand` token ([#1237](https://github.com/justeattakeaway/pie/pull/1237)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 3.27.0
 
 ### Minor Changes
