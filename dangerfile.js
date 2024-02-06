@@ -1,6 +1,7 @@
 /* global danger, fail, message */
 import { message, danger } from 'danger';
 
+const { pr } = danger.github;
 const validChangesetCategories = ['Added', 'Changed', 'Removed', 'Fixed'];
 
 // Check for correct Changeset formatting
@@ -32,3 +33,8 @@ danger.git.created_files.filter((filepath) => filepath.includes('.changeset/') &
             console.log(err);
         });
     });
+
+// Check for empty PR Description checkboxes
+if (pr.body.includes('- [ ]')) {
+    fail('You currently have an unchecked checklist item in your PR description.\n\nPlease confirm this check has been carried out – if it\'s not relevant to your PR, delete this line from the PR checklist.');
+}

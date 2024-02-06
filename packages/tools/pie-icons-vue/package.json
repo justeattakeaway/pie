@@ -44,7 +44,7 @@
     "lint:scripts": "run -T eslint .",
     "lint:scripts:fix": "yarn lint:scripts --fix",
     "prepublishOnly": "yarn lint:scripts && yarn build",
-    "test": "run -T vitest run",
+    "test": "run -T vitest run --config ../../../vite.config.js",
     "test:ci": "yarn test",
     "test:watch": "run -T vitest"
   },
