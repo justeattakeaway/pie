@@ -1,16 +1,21 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`stylelint-no-logical-props-shorthands > when given invalid CSS > when autofix is true > when a single value is given > provides the expected suggestion 1`] = `
-"a { margin-block-start: 10px; margin-block-end: 10px; }
+"a { margin-block: 10px; }
+"
+`;
+
+exports[`stylelint-no-logical-props-shorthands > when given invalid CSS > when autofix is true > when multiple values are given > and value contains a CSS variable > should provide the expected suggestion 1`] = `
+"a { margin-block-start: 12px; margin-block-end: var(--dt-spacing-e); }
+"
+`;
+
+exports[`stylelint-no-logical-props-shorthands > when given invalid CSS > when autofix is true > when multiple values are given > and value does not contains a CSS variable > should keep it unchanged 1`] = `
+"a { margin-block: 12px 34px; }
 "
 `;
 
 exports[`stylelint-no-logical-props-shorthands > when given invalid CSS > when autofix is true > when multiple values are given > and values are complex > provides the expected suggestion 1`] = `
 "a { padding-inline-start: calc(var(--dt-spacing-d) + $nav-item-inline-start-margin); padding-inline-end: var(--dt-spacing-d); }
-"
-`;
-
-exports[`stylelint-no-logical-props-shorthands > when given invalid CSS > when autofix is true > when multiple values are given > provides the expected suggestion 1`] = `
-"a { margin-block-start: 12px; margin-block-end: 34px; }
 "
 `;

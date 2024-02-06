@@ -71,8 +71,7 @@ $nav-item-inline-start-margin: calc($nav-category-gap + $nav-category-icon-width
 }
 
 .c-nav-category {
-    padding-block-start: 10px;
-    padding-block-end: 10px;
+    padding-block: 10px;
     padding-inline-start: var(--dt-spacing-d);
     padding-inline-end: var(--dt-spacing-d);
     font-weight: var(--dt-font-weight-bold);
@@ -80,12 +79,10 @@ $nav-item-inline-start-margin: calc($nav-category-gap + $nav-category-icon-width
 
 .c-nav-item {
     display: block;
-    padding-block-start: 10px;
-    padding-block-end: 10px;
+    padding-block: 10px;
     padding-inline-start: var(--dt-spacing-d);
     padding-inline-end: var(--dt-spacing-d);
-    margin-block-start: 0;
-    margin-block-end: 2px;
+    margin-block: 0 2px;
     margin-inline-start: $nav-item-inline-start-margin;
     margin-inline-end: var(--dt-spacing-d);
     text-decoration: none;
@@ -104,12 +101,10 @@ $nav-item-inline-start-margin: calc($nav-category-gap + $nav-category-icon-width
 }
 
 .c-nav-subCategory {
-    padding-block-start: 10px;
-    padding-block-end: 10px;
+    padding-block: 10px;
     padding-inline-start: calc(var(--dt-spacing-d) + $nav-item-inline-start-margin);
     padding-inline-end: var(--dt-spacing-d);
-    margin-block-start: 0;
-    margin-block-end: 2px;
+    margin-block: 0 2px;
 
     + .c-nav-list {
         margin-inline-start: var(--dt-spacing-d);
