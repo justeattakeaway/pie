@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-assistive-text",
   "description": "PIE Design System Assistive Text built using Web Components",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",

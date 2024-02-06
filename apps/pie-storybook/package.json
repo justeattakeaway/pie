@@ -1,6 +1,6 @@
 {
   "name": "pie-storybook",
-  "version": "0.61.2",
+  "version": "0.62.0",
   "private": true,
   "description": "Storybook for PIE Design System components",
   "scripts": {
@@ -13,7 +13,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@justeat/pie-design-tokens": "5.9.0",
-    "@justeattakeaway/pie-assistive-text": "0.0.0",
+    "@justeattakeaway/pie-assistive-text": "0.1.0",
     "@justeattakeaway/pie-button": "0.45.2",
     "@justeattakeaway/pie-card": "0.17.2",
     "@justeattakeaway/pie-chip": "0.0.0",
@@ -29,7 +29,7 @@
     "@justeattakeaway/pie-notification": "0.3.1",
     "@justeattakeaway/pie-spinner": "0.5.2",
     "@justeattakeaway/pie-switch": "0.26.0",
-    "@justeattakeaway/pie-tag": "0.5.0",
+    "@justeattakeaway/pie-tag": "0.6.0",
     "dompurify": "3.0.8"
   },
   "devDependencies": {
