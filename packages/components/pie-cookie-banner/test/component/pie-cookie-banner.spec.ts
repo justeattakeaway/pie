@@ -212,10 +212,10 @@ test.describe('PieCookieBanner - Component tests', () => {
                 await page.click(getPreferenceItemSelector(preference.id));
             }
         }
-        const isToggleAllChecked = await page.locator(getPreferenceItemSelector('all'));
+        const toggleAllSelector = await page.locator(getPreferenceItemSelector('all'));
 
         // Assert
-        await expect(isToggleAllChecked).toBeChecked();
+        await expect(toggleAllSelector).toBeChecked();
     });
 
     test('should turn off all preferences if the `all` preference is set to false except for the necessary preference', async ({ mount, page }) => {
@@ -246,10 +246,10 @@ test.describe('PieCookieBanner - Component tests', () => {
         await page.click(managePreferencesSelector);
         await page.click(getPreferenceItemSelector('all')); // turn on all nodes
         await page.click(getPreferenceItemSelector('functional')); // turn off one of the preferences
-        const isToggleAllChecked = await page.locator(getPreferenceItemSelector('all'));
+        const toggleAllSelector = await page.locator(getPreferenceItemSelector('all'));
 
         // Assert
-        await expect(isToggleAllChecked).not.toBeChecked();
+        await expect(toggleAllSelector).not.toBeChecked();
     });
 
     test.describe('`locale` prop', () => {
@@ -487,7 +487,7 @@ test.describe('PieCookieBanner - Component tests', () => {
 
     test.describe('`defaultPreferences` : prop', () => {
         test.describe('when defaultPreferences are set to three values', () => {
-            test('should toggle the position to `on` for properties', async ({ mount, page }) => {
+            test('should toggle the position to `on` for all 3 properties', async ({ mount, page }) => {
                 await mount(PieCookieBanner, {
                     props: {
                         defaultPreferences: {
