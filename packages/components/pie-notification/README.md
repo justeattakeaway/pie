@@ -73,7 +73,12 @@ import { PieNotification } from '@justeattakeaway/pie-notification/dist/react';
 
 | Property | Type | Default | Description |
 |---|---|---|---|
-| - | - | - | - |
+| isOpen | `Boolean` | true | When true, the notification is set to be open and visible |
+| variant | `String`| neutral | Set the variant of the notification. Available variants: `neutral`, `neutral-alternative`, `info`, `success`, `warning`, `error` |
+| compact | `Boolean` | false | When true, the footer aligns to the header and icons which makes the component compact. |
+| heading | `String` | - | The text to display in the notification\'s heading. |
+| headingLevel | `String` | h2 | The HTML heading tag to use for the notification\'s heading. Can from h2 to h6. The font size is kept the same for all heading levels. Available heading levels: `h2`,`h3`,`h4`,`h5`,`h6` |
+| hideIcon | `Boolean` | false | Option to hide the icon regardless its variant or if user provided an icon. |
 
 In your markup or JSX, you can then use these to set the properties for the `pie-notification` component:
 

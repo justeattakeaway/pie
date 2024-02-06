@@ -28,7 +28,7 @@ export interface NotificationProps {
   hideIcon?: boolean;
 
   /**
-   * When true, the notification will be open.
+   * When true, the notification is set to be open and visible.
    */
   isOpen: boolean;
 }

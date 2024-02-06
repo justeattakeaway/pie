@@ -28,7 +28,7 @@ const notificationStoryMeta: NotificationStoryMeta = {
     component: 'pie-notification',
     argTypes: {
         isOpen: {
-            description: 'The notification will be open by default.',
+            description: 'When true, the notification is set to be open and visible.',
             control: 'boolean',
             defaultValue: {
                 summary: true,
