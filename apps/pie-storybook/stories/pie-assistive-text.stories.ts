@@ -51,6 +51,6 @@ const Template : TemplateFunction<AssistiveTextProps> = ({
 
 const createAssistiveTextStory = createStory<AssistiveTextProps>(Template, defaultArgs);
 
-export const Default = createAssistiveTextStory({ variant: 'default' });
+export const Default = createAssistiveTextStory();
 export const Success = createAssistiveTextStory({ variant: 'success' });
 export const Error = createAssistiveTextStory({ variant: 'error' });
