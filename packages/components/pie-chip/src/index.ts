@@ -51,6 +51,20 @@ export class PieChip extends LitElement implements ChipProps {
                     </pie-spinner>`;
     }
 
+    /**
+     * Template for the dismissible state
+     *
+     * @private
+     */
+    private renderCloseButton (): TemplateResult {
+        return html`
+                    <button 
+                        class="c-chip-closeBtn"
+                        data-test-id="chip-close-button">
+                        <icon-close-circle-filled size="m"></icon-close-circle-filled>
+                    </button>`;
+    }
+
     render () {
         const {
             variant,
@@ -74,7 +88,7 @@ export class PieChip extends LitElement implements ChipProps {
                     <slot name="icon"></slot>
                     ${isLoading ? this.renderSpinner() : nothing}
                     <slot></slot> 
-                    ${isDismissible && isSelected ? html`<icon-close-circle-filled size='m'></icon-close-circle-filled>` : nothing}        
+                    ${isDismissible && isSelected ? this.renderCloseButton() : nothing}        
             </div>`;
     }
 

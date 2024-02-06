@@ -104,7 +104,16 @@
         padding-block-start: var(--chip-padding-dismissible);
         padding-block-end: var(--chip-padding-dismissible);
 
-        icon-close-circle-filled {
+        .c-chip-closeBtn {
+            display: inline-flex;
+            user-select: none;
+            outline: none;
+            border: none;
+            color: inherit;
+            background-color: inherit;
+            border-radius: inherit;
+            cursor: pointer;
+            padding: 0;
             margin-inline-start: var(--chip-dismissible-offset);
         }
     }
