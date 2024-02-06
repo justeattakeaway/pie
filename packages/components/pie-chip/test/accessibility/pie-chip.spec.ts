@@ -8,6 +8,9 @@ test.describe('PieChip - Accessibility tests', () => {
             PieChip,
             {
                 props: {} as ChipProps,
+                slots: {
+                    default: 'Label',
+                },
             },
         );
 
