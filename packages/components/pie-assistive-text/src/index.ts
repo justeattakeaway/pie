@@ -18,6 +18,7 @@ const componentSelector = 'pie-assistive-text';
 
 /**
  * @tagname pie-assistive-text
+ * @slot - Default slot
  */
 export class PieAssistiveText extends LitElement implements AssistiveTextProps {
     @property()
