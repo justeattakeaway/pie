@@ -1,4 +1,4 @@
-# stylelint-config-pie
+# stylelint-no-logical-props-shorthands
 
 [![npm version](https://badge.fury.io/js/@justeattakeaway%stylelint-no-logical-props-shorthands.svg)](https://badge.fury.io/js/@justeattakeaway%stylelint-no-logical-props-shorthands)
 
