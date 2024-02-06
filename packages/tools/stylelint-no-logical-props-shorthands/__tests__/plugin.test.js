@@ -36,7 +36,7 @@ describe('stylelint-no-logical-props-shorthands', () => {
     });
 
     describe('when given invalid CSS', () => {
-        const invalidCSS = `a { margin-block: 10px; }
+        const invalidCSS = `a { margin-block: var(--dt-spacing-e); }
 `;
         beforeEach(() => {
             result = stylelint.lint({
@@ -73,16 +73,32 @@ describe('stylelint-no-logical-props-shorthands', () => {
             });
 
             describe('when multiple values are given', () => {
-                it('provides the expected suggestion', async () => {
-                    const code = `a { margin-block: 12px 34px; }
-`;
-                    const result = await stylelint.lint({
-                        code,
-                        config,
-                        fix: true,
-                    });
+                describe('and value does not contains a CSS variable', () => {
+                    it('should keep it unchanged', async () => {
+                        const code = `a { margin-block: 12px 34px; }
+    `;
+                        const result = await stylelint.lint({
+                            code,
+                            config,
+                            fix: true,
+                        });
 
-                    expect(result.output).toMatchSnapshot();
+                        expect(result.output).toMatchSnapshot();
+                    });
+                });
+
+                describe('and value contains a CSS variable', () => {
+                    it('should provide the expected suggestion', async () => {
+                        const code = `a { margin-block: 12px var(--dt-spacing-e); }
+    `;
+                        const result = await stylelint.lint({
+                            code,
+                            config,
+                            fix: true,
+                        });
+
+                        expect(result.output).toMatchSnapshot();
+                    });
                 });
 
                 describe('and values are complex', () => {

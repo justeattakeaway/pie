@@ -101,8 +101,7 @@ div.code-toolbar > .toolbar > .toolbar-item > button {
     background: var(--dt-color-interactive-light);
     padding-block-start: var(--dt-spacing-a);
     padding-block-end: var(--dt-spacing-a);
-    padding-inline-start: 10px;
-    padding-inline-end: 10px;
+    padding-inline: 10px;
     border-radius: 4px 0 0;
     border-width: 1px 0 0 1px;
     border-style: solid none none solid;
@@ -127,12 +126,9 @@ code:not(code[class*='language-']) {
     display: inline-block;
     background-color: var(--dt-color-container-strong);
     border: 1px solid var(--dt-color-border-strong);
-    margin-block-start: 0;
-    margin-block-end: 0;
-    margin-inline-start: 2px;
-    margin-inline-end: 2px;
-    padding-block-start: 2px;
-    padding-block-end: 2px;
+    margin-block: 0;
+    margin-inline: 2px;
+    padding-block: 2px;
     padding-inline-start: var(--dt-spacing-a);
     padding-inline-end: var(--dt-spacing-a);
     border-radius: 2px;

@@ -13,6 +13,8 @@ const disallowedShorthands = [
     'padding-inline',
     'margin-block',
     'margin-inline',
+    'inset-block',
+    'inset-inline',
 ];
 
 /**
@@ -61,9 +63,11 @@ function ruleFunction (primaryOption, secondaryOption, context) {
         // Iterate over CSS declarations
         root.walkDecls((decl) => {
             const hasDisallowedShorthand = disallowedShorthands.includes(decl.prop);
+            const hasVariableInValue = decl.value.indexOf('var(--') > -1;
+            const hasUnwantedCondition = hasDisallowedShorthand && hasVariableInValue;
 
             // The expectation is met, there's nothing to be done
-            if (!hasDisallowedShorthand) return;
+            if (!hasUnwantedCondition) return;
 
             if (isAutoFixing) {
                 // Replace shorthand declarations with the long syntax equivalent declarations
