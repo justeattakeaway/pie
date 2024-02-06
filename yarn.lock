@@ -5491,6 +5491,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@justeattakeaway/pie-assistive-text@0.0.0, @justeattakeaway/pie-assistive-text@workspace:packages/components/pie-assistive-text":
+  version: 0.0.0-use.local
+  resolution: "@justeattakeaway/pie-assistive-text@workspace:packages/components/pie-assistive-text"
+  dependencies:
+    "@custom-elements-manifest/analyzer": 0.9.0
+    "@justeattakeaway/pie-components-config": "workspace:*"
+    "@justeattakeaway/pie-webc-core": "workspace:*"
+    cem-plugin-module-file-extensions: 0.0.5
+  languageName: unknown
+  linkType: soft
+
 "@justeattakeaway/pie-button@0.45.2, @justeattakeaway/pie-button@workspace:packages/components/pie-button":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-button@workspace:packages/components/pie-button"
@@ -5849,8 +5860,8 @@ __metadata:
   dependencies:
     "@babel/core": 7.23.9
     "@babel/preset-react": 7.18.6
-    "@lit/react": 1.0.2
-    "@types/react": 18.2.48
+    "@lit/react": 1.0.3
+    "@types/react": 18.2.53
     fs-extra: 9.1.0
   bin:
     build-react-wrapper: ./index.js
@@ -5960,6 +5971,15 @@ __metadata:
   peerDependencies:
     "@types/react": 17 || 18
   checksum: 6a5c2be97d53e75b714fd6831629366e7d9d296a8756132289a49e4e4474f26b5a4bb3ef44d5d4f89a0cacfc75b305845bbbf45b0bdc356ce4a6eda0c488b7e8
+  languageName: node
+  linkType: hard
+
+"@lit/react@npm:1.0.3":
+  version: 1.0.3
+  resolution: "@lit/react@npm:1.0.3"
+  peerDependencies:
+    "@types/react": 17 || 18
+  checksum: 19b543b2f39bc60ccd273cfeddb8a37b38192bd9decf9d4d2c9c28e5666540fb54423ac76e519f670481f3069439661019a26be35cfafffc9aa5a7c3403e9fa5
   languageName: node
   linkType: hard
 
@@ -10688,7 +10708,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*, @types/react@npm:18.2.48, @types/react@npm:>=16":
+"@types/react@npm:*, @types/react@npm:>=16":
   version: 18.2.48
   resolution: "@types/react@npm:18.2.48"
   dependencies:
@@ -10696,6 +10716,17 @@ __metadata:
     "@types/scheduler": "*"
     csstype: ^3.0.2
   checksum: c9ca43ed2995389b7e09492c24e6f911a8439bb8276dd17cc66a2fbebbf0b42daf7b2ad177043256533607c2ca644d7d928fdfce37a67af1f8646d2bac988900
+  languageName: node
+  linkType: hard
+
+"@types/react@npm:18.2.53":
+  version: 18.2.53
+  resolution: "@types/react@npm:18.2.53"
+  dependencies:
+    "@types/prop-types": "*"
+    "@types/scheduler": "*"
+    csstype: ^3.0.2
+  checksum: 0dda3a7868c52a5c84287dbd12280c16cee7233571c24c00b14d2e9e3d30596ea96ea9f7808302a8d8bff81f9b49a8435d1814d2e63142376a1084b7e0d84f6a
   languageName: node
   linkType: hard
 
@@ -28847,7 +28878,7 @@ __metadata:
     "@rollup/plugin-node-resolve": 15.1.0
     "@sand4rt/experimental-ct-web": 1.0.8
     "@types/node": 20.4.8
-    "@types/react": 18.2.48
+    "@types/react": 18.2.53
     "@typescript-eslint/eslint-plugin": 5.62.0
     "@typescript-eslint/parser": 5.62.0
     "@vitest/coverage-v8": 1.2.1
@@ -28892,6 +28923,7 @@ __metadata:
   resolution: "pie-storybook@workspace:apps/pie-storybook"
   dependencies:
     "@justeat/pie-design-tokens": 5.9.0
+    "@justeattakeaway/pie-assistive-text": 0.0.0
     "@justeattakeaway/pie-button": 0.45.2
     "@justeattakeaway/pie-card": 0.17.2
     "@justeattakeaway/pie-chip": 0.0.0

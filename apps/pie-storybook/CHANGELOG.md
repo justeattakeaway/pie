@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.62.0
+
+### Minor Changes
+
+- [Changed] - Emulate disabled styles via an "isDimmed" prop instead of css vars (lowers the tag opacity) ([#1228](https://github.com/justeattakeaway/pie/pull/1228)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies [[`8854570fa`](https://github.com/justeattakeaway/pie/commit/8854570fa1e19acc6b2303e922339337e3238a3a), [`865ed00d5`](https://github.com/justeattakeaway/pie/commit/865ed00d555a2ba4dacfb5b70f1d601a92ec9843)]:
+  - @justeattakeaway/pie-tag@0.6.0
+  - @justeattakeaway/pie-assistive-text@0.1.0
+
 ## 0.61.2
 
 ### Patch Changes

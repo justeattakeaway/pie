@@ -13,6 +13,11 @@ export interface TagProps {
     isStrong?: boolean;
 
     /**
+     * When `true`, lowers the tag opacity.
+     */
+    isDimmed?: boolean;
+
+    /**
      * What size the tag should be.
      */
     size?: typeof sizes[number];
