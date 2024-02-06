@@ -3,9 +3,7 @@
 .c-assistiveText {
     --assistive-text-color: var(--dt-color-content-default);
 
-    display: flex;
     padding-block-start: var(--dt-spacing-a);
-    align-items: flex-start;
     color: var(--assistive-text-color);
 
     &[variant='success'] {
