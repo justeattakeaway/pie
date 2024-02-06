@@ -74,16 +74,41 @@ import { PieChip } from '@justeattakeaway/pie-chip/dist/react';
 
 | Property | Type | Default | Description |
 |---|---|---|---|
-| - | - | - | - |
+| variant | `String` | `default` | Variant of the chip, one of `variants` - `default`, `outline`, ``ghost |
+| isSelected | `Boolean` | `false` | If `true`, applies the selected styles |
+| isLoading | `Boolean` | `false` | If `true`, displays a loading indicator inside the chip |
+| isDismissible | `Boolean` | `false` | If `true`, displays a close icon to dismiss the chip component. Can be only used if `isSelected` is set to true |
+| disabled | `Boolean` | `false` | If `true`, disables the chip component |
 
 In your markup or JSX, you can then use these to set the properties for the `pie-chip` component:
 
 ```html
 <!-- Native HTML -->
-<pie-chip></pie-chip>
+<pie-chip>Label</pie-chip>
 
 <!-- JSX -->
-<PieChip></PieChip>
+<PieChip>Label</PieChip>
+```
+
+## Slots
+
+| Slot | Description |
+| Default slot | Used to pass text into the chip component. |
+| icon | Used to pass in an icon to the chip component. We recommend using `pie-icons-webc` for defining this icon, but this can also accept an SVG icon. |
+
+### Using `pie-icons-webc` with `pie-chip` icon slot
+
+We recommend using `pie-icons-webc` when using the `icon` slot. Here is an example of how you would do this:
+
+```html
+<!--
+  Note that pie-chip and the icon that you want to use will need to be imported as components into your application.
+  See the `pie-icons-webc` README for more info on importing these icons.
+-->
+<pie-chip>
+    <icon-vegan slot="icon"></icon-vegan>
+    Label
+</pie-chip>
 ```
 
 ## Contributing
