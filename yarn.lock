@@ -5491,7 +5491,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-assistive-text@0.0.0, @justeattakeaway/pie-assistive-text@workspace:packages/components/pie-assistive-text":
+"@justeattakeaway/pie-assistive-text@0.1.0, @justeattakeaway/pie-assistive-text@workspace:packages/components/pie-assistive-text":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-assistive-text@workspace:packages/components/pie-assistive-text"
   dependencies:
@@ -5815,7 +5815,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-tag@0.5.0, @justeattakeaway/pie-tag@workspace:packages/components/pie-tag":
+"@justeattakeaway/pie-tag@0.6.0, @justeattakeaway/pie-tag@workspace:packages/components/pie-tag":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-tag@workspace:packages/components/pie-tag"
   dependencies:
@@ -28923,7 +28923,7 @@ __metadata:
   resolution: "pie-storybook@workspace:apps/pie-storybook"
   dependencies:
     "@justeat/pie-design-tokens": 5.9.0
-    "@justeattakeaway/pie-assistive-text": 0.0.0
+    "@justeattakeaway/pie-assistive-text": 0.1.0
     "@justeattakeaway/pie-button": 0.45.2
     "@justeattakeaway/pie-card": 0.17.2
     "@justeattakeaway/pie-chip": 0.0.0
@@ -28939,7 +28939,7 @@ __metadata:
     "@justeattakeaway/pie-notification": 0.3.1
     "@justeattakeaway/pie-spinner": 0.5.2
     "@justeattakeaway/pie-switch": 0.26.0
-    "@justeattakeaway/pie-tag": 0.5.0
+    "@justeattakeaway/pie-tag": 0.6.0
     "@storybook/addon-a11y": 7.6.3
     "@storybook/addon-designs": 7.0.7
     "@storybook/addon-essentials": 7.6.3
