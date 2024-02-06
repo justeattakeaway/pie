@@ -8,6 +8,8 @@ import { NotificationProps as NotificationBaseProps, variants, headingLevels } f
 import { type StoryMeta, SlottedComponentProps } from '../types';
 import { createStory, type TemplateFunction } from '../utilities';
 
+import '@justeattakeaway/pie-icons-webc/IconAlertCircleFilled';
+
 type NotificationProps = SlottedComponentProps<NotificationBaseProps>;
 type NotificationStoryMeta = StoryMeta<NotificationProps>;
 
@@ -15,9 +17,10 @@ const defaultArgs: NotificationProps = {
     isOpen: true,
     variant: 'neutral',
     compact: false,
-    slot: 'Supporting text',
+    slot: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sit amet tincidunt est, vitae vulputate turpis. Cras pretium venenatis elementum. Duis tristique neque non varius tempor. In hac habitasse platea dictumst. Aenean accumsan vehicula urna. Cras fringilla sed ipsum nec dignissim. Aliquam sit amet ullamcorper ligula.',
     heading: 'Title',
-    headingLevel: 'h3',
+    headingLevel: 'h2',
+    hideIcon: false,
 };
 
 const notificationStoryMeta: NotificationStoryMeta = {
@@ -27,27 +30,43 @@ const notificationStoryMeta: NotificationStoryMeta = {
         isOpen: {
             description: 'The notification will be open by default.',
             control: 'boolean',
+            defaultValue: {
+                summary: true,
+            },
         },
         variant: {
-            description: 'Set the variant of the link.',
+            description: 'Set the variant of the notification.',
             control: 'select',
             options: variants,
             defaultValue: {
-                summary: 'default',
+                summary: 'neutral',
             },
         },
         compact: {
-            description: 'Component\'s thickness.',
+            description: 'When true, the footer aligns to the header and icons which makes the component compact.',
             control: 'boolean',
+            defaultValue: {
+                summary: false,
+            },
         },
         heading: {
             description: 'The text to display in the notification\'s heading.',
             control: 'text',
         },
         headingLevel: {
-            description: 'The HTML heading tag to use for the notification\'s heading. Can from h2 to h6.',
+            description: 'The HTML heading tag to use for the notification\'s heading. Can from h2 to h6. The font size is kept the same for all heading levels',
             control: 'select',
             options: headingLevels,
+            defaultValue: {
+                summary: 'h2',
+            },
+        },
+        hideIcon: {
+            description: 'Option to hide the icon regardless its variant or if user provided an icon.',
+            control: 'boolean',
+            defaultValue: {
+                summary: false,
+            },
         },
         slot: {
             description: 'Content to place within the notification.',
@@ -58,7 +77,7 @@ const notificationStoryMeta: NotificationStoryMeta = {
     parameters: {
         design: {
             type: 'figma',
-            url: '',
+            url: 'https://www.figma.com/file/pPSC73rPin4csb8DiK1CRr/branch/r96WaDE105zDbe5itnleVv/%E2%9C%A8-%5BCore%5D-Web-Components-%5BPIE-3%5D?type=design&node-id=1005-30849&mode=design&t=lYLzXOzJIeo6OvAw-0',
         },
     },
 };
@@ -71,15 +90,18 @@ const Template : TemplateFunction<NotificationProps> = ({
     variant,
     heading,
     headingLevel,
+    hideIcon,
     slot,
 }) => html`
     <pie-notification
-        isOpen="${isOpen}"
+        ?isOpen="${isOpen}"
         variant="${variant}"
-        compact="${compact}"
+        ?compact="${compact}"
         heading="${heading}"
         headingLevel="${headingLevel}"
+        ?hideIcon="${hideIcon}"
         >
+        <icon-alert-circle-filled slot="icon" size="s"></icon-alert-circle-filled>
         ${slot}
     </pie-notification>`;
 

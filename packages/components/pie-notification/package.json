@@ -37,6 +37,7 @@
     "cem-plugin-module-file-extensions": "0.0.5"
   },
   "dependencies": {
+    "@justeattakeaway/pie-icon-button": "0.27.2",
     "@justeattakeaway/pie-icons-webc": "0.17.2",
     "@justeattakeaway/pie-webc-core": "0.17.1"
   },

@@ -1,21 +1,41 @@
 @use '@justeattakeaway/pie-css/scss' as p;
 @use '@justeat/pie-design-tokens/dist/jet.scss' as dt;
 
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
 .c-notification {
   --notification-border-radius: var(--dt-radius-rounded-c);  
   --notification-background-color: var(--dt-color-container-subtle);
+  --notification-direction: column;
+  --notification-icon-size-override: 22px;
+  --notification-heading-font-size: #{p.font-size(--dt-font-size-20)};
+  --notification-heading-line-height: calc(var(--dt-font-size-20-line-height) * 1px);
+  --notification-font-size: #{p.font-size(--dt-font-size-16)};
+  --notification-line-height: calc(var(--dt-font-size-16-line-height) * 1px);
+  --notification-icon-fill: var(--dt-color-content-default);
 
   padding: var(--dt-spacing-d);
   border-radius: var(--notification-border-radius);
   background-color: var(--notification-background-color);
-
+  position: relative;
   display: flex;
-  flex-direction: column;
+  flex-direction: var(--notification-direction);
   gap: var(--dt-spacing-d);
-
+  font-size: var(--notification-font-size);
+  line-height: var(--notification-line-height);
   
   h1, h2, h3, h4, h5, h6 {
     margin: 0;
+    font-size: var(--notification-heading-font-size);
+    line-height: var(--notification-heading-line-height);
+  }
+
+  &[compact='true'] {
+    --notification-direction: row;
   }
 
   &[variant='neutral-alternative'] {
@@ -24,9 +44,10 @@
 
   &[variant='info'] {
     --notification-background-color: var(--dt-color-support-info-02);
+    --notification-icon-fill: var(--dt-color-blue);
   }
 
-  &[variant='positive'] {
+  &[variant='success'] {
     --notification-background-color: var(--dt-color-support-positive-02);
   }
 
@@ -36,10 +57,27 @@
 
   &[variant='error'] {
     --notification-background-color: var(--dt-color-support-error-02);
+    --notification-icon-fill: var(--dt-color-red);
   }
 
-  &-header {
-    background: pink;
+  &-content-section {
+    display: flex;
+    flex-direction: row;
+
+    :nth-child(2) {
+      margin-left: var(--dt-spacing-c);   
+    }
+  }
+
+  &-heading-icon {
+    padding-top: var(--dt-spacing-a);
+    color:  var(--notification-icon-fill);
+  }
+
+  &-icon-close {
+    position: absolute;
+    top: var(--dt-spacing-b);
+    right: var(--dt-spacing-b);
   }
 
   &-footer {

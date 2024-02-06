@@ -1,13 +1,21 @@
-import { LitElement, unsafeCSS, TemplateResult, nothing } from 'lit';
+import {
+    LitElement,
+    unsafeCSS,
+    TemplateResult,
+    nothing,
+} from 'lit';
 import { StaticValue, html, unsafeStatic } from 'lit/static-html.js';
 import { defineCustomElement, validPropertyValues } from '@justeattakeaway/pie-webc-core';
-import { property } from 'lit/decorators.js';
+import { property, query } from 'lit/decorators.js';
 import { type NotificationProps, variants, headingLevels } from './defs';
 import styles from './notification.scss?inline';
 
+import '@justeattakeaway/pie-icon-button';
 import '@justeattakeaway/pie-icons-webc/IconClose';
 import '@justeattakeaway/pie-icons-webc/IconInfoCircle';
 import '@justeattakeaway/pie-icons-webc/IconAlertCircle';
+import '@justeattakeaway/pie-icons-webc/IconAlertTriangle';
+import '@justeattakeaway/pie-icons-webc/IconCheckCircle';
 
 // Valid values available to consumers
 export * from './defs';
@@ -36,21 +44,118 @@ export class PieNotification extends LitElement implements NotificationProps {
     @validPropertyValues(componentSelector, headingLevels, 'h2')
     public headingLevel: NotificationProps['headingLevel'] = 'h2';
 
+    @property({ type: Boolean })
+    public hideIcon = false;
+
+    @property({ type: Boolean })
+    public hideCloseIcon = false;
+
+    @property({ type: Boolean })
+    private _hasExternalIcon = false;
+
+    @query('slot[name="icon"]')
+    private _iconSlot?: HTMLSlotElement;
+
+    protected firstUpdated (): void {
+        if (this._iconSlot) {
+            const assignedNodes = this._iconSlot.assignedNodes();
+
+            if (assignedNodes.length > 0) {
+                this._hasExternalIcon = true;
+            }
+        }
+    }
+
     // Renders a `CSSResult` generated from SCSS by Vite
     static styles = unsafeCSS(styles);
 
+    /**
+     * Template for the footer area
+     * Called within the main render function.
+     *
+     * @private
+     */
     private renderFooter () {
         return html`
             <footer class="${componentClass}-footer"></footer>
         `;
     }
 
+    /**
+     * Template for the header area
+     * Called within the main render function.
+     *
+     * @param {NotificationProps['heading']} heading
+     * @param {StaticValue} headingTag
+     *
+     * @private
+     */
     private renderNotificationHeading (heading: NotificationProps['heading'], headingTag: StaticValue): TemplateResult {
         return html`
-            <${headingTag} class="${componentClass}-heading">
-                ${heading}
-            </${headingTag}>
+            <header class="${componentClass}-header">
+                <${headingTag} class="${componentClass}-heading">${heading}</${headingTag}>
+            </header>
         `;
+    }
+
+    /**
+     * Util static function that returns a template with a default icon according to the chosen variant.
+     * Called within the renderIcon method.
+     *
+     * @param {boolean} variant
+     *
+     * @static
+     */
+    static renderIconVariant (variant: NotificationProps['variant']) {
+        let iconVariant = null;
+
+        if (variant === 'info') {
+            iconVariant = html`<icon-info-circle size="s"></icon-info-circle>`;
+        } else if (variant === 'success') {
+            iconVariant = html`<icon-check-circle size="s"></icon-check-circle>`;
+        } else if (variant === 'warning') {
+            iconVariant = html`<icon-alert-triangle size="s"></icon-alert-triangle>`;
+        } else if (variant === 'error') {
+            iconVariant = html`<icon-alert-circle size="s"></icon-alert-circle>`;
+        }
+
+        return iconVariant;
+    }
+
+    /**
+     * Template for the heading icon area.
+     * It can return an icon provided externally via named slot or it can return an default icon according to the chosen variant.
+     * Called within the main render function.
+     *
+     * @param {NotificationProps['variant']} variant
+     * @param {boolean} hasExternalIcon
+     *
+     * @private
+     */
+    private renderIcon (variant: NotificationProps['variant'], hasExternalIcon: boolean): TemplateResult | typeof nothing {
+        return html`
+            <div class="${componentClass}-heading-icon">
+                ${!hasExternalIcon ? PieNotification.renderIconVariant(variant) : nothing}
+                <slot name="icon"></slot>
+            </div>
+        `;
+    }
+
+    /**
+     * Template for the close button element. Called within the
+     * main render function.
+     *
+     * @private
+     */
+    private renderCloseButton (): TemplateResult {
+        return html`
+            <pie-icon-button
+                variant="ghost-secondary"
+                size="small"
+                class="${componentClass}-icon-close"
+                >
+                <icon-close></icon-close>
+            </pie-icon-button>`;
     }
 
     render () {
@@ -60,22 +165,21 @@ export class PieNotification extends LitElement implements NotificationProps {
             headingLevel,
             compact,
             renderNotificationHeading,
+            renderIcon,
+            _hasExternalIcon,
+            hideIcon,
+            renderCloseButton,
         } = this;
         const headingTag = unsafeStatic(headingLevel);
 
         return html`
             <div data-test-id="${componentSelector}" class="${componentClass}" variant="${variant}" compact="${compact}">
-                <section>
-                    <header class="${componentClass}-header">
-                        <!-- ICONS SHOW UP WITHOUT IMPORTS, ALSO SOME ICONS HAS LAYOUT SHIFTING -->
-                        <icon-close></icon-close>
-                        <icon-alert-circle></icon-alert-circle>
-                        <icon-info-circle></icon-info-circle>
-                        
-                        ${heading ? renderNotificationHeading(heading, headingTag) : nothing}
-                        
-                    </header>
+                ${!compact ? renderCloseButton() : nothing}
+
+                <section class="${componentClass}-content-section" >
+                    ${!hideIcon ? renderIcon(variant, _hasExternalIcon) : nothing}    
                     <article>
+                        ${heading ? renderNotificationHeading(heading, headingTag) : nothing}
                         <slot></slot>
                     </article>
                 </section>

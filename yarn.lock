@@ -5762,6 +5762,7 @@ __metadata:
   dependencies:
     "@custom-elements-manifest/analyzer": 0.9.0
     "@justeattakeaway/pie-components-config": 0.9.0
+    "@justeattakeaway/pie-icon-button": 0.27.2
     "@justeattakeaway/pie-icons-webc": 0.17.2
     "@justeattakeaway/pie-webc-core": 0.17.1
     "@justeattakeaway/pie-wrapper-react": 0.14.0
