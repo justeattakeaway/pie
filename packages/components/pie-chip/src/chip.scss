@@ -33,11 +33,6 @@
     }
 }
 
-*,
-*:before,
-*:after {
-    box-sizing: border-box;
-}
 
 .c-chip {
     --chip-bg-color: var(--dt-color-interactive-secondary);
@@ -119,11 +114,11 @@
     }
 
     &[isLoading] {
-        & > *:not(pie-spinner) {
+        & > *:not(.c-chip-spinner) {
             visibility: hidden;
         }
 
-        pie-spinner {
+        .c-chip-spinner {
             position: absolute;
         }
     }

@@ -46,6 +46,7 @@ export class PieChip extends LitElement implements ChipProps {
 
         return html`
                     <pie-spinner
+                        class="c-chip-spinner"
                         size="small"
                         variant="${spinnerVariant}">
                     </pie-spinner>`;
