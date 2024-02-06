@@ -54,7 +54,7 @@ const notificationStoryMeta: NotificationStoryMeta = {
             control: 'text',
         },
         headingLevel: {
-            description: 'The HTML heading tag to use for the notification\'s heading. Can from h2 to h6. The font size is kept the same for all heading levels',
+            description: 'The HTML heading tag to use for the notification\'s heading. Can from h2 to h6. The font size is kept the same for all heading levels.',
             control: 'select',
             options: headingLevels,
             defaultValue: {

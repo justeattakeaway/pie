@@ -92,8 +92,8 @@ export class PieNotification extends LitElement implements NotificationProps {
      */
     private renderNotificationHeading (heading: NotificationProps['heading'], headingTag: StaticValue): TemplateResult {
         return html`
-            <header class="${componentClass}-header">
-                <${headingTag} class="${componentClass}-heading">${heading}</${headingTag}>
+            <header class="${componentClass}-header" data-test-id="${componentSelector}-header">
+                <${headingTag} class="${componentClass}-heading" data-test-id="${componentSelector}-heading">${heading}</${headingTag}>
             </header>
         `;
     }
@@ -110,13 +110,13 @@ export class PieNotification extends LitElement implements NotificationProps {
         let iconVariant = null;
 
         if (variant === 'info') {
-            iconVariant = html`<icon-info-circle size="s"></icon-info-circle>`;
+            iconVariant = html`<icon-info-circle size="s" data-test-id="${componentSelector}-heading-icon-info"></icon-info-circle>`;
         } else if (variant === 'success') {
-            iconVariant = html`<icon-check-circle size="s"></icon-check-circle>`;
+            iconVariant = html`<icon-check-circle size="s" data-test-id="${componentSelector}-heading-icon-success"></icon-check-circle>`;
         } else if (variant === 'warning') {
-            iconVariant = html`<icon-alert-triangle size="s"></icon-alert-triangle>`;
+            iconVariant = html`<icon-alert-triangle size="s" data-test-id="${componentSelector}-heading-icon-warning"></icon-alert-triangle>`;
         } else if (variant === 'error') {
-            iconVariant = html`<icon-alert-circle size="s"></icon-alert-circle>`;
+            iconVariant = html`<icon-alert-circle size="s" data-test-id="${componentSelector}-heading-icon-error"></icon-alert-circle>`;
         }
 
         return iconVariant;
@@ -153,6 +153,7 @@ export class PieNotification extends LitElement implements NotificationProps {
                 variant="ghost-secondary"
                 size="small"
                 class="${componentClass}-icon-close"
+                data-test-id="${componentSelector}-icon-close"
                 >
                 <icon-close></icon-close>
             </pie-icon-button>`;
@@ -176,7 +177,7 @@ export class PieNotification extends LitElement implements NotificationProps {
             <div data-test-id="${componentSelector}" class="${componentClass}" variant="${variant}" compact="${compact}">
                 ${!compact ? renderCloseButton() : nothing}
 
-                <section class="${componentClass}-content-section" >
+                <section class="${componentClass}-content-section">
                     ${!hideIcon ? renderIcon(variant, _hasExternalIcon) : nothing}    
                     <article>
                         ${heading ? renderNotificationHeading(heading, headingTag) : nothing}
