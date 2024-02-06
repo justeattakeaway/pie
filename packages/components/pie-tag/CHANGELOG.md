@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-tag
 
+## 0.6.0
+
+### Minor Changes
+
+- [Changed] - Emulate disabled styles via an "isDimmed" prop instead of css vars (lowers the tag opacity) ([#1228](https://github.com/justeattakeaway/pie/pull/1228)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.5.0
 
 ### Minor Changes
