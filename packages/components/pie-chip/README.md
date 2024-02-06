@@ -74,7 +74,7 @@ import { PieChip } from '@justeattakeaway/pie-chip/dist/react';
 
 | Property | Type | Default | Description |
 |---|---|---|---|
-| variant | `String` | `default` | Variant of the chip, one of `variants` - `default`, `outline`, ``ghost |
+| variant | `String` | `default` | Variant of the chip, one of `variants` - `default`, `outline`, `ghost` |
 | isSelected | `Boolean` | `false` | If `true`, applies the selected styles |
 | isLoading | `Boolean` | `false` | If `true`, displays a loading indicator inside the chip |
 | isDismissible | `Boolean` | `false` | If `true`, displays a close icon to dismiss the chip component. Can be only used if `isSelected` is set to true |
