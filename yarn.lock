@@ -5491,6 +5491,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@justeattakeaway/pie-assistive-text@0.0.0, @justeattakeaway/pie-assistive-text@workspace:packages/components/pie-assistive-text":
+  version: 0.0.0-use.local
+  resolution: "@justeattakeaway/pie-assistive-text@workspace:packages/components/pie-assistive-text"
+  dependencies:
+    "@custom-elements-manifest/analyzer": 0.9.0
+    "@justeattakeaway/pie-components-config": "workspace:*"
+    "@justeattakeaway/pie-webc-core": "workspace:*"
+    cem-plugin-module-file-extensions: 0.0.5
+  languageName: unknown
+  linkType: soft
+
 "@justeattakeaway/pie-button@0.45.2, @justeattakeaway/pie-button@workspace:packages/components/pie-button":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-button@workspace:packages/components/pie-button"
@@ -28914,6 +28925,7 @@ __metadata:
   resolution: "pie-storybook@workspace:apps/pie-storybook"
   dependencies:
     "@justeat/pie-design-tokens": 5.9.0
+    "@justeattakeaway/pie-assistive-text": 0.0.0
     "@justeattakeaway/pie-button": 0.45.2
     "@justeattakeaway/pie-card": 0.17.2
     "@justeattakeaway/pie-chip": 0.0.0
