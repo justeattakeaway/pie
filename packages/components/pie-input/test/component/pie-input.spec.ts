@@ -486,6 +486,76 @@ test.describe('PieInput - Component tests', () => {
                 expect(await page.evaluate(() => document.querySelector('pie-input')?.value)).toBe('foo');
             });
         });
+
+        test.describe('disabled', () => {
+            test('should not disable the component if the prop is not provided', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieInput, {});
+
+                // Act
+                const input = await component.locator('input');
+
+                // Assert
+                expect(input).not.toBeDisabled();
+            });
+
+            test('should disable the component if the prop is provided', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieInput, {
+                    props: {
+                        disabled: true,
+                        value: 'test',
+                    } as InputProps,
+                });
+
+                // Act
+                const input = await component.locator('input');
+
+                // Assert
+                expect(input).toBeDisabled();
+            });
+
+            test('should not be able to edit the input when disabled', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieInput, {
+                    props: {
+                        disabled: true,
+                        value: 'test',
+                    } as InputProps,
+                });
+
+                // Act
+                await component.type('another test');
+                const inputValue = await component.locator('input').inputValue();
+
+                // Assert
+                expect(inputValue).toBe('test');
+            });
+
+            test('should not be able to focus the component when disabled', async ({ page }) => {
+                // Arrange
+                await page.setContent('<pie-input type="text" disabled></pie-input>');
+
+                // Act
+                const input = await page.locator('pie-input');
+                await input.focus();
+
+                // Assert
+                expect(input).not.toBeFocused();
+            });
+
+            test('should still be able to focus the component when not disabled', async ({ page }) => {
+                // Arrange
+                await page.setContent('<pie-input type="text"></pie-input>');
+
+                // Act
+                const input = await page.locator('pie-input');
+                await input.focus();
+
+                // Assert
+                expect(input).toBeFocused();
+            });
+        });
     });
 
     test.describe('Events', () => {
@@ -689,7 +759,7 @@ test.describe('PieInput - Component tests', () => {
             await page.setContent(`
                 <form id="testForm" action="/foo" method="POST">
                     <pie-input type="text" name="username"></pie-input>
-                    <button type="reset">Submit</button>
+                    <button type="reset">Reset</button>
                 </form>
             `);
 
@@ -699,6 +769,28 @@ test.describe('PieInput - Component tests', () => {
 
             await page.click('button[type="reset"]');
             expect(await page.evaluate(() => document.querySelector('pie-input')?.value)).toBe('');
+        });
+
+        test('should not submit the value for disabled inputs', async ({ page }) => {
+            // Arrange
+            await page.setContent(`
+                <form id="testForm" action="/foo" method="POST">
+                    <pie-input type="text" name="username" disabled></pie-input>
+                    <pie-input type="text" name="email"></pie-input>
+                    <button type="submit">Submit</button>
+                </form>
+                <div id="formDataJson""></div>
+            `);
+
+            await setupFormDataExtraction(page, '#testForm', '#formDataJson');
+
+            // Act
+            await page.click('button[type="submit"]');
+
+            const formDataObj = await getFormDataObject(page, '#formDataJson');
+
+            // Assert
+            expect(formDataObj).toStrictEqual({ email: '' });
         });
     });
 });

@@ -139,7 +139,7 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
             type=${ifDefined(type)}
             .value=${live(value)}
             name=${ifDefined(name)}
-            ?disabled=${disabled}
+            ?disabled=${live(disabled)}
             pattern=${ifDefined(pattern)}
             minlength=${ifDefined(minlength)}
             maxlength=${ifDefined(maxlength)}
