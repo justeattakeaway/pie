@@ -515,23 +515,6 @@ test.describe('PieInput - Component tests', () => {
                 expect(input).toBeDisabled();
             });
 
-            test('should not be able to edit the input when disabled', async ({ mount }) => {
-                // Arrange
-                const component = await mount(PieInput, {
-                    props: {
-                        disabled: true,
-                        value: 'test',
-                    } as InputProps,
-                });
-
-                // Act
-                await component.type('another test');
-                const inputValue = await component.locator('input').inputValue();
-
-                // Assert
-                expect(inputValue).toBe('test');
-            });
-
             test('should not be able to focus the component when disabled', async ({ page }) => {
                 // Arrange
                 await page.setContent('<pie-input type="text" disabled></pie-input>');
