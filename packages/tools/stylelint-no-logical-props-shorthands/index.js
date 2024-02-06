@@ -13,6 +13,8 @@ const disallowedShorthands = [
     'padding-inline',
     'margin-block',
     'margin-inline',
+    'inset-block',
+    'inset-inline',
 ];
 
 /**
