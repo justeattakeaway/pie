@@ -35,7 +35,7 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
     @property({ type: String })
     public name?: InputProps['name'];
 
-    @property({ type: Boolean })
+    @property({ type: Boolean, reflect: true })
     public disabled?: InputProps['disabled'];
 
     @property({ type: String })
@@ -132,7 +132,18 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
 
     render () {
         const {
-            type, value, name, disabled, pattern, minlength, maxlength, autocomplete, placeholder, autoFocus, inputmode, readonly,
+            autocomplete,
+            autoFocus,
+            disabled,
+            inputmode,
+            maxlength,
+            minlength,
+            name,
+            pattern,
+            placeholder,
+            readonly,
+            type,
+            value,
         } = this;
 
         return html`<input

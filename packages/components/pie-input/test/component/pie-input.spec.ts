@@ -758,8 +758,8 @@ test.describe('PieInput - Component tests', () => {
             // Arrange
             await page.setContent(`
                 <form id="testForm" action="/foo" method="POST">
-                    <pie-input type="text" name="username" disabled></pie-input>
-                    <pie-input type="text" name="email"></pie-input>
+                    <pie-input type="text" name="username" value="excluded" disabled></pie-input>
+                    <pie-input type="text" name="email" value="test@test.com"></pie-input>
                     <button type="submit">Submit</button>
                 </form>
                 <div id="formDataJson""></div>
@@ -773,7 +773,7 @@ test.describe('PieInput - Component tests', () => {
             const formDataObj = await getFormDataObject(page, '#formDataJson');
 
             // Assert
-            expect(formDataObj).toStrictEqual({ email: '' });
+            expect(formDataObj).toStrictEqual({ email: 'test@test.com' });
         });
     });
 });
