@@ -17,6 +17,11 @@ const defaultArgs: CookieBannerProps = {
     locale: pieCookieBannerLocales.enGB,
     cookieTechnologiesLink: 'en/technologies',
     cookieStatementLink: 'en/cookiestatement',
+    defaultPreferences: {
+        functional: true,
+        personalized: true,
+        analytical: true,
+    },
 };
 
 const cookieBannerStoryMeta: CookieBannerStoryMeta = {
@@ -34,6 +39,9 @@ const cookieBannerStoryMeta: CookieBannerStoryMeta = {
             defaultValue: {
                 summary: 'enGB',
             },
+        },
+        defaultPreferences: {
+            control: 'object',
         },
     },
     args: defaultArgs,
@@ -58,6 +66,7 @@ const BaseStoryTemplate = (props: CookieBannerProps) : TemplateResult => {
         locale,
         cookieStatementLink,
         cookieTechnologiesLink,
+        defaultPreferences,
     } = props;
 
     return html`
@@ -66,7 +75,7 @@ const BaseStoryTemplate = (props: CookieBannerProps) : TemplateResult => {
             .cookieStatementLink=${cookieStatementLink}
             .cookieTechnologiesLink=${cookieTechnologiesLink}
             ?hasPrimaryActionsOnly="${hasPrimaryActionsOnly}"
-            .defaultPreferences="${{ functional: true, personalized: true, analytical: true }}"
+            .defaultPreferences="${defaultPreferences}"
             @pie-cookie-banner-necessary-only="${necessaryOnlyAction}"
             @pie-cookie-banner-accept-all="${acceptAllAction}"
             @pie-cookie-banner-manage-prefs="${managePrefsAction}"

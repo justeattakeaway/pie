@@ -172,12 +172,11 @@ test.describe('PieCookieBanner - Component tests', () => {
 
         // Act
         await page.click(managePreferencesSelector);
-        const isChecked = await page.locator(getPreferenceItemSelector('necessary')).isChecked();
-        const isDisabled = await page.locator(getPreferenceItemSelector('necessary')).isDisabled();
+        const necessaryPreferenceToggle = await page.locator(getPreferenceItemSelector('necessary'));
 
         // Assert
-        expect(isChecked).toBe(true);
-        expect(isDisabled).toBe(true);
+        await expect(necessaryPreferenceToggle).toBeChecked();
+        await expect(necessaryPreferenceToggle).toBeDisabled();
     });
 
     test('should toggle all preferences if the `all` preference node is set to true', async ({ mount, page }) => {
@@ -213,10 +212,10 @@ test.describe('PieCookieBanner - Component tests', () => {
                 await page.click(getPreferenceItemSelector(preference.id));
             }
         }
-        const isToggleAllChecked = await page.locator(getPreferenceItemSelector('all')).isChecked();
+        const toggleAllSelector = await page.locator(getPreferenceItemSelector('all'));
 
         // Assert
-        expect(isToggleAllChecked).toBe(true);
+        await expect(toggleAllSelector).toBeChecked();
     });
 
     test('should turn off all preferences if the `all` preference is set to false except for the necessary preference', async ({ mount, page }) => {
@@ -247,10 +246,10 @@ test.describe('PieCookieBanner - Component tests', () => {
         await page.click(managePreferencesSelector);
         await page.click(getPreferenceItemSelector('all')); // turn on all nodes
         await page.click(getPreferenceItemSelector('functional')); // turn off one of the preferences
-        const isToggleAllChecked = await page.locator(getPreferenceItemSelector('all')).isChecked();
+        const toggleAllSelector = await page.locator(getPreferenceItemSelector('all'));
 
         // Assert
-        expect(isToggleAllChecked).toBe(false);
+        await expect(toggleAllSelector).not.toBeChecked();
     });
 
     test.describe('`locale` prop', () => {
@@ -482,6 +481,95 @@ test.describe('PieCookieBanner - Component tests', () => {
 
                 // Assert
                 expect(await cookieTechnologyLink.getAttribute('href')).toBe(cookieTechnologyUrl);
+            });
+        });
+    });
+
+    test.describe('`defaultPreferences` : prop', () => {
+        test.describe('when defaultPreferences are set to three values', () => {
+            test('should toggle the position to `on` for all 3 properties', async ({ mount, page }) => {
+                await mount(PieCookieBanner, {
+                    props: {
+                        defaultPreferences: {
+                            functional: true,
+                            personalized: true,
+                            analytical: true,
+                        },
+                    } as CookieBannerProps,
+                });
+
+                // Act
+                await page.click(managePreferencesSelector);
+
+                const functionalToggle = await page.locator(getPreferenceItemSelector('functional'));
+                const personalizedToggle = await page.locator(getPreferenceItemSelector('personalized'));
+                const analyticalToggle = await page.locator(getPreferenceItemSelector('analytical'));
+
+                // Assert
+                await expect(functionalToggle).toBeChecked();
+                await expect(personalizedToggle).toBeChecked();
+                await expect(analyticalToggle).toBeChecked();
+            });
+
+            test('should check `all` toggle when all three props are passed in', async ({ mount, page }) => {
+                await mount(PieCookieBanner, {
+                    props: {
+                        defaultPreferences: {
+                            functional: true,
+                            personalized: true,
+                            analytical: true,
+                        },
+                    } as CookieBannerProps,
+                });
+
+                // Act
+                await page.click(managePreferencesSelector);
+                const output = await page.locator(getPreferenceItemSelector('all'));
+
+                // Assert
+                await expect(output).toBeChecked();
+            });
+        });
+
+        test.describe('when defaultPreferences are partially provided', () => {
+            test('should toggle the position to `on` for property', async ({ mount, page }) => {
+                await mount(PieCookieBanner, { props: { defaultPreferences: { functional: true } } as CookieBannerProps });
+
+                // Act
+                await page.click(managePreferencesSelector);
+                const output = await page.locator(getPreferenceItemSelector('functional'));
+
+                // Assert
+                await expect(output).toBeChecked();
+            });
+
+            test('should not toggle the position to `on` for properties not included in the defaultPreferences list', async ({ mount, page }) => {
+                await mount(PieCookieBanner, { props: { defaultPreferences: { functional: true } } as CookieBannerProps });
+
+                // Act
+                await page.click(managePreferencesSelector);
+                const analyticalToggle = await page.locator(getPreferenceItemSelector('analytical'));
+                const personalizedToggle = await page.locator(getPreferenceItemSelector('personalized'));
+
+                // Assert
+                await expect(analyticalToggle).not.toBeChecked();
+                await expect(personalizedToggle).not.toBeChecked();
+            });
+
+            test('should not set the `all` toggle to `checked`', async ({ mount, page }) => {
+                // Arrange
+                await mount(PieCookieBanner, {
+                    props: {
+                        defaultPreferences: { functional: true, personalized: true },
+                    } as CookieBannerProps,
+                });
+
+                // Act
+                await page.click(managePreferencesSelector);
+                const allPreferenceToggle = await page.locator(getPreferenceItemSelector('all'));
+
+                // Assert
+                await expect(allPreferenceToggle).not.toBeChecked();
             });
         });
     });
