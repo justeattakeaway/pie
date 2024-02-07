@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.6.1
+
+### Patch Changes
+
+- Updated dependencies [[`e3da38b60`](https://github.com/justeattakeaway/pie/commit/e3da38b60c5074da5422115ad16116a7413227f1)]:
+  - @justeattakeaway/stylelint-no-logical-props-shorthands@0.2.0
+
 ## 0.6.0
 
 ### Minor Changes
