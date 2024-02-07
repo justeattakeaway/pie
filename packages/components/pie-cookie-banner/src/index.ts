@@ -203,7 +203,7 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
         const requiredToggleAllKeys = ['functional', 'personalized', 'analytical'];
 
         const shouldToggleAll =
-            requiredToggleAllKeys.every((key) => this.defaultPreferences[key] === true);
+            requiredToggleAllKeys.every((key) => this.defaultPreferences?.[key as PreferenceIds] === true);
 
         return html`
             <div class="c-cookieBanner-preference">
@@ -213,7 +213,7 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
                  </div>
                 <pie-switch
                     id="${id}"
-                    ?checked="${this.defaultPreferences[id] || shouldToggleAll || checked}"
+                    ?checked="${this.defaultPreferences?.[id] || shouldToggleAll || checked}"
                     ?disabled="${disabled}"
                     @change="${this._handleSwitchStates}">
                 </pie-switch>
