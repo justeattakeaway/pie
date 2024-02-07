@@ -21,6 +21,8 @@ const componentSelector = 'pie-input';
  * @tagname pie-input
  * @event {InputEvent} input - when the input value is changed.
  * @event {CustomEvent} change - when the input value is changed.
+ * @slot leading - An icon or short text to display at the start of the input.
+ * @slot trailing - An icon or short text to display at the end of the input.
  */
 export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements InputProps {
     static shadowRootOptions = { ...LitElement.shadowRootOptions, delegatesFocus: true };
@@ -122,21 +124,26 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
             type, value, name, pattern, minlength, maxlength, autocomplete, placeholder, autoFocus, inputmode, readonly,
         } = this;
 
-        return html`<input
-            type=${ifDefined(type)}
-            .value=${live(value)}
-            name=${ifDefined(name)}
-            pattern=${ifDefined(pattern)}
-            minlength=${ifDefined(minlength)}
-            maxlength=${ifDefined(maxlength)}
-            autocomplete=${ifDefined(autocomplete)}
-            ?autofocus=${autoFocus}
-            inputmode=${ifDefined(inputmode)}
-            placeholder=${ifDefined(placeholder)}
-            ?readonly=${readonly}
-            @input=${this.handleInput}
-            @change=${this.handleChange}
-            data-test-id="pie-input">`;
+        return html`
+            <div>
+                <slot name="leading"></slot>
+                <input
+                    type=${ifDefined(type)}
+                    .value=${live(value)}
+                    name=${ifDefined(name)}
+                    pattern=${ifDefined(pattern)}
+                    minlength=${ifDefined(minlength)}
+                    maxlength=${ifDefined(maxlength)}
+                    autocomplete=${ifDefined(autocomplete)}
+                    ?autofocus=${autoFocus}
+                    inputmode=${ifDefined(inputmode)}
+                    placeholder=${ifDefined(placeholder)}
+                    ?readonly=${readonly}
+                    @input=${this.handleInput}
+                    @change=${this.handleChange}
+                    data-test-id="pie-input">
+                <slot name="trailing"></slot>
+            </div>`;
     }
 
     // Renders a `CSSResult` generated from SCSS by Vite
