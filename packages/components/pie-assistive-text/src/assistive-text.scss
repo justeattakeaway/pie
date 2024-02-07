@@ -10,6 +10,10 @@
     font-weight: var(--dt-font-body-s-weight);
     font-size: #{p.font-size(--dt-font-body-s-size)};
     line-height: #{p.line-height(--dt-font-body-s-line-height)};
+    gap: var(--dt-spacing-b);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     &[variant='success'] {
         --assistive-text-color: var(--dt-color-content-positive);
@@ -18,13 +22,6 @@
     &[variant='error'] {
         --assistive-text-color: var(--dt-color-content-error);
     }
-}
-
-
-.c-assistiveText-content {
-    gap: var(--dt-spacing-b);
-    display: flex;
-    align-items: center;
 
     .c-assistiveText-icon {
         display: inline-flex;

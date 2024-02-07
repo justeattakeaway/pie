@@ -46,10 +46,8 @@ export class PieAssistiveText extends LitElement implements AssistiveTextProps {
             class="c-assistiveText"
             data-test-id="pie-assistive-text"
             variant=${ifDefined(variant)}>
-            <span class="c-assistiveText-content">
             ${this.renderContent()}
             <slot></slot>
-            </span>
         </p>`;
     }
 

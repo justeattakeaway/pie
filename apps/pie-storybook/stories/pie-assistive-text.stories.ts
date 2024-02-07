@@ -6,7 +6,7 @@ import { AssistiveTextProps, variants } from '@justeattakeaway/pie-assistive-tex
 /* eslint-enable import/no-duplicates */
 
 import { type StoryMeta } from '../types';
-import { createStory } from '../utilities';
+import { createStory, type TemplateFunction, sanitizeAndRenderHTML } from '../utilities';
 
 type AssistiveTextStoryMeta = StoryMeta<AssistiveTextProps>;
 
@@ -27,6 +27,10 @@ const assistiveTextStoryMeta: AssistiveTextStoryMeta = {
                 summary: 'default',
             },
         },
+        slot: {
+            description: 'Content to place within the assistive-text',
+            control: 'text',
+        },
     },
     args: defaultArgs,
     parameters: {
@@ -45,7 +49,7 @@ const Template : TemplateFunction<AssistiveTextProps> = ({
 }) => html`
     <pie-assistive-text
         variant="${variant}">
-        ${slot}
+        ${sanitizeAndRenderHTML(slot)}
     </pie-assistive-text>
 `;
 
