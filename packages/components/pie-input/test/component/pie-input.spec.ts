@@ -1,6 +1,7 @@
 
 import { test, expect } from '@sand4rt/experimental-ct-web';
 import type { Page } from '@playwright/test';
+import { IconPlaceholder } from '@justeattakeaway/pie-icons-webc/IconPlaceholder';
 import { PieInput, InputProps } from '../../src/index.ts';
 
 const componentSelector = '[data-test-id="pie-input"]';
@@ -65,6 +66,9 @@ test.describe('PieInput - Component tests', () => {
     test.beforeEach(async ({ mount }) => {
         const component = await mount(PieInput);
         await component.unmount();
+
+        const iconComponent = await mount(IconPlaceholder);
+        await iconComponent.unmount();
     });
 
     test('should render successfully', async ({ mount, page }) => {
@@ -629,6 +633,62 @@ test.describe('PieInput - Component tests', () => {
 
                 // Assert
                 expect(messages).toStrictEqual(expectedMessages);
+            });
+        });
+    });
+
+    test.describe('Slots', () => {
+        test.describe('leading', () => {
+            test('should render the leading slot content', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieInput, {
+                    slots: {
+                        leading: '<icon-placeholder id="leading"></icon-placeholder>',
+                    },
+                });
+
+                // Act
+                const leadingSlot = component.locator('#leading');
+
+                // Assert
+                expect(leadingSlot).toBeVisible();
+            });
+        });
+
+        test.describe('trailing', () => {
+            test('should render the trailing slot content', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieInput, {
+                    slots: {
+                        trailing: '<icon-placeholder id="trailing"></icon-placeholder>',
+                    },
+                });
+
+                // Act
+                const trailingSlot = component.locator('#trailing');
+
+                // Assert
+                expect(trailingSlot).toBeVisible();
+            });
+        });
+
+        test.describe('leading and trailing', () => {
+            test('should render both the leading and trailing slot content', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieInput, {
+                    slots: {
+                        leading: '<icon-placeholder id="leading"></icon-placeholder>',
+                        trailing: '<span id="trailing">#</span>',
+                    },
+                });
+
+                // Act
+                const leadingSlot = component.locator('#leading');
+                const trailingSlot = component.locator('#trailing');
+
+                // Assert
+                expect(leadingSlot).toBeVisible();
+                expect(trailingSlot).toBeVisible();
             });
         });
     });
