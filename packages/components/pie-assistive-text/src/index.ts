@@ -29,7 +29,7 @@ export class PieAssistiveText extends LitElement implements AssistiveTextProps {
  * Renders the assistive-text icon content.
  * @private
  */
-    private renderContent (): TemplateResult {
+    private renderIcon (): TemplateResult {
         const { variant } = this;
         return html`
             ${variant === 'success' ? html`<icon-check-circle class="c-assistiveText-icon" size="s" />` : nothing}
@@ -46,7 +46,7 @@ export class PieAssistiveText extends LitElement implements AssistiveTextProps {
             class="c-assistiveText"
             data-test-id="pie-assistive-text"
             variant=${ifDefined(variant)}>
-            ${this.renderContent()}
+            ${this.renderIcon()}
             <slot></slot>
         </p>`;
     }
