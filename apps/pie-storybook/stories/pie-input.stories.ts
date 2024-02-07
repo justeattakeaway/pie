@@ -128,20 +128,14 @@ const inputStoryMeta: InputStoryMeta = {
             },
         },
         leadingSlot: {
-            description: 'An icon or short text to display at the start of the input.',
+            description: 'An icon or short text to display at the start of the input. <br><b>*Not a component Prop</b>',
             control: 'select',
             options: slotOptions,
-            defaultValue: {
-                summary: 'text',
-            },
         },
         trailingSlot: {
-            description: 'An icon or short text to display at the end of the input.',
+            description: 'An icon or short text to display at the end of the input. <br><b>*Not a component Prop</b>',
             control: 'select',
             options: slotOptions,
-            defaultValue: {
-                summary: 'text',
-            },
         },
     },
     args: defaultArgs,
