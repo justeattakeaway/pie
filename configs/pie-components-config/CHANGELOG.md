@@ -1,5 +1,19 @@
 # @justeattakeaway/pie-components-config
 
+## 0.11.0
+
+### Minor Changes
+
+- [Added] - Vitest types ([#1215](https://github.com/justeattakeaway/pie/pull/1215)) by [@siggerzz](https://github.com/siggerzz)
+
+- [Added] - New Vitest configuration ([#1215](https://github.com/justeattakeaway/pie/pull/1215)) by [@siggerzz](https://github.com/siggerzz)
+
+## 0.10.0
+
+### Minor Changes
+
+- [Changed] - Exported files for use in consuming repos ([#1206](https://github.com/justeattakeaway/pie/pull/1206)) by [@siggerzz](https://github.com/siggerzz)
+
 ## 0.9.0
 
 ### Minor Changes

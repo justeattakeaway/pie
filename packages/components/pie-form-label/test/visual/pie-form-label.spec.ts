@@ -21,12 +21,9 @@ const props: FormLabelProps = {
     trailing: 'X out of X',
 };
 
-test.beforeEach(async ({ page, mount }) => {
-    await mount(PieFormLabel, {});
-    await page.evaluate(() => {
-        const element : Element | null = document.querySelector('pie-form-label');
-        element?.remove();
-    });
+test.beforeEach(async ({ mount }) => {
+    const component = await mount(PieFormLabel);
+    await component.unmount();
 });
 
 test.describe('Pie Form Label - Visual tests`', () => {

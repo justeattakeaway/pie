@@ -78,6 +78,7 @@ import { PieCookieBanner } from '@justeattakeaway/pie-cookie-banner/dist/react';
 | locale | `Object`  | {English language locale} | Assigns the localisation data for the component strings. |
 | cookieStatementLink | `String`  | `''` | Allows a url to be passed for the cookie statement link. |
 | cookieTechnologiesLink | `String`  | `''` | Allows a url to be passed for the cookie technology link. |
+| defaultPreferences | `Object`  | `{}` | Allows default preferences to be passed in by the consumer`{ 'functional': true, 'personalized': true, 'analytical': true }` or `{ 'functional': true }`. |
 
 In your markup or JSX, you can then use these to set the properties for the `pie-cookie-banner` component:
 

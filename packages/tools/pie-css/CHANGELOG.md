@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-css
 
+## 0.10.0
+
+### Minor Changes
+
+- [Changed] - add a z-index base token ([#1212](https://github.com/justeattakeaway/pie/pull/1212)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.9.1
 
 ### Patch Changes

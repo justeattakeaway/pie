@@ -53,7 +53,7 @@ test.describe('PIE - site nav menu - @desktop', () => {
 
     test.beforeEach(async ({ page, context }) => {
         await disableCookieBanner(page, context);
-        await page.goto('all-about-pie/what-is-pie/');
+        await page.goto('all-about-pie/our-vision/');
 
         // Arrange
         siteNavigation = await page.getByTestId('site_nav_section_1');

@@ -44,13 +44,13 @@
     },
     {
       "commitMessagePrefix": "chore(pie-monorepo)",
-      "description": "Group jest devDependencies from package.json within pie-monorepo",
+      "description": "Group Vitest devDependencies from package.json within pie-monorepo",
       "matchFiles": ["./package.json"],
       "matchDepTypes": ["devDependencies"],
-      "matchPackagePatterns": ["jest-*"],
+      "matchPackagePatterns": ["viest-*", "@vitest"],
       "matchUpdateTypes": ["minor", "patch"],
-      "groupName": "jest",
-      "groupSlug": "root-jest-devDeps",
+      "groupName": "vitest",
+      "groupSlug": "root-vitest-devDeps",
       "enabled": true
     },
     {

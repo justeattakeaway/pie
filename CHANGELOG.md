@@ -1,5 +1,17 @@
 # Changelog
 
+## 2.53.0
+
+### Minor Changes
+
+- [Added] - Danger check for PR desc checkboxes ([#1249](https://github.com/justeattakeaway/pie/pull/1249)) by [@ashleynolan](https://github.com/ashleynolan)
+
+## 2.52.0
+
+### Minor Changes
+
+- [Changed] - Standardise component mount/unmount approach across component tests ([#1232](https://github.com/justeattakeaway/pie/pull/1232)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 2.51.1
 
 ### Patch Changes

@@ -1,5 +1,66 @@
 # Changelog
 
+## 0.62.0
+
+### Minor Changes
+
+- [Changed] - Emulate disabled styles via an "isDimmed" prop instead of css vars (lowers the tag opacity) ([#1228](https://github.com/justeattakeaway/pie/pull/1228)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies [[`8854570fa`](https://github.com/justeattakeaway/pie/commit/8854570fa1e19acc6b2303e922339337e3238a3a), [`865ed00d5`](https://github.com/justeattakeaway/pie/commit/865ed00d555a2ba4dacfb5b70f1d601a92ec9843)]:
+  - @justeattakeaway/pie-tag@0.6.0
+  - @justeattakeaway/pie-assistive-text@0.1.0
+
+## 0.61.2
+
+### Patch Changes
+
+- Updated dependencies [[`30b5ef87c`](https://github.com/justeattakeaway/pie/commit/30b5ef87c81c5943e65fb3d86579fb26fcb1f7d2), [`839e19e4d`](https://github.com/justeattakeaway/pie/commit/839e19e4d926a6386aae988b6e9231c03296de5a)]:
+  - @justeattakeaway/pie-cookie-banner@0.17.0
+  - @justeattakeaway/pie-modal@0.38.4
+
+## 0.61.1
+
+### Patch Changes
+
+- Updated dependencies [[`68828edd7`](https://github.com/justeattakeaway/pie/commit/68828edd730a001acf599a0b6717f43e56d58a18), [`04891f5a0`](https://github.com/justeattakeaway/pie/commit/04891f5a0bd9d880b731db3bf15d87600e2b59d2)]:
+  - @justeattakeaway/pie-tag@0.5.0
+
+## 0.61.0
+
+### Minor Changes
+
+- [Added] - defaultValue prop to fallback to if the input is reset ([#1218](https://github.com/justeattakeaway/pie/pull/1218)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies [[`5e250539f`](https://github.com/justeattakeaway/pie/commit/5e250539fe9045f0f8293236874d56eb5ecb6e7e), [`38698ed45`](https://github.com/justeattakeaway/pie/commit/38698ed45a82f42803a6eb857bff4a268eb5c48e), [`38698ed45`](https://github.com/justeattakeaway/pie/commit/38698ed45a82f42803a6eb857bff4a268eb5c48e), [`b82f82797`](https://github.com/justeattakeaway/pie/commit/b82f8279745d952c8c73531d812ea6099356b627)]:
+  - @justeattakeaway/pie-css@0.10.0
+  - @justeattakeaway/pie-input@0.9.0
+
+## 0.60.0
+
+### Minor Changes
+
+- [Added] - pattern, minlength and maxlength attributes to pie-input component ([#1209](https://github.com/justeattakeaway/pie/pull/1209)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - inputmode, readonly, placeholder, autocomplete and autoFocus properties to pie-input component ([#1213](https://github.com/justeattakeaway/pie/pull/1213)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies [[`7aab10f23`](https://github.com/justeattakeaway/pie/commit/7aab10f23f436f95f1c9cc17857edbeaaa200317), [`b5e35eb58`](https://github.com/justeattakeaway/pie/commit/b5e35eb58e8c6517530cc27c870ee69bc3f424b0)]:
+  - @justeattakeaway/pie-input@0.8.0
+
+## 0.59.3
+
+### Patch Changes
+
+- Updated dependencies [[`2c70ae48d`](https://github.com/justeattakeaway/pie/commit/2c70ae48d97d9bfce3f704a1912c4343dfebe004), [`782c49d84`](https://github.com/justeattakeaway/pie/commit/782c49d847adde2bcc387ad7c040ebb1ad5fc625)]:
+  - @justeattakeaway/pie-cookie-banner@0.16.1
+  - @justeattakeaway/pie-modal@0.38.3
+  - @justeattakeaway/pie-switch@0.26.0
+
 ## 0.59.2
 
 ### Patch Changes

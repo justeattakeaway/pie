@@ -59,7 +59,7 @@ html:has(.c-navToggle-input:checked) body {
         right: 0;
         bottom: 0;
         background: var(--dt-color-overlay);
-        z-index: f.zIndex('high');
+        z-index: var(--dt-z-index-side-sheet);
     }
 }
 

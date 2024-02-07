@@ -1,5 +1,50 @@
 # Changelog
 
+## 3.28.0
+
+### Minor Changes
+
+- [Changed] - Update DS tokens in pie-docs to latest ([#1241](https://github.com/justeattakeaway/pie/pull/1241)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Changed] - Updated @justeat/pie-design-tokens to latest version, which includes the new `color-border-selected-brand` token ([#1237](https://github.com/justeattakeaway/pie/pull/1237)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+## 3.27.0
+
+### Minor Changes
+
+- [Added] - Tag component docs ([#1174](https://github.com/justeattakeaway/pie/pull/1174)) by [@raoufswe](https://github.com/raoufswe)
+
+## 3.26.0
+
+### Minor Changes
+
+- [Changed] - Replaced zIndex fozzie tokens with pie-css tokens ([#1212](https://github.com/justeattakeaway/pie/pull/1212)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Changed] - component status updates ([#1219](https://github.com/justeattakeaway/pie/pull/1219)) by [@ashleynolan](https://github.com/ashleynolan)
+
+### Patch Changes
+
+- Updated dependencies [[`5e250539f`](https://github.com/justeattakeaway/pie/commit/5e250539fe9045f0f8293236874d56eb5ecb6e7e)]:
+  - @justeattakeaway/pie-css@0.10.0
+
+## 3.25.0
+
+### Minor Changes
+
+- [Changed] - Replaced fozzie typography tokens with pie-css tokens ([#1197](https://github.com/justeattakeaway/pie/pull/1197)) by [@raoufswe](https://github.com/raoufswe)
+
+## 3.24.0
+
+### Minor Changes
+
+- [Removed] - peer dependency link in code pages ([#1195](https://github.com/justeattakeaway/pie/pull/1195)) by [@LTurns](https://github.com/LTurns)
+
+- [Changed] - Replaced fozzie radius tokens with pie-css tokens ([#1196](https://github.com/justeattakeaway/pie/pull/1196)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- [Changed] - Updated CSS logical props values from shorthand to regular form ([#1203](https://github.com/justeattakeaway/pie/pull/1203)) by [@fernandofranca](https://github.com/fernandofranca)
+
 ## 3.23.0
 
 ### Minor Changes

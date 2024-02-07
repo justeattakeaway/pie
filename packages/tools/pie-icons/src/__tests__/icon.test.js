@@ -1,4 +1,3 @@
-/* eslint-env jest */
 import Icon, { normaliseClassname } from '../icon';
 
 const icon1 = new Icon(

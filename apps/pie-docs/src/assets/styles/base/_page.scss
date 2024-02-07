@@ -1,4 +1,4 @@
-@use '../fozzie-config' as f;
+@use '@justeattakeaway/pie-css/scss' as p;
 
 html,
 body {
@@ -32,7 +32,8 @@ html {
         visibility: hidden;
 
         &:before {
-            @include f.font-size('body-s');
+            @include p.font-size(--dt-font-body-s-size);
+            @include p.line-height(--dt-font-body-s-line-height);
             visibility: visible;
             content: 'XX/XX/XXXX';
         }

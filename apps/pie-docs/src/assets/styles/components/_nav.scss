@@ -1,11 +1,13 @@
 @use '../fozzie-config' as f;
+@use '@justeattakeaway/pie-css/scss' as p;
 
 $nav-category-gap: var(--dt-spacing-b);
 $nav-category-icon-width: var(--dt-spacing-e); // this needs to be kept in sync with the width given to the icon found in nav.njk
 $nav-item-inline-start-margin: calc($nav-category-gap + $nav-category-icon-width);
 
 .c-nav {
-    @include f.font-size('body-s');
+    @include p.font-size(--dt-font-body-s-size);
+    @include p.line-height(--dt-font-body-s-line-height);
     background: var(--dt-color-container-default);
     padding-top: var(--dt-spacing-d);
 
@@ -20,7 +22,7 @@ $nav-item-inline-start-margin: calc($nav-category-gap + $nav-category-icon-width
         height: calc(100dvh - var(--header-height));
         width: 80%;
         max-width: var(--sidenav-width-narrow);
-        z-index: f.zIndex(high);
+        z-index: var(--dt-z-index-side-sheet);
     }
 
     ul {
@@ -69,21 +71,18 @@ $nav-item-inline-start-margin: calc($nav-category-gap + $nav-category-icon-width
 }
 
 .c-nav-category {
-    padding-block-start: 10px;
-    padding-block-end: 10px;
+    padding-block: 10px;
     padding-inline-start: var(--dt-spacing-d);
     padding-inline-end: var(--dt-spacing-d);
-    font-weight: f.$font-weight-bold;
+    font-weight: var(--dt-font-weight-bold);
 }
 
 .c-nav-item {
     display: block;
-    padding-block-start: 10px;
-    padding-block-end: 10px;
+    padding-block: 10px;
     padding-inline-start: var(--dt-spacing-d);
     padding-inline-end: var(--dt-spacing-d);
-    margin-block-start: 0;
-    margin-block-end: 2px;
+    margin-block: 0 2px;
     margin-inline-start: $nav-item-inline-start-margin;
     margin-inline-end: var(--dt-spacing-d);
     text-decoration: none;
@@ -91,7 +90,7 @@ $nav-item-inline-start-margin: calc($nav-category-gap + $nav-category-icon-width
 
     &.is-active {
         background-color: var(--dt-color-container-subtle);
-        font-weight: f.$font-weight-bold;
+        font-weight: var(--dt-font-weight-bold);
     }
 
     &.is-active,
@@ -102,12 +101,10 @@ $nav-item-inline-start-margin: calc($nav-category-gap + $nav-category-icon-width
 }
 
 .c-nav-subCategory {
-    padding-block-start: 10px;
-    padding-block-end: 10px;
+    padding-block: 10px;
     padding-inline-start: calc(var(--dt-spacing-d) + $nav-item-inline-start-margin);
     padding-inline-end: var(--dt-spacing-d);
-    margin-block-start: 0;
-    margin-block-end: 2px;
+    margin-block: 0 2px;
 
     + .c-nav-list {
         margin-inline-start: var(--dt-spacing-d);

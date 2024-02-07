@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/stylelint-config-pie",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "Shareable Stylelint config for use with any front-end web projects across JET.",
   "license": "Apache-2.0",
   "keywords": [
@@ -22,16 +22,13 @@
     "stylelint-order": "5.x"
   },
   "dependencies": {
-    "@justeattakeaway/stylelint-no-logical-props-shorthands": "0.0.1"
+    "@justeattakeaway/stylelint-no-logical-props-shorthands": "0.1.0"
   },
   "scripts": {
     "lint:scripts": "run -T eslint .",
     "lint:scripts:fix": "run -T eslint . --fix",
-    "test": "run -T jest",
+    "test": "run -T vitest run --config ../../../vite.config.js",
     "test:ci": "yarn test"
-  },
-  "jest": {
-    "testEnvironment": "jsdom"
   },
   "volta": {
     "extends": "../../../package.json"

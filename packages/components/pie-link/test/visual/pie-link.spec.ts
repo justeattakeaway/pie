@@ -14,6 +14,7 @@ import {
 import {
     WebComponentTestWrapper,
 } from '@justeattakeaway/pie-webc-testing/src/helpers/components/web-component-test-wrapper/WebComponentTestWrapper.ts';
+import { IconHeartFilled } from '@justeattakeaway/pie-icons-webc';
 import {
     variants, sizes, iconPlacements, tags, underlineTypes,
 } from '../../src/defs.ts';
@@ -31,26 +32,33 @@ const props: PropObject = {
     iconPlacement: [undefined, ...iconPlacements],
 };
 
-const icon = '<svg slot="icon" xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" fill="currentColor" viewBox="0 0 16 16" class="c-pieIcon c-pieIcon--plusCircle"><path d="M8.656 4.596H7.344v2.748H4.596v1.312h2.748v2.748h1.312V8.656h2.748V7.344H8.656V4.596Z"></path><path d="M12.795 3.205a6.781 6.781 0 1 0 0 9.625 6.79 6.79 0 0 0 0-9.625Zm-.927 8.662a5.469 5.469 0 1 1-7.734-7.735 5.469 5.469 0 0 1 7.734 7.736Z"></path></svg>';
-
-const renderTestPieLink = (propVals: WebComponentPropValues) => `<pie-link tag="${propVals.tag}" variant="${propVals.variant}" size="${propVals.size}" underline="${propVals.underline}" iconPlacement="${propVals.iconPlacement}" href="${propVals.href}" ${propVals.isBold ? 'isBold' : ''} ${propVals.hasVisited ? 'hasVisited' : ''} ${propVals.isStandalone ? 'isStandalone' : ''}>${propVals.iconPlacement ? icon : ''} Link</pie-link>`;
+const renderTestPieLink = (propVals: WebComponentPropValues) => `<pie-link tag="${propVals.tag}" variant="${propVals.variant}" size="${propVals.size}" underline="${propVals.underline}" iconPlacement="${propVals.iconPlacement}" href="${propVals.href}" ${propVals.isBold ? 'isBold' : ''} ${propVals.hasVisited ? 'hasVisited' : ''} ${propVals.isStandalone ? 'isStandalone' : ''}>${propVals.iconPlacement ? '<icon-heart-filled slot="icon"></icon-heart-filled>' : ''} Link</pie-link>`;
 
 const componentPropsMatrix : WebComponentPropValues[] = getAllPropCombinations(props);
 const componentPropsMatrixByVariant: Record<string, WebComponentPropValues[]> = splitCombinationsByPropertyValue(componentPropsMatrix, 'variant');
 const componentVariants: string[] = Object.keys(componentPropsMatrixByVariant);
 
-test.beforeEach(async ({ page, mount }) => {
-    await mount(PieLink, {});
-    await page.evaluate(() => {
-        const element : Element | null = document.querySelector('pie-link');
-        element?.remove();
-    });
+test.beforeEach(async ({ mount }, testInfo) => {
+    testInfo.setTimeout(testInfo.timeout + 40000);
+
+    // This ensures the link and icon components are registered in the DOM for each test.
+    // It appears to add them to a Playwright cache which we understand is required for the tests to work correctly.
+    const linkComponent = await mount(PieLink);
+    await linkComponent.unmount();
+    const iconComponent = await mount(IconHeartFilled);
+    await iconComponent.unmount();
 });
 
 componentVariants.forEach((variant) => test(`should render all prop variations for Variant: ${variant}`, async ({ page, mount }) => {
     await Promise.all(componentPropsMatrixByVariant[variant].map(async (combo: WebComponentPropValues) => {
         const testComponent: WebComponentTestInput = createTestWebComponent(combo, renderTestPieLink);
-        const propKeyValues = `tag: ${testComponent.propValues.tag}, size: ${testComponent.propValues.size}, iconPlacement: ${testComponent.propValues.iconPlacement}, isBold: ${testComponent.propValues.isBold}, isStandalone: ${testComponent.propValues.isStandalone}, href: ${testComponent.propValues.href}`;
+        const propKeyValues = `
+            tag: ${testComponent.propValues.tag},
+            size: ${testComponent.propValues.size},
+            iconPlacement: ${testComponent.propValues.iconPlacement},
+            isBold: ${testComponent.propValues.isBold},
+            isStandalone: ${testComponent.propValues.isStandalone},
+            href: ${testComponent.propValues.href}`;
 
         await mount(
             WebComponentTestWrapper,

@@ -119,16 +119,6 @@ import { PieModal } from '@justeattakeaway/pie-modal/dist/react';
 } %}
 
 
-## Peer Dependencies
-
-When using `pie-modal`, you will also need to include a couple of dependencies to ensure the component renders as expected.
-
-{% notification {
-  type: "neutral",
-  iconName: "link",
-  message: "See the [PIE Wiki](https://github.com/justeattakeaway/pie-aperture/tree/main) for more information on peer dependencies."
-} %}
-
 ## Changelog
 
 {% notification {

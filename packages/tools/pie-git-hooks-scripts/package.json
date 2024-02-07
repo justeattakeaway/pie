@@ -1,0 +1,16 @@
+{
+  "name": "@justeattakeaway/pie-git-hooks-scripts",
+  "version": "0.2.0",
+  "description": "Scripts and utilities used by the Pie monorepo git hooks",
+  "main": "index.js",
+  "scripts": {
+    "lint:scripts": "run -T eslint .",
+    "lint:scripts:fix": "run -T eslint . --fix",
+    "test": "run -T vitest run",
+    "test:ci": "yarn test",
+    "test:watch": "run -T vitest"
+  },
+  "volta": {
+    "extends": "../../../package.json"
+  }
+}

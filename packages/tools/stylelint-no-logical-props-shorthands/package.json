@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/stylelint-no-logical-props-shorthands",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "main": "index.js",
   "description": "Stylelint plugin for disallowing logical props shorthands.",
   "license": "Apache-2.0",
@@ -13,7 +13,7 @@
   "scripts": {
     "lint:scripts": "run -T eslint .",
     "lint:scripts:fix": "run -T eslint . --fix",
-    "test": "run -T vitest run",
+    "test": "run -T vitest run --config ../../../vite.config.js",
     "test:ci": "yarn test",
     "test:watch": "run -T vitest"
   },

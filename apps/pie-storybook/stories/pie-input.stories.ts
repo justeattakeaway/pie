@@ -1,16 +1,23 @@
-import { html } from 'lit';
+import { html, nothing } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { action } from '@storybook/addon-actions';
 import { useArgs as UseArgs } from '@storybook/preview-api';
 
 /* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-input';
-import { types, InputProps } from '@justeattakeaway/pie-input';
+import { types, inputModes, InputProps as InputPropsBase } from '@justeattakeaway/pie-input';
 /* eslint-enable import/no-duplicates */
 
 import { type StoryMeta } from '../types';
 import { createStory, type TemplateFunction } from '../utilities';
 import '@justeattakeaway/pie-button';
+import '@justeattakeaway/pie-icons-webc/IconPlaceholder';
+
+// Extending the props type definition to include storybook specific properties for controls
+type InputProps = InputPropsBase & {
+    leadingSlot: typeof slotOptions[number];
+    trailingSlot: typeof slotOptions[number];
+};
 
 type InputStoryMeta = StoryMeta<InputProps>;
 
@@ -18,7 +25,13 @@ const defaultArgs: InputProps = {
     type: 'text',
     value: '',
     name: 'testName',
+    autocomplete: 'off',
+    autoFocus: false,
+    leadingSlot: 'None',
+    trailingSlot: 'None',
 };
+
+const slotOptions = ['Icon (Placeholder)', 'Short text (#)', 'None'] as const;
 
 const inputStoryMeta: InputStoryMeta = {
     title: 'Input',
@@ -43,8 +56,86 @@ const inputStoryMeta: InputStoryMeta = {
             description: 'The name of the input (used as a key/value pair with `value`). This is required in order to work properly with forms.',
             control: 'text',
             defaultValue: {
+                summary: 'testName',
+            },
+        },
+        pattern: {
+            description: 'Specifies a regular expression the form control\'s value should match.',
+            control: 'text',
+            defaultValue: {
                 summary: '',
             },
+            if: { arg: 'type', neq: 'number' },
+        },
+        minlength: {
+            description: 'Minimum length (number of characters) of value. Only applies to types: `text`, `url`, `tel`, `email`, and `password`.',
+            control: 'number',
+            defaultValue: {
+                summary: '',
+            },
+            if: { arg: 'type', neq: 'number' },
+        },
+        maxlength: {
+            description: 'Maximum length (number of characters) of value. Only applies to types: `text`, `url`, `tel`, `email`, and `password`.',
+            control: 'number',
+            defaultValue: {
+                summary: '',
+            },
+            if: { arg: 'type', neq: 'number' },
+        },
+        autocomplete: {
+            description: 'Allows the user to enable or disable autocomplete functionality on the input field. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete) for more information and values.',
+            control: 'text',
+            defaultValue: {
+                summary: 'off',
+            },
+        },
+        placeholder: {
+            description: 'The placeholder text to display when the input is empty. Only applies to types: `text`, `url`, `tel`, `email`, and `password`.',
+            control: 'text',
+            defaultValue: {
+                summary: '',
+            },
+            if: { arg: 'type', neq: 'number' },
+        },
+        autoFocus: {
+            description: 'If true, the input will be focused on the first render. No more than one element in the document or dialog may have the autofocus attribute. If applied to multiple elements the first one will receive focus. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/autofocus) for more information.',
+            control: 'boolean',
+            defaultValue: {
+                summary: false,
+            },
+        },
+        inputmode: {
+            description: 'Provides a hint to browsers as to the type of virtual keyboard configuration to use when editing this element. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#inputmode) for more information.',
+            control: 'select',
+            options: inputModes,
+            defaultValue: {
+                summary: '',
+            },
+        },
+        readonly: {
+            description: 'When true, the user cannot edit the control. Not the same as disabled. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/readonly) for more information.',
+            control: 'boolean',
+            defaultValue: {
+                summary: false,
+            },
+        },
+        defaultValue: {
+            description: 'An optional default value to use when the input is reset.',
+            control: 'text',
+            defaultValue: {
+                summary: '',
+            },
+        },
+        leadingSlot: {
+            description: 'An icon or short text to display at the start of the input. <br><b>*Not a component Prop</b>',
+            control: 'select',
+            options: slotOptions,
+        },
+        trailingSlot: {
+            description: 'An icon or short text to display at the end of the input. <br><b>*Not a component Prop</b>',
+            control: 'select',
+            options: slotOptions,
         },
     },
     args: defaultArgs,
@@ -56,7 +147,22 @@ const inputStoryMeta: InputStoryMeta = {
     },
 };
 
-const Template = ({ type, value, name }: InputProps) => {
+const Template = ({
+    type,
+    value,
+    name,
+    pattern,
+    minlength,
+    maxlength,
+    autocomplete,
+    placeholder,
+    autoFocus,
+    inputmode,
+    readonly,
+    defaultValue,
+    leadingSlot,
+    trailingSlot,
+}: InputProps) => {
     const [, updateArgs] = UseArgs();
 
     function onInput (event: InputEvent) {
@@ -75,13 +181,37 @@ const Template = ({ type, value, name }: InputProps) => {
         });
     }
 
+    function renderLeadingOrTrailingSlot (slotName: 'leading' | 'trailing', slotValue: typeof slotOptions[number]) {
+        if (slotValue === slotOptions[0]) {
+            return html`<icon-placeholder slot="${slotName}"></icon-placeholder>`;
+        }
+
+        if (slotValue === slotOptions[1]) {
+            return html`<span slot="${slotName}">#</span>`;
+        }
+
+        return nothing;
+    }
+
     return html`
-    <pie-input
-        type="${ifDefined(type)}"
-        .value="${value}"
-        name="${ifDefined(name)}"
-        @input="${onInput}"
-        @change="${onChange}"></pie-input>
+        <pie-input
+            type="${ifDefined(type)}"
+            .value="${value}"
+            name="${ifDefined(name)}"
+            pattern="${ifDefined(pattern)}"
+            minlength="${ifDefined(minlength)}"
+            maxlength="${ifDefined(maxlength)}"
+            autocomplete="${ifDefined(autocomplete)}"
+            placeholder="${ifDefined(placeholder)}"
+            inputmode="${ifDefined(inputmode)}"
+            defaultValue="${ifDefined(defaultValue)}"
+            ?autoFocus="${autoFocus}"
+            ?readonly="${readonly}"
+            @input="${onInput}"
+            @change="${onChange}">
+            ${renderLeadingOrTrailingSlot('leading', leadingSlot)}
+            ${renderLeadingOrTrailingSlot('trailing', trailingSlot)}
+        </pie-input>
     `;
 };
 

@@ -1,7 +1,7 @@
 import {
     LitElement, html, unsafeCSS, PropertyValues,
 } from 'lit';
-import { property } from 'lit/decorators.js';
+import { property, query } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { live } from 'lit/directives/live.js';
 
@@ -10,7 +10,7 @@ import {
 } from '@justeattakeaway/pie-webc-core';
 
 import styles from './input.scss?inline';
-import { types, InputProps } from './defs';
+import { types, InputProps, InputDefaultPropertyValues } from './defs';
 
 // Valid values available to consumers
 export * from './defs';
@@ -21,19 +21,67 @@ const componentSelector = 'pie-input';
  * @tagname pie-input
  * @event {InputEvent} input - when the input value is changed.
  * @event {CustomEvent} change - when the input value is changed.
+ * @slot leading - An icon or short text to display at the start of the input.
+ * @slot trailing - An icon or short text to display at the end of the input.
  */
 export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements InputProps {
     static shadowRootOptions = { ...LitElement.shadowRootOptions, delegatesFocus: true };
 
     @property({ type: String, reflect: true })
     @validPropertyValues(componentSelector, types, 'text')
-    public type: InputProps['type'] = 'text';
+    public type? = InputDefaultPropertyValues.type;
 
     @property({ type: String })
-    public value = '';
+    public value = InputDefaultPropertyValues.value;
 
     @property({ type: String })
-    public name = '';
+    public name?: InputProps['name'];
+
+    @property({ type: String })
+    public pattern?: InputProps['pattern'];
+
+    @property({ type: Number })
+    public minlength?: InputProps['minlength'];
+
+    @property({ type: Number })
+    public maxlength?: InputProps['maxlength'];
+
+    @property({ type: String })
+    public autocomplete?: InputProps['autocomplete'];
+
+    @property({ type: String })
+    public placeholder?: InputProps['placeholder'];
+
+    @property({ type: Boolean })
+    public autoFocus?: InputProps['autoFocus'];
+
+    @property({ type: String })
+    public inputmode?: InputProps['inputmode'];
+
+    @property({ type: Boolean })
+    public readonly?: InputProps['readonly'];
+
+    @property({ type: String })
+    public defaultValue?: InputProps['defaultValue'];
+
+    @query('input')
+    private input?: HTMLInputElement;
+
+    /**
+     * (Read-only) returns a ValidityState with the validity states that this element is in.
+     * https://developer.mozilla.org/en-US/docs/Web/API/HTMLObjectElement/validity
+     */
+    public get validity (): ValidityState {
+        return (this.input as HTMLInputElement).validity;
+    }
+
+    /**
+     * Called when the form that owns this component is reset.
+     * Resets the value to the default value.
+     */
+    public formResetCallback (): void {
+        this.value = this.defaultValue ?? InputDefaultPropertyValues.value;
+    }
 
     protected firstUpdated (_changedProperties: PropertyValues<this>): void {
         super.firstUpdated(_changedProperties);
@@ -72,15 +120,30 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
     };
 
     render () {
-        const { type, value, name } = this;
+        const {
+            type, value, name, pattern, minlength, maxlength, autocomplete, placeholder, autoFocus, inputmode, readonly,
+        } = this;
 
-        return html`<input
-            type=${ifDefined(type)}
-            .value=${live(value)}
-            name=${ifDefined(name)}
-            @input=${this.handleInput}
-            @change=${this.handleChange}
-            data-test-id="pie-input">`;
+        return html`
+            <div>
+                <slot name="leading"></slot>
+                <input
+                    type=${ifDefined(type)}
+                    .value=${live(value)}
+                    name=${ifDefined(name)}
+                    pattern=${ifDefined(pattern)}
+                    minlength=${ifDefined(minlength)}
+                    maxlength=${ifDefined(maxlength)}
+                    autocomplete=${ifDefined(autocomplete)}
+                    ?autofocus=${autoFocus}
+                    inputmode=${ifDefined(inputmode)}
+                    placeholder=${ifDefined(placeholder)}
+                    ?readonly=${readonly}
+                    @input=${this.handleInput}
+                    @change=${this.handleChange}
+                    data-test-id="pie-input">
+                <slot name="trailing"></slot>
+            </div>`;
     }
 
     // Renders a `CSSResult` generated from SCSS by Vite

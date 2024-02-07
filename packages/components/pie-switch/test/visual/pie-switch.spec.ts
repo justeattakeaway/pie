@@ -1,6 +1,7 @@
 import { test } from '@sand4rt/experimental-ct-web';
 import percySnapshot from '@percy/playwright';
 import { percyWidths } from '@justeattakeaway/pie-webc-testing/src/percy/breakpoints.ts';
+import { setRTL } from '@justeattakeaway/pie-webc-testing/src/helpers/set-rtl-direction.ts';
 import { PieSwitch } from '../../src/index.ts';
 import { SwitchProps, labelPlacements } from '../../src/defs.ts';
 
@@ -35,6 +36,23 @@ test.describe('Prop: `Label`', () => {
 
                 await percySnapshot(page, `Switch - label placement: ${placement}`, percyWidths);
             });
+        });
+    });
+});
+
+test.describe('when in RTL settings', () => {
+    [true, false].forEach(async (checkedState) => {
+        test(`should render in rtl correctly when (checked: ${checkedState})`, async ({ page, mount }) => {
+            await setRTL(page);
+
+            await mount(PieSwitch, {
+                props: {
+                    label: 'Label',
+                    checked: checkedState,
+                } as SwitchProps,
+            });
+
+            await percySnapshot(page, `Switch - in RTL - (checked: ${checkedState})`, percyWidths);
         });
     });
 });

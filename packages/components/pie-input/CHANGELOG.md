@@ -1,5 +1,23 @@
 # @justeattakeaway/pie-input
 
+## 0.9.0
+
+### Minor Changes
+
+- [Added] - Provide a `formResetCallback` method to enable HTML form resets ([#1218](https://github.com/justeattakeaway/pie/pull/1218)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - defaultValue prop to fallback to if the input is reset ([#1218](https://github.com/justeattakeaway/pie/pull/1218)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - Make the `value` property required and default to an empty string ([#1217](https://github.com/justeattakeaway/pie/pull/1217)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+## 0.8.0
+
+### Minor Changes
+
+- [Added] - pattern, minlength and maxlength attributes to pie-input component ([#1209](https://github.com/justeattakeaway/pie/pull/1209)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - inputmode, readonly, placeholder, autocomplete and autoFocus properties to pie-input component ([#1213](https://github.com/justeattakeaway/pie/pull/1213)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.7.0
 
 ### Minor Changes

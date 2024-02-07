@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`copies placeholder element attributes to <svg> Tag 1`] = `"<i data-pie-icons=\\"icon1\\" id=\\"test\\" class=\\"foo bar\\" stroke-width=\\"1\\"></i>"`;
 

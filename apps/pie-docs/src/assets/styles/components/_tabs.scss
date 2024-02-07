@@ -5,8 +5,9 @@ $tabs-link-padding:                var(--dt-spacing-d);
 $max-scroll-height:                var(--dt-spacing-d);
 
 .c-tabs {
-    z-index: f.zIndex(mid);
-    font-weight: f.$font-weight-bold;
+    position: relative;
+    z-index: var(--dt-z-index-base);
+    font-weight: var(--dt-font-weight-bold);
 
     ul {
         .c-tabs-item {

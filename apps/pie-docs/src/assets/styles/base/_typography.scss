@@ -1,10 +1,13 @@
 @use '../fozzie-config' as f;
+@use '@justeattakeaway/pie-css/scss' as p;
 
 .alpha--standout {
-    @include f.font-size('heading-xxl', $scale: 'narrow');
-    font-weight: f.$font-weight-extrabold;
+    @include p.font-size(--dt-font-heading-xxl-size--narrow);
+    @include p.line-height(--dt-font-heading-xxl-line-height--narrow);
+    font-weight: var(--dt-font-weight-extrabold);
 
     @include f.media('>=wide') {
-        @include f.font-size('heading-xxl');
+        @include p.font-size(--dt-font-heading-xxl-size--wide);
+        @include p.line-height(--dt-font-heading-xxl-line-height--wide);
     }
 }

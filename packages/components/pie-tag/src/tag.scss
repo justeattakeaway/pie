@@ -39,7 +39,6 @@
     font-weight: var(--tag-font-weight);
     font-size: var(--tag-font-size);
     line-height: var(--tag-line-height);
-    opacity: var(--tag-opacity, 1); // we don't specify --tag-opacity variable here to let consumers override a default value that we set
 
     // Size
     &[size='small'] {
@@ -75,7 +74,7 @@
 
         &[isStrong] {
             --tag-bg-color: var(--dt-color-support-info);
-            --tag-color: var(--dt-color-content-light);
+            --tag-color: var(--dt-color-content-inverse);
         }
     }
 
@@ -85,13 +84,13 @@
 
         &[isStrong] {
             --tag-bg-color: var(--dt-color-support-positive);
-            --tag-color: var(--dt-color-content-light);
+            --tag-color: var(--dt-color-content-inverse);
         }
     }
 
     &[variant='yellow'] {
         --tag-bg-color: var(--dt-color-support-warning-02);
-        --tag-color: var(--dt-color-content-dark);
+        --tag-color: var(--dt-color-content-default);
 
         &[isStrong] {
             --tag-bg-color: var(--dt-color-support-warning);
@@ -105,7 +104,7 @@
 
         &[isStrong] {
             --tag-bg-color: var(--dt-color-support-error);
-            --tag-color: var(--dt-color-content-light);
+            --tag-color: var(--dt-color-content-inverse);
         }
     }
 
@@ -136,6 +135,10 @@
     &[variant='ghost'] {
         --tag-bg-color: var(--tag-transparent-bg-color);
         --tag-color: var(--dt-color-content-default);
+    }
+
+    &[isDimmed] {
+        opacity: 0.5;
     }
 }
 

@@ -1,6 +1,7 @@
 
 import { test, expect } from '@sand4rt/experimental-ct-web';
 import type { Page } from '@playwright/test';
+import { IconPlaceholder } from '@justeattakeaway/pie-icons-webc/IconPlaceholder';
 import { PieInput, InputProps } from '../../src/index.ts';
 
 const componentSelector = '[data-test-id="pie-input"]';
@@ -65,6 +66,9 @@ test.describe('PieInput - Component tests', () => {
     test.beforeEach(async ({ mount }) => {
         const component = await mount(PieInput);
         await component.unmount();
+
+        const iconComponent = await mount(IconPlaceholder);
+        await iconComponent.unmount();
     });
 
     test('should render successfully', async ({ mount, page }) => {
@@ -138,7 +142,7 @@ test.describe('PieInput - Component tests', () => {
         });
 
         test.describe('name', () => {
-            test('should default to an empty string if no name prop provided', async ({ mount }) => {
+            test('should not render a name attribute on the input element if no name provided', async ({ mount }) => {
                 // Arrange
                 const component = await mount(PieInput, {});
 
@@ -146,7 +150,7 @@ test.describe('PieInput - Component tests', () => {
                 const input = component.locator('input');
 
                 // Assert
-                expect((await input.getAttribute('name'))).toBe('');
+                expect((await input.getAttribute('name'))).toBe(null);
             });
 
             test('should apply the name prop to the HTML input rendered', async ({ mount }) => {
@@ -162,6 +166,328 @@ test.describe('PieInput - Component tests', () => {
 
                 // Assert
                 expect((await input.getAttribute('name'))).toBe('test');
+            });
+        });
+
+        test.describe('pattern', () => {
+            test('should not render a pattern attribute on the input element if no pattern provided', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieInput, {});
+
+                // Act
+                const input = component.locator('input');
+
+                // Assert
+                expect((await input.getAttribute('pattern'))).toBe(null);
+            });
+
+            test('should be invalid state `patternMismatch` if pattern is not met', async ({ mount, page }) => {
+                // Arrange
+                const component = await mount(PieInput, {
+                    props: {
+                        pattern: '[a-z]{4,8}',
+                    } as InputProps,
+                });
+
+                // Act
+                await component.type('hello world');
+
+                const isInvalid = await page.evaluate(() => document.querySelector('pie-input')?.validity.patternMismatch);
+
+                // Assert
+                expect(isInvalid).toBe(true);
+            });
+
+            test('should be valid state if pattern is met', async ({ mount, page }) => {
+                // Arrange
+                const component = await mount(PieInput, {
+                    props: {
+                        pattern: '[a-z]{4,8}',
+                    } as InputProps,
+                });
+
+                // Act
+                await component.type('test');
+
+                const isValid = await page.evaluate(() => document.querySelector('pie-input')?.validity.valid);
+
+                // Assert
+                expect(isValid).toBe(true);
+            });
+        });
+
+        test.describe('minlength', () => {
+            test('should not render a minlength attribute on the input element if no minlength provided', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieInput, {});
+
+                // Act
+                const input = component.locator('input');
+
+                // Assert
+                expect((await input.getAttribute('minlength'))).toBe(null);
+            });
+
+            test('should be invalid state `tooShort` if the min length is not entered', async ({ mount, page }) => {
+                // Arrange
+                const component = await mount(PieInput, {
+                    props: {
+                        minlength: 3,
+                    } as InputProps,
+                });
+
+                // Act
+                await component.type('te');
+
+                const isInvalid = await page.evaluate(() => document.querySelector('pie-input')?.validity.tooShort);
+
+                // Assert
+                expect(isInvalid).toBe(true);
+            });
+
+            test('should be valid state if the min length is met', async ({ mount, page }) => {
+                // Arrange
+                const component = await mount(PieInput, {
+                    props: {
+                        minlength: 3,
+                    } as InputProps,
+                });
+
+                // Act
+                await component.type('tes');
+
+                const isValid = await page.evaluate(() => document.querySelector('pie-input')?.validity.valid);
+
+                // Assert
+                expect(isValid).toBe(true);
+            });
+        });
+
+        test.describe('maxlength', () => {
+            test('should not render a maxlength attribute on the input element if no maxlength provided', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieInput, {});
+
+                // Act
+                const input = component.locator('input');
+
+                // Assert
+                expect((await input.getAttribute('maxlength'))).toBe(null);
+            });
+
+            test('should not be able to input a value greater than the maxlength provided', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieInput, {
+                    props: {
+                        maxlength: 3,
+                    } as InputProps,
+                });
+
+                // Act
+                await component.type('test');
+
+                // Assert
+                expect((await component.locator('input').inputValue())).toBe('tes');
+            });
+
+            test('should be invalid state `tooLong` if the maxlength is exceeded programmatically', async ({ mount, page }) => {
+                // Arrange
+                await mount(PieInput, {
+                    props: {
+                        maxlength: 2,
+                        value: 'test',
+                    } as InputProps,
+                });
+
+                // Act
+                await page.focus('pie-input');
+                await page.keyboard.press('ArrowRight'); // Move cursor to end of input so we don't delete the whole value
+                await page.keyboard.press('Backspace'); // Delete the last character to trigger an input event - this should trigger the validity state update
+
+                const isInvalid = await page.evaluate(() => document.querySelector('pie-input')?.validity.tooLong);
+
+                // Assert
+                expect(isInvalid).toBe(true);
+            });
+
+            test('should be valid state if the max length is not exceeded', async ({ mount, page }) => {
+                // Arrange
+                const component = await mount(PieInput, {
+                    props: {
+                        maxlength: 3,
+                    } as InputProps,
+                });
+
+                // Act
+                await component.type('tes');
+
+                const isValid = await page.evaluate(() => document.querySelector('pie-input')?.validity.valid);
+
+                // Assert
+                expect(isValid).toBe(true);
+            });
+        });
+
+        test.describe('autocomplete', () => {
+            test('should not render an autocomplete attribute on the input element if no autocomplete provided', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieInput, {});
+
+                // Act
+                const input = component.locator('input');
+
+                // Assert
+                expect((await input.getAttribute('autocomplete'))).toBe(null);
+            });
+
+            test('should apply the autocomplete prop to the HTML input rendered', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieInput, {
+                    props: {
+                        autocomplete: 'on',
+                    } as InputProps,
+                });
+
+                // Act
+                const input = component.locator('input');
+
+                // Assert
+                expect((await input.getAttribute('autocomplete'))).toBe('on');
+            });
+        });
+
+        test.describe('placeholder', () => {
+            test('should not render a placeholder attribute on the input element if no placeholder provided', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieInput, {});
+
+                // Act
+                const input = component.locator('input');
+
+                // Assert
+                expect((await input.getAttribute('placeholder'))).toBe(null);
+            });
+
+            test('should apply the placeholder prop to the HTML input rendered', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieInput, {
+                    props: {
+                        placeholder: 'Test Placeholder',
+                    } as InputProps,
+                });
+
+                // Act
+                const input = component.locator('input');
+
+                // Assert
+                expect((await input.getAttribute('placeholder'))).toBe('Test Placeholder');
+            });
+        });
+
+        test.describe('autoFocus', () => {
+            test('should focus the component when autoFocus is `true`', async ({ page }) => {
+                // Arrange
+                // Setting the content this way rather than a mount call triggers the autofocus behaviour immediately
+                await page.setContent('<pie-input data-testid="testInput" type="text" autofocus></pie-input>');
+
+                // Act
+                const inputLocator = await page.getByTestId('testInput');
+
+                // Assert
+                await expect(inputLocator).toBeFocused();
+            });
+
+            test('should not focus the component when autoFocus is not provided', async ({ page }) => {
+                // Arrange
+                // Setting the content this way rather than a mount call triggers the autofocus behaviour immediately
+                await page.setContent('<pie-input data-testid="testInput" type="text"></pie-input>');
+
+                // Act
+                const inputLocator = await page.getByTestId('testInput');
+
+                // Assert
+                await expect(inputLocator).not.toBeFocused();
+            });
+        });
+
+        test.describe('inputmode', () => {
+            test('should not render an inputmode attribute on the input element if no inputmode provided', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieInput, {});
+
+                // Act
+                const input = component.locator('input');
+
+                // Assert
+                expect((await input.getAttribute('inputmode'))).toBe(null);
+            });
+
+            test('should apply the inputmode prop to the HTML input rendered', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieInput, {
+                    props: {
+                        inputmode: 'numeric',
+                    } as InputProps,
+                });
+
+                // Act
+                const input = component.locator('input');
+
+                // Assert
+                expect((await input.getAttribute('inputmode'))).toBe('numeric');
+            });
+        });
+
+        test.describe('readonly', () => {
+            test('should be able to edit the component value when readonly is `false`', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieInput, {
+                    props: {
+                        readonly: false,
+                        value: 'test',
+                    } as InputProps,
+                });
+
+                // Act
+                await component.type('another test');
+
+                // Assert
+                expect((await component.locator('input').inputValue())).toBe('another test');
+            });
+
+            test('should not be able to edit the component value when readonly is `true`', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieInput, {
+                    props: {
+                        readonly: true,
+                        value: 'test',
+                    } as InputProps,
+                });
+
+                // Act
+                await component.type('another test');
+
+                // Assert
+                expect((await component.locator('input').inputValue())).toBe('test');
+            });
+        });
+
+        test.describe('defaultValue', () => {
+            test('should correctly reset the input value to the default value if one is provided when the form is reset', async ({ page }) => {
+                // Arrange
+                await page.setContent(`
+                    <form id="testForm" action="/foo" method="POST">
+                        <pie-input type="text" name="username" defaultValue="foo"></pie-input>
+                        <button type="reset">Submit</button>
+                    </form>
+                `);
+
+                // Act & Assert
+                await page.locator('pie-input').type('test');
+                expect(await page.evaluate(() => document.querySelector('pie-input')?.value)).toBe('test');
+
+                await page.click('button[type="reset"]');
+                expect(await page.evaluate(() => document.querySelector('pie-input')?.value)).toBe('foo');
             });
         });
     });
@@ -311,6 +637,62 @@ test.describe('PieInput - Component tests', () => {
         });
     });
 
+    test.describe('Slots', () => {
+        test.describe('leading', () => {
+            test('should render the leading slot content', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieInput, {
+                    slots: {
+                        leading: '<icon-placeholder id="leading"></icon-placeholder>',
+                    },
+                });
+
+                // Act
+                const leadingSlot = component.locator('#leading');
+
+                // Assert
+                expect(leadingSlot).toBeVisible();
+            });
+        });
+
+        test.describe('trailing', () => {
+            test('should render the trailing slot content', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieInput, {
+                    slots: {
+                        trailing: '<icon-placeholder id="trailing"></icon-placeholder>',
+                    },
+                });
+
+                // Act
+                const trailingSlot = component.locator('#trailing');
+
+                // Assert
+                expect(trailingSlot).toBeVisible();
+            });
+        });
+
+        test.describe('leading and trailing', () => {
+            test('should render both the leading and trailing slot content', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieInput, {
+                    slots: {
+                        leading: '<icon-placeholder id="leading"></icon-placeholder>',
+                        trailing: '<span id="trailing">#</span>',
+                    },
+                });
+
+                // Act
+                const leadingSlot = component.locator('#leading');
+                const trailingSlot = component.locator('#trailing');
+
+                // Assert
+                expect(leadingSlot).toBeVisible();
+                expect(trailingSlot).toBeVisible();
+            });
+        });
+    });
+
     test.describe('Form integration', () => {
         test('should correctly set the value of username in the FormData object when submitted', async ({ page }) => {
             // Arrange
@@ -360,6 +742,23 @@ test.describe('PieInput - Component tests', () => {
 
             // Assert
             expect(formDataObj.username).toBe('test2');
+        });
+
+        test('should correctly reset the input value when the form is reset', async ({ page }) => {
+            // Arrange
+            await page.setContent(`
+                <form id="testForm" action="/foo" method="POST">
+                    <pie-input type="text" name="username"></pie-input>
+                    <button type="reset">Submit</button>
+                </form>
+            `);
+
+            // Act & Assert
+            await page.locator('pie-input').type('test');
+            expect(await page.evaluate(() => document.querySelector('pie-input')?.value)).toBe('test');
+
+            await page.click('button[type="reset"]');
+            expect(await page.evaluate(() => document.querySelector('pie-input')?.value)).toBe('');
         });
     });
 });

@@ -42,6 +42,9 @@ pie-css:
 components:
 - 'packages/components/**/*'
 
+pie-assistive-text:
+- 'packages/components/pie-assistive-text/**/*'
+
 pie-button:
 - 'packages/components/pie-button/**/*'
 
@@ -50,6 +53,9 @@ pie-card:
 
 pie-cookie-banner:
 - './packages/components/pie-cookie-banner/**/*'
+
+pie-chip:
+- './packages/components/pie-chip/**/*'
 
 pie-divider:
 - 'packages/components/pie-divider/**/*'
