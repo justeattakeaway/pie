@@ -5,7 +5,7 @@ import { useArgs as UseArgs } from '@storybook/preview-api';
 
 /* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-input';
-import { types, inputModes, InputProps as InputPropsOriginal } from '@justeattakeaway/pie-input';
+import { types, inputModes, InputProps as InputPropsBase } from '@justeattakeaway/pie-input';
 /* eslint-enable import/no-duplicates */
 
 import { type StoryMeta } from '../types';
@@ -14,7 +14,7 @@ import '@justeattakeaway/pie-button';
 import '@justeattakeaway/pie-icons-webc/IconPlaceholder';
 
 // Extending the props type definition to include storybook specific properties for controls
-type InputProps = InputPropsOriginal & {
+type InputProps = InputPropsBase & {
     leadingSlot: typeof slotOptions[number];
     trailingSlot: typeof slotOptions[number];
 };
