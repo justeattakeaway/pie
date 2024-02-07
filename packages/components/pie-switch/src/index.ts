@@ -165,6 +165,10 @@ export class PieSwitch extends FormControlMixin(RtlMixin(LitElement)) implements
         return html``;
     }
 
+    public click () {
+        this.shadowRoot?.querySelector('label')?.click();
+    }
+
     render () {
         const {
             labelPlacement,
