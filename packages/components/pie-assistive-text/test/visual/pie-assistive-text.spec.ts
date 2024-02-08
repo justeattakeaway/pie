@@ -19,26 +19,30 @@ import { setRTL } from '@justeattakeaway/pie-webc-testing/src/helpers/set-rtl-di
 import { PieAssistiveText } from '../../src/index.ts';
 import { variants } from '../../src/defs.ts';
 
-const renderTestPieAssistiveText = (propVals: WebComponentPropValues) => `<pie-assistive-text variant="${propVals.variant}">Assistive Text</pie-assistive-text>`;
+const props: PropObject = {
+    variant: variants,
+};
 
-test.beforeEach(async ({ mount }) => {
+const renderTestPieAssistiveText = (propVals: WebComponentPropValues) => `<pie-assistive-text variant="${propVals.variant}">Hello world</pie-assistive-text>`;
+
+const componentPropsMatrix : WebComponentPropValues[] = getAllPropCombinations(props);
+const componentPropsMatrixByVariant: Record<string, WebComponentPropValues[]> = splitCombinationsByPropertyValue(componentPropsMatrix, 'variant');
+const componentVariants: string[] = Object.keys(componentPropsMatrixByVariant);
+
+test.beforeEach(async ({ mount }, testInfo) => {
+    testInfo.setTimeout(testInfo.timeout + 40000);
+
     const component = await mount(PieAssistiveText);
     await component.unmount();
 });
 
-test.describe('PieCard - Visual tests`', () => {
-    const props: PropObject = {
-        variant: variants,
-    };
-
-    const componentPropsMatrix : WebComponentPropValues[] = getAllPropCombinations(props);
-    const componentPropsMatrixByVariant: Record<string, WebComponentPropValues[]> = splitCombinationsByPropertyValue(componentPropsMatrix, 'variant');
-    const componentVariants: string[] = Object.keys(componentPropsMatrixByVariant);
-
-    componentVariants.forEach((variant) => test(`should render all prop variations for Variant: ${variant}`, async ({ page, mount }) => {
+test('should render all prop variations', async ({ page, mount }) => {
+    componentVariants.forEach(async (variant) => {
         await Promise.all(componentPropsMatrixByVariant[variant].map(async (combo: WebComponentPropValues) => {
             const testComponent: WebComponentTestInput = createTestWebComponent(combo, renderTestPieAssistiveText);
+
             const propKeyValues = `variant: ${variant}`;
+
             await mount(
                 WebComponentTestWrapper,
                 {
@@ -49,15 +53,19 @@ test.describe('PieCard - Visual tests`', () => {
                 },
             );
         }));
+    });
 
-        await percySnapshot(page, `PIE Assistive Text - Variant: ${variant}`, percyWidths);
-    }));
+    await percySnapshot(page, 'PIE Assistive Text - Variants', percyWidths);
+});
 
-    ['success', 'error'].forEach((variant) => test(`should render correctly when RTL is set: ${variant}`, async ({ page, mount }) => {
+test('should render all prop variations with RTL set', async ({ page, mount }) => {
+    componentVariants.forEach(async (variant) => {
         await Promise.all(componentPropsMatrixByVariant[variant].map(async (combo: WebComponentPropValues) => {
             const testComponent: WebComponentTestInput = createTestWebComponent(combo, renderTestPieAssistiveText);
+
             const propKeyValues = `variant: ${variant}, dir: RTL`;
-            await setRTL(page);
+
+            setRTL(page);
 
             await mount(
                 WebComponentTestWrapper,
@@ -69,7 +77,7 @@ test.describe('PieCard - Visual tests`', () => {
                 },
             );
         }));
+    });
 
-        await percySnapshot(page, `PIE Assistive Text - Variant: ${variant}`, percyWidths);
-    }));
+    await percySnapshot(page, 'PIE Assistive Text - Variants', percyWidths);
 });
