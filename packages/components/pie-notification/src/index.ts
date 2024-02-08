@@ -6,7 +6,7 @@ import {
 } from 'lit';
 import { StaticValue, html, unsafeStatic } from 'lit/static-html.js';
 import { defineCustomElement, validPropertyValues } from '@justeattakeaway/pie-webc-core';
-import { property, query } from 'lit/decorators.js';
+import { property, queryAssignedElements } from 'lit/decorators.js';
 import { type NotificationProps, variants, headingLevels } from './defs';
 import styles from './notification.scss?inline';
 
@@ -50,19 +50,13 @@ export class PieNotification extends LitElement implements NotificationProps {
     @property({ type: Boolean })
     public hideCloseIcon = false;
 
-    @property({ type: Boolean })
     private _hasExternalIcon = false;
 
-    @query('slot[name="icon"]')
-    private _iconSlot?: HTMLSlotElement;
+    @queryAssignedElements({ slot: 'icon' }) _iconSlot!: Array<HTMLElement>;
 
-    protected firstUpdated (): void {
-        if (this._iconSlot) {
-            const assignedNodes = this._iconSlot.assignedNodes();
-
-            if (assignedNodes.length > 0) {
-                this._hasExternalIcon = true;
-            }
+    protected firstUpdated(): void {
+        if (this._iconSlot.length > 0) {
+            this._hasExternalIcon = true;
         }
     }
 

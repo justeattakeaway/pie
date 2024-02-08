@@ -1,5 +1,13 @@
 # Changelog
 
+## 3.28.1
+
+### Patch Changes
+
+- [Fixed] - reverted unnecessary CSS updates for logical properties ([#1250](https://github.com/justeattakeaway/pie/pull/1250)) by [@fernandofranca](https://github.com/fernandofranca)
+
+- [Fixed] - Updated test script to remove privacy policy test skip. ([#1253](https://github.com/justeattakeaway/pie/pull/1253)) by [@JoshuaNg2332](https://github.com/JoshuaNg2332)
+
 ## 3.28.0
 
 ### Minor Changes

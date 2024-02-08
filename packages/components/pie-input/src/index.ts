@@ -37,6 +37,9 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
     @property({ type: String })
     public name?: InputProps['name'];
 
+    @property({ type: Boolean, reflect: true })
+    public disabled?: InputProps['disabled'];
+
     @property({ type: String })
     public pattern?: InputProps['pattern'];
 
@@ -73,6 +76,16 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
      */
     public get validity (): ValidityState {
         return (this.input as HTMLInputElement).validity;
+    }
+
+    /**
+     * Called after the disabled state of the element changes,
+     * either because the disabled attribute of this element was added or removed;
+     * or because the disabled state changed on a <fieldset> that's an ancestor of this element.
+     * @param disabled - The latest disabled state of the input.
+     */
+    public formDisabledCallback (disabled: boolean): void {
+        this.disabled = disabled;
     }
 
     /**
@@ -121,7 +134,18 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
 
     render () {
         const {
-            type, value, name, pattern, minlength, maxlength, autocomplete, placeholder, autoFocus, inputmode, readonly,
+            autocomplete,
+            autoFocus,
+            disabled,
+            inputmode,
+            maxlength,
+            minlength,
+            name,
+            pattern,
+            placeholder,
+            readonly,
+            type,
+            value,
         } = this;
 
         return html`
@@ -131,6 +155,7 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
                     type=${ifDefined(type)}
                     .value=${live(value)}
                     name=${ifDefined(name)}
+                    ?disabled=${live(disabled)}
                     pattern=${ifDefined(pattern)}
                     minlength=${ifDefined(minlength)}
                     maxlength=${ifDefined(maxlength)}

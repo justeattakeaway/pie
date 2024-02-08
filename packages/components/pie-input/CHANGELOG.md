@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-input
 
+## 0.10.0
+
+### Minor Changes
+
+- [Added] - Leading and Trailing content slots to pie-input component ([#1255](https://github.com/justeattakeaway/pie/pull/1255)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.9.0
 
 ### Minor Changes
