@@ -39,7 +39,7 @@
         line-height: var(--notification-heading-line-height);
     }
 
-    &[compact='true'] {
+    &[is-compact='true'] {
         --notification-direction: row;
     }
 

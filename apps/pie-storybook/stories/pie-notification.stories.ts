@@ -16,7 +16,7 @@ type NotificationStoryMeta = StoryMeta<NotificationProps>;
 const defaultArgs: NotificationProps = {
     isOpen: true,
     variant: 'neutral',
-    compact: false,
+    isCompact: false,
     slot: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sit amet tincidunt est, vitae vulputate turpis. Cras pretium venenatis elementum. Duis tristique neque non varius tempor. In hac habitasse platea dictumst. Aenean accumsan vehicula urna. Cras fringilla sed ipsum nec dignissim. Aliquam sit amet ullamcorper ligula.',
     heading: 'Title',
     headingLevel: 'h2',
@@ -42,7 +42,7 @@ const notificationStoryMeta: NotificationStoryMeta = {
                 summary: 'neutral',
             },
         },
-        compact: {
+        isCompact: {
             description: 'When true, the footer aligns to the header and icons which makes the component compact.',
             control: 'boolean',
             defaultValue: {
@@ -86,7 +86,7 @@ export default notificationStoryMeta;
 
 const Template : TemplateFunction<NotificationProps> = ({
     isOpen,
-    compact,
+    isCompact,
     variant,
     heading,
     headingLevel,
@@ -96,7 +96,7 @@ const Template : TemplateFunction<NotificationProps> = ({
     <pie-notification
         ?isOpen="${isOpen}"
         variant="${variant}"
-        ?compact="${compact}"
+        ?isCompact="${isCompact}"
         heading="${heading}"
         headingLevel="${headingLevel}"
         ?hideIcon="${hideIcon}"

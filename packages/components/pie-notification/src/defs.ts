@@ -10,7 +10,7 @@ export interface NotificationProps {
   /**
    * When true, the footer aligns to the header and icons which makes the component compact.
    */
-  compact?: boolean;
+  isCompact?: boolean;
 
   /**
    * The text to display in the modal's heading.

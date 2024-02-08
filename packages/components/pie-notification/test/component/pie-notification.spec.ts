@@ -16,7 +16,7 @@ const headingSelector = `[data-test-id="${rootSelector}-heading"]`;
 
 const defaultProps: NotificationProps = {
     variant: 'neutral',
-    compact: false,
+    isCompact: false,
     heading: 'Title',
     headingLevel: 'h2',
     hideIcon: false,

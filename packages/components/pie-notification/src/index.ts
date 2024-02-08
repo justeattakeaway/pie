@@ -35,7 +35,7 @@ export class PieNotification extends LitElement implements NotificationProps {
     public variant: NotificationProps['variant'] = 'neutral';
 
     @property({ type: Boolean })
-    public compact = false;
+    public isCompact = false;
 
     @property({ type: String })
     public heading!: string;
@@ -54,7 +54,7 @@ export class PieNotification extends LitElement implements NotificationProps {
 
     @queryAssignedElements({ slot: 'icon' }) _iconSlot!: Array<HTMLElement>;
 
-    protected firstUpdated(): void {
+    protected firstUpdated (): void {
         if (this._iconSlot.length > 0) {
             this._hasExternalIcon = true;
         }
@@ -158,7 +158,7 @@ export class PieNotification extends LitElement implements NotificationProps {
             variant,
             heading,
             headingLevel,
-            compact,
+            isCompact,
             renderNotificationHeading,
             renderIcon,
             _hasExternalIcon,
@@ -168,8 +168,8 @@ export class PieNotification extends LitElement implements NotificationProps {
         const headingTag = unsafeStatic(headingLevel);
 
         return html`
-            <div data-test-id="${componentSelector}" class="${componentClass}" variant="${variant}" compact="${compact}">
-                ${!compact ? renderCloseButton() : nothing}
+            <div data-test-id="${componentSelector}" class="${componentClass}" variant="${variant}" is-compact="${isCompact}">
+                ${!isCompact ? renderCloseButton() : nothing}
 
                 <section class="${componentClass}-content-section">
                     ${!hideIcon ? renderIcon(variant, _hasExternalIcon) : nothing}    
