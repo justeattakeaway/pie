@@ -835,5 +835,30 @@ test.describe('PieInput - Component tests', () => {
             // Assert
             expect(formDataObj).toStrictEqual({ email: 'test@test.com' });
         });
+
+        test('should not submit the value inside a disabled fieldset', async ({ page }) => {
+            // Arrange
+            await page.setContent(`
+                <form id="testForm" action="/foo" method="POST">
+                    <fieldset disabled>
+                        <pie-input type="text" name="username" value="excluded"></pie-input>
+                    </fieldset>
+                    <pie-input type="text" name="email" value="included@test.com"></pie-input>
+                    <button type="submit">Submit</button>
+                </form>
+                <div id="formDataJson""></div>
+            `);
+
+            await setupFormDataExtraction(page, '#testForm', '#formDataJson');
+
+            // Act
+            await page.click('button[type="submit"]');
+
+            const formDataObj = await getFormDataObject(page, '#formDataJson');
+
+            expect(formDataObj).toStrictEqual({
+                email: 'included@test.com',
+            });
+        });
     });
 });
