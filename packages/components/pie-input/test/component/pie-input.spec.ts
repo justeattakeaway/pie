@@ -391,7 +391,7 @@ test.describe('PieInput - Component tests', () => {
                 await page.setContent('<pie-input data-testid="testInput" type="text" autofocus></pie-input>');
 
                 // Act
-                const inputLocator = await page.getByTestId('testInput');
+                const inputLocator = page.getByTestId('testInput');
 
                 // Assert
                 await expect(inputLocator).toBeFocused();
@@ -403,7 +403,7 @@ test.describe('PieInput - Component tests', () => {
                 await page.setContent('<pie-input data-testid="testInput" type="text"></pie-input>');
 
                 // Act
-                const inputLocator = await page.getByTestId('testInput');
+                const inputLocator = page.getByTestId('testInput');
 
                 // Assert
                 await expect(inputLocator).not.toBeFocused();
@@ -497,7 +497,7 @@ test.describe('PieInput - Component tests', () => {
                 const component = await mount(PieInput, {});
 
                 // Act
-                const input = await component.locator('input');
+                const input = component.locator('input');
 
                 // Assert
                 expect(input).not.toBeDisabled();
@@ -513,7 +513,7 @@ test.describe('PieInput - Component tests', () => {
                 });
 
                 // Act
-                const input = await component.locator('input');
+                const input = component.locator('input');
 
                 // Assert
                 expect(input).toBeDisabled();
@@ -524,7 +524,7 @@ test.describe('PieInput - Component tests', () => {
                 await page.setContent('<pie-input type="text" disabled></pie-input>');
 
                 // Act
-                const input = await page.locator('pie-input');
+                const input = page.locator('pie-input');
                 await input.focus();
 
                 // Assert
@@ -536,7 +536,7 @@ test.describe('PieInput - Component tests', () => {
                 await page.setContent('<pie-input type="text"></pie-input>');
 
                 // Act
-                const input = await page.locator('pie-input');
+                const input = page.locator('pie-input');
                 await input.focus();
 
                 // Assert
@@ -596,7 +596,7 @@ test.describe('PieInput - Component tests', () => {
                 await input.type('test');
                 await page.keyboard.press('Backspace');
 
-                const output = await page.locator('#output');
+                const output = page.locator('#output');
 
                 // Assert
                 expect(await output.innerText()).toEqual(expectedMessage);
@@ -757,7 +757,6 @@ test.describe('PieInput - Component tests', () => {
                 <div id="formDataJson""></div>
             `);
 
-            // Setup form data extraction
             await setupFormDataExtraction(page, '#testForm', '#formDataJson');
 
             // Act
@@ -856,6 +855,7 @@ test.describe('PieInput - Component tests', () => {
 
             const formDataObj = await getFormDataObject(page, '#formDataJson');
 
+            // Assert
             expect(formDataObj).toStrictEqual({
                 email: 'included@test.com',
             });
