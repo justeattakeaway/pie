@@ -492,55 +492,59 @@ test.describe('PieInput - Component tests', () => {
         });
 
         test.describe('disabled', () => {
-            test('should not disable the component if the prop is not provided', async ({ mount }) => {
-                // Arrange
-                const component = await mount(PieInput, {});
+            test.describe('when true', () => {
+                test('should disable the component', async ({ mount }) => {
+                    // Arrange
+                    const component = await mount(PieInput, {
+                        props: {
+                            disabled: true,
+                            value: 'test',
+                        } as InputProps,
+                    });
 
-                // Act
-                const input = component.locator('input');
+                    // Act
+                    const input = component.locator('input');
 
-                // Assert
-                expect(input).not.toBeDisabled();
-            });
-
-            test('should disable the component if the prop is provided', async ({ mount }) => {
-                // Arrange
-                const component = await mount(PieInput, {
-                    props: {
-                        disabled: true,
-                        value: 'test',
-                    } as InputProps,
+                    // Assert
+                    expect(input).toBeDisabled();
                 });
 
-                // Act
-                const input = component.locator('input');
+                test('should not be able to focus the component', async ({ page }) => {
+                    // Arrange
+                    await page.setContent('<pie-input type="text" disabled></pie-input>');
 
-                // Assert
-                expect(input).toBeDisabled();
+                    // Act
+                    const input = page.locator('pie-input');
+                    await input.focus();
+
+                    // Assert
+                    expect(input).not.toBeFocused();
+                });
             });
 
-            test('should not be able to focus the component when disabled', async ({ page }) => {
-                // Arrange
-                await page.setContent('<pie-input type="text" disabled></pie-input>');
+            test.describe('when not provided', () => {
+                test('should not disable the component', async ({ mount }) => {
+                    // Arrange
+                    const component = await mount(PieInput, {});
 
-                // Act
-                const input = page.locator('pie-input');
-                await input.focus();
+                    // Act
+                    const input = component.locator('input');
 
-                // Assert
-                expect(input).not.toBeFocused();
-            });
+                    // Assert
+                    expect(input).not.toBeDisabled();
+                });
 
-            test('should still be able to focus the component when not disabled', async ({ page }) => {
-                // Arrange
-                await page.setContent('<pie-input type="text"></pie-input>');
+                test('should still be able to focus the component', async ({ page }) => {
+                    // Arrange
+                    await page.setContent('<pie-input type="text"></pie-input>');
 
-                // Act
-                const input = page.locator('pie-input');
-                await input.focus();
+                    // Act
+                    const input = page.locator('pie-input');
+                    await input.focus();
 
-                // Assert
-                expect(input).toBeFocused();
+                    // Assert
+                    expect(input).toBeFocused();
+                });
             });
         });
     });
