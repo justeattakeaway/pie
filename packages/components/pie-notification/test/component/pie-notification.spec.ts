@@ -80,10 +80,10 @@ test.describe('PieNotification - Component tests', () => {
         expect(header).not.toBeVisible();
     });
 
-    test('should not render the close icon if compact is true ', async ({ mount, page }) => {
+    test('should not render the close icon if isCompact is true ', async ({ mount, page }) => {
         // Arrange
         await mount(PieNotification, {
-            props: { ...defaultProps, compact: true },
+            props: { ...defaultProps, isCompact: true },
         });
 
         // Act
@@ -191,7 +191,6 @@ test.describe('PieNotification - Component tests', () => {
             expect(icon).toBeVisible();
         });
 
-        // const headingIconErrorSelector = `[data-test-id="${rootSelector}-heading-"]`;
         test('should render icon-error when variant is error', async ({ mount, page }) => {
             // Arrange
             await mount(PieNotification, {

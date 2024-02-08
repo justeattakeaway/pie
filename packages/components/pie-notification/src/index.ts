@@ -4,7 +4,7 @@ import {
     TemplateResult,
     nothing,
 } from 'lit';
-import { StaticValue, html, unsafeStatic } from 'lit/static-html.js';
+import { type StaticValue, html, unsafeStatic } from 'lit/static-html.js';
 import { defineCustomElement, validPropertyValues } from '@justeattakeaway/pie-webc-core';
 import { property, queryAssignedElements } from 'lit/decorators.js';
 import { type NotificationProps, variants, headingLevels } from './defs';

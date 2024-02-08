@@ -1,5 +1,4 @@
 @use '@justeattakeaway/pie-css/scss' as p;
-@use '@justeat/pie-design-tokens/dist/jet.scss' as dt;
 
 *,
 *:before,
@@ -83,9 +82,5 @@
         position: absolute;
         top: var(--dt-spacing-b);
         right: var(--dt-spacing-b);
-    }
-
-    &-footer {
-        background: blue;
     }
 }
