@@ -79,5 +79,5 @@ test('should render all prop variations with RTL set', async ({ page, mount }) =
         }));
     });
 
-    await percySnapshot(page, 'PIE Assistive Text - Variants', percyWidths);
+    await percySnapshot(page, 'PIE Assistive Text - Variants with RTL', percyWidths);
 });
