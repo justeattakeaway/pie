@@ -46,7 +46,15 @@ $ yo @justeattakeaway/pie-component
 
 An interactive prompt should now be displayed asking for a component name.
 
-Once you have completed all the prompts, your scaffolded component will be generated 🎉
+Once you have completed all the prompts, your scaffolded component will be generated! 🎉
+
+The newly-generated `package.json` file will most likely contain references to packages using a workspace version, e.g.:
+
+```json
+  "@justeattakeaway/pie-webc-core": "workspace:*"
+```
+
+Please replace any workspace versions with the latest published version for each package.
 
 _Note: If this step fails, ensure you have installed the repository dependencies with `yarn`. Otherwise this (and any other commands) will fail._
 
