@@ -70,6 +70,9 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
     @query('input')
     private input?: HTMLInputElement;
 
+    @query('input')
+    public focusTarget?: HTMLElement;
+
     /**
      * (Read-only) returns a ValidityState with the validity states that this element is in.
      * https://developer.mozilla.org/en-US/docs/Web/API/HTMLObjectElement/validity

@@ -66,6 +66,9 @@ export class PieSwitch extends FormControlMixin(RtlMixin(LitElement)) implements
     @property({ type: Boolean, reflect: true })
     public disabled = false;
 
+    @query('label')
+    public focusTarget?: HTMLElement;
+
     static styles = unsafeCSS(styles);
 
     /**
@@ -163,10 +166,6 @@ export class PieSwitch extends FormControlMixin(RtlMixin(LitElement)) implements
         }
 
         return html``;
-    }
-
-    public click () {
-        this.shadowRoot?.querySelector('label')?.click();
     }
 
     render () {

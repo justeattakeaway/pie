@@ -31,6 +31,23 @@ export class PieFormLabel extends RtlMixin(LitElement) implements FormLabelProps
         return optional ? html`<span class="c-formLabel-optional">${optional}</span>` : nothing;
     }
 
+    private handleClick () {
+        if (this.for) {
+            const target = document.querySelector(`#${this.for}`) as PIEInputElement;
+
+            if (!target) return;
+
+            const canReceiveFocus = 'focusTarget' in target &&
+                'focus' in target.focusTarget &&
+                'click' in target.focusTarget;
+
+            if (!canReceiveFocus) return;
+
+            target.focusTarget.focus();
+            target.focusTarget.click();
+        }
+    }
+
     render () {
         const {
             trailing,
@@ -39,6 +56,7 @@ export class PieFormLabel extends RtlMixin(LitElement) implements FormLabelProps
 
         return html`
             <label
+                @click=${this.handleClick}
                 data-test-id="pie-form-label"
                 class="c-formLabel"
                 for=${ifDefined(this.for)}>
