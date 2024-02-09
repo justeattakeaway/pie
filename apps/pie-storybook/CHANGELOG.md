@@ -1,5 +1,22 @@
 # Changelog
 
+## 0.63.0
+
+### Minor Changes
+
+- [Added] - Leading and Trailing content slots to pie-input component ([#1255](https://github.com/justeattakeaway/pie/pull/1255)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies [[`e3da38b60`](https://github.com/justeattakeaway/pie/commit/e3da38b60c5074da5422115ad16116a7413227f1), [`721e7550e`](https://github.com/justeattakeaway/pie/commit/721e7550e399332e675f23afb259e725dc7d63be), [`1df0fcf11`](https://github.com/justeattakeaway/pie/commit/1df0fcf1102e9bbb43b3428c964058b2b6059447)]:
+  - @justeattakeaway/pie-modal@0.38.5
+  - @justeattakeaway/pie-icon-button@0.27.3
+  - @justeattakeaway/pie-button@0.45.3
+  - @justeattakeaway/pie-link@0.15.1
+  - @justeattakeaway/pie-tag@0.6.1
+  - @justeattakeaway/pie-input@0.10.0
+  - @justeattakeaway/pie-cookie-banner@0.17.1
+
 ## 0.62.0
 
 ### Minor Changes

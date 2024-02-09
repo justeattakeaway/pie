@@ -1,6 +1,7 @@
 
 import { test, expect } from '@sand4rt/experimental-ct-web';
 import type { Page } from '@playwright/test';
+import { IconPlaceholder } from '@justeattakeaway/pie-icons-webc/IconPlaceholder';
 import { PieInput, InputProps } from '../../src/index.ts';
 
 const componentSelector = '[data-test-id="pie-input"]';
@@ -65,6 +66,9 @@ test.describe('PieInput - Component tests', () => {
     test.beforeEach(async ({ mount }) => {
         const component = await mount(PieInput);
         await component.unmount();
+
+        const iconComponent = await mount(IconPlaceholder);
+        await iconComponent.unmount();
     });
 
     test('should render successfully', async ({ mount, page }) => {
@@ -387,7 +391,7 @@ test.describe('PieInput - Component tests', () => {
                 await page.setContent('<pie-input data-testid="testInput" type="text" autofocus></pie-input>');
 
                 // Act
-                const inputLocator = await page.getByTestId('testInput');
+                const inputLocator = page.getByTestId('testInput');
 
                 // Assert
                 await expect(inputLocator).toBeFocused();
@@ -399,7 +403,7 @@ test.describe('PieInput - Component tests', () => {
                 await page.setContent('<pie-input data-testid="testInput" type="text"></pie-input>');
 
                 // Act
-                const inputLocator = await page.getByTestId('testInput');
+                const inputLocator = page.getByTestId('testInput');
 
                 // Assert
                 await expect(inputLocator).not.toBeFocused();
@@ -486,6 +490,63 @@ test.describe('PieInput - Component tests', () => {
                 expect(await page.evaluate(() => document.querySelector('pie-input')?.value)).toBe('foo');
             });
         });
+
+        test.describe('disabled', () => {
+            test.describe('when true', () => {
+                test('should disable the component', async ({ mount }) => {
+                    // Arrange
+                    const component = await mount(PieInput, {
+                        props: {
+                            disabled: true,
+                            value: 'test',
+                        } as InputProps,
+                    });
+
+                    // Act
+                    const input = component.locator('input');
+
+                    // Assert
+                    expect(input).toBeDisabled();
+                });
+
+                test('should not be able to focus the component', async ({ page }) => {
+                    // Arrange
+                    await page.setContent('<pie-input type="text" disabled></pie-input>');
+
+                    // Act
+                    const input = page.locator('pie-input');
+                    await input.focus();
+
+                    // Assert
+                    expect(input).not.toBeFocused();
+                });
+            });
+
+            test.describe('when not provided', () => {
+                test('should not disable the component', async ({ mount }) => {
+                    // Arrange
+                    const component = await mount(PieInput, {});
+
+                    // Act
+                    const input = component.locator('input');
+
+                    // Assert
+                    expect(input).not.toBeDisabled();
+                });
+
+                test('should still be able to focus the component', async ({ page }) => {
+                    // Arrange
+                    await page.setContent('<pie-input type="text"></pie-input>');
+
+                    // Act
+                    const input = page.locator('pie-input');
+                    await input.focus();
+
+                    // Assert
+                    expect(input).toBeFocused();
+                });
+            });
+        });
     });
 
     test.describe('Events', () => {
@@ -539,7 +600,7 @@ test.describe('PieInput - Component tests', () => {
                 await input.type('test');
                 await page.keyboard.press('Backspace');
 
-                const output = await page.locator('#output');
+                const output = page.locator('#output');
 
                 // Assert
                 expect(await output.innerText()).toEqual(expectedMessage);
@@ -633,6 +694,62 @@ test.describe('PieInput - Component tests', () => {
         });
     });
 
+    test.describe('Slots', () => {
+        test.describe('leading', () => {
+            test('should render the leading slot content', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieInput, {
+                    slots: {
+                        leading: '<icon-placeholder id="leading"></icon-placeholder>',
+                    },
+                });
+
+                // Act
+                const leadingSlot = component.locator('#leading');
+
+                // Assert
+                expect(leadingSlot).toBeVisible();
+            });
+        });
+
+        test.describe('trailing', () => {
+            test('should render the trailing slot content', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieInput, {
+                    slots: {
+                        trailing: '<icon-placeholder id="trailing"></icon-placeholder>',
+                    },
+                });
+
+                // Act
+                const trailingSlot = component.locator('#trailing');
+
+                // Assert
+                expect(trailingSlot).toBeVisible();
+            });
+        });
+
+        test.describe('leading and trailing', () => {
+            test('should render both the leading and trailing slot content', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieInput, {
+                    slots: {
+                        leading: '<icon-placeholder id="leading"></icon-placeholder>',
+                        trailing: '<span id="trailing">#</span>',
+                    },
+                });
+
+                // Act
+                const leadingSlot = component.locator('#leading');
+                const trailingSlot = component.locator('#trailing');
+
+                // Assert
+                expect(leadingSlot).toBeVisible();
+                expect(trailingSlot).toBeVisible();
+            });
+        });
+    });
+
     test.describe('Form integration', () => {
         test('should correctly set the value of username in the FormData object when submitted', async ({ page }) => {
             // Arrange
@@ -644,7 +761,6 @@ test.describe('PieInput - Component tests', () => {
                 <div id="formDataJson""></div>
             `);
 
-            // Setup form data extraction
             await setupFormDataExtraction(page, '#testForm', '#formDataJson');
 
             // Act
@@ -689,7 +805,7 @@ test.describe('PieInput - Component tests', () => {
             await page.setContent(`
                 <form id="testForm" action="/foo" method="POST">
                     <pie-input type="text" name="username"></pie-input>
-                    <button type="reset">Submit</button>
+                    <button type="reset">Reset</button>
                 </form>
             `);
 
@@ -699,6 +815,54 @@ test.describe('PieInput - Component tests', () => {
 
             await page.click('button[type="reset"]');
             expect(await page.evaluate(() => document.querySelector('pie-input')?.value)).toBe('');
+        });
+
+        test('should not submit the value for disabled inputs', async ({ page }) => {
+            // Arrange
+            await page.setContent(`
+                <form id="testForm" action="/foo" method="POST">
+                    <pie-input type="text" name="username" value="excluded" disabled></pie-input>
+                    <pie-input type="text" name="email" value="test@test.com"></pie-input>
+                    <button type="submit">Submit</button>
+                </form>
+                <div id="formDataJson""></div>
+            `);
+
+            await setupFormDataExtraction(page, '#testForm', '#formDataJson');
+
+            // Act
+            await page.click('button[type="submit"]');
+
+            const formDataObj = await getFormDataObject(page, '#formDataJson');
+
+            // Assert
+            expect(formDataObj).toStrictEqual({ email: 'test@test.com' });
+        });
+
+        test('should not submit the value inside a disabled fieldset', async ({ page }) => {
+            // Arrange
+            await page.setContent(`
+                <form id="testForm" action="/foo" method="POST">
+                    <fieldset disabled>
+                        <pie-input type="text" name="username" value="excluded"></pie-input>
+                    </fieldset>
+                    <pie-input type="text" name="email" value="included@test.com"></pie-input>
+                    <button type="submit">Submit</button>
+                </form>
+                <div id="formDataJson""></div>
+            `);
+
+            await setupFormDataExtraction(page, '#testForm', '#formDataJson');
+
+            // Act
+            await page.click('button[type="submit"]');
+
+            const formDataObj = await getFormDataObject(page, '#formDataJson');
+
+            // Assert
+            expect(formDataObj).toStrictEqual({
+                email: 'included@test.com',
+            });
         });
     });
 });

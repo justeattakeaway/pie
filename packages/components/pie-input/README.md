@@ -16,7 +16,8 @@
 4. [Peer Dependencies](#peer-dependencies)
 5. [Props](#props)
 6. [Events](#events)
-7. [Contributing](#contributing)
+7. [Slots](#slots)
+8. [Contributing](#contributing)
 
 ## pie-input
 
@@ -127,6 +128,12 @@ In your markup or JSX, you can then use these to set the properties for the `pie
 |-------|------|-------------|
 | `change` | `CustomEvent` | Triggered when the input loses focus after it's value has changed. |
 | `input` | `InputEvent` | Triggered when the input value is changed. |
+
+## Slots
+| Slot | Description |
+|------|-------------|
+| `leading` | An icon or short text to display at the start of the input. |
+| `trailing` | An icon or short text to display at the end of the input. |
 
 ## Contributing
 

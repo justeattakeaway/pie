@@ -1,5 +1,15 @@
 # @justeattakeaway/pie-modal
 
+## 0.38.5
+
+### Patch Changes
+
+- [Fixed] - reverted unnecessary CSS updates for logical properties ([#1250](https://github.com/justeattakeaway/pie/pull/1250)) by [@fernandofranca](https://github.com/fernandofranca)
+
+- Updated dependencies [[`721e7550e`](https://github.com/justeattakeaway/pie/commit/721e7550e399332e675f23afb259e725dc7d63be)]:
+  - @justeattakeaway/pie-icon-button@0.27.3
+  - @justeattakeaway/pie-button@0.45.3
+
 ## 0.38.4
 
 ### Patch Changes
