@@ -2,7 +2,7 @@ import {
     LitElement, TemplateResult, html, nothing, unsafeCSS,
 } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { RtlMixin, defineCustomElement } from '@justeattakeaway/pie-webc-core';
+import { RtlMixin, defineCustomElement, PIEInputElement } from '@justeattakeaway/pie-webc-core';
 import { property } from 'lit/decorators.js';
 import styles from './form-label.scss?inline';
 import { FormLabelProps } from './defs';
@@ -33,11 +33,9 @@ export class PieFormLabel extends RtlMixin(LitElement) implements FormLabelProps
 
     private handleClick () {
         if (this.for) {
-            const target = document.querySelector(`#${this.for}`) as PIEInputElement;
+            const target = document.querySelector(`#${this.for}`) as unknown as PIEInputElement;
 
-            if (!target) return;
-
-            const canReceiveFocus = 'focusTarget' in target &&
+            const canReceiveFocus = target && target.focusTarget &&
                 'focus' in target.focusTarget &&
                 'click' in target.focusTarget;
 

@@ -3,7 +3,7 @@ import {
 } from 'lit';
 import { property, query } from 'lit/decorators.js';
 import {
-    RtlMixin, validPropertyValues, defineCustomElement, FormControlMixin, wrapNativeEvent,
+    RtlMixin, validPropertyValues, defineCustomElement, FormControlMixin, wrapNativeEvent, PIEInputElement,
 } from '@justeattakeaway/pie-webc-core';
 import styles from './switch.scss?inline';
 import {
@@ -21,7 +21,7 @@ const componentSelector = 'pie-switch';
  * @tagname pie-switch
  * @event {CustomEvent} change - when the switch checked state is changed.
  */
-export class PieSwitch extends FormControlMixin(RtlMixin(LitElement)) implements SwitchProps {
+export class PieSwitch extends FormControlMixin(RtlMixin(LitElement)) implements SwitchProps, PIEInputElement {
     @query('input[type="checkbox"]')
     private input?: HTMLInputElement;
 
@@ -67,7 +67,7 @@ export class PieSwitch extends FormControlMixin(RtlMixin(LitElement)) implements
     public disabled = false;
 
     @query('label')
-    public focusTarget?: HTMLElement;
+    public focusTarget!: HTMLElement;
 
     static styles = unsafeCSS(styles);
 
