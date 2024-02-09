@@ -10,7 +10,7 @@ import {
 import '@justeattakeaway/pie-icons-webc/IconPlusCircle';
 
 import type { StoryMeta, SlottedComponentProps } from '../types';
-import { createStory, type TemplateFunction } from '../utilities';
+import { createStory, type TemplateFunction, sanitizeAndRenderHTML } from '../utilities';
 
 type LinkProps = SlottedComponentProps<LinkBaseProps>;
 type LinkStoryMeta = StoryMeta<LinkProps>;
@@ -165,7 +165,7 @@ const Template : TemplateFunction<LinkProps> = ({
             ?isStandalone="${isStandalone}"
             ?hasVisited="${hasVisited}">
             ${iconPlacement ? html`<icon-plus-circle slot="icon"></icon-plus-circle>` : nothing}
-            ${slot}
+            ${sanitizeAndRenderHTML(slot)}
         </pie-link>`;
 
 const createLinkStory = createStory<LinkProps>(Template, defaultArgs);

@@ -74,6 +74,8 @@ _Note: If this step fails, ensure you have installed the repository dependencies
   PERCY_TOKEN_PIE_COMPONENT_NAME: ${{ secrets.PERCY_TOKEN_PIE_COMPONENT_NAME }}
 ```
 
+- Now you need to add this token as a repository secret in github. It must be named `PERCY_TOKEN_PIE_COMPONENT_NAME` and the value should be the Percy token for the component. Visual tests will not work/run if this is not set up correctly.
+
 ### Setting up the project label for Github:
 
 - Create a label for the component in the GitHub UI

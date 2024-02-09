@@ -9,7 +9,7 @@ import {
 import '@justeattakeaway/pie-icons-webc/IconHeartFilled';
 
 import type { StoryMeta, SlottedComponentProps } from '../types';
-import { createStory, type TemplateFunction } from '../utilities';
+import { createStory, type TemplateFunction, sanitizeAndRenderHTML } from '../utilities';
 
 type TagProps = SlottedComponentProps<TagBaseProps> & { showIcon: boolean };
 type TagStoryMeta = StoryMeta<TagProps>;
@@ -65,6 +65,10 @@ const tagStoryMeta: TagStoryMeta = {
             },
             if: { arg: 'size', eq: 'large' },
         },
+        slot: {
+            description: 'Content to place within the tag',
+            control: 'text',
+        },
     },
     args: defaultArgs,
     parameters: {
@@ -91,7 +95,7 @@ const Template : TemplateFunction<TagProps> = ({
         ?isStrong="${isStrong}"
         ?isDimmed="${isDimmed}">
         ${showIcon ? html`<icon-heart-filled slot="icon"></icon-heart-filled>` : nothing}
-        ${slot}
+        ${sanitizeAndRenderHTML(slot)}
     </pie-tag>
 `;
 

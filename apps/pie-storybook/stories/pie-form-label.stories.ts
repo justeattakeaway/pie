@@ -6,7 +6,7 @@ import { FormLabelProps as FormLabelPropsBase } from '@justeattakeaway/pie-form-
 /* eslint-enable import/no-duplicates */
 
 import { SlottedComponentProps, type StoryMeta } from '../types';
-import { createStory, type TemplateFunction } from '../utilities';
+import { createStory, type TemplateFunction, sanitizeAndRenderHTML } from '../utilities';
 
 type FormLabelProps = SlottedComponentProps<FormLabelPropsBase>;
 type FormLabelStoryMeta = StoryMeta<FormLabelProps>;
@@ -69,7 +69,7 @@ const Template: TemplateFunction<FormLabelProps> = ({
             for="${props.for}"
             optional="${optional || nothing}"
             trailing="${trailing || nothing}">
-                ${slot}
+            ${sanitizeAndRenderHTML(slot)}
         </pie-form-label>`;
 
 export const Default = createStory<FormLabelProps>(Template, defaultArgs)();
