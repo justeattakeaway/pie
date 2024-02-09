@@ -52,16 +52,16 @@ export class PieButton extends FormControlMixin(LitElement) implements ButtonPro
     }
 
     @property()
-    @validPropertyValues(componentSelector, sizes, 'medium')
-    public size: ButtonProps['size'] = 'medium';
+    @validPropertyValues(componentSelector, sizes, 'large')
+    public size: ButtonProps['size'] = 'large';
 
     @property()
     @validPropertyValues(componentSelector, types, 'submit')
     public type: ButtonProps['type'] = 'submit';
 
     @property()
-    @validPropertyValues(componentSelector, variants, 'primary')
-    public variant: ButtonProps['variant'] = 'primary';
+    @validPropertyValues(componentSelector, variants, 'secondary')
+    public variant: ButtonProps['variant'] = 'secondary';
 
     @property({ type: String })
     @validPropertyValues(componentSelector, iconPlacements, 'leading')

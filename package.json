@@ -3,6 +3,7 @@
   "description": "The home of Just Eat Takeaway.com's PIE Design System",
   "version": "2.53.0",
   "keywords": [],
+  "type": "module",
   "author": "Just Eat Takeaway.com - Design System Team",
   "license": "Apache-2.0",
   "packageManager": "yarn@3.5.0",
@@ -134,5 +135,9 @@
   "resolutions": {
     "@babel/traverse": "7.22.5",
     "lit": "3.1.1"
+  },
+  "dependencies": {
+    "@octokit/rest": "20.0.2",
+    "node-fetch": "^3.3.2"
   }
 }

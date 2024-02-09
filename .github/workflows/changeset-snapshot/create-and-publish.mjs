@@ -1,4 +1,7 @@
-module.exports = async ({ github, context }, execa) => {
+import { Octokit } from '@octokit/rest';
+import fetch from 'node-fetch';
+
+export default async function createAndPublish ({ github, context }, execa) {
     await execa.command('yarn changeset:version --snapshot snapshot-release', { stdio: 'inherit' });
 
     const releaseProcess = execa.command('yarn changeset:publish --no-git-tags --snapshot --tag snapshot-release');
@@ -36,6 +39,27 @@ yarn install
 yarn up ${newTags[0]}
 \`\`\``;
         }
+
+    // After posting the comment about the snapshot release, trigger the PIE-Aperture CI
+    const octokit = new Octokit({ auth: `Bearer ${process.env.GITHUB_TOKEN}` });
+
+    try {
+        await octokit.rest.repos.createDispatchEvent({
+            request:{
+                fetch: fetch
+            },
+            owner: 'justeattakeaway',
+            repo: 'PIE-Aperture',
+            event_type: 'pie-snapshot-trigger',
+            client_payload: {
+                snapshotVersions: newTags, // Pass the newTags array as part of the payload
+            },
+        });
+
+        console.log('Successfully dispatched PIE-Aperture CI trigger event.');
+    } catch (error) {
+        console.error('Failed to dispatch PIE-Aperture CI trigger event:', error);
+    }
     } else {
         body = `No changed packages found! Please make sure you have added a changeset entry for the packages you would like to snapshot.`;
     }

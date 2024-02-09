@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-modal",
   "version": "0.38.5",
-  "description": "PIE design system modal built using web components",
+  "description": "PIE design system modal built using web components - snapshot aperture test",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
