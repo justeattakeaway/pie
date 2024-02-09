@@ -2,4 +2,4 @@
 "@justeattakeaway/pie-button": minor
 ---
 
-dummy test to change default button prop values
+dummy test to change default button prop values.
