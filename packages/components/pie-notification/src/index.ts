@@ -93,27 +93,54 @@ export class PieNotification extends LitElement implements NotificationProps {
     }
 
     /**
+     * Util static function that returns a boolean if variant has a default icon.
+     *
+     * @param {NotificationProps['variant']} variant
+     *
+     * @static
+     */
+    static variantHasDefaultIcon (variant: NotificationProps['variant']) {
+        const validVariants = ['info', 'success', 'warning', 'error'];
+
+        return validVariants.includes(variant);
+    }
+
+    /**
+     * Util static function that returns an icon from a variant that has default icon.
+     *
+     * @param {NotificationProps['variant']} variant
+     *
+     * @static
+     */
+    static getDefaultVariantIcon (variant: NotificationProps['variant']) {
+        switch (variant) {
+            case 'info':
+                return html`<icon-info-circle size="s" data-test-id="${componentSelector}-heading-icon-info"></icon-info-circle>`;
+            case 'success':
+                return html`<icon-check-circle size="s" data-test-id="${componentSelector}-heading-icon-success"></icon-check-circle>`;
+            case 'warning':
+                return html`<icon-alert-triangle size="s" data-test-id="${componentSelector}-heading-icon-warning"></icon-alert-triangle>`;
+            case 'error':
+                return html`<icon-alert-circle size="s" data-test-id="${componentSelector}-heading-icon-error"></icon-alert-circle>`;
+            default:
+                return nothing as never;
+        }
+    }
+
+    /**
      * Util static function that returns a template with a default icon according to the chosen variant.
      * Called within the renderIcon method.
      *
-     * @param {boolean} variant
+     * @param {NotificationProps['variant']} variant
      *
      * @static
      */
     static renderIconVariant (variant: NotificationProps['variant']) {
-        let iconVariant = null;
-
-        if (variant === 'info') {
-            iconVariant = html`<icon-info-circle size="s" data-test-id="${componentSelector}-heading-icon-info"></icon-info-circle>`;
-        } else if (variant === 'success') {
-            iconVariant = html`<icon-check-circle size="s" data-test-id="${componentSelector}-heading-icon-success"></icon-check-circle>`;
-        } else if (variant === 'warning') {
-            iconVariant = html`<icon-alert-triangle size="s" data-test-id="${componentSelector}-heading-icon-warning"></icon-alert-triangle>`;
-        } else if (variant === 'error') {
-            iconVariant = html`<icon-alert-circle size="s" data-test-id="${componentSelector}-heading-icon-error"></icon-alert-circle>`;
+        if (PieNotification.variantHasDefaultIcon(variant)) {
+            return PieNotification.getDefaultVariantIcon(variant);
         }
 
-        return iconVariant;
+        return nothing;
     }
 
     /**
