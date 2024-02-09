@@ -7,6 +7,7 @@ import { validPropertyValues, defineCustomElement } from '@justeattakeaway/pie-w
 import styles from './chip.scss?inline';
 import { ChipProps, variants } from './defs';
 import '@justeattakeaway/pie-icons-webc/IconCloseCircleFilled';
+import '@justeattakeaway/pie-spinner';
 
 // Valid values available to consumers
 export * from './defs';
