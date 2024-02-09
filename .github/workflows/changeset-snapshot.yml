@@ -140,7 +140,7 @@ jobs:
           github-token: ${{ secrets.CHANGESETS_TOKEN }}
           script: |
             const execa = require('execa');
-            const script = require('./.github/workflows/changeset-snapshot/create-and-publish.js')
+            const script = require('./.github/workflows/changeset-snapshot/create-and-publish.mjs')
             await script({ github, context }, execa);
             
 

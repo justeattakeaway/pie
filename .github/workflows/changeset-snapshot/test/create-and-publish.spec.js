@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, test, vi } from 'vitest';
-const workflow = require('../create-and-publish');
-const { Readable } = require('stream');
+import { createAndPublish } from '../create-and-publish.mjs';
+import { Readable } from 'stream';
 
 let context;
 let execa;
@@ -63,7 +63,7 @@ describe('create and publish workflow', () => {
 
     test('should create a github comment', async () => {
         // Act
-        await workflow({ context, github }, execa);
+        await createAndPublish({ context, github }, execa);
 
         // Assert
         expect(github.rest.issues.createComment).toHaveBeenCalledTimes(1);
@@ -75,7 +75,7 @@ describe('create and publish workflow', () => {
             sampleOutput = '';
 
             // Act
-            await workflow({ context, github }, execa);
+            await createAndPublish({ context, github }, execa);
 
             // Assert
             expect(expectedBody.startsWith('No changed packages found!')).toBe(true);
@@ -92,7 +92,7 @@ describe('create and publish workflow', () => {
             `;
 
             // Act
-            await workflow({ context, github }, execa);
+            await createAndPublish({ context, github }, execa);
 
             // Assert
             expect(expectedBody).toMatchSnapshot();
@@ -106,7 +106,7 @@ describe('create and publish workflow', () => {
             `;
 
             // Act
-            await workflow({ context, github }, execa);
+            await createAndPublish({ context, github }, execa);
 
             // Assert
             expect(expectedBody).toMatchSnapshot();
@@ -121,7 +121,7 @@ describe('create and publish workflow', () => {
             `;
 
             // Act
-            await workflow({ context, github }, execa);
+            await createAndPublish({ context, github }, execa);
 
             // Assert
             expect(expectedBody).toMatchSnapshot();
@@ -137,7 +137,7 @@ describe('create and publish workflow', () => {
             `;
 
             // Act
-            await workflow({ context, github }, execa);
+            await createAndPublish({ context, github }, execa);
 
             // Assert
             expect(expectedBody).toMatchSnapshot();
