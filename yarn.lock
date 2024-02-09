@@ -5533,8 +5533,10 @@ __metadata:
   resolution: "@justeattakeaway/pie-chip@workspace:packages/components/pie-chip"
   dependencies:
     "@custom-elements-manifest/analyzer": 0.9.0
-    "@justeattakeaway/pie-components-config": "workspace:*"
-    "@justeattakeaway/pie-webc-core": "workspace:*"
+    "@justeattakeaway/pie-components-config": 0.10.0
+    "@justeattakeaway/pie-icons-webc": 0.17.2
+    "@justeattakeaway/pie-spinner": 0.5.2
+    "@justeattakeaway/pie-webc-core": 0.17.1
     cem-plugin-module-file-extensions: 0.0.5
   languageName: unknown
   linkType: soft
@@ -5548,6 +5550,17 @@ __metadata:
     cem-plugin-module-file-extensions: 0.0.5
   languageName: unknown
   linkType: soft
+
+"@justeattakeaway/pie-components-config@npm:0.10.0":
+  version: 0.10.0
+  resolution: "@justeattakeaway/pie-components-config@npm:0.10.0"
+  dependencies:
+    deepmerge-ts: 5.1.0
+  peerDependencies:
+    cem-plugin-module-file-extensions: 0.0.5
+  checksum: ece4df9ede404d966231fd1537899280106da089043dc0d17bda94333801437472e34b897e902ca5b815996aaa937d1e6616d2fe83cf52f9dbca02f0e7f39623
+  languageName: node
+  linkType: hard
 
 "@justeattakeaway/pie-components-config@npm:0.9.0":
   version: 0.9.0

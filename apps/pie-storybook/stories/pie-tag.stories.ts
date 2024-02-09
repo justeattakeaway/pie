@@ -11,7 +11,7 @@ import '@justeattakeaway/pie-icons-webc/IconHeartFilled';
 import type { StoryMeta, SlottedComponentProps } from '../types';
 import { createStory, type TemplateFunction } from '../utilities';
 
-type TagProps = SlottedComponentProps<TagBaseProps>;
+type TagProps = SlottedComponentProps<TagBaseProps> & { showIcon: boolean };
 type TagStoryMeta = StoryMeta<TagProps>;
 
 const defaultArgs: TagProps = {
