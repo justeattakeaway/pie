@@ -2,12 +2,13 @@
 
 // Base tag styles
 .c-tag {
-    // The following values set to a default tag (neutral large)
-    --tag-bg-color: var(--dt-color-container-inverse);
-    --tag-color: var(--dt-color-content-inverse);
-    --tag-padding: 2px var(--dt-spacing-b);
-    --tag-height: 24px;
+    --tag-bg-color: var(--dt-color-container-strong);
+    --tag-color: var(--dt-color-content-default);
     --tag-border-radius: var(--dt-radius-rounded-b);
+    --tag-border-width: 1px;
+    --tag-border-color: transparent;
+    --tag-padding-block: calc(2px - var(--tag-border-width));
+    --tag-padding-inline: calc(var(--dt-spacing-b) - var(--tag-border-width));
     --tag-font-family: var(--dt-font-body-s-family);
     --tag-font-weight: var(--dt-font-body-s-weight);
     --tag-font-size: #{p.font-size(--dt-font-body-s-size)};
@@ -15,10 +16,6 @@
 
     // transparent to variable to function properly in component tests
     --tag-transparent-bg-color: transparent;
-
-    // Heights for the different tag sizes
-    --tag-height-large: 24px;
-    --tag-height-small: 16px;
 
     // Pie Webc Icon var that is used to ensure the correctly sized icon passed in a slot
     --icon-display-override: block;
@@ -29,9 +26,12 @@
     align-items: center;
     justify-content: center;
     gap: var(--dt-spacing-a);
-    height: var(--tag-height);
-    padding: var(--tag-padding);
-    border: none;
+    padding-inline-start: var(--tag-padding-inline);
+    padding-inline-end: var(--tag-padding-inline);
+    padding-block-start: var(--tag-padding-block);
+    padding-block-end: var(--tag-padding-block);
+    border: 1px solid;
+    border-color: var(--tag-border-color);
     border-radius: var(--tag-border-radius);
     background-color: var(--tag-bg-color);
     color: var(--tag-color);
@@ -42,25 +42,20 @@
 
     // Size
     &[size='small'] {
-        --tag-height: var(--tag-height-small);
-        --tag-padding: 0 var(--dt-spacing-a);
+        --tag-padding-block: 0;
+        --tag-padding-inline: calc(var(--dt-spacing-a) - var(--tag-border-width));
         --tag-border-radius: var(--dt-radius-rounded-a);
         --tag-font-size: #{p.font-size(--dt-font-caption-size)};
         --tag-line-height: #{p.line-height(--dt-font-caption-line-height)};
     }
 
     &[size='large'] {
-        --tag-height: var(--tag-height-large);
-        --tag-padding: 2px var(--dt-spacing-b);
-        --tag-border-radius: var(--dt-radius-rounded-b);
-        --tag-font-size: #{p.font-size(--dt-font-body-s-size)};
-        --tag-line-height: #{p.line-height(--dt-font-body-s-line-height)};
+        // same as default styles
     }
 
     // Variant
     &[variant='neutral'] {
-        --tag-bg-color: var(--dt-color-container-strong);
-        --tag-color: var(--dt-color-content-default);
+        // same as default styles
 
         &[isStrong] {
             --tag-bg-color: var(--dt-color-container-inverse);
@@ -104,7 +99,7 @@
 
         &[isStrong] {
             --tag-bg-color: var(--dt-color-support-error);
-            --tag-color: var(--dt-color-content-inverse);
+            --tag-color: var(--dt-color-content-light);
         }
     }
 
@@ -121,15 +116,7 @@
     &[variant='outline'] {
         --tag-bg-color: var(--tag-transparent-bg-color);
         --tag-color: var(--dt-color-content-default);
-        border: 1px solid var(--dt-color-border-strong);
-
-        &[size='small'] {
-            --tag-padding: 0 3px; // small tag padding minus 1px of the border
-        }
-
-        &[size='large'] {
-            --tag-padding: 1px 7px; // large tag padding minus 1px of the border
-        }
+        --tag-border-color: var(--dt-color-border-strong);
     }
 
     &[variant='ghost'] {
