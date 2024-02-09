@@ -133,14 +133,14 @@ jobs:
             done
 
       - name: Create and publish snapshot release
-        uses: actions/github-script@v6
+        uses: actions/github-script@v7
         env:
           GITHUB_TOKEN: ${{ secrets.CHANGESETS_TOKEN }}
         with:
           github-token: ${{ secrets.CHANGESETS_TOKEN }}
           script: |
             const execa = require('execa');
-            const { default: createAndPublish } = await import('./github/workflows/changeset-snapshot/create-and-publish.mjs');
+            const { default: createAndPublish } = await import('./github/workflows/changeset-snapshot/create-and-publish.js');
             await createAndPublish({ github, context }, execa);
             
 
