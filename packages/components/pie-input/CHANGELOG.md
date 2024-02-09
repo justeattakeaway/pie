@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-input
 
+## 0.11.0
+
+### Minor Changes
+
+- [Added] - disabled prop ([#1246](https://github.com/justeattakeaway/pie/pull/1246)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
 ## 0.10.0
 
 ### Minor Changes
