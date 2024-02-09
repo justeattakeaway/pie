@@ -1,7 +1,7 @@
 import { Octokit } from '@octokit/rest';
 import fetch from 'node-fetch';
 
-const createAndPublish = async ({ github, context }, execa) => {
+export default async function createAndPublish ({ github, context }, execa) {
     await execa.command('yarn changeset:version --snapshot snapshot-release', { stdio: 'inherit' });
 
     const releaseProcess = execa.command('yarn changeset:publish --no-git-tags --snapshot --tag snapshot-release');
@@ -71,7 +71,3 @@ yarn up ${newTags[0]}
         body,
     });
 };
-
-export {
-    createAndPublish
-}

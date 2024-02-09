@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, test, vi } from 'vitest';
-import { createAndPublish } from '../create-and-publish.mjs';
+import createAndPublish from '../create-and-publish.mjs';
 import { Readable } from 'stream';
 
 let context;
