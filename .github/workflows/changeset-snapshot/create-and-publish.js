@@ -1,4 +1,5 @@
 const { Octokit } = require("@octokit/rest");
+const fetch = require('node-fetch');
 
 module.exports = async ({ github, context }, execa) => {
     await execa.command('yarn changeset:version --snapshot snapshot-release', { stdio: 'inherit' });
@@ -44,6 +45,9 @@ yarn up ${newTags[0]}
 
     try {
         await octokit.rest.repos.createDispatchEvent({
+            request:{
+                fetch: fetch
+            },
             owner: 'justeattakeaway',
             repo: 'PIE-Aperture',
             event_type: 'pie-snapshot-trigger',
