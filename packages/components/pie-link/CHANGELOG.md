@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-link
 
+## 0.15.1
+
+### Patch Changes
+
+- [Changed] - replaces inline icon in visual tests with pie-icon-webc ([#1149](https://github.com/justeattakeaway/pie/pull/1149)) by [@dandel10n](https://github.com/dandel10n)
+
 ## 0.15.0
 
 ### Minor Changes

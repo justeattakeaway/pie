@@ -18,6 +18,11 @@ export interface InputProps {
     name?: string;
 
     /**
+     * Same as the HTML disabled attribute - indicates whether or not the input is disabled.
+     */
+    disabled?: boolean;
+
+    /**
      * Specifies a regular expression the form control's value should match
      */
     pattern?: string;

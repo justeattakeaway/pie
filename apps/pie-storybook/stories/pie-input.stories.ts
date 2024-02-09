@@ -25,6 +25,7 @@ const defaultArgs: InputProps = {
     type: 'text',
     value: '',
     name: 'testName',
+    disabled: false,
     autocomplete: 'off',
     autoFocus: false,
     leadingSlot: 'None',
@@ -57,6 +58,13 @@ const inputStoryMeta: InputStoryMeta = {
             control: 'text',
             defaultValue: {
                 summary: 'testName',
+            },
+        },
+        disabled: {
+            description: 'If true, disables the input field.',
+            control: 'boolean',
+            defaultValue: {
+                summary: false,
             },
         },
         pattern: {
@@ -151,6 +159,7 @@ const Template = ({
     type,
     value,
     name,
+    disabled,
     pattern,
     minlength,
     maxlength,
@@ -198,6 +207,7 @@ const Template = ({
             type="${ifDefined(type)}"
             .value="${value}"
             name="${ifDefined(name)}"
+            ?disabled="${disabled}"
             pattern="${ifDefined(pattern)}"
             minlength="${ifDefined(minlength)}"
             maxlength="${ifDefined(maxlength)}"
