@@ -30,7 +30,7 @@
     padding-inline-end: var(--tag-padding-inline);
     padding-block-start: var(--tag-padding-block);
     padding-block-end: var(--tag-padding-block);
-    border: 1px solid;
+    border: var(--tag-border-width) solid;
     border-color: var(--tag-border-color);
     border-radius: var(--tag-border-radius);
     background-color: var(--tag-bg-color);
