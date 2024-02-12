@@ -7,6 +7,7 @@ const rootSelector = 'pie-notification';
 const componentSelector = `[data-test-id="${rootSelector}"]`;
 const iconCloseSelector = `[data-test-id="${rootSelector}-icon-close"]`;
 const slottedIconSelector = `[data-test-id="${rootSelector}-icon-slotted"]`;
+const iconAreaSelector = `[data-test-id="${rootSelector}-heading-icon-area"]`;
 const headingIconInfoSelector = `[data-test-id="${rootSelector}-heading-icon-info"]`;
 const headingIconSuccessSelector = `[data-test-id="${rootSelector}-heading-icon-success"]`;
 const headingIconWarningSelector = `[data-test-id="${rootSelector}-heading-icon-warning"]`;
@@ -223,12 +224,14 @@ test.describe('PieNotification - Component tests', () => {
 
                     // Act
                     const notification = page.locator(componentSelector);
+                    const iconArea = page.locator(iconAreaSelector);
+                    const iconSelector = page.locator(`[data-test-id="${rootSelector}-heading-icon-${variant}"]`);
 
                     // Assert
                     expect(notification).toBeVisible();
                     expect(notification).toHaveAttribute('variant', variant);
-
-                    // TODO: Assert Icons
+                    expect(iconSelector).not.toBeVisible();
+                    expect(iconArea).not.toBeVisible();
                 });
             });
         });
