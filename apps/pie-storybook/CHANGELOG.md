@@ -1,5 +1,22 @@
 # Changelog
 
+## 0.64.0
+
+### Minor Changes
+
+- [Added] - `sanitizeAndRenderHTML` utility for slots in button, link, form-label, tag and assistive-text stories ([#1251](https://github.com/justeattakeaway/pie/pull/1251)) by [@LTurns](https://github.com/LTurns)
+
+- [Added] - basic functionality of the chip component including variants, selected and disabled, loading and dismissible states ([#1248](https://github.com/justeattakeaway/pie/pull/1248)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- [Added] - disabled prop ([#1246](https://github.com/justeattakeaway/pie/pull/1246)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- Updated dependencies [[`9a37997dd`](https://github.com/justeattakeaway/pie/commit/9a37997ddbd4855344dba530c413bc0f443d1103), [`1313c73b7`](https://github.com/justeattakeaway/pie/commit/1313c73b7deea16d257b598124ca96b8b07222bf), [`69977c413`](https://github.com/justeattakeaway/pie/commit/69977c413459e3858dc57e572a198c1b59155727), [`e74d057e2`](https://github.com/justeattakeaway/pie/commit/e74d057e26e496b7226b256c08efa4d46344593b), [`86d3655a4`](https://github.com/justeattakeaway/pie/commit/86d3655a44fbb1e66c6bd1f841801daa600e21b0)]:
+  - @justeattakeaway/pie-chip@0.1.0
+  - @justeattakeaway/pie-assistive-text@0.2.0
+  - @justeattakeaway/pie-input@0.11.0
+
 ## 0.63.0
 
 ### Minor Changes
