@@ -68,8 +68,8 @@
         display: flex;
         flex-direction: row;
 
-        :nth-child(2) {
-            margin-left: var(--dt-spacing-c);
+        .has-icon {
+            margin-right: var(--dt-spacing-c);
         }
     }
 

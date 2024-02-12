@@ -98,7 +98,7 @@ export class PieNotification extends LitElement implements NotificationProps {
     /**
      * Util static function that returns a boolean if variant has a default icon.
      *
-     * @param {NotificationProps['variant']} variant
+     * @param {InternalVariantType} variant
      *
      * @static
      */
@@ -111,7 +111,7 @@ export class PieNotification extends LitElement implements NotificationProps {
     /**
      * Util static function that returns an icon from a variant that has default icon.
      *
-     * @param {NotificationProps['variant']} variant
+     * @param {InternalVariantType} variant
      *
      * @static
      */
@@ -134,7 +134,7 @@ export class PieNotification extends LitElement implements NotificationProps {
      * Util static function that returns a template with a default icon according to the chosen variant.
      * Called within the renderIcon method.
      *
-     * @param {NotificationProps['variant']} variant
+     * @param {InternalVariantType} variant
      *
      * @static
      */
@@ -151,14 +151,14 @@ export class PieNotification extends LitElement implements NotificationProps {
      * It can return an icon provided externally via named slot or it can return an default icon according to the chosen variant.
      * Called within the main render function.
      *
-     * @param {NotificationProps['variant']} variant
+     * @param {InternalVariantType} variant
      * @param {boolean} hasExternalIcon
      *
      * @private
      */
     private renderIcon (variant: InternalVariantType, hasExternalIcon: boolean): TemplateResult | typeof nothing {
         return html`
-            <div class="${componentClass}-heading-icon">
+            <div data-test-id="TEST" class="${hasExternalIcon || PieNotification.variantHasDefaultIcon(variant) ? 'has-icon ' : ''}${componentClass}-heading-icon">
                 ${!hasExternalIcon ? PieNotification.renderIconVariant(variant) : nothing}
                 <slot name="icon"></slot>
             </div>
