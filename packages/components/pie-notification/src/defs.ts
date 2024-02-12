@@ -5,7 +5,7 @@ export interface NotificationProps {
   /**
    * Set the variant of the notification.
    */
-  variant: typeof variants[number];
+  variant?: typeof variants[number];
 
   /**
    * When true, the footer aligns to the header and icons which makes the component compact.
@@ -20,7 +20,7 @@ export interface NotificationProps {
   /**
    * The HTML heading tag to use for the modal's heading. Can be h1-h6.
    */
-  headingLevel: typeof headingLevels[number];
+  headingLevel?: typeof headingLevels[number];
 
   /**
    * Option to hide the icon regardless its variant or if user provided an icon.
@@ -30,5 +30,5 @@ export interface NotificationProps {
   /**
    * When true, the notification is set to be open and visible.
    */
-  isOpen: boolean;
+  isOpen?: boolean;
 }

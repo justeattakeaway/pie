@@ -23,16 +23,19 @@ export * from './defs';
 const componentSelector = 'pie-notification';
 const componentClass = 'c-notification';
 
+type InternalVariantType = Exclude<NotificationProps['variant'], undefined>;
+type InternalHeadingLevelType = Exclude<NotificationProps['headingLevel'], undefined>;
+
 /**
  * @tagname pie-notification
  */
 export class PieNotification extends LitElement implements NotificationProps {
     @property({ type: Boolean })
-    public isOpen = false;
+    public isOpen = true;
 
     @property()
     @validPropertyValues(componentSelector, variants, 'neutral')
-    public variant: NotificationProps['variant'] = 'neutral';
+    public variant: InternalVariantType = 'neutral';
 
     @property({ type: Boolean })
     public isCompact = false;
@@ -42,7 +45,7 @@ export class PieNotification extends LitElement implements NotificationProps {
 
     @property()
     @validPropertyValues(componentSelector, headingLevels, 'h2')
-    public headingLevel: NotificationProps['headingLevel'] = 'h2';
+    public headingLevel: InternalHeadingLevelType = 'h2';
 
     @property({ type: Boolean })
     public hideIcon = false;
@@ -99,7 +102,7 @@ export class PieNotification extends LitElement implements NotificationProps {
      *
      * @static
      */
-    static variantHasDefaultIcon (variant: NotificationProps['variant']) {
+    static variantHasDefaultIcon (variant: InternalVariantType) {
         const validVariants = ['info', 'success', 'warning', 'error'];
 
         return validVariants.includes(variant);
@@ -112,7 +115,7 @@ export class PieNotification extends LitElement implements NotificationProps {
      *
      * @static
      */
-    static getDefaultVariantIcon (variant: NotificationProps['variant']) {
+    static getDefaultVariantIcon (variant: InternalVariantType) {
         switch (variant) {
             case 'info':
                 return html`<icon-info-circle size="s" data-test-id="${componentSelector}-heading-icon-info"></icon-info-circle>`;
@@ -135,7 +138,7 @@ export class PieNotification extends LitElement implements NotificationProps {
      *
      * @static
      */
-    static renderIconVariant (variant: NotificationProps['variant']) {
+    static renderIconVariant (variant: InternalVariantType) {
         if (PieNotification.variantHasDefaultIcon(variant)) {
             return PieNotification.getDefaultVariantIcon(variant);
         }
@@ -153,7 +156,7 @@ export class PieNotification extends LitElement implements NotificationProps {
      *
      * @private
      */
-    private renderIcon (variant: NotificationProps['variant'], hasExternalIcon: boolean): TemplateResult | typeof nothing {
+    private renderIcon (variant: InternalVariantType, hasExternalIcon: boolean): TemplateResult | typeof nothing {
         return html`
             <div class="${componentClass}-heading-icon">
                 ${!hasExternalIcon ? PieNotification.renderIconVariant(variant) : nothing}
