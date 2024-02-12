@@ -1,8 +1,9 @@
 import {
-    LitElement,
     unsafeCSS,
-    TemplateResult,
     nothing,
+    LitElement,
+    type TemplateResult,
+    type PropertyValueMap,
 } from 'lit';
 import { type StaticValue, html, unsafeStatic } from 'lit/static-html.js';
 import { defineCustomElement, validPropertyValues } from '@justeattakeaway/pie-webc-core';
@@ -53,18 +54,47 @@ export class PieNotification extends LitElement implements NotificationProps {
     @property({ type: Boolean })
     public hideCloseIcon = false;
 
-    private _hasExternalIcon = false;
-
     @queryAssignedElements({ slot: 'icon' }) _iconSlot!: Array<HTMLElement>;
 
-    protected firstUpdated (): void {
-        if (this._iconSlot.length > 0) {
-            this._hasExternalIcon = true;
-        }
-    }
+    private _hasExternalIcon = false;
+
+    private _hasIconClass = false;
 
     // Renders a `CSSResult` generated from SCSS by Vite
     static styles = unsafeCSS(styles);
+
+    /**
+     * Lifecycle method executed after component renders.
+     */
+    protected firstUpdated (): void {
+        this.updateIconProperties();
+
+        if (this._hasExternalIcon || this._hasIconClass) {
+            this.requestUpdate();
+        }
+    }
+
+    /**
+     * Lifecycle method executed when component is about to update.
+     * It update icon properties if variant has changes.
+     */
+    protected willUpdate (_changedProperties: PropertyValueMap<NotificationProps>): void {
+        if (_changedProperties.has('variant')) {
+            this.updateIconProperties();
+            this.requestUpdate();
+        }
+    }
+
+    /**
+     * Method responsible to check if an external icon has been provided.
+     * It reads from icon slot if there is an external icon as well check if variant has default icon.
+     *
+     * @private
+     */
+    private updateIconProperties () {
+        this._hasExternalIcon = this._iconSlot.length > 0;
+        this._hasIconClass = this._hasExternalIcon || PieNotification.variantHasDefaultIcon(this.variant);
+    }
 
     /**
      * Template for the footer area
@@ -156,9 +186,9 @@ export class PieNotification extends LitElement implements NotificationProps {
      *
      * @private
      */
-    private renderIcon (variant: InternalVariantType, hasExternalIcon: boolean): TemplateResult | typeof nothing {
+    private renderIcon (variant: InternalVariantType, hasExternalIcon: boolean, hasIconClass: boolean): TemplateResult | typeof nothing {
         return html`
-            <div data-test-id="TEST" class="${hasExternalIcon || PieNotification.variantHasDefaultIcon(variant) ? 'has-icon ' : ''}${componentClass}-heading-icon">
+            <div data-test-id="${componentSelector}-icon-area" class="${hasIconClass ? 'has-icon ' : ''}${componentClass}-heading-icon">
                 ${!hasExternalIcon ? PieNotification.renderIconVariant(variant) : nothing}
                 <slot name="icon"></slot>
             </div>
@@ -194,6 +224,7 @@ export class PieNotification extends LitElement implements NotificationProps {
             _hasExternalIcon,
             hideIcon,
             renderCloseButton,
+            _hasIconClass,
         } = this;
 
         return html`
@@ -201,7 +232,7 @@ export class PieNotification extends LitElement implements NotificationProps {
                 ${!isCompact ? renderCloseButton() : nothing}
 
                 <section class="${componentClass}-content-section">
-                    ${!hideIcon ? renderIcon(variant, _hasExternalIcon) : nothing}    
+                    ${!hideIcon ? renderIcon(variant, _hasExternalIcon, _hasIconClass) : nothing}    
                     <article>
                         ${heading ? renderNotificationHeading(heading, unsafeStatic(headingLevel)) : nothing}
                         <slot></slot>
