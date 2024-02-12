@@ -195,7 +195,6 @@ export class PieNotification extends LitElement implements NotificationProps {
             hideIcon,
             renderCloseButton,
         } = this;
-        const headingTag = unsafeStatic(headingLevel);
 
         return html`
             <div data-test-id="${componentSelector}" class="${componentClass}" variant="${variant}" is-compact="${isCompact}">
@@ -204,7 +203,7 @@ export class PieNotification extends LitElement implements NotificationProps {
                 <section class="${componentClass}-content-section">
                     ${!hideIcon ? renderIcon(variant, _hasExternalIcon) : nothing}    
                     <article>
-                        ${heading ? renderNotificationHeading(heading, headingTag) : nothing}
+                        ${heading ? renderNotificationHeading(heading, unsafeStatic(headingLevel)) : nothing}
                         <slot></slot>
                     </article>
                 </section>
