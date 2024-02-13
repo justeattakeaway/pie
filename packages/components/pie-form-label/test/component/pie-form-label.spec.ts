@@ -34,7 +34,7 @@ test.describe('PieFormLabel - Component tests', () => {
             await pieInput.unmount();
 
             const pieSwitch = await mount(PieSwitch);
-            await pieInput.unmount();
+            await pieSwitch.unmount();
 
             const pieFormLabel = await mount(PieFormLabel);
             await pieFormLabel.unmount();
@@ -53,17 +53,50 @@ test.describe('PieFormLabel - Component tests', () => {
             expect(target).toBeFocused();
         });
 
-        test('when used with a switch', async ({ page }) => {
-            // Arrange
-            await page.setContent('<pie-form-label for="approveSettings">Approve settings</pie-form-label><pie-switch id="approveSettings"></pie-switch>');
+        test.describe('when used with a switch', () => {
+            const markup = '<pie-form-label for="approveSettings">Approve settings</pie-form-label><pie-switch id="approveSettings"></pie-switch>';
 
-            // Act
-            const target = page.locator('#approveSettings');
-            const label = page.locator('pie-form-label');
-            await label.click();
+            test.describe('when clicked once', () => {
+                test('the switch should be focused', async ({ page }) => {
+                    // Arrange
+                    await page.setContent(markup);
 
-            // Assert
-            expect(target).toBeFocused();
+                    // Act
+                    const target = page.locator('#approveSettings');
+                    const label = page.locator('pie-form-label');
+                    await label.click();
+
+                    // Assert
+                    expect(target).toBeFocused();
+                });
+                test('the switch "checked" attribute is true', async ({ page }) => {
+                    // Arrange
+                    await page.setContent(markup);
+
+                    // Act
+                    const target = page.locator('#approveSettings');
+                    const label = page.locator('pie-form-label');
+                    await label.click();
+
+                    // Assert
+                    expect(target).toBeFocused();
+                });
+            });
+            test.describe('when clicked twice', () => {
+                test('the switch "checked" attribute is false', async ({ page }) => {
+                    // Arrange
+                    await page.setContent(markup);
+
+                    // Act
+                    const target = page.locator('#approveSettings');
+                    const label = page.locator('pie-form-label');
+                    await label.click();
+                    await label.click();
+
+                    // Assert
+                    expect(target).toBeFocused();
+                });
+            });
         });
     });
 });
