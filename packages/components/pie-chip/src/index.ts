@@ -3,7 +3,11 @@ import {
 } from 'lit';
 import { property } from 'lit/decorators.js';
 
-import { validPropertyValues, defineCustomElement } from '@justeattakeaway/pie-webc-core';
+import {
+    validPropertyValues,
+    defineCustomElement,
+    dispatchCustomEvent,
+} from '@justeattakeaway/pie-webc-core';
 import styles from './chip.scss?inline';
 import {
     ChipProps,
@@ -42,32 +46,10 @@ export class PieChip extends LitElement implements ChipProps {
     public isDismissible = false;
 
     /**
-     * Note: We should aim to have a shareable event helper system to allow
-     * us to share this across components in-future.
-     *
-     * Dispatch a custom event.
-     *
-     * To be used whenever we have behavioral events we want to
-     * bubble up through the chip.
-     *
-     * @param {string} eventType
-     * @param {any} detail
-     */
-    private _dispatchChipCustomEvent = (eventType: string, detail?: CustomEventInit['detail']) : void => {
-        const event = new CustomEvent(eventType, {
-            bubbles: true,
-            composed: true,
-            detail,
-        });
-
-        this.dispatchEvent(event);
-    };
-
-    /**
      * Emits a close chip event
      */
     private _dispatchCloseChip = () : void => {
-        this._dispatchChipCustomEvent(ON_CHIP_CLOSE_EVENT);
+        dispatchCustomEvent(this, ON_CHIP_CLOSE_EVENT);
     };
 
     /**
