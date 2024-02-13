@@ -5,7 +5,11 @@ import { property } from 'lit/decorators.js';
 
 import { validPropertyValues, defineCustomElement } from '@justeattakeaway/pie-webc-core';
 import styles from './chip.scss?inline';
-import { ChipProps, variants } from './defs';
+import {
+    ChipProps,
+    variants,
+    ON_CHIP_CLOSE_EVENT,
+} from './defs';
 import '@justeattakeaway/pie-icons-webc/IconCloseCircleFilled';
 import '@justeattakeaway/pie-spinner';
 
@@ -18,6 +22,7 @@ const componentSelector = 'pie-chip';
  * @tagname pie-chip
  * @slot icon - The icon slot
  * @slot - Default slot
+ * @event {CustomEvent} pie-chip-close - when a user clicks close button.
  */
 export class PieChip extends LitElement implements ChipProps {
     @property()
@@ -37,6 +42,35 @@ export class PieChip extends LitElement implements ChipProps {
     public isDismissible = false;
 
     /**
+     * Note: We should aim to have a shareable event helper system to allow
+     * us to share this across components in-future.
+     *
+     * Dispatch a custom event.
+     *
+     * To be used whenever we have behavioral events we want to
+     * bubble up through the chip.
+     *
+     * @param {string} eventType
+     * @param {any} detail
+     */
+    private _dispatchChipCustomEvent = (eventType: string, detail?: CustomEventInit['detail']) : void => {
+        const event = new CustomEvent(eventType, {
+            bubbles: true,
+            composed: true,
+            detail,
+        });
+
+        this.dispatchEvent(event);
+    };
+
+    /**
+     * Emits a close chip event
+     */
+    private _dispatchCloseChip = () : void => {
+        this._dispatchChipCustomEvent(ON_CHIP_CLOSE_EVENT);
+    };
+
+    /**
      * Template for the loading state
      *
      * @private
@@ -46,11 +80,11 @@ export class PieChip extends LitElement implements ChipProps {
         const spinnerVariant = isSelected ? 'inverse' : 'secondary';
 
         return html`
-                    <pie-spinner
-                        class="c-chip-spinner"
-                        size="small"
-                        variant="${spinnerVariant}">
-                    </pie-spinner>`;
+            <pie-spinner
+                class="c-chip-spinner"
+                size="small"
+                variant="${spinnerVariant}">
+            </pie-spinner>`;
     }
 
     /**
@@ -60,11 +94,12 @@ export class PieChip extends LitElement implements ChipProps {
      */
     private renderCloseButton (): TemplateResult {
         return html`
-                    <button 
-                        class="c-chip-closeBtn"
-                        data-test-id="chip-close-button">
-                        <icon-close-circle-filled size="m"></icon-close-circle-filled>
-                    </button>`;
+            <button
+                @click="${this.disabled ? null : this._dispatchCloseChip}"
+                class="c-chip-closeBtn"
+                data-test-id="chip-close-button">
+                <icon-close-circle-filled size="m"></icon-close-circle-filled>
+            </button>`;
     }
 
     render () {
@@ -89,8 +124,8 @@ export class PieChip extends LitElement implements ChipProps {
                 ?isDismissible="${isDismissible}">
                     <slot name="icon"></slot>
                     ${isLoading ? this.renderSpinner() : nothing}
-                    <slot></slot> 
-                    ${isDismissible && isSelected ? this.renderCloseButton() : nothing}        
+                    <slot></slot>
+                    ${isDismissible && isSelected ? this.renderCloseButton() : nothing}
             </div>`;
     }
 

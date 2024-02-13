@@ -1,4 +1,5 @@
 import { html, nothing } from 'lit';
+import { action } from '@storybook/addon-actions';
 
 /* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-chip';
@@ -86,6 +87,8 @@ const chipStoryMeta: ChipStoryMeta = {
 
 export default chipStoryMeta;
 
+const pieChipCloseAction = action('pie-chip-close');
+
 const Template: TemplateFunction<ChipProps> = ({
     variant,
     disabled,
@@ -100,7 +103,8 @@ const Template: TemplateFunction<ChipProps> = ({
                 ?disabled="${disabled}"
                 ?isSelected="${isSelected}"
                 ?isLoading="${isLoading}"
-                ?isDismissible="${isDismissible}">
+                ?isDismissible="${isDismissible}"
+                @pie-chip-close="${pieChipCloseAction}">
                     ${showIcon ? html`<icon-heart-filled slot="icon"></icon-heart-filled>` : nothing}
                     ${sanitizeAndRenderHTML(slot)}
            </pie-chip>`;
