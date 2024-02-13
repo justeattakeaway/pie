@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.54.0
+
+### Minor Changes
+
+- [Added] - basic functionality of the chip component including variants, selected and disabled, loading and dismissible states ([#1248](https://github.com/justeattakeaway/pie/pull/1248)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 2.53.0
 
 ### Minor Changes

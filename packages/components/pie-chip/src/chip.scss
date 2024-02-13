@@ -1,1 +1,142 @@
 @use '@justeattakeaway/pie-css/scss' as p;
+
+@mixin chip-interactive-states($bg-color, $mode: 'default') {
+    &:hover:not(:disabled) {
+        @if $mode == 'inverse' {
+            --hover-modifier: var(--dt-color-hover-02);
+        } @else {
+            --hover-modifier: calc(-1 * var(--dt-color-hover-01));
+        }
+
+        @if $mode == 'transparent' {
+            --hover-modifier: var(--dt-color-hover-01);
+            --chip-bg-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), var(#{$bg-color}-l), var(--hover-modifier));
+        } @else {
+            --chip-bg-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), calc(var(#{$bg-color}-l) + var(--hover-modifier)));
+        }
+    }
+
+    &:active:not(:disabled),
+    &[isLoading]:not(:disabled) {
+        @if $mode == 'inverse' {
+            --active-modifier: var(--dt-color-active-02);
+        } @else {
+            --active-modifier: calc(-1 * var(--dt-color-active-01));
+        }
+
+        @if $mode == 'transparent' {
+            --active-modifier: var(--dt-color-active-01);
+            --chip-bg-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), var(#{$bg-color}-l), var(--active-modifier));
+        } @else {
+            --chip-bg-color: hsl(var(#{$bg-color}-h), var(#{$bg-color}-s), calc(var(#{$bg-color}-l) + var(--active-modifier)));
+        }
+    }
+}
+
+
+.c-chip {
+    --chip-bg-color: var(--dt-color-interactive-secondary);
+    --chip-color: var(--dt-color-content-interactive-secondary);
+    --chip-border-width: 1px;
+    --chip-border-color: transparent;
+    --chip-padding-block: calc(6px - var(--chip-border-width));
+    --chip-padding-inline: calc(var(--dt-spacing-c) - var(--chip-border-width));
+    --chip-padding-dismissible: calc(var(--dt-spacing-a) - var(--chip-border-width));
+    --chip-min-width: calc(var(--dt-spacing-g) + var(--dt-spacing-b));
+    --chip-gap: var(--dt-spacing-b);
+    --chip-dismissible-offset: calc(var(--chip-gap) / -2); // ensures the spacing between the text and close icon is 4px
+
+    // Pie Webc Icon var that is used to ensure the correctly sized icon passed in a slot
+    --icon-display-override: block;
+
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--chip-gap);
+    padding-block-start: var(--chip-padding-block);
+    padding-block-end: var(--chip-padding-block);
+    padding-inline-start: var(--chip-padding-inline);
+    padding-inline-end: var(--chip-padding-inline);
+    background-color: var(--chip-bg-color);
+    color: var(--chip-color);
+    border-radius: var(--dt-radius-rounded-e);
+    border: 1px solid;
+    border-color: var(--chip-border-color);
+    cursor: pointer;
+    min-width: var(--chip-min-width);
+
+    @include p.font-size(--dt-font-interactive-xs-size);
+    @include p.line-height(--dt-font-interactive-xs-line-height);
+    font-weight: var(--dt-font-weight-bold);
+
+    @include chip-interactive-states('--dt-color-interactive-secondary');
+
+    &[variant='default'] {
+        // same as default styles
+    }
+
+    &[variant='outline']:not([disabled], [isSelected], [isLoading]) {
+        --chip-border-color: var(--dt-color-border-strong);
+    }
+
+    &[variant='outline'],
+    &[variant='ghost'] {
+        --chip-bg-color: transparent;
+
+        @include chip-interactive-states('--dt-color-black', 'transparent');
+    }
+
+    &[isSelected] {
+        --chip-bg-color: var(--dt-color-interactive-primary);
+        --chip-color: var(--dt-color-content-interactive-primary);
+
+        @include chip-interactive-states('--dt-color-interactive-primary', 'inverse');
+    }
+
+    &[isDismissible][isSelected] {
+        padding-inline-end: var(--chip-padding-dismissible);
+        padding-block-start: var(--chip-padding-dismissible);
+        padding-block-end: var(--chip-padding-dismissible);
+
+        .c-chip-closeBtn {
+            display: inline-flex;
+            user-select: none;
+            outline: none;
+            border: none;
+            color: inherit;
+            background-color: inherit;
+            border-radius: inherit;
+            cursor: pointer;
+            padding: 0;
+            margin-inline-start: var(--chip-dismissible-offset);
+        }
+    }
+
+    &[isLoading] {
+        & > *:not(.c-chip-spinner) {
+            visibility: hidden;
+        }
+
+        .c-chip-spinner {
+            position: absolute;
+        }
+    }
+
+    &[disabled] {
+        --chip-bg-color: var(--dt-color-disabled-01);
+        --chip-color: var(--dt-color-content-disabled);
+
+        cursor: not-allowed;
+    }
+
+    &:focus-visible {
+        @include p.focus;
+    }
+}
+
+::slotted(svg) {
+    display: block;
+    height: var(--icon-size-override);
+    width: var(--icon-size-override);
+}
