@@ -21,6 +21,8 @@ const componentSelector = 'pie-input';
  * @tagname pie-input
  * @event {InputEvent} input - when the input value is changed.
  * @event {CustomEvent} change - when the input value is changed.
+ * @slot leading - An icon or short text to display at the start of the input.
+ * @slot trailing - An icon or short text to display at the end of the input.
  */
 export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements InputProps {
     static shadowRootOptions = { ...LitElement.shadowRootOptions, delegatesFocus: true };
@@ -34,6 +36,9 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
 
     @property({ type: String })
     public name?: InputProps['name'];
+
+    @property({ type: Boolean, reflect: true })
+    public disabled?: InputProps['disabled'];
 
     @property({ type: String })
     public pattern?: InputProps['pattern'];
@@ -71,6 +76,16 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
      */
     public get validity (): ValidityState {
         return (this.input as HTMLInputElement).validity;
+    }
+
+    /**
+     * Called after the disabled state of the element changes,
+     * either because the disabled attribute of this element was added or removed;
+     * or because the disabled state changed on a <fieldset> that's an ancestor of this element.
+     * @param disabled - The latest disabled state of the input.
+     */
+    public formDisabledCallback (disabled: boolean): void {
+        this.disabled = disabled;
     }
 
     /**
@@ -119,24 +134,41 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
 
     render () {
         const {
-            type, value, name, pattern, minlength, maxlength, autocomplete, placeholder, autoFocus, inputmode, readonly,
+            autocomplete,
+            autoFocus,
+            disabled,
+            inputmode,
+            maxlength,
+            minlength,
+            name,
+            pattern,
+            placeholder,
+            readonly,
+            type,
+            value,
         } = this;
 
-        return html`<input
-            type=${ifDefined(type)}
-            .value=${live(value)}
-            name=${ifDefined(name)}
-            pattern=${ifDefined(pattern)}
-            minlength=${ifDefined(minlength)}
-            maxlength=${ifDefined(maxlength)}
-            autocomplete=${ifDefined(autocomplete)}
-            ?autofocus=${autoFocus}
-            inputmode=${ifDefined(inputmode)}
-            placeholder=${ifDefined(placeholder)}
-            ?readonly=${readonly}
-            @input=${this.handleInput}
-            @change=${this.handleChange}
-            data-test-id="pie-input">`;
+        return html`
+            <div>
+                <slot name="leading"></slot>
+                <input
+                    type=${ifDefined(type)}
+                    .value=${live(value)}
+                    name=${ifDefined(name)}
+                    ?disabled=${live(disabled)}
+                    pattern=${ifDefined(pattern)}
+                    minlength=${ifDefined(minlength)}
+                    maxlength=${ifDefined(maxlength)}
+                    autocomplete=${ifDefined(autocomplete)}
+                    ?autofocus=${autoFocus}
+                    inputmode=${ifDefined(inputmode)}
+                    placeholder=${ifDefined(placeholder)}
+                    ?readonly=${readonly}
+                    @input=${this.handleInput}
+                    @change=${this.handleChange}
+                    data-test-id="pie-input">
+                <slot name="trailing"></slot>
+            </div>`;
     }
 
     // Renders a `CSSResult` generated from SCSS by Vite

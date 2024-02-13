@@ -1,5 +1,17 @@
 # @justeattakeaway/pie-input
 
+## 0.11.0
+
+### Minor Changes
+
+- [Added] - disabled prop ([#1246](https://github.com/justeattakeaway/pie/pull/1246)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+## 0.10.0
+
+### Minor Changes
+
+- [Added] - Leading and Trailing content slots to pie-input component ([#1255](https://github.com/justeattakeaway/pie/pull/1255)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.9.0
 
 ### Minor Changes

@@ -1,16 +1,23 @@
-import { html } from 'lit';
+import { html, nothing } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { action } from '@storybook/addon-actions';
 import { useArgs as UseArgs } from '@storybook/preview-api';
 
 /* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-input';
-import { types, inputModes, InputProps } from '@justeattakeaway/pie-input';
+import { types, inputModes, InputProps as InputPropsBase } from '@justeattakeaway/pie-input';
 /* eslint-enable import/no-duplicates */
 
 import { type StoryMeta } from '../types';
 import { createStory, type TemplateFunction } from '../utilities';
 import '@justeattakeaway/pie-button';
+import '@justeattakeaway/pie-icons-webc/IconPlaceholder';
+
+// Extending the props type definition to include storybook specific properties for controls
+type InputProps = InputPropsBase & {
+    leadingSlot: typeof slotOptions[number];
+    trailingSlot: typeof slotOptions[number];
+};
 
 type InputStoryMeta = StoryMeta<InputProps>;
 
@@ -18,9 +25,14 @@ const defaultArgs: InputProps = {
     type: 'text',
     value: '',
     name: 'testName',
+    disabled: false,
     autocomplete: 'off',
     autoFocus: false,
+    leadingSlot: 'None',
+    trailingSlot: 'None',
 };
+
+const slotOptions = ['Icon (Placeholder)', 'Short text (#)', 'None'] as const;
 
 const inputStoryMeta: InputStoryMeta = {
     title: 'Input',
@@ -46,6 +58,13 @@ const inputStoryMeta: InputStoryMeta = {
             control: 'text',
             defaultValue: {
                 summary: 'testName',
+            },
+        },
+        disabled: {
+            description: 'If true, disables the input field.',
+            control: 'boolean',
+            defaultValue: {
+                summary: false,
             },
         },
         pattern: {
@@ -116,6 +135,16 @@ const inputStoryMeta: InputStoryMeta = {
                 summary: '',
             },
         },
+        leadingSlot: {
+            description: 'An icon or short text to display at the start of the input. <br><b>*Not a component Prop</b>',
+            control: 'select',
+            options: slotOptions,
+        },
+        trailingSlot: {
+            description: 'An icon or short text to display at the end of the input. <br><b>*Not a component Prop</b>',
+            control: 'select',
+            options: slotOptions,
+        },
     },
     args: defaultArgs,
     parameters: {
@@ -127,7 +156,21 @@ const inputStoryMeta: InputStoryMeta = {
 };
 
 const Template = ({
-    type, value, name, pattern, minlength, maxlength, autocomplete, placeholder, autoFocus, inputmode, readonly, defaultValue,
+    type,
+    value,
+    name,
+    disabled,
+    pattern,
+    minlength,
+    maxlength,
+    autocomplete,
+    placeholder,
+    autoFocus,
+    inputmode,
+    readonly,
+    defaultValue,
+    leadingSlot,
+    trailingSlot,
 }: InputProps) => {
     const [, updateArgs] = UseArgs();
 
@@ -147,22 +190,38 @@ const Template = ({
         });
     }
 
+    function renderLeadingOrTrailingSlot (slotName: 'leading' | 'trailing', slotValue: typeof slotOptions[number]) {
+        if (slotValue === slotOptions[0]) {
+            return html`<icon-placeholder slot="${slotName}"></icon-placeholder>`;
+        }
+
+        if (slotValue === slotOptions[1]) {
+            return html`<span slot="${slotName}">#</span>`;
+        }
+
+        return nothing;
+    }
+
     return html`
-    <pie-input
-        type="${ifDefined(type)}"
-        .value="${value}"
-        name="${ifDefined(name)}"
-        pattern="${ifDefined(pattern)}"
-        minlength="${ifDefined(minlength)}"
-        maxlength="${ifDefined(maxlength)}"
-        autocomplete="${ifDefined(autocomplete)}"
-        placeholder="${ifDefined(placeholder)}"
-        inputmode="${ifDefined(inputmode)}"
-        defaultValue="${ifDefined(defaultValue)}"
-        ?autoFocus="${autoFocus}"
-        ?readonly="${readonly}"
-        @input="${onInput}"
-        @change="${onChange}"></pie-input>
+        <pie-input
+            type="${ifDefined(type)}"
+            .value="${value}"
+            name="${ifDefined(name)}"
+            ?disabled="${disabled}"
+            pattern="${ifDefined(pattern)}"
+            minlength="${ifDefined(minlength)}"
+            maxlength="${ifDefined(maxlength)}"
+            autocomplete="${ifDefined(autocomplete)}"
+            placeholder="${ifDefined(placeholder)}"
+            inputmode="${ifDefined(inputmode)}"
+            defaultValue="${ifDefined(defaultValue)}"
+            ?autoFocus="${autoFocus}"
+            ?readonly="${readonly}"
+            @input="${onInput}"
+            @change="${onChange}">
+            ${renderLeadingOrTrailingSlot('leading', leadingSlot)}
+            ${renderLeadingOrTrailingSlot('trailing', trailingSlot)}
+        </pie-input>
     `;
 };
 

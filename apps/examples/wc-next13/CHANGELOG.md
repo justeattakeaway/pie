@@ -1,5 +1,12 @@
 # wc-next13
 
+## 0.3.28
+
+### Patch Changes
+
+- Updated dependencies [[`721e7550e`](https://github.com/justeattakeaway/pie/commit/721e7550e399332e675f23afb259e725dc7d63be)]:
+  - @justeattakeaway/pie-button@0.45.3
+
 ## 0.3.27
 
 ### Patch Changes

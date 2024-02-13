@@ -1,6 +1,6 @@
 {
   "name": "@justeattakeaway/stylelint-no-logical-props-shorthands",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "main": "index.js",
   "description": "Stylelint plugin for disallowing logical props shorthands.",
   "license": "Apache-2.0",

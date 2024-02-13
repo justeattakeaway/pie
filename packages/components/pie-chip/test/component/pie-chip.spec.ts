@@ -4,11 +4,21 @@ import { PieChip, ChipProps } from '../../src/index.ts';
 
 const componentSelector = '[data-test-id="pie-chip"]';
 
+const props: Partial<ChipProps> = {
+    variant: 'default',
+    isSelected: false,
+    isDismissible: false,
+    disabled: false,
+};
+
 test.describe('PieChip - Component tests', () => {
     test('should render successfully', async ({ mount, page }) => {
         // Arrange
         await mount(PieChip, {
-            props: {} as ChipProps,
+            props,
+            slots: {
+                default: 'Label',
+            },
         });
 
         // Act

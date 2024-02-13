@@ -1,5 +1,15 @@
 # @justeattakeaway/generator-pie-component
 
+## 0.20.0
+
+### Minor Changes
+
+- [Added] - Additional content in README on running visual tests ([#1251](https://github.com/justeattakeaway/pie/pull/1251)) by [@LTurns](https://github.com/LTurns)
+
+### Patch Changes
+
+- [Added] - Instructions to readme to update workspace dependencies ([#1258](https://github.com/justeattakeaway/pie/pull/1258)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
 ## 0.19.0
 
 ### Minor Changes
