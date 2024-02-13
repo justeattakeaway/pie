@@ -129,9 +129,24 @@ export default function App() {
 }
 ```
 
-#### TODO: Add Vue usage
+#### Vue
 
-If you require icons for a Vue app, you can either use these icons, or use our native Vue component package – [pie-icons-vue](https://www.npmjs.com/package/@justeattakeaway/pie-icons-vue).
+This package only supports Node 18+, therefore, if you are using a lower version of Node please use our native Vue component package – [pie-icons-vue](https://www.npmjs.com/package/@justeattakeaway/pie-icons-vue).
+
+To import from the package root:
+
+```tsx
+import { IconAlertTriangleLarge, IconCalendar } from "@justeattakeaway/pie-icons-webc";
+
+export default function App() {
+  return (
+    <div className="App">
+      <icon-calendar />
+      <icon-alert-triangle-large />
+    </div>
+  );
+}
+```
 
 
 ### Props
