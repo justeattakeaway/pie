@@ -5479,7 +5479,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/generator-pie-component@0.19.0, @justeattakeaway/generator-pie-component@workspace:packages/tools/generator-pie-component":
+"@justeattakeaway/generator-pie-component@0.20.0, @justeattakeaway/generator-pie-component@workspace:packages/tools/generator-pie-component":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/generator-pie-component@workspace:packages/tools/generator-pie-component"
   dependencies:
@@ -5491,7 +5491,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-assistive-text@0.1.0, @justeattakeaway/pie-assistive-text@workspace:packages/components/pie-assistive-text":
+"@justeattakeaway/pie-assistive-text@0.2.0, @justeattakeaway/pie-assistive-text@workspace:packages/components/pie-assistive-text":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-assistive-text@workspace:packages/components/pie-assistive-text"
   dependencies:
@@ -5529,7 +5529,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-chip@0.0.0, @justeattakeaway/pie-chip@workspace:packages/components/pie-chip":
+"@justeattakeaway/pie-chip@0.1.0, @justeattakeaway/pie-chip@workspace:packages/components/pie-chip":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-chip@workspace:packages/components/pie-chip"
   dependencies:
@@ -5747,7 +5747,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@justeattakeaway/pie-input@0.10.0, @justeattakeaway/pie-input@workspace:packages/components/pie-input":
+"@justeattakeaway/pie-input@0.11.0, @justeattakeaway/pie-input@workspace:packages/components/pie-input":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-input@workspace:packages/components/pie-input"
   dependencies:
@@ -28882,7 +28882,7 @@ __metadata:
     "@commitlint/config-conventional": 17.4.4
     "@justeat/pie-design-tokens": 5.9.0
     "@justeattakeaway/browserslist-config-pie": 0.2.0
-    "@justeattakeaway/generator-pie-component": 0.19.0
+    "@justeattakeaway/generator-pie-component": 0.20.0
     "@justeattakeaway/pie-icons": 4.9.3
     "@justeattakeaway/pie-webc-testing": 0.10.0
     "@justeattakeaway/pie-wrapper-react": 0.14.0
@@ -28939,17 +28939,17 @@ __metadata:
   resolution: "pie-storybook@workspace:apps/pie-storybook"
   dependencies:
     "@justeat/pie-design-tokens": 5.9.0
-    "@justeattakeaway/pie-assistive-text": 0.1.0
+    "@justeattakeaway/pie-assistive-text": 0.2.0
     "@justeattakeaway/pie-button": 0.45.3
     "@justeattakeaway/pie-card": 0.17.2
-    "@justeattakeaway/pie-chip": 0.0.0
+    "@justeattakeaway/pie-chip": 0.1.0
     "@justeattakeaway/pie-cookie-banner": 0.17.1
     "@justeattakeaway/pie-css": 0.10.0
     "@justeattakeaway/pie-divider": 0.12.1
     "@justeattakeaway/pie-form-label": 0.11.0
     "@justeattakeaway/pie-icon-button": 0.27.3
     "@justeattakeaway/pie-icons-webc": 0.17.2
-    "@justeattakeaway/pie-input": 0.10.0
+    "@justeattakeaway/pie-input": 0.11.0
     "@justeattakeaway/pie-link": 0.15.1
     "@justeattakeaway/pie-modal": 0.38.5
     "@justeattakeaway/pie-notification": 0.3.1
