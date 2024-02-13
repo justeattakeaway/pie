@@ -131,7 +131,7 @@ export default function App() {
 
 #### Vue
 
-This package only supports Node 18+, therefore, if you are using a lower version of Node please use our native Vue component package – [pie-icons-vue](https://www.npmjs.com/package/@justeattakeaway/pie-icons-vue).
+This package requires Node 18+, therefore, if you are using a lower version of Node please use our native Vue component package – [pie-icons-vue](https://www.npmjs.com/package/@justeattakeaway/pie-icons-vue).
 
 To import from the package root:
 
