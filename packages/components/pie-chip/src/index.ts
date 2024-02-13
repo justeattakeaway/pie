@@ -60,7 +60,7 @@ export class PieChip extends LitElement implements ChipProps {
      */
     private renderCloseButton (): TemplateResult {
         return html`
-                    <button 
+                    <button
                         class="c-chip-closeBtn"
                         data-test-id="chip-close-button">
                         <icon-close-circle-filled size="m"></icon-close-circle-filled>
@@ -89,8 +89,8 @@ export class PieChip extends LitElement implements ChipProps {
                 ?isDismissible="${isDismissible}">
                     <slot name="icon"></slot>
                     ${isLoading ? this.renderSpinner() : nothing}
-                    <slot></slot> 
-                    ${isDismissible && isSelected ? this.renderCloseButton() : nothing}        
+                    <slot></slot>
+                    ${isDismissible && isSelected ? this.renderCloseButton() : nothing}
             </div>`;
     }
 

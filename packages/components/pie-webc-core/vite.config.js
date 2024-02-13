@@ -18,7 +18,7 @@ export default defineConfig({
         globals: true,
         exclude: [
             '**/test/{accessibility,component,system,visual}/*.spec.{js,ts}',
-            '**/test/mixins/**/*.browser.spec.{js,ts}',
+            '**/test/**/*.browser.spec.{js,ts}',
             '**/node_modules/**/*'
         ],
     },
