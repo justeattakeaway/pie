@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.29.0
+
+### Minor Changes
+
+- [Changed] - Updated the roadmap page to reflect current status ([#1267](https://github.com/justeattakeaway/pie/pull/1267)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 3.28.1
 
 ### Patch Changes
