@@ -6,7 +6,7 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import { live } from 'lit/directives/live.js';
 
 import {
-    validPropertyValues, RtlMixin, defineCustomElement, FormControlMixin, wrapNativeEvent, PIEInputElement,
+    validPropertyValues, RtlMixin, defineCustomElement, FormControlMixin, wrapNativeEvent, type PIEInputElement,
 } from '@justeattakeaway/pie-webc-core';
 
 import styles from './input.scss?inline';
