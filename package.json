@@ -81,7 +81,7 @@
     "@rollup/plugin-node-resolve": "15.1.0",
     "@sand4rt/experimental-ct-web": "1.0.8",
     "@types/node": "20.4.8",
-    "@types/react": "18.2.53",
+    "@types/react": "18.2.55",
     "@typescript-eslint/eslint-plugin": "5.62.0",
     "@typescript-eslint/parser": "5.62.0",
     "@vitest/coverage-v8": "1.2.1",

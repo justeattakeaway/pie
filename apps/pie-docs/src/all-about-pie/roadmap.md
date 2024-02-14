@@ -8,34 +8,22 @@ description: This roadmap displays our current projects and future plans. Its ai
 ---
 
 ## What we’re working on now
-
-* Building the PIE documentation site minimum viable product (MVP)
-  * Foundations
-  * Navigation enhancements
-* Identifying and fixing accessibility violations
-* Supporting internal JET priorities
-* Building out a proof-of-concept (PoC) for a native Web Component implementation of our PIE component system using the [Lit Web Component library](https://lit.dev/)
-* Laying the foundations of our web component library
-  * Choosing the technology stack
-  * Setting up our PIE monorepo
-  * Building the Button component
-* Improving our continuous integration/continuous delivery (CI/CD)
-* Reorganising our Figma libraries
+* Building the Text input component
+* Building the Checkbox component
+* Building the Notification component
+* Building the Chip component
+* Enhancing the PIE Aperture testing suite and creating guidance
+* Looking into PIE Web Component bundling
+* Rolling out and integrating our components into web applications across JET
+* Investigating mobile accessibility dashboards
+* Auditing our iOS and Android components and planning in future enhancements
 ---
 
 ## What’s next
-* Building the PIE documentation site
-  * Search functionality
-  * Component pages
-  * Pattern pages
-  * Accessibility section
-* Rolling out and integrating our components into web applications across JET
-* Continuing to identify and fix accessibility violations
-* Supporting internal JET priorities
-* Investigating web components
-  * Building the Modal component
-  * Building the Form Field component
-
+* Build the Radio Button component
+* Build the Text Area component
+* Build the Select component
+* Include more automation into pie.design
 ---
 
 ## Future plans
