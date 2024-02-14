@@ -5563,17 +5563,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@justeattakeaway/pie-components-config@npm:0.9.0":
-  version: 0.9.0
-  resolution: "@justeattakeaway/pie-components-config@npm:0.9.0"
-  dependencies:
-    deepmerge-ts: 5.1.0
-  peerDependencies:
-    cem-plugin-module-file-extensions: 0.0.5
-  checksum: 132751021155e81a57e8f429ff0de727438f1f576ce365234228ea331ab9a5af07548cd7755d89153fc5be3ef251e141568521cc9988058e8a0f30277cb20618
-  languageName: node
-  linkType: hard
-
 "@justeattakeaway/pie-cookie-banner@0.17.1, @justeattakeaway/pie-cookie-banner@workspace:packages/components/pie-cookie-banner":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-cookie-banner@workspace:packages/components/pie-cookie-banner"
@@ -5865,7 +5854,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-webc@workspace:packages/components/pie-webc"
   dependencies:
-    "@justeattakeaway/pie-components-config": 0.9.0
+    "@justeattakeaway/pie-button": 0.45.3
+    "@justeattakeaway/pie-components-config": 0.11.0
+    "@justeattakeaway/pie-modal": 0.38.5
     "@justeattakeaway/pie-webc-core": 0.17.1
   languageName: unknown
   linkType: soft
