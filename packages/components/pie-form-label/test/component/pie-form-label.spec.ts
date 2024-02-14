@@ -1,4 +1,3 @@
-
 import { test, expect, MountOptions } from '@sand4rt/experimental-ct-web';
 import { PieInput } from '@justeattakeaway/pie-input';
 import { PieSwitch } from '@justeattakeaway/pie-switch';
@@ -26,7 +25,7 @@ test.describe('PieFormLabel - Component tests', () => {
         // Assert
         expect(formLabel).toBeVisible();
     });
-    test.describe('should focus the component assigned with "for" when clicked', () => {
+    test.describe('should behave as expected when it is clicked and the "for" prop is assigned', () => {
         // IMPORTANT: Mounting and Unmounting the component before each test ensures that any tests that do not explicitly
         // mount the component will still have it available in Playwright's cache (loaded and registered in the test browser)
         test.beforeEach(async ({ mount }) => {
@@ -50,7 +49,7 @@ test.describe('PieFormLabel - Component tests', () => {
             await label.click();
 
             // Assert
-            expect(target).toBeFocused();
+            await expect(target).toBeFocused();
         });
 
         test.describe('when used with a switch', () => {
@@ -67,7 +66,7 @@ test.describe('PieFormLabel - Component tests', () => {
                     await label.click();
 
                     // Assert
-                    expect(target).toBeFocused();
+                    await expect(target).toBeFocused();
                 });
                 test('the switch "checked" attribute is true', async ({ page }) => {
                     // Arrange
@@ -78,8 +77,11 @@ test.describe('PieFormLabel - Component tests', () => {
                     const label = page.locator('pie-form-label');
                     await label.click();
 
+                    const value = await target.evaluate((el) => (el as PieSwitch).checked);
+                    const expected = true;
+
                     // Assert
-                    expect(target).toBeFocused();
+                    expect(value).toBe(expected);
                 });
             });
             test.describe('when clicked twice', () => {
@@ -93,8 +95,11 @@ test.describe('PieFormLabel - Component tests', () => {
                     await label.click();
                     await label.click();
 
+                    const value = await target.evaluate((el) => (el as PieSwitch).checked);
+                    const expected = false;
+
                     // Assert
-                    expect(target).toBeFocused();
+                    expect(value).toBe(expected);
                 });
             });
         });
