@@ -11358,9 +11358,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vitest/coverage-v8@npm:1.2.1":
-  version: 1.2.1
-  resolution: "@vitest/coverage-v8@npm:1.2.1"
+"@vitest/coverage-v8@npm:1.2.2":
+  version: 1.2.2
+  resolution: "@vitest/coverage-v8@npm:1.2.2"
   dependencies:
     "@ampproject/remapping": ^2.2.1
     "@bcoe/v8-coverage": ^0.2.3
@@ -11377,7 +11377,7 @@ __metadata:
     v8-to-istanbul: ^9.2.0
   peerDependencies:
     vitest: ^1.0.0
-  checksum: ec132dfd6322d733a1342142dbf1cf7a4cb059af2f612cc7d60b709c0f088f86a7f046ffb97ec71319fef2520454f045398597680305cf7ce509356958cf1862
+  checksum: 0f0fc98b17cd4d9c292f3f381b676fb8f5b1480d261541a676d1a307e2c9f39a9d59fb497f963b18802b4f7065ace3fdc5e6f9f95d9379560aa4ac5f09f6918e
   languageName: node
   linkType: hard
 
@@ -28897,7 +28897,7 @@ __metadata:
     "@types/react": 18.2.55
     "@typescript-eslint/eslint-plugin": 5.62.0
     "@typescript-eslint/parser": 5.62.0
-    "@vitest/coverage-v8": 1.2.1
+    "@vitest/coverage-v8": 1.2.2
     autoprefixer: 10.4.17
     babel-loader: 8.3.0
     commitizen: 4.3.0
