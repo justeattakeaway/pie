@@ -63,6 +63,7 @@ test.describe('PieFormLabel - Component tests', () => {
                     // Act
                     const target = page.locator('#approveSettings');
                     const label = page.locator('pie-form-label');
+                    await expect(target).not.toBeFocused();
                     await label.click();
 
                     // Assert
