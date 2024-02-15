@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-divider",
   "description": "PIE Design System Divider built using Web Components",
-  "version": "0.12.1",
+  "version": "0.12.2",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -37,7 +37,7 @@
     "cem-plugin-module-file-extensions": "0.0.5"
   },
   "dependencies": {
-    "@justeattakeaway/pie-webc-core": "0.17.1"
+    "@justeattakeaway/pie-webc-core": "0.18.0"
   },
   "volta": {
     "extends": "../../../package.json"
