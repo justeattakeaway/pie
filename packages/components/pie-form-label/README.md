@@ -73,7 +73,7 @@ import { PieFormLabel } from '@justeattakeaway/pie-form-label/dist/react';
 
 | Property | Type | Default | Description |
 |---|---|---|---|
-| for | `String` | `undefined` | Native html `for` attribute |
+| for | `String` | `undefined` | Analog to the native html `for` attribute, it defines the association of the PIE Form Label with another PIE Web Component |
 | optional | `String` | `undefined` | Sets an optional text to be placed next to the main label |
 | trailing | `String` | `undefined` | Sets a trailing text at the end of the label component  |
 
@@ -81,11 +81,16 @@ In your markup or JSX, you can then use these to set the properties for the `pie
 
 ```html
 <!-- Native HTML -->
-<pie-form-label>Label</pie-form-label>
+<pie-form-label for="username">Label</pie-form-label>
+<pie-input id="username" name="username" type="text"></pie-input>
+
 
 <!-- JSX -->
-<PieFormLabel>Label</PieFormLabel>
+<PieFormLabel for="username">Label</PieFormLabel>
+<PieInput id="username" name="username" type="text"></PieInput>
 ```
+
+Note that the `for` prop should match the `id` of the input element you want to associate the label with.
 
 ## Contributing
 
