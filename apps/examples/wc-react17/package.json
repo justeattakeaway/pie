@@ -1,9 +1,9 @@
 {
   "name": "wc-react17",
-  "version": "0.4.28",
+  "version": "0.4.29",
   "private": true,
   "dependencies": {
-    "@justeattakeaway/pie-button": "0.45.3",
+    "@justeattakeaway/pie-button": "0.45.4",
     "@justeattakeaway/pie-css": "0.10.0",
     "@lit/react": "1.0.2",
     "react": "17.0.2",

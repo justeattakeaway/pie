@@ -1,5 +1,16 @@
 # @justeattakeaway/pie-input
 
+## 0.12.0
+
+### Minor Changes
+
+- [Added] - `focusTarget` to enable focusing from a pie-form-label ([#1257](https://github.com/justeattakeaway/pie/pull/1257)) by [@fernandofranca](https://github.com/fernandofranca)
+
+### Patch Changes
+
+- Updated dependencies [[`86791bd11`](https://github.com/justeattakeaway/pie/commit/86791bd11b7b5e53f171b212699831a79ec4e2d2)]:
+  - @justeattakeaway/pie-webc-core@0.18.0
+
 ## 0.11.0
 
 ### Minor Changes
