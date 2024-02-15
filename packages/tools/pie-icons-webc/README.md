@@ -85,7 +85,7 @@ export class MyAmazingComponent extends LitElement {
     return html`
       <h2>
         This is a heading
-        <icon-app-restaurant size="xl" />
+        <icon-app-restaurant size="xl"></icon-app-restaurant>
       </h2>`;
   }
 }
@@ -141,8 +141,8 @@ import { IconAlertTriangleLarge, IconCalendar } from "@justeattakeaway/pie-icons
 export default function App() {
   return (
     <div className="App">
-      <icon-calendar />
-      <icon-alert-triangle-large />
+      <icon-calendar></icon-calendar>
+      <icon-alert-triangle-large></icon-alert-triangle-large>
     </div>
   );
 }
@@ -167,8 +167,8 @@ Large icons `size` default and minimum value is `32`. Values larger than the min
 Example:
 
 ```js
-<icon-alert-triangle size="s" />
-<icon-alert-triangle-large size="80" />
+<icon-alert-triangle size="s"></icon-alert-triangle>
+<icon-alert-triangle-large size="80"></icon-alert-triangle-large>
 ```
 
 ### Tree shaking
