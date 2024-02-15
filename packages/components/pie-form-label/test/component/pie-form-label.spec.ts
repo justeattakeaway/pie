@@ -1,5 +1,6 @@
-
 import { test, expect, MountOptions } from '@sand4rt/experimental-ct-web';
+import { PieInput } from '@justeattakeaway/pie-input';
+import { PieSwitch } from '@justeattakeaway/pie-switch';
 import { PieFormLabel, FormLabelProps } from '../../src/index.ts';
 
 const componentSelector = '[data-test-id="pie-form-label"]';
@@ -23,5 +24,85 @@ test.describe('PieFormLabel - Component tests', () => {
 
         // Assert
         expect(formLabel).toBeVisible();
+    });
+    test.describe('should behave as expected when it is clicked and the "for" prop is assigned', () => {
+        // IMPORTANT: Mounting and Unmounting the component before each test ensures that any tests that do not explicitly
+        // mount the component will still have it available in Playwright's cache (loaded and registered in the test browser)
+        test.beforeEach(async ({ mount }) => {
+            const pieInput = await mount(PieInput);
+            await pieInput.unmount();
+
+            const pieSwitch = await mount(PieSwitch);
+            await pieSwitch.unmount();
+
+            const pieFormLabel = await mount(PieFormLabel);
+            await pieFormLabel.unmount();
+        });
+
+        test('when used with a text input', async ({ page }) => {
+            // Arrange
+            await page.setContent('<pie-form-label for="email">Email:</pie-form-label><pie-input id="email"></pie-input>');
+
+            // Act
+            const target = page.locator('#email');
+            const label = page.locator('pie-form-label');
+            await label.click();
+
+            // Assert
+            await expect(target).toBeFocused();
+        });
+
+        test.describe('when used with a switch', () => {
+            const markup = '<pie-form-label for="approveSettings">Approve settings</pie-form-label><pie-switch id="approveSettings"></pie-switch>';
+
+            test.describe('when clicked once', () => {
+                test('the switch should be focused', async ({ page }) => {
+                    // Arrange
+                    await page.setContent(markup);
+
+                    // Act
+                    const target = page.locator('#approveSettings');
+                    const label = page.locator('pie-form-label');
+                    await expect(target).not.toBeFocused();
+                    await label.click();
+
+                    // Assert
+                    await expect(target).toBeFocused();
+                });
+                test('the switch "checked" attribute is true', async ({ page }) => {
+                    // Arrange
+                    await page.setContent(markup);
+
+                    // Act
+                    const target = page.locator('#approveSettings');
+                    const label = page.locator('pie-form-label');
+                    await label.click();
+
+                    const value = await target.evaluate((el) => (el as PieSwitch).checked);
+                    const expected = true;
+
+                    // Assert
+                    expect(value).toBe(expected);
+                });
+            });
+            test.describe('when clicked twice', () => {
+                test('the switch "checked" attribute is false', async ({ page }) => {
+                    // Arrange
+                    await page.setContent(markup);
+
+                    // Act
+                    const target = page.locator('#approveSettings');
+                    const label = page.locator('pie-form-label');
+                    await label.click();
+                    await label.click();
+
+                    const value = await target.evaluate((el) => (el as PieSwitch).checked);
+                    const expected = false;
+
+                    // Assert
+                    expect(value).toBe(expected);
+                });
+            });
+        });
     });
 });

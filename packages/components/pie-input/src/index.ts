@@ -6,7 +6,7 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import { live } from 'lit/directives/live.js';
 
 import {
-    validPropertyValues, RtlMixin, defineCustomElement, FormControlMixin, wrapNativeEvent,
+    validPropertyValues, RtlMixin, defineCustomElement, FormControlMixin, wrapNativeEvent, type PIEInputElement,
 } from '@justeattakeaway/pie-webc-core';
 
 import styles from './input.scss?inline';
@@ -24,7 +24,7 @@ const componentSelector = 'pie-input';
  * @slot leading - An icon or short text to display at the start of the input.
  * @slot trailing - An icon or short text to display at the end of the input.
  */
-export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements InputProps {
+export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements InputProps, PIEInputElement {
     static shadowRootOptions = { ...LitElement.shadowRootOptions, delegatesFocus: true };
 
     @property({ type: String, reflect: true })
@@ -69,6 +69,9 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
 
     @query('input')
     private input?: HTMLInputElement;
+
+    @query('input')
+    public focusTarget!: HTMLElement;
 
     /**
      * (Read-only) returns a ValidityState with the validity states that this element is in.
