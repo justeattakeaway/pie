@@ -26,10 +26,7 @@
     align-items: center;
     justify-content: center;
     gap: var(--dt-spacing-a);
-    padding-inline-start: var(--tag-padding-inline);
-    padding-inline-end: var(--tag-padding-inline);
-    padding-block-start: var(--tag-padding-block);
-    padding-block-end: var(--tag-padding-block);
+    padding: var(--tag-padding-block) var(--tag-padding-inline);
     border: var(--tag-border-width) solid;
     border-color: var(--tag-border-color);
     border-radius: var(--tag-border-radius);
