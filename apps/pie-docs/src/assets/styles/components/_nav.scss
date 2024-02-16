@@ -38,7 +38,8 @@ $nav-item-inline-start-margin: calc($nav-category-gap + $nav-category-icon-width
     .c-nav-list {
         margin-block-start: var(--dt-spacing-a);
         margin-block-end: var(--dt-spacing-b);
-        margin-inline: 0;
+        margin-inline-start: 0;
+        margin-inline-end: 0;
     }
 }
 
