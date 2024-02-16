@@ -2,12 +2,6 @@
 @use '@justeat/pie-design-tokens/dist/jet.scss' as dt;
 @use 'dialog-polyfill/dist/dialog-polyfill.css';
 
-*,
-*:before,
-*:after {
-    box-sizing: border-box;
-}
-
 .c-modal {
     // Custom Property Declarations
     // These are defined here instead of :host to encapsulate them inside Shadow DOM
