@@ -32,8 +32,12 @@ export default {
                 ignore: ['consecutive-duplicates-with-different-values'],
             }
         ],
-        'declaration-block-no-redundant-longhand-properties': null,
-        'declaration-block-no-shorthand-property-overrides': true,
+        'declaration-block-no-redundant-longhand-properties': [
+            true, {
+                // Excluding margin/padding logical operators to avoid "stylelint-no-logical-props-shorthands" conflict
+                ignoreShorthands: ['/margin-inline/', '/margin-block/', 'padding-inline', 'padding-block'],
+            }
+        ],
         'declaration-empty-line-before': null,
         'font-family-name-quotes': 'always-where-recommended',
         'font-weight-notation': 'numeric',

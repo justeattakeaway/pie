@@ -5,10 +5,10 @@ import {
     beforeEach,
 } from 'vitest';
 
-const stylelint = require('stylelint');
+import stylelint from 'stylelint';
 
 const config = {
-    extends: 'stylelint-config-standard-scss',
+    extends: '@justeattakeaway/stylelint-config-pie/base',
     plugins: [
         '@justeattakeaway/stylelint-no-logical-props-shorthands',
     ],
@@ -68,7 +68,10 @@ describe('stylelint-no-logical-props-shorthands', () => {
                         fix: true,
                     });
 
-                    expect(result.output).toMatchSnapshot();
+                    expect(result.code).toMatchInlineSnapshot(`
+                      "a { margin-block: 10px; }
+                      "
+                    `);
                 });
             });
 
@@ -83,7 +86,10 @@ describe('stylelint-no-logical-props-shorthands', () => {
                             fix: true,
                         });
 
-                        expect(result.output).toMatchSnapshot();
+                        expect(result.code).toMatchInlineSnapshot(`
+                          "a { margin-block: 12px 34px; }
+                              "
+                        `);
                     });
                 });
 
@@ -97,7 +103,10 @@ describe('stylelint-no-logical-props-shorthands', () => {
                             fix: true,
                         });
 
-                        expect(result.output).toMatchSnapshot();
+                        expect(result.code).toMatchInlineSnapshot(`
+                          "a { margin-block-start: 12px;margin-block-end: var(--dt-spacing-e); }
+                              "
+                        `);
                     });
                 });
 
@@ -106,12 +115,12 @@ describe('stylelint-no-logical-props-shorthands', () => {
                         const code = `a { padding-inline: calc(var(--dt-spacing-d) + $nav-item-inline-start-margin) var(--dt-spacing-d); }
     `;
                         const result = await stylelint.lint({
-                            code,
+                            code: code.trim(),
                             config,
                             fix: true,
                         });
 
-                        expect(result.output).toMatchSnapshot();
+                        expect(result.code).toMatchInlineSnapshot('"a { padding-inline-start: calc(var(--dt-spacing-d) + $nav-item-inline-start-margin);padding-inline-end: var(--dt-spacing-d); }"');
                     });
                 });
             });
