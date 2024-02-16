@@ -14,8 +14,7 @@ $tokensTable-item-vertical-padding: var(--dt-spacing-e);
     padding: 0;
     margin-block-start: var(--dt-spacing-f);
     margin-block-end: 0;
-    margin-inline-start: 0;
-    margin-inline-end: 0;
+    margin-inline: 0;
     width: 100%;
 
     @include f.media('>=wide') {
@@ -33,8 +32,7 @@ $tokensTable-item-vertical-padding: var(--dt-spacing-e);
         min-height: calc($tokensTable-item-min-height - calc($tokensTable-item-vertical-padding * 2));
 
         @include f.media('>=wide') {
-            justify-self: start;
-            align-self: start;
+            place-self: start;
         }
     }
 }
@@ -46,8 +44,7 @@ $tokensTable-item-vertical-padding: var(--dt-spacing-e);
 
     @include f.media('>=wide') {
         min-height: calc($tokensTable-item-min-height - calc($tokensTable-item-vertical-padding * 2));
-        justify-self: start;
-        align-self: start;
+        place-self: start;
         min-width: 152px;
         border-radius: var(--dt-radius-rounded-b);
     }
@@ -95,10 +92,7 @@ $tokensTable-item-vertical-padding: var(--dt-spacing-e);
 
     &:before {
         content: '';
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
+        inset: 0;
         background-color: var(--example-background-color);
         position: absolute;
         opacity: var(--example-checked-opacity);
@@ -113,15 +107,9 @@ $tokensTable-item-vertical-padding: var(--dt-spacing-e);
     width: var(--example-spacing);
     height: var(--example-spacing);
     border-radius: 2px;
-    margin-block-start: 0;
-    margin-block-end: 0;
-    margin-inline-start: auto;
-    margin-inline-end: auto;
-    left: 0;
-    right: 0;
+    margin: 0 auto;
+    inset: calc(var(--base-negative-space) + 8px) 0 calc(var(--base-negative-space) - 8px) 0;
     position: absolute;
-    bottom: calc(var(--base-negative-space) - 8px);
-    top: calc(var(--base-negative-space) + 8px);
 
     @include f.media('>=wide') {
         bottom: 0;
@@ -134,15 +122,9 @@ $tokensTable-item-vertical-padding: var(--dt-spacing-e);
     width: var(--dt-spacing-i);
     height: var(--dt-spacing-i);
     border-radius: var(--dt-radius-rounded-b);
-    margin-block-start: 0;
-    margin-block-end: 0;
-    margin-inline-start: auto;
-    margin-inline-end: auto;
-    left: 0;
-    right: 0;
+    margin: 0 auto;
+    inset: var(--dt-spacing-h) 0 var(--dt-spacing-g) 0;
     position: absolute;
-    bottom: var(--dt-spacing-g);
-    top: var(--dt-spacing-h);
     box-shadow: var(--example-shadow);
 
     @include f.media('>=wide') {
@@ -174,8 +156,7 @@ $tokensTable-item-vertical-padding: var(--dt-spacing-e);
     min-height: 184px;
     padding-block-start: var(--dt-spacing-i);
     padding-block-end: var(--dt-spacing-g);
-    padding-inline-start: 0;
-    padding-inline-end: 0;
+    padding-inline: 0;
     background-color: var(--dt-color-background-subtle);
     color: var(--dt-color-content-default);
     font-family: var(--example-font-family);
@@ -244,10 +225,7 @@ $tokensTable-item-vertical-padding: var(--dt-spacing-e);
     border-radius: var(--dt-radius-rounded-b);
 
     @include f.media('>=wide') {
-        padding-block-start: $tokensTable-item-vertical-padding;
-        padding-block-end: $tokensTable-item-vertical-padding;
-        padding-inline-start: 0;
-        padding-inline-end: 0;
+        padding: $tokensTable-item-vertical-padding 0;
         border-radius: 0;
         border-width: 0 0 $tokensTable-border-width 0;
 

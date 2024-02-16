@@ -27,7 +27,6 @@
     padding: 0;
 
     @include f.media('>=#{v.$wide-screen-content-max-width}') {
-        margin-inline-start: auto;
-        margin-inline-end: auto;
+        margin-inline: auto;
     }
 }

@@ -1,4 +1,4 @@
-module.exports = {
+export default {
     rules: {
         'color-named': 'never',
         'max-nesting-depth': 3,
