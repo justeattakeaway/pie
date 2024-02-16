@@ -69,18 +69,18 @@
         flex-direction: row;
 
         .has-icon {
-            margin-right: var(--dt-spacing-c);
+            margin-inline-end: var(--dt-spacing-c);
         }
     }
 
     &-heading-icon {
-        padding-top: var(--dt-spacing-a);
+        padding-block-start: var(--dt-spacing-a);
         color: var(--notification-icon-fill);
     }
 
     &-icon-close {
         position: absolute;
-        top: var(--dt-spacing-b);
-        right: var(--dt-spacing-b);
+        inset-block-start: var(--dt-spacing-b);
+        inset-inline-end: var(--dt-spacing-b);
     }
 }
