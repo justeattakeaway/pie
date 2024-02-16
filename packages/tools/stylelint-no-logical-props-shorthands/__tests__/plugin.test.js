@@ -103,10 +103,7 @@ describe('stylelint-no-logical-props-shorthands', () => {
                             fix: true,
                         });
 
-                        expect(result.code).toMatchInlineSnapshot(`
-                          "a { margin-block-start: 12px;margin-block-end: var(--dt-spacing-e); }
-                              "
-                        `);
+                        expect(result.code).toMatchSnapshot();
                     });
                 });
 
@@ -115,12 +112,12 @@ describe('stylelint-no-logical-props-shorthands', () => {
                         const code = `a { padding-inline: calc(var(--dt-spacing-d) + $nav-item-inline-start-margin) var(--dt-spacing-d); }
     `;
                         const result = await stylelint.lint({
-                            code: code.trim(),
+                            code,
                             config,
                             fix: true,
                         });
 
-                        expect(result.code).toMatchInlineSnapshot('"a { padding-inline-start: calc(var(--dt-spacing-d) + $nav-item-inline-start-margin);padding-inline-end: var(--dt-spacing-d); }"');
+                        expect(result.code).toMatchSnapshot();
                     });
                 });
             });
