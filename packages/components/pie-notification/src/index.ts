@@ -7,7 +7,7 @@ import {
 } from 'lit';
 import { type StaticValue, html, unsafeStatic } from 'lit/static-html.js';
 import { defineCustomElement, validPropertyValues } from '@justeattakeaway/pie-webc-core';
-import { property, queryAssignedElements } from 'lit/decorators.js';
+import { property, queryAssignedElements, state } from 'lit/decorators.js';
 import { type NotificationProps, variants, headingLevels } from './defs';
 import styles from './notification.scss?inline';
 
@@ -56,9 +56,11 @@ export class PieNotification extends LitElement implements NotificationProps {
 
     @queryAssignedElements({ slot: 'icon' }) _iconSlot!: Array<HTMLElement>;
 
-    private _hasExternalIcon = false;
+    @state()
+    protected _hasExternalIcon = false;
 
-    private _hasIconClass = false;
+    @state()
+    protected _hasIconClass = false;
 
     // Renders a `CSSResult` generated from SCSS by Vite
     static styles = unsafeCSS(styles);
@@ -68,10 +70,6 @@ export class PieNotification extends LitElement implements NotificationProps {
      */
     protected firstUpdated (): void {
         this.updateIconProperties();
-
-        if (this._hasExternalIcon || this._hasIconClass) {
-            this.requestUpdate();
-        }
     }
 
     /**
@@ -81,7 +79,6 @@ export class PieNotification extends LitElement implements NotificationProps {
     protected willUpdate (_changedProperties: PropertyValueMap<NotificationProps>): void {
         if (_changedProperties.has('variant')) {
             this.updateIconProperties();
-            this.requestUpdate();
         }
     }
 
