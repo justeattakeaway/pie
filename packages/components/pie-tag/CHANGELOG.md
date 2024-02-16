@@ -1,5 +1,20 @@
 # @justeattakeaway/pie-tag
 
+## 0.7.0
+
+### Minor Changes
+
+- [Changed] - Removed hard coded height values and align padding values to design specs. ([#1260](https://github.com/justeattakeaway/pie/pull/1260)) by [@raoufswe](https://github.com/raoufswe)
+
+  [Fixed] - The `red-strong` variant should use the `content-light` token for label and icon
+
+## 0.6.2
+
+### Patch Changes
+
+- Updated dependencies [[`86791bd11`](https://github.com/justeattakeaway/pie/commit/86791bd11b7b5e53f171b212699831a79ec4e2d2)]:
+  - @justeattakeaway/pie-webc-core@0.18.0
+
 ## 0.6.1
 
 ### Patch Changes

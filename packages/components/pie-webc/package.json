@@ -1,18 +1,17 @@
 {
   "name": "@justeattakeaway/pie-webc",
   "description": "Component bundle containing all PIE web components",
-  "private": true,
-  "version": "0.1.0",
+  "version": "0.2.0",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
-    "src",
     "dist",
     "**/*.d.ts"
   ],
   "scripts": {
+    "build": "run -T vite build",
     "lint:scripts": "run -T eslint .",
     "lint:scripts:fix": "yarn lint:scripts --fix",
     "lint:style": "echo \"Error: no scss / css to lint\" && exit 0",
@@ -24,10 +23,12 @@
   "author": "Just Eat Takeaway.com - Design System Team",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@justeattakeaway/pie-components-config": "0.9.0"
+    "@justeattakeaway/pie-components-config": "0.11.0"
   },
   "dependencies": {
-    "@justeattakeaway/pie-webc-core": "0.17.1"
+    "@justeattakeaway/pie-button": "0.45.4",
+    "@justeattakeaway/pie-modal": "0.38.6",
+    "@justeattakeaway/pie-webc-core": "0.18.0"
   },
   "volta": {
     "extends": "../../../package.json"

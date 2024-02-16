@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.45.4
+
+### Patch Changes
+
+- Updated dependencies [[`86791bd11`](https://github.com/justeattakeaway/pie/commit/86791bd11b7b5e53f171b212699831a79ec4e2d2)]:
+  - @justeattakeaway/pie-webc-core@0.18.0
+  - @justeattakeaway/pie-spinner@0.5.3
+
 ## 0.45.3
 
 ### Patch Changes

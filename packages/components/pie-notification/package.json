@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-notification",
   "description": "PIE Design System Notification built using Web Components",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -39,7 +39,7 @@
   "dependencies": {
     "@justeattakeaway/pie-icon-button": "0.27.2",
     "@justeattakeaway/pie-icons-webc": "0.17.2",
-    "@justeattakeaway/pie-webc-core": "0.17.1"
+    "@justeattakeaway/pie-webc-core": "0.18.0"
   },
   "volta": {
     "extends": "../../../package.json"
