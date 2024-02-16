@@ -3,7 +3,7 @@ import {
     nothing,
     LitElement,
     type TemplateResult,
-    type PropertyValueMap,
+    type PropertyValues,
 } from 'lit';
 import { type StaticValue, html, unsafeStatic } from 'lit/static-html.js';
 import { defineCustomElement, validPropertyValues } from '@justeattakeaway/pie-webc-core';
@@ -76,7 +76,7 @@ export class PieNotification extends LitElement implements NotificationProps {
      * Lifecycle method executed when component is about to update.
      * It update icon properties if variant has changes.
      */
-    protected willUpdate (_changedProperties: PropertyValueMap<NotificationProps>): void {
+    protected willUpdate (_changedProperties: PropertyValues<this>): void {
         if (_changedProperties.has('variant')) {
             this.updateIconProperties();
         }
