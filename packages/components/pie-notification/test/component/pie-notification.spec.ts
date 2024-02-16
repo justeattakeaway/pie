@@ -164,7 +164,7 @@ test.describe('PieNotification - Component tests', () => {
                 expect(header).not.toBeVisible();
             });
 
-            test('should not render the header when heading is provided', async ({ mount, page }) => {
+            test('should render the header when heading is provided', async ({ mount, page }) => {
                 // Arrange
                 await mount(PieNotification, {
                     props: { heading: 'Title' },
