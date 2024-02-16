@@ -21,7 +21,7 @@ const componentSelector = 'pie-assistive-text';
  * @slot - Default slot
  */
 export class PieAssistiveText extends LitElement implements AssistiveTextProps {
-    @property()
+    @property({ type: String })
     @validPropertyValues(componentSelector, variants, 'default')
     public variant?: AssistiveTextProps['variant'] = 'default';
 
