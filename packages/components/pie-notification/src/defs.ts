@@ -13,12 +13,12 @@ export interface NotificationProps {
   isCompact?: boolean;
 
   /**
-   * The text to display in the modal's heading.
+   * The text to display in the notification's heading.
    */
   heading?: string;
 
   /**
-   * The HTML heading tag to use for the modal's heading. Can be h1-h6.
+   * The HTML heading tag to use for the notification's heading. Can be h1-h6.
    */
   headingLevel?: typeof headingLevels[number];
 
