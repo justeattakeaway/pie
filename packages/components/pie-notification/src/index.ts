@@ -8,7 +8,7 @@ import {
 import { type StaticValue, html, unsafeStatic } from 'lit/static-html.js';
 import { defineCustomElement, validPropertyValues } from '@justeattakeaway/pie-webc-core';
 import { property, queryAssignedElements, state } from 'lit/decorators.js';
-import { type NotificationProps, type ActionProps,variants, headingLevels } from './defs';
+import { type NotificationProps, type ActionProps,  variants, headingLevels, componentSelector, componentClass } from './defs';
 import styles from './notification.scss?inline';
 
 import '@justeattakeaway/pie-icon-button';
@@ -22,12 +22,13 @@ import '@justeattakeaway/pie-button';
 // Valid values available to consumers
 export * from './defs';
 
-const componentSelector = 'pie-notification';
-const componentClass = 'c-notification';
-
 type InternalVariantType = Exclude<NotificationProps['variant'], undefined>;
 type InternalHeadingLevelType = Exclude<NotificationProps['headingLevel'], undefined>;
 type InternalActionType = 'leading' | 'supporting';
+
+export interface NotificationEventDetail {
+    targetNotification: PieNotification;
+}
 
 /**
  * @tagname pie-notification
@@ -109,7 +110,7 @@ export class PieNotification extends LitElement implements NotificationProps {
      */
     private renderFooter (leadingAction: ActionProps, supportingAction?: ActionProps) {
         return html`
-            <footer class="${componentClass}-footer" data-test-id="${componentSelector}-footer">
+            <footer class="${componentClass}-footer" data-test-id="${componentSelector}-footer" is-compact="${this.isCompact}">
                 ${supportingAction ? this.renderActionButton(supportingAction, 'supporting') : nothing}
                 ${leadingAction ? this.renderActionButton(leadingAction, 'leading') : nothing}
             </footer>
@@ -216,6 +217,7 @@ export class PieNotification extends LitElement implements NotificationProps {
                 size="small"
                 class="${componentClass}-icon-close"
                 data-test-id="${componentSelector}-icon-close"
+                @click="${() => { this.isOpen = false; }}"
                 >
                 <icon-close></icon-close>
             </pie-icon-button>`;
@@ -252,8 +254,6 @@ export class PieNotification extends LitElement implements NotificationProps {
         `;
     }
 
-    
-
     render () {
         const {
             variant,
@@ -264,8 +264,13 @@ export class PieNotification extends LitElement implements NotificationProps {
             hideIcon,
             _hasIconClass,
             leadingAction,
-            supportingAction
+            supportingAction,
+            isOpen
         } = this;
+
+        if(!isOpen) {
+            return nothing;
+        }
 
         return html`
             <div data-test-id="${componentSelector}" class="${componentClass}" variant="${variant}" is-compact="${isCompact}">
@@ -281,6 +286,24 @@ export class PieNotification extends LitElement implements NotificationProps {
                 
                 ${leadingAction ? this.renderFooter(leadingAction, supportingAction) : nothing}
             </div>`;
+    }
+
+    /** 
+     * Dispatch a custom event.
+     *
+     * To be used whenever we have behavioural events we want to
+     * bubble up through the notification.
+     *
+     * @param {string} eventType
+     */
+    private dispatchModalCustomEvent (eventType: string): void {
+        const event = new CustomEvent<NotificationEventDetail>(eventType, {
+            bubbles: true,
+            composed: true,
+            detail: { targetNotification: this },
+        });
+
+        this.dispatchEvent(event);
     }
 }
 

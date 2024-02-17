@@ -61,3 +61,41 @@ export interface NotificationProps {
    */
   supportingAction?: ActionProps;
 }
+
+export const componentSelector = 'pie-notification';
+export const componentClass = 'c-notification';
+
+/**
+ * Event name for when the notification is closed.
+ *
+ * @constant
+ */
+export const ON_NOTIFICATION_CLOSE_EVENT = `${componentSelector}-close`;
+
+/**
+ * Event name for when the notification is opened.
+ *
+ * @constant
+ */
+export const ON_NOTIFICATION_OPEN_EVENT = `${componentSelector}-open`;
+
+/**
+ * Event name for when the notification back button is clicked.
+ *
+ * @constant
+ */
+export const ON_NOTIFICATION_BACK_EVENT = `${componentSelector}-back`;
+
+/**
+ * Event name for when the notification leading action is clicked.
+ *
+ * @constant
+ */
+export const ON_NOTIFICATION_LEADING_ACTION_CLICK = `${componentSelector}-leading-action-click`;
+
+/**
+ * Event name for when the notification supporting action is clicked.
+ *
+ * @constant
+ */
+export const ON_NOTIFICATION_SUPPORTING_ACTION_CLICK = `${componentSelector}-supporting-action-click`;

@@ -89,5 +89,9 @@
         flex-direction: row;
         justify-content: flex-end;
         gap: var(--dt-spacing-d);
+
+        &[is-compact='true'] {
+            align-self: flex-end;
+        }
     }
 }

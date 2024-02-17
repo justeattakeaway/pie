@@ -1,5 +1,4 @@
 import { html } from 'lit';
-
 /* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-notification';
 import { NotificationProps as NotificationBaseProps, variants, headingLevels } from '@justeattakeaway/pie-notification';
@@ -17,7 +16,7 @@ const defaultArgs: NotificationProps = {
     isOpen: true,
     variant: 'neutral',
     isCompact: false,
-    slot: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sit amet tincidunt est, vitae vulputate turpis. Cras pretium venenatis elementum. Duis tristique neque non varius tempor. In hac habitasse platea dictumst. Aenean accumsan vehicula urna. Cras fringilla sed ipsum nec dignissim. Aliquam sit amet ullamcorper ligula.',
+    slot: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sit amet tincidunt est, vitae vulputate turpis. Cras pretium venenatis elementum. Duis tristique neque non varius tempor. In hac habitasse platea dictumst. Aenean accumsan vehicula urna.',
     heading: 'Title',
     headingLevel: 'h2',
     hideIcon: false,
