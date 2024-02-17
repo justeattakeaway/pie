@@ -163,9 +163,9 @@ export class PieNotification extends LitElement implements NotificationProps {
      *
      * @param {InternalVariantType} variant
      *
-     * @static
+     * @private
      */
-    static renderIconVariant (variant: InternalVariantType) {
+    private renderIconVariant (variant: InternalVariantType) {
         if (PieNotification.variantHasDefaultIcon(variant)) {
             return PieNotification.getDefaultVariantIcon(variant);
         }
@@ -186,7 +186,7 @@ export class PieNotification extends LitElement implements NotificationProps {
     private renderIcon (variant: InternalVariantType, hasExternalIcon: boolean, hasIconClass: boolean): TemplateResult | typeof nothing {
         return html`
             <div data-test-id="${componentSelector}-icon-area" class="${hasIconClass ? 'has-icon ' : ''}${componentClass}-heading-icon">
-                ${!hasExternalIcon ? PieNotification.renderIconVariant(variant) : nothing}
+                ${!hasExternalIcon ? this.renderIconVariant(variant) : nothing}
                 <slot name="icon"></slot>
             </div>
         `;
@@ -216,22 +216,19 @@ export class PieNotification extends LitElement implements NotificationProps {
             heading,
             headingLevel,
             isCompact,
-            renderNotificationHeading,
-            renderIcon,
             _hasExternalIcon,
             hideIcon,
-            renderCloseButton,
             _hasIconClass,
         } = this;
 
         return html`
             <div data-test-id="${componentSelector}" class="${componentClass}" variant="${variant}" is-compact="${isCompact}">
-                ${!isCompact ? renderCloseButton() : nothing}
+                ${!isCompact ? this.renderCloseButton() : nothing}
 
                 <section class="${componentClass}-content-section">
-                    ${!hideIcon ? renderIcon(variant, _hasExternalIcon, _hasIconClass) : nothing}    
+                    ${!hideIcon ? this.renderIcon(variant, _hasExternalIcon, _hasIconClass) : nothing}    
                     <article>
-                        ${heading ? renderNotificationHeading(heading, unsafeStatic(headingLevel)) : nothing}
+                        ${heading ? this.renderNotificationHeading(heading, unsafeStatic(headingLevel)) : nothing}
                         <slot></slot>
                     </article>
                 </section>
