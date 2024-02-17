@@ -21,6 +21,16 @@ const defaultArgs: NotificationProps = {
     heading: 'Title',
     headingLevel: 'h2',
     hideIcon: false,
+    leadingAction: {
+        text: 'Confirm',
+        ariaLabel: 'Descriptive confirmation text',
+        onClick: () => { console.log('Leading action triggered') }
+    },
+    supportingAction: {
+        text: 'Cancel',
+        ariaLabel: 'Descriptive cancellation text',
+        onClick: () => { console.log('Supporting action triggered') }
+    },
 };
 
 const notificationStoryMeta: NotificationStoryMeta = {
@@ -91,6 +101,8 @@ const Template : TemplateFunction<NotificationProps> = ({
     heading,
     headingLevel,
     hideIcon,
+    leadingAction,
+    supportingAction,
     slot,
 }) => html`
     <pie-notification
@@ -100,6 +112,8 @@ const Template : TemplateFunction<NotificationProps> = ({
         heading="${heading}"
         headingLevel="${headingLevel}"
         ?hideIcon="${hideIcon}"
+        .leadingAction="${leadingAction}"
+        .supportingAction="${supportingAction}"
         >
         <icon-alert-circle-filled slot="icon" size="s"></icon-alert-circle-filled>
         ${slot}

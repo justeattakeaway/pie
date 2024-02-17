@@ -83,4 +83,11 @@
         inset-block-start: var(--dt-spacing-b);
         inset-inline-end: var(--dt-spacing-b);
     }
+
+    &-footer {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        gap: var(--dt-spacing-d);
+    }
 }

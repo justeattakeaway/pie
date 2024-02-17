@@ -8,7 +8,7 @@ import {
 import { type StaticValue, html, unsafeStatic } from 'lit/static-html.js';
 import { defineCustomElement, validPropertyValues } from '@justeattakeaway/pie-webc-core';
 import { property, queryAssignedElements, state } from 'lit/decorators.js';
-import { type NotificationProps, variants, headingLevels } from './defs';
+import { type NotificationProps, type ActionProps,variants, headingLevels } from './defs';
 import styles from './notification.scss?inline';
 
 import '@justeattakeaway/pie-icon-button';
@@ -17,6 +17,7 @@ import '@justeattakeaway/pie-icons-webc/IconInfoCircle';
 import '@justeattakeaway/pie-icons-webc/IconAlertCircle';
 import '@justeattakeaway/pie-icons-webc/IconAlertTriangle';
 import '@justeattakeaway/pie-icons-webc/IconCheckCircle';
+import '@justeattakeaway/pie-button';
 
 // Valid values available to consumers
 export * from './defs';
@@ -26,6 +27,7 @@ const componentClass = 'c-notification';
 
 type InternalVariantType = Exclude<NotificationProps['variant'], undefined>;
 type InternalHeadingLevelType = Exclude<NotificationProps['headingLevel'], undefined>;
+type InternalActionType = 'leading' | 'supporting';
 
 /**
  * @tagname pie-notification
@@ -53,6 +55,12 @@ export class PieNotification extends LitElement implements NotificationProps {
 
     @property({ type: Boolean })
     public hideCloseIcon = false;
+
+    @property({ type: Object })
+    public leadingAction!: ActionProps;
+
+    @property({ type: Object })
+    public supportingAction!: ActionProps;
 
     @queryAssignedElements({ slot: 'icon' }) _iconSlot!: Array<HTMLElement>;
 
@@ -99,9 +107,12 @@ export class PieNotification extends LitElement implements NotificationProps {
      *
      * @private
      */
-    private renderFooter () {
+    private renderFooter (leadingAction: ActionProps, supportingAction?: ActionProps) {
         return html`
-            <footer class="${componentClass}-footer"></footer>
+            <footer class="${componentClass}-footer" data-test-id="${componentSelector}-footer">
+                ${supportingAction ? this.renderActionButton(supportingAction, 'supporting') : nothing}
+                ${leadingAction ? this.renderActionButton(leadingAction, 'leading') : nothing}
+            </footer>
         `;
     }
 
@@ -210,6 +221,39 @@ export class PieNotification extends LitElement implements NotificationProps {
             </pie-icon-button>`;
     }
 
+    /**
+     * Render the action button depending on action type and its action.
+     *
+     * @param {ActionProps} action - The action properties.
+     * @param {InternalActionType} actionType - The type of the action.
+     * 
+     * @returns {TemplateResult | typeof nothing} - The rendered action button or nothing if the action text is not defined.
+     * @private
+     */
+    private renderActionButton (action: ActionProps, actionType: InternalActionType) : TemplateResult | typeof nothing {
+        const { text, ariaLabel, onClick } = action;
+
+        if (!text) {
+            return nothing;
+        }
+
+        const buttonVariant = actionType === 'leading' ? 'primary' : 'ghost';
+        
+        return html`
+            <pie-button
+                variant="${buttonVariant}"
+                size="small-productive"
+                aria-label="${ariaLabel || nothing}"
+                @click="${onClick ? () => onClick() : nothing}"
+                data-test-id="${componentSelector}-${actionType}-action"
+                type="submit">
+                ${text}
+            </pie-button>
+        `;
+    }
+
+    
+
     render () {
         const {
             variant,
@@ -222,6 +266,8 @@ export class PieNotification extends LitElement implements NotificationProps {
             hideIcon,
             renderCloseButton,
             _hasIconClass,
+            leadingAction,
+            supportingAction
         } = this;
 
         return html`
@@ -236,7 +282,7 @@ export class PieNotification extends LitElement implements NotificationProps {
                     </article>
                 </section>
                 
-                ${this.renderFooter()}
+                ${leadingAction ? this.renderFooter(leadingAction, supportingAction) : nothing}
             </div>`;
     }
 }

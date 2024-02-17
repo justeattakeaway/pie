@@ -1,6 +1,25 @@
 export const variants = ['neutral', 'neutral-alternative', 'info', 'success', 'warning', 'error'] as const;
 export const headingLevels = ['h2', 'h3', 'h4', 'h5', 'h6'] as const;
 
+export type ActionProps = {
+  /**
+   * The text to display inside the button.
+   */
+  text: string;
+
+  /**
+   * The ARIA label for the button.
+   */
+  ariaLabel?: string;
+
+  /**
+   * The optional action associated to the action.
+   *
+   * @returns void
+   */
+  onClick?: () => void;
+};
+
 export interface NotificationProps {
   /**
    * Set the variant of the notification.
@@ -31,4 +50,14 @@ export interface NotificationProps {
    * When true, the notification is set to be open and visible.
    */
   isOpen?: boolean;
+
+  /**
+   * The leading action for the notification.
+   */
+  leadingAction?: ActionProps;
+
+  /**
+   * The supporting action for the notification.
+   */
+  supportingAction?: ActionProps;
 }
