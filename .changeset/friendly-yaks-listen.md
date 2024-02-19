@@ -2,7 +2,8 @@
 "@justeattakeaway/stylelint-no-logical-props-shorthands": minor
 "@justeattakeaway/stylelint-config-pie": minor
 "@justeattakeaway/pie-modal": minor
+"pie-docs": minor
 "pie-monorepo": minor
 ---
 
-[Updated] - stylelint to latest version (16)
+[Updated] - stylelint to latest version 16
