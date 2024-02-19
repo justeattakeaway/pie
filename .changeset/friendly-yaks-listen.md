@@ -6,4 +6,4 @@
 "pie-monorepo": minor
 ---
 
-[Updated] - stylelint to latest version 16
+[Changed] - stylelint to latest version 16
