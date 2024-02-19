@@ -1,5 +1,16 @@
 # @justeattakeaway/pie-icons-webc
 
+## 0.18.0
+
+### Minor Changes
+
+- [Added] - Documentation for usage inside Vue app ([#1273](https://github.com/justeattakeaway/pie/pull/1273)) by [@LTurns](https://github.com/LTurns)
+
+### Patch Changes
+
+- Updated dependencies [[`4f89146dc`](https://github.com/justeattakeaway/pie/commit/4f89146dc83c7eb72cecc0b83be6d718aa395ae1)]:
+  - @justeattakeaway/pie-webc-core@0.19.0
+
 ## 0.17.3
 
 ### Patch Changes

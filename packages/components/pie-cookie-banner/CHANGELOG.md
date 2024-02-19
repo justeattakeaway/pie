@@ -1,5 +1,20 @@
 # @justeattakeaway/pie-cookie-banner
 
+## 0.17.3
+
+### Patch Changes
+
+- [Changed] - local dispatchCustomEvent function replaced with a helper from `pie-webc-core` package ([#1272](https://github.com/justeattakeaway/pie/pull/1272)) by [@dandel10n](https://github.com/dandel10n)
+
+- Updated dependencies [[`4f89146dc`](https://github.com/justeattakeaway/pie/commit/4f89146dc83c7eb72cecc0b83be6d718aa395ae1), [`4f89146dc`](https://github.com/justeattakeaway/pie/commit/4f89146dc83c7eb72cecc0b83be6d718aa395ae1)]:
+  - @justeattakeaway/pie-modal@0.38.7
+  - @justeattakeaway/pie-webc-core@0.19.0
+  - @justeattakeaway/pie-icon-button@0.27.5
+  - @justeattakeaway/pie-link@0.15.3
+  - @justeattakeaway/pie-switch@0.27.1
+  - @justeattakeaway/pie-button@0.45.5
+  - @justeattakeaway/pie-divider@0.12.3
+
 ## 0.17.2
 
 ### Patch Changes
