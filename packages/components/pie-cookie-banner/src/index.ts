@@ -12,7 +12,7 @@ import '@justeattakeaway/pie-modal';
 /* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-switch';
 import { PieSwitch } from '@justeattakeaway/pie-switch';
-import { defineCustomElement } from '@justeattakeaway/pie-webc-core';
+import { defineCustomElement, dispatchCustomEvent } from '@justeattakeaway/pie-webc-core';
 /* eslint-enable import/no-duplicates */
 
 import styles from './cookie-banner.scss?inline';
@@ -113,38 +113,16 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
             state = { ...state, [id]: checked };
         });
 
-        this._dispatchCookieBannerCustomEvent(ON_COOKIE_BANNER_PREFS_SAVED, state);
+        dispatchCustomEvent(this, ON_COOKIE_BANNER_PREFS_SAVED, state);
         this._isModalOpen = false;
         this._isCookieBannerHidden = true;
     }
 
     /**
-     * Note: We should aim to have a shareable event helper system to allow
-     * us to share this across components in-future.
-     *
-     * Dispatch a custom event.
-     *
-     * To be used whenever we have behavioral events we want to
-     * bubble up through the cookie banner.
-     *
-     * @param {string} eventType
-     * @param {any} detail
-     */
-    private _dispatchCookieBannerCustomEvent = (eventType: string, detail?: CustomEventInit['detail']) : void => {
-        const event = new CustomEvent(eventType, {
-            bubbles: true,
-            composed: true,
-            detail,
-        });
-
-        this.dispatchEvent(event);
-    };
-
-    /**
      * Hides the cookie banner and emits the necessary only event
      */
     private _onNecessaryOnly = () : void => {
-        this._dispatchCookieBannerCustomEvent(ON_COOKIE_BANNER_NECESSARY_ONLY);
+        dispatchCustomEvent(this, ON_COOKIE_BANNER_NECESSARY_ONLY);
         this._isCookieBannerHidden = true;
     };
 
@@ -152,7 +130,7 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
      * Hides the cookie banner and emits the accept all event
      */
     private _onAcceptAll = () : void => {
-        this._dispatchCookieBannerCustomEvent(ON_COOKIE_BANNER_ACCEPT_ALL);
+        dispatchCustomEvent(this, ON_COOKIE_BANNER_ACCEPT_ALL);
         this._isCookieBannerHidden = true;
     };
 
@@ -161,7 +139,7 @@ export class PieCookieBanner extends LitElement implements CookieBannerProps {
      */
     private _openManagePreferencesModal = () : void => {
         this._isCookieBannerHidden = true;
-        this._dispatchCookieBannerCustomEvent(ON_COOKIE_BANNER_MANAGE_PREFS);
+        dispatchCustomEvent(this, ON_COOKIE_BANNER_MANAGE_PREFS);
         this._isModalOpen = true;
     };
 
