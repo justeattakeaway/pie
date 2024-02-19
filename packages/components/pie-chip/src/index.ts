@@ -3,9 +3,11 @@ import {
 } from 'lit';
 import { property } from 'lit/decorators.js';
 
-import { validPropertyValues, defineCustomElement } from '@justeattakeaway/pie-webc-core';
+import {
+    validPropertyValues, defineCustomElement, dispatchCustomEvent,
+} from '@justeattakeaway/pie-webc-core';
 import styles from './chip.scss?inline';
-import { ChipProps, variants } from './defs';
+import { ChipProps, variants, ON_CHIP_CLOSE_EVENT } from './defs';
 import '@justeattakeaway/pie-icons-webc/IconCloseCircleFilled';
 import '@justeattakeaway/pie-spinner';
 
@@ -18,6 +20,7 @@ const componentSelector = 'pie-chip';
  * @tagname pie-chip
  * @slot icon - The icon slot
  * @slot - Default slot
+ * @event {CustomEvent} pie-chip-close - when a user clicks close button.
  */
 export class PieChip extends LitElement implements ChipProps {
     @property()
@@ -54,13 +57,24 @@ export class PieChip extends LitElement implements ChipProps {
     }
 
     /**
+     * Handles click on a close button by dispatching a custom event
+     *
+     * @private
+     */
+    private _handleCloseButtonClick () : void {
+        dispatchCustomEvent(this, ON_CHIP_CLOSE_EVENT);
+    }
+
+    /**
      * Template for the dismissible state
      *
      * @private
      */
     private renderCloseButton (): TemplateResult {
         return html`
-                    <button 
+                    <button
+                        @click="${this._handleCloseButtonClick}"
+                        ?disabled=${this.disabled}
                         class="c-chip-closeBtn"
                         data-test-id="chip-close-button">
                         <icon-close-circle-filled size="m"></icon-close-circle-filled>
@@ -89,8 +103,8 @@ export class PieChip extends LitElement implements ChipProps {
                 ?isDismissible="${isDismissible}">
                     <slot name="icon"></slot>
                     ${isLoading ? this.renderSpinner() : nothing}
-                    <slot></slot> 
-                    ${isDismissible && isSelected ? this.renderCloseButton() : nothing}        
+                    <slot></slot>
+                    ${isDismissible && isSelected ? this.renderCloseButton() : nothing}
             </div>`;
     }
 
