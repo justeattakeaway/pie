@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.19.0
+
+### Minor Changes
+
+- [Added] - dispatchCustomEvent helper function. ([#1272](https://github.com/justeattakeaway/pie/pull/1272)) by [@dandel10n](https://github.com/dandel10n)
+
 ## 0.18.0
 
 ### Minor Changes

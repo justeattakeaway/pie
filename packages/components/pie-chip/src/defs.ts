@@ -22,5 +22,12 @@ export interface ChipProps {
      * Can be only used if `isSelected` is set to true
      */
     isDismissible?: boolean;
-
 }
+
+/**
+ * Event name for when the chip is closed.
+ *
+ * @constant
+ */
+
+export const ON_CHIP_CLOSE_EVENT = 'pie-chip-close';
