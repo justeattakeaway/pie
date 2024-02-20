@@ -5809,8 +5809,6 @@ __metadata:
   dependencies:
     "@custom-elements-manifest/analyzer": 0.9.0
     "@justeattakeaway/pie-components-config": 0.11.0
-    "@justeattakeaway/pie-icon-button": 0.27.2
-    "@justeattakeaway/pie-icons-webc": 0.17.2
     "@justeattakeaway/pie-webc-core": 0.18.0
     "@justeattakeaway/pie-wrapper-react": 0.14.0
     cem-plugin-module-file-extensions: 0.0.5
@@ -5828,15 +5826,6 @@ __metadata:
     cem-plugin-module-file-extensions: 0.0.5
   languageName: unknown
   linkType: soft
-
-"@justeattakeaway/pie-spinner@npm:0.5.2":
-  version: 0.5.2
-  resolution: "@justeattakeaway/pie-spinner@npm:0.5.2"
-  dependencies:
-    "@justeattakeaway/pie-webc-core": 0.17.1
-  checksum: 5b69a7422eb4d597481b87fd99ca88b371b4b48ae42cf378b5e624aa1418f8db5490b92c7b22cdddde2ef76c96e69be6cb996440613f06f04fd8621a7ee110ee
-  languageName: node
-  linkType: hard
 
 "@justeattakeaway/pie-switch@0.27.0, @justeattakeaway/pie-switch@^0.27.0, @justeattakeaway/pie-switch@workspace:packages/components/pie-switch":
   version: 0.0.0-use.local
@@ -5910,7 +5899,7 @@ __metadata:
     "@babel/core": 7.23.9
     "@babel/preset-react": 7.18.6
     "@lit/react": 1.0.3
-    "@types/react": 18.2.55
+    "@types/react": 18.2.56
     fs-extra: 9.1.0
   bin:
     build-react-wrapper: ./index.js
@@ -10768,14 +10757,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:18.2.55":
-  version: 18.2.55
-  resolution: "@types/react@npm:18.2.55"
+"@types/react@npm:18.2.56":
+  version: 18.2.56
+  resolution: "@types/react@npm:18.2.56"
   dependencies:
     "@types/prop-types": "*"
     "@types/scheduler": "*"
     csstype: ^3.0.2
-  checksum: a8eb4fa77f73831b9112d4f11a7006217dc0740361649b9b0da3fd441d151a9cd415d5d68b91c0af4e430e063424d301c77489e5edaddc9f711c4e46cf9818a5
+  checksum: 8f6d754e4add007667002bd3f4c3a3a577c4a75afcd5cdc93bd3c584750f25c41a024a9f7de802204156483bc2fcce417ff9d7063ac1713e2b8ccb7c8a08c0ff
   languageName: node
   linkType: hard
 
@@ -28927,7 +28916,7 @@ __metadata:
     "@rollup/plugin-node-resolve": 15.1.0
     "@sand4rt/experimental-ct-web": 1.0.8
     "@types/node": 20.4.8
-    "@types/react": 18.2.55
+    "@types/react": 18.2.56
     "@typescript-eslint/eslint-plugin": 5.62.0
     "@typescript-eslint/parser": 5.62.0
     "@vitest/coverage-v8": 1.2.1

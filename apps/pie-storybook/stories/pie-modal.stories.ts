@@ -1,6 +1,7 @@
 import { TemplateResult } from 'lit';
 import { html } from 'lit/static-html.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
+import { action } from '@storybook/addon-actions';
 
 /* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-modal';
@@ -131,6 +132,12 @@ const modalStoryMeta: ModalStoryMeta = {
 
 export default modalStoryMeta;
 
+const supportingClickAction = action('supporting-click');
+const leadingClickAction = action('leading-click');
+const backClickAction = action('back-click');
+const openAction = action('open-modal');
+const closeAction = action('close-modal');
+
 /**
  * Helper function to toggle the modal open/closed within the actual template (separate to the Storybook controls)
  */
@@ -197,7 +204,12 @@ const BaseStoryTemplate = (props: ModalProps) : TemplateResult => {
             position="${position}"
             returnFocusAfterCloseSelector="${ifDefined(returnFocusAfterCloseSelector)}"
             size="${size}"
-            .supportingAction="${supportingAction}">
+            .supportingAction="${supportingAction}"
+            @pie-modal-close="${closeAction}"
+            @pie-modal-open="${openAction}"
+            @pie-modal-back="${backClickAction}"
+            @pie-modal-leading-action-click="${leadingClickAction}"
+            @pie-modal-supporting-action-click="${supportingClickAction}">
                 ${sanitizeAndRenderHTML(slot)}
             </pie-modal>`;
 };

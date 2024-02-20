@@ -8,7 +8,11 @@ import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 import '@justeattakeaway/pie-button';
 import '@justeattakeaway/pie-icon-button';
 import {
-    requiredProperty, RtlMixin, validPropertyValues, defineCustomElement,
+    requiredProperty,
+    RtlMixin,
+    validPropertyValues,
+    defineCustomElement,
+    dispatchCustomEvent,
 } from '@justeattakeaway/pie-webc-core';
 import '@justeattakeaway/pie-icons-webc/IconClose';
 import '@justeattakeaway/pie-icons-webc/IconChevronLeft';
@@ -203,7 +207,7 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
         const previousValue = changedProperties.get('isOpen');
 
         if (previousValue === undefined && this.isOpen) {
-            this._dispatchModalCustomEvent(ON_MODAL_OPEN_EVENT);
+            dispatchCustomEvent(this, ON_MODAL_OPEN_EVENT, { targetModal: this });
         }
     }
 
@@ -216,12 +220,12 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
                 if (this._backButtonClicked) {
                     // Reset the flag
                     this._backButtonClicked = false;
-                    this._dispatchModalCustomEvent(ON_MODAL_BACK_EVENT);
+                    dispatchCustomEvent(this, ON_MODAL_BACK_EVENT, { targetModal: this });
                 } else {
-                    this._dispatchModalCustomEvent(ON_MODAL_CLOSE_EVENT);
+                    dispatchCustomEvent(this, ON_MODAL_CLOSE_EVENT, { targetModal: this });
                 }
             } else {
-                this._dispatchModalCustomEvent(ON_MODAL_OPEN_EVENT);
+                dispatchCustomEvent(this, ON_MODAL_OPEN_EVENT, { targetModal: this });
             }
         }
     }
@@ -229,10 +233,10 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
     private _handleActionClick (actionType: ModalActionType) : void {
         if (actionType === 'leading') {
             this._dialog?.close('leading');
-            this._dispatchModalCustomEvent(ON_MODAL_LEADING_ACTION_CLICK);
+            dispatchCustomEvent(this, ON_MODAL_LEADING_ACTION_CLICK, { targetModal: this });
         } else if (actionType === 'supporting') {
             this._dialog?.close('supporting');
-            this._dispatchModalCustomEvent(ON_MODAL_SUPPORTING_ACTION_CLICK);
+            dispatchCustomEvent(this, ON_MODAL_SUPPORTING_ACTION_CLICK, { targetModal: this });
         }
     }
 
@@ -453,27 +457,6 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
             this.isOpen = false;
         }
     };
-
-    /**
-     * Note: We should aim to have a shareable event helper system to allow
-     * us to share this across components in-future.
-     *
-     * Dispatch a custom event.
-     *
-     * To be used whenever we have behavioural events we want to
-     * bubble up through the modal.
-     *
-     * @param {string} eventType
-     */
-    private _dispatchModalCustomEvent (eventType: string): void {
-        const event = new CustomEvent<ModalEventDetail>(eventType, {
-            bubbles: true,
-            composed: true,
-            detail: { targetModal: this },
-        });
-
-        this.dispatchEvent(event);
-    }
 }
 
 defineCustomElement(componentSelector, PieModal);

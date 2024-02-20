@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-input",
   "description": "PIE Design System Input built using Web Components",
-  "version": "0.12.0",
+  "version": "0.12.1",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -37,7 +37,7 @@
     "cem-plugin-module-file-extensions": "0.0.5"
   },
   "dependencies": {
-    "@justeattakeaway/pie-webc-core": "0.18.0"
+    "@justeattakeaway/pie-webc-core": "0.19.0"
   },
   "volta": {
     "extends": "../../../package.json"

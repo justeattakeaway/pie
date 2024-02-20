@@ -1,5 +1,12 @@
 # @justeattakeaway/pie-tag
 
+## 0.7.1
+
+### Patch Changes
+
+- Updated dependencies [[`4f89146dc`](https://github.com/justeattakeaway/pie/commit/4f89146dc83c7eb72cecc0b83be6d718aa395ae1)]:
+  - @justeattakeaway/pie-webc-core@0.19.0
+
 ## 0.7.0
 
 ### Minor Changes

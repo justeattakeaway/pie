@@ -1,7 +1,7 @@
 {
   "name": "wc-nuxt2",
   "author": "Just Eat Takeaway.com - Design System Team",
-  "version": "0.6.6",
+  "version": "0.6.7",
   "private": true,
   "scripts": {
     "dev": "nuxt",
@@ -10,7 +10,7 @@
     "generate:examples": "nuxt generate"
   },
   "dependencies": {
-    "@justeattakeaway/pie-button": "0.45.4",
+    "@justeattakeaway/pie-button": "0.45.5",
     "@justeattakeaway/pie-css": "0.10.0",
     "core-js": "3.30.0",
     "nuxt": "2.17.0",

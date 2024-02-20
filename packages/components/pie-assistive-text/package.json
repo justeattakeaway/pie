@@ -1,7 +1,7 @@
 {
   "name": "@justeattakeaway/pie-assistive-text",
   "description": "PIE Design System Assistive Text built using Web Components",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -35,8 +35,8 @@
     "cem-plugin-module-file-extensions": "0.0.5"
   },
   "dependencies": {
-    "@justeattakeaway/pie-icons-webc": "0.17.3",
-    "@justeattakeaway/pie-webc-core": "0.18.0"
+    "@justeattakeaway/pie-icons-webc": "0.18.0",
+    "@justeattakeaway/pie-webc-core": "0.19.0"
   },
   "volta": {
     "extends": "../../../package.json"
