@@ -2,11 +2,12 @@
 import { test, expect } from '@sand4rt/experimental-ct-web';
 import type { Page } from '@playwright/test';
 import { IconPlaceholder } from '@justeattakeaway/pie-icons-webc/IconPlaceholder';
+import { PieAssistiveText } from '@justeattakeaway/pie-assistive-text';
 import { PieInput, InputProps } from '../../src/index.ts';
 import { statusTypes } from '../../src/defs.ts';
 
 const componentSelector = '[data-test-id="pie-input"]';
-const assistiveTextSelector = '[data-test-id="pie-assistive-text"]';
+const assistiveTextSelector = '[data-test-id="pie-input-assistive-text"]';
 
 /**
  * Sets up form data extraction for testing form submissions. This function expects a form element
@@ -71,6 +72,9 @@ test.describe('PieInput - Component tests', () => {
 
         const iconComponent = await mount(IconPlaceholder);
         await iconComponent.unmount();
+
+        const assistiveTextComponent = await mount(PieAssistiveText);
+        await assistiveTextComponent.unmount();
     });
 
     test('should render successfully', async ({ mount, page }) => {
@@ -550,37 +554,37 @@ test.describe('PieInput - Component tests', () => {
             });
         });
 
-        test.skip('assistiveText', () => {
-            test('should not render the assistive text component if the prop is not provided', async ({ mount }) => {
+        test.describe('assistiveText', () => {
+            test('should not render the assistive text component if the prop is not provided', async ({ mount, page }) => {
                 // Arrange
-                const component = await mount(PieInput, {});
+                await mount(PieInput, {});
 
                 // Act
-                const assistiveText = component.locator(assistiveTextSelector);
+                const assistiveText = page.locator(assistiveTextSelector);
 
                 // Assert
-                expect((assistiveText)).toBe(null);
+                expect((assistiveText)).not.toBeVisible();
             });
 
-            test('should render the assistive text component if the prop is provided', async ({ mount }) => {
+            test('should render the assistive text component if the prop is provided', async ({ mount, page }) => {
                 // Arrange
-                const component = await mount(PieInput, {
+                await mount(PieInput, {
                     props: {
                         assistiveText: 'Default text',
                     } as InputProps,
                 });
 
                 // Act
-                const assistiveText = component.locator(assistiveTextSelector);
+                const assistiveText = page.locator(assistiveTextSelector);
 
                 // Assert
                 expect(assistiveText).toBeVisible();
             });
 
             statusTypes.forEach((status) => {
-                test(`should render the assistive text component with the ${status} variant`, async ({ mount }) => {
+                test(`should render the assistive text component with the ${status} variant`, async ({ mount, page }) => {
                     // Arrange
-                    const component = await mount(PieInput, {
+                    await mount(PieInput, {
                         props: {
                             assistiveText: 'Default text',
                             status,
@@ -588,7 +592,7 @@ test.describe('PieInput - Component tests', () => {
                     });
 
                     // Act
-                    const assistiveText = component.locator(assistiveTextSelector);
+                    const assistiveText = page.locator(assistiveTextSelector);
 
                     // Assert
                     expect(assistiveText).toBeVisible();
