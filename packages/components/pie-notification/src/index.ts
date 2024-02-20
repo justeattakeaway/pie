@@ -51,8 +51,7 @@ export class PieNotification extends LitElement implements NotificationProps {
     @property({ type: Boolean })
     public hideCloseIcon = false;
 
-    @queryAssignedElements({ slot: 'icon' }) 
-    _iconSlot!: Array<HTMLElement>;
+    @queryAssignedElements({ slot: 'icon' }) _iconSlot!: Array<HTMLElement>;
 
     @state()
     protected _hasExternalIcon = false;
