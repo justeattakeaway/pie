@@ -5,7 +5,9 @@ import { useArgs as UseArgs } from '@storybook/preview-api';
 
 /* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-input';
-import { types, inputModes, InputProps as InputPropsBase } from '@justeattakeaway/pie-input';
+import {
+    types, inputModes, InputProps as InputPropsBase, statusTypes,
+} from '@justeattakeaway/pie-input';
 /* eslint-enable import/no-duplicates */
 
 import { type StoryMeta } from '../types';
@@ -30,6 +32,8 @@ const defaultArgs: InputProps = {
     autoFocus: false,
     leadingSlot: 'None',
     trailingSlot: 'None',
+    assistiveText: '',
+    status: 'default',
 };
 
 const slotOptions = ['Icon (Placeholder)', 'Short text (#)', 'None'] as const;
@@ -145,6 +149,21 @@ const inputStoryMeta: InputStoryMeta = {
             control: 'select',
             options: slotOptions,
         },
+        assistiveText: {
+            description: 'An optional assistive text to display below the input element.',
+            control: 'text',
+            defaultValue: {
+                summary: '',
+            },
+        },
+        status: {
+            description: 'Sets the status of the input component / assistive text.',
+            control: 'select',
+            options: statusTypes,
+            defaultValue: {
+                summary: 'default',
+            },
+        },
     },
     args: defaultArgs,
     parameters: {
@@ -171,6 +190,8 @@ const Template = ({
     defaultValue,
     leadingSlot,
     trailingSlot,
+    assistiveText,
+    status,
 }: InputProps) => {
     const [, updateArgs] = UseArgs();
 
@@ -218,7 +239,9 @@ const Template = ({
             ?autoFocus="${autoFocus}"
             ?readonly="${readonly}"
             @input="${onInput}"
-            @change="${onChange}">
+            @change="${onChange}"
+            assistiveText="${ifDefined(assistiveText)}"
+            status="${ifDefined(status)}">
             ${renderLeadingOrTrailingSlot('leading', leadingSlot)}
             ${renderLeadingOrTrailingSlot('trailing', trailingSlot)}
         </pie-input>

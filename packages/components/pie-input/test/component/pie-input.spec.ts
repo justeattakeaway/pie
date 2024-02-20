@@ -3,8 +3,10 @@ import { test, expect } from '@sand4rt/experimental-ct-web';
 import type { Page } from '@playwright/test';
 import { IconPlaceholder } from '@justeattakeaway/pie-icons-webc/IconPlaceholder';
 import { PieInput, InputProps } from '../../src/index.ts';
+import { statusTypes } from '../../src/defs.ts';
 
 const componentSelector = '[data-test-id="pie-input"]';
+const assistiveTextSelector = '[data-test-id="pie-assistive-text"]';
 
 /**
  * Sets up form data extraction for testing form submissions. This function expects a form element
@@ -544,6 +546,53 @@ test.describe('PieInput - Component tests', () => {
 
                     // Assert
                     expect(input).toBeFocused();
+                });
+            });
+        });
+
+        test.describe('assistiveText', () => {
+            test('should not render the assistive text component if the prop is not provided', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieInput, {});
+
+                // Act
+                const assistiveText = component.locator(assistiveTextSelector);
+
+                // Assert
+                expect((assistiveText)).toBe(null);
+            });
+
+            test('should render the assistive text component if the prop is provided', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieInput, {
+                    props: {
+                        assistiveText: 'Default text',
+                    } as InputProps,
+                });
+
+                // Act
+                const assistiveText = component.locator(assistiveTextSelector);
+
+                // Assert
+                expect(assistiveText).toBeVisible();
+            });
+
+            statusTypes.forEach((status) => {
+                test(`should render the assistive text component with the ${status} variant`, async ({ mount }) => {
+                    // Arrange
+                    const component = await mount(PieInput, {
+                        props: {
+                            assistiveText: 'Default text',
+                            status,
+                        } as InputProps,
+                    });
+
+                    // Act
+                    const assistiveText = component.locator(assistiveTextSelector);
+
+                    // Assert
+                    expect(assistiveText).toBeVisible();
+                    expect(assistiveText).toHaveAttribute('variant', status);
                 });
             });
         });
