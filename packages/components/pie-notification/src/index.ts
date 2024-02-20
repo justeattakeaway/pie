@@ -6,9 +6,18 @@ import {
     type PropertyValues,
 } from 'lit';
 import { type StaticValue, html, unsafeStatic } from 'lit/static-html.js';
-import { defineCustomElement, validPropertyValues } from '@justeattakeaway/pie-webc-core';
+import { defineCustomElement, validPropertyValues, dispatchCustomEvent } from '@justeattakeaway/pie-webc-core';
 import { property, queryAssignedElements, state } from 'lit/decorators.js';
-import { type NotificationProps, type ActionProps,  variants, headingLevels, componentSelector, componentClass } from './defs';
+import {
+    type NotificationProps,
+    type ActionProps,
+    variants,
+    headingLevels,
+    componentSelector,
+    componentClass,
+    ON_NOTIFICATION_CLOSE_EVENT,
+    ON_NOTIFICATION_OPEN_EVENT,
+} from './defs';
 import styles from './notification.scss?inline';
 
 import '@justeattakeaway/pie-icon-button';
@@ -21,7 +30,6 @@ import '@justeattakeaway/pie-button';
 
 // Valid values available to consumers
 export * from './defs';
-type InternalActionType = 'leading' | 'supporting';
 
 export interface NotificationEventDetail {
     targetNotification: PieNotification;
@@ -85,6 +93,16 @@ export class PieNotification extends LitElement implements NotificationProps {
     protected willUpdate (_changedProperties: PropertyValues<this>): void {
         if (_changedProperties.has('variant')) {
             this.updateIconProperties();
+        }
+    }
+
+    /**
+     * Lifecycle method executed when component is updated.
+     * It dispatches an event if notification is opened.
+     */
+    protected updated (_changedProperties: PropertyValues<this>): void {
+        if (_changedProperties.has('isOpen') && this.isOpen) {
+            dispatchCustomEvent(this, ON_NOTIFICATION_OPEN_EVENT, { targetNotification: this });
         }
     }
 
@@ -214,22 +232,42 @@ export class PieNotification extends LitElement implements NotificationProps {
                 size="small"
                 class="${componentClass}-icon-close"
                 data-test-id="${componentSelector}-icon-close"
-                @click="${() => { this.isOpen = false; }}"
+                @click="${this.handleCloseButton}"
                 >
                 <icon-close></icon-close>
             </pie-icon-button>`;
     }
 
     /**
+     * It handles the action when user clicks in the close button.
+     * Also triggers an event when is executed.
+     *
+     * @private
+     */
+    private handleCloseButton () {
+        this.closeNotificationComponent();
+        dispatchCustomEvent(this, ON_NOTIFICATION_CLOSE_EVENT, { targetNotification: this });
+    }
+
+    /**
+     * Util method responsible to close the component.
+     *
+     * @private
+     */
+    private closeNotificationComponent () {
+        this.isOpen = false;
+    }
+
+    /**
      * Render the action button depending on action type and its action.
      *
      * @param {ActionProps} action - The action properties.
-     * @param {InternalActionType} actionType - The type of the action.
-     * 
+     * @param {'leading' | 'supporting'} actionType - The type of the action.
+     *
      * @returns {TemplateResult | typeof nothing} - The rendered action button or nothing if the action text is not defined.
      * @private
      */
-    private renderActionButton (action: ActionProps, actionType: InternalActionType) : TemplateResult | typeof nothing {
+    private renderActionButton (action: ActionProps, actionType: 'leading' | 'supporting') : TemplateResult | typeof nothing {
         const { text, ariaLabel, onClick } = action;
 
         if (!text) {
@@ -262,7 +300,7 @@ export class PieNotification extends LitElement implements NotificationProps {
             _hasIconClass,
             leadingAction,
             supportingAction,
-            isOpen
+            isOpen,
         } = this;
 
         if (!isOpen) {
@@ -283,24 +321,6 @@ export class PieNotification extends LitElement implements NotificationProps {
                 
                 ${leadingAction ? this.renderFooter(leadingAction, supportingAction) : nothing}
             </div>`;
-    }
-
-    /**
-     * Dispatch a custom event.
-     *
-     * To be used whenever we have behavioural events we want to
-     * bubble up through the notification.
-     *
-     * @param {string} eventType
-     */
-    private dispatchModalCustomEvent (eventType: string): void {
-        const event = new CustomEvent<NotificationEventDetail>(eventType, {
-            bubbles: true,
-            composed: true,
-            detail: { targetNotification: this },
-        });
-
-        this.dispatchEvent(event);
     }
 }
 

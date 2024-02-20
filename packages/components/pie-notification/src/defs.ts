@@ -80,13 +80,6 @@ export const ON_NOTIFICATION_CLOSE_EVENT = `${componentSelector}-close`;
 export const ON_NOTIFICATION_OPEN_EVENT = `${componentSelector}-open`;
 
 /**
- * Event name for when the notification back button is clicked.
- *
- * @constant
- */
-export const ON_NOTIFICATION_BACK_EVENT = `${componentSelector}-back`;
-
-/**
  * Event name for when the notification leading action is clicked.
  *
  * @constant

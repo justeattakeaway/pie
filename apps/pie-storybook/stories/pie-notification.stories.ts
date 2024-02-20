@@ -23,12 +23,12 @@ const defaultArgs: NotificationProps = {
     leadingAction: {
         text: 'Confirm',
         ariaLabel: 'Descriptive confirmation text',
-        onClick: () => { console.log('Leading action triggered') }
+        onClick: () => { console.log('Leading action triggered'); },
     },
     supportingAction: {
         text: 'Cancel',
         ariaLabel: 'Descriptive cancellation text',
-        onClick: () => { console.log('Supporting action triggered') }
+        onClick: () => { console.log('Supporting action triggered'); },
     },
 };
 
