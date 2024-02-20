@@ -19,15 +19,16 @@ const metadata = {
 };
 
 const buildImage = ({
-    width, alt, mobileSrc, src,
+    width, mobileWidth, alt, mobileSrc, src,
 }) => {
-    const isImageFullContainerWidth = !width;
-    const imageStyles = !isImageFullContainerWidth ? `style="--img-width: ${width};"` : ''; // If image isn't full width, set it to required width
+    const isImageFullContainerWidth = !width && !mobileWidth;
+    const imageInlineWidthMobile = mobileWidth || width;
+    const imageStyles = !isImageFullContainerWidth ? `style="--img-width: ${width}; --img-width--mobile: ${imageInlineWidthMobile};"` : ''; // If image isn't full width, set it to required width
     const imageAlt = `alt="${alt || ''}"`;
     const mobileImageMaxWidth = '600px';
 
     return `<picture class="c-usage-img">
-            ${mobileSrc ? `<source ${imageStyles} media="(max-width: ${mobileImageMaxWidth})" srcset="${mobileSrc}">` : ''}
+            ${mobileSrc ? `<source media="(max-width: ${mobileImageMaxWidth})" srcset="${mobileSrc}">` : ''}
             <img src="${src}" ${imageStyles} ${imageAlt}>
           </picture>`;
 };

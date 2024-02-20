@@ -4,8 +4,8 @@ exports[`contentPageImage.js > creates the expected markup for the given config 
 "<figure class=\\"c-someContainer-img c-contentImage c-contentImage--hasBackdrop\\">
         <div class=\\"c-contentImage-backdrop c-contentImage-default\\">
           <picture>
-            <source style=\\"--img-width: 200px;\\" media=\\"(max-width: 600px)\\" srcset=\\"some/path/to/mobile/image\\">
-            <img src=\\"some/path/to/image\\" style=\\"--img-width: 200px;\\" alt=\\"foo bar\\">
+            <source media=\\"(max-width: 600px)\\" srcset=\\"some/path/to/mobile/image\\">
+            <img src=\\"some/path/to/image\\" style=\\"--img-width: 200px; --img-width--mobile: 200px; alt=\\"foo bar\\">
           </picture>
         </div>
         <figcaption class=\\"c-contentImage-caption\\"><span>some caption text <a href=\\"fakeurl/path\\">with a link</a></span></figcaption>
@@ -21,5 +21,17 @@ exports[`contentPageImage.js > creates the expected markup for the given config 
           </picture>
         </div>
         
+      </figure>"
+`;
+
+exports[`contentPageImage.js > creates the expected markup for the given config settings 3`] = `
+"<figure class=\\"c-someContainer-img c-contentImage c-contentImage--hasBackdrop\\">
+        <div class=\\"c-contentImage-backdrop c-contentImage-default\\">
+          <picture>
+            <source media=\\"(max-width: 600px)\\" srcset=\\"some/path/to/mobile/image\\">
+            <img src=\\"some/path/to/image\\" style=\\"--img-width: 200px; --img-width--mobile: 100px; alt=\\"\\">
+          </picture>
+        </div>
+        <figcaption class=\\"c-contentImage-caption\\"><span>some caption text <a href=\\"fakeurl/path\\">with a link</a></span></figcaption>
       </figure>"
 `;

@@ -12,7 +12,16 @@ describe('contentPageImage.js', () => {
         },
         {
             src: 'some/path/to/image',
-        }
+        },
+        {
+            width: '200px',
+            mobileWidth: '100px',
+            alt: '',
+            src: 'some/path/to/image',
+            mobileSrc: 'some/path/to/mobile/image',
+            context: 'someContainer',
+            caption: 'some caption text [with a link](fakeurl/path)',
+        },
     ])('creates the expected markup for the given config settings', (config) => {
         const result = contentPageImage(config);
 

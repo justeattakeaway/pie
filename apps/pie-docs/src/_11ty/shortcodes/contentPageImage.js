@@ -15,6 +15,7 @@ const createCaption = (config) => (config.caption
  * If a width is not provided, image will default to fill up the entire container.
  * @param {object} config - image configuration
  * @param {string} config.width - the image width in px (will go to full width on smaller screens).
+ * @param {string} config.mobileWidth - the image width in px (when the specific width is required instead of full width that is a default).
  * @param {string} config.height - (s, m, l), the image height (will default to small).
  * @param {string} config.alt - an optional alt for the image
  * @param {string} config.src - the image src path
@@ -28,8 +29,12 @@ const createCaption = (config) => (config.caption
 module.exports = function (config) {
     const context = config.context ?? 'contentPage';
     const contextClass = `c-${context}-img`;
-    const isImageFullContainerWidth = !config.width;
-    const imageStyles = !isImageFullContainerWidth ? `style="--img-width: ${config.width};"` : ''; // If image isn't full width, set it to required width
+    const isImageFullContainerWidth = !config.width && !config.mobileWidth;
+
+    // If image isn't full width, set it to required width
+    const imageInlineWidthMobile = config.mobileWidth || config.width;
+    const imageInlineWidth = !isImageFullContainerWidth ? `style="--img-width: ${config.width}; --img-width--mobile: ${imageInlineWidthMobile};` : '';
+
     const imageAlt = `alt="${config.alt || ''}"`;
     const variant = config.variant || 'default';
     const figureClasses = [
@@ -53,8 +58,8 @@ module.exports = function (config) {
     return `<figure class="${figureClasses.join(' ')}">
         <div class="c-contentImage-backdrop c-contentImage-${variant}">
           <picture>
-            ${config.mobileSrc ? `<source ${imageStyles} media="(max-width: ${mobileImageMaxWidth})" srcset="${config.mobileSrc}">` : ''}
-            <img src="${config.src}" ${imageStyles} ${imageAlt}>
+            ${config.mobileSrc ? `<source media="(max-width: ${mobileImageMaxWidth})" srcset="${config.mobileSrc}">` : ''}
+            <img src="${config.src}" ${imageInlineWidth} ${imageAlt}>
           </picture>
         </div>
         ${createCaption(config)}
