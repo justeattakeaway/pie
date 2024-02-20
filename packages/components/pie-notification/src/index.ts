@@ -49,6 +49,9 @@ export class PieNotification extends LitElement implements NotificationProps {
     public variant: NonNullable<NotificationProps['variant']> = 'neutral';
 
     @property({ type: Boolean })
+    public isDismissible = true;
+
+    @property({ type: Boolean })
     public isCompact = false;
 
     @property({ type: String })
@@ -313,6 +316,7 @@ export class PieNotification extends LitElement implements NotificationProps {
             variant,
             heading,
             headingLevel,
+            isDismissible,
             isCompact,
             _hasExternalIcon,
             hideIcon,
@@ -328,7 +332,7 @@ export class PieNotification extends LitElement implements NotificationProps {
 
         return html`
             <div data-test-id="${componentSelector}" class="${componentClass}" variant="${variant}" is-compact="${isCompact}">
-                ${!isCompact ? this.renderCloseButton() : nothing}
+                ${isDismissible && !isCompact ? this.renderCloseButton() : nothing}
 
                 <section class="${componentClass}-content-section">
                     ${!hideIcon ? this.renderIcon(variant, _hasExternalIcon, _hasIconClass) : nothing}    

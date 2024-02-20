@@ -15,6 +15,7 @@ type NotificationStoryMeta = StoryMeta<NotificationProps>;
 const defaultArgs: NotificationProps = {
     isOpen: true,
     variant: 'neutral',
+    isDismissible: true,
     isCompact: false,
     slot: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sit amet tincidunt est, vitae vulputate turpis. Cras pretium venenatis elementum. Duis tristique neque non varius tempor. In hac habitasse platea dictumst. Aenean accumsan vehicula urna.',
     heading: 'Title',
@@ -51,8 +52,15 @@ const notificationStoryMeta: NotificationStoryMeta = {
                 summary: 'neutral',
             },
         },
+        isDismissible: {
+            description: 'Allows dismissing the notification by clicking on the close button.',
+            control: 'boolean',
+            defaultValue: {
+                summary: true,
+            },
+        },
         isCompact: {
-            description: 'When true, the footer aligns to the header and icons which makes the component compact.',
+            description: 'When true, the footer aligns to the header and icons which makes the component compact and the Close button is not shown.',
             control: 'boolean',
             defaultValue: {
                 summary: false,
@@ -95,6 +103,7 @@ export default notificationStoryMeta;
 
 const Template : TemplateFunction<NotificationProps> = ({
     isOpen,
+    isDismissible,
     isCompact,
     variant,
     heading,
@@ -108,6 +117,7 @@ const Template : TemplateFunction<NotificationProps> = ({
         ?isOpen="${isOpen}"
         variant="${variant}"
         ?isCompact="${isCompact}"
+        ?isDismissible="${isDismissible}"
         heading="${heading}"
         headingLevel="${headingLevel}"
         ?hideIcon="${hideIcon}"

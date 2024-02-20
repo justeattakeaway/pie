@@ -235,6 +235,12 @@ test.describe('PieNotification - Component tests', () => {
                 });
             });
         });
+
+        test.describe('isDismissible', () => { expect(true).toBeTruthy(); });
+
+        test.describe('leadingAction', () => { expect(true).toBeTruthy(); });
+
+        test.describe('supportingAction', () => { expect(true).toBeTruthy(); });
     });
 
     test.describe('Slots', () => {

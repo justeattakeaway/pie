@@ -27,6 +27,11 @@ export interface NotificationProps {
   variant?: typeof variants[number];
 
   /**
+   * When true, allows dismissing the notification by clicking on the close button.
+   */
+  isDismissible?: boolean;
+
+  /**
    * When true, the footer aligns to the header and icons which makes the component compact.
    */
   isCompact?: boolean;
