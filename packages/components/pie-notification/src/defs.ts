@@ -84,11 +84,11 @@ export const ON_NOTIFICATION_OPEN_EVENT = `${componentSelector}-open`;
  *
  * @constant
  */
-export const ON_NOTIFICATION_LEADING_ACTION_CLICK = `${componentSelector}-leading-action-click`;
+export const ON_NOTIFICATION_LEADING_ACTION_CLICK_EVENT = `${componentSelector}-leading-action-click`;
 
 /**
  * Event name for when the notification supporting action is clicked.
  *
  * @constant
  */
-export const ON_NOTIFICATION_SUPPORTING_ACTION_CLICK = `${componentSelector}-supporting-action-click`;
+export const ON_NOTIFICATION_SUPPORTING_ACTION_CLICK_EVENT = `${componentSelector}-supporting-action-click`;

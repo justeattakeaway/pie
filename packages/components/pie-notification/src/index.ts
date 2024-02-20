@@ -17,6 +17,8 @@ import {
     componentClass,
     ON_NOTIFICATION_CLOSE_EVENT,
     ON_NOTIFICATION_OPEN_EVENT,
+    ON_NOTIFICATION_LEADING_ACTION_CLICK_EVENT,
+    ON_NOTIFICATION_SUPPORTING_ACTION_CLICK_EVENT,
 } from './defs';
 import styles from './notification.scss?inline';
 
@@ -259,6 +261,23 @@ export class PieNotification extends LitElement implements NotificationProps {
     }
 
     /**
+     * It handle the action button action. It is called if action button has `onClick` as part of its action props.
+     * Also triggers an event according to its `actionType`.
+     *
+     * @param {NonNullable<ActionProps['onClick']>} action
+     * @param {'leading' | 'supporting'} actionType
+     *
+     * @private
+     */
+    private handleActionClick (action: NonNullable<ActionProps['onClick']>, actionType: 'leading' | 'supporting') {
+        const EVENT = actionType === 'leading' ? ON_NOTIFICATION_LEADING_ACTION_CLICK_EVENT : ON_NOTIFICATION_SUPPORTING_ACTION_CLICK_EVENT;
+
+        action();
+
+        dispatchCustomEvent(this, EVENT, { targetNotification: this });
+    }
+
+    /**
      * Render the action button depending on action type and its action.
      *
      * @param {ActionProps} action - The action properties.
@@ -281,7 +300,7 @@ export class PieNotification extends LitElement implements NotificationProps {
                 variant="${buttonVariant}"
                 size="small-productive"
                 aria-label="${ariaLabel || nothing}"
-                @click="${onClick ? () => onClick() : nothing}"
+                @click="${onClick ? () => this.handleActionClick(onClick, actionType) : nothing}"
                 data-test-id="${componentSelector}-${actionType}-action"
                 type="submit">
                 ${text}
