@@ -24,9 +24,6 @@ export * from './defs';
 const componentSelector = 'pie-notification';
 const componentClass = 'c-notification';
 
-type InternalVariantType = Exclude<NotificationProps['variant'], undefined>;
-type InternalHeadingLevelType = Exclude<NotificationProps['headingLevel'], undefined>;
-
 /**
  * @tagname pie-notification
  */
@@ -36,7 +33,7 @@ export class PieNotification extends LitElement implements NotificationProps {
 
     @property()
     @validPropertyValues(componentSelector, variants, 'neutral')
-    public variant: InternalVariantType = 'neutral';
+    public variant: NonNullable<NotificationProps['variant']> = 'neutral';
 
     @property({ type: Boolean })
     public isCompact = false;
@@ -46,7 +43,7 @@ export class PieNotification extends LitElement implements NotificationProps {
 
     @property()
     @validPropertyValues(componentSelector, headingLevels, 'h2')
-    public headingLevel: InternalHeadingLevelType = 'h2';
+    public headingLevel: NonNullable<NotificationProps['headingLevel']> = 'h2';
 
     @property({ type: Boolean })
     public hideIcon = false;
@@ -90,7 +87,7 @@ export class PieNotification extends LitElement implements NotificationProps {
      */
     private updateIconProperties () {
         this._hasExternalIcon = this._iconSlot.length > 0;
-        this._hasIconClass = this._hasExternalIcon || PieNotification.variantHasDefaultIcon(this.variant);
+        this._hasIconClass = this._hasExternalIcon || this.variantHasDefaultIcon(this.variant);
     }
 
     /**
@@ -123,26 +120,26 @@ export class PieNotification extends LitElement implements NotificationProps {
     }
 
     /**
-     * Util static function that returns a boolean if variant has a default icon.
+     * Util method that returns a boolean if variant has a default icon.
      *
-     * @param {InternalVariantType} variant
+     * @param {NonNullable<NotificationProps['variant']>} variant
      *
-     * @static
+     * @private
      */
-    static variantHasDefaultIcon (variant: InternalVariantType) {
+    private variantHasDefaultIcon (variant: NonNullable<NotificationProps['variant']>) {
         const validVariants = ['info', 'success', 'warning', 'error'];
 
         return validVariants.includes(variant);
     }
 
     /**
-     * Util static function that returns an icon from a variant that has default icon.
+     * Util method that returns an icon from a variant that has default icon.
      *
-     * @param {InternalVariantType} variant
+     * @param {NonNullable<NotificationProps['variant']>} variant
      *
-     * @static
+     * @private
      */
-    static getDefaultVariantIcon (variant: InternalVariantType) {
+    private getDefaultVariantIcon (variant: NonNullable<NotificationProps['variant']>) {
         switch (variant) {
             case 'info':
                 return html`<icon-info-circle size="s" data-test-id="${componentSelector}-heading-icon-info"></icon-info-circle>`;
@@ -158,16 +155,16 @@ export class PieNotification extends LitElement implements NotificationProps {
     }
 
     /**
-     * Util static function that returns a template with a default icon according to the chosen variant.
+     * Util method that returns a template with a default icon according to the chosen variant.
      * Called within the renderIcon method.
      *
-     * @param {InternalVariantType} variant
+     * @param {NonNullable<NotificationProps['variant']>} variant
      *
      * @private
      */
-    private renderIconVariant (variant: InternalVariantType) {
-        if (PieNotification.variantHasDefaultIcon(variant)) {
-            return PieNotification.getDefaultVariantIcon(variant);
+    private renderIconVariant (variant: NonNullable<NotificationProps['variant']>) {
+        if (this.variantHasDefaultIcon(variant)) {
+            return this.getDefaultVariantIcon(variant);
         }
 
         return nothing;
@@ -178,12 +175,12 @@ export class PieNotification extends LitElement implements NotificationProps {
      * It can return an icon provided externally via named slot or it can return an default icon according to the chosen variant.
      * Called within the main render function.
      *
-     * @param {InternalVariantType} variant
+     * @param {NonNullable<NotificationProps['variant']>} variant
      * @param {boolean} hasExternalIcon
      *
      * @private
      */
-    private renderIcon (variant: InternalVariantType, hasExternalIcon: boolean, hasIconClass: boolean): TemplateResult | typeof nothing {
+    private renderIcon (variant: NonNullable<NotificationProps['variant']>, hasExternalIcon: boolean, hasIconClass: boolean): TemplateResult | typeof nothing {
         return html`
             <div data-test-id="${componentSelector}-icon-area" class="${hasIconClass ? 'has-icon ' : ''}${componentClass}-heading-icon">
                 ${!hasExternalIcon ? this.renderIconVariant(variant) : nothing}
