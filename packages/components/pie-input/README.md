@@ -87,6 +87,8 @@ import { PieInput } from '@justeattakeaway/pie-input/dist/react';
 | `readonly` | `boolean` | - | When true, the user cannot edit the control. Not the same as disabled. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/readonly) for more information. |
 | `type` | `'text'`, `'number'`, `'password'`, `'url'`, `'email'`, `'tel'` | `text` | The type of HTML input to render. |
 | `value` | `string` | `''` | The value of the input (used as a key/value pair in HTML forms with `name`). |
+| `assistiveText` | `string` | `''` | Allow the user to sets assistive text to display below the input element. |
+| `status` | `'default'`, `'error'`, `'success'` | `default` | The status of the input component / assistive text. |
 
 
 In your markup or JSX, you can then use these to set the properties for the `pie-input` component:

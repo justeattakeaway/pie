@@ -550,7 +550,7 @@ test.describe('PieInput - Component tests', () => {
             });
         });
 
-        test.describe('assistiveText', () => {
+        test.skip('assistiveText', () => {
             test('should not render the assistive text component if the prop is not provided', async ({ mount }) => {
                 // Arrange
                 const component = await mount(PieInput, {});

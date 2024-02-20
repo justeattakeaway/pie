@@ -12,7 +12,7 @@ import '@justeattakeaway/pie-assistive-text';
 
 import styles from './input.scss?inline';
 import {
-    types, InputProps, InputDefaultPropertyValues, statusTypes,
+    types, statusTypes, InputProps, InputDefaultPropertyValues,
 } from './defs';
 
 // Valid values available to consumers

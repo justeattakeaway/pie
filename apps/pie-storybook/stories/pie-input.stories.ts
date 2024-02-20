@@ -6,7 +6,7 @@ import { useArgs as UseArgs } from '@storybook/preview-api';
 /* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-input';
 import {
-    types, inputModes, InputProps as InputPropsBase, statusTypes,
+    types, inputModes, statusTypes, InputProps as InputPropsBase,
 } from '@justeattakeaway/pie-input';
 /* eslint-enable import/no-duplicates */
 
