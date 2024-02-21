@@ -15,7 +15,7 @@ This is the default icon set used throughout our products across Web, Android an
 
 {% contentPageImage {
     src: "../../../assets/img/foundations/iconography/small-icon-set.svg",
-    width: "33.91",
+    width: "35px",
     caption: "The example above shows what our ‘Kebab bowl’ icon looks like on the small set."
 } %}
 
@@ -25,7 +25,7 @@ This set should be used for illustrative purposes, such as communications or mar
 
 {% contentPageImage {
     src: "../../../assets/img/foundations/iconography/large-icon-set.svg",
-    width: "65.65px",
+    width: "70px",
     caption: "The example above shows what our ‘Kebab bowl’ icon looks like on the Large set."
 } %}
 
@@ -100,7 +100,7 @@ This is the default look for our icons and should always be considered as the fi
 
 {% contentPageImage {
     src: "../../../assets/img/foundations/iconography/appearance-default.svg",
-    width: "32.8px"
+    width: "35px"
 } %}
 
 ### Fill
@@ -109,7 +109,7 @@ Fill icons should be used sparingly, mainly for icons that need to present inter
 
 {% contentPageImage {
     src: "../../../assets/img/foundations/iconography/appearance-fill.svg",
-    width: "32.81px"
+    width: "35px"
 } %}
 
 ---
@@ -165,7 +165,7 @@ Abstract icons are more difficult to comprehend than literal icons. Instead of u
             alt: "This image shows a button with the text reading find a restaurant. The icon used is a magnifying glass as this image is often used to convey search functionality and is well understood in websites and apps"
         }]
     },
-    dont: { 
+    dont: {
         type: usageTypes.image,
         items: [{
             src: "../../../assets/img/foundations/iconography/how-to-choose-an-icon-dont.svg",
@@ -188,7 +188,7 @@ Icons act as a visual cue to improve the legibility and scannability of your pro
             alt: "This image shows an app menu bar with four icons. Each icon is accompanied by a label. For example there is an icon that represents a house coupled with a label that says home. This makes it clear that pressing the home icon takes you to the home page"
         }]
     },
-    dont: { 
+    dont: {
         type: usageTypes.image,
         items: [{
         src:"../../../assets/img/foundations/iconography/pairing-text-with-icons-dont.svg",
