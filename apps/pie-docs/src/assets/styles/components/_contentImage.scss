@@ -87,6 +87,10 @@ $contentImage-height-l--mobile:           400px;
         width: var(--img-width);
         max-width: 100%;
         height: auto;
+
+        @include f.media('<narrowMid') {
+            width: var(--img-width--mobile);
+        }
     }
 }
 
