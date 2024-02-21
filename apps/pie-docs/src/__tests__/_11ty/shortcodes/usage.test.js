@@ -2,8 +2,8 @@ const usage = require('../../../_11ty/shortcodes/usage');
 const usageTypes = require('../../../_data/usageTypes');
 
 describe('usage.js', () => {
-    it('should return the expected HTML for the image type of the usage component', () => {
-        const props = {
+    it.each([
+        {
             type: usageTypes.image,
             items: [{
                 width: '200px',
@@ -11,12 +11,22 @@ describe('usage.js', () => {
                 src: 'some/path/to/image',
                 mobileSrc: 'some/path/to/mobile/image',
             }],
-        };
-
+        },
+        {
+            type: usageTypes.image,
+            items: [{
+                width: '200px',
+                mobileWidth: '100px',
+                alt: 'foo bar',
+                src: 'some/path/to/image',
+                mobileSrc: 'some/path/to/mobile/image',
+            }],
+        }
+    ])('should return the expected HTML for the image type of the usage component provided in config', (config) => {
         // act
         const result = usage({
-            do: props,
-            dont: props,
+            do: config,
+            dont: config,
         });
 
         // assert
