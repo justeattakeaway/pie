@@ -33,7 +33,6 @@ const defaultArgs: InputProps = {
     leadingSlot: 'None',
     trailingSlot: 'None',
     assistiveText: '',
-    status: 'default',
 };
 
 const slotOptions = ['Icon (Placeholder)', 'Short text (#)', 'None'] as const;
@@ -159,9 +158,9 @@ const inputStoryMeta: InputStoryMeta = {
         status: {
             description: 'Sets the status of the input component / assistive text.',
             control: 'select',
-            options: statusTypes,
+            options: [undefined, ...statusTypes],
             defaultValue: {
-                summary: 'default',
+                summary: undefined,
             },
         },
     },
@@ -241,7 +240,7 @@ const Template = ({
             @input="${onInput}"
             @change="${onChange}"
             assistiveText="${ifDefined(assistiveText)}"
-            status="${ifDefined(status)}">
+            status=${status || nothing}>
             ${renderLeadingOrTrailingSlot('leading', leadingSlot)}
             ${renderLeadingOrTrailingSlot('trailing', trailingSlot)}
         </pie-input>

@@ -1,6 +1,6 @@
 export const types = ['text', 'number', 'password', 'url', 'email', 'tel'] as const;
 export const inputModes = ['none', 'text', 'tel', 'url', 'email', 'numeric', 'decimal', 'search'] as const;
-export const statusTypes = ['default', 'error', 'success'] as const;
+export const statusTypes = ['success', 'error'] as const;
 export interface InputProps {
     /**
      * The type of HTML input to render.

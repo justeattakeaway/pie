@@ -581,6 +581,21 @@ test.describe('PieInput - Component tests', () => {
                 expect(assistiveText).toBeVisible();
             });
 
+            test('should render the assistive text component with the default variant if "status" is not provided', async ({ mount, page }) => {
+                // Arrange
+                await mount(PieInput, {
+                    props: {
+                        assistiveText: 'Default text',
+                    } as InputProps,
+                });
+
+                // Act
+                const assistiveText = page.locator(assistiveTextSelector);
+
+                // Assert
+                expect(assistiveText).toHaveAttribute('variant', 'default');
+            });
+
             statusTypes.forEach((status) => {
                 test(`should render the assistive text component with the ${status} variant`, async ({ mount, page }) => {
                     // Arrange
