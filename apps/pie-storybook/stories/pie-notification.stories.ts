@@ -31,6 +31,7 @@ const defaultArgs: NotificationProps = {
         ariaLabel: 'Descriptive cancellation text',
         onClick: () => { console.log('Supporting action triggered'); },
     },
+    hasStackedActions: false,
 };
 
 const notificationStoryMeta: NotificationStoryMeta = {
@@ -85,6 +86,21 @@ const notificationStoryMeta: NotificationStoryMeta = {
                 summary: false,
             },
         },
+        leadingAction: {
+            description: 'The leading action configuration for the notification.',
+            control: 'object',
+        },
+        supportingAction: {
+            description: 'The supporting action configuration for the notification. Appears only if `leadingAction` is provided.',
+            control: 'object',
+        },
+        hasStackedActions: {
+            description: 'When true, the notification will stack the action buttons on narrow screens.',
+            control: 'boolean',
+            defaultValue: {
+                summary: false,
+            },
+        },
         slot: {
             description: 'Content to place within the notification.',
             control: 'text',
@@ -111,6 +127,7 @@ const Template : TemplateFunction<NotificationProps> = ({
     hideIcon,
     leadingAction,
     supportingAction,
+    hasStackedActions,
     slot,
 }) => html`
     <pie-notification
@@ -123,6 +140,7 @@ const Template : TemplateFunction<NotificationProps> = ({
         ?hideIcon="${hideIcon}"
         .leadingAction="${leadingAction}"
         .supportingAction="${supportingAction}"
+        ?hasStackedActions="${hasStackedActions}"
         >
         <icon-alert-circle-filled slot="icon" size="s"></icon-alert-circle-filled>
         ${slot}

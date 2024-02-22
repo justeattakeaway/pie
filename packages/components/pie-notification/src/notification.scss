@@ -7,6 +7,8 @@
 }
 
 .c-notification {
+    $breakpoint-narrow: 640px;
+
     --notification-border-radius: var(--dt-radius-rounded-c);
     --notification-background-color: var(--dt-color-container-subtle);
     --notification-direction: column;
@@ -93,5 +95,11 @@
         &[is-compact='true'] {
             align-self: flex-end;
         }
+
+        @media (max-width: $breakpoint-narrow) {
+            &[is-stacked='true'] {
+                flex-direction: column;
+            }
+        }        
     }
 }

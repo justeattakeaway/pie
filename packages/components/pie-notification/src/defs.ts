@@ -65,6 +65,11 @@ export interface NotificationProps {
    * The supporting action for the notification.
    */
   supportingAction?: ActionProps;
+
+  /**
+   * When true, the notification will stack the action buttons on narrow screens.
+   */
+  hasStackedActions?: boolean;
 }
 
 export const componentSelector = 'pie-notification';

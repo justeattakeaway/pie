@@ -73,6 +73,9 @@ export class PieNotification extends LitElement implements NotificationProps {
     @property({ type: Object })
     public supportingAction!: ActionProps;
 
+    @property({ type: Boolean })
+    public hasStackedActions = false;
+
     @queryAssignedElements({ slot: 'icon' }) _iconSlot!: Array<HTMLElement>;
 
     @state()
@@ -130,7 +133,7 @@ export class PieNotification extends LitElement implements NotificationProps {
      */
     private renderFooter (leadingAction: ActionProps, supportingAction?: ActionProps) {
         return html`
-            <footer class="${componentClass}-footer" data-test-id="${componentSelector}-footer" is-compact="${this.isCompact}">
+            <footer class="${componentClass}-footer" data-test-id="${componentSelector}-footer" is-compact="${this.isCompact}" is-stacked="${this.hasStackedActions && !this.isCompact}">
                 ${supportingAction ? this.renderActionButton(supportingAction, 'supporting') : nothing}
                 ${leadingAction ? this.renderActionButton(leadingAction, 'leading') : nothing}
             </footer>
@@ -305,6 +308,7 @@ export class PieNotification extends LitElement implements NotificationProps {
                 aria-label="${ariaLabel || nothing}"
                 @click="${onClick ? () => this.handleActionClick(onClick, actionType) : nothing}"
                 data-test-id="${componentSelector}-${actionType}-action"
+                ?isFullWidth="${this.hasStackedActions}"
                 type="submit">
                 ${text}
             </pie-button>
