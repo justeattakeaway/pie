@@ -11,7 +11,7 @@ We have two illustration sets that can be used in our products. Some illustratio
 
 ### Small scale illustration
 
-Our small illustrations are designed to be simpler with fewer details, making them suitable to used at smaller sizes and for use in containers, modals, or compact designs.
+Our small illustrations are designed to be simpler with fewer details, making them suitable to be used at smaller sizes and for use in containers, modals, or compact designs.
 
 {% contentPageImage {
     src: "../../../assets/img/foundations/illustration/product/stampcards-small.png",
@@ -49,7 +49,7 @@ To maintain detail and clarity, we have suggested a range of sizes for each illu
 
 ### Size for the Small scale illustration
 
-The recommended size for our small scale illustrations are between 64px - 120px. We will also allow up to 140px if necessary.
+The recommended size for our small scale illustration is between 64px - 120px. We will also allow up to 140px if necessary.
 
 {% contentPageImage {
     src: "../../../assets/img/foundations/illustration/product/small-set-size-range.png",
@@ -81,13 +81,13 @@ Some illustrations contain a floating background, which is an abstract shape tha
 
 #### No background
 
-To keep the our small scale illustration simple and clean, they have no background elements.
+To keep our small scale illustration simple and clean, they have no background elements.
 
 {% contentPageImage {
     src: "../../../assets/img/foundations/illustration/product/order-on-its-way-1b-small.png",
     width: "90px",
     mobileWidth: "80px",
-    caption: "The example above shows the Small scale illustration has no background element."
+    caption: "The example above shows the Small scale illustration with no background element."
 } %}
 
 ### Large scale illustration
@@ -144,7 +144,7 @@ Illustrations should be used minimally, to add elements of personality and delig
 
 It is recommended using the same illustration scale on all devices for the same design.
 
-When adjusting the size of the illustration to suit the devices, be aware of the minimum and maximum sizes of the illustration's scale. For example, if using large scale illustrations on web, please ensure that the size does not fall below 140px on mobile/tablet, nor exceed the maximum sizes.
+When adjusting the size of the illustration to suit the devices, be aware of the minimum and maximum sizes of the illustration scale. For example, if using large scale illustration on web, please ensure that the size does not fall below 140px on mobile/tablet, nor exceeds the maximum size.
 
 {% contentPageImage {
     src: "../../../assets/img/foundations/illustration/product/responsive-design.png",
@@ -189,7 +189,7 @@ Illustration should pair with explanation text for clarity. As a general guideli
 
 #### Pattern illustration
 
-When combining the use of Product and Pattern illustrations, make sure the elements that sit on top of the Pattern illustration is accessible.<br />
+When combining the use of Product and Pattern illustrations, make sure the elements that sit on top of the Pattern illustration are accessible.<br />
 For more guidance, please see [Pattern / Fallback illustration](/foundations/illustration/pattern/) page.
 
 {% usage {
