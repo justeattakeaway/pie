@@ -29,7 +29,7 @@
 
     // We need to override the icon sizes at different screen sizes regardless of size prop passed in
     pie-icon-button {
-        @media (width <= calc($breakpoint-wide - 1px)) {
+        @media (width < $breakpoint-wide) {
             --btn-dimension: 40px;
         }
     }
@@ -93,7 +93,7 @@
     // Fullscreen styles
     &[size='large'],
     &[size='medium'][isfullwidthbelowmid] {
-        @media (width <= calc($breakpoint-wide - 1px)) {
+        @media (width < $breakpoint-wide) {
             --modal-margin-block: var(--modal-margin-none);
             --modal-border-radius: var(--dt-radius-rounded-none);
             --modal-block-size: 100%;
@@ -116,7 +116,7 @@
 
         &[size='large'],
         &[isfullwidthbelowmid][size='medium'] {
-            @media (width <= calc($breakpoint-wide - 1px)) {
+            @media (width < $breakpoint-wide) {
                 margin-block-start: var(--dt-spacing-none);
                 max-block-size: 100%;
             }
@@ -149,7 +149,7 @@
     &[hasstackedactions] {
         & .c-modal-footer {
             // TODO: Move breakpoint sizes into shared CSS component utilities
-            @media (width <= calc($breakpoint-wide - 1px)) {
+            @media (width < $breakpoint-wide) {
                 flex-direction: column;
             }
         }
