@@ -109,8 +109,10 @@
     &[variant='outline'] {
         --tag-bg-color: var(--tag-transparent-bg-color);
         --tag-color: var(--dt-color-content-default);
-        // the outline in design specs is part of the total component height calculation.
-        // thus, we use box-shadow to mimic borders to avoid the extra 2px from "border: 1px solid" as shadows are applied "internally" 
+
+        // the outline in design specs is part of the total component
+        // height calculation, thus, we use box-shadow to mimic borders
+        // and avoid the extra 2px from "border: 1px solid" as shadows are applied "internally"
         box-shadow: 0 0 0 1px var(--dt-color-border-strong);
     }
 
