@@ -70,7 +70,7 @@
     "@justeat/pie-design-tokens": "5.9.0",
     "@justeattakeaway/browserslist-config-pie": "0.2.0",
     "@justeattakeaway/generator-pie-component": "0.20.0",
-    "@justeattakeaway/pie-icons": "4.14.0",
+    "@justeattakeaway/pie-icons": "4.9.3",
     "@justeattakeaway/pie-webc-testing": "0.10.0",
     "@justeattakeaway/pie-wrapper-react": "0.14.0",
     "@justeattakeaway/stylelint-config-pie": "0.6.1",
