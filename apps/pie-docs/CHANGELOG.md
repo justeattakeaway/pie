@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.29.1
+
+### Patch Changes
+
+- [Changed] - updates some image sizes for iconography foundation page ([#1292](https://github.com/justeattakeaway/pie/pull/1292)) by [@dandel10n](https://github.com/dandel10n)
+
 ## 3.29.0
 
 ### Minor Changes
