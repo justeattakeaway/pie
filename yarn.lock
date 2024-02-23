@@ -5809,6 +5809,8 @@ __metadata:
   dependencies:
     "@custom-elements-manifest/analyzer": 0.9.0
     "@justeattakeaway/pie-components-config": 0.11.0
+    "@justeattakeaway/pie-icon-button": 0.27.2
+    "@justeattakeaway/pie-icons-webc": 0.17.2
     "@justeattakeaway/pie-webc-core": 0.19.0
     "@justeattakeaway/pie-wrapper-react": 0.14.0
     cem-plugin-module-file-extensions: 0.0.5
@@ -5826,6 +5828,15 @@ __metadata:
     cem-plugin-module-file-extensions: 0.0.5
   languageName: unknown
   linkType: soft
+
+"@justeattakeaway/pie-spinner@npm:0.5.2":
+  version: 0.5.2
+  resolution: "@justeattakeaway/pie-spinner@npm:0.5.2"
+  dependencies:
+    "@justeattakeaway/pie-webc-core": 0.17.1
+  checksum: 5b69a7422eb4d597481b87fd99ca88b371b4b48ae42cf378b5e624aa1418f8db5490b92c7b22cdddde2ef76c96e69be6cb996440613f06f04fd8621a7ee110ee
+  languageName: node
+  linkType: hard
 
 "@justeattakeaway/pie-switch@0.27.1, @justeattakeaway/pie-switch@^0.27.1, @justeattakeaway/pie-switch@workspace:packages/components/pie-switch":
   version: 0.0.0-use.local

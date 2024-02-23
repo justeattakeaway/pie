@@ -68,10 +68,10 @@ export class PieNotification extends LitElement implements NotificationProps {
     public hideCloseIcon = false;
 
     @property({ type: Object })
-    public leadingAction!: ActionProps;
+    public leadingAction!: NotificationProps['leadingAction'];
 
     @property({ type: Object })
-    public supportingAction!: ActionProps;
+    public supportingAction!: NotificationProps['supportingAction'];
 
     @property({ type: Boolean })
     public hasStackedActions = false;
