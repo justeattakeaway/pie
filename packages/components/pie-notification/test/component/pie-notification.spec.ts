@@ -236,11 +236,66 @@ test.describe('PieNotification - Component tests', () => {
             });
         });
 
-        test.describe('isDismissible', () => { expect(true).toBeTruthy(); });
+        test.describe('isDismissible', () => {
+            test('should not show the close icon if isDismissible is false', async ({ mount, page }) => {
+                // Arrange
+                await mount(PieNotification, {
+                    props: {
+                        isDismissible: false,
+                    },
+                });
+
+                // Act
+                const notification = page.locator(componentSelector);
+                const iconClose = page.locator(iconCloseSelector);
+
+                // Assert
+                expect(notification).toBeVisible();
+                expect(iconClose).not.toBeVisible();
+            });
+
+            test('should not show the close icon if isDismissible is false and isCompact is false', async ({ mount, page }) => {
+                // Arrange
+                await mount(PieNotification, {
+                    props: {
+                        isDismissible: false,
+                        isCompact: false,
+                    },
+                });
+
+                // Act
+                const notification = page.locator(componentSelector);
+                const iconClose = page.locator(iconCloseSelector);
+
+                // Assert
+                expect(notification).toBeVisible();
+                expect(iconClose).not.toBeVisible();
+            });
+
+            test('should not show the close icon if isDismissible is true and isCompact is true', async ({ mount, page }) => {
+                // Arrange
+                await mount(PieNotification, {
+                    props: {
+                        isDismissible: true,
+                        isCompact: true,
+                    },
+                });
+
+                // Act
+                const notification = page.locator(componentSelector);
+                const iconClose = page.locator(iconCloseSelector);
+
+                // Assert
+                expect(notification).toBeVisible();
+                expect(iconClose).not.toBeVisible();
+            });
+        });
 
         test.describe('leadingAction', () => { expect(true).toBeTruthy(); });
 
         test.describe('supportingAction', () => { expect(true).toBeTruthy(); });
+
+        test.describe('hasStackedActions', () => { expect(true).toBeTruthy(); });
     });
 
     test.describe('Slots', () => {
