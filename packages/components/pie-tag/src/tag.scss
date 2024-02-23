@@ -5,10 +5,8 @@
     --tag-bg-color: var(--dt-color-container-strong);
     --tag-color: var(--dt-color-content-default);
     --tag-border-radius: var(--dt-radius-rounded-b);
-    --tag-border-width: 1px;
-    --tag-border-color: transparent;
-    --tag-padding-block: calc(2px - var(--tag-border-width));
-    --tag-padding-inline: calc(var(--dt-spacing-b) - var(--tag-border-width));
+    --tag-padding-block: 2px;
+    --tag-padding-inline: var(--dt-spacing-b);
     --tag-font-family: var(--dt-font-body-s-family);
     --tag-font-weight: var(--dt-font-body-s-weight);
     --tag-font-size: #{p.font-size(--dt-font-body-s-size)};
@@ -27,8 +25,6 @@
     justify-content: center;
     gap: var(--dt-spacing-a);
     padding: var(--tag-padding-block) var(--tag-padding-inline);
-    border: var(--tag-border-width) solid;
-    border-color: var(--tag-border-color);
     border-radius: var(--tag-border-radius);
     background-color: var(--tag-bg-color);
     color: var(--tag-color);
@@ -40,7 +36,7 @@
     // Size
     &[size='small'] {
         --tag-padding-block: 0;
-        --tag-padding-inline: calc(var(--dt-spacing-a) - var(--tag-border-width));
+        --tag-padding-inline: var(--dt-spacing-a);
         --tag-border-radius: var(--dt-radius-rounded-a);
         --tag-font-size: #{p.font-size(--dt-font-caption-size)};
         --tag-line-height: #{p.line-height(--dt-font-caption-line-height)};
@@ -113,7 +109,9 @@
     &[variant='outline'] {
         --tag-bg-color: var(--tag-transparent-bg-color);
         --tag-color: var(--dt-color-content-default);
-        --tag-border-color: var(--dt-color-border-strong);
+        // the outline in design specs is part of the total component height calculation.
+        // thus, we use box-shadow to mimic borders to avoid the extra 2px from "border: 1px solid" as shadows are applied "internally" 
+        box-shadow: 0 0 0 1px var(--dt-color-border-strong);
     }
 
     &[variant='ghost'] {
