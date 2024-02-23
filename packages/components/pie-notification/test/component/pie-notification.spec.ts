@@ -1,8 +1,8 @@
 
 import { test, expect } from '@sand4rt/experimental-ct-web';
 import { PieNotification } from '../../src/index.ts';
-import { 
-    variants, 
+import {
+    variants,
     headingLevels,
     type NotificationProps,
 } from '../../src/defs.ts';
@@ -324,8 +324,8 @@ test.describe('PieNotification - Component tests', () => {
         });
 
         test.describe('Action buttons', () => {
-            const confirmAction = () => {console.info('confirmAction')};
-            const cancelAction = () => {console.info('cancelAction')};
+            const confirmAction = () => { console.info('confirmAction'); };
+            const cancelAction = () => { console.info('cancelAction'); };
             const mainAction = {
                 text: 'Confirm',
                 ariaLabel: 'Button that confirm the action',
