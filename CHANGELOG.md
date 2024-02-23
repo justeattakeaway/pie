@@ -1,5 +1,14 @@
 # Changelog
 
+## 2.54.1
+
+### Patch Changes
+
+- [Added] - isOpen, variant, isCompact, heading, headingLevel, hideIcon properties ([#1254](https://github.com/justeattakeaway/pie/pull/1254)) by [@thejfreitas](https://github.com/thejfreitas)
+
+  [Added] - styles, basic interactions and unit tests
+  [Changed] - Storybook's playground
+
 ## 2.54.0
 
 ### Minor Changes

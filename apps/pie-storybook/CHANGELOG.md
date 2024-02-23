@@ -1,5 +1,24 @@
 # Changelog
 
+## 0.64.5
+
+### Patch Changes
+
+- Updated dependencies [[`b77258e9c`](https://github.com/justeattakeaway/pie/commit/b77258e9c03ef4ed3b3e969dfedc5615b44cd383)]:
+  - @justeattakeaway/pie-tag@0.8.0
+
+## 0.64.4
+
+### Patch Changes
+
+- [Added] - isOpen, variant, isCompact, heading, headingLevel, hideIcon properties ([#1254](https://github.com/justeattakeaway/pie/pull/1254)) by [@thejfreitas](https://github.com/thejfreitas)
+
+  [Added] - styles, basic interactions and unit tests
+  [Changed] - Storybook's playground
+
+- Updated dependencies [[`2b83c01af`](https://github.com/justeattakeaway/pie/commit/2b83c01af902ef86b3716ff01d92554325a28c6a)]:
+  - @justeattakeaway/pie-notification@0.3.4
+
 ## 0.64.3
 
 ### Patch Changes

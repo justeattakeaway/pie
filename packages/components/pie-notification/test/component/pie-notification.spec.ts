@@ -33,10 +33,18 @@ test.describe('PieNotification - Component tests', () => {
         await component.unmount();
     });
 
+    // IMPORTANT: Mounting and Unmounting the component before each test ensures that any tests that do not explicitly
+    // mount the component will still have it available in Playwright's cache (loaded and registered in the test browser)
+    test.beforeEach(async ({ mount }) => {
+        const component = await mount(PieNotification);
+        await component.unmount();
+    });
+
     test('should render successfully', async ({ mount, page }) => {
         // Arrange
         await mount(PieNotification, {
             props: {} as NotificationProps,
+            slots: { default: slotContent },
             slots: { default: slotContent },
         });
 
