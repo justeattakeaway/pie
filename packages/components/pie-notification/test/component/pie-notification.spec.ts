@@ -410,9 +410,69 @@ test.describe('PieNotification - Component tests', () => {
                     expect(actionSupporting).toBeVisible();
                 });
             });
-        });
 
-        test.describe('hasStackedActions', () => { expect(true).toBeTruthy(); });
+            test.describe('hasStackedActions', () => {
+                test('should stack buttons on small screens', async ({ mount, page }) => {
+                    // Arrange
+                    await page.setViewportSize({ width: 375, height: 667 });
+                    await mount(PieNotification, {
+                        props: {
+                            isDismissible: true,
+                            leadingAction: mainAction,
+                            supportingAction: secondaryAction,
+                            hasStackedActions: true,
+                        },
+                    });
+
+                    // Act
+                    const notification = page.locator(componentSelector);
+                    const footer = page.locator(footerSelector);
+                    const actionLeading = page.locator(leadingActionSelector);
+                    const actionSupporting = page.locator(supportingActionSelector);
+
+                    // Assert
+                    expect(notification).toBeVisible();
+                    expect(footer).toBeVisible();
+                    expect(actionLeading).toBeVisible();
+                    expect(actionSupporting).toBeVisible();
+
+                    expect(footer).toHaveCSS('flex-direction', 'column');
+                    // 295px is the size of the button when the viewport size is 375px
+                    expect(actionLeading).toHaveCSS('width', '295px');
+                    expect(actionSupporting).toHaveCSS('width', '295px');
+                });
+
+                test('should not stack buttons on large screens', async ({ mount, page }) => {
+                    // Arrange
+                    await page.setViewportSize({ width: 1275, height: 900 });
+                    await mount(PieNotification, {
+                        props: {
+                            isDismissible: true,
+                            leadingAction: mainAction,
+                            supportingAction: secondaryAction,
+                            hasStackedActions: true,
+                        },
+                    });
+
+                    // Act
+                    const notification = page.locator(componentSelector);
+                    const footer = page.locator(footerSelector);
+                    const actionLeading = page.locator(leadingActionSelector);
+                    const actionSupporting = page.locator(supportingActionSelector);
+
+                    // Assert
+                    expect(notification).toBeVisible();
+                    expect(footer).toBeVisible();
+                    expect(actionLeading).toBeVisible();
+                    expect(actionSupporting).toBeVisible();
+
+                    expect(footer).toHaveCSS('flex-direction', 'row');
+                    // the size of the buttons when the viewport size is large and the width vary according to its text
+                    expect(actionLeading).toHaveCSS('width', '89.875px');
+                    expect(actionSupporting).toHaveCSS('width', '79.4531px');
+                });
+            });
+        });
     });
 
     test.describe('Slots', () => {
