@@ -4,6 +4,6 @@
 "pie-monorepo": patch
 ---
 
-[Added] - isOpen, variant, compact, heading, headingLevel, hideIcon properties
+[Added] - isOpen, variant, isCompact, heading, headingLevel, hideIcon properties
 [Added] - styles, basic interactions and unit tests
 [Changed] - Storybook's playground
