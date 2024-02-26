@@ -4,7 +4,7 @@
 
 ### Minor Changes
 
-- [Added] - new icons ([#1291](https://github.com/justeattakeaway/pie/pull/1291)) by [@raoufswe](https://github.com/raoufswe)
+- [Added] - new icons ([#1302](https://github.com/justeattakeaway/pie/pull/1302)) by [@siggerzz](https://github.com/siggerzz)
 
   ### Misc
 

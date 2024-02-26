@@ -4,7 +4,7 @@
 
 ### Minor Changes
 
-- [Changed] - use box-shadow instead of borders for the outline variant to match the design height specs. ([#1298](https://github.com/justeattakeaway/pie/pull/1298)) by [@raoufswe](https://github.com/raoufswe)
+- [Changed] - use box-shadow instead of borders for the outline variant to match the design height specs. ([#1302](https://github.com/justeattakeaway/pie/pull/1302)) by [@siggerzz](https://github.com/siggerzz)
 
 ## 0.7.1
 
