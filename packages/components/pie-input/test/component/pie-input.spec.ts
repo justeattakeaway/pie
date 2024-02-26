@@ -563,10 +563,10 @@ test.describe('PieInput - Component tests', () => {
                 const assistiveText = page.locator(assistiveTextSelector);
 
                 // Assert
-                expect((assistiveText)).not.toBeVisible();
+                expect(assistiveText).not.toBeVisible();
             });
 
-            test('should render the assistive text component if the prop is provided', async ({ mount, page }) => {
+            test('should render the assistive text component if the prop is provided with the default variant if "status" is not provided', async ({ mount, page }) => {
                 // Arrange
                 await mount(PieInput, {
                     props: {
@@ -579,39 +579,27 @@ test.describe('PieInput - Component tests', () => {
 
                 // Assert
                 expect(assistiveText).toBeVisible();
-            });
-
-            test('should render the assistive text component with the default variant if "status" is not provided', async ({ mount, page }) => {
-                // Arrange
-                await mount(PieInput, {
-                    props: {
-                        assistiveText: 'Default text',
-                    } as InputProps,
-                });
-
-                // Act
-                const assistiveText = page.locator(assistiveTextSelector);
-
-                // Assert
                 expect(assistiveText).toHaveAttribute('variant', 'default');
             });
 
-            statusTypes.forEach((status) => {
-                test(`should render the assistive text component with the ${status} variant`, async ({ mount, page }) => {
-                    // Arrange
-                    await mount(PieInput, {
-                        props: {
-                            assistiveText: 'Default text',
-                            status,
-                        } as InputProps,
+            test.describe('Assistive text: Status', () => {
+                statusTypes.forEach((status) => {
+                    test(`should render the assistive text component with the ${status} variant`, async ({ mount, page }) => {
+                        // Arrange
+                        await mount(PieInput, {
+                            props: {
+                                assistiveText: 'Default text',
+                                status,
+                            } as InputProps,
+                        });
+
+                        // Act
+                        const assistiveText = page.locator(assistiveTextSelector);
+
+                        // Assert
+                        expect(assistiveText).toBeVisible();
+                        expect(assistiveText).toHaveAttribute('variant', status);
                     });
-
-                    // Act
-                    const assistiveText = page.locator(assistiveTextSelector);
-
-                    // Assert
-                    expect(assistiveText).toBeVisible();
-                    expect(assistiveText).toHaveAttribute('variant', status);
                 });
             });
         });

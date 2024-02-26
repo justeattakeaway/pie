@@ -147,6 +147,7 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
 
     render () {
         const {
+            assistiveText,
             autocomplete,
             autoFocus,
             disabled,
@@ -157,10 +158,9 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
             pattern,
             placeholder,
             readonly,
+            status,
             type,
             value,
-            assistiveText,
-            status,
         } = this;
 
         return html`

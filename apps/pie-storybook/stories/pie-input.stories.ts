@@ -237,10 +237,10 @@ const Template = ({
             defaultValue="${ifDefined(defaultValue)}"
             ?autoFocus="${autoFocus}"
             ?readonly="${readonly}"
-            @input="${onInput}"
-            @change="${onChange}"
             assistiveText="${ifDefined(assistiveText)}"
-            status=${status || nothing}>
+            status=${status || nothing}
+            @input="${onInput}"
+            @change="${onChange}">
             ${renderLeadingOrTrailingSlot('leading', leadingSlot)}
             ${renderLeadingOrTrailingSlot('trailing', trailingSlot)}
         </pie-input>
