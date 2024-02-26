@@ -1,55 +1,5 @@
 # Changelog
 
-## 4.14.0
-
-### Minor Changes
-
-- [Added] - new icons ([#1291](https://github.com/justeattakeaway/pie/pull/1291)) by [@raoufswe](https://github.com/raoufswe)
-
-  ### Misc
-
-  - qr-code
-  - qr-code-large
-
-  ### Functionality
-
-  - restricted-filled
-  - restricted-filled-large
-
-  ### Pay
-
-  - coins
-  - coins-large
-  - coins-filled-large
-  - coins-filled
-
-  ### Currency
-
-  - conversion-rate-filled
-  - conversion-rate-filled-large
-
-  ### Payment
-
-  - 10bis
-  - bank-of-ireland-uk
-  - bank-of-scotland
-  - barclays
-  - danske-bank
-  - first-direct
-  - halifax
-  - hsbc
-  - lloyds
-  - monzo
-  - nationwide
-  - natwest
-  - revolut
-  - royal-bank-of-scotland
-  - santander
-  - starling
-  - tesco-bank
-  - tsb
-  - ulster-bank
-
 ## 4.9.3
 
 ## 4.9.2

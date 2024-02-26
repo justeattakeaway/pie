@@ -1,11 +1,5 @@
 # @justeattakeaway/pie-tag
 
-## 0.8.0
-
-### Minor Changes
-
-- [Changed] - use box-shadow instead of borders for the outline variant to match the design height specs. ([#1298](https://github.com/justeattakeaway/pie/pull/1298)) by [@raoufswe](https://github.com/raoufswe)
-
 ## 0.7.1
 
 ### Patch Changes
