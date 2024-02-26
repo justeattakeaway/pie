@@ -238,7 +238,7 @@ const Template = ({
             ?autoFocus="${autoFocus}"
             ?readonly="${readonly}"
             assistiveText="${ifDefined(assistiveText)}"
-            status=${status || nothing}
+            status=${ifDefined(status)}
             @input="${onInput}"
             @change="${onChange}">
             ${renderLeadingOrTrailingSlot('leading', leadingSlot)}
