@@ -5663,7 +5663,7 @@ __metadata:
     "@babel/core": 7.23.9
     "@babel/node": 7.20.7
     "@babel/preset-react": 7.18.6
-    "@justeattakeaway/pie-icons": 4.9.3
+    "@justeattakeaway/pie-icons": 4.14.0
     "@justeattakeaway/pie-icons-configs": 4.5.1
     "@svgr/core": 6.4.0
     pascal-case: 3.1.2
@@ -5680,7 +5680,7 @@ __metadata:
   resolution: "@justeattakeaway/pie-icons-vue@workspace:packages/tools/pie-icons-vue"
   dependencies:
     "@babel/core": 7.23.9
-    "@justeattakeaway/pie-icons": 4.9.3
+    "@justeattakeaway/pie-icons": 4.14.0
     "@justeattakeaway/pie-icons-configs": 4.5.1
     "@rollup/plugin-commonjs": 25.0.7
     "@vue/babel-helper-vue-jsx-merge-props": 1.4.0
@@ -5706,7 +5706,7 @@ __metadata:
     "@babel/core": 7.23.9
     "@babel/node": 7.20.7
     "@justeattakeaway/pie-components-config": 0.11.0
-    "@justeattakeaway/pie-icons": 4.9.3
+    "@justeattakeaway/pie-icons": 4.14.0
     "@justeattakeaway/pie-icons-configs": 4.5.1
     "@justeattakeaway/pie-webc-core": 0.19.0
     "@rollup/plugin-typescript": 11.1.6
@@ -5730,7 +5730,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@justeattakeaway/pie-icons@4.9.3, @justeattakeaway/pie-icons@workspace:packages/tools/pie-icons":
+"@justeattakeaway/pie-icons@4.14.0, @justeattakeaway/pie-icons@workspace:packages/tools/pie-icons":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-icons@workspace:packages/tools/pie-icons"
   dependencies:
@@ -5744,19 +5744,6 @@ __metadata:
     webpack-cli: 4.10.0
   languageName: unknown
   linkType: soft
-
-"@justeattakeaway/pie-icons@npm:4.9.2":
-  version: 4.9.2
-  resolution: "@justeattakeaway/pie-icons@npm:4.9.2"
-  dependencies:
-    cheerio: 1.0.0-rc.12
-    classnames: 2.3.2
-    html-minifier-terser: 7.2.0
-    prettier: 2.8.7
-    svgo: 3.0.2
-  checksum: b5cee36778d5eca344a12d6017919751c00495f22d88463195c294088516fbcb258296c25b8d4639ca79eab10c9f12264cad5eff02319a67410bb6d5339cc00e
-  languageName: node
-  linkType: hard
 
 "@justeattakeaway/pie-input@0.12.1, @justeattakeaway/pie-input@^0.12.1, @justeattakeaway/pie-input@workspace:packages/components/pie-input":
   version: 0.0.0-use.local
@@ -5852,7 +5839,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-tag@0.7.1, @justeattakeaway/pie-tag@workspace:packages/components/pie-tag":
+"@justeattakeaway/pie-tag@0.8.0, @justeattakeaway/pie-tag@workspace:packages/components/pie-tag":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-tag@workspace:packages/components/pie-tag"
   dependencies:
@@ -28939,7 +28926,7 @@ __metadata:
     "@justeat/pie-design-tokens": 5.10.1
     "@justeattakeaway/browserslist-config-pie": 0.2.0
     "@justeattakeaway/pie-css": 0.10.0
-    "@justeattakeaway/pie-icons": 4.9.2
+    "@justeattakeaway/pie-icons": 4.14.0
     "@types/markdown-it": 13.0.2
     eleventy-plugin-rev: 1.1.1
     eleventy-plugin-toc: 1.1.5
@@ -28971,7 +28958,7 @@ __metadata:
     "@justeat/pie-design-tokens": 5.9.0
     "@justeattakeaway/browserslist-config-pie": 0.2.0
     "@justeattakeaway/generator-pie-component": 0.20.0
-    "@justeattakeaway/pie-icons": 4.9.3
+    "@justeattakeaway/pie-icons": 4.14.0
     "@justeattakeaway/pie-webc-testing": 0.10.0
     "@justeattakeaway/pie-wrapper-react": 0.14.0
     "@justeattakeaway/stylelint-config-pie": 0.6.1
@@ -29044,7 +29031,7 @@ __metadata:
     "@justeattakeaway/pie-notification": 0.3.4
     "@justeattakeaway/pie-spinner": 0.5.4
     "@justeattakeaway/pie-switch": 0.27.1
-    "@justeattakeaway/pie-tag": 0.7.1
+    "@justeattakeaway/pie-tag": 0.8.0
     "@storybook/addon-a11y": 7.6.3
     "@storybook/addon-designs": 7.0.7
     "@storybook/addon-essentials": 7.6.3
