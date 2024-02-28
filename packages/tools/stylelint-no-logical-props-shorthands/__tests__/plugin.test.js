@@ -68,10 +68,7 @@ describe('stylelint-no-logical-props-shorthands', () => {
                         fix: true,
                     });
 
-                    expect(result.code).toMatchInlineSnapshot(`
-                      "a { margin-block: 10px; }
-                      "
-                    `);
+                    expect(result.code).toMatchSnapshot();
                 });
             });
 
@@ -86,10 +83,7 @@ describe('stylelint-no-logical-props-shorthands', () => {
                             fix: true,
                         });
 
-                        expect(result.code).toMatchInlineSnapshot(`
-                          "a { margin-block: 12px 34px; }
-                              "
-                        `);
+                        expect(result.code).toMatchSnapshot();
                     });
                 });
 
