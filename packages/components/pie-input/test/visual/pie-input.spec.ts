@@ -17,11 +17,12 @@ import { statusTypes } from '../../src/defs.ts';
 import { PieInput } from '../../src/index.ts';
 
 const props: PropObject = {
+    assistiveText:  ['', 'Assistive Text'],
     status: statusTypes,
 };
 
 // Renders a <pie-input> HTML string with the given prop values
-const renderTestPieInput = (propVals: WebComponentPropValues) => `<pie-input status="${propVals.status}"></pie-input>`;
+const renderTestPieInput = (propVals: WebComponentPropValues) => `<pie-input status="${propVals.status}" assistiveText="${propVals.assistiveText}"></pie-input>`;
 
 const componentPropsMatrix: WebComponentPropValues[] = getAllPropCombinations(props);
 const componentPropsMatrixByStatus: Record<string, WebComponentPropValues[]> = splitCombinationsByPropertyValue(componentPropsMatrix, 'status');
@@ -40,7 +41,8 @@ componentStatus.forEach((status) => test(`should render all prop variations for 
     await Promise.all(componentPropsMatrixByStatus[status].map(async (combo: WebComponentPropValues) => {
         const testComponent: WebComponentTestInput = createTestWebComponent(combo, renderTestPieInput);
         const propKeyValues = `
-            status: ${testComponent.propValues.status}
+            status: ${testComponent.propValues.status},
+            assistiveText: ${testComponent.propValues.assistiveText}
             `;
         await mount(
             WebComponentTestWrapper,
