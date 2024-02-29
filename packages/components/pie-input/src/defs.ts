@@ -1,6 +1,6 @@
 export const types = ['text', 'number', 'password', 'url', 'email', 'tel'] as const;
 export const inputModes = ['none', 'text', 'tel', 'url', 'email', 'numeric', 'decimal', 'search'] as const;
-
+export const statusTypes = ['success', 'error'] as const;
 export interface InputProps {
     /**
      * The type of HTML input to render.
@@ -71,6 +71,16 @@ export interface InputProps {
      * An optional default value to use when the input is reset.
      */
     defaultValue?: string;
+
+    /**
+     * An optional assistive text to display below the input element.
+     */
+    assistiveText?: string;
+
+    /**
+     * The status of the input component / assistive text such as error, success or default.
+     */
+    status?: typeof statusTypes[number];
 }
 
 // TODO - There is a ticket to add default prop values to our existing components. This might be replaced by the code added in that ticket.
