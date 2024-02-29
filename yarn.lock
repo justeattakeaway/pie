@@ -315,7 +315,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ampproject/remapping@npm:^2.1.0, @ampproject/remapping@npm:^2.2.0, @ampproject/remapping@npm:^2.2.1":
+"@ampproject/remapping@npm:^2.1.0, @ampproject/remapping@npm:^2.2.0":
   version: 2.2.1
   resolution: "@ampproject/remapping@npm:2.2.1"
   dependencies:
@@ -11388,29 +11388,6 @@ __metadata:
   peerDependencies:
     vitest: ">=0.29.0 <1"
   checksum: 610bd2917aa160f5bf641f4d4dec539524039ea98fdc98a8d9288c7ea05090d7028d4504b8e1ecc1de1d1700c9a61a55abf285559da2c4bc8df238e559a505f7
-  languageName: node
-  linkType: hard
-
-"@vitest/coverage-v8@npm:1.2.1":
-  version: 1.2.1
-  resolution: "@vitest/coverage-v8@npm:1.2.1"
-  dependencies:
-    "@ampproject/remapping": ^2.2.1
-    "@bcoe/v8-coverage": ^0.2.3
-    debug: ^4.3.4
-    istanbul-lib-coverage: ^3.2.2
-    istanbul-lib-report: ^3.0.1
-    istanbul-lib-source-maps: ^4.0.1
-    istanbul-reports: ^3.1.6
-    magic-string: ^0.30.5
-    magicast: ^0.3.3
-    picocolors: ^1.0.0
-    std-env: ^3.5.0
-    test-exclude: ^6.0.0
-    v8-to-istanbul: ^9.2.0
-  peerDependencies:
-    vitest: ^1.0.0
-  checksum: ec132dfd6322d733a1342142dbf1cf7a4cb059af2f612cc7d60b709c0f088f86a7f046ffb97ec71319fef2520454f045398597680305cf7ce509356958cf1862
   languageName: node
   linkType: hard
 
@@ -23405,7 +23382,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"istanbul-lib-coverage@npm:^3.0.0, istanbul-lib-coverage@npm:^3.2.0, istanbul-lib-coverage@npm:^3.2.2":
+"istanbul-lib-coverage@npm:^3.0.0, istanbul-lib-coverage@npm:^3.2.0":
   version: 3.2.2
   resolution: "istanbul-lib-coverage@npm:3.2.2"
   checksum: 2367407a8d13982d8f7a859a35e7f8dd5d8f75aae4bb5484ede3a9ea1b426dc245aff28b976a2af48ee759fdd9be374ce2bd2669b644f31e76c5f46a2e29a831
@@ -23436,7 +23413,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"istanbul-lib-source-maps@npm:^4.0.0, istanbul-lib-source-maps@npm:^4.0.1":
+"istanbul-lib-source-maps@npm:^4.0.0":
   version: 4.0.1
   resolution: "istanbul-lib-source-maps@npm:4.0.1"
   dependencies:
@@ -23447,7 +23424,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"istanbul-reports@npm:^3.0.2, istanbul-reports@npm:^3.1.3, istanbul-reports@npm:^3.1.6":
+"istanbul-reports@npm:^3.0.2, istanbul-reports@npm:^3.1.3":
   version: 3.1.6
   resolution: "istanbul-reports@npm:3.1.6"
   dependencies:
@@ -25660,17 +25637,6 @@ __metadata:
   dependencies:
     "@jridgewell/sourcemap-codec": ^1.4.15
   checksum: da10fecff0c0a7d3faf756913ce62bd6d5e7b0402be48c3b27bfd651b90e29677e279069a63b764bcdc1b8ecdcdb898f29a5c5ec510f2323e8d62ee057a6eb18
-  languageName: node
-  linkType: hard
-
-"magicast@npm:^0.3.3":
-  version: 0.3.3
-  resolution: "magicast@npm:0.3.3"
-  dependencies:
-    "@babel/parser": ^7.23.6
-    "@babel/types": ^7.23.6
-    source-map-js: ^1.0.2
-  checksum: de2bfca38cf4a20e598cf0e48598d183ebe2a846b80c5f4a71950b4e501f27492b3d21111a4da3dcff8aa85c2acdf3900126a8867a030a9f2fbb3c7a0a0c78bc
   languageName: node
   linkType: hard
 
@@ -28973,7 +28939,6 @@ __metadata:
     "@typescript-eslint/eslint-plugin": 5.62.0
     "@typescript-eslint/parser": 5.62.0
     "@vitest/coverage-c8": 0.29.8
-    "@vitest/coverage-v8": 1.2.1
     autoprefixer: 10.4.17
     babel-loader: 8.3.0
     commitizen: 4.3.0
@@ -37245,7 +37210,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"v8-to-istanbul@npm:^9.0.0, v8-to-istanbul@npm:^9.0.1, v8-to-istanbul@npm:^9.2.0":
+"v8-to-istanbul@npm:^9.0.0, v8-to-istanbul@npm:^9.0.1":
   version: 9.2.0
   resolution: "v8-to-istanbul@npm:9.2.0"
   dependencies:
