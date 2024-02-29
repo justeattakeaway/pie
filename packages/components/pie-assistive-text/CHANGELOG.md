@@ -1,5 +1,14 @@
 # @justeattakeaway/pie-assistive-text
 
+## 0.2.3
+
+### Patch Changes
+
+- [Fixed] - Issue where self-closing tag was causing rendering issues of variant icon in SPA's ([#1303](https://github.com/justeattakeaway/pie/pull/1303)) by [@siggerzz](https://github.com/siggerzz)
+
+- Updated dependencies [[`473f57efc`](https://github.com/justeattakeaway/pie/commit/473f57efcef3b47d8641436015b1a3af7da8b6c4)]:
+  - @justeattakeaway/pie-icons-webc@0.19.0
+
 ## 0.2.2
 
 ### Patch Changes
