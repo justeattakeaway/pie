@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.30.0
+
+### Minor Changes
+
+- [Changed] - update pie-icons to latest ([#1301](https://github.com/justeattakeaway/pie/pull/1301)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 3.29.1
 
 ### Patch Changes
