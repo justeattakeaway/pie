@@ -96,11 +96,11 @@ export class PieChip extends LitElement implements ChipProps {
 
         return html`
             <div
-                aria-live="polite"
                 aria-atomic="true"
                 aria-busy="${isLoading ? 'true' : 'false'}"
                 aria-current="${isSelected ? 'true' : 'false'}"
                 aria-label="${this.aria?.label || nothing}"
+                aria-live="polite"
                 class="c-chip"
                 data-test-id="pie-chip"
                 tabindex="0"
