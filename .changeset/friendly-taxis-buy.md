@@ -1,4 +1,5 @@
 ---
+"@justeattakeaway/pie-notification": patch
 "@justeattakeaway/pie-spinner": patch
 "@justeattakeaway/pie-button": patch
 "@justeattakeaway/pie-switch": patch
