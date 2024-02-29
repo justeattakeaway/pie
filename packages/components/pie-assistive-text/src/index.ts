@@ -21,7 +21,7 @@ const componentSelector = 'pie-assistive-text';
  * @slot - Default slot
  */
 export class PieAssistiveText extends LitElement implements AssistiveTextProps {
-    @property()
+    @property({ type: String })
     @validPropertyValues(componentSelector, variants, 'default')
     public variant?: AssistiveTextProps['variant'] = 'default';
 
@@ -32,8 +32,8 @@ export class PieAssistiveText extends LitElement implements AssistiveTextProps {
     private renderIcon (): TemplateResult {
         const { variant } = this;
         return html`
-            ${variant === 'success' ? html`<icon-check-circle class="c-assistiveText-icon" size="s" />` : nothing}
-            ${variant === 'error' ? html`<icon-alert-circle class="c-assistiveText-icon" size="s" />` : nothing}`;
+            ${variant === 'success' ? html`<icon-check-circle class="c-assistiveText-icon" size="s" ></icon-check-circle>` : nothing}
+            ${variant === 'error' ? html`<icon-alert-circle class="c-assistiveText-icon" size="s"></icon-alert-circle>` : nothing}`;
     }
 
     render () {

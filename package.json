@@ -84,7 +84,7 @@
     "@types/react": "18.2.56",
     "@typescript-eslint/eslint-plugin": "5.62.0",
     "@typescript-eslint/parser": "5.62.0",
-    "@vitest/coverage-v8": "1.2.1",
+    "@vitest/coverage-c8": "0.29.8",
     "autoprefixer": "10.4.17",
     "babel-loader": "8.3.0",
     "commitizen": "4.3.0",
