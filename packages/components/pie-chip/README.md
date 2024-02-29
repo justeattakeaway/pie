@@ -79,6 +79,7 @@ import { PieChip } from '@justeattakeaway/pie-chip/dist/react';
 | isLoading | `Boolean` | `false` | If `true`, displays a loading indicator inside the chip |
 | isDismissible | `Boolean` | `false` | If `true`, displays a close icon to dismiss the chip component. Can be only used if `isSelected` is set to true |
 | disabled | `Boolean` | `false` | If `true`, disables the chip component |
+| aria | `Object` | `{}` | An object representing the aria labels for the close button & chip |
 
 In your markup or JSX, you can then use these to set the properties for the `pie-chip` component:
 

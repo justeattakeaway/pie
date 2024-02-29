@@ -14,6 +14,10 @@ type ChipProps = SlottedComponentProps<ChipPropsBase> & { showIcon: boolean };
 type ChipStoryMeta = StoryMeta<ChipProps>;
 
 const defaultArgs: ChipProps = {
+    aria: {
+        label: 'Chip Label',
+        close: 'Chip Close',
+    },
     variant: 'default',
     disabled: false,
     isSelected: false,
@@ -27,6 +31,10 @@ const chipStoryMeta: ChipStoryMeta = {
     title: 'Chip',
     component: 'pie-chip',
     argTypes: {
+        aria: {
+            description: 'The ARIA labels used for various parts of the chip.',
+            control: 'object',
+        },
         variant: {
             description: 'Set the variant of the chip.',
             control: 'select',
@@ -90,20 +98,22 @@ export default chipStoryMeta;
 const closeAction = action('pie-chip-close');
 
 const Template: TemplateFunction<ChipProps> = ({
-    variant,
+    aria,
     disabled,
     isSelected,
     isLoading,
     isDismissible,
     showIcon,
     slot,
+    variant,
 }) => html`
            <pie-chip
-                variant="${variant}"
+                .aria="${aria}"
                 ?disabled="${disabled}"
                 ?isSelected="${isSelected}"
                 ?isLoading="${isLoading}"
                 ?isDismissible="${isDismissible}"
+                variant="${variant}"
                 @pie-chip-close="${closeAction}">
                     ${showIcon ? html`<icon-heart-filled slot="icon"></icon-heart-filled>` : nothing}
                     ${sanitizeAndRenderHTML(slot)}

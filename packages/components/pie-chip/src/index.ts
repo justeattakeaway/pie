@@ -39,6 +39,9 @@ export class PieChip extends LitElement implements ChipProps {
     @property({ type: Boolean })
     public isDismissible = false;
 
+    @property({ type: Object })
+    public aria: ChipProps['aria'];
+
     /**
      * Template for the loading state
      *
@@ -75,6 +78,7 @@ export class PieChip extends LitElement implements ChipProps {
                     <button
                         @click="${this._handleCloseButtonClick}"
                         ?disabled=${this.disabled}
+                        aria-label="${this.aria?.close || nothing}"
                         class="c-chip-closeBtn"
                         data-test-id="chip-close-button">
                         <icon-close-circle-filled size="m"></icon-close-circle-filled>
@@ -92,10 +96,15 @@ export class PieChip extends LitElement implements ChipProps {
 
         return html`
             <div
+                aria-live="polite"
+                aria-atomic="true"
+                aria-busy="${isLoading ? 'true' : 'false'}"
+                aria-current="${isSelected ? 'true' : 'false'}"
+                aria-label="${this.aria?.label || nothing}"
                 class="c-chip"
-                role="button"
-                tabindex="0"
                 data-test-id="pie-chip"
+                tabindex="0"
+                role="button"
                 variant="${variant}"
                 ?disabled="${disabled}"
                 ?isSelected="${isSelected}"
