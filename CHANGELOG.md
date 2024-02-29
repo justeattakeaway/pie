@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.55.0
+
+### Minor Changes
+
+- [Added] - Integrate assistive text component into input ([#1288](https://github.com/justeattakeaway/pie/pull/1288)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 2.54.1
 
 ### Patch Changes
