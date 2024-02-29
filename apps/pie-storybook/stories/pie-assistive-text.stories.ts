@@ -2,12 +2,13 @@ import { html } from 'lit';
 
 /* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-assistive-text';
-import { AssistiveTextProps, variants } from '@justeattakeaway/pie-assistive-text';
+import { AssistiveTextProps as AssistiveTextBaseProps, variants } from '@justeattakeaway/pie-assistive-text';
 /* eslint-enable import/no-duplicates */
 
-import { type StoryMeta } from '../types';
+import { type StoryMeta, SlottedComponentProps } from '../types';
 import { createStory, type TemplateFunction, sanitizeAndRenderHTML } from '../utilities';
 
+type AssistiveTextProps = SlottedComponentProps<AssistiveTextBaseProps>;
 type AssistiveTextStoryMeta = StoryMeta<AssistiveTextProps>;
 
 const defaultArgs: AssistiveTextProps = {
