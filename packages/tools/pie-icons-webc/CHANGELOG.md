@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-icons-webc
 
+## 0.19.0
+
+### Minor Changes
+
+- [Changed] - pie-icons version bump to 4.14.0 ([#1308](https://github.com/justeattakeaway/pie/pull/1308)) by [@dandel10n](https://github.com/dandel10n)
+
 ## 0.18.0
 
 ### Minor Changes
