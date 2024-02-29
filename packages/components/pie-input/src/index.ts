@@ -1,5 +1,5 @@
 import {
-    LitElement, html, unsafeCSS, PropertyValues,
+    LitElement, html, unsafeCSS, PropertyValues, nothing,
 } from 'lit';
 import { property, query } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
@@ -8,9 +8,12 @@ import { live } from 'lit/directives/live.js';
 import {
     validPropertyValues, RtlMixin, defineCustomElement, FormControlMixin, wrapNativeEvent, type PIEInputElement,
 } from '@justeattakeaway/pie-webc-core';
+import '@justeattakeaway/pie-assistive-text';
 
 import styles from './input.scss?inline';
-import { types, InputProps, InputDefaultPropertyValues } from './defs';
+import {
+    types, statusTypes, InputProps, InputDefaultPropertyValues,
+} from './defs';
 
 // Valid values available to consumers
 export * from './defs';
@@ -66,6 +69,13 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
 
     @property({ type: String })
     public defaultValue?: InputProps['defaultValue'];
+
+    @property({ type: String })
+    public assistiveText?: InputProps['assistiveText'];
+
+    @property({ type: String })
+    @validPropertyValues(componentSelector, statusTypes, undefined)
+    public status?: InputProps['status'];
 
     @query('input')
     private input?: HTMLInputElement;
@@ -137,6 +147,7 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
 
     render () {
         const {
+            assistiveText,
             autocomplete,
             autoFocus,
             disabled,
@@ -147,6 +158,7 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
             pattern,
             placeholder,
             readonly,
+            status,
             type,
             value,
         } = this;
@@ -171,6 +183,7 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
                     @change=${this.handleChange}
                     data-test-id="pie-input">
                 <slot name="trailing"></slot>
+                ${assistiveText ? html`<pie-assistive-text variant=${ifDefined(status)} data-test-id="pie-input-assistive-text">${assistiveText}</pie-assistive-text>` : nothing}
             </div>`;
     }
 
