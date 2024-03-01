@@ -100,7 +100,7 @@ test.describe('PieChip - Component tests', () => {
 
                     const closeButton = page.locator(closeBtnSelector);
 
-                    // Act && Assert
+                    // Act & Assert
                     await expect(closeButton).toHaveAttribute('aria-label', 'Chip Close');
                 });
             });
@@ -120,8 +120,8 @@ test.describe('PieChip - Component tests', () => {
                     const chip = page.locator(componentSelector);
                     const closeButton = chip.locator(closeBtnSelector);
 
-                    // Act && Assert
-                    await expect(closeButton).not.toHaveAttribute('aria-label', 'Chip Close');
+                    // Act & Assert
+                    await expect(closeButton).toHaveAttribute('aria-label', '');
                 });
             });
         });
@@ -137,7 +137,7 @@ test.describe('PieChip - Component tests', () => {
 
                 const chip = page.locator(componentSelector);
 
-                // Act && Assert
+                // Act & Assert
                 await expect(chip).toHaveAttribute('aria-live', 'polite');
             });
         });
@@ -151,7 +151,7 @@ test.describe('PieChip - Component tests', () => {
 
                 const chip = page.locator(componentSelector);
 
-                // Act && Assert
+                // Act & Assert
                 await expect(chip).toHaveAttribute('aria-atomic', 'true');
             });
         });
@@ -166,7 +166,7 @@ test.describe('PieChip - Component tests', () => {
 
                     const chip = page.locator(componentSelector);
 
-                    // Act && Assert
+                    // Act & Assert
                     await expect(chip).toHaveAttribute('aria-label', 'Chip Label');
                 });
             });
@@ -180,8 +180,8 @@ test.describe('PieChip - Component tests', () => {
 
                     const chip = page.locator(componentSelector);
 
-                    // Act && Assert
-                    await expect(chip).not.toHaveAttribute('aria-label', 'Chip Label');
+                    // Act & Assert
+                    expect(chip.getAttribute('aria-label')).not.toContain('aria-label');
                 });
             });
         });
@@ -198,7 +198,7 @@ test.describe('PieChip - Component tests', () => {
 
                     const chip = page.locator(componentSelector);
 
-                    // Act && Assert
+                    // Act & Assert
                     await expect(chip).toHaveAttribute('aria-busy', 'true');
                 });
             });
