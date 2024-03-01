@@ -1,5 +1,5 @@
-const stylelint = require('stylelint');
-const baseConfig = require('../../rules/base');
+import stylelint from 'stylelint';
+import baseConfig from '../../rules/base';
 
 describe('base Stylelint rules', () => {
     describe('alpha-value-notation', () => {
