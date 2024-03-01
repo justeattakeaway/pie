@@ -1,7 +1,7 @@
-const stylelint = require('stylelint');
-const extractCSSShorthandValues = require('./extract-css-shorthand-values');
+import stylelint from 'stylelint';
+import extractCSSShorthandValues from './extract-css-shorthand-values.js';
 
-const { report, ruleMessages, validateOptions } = stylelint.utils;
+const { createPlugin, utils: { report, validateOptions, ruleMessages } } = stylelint;
 
 const ruleName = '@justeattakeaway/stylelint-no-logical-props-shorthands';
 const messages = ruleMessages(ruleName, {
@@ -87,6 +87,7 @@ function ruleFunction (primaryOption, secondaryOption, context) {
     };
 }
 
-module.exports.ruleName = ruleName;
-module.exports.messages = messages;
-module.exports = stylelint.createPlugin(ruleName, ruleFunction);
+ruleFunction.ruleName = ruleName;
+ruleFunction.messages = messages;
+
+export default createPlugin(ruleName, ruleFunction);
