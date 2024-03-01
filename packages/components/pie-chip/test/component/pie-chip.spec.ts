@@ -6,19 +6,7 @@ import { ON_CHIP_CLOSE_EVENT } from '../../src/defs.ts';
 const componentSelector = '[data-test-id="pie-chip"]';
 const closeBtnSelector = '[data-test-id="chip-close-button"]';
 
-const props: Partial<ChipProps> = {
-    variant: 'default',
-    isSelected: false,
-    isDismissible: false,
-    disabled: false,
-    aria: {
-        label: 'Chip Label',
-        close: 'Chip Close',
-    },
-};
-
 const dismissibleProps: Partial<ChipProps> = {
-    variant: 'default',
     isSelected: true,
     isDismissible: true,
 };
@@ -27,7 +15,6 @@ test.describe('PieChip - Component tests', () => {
     test('should render successfully', async ({ mount, page }) => {
         // Arrange
         await mount(PieChip, {
-            props,
             slots: {
                 default: 'Label',
             },
@@ -131,9 +118,7 @@ test.describe('PieChip - Component tests', () => {
         test.describe('aria-live', () => {
             test('should render on the component with the value `polite`', async ({ mount, page }) => {
                 // Arrange
-                await mount(PieChip, {
-                    props,
-                });
+                await mount(PieChip, {});
 
                 const chip = page.locator(componentSelector);
 
@@ -145,9 +130,7 @@ test.describe('PieChip - Component tests', () => {
         test.describe('aria-atomic', () => {
             test('should render on the component with the value `true`', async ({ mount, page }) => {
                 // Arrange
-                await mount(PieChip, {
-                    props,
-                });
+                await mount(PieChip, {});
 
                 const chip = page.locator(componentSelector);
 
@@ -161,7 +144,11 @@ test.describe('PieChip - Component tests', () => {
                 test('should render on the component with the correct value', async ({ mount, page }) => {
                     // Arrange
                     await mount(PieChip, {
-                        props,
+                        props: {
+                            aria: {
+                                label: 'Chip Label',
+                            },
+                        } as ChipProps,
                     });
 
                     const chip = page.locator(componentSelector);
@@ -206,9 +193,7 @@ test.describe('PieChip - Component tests', () => {
             test.describe('when the component is not in a `isLoading` state', () => {
                 test('should render on the component with the value `false`', async ({ mount, page }) => {
                     // Arrange
-                    await mount(PieChip, {
-                        props,
-                    });
+                    await mount(PieChip, {});
 
                     const chip = page.locator(componentSelector);
 
@@ -238,9 +223,7 @@ test.describe('PieChip - Component tests', () => {
             test.describe('when the component is not in a `isSelected` state', () => {
                 test('should render on the component with the value `false`', async ({ mount, page }) => {
                     // Arrange
-                    await mount(PieChip, {
-                        props,
-                    });
+                    await mount(PieChip, {});
 
                     const chip = page.locator(componentSelector);
 
