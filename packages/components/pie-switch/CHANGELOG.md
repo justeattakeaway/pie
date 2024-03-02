@@ -1,5 +1,17 @@
 # @justeattakeaway/pie-switch
 
+## 0.27.3
+
+### Patch Changes
+
+- [Removed] - box-sizing definition (it comes from pie-css instead) ([#1281](https://github.com/justeattakeaway/pie/pull/1281)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- [Added] - pie-css import to playwright/index.html ([#1281](https://github.com/justeattakeaway/pie/pull/1281)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- Updated dependencies [[`b91297ea3`](https://github.com/justeattakeaway/pie/commit/b91297ea312cb668301b6fa01790371dcf63d830), [`2c85aecb9`](https://github.com/justeattakeaway/pie/commit/2c85aecb9da3989c5a3111a140a87be33d441094)]:
+  - @justeattakeaway/pie-webc-core@0.19.1
+  - @justeattakeaway/pie-icons-webc@0.19.1
+
 ## 0.27.2
 
 ### Patch Changes

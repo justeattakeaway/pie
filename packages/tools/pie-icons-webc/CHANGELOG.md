@@ -1,5 +1,14 @@
 # @justeattakeaway/pie-icons-webc
 
+## 0.19.1
+
+### Patch Changes
+
+- [Added] - pie-css import to playwright/index.html ([#1281](https://github.com/justeattakeaway/pie/pull/1281)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+- Updated dependencies [[`b91297ea3`](https://github.com/justeattakeaway/pie/commit/b91297ea312cb668301b6fa01790371dcf63d830)]:
+  - @justeattakeaway/pie-webc-core@0.19.1
+
 ## 0.19.0
 
 ### Minor Changes
