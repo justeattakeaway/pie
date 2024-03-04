@@ -3,6 +3,12 @@ import { type Page } from '@playwright/test';
 import {
     WebComponentTestWrapper,
 } from '@justeattakeaway/pie-webc-testing/src/helpers/components/web-component-test-wrapper/WebComponentTestWrapper.ts';
+import {
+    PIE_MODAL,
+    BACK_MODAL_BUTTON,
+    CLOSE_MODAL_BUTTON,
+} from 'test/helpers/page-object/selectors.ts';
+import { PieModalPage } from 'test/helpers/page-object/pie-modal.page.ts';
 import { createScrollablePageHTML, renderTestPieModal } from '../helpers/index.ts';
 
 import { PieModal } from '../../src/index.ts';
@@ -12,9 +18,9 @@ import {
     headingLevels,
 } from '../../src/defs.ts';
 
-const componentSelector = '[data-test-id="pie-modal"]';
-const backButtonSelector = '[data-test-id="modal-back-button"]';
-const closeButtonSelector = '[data-test-id="modal-close-button"]';
+const componentSelector = `[data-test-id=${PIE_MODAL}]`;
+const backButtonSelector = `[data-test-id=${BACK_MODAL_BUTTON}]`;
+const closeButtonSelector = `[data-test-id=${CLOSE_MODAL_BUTTON}]`;
 
 test.describe('modal', () => {
     test('should be visible when opened', async ({ mount, page }) => {
@@ -89,8 +95,10 @@ test.describe('When modal is closed', () => {
             expect(events).toHaveLength(1);
         });
 
-        test('should close the modal', async ({ mount, page }) => {
+        test.only('should close the modal', async ({ mount, page }) => {
             // Arrange
+            const modalPage = new PieModalPage(page);
+
             await mount(PieModal, {
                 props: {
                     isOpen: true,
@@ -101,7 +109,7 @@ test.describe('When modal is closed', () => {
             const modal = page.locator(componentSelector);
 
             // Act
-            await page.click(closeButtonSelector);
+            await modalPage.closeModal();
 
             // Assert
             expect(modal).not.toBeVisible();
