@@ -1,11 +1,5 @@
 @use '@justeattakeaway/pie-css/scss' as p;
 
-*,
-*:before,
-*:after {
-    box-sizing: border-box;
-}
-
 $breakpoint-wide: 768px;
 
 /**
@@ -83,7 +77,6 @@ $breakpoint-wide: 768px;
     gap: var(--dt-spacing-b);
     align-items: center;
     justify-content: center;
-    box-sizing: border-box;
     height: var(--btn-height);
     padding: var(--btn-padding);
     border: none;

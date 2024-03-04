@@ -1,7 +1,11 @@
-module.exports = {
+import baseRules from './rules/base';
+import strictRules from './rules/strict';
+import orderingRules from './rules/ordering';
+
+export default {
     extends: [
-        './rules/base.js',
-        './rules/strict.js',
-        './rules/ordering.js'
+        baseRules,
+        strictRules,
+        orderingRules
     ],
 };

@@ -1,5 +1,16 @@
 # @justeattakeaway/pie-input
 
+## 0.13.0
+
+### Minor Changes
+
+- [Added] - Integrate assistive text component into input ([#1288](https://github.com/justeattakeaway/pie/pull/1288)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies [[`d256fecfd`](https://github.com/justeattakeaway/pie/commit/d256fecfd31b5c4c92404b332a260dfe92cd9e29)]:
+  - @justeattakeaway/pie-assistive-text@0.2.3
+
 ## 0.12.1
 
 ### Patch Changes

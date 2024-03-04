@@ -1,5 +1,5 @@
-const stylelint = require('stylelint');
-const strictConfig = require('../../rules/strict');
+import stylelint from 'stylelint';
+import strictConfig from '../../rules/strict';
 
 describe('strict Stylelint rules', () => {
     describe('color-named', () => {

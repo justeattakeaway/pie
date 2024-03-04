@@ -2,6 +2,7 @@ import {
     LitElement, html, unsafeCSS, TemplateResult, nothing,
 } from 'lit';
 import { property } from 'lit/decorators.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 
 import {
     validPropertyValues, defineCustomElement, dispatchCustomEvent,
@@ -39,6 +40,9 @@ export class PieChip extends LitElement implements ChipProps {
     @property({ type: Boolean })
     public isDismissible = false;
 
+    @property({ type: Object })
+    public aria: ChipProps['aria'];
+
     /**
      * Template for the loading state
      *
@@ -75,6 +79,7 @@ export class PieChip extends LitElement implements ChipProps {
                     <button
                         @click="${this._handleCloseButtonClick}"
                         ?disabled=${this.disabled}
+                        aria-label="${ifDefined(this.aria?.close)}"
                         class="c-chip-closeBtn"
                         data-test-id="chip-close-button">
                         <icon-close-circle-filled size="m"></icon-close-circle-filled>
@@ -92,10 +97,15 @@ export class PieChip extends LitElement implements ChipProps {
 
         return html`
             <div
+                aria-atomic="true"
+                aria-busy="${isLoading}"
+                aria-current="${isSelected}"
+                aria-label="${ifDefined(this.aria?.label)}"
+                aria-live="polite"
                 class="c-chip"
-                role="button"
-                tabindex="0"
                 data-test-id="pie-chip"
+                tabindex="0"
+                role="button"
                 variant="${variant}"
                 ?disabled="${disabled}"
                 ?isSelected="${isSelected}"

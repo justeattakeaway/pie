@@ -1,5 +1,23 @@
 # Changelog
 
+## 0.65.0
+
+### Minor Changes
+
+- [Added] - Integrate assistive text component into input ([#1288](https://github.com/justeattakeaway/pie/pull/1288)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies [[`d256fecfd`](https://github.com/justeattakeaway/pie/commit/d256fecfd31b5c4c92404b332a260dfe92cd9e29), [`473f57efc`](https://github.com/justeattakeaway/pie/commit/473f57efcef3b47d8641436015b1a3af7da8b6c4), [`50a6b53c1`](https://github.com/justeattakeaway/pie/commit/50a6b53c1786960cbfadfc8bf69b0cafd81b8251)]:
+  - @justeattakeaway/pie-assistive-text@0.2.3
+  - @justeattakeaway/pie-icons-webc@0.19.0
+  - @justeattakeaway/pie-input@0.13.0
+  - @justeattakeaway/pie-chip@0.2.1
+  - @justeattakeaway/pie-icon-button@0.27.6
+  - @justeattakeaway/pie-modal@0.38.8
+  - @justeattakeaway/pie-switch@0.27.2
+  - @justeattakeaway/pie-cookie-banner@0.17.4
+
 ## 0.64.5
 
 ### Patch Changes
