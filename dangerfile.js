@@ -34,7 +34,7 @@ danger.git.created_files.filter((filepath) => filepath.includes('.changeset/') &
         });
     });
 
-// Check for empty PR Description checkboxes
-if (pr.body.includes('- [ ]')) {
+// Check for empty PR Description checkboxes - but not for automated version PRs
+if (pr.body.includes('- [ ]') && (pr.user.login !== 'dependabot[bot]' && pr.user.login !== 'renovate[bot]')) {
     fail('You currently have an unchecked checklist item in your PR description.\n\nPlease confirm this check has been carried out – if it\'s not relevant to your PR, delete this line from the PR checklist.');
 }
