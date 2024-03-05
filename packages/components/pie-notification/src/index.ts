@@ -33,10 +33,6 @@ import '@justeattakeaway/pie-button';
 // Valid values available to consumers
 export * from './defs';
 
-export interface NotificationEventDetail {
-    targetNotification: PieNotification;
-}
-
 /**
  * @tagname pie-notification
  */
@@ -309,7 +305,7 @@ export class PieNotification extends LitElement implements NotificationProps {
                 @click="${onClick ? () => this.handleActionClick(onClick, actionType) : nothing}"
                 data-test-id="${componentSelector}-${actionType}-action"
                 ?isFullWidth="${this.hasStackedActions}"
-                type="submit">
+                type="button">
                 ${text}
             </pie-button>
         `;

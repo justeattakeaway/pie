@@ -45,7 +45,6 @@ test.describe('PieNotification - Component tests', () => {
         await mount(PieNotification, {
             props: {} as NotificationProps,
             slots: { default: slotContent },
-            slots: { default: slotContent },
         });
 
         // Act
