@@ -1,7 +1,7 @@
 import {
     LitElement, html, unsafeCSS, nothing, PropertyValues, TemplateResult,
 } from 'lit';
-import { property } from 'lit/decorators.js';
+import { property, queryAssignedElements } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { validPropertyValues, defineCustomElement, FormControlMixin } from '@justeattakeaway/pie-webc-core';
 import {
@@ -40,6 +40,22 @@ export class PieButton extends FormControlMixin(LitElement) implements ButtonPro
 
     updated (changedProperties: PropertyValues<this>): void {
         super.updated(changedProperties);
+
+        // Making sure that icon passed in a slot has the correct icon size
+        const [iconElement] = this._iconSlotElement;
+
+        if (iconElement) {
+            if (this.size === 'xsmall') {
+                iconElement.setAttribute('size', 'xs');
+            }
+            if (this.size === 'small-expressive' || this.size === 'small-productive') {
+                iconElement.setAttribute('size', 's');
+            }
+
+            if (this.size === 'medium' || this.size === 'large') {
+                iconElement.setAttribute('size', 'm');
+            }
+        }
 
         if (changedProperties.has('type')) {
             // If the new type is "submit", add the keydown event listener
@@ -102,6 +118,9 @@ export class PieButton extends FormControlMixin(LitElement) implements ButtonPro
 
     @property({ type: String })
     public responsiveSize?: ButtonProps['responsiveSize'];
+
+    @queryAssignedElements({ slot: 'icon' })
+        _iconSlotElement!: Array<HTMLElement>;
 
     /**
      * This method creates an invisible button of the same type as pie-button. It is then clicked, and immediately removed from the DOM.
