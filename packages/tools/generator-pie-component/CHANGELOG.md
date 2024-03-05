@@ -1,5 +1,11 @@
 # @justeattakeaway/generator-pie-component
 
+## 0.20.1
+
+### Patch Changes
+
+- [Added] - pie-css import to playwright/index.html ([#1281](https://github.com/justeattakeaway/pie/pull/1281)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
 ## 0.20.0
 
 ### Minor Changes

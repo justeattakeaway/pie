@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.7.0
+
+### Minor Changes
+
+- [Changed] - stylelint to latest version 16 ([#1280](https://github.com/justeattakeaway/pie/pull/1280)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies [[`a3305634e`](https://github.com/justeattakeaway/pie/commit/a3305634e069e32415bc8fb89e03a85a384560ea)]:
+  - @justeattakeaway/stylelint-no-logical-props-shorthands@0.3.0
+
 ## 0.6.1
 
 ### Patch Changes
