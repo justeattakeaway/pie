@@ -1,6 +1,6 @@
 {
   "name": "wc-nuxt3",
-  "version": "0.5.17",
+  "version": "0.5.18",
   "private": true,
   "scripts": {
     "build:examples": "nuxt build",
@@ -10,8 +10,8 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "@justeattakeaway/pie-button": "0.45.5",
-    "@justeattakeaway/pie-css": "0.10.0",
+    "@justeattakeaway/pie-button": "0.45.6",
+    "@justeattakeaway/pie-css": "0.11.0",
     "nuxt-ssr-lit": "1.6.5"
   },
   "devDependencies": {

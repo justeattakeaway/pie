@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.56.0
+
+### Minor Changes
+
+- [Changed] - stylelint to latest version 16 ([#1280](https://github.com/justeattakeaway/pie/pull/1280)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 2.55.0
 
 ### Minor Changes
