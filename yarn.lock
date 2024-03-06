@@ -5558,6 +5558,8 @@ __metadata:
     deepmerge-ts: 5.1.0
   peerDependencies:
     cem-plugin-module-file-extensions: 0.0.5
+  bin:
+    playwright-lit-setup: ./scripts/playwright-lit-setup.js
   languageName: unknown
   linkType: soft
 

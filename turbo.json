@@ -94,10 +94,16 @@
     "test:coverage": {
       "cache": false
     },
+
+    "test:browsers-setup": {
+      "cache": true,
+      "outputs": ["./playwright/index.html"]
+    },
     "test:browsers": {
       "cache": true,
       "dependsOn": [
-        "^build"
+        "^build",
+        "test:browsers-setup"
       ],
       "outputs": []
     },
