@@ -129,7 +129,7 @@ export class PieNotification extends LitElement implements NotificationProps {
      */
     private renderFooter (leadingAction: ActionProps, supportingAction?: ActionProps) {
         return html`
-            <footer class="${componentClass}-footer" data-test-id="${componentSelector}-footer" is-compact="${this.isCompact}" is-stacked="${this.hasStackedActions && !this.isCompact}">
+            <footer class="${componentClass}-footer" data-test-id="${componentSelector}-footer" ?isCompact="${this.isCompact}" ?isStacked="${this.hasStackedActions && !this.isCompact}">
                 ${supportingAction ? this.renderActionButton(supportingAction, 'supporting') : nothing}
                 ${leadingAction ? this.renderActionButton(leadingAction, 'leading') : nothing}
             </footer>
@@ -331,7 +331,7 @@ export class PieNotification extends LitElement implements NotificationProps {
         }
 
         return html`
-            <div data-test-id="${componentSelector}" class="${componentClass}" variant="${variant}" is-compact="${isCompact}">
+            <div data-test-id="${componentSelector}" class="${componentClass}" variant="${variant}" ?isCompact="${isCompact}">
                 ${isDismissible && !isCompact ? this.renderCloseButton() : nothing}
 
                 <section class="${componentClass}-content-section">

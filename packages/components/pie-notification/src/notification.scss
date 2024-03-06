@@ -34,7 +34,7 @@
         line-height: var(--notification-heading-line-height);
     }
 
-    &[is-compact='true'] {
+    &[isCompact] {
         --notification-direction: row;
     }
 
@@ -86,12 +86,12 @@
         justify-content: flex-end;
         gap: var(--dt-spacing-d);
 
-        &[is-compact='true'] {
+        &[isCompact] {
             align-self: flex-end;
         }
 
         @media (max-width: $breakpoint-narrow) {
-            &[is-stacked='true'] {
+            &[isStacked] {
                 flex-direction: column;
             }
         }
