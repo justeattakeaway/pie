@@ -97,7 +97,14 @@
 
     "test:browsers-setup": {
       "cache": true,
-      "outputs": ["./playwright/index.html"]
+      "inputs": [
+        "./configs/pie-components-config/playwright/index.html",
+        "./configs/pie-components-config/playwright/index.ts"
+      ],
+      "outputs": [
+        "**/playwright/index.html",
+        "**/playwright/index.ts"
+      ]
     },
     "test:browsers": {
       "cache": true,

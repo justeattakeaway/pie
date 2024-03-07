@@ -163,7 +163,7 @@ lit-browsers-report/
 visual-report/
 lit-visual-report/
 react-browsers-report/
-./packages/components/**/playwright/
+packages/components/**/playwright/
 
 # TypeScript
 compiled/
