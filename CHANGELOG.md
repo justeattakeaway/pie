@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.56.1
+
+### Patch Changes
+
+- [Fixed] - danger flagging automated prs ([#1316](https://github.com/justeattakeaway/pie/pull/1316)) by [@ashleynolan](https://github.com/ashleynolan)
+
 ## 2.56.0
 
 ### Minor Changes
