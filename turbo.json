@@ -110,19 +110,22 @@
     "test:browsers:ci": {
       "cache": true,
       "dependsOn": [
-        "^build"
+        "^build",
+        "test:browsers-setup"
       ]
     },
     "test:visual": {
       "cache": false,
       "dependsOn": [
-        "^build"
+        "^build",
+        "test:browsers-setup"
       ]
     },
     "test:visual:ci": {
       "cache": false,
       "dependsOn": [
-        "^build"
+        "^build",
+        "test:browsers-setup"
       ]
     },
     "lint:scripts": {
