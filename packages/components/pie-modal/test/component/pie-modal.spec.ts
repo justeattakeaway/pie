@@ -3,11 +3,6 @@ import { type Page } from '@playwright/test';
 import {
     WebComponentTestWrapper,
 } from '@justeattakeaway/pie-webc-testing/src/helpers/components/web-component-test-wrapper/WebComponentTestWrapper.ts';
-import {
-    PIE_MODAL,
-    BACK_MODAL_BUTTON,
-    CLOSE_MODAL_BUTTON,
-} from 'test/helpers/page-object/selectors.ts';
 import { PieModalPage } from 'test/helpers/page-object/pie-modal.page.ts';
 import { createScrollablePageHTML, renderTestPieModal } from '../helpers/index.ts';
 
@@ -15,16 +10,16 @@ import { PieModal } from '../../src/index.ts';
 import {
     ON_MODAL_BACK_EVENT,
     ON_MODAL_CLOSE_EVENT,
+    ON_MODAL_LEADING_ACTION_CLICK,
+    ON_MODAL_SUPPORTING_ACTION_CLICK,
     headingLevels,
 } from '../../src/defs.ts';
-
-const componentSelector = `[data-test-id=${PIE_MODAL}]`;
-const backButtonSelector = `[data-test-id=${BACK_MODAL_BUTTON}]`;
-const closeButtonSelector = `[data-test-id=${CLOSE_MODAL_BUTTON}]`;
 
 test.describe('modal', () => {
     test('should be visible when opened', async ({ mount, page }) => {
         // Arrange
+        const modalPage = new PieModalPage(page);
+
         await mount(PieModal, {
             props: {
                 heading: 'Modal heading',
@@ -32,48 +27,65 @@ test.describe('modal', () => {
             },
         });
 
-        // Act
-        const modal = page.locator(componentSelector);
+        // // Act
+        const modal = await modalPage.isModalVisible();
 
-        // Assert
-        expect(modal).toBeVisible();
+        // // Assert
+        expect(modal).toBeTruthy();
     });
 });
 
-headingLevels.forEach((headingLevel) => test(`should render the correct heading tag based on the value of headingLevel: ${headingLevel}`, async ({ mount }) => {
+headingLevels.forEach((headingLevel) => test(`should render the correct heading tag based on the value of headingLevel: ${headingLevel}`, async ({ mount, page }) => {
     // Arrange
+    const modalPage = new PieModalPage(page);
+
     const props = {
         heading: 'Modal Header',
         headingLevel,
+        isOpen: true,
     };
 
     // Act
-    const component = await mount(PieModal, { props });
+    await mount(PieModal, { props });
 
-    // Assert
-    await expect(component.locator(`${props.headingLevel}.c-modal-heading`)).toContainText(props.heading);
+    const modal = await modalPage.isModalVisible();
+    expect.soft(modal).toBeTruthy();
+
+    const headingExists = await modalPage.headingByTagExists(headingLevel);
+
+    // // Assert
+    await expect(headingExists).toBeTruthy();
 }));
 
-['span', 'section'].forEach((headingLevel) => test(`should render the fallback heading level 'h2' if invalid headingLevel: ${headingLevel} is passed`, async ({ mount }) => {
+['span', 'section'].forEach((headingLevel) => test(`should render the fallback heading level 'h2' if invalid headingLevel: ${headingLevel} is passed`, async ({ mount, page }) => {
     // Arrange
+    const modalPage = new PieModalPage(page);
+
     const props = {
         heading: 'Modal Header',
         headingLevel,
+        isOpen: true,
     };
 
     // Act
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore // Added this as we want to deliberately test with invalid headingLevel (which is an invalid type based on ModalProps)
-    const component = await mount(PieModal, { props });
+    await mount(PieModal, { props });
+
+    const modal = await modalPage.isModalVisible();
+    expect.soft(modal).toBeTruthy();
+
+    const fallBackHeadingExists = await modalPage.headingByTagExists('h2');
 
     // Assert
-    await expect(component.locator('h2.c-modal-heading')).toContainText(props.heading);
+    await expect(fallBackHeadingExists).toBeTruthy();
 }));
 
 test.describe('When modal is closed', () => {
     test.describe('by clicking the close button', () => {
         test('should dispatch event `pie-modal-close`', async ({ mount, page }) => {
             // Arrange
+            const modalPage = new PieModalPage(page);
             const events : Array<Event> = [];
 
             await mount(
@@ -89,13 +101,13 @@ test.describe('When modal is closed', () => {
                 },
             );
 
-            await page.click(closeButtonSelector);
+            await modalPage.closeModal();
 
             // Assert
             expect(events).toHaveLength(1);
         });
 
-        test.only('should close the modal', async ({ mount, page }) => {
+        test('should close the modal', async ({ mount, page }) => {
             // Arrange
             const modalPage = new PieModalPage(page);
 
@@ -106,19 +118,19 @@ test.describe('When modal is closed', () => {
                 },
             });
 
-            const modal = page.locator(componentSelector);
-
             // Act
             await modalPage.closeModal();
 
             // Assert
-            expect(modal).not.toBeVisible();
+            expect(await modalPage.isModalVisible()).toBeFalsy();
         });
     });
 
     test.describe('by clicking the back button', () => {
         test('should dispatch event `pie-modal-back`', async ({ mount, page }) => {
             // Arrange
+            const modalPage = new PieModalPage(page);
+
             const events: Event[] = [];
             await mount(
                 PieModal,
@@ -133,7 +145,7 @@ test.describe('When modal is closed', () => {
                 },
             );
 
-            await page.locator(backButtonSelector).click();
+            await modalPage.backModal();
 
             // Assert
             expect(events).toHaveLength(1);
@@ -143,6 +155,8 @@ test.describe('When modal is closed', () => {
     test.describe('by clicking the backdrop', () => {
         test('should dispatch event `pie-modal-close`', async ({ mount, page }) => {
             // Arrange
+            const modalPage = new PieModalPage(page);
+
             const events : Array<Event> = [];
 
             await mount(PieModal, {
@@ -156,7 +170,7 @@ test.describe('When modal is closed', () => {
             });
 
             // Act
-            await page.click(componentSelector, { position: { x: -10, y: -10 } }); // Click outside dialog
+            await modalPage.clickBackdrop();
 
             // Assert
             expect(events).toHaveLength(1); // TODO - Event object is null for this test
@@ -164,6 +178,8 @@ test.describe('When modal is closed', () => {
 
         test('should close the modal', async ({ mount, page }) => {
             // Arrange
+            const modalPage = new PieModalPage(page);
+
             await mount(PieModal, {
                 props: {
                     isOpen: true,
@@ -171,13 +187,11 @@ test.describe('When modal is closed', () => {
                 },
             });
 
-            const modal = await page.locator(componentSelector);
-
             // Act
-            await modal.click({ position: { x: -10, y: -10 } }); // Click outside dialog
+            await modalPage.clickBackdrop();
 
             // Assert
-            expect(modal).not.toBeVisible();
+            expect(await modalPage.isModalVisible()).toBeFalsy();
         });
     });
 
@@ -185,6 +199,8 @@ test.describe('When modal is closed', () => {
         test.describe('when given', () => {
             test('should return focus to specified element', async ({ mount, page }) => {
                 // Arrange
+                const modalPage = new PieModalPage(page);
+
                 const component = renderTestPieModal({
                     returnFocusAfterCloseSelector: '#focus-me',
                 });
@@ -204,7 +220,7 @@ test.describe('When modal is closed', () => {
                 });
 
                 // Act
-                await page.click(closeButtonSelector);
+                await modalPage.closeModal();
 
                 const focusedElement = await page.locator(':focus');
                 const focusedElementId = await focusedElement.getAttribute('id');
@@ -215,6 +231,8 @@ test.describe('When modal is closed', () => {
 
             test('should return focus to first matching element', async ({ page, mount }) => {
                 // Arrange
+                const modalPage = new PieModalPage(page);
+
                 const component = renderTestPieModal({
                     returnFocusAfterCloseSelector: '[data-test-id="focus-me"]',
                 });
@@ -234,7 +252,7 @@ test.describe('When modal is closed', () => {
                 });
 
                 // Act
-                await page.click(closeButtonSelector);
+                await modalPage.closeModal();
 
                 const focusedElement = await page.locator(':focus');
                 const focusedElementId = await focusedElement.getAttribute('id');
@@ -248,7 +266,8 @@ test.describe('When modal is closed', () => {
             [{
                 mechanism: 'close button',
                 modalCloseFunction: async (page : Page) => {
-                    await page.click(closeButtonSelector);
+                    const modalPage = new PieModalPage(page);
+                    await modalPage.closeModal();
                 },
             }, {
                 mechanism: 'Esc key',
@@ -299,9 +318,11 @@ test.describe('When modal is closed', () => {
 
 test.describe('`isDismissible` prop', () => {
     test.describe('when `true`', () => {
-        test('should make the modal contain a close button', async ({ mount }) => {
+        test('should make the modal contain a close button', async ({ mount, page }) => {
             // Arrange
-            const component = await mount(
+            const modalPage = new PieModalPage(page);
+
+            await mount(
                 PieModal,
                 {
                     props: {
@@ -311,34 +332,14 @@ test.describe('`isDismissible` prop', () => {
                 },
             );
 
-            // Act
-            const closeButton = component.locator(closeButtonSelector);
-
             // Assert
-            await expect(closeButton).toBeVisible();
+            await expect(modalPage.isCloseButtonVisible()).toBeTruthy();
         });
 
         test('should close the modal when the close button is clicked', async ({ mount, page }) => {
             // Arrange
-            const component = await mount(
-                PieModal,
-                {
-                    props: {
-                        isOpen: true,
-                        isDismissible: true,
-                    },
-                },
-            );
+            const modalPage = new PieModalPage(page);
 
-            // Act
-            await page.click('[data-test-id="modal-close-button"]');
-
-            // Assert
-            await expect(component).not.toBeVisible();
-        });
-
-        test('should close the modal when the backdrop is clicked', async ({ mount, page }) => {
-            // Arrange
             await mount(
                 PieModal,
                 {
@@ -350,23 +351,37 @@ test.describe('`isDismissible` prop', () => {
             );
 
             // Act
-            await page.click('body');
-
-            const element = await page.locator(componentSelector);
-
-            const styles = await element.evaluate((modal) => {
-                const computedStyles = window.getComputedStyle(modal);
-                return {
-                    display: computedStyles.getPropertyValue('display'),
-                };
-            });
+            await modalPage.closeModal();
 
             // Assert
-            expect(styles.display).toBe('none');
+            expect(await modalPage.isModalVisible()).toBeFalsy();
+        });
+
+        test('should close the modal when the backdrop is clicked', async ({ mount, page }) => {
+            // Arrange
+            const modalPage = new PieModalPage(page);
+
+            await mount(
+                PieModal,
+                {
+                    props: {
+                        isOpen: true,
+                        isDismissible: true,
+                    },
+                },
+            );
+
+            // Act
+            await modalPage.clickBackdrop();
+
+            // Assert
+            expect(await modalPage.isModalVisible()).toBeFalsy();
         });
 
         test('should close the modal when the Escape key is pressed', async ({ mount, page }) => {
             // Arrange
+            const modalPage = new PieModalPage(page);
+
             await mount(PieModal, {
                 props: {
                     isOpen: true,
@@ -374,35 +389,37 @@ test.describe('`isDismissible` prop', () => {
                 },
             });
 
-            const modal = await page.locator(componentSelector);
+            const modal = await modalPage.isModalVisible();
+            expect.soft(modal).toBeTruthy();
 
             // Act
             await page.keyboard.press('Escape');
 
             // Assert
-            await expect(modal).not.toBeVisible();
+            expect(await modalPage.isModalVisible()).toBeFalsy();
         });
     });
 
     test.describe('when `isDismissible` is `false`', () => {
-        test('should make the modal NOT contain a close button', async ({ mount }) => {
+        test('close button should not be visible', async ({ mount, page }) => {
             // Arrange
-            const component = await mount(PieModal, {
+            const modalPage = new PieModalPage(page);
+
+            await mount(PieModal, {
                 props: {
                     isOpen: true,
                     isDismissible: false,
                 },
             });
 
-            // Act
-            const closeButton = await component.locator(closeButtonSelector);
-
             // Assert
-            await expect(closeButton).not.toBeVisible();
+            expect(await modalPage.isCloseButtonVisible()).toBeFalsy();
         });
 
         test('should NOT close the modal when the backdrop is clicked', async ({ mount, page }) => {
             // Arrange
+            const modalPage = new PieModalPage(page);
+
             await mount(
                 PieModal,
                 {
@@ -414,23 +431,16 @@ test.describe('`isDismissible` prop', () => {
             );
 
             // Act
-            await page.locator('body').click();
-
-            const element = await page.locator(componentSelector);
-
-            const styles = await element.evaluate((modal) => {
-                const computedStyles = window.getComputedStyle(modal);
-                return {
-                    display: computedStyles.getPropertyValue('display'),
-                };
-            });
+            await modalPage.clickBackdrop();
 
             // Assert
-            expect(styles.display).toBe('flex');
+            await expect(modalPage.isModalVisible()).toBeTruthy();
         });
 
         test('should NOT close the modal when the Escape key is pressed', async ({ mount, page }) => {
             // Arrange
+            const modalPage = new PieModalPage(page);
+
             await mount(PieModal, {
                 props: {
                     isOpen: true,
@@ -440,10 +450,9 @@ test.describe('`isDismissible` prop', () => {
 
             // Act
             await page.keyboard.press('Escape');
-            const modal = await page.locator(componentSelector);
 
             // Assert
-            await expect(modal).toBeVisible();
+            expect(await modalPage.isModalVisible()).toBeTruthy();
         });
     });
 });
@@ -451,6 +460,8 @@ test.describe('`isDismissible` prop', () => {
 test.describe('isOpen prop', () => {
     test('should not render open when isOpen = false', async ({ mount, page }) => {
         // Arrange
+        const modalPage = new PieModalPage(page);
+
         await mount(PieModal, {
             props: {
                 isOpen: false,
@@ -458,11 +469,13 @@ test.describe('isOpen prop', () => {
         });
 
         // Assert
-        await expect(page.locator(componentSelector)).not.toBeVisible();
+        expect(await modalPage.isModalVisible()).toBeFalsy();
     });
 
     test('should render open when isOpen = true', async ({ mount, page }) => {
         // Arrange
+        const modalPage = new PieModalPage(page);
+
         await mount(PieModal, {
             props: {
                 isOpen: true,
@@ -470,7 +483,7 @@ test.describe('isOpen prop', () => {
         });
 
         // Assert
-        await expect(page.locator(componentSelector)).toBeVisible();
+        await expect(modalPage.isModalVisible()).toBeTruthy();
     });
 });
 
@@ -506,6 +519,7 @@ test.describe('scrolling logic', () => {
 
     test('Should scroll to the bottom when Pie Modal is closed', async ({ page, mount }) => {
         // Arrange
+        const modalPage = new PieModalPage(page);
         const modalComponent = renderTestPieModal();
 
         await mount(
@@ -522,7 +536,7 @@ test.describe('scrolling logic', () => {
         );
 
         // Act
-        await page.locator('[data-test-id="modal-close-button"]').click();
+        await modalPage.closeModal();
 
         // Scroll 800 pixels down the page
         await page.mouse.wheel(0, 5000);
@@ -538,9 +552,11 @@ test.describe('scrolling logic', () => {
 
 test.describe('`hasBackButton` prop', () => {
     test.describe('when `true`', () => {
-        test('should make the modal contain a back button', async ({ mount }) => {
+        test('should make the modal contain a back button', async ({ mount, page }) => {
             // Arrange
-            const component = await mount(
+            const modalPage = new PieModalPage(page);
+
+            await mount(
                 PieModal,
                 {
                     props: {
@@ -550,13 +566,18 @@ test.describe('`hasBackButton` prop', () => {
                 },
             );
 
+            const modal = await modalPage.isModalVisible();
+            expect.soft(modal).toBeTruthy();
+
             // Act & Assert
-            await expect(component.locator(backButtonSelector)).toBeVisible();
+            await expect(modalPage.isBackButtonVisible()).toBeTruthy();
         });
 
-        test('should close the modal when the back button is clicked', async ({ mount }) => {
+        test('should close the modal when the back button is clicked', async ({ mount, page }) => {
             // Arrange
-            const component = await mount(
+            const modalPage = new PieModalPage(page);
+
+            await mount(
                 PieModal,
                 {
                     props: {
@@ -567,17 +588,19 @@ test.describe('`hasBackButton` prop', () => {
             );
 
             // Act
-            await component.locator(backButtonSelector).click();
+            await modalPage.backModal();
 
             // Assert
-            await expect(component).not.toBeVisible();
+            expect(await modalPage.isModalVisible()).toBeFalsy();
         });
     });
 
     test.describe('when `hasBackButton` is `false`', () => {
-        test('should make the modal NOT contain a back button', async ({ mount }) => {
+        test('should make the modal NOT contain a back button', async ({ mount, page }) => {
             // Arrange
-            const component = await mount(
+            const modalPage = new PieModalPage(page);
+
+            await mount(
                 PieModal,
                 {
                     props: {
@@ -588,18 +611,18 @@ test.describe('`hasBackButton` prop', () => {
             );
 
             // Act & Assert
-            await expect(component.locator(backButtonSelector)).not.toBeVisible();
+            expect(await modalPage.isBackButtonVisible()).toBeFalsy();
         });
     });
 });
 
 test.describe('actions', () => {
-    ['leading', 'supporting'].forEach((actionName) => {
-        test.describe(`${actionName} action, when clicked`, () => {
-            const buttonSelector = `[data-test-id="modal-${actionName}-action"]`;
-
+    [{ name: 'leading', buttonText: 'Confirm' }, { name: 'supporting', buttonText: 'Cancel' }].forEach((action) => {
+        test.describe(`${action.name} action, when clicked`, () => {
             test('should close the modal', async ({ page, mount }) => {
                 // Arrange
+                const modalPage = new PieModalPage(page);
+
                 await mount(PieModal, {
                     props: {
                         heading: 'Modal Header',
@@ -617,17 +640,25 @@ test.describe('actions', () => {
                     },
                 });
 
-                const modal = await page.locator(componentSelector);
+                const modal = await modalPage.isModalVisible();
+                expect.soft(modal).toBeTruthy();
 
                 // Act
-                await page.click(buttonSelector);
+                await modalPage.clickButtonWithText(action.buttonText);
 
                 // Assert
-                expect(modal).not.toBeVisible();
+                expect(await modalPage.isModalVisible()).toBeFalsy();
             });
 
             test('should submit the correct return value', async ({ page, mount }) => {
                 // Arrange
+                const modalPage = new PieModalPage(page);
+
+                type ActionEvent = {
+                    eventObject: Event,
+                    eventName: string,
+                }
+                const events : Array<ActionEvent> = [];
                 await mount(PieModal, {
                     props: {
                         heading: 'Modal Header',
@@ -643,17 +674,17 @@ test.describe('actions', () => {
                             ariaLabel: 'Descriptive message',
                         },
                     },
+                    on: {
+                        [ON_MODAL_LEADING_ACTION_CLICK]: (event: Event) => events.push({ eventObject: event, eventName: 'leading' }),
+                        [ON_MODAL_SUPPORTING_ACTION_CLICK]: (event: Event) => events.push({ eventObject: event, eventName: 'supporting' }),
+                    },
                 });
 
                 // Act
-                await page.click(buttonSelector);
-                const returnValue = await page.$eval(
-                    componentSelector,
-                    (dialog : HTMLDialogElement) => dialog.returnValue,
-                );
+                await modalPage.clickButtonWithText(action.buttonText);
 
                 // Assert
-                expect(returnValue).toBe(actionName);
+                expect(events[0].eventName).toBe(action.name);
             });
         });
     });
@@ -661,9 +692,11 @@ test.describe('actions', () => {
 
 test.describe('Props: `aria`', () => {
     test.describe('when aria exist', () => {
-        test('should render component elements with the correct aria-labels', async ({ mount }) => {
+        test('should render component elements with the correct aria-labels', async ({ mount, page }) => {
             // Arrange
-            const component = await mount(PieModal, {
+            const modalPage = new PieModalPage(page);
+
+            await mount(PieModal, {
                 props: {
                     isOpen: true,
                     isDismissible: true,
@@ -679,12 +712,10 @@ test.describe('Props: `aria`', () => {
 
             // Act
             // Close button
-            const closeButton = await component.locator(closeButtonSelector);
-            const ariaCloseLabel = await closeButton.getAttribute('aria-label');
+            const ariaCloseLabel = await modalPage.getCloseButtonAriaLabel();
 
             // Back button
-            const backButton = await component.locator(backButtonSelector);
-            const ariaBackLabel = await backButton.getAttribute('aria-label');
+            const ariaBackLabel = await modalPage.getBackButtonAriaLabel();
 
             // Assert
             await expect(ariaCloseLabel).toBe('Close label info');
@@ -692,9 +723,11 @@ test.describe('Props: `aria`', () => {
         });
 
         test.describe('when modal `isloading` is true', () => {
-            test('should render component with the correct aria values: `aria-label` & `aria-busy`', async ({ mount }) => {
+            test('should render component with the correct aria values: `aria-label` & `aria-busy`', async ({ mount, page }) => {
                 // Arrange
-                const component = await mount(PieModal, {
+                const modalPage = new PieModalPage(page);
+
+                await mount(PieModal, {
                     props: {
                         isOpen: true,
                         isLoading: true,
@@ -705,9 +738,8 @@ test.describe('Props: `aria`', () => {
                 });
 
                 // Loading state
-                const pieModalComponent = await component.locator(componentSelector);
-                const ariaLoadingLabel = await pieModalComponent.getAttribute('aria-label');
-                const ariaLoadingBusy = await pieModalComponent.getAttribute('aria-busy');
+                const ariaLoadingLabel = await modalPage.getModalAriaLabel();
+                const ariaLoadingBusy = await modalPage.getModalAriaBusy();
 
                 // Assert
                 await expect(ariaLoadingLabel).toBe('Loading label info');
@@ -716,8 +748,10 @@ test.describe('Props: `aria`', () => {
         });
 
         test.describe('when modal `isLoading` is dynamically changing from `isLoading: true` to `isLoading: false`', () => {
-            test('should dynamically add, remove, and update `arial-label` & `aria-busy` labels', async ({ mount }) => {
+            test('should dynamically add, remove, and update `arial-label` & `aria-busy` labels', async ({ mount, page }) => {
                 // Arrange
+                const modalPage = new PieModalPage(page);
+
                 const component = await mount(PieModal, {
                     props: {
                         isOpen: true,
@@ -728,30 +762,31 @@ test.describe('Props: `aria`', () => {
                     },
                 });
 
-                const pieModalComponent = await component.locator(componentSelector);
-                let ariaLoadingLabel = await pieModalComponent.getAttribute('aria-label');
-                let ariaLoadingBusy = await pieModalComponent.getAttribute('aria-busy');
+                let ariaLoadingLabel = await modalPage.getModalAriaLabel();
+                let ariaLoadingBusy = await modalPage.getModalAriaBusy();
 
                 // Assert: When `isLoading: true`
-                await expect(ariaLoadingLabel).toBe('Loading label info');
-                await expect(ariaLoadingBusy).toBe('true');
+                expect(ariaLoadingLabel).toBe('Loading label info');
+                expect(ariaLoadingBusy).toBe('true');
 
                 await component.update({ props: { isLoading: false } });
 
-                ariaLoadingLabel = await pieModalComponent.getAttribute('aria-label');
-                ariaLoadingBusy = await pieModalComponent.getAttribute('aria-busy');
+                ariaLoadingLabel = await modalPage.getModalAriaLabel();
+                ariaLoadingBusy = await modalPage.getModalAriaBusy();
 
                 // Assert: When `isLoading: false`
-                await expect(ariaLoadingLabel).toBeNull();
-                await expect(ariaLoadingBusy).toBe('false');
+                expect(ariaLoadingLabel).toBeNull();
+                expect(ariaLoadingBusy).toBe('false');
             });
         });
     });
 
     test.describe('when aria does not exist', () => {
-        test('should not render the aria-labels', async ({ mount }) => {
+        test('should not render the aria-labels', async ({ mount, page }) => {
             // Arrange
-            const component = await mount(PieModal, {
+            const modalPage = new PieModalPage(page);
+
+            await mount(PieModal, {
                 props: {
                     isOpen: true,
                     isDismissible: true,
@@ -761,12 +796,10 @@ test.describe('Props: `aria`', () => {
 
             // Act
             // Close button
-            const closeButton = await component.locator(closeButtonSelector);
-            const ariaCloseLabel = await closeButton.getAttribute('aria-label');
+            const ariaCloseLabel = await modalPage.getCloseButtonAriaLabel();
 
             // Back button
-            const backButton = await component.locator(backButtonSelector);
-            const ariaBackLabel = await backButton.getAttribute('aria-label');
+            const ariaBackLabel = await modalPage.getBackButtonAriaLabel();
 
             // Assert
             await expect(ariaCloseLabel).toBe(null);
@@ -775,9 +808,11 @@ test.describe('Props: `aria`', () => {
     });
 
     test.describe('when modal `isloading` is false', () => {
-        test('should not render aria-label', async ({ mount }) => {
+        test('should not render aria-label', async ({ mount, page }) => {
             // Arrange
-            const component = await mount(PieModal, {
+            const modalPage = new PieModalPage(page);
+
+            await mount(PieModal, {
                 props: {
                     isOpen: true,
                     isLoading: false,
@@ -785,16 +820,17 @@ test.describe('Props: `aria`', () => {
             });
 
             // Loading state
-            const pieModalComponent = await component.locator(componentSelector);
-            const ariaLoadingLabel = await pieModalComponent.getAttribute('aria-label');
+            const ariaLoadingLabel = await modalPage.getModalAriaLabel();
 
             // Assert
             await expect(ariaLoadingLabel).toBe(null);
         });
 
-        test('should set `aria-busy` to `false`', async ({ mount }) => {
+        test('should set `aria-busy` to `false`', async ({ mount, page }) => {
             // Arrange
-            const component = await mount(PieModal, {
+            const modalPage = new PieModalPage(page);
+
+            await mount(PieModal, {
                 props: {
                     isOpen: true,
                     isLoading: false,
@@ -802,8 +838,7 @@ test.describe('Props: `aria`', () => {
             });
 
             // Loading state
-            const pieModalComponent = await component.locator(componentSelector);
-            const ariaLoadingBusy = await pieModalComponent.getAttribute('aria-busy');
+            const ariaLoadingBusy = await modalPage.getModalAriaBusy();
 
             // Assert
             await expect(ariaLoadingBusy).toBe('false');

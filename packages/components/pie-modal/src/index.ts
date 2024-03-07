@@ -361,7 +361,8 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
     private renderModalContentAndFooter (): TemplateResult {
         return html`
         <article class="c-modal-scrollContainer c-modal-content c-modal-content--scrollable">
-            <div class="c-modal-contentInner">
+            <div class="c-modal-contentInner"
+            data-test-id="modal-content">
                 <slot></slot>
             </div>
             ${this.isLoading ? html`<pie-spinner size="xlarge" variant="secondary"></pie-spinner>` : nothing}
@@ -407,7 +408,8 @@ export class PieModal extends RtlMixin(LitElement) implements ModalProps {
             aria-busy="${isLoading ? 'true' : 'false'}"
             aria-label="${(isLoading && aria?.loading) || nothing}"
             data-test-id="pie-modal">
-            <header class="c-modal-header">
+            <header class="c-modal-header"
+            data-test-id="modal-header">
                 ${hasBackButton ? this.renderBackButton() : nothing}
                 <${headingTag} class="c-modal-heading">
                     ${heading}
