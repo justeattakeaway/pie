@@ -25,7 +25,7 @@ async function copyPlaywrightFiles () {
             console.log(`Playwright ${file} copied successfully.`);
         });
     } catch (err) {
-        console.error('Error copying Playwright HTML:', err);
+        console.error('Error copying Playwright files.:', err);
     }
 }
 
