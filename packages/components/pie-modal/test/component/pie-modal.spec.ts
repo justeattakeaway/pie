@@ -103,7 +103,7 @@ test.describe('modal', () => {
                 expect(events).toHaveLength(1);
             });
 
-            test('should close the modal', async ({ mount}) => {
+            test('should close the modal', async ({ mount }) => {
                 // Arrange
 
                 await mount(PieModal, {
