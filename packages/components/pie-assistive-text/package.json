@@ -12,6 +12,20 @@
     "dist",
     "**/*.d.ts"
   ],
+  "bundlewatch": {
+    "files": [
+      {
+        "path": "./packages/components/pie-assistive-text/dist/index.js",
+        "maxSize": "5kb",
+        "compression": "none"
+      },
+      {
+        "path": "./packages/components/pie-assistive-text/dist/react.js",
+        "maxSize": "5kb",
+        "compression": "none"
+      }
+    ]
+  },
   "scripts": {
     "build": "npx build-react-wrapper && run -T vite build",
     "create:manifest": "yarn cem analyze --litelement",

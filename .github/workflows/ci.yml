@@ -42,6 +42,25 @@ env:
   TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
 
 jobs:
+
+  bundlewatch:
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout the Repo
+      - name: Checkout
+        uses: actions/checkout@v3
+      # Setup Repo
+      - name: Setup Repo
+        uses: ./.github/actions/setup-repo
+        with:
+          node-version: 20
+          os: ubuntu-latest
+      - name: Bundlewatch
+        uses: ./.github/actions/run-script
+        with:
+          script-name: "bundlewatch"
+          concurrency: 10
+
   dependency-changeset:
     if: github.actor == 'renovate-bot' || github.actor == 'renovate[bot]'
     uses: the-guild-org/shared-config/.github/workflows/changesets-dependencies.yaml@main
@@ -51,6 +70,7 @@ jobs:
   check-change-type:
     name: Get change type
     runs-on: ubuntu-latest
+    needs: bundlewatch
     outputs:
       pie-docs-change: ${{ steps.docs-check.outputs.docs-change }}
       web-components-change: ${{ steps.component-check.outputs.web-components-change }}
@@ -88,6 +108,7 @@ jobs:
 
   lint-styles:
     runs-on: ubuntu-latest
+    needs: bundlewatch
     steps:
       # Checkout the Repo
       - name: Checkout
@@ -107,6 +128,7 @@ jobs:
 
   lint-js:
     runs-on: ubuntu-latest
+    needs: bundlewatch
     steps:
       # Checkout the Repo
       - name: Checkout
