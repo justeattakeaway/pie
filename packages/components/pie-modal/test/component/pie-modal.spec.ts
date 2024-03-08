@@ -31,10 +31,10 @@ test.describe('modal', () => {
             },
         });
 
-        // // Act
+        // Act
         const modal = await modalPage.isModalVisible();
 
-        // // Assert
+        // Assert
         expect(modal).toBeTruthy();
     });
 
@@ -53,7 +53,7 @@ test.describe('modal', () => {
 
         const headingExists = await modalPage.headingByTagExists(headingLevel);
 
-        // // Assert
+        // Assert
         expect(headingExists).toBeTruthy();
     }));
 
@@ -104,7 +104,7 @@ test.describe('modal', () => {
             });
 
             test('should close the modal', async ({ mount }) => {
-                // Arrange
+            // Arrange
 
                 await mount(PieModal, {
                     props: {

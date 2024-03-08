@@ -18,7 +18,7 @@ const modal = {
         },
         content: {
             description: 'The selector for the modal content',
-            dataTestId: 'modal-content',
+            dataTestId: 'modal-content-inner',
         },
     },
 };
