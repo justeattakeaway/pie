@@ -20,14 +20,6 @@ const modal = {
             description: 'The selector for the modal content',
             dataTestId: 'modal-content',
         },
-        leadingButton: {
-            description: 'The selector for the modal leading action button',
-            dataTestId: 'modal-leading-action',
-        },
-        supportingButton: {
-            description: 'The selector for the modal supporting action button',
-            dataTestId: 'modal-supporting-action',
-        },
     },
 };
 export {
