@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-css
 
+## 0.11.0
+
+### Minor Changes
+
+- [Added] - SCSS reset for box-sizing ([#1281](https://github.com/justeattakeaway/pie/pull/1281)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
 ## 0.10.0
 
 ### Minor Changes
