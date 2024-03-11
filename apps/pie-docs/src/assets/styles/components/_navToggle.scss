@@ -54,10 +54,7 @@ html:has(.c-navToggle-input:checked) body {
     @include f.media('<wide') {
         content: '';
         position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
+        inset: 0;
         background: var(--dt-color-overlay);
         z-index: var(--dt-z-index-side-sheet);
     }

@@ -5,10 +5,10 @@ import {
     beforeEach,
 } from 'vitest';
 
-const stylelint = require('stylelint');
+import stylelint from 'stylelint';
 
 const config = {
-    extends: 'stylelint-config-standard-scss',
+    extends: '@justeattakeaway/stylelint-config-pie/base',
     plugins: [
         '@justeattakeaway/stylelint-no-logical-props-shorthands',
     ],
@@ -68,7 +68,7 @@ describe('stylelint-no-logical-props-shorthands', () => {
                         fix: true,
                     });
 
-                    expect(result.output).toMatchSnapshot();
+                    expect(result.code).toMatchSnapshot();
                 });
             });
 
@@ -83,7 +83,7 @@ describe('stylelint-no-logical-props-shorthands', () => {
                             fix: true,
                         });
 
-                        expect(result.output).toMatchSnapshot();
+                        expect(result.code).toMatchSnapshot();
                     });
                 });
 
@@ -97,7 +97,7 @@ describe('stylelint-no-logical-props-shorthands', () => {
                             fix: true,
                         });
 
-                        expect(result.output).toMatchSnapshot();
+                        expect(result.code).toMatchSnapshot();
                     });
                 });
 
@@ -111,7 +111,7 @@ describe('stylelint-no-logical-props-shorthands', () => {
                             fix: true,
                         });
 
-                        expect(result.output).toMatchSnapshot();
+                        expect(result.code).toMatchSnapshot();
                     });
                 });
             });

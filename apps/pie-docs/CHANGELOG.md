@@ -1,5 +1,22 @@
 # Changelog
 
+## 3.31.0
+
+### Minor Changes
+
+- [Changed] - stylelint to latest version 16 ([#1280](https://github.com/justeattakeaway/pie/pull/1280)) by [@raoufswe](https://github.com/raoufswe)
+
+### Patch Changes
+
+- Updated dependencies [[`2c85aecb9`](https://github.com/justeattakeaway/pie/commit/2c85aecb9da3989c5a3111a140a87be33d441094)]:
+  - @justeattakeaway/pie-css@0.11.0
+
+## 3.30.0
+
+### Minor Changes
+
+- [Changed] - update pie-icons to latest ([#1301](https://github.com/justeattakeaway/pie/pull/1301)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 3.29.1
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @justeattakeaway/stylelint-no-logical-props-shorthands
 
+## 0.3.0
+
+### Minor Changes
+
+- [Changed] - stylelint to latest version 16 ([#1280](https://github.com/justeattakeaway/pie/pull/1280)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 0.2.0
 
 ### Minor Changes

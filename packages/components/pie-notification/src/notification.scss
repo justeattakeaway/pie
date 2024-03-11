@@ -1,11 +1,5 @@
 @use '@justeattakeaway/pie-css/scss' as p;
 
-*,
-*:before,
-*:after {
-    box-sizing: border-box;
-}
-
 .c-notification {
     --notification-border-radius: var(--dt-radius-rounded-c);
     --notification-background-color: var(--dt-color-container-subtle);

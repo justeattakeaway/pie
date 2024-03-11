@@ -1,6 +1,15 @@
 export const variants = ['default', 'outline', 'ghost'] as const;
 
+export type AriaProps = {
+    close?: string;
+    label?: string;
+};
+
 export interface ChipProps {
+    /**
+     * The ARIA labels used for various parts of the chip.
+     */
+    aria?: AriaProps;
     /**
      * What style variant the chip should be such as default, outline or ghost.
      */

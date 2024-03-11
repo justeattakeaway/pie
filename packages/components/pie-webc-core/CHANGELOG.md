@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.19.1
+
+### Patch Changes
+
+- [Changed] - Updated lit to `3.1.2` ([#1300](https://github.com/justeattakeaway/pie/pull/1300)) by [@renovate](https://github.com/apps/renovate)
+
 ## 0.19.0
 
 ### Minor Changes

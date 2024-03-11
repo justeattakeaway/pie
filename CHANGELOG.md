@@ -1,5 +1,23 @@
 # Changelog
 
+## 2.56.1
+
+### Patch Changes
+
+- [Fixed] - danger flagging automated prs ([#1316](https://github.com/justeattakeaway/pie/pull/1316)) by [@ashleynolan](https://github.com/ashleynolan)
+
+## 2.56.0
+
+### Minor Changes
+
+- [Changed] - stylelint to latest version 16 ([#1280](https://github.com/justeattakeaway/pie/pull/1280)) by [@raoufswe](https://github.com/raoufswe)
+
+## 2.55.0
+
+### Minor Changes
+
+- [Added] - Integrate assistive text component into input ([#1288](https://github.com/justeattakeaway/pie/pull/1288)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 2.54.1
 
 ### Patch Changes

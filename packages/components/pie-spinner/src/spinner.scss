@@ -1,11 +1,5 @@
 @use '@justeattakeaway/pie-css/scss' as p;
 
-*,
-*:before,
-*:after {
-    box-sizing: border-box;
-}
-
 /**
 * Shorthand mixin for updating the HSL custom properties for the loading spinner.
 * Takes in the name of the color to be split into its HSL components.

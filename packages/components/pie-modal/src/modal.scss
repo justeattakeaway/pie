@@ -2,12 +2,6 @@
 @use '@justeat/pie-design-tokens/dist/jet.scss' as dt;
 @use 'dialog-polyfill/dist/dialog-polyfill.css';
 
-*,
-*:before,
-*:after {
-    box-sizing: border-box;
-}
-
 .c-modal {
     // Custom Property Declarations
     // These are defined here instead of :host to encapsulate them inside Shadow DOM
@@ -29,7 +23,7 @@
 
     // We need to override the icon sizes at different screen sizes regardless of size prop passed in
     pie-icon-button {
-        @media (max-width: calc($breakpoint-wide - 1px)) {
+        @media (width < $breakpoint-wide) {
             --btn-dimension: 40px;
         }
     }
@@ -93,7 +87,7 @@
     // Fullscreen styles
     &[size='large'],
     &[size='medium'][isfullwidthbelowmid] {
-        @media (max-width: calc($breakpoint-wide - 1px)) {
+        @media (width < $breakpoint-wide) {
             --modal-margin-block: var(--modal-margin-none);
             --modal-border-radius: var(--dt-radius-rounded-none);
             --modal-block-size: 100%;
@@ -116,7 +110,7 @@
 
         &[size='large'],
         &[isfullwidthbelowmid][size='medium'] {
-            @media (max-width: calc($breakpoint-wide - 1px)) {
+            @media (width < $breakpoint-wide) {
                 margin-block-start: var(--dt-spacing-none);
                 max-block-size: 100%;
             }
@@ -149,7 +143,7 @@
     &[hasstackedactions] {
         & .c-modal-footer {
             // TODO: Move breakpoint sizes into shared CSS component utilities
-            @media (max-width: calc($breakpoint-wide - 1px)) {
+            @media (width < $breakpoint-wide) {
                 flex-direction: column;
             }
         }

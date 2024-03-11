@@ -1,9 +1,9 @@
 {
   "name": "@justeattakeaway/pie-icons-react",
-  "version": "4.13.0",
+  "version": "4.15.0",
   "main": "dist/index.js",
   "module": "esm/index.js",
-  "types": "esm/index.d.ts",
+  "types": "esm/icons/index.d.ts",
   "exports": {
     ".": {
       "import": "./esm/index.js",
