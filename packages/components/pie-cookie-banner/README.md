@@ -83,7 +83,7 @@ import { PieCookieBanner } from '@justeattakeaway/pie-cookie-banner/dist/react';
 
 ## Events
 
-The pie cookie banner does not directly establish cookies within the application or component. Instead, it offers events that application developers (consumers of the application) can subscribe to. This, in turn, enables applications to manage the process of setting their own cookies. The table below provides a list of events you can listen to:
+The pie cookie banner does not directly establish cookies within the application or component. Instead, it offers events that application developers (consumers of this component) can subscribe to. This, in turn, enables applications to manage the process of setting their own cookies. The table below provides a list of events you can listen to:
 
 | Event | Type | Description |
 |-------|------|-------------|
