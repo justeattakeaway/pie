@@ -15,7 +15,8 @@
 3. [Importing the component](#importing-the-component)
 4. [Peer Dependencies](#peer-dependencies)
 5. [Props](#props)
-6. [Contributing](#contributing)
+6. [Events](#events)
+7. [Contributing](#contributing)
 
 
 ## pie-cookie-banner
@@ -79,6 +80,17 @@ import { PieCookieBanner } from '@justeattakeaway/pie-cookie-banner/dist/react';
 | cookieStatementLink | `String`  | `''` | Allows a url to be passed for the cookie statement link. |
 | cookieTechnologiesLink | `String`  | `''` | Allows a url to be passed for the cookie technology link. |
 | defaultPreferences | `Object`  | `{}` | Allows default preferences to be passed in by the consumer`{ 'functional': true, 'personalized': true, 'analytical': true }` or `{ 'functional': true }`. |
+
+## Events
+
+The pie cookie banner does not directly establish cookies within the application or component. Instead, it offers events that application developers (consumers of this component) can subscribe to. This, in turn, enables applications to manage the process of setting their own cookies. The table below provides a list of events you can listen to:
+
+| Event | Type | Description |
+|-------|------|-------------|
+| `pie-cookie-banner-accept-all` | `CustomEvent` | Triggered when `accept all` is clicked. |
+| `pie-cookie-banner-necessary-only` | `CustomEvent` | Triggered when `necessary` is clicked. |
+| `pie-cookie-banner-manage-prefs` | `CustomEvent` | Triggered when `manage prefs` is clicked. |
+| `pie-cookie-banner-prefs-saved` | `CustomEvent` | Triggered when `manage prefs saved` is clicked. |
 
 In your markup or JSX, you can then use these to set the properties for the `pie-cookie-banner` component:
 
