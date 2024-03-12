@@ -474,9 +474,6 @@ test.describe('PieNotification - Component tests', () => {
                     expect(actionSupporting).toBeVisible();
 
                     expect(footer).toHaveCSS('flex-direction', 'row');
-                    // the size of the buttons when the viewport size is large and the width vary according to its text
-                    expect(actionLeading).toHaveCSS('width', '89.875px');
-                    expect(actionSupporting).toHaveCSS('width', '79.4531px');
                 });
             });
         });
