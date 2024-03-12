@@ -188,7 +188,7 @@ In sets that contain at least two options, choice chips represent a single selec
 
 ### Filter
 
-In sets that contain at least two options, choice chips represent a single selection.
+Filter chips represent filters for a collection.
 
 {% contentPageImage {
     src:"../../../assets/img/components/chip/usage-filter.svg",
