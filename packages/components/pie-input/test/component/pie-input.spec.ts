@@ -394,7 +394,7 @@ test.describe('PieInput - Component tests', () => {
             test('should focus the component when autoFocus is `true`', async ({ page }) => {
                 // Arrange
                 // Setting the content this way rather than a mount call triggers the autofocus behaviour immediately
-                await page.setContent('<pie-input data-testid="testInput" type="text" autofocus></pie-input>');
+                await page.setContent('<pie-input data-test-id="testInput" type="text" autofocus></pie-input>');
 
                 // Act
                 const inputLocator = page.getByTestId('testInput');
@@ -406,7 +406,7 @@ test.describe('PieInput - Component tests', () => {
             test('should not focus the component when autoFocus is not provided', async ({ page }) => {
                 // Arrange
                 // Setting the content this way rather than a mount call triggers the autofocus behaviour immediately
-                await page.setContent('<pie-input data-testid="testInput" type="text"></pie-input>');
+                await page.setContent('<pie-input data-test-id="testInput" type="text"></pie-input>');
 
                 // Act
                 const inputLocator = page.getByTestId('testInput');

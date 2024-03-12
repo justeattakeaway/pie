@@ -440,8 +440,8 @@ test.describe('Form Actions', () => {
             await page.evaluate(() => {
                 const formHTML = `
                 <form id="testForm">
-                    <input type="text" data-testid="username" id="username" name="username" required>
-                    <input type="password" data-testid="password" id="password" name="password" required>
+                    <input type="text" data-test-id="username" id="username" name="username" required>
+                    <input type="password" data-test-id="password" id="password" name="password" required>
                     <pie-button type="reset" id="resetButton">Reset</pie-button>
                     <pie-button type="submit">Submit</pie-button>
                 </form>
