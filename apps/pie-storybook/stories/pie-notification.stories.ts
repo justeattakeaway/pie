@@ -1,6 +1,7 @@
 import { html } from 'lit';
 /* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-notification';
+import { action } from '@storybook/addon-actions';
 import { NotificationProps as NotificationBaseProps, variants, headingLevels } from '@justeattakeaway/pie-notification';
 /* eslint-enable import/no-duplicates */
 
@@ -24,12 +25,12 @@ const defaultArgs: NotificationProps = {
     leadingAction: {
         text: 'Confirm',
         ariaLabel: 'Descriptive confirmation text',
-        onClick: () => { console.log('Leading action triggered'); },
+        onClick: action('leadingAction triggered'),
     },
     supportingAction: {
         text: 'Cancel',
         ariaLabel: 'Descriptive cancellation text',
-        onClick: () => { console.log('Supporting action triggered'); },
+        onClick: action('supportingAction triggered'),
     },
     hasStackedActions: false,
 };
