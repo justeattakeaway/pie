@@ -356,7 +356,7 @@ test.describe('PieNotification - Component tests', () => {
                         props: {
                             isDismissible: true,
                             leadingAction: mainAction,
-                        },
+                        } as NotificationProps,
                     });
 
                     // Act
@@ -378,7 +378,7 @@ test.describe('PieNotification - Component tests', () => {
                         props: {
                             isDismissible: true,
                             supportingAction: secondaryAction,
-                        },
+                        } as NotificationProps,
                     });
 
                     // Act
@@ -401,7 +401,7 @@ test.describe('PieNotification - Component tests', () => {
                             isDismissible: true,
                             leadingAction: mainAction,
                             supportingAction: secondaryAction,
-                        },
+                        } as NotificationProps,
                     });
 
                     // Act
@@ -428,7 +428,7 @@ test.describe('PieNotification - Component tests', () => {
                             leadingAction: mainAction,
                             supportingAction: secondaryAction,
                             hasStackedActions: true,
-                        },
+                        } as NotificationProps,
                     });
 
                     // Act
@@ -458,7 +458,7 @@ test.describe('PieNotification - Component tests', () => {
                             leadingAction: mainAction,
                             supportingAction: secondaryAction,
                             hasStackedActions: true,
-                        },
+                        } as NotificationProps,
                     });
 
                     // Act
