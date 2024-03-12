@@ -29,6 +29,7 @@ export function getPlaywrightVisualConfig () {
             },
             /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
             trace: 'on',
+            testIdAttribute: 'data-test-id',
         },
 
         /* Configure projects for major browsers */
