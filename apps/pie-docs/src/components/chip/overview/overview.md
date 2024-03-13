@@ -148,7 +148,7 @@ If there is a Chip grouping, by default are laid out horizontally and stack if r
     {% contentPageImage {
       src: "../../../assets/img/components/chip/layout-single-row.svg",
       width: 237,
-      alt: "A group of chip components laid out horizontally",
+      alt: "A group of chip components flowing into multiple rows because the container isn’t wide enough.",
       variant: "secondary"
     } %}
   {% endcontentItem %}
