@@ -273,7 +273,7 @@ Outlines the atomic level interactive elements for the component.
 
 ### LTR examples
 
-Here are some examples of Buttons in left to right context:
+Here are some examples of chips in a left-to-right context:
 
 {% contentLayout %}
   {% contentItem %}
@@ -294,7 +294,7 @@ Here are some examples of Buttons in left to right context:
 
 ### RTL examples
 
-Here are some examples of Buttons in right to left context:
+Here are some examples of chips in a right-to-left context:
 
 {% contentLayout %}
   {% contentItem %}
