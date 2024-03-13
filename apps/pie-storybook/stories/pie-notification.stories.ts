@@ -25,12 +25,12 @@ const defaultArgs: NotificationProps = {
     leadingAction: {
         text: 'Confirm',
         ariaLabel: 'Descriptive confirmation text',
-        onClick: action('leadingAction triggered'),
+        onClick: () => action('leadingAction triggered')(),
     },
     supportingAction: {
         text: 'Cancel',
         ariaLabel: 'Descriptive cancellation text',
-        onClick: action('supportingAction triggered'),
+        onClick: () => action('supportingAction triggered')(),
     },
     hasStackedActions: false,
 };
@@ -143,7 +143,7 @@ const Template : TemplateFunction<NotificationProps> = ({
         .supportingAction="${supportingAction}"
         ?hasStackedActions="${hasStackedActions}"
         >
-        <icon-alert-circle-filled slot="icon" size="s"></icon-alert-circle-filled>
+        <!-- <icon-alert-circle-filled slot="icon" size="s"></icon-alert-circle-filled> -->
         ${slot}
     </pie-notification>`;
 
