@@ -13,7 +13,7 @@
                 "type": "code",
                 "item": ["icon"]
             },
-            "Used to pass in an icon to the chip component."
+            "Used to pass an icon into the chip component."
         ]
     ]
 }
