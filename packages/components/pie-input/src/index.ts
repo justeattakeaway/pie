@@ -77,6 +77,9 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
     @validPropertyValues(componentSelector, statusTypes, undefined)
     public status?: InputProps['status'];
 
+    @property({ type: Number })
+    public step?: InputProps['step'];
+
     @query('input')
     private input?: HTMLInputElement;
 
@@ -156,6 +159,7 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
             minlength,
             name,
             pattern,
+            step,
             placeholder,
             readonly,
             status,
@@ -172,6 +176,7 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
                     name=${ifDefined(name)}
                     ?disabled=${live(disabled)}
                     pattern=${ifDefined(pattern)}
+                    step=${ifDefined(step)}
                     minlength=${ifDefined(minlength)}
                     maxlength=${ifDefined(maxlength)}
                     autocomplete=${ifDefined(autocomplete)}

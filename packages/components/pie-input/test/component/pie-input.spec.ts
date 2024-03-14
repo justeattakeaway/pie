@@ -566,7 +566,7 @@ test.describe('PieInput - Component tests', () => {
                 expect(assistiveText).not.toBeVisible();
             });
 
-            test('should render the assistive text component if the prop is provided with the default variant if "status" is not provided', async ({ mount, page }) => {
+            test('should render the default variant if no status provided', async ({ mount, page }) => {
                 // Arrange
                 await mount(PieInput, {
                     props: {
@@ -579,7 +579,7 @@ test.describe('PieInput - Component tests', () => {
 
                 // Assert
                 expect(assistiveText).toBeVisible();
-                expect(assistiveText).toHaveAttribute('variant', 'default');
+                expect(assistiveText).toHaveText('Default text');
             });
 
             test.describe('Assistive text: Status', () => {
@@ -599,7 +599,90 @@ test.describe('PieInput - Component tests', () => {
                         // Assert
                         expect(assistiveText).toBeVisible();
                         expect(assistiveText).toHaveAttribute('variant', status);
+                        expect(assistiveText).toHaveText('Default text');
                     });
+                });
+            });
+        });
+
+        test.describe('step', () => {
+            test.describe('when type is number', () => {
+                test('should be able to increment the value by the step amount when using the up arrow', async ({ mount, page }) => {
+                    // Arrange
+                    await mount(PieInput, {
+                        props: {
+                            type: 'number',
+                            value: '0',
+                            step: 5,
+                        } as InputProps,
+                    });
+
+                    // Act
+                    await page.focus('pie-input');
+                    await page.keyboard.press('ArrowUp');
+                    await page.keyboard.press('ArrowUp');
+
+                    // Assert
+                    expect(await page.evaluate(() => document.querySelector('pie-input')?.value)).toBe('10');
+                });
+
+                test('should be able to decrement the value by the step amount when using the down arrow', async ({ mount, page }) => {
+                    // Arrange
+                    await mount(PieInput, {
+                        props: {
+                            type: 'number',
+                            value: '0',
+                            step: 5,
+                        } as InputProps,
+                    });
+
+                    // Act
+                    await page.focus('pie-input');
+                    await page.keyboard.press('ArrowDown');
+                    await page.keyboard.press('ArrowDown');
+
+                    // Assert
+                    expect(await page.evaluate(() => document.querySelector('pie-input')?.value)).toBe('-10');
+                });
+            });
+
+            test.describe('when type is not number', () => {
+                test('should not be able to increment the value by the step amount when using the up arrow', async ({ mount, page }) => {
+                    // Arrange
+                    await mount(PieInput, {
+                        props: {
+                            type: 'text',
+                            value: '0',
+                            step: 5,
+                        } as InputProps,
+                    });
+
+                    // Act
+                    await page.focus('pie-input');
+                    await page.keyboard.press('ArrowUp');
+                    await page.keyboard.press('ArrowUp');
+
+                    // Assert
+                    expect(await page.evaluate(() => document.querySelector('pie-input')?.value)).toBe('0');
+                });
+
+                test('should not be able to decrement the value by the step amount when using the down arrow', async ({ mount, page }) => {
+                    // Arrange
+                    await mount(PieInput, {
+                        props: {
+                            type: 'text',
+                            value: '0',
+                            step: 5,
+                        } as InputProps,
+                    });
+
+                    // Act
+                    await page.focus('pie-input');
+                    await page.keyboard.press('ArrowDown');
+                    await page.keyboard.press('ArrowDown');
+
+                    // Assert
+                    expect(await page.evaluate(() => document.querySelector('pie-input')?.value)).toBe('0');
                 });
             });
         });

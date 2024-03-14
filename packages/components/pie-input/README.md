@@ -89,6 +89,7 @@ import { PieInput } from '@justeattakeaway/pie-input/dist/react';
 | `value` | `string` | `''` | The value of the input (used as a key/value pair in HTML forms with `name`). |
 | `assistiveText` | `string` | `''` | Allows assistive text to be displayed below the input element. |
 | `status` | `'error'`, `'success'` | `undefined` | The status of the input component / assistive text. |
+| `step` | `number` | - | An optional amount that value should be incremented or decremented by when using the up and down arrows in the input. Only applies when type is `number`. |
 
 
 In your markup or JSX, you can then use these to set the properties for the `pie-input` component:

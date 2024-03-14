@@ -81,6 +81,11 @@ export interface InputProps {
      * The status of the input component / assistive text such as error, success or default.
      */
     status?: typeof statusTypes[number];
+
+    /**
+     * An optional amount that value should be incremented or decremented by when using the up and down arrows in the input. Only applies when type is `number`.
+     */
+    step?: number;
 }
 
 // TODO - There is a ticket to add default prop values to our existing components. This might be replaced by the code added in that ticket.

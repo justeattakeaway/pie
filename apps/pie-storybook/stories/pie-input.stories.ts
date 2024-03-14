@@ -110,6 +110,14 @@ const inputStoryMeta: InputStoryMeta = {
             },
             if: { arg: 'type', neq: 'number' },
         },
+        step: {
+            description: 'An optional amount that value should be incremented or decremented by when using the up and down arrows in the input. Only applies when type is `number`.',
+            control: 'text',
+            defaultValue: {
+                summary: '',
+            },
+            if: { arg: 'type', eq: 'number' },
+        },
         autoFocus: {
             description: 'If true, the input will be focused on the first render. No more than one element in the document or dialog may have the autofocus attribute. If applied to multiple elements the first one will receive focus. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/autofocus) for more information.',
             control: 'boolean',
@@ -192,6 +200,7 @@ const Template = ({
     trailingSlot,
     assistiveText,
     status,
+    step,
 }: InputProps) => {
     const [, updateArgs] = UseArgs();
 
@@ -233,6 +242,7 @@ const Template = ({
             pattern="${ifDefined(pattern)}"
             minlength="${ifDefined(minlength)}"
             maxlength="${ifDefined(maxlength)}"
+            step="${ifDefined(step)}"
             autocomplete="${ifDefined(autocomplete)}"
             placeholder="${ifDefined(placeholder)}"
             inputmode="${ifDefined(inputmode)}"

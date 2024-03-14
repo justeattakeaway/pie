@@ -1,1 +1,11 @@
 @use '@justeattakeaway/pie-css/scss' as p;
+
+input[type="number"]:not([step])::-webkit-inner-spin-button,
+input[type="number"]:not([step])::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"]:not([step]) {
+    -moz-appearance: textfield;
+}
