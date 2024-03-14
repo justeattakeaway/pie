@@ -686,6 +686,46 @@ test.describe('PieInput - Component tests', () => {
                 });
             });
         });
+
+        test.describe('min', () => {
+            test('should be invalid state `rangeUnderflow` if the value is lower than the min', async ({ mount, page }) => {
+                // Arrange
+                const component = await mount(PieInput, {
+                    props: {
+                        type: 'number',
+                        value: '0',
+                        min: 5,
+                    } as InputProps,
+                });
+
+                // Act
+                await component.type('4');
+
+                const isInvalid = await page.evaluate(() => document.querySelector('pie-input')?.validity.rangeUnderflow);
+
+                // Assert
+                expect(isInvalid).toBe(true);
+            });
+
+            test('should be valid state if the value is greater than the min', async ({ mount, page }) => {
+                // Arrange
+                const component = await mount(PieInput, {
+                    props: {
+                        type: 'number',
+                        value: '0',
+                        min: 5,
+                    } as InputProps,
+                });
+
+                // Act
+                await component.type('6');
+
+                const isValid = await page.evaluate(() => document.querySelector('pie-input')?.validity.valid);
+
+                // Assert
+                expect(isValid).toBe(true);
+            });
+        });
     });
 
     test.describe('Events', () => {
