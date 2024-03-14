@@ -90,7 +90,7 @@ ___
 
 ### Icon
 
-Icons are always positioned to the left of the string.
+Icons are always placed in a leading position.
 
 {% contentPageImage {
     src:"../../../assets/img/components/chip/modifier-icon.svg",
@@ -168,7 +168,7 @@ If there is a Chip grouping, by default are laid out horizontally and stack if r
 
 ### Input
 
-Input chips represent information used in fields, such as an entity or different attributes.
+Input chips usually represent an entity or different attributes. They can be added or removed within input fields.
 
 {% contentPageImage {
     src:"../../../assets/img/components/chip/usage-input.svg",
@@ -178,7 +178,7 @@ Input chips represent information used in fields, such as an entity or different
 
 ### Choice
 
-In sets that contain at least two options, choice chips represent a single selection.
+Choice chips allow users to select one or more chips from a set of options (minimum of 2).
 
 {% contentPageImage {
     src:"../../../assets/img/components/chip/usage-choice.svg",
@@ -188,7 +188,7 @@ In sets that contain at least two options, choice chips represent a single selec
 
 ### Filter
 
-Filter chips represent filters for a collection.
+Filter chips allow users to refine content by selecting one or more chips from a set.
 
 {% contentPageImage {
     src:"../../../assets/img/components/chip/usage-filter.svg",
