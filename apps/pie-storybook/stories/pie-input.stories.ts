@@ -13,6 +13,7 @@ import {
 import { type StoryMeta } from '../types';
 import { createStory, type TemplateFunction } from '../utilities';
 import '@justeattakeaway/pie-button';
+import '@justeattakeaway/pie-form-label';
 import '@justeattakeaway/pie-icons-webc/IconPlaceholder';
 
 // Extending the props type definition to include storybook specific properties for controls
@@ -270,9 +271,7 @@ const FormTemplate: TemplateFunction<InputProps> = (props: InputProps) => {
             <section>
                 <h2>Contact information</h2>
                 <p>
-                    <label for="name">
-                        <span>Name: </span>
-                    </label>
+                    <pie-form-label for="name">Name</pie-form-label>
                     ${Template({ ...props, type: 'text' })}
                 </p>
             </section>
