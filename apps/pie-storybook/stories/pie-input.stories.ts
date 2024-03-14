@@ -103,6 +103,14 @@ const inputStoryMeta: InputStoryMeta = {
             },
             if: { arg: 'type', eq: 'number' },
         },
+        max: {
+            description: 'The maximum value of the input. Only applies when type is `number`. If the value provided is higher, the input is invalid.',
+            control: 'number',
+            defaultValue: {
+                summary: '',
+            },
+            if: { arg: 'type', eq: 'number' },
+        },
         autocomplete: {
             description: 'Allows the user to enable or disable autocomplete functionality on the input field. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete) for more information and values.',
             control: 'text',
@@ -199,6 +207,7 @@ const Template = ({
     minlength,
     maxlength,
     min,
+    max,
     autocomplete,
     placeholder,
     autoFocus,
@@ -252,6 +261,7 @@ const Template = ({
             minlength="${ifDefined(minlength)}"
             maxlength="${ifDefined(maxlength)}"
             min="${ifDefined(min)}"
+            max="${ifDefined(max)}"
             step="${ifDefined(step)}"
             autocomplete="${ifDefined(autocomplete)}"
             placeholder="${ifDefined(placeholder)}"

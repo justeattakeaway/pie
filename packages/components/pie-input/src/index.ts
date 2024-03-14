@@ -83,6 +83,9 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
     @property({ type: Number })
     public min?: InputProps['min'];
 
+    @property({ type: Number })
+    public max?: InputProps['max'];
+
     @query('input')
     private input?: HTMLInputElement;
 
@@ -161,6 +164,7 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
             maxlength,
             minlength,
             min,
+            max,
             name,
             pattern,
             step,
@@ -184,6 +188,7 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
                     minlength=${ifDefined(minlength)}
                     maxlength=${ifDefined(maxlength)}
                     min=${ifDefined(min)}
+                    max=${ifDefined(max)}
                     autocomplete=${ifDefined(autocomplete)}
                     ?autofocus=${autoFocus}
                     inputmode=${ifDefined(inputmode)}

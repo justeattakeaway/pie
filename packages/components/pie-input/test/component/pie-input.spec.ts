@@ -726,6 +726,46 @@ test.describe('PieInput - Component tests', () => {
                 expect(isValid).toBe(true);
             });
         });
+
+        test.describe('max', () => {
+            test('should be invalid state `rangeOverflow` if the value is greater than the max', async ({ mount, page }) => {
+                // Arrange
+                const component = await mount(PieInput, {
+                    props: {
+                        type: 'number',
+                        value: '0',
+                        max: 5,
+                    } as InputProps,
+                });
+
+                // Act
+                await component.type('6');
+
+                const isInvalid = await page.evaluate(() => document.querySelector('pie-input')?.validity.rangeOverflow);
+
+                // Assert
+                expect(isInvalid).toBe(true);
+            });
+
+            test('should be valid state if the value is lower than the max', async ({ mount, page }) => {
+                // Arrange
+                const component = await mount(PieInput, {
+                    props: {
+                        type: 'number',
+                        value: '0',
+                        max: 5,
+                    } as InputProps,
+                });
+
+                // Act
+                await component.type('4');
+
+                const isValid = await page.evaluate(() => document.querySelector('pie-input')?.validity.valid);
+
+                // Assert
+                expect(isValid).toBe(true);
+            });
+        });
     });
 
     test.describe('Events', () => {

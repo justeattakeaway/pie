@@ -91,6 +91,11 @@ export interface InputProps {
      * The minimum value of the input. Only applies when type is `number`. If the value provided is lower, the input is invalid.
      */
     min?: number;
+
+    /**
+     * The maximum value of the input. Only applies when type is `number`. If the value provided is higher, the input is invalid.
+     */
+    max?: number;
 }
 
 // TODO - There is a ticket to add default prop values to our existing components. This might be replaced by the code added in that ticket.
