@@ -228,6 +228,7 @@ const Template = ({
             type="${ifDefined(type)}"
             .value="${value}"
             name="${ifDefined(name)}"
+            id="${ifDefined(name)}"
             ?disabled="${disabled}"
             pattern="${ifDefined(pattern)}"
             minlength="${ifDefined(minlength)}"
@@ -271,7 +272,7 @@ const FormTemplate: TemplateFunction<InputProps> = (props: InputProps) => {
             <section>
                 <h2>Contact information</h2>
                 <p>
-                    <pie-form-label for="name">Name</pie-form-label>
+                    ${props.name ? html`<pie-form-label for="${props.name}">${props.name}</pie-form-label>` : nothing}
                     ${Template({ ...props, type: 'text' })}
                 </p>
             </section>
