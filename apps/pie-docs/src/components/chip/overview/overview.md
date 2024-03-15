@@ -141,7 +141,7 @@ Chips have a minimum width of 48px.
 
 ## Layout
 
-If there is a Chip grouping, by default are laid out horizontally and stack if required. A spacing of 8px is used horizontally, and 12px for vertical stacking.
+If there is a Chip grouping, by default they are laid out horizontally and stack if required. A spacing of 8px is used horizontally, and 12px for vertical stacking.
 
 {% contentLayout %}
   {% contentItem %}
