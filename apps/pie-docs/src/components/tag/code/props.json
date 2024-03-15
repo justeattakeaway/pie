@@ -19,7 +19,7 @@
                 "type": "code",
                 "item": ["\"neutral-alternative\"", "\"neutral\"", "\"outline\"", "\"ghost\"", "\"blue\"", "\"green\"", "\"yellow\"", "\"red\"", "\"brand\""]
             },
-            "Sets the variant of the button.",
+            "Sets the variant of the tag.",
             {
                 "type": "code",
                 "item": ["\"neutral\""]

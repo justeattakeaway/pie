@@ -19,6 +19,7 @@
     "components/card/overview",
     "components/carousel-indicator",
     "components/checkbox",
+    "components/chip/code",
     "components/chip/overview",
     "components/component-status",
     "components/data-table",
