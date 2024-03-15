@@ -90,7 +90,7 @@ test.describe('PieCookieBanner - Component tests', () => {
     });
 
     [{ name: 'action' }, { name: 'body' }].forEach((elementLevel) => {
-        test(`should emit the correct event, open the modal and hide the cookie banner when "Manage preferences" is clicked via element ${elementLevel.name}`, async ({ mount, page }) => {
+        test(`should emit the correct event, open the modal and hide the cookie banner when "Manage preferences" is clicked via element ${elementLevel.name}`, async ({ mount }) => {
         // Arrange
             const events : Array<Event> = [];
 
