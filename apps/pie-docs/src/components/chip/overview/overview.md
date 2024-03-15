@@ -203,7 +203,7 @@ Action chips trigger actions related to primary content.
 
 {% contentPageImage {
     src:"../../../assets/img/components/chip/usage-action.svg",
-    alt: "Chip components with various actions to trigger",
+    alt: "A chip component with a heart icon, allowing users to save an entity.",
     width: 266,
     variant: "secondary"
 } %}
