@@ -1,5 +1,5 @@
 import { moduleFileExtensionsPlugin } from 'cem-plugin-module-file-extensions';
-
+import cemPieDocs from './cem-pie-docs.js';
 export default {
     globs: [
         './src/**/!(*.css).ts',
@@ -11,5 +11,5 @@ export default {
         '**/test/**',
         '**/node_modules/**',
     ],
-    plugins: [moduleFileExtensionsPlugin()],
+    plugins: [moduleFileExtensionsPlugin(), cemPieDocs()],
 };
