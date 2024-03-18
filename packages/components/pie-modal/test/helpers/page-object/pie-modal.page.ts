@@ -70,6 +70,6 @@ export class PieModalPage extends BasePage {
 
     async getDescriptionTextContent () {
         const descriptionText = await this.descriptionLocator.textContent();
-        return String(descriptionText).trim();
+        return descriptionText?.trim();
     }
 }
