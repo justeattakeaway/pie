@@ -258,7 +258,7 @@ test.describe('PieCookieBanner - Component tests', () => {
             const acceptAllButton = await pieCookieBannerComponent.getAcceptAllTextContent();
             const necessaryOnlyButton = await pieCookieBannerComponent.getNecessaryOnlyTextContent();
             const managePreferencesButton = await pieCookieBannerComponent.getManagePreferencesTextContent();
-            const componentDescription = await pieCookieBannerComponent.getcomponentDescriptionTextContent();
+            const componentDescription = await pieCookieBannerComponent.getComponentDescriptionTextContent();
             const modalDescription = await pieModalComponent.getDescriptionTextContent();
 
             // Assert
@@ -286,7 +286,7 @@ test.describe('PieCookieBanner - Component tests', () => {
             const acceptAllButton = await pieCookieBannerComponent.getAcceptAllTextContent();
             const necessaryOnlyButton = await pieCookieBannerComponent.getNecessaryOnlyTextContent();
             const managePreferencesButton = await pieCookieBannerComponent.getManagePreferencesTextContent();
-            const componentDescription = await pieCookieBannerComponent.getcomponentDescriptionTextContent();
+            const componentDescription = await pieCookieBannerComponent.getComponentDescriptionTextContent();
             const modalDescription = await pieModalComponent.getDescriptionTextContent();
 
             // Assert

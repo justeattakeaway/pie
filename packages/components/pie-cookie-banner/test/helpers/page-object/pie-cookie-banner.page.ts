@@ -112,7 +112,7 @@ export class PieCookieBannerComponent extends BasePage {
         return String(managePreferencesText).trim();
     }
 
-    async getcomponentDescriptionTextContent () {
+    async getComponentDescriptionTextContent () {
         const componentDescriptionText = await this.descriptionLocator.textContent();
         return String(componentDescriptionText).trim();
     }
