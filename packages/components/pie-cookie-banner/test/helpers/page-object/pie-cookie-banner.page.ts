@@ -5,7 +5,6 @@ import {
 } from './selectors.ts';
 
 export class PieCookieBannerComponent extends BasePage {
-    readonly page: Page;
     readonly componentLocator: Locator;
     readonly descriptionLocator: Locator;
     readonly acceptAllButtonLocator: Locator;
@@ -20,7 +19,6 @@ export class PieCookieBannerComponent extends BasePage {
 
     constructor (page: Page) {
         super(page);
-        this.page = page;
         this.componentLocator = page.getByTestId(cookieBanner.selectors.container.dataTestId);
         this.descriptionLocator = page.getByTestId(cookieBanner.selectors.description.dataTestId);
         this.acceptAllButtonLocator = page.getByTestId(cookieBanner.selectors.acceptAllButton.dataTestId);
@@ -99,22 +97,22 @@ export class PieCookieBannerComponent extends BasePage {
 
     async getAcceptAllTextContent () {
         const acceptAllText = await this.acceptAllButtonLocator.textContent();
-        return String(acceptAllText).trim();
+        return acceptAllText?.trim();
     }
 
     async getNecessaryOnlyTextContent () {
         const necessaryOnlyText = await this.necessaryOnlyButtonLocator.textContent();
-        return String(necessaryOnlyText).trim();
+        return necessaryOnlyText?.trim();
     }
 
     async getManagePreferencesTextContent () {
         const managePreferencesText = await this.managePrefsLinkLocator.textContent();
-        return String(managePreferencesText).trim();
+        return managePreferencesText?.trim();
     }
 
     async getComponentDescriptionTextContent () {
         const componentDescriptionText = await this.descriptionLocator.textContent();
-        return String(componentDescriptionText).trim();
+        return componentDescriptionText?.trim();
     }
 
     async getBannerCookieStatementLinkAttribute (attribute: string) {
