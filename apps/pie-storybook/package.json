@@ -12,7 +12,7 @@
   "author": "Just Eat Takeaway.com - Design System Team",
   "license": "Apache-2.0",
   "dependencies": {
-    "@justeat/pie-design-tokens": "5.9.0",
+    "@justeat/pie-design-tokens": "6.0.0",
     "@justeattakeaway/pie-assistive-text": "0.2.4",
     "@justeattakeaway/pie-button": "0.45.6",
     "@justeattakeaway/pie-card": "0.17.5",
