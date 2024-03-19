@@ -3,6 +3,11 @@ import { BasePage } from '@justeattakeaway/pie-webc-testing/src/helpers/page-obj
 import {
     cookieBanner,
 } from './selectors.ts';
+import {
+    PreferenceIds,
+} from '../../../src/defs.ts';
+
+const getPreferenceItemSelector = (id: PreferenceIds) => `#${id} [data-test-id="switch-component"]`;
 
 export class PieCookieBannerComponent extends BasePage {
     readonly componentLocator: Locator;
@@ -48,7 +53,7 @@ export class PieCookieBannerComponent extends BasePage {
         await (elementLevel === 'action' ? this.clickAcceptAllButton() : this.clickBodyAcceptAllLink());
     }
 
-    async getAcceptAllAttribute (attribute: string) {
+    async getAcceptAllVariant (attribute: string) {
         return this.acceptAllButtonLocator.getAttribute(attribute);
     }
 
@@ -56,7 +61,7 @@ export class PieCookieBannerComponent extends BasePage {
         await this.necessaryOnlyButtonLocator.click();
     }
 
-    async getNecessaryOnlyButtonAttribute (attribute: string) {
+    async getNecessaryOnlyButtonVariant (attribute: string) {
         return this.necessaryOnlyButtonLocator.getAttribute(attribute);
     }
 
@@ -80,18 +85,18 @@ export class PieCookieBannerComponent extends BasePage {
         await (elementLevel === 'action' ? this.clickManagePreferencesAction() : this.clickManagePreferencesLink());
     }
 
-    async clickPreferenceToggle (preferenceIds: string) {
-        const preferenceToggle = this.page.locator(preferenceIds);
+    async clickPreferenceToggle (preferenceIds: PreferenceIds) {
+        const preferenceToggle = this.page.locator(getPreferenceItemSelector(preferenceIds));
         return preferenceToggle.click();
     }
 
-    async isPreferenceToggleChecked (preferenceIds: string) {
-        const preferenceToggle = this.page.locator(preferenceIds);
+    async isPreferenceToggleChecked (preferenceIds: PreferenceIds) {
+        const preferenceToggle = this.page.locator(getPreferenceItemSelector(preferenceIds));
         return preferenceToggle.isChecked();
     }
 
-    async isPreferenceToggleDisabled (preferenceIds: string) {
-        const preferenceToggle = this.page.locator(preferenceIds);
+    async isPreferenceToggleDisabled (preferenceIds: PreferenceIds) {
+        const preferenceToggle = this.page.locator(getPreferenceItemSelector(preferenceIds));
         return preferenceToggle.isChecked();
     }
 
