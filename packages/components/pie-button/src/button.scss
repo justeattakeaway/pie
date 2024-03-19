@@ -19,8 +19,8 @@ $breakpoint-wide: 768px;
     // Custom Property Declarations
     // These are defined here instead of :host to encapsulate them inside Shadow DOM
     --btn-border-radius: var(--dt-radius-rounded-e);
-    --btn-font-family: var(--dt-font-interactive-m-family);
-    --btn-font-weight: var(--dt-font-interactive-m-weight);
+    --btn-font-family: var(--dt-font-interactive-l-family);
+    --btn-font-weight: var(--dt-font-interactive-l-weight);
 
     // The following values set to default background and color
     // currently this sets the primary button styles
