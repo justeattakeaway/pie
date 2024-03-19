@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.12.0
+
+### Minor Changes
+
+- [Added] - Base page file for page object support. ([#1327](https://github.com/justeattakeaway/pie/pull/1327)) by [@JoshuaNg2332](https://github.com/JoshuaNg2332)
+
 ## 0.11.0
 
 ### Minor Changes
