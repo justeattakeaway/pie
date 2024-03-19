@@ -1,5 +1,14 @@
 # @justeattakeaway/pie-cookie-banner
 
+## 0.17.6
+
+### Patch Changes
+
+- [Added] - Events table to readme ([#1329](https://github.com/justeattakeaway/pie/pull/1329)) by [@kevinrodrigues](https://github.com/kevinrodrigues)
+
+- Updated dependencies [[`a400bc394`](https://github.com/justeattakeaway/pie/commit/a400bc39491660a1ef04e29eeb15553b80714c44)]:
+  - @justeattakeaway/pie-modal@0.40.0
+
 ## 0.17.5
 
 ### Patch Changes

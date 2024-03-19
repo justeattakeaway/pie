@@ -94,29 +94,45 @@
     "test:coverage": {
       "cache": false
     },
+
+    "test:browsers-setup": {
+      "cache": true,
+      "inputs": [
+        "./configs/pie-components-config/playwright/index.html",
+        "./configs/pie-components-config/playwright/index.ts"
+      ],
+      "outputs": [
+        "**/playwright/index.html",
+        "**/playwright/index.ts"
+      ]
+    },
     "test:browsers": {
       "cache": true,
       "dependsOn": [
-        "^build"
+        "^build",
+        "test:browsers-setup"
       ],
       "outputs": []
     },
     "test:browsers:ci": {
       "cache": true,
       "dependsOn": [
-        "^build"
+        "^build",
+        "test:browsers-setup"
       ]
     },
     "test:visual": {
       "cache": false,
       "dependsOn": [
-        "^build"
+        "^build",
+        "test:browsers-setup"
       ]
     },
     "test:visual:ci": {
       "cache": false,
       "dependsOn": [
-        "^build"
+        "^build",
+        "test:browsers-setup"
       ]
     },
     "lint:scripts": {

@@ -84,6 +84,7 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-color-border-strong: var(--dt-color-mozzarella-30);
     --dt-color-border-inverse: var(--dt-color-mozzarella-70);
     --dt-color-border-selected: var(--dt-color-mozzarella-50);
+    --dt-color-border-selected-brand: var(--dt-color-orange);
     --dt-color-divider-default: rgb(0,0,0,0.08);
     --dt-color-divider-inverse: rgb(255,255,255,0.20);
     --dt-color-interactive-brand: var(--dt-color-orange);
@@ -104,6 +105,8 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-color-support-info-02: var(--dt-color-blue-10);
     --dt-color-support-info-inverse: var(--dt-color-blue-30);
     --dt-color-support-positive-inverse: var(--dt-color-green-30);
+    --dt-color-support-neutral-persistent: var(--dt-color-mozzarella-20);
+    --dt-color-support-error-inverse: var(--dt-color-red-30);
     --dt-color-support-brand-01: var(--dt-color-orange-30);
     --dt-color-support-brand-02: var(--dt-color-orange-10);
     --dt-color-support-brand-03: var(--dt-color-blue-25);
@@ -148,6 +151,7 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-color-active-01-dark: 12%;
     --dt-color-active-02: 20%;
     --dt-color-active-02-light: 20%;
+    --dt-color-resting: 0%;
     --dt-color-focus-inner: var(--dt-color-white);
     --dt-color-focus-outer: var(--dt-color-blue-70);
     --dt-color-disabled-01: var(--dt-color-mozzarella-20);
@@ -170,6 +174,7 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-color-highcontrast-border-strong: var(--dt-color-black);
     --dt-color-highcontrast-border-inverse: var(--dt-color-white);
     --dt-color-highcontrast-border-selected: var(--dt-color-black);
+    --dt-color-highcontrast-border-selected-brand: var(--dt-color-orange-dark-hc);
     --dt-color-highcontrast-divider-default: var(--dt-color-black);
     --dt-color-highcontrast-divider-inverse: var(--dt-color-white);
     --dt-color-highcontrast-interactive-brand: var(--dt-color-orange-dark-hc);
@@ -190,6 +195,8 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-color-highcontrast-support-info-02: var(--dt-color-white);
     --dt-color-highcontrast-support-info-inverse: var(--dt-color-blue-light-hc);
     --dt-color-highcontrast-support-positive-inverse: var(--dt-color-green-light-hc);
+    --dt-color-highcontrast-support-neutral-persistent: var(--dt-color-white);
+    --dt-color-highcontrast-support-error-inverse: var(--dt-color-red-light-hc);
     --dt-color-highcontrast-support-brand-01: var(--dt-color-orange-30);
     --dt-color-highcontrast-support-brand-02: var(--dt-color-white);
     --dt-color-highcontrast-support-brand-03: var(--dt-color-white);
@@ -234,6 +241,7 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-color-highcontrast-active-01-dark: 12%;
     --dt-color-highcontrast-active-02: 20%;
     --dt-color-highcontrast-active-02-light: 20%;
+    --dt-color-highcontrast-resting: 0%;
     --dt-color-highcontrast-focus-inner: var(--dt-color-white);
     --dt-color-highcontrast-focus-outer: var(--dt-color-blue-70);
     --dt-color-highcontrast-disabled-01: var(--dt-color-mozzarella-20);
@@ -256,6 +264,7 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-color-dark-border-strong: var(--dt-color-mozzarella-60);
     --dt-color-dark-border-inverse: var(--dt-color-mozzarella-20);
     --dt-color-dark-border-selected: var(--dt-color-mozzarella-30);
+    --dt-color-dark-border-selected-brand: var(--dt-color-orange);
     --dt-color-dark-divider-default: rgb(255,255,255,0.20);
     --dt-color-dark-divider-inverse: rgb(0,0,0,0.08);
     --dt-color-dark-interactive-brand: var(--dt-color-orange);
@@ -265,7 +274,7 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-color-dark-interactive-light: var(--dt-color-white);
     --dt-color-dark-interactive-form: var(--dt-color-mozzarella-50);
     --dt-color-dark-overlay: rgb(0,0,0,0.55);
-    --dt-color-dark-support-error: var(--dt-color-red);
+    --dt-color-dark-support-error: var(--dt-color-red-30);
     --dt-color-dark-support-warning: var(--dt-color-yellow);
     --dt-color-dark-support-positive: var(--dt-color-green-30);
     --dt-color-dark-support-info: var(--dt-color-blue-30);
@@ -276,6 +285,8 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-color-dark-support-info-02: var(--dt-color-blue-90);
     --dt-color-dark-support-info-inverse: var(--dt-color-blue);
     --dt-color-dark-support-positive-inverse: var(--dt-color-green);
+    --dt-color-dark-support-neutral-persistent: var(--dt-color-mozzarella-20);
+    --dt-color-dark-support-error-inverse: var(--dt-color-red);
     --dt-color-dark-support-brand-01: var(--dt-color-orange-30);
     --dt-color-dark-support-brand-02: var(--dt-color-orange-90);
     --dt-color-dark-support-brand-03: var(--dt-color-blue-25);
@@ -320,6 +331,7 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-color-dark-active-01-dark: 12%;
     --dt-color-dark-active-02: 12%;
     --dt-color-dark-active-02-light: 20%;
+    --dt-color-dark-resting: 0%;
     --dt-color-dark-focus-inner: var(--dt-color-black);
     --dt-color-dark-focus-outer: var(--dt-color-blue-30);
     --dt-color-dark-disabled-01: var(--dt-color-mozzarella-80);
@@ -342,6 +354,7 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-color-highcontrast-dark-border-strong: var(--dt-color-white);
     --dt-color-highcontrast-dark-border-inverse: var(--dt-color-black);
     --dt-color-highcontrast-dark-border-selected: var(--dt-color-white);
+    --dt-color-highcontrast-dark-border-selected-brand: var(--dt-color-orange-30);
     --dt-color-highcontrast-dark-divider-default: var(--dt-color-white);
     --dt-color-highcontrast-dark-divider-inverse: var(--dt-color-black);
     --dt-color-highcontrast-dark-interactive-brand: var(--dt-color-orange-30);
@@ -362,6 +375,8 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-color-highcontrast-dark-support-info-02: var(--dt-color-black);
     --dt-color-highcontrast-dark-support-info-inverse: var(--dt-color-blue-dark-hc);
     --dt-color-highcontrast-dark-support-positive-inverse: var(--dt-color-green-dark-hc);
+    --dt-color-highcontrast-dark-support-neutral-persistent: var(--dt-color-black);
+    --dt-color-highcontrast-dark-support-error-inverse: var(--dt-color-red-dark-hc);
     --dt-color-highcontrast-dark-support-brand-01: var(--dt-color-orange-30);
     --dt-color-highcontrast-dark-support-brand-02: var(--dt-color-black);
     --dt-color-highcontrast-dark-support-brand-03: var(--dt-color-black);
@@ -406,6 +421,7 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-color-highcontrast-dark-active-01-dark: 12%;
     --dt-color-highcontrast-dark-active-02: 12%;
     --dt-color-highcontrast-dark-active-02-light: 20%;
+    --dt-color-highcontrast-dark-resting: 0%;
     --dt-color-highcontrast-dark-focus-inner: var(--dt-color-black);
     --dt-color-highcontrast-dark-focus-outer: var(--dt-color-blue-30);
     --dt-color-highcontrast-dark-disabled-01: var(--dt-color-mozzarella-80);
@@ -429,9 +445,6 @@ exports[`index.css > should render the expected CSS content 1`] = `
     /* Size-16 font theme */
     --dt-font-size-16: 16;
     --dt-font-size-16-line-height: 24;
-    /* Size-19 font theme */
-    --dt-font-size-19: 19;
-    --dt-font-size-19-line-height: 28;
     /* Size-20 font theme */
     --dt-font-size-20: 20;
     --dt-font-size-20-line-height: 28;
@@ -511,11 +524,6 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-font-interactive-s-family: var(--dt-font-family-primary);
     --dt-font-interactive-s-weight: var(--dt-font-weight-bold);
     --dt-font-interactive-s-line-height: var(--dt-font-size-16-line-height);
-    /* Interactive-m font theme */
-    --dt-font-interactive-m-size: var(--dt-font-size-19);
-    --dt-font-interactive-m-family: var(--dt-font-family-primary);
-    --dt-font-interactive-m-weight: var(--dt-font-weight-bold);
-    --dt-font-interactive-m-line-height: var(--dt-font-size-19-line-height);
     /* Interactive-l font theme */
     --dt-font-interactive-l-size: var(--dt-font-size-20);
     --dt-font-interactive-l-family: var(--dt-font-family-primary);
@@ -914,6 +922,9 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-color-border-selected-h: var(--dt-color-mozzarella-50-h);
     --dt-color-border-selected-s: var(--dt-color-mozzarella-50-s);
     --dt-color-border-selected-l: var(--dt-color-mozzarella-50-l);
+    --dt-color-border-selected-brand-h: var(--dt-color-orange-h);
+    --dt-color-border-selected-brand-s: var(--dt-color-orange-s);
+    --dt-color-border-selected-brand-l: var(--dt-color-orange-l);
     --dt-color-interactive-brand-h: var(--dt-color-orange-h);
     --dt-color-interactive-brand-s: var(--dt-color-orange-s);
     --dt-color-interactive-brand-l: var(--dt-color-orange-l);
@@ -965,6 +976,12 @@ exports[`index.css > should render the expected CSS content 1`] = `
     --dt-color-support-positive-inverse-h: var(--dt-color-green-30-h);
     --dt-color-support-positive-inverse-s: var(--dt-color-green-30-s);
     --dt-color-support-positive-inverse-l: var(--dt-color-green-30-l);
+    --dt-color-support-neutral-persistent-h: var(--dt-color-mozzarella-20-h);
+    --dt-color-support-neutral-persistent-s: var(--dt-color-mozzarella-20-s);
+    --dt-color-support-neutral-persistent-l: var(--dt-color-mozzarella-20-l);
+    --dt-color-support-error-inverse-h: var(--dt-color-red-30-h);
+    --dt-color-support-error-inverse-s: var(--dt-color-red-30-s);
+    --dt-color-support-error-inverse-l: var(--dt-color-red-30-l);
     --dt-color-support-brand-01-h: var(--dt-color-orange-30-h);
     --dt-color-support-brand-01-s: var(--dt-color-orange-30-s);
     --dt-color-support-brand-01-l: var(--dt-color-orange-30-l);

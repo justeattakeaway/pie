@@ -17,7 +17,7 @@ import { PieCard } from '../../src/index.ts';
 import { tags, variants, paddingValues } from '../../src/defs.ts';
 
 // This is just an arbitrary example of some markup a user may pass into the card
-const slotContent = `<div style="font-size: calc(var(--dt-font-body-l-size) * 1px); font-family: var(--dt-font-interactive-m-family); padding: var(--dt-spacing-b);">
+const slotContent = `<div style="font-size: calc(var(--dt-font-body-l-size) * 1px); font-family: var(--dt-font-interactive-l-family); padding: var(--dt-spacing-b);">
     <h2> Card title </h2>
     <p> Card content </p>
     <p> Lorem ipsum dolor sit amet
