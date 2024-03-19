@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.67.0
+
+### Minor Changes
+
+- [Added] - step, min and max properties to pie-input component ([#1332](https://github.com/justeattakeaway/pie/pull/1332)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies [[`93cbb3985`](https://github.com/justeattakeaway/pie/commit/93cbb39853dba44f0c554faa041505d03dcb886d), [`a400bc394`](https://github.com/justeattakeaway/pie/commit/a400bc39491660a1ef04e29eeb15553b80714c44), [`86e7fe4a1`](https://github.com/justeattakeaway/pie/commit/86e7fe4a183db91c3ffa96597acfe826508433b8)]:
+  - @justeattakeaway/pie-cookie-banner@0.17.6
+  - @justeattakeaway/pie-modal@0.40.0
+  - @justeattakeaway/pie-input@0.14.0
+
 ## 0.66.0
 
 ### Minor Changes
