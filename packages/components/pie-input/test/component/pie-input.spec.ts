@@ -566,11 +566,11 @@ test.describe('PieInput - Component tests', () => {
                 expect(assistiveText).not.toBeVisible();
             });
 
-            test('should render the default variant if no status provided', async ({ mount, page }) => {
+            test('should not apply a variant attribute if no status is provided', async ({ mount, page }) => {
                 // Arrange
                 await mount(PieInput, {
                     props: {
-                        assistiveText: 'Default text',
+                        assistiveText: 'Assistive text',
                     } as InputProps,
                 });
 
@@ -580,7 +580,7 @@ test.describe('PieInput - Component tests', () => {
                 // Assert
                 expect(assistiveText).toBeVisible();
                 expect(await assistiveText.getAttribute('variant')).toBe(null);
-                expect(assistiveText).toHaveText('Default text');
+                expect(assistiveText).toHaveText('Assistive text');
             });
 
             test.describe('Assistive text: Status', () => {
@@ -589,7 +589,7 @@ test.describe('PieInput - Component tests', () => {
                         // Arrange
                         await mount(PieInput, {
                             props: {
-                                assistiveText: 'Default text',
+                                assistiveText: 'Assistive text',
                                 status,
                             } as InputProps,
                         });
@@ -600,7 +600,7 @@ test.describe('PieInput - Component tests', () => {
                         // Assert
                         expect(assistiveText).toBeVisible();
                         expect(assistiveText).toHaveAttribute('variant', status);
-                        expect(assistiveText).toHaveText('Default text');
+                        expect(assistiveText).toHaveText('Assistive text');
                     });
                 });
             });
