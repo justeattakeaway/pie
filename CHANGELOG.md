@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.56.2
+
+### Patch Changes
+
+- [Fixed] - Issue where `create:manifest` & `build:react-wrapper` commands failed when executed from the monorepo root directory. ([#1321](https://github.com/justeattakeaway/pie/pull/1321)) by [@siggerzz](https://github.com/siggerzz)
+
+  [Changed] - Update to `turbo@1.12.4`.
+
 ## 2.56.1
 
 ### Patch Changes

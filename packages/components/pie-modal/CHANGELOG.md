@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-modal
 
+## 0.40.0
+
+### Minor Changes
+
+- [Added] - Page Object support with additional data-test-ids ([#1327](https://github.com/justeattakeaway/pie/pull/1327)) by [@JoshuaNg2332](https://github.com/JoshuaNg2332)
+
 ## 0.39.0
 
 ### Minor Changes
