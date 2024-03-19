@@ -7,7 +7,7 @@
 $breakpoint-wide: 700px;
 
 .c-cookieBanner {
-    --cb-font-family: var(--dt-font-interactive-m-family);
+    --cb-font-family: var(--dt-font-interactive-l-family);
     --cb-font-size: #{p.font-size('--dt-font-body-l-size')};
     --cb-line-height: calc(var(--dt-font-body-l-line-height) * 1px);
     --cb-font-weight: var(--dt-font-body-l-weight);

@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-input
 
+## 0.14.0
+
+### Minor Changes
+
+- [Added] - step, min and max properties to pie-input component ([#1332](https://github.com/justeattakeaway/pie/pull/1332)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
 ## 0.13.1
 
 ### Patch Changes
