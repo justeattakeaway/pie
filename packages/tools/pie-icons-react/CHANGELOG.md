@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.15.1
+
+### Patch Changes
+
+- [Fixed] - Incorrect "types" location in package.json ([#1320](https://github.com/justeattakeaway/pie/pull/1320)) by [@jansul](https://github.com/jansul)
+
 ## 4.15.0
 
 ### Minor Changes
