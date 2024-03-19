@@ -143,7 +143,7 @@ const Template : TemplateFunction<NotificationProps> = ({
         .supportingAction="${supportingAction}"
         ?hasStackedActions="${hasStackedActions}"
         >
-        <!-- <icon-alert-circle-filled slot="icon" size="s"></icon-alert-circle-filled> -->
+        <icon-alert-circle-filled slot="icon" size="s"></icon-alert-circle-filled>
         ${slot}
     </pie-notification>`;
 
