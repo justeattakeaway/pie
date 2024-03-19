@@ -13,6 +13,7 @@ import {
 import { type StoryMeta } from '../types';
 import { createStory, type TemplateFunction } from '../utilities';
 import '@justeattakeaway/pie-button';
+import '@justeattakeaway/pie-form-label';
 import '@justeattakeaway/pie-icons-webc/IconPlaceholder';
 
 // Extending the props type definition to include storybook specific properties for controls
@@ -94,6 +95,22 @@ const inputStoryMeta: InputStoryMeta = {
             },
             if: { arg: 'type', neq: 'number' },
         },
+        min: {
+            description: 'The minimum value of the input. Only applies when type is `number`. If the value provided is lower, the input is invalid.',
+            control: 'number',
+            defaultValue: {
+                summary: '',
+            },
+            if: { arg: 'type', eq: 'number' },
+        },
+        max: {
+            description: 'The maximum value of the input. Only applies when type is `number`. If the value provided is higher, the input is invalid.',
+            control: 'number',
+            defaultValue: {
+                summary: '',
+            },
+            if: { arg: 'type', eq: 'number' },
+        },
         autocomplete: {
             description: 'Allows the user to enable or disable autocomplete functionality on the input field. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete) for more information and values.',
             control: 'text',
@@ -108,6 +125,14 @@ const inputStoryMeta: InputStoryMeta = {
                 summary: '',
             },
             if: { arg: 'type', neq: 'number' },
+        },
+        step: {
+            description: 'An optional amount that value should be incremented or decremented by when using the up and down arrows in the input. Only applies when type is `number`.',
+            control: 'text',
+            defaultValue: {
+                summary: '',
+            },
+            if: { arg: 'type', eq: 'number' },
         },
         autoFocus: {
             description: 'If true, the input will be focused on the first render. No more than one element in the document or dialog may have the autofocus attribute. If applied to multiple elements the first one will receive focus. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/autofocus) for more information.',
@@ -181,6 +206,8 @@ const Template = ({
     pattern,
     minlength,
     maxlength,
+    min,
+    max,
     autocomplete,
     placeholder,
     autoFocus,
@@ -191,6 +218,7 @@ const Template = ({
     trailingSlot,
     assistiveText,
     status,
+    step,
 }: InputProps) => {
     const [, updateArgs] = UseArgs();
 
@@ -227,10 +255,14 @@ const Template = ({
             type="${ifDefined(type)}"
             .value="${value}"
             name="${ifDefined(name)}"
+            id="${ifDefined(name)}"
             ?disabled="${disabled}"
             pattern="${ifDefined(pattern)}"
             minlength="${ifDefined(minlength)}"
             maxlength="${ifDefined(maxlength)}"
+            min="${ifDefined(min)}"
+            max="${ifDefined(max)}"
+            step="${ifDefined(step)}"
             autocomplete="${ifDefined(autocomplete)}"
             placeholder="${ifDefined(placeholder)}"
             inputmode="${ifDefined(inputmode)}"
@@ -270,9 +302,7 @@ const FormTemplate: TemplateFunction<InputProps> = (props: InputProps) => {
             <section>
                 <h2>Contact information</h2>
                 <p>
-                    <label for="name">
-                        <span>Name: </span>
-                    </label>
+                    ${props.name ? html`<pie-form-label for="${props.name}">${props.name}</pie-form-label>` : nothing}
                     ${Template({ ...props, type: 'text' })}
                 </p>
             </section>

@@ -566,11 +566,11 @@ test.describe('PieInput - Component tests', () => {
                 expect(assistiveText).not.toBeVisible();
             });
 
-            test('should render the assistive text component if the prop is provided with the default variant if "status" is not provided', async ({ mount, page }) => {
+            test('should not apply a variant attribute if no status is provided', async ({ mount, page }) => {
                 // Arrange
                 await mount(PieInput, {
                     props: {
-                        assistiveText: 'Default text',
+                        assistiveText: 'Assistive text',
                     } as InputProps,
                 });
 
@@ -579,7 +579,8 @@ test.describe('PieInput - Component tests', () => {
 
                 // Assert
                 expect(assistiveText).toBeVisible();
-                expect(assistiveText).toHaveAttribute('variant', 'default');
+                expect(await assistiveText.getAttribute('variant')).toBe(null);
+                expect(assistiveText).toHaveText('Assistive text');
             });
 
             test.describe('Assistive text: Status', () => {
@@ -588,7 +589,7 @@ test.describe('PieInput - Component tests', () => {
                         // Arrange
                         await mount(PieInput, {
                             props: {
-                                assistiveText: 'Default text',
+                                assistiveText: 'Assistive text',
                                 status,
                             } as InputProps,
                         });
@@ -599,8 +600,171 @@ test.describe('PieInput - Component tests', () => {
                         // Assert
                         expect(assistiveText).toBeVisible();
                         expect(assistiveText).toHaveAttribute('variant', status);
+                        expect(assistiveText).toHaveText('Assistive text');
                     });
                 });
+            });
+        });
+
+        test.describe('step', () => {
+            test.describe('when type is number', () => {
+                test('should be able to increment the value by the step amount when using the up arrow', async ({ mount, page }) => {
+                    // Arrange
+                    await mount(PieInput, {
+                        props: {
+                            type: 'number',
+                            value: '0',
+                            step: 5,
+                        } as InputProps,
+                    });
+
+                    // Act
+                    await page.focus('pie-input');
+                    await page.keyboard.press('ArrowUp');
+                    await page.keyboard.press('ArrowUp');
+
+                    // Assert
+                    expect(await page.evaluate(() => document.querySelector('pie-input')?.value)).toBe('10');
+                });
+
+                test('should be able to decrement the value by the step amount when using the down arrow', async ({ mount, page }) => {
+                    // Arrange
+                    await mount(PieInput, {
+                        props: {
+                            type: 'number',
+                            value: '0',
+                            step: 5,
+                        } as InputProps,
+                    });
+
+                    // Act
+                    await page.focus('pie-input');
+                    await page.keyboard.press('ArrowDown');
+                    await page.keyboard.press('ArrowDown');
+
+                    // Assert
+                    expect(await page.evaluate(() => document.querySelector('pie-input')?.value)).toBe('-10');
+                });
+            });
+
+            test.describe('when type is not number', () => {
+                test('should not be able to increment the value by the step amount when using the up arrow', async ({ mount, page }) => {
+                    // Arrange
+                    await mount(PieInput, {
+                        props: {
+                            type: 'text',
+                            value: '0',
+                            step: 5,
+                        } as InputProps,
+                    });
+
+                    // Act
+                    await page.focus('pie-input');
+                    await page.keyboard.press('ArrowUp');
+                    await page.keyboard.press('ArrowUp');
+
+                    // Assert
+                    expect(await page.evaluate(() => document.querySelector('pie-input')?.value)).toBe('0');
+                });
+
+                test('should not be able to decrement the value by the step amount when using the down arrow', async ({ mount, page }) => {
+                    // Arrange
+                    await mount(PieInput, {
+                        props: {
+                            type: 'text',
+                            value: '0',
+                            step: 5,
+                        } as InputProps,
+                    });
+
+                    // Act
+                    await page.focus('pie-input');
+                    await page.keyboard.press('ArrowDown');
+                    await page.keyboard.press('ArrowDown');
+
+                    // Assert
+                    expect(await page.evaluate(() => document.querySelector('pie-input')?.value)).toBe('0');
+                });
+            });
+        });
+
+        test.describe('min', () => {
+            test('should be invalid state `rangeUnderflow` if the value is lower than the min', async ({ mount, page }) => {
+                // Arrange
+                const component = await mount(PieInput, {
+                    props: {
+                        type: 'number',
+                        value: '0',
+                        min: 5,
+                    } as InputProps,
+                });
+
+                // Act
+                await component.type('4');
+
+                const isInvalid = await page.evaluate(() => document.querySelector('pie-input')?.validity.rangeUnderflow);
+
+                // Assert
+                expect(isInvalid).toBe(true);
+            });
+
+            test('should be valid state if the value is greater than the min', async ({ mount, page }) => {
+                // Arrange
+                const component = await mount(PieInput, {
+                    props: {
+                        type: 'number',
+                        value: '0',
+                        min: 5,
+                    } as InputProps,
+                });
+
+                // Act
+                await component.type('6');
+
+                const isValid = await page.evaluate(() => document.querySelector('pie-input')?.validity.valid);
+
+                // Assert
+                expect(isValid).toBe(true);
+            });
+        });
+
+        test.describe('max', () => {
+            test('should be invalid state `rangeOverflow` if the value is greater than the max', async ({ mount, page }) => {
+                // Arrange
+                const component = await mount(PieInput, {
+                    props: {
+                        type: 'number',
+                        value: '0',
+                        max: 5,
+                    } as InputProps,
+                });
+
+                // Act
+                await component.type('6');
+
+                const isInvalid = await page.evaluate(() => document.querySelector('pie-input')?.validity.rangeOverflow);
+
+                // Assert
+                expect(isInvalid).toBe(true);
+            });
+
+            test('should be valid state if the value is lower than the max', async ({ mount, page }) => {
+                // Arrange
+                const component = await mount(PieInput, {
+                    props: {
+                        type: 'number',
+                        value: '0',
+                        max: 5,
+                    } as InputProps,
+                });
+
+                // Act
+                await component.type('4');
+
+                const isValid = await page.evaluate(() => document.querySelector('pie-input')?.validity.valid);
+
+                // Assert
+                expect(isValid).toBe(true);
             });
         });
     });
