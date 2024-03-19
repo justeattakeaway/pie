@@ -579,6 +579,7 @@ test.describe('PieInput - Component tests', () => {
 
                 // Assert
                 expect(assistiveText).toBeVisible();
+                expect(await assistiveText.getAttribute('variant')).toBe(null);
                 expect(assistiveText).toHaveText('Default text');
             });
 
