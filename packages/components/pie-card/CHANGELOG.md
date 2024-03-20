@@ -1,5 +1,13 @@
 # @justeattakeaway/pie-card
 
+## 0.18.0
+
+### Minor Changes
+
+- [Changed] - Use pie-design-tokens v6 ([#1335](https://github.com/justeattakeaway/pie/pull/1335)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Changed] - Replace uses of `font-interactive-m` with `font-interactive-l`
+
 ## 0.17.5
 
 ### Patch Changes
