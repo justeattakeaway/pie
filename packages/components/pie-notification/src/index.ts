@@ -35,6 +35,10 @@ export * from './defs';
 
 /**
  * @tagname pie-notification
+ * @event {CustomEvent} pie-notification-leading-action-click -  When the notification leading action is clicked.
+ * @event {CustomEvent} pie-notification-supporting-action-click - When the notification supporting action is clicked.
+ * @event {CustomEvent} pie-notification-close - When the notification is closed.
+ * @event {CustomEvent} pie-notification-open - When the notification is opened.
  */
 export class PieNotification extends LitElement implements NotificationProps {
     @property({ type: Boolean })
@@ -271,10 +275,8 @@ export class PieNotification extends LitElement implements NotificationProps {
      *
      * @private
      */
-    private handleActionClick (action: NonNullable<ActionProps['onClick']>, actionType: 'leading' | 'supporting') {
+    private handleActionClick (actionType: 'leading' | 'supporting') {
         const EVENT = actionType === 'leading' ? ON_NOTIFICATION_LEADING_ACTION_CLICK_EVENT : ON_NOTIFICATION_SUPPORTING_ACTION_CLICK_EVENT;
-
-        action();
 
         dispatchCustomEvent(this, EVENT, { targetNotification: this });
     }
@@ -289,7 +291,7 @@ export class PieNotification extends LitElement implements NotificationProps {
      * @private
      */
     private renderActionButton (action: ActionProps, actionType: 'leading' | 'supporting') : TemplateResult | typeof nothing {
-        const { text, ariaLabel, onClick } = action;
+        const { text, ariaLabel } = action;
 
         if (!text) {
             return nothing;
@@ -302,7 +304,7 @@ export class PieNotification extends LitElement implements NotificationProps {
                 variant="${buttonVariant}"
                 size="small-productive"
                 aria-label="${ariaLabel || nothing}"
-                @click="${onClick ? () => this.handleActionClick(onClick, actionType) : nothing}"
+                @click="${this.handleActionClick(actionType)}"
                 data-test-id="${componentSelector}-${actionType}-action"
                 ?isFullWidth="${this.hasStackedActions}"
                 type="button">

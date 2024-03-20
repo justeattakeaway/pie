@@ -11,13 +11,6 @@ export type ActionProps = {
    * The ARIA label for the button.
    */
   ariaLabel?: string;
-
-  /**
-   * The optional action associated to the action.
-   *
-   * @returns void
-   */
-  onClick?: () => void;
 };
 
 export interface NotificationProps {
