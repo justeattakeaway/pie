@@ -83,6 +83,7 @@ export default {
         } as StoryBackgrounds,
         controls: {
             expanded: true,
+            sort: 'alpha',
         },
         viewport: {
             viewports: CUSTOM_VIEWPORTS
