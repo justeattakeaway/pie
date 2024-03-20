@@ -226,7 +226,7 @@ jobs:
           retention-days: 7
 
   deploy-docs:
-    needs: unit-tests
+    needs: unit-and-bundle-tests
     uses: ./.github/workflows/amplify-deploy.yml
     if: needs.check-change-type.outputs.pie-docs-change == 'true' || github.ref == 'refs/heads/main'
     with:
@@ -240,7 +240,7 @@ jobs:
     secrets: inherit
 
   deploy-storybook:
-    needs: unit-tests
+    needs: unit-and-bundle-tests
     if: (needs.check-change-type.outputs.web-components-change == 'true' || needs.check-change-type.outputs.storybook-change == 'true') || github.ref == 'refs/heads/main'
     uses: ./.github/workflows/amplify-deploy.yml
     with:
@@ -306,7 +306,7 @@ jobs:
       PR_NUMBER: ${{ github.event.number }}
 
   release:
-    needs: [ 'unit-tests', 'lint-js']
+    needs: [ 'unit-and-bundle-tests', 'lint-js']
     if: github.event_name != 'pull_request'
     uses: ./.github/workflows/changeset-release.yml
     with:
@@ -323,7 +323,7 @@ jobs:
     - build-ubuntu-node-18
     - build-windows-node-20
     - build-ubuntu-node-20
-    - unit-tests
+    - unit-and-bundle-tests
     - browser-tests-components
     - deploy-docs
     - deploy-storybook
