@@ -1,5 +1,15 @@
 # Changelog
 
+## 2.56.3
+
+### Patch Changes
+
+- [Fixed] - Issue where `packageManager` property was causing renovate PR's to fail due to `corepack` opt-in. ([#1340](https://github.com/justeattakeaway/pie/pull/1340)) by [@siggerzz](https://github.com/siggerzz)
+
+- [Changed] - Use pie-design-tokens v6 ([#1335](https://github.com/justeattakeaway/pie/pull/1335)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Changed] - Replace uses of `font-interactive-m` with `font-interactive-l`
+
 ## 2.56.2
 
 ### Patch Changes
