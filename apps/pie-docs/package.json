@@ -7,7 +7,6 @@
   "keywords": [],
   "author": "Just Eat Takeaway.com - Design System Team",
   "license": "Apache-2.0",
-  "packageManager": "yarn@3.8.1",
   "scripts": {
     "build": "DEPLOYMENT_ENVIRONMENT='production' eleventy",
     "build:dev": "DEPLOYMENT_ENVIRONMENT='development' eleventy",

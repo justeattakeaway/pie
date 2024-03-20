@@ -5,7 +5,7 @@
   "keywords": [],
   "author": "Just Eat Takeaway.com - Design System Team",
   "license": "Apache-2.0",
-  "packageManager": "yarn@3.8.1",
+  "packageManager": "yarn@3.8.1+sha256.860bab3ca20acc0476b3229f4841674e62e15453bd8f5dc8d0fea399edd235b6",
   "private": true,
   "engines": {
     "node": "^16 || ^18 || ^20"
