@@ -304,7 +304,7 @@ export class PieNotification extends LitElement implements NotificationProps {
                 variant="${buttonVariant}"
                 size="small-productive"
                 aria-label="${ariaLabel || nothing}"
-                @click="${this.handleActionClick(actionType)}"
+                @click="${() => this.handleActionClick(actionType)}"
                 data-test-id="${componentSelector}-${actionType}-action"
                 ?isFullWidth="${this.hasStackedActions}"
                 type="button">

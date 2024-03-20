@@ -25,12 +25,10 @@ const defaultArgs: NotificationProps = {
     leadingAction: {
         text: 'Confirm',
         ariaLabel: 'Descriptive confirmation text',
-        onClick: () => action('leadingAction triggered')(),
     },
     supportingAction: {
         text: 'Cancel',
         ariaLabel: 'Descriptive cancellation text',
-        onClick: () => action('supportingAction triggered')(),
     },
     hasStackedActions: false,
 };
@@ -118,6 +116,11 @@ const notificationStoryMeta: NotificationStoryMeta = {
 
 export default notificationStoryMeta;
 
+const pieNotificationLeadingActionClick = action('pie-notification-leading-action-click');
+const pieNotificationSupportingActionClick = action('pie-notification-supporting-action-click');
+const pieNotificationClose = action('pie-notification-close');
+const pieNotificationOpen = action('pie-notification-open');
+
 const Template : TemplateFunction<NotificationProps> = ({
     isOpen,
     isDismissible,
@@ -142,6 +145,10 @@ const Template : TemplateFunction<NotificationProps> = ({
         .leadingAction="${leadingAction}"
         .supportingAction="${supportingAction}"
         ?hasStackedActions="${hasStackedActions}"
+        @pie-notification-leading-action-click="${pieNotificationLeadingActionClick}"
+        @pie-notification-supporting-action-click="${pieNotificationSupportingActionClick}"
+        @pie-notification-close="${pieNotificationClose}"
+        @pie-notification-open="${pieNotificationOpen}"
         >
         <icon-alert-circle-filled slot="icon" size="s"></icon-alert-circle-filled>
         ${slot}
