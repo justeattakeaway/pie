@@ -1,5 +1,24 @@
 # Changelog
 
+## 0.68.0
+
+### Minor Changes
+
+- [Changed] - Use pie-design-tokens v6 ([#1335](https://github.com/justeattakeaway/pie/pull/1335)) by [@xander-marjoram](https://github.com/xander-marjoram)
+
+  [Changed] - Replace uses of `font-interactive-m` with `font-interactive-l`
+
+- [Added] - Sort all component storybook controls alphabetically ([#1337](https://github.com/justeattakeaway/pie/pull/1337)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies [[`e71ede482`](https://github.com/justeattakeaway/pie/commit/e71ede482c2257e95ba2844029bff00fd54e20ac)]:
+  - @justeattakeaway/pie-cookie-banner@0.18.0
+  - @justeattakeaway/pie-button@0.46.0
+  - @justeattakeaway/pie-modal@0.41.0
+  - @justeattakeaway/pie-card@0.18.0
+  - @justeattakeaway/pie-link@0.16.0
+
 ## 0.67.0
 
 ### Minor Changes
