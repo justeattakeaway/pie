@@ -1,5 +1,11 @@
 # @justeattakeaway/pie-components-config
 
+## 0.13.0
+
+### Minor Changes
+
+- [Added] - New `playwright-lit-setup` executable to create necessary files for Playwright components tests. ([#1326](https://github.com/justeattakeaway/pie/pull/1326)) by [@siggerzz](https://github.com/siggerzz)
+
 ## 0.12.0
 
 ### Minor Changes
