@@ -135,6 +135,7 @@
   },
   "resolutions": {
     "@babel/traverse": "7.22.5",
+    "axios": "1.6.8",
     "lit": "3.1.2"
   }
 }

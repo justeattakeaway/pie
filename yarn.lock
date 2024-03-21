@@ -5535,19 +5535,19 @@ __metadata:
   resolution: "@justeattakeaway/pie-assistive-text@workspace:packages/components/pie-assistive-text"
   dependencies:
     "@custom-elements-manifest/analyzer": 0.9.0
-    "@justeattakeaway/pie-components-config": 0.12.0
+    "@justeattakeaway/pie-components-config": 0.13.0
     "@justeattakeaway/pie-icons-webc": 0.19.1
     "@justeattakeaway/pie-webc-core": 0.19.1
     cem-plugin-module-file-extensions: 0.0.5
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-button@0.45.6, @justeattakeaway/pie-button@workspace:packages/components/pie-button":
+"@justeattakeaway/pie-button@0.46.0, @justeattakeaway/pie-button@workspace:packages/components/pie-button":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-button@workspace:packages/components/pie-button"
   dependencies:
     "@custom-elements-manifest/analyzer": 0.9.0
-    "@justeattakeaway/pie-components-config": 0.12.0
+    "@justeattakeaway/pie-components-config": 0.13.0
     "@justeattakeaway/pie-spinner": 0.5.5
     "@justeattakeaway/pie-webc-core": 0.19.1
     "@justeattakeaway/pie-wrapper-react": 0.14.0
@@ -5556,12 +5556,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-card@0.17.5, @justeattakeaway/pie-card@workspace:packages/components/pie-card":
+"@justeattakeaway/pie-card@0.18.0, @justeattakeaway/pie-card@workspace:packages/components/pie-card":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-card@workspace:packages/components/pie-card"
   dependencies:
     "@custom-elements-manifest/analyzer": 0.9.0
-    "@justeattakeaway/pie-components-config": 0.12.0
+    "@justeattakeaway/pie-components-config": 0.13.0
     "@justeattakeaway/pie-webc-core": 0.19.1
     "@justeattakeaway/pie-wrapper-react": 0.14.0
     cem-plugin-module-file-extensions: 0.0.5
@@ -5581,7 +5581,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-components-config@0.12.0, @justeattakeaway/pie-components-config@workspace:configs/pie-components-config":
+"@justeattakeaway/pie-components-config@0.13.0, @justeattakeaway/pie-components-config@workspace:configs/pie-components-config":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-components-config@workspace:configs/pie-components-config"
   dependencies:
@@ -5604,18 +5604,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@justeattakeaway/pie-cookie-banner@0.17.6, @justeattakeaway/pie-cookie-banner@workspace:packages/components/pie-cookie-banner":
+"@justeattakeaway/pie-cookie-banner@0.18.0, @justeattakeaway/pie-cookie-banner@workspace:packages/components/pie-cookie-banner":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-cookie-banner@workspace:packages/components/pie-cookie-banner"
   dependencies:
     "@custom-elements-manifest/analyzer": 0.9.0
     "@justeat/pie-design-tokens": 6.0.0
-    "@justeattakeaway/pie-button": 0.45.6
-    "@justeattakeaway/pie-components-config": 0.12.0
+    "@justeattakeaway/pie-button": 0.46.0
+    "@justeattakeaway/pie-components-config": 0.13.0
     "@justeattakeaway/pie-divider": 0.12.4
     "@justeattakeaway/pie-icon-button": 0.27.7
-    "@justeattakeaway/pie-link": 0.15.4
-    "@justeattakeaway/pie-modal": 0.40.0
+    "@justeattakeaway/pie-link": 0.16.0
+    "@justeattakeaway/pie-modal": 0.41.0
     "@justeattakeaway/pie-switch": 0.27.3
     "@justeattakeaway/pie-webc-core": 0.19.1
     "@justeattakeaway/pie-wrapper-react": 0.14.0
@@ -5639,7 +5639,7 @@ __metadata:
   resolution: "@justeattakeaway/pie-divider@workspace:packages/components/pie-divider"
   dependencies:
     "@custom-elements-manifest/analyzer": 0.9.0
-    "@justeattakeaway/pie-components-config": 0.12.0
+    "@justeattakeaway/pie-components-config": 0.13.0
     "@justeattakeaway/pie-webc-core": 0.19.1
     "@justeattakeaway/pie-wrapper-react": 0.14.0
     cem-plugin-module-file-extensions: 0.0.5
@@ -5651,7 +5651,7 @@ __metadata:
   resolution: "@justeattakeaway/pie-form-label@workspace:packages/components/pie-form-label"
   dependencies:
     "@custom-elements-manifest/analyzer": 0.9.0
-    "@justeattakeaway/pie-components-config": 0.12.0
+    "@justeattakeaway/pie-components-config": 0.13.0
     "@justeattakeaway/pie-input": ^0.14.0
     "@justeattakeaway/pie-switch": ^0.27.3
     "@justeattakeaway/pie-webc-core": 0.19.1
@@ -5671,7 +5671,7 @@ __metadata:
   resolution: "@justeattakeaway/pie-icon-button@workspace:packages/components/pie-icon-button"
   dependencies:
     "@custom-elements-manifest/analyzer": 0.9.0
-    "@justeattakeaway/pie-components-config": 0.12.0
+    "@justeattakeaway/pie-components-config": 0.13.0
     "@justeattakeaway/pie-icons-webc": 0.19.1
     "@justeattakeaway/pie-spinner": 0.5.5
     "@justeattakeaway/pie-webc-core": 0.19.1
@@ -5735,7 +5735,7 @@ __metadata:
   dependencies:
     "@babel/core": 7.23.9
     "@babel/node": 7.20.7
-    "@justeattakeaway/pie-components-config": 0.12.0
+    "@justeattakeaway/pie-components-config": 0.13.0
     "@justeattakeaway/pie-icons": 4.14.0
     "@justeattakeaway/pie-icons-configs": 4.5.1
     "@justeattakeaway/pie-webc-core": 0.19.1
@@ -5772,19 +5772,19 @@ __metadata:
   dependencies:
     "@custom-elements-manifest/analyzer": 0.9.0
     "@justeattakeaway/pie-assistive-text": 0.2.4
-    "@justeattakeaway/pie-components-config": 0.12.0
+    "@justeattakeaway/pie-components-config": 0.13.0
     "@justeattakeaway/pie-webc-core": 0.19.1
     "@justeattakeaway/pie-wrapper-react": 0.14.0
     cem-plugin-module-file-extensions: 0.0.5
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-link@0.15.4, @justeattakeaway/pie-link@workspace:packages/components/pie-link":
+"@justeattakeaway/pie-link@0.16.0, @justeattakeaway/pie-link@workspace:packages/components/pie-link":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-link@workspace:packages/components/pie-link"
   dependencies:
     "@custom-elements-manifest/analyzer": 0.9.0
-    "@justeattakeaway/pie-components-config": 0.12.0
+    "@justeattakeaway/pie-components-config": 0.13.0
     "@justeattakeaway/pie-icons-webc": 0.19.1
     "@justeattakeaway/pie-webc-core": 0.19.1
     "@justeattakeaway/pie-wrapper-react": 0.14.0
@@ -5792,14 +5792,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-modal@0.40.0, @justeattakeaway/pie-modal@workspace:packages/components/pie-modal":
+"@justeattakeaway/pie-modal@0.41.0, @justeattakeaway/pie-modal@workspace:packages/components/pie-modal":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-modal@workspace:packages/components/pie-modal"
   dependencies:
     "@custom-elements-manifest/analyzer": 0.9.0
     "@justeat/pie-design-tokens": 6.0.0
-    "@justeattakeaway/pie-button": 0.45.6
-    "@justeattakeaway/pie-components-config": 0.12.0
+    "@justeattakeaway/pie-button": 0.46.0
+    "@justeattakeaway/pie-components-config": 0.13.0
     "@justeattakeaway/pie-icon-button": 0.27.7
     "@justeattakeaway/pie-icons-webc": 0.19.1
     "@justeattakeaway/pie-spinner": 0.5.5
@@ -5817,7 +5817,7 @@ __metadata:
   resolution: "@justeattakeaway/pie-notification@workspace:packages/components/pie-notification"
   dependencies:
     "@custom-elements-manifest/analyzer": 0.9.0
-    "@justeattakeaway/pie-components-config": 0.12.0
+    "@justeattakeaway/pie-components-config": 0.13.0
     "@justeattakeaway/pie-icon-button": 0.27.7
     "@justeattakeaway/pie-icons-webc": 0.19.1
     "@justeattakeaway/pie-webc-core": 0.19.1
@@ -5831,7 +5831,7 @@ __metadata:
   resolution: "@justeattakeaway/pie-spinner@workspace:packages/components/pie-spinner"
   dependencies:
     "@custom-elements-manifest/analyzer": 0.9.0
-    "@justeattakeaway/pie-components-config": 0.12.0
+    "@justeattakeaway/pie-components-config": 0.13.0
     "@justeattakeaway/pie-webc-core": 0.19.1
     "@justeattakeaway/pie-wrapper-react": 0.14.0
     cem-plugin-module-file-extensions: 0.0.5
@@ -5843,7 +5843,7 @@ __metadata:
   resolution: "@justeattakeaway/pie-switch@workspace:packages/components/pie-switch"
   dependencies:
     "@custom-elements-manifest/analyzer": 0.9.0
-    "@justeattakeaway/pie-components-config": 0.12.0
+    "@justeattakeaway/pie-components-config": 0.13.0
     "@justeattakeaway/pie-icons-webc": 0.19.1
     "@justeattakeaway/pie-webc-core": 0.19.1
     "@justeattakeaway/pie-wrapper-react": 0.14.0
@@ -5857,7 +5857,7 @@ __metadata:
   resolution: "@justeattakeaway/pie-tag@workspace:packages/components/pie-tag"
   dependencies:
     "@custom-elements-manifest/analyzer": 0.9.0
-    "@justeattakeaway/pie-components-config": 0.12.0
+    "@justeattakeaway/pie-components-config": 0.13.0
     "@justeattakeaway/pie-icons-webc": 0.19.1
     "@justeattakeaway/pie-webc-core": 0.19.1
     "@justeattakeaway/pie-wrapper-react": 0.14.0
@@ -5869,12 +5869,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-webc-core@workspace:packages/components/pie-webc-core"
   dependencies:
-    "@justeattakeaway/pie-components-config": 0.12.0
+    "@justeattakeaway/pie-components-config": 0.13.0
     lit: 3.1.2
   languageName: unknown
   linkType: soft
 
-"@justeattakeaway/pie-webc-testing@0.12.0, @justeattakeaway/pie-webc-testing@workspace:packages/components/pie-webc-testing":
+"@justeattakeaway/pie-webc-testing@0.12.1, @justeattakeaway/pie-webc-testing@workspace:packages/components/pie-webc-testing":
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-webc-testing@workspace:packages/components/pie-webc-testing"
   peerDependencies:
@@ -5887,9 +5887,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@justeattakeaway/pie-webc@workspace:packages/components/pie-webc"
   dependencies:
-    "@justeattakeaway/pie-button": 0.45.6
-    "@justeattakeaway/pie-components-config": 0.12.0
-    "@justeattakeaway/pie-modal": 0.40.0
+    "@justeattakeaway/pie-button": 0.46.0
+    "@justeattakeaway/pie-components-config": 0.13.0
+    "@justeattakeaway/pie-modal": 0.41.0
     "@justeattakeaway/pie-webc-core": 0.19.1
   languageName: unknown
   linkType: soft
@@ -9960,9 +9960,9 @@ __metadata:
   linkType: hard
 
 "@types/chai@npm:*, @types/chai@npm:^4.3.4":
-  version: 4.3.13
-  resolution: "@types/chai@npm:4.3.13"
-  checksum: 90b4ce7fd61eeb5159409f1a06cce6383c64354ce287b5cc6b5562a3bae6fb248e377f48b4bdcc8e8c545fd41b9b9cfbe6caf8bc7236eafd557b6157db19b58d
+  version: 4.3.14
+  resolution: "@types/chai@npm:4.3.14"
+  checksum: 962c67d1295005886ced8f87c73614616f6d65ed1ec71818021c9206decbaab1234da878295ba52450883c78a8ee5e1359e5deeadee3b7d058538b0ae8c67b08
   languageName: node
   linkType: hard
 
@@ -10607,9 +10607,9 @@ __metadata:
   linkType: hard
 
 "@types/qs@npm:*, @types/qs@npm:^6.9.5":
-  version: 6.9.13
-  resolution: "@types/qs@npm:6.9.13"
-  checksum: 0a8c55694fee7027dda7e1451936a5a0f8f33a8a5ea24a2e5b0cf2dc221fc21afc6939ff74ea82c5107924e87192a403e60904c339abc3cbc19bd5e90e6e1ce0
+  version: 6.9.14
+  resolution: "@types/qs@npm:6.9.14"
+  checksum: d3b76021d36b86c0063ec4b7373e9fa470754914e486fbfe54b3a8866dad037800a2c2068ecbcaa9399ae3ed15772a26b07e67793ed2519cf2de199104014716
   languageName: node
   linkType: hard
 
@@ -12185,7 +12185,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@webassemblyjs/ast@npm:1.12.1, @webassemblyjs/ast@npm:^1.11.5":
+"@webassemblyjs/ast@npm:1.12.1, @webassemblyjs/ast@npm:^1.12.1":
   version: 1.12.1
   resolution: "@webassemblyjs/ast@npm:1.12.1"
   dependencies:
@@ -12480,7 +12480,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@webassemblyjs/wasm-edit@npm:^1.11.5":
+"@webassemblyjs/wasm-edit@npm:^1.12.1":
   version: 1.12.1
   resolution: "@webassemblyjs/wasm-edit@npm:1.12.1"
   dependencies:
@@ -12585,7 +12585,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@webassemblyjs/wasm-parser@npm:1.12.1, @webassemblyjs/wasm-parser@npm:^1.11.5":
+"@webassemblyjs/wasm-parser@npm:1.12.1, @webassemblyjs/wasm-parser@npm:^1.12.1":
   version: 1.12.1
   resolution: "@webassemblyjs/wasm-parser@npm:1.12.1"
   dependencies:
@@ -13405,15 +13405,16 @@ __metadata:
   linkType: hard
 
 "array-includes@npm:^3.1.6, array-includes@npm:^3.1.7":
-  version: 3.1.7
-  resolution: "array-includes@npm:3.1.7"
+  version: 3.1.8
+  resolution: "array-includes@npm:3.1.8"
   dependencies:
-    call-bind: ^1.0.2
-    define-properties: ^1.2.0
-    es-abstract: ^1.22.1
-    get-intrinsic: ^1.2.1
+    call-bind: ^1.0.7
+    define-properties: ^1.2.1
+    es-abstract: ^1.23.2
+    es-object-atoms: ^1.0.0
+    get-intrinsic: ^1.2.4
     is-string: ^1.0.7
-  checksum: 06f9e4598fac12a919f7c59a3f04f010ea07f0b7f0585465ed12ef528a60e45f374e79d1bddbb34cdd4338357d00023ddbd0ac18b0be36964f5e726e8965d7fc
+  checksum: eb39ba5530f64e4d8acab39297c11c1c5be2a4ea188ab2b34aba5fb7224d918f77717a9d57a3e2900caaa8440e59431bdaf5c974d5212ef65d97f132e38e2d91
   languageName: node
   linkType: hard
 
@@ -13500,15 +13501,17 @@ __metadata:
   linkType: hard
 
 "array.prototype.reduce@npm:^1.0.6":
-  version: 1.0.6
-  resolution: "array.prototype.reduce@npm:1.0.6"
+  version: 1.0.7
+  resolution: "array.prototype.reduce@npm:1.0.7"
   dependencies:
-    call-bind: ^1.0.2
-    define-properties: ^1.2.0
-    es-abstract: ^1.22.1
+    call-bind: ^1.0.7
+    define-properties: ^1.2.1
+    es-abstract: ^1.23.2
     es-array-method-boxes-properly: ^1.0.0
+    es-errors: ^1.3.0
+    es-object-atoms: ^1.0.0
     is-string: ^1.0.7
-  checksum: c709c3f5caa2aac4fb10e0c6c1982cca50328a2a48658d53b1da8ee3a78069ad67cdac21296d6285521aa3a932a8178c0e192b5fc831fae2977b69a5a8a64ad7
+  checksum: 90303617bd70c8e9a81ebff041d3e10fad1a97f163699cb015b7c84a3f9e6960d9bb161a30f1d0309d6e476f166af5668c1e24f7add3202213d25f7c7f15475d
   languageName: node
   linkType: hard
 
@@ -13786,11 +13789,11 @@ __metadata:
   linkType: hard
 
 "autoprefixer@npm:^10.4.13, autoprefixer@npm:^10.4.14":
-  version: 10.4.18
-  resolution: "autoprefixer@npm:10.4.18"
+  version: 10.4.19
+  resolution: "autoprefixer@npm:10.4.19"
   dependencies:
     browserslist: ^4.23.0
-    caniuse-lite: ^1.0.30001591
+    caniuse-lite: ^1.0.30001599
     fraction.js: ^4.3.7
     normalize-range: ^0.1.2
     picocolors: ^1.0.0
@@ -13799,7 +13802,7 @@ __metadata:
     postcss: ^8.1.0
   bin:
     autoprefixer: bin/autoprefixer
-  checksum: 3c6fe631db3c36f36e5d56ef93891ac44be00bc2d50001b23703e99c3618bdb8807a97413af1252314ec043aee57ef80775f4f2cc3599db2662cbf05a08210df
+  checksum: 3a4bc5bace05e057396dca2b306503efc175e90e8f2abf5472d3130b72da1d54d97c0ee05df21bf04fe66a7df93fd8c8ec0f1aca72a165f4701a02531abcbf11
   languageName: node
   linkType: hard
 
@@ -13826,12 +13829,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:^0.24.0":
-  version: 0.24.0
-  resolution: "axios@npm:0.24.0"
+"axios@npm:1.6.8":
+  version: 1.6.8
+  resolution: "axios@npm:1.6.8"
   dependencies:
-    follow-redirects: ^1.14.4
-  checksum: 468cf496c08a6aadfb7e699bebdac02851e3043d4e7d282350804ea8900e30d368daa6e3cd4ab83b8ddb5a3b1e17a5a21ada13fc9cebd27b74828f47a4236316
+    follow-redirects: ^1.15.6
+    form-data: ^4.0.0
+    proxy-from-env: ^1.1.0
+  checksum: bf007fa4b207d102459300698620b3b0873503c6d47bf5a8f6e43c0c64c90035a4f698b55027ca1958f61ab43723df2781c38a99711848d232cad7accbcdfcdd
   languageName: node
   linkType: hard
 
@@ -15087,7 +15092,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"caniuse-lite@npm:^1.0.0, caniuse-lite@npm:^1.0.30001202, caniuse-lite@npm:^1.0.30001219, caniuse-lite@npm:^1.0.30001228, caniuse-lite@npm:^1.0.30001406, caniuse-lite@npm:^1.0.30001426, caniuse-lite@npm:^1.0.30001449, caniuse-lite@npm:^1.0.30001497, caniuse-lite@npm:^1.0.30001578, caniuse-lite@npm:^1.0.30001587, caniuse-lite@npm:^1.0.30001591":
+"caniuse-lite@npm:^1.0.0, caniuse-lite@npm:^1.0.30001202, caniuse-lite@npm:^1.0.30001219, caniuse-lite@npm:^1.0.30001228, caniuse-lite@npm:^1.0.30001406, caniuse-lite@npm:^1.0.30001426, caniuse-lite@npm:^1.0.30001449, caniuse-lite@npm:^1.0.30001497, caniuse-lite@npm:^1.0.30001578, caniuse-lite@npm:^1.0.30001587, caniuse-lite@npm:^1.0.30001599":
   version: 1.0.30001599
   resolution: "caniuse-lite@npm:1.0.30001599"
   checksum: d7e619e2e723547b7311ba0ca5134d9cd55df548e93dbedcf8a6e4ec74c7db91969c4272fb1ab2fd94cddeac6a8176ebf05853eb06689d5e76bb97d979a214b0
@@ -18322,9 +18327,9 @@ __metadata:
   linkType: hard
 
 "electron-to-chromium@npm:^1.3.723, electron-to-chromium@npm:^1.4.284, electron-to-chromium@npm:^1.4.668":
-  version: 1.4.711
-  resolution: "electron-to-chromium@npm:1.4.711"
-  checksum: 8a6fa89f4c3aa70abbe87ff908fd2c04b07a8334e22c73b0b1e92c1bfd12f0cc61ffc5092ef3787842cbced6e2cc7fb8e7bfecaeea73dac2efc1145906b5b170
+  version: 1.4.713
+  resolution: "electron-to-chromium@npm:1.4.713"
+  checksum: cffeff470a73c47763463fdc8f58854544102b572afe417defca6f511fa88dbe7e0b1720f0e64cf0cf92053aa3b086f5de24899a68a12a346f6b9b74ff1c0768
   languageName: node
   linkType: hard
 
@@ -18487,7 +18492,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"enhanced-resolve@npm:^5.10.0, enhanced-resolve@npm:^5.12.0, enhanced-resolve@npm:^5.14.1, enhanced-resolve@npm:^5.15.0":
+"enhanced-resolve@npm:^5.10.0, enhanced-resolve@npm:^5.12.0, enhanced-resolve@npm:^5.14.1, enhanced-resolve@npm:^5.16.0":
   version: 5.16.0
   resolution: "enhanced-resolve@npm:5.16.0"
   dependencies:
@@ -19908,8 +19913,8 @@ __metadata:
   linkType: hard
 
 "express@npm:^4.17.3":
-  version: 4.19.0
-  resolution: "express@npm:4.19.0"
+  version: 4.19.1
+  resolution: "express@npm:4.19.1"
   dependencies:
     accepts: ~1.3.8
     array-flatten: 1.1.1
@@ -19942,7 +19947,7 @@ __metadata:
     type-is: ~1.6.18
     utils-merge: 1.0.1
     vary: ~1.1.2
-  checksum: 0e74b33b9acd75133f259cf3019dd8da8975acae5d787e39ba004bde4943b06ad4ea8e066f93aee39bcc44c9e434583f55ff127f5175f1eea9dd21e8fde0e4d2
+  checksum: c693d64e833118d2c156c671a924468b447cec1f147656a83eeabfa80916d6d5b582aec1ad200a6c0fdae907549d95cf88e6281247b391f42982b89c862902f3
   languageName: node
   linkType: hard
 
@@ -20512,7 +20517,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"follow-redirects@npm:^1.0.0, follow-redirects@npm:^1.14.4":
+"follow-redirects@npm:^1.0.0, follow-redirects@npm:^1.15.6":
   version: 1.15.6
   resolution: "follow-redirects@npm:1.15.6"
   peerDependenciesMeta:
@@ -24945,8 +24950,8 @@ __metadata:
   linkType: hard
 
 "koa@npm:^2.13.0":
-  version: 2.15.1
-  resolution: "koa@npm:2.15.1"
+  version: 2.15.2
+  resolution: "koa@npm:2.15.2"
   dependencies:
     accepts: ^1.3.5
     cache-content-type: ^1.0.0
@@ -24971,7 +24976,7 @@ __metadata:
     statuses: ^1.5.0
     type-is: ^1.6.16
     vary: ^1.1.2
-  checksum: 4f8ed566f0e7dd270c77f0eb127d6354b4b2b7f18ffec9b7c50ba670fe3ce5c9cd210fd8bf85de3ea18c41b3a725e8e70d9a8f134fc43e76cd80dcf832594aa6
+  checksum: a55739e84a54d5534c35436427ff7a7e0671ff5df219356339acbbba39fdc832f01420b53b689abac116180ac7186f48e1bf1806f85d029c87670404b2d296b8
   languageName: node
   linkType: hard
 
@@ -26065,11 +26070,11 @@ __metadata:
   linkType: hard
 
 "markdown-to-jsx@npm:^7.1.8":
-  version: 7.4.3
-  resolution: "markdown-to-jsx@npm:7.4.3"
+  version: 7.4.4
+  resolution: "markdown-to-jsx@npm:7.4.4"
   peerDependencies:
     react: ">= 0.14.0"
-  checksum: e06c4314aabd467986385b4dda3108a08a3f3a665fa6414e56357a3edcab94d89fd5c7b3baff1ad8d62de52f4d0f9ea8d2bc560317344ae9c0f796ac9f885ee7
+  checksum: a901e68a4cf258095133b659a52b35dc7b8025706d74cb363831c664cf0c948d06098b6327dd956f0f429e31d8c7f2a272a39d16c9b370072d1012557f2ade41
   languageName: node
   linkType: hard
 
@@ -29163,7 +29168,7 @@ __metadata:
     "@justeattakeaway/browserslist-config-pie": 0.2.0
     "@justeattakeaway/generator-pie-component": 0.20.1
     "@justeattakeaway/pie-icons": 4.14.0
-    "@justeattakeaway/pie-webc-testing": 0.12.0
+    "@justeattakeaway/pie-webc-testing": 0.12.1
     "@justeattakeaway/pie-wrapper-react": 0.14.0
     "@justeattakeaway/stylelint-config-pie": 0.7.0
     "@percy/cli": 1.26.3
@@ -29220,18 +29225,18 @@ __metadata:
   dependencies:
     "@justeat/pie-design-tokens": 6.0.0
     "@justeattakeaway/pie-assistive-text": 0.2.4
-    "@justeattakeaway/pie-button": 0.45.6
-    "@justeattakeaway/pie-card": 0.17.5
+    "@justeattakeaway/pie-button": 0.46.0
+    "@justeattakeaway/pie-card": 0.18.0
     "@justeattakeaway/pie-chip": 0.3.0
-    "@justeattakeaway/pie-cookie-banner": 0.17.6
+    "@justeattakeaway/pie-cookie-banner": 0.18.0
     "@justeattakeaway/pie-css": 0.11.0
     "@justeattakeaway/pie-divider": 0.12.4
     "@justeattakeaway/pie-form-label": 0.12.2
     "@justeattakeaway/pie-icon-button": 0.27.7
     "@justeattakeaway/pie-icons-webc": 0.19.1
     "@justeattakeaway/pie-input": 0.14.0
-    "@justeattakeaway/pie-link": 0.15.4
-    "@justeattakeaway/pie-modal": 0.40.0
+    "@justeattakeaway/pie-link": 0.16.0
+    "@justeattakeaway/pie-modal": 0.41.0
     "@justeattakeaway/pie-notification": 0.3.5
     "@justeattakeaway/pie-spinner": 0.5.5
     "@justeattakeaway/pie-switch": 0.27.3
@@ -31067,13 +31072,13 @@ __metadata:
   linkType: hard
 
 "postcss@npm:^8.0.0, postcss@npm:^8.1.10, postcss@npm:^8.2.1, postcss@npm:^8.2.14, postcss@npm:^8.2.15, postcss@npm:^8.3.5, postcss@npm:^8.3.7, postcss@npm:^8.4.14, postcss@npm:^8.4.19, postcss@npm:^8.4.23, postcss@npm:^8.4.24, postcss@npm:^8.4.27, postcss@npm:^8.4.32, postcss@npm:^8.4.33, postcss@npm:^8.4.35, postcss@npm:^8.4.4":
-  version: 8.4.37
-  resolution: "postcss@npm:8.4.37"
+  version: 8.4.38
+  resolution: "postcss@npm:8.4.38"
   dependencies:
     nanoid: ^3.3.7
     picocolors: ^1.0.0
     source-map-js: ^1.2.0
-  checksum: c6b513e1021a336207fde4a1d4f32192503328dad59cc26d46aa731840ced4463b1e8b6098877c1cd42bb9d1c5385980832739f9c183dc47602c06325b28ff57
+  checksum: 649f9e60a763ca4b5a7bbec446a069edf07f057f6d780a5a0070576b841538d1ecf7dd888f2fbfd1f76200e26c969e405aeeae66332e6927dbdc8bdcb90b9451
   languageName: node
   linkType: hard
 
@@ -31415,7 +31420,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"proxy-from-env@npm:1.1.0, proxy-from-env@npm:^1.0.0":
+"proxy-from-env@npm:1.1.0, proxy-from-env@npm:^1.0.0, proxy-from-env@npm:^1.1.0":
   version: 1.1.0
   resolution: "proxy-from-env@npm:1.1.0"
   checksum: ed7fcc2ba0a33404958e34d95d18638249a68c430e30fcb6c478497d72739ba64ce9810a24f53a7d921d0c065e5b78e3822759800698167256b04659366ca4d4
@@ -36638,13 +36643,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:5.4.2, typescript@npm:^4.6.4 || ^5.2.2":
+"typescript@npm:5.4.2":
   version: 5.4.2
   resolution: "typescript@npm:5.4.2"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
   checksum: 96d80fde25a09bcb04d399082fb27a808a9e17c2111e43849d2aafbd642d835e4f4ef0de09b0ba795ec2a700be6c4c2c3f62bf4660c05404c948727b5bbfb32a
+  languageName: node
+  linkType: hard
+
+"typescript@npm:^4.6.4 || ^5.2.2":
+  version: 5.4.3
+  resolution: "typescript@npm:5.4.3"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: d74d731527e35e64d8d2dcf2f897cf8cfbc3428be0ad7c48434218ba4ae41239f53be7c90714089db1068c05cae22436af2ecba71fd36ecc5e7a9118af060198
   languageName: node
   linkType: hard
 
@@ -36698,13 +36713,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@5.4.2#~builtin<compat/typescript>, typescript@patch:typescript@^4.6.4 || ^5.2.2#~builtin<compat/typescript>":
+"typescript@patch:typescript@5.4.2#~builtin<compat/typescript>":
   version: 5.4.2
   resolution: "typescript@patch:typescript@npm%3A5.4.2#~builtin<compat/typescript>::version=5.4.2&hash=5adc0c"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
   checksum: 797ac213c03a19749181c745647b4cab03d13bf4b6b738b05a3426f46c6b540f908989e839d9b0c89d7a4ee2bdb50493b4d4898d4ef1c897c3e9d0b082e78a67
+  languageName: node
+  linkType: hard
+
+"typescript@patch:typescript@^4.6.4 || ^5.2.2#~builtin<compat/typescript>":
+  version: 5.4.3
+  resolution: "typescript@patch:typescript@npm%3A5.4.3#~builtin<compat/typescript>::version=5.4.3&hash=5adc0c"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: 523ec29bc308b4ca0cec9a139ac08a27939891d8ad620d249cf5e1a35454e37cd7bb52613a1884f1206aa11d2fb1c4c83fb9e939bde542aaa8527ba818cb8177
   languageName: node
   linkType: hard
 
@@ -38184,7 +38209,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"watchpack@npm:^2.2.0, watchpack@npm:^2.4.0":
+"watchpack@npm:^2.2.0, watchpack@npm:^2.4.0, watchpack@npm:^2.4.1":
   version: 2.4.1
   resolution: "watchpack@npm:2.4.1"
   dependencies:
@@ -38218,7 +38243,7 @@ __metadata:
     "@angular/platform-browser": 15.2.0
     "@angular/platform-browser-dynamic": 15.2.0
     "@angular/router": 15.2.0
-    "@justeattakeaway/pie-button": 0.45.6
+    "@justeattakeaway/pie-button": 0.46.0
     "@justeattakeaway/pie-css": 0.11.0
     rxjs: 7.8.0
     tslib: 2.3.0
@@ -38238,8 +38263,8 @@ __metadata:
     "@babel/plugin-transform-runtime": 7.21.4
     "@babel/preset-env": 7.21.4
     "@babel/preset-react": 7.18.6
-    "@justeattakeaway/pie-button": 0.45.6
-    "@justeattakeaway/pie-cookie-banner": 0.17.6
+    "@justeattakeaway/pie-button": 0.46.0
+    "@justeattakeaway/pie-cookie-banner": 0.18.0
     "@justeattakeaway/pie-css": 0.11.0
     "@lit/react": 1.0.2
     babel-loader: 8
@@ -38256,7 +38281,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "wc-next13@workspace:apps/examples/wc-next13"
   dependencies:
-    "@justeattakeaway/pie-button": 0.45.6
+    "@justeattakeaway/pie-button": 0.46.0
     "@justeattakeaway/pie-css": 0.11.0
     "@lit-labs/nextjs": 0.1.3
     "@lit/react": 1.0.2
@@ -38278,7 +38303,7 @@ __metadata:
     "@babel/plugin-transform-logical-assignment-operators": 7.22.11
     "@babel/plugin-transform-nullish-coalescing-operator": 7.22.11
     "@babel/plugin-transform-optional-chaining": 7.23.0
-    "@justeattakeaway/pie-button": 0.45.6
+    "@justeattakeaway/pie-button": 0.46.0
     "@justeattakeaway/pie-css": 0.11.0
     babel-loader: 8
     core-js: 3.30.0
@@ -38293,7 +38318,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "wc-nuxt3@workspace:apps/examples/wc-nuxt3"
   dependencies:
-    "@justeattakeaway/pie-button": 0.45.6
+    "@justeattakeaway/pie-button": 0.46.0
     "@justeattakeaway/pie-css": 0.11.0
     "@types/node": 18
     nuxt: 3.4.3
@@ -38305,7 +38330,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "wc-react17@workspace:apps/examples/wc-react17"
   dependencies:
-    "@justeattakeaway/pie-button": 0.45.6
+    "@justeattakeaway/pie-button": 0.46.0
     "@justeattakeaway/pie-css": 0.11.0
     "@lit/react": 1.0.2
     react: 17.0.2
@@ -38318,7 +38343,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "wc-react18@workspace:apps/examples/wc-react18"
   dependencies:
-    "@justeattakeaway/pie-button": 0.45.6
+    "@justeattakeaway/pie-button": 0.46.0
     "@justeattakeaway/pie-css": 0.11.0
     "@lit/react": 1.0.2
     react: 18.2.0
@@ -38332,11 +38357,11 @@ __metadata:
   resolution: "wc-vanilla@workspace:apps/examples/wc-vanilla"
   dependencies:
     "@justeat/pie-design-tokens": 6.0.0
-    "@justeattakeaway/pie-button": 0.45.6
+    "@justeattakeaway/pie-button": 0.46.0
     "@justeattakeaway/pie-css": 0.11.0
     "@justeattakeaway/pie-icon-button": 0.27.7
     "@justeattakeaway/pie-icons-webc": 0.19.1
-    "@justeattakeaway/pie-modal": 0.40.0
+    "@justeattakeaway/pie-modal": 0.41.0
     vite: 4.5.2
   languageName: unknown
   linkType: soft
@@ -38345,7 +38370,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "wc-vue3@workspace:apps/examples/wc-vue3"
   dependencies:
-    "@justeattakeaway/pie-button": 0.45.6
+    "@justeattakeaway/pie-button": 0.46.0
     "@justeattakeaway/pie-css": 0.11.0
     "@types/node": 18.15.11
     "@vitejs/plugin-vue": 4.0.0
@@ -38799,24 +38824,24 @@ __metadata:
   linkType: hard
 
 "webpack@npm:^5.64.4":
-  version: 5.90.3
-  resolution: "webpack@npm:5.90.3"
+  version: 5.91.0
+  resolution: "webpack@npm:5.91.0"
   dependencies:
     "@types/eslint-scope": ^3.7.3
     "@types/estree": ^1.0.5
-    "@webassemblyjs/ast": ^1.11.5
-    "@webassemblyjs/wasm-edit": ^1.11.5
-    "@webassemblyjs/wasm-parser": ^1.11.5
+    "@webassemblyjs/ast": ^1.12.1
+    "@webassemblyjs/wasm-edit": ^1.12.1
+    "@webassemblyjs/wasm-parser": ^1.12.1
     acorn: ^8.7.1
     acorn-import-assertions: ^1.9.0
     browserslist: ^4.21.10
     chrome-trace-event: ^1.0.2
-    enhanced-resolve: ^5.15.0
+    enhanced-resolve: ^5.16.0
     es-module-lexer: ^1.2.1
     eslint-scope: 5.1.1
     events: ^3.2.0
     glob-to-regexp: ^0.4.1
-    graceful-fs: ^4.2.9
+    graceful-fs: ^4.2.11
     json-parse-even-better-errors: ^2.3.1
     loader-runner: ^4.2.0
     mime-types: ^2.1.27
@@ -38824,14 +38849,14 @@ __metadata:
     schema-utils: ^3.2.0
     tapable: ^2.1.1
     terser-webpack-plugin: ^5.3.10
-    watchpack: ^2.4.0
+    watchpack: ^2.4.1
     webpack-sources: ^3.2.3
   peerDependenciesMeta:
     webpack-cli:
       optional: true
   bin:
     webpack: bin/webpack.js
-  checksum: de0c824ac220f41cc1153ac33e081d46260b104c4f2fda26f011cdf7a73f74cc091f288cb1fc16f88a36e35bac44e0aa85fc9922fdf3109dfb361f46b20f3fcc
+  checksum: f1073715dbb1ed5c070affef293d800a867708bcbc5aba4d8baee87660e0cf53c55966a6f36fab078d1d6c9567cdcd0a9086bdfb607cab87ea68c6449791b9a3
   languageName: node
   linkType: hard
 
