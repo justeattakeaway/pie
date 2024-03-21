@@ -94,22 +94,17 @@ const initialValues: NotificationProps = {
     leadingAction: {
         text: 'Confirm',
         ariaLabel: 'Button that confirm the action',
-        onClick: () => { console.info('confirmAction'); },
     },
 };
 
 test.describe('Props', () => {
-    const confirmAction = () => { console.info('confirmAction'); };
-    const cancelAction = () => { console.info('cancelAction'); };
     const mainAction = {
         text: 'Confirm',
         ariaLabel: 'Button that confirm the action',
-        onClick: confirmAction,
     };
     const secondaryAction = {
         text: 'Cancel',
         ariaLabel: 'Button that cancel the action',
-        onClick: cancelAction,
     };
 
     test.describe('PieNotification headingLevels', () => {

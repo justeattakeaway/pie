@@ -267,10 +267,9 @@ export class PieNotification extends LitElement implements NotificationProps {
     }
 
     /**
-     * It handle the action button action. It is called if action button has `onClick` as part of its action props.
+     * It handle the action button action.
      * Also triggers an event according to its `actionType`.
      *
-     * @param {NonNullable<ActionProps['onClick']>} action
      * @param {'leading' | 'supporting'} actionType
      *
      * @private
