@@ -38,7 +38,7 @@ test.describe('PieCookieBanner - Component tests', () => {
         const cookieBanner = await pieCookieBannerComponent.isCookieBannerVisible();
 
         // Assert
-        expect(cookieBanner).toBeTruthy();
+        expect(cookieBanner).toBe(true);
     });
 
     [{ name: 'action' }, { name: 'body' }].forEach((elementLevel) => {
@@ -56,10 +56,10 @@ test.describe('PieCookieBanner - Component tests', () => {
 
             // Act
             await pieCookieBannerComponent.clickAcceptAll(elementLevel.name);
-            const cookieBanner = await pieCookieBannerComponent.isCookieBannerVisible();
+            const isCookieBannerVisible = await pieCookieBannerComponent.isCookieBannerVisible();
 
             // Assert
-            expect.soft(cookieBanner).toBeFalsy();
+            expect.soft(isCookieBannerVisible).toBe(false);
             expect(events).toHaveLength(1);
         });
     });
@@ -79,10 +79,10 @@ test.describe('PieCookieBanner - Component tests', () => {
 
             // Act
             await pieCookieBannerComponent.clickNecessaryOnlyAll(elementLevel.name);
-            const cookieBanner = await pieCookieBannerComponent.isCookieBannerVisible();
+            const isCookieBannerVisible = await pieCookieBannerComponent.isCookieBannerVisible();
 
             // Assert
-            expect.soft(cookieBanner).toBeFalsy();
+            expect.soft(isCookieBannerVisible).toBe(false);
             expect(events).toHaveLength(1);
         });
     });
@@ -103,12 +103,12 @@ test.describe('PieCookieBanner - Component tests', () => {
             // Act
             await pieCookieBannerComponent.clickManagePreferencesAll(elementLevel.name);
 
-            const modal = pieModalComponent.isModalVisible();
-            const cookieBanner = await pieCookieBannerComponent.isCookieBannerVisible();
+            const isModalVisible = await pieModalComponent.isModalVisible();
+            const isCookieBannerVisible = await pieCookieBannerComponent.isCookieBannerVisible();
 
             // Assert
-            expect.soft(modal).toBeTruthy();
-            expect.soft(cookieBanner).toBeFalsy();
+            expect.soft(isModalVisible).toBe(true);
+            expect.soft(isCookieBannerVisible).toBe(false);
             expect(events).toHaveLength(1);
         });
     });
@@ -123,12 +123,12 @@ test.describe('PieCookieBanner - Component tests', () => {
         await pieCookieBannerComponent.clickManagePreferencesAction();
         await pieModalComponent.clickBackModal();
 
-        const cookieBanner = await pieCookieBannerComponent.isCookieBannerVisible();
-        const modal = await pieModalComponent.isModalVisible();
+        const isCookieBannerVisible = await pieCookieBannerComponent.isCookieBannerVisible();
+        const isModalVisible = await pieModalComponent.isModalVisible();
 
         // Assert
-        expect.soft(modal).toBeFalsy();
-        expect(cookieBanner).toBeTruthy();
+        expect.soft(isModalVisible).toBe(false);
+        expect(isCookieBannerVisible).toBe(true);
     });
 
     test('should close the modal and cookie banner and emit the save event  when the save button in "Manage preferences" is clicked', async ({ mount }) => {
@@ -149,12 +149,12 @@ test.describe('PieCookieBanner - Component tests', () => {
         const [expectedCookieBannerPrefsSavedEvent] = preferences.filter(({ id }) => id !== 'all')
         .map(({ id, checked }) => ({ [id]: !!checked }));
 
-        const cookieBanner = await pieCookieBannerComponent.isCookieBannerVisible();
-        const modal = await pieModalComponent.isModalVisible();
+        const isCookieBannerVisible = await pieCookieBannerComponent.isCookieBannerVisible();
+        const isModalVisible = await pieModalComponent.isModalVisible();
 
         // Assert
-        expect(modal).toBeFalsy();
-        expect(cookieBanner).toBeFalsy();
+        expect(isModalVisible).toBe(false);
+        expect(isCookieBannerVisible).toBe(false);
         expect(cookieBannerPrefsSavedEvent).toMatchObject(expectedCookieBannerPrefsSavedEvent);
     });
 
@@ -166,12 +166,12 @@ test.describe('PieCookieBanner - Component tests', () => {
 
         // Act
         await pieCookieBannerComponent.clickManagePreferencesAction();
-        const necessaryPreferenceToggleChecked = await pieCookieBannerComponent.isPreferenceToggleChecked('necessary');
-        const necessaryPreferenceToggleDisabled = await pieCookieBannerComponent.isPreferenceToggleDisabled('necessary');
+        const isNecessaryPreferenceToggleChecked = await pieCookieBannerComponent.isPreferenceToggleChecked('necessary');
+        const isNecessaryPreferenceToggleDisabled = await pieCookieBannerComponent.isPreferenceToggleDisabled('necessary');
 
         // Assert
-        await expect(necessaryPreferenceToggleChecked).toBeTruthy();
-        await expect(necessaryPreferenceToggleDisabled).toBeTruthy();
+        expect(isNecessaryPreferenceToggleChecked).toBe(true);
+        expect(isNecessaryPreferenceToggleDisabled).toBe(true);
     });
 
     test('should toggle all preferences if the `all` preference node is set to true', async ({ mount }) => {
@@ -207,10 +207,10 @@ test.describe('PieCookieBanner - Component tests', () => {
                 await pieCookieBannerComponent.clickPreferenceToggle(preference.id);
             }
         }
-        const toggleAllSelector = await pieCookieBannerComponent.isPreferenceToggleChecked('all');
+        const isToggleAllSelectorChecked = await pieCookieBannerComponent.isPreferenceToggleChecked('all');
 
         // Assert
-        await expect(toggleAllSelector).toBeTruthy();
+        expect(isToggleAllSelectorChecked).toBe(true);
     });
 
     test('should turn off all preferences if the `all` preference is set to false except for the necessary preference', async ({ mount }) => {
@@ -241,10 +241,10 @@ test.describe('PieCookieBanner - Component tests', () => {
         await pieCookieBannerComponent.clickManagePreferencesAction();
         await pieCookieBannerComponent.clickPreferenceToggle('all'); // turn on all nodes
         await pieCookieBannerComponent.clickPreferenceToggle('functional'); // turn off one of the preferences
-        const toggleAllSelector = await pieCookieBannerComponent.isPreferenceToggleChecked('all');
+        const isToggleAllSelectorChecked = await pieCookieBannerComponent.isPreferenceToggleChecked('all');
 
         // Assert
-        await expect(toggleAllSelector).toBeFalsy();
+        expect(isToggleAllSelectorChecked).toBe(false);
     });
 
     test.describe('`locale` prop', () => {
@@ -253,26 +253,26 @@ test.describe('PieCookieBanner - Component tests', () => {
             await mount(PieCookieBanner, {});
 
             // Act
-            const acceptAllButton = await pieCookieBannerComponent.getAcceptAllTextContent();
-            const necessaryOnlyButton = await pieCookieBannerComponent.getNecessaryOnlyTextContent();
-            const managePreferencesButton = await pieCookieBannerComponent.getManagePreferencesTextContent();
-            const componentDescription = await pieCookieBannerComponent.getComponentDescriptionTextContent();
-            const modalDescription = await pieModalComponent.getDescriptionTextContent();
+            const acceptAllButtonText = await pieCookieBannerComponent.getAcceptAllTextContent();
+            const necessaryOnlyButtonText = await pieCookieBannerComponent.getNecessaryOnlyTextContent();
+            const managePreferencesButtonText = await pieCookieBannerComponent.getManagePreferencesTextContent();
+            const componentDescriptionText = await pieCookieBannerComponent.getComponentDescriptionTextContent();
+            const modalDescriptionText = await pieModalComponent.getDescriptionTextContent();
 
             // Assert
-            expect(await acceptAllButton)
+            expect(acceptAllButtonText)
                 .toBe(englishLocale.banner.cta.acceptAll);
 
-            expect(await necessaryOnlyButton)
+            expect(necessaryOnlyButtonText)
                 .toBe(englishLocale.banner.cta.necessaryOnly);
 
-            expect(await managePreferencesButton)
+            expect(managePreferencesButtonText)
                 .toBe(englishLocale.banner.cta.managePreferences);
 
-            expect(await componentDescription)
+            expect(componentDescriptionText)
                 .toBe(stripTags(englishLocale.banner.description));
 
-            expect(await modalDescription)
+            expect(modalDescriptionText)
                 .toBe(stripTags(englishLocale.preferencesManagement.description));
         });
 
@@ -281,26 +281,26 @@ test.describe('PieCookieBanner - Component tests', () => {
             await mount(PieCookieBanner, { props: { locale: spanishLocale } as CookieBannerProps });
 
             // Act
-            const acceptAllButton = await pieCookieBannerComponent.getAcceptAllTextContent();
-            const necessaryOnlyButton = await pieCookieBannerComponent.getNecessaryOnlyTextContent();
-            const managePreferencesButton = await pieCookieBannerComponent.getManagePreferencesTextContent();
-            const componentDescription = await pieCookieBannerComponent.getComponentDescriptionTextContent();
-            const modalDescription = await pieModalComponent.getDescriptionTextContent();
+            const acceptAllButtonText = await pieCookieBannerComponent.getAcceptAllTextContent();
+            const necessaryOnlyButtonText = await pieCookieBannerComponent.getNecessaryOnlyTextContent();
+            const managePreferencesButtonText = await pieCookieBannerComponent.getManagePreferencesTextContent();
+            const componentDescriptionText = await pieCookieBannerComponent.getComponentDescriptionTextContent();
+            const modalDescriptionText = await pieModalComponent.getDescriptionTextContent();
 
             // Assert
-            expect(acceptAllButton)
+            expect(acceptAllButtonText)
                 .toBe(spanishLocale.banner.cta.acceptAll);
 
-            expect(necessaryOnlyButton)
+            expect(necessaryOnlyButtonText)
                 .toBe(spanishLocale.banner.cta.necessaryOnly);
 
-            expect(managePreferencesButton)
+            expect(managePreferencesButtonText)
                 .toBe(spanishLocale.banner.cta.managePreferences);
 
-            expect(componentDescription)
+            expect(componentDescriptionText)
                 .toBe(stripTags(spanishLocale.banner.description));
 
-            expect(modalDescription)
+            expect(modalDescriptionText)
                 .toBe(stripTags(spanishLocale.preferencesManagement.description));
         });
     });
@@ -318,12 +318,12 @@ test.describe('PieCookieBanner - Component tests', () => {
             );
 
             // Act
-            const acceptAllButton = await pieCookieBannerComponent.getAcceptAllVariant('variant');
-            const necessaryOnlyButton = await pieCookieBannerComponent.getNecessaryOnlyButtonVariant('variant');
+            const acceptAllButtonVariant = await pieCookieBannerComponent.getAcceptAllVariant('variant');
+            const necessaryOnlyButtonVariant = await pieCookieBannerComponent.getNecessaryOnlyButtonVariant('variant');
 
             // Assert
-            expect(acceptAllButton).toBe('primary');
-            expect(necessaryOnlyButton).toBe('primary');
+            expect(acceptAllButtonVariant).toBe('primary');
+            expect(necessaryOnlyButtonVariant).toBe('primary');
         });
 
         [false, undefined].forEach((hasPrimaryActionsOnly) => {
@@ -337,12 +337,12 @@ test.describe('PieCookieBanner - Component tests', () => {
                 );
 
                 // Act
-                const acceptAllButton = await pieCookieBannerComponent.getAcceptAllVariant('variant');
-                const necessaryOnlyButton = await pieCookieBannerComponent.getNecessaryOnlyButtonVariant('variant');
+                const acceptAllButtonVariant = await pieCookieBannerComponent.getAcceptAllVariant('variant');
+                const necessaryOnlyButtonVariant = await pieCookieBannerComponent.getNecessaryOnlyButtonVariant('variant');
 
                 // Assert
-                expect(acceptAllButton).toBe('primary');
-                expect(necessaryOnlyButton).toBe('outline-inverse');
+                expect(acceptAllButtonVariant).toBe('primary');
+                expect(necessaryOnlyButtonVariant).toBe('outline-inverse');
             });
         });
     });
@@ -359,10 +359,10 @@ test.describe('PieCookieBanner - Component tests', () => {
                 );
 
                 // Act
-                const cookieStatementLink = await pieCookieBannerComponent.getBannerCookieStatementLinkAttribute('href');
+                const cookieStatementLinkHref = await pieCookieBannerComponent.getBannerCookieStatementLinkAttribute('href');
 
                 // Assert
-                expect(cookieStatementLink).toBe('');
+                expect(cookieStatementLinkHref).toBe('');
             });
 
             test('should set a default cookie statement link of empty string within the modal description', async ({ mount }) => {
@@ -375,10 +375,10 @@ test.describe('PieCookieBanner - Component tests', () => {
                 );
 
                 // Act
-                const cookieStatementLink = await pieCookieBannerComponent.getModalCookieStatementLinkAttribute('href');
+                const cookieStatementLinkHref = await pieCookieBannerComponent.getModalCookieStatementLinkAttribute('href');
 
                 // Assert
-                expect(cookieStatementLink).toBe('');
+                expect(cookieStatementLinkHref).toBe('');
             });
         });
 
@@ -396,10 +396,10 @@ test.describe('PieCookieBanner - Component tests', () => {
                 );
 
                 // Act
-                const cookieStatementLink = await pieCookieBannerComponent.getBannerCookieStatementLinkAttribute('href');
+                const cookieStatementLinkHref = await pieCookieBannerComponent.getBannerCookieStatementLinkAttribute('href');
 
                 // Assert
-                expect(cookieStatementLink).toBe(cookieStatementUrl);
+                expect(cookieStatementLinkHref).toBe(cookieStatementUrl);
             });
 
             test('should set a cookie statement link correctly within the modal description', async ({ mount }) => {
@@ -415,10 +415,10 @@ test.describe('PieCookieBanner - Component tests', () => {
                 );
 
                 // Act
-                const cookieStatementLink = await pieCookieBannerComponent.getModalCookieStatementLinkAttribute('href');
+                const cookieStatementLinkHref = await pieCookieBannerComponent.getModalCookieStatementLinkAttribute('href');
 
                 // Assert
-                expect(cookieStatementLink).toBe(cookieStatementUrl);
+                expect(cookieStatementLinkHref).toBe(cookieStatementUrl);
             });
         });
     });
@@ -435,10 +435,10 @@ test.describe('PieCookieBanner - Component tests', () => {
                 );
 
                 // Act
-                const cookieTechnologyLink = await pieCookieBannerComponent.getBannerCookieStatementLinkAttribute('href');
+                const cookieTechnologyLinkHref = await pieCookieBannerComponent.getBannerCookieStatementLinkAttribute('href');
 
                 // Assert
-                expect(cookieTechnologyLink).toBe('');
+                expect(cookieTechnologyLinkHref).toBe('');
             });
 
             test('should set a default cookie technology link of empty string within the modal container', async ({ mount }) => {
@@ -451,10 +451,10 @@ test.describe('PieCookieBanner - Component tests', () => {
                 );
 
                 // Act
-                const cookieTechnologyLink = await pieCookieBannerComponent.getModalCookieTechnologiesLinkAttribute('href');
+                const cookieTechnologyLinkHref = await pieCookieBannerComponent.getModalCookieTechnologiesLinkAttribute('href');
 
                 // Assert
-                expect(cookieTechnologyLink).toBe('');
+                expect(cookieTechnologyLinkHref).toBe('');
             });
         });
 
@@ -472,10 +472,10 @@ test.describe('PieCookieBanner - Component tests', () => {
                 );
 
                 // Act
-                const cookieTechnologyLink = await pieCookieBannerComponent.getModalCookieTechnologiesLinkAttribute('href');
+                const cookieTechnologyLinkHref = await pieCookieBannerComponent.getModalCookieTechnologiesLinkAttribute('href');
 
                 // Assert
-                expect(cookieTechnologyLink).toBe(cookieTechnologyUrl);
+                expect(cookieTechnologyLinkHref).toBe(cookieTechnologyUrl);
             });
         });
     });
@@ -496,14 +496,14 @@ test.describe('PieCookieBanner - Component tests', () => {
                 // Act
                 await pieCookieBannerComponent.clickManagePreferencesAction();
 
-                const functionalToggle = await pieCookieBannerComponent.isPreferenceToggleChecked('functional');
-                const personalizedToggle = await pieCookieBannerComponent.isPreferenceToggleChecked('personalized');
-                const analyticalToggle = await pieCookieBannerComponent.isPreferenceToggleChecked('analytical');
+                const isFunctionalToggleChecked = await pieCookieBannerComponent.isPreferenceToggleChecked('functional');
+                const isPersonalizedToggleChecked = await pieCookieBannerComponent.isPreferenceToggleChecked('personalized');
+                const isAnalyticalToggleChecked = await pieCookieBannerComponent.isPreferenceToggleChecked('analytical');
 
                 // Assert
-                expect(functionalToggle).toBeTruthy();
-                expect(personalizedToggle).toBeTruthy();
-                expect(analyticalToggle).toBeTruthy();
+                expect(isFunctionalToggleChecked).toBe(true);
+                expect(isPersonalizedToggleChecked).toBe(true);
+                expect(isAnalyticalToggleChecked).toBe(true);
             });
 
             test('should check `all` toggle when all three props are passed in', async ({ mount }) => {
@@ -519,10 +519,10 @@ test.describe('PieCookieBanner - Component tests', () => {
 
                 // Act
                 await pieCookieBannerComponent.clickManagePreferencesAction();
-                const output = await pieCookieBannerComponent.isPreferenceToggleChecked('all');
+                const areAllTogglesChecked = await pieCookieBannerComponent.isPreferenceToggleChecked('all');
 
                 // Assert
-                expect(output).toBeTruthy();
+                expect(areAllTogglesChecked).toBe(true);
             });
         });
 
@@ -532,10 +532,10 @@ test.describe('PieCookieBanner - Component tests', () => {
 
                 // Act
                 await pieCookieBannerComponent.clickManagePreferencesAction();
-                const output = await pieCookieBannerComponent.isPreferenceToggleChecked('functional');
+                const isFunctionalToggleChecked = await pieCookieBannerComponent.isPreferenceToggleChecked('functional');
 
                 // Assert
-                expect(output).toBeTruthy();
+                expect(isFunctionalToggleChecked).toBe(true);
             });
 
             test('should not toggle the position to `on` for properties not included in the defaultPreferences list', async ({ mount }) => {
@@ -543,12 +543,12 @@ test.describe('PieCookieBanner - Component tests', () => {
 
                 // Act
                 await pieCookieBannerComponent.clickManagePreferencesAction();
-                const analyticalToggle = await pieCookieBannerComponent.isPreferenceToggleChecked('analytical');
-                const personalizedToggle = await pieCookieBannerComponent.isPreferenceToggleChecked('personalized');
+                const isAnalyticalToggleChecked = await pieCookieBannerComponent.isPreferenceToggleChecked('analytical');
+                const isPersonalizedToggleChecked = await pieCookieBannerComponent.isPreferenceToggleChecked('personalized');
 
                 // Assert
-                expect(analyticalToggle).toBeFalsy();
-                expect(personalizedToggle).toBeFalsy();
+                expect(isAnalyticalToggleChecked).toBe(false);
+                expect(isPersonalizedToggleChecked).toBe(false);
             });
 
             test('should not set the `all` toggle to `checked`', async ({ mount }) => {
@@ -561,10 +561,10 @@ test.describe('PieCookieBanner - Component tests', () => {
 
                 // Act
                 await pieCookieBannerComponent.clickManagePreferencesAction();
-                const allPreferenceToggle = await pieCookieBannerComponent.isPreferenceToggleChecked('all');
+                const isAllPreferenceToggleChecked = await pieCookieBannerComponent.isPreferenceToggleChecked('all');
 
                 // Assert
-                expect(allPreferenceToggle).toBeFalsy();
+                expect(isAllPreferenceToggleChecked).toBe(false);
             });
         });
     });

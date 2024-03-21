@@ -10,17 +10,17 @@ import {
 const getPreferenceItemSelector = (id: PreferenceIds) => `#${id} [data-test-id="switch-component"]`;
 
 export class PieCookieBannerComponent extends BasePage {
-    readonly componentLocator: Locator;
-    readonly descriptionLocator: Locator;
-    readonly acceptAllButtonLocator: Locator;
-    readonly necessaryOnlyButtonLocator: Locator;
-    readonly managePrefsLinkLocator: Locator;
-    readonly bodyAcceptAllLinkLocator: Locator;
-    readonly bodyNecessaryOnlyLinkLocator;
-    readonly bodyManagePreferencesLinkLocator: Locator;
-    readonly bodyCookieStatementLinkLocator: Locator;
-    readonly bodyCookieTechnologiesLinkLocator: Locator;
-    readonly modalDescriptionLocator: Locator;
+    private readonly componentLocator: Locator;
+    private readonly descriptionLocator: Locator;
+    private readonly acceptAllButtonLocator: Locator;
+    private readonly necessaryOnlyButtonLocator: Locator;
+    private readonly managePrefsLinkLocator: Locator;
+    private readonly bodyAcceptAllLinkLocator: Locator;
+    private readonly bodyNecessaryOnlyLinkLocator;
+    private readonly bodyManagePreferencesLinkLocator: Locator;
+    private readonly bodyCookieStatementLinkLocator: Locator;
+    private readonly bodyCookieTechnologiesLinkLocator: Locator;
+    private readonly modalDescriptionLocator: Locator;
 
     constructor (page: Page) {
         super(page);
@@ -37,102 +37,246 @@ export class PieCookieBannerComponent extends BasePage {
         this.modalDescriptionLocator = page.getByTestId(cookieBanner.selectors.modalDescription.dataTestId);
     }
 
-    async isCookieBannerVisible () {
+    /**
+     * Checks whether the cookie banner is currently visible on the page.
+     *
+     * @returns {Promise<boolean>} A Promise that resolves to a boolean value indicating
+     *                             whether the cookie banner is visible (`true`) or not (`false`).
+     */
+    async isCookieBannerVisible () : Promise<boolean> {
         return this.componentLocator.isVisible();
     }
 
-    async clickAcceptAllButton () {
+    /**
+     * Clicks the "Accept All" button.
+     *
+     * @returns {Promise<void>} A Promise that resolves once the "Accept All" button
+     *                          has been successfully clicked.
+     */
+    async clickAcceptAllButton () : Promise<void> {
         await this.acceptAllButtonLocator.click();
     }
 
-    async clickBodyAcceptAllLink () {
+    /**
+     * Clicks the "Accept All" link within the body.
+     *
+     * @returns {Promise<void>} A Promise that resolves once the "Accept All" link
+     *                          within the body has been successfully clicked.
+     */
+    async clickBodyAcceptAllLink () : Promise<void> {
         await this.bodyAcceptAllLinkLocator.click();
     }
 
-    async clickAcceptAll (elementLevel: string) {
+    /**
+     * Clicks either the "Accept All" button or the "Accept All" link within the body, based on the specified element level.
+     *
+     * @param {string} elementLevel The level of the element to click, either 'action' or 'body'.
+     * @returns {Promise<void>} A Promise that resolves once the appropriate element has been successfully clicked.
+     */
+    async clickAcceptAll (elementLevel: string) : Promise<void> {
         await (elementLevel === 'action' ? this.clickAcceptAllButton() : this.clickBodyAcceptAllLink());
     }
 
-    async getAcceptAllVariant (attribute: string) {
+    /**
+     * Retrieves the value of the specified attribute from the "Accept All" button.
+     *
+     * @param {string} attribute The name of the attribute to retrieve.
+     * @returns {Promise<string | null>} A Promise that resolves to the value of the specified attribute
+     *                                   on the "Accept All" button, or `null` if the attribute does not exist.
+     */
+    async getAcceptAllVariant (attribute: string) : Promise<string | null> {
         return this.acceptAllButtonLocator.getAttribute(attribute);
     }
 
-    async clickNecessaryOnlyButton () {
+    /**
+     * Clicks the "Necessary Only" button.
+     *
+     * @returns {Promise<void>} A Promise that resolves once the "Necessary Only" button
+     *                          has been successfully clicked.
+     */
+    async clickNecessaryOnlyButton () : Promise<void> {
         await this.necessaryOnlyButtonLocator.click();
     }
 
-    async getNecessaryOnlyButtonVariant (attribute: string) {
+    /**
+     * Retrieves the value of the specified attribute from the "Necessary Only" button.
+     *
+     * @param {string} attribute The name of the attribute to retrieve.
+     * @returns {Promise<string | null>} A Promise that resolves to the value of the specified attribute
+     *                                   on the "Necessary Only" button, or `null` if the attribute does not exist.
+     */
+    async getNecessaryOnlyButtonVariant (attribute: string) : Promise<string | null> {
         return this.necessaryOnlyButtonLocator.getAttribute(attribute);
     }
 
-    async clickNecessaryOnlyLink () {
+    /**
+     * Clicks the "Necessary Only" link within the body.
+     *
+     * @returns {Promise<void>} A Promise that resolves once the "Necessary Only" link
+     *                          within the body has been successfully clicked.
+     */
+    async clickNecessaryOnlyLink () : Promise<void> {
         await this.bodyNecessaryOnlyLinkLocator.click();
     }
 
-    async clickNecessaryOnlyAll (elementLevel: string) {
+    /**
+     * Clicks either the "Necessary Only" button or the "Necessary Only" link within the body, based on the specified element level.
+     *
+     * @param {string} elementLevel The level of the element to click, either 'action' or 'body'.
+     * @returns {Promise<void>} A Promise that resolves once the appropriate element has been successfully clicked.
+     */
+    async clickNecessaryOnlyAll (elementLevel: string) : Promise<void> {
         await (elementLevel === 'action' ? this.clickNecessaryOnlyButton() : this.clickNecessaryOnlyLink());
     }
 
-    async clickManagePreferencesAction () {
+    /**
+     * Clicks the "Manage Preferences" link.
+     *
+     * @returns {Promise<void>} A Promise that resolves once the "Manage Preferences" link
+     *                          has been successfully clicked.
+     */
+    async clickManagePreferencesAction () : Promise<void> {
         await this.managePrefsLinkLocator.click();
     }
 
-    async clickManagePreferencesLink () {
+    /**
+     * Clicks the "Manage Preferences" link within the body.
+     *
+     * @returns {Promise<void>} A Promise that resolves once the "Manage Preferences" link
+     *                          within the body has been successfully clicked.
+     */
+    async clickManagePreferencesLink () : Promise<void> {
         await this.bodyManagePreferencesLinkLocator.click();
     }
 
-    async clickManagePreferencesAll (elementLevel: string) {
+    /**
+     * Clicks either the "Manage Preferences" action or the "Manage Preferences" link within the body, based on the specified element level.
+     *
+     * @param {string} elementLevel The level of the element to click, either 'action' or 'body'.
+     * @returns {Promise<void>} A Promise that resolves once the appropriate element has been successfully clicked.
+     */
+    async clickManagePreferencesAll (elementLevel: string) : Promise<void> {
         await (elementLevel === 'action' ? this.clickManagePreferencesAction() : this.clickManagePreferencesLink());
     }
 
-    async clickPreferenceToggle (preferenceIds: PreferenceIds) {
+    /**
+     * Clicks the preference toggle associated with the specified preference IDs.
+     *
+     * @param {PreferenceIds} preferenceIds The preference IDs used to locate the preference toggle.
+     * @returns {Promise<void>} A Promise that resolves once the preference toggle has been successfully clicked.
+     */
+    async clickPreferenceToggle (preferenceIds: PreferenceIds) : Promise<void> {
         const preferenceToggle = this.page.locator(getPreferenceItemSelector(preferenceIds));
         return preferenceToggle.click();
     }
 
-    async isPreferenceToggleChecked (preferenceIds: PreferenceIds) {
+    /**
+     * Checks whether the preference toggle associated with the specified preference IDs is checked.
+     *
+     * @param {PreferenceIds} preferenceIds The preference IDs used to locate the preference toggle.
+     * @returns {Promise<boolean>} A Promise that resolves to a boolean value indicating whether the preference toggle is checked (`true`) or not (`false`).
+     */
+    async isPreferenceToggleChecked (preferenceIds: PreferenceIds) : Promise<boolean> {
         const preferenceToggle = this.page.locator(getPreferenceItemSelector(preferenceIds));
         return preferenceToggle.isChecked();
     }
 
-    async isPreferenceToggleDisabled (preferenceIds: PreferenceIds) {
+    /**
+     * Checks whether the preference toggle associated with the specified preference IDs is disabled.
+     *
+     * @param {PreferenceIds} preferenceIds The preference IDs used to locate the preference toggle.
+     * @returns {Promise<boolean>} A Promise that resolves to a boolean value indicating whether the preference toggle is disabled (`true`) or not (`false`).
+     */
+    async isPreferenceToggleDisabled (preferenceIds: PreferenceIds) : Promise<boolean> {
         const preferenceToggle = this.page.locator(getPreferenceItemSelector(preferenceIds));
         return preferenceToggle.isChecked();
     }
 
-    async getAcceptAllTextContent () {
+    /**
+     * Retrieves the text content of the "Accept All" button and trims any leading or trailing whitespace.
+     *
+     * @returns {Promise<string | undefined>} A Promise that resolves to the trimmed text content of the "Accept All" button,
+     *                                        or `undefined` if the button is not found.
+     */
+    async getAcceptAllTextContent () : Promise<string | undefined> {
         const acceptAllText = await this.acceptAllButtonLocator.textContent();
         return acceptAllText?.trim();
     }
 
-    async getNecessaryOnlyTextContent () {
+    /**
+     * Retrieves the text content of the "Necessary Only" button and trims any leading or trailing whitespace.
+     *
+     * @returns {Promise<string | undefined>} A Promise that resolves to the trimmed text content of the "Necessary Only" button,
+     *                                        or `undefined` if the button is not found.
+     */
+    async getNecessaryOnlyTextContent () : Promise<string | undefined> {
         const necessaryOnlyText = await this.necessaryOnlyButtonLocator.textContent();
         return necessaryOnlyText?.trim();
     }
 
-    async getManagePreferencesTextContent () {
+    /**
+     * Retrieves the text content of the "Manage Preferences" link and trims any leading or trailing whitespace.
+     *
+     * @returns {Promise<string | undefined>} A Promise that resolves to the trimmed text content of the "Manage Preferences" link,
+     *                                        or `undefined` if the link is not found.
+     */
+    async getManagePreferencesTextContent () : Promise<string | undefined> {
         const managePreferencesText = await this.managePrefsLinkLocator.textContent();
         return managePreferencesText?.trim();
     }
 
-    async getComponentDescriptionTextContent () {
+    /**
+     * Retrieves the text content of the component's description and trims any leading or trailing whitespace.
+     *
+     * @returns {Promise<string | undefined>} A Promise that resolves to the trimmed text content of the component's description,
+     *                                        or `undefined` if the description is not found.
+     */
+    async getComponentDescriptionTextContent () : Promise<string | undefined> {
         const componentDescriptionText = await this.descriptionLocator.textContent();
         return componentDescriptionText?.trim();
     }
 
-    async getBannerCookieStatementLinkAttribute (attribute: string) {
+    /**
+     * Retrieves the value of the specified attribute from the banner cookie statement link.
+     *
+     * @param {string} attribute The name of the attribute to retrieve.
+     * @returns {Promise<string | null>} A Promise that resolves to the value of the specified attribute
+     *                                   on the banner cookie statement link, or `null` if the attribute does not exist.
+     */
+    async getBannerCookieStatementLinkAttribute (attribute: string) : Promise<string | null> {
         return this.descriptionLocator.locator(this.bodyCookieStatementLinkLocator).getAttribute(attribute);
     }
 
-    async getModalCookieStatementLinkAttribute (attribute: string) {
+    /**
+     * Retrieves the value of the specified attribute from the modal cookie statement link.
+     *
+     * @param {string} attribute The name of the attribute to retrieve.
+     * @returns {Promise<string | null>} A Promise that resolves to the value of the specified attribute
+     *                                   on the modal cookie statement link, or `null` if the attribute does not exist.
+     */
+    async getModalCookieStatementLinkAttribute (attribute: string) : Promise<string | null> {
         return this.modalDescriptionLocator.locator(this.bodyCookieStatementLinkLocator).getAttribute(attribute);
     }
 
-    async getBannerCookieTechnologiesLinkAttribute (attribute: string) {
+    /**
+     * Retrieves the value of the specified attribute from the banner cookie technologies link.
+     *
+     * @param {string} attribute The name of the attribute to retrieve.
+     * @returns {Promise<string | null>} A Promise that resolves to the value of the specified attribute
+     *                                   on the banner cookie technologies link, or `null` if the attribute does not exist.
+     */
+    async getBannerCookieTechnologiesLinkAttribute (attribute: string) : Promise<string | null> {
         return this.descriptionLocator.locator(this.bodyCookieTechnologiesLinkLocator).getAttribute(attribute);
     }
 
-    async getModalCookieTechnologiesLinkAttribute (attribute: string) {
+    /**
+     * Retrieves the value of the specified attribute from the modal cookie technologies link.
+     *
+     * @param {string} attribute The name of the attribute to retrieve.
+     * @returns {Promise<string | null>} A Promise that resolves to the value of the specified attribute
+     *                                   on the modal cookie technologies link, or `null` if the attribute does not exist.
+     */
+    async getModalCookieTechnologiesLinkAttribute (attribute: string) : Promise<string | null> {
         return this.modalDescriptionLocator.locator(this.bodyCookieTechnologiesLinkLocator).getAttribute(attribute);
     }
 }
