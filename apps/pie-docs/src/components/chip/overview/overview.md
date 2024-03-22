@@ -182,8 +182,9 @@ Choice chips allow users to select one or more chips from a set of options (mini
 
 {% contentPageImage {
     src:"../../../assets/img/components/chip/usage-choice.svg",
-    alt: "Chip components representing various cuisines",
-    width: 297
+    alt: "Chip components corresponding to a different weekday",
+    width: 274,
+    variant: "secondary"
 } %}
 
 ### Filter
@@ -192,9 +193,8 @@ Filter chips allow users to refine content by selecting one or more chips from a
 
 {% contentPageImage {
     src:"../../../assets/img/components/chip/usage-filter.svg",
-    alt: "Chip components serving as a filter, each corresponding to a different weekday",
-    width: 274,
-    variant: "secondary"
+    alt: "Chip components representing various cuisines",
+    width: 297
 } %}
 
 ### Action
