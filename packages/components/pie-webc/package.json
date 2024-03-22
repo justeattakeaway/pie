@@ -10,6 +10,20 @@
     "dist",
     "**/*.d.ts"
   ],
+  "bundlewatch": {
+    "files": [
+      {
+        "path": "./packages/components/pie-webc/dist/index.js",
+        "maxSize": "200kb",
+        "compression": "none"
+      },
+      {
+        "path": "./packages/components/pie-webc/dist/react.js",
+        "maxSize": "1kb",
+        "compression": "none"
+      }
+    ]
+  },
   "scripts": {
     "build": "run -T vite build",
     "lint:scripts": "run -T eslint .",

@@ -23,6 +23,7 @@ concurrency:
   cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
 
 env:
+  BUNDLEWATCH_GITHUB_TOKEN: ${{ secrets.BUNDLEWATCH_GITHUB_TOKEN }}
   PERCY_TOKEN_PIE_DOCS: ${{ secrets.PERCY_TOKEN_PIE_DOCS }}
   PERCY_TOKEN_PIE_ASSISTIVE_TEXT: ${{ secrets.PERCY_TOKEN_PIE_ASSISTIVE_TEXT }}
   PERCY_TOKEN_PIE_BUTTON: ${{ secrets.PERCY_TOKEN_PIE_BUTTON }}
@@ -145,7 +146,7 @@ jobs:
       node-version: 20
     secrets: inherit
 
-  unit-tests:
+  unit-and-bundle-tests:
     needs: 'build-ubuntu-node-20'
     runs-on: ubuntu-latest
     steps:
@@ -168,6 +169,10 @@ jobs:
         uses: ./.github/actions/run-script
         with:
           script-name: "test:ci"
+      - name: Bundlewatch
+        uses: ./.github/actions/run-script
+        with:
+          script-name: "bundlewatch"
 
   # TODO: DSW-1151 - Move this into a reusable action so it's not duplicated
   browser-tests-components:
@@ -221,7 +226,7 @@ jobs:
           retention-days: 7
 
   deploy-docs:
-    needs: unit-tests
+    needs: unit-and-bundle-tests
     uses: ./.github/workflows/amplify-deploy.yml
     if: needs.check-change-type.outputs.pie-docs-change == 'true' || github.ref == 'refs/heads/main'
     with:
@@ -235,7 +240,7 @@ jobs:
     secrets: inherit
 
   deploy-storybook:
-    needs: unit-tests
+    needs: unit-and-bundle-tests
     if: (needs.check-change-type.outputs.web-components-change == 'true' || needs.check-change-type.outputs.storybook-change == 'true') || github.ref == 'refs/heads/main'
     uses: ./.github/workflows/amplify-deploy.yml
     with:
@@ -301,7 +306,7 @@ jobs:
       PR_NUMBER: ${{ github.event.number }}
 
   release:
-    needs: [ 'unit-tests', 'lint-js']
+    needs: [ 'unit-and-bundle-tests', 'lint-js']
     if: github.event_name != 'pull_request'
     uses: ./.github/workflows/changeset-release.yml
     with:
@@ -318,7 +323,7 @@ jobs:
     - build-ubuntu-node-18
     - build-windows-node-20
     - build-ubuntu-node-20
-    - unit-tests
+    - unit-and-bundle-tests
     - browser-tests-components
     - deploy-docs
     - deploy-storybook

@@ -6,6 +6,15 @@
   "main": "dist/index.js",
   "author": "Just Eat Takeaway.com - Design System Team",
   "license": "Apache-2.0",
+  "bundlewatch": {
+    "files": [
+      {
+        "path": "./packages/components/pie-webc-core/dist/index.js",
+        "maxSize": "5kb",
+        "compression": "none"
+      }
+    ]
+  },
   "scripts": {
     "build": "run -T vite build",
     "lint:scripts": "run -T eslint .",

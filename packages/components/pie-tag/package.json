@@ -12,6 +12,20 @@
     "dist",
     "**/*.d.ts"
   ],
+  "bundlewatch": {
+    "files": [
+      {
+        "path": "./packages/components/pie-tag/dist/index.js",
+        "maxSize": "5kb",
+        "compression": "none"
+      },
+      {
+        "path": "./packages/components/pie-tag/dist/react.js",
+        "maxSize": "500b",
+        "compression": "none"
+      }
+    ]
+  },
   "scripts": {
     "build": "run -T vite build",
     "build:react-wrapper": "npx build-react-wrapper",
