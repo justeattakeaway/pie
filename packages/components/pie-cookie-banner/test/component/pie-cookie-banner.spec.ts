@@ -1,7 +1,7 @@
 
 import { test, expect } from '@sand4rt/experimental-ct-web';
 import { readFile } from 'fs/promises';
-import { PieCookieBannerComponent } from 'test/helpers/page-object/pie-cookie-banner.page.ts';
+import { PieCookieBannerComponent, Level } from 'test/helpers/page-object/pie-cookie-banner.page.ts';
 import { PieModalPage } from '@justeattakeaway/pie-modal/test/helpers/page-object/pie-modal.page.ts';
 import {
     ON_COOKIE_BANNER_ACCEPT_ALL, ON_COOKIE_BANNER_NECESSARY_ONLY,
@@ -35,13 +35,14 @@ test.describe('PieCookieBanner - Component tests', () => {
         });
 
         // Act
-        const cookieBanner = await pieCookieBannerComponent.isCookieBannerVisible();
+        const isCookieBannerVisible = await pieCookieBannerComponent.isCookieBannerVisible();
 
         // Assert
-        expect(cookieBanner).toBe(true);
+        expect(isCookieBannerVisible).toBe(true);
     });
 
     [{ name: 'action' }, { name: 'body' }].forEach((elementLevel) => {
+        const level = elementLevel.name as Level;
         test(`should emit the correct event and close the cookie banner when "Accept all" is clicked via element ${elementLevel.name}`, async ({ mount }) => {
             // Arrange
             const events : Array<Event> = [];
@@ -55,7 +56,7 @@ test.describe('PieCookieBanner - Component tests', () => {
             });
 
             // Act
-            await pieCookieBannerComponent.clickAcceptAll(elementLevel.name);
+            await pieCookieBannerComponent.clickAcceptAll(level);
             const isCookieBannerVisible = await pieCookieBannerComponent.isCookieBannerVisible();
 
             // Assert
@@ -65,6 +66,7 @@ test.describe('PieCookieBanner - Component tests', () => {
     });
 
     [{ name: 'action' }, { name: 'body' }].forEach((elementLevel) => {
+        const level = elementLevel.name as Level;
         test(`should emit the correct event and close the cookie banner when "Necessary only" is clicked via element = ${elementLevel.name}`, async ({ mount }) => {
         // Arrange
             const events : Array<Event> = [];
@@ -78,7 +80,7 @@ test.describe('PieCookieBanner - Component tests', () => {
             });
 
             // Act
-            await pieCookieBannerComponent.clickNecessaryOnlyAll(elementLevel.name);
+            await pieCookieBannerComponent.clickNecessaryOnlyAll(level);
             const isCookieBannerVisible = await pieCookieBannerComponent.isCookieBannerVisible();
 
             // Assert
@@ -88,6 +90,7 @@ test.describe('PieCookieBanner - Component tests', () => {
     });
 
     [{ name: 'action' }, { name: 'body' }].forEach((elementLevel) => {
+        const level = elementLevel.name as Level;
         test(`should emit the correct event, open the modal and hide the cookie banner when "Manage preferences" is clicked via element ${elementLevel.name}`, async ({ mount }) => {
         // Arrange
             const events : Array<Event> = [];
@@ -101,7 +104,7 @@ test.describe('PieCookieBanner - Component tests', () => {
             });
 
             // Act
-            await pieCookieBannerComponent.clickManagePreferencesAll(elementLevel.name);
+            await pieCookieBannerComponent.clickManagePreferencesAll(level);
 
             const isModalVisible = await pieModalComponent.isModalVisible();
             const isCookieBannerVisible = await pieCookieBannerComponent.isCookieBannerVisible();

@@ -9,6 +9,8 @@ import {
 
 const getPreferenceItemSelector = (id: PreferenceIds) => `#${id} [data-test-id="switch-component"]`;
 
+export type Level = 'action' | 'body';
+
 export class PieCookieBannerComponent extends BasePage {
     private readonly componentLocator: Locator;
     private readonly descriptionLocator: Locator;
@@ -68,12 +70,12 @@ export class PieCookieBannerComponent extends BasePage {
     }
 
     /**
-     * Clicks either the "Accept All" button or the "Accept All" link within the body, based on the specified element level.
-     *
-     * @param {string} elementLevel The level of the element to click, either 'action' or 'body'.
-     * @returns {Promise<void>} A Promise that resolves once the appropriate element has been successfully clicked.
-     */
-    async clickAcceptAll (elementLevel: string) : Promise<void> {
+ * Clicks the "Accept All" button based on the specified element level.
+    *
+    * @param {Level} elementLevel The level of the element to click, either 'action' or 'body'.
+    * @returns {Promise<void>} A Promise that resolves once the appropriate element has been successfully clicked.
+    */
+    async clickAcceptAll (elementLevel: Level) : Promise<void> {
         await (elementLevel === 'action' ? this.clickAcceptAllButton() : this.clickBodyAcceptAllLink());
     }
 
@@ -122,10 +124,10 @@ export class PieCookieBannerComponent extends BasePage {
     /**
      * Clicks either the "Necessary Only" button or the "Necessary Only" link within the body, based on the specified element level.
      *
-     * @param {string} elementLevel The level of the element to click, either 'action' or 'body'.
+     * @param {Level} elementLevel The level of the element to click, either 'action' or 'body'.
      * @returns {Promise<void>} A Promise that resolves once the appropriate element has been successfully clicked.
      */
-    async clickNecessaryOnlyAll (elementLevel: string) : Promise<void> {
+    async clickNecessaryOnlyAll (elementLevel: Level) : Promise<void> {
         await (elementLevel === 'action' ? this.clickNecessaryOnlyButton() : this.clickNecessaryOnlyLink());
     }
 
@@ -152,10 +154,10 @@ export class PieCookieBannerComponent extends BasePage {
     /**
      * Clicks either the "Manage Preferences" action or the "Manage Preferences" link within the body, based on the specified element level.
      *
-     * @param {string} elementLevel The level of the element to click, either 'action' or 'body'.
+     * @param {Level} elementLevel The level of the element to click, either 'action' or 'body'.
      * @returns {Promise<void>} A Promise that resolves once the appropriate element has been successfully clicked.
      */
-    async clickManagePreferencesAll (elementLevel: string) : Promise<void> {
+    async clickManagePreferencesAll (elementLevel: Level) : Promise<void> {
         await (elementLevel === 'action' ? this.clickManagePreferencesAction() : this.clickManagePreferencesLink());
     }
 
