@@ -515,7 +515,8 @@ const rows = [
         },
         {
             resource: resourceTypes.WEB_COMPONENTS,
-            status: statusTypes.PLANNED,
+            link: 'https://webc.pie.design/?path=/story/chip--default',
+            status: statusTypes.ALPHA,
         },
         {
             resource: resourceTypes.VUE,
