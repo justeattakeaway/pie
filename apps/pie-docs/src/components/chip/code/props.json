@@ -1,0 +1,65 @@
+{
+    "headings": ["Prop", "Options", "Description", "Default"],
+    "rows": [
+        [
+            "variant",
+            {
+                "type": "code",
+                "item": ["\"default\"", "\"outline\"", "\"ghost\""]
+            },
+            "Sets the variant of the chip.",
+            {
+                "type": "code",
+                "item": ["\"default\""]
+            }
+        ],
+        [
+            "disabled",
+            {
+                "type": "code",
+                "item": ["true", "false"]
+            },
+            "if <code>true</code>, disables the chip.",
+            {
+                "type": "code",
+                "item": ["false"]
+            }
+        ],
+        [
+            "isSelected",
+            {
+                "type": "code",
+                "item": ["true", "false"]
+            },
+            "If `true`, the chip component will apply the selected styles.",
+            {
+                "type": "code",
+                "item": ["false"]
+            }
+        ],
+        [
+            "isLoading",
+            {
+                "type": "code",
+                "item": ["true", "false"]
+            },
+            "if <code>true</code>, displays a loading indicator inside the chip.",
+            {
+                "type": "code",
+                "item": ["false"]
+            }
+        ],
+        [
+            "aria",
+            {
+                "type": "code",
+                "item": ["{ label?: string, close?: string }"]
+            },
+            "Aria properties for the chip to help with making it accessible.",
+            {
+                "type": "code",
+                "item": ["undefined"]
+            }
+        ]
+    ]
+}
