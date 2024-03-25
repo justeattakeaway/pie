@@ -191,7 +191,7 @@ export class PieCookieBannerComponent extends BasePage {
      */
     async isPreferenceToggleDisabled (preferenceIds: PreferenceIds) : Promise<boolean> {
         const preferenceToggle = this.page.locator(getPreferenceItemSelector(preferenceIds));
-        return preferenceToggle.isChecked();
+        return preferenceToggle.isDisabled();
     }
 
     /**
