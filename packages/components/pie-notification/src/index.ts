@@ -84,6 +84,9 @@ export class PieNotification extends LitElement implements NotificationProps {
     @state()
     protected _hasIconClass = false;
 
+    @state()
+    protected _hasContentGutter = false;
+
     // Renders a `CSSResult` generated from SCSS by Vite
     static styles = unsafeCSS(styles);
 
@@ -107,10 +110,15 @@ export class PieNotification extends LitElement implements NotificationProps {
     /**
      * Lifecycle method executed when component is updated.
      * It dispatches an event if notification is opened.
+     * It applies a gutter if there's no heading content in order to avoid the close button overlap the content.
      */
     protected updated (_changedProperties: PropertyValues<this>): void {
         if (_changedProperties.has('isOpen') && this.isOpen) {
             dispatchCustomEvent(this, ON_NOTIFICATION_OPEN_EVENT, { targetNotification: this });
+        }
+
+        if (_changedProperties.has('heading') || _changedProperties.has('isDismissible') || _changedProperties.has('isCompact')) {
+            this._hasContentGutter = (this.heading === '' || this.heading === undefined) && (this.isDismissible && !this.isCompact);
         }
     }
 
@@ -325,6 +333,7 @@ export class PieNotification extends LitElement implements NotificationProps {
             leadingAction,
             supportingAction,
             isOpen,
+            _hasContentGutter,
         } = this;
 
         if (!isOpen) {
@@ -337,7 +346,7 @@ export class PieNotification extends LitElement implements NotificationProps {
 
                 <section class="${componentClass}-content-section">
                     ${!hideIcon ? this.renderIcon(variant, _hasExternalIcon, _hasIconClass) : nothing}    
-                    <article>
+                    <article ?hasGutter="${_hasContentGutter}">
                         ${heading ? this.renderNotificationHeading(heading, unsafeStatic(headingLevel)) : nothing}
                         <slot></slot>
                     </article>
