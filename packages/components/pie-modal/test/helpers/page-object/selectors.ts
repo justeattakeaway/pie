@@ -20,6 +20,10 @@ const modal = {
             description: 'The selector for the modal content',
             dataTestId: 'modal-content-inner',
         },
+        description: {
+            description: 'The selector for the modal description',
+            dataTestId: 'modal-description',
+        },
     },
 };
 export {

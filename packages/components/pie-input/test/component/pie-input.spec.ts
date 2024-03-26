@@ -8,6 +8,7 @@ import { statusTypes } from '../../src/defs.ts';
 
 const componentSelector = '[data-test-id="pie-input"]';
 const assistiveTextSelector = '[data-test-id="pie-input-assistive-text"]';
+const componentShellSelector = '[data-test-id="pie-input-shell"]';
 
 /**
  * Sets up form data extraction for testing form submissions. This function expects a form element
@@ -765,6 +766,34 @@ test.describe('PieInput - Component tests', () => {
 
                 // Assert
                 expect(isValid).toBe(true);
+            });
+        });
+
+        test.describe('size', () => {
+            test('should default to medium size if no size prop provided', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieInput, {});
+
+                // Act
+                const inputShell = component.locator(componentShellSelector);
+
+                // Assert
+                expect(inputShell).toHaveAttribute('size', 'medium');
+            });
+
+            test('should apply the size prop to the HTML input rendered', async ({ mount }) => {
+                // Arrange
+                const component = await mount(PieInput, {
+                    props: {
+                        size: 'large',
+                    } as InputProps,
+                });
+
+                // Act
+                const inputShell = component.locator(componentShellSelector);
+
+                // Assert
+                expect(inputShell).toHaveAttribute('size', 'large');
             });
         });
     });

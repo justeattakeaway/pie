@@ -1,11 +1,28 @@
 export const variants = ['neutral', 'neutral-alternative', 'info', 'success', 'warning', 'error'] as const;
 export const headingLevels = ['h2', 'h3', 'h4', 'h5', 'h6'] as const;
 
+export type ActionProps = {
+  /**
+   * The text to display inside the button.
+   */
+  text: string;
+
+  /**
+   * The ARIA label for the button.
+   */
+  ariaLabel?: string;
+};
+
 export interface NotificationProps {
   /**
    * Set the variant of the notification.
    */
   variant?: typeof variants[number];
+
+  /**
+   * When true, allows dismissing the notification by clicking on the close button.
+   */
+  isDismissible?: boolean;
 
   /**
    * When true, the footer aligns to the header and icons which makes the component compact.
@@ -31,4 +48,50 @@ export interface NotificationProps {
    * When true, the notification is set to be open and visible.
    */
   isOpen?: boolean;
+
+  /**
+   * The leading action for the notification.
+   */
+  leadingAction?: ActionProps;
+
+  /**
+   * The supporting action for the notification.
+   */
+  supportingAction?: ActionProps;
+
+  /**
+   * When true, the notification will stack the action buttons on narrow screens.
+   */
+  hasStackedActions?: boolean;
 }
+
+export const componentSelector = 'pie-notification';
+export const componentClass = 'c-notification';
+
+/**
+ * Event name for when the notification is closed.
+ *
+ * @constant
+ */
+export const ON_NOTIFICATION_CLOSE_EVENT = `${componentSelector}-close`;
+
+/**
+ * Event name for when the notification is opened.
+ *
+ * @constant
+ */
+export const ON_NOTIFICATION_OPEN_EVENT = `${componentSelector}-open`;
+
+/**
+ * Event name for when the notification leading action is clicked.
+ *
+ * @constant
+ */
+export const ON_NOTIFICATION_LEADING_ACTION_CLICK_EVENT = `${componentSelector}-leading-action-click`;
+
+/**
+ * Event name for when the notification supporting action is clicked.
+ *
+ * @constant
+ */
+export const ON_NOTIFICATION_SUPPORTING_ACTION_CLICK_EVENT = `${componentSelector}-supporting-action-click`;

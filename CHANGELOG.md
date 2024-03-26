@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.56.4
+
+### Patch Changes
+
+- [Changed] - Reverted `turbo` back to `1.10.16`. Our current caused a bug that resulted in the `check-change-type` CI job not corretly detecting changes in the repo, resulting in deployments not being triggered. ([#1346](https://github.com/justeattakeaway/pie/pull/1346)) by [@siggerzz](https://github.com/siggerzz)
+
 ## 2.56.3
 
 ### Patch Changes
