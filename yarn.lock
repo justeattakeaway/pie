@@ -5908,7 +5908,7 @@ __metadata:
   dependencies:
     "@babel/core": 7.23.9
     "@babel/preset-react": 7.18.6
-    "@lit/react": 1.0.3
+    "@lit/react": 1.0.4
     "@types/react": 18.2.71
     fs-extra: 9.1.0
   bin:
@@ -6022,12 +6022,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@lit/react@npm:1.0.3":
-  version: 1.0.3
-  resolution: "@lit/react@npm:1.0.3"
+"@lit/react@npm:1.0.4":
+  version: 1.0.4
+  resolution: "@lit/react@npm:1.0.4"
   peerDependencies:
     "@types/react": 17 || 18
-  checksum: 19b543b2f39bc60ccd273cfeddb8a37b38192bd9decf9d4d2c9c28e5666540fb54423ac76e519f670481f3069439661019a26be35cfafffc9aa5a7c3403e9fa5
+  checksum: 8e6b399a45416a9d0cdd88d5d74cc6aa21e273ff969805dfb7c47004e011369cc092e7992966b758caaaa0f73a3236e470c38e784adae1a697e1350fdf4a3f77
   languageName: node
   linkType: hard
 
