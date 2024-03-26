@@ -1,5 +1,31 @@
 # Changelog
 
+## 0.69.0
+
+### Minor Changes
+
+- [Added] - Support for the new `size` prop in `pie-input` ([#1354](https://github.com/justeattakeaway/pie/pull/1354)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+### Patch Changes
+
+- Updated dependencies [[`74d8c1680`](https://github.com/justeattakeaway/pie/commit/74d8c1680ca632ff21823dbe1d61ef7bf22a36c8), [`31a1b0aaa`](https://github.com/justeattakeaway/pie/commit/31a1b0aaa456a72c79564a33dde30b755cf2cfc3), [`130f1aaa3`](https://github.com/justeattakeaway/pie/commit/130f1aaa32ccd464b213febf75dd147e6b8aecc3)]:
+  - @justeattakeaway/pie-chip@0.4.0
+  - @justeattakeaway/pie-input@0.15.0
+  - @justeattakeaway/pie-assistive-text@0.3.0
+  - @justeattakeaway/pie-button@0.47.0
+  - @justeattakeaway/pie-card@0.19.0
+  - @justeattakeaway/pie-cookie-banner@0.19.0
+  - @justeattakeaway/pie-divider@0.13.0
+  - @justeattakeaway/pie-form-label@0.13.0
+  - @justeattakeaway/pie-icon-button@0.28.0
+  - @justeattakeaway/pie-link@0.17.0
+  - @justeattakeaway/pie-modal@0.42.0
+  - @justeattakeaway/pie-notification@0.4.0
+  - @justeattakeaway/pie-spinner@0.6.0
+  - @justeattakeaway/pie-switch@0.28.0
+  - @justeattakeaway/pie-tag@0.9.0
+  - @justeattakeaway/pie-icons-webc@0.20.0
+
 ## 0.68.0
 
 ### Minor Changes

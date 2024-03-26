@@ -1,6 +1,8 @@
 export const types = ['text', 'number', 'password', 'url', 'email', 'tel'] as const;
 export const inputModes = ['none', 'text', 'tel', 'url', 'email', 'numeric', 'decimal', 'search'] as const;
 export const statusTypes = ['success', 'error'] as const;
+export const sizes = ['small', 'medium', 'large'] as const;
+
 export interface InputProps {
     /**
      * The type of HTML input to render.
@@ -96,6 +98,11 @@ export interface InputProps {
      * The maximum value of the input. Only applies when type is `number`. If the value provided is higher, the input is invalid.
      */
     max?: number;
+
+    /**
+     * The size of the input field. Can be `small`, `medium`, or `large`. Defaults to `medium`.
+     */
+    size?: typeof sizes[number];
 }
 
 // TODO - There is a ticket to add default prop values to our existing components. This might be replaced by the code added in that ticket.
@@ -107,7 +114,7 @@ type SubsetRequiredProperties<T, K extends keyof T> = Required<Pick<T, K>>;
 /**
  * The default values for the `InputProps` that are required (i.e. they have a fallback value in the component).
  */
-type DefaultInputPropValues = SubsetRequiredProperties<InputProps, 'type' | 'value'>;
+type DefaultInputPropValues = SubsetRequiredProperties<InputProps, 'type' | 'value' | 'size'>;
 
 /**
  * Default values for optional properties that have default fallback values in the component.
@@ -115,4 +122,5 @@ type DefaultInputPropValues = SubsetRequiredProperties<InputProps, 'type' | 'val
 export const InputDefaultPropertyValues: DefaultInputPropValues = {
     type: 'text',
     value: '',
+    size: 'medium',
 };
