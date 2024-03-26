@@ -1,7 +1,7 @@
 @use '@justeattakeaway/pie-css/scss' as p;
 
 @mixin chip-interactive-states($bg-color, $mode: 'default') {
-    &:hover:not(:disabled) {
+    &:hover:not([disabled]) {
         @if $mode == 'inverse' {
             --hover-modifier: var(--dt-color-hover-02);
         } @else {
@@ -16,8 +16,8 @@
         }
     }
 
-    &:active:not(:disabled),
-    &[isLoading]:not(:disabled) {
+    &:active:not([disabled]),
+    &[isLoading]:not([disabled]) {
         @if $mode == 'inverse' {
             --active-modifier: var(--dt-color-active-02);
         } @else {
