@@ -6,7 +6,7 @@ import { useArgs as UseArgs } from '@storybook/preview-api';
 /* eslint-disable import/no-duplicates */
 import '@justeattakeaway/pie-input';
 import {
-    types, inputModes, statusTypes, InputProps as InputPropsBase,
+    types, inputModes, statusTypes, InputProps as InputPropsBase, sizes,
 } from '@justeattakeaway/pie-input';
 /* eslint-enable import/no-duplicates */
 
@@ -34,6 +34,7 @@ const defaultArgs: InputProps = {
     leadingSlot: 'None',
     trailingSlot: 'None',
     assistiveText: '',
+    size: 'medium',
 };
 
 const slotOptions = ['Icon (Placeholder)', 'Short text (#)', 'None'] as const;
@@ -188,6 +189,11 @@ const inputStoryMeta: InputStoryMeta = {
                 summary: undefined,
             },
         },
+        size: {
+            description: 'The size of the input field. Can be `small`, `medium`, or `large`. Defaults to `medium`.',
+            control: 'select',
+            options: sizes,
+        },
     },
     args: defaultArgs,
     parameters: {
@@ -219,6 +225,7 @@ const Template = ({
     assistiveText,
     status,
     step,
+    size,
 }: InputProps) => {
     const [, updateArgs] = UseArgs();
 
@@ -271,6 +278,7 @@ const Template = ({
             ?readonly="${readonly}"
             assistiveText="${ifDefined(assistiveText)}"
             status=${ifDefined(status)}
+            size="${ifDefined(size)}"
             @input="${onInput}"
             @change="${onChange}">
             ${renderLeadingOrTrailingSlot('leading', leadingSlot)}
