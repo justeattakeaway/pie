@@ -86,6 +86,9 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
     @property({ type: Number })
     public max?: InputProps['max'];
 
+    @property({ type: String })
+    public size?: InputProps['size'] = InputDefaultPropertyValues.size;
+
     @query('input')
     private input?: HTMLInputElement;
 
@@ -173,10 +176,11 @@ export class PieInput extends FormControlMixin(RtlMixin(LitElement)) implements 
             status,
             type,
             value,
+            size,
         } = this;
 
         return html`
-            <div>
+            <div data-test-id="pie-input-shell" size=${ifDefined(size)}>
                 <slot name="leading"></slot>
                 <input
                     type=${ifDefined(type)}
