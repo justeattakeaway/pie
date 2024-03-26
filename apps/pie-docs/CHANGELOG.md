@@ -1,5 +1,15 @@
 # Changelog
 
+## 3.33.0
+
+### Minor Changes
+
+- [Added] - the code page for the chip component ([#1330](https://github.com/justeattakeaway/pie/pull/1330)) by [@raoufswe](https://github.com/raoufswe)
+
+- [Added] - Correct link added for web component storybook page ([#1342](https://github.com/justeattakeaway/pie/pull/1342)) by [@jamieomaguire](https://github.com/jamieomaguire)
+
+- [Added] - the chip overview page ([#1330](https://github.com/justeattakeaway/pie/pull/1330)) by [@raoufswe](https://github.com/raoufswe)
+
 ## 3.32.0
 
 ### Minor Changes
